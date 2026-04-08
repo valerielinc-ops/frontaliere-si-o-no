@@ -4344,8 +4344,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 712, "name": "Frontalieri e Tassa Salute: Più Chiarezza, ma A...", "url": `${BASE_URL}/articoli-frontaliere/tassa-salute-frontalieri-ufis-risposte` },
           { "@type": "ListItem", "position": 713, "name": "Tassa salute frontalieri: la Lombardia non può ...", "url": `${BASE_URL}/articoli-frontaliere/tassa-salute-frontalieri` },
           { "@type": "ListItem", "position": 714, "name": "Frontalieri e nodi fiscali tra Italia e Svizzera", "url": `${BASE_URL}/articoli-frontaliere/front-alieri-soci-sagl-nodi-fiscali-2026` },
-          { "@type": "ListItem", "position": 715, "name": "Benzina più cara in Svizzera: ticinesi e fronta...", "url": `${BASE_URL}/articoli-frontaliere/benzina-cara-ticino` },
-          { "@type": "ListItem", "position": 716, "name": "Tassa salute frontalieri accordo", "url": `${BASE_URL}/articoli-frontaliere/tassa-salute-frontalieri-accordo-frontalieri` }
+          { "@type": "ListItem", "position": 715, "name": "Benzina più cara in Svizzera: ticinesi e fronta...", "url": `${BASE_URL}/articoli-frontaliere/benzina-cara-ticino` }
         ]
       }
     ]

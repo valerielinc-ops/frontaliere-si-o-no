@@ -12884,35 +12884,6 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
-  'blog-tassa-salute-frontalieri-accordo-frontalieri': {
-    title: 'Tassa salute: accordo frontalieri prevale | Frontaliere Ticino',
-    description: 'DFAE conferma accordo italo-svizzero prevale su tassa salute per frontalieri. Scopri come applicarla correttamente. Dati aggiornati 2026 per frontalieri in',
-    keywords: 'frontalieri, ticino, svizzera, italia, tassa, salute, accordo, prevale',
-    ogTitle: 'Tassa salute frontalieri accordo | Frontaliere Ticino',
-    ogDescription: 'DFAE conferma accordo italo-svizzero prevale su tassa salute per frontalieri. Scopri come applicarla correttamente',
-    canonicalPath: '/articoli-frontaliere/tassa-salute-frontalieri-accordo-frontalieri',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Tassa salute frontalieri accordo",
-      "description": "DFAE conferma accordo italo-svizzero prevale su tassa salute per frontalieri. Scopri come applicarla correttamente. Dati aggiornati 2026 per frontalieri in",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/tassa-salute-frontalieri-accordo-frontalieri.jpg`,
-        "width": 1200,
-        "height": 675,
-        "caption": "Valico di confine tra Italia e Svizzera a Lugano"
-      },
-      "datePublished": "2026-04-08T12:28:27+00:00",
-      "dateModified": "2026-04-08T12:28:27+00:00",
-      "inLanguage": "it",
-      "author": {"@id": "https://frontaliereticino.ch/#organization"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-salute-frontalieri-accordo-frontalieri`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
-  },
-
 };
 
 export default BLOG_SEO_METADATA;
