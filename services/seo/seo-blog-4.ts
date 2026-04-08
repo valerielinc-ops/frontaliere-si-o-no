@@ -7,36 +7,6 @@ const BASE_URL = 'https://frontaliereticino.ch';
 const BUILD_DATE_ISO = new Date().toISOString();
 
 const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
-  'blog-nevicata-record-bosco-gurin': {
-    title: 'La nevicata record a Bosco Gurin: piste aperte fino a | Frontaliere Ticino',
-    description: '116 centimetri di neve fresca hanno permesso la prosecuzione della stagione invernale fino a fine marzo. Dati aggiornati 2026 per frontalieri in Ticino.',
-    keywords: 'frontalieri, ticino, svizzera, italia, nevicata, record, bosco, gurin',
-    ogTitle: 'La nevicata record a Bosco Gurin',
-    ogDescription: '116 centimetri di neve fresca hanno permesso la prosecuzione della stagione invernale fino a fine marzo.',
-    canonicalPath: '/articoli-frontaliere/nevicata-record-bosco-gurin',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "La nevicata record a Bosco Gurin: piste aperte fino a Pasqua",
-      "description": "116 centimetri di neve fresca hanno permesso la prosecuzione della stagione invernale fino a fine marzo. Dati aggiornati 2026 per frontalieri in Ticino.",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/nevicata-record-bosco-gurin.webp`,
-        "width": 1344,
-        "height": 756,
-        "caption": "Bosco Gurin, neve e piste sciistiche"
-      },
-      "datePublished": "2026-03-18T00:01:25+00:00",
-      "dateModified": BUILD_DATE_ISO,
-      "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nevicata-record-bosco-gurin`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
-      "isAccessibleForFree": true
-    }
-  },
-
   'blog-walter-bonatti-in-capo-al-mondo': {
     title: 'Walter Bonatti \'In capo al mondo\': il Teatro Sociale di | Frontaliere Ticino',
     description: 'Scopri \'In capo al mondo. In viaggio con Walter Bonatti\' al Teatro Sociale di Montegrino Valtravaglia il 21 marzo. Un evento che rivive le avventure dell\'ultimo',
@@ -125,36 +95,6 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
     }
   },
 
-  'blog-separazione-carriere-giudici': {
-    title: 'Referendum in Ticino: il ruolo della separazione delle | Frontaliere Ticino',
-    description: 'Il referendum del 22-23 marzo in Ticino punta alla separazione delle carriere di giudici e pubblici ministeri, rafforzando la trasparenza e l’imparzialità.',
-    keywords: 'frontalieri, ticino, svizzera, italia, referendum, ruolo, separazione, carriere',
-    ogTitle: 'Referendum in Ticino: separazione carriere giudiziarie',
-    ogDescription: 'Il 22-23 marzo il Canton Ticino voterà sulla riforma della separazione tra giudici e pubblici ministeri, per un sistema giudiziario più trasparente.',
-    canonicalPath: '/articoli-frontaliere/separazione-carriere-giudici',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Referendum in Ticino: separazione delle carriere di giudici e PM",
-      "description": "Il referendum del 22-23 marzo in Ticino punta alla separazione delle carriere di giudici e pubblici ministeri, rafforzando la trasparenza e l’imparzialità.",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/separazione-carriere-giudici.webp`,
-        "width": 1344,
-        "height": 756,
-        "caption": "Giudici e pubblici ministeri in tribunale a Bellinzona, Ticino"
-      },
-      "datePublished": "2026-03-18T09:02:13+00:00",
-      "dateModified": BUILD_DATE_ISO,
-      "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/separazione-carriere-giudici`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
-      "isAccessibleForFree": true
-    }
-  },
-
   'blog-com-aziende-lavoro-como': {
     title: 'Provincia di Como: 4 aziende e 2 agenzie cercano | Frontaliere Ticino',
     description: 'Quattro aziende e due agenzie di Como cercano nuovi lavoratori. Scopri come candidarti e le scadenze, con dettagli su normative e procedure. Dati aggiornati',
@@ -210,66 +150,6 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cabov-precipita-forte-vento`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
-      "isAccessibleForFree": true
-    }
-  },
-
-  'blog-agenzia-trasporto-nuovo': {
-    title: 'Nuovo servizio TPL di Como: 1,2 miliardi per 10 anni | Frontaliere Ticino',
-    description: 'Scopri il rinnovo dell’Agenzia TPL di Como con 1,2 miliardi di euro destinati al servizio per 10 anni. Impatto sui frontalieri ticinesi e dettagli s',
-    keywords: 'frontalieri, ticino, svizzera, italia, nuovo, servizio, como, miliardi',
-    ogTitle: 'Nuovo servizio TPL Como: 1,2 miliardi per 10 anni',
-    ogDescription: 'L’Agenzia del Trasporto Pubblico Locale di Como ha lanciato una gara da 1,2 miliardi di euro per il periodo 2026-2036, con impatto diretto sui frontalieri',
-    canonicalPath: '/articoli-frontaliere/agenzia-trasporto-nuovo',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Agenzia TPL Como: 1,2 miliardi di euro per un servizio potenziato nel",
-      "description": "Scopri il rinnovo dell’Agenzia TPL di Como con 1,2 miliardi di euro destinati al servizio per 10 anni. Impatto sui frontalieri ticinesi e dettagli s",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/agenzia-trasporto-nuovo.webp`,
-        "width": 1344,
-        "height": 756,
-        "caption": "Treno moderno in Ticino con vista su Lago di Como"
-      },
-      "datePublished": "2026-03-18T17:22:46+00:00",
-      "dateModified": BUILD_DATE_ISO,
-      "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/agenzia-trasporto-nuovo`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
-      "isAccessibleForFree": true
-    }
-  },
-
-  'blog-governo-tavolo-frontalieri-2026': {
-    title: 'Governo convoca tavolo frontalieri: impatti per i ticinesi | Frontaliere Ticino',
-    description: 'Maria Chiara Gadda chiede al governo di riattivare il tavolo interministeriale sui frontalieri. Scopri le implicazioni per i lavoratori italiani in Ticino.',
-    keywords: 'frontalieri, ticino, svizzera, italia, governo, convoca, tavolo, impatti',
-    ogTitle: 'Governo convoca tavolo frontalieri per i ticinesi',
-    ogDescription: 'Il tavolo interministeriale sui frontalieri, inattivo da un anno, potrebbe riattivarsi grazie alla pressione di Maria Chiara Gadda. Leggi tutti i dettagli.',
-    canonicalPath: '/articoli-frontaliere/governo-tavolo-frontalieri-2026',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"head",
-      "description": "Maria Chiara Gadda chiede al governo di riattivare il tavolo interministeriale sui frontalieri. Scopri le implicazioni per i lavoratori italiani in Ticino.",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/governo-tavolo-frontalieri-2026.webp`,
-        "width": 1344,
-        "height": 756,
-        "caption": "Vista panoramica del lungolago di Lugano al tramonto, con Monte Brè sullo sfondo e ponte di confine in evidenza."
-      },
-      "datePublished": "2026-03-18T19:15:17+00:00",
-      "dateModified": BUILD_DATE_ISO,
-      "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/governo-tavolo-frontalieri-2026`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
@@ -786,36 +666,6 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
     }
   },
 
-  'blog-tassa-attraversamento-svizzera': {
-    title: 'Tassa per le auto che attraversano la Svizzera senza | Frontaliere Ticino',
-    description: 'Il Parlamento ticinese approva la tassa per le auto che attraversano la Svizzera senza fermarsi, con un orario e un giorno di transito variabile. Dati',
-    keywords: 'frontalieri, ticino, svizzera, italia, tassa, auto, attraversano, senza',
-    ogTitle: 'Tassa per le auto che attraversano la Svizzera senza',
-    ogDescription: 'Il Parlamento ticinese approva la tassa per le auto che attraversano la Svizzera senza fermarsi, con un orario e un giorno di transito variabile',
-    canonicalPath: '/articoli-frontaliere/tassa-attraversamento-svizzera',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Tassa per le auto che attraversano la Svizzera senza fermarsi",
-      "description": "Il Parlamento ticinese approva la tassa per le auto che attraversano la Svizzera senza fermarsi, con un orario e un giorno di transito variabile. Dati",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/tassa-attraversamento-svizzera.webp`,
-        "width": 1344,
-        "height": 756,
-        "caption": "Una strada trafficata nel Canton Ticino"
-      },
-      "datePublished": "2026-03-19T20:40:02+00:00",
-      "dateModified": BUILD_DATE_ISO,
-      "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-attraversamento-svizzera`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
-      "isAccessibleForFree": true
-    }
-  },
-
   'blog-incidente-stradale-laghi': {
     title: 'Lunghe code sulla strada del lago tra la Schiranna e | Frontaliere Ticino',
     description: 'Un incidente stradale si verifica lungo la strada del lago tra la Schiranna e Calcinate del Pesce, in Varese, coinvolgendo un\'auto e una moto. Dati aggiornati',
@@ -871,66 +721,6 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-piu-lungo-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
-      "isAccessibleForFree": true
-    }
-  },
-
-  'blog-governo-getta-spugna-kebab-case': {
-    title: 'Governo getta la spugna sulle nomine SIMS: niente ricorso | Frontaliere Ticino',
-    description: 'Il Consiglio di Stato del Canton Ticino ha deciso di non ricorrere al Tribunale federale contro la sentenza del Tribunale cantonale amministrativo (TRAM)',
-    keywords: 'frontalieri, ticino, svizzera, italia, governo, getta, spugna, sulle',
-    ogTitle: 'Governo getta la spugna sulle nomine SIMS: niente ricorso a',
-    ogDescription: 'Il Consiglio di Stato del Canton Ticino ha deciso di non ricorrere al Tribunale federale contro la sentenza del Tribunale cantonale amministrativo (TRAM)',
-    canonicalPath: '/articoli-frontaliere/governo-getta-spugna-kebab-case',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Governo getta la spugna sulle nomine SIMS: niente ricorso a Losanna",
-      "description": "Il Consiglio di Stato del Canton Ticino ha deciso di non ricorrere al Tribunale federale contro la sentenza del Tribunale cantonale amministrativo (TRAM)",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/governo-getta-spugna-kebab-case.webp`,
-        "width": 1344,
-        "height": 756,
-        "caption": "Fotografia di un edificio governativo in Canton Ticino"
-      },
-      "datePublished": "2026-03-19T22:03:05+00:00",
-      "dateModified": BUILD_DATE_ISO,
-      "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/governo-getta-spugna-kebab-case`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
-      "isAccessibleForFree": true
-    }
-  },
-
-  'blog-kebab-case-borse-freddo-2024': {
-    title: 'Scenari "caldi" nel Medio Oriente, sulle Borse cala un | Frontaliere Ticino',
-    description: 'La borsa di Zurigo ha chiuso il venerdì scorso con una perdita di quasi 200 punti, il che rappresenta un calo notevole rispetto alle aspettative.',
-    keywords: 'frontalieri, ticino, svizzera, italia, scenari, caldi, medio, oriente',
-    ogTitle: 'Scenari "caldi" nel Medio Oriente, sulle Borse cala un',
-    ogDescription: 'La borsa di Zurigo ha chiuso il venerdì scorso con una perdita di quasi 200 punti, il che rappresenta un calo notevole rispetto alle aspettative.',
-    canonicalPath: '/articoli-frontaliere/kebab-case-borse-freddo-2024',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Scenari \"caldi\" nel Medio Oriente, sulle Borse cala un freddo pungente",
-      "description": "La borsa di Zurigo ha chiuso il venerdì scorso con una perdita di quasi 200 punti, il che rappresenta un calo notevole rispetto alle aspettative.",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/kebab-case-borse-freddo-2024.webp`,
-        "width": 1344,
-        "height": 756,
-        "caption": "Un mercato finanziario caotico a Lugano, con titoli azionari in caduta libera."
-      },
-      "datePublished": "2026-03-19T22:40:42+00:00",
-      "dateModified": BUILD_DATE_ISO,
-      "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/kebab-case-borse-freddo-2024`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
@@ -996,36 +786,6 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
     }
   },
 
-  'blog-soggiorni-irregolari-2026-mendrisio': {
-    title: 'Migrazione, più soggiorni irregolari a febbraio. Il più | Frontaliere Ticino',
-    description: 'Il numero di soggiorni irregolari a febbraio è aumentato, con il confine sud che registra i casi più alti. I migranti entrati in Svizzera in modo irregolare',
-    keywords: 'frontalieri, ticino, svizzera, italia, migrazione, soggiorni, irregolari, febbraio',
-    ogTitle: 'Migrazione, più soggiorni irregolari a febbraio. Il più',
-    ogDescription: 'Il numero di soggiorni irregolari a febbraio è aumentato, con il confine sud che registra i casi più alti.',
-    canonicalPath: '/articoli-frontaliere/soggiorni-irregolari-2026-mendrisio',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Irregular Stays in Ticino: February 2026 Data Shows Increase, South",
-      "description": "Il numero di soggiorni irregolari a febbraio è aumentato, con il confine sud che registra i casi più alti. I migranti entrati in Svizzera in modo irregolare",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/soggiorni-irregolari-2026-mendrisio.webp`,
-        "width": 1344,
-        "height": 756,
-        "caption": "Una coppia giovane attraversa il confine al varco di Brogeda, un'area di pedaggio affollata nel Cantone Ticino, in Svizzera."
-      },
-      "datePublished": "2026-03-20T00:03:31+00:00",
-      "dateModified": BUILD_DATE_ISO,
-      "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/soggiorni-irregolari-2026-mendrisio`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
-      "isAccessibleForFree": true
-    }
-  },
-
   'blog-eolico-gottardo-ampliamento-2026': {
     title: 'Eolico al Gottardo, il Cantone apre la consultazione per | Frontaliere Ticino',
     description: 'Il Cantone del Ticino ha avviato la consultazione pubblica per l\'ampliamento del parco eolico al Passo del San Gottardo. Dati aggiornati 2026 per frontalieri in',
@@ -1081,36 +841,6 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/contrabbando-ai-confine-aumentano-droga-e-sigarette`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
-      "isAccessibleForFree": true
-    }
-  },
-
-  'blog-kebab-case-3-5-words-max-40-chars': {
-    title: 'È morto Umberto Bossi, il \'senatur\' fondatore della Lega | Frontaliere Ticino',
-    description: 'Umberto Bossi, il fondatore della Lega Nord, è morto all\'ospedale di Varese. La notizia ha colpito la politica italiana. Dati aggiornati 2026 per frontalieri in',
-    keywords: 'frontalieri, ticino, svizzera, italia, morto, umberto, bossi, senatur',
-    ogTitle: 'È morto Umberto Bossi, il \'senatur\' fondatore della Lega',
-    ogDescription: 'Umberto Bossi, il fondatore della Lega Nord, è morto all\'ospedale di Varese. La notizia ha colpito la politica italiana.',
-    canonicalPath: '/articoli-frontaliere/kebab-case-3-5-words-max-40-chars',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "{\"@context\": \"http://schema.org\", \"@type\": \"Article\", \"headline\": \"È",
-      "description": "Umberto Bossi, il fondatore della Lega Nord, è morto all'ospedale di Varese. La notizia ha colpito la politica italiana. Dati aggiornati 2026 per frontalieri in",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/kebab-case-3-5-words-max-40-chars.webp`,
-        "width": 1344,
-        "height": 756,
-        "caption": "Lugano vista dal Lago"
-      },
-      "datePublished": "2026-03-20T04:58:04+00:00",
-      "dateModified": BUILD_DATE_ISO,
-      "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/kebab-case-3-5-words-max-40-chars`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
@@ -1836,36 +1566,6 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
     }
   },
 
-  'blog-frontalieri-prezzi-carburanti-italia-svizzera': {
-    title: '‘Prezzi dei carburanti alle stelle, l\'Italia interviene mentre la | Frontaliere Ticino',
-    description: 'L\'Italia ha tagliato le accise sui carburanti, mentre la Svizzera non ha preso alcuna misura. Dati aggiornati 2026 per frontalieri in Ticino.',
-    keywords: 'frontalieri, ticino, svizzera, italia, prezzi, carburanti, alle, stelle',
-    ogTitle: '‘Prezzi dei carburanti alle stelle, l\'Italia interviene mentre la Svizzera non fa nulla’',
-    ogDescription: 'L\'Italia ha tagliato le accise sui carburanti, mentre la Svizzera non ha preso alcuna misura.',
-    canonicalPath: '/articoli-frontaliere/frontalieri-prezzi-carburanti-italia-svizzera',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "‘Prezzi dei carburanti alle stelle, l'Italia interviene mentre la Svizzera non fa nulla’",
-      "description": "L'Italia ha tagliato le accise sui carburanti, mentre la Svizzera non ha preso alcuna misura. Dati aggiornati 2026 per frontalieri in Ticino.",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/frontalieri-prezzi-carburanti-italia-svizzera.webp`,
-        "width": 1344,
-        "height": 756,
-        "caption": "Benziaino ai valichi del Gottardo"
-      },
-      "datePublished": "2026-03-20T20:04:48+00:00",
-      "dateModified": BUILD_DATE_ISO,
-      "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-prezzi-carburanti-italia-svizzera`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
-      "isAccessibleForFree": true
-    }
-  },
-
   'blog-cure-a-domicilio-tassa-ticino': {
     title: 'Cure a domicilio: la nuova tassa divide politica e cittadini | Frontaliere Ticino',
     description: 'La nuova tassa sulle cure a domicilio è stata introdotta in Ticino al 1° aprile 2026. La misura ha suscitato reazioni contrastanti fra politici e cittadini.',
@@ -1951,66 +1651,6 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/kebab-case-rossi-bruxelles-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
-      "isAccessibleForFree": true
-    }
-  },
-
-  'blog-bossi-voleva-bene-al-ticino': {
-    title: '\'Un uomo che ha cambiato la politica italiana, Bossi voleva bene al | Frontaliere Ticino',
-    description: 'Il fondatore della Lega Nord ricordato dai due giornalisti ticinesi Norman Gobbi e Lorenzo Quadri. Dati aggiornati 2026 per frontalieri in Ticino.',
-    keywords: 'frontalieri, ticino, svizzera, italia, uomo, cambiato, politica, italiana',
-    ogTitle: 'Umberto Bossi e il Ticino',
-    ogDescription: 'Il fondatore della Lega Nord ricordato dai due giornalisti ticinesi Norman Gobbi e Lorenzo Quadri.',
-    canonicalPath: '/articoli-frontaliere/bossi-voleva-bene-al-ticino',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Umberto Bossi e il Ticino",
-      "description": "Il fondatore della Lega Nord ricordato dai due giornalisti ticinesi Norman Gobbi e Lorenzo Quadri. Dati aggiornati 2026 per frontalieri in Ticino.",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/bossi-voleva-bene-al-ticino.webp`,
-        "width": 1344,
-        "height": 756,
-        "caption": "Umberto Bossi a Locarno"
-      },
-      "datePublished": "2026-03-21T00:11:21+00:00",
-      "dateModified": BUILD_DATE_ISO,
-      "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bossi-voleva-bene-al-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
-      "isAccessibleForFree": true
-    }
-  },
-
-  'blog-chiamate-shock-arresti-ticino': {
-    title: 'Chiamate shock in Ticino: due arresti per truffe agli anziani | Frontaliere Ticino',
-    description: 'Due cittadini polacchi sono stati fermati il 9 marzo nel Canton Ticino, accusati di aver messo in atto truffe ai danni di anziani tramite chiamate shock a Chias',
-    keywords: 'frontalieri, ticino, svizzera, italia, chiamate, shock, arresti, truffe',
-    ogTitle: 'Chiamate shock in Ticino: due arresti per truffe agli anz',
-    ogDescription: 'Due cittadini polacchi sono stati fermati il 9 marzo nel Canton Ticino, accusati di aver messo in atto truffe ai danni di anziani tramite chiamate shock a Chias',
-    canonicalPath: '/articoli-frontaliere/chiamate-shock-arresti-ticino',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Chiamate shock in Ticino: due arresti per truffe agli anz",
-      "description": "Due cittadini polacchi sono stati fermati il 9 marzo nel Canton Ticino, accusati di aver messo in atto truffe ai danni di anziani tramite chiamate shock a Chias",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/chiamate-shock-arresti-ticino.webp`,
-        "width": 1344,
-        "height": 756,
-        "caption": "Veduta di Bellinzona con Castelgrande e montagne circostanti in luce naturale"
-      },
-      "datePublished": "2026-03-21T02:41:32+00:00",
-      "dateModified": BUILD_DATE_ISO,
-      "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiamate-shock-arresti-ticino`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
@@ -2851,36 +2491,6 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavoro-carceri-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
-      "isAccessibleForFree": true
-    }
-  },
-
-  'blog-avs-saronno-referendum': {
-    title: 'Avs Saronno: \'Ai giovani, avete fatto la differenza\' | Frontaliere Ticino',
-    description: 'Il risultato del referendum costituzionale a Saronno: un forte segnale politico per il futuro. L\'Alleanza Verdi Sinistra di Saronno invita i giovani a entrare',
-    keywords: 'frontalieri, ticino, svizzera, italia, saronno, giovani, avete, fatto',
-    ogTitle: 'Avs Saronno: \'Ai giovani, avete fatto la differenza\'',
-    ogDescription: 'Il risultato del referendum costituzionale a Saronno: un forte segnale politico per il futuro',
-    canonicalPath: '/articoli-frontaliere/avs-saronno-referendum',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Avs Saronno: 'Ai giovani, avete fatto la differenza'",
-      "description": "Il risultato del referendum costituzionale a Saronno: un forte segnale politico per il futuro. L'Alleanza Verdi Sinistra di Saronno invita i giovani a entrare",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/avs-saronno-referendum.jpg`,
-        "width": 1344,
-        "height": 756,
-        "caption": "Persona che vota a Saronno"
-      },
-      "datePublished": "2026-03-26T10:12:25+00:00",
-      "dateModified": BUILD_DATE_ISO,
-      "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/avs-saronno-referendum`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
@@ -3786,37 +3396,6 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
     }
   },
 
-  'blog-sicurezza-lago-maggiore': {
-    title: 'Nuova alleanza per la sicurezza del Lago Maggiore | Frontaliere Ticino',
-    description: 'La collaborazione tra Italia e Svizzera per la protezione dell\'ambiente lacustre del Lago Maggiore e del Ceresio. Dati aggiornati 2026 per frontalieri in',
-    keywords: 'frontalieri, ticino, svizzera, italia, nuova, alleanza, sicurezza, lago',
-    ogTitle: 'Sicurezza Lago Maggiore',
-    ogDescription: 'La nuova alleanza tra Italia e Svizzera per la protezione dell\'ambiente lacustre',
-    canonicalPath: '/articoli-frontaliere/sicurezza-lago-maggiore',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Nuova alleanza per la sicurezza del Lago Maggiore",
-      "description": "La collaborazione tra Italia e Svizzera per la protezione dell'ambiente lacustre del Lago Maggiore e del Ceresio. Dati aggiornati 2026 per frontalieri in",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/sicurezza-lago-maggiore.jpg`,
-        "width": 1200,
-        "height": 675,
-        "caption": "Lago Maggiore e Monte Rosa"
-      },
-      "datePublished": "2026-03-31T13:56:59+00:00",
-      "dateModified": BUILD_DATE_ISO,
-      "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sicurezza-lago-maggiore`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
-      "isAccessibleForFree": true
-    }
-  },
-
-
   'blog-ambasciatore-italiano-ritorno-berna': {
     title: 'Rientro dell\'ambasciatore italiano a Berna dopo polemiche sul caso | Frontaliere Ticino',
     description: 'Gian Lorenzo Cornado si prepara a partecipare a una commemorazione a Crans-Montana, segnando un passo importante nel disgelo tra Italia e Svizzera. La cooperazi',
@@ -3842,35 +3421,6 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ambasciatore-italiano-ritorno-berna`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
-  },
-
-  'blog-pazienti-ticino-protesta': {
-    title: 'Ticino: 20mila firme contro le nuove tariffe per le cure a domicilio | Frontaliere Ticino',
-    description: 'La petizione \'Non è colpa dei pazienti\' ha raccolto oltre 20mila firme contro le nuove tariffe per le cure a domicilio in Ticino. Scopri di più sulla protesta e',
-    keywords: 'frontalieri, ticino, svizzera, italia, 20mila, firme, contro, nuove',
-    ogTitle: 'Petizione contro le nuove tariffe per le cure a domicilio in Ticino',
-    ogDescription: 'La petizione \'Non è colpa dei pazienti\' ha raccolto oltre 20mila firme contro le nuove tariffe per le cure a domicilio in Ticino.',
-    canonicalPath: '/articoli-frontaliere/pazienti-ticino-protesta',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Petizione contro le nuove tariffe per le cure a domicilio in Ticino",
-      "description": "La petizione 'Non è colpa dei pazienti' ha raccolto oltre 20mila firme contro le nuove tariffe per le cure a domicilio in Ticino. Scopri di più sulla protesta e",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/pazienti-ticino-protesta.jpg`,
-        "width": 1200,
-        "height": 675,
-        "caption": "Manifestazione a Lugano contro le nuove tariffe per le cure a domicilio"
-      },
-      "datePublished": "2026-04-01T07:49:47+00:00",
-      "dateModified": "2026-04-01T07:49:47+00:00",
-      "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/pazienti-ticino-protesta`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },
@@ -4168,36 +3718,6 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
     }
   },
 
-  'blog-ticino-lombardia-manifatturiero': {
-    title: 'Ticino e Lombardia: sistema manifatturiero pilastro dell\'economia | Frontaliere Ticino',
-    description: 'Il consigliere regionale Licata sostiene il sistema manifatturiero lombardo e ticinese come pilastro dell\'economia. Dati aggiornati 2026 per frontalieri in',
-    keywords: 'frontalieri, ticino, svizzera, italia, lombardia, sistema, manifatturiero, pilastro',
-    ogTitle: 'Ticino e Lombardia: sistema manifatturiero pilastro dell\'economia',
-    ogDescription: 'Il consigliere regionale Licata sostiene il sistema manifatturiero lombardo e ticinese come pilastro dell\'economia',
-    canonicalPath: '/articoli-frontaliere/ticino-lombardia-manifatturiero',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Ticino e Lombardia: sistema manifatturiero pilastro dell'economia",
-      "description": "Il consigliere regionale Licata sostiene il sistema manifatturiero lombardo e ticinese come pilastro dell'economia. Dati aggiornati 2026 per frontalieri in",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/ticino-lombardia-manifatturiero.jpg`,
-        "width": 1200,
-        "height": 675,
-        "caption": "Vista di Lugano con zona industriale"
-      },
-      "datePublished": "2026-04-03T11:25:19+00:00",
-      "dateModified": "2026-04-03T11:25:19+00:00",
-      "inLanguage": "it",
-      "author": {"@id": "https://frontaliereticino.ch/#organization"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ticino-lombardia-manifatturiero`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
-  },
-
-
   'blog-dogana-chiasso-centro-tecnologico': {
     title: 'La dogana di Chiasso si prepara a diventare un moderno centro | Frontaliere Ticino',
     description: 'Scopri come la dogana di Chiasso si evolve in un moderno centro tecnologico con progetti innovativi e tecnologie avanzate. Dati aggiornati 2026 per frontalieri',
@@ -4401,35 +3921,6 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
     }
   },
 
-  'blog-tram-treno-luganese-passo-avanti': {
-    title: 'Il Tribunale federale amministrativo respinge gli ultimi ricorsi contro | Frontaliere Ticino',
-    description: 'Il Tribunale federale amministrativo di San Gallo ha respinto gli ultimi cinque ricorsi contro l\'autorizzazione dell\'Ufficio federale dei trasporti per il',
-    keywords: 'frontalieri, ticino, svizzera, italia, tribunale, federale, amministrativo, respinge',
-    ogTitle: 'Il Tribunale federale amministrativo respinge gli ultimi ricorsi contro il progetto Rete',
-    ogDescription: 'Il Tribunale federale amministrativo di San Gallo ha respinto gli ultimi cinque ricorsi contro l\'autorizzazione dell\'Ufficio federale dei trasporti per il',
-    canonicalPath: '/articoli-frontaliere/tram-treno-luganese-passo-avanti',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Tribunale federale amministrativo respinge gli ultimi ricorsi contro il progetto Rete tram-treno del",
-      "description": "Il Tribunale federale amministrativo di San Gallo ha respinto gli ultimi cinque ricorsi contro l'autorizzazione dell'Ufficio federale dei trasporti per il",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/tram-treno-luganese-passo-avanti.jpg`,
-        "width": 1200,
-        "height": 675,
-        "caption": "Fotografia di un tram-treno in movimento lungo la riva del Lago di Lugano"
-      },
-      "datePublished": "2026-04-03T20:53:58+00:00",
-      "dateModified": "2026-04-03T20:53:58+00:00",
-      "inLanguage": "it",
-      "author": {"@id": "https://frontaliereticino.ch/#organization"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tram-treno-luganese-passo-avanti`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
-  },
-
   'blog-turismo-pasquale-ticino-2026': {
     title: 'Il turismo pasquale promette gradite sorprese in Ticino | Frontaliere Ticino',
     description: 'Le prenotazioni per la Pasqua sono aumentate del 16,7% rispetto allo scorso anno. Dati aggiornati 2026 per frontalieri in Ticino.',
@@ -4485,35 +3976,6 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mozzarella-clandestina-2026-ricerca`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
-  },
-
-  'blog-varese-soroptimist-studio-fibrosi-polmonare': {
-    title: 'Varese - Soroptimist Varese finanzia una borsa di studio sulla fibrosi | Frontaliere Ticino',
-    description: 'La borsa di studio biennale del valore di 50.000 euro è stata assegnata a Caterina Barbieri per la ricerca sulla fibrosi polmonare. Dati aggiornati 2026 per',
-    keywords: 'frontalieri, ticino, svizzera, italia, varese, soroptimist, finanzia, borsa',
-    ogTitle: 'Varese - Soroptimist Varese finanzia una borsa di studio sulla fibrosi polmonare in',
-    ogDescription: 'La borsa di studio biennale del valore di 50.000 euro è stata assegnata a Caterina Barbieri per la ricerca sulla fibrosi polmonare.',
-    canonicalPath: '/articoli-frontaliere/varese-soroptimist-studio-fibrosi-polmonare',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "{\"@context\": \"http://schema.org\", \"@type\": \"NewsArticle\", \"headline\": \"Varese - Soroptimist Varese",
-      "description": "La borsa di studio biennale del valore di 50.000 euro è stata assegnata a Caterina Barbieri per la ricerca sulla fibrosi polmonare. Dati aggiornati 2026 per",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/varese-soroptimist-studio-fibrosi-polmonare.jpg`,
-        "width": 1200,
-        "height": 675,
-        "caption": "Panorama del Lago Maggiore a Bellinzona"
-      },
-      "datePublished": "2026-04-04T02:57:14+00:00",
-      "dateModified": "2026-04-04T02:57:14+00:00",
-      "inLanguage": "it",
-      "author": {"@id": "https://frontaliereticino.ch/#organization"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/varese-soroptimist-studio-fibrosi-polmonare`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },
@@ -4664,35 +4126,6 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
   },
 
 
-
-  'blog-addiofrontalierelongo': {
-    title: 'Addio a Salvatore Longo, il frontaliere di Luino morto sul lavoro a | Frontaliere Ticino',
-    description: 'Salvatore Longo, 62 anni, è morto sul lavoro mentre dirigeva il traffico a Cadenazzo. L\'incidente è avvenuto venerdì 3 aprile alle 14.30 in via San Gottardo.',
-    keywords: 'frontalieri, ticino, svizzera, italia, addio, salvatore, longo, luino',
-    ogTitle: 'Addio a Salvatore Longo, il frontaliere di Luino morto sul lavoro a Cadenazzo',
-    ogDescription: 'Salvatore Longo, 62 anni, è morto sul lavoro mentre dirigeva il traffico a Cadenazzo. L&#39;incidente è avvenuto venerdì 3 aprile alle 14.30 in via San',
-    canonicalPath: '/articoli-frontaliere/addiofrontalierelongo',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Addio a Salvatore Longo, il frontaliere di Luino morto sul lavoro a Cadenazzo",
-      "description": "Salvatore Longo, 62 anni, è morto sul lavoro mentre dirigeva il traffico a Cadenazzo. L'incidente è avvenuto venerdì 3 aprile alle 14.30 in via San Gottardo.",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/addiofrontalierelongo.jpg`,
-        "width": 1200,
-        "height": 675,
-        "caption": "Addio a Salvatore Longo, il frontaliere di Luino morto sul lavoro a Cadenazzo"
-      },
-      "datePublished": "2026-04-04T11:41:51+00:00",
-      "dateModified": "2026-04-04T11:41:51+00:00",
-      "inLanguage": "it",
-      "author": {"@id": "https://frontaliereticino.ch/#organization"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/addiofrontalierelongo`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
-  },
 
   'blog-ladri-di-auto-scappano-con-40-chiavi-e-una-skoda': {
     title: 'Ladri di auto scappano con 40 chiavi e una Skoda in Ticino | Frontaliere Ticino',
@@ -5216,64 +4649,6 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
     }
   },
 
-  'blog-frontaliere-ticino-10-milioni-voto': {
-    title: 'Iniziativa sui 10 milioni: voto il 14 giugno 2026 | Frontaliere Ticino',
-    description: 'Analisi dell\'iniziativa popolare svizzera del 14 giugno 2026 che propone di limitare la crescita demografica, con focus sul Canton Ticino e i frontalieri.',
-    keywords: 'frontalieri, ticino, svizzera, italia, iniziativa, milioni, voto, giugno',
-    ogTitle: 'Iniziativa 10 milioni: cosa cambia per i frontalieri',
-    ogDescription: 'Tutte le informazioni sull\'iniziativa popolare svizzera del 14 giugno 2026 e il suo impatto sui lavoratori frontalieri in Ticino.',
-    canonicalPath: '/articoli-frontaliere/frontaliere-ticino-10-milioni-voto',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Iniziativa popolare svizzera 'No ad una Svizzera con 10 milioni di abitanti': impatto sul Canton",
-      "description": "Analisi dell'iniziativa popolare svizzera del 14 giugno 2026 che propone di limitare la crescita demografica, con focus sul Canton Ticino e i frontalieri.",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/frontaliere-ticino-10-milioni-voto.jpg`,
-        "width": 1200,
-        "height": 675,
-        "caption": "Vista aerea del lago di Lugano con frontalieri che attraversano il confine all'alba"
-      },
-      "datePublished": "2026-04-05T15:47:31+00:00",
-      "dateModified": "2026-04-05T15:47:31+00:00",
-      "inLanguage": "it",
-      "author": {"@id": "https://frontaliereticino.ch/#organization"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-ticino-10-milioni-voto`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
-  },
-
-  'blog-congestione-a2-san-gottardo-frontalieri': {
-    title: 'Coda di 21 Km sull\'A2 al San Gottardo: Le Consequenze per i Frontalieri | Frontaliere Ticino',
-    description: 'La coda di 21 km sull\'A2 verso San Gottardo colpisce frontalieri. Analisi, dati e azioni pratiche per mitigare gli effetti. Dati aggiornati 2026 per frontalieri',
-    keywords: 'frontalieri, ticino, svizzera, italia, coda, sull, gottardo, consequenze',
-    ogTitle: 'Congestione A2 San Gottardo: Guía per Frontalieri',
-    ogDescription: 'Tutto su come gestire la congestione sull\'A2 per i frontalieri che lavorano in Svizzera.',
-    canonicalPath: '/articoli-frontaliere/congestione-a2-san-gottardo-frontalieri',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Congestione Stradale A2: Frontalieri alla Difesa",
-      "description": "La coda di 21 km sull'A2 verso San Gottardo colpisce frontalieri. Analisi, dati e azioni pratiche per mitigare gli effetti. Dati aggiornati 2026 per frontalieri",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/congestione-a2-san-gottardo-frontalieri.jpg`,
-        "width": 1200,
-        "height": 675,
-        "caption": "Coda di traffico sull'A2 verso sud presso San Gottardo"
-      },
-      "datePublished": "2026-04-05T16:55:34+00:00",
-      "dateModified": "2026-04-05T16:55:34+00:00",
-      "inLanguage": "it",
-      "author": {"@id": "https://frontaliereticino.ch/#organization"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/congestione-a2-san-gottardo-frontalieri`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
-  },
-
   'blog-galleria-del-ceneri-chiusa-per-problemi-tecnici': {
     title: 'La galleria del Monte Ceneri è stata chiusa per problemi tecnici | Frontaliere Ticino',
     description: 'La galleria del Monte Ceneri è stata chiusa per problemi tecnici sulla A2 in direzione del Ticino. Dati aggiornati 2026 per frontalieri in Ticino.',
@@ -5357,35 +4732,6 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/diventare-pastore-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
-  },
-
-  'blog-varese-si-ubriaca-infortuna': {
-    title: 'Varese: si ubriaca, s\'infortuna, ferisce un vigilante. Curato e | Frontaliere Ticino',
-    description: 'Un uomo si è ubriacato, ha avuto un infortunio e ha ferito un vigilante a Varese. Dati aggiornati 2026 per frontalieri in Ticino.',
-    keywords: 'frontalieri, ticino, svizzera, italia, varese, ubriaca, infortuna, ferisce',
-    ogTitle: 'Varese: si ubriaca, s\'infortuna, ferisce un vigilante. Curato e arrestato',
-    ogDescription: 'Un uomo si è ubriacato, ha avuto un infortunio e ha ferito un vigilante a Varese.',
-    canonicalPath: '/articoli-frontaliere/varese-si-ubriaca-infortuna',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Varese: si ubriaca, s'infortuna, ferisce un vigilante. Curato e arrestato - Frontaliere Ticino",
-      "description": "Un uomo si è ubriacato, ha avuto un infortunio e ha ferito un vigilante a Varese. Dati aggiornati 2026 per frontalieri in Ticino.",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/varese-si-ubriaca-infortuna.jpg`,
-        "width": 1200,
-        "height": 675,
-        "caption": "Una persona che attraversa la strada con difficoltà"
-      },
-      "datePublished": "2026-04-05T20:50:48+00:00",
-      "dateModified": "2026-04-05T20:50:48+00:00",
-      "inLanguage": "it",
-      "author": {"@id": "https://frontaliereticino.ch/#organization"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/varese-si-ubriaca-infortuna`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },
@@ -5647,35 +4993,6 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/fuga-da-dubai-ticino-alternativa`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
-  },
-
-  'blog-traffico-san-gottardo-attesa': {
-    title: 'Ore di attesa al portale nord del San Gottardo | Frontaliere Ticino',
-    description: 'Ore di attesa al portale nord del San Gottardo, traffico intenso verso sud. Scopri i percorsi alternativi e come pianificare il tuo viaggio. Dati aggiornati',
-    keywords: 'frontalieri, ticino, svizzera, italia, attesa, portale, nord, gottardo',
-    ogTitle: 'Traffico San Gottardo',
-    ogDescription: 'Informazioni sul traffico al San Gottardo e consigli per ridurre i tempi di attesa.',
-    canonicalPath: '/articoli-frontaliere/traffico-san-gottardo-attesa',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Traffico intenso al San Gottardo",
-      "description": "Ore di attesa al portale nord del San Gottardo, traffico intenso verso sud. Scopri i percorsi alternativi e come pianificare il tuo viaggio. Dati aggiornati",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/traffico-san-gottardo-attesa.jpg`,
-        "width": 1200,
-        "height": 675,
-        "caption": "Traffico intenso al San Gottardo"
-      },
-      "datePublished": "2026-04-06T15:04:20+00:00",
-      "dateModified": "2026-04-06T15:04:20+00:00",
-      "inLanguage": "it",
-      "author": {"@id": "https://frontaliereticino.ch/#organization"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/traffico-san-gottardo-attesa`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },
@@ -6202,36 +5519,6 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },
-
-  'blog-tassa-salute-frontalieri-ufis-risposte': {
-    title: 'Tassa Salute Frontalieri: UFIS Ottiene Risposte da Svizzera e Lombardia | Frontaliere Ticino',
-    description: 'Ultimi aggiornamenti sulla \'tassa della salute\' per frontalieri. Risposte ufficiali da Svizzera e Lombardia, ma dubbi persistono. Scopri cosa fare.',
-    keywords: 'frontalieri, ticino, svizzera, italia, tassa, salute, ufis, ottiene',
-    ogTitle: 'Tassa Salute Frontalieri: Risposte Ufficiali e Dubbi',
-    ogDescription: 'UIFS riceve risposte da Svizzera e Lombardia sulla tassa sanitaria, ma frontalieri ancora in sospeso. Dettagli e azioni pratiche.',
-    canonicalPath: '/articoli-frontaliere/tassa-salute-frontalieri-ufis-risposte',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Frontalieri e Tassa Salute: Più Chiarezza, ma Ancora Dubbi",
-      "description": "Ultimi aggiornamenti sulla 'tassa della salute' per frontalieri. Risposte ufficiali da Svizzera e Lombardia, ma dubbi persistono. Scopri cosa fare.",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/tassa-salute-frontalieri-ufis-risposte.jpg`,
-        "width": 1200,
-        "height": 675,
-        "caption": "Frontaliero con bagno a spalla tra Ticino e Lombardia"
-      },
-      "datePublished": "2026-04-07T18:55:19+00:00",
-      "dateModified": "2026-04-07T18:55:19+00:00",
-      "inLanguage": "it",
-      "author": {"@id": "https://frontaliereticino.ch/#organization"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-salute-frontalieri-ufis-risposte`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
-  },
-
 
   'blog-front-alieri-soci-sagl-nodi-fiscali-2026': {
     title: 'Frontalieri e soci di Sagl: nuovi nodi fiscali tra Italia e Svizzera | Frontaliere Ticino',

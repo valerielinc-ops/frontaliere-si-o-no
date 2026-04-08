@@ -4783,36 +4783,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
-  'blog-frontalieri-tassa-salute-piemonte': {
-    title: 'Frontalieri e tassa salute: il Piemonte rifiuta di',
-    description: 'Il Piemonte rifiuta di applicare la tassa sulla salute ai frontalieri, mentre la Lombardia si divide. Scopri le conseguenze per il Ticino. Dati aggiornati 2026',
-    keywords: 'frontalieri, ticino, svizzera, italia, tassa, salute, piemonte, rifiuta',
-    ogTitle: 'Frontalieri e Tassa Salute: Il Piemonte Rifiuta',
-    ogDescription: 'Il dibattito sulla tassa salute per frontalieri in Lombardia e Piemonte: cosa significa per il Ticino.',
-    canonicalPath: '/articoli-frontaliere/frontalieri-tassa-salute-piemonte',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Frontalieri e tassa salute, schiaffo dal Piemonte",
-      "description": "Il Piemonte rifiuta di applicare la tassa sulla salute ai frontalieri, mentre la Lombardia si divide. Scopri le conseguenze per il Ticino. Dati aggiornati 2026",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/frontalieri-tassa-salute-piemonte.webp`,
-        "width": 1344,
-        "height": 756,
-        "caption": "Vista panoramica di Lugano con lago e montagne"
-      },
-      "datePublished": "2026-03-05T19:45:59+00:00",
-      "dateModified": BUILD_DATE_ISO,
-      "inLanguage": "it",
-      "author": {"@id": "https://frontaliereticino.ch/#organization"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-tassa-salute-piemonte`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
-      "isAccessibleForFree": true
-    }
-  },
-
   'blog-trasporti-lombardia-ticino-record-tilo': {
     title: 'Trasporti Lombardia-Ticino: Tilo batte record con 25',
     description: 'I treni Tilo hanno trasportato 25 milioni di passeggeri tra Ticino e Lombardia nel 2025, con un aumento del 3,7% rispetto all\'anno precedente. Scopri i vantaggi',
@@ -4868,36 +4838,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/confusione-tassa-salute-frontalieri`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
-      "isAccessibleForFree": true
-    }
-  },
-
-  'blog-neutralita-svizzera-parere-nazionale': {
-    title: 'Neutralità svizzera: il NO del Parlamento Federale',
-    description: 'Il Parlamento svizzero respinge l\'iniziativa sulla neutralità, evidenziando le complessità geopolitiche e i rischi di una definizione costituzionale rigida. Ana',
-    keywords: 'frontalieri, ticino, svizzera, italia, neutralità, parlamento, federale, svizzero',
-    ogTitle: 'Neutralità svizzera: il NO del Parlamento Federale',
-    ogDescription: 'Il Parlamento svizzero respinge l\'iniziativa sulla neutralità, evidenziando le complessità geopolitiche e i rischi di una definizione costituzionale rigida. Ana',
-    canonicalPath: '/articoli-frontaliere/neutralita-svizzera-parere-nazionale',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Neutralità svizzera: il NO del Parlamento Federale",
-      "description": "Il Parlamento svizzero respinge l'iniziativa sulla neutralità, evidenziando le complessità geopolitiche e i rischi di una definizione costituzionale rigida. Ana",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/neutralita-svizzera-parere-nazionale.webp`,
-        "width": 1344,
-        "height": 756,
-        "caption": "Valico di Gaggiolo tra Ticino e Italia, scena di confine con monti sullo sfondo"
-      },
-      "datePublished": "2026-03-06T07:56:06+00:00",
-      "dateModified": BUILD_DATE_ISO,
-      "inLanguage": "it",
-      "author": {"@id": "https://frontaliereticino.ch/#organization"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/neutralita-svizzera-parere-nazionale`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
       "isAccessibleForFree": true
     }

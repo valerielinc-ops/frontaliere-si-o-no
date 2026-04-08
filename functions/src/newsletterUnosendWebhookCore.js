@@ -201,10 +201,20 @@ export async function handleUnosendWebhookRequest({ payload, headers, signingSec
       // Fallback: try X-Webhook-Signature or X-Unosend-Signature (HMAC SHA256 hex)
       const altSig = headers['x-webhook-signature'] || headers['x-unosend-signature'] || headers['x-signature'];
       if (altSig) {
-        const secret = signingSecret.startsWith('whsec_') ? signingSecret.slice(6) : signingSecret;
-        const hmac = crypto.createHmac('sha256', secret).update(payload, 'utf8').digest('hex');
+        const rawSecret = signingSecret.startsWith('whsec_') ? signingSecret.slice(6) : signingSecret;
         const expected = altSig.replace(/^sha256=/, '');
-        const isValid = crypto.timingSafeEqual(Buffer.from(hmac), Buffer.from(expected));
+        // Try base64-decoded key first (Svix-style whsec_ secrets are base64-encoded)
+        let isValid = false;
+        try {
+          const decodedKey = Buffer.from(rawSecret, 'base64');
+          const hmac1 = crypto.createHmac('sha256', decodedKey).update(payload, 'utf8').digest('hex');
+          isValid = hmac1.length === expected.length && crypto.timingSafeEqual(Buffer.from(hmac1), Buffer.from(expected));
+        } catch { /* ignore */ }
+        // Fallback: try raw string as key
+        if (!isValid) {
+          const hmac2 = crypto.createHmac('sha256', rawSecret).update(payload, 'utf8').digest('hex');
+          isValid = hmac2.length === expected.length && crypto.timingSafeEqual(Buffer.from(hmac2), Buffer.from(expected));
+        }
         if (!isValid) {
           console.warn(`[unosendWebhook] Alt signature mismatch`);
           throw new Error('Invalid Unosend webhook signature');

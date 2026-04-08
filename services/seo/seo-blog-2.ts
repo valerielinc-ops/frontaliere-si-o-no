@@ -2077,36 +2077,6 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     }
   },
 
-  'blog-svizzera-ue-pacchetto-accordi': {
-    title: 'Firmato il pacchetto di accordi tra Svizzera e UE | Frontaliere Ticino',
-    description: 'Scopri il nuovo pacchetto di accordi tra Svizzera e UE e le sue implicazioni per il Ticino e i frontalieri. Dati aggiornati 2026 per frontalieri in Ticino.',
-    keywords: 'frontalieri, ticino, svizzera, italia, firmato, pacchetto, accordi, nuovo',
-    ogTitle: 'Firmato il pacchetto di accordi tra Svizzera e UE',
-    ogDescription: 'Analizziamo le nuove prospettive per il Ticino e i frontalieri dopo la firma del pacchetto di accordi Bilaterali III.',
-    canonicalPath: '/articoli-frontaliere/svizzera-ue-pacchetto-accordi',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Svizzera-UE: firmato il pacchetto di accordi",
-      "description": "Scopri il nuovo pacchetto di accordi tra Svizzera e UE e le sue implicazioni per il Ticino e i frontalieri. Dati aggiornati 2026 per frontalieri in Ticino.",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/svizzera-ue-pacchetto-accordi.webp`,
-        "width": 1344,
-        "height": 756,
-        "caption": "Castelli di Bellinzona con paesaggio circostante."
-      },
-      "datePublished": "2026-03-02T23:01:10+00:00",
-      "dateModified": BUILD_DATE_ISO,
-      "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/svizzera-ue-pacchetto-accordi`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
-      "isAccessibleForFree": true
-    }
-  },
-
   'blog-tassa-salute-berna-ticino': {
     title: 'Tassa sulla salute: Berna si allinea al Ticino? | Frontaliere Ticino',
     description: 'Scopri come la tassa sulla salute italiana impatta i frontalieri in Ticino e le reazioni del Consiglio federale. Dati aggiornati 2026 per frontalieri in Ticino.',
@@ -2317,37 +2287,6 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "isAccessibleForFree": true
     }
   },
-
-  'blog-carpooling-ticino-corsie-frontaliere-2026': {
-    title: 'Carpooling in Ticino: dalle sperimentazioni alle corsie | Frontaliere Ticino',
-    description: 'Scopri le nuove corsie riservate al carpooling ai valichi di Ticino per frontalieri, con incentivi e risparmi nel 2026. Dati aggiornati 2026 per frontalieri in',
-    keywords: 'frontalieri, ticino, svizzera, italia, carpooling, dalle, sperimentazioni, alle',
-    ogTitle: 'Carpooling in Ticino: corsie dedicate per frontalieri dal',
-    ogDescription: 'Il carpooling in Ticino si organizza con corsie riservate alle dogane per ridurre code e costi dei frontalieri. Scopri come funziona.',
-    canonicalPath: '/articoli-frontaliere/carpooling-ticino-corsie-frontaliere-2026',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Carpooling in Ticino: dai progetti pilota alle corsie frontaliere nel",
-      "description": "Scopri le nuove corsie riservate al carpooling ai valichi di Ticino per frontalieri, con incentivi e risparmi nel 2026. Dati aggiornati 2026 per frontalieri in",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/carpooling-ticino-corsie-frontaliere-2026.webp`,
-        "width": 1344,
-        "height": 756,
-        "caption": "Auto in colonna al valico di frontiera di Chiasso con nuova corsia carpooling in Ticino"
-      },
-      "datePublished": "2026-03-03T08:38:23+00:00",
-      "dateModified": BUILD_DATE_ISO,
-      "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/carpooling-ticino-corsie-frontaliere-2026`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
-      "isAccessibleForFree": true
-    }
-  },
-
 
   'blog-kuhne-nagel-tagli-posti-ticino-2026': {
     title: 'Kühne+Nagel: oltre 2.000 posti a rischio e impatto anche | Frontaliere Ticino',
@@ -2709,36 +2648,6 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     }
   },
 
-  'blog-svizzera-servizio-pubblico-canone-tv': {
-    title: 'Svizzera: Il no al dimezzamento del canone TV | Frontaliere Ticino',
-    description: 'I cittadini svizzeri e i cantoni difendono il servizio pubblico, respingendo la proposta di riduzione del canone radiotelevisivo. Dati aggiornati 2026 per',
-    keywords: 'frontalieri, ticino, svizzera, italia, dimezzamento, canone, cittadini, svizzeri',
-    ogTitle: 'Svizzera: Il no al dimezzamento del canone TV',
-    ogDescription: 'I cittadini svizzeri e i cantoni difendono il servizio pubblico, respingendo la proposta di riduzione del canone radiotelevisivo.',
-    canonicalPath: '/articoli-frontaliere/svizzera-servizio-pubblico-canone-tv',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Svizzera: Il no al dimezzamento del canone TV",
-      "description": "I cittadini svizzeri e i cantoni difendono il servizio pubblico, respingendo la proposta di riduzione del canone radiotelevisivo. Dati aggiornati 2026 per",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/svizzera-servizio-pubblico-canone-tv.webp`,
-        "width": 1344,
-        "height": 756,
-        "caption": "Vista panoramica del Lago di Lugano con montagne sullo sfondo."
-      },
-      "datePublished": "2026-03-08T23:59:47+00:00",
-      "dateModified": BUILD_DATE_ISO,
-      "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/svizzera-servizio-pubblico-canone-tv`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
-      "isAccessibleForFree": true
-    }
-  },
-
   'blog-votazioni-federali-tassazione-individuale': {
     title: 'Votazioni federali: Sì alla tassazione individuale in | Frontaliere Ticino',
     description: 'Le recenti votazioni federali confermano l\'approvazione della tassazione individuale e respingono diverse iniziative. Dati aggiornati 2026 per frontalieri in',
@@ -3094,36 +3003,6 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/investimento-pedone-bioggio`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
-      "isAccessibleForFree": true
-    }
-  },
-
-  'blog-sicurezza-stazioni-treni-ticino-2026': {
-    title: 'Violenza e furti in stazioni e treni: serve presidio | Frontaliere Ticino',
-    description: 'PLR chiede al Consiglio di Stato di rafforzare la sicurezza nelle stazioni ferroviarie ticinesi contro aggressioni e furti. Dati aggiornati 2026 per frontalieri',
-    keywords: 'frontalieri, ticino, svizzera, italia, violenza, furti, stazioni, treni',
-    ogTitle: 'Violenze e furti in stazioni Ticino: serve presidio efficace',
-    ogDescription: 'La crescente violenza e i furti nelle stazioni e treni ticinesi spingono il PLR a chiedere un aumento della presenza di polizia.',
-    canonicalPath: '/articoli-frontaliere/sicurezza-stazioni-treni-ticino-2026',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Violenze e furti in stazioni e sui treni: «Serve un presidio efficace»",
-      "description": "PLR chiede al Consiglio di Stato di rafforzare la sicurezza nelle stazioni ferroviarie ticinesi contro aggressioni e furti. Dati aggiornati 2026 per frontalieri",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/sicurezza-stazioni-treni-ticino-2026.webp`,
-        "width": 1344,
-        "height": 756,
-        "caption": "Stazione ferroviaria di Bellinzona con persone e polizia in servizio in una giornata soleggiata."
-      },
-      "datePublished": "2026-03-10T14:42:02+00:00",
-      "dateModified": BUILD_DATE_ISO,
-      "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sicurezza-stazioni-treni-ticino-2026`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
@@ -3970,36 +3849,6 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     }
   },
 
-  'blog-frontalieri-tassa-salute-ritiro': {
-    title: 'Frontalieri Ticino: l\'appello per il ritiro della tassa | Frontaliere Ticino',
-    description: 'Il 13 marzo 2026, un maxi fronte sindacale dalle due parti del confine tra Italia e Svizzera ha chiesto il ritiro della tassa sulla salute per i lavoratori',
-    keywords: 'frontalieri, ticino, svizzera, italia, appello, ritiro, tassa, sulla',
-    ogTitle: 'Appello per il ritiro della tassa sulla salute per i',
-    ogDescription: 'Il 13 marzo 2026, un maxi fronte sindacale dalle due parti del confine tra Italia e Svizzera ha chiesto il ritiro della tassa sulla salute per i lavoratori',
-    canonicalPath: '/articoli-frontaliere/frontalieri-tassa-salute-ritiro',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Tassa salute frontalieri Ticino: l'appello per il ritiro",
-      "description": "Il 13 marzo 2026, un maxi fronte sindacale dalle due parti del confine tra Italia e Svizzera ha chiesto il ritiro della tassa sulla salute per i lavoratori",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/frontalieri-tassa-salute-ritiro.webp`,
-        "width": 1344,
-        "height": 756,
-        "caption": "Lavoratore frontaliero in ODV davanti al Lago di Lugano"
-      },
-      "datePublished": "2026-03-13T19:52:14+00:00",
-      "dateModified": BUILD_DATE_ISO,
-      "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-tassa-salute-ritiro`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
-      "isAccessibleForFree": true
-    }
-  },
-
   'blog-trin-tunnel-grave-frontalieri': {
     title: 'Frontale nel tunnel di Trin: grave una 30enne | Frontaliere Ticino',
     description: 'L\'incidente stradale nel tunnel di Trin ha lasciato una vittima grave. La polizia ha chiuso la strada per le indagini. Se sei un frontaliero, è importante',
@@ -4600,36 +4449,6 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     }
   },
 
-  'blog-baseball-italia-porto-rico-world-classic': {
-    title: 'Baseball, Italia batte Porto Rico e vola in semifinale al | Frontaliere Ticino',
-    description: 'L\'Italia ha resistito al tentativo di rimonta di Porto Rico, battendolo 8-6 e qualificandosi per le semifinali del World Baseball Classic per la prima volta',
-    keywords: 'frontalieri, ticino, svizzera, italia, baseball, batte, porto, rico',
-    ogTitle: 'Baseball, Italia batte Porto Rico e vola in semifinale al',
-    ogDescription: 'L\'Italia ha resistito al tentativo di rimonta di Porto Rico, battendolo 8-6 e qualificandosi per le semifinali del World Baseball Classic per la prima volta',
-    canonicalPath: '/articoli-frontaliere/baseball-italia-porto-rico-world-classic',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"Baseball",
-      "description": "L'Italia ha resistito al tentativo di rimonta di Porto Rico, battendolo 8-6 e qualificandosi per le semifinali del World Baseball Classic per la prima volta",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/baseball-italia-porto-rico-world-classic.webp`,
-        "width": 1344,
-        "height": 756,
-        "caption": "Campo di baseball a Bellinzona"
-      },
-      "datePublished": "2026-03-15T01:50:21+00:00",
-      "dateModified": BUILD_DATE_ISO,
-      "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/baseball-italia-porto-rico-world-classic`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
-      "isAccessibleForFree": true
-    }
-  },
-
   'blog-chiusure-autostrada-confine-ticino-2026': {
     title: 'Chiusure autostrada verso Ticino: date e impatti | Frontaliere Ticino',
     description: 'Settimana di chiusure notturne A9 Lainate-Como-Chiasso dal 16 al 19 marzo 2026, con deviazioni e impatti per frontalieri verso Ticino. Dati aggiornati 2026 per',
@@ -4720,36 +4539,6 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     }
   },
 
-  'blog-iran-conflitto-rincari-ticino': {
-    title: 'Conflitto in Iran, rincari a cascata per le piccole | Frontaliere Ticino',
-    description: 'Il prezzo dell\'energia elettrica è aumentato del 60% a due settimane dall\'inizio del conflitto in Iran, seguito da rame, ferro, alluminio e carburanti',
-    keywords: 'frontalieri, ticino, svizzera, italia, conflitto, iran, rincari, cascata',
-    ogTitle: 'Conflitto in Iran, rincari a cascata per le piccole imprese',
-    ogDescription: 'Il prezzo dell\'energia elettrica è aumentato del 60% a due settimane dall\'inizio del conflitto in Iran, seguito da rame, ferro, alluminio e carburanti',
-    canonicalPath: '/articoli-frontaliere/iran-conflitto-rincari-ticino',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Conflitto in Iran, rincari a cascata per le piccole imprese di Varese e",
-      "description": "Il prezzo dell'energia elettrica è aumentato del 60% a due settimane dall'inizio del conflitto in Iran, seguito da rame, ferro, alluminio e carburanti",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/iran-conflitto-rincari-ticino.webp`,
-        "width": 1344,
-        "height": 756,
-        "caption": "Conflitto in Iran: rincari a cascata per le piccole imprese di Varese e Como"
-      },
-      "datePublished": "2026-03-15T08:50:44+00:00",
-      "dateModified": BUILD_DATE_ISO,
-      "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/iran-conflitto-rincari-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
-      "isAccessibleForFree": true
-    }
-  },
-
   'blog-inverno-ticino-nevicate-2026': {
     title: 'Torna l\'inverno in Ticino: forte rischio di nevicate | Frontaliere Ticino',
     description: 'MetéoSvizzera ha lanciato un\'allerta per forti nevicate in montagna nel Ticino occidentale. Dati aggiornati 2026 per frontalieri in Ticino.',
@@ -4835,36 +4624,6 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/svizzera-recessione-cieslakiewicz`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
-      "isAccessibleForFree": true
-    }
-  },
-
-  'blog-valanghe-allerta-livello-4-ticino': {
-    title: 'Valanghe, allerta di livello 4 in quasi tutto il Ticino | Frontaliere Ticino',
-    description: 'Allerta di livello 4 per valanghe in Ticino. Scopri le conseguenze e come comportarti nel sud delle Alpi. Dati aggiornati 2026 per frontalieri in Ticino.',
-    keywords: 'frontalieri, ticino, svizzera, italia, valanghe, allerta, livello, quasi',
-    ogTitle: 'Allerta Valanghe Livello 4 in Ticino',
-    ogDescription: 'Le recenti nevicate hanno portato a un\'allerta di livello 4 per valanghe. Scopri come questo impatta il Ticino.',
-    canonicalPath: '/articoli-frontaliere/valanghe-allerta-livello-4-ticino',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Valanghe, allerta di livello 4 in quasi tutto il Ticino",
-      "description": "Allerta di livello 4 per valanghe in Ticino. Scopri le conseguenze e come comportarti nel sud delle Alpi. Dati aggiornati 2026 per frontalieri in Ticino.",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/valanghe-allerta-livello-4-ticino.webp`,
-        "width": 1344,
-        "height": 756,
-        "caption": "Paesaggio innevato in Ticino con valanghe in evidenza."
-      },
-      "datePublished": "2026-03-15T13:50:21+00:00",
-      "dateModified": BUILD_DATE_ISO,
-      "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/valanghe-allerta-livello-4-ticino`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }

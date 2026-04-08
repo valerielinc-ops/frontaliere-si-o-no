@@ -36,30 +36,6 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
-  'blog-nuovo-accordo-fiscale': {
-    title: 'Nuovo Accordo Fiscale Italia-Svizzera 2024 | Cosa Cambia per i Frontalieri',
-    description: 'Il nuovo accordo fiscale Italia-Svizzera 2024: imposizione concorrente, franchigia €10.000, ristorni 20%, differenze vecchi e nuovi frontalieri. Guida aggiornata.',
-    keywords: 'nuovo accordo fiscale frontalieri 2024, imposizione concorrente svizzera italia, franchigia 10000 euro, ristorni fiscali, vecchi nuovi frontalieri, doppia imposizione',
-    ogTitle: 'Nuovo Accordo Fiscale 2024 | Frontalieri Svizzera-Italia',
-    ogDescription: 'Il nuovo accordo fiscale 2024: imposizione concorrente, franchigia €10.000, ristorni. Tutto quello che devi sapere.',
-    canonicalPath: '/articoli-frontaliere/nuovo-accordo-fiscale-2024',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Nuovo Accordo Fiscale 2024: cosa cambia per i frontalieri",
-      "description": "Dal 2024 le regole fiscali per i frontalieri sono cambiate con il nuovo accordo Italia-Svizzera",
-      "image": { "@type": "ImageObject", "url": `${BASE_URL}/images/places/bellinzona.webp`, "width": 1344, "height": 756, "caption": "Veduta dei castelli di Bellinzona con le Alpi, sede delle trattative fiscali Italia-Svizzera." },
-      "datePublished": "2026-01-10T00:00:00+01:00",
-      "dateModified": BUILD_DATE_ISO,
-      "inLanguage": "it",
-      "articleSection": "Fiscale",
-      "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
-      "isAccessibleForFree": true
-    }
-  },
 
   'blog-lamal-vs-cmi': {
     title: 'LAMal vs CMI Frontaliere | Quale Assicurazione Sanitaria Scegliere',
@@ -3981,34 +3957,6 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
-  'blog-referendum-ue-svizzera-ticino': {
-    title: 'Referendum UE-Svizzera: Impatti sul Ticino | Frontaliere Ticino',
-    description: 'Mozione UDC: referendum su Accordo quadro UE-Svizzera. Implicazioni per frontalieri e aziende in Ticino. Scopri i dettagli.',
-    keywords: 'referendum, UDC, frontalieri, Ticino, Accordo quadro, UE, Svizzera, sovranità',
-    ogTitle: 'Referendum UE-Svizzera: Impatti sul Ticino',
-    ogDescription: 'Accordo quadro 2.0: mozione UDC per referendum obbligatorio. Scopri cosa cambia per frontalieri e Ticino.',
-    canonicalPath: '/articoli-frontaliere/referendum-ue-svizzera-ticino',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Referendum UE-Svizzera: Impatti sul Ticino",
-      "description": "Mozione UDC: referendum su Accordo quadro UE-Svizzera. Implicazioni per frontalieri e aziende in Ticino. Scopri i dettagli.",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/referendum-ue-svizzera-ticino.webp`,
-        "width": 1344,
-        "height": 756,
-        "caption": "Veduta del Castelgrande di Bellinzona con bandiere svizzera e UE in primo piano."
-      },
-      "datePublished": "2026-02-25T00:00:00+01:00",
-      "dateModified": BUILD_DATE_ISO,
-      "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/referendum-ue-svizzera-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
-      "isAccessibleForFree": true
-    }
-  },
 
   'blog-valposchiavo-turismo-2025': {
     title: 'Valposchiavo: Turismo 2025 in crescita | Frontaliere Ticino',
@@ -4242,34 +4190,6 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
-  'blog-calo-frontalieri-ragioni-economiche': {
-    title: 'Frontalieri in calo: ecco le vere ragioni | Frontaliere Ticino',
-    description: 'Il numero di frontalieri in Ticino cala, ma non per la tassa sanitaria. Scopri cosa sta succedendo e come potrebbe influire sulle tue finanze.',
-    keywords: 'frontalieri, ticino, economia, tassa sanitaria, lavoro, mercato ticinese, comuni frontalieri, costo della vita',
-    ogTitle: 'Frontalieri in calo: le vere cause',
-    ogDescription: 'Non è la tassa sanitaria a ridurre i frontalieri, ma i problemi economici del Ticino. Scopri di più e calcola il tuo stipendio netto.',
-    canonicalPath: '/articoli-frontaliere/calo-frontalieri-ticino-economia',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Frontalieri in calo: le vere cause",
-      "description": "Il numero di frontalieri in Ticino cala, ma non per la tassa sanitaria. Scopri cosa sta succedendo e come potrebbe influire sulle tue finanze.",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/calo-frontalieri-ragioni-economiche.webp`,
-        "width": 1344,
-        "height": 756,
-        "caption": "Valico doganale di Mendrisio all'alba con frontalieri in coda"
-      },
-      "datePublished": "2026-02-25T00:00:00+01:00",
-      "dateModified": BUILD_DATE_ISO,
-      "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/calo-frontalieri-ticino-economia`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
-      "isAccessibleForFree": true
-    }
-  },
 
   'blog-frontalieri-calo-economia-ticinese': {
     title: 'Frontalieri in calo: le vere cause | Frontaliere Ticino',
@@ -5751,35 +5671,6 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
-  'blog-frontalieri-redditi-2026': {
-    title: 'Dichiarazione dei redditi 2026: anche i dati dei | Frontaliere Ticino',
-    description: 'Il nuovo sistema di scambio informativo tra Svizzera e Italia riduce gli errori di calcolo e semplifica la compilazione della dichiarazione dei redditi.',
-    keywords: 'frontalieri, ticino, svizzera, italia, dichiarazione, redditi, anche, dati',
-    ogTitle: 'Dichiarazione dei redditi 2026: anche i dati dei frontalieri',
-    ogDescription: 'Il nuovo sistema di scambio informativo tra Svizzera e Italia riduce gli errori di calcolo e semplifica la compilazione della dichiarazione dei redditi.',
-    canonicalPath: '/articoli-frontaliere/frontalieri-redditi-2026',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Dichiarazione dei redditi 2026: anche i dati dei frontalieri nella",
-      "description": "Il nuovo sistema di scambio informativo tra Svizzera e Italia riduce gli errori di calcolo e semplifica la compilazione della dichiarazione dei redditi.",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/frontalieri-redditi-2026.webp`,
-        "width": 1344,
-        "height": 756,
-        "caption": "Lavoratori frontalieri a Lugano, con vista sul lago."
-      },
-      "datePublished": "2026-03-16T08:07:36+00:00",
-      "dateModified": BUILD_DATE_ISO,
-      "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-redditi-2026`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
-      "isAccessibleForFree": true
-    }
-  },
 
   'blog-fermato-brogeda-cocaina': {
     title: 'Fermato a Brogeda con oltre 15 chili di cocaina nell\'auto | Frontaliere Ticino',
@@ -5961,35 +5852,6 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
-  'blog-mercado-immobiliare-ticino': {
-    title: 'La crisi degli alloggi in Ticino: una situazione tesa | Frontaliere Ticino',
-    description: 'La crisi degli alloggi in Ticino è una realtà sempre più preoccupante. L\'Ufficio federale delle abitazioni (UFAB) certifica una situazione tesa sul mercato immo',
-    keywords: 'frontalieri, ticino, svizzera, italia, crisi, alloggi, situazione, tesa',
-    ogTitle: 'La crisi degli alloggi in Ticino: una situazione tesa',
-    ogDescription: 'La crisi degli alloggi in Ticino è una realtà sempre più preoccupante. L\'Ufficio federale delle abitazioni (UFAB) certifica una situazione tesa sul mercato immo',
-    canonicalPath: '/articoli-frontaliere/mercado-immobiliare-ticino',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "La crisi degli alloggi in Ticino: una situazione tesa",
-      "description": "La crisi degli alloggi in Ticino è una realtà sempre più preoccupante. L'Ufficio federale delle abitazioni (UFAB) certifica una situazione tesa sul mercato immo",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/mercado-immobiliare-ticino.webp`,
-        "width": 1344,
-        "height": 756,
-        "caption": "Vista panoramica di Lugano"
-      },
-      "datePublished": "2026-03-16T22:48:55+00:00",
-      "dateModified": BUILD_DATE_ISO,
-      "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mercado-immobiliare-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
-      "isAccessibleForFree": true
-    }
-  },
 
   'blog-droga-brogeda-sequestro-cocaina': {
     title: 'Brogeda: 15 chili di cocaina sequestrati al confine | Frontaliere Ticino',

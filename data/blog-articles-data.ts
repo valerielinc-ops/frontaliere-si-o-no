@@ -24,16 +24,7 @@ export const ARTICLES: Article[] = [
     updatedAt: '2026-04-03',
     image: '/images/places/lugano-view.webp',
     hasCalculator: true,
-  },
-  {
-    id: 'nuovo-accordo-fiscale',
-    category: 'fiscale',
-    date: '2026-01-10',
-    updatedAt: '2026-04-03',
-    image: '/images/places/bellinzona.webp',
-    hasCalculator: false,
-  },
-  {
+  },{
     id: 'lamal-vs-cmi',
     category: 'pratico',
     date: '2026-01-05',
@@ -876,15 +867,7 @@ export const ARTICLES: Article[] = [
     date: '2026-02-25T05:05:22.918Z',
     image: '/images/blog/maternita-paternita-ticino.webp',
     hasCalculator: true,
-  },
-  {
-    id: 'referendum-ue-svizzera-ticino',
-    category: 'novita',
-    date: '2026-02-25T05:19:03.471Z',
-    image: '/images/blog/referendum-ue-svizzera-ticino.webp',
-    hasCalculator: true,
-  },
-  {
+  },{
     id: 'valposchiavo-turismo-2025',
     category: 'novita',
     date: '2026-02-25T06:49:18.739Z',
@@ -939,15 +922,7 @@ export const ARTICLES: Article[] = [
     date: '2026-02-25T08:50:41.055Z',
     image: '/images/blog/assicurazione-malattia-famiglia.webp',
     hasCalculator: true,
-  },
-  {
-    id: 'calo-frontalieri-ragioni-economiche',
-    category: 'novita',
-    date: '2026-02-25T09:22:38.673Z',
-    image: '/images/blog/calo-frontalieri-ragioni-economiche.webp',
-    hasCalculator: true,
-  },
-  {
+  },{
     id: 'frontalieri-calo-economia-ticinese',
     category: 'novita',
     date: '2026-02-25T09:29:53.271Z',
@@ -1765,15 +1740,7 @@ export const ARTICLES: Article[] = [
     date: '2026-03-02T22:48:09.708Z',
     image: '/images/blog/comuni-confine-fiscalita-disparita.webp',
     hasCalculator: true,
-  },
-  {
-    id: 'svizzera-ue-pacchetto-accordi',
-    category: 'novita',
-    date: '2026-03-02T23:01:10.878Z',
-    image: '/images/blog/svizzera-ue-pacchetto-accordi.webp',
-    hasCalculator: true,
-  },
-  {
+  },{
     id: 'tassa-salute-berna-ticino',
     category: 'novita',
     date: '2026-03-02T23:22:43.121Z',
@@ -1820,14 +1787,7 @@ export const ARTICLES: Article[] = [
     date: '2026-03-03T06:42:20.217Z',
     image: '/images/blog/ai-lombardia-ticino-frontaliere-2026.webp',
     hasCalculator: true,
-  },
-  {
-    id: 'carpooling-ticino-corsie-frontaliere-2026',
-    category: 'novita',
-    date: '2026-03-03T08:38:23.727Z',
-    image: '/images/blog/carpooling-ticino-corsie-frontaliere-2026.webp',
-    hasCalculator: true,
-  },  {
+  },{
     id: 'kuhne-nagel-tagli-posti-ticino-2026',
     category: 'novita',
     date: '2026-03-03T09:15:24.889Z',
@@ -1980,15 +1940,7 @@ export const ARTICLES: Article[] = [
     date: '2026-03-05T14:46:54.511Z',
     image: '/images/blog/tilo-record-passeggeri-2025.webp',
     hasCalculator: true,
-  },
-  {
-    id: 'frontalieri-tassa-salute-piemonte',
-    category: 'novita',
-    date: '2026-03-05T19:45:58.985Z',
-    image: '/images/blog/frontalieri-tassa-salute-piemonte.webp',
-    hasCalculator: true,
-  },
-  {
+  },{
     id: 'trasporti-lombardia-ticino-record-tilo',
     category: 'pratico',
     date: '2026-03-05T21:55:24.813Z',
@@ -2001,15 +1953,7 @@ export const ARTICLES: Article[] = [
     date: '2026-03-06T00:03:53.612Z',
     image: '/images/blog/confusione-tassa-salute-frontalieri.webp',
     hasCalculator: true,
-  },
-  {
-    id: 'neutralita-svizzera-parere-nazionale',
-    category: 'novita',
-    date: '2026-03-06T07:56:06.487Z',
-    image: '/images/blog/neutralita-svizzera-parere-nazionale.webp',
-    hasCalculator: true,
-  },
-  {
+  },{
     id: 'carburante-ticino-costo-aumenti',
     category: 'pratico',
     date: '2026-03-06T10:00:10.939Z',
@@ -2232,15 +2176,7 @@ export const ARTICLES: Article[] = [
     date: '2026-03-08T23:01:39.701Z',
     image: '/images/blog/imposizione-individuale-rivoluzione-fiscale.webp',
     hasCalculator: true,
-  },
-  {
-    id: 'svizzera-servizio-pubblico-canone-tv',
-    category: 'novita',
-    date: '2026-03-08T23:59:47.124Z',
-    image: '/images/blog/svizzera-servizio-pubblico-canone-tv.webp',
-    hasCalculator: true,
-  },
-  {
+  },{
     id: 'votazioni-federali-tassazione-individuale',
     category: 'fiscale',
     date: '2026-03-09T05:29:39.611Z',
@@ -2323,15 +2259,7 @@ export const ARTICLES: Article[] = [
     date: '2026-03-10T12:03:12.243Z',
     image: '/images/blog/investimento-pedone-bioggio.webp',
     hasCalculator: true,
-  },
-  {
-    id: 'sicurezza-stazioni-treni-ticino-2026',
-    category: 'novita',
-    date: '2026-03-10T14:42:02.446Z',
-    image: '/images/blog/sicurezza-stazioni-treni-ticino-2026.webp',
-    hasCalculator: true,
-  },
-  {
+  },{
     id: 'tir-colonna-disagi-valico-brogeda',
     category: 'pratico',
     date: '2026-03-10T17:41:02.640Z',
@@ -2525,15 +2453,7 @@ export const ARTICLES: Article[] = [
     date: '2026-03-13T17:44:42.623Z',
     image: '/images/blog/cassa-malati-franchigia-minima-ticino.webp',
     hasCalculator: true,
-  },
-  {
-    id: 'frontalieri-tassa-salute-ritiro',
-    category: 'fiscale',
-    date: '2026-03-13T19:52:14.703Z',
-    image: '/images/blog/frontalieri-tassa-salute-ritiro.webp',
-    hasCalculator: true,
-  },
-  {
+  },{
     id: 'trin-tunnel-grave-frontalieri',
     category: 'fiscale',
     date: '2026-03-13T20:31:24.357Z',
@@ -2672,15 +2592,7 @@ export const ARTICLES: Article[] = [
     date: '2026-03-14T23:24:29.903Z',
     image: '/images/blog/un-passaporto-di-fedelt.webp',
     hasCalculator: true,
-  },
-  {
-    id: 'baseball-italia-porto-rico-world-classic',
-    category: 'novita',
-    date: '2026-03-15T01:50:21.243Z',
-    image: '/images/blog/baseball-italia-porto-rico-world-classic.webp',
-    hasCalculator: true,
-  },
-  {
+  },{
     id: 'chiusure-autostrada-confine-ticino-2026',
     category: 'pratico',
     date: '2026-03-15T04:31:21.107Z',
@@ -2700,15 +2612,7 @@ export const ARTICLES: Article[] = [
     date: '2026-03-15T07:50:20.368Z',
     image: '/images/blog/sondaggio-tamedia-iva-esercito-avs.webp',
     hasCalculator: true,
-  },
-  {
-    id: 'iran-conflitto-rincari-ticino',
-    category: 'fiscale',
-    date: '2026-03-15T08:50:44.431Z',
-    image: '/images/blog/iran-conflitto-rincari-ticino.webp',
-    hasCalculator: true,
-  },
-  {
+  },{
     id: 'inverno-ticino-nevicate-2026',
     category: 'pratico',
     date: '2026-03-15T09:51:02.127Z',
@@ -2728,15 +2632,7 @@ export const ARTICLES: Article[] = [
     date: '2026-03-15T12:41:17.157Z',
     image: '/images/blog/svizzera-recessione-cieslakiewicz.webp',
     hasCalculator: true,
-  },
-  {
-    id: 'valanghe-allerta-livello-4-ticino',
-    category: 'novita',
-    date: '2026-03-15T13:50:21.493Z',
-    image: '/images/blog/valanghe-allerta-livello-4-ticino.webp',
-    hasCalculator: true,
-  },
-  {
+  },{
     id: 'nevicate-strade-bloccate-ticino',
     category: 'pratico',
     date: '2026-03-15T14:32:27.268Z',
@@ -2836,15 +2732,7 @@ export const ARTICLES: Article[] = [
     date: '2026-03-16T06:20:08.711Z',
     image: '/images/blog/bilaterali-iii-cassis-ticino.webp',
     hasCalculator: true,
-  },
-  {
-    id: 'frontalieri-redditi-2026',
-    category: 'fiscale',
-    date: '2026-03-16T08:07:36.787Z',
-    image: '/images/blog/frontalieri-redditi-2026.webp',
-    hasCalculator: true,
-  },
-  {
+  },{
     id: 'fermato-brogeda-cocaina',
     category: 'fiscale',
     date: '2026-03-16T10:02:17.162Z',
@@ -2885,15 +2773,7 @@ export const ARTICLES: Article[] = [
     date: '2026-03-16T21:56:27.390Z',
     image: '/images/blog/crisi-spermatozoi-svizzera-ticino.webp',
     hasCalculator: true,
-  },
-  {
-    id: 'mercado-immobiliare-ticino',
-    category: 'pratico',
-    date: '2026-03-16T22:48:55.327Z',
-    image: '/images/blog/mercado-immobiliare-ticino.webp',
-    hasCalculator: true,
-  },
-  {
+  },{
     id: 'droga-brogeda-sequestro-cocaina',
     category: 'novita',
     date: '2026-03-16T23:52:14.059Z',
@@ -2962,15 +2842,7 @@ export const ARTICLES: Article[] = [
     date: '2026-03-17T23:01:33.852Z',
     image: '/images/blog/turismo-luganese-formazione.webp',
     hasCalculator: true,
-  },
-  {
-    id: 'nevicata-record-bosco-gurin',
-    category: 'pratico',
-    date: '2026-03-18T00:01:25.681Z',
-    image: '/images/blog/nevicata-record-bosco-gurin.webp',
-    hasCalculator: true,
-  },
-  {
+  },{
     id: 'walter-bonatti-in-capo-al-mondo',
     category: 'novita',
     date: '2026-03-18T02:45:15.133Z',
@@ -2983,15 +2855,7 @@ export const ARTICLES: Article[] = [
     date: '2026-03-18T07:12:46.300Z',
     image: '/images/blog/sargans-teenage-robbery-catch.webp',
     hasCalculator: true,
-  },
-  {
-    id: 'separazione-carriere-giudici',
-    category: 'pratico',
-    date: '2026-03-18T09:02:13.937Z',
-    image: '/images/blog/separazione-carriere-giudici.webp',
-    hasCalculator: true,
-  },
-  {
+  },{
     id: 'com-aziende-lavoro-como',
     category: 'novita',
     date: '2026-03-18T10:06:52.910Z',
@@ -3004,22 +2868,7 @@ export const ARTICLES: Article[] = [
     date: '2026-03-18T15:12:29.976Z',
     image: '/images/blog/cabov-precipita-forte-vento.webp',
     hasCalculator: true,
-  },
-  {
-    id: 'agenzia-trasporto-nuovo',
-    category: 'novita',
-    date: '2026-03-18T17:22:46.308Z',
-    image: '/images/blog/agenzia-trasporto-nuovo.webp',
-    hasCalculator: true,
-  },
-  {
-    id: 'governo-tavolo-frontalieri-2026',
-    category: 'novita',
-    date: '2026-03-18T19:15:17.467Z',
-    image: '/images/blog/governo-tavolo-frontalieri-2026.webp',
-    hasCalculator: true,
-  },
-  {
+  },{
     id: 'gadda-incalza-governo-frontalieri',
     category: 'fiscale',
     date: '2026-03-18T20:58:59.476Z',
@@ -3137,15 +2986,7 @@ export const ARTICLES: Article[] = [
     date: '2026-03-19T19:51:12.225Z',
     image: '/images/blog/droga-al-confine-ticino-2025.webp',
     hasCalculator: true,
-  },
-  {
-    id: 'tassa-attraversamento-svizzera',
-    category: 'fiscale',
-    date: '2026-03-19T20:40:02.444Z',
-    image: '/images/blog/tassa-attraversamento-svizzera.webp',
-    hasCalculator: true,
-  },
-  {
+  },{
     id: 'incidente-stradale-laghi',
     category: 'pratico',
     date: '2026-03-19T21:11:01.676Z',
@@ -3158,22 +2999,7 @@ export const ARTICLES: Article[] = [
     date: '2026-03-19T21:46:55.330Z',
     image: '/images/blog/vivere-piu-lungo-ticino.webp',
     hasCalculator: true,
-  },
-  {
-    id: 'governo-getta-spugna-kebab-case',
-    category: 'novita',
-    date: '2026-03-19T22:03:04.990Z',
-    image: '/images/blog/governo-getta-spugna-kebab-case.webp',
-    hasCalculator: true,
-  },
-  {
-    id: 'kebab-case-borse-freddo-2024',
-    category: 'fiscale',
-    date: '2026-03-19T22:40:42.059Z',
-    image: '/images/blog/kebab-case-borse-freddo-2024.webp',
-    hasCalculator: true,
-  },
-  {
+  },{
     id: 'giustizia-in-bilico-2026',
     category: 'novita',
     date: '2026-03-19T23:03:50.305Z',
@@ -3186,15 +3012,7 @@ export const ARTICLES: Article[] = [
     date: '2026-03-19T23:41:40.330Z',
     image: '/images/blog/ampliamento-parco-eolico-san-gottardo-digital-2026.webp',
     hasCalculator: true,
-  },
-  {
-    id: 'soggiorni-irregolari-2026-mendrisio',
-    category: 'pratico',
-    date: '2026-03-20T00:03:31.827Z',
-    image: '/images/blog/soggiorni-irregolari-2026-mendrisio.webp',
-    hasCalculator: true,
-  },
-  {
+  },{
     id: 'eolico-gottardo-ampliamento-2026',
     category: 'novita',
     date: '2026-03-20T02:46:46.318Z',
@@ -3207,15 +3025,7 @@ export const ARTICLES: Article[] = [
     date: '2026-03-20T03:22:57.912Z',
     image: '/images/blog/contrabbando-ai-confine-aumentano-droga-e-sigarette.webp',
     hasCalculator: true,
-  },
-  {
-    id: 'kebab-case-3-5-words-max-40-chars',
-    category: 'novita',
-    date: '2026-03-20T04:58:04.475Z',
-    image: '/images/blog/kebab-case-3-5-words-max-40-chars.webp',
-    hasCalculator: true,
-  },
-  {
+  },{
     id: 'salute-prevenzione-burocrazia-svizzera',
     category: 'novita',
     date: '2026-03-20T06:02:30.053Z',
@@ -3382,15 +3192,7 @@ export const ARTICLES: Article[] = [
     date: '2026-03-20T19:20:07.949Z',
     image: '/images/blog/ampliamento-parco-eolico-san-gottardo.webp',
     hasCalculator: true,
-  },
-  {
-    id: 'frontalieri-prezzi-carburanti-italia-svizzera',
-    category: 'fiscale',
-    date: '2026-03-20T20:04:48.694Z',
-    image: '/images/blog/frontalieri-prezzi-carburanti-italia-svizzera.webp',
-    hasCalculator: true,
-  },
-  {
+  },{
     id: 'cure-a-domicilio-tassa-ticino',
     category: 'novita',
     date: '2026-03-20T21:04:34.954Z',
@@ -3410,22 +3212,7 @@ export const ARTICLES: Article[] = [
     date: '2026-03-20T22:58:17.294Z',
     image: '/images/blog/kebab-case-rossi-bruxelles-ticino.webp',
     hasCalculator: true,
-  },
-  {
-    id: 'bossi-voleva-bene-al-ticino',
-    category: 'novita',
-    date: '2026-03-21T00:11:21.690Z',
-    image: '/images/blog/bossi-voleva-bene-al-ticino.webp',
-    hasCalculator: true,
-  },
-  {
-    id: 'chiamate-shock-arresti-ticino',
-    category: 'pratico',
-    date: '2026-03-21T02:41:32.827Z',
-    image: '/images/blog/chiamate-shock-arresti-ticino.webp',
-    hasCalculator: true,
-  },
-  {
+  },{
     id: 'rinnovo-concessioni-snl-2026',
     category: 'novita',
     date: '2026-03-21T03:13:32.605Z',
@@ -3655,15 +3442,7 @@ export const ARTICLES: Article[] = [
     date: '2026-03-21T21:37:14.417Z',
     image: '/images/blog/lago-maggiore-accesso-tutto-l-anno.webp',
     hasCalculator: true,
-  },
-  {
-    id: 'cure-domicilio-ticino',
-    category: 'pratico',
-    date: '2026-03-21T21:58:16.481Z',
-    image: '/images/blog/cure-domicilio-ticino.webp',
-    hasCalculator: true,
-  },
-  {
+  },{
     id: 'spiagge-libere-sul-lago-maggiore',
     category: 'pratico',
     date: '2026-03-21T22:39:14.445Z',
@@ -3760,15 +3539,7 @@ export const ARTICLES: Article[] = [
     date: '2026-03-22T08:49:32.012Z',
     image: '/images/blog/ogm-fallimento-ticino.webp',
     hasCalculator: true,
-  },
-  {
-    id: 'referendum-giustizia-ticino-2026',
-    category: 'novita',
-    date: '2026-03-22T09:05:10.975Z',
-    image: '/images/blog/referendum-giustizia-ticino-2026.webp',
-    hasCalculator: true,
-  },
-  {
+  },{
     id: 'passaggio-statuto-s-permesso-b',
     category: 'pratico',
     date: '2026-03-22T09:44:18.179Z',
@@ -3802,22 +3573,7 @@ export const ARTICLES: Article[] = [
     date: '2026-03-22T11:41:52.879Z',
     image: '/images/blog/bellinzona-paese-dormitorio.webp',
     hasCalculator: true,
-  },
-  {
-    id: 'tragedia-titlis-raffica-vento',
-    category: 'novita',
-    date: '2026-03-22T12:01:16.433Z',
-    image: '/images/blog/tragedia-titlis-raffica-vento.webp',
-    hasCalculator: true,
-  },
-  {
-    id: 'accesso-libero-alle-rive',
-    category: 'pratico',
-    date: '2026-03-22T13:38:46.483Z',
-    image: '/images/blog/accesso-libero-alle-rive.webp',
-    hasCalculator: true,
-  },
-  {
+  },{
     id: 'ticino-attenti-ai-radar-2026',
     category: 'pratico',
     date: '2026-03-22T14:25:10.266Z',
@@ -3935,15 +3691,7 @@ export const ARTICLES: Article[] = [
     date: '2026-03-23T13:37:16.108Z',
     image: '/images/blog/lugano-sicurezza-2025.webp',
     hasCalculator: true,
-  },
-  {
-    id: 'migranti-dublino-ticino',
-    category: 'fiscale',
-    date: '2026-03-23T14:04:28.397Z',
-    image: '/images/blog/migranti-dublino-ticino.webp',
-    hasCalculator: true,
-  },
-  {
+  },{
     id: 'chiasso-ora-terra-2026',
     category: 'novita',
     date: '2026-03-23T15:49:32.848Z',
@@ -4015,14 +3763,7 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/bilaterali-iii-cassis-ticino.webp',
     hasCalculator: true,
   },
-  {
-    id: 'frontalieri-redditi-2026',
-    category: 'fiscale',
-    date: '2026-03-16T08:07:36.787Z',
-    image: '/images/blog/frontalieri-redditi-2026.webp',
-    hasCalculator: true,
-  },
-  {
+{
     id: 'fermato-brogeda-cocaina',
     category: 'fiscale',
     date: '2026-03-16T10:02:17.162Z',
@@ -4064,14 +3805,7 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/crisi-spermatozoi-svizzera-ticino.webp',
     hasCalculator: true,
   },
-  {
-    id: 'mercado-immobiliare-ticino',
-    category: 'pratico',
-    date: '2026-03-16T22:48:55.327Z',
-    image: '/images/blog/mercado-immobiliare-ticino.webp',
-    hasCalculator: true,
-  },
-  {
+{
     id: 'droga-brogeda-sequestro-cocaina',
     category: 'novita',
     date: '2026-03-16T23:52:14.059Z',
@@ -4141,14 +3875,7 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/turismo-luganese-formazione.webp',
     hasCalculator: true,
   },
-  {
-    id: 'nevicata-record-bosco-gurin',
-    category: 'pratico',
-    date: '2026-03-18T00:01:25.681Z',
-    image: '/images/blog/nevicata-record-bosco-gurin.webp',
-    hasCalculator: true,
-  },
-  {
+{
     id: 'walter-bonatti-in-capo-al-mondo',
     category: 'novita',
     date: '2026-03-18T02:45:15.133Z',
@@ -4162,14 +3889,7 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/sargans-teenage-robbery-catch.webp',
     hasCalculator: true,
   },
-  {
-    id: 'separazione-carriere-giudici',
-    category: 'pratico',
-    date: '2026-03-18T09:02:13.937Z',
-    image: '/images/blog/separazione-carriere-giudici.webp',
-    hasCalculator: true,
-  },
-  {
+{
     id: 'com-aziende-lavoro-como',
     category: 'novita',
     date: '2026-03-18T10:06:52.910Z',
@@ -4183,21 +3903,7 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/cabov-precipita-forte-vento.webp',
     hasCalculator: true,
   },
-  {
-    id: 'agenzia-trasporto-nuovo',
-    category: 'novita',
-    date: '2026-03-18T17:22:46.308Z',
-    image: '/images/blog/agenzia-trasporto-nuovo.webp',
-    hasCalculator: true,
-  },
-  {
-    id: 'governo-tavolo-frontalieri-2026',
-    category: 'novita',
-    date: '2026-03-18T19:15:17.467Z',
-    image: '/images/blog/governo-tavolo-frontalieri-2026.webp',
-    hasCalculator: true,
-  },
-  {
+{
     id: 'gadda-incalza-governo-frontalieri',
     category: 'fiscale',
     date: '2026-03-18T20:58:59.476Z',
@@ -4316,14 +4022,7 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/droga-al-confine-ticino-2025.webp',
     hasCalculator: true,
   },
-  {
-    id: 'tassa-attraversamento-svizzera',
-    category: 'fiscale',
-    date: '2026-03-19T20:40:02.444Z',
-    image: '/images/blog/tassa-attraversamento-svizzera.webp',
-    hasCalculator: true,
-  },
-  {
+{
     id: 'incidente-stradale-laghi',
     category: 'pratico',
     date: '2026-03-19T21:11:01.676Z',
@@ -4337,21 +4036,7 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/vivere-piu-lungo-ticino.webp',
     hasCalculator: true,
   },
-  {
-    id: 'governo-getta-spugna-kebab-case',
-    category: 'novita',
-    date: '2026-03-19T22:03:04.990Z',
-    image: '/images/blog/governo-getta-spugna-kebab-case.webp',
-    hasCalculator: true,
-  },
-  {
-    id: 'kebab-case-borse-freddo-2024',
-    category: 'fiscale',
-    date: '2026-03-19T22:40:42.059Z',
-    image: '/images/blog/kebab-case-borse-freddo-2024.webp',
-    hasCalculator: true,
-  },
-  {
+{
     id: 'giustizia-in-bilico-2026',
     category: 'novita',
     date: '2026-03-19T23:03:50.305Z',
@@ -4365,14 +4050,7 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/ampliamento-parco-eolico-san-gottardo-digital-2026.webp',
     hasCalculator: true,
   },
-  {
-    id: 'soggiorni-irregolari-2026-mendrisio',
-    category: 'pratico',
-    date: '2026-03-20T00:03:31.827Z',
-    image: '/images/blog/soggiorni-irregolari-2026-mendrisio.webp',
-    hasCalculator: true,
-  },
-  {
+{
     id: 'eolico-gottardo-ampliamento-2026',
     category: 'novita',
     date: '2026-03-20T02:46:46.318Z',
@@ -4386,14 +4064,7 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/contrabbando-ai-confine-aumentano-droga-e-sigarette.webp',
     hasCalculator: true,
   },
-  {
-    id: 'kebab-case-3-5-words-max-40-chars',
-    category: 'novita',
-    date: '2026-03-20T04:58:04.475Z',
-    image: '/images/blog/kebab-case-3-5-words-max-40-chars.webp',
-    hasCalculator: true,
-  },
-  {
+{
     id: 'salute-prevenzione-burocrazia-svizzera',
     category: 'novita',
     date: '2026-03-20T06:02:30.053Z',
@@ -4561,14 +4232,7 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/ampliamento-parco-eolico-san-gottardo.webp',
     hasCalculator: true,
   },
-  {
-    id: 'frontalieri-prezzi-carburanti-italia-svizzera',
-    category: 'fiscale',
-    date: '2026-03-20T20:04:48.694Z',
-    image: '/images/blog/frontalieri-prezzi-carburanti-italia-svizzera.webp',
-    hasCalculator: true,
-  },
-  {
+{
     id: 'cure-a-domicilio-tassa-ticino',
     category: 'novita',
     date: '2026-03-20T21:04:34.954Z',
@@ -4589,21 +4253,7 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/kebab-case-rossi-bruxelles-ticino.webp',
     hasCalculator: true,
   },
-  {
-    id: 'bossi-voleva-bene-al-ticino',
-    category: 'novita',
-    date: '2026-03-21T00:11:21.690Z',
-    image: '/images/blog/bossi-voleva-bene-al-ticino.webp',
-    hasCalculator: true,
-  },
-  {
-    id: 'chiamate-shock-arresti-ticino',
-    category: 'pratico',
-    date: '2026-03-21T02:41:32.827Z',
-    image: '/images/blog/chiamate-shock-arresti-ticino.webp',
-    hasCalculator: true,
-  },
-  {
+{
     id: 'rinnovo-concessioni-snl-2026',
     category: 'novita',
     date: '2026-03-21T03:13:32.605Z',
@@ -4834,14 +4484,7 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/lago-maggiore-accesso-tutto-l-anno.webp',
     hasCalculator: true,
   },
-  {
-    id: 'cure-domicilio-ticino',
-    category: 'pratico',
-    date: '2026-03-21T21:58:16.481Z',
-    image: '/images/blog/cure-domicilio-ticino.webp',
-    hasCalculator: true,
-  },
-  {
+{
     id: 'spiagge-libere-sul-lago-maggiore',
     category: 'pratico',
     date: '2026-03-21T22:39:14.445Z',
@@ -4939,14 +4582,7 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/ogm-fallimento-ticino.webp',
     hasCalculator: true,
   },
-  {
-    id: 'referendum-giustizia-ticino-2026',
-    category: 'novita',
-    date: '2026-03-22T09:05:10.975Z',
-    image: '/images/blog/referendum-giustizia-ticino-2026.webp',
-    hasCalculator: true,
-  },
-  {
+{
     id: 'passaggio-statuto-s-permesso-b',
     category: 'pratico',
     date: '2026-03-22T09:44:18.179Z',
@@ -4981,21 +4617,7 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/bellinzona-paese-dormitorio.webp',
     hasCalculator: true,
   },
-  {
-    id: 'tragedia-titlis-raffica-vento',
-    category: 'novita',
-    date: '2026-03-22T12:01:16.433Z',
-    image: '/images/blog/tragedia-titlis-raffica-vento.webp',
-    hasCalculator: true,
-  },
-  {
-    id: 'accesso-libero-alle-rive',
-    category: 'pratico',
-    date: '2026-03-22T13:38:46.483Z',
-    image: '/images/blog/accesso-libero-alle-rive.webp',
-    hasCalculator: true,
-  },
-  {
+{
     id: 'ticino-attenti-ai-radar-2026',
     category: 'pratico',
     date: '2026-03-22T14:25:10.266Z',
@@ -5114,14 +4736,7 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/lugano-sicurezza-2025.webp',
     hasCalculator: true,
   },
-  {
-    id: 'migranti-dublino-ticino',
-    category: 'fiscale',
-    date: '2026-03-23T14:04:28.397Z',
-    image: '/images/blog/migranti-dublino-ticino.webp',
-    hasCalculator: true,
-  },
-  {
+{
     id: 'chiasso-ora-terra-2026',
     category: 'novita',
     date: '2026-03-23T15:49:32.848Z',
@@ -5173,15 +4788,7 @@ export const ARTICLES: Article[] = [
     date: '2026-03-24T06:43:25.963Z',
     image: '/images/blog/como-asfaltature-war-costs.webp',
     hasCalculator: true,
-  },
-  {
-    id: 'referendum-opposizione-ticino',
-    category: 'novita',
-    date: '2026-03-24T07:18:01.992Z',
-    image: '/images/blog/referendum-opposizione-ticino.webp',
-    hasCalculator: true,
-  },
-  {
+  },{
     id: 'apprendisti-frontalieri-permessi-g',
     category: 'novita',
     date: '2026-03-24T09:02:37.653Z',
@@ -5277,15 +4884,7 @@ export const ARTICLES: Article[] = [
     date: '2026-03-26T07:27:47.273Z',
     image: '/images/blog/lavoro-carceri-ticino.jpg',
     hasCalculator: true,
-  },
-  {
-    id: 'avs-saronno-referendum',
-    category: 'pratico',
-    date: '2026-03-26T10:12:25.052Z',
-    image: '/images/blog/avs-saronno-referendum.jpg',
-    hasCalculator: true,
-  },
-  {
+  },{
     id: 'lavena-ponte-tresa-annaffiatoi',
     category: 'novita',
     date: '2026-03-26T13:53:07.230Z',
@@ -5494,14 +5093,7 @@ export const ARTICLES: Article[] = [
     date: '2026-03-31T07:46:01.846Z',
     image: '/images/blog/furbata-dogana-argento.jpg',
     hasCalculator: true,
-  },
-  {
-    id: 'sicurezza-lago-maggiore',
-    category: 'novita',
-    date: '2026-03-31T13:56:59.738Z',
-    image: '/images/blog/sicurezza-lago-maggiore.jpg',
-    hasCalculator: true,
-  },  {
+  },{
     id: 'best-cross-border-worker-calculator-switzerland',
     category: 'pratico',
     date: '2026-03-31T10:00:00+01:00',
@@ -5514,15 +5106,7 @@ export const ARTICLES: Article[] = [
     date: '2026-04-01T03:37:37.850Z',
     image: '/images/blog/ambasciatore-italiano-ritorno-berna.jpg',
     hasCalculator: true,
-  },
-  {
-    id: 'pazienti-ticino-protesta',
-    category: 'novita',
-    date: '2026-04-01T07:49:47.482Z',
-    image: '/images/blog/pazienti-ticino-protesta.jpg',
-    hasCalculator: true,
-  },
-  {
+  },{
     id: 'aumento-contingente-uova-svizzera',
     category: 'novita',
     date: '2026-04-01T10:16:07.575Z',
@@ -5589,14 +5173,7 @@ export const ARTICLES: Article[] = [
     date: '2026-04-03T10:03:04.988Z',
     image: '/images/blog/aumento-inchieste-penali-2025.jpg',
     hasCalculator: true,
-  },
-  {
-    id: 'ticino-lombardia-manifatturiero',
-    category: 'novita',
-    date: '2026-04-03T11:25:19.456Z',
-    image: '/images/blog/ticino-lombardia-manifatturiero.jpg',
-    hasCalculator: true,
-  },  {
+  },{
     id: 'dogana-chiasso-centro-tecnologico',
     category: 'novita',
     date: '2026-04-03T13:27:44.156Z',
@@ -5672,15 +5249,7 @@ export const ARTICLES: Article[] = [
     date: '2026-04-03T19:53:52.166Z',
     image: '/images/blog/gasolio-costi-pullman-ticino-lago-como.jpg',
     hasCalculator: true,
-  },
-  {
-    id: 'tram-treno-luganese-passo-avanti',
-    category: 'novita',
-    date: '2026-04-03T20:53:58.844Z',
-    image: '/images/blog/tram-treno-luganese-passo-avanti.jpg',
-    hasCalculator: true,
-  },
-  {
+  },{
     id: 'turismo-pasquale-ticino-2026',
     category: 'novita',
     date: '2026-04-03T21:49:27.052Z',
@@ -5692,15 +5261,7 @@ export const ARTICLES: Article[] = [
     date: '2026-04-03T23:46:50.097Z',
     image: '/images/blog/mozzarella-clandestina-2026-ricerca.jpg',
     hasCalculator: true,
-  },
-  {
-    id: 'varese-soroptimist-studio-fibrosi-polmonare',
-    category: 'novita',
-    date: '2026-04-04T02:57:14.152Z',
-    image: '/images/blog/varese-soroptimist-studio-fibrosi-polmonare.jpg',
-    hasCalculator: true,
-  },
-  {
+  },{
     id: 'accordi-svizzera-ue-2026',
     category: 'novita',
     date: '2026-04-04T05:01:34.224Z',
@@ -5734,14 +5295,7 @@ export const ARTICLES: Article[] = [
     date: '2026-04-04T08:59:43.094Z',
     image: '/images/blog/aumento-mezzi-pubblici-ticino.jpg',
     hasCalculator: true,
-  },  {
-    id: 'addiofrontalierelongo',
-    category: 'novita',
-    date: '2026-04-04T11:41:51.882Z',
-    image: '/images/blog/addiofrontalierelongo.jpg',
-    hasCalculator: true,
-  },
-  {
+  },{
     id: 'ladri-di-auto-scappano-con-40-chiavi-e-una-skoda',
     category: 'fiscale',
     date: '2026-04-04T13:23:20.870Z',
@@ -5866,22 +5420,7 @@ export const ARTICLES: Article[] = [
     date: '2026-04-05T14:13:44.864Z',
     image: '/images/blog/agriscambio.jpg',
     hasCalculator: true,
-  },
-  {
-    id: 'frontaliere-ticino-10-milioni-voto',
-    category: 'novita',
-    date: '2026-04-05T15:47:31.201Z',
-    image: '/images/blog/frontaliere-ticino-10-milioni-voto.jpg',
-    hasCalculator: true,
-  },
-  {
-    id: 'congestione-a2-san-gottardo-frontalieri',
-    category: 'pratico',
-    date: '2026-04-05T16:55:34.404Z',
-    image: '/images/blog/congestione-a2-san-gottardo-frontalieri.jpg',
-    hasCalculator: true,
-  },
-  {
+  },{
     id: 'galleria-del-ceneri-chiusa-per-problemi-tecnici',
     category: 'pratico',
     date: '2026-04-05T17:43:48.541Z',
@@ -5901,15 +5440,7 @@ export const ARTICLES: Article[] = [
     date: '2026-04-05T19:42:23.581Z',
     image: '/images/blog/diventare-pastore-ticino.jpg',
     hasCalculator: true,
-  },
-  {
-    id: 'varese-si-ubriaca-infortuna',
-    category: 'pratico',
-    date: '2026-04-05T20:50:48.974Z',
-    image: '/images/blog/varese-si-ubriaca-infortuna.jpg',
-    hasCalculator: true,
-  },
-  {
+  },{
     id: 'trump-intesa-o-inferno',
     category: 'novita',
     date: '2026-04-05T21:49:52.642Z',
@@ -5971,15 +5502,7 @@ export const ARTICLES: Article[] = [
     date: '2026-04-06T13:43:52.055Z',
     image: '/images/blog/fuga-da-dubai-ticino-alternativa.jpg',
     hasCalculator: true,
-  },
-  {
-    id: 'traffico-san-gottardo-attesa',
-    category: 'novita',
-    date: '2026-04-06T15:04:20.485Z',
-    image: '/images/blog/traffico-san-gottardo-attesa.jpg',
-    hasCalculator: true,
-  },
-  {
+  },{
     id: 'tax-free-come-cresce',
     category: 'fiscale',
     date: '2026-04-06T16:04:35.632Z',
@@ -6103,14 +5626,7 @@ export const ARTICLES: Article[] = [
     date: '2026-04-07T17:18:39.539Z',
     image: '/images/blog/incendi-nel-luganese-arrestato-un-piromane.jpg',
     hasCalculator: true,
-  },
-  {
-    id: 'tassa-salute-frontalieri-ufis-risposte',
-    category: 'fiscale',
-    date: '2026-04-07T18:55:19.924Z',
-    image: '/images/blog/tassa-salute-frontalieri-ufis-risposte.jpg',
-    hasCalculator: true,
-  },  {
+  },{
     id: 'front-alieri-soci-sagl-nodi-fiscali-2026',
     category: 'fiscale',
     date: '2026-04-08T07:05:08.270Z',

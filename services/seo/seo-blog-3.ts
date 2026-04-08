@@ -217,35 +217,6 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
     }
   },
 
-  'blog-cure-domicilio-ticino': {
-    title: 'La protesta contro la tassa sulle cure a domicilio nel Canton Ticino | Frontaliere Ticino',
-    description: 'Cresce la protesta contro la partecipazione dei pazienti ai costi delle cure a domicilio nel Canton Ticino. Scopri come potrebbe impattare i frontalieri e cosa',
-    keywords: 'frontalieri, ticino, svizzera, italia, protesta, contro, tassa, sulle',
-    ogTitle: 'Protesta contro la tassa sulle cure a domicilio nel Canton Ticino',
-    ogDescription: 'Cresce la protesta contro la partecipazione dei pazienti ai costi delle cure a domicilio nel Canton Ticino. Scopri come potrebbe impattare i frontalieri e cosa',
-    canonicalPath: '/articoli-frontaliere/cure-domicilio-ticino',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Protesta contro la tassa sulle cure a domicilio nel Canton Ticino",
-      "description": "Cresce la protesta contro la partecipazione dei pazienti ai costi delle cure a domicilio nel Canton Ticino. Scopri come potrebbe impattare i frontalieri e cosa",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/cure-domicilio-ticino.webp`,
-        "width": 1344,
-        "height": 756,
-        "caption": "Assistenza sanitaria a domicilio nel Canton Ticino."
-      },
-      "datePublished": "2026-03-21T21:58:16+00:00",
-      "dateModified": "2026-03-21T21:58:16+00:00",
-      "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cure-domicilio-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
-      "isAccessibleForFree": true
-    }
-  },
 
   'blog-spiagge-libere-sul-lago-maggiore': {
     title: 'Spiagge libere sul Lago Maggiore: una battaglia per l\'accesso pubblico | Frontaliere Ticino',
@@ -667,35 +638,6 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
     }
   },
 
-  'blog-referendum-giustizia-ticino-2026': {
-    title: 'Referendum sulla giustizia in Ticino: oggi si vota senza quorum | Frontaliere Ticino',
-    description: 'Oltre 690mila aventi diritto in provincia di Varese e Ticino sono chiamati a esprimersi sulla riforma della magistratura. Seggi aperti dalle 7 di oggi, domenica',
-    keywords: 'frontalieri, ticino, svizzera, italia, referendum, sulla, giustizia, oggi',
-    ogTitle: 'Referendum sulla giustizia in Ticino: oggi si vota senza',
-    ogDescription: 'Oltre 690mila aventi diritto in provincia di Varese e Ticino sono chiamati a esprimersi sulla riforma della magistratura. Seggi aperti dalle 7 di oggi, domenica',
-    canonicalPath: '/articoli-frontaliere/referendum-giustizia-ticino-2026',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Referendum sulla giustizia in Ticino: oggi si vota senza",
-      "description": "Oltre 690mila aventi diritto in provincia di Varese e Ticino sono chiamati a esprimersi sulla riforma della magistratura. Seggi aperti dalle 7 di oggi, domenica",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/referendum-giustizia-ticino-2026.webp`,
-        "width": 1344,
-        "height": 756,
-        "caption": "Seggi elettorale in Ticino con cittadini che votano durante il referendum sulla giustizia."
-      },
-      "datePublished": "2026-03-22T09:05:10+00:00",
-      "dateModified": "2026-03-22T09:05:10+00:00",
-      "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/referendum-giustizia-ticino-2026`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
-      "isAccessibleForFree": true
-    }
-  },
 
   'blog-passaggio-statuto-s-permesso-b': {
     title: 'Dallo statuto S al permesso B in Ticino | Frontaliere Ticino',
@@ -847,65 +789,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
     }
   },
 
-  'blog-tragedia-titlis-raffica-vento': {
-    title: 'Tragedia sul Titlis: una raffica di vento improvvisa causa la morte di | Frontaliere Ticino',
-    description: 'Una donna di 61 anni muore dopo che la cabina della funivia è caduta a terra a causa di una raffica di vento improvvisa sul Titlis. Dati aggiornati 2026 per',
-    keywords: 'frontalieri, ticino, svizzera, italia, tragedia, titlis, raffica, vento',
-    ogTitle: 'Tragedia sul Titlis',
-    ogDescription: 'Una donna di 61 anni muore dopo che la cabina della funivia è caduta a terra a causa di una raffica di vento improvvisa sul Titlis.',
-    canonicalPath: '/articoli-frontaliere/tragedia-titlis-raffica-vento',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Tragedia sul Titlis: una raffica di vento improvvisa causa la morte di una donna",
-      "description": "Una donna di 61 anni muore dopo che la cabina della funivia è caduta a terra a causa di una raffica di vento improvvisa sul Titlis. Dati aggiornati 2026 per",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/tragedia-titlis-raffica-vento.webp`,
-        "width": 1344,
-        "height": 756,
-        "caption": "Funivia in montagna con una raffica di vento improvvisa"
-      },
-      "datePublished": "2026-03-22T12:01:16+00:00",
-      "dateModified": "2026-03-22T12:01:16+00:00",
-      "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tragedia-titlis-raffica-vento`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
-      "isAccessibleForFree": true
-    }
-  },
 
-  'blog-accesso-libero-alle-rive': {
-    title: 'Una camminata di protesta per il libero accesso alle rive del Lago di | Frontaliere Ticino',
-    description: 'I Giovani Verdi e l\'associazione \'Rive pubbliche della Svizzera italiana\' organizzano una camminata per richiedere il libero accesso alle rive del Lago di',
-    keywords: 'frontalieri, ticino, svizzera, italia, camminata, protesta, libero, accesso',
-    ogTitle: 'Una camminata di protesta per il libero accesso alle rive del Lago di Lugano',
-    ogDescription: 'I Giovani Verdi e l\'associazione \'Rive pubbliche della Svizzera italiana\' organizzano una camminata per richiedere il libero accesso alle rive del Lago di',
-    canonicalPath: '/articoli-frontaliere/accesso-libero-alle-rive',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Una camminata di protesta per il libero accesso alle rive del Lago di Lugano",
-      "description": "I Giovani Verdi e l'associazione 'Rive pubbliche della Svizzera italiana' organizzano una camminata per richiedere il libero accesso alle rive del Lago di",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/accesso-libero-alle-rive.webp`,
-        "width": 1344,
-        "height": 756,
-        "caption": "Passeggiata lungo il Lago di Lugano"
-      },
-      "datePublished": "2026-03-22T13:38:46+00:00",
-      "dateModified": "2026-03-22T13:38:46+00:00",
-      "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/accesso-libero-alle-rive`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
-      "isAccessibleForFree": true
-    }
-  },
 
   'blog-ticino-attenti-ai-radar-2026': {
     title: 'Ticino, attenti ai radar: quando e dove i controlli della velocità | Frontaliere Ticino',
@@ -1418,35 +1302,6 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
     }
   },
 
-  'blog-migranti-dublino-ticino': {
-    title: 'Migranti Dublino: quanti casi e quali costi per il Ticino? | Frontaliere Ticino',
-    description: 'L\'UDC interroga il Governo sui costi per il Ticino dopo la sospensione della cooperazione da parte dell\'Italia nel regolamento di Dublino. Scopri di più sui',
-    keywords: 'frontalieri, ticino, svizzera, italia, migranti, dublino, quanti, casi',
-    ogTitle: 'Migranti Dublino: costi e casi per il Ticino',
-    ogDescription: 'L\'UDC interroga il Governo sui costi per il Ticino dopo la sospensione della cooperazione da parte dell\'Italia nel regolamento di Dublino.',
-    canonicalPath: '/articoli-frontaliere/migranti-dublino-ticino',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Migranti Dublino: quanti casi e quali costi per il Ticino?",
-      "description": "L'UDC interroga il Governo sui costi per il Ticino dopo la sospensione della cooperazione da parte dell'Italia nel regolamento di Dublino. Scopri di più sui",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/migranti-dublino-ticino.webp`,
-        "width": 1344,
-        "height": 756,
-        "caption": "Migranti in attesa all'ufficio di immigrazione di Lugano"
-      },
-      "datePublished": "2026-03-23T14:04:28+00:00",
-      "dateModified": "2026-03-23T14:04:28+00:00",
-      "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/migranti-dublino-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
-      "isAccessibleForFree": true
-    }
-  },
 
   'blog-chiasso-ora-terra-2026': {
     title: 'Chiasso aderisce all\'Ora della Terra 2026 | Frontaliere Ticino',
@@ -1691,35 +1546,6 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
     }
   },
 
-  'blog-referendum-opposizione-ticino': {
-    title: 'Referendum in Ticino: il messaggio dell\'opposizione e le ripercussioni | Frontaliere Ticino',
-    description: 'Il risultato del referendum in Italia ha visto la vittoria del No, con leader dell\'opposizione che festeggiano. In Ticino, questa dinamica potrebbe influenzare',
-    keywords: 'frontalieri, ticino, svizzera, italia, referendum, messaggio, dell, opposizione',
-    ogTitle: 'Referendum in Ticino: il messaggio dell\'opposizione e le',
-    ogDescription: 'Il risultato del referendum in Italia ha visto la vittoria del No, con leader dell\'opposizione che festeggiano. In Ticino, questa dinamica potrebbe influenzare',
-    canonicalPath: '/articoli-frontaliere/referendum-opposizione-ticino',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Referendum in Ticino: il messaggio dell'opposizione e le",
-      "description": "Il risultato del referendum in Italia ha visto la vittoria del No, con leader dell'opposizione che festeggiano. In Ticino, questa dinamica potrebbe influenzare",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/referendum-opposizione-ticino.webp`,
-        "width": 1344,
-        "height": 756,
-        "caption": "Panorama di Bellinzona con vista sui valichi di confine tra Ticino e Italia"
-      },
-      "datePublished": "2026-03-24T07:18:02+00:00",
-      "dateModified": "2026-03-24T07:18:02+00:00",
-      "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/referendum-opposizione-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
-      "isAccessibleForFree": true
-    }
-  },
 
   'blog-apprendisti-frontalieri-permessi-g': {
     title: 'Apprendisti frontalieri verso il permesso G per tutta la durata del | Frontaliere Ticino',
