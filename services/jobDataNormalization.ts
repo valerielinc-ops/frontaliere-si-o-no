@@ -109,7 +109,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
   'manor': gFavicon('manor.ch'),
   'medacta-international': 'https://www.medacta.com/images/header/Logo_Medacta.svg',
   'migros-ticino': gFavicon('migros.ch'),
-  'mtic-group': cLogo('mtic.ch'),
+  'mtic-group': gFavicon('mtic-group.org'),
   'oscam': gFavicon('oscam.ch'),
   'pkb-private-bank': cLogo('pkb.ch'),
   'posta-svizzera-centro-regionale': 'https://ohws.prospective.ch/directlink/1002253030/assets/images/logos/post_logo_2023.svg',
