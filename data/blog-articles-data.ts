@@ -6279,4 +6279,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/front-alieri-soci-sagl-nodi-fiscali-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'benzina-cara-ticino',
+    category: 'fiscale',
+    date: '2026-04-08T08:20:42.856Z',
+    image: '/images/blog/benzina-cara-ticino.jpg',
+    hasCalculator: true,
+  },
 ];

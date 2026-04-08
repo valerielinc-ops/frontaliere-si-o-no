@@ -12855,6 +12855,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-benzina-cara-ticino': {
+    title: 'Benzina più cara in Svizzera: ticinesi e frontalieri fanno il pieno in | Frontaliere Ticino',
+    description: 'L\'Italia ha prorogato il taglio delle accise fino al 1° maggio 2026, ma i prezzi della benzina sono saliti di nuovo in Svizzera. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, benzina, cara, ticinesi, fanno',
+    ogTitle: 'Benzina più cara in Svizzera: ticinesi e frontalieri fann',
+    ogDescription: 'L\'Italia ha prorogato il taglio delle accise fino al 1° maggio 2026, ma i prezzi della benzina sono saliti di nuovo in Svizzera.',
+    canonicalPath: '/articoli-frontaliere/benzina-cara-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Benzina più cara in Svizzera: ticinesi e frontalieri fann",
+      "description": "L'Italia ha prorogato il taglio delle accise fino al 1° maggio 2026, ma i prezzi della benzina sono saliti di nuovo in Svizzera. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/benzina-cara-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un lancia a vela sul Lago di Lugano con le montagne del Ticino all'orizzonte"
+      },
+      "datePublished": "2026-04-08T08:20:42+00:00",
+      "dateModified": "2026-04-08T08:20:42+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/benzina-cara-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -2181,6 +2181,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.front-alieri-soci-sagl-nodi-fiscali-2026.title': 'Frontalieri e soci di Sagl: nuovi nodi fiscali tra Italia e Svizzera',
     'blog.article.front-alieri-soci-sagl-nodi-fiscali-2026.excerpt': 'Maggiore attenzione fiscale per lavoratori frontalieri che sono anche soci di Sagl',
     'blog.article.front-alieri-soci-sagl-nodi-fiscali-2026.imageAlt': 'Vista al mattino di Mendrisio con il confine e il traffico transfrontaliero',
+    'blog.article.benzina-cara-ticino.title': 'Benzina più cara in Svizzera: ticinesi e frontalieri fanno il pieno in Italia',
+    'blog.article.benzina-cara-ticino.excerpt': 'L\'Italia ha prorogato il taglio delle accise fino al 1° maggio 2026, ma i prezzi della benzina sono saliti di nuovo in Svizzera.',
+    'blog.article.benzina-cara-ticino.imageAlt': 'Un lancia a vela sul Lago di Lugano con le montagne del Ticino all\'orizzonte',
 };
 
 export default blogMetaIt;

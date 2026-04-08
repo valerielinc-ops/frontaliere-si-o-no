@@ -2181,6 +2181,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.front-alieri-soci-sagl-nodi-fiscali-2026.title': 'Frontaliers et associés de Sagl : nouveaux enjeux fiscaux entre Italie et Suisse',
     'blog.article.front-alieri-soci-sagl-nodi-fiscali-2026.excerpt': 'Une plus grande attention fiscale pour les travailleurs frontaliers qui sont également associés de Sagl 📊💡⚠️',
     'blog.article.front-alieri-soci-sagl-nodi-fiscali-2026.imageAlt': 'Vue du matin à Mendrisio montrant la frontière et le trafic transfrontalier',
+    'blog.article.benzina-cara-ticino.title': 'Essence plus chère en Suisse : les Tessinois et les frontaliers font le plein en Italie',
+    'blog.article.benzina-cara-ticino.excerpt': 'L\'Italie a prolongé la réduction des accises jusqu\'au 1er mai 2026, mais les prix de l\'essence ont augmenté à nouveau en Suisse.',
+    'blog.article.benzina-cara-ticino.imageAlt': 'Un bateau à voile sur le lac de Lugano avec les montagnes du Tessin en arrière-plan',
 };
 
 export default blogMetaFr;

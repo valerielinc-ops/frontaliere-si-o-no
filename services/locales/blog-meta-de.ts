@@ -2181,6 +2181,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.front-alieri-soci-sagl-nodi-fiscali-2026.title': 'Frontalieri und Sagl-Mitgesellschafter: Neue steuerliche Verpflichtungen zwischen Italien und der Schweiz',
     'blog.article.front-alieri-soci-sagl-nodi-fiscali-2026.excerpt': 'Steuerliche Aufmerksamkeit für Arbeiter mit Frontalierstatus, die auch an einer Sagl beteiligt sind 📊💡⚠️',
     'blog.article.front-alieri-soci-sagl-nodi-fiscali-2026.imageAlt': 'Morgensicht von Mendrisio mit der Grenze und dem Grenzverkehr',
+    'blog.article.benzina-cara-ticino.title': 'Teueres Benzin in der Schweiz: Tessiner und Grenzgänger tanken in Italien',
+    'blog.article.benzina-cara-ticino.excerpt': 'Italien hat die Senkung der Mineralölsteuer bis zum 1. Mai 2026 verlängert, aber die Benzinpreise sind in der Schweiz wieder gestiegen.',
+    'blog.article.benzina-cara-ticino.imageAlt': 'Ein Segelboot auf dem Luganersee mit den Bergen des Tessins im Hintergrund',
 };
 
 export default blogMetaDe;
