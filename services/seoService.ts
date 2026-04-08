@@ -1966,6 +1966,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-benzina-cara-ticino': { name: 'Benzina più cara in Svizzera', path: '/articoli-frontaliere/benzina-cara-ticino', parent: 'blog' },
     'blog-incidente-rampa-a9-chiasso-2026': { name: 'Incidenti', path: '/articoli-frontaliere/incidente-rampa-a9-chiasso-2026', parent: 'blog' },
     'blog-tilo-s50-lavori-mal-pensa-varese-2026': { name: 'TILO S50', path: '/articoli-frontaliere/tilo-s50-lavori-mal-pensa-varese-2026', parent: 'blog' },
+    'blog-tilo-s50-modifiche-aprile': { name: 'Trasporti', path: '/articoli-frontaliere/tilo-s50-modifiche-aprile', parent: 'blog' },
   };
 
   const info = sectionNames[section];

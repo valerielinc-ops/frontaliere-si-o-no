@@ -6138,4 +6138,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/tilo-s50-lavori-mal-pensa-varese-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'tilo-s50-modifiche-aprile',
+    category: 'pratico',
+    date: '2026-04-08T18:02:01.051Z',
+    image: '/images/blog/tilo-s50-modifiche-aprile.jpg',
+    hasCalculator: true,
+  },
 ];

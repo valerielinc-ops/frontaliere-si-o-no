@@ -6350,6 +6350,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tilo-s50-modifiche-aprile': {
+    title: 'Modifiche ai collegamenti TILO S50 tra Varese, Gallarate e Malpensa | Frontaliere Ticino',
+    description: 'Scopri le modifiche ai collegamenti TILO S50 tra Varese, Gallarate e Malpensa Aeroporto previste per l\'11 e 12 aprile. Bus sostitutivi e tempi più lunghi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, modifiche, collegamenti, tilo, varese',
+    ogTitle: 'Modifiche TILO S50: Cosa cambia per i frontalieri?',
+    ogDescription: 'L\'11 e 12 aprile i treni TILO S50 subiscono variazioni. Scopri gli orari dei bus sostitutivi e i consigli per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/tilo-s50-modifiche-aprile',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Modifiche ai collegamenti TILO S50 tra Varese, Gallarate e Malpensa Aeroporto",
+      "description": "Scopri le modifiche ai collegamenti TILO S50 tra Varese, Gallarate e Malpensa Aeroporto previste per l'11 e 12 aprile. Bus sostitutivi e tempi più lunghi.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tilo-s50-modifiche-aprile.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Treno TILO S50 in arrivo a Mendrisio, con passeggeri in attesa sulla banchina."
+      },
+      "datePublished": "2026-04-08T18:02:01+00:00",
+      "dateModified": "2026-04-08T18:02:01+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tilo-s50-modifiche-aprile`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

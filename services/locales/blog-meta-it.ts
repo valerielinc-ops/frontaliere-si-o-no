@@ -2136,6 +2136,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tilo-s50-lavori-mal-pensa-varese-2026.title': 'TILO S50: fermate tra Varese e Malpensa cambiano il 11-12 aprile',
     'blog.article.tilo-s50-lavori-mal-pensa-varese-2026.excerpt': 'Sabato 11 e domenica 12 aprile 2026 fermate TILO S50 tra Varese, Gallarate e Malpensa Aeroporto sostituite da bus. Tempi di viaggio allungati, soppressioni e bus sostitutivi in partenza anticipata.',
     'blog.article.tilo-s50-lavori-mal-pensa-varese-2026.imageAlt': 'Malpensa Aeroporto Terminal 2 con taxi in attesa e vista sulle Alpi',
+    'blog.article.tilo-s50-modifiche-aprile.title': 'Modifiche ai collegamenti TILO S50 tra Varese, Gallarate e Malpensa',
+    'blog.article.tilo-s50-modifiche-aprile.excerpt': 'L\'11 e il 12 aprile i treni TILO S50 subiranno variazioni a causa di lavori infrastrutturali. Previsti bus sostitutivi e tempi di percorrenza più lunghi.',
+    'blog.article.tilo-s50-modifiche-aprile.imageAlt': 'Treno TILO S50 in arrivo a Mendrisio, con passeggeri in attesa sulla banchina.',
 };
 
 export default blogMetaIt;

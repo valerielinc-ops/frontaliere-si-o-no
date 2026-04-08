@@ -2136,6 +2136,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tilo-s50-lavori-mal-pensa-varese-2026.title': 'TILO S50: bus replacement for stops between Varese and Malpensa on 11–12 April',
     'blog.article.tilo-s50-lavori-mal-pensa-varese-2026.excerpt': 'On Saturday 11 and Sunday 12 April 2026, TILO S50 services between Varese, Gallarate and Malpensa Airport will be replaced by buses. Travellers should expect longer journey times, cancellations and earlier departures for the replacement buses.',
     'blog.article.tilo-s50-lavori-mal-pensa-varese-2026.imageAlt': 'Malpensa Airport Terminal 2 with waiting taxis and view of the Alps',
+    'blog.article.tilo-s50-modifiche-aprile.title': 'Changes to TILO S50 connections between Varese, Gallarate and Malpensa',
+    'blog.article.tilo-s50-modifiche-aprile.excerpt': 'On April 11 and 12, TILO S50 trains will be subject to changes due to infrastructure work. Replacement buses and longer travel times are expected.',
+    'blog.article.tilo-s50-modifiche-aprile.imageAlt': 'TILO S50 train arriving at Mendrisio station, with passengers waiting on the platform.',
 };
 
 export default blogMetaEn;
