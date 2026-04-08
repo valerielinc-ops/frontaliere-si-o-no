@@ -919,64 +919,9 @@ function assertTaxHealthConsistency(contentIt, sourceContext = null, pageContent
  * Throws if > 50% of specific numbers in the article are not found in the source.
  * For evergreen articles (no source), blocks if > 3 suspiciously precise numbers are present.
  */
-function factCheckNumbers(contentIt, pageContent = '') {
-  const articleText = [
-    contentIt?.body1 || '', contentIt?.body2 || '', contentIt?.body3 || '',
-  ].join(' ');
-
-  // Extract numbers that appear to be part of legal references (DL 167/2024, D.Lgs 241/1997, etc.)
-  // These are legitimate background context, not invented statistics
-  const legalRefNumbers = new Set();
-  const legalPattern = /\b(?:d\.?l\.?g?s?\.?|dpr|l\.)\s*(?:n\.?\s*)?(\d{1,4})\s*\/\s*(\d{4})\b/gi;
-  let lm;
-  while ((lm = legalPattern.exec(articleText)) !== null) {
-    legalRefNumbers.add(lm[1]); // law number (167, 241, 81...)
-    legalRefNumbers.add(lm[2]); // year (2024, 1997, 2008...)
-  }
-  // Also exclude well-known years that appear near "convenzione", "accordo", etc.
-  const contextYears = /(?:convenzione|accordo|trattato)[^.]{0,60}(1\d{3}|20\d{2})/gi;
-  while ((lm = contextYears.exec(articleText)) !== null) {
-    legalRefNumbers.add(lm[1]);
-  }
-
-  const articleNumbers = new Set(
-    (articleText.match(/\b\d[\d.,]*%|\b\d[\d.,]+\b/g) || [])
-      .filter(n => {
-        const val = parseFloat(n.replace(/[.,]/g, ''));
-        if (val <= 10 || (val >= 2020 && val <= 2030)) return false;
-        // Exclude numbers that are part of legal references
-        if (legalRefNumbers.has(n)) return false;
-        return true;
-      })
-  );
-  if (articleNumbers.size === 0) return;
-
-  // Evergreen articles have no real source — be extra strict about invented numbers
-  if (!pageContent || pageContent.length < 100) {
-    // For evergreen: allow common/well-known numbers but flag suspiciously precise ones
-    const suspiciouslyPrecise = [...articleNumbers].filter(n => {
-      // Precise percentages like 73.2%, 42.7% are likely fabricated
-      if (/\d+[.,]\d+%/.test(n)) return true;
-      // Large precise numbers like 47,832 or 156,290 without source
-      const val = parseFloat(n.replace(/[.,]/g, ''));
-      return val > 1000 && val < 1_000_000 && /\d{4,}/.test(n.replace(/[.,]/g, ''));
-    });
-    if (suspiciouslyPrecise.length >= 3) {
-      throw new Error(`Articolo rigettato: ${suspiciouslyPrecise.length} numeri sospettamente precisi senza fonte — possibile allucinazione: ${suspiciouslyPrecise.slice(0, 5).join(', ')}`);
-    }
-    return;
-  }
-
-  const sourceText = pageContent.toLowerCase();
-  const unsourced = [...articleNumbers].filter(n => !sourceText.includes(n));
-  if (unsourced.length > 0) {
-    const ratio = unsourced.length / articleNumbers.size;
-    console.error(`  ⚠️  Fact-check: ${unsourced.length}/${articleNumbers.size} numeri non trovati nella fonte: ${unsourced.slice(0, 8).join(', ')}`);
-    if (unsourced.length >= 3 && ratio > 0.5) {
-      throw new Error(`Articolo rigettato: ${unsourced.length}/${articleNumbers.size} numeri (${(ratio * 100).toFixed(0)}%) non trovati nella fonte — possibile allucinazione.`);
-    }
-  }
-}
+// factCheckNumbers() REMOVED — replaced by LLM-based fact-checking (llmFactCheck).
+// Regex number comparison was fragile: legal reference numbers (D.Lgs 241/1997),
+// convention years (1976), and known tax rates kept causing false positives.
 
 // Known real Swiss/Italian legal references that articles may legitimately cite
 const KNOWN_LEGAL_REFS = new Set([
@@ -1119,9 +1064,11 @@ function assertNoFabricatedReferences(contentIt) {
 }
 
 /**
- * BLOCKING — LLM-based second-pass fact verification.
- * Uses a DIFFERENT model from the generator to cross-check factual claims.
- * Returns { passed: boolean, issues: string[] }
+ * PRIMARY BLOCKING — LLM-based fact verification.
+ * This is the main fact-checking gate. Uses a DIFFERENT model from the generator
+ * to cross-check all factual claims: laws, institutions, rates, statistics, dates.
+ * Falls back through multiple models for robustness.
+ * Returns { passed: boolean, issues: object[] }
  */
 async function llmFactCheck(contentIt, sourceContent = '', sourceUrl = '') {
   const articleText = [
@@ -1132,128 +1079,125 @@ async function llmFactCheck(contentIt, sourceContent = '', sourceUrl = '') {
 
   const isEvergreen = !sourceContent || sourceContent.length < 100 || sourceUrl.startsWith('evergreen://');
 
-  const prompt = `Sei un fact-checker esperto di diritto fiscale svizzero e italiano, specializzato in frontalieri e Canton Ticino.
+  const prompt = `Sei un fact-checker senior specializzato in diritto fiscale svizzero e italiano, con focus specifico su frontalieri e Canton Ticino.
 
 ARTICOLO DA VERIFICARE:
 """
-${articleText.slice(0, 6000)}
+${articleText.slice(0, 8000)}
 """
 
-${isEvergreen ? 'NOTA: Questo è un articolo "evergreen" senza fonte specifica. Verifica con le tue conoscenze.' : `FONTE ORIGINALE:\n"""\n${sourceContent.slice(0, 3000)}\n"""`}
+${isEvergreen ? 'NOTA: Articolo evergreen senza fonte specifica. Verifica basandoti sulle tue conoscenze del dominio.' : `FONTE ORIGINALE:\n"""\n${sourceContent.slice(0, 4000)}\n"""`}
 
-ISTRUZIONI: Analizza l'articolo e identifica SOLO affermazioni FATTUALI VERIFICABILMENTE FALSE. NON segnalare opinioni, imprecisioni minori, o informazioni che non puoi verificare.
+VERIFICA SISTEMATICA — controlla OGNI categoria:
 
-Cerca specificamente:
-1. Leggi, decreti, o articoli di legge INESISTENTI (es. leggi con numeri inventati)
-2. Istituzioni o enti che NON ESISTONO (acronimi inventati, ministeri inesistenti)
-3. Percentuali o cifre precise attribuite a studi/sondaggi MAI realizzati
-4. Date, scadenze, o eventi storici SBAGLIATI (es. date di trattati errate)
-5. Aliquote fiscali, contributi previdenziali, o soglie economiche INVENTATE
-6. Convenzioni internazionali con date o contenuti errati
-7. Affermazioni che contraddicono la fonte originale (se fornita)
-${isEvergreen ? '8. Per articoli evergreen: qualsiasi dato molto specifico (percentuali con decimali, cifre precise) che sembra inventato — in assenza di fonte, meglio rigettare che pubblicare dati falsi' : ''}
+1. **LEGGI E DECRETI**: Ogni riferimento normativo (D.Lgs, DL, DPR, L.) deve esistere realmente con numero e anno corretti. Verifica che il contenuto attribuito alla legge sia corretto.
 
-Rispondi SOLO in formato JSON:
+2. **ISTITUZIONI E ENTI**: Ogni istituzione menzionata deve esistere. Acronimi svizzeri reali: SECO, SEM, SUVA, USTAT, BAG/UFSP, AVS, LPP, LAMal, SUPSI. Acronimi italiani reali: INPS, Agenzia delle Entrate, MEF. Segnala acronimi che non riconosci.
+
+3. **ALIQUOTE E CIFRE FISCALI**: AVS=5.3%, AC=1.1%, IRPEF scaglioni 2024-2026, aliquote cantonali TI. Devono corrispondere ai valori reali.
+
+4. **STATISTICHE E PERCENTUALI**: Percentuali precise con decimali (es. "il 73,2% dei frontalieri") DEVONO provenire da studi reali citati per nome. Senza attribuzione precisa a un ente o studio reale = probabile invenzione.
+
+5. **DATE E EVENTI**: Convenzione italo-svizzera originale = 1974. Nuovo Accordo = firmato 23 dicembre 2020. Verifica tutte le date.
+
+6. **COERENZA CON LA FONTE**: ${isEvergreen ? 'N/A per evergreen.' : "L'articolo NON deve contraddire la fonte né attribuirle informazioni assenti."}
+
+7. **FATTI INVENTATI**: Cerca eventi, conferenze, referendum, proteste che sembrano plausibili ma potrebbero non essere mai avvenuti.
+
+CRITERI DI GIUDIZIO:
+- "critical" = fatto verificabilmente FALSO (legge inesistente, istituzione inventata, aliquota sbagliata, evento mai avvenuto)
+- "major" = fatto sospetto ma non verificabile con certezza (percentuale precisa senza fonte chiara, dato plausibile ma non confermabile)
+- FAIL = almeno 1 critical O almeno 3 major
+- PASS = nessun fatto verificabilmente falso trovato
+
+Rispondi SOLO in JSON valido:
 {
-  "verdict": "PASS" | "FAIL",
-  "confidence": 0.0-1.0,
+  "verdict": "PASS",
+  "confidence": 0.9,
+  "issues": []
+}
+
+oppure:
+
+{
+  "verdict": "FAIL",
+  "confidence": 0.8,
   "issues": [
-    { "claim": "testo dell'affermazione", "reason": "perché è falsa", "severity": "critical" | "major" }
+    { "claim": "testo dell'affermazione", "reason": "perché è falsa", "severity": "critical", "category": "leggi" }
   ]
 }
 
-Se l'articolo è fattualmente corretto o non trovi problemi verificabili, rispondi: {"verdict": "PASS", "confidence": 0.9, "issues": []}
-Se hai dubbi ma non certezze, usa verdict "PASS" con confidence < 0.7.
-SOLO se trovi errori CERTI, usa "FAIL".`;
+Categorie valide per "category": leggi, istituzioni, aliquote, statistiche, date, coerenza, fatti_inventati`;
 
-  try {
-    // Use a DIFFERENT model from the generator for independence
-    const verificationModel = AI_MODELS.GPT_4_1 || AI_MODELS.GPT4O;
-    const raw = await callLLM(
-      [{ role: 'user', content: prompt }],
-      { model: verificationModel, temperature: 0.1, maxTokens: 2000, timeout: 60_000 }
-    );
+  // Try multiple verification models for robustness
+  const verificationModels = [
+    AI_MODELS.GPT_4_1,
+    AI_MODELS.GPT4O,
+    AI_MODELS.GEMINI_FLASH,
+  ].filter(Boolean);
 
-    // Parse response
-    const jsonMatch = raw.match(/\{[\s\S]*\}/);
-    if (!jsonMatch) {
-      console.error('  ⚠️  LLM fact-check: risposta non JSON — skip');
-      return { passed: true, issues: [], raw };
+  for (const model of verificationModels) {
+    try {
+      const raw = await callLLM(
+        [{ role: 'user', content: prompt }],
+        { model, temperature: 0.1, maxTokens: 3000, timeout: 90_000 }
+      );
+
+      const jsonMatch = raw.match(/\{[\s\S]*\}/);
+      if (!jsonMatch) {
+        console.error(`  ⚠️  LLM fact-check (${model}): risposta non JSON — provo modello successivo`);
+        continue;
+      }
+
+      let result;
+      try {
+        result = JSON.parse(jsonMatch[0]);
+      } catch {
+        console.error(`  ⚠️  LLM fact-check (${model}): JSON non valido — provo modello successivo`);
+        continue;
+      }
+
+      const verdict = (result.verdict || '').toUpperCase();
+      const confidence = Number(result.confidence) || 0;
+      const issues = Array.isArray(result.issues) ? result.issues : [];
+      const criticalIssues = issues.filter(i => i.severity === 'critical');
+      const majorIssues = issues.filter(i => i.severity === 'major');
+
+      console.error(`  🔍 LLM fact-check (${model}): verdict=${verdict} confidence=${confidence.toFixed(2)} issues=${issues.length} (critical=${criticalIssues.length}, major=${majorIssues.length})`);
+      for (const issue of issues) {
+        console.error(`     ${issue.severity === 'critical' ? '🚨' : '⚠️'}  [${issue.category || '?'}] "${(issue.claim || '').slice(0, 80)}" — ${(issue.reason || '').slice(0, 100)}`);
+      }
+
+      // BLOCKING: any critical issue at reasonable confidence
+      if (verdict === 'FAIL' && criticalIssues.length > 0 && confidence >= 0.6) {
+        return { passed: false, issues: criticalIssues };
+      }
+
+      // BLOCKING: 3+ major issues suggest a pattern of fabrication
+      if (verdict === 'FAIL' && majorIssues.length >= 3 && confidence >= 0.6) {
+        return { passed: false, issues: majorIssues };
+      }
+
+      // Warn but pass for lower confidence or isolated major issues
+      if (verdict === 'FAIL') {
+        console.error(`  ⚠️  LLM fact-check: FAIL ma confidence bassa (${confidence.toFixed(2)}) o ${majorIssues.length} major isolati — accettato con warning`);
+      }
+
+      return { passed: true, issues };
+    } catch (err) {
+      console.error(`  ⚠️  LLM fact-check (${model}): errore ${err.message} — provo modello successivo`);
+      continue;
     }
-
-    const result = JSON.parse(jsonMatch[0]);
-    const verdict = (result.verdict || '').toUpperCase();
-    const confidence = Number(result.confidence) || 0;
-    const issues = Array.isArray(result.issues) ? result.issues : [];
-    const criticalIssues = issues.filter(i => i.severity === 'critical');
-
-    console.error(`  🔍 LLM fact-check: verdict=${verdict} confidence=${confidence.toFixed(2)} issues=${issues.length} (critical=${criticalIssues.length})`);
-    for (const issue of issues) {
-      console.error(`     ${issue.severity === 'critical' ? '🚨' : '⚠️'}  "${(issue.claim || '').slice(0, 80)}" — ${(issue.reason || '').slice(0, 100)}`);
-    }
-
-    // BLOCKING only on high-confidence FAIL with critical issues
-    if (verdict === 'FAIL' && confidence >= 0.7 && criticalIssues.length > 0) {
-      return { passed: false, issues: criticalIssues };
-    }
-
-    // Warn but pass for lower confidence or major-only issues
-    if (verdict === 'FAIL') {
-      console.error(`  ⚠️  LLM fact-check: FAIL ma confidence bassa (${confidence.toFixed(2)}) o no critical — accettato con warning`);
-    }
-
-    return { passed: true, issues };
-  } catch (err) {
-    // If fact-check fails (API error, timeout), log but don't block — regex checks are primary
-    console.error(`  ⚠️  LLM fact-check errore: ${err.message} — fallback a check regex`);
-    return { passed: true, issues: [], error: err.message };
   }
+
+  // All verification models failed — this is a problem, block to be safe
+  console.error('  🚨 LLM fact-check: TUTTI i modelli di verifica hanno fallito — articolo bloccato per sicurezza');
+  throw new Error('Fact-check impossibile: tutti i modelli di verifica non disponibili. Articolo bloccato per precauzione.');
 }
 
-/**
- * BLOCKING — Detect fabricated statistics with precise decimal percentages.
- * LLMs love to generate things like "il 73,2% dei frontalieri" or "il 42,8% delle aziende"
- * when no real study exists.
- */
-function assertNoFabricatedStatistics(contentIt, pageContent = '') {
-  const articleText = [
-    contentIt?.body1 || '', contentIt?.body2 || '', contentIt?.body3 || '',
-  ].join(' ');
-  const articleLower = articleText.toLowerCase();
-
-  // Find precise decimal percentages (e.g., 73,2%, 42.8%)
-  const precisePercentages = [];
-  const percentPattern = /(\d{2,3})[.,](\d{1,2})\s*%/g;
-  let m;
-  while ((m = percentPattern.exec(articleLower)) !== null) {
-    const full = m[0];
-    const context = articleLower.slice(Math.max(0, m.index - 60), m.index + full.length + 20);
-    // Skip if the number appears in the source content
-    if (pageContent && pageContent.toLowerCase().includes(full)) continue;
-    precisePercentages.push({ value: full, context: context.trim() });
-  }
-
-  if (precisePercentages.length >= 3) {
-    throw new Error(
-      `Articolo rigettato: ${precisePercentages.length} percentuali precise senza fonte (possibile allucinazione):\n` +
-      precisePercentages.slice(0, 4).map(p => `  - ${p.value} in "...${p.context}..."`).join('\n')
-    );
-  }
-
-  // Detect "X su Y" patterns with suspiciously precise numbers
-  const ratioPattern = /(\d{1,2})\s+(?:su|ogni)\s+(\d{1,2})\s+(?:frontalier|lavorator|aziend)/gi;
-  const fabricatedRatios = [];
-  while ((m = ratioPattern.exec(articleLower)) !== null) {
-    if (pageContent && pageContent.toLowerCase().includes(m[0])) continue;
-    fabricatedRatios.push(m[0]);
-  }
-
-  if (fabricatedRatios.length >= 2) {
-    throw new Error(
-      `Articolo rigettato: ${fabricatedRatios.length} rapporti statistici senza fonte: ${fabricatedRatios.join(', ')}`
-    );
-  }
-}
+// assertNoFabricatedStatistics() REMOVED — replaced by LLM-based fact-checking.
+// The LLM understands context ("73,2% dei frontalieri" is likely fabricated vs
+// "5,3% AVS" is a real rate) far better than regex pattern matching.
 
 // ── LLM call with body2 validation (model fallback via centralized ai-models.mjs) ──
 async function callLLM(messages, opts = {}) {
@@ -1944,13 +1888,11 @@ DIVIETI SPECIFICI (BLOCCANTI — l'articolo verrà RIGETTATO automaticamente se 
 - NON inventare rapporti annuali con percentuali precise — cita solo dati verificabili con fonte.
 - Se vuoi citare una legge, usa SOLO queste (verificate): DPR 917/1986 (TUIR), D.Lgs 147/2015, DL 167/2024, L. 207/2024 (Legge di Bilancio 2025), Convenzione 9/12/1976, Nuovo Accordo Frontalieri 2023, D.Lgs 241/1997, DL 78/2010, D.Lgs 286/1998, D.Lgs 81/2008.
 
-SISTEMA DI VERIFICA AUTOMATICA (5 livelli — l'articolo deve superarli TUTTI):
-1. Regex check: ogni legge citata viene verificata contro una whitelist. Una sola legge sconosciuta = rigetto.
-2. Pattern check: istituzioni e acronimi vengono verificati contro pattern noti di allucinazione.
-3. Numeri: se >50% dei numeri nell'articolo non compaiono nella fonte originale = rigetto.
-4. Statistiche: 3+ percentuali decimali precise (es. 73,2%) senza fonte = rigetto.
-5. LLM fact-check: un secondo modello AI verifica indipendentemente ogni affermazione fattuale. Errori critici = rigetto.
-NON provare a ingannare il sistema — è progettato per catturare ogni tipo di allucinazione.
+SISTEMA DI VERIFICA AUTOMATICA (3 livelli — l'articolo deve superarli TUTTI):
+1. Pattern check: istituzioni, acronimi e riferimenti normativi verificati contro whitelist di entità reali. Una sola legge/istituzione sconosciuta = rigetto.
+2. LLM fact-check: un secondo modello AI verifica INDIPENDENTEMENTE ogni affermazione fattuale (leggi, aliquote, date, statistiche, istituzioni). È il gate principale — non lo puoi ingannare.
+3. Test permanente: tutti gli articoli esistenti vengono scansionati a ogni deploy per pattern di allucinazione.
+NON provare a inserire dati inventati — il sistema è progettato per catturare ogni tipo di allucinazione.
 
 ANTI-CLICKBAIT (CRITICO — Google Discover compliance):
 - Il titolo DEVE essere DESCRITTIVO e SPECIFICO: soggetto + azione + contesto.
@@ -4798,19 +4740,7 @@ async function generateAndValidateArticle(url, sourceContext = null) {
       throw consistencyErr;
     }
 
-    // Step 3a.0b: Fact-check — BLOCKING if too many unsourced numbers
-    try {
-      factCheckNumbers(data.content.it, pageContent);
-    } catch (factErr) {
-      console.error(`  ⚠️  ${factErr.message}`);
-      if (attempt < CREATE_ARTICLE_MIN_WORDS_RETRIES) {
-        console.error(`  🔄 Rigenero contenuto IT per numeri non verificati (${attempt}/${CREATE_ARTICLE_MIN_WORDS_RETRIES})...`);
-        continue;
-      }
-      throw factErr;
-    }
-
-    // Step 3a.0c: Fabricated references check — BLOCKING
+    // Step 3a.0b: Fabricated references check — BLOCKING (fast regex pre-filter)
     try {
       assertNoFabricatedReferences(data.content.it);
     } catch (fabErr) {
@@ -4822,40 +4752,25 @@ async function generateAndValidateArticle(url, sourceContext = null) {
       throw fabErr;
     }
 
-    // Step 3a.0d: Fabricated statistics check — BLOCKING
-    try {
-      assertNoFabricatedStatistics(data.content.it, pageContent);
-    } catch (statsErr) {
-      console.error(`  ⚠️  ${statsErr.message}`);
-      if (attempt < CREATE_ARTICLE_MIN_WORDS_RETRIES) {
-        console.error(`  🔄 Rigenero contenuto IT per statistiche inventate (${attempt}/${CREATE_ARTICLE_MIN_WORDS_RETRIES})...`);
-        continue;
-      }
-      throw statsErr;
-    }
-
-    // Step 3a.0e: LLM second-pass fact verification — BLOCKING on high-confidence failures
+    // Step 3a.0c: LLM fact verification — PRIMARY BLOCKING GATE
     try {
       const factResult = await llmFactCheck(data.content.it, pageContent, url);
       if (!factResult.passed) {
-        const issuesSummary = factResult.issues.map(i => `"${(i.claim || '').slice(0, 60)}" — ${(i.reason || '').slice(0, 80)}`).join('; ');
-        const err = new Error(`Articolo rigettato da LLM fact-check: ${factResult.issues.length} problemi critici: ${issuesSummary}`);
+        const issuesSummary = factResult.issues.map(i => `[${i.category || '?'}] "${(i.claim || '').slice(0, 60)}" — ${(i.reason || '').slice(0, 80)}`).join('; ');
+        const err = new Error(`Articolo rigettato da fact-check: ${factResult.issues.length} problemi: ${issuesSummary}`);
         if (attempt < CREATE_ARTICLE_MIN_WORDS_RETRIES) {
-          console.error(`  🔄 Rigenero contenuto IT per fact-check LLM fallito (${attempt}/${CREATE_ARTICLE_MIN_WORDS_RETRIES})...`);
+          console.error(`  🔄 Rigenero contenuto IT per fact-check fallito (${attempt}/${CREATE_ARTICLE_MIN_WORDS_RETRIES})...`);
           continue;
         }
         throw err;
       }
     } catch (fcErr) {
-      // Only throw if it's a fact-check rejection, not an API error
-      if (fcErr.message.startsWith('Articolo rigettato')) {
-        if (attempt < CREATE_ARTICLE_MIN_WORDS_RETRIES) {
-          console.error(`  🔄 Rigenero per fact-check (${attempt}/${CREATE_ARTICLE_MIN_WORDS_RETRIES})...`);
-          continue;
-        }
-        throw fcErr;
+      // Both fact-check rejections AND all-models-failed errors retry
+      if (attempt < CREATE_ARTICLE_MIN_WORDS_RETRIES) {
+        console.error(`  🔄 Rigenero per fact-check: ${fcErr.message.slice(0, 120)} (${attempt}/${CREATE_ARTICLE_MIN_WORDS_RETRIES})...`);
+        continue;
       }
-      // API errors are logged in llmFactCheck — continue
+      throw fcErr;
     }
 
     const itWords = italianBodyWordCount(data);
