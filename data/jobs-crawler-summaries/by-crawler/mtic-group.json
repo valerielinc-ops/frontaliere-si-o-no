@@ -1,48 +1,18 @@
 {
   "key": "mtic-group",
   "label": "MTIC Group",
-  "generatedAt": "2026-04-08T09:48:56.718Z",
+  "generatedAt": "2026-04-08T21:39:44.376Z",
   "total": 5,
-  "newCount": 5,
+  "newCount": 4,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 25294,
-  "avgDurationMs": 25294,
+  "unchangedCount": 1,
+  "durationMs": 32953,
+  "avgDurationMs": 32953,
   "durationHistory": [
-    25294
+    32953
   ],
   "newJobs": [
-    {
-      "title": "Auditors, Technical & Clinical Experts",
-      "slug": "auditors-technical-clinical-experts-mtic-group-lugano-paradiso",
-      "url": "http://spsintercertsa.mtic-group.org/it/opportunita-di-lavoro/open-position-dispositivi-medici",
-      "applyUrl": "http://spsintercertsa.mtic-group.org/it/opportunita-di-lavoro/open-position-dispositivi-medici",
-      "company": "MTIC Group",
-      "companyKey": "mtic-group",
-      "companyDomain": "mtic-group.org",
-      "location": "Lugano Paradiso",
-      "addressLocality": "Lugano Paradiso",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "quality",
-      "sector": "Certificazione e Ispezioni",
-      "source": "mtic-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-04-08",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "_qualityScore": 79,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 20,
-        "completeness": 14
-      }
-    },
     {
       "title": "Back Office / Sales Support Specialist",
       "slug": "back-office-sales-support-specialist-mtic-group-lugano-paradiso",
@@ -166,5 +136,41 @@
   ],
   "updatedJobs": [],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "title": "Auditors, Technical & Clinical Experts",
+      "slug": "auditors-technical-clinical-experts-mtic-group-lugano-paradiso",
+      "url": "http://spsintercertsa.mtic-group.org/it/opportunita-di-lavoro/open-position-dispositivi-medici",
+      "applyUrl": "http://spsintercertsa.mtic-group.org/it/opportunita-di-lavoro/open-position-dispositivi-medici",
+      "company": "MTIC Group",
+      "companyKey": "mtic-group",
+      "companyDomain": "mtic-group.org",
+      "location": "Lugano Paradiso",
+      "addressLocality": "Lugano Paradiso",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "quality",
+      "sector": "Certificazione e Ispezioni",
+      "source": "mtic-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-04-08",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "mtic-group-ce837654ac06",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "postalCode": "6500",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 22
+      }
+    }
+  ]
 }
