@@ -7,9 +7,9 @@
       "slug": "filialleitung-in-vollzeit-m-w-d-laderach-munster",
       "slugByLocale": {
         "de": "filialleitung-in-vollzeit-m-w-d-laderach-munster",
-        "it": "filialleitung-in-vollzeit-m-w-d-laderach-munster",
-        "en": "filialleitung-in-vollzeit-m-w-d-laderach-munster",
-        "fr": "filialleitung-in-vollzeit-m-w-d-laderach-munster"
+        "it": "direzione-filiale-a-tempo-pieno-m-f-d-laderach-schweiz-ag-munster",
+        "en": "branch-manager-full-time-m-f-d-laderach-schweiz-ag-munster",
+        "fr": "direction-de-succursale-a-temps-plein-m-f-d-laderach-schweiz-ag-munster"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -58,7 +58,10 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7000"
+      "postalCode": "7000",
+      "previousSlugs": [
+        "filialleitung-in-vollzeit-m-w-d-laderach-munster"
+      ]
     },
     {
       "id": "laderach-5cd061859e6f",
@@ -3023,7 +3026,7 @@
       "slugByLocale": {
         "it": "formazione-nel-commercio-al-dettaglio-dal-2026-f-m-d-laderach-schweiz-ag-sion",
         "en": "learning-place-in-retail-trade-from-2026-f-m-d-laderach-schweiz-ag-sion",
-        "de": "place-d-apprentissage-dans-le-commerce-de-detail-des-2026-f-m-d-laderach-sion",
+        "de": "lernort-im-einzelhandel-ab-2026-f-m-d-laderach-schweiz-ag-sion",
         "fr": "place-d-apprentissage-dans-le-commerce-de-detail-des-2026-f-m-d-laderach-sion"
       },
       "company": "Läderach (Schweiz) AG",
@@ -3440,7 +3443,7 @@
       "id": "laderach-c384e804c0ca",
       "slug": "tirocinio-nel-dettaglio-efz-da-agosto-2026-h-m-d-laderach-schweiz-ag-luzern",
       "slugByLocale": {
-        "it": "tirocinio-nel-dettaglio-efz-da-agosto-2026-h-m-d-laderach-schweiz-ag-luzern",
+        "it": "apprendistato-im-commercio-al-dettaglio-cfc-ab-august-2026-w-m-d-laderach-schweiz-ag-luzern",
         "en": "lehrstelle-im-detailhandel-efz-ab-august-2026-w-m-d-laderach-luzern",
         "de": "lehrstelle-im-detailhandel-efz-ab-august-2026-w-m-d-laderach-luzern",
         "fr": "stage-dans-le-detail-efz-a-partir-d-aout-2026-h-f-d-laderach-schweiz-ag-luzern"
@@ -3479,7 +3482,8 @@
       "crawledAt": "2026-04-08T09:40:32.189Z",
       "previousSlugs": [
         "lehrstelle-im-detailhandel-efz-ab-august-2026-w-m-d-laderach-luzern",
-        "apprendistato-im-commercio-al-dettaglio-cfc-ab-august-2026-w-m-d-laderach-schweiz-ag-luzern"
+        "apprendistato-im-commercio-al-dettaglio-cfc-ab-august-2026-w-m-d-laderach-schweiz-ag-luzern",
+        "tirocinio-nel-dettaglio-efz-da-agosto-2026-h-m-d-laderach-schweiz-ag-luzern"
       ],
       "sourceLang": "de",
       "salaryMin": 46500,
@@ -3740,7 +3744,7 @@
       "id": "laderach-2227d05ea4c8",
       "slug": "tirocinio-nel-dettaglio-efz-da-agosto-2026-h-m-d-laderach-schweiz-ag-zermatt",
       "slugByLocale": {
-        "it": "tirocinio-nel-dettaglio-efz-da-agosto-2026-h-m-d-laderach-schweiz-ag-zermatt",
+        "it": "apprendistato-im-commercio-al-dettaglio-cfc-ab-august-2026-w-m-d-laderach-schweiz-ag-zermatt",
         "en": "lehrstelle-im-detailhandel-efz-ab-august-2026-w-m-d-laderach-zermatt",
         "de": "lehrstelle-im-detailhandel-efz-ab-august-2026-w-m-d-laderach-zermatt",
         "fr": "apprentissage-en-detail-efz-a-partir-d-aout-2026-h-f-d-laderach-schweiz-ag-zermatt"
@@ -3779,7 +3783,8 @@
       "crawledAt": "2026-04-08T09:40:31.448Z",
       "previousSlugs": [
         "lehrstelle-im-detailhandel-efz-ab-august-2026-w-m-d-laderach-zermatt",
-        "apprendistato-im-commercio-al-dettaglio-cfc-ab-august-2026-w-m-d-laderach-schweiz-ag-zermatt"
+        "apprendistato-im-commercio-al-dettaglio-cfc-ab-august-2026-w-m-d-laderach-schweiz-ag-zermatt",
+        "tirocinio-nel-dettaglio-efz-da-agosto-2026-h-m-d-laderach-schweiz-ag-zermatt"
       ],
       "sourceLang": "de",
       "salaryMin": 46500,
@@ -3920,7 +3925,7 @@
       "id": "laderach-de717e2e4065",
       "slug": "tirocinio-nel-dettaglio-efz-da-agosto-2026-h-m-d-laderach-schweiz-ag-zug",
       "slugByLocale": {
-        "it": "tirocinio-nel-dettaglio-efz-da-agosto-2026-h-m-d-laderach-schweiz-ag-zug",
+        "it": "apprendistato-im-commercio-al-dettaglio-cfc-ab-august-2026-w-m-d-laderach-schweiz-ag-zug",
         "en": "lehrstelle-im-detailhandel-efz-ab-august-2026-w-m-d-laderach-zug",
         "de": "lehrstelle-im-detailhandel-efz-ab-august-2026-w-m-d-laderach-zug",
         "fr": "stage-en-detail-efz-a-partir-d-aout-2026-h-f-d-laderach-schweiz-ag-zug"
@@ -3959,7 +3964,8 @@
       "crawledAt": "2026-04-08T09:40:30.991Z",
       "previousSlugs": [
         "lehrstelle-im-detailhandel-efz-ab-august-2026-w-m-d-laderach-zug",
-        "apprendistato-im-commercio-al-dettaglio-cfc-ab-august-2026-w-m-d-laderach-schweiz-ag-zug"
+        "apprendistato-im-commercio-al-dettaglio-cfc-ab-august-2026-w-m-d-laderach-schweiz-ag-zug",
+        "tirocinio-nel-dettaglio-efz-da-agosto-2026-h-m-d-laderach-schweiz-ag-zug"
       ],
       "sourceLang": "de",
       "salaryMin": 46500,

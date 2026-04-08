@@ -40,8 +40,8 @@
       "slugByLocale": {
         "it": "auditors-technical-clinical-experts-mtic-group-lugano-paradiso",
         "en": "auditors-technical-clinical-experts-mtic-group-lugano-paradiso",
-        "de": "auditors-technical-clinical-experts-mtic-group-lugano-paradiso",
-        "fr": "auditors-technical-clinical-experts-mtic-group-lugano-paradiso"
+        "de": "auditors-technische-klinische-experten-mtic-group-lugano-paradiso",
+        "fr": "auditeurs-experts-techniques-et-clinique-mtic-group-lugano-paradiso"
       },
       "id": "mtic-group-ce837654ac06",
       "salaryMin": 58000,
@@ -57,7 +57,10 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6500"
+      "postalCode": "6500",
+      "previousSlugs": [
+        "auditors-technical-clinical-experts-mtic-group-lugano-paradiso"
+      ]
     }
   ]
 }

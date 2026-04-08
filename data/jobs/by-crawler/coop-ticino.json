@@ -41,9 +41,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "consulente-vendita-do-it-jumbo-tenero-contra-ticino-ax2hqv",
-        "en": "consulente-sales-do-it-jumbo-tenero-contra-ticino-ax2hqv",
-        "de": "consulente-verkauf-do-it-jumbo-tenero-contra-ticino-ax2hqv",
-        "fr": "consulente-vente-do-it-jumbo-tenero-contra-ticino-ax2hqv"
+        "en": "do-it-sales-consultant-jumbo-divisione-di-coop-societa-cooperativa-tenero-contra",
+        "de": "do-it-verkaufsberater-in-jumbo-divisione-di-coop-societa-cooperativa-tenero-contra",
+        "fr": "conseiller-ere-de-vente-do-it-jumbo-divisione-di-coop-societa-cooperativa-tenero-contra"
       },
       "addressLocality": "Tenero-Contra",
       "salaryMin": 58000,
@@ -57,7 +57,12 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "consulente-sales-do-it-jumbo-tenero-contra-ticino-ax2hqv",
+        "consulente-verkauf-do-it-jumbo-tenero-contra-ticino-ax2hqv",
+        "consulente-vente-do-it-jumbo-tenero-contra-ticino-ax2hqv"
+      ]
     },
     {
       "id": "company-aedhb0",
@@ -111,9 +116,9 @@
       },
       "slugByLocale": {
         "it": "autista-cat-ce-f-m-d-coop-castione-ticino-aedhb0",
-        "en": "autista-cat-ce-f-m-d-coop-castione-ticino-aedhb0",
-        "de": "autista-cat-ce-f-m-d-coop-castione-ticino-aedhb0",
-        "fr": "autista-cat-ce-f-m-d-coop-castione-ticino-aedhb0"
+        "en": "driver-cat-ce-f-m-d-coop-genossenschaft-castione",
+        "de": "fahrer-kat-ce-f-m-d-coop-genossenschaft-castione",
+        "fr": "conducteur-cat-ce-f-h-d-coop-genossenschaft-castione"
       },
       "addressLocality": "Castione",
       "salaryMin": 58000,
@@ -127,7 +132,10 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "autista-cat-ce-f-m-d-coop-castione-ticino-aedhb0"
+      ]
     },
     {
       "id": "company-7haru0",
