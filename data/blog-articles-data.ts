@@ -6272,4 +6272,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/tassa-salute-frontalieri.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'front-alieri-soci-sagl-nodi-fiscali-2026',
+    category: 'fiscale',
+    date: '2026-04-08T07:05:08.270Z',
+    image: '/images/blog/front-alieri-soci-sagl-nodi-fiscali-2026.jpg',
+    hasCalculator: true,
+  },
 ];

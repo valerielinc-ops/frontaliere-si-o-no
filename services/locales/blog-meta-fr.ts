@@ -2178,6 +2178,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri.title': 'Tasse de santé frontaliers : la Lombardie ne peut pas s\'exonérer',
     'blog.article.tassa-salute-frontalieri.excerpt': 'La Région Lombardie ne peut pas s\'exonérer de l\'application de la taxe de santé des frontaliers, comme confirmé par le président Attilio Fontana.',
     'blog.article.tassa-salute-frontalieri.imageAlt': 'Travailleurs frontaliers au Tessin',
+    'blog.article.front-alieri-soci-sagl-nodi-fiscali-2026.title': 'Frontaliers et associés de Sagl : nouveaux enjeux fiscaux entre Italie et Suisse',
+    'blog.article.front-alieri-soci-sagl-nodi-fiscali-2026.excerpt': 'Une plus grande attention fiscale pour les travailleurs frontaliers qui sont également associés de Sagl 📊💡⚠️',
+    'blog.article.front-alieri-soci-sagl-nodi-fiscali-2026.imageAlt': 'Vue du matin à Mendrisio montrant la frontière et le trafic transfrontalier',
 };
 
 export default blogMetaFr;

@@ -12826,6 +12826,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-front-alieri-soci-sagl-nodi-fiscali-2026': {
+    title: 'Frontalieri e soci di Sagl: nuovi nodi fiscali tra Italia e Svizzera | Frontaliere Ticino',
+    description: 'Analisi dei nuovi nodi fiscali tra Italia e Svizzera per lavoratori frontalieri che sono anche soci di Sagl. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, soci, sagl, nuovi, nodi',
+    ogTitle: 'Nodi fiscali frontalieri Italia-Svizzera 2026',
+    ogDescription: 'Esploriamo i recenti sviluppi fiscali per i lavoratori transfrontalieri che sono anche soci di Sagl.',
+    canonicalPath: '/articoli-frontaliere/front-alieri-soci-sagl-nodi-fiscali-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri e nodi fiscali tra Italia e Svizzera",
+      "description": "Analisi dei nuovi nodi fiscali tra Italia e Svizzera per lavoratori frontalieri che sono anche soci di Sagl. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/front-alieri-soci-sagl-nodi-fiscali-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista al mattino di Mendrisio con il confine e il traffico transfrontaliero"
+      },
+      "datePublished": "2026-04-08T07:05:08+00:00",
+      "dateModified": "2026-04-08T07:05:08+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/front-alieri-soci-sagl-nodi-fiscali-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

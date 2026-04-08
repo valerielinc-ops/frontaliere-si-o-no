@@ -1979,6 +1979,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-incendi-nel-luganese-arrestato-un-piromane': { name: 'Incendi nel Luganese', path: '/articoli-frontaliere/incendi-nel-luganese-arrestato-un-piromane', parent: 'blog' },
     'blog-tassa-salute-frontalieri-ufis-risposte': { name: 'Tassa Salute Frontalieri', path: '/articoli-frontaliere/tassa-salute-frontalieri-ufis-risposte', parent: 'blog' },
     'blog-tassa-salute-frontalieri': { name: 'Tassa salute frontalieri', path: '/articoli-frontaliere/tassa-salute-frontalieri', parent: 'blog' },
+    'blog-front-alieri-soci-sagl-nodi-fiscali-2026': { name: 'Frontalieri fiscali', path: '/articoli-frontaliere/front-alieri-soci-sagl-nodi-fiscali-2026', parent: 'blog' },
   };
 
   const info = sectionNames[section];

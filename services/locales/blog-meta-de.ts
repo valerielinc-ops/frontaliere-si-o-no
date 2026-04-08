@@ -2178,6 +2178,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri.title': 'Gesundheitssteuer für Grenzgänger: Die Lombardei kann sich nicht entziehen',
     'blog.article.tassa-salute-frontalieri.excerpt': 'Die Region Lombardei kann sich nicht der Anwendung der Gesundheitssteuer für Grenzgänger entziehen, wie der Präsident Attilio Fontana bestätigt hat.',
     'blog.article.tassa-salute-frontalieri.imageAlt': 'Grenzgänger in Tessin',
+    'blog.article.front-alieri-soci-sagl-nodi-fiscali-2026.title': 'Frontalieri und Sagl-Mitgesellschafter: Neue steuerliche Verpflichtungen zwischen Italien und der Schweiz',
+    'blog.article.front-alieri-soci-sagl-nodi-fiscali-2026.excerpt': 'Steuerliche Aufmerksamkeit für Arbeiter mit Frontalierstatus, die auch an einer Sagl beteiligt sind 📊💡⚠️',
+    'blog.article.front-alieri-soci-sagl-nodi-fiscali-2026.imageAlt': 'Morgensicht von Mendrisio mit der Grenze und dem Grenzverkehr',
 };
 
 export default blogMetaDe;

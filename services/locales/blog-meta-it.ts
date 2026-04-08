@@ -2178,6 +2178,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri.title': 'Tassa salute frontalieri: la Lombardia non può sottrarsi',
     'blog.article.tassa-salute-frontalieri.excerpt': 'La Regione Lombardia non può esimersi dall\'applicazione della tassa sulla salute dei frontalieri, come confermato dal presidente Attilio Fontana.',
     'blog.article.tassa-salute-frontalieri.imageAlt': 'Frontalieri al confine italo-svizzero',
+    'blog.article.front-alieri-soci-sagl-nodi-fiscali-2026.title': 'Frontalieri e soci di Sagl: nuovi nodi fiscali tra Italia e Svizzera',
+    'blog.article.front-alieri-soci-sagl-nodi-fiscali-2026.excerpt': 'Maggiore attenzione fiscale per lavoratori frontalieri che sono anche soci di Sagl',
+    'blog.article.front-alieri-soci-sagl-nodi-fiscali-2026.imageAlt': 'Vista al mattino di Mendrisio con il confine e il traffico transfrontaliero',
 };
 
 export default blogMetaIt;

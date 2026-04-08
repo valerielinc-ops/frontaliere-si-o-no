@@ -2178,6 +2178,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri.title': 'Health tax for cross-border workers: Lombardy cannot opt out',
     'blog.article.tassa-salute-frontalieri.excerpt': 'The Lombardy Region cannot exempt itself from applying the health tax to cross-border workers, as confirmed by President Attilio Fontana.',
     'blog.article.tassa-salute-frontalieri.imageAlt': 'Cross-border workers in Ticino',
+    'blog.article.front-alieri-soci-sagl-nodi-fiscali-2026.title': 'Frontalieri e soci di Sagl: nuovi nodi fiscali tra Italia e Svizzera',
+    'blog.article.front-alieri-soci-sagl-nodi-fiscali-2026.excerpt': 'Maggiore attenzione fiscale per lavoratori frontalieri che sono anche soci di Sagl',
+    'blog.article.front-alieri-soci-sagl-nodi-fiscali-2026.imageAlt': 'Morning view of Mendrisio showing the border and cross-border traffic',
 };
 
 export default blogMetaEn;
