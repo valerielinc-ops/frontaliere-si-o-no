@@ -49,7 +49,7 @@ jobs:
         run: cd functions && npm ci
 
       - name: Deploy Cloud Functions
-        run: firebase deploy --only functions --project frontaliere-ticino
+        run: firebase deploy --only functions --project frontaliere-ticino --force
 
       - name: Report failure to Linear
         if: failure()
