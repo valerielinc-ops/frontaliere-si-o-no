@@ -216,7 +216,10 @@ async function sendViaMailgun(email) {
   const domain = process.env.MAILGUN_DOMAIN;
   const auth = Buffer.from(`api:${apiKey}`).toString('base64');
 
-  const form = new URLSearchParams();
+  // Use FormData (multipart/form-data) instead of URLSearchParams —
+  // Mailgun recommends multipart for large HTML emails, and URLSearchParams
+  // URL-encodes the body which can cause partial click-tracking link rewriting.
+  const form = new FormData();
   form.append('from', email.from);
   const toAddrs = Array.isArray(email.to) ? email.to : [email.to];
   for (const addr of toAddrs) form.append('to', addr);
@@ -229,6 +232,12 @@ async function sendViaMailgun(email) {
   form.append('o:tracking-opens', 'yes');
   if (email.tags?.length) {
     for (const tag of email.tags) form.append('o:tag', tag.value);
+  }
+  // Forward custom email headers (List-Unsubscribe, etc.)
+  if (email.headers && typeof email.headers === 'object') {
+    for (const [key, value] of Object.entries(email.headers)) {
+      form.append(`h:${key}`, value);
+    }
   }
 
   const res = await fetch(`https://api.eu.mailgun.net/v3/${domain}/messages`, {

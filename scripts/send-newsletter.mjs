@@ -310,7 +310,9 @@ function makeAuthenticatedUrl(targetUrl, email, customToken) {
   url.searchParams.set('newsletter_source', 'weekly');
   url.searchParams.set('subscriber_key', hashEmail(email));
   if (customToken) url.searchParams.set('authToken', customToken);
-  return url.toString();
+  // Use &amp; in href attributes — proper HTML encoding ensures Mailgun's
+  // click-tracking link rewriter can parse all URLs reliably.
+  return url.toString().replace(/&/g, '&amp;');
 }
 
 function shouldWrapNewsletterHref(rawHref) {
