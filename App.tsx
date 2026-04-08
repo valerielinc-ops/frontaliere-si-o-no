@@ -460,8 +460,9 @@ const App: React.FC = () => {
         const action = url.searchParams.get('action');
         if (action === 'unsubscribe' || action === 'resubscribe') return;
 
-        // Read email before stripping params (support short 'ne' and legacy 'newsletter_email')
-        const email = normalizeNewsletterEmail(url.searchParams.get('ne') || url.searchParams.get('newsletter_email') || '');
+        // Read email before stripping params (support short 'ne', legacy 'newsletter_email',
+        // and 'email' fallback for confirmation links that share the 'email' param)
+        const email = normalizeNewsletterEmail(url.searchParams.get('ne') || url.searchParams.get('newsletter_email') || url.searchParams.get('email') || '');
 
         // Strip newsletter params from URL right away
         if (hadNewsletterParams) {
