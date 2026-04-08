@@ -37,6 +37,7 @@ const PROVIDERS = [
 // In-memory daily counters (reset on new UTC day)
 const _counters = {};
 let _counterDate = '';
+let _quotasSynced = false;
 
 function getTodayUTC() {
   return new Date().toISOString().slice(0, 10);
@@ -45,9 +46,9 @@ function getTodayUTC() {
 function getCounter(providerId) {
   const today = getTodayUTC();
   if (_counterDate !== today) {
-    // New day — reset all counters
     _counterDate = today;
     for (const p of PROVIDERS) _counters[p.id] = 0;
+    _quotasSynced = false;
   }
   return _counters[providerId] || 0;
 }
@@ -61,6 +62,97 @@ function remainingQuota(providerId) {
   const provider = PROVIDERS.find(p => p.id === providerId);
   if (!provider) return 0;
   return Math.max(0, provider.dailyLimit - getCounter(providerId));
+}
+
+// ── Real quota sync via provider APIs ────────────────────────
+
+async function fetchMailgunDailyUsage() {
+  const apiKey = process.env.MAILGUN_API_KEY;
+  const domain = process.env.MAILGUN_DOMAIN || 'frontaliereticino.ch';
+  if (!apiKey) return 0;
+  try {
+    const res = await fetch(
+      `https://api.eu.mailgun.net/v3/${domain}/stats/total?event=accepted&duration=1d`,
+      { headers: { Authorization: 'Basic ' + Buffer.from('api:' + apiKey).toString('base64') } }
+    );
+    if (!res.ok) return 0;
+    const data = await res.json();
+    return data.stats?.[0]?.accepted?.outgoing || 0;
+  } catch { return 0; }
+}
+
+async function fetchMailjetDailyUsage() {
+  const apiKey = process.env.MAILJET_API_KEY;
+  const secretKey = process.env.MAILJET_SECRET_KEY;
+  if (!apiKey || !secretKey) return 0;
+  try {
+    const today = getTodayUTC();
+    const auth = Buffer.from(apiKey + ':' + secretKey).toString('base64');
+    const res = await fetch(
+      `https://api.mailjet.com/v3/REST/statcounters?CounterSource=APIKey&CounterTiming=Message&CounterResolution=Day&FromTS=${today}T00:00:00Z&ToTS=${today}T23:59:59Z`,
+      { headers: { Authorization: 'Basic ' + auth } }
+    );
+    if (!res.ok) return 0;
+    const data = await res.json();
+    let total = 0;
+    for (const row of data.Data || []) {
+      total += (row.MessageSentCount || 0) + (row.MessageQueuedCount || 0);
+    }
+    return total;
+  } catch { return 0; }
+}
+
+async function fetchUnosendDailyUsage() {
+  const apiKey = process.env.UNOSEND_API_KEY;
+  if (!apiKey) return 0;
+  try {
+    const today = getTodayUTC();
+    const res = await fetch('https://api.unosend.co/v1/emails?limit=100', {
+      headers: { Authorization: 'Bearer ' + apiKey }
+    });
+    if (!res.ok) return 0;
+    const data = await res.json();
+    return (data.data || []).filter(e => e.sent_at?.startsWith(today)).length;
+  } catch { return 0; }
+}
+
+async function fetchResendDailyUsage() {
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) return 0;
+  try {
+    const res = await fetch('https://api.resend.com/emails', {
+      headers: { Authorization: 'Bearer ' + apiKey }
+    });
+    if (!res.ok) return 0;
+    const data = await res.json();
+    const today = getTodayUTC();
+    return (data.data || []).filter(e => e.created_at?.startsWith(today)).length;
+  } catch { return 0; }
+}
+
+/**
+ * Sync in-memory counters with real provider usage for today.
+ * Called once per cascade run. Falls back to 0 on API errors (safe: may overshoot quota slightly).
+ */
+async function syncQuotasFromAPIs() {
+  if (_quotasSynced && _counterDate === getTodayUTC()) return;
+
+  console.log('📊 Syncing quotas from provider APIs...');
+  const [mailgun, mailjet, unosend, resend] = await Promise.all([
+    fetchMailgunDailyUsage(),
+    fetchMailjetDailyUsage(),
+    fetchUnosendDailyUsage(),
+    fetchResendDailyUsage(),
+  ]);
+
+  _counterDate = getTodayUTC();
+  _counters.mailgun = mailgun;
+  _counters.mailjet = mailjet;
+  _counters.unosend = unosend;
+  _counters.resend = resend;
+  _quotasSynced = true;
+
+  console.log(`   Usage today: mailgun=${mailgun}/100, mailjet=${mailjet}/200, unosend=${unosend}/200, resend=${resend}/100`);
 }
 
 // ── Provider availability check ──────────────────────────────
@@ -276,6 +368,9 @@ export async function sendEmailCascade(emails, opts = {}) {
   const sent = [];
   const failed = [];
 
+  // Sync counters with real provider usage before sending
+  await syncQuotasFromAPIs();
+
   // Log available providers
   const available = PROVIDERS.filter(p => isProviderConfigured(p.id));
   if (available.length === 0) {
@@ -359,4 +454,4 @@ function parseEmailAddress(from) {
   return { email: String(from).trim() };
 }
 
-export { PROVIDERS, remainingQuota, isProviderConfigured };
+export { PROVIDERS, remainingQuota, isProviderConfigured, syncQuotasFromAPIs };
