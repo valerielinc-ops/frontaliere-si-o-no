@@ -142,14 +142,6 @@ function normalizeKey(value = '') {
     .replace(/^-+|-+$/g, '');
 }
 
-function detectLang(text = '') {
-  const t = ` ${normalize(text)} `;
-  if (/( das | und | bei uns | stellenbeschreibung | arbeitsort )/.test(t)) return 'de';
-  if (/( the | with | requirements | apply now | we are looking | join )/.test(t)) return 'en';
-  if (/( il | la | con | requisiti | candidati | ruolo | posizione )/.test(t)) return 'it';
-  if (/( le | la | avec | exigences | poste | nous cherchons )/.test(t)) return 'fr';
-  return 'en'; // Medacta default is English
-}
 
 /**
  * Normalize Medacta source category from Allibo.
