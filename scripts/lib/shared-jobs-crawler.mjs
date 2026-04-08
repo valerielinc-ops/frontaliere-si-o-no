@@ -57,7 +57,7 @@ import {
   isJobPortalRelevant as _isJobPortalRelevant,
   isExplicitlyOutsideTarget as _isExplicitlyOutsideTarget,
   isLocationExplicitlyForeign as _isLocationExplicitlyForeign,
-  isExplicitlyOutsideSwissTicino as _isExplicitlyOutsideSwissTicino,
+  isExplicitlyOutsideTargetCantons as _isExplicitlyOutsideTargetCantons,
   recencyTs as _recencyTs,
   mergeRequirements as _mergeRequirements,
   mergeLocaleTextMap as _mergeLocaleTextMap,
@@ -146,7 +146,7 @@ const hasSeedMetaTargetScope = _hasSeedMetaTargetScope;
 const isJobPortalRelevant = _isJobPortalRelevant;
 const isExplicitlyOutsideTarget = _isExplicitlyOutsideTarget;
 const isLocationExplicitlyForeign = _isLocationExplicitlyForeign;
-const isExplicitlyOutsideSwissTicino = _isExplicitlyOutsideSwissTicino;
+const isExplicitlyOutsideTargetCantons = _isExplicitlyOutsideTargetCantons;
 const recencyTs = _recencyTs;
 const mergeRequirements = _mergeRequirements;
 const mergeLocaleTextMap = _mergeLocaleTextMap;
@@ -3196,7 +3196,7 @@ async function crawlWorkdayJobs(company, source, crawlerConfig, knownJobUrls = n
       }
       const geoSignal = `${title} ${location} ${descriptionSeed}`;
       if (isLocationExplicitlyForeign(location)) continue;
-      if (isExplicitlyOutsideTarget(geoSignal) || isExplicitlyOutsideSwissTicino(geoSignal)) continue;
+      if (isExplicitlyOutsideTarget(geoSignal) || isExplicitlyOutsideTargetCantons(geoSignal)) continue;
       if (!location && !isTargetSwissLocation(`${title} ${descriptionSeed}`)) continue;
       if (!location) location = company.city || 'Ticino';
       if (!isTargetSwissLocation(`${title} ${location} ${descriptionSeed}`)) continue;
@@ -3599,7 +3599,7 @@ function toJobFromJsonLd(node, fallbackCompany, sourcePageUrl, options = {}) {
     return { job: null, reason: 'jsonld_commercial_promo_page' };
   }
   if (isLocationExplicitlyForeign(location) && !seedMetaRelevant) return { job: null, reason: 'jsonld_location_explicitly_foreign' };
-  if ((isExplicitlyOutsideTarget(mergedLocText) || isExplicitlyOutsideSwissTicino(mergedLocText)) && !seedMetaRelevant) {
+  if ((isExplicitlyOutsideTarget(mergedLocText) || isExplicitlyOutsideTargetCantons(mergedLocText)) && !seedMetaRelevant) {
     return { job: null, reason: 'jsonld_explicitly_outside_target' };
   }
   if (!isTargetSwissLocation(mergedLocText) && !seedMetaRelevant) return { job: null, reason: 'jsonld_not_target_relevant' };
@@ -3760,7 +3760,7 @@ function toJobFromHtmlFallback(html, pageUrl, companyName, companyCity, options 
   const geoSignalExplicit = `${title} ${locationMatch || ''} ${description} ${pageUrl}`;
   const geoSignal = `${title} ${location} ${description}`;
   if (isLocationExplicitlyForeign(locationMatch) && !seedMetaRelevant) return { job: null, reason: 'html_location_explicitly_foreign' };
-  if ((isExplicitlyOutsideTarget(geoSignal) || isExplicitlyOutsideSwissTicino(geoSignal)) && !seedMetaRelevant) {
+  if ((isExplicitlyOutsideTarget(geoSignal) || isExplicitlyOutsideTargetCantons(geoSignal)) && !seedMetaRelevant) {
     return { job: null, reason: 'html_explicitly_outside_target' };
   }
   if (!isTargetSwissLocation(geoSignalExplicit) && !seedMetaRelevant) return { job: null, reason: 'html_not_target_relevant' };

@@ -9,7 +9,7 @@ import {
   localizeJobContentWithPipeline,
 } from './job-localization-pipeline.mjs';
 import { hardenJobsWithStructuredSalary } from './structured-salary.mjs';
-import { normalizeCantonCode, isTargetSwissLocation, TICINO_CITIES } from './target-swiss-locations.mjs';
+import { normalizeCantonCode, isTargetSwissLocation, isTargetCanton, TICINO_CITIES, GRIGIONI_CITIES } from './target-swiss-locations.mjs';
 let _aiModels = null;
 try { _aiModels = await import('./ai-models.mjs'); } catch { /* ai-models not available */ }
 import {
@@ -4038,7 +4038,7 @@ export function hasSeedMetaTargetScope(job = {}) {
   const scope = getJobTargetScope(job);
   if (!scope) return false;
   const canton = normalizeCantonCode(scope.canton || job?.canton || '');
-  if (canton === 'TI' || canton === 'GR') return true;
+  if (canton && isTargetCanton(canton)) return true;
   const location = normalizeSpace(scope.location || '');
   if (!location) return false;
   return isTargetSwissLocation(location);
@@ -4099,7 +4099,11 @@ export function isExplicitlyOutsideTarget(text) {
   ];
   const hitOutside = outsideMarkers.some((k) => lower.includes(k));
   if (!hitOutside) return false;
-  return !/(ticino|lugano|bellinzona|mendrisio|chiasso|svizzera|switzerland|schweiz)/i.test(lower);
+  // Safeguard: if text also mentions any target Swiss location, it's not outside
+  if (/(svizzera|switzerland|schweiz|suisse)/i.test(lower)) return false;
+  const allTargetCities = [...TICINO_CITIES, ...GRIGIONI_CITIES];
+  if (allTargetCities.some((c) => lower.includes(c.toLowerCase()))) return false;
+  return true;
 }
 
 /**
@@ -4109,8 +4113,9 @@ export function isLocationExplicitlyForeign(locationField) {
   const lower = String(locationField || '').toLowerCase();
   if (!lower || lower.length < 3) return false;
   if (/(\bch\b|swiss|svizzera|switzerland|schweiz|suisse)/i.test(lower)) return false;
-  if (/\b(ticino|tessin|ti)\b/i.test(lower)) return false;
-  if (TICINO_CITIES.some((c) => lower.includes(c.toLowerCase()))) return false;
+  if (/\b(ticino|tessin|ti|graubunden|graubünden|grigioni|grisons|gr)\b/i.test(lower)) return false;
+  const allTargetCities = [...TICINO_CITIES, ...GRIGIONI_CITIES];
+  if (allTargetCities.some((c) => lower.includes(c.toLowerCase()))) return false;
   const foreignCountries = [
     'malaysia', 'italy', 'italia', 'france', 'germany', 'deutschland',
     'austria', 'österreich', 'spain', 'españa', 'portugal',
@@ -4132,20 +4137,22 @@ export function isLocationExplicitlyForeign(locationField) {
     'amsterdam', 'brussels', 'bruxelles', 'stockholm', 'oslo', 'copenhagen',
     'tokyo', 'beijing', 'shanghai', 'singapore', 'bangkok', 'mumbai',
     'dubai', 'new york', 'los angeles', 'toronto', 'sydney', 'melbourne',
-    'zurich', 'zürich', 'bern', 'berne', 'basel', 'lausanne', 'geneva', 'genève',
-    'fribourg', 'neuchatel', 'neuchâtel', 'winterthur', 'zug', 'aarau', 'lucerne', 'luzern',
   ];
   return foreignCountries.some((k) => lower.includes(k)) || foreignCities.some((k) => lower.includes(k));
 }
 
-export function isExplicitlyOutsideSwissTicino(text) {
+export function isExplicitlyOutsideTargetCantons(text) {
   const lower = String(text || '').toLowerCase();
   if (!lower) return false;
-  if (/\b(ticino|canton ticino|cantone ticino|ch-ti)\b/i.test(lower)) return false;
+  // Safeguard: if text mentions any target canton, not outside
+  if (isTargetSwissLocation(lower)) return false;
+  // Check if text contains a PLZ + canton code pattern for a non-target canton
   if (/\b(?:ch-?)?\d{4}\s+[a-zà-öø-ÿ'().\-\s]{2,80}\s+(ag|ai|ar|be|bl|bs|fr|ge|gl|gr|ju|lu|ne|nw|ow|sg|sh|so|sz|tg|ur|vd|vs|zg|zh)\b/i.test(lower)) {
-    return true;
+    const match = lower.match(/\b(ag|ai|ar|be|bl|bs|fr|ge|gl|gr|ju|lu|ne|nw|ow|sg|sh|so|sz|tg|ur|vd|vs|zg|zh)\b/i);
+    if (match && !isTargetCanton(match[1].toUpperCase())) return true;
   }
-  const nonTiCantonsCities = [
+  // Check well-known non-target Swiss cities
+  const nonTargetCities = [
     'bern', 'berne', 'zuerich', 'zürich', 'basel', 'lausanne', 'geneva', 'genève',
     'fribourg', 'neuchatel', 'luzern', 'lucerne', 'winterthur', 'aarau', 'zug',
     'st. gallen', 'sankt gallen', 'thun', 'biel', 'bienne',
@@ -4153,8 +4160,12 @@ export function isExplicitlyOutsideSwissTicino(text) {
     'pratteln', 'muttenz', 'olten', 'langenthal', 'burgdorf', 'emmen', 'kriens',
     'köniz', 'ostermundigen', 'schaffhausen', 'frauenfeld', 'wil sg', 'rapperswil',
     'uster', 'dübendorf', 'kloten', 'wetzikon', 'volketswil', 'spreitenbach',
-  ];
-  return nonTiCantonsCities.some((k) => lower.includes(k));
+  ].filter((city) => {
+    // Only consider it "outside" if the city is NOT in a target canton
+    // For now we keep the static list but it will be empty when TARGET_CANTONS = all 26
+    return true; // Will be replaced with DB lookup in Phase 5
+  });
+  return nonTargetCities.some((k) => lower.includes(k));
 }
 
 export function recencyTs(job) {
@@ -4505,13 +4516,13 @@ export function getMergeExclusionReasons(job, qualityCfg) {
   if (!isLikelyJobDetailUrl(job.url || '') && !hasSeedMetaTargetScope(job)) reasons.push('non_detail_url');
   if (/linkedin\.com/i.test(String(job.url || ''))) reasons.push('linkedin_url');
   if (isLocationExplicitlyForeign(job.location) && !hasSeedMetaTargetScope(job)) reasons.push('location_explicitly_foreign');
-  if (!isJobPortalRelevant(job)) reasons.push('not_ticino_relevant');
+  if (!isJobPortalRelevant(job)) reasons.push('not_target_relevant');
   {
     const signal = `${job.title} ${job.location} ${job.description}`;
     const hasLocalPrimaryScope = isTargetSwissLocation(job.location || '');
     if (!hasLocalPrimaryScope) {
       if (isExplicitlyOutsideTarget(signal) && !hasSeedMetaTargetScope(job)) reasons.push('explicitly_outside_target');
-      if (isExplicitlyOutsideSwissTicino(signal) && !hasSeedMetaTargetScope(job)) reasons.push('outside_swiss_ticino');
+      if (isExplicitlyOutsideTargetCantons(signal) && !hasSeedMetaTargetScope(job)) reasons.push('outside_target_cantons');
     }
   }
   const quality = evaluateJobQuality(job, qualityCfg);

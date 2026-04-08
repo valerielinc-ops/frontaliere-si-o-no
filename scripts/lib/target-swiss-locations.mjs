@@ -1,3 +1,5 @@
+import { TARGET_CANTONS, SWISS_CANTONS, isTargetCanton } from './crawler-location-config.mjs';
+
 function normalizeSpace(value = '') {
   return String(value || '')
     .replace(/\u00a0/g, ' ')
@@ -150,14 +152,57 @@ export function inferSwissTargetCanton(text = '') {
   return '';
 }
 
+/**
+ * Infer canton code from text, checking ALL 26 Swiss cantons (not just target).
+ * Useful when you need to know what canton a job is in regardless of target scope.
+ */
+export function inferAnyCanton(text = '') {
+  // Check TI/GR first (most common in our dataset)
+  const target = inferSwissTargetCanton(text);
+  if (target) return target;
+  // Check all other cantons via their names/aliases
+  const lower = normalizeSwissTargetLocationText(text);
+  if (!lower) return '';
+  for (const [code, canton] of Object.entries(SWISS_CANTONS)) {
+    if (code === 'TI' || code === 'GR') continue; // already checked
+    if (canton.names.some((name) => {
+      const norm = name.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+      return norm.length < 6
+        ? new RegExp(`\\b${norm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i').test(lower)
+        : lower.includes(norm);
+    })) {
+      return code;
+    }
+  }
+  return '';
+}
+
 export function normalizeCantonCode(raw = '') {
   const lower = normalizeSwissTargetLocationText(raw);
   if (!lower) return '';
-  if (['ti', 'ticino', 'tessin', 'ticin'].includes(lower)) return 'TI';
-  if (['gr', 'grigioni', 'grischun', 'graubunden', 'graubünden', 'grisons'].includes(lower)) return 'GR';
+  // Fast path for 2-letter codes
+  const upper = lower.toUpperCase();
+  if (SWISS_CANTONS[upper]) return upper;
+  // Search all canton names/aliases
+  for (const [code, canton] of Object.entries(SWISS_CANTONS)) {
+    if (canton.names.some((name) => name === lower || lower === name.normalize('NFD').replace(/[\u0300-\u036f]/g, ''))) {
+      return code;
+    }
+  }
   return '';
 }
 
 export function isTargetSwissLocation(text = '', { includeGrigioni = true } = {}) {
-  return isTicinoRelevant(text) || (includeGrigioni && isGrigioniRelevant(text));
+  if (isTicinoRelevant(text) && isTargetCanton('TI')) return true;
+  if (includeGrigioni && isGrigioniRelevant(text) && isTargetCanton('GR')) return true;
+  // If TARGET_CANTONS includes cantons beyond TI/GR, check via inferAnyCanton
+  const hasNonTiGr = TARGET_CANTONS.some((c) => c !== 'TI' && c !== 'GR');
+  if (hasNonTiGr) {
+    const canton = inferAnyCanton(text);
+    if (canton && isTargetCanton(canton)) return true;
+  }
+  return false;
 }
+
+// Re-export for convenience
+export { TARGET_CANTONS, isTargetCanton } from './crawler-location-config.mjs';
