@@ -97,8 +97,8 @@
       "slugByLocale": {
         "it": "technician-avionics-contratto-fino-al-30-06-2030-100-f-m-d-ruag-ag-lodrino",
         "en": "technician-avionics-contratto-fino-al-30-06-2030-100-f-m-d-ruag-ag-lodrino",
-        "de": "technician-avionics-contratto-fino-al-30-06-2030-100-f-m-d-ruag-ag-lodrino",
-        "fr": "technician-avionics-contratto-fino-al-30-06-2030-100-f-m-d-ruag-ag-lodrino"
+        "de": "avioniktechniker-vertrag-bis-30-06-2030-100-m-w-d-ruag-ag-lodrino",
+        "fr": "technicien-avionique-contrat-jusqu-au-30-06-2030-100-h-f-d-ruag-ag-lodrino"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -114,7 +114,10 @@
         }
       },
       "streetAddress": "Via Campagna",
-      "postalCode": "6517"
+      "postalCode": "6517",
+      "previousSlugs": [
+        "technician-avionics-contratto-fino-al-30-06-2030-100-f-m-d-ruag-ag-lodrino"
+      ]
     },
     {
       "title": "Technician Aircraft Mechanic 100% (f/m/d)",
