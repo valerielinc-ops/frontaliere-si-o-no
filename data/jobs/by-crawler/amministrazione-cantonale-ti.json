@@ -1,10 +1,10 @@
 {
   "crawlerKey": "amministrazione-cantonale-ti",
-  "assembledAt": "2026-04-08T07:47:34.726Z",
+  "assembledAt": "2026-04-08T10:03:49.325Z",
   "jobs": [
     {
       "id": "company-213ie5",
-      "slug": "capo-arte-a-tempo-parziale-90-presso-le-strutture-carcerarie-lugano-cadro-orario-di-lavoro-42-ore-settimanali-per-un-rapporto-d-impiego-al-1-213ie5",
+      "slug": "capo-arte-a-tempo-parziale-90-presso-le-strutture-carceraria-lugano-cadro-amministrazione-cantonale-ticino-bellinzona",
       "company": "Amministrazione Cantonale Ticino",
       "title": "Capo arte a tempo parziale (90%), presso le Strutture carcerarie, Lugano-Cadro",
       "location": "Lugano",
@@ -37,7 +37,7 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "capo-arte-a-tempo-parziale-90-presso-le-strutture-carcerarie-lugano-cadro-orario-di-lavoro-42-ore-settimanali-per-un-rapporto-d-impiego-al-1-213ie5",
+        "it": "capo-arte-a-tempo-parziale-90-presso-le-strutture-carceraria-lugano-cadro-amministrazione-cantonale-ticino-bellinzona",
         "en": "part-time-head-chef-90-at-prison-facilities-lugano-cadro-amministrazione-cantonale-ticino-lugano",
         "de": "teilzeit-kuchenchef-90-in-justizvollzugsanstalten-lugano-cadro-amministrazione-cantonale-ticino-lugano",
         "fr": "capo-arte-a-tempo-parziale-90-presso-le-strutture-carcerarie-lugano-cadro-amministrazione-cantonale-ticino-lugano"
@@ -46,7 +46,8 @@
       "previousSlugs": [
         "capo-arte-a-tempo-parziale-90-presso-le-strutture-carcerarie-lugano-cadro-orario-di-lavoro-42-ore-settimanali-per-un-rapporto-d-impiego-al-1",
         "capo-arte-a-tempo-parziale-90-presso-le-strutture-carcerarie-lugano-cadro-amministrazione-cantonale-ticino-lugano-213ie5",
-        "capo-arte-a-tempo-parziale-90-presso-le-strutture-carcerarie-lugano-cadro-amministrazione-cantonale-ticino-bellinzona"
+        "capo-arte-a-tempo-parziale-90-presso-le-strutture-carcerarie-lugano-cadro-amministrazione-cantonale-ticino-bellinzona",
+        "capo-arte-a-tempo-parziale-90-presso-le-strutture-carcerarie-lugano-cadro-orario-di-lavoro-42-ore-settimanali-per-un-rapporto-d-impiego-al-1-213ie5"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -441,7 +442,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-213j0o",
@@ -565,7 +567,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-213j0g",
