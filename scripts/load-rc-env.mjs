@@ -98,6 +98,7 @@ const RC_TO_ENV = {
   NVIDIA_API_KEY:                 ['NVIDIA_API_KEY', 'NVIDIA_NIM_API_KEY'],
   HUGGINGFACE_API_KEY:            ['HUGGINGFACE_API_KEY'],
   SAMBANOVA_API_KEY:              ['SAMBANOVA_API_KEY'],
+  COHERE_API_KEY:                 ['COHERE_API_KEY'],
 
   // Image generation providers
   TOGETHER_API_KEY:               ['TOGETHER_API_KEY'],
