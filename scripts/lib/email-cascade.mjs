@@ -164,7 +164,7 @@ async function sendViaMailgun(email) {
     for (const tag of email.tags) form.append('o:tag', tag.value);
   }
 
-  const res = await fetch(`https://api.mailgun.net/v3/${domain}/messages`, {
+  const res = await fetch(`https://api.eu.mailgun.net/v3/${domain}/messages`, {
     method: 'POST',
     headers: { Authorization: `Basic ${auth}` },
     body: form,
