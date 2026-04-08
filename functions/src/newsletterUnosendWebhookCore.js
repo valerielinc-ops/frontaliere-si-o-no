@@ -43,6 +43,7 @@ function mapUnosendEvent(type) {
     case 'email.opened':        return 'open';
     case 'email.clicked':       return 'click';
     case 'email.bounced':       return 'bounce';
+    case 'email.failed':        return 'bounce';
     case 'email.complained':    return 'complaint';
     case 'contact.unsubscribed': return 'unsubscribed';
     default:                    return null;
