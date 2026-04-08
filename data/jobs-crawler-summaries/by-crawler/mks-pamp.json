@@ -1,18 +1,49 @@
 {
   "key": "mks-pamp",
   "label": "MKS PAMP",
-  "generatedAt": "2026-04-07T21:44:24.563Z",
-  "total": 4,
-  "newCount": 0,
+  "generatedAt": "2026-04-08T09:48:34.630Z",
+  "total": 5,
+  "newCount": 1,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 18948,
-  "avgDurationMs": 18948,
+  "durationMs": 23759,
+  "avgDurationMs": 23759,
   "durationHistory": [
-    18948
+    23759
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Tecnico di laboratorio",
+      "slug": "tecnico-di-laboratorio-mks-pamp-castel-san-pietro",
+      "url": "https://careers.mkspamp.com/jobs/7522930-tecnico-di-laboratorio",
+      "applyUrl": "https://careers.mkspamp.com/jobs/7522930-tecnico-di-laboratorio",
+      "company": "MKS PAMP",
+      "companyKey": "mks-pamp",
+      "companyDomain": "mkspamp.com",
+      "location": "Castel San Pietro",
+      "addressLocality": "Castel San Pietro",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "general",
+      "sector": "Metalli preziosi",
+      "source": "mkspamp-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-04-07",
+      "employmentType": "full-time",
+      "contractType": "permanent",
+      "validThrough": "",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "HR Business Partner",
