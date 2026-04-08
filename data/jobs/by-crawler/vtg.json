@@ -1,6 +1,6 @@
 {
   "crawlerKey": "vtg",
-  "assembledAt": "2026-04-08T10:08:48.728Z",
+  "assembledAt": "2026-04-08T21:58:59.948Z",
   "jobs": [
     {
       "id": "company-84ss1r",
@@ -67,7 +67,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-h0fllu",
@@ -216,7 +217,7 @@
       "slug": "impiegato-a-in-logistica-magazzino-ambri-andermatt-swiss-armed-forces-vtg-bellinzona",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Logistiker/-in (Lager Ambrì/Andermatt)",
-      "location": "Ambrì",
+      "location": "Bern",
       "canton": "TI",
       "category": "admin",
       "contract": "part-time",
