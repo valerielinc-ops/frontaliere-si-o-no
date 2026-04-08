@@ -1,16 +1,16 @@
 {
   "key": "lis-lugano-istituti-sociali",
   "label": "LIS",
-  "generatedAt": "2026-04-08T09:42:44.493Z",
+  "generatedAt": "2026-04-08T11:52:57.647Z",
   "total": 13,
   "newCount": 0,
   "updatedCount": 13,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 26174,
-  "avgDurationMs": 26174,
+  "durationMs": 447212,
+  "avgDurationMs": 447212,
   "durationHistory": [
-    26174
+    447212
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,8 +31,8 @@
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
       "role": "Medicina/Salute",
       "source": "arca24",
-      "salaryMin": 9291950,
-      "salaryMax": 10964490,
+      "salaryMin": 92920,
+      "salaryMax": 109645,
       "salaryCurrency": "CHF",
       "salaryClass": "16",
       "crawledAt": "",
@@ -50,11 +50,12 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 88,
+      "id": "lis-lugano-istituti-sociali-141ef52d04c5",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 20,
+        "translation": 25,
         "completeness": 23
       }
     },
@@ -75,8 +76,8 @@
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
       "role": "Medicina/Salute",
       "source": "arca24",
-      "salaryMin": 8692780,
-      "salaryMax": 10257480,
+      "salaryMin": 86928,
+      "salaryMax": 102575,
       "salaryCurrency": "CHF",
       "salaryClass": "15",
       "crawledAt": "",
@@ -93,11 +94,13 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 88,
+      "id": "lis-lugano-istituti-sociali-f650fe01210f",
+      "needsRetranslation": true,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 20,
+        "translation": 25,
         "completeness": 23
       }
     },
@@ -118,8 +121,8 @@
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
       "role": "Medicina/Salute",
       "source": "arca24",
-      "salaryMin": 7314005,
-      "salaryMax": 8630545,
+      "salaryMin": 73140,
+      "salaryMax": 86305,
       "salaryCurrency": "CHF",
       "salaryClass": "12",
       "crawledAt": "",
@@ -136,11 +139,13 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 88,
+      "id": "lis-lugano-istituti-sociali-46ddf621dede",
+      "needsRetranslation": true,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 20,
+        "translation": 25,
         "completeness": 23
       }
     },
@@ -161,8 +166,8 @@
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
       "role": "Medicina/Salute",
       "source": "arca24",
-      "salaryMin": 6567990,
-      "salaryMax": 7750235,
+      "salaryMin": 65680,
+      "salaryMax": 77502,
       "salaryCurrency": "CHF",
       "salaryClass": "10",
       "crawledAt": "",
@@ -180,11 +185,12 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
-      "_qualityScore": 88,
+      "id": "lis-lugano-istituti-sociali-3e5d8c322840",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 20,
+        "translation": 25,
         "completeness": 23
       }
     },
@@ -205,8 +211,8 @@
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
       "role": "Medicina/Salute",
       "source": "arca24",
-      "salaryMin": 5739395,
-      "salaryMax": 6772485,
+      "salaryMin": 57394,
+      "salaryMax": 67725,
       "salaryCurrency": "CHF",
       "salaryClass": "7",
       "crawledAt": "",
@@ -223,11 +229,13 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 88,
+      "id": "lis-lugano-istituti-sociali-3d122d9fd62d",
+      "needsRetranslation": true,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 20,
+        "translation": 25,
         "completeness": 23
       }
     },
@@ -248,8 +256,8 @@
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
       "role": "Medicina/Salute",
       "source": "arca24",
-      "salaryMin": 8237230,
-      "salaryMax": 9719935,
+      "salaryMin": 82372,
+      "salaryMax": 97199,
       "salaryCurrency": "CHF",
       "salaryClass": "14",
       "crawledAt": "",
@@ -266,11 +274,13 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 88,
+      "id": "lis-lugano-istituti-sociali-7eba8dbeeb0a",
+      "needsRetranslation": true,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 20,
+        "translation": 25,
         "completeness": 23
       }
     },
@@ -291,8 +301,8 @@
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
       "role": "Medicina/Salute",
       "source": "arca24",
-      "salaryMin": 8692780,
-      "salaryMax": 10257480,
+      "salaryMin": 86928,
+      "salaryMax": 102575,
       "salaryCurrency": "CHF",
       "salaryClass": "15",
       "crawledAt": "",
@@ -309,11 +319,13 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 88,
+      "id": "lis-lugano-istituti-sociali-7642ecdf144c",
+      "needsRetranslation": true,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 20,
+        "translation": 25,
         "completeness": 23
       }
     },
@@ -334,29 +346,31 @@
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
       "role": "Medicina/Salute",
       "source": "arca24",
-      "salaryMin": 8692780,
-      "salaryMax": 10257480,
+      "salaryMin": 77526,
+      "salaryMax": 102575,
       "salaryCurrency": "CHF",
       "salaryClass": "15",
       "crawledAt": "",
       "currency": "CHF",
       "salaryExtraction": {
         "strategyVersion": "lis_salary_v2",
-        "textHash": "ee4367832e48e94337d9",
+        "textHash": "5f929653a61e9b5afe83",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-04-05T09:24:27.117Z"
+        "extractedAt": "2026-04-08T11:52:57.574Z"
       },
       "sourceLang": "it",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 88,
+      "id": "lis-lugano-istituti-sociali-80dcd2586afe",
+      "needsRetranslation": true,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 20,
+        "translation": 25,
         "completeness": 23
       }
     },
@@ -385,21 +399,23 @@
       "currency": "CHF",
       "salaryExtraction": {
         "strategyVersion": "lis_salary_v2",
-        "textHash": "5f6d725c193244bd6f56",
+        "textHash": "7c5289c47057ec4c7cba",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-04-08T09:42:44.426Z"
+        "extractedAt": "2026-04-08T11:52:57.575Z"
       },
       "sourceLang": "it",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 88,
+      "id": "lis-lugano-istituti-sociali-7296ba54869b",
+      "needsRetranslation": true,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 20,
+        "translation": 25,
         "completeness": 23
       }
     },
@@ -420,8 +436,8 @@
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
       "role": "Medicina/Salute",
       "source": "arca24",
-      "salaryMin": 8237230,
-      "salaryMax": 9719935,
+      "salaryMin": 82372,
+      "salaryMax": 97199,
       "salaryCurrency": "CHF",
       "salaryClass": "14",
       "crawledAt": "",
@@ -438,11 +454,13 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 88,
+      "id": "lis-lugano-istituti-sociali-a24dc6ee20f4",
+      "needsRetranslation": true,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 20,
+        "translation": 25,
         "completeness": 23
       }
     },
@@ -463,8 +481,8 @@
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
       "role": "Medicina/Salute",
       "source": "arca24",
-      "salaryMin": 7314005,
-      "salaryMax": 8630545,
+      "salaryMin": 73140,
+      "salaryMax": 86305,
       "salaryCurrency": "CHF",
       "salaryClass": "12",
       "crawledAt": "",
@@ -481,11 +499,13 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 88,
+      "id": "lis-lugano-istituti-sociali-c3e0b152a64d",
+      "needsRetranslation": true,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 20,
+        "translation": 25,
         "completeness": 23
       }
     },
@@ -506,8 +526,8 @@
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
       "role": "Medicina/Salute",
       "source": "arca24",
-      "salaryMin": 6567990,
-      "salaryMax": 7750235,
+      "salaryMin": 65680,
+      "salaryMax": 77502,
       "salaryCurrency": "CHF",
       "salaryClass": "10",
       "crawledAt": "",
@@ -524,11 +544,13 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 88,
+      "id": "lis-lugano-istituti-sociali-8b7fd953ec8f",
+      "needsRetranslation": true,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 20,
+        "translation": 25,
         "completeness": 23
       }
     },
@@ -549,8 +571,8 @@
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
       "role": "Medicina/Salute",
       "source": "arca24",
-      "salaryMin": 5739395,
-      "salaryMax": 6772485,
+      "salaryMin": 57394,
+      "salaryMax": 67725,
       "salaryCurrency": "CHF",
       "salaryClass": "7",
       "crawledAt": "",
@@ -567,11 +589,13 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 88,
+      "id": "lis-lugano-istituti-sociali-728912efd55d",
+      "needsRetranslation": true,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 20,
+        "translation": 25,
         "completeness": 23
       }
     }
