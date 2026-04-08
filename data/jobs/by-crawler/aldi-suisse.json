@@ -1,12 +1,12 @@
 {
   "crawlerKey": "aldi-suisse",
-  "assembledAt": "2026-04-08T08:57:47.819Z",
+  "assembledAt": "2026-04-08T20:47:56.840Z",
   "jobs": [
     {
       "id": "aldi-suisse-c84740c470c4",
-      "slug": "stellvertretender-filialleiter-m-w-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem",
+      "slug": "vice-direttore-di-filiale-m-f-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem",
       "slugByLocale": {
-        "it": "stellvertretender-filialleiter-m-w-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem",
+        "it": "vice-direttore-di-filiale-m-f-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem",
         "en": "deputy-store-manager-m-w-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem",
         "de": "stellvertretender-filialleiter-m-w-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem",
         "fr": "gestionnaire-de-filiale-adjoint-m-f-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem"
@@ -76,11 +76,13 @@
       "postedDate": "2026-04-08",
       "url": "https://www.jobs.aldi.ch/job/1287177101",
       "source": "ALDI Suisse Dedicated Parser",
-      "crawledAt": "2026-04-08T08:57:45.667Z",
-      "previousSlugs": [
-        "stellvertretender-filialleiter-m-w-d-aldi-suisse"
-      ],
       "sourceLang": "de",
+      "crawledAt": "2026-04-08T20:47:55.156Z",
+      "previousSlugs": [
+        "stellvertretender-filialleiter-m-w-d-aldi-suisse",
+        "stellvertretender-filialleiter-m-w-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem"
+      ],
+      "needsRetranslation": true,
       "salaryMin": 66000,
       "salaryMax": 89000,
       "baseSalary": {
@@ -165,13 +167,14 @@
       "postedDate": "2026-04-08",
       "url": "https://www.jobs.aldi.ch/job/1266053601",
       "source": "ALDI Suisse Dedicated Parser",
-      "crawledAt": "2026-04-08T08:57:45.666Z",
+      "sourceLang": "de",
+      "crawledAt": "2026-04-08T20:47:55.153Z",
       "previousSlugs": [
         "addetto-vendite-m-f-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem",
         "mitarbeiter-verkauf-m-w-d-aldi-suisse",
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem-4n4np8"
       ],
-      "sourceLang": "de",
+      "needsRetranslation": true,
       "salaryMin": 54000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -254,11 +257,12 @@
       "postedDate": "2026-04-08",
       "url": "https://www.jobs.aldi.ch/job/1224938701",
       "source": "ALDI Suisse Dedicated Parser",
-      "crawledAt": "2026-04-08T08:57:45.664Z",
+      "sourceLang": "de",
+      "crawledAt": "2026-04-08T20:47:55.151Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse"
       ],
-      "sourceLang": "de",
+      "needsRetranslation": true,
       "salaryMin": 43000,
       "salaryMax": 58000,
       "baseSalary": {
