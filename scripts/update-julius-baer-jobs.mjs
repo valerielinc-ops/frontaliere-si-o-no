@@ -20,7 +20,7 @@ import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawl
 import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
-import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap } from './lib/dedicated-crawler-common.mjs';
+import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap, detectLang } from './lib/dedicated-crawler-common.mjs';
 import { parseWorkdayListings, parseWorkdayJobDetail, slugify, normalizeSpace, stripHtml, WORKDAY_API_BASE, WORKDAY_PUBLIC_BASE, COMPANY_HOST, isTicinoLocation, detectCategory, detectExperienceLevel, detectEmploymentType, buildPublicUrl } from './lib/julius-baer-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -179,6 +179,7 @@ async function fetchJuliusBaerJobs() {
       titleByLocale: { en: title }, slug, slugByLocale: { en: slug, it: slugify(title, 'julius-baer') },
       category: detectCategory(title), datePosted: info.startDate || new Date().toISOString().split('T')[0],
       source: 'julius-baer-workday-crawler', employmentType: detectEmploymentType(info.timeType || ''),
+      sourceLang: detectLang(descEn || title, 'en'),
       experienceLevel: detectExperienceLevel(title), sector: 'Banking / Wealth Management',
       _targetScope: { canton: 'TI', location: city || 'Lugano' },
     });

@@ -22,7 +22,7 @@ import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawl
 import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
-import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap,
+import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap, detectLang,
 } from './lib/dedicated-crawler-common.mjs';
 import { parseSearchPage, isHugoBossTargetLocation, buildDetailUrl, detectCategory, detectExperienceLevel, inferEmploymentType } from './lib/hugo-boss-job-parser.mjs';
 
@@ -110,6 +110,7 @@ async function fetchJobs() {
       category: detectCategory(raw.title),
       datePosted: raw.postedDate || new Date().toISOString().split('T')[0],
       source: 'hugo-boss-careers-crawler',
+      sourceLang: detectLang(raw.description || raw.title, 'en'),
       employmentType: inferEmploymentType(raw.title, raw.description),
       experienceLevel: detectExperienceLevel(raw.title),
       sector: 'Moda / Lusso',

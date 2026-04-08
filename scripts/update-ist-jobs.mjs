@@ -36,6 +36,7 @@ import {
   runDedicatedBaseCrawler,
   validateDedicatedLocaleCoverage,
   mergeLocaleTextMap,
+  detectLang,
 } from './lib/dedicated-crawler-common.mjs';
 import { inferSwissTargetCanton } from './lib/target-swiss-locations.mjs';
 
@@ -371,6 +372,7 @@ async function fetchIstJobs() {
         ? new Date(detail.datePosted).toISOString().split('T')[0]
         : new Date().toISOString().split('T')[0],
       source: 'ist-inspirededu-crawler',
+      sourceLang: detectLang(descEn || title, 'en'),
       employmentType: 'FULL_TIME',
       experienceLevel: detectExperienceLevel(title),
       sector: 'Istruzione / Scuola internazionale',

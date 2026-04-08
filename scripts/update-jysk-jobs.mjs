@@ -37,6 +37,7 @@ import {
   runDedicatedBaseCrawler,
   translateMissingJobLocales,
   validateDedicatedLocaleCoverage,
+  detectLang,
   normalize,
   normalizeKey,
 } from './lib/dedicated-crawler-common.mjs';
@@ -233,6 +234,19 @@ async function main() {
 
   // Step 3: Run the base crawler (fetches JSON-LD from detail pages)
   await runBaseCrawler();
+
+  // Step 3b: Stamp sourceLang on JYSK jobs
+  if (fs.existsSync(DATA_JOBS)) {
+    const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+    if (Array.isArray(raw)) {
+      for (const job of raw) {
+        if (isJyskJob(job) && !job.sourceLang) {
+          job.sourceLang = detectLang((job.description || job.title || ''), 'de');
+        }
+      }
+      fs.writeFileSync(DATA_JOBS, JSON.stringify(raw, null, 2) + '\n');
+    }
+  }
 
   // Step 4: Translate missing locales
   await translateMissingJobLocales({

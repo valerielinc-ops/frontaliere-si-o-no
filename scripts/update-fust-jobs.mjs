@@ -41,6 +41,7 @@ import {
   runDedicatedBaseCrawler,
   translateMissingJobLocales,
   validateDedicatedLocaleCoverage,
+  detectLang,
   normalize,
   normalizeKey,
 } from './lib/dedicated-crawler-common.mjs';
@@ -219,6 +220,9 @@ function retagFustJobs() {
     if (company.includes('fust') && job.companyKey !== FUST_KEY) {
       job.companyKey = FUST_KEY;
       retagged++;
+    }
+    if (isFustJob(job) && !job.sourceLang) {
+      job.sourceLang = detectLang((job.description || job.title || ''), 'de');
     }
   }
 

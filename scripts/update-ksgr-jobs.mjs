@@ -25,7 +25,7 @@ import {
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
-import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage } from './lib/dedicated-crawler-common.mjs';
+import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang } from './lib/dedicated-crawler-common.mjs';
 import { parseKsgrJobsPage } from './lib/ksgr-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -185,6 +185,9 @@ function postProcessKsgrJobs(discoveredJobs) {
     job.source = 'KSGR Dedicated Parser (Prospective API)';
     job.addressCountry = job.addressCountry || 'CH';
     job.canton = 'GR';
+    if (!job.sourceLang) {
+      job.sourceLang = detectLang((job.description || job.title || ''), 'de');
+    }
     if (meta?.location) {
       job.location = meta.location;
       job.addressLocality = meta.location;

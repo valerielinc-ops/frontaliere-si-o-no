@@ -76,6 +76,7 @@ async function main() {
       employmentType: inferEmploymentType(raw.title, description, detail.pensum),
       currency: 'CHF', featured: false, postedDate: new Date().toISOString().slice(0, 10),
       url: raw.url, source: 'Hilcona Dedicated Parser', crawledAt: new Date().toISOString(),
+      sourceLang: detectLang(description || raw.title, 'en'),
     });
     console.log(`  ✅ ${raw.title} — ${loc}`);
   }

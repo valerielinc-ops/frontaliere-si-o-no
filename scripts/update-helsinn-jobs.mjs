@@ -16,7 +16,7 @@ import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawl
 import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
-import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap } from './lib/dedicated-crawler-common.mjs';
+import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap, detectLang } from './lib/dedicated-crawler-common.mjs';
 import { parseListingPage, parseDetailPage, slugify, detectCategory, detectExperienceLevel, inferEmploymentType } from './lib/helsinn-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -78,6 +78,7 @@ async function fetchJobs() {
       category: detectCategory(listing.title),
       datePosted: new Date().toISOString().split('T')[0],
       source: 'helsinn-careers-crawler', employmentType: inferEmploymentType(listing.title, listing.snippet || ''),
+      sourceLang: detectLang(listing.title, 'it'),
       experienceLevel: detectExperienceLevel(listing.title),
       sector: 'Farmaceutica / Biopharma',
     });

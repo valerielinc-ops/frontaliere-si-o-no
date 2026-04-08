@@ -315,6 +315,7 @@ async function fetchGalenicaJobs() {
         ? new Date(preferred.publication.start).toISOString().slice(0, 10)
         : '',
       source: 'company-website',
+      sourceLang: detectLang(descIt || title, 'it'),
       slug: baseSlug,
       slugByLocale: {
         it: baseSlug,

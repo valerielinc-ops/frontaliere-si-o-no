@@ -43,6 +43,7 @@ import {
   runDedicatedBaseCrawler,
   validateDedicatedLocaleCoverage,
   mergeLocaleTextMap,
+  detectLang,
 } from './lib/dedicated-crawler-common.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -373,6 +374,7 @@ async function fetchJobs() {
       employmentType: detectEmploymentType(listing.percentage),
       experienceLevel: detectExperienceLevel(listing.title),
       source: 'has-healthcare-crawler',
+      sourceLang: detectLang(description || listing.title, 'it'),
       postedDate,
       titleByLocale: { it: listing.title },
       descriptionByLocale: { it: description },

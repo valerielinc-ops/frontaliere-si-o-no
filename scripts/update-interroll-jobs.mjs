@@ -13,7 +13,7 @@ import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawl
 import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
-import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap,
+import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap, detectLang,
 } from './lib/dedicated-crawler-common.mjs';
 import { parseListingPage, isSwissLocation, slugify, detectCategory, detectExperienceLevel, inferEmploymentType } from './lib/interroll-job-parser.mjs';
 
@@ -67,6 +67,7 @@ async function fetchJobs() {
       category: detectCategory(raw.title),
       datePosted: new Date().toISOString().split('T')[0],
       source: 'interroll-careers-crawler', employmentType: inferEmploymentType(raw.title, raw.snippet || ''),
+      sourceLang: detectLang(raw.title, 'en'),
       experienceLevel: detectExperienceLevel(raw.title),
       sector: 'Industria / Logistica',
     };

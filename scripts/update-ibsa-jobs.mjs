@@ -404,6 +404,7 @@ function normalizeIbsaRow(job) {
     companyKey: IBSA_KEY,
     companyDomain: IBSA_COMPANY_DOMAIN,
     source: 'Company Careers Crawler',
+    sourceLang: detectLang((job?.description || job?.title || ''), 'it'),
     location: String(job?.location || '').trim() || 'Ticino',
     canton: String(job?.canton || '').trim() || 'TI',
     country: String(job?.country || '').trim() || 'CH',
