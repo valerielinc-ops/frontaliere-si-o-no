@@ -1,6 +1,6 @@
 {
   "crawlerKey": "corner-banca",
-  "assembledAt": "2026-04-08T14:25:13.356Z",
+  "assembledAt": "2026-04-08T21:12:06.916Z",
   "jobs": [
     {
       "id": "corner-banca-f803e5cc9fe2",
@@ -55,11 +55,12 @@
       "url": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-04-08T14:25:11.697Z",
+      "crawledAt": "2026-04-08T21:12:05.248Z",
       "previousSlugs": [
         "initiativbewerbung-lehre-corner-banca-switzerland",
         "unsolicited-application-apprenticeship-corner-banca-switzerland"
       ],
+      "needsRetranslation": true,
       "salaryMin": 61000,
       "salaryMax": 83000,
       "baseSalary": {
@@ -117,7 +118,7 @@
       "url": "https://jobs.corner.ch/o/it-card-management-analyst-specialist",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-08T14:25:11.696Z",
+      "crawledAt": "2026-04-08T21:12:05.247Z",
       "previousSlugs": [
         "analista-specialista-gestione-carte-it-corner-banca-lugano",
         "it-card-management-analista-specialista-corner-banca-lugano",
@@ -208,10 +209,11 @@
       "url": "https://jobs.corner.ch/o/employee-card-onboarding",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-08T14:25:11.695Z",
+      "crawledAt": "2026-04-08T21:12:05.246Z",
       "previousSlugs": [
         "addetto-all-emission-carte-cliente-corner-banca-lugano"
       ],
+      "needsRetranslation": true,
       "salaryMin": 58000,
       "salaryMax": 78000,
       "baseSalary": {
@@ -297,13 +299,14 @@
       "url": "https://jobs.corner.ch/o/collaboratore-servizi-logistici-ufficio-tecnico-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-04-08T14:25:11.694Z",
+      "crawledAt": "2026-04-08T21:12:05.245Z",
       "previousSlugs": [
         "collaboratore-servizi-logistici-ufficio-technician-corner-banca-lugano",
         "collaboratore-servizi-logistici-ufficio-techniker-corner-banca-lugano",
         "collaboratore-servizi-logistici-ufficio-technicien-corner-banca-lugano",
         "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano-h1bnmt"
       ],
+      "needsRetranslation": true,
       "salaryMin": 58000,
       "salaryMax": 78000,
       "baseSalary": {
@@ -380,7 +383,7 @@
       "url": "https://jobs.corner.ch/o/risk-manager-asset-liability-management-alm-and-liquidity-risk-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-08T14:25:11.691Z",
+      "crawledAt": "2026-04-08T21:12:05.243Z",
       "previousSlugs": [
         "risk-manager-asset-liability-management-alm-e-rischio-di-liquidita-corner-banca-lugano",
         "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano",
@@ -388,6 +391,7 @@
         "responsable-des-risques-gestion-actifs-passifs-alm-et-risque-de-liquidite-corner-banca-lugano",
         "responsable-des-risques-gestion-des-actifs-et-passifs-alm-et-risque-de-liquidite-corner-banca-lugano"
       ],
+      "needsRetranslation": true,
       "salaryMin": 109000,
       "salaryMax": 147000,
       "baseSalary": {
@@ -474,12 +478,13 @@
       "url": "https://jobs.corner.ch/o/compliance-officer-senior",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-08T14:25:11.690Z",
+      "crawledAt": "2026-04-08T21:12:05.242Z",
       "previousSlugs": [
         "responsabile-compliance-senior-corner-banca-lugano",
         "compliance-officer-senior-corner-banca-lugano-nnfx9o",
         "leitender-compliance-beauftragter-corner-banca-lugano-nnfx9o"
       ],
+      "needsRetranslation": true,
       "salaryMin": 109000,
       "salaryMax": 147000,
       "baseSalary": {
@@ -569,10 +574,11 @@
       "url": "https://jobs.corner.ch/o/employee-collection-team-zurich",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-08T14:25:11.687Z",
+      "crawledAt": "2026-04-08T21:12:05.240Z",
       "previousSlugs": [
         "employee-collection-team-zurich-corner-banca-wallisellen"
       ],
+      "needsRetranslation": true,
       "salaryMin": 54000,
       "salaryMax": 73000,
       "baseSalary": {
