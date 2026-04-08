@@ -21,7 +21,6 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const JOBS_PATH = path.join(ROOT, 'data', 'jobs.json');
 const BASE_URL = 'https://frontaliereticino.ch';
-const RESEND_ENDPOINT = 'https://api.resend.com/emails/batch';
 const FROM_EMAIL = 'Frontaliere Ticino <alerts@frontaliereticino.ch>';
 const DRY_RUN = process.argv.includes('--dry-run');
 const MATCH_WINDOW_MS = 24 * 60 * 60 * 1000; // 24 hours
@@ -156,36 +155,27 @@ function escHtml(s) {
   return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
-// ── Send via Resend API ──────────────────────────────────────
+// ── Send via email cascade (multi-provider) ──────────────────
 
 async function sendBatch(emails) {
-  const apiKey = process.env.RESEND_API_KEY;
-  if (!apiKey) {
-    console.warn('⚠️  RESEND_API_KEY not set — skipping email send');
-    return { sent: 0 };
-  }
+  // Use cascade for bulk sending
+  const { sendEmailCascade, logProviderSummary } = await import('./lib/email-cascade.mjs');
 
-  const res = await fetch(RESEND_ENDPOINT, {
-    method: 'POST',
-    headers: {
-      'Authorization': `Bearer ${apiKey}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(emails.map((e) => ({
+  const cascadeEmails = emails.map(e => ({
+    payload: {
       from: FROM_EMAIL,
       to: [e.to],
       subject: e.subject,
       html: e.html,
-    }))),
-  });
+      tags: [{ name: 'type', value: 'job-alert' }],
+    },
+    recipient: { email: e.to },
+    meta: { type: 'job-alert' },
+  }));
 
-  if (!res.ok) {
-    const body = await res.text();
-    console.error(`❌ Resend API error (${res.status}): ${body.slice(0, 300)}`);
-    return { sent: 0, error: body.slice(0, 200) };
-  }
-
-  return { sent: emails.length };
+  const result = await sendEmailCascade(cascadeEmails, { concurrency: 3 });
+  logProviderSummary();
+  return { sent: result.sent.length, failed: result.failed.length };
 }
 
 // ── Main ─────────────────────────────────────────────────────

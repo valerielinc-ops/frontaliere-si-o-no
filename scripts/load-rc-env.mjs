@@ -46,6 +46,15 @@ const RC_TO_ENV = {
   NEWSLETTER_SECRET:              ['NEWSLETTER_SECRET'],
   NEWSLETTER_FROM:                ['NEWSLETTER_FROM'],
 
+  // Email cascade providers (newsletter + job alerts)
+  EMAILOCTOPUS_API_KEY:           ['EMAILOCTOPUS_API_KEY'],
+  MAILERLITE_API_KEY:             ['MAILERLITE_API_KEY'],
+  MAILJET_API_KEY:                ['MAILJET_API_KEY'],
+  MAILJET_SECRET_KEY:             ['MAILJET_SECRET_KEY'],
+  BREVO_API_KEY:                  ['BREVO_API_KEY'],
+  MAILGUN_API_KEY:                ['MAILGUN_API_KEY'],
+  MAILGUN_DOMAIN:                 ['MAILGUN_DOMAIN'],
+
   // AWS SES (newsletter bulk sending)
   AWS_SES_ACCESS_KEY_ID:          ['AWS_SES_ACCESS_KEY_ID'],
   AWS_SES_SECRET_ACCESS_KEY:      ['AWS_SES_SECRET_ACCESS_KEY'],

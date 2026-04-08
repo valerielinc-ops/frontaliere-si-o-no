@@ -46,9 +46,12 @@ const SEND_ENABLED = process.env.NEWSLETTER_ENABLE_SEND === 'true';
 const AI_CONCURRENCY = 5; // Max parallel AI calls
 
 // ── Email provider selection ──
-// SES = primary (no daily cap, $0.10/1000), Resend = fallback for transactional
-const EMAIL_PROVIDER = process.env.EMAIL_PROVIDER || 'ses'; // 'ses' or 'resend'
-const DAILY_SEND_LIMIT = EMAIL_PROVIDER === 'ses' ? 500 : 100; // SES sandbox=200, prod=50k+
+// cascade = multi-provider free tier cascade (default)
+// ses = AWS SES (when in production)
+// resend = Resend only (legacy fallback)
+const EMAIL_PROVIDER = process.env.EMAIL_PROVIDER || 'cascade';
+// cascade = 1330/day total across all providers, ses = 500 sandbox, resend = 100
+const DAILY_SEND_LIMIT = EMAIL_PROVIDER === 'cascade' ? 1330 : EMAIL_PROVIDER === 'ses' ? 500 : 100;
 
 /**
  * Run async tasks with bounded concurrency.
@@ -831,12 +834,27 @@ async function sendEmailBatchSes(emails) {
 }
 
 async function sendEmailBatch(emails, apiKey) {
+  // Cascade: multi-provider free tier (default)
+  if (EMAIL_PROVIDER === 'cascade') {
+    console.log(`📧 Sending via email cascade (${emails.length} emails)`);
+    const { sendEmailCascade, logProviderSummary } = await import('./lib/email-cascade.mjs');
+    const result = await sendEmailCascade(emails, {
+      concurrency: 3,
+      onSent: async (item, res) => {
+        await persistDelivery(item.recipient, res.messageId, { ...item.meta, provider: res.provider });
+      },
+    });
+    logProviderSummary();
+    return result;
+  }
+  // AWS SES
   if (EMAIL_PROVIDER === 'ses' && process.env.AWS_SES_ACCESS_KEY_ID) {
     console.log(`📧 Sending via AWS SES (${emails.length} emails)`);
     return sendEmailBatchSes(emails);
   }
+  // Resend (legacy fallback)
   if (!apiKey) {
-    console.error('\u274c No email provider configured (need RESEND_API_KEY or AWS_SES_ACCESS_KEY_ID)');
+    console.error('❌ No email provider configured (need API keys in Remote Config)');
     return { sent: [], failed: emails };
   }
   console.log(`📧 Sending via Resend (${emails.length} emails)`);
