@@ -183,8 +183,8 @@ export function extractLisSalary(text) {
   let bestResult = null;
   while ((m = classRe.exec(text)) !== null) {
     const cls = m[1];
-    const min = Number(m[2].replace(/['''\u2019.]/g, '').replace(/(\d)(\d{2})$/, '$1$2'));
-    const max = Number(m[3].replace(/['''\u2019.]/g, '').replace(/(\d)(\d{2})$/, '$1$2'));
+    const min = Math.round(parseFloat(m[2].replace(/['''\u2019]/g, '')) || 0);
+    const max = Math.round(parseFloat(m[3].replace(/['''\u2019]/g, '')) || 0);
     if (Number.isFinite(min) && Number.isFinite(max) && min > 10000 && max > min) {
       if (!bestResult || max > bestResult.max) {
         bestResult = { salaryClass: cls, min, max, currency: 'CHF' };
@@ -196,8 +196,8 @@ export function extractLisSalary(text) {
   // Fallback: Swiss salary range pattern "CHF XX'XXX / CHF YY'YYY" without class
   const rangeMatch = text.match(/CHF\s*([\d''\u2019]{5,}(?:\.\d{2})?)\s*\/\s*(?:max\.?\s*)?CHF\s*([\d''\u2019]{5,}(?:\.\d{2})?)/i);
   if (rangeMatch) {
-    const min = Number(rangeMatch[1].replace(/['''\u2019.]/g, ''));
-    const max = Number(rangeMatch[2].replace(/['''\u2019.]/g, ''));
+    const min = Math.round(parseFloat(rangeMatch[1].replace(/['''\u2019]/g, '')) || 0);
+    const max = Math.round(parseFloat(rangeMatch[2].replace(/['''\u2019]/g, '')) || 0);
     if (Number.isFinite(min) && Number.isFinite(max) && min > 10000 && max > min) {
       return { salaryClass: '', min, max, currency: 'CHF' };
     }
@@ -268,7 +268,7 @@ export function parseArca24DetailPage(html, pageUrl = '') {
   // Priority 1: itemprop="description" (may contain nested HTML)
   const itemDescMatch = html.match(/<div\s+[^>]*itemprop=["']description["'][^>]*>([\s\S]*?)<\/div>/i);
   if (itemDescMatch) {
-    const candidate = normalizeSpace(stripHtml(itemDescMatch[1]));
+    const candidate = stripHtml(itemDescMatch[1]);
     if (candidate.length > 50) description = candidate;
   }
 
@@ -276,7 +276,7 @@ export function parseArca24DetailPage(html, pageUrl = '') {
   if (!description) {
     const jobDescMatch = html.match(/<div\s+class="jobDescription[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
     if (jobDescMatch) {
-      const candidate = normalizeSpace(stripHtml(jobDescMatch[1]));
+      const candidate = stripHtml(jobDescMatch[1]);
       if (candidate.length > 50) description = candidate;
     }
   }
@@ -287,7 +287,7 @@ export function parseArca24DetailPage(html, pageUrl = '') {
     const descRegex = /<div\s+class="descriptionContainer[^"]*"[^>]*>([\s\S]*?)<\/div>/gi;
     let dm;
     while ((dm = descRegex.exec(html)) !== null) {
-      const text = normalizeSpace(stripHtml(dm[1]));
+      const text = stripHtml(dm[1]);
       if (text.length > 50) {
         descContainers.push(text);
       }
