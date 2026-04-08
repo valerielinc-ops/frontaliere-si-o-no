@@ -153,11 +153,12 @@ describe('buildJob', () => {
     expect(job!.slug).toContain('citta-di-lugano');
   });
 
-  it('generates locale-specific slugs', () => {
+  it('generates only IT slug (other locales filled by translation pipeline)', () => {
     const job = buildJob({ title: 'Architetto progettista' });
-    expect(job!.slugByLocale.en).toContain('city-of-lugano');
-    expect(job!.slugByLocale.de).toContain('stadt-lugano');
-    expect(job!.slugByLocale.fr).toContain('ville-de-lugano');
+    expect(job!.slugByLocale.it).toContain('citta-di-lugano');
+    expect(job!.slugByLocale.en).toBeUndefined();
+    expect(job!.slugByLocale.de).toBeUndefined();
+    expect(job!.slugByLocale.fr).toBeUndefined();
   });
 
   it('sets default description when none provided', () => {
