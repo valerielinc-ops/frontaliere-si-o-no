@@ -796,12 +796,13 @@ async function loadPagesSeoChunk(): Promise<Record<string, SEOMetadata>> {
 
 async function loadBlogSeoChunk(): Promise<Record<string, SEOMetadata>> {
   if (_blogChunkCache) return _blogChunkCache;
-  const [{ default: entries1 }, { default: entries2 }, { default: entries3 }] = await Promise.all([
+  const [{ default: entries1 }, { default: entries2 }, { default: entries3 }, { default: entries4 }] = await Promise.all([
     retryImport(() => import('./seo/seo-blog'), 'blog'),
     retryImport(() => import('./seo/seo-blog-2'), 'blog-2'),
     retryImport(() => import('./seo/seo-blog-3'), 'blog-3'),
+    retryImport(() => import('./seo/seo-blog-4'), 'blog-4'),
   ]);
-  _blogChunkCache = { ...entries1, ...entries2, ...entries3 };
+  _blogChunkCache = { ...entries1, ...entries2, ...entries3, ...entries4 };
   return _blogChunkCache;
 }
 

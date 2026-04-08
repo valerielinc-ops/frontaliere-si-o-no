@@ -625,6 +625,8 @@ export function staticPagesPlugin(rootDir: string): Plugin {
         np.resolve(rootDir, 'services/seo/seo-pages.ts'),
         np.resolve(rootDir, 'services/seo/seo-blog.ts'),
         np.resolve(rootDir, 'services/seo/seo-blog-2.ts'),
+        np.resolve(rootDir, 'services/seo/seo-blog-3.ts'),
+        np.resolve(rootDir, 'services/seo/seo-blog-4.ts'),
         np.resolve(rootDir, 'services/seo/seo-landing.ts'),
       ];
       let seoSrc = '';
