@@ -155,9 +155,10 @@ async function generateAIBriefing(ctx) {
 
 /**
  * Sanitize AI-generated briefing HTML:
- * 1. Ensure all <p>/<a>/<strong> tags are properly closed
+ * 1. Ensure all <p>/<a>/<strong> tags are properly closed (inline before block)
  * 2. Wrap bare text in <p> tags
  * 3. Remove incomplete trailing sentences (truncation artifacts)
+ * 4. Final quality gate: punctuation check + minimum word count
  */
 function sanitizeAIBriefingHtml(raw) {
   if (!raw) return null;
@@ -171,48 +172,78 @@ function sanitizeAIBriefingHtml(raw) {
     html = `<p>${html.replace(/\n\n+/g, '</p><p>')}</p>`;
   }
 
-  // Close unclosed <strong> tags
+  // Close unclosed inline tags INSIDE the last open <p> block (before </p>)
+  // This prevents malformed nesting like </p></a>
+  const lastPClose = html.lastIndexOf('</p>');
+  const insertPos = lastPClose > 0 ? lastPClose : html.length;
+
+  let inlineClosers = '';
   const strongOpen = (html.match(/<strong[\s>]/gi) || []).length;
   const strongClose = (html.match(/<\/strong>/gi) || []).length;
   if (strongOpen > strongClose) {
-    for (let i = 0; i < strongOpen - strongClose; i++) html += '</strong>';
+    for (let i = 0; i < strongOpen - strongClose; i++) inlineClosers += '</strong>';
   }
-
-  // Close unclosed <a> tags
   const aOpen = (html.match(/<a[\s>]/gi) || []).length;
   const aClose = (html.match(/<\/a>/gi) || []).length;
   if (aOpen > aClose) {
-    for (let i = 0; i < aOpen - aClose; i++) html += '</a>';
+    for (let i = 0; i < aOpen - aClose; i++) inlineClosers += '</a>';
+  }
+  if (inlineClosers) {
+    html = html.slice(0, insertPos) + inlineClosers + html.slice(insertPos);
   }
 
-  // Close unclosed <p> tags
+  // Close unclosed <p> tags (after inline tags are fixed)
   const pOpen = (html.match(/<p[\s>]/gi) || []).length;
   const pClose = (html.match(/<\/p>/gi) || []).length;
   if (pOpen > pClose) {
     for (let i = 0; i < pOpen - pClose; i++) html += '</p>';
   }
 
-  // Detect truncated last sentence: if the text inside the last <p> doesn't
-  // end with sentence-ending punctuation, remove the incomplete sentence
-  html = html.replace(/<p([^>]*)>([^<]*(?:<(?!\/p>)[^<]*)*)<\/p>\s*$/, (match, attrs, inner) => {
-    const plainText = inner.replace(/<[^>]+>/g, '').trim();
-    // If ends with proper punctuation, keep as-is
-    if (/[.!?»"']$/.test(plainText)) return match;
-    // If very short (< 30 chars) and no punctuation, likely truncated — remove entire <p>
-    if (plainText.length < 30) {
-      console.warn(`⚠️ AI briefing: removed truncated trailing paragraph (${plainText.length} chars)`);
-      return '';
-    }
-    // Otherwise, trim to last complete sentence
-    const lastSentenceEnd = plainText.search(/[.!?][^.!?]*$/);
+  // Extract plain text for quality checks
+  const fullPlainText = html.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+
+  // Detect truncated text: if the overall text doesn't end with punctuation, trim
+  if (fullPlainText.length > 0 && !/[.!?»"'\u2019)]$/.test(fullPlainText)) {
+    // Find the last complete sentence
+    const lastSentenceEnd = fullPlainText.search(/[.!?][^.!?]*$/);
     if (lastSentenceEnd > 0) {
-      const trimmedPlain = plainText.slice(0, lastSentenceEnd + 1);
-      // Rebuild the paragraph with the trimmed text (lose inline tags in the trimmed tail, acceptable tradeoff)
-      console.warn(`⚠️ AI briefing: trimmed truncated sentence (kept ${trimmedPlain.length}/${plainText.length} chars)`);
-      return `<p${attrs}>${trimmedPlain}</p>`;
+      const trimmedText = fullPlainText.slice(0, lastSentenceEnd + 1);
+      console.warn(`⚠️ AI briefing: trimmed truncated tail (kept ${trimmedText.length}/${fullPlainText.length} chars): "...${fullPlainText.slice(lastSentenceEnd).slice(0, 60)}"`);
+      // Rebuild HTML: split trimmed text into paragraphs at double-sentence boundaries
+      // Simple approach: find the trim point in the HTML and cut there
+      const truncatedPart = fullPlainText.slice(lastSentenceEnd + 1).trim();
+      // Remove the truncated text from the end of the HTML by working backwards through <p> blocks
+      // Find and fix the last <p> that contains the truncated content
+      const pBlocks = html.split(/<\/p>/i);
+      // Rebuild from the end, removing content after the trim point
+      let rebuilt = '';
+      let charBudget = trimmedText.length;
+      for (let i = 0; i < pBlocks.length - 1; i++) {
+        const blockPlain = pBlocks[i].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+        if (charBudget <= 0) break; // Skip remaining blocks
+        if (charBudget >= blockPlain.length) {
+          // Keep this entire block
+          rebuilt += pBlocks[i] + '</p>';
+          charBudget -= blockPlain.length;
+        } else {
+          // This block needs trimming — use plain text up to last sentence
+          const blockTrimmed = blockPlain.slice(0, charBudget);
+          const lastSent = blockTrimmed.search(/[.!?][^.!?]*$/);
+          if (lastSent > 20) {
+            // Extract the <p...> opening tag
+            const pTagMatch = pBlocks[i].match(/<p[^>]*>/i);
+            const pTag = pTagMatch ? pTagMatch[0] : '<p>';
+            rebuilt += `${pTag}${blockTrimmed.slice(0, lastSent + 1)}</p>`;
+          }
+          charBudget = 0;
+        }
+      }
+      if (rebuilt) html = rebuilt;
+    } else {
+      console.warn(`⚠️ AI briefing: no complete sentence found — falling back`);
+      return null;
     }
-    return match;
-  });
+  }
 
   // Minimum quality: at least 50 words
   const wordCount = html.replace(/<[^>]+>/g, '').trim().split(/\s+/).length;
