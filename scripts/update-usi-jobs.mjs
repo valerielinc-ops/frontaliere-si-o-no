@@ -47,6 +47,7 @@ import { buildPdfBackedDescription, extractPdfJobContentFromUrl } from './lib/pd
 import { extractDrupalNodeId, extractIrsolDetailPage, MIN_IRSOL_BODY_LENGTH } from './lib/irsol-html-parser.mjs';
 import { translateTextWithLocalPipeline } from './lib/job-localization-pipeline.mjs';
 import { freeTranslateWithRetry } from './lib/free-translate.mjs';
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -54,6 +55,7 @@ const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
 const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 const USI_KEY = 'usi-universita-della-svizzera-italiana';
+const HQ = getCompanyDefaults('usi');
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
 /**
@@ -82,7 +84,7 @@ const USI_CAMPUSES = {
  * USI main campus is in Lugano.
  */
 const DEFAULT_CITY = 'Lugano';
-const DEFAULT_CANTON = 'TI';
+const DEFAULT_CANTON = HQ.canton;
 
 /**
  * Job category detection patterns.
@@ -679,7 +681,7 @@ async function fetchUsiJobs() {
       employmentType: category === 'apprentice' ? 'APPRENTICESHIP' : category === 'internship' ? 'INTERN' : 'FULL_TIME',
       experienceLevel: category === 'professor' ? 'SENIOR' : category === 'phd' ? 'ENTRY' : category === 'researcher' ? 'MID' : '',
       sector: 'Istruzione e ricerca',
-      _targetScope: { canton: 'TI', location: city },
+      _targetScope: { canton: HQ.canton, location: city },
     };
 
     if (itJob.pdfUrl && pdfContent.error) {
@@ -740,7 +742,7 @@ async function fetchUsiJobs() {
       employmentType: category === 'apprentice' ? 'APPRENTICESHIP' : category === 'internship' ? 'INTERN' : 'FULL_TIME',
       experienceLevel: category === 'professor' ? 'SENIOR' : category === 'phd' ? 'ENTRY' : category === 'researcher' ? 'MID' : '',
       sector: 'Istruzione e ricerca',
-      _targetScope: { canton: 'TI', location: city },
+      _targetScope: { canton: HQ.canton, location: city },
     };
 
     if (enJob.pdfUrl && pdfContent.error) {

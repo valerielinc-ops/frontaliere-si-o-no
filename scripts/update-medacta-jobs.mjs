@@ -39,6 +39,7 @@ import {
   buildMedactaBaseDescription,
   buildMedactaLocalizedDescriptions,
 } from './lib/medacta-job-enrichment.mjs';
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -46,6 +47,7 @@ const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
 const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 const MEDACTA_KEY = 'medacta-international';
+const HQ = getCompanyDefaults('medacta');
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
 /**
@@ -101,7 +103,7 @@ const CATEGORY_LABELS = {
 const RD_MARKER_RE = /(?:\br\s*&\s*d\b|research\s*(?:&|and)\s*development)/i;
 
 const DEFAULT_CITY = 'Castel San Pietro';
-const DEFAULT_CANTON = 'TI';
+const DEFAULT_CANTON = HQ.canton;
 
 /**
  * Swiss cities and their canton codes for location detection.

@@ -136,6 +136,7 @@ export const COMPANY_HQ = {
   'tinext':                       { city: 'Manno',              canton: 'TI', postalCode: '6928', addressRegion: 'TI' },
   'tpl-lugano':                   { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
   'usi':                          { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
+  'vir-biotechnology':            { city: 'Bellinzona',         canton: 'TI', postalCode: '6500', addressRegion: 'TI' },
   // ── GR companies ──
   'cedes':                        { city: 'Landquart',          canton: 'GR', postalCode: '7302', addressRegion: 'GR' },
   'davos-klosters-bergbahnen':    { city: 'Davos',              canton: 'GR', postalCode: '7270', addressRegion: 'GR' },
@@ -145,6 +146,15 @@ export const COMPANY_HQ = {
   'kronenhof':                    { city: 'Pontresina',         canton: 'GR', postalCode: '7504', addressRegion: 'GR' },
   'ksgr':                         { city: 'Chur',               canton: 'GR', postalCode: '7000', addressRegion: 'GR' },
   'stadt-chur':                   { city: 'Chur',               canton: 'GR', postalCode: '7000', addressRegion: 'GR' },
+  // ── Aliases (crawler COMPANY_KEY → canonical config slug) ──
+  'a-group':                      { city: 'Massagno',           canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
+  'ail-lugano':                   { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
+  'artisa-group':                 { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
+  'eoc-ente-ospedaliero-cantonale': { city: 'Bellinzona',       canton: 'TI', postalCode: '6500', addressRegion: 'TI' },
+  'grace-la-margna':              { city: 'St. Moritz',         canton: 'GR', postalCode: '7500', addressRegion: 'GR' },
+  'grand-hotel-kronenhof':        { city: 'Pontresina',         canton: 'GR', postalCode: '7504', addressRegion: 'GR' },
+  'kantonsspital-graubuenden-ksgr': { city: 'Chur',             canton: 'GR', postalCode: '7000', addressRegion: 'GR' },
+  'la-fonte':                     { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
 };
 
 /**

@@ -25,6 +25,7 @@ import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap, detectLang,
 } from './lib/dedicated-crawler-common.mjs';
 import { parseGreenhouseJobs, slugify, normalizeSpace, GREENHOUSE_API, inferEmploymentType } from './lib/vir-biotechnology-job-parser.mjs';
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -33,6 +34,7 @@ const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 
 const COMPANY_KEY = 'vir-biotechnology';
+const HQ = getCompanyDefaults('vir-biotechnology');
 const COMPANY_NAME = 'Vir Biotechnology (Humabs BioMed)';
 const COMPANY_HOST = 'job-boards.greenhouse.io';
 const LOCALES = ['it', 'en', 'de', 'fr'];
@@ -110,12 +112,12 @@ function buildJobFromGreenhouse(parsed) {
     company: COMPANY_NAME,
     companyKey: COMPANY_KEY,
     location: parsed.city || 'Bellinzona',
-    canton: parsed.canton || 'TI',
+    canton: parsed.canton || HQ.canton,
     country: 'CH',
     addressLocality: parsed.city || 'Bellinzona',
-    addressRegion: parsed.canton || 'TI',
+    addressRegion: parsed.canton || HQ.addressRegion,
     addressCountry: 'CH',
-    postalCode: '6500',
+    postalCode: HQ.postalCode,
     streetAddress: 'Via Mirasole 1',
     description: descEn,
     descriptionByLocale: { en: descEn, it: descIt },
@@ -128,7 +130,7 @@ function buildJobFromGreenhouse(parsed) {
     employmentType: inferEmploymentType(parsed.title, parsed.description),
     experienceLevel: detectExperienceLevel(parsed.title),
     sector: 'Biotecnologia / Farmaceutica',
-    _targetScope: { canton: parsed.canton || 'TI', location: parsed.city || 'Bellinzona' },
+    _targetScope: { canton: parsed.canton || HQ.canton, location: parsed.city || 'Bellinzona' },
     sourceLang: detectLang(descEn || parsed.title, 'en'),
   };
 }
@@ -184,7 +186,7 @@ function postProcess() {
     if (job.company !== COMPANY_NAME) { job.company = COMPANY_NAME; fixed++; }
     if (job.companyKey !== COMPANY_KEY) { job.companyKey = COMPANY_KEY; fixed++; }
     job.country = 'CH';
-    if (!job.canton) { job.canton = 'TI'; fixed++; }
+    if (!job.canton) { job.canton = HQ.canton; fixed++; }
     if (!job.location) { job.location = 'Bellinzona'; fixed++; }
   }
   if (fixed > 0) { fs.writeFileSync(DATA_JOBS, JSON.stringify(jobs, null, 2) + '\n'); fs.writeFileSync(PUBLIC_JOBS, JSON.stringify(jobs, null, 2) + '\n'); console.log(`🔧 Post-processed ${fixed} Vir jobs.`); }

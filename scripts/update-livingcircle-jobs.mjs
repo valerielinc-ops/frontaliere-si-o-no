@@ -29,6 +29,7 @@ import {
   parseLivingCircleFeed,
   buildLivingCircleLocalizedContent,
 } from './lib/living-circle-job-parser.mjs';
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -37,6 +38,7 @@ const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTER_PATH = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters', 'the-living-circle.json');
 
 const COMPANY_KEY = 'the-living-circle';
+const HQ = getCompanyDefaults('livingcircle');
 const COMPANY_NAME = 'The Living Circle';
 const COMPANY_HOST = 'jobs.thelivingcircle.ch';
 const COMPANY_DOMAIN = 'thelivingcircle.ch';
@@ -122,9 +124,9 @@ function buildJob(role) {
     companyDomain: COMPANY_DOMAIN,
     location: role.location || 'Ascona',
     addressLocality: role.location || 'Ascona',
-    addressRegion: 'TI',
+    addressRegion: HQ.addressRegion,
     addressCountry: 'CH',
-    canton: 'TI',
+    canton: HQ.canton,
     country: 'CH',
     category: 'hospitality',
     sector: 'Hotellerie & Ospitalità',
@@ -179,7 +181,7 @@ function updateAdapterConfig(jobs) {
   for (const job of jobs) {
     seedMetaByUrl[job.url] = {
       location: job.location,
-      canton: 'TI',
+      canton: HQ.canton,
       company: COMPANY_NAME,
       postedDate: job.postedDate,
     };

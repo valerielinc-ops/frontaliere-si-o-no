@@ -15,6 +15,7 @@ import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap, detectLang } from './lib/dedicated-crawler-common.mjs';
 import { parseListingPage, parseDetailPage, slugify, detectCategory, detectExperienceLevel, inferEmploymentType, MIN_DESC_LENGTH } from './lib/sintetica-job-parser.mjs';
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -23,6 +24,7 @@ const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 
 const COMPANY_KEY = 'sintetica';
+const HQ = getCompanyDefaults('sintetica');
 const COMPANY_NAME = 'Sintetica SA';
 const COMPANY_HOST = 'app.ncoreplat.com';
 const CAREERS_URL = 'https://app.ncoreplat.com/jobboard/1255/sintetica';
@@ -80,9 +82,9 @@ async function fetchJobs() {
     jobs.push({
       url: raw.url, applyUrl: raw.url, title: raw.title,
       company: COMPANY_NAME, companyKey: COMPANY_KEY,
-      location: 'Mendrisio', canton: 'TI', country: 'CH',
-      addressLocality: 'Mendrisio', addressRegion: 'TI', addressCountry: 'CH',
-      postalCode: '6850', streetAddress: 'Via Penate 5',
+      location: 'Mendrisio', canton: HQ.canton, country: 'CH',
+      addressLocality: 'Mendrisio', addressRegion: HQ.addressRegion, addressCountry: 'CH',
+      postalCode: HQ.postalCode, streetAddress: 'Via Penate 5',
       description,
       titleByLocale: { en: raw.title }, descriptionByLocale: {},
       slug, slugByLocale: { en: slug, it: slug },
@@ -91,7 +93,7 @@ async function fetchJobs() {
       source: 'sintetica-careers-crawler', employmentType: inferEmploymentType(raw.title, raw.snippet || ''),
       experienceLevel: detectExperienceLevel(raw.title),
       sector: 'Farmaceutica',
-      _targetScope: { canton: 'TI', location: 'Mendrisio' },
+      _targetScope: { canton: HQ.canton, location: 'Mendrisio' },
       sourceLang: detectLang(description || raw.title, 'en'),
     });
   }

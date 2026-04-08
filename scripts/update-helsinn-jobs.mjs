@@ -18,6 +18,7 @@ import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap, detectLang } from './lib/dedicated-crawler-common.mjs';
 import { parseListingPage, parseDetailPage, slugify, detectCategory, detectExperienceLevel, inferEmploymentType } from './lib/helsinn-job-parser.mjs';
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -26,6 +27,7 @@ const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 
 const COMPANY_KEY = 'helsinn';
+const HQ = getCompanyDefaults('helsinn');
 const COMPANY_NAME = 'Helsinn Healthcare SA';
 const COMPANY_HOST = 'www.e-lavoro.ch';
 const CAREERS_URL = 'https://www.e-lavoro.ch/node/76';
@@ -69,9 +71,9 @@ async function fetchJobs() {
     jobs.push({
       url: listing.url, applyUrl: listing.url, title: listing.title,
       company: COMPANY_NAME, companyKey: COMPANY_KEY,
-      location: listing.location || 'Lugano', canton: 'TI', country: 'CH',
-      addressLocality: 'Lugano-Pambio Noranco', addressRegion: 'TI', addressCountry: 'CH',
-      postalCode: '6912', streetAddress: 'Via Pian Scairolo 9',
+      location: listing.location || 'Lugano', canton: HQ.canton, country: 'CH',
+      addressLocality: 'Lugano-Pambio Noranco', addressRegion: HQ.addressRegion, addressCountry: 'CH',
+      postalCode: HQ.postalCode, streetAddress: 'Via Pian Scairolo 9',
       description: `${listing.title} position at Helsinn Healthcare SA in Lugano, Ticino. Helsinn is a fully integrated biopharma company with a track record of over forty years.`,
       titleByLocale: { en: listing.title }, descriptionByLocale: {},
       slug, slugByLocale: { en: slug, it: slug },

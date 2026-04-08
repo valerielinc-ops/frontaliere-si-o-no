@@ -23,6 +23,7 @@ import { validateJobUrls } from './lib/validate-job-url.mjs';
 import { translateMissingJobLocales, validateDedicatedLocaleCoverage, detectLang, mergePreserveLocaleData } from './lib/dedicated-crawler-common.mjs';
 import { buildPdfBackedDescription, extractPdfJobContentFromUrl } from './lib/pdf-job-content.mjs';
 import { parseLwphrOpenJobs, inferLwphrLocation, inferLwphrCategory, buildLwphrLocalizedPayload, extractTitleFromPdfText, reconcilePdfTitle } from './lib/lwphr-job-parser.mjs';
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -31,6 +32,7 @@ const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTER_PATH = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters', 'lwphr.json');
 
 const COMPANY_KEY = 'lwphr';
+const HQ = getCompanyDefaults('lwphr');
 const COMPANY_NAME = 'LWP Ledermann Wieting & Partners';
 const COMPANY_HOST = 'www.lwphr.ch';
 const COMPANY_DOMAIN = 'lwphr.ch';
@@ -117,9 +119,9 @@ function buildJob({ title, pdfUrl, pdfText }) {
     companyDomain: COMPANY_DOMAIN,
     location,
     addressLocality: location,
-    addressRegion: 'TI',
+    addressRegion: HQ.addressRegion,
     addressCountry: 'CH',
-    canton: 'TI',
+    canton: HQ.canton,
     country: 'CH',
     category: inferLwphrCategory(title, pdfText),
     sector: 'Consulenza',
@@ -193,7 +195,7 @@ function updateAdapterConfig(jobs) {
   for (const job of jobs) {
     seedMetaByUrl[job.url] = {
       location: job.location,
-      canton: 'TI',
+      canton: HQ.canton,
       company: COMPANY_NAME,
       postedDate: job.postedDate,
     };

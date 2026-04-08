@@ -44,6 +44,7 @@ import {
   isSlugStable,
 } from './lib/dedicated-crawler-common.mjs';
 import { parseSupsiJobDetail } from './lib/supsi-job-parser.mjs';
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -52,6 +53,7 @@ const PUBLIC_DATA_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 
 const SUPSI_KEY = 'supsi-dti';
+const HQ = getCompanyDefaults('supsi');
 const SUPSI_COMPANY_NAME = 'SUPSI / DTI';
 const SUPSI_COMPANY_DOMAIN = 'supsi.ch';
 const SUPSI_HOST = 'www.supsi.ch';
@@ -435,7 +437,7 @@ async function fetchSupsiJobDetailUrls() {
   for (const teaser of byUrl.values()) {
     seedMetaByUrl[teaser.url] = {
       location: teaser.location || 'Ticino',
-      canton: 'TI',
+      canton: HQ.canton,
       country: 'CH',
       company: SUPSI_COMPANY_NAME,
       companyDomain: SUPSI_COMPANY_DOMAIN,
@@ -748,7 +750,7 @@ function normalizeSupsiRow(job) {
     companyDomain: SUPSI_COMPANY_DOMAIN,
     source: 'Company Careers Crawler',
     location: cleanedLocation,
-    canton: String(job?.canton || '').trim() || 'TI',
+    canton: String(job?.canton || '').trim() || HQ.canton,
     country: String(job?.country || '').trim() || 'CH',
     ...cleanedLocaleFields,
   };

@@ -40,6 +40,7 @@ import {
   detectLang,
   mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -49,6 +50,7 @@ const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTER_PATH = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters', 'tinext.json');
 
 const COMPANY_KEY = 'tinext';
+const HQ = getCompanyDefaults('tinext');
 const COMPANY_NAME = 'Tinext SA';
 const COMPANY_HOST = 'tinext.kenjo.io';
 const COMPANY_DOMAIN = 'tinext.com';
@@ -290,9 +292,9 @@ async function buildJobs(positions) {
       companyDomain: COMPANY_DOMAIN,
       location: office,
       addressLocality: office,
-      addressRegion: 'TI',
+      addressRegion: HQ.addressRegion,
       addressCountry: 'CH',
-      canton: 'TI',
+      canton: HQ.canton,
       country: 'CH',
       category: inferCategory(title),
       sector: 'IT & Digital Transformation',
@@ -362,7 +364,7 @@ function updateAdapterConfig(jobs) {
   for (const job of jobs) {
     seedMetaByUrl[job.url] = {
       location: job.location || 'Lugano',
-      canton: 'TI',
+      canton: HQ.canton,
       company: COMPANY_NAME,
       postedDate: job.postedDate,
     };

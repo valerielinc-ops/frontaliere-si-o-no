@@ -43,6 +43,7 @@ import {
   detectCategory,
   detectExperienceLevel,
 } from './lib/linnea-job-parser.mjs';
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -51,6 +52,7 @@ const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 
 const LINNEA_KEY = 'linnea';
+const HQ = getCompanyDefaults('linnea');
 const LINNEA_COMPANY_NAME = 'Linnea SA';
 const LINNEA_COMPANY_HOST = 'www.linnea.ch';
 const LINNEA_CAREERS_URL = 'https://www.linnea.ch/careers/';
@@ -164,7 +166,7 @@ async function fetchLinneaJobs() {
       company: LINNEA_COMPANY_NAME,
       companyKey: LINNEA_KEY,
       location: parsed.location || 'Riazzino',
-      canton: 'TI',
+      canton: HQ.canton,
       country: 'CH',
       description: descEn,
       descriptionByLocale: {
@@ -186,7 +188,7 @@ async function fetchLinneaJobs() {
       experienceLevel: detectExperienceLevel(parsed.title),
       sector: 'Farmaceutica / Ingredienti botanici',
       sourceLang: detectLang(descEn || parsed.title, 'it'),
-      _targetScope: { canton: 'TI', location: 'Riazzino' },
+      _targetScope: { canton: HQ.canton, location: 'Riazzino' },
     };
 
     jobs.push(job);
@@ -268,7 +270,7 @@ async function mergeLinneaJobs(discoveredJobs) {
         company: LINNEA_COMPANY_NAME,
         companyKey: LINNEA_KEY,
         location: discovered.location || existing.location,
-        canton: 'TI',
+        canton: HQ.canton,
         country: 'CH',
         applyUrl: discovered.applyUrl || existing.applyUrl,
         category: discovered.category || existing.category,
@@ -378,7 +380,7 @@ function postProcessLinneaJobs() {
       job.companyKey = LINNEA_KEY;
       fixed++;
     }
-    job.canton = 'TI';
+    job.canton = HQ.canton;
     job.country = 'CH';
     if (!job.location) {
       job.location = 'Riazzino';

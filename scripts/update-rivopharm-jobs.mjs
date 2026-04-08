@@ -31,6 +31,7 @@ import {
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap, detectLang } from './lib/dedicated-crawler-common.mjs';
 import { parseRivopharmJobs, slugify, normalizeSpace, htmlToText } from './lib/rivopharm-job-parser.mjs';
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -39,6 +40,7 @@ const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 
 const COMPANY_KEY = 'rivopharm';
+const HQ = getCompanyDefaults('rivopharm');
 const COMPANY_NAME = 'Rivopharm SA';
 const COMPANY_HOST = 'rivopharm.com';
 /**
@@ -185,12 +187,12 @@ function buildJobFromParsed(parsed) {
     company: COMPANY_NAME,
     companyKey: COMPANY_KEY,
     location: parsed.location || 'Manno',
-    canton: 'TI',
+    canton: HQ.canton,
     country: 'CH',
-    postalCode: '6928',
+    postalCode: HQ.postalCode,
     streetAddress: 'Via Cantonale 103',
     addressLocality: parsed.location || 'Manno',
-    addressRegion: 'TI',
+    addressRegion: HQ.addressRegion,
     addressCountry: 'CH',
     description: descEn,
     descriptionByLocale: { en: descEn, it: descIt },
@@ -203,7 +205,7 @@ function buildJobFromParsed(parsed) {
     employmentType: 'FULL_TIME',
     experienceLevel: detectExperienceLevel(title),
     sector: 'Farmaceutica / Generici',
-    _targetScope: { canton: 'TI', location: parsed.location || 'Manno' },
+    _targetScope: { canton: HQ.canton, location: parsed.location || 'Manno' },
     sourceLang: detectLang(descEn || title, 'en'),
   };
 }
@@ -248,7 +250,7 @@ async function mergeJobs(discoveredJobs) {
         title: discovered.title || existing.title,
         company: COMPANY_NAME, companyKey: COMPANY_KEY,
         location: discovered.location || existing.location,
-        canton: 'TI', country: 'CH',
+        canton: HQ.canton, country: 'CH',
         source: 'rivopharm-html-crawler',
         sourceLang: discovered.sourceLang || existing.sourceLang,
         titleByLocale: mergeLocaleTextMap(existing.titleByLocale, discovered.titleByLocale, 3),
@@ -318,7 +320,7 @@ function postProcess() {
     if (job.company !== COMPANY_NAME) { job.company = COMPANY_NAME; fixed++; }
     if (job.companyKey !== COMPANY_KEY) { job.companyKey = COMPANY_KEY; fixed++; }
     job.country = 'CH';
-    if (!job.canton) { job.canton = 'TI'; fixed++; }
+    if (!job.canton) { job.canton = HQ.canton; fixed++; }
     if (!job.location) { job.location = 'Manno'; fixed++; }
   }
   if (fixed > 0) {

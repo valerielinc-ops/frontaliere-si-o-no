@@ -47,6 +47,7 @@ import {
   parseRaiffeisenDetailPage,
   MIN_DESC_LENGTH,
 } from './lib/raiffeisen-vc-job-parser.mjs';
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -56,6 +57,7 @@ const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 
 const RAIFF_KEY = 'banca-raiffeisen-vedeggio-cassarate';
+const HQ = getCompanyDefaults('raiffeisen-vc');
 const RAIFF_COMPANY_NAME = 'Banca Raiffeisen Vedeggio Cassarate';
 const RAIFF_HOST = 'www.raiffeisen.ch';
 const RAIFF_JOBS_HOST = 'jobs.raiffeisen.ch';
@@ -213,7 +215,7 @@ function ensureAdapterSeedUrls(seedUrls) {
   // containing substrings that match foreign location markers).
   const seedMetaByUrl = {};
   for (const u of seedUrls) {
-    seedMetaByUrl[u] = { canton: 'TI', location: 'Gravesano' };
+    seedMetaByUrl[u] = { canton: HQ.canton, location: 'Gravesano' };
   }
 
   if (!fs.existsSync(adapterPath)) {

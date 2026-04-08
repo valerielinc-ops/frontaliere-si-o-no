@@ -45,6 +45,7 @@ import {
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang } from './lib/dedicated-crawler-common.mjs';
 import { parseTichDetailPage, titleOverlap, MIN_TICH_DESC_LENGTH } from './lib/tich-job-parser.mjs';
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -52,6 +53,7 @@ const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
 const PUBLIC_DATA_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 const TICH_KEY = 'amministrazione-cantonale-ti';
+const HQ = getCompanyDefaults('tich');
 const TICH_COMPANY_NAME = 'Amministrazione Cantonale Ticino';
 
 /**
@@ -261,7 +263,7 @@ function postProcessTichJobs() {
     job.company = TICH_COMPANY_NAME;
     job.companyKey = TICH_KEY;
     job.companyDomain = 'concorsi.ti.ch';
-    job.canton = 'TI';
+    job.canton = HQ.canton;
     job.sourceLang = detectLang(job.description || job.title, 'it');
 
     const normalizedTitle = normalizeTichTitle(job.title || '');

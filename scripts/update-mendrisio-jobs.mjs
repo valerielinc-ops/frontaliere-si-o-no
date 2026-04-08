@@ -49,6 +49,7 @@ import {
   buildPdfBackedDescription,
   extractPdfJobContentFromUrl,
 } from './lib/pdf-job-content.mjs';
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -58,6 +59,7 @@ const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 
 const MENDRISIO_KEY = 'citta-di-mendrisio';
+const HQ = getCompanyDefaults('mendrisio');
 const MENDRISIO_COMPANY_NAME = 'Città di Mendrisio';
 const MENDRISIO_HOST = 'mendrisio.ch';
 const MENDRISIO_CAREERS_URL =
@@ -478,7 +480,7 @@ async function fetchMendrisioJobs() {
       company: MENDRISIO_COMPANY_NAME,
       companyKey: MENDRISIO_KEY,
       location: 'Mendrisio',
-      canton: 'TI',
+      canton: HQ.canton,
       country: 'CH',
       description,
       descriptionByLocale: { it: description },
@@ -493,7 +495,7 @@ async function fetchMendrisioJobs() {
       employmentType,
       experienceLevel,
       sector: 'Amministrazione pubblica',
-      _targetScope: { canton: 'TI', location: 'Mendrisio' },
+      _targetScope: { canton: HQ.canton, location: 'Mendrisio' },
       _enrichedFromDetail: true,
     };
     if (parsed.pdfUrl && pdfContent.error) {
@@ -613,7 +615,7 @@ async function mergeMendrisioJobs(discoveredJobs) {
         company: MENDRISIO_COMPANY_NAME,
         companyKey: MENDRISIO_KEY,
         location: 'Mendrisio',
-        canton: 'TI',
+        canton: HQ.canton,
         country: 'CH',
         applyUrl: discovered.applyUrl || existing.applyUrl,
         category: discovered.category || existing.category,
@@ -724,7 +726,7 @@ async function postProcessMendrisioJobs() {
       job.companyKey = MENDRISIO_KEY;
       fixed++;
     }
-    job.canton = 'TI';
+    job.canton = HQ.canton;
     job.country = 'CH';
     if (!job.location) {
       job.location = 'Mendrisio';

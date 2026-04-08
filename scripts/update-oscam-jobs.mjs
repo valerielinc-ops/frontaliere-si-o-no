@@ -52,6 +52,7 @@ import {
   extractPdfJobContentFromUrl,
   buildPdfBackedDescription,
 } from './lib/pdf-job-content.mjs';
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -60,6 +61,7 @@ const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 
 const COMPANY_KEY = 'oscam';
+const HQ = getCompanyDefaults('oscam');
 const COMPANY_NAME = 'OSCAM – Ospedale e Casa Anziani Malcantonese';
 const COMPANY_HOST = 'www.oscam.ch';
 const CAREERS_URLS = [
@@ -419,7 +421,7 @@ async function fetchOscamJobs() {
         company: COMPANY_NAME,
         companyKey: COMPANY_KEY,
         location: 'Castelrotto',
-        canton: 'TI',
+        canton: HQ.canton,
         country: 'CH',
         url: listing.pdfUrl,
         applyUrl: 'mailto:info@oscam.ch',
@@ -434,7 +436,7 @@ async function fetchOscamJobs() {
         descriptionByLocale: { it: description },
         slugByLocale: { it: slug },
         sourceLang: detectLang(description || listing.title, 'it'),
-        _targetScope: { canton: 'TI', location: 'Castelrotto' },
+        _targetScope: { canton: HQ.canton, location: 'Castelrotto' },
       };
 
       allJobs.push(job);
@@ -494,7 +496,7 @@ async function mergeJobs(discoveredJobs) {
         company: COMPANY_NAME,
         companyKey: COMPANY_KEY,
         location: discovered.location || ex.location,
-        canton: 'TI',
+        canton: HQ.canton,
         country: 'CH',
         url: discovered.url || ex.url,
         applyUrl: discovered.applyUrl || ex.applyUrl,
@@ -615,7 +617,7 @@ function postProcessJobs() {
       job.companyKey = COMPANY_KEY;
       fixed++;
     }
-    job.canton = 'TI';
+    job.canton = HQ.canton;
     job.country = 'CH';
     if (!job.location) {
       job.location = 'Castelrotto';
