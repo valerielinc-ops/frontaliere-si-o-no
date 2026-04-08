@@ -923,11 +923,30 @@ function factCheckNumbers(contentIt, pageContent = '') {
   const articleText = [
     contentIt?.body1 || '', contentIt?.body2 || '', contentIt?.body3 || '',
   ].join(' ');
+
+  // Extract numbers that appear to be part of legal references (DL 167/2024, D.Lgs 241/1997, etc.)
+  // These are legitimate background context, not invented statistics
+  const legalRefNumbers = new Set();
+  const legalPattern = /\b(?:d\.?l\.?g?s?\.?|dpr|l\.)\s*(?:n\.?\s*)?(\d{1,4})\s*\/\s*(\d{4})\b/gi;
+  let lm;
+  while ((lm = legalPattern.exec(articleText)) !== null) {
+    legalRefNumbers.add(lm[1]); // law number (167, 241, 81...)
+    legalRefNumbers.add(lm[2]); // year (2024, 1997, 2008...)
+  }
+  // Also exclude well-known years that appear near "convenzione", "accordo", etc.
+  const contextYears = /(?:convenzione|accordo|trattato)[^.]{0,60}(1\d{3}|20\d{2})/gi;
+  while ((lm = contextYears.exec(articleText)) !== null) {
+    legalRefNumbers.add(lm[1]);
+  }
+
   const articleNumbers = new Set(
     (articleText.match(/\b\d[\d.,]*%|\b\d[\d.,]+\b/g) || [])
       .filter(n => {
         const val = parseFloat(n.replace(/[.,]/g, ''));
-        return val > 10 && (val < 2020 || val > 2030);
+        if (val <= 10 || (val >= 2020 && val <= 2030)) return false;
+        // Exclude numbers that are part of legal references
+        if (legalRefNumbers.has(n)) return false;
+        return true;
       })
   );
   if (articleNumbers.size === 0) return;
