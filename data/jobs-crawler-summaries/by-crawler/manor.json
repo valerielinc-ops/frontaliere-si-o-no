@@ -1,16 +1,16 @@
 {
   "key": "manor",
   "label": "Manor",
-  "generatedAt": "2026-04-08T09:43:50.289Z",
+  "generatedAt": "2026-04-08T21:34:17.965Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4773,
-  "avgDurationMs": 4773,
+  "durationMs": 5831,
+  "avgDurationMs": 5831,
   "durationHistory": [
-    4773
+    5831
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -27,13 +27,14 @@
       "postedDate": "2026-04-05",
       "source": "company-website",
       "slug": "manor-polydesigner-3d-afc-100-lugano",
+      "sourceLang": "it",
       "crawledAt": "",
       "needsRetranslation": true,
-      "_qualityScore": 70,
+      "_qualityScore": 66,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 20,
+        "translation": 16,
         "completeness": 11
       }
     },
@@ -50,13 +51,14 @@
       "postedDate": "2026-04-05",
       "source": "company-website",
       "slug": "manor-apprendista-polydesigner-3d-afc-100-lugano",
+      "sourceLang": "it",
       "crawledAt": "",
       "needsRetranslation": true,
-      "_qualityScore": 70,
+      "_qualityScore": 64,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 20,
+        "translation": 14,
         "completeness": 11
       }
     }
