@@ -1,6 +1,6 @@
 {
   "crawlerKey": "a-group",
-  "assembledAt": "2026-04-07T20:50:56.716Z",
+  "assembledAt": "2026-04-08T08:54:57.814Z",
   "jobs": [
     {
       "title": "Ingegnere edile Jr.",
@@ -22,7 +22,7 @@
       "sector": "Architettura & Design",
       "source": "a-plus-plus-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-07",
+      "postedDate": "2026-04-08",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -66,7 +66,8 @@
           "maxValue": 75500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "id": "a-group-95bf228f7209"
     },
     {
       "title": "Receptionist",
@@ -88,7 +89,7 @@
       "sector": "Architettura & Design",
       "source": "a-plus-plus-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-07",
+      "postedDate": "2026-04-08",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -127,7 +128,9 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "id": "a-group-a6dac446b24d",
+      "needsRetranslation": true
     },
     {
       "title": "Tecnico di cantiere (Ingegere edile o Geometra)",
@@ -149,7 +152,7 @@
       "sector": "Architettura & Design",
       "source": "a-plus-plus-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-07",
+      "postedDate": "2026-04-08",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -189,7 +192,8 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "id": "a-group-8be7e14ea42e"
     }
   ]
 }
