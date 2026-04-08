@@ -36,6 +36,7 @@ import {
   validateDedicatedLocaleCoverage,
   mergeLocaleTextMap,
   stableSlugHash,
+  detectLang,
 } from './lib/dedicated-crawler-common.mjs';
 import { parseSwisscomJobDescription } from './lib/swisscom-job-parser.mjs';
 import { inferSwissTargetCanton, isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
@@ -406,6 +407,7 @@ export function buildSwisscomJob(listing = {}, detail = {}) {
     experienceLevel: detectExperienceLevel(title),
     sector: 'Tecnologia & IT',
     _targetScope: { canton, location: city },
+    sourceLang: detectLang(descIt || title, 'it'),
   };
 
   if (jobReqId) {
@@ -523,6 +525,7 @@ async function mergeSwisscomJobs(discoveredJobs) {
         category: discovered.category || existing.category,
         sector: discovered.sector || existing.sector,
         source: 'swisscom-workday-crawler',
+        sourceLang: discovered.sourceLang || existing.sourceLang,
         requirements: Array.isArray(discovered.requirements) && discovered.requirements.length > 0
           ? discovered.requirements
           : existing.requirements,

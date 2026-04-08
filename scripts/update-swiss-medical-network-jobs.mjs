@@ -16,7 +16,7 @@ import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawl
 import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
-import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap,
+import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap, detectLang,
 } from './lib/dedicated-crawler-common.mjs';
 import { parseSwissMedicalJobs, parseSmartRecruiterDetail, getClinicAddress, slugify, normalizeSpace, TICINO_REGION_UUID } from './lib/swiss-medical-network-job-parser.mjs';
 
@@ -131,6 +131,7 @@ function buildJobFromParsed(parsed, detailDescription = '') {
     experienceLevel: detectExperienceLevel(parsed.title),
     sector: 'Sanità / Healthcare',
     _targetScope: { canton: 'TI', location: city },
+    sourceLang: detectLang(descEn || parsed.title, 'en'),
   };
 }
 
@@ -151,7 +152,7 @@ async function mergeJobs(discoveredJobs) {
   for (const d of discoveredJobs) {
     const key = canonicalizeUrl(d.url);
     const ex = existingByUrl.get(key);
-    if (ex) { merged.push({ ...ex, title: d.title || ex.title, company: COMPANY_NAME, companyKey: COMPANY_KEY, source: 'swiss-medical-smartrecruiters-crawler', titleByLocale: mergeLocaleTextMap(ex.titleByLocale, d.titleByLocale, 3), descriptionByLocale: mergeLocaleTextMap(ex.descriptionByLocale, d.descriptionByLocale, 30), slugByLocale: mergeLocaleTextMap(ex.slugByLocale, d.slugByLocale, 3) }); updated++; }
+    if (ex) { merged.push({ ...ex, title: d.title || ex.title, company: COMPANY_NAME, companyKey: COMPANY_KEY, source: 'swiss-medical-smartrecruiters-crawler', sourceLang: d.sourceLang || ex.sourceLang, titleByLocale: mergeLocaleTextMap(ex.titleByLocale, d.titleByLocale, 3), descriptionByLocale: mergeLocaleTextMap(ex.descriptionByLocale, d.descriptionByLocale, 30), slugByLocale: mergeLocaleTextMap(ex.slugByLocale, d.slugByLocale, 3) }); updated++; }
     else { merged.push(d); added++; }
   }
   for (const [url] of existingByUrl) { if (!discoveredByUrl.has(url)) removed++; }

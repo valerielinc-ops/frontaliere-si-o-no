@@ -22,7 +22,7 @@ import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawl
 import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
-import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap,
+import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap, detectLang,
 } from './lib/dedicated-crawler-common.mjs';
 import { parseGreenhouseJobs, slugify, normalizeSpace, GREENHOUSE_API, inferEmploymentType } from './lib/vir-biotechnology-job-parser.mjs';
 
@@ -129,6 +129,7 @@ function buildJobFromGreenhouse(parsed) {
     experienceLevel: detectExperienceLevel(parsed.title),
     sector: 'Biotecnologia / Farmaceutica',
     _targetScope: { canton: parsed.canton || 'TI', location: parsed.city || 'Bellinzona' },
+    sourceLang: detectLang(descEn || parsed.title, 'en'),
   };
 }
 
@@ -149,7 +150,7 @@ async function mergeJobs(discoveredJobs) {
   for (const discovered of discoveredJobs) {
     const key = canonicalizeUrl(discovered.url);
     const ex = existingByUrl.get(key);
-    if (ex) { merged.push({ ...ex, title: discovered.title || ex.title, company: COMPANY_NAME, companyKey: COMPANY_KEY, source: 'vir-greenhouse-crawler', titleByLocale: mergeLocaleTextMap(ex.titleByLocale, discovered.titleByLocale, 3), descriptionByLocale: mergeLocaleTextMap(ex.descriptionByLocale, discovered.descriptionByLocale, 30), slugByLocale: mergeLocaleTextMap(ex.slugByLocale, discovered.slugByLocale, 3) }); updated++; }
+    if (ex) { merged.push({ ...ex, title: discovered.title || ex.title, company: COMPANY_NAME, companyKey: COMPANY_KEY, source: 'vir-greenhouse-crawler', sourceLang: discovered.sourceLang || ex.sourceLang, titleByLocale: mergeLocaleTextMap(ex.titleByLocale, discovered.titleByLocale, 3), descriptionByLocale: mergeLocaleTextMap(ex.descriptionByLocale, discovered.descriptionByLocale, 30), slugByLocale: mergeLocaleTextMap(ex.slugByLocale, discovered.slugByLocale, 3) }); updated++; }
     else { merged.push(discovered); added++; }
   }
   for (const [url] of existingByUrl) { if (!discoveredByUrl.has(url)) removed++; }

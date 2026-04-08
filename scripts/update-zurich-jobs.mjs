@@ -145,6 +145,22 @@ function runBaseCrawler() {
   });
 }
 
+function ensureSourceLang() {
+  if (!fs.existsSync(DATA_JOBS)) return;
+  const jobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  if (!Array.isArray(jobs)) return;
+  let changed = 0;
+  for (const job of jobs) {
+    if (!isZurichJob(job)) continue;
+    const lang = detectLang(job.description || job.title, 'en');
+    if (job.sourceLang !== lang) { job.sourceLang = lang; changed++; }
+  }
+  if (changed > 0) {
+    fs.writeFileSync(DATA_JOBS, JSON.stringify(jobs, null, 2) + '\n');
+    console.log(`📝 Set sourceLang on ${changed} Zurich job(s).`);
+  }
+}
+
 function logZurichJobStats(beforeSnapshot = new Map()) {
   if (!fs.existsSync(DATA_JOBS)) {
     console.log('ℹ️ jobs.json non trovato — nessuna statistica disponibile.');
@@ -205,6 +221,7 @@ async function main() {
     const _beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(ZURICH_KEY, DATA_JOBS).filter(isZurichJob))
 
   await runBaseCrawler();
+  ensureSourceLang();
 
   // Log stats
   const stats = logZurichJobStats(_beforeSnapshot);

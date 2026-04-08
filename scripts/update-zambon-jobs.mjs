@@ -18,7 +18,7 @@ import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawl
 import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
-import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap } from './lib/dedicated-crawler-common.mjs';
+import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap, detectLang } from './lib/dedicated-crawler-common.mjs';
 import { parseListingPage, slugify, detectCategory, detectExperienceLevel, inferEmploymentType } from './lib/zambon-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -135,6 +135,7 @@ async function fetchJobs() {
         sector: 'Farmaceutica',
         department: raw.job_family || '',
         seniority: raw.seniority || '',
+        sourceLang: detectLang(buildZambonDescription(title, raw) || title, 'it'),
       };
     });
   } catch (err) {
@@ -164,6 +165,7 @@ async function fetchJobs() {
       source: 'zambon-careers-crawler', employmentType: inferEmploymentType(raw.title, raw.snippet || ''),
       experienceLevel: detectExperienceLevel(raw.title),
       sector: 'Farmaceutica',
+      sourceLang: detectLang(raw.title, 'it'),
     };
   });
 }

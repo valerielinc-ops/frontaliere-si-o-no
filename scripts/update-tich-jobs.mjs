@@ -43,7 +43,7 @@ import {
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
-import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage } from './lib/dedicated-crawler-common.mjs';
+import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang } from './lib/dedicated-crawler-common.mjs';
 import { parseTichDetailPage, titleOverlap, MIN_TICH_DESC_LENGTH } from './lib/tich-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -90,15 +90,6 @@ function normalizeKey(value = '') {
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
-}
-
-function detectLang(text = '') {
-  const t = ` ${normalize(text)} `;
-  if (/( das | und | bei uns | stellenbeschreibung | arbeitsort )/.test(t)) return 'de';
-  if (/( the | with | requirements | apply now )/.test(t)) return 'en';
-  if (/( il | la | con | requisiti | candidati )/.test(t)) return 'it';
-  if (/( le | la | avec | exigences | poste )/.test(t)) return 'fr';
-  return 'it';
 }
 
 const TICH_CITIES = [
@@ -271,6 +262,7 @@ function postProcessTichJobs() {
     job.companyKey = TICH_KEY;
     job.companyDomain = 'concorsi.ti.ch';
     job.canton = 'TI';
+    job.sourceLang = detectLang(job.description || job.title, 'it');
 
     const normalizedTitle = normalizeTichTitle(job.title || '');
     if (normalizedTitle) {

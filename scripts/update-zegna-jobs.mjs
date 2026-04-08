@@ -381,6 +381,7 @@ async function fetchZegnaJobs() {
       brand: detail.brand || 'Zegna',
       contractType: detail.contractType || '',
       _targetScope: { canton, location: city },
+      sourceLang: detectLang(detail.description || title, 'en'),
     };
 
     jobs.push(job);
@@ -469,6 +470,7 @@ async function mergeZegnaJobs(discoveredJobs) {
         category: discovered.category || existing.category,
         sector: discovered.sector || existing.sector,
         source: 'zegna-careers-crawler',
+        sourceLang: discovered.sourceLang || existing.sourceLang,
         brand: discovered.brand || existing.brand,
         contractType: discovered.contractType || existing.contractType,
         titleByLocale: mergeLocaleTextMap(existing.titleByLocale, discovered.titleByLocale, 3),

@@ -14,7 +14,7 @@ import {
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
-import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage } from './lib/dedicated-crawler-common.mjs';
+import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang } from './lib/dedicated-crawler-common.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -41,15 +41,6 @@ function normalizeKey(value = '') {
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
-}
-
-function detectLang(text = '') {
-  const t = ` ${normalize(text)} `;
-  if (/( das | und | bei uns | stellenbeschreibung | arbeitsort )/.test(t)) return 'de';
-  if (/( the | with | requirements | apply now )/.test(t)) return 'en';
-  if (/( il | la | con | requisiti | candidati )/.test(t)) return 'it';
-  if (/( le | la | avec | exigences | poste )/.test(t)) return 'fr';
-  return 'en';
 }
 
 function loadSwatchCompanyKeys() {
@@ -92,6 +83,23 @@ function runBaseCrawler(companyKeys) {
     localizeOnlyCompanyKeys: companyKeys,
     forceLocalizeKeys: companyKeys,
   });
+}
+
+function ensureSourceLang(companyKeys) {
+  if (!fs.existsSync(DATA_JOBS)) return;
+  const swatchKeysSet = new Set(companyKeys.map((k) => normalizeKey(k)));
+  const jobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  if (!Array.isArray(jobs)) return;
+  let changed = 0;
+  for (const job of jobs) {
+    if (!isSwatchJob(job, swatchKeysSet)) continue;
+    const lang = detectLang(job.description || job.title, 'de');
+    if (job.sourceLang !== lang) { job.sourceLang = lang; changed++; }
+  }
+  if (changed > 0) {
+    fs.writeFileSync(DATA_JOBS, JSON.stringify(jobs, null, 2) + '\n');
+    console.log(`📝 Set sourceLang on ${changed} Swatch Group job(s).`);
+  }
 }
 
 function logSwatchJobStats(companyKeys, beforeSnapshot = new Map()) {
@@ -142,7 +150,7 @@ function validateSwatchLocaleCoverage(companyKeys) {
     label: 'Swatch',
     dataJobsPath: DATA_JOBS,
     isTargetJob: (job) => isSwatchJob(job, swatchKeysSet),
-    detectSourceLang: (text) => detectLang(text),
+    detectSourceLang: (text) => detectLang(text, 'de'),
     deriveSlug: (job, locale) => String(job?.slugByLocale?.[locale] || job?.slug || '').trim(),
     noJobsMessage: 'Nessun job Swatch Group trovato dopo il crawl — niente da validare.',
   });
@@ -169,6 +177,7 @@ async function main() {
   }
 
   await runBaseCrawler(companyKeys);
+  ensureSourceLang(companyKeys);
 
   // Log stats: total jobs found, Ticino vs non-Ticino
   const stats = logSwatchJobStats(companyKeys, _beforeSnapshot);

@@ -168,6 +168,7 @@ async function main() {
       postedDate: new Date().toISOString().slice(0, 10),
       url: raw.url,
       source: 'Prada Group Dedicated Parser',
+      sourceLang: detectLang(description || raw.title, 'en'),
       crawledAt: new Date().toISOString(),
     });
     console.log(`  \u2705 ${raw.title} \u2014 ${loc}`);

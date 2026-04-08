@@ -373,6 +373,7 @@ function parseSchindlerJob(searchResult, detailData) {
     postedDate,
     url: searchResult.url,
     source: 'Schindler Dedicated Parser (SuccessFactors HTML)',
+    sourceLang: detectLang(description || title, 'it'),
     crawledAt: new Date().toISOString(),
   };
 }

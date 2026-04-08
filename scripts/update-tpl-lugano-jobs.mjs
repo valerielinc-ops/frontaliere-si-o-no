@@ -37,6 +37,7 @@ import {
   validateDedicatedLocaleCoverage,
   normalize,
   normalizeKey,
+  detectLang,
 } from './lib/dedicated-crawler-common.mjs';
 import { parseTplListingPage, inferEmploymentType } from './lib/tpl-lugano-job-parser.mjs';
 
@@ -187,6 +188,7 @@ function validateLocaleCoverage() {
     label: 'TPL Lugano',
     dataJobsPath: DATA_JOBS,
     isTargetJob: isTplJob,
+    detectSourceLang: (text) => detectLang(text, 'it'),
     noJobsMessage: 'No TPL Lugano jobs found after crawl.',
     maxToleratedMissingDescriptions: 5,
   });
@@ -225,6 +227,7 @@ async function main() {
         if (!j.postalCode) j.postalCode = '6900';
         if (!j.streetAddress) j.streetAddress = 'Via Campagna 15';
         if (!j.employmentType) j.employmentType = inferEmploymentType(j.title || '', j.description || '');
+        if (!j.sourceLang) j.sourceLang = detectLang(j.description || j.title, 'it');
         patched++;
       }
       if (patched > 0) {

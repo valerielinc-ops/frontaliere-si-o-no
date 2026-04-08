@@ -40,6 +40,7 @@ import {
   validateDedicatedLocaleCoverage,
   normalize,
   normalizeKey,
+  detectLang,
 } from './lib/dedicated-crawler-common.mjs';
 import {
   normalizeFederalDepartmentCompany,
@@ -248,6 +249,22 @@ function runBaseCrawler() {
   });
 }
 
+function ensureSourceLang() {
+  if (!fs.existsSync(DATA_JOBS)) return;
+  const jobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  if (!Array.isArray(jobs)) return;
+  let changed = 0;
+  for (const job of jobs) {
+    if (!isVtgJob(job)) continue;
+    const lang = detectLang(job.description || job.title, 'de');
+    if (job.sourceLang !== lang) { job.sourceLang = lang; changed++; }
+  }
+  if (changed > 0) {
+    fs.writeFileSync(DATA_JOBS, JSON.stringify(jobs, null, 2) + '\n');
+    console.log(`📝 Set sourceLang on ${changed} VTG job(s).`);
+  }
+}
+
 /* ── Stats & Validation ────────────────────────────────────── */
 function logStats(beforeSnapshot = new Map()) {
   if (!fs.existsSync(DATA_JOBS)) {
@@ -281,6 +298,7 @@ function validateLocaleCoverage() {
     label: 'VTG',
     dataJobsPath: DATA_JOBS,
     isTargetJob: isVtgJob,
+    detectSourceLang: (text) => detectLang(text, 'de'),
     noJobsMessage: 'No VTG jobs found after crawl.',
     maxToleratedMissingDescriptions: 5,
   });
@@ -311,6 +329,7 @@ async function main() {
 
   // Step 3: Run the base crawler (fetches detail pages)
   await runBaseCrawler();
+  ensureSourceLang();
 
   // Step 4: Translate missing locales
   await translateMissingJobLocales({

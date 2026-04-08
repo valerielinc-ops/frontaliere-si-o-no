@@ -13,7 +13,7 @@ import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawl
 import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
-import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap } from './lib/dedicated-crawler-common.mjs';
+import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap, detectLang } from './lib/dedicated-crawler-common.mjs';
 import { parseListingPage, parseDetailPage, slugify, detectCategory, detectExperienceLevel, inferEmploymentType, MIN_DESC_LENGTH } from './lib/sintetica-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -92,6 +92,7 @@ async function fetchJobs() {
       experienceLevel: detectExperienceLevel(raw.title),
       sector: 'Farmaceutica',
       _targetScope: { canton: 'TI', location: 'Mendrisio' },
+      sourceLang: detectLang(description || raw.title, 'en'),
     });
   }
   return jobs;

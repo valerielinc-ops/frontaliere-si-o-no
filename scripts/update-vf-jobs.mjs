@@ -67,6 +67,22 @@ function runBaseCrawler() {
   });
 }
 
+function ensureSourceLang() {
+  if (!fs.existsSync(DATA_JOBS)) return;
+  const jobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  if (!Array.isArray(jobs)) return;
+  let changed = 0;
+  for (const job of jobs) {
+    if (!isVfJob(job)) continue;
+    const lang = detectLang(job.description || job.title, 'en');
+    if (job.sourceLang !== lang) { job.sourceLang = lang; changed++; }
+  }
+  if (changed > 0) {
+    fs.writeFileSync(DATA_JOBS, JSON.stringify(jobs, null, 2) + '\n');
+    console.log(`📝 Set sourceLang on ${changed} VF job(s).`);
+  }
+}
+
 function validateVfLocaleCoverage() {
   validateDedicatedLocaleCoverage({
     strictEnvVar: 'JOBS_VF_STRICT',
@@ -92,6 +108,7 @@ async function main() {
     const _beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(VF_KEY, DATA_JOBS).filter(isVfJob))
 
   await runBaseCrawler();
+  ensureSourceLang();
   await translateMissingJobLocales({
     dataJobsPath: DATA_JOBS,
     isTargetJob: isVfJob,

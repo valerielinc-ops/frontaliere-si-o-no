@@ -29,7 +29,7 @@ import {
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
-import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap } from './lib/dedicated-crawler-common.mjs';
+import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap, detectLang } from './lib/dedicated-crawler-common.mjs';
 import { parseRivopharmJobs, slugify, normalizeSpace, htmlToText } from './lib/rivopharm-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -204,6 +204,7 @@ function buildJobFromParsed(parsed) {
     experienceLevel: detectExperienceLevel(title),
     sector: 'Farmaceutica / Generici',
     _targetScope: { canton: 'TI', location: parsed.location || 'Manno' },
+    sourceLang: detectLang(descEn || title, 'en'),
   };
 }
 
@@ -249,6 +250,7 @@ async function mergeJobs(discoveredJobs) {
         location: discovered.location || existing.location,
         canton: 'TI', country: 'CH',
         source: 'rivopharm-html-crawler',
+        sourceLang: discovered.sourceLang || existing.sourceLang,
         titleByLocale: mergeLocaleTextMap(existing.titleByLocale, discovered.titleByLocale, 3),
         descriptionByLocale: mergeLocaleTextMap(existing.descriptionByLocale, discovered.descriptionByLocale, 30),
         slugByLocale: mergeLocaleTextMap(existing.slugByLocale, discovered.slugByLocale, 3),

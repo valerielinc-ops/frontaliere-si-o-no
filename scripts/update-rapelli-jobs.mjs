@@ -133,6 +133,7 @@ async function main() {
       postedDate: new Date().toISOString().slice(0, 10),
       url: raw.url,
       source: 'Rapelli Dedicated Parser (ORIOR Careers)',
+      sourceLang: detectLang(description || raw.title, 'it'),
       crawledAt: new Date().toISOString(),
     });
     console.log(`  \u2705 ${raw.title} \u2014 ${raw.location}`);

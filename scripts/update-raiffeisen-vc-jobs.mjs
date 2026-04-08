@@ -41,6 +41,7 @@ import {
   validateDedicatedLocaleCoverage,
   normalize,
   normalizeKey,
+  detectLang,
 } from './lib/dedicated-crawler-common.mjs';
 import {
   parseRaiffeisenDetailPage,
@@ -296,12 +297,29 @@ function validateLocaleCoverage() {
     label: 'Raiffeisen VC',
     dataJobsPath: DATA_JOBS,
     isTargetJob: isRaiffeisenVCJob,
+    detectSourceLang: (text) => detectLang(text, 'it'),
     noJobsMessage: 'No Raiffeisen Vedeggio Cassarate jobs found after crawl.',
     maxToleratedMissingDescriptions: 5,
   });
 }
 
 /* ── Description patching ──────────────────────────────────── */
+function ensureSourceLang() {
+  if (!fs.existsSync(DATA_JOBS)) return;
+  const jobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  if (!Array.isArray(jobs)) return;
+  let changed = 0;
+  for (const job of jobs) {
+    if (!isRaiffeisenVCJob(job)) continue;
+    const lang = detectLang(job.description || job.title, 'it');
+    if (job.sourceLang !== lang) { job.sourceLang = lang; changed++; }
+  }
+  if (changed > 0) {
+    fs.writeFileSync(DATA_JOBS, JSON.stringify(jobs, null, 2) + '\n');
+    console.log(`📝 Set sourceLang on ${changed} Raiffeisen VC job(s).`);
+  }
+}
+
 /**
  * For each detail URL in `detailBodies`, find the matching job in jobs.json
  * by URL and update its description if the freshly-parsed body is longer than
@@ -329,6 +347,7 @@ function patchDescriptionsFromDetailBodies(detailBodies) {
     // Only update if the new body is meaningfully longer (> 10% gain)
     if (newLen > currentLen * 1.1 || currentLen < MIN_DESC_LENGTH) {
       job.description = body.descriptionText;
+      job.sourceLang = detectLang(body.descriptionText || job.title, 'it');
       // Update English locale description too
       if (job.descriptionByLocale?.en) {
         job.descriptionByLocale.en = body.descriptionText;
@@ -382,6 +401,7 @@ async function main() {
 
   // Step 3: Run the base crawler
   await runBaseCrawler();
+  ensureSourceLang();
 
   // Step 3b: Patch stored descriptions with fully-extracted bodies where longer
   if (detailBodies.size > 0 && fs.existsSync(DATA_JOBS)) {
