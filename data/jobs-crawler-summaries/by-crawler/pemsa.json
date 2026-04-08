@@ -1,16 +1,16 @@
 {
   "key": "pemsa",
   "label": "PEMSA",
-  "generatedAt": "2026-04-07T21:47:08.339Z",
-  "total": 41,
+  "generatedAt": "2026-04-08T09:51:09.894Z",
+  "total": 40,
   "newCount": 0,
   "updatedCount": 11,
-  "removedCount": 0,
-  "unchangedCount": 30,
-  "durationMs": 96041,
-  "avgDurationMs": 96041,
+  "removedCount": 1,
+  "unchangedCount": 29,
+  "durationMs": 93728,
+  "avgDurationMs": 93728,
   "durationHistory": [
-    96041
+    93728
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -356,11 +356,11 @@
       "currency": "CHF",
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
-      "_qualityScore": 92,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 22,
-        "translation": 25,
+        "translation": 23,
         "completeness": 25
       }
     },
@@ -391,16 +391,52 @@
       "currency": "CHF",
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
-      "_qualityScore": 92,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 20,
+        "richness": 22,
+        "translation": 23,
+        "completeness": 25
+      }
+    }
+  ],
+  "removedJobs": [
+    {
+      "title": "Installatore Idraulico",
+      "slug": "installatore-idraulico-pemsa-lugano",
+      "url": "https://www.pemsa.ch/it/job/installatore-idraulico-2667152/",
+      "applyUrl": "https://www.pemsa.ch/it/job/installatore-idraulico-2667152/",
+      "company": "PEMSA",
+      "companyKey": "pemsa",
+      "companyDomain": "pemsa.ch",
+      "location": "Lugano",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "impiantistica",
+      "sector": "Edilizia e tecnica",
+      "source": "pemsa-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-03-23",
+      "employmentType": "full-time",
+      "contractType": "temporary",
+      "validThrough": "2026-04-07",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "streetAddress": "Via Industria 20",
+      "postalCode": "6807",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
         "richness": 22,
         "translation": 25,
         "completeness": 25
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Idraulico impianti Riscaldamento",
@@ -424,17 +460,16 @@
       "employmentType": "full-time",
       "contractType": "temporary",
       "validThrough": "2026-04-22",
-      "needsRetranslation": true,
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
-      "_qualityScore": 92,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 20,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -460,17 +495,16 @@
       "employmentType": "full-time",
       "contractType": "temporary",
       "validThrough": "2026-04-22",
-      "needsRetranslation": true,
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
-      "_qualityScore": 92,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 20,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -496,17 +530,16 @@
       "employmentType": "full-time",
       "contractType": "temporary",
       "validThrough": "2026-04-22",
-      "needsRetranslation": true,
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
-      "_qualityScore": 94,
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 20,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -1022,41 +1055,6 @@
       "employmentType": "full-time",
       "contractType": "temporary",
       "validThrough": "2026-04-08",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Installatore Idraulico",
-      "slug": "installatore-idraulico-pemsa-lugano",
-      "url": "https://www.pemsa.ch/it/job/installatore-idraulico-2667152/",
-      "applyUrl": "https://www.pemsa.ch/it/job/installatore-idraulico-2667152/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "impiantistica",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-03-23",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-04-07",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
