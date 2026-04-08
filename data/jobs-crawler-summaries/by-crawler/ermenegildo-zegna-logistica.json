@@ -1,16 +1,16 @@
 {
   "key": "ermenegildo-zegna-logistica",
   "label": "Zegna",
-  "generatedAt": "2026-04-08T10:08:50.814Z",
-  "total": 2,
+  "generatedAt": "2026-04-08T21:59:15.432Z",
+  "total": 1,
   "newCount": 0,
-  "updatedCount": 2,
-  "removedCount": 0,
+  "updatedCount": 1,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 10928,
-  "avgDurationMs": 10928,
+  "durationMs": 5700,
+  "avgDurationMs": 5700,
   "durationHistory": [
-    10928
+    5700
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -47,6 +47,7 @@
       "addressLocality": "Stabio",
       "addressRegion": "TI",
       "addressCountry": "CH",
+      "id": "ermenegildo-zegna-logistica-debbf7175cfe",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -54,7 +55,9 @@
         "translation": 25,
         "completeness": 20
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "url": "https://careers.zegnagroup.com/jobs/job-details?JobID=259465840&Team=231361275",
       "applyUrl": "https://careers.zegnagroup.com/jobs/job-details?JobID=259465840&Team=231361275",
@@ -64,7 +67,7 @@
       "location": "Stabio",
       "canton": "TI",
       "country": "CH",
-      "slug": "senior-credit-specialista-ermenegildo-zegna-group-stabio-jj2eb9",
+      "slug": "senior-credit-specialista-ermenegildo-zegna-group-stabio",
       "department": "Corporate and Staff Functions/Finance & Control",
       "category": "Corporate and Staff Functions/Finance & Control",
       "datePosted": "2026-03-29",
@@ -88,6 +91,7 @@
       "addressLocality": "Stabio",
       "addressRegion": "TI",
       "addressCountry": "CH",
+      "id": "ermenegildo-zegna-logistica-50948496907c",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -97,6 +101,5 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
