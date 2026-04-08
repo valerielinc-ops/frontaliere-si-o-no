@@ -1772,15 +1772,15 @@ async function callGemini(pageContent, url, sourceContext = null) {
   const existingIds = idMatch ? idMatch[1].match(/'([^']+)'/g)?.map(s => s.slice(1, -1)) || [] : [];
 
   // ── Token budget management ──
-  // GitHub Models enforces 8000 input tokens. Keep prompt under ~6000 tokens
-  // (~21000 chars) to leave room for system message + overhead.
+  // Most models accept 128K+ context. We keep source generous (6000 chars)
+  // to maximize factual grounding, and limit IDs to 50 for dedup.
   //
   // Strategy:
   //   1. Only send last 50 article IDs (recent ones matter most for dedup)
-  //   2. Truncate source content to ~3000 chars
+  //   2. Provide generous source content (6000 chars) so the model has facts to work with
   //   3. Send compact IT-only JSON template (EN/DE/FR generated in separate calls)
   //   4. Compress editorial rules (no repetition per locale)
-  const MAX_SOURCE_CHARS = 3000;
+  const MAX_SOURCE_CHARS = 6000;
   const MAX_IDS_TO_SEND = 50;
 
   const truncatedContent = pageContent
@@ -1944,7 +1944,13 @@ ${generationAttempt > 1 ? `- ⚠️ RETRY ${generationAttempt}/${generationAttem
   console.error(`🤖 [1/5] Generazione contenuto IT + metadata con ${effectiveModel}...`);
 
   const llmMessages = [
-    { role: 'system', content: 'Sei un giornalista finanziario esperto di lavoro transfrontaliero in Ticino. Rispondi SOLO con JSON valido, senza markdown.' },
+    { role: 'system', content: `Sei un giornalista finanziario esperto di lavoro transfrontaliero in Ticino che RISCRIVE articoli basandosi FEDELMENTE sulla fonte originale.
+
+REGOLA FONDAMENTALE: Ogni fatto, dato, legge, data, cifra e istituzione nel tuo articolo DEVE provenire dal testo SOURCE CONTENT fornito. Se un'informazione NON è nella fonte, NON includerla. Mai inventare, dedurre o "completare" dati mancanti.
+
+QUANDO LA FONTE NON CONTIENE UN DATO: scrivi "non ancora specificato", "in fase di definizione", o ometti il dettaglio. NON inventare numeri, date o riferimenti normativi per riempire il testo.
+
+Rispondi SOLO con JSON valido, senza markdown.` },
     { role: 'user', content: prompt + minWordsInstruction + `\n\n⚠️ ISTRUZIONE SPECIALE PER QUESTA CHIAMATA:\nGenera SOLO il JSON con questi campi: id, category, image, hasCalculator, imagePrompt, imageAlt (4 lingue), slugs (4 lingue), content.it (title, excerpt, body1, body2, body3, faq), seo.\nNON includere content.en, content.de, content.fr — verranno generati separatamente.` }
   ];
 
@@ -4505,7 +4511,18 @@ async function main() {
               console.error(`\n⚠️  ${MAX_DUPLICATE_RETRIES} tentativi ${pool.name} esauriti — tutti duplicati.`);
               break; // try next pool, then evergreen
             }
-            // Non-duplicate error → propagate
+            // Fact-check / quality failures → skip this article, try next
+            const isQualityReject = /fact-check|rigettato|veridicità|fabricat/i.test(e.message);
+            if (isQualityReject && attempt < MAX_DUPLICATE_RETRIES) {
+              console.error(`\n⚠️  Articolo rigettato per qualità — provo un altro headline... (${attempt}/${MAX_DUPLICATE_RETRIES})\n`);
+              url = null;
+              continue;
+            }
+            if (isQualityReject && attempt >= MAX_DUPLICATE_RETRIES) {
+              console.error(`\n⚠️  ${MAX_DUPLICATE_RETRIES} tentativi ${pool.name} esauriti — qualità insufficiente.`);
+              break; // try next pool, then evergreen
+            }
+            // Non-duplicate, non-quality error → propagate
             throw e;
           }
         }
@@ -4573,9 +4590,15 @@ async function main() {
         } catch (e) {
           const isDuplicate = e.message.includes('DUPLICATO');
           if (isDuplicate) captureDuplicateReasons(e.message);
-          if (!isDuplicate) throw e; // Non-duplicate error → propagate
+          // Fact-check / quality failures → try next keyword instead of crashing
+          const isQualityReject = /fact-check|rigettato|veridicità|fabricat/i.test(e.message);
+          if (!isDuplicate && !isQualityReject) throw e; // Infrastructure error → propagate
 
-          console.error(`\n🔄 Duplicato post-generazione, cerco prossima keyword sicura...\n`);
+          if (isQualityReject) {
+            console.error(`\n⚠️  Articolo evergreen rigettato per qualità — cerco prossima keyword...\n`);
+          } else {
+            console.error(`\n🔄 Duplicato post-generazione, cerco prossima keyword sicura...\n`);
+          }
 
           // Find next safe keyword we haven't tried yet
           selectedTopic = null;
