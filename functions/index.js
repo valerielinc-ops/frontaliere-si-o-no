@@ -4,6 +4,7 @@ import {
   handleResendWebhookRequest,
 } from './src/newsletterResendWebhookCore.js';
 import { handleSesWebhookRequest } from './src/newsletterSesWebhookCore.js';
+import { handleMailgunWebhookRequest } from './src/newsletterMailgunWebhookCore.js';
 import { handleSubscriptionManagement } from './src/newsletterSubscriptionManagement.js';
 import { sendNewsletterConfirmationEmail } from './src/newsletterConfirmationEmail.js';
 import { getNewsletterSecrets, getRemoteConfigValue } from './src/remoteConfigSecrets.js';
@@ -77,6 +78,34 @@ export const newsletterSesWebhook = onRequest(
       const message = error instanceof Error ? error.message : String(error || 'unknown_error');
       console.error('[newsletterSesWebhook] Error:', message);
       res.status(500).json({ ok: false, error: message });
+    }
+  },
+);
+
+// Mailgun delivery event webhooks
+export const newsletterMailgunWebhook = onRequest(
+  {
+    region: 'europe-west6',
+    memory: '256MiB',
+    timeoutSeconds: 60,
+    cors: false,
+  },
+  async (req, res) => {
+    if (req.method !== 'POST') {
+      res.status(405).json({ ok: false, error: 'method_not_allowed' });
+      return;
+    }
+
+    try {
+      const signingKey = await getRemoteConfigValue('MAILGUN_WEBHOOK_SIGNING_KEY');
+      const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
+      const result = await handleMailgunWebhookRequest({ body, signingKey });
+      res.status(200).json({ ok: true, result });
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error || 'unknown_error');
+      const status = /signature/i.test(message) ? 401 : 500;
+      console.error('[newsletterMailgunWebhook] Error:', message);
+      res.status(status).json({ ok: false, error: message });
     }
   },
 );
