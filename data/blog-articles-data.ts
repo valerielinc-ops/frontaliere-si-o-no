@@ -6286,4 +6286,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/benzina-cara-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'tassa-salute-frontalieri-accordo-frontalieri',
+    category: 'fiscale',
+    date: '2026-04-08T12:28:27.852Z',
+    image: '/images/blog/tassa-salute-frontalieri-accordo-frontalieri.jpg',
+    hasCalculator: true,
+  },
 ];

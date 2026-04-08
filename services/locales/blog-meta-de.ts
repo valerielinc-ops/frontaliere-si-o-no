@@ -2184,6 +2184,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.benzina-cara-ticino.title': 'Teueres Benzin in der Schweiz: Tessiner und Grenzgänger tanken in Italien',
     'blog.article.benzina-cara-ticino.excerpt': 'Italien hat die Senkung der Mineralölsteuer bis zum 1. Mai 2026 verlängert, aber die Benzinpreise sind in der Schweiz wieder gestiegen.',
     'blog.article.benzina-cara-ticino.imageAlt': 'Ein Segelboot auf dem Luganersee mit den Bergen des Tessins im Hintergrund',
+    'blog.article.tassa-salute-frontalieri-accordo-frontalieri.title': 'Gesundheitssteuer: Frontalierabkommen gilt',
+    'blog.article.tassa-salute-frontalieri-accordo-frontalieri.excerpt': 'DFAE bestätigt, dass das italo-schweizerische Abkommen im Vorfeld der nationalen Gesundheitssteuer für Frontalier gilt',
+    'blog.article.tassa-salute-frontalieri-accordo-frontalieri.imageAlt': 'Grenzübergang zwischen Italien und der Schweiz in Lugano',
 };
 
 export default blogMetaDe;

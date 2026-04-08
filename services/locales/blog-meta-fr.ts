@@ -2184,6 +2184,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.benzina-cara-ticino.title': 'Essence plus chère en Suisse : les Tessinois et les frontaliers font le plein en Italie',
     'blog.article.benzina-cara-ticino.excerpt': 'L\'Italie a prolongé la réduction des accises jusqu\'au 1er mai 2026, mais les prix de l\'essence ont augmenté à nouveau en Suisse.',
     'blog.article.benzina-cara-ticino.imageAlt': 'Un bateau à voile sur le lac de Lugano avec les montagnes du Tessin en arrière-plan',
+    'blog.article.tassa-salute-frontalieri-accordo-frontalieri.title': 'Taxe santé: accord frontalier l\'emporte',
+    'blog.article.tassa-salute-frontalieri-accordo-frontalieri.excerpt': 'DFAE confirme que l\'accord italo-suisse prévaut sur le droit interne pour la taxe sur la santé des frontalier',
+    'blog.article.tassa-salute-frontalieri-accordo-frontalieri.imageAlt': 'Frontière entre l\'Italie et la Suisse à Lugano',
 };
 
 export default blogMetaFr;

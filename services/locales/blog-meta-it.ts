@@ -2184,6 +2184,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.benzina-cara-ticino.title': 'Benzina più cara in Svizzera: ticinesi e frontalieri fanno il pieno in Italia',
     'blog.article.benzina-cara-ticino.excerpt': 'L\'Italia ha prorogato il taglio delle accise fino al 1° maggio 2026, ma i prezzi della benzina sono saliti di nuovo in Svizzera.',
     'blog.article.benzina-cara-ticino.imageAlt': 'Un lancia a vela sul Lago di Lugano con le montagne del Ticino all\'orizzonte',
+    'blog.article.tassa-salute-frontalieri-accordo-frontalieri.title': 'Tassa salute: accordo frontalieri prevale',
+    'blog.article.tassa-salute-frontalieri-accordo-frontalieri.excerpt': 'DFAE conferma che l\'accordo italo-svizzero prevale sul diritto interno per la tassa sulla salute dei frontalieri',
+    'blog.article.tassa-salute-frontalieri-accordo-frontalieri.imageAlt': 'Valico di confine tra Italia e Svizzera a Lugano',
 };
 
 export default blogMetaIt;

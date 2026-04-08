@@ -2184,6 +2184,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.benzina-cara-ticino.title': 'Gasoline more expensive in Switzerland: Ticinese and cross-border commuters fill up in Italy',
     'blog.article.benzina-cara-ticino.excerpt': 'Italy has extended the excise tax cut until May 1, 2026, but gasoline prices have risen again in Switzerland.',
     'blog.article.benzina-cara-ticino.imageAlt': 'A sailboat on Lake Lugano with the Ticino mountains in the background',
+    'blog.article.tassa-salute-frontalieri-accordo-frontalieri.title': 'Health tax: border agreement prevails',
+    'blog.article.tassa-salute-frontalieri-accordo-frontalieri.excerpt': 'DFAE confirms that the Italian-Swiss agreement prevails over domestic law for the health tax of border residents',
+    'blog.article.tassa-salute-frontalieri-accordo-frontalieri.imageAlt': 'Border crossing between Italy and Switzerland in Lugano',
 };
 
 export default blogMetaEn;
