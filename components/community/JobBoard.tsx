@@ -81,6 +81,35 @@ import {
   resolveEditorialJobLandingDescriptor,
 } from '../../build-plugins/jobEditorialLanding';
 
+// ─── Parameterized region defaults ────────────────────────────────────
+// Central defaults for data fallbacks when job fields are missing.
+// Change these when expanding beyond TI/GR.
+// See scripts/lib/crawler-location-config.mjs for the crawler-side switch.
+const DEFAULT_CANTON = 'TI';
+const DEFAULT_CANTON_DISPLAY = 'Ticino';
+const DEFAULT_POSTAL_CODE = '6900';
+const TARGET_CANTONS_ORDERED = ['TI', 'GR'] as const;
+
+const CANTON_DISPLAY: Record<string, string> = {
+  'TI': 'Ticino', 'GR': 'Graubünden', 'ZH': 'Zürich', 'BE': 'Bern',
+  'LU': 'Luzern', 'BS': 'Basel', 'GE': 'Genève', 'VD': 'Vaud',
+  'AG': 'Aargau', 'SG': 'St. Gallen', 'VS': 'Valais', 'FR': 'Fribourg',
+  'NE': 'Neuchâtel', 'ZG': 'Zug', 'SH': 'Schaffhausen', 'SO': 'Solothurn',
+  'BL': 'Basel-Landschaft', 'TG': 'Thurgau', 'SZ': 'Schwyz', 'GL': 'Glarus',
+  'JU': 'Jura', 'NW': 'Nidwalden', 'OW': 'Obwalden', 'AR': 'Appenzell AR',
+  'AI': 'Appenzell AI', 'UR': 'Uri',
+};
+
+const CANTON_FALLBACK_POSTAL: Record<string, string> = {
+  'TI': '6900', 'GR': '7000', 'ZH': '8001', 'BE': '3001',
+  'LU': '6003', 'BS': '4001', 'GE': '1201', 'VD': '1003',
+  'AG': '5001', 'SG': '9001', 'VS': '1950', 'FR': '1700',
+  'NE': '2000', 'ZG': '6300', 'SH': '8200', 'SO': '4500',
+  'BL': '4410', 'TG': '8500', 'SZ': '6430', 'GL': '8750',
+  'JU': '2800', 'NW': '6370', 'OW': '6060', 'AR': '9100',
+  'AI': '9050', 'UR': '6460',
+};
+
 type ContractType = 'full-time' | 'part-time' | 'temporary' | 'internship' | 'contract';
 type JobCategory = 'tech' | 'finance' | 'health' | 'engineering' | 'admin' | 'hospitality' | 'sales' | 'other';
 type DateRange = 'all' | '24h' | '3d' | '7d' | '30d' | '90d';
@@ -336,8 +365,8 @@ function normalizeIncomingJob(raw: any): JobListing {
     company,
     companyKey,
     title,
-    location: String(raw?.location || '').trim() || 'Ticino',
-    canton: String(raw?.canton || '').trim() || 'TI',
+    location: String(raw?.location || '').trim() || DEFAULT_CANTON_DISPLAY,
+    canton: String(raw?.canton || '').trim() || DEFAULT_CANTON,
     category: normalizeJobCategory(raw?.category, `${title} ${String(raw?.department || '')}`) as JobCategory,
     contract: normalizeJobContract(raw?.contract, title, description) as ContractType,
     currency: String(raw?.currency || '').toUpperCase() === 'EUR' ? 'EUR' : 'CHF',
@@ -845,6 +874,7 @@ const ISO_DATE_CONTACT_REGEX = /^\d{4}-\d{2}-\d{2}$/;
 const YEAR_RANGE_CONTACT_REGEX = /\b\d{4}\s*\/\s*\d{4}\b/;
 const PUBLIC_SITE_URL = 'https://frontaliereticino.ch';
 
+// BLOCK-B: Regionalize for national expansion — currently hardcodes Ticino/Tessin text
 const MAILTO_COPY_BY_LOCALE: Record<'it' | 'en' | 'de' | 'fr', {
   subject: (jobTitle: string, company: string) => string;
   intro: (jobTitle: string, company: string) => string;
@@ -2021,6 +2051,7 @@ function getSearchSlugPrefix(locale: Locale): string {
   return 'ricerca';
 }
 
+// BLOCK-B: Regionalize for national expansion — currently hardcodes Ticino/Tessin text
 function getJobBoardSectionSlug(locale: Locale): string {
   if (locale === 'en') return 'find-jobs-ticino';
   if (locale === 'de') return 'jobs-im-tessin';
@@ -2216,7 +2247,7 @@ function buildRelatedSearches(params: {
   const bodyTokens = extractRelatedTopicTokens(`${summary.join(' ')} ${requirements.join(' ')}`, 6);
 
   const generated = locale === 'it'
-    ? bodyTokens.map((token) => `${token} ${location || 'ticino'}`.trim())
+    ? bodyTokens.map((token) => `${token} ${location || DEFAULT_CANTON_DISPLAY.toLowerCase()}`.trim())
     : bodyTokens.map((token) => `${token} ${location}`.trim());
 
   const candidates = cleanCanonicalItems([
@@ -2702,10 +2733,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
   }, [selectedJob, authLoading]);
 
   const sortedJobs = useMemo(() => {
-    // Canton priority: TI first, GR second, everything else after.
+    // Canton priority: TARGET_CANTONS_ORDERED first (TI, GR), everything else after.
     // Within each canton group, sort by day (not hour/minute — avoids crawler-time bias),
     // then by qualityScore descending so higher-quality listings surface first.
-    const cantonRank = (canton: string) => canton === 'TI' ? 0 : canton === 'GR' ? 1 : 2;
+    const cantonRank = (canton: string) => {
+      const idx = TARGET_CANTONS_ORDERED.indexOf(canton as typeof TARGET_CANTONS_ORDERED[number]);
+      return idx >= 0 ? idx : TARGET_CANTONS_ORDERED.length;
+    };
     const dayTs = (d: string | undefined) => {
       const t = new Date(d || 0);
       return new Date(t.getFullYear(), t.getMonth(), t.getDate()).getTime();
@@ -3221,8 +3255,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
       const isValidAddr = (s: string) => s && s.length <= 100 && (s.match(/\s/g) || []).length <= 8 && !/stampa|segnalazione|descrizione|annuncio|verifica|attività|dillo/i.test(s);
       const rawLocality = String(job.addressLocality || '').trim();
       const multiLoc = isMultiLocation(job.location) || isMultiLocation(rawLocality);
-      const addressLocality = multiLoc ? 'Switzerland' : (isValidAddr(rawLocality) ? rawLocality : String(job.location || 'Ticino'));
-      const addressRegion = multiLoc ? 'CH' : String(job.canton || 'TI');
+      const addressLocality = multiLoc ? 'Switzerland' : (isValidAddr(rawLocality) ? rawLocality : String(job.location || DEFAULT_CANTON_DISPLAY));
+      const addressRegion = multiLoc ? 'CH' : String(job.canton || DEFAULT_CANTON);
       const addressCountry = String(job.addressCountry || 'CH');
       const postalCode = deriveJobPostalCode(job);
       const rawStreet = String(job.streetAddress || '').trim();
@@ -3266,8 +3300,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
             addressLocality: isRemote ? 'Switzerland' : addressLocality,
             addressRegion: isRemote ? 'CH' : addressRegion,
             addressCountry,
-            postalCode: postalCode || '6900',
-            streetAddress: streetAddress || addressLocality || 'Ticino',
+            postalCode: postalCode || CANTON_FALLBACK_POSTAL[addressRegion] || DEFAULT_POSTAL_CODE,
+            streetAddress: streetAddress || addressLocality || DEFAULT_CANTON_DISPLAY,
           },
         },
         directApply: Boolean(job.url),
@@ -4626,6 +4660,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
             className="mt-4 inline-flex items-center gap-2 rounded-full border border-indigo-200 dark:border-indigo-700 px-4 py-2 text-sm font-bold text-indigo-700 dark:text-indigo-300"
           >
             <ArrowLeft className="w-4 h-4" />
+            {/* BLOCK-B: Regionalize for national expansion — currently hardcodes Ticino/Tessin text */}
             {locale === 'it' ? 'Torna a infermieri in Ticino' : locale === 'en' ? 'Back to nurses in Ticino' : locale === 'de' ? 'Zuruck zu Pflege-Jobs im Tessin' : 'Retour a infirmiers au Tessin'}
           </button>
         </section>
@@ -5039,6 +5074,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
         {editorialSectorRegionLanding.siblingSectorLinks.length > 0 && (
           <section className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
             <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-4">
+            {/* BLOCK-B: Regionalize for national expansion — currently hardcodes Ticino/Tessin text */}
               {locale === 'it' ? 'Altri settori in Ticino' : locale === 'en' ? 'Other sectors in Ticino' : locale === 'de' ? 'Weitere Branchen im Tessin' : 'Autres secteurs au Tessin'}
             </h2>
             <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
@@ -5701,6 +5737,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                     {selectedJob.company} · {selectedJob.location} ({selectedJob.canton})
                   </p>
                   <p className="text-xs text-slate-500 dark:text-slate-400 mt-2">
+                  {/* BLOCK-B: Regionalize for national expansion — currently hardcodes Ticino/Tessin text */}
                     Frontaliere Ticino ha scovato questa opportunità nel monitoraggio aziende.
                   </p>
                 </div>
