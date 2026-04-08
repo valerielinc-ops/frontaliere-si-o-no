@@ -923,21 +923,8 @@ function assertTaxHealthConsistency(contentIt, sourceContext = null, pageContent
 // Regex number comparison was fragile: legal reference numbers (D.Lgs 241/1997),
 // convention years (1976), and known tax rates kept causing false positives.
 
-// Known real Swiss/Italian legal references that articles may legitimately cite
-const KNOWN_LEGAL_REFS = new Set([
-  'dl 167/2024', 'd.lgs 147/2015', 'd.lgs 241/1997', 'd.lgs 917/1986',
-  'dl 78/2010', 'dl 138/2011', 'dl 66/2014', 'dl 50/2017', 'dl 34/2019',
-  'dl 34/2020', 'dl 18/2020', 'dl 104/2020', 'dl 73/2021', 'dl 41/2021',
-  'dl 4/2019', 'dl 48/2023', 'dl 145/2023', 'dl 212/2023', 'dl 19/2024',
-  'dl 113/2024', 'dpr 917/1986', 'dpr 600/1973', 'dpr 633/1972',
-  'l. 147/2013', 'l. 190/2014', 'l. 208/2015', 'l. 232/2016', 'l. 205/2017',
-  'l. 145/2018', 'l. 160/2019', 'l. 178/2020', 'l. 234/2021', 'l. 197/2022',
-  'l. 213/2023', 'l. 207/2024',
-  'd.lgs 286/1998', 'd.lgs 81/2008', 'd.lgs 66/2003',
-  // Confirmed real via audit (Apr 2026)
-  'dpr 309/1990', 'd.lgs 311/2006', 'dl 92/2008', 'l. 94/2009',
-  'd.lgs 179/2024', 'dl 215/2023', 'dl 132/2023',
-]);
+// KNOWN_LEGAL_REFS removed — legal reference verification is now handled entirely
+// by llmFactCheck() which has broader knowledge than a static whitelist.
 
 // Patterns that signal fabricated content
 const FABRICATED_INSTITUTION_PATTERNS = [
@@ -995,44 +982,9 @@ function assertNoFabricatedReferences(contentIt) {
     }
   }
 
-  // Extract legal references and check against known-real list
-  // Matches: D.Lgs 241/1997, DL 167/2024, DPR 917/1986, L. 207/2024, L 207/2024, Legge 207/2024
-  const legalRefPattern = /\b(?:d\.?l\.?g?s?\.?|dpr|l\.\s*|legge\s+)(?:n\.?\s*)?(\d{1,4})\s*[\/]\s*(\d{4})\b/gi;
-  const foundRefs = [];
-  let m;
-  while ((m = legalRefPattern.exec(articleLower)) !== null) {
-    foundRefs.push(m[0].replace(/\s+/g, ' ').trim());
-  }
-
-  if (foundRefs.length > 0) {
-    // Canonical form for comparison: collapse to "type num/year"
-    const canonicalize = (ref) => {
-      let r = ref.toLowerCase().replace(/\s+/g, ' ').trim();
-      // Normalize "legge N/Y" → "l. N/Y"
-      r = r.replace(/\blegge\s+/g, 'l. ');
-      // Normalize "d. lgs" / "d.lgs." / "d lgs" → "d.lgs"
-      r = r.replace(/d\.?\s*l(?:gs|\.?\s*g\.?\s*s\.?)\.?/g, 'd.lgs');
-      // Normalize "l." / "l " (legge) → "l."
-      r = r.replace(/\bl\.?\s+(?=\d)/g, 'l. ');
-      // Remove "n." or "n "
-      r = r.replace(/\s*n\.?\s*/g, ' ');
-      return r.replace(/\s+/g, ' ').trim();
-    };
-
-    const knownCanonical = new Set([...KNOWN_LEGAL_REFS].map(canonicalize));
-
-    const unknownRefs = foundRefs.filter(ref => {
-      return !knownCanonical.has(canonicalize(ref));
-    });
-
-    // Deduplicate for cleaner error messages
-    const uniqueUnknown = [...new Set(unknownRefs)];
-
-    if (uniqueUnknown.length > 0) {
-      console.error(`  ⚠️  Riferimenti normativi non riconosciuti: ${uniqueUnknown.join(', ')}`);
-      issues.push(`${uniqueUnknown.length} rif. normativi non riconosciuti: ${uniqueUnknown.join(', ')}`);
-    }
-  }
+  // Legal reference verification is handled by llmFactCheck() which understands
+  // context (e.g., "Legge 78/2010" referring to DL 78/2010 is a minor type error,
+  // not a fabrication). The LLM correctly identifies truly fabricated laws.
 
   // Check for suspiciously specific fake percentages with "tassa" context
   const taxRatePattern = /tass[ae]\s+(?:\w+\s+){0,5}(\d{1,2}(?:[.,]\d+)?)\s*%/gi;
