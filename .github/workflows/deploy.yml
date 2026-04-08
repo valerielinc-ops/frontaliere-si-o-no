@@ -53,22 +53,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
 
-      - name: Skip if newer commit exists on main
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          LATEST_SHA=$(gh api repos/${{ github.repository }}/commits/main --jq .sha)
-          if [ "$LATEST_SHA" != "${{ github.sha }}" ]; then
-            echo "⏭️ Skipping deploy — newer commit ${LATEST_SHA:0:7} supersedes this run (${GITHUB_SHA:0:7})"
-            echo "SKIP_DEPLOY=true" >> "$GITHUB_ENV"
-          fi
-
-      - name: Cancel stale run
-        if: env.SKIP_DEPLOY == 'true'
-        run: |
-          echo "::notice::Deploy skipped — a newer commit is already queued or deploying."
-          exit 1
-
       - name: Setup Node.js
         uses: actions/setup-node@v5
         with:
