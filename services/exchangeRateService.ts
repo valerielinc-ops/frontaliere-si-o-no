@@ -17,7 +17,7 @@ import { reportCaughtError } from '@/services/errorReporter';
 
 const TWELVEDATA_URL = 'https://api.twelvedata.com/exchange_rate?symbol=CHF/EUR';
 const CACHE_KEY = 'exchange_rate_cache';
-const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
+const CACHE_DURATION = 10 * 60 * 1000; // 10 minutes
 const DEFAULT_RATE = 0.94;
 const IS_TEST_ENV = typeof process !== 'undefined' && (process.env.NODE_ENV === 'test' || !!process.env.VITEST);
 
@@ -94,11 +94,21 @@ let firestoreWriteBlocked = false;
 async function saveFirestoreRate(rate: number): Promise<void> {
   if (IS_TEST_ENV || firestoreWriteBlocked) return;
   try {
-    const { getFirestore, doc, setDoc, serverTimestamp } = await import('firebase/firestore');
+    const { getFirestore, doc, getDoc, setDoc, serverTimestamp } = await import('firebase/firestore');
     const { getApp } = await import('@/services/firebase');
     const db = getFirestore(await getApp());
-    await setDoc(doc(db, 'config', 'exchange_rate'), {
+    const ref = doc(db, 'config', 'exchange_rate');
+    // Preserve previous rate for weekly comparison
+    let previousRate: number | null = null;
+    try {
+      const snap = await getDoc(ref);
+      if (snap.exists()) {
+        previousRate = snap.data()?.rate ?? null;
+      }
+    } catch { /* proceed without previousRate */ }
+    await setDoc(ref, {
       rate,
+      ...(previousRate !== null && { previousRate }),
       timestamp: serverTimestamp(),
       updatedAt: new Date().toISOString(),
       source: 'twelvedata',
@@ -107,11 +117,8 @@ async function saveFirestoreRate(rate: number): Promise<void> {
     const msg = e instanceof Error ? e.message : String(e);
     if (msg.includes('permission') || msg.includes('Permission') || msg.includes('PERMISSION_DENIED')) {
       firestoreWriteBlocked = true;
-      // Permission denied is expected for anonymous/unauthenticated users — silently
-      // block future writes rather than reporting noise to analytics.
       console.warn('[ExchangeRate] Firestore write blocked: insufficient permissions');
     }
-    // Other transient errors (network, etc.) are silently ignored — next fetch will retry
   }
 }
 
