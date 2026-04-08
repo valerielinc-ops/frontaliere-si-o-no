@@ -39,6 +39,7 @@ import {
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
 import { isTargetSwissLocation, inferSwissTargetCanton } from './lib/target-swiss-locations.mjs';
+import { isTargetCanton } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -341,7 +342,7 @@ async function fetchZegnaJobs() {
     const title = detail.title || link.rawText || '';
     const city = detail.city || detectCity(detail.location);
     const canton = detectCanton(city);
-    if (!isZegnaTicinoLocation(detail) || (canton !== 'TI' && canton !== 'GR')) {
+    if (!isZegnaTicinoLocation(detail) || !isTargetCanton(canton)) {
       console.log(`     ↳ Skipping (not target region): ${title} — ${detail.location || city || 'unknown location'}`);
       continue;
     }
