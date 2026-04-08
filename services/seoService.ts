@@ -1923,6 +1923,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-incidente-rampa-a9-chiasso-2026': { name: 'Incidenti', path: '/articoli-frontaliere/incidente-rampa-a9-chiasso-2026', parent: 'blog' },
     'blog-tilo-s50-lavori-mal-pensa-varese-2026': { name: 'TILO S50', path: '/articoli-frontaliere/tilo-s50-lavori-mal-pensa-varese-2026', parent: 'blog' },
     'blog-tilo-s50-modifiche-aprile': { name: 'Trasporti', path: '/articoli-frontaliere/tilo-s50-modifiche-aprile', parent: 'blog' },
+    'blog-consiglio-federale-ferma-perequazione-2030': { name: 'Perequazione, Ticino deluso', path: '/articoli-frontaliere/consiglio-federale-ferma-perequazione-2030', parent: 'blog' },
   };
 
   const info = sectionNames[section];

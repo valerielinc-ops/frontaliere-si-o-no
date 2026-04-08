@@ -2004,6 +2004,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tilo-s50-modifiche-aprile.title': 'Änderungen bei den TILO S50-Verbindungen zwischen Varese, Gallarate und Malpensa',
     'blog.article.tilo-s50-modifiche-aprile.excerpt': 'Am 11. und 12. April kommt es aufgrund von Infrastrukturarbeiten zu Änderungen bei den TILO S50-Zügen. Es werden Ersatzbusse eingesetzt und die Fahrzeiten verlängern sich.',
     'blog.article.tilo-s50-modifiche-aprile.imageAlt': 'Ankunft des TILO S50 Zuges in Mendrisio, mit wartenden Passagieren auf dem Bahnsteig.',
+    'blog.article.consiglio-federale-ferma-perequazione-2030.title': 'Interkantonale Ressourcenausgleich: Kanton Tessin enttäuscht – Bern blockiert bis 2030',
+    'blog.article.consiglio-federale-ferma-perequazione-2030.excerpt': 'Der Bundesrat ändert die Verordnung zum interkantonalen Ressourcenausgleich bis 2030 nicht. Der Kanton Tessin hatte eine andere Gewichtung für die Grenzgänger gefordert, wurde aber damit abgewiesen.',
+    'blog.article.consiglio-federale-ferma-perequazione-2030.imageAlt': 'Sonnenuntergang am Monte Generoso: Eine Person blickt auf die Po-Ebene und liest Nachrichten über den Bundesrat, der die Finanzausgleichszahlungen bis 2030 blockiert',
 };
 
 export default blogMetaDe;

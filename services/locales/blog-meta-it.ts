@@ -2004,6 +2004,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tilo-s50-modifiche-aprile.title': 'Modifiche ai collegamenti TILO S50 tra Varese, Gallarate e Malpensa',
     'blog.article.tilo-s50-modifiche-aprile.excerpt': 'L\'11 e il 12 aprile i treni TILO S50 subiranno variazioni a causa di lavori infrastrutturali. Previsti bus sostitutivi e tempi di percorrenza più lunghi.',
     'blog.article.tilo-s50-modifiche-aprile.imageAlt': 'Treno TILO S50 in arrivo a Mendrisio, con passeggeri in attesa sulla banchina.',
+    'blog.article.consiglio-federale-ferma-perequazione-2030.title': 'Perequazione, Ticino deluso: Berna blocca fino al 2030',
+    'blog.article.consiglio-federale-ferma-perequazione-2030.excerpt': 'Il Consiglio federale non modifica l’ordinanza sulla perequazione finanziaria intercantonale fino al 2030. Il Ticino chiedeva una ponderazione diversa per i frontalieri, ma ottiene un rifiuto.',
+    'blog.article.consiglio-federale-ferma-perequazione-2030.imageAlt': 'Tramonto sul Monte Generoso: una persona osserva la Pianura Padana mentre legge notizie sul Consiglio federale che blocca la perequazione fino al 2030',
 };
 
 export default blogMetaIt;

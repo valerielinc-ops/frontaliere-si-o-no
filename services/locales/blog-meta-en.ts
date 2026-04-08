@@ -2004,6 +2004,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tilo-s50-modifiche-aprile.title': 'Changes to TILO S50 connections between Varese, Gallarate and Malpensa',
     'blog.article.tilo-s50-modifiche-aprile.excerpt': 'On April 11 and 12, TILO S50 trains will be subject to changes due to infrastructure work. Replacement buses and longer travel times are expected.',
     'blog.article.tilo-s50-modifiche-aprile.imageAlt': 'TILO S50 train arriving at Mendrisio station, with passengers waiting on the platform.',
+    'blog.article.consiglio-federale-ferma-perequazione-2030.title': 'Equalisation payments: Ticino disappointed as Bern blocks changes until 2030',
+    'blog.article.consiglio-federale-ferma-perequazione-2030.excerpt': 'The Federal Council will not amend the intercantonal financial equalisation ordinance until 2030. Ticino had requested a different weighting for cross-border commuters, but the request was rejected.',
+    'blog.article.consiglio-federale-ferma-perequazione-2030.imageAlt': 'Sunset at Monte Generoso: a person looking at the Po Valley while reading news about the Federal Council blocking equalization payments until 2030',
 };
 
 export default blogMetaEn;

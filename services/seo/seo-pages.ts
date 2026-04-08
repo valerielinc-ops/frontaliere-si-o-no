@@ -3631,7 +3631,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 719,
+        "numberOfItems": 720,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -4328,7 +4328,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 715, "name": "Benzina più cara in Svizzera: ticinesi e fronta...", "url": `${BASE_URL}/articoli-frontaliere/benzina-cara-ticino` },
           { "@type": "ListItem", "position": 717, "name": "Incidente sulla rampa A9 per Chiasso: code e fe...", "url": `${BASE_URL}/articoli-frontaliere/incidente-rampa-a9-chiasso-2026` },
           { "@type": "ListItem", "position": 718, "name": "TILO S50: fermate tra Varese e Malpensa cambian...", "url": `${BASE_URL}/articoli-frontaliere/tilo-s50-lavori-mal-pensa-varese-2026` },
-          { "@type": "ListItem", "position": 719, "name": "Modifiche ai collegamenti TILO S50 tra Varese, ...", "url": `${BASE_URL}/articoli-frontaliere/tilo-s50-modifiche-aprile` }
+          { "@type": "ListItem", "position": 719, "name": "Modifiche ai collegamenti TILO S50 tra Varese, ...", "url": `${BASE_URL}/articoli-frontaliere/tilo-s50-modifiche-aprile` },
+          { "@type": "ListItem", "position": 720, "name": "Perequazione, Ticino deluso: Berna blocca fino ...", "url": `${BASE_URL}/articoli-frontaliere/consiglio-federale-ferma-perequazione-2030` }
         ]
       }
     ]

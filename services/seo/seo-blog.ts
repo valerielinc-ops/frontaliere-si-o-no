@@ -6241,6 +6241,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-consiglio-federale-ferma-perequazione-2030': {
+    title: 'Perequazione, Ticino deluso: Berna blocca fino al 2030 | Frontaliere Ticino',
+    description: 'Il Consiglio federale non modifica l’ordinanza sulla perequazione finanziaria intercantonale fino al 2030. Il Ticino chiedeva una ponderazione diversa per i fro',
+    keywords: 'frontalieri, ticino, svizzera, italia, perequazione, deluso, berna, blocca',
+    ogTitle: 'Perequazione, Ticino deluso: Berna blocca fino al 2030',
+    ogDescription: 'Il Consiglio federale non modifica l’ordinanza sulla perequazione finanziaria intercantonale fino al 2030. Il Ticino chiedeva una ponderazione diversa per i fro',
+    canonicalPath: '/articoli-frontaliere/consiglio-federale-ferma-perequazione-2030',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Perequazione, Ticino deluso: Berna blocca fino al 2030",
+      "description": "Il Consiglio federale non modifica l’ordinanza sulla perequazione finanziaria intercantonale fino al 2030. Il Ticino chiedeva una ponderazione diversa per i fro",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/consiglio-federale-ferma-perequazione-2030.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Tramonto sul Monte Generoso: una persona osserva la Pianura Padana mentre legge notizie sul Consiglio federale che blocca la perequazione fino al 2030"
+      },
+      "datePublished": "2026-04-08T22:08:38+00:00",
+      "dateModified": "2026-04-08T22:08:38+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/consiglio-federale-ferma-perequazione-2030`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

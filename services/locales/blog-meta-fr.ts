@@ -2004,6 +2004,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tilo-s50-modifiche-aprile.title': 'Modifications sur les liaisons TILO S50 entre Varese, Gallarate et Malpensa',
     'blog.article.tilo-s50-modifiche-aprile.excerpt': 'Les 11 et 12 avril, les trains TILO S50 subiront des modifications en raison de travaux d\'infrastructure. Des bus de remplacement seront mis en place et les temps de trajet seront plus longs.',
     'blog.article.tilo-s50-modifiche-aprile.imageAlt': 'Arrivée du train TILO S50 à Mendrisio, avec des passagers attendant sur le quai.',
+    'blog.article.consiglio-federale-ferma-perequazione-2030.title': 'Péréquation, le Tessin déçu : Berne bloque jusqu’en 2030',
+    'blog.article.consiglio-federale-ferma-perequazione-2030.excerpt': 'Le Conseil fédéral ne modifie pas l’ordonnance sur la péréquation financière intercantonale avant 2030. Le Tessin réclamait une pondération différente pour les frontaliers, mais se voit opposé un refus.',
+    'blog.article.consiglio-federale-ferma-perequazione-2030.imageAlt': 'Coucher de soleil au Monte Generoso : une personne observe la plaine du Pô en lisant des nouvelles sur le Conseil fédéral qui bloque les paiements de péréquation jusqu\'en 2030',
 };
 
 export default blogMetaFr;

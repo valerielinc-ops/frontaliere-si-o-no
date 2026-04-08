@@ -5661,4 +5661,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/tilo-s50-modifiche-aprile.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'consiglio-federale-ferma-perequazione-2030',
+    category: 'fiscale',
+    date: '2026-04-08T22:08:38.278Z',
+    image: '/images/blog/consiglio-federale-ferma-perequazione-2030.jpg',
+    hasCalculator: true,
+  },
 ];
