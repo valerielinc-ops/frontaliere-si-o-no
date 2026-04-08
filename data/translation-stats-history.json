@@ -1,35 +1,5 @@
 [
   {
-    "timestamp": "2026-03-30T19:23:35.913Z",
-    "label": "before",
-    "total": 1207,
-    "needsRetranslation": 2,
-    "incomplete": 0,
-    "complete": 1207,
-    "missingByLocale": {
-      "it": 0,
-      "en": 0,
-      "de": 0,
-      "fr": 0
-    },
-    "topPending": []
-  },
-  {
-    "timestamp": "2026-03-30T19:23:36.509Z",
-    "label": "after",
-    "total": 1207,
-    "needsRetranslation": 0,
-    "incomplete": 0,
-    "complete": 1207,
-    "missingByLocale": {
-      "it": 0,
-      "en": 0,
-      "de": 0,
-      "fr": 0
-    },
-    "topPending": []
-  },
-  {
     "timestamp": "2026-03-30T19:47:15.075Z",
     "label": "before",
     "total": 1207,
@@ -10179,6 +10149,110 @@
       },
       {
         "company": "Kulm Hotel St. Moritz",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-08T11:29:47.644Z",
+    "label": "before",
+    "total": 1532,
+    "needsRetranslation": 131,
+    "incomplete": 70,
+    "complete": 1462,
+    "missingByLocale": {
+      "it": 8,
+      "en": 55,
+      "de": 51,
+      "fr": 57
+    },
+    "topPending": [
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 35
+      },
+      {
+        "company": "LIS – Lugano Istituti Sociali",
+        "pending": 13
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 7
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 4
+      },
+      {
+        "company": "Bell Schweiz AG",
+        "pending": 4
+      },
+      {
+        "company": "Prada Group",
+        "pending": 2
+      },
+      {
+        "company": "Swisscom (sede Ticino)",
+        "pending": 2
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      },
+      {
+        "company": "Banca Raiffeisen Vedeggio Cassarate",
+        "pending": 1
+      },
+      {
+        "company": "Banca del Sempione",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-08T11:30:34.504Z",
+    "label": "after",
+    "total": 1532,
+    "needsRetranslation": 76,
+    "incomplete": 29,
+    "complete": 1503,
+    "missingByLocale": {
+      "it": 8,
+      "en": 14,
+      "de": 10,
+      "fr": 16
+    },
+    "topPending": [
+      {
+        "company": "LIS – Lugano Istituti Sociali",
+        "pending": 13
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 4
+      },
+      {
+        "company": "Bell Schweiz AG",
+        "pending": 4
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 2
+      },
+      {
+        "company": "Prada Group",
+        "pending": 2
+      },
+      {
+        "company": "Swisscom (sede Ticino)",
+        "pending": 2
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      },
+      {
+        "company": "Banca del Sempione",
         "pending": 1
       }
     ]
