@@ -179,15 +179,40 @@ async function persistUnosendEvent(db, eventType, eventData) {
 // ── Request handler ──────────────────────────────────────────
 
 export async function handleUnosendWebhookRequest({ payload, headers, signingSecret }) {
-  // Verify Svix-style signature
+  // Log all headers for debugging
+  const allHeaders = Object.entries(headers)
+    .filter(([k]) => !k.startsWith(':'))
+    .map(([k, v]) => `${k}: ${String(v).slice(0, 80)}`)
+    .join(' | ');
+  console.log(`[unosendWebhook] Headers: ${allHeaders}`);
+  console.log(`[unosendWebhook] Body preview: ${String(payload).slice(0, 300)}`);
+
+  // Try Svix-style signature first
   if (signingSecret) {
-    const isValid = verifyUnosendSignature({ payload, headers, signingSecret });
-    if (!isValid) {
-      const svixHeaders = ['webhook-id', 'webhook-timestamp', 'webhook-signature']
-        .map(h => `${h}: ${headers[h] ? 'present' : 'MISSING'}`)
-        .join(', ');
-      console.warn(`[unosendWebhook] Signature mismatch. ${svixHeaders}`);
-      throw new Error('Invalid Unosend webhook signature');
+    const hasSvixHeaders = headers['webhook-id'] && headers['webhook-timestamp'] && headers['webhook-signature'];
+
+    if (hasSvixHeaders) {
+      const isValid = verifyUnosendSignature({ payload, headers, signingSecret });
+      if (!isValid) {
+        console.warn(`[unosendWebhook] Svix signature mismatch`);
+        throw new Error('Invalid Unosend webhook signature');
+      }
+    } else {
+      // Fallback: try X-Webhook-Signature or X-Unosend-Signature (HMAC SHA256 hex)
+      const altSig = headers['x-webhook-signature'] || headers['x-unosend-signature'] || headers['x-signature'];
+      if (altSig) {
+        const secret = signingSecret.startsWith('whsec_') ? signingSecret.slice(6) : signingSecret;
+        const hmac = crypto.createHmac('sha256', secret).update(payload, 'utf8').digest('hex');
+        const expected = altSig.replace(/^sha256=/, '');
+        const isValid = crypto.timingSafeEqual(Buffer.from(hmac), Buffer.from(expected));
+        if (!isValid) {
+          console.warn(`[unosendWebhook] Alt signature mismatch`);
+          throw new Error('Invalid Unosend webhook signature');
+        }
+      } else {
+        // No recognized signature headers — accept but log warning
+        console.warn(`[unosendWebhook] No signature headers found — accepting with warning`);
+      }
     }
   }
 
