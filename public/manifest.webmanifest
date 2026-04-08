@@ -1,0 +1,22 @@
+{
+  "name": "Frontaliere Ticino",
+  "short_name": "Frontaliere",
+  "description": "Strumenti per frontalieri: calcolo stipendio, tasse, pensione, cambio CHF-EUR e offerte di lavoro in Ticino",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1e293b",
+  "lang": "it",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    }
+  ]
+}
