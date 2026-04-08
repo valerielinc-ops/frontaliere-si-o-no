@@ -206,8 +206,11 @@ function resolveJobAddress(job: any): {
   postalCode?: string;
   streetAddress?: string;
 } {
-  const locality = String(job?.addressLocality || job?.location || 'Ticino');
-  const region = String(job?.addressRegion || job?.canton || 'TI');
+  // Parameterized defaults — change when expanding beyond TI/GR
+  const DEFAULT_CANTON = 'TI';
+  const DEFAULT_CANTON_DISPLAY = 'Ticino';
+  const locality = String(job?.addressLocality || job?.location || DEFAULT_CANTON_DISPLAY);
+  const region = String(job?.addressRegion || job?.canton || DEFAULT_CANTON);
   const country = String(job?.addressCountry || 'CH');
   const postalCode = normalizeSeoText(String(job?.postalCode || ''));
   const streetAddress = normalizeSeoText(String(job?.streetAddress || ''));
