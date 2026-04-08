@@ -47,7 +47,6 @@ const RC_TO_ENV = {
   NEWSLETTER_FROM:                ['NEWSLETTER_FROM'],
 
   // Email cascade providers (newsletter + job alerts)
-  SENDER_API_KEY:                 ['SENDER_API_KEY'],
   MAILJET_API_KEY:                ['MAILJET_API_KEY'],
   MAILJET_SECRET_KEY:             ['MAILJET_SECRET_KEY'],
   MAILGUN_API_KEY:                ['MAILGUN_API_KEY'],

@@ -2,11 +2,12 @@
 /**
  * email-cascade.mjs — Multi-provider email sending with daily quota tracking.
  *
- * Cascade order: EmailOctopus → Mailjet → Mailgun → Resend (fallback)
+ * Cascade order: Mailgun → Mailjet → Resend (fallback)
  * Each provider has a daily quota. When one is exhausted, the next takes over.
  * Tracking (persistDelivery) is provider-agnostic — callers handle Firestore writes.
  *
- * All providers support custom sending domains with DKIM on their free tier.
+ * All providers support custom sending domains with DKIM on their free tier,
+ * with no forced branding on emails.
  *
  * Usage:
  *   import { sendEmailCascade, getProviderStats } from './lib/email-cascade.mjs';
@@ -16,10 +17,9 @@
  *   { from, to: [string], subject, html, headers?, tags?: [{name, value}] }
  *
  * Environment variables (from Firebase Remote Config via load-rc-env.mjs):
- *   EMAILOCTOPUS_API_KEY     — EmailOctopus API key
  *   MAILJET_API_KEY          — Mailjet API key (public)
  *   MAILJET_SECRET_KEY       — Mailjet API secret
- *   MAILGUN_API_KEY          — Mailgun API key
+ *   MAILGUN_API_KEY          — Mailgun API key (EU region)
  *   MAILGUN_DOMAIN           — Mailgun sending domain
  *   RESEND_API_KEY           — Resend API key (fallback only)
  */
@@ -27,9 +27,8 @@
 // ── Provider daily quotas ────────────────────────────────────
 
 const PROVIDERS = [
-  { id: 'sender',  dailyLimit: 500, monthlyLimit: 15000 },
-  { id: 'mailjet', dailyLimit: 200, monthlyLimit: 6000  },
   { id: 'mailgun', dailyLimit: 100, monthlyLimit: 3000  },
+  { id: 'mailjet', dailyLimit: 200, monthlyLimit: 6000  },
   { id: 'resend',  dailyLimit: 100, monthlyLimit: 3000  },
 ];
 
@@ -66,43 +65,11 @@ function remainingQuota(providerId) {
 
 function isProviderConfigured(providerId) {
   switch (providerId) {
-    case 'sender':     return !!process.env.SENDER_API_KEY;
     case 'mailjet':    return !!(process.env.MAILJET_API_KEY && process.env.MAILJET_SECRET_KEY);
     case 'mailgun':    return !!(process.env.MAILGUN_API_KEY && process.env.MAILGUN_DOMAIN);
     case 'resend':     return !!process.env.RESEND_API_KEY;
     default: return false;
   }
-}
-
-// ── Sender.net API ───────────────────────────────────────────
-// Docs: https://api.sender.net/transactional-campaigns/send-transactional/
-
-async function sendViaSender(email) {
-  const apiKey = process.env.SENDER_API_KEY;
-  const fromParsed = parseEmailAddress(email.from);
-
-  const res = await fetch('https://api.sender.net/v2/message/send', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${apiKey}`,
-    },
-    body: JSON.stringify({
-      from: { name: fromParsed.name || 'Frontaliere Ticino', email: fromParsed.email },
-      to: email.to.map(addr => ({ email: addr })),
-      subject: email.subject,
-      html: email.html,
-      text: email.text || undefined,
-    }),
-  });
-
-  if (!res.ok) {
-    const err = await res.text().catch(() => '');
-    throw new Error(`Sender ${res.status}: ${err.slice(0, 200)}`);
-  }
-
-  const data = await res.json().catch(() => ({}));
-  return { messageId: data?.data?.id || data?.id || `sn-${Date.now()}`, provider: 'sender' };
 }
 
 // ── Mailjet API (v3.1) ──────────────────────────────────────
@@ -213,9 +180,8 @@ async function sendViaResend(email) {
 // ── Provider dispatch ────────────────────────────────────────
 
 const SEND_FNS = {
-  sender: sendViaSender,
-  mailjet: sendViaMailjet,
   mailgun: sendViaMailgun,
+  mailjet: sendViaMailjet,
   resend: sendViaResend,
 };
 
