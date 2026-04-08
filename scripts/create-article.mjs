@@ -970,6 +970,9 @@ const KNOWN_LEGAL_REFS = new Set([
   'l. 145/2018', 'l. 160/2019', 'l. 178/2020', 'l. 234/2021', 'l. 197/2022',
   'l. 213/2023', 'l. 207/2024',
   'd.lgs 286/1998', 'd.lgs 81/2008', 'd.lgs 66/2003',
+  // Confirmed real via audit (Apr 2026)
+  'dpr 309/1990', 'd.lgs 311/2006', 'dl 92/2008', 'l. 94/2009',
+  'd.lgs 179/2024', 'dl 215/2023', 'dl 132/2023',
 ]);
 
 // Patterns that signal fabricated content

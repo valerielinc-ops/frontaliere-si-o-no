@@ -1820,7 +1820,6 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-svizzera-cern-ricerca-chip': { name: 'Ricerca sui chip', path: '/articoli-frontaliere/svizzera-cern-ricerca-chip', parent: 'blog' },
     'blog-cannabis-sequestro-ticino-2026': { name: 'Sequestro Cannabis', path: '/articoli-frontaliere/cannabis-sequestro-ticino-2026', parent: 'blog' },
     'blog-svizzeri-dubitano-difesa-paese': { name: 'Difesa Svizzera', path: '/articoli-frontaliere/svizzeri-dubitano-difesa-paese', parent: 'blog' },
-    'blog-referendum-varese-ticino-2026': { name: 'Referendum Varese', path: '/articoli-frontaliere/referendum-varese-ticino-2026', parent: 'blog' },
     'blog-controlli-radar-ticino': { name: 'Controlli radar in Ticino', path: '/articoli-frontaliere/controlli-radar-ticino', parent: 'blog' },
     'blog-frontalieri-casa-zurigo': { name: 'Frontalieri', path: '/articoli-frontaliere/frontalieri-casa-zurigo', parent: 'blog' },
     'blog-lugano-sicurezza-2025': { name: 'Sicurezza a Lugano', path: '/articoli-frontaliere/lugano-sicurezza-2025', parent: 'blog' },

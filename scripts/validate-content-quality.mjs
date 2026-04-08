@@ -66,6 +66,8 @@ function isIndividualJobPage(path) {
   if (/^(azienda|company|unternehmen|entreprise)-/.test(slug)) return false;
   // Search/filter pages (ricerca-*, search-*, suche-*, recherche-*)
   if (/^(ricerca|search|suche|recherche)-/.test(slug)) return false;
+  // Category listing pages (categoria-*, category-*, kategorie-*, categorie-*)
+  if (/^(categoria|category|kategorie|categorie)-/.test(slug)) return false;
   // Pagination pages (pagina-N, page-N, seite-N)
   if (/^(pagina|page|seite)-\d+$/.test(slug)) return false;
   // Filter combo pages (lavoro-part-time, part-time-jobs, teilzeit-jobs, emploi-partiel, etc.)

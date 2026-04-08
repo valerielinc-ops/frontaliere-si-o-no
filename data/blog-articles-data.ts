@@ -3916,13 +3916,6 @@ export const ARTICLES: Article[] = [
     hasCalculator: true,
   },
   {
-    id: 'referendum-varese-ticino-2026',
-    category: 'novita',
-    date: '2026-03-23T10:25:02.903Z',
-    image: '/images/blog/referendum-varese-ticino-2026.webp',
-    hasCalculator: true,
-  },
-  {
     id: 'controlli-radar-ticino',
     category: 'pratico',
     date: '2026-03-23T11:53:10.280Z',
@@ -5098,13 +5091,6 @@ export const ARTICLES: Article[] = [
     category: 'novita',
     date: '2026-03-23T09:55:12.891Z',
     image: '/images/blog/svizzeri-dubitano-difesa-paese.webp',
-    hasCalculator: true,
-  },
-  {
-    id: 'referendum-varese-ticino-2026',
-    category: 'novita',
-    date: '2026-03-23T10:25:02.903Z',
-    image: '/images/blog/referendum-varese-ticino-2026.webp',
     hasCalculator: true,
   },
   {

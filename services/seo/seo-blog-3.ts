@@ -1327,35 +1327,6 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
     }
   },
 
-  'blog-referendum-varese-ticino-2026': {
-    title: 'Referendum Costituzionale 2026: Varese al 43,40% | Frontaliere Ticino',
-    description: 'Affluenza al 43,40% in provincia di Varese per il referendum costituzionale del 2026. Dati aggiornati 2026 per frontalieri in Ticino.',
-    keywords: 'frontalieri, ticino, svizzera, italia, referendum, costituzionale, varese, alle',
-    ogTitle: 'Referendum 2026 Varese',
-    ogDescription: 'Affluenza al 43,40% in provincia di Varese per il referendum costituzionale del 2026.',
-    canonicalPath: '/articoli-frontaliere/referendum-varese-ticino-2026',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Referendum Costituzionale 2026: Varese al 43,40%",
-      "description": "Affluenza al 43,40% in provincia di Varese per il referendum costituzionale del 2026. Dati aggiornati 2026 per frontalieri in Ticino.",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/referendum-varese-ticino-2026.webp`,
-        "width": 1344,
-        "height": 756,
-        "caption": "Votanti in una città svizzera con il referendum costituzionale del 2026."
-      },
-      "datePublished": "2026-03-23T10:25:02+00:00",
-      "dateModified": "2026-03-23T10:25:02+00:00",
-      "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/referendum-varese-ticino-2026`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
-      "isAccessibleForFree": true
-    }
-  },
 
   'blog-controlli-radar-ticino': {
     title: 'I controlli radar in Ticino diminuiranno: cosa cambia? | Frontaliere Ticino',
