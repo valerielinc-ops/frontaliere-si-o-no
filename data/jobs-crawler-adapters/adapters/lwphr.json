@@ -9,6 +9,7 @@
     "pdf"
   ],
   "seedUrls": [
+    "https://www.lwphr.ch/uploads/1/4/6/5/146598773/back_office__ammin__titoli_e_tesoreria.pdf",
     "https://www.lwphr.ch/uploads/1/4/6/5/146598773/uno_una_paralegal_o_legal_segretary.pdf",
     "https://www.lwphr.ch/uploads/1/4/6/5/146598773/consulente_patrimoniale_senior.pdf",
     "https://www.lwphr.ch/uploads/1/4/6/5/146598773/hr_specialist.pdf",
@@ -23,8 +24,14 @@
     "https://www.lwphr.ch/uploads/1/4/6/5/146598773/full_stack_developer.pdf"
   ],
   "notes": "Dedicated LWPHR crawler parses the open positions accordion and extracts descriptions directly from the linked PDF files.",
-  "updatedAt": "2026-04-08T09:43:32.279Z",
+  "updatedAt": "2026-04-08T21:33:53.902Z",
   "seedMetaByUrl": {
+    "https://www.lwphr.ch/uploads/1/4/6/5/146598773/back_office__ammin__titoli_e_tesoreria.pdf": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "LWP Ledermann Wieting & Partners",
+      "postedDate": "2026-04-08"
+    },
     "https://www.lwphr.ch/uploads/1/4/6/5/146598773/uno_una_paralegal_o_legal_segretary.pdf": {
       "location": "Lugano",
       "canton": "TI",
