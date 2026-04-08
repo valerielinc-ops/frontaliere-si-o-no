@@ -1,18 +1,19 @@
 {
   "key": "corner-banca",
   "label": "Corner",
-  "generatedAt": "2026-04-07T21:17:52.406Z",
+  "generatedAt": "2026-04-08T09:21:44.519Z",
   "total": 7,
-  "newCount": 1,
-  "updatedCount": 6,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 7,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2151,
-  "avgDurationMs": 2151,
+  "durationMs": 2026,
+  "avgDurationMs": 2026,
   "durationHistory": [
-    2151
+    2026
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "corner-banca-9a08d15ac96b",
       "slug": "employee-collection-team-zurich-corner-banca-wallisellen",
@@ -31,17 +32,16 @@
       "postedDate": "2026-03-24",
       "url": "https://jobs.corner.ch/o/employee-collection-team-zurich",
       "source": "Corner Dedicated Parser (Recruitee API)",
-      "crawledAt": "2026-04-07T21:17:50.539Z",
-      "_qualityScore": 76,
+      "crawledAt": "2026-04-08T09:21:42.760Z",
+      "sourceLang": "en",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 16,
+        "translation": 25,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "corner-banca-b9d1611cce63",
       "slug": "compliance-officer-senior-corner-banca-lugano",
@@ -60,7 +60,7 @@
       "postedDate": "2026-03-18",
       "url": "https://jobs.corner.ch/o/compliance-officer-senior",
       "source": "Corner Dedicated Parser (Recruitee API)",
-      "crawledAt": "2026-04-07T21:17:50.539Z",
+      "crawledAt": "2026-04-08T09:21:42.761Z",
       "sourceLang": "en",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -88,7 +88,7 @@
       "postedDate": "2026-03-18",
       "url": "https://jobs.corner.ch/o/risk-manager-asset-liability-management-alm-and-liquidity-risk-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
-      "crawledAt": "2026-04-07T21:17:50.540Z",
+      "crawledAt": "2026-04-08T09:21:42.761Z",
       "sourceLang": "en",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -116,7 +116,7 @@
       "postedDate": "2026-03-09",
       "url": "https://jobs.corner.ch/o/collaboratore-servizi-logistici-ufficio-tecnico-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
-      "crawledAt": "2026-04-07T21:17:50.540Z",
+      "crawledAt": "2026-04-08T09:21:42.762Z",
       "sourceLang": "it",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -144,7 +144,7 @@
       "postedDate": "2026-02-26",
       "url": "https://jobs.corner.ch/o/employee-card-onboarding",
       "source": "Corner Dedicated Parser (Recruitee API)",
-      "crawledAt": "2026-04-07T21:17:50.541Z",
+      "crawledAt": "2026-04-08T09:21:42.762Z",
       "sourceLang": "en",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -172,7 +172,7 @@
       "postedDate": "2026-02-03",
       "url": "https://jobs.corner.ch/o/it-card-management-analyst-specialist",
       "source": "Corner Dedicated Parser (Recruitee API)",
-      "crawledAt": "2026-04-07T21:17:50.541Z",
+      "crawledAt": "2026-04-08T09:21:42.762Z",
       "needsRetranslation": true,
       "sourceLang": "en",
       "_qualityScore": 84,
@@ -201,7 +201,7 @@
       "postedDate": "2025-10-02",
       "url": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship",
       "source": "Corner Dedicated Parser (Recruitee API)",
-      "crawledAt": "2026-04-07T21:17:50.542Z",
+      "crawledAt": "2026-04-08T09:21:42.763Z",
       "sourceLang": "it",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -212,41 +212,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "corner-banca-363ccb9527a5",
-      "slug": "credit-e-client-advisor-m-f-corner-banca-lugano",
-      "company": "Cornèr Banca",
-      "companyKey": "corner-banca",
-      "companyDomain": "corner.ch",
-      "title": "Credit & Client Advisor (m/f)",
-      "location": "Lugano",
-      "canton": "TI",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "category": "sales",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-24",
-      "url": "https://jobs.corner.ch/o/credit-client-advisor-mf",
-      "source": "Corner Dedicated Parser (Recruitee API)",
-      "crawledAt": "2026-04-07T09:22:47.401Z",
-      "sourceLang": "en",
-      "salaryMin": 54000,
-      "salaryMax": 73000,
-      "streetAddress": "Via Canova 16",
-      "postalCode": "6901",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
