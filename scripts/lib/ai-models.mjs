@@ -1,11 +1,11 @@
 /**
- * Centralized AI Model Service — v14 (free-only, 100+ models, 13 providers)
+ * Centralized AI Model Service — v15 (free-only, 115+ models, 14 providers)
  *
  * Single source of truth for all LLM calls across scripts (jobs crawler,
  * article generator, company parser, etc.).
  *
  * Features:
- * - Extended fallback chain with 100+ FREE models across 13 providers
+ * - Extended fallback chain with 115+ FREE models across 14 providers
  * - **Dynamic OpenRouter discovery**: auto-detects new free models at runtime
  * - **Scored model selection**: models gain/lose score based on success/failure,
  *   so models that keep working float to the top and broken ones sink down,
@@ -25,7 +25,9 @@
  *   GPT-4o/4.1/5-nano/5, Llama, Phi, Cohere, DeepSeek, Codestral, o4-mini, etc.
  *   Each model has its own daily limit (UserByModelByDay), so using 20+
  *   models yields 20× the daily capacity with a single PAT.
- * - Google Gemini (GEMINI_API_KEY) — Native Gemini API (free tier)
+ * - Google Gemini + Gemma (GEMINI_API_KEY) — Native Gemini API (free tier)
+ *   Gemma models (gemma-4-31b-it, gemma-3-27b-it, etc.) use the same API
+ *   and key, adding 14,400 req/day each!
  * - Groq (GROQ_API_KEY) — Ultra-fast inference, OpenAI-compatible
  *   Llama 4 Scout, Llama 3.3 70B, Qwen3 32B, Kimi K2, GPT-OSS (1000 req/day each)
  * - OpenRouter (OPENROUTER_API_KEY) — Free tier with 50 req/day
@@ -47,7 +49,9 @@
  * - Cloudflare Workers AI (CF_API_TOKEN + CF_ACCOUNT_ID) — Free tier inference
  *   Llama 3.3 70B, Llama 4 Scout, Mistral Small, QwQ 32B, GPT-OSS (10K neurons/day)
  * - Mistral AI La Plateforme (MISTRAL_API_KEY) — Free tier inference
- *   Mistral Small, Codestral, Ministral 8B (1B tokens/month, 1 req/sec)
+ *   Mistral Small, Codestral, Ministral 8B, Nemo (1B tokens/month, 1 req/sec)
+ * - Mistral Codestral (MISTRAL_API_KEY) — Separate endpoint, separate quota
+ *   codestral.mistral.ai — 30 req/min, 2000 req/day (uses same Mistral key)
  *
  * Environment variables:
  * - GH_MODELS_PAT — GitHub Models token (covers GPT, Llama, Phi, Cohere, etc.)
@@ -103,12 +107,29 @@ export const AI_MODELS = Object.freeze({
   O1:               'o1',
   O3:               'o3',
   PHI_4_MINI_REASON:'Phi-4-mini-reasoning',
+  GPT_5_CHAT:       'gpt-5-chat',
+  PHI_4_REASON:     'Phi-4-reasoning',
+  PHI_4_MINI_INST:  'Phi-4-mini-instruct',
+  JAMBA_1_5_LARGE:  'AI21-Jamba-1.5-Large',
+  MISTRAL_SM_31_GH: 'Mistral-Small-3.1',
+  O1_MINI:          'o1-mini',
 
-  // ── Google Gemini (native API) ──
+  // ── Google Gemini + Gemma (native API, shared GEMINI_API_KEY) ──
+  // Gemma models use the same Gemini API endpoint — 14,400 req/day each!
   GEMINI_FLASH:     'gemini-2.5-flash',
   GEMINI_PRO:       'gemini-2.5-pro',
   GEMINI_2_FLASH:   'gemini-2.0-flash',
   GEMINI_FLASH_LITE:'gemini-2.5-flash-lite',
+  // Gemma models via Gemini API — 14,400 req/day each!
+  GEMMA_4_31B:      'gemma-4-31b-it',
+  GEMMA_4_26B:      'gemma-4-26b-a4b-it',
+  GEMMA_3_27B:      'gemma-3-27b-it',
+  GEMMA_3_12B:      'gemma-3-12b-it',
+  // New Gemini 3.x models (preview)
+  GEMINI_3_FLASH:   'gemini-3-flash-preview',
+  GEMINI_3_PRO:     'gemini-3-pro-preview',
+  GEMINI_31_FLASH_LITE: 'gemini-3.1-flash-lite-preview',
+  GEMINI_31_PRO:    'gemini-3.1-pro-preview',
 
   // ── Groq (OpenAI-compatible, ultra-fast inference) ──
   // Each model: 1000 req/day (free tier)
@@ -124,6 +145,7 @@ export const AI_MODELS = Object.freeze({
   GROQ_COMPOUND:    'groq/compound-beta',
   GROQ_COMPOUND_MINI:'groq/compound-mini',
   GROQ_KIMI_K2_0905:'groq/moonshotai/kimi-k2-instruct-0905',
+  GROQ_GPT_OSS_SAFE: 'groq/openai/gpt-oss-safeguard-20b',
 
   // ── OpenRouter (OpenAI-compatible, free models with :free suffix) ──
   // Rate limits: 20 req/min, 200 req/day (free tier, no credit card)
@@ -229,6 +251,10 @@ export const AI_MODELS = Object.freeze({
   MISTRAL_SMALL:       'mistral/mistral-small-latest',
   MISTRAL_CODESTRAL:   'mistral/codestral-latest',
   MISTRAL_8B:          'mistral/ministral-8b-latest',
+  MISTRAL_NEMO:        'mistral/open-mistral-nemo',
+
+  // ── Mistral Codestral (separate endpoint, separate quota: 2000 req/day) ──
+  CDSTRL_LATEST:       'codestral/codestral-latest',
 });
 
 /**
@@ -248,33 +274,44 @@ export const AI_MODELS = Object.freeze({
 export const DEFAULT_CHAIN = [
   AI_MODELS.GPT4O,              // 1.  OpenAI flagship        (GitHub Models)
   AI_MODELS.GPT_4_1,            // 2.  GPT 4.1 flagship       (GitHub Models)
+  AI_MODELS.GEMMA_4_31B,        // 2b. Gemma 4 31B            (Gemini API — 14,400/day!)
   AI_MODELS.GPT_5,              // 3.  GPT-5 flagship         (GitHub Models)
   AI_MODELS.LLAMA_4_MAVERICK,   // 4.  Meta Llama 4 flagship  (GitHub Models)
   AI_MODELS.GEMINI_FLASH,       // 5.  Google fast            (Gemini API free)
+  AI_MODELS.GEMINI_3_PRO,       // 5b. Gemini 3 Pro preview   (Gemini API free)
+  AI_MODELS.GEMINI_3_FLASH,     // 5c. Gemini 3 Flash preview (Gemini API free)
   AI_MODELS.O3,                 // 6.  OpenAI o3 reasoning    (GitHub Models)
   AI_MODELS.GROK_3,             // 7.  xAI Grok 3 flagship   (GitHub Models)
   // GROQ_KIMI_K2 removed — Groq returns HTTP 413 consistently (payload too large, 2026-03)
   // SN_LLAMA_4_MAVERICK removed — SambaNova returns HTTP 404 "Model not found" (2026-03)
   AI_MODELS.GPT4O_MINI,           // 9.  OpenAI fast             (GitHub Models)
+  AI_MODELS.GPT_5_CHAT,           // 9b. GPT-5 chat             (GitHub Models)
+  AI_MODELS.GEMMA_4_26B,          // 9c. Gemma 4 26B MoE        (Gemini API — 14,400/day!)
   AI_MODELS.GROQ_GPT_OSS_120B,  // 10. GPT-OSS 120B          (Groq - ultra fast)
   AI_MODELS.GPT_4_1_MINI,       // 11. GPT 4.1 Mini           (GitHub Models)
   AI_MODELS.LLAMA_3_3_70B,      // 12. Meta 70B               (GitHub Models)
   AI_MODELS.LLAMA_4_SCOUT,      // 13. Meta Llama 4 Scout     (GitHub Models)
+  AI_MODELS.GEMMA_3_27B,        // 13b. Gemma 3 27B           (Gemini API — 14,400/day!)
+  AI_MODELS.PHI_4_REASON,       // 13c. Phi-4 reasoning       (GitHub Models)
   AI_MODELS.GPT_5_NANO,         // 14. GPT-5 nano reason     (GitHub Models)
   AI_MODELS.COHERE_CMD_A,       // 15. Cohere latest          (GitHub Models)
   AI_MODELS.MISTRAL_SMALL,      // 16. Mistral Small latest   (Mistral AI direct)
   AI_MODELS.GROQ_LLAMA_3_3,     // 17. Llama 3.3 70B          (Groq)
   AI_MODELS.COHERE_CMD_R_PLUS,  // 18. Cohere multilingual    (GitHub Models)
   AI_MODELS.COH_CMD_A,          // 18b. Cohere Command A      (Cohere direct - 1000/month)
+  AI_MODELS.GEMINI_31_PRO,      // 18d. Gemini 3.1 Pro preview (Gemini API free)
   AI_MODELS.COH_CMD_R_PLUS,     // 18c. Cohere Command R+     (Cohere direct - 1000/month)
   AI_MODELS.CF_LLAMA_3_3_70B,   // 19. Llama 3.3 70B FP8     (Cloudflare Workers AI)
   AI_MODELS.LLAMA_3_1_405B,     // 20. Meta 405B flagship     (GitHub Models)
   AI_MODELS.MISTRAL_MEDIUM_3,   // 21. Mistral Medium 3       (GitHub Models)
   AI_MODELS.GROQ_QWEN3_32B,      // 22. Qwen3 32B              (Groq - ultra fast)
+  AI_MODELS.GEMMA_3_12B,         // 22b. Gemma 3 12B           (Gemini API — 14,400/day!)
+  AI_MODELS.JAMBA_1_5_LARGE,     // 22c. AI21 Jamba 1.5 Large  (GitHub Models)
   // SN_LLAMA_3_3_70B removed — SambaNova HTTP 402 PAYMENT_METHOD_REQUIRED (2026-04)
   AI_MODELS.O1,                  // 23. OpenAI o1 reasoning    (GitHub Models)
   AI_MODELS.LLAMA_3_2_90B,      // 24. Llama 3.2 90B           (GitHub Models)
   AI_MODELS.GEMINI_2_FLASH,     // 25. Google 2.0 flash       (Gemini API free)
+  AI_MODELS.GEMINI_31_FLASH_LITE, // 25b. Gemini 3.1 Flash Lite (Gemini API free)
   AI_MODELS.MISTRAL_CODESTRAL,  // 26. Codestral latest       (Mistral AI direct)
   AI_MODELS.GPT_5_MINI,         // 27. GPT-5 mini reason     (GitHub Models)
   AI_MODELS.CF_LLAMA_4_SCOUT,   // 28. Llama 4 Scout          (Cloudflare Workers AI)
@@ -311,6 +348,9 @@ export const DEFAULT_CHAIN = [
   AI_MODELS.CB_GPT_OSS_120B,    // 54. GPT-OSS 120B           (Cerebras)
   AI_MODELS.GROQ_GEMMA2_9B,     // 55. Gemma2 9B              (Groq)
   AI_MODELS.GROQ_LLAMA_3_1_8B,  // 56. Llama 3.1 8B instant   (Groq)
+  AI_MODELS.GROQ_GPT_OSS_SAFE,  // 56b. GPT-OSS Safeguard 20B (Groq — 1000/day)
+  AI_MODELS.MISTRAL_SM_31_GH,   // 56c. Mistral Small 3.1     (GitHub Models)
+  AI_MODELS.PHI_4_MINI_INST,    // 56d. Phi-4 mini instruct   (GitHub Models)
   // SN_DEEPSEEK_V3 removed — SambaNova HTTP 402 PAYMENT_METHOD_REQUIRED (2026-04)
   // SN_QWEN_2_5_72B removed — SambaNova HTTP 402 PAYMENT_METHOD_REQUIRED (2026-04)
   AI_MODELS.OR_GEMMA_4_26B,     // 57. Gemma 4 26B MoE         (OpenRouter free — replaces DeepSeek R1 Zero)
@@ -320,6 +360,9 @@ export const DEFAULT_CHAIN = [
   AI_MODELS.MINISTRAL_3B,       // 60. Mistral 3B fast        (GitHub Models)
   AI_MODELS.CF_GPT_OSS_20B,     // 61. GPT-OSS 20B            (Cloudflare Workers AI)
   AI_MODELS.O3_MINI,            // 62. OpenAI o3-mini reason  (GitHub Models)
+  AI_MODELS.O1_MINI,            // 62b. OpenAI o1-mini reason (GitHub Models)
+  AI_MODELS.CDSTRL_LATEST,      // 62c. Codestral latest      (Codestral endpoint — 2000/day)
+  AI_MODELS.MISTRAL_NEMO,       // 62d. Mistral Nemo          (Mistral AI direct)
   AI_MODELS.PHI_4_MINI_REASON,  // 63. Phi-4 mini reasoning   (GitHub Models)
   AI_MODELS.OR_TRINITY,         // 64. Arcee Trinity Large    (OpenRouter free)
   AI_MODELS.MISTRAL_8B,         // 65. Ministral 8B latest    (Mistral AI direct)
@@ -387,6 +430,7 @@ const PROVIDER = Object.freeze({
   COHERE:      'cohere',
   CLOUDFLARE:  'cloudflare',
   MISTRAL:     'mistral',
+  CODESTRAL:   'codestral',
 });
 
 // ── Endpoints ────────────────────────────────────────────────
@@ -402,6 +446,7 @@ const HUGGINGFACE_API_BASE = 'https://router.huggingface.co/v1/chat/completions'
 const SAMBANOVA_API_BASE   = 'https://api.sambanova.ai/v1/chat/completions';
 const COHERE_API_BASE      = 'https://api.cohere.ai/compatibility/v1/chat/completions';
 const MISTRAL_API_BASE     = 'https://api.mistral.ai/v1/chat/completions';
+const CODESTRAL_API_BASE   = 'https://codestral.mistral.ai/v1/chat/completions';
 
 // ── API keys (lazy-loaded from environment) ──────────────────
 function getGhModelsPat()       { return (process.env.GH_MODELS_PAT || '').trim(); }
@@ -418,13 +463,14 @@ function getCohereApiKey()    { return (process.env.COHERE_API_KEY || '').trim()
 function getCloudflareApiToken() { return (process.env.CF_API_TOKEN || '').trim(); }
 function getCfAccountId()    { return (process.env.CF_ACCOUNT_ID || '').trim(); }
 function getMistralApiKey()  { return (process.env.MISTRAL_API_KEY || '').trim(); }
+function getCodestralApiKey() { return getMistralApiKey(); }  // Same key, separate endpoint
 
 // ── Provider detection ───────────────────────────────────────
 /**
  * Determine which provider hosts the given model.
  * - `groq/*` → Groq Cloud (ultra-fast inference, free tier)
  * - `openrouter/*` → OpenRouter (free models with :free suffix)
- * - `gemini-*` → Google Gemini (free tier)
+ * - `gemini-*` / `gemma-*` → Google Gemini (free tier, includes Gemma models)
  * - `cerebras/*` → Cerebras (ultra-fast inference, free tier)
  * - `together/*` → Together AI (free tier)
  * - `fireworks/*` → Fireworks AI (free tier)
@@ -434,12 +480,13 @@ function getMistralApiKey()  { return (process.env.MISTRAL_API_KEY || '').trim()
  * - `cohere/*` → Cohere Direct (free trial tier)
  * - `cf/*` → Cloudflare Workers AI (free tier, 10K neurons/day)
  * - `mistral/*` → Mistral AI La Plateforme (free tier, 1B tokens/month)
+ * - `codestral/*` → Mistral Codestral (separate endpoint, 2000 req/day)
  * - Everything else → GitHub Models (GPT, Llama, Mistral, Cohere, Phi — all free)
  */
 function getProvider(model) {
   if (model.startsWith('groq/'))        return PROVIDER.GROQ;
   if (model.startsWith('openrouter/'))  return PROVIDER.OPENROUTER;
-  if (model.startsWith('gemini-'))      return PROVIDER.GEMINI;
+  if (model.startsWith('gemini-') || model.startsWith('gemma-')) return PROVIDER.GEMINI;
   if (model.startsWith('cerebras/'))    return PROVIDER.CEREBRAS;
   if (model.startsWith('together/'))    return PROVIDER.TOGETHER;
   if (model.startsWith('fireworks/'))   return PROVIDER.FIREWORKS;
@@ -448,6 +495,7 @@ function getProvider(model) {
   if (model.startsWith('sn/'))          return PROVIDER.SAMBANOVA;
   if (model.startsWith('cohere/'))     return PROVIDER.COHERE;
   if (model.startsWith('cf/'))         return PROVIDER.CLOUDFLARE;
+  if (model.startsWith('codestral/'))  return PROVIDER.CODESTRAL;
   if (model.startsWith('mistral/'))    return PROVIDER.MISTRAL;
   return PROVIDER.GITHUB;
 }
@@ -463,6 +511,7 @@ function getProvider(model) {
  *      'hf/mistralai/Mistral-7B-Instruct-v0.3' → 'mistralai/Mistral-7B-Instruct-v0.3'
  *      'cf/@cf/meta/llama-3.3-70b-instruct-fp8' → '@cf/meta/llama-3.3-70b-instruct-fp8'
  *      'mistral/mistral-small-latest' → 'mistral-small-latest'
+ *      'codestral/codestral-latest' → 'codestral-latest'
  *      'gpt-4o' → 'gpt-4o' (no prefix)
  */
 function getApiModelId(model) {
@@ -476,6 +525,7 @@ function getApiModelId(model) {
   if (model.startsWith('sn/'))          return model.slice(3);   // 3 chars: "sn/"
   if (model.startsWith('cohere/'))     return model.slice(7);   // 7 chars: "cohere/"
   if (model.startsWith('cf/'))         return model.slice(3);   // 3 chars: "cf/" → "@cf/..."
+  if (model.startsWith('codestral/'))  return model.slice(10);  // 10 chars: "codestral/"
   if (model.startsWith('mistral/'))    return model.slice(8);   // 8 chars: "mistral/"
   return model;
 }
@@ -497,6 +547,7 @@ function getApiKeyForProvider(provider) {
     // Cloudflare needs BOTH token AND account ID to construct the endpoint
     case PROVIDER.CLOUDFLARE:  return (getCloudflareApiToken() && getCfAccountId()) ? getCloudflareApiToken() : '';
     case PROVIDER.MISTRAL:     return getMistralApiKey();
+    case PROVIDER.CODESTRAL:   return getCodestralApiKey();
     default: return '';
   }
 }
@@ -1154,14 +1205,17 @@ const MAX_COMPLETION_TOKENS_MODELS = new Set([
   'gpt-5-nano',
   'gpt-5-mini',
   'gpt-5',
+  'gpt-5-chat',
   'o4-mini',
   'o3-mini',
   'o1',
+  'o1-mini',
   'o3',
   'Grok-3',
   'Grok-3-Mini',
   'MAI-DS-R1',
   'Phi-4-mini-reasoning',
+  'Phi-4-reasoning',
 ]);
 
 /** Models with lower max output token limits */
@@ -1490,6 +1544,20 @@ function _callMistral(model, messages, opts) {
 }
 
 /**
+ * Call a model on Mistral Codestral endpoint (separate quota: 30 req/min, 2000 req/day).
+ * Uses the same MISTRAL_API_KEY but a separate endpoint with its own rate limits.
+ */
+function _callCodestral(model, messages, opts) {
+  const apiModel = getApiModelId(model);
+  return _callOpenAICompatible(apiModel, messages, opts, {
+    endpoint: CODESTRAL_API_BASE,
+    apiKey: getCodestralApiKey(),
+    providerName: 'Codestral',
+    trackAs: model,
+  });
+}
+
+/**
  * Call a single Gemini model with retry.
  * Returns the text content on success.
  */
@@ -1617,6 +1685,7 @@ function _callModel(model, messages, opts) {
     case PROVIDER.COHERE:      return _callCohere(model, messages, opts);
     case PROVIDER.CLOUDFLARE:  return _callCloudflare(model, messages, opts);
     case PROVIDER.MISTRAL:     return _callMistral(model, messages, opts);
+    case PROVIDER.CODESTRAL:   return _callCodestral(model, messages, opts);
     default: throw new Error(`[${model}] Unknown provider: ${provider}`);
   }
 }
