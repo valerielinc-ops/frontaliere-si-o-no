@@ -7,7 +7,7 @@
       "slug": "repairman-svc-otis-kreuzstrasse-34",
       "slugByLocale": {
         "en": "repairman-svc-otis-kreuzstrasse-34",
-        "it": "repairman-svc-otis-kreuzstrasse-34",
+        "it": "addetto-alla-riparazione-svc-otis-sa-kreuzstrasse-34",
         "de": "repairman-svc-otis-kreuzstrasse-34",
         "fr": "repairman-svc-otis-kreuzstrasse-34"
       },
@@ -58,14 +58,17 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6500"
+      "postalCode": "6500",
+      "previousSlugs": [
+        "repairman-svc-otis-kreuzstrasse-34"
+      ]
     },
     {
       "id": "otis-3783244e6a23",
       "slug": "servicetechniker-innen-kanton-aargau-otis-sa-kreuzstrasse-34",
       "slugByLocale": {
-        "en": "servicetechniker-innen-kanton-aargau-otis-kreuzstrasse-34",
-        "it": "servicetechniker-innen-kanton-aargau-otis-sa-kreuzstrasse-34",
+        "en": "service-technician-elevators-and-escalators-canton-of-aargau-otis-sa-kreuzstrasse-34",
+        "it": "tecnico-di-servizio-aziende-di-ascensori-e-scale-mobili-canton-argovia-otis-sa-kreuzstrasse-34",
         "de": "servicetechniker-innen-kanton-aargau-otis-kreuzstrasse-34",
         "fr": "servicetechniker-innen-kanton-aargau-otis-kreuzstrasse-34"
       },
@@ -106,7 +109,8 @@
       "crawledAt": "2026-04-08T21:39:49.990Z",
       "needsRetranslation": true,
       "previousSlugs": [
-        "servicetechniker-innen-kanton-aargau-otis-kreuzstrasse-34"
+        "servicetechniker-innen-kanton-aargau-otis-kreuzstrasse-34",
+        "servicetechniker-innen-kanton-aargau-otis-sa-kreuzstrasse-34"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -250,9 +254,9 @@
       "slug": "aufzugsmonteur-in-m-w-d-otis-kreuzstrasse-34",
       "slugByLocale": {
         "en": "aufzugsmonteur-in-m-w-d-otis-kreuzstrasse-34",
-        "it": "aufzugsmonteur-in-m-w-d-otis-kreuzstrasse-34",
+        "it": "tecnico-di-ascensori-m-f-d-otis-sa-kreuzstrasse-34",
         "de": "aufzugsmonteur-in-m-w-d-otis-kreuzstrasse-34",
-        "fr": "aufzugsmonteur-in-m-w-d-otis-kreuzstrasse-34"
+        "fr": "monteur-d-ascenseurs-h-f-otis-sa-kreuzstrasse-34"
       },
       "company": "Otis SA",
       "companyKey": "otis",
@@ -301,16 +305,19 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6500"
+      "postalCode": "6500",
+      "previousSlugs": [
+        "aufzugsmonteur-in-m-w-d-otis-kreuzstrasse-34"
+      ]
     },
     {
       "id": "otis-c75ef26e7d44",
       "slug": "aufzugsmonteur-modernisierung-e-ersatzanlagen-m-w-d-otis-sa-nenzlingerweg-2",
       "slugByLocale": {
-        "en": "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-nenzlingerweg-2",
-        "it": "aufzugsmonteur-modernisierung-e-ersatzanlagen-m-w-d-otis-sa-nenzlingerweg-2",
+        "en": "elevator-mechanic-modernization-and-replacement-equipment-m-f-d-otis-sa-nenzlingerweg-2",
+        "it": "tecnico-di-ascensori-modernizzazione-e-impianti-di-sostituzione-m-f-d-otis-sa-nenzlingerweg-2",
         "de": "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-nenzlingerweg-2",
-        "fr": "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-nenzlingerweg-2"
+        "fr": "mecanicien-d-ascenseur-modernisation-et-equipements-de-remplacement-h-f-d-otis-sa-nenzlingerweg-2"
       },
       "company": "Otis SA",
       "companyKey": "otis",
@@ -348,7 +355,8 @@
       "source": "Otis Dedicated Parser (Workday)",
       "crawledAt": "2026-04-08T21:39:49.077Z",
       "previousSlugs": [
-        "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-nenzlingerweg-2"
+        "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-nenzlingerweg-2",
+        "aufzugsmonteur-modernisierung-e-ersatzanlagen-m-w-d-otis-sa-nenzlingerweg-2"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -369,8 +377,8 @@
       "slug": "servicetechniker-m-w-d-otis-sa-nenzlingerweg-2",
       "slugByLocale": {
         "en": "servicetechniker-m-w-d-otis-nenzlingerweg-2",
-        "it": "servicetechniker-m-w-d-otis-sa-nenzlingerweg-2",
-        "de": "servicetechniker-m-w-d-otis-nenzlingerweg-2",
+        "it": "tecnico-di-servizio-m-f-d-otis-sa-nenzlingerweg-2",
+        "de": "service-techniker-m-w-d-otis-sa-nenzlingerweg-2",
         "fr": "servicetechniker-m-w-d-otis-nenzlingerweg-2"
       },
       "company": "Otis SA",
@@ -410,7 +418,8 @@
       "crawledAt": "2026-04-08T21:39:48.845Z",
       "needsRetranslation": true,
       "previousSlugs": [
-        "servicetechniker-m-w-d-otis-nenzlingerweg-2"
+        "servicetechniker-m-w-d-otis-nenzlingerweg-2",
+        "servicetechniker-m-w-d-otis-sa-nenzlingerweg-2"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -432,8 +441,8 @@
       "slugByLocale": {
         "en": "pool-di-talenti-technician-otis-ticino-installazione-maintenance-modernizzazione-otis-sa-via-corti-5",
         "it": "pool-di-talenti-tecnico-otis-ticino-installazione-manutenzione-modernizzazione-otis-via-corti-5",
-        "de": "pool-di-talenti-techniker-otis-ticino-installazione-wartung-modernizzazione-otis-sa-via-corti-5",
-        "fr": "pool-di-talenti-technicien-otis-ticino-installazione-maintenance-modernizzazione-otis-sa-via-corti-5"
+        "de": "technik-talentepool-otis-ticino-installation-wartung-modernisierung-otis-sa-via-corti-5",
+        "fr": "pool-de-talents-techniques-otis-ticino-installation-maintenance-modernisation-otis-sa-via-corti-5"
       },
       "company": "Otis SA",
       "companyKey": "otis",
@@ -484,7 +493,10 @@
         }
       },
       "postalCode": "6500",
-      "previousSlugs": []
+      "previousSlugs": [
+        "pool-di-talenti-techniker-otis-ticino-installazione-wartung-modernizzazione-otis-sa-via-corti-5",
+        "pool-di-talenti-technicien-otis-ticino-installazione-maintenance-modernizzazione-otis-sa-via-corti-5"
+      ]
     },
     {
       "id": "otis-ab73eeb69603",

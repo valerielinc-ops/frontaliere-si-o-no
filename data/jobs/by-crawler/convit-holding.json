@@ -1237,9 +1237,9 @@
       },
       "slugByLocale": {
         "it": "consulenza-clienti-finanza-ibrido-convit-cadro-resega",
-        "en": "consulenza-clienti-finanza-ibrido-convit-cadro-resega",
-        "de": "consulenza-clienti-finanza-ibrido-convit-cadro-resega",
-        "fr": "consulenza-clienti-finanza-ibrido-convit-cadro-resega"
+        "en": "financial-client-advisory-hybrid-convit-holding-gmbh-cadro-resega",
+        "de": "finanzielle-kundenberatung-hybrid-convit-holding-gmbh-cadro-resega",
+        "fr": "conseil-financier-hybrid-convit-holding-gmbh-cadro-resega"
       },
       "salaryMin": 82500,
       "salaryMax": 111500,
@@ -1255,7 +1255,10 @@
         }
       },
       "streetAddress": "Via Balestra 12",
-      "postalCode": "6900"
+      "postalCode": "6900",
+      "previousSlugs": [
+        "consulenza-clienti-finanza-ibrido-convit-cadro-resega"
+      ]
     },
     {
       "title": "Consulente soluzioni finanziarie (junior)",

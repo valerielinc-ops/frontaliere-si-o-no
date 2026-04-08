@@ -164,7 +164,7 @@
         "it": "it-operation-center-batch-testing-specialist-avaloq-bioggio",
         "en": "it-operation-center-batch-testing-specialist-avaloq-bioggio",
         "de": "it-operation-center-batch-testing-specialist-avaloq-bioggio",
-        "fr": "it-operation-center-batch-testing-specialist-avaloq-bioggio"
+        "fr": "centre-d-operation-informatique-specialiste-de-tests-batch-avaloq-bioggio"
       },
       "id": "avaloq-9209521e8f79",
       "salaryMin": 72500,
@@ -180,7 +180,10 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 1"
+      "streetAddress": "Via Industria 1",
+      "previousSlugs": [
+        "it-operation-center-batch-testing-specialist-avaloq-bioggio"
+      ]
     },
     {
       "title": "Head of Quality Assurance & Client Onboarding",

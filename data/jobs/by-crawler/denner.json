@@ -169,10 +169,10 @@
       "id": "denner-efe1bd294835",
       "slug": "filialleiter-in-in-ausbildung-denner-lyssach",
       "slugByLocale": {
-        "it": "filialleiter-in-in-ausbildung-denner-lyssach",
-        "en": "filialleiter-in-in-ausbildung-denner-lyssach",
+        "it": "responsabile-di-filiale-in-formazione-denner-lyssach",
+        "en": "branch-manager-in-training-denner-lyssach",
         "de": "filialleiter-in-in-ausbildung-denner-lyssach",
-        "fr": "filialleiter-in-in-ausbildung-denner-lyssach"
+        "fr": "responsable-de-succursale-en-formation-denner-lyssach"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -231,7 +231,8 @@
       "crawledAt": "2026-04-08T21:14:25.936Z",
       "previousSlugs": [
         "filialleiter-in-in-ausbildung-denner",
-        "filialleiter-in-in-ausbildung-denner-allschwil"
+        "filialleiter-in-in-ausbildung-denner-allschwil",
+        "filialleiter-in-in-ausbildung-denner-lyssach"
       ],
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -331,10 +332,10 @@
       "id": "denner-b5ff5efbac35",
       "slug": "verkaufer-in-im-stundenlohn-denner-stein-ag",
       "slugByLocale": {
-        "it": "verkaufer-in-im-stundenlohn-denner-stein-ag",
-        "en": "verkaufer-in-im-stundenlohn-denner-stein-ag",
+        "it": "venditore-a-a-ore-denner-stein-ag",
+        "en": "sales-associate-denner-stein-ag",
         "de": "verkaufer-in-im-stundenlohn-denner-stein-ag",
-        "fr": "verkaufer-in-im-stundenlohn-denner-stein-ag"
+        "fr": "vendeur-vendeuse-a-temps-partiel-denner-stein-ag"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -393,7 +394,8 @@
       "crawledAt": "2026-04-08T21:14:25.547Z",
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner",
-        "verkaufer-in-im-stundenlohn-denner-worb"
+        "verkaufer-in-im-stundenlohn-denner-worb",
+        "verkaufer-in-im-stundenlohn-denner-stein-ag"
       ],
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -413,7 +415,7 @@
       "slug": "verkaufer-in-denner-arlesheim",
       "slugByLocale": {
         "it": "verkaufer-in-denner-arlesheim",
-        "en": "verkaufer-in-denner-arlesheim",
+        "en": "shop-assistant-denner-arlesheim",
         "de": "verkaufer-in-denner-arlesheim",
         "fr": "verkaufer-in-denner-arlesheim"
       },
@@ -474,7 +476,8 @@
       "crawledAt": "2026-04-08T21:14:25.135Z",
       "previousSlugs": [
         "verkaufer-in-denner",
-        "verkaufer-in-denner-rubigen"
+        "verkaufer-in-denner-rubigen",
+        "verkaufer-in-denner-arlesheim"
       ],
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -493,10 +496,10 @@
       "id": "denner-aeb3dea30d93",
       "slug": "stv-filialleiter-in-denner-buchs-sg",
       "slugByLocale": {
-        "it": "stv-filialleiter-in-denner-buchs-sg",
-        "en": "stv-filialleiter-in-denner-buchs-sg",
+        "it": "responsabile-filiali-denner-buchs-sg",
+        "en": "branch-manager-denner-buchs-sg",
         "de": "stv-filialleiter-in-denner-buchs-sg",
-        "fr": "stv-filialleiter-in-denner-buchs-sg"
+        "fr": "responsable-de-filiale-denner-buchs-sg"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -555,7 +558,8 @@
       "crawledAt": "2026-04-08T21:14:24.306Z",
       "previousSlugs": [
         "stv-filialleiter-in-denner",
-        "stv-filialleiter-in-denner-basel"
+        "stv-filialleiter-in-denner-basel",
+        "stv-filialleiter-in-denner-buchs-sg"
       ],
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -898,10 +902,10 @@
       "id": "denner-30a950c6b592",
       "slug": "student-in-im-stundenlohn-denner",
       "slugByLocale": {
-        "it": "student-in-im-stundenlohn-denner",
+        "it": "studento-a-im-stundenlohn-denner-biel-bienne",
         "en": "student-in-im-stundenlohn-denner-biel-bienne",
         "de": "student-in-im-stundenlohn-denner",
-        "fr": "student-in-im-stundenlohn-denner"
+        "fr": "etudiant-e-en-heures-denner-biel-bienne"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -967,7 +971,10 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "student-in-im-stundenlohn-denner"
+      ]
     },
     {
       "id": "denner-73b91cf176ce",
@@ -1053,9 +1060,9 @@
       "id": "denner-247f76666313",
       "slug": "assistant-adjoint-assistante-adjointe-denner-crissier",
       "slugByLocale": {
-        "it": "assistant-adjoint-assistante-adjointe-denner-crissier",
+        "it": "assistente-aggiunto-a-denner-crissier",
         "en": "assistant-adjoint-assistante-adjointe-denner",
-        "de": "assistant-adjoint-assistante-adjointe-denner",
+        "de": "assistent-in-denner-crissier",
         "fr": "assistant-adjoint-assistante-adjointe-denner"
       },
       "company": "Denner",
@@ -1114,7 +1121,8 @@
       "sourceLang": "fr",
       "crawledAt": "2026-04-08T21:14:20.334Z",
       "previousSlugs": [
-        "assistant-adjoint-assistante-adjointe-denner"
+        "assistant-adjoint-assistante-adjointe-denner",
+        "assistant-adjoint-assistante-adjointe-denner-crissier"
       ],
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -1133,9 +1141,9 @@
       "id": "denner-51881c7b4598",
       "slug": "vendeur-vendeuse-denner-payerne",
       "slugByLocale": {
-        "it": "vendeur-vendeuse-denner-payerne",
-        "en": "vendeur-vendeuse-denner",
-        "de": "vendeur-vendeuse-denner",
+        "it": "venditore-venditrice-denner-payerne",
+        "en": "salesperson-denner-payerne",
+        "de": "verkaufer-verkauferin-denner-payerne",
         "fr": "vendeur-vendeuse-denner-payerne"
       },
       "company": "Denner",
@@ -1195,7 +1203,8 @@
       "crawledAt": "2026-04-08T21:14:20.330Z",
       "previousSlugs": [
         "vendeur-vendeuse-denner-geneve",
-        "vendeur-vendeuse-denner"
+        "vendeur-vendeuse-denner",
+        "vendeur-vendeuse-denner-payerne"
       ],
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -1217,7 +1226,7 @@
         "it": "student-in-come-ferienaushilfe-denner-thun",
         "en": "student-in-als-ferienaushilfe-denner-thun",
         "de": "student-in-als-ferienaushilfe-denner",
-        "fr": "student-in-als-ferienaushilfe-denner"
+        "fr": "etudiant-comme-aide-d-ete-denner-thun"
       },
       "company": "Denner",
       "companyKey": "denner",

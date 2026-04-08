@@ -3217,10 +3217,10 @@
       },
       "crawledAt": "2026-04-08T21:17:02.288Z",
       "slugByLocale": {
-        "it": "network-proxy-support-team-lead-efg-geneve",
+        "it": "responsabile-del-team-di-supporto-per-rete-e-proxy-efg-international-ag-geneve",
         "en": "network-proxy-support-team-lead-efg-geneve",
-        "de": "network-proxy-support-team-lead-efg-geneve",
-        "fr": "network-proxy-support-team-lead-efg-geneve"
+        "de": "teamleiter-netzwerk-und-proxy-support-efg-international-ag-geneve",
+        "fr": "responsable-de-l-equipe-de-support-reseau-et-proxy-efg-international-ag-geneve"
       },
       "addressLocality": "Geneve",
       "addressCountry": "CH",
@@ -3240,7 +3240,10 @@
       "streetAddress": "Via Pretorio 22",
       "postalCode": "6900",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "network-proxy-support-team-lead-efg-geneve"
+      ]
     },
     {
       "id": "efg-6039",
@@ -3293,10 +3296,10 @@
       },
       "crawledAt": "2026-04-08T21:17:02.288Z",
       "slugByLocale": {
-        "it": "epm-onestream-developer-business-data-analyst-efg-lugano",
+        "it": "sviluppatore-epm-onestream-analista-dati-business-efg-international-ag-lugano",
         "en": "epm-onestream-developer-business-data-analyst-efg-lugano",
         "de": "epm-onestream-developer-business-data-analyst-efg-lugano",
-        "fr": "epm-onestream-developer-business-data-analyst-efg-lugano"
+        "fr": "developpeur-epm-onestream-analyste-de-donnees-metier-efg-international-ag-lugano"
       },
       "addressLocality": "Lugano",
       "addressCountry": "CH",
@@ -3316,7 +3319,10 @@
       "streetAddress": "Via Pretorio 22",
       "postalCode": "6900",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "epm-onestream-developer-business-data-analyst-efg-lugano"
+      ]
     },
     {
       "id": "efg-5869",
@@ -3369,10 +3375,10 @@
       },
       "crawledAt": "2026-04-08T21:17:02.287Z",
       "slugByLocale": {
-        "it": "strategic-planning-officer-efg-lugano",
+        "it": "ufficiale-di-pianificazione-strategica-efg-international-ag-lugano",
         "en": "strategic-planning-officer-efg-lugano",
-        "de": "strategic-planning-officer-efg-lugano",
-        "fr": "strategic-planning-officer-efg-lugano"
+        "de": "strategischer-planungsbeauftragter-efg-international-ag-lugano",
+        "fr": "officier-de-planification-strategique-efg-international-ag-lugano"
       },
       "addressLocality": "Lugano",
       "addressCountry": "CH",
@@ -3392,7 +3398,10 @@
       "streetAddress": "Via Pretorio 22",
       "postalCode": "6900",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "strategic-planning-officer-efg-lugano"
+      ]
     }
   ]
 }

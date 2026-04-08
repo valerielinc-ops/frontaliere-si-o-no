@@ -65,7 +65,7 @@
       "slug": "it-regional-warehouse-specialist-prada-group-mendrisio",
       "slugByLocale": {
         "en": "it-regional-warehouse-specialist-prada-group-mendrisio",
-        "it": "it-regional-warehouse-specialist-prada-group-mendrisio",
+        "it": "specialista-it-magazzino-regionale-prada-group-mendrisio",
         "de": "it-regional-warehouse-specialist-prada-group-mendrisio",
         "fr": "it-regional-warehouse-specialist-prada-group-mendrisio"
       },
@@ -116,7 +116,10 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6850"
+      "postalCode": "6850",
+      "previousSlugs": [
+        "it-regional-warehouse-specialist-prada-group-mendrisio"
+      ]
     },
     {
       "id": "prada-6c37aa13f757",
@@ -181,7 +184,7 @@
       "slug": "prada-client-advisor-prada-group-mendrisio",
       "slugByLocale": {
         "en": "prada-client-advisor-prada-group-mendrisio",
-        "it": "prada-client-advisor-prada-group-mendrisio",
+        "it": "consulente-clienti-prada-prada-group-mendrisio",
         "de": "prada-client-advisor-prada-group-mendrisio",
         "fr": "prada-client-advisor-prada-group-mendrisio"
       },
@@ -232,16 +235,19 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6850"
+      "postalCode": "6850",
+      "previousSlugs": [
+        "prada-client-advisor-prada-group-mendrisio"
+      ]
     },
     {
       "id": "prada-59a1d7235ad9",
       "slug": "data-engineer-prada-group-mendrisio",
       "slugByLocale": {
         "en": "data-engineer-prada-group-mendrisio",
-        "it": "data-engineer-prada-group-mendrisio",
+        "it": "ingegnere-dati-prada-group-mendrisio",
         "de": "data-engineer-prada-group-mendrisio",
-        "fr": "data-engineer-prada-group-mendrisio"
+        "fr": "ingenieur-donnees-prada-group-mendrisio"
       },
       "company": "Prada Group",
       "companyKey": "prada",
@@ -290,7 +296,10 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6850"
+      "postalCode": "6850",
+      "previousSlugs": [
+        "data-engineer-prada-group-mendrisio"
+      ]
     },
     {
       "id": "prada-d1dab9133883",
@@ -354,7 +363,7 @@
       "id": "prada-332f237b0ca4",
       "slug": "miu-miu-store-manager-saint-moritz-prada-group-mendrisio",
       "slugByLocale": {
-        "it": "miu-miu-store-manager-saint-moritz-prada-group-mendrisio",
+        "it": "mui-mui-direttore-del-negozio-saint-moritz-prada-group-mendrisio",
         "en": "miu-miu-store-manager-saint-moritz-prada-group-mendrisio",
         "de": "miu-miu-store-manager-saint-moritz-prada-group-mendrisio",
         "fr": "miu-miu-store-manager-saint-moritz-prada-group-mendrisio"
@@ -393,7 +402,8 @@
       "sourceLang": "en",
       "crawledAt": "2026-04-08T21:41:56.894Z",
       "previousSlugs": [
-        "miu-miu-store-manager-saint-moritz-prada-mendrisio"
+        "miu-miu-store-manager-saint-moritz-prada-mendrisio",
+        "miu-miu-store-manager-saint-moritz-prada-group-mendrisio"
       ],
       "salaryMin": 72000,
       "salaryMax": 97000,

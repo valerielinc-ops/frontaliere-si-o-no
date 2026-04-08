@@ -428,7 +428,7 @@
       },
       "slugByLocale": {
         "en": "infrastructure-support-it-helpdesk-guess-europe-sagl-bioggio-ticino-switzerland",
-        "it": "infrastructure-support-it-helpdesk-guess-europe-sagl-bioggio-ticino-switzerland",
+        "it": "supporto-infrastrutturale-it-helpdesk-guess-europe-sagl-bioggio",
         "de": "infrastructure-support-it-helpdesk-guess-europe-sagl-bioggio-ticino-switzerland",
         "fr": "infrastructure-support-it-helpdesk-guess-europe-sagl-bioggio-ticino-switzerland"
       },
@@ -486,7 +486,10 @@
         }
       },
       "streetAddress": "Via Industria 5",
-      "postalCode": "6814"
+      "postalCode": "6814",
+      "previousSlugs": [
+        "infrastructure-support-it-helpdesk-guess-europe-sagl-bioggio-ticino-switzerland"
+      ]
     },
     {
       "title": "Key Account & Marketplace Manager (Amazon & North America)",
@@ -623,8 +626,8 @@
       "slugByLocale": {
         "it": "responsabile-di-progetto-di-pianificazione-e-allocazione-contratto-a-tempo-determinato-guess-europe-sagl-bioggio",
         "en": "planning-allocation-project-manager-fixed-term-contract-guess-europe-sagl-bioggio-ticino-switzerland",
-        "de": "planning-allocation-project-manager-fixed-term-contract-guess-europe-sagl-bioggio-ticino-switzerland",
-        "fr": "planning-allocation-project-manager-fixed-term-contract-guess-europe-sagl-bioggio-ticino-switzerland"
+        "de": "projektmanager-planung-und-zuweisung-befristeter-vertrag-guess-europe-sagl-bioggio",
+        "fr": "chef-de-projet-planification-et-allocation-contrat-a-duree-determinee-guess-europe-sagl-bioggio"
       },
       "requirements": [
         "Bachelor’s degree in Business Administration, Economics, Engineering, Project Management, or related field.",
