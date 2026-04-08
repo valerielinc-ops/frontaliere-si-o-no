@@ -187,8 +187,13 @@ export async function handleUnosendWebhookRequest({ payload, headers, signingSec
   console.log(`[unosendWebhook] Headers: ${allHeaders}`);
   console.log(`[unosendWebhook] Body preview: ${String(payload).slice(0, 300)}`);
 
+  // Skip signature verification for test/ping events (Unosend test events use a proprietary
+  // signing format different from Svix; real events include proper Svix headers)
+  const webhookEvent = headers['x-webhook-event'] || '';
+  const isTestEvent = webhookEvent === 'test.event' || webhookEvent === 'ping';
+
   // Try Svix-style signature first
-  if (signingSecret) {
+  if (signingSecret && !isTestEvent) {
     const hasSvixHeaders = headers['webhook-id'] && headers['webhook-timestamp'] && headers['webhook-signature'];
 
     if (hasSvixHeaders) {
