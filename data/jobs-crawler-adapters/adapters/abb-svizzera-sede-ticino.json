@@ -31,7 +31,7 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00030206EXTERNALENGLOBAL/Technical-Support-Engineer--80-100"
   ],
   "notes": "Dedicated ABB crawler seeds from careers.abb search-results (keywords: ticino, graubünden, grisons, chur, davos, engadin), then resolves canonical careers.abb job detail URLs.",
-  "updatedAt": "2026-04-08T08:55:15.127Z",
+  "updatedAt": "2026-04-08T20:45:28.259Z",
   "seedMetaByUrl": {
     "https://careers.abb/global/en/job/ABB1GLOBALJR00018528EXTERNALENGLOBAL/Technical-Support-Engineer--80-100": {
       "location": "Quartino, Ticino, Switzerland",
@@ -49,6 +49,14 @@
       "companyDomain": "abb.ch",
       "contract": "Full-time"
     },
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00028479EXTERNALENGLOBAL/XMLNAME--80--100---R-D-HW-Engineer": {
+      "location": "Quartino, Ticino, Switzerland",
+      "canton": "TI",
+      "country": "CH",
+      "company": "ABB Svizzera (sede Ticino)",
+      "companyDomain": "abb.ch",
+      "contract": "Full-time"
+    },
     "https://careers.abb/global/en/job/ABB1GLOBALJR00027707EXTERNALENGLOBAL/XMLNAME--80---100---Senior-Power-Electronics-Engineer": {
       "location": "Quartino, Ticino, Switzerland",
       "canton": "TI",
@@ -58,14 +66,6 @@
       "contract": "Full-time"
     },
     "https://careers.abb/global/en/job/ABB1GLOBALJR00029457EXTERNALENGLOBAL/XMLNAME--80---100---R-D-Engineer--Energy-Storage-Systems": {
-      "location": "Quartino, Ticino, Switzerland",
-      "canton": "TI",
-      "country": "CH",
-      "company": "ABB Svizzera (sede Ticino)",
-      "companyDomain": "abb.ch",
-      "contract": "Full-time"
-    },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00028479EXTERNALENGLOBAL/XMLNAME--80--100---R-D-HW-Engineer": {
       "location": "Quartino, Ticino, Switzerland",
       "canton": "TI",
       "country": "CH",
