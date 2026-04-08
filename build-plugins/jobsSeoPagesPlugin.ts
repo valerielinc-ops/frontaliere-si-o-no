@@ -4427,12 +4427,12 @@ ${hreflangLinks}
           // FRO-320: Generate static body content so Google sees real text, not an empty SPA shell.
           // Enriched template ensures >100 words per page for every expired job.
           const staticBodyParts: string[] = [];
-          const jobCanton = String(ejData?.canton || 'TI');
+          const jobCanton = String(ejData?.canton || DEFAULT_CANTON);
           const jobSector = String(ejData?.sector || '');
           const jobContract = String(ejData?.contract || '');
           const jobDatePosted = String(ejData?.datePosted || '');
           const jobExpiredAt = String(ejData?.expiredAt || '');
-          const displayCanton = jobCanton === 'TI' ? 'Ticino' : jobCanton;
+          const displayCanton = CANTON_DISPLAY[jobCanton] || jobCanton;
 
           // Find active jobs from the same company for cross-linking
           const sameCompanyActiveJobs = jobCompany
@@ -4651,8 +4651,8 @@ ${hreflangLinks}
             {
               const address: Record<string, string> = {
                 '@type': 'PostalAddress',
-                addressLocality: jobLocation || 'Ticino',
-                addressRegion: 'TI',
+                addressLocality: jobLocation || DEFAULT_CANTON_DISPLAY,
+                addressRegion: jobCanton || DEFAULT_CANTON,
                 addressCountry: 'CH',
               };
               const ejPostalCode = ejData?.postalCode || slugInfo?.postalCode;
@@ -4661,7 +4661,7 @@ ${hreflangLinks}
               } else if (jobLocation && plzLookup[jobLocation]) {
                 address.postalCode = plzLookup[jobLocation];
               } else {
-                address.postalCode = '6900';
+                address.postalCode = CANTON_FALLBACK_POSTAL[address.addressRegion] || DEFAULT_POSTAL_CODE;
               }
               const ejStreet = ejData?.streetAddress;
               if (ejStreet) {
@@ -4669,9 +4669,9 @@ ${hreflangLinks}
               } else if ((ejData?.companyKey || slugInfo?.companyKey) && COMPANY_HQ_ADDRESSES[ejData?.companyKey || slugInfo?.companyKey || '']) {
                 const hq = COMPANY_HQ_ADDRESSES[ejData?.companyKey || slugInfo?.companyKey || ''];
                 address.streetAddress = hq.streetAddress;
-                if (!address.postalCode || address.postalCode === '6900') address.postalCode = hq.postalCode;
+                if (!address.postalCode || address.postalCode === CANTON_FALLBACK_POSTAL[DEFAULT_CANTON]) address.postalCode = hq.postalCode;
               } else {
-                address.streetAddress = address.addressLocality || 'Ticino';
+                address.streetAddress = address.addressLocality || DEFAULT_CANTON_DISPLAY;
               }
               jp.jobLocation = { '@type': 'Place', address };
             }
