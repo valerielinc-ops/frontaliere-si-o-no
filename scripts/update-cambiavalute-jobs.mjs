@@ -267,6 +267,10 @@ function postProcess() {
       job.country = 'CH';
       changed = true;
     }
+    if (!job.sourceLang) {
+      job.sourceLang = detectLang(job.description || job.title, 'it');
+      changed = true;
+    }
 
     // Deduplicate by URL
     const url = String(job.url || '').toLowerCase().replace(/\/+$/, '');

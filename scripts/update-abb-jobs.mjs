@@ -456,6 +456,10 @@ function postProcessAbbJobs() {
       job.source = 'ABB careers search-results + JSON-LD';
       fixed += 1;
     }
+    if (!job.sourceLang) {
+      job.sourceLang = detectLang(job.description || job.title, 'en');
+      fixed += 1;
+    }
     if (String(job?.url || '').startsWith('/')) {
       job.url = toAbsoluteAbbUrl(job.url);
       fixed += 1;

@@ -262,6 +262,23 @@ async function main() {
     isTargetJob: isCscJob,
   });
 
+  // Step 4b: Ensure sourceLang is set on CSC jobs
+  if (fs.existsSync(DATA_JOBS)) {
+    const allJobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+    let patched = 0;
+    for (const j of allJobs) {
+      if (!isCscJob(j)) continue;
+      if (!j.sourceLang) {
+        j.sourceLang = detectLang(j.description || j.title, 'it');
+        patched++;
+      }
+    }
+    if (patched > 0) {
+      fs.writeFileSync(DATA_JOBS, JSON.stringify(allJobs, null, 2) + '\n');
+      console.log(`📝 Set sourceLang on ${patched} CSC Costruzioni jobs.`);
+    }
+  }
+
   // Step 5: Stats + validation
   const stats = logStats(_beforeSnapshot);
   crawlDiff = stats.crawlDiff || crawlDiff;

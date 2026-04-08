@@ -247,6 +247,7 @@ async function main() {
         if (!j.postalCode) j.postalCode = store.postalCode;
         if (!j.streetAddress) j.streetAddress = store.streetAddress;
         if (!j.employmentType) j.employmentType = inferEmploymentType(j.title || '', j.description || '');
+        if (!j.sourceLang) j.sourceLang = detectLang(j.description || j.title, 'it');
         patched++;
       }
       if (patched > 0) {
