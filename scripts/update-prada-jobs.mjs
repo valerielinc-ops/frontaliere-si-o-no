@@ -137,7 +137,7 @@ async function main() {
       ? { en: detailDesc }
       : buildPradaDescriptions(raw.title, loc, dept);
 
-    const description = descByLocale.it;
+    const description = descByLocale.it || descByLocale.en || Object.values(descByLocale)[0] || '';
     if (description.length < 30) {
       console.log(`  ⚠️  ${raw.title}: description too short (${description.length} chars) — skipping`);
       continue;
