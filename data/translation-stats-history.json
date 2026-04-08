@@ -1,45 +1,5 @@
 [
   {
-    "timestamp": "2026-03-30T18:26:07.853Z",
-    "label": "before",
-    "total": 1317,
-    "needsRetranslation": 107,
-    "incomplete": 107,
-    "complete": 1210,
-    "missingByLocale": {
-      "it": 71,
-      "en": 107,
-      "de": 36,
-      "fr": 107
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 107
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-03-30T18:26:08.234Z",
-    "label": "after",
-    "total": 1317,
-    "needsRetranslation": 107,
-    "incomplete": 107,
-    "complete": 1210,
-    "missingByLocale": {
-      "it": 71,
-      "en": 107,
-      "de": 36,
-      "fr": 107
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 107
-      }
-    ]
-  },
-  {
     "timestamp": "2026-03-30T19:02:17.639Z",
     "label": "before",
     "total": 1317,
@@ -10037,6 +9997,90 @@
       },
       {
         "company": "VF International (The North Face, Timberland)",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-08T05:22:59.159Z",
+    "label": "before",
+    "total": 1538,
+    "needsRetranslation": 90,
+    "incomplete": 25,
+    "complete": 1513,
+    "missingByLocale": {
+      "it": 10,
+      "en": 14,
+      "de": 13,
+      "fr": 17
+    },
+    "topPending": [
+      {
+        "company": "Lidl Svizzera",
+        "pending": 8
+      },
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 5
+      },
+      {
+        "company": "Hilcona AG",
+        "pending": 4
+      },
+      {
+        "company": "Otis SA",
+        "pending": 3
+      },
+      {
+        "company": "Prada Group",
+        "pending": 2
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      },
+      {
+        "company": "Banca del Sempione",
+        "pending": 1
+      },
+      {
+        "company": "Cornèr Banca",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-08T05:24:07.757Z",
+    "label": "after",
+    "total": 1538,
+    "needsRetranslation": 57,
+    "incomplete": 10,
+    "complete": 1528,
+    "missingByLocale": {
+      "it": 6,
+      "en": 6,
+      "de": 4,
+      "fr": 8
+    },
+    "topPending": [
+      {
+        "company": "Hilcona AG",
+        "pending": 4
+      },
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 2
+      },
+      {
+        "company": "Prada Group",
+        "pending": 2
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      },
+      {
+        "company": "Lidl Svizzera",
         "pending": 1
       }
     ]
