@@ -1,10 +1,10 @@
 {
   "crawlerKey": "vf-international-the-north-face-timberland",
-  "assembledAt": "2026-04-07T22:02:23.089Z",
+  "assembledAt": "2026-04-08T10:06:42.410Z",
   "jobs": [
     {
       "id": "company-ws2kkv",
-      "slug": "digital-designer-the-north-face-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-ws2kkv",
+      "slug": "designer-digitale-the-north-face-vf-international-the-north-face-timberland-stabio",
       "company": "VF International (The North Face, Timberland)",
       "title": "Digital Designer - THE NORTH FACE",
       "location": "EMEA · CHE · Stabio · VF Campus VF1",
@@ -51,16 +51,16 @@
       "companyKey": "vf-international-the-north-face-timberland",
       "companyDomain": "vfc.com",
       "crawledAt": "2026-04-07T10:07:37.153Z",
-      "needsRetranslation": true,
       "slugByLocale": {
-        "it": "digital-designer-the-north-face-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-ws2kkv",
+        "it": "designer-digitale-the-north-face-vf-international-the-north-face-timberland-stabio",
         "en": "digital-designer-the-north-face-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-ws2kkv",
         "de": "digital-designer-the-north-face-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-ws2kkv",
         "fr": "digital-designer-the-north-face-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-ws2kkv"
       },
       "sourceLang": "en",
       "previousSlugs": [
-        "digital-designer-the-north-face-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1"
+        "digital-designer-the-north-face-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1",
+        "digital-designer-the-north-face-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-ws2kkv"
       ],
       "salaryMin": 72500,
       "salaryMax": 97500,
@@ -79,7 +79,8 @@
       "addressLocality": "Stabio",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-5azzuo",
@@ -325,7 +326,8 @@
       "addressLocality": "Stabio",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-x9a3hk",
@@ -526,7 +528,7 @@
         ]
       },
       "featured": false,
-      "postedDate": "2026-04-07",
+      "postedDate": "2026-04-08",
       "url": "https://vfc.wd5.myworkdayjobs.com/vfc_careers/job/EMEA--CHE--Stabio--VF-Campus-VF1/PSS-Analyst---THE-NORTH-FACE_R-20230303-0011",
       "source": "Company Careers Crawler",
       "companyKey": "vf-international-the-north-face-timberland",
