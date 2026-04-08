@@ -27,10 +27,10 @@
 // ── Provider daily quotas ────────────────────────────────────
 
 const PROVIDERS = [
-  { id: 'emailoctopus', dailyLimit: 330, monthlyLimit: 10000 },
-  { id: 'mailjet',      dailyLimit: 200, monthlyLimit: 6000  },
-  { id: 'mailgun',      dailyLimit: 100, monthlyLimit: 3000  },
-  { id: 'resend',       dailyLimit: 100, monthlyLimit: 3000  },
+  { id: 'sender',  dailyLimit: 500, monthlyLimit: 15000 },
+  { id: 'mailjet', dailyLimit: 200, monthlyLimit: 6000  },
+  { id: 'mailgun', dailyLimit: 100, monthlyLimit: 3000  },
+  { id: 'resend',  dailyLimit: 100, monthlyLimit: 3000  },
 ];
 
 // In-memory daily counters (reset on new UTC day)
@@ -66,7 +66,7 @@ function remainingQuota(providerId) {
 
 function isProviderConfigured(providerId) {
   switch (providerId) {
-    case 'emailoctopus': return !!process.env.EMAILOCTOPUS_API_KEY;
+    case 'sender':     return !!process.env.SENDER_API_KEY;
     case 'mailjet':    return !!(process.env.MAILJET_API_KEY && process.env.MAILJET_SECRET_KEY);
     case 'mailgun':    return !!(process.env.MAILGUN_API_KEY && process.env.MAILGUN_DOMAIN);
     case 'resend':     return !!process.env.RESEND_API_KEY;
@@ -74,32 +74,35 @@ function isProviderConfigured(providerId) {
   }
 }
 
-// ── EmailOctopus API ─────────────────────────────────────────
-// Docs: https://emailoctopus.com/api-documentation/campaigns
+// ── Sender.net API ───────────────────────────────────────────
+// Docs: https://help.sender.net/knowledgebase/transactional-emails/
 
-async function sendViaEmailOctopus(email) {
-  const apiKey = process.env.EMAILOCTOPUS_API_KEY;
+async function sendViaSender(email) {
+  const apiKey = process.env.SENDER_API_KEY;
   const fromParsed = parseEmailAddress(email.from);
 
-  const res = await fetch('https://emailoctopus.com/api/1.6/campaigns', {
+  const res = await fetch('https://api.sender.net/v2/emails', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${apiKey}`,
+    },
     body: JSON.stringify({
-      api_key: apiKey,
+      from: { name: fromParsed.name || 'Frontaliere Ticino', email: fromParsed.email },
+      to: email.to.map(addr => ({ email: addr })),
       subject: email.subject,
-      from: { name: fromParsed.name || 'Frontaliere Ticino', email_address: fromParsed.email },
-      body: { html: email.html, text: email.text || undefined },
-      to: email.to,
+      html: email.html,
+      text: email.text || undefined,
     }),
   });
 
   if (!res.ok) {
     const err = await res.text().catch(() => '');
-    throw new Error(`EmailOctopus ${res.status}: ${err.slice(0, 200)}`);
+    throw new Error(`Sender ${res.status}: ${err.slice(0, 200)}`);
   }
 
   const data = await res.json().catch(() => ({}));
-  return { messageId: data?.id || `eo-${Date.now()}`, provider: 'emailoctopus' };
+  return { messageId: data?.data?.id || data?.id || `sn-${Date.now()}`, provider: 'sender' };
 }
 
 // ── Mailjet API (v3.1) ──────────────────────────────────────
@@ -210,7 +213,7 @@ async function sendViaResend(email) {
 // ── Provider dispatch ────────────────────────────────────────
 
 const SEND_FNS = {
-  emailoctopus: sendViaEmailOctopus,
+  sender: sendViaSender,
   mailjet: sendViaMailjet,
   mailgun: sendViaMailgun,
   resend: sendViaResend,
