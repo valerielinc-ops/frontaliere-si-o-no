@@ -105,7 +105,7 @@ jobs:
 
       - name: Cache responsive image thumbnails
         id: thumb-cache
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: |
             public/images/blog/thumbnails
@@ -150,7 +150,7 @@ jobs:
 
       - name: Cache Playwright browsers
         id: playwright-cache
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: ${{ env.PLAYWRIGHT_BROWSERS_PATH }}
           key: playwright-chromium-${{ hashFiles('package-lock.json') }}
@@ -181,13 +181,13 @@ jobs:
         run: node scripts/capture-deployed-sitemaps.mjs
 
       - name: Upload artifact for GitHub Pages
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: dist
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
 
       - name: Wait for live article metadata
         if: success() && github.event_name == 'workflow_dispatch' && github.event.inputs.article_url != '' && github.event.inputs.og_title != ''
@@ -240,7 +240,7 @@ jobs:
 
       - name: Restore indexing API daily tracker
         id: indexing-cache
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: /tmp/indexing-api-submitted-today.json
           key: indexing-api-${{ github.run_id }}
