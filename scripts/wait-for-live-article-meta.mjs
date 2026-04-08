@@ -172,7 +172,11 @@ while (Date.now() < deadline) {
     const canonicalUrl = normalize(extractCanonicalUrl(html));
     const finalUrl = normalize(res.url || url);
 
-    const titleMatches = ogTitle === expectedOgTitleNormalized;
+    // og:title may omit the "| Site Name" suffix that <title> includes,
+    // so match against both og:title and <title> tag
+    const titleMatches = ogTitle === expectedOgTitleNormalized
+      || title === expectedOgTitleNormalized
+      || (expectedOgTitleNormalized.includes('|') && ogTitle === expectedOgTitleNormalized.split('|')[0].trim());
     const imageMatches = !expectedOgImageNormalized || normalizeUrlForCompare(ogImage) === expectedOgImageNormalized;
     const pathCandidates = [
       ['og:url', getPathCandidate(ogUrl)],
