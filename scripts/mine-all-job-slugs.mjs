@@ -18,6 +18,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -237,6 +238,136 @@ function mineCompatPaths() {
 }
 
 // ══════════════════════════════════════════════════════════
+// Source 6: Git history — mine removed slugByLocale values from diffs
+// ══════════════════════════════════════════════════════════
+
+/**
+ * Mine removed slug values from git diffs of by-crawler JSON files.
+ * These are slugs that were replaced when jobs mutated (location change,
+ * title rewording, truncation difference) — exactly the slugs Google
+ * indexed but that no longer exist in current data.
+ */
+function mineGitRemovedSlugs() {
+  const slugs = new Map();
+
+  try {
+    const diff = execSync(
+      'git log --all -300 -p -- "data/jobs/by-crawler/*.json" "data/jobs/expired/by-crawler/*.json"',
+      { cwd: ROOT, maxBuffer: 500 * 1024 * 1024, encoding: 'utf8', timeout: 180_000 }
+    );
+
+    let inSlugByLocale = false;
+    let braceDepth = 0;
+    const localeSlugRe = /"(it|en|de|fr)":\s*"([a-z0-9][a-z0-9-]{10,})"/;
+
+    for (const line of diff.split('\n')) {
+      const raw = (line.startsWith('+') || line.startsWith('-')) ? line.substring(1) : line;
+      const trimmed = raw.trim();
+
+      if (trimmed.includes('"slugByLocale"')) { inSlugByLocale = true; braceDepth = 0; }
+      if (inSlugByLocale) {
+        for (const ch of trimmed) {
+          if (ch === '{') braceDepth++;
+          if (ch === '}') { braceDepth--; if (braceDepth <= 0) inSlugByLocale = false; }
+        }
+      }
+
+      if (!line.startsWith('-')) continue;
+
+      if (inSlugByLocale || trimmed.includes('"slugByLocale"')) {
+        const m = trimmed.match(localeSlugRe);
+        if (m) {
+          const [, locale, slug] = m;
+          if (isValidJobSlug(slug) && LOCALE_PREFIXES[locale]) {
+            if (!slugs.has(slug)) slugs.set(slug, { locales: {} });
+            slugs.get(slug).locales[locale] = LOCALE_PREFIXES[locale] + slug;
+          }
+        }
+      }
+
+      const topMatch = trimmed.match(/^\s*"slug":\s*"([a-z0-9][a-z0-9-]{10,})"/);
+      if (topMatch && isValidJobSlug(topMatch[1])) {
+        const slug = topMatch[1];
+        if (!slugs.has(slug)) slugs.set(slug, { locales: buildLocalePaths(slug) });
+      }
+    }
+  } catch (err) {
+    console.warn(`  ⚠️  Git history mining skipped: ${err.message?.substring(0, 80)}`);
+  }
+
+  return slugs;
+}
+
+// ══════════════════════════════════════════════════════════
+// Fuzzy prefix reconciliation — recover truncated/changed slugs
+// ══════════════════════════════════════════════════════════
+
+/**
+ * After all exact mining is done, scan GSC orphan data for slugs that
+ * are "near-misses" — truncated or slightly changed versions of known slugs.
+ * Uses longest-common-prefix matching (min 40 chars) to find the parent job.
+ * Returns a Map of recovered slugs → locale paths.
+ */
+function fuzzyReconcileOrphans(knownSlugs) {
+  const reconciled = new Map();
+  const MIN_PREFIX = 40;
+
+  const knownSet = new Set(knownSlugs.keys());
+
+  // Collect unresolved slugs from all orphan/GSC sources
+  const unknown = new Set();
+
+  const orphanJobSlugs = readJson(dataPath('gsc-orphan-job-slugs.json'));
+  if (Array.isArray(orphanJobSlugs)) {
+    for (const s of orphanJobSlugs) {
+      if (typeof s === 'string' && isValidJobSlug(s) && !knownSet.has(s)) unknown.add(s);
+    }
+  }
+
+  const enriched = readJson(dataPath('orphan-enriched-data.json'));
+  if (Array.isArray(enriched)) {
+    for (const o of enriched) {
+      if (o?.slug && isValidJobSlug(o.slug) && !knownSet.has(o.slug)) unknown.add(o.slug);
+    }
+  }
+
+  if (unknown.size === 0) return reconciled;
+
+  // Sorted known slugs for binary-search prefix matching
+  const sorted = [...knownSet].sort();
+
+  let matched = 0;
+  for (const orphan of unknown) {
+    if (orphan.length < MIN_PREFIX) continue;
+
+    // Binary search: find where orphan would be inserted
+    let lo = 0, hi = sorted.length - 1;
+    while (lo <= hi) { const m = (lo + hi) >> 1; sorted[m] < orphan ? lo = m + 1 : hi = m - 1; }
+
+    let best = null, bestLen = 0;
+    // Check neighbours around insertion point
+    for (let i = Math.max(0, lo - 1); i < Math.min(sorted.length, lo + 20); i++) {
+      const known = sorted[i];
+      // Longest common prefix
+      let lcp = 0;
+      const max = Math.min(orphan.length, known.length);
+      while (lcp < max && orphan[lcp] === known[lcp]) lcp++;
+      if (lcp >= MIN_PREFIX && lcp > bestLen) { bestLen = lcp; best = known; }
+    }
+
+    if (best) {
+      matched++;
+      reconciled.set(orphan, { locales: buildLocalePaths(orphan) });
+    }
+  }
+
+  if (matched > 0) {
+    console.log(`  🔗 Fuzzy reconciled: ${matched} of ${unknown.size} unknown orphan slugs`);
+  }
+  return reconciled;
+}
+
+// ══════════════════════════════════════════════════════════
 // Main
 // ══════════════════════════════════════════════════════════
 
@@ -250,6 +381,7 @@ function main() {
     { name: 'Slug registry', fn: mineSlugRegistry },
     { name: 'Orphan data', fn: mineOrphanData },
     { name: 'Compat paths', fn: mineCompatPaths },
+    { name: 'Git history (removed slugs)', fn: mineGitRemovedSlugs },
   ];
 
   // Merge all mined slugs
@@ -270,6 +402,17 @@ function main() {
   }
 
   console.log(`\n  📊 Total unique slugs mined: ${allSlugs.size}`);
+
+  // Fuzzy reconciliation: recover truncated/changed orphan slugs
+  const fuzzyRecovered = fuzzyReconcileOrphans(allSlugs);
+  for (const [slug, data] of fuzzyRecovered) {
+    if (!allSlugs.has(slug)) {
+      allSlugs.set(slug, data);
+    }
+  }
+  if (fuzzyRecovered.size > 0) {
+    console.log(`  📊 After fuzzy reconciliation: ${allSlugs.size}`);
+  }
 
   // Load current tracking
   const trackingFile = dataPath('all-known-job-slugs.json');
