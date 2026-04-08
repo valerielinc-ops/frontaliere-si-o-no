@@ -10,6 +10,8 @@
  * The API returns all jobs globally. We filter for Switzerland/Bellinzona positions.
  */
 
+import { isTargetSwissLocation } from './target-swiss-locations.mjs';
+
 export const GREENHOUSE_BOARD = 'virbiotechnologyinc';
 export const GREENHOUSE_API = `https://boards-api.greenhouse.io/v1/boards/${GREENHOUSE_BOARD}/jobs?content=true`;
 
@@ -68,8 +70,7 @@ export function slugify(value = '', suffix = '') {
  * Check if a Greenhouse job location matches Switzerland/Ticino.
  */
 export function isSwissLocation(locationName = '') {
-  const loc = String(locationName || '').toLowerCase();
-  return SWISS_LOCATION_KEYWORDS.some((kw) => loc.includes(kw));
+  return isTargetSwissLocation(locationName);
 }
 
 /**

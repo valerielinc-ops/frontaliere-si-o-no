@@ -102,6 +102,7 @@ const TICINO_LOCATION_ALIASES = [
   'Gentilino', 'Montagnola', 'Tesserete', 'Mezzovico', 'Ponte Tresa', 'Capolago', 'Maroggia',
   'Osogna', 'Preonzo', 'Cresciano', 'Curio', 'Novaggio', 'Miglieglia', 'Noranco', 'Pazzallo',
   'Barbengo', 'Agra', 'Vaglio', 'Sala Capriasca', 'Lugaggia', 'Croglio', 'Sessa', 'Astano',
+  'Ritom', 'Piotta', 'Rodi', 'Ambrì', 'Cadro', 'Morcote', 'Carona', 'Viganello', 'Moleno',
 ];
 
 const GRIGIONI_LOCATION_ALIASES = [

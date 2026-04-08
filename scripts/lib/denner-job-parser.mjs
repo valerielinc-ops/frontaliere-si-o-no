@@ -18,18 +18,10 @@
  *   DENNER_PORTAL_URL             -- Migros Group portal URL for Denner
  */
 
+import { isTargetSwissLocation } from './target-swiss-locations.mjs';
+
 /** Migros Group job portal URL for Denner */
 export const DENNER_PORTAL_URL = 'https://jobs.migros.ch/it/le-nostre-imprese/denner-sa/posti-di-lavoro-vacanti';
-
-/** Ticino locations where Denner operates */
-const TICINO_LOCATIONS = [
-  'lugano', 'bellinzona', 'locarno', 'mendrisio', 'chiasso',
-  'giubiasco', 'biasca', 'agno', 'manno', 'rivera',
-  'camorino', 'tenero', 'losone', 'gordola', 'minusio',
-  'massagno', 'pregassona', 'viganello', 'paradiso',
-  'stabio', 'balerna', 'novazzano', 'coldrerio',
-  'ticino', 'tessin',
-];
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
@@ -175,7 +167,7 @@ export function isDennerTicinoJob(job) {
 
   if (canton === 'ti' || canton === 'ticino' || canton === 'tessin') return true;
 
-  return TICINO_LOCATIONS.some((kw) => loc.includes(kw));
+  return isTargetSwissLocation(loc);
 }
 
 /**

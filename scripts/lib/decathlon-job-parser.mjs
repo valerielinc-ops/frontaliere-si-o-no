@@ -19,15 +19,9 @@
  *   DECATHLON_API_BASE              -- Digital Recruiters API base URL
  */
 
-export const DECATHLON_API_BASE = 'https://api.digitalrecruiters.com';
+import { isTargetSwissLocation } from './target-swiss-locations.mjs';
 
-/** Ticino cities where Decathlon operates */
-const TICINO_LOCATIONS = [
-  'lugano', 'bellinzona', 'locarno', 'mendrisio', 'chiasso',
-  'sant\'antonino', 'santantonino', 'giubiasco', 'tenero',
-  'losone', 'agno', 'manno', 'bioggio', 'vezia',
-  'ticino', 'tessin',
-];
+export const DECATHLON_API_BASE = 'https://api.digitalrecruiters.com';
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
@@ -189,7 +183,7 @@ export function isDecathlonTicinoJob(job) {
 
   if (canton === 'ti' || canton === 'ticino' || canton === 'tessin') return true;
 
-  return TICINO_LOCATIONS.some((kw) => loc.includes(kw));
+  return isTargetSwissLocation(loc);
 }
 
 export function inferEmploymentType(title = '', description = '', percentage = '') {

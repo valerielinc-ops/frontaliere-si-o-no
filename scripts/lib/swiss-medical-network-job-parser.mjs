@@ -12,6 +12,8 @@
  * Job application links go to jobs.smartrecruiters.com/SwissMedicalNetwork1/...
  */
 
+import { isTargetSwissLocation } from './target-swiss-locations.mjs';
+
 export const TICINO_REGION_UUID = '7845726f-4952-4b7c-88da-8ff4f85e6afb';
 
 export const TICINO_CLINICS = [
@@ -78,8 +80,10 @@ export function slugify(value = '', suffix = '') {
  * Check if a location/clinic is in Ticino.
  */
 export function isTicinoLocation(text = '') {
+  if (isTargetSwissLocation(text)) return true;
+  // Also check clinic names specific to Ticino
   const lower = String(text || '').toLowerCase();
-  return TICINO_LOCATION_KEYWORDS.some((kw) => lower.includes(kw));
+  return TICINO_LOCATION_KEYWORDS.some((kw) => lower.includes(kw.toLowerCase()));
 }
 
 /**

@@ -1,3 +1,5 @@
+import { isTargetSwissLocation } from './target-swiss-locations.mjs';
+
 /**
  * Baronie (Chocolat Alprose SA) — detail page parser
  *
@@ -244,9 +246,9 @@ export function isSwissJob(parsed) {
   if (parsed.addressCountry) {
     return /^CH$/i.test(parsed.addressCountry) || /switzerland/i.test(parsed.addressCountry);
   }
-  // Fallback: check location text for Swiss cities
+  // Fallback: check location text for target Swiss locations
   if (parsed.location) {
-    return /caslano|lugano|locarno|bellinzona|chiasso|mendrisio|giubiasco|ticino|svizzera|switzerland|schweiz|suisse/i.test(parsed.location);
+    return isTargetSwissLocation(parsed.location);
   }
   return false;
 }

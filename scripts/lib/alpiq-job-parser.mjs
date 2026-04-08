@@ -21,13 +21,11 @@
  * Swiss/Ticino locations only.
  */
 
+import { isTargetSwissLocation, inferAnyCanton } from './target-swiss-locations.mjs';
+
 const CAREERS_URL = 'https://www.alpiq.com/career/open-jobs';
 const CAREERS_BASE = 'https://www.alpiq.com';
 const UA = 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
-
-// Swiss-Italian and broader Swiss locations relevant for frontalieri
-const TICINO_LOCATIONS = /\b(?:airolo|biasca|locarno|bellinzona|lugano|mendrisio|chiasso|stabio|rodi|ritom|piotta|ambr[ìi]|blenio|leventina|maggia|verzasca|ticino|tessin)\b/i;
-const SWISS_LOCATIONS = /\b(?:switzerland|schweiz|svizzera|suisse|lausanne|zurich|z[üu]rich|bern|berne|basel|gen[eè]ve|geneva|olten|aarau|luzern|lucerne|st\.?\s*gallen|winterthur|baden|brugg|dietikon)\b/i;
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
@@ -67,14 +65,17 @@ export function slugify(value = '') {
  * Check if a location string is in Ticino specifically.
  */
 export function isTicinoLocation(location = '') {
-  return TICINO_LOCATIONS.test(location);
+  return isTargetSwissLocation(location);
 }
 
 /**
  * Check if a location string is in Switzerland.
  */
 export function isSwissLocation(location = '') {
-  return TICINO_LOCATIONS.test(location) || SWISS_LOCATIONS.test(location);
+  if (isTargetSwissLocation(location)) return true;
+  const lower = String(location || '').toLowerCase();
+  if (/\b(swiss|switzerland|schweiz|svizzera|suisse)\b/i.test(lower)) return true;
+  return inferAnyCanton(lower) !== '';
 }
 
 /**

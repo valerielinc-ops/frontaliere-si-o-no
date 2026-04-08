@@ -16,6 +16,7 @@
  */
 
 import { JSDOM } from 'jsdom';
+import { isTargetSwissLocation } from './target-swiss-locations.mjs';
 
 const INTERROLL_HOST = 'www.interroll.com';
 const INTERROLL_BASE_URL = `https://${INTERROLL_HOST}`;
@@ -60,8 +61,7 @@ export const MIN_DESC_LENGTH = 100;
  * Check if a location string indicates a Swiss/Ticino position.
  */
 export function isSwissLocation(location = '') {
-  const lower = location.toLowerCase();
-  return /switzerland|svizzera|schweiz|suisse|sant.?antonino|ticino|tessin/i.test(lower);
+  return isTargetSwissLocation(location);
 }
 
 /**

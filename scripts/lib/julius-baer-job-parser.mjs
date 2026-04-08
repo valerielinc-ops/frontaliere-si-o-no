@@ -14,6 +14,8 @@
  * NOTE: The Workday site name changed from "JuliusBaer" to "External" (discovered 2026-03-25).
  */
 
+import { isTargetSwissLocation } from './target-swiss-locations.mjs';
+
 export const WORKDAY_API_BASE = 'https://juliusbaer.wd3.myworkdayjobs.com/wday/cxs/juliusbaer/External';
 export const WORKDAY_PUBLIC_BASE = 'https://juliusbaer.wd3.myworkdayjobs.com/en-US/External';
 export const COMPANY_HOST = 'juliusbaer.wd3.myworkdayjobs.com';
@@ -77,8 +79,7 @@ export function slugify(value = '', suffix = '') {
  * Check if a Workday location string refers to Lugano/Ticino.
  */
 export function isTicinoLocation(locationText = '') {
-  const loc = String(locationText || '').toLowerCase();
-  return TICINO_LOCATION_KEYWORDS.some((kw) => loc.includes(kw));
+  return isTargetSwissLocation(locationText);
 }
 
 /**

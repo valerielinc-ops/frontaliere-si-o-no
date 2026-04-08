@@ -41,12 +41,7 @@ export const WORKDAY_SITES = [
   { site: 'Versace', brand: 'Versace' },
 ];
 
-/** Ticino/Swiss-Italian cities near Capri Holdings operations */
-const SWISS_LOCATIONS = [
-  'mendrisio', 'lugano', 'chiasso', 'stabio', 'coldrerio',
-  'balerna', 'novazzano', 'ticino', 'tessin', 'switzerland',
-  'svizzera', 'schweiz', 'suisse',
-];
+import { isTargetSwissLocation } from './target-swiss-locations.mjs';
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
@@ -124,7 +119,7 @@ export function isCapriHoldingsSwissJob(job) {
   if (country === 'ch' || country === 'switzerland' || country === 'svizzera') return true;
   if (canton === 'ti') return true;
 
-  return SWISS_LOCATIONS.some((kw) => loc.includes(kw));
+  return isTargetSwissLocation(loc);
 }
 
 /**

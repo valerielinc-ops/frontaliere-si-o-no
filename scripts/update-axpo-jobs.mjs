@@ -30,6 +30,7 @@ import {
   decodeEntities,
   validateAxpoDescription,
 } from './lib/axpo-job-parser.mjs';
+import { isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -45,13 +46,6 @@ const LOCALES = ['it', 'en', 'de', 'fr'];
 
 const TIMEOUT_MS = parseInt(process.env.JOBS_CRAWLER_TIMEOUT_MS || '15000', 10);
 const UA = 'Mozilla/5.0 (compatible; FrontaliereTicinoCrawler/1.0)';
-
-// GR-canton cities where Axpo has operations
-const GR_CITIES = new Set([
-  'domat/ems', 'tavanasa', 'chur', 'davos', 'ilanz', 'disentis',
-  'thusis', 'poschiavo', 'st. moritz', 'samedan', 'zernez', 'scuol',
-  'landquart', 'maienfeld', 'flims', 'laax', 'arosa', 'klosters',
-]);
 
 // ──────────────────────────────────────────────────────────────
 // Helpers
@@ -98,7 +92,7 @@ function jobMatchKey(job) {
 }
 
 function isGrCity(city = '') {
-  return GR_CITIES.has(normalize(city));
+  return isTargetSwissLocation(city);
 }
 
 function todayIso() {

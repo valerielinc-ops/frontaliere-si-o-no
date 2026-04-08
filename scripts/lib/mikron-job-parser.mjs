@@ -11,6 +11,8 @@
  * Location filter for Agno: ?location=Switzerland%2C+Agno
  */
 
+import { isTargetSwissLocation } from './target-swiss-locations.mjs';
+
 export const MIKRON_CAREERS_URL = 'https://www.mikron.com/en/group/our-people/join-us/jobs';
 export const MIKRON_AGNO_URL = `${MIKRON_CAREERS_URL}?location=Switzerland%2C+Agno`;
 export const MIKRON_HOST = 'www.mikron.com';
@@ -67,8 +69,7 @@ export function slugify(value = '', suffix = '') {
  * Check if a location string refers to Agno/Ticino.
  */
 export function isAgnoLocation(locationText = '') {
-  const loc = String(locationText || '').toLowerCase();
-  return AGNO_LOCATION_KEYWORDS.some((kw) => loc.includes(kw));
+  return isTargetSwissLocation(locationText);
 }
 
 /**

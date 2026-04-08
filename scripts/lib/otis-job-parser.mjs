@@ -16,6 +16,8 @@
  * Response locationsText format: "Walenbüchelstrasse 3, 9000 St-Gallen, Switzerland"
  */
 
+import { isTargetSwissLocation, inferAnyCanton } from './target-swiss-locations.mjs';
+
 export const WORKDAY_API_BASE = 'https://otis.wd5.myworkdayjobs.com/wday/cxs/otis/REC_Ext_Gateway';
 export const WORKDAY_PUBLIC_BASE = 'https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway';
 export const COMPANY_HOST = 'otis.wd5.myworkdayjobs.com';
@@ -75,8 +77,10 @@ export function slugify(value = '') {
  * Check if a Workday location string refers to Switzerland/Ticino.
  */
 export function isSwissLocation(locationText = '') {
-  const loc = String(locationText || '').toLowerCase();
-  return TICINO_LOCATION_KEYWORDS.some((kw) => loc.includes(kw));
+  if (isTargetSwissLocation(locationText)) return true;
+  const lower = String(locationText || '').toLowerCase();
+  if (/\b(swiss|switzerland|schweiz|svizzera|suisse)\b/i.test(lower)) return true;
+  return inferAnyCanton(lower) !== '';
 }
 
 /**

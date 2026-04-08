@@ -41,6 +41,7 @@
 
 import { JSDOM } from 'jsdom';
 import { titleOverlap, MIN_TITLE_OVERLAP } from './title-utils.mjs';
+import { isTargetSwissLocation } from './target-swiss-locations.mjs';
 export { titleOverlap, MIN_TITLE_OVERLAP };
 
 /** Minimum plain-text description length to accept (characters). */
@@ -103,9 +104,12 @@ export function htmlToText(html = '') {
 export function findLuganoAccordionIds(html) {
   const ids = new Set();
 
-  const headingRe = /<h[23][^>]*>([^<]*(?:lugano|switzerland|svizzera|suisse)[^<]*)<\/h[23]>/gi;
+  // Scan all h2/h3 headings for target Swiss location keywords
+  const headingRe = /<h[23][^>]*>([\s\S]*?)<\/h[23]>/gi;
   let m;
   while ((m = headingRe.exec(html)) !== null) {
+    const headingText = m[1].replace(/<[^>]+>/g, '');
+    if (!isTargetSwissLocation(headingText)) continue;
     const afterHeading = html.slice(m.index + m[0].length, m.index + m[0].length + 3000);
     const accMatch = afterHeading.match(/id="accordion_pro_(\d+)"/);
     if (accMatch) ids.add(accMatch[1]);

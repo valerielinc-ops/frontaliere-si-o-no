@@ -16,6 +16,7 @@
  */
 
 import { JSDOM } from 'jsdom';
+import { isTargetSwissLocation } from './target-swiss-locations.mjs';
 
 const HUGO_BOSS_HOST = 'careers.hugoboss.com';
 
@@ -78,16 +79,15 @@ export function extractPhenomDdo(html = '') {
  * Check whether a Phenom job object is located in Ticino or relevant Swiss areas.
  */
 export function isHugoBossTargetLocation(job = {}) {
-  const haystack = normalize([
+  const haystack = [
     job?.state,
     job?.city,
     job?.cityState,
     job?.cityStateCountry,
     job?.address,
     job?.location,
-  ].filter(Boolean).join(' '));
-  const tokens = ['ticino', 'coldrerio', 'lugano', 'mendrisio', 'chiasso', 'stabio', 'ch-ti'];
-  return tokens.some((token) => haystack.includes(token));
+  ].filter(Boolean).join(' ');
+  return isTargetSwissLocation(haystack);
 }
 
 /**
