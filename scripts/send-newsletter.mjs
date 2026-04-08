@@ -145,15 +145,83 @@ async function generateAIBriefing(ctx) {
     const result = await callLLM([
       { role: 'system', content: system },
       { role: 'user', content: user },
-    ], { temperature: 0.7, maxTokens: 500 });
-    // Clean up: ensure it has <p> tags
-    const cleaned = result.trim();
-    if (!cleaned.startsWith('<p>')) return `<p>${cleaned.replace(/\n\n/g, '</p><p>')}</p>`;
-    return cleaned;
+    ], { temperature: 0.7, maxTokens: 800 });
+    return sanitizeAIBriefingHtml(result);
   } catch (e) {
     console.warn('\u26a0\ufe0f AI briefing failed:', e.message?.slice(0, 200));
     return null;
   }
+}
+
+/**
+ * Sanitize AI-generated briefing HTML:
+ * 1. Ensure all <p>/<a>/<strong> tags are properly closed
+ * 2. Wrap bare text in <p> tags
+ * 3. Remove incomplete trailing sentences (truncation artifacts)
+ */
+function sanitizeAIBriefingHtml(raw) {
+  if (!raw) return null;
+  let html = raw.trim();
+
+  // Strip markdown code fences if model wrapped output
+  html = html.replace(/^```html?\s*/i, '').replace(/\s*```$/, '').trim();
+
+  // If no <p> tags, wrap in <p>
+  if (!html.includes('<p>') && !html.includes('<p ')) {
+    html = `<p>${html.replace(/\n\n+/g, '</p><p>')}</p>`;
+  }
+
+  // Close unclosed <strong> tags
+  const strongOpen = (html.match(/<strong[\s>]/gi) || []).length;
+  const strongClose = (html.match(/<\/strong>/gi) || []).length;
+  if (strongOpen > strongClose) {
+    for (let i = 0; i < strongOpen - strongClose; i++) html += '</strong>';
+  }
+
+  // Close unclosed <a> tags
+  const aOpen = (html.match(/<a[\s>]/gi) || []).length;
+  const aClose = (html.match(/<\/a>/gi) || []).length;
+  if (aOpen > aClose) {
+    for (let i = 0; i < aOpen - aClose; i++) html += '</a>';
+  }
+
+  // Close unclosed <p> tags
+  const pOpen = (html.match(/<p[\s>]/gi) || []).length;
+  const pClose = (html.match(/<\/p>/gi) || []).length;
+  if (pOpen > pClose) {
+    for (let i = 0; i < pOpen - pClose; i++) html += '</p>';
+  }
+
+  // Detect truncated last sentence: if the text inside the last <p> doesn't
+  // end with sentence-ending punctuation, remove the incomplete sentence
+  html = html.replace(/<p([^>]*)>([^<]*(?:<(?!\/p>)[^<]*)*)<\/p>\s*$/, (match, attrs, inner) => {
+    const plainText = inner.replace(/<[^>]+>/g, '').trim();
+    // If ends with proper punctuation, keep as-is
+    if (/[.!?»"']$/.test(plainText)) return match;
+    // If very short (< 30 chars) and no punctuation, likely truncated — remove entire <p>
+    if (plainText.length < 30) {
+      console.warn(`⚠️ AI briefing: removed truncated trailing paragraph (${plainText.length} chars)`);
+      return '';
+    }
+    // Otherwise, trim to last complete sentence
+    const lastSentenceEnd = plainText.search(/[.!?][^.!?]*$/);
+    if (lastSentenceEnd > 0) {
+      const trimmedPlain = plainText.slice(0, lastSentenceEnd + 1);
+      // Rebuild the paragraph with the trimmed text (lose inline tags in the trimmed tail, acceptable tradeoff)
+      console.warn(`⚠️ AI briefing: trimmed truncated sentence (kept ${trimmedPlain.length}/${plainText.length} chars)`);
+      return `<p${attrs}>${trimmedPlain}</p>`;
+    }
+    return match;
+  });
+
+  // Minimum quality: at least 50 words
+  const wordCount = html.replace(/<[^>]+>/g, '').trim().split(/\s+/).length;
+  if (wordCount < 50) {
+    console.warn(`⚠️ AI briefing too short (${wordCount} words) — falling back`);
+    return null;
+  }
+
+  return html;
 }
 
 async function generateAISubject(ctx) {
@@ -895,6 +963,43 @@ function inlineQaCheck(sampleHtml, subject) {
   // Unsubscribe URL with action param
   if (!sampleHtml.includes('action=unsubscribe')) fail('unsubscribe_url', 'Missing ?action=unsubscribe URL');
   else pass('unsubscribe_url');
+
+  // ── HTML well-formedness checks ──
+
+  // Check for unclosed <a> tags (common AI truncation artifact)
+  const aOpen = (sampleHtml.match(/<a[\s>]/gi) || []).length;
+  const aClose = (sampleHtml.match(/<\/a>/gi) || []).length;
+  if (aOpen !== aClose) fail('html_a_tags', `Unclosed <a> tags: ${aOpen} open vs ${aClose} close`);
+  else pass('html_a_tags');
+
+  // Check for unclosed <p> tags in the editorial section
+  const editorialMatch = sampleHtml.match(/Parliamoci chiaro\.<\/div>([\s\S]*?)<div[^>]*font-style:\s*italic/i);
+  if (editorialMatch) {
+    const editorial = editorialMatch[1];
+    const epOpen = (editorial.match(/<p[\s>]/gi) || []).length;
+    const epClose = (editorial.match(/<\/p>/gi) || []).length;
+    if (epOpen !== epClose) fail('html_p_editorial', `Editorial: ${epOpen} <p> open vs ${epClose} </p> close`);
+    else pass('html_p_editorial');
+
+    // Check editorial has inline styles on <p> tags
+    const unstyledP = (editorial.match(/<p>/gi) || []).length;
+    if (unstyledP > 0) fail('editorial_p_styles', `${unstyledP} <p> tag(s) without inline styles in editorial`);
+    else pass('editorial_p_styles');
+
+    // Check editorial minimum word count (catches truncated AI output)
+    const editorialText = editorial.replace(/<[^>]+>/g, '').trim();
+    const editorialWords = editorialText.split(/\s+/).filter(w => w.length > 0).length;
+    if (editorialWords < 40) fail('editorial_length', `Editorial too short: ${editorialWords} words (min 40)`);
+    else pass('editorial_length');
+
+    // Check for truncated sentences (text ending mid-word before signature)
+    const lastSentence = editorialText.trim();
+    if (lastSentence.length > 0 && !/[.!?»"')\u2019]$/.test(lastSentence)) {
+      fail('editorial_truncated', `Editorial appears truncated: "...${lastSentence.slice(-60)}"`);
+    } else {
+      pass('editorial_not_truncated');
+    }
+  }
 
   const failed = checks.filter(c => !c.passed);
   if (failed.length > 0) {

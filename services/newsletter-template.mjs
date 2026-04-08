@@ -238,11 +238,14 @@ function renderHeroExchangeRate({ rate, previousRate, locale }) {
 
 function renderEditorial(locale, aiBriefing, totalJobs) {
   const jobCount = totalJobs || 0;
-  // If AI briefing is provided, use it as the editorial body
+  const pStyle = `font-size:14px;color:${TEXT_COLOR};line-height:1.65;margin:0 0 14px;`;
+  // If AI briefing is provided, inject inline styles into its <p> tags
   const bodyContent = aiBriefing
     ? aiBriefing
-    : `<p style="font-size:14px;color:${TEXT_COLOR};line-height:1.65;margin:0 0 14px;">${nlT(locale, 'editorialBody1')}</p>
-       <p style="font-size:14px;color:${TEXT_COLOR};line-height:1.65;margin:0 0 14px;">Noi preferiamo i numeri. Quelli veri, quelli che trovi in busta paga. Questa settimana: il cambio scende (di nuovo)${jobCount > 0 ? `, le offerte di lavoro salgono a <strong>${jobCount}</strong>` : ''}, e c\u2019\u00e8 una votazione che forse ti sei perso tra un cappuccino e la coda a Brogeda.</p>`;
+        .replace(/<p>/gi, `<p style="${pStyle}">`)
+        .replace(/<p style="[^"]*">/gi, `<p style="${pStyle}">`)
+    : `<p style="${pStyle}">${nlT(locale, 'editorialBody1')}</p>
+       <p style="${pStyle}">Noi preferiamo i numeri. Quelli veri, quelli che trovi in busta paga. Questa settimana: il cambio scende (di nuovo)${jobCount > 0 ? `, le offerte di lavoro salgono a <strong>${jobCount}</strong>` : ''}, e c\u2019\u00e8 una votazione che forse ti sei perso tra un cappuccino e la coda a Brogeda.</p>`;
 
   return `
     <tr><td class="section-pad" style="background:${WHITE};padding:28px 28px 8px;">
