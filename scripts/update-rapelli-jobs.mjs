@@ -104,19 +104,24 @@ async function main() {
     const description = detail.description;
     const urlHash = createHash('sha1').update(raw.url).digest('hex').slice(0, 12);
     const jobSlug = slugify(`${raw.title}-rapelli-${raw.location}`);
+    // Only set source locale (IT) — other locales will be filled by:
+    // 1. mergePreserveLocaleData (preserves existing translations from previous runs)
+    // 2. translate-pending pipeline (AI translation for missing locales)
+    // Setting all locales to the raw title causes mergeLocaleTextMap to
+    // incorrectly overwrite real translations via the length-comparison fallback.
     parsedJobs.push({
       id: `rapelli-${urlHash}`,
       slug: jobSlug,
-      slugByLocale: { it: jobSlug, en: jobSlug, de: jobSlug, fr: jobSlug },
+      slugByLocale: { it: jobSlug },
       company: COMPANY_NAME,
       companyKey: COMPANY_KEY,
       companyDomain: 'rapelli.ch',
       title: raw.title,
-      titleByLocale: { it: raw.title, en: raw.title, de: raw.title, fr: raw.title },
+      titleByLocale: { it: raw.title },
       description,
       descriptionByLocale: { it: description },
       requirements: [],
-      requirementsByLocale: { it: [], en: [], de: [], fr: [] },
+      requirementsByLocale: { it: [] },
       location: raw.location || 'Stabio',
       canton: 'TI',
       addressLocality: raw.location || 'Stabio',

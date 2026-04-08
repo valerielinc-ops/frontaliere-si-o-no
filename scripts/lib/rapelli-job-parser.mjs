@@ -65,7 +65,7 @@ export function parseRapelliListingHtml(html) {
   let match;
 
   while ((match = linkRe.exec(html)) !== null) {
-    const relUrl = match[1];
+    const relUrl = match[1].replace(/&amp;/g, '&');
     const jobId = match[2];
     const fullUrl = `${CAREERS_BASE}${relUrl}`;
 

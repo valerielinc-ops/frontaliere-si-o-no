@@ -425,3 +425,76 @@ describe('dedicated-crawler-common locale hardening', () => {
     expect(after[1].slug).toBe('sviluppatore-trice-ict-crm-80-100-w-m-d-hamilton-bonaduz-ag-bonaduz');
   });
 });
+
+describe('mergePreserveLocaleData URL matching', () => {
+  it('matches URLs with &amp; vs & encoding differences', async () => {
+    const { mergePreserveLocaleData } = await import('../scripts/lib/dedicated-crawler-common.mjs');
+
+    const existing = [{
+      url: 'https://careers.orior.ch/job/Stabio-Buyer-ingredienti-&-trade%2C-100-TI/1375846633/',
+      title: 'Buyer ingredienti & trade, 100%',
+      titleByLocale: {
+        it: 'Ingredienti d\'acquisto e commercio, 100%',
+        en: 'Buyer ingredienti & trade, 100%',
+        de: 'Einkäufer Zutaten & Handel, 100%',
+        fr: 'Acheteur Ingrédients & Commerce, 100%',
+      },
+      slugByLocale: {
+        it: 'buyer-ingredienti-trade-100-rapelli-stabio',
+        en: 'buyer-ingredienti-trade-100-rapelli-stabio',
+        de: 'einkaufer-zutaten-handel-100-rapelli-stabio',
+        fr: 'acheteur-ingredients-commerce-100-rapelli-stabio',
+      },
+    }];
+
+    const fresh = [{
+      url: 'https://careers.orior.ch/job/Stabio-Buyer-ingredienti-&amp;-trade%2C-100-TI/1375846633/',
+      title: 'Buyer ingredienti & trade, 100%',
+      titleByLocale: { it: 'Buyer ingredienti & trade, 100%' },
+      slugByLocale: { it: 'buyer-ingredienti-trade-100-rapelli-stabio' },
+    }];
+
+    const merged = mergePreserveLocaleData(existing, fresh);
+    expect(merged).toHaveLength(1);
+    // DE/FR translations must be preserved from existing
+    expect(merged[0].titleByLocale.de).toBe('Einkäufer Zutaten & Handel, 100%');
+    expect(merged[0].titleByLocale.fr).toBe('Acheteur Ingrédients & Commerce, 100%');
+    expect(merged[0].slugByLocale.de).toBe('einkaufer-zutaten-handel-100-rapelli-stabio');
+    expect(merged[0].slugByLocale.fr).toBe('acheteur-ingredients-commerce-100-rapelli-stabio');
+  });
+
+  it('preserves translations when fresh job only has source locale', async () => {
+    const { mergePreserveLocaleData } = await import('../scripts/lib/dedicated-crawler-common.mjs');
+
+    const existing = [{
+      url: 'https://example.com/job/123',
+      title: 'Product Manager',
+      titleByLocale: {
+        it: 'Responsabile del prodotto',
+        en: 'Product Manager',
+        de: 'Produktmanager',
+        fr: 'Chef de produit',
+      },
+      slugByLocale: {
+        it: 'responsabile-del-prodotto-example-zurich',
+        en: 'product-manager-example-zurich',
+        de: 'produktmanager-example-zurich',
+        fr: 'chef-de-produit-example-zurich',
+      },
+    }];
+
+    const fresh = [{
+      url: 'https://example.com/job/123',
+      title: 'Product Manager',
+      titleByLocale: { it: 'Product Manager' },
+      slugByLocale: { it: 'product-manager-example-zurich' },
+    }];
+
+    const merged = mergePreserveLocaleData(existing, fresh);
+    expect(merged).toHaveLength(1);
+    expect(merged[0].titleByLocale.de).toBe('Produktmanager');
+    expect(merged[0].titleByLocale.fr).toBe('Chef de produit');
+    expect(merged[0].slugByLocale.de).toBe('produktmanager-example-zurich');
+    expect(merged[0].slugByLocale.fr).toBe('chef-de-produit-example-zurich');
+  });
+});

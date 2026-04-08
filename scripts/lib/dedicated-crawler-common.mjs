@@ -4249,7 +4249,7 @@ export function mergeLocaleRequirementsMap(a = {}, b = {}) {
  */
 export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
   const matchKey = opts.matchKey || ((job) =>
-    String(job?.url || '').trim().replace(/\/+$/, '').toLowerCase()
+    String(job?.url || '').trim().replace(/&amp;/g, '&').replace(/\/+$/, '').toLowerCase()
   );
 
   const existingByKey = new Map();
