@@ -1,11 +1,11 @@
 /**
- * Centralized AI Model Service — v13 (free-only, 80+ models, 11 providers)
+ * Centralized AI Model Service — v14 (free-only, 100+ models, 13 providers)
  *
  * Single source of truth for all LLM calls across scripts (jobs crawler,
  * article generator, company parser, etc.).
  *
  * Features:
- * - Extended fallback chain with 80+ FREE models across 11 providers
+ * - Extended fallback chain with 100+ FREE models across 13 providers
  * - **Dynamic OpenRouter discovery**: auto-detects new free models at runtime
  * - **Scored model selection**: models gain/lose score based on success/failure,
  *   so models that keep working float to the top and broken ones sink down,
@@ -22,7 +22,7 @@
  *
  * Providers (ALL FREE or free-tier):
  * - GitHub Models (GH_MODELS_PAT) — OpenAI-compatible endpoint hosting
- *   GPT-4o/4.1/5-nano, Llama, Phi, Cohere, DeepSeek, Codestral, o4-mini, etc.
+ *   GPT-4o/4.1/5-nano/5, Llama, Phi, Cohere, DeepSeek, Codestral, o4-mini, etc.
  *   Each model has its own daily limit (UserByModelByDay), so using 20+
  *   models yields 20× the daily capacity with a single PAT.
  * - Google Gemini (GEMINI_API_KEY) — Native Gemini API (free tier)
@@ -44,6 +44,10 @@
  *   Llama 4 Maverick 17B, Llama 3.3 70B, DeepSeek V3, Qwen 2.5 72B
  * - Cohere (COHERE_API_KEY) — OpenAI-compatible endpoint, free trial tier
  *   Command A, Command R+, Command R (1000 calls/month, 20 req/min)
+ * - Cloudflare Workers AI (CF_API_TOKEN + CF_ACCOUNT_ID) — Free tier inference
+ *   Llama 3.3 70B, Llama 4 Scout, Mistral Small, QwQ 32B, GPT-OSS (10K neurons/day)
+ * - Mistral AI La Plateforme (MISTRAL_API_KEY) — Free tier inference
+ *   Mistral Small, Codestral, Ministral 8B (1B tokens/month, 1 req/sec)
  *
  * Environment variables:
  * - GH_MODELS_PAT — GitHub Models token (covers GPT, Llama, Phi, Cohere, etc.)
@@ -57,6 +61,9 @@
  * - HUGGINGFACE_API_KEY — HuggingFace API key (optional, free tier)
  * - SAMBANOVA_API_KEY — SambaNova Cloud API key (optional, ultra-fast free tier)
  * - COHERE_API_KEY — Cohere API key (optional, free trial tier)
+ * - CF_API_TOKEN — Cloudflare Workers AI bearer token (optional, free tier)
+ * - CF_ACCOUNT_ID — Cloudflare account ID (required with CF_API_TOKEN)
+ * - MISTRAL_API_KEY — Mistral AI API key (optional, free tier)
  */
 
 // ── Model catalog ────────────────────────────────────────────
@@ -88,6 +95,14 @@ export const AI_MODELS = Object.freeze({
   O3_MINI:          'o3-mini',
   DEEPSEEK_R1_0528: 'DeepSeek-R1-0528',
   MINISTRAL_3B:     'Ministral-3B',
+  GPT_5:            'gpt-5',
+  GROK_3:           'Grok-3',
+  GROK_3_MINI:      'Grok-3-Mini',
+  MAI_DS_R1:        'MAI-DS-R1',
+  MISTRAL_MEDIUM_3: 'Mistral-Medium-3',
+  O1:               'o1',
+  O3:               'o3',
+  PHI_4_MINI_REASON:'Phi-4-mini-reasoning',
 
   // ── Google Gemini (native API) ──
   GEMINI_FLASH:     'gemini-2.5-flash',
@@ -107,6 +122,8 @@ export const AI_MODELS = Object.freeze({
   GROQ_LLAMA_4_MAV: 'groq/meta-llama/llama-4-maverick-17b-128e-instruct',
   GROQ_QWQ_32B:     'groq/qwen/qwq-32b',
   GROQ_COMPOUND:    'groq/compound-beta',
+  GROQ_COMPOUND_MINI:'groq/compound-mini',
+  GROQ_KIMI_K2_0905:'groq/moonshotai/kimi-k2-instruct-0905',
 
   // ── OpenRouter (OpenAI-compatible, free models with :free suffix) ──
   // Rate limits: 20 req/min, 200 req/day (free tier, no credit card)
@@ -155,6 +172,7 @@ export const AI_MODELS = Object.freeze({
   CB_LLAMA_3_1_8B:  'cerebras/llama3.1-8b',
   CB_LLAMA_3_1_70B: 'cerebras/llama3.1-70b',
   CB_LLAMA_3_3_70B: 'cerebras/llama3.3-70b',
+  CB_GPT_OSS_120B:  'cerebras/gpt-oss-120b',
 
   // ── Together AI (OpenAI-compatible, free tier inference) ──
   TGT_MISTRAL_7B:  'together/mistralai/Mistral-7B-Instruct-v0.3',
@@ -190,6 +208,27 @@ export const AI_MODELS = Object.freeze({
   COH_CMD_A:           'cohere/command-a-03-2025',
   COH_CMD_R_PLUS:      'cohere/command-r-plus-08-2024',
   COH_CMD_R:           'cohere/command-r-08-2024',
+  COH_CMD_A_REASON:    'cohere/command-a-reasoning-08-2025',
+  COH_CMD_A_TRANSLATE: 'cohere/command-a-translate-08-2025',
+  COH_AYA_32B:         'cohere/c4ai-aya-expanse-32b',
+  COH_CMD_R7B:         'cohere/command-r7b-12-2024',
+
+  // ── Cloudflare Workers AI (OpenAI-compatible, free tier — 10K neurons/day) ──
+  CF_LLAMA_3_3_70B:    'cf/@cf/meta/llama-3.3-70b-instruct-fp8',
+  CF_LLAMA_4_SCOUT:    'cf/@cf/meta/llama-4-scout-instruct',
+  CF_MISTRAL_SM_31:    'cf/@cf/mistralai/mistral-small-3.1-24b-instruct',
+  CF_QWQ_32B:          'cf/@cf/qwen/qwen-qwq-32b',
+  CF_QWEN3_30B:        'cf/@cf/qwen/qwen3-30b-a3b-fp8',
+  CF_GPT_OSS_120B:     'cf/@cf/openai/gpt-oss-120b',
+  CF_GPT_OSS_20B:      'cf/@cf/openai/gpt-oss-20b',
+  CF_GEMMA_3_12B:      'cf/@cf/google/gemma-3-12b-it',
+  CF_GLM_47_FLASH:     'cf/@cf/zai-org/glm-4.7-flash',
+  CF_DEEPSEEK_R1_32B:  'cf/@cf/deepseek/deepseek-r1-distill-qwen-32b',
+
+  // ── Mistral AI La Plateforme (OpenAI-compatible, free tier — 1B tokens/month) ──
+  MISTRAL_SMALL:       'mistral/mistral-small-latest',
+  MISTRAL_CODESTRAL:   'mistral/codestral-latest',
+  MISTRAL_8B:          'mistral/ministral-8b-latest',
 });
 
 /**
@@ -209,99 +248,127 @@ export const AI_MODELS = Object.freeze({
 export const DEFAULT_CHAIN = [
   AI_MODELS.GPT4O,              // 1.  OpenAI flagship        (GitHub Models)
   AI_MODELS.GPT_4_1,            // 2.  GPT 4.1 flagship       (GitHub Models)
-  AI_MODELS.LLAMA_4_MAVERICK,   // 3.  Meta Llama 4 flagship  (GitHub Models)
-  AI_MODELS.GEMINI_FLASH,       // 4.  Google fast            (Gemini API free)
+  AI_MODELS.GPT_5,              // 3.  GPT-5 flagship         (GitHub Models)
+  AI_MODELS.LLAMA_4_MAVERICK,   // 4.  Meta Llama 4 flagship  (GitHub Models)
+  AI_MODELS.GEMINI_FLASH,       // 5.  Google fast            (Gemini API free)
+  AI_MODELS.O3,                 // 6.  OpenAI o3 reasoning    (GitHub Models)
+  AI_MODELS.GROK_3,             // 7.  xAI Grok 3 flagship   (GitHub Models)
   // GROQ_KIMI_K2 removed — Groq returns HTTP 413 consistently (payload too large, 2026-03)
   // SN_LLAMA_4_MAVERICK removed — SambaNova returns HTTP 404 "Model not found" (2026-03)
-  AI_MODELS.GPT4O_MINI,           // 6.  OpenAI fast             (GitHub Models)
-  AI_MODELS.GROQ_GPT_OSS_120B,  // 7.  GPT-OSS 120B          (Groq - ultra fast)
-  AI_MODELS.GPT_4_1_MINI,       // 8.  GPT 4.1 Mini           (GitHub Models)
-  AI_MODELS.LLAMA_3_3_70B,      // 9.  Meta 70B               (GitHub Models)
-  AI_MODELS.LLAMA_4_SCOUT,      // 10. Meta Llama 4 Scout     (GitHub Models)
-  AI_MODELS.GPT_5_NANO,         // 11. GPT-5 nano reason     (GitHub Models)
-  AI_MODELS.COHERE_CMD_A,       // 12. Cohere latest          (GitHub Models)
-  AI_MODELS.GROQ_LLAMA_3_3,     // 13. Llama 3.3 70B          (Groq)
-  AI_MODELS.COHERE_CMD_R_PLUS,  // 14. Cohere multilingual    (GitHub Models)
-  AI_MODELS.COH_CMD_A,          // 14b. Cohere Command A      (Cohere direct - 1000/month)
-  AI_MODELS.COH_CMD_R_PLUS,     // 14c. Cohere Command R+     (Cohere direct - 1000/month)
-  AI_MODELS.LLAMA_3_1_405B,     // 15. Meta 405B flagship     (GitHub Models)
-  AI_MODELS.GROQ_QWEN3_32B,      // 16. Qwen3 32B              (Groq - ultra fast)
+  AI_MODELS.GPT4O_MINI,           // 9.  OpenAI fast             (GitHub Models)
+  AI_MODELS.GROQ_GPT_OSS_120B,  // 10. GPT-OSS 120B          (Groq - ultra fast)
+  AI_MODELS.GPT_4_1_MINI,       // 11. GPT 4.1 Mini           (GitHub Models)
+  AI_MODELS.LLAMA_3_3_70B,      // 12. Meta 70B               (GitHub Models)
+  AI_MODELS.LLAMA_4_SCOUT,      // 13. Meta Llama 4 Scout     (GitHub Models)
+  AI_MODELS.GPT_5_NANO,         // 14. GPT-5 nano reason     (GitHub Models)
+  AI_MODELS.COHERE_CMD_A,       // 15. Cohere latest          (GitHub Models)
+  AI_MODELS.MISTRAL_SMALL,      // 16. Mistral Small latest   (Mistral AI direct)
+  AI_MODELS.GROQ_LLAMA_3_3,     // 17. Llama 3.3 70B          (Groq)
+  AI_MODELS.COHERE_CMD_R_PLUS,  // 18. Cohere multilingual    (GitHub Models)
+  AI_MODELS.COH_CMD_A,          // 18b. Cohere Command A      (Cohere direct - 1000/month)
+  AI_MODELS.COH_CMD_R_PLUS,     // 18c. Cohere Command R+     (Cohere direct - 1000/month)
+  AI_MODELS.CF_LLAMA_3_3_70B,   // 19. Llama 3.3 70B FP8     (Cloudflare Workers AI)
+  AI_MODELS.LLAMA_3_1_405B,     // 20. Meta 405B flagship     (GitHub Models)
+  AI_MODELS.MISTRAL_MEDIUM_3,   // 21. Mistral Medium 3       (GitHub Models)
+  AI_MODELS.GROQ_QWEN3_32B,      // 22. Qwen3 32B              (Groq - ultra fast)
   // SN_LLAMA_3_3_70B removed — SambaNova HTTP 402 PAYMENT_METHOD_REQUIRED (2026-04)
-  AI_MODELS.LLAMA_3_2_90B,      // 17. Llama 3.2 90B           (GitHub Models)
-  AI_MODELS.GEMINI_2_FLASH,     // 18. Google 2.0 flash       (Gemini API free)
-  AI_MODELS.GPT_5_MINI,         // 19. GPT-5 mini reason     (GitHub Models)
-  AI_MODELS.DEEPSEEK_V3,        // 20. DeepSeek V3            (GitHub Models)
-  AI_MODELS.OR_LLAMA_3_3,       // 21. Llama 3.3 70B          (OpenRouter free)
-  AI_MODELS.PHI_4,              // 22. Microsoft Phi-4        (GitHub Models)
-  AI_MODELS.GPT_4_1_NANO,       // 23. GPT 4.1 Nano           (GitHub Models)
-  AI_MODELS.GEMINI_PRO,         // 24. Google pro             (Gemini API free)
-  AI_MODELS.GROQ_GPT_OSS_20B,   // 25. GPT-OSS 20B           (Groq - ultra fast)
+  AI_MODELS.O1,                  // 23. OpenAI o1 reasoning    (GitHub Models)
+  AI_MODELS.LLAMA_3_2_90B,      // 24. Llama 3.2 90B           (GitHub Models)
+  AI_MODELS.GEMINI_2_FLASH,     // 25. Google 2.0 flash       (Gemini API free)
+  AI_MODELS.MISTRAL_CODESTRAL,  // 26. Codestral latest       (Mistral AI direct)
+  AI_MODELS.GPT_5_MINI,         // 27. GPT-5 mini reason     (GitHub Models)
+  AI_MODELS.CF_LLAMA_4_SCOUT,   // 28. Llama 4 Scout          (Cloudflare Workers AI)
+  AI_MODELS.DEEPSEEK_V3,        // 29. DeepSeek V3            (GitHub Models)
+  AI_MODELS.OR_LLAMA_3_3,       // 30. Llama 3.3 70B          (OpenRouter free)
+  AI_MODELS.CF_GPT_OSS_120B,    // 31. GPT-OSS 120B           (Cloudflare Workers AI)
+  AI_MODELS.PHI_4,              // 32. Microsoft Phi-4        (GitHub Models)
+  AI_MODELS.GPT_4_1_NANO,       // 33. GPT 4.1 Nano           (GitHub Models)
+  AI_MODELS.GEMINI_PRO,         // 34. Google pro             (Gemini API free)
+  AI_MODELS.CF_QWQ_32B,         // 35. QwQ 32B reasoning      (Cloudflare Workers AI)
+  AI_MODELS.GROQ_GPT_OSS_20B,   // 36. GPT-OSS 20B           (Groq - ultra fast)
   // CB_LLAMA_3_3_70B removed — Cerebras 404 (model deprecated 2026-03)
-  AI_MODELS.OR_GEMMA_3_27B,     // 26. Gemma 3 27B instruct   (OpenRouter free)
+  AI_MODELS.GROK_3_MINI,        // 37. xAI Grok 3 Mini       (GitHub Models)
+  AI_MODELS.COH_CMD_A_REASON,   // 38. Cohere reasoning       (Cohere direct)
+  AI_MODELS.OR_GEMMA_3_27B,     // 39. Gemma 3 27B instruct   (OpenRouter free)
   // CB_LLAMA_3_1_70B removed — Cerebras 404 (model deprecated 2026-03)
-  AI_MODELS.COHERE_CMD_R,       // 29. Cohere Command R       (GitHub Models)
-  AI_MODELS.COH_CMD_R,          // 29b. Cohere Command R      (Cohere direct - 1000/month)
+  AI_MODELS.COH_CMD_A_TRANSLATE,// 40. Cohere translate       (Cohere direct)
+  AI_MODELS.COHERE_CMD_R,       // 41. Cohere Command R       (GitHub Models)
+  AI_MODELS.COH_CMD_R,          // 41b. Cohere Command R      (Cohere direct - 1000/month)
   // GROQ_LLAMA_3_1_70B removed — decommissioned 2026-03 (HTTP 422 from Groq)
-  AI_MODELS.DEEPSEEK_R1_0528,   // 31. DeepSeek R1 0528       (GitHub Models)
-  AI_MODELS.DEEPSEEK_R1,        // 32. DeepSeek R1 reasoning  (GitHub Models)
-  AI_MODELS.GROQ_LLAMA_4_SCT,   // 33. Llama 4 Scout          (Groq)
-  AI_MODELS.OR_GEMMA_4_31B,     // 34. Gemma 4 31B             (OpenRouter free — replaces Mistral Small 3.1)
+  AI_MODELS.CF_MISTRAL_SM_31,   // 42. Mistral Small 3.1      (Cloudflare Workers AI)
+  AI_MODELS.DEEPSEEK_R1_0528,   // 43. DeepSeek R1 0528       (GitHub Models)
+  AI_MODELS.DEEPSEEK_R1,        // 44. DeepSeek R1 reasoning  (GitHub Models)
+  AI_MODELS.GROQ_LLAMA_4_SCT,   // 45. Llama 4 Scout          (Groq)
+  AI_MODELS.COH_AYA_32B,        // 46. Aya Expanse 32B        (Cohere direct)
+  AI_MODELS.OR_GEMMA_4_31B,     // 47. Gemma 4 31B             (OpenRouter free — replaces Mistral Small 3.1)
   // OR_MISTRAL_SM removed from OpenRouter free list (2026-04)
-  AI_MODELS.O4_MINI,            // 35. OpenAI o4-mini reason  (GitHub Models)
-  AI_MODELS.CODESTRAL,          // 36. Mistral Codestral      (GitHub Models)
-  AI_MODELS.GEMINI_FLASH_LITE,  // 37. Google flash lite      (Gemini API free)
-  AI_MODELS.OR_QWEN3_CODER,     // 38. Qwen3 Coder            (OpenRouter free)
-  AI_MODELS.GROQ_GEMMA2_9B,     // 39. Gemma2 9B              (Groq)
-  AI_MODELS.GROQ_LLAMA_3_1_8B,  // 40. Llama 3.1 8B instant   (Groq)
+  AI_MODELS.MAI_DS_R1,          // 48. MAI-DS-R1 reasoning    (GitHub Models)
+  AI_MODELS.O4_MINI,            // 49. OpenAI o4-mini reason  (GitHub Models)
+  AI_MODELS.CODESTRAL,          // 50. Mistral Codestral      (GitHub Models)
+  AI_MODELS.GEMINI_FLASH_LITE,  // 51. Google flash lite      (Gemini API free)
+  AI_MODELS.CF_QWEN3_30B,       // 52. Qwen3 30B              (Cloudflare Workers AI)
+  AI_MODELS.OR_QWEN3_CODER,     // 53. Qwen3 Coder            (OpenRouter free)
+  AI_MODELS.CB_GPT_OSS_120B,    // 54. GPT-OSS 120B           (Cerebras)
+  AI_MODELS.GROQ_GEMMA2_9B,     // 55. Gemma2 9B              (Groq)
+  AI_MODELS.GROQ_LLAMA_3_1_8B,  // 56. Llama 3.1 8B instant   (Groq)
   // SN_DEEPSEEK_V3 removed — SambaNova HTTP 402 PAYMENT_METHOD_REQUIRED (2026-04)
   // SN_QWEN_2_5_72B removed — SambaNova HTTP 402 PAYMENT_METHOD_REQUIRED (2026-04)
-  AI_MODELS.OR_GEMMA_4_26B,     // 41. Gemma 4 26B MoE         (OpenRouter free — replaces DeepSeek R1 Zero)
+  AI_MODELS.OR_GEMMA_4_26B,     // 57. Gemma 4 26B MoE         (OpenRouter free — replaces DeepSeek R1 Zero)
   // OR_DEEPSEEK_R1Z removed from OpenRouter free list (2026-04)
-  AI_MODELS.LLAMA_3_1_8B,       // 42. Meta 8B fast           (GitHub Models)
-  AI_MODELS.MINISTRAL_3B,       // 43. Mistral 3B fast        (GitHub Models)
-  AI_MODELS.O3_MINI,            // 44. OpenAI o3-mini reason  (GitHub Models)
-  AI_MODELS.OR_TRINITY,         // 45. Arcee Trinity Large    (OpenRouter free)
-  AI_MODELS.OR_DOLPHIN_24B,     // 46. Dolphin Mistral 24B     (OpenRouter free — replaces Mistral Nemo)
+  AI_MODELS.GROQ_COMPOUND_MINI, // 58. Compound Mini           (Groq)
+  AI_MODELS.LLAMA_3_1_8B,       // 59. Meta 8B fast           (GitHub Models)
+  AI_MODELS.MINISTRAL_3B,       // 60. Mistral 3B fast        (GitHub Models)
+  AI_MODELS.CF_GPT_OSS_20B,     // 61. GPT-OSS 20B            (Cloudflare Workers AI)
+  AI_MODELS.O3_MINI,            // 62. OpenAI o3-mini reason  (GitHub Models)
+  AI_MODELS.PHI_4_MINI_REASON,  // 63. Phi-4 mini reasoning   (GitHub Models)
+  AI_MODELS.OR_TRINITY,         // 64. Arcee Trinity Large    (OpenRouter free)
+  AI_MODELS.MISTRAL_8B,         // 65. Ministral 8B latest    (Mistral AI direct)
+  AI_MODELS.OR_DOLPHIN_24B,     // 66. Dolphin Mistral 24B     (OpenRouter free — replaces Mistral Nemo)
   // OR_MISTRAL_NEMO removed from OpenRouter free list (2026-04)
-  AI_MODELS.CB_LLAMA_3_1_8B,    // 47. Llama 3.1 8B           (Cerebras - ultra fast)
+  AI_MODELS.CF_GEMMA_3_12B,     // 67. Gemma 3 12B             (Cloudflare Workers AI)
+  AI_MODELS.CB_LLAMA_3_1_8B,    // 68. Llama 3.1 8B           (Cerebras - ultra fast)
   // TGT_QWEN_2_5_7B removed — Together AI HTTP 401 (account unauthorized 2026-03)
   // TGT_MISTRAL_7B removed — Together AI HTTP 401 (account unauthorized 2026-03)
   // FW_LLAMA_3_1_8B removed — Fireworks AI HTTP 404 (model not found 2026-03)
   // FW_MIXTRAL_8X7B removed — Fireworks AI HTTP 404 (model not found 2026-03)
   // NV_NEMOTRON_70B removed — NVIDIA NIM HTTP 404 (model not found 2026-03)
-  AI_MODELS.NV_NEMOTRON_49B,     // 53. Nemotron 49B           (NVIDIA NIM direct)
-  AI_MODELS.NV_LLAMA_3_1_8B,    // 54. Llama 3.1 8B           (NVIDIA NIM)
-  AI_MODELS.NV_PHI_3_MINI,      // 55. Phi-3 Mini             (NVIDIA NIM)
+  AI_MODELS.CF_GLM_47_FLASH,    // 69. GLM 4.7 Flash           (Cloudflare Workers AI)
+  AI_MODELS.NV_NEMOTRON_49B,     // 70. Nemotron 49B           (NVIDIA NIM direct)
+  AI_MODELS.NV_LLAMA_3_1_8B,    // 71. Llama 3.1 8B           (NVIDIA NIM)
+  AI_MODELS.NV_PHI_3_MINI,      // 72. Phi-3 Mini             (NVIDIA NIM)
+  AI_MODELS.CF_DEEPSEEK_R1_32B, // 73. DeepSeek R1 32B        (Cloudflare Workers AI)
   // HF_MISTRAL_7B removed — HuggingFace HTTP 400 "not a chat model" (2026-04)
   // HF_ZEPHYR_7B removed — HuggingFace HTTP 400 "not supported by any provider" (2026-04)
   // ── Extended capacity: new OpenRouter free models (200 req/day each) ──
-  AI_MODELS.OR_NV_NEMOTRON_120B, // 56. NVIDIA Nemotron 120B   (OpenRouter free)
-  AI_MODELS.OR_QWEN3_NEXT_80B,   // 57. Qwen3 Next 80B         (OpenRouter free)
-  AI_MODELS.OR_STEPFUN_FLASH,    // 58. StepFun 3.5 Flash       (OpenRouter free)
-  AI_MODELS.OR_NV_NEMOTRON_30B,  // 59. NVIDIA Nemotron 30B    (OpenRouter free)
-  AI_MODELS.OR_MINIMAX_M25,      // 60. MiniMax M2.5            (OpenRouter free)
-  AI_MODELS.OR_GPT_OSS_120B,     // 61. GPT-OSS 120B            (OpenRouter free)
-  AI_MODELS.OR_HERMES_405B,      // 62. Hermes 3 405B           (OpenRouter free)
-  AI_MODELS.OR_GLM_45_AIR,       // 63. GLM 4.5 Air             (OpenRouter free)
-  AI_MODELS.OR_GEMMA_3_12B,      // 64. Gemma 3 12B             (OpenRouter free)
-  AI_MODELS.OR_NV_NEMOTRON_9B,   // 65. NVIDIA Nemotron 9B     (OpenRouter free)
-  AI_MODELS.OR_TRINITY_MINI,     // 66. Arcee Trinity Mini      (OpenRouter free)
+  AI_MODELS.OR_NV_NEMOTRON_120B, // 74. NVIDIA Nemotron 120B   (OpenRouter free)
+  AI_MODELS.OR_QWEN3_NEXT_80B,   // 75. Qwen3 Next 80B         (OpenRouter free)
+  AI_MODELS.OR_STEPFUN_FLASH,    // 76. StepFun 3.5 Flash       (OpenRouter free)
+  AI_MODELS.OR_NV_NEMOTRON_30B,  // 77. NVIDIA Nemotron 30B    (OpenRouter free)
+  AI_MODELS.OR_MINIMAX_M25,      // 78. MiniMax M2.5            (OpenRouter free)
+  AI_MODELS.OR_GPT_OSS_120B,     // 79. GPT-OSS 120B            (OpenRouter free)
+  AI_MODELS.OR_HERMES_405B,      // 80. Hermes 3 405B           (OpenRouter free)
+  AI_MODELS.OR_GLM_45_AIR,       // 81. GLM 4.5 Air             (OpenRouter free)
+  AI_MODELS.OR_GEMMA_3_12B,      // 82. Gemma 3 12B             (OpenRouter free)
+  AI_MODELS.OR_NV_NEMOTRON_9B,   // 83. NVIDIA Nemotron 9B     (OpenRouter free)
+  AI_MODELS.OR_TRINITY_MINI,     // 84. Arcee Trinity Mini      (OpenRouter free)
   // ── Extended capacity: additional Groq models (1000 req/day each) ──
-  AI_MODELS.GROQ_LLAMA3_8B,      // 67. Llama 3 8B              (Groq)
-  AI_MODELS.GROQ_LLAMA3_70B,     // 68. Llama 3 70B             (Groq)
+  AI_MODELS.GROQ_LLAMA3_8B,      // 85. Llama 3 8B              (Groq)
+  AI_MODELS.GROQ_LLAMA3_70B,     // 86. Llama 3 70B             (Groq)
+  AI_MODELS.GROQ_KIMI_K2_0905,   // 87. Kimi K2 0905            (Groq)
   // ── Extended capacity: new models (2026-04) ──
+  AI_MODELS.COH_CMD_R7B,         // 88. Cohere R7B              (Cohere direct)
   // ── Extended capacity: new OpenRouter free models (2026-04, replacing removed models) ──
-  AI_MODELS.OR_GPT_OSS_20B,      // 69. GPT-OSS 20B              (OpenRouter free — replaces DeepSeek V3)
-  AI_MODELS.OR_NV_NEMOTRON_12B_VL, // 70. Nemotron 12B VL         (OpenRouter free — replaces Qwen 2.5 72B)
-  AI_MODELS.OR_GEMMA_3N_E4B,     // 71. Gemma 3n E4B              (OpenRouter free — replaces Phi-4)
+  AI_MODELS.OR_GPT_OSS_20B,      // 89. GPT-OSS 20B              (OpenRouter free — replaces DeepSeek V3)
+  AI_MODELS.OR_NV_NEMOTRON_12B_VL, // 90. Nemotron 12B VL         (OpenRouter free — replaces Qwen 2.5 72B)
+  AI_MODELS.OR_GEMMA_3N_E4B,     // 91. Gemma 3n E4B              (OpenRouter free — replaces Phi-4)
   // OR_DEEPSEEK_V3, OR_QWEN_2_5_72B, OR_PHI_4, OR_PHI_4_REASON removed from OpenRouter free list (2026-04)
   // OR_KIMI_K2, OR_DEEPSEEK_R1, OR_LLAMA_4_MAVERICK, OR_MISTRAL_SM_31 removed from OpenRouter free list (2026-04)
-  AI_MODELS.GROQ_LLAMA_4_MAV,    // 77. Llama 4 Maverick          (Groq)
-  AI_MODELS.GROQ_QWQ_32B,        // 78. QwQ 32B reasoning         (Groq)
-  AI_MODELS.GROQ_COMPOUND,       // 79. Compound Beta             (Groq)
-  AI_MODELS.HF_LLAMA_3_3_70B,    // 80. Llama 3.3 70B             (HuggingFace)
-  AI_MODELS.HF_QWEN_2_5_72B,     // 81. Qwen 2.5 72B              (HuggingFace)
-  AI_MODELS.HF_GEMMA_3_27B,      // 82. Gemma 3 27B               (HuggingFace)
+  AI_MODELS.GROQ_LLAMA_4_MAV,    // 92. Llama 4 Maverick          (Groq)
+  AI_MODELS.GROQ_QWQ_32B,        // 93. QwQ 32B reasoning         (Groq)
+  AI_MODELS.GROQ_COMPOUND,       // 94. Compound Beta             (Groq)
+  AI_MODELS.HF_LLAMA_3_3_70B,    // 95. Llama 3.3 70B             (HuggingFace)
+  AI_MODELS.HF_QWEN_2_5_72B,     // 96. Qwen 2.5 72B              (HuggingFace)
+  AI_MODELS.HF_GEMMA_3_27B,      // 97. Gemma 3 27B               (HuggingFace)
   // HF_MISTRAL_SM removed — HuggingFace HTTP 400 "not a chat model" (2026-04)
 ];
 
@@ -318,6 +385,8 @@ const PROVIDER = Object.freeze({
   HUGGINGFACE: 'huggingface',
   SAMBANOVA:   'sambanova',
   COHERE:      'cohere',
+  CLOUDFLARE:  'cloudflare',
+  MISTRAL:     'mistral',
 });
 
 // ── Endpoints ────────────────────────────────────────────────
@@ -332,6 +401,7 @@ const NVIDIA_API_BASE     = 'https://integrate.api.nvidia.com/v1/chat/completion
 const HUGGINGFACE_API_BASE = 'https://router.huggingface.co/v1/chat/completions';
 const SAMBANOVA_API_BASE   = 'https://api.sambanova.ai/v1/chat/completions';
 const COHERE_API_BASE      = 'https://api.cohere.ai/compatibility/v1/chat/completions';
+const MISTRAL_API_BASE     = 'https://api.mistral.ai/v1/chat/completions';
 
 // ── API keys (lazy-loaded from environment) ──────────────────
 function getGhModelsPat()       { return (process.env.GH_MODELS_PAT || '').trim(); }
@@ -345,6 +415,9 @@ function getNvidiaApiKey()      { return (process.env.NVIDIA_API_KEY || process.
 function getHuggingFaceApiKey() { return (process.env.HUGGINGFACE_API_KEY || '').trim(); }
 function getSambaNovaApiKey()  { return (process.env.SAMBANOVA_API_KEY || '').trim(); }
 function getCohereApiKey()    { return (process.env.COHERE_API_KEY || '').trim(); }
+function getCloudflareApiToken() { return (process.env.CF_API_TOKEN || '').trim(); }
+function getCfAccountId()    { return (process.env.CF_ACCOUNT_ID || '').trim(); }
+function getMistralApiKey()  { return (process.env.MISTRAL_API_KEY || '').trim(); }
 
 // ── Provider detection ───────────────────────────────────────
 /**
@@ -357,6 +430,10 @@ function getCohereApiKey()    { return (process.env.COHERE_API_KEY || '').trim()
  * - `fireworks/*` → Fireworks AI (free tier)
  * - `nvidia/*` → NVIDIA NIM (free tier)
  * - `hf/*` → HuggingFace Inference Router (free tier)
+ * - `sn/*` → SambaNova Cloud (ultra-fast free tier inference)
+ * - `cohere/*` → Cohere Direct (free trial tier)
+ * - `cf/*` → Cloudflare Workers AI (free tier, 10K neurons/day)
+ * - `mistral/*` → Mistral AI La Plateforme (free tier, 1B tokens/month)
  * - Everything else → GitHub Models (GPT, Llama, Mistral, Cohere, Phi — all free)
  */
 function getProvider(model) {
@@ -370,6 +447,8 @@ function getProvider(model) {
   if (model.startsWith('hf/'))          return PROVIDER.HUGGINGFACE;
   if (model.startsWith('sn/'))          return PROVIDER.SAMBANOVA;
   if (model.startsWith('cohere/'))     return PROVIDER.COHERE;
+  if (model.startsWith('cf/'))         return PROVIDER.CLOUDFLARE;
+  if (model.startsWith('mistral/'))    return PROVIDER.MISTRAL;
   return PROVIDER.GITHUB;
 }
 
@@ -382,6 +461,8 @@ function getProvider(model) {
  *      'fireworks/accounts/fireworks/models/...' → 'accounts/fireworks/models/...'
  *      'nvidia/meta/llama-3.1-8b-instruct' → 'meta/llama-3.1-8b-instruct'
  *      'hf/mistralai/Mistral-7B-Instruct-v0.3' → 'mistralai/Mistral-7B-Instruct-v0.3'
+ *      'cf/@cf/meta/llama-3.3-70b-instruct-fp8' → '@cf/meta/llama-3.3-70b-instruct-fp8'
+ *      'mistral/mistral-small-latest' → 'mistral-small-latest'
  *      'gpt-4o' → 'gpt-4o' (no prefix)
  */
 function getApiModelId(model) {
@@ -394,6 +475,8 @@ function getApiModelId(model) {
   if (model.startsWith('hf/'))          return model.slice(3);   // 3 chars: "hf/"
   if (model.startsWith('sn/'))          return model.slice(3);   // 3 chars: "sn/"
   if (model.startsWith('cohere/'))     return model.slice(7);   // 7 chars: "cohere/"
+  if (model.startsWith('cf/'))         return model.slice(3);   // 3 chars: "cf/" → "@cf/..."
+  if (model.startsWith('mistral/'))    return model.slice(8);   // 8 chars: "mistral/"
   return model;
 }
 
@@ -411,6 +494,9 @@ function getApiKeyForProvider(provider) {
     case PROVIDER.HUGGINGFACE: return getHuggingFaceApiKey();
     case PROVIDER.SAMBANOVA:   return getSambaNovaApiKey();
     case PROVIDER.COHERE:      return getCohereApiKey();
+    // Cloudflare needs BOTH token AND account ID to construct the endpoint
+    case PROVIDER.CLOUDFLARE:  return (getCloudflareApiToken() && getCfAccountId()) ? getCloudflareApiToken() : '';
+    case PROVIDER.MISTRAL:     return getMistralApiKey();
     default: return '';
   }
 }
@@ -888,8 +974,9 @@ export function isModelAvailable(modelId) {
 /**
  * Check whether ANY model in the default chain is available.
  * Use this instead of directly checking GEMINI_API_KEY || GH_MODELS_PAT,
- * so that all 10 providers (GitHub Models, Gemini, Groq, OpenRouter, Cerebras,
- * Together AI, Fireworks AI, NVIDIA NIM, HuggingFace, SambaNova) are considered.
+ * so that all 13 providers (GitHub Models, Gemini, Groq, OpenRouter, Cerebras,
+ * Together AI, Fireworks AI, NVIDIA NIM, HuggingFace, SambaNova, Cohere,
+ * Cloudflare Workers AI, Mistral AI) are considered.
  */
 export function isAnyModelAvailable() {
   return DEFAULT_CHAIN.some(m => isModelAvailable(m));
@@ -1066,8 +1153,15 @@ const REASONING_MODELS = new Set([
 const MAX_COMPLETION_TOKENS_MODELS = new Set([
   'gpt-5-nano',
   'gpt-5-mini',
+  'gpt-5',
   'o4-mini',
   'o3-mini',
+  'o1',
+  'o3',
+  'Grok-3',
+  'Grok-3-Mini',
+  'MAI-DS-R1',
+  'Phi-4-mini-reasoning',
 ]);
 
 /** Models with lower max output token limits */
@@ -1079,6 +1173,10 @@ const MODEL_MAX_OUTPUT_TOKENS = {
   'command-a-03-2025': 8192,
   'command-r-plus-08-2024': 8192,
   'command-r-08-2024': 4096,
+  'command-a-reasoning-08-2025': 8192,
+  'command-a-translate-08-2025': 8192,
+  'c4ai-aya-expanse-32b': 8192,
+  'command-r7b-12-2024': 4096,
   // Groq Llama 4 family enforces max_tokens <= 8192.
   'meta-llama/llama-4-scout-17b-16e-instruct': 8192,
 };
@@ -1360,6 +1458,38 @@ function _callCohere(model, messages, opts) {
 }
 
 /**
+ * Call a model on Cloudflare Workers AI (OpenAI-compatible, free tier).
+ * Free tier: 10,000 neurons/day (no credit card needed).
+ * Endpoint is dynamic: requires CF_ACCOUNT_ID in the URL.
+ */
+function _callCloudflare(model, messages, opts) {
+  const apiModel = getApiModelId(model);
+  const accountId = getCfAccountId();
+  if (!accountId) throw new Error('CF_ACCOUNT_ID not set');
+  const endpoint = `https://api.cloudflare.com/client/v4/accounts/${accountId}/ai/v1/chat/completions`;
+  return _callOpenAICompatible(apiModel, messages, opts, {
+    endpoint,
+    apiKey: getCloudflareApiToken(),
+    providerName: 'Cloudflare',
+    trackAs: model,
+  });
+}
+
+/**
+ * Call a model on Mistral AI La Plateforme (OpenAI-compatible, free tier).
+ * Free tier: 1B tokens/month, 1 req/sec (phone verification required).
+ */
+function _callMistral(model, messages, opts) {
+  const apiModel = getApiModelId(model);
+  return _callOpenAICompatible(apiModel, messages, opts, {
+    endpoint: MISTRAL_API_BASE,
+    apiKey: getMistralApiKey(),
+    providerName: 'Mistral',
+    trackAs: model,
+  });
+}
+
+/**
  * Call a single Gemini model with retry.
  * Returns the text content on success.
  */
@@ -1485,6 +1615,8 @@ function _callModel(model, messages, opts) {
     case PROVIDER.HUGGINGFACE: return _callHuggingFace(model, messages, opts);
     case PROVIDER.SAMBANOVA:   return _callSambaNova(model, messages, opts);
     case PROVIDER.COHERE:      return _callCohere(model, messages, opts);
+    case PROVIDER.CLOUDFLARE:  return _callCloudflare(model, messages, opts);
+    case PROVIDER.MISTRAL:     return _callMistral(model, messages, opts);
     default: throw new Error(`[${model}] Unknown provider: ${provider}`);
   }
 }

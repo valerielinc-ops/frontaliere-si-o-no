@@ -99,6 +99,9 @@ const RC_TO_ENV = {
   HUGGINGFACE_API_KEY:            ['HUGGINGFACE_API_KEY'],
   SAMBANOVA_API_KEY:              ['SAMBANOVA_API_KEY'],
   COHERE_API_KEY:                 ['COHERE_API_KEY'],
+  CF_API_TOKEN:                   ['CF_API_TOKEN'],
+  CF_ACCOUNT_ID:                  ['CF_ACCOUNT_ID'],
+  MISTRAL_API_KEY:                ['MISTRAL_API_KEY'],
 
   // Image generation providers
   TOGETHER_API_KEY:               ['TOGETHER_API_KEY'],
