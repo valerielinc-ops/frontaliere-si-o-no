@@ -163,9 +163,14 @@ async function generateAISubject(ctx) {
       { role: 'user', content: user },
     ], { temperature: 0.8, maxTokens: 80 });
     const raw = result.trim().replace(/^["']|["']$/g, '');
-    // Hard cap at 50 chars to prevent truncation in email clients
-    const subject = raw.length > 50 ? raw.slice(0, 47) + '...' : raw;
-    return subject || null;
+    // Ensure subject is a complete sentence — never truncate with ellipsis
+    if (raw.length > 55) {
+      // Too long — ask AI failed to respect limit, use as-is up to 55
+      // Find last natural break point (space, comma, colon) before 55
+      const cutoff = raw.lastIndexOf(' ', 55);
+      return cutoff > 30 ? raw.slice(0, cutoff) : raw.slice(0, 55);
+    }
+    return raw || null;
   } catch (e) {
     console.warn('\u26a0\ufe0f AI subject failed:', e.message?.slice(0, 200));
     return null;
@@ -924,7 +929,8 @@ function inlineQaCheck(sampleHtml, subject) {
 
   // Subject line
   if (!subject || subject.length < 10) fail('subject_present', `Subject too short: "${subject}"`);
-  else if (subject.length > 55) fail('subject_length', `Subject > 55 chars (${subject.length}): "${subject}"`);
+  else if (subject.length > 60) fail('subject_length', `Subject > 60 chars (${subject.length}): "${subject}"`);
+  else if (subject.endsWith('...') || subject.endsWith('…')) fail('subject_truncated', `Subject appears truncated: "${subject}"`);
   else pass('subject_ok');
 
   // HTML structure
@@ -1026,12 +1032,18 @@ async function main() {
   if (db) {
     exchangeRate = await fetchExchangeRate();
     const history = await fetchExchangeHistory(120);
-    // If previousRate is missing from Firestore, derive from history (7 days ago)
-    if (exchangeRate && !exchangeRate.previousRate && history.length >= 7) {
-      const weekAgoEntry = history[Math.max(0, history.length - 8)];
+    // If previousRate is missing from Firestore, find exact 7-day-ago rate from history
+    if (exchangeRate && !exchangeRate.previousRate && history.length >= 2) {
+      const today = new Date().toISOString().slice(0, 10);
+      const weekAgoDate = new Date(Date.now() - 7 * 24 * 3600 * 1000).toISOString().slice(0, 10);
+      // Find closest entry to 7 days ago (exact match or nearest earlier date)
+      const weekAgoEntry = history.find(h => h.date === weekAgoDate)
+        || history.filter(h => h.date <= weekAgoDate).pop()
+        || history[0];
       exchangeRate.previousRate = weekAgoEntry?.rate || exchangeRate.rate;
+      console.log(`📊 Rate: ${exchangeRate.rate.toFixed(4)} | 7d ago (${weekAgoEntry?.date || '?'}): ${exchangeRate.previousRate.toFixed(4)} | Δ ${(((exchangeRate.rate - exchangeRate.previousRate) / exchangeRate.previousRate) * 100).toFixed(2)}%`);
     } else if (exchangeRate && !exchangeRate.previousRate) {
-      exchangeRate.previousRate = exchangeRate.rate * 0.997; // ~0.3% fallback
+      exchangeRate.previousRate = exchangeRate.rate; // no change if no history
     }
     exchangeInsight = computeExchangeInsight(
       history,

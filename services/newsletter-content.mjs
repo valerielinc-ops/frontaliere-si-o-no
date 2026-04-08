@@ -506,7 +506,7 @@ export function buildSubjectPrompt(ctx) {
 
   const system = [
     `You are a world-class email copywriter for "Frontaliere Ticino", a fintech app for Swiss-Italian cross-border workers.`,
-    `Write ONE email subject line in ${langName}. STRICTLY 40-50 characters including emoji. Count carefully.`,
+    `Write ONE email subject line in ${langName}. STRICTLY 35-50 characters including emoji. Count carefully.`,
     ``,
     `PROVEN PATTERNS (pick one and adapt):`,
     `- Curiosity gap: "⚡ Il tasso CHF scende: quanto perdi?"`,
@@ -518,6 +518,7 @@ export function buildSubjectPrompt(ctx) {
     ``,
     `RULES:`,
     `- Start with ONE emoji (⚡💰📊🔥🤔📰🏦💼)`,
+    `- MUST be a complete phrase — NEVER end with "..." or a cut-off word`,
     `- Use "tu/you" voice, never "noi/we"`,
     `- NO exact numbers (exchange rates, percentages)`,
     `- NO generic words: "update", "newsletter", "novità", "weekly"`,
