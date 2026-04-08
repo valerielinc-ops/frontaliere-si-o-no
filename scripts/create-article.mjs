@@ -3602,6 +3602,33 @@ function escapeForSingleQuoteTS(s) {
   return String(s || '').replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/\n/g, '\\n').replace(/\r/g, '');
 }
 
+/**
+ * Validate that a generated .ts body file is syntactically valid.
+ * Catches truncated FAQ strings and other escaping errors before they break the build.
+ */
+function validateBodyFileSyntax(filePath, content) {
+  // Quick structural check: every opened single-quote string must close properly
+  // Count unbalanced quotes (rough heuristic)
+  const lines = content.split('\n');
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    // Detect the specific truncation pattern: '}]', followed by raw text
+    if (/\}]',\s*[a-zA-Z]/.test(line)) {
+      throw new Error(`Body file ${filePath} line ${i + 1}: FAQ string appears truncated — raw text found after closing ']'. The AI likely produced malformed FAQ JSON.`);
+    }
+  }
+  // Try to evaluate the TS as JS to catch syntax errors
+  try {
+    // Strip the export and type annotation to make it evaluable as JS
+    const jsContent = content
+      .replace(/:\s*Record<string,\s*string>\s*=/, ' =')
+      .replace(/^export default .*/m, '');
+    new Function(jsContent);
+  } catch (e) {
+    throw new Error(`Body file ${filePath} has syntax error: ${e.message}`);
+  }
+}
+
 function escapeRegex(s) {
   return String(s || '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
@@ -3715,10 +3742,20 @@ function buildBodyFile(data, locale) {
   const camel = id.replace(/-(\w)/g, (_, ch) => ch.toUpperCase());
   const varName = 'body' + camel.charAt(0).toUpperCase() + camel.slice(1);
 
-  // Build FAQ line if present
-  const faqLine = c.faq && Array.isArray(c.faq) && c.faq.length > 0
-    ? `\n    'blog.article.${id}.faq': '${escapeForSingleQuoteTS(JSON.stringify(c.faq))}',`
-    : '';
+  // Build FAQ line if present — validate JSON roundtrip to catch malformed AI output
+  let faqLine = '';
+  if (c.faq && Array.isArray(c.faq) && c.faq.length > 0) {
+    try {
+      const faqJson = JSON.stringify(c.faq);
+      // Roundtrip: verify the escaped string produces valid JSON when parsed back
+      const escaped = escapeForSingleQuoteTS(faqJson);
+      const unescaped = escaped.replace(/\\'/g, "'").replace(/\\\\/g, '\\').replace(/\\n/g, '\n');
+      JSON.parse(unescaped);
+      faqLine = `\n    'blog.article.${id}.faq': '${escaped}',`;
+    } catch (e) {
+      console.error(`  ⚠️ FAQ for ${locale}/${id} dropped — malformed JSON: ${e.message}`);
+    }
+  }
 
   return `const ${varName}: Record<string, string> = {
     'blog.article.${id}.body1': '${escapeForSingleQuoteTS(c.body1)}',
@@ -3747,7 +3784,9 @@ function modifyI18nTs(data) {
   const bodyDir = 'services/locales/blog-body/it';
   mkdirSync(resolve(bodyDir), { recursive: true });
   const bodyFile = `${bodyDir}/${data.id}.ts`;
-  write(bodyFile, buildBodyFile(data, 'it'));
+  const bodyContent = buildBodyFile(data, 'it');
+  validateBodyFileSyntax(bodyFile, bodyContent);
+  write(bodyFile, bodyContent);
   console.error(`  ✅ ${bodyFile}`);
 }
 
@@ -3768,7 +3807,9 @@ function modifyLocaleFile(data, locale) {
   const bodyDir = `services/locales/blog-body/${locale}`;
   mkdirSync(resolve(bodyDir), { recursive: true });
   const bodyFile = `${bodyDir}/${data.id}.ts`;
-  write(bodyFile, buildBodyFile(data, locale));
+  const bodyContent = buildBodyFile(data, locale);
+  validateBodyFileSyntax(bodyFile, bodyContent);
+  write(bodyFile, bodyContent);
   console.error(`  ✅ ${bodyFile}`);
 }
 
