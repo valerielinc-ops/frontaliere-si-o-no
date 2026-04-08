@@ -21,15 +21,17 @@
  *   MAILJET_SECRET_KEY       — Mailjet API secret
  *   MAILGUN_API_KEY          — Mailgun API key (EU region)
  *   MAILGUN_DOMAIN           — Mailgun sending domain
+ *   UNOSEND_API_KEY          — Unosend API key (6000/mo free tier)
  *   RESEND_API_KEY           — Resend API key (fallback only)
  */
 
 // ── Provider daily quotas ────────────────────────────────────
 
 const PROVIDERS = [
-  { id: 'mailgun', dailyLimit: 100, monthlyLimit: 3000  },
-  { id: 'mailjet', dailyLimit: 200, monthlyLimit: 6000  },
-  { id: 'resend',  dailyLimit: 100, monthlyLimit: 3000  },
+  { id: 'mailgun',  dailyLimit: 100, monthlyLimit: 3000  },
+  { id: 'mailjet',  dailyLimit: 200, monthlyLimit: 6000  },
+  { id: 'unosend',  dailyLimit: 200, monthlyLimit: 6000  },
+  { id: 'resend',   dailyLimit: 100, monthlyLimit: 3000  },
 ];
 
 // In-memory daily counters (reset on new UTC day)
@@ -67,6 +69,7 @@ function isProviderConfigured(providerId) {
   switch (providerId) {
     case 'mailjet':    return !!(process.env.MAILJET_API_KEY && process.env.MAILJET_SECRET_KEY);
     case 'mailgun':    return !!(process.env.MAILGUN_API_KEY && process.env.MAILGUN_DOMAIN);
+    case 'unosend':    return !!process.env.UNOSEND_API_KEY;
     case 'resend':     return !!process.env.RESEND_API_KEY;
     default: return false;
   }
@@ -146,6 +149,40 @@ async function sendViaMailgun(email) {
   return { messageId: data?.id || `mg-${Date.now()}`, provider: 'mailgun' };
 }
 
+// ── Unosend API (v1) ─────────────────────────────────────────
+// Docs: https://docs.unosend.co/api-reference/emails
+
+async function sendViaUnosend(email) {
+  const apiKey = process.env.UNOSEND_API_KEY;
+  const fromParsed = parseEmailAddress(email.from);
+
+  const body = {
+    from: fromParsed.name ? `${fromParsed.name} <${fromParsed.email}>` : fromParsed.email,
+    to: email.to,
+    subject: email.subject,
+    html: email.html,
+  };
+  if (email.text) body.text = email.text;
+  if (email.tags?.length) body.tags = email.tags.map(t => t.value);
+
+  const res = await fetch('https://api.unosend.co/v1/emails', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${apiKey}`,
+    },
+    body: JSON.stringify(body),
+  });
+
+  if (!res.ok) {
+    const err = await res.text().catch(() => '');
+    throw new Error(`Unosend ${res.status}: ${err.slice(0, 200)}`);
+  }
+
+  const data = await res.json().catch(() => ({}));
+  return { messageId: data?.id || `unosend-${Date.now()}`, provider: 'unosend' };
+}
+
 // ── Resend API (fallback) ────────────────────────────────────
 // Same as existing implementation but single-email
 
@@ -182,6 +219,7 @@ async function sendViaResend(email) {
 const SEND_FNS = {
   mailgun: sendViaMailgun,
   mailjet: sendViaMailjet,
+  unosend: sendViaUnosend,
   resend: sendViaResend,
 };
 

@@ -51,6 +51,7 @@ const RC_TO_ENV = {
   MAILJET_SECRET_KEY:             ['MAILJET_SECRET_KEY'],
   MAILGUN_API_KEY:                ['MAILGUN_API_KEY'],
   MAILGUN_DOMAIN:                 ['MAILGUN_DOMAIN'],
+  UNOSEND_API_KEY:                ['UNOSEND_API_KEY'],
 
 
   // Server-only keys (stored with SERVER_ prefix in RC)

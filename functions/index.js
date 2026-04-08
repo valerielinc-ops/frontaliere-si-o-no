@@ -4,6 +4,7 @@ import {
   handleResendWebhookRequest,
 } from './src/newsletterResendWebhookCore.js';
 import { handleMailgunWebhookRequest } from './src/newsletterMailgunWebhookCore.js';
+import { handleUnosendWebhookRequest } from './src/newsletterUnosendWebhookCore.js';
 import { handleSubscriptionManagement } from './src/newsletterSubscriptionManagement.js';
 import { sendNewsletterConfirmationEmail } from './src/newsletterConfirmationEmail.js';
 import { getNewsletterSecrets, getRemoteConfigValue } from './src/remoteConfigSecrets.js';
@@ -70,6 +71,43 @@ export const newsletterMailgunWebhook = onRequest(
       const message = error instanceof Error ? error.message : String(error || 'unknown_error');
       const status = /signature/i.test(message) ? 401 : 500;
       console.error('[newsletterMailgunWebhook] Error:', message);
+      res.status(status).json({ ok: false, error: message });
+    }
+  },
+);
+
+// Unosend delivery event webhooks
+export const newsletterUnosendWebhook = onRequest(
+  {
+    region: 'europe-west6',
+    memory: '256MiB',
+    timeoutSeconds: 60,
+    cors: false,
+  },
+  async (req, res) => {
+    if (req.method !== 'POST') {
+      res.status(405).json({ ok: false, error: 'method_not_allowed' });
+      return;
+    }
+
+    const payload = Buffer.isBuffer(req.rawBody)
+      ? req.rawBody.toString('utf8')
+      : typeof req.rawBody === 'string'
+        ? req.rawBody
+        : JSON.stringify(req.body || {});
+
+    try {
+      const signingSecret = await getRemoteConfigValue('UNOSEND_WEBHOOK_SECRET');
+      const result = await handleUnosendWebhookRequest({
+        payload,
+        headers: req.headers,
+        signingSecret,
+      });
+      res.status(200).json({ ok: true, result });
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error || 'unknown_error');
+      const status = /signature/i.test(message) ? 401 : 500;
+      console.error('[newsletterUnosendWebhook] Error:', message);
       res.status(status).json({ ok: false, error: message });
     }
   },

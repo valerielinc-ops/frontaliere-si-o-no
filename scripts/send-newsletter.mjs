@@ -49,8 +49,8 @@ const AI_CONCURRENCY = 5; // Max parallel AI calls
 // cascade = multi-provider free tier cascade (default)
 // resend = Resend only (legacy fallback)
 const EMAIL_PROVIDER = process.env.EMAIL_PROVIDER || 'cascade';
-// cascade = 400/day total across all providers, resend = 100
-const DAILY_SEND_LIMIT = EMAIL_PROVIDER === 'cascade' ? 400 : 100;
+// cascade = 600/day total across all providers, resend = 100
+const DAILY_SEND_LIMIT = EMAIL_PROVIDER === 'cascade' ? 600 : 100;
 
 /**
  * Run async tasks with bounded concurrency.
