@@ -1,6 +1,6 @@
 {
   "crawlerKey": "goline",
-  "assembledAt": "2026-04-08T09:32:44.043Z",
+  "assembledAt": "2026-04-08T21:22:56.004Z",
   "jobs": [
     {
       "title": "Sviluppatore Web Full Stack (Backend e Frontend)",
@@ -43,10 +43,11 @@
         "de": "web-full-stack-entwickler-backend-und-frontend-goline-sa-stabio-tessin-schweiz",
         "fr": "developpeur-web-full-stack-backend-et-frontend-goline-sa-stabio-tessin-suisse"
       },
-      "previousSlugs": [
-        "web-full-stack-developer-backend-frontend-goline-sa-stabio-ticino-switzerland"
-      ],
       "id": "goline-d98f0d9c911f",
+      "previousSlugs": [
+        "web-full-stack-developer-backend-frontend-goline-sa-stabio-ticino-switzerland",
+        "sviluppatore-web-full-stack-backend-e-frontend-goline-sa-stabio"
+      ],
       "salaryMin": 72500,
       "salaryMax": 97500,
       "currency": "CHF",
@@ -61,7 +62,8 @@
         }
       },
       "streetAddress": "Via Industria 5",
-      "postalCode": "6934"
+      "postalCode": "6934",
+      "needsRetranslation": true
     }
   ]
 }
