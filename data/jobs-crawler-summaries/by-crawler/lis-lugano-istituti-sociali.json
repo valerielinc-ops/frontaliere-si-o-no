@@ -1,16 +1,16 @@
 {
   "key": "lis-lugano-istituti-sociali",
   "label": "LIS",
-  "generatedAt": "2026-04-08T11:52:57.647Z",
+  "generatedAt": "2026-04-08T21:33:12.282Z",
   "total": 13,
   "newCount": 0,
-  "updatedCount": 13,
+  "updatedCount": 11,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 447212,
-  "avgDurationMs": 447212,
+  "unchangedCount": 2,
+  "durationMs": 26098,
+  "avgDurationMs": 26098,
   "durationHistory": [
-    447212
+    26098
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -49,8 +49,8 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "id": "lis-lugano-istituti-sociali-141ef52d04c5",
+      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -150,51 +150,6 @@
       }
     },
     {
-      "title": "Assistenti di cura",
-      "company": "LIS – Lugano Istituti Sociali",
-      "companyKey": "lis-lugano-istituti-sociali",
-      "companyDomain": "lugano-lis.ch",
-      "url": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=34-assistenti-di-cura-pregassona&language=it",
-      "slug": "assistenti-di-cura",
-      "location": "Pregassona",
-      "canton": "TI",
-      "country": "CH",
-      "postalCode": "6963",
-      "streetAddress": "Via alla Bozzoreda 15",
-      "datePosted": "2026-01-26",
-      "validThrough": "2026-12-13",
-      "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
-      "role": "Medicina/Salute",
-      "source": "arca24",
-      "salaryMin": 65680,
-      "salaryMax": 77502,
-      "salaryCurrency": "CHF",
-      "salaryClass": "10",
-      "crawledAt": "",
-      "currency": "CHF",
-      "salaryExtraction": {
-        "strategyVersion": "lis_salary_v2",
-        "textHash": "772ab97c4b0f2c3acd83",
-        "source": "lis_regex_text",
-        "confidence": 0.98,
-        "extractedAt": "2026-03-29T09:37:00.115Z"
-      },
-      "sourceLang": "it",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "id": "lis-lugano-istituti-sociali-3e5d8c322840",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 23
-      }
-    },
-    {
       "title": "Collaboratori sanitari",
       "company": "LIS – Lugano Istituti Sociali",
       "companyKey": "lis-lugano-istituti-sociali",
@@ -275,7 +230,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "id": "lis-lugano-istituti-sociali-7eba8dbeeb0a",
-      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -346,7 +300,7 @@
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
       "role": "Medicina/Salute",
       "source": "arca24",
-      "salaryMin": 77526,
+      "salaryMin": 86928,
       "salaryMax": 102575,
       "salaryCurrency": "CHF",
       "salaryClass": "15",
@@ -391,7 +345,7 @@
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
       "role": "Medicina/Salute",
       "source": "arca24",
-      "salaryMin": 65680,
+      "salaryMin": 73140,
       "salaryMax": 86305,
       "salaryCurrency": "CHF",
       "salaryClass": "12",
@@ -455,7 +409,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "id": "lis-lugano-istituti-sociali-a24dc6ee20f4",
-      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -553,6 +506,54 @@
         "translation": 25,
         "completeness": 23
       }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
+    {
+      "title": "Assistenti di cura",
+      "company": "LIS – Lugano Istituti Sociali",
+      "companyKey": "lis-lugano-istituti-sociali",
+      "companyDomain": "lugano-lis.ch",
+      "url": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=34-assistenti-di-cura-pregassona&language=it",
+      "slug": "assistenti-di-cura",
+      "location": "Pregassona",
+      "canton": "TI",
+      "country": "CH",
+      "postalCode": "6963",
+      "streetAddress": "Via alla Bozzoreda 15",
+      "datePosted": "2026-01-26",
+      "validThrough": "2026-12-13",
+      "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
+      "role": "Medicina/Salute",
+      "source": "arca24",
+      "salaryMin": 65680,
+      "salaryMax": 77502,
+      "salaryCurrency": "CHF",
+      "salaryClass": "10",
+      "crawledAt": "",
+      "currency": "CHF",
+      "salaryExtraction": {
+        "strategyVersion": "lis_salary_v2",
+        "textHash": "772ab97c4b0f2c3acd83",
+        "source": "lis_regex_text",
+        "confidence": 0.98,
+        "extractedAt": "2026-03-29T09:37:00.115Z"
+      },
+      "sourceLang": "it",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "id": "lis-lugano-istituti-sociali-3e5d8c322840",
+      "needsRetranslation": true,
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 23
+      }
     },
     {
       "title": "Addetti servizi alla casa",
@@ -599,7 +600,5 @@
         "completeness": 23
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
