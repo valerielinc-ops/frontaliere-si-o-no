@@ -1,89 +1,5 @@
 [
   {
-    "timestamp": "2026-03-30T21:02:35.907Z",
-    "label": "before",
-    "total": 1253,
-    "needsRetranslation": 90,
-    "incomplete": 50,
-    "complete": 1203,
-    "missingByLocale": {
-      "it": 33,
-      "en": 47,
-      "de": 29,
-      "fr": 49
-    },
-    "topPending": [
-      {
-        "company": "Denner",
-        "pending": 14
-      },
-      {
-        "company": "AXA Svizzera",
-        "pending": 12
-      },
-      {
-        "company": "Rapelli - ORIOR Food AG",
-        "pending": 8
-      },
-      {
-        "company": "ALDI SUISSE",
-        "pending": 4
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 4
-      },
-      {
-        "company": "Alpiq",
-        "pending": 2
-      },
-      {
-        "company": "Città di Locarno",
-        "pending": 2
-      },
-      {
-        "company": "Città di Bellinzona",
-        "pending": 1
-      },
-      {
-        "company": "Impresa Pizzarotti & C. S.p.A.",
-        "pending": 1
-      },
-      {
-        "company": "PKB Private Bank",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-03-30T21:10:42.319Z",
-    "label": "after",
-    "total": 1253,
-    "needsRetranslation": 10,
-    "incomplete": 10,
-    "complete": 1243,
-    "missingByLocale": {
-      "it": 9,
-      "en": 9,
-      "de": 10,
-      "fr": 10
-    },
-    "topPending": [
-      {
-        "company": "Rapelli - ORIOR Food AG",
-        "pending": 8
-      },
-      {
-        "company": "Denner",
-        "pending": 1
-      },
-      {
-        "company": "Zambon Svizzera SA",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-03-30T22:12:50.334Z",
     "label": "before",
     "total": 1253,
@@ -10299,6 +10215,110 @@
       },
       {
         "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-08T22:00:00.319Z",
+    "label": "before",
+    "total": 1558,
+    "needsRetranslation": 606,
+    "incomplete": 73,
+    "complete": 1485,
+    "missingByLocale": {
+      "it": 57,
+      "en": 44,
+      "de": 38,
+      "fr": 66
+    },
+    "topPending": [
+      {
+        "company": "Otis SA",
+        "pending": 14
+      },
+      {
+        "company": "Bell Deutschland GmbH & Co. KG",
+        "pending": 9
+      },
+      {
+        "company": "Denner",
+        "pending": 8
+      },
+      {
+        "company": "Prada Group",
+        "pending": 6
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 4
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 4
+      },
+      {
+        "company": "Kulm Hotel St. Moritz",
+        "pending": 4
+      },
+      {
+        "company": "EFG International AG",
+        "pending": 3
+      },
+      {
+        "company": "Avaloq",
+        "pending": 2
+      },
+      {
+        "company": "AXA Svizzera",
+        "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-08T22:18:02.397Z",
+    "label": "after",
+    "total": 1558,
+    "needsRetranslation": 72,
+    "incomplete": 21,
+    "complete": 1537,
+    "missingByLocale": {
+      "it": 14,
+      "en": 16,
+      "de": 11,
+      "fr": 20
+    },
+    "topPending": [
+      {
+        "company": "Otis SA",
+        "pending": 7
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 4
+      },
+      {
+        "company": "Bell Deutschland GmbH & Co. KG",
+        "pending": 4
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 2
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      },
+      {
+        "company": "Banca del Sempione",
+        "pending": 1
+      },
+      {
+        "company": "Boggi Milano",
+        "pending": 1
+      },
+      {
+        "company": "Schindler",
         "pending": 1
       }
     ]
