@@ -19,6 +19,7 @@
  * Swiss offices: Lugano (HQ), Bellinzona, Locarno, Chiasso (all TI), Zurich (ZH).
  * Only Ticino jobs are kept in the board dataset.
  */
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -44,8 +45,7 @@ import {
   deriveLocalizedSlug,
   normalize,
   normalizeKey,
-  detectLang,
-mergeLocaleTextMap,
+  mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
 
 
@@ -57,6 +57,7 @@ const PUBLIC_DATA_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 
 const BANCA_SEMPIONE_KEY = 'banca-sempione';
+const HQ = getCompanyDefaults(BANCA_SEMPIONE_KEY);
 const BANCA_SEMPIONE_COMPANY_NAME = 'Banca del Sempione';
 const BANCA_SEMPIONE_HOST = 'www.bancasempione.ch';
 const BANCA_SEMPIONE_API_URL = 'https://www.bancasempione.ch/wp-json/wp/v2/job?per_page=100';
@@ -153,15 +154,15 @@ export function inferLocation(title = '', contentText = '') {
   }
   // Bellinzona
   if (/\bbellinzona\b/i.test(combined)) {
-    return { location: 'Bellinzona', canton: 'TI' };
+    return { location: 'Bellinzona', canton: HQ.canton };
   }
   // Locarno
   if (/\blocarno\b|\bmuralto\b/i.test(combined)) {
-    return { location: 'Locarno', canton: 'TI' };
+    return { location: 'Locarno', canton: HQ.canton };
   }
   // Chiasso
   if (/\bchiasso\b/i.test(combined)) {
-    return { location: 'Chiasso', canton: 'TI' };
+    return { location: 'Chiasso', canton: HQ.canton };
   }
   // Dubai / Middle East in body copy
   if (/\bdubai\b|\bmiddle east\b|\bdifc\b/i.test(contentLower)) {
@@ -169,7 +170,7 @@ export function inferLocation(title = '', contentText = '') {
   }
 
   // Default: headquarters in Lugano
-  return { location: 'Lugano', canton: 'TI' };
+  return { location: 'Lugano', canton: HQ.canton };
 }
 
 export function shouldKeepBancaSempioneJob({ location = '', canton = '', country = '' } = {}) {
@@ -297,7 +298,7 @@ async function fetchBancaSempioneJobs() {
       companyKey: BANCA_SEMPIONE_KEY,
       url,
       location: location || 'Lugano',
-      canton: canton || 'TI',
+      canton: canton || HQ.canton,
       country: country || 'CH',
       category,
       description: descEn,

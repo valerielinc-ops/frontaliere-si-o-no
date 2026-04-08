@@ -13,6 +13,7 @@
  *   5. Post-processes rows for canonical consistency + dedupe.
  *   6. Enforces locale coverage in strict mode.
  */
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -48,6 +49,7 @@ const PUBLIC_DATA_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 
 const CAMBIAVALUTE_KEY = 'cambiavalute';
+const HQ = getCompanyDefaults(CAMBIAVALUTE_KEY);
 const CAMBIAVALUTE_COMPANY_NAME = 'CambiaValute.ch';
 const CAMBIAVALUTE_COMPANY_DOMAIN = 'cambiavalute.ch';
 const CAMBIAVALUTE_HOST = 'cambiavalute.ch';
@@ -184,7 +186,7 @@ async function fetchCambiavalute() {
   for (const link of links) {
     seedMetaByUrl[link] = {
       location: 'Chiasso',
-      canton: 'TI',
+      canton: HQ.canton,
       country: 'CH',
       company: CAMBIAVALUTE_COMPANY_NAME,
       companyDomain: CAMBIAVALUTE_COMPANY_DOMAIN,
@@ -259,8 +261,8 @@ function postProcess() {
       job.companyKey = CAMBIAVALUTE_KEY;
       changed = true;
     }
-    if (!job.canton || job.canton !== 'TI') {
-      job.canton = 'TI';
+    if (!job.canton || job.canton !== HQ.canton) {
+      job.canton = HQ.canton;
       changed = true;
     }
     if (!job.country || job.country !== 'CH') {

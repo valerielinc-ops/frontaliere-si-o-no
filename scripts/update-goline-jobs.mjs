@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -34,6 +35,7 @@ const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTER_PATH = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters', 'goline.json');
 
 const COMPANY_KEY = 'goline';
+const HQ = getCompanyDefaults(COMPANY_KEY);
 const COMPANY_NAME = 'GOLINE SA';
 const COMPANY_HOST = 'www.goline.ch';
 const COMPANY_DOMAIN = 'goline.ch';
@@ -157,9 +159,9 @@ function buildJob(role) {
     companyDomain: COMPANY_DOMAIN,
     location: role.location || 'Stabio',
     addressLocality: role.location || 'Stabio',
-    addressRegion: 'TI',
+    addressRegion: HQ.addressRegion,
     addressCountry: 'CH',
-    canton: 'TI',
+    canton: HQ.canton,
     country: 'CH',
     category: 'tech',
     sector: 'Tecnologia & IT',
@@ -216,7 +218,7 @@ function updateAdapterConfig(jobs) {
   for (const job of jobs) {
     seedMetaByUrl[job.url] = {
       location: job.location,
-      canton: 'TI',
+      canton: HQ.canton,
       company: COMPANY_NAME,
       postedDate: job.postedDate,
     };

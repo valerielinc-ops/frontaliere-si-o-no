@@ -9,6 +9,7 @@
  * CompanyID filters for each hospital institute (Bellinzona, Lugano,
  * Locarno, Mendrisio, etc.).
  */
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -31,6 +32,7 @@ const ROOT = path.resolve(__dirname, '..');
 const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 const EOC_KEY = 'eoc-ente-ospedaliero-cantonale';
+const HQ = getCompanyDefaults(EOC_KEY);
 
 /**
  * Umantis listing URL for ALL EOC institutes.
@@ -497,8 +499,8 @@ export function postProcessEocJobsInMemory(jobs) {
     }
 
     // Fix canton (all EOC hospitals are in Ticino)
-    if (job.canton !== 'TI') {
-      job.canton = 'TI';
+    if (job.canton !== HQ.canton) {
+      job.canton = HQ.canton;
       changed = true;
     }
 

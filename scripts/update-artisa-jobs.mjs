@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -38,6 +39,7 @@ const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTER_PATH = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters', 'artisa-group.json');
 
 const COMPANY_KEY = 'artisa-group';
+const HQ = getCompanyDefaults(COMPANY_KEY);
 const COMPANY_NAME = 'Artisa Group';
 const COMPANY_HOST = 'artisagroup.com';
 const COMPANY_DOMAIN = 'artisagroup.com';
@@ -165,9 +167,9 @@ async function buildArtisaJob(row) {
     companyDomain: COMPANY_DOMAIN,
     location: row.location,
     addressLocality: row.location,
-    addressRegion: 'TI',
+    addressRegion: HQ.addressRegion,
     addressCountry: 'CH',
-    canton: 'TI',
+    canton: HQ.canton,
     country: 'CH',
     category: inferCategory(row.title),
     sector: 'Immobiliare & Architettura',
@@ -231,7 +233,7 @@ function updateAdapterConfig(jobs) {
   for (const job of jobs) {
     seedMetaByUrl[job.url] = {
       location: job.location,
-      canton: 'TI',
+      canton: HQ.canton,
       company: COMPANY_NAME,
       postedDate: job.postedDate,
     };

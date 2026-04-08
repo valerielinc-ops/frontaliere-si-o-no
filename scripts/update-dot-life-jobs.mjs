@@ -15,6 +15,7 @@
  *   Detail:  https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/{jobId}
  *   Fallback listing: https://www.linkedin.com/jobs/search/?f_C=9425984&geoId=92000000
  */
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -57,6 +58,7 @@ const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTER_PATH = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters', 'dot-life.json');
 
 const COMPANY_KEY = 'dot-life';
+const HQ = getCompanyDefaults(COMPANY_KEY);
 const COMPANY_NAME = 'DOT Life SA';
 const COMPANY_DOMAIN = 'dotlifestyle.ch';
 const COMPANY_HOST = 'inrecruiting.intervieweb.it'; // not used as host anymore; kept for adapter compatibility
@@ -285,9 +287,9 @@ async function buildDotLifeJob(card, playwrightPage) {
     companyDomain: COMPANY_DOMAIN,
     location: rawLocation,
     addressLocality: rawLocation,
-    addressRegion: 'TI',
+    addressRegion: HQ.addressRegion,
     addressCountry: 'CH',
-    canton: 'TI',
+    canton: HQ.canton,
     country: 'CH',
     category: inferCategory(detail),
     sector: 'Hospitality & Wellness',
@@ -358,7 +360,7 @@ function updateAdapterConfig(jobs) {
   for (const job of jobs) {
     seedMetaByUrl[job.url] = {
       location: job.location,
-      canton: job.canton || 'TI',
+      canton: job.canton || HQ.canton,
       company: COMPANY_NAME,
       postedDate: job.postedDate,
       linkedInJobId: job.linkedInJobId,

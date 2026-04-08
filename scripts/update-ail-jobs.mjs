@@ -21,6 +21,7 @@
  *   7. Post-process: fix company name, location, canton
  *   8. Validate locale coverage across IT/EN/DE/FR
  */
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -59,6 +60,7 @@ const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 
 const COMPANY_KEY = 'ail-lugano';
+const HQ = getCompanyDefaults(COMPANY_KEY);
 const COMPANY_NAME = 'Aziende Industriali di Lugano (AIL) SA';
 const COMPANY_HOST = 'ail.ch';
 const CAREERS_URL =
@@ -385,7 +387,7 @@ async function fetchAilJobs() {
       company: COMPANY_NAME,
       companyKey: COMPANY_KEY,
       location: 'Lugano',
-      canton: 'TI',
+      canton: HQ.canton,
       country: 'CH',
       // Use the careers page URL (HTML) as the job URL for audit compatibility.
       // The PDF URL is preserved as applyUrl and in the description footer.
@@ -404,7 +406,7 @@ async function fetchAilJobs() {
       slug,
       slugByLocale: { it: slug },
       sourceLang: detectLang(description || title, 'it'),
-      _targetScope: { canton: 'TI', location: 'Lugano' },
+      _targetScope: { canton: HQ.canton, location: 'Lugano' },
     };
 
     jobs.push(job);
@@ -474,7 +476,7 @@ async function mergeJobs(discoveredJobs) {
         company: COMPANY_NAME,
         companyKey: COMPANY_KEY,
         location: discovered.location || ex.location,
-        canton: 'TI',
+        canton: HQ.canton,
         country: 'CH',
         applyUrl: discovered.applyUrl || ex.applyUrl,
         category: discovered.category || ex.category,
@@ -586,7 +588,7 @@ function postProcessJobs() {
       job.companyKey = COMPANY_KEY;
       fixed++;
     }
-    job.canton = 'TI';
+    job.canton = HQ.canton;
     job.country = 'CH';
     if (!job.location) {
       job.location = 'Lugano';

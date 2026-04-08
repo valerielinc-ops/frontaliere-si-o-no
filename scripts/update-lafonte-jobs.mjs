@@ -19,6 +19,7 @@
  *   7. Post-process: fix company name, location, canton
  *   8. Validate locale coverage across IT/EN/DE/FR
  */
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -59,6 +60,7 @@ const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 
 const COMPANY_KEY = 'la-fonte';
+const HQ = getCompanyDefaults(COMPANY_KEY);
 const COMPANY_NAME = 'Fondazione La Fonte';
 const COMPANY_HOST = 'www.lafonte.ch';
 const CAREERS_URL = 'https://www.lafonte.ch/inizia-con-noi';
@@ -354,7 +356,7 @@ async function fetchLaFonteJobs() {
       company: COMPANY_NAME,
       companyKey: COMPANY_KEY,
       location: locationCity,
-      canton: 'TI',
+      canton: HQ.canton,
       country: 'CH',
       url: jobUrl,
       applyUrl: 'mailto:recruiting@lafonte.ch',
@@ -369,7 +371,7 @@ async function fetchLaFonteJobs() {
       descriptionByLocale: { it: description },
       slugByLocale: { it: slug },
       sourceLang: detectLang(description || listing.title, 'it'),
-      _targetScope: { canton: 'TI', location: 'Lugano' },
+      _targetScope: { canton: HQ.canton, location: 'Lugano' },
     };
 
     jobs.push(job);
@@ -429,7 +431,7 @@ async function mergeJobs(discoveredJobs) {
         company: COMPANY_NAME,
         companyKey: COMPANY_KEY,
         location: discovered.location || ex.location,
-        canton: 'TI',
+        canton: HQ.canton,
         country: 'CH',
         applyUrl: discovered.applyUrl || ex.applyUrl,
         category: discovered.category || ex.category,
@@ -549,7 +551,7 @@ function postProcessJobs() {
       job.companyKey = COMPANY_KEY;
       fixed++;
     }
-    job.canton = 'TI';
+    job.canton = HQ.canton;
     job.country = 'CH';
     if (!job.location) {
       job.location = 'Lugano';

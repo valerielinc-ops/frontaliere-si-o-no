@@ -14,6 +14,7 @@
  *   6. Runs base crawler for AI localization (localize-existing-only)
  *   7. Validates locale coverage
  */
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
@@ -57,6 +58,7 @@ const PUBLIC_DATA_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 
 const BPS_KEY = 'bps-suisse';
+const HQ = getCompanyDefaults(BPS_KEY);
 const BPS_COMPANY_NAME = 'BPS (Banca Popolare di Sondrio) SUISSE';
 const BPS_HOST = 'www.bps-suisse.ch';
 const BPS_LISTING_URL = 'https://www.bps-suisse.ch/lavora-in-bps-suisse.php';
@@ -226,12 +228,12 @@ async function fetchJobs() {
       url: listing.url,
       applyUrl: listing.url,
       location,
-      canton: 'TI',
+      canton: HQ.canton,
       country: 'CH',
       addressLocality: location,
-      addressRegion: 'TI',
+      addressRegion: HQ.addressRegion,
       addressCountry: 'CH',
-      postalCode: '6900',
+      postalCode: HQ.postalCode,
       streetAddress: 'Via Giacomo Bentina 5',
       employmentType: inferEmploymentType(listing.title, description),
       description,
@@ -246,7 +248,7 @@ async function fetchJobs() {
       postedDate: new Date().toISOString().slice(0, 10),
       source: 'bps-suisse-careers-crawler',
       crawledAt: new Date().toISOString(),
-      _targetScope: { canton: 'TI', location },
+      _targetScope: { canton: HQ.canton, location },
     });
     console.log(`  ✅ ${listing.title} — ${location}`);
   }
