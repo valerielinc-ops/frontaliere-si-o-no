@@ -305,14 +305,11 @@ async function getOrCreateCustomToken(email) {
 
 function makeAuthenticatedUrl(targetUrl, email, customToken) {
   const url = new URL(targetUrl, BASE_URL);
-  url.searchParams.set('newsletter_email', email.toLowerCase());
-  url.searchParams.set('newsletter_autologin', '1');
-  url.searchParams.set('newsletter_source', 'weekly');
-  url.searchParams.set('subscriber_key', hashEmail(email));
-  if (customToken) url.searchParams.set('authToken', customToken);
-  // Use &amp; in href attributes — proper HTML encoding ensures Mailgun's
-  // click-tracking link rewriter can parse all URLs reliably.
-  return url.toString().replace(/&/g, '&amp;');
+  // Short param names keep total URL < 1000 chars — Mailgun silently
+  // skips click-tracking for href values ≥ 1000 characters.
+  url.searchParams.set('ne', email.toLowerCase());
+  if (customToken) url.searchParams.set('at', customToken);
+  return url.toString();
 }
 
 function shouldWrapNewsletterHref(rawHref) {

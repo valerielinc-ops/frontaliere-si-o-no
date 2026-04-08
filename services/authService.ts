@@ -57,7 +57,8 @@ function shouldStartAuthImmediately(): boolean {
     window.location.pathname.includes('/gestione-contenuti-xk9mp2q')
     || (params.get('mode') === 'signIn' && Boolean(params.get('oobCode')))
     || params.get('newsletter_autologin') === '1'
-    || Boolean(params.get('authToken'))
+    || Boolean(params.get('at') || params.get('authToken'))
+    || Boolean(params.get('ne'))
     || params.get('action') === 'confirm_newsletter'
   );
 }

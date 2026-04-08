@@ -448,19 +448,20 @@ const App: React.FC = () => {
     (async () => {
       try {
         const url = new URL(window.location.href);
-        const authToken = url.searchParams.get('authToken');
+        // Support both legacy long param names and short names (ne/at)
+        const authToken = url.searchParams.get('at') || url.searchParams.get('authToken');
 
         // Always strip newsletter-specific query params from the URL immediately so
         // they don't persist during SPA navigation (privacy + cosmetics).
-        const NEWSLETTER_PARAMS = ['authToken', 'newsletter_email', 'newsletter_autologin', 'newsletter_source', 'subscriber_key'];
+        const NEWSLETTER_PARAMS = ['at', 'ne', 'authToken', 'newsletter_email', 'newsletter_autologin', 'newsletter_source', 'subscriber_key'];
         const hadNewsletterParams = NEWSLETTER_PARAMS.some(p => url.searchParams.has(p));
 
         // Skip if there's a newsletter action — the action handler owns auth in that case
         const action = url.searchParams.get('action');
         if (action === 'unsubscribe' || action === 'resubscribe') return;
 
-        // Read email before stripping params
-        const email = normalizeNewsletterEmail(url.searchParams.get('newsletter_email') || '');
+        // Read email before stripping params (support short 'ne' and legacy 'newsletter_email')
+        const email = normalizeNewsletterEmail(url.searchParams.get('ne') || url.searchParams.get('newsletter_email') || '');
 
         // Strip newsletter params from URL right away
         if (hadNewsletterParams) {
@@ -567,7 +568,7 @@ const App: React.FC = () => {
         const target = currentUrl.searchParams.get('target');
         if (!target) return;
 
-        const newsletterEmail = normalizeNewsletterEmail(currentUrl.searchParams.get('newsletter_email') || '');
+        const newsletterEmail = normalizeNewsletterEmail(currentUrl.searchParams.get('ne') || currentUrl.searchParams.get('newsletter_email') || '');
         const campaignId = currentUrl.searchParams.get('campaign_id') || undefined;
         const messageId = currentUrl.searchParams.get('message_id') || undefined;
         const variant = currentUrl.searchParams.get('variant') || undefined;
@@ -599,7 +600,7 @@ const App: React.FC = () => {
               sourcePage: currentUrl.pathname,
               sourceChannel,
               metadata: {
-                subscriberKey: currentUrl.searchParams.get('subscriber_key') || undefined,
+                subscriberKey: currentUrl.searchParams.get('subscriber_key') || currentUrl.searchParams.get('sk') || undefined,
                 locationInterest,
                 sectorInterest,
               },
@@ -703,7 +704,7 @@ const App: React.FC = () => {
         }
 
         // Authenticate via custom token before processing unsubscribe/resubscribe
-        const authToken = urlParams.get('authToken');
+        const authToken = urlParams.get('at') || urlParams.get('authToken');
         if (authToken) {
           const signedInUser = await signInWithCustomAuthToken(authToken);
           const signedInEmail = signedInUser ? getAuthEmail(signedInUser) : null;

@@ -25,7 +25,7 @@ export const BUILD_ID = String(Date.now());
  */
 export const SPA_ACTION_REDIRECT_SCRIPT = `<script>(function(){
   var p=new URLSearchParams(location.search);
-  if(p.get('action')||p.get('authToken')||p.get('newsletter_autologin')){
+  if(p.get('action')||p.get('at')||p.get('authToken')||p.get('newsletter_autologin')||p.get('ne')){
     sessionStorage.redirect=location.href;
     location.replace('/');
   }
