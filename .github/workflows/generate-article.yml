@@ -58,6 +58,9 @@ jobs:
       (github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success')
     runs-on: ubuntu-latest
     timeout-minutes: 45
+    env:
+      # Cohere API key — direct from secret until added to Firebase RC
+      COHERE_API_KEY: ${{ secrets.COHERE_API_KEY }}
 
     steps:
       - name: Checkout

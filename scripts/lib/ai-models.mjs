@@ -226,7 +226,7 @@ export const DEFAULT_CHAIN = [
   AI_MODELS.COH_CMD_R_PLUS,     // 14c. Cohere Command R+     (Cohere direct - 1000/month)
   AI_MODELS.LLAMA_3_1_405B,     // 15. Meta 405B flagship     (GitHub Models)
   AI_MODELS.GROQ_QWEN3_32B,      // 16. Qwen3 32B              (Groq - ultra fast)
-  AI_MODELS.SN_LLAMA_3_3_70B,   // 16b. Llama 3.3 70B         (SambaNova - ultra fast)
+  // SN_LLAMA_3_3_70B removed — SambaNova HTTP 402 PAYMENT_METHOD_REQUIRED (2026-04)
   AI_MODELS.LLAMA_3_2_90B,      // 17. Llama 3.2 90B           (GitHub Models)
   AI_MODELS.GEMINI_2_FLASH,     // 18. Google 2.0 flash       (Gemini API free)
   AI_MODELS.GPT_5_MINI,         // 19. GPT-5 mini reason     (GitHub Models)
@@ -253,8 +253,8 @@ export const DEFAULT_CHAIN = [
   AI_MODELS.OR_QWEN3_CODER,     // 38. Qwen3 Coder            (OpenRouter free)
   AI_MODELS.GROQ_GEMMA2_9B,     // 39. Gemma2 9B              (Groq)
   AI_MODELS.GROQ_LLAMA_3_1_8B,  // 40. Llama 3.1 8B instant   (Groq)
-  AI_MODELS.SN_DEEPSEEK_V3,      // 40b. DeepSeek V3           (SambaNova - ultra fast)
-  AI_MODELS.SN_QWEN_2_5_72B,    // 40c. Qwen 2.5 72B          (SambaNova - ultra fast)
+  // SN_DEEPSEEK_V3 removed — SambaNova HTTP 402 PAYMENT_METHOD_REQUIRED (2026-04)
+  // SN_QWEN_2_5_72B removed — SambaNova HTTP 402 PAYMENT_METHOD_REQUIRED (2026-04)
   AI_MODELS.OR_GEMMA_4_26B,     // 41. Gemma 4 26B MoE         (OpenRouter free — replaces DeepSeek R1 Zero)
   // OR_DEEPSEEK_R1Z removed from OpenRouter free list (2026-04)
   AI_MODELS.LLAMA_3_1_8B,       // 42. Meta 8B fast           (GitHub Models)
@@ -272,8 +272,8 @@ export const DEFAULT_CHAIN = [
   AI_MODELS.NV_NEMOTRON_49B,     // 53. Nemotron 49B           (NVIDIA NIM direct)
   AI_MODELS.NV_LLAMA_3_1_8B,    // 54. Llama 3.1 8B           (NVIDIA NIM)
   AI_MODELS.NV_PHI_3_MINI,      // 55. Phi-3 Mini             (NVIDIA NIM)
-  AI_MODELS.HF_MISTRAL_7B,      // 54. Mistral 7B             (HuggingFace)
-  AI_MODELS.HF_ZEPHYR_7B,       // 55. Zephyr 7B              (HuggingFace)
+  // HF_MISTRAL_7B removed — HuggingFace HTTP 400 "not a chat model" (2026-04)
+  // HF_ZEPHYR_7B removed — HuggingFace HTTP 400 "not supported by any provider" (2026-04)
   // ── Extended capacity: new OpenRouter free models (200 req/day each) ──
   AI_MODELS.OR_NV_NEMOTRON_120B, // 56. NVIDIA Nemotron 120B   (OpenRouter free)
   AI_MODELS.OR_QWEN3_NEXT_80B,   // 57. Qwen3 Next 80B         (OpenRouter free)
@@ -302,7 +302,7 @@ export const DEFAULT_CHAIN = [
   AI_MODELS.HF_LLAMA_3_3_70B,    // 80. Llama 3.3 70B             (HuggingFace)
   AI_MODELS.HF_QWEN_2_5_72B,     // 81. Qwen 2.5 72B              (HuggingFace)
   AI_MODELS.HF_GEMMA_3_27B,      // 82. Gemma 3 27B               (HuggingFace)
-  AI_MODELS.HF_MISTRAL_SM,       // 83. Mistral Small 3.1          (HuggingFace)
+  // HF_MISTRAL_SM removed — HuggingFace HTTP 400 "not a chat model" (2026-04)
 ];
 
 // ── Provider constants ───────────────────────────────────────

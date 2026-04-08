@@ -32,6 +32,9 @@ jobs:
   generate-faq:
     runs-on: ubuntu-latest
     timeout-minutes: 360
+    env:
+      # Cohere API key — direct from secret until added to Firebase RC
+      COHERE_API_KEY: ${{ secrets.COHERE_API_KEY }}
 
     steps:
       - name: Checkout
