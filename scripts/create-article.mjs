@@ -987,6 +987,7 @@ function assertNoFabricatedReferences(contentIt) {
   // not a fabrication). The LLM correctly identifies truly fabricated laws.
 
   // Check for suspiciously specific fake percentages with "tassa" context
+  let m;
   const taxRatePattern = /tass[ae]\s+(?:\w+\s+){0,5}(\d{1,2}(?:[.,]\d+)?)\s*%/gi;
   while ((m = taxRatePattern.exec(articleLower)) !== null) {
     const rate = parseFloat(m[1].replace(',', '.'));
