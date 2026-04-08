@@ -146,29 +146,10 @@ export async function sendNewsletterConfirmationEmail({ email, locale, sourcePat
 
   const token = generateConfirmationToken(normalizedEmail, secret);
   const returnPath = (sourcePath && sourcePath !== '/') ? sourcePath : '';
-  // Short param names keep total URL < 1000 chars — Mailgun silently
-  // skips click-tracking for href values >= 1000 characters.
-  // 'email' doubles as the auto-login email (no need for separate 'ne' param).
-  let finalUrl = `${BASE_URL}${returnPath}?action=confirm_newsletter&email=${encodeURIComponent(normalizedEmail)}&token=${token}`;
-
-  // Generate a custom auth token for passwordless auto-login on confirmation.
-  // This avoids the Firebase auth action page redirect which breaks on GitHub Pages SPA.
-  try {
-    let uid = null;
-    try {
-      const userRecord = await admin.auth().getUserByEmail(normalizedEmail);
-      uid = userRecord.uid;
-    } catch {
-      const newUser = await admin.auth().createUser({ email: normalizedEmail, emailVerified: true });
-      uid = newUser.uid;
-    }
-    if (uid) {
-      const customToken = await admin.auth().createCustomToken(uid);
-      finalUrl += `&at=${encodeURIComponent(customToken)}`;
-    }
-  } catch (authErr) {
-    console.warn('[newsletterConfirmation] Failed to generate auth token, continuing without autologin:', authErr?.message);
-  }
+  // No auth token embedded in the URL — the confirm action's Cloud Function
+  // response returns a fresh custom token for auto-login. This avoids the
+  // Firebase custom token 1-hour expiry problem entirely.
+  const finalUrl = `${BASE_URL}${returnPath}?action=confirm_newsletter&email=${encodeURIComponent(normalizedEmail)}&token=${token}`;
 
   const resend = new Resend(resendApiKey);
   const { data: emailData, error } = await resend.emails.send({

@@ -148,7 +148,10 @@ export const newsletterManageSubscription = onRequest(
         secret: newsletterSecret,
       });
 
-      if (format === 'json') {
+      // exchange_auth_code always returns JSON (no HTML page)
+      if (result.json) {
+        res.status(result.status).type('json').json(result.json);
+      } else if (format === 'json') {
         const jsonBody = { success: result.status === 200 };
         if (result.authToken) jsonBody.authToken = result.authToken;
         if (result.alreadyConfirmed != null) jsonBody.alreadyConfirmed = result.alreadyConfirmed;

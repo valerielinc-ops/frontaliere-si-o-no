@@ -756,6 +756,32 @@ export async function confirmNewsletterSubscription(
   }
 }
 
+/**
+ * Exchange an HMAC-based autologin code for a fresh Firebase custom token.
+ * The code never expires — it's HMAC("autologin:"+email, NEWSLETTER_SECRET).
+ * The Cloud Function validates the HMAC, finds/creates the user, and returns
+ * a fresh custom token that's valid for 1 hour (but generated on-demand).
+ */
+export async function exchangeNewsletterAuthCode(
+  email: string,
+  code: string,
+): Promise<{ success: boolean; authToken?: string; error?: string }> {
+  try {
+    const normalizedEmail = email.toLowerCase().trim();
+    const endpoint = `${FUNCTIONS_BASE}/newsletterManageSubscription`;
+    const url = `${endpoint}?action=exchange_auth_code&email=${encodeURIComponent(normalizedEmail)}&token=${encodeURIComponent(code)}&format=json`;
+    const resp = await fetch(url);
+    const data = await resp.json();
+    if (resp.ok && data.success && data.authToken) {
+      return { success: true, authToken: data.authToken };
+    }
+    return { success: false, error: data.error || 'exchange_failed' };
+  } catch (error: any) {
+    console.warn('[newsletter] Auth code exchange failed:', error?.message);
+    return { success: false, error: error?.message || 'unknown_error' };
+  }
+}
+
 // ─── Email provider helper (FRO-23) ─────────────────────────
 
 const EMAIL_PROVIDERS: Array<{ domains: string[]; name: string; url: string; mobileUrl?: string }> = [

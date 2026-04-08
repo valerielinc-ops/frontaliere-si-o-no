@@ -283,32 +283,24 @@ function makeResubscribeUrl(email) {
   return `${BASE_URL}/?action=resubscribe&email=${encodeURIComponent(email)}&token=${token}`;
 }
 
-async function getOrCreateCustomToken(email) {
-  try {
-    const admin = await import('firebase-admin');
-    const a = admin.default || admin;
-    const normalizedEmail = email.toLowerCase();
-    let uid;
-    try {
-      const userRecord = await a.auth().getUserByEmail(normalizedEmail);
-      uid = userRecord.uid;
-    } catch {
-      const newUser = await a.auth().createUser({ email: normalizedEmail, emailVerified: true });
-      uid = newUser.uid;
-    }
-    return await a.auth().createCustomToken(uid);
-  } catch (error) {
-    console.warn(`\u26a0\ufe0f Custom token failed for ${email}:`, error?.message || error);
-    return null;
-  }
+// Generate a deterministic HMAC-based autologin code for a subscriber.
+// Unlike Firebase custom tokens (which expire in 1 hour), this code never
+// expires — the client exchanges it for a fresh token via Cloud Function.
+function generateAutologinCode(email) {
+  const secret = process.env.NEWSLETTER_SECRET;
+  if (!secret) return null;
+  return createHmac('sha256', secret)
+    .update('autologin:' + email.toLowerCase().trim())
+    .digest('hex');
 }
 
-function makeAuthenticatedUrl(targetUrl, email, customToken) {
+function makeAuthenticatedUrl(targetUrl, email, autologinCode) {
   const url = new URL(targetUrl, BASE_URL);
   // Short param names keep total URL < 1000 chars — Mailgun silently
   // skips click-tracking for href values ≥ 1000 characters.
   url.searchParams.set('ne', email.toLowerCase());
-  if (customToken) url.searchParams.set('at', customToken);
+  // 'ac' = autologin code (64-char HMAC hex, never expires)
+  if (autologinCode) url.searchParams.set('ac', autologinCode);
   return url.toString();
 }
 
@@ -327,13 +319,13 @@ async function personalizeHtmlForRecipient(email, html) {
   const hrefMatches = [...html.matchAll(/href="([^"]+)"/g)];
   if (!hrefMatches.length) return html;
 
-  // Generate ONE custom token per subscriber (reused for all links)
-  const customToken = await getOrCreateCustomToken(email);
+  // Generate ONE HMAC autologin code per subscriber (reused for all links, never expires)
+  const autologinCode = generateAutologinCode(email);
 
   const replacements = new Map();
   const uniqueHrefs = [...new Set(hrefMatches.map((m) => m[1]).filter(shouldWrapNewsletterHref))];
   for (const href of uniqueHrefs) {
-    const wrapped = makeAuthenticatedUrl(href, email, customToken);
+    const wrapped = makeAuthenticatedUrl(href, email, autologinCode);
     replacements.set(href, wrapped);
   }
 
@@ -345,17 +337,17 @@ async function personalizeHtmlForRecipient(email, html) {
 }
 
 /**
- * Synchronous HTML personalization using a pre-generated auth token.
- * Used by the optimized pipeline where tokens are generated in bulk beforehand.
+ * Synchronous HTML personalization using a pre-generated autologin code.
+ * Used by the optimized pipeline where codes are generated in bulk beforehand.
  */
-function personalizeHtmlWithToken(email, html, customToken) {
+function personalizeHtmlWithToken(email, html, autologinCode) {
   const hrefMatches = [...html.matchAll(/href="([^"]+)"/g)];
   if (!hrefMatches.length) return html;
 
   const replacements = new Map();
   const uniqueHrefs = [...new Set(hrefMatches.map((m) => m[1]).filter(shouldWrapNewsletterHref))];
   for (const href of uniqueHrefs) {
-    const wrapped = makeAuthenticatedUrl(href, email, customToken);
+    const wrapped = makeAuthenticatedUrl(href, email, autologinCode);
     replacements.set(href, wrapped);
   }
 
@@ -1287,14 +1279,13 @@ async function main() {
   }
   console.log(`  ✓ ${subjectMap.size} subjects: ${[...subjectMap.entries()].map(([l, s]) => `${l}="${s}"`).join(', ')}`);
 
-  // ── Phase 4: Generate Firebase Auth tokens in parallel ──
-  console.log('🔑 Phase 4: Auth tokens (parallel)...');
-  const tokenMap = new Map();
-  await pMap(subscribers, async (subscriber) => {
-    const token = await getOrCreateCustomToken(subscriber.email);
-    tokenMap.set(subscriber.email, token);
-  }, 10); // Higher concurrency for auth tokens (fast, no AI)
-  console.log(`  ✓ ${tokenMap.size} tokens generated`);
+  // ── Phase 4: Generate autologin codes (deterministic HMAC, no async needed) ──
+  console.log('🔑 Phase 4: Autologin codes (HMAC)...');
+  const codeMap = new Map();
+  for (const subscriber of subscribers) {
+    codeMap.set(subscriber.email, generateAutologinCode(subscriber.email));
+  }
+  console.log(`  ✓ ${codeMap.size} autologin codes generated`);
 
   // ── Phase 5: Assemble emails (CPU-only, no async) ──
   console.log('📦 Phase 5: Assembling emails...');
@@ -1320,9 +1311,9 @@ async function main() {
       resubscribeUrl: makeResubscribeUrl(subscriber.email),
     });
 
-    // Personalize links with pre-generated auth token
-    const customToken = tokenMap.get(subscriber.email);
-    const personalizedHtml = personalizeHtmlWithToken(subscriber.email, html, customToken);
+    // Personalize links with pre-generated HMAC autologin code (never expires)
+    const autologinCode = codeMap.get(subscriber.email);
+    const personalizedHtml = personalizeHtmlWithToken(subscriber.email, html, autologinCode);
     const sanitizedHtml = sanitizeJobUrls(personalizedHtml, validJobSlugs);
 
     emails.push({

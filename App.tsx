@@ -442,23 +442,25 @@ const App: React.FC = () => {
     }
   }, []);
 
-  // Auto-login via custom token embedded in newsletter confirmation URL
+  // Auto-login via HMAC autologin code or legacy custom token in newsletter URL
   useEffect(() => {
     let cancelled = false;
     (async () => {
       try {
         const url = new URL(window.location.href);
-        // Support both legacy long param names and short names (ne/at)
-        const authToken = url.searchParams.get('at') || url.searchParams.get('authToken');
+        // 'ac' = HMAC autologin code (never expires, exchanged for fresh token)
+        // 'at'/'authToken' = legacy Firebase custom token (expires in 1h, direct sign-in)
+        const autologinCode = url.searchParams.get('ac');
+        const legacyAuthToken = url.searchParams.get('at') || url.searchParams.get('authToken');
 
         // Always strip newsletter-specific query params from the URL immediately so
         // they don't persist during SPA navigation (privacy + cosmetics).
-        const NEWSLETTER_PARAMS = ['at', 'ne', 'authToken', 'newsletter_email', 'newsletter_autologin', 'newsletter_source', 'subscriber_key'];
+        const NEWSLETTER_PARAMS = ['ac', 'at', 'ne', 'authToken', 'newsletter_email', 'newsletter_autologin', 'newsletter_source', 'subscriber_key'];
         const hadNewsletterParams = NEWSLETTER_PARAMS.some(p => url.searchParams.has(p));
 
         // Skip if there's a newsletter action — the action handler owns auth in that case
         const action = url.searchParams.get('action');
-        if (action === 'unsubscribe' || action === 'resubscribe') return;
+        if (action === 'unsubscribe' || action === 'resubscribe' || action === 'confirm_newsletter') return;
 
         // Read email before stripping params (support short 'ne', legacy 'newsletter_email',
         // and 'email' fallback for confirmation links that share the 'email' param)
@@ -471,16 +473,27 @@ const App: React.FC = () => {
           window.history.replaceState(null, '', cleanUrl);
         }
 
-        if (!authToken) return;
+        if (!autologinCode && !legacyAuthToken) return;
         if (!email || !email.includes('@')) return;
 
-        const user = await signInWithCustomAuthToken(authToken);
+        let user = null;
+        if (autologinCode) {
+          // New flow: exchange HMAC code for a fresh custom token via Cloud Function
+          const { exchangeNewsletterAuthCode } = await import('@/services/newsletterSubscribers');
+          const result = await exchangeNewsletterAuthCode(email, autologinCode);
+          if (result.success && result.authToken) {
+            user = await signInWithCustomAuthToken(result.authToken);
+          }
+        } else if (legacyAuthToken) {
+          // Legacy flow: direct sign-in with pre-generated custom token (may be expired)
+          user = await signInWithCustomAuthToken(legacyAuthToken);
+        }
 
         if (cancelled) return;
-        Analytics.trackUIInteraction('newsletter', 'custom_token', 'autologin', user ? 'success' : 'no-user');
+        Analytics.trackUIInteraction('newsletter', 'autologin', autologinCode ? 'hmac_code' : 'legacy_token', user ? 'success' : 'failed');
       } catch (error) {
-        reportCaughtError(error, 'app.newsletterCustomTokenAutologin');
-        Analytics.trackUIInteraction('newsletter', 'custom_token', 'autologin', 'error');
+        reportCaughtError(error, 'app.newsletterAutologin');
+        Analytics.trackUIInteraction('newsletter', 'autologin', 'error');
       }
     })();
     return () => { cancelled = true; };
@@ -704,10 +717,26 @@ const App: React.FC = () => {
           return;
         }
 
-        // Authenticate via custom token before processing unsubscribe/resubscribe
-        const authToken = urlParams.get('at') || urlParams.get('authToken');
-        if (authToken) {
-          const signedInUser = await signInWithCustomAuthToken(authToken);
+        // Authenticate via autologin code or legacy custom token before processing
+        const autologinCode = urlParams.get('ac');
+        const legacyAuthToken = urlParams.get('at') || urlParams.get('authToken');
+        if (autologinCode) {
+          // New flow: exchange HMAC code for fresh token
+          const { exchangeNewsletterAuthCode } = await import('@/services/newsletterSubscribers');
+          const result = await exchangeNewsletterAuthCode(normalizedEmail, autologinCode);
+          if (result.success && result.authToken) {
+            const signedInUser = await signInWithCustomAuthToken(result.authToken);
+            const signedInEmail = signedInUser ? getAuthEmail(signedInUser) : null;
+            if (!signedInEmail || normalizeNewsletterEmail(signedInEmail) !== normalizedEmail) {
+              setUnsubscribeMsg(action === 'unsubscribe'
+                ? 'Link non valido o scaduto. Riprova dalla newsletter.'
+                : 'Link non valido o scaduto. Riprova dalla newsletter.');
+              window.history.replaceState({}, '', window.location.pathname);
+              return;
+            }
+          }
+        } else if (legacyAuthToken) {
+          const signedInUser = await signInWithCustomAuthToken(legacyAuthToken);
           const signedInEmail = signedInUser ? getAuthEmail(signedInUser) : null;
           if (!signedInEmail || normalizeNewsletterEmail(signedInEmail) !== normalizedEmail) {
             setUnsubscribeMsg(action === 'unsubscribe'

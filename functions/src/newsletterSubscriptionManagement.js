@@ -100,13 +100,49 @@ export async function handleSubscriptionManagement({ action, email, token, local
     } catch { /* fallback to 'it' */ }
   }
 
-  const validActions = ['unsubscribe', 'resubscribe', 'confirm'];
+  const validActions = ['unsubscribe', 'resubscribe', 'confirm', 'exchange_auth_code'];
   if (!validActions.includes(action)) {
     return { status: 400, html: buildResponseHtml({ title: t(lang, 'manageErrorTitle'), message: t(lang, 'manageErrorInvalidAction'), showResubscribe: false, email: '', token: '', locale: lang }) };
   }
 
   if (!normalizedEmail || !normalizedEmail.includes('@')) {
     return { status: 400, html: buildResponseHtml({ title: t(lang, 'manageErrorTitle'), message: t(lang, 'manageErrorMissingParams'), showResubscribe: false, email: '', token: '', locale: lang }) };
+  }
+
+  // ── exchange_auth_code: verify HMAC autologin code, return fresh custom token ──
+  if (action === 'exchange_auth_code') {
+    // The autologin code uses a different HMAC derivation than unsubscribe tokens
+    const expectedCode = createHmac('sha256', secret)
+      .update('autologin:' + normalizedEmail)
+      .digest('hex');
+    let codeValid = false;
+    try {
+      codeValid = timingSafeEqual(Buffer.from(token, 'hex'), Buffer.from(expectedCode, 'hex'));
+    } catch { /* invalid hex → codeValid stays false */ }
+
+    if (!codeValid) {
+      return { status: 403, json: { success: false, error: 'invalid_auth_code' } };
+    }
+
+    try {
+      ensureAdminApp();
+      let uid = null;
+      try {
+        const userRecord = await admin.auth().getUserByEmail(normalizedEmail);
+        uid = userRecord.uid;
+      } catch {
+        const newUser = await admin.auth().createUser({ email: normalizedEmail, emailVerified: true });
+        uid = newUser.uid;
+      }
+      if (uid) {
+        const authToken = await admin.auth().createCustomToken(uid);
+        return { status: 200, json: { success: true, authToken } };
+      }
+      return { status: 500, json: { success: false, error: 'uid_not_found' } };
+    } catch (authErr) {
+      console.error('[exchange_auth_code] Failed:', authErr?.message);
+      return { status: 500, json: { success: false, error: 'token_generation_failed' } };
+    }
   }
 
   if (!verifyHmacToken(normalizedEmail, token, secret)) {
