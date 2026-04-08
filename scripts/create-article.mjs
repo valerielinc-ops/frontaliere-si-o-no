@@ -1032,7 +1032,6 @@ function assertNoFabricatedReferences(contentIt) {
       console.error(`  ⚠️  Riferimenti normativi non riconosciuti: ${uniqueUnknown.join(', ')}`);
       issues.push(`${uniqueUnknown.length} rif. normativi non riconosciuti: ${uniqueUnknown.join(', ')}`);
     }
-    }
   }
 
   // Check for suspiciously specific fake percentages with "tassa" context
