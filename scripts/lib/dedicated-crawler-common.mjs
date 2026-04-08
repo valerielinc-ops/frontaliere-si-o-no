@@ -1036,6 +1036,13 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
   for (const job of raw) {
     let jobChanged = false;
 
+    // Auto-generate id if missing — use url or slug as seed
+    if (!job.id) {
+      const seed = job.url || job.slug || job.title || `job-${Math.random()}`;
+      job.id = `${(job.companyKey || 'unknown')}-${createHash('sha1').update(seed).digest('hex').slice(0, 12)}`;
+      jobChanged = true;
+    }
+
     // Snapshot all current slugs before hardening so we can detect renames.
     // slugsBefore: Set for detecting globally-lost slugs (e.g. job.slug rename).
     // slugsByLocaleBefore: per-locale map for detecting locale-specific slug changes

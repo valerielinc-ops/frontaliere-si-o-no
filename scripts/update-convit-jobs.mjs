@@ -13,6 +13,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import {
   printPublishedJobUrls,
@@ -217,7 +218,9 @@ function buildConvitJob(row) {
   const canton = row.canton || inferConvitCanton(row.location) || 'TI';
   const localized = buildConvitLocalizedContent({ ...row, canton });
   const defaultCity = canton === 'GR' ? 'Graubünden' : 'Massagno';
+  const urlHash = createHash('sha1').update(row.detailUrl || row.title || '').digest('hex').slice(0, 12);
   return {
+    id: `convit-${urlHash}`,
     title: localized.titleByLocale.it,
     slug: localized.slugByLocale.it,
     url: row.detailUrl,
