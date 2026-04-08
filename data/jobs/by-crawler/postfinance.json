@@ -1,6 +1,6 @@
 {
   "crawlerKey": "postfinance",
-  "assembledAt": "2026-04-07T21:46:57.603Z",
+  "assembledAt": "2026-04-08T09:51:07.182Z",
   "jobs": [
     {
       "url": "https://job.post.ch/PostFinance/job/Bellinzona-Compliance-Officer-%28wmd%29/1378566933/",
@@ -60,7 +60,9 @@
         }
       },
       "postalCode": "6500",
-      "previousSlugs": []
+      "previousSlugs": [],
+      "needsRetranslation": true,
+      "id": "postfinance-b561e2e6971a"
     }
   ]
 }
