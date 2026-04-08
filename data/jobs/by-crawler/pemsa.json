@@ -39,8 +39,8 @@
       },
       "slugByLocale": {
         "it": "idraulico-impianti-riscaldamento-pemsa-lugano",
-        "en": "idraulico-impianti-riscaldamento-pemsa-lugano",
-        "de": "idraulico-impianti-riscaldamento-pemsa-lugano",
+        "en": "heating-systems-plumber-pemsa-lugano",
+        "de": "heizungsinstallateur-pemsa-lugano",
         "fr": "idraulico-impianti-riscaldamento-pemsa-lugano"
       },
       "salaryMin": 58000,
@@ -57,7 +57,10 @@
         }
       },
       "streetAddress": "Via Industria 20",
-      "postalCode": "6807"
+      "postalCode": "6807",
+      "previousSlugs": [
+        "idraulico-impianti-riscaldamento-pemsa-lugano"
+      ]
     },
     {
       "title": "Idraulico impianti Sanitari",
@@ -96,9 +99,9 @@
       },
       "slugByLocale": {
         "it": "idraulico-impianti-sanitari-pemsa-mendrisio",
-        "en": "idraulico-impianti-sanitari-pemsa-mendrisio",
-        "de": "idraulico-impianti-sanitari-pemsa-mendrisio",
-        "fr": "idraulico-impianti-sanitari-pemsa-mendrisio"
+        "en": "plumber-for-sanitary-systems-pemsa-mendrisio",
+        "de": "sanitarinstallateur-in-pemsa-mendrisio",
+        "fr": "plombier-pour-installations-sanitaires-pemsa-mendrisio"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -114,7 +117,10 @@
         }
       },
       "streetAddress": "Via Industria 20",
-      "postalCode": "6807"
+      "postalCode": "6807",
+      "previousSlugs": [
+        "idraulico-impianti-sanitari-pemsa-mendrisio"
+      ]
     },
     {
       "title": "Idraulico con esperienza",
@@ -153,9 +159,9 @@
       },
       "slugByLocale": {
         "it": "idraulico-con-esperienza-pemsa-lugano",
-        "en": "idraulico-con-esperienza-pemsa-lugano",
-        "de": "idraulico-con-esperienza-pemsa-lugano",
-        "fr": "idraulico-con-esperienza-pemsa-lugano"
+        "en": "experienced-plumber-pemsa-lugano",
+        "de": "erfahrener-klempner-pemsa-lugano",
+        "fr": "plombier-experimente-pemsa-lugano"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -171,7 +177,10 @@
         }
       },
       "streetAddress": "Via Industria 20",
-      "postalCode": "6807"
+      "postalCode": "6807",
+      "previousSlugs": [
+        "idraulico-con-esperienza-pemsa-lugano"
+      ]
     },
     {
       "title": "Metalcostruttore – Saldatore",

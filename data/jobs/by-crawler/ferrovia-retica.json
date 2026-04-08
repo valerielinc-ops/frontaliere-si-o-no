@@ -71,10 +71,10 @@
       "sourceLang": "de",
       "slug": "leiter-in-bahnproduktion-50-100-ferrovia-retica-rhb-chur",
       "slugByLocale": {
-        "it": "leiter-in-bahnproduktion-50-100-ferrovia-retica-rhb-chur",
-        "en": "leiter-in-bahnproduktion-50-100-ferrovia-retica-rhb-chur",
+        "it": "responsabile-produzione-ferroviaria-ferrovia-retica-rhb-chur",
+        "en": "head-of-railway-production-ferrovia-retica-rhb-chur",
         "de": "leiter-in-bahnproduktion-50-100-ferrovia-retica-rhb-chur",
-        "fr": "leiter-in-bahnproduktion-50-100-ferrovia-retica-rhb-chur"
+        "fr": "responsable-de-la-production-ferroviaire-ferrovia-retica-rhb-chur"
       },
       "titleByLocale": {
         "de": "Leiter/in Bahnproduktion (50-100%)",
@@ -102,7 +102,10 @@
           "maxValue": 97000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "leiter-in-bahnproduktion-50-100-ferrovia-retica-rhb-chur"
+      ]
     },
     {
       "title": "Leiter/in Betrieb & Kundeninfo / Bernina Süd (50-100%)",
@@ -122,10 +125,10 @@
       "sourceLang": "de",
       "slug": "leiter-in-betrieb-kundeninfo-bernina-sud-50-100-ferrovia-retica-rhb-bernina",
       "slugByLocale": {
-        "it": "leiter-in-betrieb-kundeninfo-bernina-sud-50-100-ferrovia-retica-rhb-bernina",
-        "en": "leiter-in-betrieb-kundeninfo-bernina-sud-50-100-ferrovia-retica-rhb-bernina",
+        "it": "responsabile-operazioni-e-informazioni-clienti-bernina-sud-50-100-ferrovia-retica-rhb-bernina",
+        "en": "operations-customer-information-manager-bernina-south-50-100-ferrovia-retica-rhb-bernina",
         "de": "leiter-in-betrieb-kundeninfo-bernina-sud-50-100-ferrovia-retica-rhb-bernina",
-        "fr": "leiter-in-betrieb-kundeninfo-bernina-sud-50-100-ferrovia-retica-rhb-bernina"
+        "fr": "responsable-operations-information-client-bernina-sud-50-100-ferrovia-retica-rhb-bernina"
       },
       "titleByLocale": {
         "de": "Leiter/in Betrieb & Kundeninfo / Bernina Süd (50-100%)",
@@ -154,7 +157,10 @@
           "maxValue": 97000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "leiter-in-betrieb-kundeninfo-bernina-sud-50-100-ferrovia-retica-rhb-bernina"
+      ]
     },
     {
       "title": "Standortleiter/in Zugvorbereitung & Reinigung / Nord- & Mittelbünden (50-100%)",
