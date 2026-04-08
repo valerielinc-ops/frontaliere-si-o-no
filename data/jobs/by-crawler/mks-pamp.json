@@ -1,6 +1,6 @@
 {
   "crawlerKey": "mks-pamp",
-  "assembledAt": "2026-04-08T09:48:34.629Z",
+  "assembledAt": "2026-04-08T21:39:03.669Z",
   "jobs": [
     {
       "title": "Tecnico di laboratorio",
@@ -28,7 +28,7 @@
       "titleByLocale": {
         "it": "Tecnico di laboratorio",
         "en": "Laboratory Technician",
-        "de": "Laboratoriumstechniker",
+        "de": "Techniker di laboratorio",
         "fr": "Technicien de laboratoire"
       },
       "descriptionByLocale": {
@@ -39,9 +39,9 @@
       },
       "slugByLocale": {
         "it": "tecnico-di-laboratorio-mks-pamp-castel-san-pietro",
-        "en": "tecnico-di-laboratorio-mks-pamp-castel-san-pietro",
-        "de": "tecnico-di-laboratorio-mks-pamp-castel-san-pietro",
-        "fr": "tecnico-di-laboratorio-mks-pamp-castel-san-pietro"
+        "en": "laboratory-technician-mks-pamp-castel-san-pietro",
+        "de": "laboratoriumstechniker-mks-pamp-castel-san-pietro",
+        "fr": "technicien-de-laboratoire-mks-pamp-castel-san-pietro"
       },
       "id": "mks-pamp-38b9837e188e",
       "salaryMin": 58000,
@@ -58,7 +58,8 @@
         }
       },
       "streetAddress": "Via delle Fornaci",
-      "postalCode": "6828"
+      "postalCode": "6828",
+      "previousSlugs": []
     },
     {
       "title": "HR Business Partner",
@@ -123,7 +124,8 @@
       },
       "streetAddress": "Via delle Fornaci",
       "postalCode": "6828",
-      "id": "mks-pamp-7eeb6ae36a39"
+      "id": "mks-pamp-7eeb6ae36a39",
+      "needsRetranslation": true
     },
     {
       "title": "Idraulico Manutentore Macchinari Industriali",
@@ -246,7 +248,8 @@
       "previousSlugs": [
         "metal-amp-inventory-controller-mks-pamp-castel-san-pietro"
       ],
-      "id": "mks-pamp-3b2040222bc6"
+      "id": "mks-pamp-3b2040222bc6",
+      "needsRetranslation": true
     },
     {
       "title": "Specialista tecnico chimico responsabile conduzione impianto",

@@ -1,49 +1,18 @@
 {
   "key": "mks-pamp",
   "label": "MKS PAMP",
-  "generatedAt": "2026-04-08T09:48:34.630Z",
+  "generatedAt": "2026-04-08T21:39:03.670Z",
   "total": 5,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 23759,
-  "avgDurationMs": 23759,
+  "unchangedCount": 3,
+  "durationMs": 15648,
+  "avgDurationMs": 15648,
   "durationHistory": [
-    23759
+    15648
   ],
-  "newJobs": [
-    {
-      "title": "Tecnico di laboratorio",
-      "slug": "tecnico-di-laboratorio-mks-pamp-castel-san-pietro",
-      "url": "https://careers.mkspamp.com/jobs/7522930-tecnico-di-laboratorio",
-      "applyUrl": "https://careers.mkspamp.com/jobs/7522930-tecnico-di-laboratorio",
-      "company": "MKS PAMP",
-      "companyKey": "mks-pamp",
-      "companyDomain": "mkspamp.com",
-      "location": "Castel San Pietro",
-      "addressLocality": "Castel San Pietro",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "general",
-      "sector": "Metalli preziosi",
-      "source": "mkspamp-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-04-07",
-      "employmentType": "full-time",
-      "contractType": "permanent",
-      "validThrough": "",
-      "_qualityScore": 73,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 16,
-        "completeness": 14
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "HR Business Partner",
@@ -72,6 +41,7 @@
       "currency": "CHF",
       "streetAddress": "Via delle Fornaci",
       "postalCode": "6828",
+      "id": "mks-pamp-7eeb6ae36a39",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -107,6 +77,7 @@
       "currency": "CHF",
       "streetAddress": "Via delle Fornaci",
       "postalCode": "6828",
+      "id": "mks-pamp-3b2040222bc6",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 20,
@@ -118,6 +89,42 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [
+    {
+      "title": "Tecnico di laboratorio",
+      "slug": "tecnico-di-laboratorio-mks-pamp-castel-san-pietro",
+      "url": "https://careers.mkspamp.com/jobs/7522930-tecnico-di-laboratorio",
+      "applyUrl": "https://careers.mkspamp.com/jobs/7522930-tecnico-di-laboratorio",
+      "company": "MKS PAMP",
+      "companyKey": "mks-pamp",
+      "companyDomain": "mkspamp.com",
+      "location": "Castel San Pietro",
+      "addressLocality": "Castel San Pietro",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "general",
+      "sector": "Metalli preziosi",
+      "source": "mkspamp-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-04-07",
+      "employmentType": "full-time",
+      "contractType": "permanent",
+      "validThrough": "",
+      "id": "mks-pamp-38b9837e188e",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "streetAddress": "Via delle Fornaci",
+      "postalCode": "6828",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
     {
       "title": "Idraulico Manutentore Macchinari Industriali",
       "slug": "idraulico-manutentore-macchinari-industriali-mks-pamp-castel-san-pietro",
@@ -145,6 +152,7 @@
       "currency": "CHF",
       "streetAddress": "Via delle Fornaci",
       "postalCode": "6828",
+      "id": "mks-pamp-09a0aa686483",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -180,6 +188,7 @@
       "currency": "CHF",
       "streetAddress": "Via delle Fornaci",
       "postalCode": "6828",
+      "id": "mks-pamp-9aa99d99b95f",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
