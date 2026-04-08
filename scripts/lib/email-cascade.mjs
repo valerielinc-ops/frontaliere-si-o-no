@@ -158,12 +158,13 @@ async function sendViaUnosend(email) {
 
   const body = {
     from: fromParsed.name ? `${fromParsed.name} <${fromParsed.email}>` : fromParsed.email,
-    to: email.to,
+    to: Array.isArray(email.to) ? email.to : [email.to],
     subject: email.subject,
     html: email.html,
   };
   if (email.text) body.text = email.text;
-  if (email.tags?.length) body.tags = email.tags.map(t => t.value);
+  if (email.tags?.length) body.tags = email.tags;
+  if (email.headers && typeof email.headers === 'object') body.headers = email.headers;
 
   const res = await fetch('https://api.unosend.co/v1/emails', {
     method: 'POST',
