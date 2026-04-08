@@ -186,7 +186,7 @@ async function sendViaMailjet(email) {
     body: JSON.stringify({
       Messages: [{
         From: { Email: fromParsed.email, Name: fromParsed.name || undefined },
-        To: email.to.map(addr => ({ Email: addr })),
+        To: (Array.isArray(email.to) ? email.to : [email.to]).map(addr => ({ Email: addr })),
         Subject: email.subject,
         HTMLPart: email.html,
         TextPart: email.text || undefined,
@@ -218,7 +218,8 @@ async function sendViaMailgun(email) {
 
   const form = new URLSearchParams();
   form.append('from', email.from);
-  for (const addr of email.to) form.append('to', addr);
+  const toAddrs = Array.isArray(email.to) ? email.to : [email.to];
+  for (const addr of toAddrs) form.append('to', addr);
   form.append('subject', email.subject);
   form.append('html', email.html);
   if (email.text) form.append('text', email.text);
