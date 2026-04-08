@@ -48,6 +48,7 @@ import {
   buildGuessApplyUrl,
   parseGuessJobDetailPayload,
 } from './lib/guess-job-parser.mjs';
+import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -225,7 +226,7 @@ function buildGuessJob(listing, detail) {
     addressLocality: city,
     addressRegion: 'TI',
     addressCountry: 'CH',
-    canton: 'TI',
+    canton: TARGET_CANTONS[0],
     country: 'CH',
     employmentType: parsed.employmentType,
     contractType: parsed.employmentType,
@@ -316,7 +317,7 @@ function updateAdapterConfig(discoveredJobs) {
       job.url,
       {
         location: job.location,
-        canton: 'TI',
+        canton: TARGET_CANTONS[0],
         company: COMPANY_NAME,
         postedDate: job.postedDate || '',
       },
@@ -346,7 +347,7 @@ function postProcessJobs() {
       job.companyDomain = COMPANY_DOMAIN;
       fixed += 1;
     }
-    job.canton = 'TI';
+    job.canton = TARGET_CANTONS[0];
     job.country = 'CH';
     job.addressCountry = 'CH';
     job.addressRegion = 'TI';

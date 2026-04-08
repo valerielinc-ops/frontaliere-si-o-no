@@ -20,6 +20,10 @@
  *   </table>
  */
 
+import { getCompanyDefaults } from './crawler-location-config.mjs';
+
+const HQ = getCompanyDefaults('prada');
+
 const SEARCH_URL = 'https://jobs.pradagroup.com/search/?q=&locationsearch=switzerland&searchby=location';
 const TICINO_SEARCH_URL = 'https://jobs.pradagroup.com/search/?q=&locationsearch=ticino&searchby=location';
 const CAREERS_BASE = 'https://jobs.pradagroup.com';
@@ -110,7 +114,7 @@ export function parsePradaListingHtml(html) {
       title: rawTitle,
       url: fullUrl,
       location: location || 'Mendrisio',
-      canton: 'TI',
+      canton: HQ.canton,
       department,
       jobId,
     });
@@ -132,7 +136,7 @@ export function parsePradaListingHtml(html) {
         title: rawTitle,
         url: `${CAREERS_BASE}${relUrl}`,
         location: 'Mendrisio',
-        canton: 'TI',
+        canton: HQ.canton,
         department: '',
         jobId,
       });

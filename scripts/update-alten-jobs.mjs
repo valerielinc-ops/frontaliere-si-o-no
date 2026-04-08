@@ -32,6 +32,7 @@ import {
   inferAltenCategory,
 } from './lib/alten-job-parser.mjs';
 import { inferSwissTargetCanton } from './lib/target-swiss-locations.mjs';
+import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -196,7 +197,7 @@ async function buildJobs(listings) {
           continue;
         }
         const parsed = parseAltenDetailHtml(await page.content(), listing.href);
-        const canton = inferSwissTargetCanton(parsed.location) || 'TI';
+        const canton = inferSwissTargetCanton(parsed.location) || TARGET_CANTONS[0];
         jobs.push({
           title: parsed.title,
           slug: parsed.slug,
@@ -287,7 +288,7 @@ function updateAdapterConfig(jobs) {
   for (const job of jobs) {
     seedMetaByUrl[job.url] = {
       location: job.location,
-      canton: job.canton || 'TI',
+      canton: job.canton || TARGET_CANTONS[0],
       company: COMPANY_NAME,
       postedDate: job.postedDate,
     };

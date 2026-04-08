@@ -220,8 +220,10 @@ export async function handleUnosendWebhookRequest({ payload, headers, signingSec
   const eventType = body.type;
   const eventData = body.data || body;
 
-  if (!eventType) {
-    throw new Error('Invalid Unosend webhook payload: missing type');
+  // Handle ping/test events gracefully
+  if (!eventType || eventType === 'ping' || eventType === 'test') {
+    console.log(`[unosendWebhook] Ping/test event received (type=${eventType || 'none'})`);
+    return { ok: true, ping: true };
   }
 
   const db = admin.firestore();

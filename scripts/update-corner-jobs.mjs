@@ -41,6 +41,7 @@ import {
   parseBullets,
   MIN_CORNER_DESC_LENGTH,
 } from './lib/corner-job-parser.mjs';
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -209,7 +210,7 @@ function parseCornerOffer(offer) {
   // Location
   const loc = (offer.locations || [])[0] || {};
   const city = loc.city || offer.city || 'Lugano';
-  const canton = loc.state_code || offer.state_code || 'TI';
+  const canton = loc.state_code || offer.state_code || getCompanyDefaults('corner').canton;
 
   // URL
   const careersUrl = offer.careers_url || `https://jobs.corner.ch/o/${offer.slug}`;

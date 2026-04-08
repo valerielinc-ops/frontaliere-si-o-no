@@ -44,6 +44,7 @@ import {
   mergePreserveLocaleData,
 } from './lib/dedicated-crawler-common.mjs';
 import { inferSwissTargetCanton } from './lib/target-swiss-locations.mjs';
+import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -207,7 +208,7 @@ async function fetchSchindlerSearchResults() {
     seen.add(fullUrl);
 
     const city = location.split(',')[0]?.trim() || '';
-    const canton = inferSwissTargetCanton(location) || 'TI';
+    const canton = inferSwissTargetCanton(location) || TARGET_CANTONS[0];
 
     results.push({ url: fullUrl, title, city, location, canton });
     console.log(`  📌 ${title} — ${city} (${canton}) → ${fullUrl}`);
@@ -221,7 +222,7 @@ async function fetchSchindlerSearchResults() {
     const fullUrl = `https://${SCHINDLER_HOST}${relativePath}`;
     if (seen.has(fullUrl)) continue;
     seen.add(fullUrl);
-    results.push({ url: fullUrl, title: '', city: '', location: 'Ticino', canton: 'TI' });
+    results.push({ url: fullUrl, title: '', city: '', location: 'Ticino', canton: TARGET_CANTONS[0] });
     console.log(`  📌 (no title in search) → ${fullUrl}`);
   }
 

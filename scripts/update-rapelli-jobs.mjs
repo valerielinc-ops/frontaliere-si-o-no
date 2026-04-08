@@ -41,6 +41,7 @@ import {
   fetchRapelliDetailPage,
   slugify, inferEmploymentType,
 } from './lib/rapelli-job-parser.mjs';
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -123,7 +124,7 @@ async function main() {
       requirements: [],
       requirementsByLocale: { it: [] },
       location: raw.location || 'Stabio',
-      canton: 'TI',
+      canton: getCompanyDefaults('rapelli').canton,
       addressLocality: raw.location || 'Stabio',
       addressCountry: 'CH',
       category: 'manufacturing',

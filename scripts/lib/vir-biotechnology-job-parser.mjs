@@ -11,6 +11,9 @@
  */
 
 import { isTargetSwissLocation } from './target-swiss-locations.mjs';
+import { getCompanyDefaults } from './crawler-location-config.mjs';
+
+const HQ = getCompanyDefaults('vir-biotechnology');
 
 export const GREENHOUSE_BOARD = 'virbiotechnologyinc';
 export const GREENHOUSE_API = `https://boards-api.greenhouse.io/v1/boards/${GREENHOUSE_BOARD}/jobs?content=true`;
@@ -154,7 +157,7 @@ export function parseGreenhouseJobs(apiResponse) {
       url,
       location: swissLocation,
       city: city || 'Bellinzona',
-      canton: canton || 'TI',
+      canton: canton || HQ.canton,
       department,
       datePosted,
       greenhouseId: job.id,

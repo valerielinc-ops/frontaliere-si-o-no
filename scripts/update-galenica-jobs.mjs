@@ -46,6 +46,7 @@ import {
 mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
 import { parseYoustyApprenticeshipHtml } from './lib/yousty-job-parser.mjs';
+import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
 
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -257,7 +258,7 @@ async function fetchGalenicaJobs() {
 
     const firm = contact.firm || GALENICA_COMPANY_NAME;
     const city = contact.city || '';
-    const canton = contact.state || 'TI';
+    const canton = contact.state || TARGET_CANTONS[0];
     const jobUrl = buildJobUrl(preferred);
 
     const category = detectCategory(title);

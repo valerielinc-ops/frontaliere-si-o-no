@@ -30,6 +30,7 @@ import {
   parseFinconsJobDetail,
   buildFinconsLocalizedContent,
 } from './lib/fincons-job-parser.mjs';
+import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -163,7 +164,7 @@ async function buildFinconsJob(listing) {
     addressRegion: 'TI',
     addressCountry: 'CH',
     postalCode: detail.postalCode || '6900',
-    canton: 'TI',
+    canton: TARGET_CANTONS[0],
     country: 'CH',
     category: inferCategory(detail),
     sector: 'Tecnologia & IT',
@@ -228,7 +229,7 @@ function updateAdapterConfig(jobs) {
   for (const job of jobs) {
     seedMetaByUrl[job.url] = {
       location: job.location,
-      canton: 'TI',
+      canton: TARGET_CANTONS[0],
       company: COMPANY_NAME,
       postedDate: job.postedDate,
     };

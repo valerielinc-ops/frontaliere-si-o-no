@@ -7,6 +7,10 @@
  * markdown description.
  */
 
+import { getCompanyDefaults } from './crawler-location-config.mjs';
+
+const HQ = getCompanyDefaults('lastminute');
+
 function normalizeSpace(value = '') {
   return String(value || '')
     .replace(/\u00a0/g, ' ')
@@ -172,7 +176,7 @@ export function parseSmartRecruitersDetail(data = {}) {
 
   // Location
   const city = normalizeSpace(location.city || '');
-  const canton = normalizeSpace(location.region || '').toUpperCase() || 'TI';
+  const canton = normalizeSpace(location.region || '').toUpperCase() || HQ.canton;
   const country = normalizeSpace(location.country || '').toUpperCase() || 'CH';
 
   return {

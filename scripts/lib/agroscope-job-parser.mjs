@@ -15,6 +15,7 @@
  */
 
 import { isTicinoRelevant, isGrigioniRelevant, isTargetSwissLocation } from './target-swiss-locations.mjs';
+import { isTargetCanton } from './crawler-location-config.mjs';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
@@ -120,7 +121,7 @@ export function isAgroscopeTicinoRelevant(job = {}) {
   const canton = String(job.canton || '').toUpperCase();
   const combined = `${city} ${location} ${region}`;
 
-  if (canton === 'TI' || canton === 'GR') return true;
+  if (isTargetCanton(canton)) return true;
   if (isTicinoRelevant(city) || isGrigioniRelevant(city)) return true;
   if (isTargetSwissLocation(city)) return true;
 
@@ -141,7 +142,7 @@ export function isAgroscopeTicinoRelevant(job = {}) {
  */
 export function inferAgroscopeCanton(job = {}) {
   const canton = String(job.canton || '').toUpperCase();
-  if (canton === 'TI' || canton === 'GR') return canton;
+  if (isTargetCanton(canton)) return canton;
 
   const combined = `${job.city || ''} ${job.location || ''} ${job.region || ''}`.toLowerCase();
   if (/chur|coira|grigioni|graubünden|graubunden|poschiavo|bregaglia|mesolcina|calanca/i.test(combined)) return 'GR';

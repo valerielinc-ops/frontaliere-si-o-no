@@ -36,6 +36,7 @@ import {
   inferDelvitechCanton,
   buildDelvitechLocalizedContent,
 } from './lib/delvitech-job-parser.mjs';
+import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -319,7 +320,7 @@ function updateAdapterConfig(jobs) {
   for (const job of jobs) {
     seedMetaByUrl[job.url] = {
       location: job.location,
-      canton: job.canton || 'TI',
+      canton: job.canton || TARGET_CANTONS[0],
       company: COMPANY_NAME,
       postedDate: job.postedDate,
     };

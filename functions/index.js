@@ -82,9 +82,16 @@ export const newsletterUnosendWebhook = onRequest(
     region: 'europe-west6',
     memory: '256MiB',
     timeoutSeconds: 60,
-    cors: false,
+    cors: true,
   },
   async (req, res) => {
+    if (req.method === 'OPTIONS') {
+      res.set('Access-Control-Allow-Origin', '*');
+      res.set('Access-Control-Allow-Methods', 'POST, OPTIONS');
+      res.set('Access-Control-Allow-Headers', 'Content-Type, webhook-id, webhook-timestamp, webhook-signature');
+      res.status(204).send('');
+      return;
+    }
     if (req.method !== 'POST') {
       res.status(405).json({ ok: false, error: 'method_not_allowed' });
       return;

@@ -47,6 +47,7 @@ import {
   validateLastminuteDescription,
   buildLastminuteLocaleFallback,
 } from './lib/lastminute-job-parser.mjs';
+import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -60,7 +61,7 @@ const LASTMINUTE_COMPANY_DOMAIN = 'lastminute.com';
 const LASTMINUTE_CORP_HOST = 'corporate.lastminute.com';
 const LASTMINUTE_SOURCE = {
   name: 'Chiasso',
-  canton: 'TI',
+  canton: TARGET_CANTONS[0],
   listingUrl:
     'https://corporate.lastminute.com/careers/jobs/?search=&department=&location=chiasso&contract=',
 };
@@ -509,7 +510,7 @@ export function normalizeLastminuteRow(job) {
     source: 'Company Careers Crawler',
     location,
     addressLocality: location,
-    canton: String(job?.canton || '').trim() || 'TI',
+    canton: String(job?.canton || '').trim() || TARGET_CANTONS[0],
     country: String(job?.country || '').trim() || 'CH',
     contract,
     slug: refreshedSlugs.slug,
@@ -655,7 +656,7 @@ async function enrichFromSmartRecruitersApi(seedUrls) {
         existing.title = detail.title || existing.title;
         if (detail.applyUrl) existing.applyUrl = detail.applyUrl;
         existing.location = detail.location || existing.location || 'Chiasso';
-        existing.canton = detail.canton || existing.canton || 'TI';
+        existing.canton = detail.canton || existing.canton || TARGET_CANTONS[0];
         enriched++;
         console.log(`  ✅ Enriched "${detail.title}" (${detail.description.length} chars, ${detail.sectionCount} sections)`);
       }
@@ -674,7 +675,7 @@ async function enrichFromSmartRecruitersApi(seedUrls) {
         companyDomain: LASTMINUTE_COMPANY_DOMAIN,
         location,
         addressLocality: location,
-        canton: detail.canton || 'TI',
+        canton: detail.canton || TARGET_CANTONS[0],
         country: detail.country || 'CH',
         source: 'Company Careers Crawler',
         description: buildLastminuteLocaleFallback(fallbackOpts, 'it') || detail.description,

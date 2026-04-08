@@ -42,6 +42,7 @@ import {
   buildRelewantLocalizedContent,
   isRelewantTicinoRelevant,
 } from './lib/relewant-job-parser.mjs';
+import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -128,7 +129,7 @@ function buildRelewantJob(parsed) {
     addressLocality: parsed.city || 'Chiasso',
     addressRegion: 'TI',
     addressCountry: 'CH',
-    canton: 'TI',
+    canton: TARGET_CANTONS[0],
     country: 'CH',
     category: inferCategory(parsed.title),
     sector: 'Consulenza IT',
@@ -205,7 +206,7 @@ function updateAdapterConfig(jobs) {
   for (const job of jobs) {
     seedMetaByUrl[job.url] = {
       location: job.location,
-      canton: 'TI',
+      canton: TARGET_CANTONS[0],
       company: COMPANY_NAME,
       postedDate: job.postedDate,
     };

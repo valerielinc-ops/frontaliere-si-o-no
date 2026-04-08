@@ -39,6 +39,7 @@ import {
   normalize,
   normalizeKey,
 } from './lib/dedicated-crawler-common.mjs';
+import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -255,7 +256,7 @@ async function fetchIbsaJobDetailUrls() {
   for (const detailUrl of seedUrls) {
     seedMetaByUrl[detailUrl] = {
       location: 'Ticino',
-      canton: 'TI',
+      canton: TARGET_CANTONS[0],
       country: 'CH',
       company: IBSA_COMPANY_NAME,
       companyDomain: IBSA_COMPANY_DOMAIN,
@@ -406,7 +407,7 @@ function normalizeIbsaRow(job) {
     source: 'Company Careers Crawler',
     sourceLang: detectLang((job?.description || job?.title || ''), 'it'),
     location: String(job?.location || '').trim() || 'Ticino',
-    canton: String(job?.canton || '').trim() || 'TI',
+    canton: String(job?.canton || '').trim() || TARGET_CANTONS[0],
     country: String(job?.country || '').trim() || 'CH',
     ...localeFields,
   };

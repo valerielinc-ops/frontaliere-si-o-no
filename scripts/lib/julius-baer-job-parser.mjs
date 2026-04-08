@@ -15,6 +15,9 @@
  */
 
 import { isTargetSwissLocation } from './target-swiss-locations.mjs';
+import { getCompanyDefaults } from './crawler-location-config.mjs';
+
+const HQ = getCompanyDefaults('julius-baer');
 
 export const WORKDAY_API_BASE = 'https://juliusbaer.wd3.myworkdayjobs.com/wday/cxs/juliusbaer/External';
 export const WORKDAY_PUBLIC_BASE = 'https://juliusbaer.wd3.myworkdayjobs.com/en-US/External';
@@ -203,7 +206,7 @@ export function parseWorkdayJobDetail(detail, externalPath = '') {
     description: descriptionText,
     url: publicUrl,
     city: city || 'Lugano',
-    canton: 'TI',
+    canton: HQ.canton,
     employmentType: detectEmploymentType(timeType),
     category: detectCategory(title),
     experienceLevel: detectExperienceLevel(title),

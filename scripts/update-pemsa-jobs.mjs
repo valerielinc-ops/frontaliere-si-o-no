@@ -41,6 +41,7 @@ import {
   isPemsaTicinoRelevant,
   buildPemsaLocalizedContent,
 } from './lib/pemsa-job-parser.mjs';
+import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -148,7 +149,7 @@ function buildPemsaJob(detail, url) {
     addressLocality: city,
     addressRegion: detail.region || 'TI',
     addressCountry: detail.country || 'CH',
-    canton: 'TI',
+    canton: TARGET_CANTONS[0],
     country: 'CH',
     category: inferCategory(detail.title),
     sector: 'Edilizia e tecnica',
@@ -212,7 +213,7 @@ function updateAdapterConfig(jobs) {
   for (const job of jobs) {
     seedMetaByUrl[job.url] = {
       location: job.location,
-      canton: 'TI',
+      canton: TARGET_CANTONS[0],
       company: COMPANY_NAME,
       postedDate: job.postedDate,
     };

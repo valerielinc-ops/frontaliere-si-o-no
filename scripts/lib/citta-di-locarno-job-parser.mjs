@@ -19,6 +19,10 @@
  *   </li>
  */
 
+import { getCompanyDefaults } from './crawler-location-config.mjs';
+
+const HQ = getCompanyDefaults('citta-di-locarno');
+
 const CAREERS_URL = 'https://www.locarno.ch/it/albo-comunale/assunzioni-personale';
 const CAREERS_BASE = 'https://www.locarno.ch';
 const UA = 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
@@ -181,7 +185,7 @@ export function parseLocarnoListingHtml(html) {
       applyUrl,
       url: applyUrl || pdfUrl || CAREERS_URL,
       location: 'Locarno',
-      canton: 'TI',
+      canton: HQ.canton,
     });
   }
 

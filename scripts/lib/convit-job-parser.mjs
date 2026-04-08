@@ -13,6 +13,9 @@
 
 import { JSDOM } from 'jsdom';
 import { isTargetSwissLocation, isTicinoRelevant, isGrigioniRelevant, inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { getCompanyDefaults } from './crawler-location-config.mjs';
+
+const HQ = getCompanyDefaults('convit');
 
 const BASE_URL = 'https://www.careers-page.com';
 const COMPANY_SLUG = 'convit-holding-gmbh';
@@ -174,7 +177,7 @@ export function parseConvitDetailPage(html = '', fallbackTitle = '') {
  */
 export function buildConvitLocalizedContent(job = {}) {
   const title = String(job.title || '').trim();
-  const canton = job.canton || 'TI';
+  const canton = job.canton || HQ.canton;
   const regionLabel = canton === 'GR' ? 'Grigioni' : 'Ticino';
   const regionLabelDe = canton === 'GR' ? 'Graubünden' : 'Tessin';
   const regionLabelFr = canton === 'GR' ? 'Grisons' : 'Tessin';
@@ -215,8 +218,8 @@ export function isConvitTicinoRelevant(location = '') {
 }
 
 /**
- * Infer canton (TI or GR) from location text. Falls back to 'TI' for Convit's home base.
+ * Infer canton (TI or GR) from location text. Falls back to HQ canton for Convit's home base.
  */
 export function inferConvitCanton(location = '') {
-  return inferSwissTargetCanton(location) || 'TI';
+  return inferSwissTargetCanton(location) || HQ.canton;
 }

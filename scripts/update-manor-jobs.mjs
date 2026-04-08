@@ -44,6 +44,7 @@ mergeLocaleTextMap,
 detectLang,
 } from './lib/dedicated-crawler-common.mjs';
 import { TICINO_CITIES, isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
+import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
 
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -306,7 +307,7 @@ async function fetchManorJobs() {
       companyKey: MANOR_KEY,
       url,
       location: city,
-      canton: 'TI',
+      canton: TARGET_CANTONS[0],
       country: 'CH',
       category,
       description: descIt,

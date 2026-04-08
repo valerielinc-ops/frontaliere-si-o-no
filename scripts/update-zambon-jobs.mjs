@@ -20,6 +20,7 @@ import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap, detectLang } from './lib/dedicated-crawler-common.mjs';
 import { parseListingPage, slugify, detectCategory, detectExperienceLevel, inferEmploymentType } from './lib/zambon-job-parser.mjs';
+import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -121,7 +122,7 @@ async function fetchJobs() {
         id: `zambon-${raw.id}`,
         url: detailUrl, applyUrl: detailUrl, title,
         company: COMPANY_NAME, companyKey: COMPANY_KEY,
-        location: 'Cadempino', canton: 'TI', country: 'CH',
+        location: 'Cadempino', canton: TARGET_CANTONS[0], country: 'CH',
         addressLocality: 'Cadempino', addressRegion: 'TI', addressCountry: 'CH',
         postalCode: '6814', streetAddress: 'Via Industria 13',
         description: buildZambonDescription(title, raw),
@@ -154,7 +155,7 @@ async function fetchJobs() {
     return {
       url: raw.url, applyUrl: raw.url, title: raw.title,
       company: COMPANY_NAME, companyKey: COMPANY_KEY,
-      location: raw.location || 'Cadempino', canton: 'TI', country: 'CH',
+      location: raw.location || 'Cadempino', canton: TARGET_CANTONS[0], country: 'CH',
       addressLocality: 'Cadempino', addressRegion: 'TI', addressCountry: 'CH',
       postalCode: '6814', streetAddress: 'Via Industria 13',
       description: `${raw.title} — posizione presso ${COMPANY_NAME} a Cadempino (TI).`,

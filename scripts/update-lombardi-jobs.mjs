@@ -43,6 +43,7 @@ import {
   buildLombardiLocalizedContent,
   titleOverlap,
 } from './lib/lombardi-job-parser.mjs';
+import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -160,7 +161,7 @@ function buildLombardiJob(raw, detail) {
     addressLocality: city,
     addressRegion: 'TI',
     addressCountry: 'CH',
-    canton: 'TI',
+    canton: TARGET_CANTONS[0],
     country: 'CH',
     category: inferCategory(title),
     sector: 'Ingegneria civile',
@@ -240,7 +241,7 @@ function updateAdapterConfig(jobs) {
   for (const job of jobs) {
     seedMetaByUrl[job.url] = {
       location: job.location,
-      canton: 'TI',
+      canton: TARGET_CANTONS[0],
       company: COMPANY_NAME,
       postedDate: job.postedDate,
     };

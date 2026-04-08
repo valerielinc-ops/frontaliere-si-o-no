@@ -42,6 +42,7 @@ import {
   buildAllianzLocalizedContent,
   inferAllianzCanton,
 } from './lib/allianz-job-parser.mjs';
+import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -258,7 +259,7 @@ async function enrichWithDetails(listings) {
 function buildAllianzJob(row) {
   const localized = buildAllianzLocalizedContent(row);
   const location = row.location || '';
-  const canton = row._canton || 'TI';
+  const canton = row._canton || TARGET_CANTONS[0];
   return {
     title: localized.titleByLocale.it,
     slug: localized.slugByLocale.it,
@@ -344,7 +345,7 @@ function updateAdapterConfig(jobs) {
   for (const job of jobs) {
     seedMetaByUrl[job.url] = {
       location: job.location,
-      canton: job.canton || 'TI',
+      canton: job.canton || TARGET_CANTONS[0],
       company: COMPANY_NAME,
       postedDate: job.postedDate,
     };

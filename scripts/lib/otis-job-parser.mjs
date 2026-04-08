@@ -17,6 +17,9 @@
  */
 
 import { isTargetSwissLocation, inferAnyCanton } from './target-swiss-locations.mjs';
+import { getCompanyDefaults } from './crawler-location-config.mjs';
+
+const HQ = getCompanyDefaults('otis');
 
 export const WORKDAY_API_BASE = 'https://otis.wd5.myworkdayjobs.com/wday/cxs/otis/REC_Ext_Gateway';
 export const WORKDAY_PUBLIC_BASE = 'https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway';
@@ -231,7 +234,7 @@ export function parseOtisWorkdayDetail(detail, externalPath = '') {
     description: descriptionText,
     url: publicUrl,
     city: city || 'Ticino',
-    canton: 'TI',
+    canton: HQ.canton,
     employmentType: inferEmploymentType(title, descriptionText, timeType),
     datePosted: startDate,
     jobReqId,

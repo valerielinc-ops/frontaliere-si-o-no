@@ -22,6 +22,7 @@ import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap, detectLang } from './lib/dedicated-crawler-common.mjs';
 import { parseWorkdayListings, parseWorkdayJobDetail, slugify, normalizeSpace, stripHtml, WORKDAY_API_BASE, WORKDAY_PUBLIC_BASE, COMPANY_HOST, isTicinoLocation, detectCategory, detectExperienceLevel, detectEmploymentType, buildPublicUrl } from './lib/julius-baer-job-parser.mjs';
+import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -172,7 +173,7 @@ async function fetchJuliusBaerJobs() {
 
     jobs.push({
       url: publicUrl, applyUrl: publicUrl, title, company: COMPANY_NAME, companyKey: COMPANY_KEY,
-      location: city || 'Lugano', canton: 'TI', country: 'CH',
+      location: city || 'Lugano', canton: TARGET_CANTONS[0], country: 'CH',
       addressLocality: city || 'Lugano', addressRegion: 'TI', addressCountry: 'CH',
       postalCode: '6900', streetAddress: 'Via Pretorio 22',
       description: descEn, descriptionByLocale: { en: descEn, it: descIt },
@@ -181,7 +182,7 @@ async function fetchJuliusBaerJobs() {
       source: 'julius-baer-workday-crawler', employmentType: detectEmploymentType(info.timeType || ''),
       sourceLang: detectLang(descEn || title, 'en'),
       experienceLevel: detectExperienceLevel(title), sector: 'Banking / Wealth Management',
-      _targetScope: { canton: 'TI', location: city || 'Lugano' },
+      _targetScope: { canton: TARGET_CANTONS[0], location: city || 'Lugano' },
     });
   }
   console.log(`\n📋 Total unique Julius Baer Ticino jobs: ${jobs.length}`);
@@ -260,7 +261,7 @@ async function main() {
   if (fs.existsSync(DATA_JOBS)) {
     const jobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
     let fixed = 0;
-    for (const j of (Array.isArray(jobs) ? jobs : [])) { if (!isJuliusBaerJob(j)) continue; if (j.company !== COMPANY_NAME) { j.company = COMPANY_NAME; fixed++; } j.companyKey = COMPANY_KEY; j.country = 'CH'; if (!j.canton) { j.canton = 'TI'; fixed++; } if (!j.location) { j.location = 'Lugano'; fixed++; } }
+    for (const j of (Array.isArray(jobs) ? jobs : [])) { if (!isJuliusBaerJob(j)) continue; if (j.company !== COMPANY_NAME) { j.company = COMPANY_NAME; fixed++; } j.companyKey = COMPANY_KEY; j.country = 'CH'; if (!j.canton) { j.canton = TARGET_CANTONS[0]; fixed++; } if (!j.location) { j.location = 'Lugano'; fixed++; } }
     if (fixed > 0) { fs.writeFileSync(DATA_JOBS, JSON.stringify(jobs, null, 2) + '\n'); fs.writeFileSync(PUBLIC_JOBS, JSON.stringify(jobs, null, 2) + '\n'); }
   }
 

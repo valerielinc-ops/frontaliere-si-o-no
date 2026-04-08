@@ -43,6 +43,7 @@ import {
   inferEmploymentType,
   buildPublicUrl,
 } from './lib/otis-job-parser.mjs';
+import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -122,7 +123,7 @@ async function main() {
       requirements: [],
       requirementsByLocale: { en: [] },
       location: raw.city || 'Ticino',
-      canton: 'TI',
+      canton: TARGET_CANTONS[0],
       addressLocality: raw.city || 'Ticino',
       addressCountry: 'CH',
       category: 'manufacturing',

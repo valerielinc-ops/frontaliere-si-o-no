@@ -274,7 +274,7 @@ function renderMetrics(totalJobs, metrics) {
         </td>
         <!--[if mso]></td><td width="33%" valign="top"><![endif]-->
         <td width="33%" style="padding:0 4px;">
-          <a href="${directUrl('/statistiche')}" style="text-decoration:none;display:block;">
+          <a href="${directUrl('/statistiche-frontalieri/panoramica-statistiche')}" style="text-decoration:none;display:block;">
             <div style="background:${CARD_BG};border:1px solid ${BORDER_COLOR};border-radius:12px;padding:14px 12px;text-align:center;">
               <div style="font-size:22px;margin-bottom:4px;">\ud83d\udcca</div>
               <div style="font-size:20px;font-weight:800;color:${BRAND_DARK};">${unemploymentRate}</div>

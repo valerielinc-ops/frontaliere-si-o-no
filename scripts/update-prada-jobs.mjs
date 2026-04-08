@@ -41,6 +41,7 @@ import {
   fetchPradaDetailPage,
   slugify, inferEmploymentType,
 } from './lib/prada-job-parser.mjs';
+import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -158,7 +159,7 @@ async function main() {
       requirements: [],
       requirementsByLocale: { en: [] },
       location: loc,
-      canton: 'TI',
+      canton: TARGET_CANTONS[0],
       addressLocality: loc,
       addressCountry: 'CH',
       category: 'fashion',

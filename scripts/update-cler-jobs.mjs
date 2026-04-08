@@ -35,6 +35,7 @@ import {
   htmlToMarkdown,
   validateClerDescription,
 } from './lib/cler-job-parser.mjs';
+import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -257,7 +258,7 @@ async function fetchClerJobs() {
       addressLocality: 'Bellinzona',
       addressRegion: 'Ticino',
       addressCountry: 'CH',
-      canton: 'TI',
+      canton: TARGET_CANTONS[0],
       country: 'CH',
       category,
       sector: 'Banca / Servizi finanziari',

@@ -25,6 +25,7 @@ import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap, detectLang,
 } from './lib/dedicated-crawler-common.mjs';
 import { parseSearchPage, isHugoBossTargetLocation, buildDetailUrl, detectCategory, detectExperienceLevel, inferEmploymentType } from './lib/hugo-boss-job-parser.mjs';
+import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -95,7 +96,7 @@ async function fetchJobs() {
       company: COMPANY_NAME,
       companyKey: COMPANY_KEY,
       location: raw.city || 'Coldrerio',
-      canton: 'TI',
+      canton: TARGET_CANTONS[0],
       country: 'CH',
       addressLocality: raw.city || 'Coldrerio',
       addressRegion: 'TI',

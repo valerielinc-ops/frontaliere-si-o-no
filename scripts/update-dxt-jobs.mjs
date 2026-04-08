@@ -44,6 +44,7 @@ import {
   parseWpsmAccordionPanels,
   MIN_DESC_LENGTH,
 } from './lib/dxt-job-parser.mjs';
+import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -210,7 +211,7 @@ async function fetchDxtJobs() {
       company: DXT_COMPANY_NAME,
       companyKey: DXT_KEY,
       location: 'Lugano',
-      canton: 'TI',
+      canton: TARGET_CANTONS[0],
       country: 'CH',
       description: descEn, // original content is in English
       descriptionByLocale: {
@@ -232,7 +233,7 @@ async function fetchDxtJobs() {
       employmentType: 'FULL_TIME',
       experienceLevel: detectExperienceLevel(parsed.title),
       sector: 'Energia / Trading materie prime',
-      _targetScope: { canton: 'TI', location: 'Lugano' },
+      _targetScope: { canton: TARGET_CANTONS[0], location: 'Lugano' },
     };
 
     jobs.push(job);
@@ -334,7 +335,7 @@ async function mergeDxtJobs(discoveredJobs) {
         company: DXT_COMPANY_NAME,
         companyKey: DXT_KEY,
         location: discovered.location || existing.location,
-        canton: 'TI',
+        canton: TARGET_CANTONS[0],
         country: 'CH',
         applyUrl: discovered.applyUrl || existing.applyUrl,
         category: discovered.category || existing.category,
@@ -445,7 +446,7 @@ function postProcessDxtJobs() {
       job.companyKey = DXT_KEY;
       fixed++;
     }
-    job.canton = 'TI';
+    job.canton = TARGET_CANTONS[0];
     job.country = 'CH';
     if (!job.location) {
       job.location = 'Lugano';

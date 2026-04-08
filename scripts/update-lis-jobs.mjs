@@ -35,6 +35,7 @@ import {
   fetchLisDetailPage,
   buildLisJob,
 } from './lib/lis-lugano-istituti-sociali-job-parser.mjs';
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -664,7 +665,7 @@ async function cleanLisJobs() {
     // ── Location ──
     const dirtyDesc = String(job.description || '');
     job.location = extractLocation(dirtyDesc, job.url);
-    job.canton = 'TI';
+    job.canton = getCompanyDefaults('lis').canton;
 
     // ── Description ──
     const cleanDesc = cleanLisDescription(dirtyDesc);

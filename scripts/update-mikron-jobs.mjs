@@ -19,6 +19,7 @@ import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap, detectLang,
 } from './lib/dedicated-crawler-common.mjs';
 import { parseMikronJobs, parseMikronJobDetail, slugify, normalizeSpace, htmlToText, MIKRON_AGNO_URL, MIKRON_HOST } from './lib/mikron-job-parser.mjs';
+import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -148,7 +149,7 @@ async function fetchMikronJobs() {
 
     jobs.push({
       url: p.url, applyUrl: p.url, title, company: COMPANY_NAME, companyKey: COMPANY_KEY,
-      location: 'Agno', canton: 'TI', country: 'CH',
+      location: 'Agno', canton: TARGET_CANTONS[0], country: 'CH',
       postalCode: '6982', streetAddress: 'Via Ginnasio 17, 6982 Agno',
       description: descEn, descriptionByLocale: { en: descEn, it: descIt },
       titleByLocale: { en: title }, slug, slugByLocale: { en: slug, it: slugify(title, 'mikron') },
@@ -156,7 +157,7 @@ async function fetchMikronJobs() {
       category: detectCategory(title), datePosted: new Date().toISOString().split('T')[0],
       source: 'mikron-html-crawler', employmentType,
       experienceLevel: detectExperienceLevel(title), sector: 'Manifattura / Precision Manufacturing',
-      _targetScope: { canton: 'TI', location: 'Agno' },
+      _targetScope: { canton: TARGET_CANTONS[0], location: 'Agno' },
     });
   }
   return jobs;
@@ -224,7 +225,7 @@ async function main() {
   if (fs.existsSync(DATA_JOBS)) {
     const jobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
     let fixed = 0;
-    for (const j of (Array.isArray(jobs) ? jobs : [])) { if (!isMikronJob(j)) continue; if (j.company !== COMPANY_NAME) { j.company = COMPANY_NAME; fixed++; } j.companyKey = COMPANY_KEY; j.country = 'CH'; if (!j.canton) { j.canton = 'TI'; fixed++; } if (!j.location) { j.location = 'Agno'; fixed++; } }
+    for (const j of (Array.isArray(jobs) ? jobs : [])) { if (!isMikronJob(j)) continue; if (j.company !== COMPANY_NAME) { j.company = COMPANY_NAME; fixed++; } j.companyKey = COMPANY_KEY; j.country = 'CH'; if (!j.canton) { j.canton = TARGET_CANTONS[0]; fixed++; } if (!j.location) { j.location = 'Agno'; fixed++; } }
     if (fixed > 0) { fs.writeFileSync(DATA_JOBS, JSON.stringify(jobs, null, 2) + '\n'); fs.writeFileSync(PUBLIC_JOBS, JSON.stringify(jobs, null, 2) + '\n'); }
   }
 

@@ -41,6 +41,7 @@ import {
   normalize,
 } from './lib/dedicated-crawler-common.mjs';
 import { inferSwissTargetCanton } from './lib/target-swiss-locations.mjs';
+import { isTargetCanton, TARGET_CANTONS } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -223,7 +224,7 @@ function buildSeedMetaFromJob(job, canton) {
   const contract = normalizeAbbContract(job?.jobType || job?.type || job?.contractType || '');
   return {
     location,
-    canton: canton || 'TI',
+    canton: canton || TARGET_CANTONS[0],
     country: 'CH',
     company: ABB_COMPANY_NAME,
     companyDomain: ABB_COMPANY_DOMAIN,
@@ -312,7 +313,7 @@ async function fetchAbbJobDetailUrls() {
         if (!isSwissCountry(job?.country || '')) continue;
 
         const canton = inferCantonFromJob(job);
-        if (canton !== 'TI' && canton !== 'GR') continue;
+        if (!isTargetCanton(canton)) continue;
 
         const detailUrl = toAbsoluteAbbUrl(buildAbbDetailUrl(job));
         if (!detailUrl || !detailUrl.includes('/global/en/job/')) continue;

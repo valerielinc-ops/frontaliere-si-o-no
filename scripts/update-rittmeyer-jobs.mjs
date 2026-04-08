@@ -31,6 +31,7 @@ import {
   isRittmeyerTicinoListing,
   buildRittmeyerLocalizedContent,
 } from './lib/rittmeyer-job-parser.mjs';
+import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -150,7 +151,7 @@ async function buildRittmeyerJob(listing) {
     addressLocality: 'Camorino',
     addressRegion: 'TI',
     addressCountry: 'CH',
-    canton: 'TI',
+    canton: TARGET_CANTONS[0],
     country: 'CH',
     category: inferCategory(detail),
     sector: 'Energia',
@@ -214,7 +215,7 @@ function updateAdapterConfig(jobs) {
   for (const job of jobs) {
     seedMetaByUrl[job.url] = {
       location: job.location,
-      canton: 'TI',
+      canton: TARGET_CANTONS[0],
       company: COMPANY_NAME,
       postedDate: job.postedDate,
     };

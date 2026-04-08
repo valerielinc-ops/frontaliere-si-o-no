@@ -44,6 +44,7 @@ import {
   normalizeKey,
   mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
+import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -343,7 +344,7 @@ async function fetchCapriHoldingsJobs() {
       canton: canton || '',
       country: 'CH',
       addressLocality: city || 'Mendrisio',
-      addressRegion: canton || 'TI',
+      addressRegion: canton || TARGET_CANTONS[0],
       addressCountry: 'CH',
       postalCode: city?.toLowerCase() === 'mendrisio' || !city ? '6850' : city?.toLowerCase() === 'stabio' ? '6855' : city?.toLowerCase() === 'coldrerio' ? '6877' : '6850',
       streetAddress: 'Via Penate',

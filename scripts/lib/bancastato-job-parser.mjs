@@ -15,6 +15,10 @@
  * Exports: parseListingPage, parseDetailPage, buildJob, stripHtml, normalizeSpace
  */
 
+import { getCompanyDefaults } from './crawler-location-config.mjs';
+
+const HQ = getCompanyDefaults('bancastato');
+
 /* ── Text helpers ──────────────────────────────────────────── */
 
 export function normalizeSpace(value = '') {
@@ -299,8 +303,7 @@ export function parseDetailPage(html) {
     title,
     description: description.length > 50 ? description : '',
     location,
-    canton: 'TI',
-    sections,
+    canton: HQ.canton,
     requirements,
     sourceTextLength: description.length,
   };
@@ -330,7 +333,7 @@ export function buildJob(raw) {
     companyKey: 'bancastato',
     url: raw.url || '',
     location,
-    canton: raw.canton || 'TI',
+    canton: raw.canton || HQ.canton,
     country: 'CH',
     postalCode: '6500',
     streetAddress: 'Viale Henri Guisan 5',
@@ -350,7 +353,7 @@ export function buildJob(raw) {
       fr: slugify(`${title}-bancastato-${location}`),
     },
     titleByLocale: { it: title, en: title, de: title, fr: title },
-    _targetScope: { canton: 'TI', location },
+    _targetScope: { canton: HQ.canton, location },
   };
 }
 

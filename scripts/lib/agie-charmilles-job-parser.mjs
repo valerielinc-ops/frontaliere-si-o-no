@@ -19,6 +19,7 @@
  */
 
 import { isTicinoRelevant, isGrigioniRelevant } from './target-swiss-locations.mjs';
+import { isTargetCanton } from './crawler-location-config.mjs';
 
 const BASE_URL = 'https://www.find-your-future.ch';
 
@@ -139,7 +140,7 @@ export function parseAgieCharmillesProfilePage(html = '') {
  * Check if a parsed job is Ticino-relevant based on canton and city.
  */
 export function isAgieCharmillesTicinoRelevant(job = {}) {
-  if (job.canton === 'TI') return true;
+  if (isTargetCanton(job.canton)) return true;
   const city = (job.city || '').toLowerCase();
   const locationText = (job.locationText || '').toLowerCase();
   if (isTicinoRelevant(city) || isTicinoRelevant(locationText)) return true;
@@ -152,8 +153,7 @@ export function isAgieCharmillesTicinoRelevant(job = {}) {
  * Infer canton from job data.
  */
 export function inferAgieCharmillesCanton(job = {}) {
-  if (job.canton === 'TI') return 'TI';
-  if (job.canton === 'GR') return 'GR';
+  if (isTargetCanton(job.canton)) return job.canton;
   const city = (job.city || '').toLowerCase();
   if (/losone|locarno|ascona|muralto|minusio|bellinzona|lugano|mendrisio|chiasso/i.test(city)) return 'TI';
   if (isGrigioniRelevant(city)) return 'GR';

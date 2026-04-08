@@ -48,6 +48,7 @@ import {
 } from './lib/dedicated-crawler-common.mjs';
 import { extractMigrosStructuredData } from './lib/migros-job-parser.mjs';
 import { inferEmploymentType } from './lib/denner-job-parser.mjs';
+import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
 
 /* -- Constants --------------------------------------------------------- */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -269,9 +270,9 @@ async function fetchAndParseDetailPages(urls) {
         requirementsByLocale: { it: migrosData?.requirements || [] },
         location,
         postalCode: postalCode || TICINO_PLZ[location.toLowerCase()] || '6500',
-        canton: TICINO_PLZ[location.toLowerCase()] ? 'TI' : (postalCode ? '' : 'TI'),
+        canton: TICINO_PLZ[location.toLowerCase()] ? 'TI' : (postalCode ? '' : TARGET_CANTONS[0]),
         addressLocality: location || 'Bellinzona',
-        addressRegion: TICINO_PLZ[location.toLowerCase()] ? 'TI' : (postalCode ? '' : 'TI'),
+        addressRegion: TICINO_PLZ[location.toLowerCase()] ? 'TI' : (postalCode ? '' : TARGET_CANTONS[0]),
         addressCountry: 'CH',
         streetAddress: location ? `Denner ${location}` : 'Denner Ticino',
         employmentType: inferEmploymentType(rawTitle, description, workPct || ''),

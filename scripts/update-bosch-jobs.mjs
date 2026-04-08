@@ -33,6 +33,7 @@ import {
   buildBoschLocalizedContent,
   inferBoschCategory,
 } from './lib/bosch-job-parser.mjs';
+import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -168,9 +169,9 @@ async function buildBoschJob(listing) {
     companyDomain: COMPANY_DOMAIN,
     location: detail.location || listing.location || 'Rivera',
     addressLocality: detail.location || listing.location || 'Rivera',
-    addressRegion: detail.canton || 'TI',
+    addressRegion: detail.canton || TARGET_CANTONS[0],
     addressCountry: 'CH',
-    canton: detail.canton || 'TI',
+    canton: detail.canton || TARGET_CANTONS[0],
     country: 'CH',
     employmentType: normalize(detail.employmentType).includes('part') ? 'part-time' : 'full-time',
     contractType: normalize(detail.employmentType).includes('part') ? 'part-time' : 'full-time',

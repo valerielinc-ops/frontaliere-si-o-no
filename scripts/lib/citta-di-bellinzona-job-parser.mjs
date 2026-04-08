@@ -15,6 +15,10 @@
  * Application portal: bellinz.pi-asp.de/bewerber-web/
  */
 
+import { getCompanyDefaults } from './crawler-location-config.mjs';
+
+const HQ = getCompanyDefaults('citta-di-bellinzona');
+
 const CAREERS_URL = 'https://www.bellinzona.ch/assunzioni';
 const UA = 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
 
@@ -188,7 +192,7 @@ export function parseBellinzonaListingHtml(html) {
       applyUrl,
       url: applyUrl || pdfUrl || CAREERS_URL,
       location: 'Bellinzona',
-      canton: 'TI',
+      canton: HQ.canton,
     });
   }
 

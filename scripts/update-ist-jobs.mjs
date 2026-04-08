@@ -39,6 +39,7 @@ import {
   detectLang,
 } from './lib/dedicated-crawler-common.mjs';
 import { inferSwissTargetCanton } from './lib/target-swiss-locations.mjs';
+import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -302,14 +303,14 @@ function detectExperienceLevel(title = '') {
   return 'MID';
 }
 
-function buildDescription(title, descriptionText, location, canton = 'TI') {
+function buildDescription(title, descriptionText, location, canton = TARGET_CANTONS[0]) {
   const region = canton === 'GR' ? 'Graubünden' : 'Ticino';
   const defaultCity = canton === 'GR' ? 'Graubünden' : 'Lugano';
   const base = descriptionText || `${title} position at the International School of Ticino in ${location}, Switzerland.`;
   return `${base}\n\nThe International School of Ticino (IST) is part of the Inspired Education Group, one of the world's leading premium school groups. Located in ${defaultCity}, IST offers a stimulating international learning environment in ${region}.`.trim();
 }
 
-function buildDescriptionIt(title, location, canton = 'TI') {
+function buildDescriptionIt(title, location, canton = TARGET_CANTONS[0]) {
   const region = canton === 'GR' ? 'Grigioni' : 'Ticino';
   const defaultCity = canton === 'GR' ? 'Grigioni' : 'Lugano';
   return `Posizione aperta presso la International School of Ticino a ${location}.\nRuolo: ${title}.\n\nLa International School of Ticino (IST) fa parte di Inspired Education Group, uno dei principali gruppi scolastici premium al mondo. Situata a ${defaultCity}, IST offre un ambiente di apprendimento internazionale stimolante in ${region}.`.trim();
@@ -544,7 +545,7 @@ function postProcessIstJobs() {
     }
     job.country = 'CH';
     if (!job.canton) {
-      job.canton = 'TI';
+      job.canton = TARGET_CANTONS[0];
       fixed++;
     }
     if (!job.location) {

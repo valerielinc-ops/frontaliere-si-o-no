@@ -15,6 +15,7 @@ import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, deriveLocalizedSlug, mergePreserveLocaleData } from './lib/dedicated-crawler-common.mjs';
 import { fetchPkbJobs, slugify, inferEmploymentType } from './lib/pkb-private-bank-job-parser.mjs';
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -72,7 +73,7 @@ async function main() {
       company: COMPANY_NAME, companyKey: COMPANY_KEY, companyDomain: 'pkb.ch',
       title: raw.title, titleByLocale: { it: raw.title }, sourceLang: detectLang(desc || raw.title, 'en'),
       description: desc, descriptionByLocale: { it: desc }, requirements: [], requirementsByLocale: { it: [] },
-      location: 'Lugano', canton: 'TI', addressLocality: 'Lugano', addressRegion: 'TI', addressCountry: 'CH',
+      location: 'Lugano', canton: getCompanyDefaults('pkb-private-bank').canton, addressLocality: 'Lugano', addressRegion: getCompanyDefaults('pkb-private-bank').canton, addressCountry: 'CH',
       postalCode: '6900', streetAddress: 'Via S. Balestra 1',
       category: 'finance', contract: 'full-time', employmentType: inferEmploymentType(raw.title, raw.description || ''), currency: 'CHF', featured: false,
       postedDate: new Date().toISOString().slice(0, 10),

@@ -34,6 +34,10 @@
  *   <div class="descriptionContainer">SHORT SNIPPET</div>    ← fallback only
  */
 
+import { getCompanyDefaults } from './crawler-location-config.mjs';
+
+const HQ = getCompanyDefaults('lis');
+
 const LIS_HOST = 'lavoraconnoi.lugano-lis.ch';
 const LIS_BASE = `https://${LIS_HOST}`;
 const COMPANY_NAME = 'LIS – Lugano Istituti Sociali';
@@ -396,7 +400,7 @@ export function buildLisJob(url, parsed) {
     url,
     slug,
     location: parsed.location || 'Pregassona',
-    canton: 'TI',
+    canton: HQ.canton,
     country: 'CH',
     postalCode: parsed.location === 'Pregassona' ? '6963' : '6900',
     streetAddress: parsed.streetAddress || 'Via alla Bozzoreda 15',

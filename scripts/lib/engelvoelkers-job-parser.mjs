@@ -14,6 +14,9 @@
 
 import { JSDOM } from 'jsdom';
 import { isTargetSwissLocation, isTicinoRelevant, isGrigioniRelevant, inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { getCompanyDefaults } from './crawler-location-config.mjs';
+
+const HQ = getCompanyDefaults('engelvoelkers');
 
 const BASE_URL = 'https://www.engelvoelkers.com';
 const LISTING_PATH = '/ch/it/azienda/carriera/offerte-di-lavoro';
@@ -235,7 +238,7 @@ export function parseEngelvoelkersDetailPage(html = '', fallbackTitle = '') {
  */
 export function buildEngelvoelkersLocalizedContent(job = {}) {
   const title = String(job.title || '').trim();
-  const canton = job.canton || 'TI';
+  const canton = job.canton || HQ.canton;
   const regionIt = canton === 'GR' ? 'Grigioni' : 'Ticino';
   const regionDe = canton === 'GR' ? 'Graubünden' : 'Tessin';
   const regionFr = canton === 'GR' ? 'Grisons' : 'Tessin';
@@ -282,8 +285,8 @@ export function isEngelvoelkersTicinoRelevant(location = '', company = '') {
   );
 }
 
-/** Infer canton (TI or GR) from location text. Falls back to 'TI'. */
+/** Infer canton (TI or GR) from location text. Falls back to HQ canton. */
 export function inferEngelvoelkersCanton(location = '', company = '') {
   const combined = `${location} ${company}`;
-  return inferSwissTargetCanton(combined) || 'TI';
+  return inferSwissTargetCanton(combined) || HQ.canton;
 }

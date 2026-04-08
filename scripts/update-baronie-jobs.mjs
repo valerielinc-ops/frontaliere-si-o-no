@@ -51,6 +51,7 @@ import {
   titleOverlap,
   isSwissJob,
 } from './lib/baronie-job-parser.mjs';
+import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -148,7 +149,7 @@ function buildBaronieJob(url, detail) {
     addressLocality: city,
     addressRegion: 'TI',
     addressCountry: 'CH',
-    canton: 'TI',
+    canton: TARGET_CANTONS[0],
     country: 'CH',
     category: inferCategory(title),
     sector: 'Alimentare / Cioccolato',
@@ -227,7 +228,7 @@ function updateAdapterConfig(jobs) {
   for (const job of jobs) {
     seedMetaByUrl[job.url] = {
       location: job.location,
-      canton: 'TI',
+      canton: TARGET_CANTONS[0],
       company: job.company,
       postedDate: job.postedDate,
     };
