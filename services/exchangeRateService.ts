@@ -337,28 +337,6 @@ async function getHistoryFromFirestore(period: HistoryPeriod): Promise<{ points:
   return null;
 }
 
-/** Save history to Firestore (fire-and-forget) */
-async function saveHistoryToFirestore(period: HistoryPeriod, points: HistoryPoint[]): Promise<void> {
-  if (IS_TEST_ENV || firestoreWriteBlocked || points.length === 0) return;
-  try {
-    const { getFirestore, doc, setDoc } = await import('firebase/firestore');
-    const { getApp } = await import('@/services/firebase');
-    const db = getFirestore(await getApp());
-    const lastDate = points[points.length - 1]?.date || '';
-    await setDoc(doc(db, 'exchangeHistory', `chf-eur-${period}`), {
-      points,
-      lastDate,
-      updatedAt: new Date().toISOString(),
-      period,
-    });
-  } catch (e) {
-    const msg = e instanceof Error ? e.message : String(e);
-    if (msg.includes('permission') || msg.includes('Permission') || msg.includes('PERMISSION_DENIED')) {
-      firestoreWriteBlocked = true;
-    }
-  }
-}
-
 /** Fetch from a Frankfurter-compatible API (v2) */
 async function fetchFrankfurter(baseUrl: string, startStr: string, endStr: string): Promise<HistoryPoint[]> {
   const controller = new AbortController();
@@ -409,41 +387,33 @@ async function fetchEcbHistory(startStr: string, endStr: string): Promise<Histor
 /**
  * Fetch historical CHF→EUR exchange rate data for a given period.
  *
- * Resolution order:
- * 1. Firestore cache (if lastDate >= yesterday — data is fresh)
- * 2. localStorage cache (instant, if fresh)
- * 3. External APIs: Frankfurter.dev → .app → ECB → synthetic
- * 4. After external fetch, save to Firestore + localStorage (fire-and-forget)
+ * Resolution order (client is read-only — a daily cron job keeps Firestore fresh):
+ * 1. Firestore (authoritative, updated daily by update-exchange-history.mjs)
+ * 2. localStorage cache (offline / instant fallback)
+ * 3. Frankfurter API (emergency fallback if Firestore is empty) → save to localStorage only
  *
  * @param period - Time period: '1m', '3m', '6m', '1y', '5y'
- * @param liveRate - Current live rate to append as today's data point (and for synthetic fallback)
+ * @param liveRate - Current live rate to append as today's data point
  * @returns Array of { date, rate } points sorted chronologically
  */
 export async function fetchExchangeHistory(
   period: HistoryPeriod,
   liveRate?: number | null,
 ): Promise<HistoryPoint[]> {
-  // Exchange rates aren't published on weekends/holidays, so a 4-day window
-  // avoids unnecessary API calls (covers Sat/Sun + potential holiday Monday).
-  const freshCutoff = new Date();
-  freshCutoff.setDate(freshCutoff.getDate() - 4);
-  const freshStr = freshCutoff.toISOString().split('T')[0];
-  const isFresh = (lastDate: string) => lastDate >= freshStr;
-
-  // 1. Try Firestore cache (shared across all users)
+  // 1. Firestore (authoritative source, updated by daily cron)
   const firestoreCache = await getHistoryFromFirestore(period);
-  if (firestoreCache && isFresh(firestoreCache.lastDate)) {
+  if (firestoreCache && firestoreCache.points.length > 0) {
     setLocalHistory(period, firestoreCache.points);
     return appendLiveRate(firestoreCache.points, liveRate);
   }
 
-  // 2. Try localStorage cache (offline / instant)
+  // 2. localStorage (offline fallback — even if stale, better than nothing)
   const localCache = getLocalHistory(period);
-  if (localCache && isFresh(localCache.lastDate)) {
+  if (localCache && localCache.points.length > 0) {
     return appendLiveRate(localCache.points, liveRate);
   }
 
-  // 3. Fetch from external APIs
+  // 3. Emergency fallback: fetch from Frankfurter API directly
   const { startStr, endStr } = getHistoryDateRange(period);
   let points: HistoryPoint[] = [];
 
@@ -458,43 +428,12 @@ export async function fetchExchangeHistory(
         points = await fetchEcbHistory(startStr, endStr);
       } catch (e3) {
         reportCaughtError(e3, 'exchangeRate.allHistoryApisFailed');
-        // All APIs failed — generate synthetic curve from live rate
-        if (liveRate) {
-          const end = new Date();
-          const start = new Date();
-          switch (period) {
-            case '1m': start.setMonth(end.getMonth() - 1); break;
-            case '3m': start.setMonth(end.getMonth() - 3); break;
-            case '6m': start.setMonth(end.getMonth() - 6); break;
-            case '1y': start.setFullYear(end.getFullYear() - 1); break;
-            case '5y': start.setFullYear(end.getFullYear() - 5); break;
-          }
-          const days = Math.round((end.getTime() - start.getTime()) / 86400000);
-          const step = Math.max(1, Math.floor(days / 60));
-          for (let d = 0; d <= days; d += step) {
-            const dt = new Date(start);
-            dt.setDate(dt.getDate() + d);
-            points.push({ date: dt.toISOString().split('T')[0], rate: liveRate });
-          }
-        }
-
-        // Try expired caches as last resort before synthetic
-        if (points.length === 0) {
-          if (firestoreCache && firestoreCache.points.length > 0) {
-            return appendLiveRate(firestoreCache.points, liveRate);
-          }
-          if (localCache && localCache.points.length > 0) {
-            return appendLiveRate(localCache.points, liveRate);
-          }
-        }
       }
     }
   }
 
-  // 4. Save to Firestore + localStorage (fire-and-forget)
   if (points.length > 0) {
     setLocalHistory(period, points);
-    saveHistoryToFirestore(period, points).catch(() => {});
   }
 
   return appendLiveRate(points, liveRate);

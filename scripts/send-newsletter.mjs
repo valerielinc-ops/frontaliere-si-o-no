@@ -304,6 +304,26 @@ async function fetchExchangeRate() {
 }
 
 async function fetchExchangeHistory(days = 120) {
+  // 1. Read from Firestore exchangeHistory (updated daily by cron job)
+  if (db) {
+    try {
+      // Pick the best period based on requested days
+      const period = days <= 35 ? '1m' : days <= 100 ? '3m' : days <= 200 ? '6m' : days <= 400 ? '1y' : '5y';
+      const snap = await db.collection('exchangeHistory').doc(`chf-eur-${period}`).get();
+      if (snap.exists) {
+        const points = snap.data()?.points || [];
+        if (points.length >= 5) {
+          console.log(`📊 History from Firestore (${period}): ${points.length} points, last: ${points[points.length-1]?.date}`);
+          return points;
+        }
+      }
+    } catch (e) {
+      console.warn('⚠️ Firestore history read failed:', e.message);
+    }
+  }
+
+  // 2. Fallback: Frankfurter API (only if Firestore is empty/unavailable)
+  console.log('⚠️ Falling back to Frankfurter API for history');
   const end = new Date();
   const start = new Date(end);
   start.setDate(end.getDate() - days);

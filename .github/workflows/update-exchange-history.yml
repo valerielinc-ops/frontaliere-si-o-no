@@ -1,0 +1,36 @@
+name: Update Exchange Rate History
+
+on:
+  schedule:
+    - cron: '30 5 * * *'  # Daily at 05:30 UTC (07:30 CET) — after ECB publishes rates
+  workflow_dispatch:
+
+concurrency:
+  group: exchange-history
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+
+      - name: Update exchange rate history
+        run: node scripts/update-exchange-history.mjs

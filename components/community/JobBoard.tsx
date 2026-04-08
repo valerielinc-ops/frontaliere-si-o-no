@@ -3301,6 +3301,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
       return posting;
     }).filter((p): p is Record<string, unknown> => p !== null);
 
+    // FRO: If viewing a single job but we can't generate a valid schema
+    // (e.g., slim index loaded first without description), preserve the
+    // static HTML's JobPosting injected by the build plugin. The full data
+    // will load shortly and re-trigger this effect with a valid schema.
+    if (selectedJob && jobPostings.length === 0) {
+      return;
+    }
+
     const script = document.createElement('script');
     script.type = 'application/ld+json';
     script.id = 'jobposting-structured-data';

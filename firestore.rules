@@ -87,9 +87,9 @@ service cloud.firestore {
       allow read, write: if true;
     }
 
-    // Exchange rate history — public read + write (client-side best-effort cache)
+    // Exchange rate history — public read only (writes via daily cron job with Admin SDK)
     match /exchangeHistory/{docId} {
-      allow read, write: if true;
+      allow read: if true;
     }
 
     // Job page views — public increment for popularity ranking
