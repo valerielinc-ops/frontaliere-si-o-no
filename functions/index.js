@@ -3,7 +3,6 @@ import {
   ensureAdminApp,
   handleResendWebhookRequest,
 } from './src/newsletterResendWebhookCore.js';
-import { handleSesWebhookRequest } from './src/newsletterSesWebhookCore.js';
 import { handleMailgunWebhookRequest } from './src/newsletterMailgunWebhookCore.js';
 import { handleSubscriptionManagement } from './src/newsletterSubscriptionManagement.js';
 import { sendNewsletterConfirmationEmail } from './src/newsletterConfirmationEmail.js';
@@ -44,40 +43,6 @@ export const newsletterResendWebhook = onRequest(
       const message = error instanceof Error ? error.message : String(error || 'unknown_error');
       const status = /signature|svix|webhook/i.test(message) ? 401 : 500;
       res.status(status).json({ ok: false, error: message });
-    }
-  },
-);
-
-// AWS SES event notifications via SNS
-export const newsletterSesWebhook = onRequest(
-  {
-    region: 'europe-west6',
-    memory: '256MiB',
-    timeoutSeconds: 60,
-    cors: false,
-  },
-  async (req, res) => {
-    if (req.method !== 'POST') {
-      res.status(405).json({ ok: false, error: 'method_not_allowed' });
-      return;
-    }
-
-    const body = Buffer.isBuffer(req.rawBody)
-      ? req.rawBody.toString('utf8')
-      : typeof req.rawBody === 'string'
-        ? req.rawBody
-        : JSON.stringify(req.body || {});
-
-    try {
-      const result = await handleSesWebhookRequest({
-        body,
-        headers: req.headers,
-      });
-      res.status(200).json({ ok: true, result });
-    } catch (error) {
-      const message = error instanceof Error ? error.message : String(error || 'unknown_error');
-      console.error('[newsletterSesWebhook] Error:', message);
-      res.status(500).json({ ok: false, error: message });
     }
   },
 );

@@ -52,10 +52,6 @@ const RC_TO_ENV = {
   MAILGUN_API_KEY:                ['MAILGUN_API_KEY'],
   MAILGUN_DOMAIN:                 ['MAILGUN_DOMAIN'],
 
-  // AWS SES (newsletter bulk sending)
-  AWS_SES_ACCESS_KEY_ID:          ['AWS_SES_ACCESS_KEY_ID'],
-  AWS_SES_SECRET_ACCESS_KEY:      ['AWS_SES_SECRET_ACCESS_KEY'],
-  AWS_SES_REGION:                 ['AWS_SES_REGION'],
 
   // Server-only keys (stored with SERVER_ prefix in RC)
   SERVER_FB_PAGE_ACCESS_TOKEN:    ['FB_PAGE_ACCESS_TOKEN'],

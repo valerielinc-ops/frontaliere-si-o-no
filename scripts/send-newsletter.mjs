@@ -47,11 +47,10 @@ const AI_CONCURRENCY = 5; // Max parallel AI calls
 
 // ── Email provider selection ──
 // cascade = multi-provider free tier cascade (default)
-// ses = AWS SES (when in production)
 // resend = Resend only (legacy fallback)
 const EMAIL_PROVIDER = process.env.EMAIL_PROVIDER || 'cascade';
-// cascade = 400/day total across all providers, ses = 500 sandbox, resend = 100
-const DAILY_SEND_LIMIT = EMAIL_PROVIDER === 'cascade' ? 400 : EMAIL_PROVIDER === 'ses' ? 500 : 100;
+// cascade = 400/day total across all providers, resend = 100
+const DAILY_SEND_LIMIT = EMAIL_PROVIDER === 'cascade' ? 400 : 100;
 
 /**
  * Run async tasks with bounded concurrency.
@@ -765,98 +764,6 @@ async function sendEmailBatchResend(emails, apiKey) {
   return { sent, failed };
 }
 
-// ─── AWS SES send ───────────────────────────────────────────
-
-let _sesClient = null;
-
-async function getSesClient() {
-  if (_sesClient) return _sesClient;
-  const { SESv2Client } = await import('@aws-sdk/client-sesv2');
-  _sesClient = new SESv2Client({
-    region: process.env.AWS_SES_REGION || 'eu-central-1',
-    credentials: {
-      accessKeyId: process.env.AWS_SES_ACCESS_KEY_ID,
-      secretAccessKey: process.env.AWS_SES_SECRET_ACCESS_KEY,
-    },
-  });
-  return _sesClient;
-}
-
-async function sendEmailBatchSes(emails) {
-  if (!emails.length) return { sent: [], failed: [] };
-  const { SendEmailCommand } = await import('@aws-sdk/client-sesv2');
-  const client = await getSesClient();
-
-  const sent = [];
-  const failed = [];
-
-  // SES doesn't have a native batch API like Resend — send individually
-  // but with concurrency control to respect SES rate limits
-  const SES_CONCURRENCY = 5; // SES sandbox = 1/sec, prod = 14/sec
-  for (let i = 0; i < emails.length; i += SES_CONCURRENCY) {
-    const chunk = emails.slice(i, i + SES_CONCURRENCY);
-    const results = await Promise.allSettled(
-      chunk.map(async (item) => {
-        const sesHeaders = Object.entries(item.payload.headers || {}).map(
-          ([Name, Value]) => ({ Name, Value })
-        );
-        const cmd = new SendEmailCommand({
-          FromEmailAddress: item.payload.from || FROM_EMAIL,
-          Destination: { ToAddresses: Array.isArray(item.payload.to) ? item.payload.to : [item.payload.to] },
-          Content: {
-            Simple: {
-              Subject: { Data: item.payload.subject, Charset: 'UTF-8' },
-              Body: { Html: { Data: item.payload.html, Charset: 'UTF-8' } },
-              Headers: sesHeaders,
-            },
-          },
-          EmailTags: (item.payload.tags || []).map(t => ({
-            Name: t.name, Value: t.value,
-          })),
-          ConfigurationSetName: 'frontaliere-newsletter',
-        });
-        const res = await client.send(cmd);
-        return { item, messageId: res.MessageId };
-      })
-    );
-
-    for (const result of results) {
-      if (result.status === 'fulfilled') {
-        const { item, messageId } = result.value;
-        sent.push(item);
-        await persistDelivery(item.recipient, messageId, item.meta);
-      } else {
-        const reason = result.reason;
-        // Throttling — stop immediately
-        if (reason?.name === 'TooManyRequestsException' || reason?.$metadata?.httpStatusCode === 429) {
-          console.warn('\u26a0\ufe0f  SES rate limited — stopping. Remaining emails will be retried next run.');
-          // Add remaining unsent emails to failed
-          const remaining = emails.slice(i + SES_CONCURRENCY);
-          failed.push(...remaining);
-          // Add this chunk's failed items
-          const chunkFailed = results
-            .filter(r => r.status === 'rejected')
-            .map((_, idx) => chunk[idx]);
-          failed.push(...chunkFailed);
-          return { sent, failed };
-        }
-        // Find which item failed
-        const idx = results.indexOf(result);
-        failed.push(chunk[idx]);
-        console.warn(`\u26a0\ufe0f  SES send failed: ${reason?.message?.slice(0, 200)}`);
-      }
-    }
-
-    console.log(`\u2705 SES batch: ${chunk.length} processed (${sent.length} confirmed, ${failed.length} failed)`);
-
-    // Brief pause between chunks to respect rate limits
-    if (i + SES_CONCURRENCY < emails.length) {
-      await new Promise(r => setTimeout(r, 1100)); // ~1 sec for sandbox safety
-    }
-  }
-
-  return { sent, failed };
-}
 
 async function sendEmailBatch(emails, apiKey) {
   // Cascade: multi-provider free tier (default)
@@ -871,11 +778,6 @@ async function sendEmailBatch(emails, apiKey) {
     });
     logProviderSummary();
     return result;
-  }
-  // AWS SES
-  if (EMAIL_PROVIDER === 'ses' && process.env.AWS_SES_ACCESS_KEY_ID) {
-    console.log(`📧 Sending via AWS SES (${emails.length} emails)`);
-    return sendEmailBatchSes(emails);
   }
   // Resend (legacy fallback)
   if (!apiKey) {
