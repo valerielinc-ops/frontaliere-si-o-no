@@ -18,6 +18,10 @@
  *          isGrigioniItalianoJob
  */
 
+import { getCompanyDefaults } from './crawler-location-config.mjs';
+
+const HQ = getCompanyDefaults('ferrovia-retica');
+
 /* ── Text helpers ──────────────────────────────────────────── */
 
 export function normalizeSpace(value = '') {
@@ -257,7 +261,7 @@ export function parseDetailPage(html) {
   }
 
   const location = inferLocation(title, description);
-  const canton = 'GR';
+  const canton = HQ.canton;
 
   const requirements = sections
     .filter((s) => /anforderung|profil|voraussetz|mitbring|qualifikat|requisit|competen/i.test(s.heading))
@@ -356,7 +360,7 @@ export function buildJob(raw) {
     companyKey: 'ferrovia-retica',
     url: raw.url || '',
     location,
-    canton: 'GR',
+    canton: HQ.canton,
     country: 'CH',
     postalCode: address.postalCode,
     streetAddress: address.streetAddress,

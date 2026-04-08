@@ -7,6 +7,10 @@
  * matching /de/mountains/stellenangebote/{slug}_j_{id}.
  */
 
+import { getCompanyDefaults } from './crawler-location-config.mjs';
+
+const HQ = getCompanyDefaults('davos-klosters-bergbahnen');
+
 const CAREERS_URL = 'https://www.davosklostersmountains.ch/de/mountains/stellenangebote/jobs-berge';
 const CAREERS_BASE = 'https://www.davosklostersmountains.ch';
 const UA = 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
@@ -107,7 +111,7 @@ export function parseDavosKlostersBergbahnenListingHtml(html) {
       title,
       url,
       location: 'Davos',
-      canton: 'GR',
+      canton: HQ.canton,
       department,
       percentage,
       period,

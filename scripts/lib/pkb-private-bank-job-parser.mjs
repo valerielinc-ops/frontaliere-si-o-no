@@ -18,6 +18,10 @@
  * PKB is headquartered in Lugano with all positions in Ticino.
  */
 
+import { getCompanyDefaults } from './crawler-location-config.mjs';
+
+const HQ = getCompanyDefaults('pkb-private-bank');
+
 const CAREERS_URL = 'https://www.pkb.ch/en/about-us/work-with-us/';
 const CAREERS_PORTAL = 'https://careers.pkb.ch/jobs.php?source=&lan=en&language=en';
 const CAREERS_PORTAL_IT = 'https://careers.pkb.ch/jobs.php?source=&lan=it&language=it';
@@ -93,7 +97,7 @@ export function parsePkbListingHtml(html) {
       url: fullUrl,
       jobId,
       location: 'Lugano',
-      canton: 'TI',
+      canton: HQ.canton,
     });
   }
 
@@ -119,7 +123,7 @@ export function parsePkbListingHtml(html) {
         url,
         jobId: slugify(rawTitle).slice(0, 30),
         location: 'Lugano',
-        canton: 'TI',
+        canton: HQ.canton,
       });
     }
   }
@@ -142,7 +146,7 @@ export function parsePkbListingHtml(html) {
         url: fullUrl,
         jobId: slugify(rawTitle).slice(0, 30),
         location: 'Lugano',
-        canton: 'TI',
+        canton: HQ.canton,
       });
     }
   }

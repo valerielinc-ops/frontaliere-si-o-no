@@ -43,6 +43,7 @@ import {
   mergePreserveLocaleData,
 } from './lib/dedicated-crawler-common.mjs';
 import { inferEmploymentType } from './lib/aldi-suisse-job-parser.mjs';
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
 /* -- Constants --------------------------------------------------------- */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -52,6 +53,7 @@ const PUBLIC_DATA_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 
 const ALDI_KEY = 'aldi-suisse';
 const ALDI_COMPANY_NAME = 'ALDI SUISSE';
+const HQ = getCompanyDefaults(ALDI_KEY);
 const ALDI_HOST = 'www.jobs.aldi.ch';
 const ALDI_BASE = 'https://www.jobs.aldi.ch';
 const ALDI_LISTING_URLS = [
@@ -261,9 +263,9 @@ async function fetchAndParseDetailPages(urls) {
         requirementsByLocale: { it: requirements.slice(0, 20) },
         location,
         postalCode: TICINO_PLZ[location.toLowerCase()] || '6928',
-        canton: TICINO_PLZ[location.toLowerCase()] ? 'TI' : 'TI',
+        canton: HQ.canton,
         addressLocality: location || 'Manno',
-        addressRegion: TICINO_PLZ[location.toLowerCase()] ? 'TI' : 'TI',
+        addressRegion: HQ.addressRegion,
         addressCountry: 'CH',
         streetAddress: 'Centro Monda 8',
         employmentType: inferEmploymentType(rawTitle, description, workPct || ''),

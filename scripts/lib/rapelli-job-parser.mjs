@@ -14,6 +14,10 @@
  * This parser extracts jobs from the listing page HTML.
  */
 
+import { getCompanyDefaults } from './crawler-location-config.mjs';
+
+const HQ = getCompanyDefaults('rapelli');
+
 const CAREERS_URL = 'https://careers.orior.ch/go/Rapelli-IT/5365701/';
 const CAREERS_BASE = 'https://careers.orior.ch';
 const UA = 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
@@ -96,7 +100,7 @@ export function parseRapelliListingHtml(html) {
       title: rawTitle,
       url: fullUrl,
       location,
-      canton: 'TI',
+      canton: HQ.canton,
       department,
       jobId,
     });

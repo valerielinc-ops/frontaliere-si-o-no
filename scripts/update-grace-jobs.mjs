@@ -27,6 +27,7 @@ import {
   mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
 import { selectGraceDescription } from './lib/grace-job-parser.mjs';
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -38,6 +39,7 @@ const COMPANY_KEY = 'grace-la-margna';
 const COMPANY_NAME = 'Grace La Margna St. Moritz';
 const COMPANY_DOMAIN = 'gracehotels.com';
 const COMPANY_HOST = 'www.gracehotels.com';
+const HQ = getCompanyDefaults(COMPANY_KEY);
 const CAREERS_URL = 'https://www.hotelcareer.com/jobs/grace-la-margna-st-moritz-120155';
 const BASE_URL = 'https://www.hotelcareer.com';
 const LOCALES = ['it', 'en', 'de', 'fr'];
@@ -450,7 +452,7 @@ function buildJobFromListing(listing) {
     addressLocality: 'St. Moritz',
     addressRegion: 'Graubünden',
     addressCountry: 'CH',
-    canton: 'GR',
+    canton: HQ.canton,
     country: 'CH',
     category,
     sector: inferSector(),
@@ -491,7 +493,7 @@ function buildJobFromDetail(listing, detail) {
     addressLocality: location,
     addressRegion: 'Graubünden',
     addressCountry: 'CH',
-    canton: 'GR',
+    canton: HQ.canton,
     country: 'CH',
     category,
     sector: inferSector(),

@@ -13,12 +13,14 @@ import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, deriveLocalizedSlug, mergePreserveLocaleData } from './lib/dedicated-crawler-common.mjs';
 import { fetchCedesJobUrls, fetchCedesDetailPage, slugify, inferEmploymentType } from './lib/cedes-job-parser.mjs';
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
 const PUBLIC_DATA_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const COMPANY_KEY = 'cedes';
+const HQ = getCompanyDefaults(COMPANY_KEY);
 const COMPANY_NAME = 'CEDES AG';
 
 function isCompanyJob(job) {
@@ -68,7 +70,7 @@ async function main() {
       title: raw.title, titleByLocale: { en: raw.title },
       description, descriptionByLocale: { en: description },
       requirements: [], requirementsByLocale: { en: [] },
-      location: raw.location || 'Landquart', canton: 'GR',
+      location: raw.location || 'Landquart', canton: HQ.canton,
       addressLocality: raw.location || 'Landquart', addressCountry: 'CH',
       category: 'technology', contract: 'full-time',
       employmentType: inferEmploymentType(raw.title, description),

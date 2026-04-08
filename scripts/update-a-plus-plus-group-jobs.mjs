@@ -48,6 +48,7 @@ import {
   inferAplusCanton,
   buildAplusLocalizedContent,
 } from './lib/a-plus-plus-job-parser.mjs';
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -59,6 +60,7 @@ const COMPANY_KEY = 'a-group';
 const COMPANY_NAME = 'A++ Group';
 const COMPANY_HOST = 'inrecruiting.intervieweb.it';
 const COMPANY_DOMAIN = 'a2plus.green';
+const HQ = getCompanyDefaults(COMPANY_KEY);
 const LISTING_URL = 'https://inrecruiting.intervieweb.it/a2plus/en/career';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
@@ -188,7 +190,7 @@ async function buildAplusJob(listing) {
   const listingLoc = /^\d+$/.test(String(listing.location || '').trim()) ? '' : (listing.location || '');
   const rawLocation = detailLoc || listingLoc || 'Massagno';
   const canton = inferAplusCanton(rawLocation);
-  const postalCode = rawLocation.toLowerCase().includes('massagno') || !rawLocation ? '6942' : '6900';
+  const postalCode = rawLocation.toLowerCase().includes('massagno') || !rawLocation ? HQ.postalCode : '6900';
   const streetAddress = rawLocation.toLowerCase().includes('massagno') || !rawLocation ? 'Via Molinazzo 4' : '';
   const localized = buildAplusLocalizedContent(detail);
   const canonicalTitle = detail.title;
@@ -280,7 +282,7 @@ function updateAdapterConfig(jobs) {
   for (const job of jobs) {
     seedMetaByUrl[job.url] = {
       location: job.location,
-      canton: job.canton || 'TI',
+      canton: job.canton || HQ.canton,
       company: COMPANY_NAME,
       postedDate: job.postedDate,
     };

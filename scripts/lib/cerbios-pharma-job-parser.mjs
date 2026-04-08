@@ -13,6 +13,10 @@
  * Exports: parseListingPage, parseDetailPage, buildJob, stripHtml, normalizeSpace
  */
 
+import { getCompanyDefaults } from './crawler-location-config.mjs';
+
+const HQ = getCompanyDefaults('cerbios-pharma');
+
 /* ── Text helpers ──────────────────────────────────────────── */
 
 export function normalizeSpace(value = '') {
@@ -208,7 +212,7 @@ export function parseDetailPage(html) {
     title,
     description: description.length > 50 ? description : '',
     location: 'Barbengo',
-    canton: 'TI',
+    canton: HQ.canton,
     sections,
     requirements,
     sourceTextLength: description.length,
@@ -232,12 +236,12 @@ export function buildJob(raw) {
     companyKey: 'cerbios-pharma',
     url: raw.url || 'https://www.e-lavoro.ch/node/91',
     location,
-    canton: 'TI',
+    canton: HQ.canton,
     country: 'CH',
     addressLocality: 'Barbengo',
-    addressRegion: 'TI',
+    addressRegion: HQ.addressRegion,
     addressCountry: 'CH',
-    postalCode: '6917',
+    postalCode: HQ.postalCode,
     streetAddress: 'Via Figino 6',
     employmentType: inferEmploymentType(title, description),
     category: detectCategory(title, description),

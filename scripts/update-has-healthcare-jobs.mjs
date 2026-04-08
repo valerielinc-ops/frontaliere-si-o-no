@@ -45,6 +45,7 @@ import {
   mergeLocaleTextMap,
   detectLang,
 } from './lib/dedicated-crawler-common.mjs';
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -54,6 +55,7 @@ const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapte
 
 const COMPANY_KEY = 'has-healthcare';
 const COMPANY_NAME = 'HAS Healthcare Advanced Synthesis';
+const HQ = getCompanyDefaults(COMPANY_KEY);
 const COMPANY_HOST = 'e-lavoro.ch';
 const CAREERS_URL = 'https://e-lavoro.ch/node/104';
 const LOCALES = ['it', 'en', 'de', 'fr'];
@@ -364,7 +366,7 @@ async function fetchJobs() {
       company: COMPANY_NAME,
       companyKey: COMPANY_KEY,
       location: 'Biasca',
-      canton: 'TI',
+      canton: HQ.canton,
       country: 'CH',
       url: listing.detailUrl,
       applyUrl: listing.detailUrl,
@@ -381,7 +383,7 @@ async function fetchJobs() {
       slugByLocale: { it: slug },
       // _targetScope tells the base crawler this job is in Ticino,
       // bypassing the non_detail_url exclusion for /node/NNN URLs.
-      _targetScope: { canton: 'TI', location: 'Biasca' },
+      _targetScope: { canton: HQ.canton, location: HQ.city },
     };
 
     jobs.push(job);
@@ -446,7 +448,7 @@ async function mergeJobs(discoveredJobs) {
         company: COMPANY_NAME,
         companyKey: COMPANY_KEY,
         location: discovered.location || ex.location,
-        canton: 'TI',
+        canton: HQ.canton,
         country: 'CH',
         applyUrl: discovered.applyUrl || ex.applyUrl,
         category: discovered.category || ex.category,
@@ -558,7 +560,7 @@ function postProcessJobs() {
       job.companyKey = COMPANY_KEY;
       fixed++;
     }
-    job.canton = 'TI';
+    job.canton = HQ.canton;
     job.country = 'CH';
     if (!job.location) {
       job.location = 'Biasca';

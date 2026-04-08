@@ -27,6 +27,7 @@ import {
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang } from './lib/dedicated-crawler-common.mjs';
 import { parseKsgrJobsPage } from './lib/ksgr-job-parser.mjs';
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -34,6 +35,7 @@ const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
 const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTER_PATH = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters', 'kantonsspital-graubuenden-ksgr.json');
 const KSGR_KEY = 'kantonsspital-graubuenden-ksgr';
+const HQ = getCompanyDefaults(KSGR_KEY);
 const API_BASE = 'https://ohws.prospective.ch/public/v1/medium/1000745';
 const API_LANG = 'de';
 const PAGE_SIZE = 100;
@@ -155,7 +157,7 @@ function ensureAdapter(discoveredJobs) {
       job.detailUrl,
       {
         location: job.location || 'Graubünden',
-        canton: 'GR',
+        canton: HQ.canton,
         company: COMPANY_NAME,
         postedDate: job.postedDate || '',
       },
@@ -184,7 +186,7 @@ function postProcessKsgrJobs(discoveredJobs) {
     job.companyDomain = COMPANY_DOMAIN;
     job.source = 'KSGR Dedicated Parser (Prospective API)';
     job.addressCountry = job.addressCountry || 'CH';
-    job.canton = 'GR';
+    job.canton = HQ.canton;
     if (!job.sourceLang) {
       job.sourceLang = detectLang((job.description || job.title || ''), 'de');
     }

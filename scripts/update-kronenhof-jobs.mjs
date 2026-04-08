@@ -44,6 +44,7 @@ import {
   detectLang,
   mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -54,6 +55,7 @@ const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const COMPANY_KEY = 'grand-hotel-kronenhof';
 const COMPANY_NAME = 'Grand Hotel Kronenhof';
 const COMPANY_DOMAIN = 'kronenhof.com';
+const HQ = getCompanyDefaults(COMPANY_KEY);
 
 const API_BASE = 'https://careers.kronenhof.com/en/vacancies/json';
 const CAREERS_URL = 'https://careers.kronenhof.com/en/vacancies';
@@ -325,7 +327,7 @@ function buildJob(raw, detailDescription = '') {
     addressLocality: city,
     addressRegion: 'GR',
     addressCountry: 'CH',
-    canton: 'GR',
+    canton: HQ.canton,
     country: 'CH',
     category: 'Turismo & Ospitalità',
     sector: 'Hotellerie & Gastronomia',

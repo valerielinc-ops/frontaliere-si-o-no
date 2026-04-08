@@ -15,6 +15,10 @@
  * Exports: parseListingPage, parseDetailPage, buildJob, stripHtml, normalizeSpace
  */
 
+import { getCompanyDefaults } from './crawler-location-config.mjs';
+
+const HQ = getCompanyDefaults('citta-di-lugano');
+
 /* ── Text helpers ──────────────────────────────────────────── */
 
 export function normalizeSpace(value = '') {
@@ -202,7 +206,7 @@ export function parseDetailPage(html) {
     title,
     description: description.length > 50 ? description : '',
     location: 'Lugano',
-    canton: 'TI',
+    canton: HQ.canton,
     sections,
     requirements,
     sourceTextLength: description.length,
@@ -235,12 +239,12 @@ export function buildJob(raw) {
     companyKey: 'citta-di-lugano',
     url: raw.url || 'https://egov.lugano.ch/it/services/3',
     location: 'Lugano',
-    canton: 'TI',
+    canton: HQ.canton,
     country: 'CH',
     addressLocality: 'Lugano',
-    addressRegion: 'TI',
+    addressRegion: HQ.addressRegion,
     addressCountry: 'CH',
-    postalCode: '6900',
+    postalCode: HQ.postalCode,
     streetAddress: 'Piazza della Riforma',
     employmentType: inferEmploymentType(title, finalDescription),
     category: detectCategory(title, finalDescription),
@@ -255,7 +259,7 @@ export function buildJob(raw) {
     descriptionByLocale: { it: finalDescription },
     sourceLang: 'it',
     deadline: raw.deadline || '',
-    _targetScope: { canton: 'TI', location: 'Lugano' },
+    _targetScope: { canton: HQ.canton, location: HQ.city },
   };
 }
 

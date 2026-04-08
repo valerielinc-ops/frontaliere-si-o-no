@@ -1,3 +1,7 @@
+import { getCompanyDefaults } from './crawler-location-config.mjs';
+
+const HQ = getCompanyDefaults('ksgr');
+
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
 }
@@ -57,7 +61,7 @@ export function parseKsgrApiJob(job = {}) {
     detailUrl,
     applyUrl: normalizeSpace(job?.szas?.sza_apply_link || ''),
     location: pickLocation(job),
-    canton: 'GR',
+    canton: HQ.canton,
     postedDate: normalizeDate(job?.start_date || job?.last_modification_timestamp || ''),
     employmentType: pickPensum(job),
   };

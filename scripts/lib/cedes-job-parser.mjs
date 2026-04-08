@@ -3,6 +3,10 @@
  * Source: https://www.cedes.com/en/career/jobs/
  */
 
+import { getCompanyDefaults } from './crawler-location-config.mjs';
+
+const HQ = getCompanyDefaults('cedes');
+
 const CAREERS_URL = 'https://www.cedes.com/en/career/jobs/';
 const CAREERS_BASE = 'https://www.cedes.com';
 const UA = 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
@@ -75,7 +79,7 @@ export function parseCedesListingHtml(html) {
       ? (typeof locMatch[1] === 'string' ? stripHtml(locMatch[1]).trim() : locMatch[0])
       : 'Landquart';
 
-    jobs.push({ id: jobId, jobId, title, url, location, canton: 'GR', department: '' });
+    jobs.push({ id: jobId, jobId, title, url, location, canton: HQ.canton, department: '' });
   }
 
   // Fallback: generic job link pattern for card-based layouts
@@ -89,7 +93,7 @@ export function parseCedesListingHtml(html) {
       seen.add(url);
       const title = stripHtml(gm[2]).trim();
       if (!title || title.length < 3) continue;
-      jobs.push({ id: '', jobId: '', title, url, location: 'Landquart', canton: 'GR', department: '' });
+      jobs.push({ id: '', jobId: '', title, url, location: 'Landquart', canton: HQ.canton, department: '' });
     }
   }
 

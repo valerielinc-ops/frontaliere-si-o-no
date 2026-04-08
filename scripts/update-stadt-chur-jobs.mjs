@@ -42,6 +42,7 @@ import {
   detectLang,
   mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -52,6 +53,7 @@ const ADAPTER_PATH = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapte
 const COMPANY_KEY = 'stadt-chur';
 const COMPANY_NAME = 'Stadt Chur';
 const COMPANY_DOMAIN = 'chur.ch';
+const HQ = getCompanyDefaults(COMPANY_KEY);
 const FEED_URL = 'https://jobs.chur.ch/rss_generator-rss0.php?unit=chur&lang=de';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
@@ -301,7 +303,7 @@ function buildJob(entry, detailDescription = null) {
     addressLocality: 'Chur',
     addressRegion: 'Graubünden',
     addressCountry: 'CH',
-    canton: 'GR',
+    canton: HQ.canton,
     country: 'CH',
     category,
     sector: 'Pubblica Amministrazione',
