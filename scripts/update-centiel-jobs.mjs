@@ -15,6 +15,7 @@
  *   3. Builds job objects and merges them into jobs.json.
  *   4. Translates and validates locale coverage.
  */
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -50,6 +51,7 @@ const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTER_PATH = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters', 'centiel.json');
 
 const COMPANY_KEY = 'centiel';
+const HQ = getCompanyDefaults(COMPANY_KEY);
 const COMPANY_NAME = 'Centiel';
 const COMPANY_HOST = 'www.centiel.com';
 const COMPANY_DOMAIN = 'centiel.com';
@@ -250,9 +252,9 @@ function buildJob(row) {
     companyDomain: COMPANY_DOMAIN,
     location: 'Cadro (Lugano)',
     addressLocality: 'Lugano',
-    addressRegion: 'TI',
+    addressRegion: HQ.addressRegion,
     addressCountry: 'CH',
-    canton: 'TI',
+    canton: HQ.canton,
     country: 'CH',
     category: inferCategory(row.title),
     sector: 'Energia / UPS / Power Protection',
@@ -313,7 +315,7 @@ function mergeJobs(discoveredJobs) {
 function updateAdapterConfig(jobs) {
   const seedMetaByUrl = {};
   for (const job of jobs) {
-    seedMetaByUrl[job.url] = { location: 'Cadro (Lugano)', canton: 'TI', company: COMPANY_NAME };
+    seedMetaByUrl[job.url] = { location: 'Cadro (Lugano)', canton: HQ.canton, company: COMPANY_NAME };
   }
   writeJson(ADAPTER_PATH, {
     companyKey: COMPANY_KEY,

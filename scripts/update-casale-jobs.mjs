@@ -6,6 +6,7 @@
  * API endpoint: https://casale.recruitee.com/api/offers
  * Fallback HTML: https://recruit.casale.ch/
  */
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -23,6 +24,7 @@ const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 
 const COMPANY_KEY = 'casale';
+const HQ = getCompanyDefaults(COMPANY_KEY);
 const COMPANY_NAME = 'Casale SA';
 const COMPANY_HOST = 'recruit.casale.ch';
 const API_URL = 'https://casale.recruitee.com/api/offers';
@@ -60,9 +62,9 @@ async function fetchJobs() {
     return {
       url: built.detailUrl, applyUrl: built.applyUrl, title: built.title,
       company: COMPANY_NAME, companyKey: COMPANY_KEY,
-      location: built.location || 'Lugano', canton: 'TI', country: 'CH',
-      addressLocality: built.city || 'Lugano', addressRegion: 'TI', addressCountry: 'CH',
-      postalCode: '6900', streetAddress: 'Via Giulio Pocobelli 6',
+      location: built.location || 'Lugano', canton: HQ.canton, country: 'CH',
+      addressLocality: built.city || 'Lugano', addressRegion: HQ.addressRegion, addressCountry: 'CH',
+      postalCode: HQ.postalCode, streetAddress: 'Via Giulio Pocobelli 6',
       description,
       titleByLocale: { en: built.title }, descriptionByLocale: {},
       slug, slugByLocale: { en: slug, it: slug },
@@ -71,7 +73,7 @@ async function fetchJobs() {
       source: 'casale-careers-crawler', sourceLang: detectLang(description || built.title, 'en'), employmentType: built.employmentType,
       experienceLevel: detectExperienceLevel(built.title),
       sector: 'Ingegneria / Chimica',
-      _targetScope: { canton: 'TI', location: built.city || 'Lugano' },
+      _targetScope: { canton: HQ.canton, location: built.city || 'Lugano' },
     };
   });
 }

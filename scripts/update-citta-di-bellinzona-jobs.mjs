@@ -5,6 +5,7 @@
  * Source: https://www.bellinzona.ch/assunzioni
  * Application portal: bellinz.pi-asp.de/bewerber-web/
  */
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -24,7 +25,8 @@ const ROOT = path.resolve(__dirname, '..');
 const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
 const PUBLIC_DATA_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const COMPANY_KEY = 'citta-di-bellinzona';
-const COMPANY_NAME = 'Citt\u00e0 di Bellinzona';
+const HQ = getCompanyDefaults(COMPANY_KEY);
+const COMPANY_NAME = 'Città di Bellinzona';
 
 function isCompanyJob(job) {
   const key = String(job?.companyKey || job?.company || '').toLowerCase();
@@ -97,8 +99,8 @@ async function main() {
       company: COMPANY_NAME, companyKey: COMPANY_KEY, companyDomain: 'bellinzona.ch',
       title: raw.title, titleByLocale: { it: raw.title },
       description: desc, descriptionByLocale: { it: desc }, requirements: [], requirementsByLocale: { it: [] },
-      location: 'Bellinzona', canton: 'TI', addressLocality: 'Bellinzona', addressRegion: 'TI', addressCountry: 'CH',
-      postalCode: '6500', streetAddress: 'Piazza Nosetto',
+      location: 'Bellinzona', canton: HQ.canton, addressLocality: 'Bellinzona', addressRegion: HQ.addressRegion, addressCountry: 'CH',
+      postalCode: HQ.postalCode, streetAddress: 'Piazza Nosetto',
       category: 'public-admin', contract: 'full-time', employmentType: inferEmploymentType(raw.title, raw.description || ''), currency: 'CHF', featured: false,
       postedDate: raw.datePosted, validThrough: raw.deadline || undefined,
       url: raw.url, pdfUrl: raw.pdfUrl, applyUrl: raw.applyUrl,

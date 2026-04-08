@@ -4,6 +4,7 @@
  *
  * Source: https://www.locarno.ch/it/albo-comunale/assunzioni-personale
  */
+import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -23,7 +24,8 @@ const ROOT = path.resolve(__dirname, '..');
 const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
 const PUBLIC_DATA_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const COMPANY_KEY = 'citta-di-locarno';
-const COMPANY_NAME = 'Citt\u00e0 di Locarno';
+const HQ = getCompanyDefaults(COMPANY_KEY);
+const COMPANY_NAME = 'Città di Locarno';
 
 function isCompanyJob(job) {
   const key = String(job?.companyKey || job?.company || '').toLowerCase();
@@ -95,8 +97,8 @@ async function main() {
       company: COMPANY_NAME, companyKey: COMPANY_KEY, companyDomain: 'locarno.ch',
       title: raw.title, titleByLocale: { it: raw.title },
       description: desc, descriptionByLocale: { it: desc }, requirements: [], requirementsByLocale: { it: [] },
-      location: 'Locarno', canton: 'TI', addressLocality: 'Locarno', addressRegion: 'TI', addressCountry: 'CH',
-      postalCode: '6600', streetAddress: 'Piazza Grande 18',
+      location: 'Locarno', canton: HQ.canton, addressLocality: 'Locarno', addressRegion: HQ.addressRegion, addressCountry: 'CH',
+      postalCode: HQ.postalCode, streetAddress: 'Piazza Grande 18',
       category: 'public-admin', contract: 'full-time', employmentType: inferEmploymentType(raw.title, raw.description || ''), currency: 'CHF', featured: false,
       postedDate: raw.datePosted,
       url: raw.url, pdfUrl: raw.pdfUrl, applyUrl: raw.applyUrl,
