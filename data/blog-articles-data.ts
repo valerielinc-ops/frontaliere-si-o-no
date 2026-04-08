@@ -3118,13 +3118,6 @@ export const ARTICLES: Article[] = [
     hasCalculator: true,
   },
   {
-    id: 'sette-cantieri-mendrisio-kebab-case',
-    category: 'pratico',
-    date: '2026-03-19T16:37:51.960Z',
-    image: '/images/blog/sette-cantieri-mendrisio-kebab-case.webp',
-    hasCalculator: true,
-  },
-  {
     id: 'deputazione-ticinese-italofoni-2024',
     category: 'fiscale',
     date: '2026-03-19T17:52:19.898Z',
@@ -4307,13 +4300,6 @@ export const ARTICLES: Article[] = [
     category: 'pratico',
     date: '2026-03-19T15:23:24.887Z',
     image: '/images/blog/frode-cassa-compensazione-avs-ticino.webp',
-    hasCalculator: true,
-  },
-  {
-    id: 'sette-cantieri-mendrisio-kebab-case',
-    category: 'pratico',
-    date: '2026-03-19T16:37:51.960Z',
-    image: '/images/blog/sette-cantieri-mendrisio-kebab-case.webp',
     hasCalculator: true,
   },
   {

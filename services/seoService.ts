@@ -1706,7 +1706,6 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lo-statuto-s-non-deve-trasformarsi-in-permesso-b': { name: 'Statuto S e permesso B', path: '/articoli-frontaliere/lo-statuto-s-non-deve-trasformarsi-in-permesso-b', parent: 'blog' },
     'blog-consiglio-stati-soluzione-mista-13esima-avs': { name: '13esima AVS', path: '/articoli-frontaliere/consiglio-stati-soluzione-mista-13esima-avs', parent: 'blog' },
     'blog-frode-cassa-compensazione-avs-ticino': { name: 'Frode AVS', path: '/articoli-frontaliere/frode-cassa-compensazione-avs-ticino', parent: 'blog' },
-    'blog-sette-cantieri-mendrisio-kebab-case': { name: 'Mendrisio, Polizia Cantonale, controllo', path: '/articoli-frontaliere/sette-cantieri-mendrisio-kebab-case', parent: 'blog' },
     'blog-deputazione-ticinese-italofoni-2024': { name: 'La deputazione ticinese', path: '/articoli-frontaliere/deputazione-ticinese-italofoni-2024', parent: 'blog' },
     'blog-kebab-case-turismo-ticino': { name: 'Turismo in Ticino', path: '/articoli-frontaliere/kebab-case-turismo-ticino', parent: 'blog' },
     'blog-droga-al-confine-ticino-2025': { name: 'Confine italo-svizzero', path: '/articoli-frontaliere/droga-al-confine-ticino-2025', parent: 'blog' },

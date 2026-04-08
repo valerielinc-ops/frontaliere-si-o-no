@@ -6979,35 +6979,6 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
-  'blog-sette-cantieri-mendrisio-kebab-case': {
-    title: 'Sette cantieri e 66 lavoratori controllati dalla Polizia | Frontaliere Ticino',
-    description: 'La Polizia Cantonale ha effettuato un monitoraggio capillare sui sette cantieri presenti nel Mendrisiotto per verificare la regolarità dei contratti e dei',
-    keywords: 'frontalieri, ticino, svizzera, italia, sette, cantieri, lavoratori, controllati',
-    ogTitle: 'Sette cantieri e 66 lavoratori controllati dalla Polizia',
-    ogDescription: 'La Polizia Cantonale ha effettuato un monitoraggio capillare sui sette cantieri presenti nel Mendrisiotto per verificare la regolarità dei contratti e dei',
-    canonicalPath: '/articoli-frontaliere/sette-cantieri-mendrisio-kebab-case',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Sette cantieri e 66 lavoratori controllati dalla Polizia Cantonale nel",
-      "description": "La Polizia Cantonale ha effettuato un monitoraggio capillare sui sette cantieri presenti nel Mendrisiotto per verificare la regolarità dei contratti e dei",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/sette-cantieri-mendrisio-kebab-case.webp`,
-        "width": 1344,
-        "height": 756,
-        "caption": "Foto di un cantiere di costruzione in Mendrisio"
-      },
-      "datePublished": "2026-03-19T16:37:51+00:00",
-      "dateModified": BUILD_DATE_ISO,
-      "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sette-cantieri-mendrisio-kebab-case`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
-      "isAccessibleForFree": true
-    }
-  },
 
   'blog-deputazione-ticinese-italofoni-2024': {
     title: 'La deputazione ticinese: «Abbiamo discusso degli italofoni | Frontaliere Ticino',
