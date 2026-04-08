@@ -2954,8 +2954,8 @@
       "slugByLocale": {
         "it": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona",
         "en": "nursing-internship-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "de": "pflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "fr": "stage-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "de": "pflegedienst-praktikum-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fr": "stage-de-service-infirmier-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "titleByLocale": {
         "it": "Stage servizio infermieristico",
@@ -2990,8 +2990,6 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "previousSlugs": [
-        "pflegedienst-praktikum-eoc-ente-ospedaliero-cantonale-locarno",
-        "stage-de-service-infirmier-eoc-ente-ospedaliero-cantonale-locarno",
         "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-uil178",
         "stage-servizio-infermieristico-eoc-bellinzona",
         "stage-servizio-infermieristico-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offer-uil178",
@@ -3009,7 +3007,9 @@
         "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-novaggio",
         "service-de-soins-infirmiers-en-stage-eoc-ente-ospedaliero-cantonale-novaggio",
         "pflegedienst-praktikum-eoc-ente-ospedaliero-cantonale-novaggio",
-        "stage-de-service-infirmier-eoc-ente-ospedaliero-cantonale-novaggio"
+        "stage-de-service-infirmier-eoc-ente-ospedaliero-cantonale-novaggio",
+        "pflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "stage-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona"
       ]
     },
     {
@@ -3036,9 +3036,9 @@
       "crawledAt": "2026-04-07T21:27:11.299Z",
       "slugByLocale": {
         "it": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "en": "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
         "de": "qualifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "fr": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "fr": "physiotherapeute-certifie-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "titleByLocale": {
         "it": "Fisioterapista diplomato/a",
@@ -3063,7 +3063,6 @@
       },
       "sourceLang": "it",
       "previousSlugs": [
-        "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
         "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
         "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio-x29n64",
         "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n64",
@@ -3082,7 +3081,8 @@
         "zertifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona",
         "physiotherapeute-certifie-eoc-ente-ospedaliero-cantonale-bellinzona",
         "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
-        "physiotherapeute-certifie-eoc-ente-ospedaliero-cantonale-novaggio"
+        "physiotherapeute-certifie-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona"
       ],
       "salaryMin": 80000,
       "salaryMax": 108000,
@@ -4058,9 +4058,9 @@
       "crawledAt": "2026-04-07T09:32:20.096Z",
       "slugByLocale": {
         "it": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "en": "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
         "de": "qualifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "fr": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "fr": "physiotherapeute-certifie-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "titleByLocale": {
         "it": "Fisioterapista diplomato/a",
@@ -4084,7 +4084,6 @@
         "fr": []
       },
       "previousSlugs": [
-        "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n63",
         "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
         "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-bellinzona",
         "kinesitherapeute-qualifie-eoc-ente-ospedaliero-cantonale-bellinzona",
@@ -4103,7 +4102,8 @@
         "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n6q",
         "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona-uil2ol",
         "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
-        "physiotherapeute-certifie-eoc-ente-ospedaliero-cantonale-novaggio"
+        "physiotherapeute-certifie-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona"
       ],
       "sourceLang": "it",
       "salaryMin": 80000,
