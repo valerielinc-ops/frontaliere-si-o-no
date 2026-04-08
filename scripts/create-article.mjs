@@ -996,38 +996,42 @@ function assertNoFabricatedReferences(contentIt) {
   }
 
   // Extract legal references and check against known-real list
-  const legalRefPattern = /\b(?:d\.?l\.?g?s?\.?|dpr|l\.)\s*(?:n\.?\s*)?(\d{1,4})\s*[\/]\s*(\d{4})\b/gi;
+  // Matches: D.Lgs 241/1997, DL 167/2024, DPR 917/1986, L. 207/2024, L 207/2024, Legge 207/2024
+  const legalRefPattern = /\b(?:d\.?l\.?g?s?\.?|dpr|l\.\s*|legge\s+)(?:n\.?\s*)?(\d{1,4})\s*[\/]\s*(\d{4})\b/gi;
   const foundRefs = [];
   let m;
   while ((m = legalRefPattern.exec(articleLower)) !== null) {
-    const full = m[0].replace(/\s+/g, ' ').trim();
-    const normalized = full
-      .replace(/\.+/g, '.')
-      .replace(/\s*n\.?\s*/g, ' ')
-      .replace(/\.\s/g, ' ')
-      .replace(/\s+/g, ' ')
-      .trim()
-      .replace(/\.$/, '');
-    foundRefs.push(normalized);
+    foundRefs.push(m[0].replace(/\s+/g, ' ').trim());
   }
 
   if (foundRefs.length > 0) {
+    // Canonical form for comparison: collapse to "type num/year"
+    const canonicalize = (ref) => {
+      let r = ref.toLowerCase().replace(/\s+/g, ' ').trim();
+      // Normalize "legge N/Y" → "l. N/Y"
+      r = r.replace(/\blegge\s+/g, 'l. ');
+      // Normalize "d. lgs" / "d.lgs." / "d lgs" → "d.lgs"
+      r = r.replace(/d\.?\s*l(?:gs|\.?\s*g\.?\s*s\.?)\.?/g, 'd.lgs');
+      // Normalize "l." / "l " (legge) → "l."
+      r = r.replace(/\bl\.?\s+(?=\d)/g, 'l. ');
+      // Remove "n." or "n "
+      r = r.replace(/\s*n\.?\s*/g, ' ');
+      return r.replace(/\s+/g, ' ').trim();
+    };
+
+    const knownCanonical = new Set([...KNOWN_LEGAL_REFS].map(canonicalize));
+
     const unknownRefs = foundRefs.filter(ref => {
-      const variants = [
-        ref,
-        ref.replace(/\./g, ''),
-        ref.replace(/d\.lgs/g, 'd.lgs'),
-        ref.replace(/d lgs/g, 'd.lgs'),
-      ];
-      return !variants.some(v => KNOWN_LEGAL_REFS.has(v));
+      return !knownCanonical.has(canonicalize(ref));
     });
 
-    if (unknownRefs.length > 0) {
-      console.error(`  ⚠️  Riferimenti normativi non riconosciuti: ${unknownRefs.join(', ')}`);
-      // Block on ANY unknown legal ref — single fabricated ref is enough to be suspicious
-      if (unknownRefs.length >= 1) {
-        issues.push(`${unknownRefs.length} rif. normativi non riconosciuti: ${unknownRefs.join(', ')}`);
-      }
+    // Deduplicate for cleaner error messages
+    const uniqueUnknown = [...new Set(unknownRefs)];
+
+    if (uniqueUnknown.length > 0) {
+      console.error(`  ⚠️  Riferimenti normativi non riconosciuti: ${uniqueUnknown.join(', ')}`);
+      issues.push(`${uniqueUnknown.length} rif. normativi non riconosciuti: ${uniqueUnknown.join(', ')}`);
+    }
     }
   }
 
