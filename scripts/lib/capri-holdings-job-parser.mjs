@@ -97,7 +97,7 @@ export function parseCapriHoldingsDetailPage(html = '') {
     || html.match(/<main[^>]*>([\s\S]*?)<\/main>/i);
 
   if (contentMatch) {
-    body = normalizeSpace(stripHtml(contentMatch[1]));
+    body = stripHtml(contentMatch[1]);
   }
 
   if (!title && !body) return null;

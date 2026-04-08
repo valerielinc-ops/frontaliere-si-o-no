@@ -144,7 +144,7 @@ export function parseAldiDetailPage(html = '') {
     || html.match(/<div[^>]*class="[^"]*content[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
 
   if (contentMatch) {
-    body = normalizeSpace(stripHtml(contentMatch[1]));
+    body = stripHtml(contentMatch[1]);
   }
 
   if (!title && !body) return null;

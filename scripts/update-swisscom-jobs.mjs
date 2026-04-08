@@ -363,7 +363,7 @@ export function buildSwisscomJob(listing = {}, detail = {}) {
   const canton = inferCanton(city);
 
   const descriptionHtml = info.jobDescription || '';
-  const descriptionText = normalizeSpace(stripHtml(descriptionHtml));
+  const descriptionText = stripHtml(descriptionHtml);
   const parsedDescription = parseSwisscomJobDescription(descriptionHtml, title);
   const publicUrl = buildPublicUrl(externalPath);
 

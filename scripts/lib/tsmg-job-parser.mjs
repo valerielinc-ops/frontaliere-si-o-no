@@ -43,7 +43,7 @@ function htmlToBullets(html = '') {
 function sectionToMarkdown(section = {}) {
   const heading = normalizeSpace(section.text || '');
   const bullets = htmlToBullets(section.content || '');
-  const prose = normalizeSpace(stripHtml(section.content || ''));
+  const prose = stripHtml(section.content || '');
   const parts = [];
   if (heading) parts.push(`## ${heading}`);
   if (bullets.length > 0) {

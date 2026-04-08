@@ -323,7 +323,7 @@ async function fetchBraccoJobs() {
     const country = info.country?.descriptor === 'Switzerland' ? 'CH' : 'CH';
 
     const descriptionHtml = info.jobDescription || '';
-    const descriptionText = normalizeSpace(stripHtml(descriptionHtml));
+    const descriptionText = stripHtml(descriptionHtml);
     const publicUrl = buildPublicUrl(externalPath);
 
     const descEn = buildDescription(title, descriptionText, city);

@@ -147,7 +147,7 @@ export function parseDennerDetailPage(html = '') {
     || html.match(/<article[^>]*>([\s\S]*?)<\/article>/i);
 
   if (contentMatch) {
-    body = normalizeSpace(stripHtml(contentMatch[1]));
+    body = stripHtml(contentMatch[1]);
   }
 
   if (!title && !body) return null;

@@ -330,7 +330,7 @@ async function fetchFnzJobs() {
     const canton = inferCanton(city);
 
     const descriptionHtml = info.jobDescription || '';
-    const descriptionText = normalizeSpace(stripHtml(descriptionHtml));
+    const descriptionText = stripHtml(descriptionHtml);
     const publicUrl = buildPublicUrl(externalPath);
 
     const descEn = buildDescription(title, descriptionText, city);

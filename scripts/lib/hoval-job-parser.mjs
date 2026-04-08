@@ -86,7 +86,7 @@ export function parseHovalDetailPage(html = '') {
   const richTextRegex = /<div\s+class="o-richtext\s+o-richtext--large-article[^"]*"[^>]*>([\s\S]*?)<\/div>/g;
   let match;
   while ((match = richTextRegex.exec(html)) !== null) {
-    const content = normalizeSpace(stripHtml(match[1]));
+    const content = stripHtml(match[1]);
     // Skip contact/address blocks (short, contain typical address patterns)
     if (content.length > 80) {
       descBlocks.push(content);

@@ -248,7 +248,7 @@ async function fetchJobDetail(url) {
   const descRe = /data-careersite-propertyid="description"[^>]*>([\s\S]*?)<\/span>/i;
   const descMatch = html.match(descRe);
   if (descMatch) {
-    data.description = normalizeSpace(stripHtml(descMatch[1]));
+    data.description = stripHtml(descMatch[1]);
   }
 
   // Get canonical URL if available

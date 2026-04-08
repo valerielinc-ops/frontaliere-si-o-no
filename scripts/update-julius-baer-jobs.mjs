@@ -164,7 +164,7 @@ async function fetchJuliusBaerJobs() {
     const locationRaw = info.location || listing.locationsText || '';
     const city = locationRaw.split(/\s*-\s*/).slice(1).join('-').trim().replace(/,\s*switzerland$/i, '') || 'Lugano';
     const descriptionHtml = info.jobDescription || '';
-    const descriptionText = normalizeSpace(stripHtml(descriptionHtml));
+    const descriptionText = stripHtml(descriptionHtml);
     const publicUrl = buildPublicUrl(externalPath);
     const descEn = descriptionText || `${title} position at Julius Baer in Lugano, Switzerland.`;
     const descIt = `Posizione aperta presso Julius Baer a ${city}.\nRuolo: ${title}.\n\nJulius Baer è uno dei principali gruppi bancari privati svizzeri con sede a Zurigo e uffici a Lugano, Ticino.`;

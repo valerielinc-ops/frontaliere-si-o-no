@@ -95,7 +95,7 @@ export function parseBpsSuisseDetailPage(html = '') {
     || html.match(/<div[^>]*class="[^"]*content[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
 
   if (contentMatch) {
-    body = normalizeSpace(stripHtml(contentMatch[1]));
+    body = stripHtml(contentMatch[1]);
   }
 
   // Extract PDF URL if present

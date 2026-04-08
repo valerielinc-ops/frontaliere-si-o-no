@@ -326,7 +326,7 @@ async function fetchCapriHoldingsJobs() {
     }
 
     const descriptionHtml = info.jobDescription || '';
-    const descriptionText = normalizeSpace(stripHtml(descriptionHtml));
+    const descriptionText = stripHtml(descriptionHtml);
     const publicUrl = `${WORKDAY_PUBLIC_BASE}/${listing._site}${externalPath}`;
     const brand = listing.brand || 'Capri Holdings';
     const descEn = descriptionText || `${title} position at ${brand} in ${city || 'Switzerland'}.`;

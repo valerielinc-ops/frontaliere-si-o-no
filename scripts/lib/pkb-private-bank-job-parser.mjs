@@ -39,6 +39,8 @@ export function stripHtml(html = '') {
     .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
     .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '')
     .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<\/p>/gi, '\n\n')
+    .replace(/<\/li>/gi, '\n')
     .replace(/<[^>]+>/g, ' ')
     .replace(/&nbsp;/gi, ' ')
     .replace(/&amp;/gi, '&')
@@ -48,7 +50,8 @@ export function stripHtml(html = '') {
     .replace(/&apos;/gi, "'")
     .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)))
     .replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => String.fromCharCode(parseInt(hex, 16)))
-    .replace(/\s+/g, ' ')
+    .replace(/[^\S\n]+/g, ' ')
+    .replace(/\n{3,}/g, '\n\n')
     .trim();
 }
 
@@ -217,7 +220,7 @@ export function parsePkbDetailHtml(html) {
   // Extract main content area
   const contentMatch = html.match(/<div[^>]*class="[^"]*(?:content|description|detail|body)[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
   const rawHtml = contentMatch ? contentMatch[1] : '';
-  const description = normalizeSpace(stripHtml(rawHtml));
+  const description = stripHtml(rawHtml);
 
   // Extract requirements/bullets
   const bullets = [];

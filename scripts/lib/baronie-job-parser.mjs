@@ -36,6 +36,8 @@ function stripHtml(html = '') {
     .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
     .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '')
     .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<\/p>/gi, '\n\n')
+    .replace(/<\/li>/gi, '\n')
     .replace(/<[^>]+>/g, ' ')
     .replace(/&nbsp;/gi, ' ')
     .replace(/&amp;/gi, '&')
@@ -45,7 +47,8 @@ function stripHtml(html = '') {
     .replace(/&apos;/gi, "'")
     .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)))
     .replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => String.fromCharCode(parseInt(hex, 16)))
-    .replace(/\s+/g, ' ')
+    .replace(/[^\S\n]+/g, ' ')
+    .replace(/\n{3,}/g, '\n\n')
     .trim();
 }
 
@@ -157,7 +160,7 @@ export function parseBaronieDetailHtml(html) {
     preambleText = preParagraphs.join(' ');
   } else if (bodyHtml) {
     // No h3 sections — use entire body as text
-    preambleText = normalizeSpace(stripHtml(bodyHtml));
+    preambleText = stripHtml(bodyHtml);
   }
 
   for (let i = 0; i < h3Matches.length; i++) {
