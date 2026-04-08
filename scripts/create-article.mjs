@@ -938,6 +938,16 @@ const FABRICATED_INSTITUTION_PATTERNS = [
   /regolamento\s+ticinese\s+(?:del|sul)\s+lavoro/i,
   /commissione\s+(?:federale|cantonale)\s+(?:per\s+i\s+)?frontalier/i,
   /osservatorio\s+nazionale\s+(?:del|sulla)\s+sicurezza\s+(?:sul\s+)?lavoro/i,
+  // Patterns from 45-article audit (April 2026)
+  /commissione\s+di\s+bilancio\s+e\s+vigilanza\s+del\s+canton/i,
+  /compagnia\s+di\s+assicurazione/i,
+  /decreto\s+federale\s+sul\s+rispetto\s+ambientale/i,
+  /\bDEMAS\b/,
+  /legge\s+(?:federale\s+)?sulla\s+protezione\s+dell['']ambiente\s+e\s+della\s+sicurezza\s+pubblica/i,
+  /legge\s+sulla\s+cooperazione\s+transfrontaliera/i,
+  /tariffa\s+del\s+peccato/i,
+  /\bSS\s+39\b(?!.*Alto\s+Adige)/i,  // SS 39 is in Alto Adige, not Ticino
+  /\bSS\s+415\b/i,                    // Italian road designation, not Swiss
 ];
 
 // Fabricated Swiss/Italian acronyms that LLMs love to invent
@@ -954,6 +964,10 @@ const FABRICATED_ACRONYMS = [
   { pattern: /\bLTL\b/, real: 'LL/ArG' },
   { pattern: /\bCCFL\b/, real: 'non esiste' },
   { pattern: /\bUFML\b/, real: 'SEM' },
+  // Patterns from 45-article audit (April 2026)
+  { pattern: /\bUFIS\b/, real: 'UFSP/BAG (Ufficio federale della sanità pubblica)' },
+  { pattern: /\bDLGS\s+299\/2006\b/i, real: 'legge inesistente' },
+  { pattern: /\bD\.?Lgs\.?\s+299\/2006\b/i, real: 'legge inesistente' },
 ];
 
 /**
@@ -1059,6 +1073,16 @@ VERIFICA SISTEMATICA — controlla OGNI categoria:
 6. **COERENZA CON LA FONTE**: ${isEvergreen ? 'N/A per evergreen.' : "VERIFICA CRITICA: confronta ogni affermazione dell'articolo con la fonte originale. Se l'articolo aggiunge fatti, cifre, date o dichiarazioni NON presenti nella fonte, segnalali come 'critical' nella categoria 'coerenza'. L'articolo doveva RISCRIVERE la fonte, non aggiungere informazioni inventate."}
 
 7. **FATTI INVENTATI**: Cerca eventi, conferenze, referendum, proteste, dichiarazioni che sembrano plausibili ma potrebbero non essere mai avvenuti. ${isEvergreen ? '' : 'Se un fatto è presente nell\'articolo ma NON nella fonte, è molto probabilmente inventato.'}
+
+8. **NOMI DI PERSONE E CITAZIONI**: Verifica che ogni persona citata (politici, ministri, funzionari) esista realmente con il ruolo indicato. Citazioni dirette ("ha dichiarato:") di persone non verificabili sono quasi sempre inventate dall'IA.
+
+9. **GEOGRAFIA E STRADE**: In Svizzera le strade sono: autostrade (A2, A13), strade cantonali, strade nazionali. NON si usano le sigle italiane "SS" (Strada Statale). Comuni ticinesi devono essere reali e nella posizione geografica corretta.
+
+10. **PATTERN COMUNI DI HALLUCINATION IA**: Segnala come "critical" se trovi:
+   - Decreti/leggi con acronimi inventati (es. DEMAS, LCFL)
+   - "Commissione" o "Osservatorio" seguiti da nomi troppo specifici e mai sentiti
+   - Percentuali con decimali precise senza attribuzione a fonte reale (es. "il 67,3% dei frontalieri")
+   - Leggi con "entrata in vigore nel 2020/2022/2024" senza numero di legge verificabile
 
 CRITERI DI GIUDIZIO:
 - "critical" = fatto verificabilmente FALSO o ASSENTE dalla fonte (legge inesistente, istituzione inventata, aliquota sbagliata, evento mai avvenuto, dato aggiunto non nella fonte originale)

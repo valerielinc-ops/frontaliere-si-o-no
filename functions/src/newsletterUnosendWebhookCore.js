@@ -203,20 +203,28 @@ export async function handleUnosendWebhookRequest({ payload, headers, signingSec
       if (altSig) {
         const rawSecret = signingSecret.startsWith('whsec_') ? signingSecret.slice(6) : signingSecret;
         const expected = altSig.replace(/^sha256=/, '');
-        // Try base64-decoded key first (Svix-style whsec_ secrets are base64-encoded)
+        // Try multiple key derivations — Unosend signing key format is undocumented
+        // whsec_ secrets use URL-safe base64 (-/_ instead of +//)
+        const standardBase64 = rawSecret.replace(/-/g, '+').replace(/_/g, '/');
+        const keysToTry = [
+          { label: 'base64url-decoded', key: Buffer.from(rawSecret, 'base64url') },
+          { label: 'base64-std-decoded', key: Buffer.from(standardBase64, 'base64') },
+          { label: 'raw-stripped', key: rawSecret },
+          { label: 'full-with-prefix', key: signingSecret },
+        ];
         let isValid = false;
-        try {
-          const decodedKey = Buffer.from(rawSecret, 'base64');
-          const hmac1 = crypto.createHmac('sha256', decodedKey).update(payload, 'utf8').digest('hex');
-          isValid = hmac1.length === expected.length && crypto.timingSafeEqual(Buffer.from(hmac1), Buffer.from(expected));
-        } catch { /* ignore */ }
-        // Fallback: try raw string as key
-        if (!isValid) {
-          const hmac2 = crypto.createHmac('sha256', rawSecret).update(payload, 'utf8').digest('hex');
-          isValid = hmac2.length === expected.length && crypto.timingSafeEqual(Buffer.from(hmac2), Buffer.from(expected));
+        for (const { label, key } of keysToTry) {
+          try {
+            const hmac = crypto.createHmac('sha256', key).update(payload, 'utf8').digest('hex');
+            if (hmac.length === expected.length && crypto.timingSafeEqual(Buffer.from(hmac), Buffer.from(expected))) {
+              console.log(`[unosendWebhook] Signature valid with key: ${label}`);
+              isValid = true;
+              break;
+            }
+          } catch { /* ignore */ }
         }
         if (!isValid) {
-          console.warn(`[unosendWebhook] Alt signature mismatch`);
+          console.warn(`[unosendWebhook] Alt signature mismatch (tried ${keysToTry.length} key derivations)`);
           throw new Error('Invalid Unosend webhook signature');
         }
       } else {
@@ -231,7 +239,7 @@ export async function handleUnosendWebhookRequest({ payload, headers, signingSec
   const eventData = body.data || body;
 
   // Handle ping/test events gracefully
-  if (!eventType || eventType === 'ping' || eventType === 'test') {
+  if (!eventType || eventType === 'ping' || eventType === 'test' || eventType === 'test.event') {
     console.log(`[unosendWebhook] Ping/test event received (type=${eventType || 'none'})`);
     return { ok: true, ping: true };
   }
