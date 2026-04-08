@@ -1,6 +1,6 @@
 {
   "crawlerKey": "engel-voelkers",
-  "assembledAt": "2026-04-07T21:23:19.084Z",
+  "assembledAt": "2026-04-08T09:27:14.955Z",
   "jobs": [
     {
       "title": "Praktikum als Teamassistent/in (3–6 Monate) | Ascona",
@@ -20,7 +20,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-07",
+      "postedDate": "2026-04-08",
       "employmentType": "internship",
       "contractType": "internship",
       "validThrough": "",
@@ -32,7 +32,7 @@
         "fr": "Stage en tant qu'assistant(e) d'équipe (3–6 mois) | Ascona"
       },
       "descriptionByLocale": {
-        "it": "Descrizione Siamo alla ricerca di te per il nostro team! Per rafforzare il nostro team a Ascona, stiamo cercando una persona motivata e coinvolta come Praktikant/a per supportare il nostro team. In questa funzione, avrai l'opportunità di scoprire il mondo delle immobili di lusso e di imparare i vari processi amministrativi del nostro azienda. Engel & Völkers Ascona si specializza nella vendita di immobili esclusivi nel Tessin, dai eleganti appartamenti urbani ai villaggi eccezionali con vista sul mare. Insieme, viviamo i valori di Competenza, Esclusività e Passione.",
+        "it": "Wir suchen dich für unser Team! Zur Verstärkung unseres Teams in Ascona suchen wir ab sofort oder nach Vereinbarung eine/n engagierte/n Praktikant/in zur Unterstützung unseres Teams. In dieser Funktion erhalten Sie spannende Einblicke in die Welt der Luxusimmobilien und lernen die vielfältigen administrativen Abläufe unseres Unternehmens kennen. Engel & Völkers Ascona ist auf die Vermittlung exklusiver Immobilien im Tessin spezialisiert, von eleganten Stadtwohnungen bis zu aussergewöhnlichen Villen mit Seeblick. Gemeinsam leben wir die Werte Kompetenz, Exklusivität und Leidenschaft.",
         "en": "Description We are looking for you to join our team! To strengthen our team in Ascona, we are looking for an engaged and motivated intern to support our team. In this role, you will gain insights into the world of luxury real estate and learn about the various administrative processes of our company. Engel & Völkers Ascona specializes in the sale of exclusive properties in Ticino, from elegant city apartments to exceptional villas with sea views. Together, we live the values of Competence, Exclusivity, and Passion.",
         "de": "Descrizione Wir suchen dich für unser Team! Zur Verstärkung unseres Teams in Ascona suchen wir ab sofort oder nach Vereinbarung eine/n engagierte/n Praktikant/in zur Unterstützung unseres Teams. In dieser Funktion erhalten Sie spannende Einblicke in die Welt der Luxusimmobilien und lernen die vielfältigen administrativen Abläufe unseres Unternehmens kennen. Engel & Völkers Ascona ist auf die Vermittlung exklusiver Immobilien im Tessin spezialisiert, von eleganten Stadtwohnungen bis zu aussergewöhnlichen Villen mit Seeblick. Gemeinsam leben wir die Werte Kompetenz, Exklusivität und Leidenschaft.",
         "fr": "Description Nous recherchons quelqu'un pour rejoindre notre équipe! Pour renforcer notre équipe à Ascona, nous recherchons une personne motivée et engagée en tant qu'intern pour soutenir notre équipe. Dans ce rôle, vous aurez l'opportunité de découvrir le monde des biens immobiliers de luxe et d'apprendre les divers processus administratifs de notre entreprise. Engel & Völkers Ascona se spécialise dans la vente de biens immobiliers exclusifs en Ticino, des appartements urbains élégants aux villas exceptionnelles avec vue sur la mer. Ensemble, nous vivons les valeurs de Compétence, Exclusivité et Passion."
@@ -61,7 +61,9 @@
         }
       },
       "streetAddress": "Via Nassa 17",
-      "postalCode": "6900"
+      "postalCode": "6900",
+      "id": "engel-voelkers-5cb2a5a6809a",
+      "needsRetranslation": true
     },
     {
       "title": "Stage Assistente Team (3-6 mesi) | Lugano",
@@ -81,7 +83,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-07",
+      "postedDate": "2026-04-08",
       "employmentType": "internship",
       "contractType": "internship",
       "validThrough": "",
@@ -122,7 +124,8 @@
       "previousSlugs": [
         "stage-assistente-team-3-6-mesi-lugano-ticino-premium-properties-sa-lugano-4vyc5f",
         "stage-assistente-team-3-6-mesi-lugano-engel-voelkers-lugano"
-      ]
+      ],
+      "id": "engel-voelkers-f9b83e86e65e"
     },
     {
       "title": "Immobilienberater/in 100 % | Ascona",
@@ -142,7 +145,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-07",
+      "postedDate": "2026-04-08",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -183,7 +186,9 @@
         }
       },
       "streetAddress": "Via Nassa 17",
-      "postalCode": "6900"
+      "postalCode": "6900",
+      "id": "engel-voelkers-066a32c6e88d",
+      "needsRetranslation": true
     }
   ]
 }
