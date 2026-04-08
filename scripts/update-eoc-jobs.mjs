@@ -56,6 +56,11 @@ const UMANTIS_ITEMS_PER_PAGE = 10;
 const MAX_PAGES = 50; // safety cap to prevent infinite loops
 const VACANCY_HREF_RE = /\/Vacancies\/(\d+)\/Description\/\d+/g;
 
+// Maximum number of previousSlugs to retain per job.
+// Each slug generates a redirect page at build time — unbounded growth causes
+// thousands of extra pages (the root cause of this fix).
+const MAX_PREVIOUS_SLUGS = 5;
+
 // ──────────────────────────────────────────────────────────────
 // Helpers
 // ──────────────────────────────────────────────────────────────
@@ -72,6 +77,15 @@ function normalizeKey(value = '') {
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
+}
+
+/**
+ * Extract the Umantis vacancy ID from a job URL.
+ * E.g. "https://recruitingapp-2761.umantis.com/Vacancies/2655/Description/4" → "2655"
+ */
+function extractVacancyId(url) {
+  const m = String(url || '').match(/\/Vacancies\/(\d+)\//);
+  return m ? m[1] : null;
 }
 
 function detectLang(text = '') {
@@ -538,6 +552,29 @@ export function postProcessEocJobsInMemory(jobs) {
       }
     }
 
+    // Cap previousSlugs to prevent unbounded growth.
+    // Each entry generates a redirect page at build time — 40+ jobs with 10+
+    // entries each caused thousands of extra build pages (the original bug).
+    // First: remove entries that duplicate current slugs (redundant redirects).
+    if (Array.isArray(job.previousSlugs)) {
+      const currentSlugs = new Set();
+      if (job.slug) currentSlugs.add(job.slug);
+      if (job.slugByLocale && typeof job.slugByLocale === 'object') {
+        for (const v of Object.values(job.slugByLocale)) {
+          if (v) currentSlugs.add(v);
+        }
+      }
+      const before = job.previousSlugs.length;
+      job.previousSlugs = job.previousSlugs.filter(s => !currentSlugs.has(s));
+      // Then: keep only the most recent MAX_PREVIOUS_SLUGS entries.
+      if (job.previousSlugs.length > MAX_PREVIOUS_SLUGS) {
+        job.previousSlugs = job.previousSlugs.slice(-MAX_PREVIOUS_SLUGS);
+      }
+      if (job.previousSlugs.length < before) {
+        changed = true;
+      }
+    }
+
     if (changed) {
       fixedJobs++;
     }
@@ -547,6 +584,111 @@ export function postProcessEocJobsInMemory(jobs) {
     jobs: list,
     stats: { fixedJobs, fixedCompany, fixedLocation, fixedDescription, fixedSlug },
   };
+}
+
+/**
+ * Stabilize EOC slugs by comparing post-merge data with pre-crawl slice data.
+ *
+ * Root cause: EOC's location extraction is unreliable — the same vacancy may
+ * appear with different locations (Bellinzona, Lugano, Novaggio) across crawl
+ * runs, depending on which hospital name appears first in the description.
+ * The base crawler's merge step uses location hints in isSlugStable(), so it
+ * treats location-only slug changes as "genuinely different" jobs, generating
+ * cascading previousSlugs entries (each becomes a redirect page at build time).
+ *
+ * Fix: For each EOC job matched by vacancy ID, if the title hasn't changed,
+ * any slug change is location-driven and should be reverted to the pre-crawl
+ * value. This function is exported for unit testing (pure: no I/O).
+ *
+ * @param {object[]} currentJobs - Post-merge/post-processed jobs array (mutated in place)
+ * @param {object[]} preSliceJobs - Pre-crawl jobs from the existing slice file
+ * @returns {{ stabilizedSlugs: number, stabilizedLocaleSlugs: number }}
+ */
+export function stabilizeEocSlugsInMemory(currentJobs, preSliceJobs) {
+  const current = Array.isArray(currentJobs) ? currentJobs : [];
+  const preSlice = Array.isArray(preSliceJobs) ? preSliceJobs : [];
+  let stabilizedSlugs = 0;
+  let stabilizedLocaleSlugs = 0;
+
+  // Build vacancy ID → pre-crawl job map
+  const preByVacancy = new Map();
+  for (const j of preSlice) {
+    const vid = extractVacancyId(j.url);
+    if (vid) preByVacancy.set(vid, j);
+  }
+  if (preByVacancy.size === 0) return { stabilizedSlugs, stabilizedLocaleSlugs };
+
+  for (const job of current) {
+    if (!isEocJob(job)) continue;
+    const vid = extractVacancyId(job.url);
+    if (!vid) continue;
+    const pre = preByVacancy.get(vid);
+    if (!pre) continue; // new job — nothing to stabilize
+
+    const preTitle = normalize(pre.title || '');
+    const curTitle = normalize(job.title || '');
+    if (!preTitle || !curTitle || preTitle !== curTitle) continue;
+
+    // Title is identical → any slug change is location-driven. Revert.
+    if (pre.slug && job.slug && pre.slug !== job.slug) {
+      // Remove the pre-crawl slug from previousSlugs (it's current again)
+      if (Array.isArray(job.previousSlugs)) {
+        job.previousSlugs = job.previousSlugs.filter(s => s !== pre.slug);
+      }
+      job.slug = pre.slug;
+      stabilizedSlugs++;
+    }
+
+    // Stabilize slugByLocale
+    if (pre.slugByLocale && job.slugByLocale) {
+      for (const locale of ['it', 'en', 'de', 'fr']) {
+        const oldSlug = pre.slugByLocale[locale];
+        const newSlug = job.slugByLocale[locale];
+        if (oldSlug && newSlug && oldSlug !== newSlug) {
+          if (Array.isArray(job.previousSlugs)) {
+            job.previousSlugs = job.previousSlugs.filter(s => s !== oldSlug);
+          }
+          job.slugByLocale[locale] = oldSlug;
+          stabilizedLocaleSlugs++;
+        }
+      }
+    }
+  }
+
+  return { stabilizedSlugs, stabilizedLocaleSlugs };
+}
+
+/**
+ * I/O wrapper: stabilize EOC slugs after base crawler merge + post-processing.
+ *
+ * Reads the pre-crawl slice file (not yet overwritten) and the current
+ * data/jobs.json, then calls stabilizeEocSlugsInMemory to revert
+ * location-driven slug changes.
+ */
+function stabilizeEocSlugs() {
+  const slicePath = path.resolve(ROOT, 'data', 'jobs', 'by-crawler', `${EOC_KEY}.json`);
+  if (!fs.existsSync(slicePath) || !fs.existsSync(DATA_JOBS)) return;
+
+  let preSliceJobs;
+  try {
+    const sliceData = JSON.parse(fs.readFileSync(slicePath, 'utf-8'));
+    preSliceJobs = Array.isArray(sliceData) ? sliceData : (sliceData.jobs || []);
+  } catch { return; }
+  if (preSliceJobs.length === 0) return;
+
+  const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const jobs = Array.isArray(raw) ? raw : [];
+
+  const { stabilizedSlugs, stabilizedLocaleSlugs } =
+    stabilizeEocSlugsInMemory(jobs, preSliceJobs);
+
+  if (stabilizedSlugs > 0 || stabilizedLocaleSlugs > 0) {
+    fs.writeFileSync(DATA_JOBS, JSON.stringify(jobs, null, 2) + '\n');
+    console.log(
+      `🛡️ EOC slug stabilization: ${stabilizedSlugs} main slugs reverted, ` +
+      `${stabilizedLocaleSlugs} locale slugs reverted (location-driven churn prevented).`
+    );
+  }
 }
 
 /**
@@ -663,6 +805,11 @@ async function main() {
 
   // 3. Post-process EOC jobs: fix company name, location, description
   postProcessEocJobs();
+
+  // 4. Stabilize slugs: revert location-driven slug changes by comparing with
+  //    pre-crawl slice data. Must run AFTER post-processing but BEFORE writing
+  //    the new slice. The slice file is still the pre-crawl version at this point.
+  stabilizeEocSlugs();
 
   // Log stats
   const stats = logEocJobStats(_beforeSnapshot);

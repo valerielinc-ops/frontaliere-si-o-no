@@ -14,6 +14,7 @@ import { describe, it, expect } from 'vitest';
 import {
   buildEocRegeneratedSlug,
   postProcessEocJobsInMemory,
+  stabilizeEocSlugsInMemory,
 } from '@/scripts/update-eoc-jobs.mjs';
 
 interface EocJobFixture {
@@ -142,5 +143,170 @@ describe('postProcessEocJobsInMemory — slug dedup regression', () => {
 
     expect(result.jobs).toHaveLength(1);
     expect(result.jobs[0].slug).toBe(goodSlug);
+  });
+});
+
+describe('postProcessEocJobsInMemory — previousSlugs capping', () => {
+  it('caps previousSlugs to 5 entries, keeping the most recent', () => {
+    const job = makeJob({
+      slug: 'infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-bellinzona',
+      description: 'Cerchiamo un infermiere qualificato.',
+    }) as any;
+    job.previousSlugs = Array.from({ length: 12 }, (_, i) => `old-slug-${i}`);
+
+    const result = postProcessEocJobsInMemory([job]);
+    expect(result.jobs[0].previousSlugs.length).toBeLessThanOrEqual(5);
+    // Should keep the last 5 (most recent)
+    expect(result.jobs[0].previousSlugs).toEqual([
+      'old-slug-7', 'old-slug-8', 'old-slug-9', 'old-slug-10', 'old-slug-11',
+    ]);
+  });
+
+  it('removes previousSlugs that duplicate current slug or slugByLocale', () => {
+    const currentSlug = 'infermiere-a-eoc-ente-ospedaliero-cantonale-bellinzona';
+    const job = makeJob({
+      slug: currentSlug,
+      description: 'Cerchiamo un infermiere qualificato.',
+    }) as any;
+    job.slugByLocale = { it: currentSlug, en: 'nurse-eoc-bellinzona' };
+    job.previousSlugs = [
+      'some-old-slug',
+      currentSlug, // duplicate of current slug — should be removed
+      'nurse-eoc-bellinzona', // duplicate of slugByLocale.en — should be removed
+      'another-old-slug',
+    ];
+
+    const result = postProcessEocJobsInMemory([job]);
+    expect(result.jobs[0].previousSlugs).not.toContain(currentSlug);
+    expect(result.jobs[0].previousSlugs).not.toContain('nurse-eoc-bellinzona');
+    expect(result.jobs[0].previousSlugs).toContain('some-old-slug');
+    expect(result.jobs[0].previousSlugs).toContain('another-old-slug');
+  });
+});
+
+describe('stabilizeEocSlugsInMemory — location-driven churn prevention', () => {
+  it('reverts slug when title is unchanged but location flipped', () => {
+    const preSlug = 'infermiere-a-eoc-ente-ospedaliero-cantonale-bellinzona';
+    const churnedSlug = 'infermiere-a-eoc-ente-ospedaliero-cantonale-novaggio';
+
+    const preSliceJobs = [{
+      url: 'https://recruitingapp-2761.umantis.com/Vacancies/2655/Description/4',
+      title: 'Infermiere/a in Cure Generali',
+      slug: preSlug,
+      slugByLocale: { it: preSlug },
+      company: 'EOC – Ente Ospedaliero Cantonale',
+      companyKey: 'eoc-ente-ospedaliero-cantonale',
+      location: 'Bellinzona',
+      previousSlugs: [],
+    }];
+
+    const currentJobs = [{
+      url: 'https://recruitingapp-2761.umantis.com/Vacancies/2655/Description/4',
+      title: 'Infermiere/a in Cure Generali',
+      slug: churnedSlug,
+      slugByLocale: { it: churnedSlug },
+      company: 'EOC – Ente Ospedaliero Cantonale',
+      companyKey: 'eoc-ente-ospedaliero-cantonale',
+      location: 'Novaggio',
+      previousSlugs: [preSlug],
+    }];
+
+    const { stabilizedSlugs } = stabilizeEocSlugsInMemory(currentJobs, preSliceJobs);
+
+    expect(stabilizedSlugs).toBe(1);
+    expect(currentJobs[0].slug).toBe(preSlug);
+    // The pre slug should be removed from previousSlugs (it's current again)
+    expect(currentJobs[0].previousSlugs).not.toContain(preSlug);
+  });
+
+  it('does NOT revert slug when title genuinely changed', () => {
+    const preSlug = 'infermiere-a-eoc-ente-ospedaliero-cantonale-bellinzona';
+    const newSlug = 'medico-chirurgo-eoc-ente-ospedaliero-cantonale-bellinzona';
+
+    const preSliceJobs = [{
+      url: 'https://recruitingapp-2761.umantis.com/Vacancies/2655/Description/4',
+      title: 'Infermiere/a in Cure Generali',
+      slug: preSlug,
+      company: 'EOC – Ente Ospedaliero Cantonale',
+      companyKey: 'eoc-ente-ospedaliero-cantonale',
+    }];
+
+    const currentJobs = [{
+      url: 'https://recruitingapp-2761.umantis.com/Vacancies/2655/Description/4',
+      title: 'Medico Chirurgo', // Title genuinely changed
+      slug: newSlug,
+      company: 'EOC – Ente Ospedaliero Cantonale',
+      companyKey: 'eoc-ente-ospedaliero-cantonale',
+      previousSlugs: [preSlug],
+    }];
+
+    const { stabilizedSlugs } = stabilizeEocSlugsInMemory(currentJobs, preSliceJobs);
+
+    expect(stabilizedSlugs).toBe(0);
+    expect(currentJobs[0].slug).toBe(newSlug);
+    expect(currentJobs[0].previousSlugs).toContain(preSlug);
+  });
+
+  it('leaves new jobs (no pre-crawl match) untouched', () => {
+    const preSliceJobs = [{
+      url: 'https://recruitingapp-2761.umantis.com/Vacancies/1000/Description/4',
+      title: 'Some Old Job',
+      slug: 'some-old-job-slug',
+      company: 'EOC – Ente Ospedaliero Cantonale',
+      companyKey: 'eoc-ente-ospedaliero-cantonale',
+    }];
+
+    const currentJobs = [{
+      url: 'https://recruitingapp-2761.umantis.com/Vacancies/9999/Description/4',
+      title: 'Brand New Job',
+      slug: 'brand-new-job-eoc-bellinzona',
+      company: 'EOC – Ente Ospedaliero Cantonale',
+      companyKey: 'eoc-ente-ospedaliero-cantonale',
+    }];
+
+    const { stabilizedSlugs } = stabilizeEocSlugsInMemory(currentJobs, preSliceJobs);
+
+    expect(stabilizedSlugs).toBe(0);
+    expect(currentJobs[0].slug).toBe('brand-new-job-eoc-bellinzona');
+  });
+
+  it('also stabilizes slugByLocale when title is unchanged', () => {
+    const preSliceJobs = [{
+      url: 'https://recruitingapp-2761.umantis.com/Vacancies/2655/Description/4',
+      title: 'Infermiere/a',
+      slug: 'infermiere-a-eoc-bellinzona',
+      slugByLocale: {
+        it: 'infermiere-a-eoc-bellinzona',
+        en: 'nurse-eoc-bellinzona',
+        de: 'krankenschwester-eoc-bellinzona',
+        fr: 'infirmiere-eoc-bellinzona',
+      },
+      company: 'EOC – Ente Ospedaliero Cantonale',
+      companyKey: 'eoc-ente-ospedaliero-cantonale',
+    }];
+
+    const currentJobs = [{
+      url: 'https://recruitingapp-2761.umantis.com/Vacancies/2655/Description/4',
+      title: 'Infermiere/a',
+      slug: 'infermiere-a-eoc-novaggio',
+      slugByLocale: {
+        it: 'infermiere-a-eoc-novaggio',
+        en: 'nurse-eoc-novaggio',
+        de: 'krankenschwester-eoc-novaggio',
+        fr: 'infirmiere-eoc-novaggio',
+      },
+      company: 'EOC – Ente Ospedaliero Cantonale',
+      companyKey: 'eoc-ente-ospedaliero-cantonale',
+      previousSlugs: ['infermiere-a-eoc-bellinzona', 'nurse-eoc-bellinzona'],
+    }];
+
+    const { stabilizedSlugs, stabilizedLocaleSlugs } =
+      stabilizeEocSlugsInMemory(currentJobs, preSliceJobs);
+
+    expect(stabilizedSlugs).toBe(1);
+    expect(stabilizedLocaleSlugs).toBe(4);
+    expect(currentJobs[0].slug).toBe('infermiere-a-eoc-bellinzona');
+    expect(currentJobs[0].slugByLocale.it).toBe('infermiere-a-eoc-bellinzona');
+    expect(currentJobs[0].slugByLocale.en).toBe('nurse-eoc-bellinzona');
   });
 });
