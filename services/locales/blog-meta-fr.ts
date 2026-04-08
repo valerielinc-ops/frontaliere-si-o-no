@@ -2133,6 +2133,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.incidente-rampa-a9-chiasso-2026.title': 'Accident sur la bretelle d\'accès à l\'A9 en direction de Chiasso : embouteillages et blessés légers',
     'blog.article.incidente-rampa-a9-chiasso-2026.excerpt': 'Trois voitures impliquées sur le viaduc de Brogeda. Route fermée pendant deux heures. Trois personnes légèrement blessées.',
     'blog.article.incidente-rampa-a9-chiasso-2026.imageAlt': 'Viaduc de Brogeda avec véhicules d\'urgence et embouteillages sur la rampe de l\'A9 vers Chiasso.',
+    'blog.article.tilo-s50-lavori-mal-pensa-varese-2026.title': 'TILO S50 : les arrêts entre Varèse et Malpensa changent les 11 et 12 avril',
+    'blog.article.tilo-s50-lavori-mal-pensa-varese-2026.excerpt': 'Samedi 11 et dimanche 12 avril 2026, les arrêts du TILO S50 entre Varèse, Gallarate et l’aéroport de Malpensa seront remplacés par des bus. Les temps de trajet seront allongés, des dessertes supprimées et des bus de substitution partiront en avance.',
+    'blog.article.tilo-s50-lavori-mal-pensa-varese-2026.imageAlt': 'Terminal 2 de l\'aéroport de Malpensa avec taxis en attente et vue sur les Alpes',
 };
 
 export default blogMetaFr;

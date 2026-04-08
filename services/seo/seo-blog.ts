@@ -6321,6 +6321,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tilo-s50-lavori-mal-pensa-varese-2026': {
+    title: 'TILO S50: fermate tra Varese e Malpensa cambiano il 11-12 aprile | Frontaliere Ticino',
+    description: 'Sabato 11 e domenica 12 aprile 2026 fermate TILO S50 tra Varese, Gallarate e Malpensa Aeroporto sostituite da bus. Tempi di viaggio allungati, soppressioni e bu',
+    keywords: 'frontalieri, ticino, svizzera, italia, tilo, fermate, varese, malpensa',
+    ogTitle: 'TILO S50: fermate tra Varese e Malpensa cambiano il 11-12',
+    ogDescription: 'Sabato 11 e domenica 12 aprile 2026 fermate TILO S50 tra Varese, Gallarate e Malpensa Aeroporto sostituite da bus. Tempi di viaggio allungati, soppressioni e bu',
+    canonicalPath: '/articoli-frontaliere/tilo-s50-lavori-mal-pensa-varese-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "TILO S50: fermate tra Varese e Malpensa cambiano il 11-12",
+      "description": "Sabato 11 e domenica 12 aprile 2026 fermate TILO S50 tra Varese, Gallarate e Malpensa Aeroporto sostituite da bus. Tempi di viaggio allungati, soppressioni e bu",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tilo-s50-lavori-mal-pensa-varese-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Malpensa Aeroporto Terminal 2 con taxi in attesa e vista sulle Alpi"
+      },
+      "datePublished": "2026-04-08T17:25:00+00:00",
+      "dateModified": "2026-04-08T17:25:00+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tilo-s50-lavori-mal-pensa-varese-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

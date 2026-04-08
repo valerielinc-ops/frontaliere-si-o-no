@@ -6131,4 +6131,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/incidente-rampa-a9-chiasso-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'tilo-s50-lavori-mal-pensa-varese-2026',
+    category: 'pratico',
+    date: '2026-04-08T17:25:00.463Z',
+    image: '/images/blog/tilo-s50-lavori-mal-pensa-varese-2026.jpg',
+    hasCalculator: true,
+  },
 ];
