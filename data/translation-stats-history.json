@@ -1,45 +1,5 @@
 [
   {
-    "timestamp": "2026-03-30T19:02:17.639Z",
-    "label": "before",
-    "total": 1317,
-    "needsRetranslation": 107,
-    "incomplete": 107,
-    "complete": 1210,
-    "missingByLocale": {
-      "it": 71,
-      "en": 107,
-      "de": 36,
-      "fr": 107
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 107
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-03-30T19:02:18.153Z",
-    "label": "after",
-    "total": 1317,
-    "needsRetranslation": 107,
-    "incomplete": 107,
-    "complete": 1210,
-    "missingByLocale": {
-      "it": 71,
-      "en": 107,
-      "de": 36,
-      "fr": 107
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 107
-      }
-    ]
-  },
-  {
     "timestamp": "2026-03-30T19:08:32.789Z",
     "label": "before",
     "total": 1210,
@@ -10081,6 +10041,62 @@
       },
       {
         "company": "Lidl Svizzera",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-08T07:56:46.626Z",
+    "label": "before",
+    "total": 1484,
+    "needsRetranslation": 56,
+    "incomplete": 7,
+    "complete": 1477,
+    "missingByLocale": {
+      "it": 6,
+      "en": 5,
+      "de": 3,
+      "fr": 7
+    },
+    "topPending": [
+      {
+        "company": "Hilcona AG",
+        "pending": 4
+      },
+      {
+        "company": "Prada Group",
+        "pending": 2
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-08T07:57:29.601Z",
+    "label": "after",
+    "total": 1484,
+    "needsRetranslation": 55,
+    "incomplete": 7,
+    "complete": 1477,
+    "missingByLocale": {
+      "it": 6,
+      "en": 5,
+      "de": 3,
+      "fr": 7
+    },
+    "topPending": [
+      {
+        "company": "Hilcona AG",
+        "pending": 4
+      },
+      {
+        "company": "Prada Group",
+        "pending": 2
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
         "pending": 1
       }
     ]
