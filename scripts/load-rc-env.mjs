@@ -48,10 +48,8 @@ const RC_TO_ENV = {
 
   // Email cascade providers (newsletter + job alerts)
   EMAILOCTOPUS_API_KEY:           ['EMAILOCTOPUS_API_KEY'],
-  MAILERLITE_API_KEY:             ['MAILERLITE_API_KEY'],
   MAILJET_API_KEY:                ['MAILJET_API_KEY'],
   MAILJET_SECRET_KEY:             ['MAILJET_SECRET_KEY'],
-  BREVO_API_KEY:                  ['BREVO_API_KEY'],
   MAILGUN_API_KEY:                ['MAILGUN_API_KEY'],
   MAILGUN_DOMAIN:                 ['MAILGUN_DOMAIN'],
 

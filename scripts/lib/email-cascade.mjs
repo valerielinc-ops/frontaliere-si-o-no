@@ -2,9 +2,11 @@
 /**
  * email-cascade.mjs — Multi-provider email sending with daily quota tracking.
  *
- * Cascade order: EmailOctopus → MailerLite → Mailjet → Brevo → Mailgun → Resend (fallback)
+ * Cascade order: EmailOctopus → Mailjet → Mailgun → Resend (fallback)
  * Each provider has a daily quota. When one is exhausted, the next takes over.
  * Tracking (persistDelivery) is provider-agnostic — callers handle Firestore writes.
+ *
+ * All providers support custom sending domains with DKIM on their free tier.
  *
  * Usage:
  *   import { sendEmailCascade, getProviderStats } from './lib/email-cascade.mjs';
@@ -15,10 +17,8 @@
  *
  * Environment variables (from Firebase Remote Config via load-rc-env.mjs):
  *   EMAILOCTOPUS_API_KEY     — EmailOctopus API key
- *   MAILERLITE_API_KEY       — MailerLite API key
  *   MAILJET_API_KEY          — Mailjet API key (public)
  *   MAILJET_SECRET_KEY       — Mailjet API secret
- *   BREVO_API_KEY            — Brevo API key
  *   MAILGUN_API_KEY          — Mailgun API key
  *   MAILGUN_DOMAIN           — Mailgun sending domain
  *   RESEND_API_KEY           — Resend API key (fallback only)
@@ -28,9 +28,7 @@
 
 const PROVIDERS = [
   { id: 'emailoctopus', dailyLimit: 330, monthlyLimit: 10000 },
-  { id: 'mailerlite',   dailyLimit: 400, monthlyLimit: 12000 },
   { id: 'mailjet',      dailyLimit: 200, monthlyLimit: 6000  },
-  { id: 'brevo',        dailyLimit: 300, monthlyLimit: 9000  },
   { id: 'mailgun',      dailyLimit: 100, monthlyLimit: 3000  },
   { id: 'resend',       dailyLimit: 100, monthlyLimit: 3000  },
 ];
@@ -69,9 +67,7 @@ function remainingQuota(providerId) {
 function isProviderConfigured(providerId) {
   switch (providerId) {
     case 'emailoctopus': return !!process.env.EMAILOCTOPUS_API_KEY;
-    case 'mailerlite': return !!process.env.MAILERLITE_API_KEY;
     case 'mailjet':    return !!(process.env.MAILJET_API_KEY && process.env.MAILJET_SECRET_KEY);
-    case 'brevo':      return !!process.env.BREVO_API_KEY;
     case 'mailgun':    return !!(process.env.MAILGUN_API_KEY && process.env.MAILGUN_DOMAIN);
     case 'resend':     return !!process.env.RESEND_API_KEY;
     default: return false;
@@ -104,35 +100,6 @@ async function sendViaEmailOctopus(email) {
 
   const data = await res.json().catch(() => ({}));
   return { messageId: data?.id || `eo-${Date.now()}`, provider: 'emailoctopus' };
-}
-
-// ── MailerLite API (v2) ──────────────────────────────────────
-// Docs: https://developers.mailerlite.com/docs/transactional-emails
-
-async function sendViaMailerLite(email) {
-  const apiKey = process.env.MAILERLITE_API_KEY;
-  const res = await fetch('https://connect.mailerlite.com/api/emails', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${apiKey}`,
-    },
-    body: JSON.stringify({
-      from: parseEmailAddress(email.from),
-      to: email.to.map(addr => ({ email: addr })),
-      subject: email.subject,
-      html: email.html,
-      text: email.text || undefined,
-    }),
-  });
-
-  if (!res.ok) {
-    const err = await res.text().catch(() => '');
-    throw new Error(`MailerLite ${res.status}: ${err.slice(0, 200)}`);
-  }
-
-  const data = await res.json().catch(() => ({}));
-  return { messageId: data?.data?.id || data?.id || `ml-${Date.now()}`, provider: 'mailerlite' };
 }
 
 // ── Mailjet API (v3.1) ──────────────────────────────────────
@@ -174,38 +141,6 @@ async function sendViaMailjet(email) {
     throw new Error(`Mailjet error: ${JSON.stringify(msg.Errors).slice(0, 200)}`);
   }
   return { messageId: String(msg?.To?.[0]?.MessageID || `mj-${Date.now()}`), provider: 'mailjet' };
-}
-
-// ── Brevo API (v3) ───────────────────────────────────────────
-// Docs: https://developers.brevo.com/reference/sendtransacemail
-
-async function sendViaBrevo(email) {
-  const apiKey = process.env.BREVO_API_KEY;
-  const fromParsed = parseEmailAddress(email.from);
-
-  const res = await fetch('https://api.brevo.com/v3/smtp/email', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'api-key': apiKey,
-    },
-    body: JSON.stringify({
-      sender: { email: fromParsed.email, name: fromParsed.name || undefined },
-      to: email.to.map(addr => ({ email: addr })),
-      subject: email.subject,
-      htmlContent: email.html,
-      textContent: email.text || undefined,
-      tags: email.tags?.map(t => t.value) || undefined,
-    }),
-  });
-
-  if (!res.ok) {
-    const err = await res.text().catch(() => '');
-    throw new Error(`Brevo ${res.status}: ${err.slice(0, 200)}`);
-  }
-
-  const data = await res.json().catch(() => ({}));
-  return { messageId: data?.messageId || `brevo-${Date.now()}`, provider: 'brevo' };
 }
 
 // ── Mailgun API (v3) ─────────────────────────────────────────
@@ -276,9 +211,7 @@ async function sendViaResend(email) {
 
 const SEND_FNS = {
   emailoctopus: sendViaEmailOctopus,
-  mailerlite: sendViaMailerLite,
   mailjet: sendViaMailjet,
-  brevo: sendViaBrevo,
   mailgun: sendViaMailgun,
   resend: sendViaResend,
 };
