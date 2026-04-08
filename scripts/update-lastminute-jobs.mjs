@@ -515,6 +515,7 @@ export function normalizeLastminuteRow(job) {
     slug: refreshedSlugs.slug,
     ...localeFields,
     slugByLocale: refreshedSlugs.slugByLocale,
+    sourceLang: detectLang((job?.description || '') + ' ' + (job?.title || ''), 'en'),
   };
 }
 
@@ -685,6 +686,7 @@ async function enrichFromSmartRecruitersApi(seedUrls) {
         },
         titleByLocale: { en: detail.title },
         slugByLocale: { en: slug },
+        sourceLang: detectLang(detail.description || detail.title, 'en'),
         category: 'tech',
         sector: 'Tecnologia & IT',
         postedDate: detail.postedDate,

@@ -365,6 +365,24 @@ async function main() {
   // and parses the HTML content
   await runBaseCrawler();
 
+  // Step 3b: Ensure sourceLang is set on all Migros jobs
+  {
+    const raw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
+    const allJobs = Array.isArray(raw) ? raw : [];
+    let patched = 0;
+    for (const job of allJobs) {
+      if (!isMigrosJob(job)) continue;
+      if (!job.sourceLang) {
+        job.sourceLang = detectLang(job.description || job.title, 'it');
+        patched++;
+      }
+    }
+    if (patched > 0) {
+      fs.writeFileSync(DATA_JOBS, JSON.stringify(allJobs, null, 2) + '\n');
+      console.log(`  🏷️ Set sourceLang on ${patched} Migros job(s).`);
+    }
+  }
+
   // Step 4: Log stats and validate
   const stats = logMigrosJobStats(_beforeSnapshot);
   const crawlDiff = stats.crawlDiff;

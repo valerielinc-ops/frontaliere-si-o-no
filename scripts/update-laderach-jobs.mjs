@@ -67,6 +67,7 @@ async function main() {
       company: COMPANY_NAME, companyKey: COMPANY_KEY, companyDomain: 'laderach.com',
       title: raw.title, titleByLocale: { de: raw.title },
       description, descriptionByLocale: { de: description },
+      sourceLang: detectLang(description || raw.title, 'de'),
       requirements: [], requirementsByLocale: { de: [] },
       location: raw.location || 'Ennenda', canton: 'GR',
       addressLocality: raw.location || 'Ennenda', addressCountry: 'CH',

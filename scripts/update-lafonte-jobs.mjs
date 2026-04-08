@@ -45,6 +45,7 @@ import {
   translateMissingJobLocales,
   validateDedicatedLocaleCoverage,
   mergeLocaleTextMap,
+  detectLang,
 } from './lib/dedicated-crawler-common.mjs';
 import {
   htmlToMarkdown,
@@ -367,6 +368,7 @@ async function fetchLaFonteJobs() {
       titleByLocale: { it: listing.title },
       descriptionByLocale: { it: description },
       slugByLocale: { it: slug },
+      sourceLang: detectLang(description || listing.title, 'it'),
       _targetScope: { canton: 'TI', location: 'Lugano' },
     };
 

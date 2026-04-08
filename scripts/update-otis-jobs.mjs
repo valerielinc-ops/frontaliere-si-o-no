@@ -118,6 +118,7 @@ async function main() {
       titleByLocale: { en: raw.title },
       description,
       descriptionByLocale: { en: description },
+      sourceLang: detectLang(description || raw.title, 'en'),
       requirements: [],
       requirementsByLocale: { en: [] },
       location: raw.city || 'Ticino',

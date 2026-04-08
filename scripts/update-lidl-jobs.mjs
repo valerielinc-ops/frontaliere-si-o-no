@@ -520,6 +520,11 @@ function postProcessLidlJobs() {
       fixed += 1;
     }
 
+    if (!job.sourceLang) {
+      job.sourceLang = detectLang(job.description || job.title, 'it');
+      fixed += 1;
+    }
+
     const lat = Number(job?.latitude || job?.addressLatitude || job?.jobLocation?.latitude);
     const lon = Number(job?.longitude || job?.addressLongitude || job?.jobLocation?.longitude);
     const inferred = inferCantonFromCoordinates(lat, lon, normalize(String(job?.canton || '').toUpperCase()));

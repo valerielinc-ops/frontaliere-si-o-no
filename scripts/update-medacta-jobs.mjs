@@ -31,7 +31,7 @@ import {
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
-import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage } from './lib/dedicated-crawler-common.mjs';
+import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang } from './lib/dedicated-crawler-common.mjs';
 import {
   decodeHtmlEntities,
   inferMedactaCategory,
@@ -478,7 +478,7 @@ async function injectMedactaJobs(alliboJobs) {
       isUrgent: aj.isUrgent,
       metaDescription,
     });
-    const titleByLocale = Object.fromEntries(LOCALES.map((locale) => [locale, aj.title]));
+    const titleByLocale = { en: aj.title };
 
     const jobEntry = {
       id: `medacta-${aj.alliboId || normalizeKey(aj.title)}`,
@@ -506,6 +506,7 @@ async function injectMedactaJobs(alliboJobs) {
       requirementsByLocale: {},
       crawledAt: new Date().toISOString(),
       slugByLocale: {},
+      sourceLang: detectLang(description || aj.title, 'en'),
       addressLocality: aj.location || DEFAULT_CITY,
       addressCountry: aj.country || 'CH',
     };

@@ -34,7 +34,7 @@ import {
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
 import { validateJobUrls } from './lib/validate-job-url.mjs';
-import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap,
+import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap, detectLang,
 } from './lib/dedicated-crawler-common.mjs';
 import {
   parseAccordionJobs,
@@ -185,6 +185,7 @@ async function fetchLinneaJobs() {
       employmentType,
       experienceLevel: detectExperienceLevel(parsed.title),
       sector: 'Farmaceutica / Ingredienti botanici',
+      sourceLang: detectLang(descEn || parsed.title, 'it'),
       _targetScope: { canton: 'TI', location: 'Riazzino' },
     };
 

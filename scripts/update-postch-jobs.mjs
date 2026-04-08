@@ -297,6 +297,7 @@ async function fetchPostJobs() {
       titleByLocale: { it: title },
       slug,
       slugByLocale: { it: slug },
+      sourceLang: detectLang(descriptionIt || title, 'en'),
       department: detail.industry || '',
       category: detail.industry || 'servizi-postali',
       datePosted: detail.datePosted || new Date().toISOString().split('T')[0],

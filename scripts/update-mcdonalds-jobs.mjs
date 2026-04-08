@@ -37,6 +37,7 @@ import {
   runDedicatedBaseCrawler,
   validateDedicatedLocaleCoverage,
   mergeLocaleTextMap,
+  detectLang,
 } from './lib/dedicated-crawler-common.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -272,6 +273,7 @@ async function buildJobObjects(mapEntries) {
       description,
       descriptionByLocale: {},
       titleByLocale: { de: title },
+      sourceLang: detectLang(description || title, 'de'),
       slug,
       slugByLocale: { de: slug },
       category: detectCategory(entry.type_name, title),

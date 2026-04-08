@@ -41,6 +41,7 @@ import {
   normalize,
   normalizeKey,
 mergeLocaleTextMap,
+detectLang,
 } from './lib/dedicated-crawler-common.mjs';
 import { TICINO_CITIES, isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
 
@@ -321,16 +322,11 @@ async function fetchManorJobs() {
       slug: baseSlug,
       slugByLocale: {
         it: baseSlug,
-        en: baseSlug,
-        de: baseSlug,
-        fr: baseSlug,
       },
       titleByLocale: {
         it: title,
-        en: title,
-        de: title,
-        fr: title,
       },
+      sourceLang: detectLang(descIt || title, 'de'),
     };
 
     console.log(`  ✅ ${title} — Manor @ ${city} (id: ${jobId})`);

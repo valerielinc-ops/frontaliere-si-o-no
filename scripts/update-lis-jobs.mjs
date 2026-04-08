@@ -693,37 +693,32 @@ async function cleanLisJobs() {
 
     // ── titleByLocale ──
     if (!job.titleByLocale) job.titleByLocale = {};
-    for (const locale of LOCALES) {
-      job.titleByLocale[locale] = job.title;
-    }
+    job.titleByLocale.it = job.title;
 
     // ── slugByLocale ──
-    // LIS has no per-locale titles, so all locales use the same Italian slug.
-    // Fill missing locales; also propagate if slug genuinely changed.
+    // LIS has no per-locale titles, so only the Italian slug is set.
+    // Other locales are filled by the translation pipeline.
     if (!job.slugByLocale) job.slugByLocale = {};
-    for (const locale of LOCALES) {
-      if (slugChanged || !job.slugByLocale[locale]) {
-        job.slugByLocale[locale] = job.slug;
-      }
+    if (slugChanged || !job.slugByLocale.it) {
+      job.slugByLocale.it = job.slug;
     }
 
     // ── descriptionByLocale ──
     if (!job.descriptionByLocale) job.descriptionByLocale = {};
-    for (const locale of LOCALES) {
-      const localeDesc = String(job.descriptionByLocale[locale] || '');
-      if (localeDesc.length < 120) {
-        // Missing — seed with Italian cleaned description
-        job.descriptionByLocale[locale] = job.description;
+    const itLocaleDesc = String(job.descriptionByLocale.it || '');
+    if (itLocaleDesc.length < 120) {
+      job.descriptionByLocale.it = job.description;
+    } else {
+      const cleanedIt = cleanLisDescription(itLocaleDesc);
+      if (cleanedIt.length >= 120) {
+        job.descriptionByLocale.it = cleanedIt;
       } else {
-        // Clean the locale-specific description with the same patterns
-        const cleanedLocale = cleanLisDescription(localeDesc);
-        if (cleanedLocale.length >= 120) {
-          job.descriptionByLocale[locale] = cleanedLocale;
-        } else {
-          job.descriptionByLocale[locale] = job.description;
-        }
+        job.descriptionByLocale.it = job.description;
       }
     }
+
+    // ── sourceLang ──
+    job.sourceLang = detectLang(job.description || job.title);
 
     // Canonical source for LIS should be Italian when available.
     const canonicalItDesc = String(job.descriptionByLocale?.it || '').trim();

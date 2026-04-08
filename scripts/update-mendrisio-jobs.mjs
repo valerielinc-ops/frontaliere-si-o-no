@@ -43,6 +43,7 @@ import {
   runDedicatedBaseCrawler,
   validateDedicatedLocaleCoverage,
   mergeLocaleTextMap,
+  detectLang,
 } from './lib/dedicated-crawler-common.mjs';
 import {
   buildPdfBackedDescription,
@@ -484,6 +485,7 @@ async function fetchMendrisioJobs() {
       titleByLocale: { it: parsed.title },
       slug,
       slugByLocale: { it: slug },
+      sourceLang: detectLang(description || parsed.title, 'it'),
       category,
       datePosted: parsed.datePosted,
       validThrough: parsed.deadline || undefined,

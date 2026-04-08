@@ -46,6 +46,7 @@ import {
   runDedicatedBaseCrawler,
   validateDedicatedLocaleCoverage,
   mergeLocaleTextMap,
+  detectLang,
 } from './lib/dedicated-crawler-common.mjs';
 import {
   extractPdfJobContentFromUrl,
@@ -432,6 +433,7 @@ async function fetchOscamJobs() {
         titleByLocale: { it: listing.title },
         descriptionByLocale: { it: description },
         slugByLocale: { it: slug },
+        sourceLang: detectLang(description || listing.title, 'it'),
         _targetScope: { canton: 'TI', location: 'Castelrotto' },
       };
 

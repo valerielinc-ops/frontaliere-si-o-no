@@ -268,13 +268,10 @@ export function buildPemsaLocalizedContent(job = {}) {
   const frDesc = `PEMSA, agence de recrutement spécialisée dans le bâtiment et la technique, recherche un profil ${title} à ${city}. PEMSA garantit des conditions de travail optimales et un accompagnement professionnel. Postulez via le portail officiel.`;
 
   return {
-    titleByLocale: { it: title, en: title, de: title, fr: title },
+    titleByLocale: { it: title },
     descriptionByLocale: { it: itDesc, en: enDesc, de: deDesc, fr: frDesc },
     slugByLocale: {
       it: slugify(`${title} pemsa ${city}`),
-      en: slugify(`${title} pemsa ${city}`),
-      de: slugify(`${title} pemsa ${city}`),
-      fr: slugify(`${title} pemsa ${city}`),
     },
   };
 }
