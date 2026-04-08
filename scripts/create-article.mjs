@@ -1042,11 +1042,11 @@ ARTICOLO DA VERIFICARE:
 ${articleText.slice(0, 8000)}
 """
 
-${isEvergreen ? 'NOTA: Articolo evergreen senza fonte specifica. Verifica basandoti sulle tue conoscenze del dominio.' : `FONTE ORIGINALE:\n"""\n${sourceContent.slice(0, 4000)}\n"""`}
+${isEvergreen ? 'NOTA: Articolo evergreen senza fonte specifica. Verifica basandoti sulle tue conoscenze del dominio.' : `FONTE ORIGINALE (l'articolo doveva basarsi su questo testo):\n"""\n${sourceContent.slice(0, 6000)}\n"""`}
 
 VERIFICA SISTEMATICA — controlla OGNI categoria:
 
-1. **LEGGI E DECRETI**: Ogni riferimento normativo (D.Lgs, DL, DPR, L.) deve esistere realmente con numero e anno corretti. Verifica che il contenuto attribuito alla legge sia corretto.
+1. **LEGGI E DECRETI**: Ogni riferimento normativo (D.Lgs, DL, DPR, L.) deve esistere realmente con numero e anno corretti. Verifica che il contenuto attribuito alla legge sia corretto. ${isEvergreen ? '' : 'Se il riferimento NON è presente nella fonte originale, segnalalo come sospetto.'}
 
 2. **ISTITUZIONI E ENTI**: Ogni istituzione menzionata deve esistere. Acronimi svizzeri reali: SECO, SEM, SUVA, USTAT, BAG/UFSP, AVS, LPP, LAMal, SUPSI. Acronimi italiani reali: INPS, Agenzia delle Entrate, MEF. Segnala acronimi che non riconosci.
 
@@ -1054,14 +1054,14 @@ VERIFICA SISTEMATICA — controlla OGNI categoria:
 
 4. **STATISTICHE E PERCENTUALI**: Percentuali precise con decimali (es. "il 73,2% dei frontalieri") DEVONO provenire da studi reali citati per nome. Senza attribuzione precisa a un ente o studio reale = probabile invenzione.
 
-5. **DATE E EVENTI**: Convenzione italo-svizzera originale = 1974. Nuovo Accordo = firmato 23 dicembre 2020. Verifica tutte le date.
+5. **DATE E EVENTI**: Convenzione italo-svizzera originale = 1974. Nuovo Accordo = firmato 23 dicembre 2020. Verifica tutte le date. ${isEvergreen ? '' : 'Date presenti nell\'articolo ma ASSENTI dalla fonte = altamente sospette.'}
 
-6. **COERENZA CON LA FONTE**: ${isEvergreen ? 'N/A per evergreen.' : "L'articolo NON deve contraddire la fonte né attribuirle informazioni assenti."}
+6. **COERENZA CON LA FONTE**: ${isEvergreen ? 'N/A per evergreen.' : "VERIFICA CRITICA: confronta ogni affermazione dell'articolo con la fonte originale. Se l'articolo aggiunge fatti, cifre, date o dichiarazioni NON presenti nella fonte, segnalali come 'critical' nella categoria 'coerenza'. L'articolo doveva RISCRIVERE la fonte, non aggiungere informazioni inventate."}
 
-7. **FATTI INVENTATI**: Cerca eventi, conferenze, referendum, proteste che sembrano plausibili ma potrebbero non essere mai avvenuti.
+7. **FATTI INVENTATI**: Cerca eventi, conferenze, referendum, proteste, dichiarazioni che sembrano plausibili ma potrebbero non essere mai avvenuti. ${isEvergreen ? '' : 'Se un fatto è presente nell\'articolo ma NON nella fonte, è molto probabilmente inventato.'}
 
 CRITERI DI GIUDIZIO:
-- "critical" = fatto verificabilmente FALSO (legge inesistente, istituzione inventata, aliquota sbagliata, evento mai avvenuto)
+- "critical" = fatto verificabilmente FALSO o ASSENTE dalla fonte (legge inesistente, istituzione inventata, aliquota sbagliata, evento mai avvenuto, dato aggiunto non nella fonte originale)
 - "major" = fatto sospetto ma non verificabile con certezza (percentuale precisa senza fonte chiara, dato plausibile ma non confermabile)
 - FAIL = almeno 1 critical O almeno 3 major
 - PASS = nessun fatto verificabilmente falso trovato
@@ -1816,13 +1816,31 @@ ${relatedContext ? `\nRELATED:\n${relatedContext}` : ''}
 ${idsSection}
 ⚠️ The "id" must NOT share >60% words with any existing ID.
 
+═══ REGOLA #1 — FEDELTÀ ALLA FONTE (PRIORITÀ MASSIMA) ═══
+
+Il tuo articolo è una RISCRITTURA EDITORIALE della fonte, NON un articolo originale. Questo significa:
+- OGNI fatto, cifra, data, legge, aliquota, istituzione e statistica DEVE essere presente nel SOURCE CONTENT sopra.
+- Se la fonte dice "la nuova legge prevede X", scrivi "la nuova legge prevede X" — NON aggiungere dettagli che la fonte non menziona.
+- Se la fonte NON specifica una data, un importo, un numero di legge o un nome di istituzione: NON inventarlo. Scrivi "non ancora specificato" o omettilo.
+- Le citazioni dirette devono essere VERBATIM dalla fonte. Se parafrasate, usa il discorso indiretto.
+- NON aggiungere "contesto di background" non verificabile (es. date di trattati, numeri di legge, statistiche) a meno che non sia nella fonte.
+
+COME RAGGIUNGERE IL MINIMO DI PAROLE SENZA INVENTARE:
+- Analizza le IMPLICAZIONI PRATICHE per i frontalieri (cosa cambia nella vita quotidiana)
+- Descrivi PROCEDURE concrete (cosa fare, dove andare, quali documenti servono)
+- Aggiungi SCENARI "cosa succede se" basati sui fatti della fonte
+- Confronta con la situazione precedente (prima vs dopo il cambiamento descritto nella fonte)
+- Includi una sezione FAQ con domande pratiche e risposte basate sulla fonte
+- Usa tabelle comparative per rendere i dati della fonte più leggibili
+- Collega agli strumenti del sito (calcolatore, comparatore, guide) per approfondire
+
 ═══ REGOLE EDITORIALI ═══
 
-STILE: Scrivi come giornalista finanziario italiano reale, NON come AI. Varia lunghezza frasi (da 5 a 30 parole). Alterna paragrafi brevi (1-2 frasi) a paragrafi più lunghi. Usa numeri, date, luoghi reali, istituzioni. Colore locale: valichi (Brogeda, Gaggiolo), comuni (Chiasso, Mendrisio), uffici cantonali.
+STILE: Scrivi come giornalista finanziario italiano reale, NON come AI. Varia lunghezza frasi (da 5 a 30 parole). Alterna paragrafi brevi (1-2 frasi) a paragrafi più lunghi. Usa numeri, date, luoghi reali, istituzioni — MA SOLO se presenti nella fonte. Colore locale: valichi (Brogeda, Gaggiolo), comuni (Chiasso, Mendrisio), uffici cantonali.
 MAI usare: "In conclusione", "È importante notare", "In questo contesto", "Vale la pena", "È fondamentale", "Alla luce di", "Ecco cosa sapere", "Vediamo nel dettaglio", "Andiamo con ordine", "Non è un caso che", "Un aspetto cruciale", "Sempre più", "In un contesto di".
-Linguaggio diretto: "conviene" non "potrebbe essere utile". Includi citazione dalla fonte. Il testo DEVE superare AI detection.
+Linguaggio diretto: "conviene" non "potrebbe essere utile". Il testo DEVE superare AI detection.
 ANTI-AI (CRITICO): Il testo NON deve sembrare generato da AI. Regole:
-- MAI aprire body1 con una frase generica tipo "Il tema dei frontalieri...". Inizia con un FATTO concreto (data, numero, nome, luogo).
+- MAI aprire body1 con una frase generica tipo "Il tema dei frontalieri...". Inizia con un FATTO concreto DALLA FONTE (data, numero, nome, luogo).
 - MAI elenchi puntati di >5 elementi (spezzali in paragrafi narrativi)
 - MAX 2 emoji callout (📊/💡/⚠️) per INTERO articolo (body1+body2+body3 combinati). Zero è meglio.
 - Varia la struttura: non TUTTI i body devono avere un elenco puntato. Alterna prosa, tabelle, FAQ, citazioni.
@@ -1830,25 +1848,29 @@ ANTI-AI (CRITICO): Il testo NON deve sembrare generato da AI. Regole:
 
 TICINO: L'articolo DEVE riguardare Canton Ticino, confine italo-svizzero, o frontalieri. Riferimenti locali: Canton Ticino, SUPSI, USI, EOC, Lugano, Bellinzona, Locarno, Mendrisio, DFE, SECO.
 
-FACT-CHECK (CRITICO): NON inventare fatti. Usa SOLO informazioni presenti in SOURCE CONTENT/HEADLINE/RELATED per: platea interessata, importi, date, scadenze, riferimenti normativi. Se un dato non è esplicito nella fonte, scrivi che non è specificato. Le citazioni dirette devono essere presenti VERBATIM nella fonte. NON usare "secondo esperti" senza citare la fonte specifica. NON aggiungere contesto di background non verificato.
+═══ DIVIETI ANTI-ALLUCINAZIONE (BLOCCANTI — RIGETTO AUTOMATICO) ═══
 
-DIVIETI SPECIFICI (BLOCCANTI — l'articolo verrà RIGETTATO automaticamente se violati):
-- NON inventare leggi inesistenti (es. "D.Lgs 299/2006", "LCFL del 1992", "LFP", "RTL", "LTL"). Se non conosci il riferimento esatto, NON citarlo.
-- NON inventare acronimi di enti (es. "CFL", "UFOL", "UWL", "USTTI", "UBSP", "ONSSL", "LCFL", "UFML", "CCFL"). Enti reali: SECO, USTAT, UFSP/BAG, SUVA, DFE, DSS, SEM.
-- NON inventare il "Codice federale del lavoro" — NON ESISTE. La legge svizzera sul lavoro è la "Legge sul lavoro" (LL/ArG).
-- NON inventare il "Dipartimento delle Entrate", "Ufficio federale del lavoro transfrontaliero", "Commissione federale per i frontalieri" — NON ESISTONO.
-- La Convenzione italo-svizzera sulla doppia imposizione è del 9 DICEMBRE 1976, NON 9 marzo.
-- NON inventare una "tassa sulla salute del 10%", "imposta sul reddito del 10% in Svizzera", o percentuali fiscali a caso.
-- NON inventare studi, sondaggi, o statistiche con percentuali precise (es. "il 73,2% dei frontalieri...") senza fonte ESATTA (nome studio + anno + istituto).
-- NON usare "secondo uno studio" o "secondo un'indagine" senza specificare NOME, ANNO e ISTITUTO dello studio. Se non conosci la fonte esatta, NON citare il dato.
-- NON inventare rapporti annuali con percentuali precise — cita solo dati verificabili con fonte.
-- Se vuoi citare una legge, usa SOLO queste (verificate): DPR 917/1986 (TUIR), D.Lgs 147/2015, DL 167/2024, L. 207/2024 (Legge di Bilancio 2025), Convenzione 9/12/1976, Nuovo Accordo Frontalieri 2023, D.Lgs 241/1997, DL 78/2010, D.Lgs 286/1998, D.Lgs 81/2008.
+L'articolo viene verificato da un SECONDO modello AI indipendente (fact-checker) che confronta OGNI affermazione con la fonte e con le proprie conoscenze. Inventare anche UN SOLO dato = rigetto.
 
-SISTEMA DI VERIFICA AUTOMATICA (3 livelli — l'articolo deve superarli TUTTI):
-1. Pattern check: istituzioni, acronimi e riferimenti normativi verificati contro whitelist di entità reali. Una sola legge/istituzione sconosciuta = rigetto.
-2. LLM fact-check: un secondo modello AI verifica INDIPENDENTEMENTE ogni affermazione fattuale (leggi, aliquote, date, statistiche, istituzioni). È il gate principale — non lo puoi ingannare.
-3. Test permanente: tutti gli articoli esistenti vengono scansionati a ogni deploy per pattern di allucinazione.
-NON provare a inserire dati inventati — il sistema è progettato per catturare ogni tipo di allucinazione.
+LEGGI E DECRETI:
+- Cita riferimenti normativi SOLO se appaiono LETTERALMENTE nella fonte.
+- Se la fonte dice "la nuova normativa" senza specificare il numero, scrivi "la nuova normativa" — NON inventare "D.Lgs XXX/YYYY".
+- Leggi verificate (usabili SOLO se pertinenti e nella fonte): DPR 917/1986 (TUIR), D.Lgs 147/2015, DL 167/2024, L. 207/2024 (Bilancio 2025), D.Lgs 241/1997, DL 78/2010.
+- La Convenzione italo-svizzera è del 9 DICEMBRE 1976. Il Nuovo Accordo Frontalieri è stato firmato il 23 DICEMBRE 2020.
+
+ISTITUZIONI:
+- NON inventare acronimi. Enti reali: SECO, USTAT, UFSP/BAG, SUVA, DFE, DSS, SEM, INPS, Agenzia Entrate, MEF.
+- NON esiste: "Codice federale del lavoro", "CFL", "UFOL", "UWL", "USTTI", "Commissione federale per i frontalieri".
+
+STATISTICHE:
+- MAI scrivere "secondo uno studio/sondaggio" senza NOME, ANNO e ISTITUTO presenti nella fonte.
+- MAI inventare percentuali precise (es. "il 73,2%"). Se la fonte non le riporta, non usarle.
+- MAI inventare "rapporti annuali" con dati specifici.
+
+FATTI E DICHIARAZIONI:
+- NON attribuire dichiarazioni a politici, enti o funzionari se non citate nella fonte.
+- NON inventare eventi (conferenze, proteste, referendum) non menzionati nella fonte.
+- Se non sei CERTO che un fatto sia nella fonte, OMETTILO.
 
 ANTI-CLICKBAIT (CRITICO — Google Discover compliance):
 - Il titolo DEVE essere DESCRITTIVO e SPECIFICO: soggetto + azione + contesto.
@@ -1856,9 +1878,6 @@ ANTI-CLICKBAIT (CRITICO — Google Discover compliance):
   ❌ Vietato: "Tutto quello che devi sapere sugli stipendi in Ticino"
 - MAI titoli vaghi: "tutto cambia", "ecco perché", "scopri cosa", "shock", "clamoroso", "incredibile", "non crederai"
 - MAI domande retoriche come titolo ("Ma davvero i frontalieri...?")
-- MAI titoli TUTTO MAIUSCOLE o con "..." finale (curiosity gap)
-- MAI promettere dettagli non presenti nel testo
-- MAI linguaggio che fa leva su curiosità morbosa, sdegno, o titillazione
 
 TOPIC GUARD: per articoli su "tassa salute", NON invertire la platea (es. "lavora in Lombardia e risiede in Ticino") se non esplicitamente indicata nella fonte.
 
@@ -1870,18 +1889,12 @@ MAI usare <a href> o URL diretti.
 
 GRASSETTO: max 2-3 parole in grassetto per INTERO campo body. MAI grassetto su importi (350 CHF), etichette (Caso 1:), frasi >5 parole, nomi strumenti. Preferire ZERO grassetto.
 FORMATTAZIONE: ## sottotitoli, ### sotto-sottotitoli, - elenchi, > citazioni (MAX 1 per articolo — solo se c'è una vera citazione dalla fonte), 📊 dati, 💡 consigli, ⚠️ avvertenze. Blocchi separati con \\n\\n. NON usare > per paragrafi normali — solo per citazioni dirette brevi (1-2 frasi).
-STRUTTURA H3 (CRITICO): Ogni body con >250 parole DEVE avere almeno 1 sotto-sezione ### (H3). Esempio:
-## Nuove aliquote per i frontalieri (body2 main heading)
-... paragrafo introduttivo ...
-### Frontalieri entro 20 km (H3 sub-section)
-... dettaglio ...
-### Frontalieri oltre 20 km (H3 sub-section)
-... dettaglio ...
+STRUTTURA H3 (CRITICO): Ogni body con >250 parole DEVE avere almeno 1 sotto-sezione ### (H3).
 
 ANTI-RIPETITIVITÀ (CRITICO): I tre body DEVONO avere contenuti DIVERSI. Mai ripetere lo stesso concetto tra body1, body2, body3.
-- body1 = FATTI NUDI: chi ha deciso/annunciato cosa, quando, dove, perché. Cronaca pura, stile agenzia stampa.
-- body2 = ANALISI TECNICA: numeri, confronti, tabelle, normative, calcoli. Informazione che NON era nel body1.
-- body3 = AZIONE PRATICA: cosa fare concretamente, scadenze, procedura step-by-step, strumenti. NON riassumere body1 o body2.
+- body1 = FATTI DALLA FONTE: chi ha deciso/annunciato cosa, quando, dove, perché. Cronaca pura basata sul SOURCE CONTENT.
+- body2 = ANALISI PRATICA: implicazioni per i frontalieri, confronti prima/dopo, scenari concreti. Informazione che NON era nel body1.
+- body3 = AZIONE: cosa fare concretamente, scadenze, procedura step-by-step, strumenti del sito. NON riassumere body1 o body2.
 
 Genera JSON (no markdown, no code fences):
 {
@@ -1895,14 +1908,14 @@ Genera JSON (no markdown, no code fences):
   "content": {
     "it": {
       "title": "Titolo giornalistico con keyword (max 60 chars)",
-      "excerpt": "Sottotitolo con dati concreti (max 160 chars)",
-      "body1": "Lead giornalistico: FATTI (chi, cosa, dove, quando, perché). Solo cronaca. 300-400 parole. Min 1 ### sotto-sezione.",
-      "body2": "Analisi tecnica: normative, confronti, tabelle, calcoli. Contenuto DIVERSO da body1. 300-400 parole. Min 1 ### sotto-sezione.",
-      "body3": "Azione pratica: procedura step-by-step, scadenze, strumenti + CTA finale. NON riassumere body1/body2. 300-400 parole.",
+      "excerpt": "Sottotitolo con dati concreti DALLA FONTE (max 160 chars)",
+      "body1": "Lead: FATTI dalla fonte (chi, cosa, dove, quando, perché). Solo cronaca verificabile. 300-400 parole. Min 1 ### sotto-sezione.",
+      "body2": "Analisi pratica: implicazioni, confronti, scenari. Contenuto DIVERSO da body1. 300-400 parole. Min 1 ### sotto-sezione.",
+      "body3": "Azione: procedura step-by-step, scadenze, strumenti + CTA finale. NON riassumere body1/body2. 300-400 parole.",
       "faq": [
-        {"q": "Domanda frequente 1 dal contenuto dell'articolo?", "a": "Risposta concisa con dati concreti. 50-100 parole."},
-        {"q": "Domanda frequente 2?", "a": "Risposta con riferimenti normativi o calcoli."},
-        {"q": "Domanda frequente 3?", "a": "Risposta pratica con procedura o scadenza."}
+        {"q": "Domanda frequente 1 basata sui fatti dell'articolo?", "a": "Risposta con dati DALLA FONTE. 50-100 parole."},
+        {"q": "Domanda frequente 2?", "a": "Risposta pratica basata sulla fonte."},
+        {"q": "Domanda frequente 3?", "a": "Risposta con procedura o scadenza dalla fonte."}
       ]
     }
   },
@@ -1919,12 +1932,12 @@ Genera JSON (no markdown, no code fences):
 
 REGOLE FINALI:
 - Contenuto IT primario, MINIMO 350 parole per body (body1/body2/body3). EN/DE/FR verranno generati separatamente.
-- Ogni body deve essere ricco di dettagli: numeri concreti, date, procedure step-by-step, esempi pratici.
+- Per raggiungere il minimo: espandi con implicazioni pratiche, procedure, scenari, FAQ — NON con fatti inventati.
 - Slug: lowercase, trattini, no accenti, max 50 chars
 - hasCalculator: true sempre
 - Apostrofi diritti ('), normative 2026
 - imagePrompt: scena fotorealistica Ticino, DSLR, non sembrare AI
-- FAQ: genera 3-5 coppie domanda/risposta che riassumono i punti chiave dell'articolo. Le domande devono essere quelle che un frontaliere cercherebbe su Google. Risposte: 50-100 parole ciascuna, con dati concreti.`;
+- FAQ: genera 3-5 coppie domanda/risposta basate sui FATTI della fonte. Risposte: 50-100 parole, con dati concreti dalla fonte.`;
 
   const minWordsInstruction = `\n\nMINIMUM LENGTH (CRITICAL — STRICTLY ENFORCED):
 - body1+body2+body3 MUST total ≥${minItalianWords} words. This is HARD-enforced: content below this threshold will be REJECTED.
