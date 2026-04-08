@@ -75,13 +75,13 @@ function isProviderConfigured(providerId) {
 }
 
 // ── Sender.net API ───────────────────────────────────────────
-// Docs: https://help.sender.net/knowledgebase/transactional-emails/
+// Docs: https://api.sender.net/transactional-campaigns/send-transactional/
 
 async function sendViaSender(email) {
   const apiKey = process.env.SENDER_API_KEY;
   const fromParsed = parseEmailAddress(email.from);
 
-  const res = await fetch('https://api.sender.net/v2/emails', {
+  const res = await fetch('https://api.sender.net/v2/message/send', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
