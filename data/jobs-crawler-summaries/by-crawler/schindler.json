@@ -1,16 +1,16 @@
 {
   "key": "schindler",
   "label": "Schindler",
-  "generatedAt": "2026-04-08T09:57:03.055Z",
+  "generatedAt": "2026-04-08T21:47:25.606Z",
   "total": 5,
   "newCount": 2,
   "updatedCount": 3,
   "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 5243,
-  "avgDurationMs": 5243,
+  "durationMs": 4887,
+  "avgDurationMs": 4887,
   "durationHistory": [
-    5243
+    4887
   ],
   "newJobs": [
     {
@@ -32,7 +32,8 @@
       "postedDate": "2026-04-08",
       "url": "https://job.schindler.com/Schindler/job/Locarno-Electronics-%28PCBA%29-Production-Supervisor-%28mfd-100%29-Tici/1381533833/",
       "source": "Schindler Dedicated Parser (SuccessFactors HTML)",
-      "crawledAt": "2026-04-08T09:57:00.354Z",
+      "sourceLang": "en",
+      "crawledAt": "2026-04-08T21:47:23.335Z",
       "_qualityScore": 41,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -60,8 +61,8 @@
       "postedDate": "2026-04-01",
       "url": "https://job.schindler.com/ASZ/job/Castione-Arbedo-Supervisore-dell&amp;apos;installazione-%28mfd%29-80-100-Tici/1369730633/",
       "source": "Schindler Dedicated Parser (SuccessFactors HTML)",
-      "crawledAt": "2026-04-08T09:57:01.082Z",
       "sourceLang": "it",
+      "crawledAt": "2026-04-08T21:47:23.950Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -91,8 +92,8 @@
       "postedDate": "2026-03-27",
       "url": "https://job.schindler.com/ASZ/job/Castione-Arbedo-Montatore-ascensori-%28mfd%29-80-100-Tici/1368086633/",
       "source": "Schindler Dedicated Parser (SuccessFactors HTML)",
-      "crawledAt": "2026-04-08T09:57:00.679Z",
       "sourceLang": "it",
+      "crawledAt": "2026-04-08T21:47:23.647Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -120,8 +121,8 @@
       "postedDate": "2026-03-26",
       "url": "https://job.schindler.com/Schindler/job/Bioggio-Montatoretrice-di-ascensori-SENIOR-%28mfd%29-80-100-Tici/1367856233/",
       "source": "Schindler Dedicated Parser (SuccessFactors HTML)",
-      "crawledAt": "2026-04-08T09:57:01.432Z",
       "sourceLang": "it",
+      "crawledAt": "2026-04-08T21:47:22.700Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -149,8 +150,8 @@
       "postedDate": "2026-03-18",
       "url": "https://job.schindler.com/SBB/job/Locarno-Apprendistato-Operatoretrice-in-automazione-AFC-per-il-2026-Tici/1212517801/",
       "source": "Schindler Dedicated Parser (SuccessFactors HTML)",
-      "crawledAt": "2026-04-08T09:57:00.021Z",
       "sourceLang": "it",
+      "crawledAt": "2026-04-08T21:47:23.018Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -180,7 +181,7 @@
       "postedDate": "2026-04-01",
       "url": "https://job.schindler.com/ASZ/job/Castione-Arbedo-Supervisore-dell&apos;installazione-%28mfd%29-80-100-Tici/1369730633/",
       "source": "Schindler Dedicated Parser (SuccessFactors HTML)",
-      "crawledAt": "2026-04-07T21:52:48.637Z",
+      "crawledAt": "2026-04-08T09:57:01.082Z",
       "sourceLang": "it",
       "salaryMin": 72000,
       "salaryMax": 97000,
