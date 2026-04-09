@@ -162,6 +162,7 @@
     "jobs:update:centiel": "node scripts/update-centiel-jobs.mjs",
     "jobs:update:colin-cie": "node scripts/update-colin-cie-jobs.mjs",
     "jobs:update:fnz": "node scripts/update-fnz-jobs.mjs",
+    "jobs:update:lonza": "node scripts/update-lonza-jobs.mjs",
     "jobs:update:fust": "node scripts/update-fust-jobs.mjs",
     "jobs:update:ist": "node scripts/update-ist-jobs.mjs",
     "jobs:update:jysk": "node scripts/update-jysk-jobs.mjs",
