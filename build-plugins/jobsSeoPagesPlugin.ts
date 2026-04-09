@@ -142,7 +142,8 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
       const hasSpaBundle = !!(entryJs && entryCss);
       if (!hasSpaBundle) console.warn('[jobs-seo-pages] Could not find SPA entry bundles — pages will be static-only');
 
-      // BLOCK-B: Regionalize for national expansion — currently hardcodes Ticino/Tessin text
+      // Default search-section route slugs — these are actual URL paths that must exist in the router.
+      // They use "Ticino/Tessin" because that is the primary/branded section; other cantons share it.
       const sectionByLocale: Record<'it' | 'en' | 'de' | 'fr', string> = {
         it: 'cerca-lavoro-ticino',
         en: 'find-jobs-ticino',
@@ -277,6 +278,49 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
           keywordsLabel: 'Mots-clés utiles',
           readingLabel: 'Temps de lecture',
         },
+      };
+
+      // ── Canton-aware text helpers ────────────────────────────────
+      // These produce locale-correct text for any Swiss canton,
+      // used wherever SEO copy references the job's region.
+      const frenchCantonPrep = (dc: string): string => {
+        if (['Tessin', 'Jura'].includes(dc)) return `au ${dc}`;
+        if (dc === 'Grisons') return `aux ${dc}`;
+        if (dc === 'Valais') return `en ${dc}`;
+        return `dans le canton de ${dc}`;
+      };
+      const germanCantonPrep = (dc: string): string => {
+        if (['Tessin', 'Wallis', 'Jura'].includes(dc)) return `im ${dc}`;
+        return `in ${dc}`;
+      };
+      const cantonSectionName = (locale: 'it' | 'en' | 'de' | 'fr', cantonDisplay: string): string => {
+        const map: Record<string, string> = {
+          it: `Cerca lavoro in ${cantonDisplay}`,
+          en: `Find jobs in ${cantonDisplay}`,
+          de: `Jobs ${germanCantonPrep(cantonDisplay)}`,
+          fr: `Trouver un emploi ${frenchCantonPrep(cantonDisplay)}`,
+        };
+        return map[locale] || map.it;
+      };
+      const cantonPracticalNote0 = (locale: 'it' | 'en' | 'de' | 'fr', cantonDisplay: string): string => {
+        const dePrep = germanCantonPrep(cantonDisplay);
+        const frPrep = frenchCantonPrep(cantonDisplay);
+        const map: Record<string, string> = {
+          it: `Questa scheda aggrega i dettagli principali dell'annuncio e li struttura in modo leggibile per frontalieri che cercano lavoro in ${cantonDisplay}.`,
+          en: `This page consolidates the key details of the listing and presents them in a structured format for cross-border candidates targeting ${cantonDisplay}.`,
+          de: `Diese Seite bündelt die wichtigsten Informationen der Stelle in einer klaren Struktur für Grenzgängerinnen und Grenzgänger ${dePrep}.`,
+          fr: `Cette fiche regroupe les informations essentielles de l'offre et les présente de manière structurée pour les frontaliers visant ${frPrep === frenchCantonPrep(cantonDisplay) ? frPrep : `le ${cantonDisplay}`}.`,
+        };
+        return map[locale] || map.it;
+      };
+
+      // Multi-canton display string for search pages (not per-job)
+      const TARGET_CANTONS_CODES = ['TI', 'GR', 'VS'];
+      const targetCantonsDisplay: Record<'it' | 'en' | 'de' | 'fr', string> = {
+        it: TARGET_CANTONS_CODES.map(c => CANTON_DISPLAY[c] || c).join(', ').replace(/, ([^,]+)$/, ' e $1'),
+        en: TARGET_CANTONS_CODES.map(c => CANTON_DISPLAY[c] || c).join(', ').replace(/, ([^,]+)$/, ' and $1'),
+        de: TARGET_CANTONS_CODES.map(c => CANTON_DISPLAY[c] || c).join(', ').replace(/, ([^,]+)$/, ' und $1'),
+        fr: TARGET_CANTONS_CODES.map(c => CANTON_DISPLAY[c] || c).join(', ').replace(/, ([^,]+)$/, ' et $1'),
       };
 
       if (!fs.existsSync(jobsPath)) {
@@ -833,7 +877,8 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
         de: 'suche',
         fr: 'recherche',
       };
-      // BLOCK-B: Regionalize for national expansion — currently hardcodes Ticino/Tessin text
+      // Search pages aggregate jobs across all target cantons — use "in Svizzera" for titles
+      // (60-char SEO limit) and full canton list in descriptions/editorial.
       const searchPageCopy: Record<'it' | 'en' | 'de' | 'fr', {
         title: (name: string) => string;
         description: (name: string, count: number) => string;
@@ -842,32 +887,32 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
         editorial: string;
       }> = {
         it: {
-          title: (name: string) => `Offerte di lavoro ${name} in Ticino - Posizioni aperte oggi | Frontaliere Ticino`,
-          description: (name: string, count: number) => `${count}+ offerte di lavoro ${name} in Ticino aggiornate ogni giorno. Annunci raccolti dai siti ufficiali delle aziende ticinesi con link diretto alla candidatura.`,
-          heading: (name: string) => `Lavoro ${name} in Ticino`,
+          title: (name: string) => `Offerte di lavoro ${name} in Svizzera - Posizioni aperte oggi | Frontaliere Ticino`,
+          description: (name: string, count: number) => `${count}+ offerte di lavoro ${name} in ${targetCantonsDisplay.it} aggiornate ogni giorno. Annunci raccolti dai siti ufficiali delle aziende svizzere con link diretto alla candidatura.`,
+          heading: (name: string) => `Lavoro ${name} in Svizzera`,
           openListing: 'Apri il job board completo',
-          editorial: 'Gli annunci di lavoro sono raccolti direttamente dai siti ufficiali delle aziende ticinesi e aggiornati quotidianamente. Ogni offerta rimanda alla pagina di candidatura originale del datore di lavoro. Il job board copre tutti i settori presenti in Ticino: sanità, finanza, tecnologia, ingegneria, commercio e amministrazione.',
+          editorial: `Gli annunci di lavoro sono raccolti direttamente dai siti ufficiali delle aziende in ${targetCantonsDisplay.it} e aggiornati quotidianamente. Ogni offerta rimanda alla pagina di candidatura originale del datore di lavoro. Il job board copre tutti i settori: sanità, finanza, tecnologia, ingegneria, commercio e amministrazione.`,
         },
         en: {
-          title: (name: string) => `${name} jobs in Ticino - Open positions today | Frontaliere Ticino`,
-          description: (name: string, count: number) => `${count}+ ${name} job openings in Ticino updated daily. Listings sourced from official Swiss employer career pages with direct application links.`,
-          heading: (name: string) => `${name} jobs in Ticino`,
+          title: (name: string) => `${name} jobs in Switzerland - Open positions today | Frontaliere Ticino`,
+          description: (name: string, count: number) => `${count}+ ${name} job openings in ${targetCantonsDisplay.en} updated daily. Listings sourced from official Swiss employer career pages with direct application links.`,
+          heading: (name: string) => `${name} jobs in Switzerland`,
           openListing: 'Open the full job board',
-          editorial: 'Job listings are sourced directly from official company career pages in Ticino and refreshed daily. Every listing links to the employer\'s original application page. The job board covers all sectors present in Ticino: healthcare, finance, technology, engineering, retail, and administration.',
+          editorial: `Job listings are sourced directly from official company career pages in ${targetCantonsDisplay.en} and refreshed daily. Every listing links to the employer's original application page. The job board covers all sectors: healthcare, finance, technology, engineering, retail, and administration.`,
         },
         de: {
-          title: (name: string) => `${name} Jobs im Tessin - Offene Stellen heute | Frontaliere Ticino`,
-          description: (name: string, count: number) => `${count}+ aktuelle ${name} Stellenangebote im Tessin, taglich aktualisiert. Direkt von offiziellen Karriereportalen Tessiner Unternehmen mit Bewerbungslink.`,
-          heading: (name: string) => `${name} Jobs im Tessin`,
-          openListing: 'Komplettes Job Board offnen',
-          editorial: 'Stellenanzeigen werden direkt von den offiziellen Karriereseiten der Tessiner Unternehmen bezogen und täglich aktualisiert. Jedes Inserat verlinkt zur originalen Bewerbungsseite des Arbeitgebers. Das Job Board deckt alle im Tessin vertretenen Branchen ab: Gesundheit, Finanzen, Technologie, Ingenieurwesen, Handel und Verwaltung.',
+          title: (name: string) => `${name} Jobs in der Schweiz - Offene Stellen heute | Frontaliere Ticino`,
+          description: (name: string, count: number) => `${count}+ aktuelle ${name} Stellenangebote in ${targetCantonsDisplay.de}, täglich aktualisiert. Direkt von offiziellen Karriereportalen Schweizer Unternehmen mit Bewerbungslink.`,
+          heading: (name: string) => `${name} Jobs in der Schweiz`,
+          openListing: 'Komplettes Job Board öffnen',
+          editorial: `Stellenanzeigen werden direkt von den offiziellen Karriereseiten der Unternehmen in ${targetCantonsDisplay.de} bezogen und täglich aktualisiert. Jedes Inserat verlinkt zur originalen Bewerbungsseite des Arbeitgebers. Das Job Board deckt alle Branchen ab: Gesundheit, Finanzen, Technologie, Ingenieurwesen, Handel und Verwaltung.`,
         },
         fr: {
-          title: (name: string) => `Offres d'emploi ${name} au Tessin - Postes ouverts | Frontaliere Ticino`,
-          description: (name: string, count: number) => `${count}+ offres d'emploi ${name} au Tessin mises a jour quotidiennement. Annonces provenant des portails officiels des entreprises tessinoises avec lien de candidature.`,
-          heading: (name: string) => `Emploi ${name} au Tessin`,
+          title: (name: string) => `Offres d'emploi ${name} en Suisse - Postes ouverts | Frontaliere Ticino`,
+          description: (name: string, count: number) => `${count}+ offres d'emploi ${name} en ${targetCantonsDisplay.fr} mises à jour quotidiennement. Annonces provenant des portails officiels des entreprises suisses avec lien de candidature.`,
+          heading: (name: string) => `Emploi ${name} en Suisse`,
           openListing: 'Ouvrir le job board complet',
-          editorial: 'Les offres d\'emploi proviennent directement des portails carrière officiels des entreprises tessinoises et sont actualisées quotidiennement. Chaque annonce renvoie à la page de candidature originale de l\'employeur. Le job board couvre tous les secteurs présents au Tessin : santé, finance, technologie, ingénierie, commerce et administration.',
+          editorial: `Les offres d'emploi proviennent directement des portails carrière officiels des entreprises en ${targetCantonsDisplay.fr} et sont actualisées quotidiennement. Chaque annonce renvoie à la page de candidature originale de l'employeur. Le job board couvre tous les secteurs : santé, finance, technologie, ingénierie, commerce et administration.`,
         },
       };
       const normalizeSearchTerm = (value: string): string => String(value || '')
@@ -936,6 +981,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
           const canonicalUrl = `${BASE_URL}${canonicalPath}`;
           const localizedTitle = String(job?.titleByLocale?.[locale] || job.title || '');
           const jobLocation = String(job.location || '').trim();
+          const dc = CANTON_DISPLAY[String(job.canton || DEFAULT_CANTON)] || String(job.canton || DEFAULT_CANTON);
           const TITLE_MAX = 60;
           const title = (() => {
             const suffix = localeCopy[locale].suffix;
@@ -1017,7 +1063,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
           const canonicalBenefits = cleanItems(canonicalLocale?.benefits, 10);
           const canonicalProcess = cleanItems(canonicalLocale?.process, 8);
           const canonicalKeywords = cleanItems(canonicalLocale?.keywords, 8);
-          const fallbackParagraphs = localeCopy[locale].practicalNotes;
+          const fallbackParagraphs = [cantonPracticalNote0(locale, dc), ...localeCopy[locale].practicalNotes.slice(1)];
           const bodyParagraphs = (descriptionParagraphs.length >= 3
             ? descriptionParagraphs.slice(0, 3)
             : [localizedDescription, ...fallbackParagraphs]
@@ -1223,7 +1269,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
             '@type': 'BreadcrumbList',
             itemListElement: [
               { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
-              { '@type': 'ListItem', position: 2, name: localeCopy[locale].sectionName, item: `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}` },
+              { '@type': 'ListItem', position: 2, name: cantonSectionName(locale, dc), item: `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}` },
               { '@type': 'ListItem', position: 3, name: localizedTitle, item: canonicalUrl },
             ],
           });
@@ -1436,7 +1482,6 @@ ${jobLd ? `    <script type="application/ld+json">${jobLd}</script>\n` : ''}    
       </article>
       ${related.length > 0 ? `<section class="related"><h2>${esc(localeCopy[locale].relatedJobs)}</h2><ul style="list-style:none;padding:0;margin:0">${relatedHtml}</ul></section>` : ''}
       ${(() => {
-        const dc = CANTON_DISPLAY[String(job.canton || DEFAULT_CANTON)] || String(job.canton || DEFAULT_CANTON);
         const loc = esc(job.location || dc);
         const co = esc(job.company || '');
         const taxUrl = `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}`;
@@ -1448,24 +1493,24 @@ ${jobLd ? `    <script type="application/ld+json">${jobLd}</script>\n` : ''}    
           fr: { healthcare: 'santé', technology: 'technologie', finance: 'services financiers', engineering: 'ingénierie', hospitality: 'hôtellerie', retail: 'commerce', manufacturing: 'industrie', education: 'formation', construction: 'construction', logistics: 'logistique', sales: 'ventes', administration: 'administration' },
         };
         const sectorName = sectorLabel[locale]?.[cat] || sectorLabel[locale]?.['administration'] || '';
-        // BLOCK-B: Regionalize for national expansion — currently hardcodes Ticino/Tessin text
         const frontalierInfo: Record<string, string> = {
           it: `<section class="section"><h4>Informazioni per frontalieri</h4><p>${co ? `${co} si trova` : 'Questa posizione si trova'} a ${loc} in Canton ${esc(dc)}. Per lavorare come frontaliere in Svizzera serve il <strong>Permesso G</strong>, rinnovabile annualmente. Il Canton ${esc(dc)} applica l'<strong>imposta alla fonte</strong> con aliquote variabili sul reddito lordo, mentre i frontalieri dal 2024 sono soggetti al <strong>Nuovo Accordo fiscale</strong> che prevede una tassazione concorrente Italia-Svizzera.</p><p>I contributi sociali svizzeri includono AVS (5,3%), assicurazione disoccupazione (1,1%) e LPP (previdenza professionale). Usa il nostro <a href="${taxUrl}">simulatore fiscale gratuito</a> per calcolare il tuo stipendio netto e confrontare i costi della vita tra Svizzera e Italia.</p></section>`,
           en: `<section class="section"><h4>Information for cross-border workers</h4><p>${co ? `${co} is located` : 'This position is located'} in ${loc}, Canton of ${esc(dc)}. Cross-border workers need a <strong>G Permit</strong>, renewable annually, to work in Switzerland. The Canton of ${esc(dc)} applies <strong>withholding tax</strong> at variable rates on gross income, and since 2024 the <strong>New Tax Agreement</strong> introduces concurrent taxation between Italy and Switzerland.</p><p>Swiss social contributions include AVS (5.3%), unemployment insurance (1.1%) and LPP (occupational pension). Use our <a href="${taxUrl}">free tax simulator</a> to calculate your net salary and compare the cost of living between Switzerland and Italy.</p></section>`,
           de: `<section class="section"><h4>Informationen für Grenzgänger</h4><p>${co ? `${co} befindet sich` : 'Diese Stelle befindet sich'} in ${loc} im Kanton ${esc(dc)}. Grenzgänger benötigen eine <strong>G-Bewilligung</strong> (jährlich erneuerbar), um in der Schweiz zu arbeiten. Der Kanton ${esc(dc)} erhebt eine <strong>Quellensteuer</strong> mit variablen Sätzen auf das Bruttoeinkommen. Seit 2024 gilt das <strong>Neue Steuerabkommen</strong> mit konkurrierender Besteuerung zwischen Italien und der Schweiz.</p><p>Die Schweizer Sozialabgaben umfassen AHV (5,3%), Arbeitslosenversicherung (1,1%) und BVG (berufliche Vorsorge). Nutzen Sie unseren <a href="${taxUrl}">kostenlosen Steuersimulator</a>, um Ihr Nettogehalt zu berechnen und die Lebenshaltungskosten zwischen der Schweiz und Italien zu vergleichen.</p></section>`,
           fr: `<section class="section"><h4>Informations pour les frontaliers</h4><p>${co ? `${co} se trouve` : 'Ce poste se trouve'} à ${loc} dans le Canton du ${esc(dc)}. Les travailleurs frontaliers ont besoin d'un <strong>permis G</strong> (renouvelable annuellement) pour travailler en Suisse. Le Canton du ${esc(dc)} applique un <strong>impôt à la source</strong> à taux variable sur le revenu brut. Depuis 2024, le <strong>Nouvel Accord fiscal</strong> introduit une imposition concurrente entre l'Italie et la Suisse.</p><p>Les cotisations sociales suisses comprennent l'AVS (5,3%), l'assurance chômage (1,1%) et la LPP (prévoyance professionnelle). Utilisez notre <a href="${taxUrl}">simulateur fiscal gratuit</a> pour calculer votre salaire net et comparer le coût de la vie entre la Suisse et l'Italie.</p></section>`,
         };
-        // BLOCK-B: Regionalize for national expansion — currently hardcodes Ticino/Tessin text
+        const deCantonPrep = germanCantonPrep(dc);
+        const frCantonPrep = frenchCantonPrep(dc);
         const faqSection: Record<string, string> = {
-          it: `<section class="section"><h4>Domande frequenti</h4><dl><dt><strong>Qual è lo stipendio netto per un frontaliere in ${esc(dc)}?</strong></dt><dd>Lo stipendio netto dipende dal reddito lordo, dallo stato civile e dal numero di figli. In Canton ${esc(dc)} l'imposta alla fonte varia dal 2% al 15% circa. ${sectorName ? `Nel settore ${sectorName} in Ticino ` : ''}Usa il nostro simulatore per un calcolo personalizzato.</dd><dt><strong>Serve la cassa malati svizzera LAMal come frontaliere?</strong></dt><dd>I nuovi frontalieri dal 2024 devono iscriversi alla LAMal svizzera entro 3 mesi dall'inizio del lavoro. I premi variano per cantone, modello assicurativo e franchigia. Confronta i premi con il nostro <a href="${BASE_URL}/compara-servizi/assicurazione-malattia/">comparatore LAMal</a>.</dd></dl></section>`,
-          en: `<section class="section"><h4>Frequently asked questions</h4><dl><dt><strong>What is the net salary for a cross-border worker in ${esc(dc)}?</strong></dt><dd>Net salary depends on gross income, marital status and number of children. In the Canton of ${esc(dc)}, withholding tax ranges from about 2% to 15%. ${sectorName ? `In the ${sectorName} sector in Ticino ` : ''}Use our simulator for a personalised calculation.</dd><dt><strong>Do cross-border workers need Swiss LAMal health insurance?</strong></dt><dd>New cross-border workers since 2024 must enrol in Swiss LAMal within 3 months of starting work. Premiums vary by canton, insurance model and deductible. Compare premiums with our <a href="${BASE_URL}/en/compare-services/health-insurance/">LAMal comparator</a>.</dd></dl></section>`,
-          de: `<section class="section"><h4>Häufig gestellte Fragen</h4><dl><dt><strong>Wie hoch ist das Nettogehalt für Grenzgänger im ${esc(dc)}?</strong></dt><dd>Das Nettogehalt hängt vom Bruttoeinkommen, Familienstand und der Kinderzahl ab. Im Kanton ${esc(dc)} liegt die Quellensteuer zwischen ca. 2% und 15%. ${sectorName ? `In der Branche ${sectorName} im Tessin ` : ''}Nutzen Sie unseren Simulator für eine individuelle Berechnung.</dd><dt><strong>Brauchen Grenzgänger eine Schweizer KVG-Versicherung?</strong></dt><dd>Neue Grenzgänger seit 2024 müssen sich innerhalb von 3 Monaten nach Arbeitsbeginn bei der KVG anmelden. Die Prämien variieren je nach Kanton, Versicherungsmodell und Franchise. Vergleichen Sie die Prämien mit unserem <a href="${BASE_URL}/de/dienste-vergleichen/krankenversicherung/">KVG-Vergleich</a>.</dd></dl></section>`,
-          fr: `<section class="section"><h4>Questions fréquentes</h4><dl><dt><strong>Quel est le salaire net pour un frontalier au ${esc(dc)} ?</strong></dt><dd>Le salaire net dépend du revenu brut, de l'état civil et du nombre d'enfants. Dans le Canton du ${esc(dc)}, l'impôt à la source varie d'environ 2% à 15%. ${sectorName ? `Dans le secteur ${sectorName} au Tessin ` : ''}Utilisez notre simulateur pour un calcul personnalisé.</dd><dt><strong>Les frontaliers doivent-ils souscrire à la LAMal suisse ?</strong></dt><dd>Les nouveaux frontaliers depuis 2024 doivent s'inscrire à la LAMal dans les 3 mois suivant le début du travail. Les primes varient selon le canton, le modèle d'assurance et la franchise. Comparez les primes avec notre <a href="${BASE_URL}/fr/comparer-services/assurance-maladie/">comparateur LAMal</a>.</dd></dl></section>`,
+          it: `<section class="section"><h4>Domande frequenti</h4><dl><dt><strong>Qual è lo stipendio netto per un frontaliere in ${esc(dc)}?</strong></dt><dd>Lo stipendio netto dipende dal reddito lordo, dallo stato civile e dal numero di figli. In Canton ${esc(dc)} l'imposta alla fonte varia dal 2% al 15% circa. ${sectorName ? `Nel settore ${sectorName} in ${esc(dc)} ` : ''}Usa il nostro simulatore per un calcolo personalizzato.</dd><dt><strong>Serve la cassa malati svizzera LAMal come frontaliere?</strong></dt><dd>I nuovi frontalieri dal 2024 devono iscriversi alla LAMal svizzera entro 3 mesi dall'inizio del lavoro. I premi variano per cantone, modello assicurativo e franchigia. Confronta i premi con il nostro <a href="${BASE_URL}/compara-servizi/assicurazione-malattia/">comparatore LAMal</a>.</dd></dl></section>`,
+          en: `<section class="section"><h4>Frequently asked questions</h4><dl><dt><strong>What is the net salary for a cross-border worker in ${esc(dc)}?</strong></dt><dd>Net salary depends on gross income, marital status and number of children. In the Canton of ${esc(dc)}, withholding tax ranges from about 2% to 15%. ${sectorName ? `In the ${sectorName} sector in ${esc(dc)} ` : ''}Use our simulator for a personalised calculation.</dd><dt><strong>Do cross-border workers need Swiss LAMal health insurance?</strong></dt><dd>New cross-border workers since 2024 must enrol in Swiss LAMal within 3 months of starting work. Premiums vary by canton, insurance model and deductible. Compare premiums with our <a href="${BASE_URL}/en/compare-services/health-insurance/">LAMal comparator</a>.</dd></dl></section>`,
+          de: `<section class="section"><h4>Häufig gestellte Fragen</h4><dl><dt><strong>Wie hoch ist das Nettogehalt für Grenzgänger ${esc(deCantonPrep)}?</strong></dt><dd>Das Nettogehalt hängt vom Bruttoeinkommen, Familienstand und der Kinderzahl ab. Im Kanton ${esc(dc)} liegt die Quellensteuer zwischen ca. 2% und 15%. ${sectorName ? `In der Branche ${sectorName} ${esc(deCantonPrep)} ` : ''}Nutzen Sie unseren Simulator für eine individuelle Berechnung.</dd><dt><strong>Brauchen Grenzgänger eine Schweizer KVG-Versicherung?</strong></dt><dd>Neue Grenzgänger seit 2024 müssen sich innerhalb von 3 Monaten nach Arbeitsbeginn bei der KVG anmelden. Die Prämien variieren je nach Kanton, Versicherungsmodell und Franchise. Vergleichen Sie die Prämien mit unserem <a href="${BASE_URL}/de/dienste-vergleichen/krankenversicherung/">KVG-Vergleich</a>.</dd></dl></section>`,
+          fr: `<section class="section"><h4>Questions fréquentes</h4><dl><dt><strong>Quel est le salaire net pour un frontalier ${esc(frCantonPrep)} ?</strong></dt><dd>Le salaire net dépend du revenu brut, de l'état civil et du nombre d'enfants. Dans le Canton du ${esc(dc)}, l'impôt à la source varie d'environ 2% à 15%. ${sectorName ? `Dans le secteur ${sectorName} ${esc(frCantonPrep)} ` : ''}Utilisez notre simulateur pour un calcul personnalisé.</dd><dt><strong>Les frontaliers doivent-ils souscrire à la LAMal suisse ?</strong></dt><dd>Les nouveaux frontaliers depuis 2024 doivent s'inscrire à la LAMal dans les 3 mois suivant le début du travail. Les primes varient selon le canton, le modèle d'assurance et la franchise. Comparez les primes avec notre <a href="${BASE_URL}/fr/comparer-services/assurance-maladie/">comparateur LAMal</a>.</dd></dl></section>`,
         };
         return (frontalierInfo[locale] || '') + (faqSection[locale] || '');
       })()}
       <nav style="margin:24px 0 0;padding:16px 0;border-top:1px solid #e2e8f0;font-size:14px">
-        <a href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}" style="color:#1e3a8a;text-decoration:none;font-weight:600">${esc(localeCopy[locale].sectionName)} &rarr;</a>${(() => {
+        <a href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}" style="color:#1e3a8a;text-decoration:none;font-weight:600">${esc(cantonSectionName(locale, dc))} &rarr;</a>${(() => {
           const cSlug = canonicalCompanySlugBuild(job.company, job.companyKey);
           if (!cSlug) return '';
           const cPrefix = companyRoutePrefix[locale];
@@ -1518,47 +1563,51 @@ ${jobLd ? `    <script type="application/ld+json">${jobLd}</script>\n` : ''}    
       }
 
       /* ── Company landing pages ────────────────────────────────── */
-      // BLOCK-B: Regionalize for national expansion — currently hardcodes Ticino/Tessin text
-      const companyCopy: Record<'it' | 'en' | 'de' | 'fr', {
+      type CompanyCopyEntry = {
         title: (companyName: string) => string;
         description: (companyName: string, count: number) => string;
         heading: (companyName: string) => string;
         viewAll: string;
         sectionName: string;
         editorial: string;
-      }> = {
-        it: {
-          title: (companyName: string) => truncTitle(`${companyName} - Offerte di Lavoro in Ticino | Frontaliere Ticino`, 65),
-          description: (companyName: string, count: number) => `Scopri ${count} posizioni aperte presso ${companyName} in Ticino. Consulta gli annunci attivi, sedi e link ufficiali di candidatura.`,
-          heading: (companyName: string) => `${companyName} - offerte di lavoro in Ticino`,
-          viewAll: 'Vedi tutte le offerte',
-          sectionName: 'Cerca lavoro in Ticino',
-          editorial: 'Questa pagina raccoglie le posizioni aperte pubblicate direttamente sul sito aziendale. Gli annunci vengono aggiornati quotidianamente dal nostro crawler automatico e collegano alla pagina di candidatura ufficiale. Se non trovi posizioni attive, l\'azienda potrebbe non avere ruoli aperti in Ticino al momento — salva la pagina per ricevere aggiornamenti.',
-        },
-        en: {
-          title: (companyName: string) => truncTitle(`${companyName} jobs in Ticino | Frontaliere Ticino`, 65),
-          description: (companyName: string, count: number) => `Browse ${count} open roles at ${companyName} in Ticino. Review active listings, locations and official application links.`,
-          heading: (companyName: string) => `${companyName} jobs in Ticino`,
-          viewAll: 'View all jobs',
-          sectionName: 'Find jobs in Ticino',
-          editorial: 'This page lists positions published directly on the company\'s career portal. Listings are refreshed daily by our automated crawler and link to the official application page. If no roles are shown, the company may not have open positions in Ticino right now — bookmark this page to stay updated.',
-        },
-        de: {
-          title: (companyName: string) => truncTitle(`${companyName} Jobs im Tessin | Frontaliere Ticino`, 65),
-          description: (companyName: string, count: number) => `Entdecke ${count} offene Stellen bei ${companyName} im Tessin. Sieh aktive Jobs, Standorte und offizielle Bewerbungslinks.`,
-          heading: (companyName: string) => `${companyName} Jobs im Tessin`,
-          viewAll: 'Alle Stellen ansehen',
-          sectionName: 'Jobs im Tessin',
-          editorial: 'Auf dieser Seite finden Sie Stellen, die direkt auf der Karriereseite des Unternehmens veröffentlicht wurden. Die Angebote werden täglich von unserem automatischen Crawler aktualisiert und verlinken zur offiziellen Bewerbungsseite. Wenn keine Stellen angezeigt werden, gibt es derzeit möglicherweise keine offenen Positionen im Tessin.',
-        },
-        fr: {
-          title: (companyName: string) => truncTitle(`${companyName} - Offres d'emploi au Tessin | Frontaliere Ticino`, 65),
-          description: (companyName: string, count: number) => `Consultez ${count} postes ouverts chez ${companyName} au Tessin. Retrouvez les annonces actives, lieux et liens officiels de candidature.`,
-          heading: (companyName: string) => `${companyName} - offres d'emploi au Tessin`,
-          viewAll: 'Voir toutes les offres',
-          sectionName: 'Trouver un emploi au Tessin',
-          editorial: 'Cette page rassemble les postes publiés directement sur le portail carrière de l\'entreprise. Les annonces sont actualisées quotidiennement par notre robot et renvoient à la page de candidature officielle. Si aucun poste n\'est affiché, l\'entreprise n\'a peut-être pas de postes ouverts au Tessin actuellement.',
-        },
+      };
+      const getCompanyCopy = (cantonDisplay: string): Record<'it' | 'en' | 'de' | 'fr', CompanyCopyEntry> => {
+        const frPrep = frenchCantonPrep(cantonDisplay);
+        const dePrep = germanCantonPrep(cantonDisplay);
+        return {
+          it: {
+            title: (companyName: string) => truncTitle(`${companyName} - Offerte di Lavoro in ${cantonDisplay} | Frontaliere Ticino`, 65),
+            description: (companyName: string, count: number) => `Scopri ${count} posizioni aperte presso ${companyName} in ${cantonDisplay}. Consulta gli annunci attivi, sedi e link ufficiali di candidatura.`,
+            heading: (companyName: string) => `${companyName} - offerte di lavoro in ${cantonDisplay}`,
+            viewAll: 'Vedi tutte le offerte',
+            sectionName: `Cerca lavoro in ${cantonDisplay}`,
+            editorial: `Questa pagina raccoglie le posizioni aperte pubblicate direttamente sul sito aziendale. Gli annunci vengono aggiornati quotidianamente dal nostro crawler automatico e collegano alla pagina di candidatura ufficiale. Se non trovi posizioni attive, l'azienda potrebbe non avere ruoli aperti in ${cantonDisplay} al momento — salva la pagina per ricevere aggiornamenti.`,
+          },
+          en: {
+            title: (companyName: string) => truncTitle(`${companyName} jobs in ${cantonDisplay} | Frontaliere Ticino`, 65),
+            description: (companyName: string, count: number) => `Browse ${count} open roles at ${companyName} in ${cantonDisplay}. Review active listings, locations and official application links.`,
+            heading: (companyName: string) => `${companyName} jobs in ${cantonDisplay}`,
+            viewAll: 'View all jobs',
+            sectionName: `Find jobs in ${cantonDisplay}`,
+            editorial: `This page lists positions published directly on the company's career portal. Listings are refreshed daily by our automated crawler and link to the official application page. If no roles are shown, the company may not have open positions in ${cantonDisplay} right now — bookmark this page to stay updated.`,
+          },
+          de: {
+            title: (companyName: string) => truncTitle(`${companyName} Jobs ${dePrep} | Frontaliere Ticino`, 65),
+            description: (companyName: string, count: number) => `Entdecke ${count} offene Stellen bei ${companyName} ${dePrep}. Sieh aktive Jobs, Standorte und offizielle Bewerbungslinks.`,
+            heading: (companyName: string) => `${companyName} Jobs ${dePrep}`,
+            viewAll: 'Alle Stellen ansehen',
+            sectionName: `Jobs ${dePrep}`,
+            editorial: `Auf dieser Seite finden Sie Stellen, die direkt auf der Karriereseite des Unternehmens veröffentlicht wurden. Die Angebote werden täglich von unserem automatischen Crawler aktualisiert und verlinken zur offiziellen Bewerbungsseite. Wenn keine Stellen angezeigt werden, gibt es derzeit möglicherweise keine offenen Positionen ${dePrep}.`,
+          },
+          fr: {
+            title: (companyName: string) => truncTitle(`${companyName} - Offres d'emploi ${frPrep} | Frontaliere Ticino`, 65),
+            description: (companyName: string, count: number) => `Consultez ${count} postes ouverts chez ${companyName} ${frPrep}. Retrouvez les annonces actives, lieux et liens officiels de candidature.`,
+            heading: (companyName: string) => `${companyName} - offres d'emploi ${frPrep}`,
+            viewAll: 'Voir toutes les offres',
+            sectionName: `Trouver un emploi ${frPrep}`,
+            editorial: `Cette page rassemble les postes publiés directement sur le portail carrière de l'entreprise. Les annonces sont actualisées quotidiennement par notre robot et renvoient à la page de candidature officielle. Si aucun poste n'est affiché, l'entreprise n'a peut-être pas de postes ouverts ${frPrep} actuellement.`,
+          },
+        };
       };
       // Collect unique companies by canonical slug (mirrors runtime grouping)
       const companyMap = new Map<string, { name: string; jobs: typeof validJobs; rawSlugs: Set<string> }>();
@@ -1579,7 +1628,9 @@ ${jobLd ? `    <script type="application/ld+json">${jobLd}</script>\n` : ''}    
           const sectionSlug = sectionByLocale[locale];
           const canonicalPath = withSlash(`${localePrefix[locale]}/${sectionSlug}/${fullSlug}`.replace(/\/+/g, '/'));
           const canonicalUrl = `${BASE_URL}${canonicalPath}`;
-          const copy = companyCopy[locale];
+          const companyPrimaryCanton = [...new Set(companyJobs.map((j: any) => String(j.canton || DEFAULT_CANTON)).filter(Boolean))][0] || DEFAULT_CANTON;
+          const companyDisplayCanton = CANTON_DISPLAY[companyPrimaryCanton] || companyPrimaryCanton;
+          const copy = getCompanyCopy(companyDisplayCanton)[locale];
           const title = copy.title(companyName);
           const description = copy.description(companyName, companyJobs.length);
 
@@ -1624,7 +1675,7 @@ ${jobLd ? `    <script type="application/ld+json">${jobLd}</script>\n` : ''}    
             address: {
               '@type': 'PostalAddress',
               ...(primaryLocation ? { addressLocality: primaryLocation } : {}),
-              addressRegion: 'Ticino',
+              addressRegion: companyDisplayCanton,
               addressCountry: 'CH',
             },
           };
@@ -1675,18 +1726,15 @@ ${hreflangHtml}
 ${(() => {
             // Collect location info from company jobs
             const companyLocations = [...new Set(companyJobs.map((j: any) => String(j.location || '')).filter(Boolean))];
-            const companyCantons = [...new Set(companyJobs.map((j: any) => String(j.canton || DEFAULT_CANTON)).filter(Boolean))];
             const companySectors = [...new Set(companyJobs.map((j: any) => String(j.category || j.sector || '')).filter(Boolean))];
             const companyContracts = [...new Set(companyJobs.map((j: any) => String(j.contract || '')).filter(Boolean))];
             const primaryLocation = companyLocations[0] || '';
-            const primaryCanton = companyCantons[0] || DEFAULT_CANTON;
-            const displayCanton = CANTON_DISPLAY[primaryCanton] || primaryCanton;
+            const displayCanton = companyDisplayCanton;
             const locationListStr = companyLocations.slice(0, 5).join(', ');
             const listingUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}`.replace(/\/+/g, '/'))}`;
 
             const parts: string[] = [];
 
-            // BLOCK-B: Regionalize for national expansion — currently hardcodes Ticino/Tessin text
             // Company info section
             if (locale === 'it') {
               parts.push(`<section style="margin-top:20px"><h2>Informazioni su ${esc(companyName)}</h2>`);
@@ -4619,7 +4667,7 @@ ${hreflangLinks}
             '@type': 'BreadcrumbList',
             itemListElement: [
               { '@type': 'ListItem', position: 1, name: 'Frontaliere Ticino', item: BASE_URL + '/' },
-              { '@type': 'ListItem', position: 2, name: localeCopy[locale].sectionName, item: `${BASE_URL}${listingPath}` },
+              { '@type': 'ListItem', position: 2, name: cantonSectionName(locale, displayCanton), item: `${BASE_URL}${listingPath}` },
               { '@type': 'ListItem', position: 3, name: jobTitle },
             ],
           })}</script>`;
