@@ -495,10 +495,21 @@ export function ogPagesPlugin(rootDir: string): Plugin {
           const metaDesc = metaDescRaw.length > 155
             ? metaDescRaw.substring(0, 152) + '…'
             : metaDescRaw;
-          // <title> = pure headline + publisher suffix, matching <h1> content
-          const htmlPageTitle = `${localizedTitle} | Frontaliere Ticino`;
-          if (htmlPageTitle.length > 60) {
-            console.warn(`[og-pages] ⚠️ Title too long (${htmlPageTitle.length} chars): ${htmlPageTitle.slice(0, 50)}...`);
+          // <title> tag: ≤60 chars for SERP display. <h1> keeps the full headline.
+          const TITLE_MAX = 60;
+          const TITLE_SUFFIX = ' | Frontaliere Ticino';
+          let htmlPageTitle: string;
+          const fullTitle = `${localizedTitle}${TITLE_SUFFIX}`;
+          if (fullTitle.length <= TITLE_MAX) {
+            htmlPageTitle = fullTitle;
+          } else if (localizedTitle.length <= TITLE_MAX) {
+            htmlPageTitle = localizedTitle;
+          } else {
+            // Truncate at word boundary
+            const budget = TITLE_MAX - 1;
+            const truncated = localizedTitle.substring(0, budget);
+            const lastSpace = truncated.lastIndexOf(' ');
+            htmlPageTitle = (lastSpace > budget * 0.4 ? truncated.substring(0, lastSpace) : truncated) + '…';
           }
           const articleBodyLocale = (locale === 'it' || locale === 'en' || locale === 'de' || locale === 'fr') ? locale : 'it';
           const localizedBody = blogBodyByLocale[articleBodyLocale][en.articleId] ?? blogBodyByLocale.it[en.articleId];

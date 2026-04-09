@@ -2723,7 +2723,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   // ─── Permit Quiz (B vs G) ─────────────────────────────────────────────,
 
   'permit-quiz': {
-    title: 'Quiz Permesso B o G — Quale Scegliere? | Frontaliere Ticino',
+    title: 'Quiz Permesso B o G — Quale Scegliere? | Frontaliere',
     description: 'Quiz interattivo per frontalieri: rispondi a 8 domande sulla tua situazione e scopri se è meglio il Permesso B (residenza) o G (frontaliere) per lavorare.',
     keywords: 'meglio permesso b o g, quiz permesso svizzera, permesso b o g frontaliere, scelta permesso svizzera, permesso b vantaggi, permesso g vantaggi, confronto permesso b g, permesso lavoro svizzera frontaliere',
     ogTitle: 'Quiz: Meglio Permesso B o G? Scoprilo in 2 Minuti',
@@ -3212,7 +3212,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   },
 
   livability: {
-    title: 'Migliori Comuni di Frontiera | Classifica Qualità della Vita',
+    title: 'Migliori Comuni di Frontiera | Classifica Qualità',
     description: 'Classifica dei migliori comuni italiani di frontiera dove vivere come frontaliere: qualità della vita, distanza dalla dogana, servizi, costi, trasporti e.',
     keywords: 'migliori comuni frontiera, comuni frontalieri classifica, vivere como varese, qualità vita frontaliere, comuni vicino svizzera, dove vivere frontaliere',
     ogTitle: 'Migliori Comuni di Frontiera | Classifica 2026',
@@ -5519,10 +5519,10 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-varese-india-export-2026': {
-    title: 'Varese punta a Oriente: l’export verso l’India cresce del',
+    title: 'Varese: Export India Cresce del 46% | Frontaliere',
     description: 'Le esportazioni della provincia varesina verso l’India sono aumentate del 46,2% nel 2025, superando i 129 milioni di euro. Dati aggiornati 2026 per frontalieri',
     keywords: 'frontalieri, ticino, svizzera, italia, varese, punta, oriente, export',
-    ogTitle: 'Varese punta a Oriente: l’export verso l’India cresce del',
+    ogTitle: 'Varese: Export India Cresce del 46% | Frontaliere',
     ogDescription: 'Le esportazioni della provincia varesina verso l’India sono aumentate del 46,2% nel 2025, superando i 129 milioni di euro.',
     canonicalPath: '/articoli-frontaliere/varese-india-export-2026',
     structuredData: {

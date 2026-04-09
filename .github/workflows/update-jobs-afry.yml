@@ -16,6 +16,9 @@ concurrency:
   group: update-jobs-afry
   cancel-in-progress: false
 
+env:
+  NODE_OPTIONS: '--disable-warning=DEP0040 --disable-warning=DEP0169'
+
 jobs:
   crawl:
     runs-on: ubuntu-latest

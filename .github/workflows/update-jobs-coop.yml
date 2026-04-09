@@ -28,6 +28,9 @@ concurrency:
 permissions:
   contents: write
 
+env:
+  NODE_OPTIONS: '--disable-warning=DEP0040 --disable-warning=DEP0169'
+
 jobs:
   update-coop-jobs:
     runs-on: ubuntu-latest

@@ -1218,18 +1218,20 @@ const MAX_COMPLETION_TOKENS_MODELS = new Set([
   'Phi-4-reasoning',
 ]);
 
-/** Models with lower max output token limits */
+/** Models with lower max output token limits.
+ *  Cohere API enforces "max tokens must be less than or equal to 8000"
+ *  despite documentation saying 8192 — use 8000 to match actual enforcement. */
 const MODEL_MAX_OUTPUT_TOKENS = {
-  'Cohere-command-a': 8192,
-  'Cohere-command-r-plus-08-2024': 8192,
+  'Cohere-command-a': 8000,
+  'Cohere-command-r-plus-08-2024': 8000,
   'Cohere-command-r-08-2024': 4096,
   // Cohere direct models (same limits)
-  'command-a-03-2025': 8192,
-  'command-r-plus-08-2024': 8192,
+  'command-a-03-2025': 8000,
+  'command-r-plus-08-2024': 8000,
   'command-r-08-2024': 4096,
-  'command-a-reasoning-08-2025': 8192,
-  'command-a-translate-08-2025': 8192,
-  'c4ai-aya-expanse-32b': 8192,
+  'command-a-reasoning-08-2025': 8000,
+  'command-a-translate-08-2025': 8000,
+  'c4ai-aya-expanse-32b': 8000,
   'command-r7b-12-2024': 4096,
   // Groq Llama 4 family enforces max_tokens <= 8192.
   'meta-llama/llama-4-scout-17b-16e-instruct': 8192,
@@ -1796,6 +1798,14 @@ export async function callLLM(messages, opts = {}) {
 
     // Skip models without API keys
     if (!isModelAvailable(model)) {
+      continue;
+    }
+
+    // Skip models whose max output token limit is below the requested maxTokens.
+    // This avoids wasting API calls that will fail with "max tokens must be less than" errors.
+    const apiModelId = getApiModelId(model);
+    const modelLimit = MODEL_MAX_OUTPUT_TOKENS[apiModelId];
+    if (modelLimit && o.maxTokens > modelLimit) {
       continue;
     }
 

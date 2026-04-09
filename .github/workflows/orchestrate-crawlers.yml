@@ -37,6 +37,9 @@ permissions:
   contents: read
   actions: write
 
+env:
+  NODE_OPTIONS: '--disable-warning=DEP0040 --disable-warning=DEP0169'
+
 jobs:
   dispatch-all:
     runs-on: ubuntu-latest
