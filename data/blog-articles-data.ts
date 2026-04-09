@@ -5689,4 +5689,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/petizione-aromat-svizzera.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'frontalieri-tassa-salute-scontro',
+    category: 'fiscale',
+    date: '2026-04-09T14:30:14.074Z',
+    image: '/images/blog/frontalieri-tassa-salute-scontro.jpg',
+    hasCalculator: true,
+  },
 ];

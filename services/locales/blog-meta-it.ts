@@ -2016,6 +2016,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.petizione-aromat-svizzera.title': 'Petizione per mantenere la produzione di Aromat in Svizzera',
     'blog.article.petizione-aromat-svizzera.excerpt': 'Una petizione online lanciata da un imprenditore basilese mira a preservare la produzione svizzera dell\'Aromat, minacciata da una possibile delocalizzazione dopo la fusione tra Unilever e McCormick.',
     'blog.article.petizione-aromat-svizzera.imageAlt': 'Stabilimento Unilever a Thayngen, Schaffhausen, con la bandiera svizzera in primo piano.',
+    'blog.article.frontalieri-tassa-salute-scontro.title': 'Frontalieri e tassa sulla salute: scontro in consiglio regionale',
+    'blog.article.frontalieri-tassa-salute-scontro.excerpt': 'Salta l\'audizione dell\'assessore Sertori. Il Pd presenta una mozione per bloccare l\'imposta e tutelare i ristorni dei Comuni di frontiera.',
+    'blog.article.frontalieri-tassa-salute-scontro.imageAlt': 'Palazzo del Governo di Bellinzona, sede delle istituzioni ticinesi, in una giornata nuvolosa.',
 };
 
 export default blogMetaIt;

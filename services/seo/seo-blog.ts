@@ -6357,6 +6357,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-tassa-salute-scontro': {
+    title: 'Frontalieri e tassa sulla salute: scontro in consiglio regionale | Frontaliere Ticino',
+    description: 'Salta l\'audizione dell\'assessore Sertori. Il Pd presenta una mozione per bloccare l\'imposta e tutelare i ristorni dei Comuni di frontiera. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, tassa, sulla, salute, scontro',
+    ogTitle: 'Frontalieri e tassa sulla salute: scontro in consiglio regionale',
+    ogDescription: 'Il Pd presenta una mozione per bloccare l\'imposta e tutelare i ristorni dei Comuni di frontiera.',
+    canonicalPath: '/articoli-frontaliere/frontalieri-tassa-salute-scontro',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Scontro in consiglio regionale sulla tassa salute per i frontalieri",
+      "description": "Salta l'audizione dell'assessore Sertori. Il Pd presenta una mozione per bloccare l'imposta e tutelare i ristorni dei Comuni di frontiera. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/frontalieri-tassa-salute-scontro.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo del Governo di Bellinzona, sede delle istituzioni ticinesi, in una giornata nuvolosa."
+      },
+      "datePublished": "2026-04-09T14:30:14+00:00",
+      "dateModified": "2026-04-09T14:30:14+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-tassa-salute-scontro`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

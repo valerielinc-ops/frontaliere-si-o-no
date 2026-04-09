@@ -1927,6 +1927,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-camionisti-furbetti-governo-ticino-2026': { name: 'Caso camionisti', path: '/articoli-frontaliere/camionisti-furbetti-governo-ticino-2026', parent: 'blog' },
     'blog-multe-vignetta-chiasso-2024': { name: 'Multe Vignetta', path: '/articoli-frontaliere/multe-vignetta-chiasso-2024', parent: 'blog' },
     'blog-petizione-aromat-svizzera': { name: 'Petizione Aromat', path: '/articoli-frontaliere/petizione-aromat-svizzera', parent: 'blog' },
+    'blog-frontalieri-tassa-salute-scontro': { name: 'Tassa salute', path: '/articoli-frontaliere/frontalieri-tassa-salute-scontro', parent: 'blog' },
   };
 
   const info = sectionNames[section];
