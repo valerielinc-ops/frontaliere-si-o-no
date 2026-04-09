@@ -791,7 +791,7 @@ const UserProfile: React.FC = () => {
       <div className="max-w-lg mx-auto animate-fade-in">
         <div className="bg-white dark:bg-slate-800 rounded-3xl shadow-xl border border-slate-200 dark:border-slate-700 overflow-hidden">
           {/* Header */}
-          <div className="bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600 p-4 sm:p-8 text-center text-white">
+          <div className="bg-gradient-to-br from-blue-600 via-teal-600 to-emerald-600 p-4 sm:p-8 text-center text-white">
             <div className="w-20 h-20 mx-auto bg-white/25 dark:bg-slate-800/40 rounded-full flex items-center justify-center mb-4">
               <User size={40} className="text-white/90" />
             </div>
@@ -893,7 +893,7 @@ const UserProfile: React.FC = () => {
     <div className="max-w-2xl mx-auto space-y-6 animate-fade-in">
       {/* Profile header card */}
       <div className="bg-white dark:bg-slate-800 rounded-3xl shadow-xl border border-slate-200 dark:border-slate-700 overflow-hidden">
-        <div className="bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600 p-4 sm:p-6 text-white">
+        <div className="bg-gradient-to-br from-blue-600 via-teal-600 to-emerald-600 p-4 sm:p-6 text-white">
           <div className="flex items-center gap-5">
             <div className="relative">
               {photoURL ? (
