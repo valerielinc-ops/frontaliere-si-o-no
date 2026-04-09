@@ -1,21 +1,21 @@
 {
   "key": "rado",
   "label": "rado",
-  "generatedAt": "2026-04-09T10:09:40.611Z",
+  "generatedAt": "2026-04-09T22:03:54.525Z",
   "total": 1,
   "newCount": 1,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 26467,
-  "avgDurationMs": 26467,
+  "durationMs": 31166,
+  "avgDurationMs": 31166,
   "durationHistory": [
-    26467
+    31166
   ],
   "newJobs": [
     {
       "id": "company-7uatt8",
-      "slug": "senior-legal-counsel-h-f-100-brand-protection-online-ip-enforcement-the-swatch-group-ltd-faubourg-du-lac-seevorstadt-6-2502-biel-bienne-bern",
+      "slug": "senior-legal-counsel-h-f-100-brand-protection-online-ip-enforcement-the-swatch-group-ltd-faubourg-du-lac-seevorstadt-6-2502-biel-bienne-bern-7uatt8",
       "company": "The Swatch Group Ltd",
       "title": "Senior Legal Counsel (H/F) 100% Brand Protection / Online IP Enforcement",
       "location": "Faubourg du Lac / Seevorstadt 6 2502 Biel/Bienne (Bern) Schweiz Firmenadresse Th",
@@ -30,14 +30,21 @@
       "companyKey": "rado",
       "companyDomain": "swatchgroup.com",
       "crawledAt": "2026-04-09T10:09:40.501Z",
-      "needsRetranslation": true,
       "sourceLang": "de",
-      "_qualityScore": 59,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "streetAddress": "Bielstrasse 45",
+      "postalCode": "2543",
+      "addressLocality": "Lengnau",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 2,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     }
   ],
