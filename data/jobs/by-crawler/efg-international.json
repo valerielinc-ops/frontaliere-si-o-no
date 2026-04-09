@@ -1,6 +1,6 @@
 {
   "crawlerKey": "efg-international",
-  "assembledAt": "2026-04-09T09:33:57.585Z",
+  "assembledAt": "2026-04-09T21:26:19.637Z",
   "jobs": [
     {
       "id": "efg-6163",
@@ -153,7 +153,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-09T09:33:55.034Z",
+      "crawledAt": "2026-04-09T21:26:17.289Z",
       "slugByLocale": {
         "it": "specialista-sviluppo-e-formazione-efg-international-ag-lugano",
         "en": "learning-development-specialist-efg-international-ag-lugano",
@@ -319,7 +319,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-09T09:33:55.033Z",
+      "crawledAt": "2026-04-09T21:26:17.289Z",
       "slugByLocale": {
         "it": "sviluppatore-commerciale-del-gruppo-di-pianificazione-patrimoniale-efg-international-ag-zurich",
         "en": "wealth-planning-group-business-developer-efg-zurich",
@@ -345,7 +345,9 @@
       "streetAddress": "Via Pretorio 22",
       "postalCode": "6900",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "previousSlugs": []
     },
     {
       "id": "efg-6137",
@@ -499,7 +501,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-09T09:33:55.032Z",
+      "crawledAt": "2026-04-09T21:26:17.288Z",
       "slugByLocale": {
         "it": "specialista-internazionale-della-retribuzione-efg-international-ag-lugano",
         "en": "international-payroll-specialist-efg-international-ag-lugano",
@@ -532,145 +534,6 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "datePosted": "2026-02-27"
-    },
-    {
-      "id": "efg-6101",
-      "slug": "senior-cloud-ingegnere-efg-international-ag-geneve",
-      "company": "EFG International AG",
-      "title": "Senior Cloud Engineer",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "tech",
-      "contract": "permanent",
-      "currency": "CHF",
-      "description": "## Key Responsibilities\n\n- Cloud & Infrastructure Design and Implementation\n\n-   Design, build and deploy cloud, hybrid and on    ‑    premises solutions in line with the bank  ’  s IT strategy and architecture standards.\n\n- Participate in the design and implementation of IT infrastructure projects related to systems (servers, storage, virtualization, desktops).\n\n- Contribute to the definition and implementation of the technology direction, vision and strategy to enable and accelerate cloud technology adoption.\n\n- M365 & Azure Engineering\n\n- Act as a subject-matter expert for M365 (Exchange Online, Teams, SharePoint, OneDrive, security & compliance features, etc.) and contribute to Azure-based solutions.\n\n- Lead or support application readiness assessments, environment design and configuration for M365 and Azure workloads.\n\n- Perform prototyping of new environments, server builds and configuration to validate solutions before production rollout.\n\n- Cloud Adoption & Optimization\n\n- Drive and support cloud adoption initiatives, including:\n\n- Application and infrastructure readiness assessments\n\n- Data and workload migration to M365/Azure\n\n- Performance tuning and optimization of cloud environments\n\n- Ensure solutions are secure, resilient, scalable and compliant with banking and regulatory requirements.\n\n- Automation & Operational Excellence\n\n- Develop, enhance and maintain automation for infrastructure components (e.g. provisioning, configuration, monitoring, patching, lifecycle management).\n\n- Contribute to the standardization and industrialization of infrastructure services and processes.\n\n- Support continuous improvement of operational procedures, documentation and runbooks.\n\n- Collaboration & Support\n\n- Provide technical expertise and guidance to other IT support teams on all cloud topics (SaaS, PaaS, IaaS).\n\n- Act as an escalation point for complex incidents and problems related to M365, Azure and hybrid infrastructure.\n\n-   Collaborate closely with security, network, workplace and application teams to ensure end    ‑    to    ‑    end solution quality.\n\n## Skills & Experience Required\n\n- Senior experience in infrastructure / cloud engineering, with strong focus on M365 and good knowledge of Azure.\n\n- Solid background with Windows Server, virtualization, networking and hybrid environments.\n\n-   Hands    ‑    on experience with cloud migrations and optimization.\n\n- Used to working in complex, regulated environments; financial services / banking experience is a plus.\n\n-   Comfortable in a small, high    ‑    expertise team, with a proactive and collaborative mindset.\n\n- English fluent (must); French is a plus.\n\n-   Strong analytical and problem    ‑    solving skills, with a pragmatic and solution    ‑    oriented mindset.\n\n-   Ability to communicate clearly with both technical and non    ‑    technical stakeholders.\n\n- High level of ownership, reliability and integrity, aligned with the standards of a private banking environment.\n\n- Entrepreneurial mindset: comfortable challenging the status quo, proposing improvements and driving change.\n\nOur Values\n\n-   Accountability    : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n-   Hands-on    : Being proactive to rapidly deliver high-quality results\n\n-   Passionate    : Being committed and striving for excellence\n\n-   Solution-driven    : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n-   Partnership-oriented    : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n\n## Please ensure to attach a cover letter to your CV when filling the application.\n\n## Application\n\nShould you wish to apply for this position use this link to apply.",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-03-25",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6101",
-      "source": "Oracle HCM API",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "titleByLocale": {
-        "en": "Senior Cloud Engineer",
-        "it": "Senior Cloud Ingegnere",
-        "de": "Senior Cloud Ingenieur",
-        "fr": "Senior Cloud Ingénieur"
-      },
-      "descriptionByLocale": {
-        "en": "## Key Responsibilities\n\n- Cloud & Infrastructure Design and Implementation\n\n-   Design, build and deploy cloud, hybrid and on    ‑    premises solutions in line with the bank  ’  s IT strategy and architecture standards.\n\n- Participate in the design and implementation of IT infrastructure projects related to systems (servers, storage, virtualization, desktops).\n\n- Contribute to the definition and implementation of the technology direction, vision and strategy to enable and accelerate cloud technology adoption.\n\n- M365 & Azure Engineering\n\n- Act as a subject-matter expert for M365 (Exchange Online, Teams, SharePoint, OneDrive, security & compliance features, etc.) and contribute to Azure-based solutions.\n\n- Lead or support application readiness assessments, environment design and configuration for M365 and Azure workloads.\n\n- Perform prototyping of new environments, server builds and configuration to validate solutions before production rollout.\n\n- Cloud Adoption & Optimization\n\n- Drive and support cloud adoption initiatives, including:\n\n- Application and infrastructure readiness assessments\n\n- Data and workload migration to M365/Azure\n\n- Performance tuning and optimization of cloud environments\n\n- Ensure solutions are secure, resilient, scalable and compliant with banking and regulatory requirements.\n\n- Automation & Operational Excellence\n\n- Develop, enhance and maintain automation for infrastructure components (e.g. provisioning, configuration, monitoring, patching, lifecycle management).\n\n- Contribute to the standardization and industrialization of infrastructure services and processes.\n\n- Support continuous improvement of operational procedures, documentation and runbooks.\n\n- Collaboration & Support\n\n- Provide technical expertise and guidance to other IT support teams on all cloud topics (SaaS, PaaS, IaaS).\n\n- Act as an escalation point for complex incidents and problems related to M365, Azure and hybrid infrastructure.\n\n-   Collaborate closely with security, network, workplace and application teams to ensure end    ‑    to    ‑    end solution quality.\n\n## Skills & Experience Required\n\n- Senior experience in infrastructure / cloud engineering, with strong focus on M365 and good knowledge of Azure.\n\n- Solid background with Windows Server, virtualization, networking and hybrid environments.\n\n-   Hands    ‑    on experience with cloud migrations and optimization.\n\n- Used to working in complex, regulated environments; financial services / banking experience is a plus.\n\n-   Comfortable in a small, high    ‑    expertise team, with a proactive and collaborative mindset.\n\n- English fluent (must); French is a plus.\n\n-   Strong analytical and problem    ‑    solving skills, with a pragmatic and solution    ‑    oriented mindset.\n\n-   Ability to communicate clearly with both technical and non    ‑    technical stakeholders.\n\n- High level of ownership, reliability and integrity, aligned with the standards of a private banking environment.\n\n- Entrepreneurial mindset: comfortable challenging the status quo, proposing improvements and driving change.\n\nOur Values\n\n-   Accountability    : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n-   Hands-on    : Being proactive to rapidly deliver high-quality results\n\n-   Passionate    : Being committed and striving for excellence\n\n-   Solution-driven    : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n-   Partnership-oriented    : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n\n## Please ensure to attach a cover letter to your CV when filling the application.\n\n## Application\n\nShould you wish to apply for this position use this link to apply.",
-        "it": "Responsabilità Principali\n- Progettazione e Implementazione di Cloud e Infrastrutture\n- Progettare, costruire e distribuire soluzioni cloud, ibride e on-premises in linea con la strategia IT e gli standard di architettura della banca.\n- Partecipare alla progettazione e implementazione di progetti di infrastrutture IT relativi a sistemi (server, storage, virtualizzazione, desktop).\n- Contribuire alla definizione e implementazione della direzione tecnologica, visione e strategia per abilitare e accelerare l'adozione della tecnologia cloud.\n- Ingegneria M365 e Azure\n- Agire come esperto di materia per M365 (Exchange Online, Teams, SharePoint, OneDrive, sicurezza e funzionalità di conformità, ecc.) e contribuire a soluzioni basate su Azure.\n- Guidare o supportare valutazioni di prontezza delle applicazioni, progettazione e configurazione dell'ambiente per carichi di lavoro M365 e Azure.\n- Eseguire la prototipazione di nuovi ambienti, build di server e configurazione per convalidare soluzioni prima della distribuzione in produzione.\n- Adozione e Ottimizzazione Cloud\n- Guidare e supportare iniziative di adozione cloud, tra cui:\n- Valutazioni di prontezza di applicazioni e infrastrutture\n- Migrazione di dati e carichi di lavoro su M365/Azure\n- Ottimizzazione delle prestazioni e ottimizzazione degli ambienti cloud\n- Assicurare che le soluzioni siano sicure, resilienti, scalabili e conformi ai requisiti bancari e normativi.\n- Automazione e Eccellenza Operativa\n- Sviluppare, migliorare e mantenere l'automazione per componenti di infrastrutture (ad esempio provisioning, configurazione, monitoraggio, patching, gestione del ciclo di vita).\n- Contribuire alla standardizzazione e industrializzazione dei servizi e processi di infrastrutture.\n- Supportare il miglioramento continuo delle procedure operative, della documentazione e delle guide operative.\n- Collaborazione e Supporto\n- Fornire competenze tecniche e guida ad altri team di supporto IT su tutti gli argomenti cloud (SaaS, PaaS, IaaS).\n- Agire come punto di escalation per incidenti e problemi complessi relativi a M365, Azure e infrastrutture ibride.\n- Collaborare strettamente con team di sicurezza, rete, postazione di lavoro e applicazione per assicurare la qualità della soluzione end-to-end.\n\n## Competenze ed Esperienza Richieste\n- Esperienza senior in ingegneria di infrastrutture/cloud, con forte focus su M365 e buona conoscenza di Azure.\n- Solid background con Windows Server, virtualizzazione, networking e ambienti ibridi.\n- Esperienza pratica con migrazioni cloud e ottimizzazione.\n- Abituati a lavorare in ambienti complessi e regolamentati; esperienza nel settore finanziario/bancario è un vantaggio.\n- A proprio agio in un piccolo team di alta expertise, con un atteggiamento proattivo e collaborativo.\n- Fluente in inglese (necessario); francese è un vantaggio.\n- Forti capacità analitiche e di risoluzione dei problemi, con un atteggiamento pragmatico e orientato alle soluzioni.\n- Capacità di comunicare chiaramente con stakeholder sia tecnici che non tecnici.\n- Alto livello di proprietà, affidabilità e integrità, allineato con gli standard di un ambiente di private banking.\n- Mentalità imprenditoriale: a proprio agio nel sfidare lo status quo, proporre miglioramenti e guidare il cambiamento.\n\n## I Nostri Valori\n- Accountability: prendere proprietà dei compiti e delle sfide, nonché cercare il miglioramento continuo\n- Hands-on: essere proattivi per fornire risultati di alta qualità rapidamente\n- Passionate: essere impegnati e sforzarsi per l'eccellenza\n- Solution-driven: focalizzarsi sugli esiti dei clienti e trattare i clienti in modo equo con un atteggiamento consapevole del rischio\n- Partnership-oriented: promuovere la collaborazione e il lavoro di squadra. Lavorare insieme con un spirito imprenditoriale.\n\n## Si prega di allegare una lettera di presentazione al CV quando si invia la domanda.\n\n## Domanda Se si desidera inviare la domanda per questa posizione, utilizzare questo link per applicare.",
-        "de": "Hauptverantwortlichkeiten\n- Cloud- und Infrastrukturdesign und -implementierung\n- Entwerfen, bauen und deployen Sie Cloud-, Hybrid- und On-Premises-Lösungen, die mit der IT-Strategie und den Architekturstandards der Bank übereinstimmen.\n- Teilnahme an der Gestaltung und Implementierung von IT-Infrastrukturprojekten im Zusammenhang mit Systemen (Server, Speicher, Virtualisierung, Desktops).\n- Beitrag zur Definition und Implementierung der technologischen Richtung, Vision und Strategie zur Ermöglichung und Beschleunigung der Cloud-Technologieadoption.\n- M365- und Azure-Engineering\n- Als Fachexperte für M365 (Exchange Online, Teams, SharePoint, OneDrive, Sicherheits- und Compliance-Funktionen usw.) fungieren und zu Azure-basierten Lösungen beitragen.\n- Leitende oder unterstützende Anwendungsbereitschaftsbewertungen, Umgebungsdesign und -konfiguration für M365- und Azure-Workloads.\n- Prototyping neuer Umgebungen, Server-Builds und Konfigurationen zur Validierung von Lösungen vor der Produktionsbereitstellung.\n- Cloud-Adoption und -Optimierung\n- Cloud-Adoptionsinitiativen vorantreiben und unterstützen, einschließlich:\n- Anwendungs- und Infrastrukturbereitschaftsbewertungen\n- Daten- und Workload-Migration auf M365/Azure\n- Leistungsoptimierung und Optimierung von Cloud-Umgebungen\n- Sicherstellen, dass Lösungen sicher, widerstandsfähig, skalierbar und compliant mit Banken- und regulatorischen Anforderungen sind.\n- Automatisierung und operative Exzellenz\n- Automatisierung für Infrastrukturkomponenten entwickeln, verbessern und aufrechterhalten (z. B. Provisionierung, Konfiguration, Überwachung, Patching, Lebenszyklusmanagement).\n- Beitrag zur Standardisierung und Industrialisierung von Infrastrukturdiensten und -prozessen.\n- Kontinuierliche Verbesserung von Betriebsverfahren, Dokumentation und Runbooks unterstützen.\n- Zusammenarbeit und Support\n- Technische Expertise und Beratung für andere IT-Support-Teams zu allen Cloud-Themen (SaaS, PaaS, IaaS) bereitstellen.\n- Als Eskalationspunkt für komplexe Vorfälle und Probleme im Zusammenhang mit M365, Azure und Hybrid-Infrastruktur fungieren.\n- Eng mit Sicherheit-, Netzwerk-, Arbeitsplatz- und Anwendungsteams zusammenarbeiten, um die End-to-End-Lösungsqualität sicherzustellen.\n\n## Fähigkeiten und Erfahrungen erforderlich\n- Senior-Erfahrung in Infrastruktur-/Cloud-Engineering mit starkem Fokus auf M365 und guten Kenntnissen von Azure.\n- Solide Erfahrung mit Windows Server, Virtualisierung, Netzwerk und Hybridumgebungen.\n- Praktische Erfahrung mit Cloud-Migrationen und -Optimierung.\n- Erfahrung in komplexen, regulierten Umgebungen; Erfahrung im Finanzdienstleistungs-/Bankbereich ist von Vorteil.\n- Wohlbefinden in einem kleinen, hochqualifizierten Team mit proaktivem und kollaborativem Mindset.\n- Englisch fließend (Muss); Französisch ist von Vorteil.\n- Starke analytische und problemlösende Fähigkeiten mit pragmatischem und lösungsorientiertem Mindset.\n- Fähigkeit, klar mit technischen und nicht-technischen Stakeholdern zu kommunizieren.\n- Hoher Grad an Ownership, Zuverlässigkeit und Integrität, der den Standards einer Private-Banking-Umgebung entspricht.\n- Unternehmerisches Mindset: wohlbefinden, den Status quo herauszufordern, Verbesserungen vorzuschlagen und Veränderungen voranzutreiben.\n\n## Unsere Werte\n- Verantwortung: Übernahme von Verantwortung für Aufgaben und Herausforderungen sowie kontinuierliche Verbesserung\n- Hands-on: proaktiv sein, um Ergebnisse von hoher Qualität schnell zu liefern\n- Leidenschaftlich: engagiert sein und nach Exzellenz streben\n- Lösungsorientiert: sich auf Kundenergebnisse konzentrieren und Kunden fair behandeln mit einem risikobewussten Mindset\n- Partnerschaftlich: Zusammenarbeit und Teamarbeit fördern. Zusammenarbeiten mit einem unternehmerischen Geist.\n\n## Bitte fügen Sie einen Lebenslauf und ein kurzes Anschreiben bei, wenn Sie sich bewerben.\n\n## Bewerbung Wenn Sie sich für diese Position bewerben möchten, verwenden Sie bitte diesen Link.",
-        "fr": "Responsabilités Principales\n- Conception et mise en œuvre de Cloud et d'infrastructures\n- Concevoir, construire et déployer des solutions Cloud, hybrides et sur site conformément à la stratégie informatique et aux normes d'architecture de la banque.\n- Participer à la conception et à la mise en œuvre de projets d'infrastructure informatique liés aux systèmes (serveurs, stockage, virtualisation, postes de travail).\n- Contribuer à la définition et à la mise en œuvre de l'orientation technologique, de la vision et de la stratégie pour permettre et accélérer l'adoption de la technologie Cloud.\n- Ingénierie M365 et Azure\n- Agir en tant qu'expert en M365 (Exchange Online, Teams, SharePoint, OneDrive, fonctionnalités de sécurité et de conformité, etc.) et contribuer à des solutions basées sur Azure.\n- Diriger ou soutenir les évaluations de préparation des applications, la conception et la configuration de l'environnement pour les charges de travail M365 et Azure.\n- Réaliser des prototypes de nouveaux environnements, des constructions de serveurs et des configurations pour valider les solutions avant leur déploiement en production.\n- Adoption et optimisation du Cloud\n- Piloter et soutenir les initiatives d'adoption du Cloud, y compris :\n- Évaluations de préparation des applications et des infrastructures\n- Migration de données et de charges de travail vers M365/Azure\n- Optimisation des performances et optimisation des environnements Cloud\n- Assurer que les solutions sont sécurisées, résilientes, évolutives et conformes aux exigences bancaires et réglementaires.\n- Automatisation et excellence opérationnelle\n- Développer, améliorer et maintenir l'automatisation des composants d'infrastructure (par exemple, provisionnement, configuration, surveillance, correctifs, gestion du cycle de vie).\n- Contribuer à la standardisation et à l'industrialisation des services et des processus d'infrastructure.\n- Soutenir l'amélioration continue des procédures opérationnelles, de la documentation et des guides de fonctionnement.\n- Collaboration et support\n- Fournir une expertise technique et des conseils à d'autres équipes de support informatique sur tous les sujets Cloud (SaaS, PaaS, IaaS).\n- Agir en tant que point d'escalade pour les incidents et les problèmes complexes liés à M365, Azure et à l'infrastructure hybride.\n- Collaborer étroitement avec les équipes de sécurité, de réseau, de poste de travail et d'application pour assurer la qualité de la solution de bout en bout.\n\n## Compétences et expérience requises\n- Expérience senior en ingénierie d'infrastructures/Cloud avec un fort accent sur M365 et de bonnes connaissances d'Azure.\n- Solide expérience avec Windows Server, virtualisation, réseau et environnements hybrides.\n- Expérience pratique avec les migrations Cloud et l'optimisation.\n- Expérience dans des environnements complexes et réglementés; l'expérience dans le secteur financier/bancaire est un plus.\n- À l'aise dans un petit équipe de haute expertise, avec un esprit proactif et collaboratif.\n- Anglais courant (obligatoire); français est un plus.\n- Fortes capacités analytiques et de résolution de problèmes, avec un esprit pragmatique et orienté vers les solutions.\n- Capacité à communiquer clairement avec les parties prenantes techniques et non techniques.\n- Niveau élevé de propriété, de fiabilité et d'intégrité, conforme aux normes d'un environnement de banque privée.\n- Esprit entrepreneurial: à l'aise pour remettre en question le statu quo, proposer des améliorations et piloter le changement.\n\n## Nos valeurs\n- Responsabilité: prendre en charge les tâches et les défis, ainsi que rechercher l'amélioration continue\n- Pratique: être proactif pour fournir des résultats de haute qualité rapidement\n- Passionné: être engagé et s'efforcer d'excellence\n- Axé sur les solutions: se concentrer sur les résultats des clients et traiter les clients de manière équitable avec un esprit de risque\n- Orienté vers le partenariat: promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit entrepreneurial.\n\n## Veuillez joindre une lettre de motivation à votre CV lors de la candidature.\n\n## Candidature Si vous souhaitez postuler à ce poste, utilisez ce lien pour postuler."
-      },
-      "requirementsByLocale": {},
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "Cloud & Infrastructure Design and Implementation"
-            ],
-            "responsibilities": [
-              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Cloud & Infrastructure Design and Implementation</p><ul><li><p style=\"color:#333C40;font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\"><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">Design, build and deploy cloud, hybrid and on</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"en-US\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">premises solutions in line with the bank</span><span lang=\"en-US\">’</span><span lang=\"en-GB\">s IT strategy and architecture standards.</span></span></p>",
-              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Participate in the design and implementation of IT infrastructure projects related to systems (servers, storage, virtualization, desktops).</p>",
-              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Contribute to the definition and implementation of the technology direction, vision and strategy to enable and accelerate cloud technology adoption.</p>",
-              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">M365 & Azure Engineering</p><ul><li><p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Act as a subject-matter expert for M365 (Exchange Online, Teams, SharePoint, OneDrive, security & compliance features, etc.) and contribute to Azure-based solutions.</p>",
-              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Lead or support application readiness assessments, environment design and configuration for M365 and Azure workloads.</p>",
-              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Perform prototyping of new environments, server builds and configuration to validate solutions before production rollout.</p>",
-              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Cloud Adoption & Optimization</p><ul><li><p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Drive and support cloud adoption initiatives, including: </p>",
-              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Application and infrastructure readiness assessments</p>",
-              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Data and workload migration to M365/Azure</p>",
-              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Performance tuning and optimization of cloud environments</p>",
-              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Ensure solutions are secure, resilient, scalable and compliant with banking and regulatory requirements.</p>",
-              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Automation & Operational Excellence</p><ul><li><p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Develop, enhance and maintain automation for infrastructure components (e.g. provisioning, configuration, monitoring, patching, lifecycle management).</p>",
-              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Contribute to the standardization and industrialization of infrastructure services and processes.</p>",
-              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Support continuous improvement of operational procedures, documentation and runbooks.</p>",
-              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Collaboration & Support</p><ul><li><p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Provide technical expertise and guidance to other IT support teams on all cloud topics (SaaS, PaaS, IaaS).</p>",
-              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Act as an escalation point for complex incidents and problems related to M365, Azure and hybrid infrastructure.</p>"
-            ],
-            "requirements": [],
-            "benefits": [],
-            "process": [
-              "Should you wish to apply for this position use this link to apply."
-            ],
-            "highlights": [
-              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Cloud & Infrastructure Design and Implementation</p><ul><li><p style=\"color:#333C40;font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\"><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">Design, build and deploy cloud, hybrid and on</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"en-US\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">premises solutions in line with the bank</span><span lang=\"en-US\">’</span><span lang=\"en-GB\">s IT strategy and architecture standards.</span></span></p>",
-              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Participate in the design and implementation of IT infrastructure projects related to systems (servers, storage, virtualization, desktops).</p>",
-              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Contribute to the definition and implementation of the technology direction, vision and strategy to enable and accelerate cloud technology adoption.</p>"
-            ],
-            "keywords": [
-              "<p style=\"color"
-            ],
-            "sections": [
-              {
-                "id": "details",
-                "heading": "Skills & Experience Required",
-                "paragraphs": [
-                  "Senior experience in infrastructure / cloud engineering, with strong focus on M365 and good knowledge of Azure.",
-                  "Solid background with Windows Server, virtualization, networking and hybrid environments.",
-                  "<span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">Hands</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"en-US\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">on experience with cloud migrations and optimization.</span></span>",
-                  "Used to working in complex, regulated environments; financial services / banking experience is a plus.",
-                  "<span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">Comfortable in a small, high</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"fr-CH\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">expertise team, with a proactive and collaborative mindset.</span></span>",
-                  "English fluent (must); French is a plus.",
-                  "<span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">Strong analytical and problem</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"en-US\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">solving skills, with a pragmatic and solution</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"en-US\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">oriented mindset.</span></span>",
-                  "<span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">Ability to communicate clearly with both technical and non</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"en-US\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">technical stakeholders.</span></span>",
-                  "High level of ownership, reliability and integrity, aligned with the standards of a private banking environment.",
-                  "Entrepreneurial mindset: comfortable challenging the status quo, proposing improvements and driving change.",
-                  "Our Values"
-                ],
-                "bullets": [
-                  "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Senior experience in infrastructure / cloud engineering, with strong focus on M365 and good knowledge of Azure.</p>",
-                  "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Solid background with Windows Server, virtualization, networking and hybrid environments.</p>",
-                  "<p style=\"color:#333C40;font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\"><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">Hands</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"en-US\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">on experience with cloud migrations and optimization.</span></span></p>",
-                  "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Used to working in complex, regulated environments; financial services / banking experience is a plus.</p>",
-                  "<p style=\"color:#333C40;font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\"><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">Comfortable in a small, high</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"fr-CH\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">expertise team, with a proactive and collaborative mindset.</span></span></p>",
-                  "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">English fluent (must); French is a plus.</p>",
-                  "<p style=\"color:#333C40;font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\"><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">Strong analytical and problem</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"en-US\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">solving skills, with a pragmatic and solution</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"en-US\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">oriented mindset.</span></span></p>",
-                  "<p style=\"color:#333C40;font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\"><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">Ability to communicate clearly with both technical and non</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"en-US\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">technical stakeholders.</span></span></p>",
-                  "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">High level of ownership, reliability and integrity, aligned with the standards of a private banking environment.</p>",
-                  "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Entrepreneurial mindset: comfortable challenging the status quo, proposing improvements and driving change.</p>",
-                  "<span style=\"color:#333C40;font-family:\"Fira Sans\";\"><span style=\"font-size:9.0pt;\">Accountability</span></span><span style=\"color:#333C40;font-family:\"Fira Sans Light\";\"><span style=\"font-size:9.0pt;\">: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></span>",
-                  "<span style=\"color:#333C40;font-family:\"Fira Sans\";\"><span style=\"font-size:9.0pt;\">Hands-on</span></span><span style=\"color:#333C40;font-family:\"Fira Sans Light\";\"><span style=\"font-size:9.0pt;\">: Being proactive to rapidly deliver high-quality results</span></span>",
-                  "<span style=\"color:#333C40;font-family:\"Fira Sans\";\"><span style=\"font-size:9.0pt;\">Passionate</span></span><span style=\"color:#333C40;font-family:\"Fira Sans Light\";\"><span style=\"font-size:9.0pt;\">: Being committed and striving for excellence</span></span>",
-                  "<span style=\"color:#333C40;font-family:\"Fira Sans\";\"><span style=\"font-size:9.0pt;\">Solution-driven</span></span><span style=\"color:#333C40;font-family:\"Fira Sans Light\";\"><span style=\"font-size:9.0pt;\">: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></span>",
-                  "<span style=\"color:#333C40;font-family:\"Fira Sans\";\"><span style=\"font-size:9.0pt;\">Partnership-oriented</span></span><span style=\"color:#333C40;font-family:\"Fira Sans Light\";\"><span style=\"font-size:9.0pt;\">: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></span>"
-                ]
-              }
-            ],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-04-09T09:33:55.031Z",
-      "slugByLocale": {
-        "it": "senior-cloud-ingegnere-efg-international-ag-geneve",
-        "en": "senior-cloud-engineer-efg-international-ag-geneve",
-        "de": "senior-cloud-ingenieur-efg-international-ag-geneve",
-        "fr": "senior-cloud-ingenieur-efg-international-ag-geneve"
-      },
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "datePosted": "2026-03-25",
-      "sourceLang": "en",
-      "salaryMin": 94000,
-      "salaryMax": 127000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 94000,
-          "maxValue": 127000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "previousSlugs": [
-        "senior-cloud-engineer-efg-geneve"
-      ]
     },
     {
       "id": "efg-6103",
@@ -841,7 +704,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-09T09:33:55.031Z",
+      "crawledAt": "2026-04-09T21:26:17.287Z",
       "slugByLocale": {
         "it": "contratto-temporaneo-analista-aziendale-sviluppatore-efg-international-ag-lugano",
         "en": "temp-contract-business-analyst-developer-efg-international-ag-lugano-n9334f",
@@ -873,6 +736,145 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "datePosted": "2026-03-10"
+    },
+    {
+      "id": "efg-6101",
+      "slug": "senior-cloud-ingegnere-efg-international-ag-geneve",
+      "company": "EFG International AG",
+      "title": "Senior Cloud Engineer",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "tech",
+      "contract": "permanent",
+      "currency": "CHF",
+      "description": "## Key Responsibilities\n\n- Cloud & Infrastructure Design and Implementation\n\n-   Design, build and deploy cloud, hybrid and on    ‑    premises solutions in line with the bank  ’  s IT strategy and architecture standards.\n\n- Participate in the design and implementation of IT infrastructure projects related to systems (servers, storage, virtualization, desktops).\n\n- Contribute to the definition and implementation of the technology direction, vision and strategy to enable and accelerate cloud technology adoption.\n\n- M365 & Azure Engineering\n\n- Act as a subject-matter expert for M365 (Exchange Online, Teams, SharePoint, OneDrive, security & compliance features, etc.) and contribute to Azure-based solutions.\n\n- Lead or support application readiness assessments, environment design and configuration for M365 and Azure workloads.\n\n- Perform prototyping of new environments, server builds and configuration to validate solutions before production rollout.\n\n- Cloud Adoption & Optimization\n\n- Drive and support cloud adoption initiatives, including:\n\n- Application and infrastructure readiness assessments\n\n- Data and workload migration to M365/Azure\n\n- Performance tuning and optimization of cloud environments\n\n- Ensure solutions are secure, resilient, scalable and compliant with banking and regulatory requirements.\n\n- Automation & Operational Excellence\n\n- Develop, enhance and maintain automation for infrastructure components (e.g. provisioning, configuration, monitoring, patching, lifecycle management).\n\n- Contribute to the standardization and industrialization of infrastructure services and processes.\n\n- Support continuous improvement of operational procedures, documentation and runbooks.\n\n- Collaboration & Support\n\n- Provide technical expertise and guidance to other IT support teams on all cloud topics (SaaS, PaaS, IaaS).\n\n- Act as an escalation point for complex incidents and problems related to M365, Azure and hybrid infrastructure.\n\n-   Collaborate closely with security, network, workplace and application teams to ensure end    ‑    to    ‑    end solution quality.\n\n## Skills & Experience Required\n\n- Senior experience in infrastructure / cloud engineering, with strong focus on M365 and good knowledge of Azure.\n\n- Solid background with Windows Server, virtualization, networking and hybrid environments.\n\n-   Hands    ‑    on experience with cloud migrations and optimization.\n\n- Used to working in complex, regulated environments; financial services / banking experience is a plus.\n\n-   Comfortable in a small, high    ‑    expertise team, with a proactive and collaborative mindset.\n\n- English fluent (must); French is a plus.\n\n-   Strong analytical and problem    ‑    solving skills, with a pragmatic and solution    ‑    oriented mindset.\n\n-   Ability to communicate clearly with both technical and non    ‑    technical stakeholders.\n\n- High level of ownership, reliability and integrity, aligned with the standards of a private banking environment.\n\n- Entrepreneurial mindset: comfortable challenging the status quo, proposing improvements and driving change.\n\nOur Values\n\n-   Accountability    : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n-   Hands-on    : Being proactive to rapidly deliver high-quality results\n\n-   Passionate    : Being committed and striving for excellence\n\n-   Solution-driven    : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n-   Partnership-oriented    : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n\n## Please ensure to attach a cover letter to your CV when filling the application.\n\n## Application\n\nShould you wish to apply for this position use this link to apply.",
+      "requirements": [],
+      "featured": false,
+      "postedDate": "2026-03-25",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6101",
+      "source": "Oracle HCM API",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "titleByLocale": {
+        "en": "Senior Cloud Engineer",
+        "it": "Senior Cloud Ingegnere",
+        "de": "Senior Cloud Ingenieur",
+        "fr": "Senior Cloud Ingénieur"
+      },
+      "descriptionByLocale": {
+        "en": "## Key Responsibilities\n\n- Cloud & Infrastructure Design and Implementation\n\n-   Design, build and deploy cloud, hybrid and on    ‑    premises solutions in line with the bank  ’  s IT strategy and architecture standards.\n\n- Participate in the design and implementation of IT infrastructure projects related to systems (servers, storage, virtualization, desktops).\n\n- Contribute to the definition and implementation of the technology direction, vision and strategy to enable and accelerate cloud technology adoption.\n\n- M365 & Azure Engineering\n\n- Act as a subject-matter expert for M365 (Exchange Online, Teams, SharePoint, OneDrive, security & compliance features, etc.) and contribute to Azure-based solutions.\n\n- Lead or support application readiness assessments, environment design and configuration for M365 and Azure workloads.\n\n- Perform prototyping of new environments, server builds and configuration to validate solutions before production rollout.\n\n- Cloud Adoption & Optimization\n\n- Drive and support cloud adoption initiatives, including:\n\n- Application and infrastructure readiness assessments\n\n- Data and workload migration to M365/Azure\n\n- Performance tuning and optimization of cloud environments\n\n- Ensure solutions are secure, resilient, scalable and compliant with banking and regulatory requirements.\n\n- Automation & Operational Excellence\n\n- Develop, enhance and maintain automation for infrastructure components (e.g. provisioning, configuration, monitoring, patching, lifecycle management).\n\n- Contribute to the standardization and industrialization of infrastructure services and processes.\n\n- Support continuous improvement of operational procedures, documentation and runbooks.\n\n- Collaboration & Support\n\n- Provide technical expertise and guidance to other IT support teams on all cloud topics (SaaS, PaaS, IaaS).\n\n- Act as an escalation point for complex incidents and problems related to M365, Azure and hybrid infrastructure.\n\n-   Collaborate closely with security, network, workplace and application teams to ensure end    ‑    to    ‑    end solution quality.\n\n## Skills & Experience Required\n\n- Senior experience in infrastructure / cloud engineering, with strong focus on M365 and good knowledge of Azure.\n\n- Solid background with Windows Server, virtualization, networking and hybrid environments.\n\n-   Hands    ‑    on experience with cloud migrations and optimization.\n\n- Used to working in complex, regulated environments; financial services / banking experience is a plus.\n\n-   Comfortable in a small, high    ‑    expertise team, with a proactive and collaborative mindset.\n\n- English fluent (must); French is a plus.\n\n-   Strong analytical and problem    ‑    solving skills, with a pragmatic and solution    ‑    oriented mindset.\n\n-   Ability to communicate clearly with both technical and non    ‑    technical stakeholders.\n\n- High level of ownership, reliability and integrity, aligned with the standards of a private banking environment.\n\n- Entrepreneurial mindset: comfortable challenging the status quo, proposing improvements and driving change.\n\nOur Values\n\n-   Accountability    : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n-   Hands-on    : Being proactive to rapidly deliver high-quality results\n\n-   Passionate    : Being committed and striving for excellence\n\n-   Solution-driven    : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n-   Partnership-oriented    : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n\n## Please ensure to attach a cover letter to your CV when filling the application.\n\n## Application\n\nShould you wish to apply for this position use this link to apply.",
+        "it": "Responsabilità Principali\n- Progettazione e Implementazione di Cloud e Infrastrutture\n- Progettare, costruire e distribuire soluzioni cloud, ibride e on-premises in linea con la strategia IT e gli standard di architettura della banca.\n- Partecipare alla progettazione e implementazione di progetti di infrastrutture IT relativi a sistemi (server, storage, virtualizzazione, desktop).\n- Contribuire alla definizione e implementazione della direzione tecnologica, visione e strategia per abilitare e accelerare l'adozione della tecnologia cloud.\n- Ingegneria M365 e Azure\n- Agire come esperto di materia per M365 (Exchange Online, Teams, SharePoint, OneDrive, sicurezza e funzionalità di conformità, ecc.) e contribuire a soluzioni basate su Azure.\n- Guidare o supportare valutazioni di prontezza delle applicazioni, progettazione e configurazione dell'ambiente per carichi di lavoro M365 e Azure.\n- Eseguire la prototipazione di nuovi ambienti, build di server e configurazione per convalidare soluzioni prima della distribuzione in produzione.\n- Adozione e Ottimizzazione Cloud\n- Guidare e supportare iniziative di adozione cloud, tra cui:\n- Valutazioni di prontezza di applicazioni e infrastrutture\n- Migrazione di dati e carichi di lavoro su M365/Azure\n- Ottimizzazione delle prestazioni e ottimizzazione degli ambienti cloud\n- Assicurare che le soluzioni siano sicure, resilienti, scalabili e conformi ai requisiti bancari e normativi.\n- Automazione e Eccellenza Operativa\n- Sviluppare, migliorare e mantenere l'automazione per componenti di infrastrutture (ad esempio provisioning, configurazione, monitoraggio, patching, gestione del ciclo di vita).\n- Contribuire alla standardizzazione e industrializzazione dei servizi e processi di infrastrutture.\n- Supportare il miglioramento continuo delle procedure operative, della documentazione e delle guide operative.\n- Collaborazione e Supporto\n- Fornire competenze tecniche e guida ad altri team di supporto IT su tutti gli argomenti cloud (SaaS, PaaS, IaaS).\n- Agire come punto di escalation per incidenti e problemi complessi relativi a M365, Azure e infrastrutture ibride.\n- Collaborare strettamente con team di sicurezza, rete, postazione di lavoro e applicazione per assicurare la qualità della soluzione end-to-end.\n\n## Competenze ed Esperienza Richieste\n- Esperienza senior in ingegneria di infrastrutture/cloud, con forte focus su M365 e buona conoscenza di Azure.\n- Solid background con Windows Server, virtualizzazione, networking e ambienti ibridi.\n- Esperienza pratica con migrazioni cloud e ottimizzazione.\n- Abituati a lavorare in ambienti complessi e regolamentati; esperienza nel settore finanziario/bancario è un vantaggio.\n- A proprio agio in un piccolo team di alta expertise, con un atteggiamento proattivo e collaborativo.\n- Fluente in inglese (necessario); francese è un vantaggio.\n- Forti capacità analitiche e di risoluzione dei problemi, con un atteggiamento pragmatico e orientato alle soluzioni.\n- Capacità di comunicare chiaramente con stakeholder sia tecnici che non tecnici.\n- Alto livello di proprietà, affidabilità e integrità, allineato con gli standard di un ambiente di private banking.\n- Mentalità imprenditoriale: a proprio agio nel sfidare lo status quo, proporre miglioramenti e guidare il cambiamento.\n\n## I Nostri Valori\n- Accountability: prendere proprietà dei compiti e delle sfide, nonché cercare il miglioramento continuo\n- Hands-on: essere proattivi per fornire risultati di alta qualità rapidamente\n- Passionate: essere impegnati e sforzarsi per l'eccellenza\n- Solution-driven: focalizzarsi sugli esiti dei clienti e trattare i clienti in modo equo con un atteggiamento consapevole del rischio\n- Partnership-oriented: promuovere la collaborazione e il lavoro di squadra. Lavorare insieme con un spirito imprenditoriale.\n\n## Si prega di allegare una lettera di presentazione al CV quando si invia la domanda.\n\n## Domanda Se si desidera inviare la domanda per questa posizione, utilizzare questo link per applicare.",
+        "de": "Hauptverantwortlichkeiten\n- Cloud- und Infrastrukturdesign und -implementierung\n- Entwerfen, bauen und deployen Sie Cloud-, Hybrid- und On-Premises-Lösungen, die mit der IT-Strategie und den Architekturstandards der Bank übereinstimmen.\n- Teilnahme an der Gestaltung und Implementierung von IT-Infrastrukturprojekten im Zusammenhang mit Systemen (Server, Speicher, Virtualisierung, Desktops).\n- Beitrag zur Definition und Implementierung der technologischen Richtung, Vision und Strategie zur Ermöglichung und Beschleunigung der Cloud-Technologieadoption.\n- M365- und Azure-Engineering\n- Als Fachexperte für M365 (Exchange Online, Teams, SharePoint, OneDrive, Sicherheits- und Compliance-Funktionen usw.) fungieren und zu Azure-basierten Lösungen beitragen.\n- Leitende oder unterstützende Anwendungsbereitschaftsbewertungen, Umgebungsdesign und -konfiguration für M365- und Azure-Workloads.\n- Prototyping neuer Umgebungen, Server-Builds und Konfigurationen zur Validierung von Lösungen vor der Produktionsbereitstellung.\n- Cloud-Adoption und -Optimierung\n- Cloud-Adoptionsinitiativen vorantreiben und unterstützen, einschließlich:\n- Anwendungs- und Infrastrukturbereitschaftsbewertungen\n- Daten- und Workload-Migration auf M365/Azure\n- Leistungsoptimierung und Optimierung von Cloud-Umgebungen\n- Sicherstellen, dass Lösungen sicher, widerstandsfähig, skalierbar und compliant mit Banken- und regulatorischen Anforderungen sind.\n- Automatisierung und operative Exzellenz\n- Automatisierung für Infrastrukturkomponenten entwickeln, verbessern und aufrechterhalten (z. B. Provisionierung, Konfiguration, Überwachung, Patching, Lebenszyklusmanagement).\n- Beitrag zur Standardisierung und Industrialisierung von Infrastrukturdiensten und -prozessen.\n- Kontinuierliche Verbesserung von Betriebsverfahren, Dokumentation und Runbooks unterstützen.\n- Zusammenarbeit und Support\n- Technische Expertise und Beratung für andere IT-Support-Teams zu allen Cloud-Themen (SaaS, PaaS, IaaS) bereitstellen.\n- Als Eskalationspunkt für komplexe Vorfälle und Probleme im Zusammenhang mit M365, Azure und Hybrid-Infrastruktur fungieren.\n- Eng mit Sicherheit-, Netzwerk-, Arbeitsplatz- und Anwendungsteams zusammenarbeiten, um die End-to-End-Lösungsqualität sicherzustellen.\n\n## Fähigkeiten und Erfahrungen erforderlich\n- Senior-Erfahrung in Infrastruktur-/Cloud-Engineering mit starkem Fokus auf M365 und guten Kenntnissen von Azure.\n- Solide Erfahrung mit Windows Server, Virtualisierung, Netzwerk und Hybridumgebungen.\n- Praktische Erfahrung mit Cloud-Migrationen und -Optimierung.\n- Erfahrung in komplexen, regulierten Umgebungen; Erfahrung im Finanzdienstleistungs-/Bankbereich ist von Vorteil.\n- Wohlbefinden in einem kleinen, hochqualifizierten Team mit proaktivem und kollaborativem Mindset.\n- Englisch fließend (Muss); Französisch ist von Vorteil.\n- Starke analytische und problemlösende Fähigkeiten mit pragmatischem und lösungsorientiertem Mindset.\n- Fähigkeit, klar mit technischen und nicht-technischen Stakeholdern zu kommunizieren.\n- Hoher Grad an Ownership, Zuverlässigkeit und Integrität, der den Standards einer Private-Banking-Umgebung entspricht.\n- Unternehmerisches Mindset: wohlbefinden, den Status quo herauszufordern, Verbesserungen vorzuschlagen und Veränderungen voranzutreiben.\n\n## Unsere Werte\n- Verantwortung: Übernahme von Verantwortung für Aufgaben und Herausforderungen sowie kontinuierliche Verbesserung\n- Hands-on: proaktiv sein, um Ergebnisse von hoher Qualität schnell zu liefern\n- Leidenschaftlich: engagiert sein und nach Exzellenz streben\n- Lösungsorientiert: sich auf Kundenergebnisse konzentrieren und Kunden fair behandeln mit einem risikobewussten Mindset\n- Partnerschaftlich: Zusammenarbeit und Teamarbeit fördern. Zusammenarbeiten mit einem unternehmerischen Geist.\n\n## Bitte fügen Sie einen Lebenslauf und ein kurzes Anschreiben bei, wenn Sie sich bewerben.\n\n## Bewerbung Wenn Sie sich für diese Position bewerben möchten, verwenden Sie bitte diesen Link.",
+        "fr": "Responsabilités Principales\n- Conception et mise en œuvre de Cloud et d'infrastructures\n- Concevoir, construire et déployer des solutions Cloud, hybrides et sur site conformément à la stratégie informatique et aux normes d'architecture de la banque.\n- Participer à la conception et à la mise en œuvre de projets d'infrastructure informatique liés aux systèmes (serveurs, stockage, virtualisation, postes de travail).\n- Contribuer à la définition et à la mise en œuvre de l'orientation technologique, de la vision et de la stratégie pour permettre et accélérer l'adoption de la technologie Cloud.\n- Ingénierie M365 et Azure\n- Agir en tant qu'expert en M365 (Exchange Online, Teams, SharePoint, OneDrive, fonctionnalités de sécurité et de conformité, etc.) et contribuer à des solutions basées sur Azure.\n- Diriger ou soutenir les évaluations de préparation des applications, la conception et la configuration de l'environnement pour les charges de travail M365 et Azure.\n- Réaliser des prototypes de nouveaux environnements, des constructions de serveurs et des configurations pour valider les solutions avant leur déploiement en production.\n- Adoption et optimisation du Cloud\n- Piloter et soutenir les initiatives d'adoption du Cloud, y compris :\n- Évaluations de préparation des applications et des infrastructures\n- Migration de données et de charges de travail vers M365/Azure\n- Optimisation des performances et optimisation des environnements Cloud\n- Assurer que les solutions sont sécurisées, résilientes, évolutives et conformes aux exigences bancaires et réglementaires.\n- Automatisation et excellence opérationnelle\n- Développer, améliorer et maintenir l'automatisation des composants d'infrastructure (par exemple, provisionnement, configuration, surveillance, correctifs, gestion du cycle de vie).\n- Contribuer à la standardisation et à l'industrialisation des services et des processus d'infrastructure.\n- Soutenir l'amélioration continue des procédures opérationnelles, de la documentation et des guides de fonctionnement.\n- Collaboration et support\n- Fournir une expertise technique et des conseils à d'autres équipes de support informatique sur tous les sujets Cloud (SaaS, PaaS, IaaS).\n- Agir en tant que point d'escalade pour les incidents et les problèmes complexes liés à M365, Azure et à l'infrastructure hybride.\n- Collaborer étroitement avec les équipes de sécurité, de réseau, de poste de travail et d'application pour assurer la qualité de la solution de bout en bout.\n\n## Compétences et expérience requises\n- Expérience senior en ingénierie d'infrastructures/Cloud avec un fort accent sur M365 et de bonnes connaissances d'Azure.\n- Solide expérience avec Windows Server, virtualisation, réseau et environnements hybrides.\n- Expérience pratique avec les migrations Cloud et l'optimisation.\n- Expérience dans des environnements complexes et réglementés; l'expérience dans le secteur financier/bancaire est un plus.\n- À l'aise dans un petit équipe de haute expertise, avec un esprit proactif et collaboratif.\n- Anglais courant (obligatoire); français est un plus.\n- Fortes capacités analytiques et de résolution de problèmes, avec un esprit pragmatique et orienté vers les solutions.\n- Capacité à communiquer clairement avec les parties prenantes techniques et non techniques.\n- Niveau élevé de propriété, de fiabilité et d'intégrité, conforme aux normes d'un environnement de banque privée.\n- Esprit entrepreneurial: à l'aise pour remettre en question le statu quo, proposer des améliorations et piloter le changement.\n\n## Nos valeurs\n- Responsabilité: prendre en charge les tâches et les défis, ainsi que rechercher l'amélioration continue\n- Pratique: être proactif pour fournir des résultats de haute qualité rapidement\n- Passionné: être engagé et s'efforcer d'excellence\n- Axé sur les solutions: se concentrer sur les résultats des clients et traiter les clients de manière équitable avec un esprit de risque\n- Orienté vers le partenariat: promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit entrepreneurial.\n\n## Veuillez joindre une lettre de motivation à votre CV lors de la candidature.\n\n## Candidature Si vous souhaitez postuler à ce poste, utilisez ce lien pour postuler."
+      },
+      "requirementsByLocale": {},
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "Cloud & Infrastructure Design and Implementation"
+            ],
+            "responsibilities": [
+              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Cloud & Infrastructure Design and Implementation</p><ul><li><p style=\"color:#333C40;font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\"><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">Design, build and deploy cloud, hybrid and on</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"en-US\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">premises solutions in line with the bank</span><span lang=\"en-US\">’</span><span lang=\"en-GB\">s IT strategy and architecture standards.</span></span></p>",
+              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Participate in the design and implementation of IT infrastructure projects related to systems (servers, storage, virtualization, desktops).</p>",
+              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Contribute to the definition and implementation of the technology direction, vision and strategy to enable and accelerate cloud technology adoption.</p>",
+              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">M365 & Azure Engineering</p><ul><li><p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Act as a subject-matter expert for M365 (Exchange Online, Teams, SharePoint, OneDrive, security & compliance features, etc.) and contribute to Azure-based solutions.</p>",
+              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Lead or support application readiness assessments, environment design and configuration for M365 and Azure workloads.</p>",
+              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Perform prototyping of new environments, server builds and configuration to validate solutions before production rollout.</p>",
+              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Cloud Adoption & Optimization</p><ul><li><p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Drive and support cloud adoption initiatives, including: </p>",
+              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Application and infrastructure readiness assessments</p>",
+              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Data and workload migration to M365/Azure</p>",
+              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Performance tuning and optimization of cloud environments</p>",
+              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Ensure solutions are secure, resilient, scalable and compliant with banking and regulatory requirements.</p>",
+              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Automation & Operational Excellence</p><ul><li><p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Develop, enhance and maintain automation for infrastructure components (e.g. provisioning, configuration, monitoring, patching, lifecycle management).</p>",
+              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Contribute to the standardization and industrialization of infrastructure services and processes.</p>",
+              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Support continuous improvement of operational procedures, documentation and runbooks.</p>",
+              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Collaboration & Support</p><ul><li><p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Provide technical expertise and guidance to other IT support teams on all cloud topics (SaaS, PaaS, IaaS).</p>",
+              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Act as an escalation point for complex incidents and problems related to M365, Azure and hybrid infrastructure.</p>"
+            ],
+            "requirements": [],
+            "benefits": [],
+            "process": [
+              "Should you wish to apply for this position use this link to apply."
+            ],
+            "highlights": [
+              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Cloud & Infrastructure Design and Implementation</p><ul><li><p style=\"color:#333C40;font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\"><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">Design, build and deploy cloud, hybrid and on</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"en-US\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">premises solutions in line with the bank</span><span lang=\"en-US\">’</span><span lang=\"en-GB\">s IT strategy and architecture standards.</span></span></p>",
+              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Participate in the design and implementation of IT infrastructure projects related to systems (servers, storage, virtualization, desktops).</p>",
+              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Contribute to the definition and implementation of the technology direction, vision and strategy to enable and accelerate cloud technology adoption.</p>"
+            ],
+            "keywords": [
+              "<p style=\"color"
+            ],
+            "sections": [
+              {
+                "id": "details",
+                "heading": "Skills & Experience Required",
+                "paragraphs": [
+                  "Senior experience in infrastructure / cloud engineering, with strong focus on M365 and good knowledge of Azure.",
+                  "Solid background with Windows Server, virtualization, networking and hybrid environments.",
+                  "<span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">Hands</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"en-US\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">on experience with cloud migrations and optimization.</span></span>",
+                  "Used to working in complex, regulated environments; financial services / banking experience is a plus.",
+                  "<span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">Comfortable in a small, high</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"fr-CH\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">expertise team, with a proactive and collaborative mindset.</span></span>",
+                  "English fluent (must); French is a plus.",
+                  "<span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">Strong analytical and problem</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"en-US\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">solving skills, with a pragmatic and solution</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"en-US\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">oriented mindset.</span></span>",
+                  "<span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">Ability to communicate clearly with both technical and non</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"en-US\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">technical stakeholders.</span></span>",
+                  "High level of ownership, reliability and integrity, aligned with the standards of a private banking environment.",
+                  "Entrepreneurial mindset: comfortable challenging the status quo, proposing improvements and driving change.",
+                  "Our Values"
+                ],
+                "bullets": [
+                  "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Senior experience in infrastructure / cloud engineering, with strong focus on M365 and good knowledge of Azure.</p>",
+                  "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Solid background with Windows Server, virtualization, networking and hybrid environments.</p>",
+                  "<p style=\"color:#333C40;font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\"><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">Hands</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"en-US\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">on experience with cloud migrations and optimization.</span></span></p>",
+                  "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Used to working in complex, regulated environments; financial services / banking experience is a plus.</p>",
+                  "<p style=\"color:#333C40;font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\"><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">Comfortable in a small, high</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"fr-CH\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">expertise team, with a proactive and collaborative mindset.</span></span></p>",
+                  "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">English fluent (must); French is a plus.</p>",
+                  "<p style=\"color:#333C40;font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\"><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">Strong analytical and problem</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"en-US\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">solving skills, with a pragmatic and solution</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"en-US\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">oriented mindset.</span></span></p>",
+                  "<p style=\"color:#333C40;font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\"><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">Ability to communicate clearly with both technical and non</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"en-US\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">technical stakeholders.</span></span></p>",
+                  "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">High level of ownership, reliability and integrity, aligned with the standards of a private banking environment.</p>",
+                  "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Entrepreneurial mindset: comfortable challenging the status quo, proposing improvements and driving change.</p>",
+                  "<span style=\"color:#333C40;font-family:\"Fira Sans\";\"><span style=\"font-size:9.0pt;\">Accountability</span></span><span style=\"color:#333C40;font-family:\"Fira Sans Light\";\"><span style=\"font-size:9.0pt;\">: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></span>",
+                  "<span style=\"color:#333C40;font-family:\"Fira Sans\";\"><span style=\"font-size:9.0pt;\">Hands-on</span></span><span style=\"color:#333C40;font-family:\"Fira Sans Light\";\"><span style=\"font-size:9.0pt;\">: Being proactive to rapidly deliver high-quality results</span></span>",
+                  "<span style=\"color:#333C40;font-family:\"Fira Sans\";\"><span style=\"font-size:9.0pt;\">Passionate</span></span><span style=\"color:#333C40;font-family:\"Fira Sans Light\";\"><span style=\"font-size:9.0pt;\">: Being committed and striving for excellence</span></span>",
+                  "<span style=\"color:#333C40;font-family:\"Fira Sans\";\"><span style=\"font-size:9.0pt;\">Solution-driven</span></span><span style=\"color:#333C40;font-family:\"Fira Sans Light\";\"><span style=\"font-size:9.0pt;\">: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></span>",
+                  "<span style=\"color:#333C40;font-family:\"Fira Sans\";\"><span style=\"font-size:9.0pt;\">Partnership-oriented</span></span><span style=\"color:#333C40;font-family:\"Fira Sans Light\";\"><span style=\"font-size:9.0pt;\">: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></span>"
+                ]
+              }
+            ],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-04-09T21:26:17.286Z",
+      "slugByLocale": {
+        "it": "senior-cloud-ingegnere-efg-international-ag-geneve",
+        "en": "senior-cloud-engineer-efg-international-ag-geneve",
+        "de": "senior-cloud-ingenieur-efg-international-ag-geneve",
+        "fr": "senior-cloud-ingenieur-efg-international-ag-geneve"
+      },
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "datePosted": "2026-03-25",
+      "sourceLang": "en",
+      "salaryMin": 94000,
+      "salaryMax": 127000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 94000,
+          "maxValue": 127000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "senior-cloud-engineer-efg-geneve"
+      ]
     },
     {
       "id": "efg-6095",
@@ -1004,7 +1006,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-09T09:33:55.030Z",
+      "crawledAt": "2026-04-09T21:26:17.285Z",
       "slugByLocale": {
         "it": "senior-fx-specialista-consulente-efg-international-ag-zurich",
         "en": "senior-fx-specialist-advisor-efg-international-ag-zurich",
@@ -1034,7 +1036,8 @@
       "previousSlugs": [
         "senior-fx-specialist-advisor-efg-zurich",
         "senior-specialista-fx-consulente-efg-international-ag-zurich"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6068",
@@ -1143,7 +1146,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-09T09:33:55.029Z",
+      "crawledAt": "2026-04-09T21:26:17.284Z",
       "slugByLocale": {
         "it": "esperto-in-assicurazioni-di-gruppo-efg-international-ag-zurich",
         "en": "group-insurance-expert-efg-international-ag-zurich",
@@ -1172,7 +1175,8 @@
       "employmentType": "FULL_TIME",
       "previousSlugs": [
         "group-insurance-expert-efg-zurich"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6066",
@@ -1312,7 +1316,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-09T09:33:55.028Z",
+      "crawledAt": "2026-04-09T21:26:17.283Z",
       "slugByLocale": {
         "it": "ufficiale-servizi-clienti-geneva-talent-pool-efg-international-ag-geneve",
         "en": "client-services-officer-geneva-talent-pool-efg-geneve",
@@ -1338,7 +1342,9 @@
       "streetAddress": "Via Pretorio 22",
       "postalCode": "6900",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "previousSlugs": []
     },
     {
       "id": "efg-6061",
@@ -1467,7 +1473,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-09T09:33:55.027Z",
+      "crawledAt": "2026-04-09T21:26:17.282Z",
       "slugByLocale": {
         "it": "ingegnere-ai-efg-international-ag-geneve",
         "en": "ai-engineer-efg-international-ag-geneve",
@@ -1661,7 +1667,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-09T09:33:55.026Z",
+      "crawledAt": "2026-04-09T21:26:17.281Z",
       "slugByLocale": {
         "it": "specialista-in-soluzioni-it-di-trading-e-tesoreria-efg-international-ag-lugano",
         "en": "it-trading-treasury-solutions-specialist-efg-international-ag-lugano-n93k12",
@@ -1697,7 +1703,8 @@
       "postalCode": "6900",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "datePosted": "2026-02-11"
+      "datePosted": "2026-02-11",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5967",
@@ -1844,7 +1851,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-09T09:33:55.025Z",
+      "crawledAt": "2026-04-09T21:26:17.280Z",
       "slugByLocale": {
         "it": "responsabile-della-fondazione-efg-international-ag-lugano",
         "en": "foundation-manager-efg-international-ag-lugano",
@@ -1876,7 +1883,8 @@
       "postalCode": "6900",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "datePosted": "2025-11-26"
+      "datePosted": "2025-11-26",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5877",
@@ -1926,7 +1934,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-09T09:33:55.024Z",
+      "crawledAt": "2026-04-09T21:26:17.279Z",
       "slugByLocale": {
         "it": "specialista-in-riconciliazione-contabile-back-office-efg-international-ag-geneve",
         "en": "back-office-cash-reconciliation-specialist-efg-geneve",
@@ -1952,7 +1960,8 @@
       "streetAddress": "Via Pretorio 22",
       "postalCode": "6900",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": []
     },
     {
       "id": "efg-5819",
@@ -2062,7 +2071,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-09T09:33:55.024Z",
+      "crawledAt": "2026-04-09T21:26:17.278Z",
       "slugByLocale": {
         "it": "proprietario-tecnico-dell-applicazione-risk-compliance-efg-international-ag-geneve",
         "en": "risk-compliance-technical-application-owner-efg-geneve",
@@ -2088,7 +2097,8 @@
       "streetAddress": "Via Pretorio 22",
       "postalCode": "6900",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": []
     },
     {
       "id": "efg-4543",
@@ -2254,7 +2264,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-09T09:33:55.023Z",
+      "crawledAt": "2026-04-09T21:26:17.277Z",
       "slugByLocale": {
         "it": "controllore-finanziario-di-gruppo-efg-international-ag-geneve",
         "en": "group-financial-controller-efg-geneve",
@@ -2280,7 +2290,9 @@
       "streetAddress": "Via Pretorio 22",
       "postalCode": "6900",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "previousSlugs": []
     },
     {
       "id": "efg-6209",
@@ -2413,7 +2425,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-09T09:33:55.022Z",
+      "crawledAt": "2026-04-09T21:26:17.276Z",
       "slugByLocale": {
         "it": "operational-risk-and-advisory-it-and-information-security-specialista-efg-international-ag-zurich",
         "en": "operational-risk-and-advisory-it-and-information-security-specialist-efg-zurich",
@@ -2439,7 +2451,9 @@
       "streetAddress": "Via Pretorio 22",
       "postalCode": "6900",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "previousSlugs": []
     },
     {
       "id": "efg-6177",
@@ -2489,7 +2503,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-09T09:33:55.021Z",
+      "crawledAt": "2026-04-09T21:26:17.275Z",
       "slugByLocale": {
         "it": "addetto-all-assistenza-clienti-efg-international-ag-st-moritz",
         "en": "client-support-officer-efg-international-ag-st-moritz",
@@ -2518,7 +2532,8 @@
       "employmentType": "FULL_TIME",
       "previousSlugs": [
         "client-support-officer-efg-st-moritz"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6203",
@@ -2568,7 +2583,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-09T09:33:55.021Z",
+      "crawledAt": "2026-04-09T21:26:17.275Z",
       "slugByLocale": {
         "it": "programma-di-laurea-efg-2026-funzioni-corporate-risorse-umane-lugano-efg-international-ag-lugano",
         "en": "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-international-ag-lugano-n932dq",
@@ -2600,7 +2615,8 @@
       "postalCode": "6900",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "datePosted": "2026-03-27"
+      "datePosted": "2026-03-27",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6175",
@@ -2725,7 +2741,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-09T09:33:55.019Z",
+      "crawledAt": "2026-04-09T21:26:17.273Z",
       "slugByLocale": {
         "it": "specialista-di-supporto-pb-medio-oriente-ch-efg-international-ag-geneve",
         "en": "pb-support-specialist-middle-east-ch-efg-geneve",
@@ -2755,7 +2771,8 @@
       "previousSlugs": [
         "pb-support-specialista-middle-east-ch-efg-international-ag-geneve",
         "pb-support-spezialist-middle-east-ch-efg-international-ag-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6194",
@@ -2805,7 +2822,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-09T09:33:55.018Z",
+      "crawledAt": "2026-04-09T21:26:17.271Z",
       "slugByLocale": {
         "it": "stage-business-management-global-markets-treasury-efg-international-ag-zurich",
         "en": "internship-business-management-global-markets-treasury-efg-zurich",
@@ -2831,7 +2848,9 @@
       "streetAddress": "Via Pretorio 22",
       "postalCode": "6900",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "previousSlugs": []
     },
     {
       "id": "efg-6150",
@@ -2924,7 +2943,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-09T09:33:55.017Z",
+      "crawledAt": "2026-04-09T21:26:17.270Z",
       "slugByLocale": {
         "it": "specialista-soluzioni-bi-efg-international-ag-geneve",
         "en": "bi-solution-specialist-efg-international-ag-geneve",
@@ -2956,7 +2975,8 @@
         "bi-solution-spezialist-efg-international-ag-geneve",
         "bi-solution-specialiste-efg-international-ag-geneve",
         "bi-solution-specialist-efg-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6056",
@@ -3031,7 +3051,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-09T09:33:55.017Z",
+      "crawledAt": "2026-04-09T21:26:17.270Z",
       "slugByLocale": {
         "it": "analista-del-rischio-efg-international-ag-lugano",
         "en": "operational-risk-analyst-efg-international-ag-lugano",
@@ -3066,8 +3086,205 @@
       ]
     },
     {
+      "id": "efg-6230",
+      "slug": "programma-di-formazione-efg-2026-digitale-e-it-sicurezza-informatica-e-architettura-cloud-efg-international-ag-geneve",
+      "company": "EFG International AG",
+      "title": "EFG Graduate Programme 2026 - Digital and IT - Cyber Security and Cloud Architecture",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "description": "We are looking for young talent to join our EFG Graduate Programme – Digital and IT path in Geneva , with a focus on Cyber Security and Cloud Architecture\n\nHow the EFG Graduate Programme works?\n\nStarting in September 2026 and over a period of 18 months, the EFG Graduate Programme offers a challenging and exciting opportunity for recent graduates. Tailored on individual skills, interests, and competencies, the programme provides an ideal opportunity to obtain wide-ranging experience in an international and fast-growing private banking group:\n\n- You will start with a 2-week onboarding in Switzerland to discover EFG Mission, Vision and Culture and start building your professional network.\n\n- During the onboarding you will have the chance to attend specific trainings aimed at enhancing key competencies and communication skills.\n\n- Continuous learning opportunities to ensure you develop both personally and professionally to achieve full potential.\n\n- Buddy and Mentor to accompany you throughout the programme.\n\n- Truly global, we have positions based in Miami, London, Luxembourg, Geneva, Zurich, Lugano, Singapore and Hong Kong.\n\nIn this path, you will complete a 6-month rotation in your preferred digital or IT function, allowing you to specialise and develop expertise in your chosen area. You will also undertake two additional 6-month rotations across different teams, broadening your understanding of how digital solutions and IT infrastructure drive the private banking industry.\n\nThis path provides a strong foundation for a career in digital, innovative, and forward-looking roles, equipping you with the skills and insights needed to excel in EFG’s dynamic business environment.\n\nCould you be one of our future graduates?\n\nWe value diversity and we do not require specific academic majors or industry experience, but look for different mix of background, experiences and skills.\n\n## Our graduates are brilliant and enthusiastic talents, so we expect\n\n- Bachelor or Master degree (completed in 2025 or on track to complete it) with outstanding academic results in a field with affinity with the selected professional path.\n\n- Excellent English (any other language will be an advantage)\n\n- International mindset\n\n- Strong analytical, problem solving and organisational skills\n\n- Forward thinking and able to suggest new ways of working to improve efficiency and competitiveness\n\n- Self-disciplined, committed and with strong work ethics\n\n- Adaptable and able to work collaboratively in a team environment with people from different backgrounds\n\n- Client-oriented\n\n- Proactive self-starter with intellectual curiosity\n\nWhat will you get?\n\n- Dynamic work experience by rotating through different teams and business units\n\n- Experience an enriching international network\n\n- Opportunity to build expertise in your chosen field and contribute to the EFG Culture\n\n- Continuous development and learning opportunities on both technical and soft skills",
+      "requirements": [],
+      "featured": false,
+      "postedDate": "2026-04-09",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6230",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "titleByLocale": {
+        "en": "EFG Graduate Programme 2026 - Digital and IT - Cyber Security and Cloud Architecture",
+        "it": "Programma di Formazione EFG 2026 - Digitale e IT - Sicurezza Informatica e Architettura Cloud",
+        "de": "EFG Graduate Programm 2026 - Digital und IT - Cyber Security und Cloud Architektur",
+        "fr": "Programme de Formation EFG 2026 - Digital et IT - Sécurité Informatique et Architecture Cloud"
+      },
+      "descriptionByLocale": {
+        "en": "We are looking for young talent to join our EFG Graduate Programme – Digital and IT path in Geneva , with a focus on Cyber Security and Cloud Architecture\n\nHow the EFG Graduate Programme works?\n\nStarting in September 2026 and over a period of 18 months, the EFG Graduate Programme offers a challenging and exciting opportunity for recent graduates. Tailored on individual skills, interests, and competencies, the programme provides an ideal opportunity to obtain wide-ranging experience in an international and fast-growing private banking group:\n\n- You will start with a 2-week onboarding in Switzerland to discover EFG Mission, Vision and Culture and start building your professional network.\n\n- During the onboarding you will have the chance to attend specific trainings aimed at enhancing key competencies and communication skills.\n\n- Continuous learning opportunities to ensure you develop both personally and professionally to achieve full potential.\n\n- Buddy and Mentor to accompany you throughout the programme.\n\n- Truly global, we have positions based in Miami, London, Luxembourg, Geneva, Zurich, Lugano, Singapore and Hong Kong.\n\nIn this path, you will complete a 6-month rotation in your preferred digital or IT function, allowing you to specialise and develop expertise in your chosen area. You will also undertake two additional 6-month rotations across different teams, broadening your understanding of how digital solutions and IT infrastructure drive the private banking industry.\n\nThis path provides a strong foundation for a career in digital, innovative, and forward-looking roles, equipping you with the skills and insights needed to excel in EFG’s dynamic business environment.\n\nCould you be one of our future graduates?\n\nWe value diversity and we do not require specific academic majors or industry experience, but look for different mix of background, experiences and skills.\n\n## Our graduates are brilliant and enthusiastic talents, so we expect\n\n- Bachelor or Master degree (completed in 2025 or on track to complete it) with outstanding academic results in a field with affinity with the selected professional path.\n\n- Excellent English (any other language will be an advantage)\n\n- International mindset\n\n- Strong analytical, problem solving and organisational skills\n\n- Forward thinking and able to suggest new ways of working to improve efficiency and competitiveness\n\n- Self-disciplined, committed and with strong work ethics\n\n- Adaptable and able to work collaboratively in a team environment with people from different backgrounds\n\n- Client-oriented\n\n- Proactive self-starter with intellectual curiosity\n\nWhat will you get?\n\n- Dynamic work experience by rotating through different teams and business units\n\n- Experience an enriching international network\n\n- Opportunity to build expertise in your chosen field and contribute to the EFG Culture\n\n- Continuous development and learning opportunities on both technical and soft skills",
+        "it": "Stiamo cercando giovani talenti per unirsi al nostro Programma di Formazione EFG – Percorso Digitale e IT a Ginevra, con un focus su Sicurezza Informatica e Architettura Cloud. Come funziona il Programma di Formazione EFG? Iniziando a settembre 2026 e per un periodo di 18 mesi, il Programma di Formazione EFG offre un'opportunità stimolante e eccitante per i recenti laureati. Su misura per le competenze individuali, gli interessi e le capacità, il programma offre un'opportunità ideale per ottenere esperienze ampie in un gruppo bancario privato internazionale e in rapida crescita:\n- Inizierai con un onboarding di 2 settimane in Svizzera per scoprire la Missione, la Visione e la Cultura di EFG e iniziare a costruire la tua rete professionale.\n- Durante l'onboarding avrai la possibilità di partecipare a specifici corsi di formazione mirati a migliorare le competenze chiave e le abilità di comunicazione.\n- Opportunità di apprendimento continuo per garantire che tu sviluppi sia personalmente che professionalmente per raggiungere il tuo pieno potenziale.\n- Buddy e Mentor per accompagnarti durante tutto il programma.\n- Veramente globale, abbiamo posizioni a Miami, Londra, Lussemburgo, Ginevra, Zurigo, Lugano, Singapore e Hong Kong. In questo percorso, completerai una rotazione di 6 mesi nella tua funzione digitale o IT preferita, permettendoti di specializzarti e sviluppare competenze nella tua area scelta. Inoltre, svolgerai due rotazioni aggiuntive di 6 mesi in diverse squadre, ampliando la tua comprensione di come le soluzioni digitali e l'infrastruttura IT guidano l'industria bancaria privata. Questo percorso fornisce una base solida per una carriera in ruoli digitali, innovativi e orientati al futuro, equipaggiandoti con le competenze e le conoscenze necessarie per eccellere nell'ambiente di business dinamico di EFG. Potresti essere uno dei nostri futuri laureandi? Valutiamo la diversità e non richiediamo specifici corsi di laurea o esperienza nel settore, ma cerchiamo una miscela diversa di background, esperienze e competenze.\n\n## I nostri laureandi sono talenti brillanti e entusiasti, quindi ci aspettiamo:\n- Laurea triennale o magistrale (completata nel 2025 o in corso di completamento) con risultati accademici eccellenti in un campo affine al percorso professionale selezionato.\n- Inglese eccellente (qualunque altra lingua sarà un vantaggio)\n- Mentalità internazionale\n- Forti competenze analitiche, di risoluzione dei problemi e organizzative\n- Pensiero innovativo e capacità di suggerire nuovi modi di lavorare per migliorare l'efficienza e la competitività\n- Disciplinati, impegnati e con forti valori lavorativi\n- Adattabili e capaci di lavorare in modo collaborativo in un ambiente di squadra con persone di diversi background\n- Orientati al cliente\n- Proattivi e con curiosità intellettuale Cosa otterrai?\n- Esperienza di lavoro dinamica attraverso rotazioni in diverse squadre e unità aziendali\n- Esperire una rete internazionale arricchente\n- Opportunità di costruire competenze nel tuo campo scelto e contribuire alla Cultura EFG\n- Opportunità di sviluppo e apprendimento continuo su entrambe le competenze tecniche e quelle soft",
+        "de": "Wir suchen junges Talent, um unser EFG Graduate Programm – Digital und IT Pfad in Genf mit Fokus auf Cyber Security und Cloud Architektur zu verstärken. Wie funktioniert das EFG Graduate Programm? Ab September 2026 und über einen Zeitraum von 18 Monaten bietet das EFG Graduate Programm eine herausfordernde und aufregende Gelegenheit für Absolventen. Das Programm ist auf individuelle Fähigkeiten, Interessen und Kompetenzen zugeschnitten und bietet die ideale Möglichkeit, umfassende Erfahrungen in einer internationalen und schnell wachsenden privaten Bankengruppe zu sammeln:\n- Sie beginnen mit einer 2-wöchigen Einarbeitung in der Schweiz, um die Mission, Vision und Kultur von EFG zu entdecken und Ihr berufliches Netzwerk aufzubauen.\n- Während der Einarbeitung haben Sie die Möglichkeit, an spezifischen Schulungen teilzunehmen, die darauf abzielen, Schlüsselkompetenzen und Kommunikationsfähigkeiten zu verbessern.\n- Kontinuierliche Lernmöglichkeiten, um sicherzustellen, dass Sie sowohl persönlich als auch beruflich entwickelt werden, um Ihr volles Potenzial zu erreichen.\n- Buddy und Mentor begleiten Sie während des gesamten Programms.\n- Wir sind wirklich global, haben wir Positionen in Miami, London, Luxemburg, Genf, Zürich, Lugano, Singapur und Hongkong. In diesem Pfad werden Sie eine 6-monatige Rotation in Ihrer bevorzugten digitalen oder IT-Funktion absolvieren, wodurch Sie sich spezialisieren und Expertise in Ihrem gewählten Bereich entwickeln können. Sie werden auch zwei zusätzliche 6-monatige Rotationen in verschiedenen Teams durchführen, wodurch Ihr Verständnis dafür, wie digitale Lösungen und IT-Infrastruktur die private Bankenbranche antreiben, erweitert wird. Dieser Pfad bietet eine solide Grundlage für eine Karriere in digitalen, innovativen und vorwärtsgerichteten Rollen und rüstet Sie mit den Fähigkeiten und Einblicken aus, die Sie benötigen, um in der dynamischen Geschäfts Umgebung von EFG zu überzeugen. Könnten Sie einer unserer zukünftigen Absolventen sein? Wir schätzen Vielfalt und fordern keine spezifischen Studiengänge oder Branchenkenntnisse, suchen aber eine Mischung aus verschiedenen Hintergründen, Erfahrungen und Fähigkeiten.\n\n## Unsere Absolventen sind brillantes und enthusiastisches Talent, also erwarten wir:\n- Bachelor- oder Masterabschluss (abgeschlossen 2025 oder in Bearbeitung) mit herausragenden akademischen Leistungen in einem Fachbereich mit Affinität zum ausgewählten Berufsweg.\n- Exzellente Englischkenntnisse (jede andere Sprache wird als Vorteil betrachtet)\n- Internationaler Geist\n- Starke analytische, Problemlösungs- und organisatorische Fähigkeiten\n- Vorwärtsdenkend und in der Lage, neue Arbeitsweisen zu vorschlagen, um Effizienz und Wettbewerbsfähigkeit zu verbessern\n- Selbstdiszipliniert, engagiert und mit starkem Arbeitsethos\n- Anpassungsfähig und in der Lage, in einem Teamumfeld mit Menschen aus verschiedenen Hintergründen zusammenzuarbeiten\n- Kundenorientiert\n- Proaktiv und mit intellektueller Neugier Was erhalten Sie?\n- Dynamische Arbeitserfahrung durch Rotationen in verschiedenen Teams und Geschäftsbereichen\n- Erfahrung mit einem bereichernden internationalen Netzwerk\n- Möglichkeit, Expertise in Ihrem gewählten Bereich zu entwickeln und zur EFG-Kultur beizutragen\n- Kontinuierliche Entwicklungs- und Lernmöglichkeiten sowohl auf technischer als auch auf soft skills Ebene",
+        "fr": "Nous recherchons des jeunes talents pour rejoindre notre Programme de Formation EFG – Parcours Digital et IT à Genève, avec un focus sur la Sécurité Informatique et l'Architecture Cloud. Comment fonctionne le Programme de Formation EFG? À partir de septembre 2026 et sur une période de 18 mois, le Programme de Formation EFG offre une opportunité stimulante et excitante pour les nouveaux diplômés. Sur mesure pour les compétences, les intérêts et les aptitudes individuelles, le programme offre une opportunité idéale pour acquérir une expérience variée dans un groupe bancaire privé international et en rapide croissance:\n- Vous commencerez par un onboarding de 2 semaines en Suisse pour découvrir la Mission, la Vision et la Culture d'EFG et commencer à construire votre réseau professionnel.\n- Pendant l'onboarding, vous aurez la chance de participer à des formations spécifiques visant à améliorer les compétences clés et les compétences en communication.\n- Opportunités d'apprentissage continu pour garantir que vous développez à la fois personnellement et professionnellement pour atteindre votre plein potentiel.\n- Buddy et Mentor pour vous accompagner tout au long du programme.\n- Vraiment global, nous avons des postes à Miami, Londres, Luxembourg, Genève, Zurich, Lugano, Singapour et Hong Kong. Dans ce parcours, vous effectuez une rotation de 6 mois dans votre fonction digitale ou IT préférée, vous permettant de vous spécialiser et de développer des compétences dans votre domaine choisi. Vous effectuerez également deux rotations supplémentaires de 6 mois dans différentes équipes, élargissant ainsi votre compréhension de la manière dont les solutions digitales et l'infrastructure IT impulsent l'industrie bancaire privée. Ce parcours offre une base solide pour une carrière dans des rôles digitaux, innovants et orientés vers l'avenir, vous équipant des compétences et des insights nécessaires pour exceller dans l'environnement d'affaires dynamique d'EFG. Pourriez-vous être l'un de nos futurs diplômés? Nous valorisons la diversité et ne requérons pas de cursus académiques ou d'expérience sectorielle spécifiques, mais recherchons un mélange différent de parcours, d'expériences et de compétences.\n\n## Nos diplômés sont des talents brillants et enthousiastes, donc nous attendons:\n- Diplôme de Bachelor ou Master (terminé en 2025 ou en cours de finalisation) avec des résultats académiques exceptionnels dans un domaine affine avec le parcours professionnel sélectionné.\n- Excellent anglais (toute autre langue sera un avantage)\n- Mentalité internationale\n- Forte capacité analytique, de résolution de problèmes et d'organisation\n- Pensée avant-gardiste et capable de suggérer de nouvelles façons de travailler pour améliorer l'efficacité et la compétitivité\n- Autodiscipliné, engagé et avec un fort éthique de travail\n- Adaptable et capable de travailler de manière collaborative dans un environnement d'équipe avec des personnes issues de différents horizons\n- Orienté client\n- Proactif et avec une curiosité intellectuelle Que allez-vous obtenir?\n- Une expérience de travail dynamique en tournant dans différentes équipes et unités d'affaires\n- Expérience d'un réseau international enrichissant\n- Opportunité de développer des compétences dans votre domaine choisi et de contribuer à la Culture EFG\n- Opportunités de développement et d'apprentissage continu à la fois sur les compétences techniques et les compétences soft"
+      },
+      "requirementsByLocale": {},
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span lang=\"FR-CH\">We are looking for young talent to join our <strong>EFG Graduate Programme – Digital and IT path in Geneva</strong>, with a focus on <strong>Cyber Security and Cloud Architecture<u> </u></strong></span></p><p><span><strong><u>How the EFG Graduate Programme works?</u></strong></span></p><p><span>Starting in September 2026 and over a period of 18 months, the EFG Graduate Programme offers a challenging and exciting opportunity for recent graduates. Tailored on individual skills, interests, and competencies, the programme provides an ideal opportunity to obtain wide-ranging experience in an international and fast-growing private banking group:</span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>You will start with a 2-week onboarding in Switzerland to discover EFG Mission, Vision and Culture and start building your professional network. </span></li><li style=\"tab-stops:list 36.0pt;\"><span>During the onboarding you will have the chance to attend specific trainings aimed at enhancing key competencies and communication skills. </span></li><li style=\"tab-stops:list 36.0pt;\"><span>Continuous learning opportunities to ensure you develop both personally and professionally to achieve full potential.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Buddy and Mentor to accompany you throughout the programme.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Truly global, we have positions based in Miami, London, Luxembourg, Geneva, Zurich, Lugano, Singapore and Hong Kong.</span></li></ul><p><span>In this path, you will complete a 6-month rotation in your preferred digital or IT function, allowing you to specialise and develop expertise in your chosen area. You will also undertake two additional 6-month rotations across different teams, broadening your understanding of how digital solutions and IT infrastructure drive the private banking industry.</span></p><p><span>This path provides a strong foundation for a career in digital, innovative, and forward-looking roles, equipping you with the skills and insights needed to excel in EFG’s dynamic business environment.</span></p><p><span><strong><u>Could you be one of our future graduates?</u></strong></span></p><p><span>We value diversity and we do not require specific academic majors or industry experience, but look for different mix of background, experiences and skills.</span></p><p><span>Our graduates are brilliant and enthusiastic talents, so we expect:</span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>Bachelor or Master degree (completed in 2025 or on track to complete it) with outstanding academic results in a field with affinity with the selected professional path.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Excellent English (any other language will be an advantage)</span></li><li style=\"tab-stops:list 36.0pt;\"><span>International mindset</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Strong analytical, problem solving and organisational skills </span></li><li style=\"tab-stops:list 36.0pt;\"><span>Forward thinking and able to suggest new ways of working to improve efficiency and competitiveness </span></li><li style=\"tab-stops:list 36.0pt;\"><span>Self-disciplined, committed and with strong work ethics</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Adaptable and able to work collaboratively in a team environment with people from different backgrounds</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Client-oriented</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Proactive self-starter with intellectual curiosity</span></li></ul><p><span><strong><u>What will you get?</u></strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>Dynamic work experience by rotating through different teams and business units</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Experience an enriching international network</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Opportunity to build expertise in your chosen field and contribute to the EFG Culture </span></li><li style=\"tab-stops:list 36.0pt;\"><span>Continuous development and learning opportunities on both technical and soft skills </span></li></ul><p> </p>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 2
+          }
+        }
+      },
+      "crawledAt": "2026-04-09T21:26:17.269Z",
+      "slugByLocale": {
+        "it": "programma-di-formazione-efg-2026-digitale-e-it-sicurezza-informatica-e-architettura-cloud-efg-international-ag-geneve",
+        "en": "efg-graduate-programme-2026-digital-and-it-cyber-security-and-cloud-architecture-efg-international-ag-geneve",
+        "de": "efg-graduate-programm-2026-digital-und-it-cyber-security-und-cloud-architektur-efg-international-ag-geneve",
+        "fr": "programme-de-formation-efg-2026-digital-et-it-securite-informatique-et-architecture-cloud-efg-international-ag-geneve"
+      },
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "datePosted": "2026-04-09",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85500,
+          "maxValue": 150000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "efg-graduate-programme-2026-digital-and-it-cyber-security-and-cloud-architecture-efg-genev"
+      ]
+    },
+    {
+      "id": "efg-6197",
+      "slug": "technology-cyber-information-security-risk-analyst-temporary-efg-zurich",
+      "company": "EFG International AG",
+      "title": "Technology & Cyber Information Security Risk Analyst (Temporary)",
+      "location": "Zurich",
+      "canton": "ZH",
+      "category": "finance",
+      "contract": "temporary",
+      "currency": "CHF",
+      "description": "## Job Description\n\nThe Technology & Cyber Information Security Risk Analyst will be part of the Operational Risk team. We are looking for a passionate IT risk, cyber and information security to cover a global role located in Switzerland.\n\nLocation: Geneva, Zurich, Lugano.\n\n## Main responsibilities\n\n- Oversee the effective and consistent implementation and maintenance of the risk and control management framework globally.\n\n- Contribute to thematic risk and control assessments on IT security issues, cyber risk, and threat analysis through collaboration with other internal stakeholders.\n\n- Perform process-level walkthroughs and control testing to enable the identification and assessment of risks and controls.\n\n- Provide expertise, make recommendations for improvements to steer adherence to internal regulations, regulatory requirements and industry best practices, and monitor their implementation.\n\n- Manages relationships with key stakeholders within the First Line of Defence.\n\n- Stays abreast and advises the Bank on innovative business and technology trends in risks and controls.\n\nSkills and experience\n\n- Master’s degree in Computer Science, Cyber Security, Information Technology, or equivalent.\n\n- Professional certification, e.g. Information Systems Security Professional (CISSP), Information Security Manager, (CISM), Information Systems Auditor (CISA), Risk and\n\n- Information Systems Control (CRISC) or equivalent.\n\n- At least 3-5 years of experience in banking IT platforms, operational processes and IT controls, or in consulting/audit with a leading professional services firm; a combination of both is considered an advantage.\n\n- Excellent communication skills in English, both verbal and written. Knowledge of German, French, or Italian is a plus.\n\n- In-depth understanding of key technology and information security concepts relevant to banking. In particular, strong knowledge of IT organisation, business processes and systems (e.g. IT Security, data management, architecture and planning, life cycle management and regulatory matters).\n\n- Proven ability to write reports and communicate effectively with a senior audience.\n\n- Self-motivated, diligent, highly organized, able to prioritize and multi-task, and thrive in a fast-paced environment.\n\n- Excellent analytical and problem-solving skills, able to work autonomously and as part of a global team.\n\n## Our values\n\n- Accountability : Taking ownership for tasks and challenges as well as seeking continuous improvement.\n\n- Hands-on : Being proactive to rapidly deliver high-quality results.\n\n- Passionate : Being committed and striving for excellence.\n\n- Solution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset.\n\n- Partnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
+      "requirements": [],
+      "featured": false,
+      "postedDate": "2026-04-09",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6197",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "titleByLocale": {
+        "en": "Technology & Cyber Information Security Risk Analyst (Temporary)",
+        "it": "Technology & Cyber Information Security Risk Analista (Temporary)",
+        "de": "Technology & Cyber Information Security Risk Analyst (Temporary)",
+        "fr": "Technology & Cyber Information Security Risk Analyste (Temporary)"
+      },
+      "descriptionByLocale": {
+        "en": "## Job Description\n\nThe Technology & Cyber Information Security Risk Analyst will be part of the Operational Risk team. We are looking for a passionate IT risk, cyber and information security to cover a global role located in Switzerland.\n\nLocation: Geneva, Zurich, Lugano.\n\n## Main responsibilities\n\n- Oversee the effective and consistent implementation and maintenance of the risk and control management framework globally.\n\n- Contribute to thematic risk and control assessments on IT security issues, cyber risk, and threat analysis through collaboration with other internal stakeholders.\n\n- Perform process-level walkthroughs and control testing to enable the identification and assessment of risks and controls.\n\n- Provide expertise, make recommendations for improvements to steer adherence to internal regulations, regulatory requirements and industry best practices, and monitor their implementation.\n\n- Manages relationships with key stakeholders within the First Line of Defence.\n\n- Stays abreast and advises the Bank on innovative business and technology trends in risks and controls.\n\nSkills and experience\n\n- Master’s degree in Computer Science, Cyber Security, Information Technology, or equivalent.\n\n- Professional certification, e.g. Information Systems Security Professional (CISSP), Information Security Manager, (CISM), Information Systems Auditor (CISA), Risk and\n\n- Information Systems Control (CRISC) or equivalent.\n\n- At least 3-5 years of experience in banking IT platforms, operational processes and IT controls, or in consulting/audit with a leading professional services firm; a combination of both is considered an advantage.\n\n- Excellent communication skills in English, both verbal and written. Knowledge of German, French, or Italian is a plus.\n\n- In-depth understanding of key technology and information security concepts relevant to banking. In particular, strong knowledge of IT organisation, business processes and systems (e.g. IT Security, data management, architecture and planning, life cycle management and regulatory matters).\n\n- Proven ability to write reports and communicate effectively with a senior audience.\n\n- Self-motivated, diligent, highly organized, able to prioritize and multi-task, and thrive in a fast-paced environment.\n\n- Excellent analytical and problem-solving skills, able to work autonomously and as part of a global team.\n\n## Our values\n\n- Accountability : Taking ownership for tasks and challenges as well as seeking continuous improvement.\n\n- Hands-on : Being proactive to rapidly deliver high-quality results.\n\n- Passionate : Being committed and striving for excellence.\n\n- Solution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset.\n\n- Partnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
+        "it": "## Job Description\n\nThe Technology & Cyber Information Security Risk Analyst will be part of the Operational Risk team. We are looking for a passionate IT risk, cyber and information security to cover a global role located in Switzerland.\n\nLocation: Geneva, Zurich, Lugano.\n\n## Main responsibilities\n\n- Oversee the effective and consistent implementation and maintenance of the risk and control management framework globally.\n\n- Contribute to thematic risk and control assessments on IT security issues, cyber risk, and threat analysis through collaboration with other internal stakeholders.\n\n- Perform process-level walkthroughs and control testing to enable the identification and assessment of risks and controls.\n\n- Provide expertise, make recommendations for improvements to steer adherence to internal regulations, regulatory requirements and industry best practices, and monitor their implementation.\n\n- Manages relationships with key stakeholders within the First Line of Defence.\n\n- Stays abreast and advises the Bank on innovative business and technology trends in risks and controls.\n\nSkills and experience\n\n- Master’s degree in Computer Science, Cyber Security, Information Technology, or equivalent.\n\n- Professional certification, e.g. Information Systems Security Professional (CISSP), Information Security Manager, (CISM), Information Systems Auditor (CISA), Risk and\n\n- Information Systems Control (CRISC) or equivalent.\n\n- At least 3-5 years of experience in banking IT platforms, operational processes and IT controls, or in consulting/audit with a leading professional services firm; a combination of both is considered an advantage.\n\n- Excellent communication skills in English, both verbal and written. Knowledge of German, French, or Italian is a plus.\n\n- In-depth understanding of key technology and information security concepts relevant to banking. In particular, strong knowledge of IT organisation, business processes and systems (e.g. IT Security, data management, architecture and planning, life cycle management and regulatory matters).\n\n- Proven ability to write reports and communicate effectively with a senior audience.\n\n- Self-motivated, diligent, highly organized, able to prioritize and multi-task, and thrive in a fast-paced environment.\n\n- Excellent analytical and problem-solving skills, able to work autonomously and as part of a global team.\n\n## Our values\n\n- Accountability : Taking ownership for tasks and challenges as well as seeking continuous improvement.\n\n- Hands-on : Being proactive to rapidly deliver high-quality results.\n\n- Passionate : Being committed and striving for excellence.\n\n- Solution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset.\n\n- Partnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
+        "de": "## Job Description\n\nThe Technology & Cyber Information Security Risk Analyst will be part of the Operational Risk team. We are looking for a passionate IT risk, cyber and information security to cover a global role located in Switzerland.\n\nLocation: Geneva, Zurich, Lugano.\n\n## Main responsibilities\n\n- Oversee the effective and consistent implementation and maintenance of the risk and control management framework globally.\n\n- Contribute to thematic risk and control assessments on IT security issues, cyber risk, and threat analysis through collaboration with other internal stakeholders.\n\n- Perform process-level walkthroughs and control testing to enable the identification and assessment of risks and controls.\n\n- Provide expertise, make recommendations for improvements to steer adherence to internal regulations, regulatory requirements and industry best practices, and monitor their implementation.\n\n- Manages relationships with key stakeholders within the First Line of Defence.\n\n- Stays abreast and advises the Bank on innovative business and technology trends in risks and controls.\n\nSkills and experience\n\n- Master’s degree in Computer Science, Cyber Security, Information Technology, or equivalent.\n\n- Professional certification, e.g. Information Systems Security Professional (CISSP), Information Security Manager, (CISM), Information Systems Auditor (CISA), Risk and\n\n- Information Systems Control (CRISC) or equivalent.\n\n- At least 3-5 years of experience in banking IT platforms, operational processes and IT controls, or in consulting/audit with a leading professional services firm; a combination of both is considered an advantage.\n\n- Excellent communication skills in English, both verbal and written. Knowledge of German, French, or Italian is a plus.\n\n- In-depth understanding of key technology and information security concepts relevant to banking. In particular, strong knowledge of IT organisation, business processes and systems (e.g. IT Security, data management, architecture and planning, life cycle management and regulatory matters).\n\n- Proven ability to write reports and communicate effectively with a senior audience.\n\n- Self-motivated, diligent, highly organized, able to prioritize and multi-task, and thrive in a fast-paced environment.\n\n- Excellent analytical and problem-solving skills, able to work autonomously and as part of a global team.\n\n## Our values\n\n- Accountability : Taking ownership for tasks and challenges as well as seeking continuous improvement.\n\n- Hands-on : Being proactive to rapidly deliver high-quality results.\n\n- Passionate : Being committed and striving for excellence.\n\n- Solution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset.\n\n- Partnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
+        "fr": "## Job Description\n\nThe Technology & Cyber Information Security Risk Analyst will be part of the Operational Risk team. We are looking for a passionate IT risk, cyber and information security to cover a global role located in Switzerland.\n\nLocation: Geneva, Zurich, Lugano.\n\n## Main responsibilities\n\n- Oversee the effective and consistent implementation and maintenance of the risk and control management framework globally.\n\n- Contribute to thematic risk and control assessments on IT security issues, cyber risk, and threat analysis through collaboration with other internal stakeholders.\n\n- Perform process-level walkthroughs and control testing to enable the identification and assessment of risks and controls.\n\n- Provide expertise, make recommendations for improvements to steer adherence to internal regulations, regulatory requirements and industry best practices, and monitor their implementation.\n\n- Manages relationships with key stakeholders within the First Line of Defence.\n\n- Stays abreast and advises the Bank on innovative business and technology trends in risks and controls.\n\nSkills and experience\n\n- Master’s degree in Computer Science, Cyber Security, Information Technology, or equivalent.\n\n- Professional certification, e.g. Information Systems Security Professional (CISSP), Information Security Manager, (CISM), Information Systems Auditor (CISA), Risk and\n\n- Information Systems Control (CRISC) or equivalent.\n\n- At least 3-5 years of experience in banking IT platforms, operational processes and IT controls, or in consulting/audit with a leading professional services firm; a combination of both is considered an advantage.\n\n- Excellent communication skills in English, both verbal and written. Knowledge of German, French, or Italian is a plus.\n\n- In-depth understanding of key technology and information security concepts relevant to banking. In particular, strong knowledge of IT organisation, business processes and systems (e.g. IT Security, data management, architecture and planning, life cycle management and regulatory matters).\n\n- Proven ability to write reports and communicate effectively with a senior audience.\n\n- Self-motivated, diligent, highly organized, able to prioritize and multi-task, and thrive in a fast-paced environment.\n\n- Excellent analytical and problem-solving skills, able to work autonomously and as part of a global team.\n\n## Our values\n\n- Accountability : Taking ownership for tasks and challenges as well as seeking continuous improvement.\n\n- Hands-on : Being proactive to rapidly deliver high-quality results.\n\n- Passionate : Being committed and striving for excellence.\n\n- Solution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset.\n\n- Partnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit."
+      },
+      "requirementsByLocale": {},
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "The Technology & Cyber Information Security Risk Analyst will be part of the Operational Risk team. We are looking for a passionate IT risk, cyber and information security to cover a global role located in Switzerland.<br>",
+              "Location: Geneva, Zurich, Lugano.<br>"
+            ],
+            "responsibilities": [
+              "Master’s degree in Computer Science, Cyber Security, Information Technology, or equivalent.",
+              "Professional certification, e.g. Information Systems Security Professional (CISSP), Information Security Manager, (CISM), Information Systems Auditor (CISA), Risk and",
+              "Information Systems Control (CRISC) or equivalent.",
+              "At least 3-5 years of experience in banking IT platforms, operational processes and IT controls, or in consulting/audit with a leading professional services firm; a combination of both is considered an advantage.",
+              "Excellent communication skills in English, both verbal and written. Knowledge of German, French, or Italian is a plus.",
+              "In-depth understanding of key technology and information security concepts relevant to banking. In particular, strong knowledge of IT organisation, business processes and systems (e.g. IT Security, data management, architecture and planning, life cycle management and regulatory matters).",
+              "Proven ability to write reports and communicate effectively with a senior audience.",
+              "Self-motivated, diligent, highly organized, able to prioritize and multi-task, and thrive in a fast-paced environment.",
+              "Excellent analytical and problem-solving skills, able to work autonomously and as part of a global team."
+            ],
+            "requirements": [],
+            "benefits": [
+              "<strong>Accountability</strong>: Taking ownership for tasks and challenges as well as seeking continuous improvement.",
+              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results.",
+              "<strong>Passionate</strong>: Being committed and striving for excellence.",
+              "<strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset.",
+              "<strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit."
+            ],
+            "process": [],
+            "highlights": [
+              "Master’s degree in Computer Science, Cyber Security, Information Technology, or equivalent.",
+              "Professional certification, e.g. Information Systems Security Professional (CISSP), Information Security Manager, (CISM), Information Systems Auditor (CISA), Risk and",
+              "Information Systems Control (CRISC) or equivalent.",
+              "<strong>Accountability</strong>: Taking ownership for tasks and challenges as well as seeking continuous improvement.",
+              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results."
+            ],
+            "keywords": [
+              "Master’s degree in Computer Science",
+              "Professional certification",
+              "Information Systems Control (CRISC) or equivalent.",
+              "At least 3-5 years of experience in banking IT platforms"
+            ],
+            "sections": [
+              {
+                "id": "company",
+                "heading": "Our Company",
+                "paragraphs": [
+                  "<br>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
+                  "<br>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.",
+                  "<br><strong>Our Purpose and Mission</strong>",
+                  "<br>Empowering entrepreneurial minds to create value – today and for the future.",
+                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.<br>"
+                ],
+                "bullets": []
+              }
+            ],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-04-09T21:26:17.268Z",
+      "slugByLocale": {
+        "it": "technology-cyber-information-security-risk-analyst-temporary-efg-zurich",
+        "en": "technology-cyber-information-security-risk-analyst-temporary-efg-zurich",
+        "de": "technology-cyber-information-security-risk-analyst-temporary-efg-zurich",
+        "fr": "technology-cyber-information-security-risk-analyst-temporary-efg-zurich"
+      },
+      "addressLocality": "Zurich",
+      "addressCountry": "CH",
+      "needsRetranslation": true,
+      "datePosted": "2026-04-09",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85500,
+          "maxValue": 150000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME"
+    },
+    {
       "id": "efg-6168",
-      "slug": "talent-acquisition-internship-efg-lugano",
+      "slug": "stage-in-talent-acquisition-efg-international-ag-lugano",
       "company": "EFG International AG",
       "title": "Talent Acquisition Internship",
       "location": "Lugano",
@@ -3106,10 +3323,10 @@
         "fr": "Stage en Acquisition de Talents"
       },
       "descriptionByLocale": {
-        "en": "Job Description The Talent Acquisition (TA) team is part of the Human Resources function and is responsible for attracting and hiring the best talent in the market for EFG Bank. We are looking for a motivated Talent Acquisition Intern to join our team for a 6‑month internship in Lugano or Geneva. In this role, you will play a key part in enhancing the candidate experience, supporting Talent Acquisition in day‑to‑day activities, and contributing to reporting and process optimisation. You will also have the opportunity to support, and progressively manage, some junior recruitment mandates under guidance. Key Responsibilities Candidate Experience & TA Support - Act as a point of contact for candidates, ensuring clear, timely and professional communication throughout the recruitment process. - Coordinate and schedule interviews with hiring managers and other stakeholders. - Support Talent Acquisition Specialists in screening CVs and assessing candidates against role requirements. - Draft and post job advertisements on internal and external platforms, ensuring consistency with EFG’s employer brand. Operational & Administrative Support - Execute daily operations in the Applicant Tracking System (ATS), including data entry, data quality checks and status updates. - Maintain accurate candidate records and ensure proper documentation of each recruitment step. - Prepare standard correspondence and communication to candidates and hiring managers. - Support coordination of assessments (tests, case studies, reference checks), where applicable. Reporting & Process Improvement - Support the preparation of regular recruitment reports and simple dashboards (e.g. pipeline status, time‑to‑hire, sources of hire). - Help monitor key TA metrics and identify basic trends or bottlenecks in the process. - Contribute ideas to streamline and standardise recruitment processes, templates and communication flows. - Participate in small projects aimed at improving tools, candidate experience and internal TA efficiency. Sourcing & Employer Branding Support - Assist in sourcing candidates via LinkedIn Recruiter, job boards, referrals and other channels. - Conduct initial phone or video pre‑screenings for selected roles, under supervision. - Support employer branding initiatives (e.g. content preparation for social media or the career site, or job fairs). Exposure to Junior Recruitment - Progressively support and, where appropriate, manage end‑to‑end recruitment for selected junior or intern positions, under the guidance of a Talent Acquisition Specialist. ## Skills and experience Education & Experience - Master’s degree (or currently enrolled in a Master’s program) in Human Resources, Business Administration, Psychology or a related field. - Previous experience (internship, part time role or similar) in recruiting, HR or employer branding is a plus. - Experience in data management, reporting or working with HR/ATS systems is an advantage. Language Skills - Excellent command of English (spoken and written). - Good command of Italian or French is considered a strong plus, depending on the location. Technical & Analytical Skills - Interest in working with HR tools and platforms (e.g. Applicant Tracking Systems, LinkedIn Recruiter, career websites). - Good MS Office skills, especially in Excel and PowerPoint, with an interest in reporting and basic analytics. - High attention to detail and accuracy in handling data and administrative tasks. Personal Competencies - Strong interest in Talent Acquisition, the banking industry and investment management. - Excellent communication and interpersonal skills, with a natural focus on service and candidate experience. - Organised, structured and able to manage multiple tasks and priorities. - Proactive, curious and willing to take ownership of tasks and suggest improvements. - Team oriented, collaborative and comfortable working in an international and multicultural environment. - Alignment with EFG’s entrepreneurial culture: hands on, solutions oriented and open to learning. ## Our Values - Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement - Hands-on: Being proactive to rapidly deliver high-quality results - Passionate: Being committed and striving for excellence - Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset - Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit. ## Please ensure to attach a cover letter to your CV when filling the application.",
-        "it": "Descrizione del lavoro Il team di Talent Acquisition (TA) fa parte della funzione HR e si occupa di attrarre e assumere i migliori talenti per EFG Bank. Stiamo cercando uno stagista motivato in Talent Acquisition per unirsi al nostro team per uno stage di 6 mesi a Lugano o Ginevra. In questo ruolo, avrai un ruolo chiave nel migliorare l'esperienza dei candidati, supportare le attività quotidiane di Talent Acquisition e contribuire alla preparazione di report e all'ottimizzazione dei processi. Avrai anche l'opportunità di supportare e, gradualmente, gestire alcune posizioni di reclutamento junior sotto la guida di un Talent Acquisition Specialist. ## Responsabilità principali Esperienza del candidato & Supporto TA - Agire come punto di contatto per i candidati, garantendo comunicazioni chiare, tempestive e professionali durante tutto il processo di reclutamento. - Coordinare e pianificare le interviste con i responsabili del reclutamento e altri stakeholder. - Supportare gli Specialisti di Talent Acquisition nella selezione dei CV e nella valutazione dei candidati in base ai requisiti del ruolo. - Redigere e pubblicare annunci di lavoro su piattaforme interne ed esterne, garantendo la coerenza con il brand aziendale di EFG. Supporto operativo e amministrativo - Eseguire le operazioni quotidiane nel sistema di Applicant Tracking System (ATS), inclusa l'inserimento dei dati, i controlli di qualità dei dati e gli aggiornamenti dello stato. - Mantieni record accurati dei candidati e garantisci una documentazione appropriata di ogni passo del processo di reclutamento. - Preparare corrispondenza standard e comunicazioni con i candidati e i responsabili del reclutamento. - Supportare la coordinazione delle valutazioni (test, studi di caso, controlli di riferimento), se applicabile. Reporting & Miglioramento dei processi - Supportare la preparazione di report di reclutamento regolari e semplici dashboard (es. stato della pipeline, tempo di assunzione, fonti di assunzione). - Aiutare a monitorare le metriche chiave di TA e identificare tendenze o colli di bottiglia di base nel processo. - Contribuire con idee per ottimizzare e standardizzare i processi di reclutamento, i modelli e i flussi di comunicazione. - Partecipare a piccoli progetti mirati a migliorare gli strumenti, l'esperienza del candidato e l'efficienza interna di TA. Sourcing & Supporto Employer Branding - Assistire nel sourcing dei candidati tramite LinkedIn Recruiter, job board, referrals e altri canali. - Condurre iniziali pre-screening telefonici o video per ruoli selezionati, sotto supervisione. - Supportare le iniziative di employer branding (es. preparazione di contenuti per i social media o il sito di carriera, o fiere del lavoro). Esposizione al reclutamento junior - Supportare gradualmente e, dove appropriato, gestire il reclutamento end-to-end per posizioni junior o di stage, sotto la guida di uno Specialista di Talent Acquisition. ## Competenze e esperienza Istruzione & Esperienza - Laurea magistrale (o attualmente iscritto a un programma di laurea magistrale) in Risorse Umane, Amministrazione Aziendale, Psicologia o un campo correlato. - Esperienza precedente (stage, ruolo part-time o simile) nel recruiting, HR o employer branding è un plus. - Esperienza in gestione dei dati, reporting o lavoro con sistemi HR/ATS è un vantaggio. Competenze linguistiche - Ottimo comando dell'inglese (parlato e scritto). - Buono comando dell'italiano o francese è considerato un forte plus, a seconda della sede. Competenze tecniche e analitiche - Interesse a lavorare con strumenti e piattaforme HR (es. Applicant Tracking Systems, LinkedIn Recruiter, siti di carriera). - Buone competenze in MS Office, specialmente in Excel e PowerPoint, con interesse per il reporting e le basi dell'analisi. - Alta attenzione ai dettagli e accuratezza nel gestire i dati e i compiti amministrativi. Competenze personali - Forte interesse per Talent Acquisition, il settore bancario e la gestione degli investimenti. - Eccellenti competenze di comunicazione e interpersonali, con un naturale focus sul servizio e l'esperienza del candidato. - Organizzato, strutturato e in grado di gestire più compiti e priorità. - Proattivo, curioso e disposto a prendere responsabilità dei compiti e suggerire miglioramenti. - Orientato al team, collaborativo e a proprio agio in un ambiente internazionale e multicultural. - Allineamento con la cultura imprenditoriale di EFG: hands-on, orientato alle soluzioni e aperto al learning. ## I nostri valori - Responsabilità: Prendersi la responsabilità per i compiti e le sfide, cercando miglioramenti continui - Hands-on: Essere proattivi per consegnare rapidamente risultati di alta qualità - Passionate: Essere impegnati e strenuamente per eccellenza - Orientati alla soluzione: Focus sui risultati per i clienti e trattamento equo dei clienti con una mentalità consapevole del rischio - Orientati alla partnership: Promuovere collaborazione e teamwork. Lavorare insieme con uno spirito imprenditoriale. ## Si prega di allegare una lettera di presentazione al CV quando si invia la candidatura.",
-        "de": "Stellenbeschreibung Das Talent Acquisition (TA) Team ist Teil der Human Resources und verantwortlich für die Attraktion und Einstellung der besten Talente für EFG Bank. Wir suchen einen motivierten Talent Acquisition Intern, der für ein 6-monatiges Praktikum in Lugano oder Genf zu unserem Team stoßen soll. In dieser Rolle werden Sie einen wichtigen Beitrag zur Verbesserung der Kandidatenerfahrung, Unterstützung bei den täglichen Aktivitäten von Talent Acquisition und zur Erstellung von Berichten und Prozessoptimierung leisten. Sie werden auch die Möglichkeit haben, die Unterstützung und, woappropriate, die Verwaltung einiger Junior-Rekrutierungsaufträge unter der Anleitung eines Talent Acquisition Specialists zu übernehmen. ## Hauptaufgaben Kandidatenerfahrung & TA-Unterstützung - Als Ansprechpartner für Kandidaten agieren und sicherstellen, dass die Kommunikation während des gesamten Rekrutierungsprozesses klar, zeitnah und professionell erfolgt. - Koordination und Terminplanung von Interviews mit Einstellungsleitern und anderen Stakeholdern. - Unterstützung der Talent Acquisition Specialists bei der Bewerbungsprüfung und der Bewertung von Kandidaten anhand der Stellenanforderungen. - Erstellung und Veröffentlichung von Stellenausschreibungen auf internen und externen Plattformen, wobei die Konsistenz mit dem Employer Brand von EFG gewährleistet wird. Betrieblicher & Administrativer Support - Ausführung der täglichen Operationen im Applicant Tracking System (ATS), einschließlich Dateneingabe, Datenqualitätsprüfungen und Statusaktualisierungen. - Erhalt und Pflege akkurater Kandidatendaten und Dokumentation jedes Schrittes im Rekrutierungsprozess. - Vorbereitung standardisierter Korrespondenz und Kommunikation mit Kandidaten und Einstellungsleitern. - Unterstützung bei der Koordination von Assessments (Tests, Fallstudien, Referenzprüfungen), wo zutreffend. Reporting & Prozessverbesserung - Unterstützung bei der Erstellung regelmäßiger Rekrutierungsberichte und einfacher Dashboards (z.B. Pipeline-Status, Zeit bis zur Einstellung, Quellen der Einstellung). - Hilfe bei der Überwachung der wichtigsten TA-Metriken und Identifizierung grundlegender Trends oder Engpässe im Prozess. - Mit Ideen zur Optimierung und Standardisierung von Rekrutierungsprozessen, Vorlagen und Kommunikationsflüssen beitragen. - An kleinen Projekten zur Verbesserung von Tools, Kandidatenerfahrung und interner TA-Effizienz teilnehmen. Sourcing & Employer Branding-Unterstützung - Unterstützung bei der Kandidatensuche über LinkedIn Recruiter, Jobportale, Empfehlungen und andere Kanäle. - Durchführung von ersten Telefon- oder Video-Vorauswahlgesprächen für ausgewählte Stellen unter Aufsicht. - Unterstützung von Employer Branding-Initiativen (z.B. Vorbereitung von Inhalten für Social Media oder die Karrierewebsite oder Jobmessen). Exposition an Junior-Rekrutierung - Unterstützung und, wo angemessen, Verwaltung der End-to-End-Rekrutierung für ausgewählte Junior- oder Praktikumsstellen unter der Anleitung eines Talent Acquisition Specialists. ## Fähigkeiten und Erfahrung Bildung & Erfahrung - Masterabschluss (oder aktuell eingeschrieben in ein Masterstudium) in Human Resources, Business Administration, Psychologie oder einem verwandten Fach. - Vorherige Erfahrung (Praktikum, Teilzeitstelle oder ähnliches) in der Rekrutierung, HR oder Employer Branding ist ein Pluspunkt. - Erfahrung in der Datenverwaltung, Berichterstattung oder Arbeit mit HR/ATS-Systemen ist ein Vorteil. Sprachkenntnisse - Exzellente Englischkenntnisse (gesprochen und geschrieben). - Gute Kenntnisse in Italienisch oder Französisch sind je nach Standort ein starker Pluspunkt. Technische & Analytische Fähigkeiten - Interesse an der Arbeit mit HR-Tools und -Plattformen (z.B. Applicant Tracking Systems, LinkedIn Recruiter, Karrierewebsites). - Gute MS Office-Kenntnisse, insbesondere in Excel und PowerPoint, mit Interesse an Berichterstattung und Grundlagen der Analyse. - Hohe Aufmerksamkeit für Details und Genauigkeit bei der Handhabung von Daten und administrativen Aufgaben. Persönliche Kompetenzen - Starkes Interesse an Talent Acquisition, der Bankenbranche und der Investmentverwaltung. - Exzellente Kommunikations- und Interpersonalfähigkeiten, mit natürlichem Fokus auf Service und Kandidatenerfahrung. - Organisiert, strukturiert und in der Lage, mehrere Aufgaben und Prioritäten zu verwalten. - Proaktiv, neugierig und bereit, Verantwortung für Aufgaben zu übernehmen und Verbesserungsvorschläge zu machen. - Teamorientiert, kooperativ und gewohnt, in einem internationalen und multikulturellen Umfeld zu arbeiten. - Ausrichtung an die unternehmerische Kultur von EFG: hands-on, lösungsorientiert und offen für Lernen. ## Unsere Werte - Verantwortung: Verantwortung für Aufgaben und Herausforderungen übernehmen und kontinuierliche Verbesserung suchen - Hands-on: Proaktiv sein, um schnell hochwertige Ergebnisse zu liefern - Leidenschaftlich: Engagiert sein und nach Exzellenz streben - Lösungsorientiert: Fokus auf die Ergebnisse für Kunden und faire Behandlung von Kunden mit einem risikobewussten Denken - Partnerschaftlich: Zusammenarbeit und Teamwork fördern. Zusammenarbeiten mit einem unternehmerischen Geist. ## Bitte fügen Sie bei der Bewerbung einen Anschreiben zu Ihrem Lebenslauf an.",
-        "fr": "Description du poste L'équipe d'Acquisition de Talents (TA) fait partie de la fonction RH et est responsable de l'attraction et de l'embauche des meilleurs talents pour EFG Bank. Nous recherchons un stagiaire motivé en Acquisition de Talents pour rejoindre notre équipe pour un stage de 6 mois à Lugano ou Genève. Dans ce rôle, vous jouerez un rôle clé dans l'amélioration de l'expérience des candidats, le soutien aux activités quotidiennes de l'Acquisition de Talents et la contribution à la rédaction de rapports et à l'optimisation des processus. Vous aurez également l'opportunité de soutenir et, progressivement, de gérer certaines missions de recrutement junior sous la supervision d'un Spécialiste en Acquisition de Talents. ## Responsabilités principales Expérience des candidats & Soutien TA - Agir comme point de contact pour les candidats, en assurant une communication claire, ponctuelle et professionnelle tout au long du processus de recrutement. - Coordonner et planifier les entretiens avec les responsables du recrutement et autres parties prenantes. - Soutenir les Spécialistes en Acquisition de Talents dans le dépistage des CV et l'évaluation des candidats par rapport aux exigences du poste. - Rédiger et publier les offres d'emploi sur les plateformes internes et externes, en veillant à la cohérence avec la marque employeur d'EFG. Soutien opérationnel et administratif - Exécuter les opérations quotidiennes dans le système de suivi des candidats (ATS), y compris la saisie de données, les vérifications de qualité des données et les mises à jour de statut. - Maintenir des dossiers de candidats précis et assurer une documentation appropriée de chaque étape du processus de recrutement. - Préparer des correspondances standard et des communications avec les candidats et les responsables du recrutement. - Soutenir la coordination des évaluations (tests, études de cas, vérifications de références), le cas échéant. Reporting & Amélioration des processus - Soutenir la préparation de rapports de recrutement réguliers et de tableaux de bord simples (par exemple, statut du pipeline, temps d'embauche, sources d'embauche). - Aider à surveiller les indicateurs clés de TA et à identifier des tendances ou des goulots d'étranglement de base dans le processus. - Contribuer avec des idées pour optimiser et standardiser les processus de recrutement, les modèles et les flux de communication. - Participer à de petits projets visant à améliorer les outils, l'expérience des candidats et l'efficacité interne de TA. Sourcing & Soutien Employer Branding - Aider à la recherche de candidats via LinkedIn Recruiter, les plateformes d'emploi, les recommandations et autres canaux. - Effectuer des premiers présélections téléphoniques ou vidéo pour les postes sélectionnés, sous supervision. - Soutenir les initiatives de branding employeur (par exemple, préparation de contenus pour les réseaux sociaux ou le site de carrière, ou les salons de l'emploi). Exposition au recrutement junior - Soutenir progressivement et, le cas échéant, gérer le recrutement end-to-end pour des postes junior ou de stage, sous la supervision d'un Spécialiste en Acquisition de Talents. ## Compétences et expérience Éducation & Expérience - Diplôme de master (ou actuellement inscrit dans un programme de master) en Ressources Humaines, Administration des Affaires, Psychologie ou un domaine connexe. - Expérience antérieure (stage, emploi à temps partiel ou similaire) en recrutement, RH ou branding employeur est un plus. - Expérience en gestion de données, reporting ou travail avec des systèmes HR/ATS est un avantage. Compétences linguistiques - Excellent niveau d'anglais (oral et écrit). - Bon niveau de français ou d'italien est considéré comme un fort atout, selon le lieu de travail. Compétences techniques et analytiques - Intérêt pour le travail avec les outils et plateformes RH (par exemple, systèmes de suivi des candidats, LinkedIn Recruiter, sites de carrière). - Bonnes compétences en MS Office, notamment en Excel et PowerPoint, avec un intérêt pour le reporting et les bases de l'analyse. - Forte attention aux détails et précision dans la gestion des données et des tâches administratives. Compétences personnelles - Forte intérêt pour l'Acquisition de Talents, le secteur bancaire et la gestion des investissements. - Excellentes compétences en communication et en relations interpersonnelles, avec un naturel focus sur le service et l'expérience des candidats. - Organisé, structuré et capable de gérer plusieurs tâches et priorités. - Proactif, curieux et prêt à prendre en charge les tâches et à suggérer des améliorations. - Orienté vers l'équipe, collaboratif et à l'aise dans un environnement international et multiculturel. - Alignement avec la culture entrepreneuriale d'EFG : hands-on, orienté vers les solutions et ouvert à l'apprentissage. ## Nos valeurs - Responsabilité : Prendre en charge les tâches et les défis, en cherchant une amélioration continue - Hands-on : Être proactif pour livrer rapidement des résultats de haute qualité - Passionné : Être engagé et travailler pour l'excellence - Orienté vers la solution : Se concentrer sur les résultats pour les clients et traiter les clients de manière équitable avec une mentalité consciente des risques - Orienté vers la partenariat : Promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit entrepreneurial. ## Veuillez joindre une lettre de motivation à votre CV lors de l'envoi de votre candidature."
+        "en": "## Job Description\n\nThe Talent Acquisition (TA) team is part of the Human Resources function and is responsible for attracting and hiring the best talent in the market for EFG Bank.\n\nWe are looking for a motivated Talent Acquisition Intern to join our team for a 6‑month internship in Lugano or Geneva. In this role, you will play a key part in enhancing the candidate experience, supporting Talent Acquisition in day‑to‑day activities, and contributing to reporting and process optimisation. You will also have the opportunity to support, and progressively manage, some junior recruitment mandates under guidance.\n\nKey Responsibilities\n\n Candidate Experience & TA Support\n\n- Act as a point of contact for candidates, ensuring clear, timely and professional communication throughout the recruitment process.\n\n- Coordinate and schedule interviews with hiring managers and other stakeholders.\n\n- Support Talent Acquisition Specialists in screening CVs and assessing candidates against role requirements.\n\n- Draft and post job advertisements on internal and external platforms, ensuring consistency with EFG’s employer brand.\n  Operational & Administrative Support\n\n- Execute daily operations in the Applicant Tracking System (ATS), including data entry, data quality checks and status updates.\n\n- Maintain accurate candidate records and ensure proper documentation of each recruitment step.\n\n- Prepare standard correspondence and communication to candidates and hiring managers.\n\n- Support coordination of assessments (tests, case studies, reference checks), where applicable.\n  Reporting & Process Improvement\n\n- Support the preparation of regular recruitment reports and simple dashboards (e.g. pipeline status, time‑to‑hire, sources of hire).\n\n- Help monitor key TA metrics and identify basic trends or bottlenecks in the process.\n\n- Contribute ideas to streamline and standardise recruitment processes, templates and communication flows.\n\n- Participate in small projects aimed at improving tools, candidate experience and internal TA efficiency.\n  Sourcing & Employer Branding Support\n\n- Assist in sourcing candidates via LinkedIn Recruiter, job boards, referrals and other channels.\n\n- Conduct initial phone or video pre‑screenings for selected roles, under supervision.\n\n- Support employer branding initiatives (e.g. content preparation for social media or the career site, or job fairs).\n  Exposure to Junior Recruitment\n\n- Progressively support and, where appropriate, manage end‑to‑end recruitment for selected junior or intern positions, under the guidance of a Talent Acquisition Specialist.\n\n## Skills and experience\n\nEducation & Experience\n\n- Master’s degree (or currently enrolled in a Master’s program) in Human Resources, Business Administration, Psychology or a related field.\n\n- Previous experience (internship, part time role or similar) in recruiting, HR or employer branding is a plus.\n\n- Experience in data management, reporting or working with HR/ATS systems is an advantage.\n  Language Skills\n\n- Excellent command of English (spoken and written).\n\n- Good command of Italian or French is considered a strong plus, depending on the location.\n  Technical & Analytical Skills\n\n- Interest in working with HR tools and platforms (e.g. Applicant Tracking Systems, LinkedIn Recruiter, career websites).\n\n- Good MS Office skills, especially in Excel and PowerPoint, with an interest in reporting and basic analytics.\n\n- High attention to detail and accuracy in handling data and administrative tasks.\n  Personal Competencies\n\n- Strong interest in Talent Acquisition, the banking industry and investment management.\n\n- Excellent communication and interpersonal skills, with a natural focus on service and candidate experience.\n\n- Organised, structured and able to manage multiple tasks and priorities.\n\n- Proactive, curious and willing to take ownership of tasks and suggest improvements.\n\n- Team oriented, collaborative and comfortable working in an international and multicultural environment.\n\n- Alignment with EFG’s entrepreneurial culture: hands on, solutions oriented and open to learning.\n\n## Our Values\n\n- Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n- Hands-on: Being proactive to rapidly deliver high-quality results\n\n- Passionate: Being committed and striving for excellence\n\n- Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n- Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n\n## Please ensure to attach a cover letter to your CV when filling the application.",
+        "it": "Descrizione del lavoro Il team di Talent Acquisition (TA) fa parte della funzione HR e si occupa di attrarre e assumere i migliori talenti per EFG Bank. Stiamo cercando uno stagista motivato in Talent Acquisition per unirsi al nostro team per uno stage di 6 mesi a Lugano o Ginevra. In questo ruolo, avrai un ruolo chiave nel migliorare l'esperienza dei candidati, supportare le attività quotidiane di Talent Acquisition e contribuire alla preparazione di report e all'ottimizzazione dei processi. Avrai anche l'opportunità di supportare e, gradualmente, gestire alcune posizioni di reclutamento junior sotto la guida di un Talent Acquisition Specialist.\n\n## Responsabilità principali Esperienza del candidato & Supporto TA\n- Agire come punto di contatto per i candidati, garantendo comunicazioni chiare, tempestive e professionali durante tutto il processo di reclutamento.\n- Coordinare e pianificare le interviste con i responsabili del reclutamento e altri stakeholder.\n- Supportare gli Specialisti di Talent Acquisition nella selezione dei CV e nella valutazione dei candidati in base ai requisiti del ruolo.\n- Redigere e pubblicare annunci di lavoro su piattaforme interne ed esterne, garantendo la coerenza con il brand aziendale di EFG. Supporto operativo e amministrativo\n- Eseguire le operazioni quotidiane nel sistema di Applicant Tracking System (ATS), inclusa l'inserimento dei dati, i controlli di qualità dei dati e gli aggiornamenti dello stato.\n- Mantieni record accurati dei candidati e garantisci una documentazione appropriata di ogni passo del processo di reclutamento.\n- Preparare corrispondenza standard e comunicazioni con i candidati e i responsabili del reclutamento.\n- Supportare la coordinazione delle valutazioni (test, studi di caso, controlli di riferimento), se applicabile. Reporting & Miglioramento dei processi\n- Supportare la preparazione di report di reclutamento regolari e semplici dashboard (es. stato della pipeline, tempo di assunzione, fonti di assunzione).\n- Aiutare a monitorare le metriche chiave di TA e identificare tendenze o colli di bottiglia di base nel processo.\n- Contribuire con idee per ottimizzare e standardizzare i processi di reclutamento, i modelli e i flussi di comunicazione.\n- Partecipare a piccoli progetti mirati a migliorare gli strumenti, l'esperienza del candidato e l'efficienza interna di TA. Sourcing & Supporto Employer Branding\n- Assistire nel sourcing dei candidati tramite LinkedIn Recruiter, job board, referrals e altri canali.\n- Condurre iniziali pre-screening telefonici o video per ruoli selezionati, sotto supervisione.\n- Supportare le iniziative di employer branding (es. preparazione di contenuti per i social media o il sito di carriera, o fiere del lavoro). Esposizione al reclutamento junior\n- Supportare gradualmente e, dove appropriato, gestire il reclutamento end-to-end per posizioni junior o di stage, sotto la guida di uno Specialista di Talent Acquisition.\n\n## Competenze e esperienza Istruzione & Esperienza\n- Laurea magistrale (o attualmente iscritto a un programma di laurea magistrale) in Risorse Umane, Amministrazione Aziendale, Psicologia o un campo correlato.\n- Esperienza precedente (stage, ruolo part-time o simile) nel recruiting, HR o employer branding è un plus.\n- Esperienza in gestione dei dati, reporting o lavoro con sistemi HR/ATS è un vantaggio. Competenze linguistiche\n- Ottimo comando dell'inglese (parlato e scritto).\n- Buono comando dell'italiano o francese è considerato un forte plus, a seconda della sede. Competenze tecniche e analitiche\n- Interesse a lavorare con strumenti e piattaforme HR (es. Applicant Tracking Systems, LinkedIn Recruiter, siti di carriera).\n- Buone competenze in MS Office, specialmente in Excel e PowerPoint, con interesse per il reporting e le basi dell'analisi.\n- Alta attenzione ai dettagli e accuratezza nel gestire i dati e i compiti amministrativi. Competenze personali\n- Forte interesse per Talent Acquisition, il settore bancario e la gestione degli investimenti.\n- Eccellenti competenze di comunicazione e interpersonali, con un naturale focus sul servizio e l'esperienza del candidato.\n- Organizzato, strutturato e in grado di gestire più compiti e priorità.\n- Proattivo, curioso e disposto a prendere responsabilità dei compiti e suggerire miglioramenti.\n- Orientato al team, collaborativo e a proprio agio in un ambiente internazionale e multicultural.\n- Allineamento con la cultura imprenditoriale di EFG: hands-on, orientato alle soluzioni e aperto al learning.\n\n## I nostri valori\n- Responsabilità: Prendersi la responsabilità per i compiti e le sfide, cercando miglioramenti continui\n- Hands-on: Essere proattivi per consegnare rapidamente risultati di alta qualità\n- Passionate: Essere impegnati e strenuamente per eccellenza\n- Orientati alla soluzione: Focus sui risultati per i clienti e trattamento equo dei clienti con una mentalità consapevole del rischio\n- Orientati alla partnership: Promuovere collaborazione e teamwork. Lavorare insieme con uno spirito imprenditoriale.\n\n## Si prega di allegare una lettera di presentazione al CV quando si invia la candidatura.",
+        "de": "Stellenbeschreibung Das Talent Acquisition (TA) Team ist Teil der Human Resources und verantwortlich für die Attraktion und Einstellung der besten Talente für EFG Bank. Wir suchen einen motivierten Talent Acquisition Intern, der für ein 6-monatiges Praktikum in Lugano oder Genf zu unserem Team stoßen soll. In dieser Rolle werden Sie einen wichtigen Beitrag zur Verbesserung der Kandidatenerfahrung, Unterstützung bei den täglichen Aktivitäten von Talent Acquisition und zur Erstellung von Berichten und Prozessoptimierung leisten. Sie werden auch die Möglichkeit haben, die Unterstützung und, woappropriate, die Verwaltung einiger Junior-Rekrutierungsaufträge unter der Anleitung eines Talent Acquisition Specialists zu übernehmen.\n\n## Hauptaufgaben Kandidatenerfahrung & TA-Unterstützung\n- Als Ansprechpartner für Kandidaten agieren und sicherstellen, dass die Kommunikation während des gesamten Rekrutierungsprozesses klar, zeitnah und professionell erfolgt.\n- Koordination und Terminplanung von Interviews mit Einstellungsleitern und anderen Stakeholdern.\n- Unterstützung der Talent Acquisition Specialists bei der Bewerbungsprüfung und der Bewertung von Kandidaten anhand der Stellenanforderungen.\n- Erstellung und Veröffentlichung von Stellenausschreibungen auf internen und externen Plattformen, wobei die Konsistenz mit dem Employer Brand von EFG gewährleistet wird. Betrieblicher & Administrativer Support\n- Ausführung der täglichen Operationen im Applicant Tracking System (ATS), einschließlich Dateneingabe, Datenqualitätsprüfungen und Statusaktualisierungen.\n- Erhalt und Pflege akkurater Kandidatendaten und Dokumentation jedes Schrittes im Rekrutierungsprozess.\n- Vorbereitung standardisierter Korrespondenz und Kommunikation mit Kandidaten und Einstellungsleitern.\n- Unterstützung bei der Koordination von Assessments (Tests, Fallstudien, Referenzprüfungen), wo zutreffend. Reporting & Prozessverbesserung\n- Unterstützung bei der Erstellung regelmäßiger Rekrutierungsberichte und einfacher Dashboards (z.B. Pipeline-Status, Zeit bis zur Einstellung, Quellen der Einstellung).\n- Hilfe bei der Überwachung der wichtigsten TA-Metriken und Identifizierung grundlegender Trends oder Engpässe im Prozess.\n- Mit Ideen zur Optimierung und Standardisierung von Rekrutierungsprozessen, Vorlagen und Kommunikationsflüssen beitragen.\n- An kleinen Projekten zur Verbesserung von Tools, Kandidatenerfahrung und interner TA-Effizienz teilnehmen. Sourcing & Employer Branding-Unterstützung\n- Unterstützung bei der Kandidatensuche über LinkedIn Recruiter, Jobportale, Empfehlungen und andere Kanäle.\n- Durchführung von ersten Telefon- oder Video-Vorauswahlgesprächen für ausgewählte Stellen unter Aufsicht.\n- Unterstützung von Employer Branding-Initiativen (z.B. Vorbereitung von Inhalten für Social Media oder die Karrierewebsite oder Jobmessen). Exposition an Junior-Rekrutierung\n- Unterstützung und, wo angemessen, Verwaltung der End-to-End-Rekrutierung für ausgewählte Junior- oder Praktikumsstellen unter der Anleitung eines Talent Acquisition Specialists.\n\n## Fähigkeiten und Erfahrung Bildung & Erfahrung\n- Masterabschluss (oder aktuell eingeschrieben in ein Masterstudium) in Human Resources, Business Administration, Psychologie oder einem verwandten Fach.\n- Vorherige Erfahrung (Praktikum, Teilzeitstelle oder ähnliches) in der Rekrutierung, HR oder Employer Branding ist ein Pluspunkt.\n- Erfahrung in der Datenverwaltung, Berichterstattung oder Arbeit mit HR/ATS-Systemen ist ein Vorteil. Sprachkenntnisse\n- Exzellente Englischkenntnisse (gesprochen und geschrieben).\n- Gute Kenntnisse in Italienisch oder Französisch sind je nach Standort ein starker Pluspunkt. Technische & Analytische Fähigkeiten\n- Interesse an der Arbeit mit HR-Tools und -Plattformen (z.B. Applicant Tracking Systems, LinkedIn Recruiter, Karrierewebsites).\n- Gute MS Office-Kenntnisse, insbesondere in Excel und PowerPoint, mit Interesse an Berichterstattung und Grundlagen der Analyse.\n- Hohe Aufmerksamkeit für Details und Genauigkeit bei der Handhabung von Daten und administrativen Aufgaben. Persönliche Kompetenzen\n- Starkes Interesse an Talent Acquisition, der Bankenbranche und der Investmentverwaltung.\n- Exzellente Kommunikations- und Interpersonalfähigkeiten, mit natürlichem Fokus auf Service und Kandidatenerfahrung.\n- Organisiert, strukturiert und in der Lage, mehrere Aufgaben und Prioritäten zu verwalten.\n- Proaktiv, neugierig und bereit, Verantwortung für Aufgaben zu übernehmen und Verbesserungsvorschläge zu machen.\n- Teamorientiert, kooperativ und gewohnt, in einem internationalen und multikulturellen Umfeld zu arbeiten.\n- Ausrichtung an die unternehmerische Kultur von EFG: hands-on, lösungsorientiert und offen für Lernen.\n\n## Unsere Werte\n- Verantwortung: Verantwortung für Aufgaben und Herausforderungen übernehmen und kontinuierliche Verbesserung suchen\n- Hands-on: Proaktiv sein, um schnell hochwertige Ergebnisse zu liefern\n- Leidenschaftlich: Engagiert sein und nach Exzellenz streben\n- Lösungsorientiert: Fokus auf die Ergebnisse für Kunden und faire Behandlung von Kunden mit einem risikobewussten Denken\n- Partnerschaftlich: Zusammenarbeit und Teamwork fördern. Zusammenarbeiten mit einem unternehmerischen Geist.\n\n## Bitte fügen Sie bei der Bewerbung einen Anschreiben zu Ihrem Lebenslauf an.",
+        "fr": "Description du poste L'équipe d'Acquisition de Talents (TA) fait partie de la fonction RH et est responsable de l'attraction et de l'embauche des meilleurs talents pour EFG Bank. Nous recherchons un stagiaire motivé en Acquisition de Talents pour rejoindre notre équipe pour un stage de 6 mois à Lugano ou Genève. Dans ce rôle, vous jouerez un rôle clé dans l'amélioration de l'expérience des candidats, le soutien aux activités quotidiennes de l'Acquisition de Talents et la contribution à la rédaction de rapports et à l'optimisation des processus. Vous aurez également l'opportunité de soutenir et, progressivement, de gérer certaines missions de recrutement junior sous la supervision d'un Spécialiste en Acquisition de Talents.\n\n## Responsabilités principales Expérience des candidats & Soutien TA\n- Agir comme point de contact pour les candidats, en assurant une communication claire, ponctuelle et professionnelle tout au long du processus de recrutement.\n- Coordonner et planifier les entretiens avec les responsables du recrutement et autres parties prenantes.\n- Soutenir les Spécialistes en Acquisition de Talents dans le dépistage des CV et l'évaluation des candidats par rapport aux exigences du poste.\n- Rédiger et publier les offres d'emploi sur les plateformes internes et externes, en veillant à la cohérence avec la marque employeur d'EFG. Soutien opérationnel et administratif\n- Exécuter les opérations quotidiennes dans le système de suivi des candidats (ATS), y compris la saisie de données, les vérifications de qualité des données et les mises à jour de statut.\n- Maintenir des dossiers de candidats précis et assurer une documentation appropriée de chaque étape du processus de recrutement.\n- Préparer des correspondances standard et des communications avec les candidats et les responsables du recrutement.\n- Soutenir la coordination des évaluations (tests, études de cas, vérifications de références), le cas échéant. Reporting & Amélioration des processus\n- Soutenir la préparation de rapports de recrutement réguliers et de tableaux de bord simples (par exemple, statut du pipeline, temps d'embauche, sources d'embauche).\n- Aider à surveiller les indicateurs clés de TA et à identifier des tendances ou des goulots d'étranglement de base dans le processus.\n- Contribuer avec des idées pour optimiser et standardiser les processus de recrutement, les modèles et les flux de communication.\n- Participer à de petits projets visant à améliorer les outils, l'expérience des candidats et l'efficacité interne de TA. Sourcing & Soutien Employer Branding\n- Aider à la recherche de candidats via LinkedIn Recruiter, les plateformes d'emploi, les recommandations et autres canaux.\n- Effectuer des premiers présélections téléphoniques ou vidéo pour les postes sélectionnés, sous supervision.\n- Soutenir les initiatives de branding employeur (par exemple, préparation de contenus pour les réseaux sociaux ou le site de carrière, ou les salons de l'emploi). Exposition au recrutement junior\n- Soutenir progressivement et, le cas échéant, gérer le recrutement end-to-end pour des postes junior ou de stage, sous la supervision d'un Spécialiste en Acquisition de Talents.\n\n## Compétences et expérience Éducation & Expérience\n- Diplôme de master (ou actuellement inscrit dans un programme de master) en Ressources Humaines, Administration des Affaires, Psychologie ou un domaine connexe.\n- Expérience antérieure (stage, emploi à temps partiel ou similaire) en recrutement, RH ou branding employeur est un plus.\n- Expérience en gestion de données, reporting ou travail avec des systèmes HR/ATS est un avantage. Compétences linguistiques\n- Excellent niveau d'anglais (oral et écrit).\n- Bon niveau de français ou d'italien est considéré comme un fort atout, selon le lieu de travail. Compétences techniques et analytiques\n- Intérêt pour le travail avec les outils et plateformes RH (par exemple, systèmes de suivi des candidats, LinkedIn Recruiter, sites de carrière).\n- Bonnes compétences en MS Office, notamment en Excel et PowerPoint, avec un intérêt pour le reporting et les bases de l'analyse.\n- Forte attention aux détails et précision dans la gestion des données et des tâches administratives. Compétences personnelles\n- Forte intérêt pour l'Acquisition de Talents, le secteur bancaire et la gestion des investissements.\n- Excellentes compétences en communication et en relations interpersonnelles, avec un naturel focus sur le service et l'expérience des candidats.\n- Organisé, structuré et capable de gérer plusieurs tâches et priorités.\n- Proactif, curieux et prêt à prendre en charge les tâches et à suggérer des améliorations.\n- Orienté vers l'équipe, collaboratif et à l'aise dans un environnement international et multiculturel.\n- Alignement avec la culture entrepreneuriale d'EFG : hands-on, orienté vers les solutions et ouvert à l'apprentissage.\n\n## Nos valeurs\n- Responsabilité : Prendre en charge les tâches et les défis, en cherchant une amélioration continue\n- Hands-on : Être proactif pour livrer rapidement des résultats de haute qualité\n- Passionné : Être engagé et travailler pour l'excellence\n- Orienté vers la solution : Se concentrer sur les résultats pour les clients et traiter les clients de manière équitable avec une mentalité consciente des risques\n- Orienté vers la partenariat : Promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit entrepreneurial.\n\n## Veuillez joindre une lettre de motivation à votre CV lors de l'envoi de votre candidature."
       },
       "requirementsByLocale": {
         "en": [
@@ -3224,9 +3441,9 @@
           }
         }
       },
-      "crawledAt": "2026-04-09T09:33:55.016Z",
+      "crawledAt": "2026-04-09T21:26:17.267Z",
       "slugByLocale": {
-        "it": "talent-acquisition-internship-efg-lugano",
+        "it": "stage-in-talent-acquisition-efg-international-ag-lugano",
         "en": "talent-acquisition-internship-efg-lugano",
         "de": "praktikum-zur-talentakquise-efg-international-ag-lugano",
         "fr": "stage-en-acquisition-de-talents-efg-international-ag-lugano"
@@ -3249,83 +3466,9 @@
       "streetAddress": "Via Pretorio 22",
       "postalCode": "6900",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
-    },
-    {
-      "id": "efg-6230",
-      "slug": "efg-graduate-programme-2026-digital-and-it-cyber-security-and-cloud-architecture-efg-genev",
-      "company": "EFG International AG",
-      "title": "EFG Graduate Programme 2026 - Digital and IT - Cyber Security and Cloud Architecture",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "description": "We are looking for young talent to join our EFG Graduate Programme – Digital and IT path in Geneva , with a focus on Cyber Security and Cloud Architecture\n\nHow the EFG Graduate Programme works?\n\nStarting in September 2026 and over a period of 18 months, the EFG Graduate Programme offers a challenging and exciting opportunity for recent graduates. Tailored on individual skills, interests, and competencies, the programme provides an ideal opportunity to obtain wide-ranging experience in an international and fast-growing private banking group:\n\n- You will start with a 2-week onboarding in Switzerland to discover EFG Mission, Vision and Culture and start building your professional network.\n\n- During the onboarding you will have the chance to attend specific trainings aimed at enhancing key competencies and communication skills.\n\n- Continuous learning opportunities to ensure you develop both personally and professionally to achieve full potential.\n\n- Buddy and Mentor to accompany you throughout the programme.\n\n- Truly global, we have positions based in Miami, London, Luxembourg, Geneva, Zurich, Lugano, Singapore and Hong Kong.\n\nIn this path, you will complete a 6-month rotation in your preferred digital or IT function, allowing you to specialise and develop expertise in your chosen area. You will also undertake two additional 6-month rotations across different teams, broadening your understanding of how digital solutions and IT infrastructure drive the private banking industry.\n\nThis path provides a strong foundation for a career in digital, innovative, and forward-looking roles, equipping you with the skills and insights needed to excel in EFG’s dynamic business environment.\n\nCould you be one of our future graduates?\n\nWe value diversity and we do not require specific academic majors or industry experience, but look for different mix of background, experiences and skills.\n\n## Our graduates are brilliant and enthusiastic talents, so we expect\n\n- Bachelor or Master degree (completed in 2025 or on track to complete it) with outstanding academic results in a field with affinity with the selected professional path.\n\n- Excellent English (any other language will be an advantage)\n\n- International mindset\n\n- Strong analytical, problem solving and organisational skills\n\n- Forward thinking and able to suggest new ways of working to improve efficiency and competitiveness\n\n- Self-disciplined, committed and with strong work ethics\n\n- Adaptable and able to work collaboratively in a team environment with people from different backgrounds\n\n- Client-oriented\n\n- Proactive self-starter with intellectual curiosity\n\nWhat will you get?\n\n- Dynamic work experience by rotating through different teams and business units\n\n- Experience an enriching international network\n\n- Opportunity to build expertise in your chosen field and contribute to the EFG Culture\n\n- Continuous development and learning opportunities on both technical and soft skills",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-04-09",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6230",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "titleByLocale": {
-        "en": "EFG Graduate Programme 2026 - Digital and IT - Cyber Security and Cloud Architecture",
-        "it": "Programma di Formazione EFG 2026 - Digitale e IT - Sicurezza Informatica e Architettura Cloud",
-        "de": "EFG Graduate Programm 2026 - Digital und IT - Cyber Security und Cloud Architektur",
-        "fr": "Programme de Formation EFG 2026 - Digital et IT - Sécurité Informatique et Architecture Cloud"
-      },
-      "descriptionByLocale": {
-        "en": "We are looking for young talent to join our EFG Graduate Programme – Digital and IT path in Geneva , with a focus on Cyber Security and Cloud Architecture How the EFG Graduate Programme works? Starting in September 2026 and over a period of 18 months, the EFG Graduate Programme offers a challenging and exciting opportunity for recent graduates. Tailored on individual skills, interests, and competencies, the programme provides an ideal opportunity to obtain wide-ranging experience in an international and fast-growing private banking group: - You will start with a 2-week onboarding in Switzerland to discover EFG Mission, Vision and Culture and start building your professional network. - During the onboarding you will have the chance to attend specific trainings aimed at enhancing key competencies and communication skills. - Continuous learning opportunities to ensure you develop both personally and professionally to achieve full potential. - Buddy and Mentor to accompany you throughout the programme. - Truly global, we have positions based in Miami, London, Luxembourg, Geneva, Zurich, Lugano, Singapore and Hong Kong. In this path, you will complete a 6-month rotation in your preferred digital or IT function, allowing you to specialise and develop expertise in your chosen area. You will also undertake two additional 6-month rotations across different teams, broadening your understanding of how digital solutions and IT infrastructure drive the private banking industry. This path provides a strong foundation for a career in digital, innovative, and forward-looking roles, equipping you with the skills and insights needed to excel in EFG’s dynamic business environment. Could you be one of our future graduates? We value diversity and we do not require specific academic majors or industry experience, but look for different mix of background, experiences and skills. ## Our graduates are brilliant and enthusiastic talents, so we expect - Bachelor or Master degree (completed in 2025 or on track to complete it) with outstanding academic results in a field with affinity with the selected professional path. - Excellent English (any other language will be an advantage) - International mindset - Strong analytical, problem solving and organisational skills - Forward thinking and able to suggest new ways of working to improve efficiency and competitiveness - Self-disciplined, committed and with strong work ethics - Adaptable and able to work collaboratively in a team environment with people from different backgrounds - Client-oriented - Proactive self-starter with intellectual curiosity What will you get? - Dynamic work experience by rotating through different teams and business units - Experience an enriching international network - Opportunity to build expertise in your chosen field and contribute to the EFG Culture - Continuous development and learning opportunities on both technical and soft skills",
-        "it": "Stiamo cercando giovani talenti per unirsi al nostro Programma di Formazione EFG – Percorso Digitale e IT a Ginevra, con un focus su Sicurezza Informatica e Architettura Cloud. Come funziona il Programma di Formazione EFG? Iniziando a settembre 2026 e per un periodo di 18 mesi, il Programma di Formazione EFG offre un'opportunità stimolante e eccitante per i recenti laureati. Su misura per le competenze individuali, gli interessi e le capacità, il programma offre un'opportunità ideale per ottenere esperienze ampie in un gruppo bancario privato internazionale e in rapida crescita: - Inizierai con un onboarding di 2 settimane in Svizzera per scoprire la Missione, la Visione e la Cultura di EFG e iniziare a costruire la tua rete professionale. - Durante l'onboarding avrai la possibilità di partecipare a specifici corsi di formazione mirati a migliorare le competenze chiave e le abilità di comunicazione. - Opportunità di apprendimento continuo per garantire che tu sviluppi sia personalmente che professionalmente per raggiungere il tuo pieno potenziale. - Buddy e Mentor per accompagnarti durante tutto il programma. - Veramente globale, abbiamo posizioni a Miami, Londra, Lussemburgo, Ginevra, Zurigo, Lugano, Singapore e Hong Kong. In questo percorso, completerai una rotazione di 6 mesi nella tua funzione digitale o IT preferita, permettendoti di specializzarti e sviluppare competenze nella tua area scelta. Inoltre, svolgerai due rotazioni aggiuntive di 6 mesi in diverse squadre, ampliando la tua comprensione di come le soluzioni digitali e l'infrastruttura IT guidano l'industria bancaria privata. Questo percorso fornisce una base solida per una carriera in ruoli digitali, innovativi e orientati al futuro, equipaggiandoti con le competenze e le conoscenze necessarie per eccellere nell'ambiente di business dinamico di EFG. Potresti essere uno dei nostri futuri laureandi? Valutiamo la diversità e non richiediamo specifici corsi di laurea o esperienza nel settore, ma cerchiamo una miscela diversa di background, esperienze e competenze. ## I nostri laureandi sono talenti brillanti e entusiasti, quindi ci aspettiamo: - Laurea triennale o magistrale (completata nel 2025 o in corso di completamento) con risultati accademici eccellenti in un campo affine al percorso professionale selezionato. - Inglese eccellente (qualunque altra lingua sarà un vantaggio) - Mentalità internazionale - Forti competenze analitiche, di risoluzione dei problemi e organizzative - Pensiero innovativo e capacità di suggerire nuovi modi di lavorare per migliorare l'efficienza e la competitività - Disciplinati, impegnati e con forti valori lavorativi - Adattabili e capaci di lavorare in modo collaborativo in un ambiente di squadra con persone di diversi background - Orientati al cliente - Proattivi e con curiosità intellettuale Cosa otterrai? - Esperienza di lavoro dinamica attraverso rotazioni in diverse squadre e unità aziendali - Esperire una rete internazionale arricchente - Opportunità di costruire competenze nel tuo campo scelto e contribuire alla Cultura EFG - Opportunità di sviluppo e apprendimento continuo su entrambe le competenze tecniche e quelle soft",
-        "de": "Wir suchen junges Talent, um unser EFG Graduate Programm – Digital und IT Pfad in Genf mit Fokus auf Cyber Security und Cloud Architektur zu verstärken. Wie funktioniert das EFG Graduate Programm? Ab September 2026 und über einen Zeitraum von 18 Monaten bietet das EFG Graduate Programm eine herausfordernde und aufregende Gelegenheit für Absolventen. Das Programm ist auf individuelle Fähigkeiten, Interessen und Kompetenzen zugeschnitten und bietet die ideale Möglichkeit, umfassende Erfahrungen in einer internationalen und schnell wachsenden privaten Bankengruppe zu sammeln: - Sie beginnen mit einer 2-wöchigen Einarbeitung in der Schweiz, um die Mission, Vision und Kultur von EFG zu entdecken und Ihr berufliches Netzwerk aufzubauen. - Während der Einarbeitung haben Sie die Möglichkeit, an spezifischen Schulungen teilzunehmen, die darauf abzielen, Schlüsselkompetenzen und Kommunikationsfähigkeiten zu verbessern. - Kontinuierliche Lernmöglichkeiten, um sicherzustellen, dass Sie sowohl persönlich als auch beruflich entwickelt werden, um Ihr volles Potenzial zu erreichen. - Buddy und Mentor begleiten Sie während des gesamten Programms. - Wir sind wirklich global, haben wir Positionen in Miami, London, Luxemburg, Genf, Zürich, Lugano, Singapur und Hongkong. In diesem Pfad werden Sie eine 6-monatige Rotation in Ihrer bevorzugten digitalen oder IT-Funktion absolvieren, wodurch Sie sich spezialisieren und Expertise in Ihrem gewählten Bereich entwickeln können. Sie werden auch zwei zusätzliche 6-monatige Rotationen in verschiedenen Teams durchführen, wodurch Ihr Verständnis dafür, wie digitale Lösungen und IT-Infrastruktur die private Bankenbranche antreiben, erweitert wird. Dieser Pfad bietet eine solide Grundlage für eine Karriere in digitalen, innovativen und vorwärtsgerichteten Rollen und rüstet Sie mit den Fähigkeiten und Einblicken aus, die Sie benötigen, um in der dynamischen Geschäfts Umgebung von EFG zu überzeugen. Könnten Sie einer unserer zukünftigen Absolventen sein? Wir schätzen Vielfalt und fordern keine spezifischen Studiengänge oder Branchenkenntnisse, suchen aber eine Mischung aus verschiedenen Hintergründen, Erfahrungen und Fähigkeiten. ## Unsere Absolventen sind brillantes und enthusiastisches Talent, also erwarten wir: - Bachelor- oder Masterabschluss (abgeschlossen 2025 oder in Bearbeitung) mit herausragenden akademischen Leistungen in einem Fachbereich mit Affinität zum ausgewählten Berufsweg. - Exzellente Englischkenntnisse (jede andere Sprache wird als Vorteil betrachtet) - Internationaler Geist - Starke analytische, Problemlösungs- und organisatorische Fähigkeiten - Vorwärtsdenkend und in der Lage, neue Arbeitsweisen zu vorschlagen, um Effizienz und Wettbewerbsfähigkeit zu verbessern - Selbstdiszipliniert, engagiert und mit starkem Arbeitsethos - Anpassungsfähig und in der Lage, in einem Teamumfeld mit Menschen aus verschiedenen Hintergründen zusammenzuarbeiten - Kundenorientiert - Proaktiv und mit intellektueller Neugier Was erhalten Sie? - Dynamische Arbeitserfahrung durch Rotationen in verschiedenen Teams und Geschäftsbereichen - Erfahrung mit einem bereichernden internationalen Netzwerk - Möglichkeit, Expertise in Ihrem gewählten Bereich zu entwickeln und zur EFG-Kultur beizutragen - Kontinuierliche Entwicklungs- und Lernmöglichkeiten sowohl auf technischer als auch auf soft skills Ebene",
-        "fr": "Nous recherchons des jeunes talents pour rejoindre notre Programme de Formation EFG – Parcours Digital et IT à Genève, avec un focus sur la Sécurité Informatique et l'Architecture Cloud. Comment fonctionne le Programme de Formation EFG? À partir de septembre 2026 et sur une période de 18 mois, le Programme de Formation EFG offre une opportunité stimulante et excitante pour les nouveaux diplômés. Sur mesure pour les compétences, les intérêts et les aptitudes individuelles, le programme offre une opportunité idéale pour acquérir une expérience variée dans un groupe bancaire privé international et en rapide croissance: - Vous commencerez par un onboarding de 2 semaines en Suisse pour découvrir la Mission, la Vision et la Culture d'EFG et commencer à construire votre réseau professionnel. - Pendant l'onboarding, vous aurez la chance de participer à des formations spécifiques visant à améliorer les compétences clés et les compétences en communication. - Opportunités d'apprentissage continu pour garantir que vous développez à la fois personnellement et professionnellement pour atteindre votre plein potentiel. - Buddy et Mentor pour vous accompagner tout au long du programme. - Vraiment global, nous avons des postes à Miami, Londres, Luxembourg, Genève, Zurich, Lugano, Singapour et Hong Kong. Dans ce parcours, vous effectuez une rotation de 6 mois dans votre fonction digitale ou IT préférée, vous permettant de vous spécialiser et de développer des compétences dans votre domaine choisi. Vous effectuerez également deux rotations supplémentaires de 6 mois dans différentes équipes, élargissant ainsi votre compréhension de la manière dont les solutions digitales et l'infrastructure IT impulsent l'industrie bancaire privée. Ce parcours offre une base solide pour une carrière dans des rôles digitaux, innovants et orientés vers l'avenir, vous équipant des compétences et des insights nécessaires pour exceller dans l'environnement d'affaires dynamique d'EFG. Pourriez-vous être l'un de nos futurs diplômés? Nous valorisons la diversité et ne requérons pas de cursus académiques ou d'expérience sectorielle spécifiques, mais recherchons un mélange différent de parcours, d'expériences et de compétences. ## Nos diplômés sont des talents brillants et enthousiastes, donc nous attendons: - Diplôme de Bachelor ou Master (terminé en 2025 ou en cours de finalisation) avec des résultats académiques exceptionnels dans un domaine affine avec le parcours professionnel sélectionné. - Excellent anglais (toute autre langue sera un avantage) - Mentalité internationale - Forte capacité analytique, de résolution de problèmes et d'organisation - Pensée avant-gardiste et capable de suggérer de nouvelles façons de travailler pour améliorer l'efficacité et la compétitivité - Autodiscipliné, engagé et avec un fort éthique de travail - Adaptable et capable de travailler de manière collaborative dans un environnement d'équipe avec des personnes issues de différents horizons - Orienté client - Proactif et avec une curiosité intellectuelle Que allez-vous obtenir? - Une expérience de travail dynamique en tournant dans différentes équipes et unités d'affaires - Expérience d'un réseau international enrichissant - Opportunité de développer des compétences dans votre domaine choisi et de contribuer à la Culture EFG - Opportunités de développement et d'apprentissage continu à la fois sur les compétences techniques et les compétences soft"
-      },
-      "requirementsByLocale": {},
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span lang=\"FR-CH\">We are looking for young talent to join our <strong>EFG Graduate Programme – Digital and IT path in Geneva</strong>, with a focus on <strong>Cyber Security and Cloud Architecture<u> </u></strong></span></p><p><span><strong><u>How the EFG Graduate Programme works?</u></strong></span></p><p><span>Starting in September 2026 and over a period of 18 months, the EFG Graduate Programme offers a challenging and exciting opportunity for recent graduates. Tailored on individual skills, interests, and competencies, the programme provides an ideal opportunity to obtain wide-ranging experience in an international and fast-growing private banking group:</span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>You will start with a 2-week onboarding in Switzerland to discover EFG Mission, Vision and Culture and start building your professional network. </span></li><li style=\"tab-stops:list 36.0pt;\"><span>During the onboarding you will have the chance to attend specific trainings aimed at enhancing key competencies and communication skills. </span></li><li style=\"tab-stops:list 36.0pt;\"><span>Continuous learning opportunities to ensure you develop both personally and professionally to achieve full potential.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Buddy and Mentor to accompany you throughout the programme.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Truly global, we have positions based in Miami, London, Luxembourg, Geneva, Zurich, Lugano, Singapore and Hong Kong.</span></li></ul><p><span>In this path, you will complete a 6-month rotation in your preferred digital or IT function, allowing you to specialise and develop expertise in your chosen area. You will also undertake two additional 6-month rotations across different teams, broadening your understanding of how digital solutions and IT infrastructure drive the private banking industry.</span></p><p><span>This path provides a strong foundation for a career in digital, innovative, and forward-looking roles, equipping you with the skills and insights needed to excel in EFG’s dynamic business environment.</span></p><p><span><strong><u>Could you be one of our future graduates?</u></strong></span></p><p><span>We value diversity and we do not require specific academic majors or industry experience, but look for different mix of background, experiences and skills.</span></p><p><span>Our graduates are brilliant and enthusiastic talents, so we expect:</span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>Bachelor or Master degree (completed in 2025 or on track to complete it) with outstanding academic results in a field with affinity with the selected professional path.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Excellent English (any other language will be an advantage)</span></li><li style=\"tab-stops:list 36.0pt;\"><span>International mindset</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Strong analytical, problem solving and organisational skills </span></li><li style=\"tab-stops:list 36.0pt;\"><span>Forward thinking and able to suggest new ways of working to improve efficiency and competitiveness </span></li><li style=\"tab-stops:list 36.0pt;\"><span>Self-disciplined, committed and with strong work ethics</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Adaptable and able to work collaboratively in a team environment with people from different backgrounds</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Client-oriented</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Proactive self-starter with intellectual curiosity</span></li></ul><p><span><strong><u>What will you get?</u></strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>Dynamic work experience by rotating through different teams and business units</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Experience an enriching international network</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Opportunity to build expertise in your chosen field and contribute to the EFG Culture </span></li><li style=\"tab-stops:list 36.0pt;\"><span>Continuous development and learning opportunities on both technical and soft skills </span></li></ul><p> </p>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 2
-          }
-        }
-      },
-      "crawledAt": "2026-04-09T09:33:55.016Z",
-      "slugByLocale": {
-        "it": "programma-di-formazione-efg-2026-digitale-e-it-sicurezza-informatica-e-architettura-cloud-efg-international-ag-geneve",
-        "en": "efg-graduate-programme-2026-digital-and-it-cyber-security-and-cloud-architecture-efg-international-ag-geneve",
-        "de": "efg-graduate-programme-2026-digital-and-it-cyber-security-and-cloud-architecture-efg-genev",
-        "fr": "programme-de-formation-efg-2026-digital-et-it-securite-informatique-et-architecture-cloud-efg-international-ag-geneve"
-      },
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "datePosted": "2026-04-09",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85500,
-          "maxValue": 150000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "previousSlugs": []
     },
     {
       "id": "efg-6064",
@@ -3375,7 +3518,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-09T09:33:55.013Z",
+      "crawledAt": "2026-04-09T21:26:17.263Z",
       "slugByLocale": {
         "it": "tester-di-penetrazione-interno-per-la-cybersecurity-efg-international-ag-geneve",
         "en": "cybersecurity-internal-penetration-tester-efg-geneve",
@@ -3401,7 +3544,9 @@
       "streetAddress": "Via Pretorio 22",
       "postalCode": "6900",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "previousSlugs": []
     },
     {
       "id": "efg-6039",
@@ -3452,7 +3597,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-09T09:33:55.012Z",
+      "crawledAt": "2026-04-09T21:26:17.261Z",
       "slugByLocale": {
         "it": "sviluppatore-epm-onestream-analista-dati-business-efg-international-ag-lugano",
         "en": "epm-onestream-developer-business-data-analyst-efg-lugano",
@@ -3477,7 +3622,8 @@
       "streetAddress": "Via Pretorio 22",
       "postalCode": "6900",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": []
     },
     {
       "id": "efg-6040",
@@ -3528,7 +3674,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-09T09:33:55.010Z",
+      "crawledAt": "2026-04-09T21:26:17.260Z",
       "slugByLocale": {
         "it": "responsabile-del-team-di-supporto-per-rete-e-proxy-efg-international-ag-geneve",
         "en": "network-proxy-support-team-lead-efg-geneve",
@@ -3553,7 +3699,9 @@
       "streetAddress": "Via Pretorio 22",
       "postalCode": "6900",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "previousSlugs": []
     },
     {
       "id": "efg-5869",
@@ -3604,7 +3752,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-09T09:33:55.009Z",
+      "crawledAt": "2026-04-09T21:26:17.257Z",
       "slugByLocale": {
         "it": "ufficiale-di-pianificazione-strategica-efg-international-ag-lugano",
         "en": "strategic-planning-officer-efg-lugano",
@@ -3629,7 +3777,8 @@
       "streetAddress": "Via Pretorio 22",
       "postalCode": "6900",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": []
     }
   ]
 }

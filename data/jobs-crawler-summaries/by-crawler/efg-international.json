@@ -1,31 +1,31 @@
 {
   "key": "efg-international",
   "label": "EFG",
-  "generatedAt": "2026-04-09T09:33:57.599Z",
-  "total": 27,
-  "newCount": 2,
-  "updatedCount": 22,
+  "generatedAt": "2026-04-09T21:26:19.641Z",
+  "total": 28,
+  "newCount": 1,
+  "updatedCount": 26,
   "removedCount": 0,
-  "unchangedCount": 3,
-  "durationMs": 25811,
-  "avgDurationMs": 25811,
+  "unchangedCount": 1,
+  "durationMs": 28741,
+  "avgDurationMs": 28741,
   "durationHistory": [
-    25811
+    28741
   ],
   "newJobs": [
     {
-      "id": "efg-6168",
-      "slug": "talent-acquisition-internship-efg-lugano",
+      "id": "efg-6197",
+      "slug": "technology-cyber-information-security-risk-analyst-temporary-efg-zurich",
       "company": "EFG International AG",
-      "title": "Talent Acquisition Internship",
-      "location": "Lugano",
-      "canton": "TI",
+      "title": "Technology & Cyber Information Security Risk Analyst (Temporary)",
+      "location": "Zurich",
+      "canton": "ZH",
       "category": "finance",
       "contract": "temporary",
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-04-09",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6168",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6197",
       "source": "Oracle HCM API",
       "sourceLang": "en",
       "companyKey": "efg-international",
@@ -34,153 +34,69 @@
         "byLocale": {
           "en": {
             "summary": [
-              "The Talent Acquisition (TA) team is part of the Human Resources function and is responsible for attracting and hiring the best talent in the market for EFG Bank.",
-              "We are looking for a motivated Talent Acquisition Intern to join our team for a 6‑month internship in Lugano or Geneva. In this role, you will play a key part in enhancing the candidate experience, supporting Talent Acquisition in day‑to‑day activities, and contributing to reporting and process optimisation. You will also have the opportunity to support, and progressively manage, some junior recruitment mandates under guidance.",
-              "Key Responsibilities"
+              "The Technology & Cyber Information Security Risk Analyst will be part of the Operational Risk team. We are looking for a passionate IT risk, cyber and information security to cover a global role located in Switzerland.<br>",
+              "Location: Geneva, Zurich, Lugano.<br>"
             ],
             "responsibilities": [
-              "Act as a point of contact for candidates, ensuring clear, timely and professional communication throughout the recruitment process.",
-              "Coordinate and schedule interviews with hiring managers and other stakeholders.",
-              "Support Talent Acquisition Specialists in screening CVs and assessing candidates against role requirements.",
-              "Draft and post job advertisements on internal and external platforms, ensuring consistency with EFG’s employer brand.",
-              "Execute daily operations in the Applicant Tracking System (ATS), including data entry, data quality checks and status updates.",
-              "Maintain accurate candidate records and ensure proper documentation of each recruitment step.",
-              "Prepare standard correspondence and communication to candidates and hiring managers.",
-              "Support coordination of assessments (tests, case studies, reference checks), where applicable.",
-              "Support the preparation of regular recruitment reports and simple dashboards (e.g. pipeline status, time‑to‑hire, sources of hire).",
-              "Help monitor key TA metrics and identify basic trends or bottlenecks in the process.",
-              "Contribute ideas to streamline and standardise recruitment processes, templates and communication flows.",
-              "Participate in small projects aimed at improving tools, candidate experience and internal TA efficiency.",
-              "Assist in sourcing candidates via LinkedIn Recruiter, job boards, referrals and other channels.",
-              "Conduct initial phone or video pre‑screenings for selected roles, under supervision.",
-              "Support employer branding initiatives (e.g. content preparation for social media or the career site, or job fairs).",
-              "Progressively support and, where appropriate, manage end‑to‑end recruitment for selected junior or intern positions, under the guidance of a Talent Acquisition Specialist."
+              "Master’s degree in Computer Science, Cyber Security, Information Technology, or equivalent.",
+              "Professional certification, e.g. Information Systems Security Professional (CISSP), Information Security Manager, (CISM), Information Systems Auditor (CISA), Risk and",
+              "Information Systems Control (CRISC) or equivalent.",
+              "At least 3-5 years of experience in banking IT platforms, operational processes and IT controls, or in consulting/audit with a leading professional services firm; a combination of both is considered an advantage.",
+              "Excellent communication skills in English, both verbal and written. Knowledge of German, French, or Italian is a plus.",
+              "In-depth understanding of key technology and information security concepts relevant to banking. In particular, strong knowledge of IT organisation, business processes and systems (e.g. IT Security, data management, architecture and planning, life cycle management and regulatory matters).",
+              "Proven ability to write reports and communicate effectively with a senior audience.",
+              "Self-motivated, diligent, highly organized, able to prioritize and multi-task, and thrive in a fast-paced environment.",
+              "Excellent analytical and problem-solving skills, able to work autonomously and as part of a global team."
             ],
-            "requirements": [
-              "Master’s degree (or currently enrolled in a Master’s program) in Human Resources, Business Administration, Psychology or a related field.",
-              "Previous experience (internship, part time role or similar) in recruiting, HR or employer branding is a plus.",
-              "Experience in data management, reporting or working with HR/ATS systems is an advantage.",
-              "Excellent command of English (spoken and written).",
-              "Good command of Italian or French is considered a strong plus, depending on the location.",
-              "Interest in working with HR tools and platforms (e.g. Applicant Tracking Systems, LinkedIn Recruiter, career websites).",
-              "Good MS Office skills, especially in Excel and PowerPoint, with an interest in reporting and basic analytics.",
-              "High attention to detail and accuracy in handling data and administrative tasks.",
-              "Strong interest in Talent Acquisition, the banking industry and investment management.",
-              "Excellent communication and interpersonal skills, with a natural focus on service and candidate experience.",
-              "Organised, structured and able to manage multiple tasks and priorities.",
-              "Proactive, curious and willing to take ownership of tasks and suggest improvements.",
-              "Team oriented, collaborative and comfortable working in an international and multicultural environment.",
-              "Alignment with EFG’s entrepreneurial culture: hands on, solutions oriented and open to learning."
-            ],
+            "requirements": [],
             "benefits": [
-              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
-              "Hands-on: Being proactive to rapidly deliver high-quality results",
-              "Passionate: Being committed and striving for excellence",
-              "Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset",
-              "Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit."
+              "<strong>Accountability</strong>: Taking ownership for tasks and challenges as well as seeking continuous improvement.",
+              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results.",
+              "<strong>Passionate</strong>: Being committed and striving for excellence.",
+              "<strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset.",
+              "<strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit."
             ],
             "process": [],
             "highlights": [
-              "Act as a point of contact for candidates, ensuring clear, timely and professional communication throughout the recruitment process.",
-              "Coordinate and schedule interviews with hiring managers and other stakeholders.",
-              "Support Talent Acquisition Specialists in screening CVs and assessing candidates against role requirements.",
-              "Master’s degree (or currently enrolled in a Master’s program) in Human Resources, Business Administration, Psychology or a related field.",
-              "Previous experience (internship, part time role or similar) in recruiting, HR or employer branding is a plus.",
-              "Experience in data management, reporting or working with HR/ATS systems is an advantage.",
-              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
-              "Hands-on: Being proactive to rapidly deliver high-quality results"
+              "Master’s degree in Computer Science, Cyber Security, Information Technology, or equivalent.",
+              "Professional certification, e.g. Information Systems Security Professional (CISSP), Information Security Manager, (CISM), Information Systems Auditor (CISA), Risk and",
+              "Information Systems Control (CRISC) or equivalent.",
+              "<strong>Accountability</strong>: Taking ownership for tasks and challenges as well as seeking continuous improvement.",
+              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results."
             ],
             "keywords": [
-              "Master’s degree (or currently enrolled in a Master’s program) in Human Resources",
-              "Previous experience (internship",
-              "Experience in data management",
-              "Excellent command of English (spoken and written).",
-              "Good command of Italian or French is considered a strong plus",
-              "Act as a point of contact for candidates",
-              "Coordinate and schedule interviews with hiring managers and other stakeholders.",
-              "Support Talent Acquisition Specialists in screening CVs and assessing candidates against role requirements.",
-              "Draft and post job advertisements on internal and external platforms"
+              "Master’s degree in Computer Science",
+              "Professional certification",
+              "Information Systems Control (CRISC) or equivalent.",
+              "At least 3-5 years of experience in banking IT platforms"
             ],
             "sections": [
               {
                 "id": "company",
                 "heading": "Our Company",
                 "paragraphs": [
-                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
-                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
-                ],
-                "bullets": []
-              },
-              {
-                "id": "company",
-                "heading": "Our Purpose and Mission",
-                "paragraphs": [
-                  "Empowering entrepreneurial minds to create value – today and for the future.",
-                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
+                  "<br>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
+                  "<br>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.",
+                  "<br><strong>Our Purpose and Mission</strong>",
+                  "<br>Empowering entrepreneurial minds to create value – today and for the future.",
+                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.<br>"
                 ],
                 "bullets": []
               }
             ],
-            "readingMinutes": 5
+            "readingMinutes": 3
           }
         }
       },
-      "crawledAt": "2026-04-09T09:33:55.016Z",
-      "addressLocality": "Lugano",
+      "crawledAt": "2026-04-09T21:26:17.268Z",
+      "addressLocality": "Zurich",
       "addressCountry": "CH",
       "needsRetranslation": true,
       "datePosted": "2026-04-09",
-      "_qualityScore": 68,
+      "_qualityScore": 67,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 25,
-        "translation": 4,
-        "completeness": 14
-      }
-    },
-    {
-      "id": "efg-6230",
-      "slug": "efg-graduate-programme-2026-digital-and-it-cyber-security-and-cloud-architecture-efg-genev",
-      "company": "EFG International AG",
-      "title": "EFG Graduate Programme 2026 - Digital and IT - Cyber Security and Cloud Architecture",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-09",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6230",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span lang=\"FR-CH\">We are looking for young talent to join our <strong>EFG Graduate Programme – Digital and IT path in Geneva</strong>, with a focus on <strong>Cyber Security and Cloud Architecture<u> </u></strong></span></p><p><span><strong><u>How the EFG Graduate Programme works?</u></strong></span></p><p><span>Starting in September 2026 and over a period of 18 months, the EFG Graduate Programme offers a challenging and exciting opportunity for recent graduates. Tailored on individual skills, interests, and competencies, the programme provides an ideal opportunity to obtain wide-ranging experience in an international and fast-growing private banking group:</span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>You will start with a 2-week onboarding in Switzerland to discover EFG Mission, Vision and Culture and start building your professional network. </span></li><li style=\"tab-stops:list 36.0pt;\"><span>During the onboarding you will have the chance to attend specific trainings aimed at enhancing key competencies and communication skills. </span></li><li style=\"tab-stops:list 36.0pt;\"><span>Continuous learning opportunities to ensure you develop both personally and professionally to achieve full potential.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Buddy and Mentor to accompany you throughout the programme.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Truly global, we have positions based in Miami, London, Luxembourg, Geneva, Zurich, Lugano, Singapore and Hong Kong.</span></li></ul><p><span>In this path, you will complete a 6-month rotation in your preferred digital or IT function, allowing you to specialise and develop expertise in your chosen area. You will also undertake two additional 6-month rotations across different teams, broadening your understanding of how digital solutions and IT infrastructure drive the private banking industry.</span></p><p><span>This path provides a strong foundation for a career in digital, innovative, and forward-looking roles, equipping you with the skills and insights needed to excel in EFG’s dynamic business environment.</span></p><p><span><strong><u>Could you be one of our future graduates?</u></strong></span></p><p><span>We value diversity and we do not require specific academic majors or industry experience, but look for different mix of background, experiences and skills.</span></p><p><span>Our graduates are brilliant and enthusiastic talents, so we expect:</span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>Bachelor or Master degree (completed in 2025 or on track to complete it) with outstanding academic results in a field with affinity with the selected professional path.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Excellent English (any other language will be an advantage)</span></li><li style=\"tab-stops:list 36.0pt;\"><span>International mindset</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Strong analytical, problem solving and organisational skills </span></li><li style=\"tab-stops:list 36.0pt;\"><span>Forward thinking and able to suggest new ways of working to improve efficiency and competitiveness </span></li><li style=\"tab-stops:list 36.0pt;\"><span>Self-disciplined, committed and with strong work ethics</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Adaptable and able to work collaboratively in a team environment with people from different backgrounds</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Client-oriented</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Proactive self-starter with intellectual curiosity</span></li></ul><p><span><strong><u>What will you get?</u></strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>Dynamic work experience by rotating through different teams and business units</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Experience an enriching international network</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Opportunity to build expertise in your chosen field and contribute to the EFG Culture </span></li><li style=\"tab-stops:list 36.0pt;\"><span>Continuous development and learning opportunities on both technical and soft skills </span></li></ul><p> </p>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 2
-          }
-        }
-      },
-      "crawledAt": "2026-04-09T09:33:55.016Z",
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "needsRetranslation": true,
-      "datePosted": "2026-04-09",
-      "_qualityScore": 65,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
+        "richness": 24,
         "translation": 4,
         "completeness": 14
       }
@@ -267,7 +183,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-09T09:33:55.034Z",
+      "crawledAt": "2026-04-09T21:26:17.289Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -382,7 +298,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-09T09:33:55.033Z",
+      "crawledAt": "2026-04-09T21:26:17.289Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-03-06",
@@ -499,7 +415,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-09T09:33:55.032Z",
+      "crawledAt": "2026-04-09T21:26:17.288Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -510,6 +426,113 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "datePosted": "2026-02-27",
+      "_qualityScore": 100,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "efg-6103",
+      "slug": "temp-contract-business-analista-sviluppatore-efg-international-ag-lugano-n9334f",
+      "company": "EFG International AG",
+      "title": "Temp Contract - IT Business Analyst/Developer",
+      "location": "Lugano",
+      "canton": "TI",
+      "category": "tech",
+      "contract": "temporary",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-10",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6103",
+      "source": "Oracle HCM API",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [],
+            "responsibilities": [
+              "<span>Provide day-to-day support of the various application systems.</span>",
+              "<span>Document new system enhancements, implement and test enhancements, provide training to users </span>",
+              "<span>Liaise with existing users and technical analysts and the relevant application vendors</span>",
+              "<span>Configuration, roll-out, training and application support of Charles River / Aladdin and surrounding applications</span>",
+              "<span>Define and test required solutions to enhance the existing features and functionalities of the IT solutions</span>",
+              "<span>Obtain expertise in using and configuring the Charles River / Aladdin applications</span>",
+              "<span>Progress in timely manner with defining changes and the delivery of required changes in the systems</span>",
+              "<span>Escalate issues in timely manner with all required stakeholders</span>",
+              "<span>Progress work according to agreed priorities (and ensure that priorities are understood if there are any ambiguities)</span>",
+              "<span>Conduct and document and agree gap analysis of any required changes with Vendor and business users</span>",
+              "<span>Prepare, agree and document detailed process flows, test plan, test execution reports and other project documentation</span>"
+            ],
+            "requirements": [
+              "<span>Bachelor or Master degree qualification in a numerate subject (e.g. Engineering, Economics, maths, etc…)</span>",
+              "<span>Strong communication skills (written and oral)</span>",
+              "<span>Excellent analytical and problem-solving skills /ability to think quick on your feet)</span>",
+              "<span>Strong attention to detail </span>",
+              "<span>Ability to be independent and take ownership of tasks</span>",
+              "<span>Goal-oriented</span>",
+              "<span>Excellent knowledge of MS Office</span>",
+              "<span>Software experience: Microsoft SQL, Excel Macros, Visual Basic </span>",
+              "<span>Knowledge of Charles River and / or BlackRock Aladdin (preferable)</span>",
+              "<span>English (French/German/Italian would be beneficial)</span>",
+              "<span>Effective interpersonal skill in negotiation and influencing</span>",
+              "<span>Must be able to travel from time to time if required</span>",
+              "<span>Previous experience in financial industry would be preferable</span>",
+              "<span>Expectation to be office based</span>",
+              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
+              "Hands-on: Being proactive to rapidly deliver high-quality results"
+            ],
+            "benefits": [],
+            "process": [
+              "Should you wish to apply for this position use this link to apply."
+            ],
+            "highlights": [
+              "<span>Provide day-to-day support of the various application systems.</span>",
+              "<span>Document new system enhancements, implement and test enhancements, provide training to users </span>",
+              "<span>Liaise with existing users and technical analysts and the relevant application vendors</span>",
+              "<span>Bachelor or Master degree qualification in a numerate subject (e.g. Engineering, Economics, maths, etc…)</span>",
+              "<span>Strong communication skills (written and oral)</span>",
+              "<span>Excellent analytical and problem-solving skills /ability to think quick on your feet)</span>"
+            ],
+            "keywords": [
+              "<span>Bachelor or Master degree qualification in a numerate subject (e.g. Engineering",
+              "<span>Strong communication skills (written and oral)</span>",
+              "<span>Excellent analytical and problem-solving skills /ability to think quick on your feet)</span>",
+              "<span>Strong attention to detail </span>",
+              "<span>Ability to be independent and take ownership of tasks</span>",
+              "<span>Provide day-to-day support of the various application systems.</span>",
+              "<span>Document new system enhancements",
+              "<span>Liaise with existing users and technical analysts and the relevant application vendors</span>",
+              "<span>Configuration"
+            ],
+            "sections": [
+              {
+                "id": "details",
+                "heading": "Specification of Core Function",
+                "paragraphs": [
+                  "Our team delivers solutions and provides support for internal and third-party systems in place for the Investment Client Solution (ICS) business. Support, business analysis, testing and development is provided for all business lines of the ICS including Advisory, Discretionary and New Capital Funds. The main aspect of this role is Support and Business Analyst functions. The role involves interaction with a wide range of end users from all aspects of the business (e.g. Front office, Middle office, Back office, Risk and Compliance as well as IT). The role involves providing support for Production critical issues, understanding and challenging business change requirements, testing changes, co-ordinating delivery workstreams, devising workable efficient scalable solutions to meet business requirements."
+                ],
+                "bullets": []
+              }
+            ],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-04-09T21:26:17.287Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "sourceLang": "en",
+      "salaryMin": 72500,
+      "salaryMax": 97500,
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "datePosted": "2026-03-10",
       "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -611,7 +634,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-09T09:33:55.031Z",
+      "crawledAt": "2026-04-09T21:26:17.286Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-03-25",
@@ -626,113 +649,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "efg-6103",
-      "slug": "temp-contract-business-analista-sviluppatore-efg-international-ag-lugano-n9334f",
-      "company": "EFG International AG",
-      "title": "Temp Contract - IT Business Analyst/Developer",
-      "location": "Lugano",
-      "canton": "TI",
-      "category": "tech",
-      "contract": "temporary",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-10",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6103",
-      "source": "Oracle HCM API",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [],
-            "responsibilities": [
-              "<span>Provide day-to-day support of the various application systems.</span>",
-              "<span>Document new system enhancements, implement and test enhancements, provide training to users </span>",
-              "<span>Liaise with existing users and technical analysts and the relevant application vendors</span>",
-              "<span>Configuration, roll-out, training and application support of Charles River / Aladdin and surrounding applications</span>",
-              "<span>Define and test required solutions to enhance the existing features and functionalities of the IT solutions</span>",
-              "<span>Obtain expertise in using and configuring the Charles River / Aladdin applications</span>",
-              "<span>Progress in timely manner with defining changes and the delivery of required changes in the systems</span>",
-              "<span>Escalate issues in timely manner with all required stakeholders</span>",
-              "<span>Progress work according to agreed priorities (and ensure that priorities are understood if there are any ambiguities)</span>",
-              "<span>Conduct and document and agree gap analysis of any required changes with Vendor and business users</span>",
-              "<span>Prepare, agree and document detailed process flows, test plan, test execution reports and other project documentation</span>"
-            ],
-            "requirements": [
-              "<span>Bachelor or Master degree qualification in a numerate subject (e.g. Engineering, Economics, maths, etc…)</span>",
-              "<span>Strong communication skills (written and oral)</span>",
-              "<span>Excellent analytical and problem-solving skills /ability to think quick on your feet)</span>",
-              "<span>Strong attention to detail </span>",
-              "<span>Ability to be independent and take ownership of tasks</span>",
-              "<span>Goal-oriented</span>",
-              "<span>Excellent knowledge of MS Office</span>",
-              "<span>Software experience: Microsoft SQL, Excel Macros, Visual Basic </span>",
-              "<span>Knowledge of Charles River and / or BlackRock Aladdin (preferable)</span>",
-              "<span>English (French/German/Italian would be beneficial)</span>",
-              "<span>Effective interpersonal skill in negotiation and influencing</span>",
-              "<span>Must be able to travel from time to time if required</span>",
-              "<span>Previous experience in financial industry would be preferable</span>",
-              "<span>Expectation to be office based</span>",
-              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
-              "Hands-on: Being proactive to rapidly deliver high-quality results"
-            ],
-            "benefits": [],
-            "process": [
-              "Should you wish to apply for this position use this link to apply."
-            ],
-            "highlights": [
-              "<span>Provide day-to-day support of the various application systems.</span>",
-              "<span>Document new system enhancements, implement and test enhancements, provide training to users </span>",
-              "<span>Liaise with existing users and technical analysts and the relevant application vendors</span>",
-              "<span>Bachelor or Master degree qualification in a numerate subject (e.g. Engineering, Economics, maths, etc…)</span>",
-              "<span>Strong communication skills (written and oral)</span>",
-              "<span>Excellent analytical and problem-solving skills /ability to think quick on your feet)</span>"
-            ],
-            "keywords": [
-              "<span>Bachelor or Master degree qualification in a numerate subject (e.g. Engineering",
-              "<span>Strong communication skills (written and oral)</span>",
-              "<span>Excellent analytical and problem-solving skills /ability to think quick on your feet)</span>",
-              "<span>Strong attention to detail </span>",
-              "<span>Ability to be independent and take ownership of tasks</span>",
-              "<span>Provide day-to-day support of the various application systems.</span>",
-              "<span>Document new system enhancements",
-              "<span>Liaise with existing users and technical analysts and the relevant application vendors</span>",
-              "<span>Configuration"
-            ],
-            "sections": [
-              {
-                "id": "details",
-                "heading": "Specification of Core Function",
-                "paragraphs": [
-                  "Our team delivers solutions and provides support for internal and third-party systems in place for the Investment Client Solution (ICS) business. Support, business analysis, testing and development is provided for all business lines of the ICS including Advisory, Discretionary and New Capital Funds. The main aspect of this role is Support and Business Analyst functions. The role involves interaction with a wide range of end users from all aspects of the business (e.g. Front office, Middle office, Back office, Risk and Compliance as well as IT). The role involves providing support for Production critical issues, understanding and challenging business change requirements, testing changes, co-ordinating delivery workstreams, devising workable efficient scalable solutions to meet business requirements."
-                ],
-                "bullets": []
-              }
-            ],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-04-09T09:33:55.031Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "sourceLang": "en",
-      "salaryMin": 72500,
-      "salaryMax": 97500,
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "datePosted": "2026-03-10",
-      "_qualityScore": 100,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
         "translation": 25,
         "completeness": 25
       }
@@ -836,7 +752,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-09T09:33:55.030Z",
+      "crawledAt": "2026-04-09T21:26:17.285Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-02-24",
@@ -948,7 +864,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-09T09:33:55.029Z",
+      "crawledAt": "2026-04-09T21:26:17.284Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-02-03",
@@ -1071,7 +987,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-09T09:33:55.028Z",
+      "crawledAt": "2026-04-09T21:26:17.283Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-01-19",
@@ -1203,7 +1119,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-09T09:33:55.027Z",
+      "crawledAt": "2026-04-09T21:26:17.282Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-02-11",
@@ -1324,7 +1240,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-09T09:33:55.026Z",
+      "crawledAt": "2026-04-09T21:26:17.281Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1451,7 +1367,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-09T09:33:55.025Z",
+      "crawledAt": "2026-04-09T21:26:17.280Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1504,7 +1420,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-09T09:33:55.024Z",
+      "crawledAt": "2026-04-09T21:26:17.279Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2025-12-10",
@@ -1616,7 +1532,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-09T09:33:55.024Z",
+      "crawledAt": "2026-04-09T21:26:17.278Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2025-12-02",
@@ -1762,7 +1678,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-09T09:33:55.023Z",
+      "crawledAt": "2026-04-09T21:26:17.277Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-02-11",
@@ -1878,7 +1794,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-09T09:33:55.022Z",
+      "crawledAt": "2026-04-09T21:26:17.276Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-03-31",
@@ -1931,7 +1847,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-09T09:33:55.021Z",
+      "crawledAt": "2026-04-09T21:26:17.275Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "datePosted": "2026-04-01",
@@ -1984,7 +1900,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-09T09:33:55.021Z",
+      "crawledAt": "2026-04-09T21:26:17.275Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -2112,7 +2028,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-09T09:33:55.019Z",
+      "crawledAt": "2026-04-09T21:26:17.273Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-01",
@@ -2165,7 +2081,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-09T09:33:55.018Z",
+      "crawledAt": "2026-04-09T21:26:17.271Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-04-02",
@@ -2245,7 +2161,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-09T09:33:55.017Z",
+      "crawledAt": "2026-04-09T21:26:17.270Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-02",
@@ -2323,7 +2239,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-09T09:33:55.017Z",
+      "crawledAt": "2026-04-09T21:26:17.270Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-02",
@@ -2338,6 +2254,137 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "efg-6168",
+      "slug": "talent-acquisition-internship-efg-lugano",
+      "company": "EFG International AG",
+      "title": "Talent Acquisition Internship",
+      "location": "Lugano",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "temporary",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-09",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6168",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "The Talent Acquisition (TA) team is part of the Human Resources function and is responsible for attracting and hiring the best talent in the market for EFG Bank.",
+              "We are looking for a motivated Talent Acquisition Intern to join our team for a 6‑month internship in Lugano or Geneva. In this role, you will play a key part in enhancing the candidate experience, supporting Talent Acquisition in day‑to‑day activities, and contributing to reporting and process optimisation. You will also have the opportunity to support, and progressively manage, some junior recruitment mandates under guidance.",
+              "Key Responsibilities"
+            ],
+            "responsibilities": [
+              "Act as a point of contact for candidates, ensuring clear, timely and professional communication throughout the recruitment process.",
+              "Coordinate and schedule interviews with hiring managers and other stakeholders.",
+              "Support Talent Acquisition Specialists in screening CVs and assessing candidates against role requirements.",
+              "Draft and post job advertisements on internal and external platforms, ensuring consistency with EFG’s employer brand.",
+              "Execute daily operations in the Applicant Tracking System (ATS), including data entry, data quality checks and status updates.",
+              "Maintain accurate candidate records and ensure proper documentation of each recruitment step.",
+              "Prepare standard correspondence and communication to candidates and hiring managers.",
+              "Support coordination of assessments (tests, case studies, reference checks), where applicable.",
+              "Support the preparation of regular recruitment reports and simple dashboards (e.g. pipeline status, time‑to‑hire, sources of hire).",
+              "Help monitor key TA metrics and identify basic trends or bottlenecks in the process.",
+              "Contribute ideas to streamline and standardise recruitment processes, templates and communication flows.",
+              "Participate in small projects aimed at improving tools, candidate experience and internal TA efficiency.",
+              "Assist in sourcing candidates via LinkedIn Recruiter, job boards, referrals and other channels.",
+              "Conduct initial phone or video pre‑screenings for selected roles, under supervision.",
+              "Support employer branding initiatives (e.g. content preparation for social media or the career site, or job fairs).",
+              "Progressively support and, where appropriate, manage end‑to‑end recruitment for selected junior or intern positions, under the guidance of a Talent Acquisition Specialist."
+            ],
+            "requirements": [
+              "Master’s degree (or currently enrolled in a Master’s program) in Human Resources, Business Administration, Psychology or a related field.",
+              "Previous experience (internship, part time role or similar) in recruiting, HR or employer branding is a plus.",
+              "Experience in data management, reporting or working with HR/ATS systems is an advantage.",
+              "Excellent command of English (spoken and written).",
+              "Good command of Italian or French is considered a strong plus, depending on the location.",
+              "Interest in working with HR tools and platforms (e.g. Applicant Tracking Systems, LinkedIn Recruiter, career websites).",
+              "Good MS Office skills, especially in Excel and PowerPoint, with an interest in reporting and basic analytics.",
+              "High attention to detail and accuracy in handling data and administrative tasks.",
+              "Strong interest in Talent Acquisition, the banking industry and investment management.",
+              "Excellent communication and interpersonal skills, with a natural focus on service and candidate experience.",
+              "Organised, structured and able to manage multiple tasks and priorities.",
+              "Proactive, curious and willing to take ownership of tasks and suggest improvements.",
+              "Team oriented, collaborative and comfortable working in an international and multicultural environment.",
+              "Alignment with EFG’s entrepreneurial culture: hands on, solutions oriented and open to learning."
+            ],
+            "benefits": [
+              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
+              "Hands-on: Being proactive to rapidly deliver high-quality results",
+              "Passionate: Being committed and striving for excellence",
+              "Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset",
+              "Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit."
+            ],
+            "process": [],
+            "highlights": [
+              "Act as a point of contact for candidates, ensuring clear, timely and professional communication throughout the recruitment process.",
+              "Coordinate and schedule interviews with hiring managers and other stakeholders.",
+              "Support Talent Acquisition Specialists in screening CVs and assessing candidates against role requirements.",
+              "Master’s degree (or currently enrolled in a Master’s program) in Human Resources, Business Administration, Psychology or a related field.",
+              "Previous experience (internship, part time role or similar) in recruiting, HR or employer branding is a plus.",
+              "Experience in data management, reporting or working with HR/ATS systems is an advantage.",
+              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
+              "Hands-on: Being proactive to rapidly deliver high-quality results"
+            ],
+            "keywords": [
+              "Master’s degree (or currently enrolled in a Master’s program) in Human Resources",
+              "Previous experience (internship",
+              "Experience in data management",
+              "Excellent command of English (spoken and written).",
+              "Good command of Italian or French is considered a strong plus",
+              "Act as a point of contact for candidates",
+              "Coordinate and schedule interviews with hiring managers and other stakeholders.",
+              "Support Talent Acquisition Specialists in screening CVs and assessing candidates against role requirements.",
+              "Draft and post job advertisements on internal and external platforms"
+            ],
+            "sections": [
+              {
+                "id": "company",
+                "heading": "Our Company",
+                "paragraphs": [
+                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
+                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
+                ],
+                "bullets": []
+              },
+              {
+                "id": "company",
+                "heading": "Our Purpose and Mission",
+                "paragraphs": [
+                  "Empowering entrepreneurial minds to create value – today and for the future.",
+                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
+                ],
+                "bullets": []
+              }
+            ],
+            "readingMinutes": 5
+          }
+        }
+      },
+      "crawledAt": "2026-04-09T21:26:17.267Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "datePosted": "2026-04-09",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "_qualityScore": 100,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
         "translation": 25,
         "completeness": 25
       }
@@ -2375,7 +2422,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-09T09:33:55.013Z",
+      "crawledAt": "2026-04-09T21:26:17.263Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-07",
@@ -2394,10 +2441,7 @@
         "translation": 25,
         "completeness": 25
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "efg-6039",
       "slug": "epm-onestream-developer-business-data-analyst-efg-lugano",
@@ -2432,7 +2476,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-09T09:33:55.012Z",
+      "crawledAt": "2026-04-09T21:26:17.261Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -2484,7 +2528,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-09T09:33:55.010Z",
+      "crawledAt": "2026-04-09T21:26:17.260Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -2537,12 +2581,67 @@
           }
         }
       },
-      "crawledAt": "2026-04-09T09:33:55.009Z",
+      "crawledAt": "2026-04-09T21:26:17.257Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
       "salaryMin": 82500,
       "salaryMax": 111500,
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
+    {
+      "id": "efg-6230",
+      "slug": "efg-graduate-programme-2026-digital-and-it-cyber-security-and-cloud-architecture-efg-genev",
+      "company": "EFG International AG",
+      "title": "EFG Graduate Programme 2026 - Digital and IT - Cyber Security and Cloud Architecture",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-09",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6230",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span lang=\"FR-CH\">We are looking for young talent to join our <strong>EFG Graduate Programme – Digital and IT path in Geneva</strong>, with a focus on <strong>Cyber Security and Cloud Architecture<u> </u></strong></span></p><p><span><strong><u>How the EFG Graduate Programme works?</u></strong></span></p><p><span>Starting in September 2026 and over a period of 18 months, the EFG Graduate Programme offers a challenging and exciting opportunity for recent graduates. Tailored on individual skills, interests, and competencies, the programme provides an ideal opportunity to obtain wide-ranging experience in an international and fast-growing private banking group:</span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>You will start with a 2-week onboarding in Switzerland to discover EFG Mission, Vision and Culture and start building your professional network. </span></li><li style=\"tab-stops:list 36.0pt;\"><span>During the onboarding you will have the chance to attend specific trainings aimed at enhancing key competencies and communication skills. </span></li><li style=\"tab-stops:list 36.0pt;\"><span>Continuous learning opportunities to ensure you develop both personally and professionally to achieve full potential.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Buddy and Mentor to accompany you throughout the programme.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Truly global, we have positions based in Miami, London, Luxembourg, Geneva, Zurich, Lugano, Singapore and Hong Kong.</span></li></ul><p><span>In this path, you will complete a 6-month rotation in your preferred digital or IT function, allowing you to specialise and develop expertise in your chosen area. You will also undertake two additional 6-month rotations across different teams, broadening your understanding of how digital solutions and IT infrastructure drive the private banking industry.</span></p><p><span>This path provides a strong foundation for a career in digital, innovative, and forward-looking roles, equipping you with the skills and insights needed to excel in EFG’s dynamic business environment.</span></p><p><span><strong><u>Could you be one of our future graduates?</u></strong></span></p><p><span>We value diversity and we do not require specific academic majors or industry experience, but look for different mix of background, experiences and skills.</span></p><p><span>Our graduates are brilliant and enthusiastic talents, so we expect:</span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>Bachelor or Master degree (completed in 2025 or on track to complete it) with outstanding academic results in a field with affinity with the selected professional path.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Excellent English (any other language will be an advantage)</span></li><li style=\"tab-stops:list 36.0pt;\"><span>International mindset</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Strong analytical, problem solving and organisational skills </span></li><li style=\"tab-stops:list 36.0pt;\"><span>Forward thinking and able to suggest new ways of working to improve efficiency and competitiveness </span></li><li style=\"tab-stops:list 36.0pt;\"><span>Self-disciplined, committed and with strong work ethics</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Adaptable and able to work collaboratively in a team environment with people from different backgrounds</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Client-oriented</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Proactive self-starter with intellectual curiosity</span></li></ul><p><span><strong><u>What will you get?</u></strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>Dynamic work experience by rotating through different teams and business units</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Experience an enriching international network</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Opportunity to build expertise in your chosen field and contribute to the EFG Culture </span></li><li style=\"tab-stops:list 36.0pt;\"><span>Continuous development and learning opportunities on both technical and soft skills </span></li></ul><p> </p>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 2
+          }
+        }
+      },
+      "crawledAt": "2026-04-09T21:26:17.269Z",
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "datePosted": "2026-04-09",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
       "streetAddress": "Via Pretorio 22",
       "postalCode": "6900",
       "addressRegion": "TI",
