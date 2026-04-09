@@ -1,21 +1,22 @@
 {
   "key": "jysk",
   "label": "JYSK",
-  "generatedAt": "2026-04-08T21:29:35.336Z",
+  "generatedAt": "2026-04-09T09:46:21.888Z",
   "total": 1,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 37685,
-  "avgDurationMs": 37685,
+  "durationMs": 38947,
+  "avgDurationMs": 38947,
   "durationHistory": [
-    37685
+    38947
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-p6s7zm",
-      "slug": "verkaufer-in-a-20-samstag-aushilfe-in-der-filiale-davos-jysk-davos-p6s7zm",
+      "slug": "venditore-a-a-20-sabato-aushilfe-nel-negozio-davos-jysk-davos",
       "company": "JYSK",
       "title": "Verkäufer/in (a) 20% ( Samstag Aushilfe) in der Filiale Davos",
       "location": "Davos",
@@ -30,18 +31,20 @@
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
       "crawledAt": "2026-04-08T21:29:35.262Z",
-      "needsRetranslation": true,
       "sourceLang": "de",
-      "_qualityScore": 73,
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "employmentType": "FULL_TIME",
+      "postalCode": "7270",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 22
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
