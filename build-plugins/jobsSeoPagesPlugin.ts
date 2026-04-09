@@ -4416,6 +4416,7 @@ ${(() => {
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    ${FAVICON_LINKS}
     <title>${pageTitle}</title>
     <meta name="description" content="${pageDesc}">${robotsTag}
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
