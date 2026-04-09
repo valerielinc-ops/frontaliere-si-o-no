@@ -375,7 +375,7 @@ const EmailInput: React.FC<EmailInputProps> = ({
           className={`absolute z-50 left-0 right-0 mt-1 rounded-xl shadow-lg border overflow-hidden ${
             darkVariant
               ? 'bg-indigo-800 border-indigo-600'
-              : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700'
+              : 'bg-surface border-edge'
           }`}
         >
           {suggestions.map((suggestion, i) => {
@@ -397,7 +397,7 @@ const EmailInput: React.FC<EmailInputProps> = ({
                       : 'bg-indigo-50 dark:bg-indigo-950/30 text-indigo-700 dark:text-indigo-300'
                     : darkVariant
                       ? 'text-indigo-100 hover:bg-indigo-700'
-                      : 'text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700'
+                      : 'text-body hover:bg-slate-50 dark:hover:bg-slate-700'
                 }`}
               >
                 <span>{localDisplay}</span>

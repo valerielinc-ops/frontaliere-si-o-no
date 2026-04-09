@@ -54,7 +54,7 @@ export default function SupermarketMap({ supermarkets }: Props) {
                 {s.country === 'CH' ? '\uD83C\uDDE8\uD83C\uDDED' : '\uD83C\uDDEE\uD83C\uDDF9'}{' '}
                 {s.name}
               </div>
-              <div className="text-slate-500 dark:text-slate-400 text-xs">
+              <div className="text-muted text-xs">
                 {s.address}, {s.city}
               </div>
               <div className="text-xs mt-1">

@@ -83,14 +83,14 @@ const FiscoLanding: React.FC = () => {
               <h1 className="text-xl sm:text-2xl font-bold text-slate-800 dark:text-slate-100 leading-tight">
                 {t('fisco.landing.title')}
               </h1>
-              <p className="mt-1.5 text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl">
+              <p className="mt-1.5 text-sm sm:text-base text-subtle leading-relaxed max-w-2xl">
                 {t('fisco.landing.subtitle')}
               </p>
             </div>
           </div>
 
           {/* Trust signals */}
-          <div className="flex flex-wrap items-center gap-3 mt-4 text-xs font-medium text-slate-500 dark:text-slate-400">
+          <div className="flex flex-wrap items-center gap-3 mt-4 text-xs font-medium text-muted">
             <span className="inline-flex items-center gap-1 bg-white/70 dark:bg-slate-800/60 px-2.5 py-1 rounded-full">
               <Shield className="w-3.5 h-3.5 text-emerald-500" />
               {t('fisco.landing.trust.updated')}
@@ -123,7 +123,7 @@ const FiscoLanding: React.FC = () => {
           <button
             key={key}
             onClick={() => handleToolClick(key)}
-            className="group relative flex flex-col items-start gap-2 p-4 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-emerald-300 dark:hover:border-emerald-700 hover:shadow-md transition-[color,background-color,border-color,box-shadow] text-left"
+            className="group relative flex flex-col items-start gap-2 p-4 rounded-xl bg-surface border border-edge hover:border-emerald-300 dark:hover:border-emerald-700 hover:shadow-md transition-[color,background-color,border-color,box-shadow] text-left"
           >
             {badge && (
               <span className={`absolute top-2.5 right-2.5 text-xs font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ${
@@ -138,10 +138,10 @@ const FiscoLanding: React.FC = () => {
               <Icon className="w-4.5 h-4.5 text-emerald-600 dark:text-emerald-400" />
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-slate-800 dark:text-slate-200 group-hover:text-emerald-700 dark:group-hover:text-emerald-300 transition-colors">
+              <h3 className="text-sm font-semibold text-strong group-hover:text-emerald-700 dark:group-hover:text-emerald-300 transition-colors">
                 {t(titleKey)}
               </h3>
-              <p className="mt-0.5 text-xs text-slate-500 dark:text-slate-400 leading-relaxed line-clamp-2">
+              <p className="mt-0.5 text-xs text-muted leading-relaxed line-clamp-2">
                 {t(descKey)}
               </p>
             </div>
@@ -155,7 +155,7 @@ const FiscoLanding: React.FC = () => {
 
       {/* ─── Cross-Section CTAs ────────────────────────────────────── */}
       <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3">
-        <span className="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider shrink-0">
+        <span className="text-xs font-medium text-muted uppercase tracking-wider shrink-0">
           {t('fisco.landing.alsoExplore')}
         </span>
         <div className="flex flex-wrap gap-2">
@@ -163,7 +163,7 @@ const FiscoLanding: React.FC = () => {
             <button
               key={tab}
               onClick={() => handleCtaClick(tab, subTab)}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 rounded-lg hover:bg-emerald-50 hover:text-emerald-700 dark:hover:bg-emerald-900/30 dark:hover:text-emerald-400 transition-colors border border-transparent hover:border-emerald-200 dark:hover:border-emerald-800"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-subtle bg-surface-raised rounded-lg hover:bg-emerald-50 hover:text-emerald-700 dark:hover:bg-emerald-900/30 dark:hover:text-emerald-400 transition-colors border border-transparent hover:border-emerald-200 dark:hover:border-emerald-800"
             >
               <Icon className="w-3.5 h-3.5" />
               {t(labelKey)}

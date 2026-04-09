@@ -62,7 +62,7 @@ const CarTransferGuide: React.FC = () => {
             className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-colors ${
               activeSection === key
                 ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 ring-1 ring-blue-300 dark:ring-blue-700'
-                : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700'
+                : 'bg-surface text-subtle hover:bg-slate-50 dark:hover:bg-slate-700 border border-edge'
             }`}
           >
             <Icon size={16} />
@@ -74,13 +74,13 @@ const CarTransferGuide: React.FC = () => {
       {/* Overview */}
       {activeSection === 'overview' && (
         <div className="space-y-4 animate-fade-in">
-          <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6">
-            <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200 mb-4">{t('carTransfer.overview.title')}</h3>
-            <p className="text-slate-600 dark:text-slate-400 mb-6">{t('carTransfer.overview.intro')}</p>
+          <div className="bg-surface rounded-2xl border border-edge p-6">
+            <h3 className="text-lg font-bold text-strong mb-4">{t('carTransfer.overview.title')}</h3>
+            <p className="text-subtle mb-6">{t('carTransfer.overview.intro')}</p>
             
             {/* Timeline */}
             <div className="space-y-4">
-              <h4 className="text-sm font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wide">{t('carTransfer.overview.timeline')}</h4>
+              <h4 className="text-sm font-bold text-body uppercase tracking-wide">{t('carTransfer.overview.timeline')}</h4>
               {[
                 { step: '1', title: t('carTransfer.overview.step1Title'), desc: t('carTransfer.overview.step1Desc'), time: t('carTransfer.overview.step1Time') },
                 { step: '2', title: t('carTransfer.overview.step2Title'), desc: t('carTransfer.overview.step2Desc'), time: t('carTransfer.overview.step2Time') },
@@ -94,9 +94,9 @@ const CarTransferGuide: React.FC = () => {
                     {i < 4 && <div className="w-0.5 h-full bg-blue-200 dark:bg-blue-800 mt-1" />}
                   </div>
                   <div className="flex-1 pb-4">
-                    <h5 className="font-bold text-slate-800 dark:text-slate-200">{item.title}</h5>
-                    <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">{item.desc}</p>
-                    <div className="flex items-center gap-1 mt-2 text-xs text-blue-600 dark:text-blue-400">
+                    <h5 className="font-bold text-strong">{item.title}</h5>
+                    <p className="text-sm text-subtle mt-1">{item.desc}</p>
+                    <div className="flex items-center gap-1 mt-2 text-xs text-link">
                       <Clock size={12} />
                       {item.time}
                     </div>
@@ -124,18 +124,18 @@ const CarTransferGuide: React.FC = () => {
       {/* Customs (Dogana/UDSC) */}
       {activeSection === 'customs' && (
         <div className="space-y-4 animate-fade-in">
-          <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6">
-            <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200 mb-4 flex items-center gap-2">
+          <div className="bg-surface rounded-2xl border border-edge p-6">
+            <h3 className="text-lg font-bold text-strong mb-4 flex items-center gap-2">
               <Landmark size={20} className="text-blue-600" />
               {t('carTransfer.customs.title')}
             </h3>
-            <p className="text-slate-600 dark:text-slate-400 mb-6">{t('carTransfer.customs.intro')}</p>
+            <p className="text-subtle mb-6">{t('carTransfer.customs.intro')}</p>
 
             <div className="space-y-4">
               <div className="bg-warm-50 dark:bg-warm-950 rounded-xl p-4">
-                <h4 className="font-bold text-slate-700 dark:text-slate-300 mb-2">{t('carTransfer.customs.formTitle')}</h4>
-                <p className="text-sm text-slate-600 dark:text-slate-400 mb-3">{t('carTransfer.customs.formDesc')}</p>
-                <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+                <h4 className="font-bold text-body mb-2">{t('carTransfer.customs.formTitle')}</h4>
+                <p className="text-sm text-subtle mb-3">{t('carTransfer.customs.formDesc')}</p>
+                <ul className="space-y-2 text-sm text-subtle">
                   <li className="flex items-start gap-2"><CheckCircle2 size={14} className="mt-1 shrink-0 text-green-600" />{t('carTransfer.customs.doc1')}</li>
                   <li className="flex items-start gap-2"><CheckCircle2 size={14} className="mt-1 shrink-0 text-green-600" />{t('carTransfer.customs.doc2')}</li>
                   <li className="flex items-start gap-2"><CheckCircle2 size={14} className="mt-1 shrink-0 text-green-600" />{t('carTransfer.customs.doc3')}</li>
@@ -149,17 +149,17 @@ const CarTransferGuide: React.FC = () => {
                   <Info size={16} />
                   {t('carTransfer.customs.taxTitle')}
                 </h4>
-                <p className="text-sm text-blue-600 dark:text-blue-400 mb-3">{t('carTransfer.customs.taxDesc')}</p>
+                <p className="text-sm text-link mb-3">{t('carTransfer.customs.taxDesc')}</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <div className="bg-white dark:bg-slate-800 rounded-lg p-3 border border-blue-200 dark:border-blue-800">
-                    <div className="text-xs text-blue-600 dark:text-blue-400 font-semibold">{t('carTransfer.customs.ivaLabel')}</div>
-                    <div className="text-xl font-bold text-slate-800 dark:text-slate-200">8.1%</div>
-                    <div className="text-sm text-slate-500 dark:text-slate-400">{t('carTransfer.customs.ivaNote')}</div>
+                  <div className="bg-surface rounded-lg p-3 border border-blue-200 dark:border-blue-800">
+                    <div className="text-xs text-link font-semibold">{t('carTransfer.customs.ivaLabel')}</div>
+                    <div className="text-xl font-bold text-strong">8.1%</div>
+                    <div className="text-sm text-muted">{t('carTransfer.customs.ivaNote')}</div>
                   </div>
-                  <div className="bg-white dark:bg-slate-800 rounded-lg p-3 border border-blue-200 dark:border-blue-800">
-                    <div className="text-xs text-blue-600 dark:text-blue-400 font-semibold">{t('carTransfer.customs.dutyLabel')}</div>
-                    <div className="text-xl font-bold text-slate-800 dark:text-slate-200">0 CHF</div>
-                    <div className="text-sm text-slate-500 dark:text-slate-400">{t('carTransfer.customs.dutyNote')}</div>
+                  <div className="bg-surface rounded-lg p-3 border border-blue-200 dark:border-blue-800">
+                    <div className="text-xs text-link font-semibold">{t('carTransfer.customs.dutyLabel')}</div>
+                    <div className="text-xl font-bold text-strong">0 CHF</div>
+                    <div className="text-sm text-muted">{t('carTransfer.customs.dutyNote')}</div>
                   </div>
                 </div>
               </div>
@@ -184,18 +184,18 @@ const CarTransferGuide: React.FC = () => {
       {/* Registration (Immatricolazione) */}
       {activeSection === 'registration' && (
         <div className="space-y-4 animate-fade-in">
-          <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6">
-            <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200 mb-4 flex items-center gap-2">
+          <div className="bg-surface rounded-2xl border border-edge p-6">
+            <h3 className="text-lg font-bold text-strong mb-4 flex items-center gap-2">
               <FileText size={20} className="text-blue-600" />
               {t('carTransfer.registration.title')}
             </h3>
-            <p className="text-slate-600 dark:text-slate-400 mb-6">{t('carTransfer.registration.intro')}</p>
+            <p className="text-subtle mb-6">{t('carTransfer.registration.intro')}</p>
 
             <div className="space-y-4">
-              <div className="bg-slate-50 dark:bg-slate-900 rounded-xl p-4">
-                <h4 className="font-bold text-slate-700 dark:text-slate-300 mb-3">{t('carTransfer.registration.mfkTitle')}</h4>
-                <p className="text-sm text-slate-600 dark:text-slate-400 mb-3">{t('carTransfer.registration.mfkDesc')}</p>
-                <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+              <div className="bg-surface-alt rounded-xl p-4">
+                <h4 className="font-bold text-body mb-3">{t('carTransfer.registration.mfkTitle')}</h4>
+                <p className="text-sm text-subtle mb-3">{t('carTransfer.registration.mfkDesc')}</p>
+                <ul className="space-y-2 text-sm text-subtle">
                   <li className="flex items-start gap-2"><CheckCircle2 size={14} className="mt-1 shrink-0 text-green-600" />{t('carTransfer.registration.mfk1')}</li>
                   <li className="flex items-start gap-2"><CheckCircle2 size={14} className="mt-1 shrink-0 text-green-600" />{t('carTransfer.registration.mfk2')}</li>
                   <li className="flex items-start gap-2"><CheckCircle2 size={14} className="mt-1 shrink-0 text-green-600" />{t('carTransfer.registration.mfk3')}</li>
@@ -204,8 +204,8 @@ const CarTransferGuide: React.FC = () => {
               </div>
 
               <div className="bg-warm-50 dark:bg-warm-950 rounded-xl p-4">
-                <h4 className="font-bold text-slate-700 dark:text-slate-300 mb-3">{t('carTransfer.registration.docsTitle')}</h4>
-                <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+                <h4 className="font-bold text-body mb-3">{t('carTransfer.registration.docsTitle')}</h4>
+                <ul className="space-y-2 text-sm text-subtle">
                   <li className="flex items-start gap-2"><FileText size={14} className="mt-1 shrink-0 text-blue-600" />{t('carTransfer.registration.doc1')}</li>
                   <li className="flex items-start gap-2"><FileText size={14} className="mt-1 shrink-0 text-blue-600" />{t('carTransfer.registration.doc2')}</li>
                   <li className="flex items-start gap-2"><FileText size={14} className="mt-1 shrink-0 text-blue-600" />{t('carTransfer.registration.doc3')}</li>
@@ -239,59 +239,59 @@ const CarTransferGuide: React.FC = () => {
       {/* Swiss Plates */}
       {activeSection === 'plates' && (
         <div className="space-y-4 animate-fade-in">
-          <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6">
-            <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200 mb-4 flex items-center gap-2">
+          <div className="bg-surface rounded-2xl border border-edge p-6">
+            <h3 className="text-lg font-bold text-strong mb-4 flex items-center gap-2">
               <MapPin size={20} className="text-blue-600" />
               {t('carTransfer.plates.title')}
             </h3>
-            <p className="text-slate-600 dark:text-slate-400 mb-6">{t('carTransfer.plates.intro')}</p>
+            <p className="text-subtle mb-6">{t('carTransfer.plates.intro')}</p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="bg-slate-50 dark:bg-slate-900 rounded-xl p-4">
-                <h4 className="font-bold text-slate-700 dark:text-slate-300 mb-3">{t('carTransfer.plates.typesTitle')}</h4>
+              <div className="bg-surface-alt rounded-xl p-4">
+                <h4 className="font-bold text-body mb-3">{t('carTransfer.plates.typesTitle')}</h4>
                 <ul className="space-y-3 text-sm">
                   <li className="flex items-start gap-3">
-                    <div className="shrink-0 w-16 h-8 bg-white dark:bg-slate-800 border-2 border-slate-300 dark:border-slate-600 rounded flex items-center justify-center text-xs font-bold text-slate-700 dark:text-slate-300">TI ···</div>
+                    <div className="shrink-0 w-16 h-8 bg-surface border-2 border-slate-300 dark:border-slate-600 rounded flex items-center justify-center text-xs font-bold text-body">TI ···</div>
                     <div>
-                      <div className="font-semibold text-slate-700 dark:text-slate-300">{t('carTransfer.plates.permanent')}</div>
-                      <div className="text-slate-500 dark:text-slate-400">{t('carTransfer.plates.permanentDesc')}</div>
+                      <div className="font-semibold text-body">{t('carTransfer.plates.permanent')}</div>
+                      <div className="text-muted">{t('carTransfer.plates.permanentDesc')}</div>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="shrink-0 w-16 h-8 bg-blue-100 border-2 border-blue-300 rounded flex items-center justify-center text-xs font-bold text-blue-700">U ···</div>
                     <div>
-                      <div className="font-semibold text-slate-700 dark:text-slate-300">{t('carTransfer.plates.temp')}</div>
-                      <div className="text-slate-500 dark:text-slate-400">{t('carTransfer.plates.tempDesc')}</div>
+                      <div className="font-semibold text-body">{t('carTransfer.plates.temp')}</div>
+                      <div className="text-muted">{t('carTransfer.plates.tempDesc')}</div>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="shrink-0 w-16 h-8 bg-yellow-100 border-2 border-yellow-400 rounded flex items-center justify-center text-xs font-bold text-yellow-700">TI ···</div>
                     <div>
-                      <div className="font-semibold text-slate-700 dark:text-slate-300">{t('carTransfer.plates.transfer')}</div>
-                      <div className="text-slate-500 dark:text-slate-400">{t('carTransfer.plates.transferDesc')}</div>
+                      <div className="font-semibold text-body">{t('carTransfer.plates.transfer')}</div>
+                      <div className="text-muted">{t('carTransfer.plates.transferDesc')}</div>
                     </div>
                   </li>
                 </ul>
               </div>
 
-              <div className="bg-slate-50 dark:bg-slate-900 rounded-xl p-4">
-                <h4 className="font-bold text-slate-700 dark:text-slate-300 mb-3">{t('carTransfer.plates.costTitle')}</h4>
+              <div className="bg-surface-alt rounded-xl p-4">
+                <h4 className="font-bold text-body mb-3">{t('carTransfer.plates.costTitle')}</h4>
                 <div className="space-y-3 text-sm">
-                  <div className="flex justify-between items-center py-2 border-b border-slate-200 dark:border-slate-700">
-                    <span className="text-slate-600 dark:text-slate-400">{t('carTransfer.plates.costPlate')}</span>
-                    <span className="font-bold text-slate-800 dark:text-slate-200">CHF 30–50</span>
+                  <div className="flex justify-between items-center py-2 border-b border-edge">
+                    <span className="text-subtle">{t('carTransfer.plates.costPlate')}</span>
+                    <span className="font-bold text-strong">CHF 30–50</span>
                   </div>
-                  <div className="flex justify-between items-center py-2 border-b border-slate-200 dark:border-slate-700">
-                    <span className="text-slate-600 dark:text-slate-400">{t('carTransfer.plates.costLicenseDoc')}</span>
-                    <span className="font-bold text-slate-800 dark:text-slate-200">CHF 50–80</span>
+                  <div className="flex justify-between items-center py-2 border-b border-edge">
+                    <span className="text-subtle">{t('carTransfer.plates.costLicenseDoc')}</span>
+                    <span className="font-bold text-strong">CHF 50–80</span>
                   </div>
-                  <div className="flex justify-between items-center py-2 border-b border-slate-200 dark:border-slate-700">
-                    <span className="text-slate-600 dark:text-slate-400">{t('carTransfer.plates.costVignette')}</span>
-                    <span className="font-bold text-slate-800 dark:text-slate-200">CHF 40</span>
+                  <div className="flex justify-between items-center py-2 border-b border-edge">
+                    <span className="text-subtle">{t('carTransfer.plates.costVignette')}</span>
+                    <span className="font-bold text-strong">CHF 40</span>
                   </div>
                   <div className="flex justify-between items-center py-2">
-                    <span className="text-slate-600 dark:text-slate-400">{t('carTransfer.plates.costTax')}</span>
-                    <span className="font-bold text-slate-800 dark:text-slate-200">{t('carTransfer.plates.costTaxVal')}</span>
+                    <span className="text-subtle">{t('carTransfer.plates.costTax')}</span>
+                    <span className="font-bold text-strong">{t('carTransfer.plates.costTaxVal')}</span>
                   </div>
                 </div>
               </div>
@@ -310,12 +310,12 @@ const CarTransferGuide: React.FC = () => {
       {/* Driving License Exchange */}
       {activeSection === 'license' && (
         <div className="space-y-4 animate-fade-in">
-          <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6">
-            <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200 mb-4 flex items-center gap-2">
+          <div className="bg-surface rounded-2xl border border-edge p-6">
+            <h3 className="text-lg font-bold text-strong mb-4 flex items-center gap-2">
               <CreditCard size={20} className="text-blue-600" />
               {t('carTransfer.license.title')}
             </h3>
-            <p className="text-slate-600 dark:text-slate-400 mb-6">{t('carTransfer.license.intro')}</p>
+            <p className="text-subtle mb-6">{t('carTransfer.license.intro')}</p>
 
             <div className="space-y-4">
               <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl p-4">
@@ -326,9 +326,9 @@ const CarTransferGuide: React.FC = () => {
                 <p className="text-sm text-red-600 dark:text-red-400">{t('carTransfer.license.deadlineDesc')}</p>
               </div>
 
-              <div className="bg-slate-50 dark:bg-slate-900 rounded-xl p-4">
-                <h4 className="font-bold text-slate-700 dark:text-slate-300 mb-3">{t('carTransfer.license.processTitle')}</h4>
-                <ol className="space-y-3 text-sm text-slate-600 dark:text-slate-400">
+              <div className="bg-surface-alt rounded-xl p-4">
+                <h4 className="font-bold text-body mb-3">{t('carTransfer.license.processTitle')}</h4>
+                <ol className="space-y-3 text-sm text-subtle">
                   <li className="flex items-start gap-3">
                     <span className="shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs font-bold">1</span>
                     <span>{t('carTransfer.license.step1')}</span>
@@ -348,9 +348,9 @@ const CarTransferGuide: React.FC = () => {
                 </ol>
               </div>
 
-              <div className="bg-slate-50 dark:bg-slate-900 rounded-xl p-4">
-                <h4 className="font-bold text-slate-700 dark:text-slate-300 mb-3">{t('carTransfer.license.docsTitle')}</h4>
-                <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+              <div className="bg-surface-alt rounded-xl p-4">
+                <h4 className="font-bold text-body mb-3">{t('carTransfer.license.docsTitle')}</h4>
+                <ul className="space-y-2 text-sm text-subtle">
                   <li className="flex items-start gap-2"><CheckCircle2 size={14} className="mt-1 shrink-0 text-green-600" />{t('carTransfer.license.doc1')}</li>
                   <li className="flex items-start gap-2"><CheckCircle2 size={14} className="mt-1 shrink-0 text-green-600" />{t('carTransfer.license.doc2')}</li>
                   <li className="flex items-start gap-2"><CheckCircle2 size={14} className="mt-1 shrink-0 text-green-600" />{t('carTransfer.license.doc3')}</li>
@@ -374,12 +374,12 @@ const CarTransferGuide: React.FC = () => {
       {/* Insurance */}
       {activeSection === 'insurance' && (
         <div className="space-y-4 animate-fade-in">
-          <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6">
-            <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200 mb-4 flex items-center gap-2">
+          <div className="bg-surface rounded-2xl border border-edge p-6">
+            <h3 className="text-lg font-bold text-strong mb-4 flex items-center gap-2">
               <Shield size={20} className="text-blue-600" />
               {t('carTransfer.insurance.title')}
             </h3>
-            <p className="text-slate-600 dark:text-slate-400 mb-6">{t('carTransfer.insurance.intro')}</p>
+            <p className="text-subtle mb-6">{t('carTransfer.insurance.intro')}</p>
 
             <div className="space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -394,13 +394,13 @@ const CarTransferGuide: React.FC = () => {
                 </div>
                 <div className="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-4 border border-blue-200 dark:border-blue-800">
                   <h4 className="font-bold text-blue-700 dark:text-blue-300 mb-2">{t('carTransfer.insurance.assistTitle')}</h4>
-                  <p className="text-sm text-blue-600 dark:text-blue-400">{t('carTransfer.insurance.assistDesc')}</p>
+                  <p className="text-sm text-link">{t('carTransfer.insurance.assistDesc')}</p>
                 </div>
               </div>
 
-              <div className="bg-slate-50 dark:bg-slate-900 rounded-xl p-4">
-                <h4 className="font-bold text-slate-700 dark:text-slate-300 mb-3">{t('carTransfer.insurance.bonusTitle')}</h4>
-                <p className="text-sm text-slate-600 dark:text-slate-400">{t('carTransfer.insurance.bonusDesc')}</p>
+              <div className="bg-surface-alt rounded-xl p-4">
+                <h4 className="font-bold text-body mb-3">{t('carTransfer.insurance.bonusTitle')}</h4>
+                <p className="text-sm text-subtle">{t('carTransfer.insurance.bonusDesc')}</p>
               </div>
 
               <div className="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-4">
@@ -417,20 +417,20 @@ const CarTransferGuide: React.FC = () => {
       {/* Costs Summary */}
       {activeSection === 'costs' && (
         <div className="space-y-4 animate-fade-in">
-          <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6">
-            <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200 mb-4 flex items-center gap-2">
+          <div className="bg-surface rounded-2xl border border-edge p-6">
+            <h3 className="text-lg font-bold text-strong mb-4 flex items-center gap-2">
               <CreditCard size={20} className="text-blue-600" />
               {t('carTransfer.costs.title')}
             </h3>
-            <p className="text-slate-600 dark:text-slate-400 mb-6">{t('carTransfer.costs.intro')}</p>
+            <p className="text-subtle mb-6">{t('carTransfer.costs.intro')}</p>
 
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="border-b border-slate-200 dark:border-slate-700">
-                    <th className="text-left py-3 px-4 font-bold text-slate-700 dark:text-slate-300">{t('carTransfer.costs.item')}</th>
-                    <th className="text-right py-3 px-4 font-bold text-slate-700 dark:text-slate-300">{t('carTransfer.costs.amount')}</th>
-                    <th className="text-left py-3 px-4 font-bold text-slate-700 dark:text-slate-300">{t('carTransfer.costs.notes')}</th>
+                  <tr className="border-b border-edge">
+                    <th className="text-left py-3 px-4 font-bold text-body">{t('carTransfer.costs.item')}</th>
+                    <th className="text-right py-3 px-4 font-bold text-body">{t('carTransfer.costs.amount')}</th>
+                    <th className="text-left py-3 px-4 font-bold text-body">{t('carTransfer.costs.notes')}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -444,9 +444,9 @@ const CarTransferGuide: React.FC = () => {
                     { item: t('carTransfer.costs.row7Item'), amount: 'CHF 35', note: t('carTransfer.costs.row7Note') },
                   ].map((row, i) => (
                     <tr key={i} className="border-b border-slate-100 dark:border-slate-800">
-                      <td className="py-3 px-4 text-slate-700 dark:text-slate-300">{row.item}</td>
-                      <td className="py-3 px-4 text-right font-bold text-slate-800 dark:text-slate-200">{row.amount}</td>
-                      <td className="py-3 px-4 text-slate-500 dark:text-slate-400">{row.note}</td>
+                      <td className="py-3 px-4 text-body">{row.item}</td>
+                      <td className="py-3 px-4 text-right font-bold text-strong">{row.amount}</td>
+                      <td className="py-3 px-4 text-muted">{row.note}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -467,12 +467,12 @@ const CarTransferGuide: React.FC = () => {
       {/* Checklist */}
       {activeSection === 'checklist' && (
         <div className="space-y-4 animate-fade-in">
-          <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6">
-            <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200 mb-4 flex items-center gap-2">
+          <div className="bg-surface rounded-2xl border border-edge p-6">
+            <h3 className="text-lg font-bold text-strong mb-4 flex items-center gap-2">
               <CheckCircle2 size={20} className="text-green-600" />
               {t('carTransfer.checklist.title')}
             </h3>
-            <p className="text-slate-600 dark:text-slate-400 mb-6">{t('carTransfer.checklist.intro')}</p>
+            <p className="text-subtle mb-6">{t('carTransfer.checklist.intro')}</p>
 
             <div className="space-y-6">
               {[
@@ -512,9 +512,9 @@ const CarTransferGuide: React.FC = () => {
                   </h4>
                   <div className="space-y-2">
                     {phase.items.map((item, ii) => (
-                      <label key={ii} className="flex items-start gap-3 p-3 bg-slate-50 dark:bg-slate-900 rounded-lg cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                      <label key={ii} className="flex items-start gap-3 p-3 bg-surface-alt rounded-lg cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
                         <input type="checkbox" className="mt-1 h-4 w-4 rounded border-slate-300 dark:border-slate-600 text-blue-600 focus-visible:ring-blue-500" aria-label={item} />
-                        <span className="text-sm text-slate-700 dark:text-slate-300">{item}</span>
+                        <span className="text-sm text-body">{item}</span>
                       </label>
                     ))}
                   </div>
@@ -526,20 +526,20 @@ const CarTransferGuide: React.FC = () => {
       )}
 
       {/* FAQ */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6">
-        <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200 mb-4">{t('carTransfer.faq.title')}</h3>
+      <div className="bg-surface rounded-2xl border border-edge p-6">
+        <h3 className="text-lg font-bold text-strong mb-4">{t('carTransfer.faq.title')}</h3>
         <div className="space-y-2">
           {faqItems.map((item, i) => (
-            <div key={i} className="border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden">
+            <div key={i} className="border border-edge rounded-xl overflow-hidden">
               <button
                 onClick={() => setExpandedFaq(expandedFaq === i ? null : i)}
                 className="w-full flex items-center justify-between p-4 text-left hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors" aria-expanded={expandedFaq === i}
               >
-                <span className="text-sm font-semibold text-slate-700 dark:text-slate-300 pr-4">{item.q}</span>
-                {expandedFaq === i ? <ChevronUp size={16} className="shrink-0 text-slate-500 dark:text-slate-400" /> : <ChevronDown size={16} className="shrink-0 text-slate-500 dark:text-slate-400" />}
+                <span className="text-sm font-semibold text-body pr-4">{item.q}</span>
+                {expandedFaq === i ? <ChevronUp size={16} className="shrink-0 text-muted" /> : <ChevronDown size={16} className="shrink-0 text-muted" />}
               </button>
               {expandedFaq === i && (
-                <div className="px-4 pb-4 text-sm text-slate-600 dark:text-slate-400 border-t border-slate-100 dark:border-slate-700 pt-3">
+                <div className="px-4 pb-4 text-sm text-subtle border-t border-slate-100 dark:border-slate-700 pt-3">
                   {item.a}
                 </div>
               )}
@@ -549,8 +549,8 @@ const CarTransferGuide: React.FC = () => {
       </div>
 
       {/* Useful Links */}
-      <div className="bg-slate-50 dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-700 p-6">
-        <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200 mb-4">{t('carTransfer.links.title')}</h3>
+      <div className="bg-surface-alt rounded-2xl border border-edge p-6">
+        <h3 className="text-lg font-bold text-strong mb-4">{t('carTransfer.links.title')}</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {[
             { label: t('carTransfer.links.bazg'), url: 'https://www.bazg.admin.ch/bazg/it/home.html' },
@@ -563,7 +563,7 @@ const CarTransferGuide: React.FC = () => {
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 p-3 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-blue-300 dark:hover:border-blue-600 transition-colors text-sm text-blue-700 dark:text-blue-400 font-medium"
+              className="flex items-center gap-2 p-3 bg-surface rounded-xl border border-edge hover:border-blue-300 dark:hover:border-blue-600 transition-colors text-sm text-blue-700 dark:text-blue-400 font-medium"
             >
               <ExternalLink size={14} />
               {link.label}

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import { Search, X, ArrowRight, Calculator, Layers, PiggyBank, BookOpen, BarChart2, HelpCircle, ArrowRightLeft, Phone, Car, Heart, Building2, AlertTriangle, Briefcase, ShoppingCart, Euro, TrendingUp, Sparkles, MapPin, Calendar, PartyPopper, FileText, GraduationCap, Building, Compass, BriefcaseBusiness, MessageSquare, Map, Baby, Award, Scale, Home, Mail, Handshake, Video, Sunrise, User as UserIcon, Gift, Hammer, BookA, BarChart3, Wrench, Users, Clock, Newspaper, Receipt, Banknote, Coins, Star } from 'lucide-react';
-import { useTranslation, loadAllTranslations } from '@/services/i18n';
+import { useTranslation, loadAllTranslations, getCantonI18nParams } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
 import { ALL_GLOSSARY_TERM_IDS } from '@/services/router';
 import type { GlossaryTermId, BlogArticleId } from '@/services/router';
@@ -113,7 +113,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       tab: 'confronti',
       subTab: 'banks',
       icon: Building2,
-      color: 'text-slate-600 dark:text-slate-400',
+      color: 'text-subtle',
       keywords: ['banca', 'conto', 'bank', 'account', 'ubs', 'credit suisse', 'postfinance', 'wise', 'revolut', 'n26', 'banque', 'konto'],
     },
     {
@@ -410,12 +410,12 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       tab: 'guida',
       subTab: 'permits',
       icon: FileText,
-      color: 'text-slate-600 dark:text-slate-400',
+      color: 'text-subtle',
       keywords: ['permesso', 'lavoro', 'permit', 'G', 'frontaliero', 'bewilligung', 'autorisation', 'permis', 'rinnovo', 'scadenza'],
     },
     {
       id: 'guide-companies',
-      title: t('guide.tabs.companies') || 'Aziende Ticino',
+      title: t('guide.tabs.companies', getCantonI18nParams()) || 'Aziende Ticino',
       description: 'Principali aziende e datori di lavoro nel Canton Ticino',
       section: t('nav.vita') || 'Vita',
       tab: 'vita',
@@ -717,7 +717,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       section: t('sitemap.title') || 'Mappa del Sito',
       tab: 'sitemap',
       icon: Map,
-      color: 'text-slate-600 dark:text-slate-400',
+      color: 'text-subtle',
       keywords: ['mappa', 'sito', 'sitemap', 'tutti', 'strumenti', 'indice', 'seitenplan', 'plan', 'site map', 'elenco'],
     },
     // ─── Contracts / CCNL Guide ───
@@ -878,8 +878,8 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
     // ─── Job Board ───
     {
       id: 'job-board',
-      title: t('jobBoard.title') || 'Lavoro in Ticino',
-      description: t('jobBoard.subtitle') || 'Offerte di lavoro per frontalieri',
+      title: t('jobBoard.title', getCantonI18nParams()) || 'Lavoro in Ticino',
+      description: t('jobBoard.subtitle', getCantonI18nParams()) || 'Offerte di lavoro per frontalieri',
       section: t('jobBoard.badge') || 'Lavoro',
       tab: 'job-board',
       icon: BriefcaseBusiness,
@@ -1136,7 +1136,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       {/* Search trigger — compact icon button */}
       <button
         onClick={() => setIsOpen(true)}
-        className="p-2 rounded-xl text-slate-500 dark:text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+        className="p-2 rounded-xl text-muted hover:text-slate-600 dark:hover:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
         title={`${t('search.placeholder') || 'Cerca...'} (⌘K)`}
         aria-label={t('search.placeholder') || 'Cerca'}
       >
@@ -1148,11 +1148,11 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
         <div className="fixed inset-0 z-[100] flex items-start justify-center px-4 pt-[env(safe-area-inset-top,12vh)] sm:pt-[12vh] bg-black/40 backdrop-blur-sm transition-opacity duration-150">
           <div
             ref={modalRef}
-            className="w-full max-w-lg max-h-[70vh] sm:max-h-[75vh] bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 flex flex-col animate-modal-in"
+            className="w-full max-w-lg max-h-[70vh] sm:max-h-[75vh] bg-surface rounded-2xl shadow-2xl border border-edge flex flex-col animate-modal-in"
           >
             {/* Search input */}
-            <div className="flex items-center gap-3 px-4 py-3 border-b border-slate-200 dark:border-slate-700">
-              <Search size={18} className="text-slate-500 dark:text-slate-400 flex-shrink-0" />
+            <div className="flex items-center gap-3 px-4 py-3 border-b border-edge">
+              <Search size={18} className="text-muted flex-shrink-0" />
               <input
                 ref={inputRef}
                 type="text"
@@ -1167,13 +1167,13 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
               {query && (
                 <button
                   onClick={() => setQuery('')}
-                  className="p-2 -m-0.5 text-slate-500 dark:text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 rounded"
+                  className="p-2 -m-0.5 text-muted hover:text-slate-600 dark:hover:text-slate-300 rounded"
                   aria-label={t('search.clear') || 'Cancella ricerca'}
                 >
                   <X size={14} />
                 </button>
               )}
-              <kbd className="hidden sm:inline-flex items-center px-1.5 py-0.5 text-xs font-mono text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700">
+              <kbd className="hidden sm:inline-flex items-center px-1.5 py-0.5 text-xs font-mono text-muted bg-surface-raised rounded border border-edge">
                 esc
               </kbd>
             </div>
@@ -1181,7 +1181,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
             {/* Results */}
             <div className="flex-1 min-h-0 overflow-y-auto">
               {query.trim() === '' ? (
-                <div className="px-4 py-6 text-center text-sm text-slate-500 dark:text-slate-400">
+                <div className="px-4 py-6 text-center text-sm text-muted">
                   <p>{t('search.hint') || 'Digita per cercare tra tutte le sezioni del sito'}</p>
                   <p className="text-xs mt-1.5 text-slate-300 dark:text-slate-400">
                     {t('search.examples') || 'Es: "cambio valuta", "pensione", "calendario festività", "permessi"'}
@@ -1196,7 +1196,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
                           Analytics.trackUIInteraction('search', 'popular', 'click', 'query', item.label);
                           onNavigate(item.tab, item.subTab);
                         }}
-                        className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors"
+                        className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-surface text-subtle border border-edge hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors"
                         aria-label={item.label}
                         title={item.label}
                       >
@@ -1210,10 +1210,10 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
                   {/* No results message */}
                   <div className="text-center">
                     <Search size={28} className="mx-auto text-slate-300 dark:text-slate-600 mb-2" />
-                    <p className="text-sm font-semibold text-slate-700 dark:text-slate-300">
+                    <p className="text-sm font-semibold text-body">
                       {t('search.noResults.title', { query }) || `Nessun risultato per «${query}»`}
                     </p>
-                    <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
+                    <p className="text-sm text-muted mt-1">
                       {t('search.noResults.hint') || 'Prova con parole chiave diverse o esplora le categorie'}
                     </p>
                   </div>
@@ -1221,7 +1221,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
                   {/* Fuzzy suggestions */}
                   {noResultsSuggestions.length > 0 && (
                     <div>
-                      <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-2">
+                      <p className="text-xs font-semibold text-muted uppercase tracking-wider mb-2">
                         {t('search.noResults.maybeMeant') || 'Forse cercavi'}
                       </p>
                       <div className="space-y-1">
@@ -1233,14 +1233,14 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
                               onClick={() => handleSelect(item)}
                               className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"
                             >
-                              <div className={`p-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 ${item.color} flex-shrink-0`}>
+                              <div className={`p-1.5 rounded-lg bg-surface-raised ${item.color} flex-shrink-0`}>
                                 <Icon size={14} />
                               </div>
                               <div className="flex-1 min-w-0">
                                 <span className="text-sm font-semibold text-slate-800 dark:text-slate-100 truncate block">{item.title}</span>
-                                <span className="text-sm text-slate-500 dark:text-slate-400 truncate block">{item.description}</span>
+                                <span className="text-sm text-muted truncate block">{item.description}</span>
                               </div>
-                              <ArrowRight size={12} className="text-slate-500 dark:text-slate-400 flex-shrink-0" />
+                              <ArrowRight size={12} className="text-muted flex-shrink-0" />
                             </button>
                           );
                         })}
@@ -1250,7 +1250,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
 
                   {/* Browse by category */}
                   <div>
-                    <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-2">
+                    <p className="text-xs font-semibold text-muted uppercase tracking-wider mb-2">
                       {t('search.noResults.browseCategories') || 'Esplora per categoria'}
                     </p>
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
@@ -1262,10 +1262,10 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
                             onClick={() => { setIsOpen(false); onNavigate(cat.tab, cat.subTab); }}
                             className="flex flex-col items-center gap-1.5 px-2 py-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors"
                           >
-                            <div className={`p-2 rounded-lg bg-slate-100 dark:bg-slate-800 ${cat.color}`}>
+                            <div className={`p-2 rounded-lg bg-surface-raised ${cat.color}`}>
                               <CatIcon size={16} />
                             </div>
-                            <span className="text-xs font-medium text-slate-600 dark:text-slate-400 text-center leading-tight">{cat.label}</span>
+                            <span className="text-xs font-medium text-subtle text-center leading-tight">{cat.label}</span>
                           </button>
                         );
                       })}
@@ -1286,7 +1286,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
                             : 'hover:bg-slate-50 dark:hover:bg-slate-800/50'
                         }`}
                       >
-                        <div className={`p-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 ${result.color} flex-shrink-0`}>
+                        <div className={`p-1.5 rounded-lg bg-surface-raised ${result.color} flex-shrink-0`}>
                           <Icon size={14} />
                         </div>
                         <div className="flex-1 min-w-0">
@@ -1294,15 +1294,15 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
                             <span className="text-sm font-semibold text-slate-800 dark:text-slate-100 truncate">
                               {result.title}
                             </span>
-                            <span className="text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded flex-shrink-0">
+                            <span className="text-xs uppercase tracking-wider text-muted bg-surface-raised px-1.5 py-0.5 rounded flex-shrink-0">
                               {result.section}
                             </span>
                           </div>
-                          <p className="text-sm text-slate-500 dark:text-slate-400 truncate mt-0.5">
+                          <p className="text-sm text-muted truncate mt-0.5">
                             {result.description}
                           </p>
                         </div>
-                        <ArrowRight size={14} className="text-slate-500 dark:text-slate-400 flex-shrink-0" />
+                        <ArrowRight size={14} className="text-muted flex-shrink-0" />
                       </button>
                     );
                   })}
@@ -1311,19 +1311,19 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
             </div>
 
             {/* Footer */}
-            <div className="px-4 py-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
+            <div className="px-4 py-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs text-muted">
               <div className="flex items-center gap-3">
                 <span className="flex items-center gap-1">
-                  <kbd className="px-1 py-0.5 bg-slate-100 dark:bg-slate-800 rounded text-xs">↑↓</kbd>
+                  <kbd className="px-1 py-0.5 bg-surface-raised rounded text-xs">↑↓</kbd>
                   {t('search.navigate') || 'naviga'}
                 </span>
                 <span className="flex items-center gap-1">
-                  <kbd className="px-1 py-0.5 bg-slate-100 dark:bg-slate-800 rounded text-xs">↵</kbd>
+                  <kbd className="px-1 py-0.5 bg-surface-raised rounded text-xs">↵</kbd>
                   {t('search.select') || 'seleziona'}
                 </span>
               </div>
               <span className="hidden sm:flex items-center gap-1">
-                <kbd className="px-1 py-0.5 bg-slate-100 dark:bg-slate-800 rounded text-xs">⌘K</kbd>
+                <kbd className="px-1 py-0.5 bg-surface-raised rounded text-xs">⌘K</kbd>
                 {t('search.close') || 'chiudi'}
               </span>
             </div>

@@ -149,7 +149,7 @@ const TredicesimalCalculator: React.FC = () => {
           <Gift size={24} className="text-amber-500" />
           {t('tredicesima.title')}
         </h2>
-        <p className="text-slate-600 dark:text-slate-400 mt-2 text-sm max-w-md mx-auto">
+        <p className="text-subtle mt-2 text-sm max-w-md mx-auto">
           {t('tredicesima.subtitle')}
         </p>
       </div>
@@ -168,7 +168,7 @@ const TredicesimalCalculator: React.FC = () => {
       </button>
 
       {showInfo && (
-        <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 mb-6 text-sm text-slate-600 dark:text-slate-400 space-y-3">
+        <div className="bg-surface rounded-2xl border border-edge p-5 mb-6 text-sm text-subtle space-y-3">
           <p><strong className="text-slate-700 dark:text-slate-200">{t('tredicesima.info.swiss.title')}</strong>: {t('tredicesima.info.swiss.desc')}</p>
           <p><strong className="text-slate-700 dark:text-slate-200">{t('tredicesima.info.italian.title')}</strong>: {t('tredicesima.info.italian.desc')}</p>
           <p><strong className="text-slate-700 dark:text-slate-200">{t('tredicesima.info.quattordicesima.title')}</strong>: {t('tredicesima.info.quattordicesima.desc')}</p>
@@ -176,7 +176,7 @@ const TredicesimalCalculator: React.FC = () => {
       )}
 
       {/* Input Form */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 sm:p-6 mb-6 space-y-5">
+      <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 mb-6 space-y-5">
         {/* Contract Type */}
         <div>
           <label htmlFor="tred-contract" className="block text-sm font-medium text-slate-700 dark:text-slate-200 mb-1">
@@ -246,7 +246,7 @@ const TredicesimalCalculator: React.FC = () => {
             onChange={e => { setMonthsWorked(Number(e.target.value)); setCalculated(false); }}
             className="w-full accent-amber-500"
           />
-          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+          <p className="text-xs text-muted mt-1">
             {monthsWorked} {t('tredicesima.months')}
           </p>
         </div>
@@ -310,7 +310,7 @@ const TredicesimalCalculator: React.FC = () => {
       {/* Results */}
       {calculated && (
         <>
-          <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 sm:p-6 mb-6">
+          <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 mb-6">
             <h3 className="font-bold text-lg text-slate-800 dark:text-slate-100 mb-4 flex items-center gap-2">
               <Gift size={18} className="text-amber-500" />
               {t('tredicesima.results.title')}
@@ -319,7 +319,7 @@ const TredicesimalCalculator: React.FC = () => {
             <div className="grid grid-cols-2 gap-4">
               {/* Monthly Gross */}
               <div className="bg-slate-50 dark:bg-slate-700/50 rounded-xl p-4 text-center">
-                <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">{t('tredicesima.results.monthlyGross')}</p>
+                <p className="text-xs text-muted mb-1">{t('tredicesima.results.monthlyGross')}</p>
                 <p className="text-lg font-bold text-slate-800 dark:text-slate-100">{formatCurrency(result.monthlyGross, result.currency)}</p>
               </div>
 
@@ -346,7 +346,7 @@ const TredicesimalCalculator: React.FC = () => {
 
             {/* Pro-rata info */}
             {monthsWorked < 12 && (
-              <div className="mt-4 flex items-start gap-2 text-xs text-slate-500 dark:text-slate-400 bg-slate-50 dark:bg-slate-700/50 rounded-xl p-3">
+              <div className="mt-4 flex items-start gap-2 text-xs text-muted bg-slate-50 dark:bg-slate-700/50 rounded-xl p-3">
                 <Info size={14} className="mt-0.5 shrink-0" />
                 <span>{t('tredicesima.results.proRata', { months: String(monthsWorked), percent: String(Math.round(result.proRataFactor * 100)) })}</span>
               </div>
@@ -354,7 +354,7 @@ const TredicesimalCalculator: React.FC = () => {
 
             {/* EUR equivalent for Swiss contracts */}
             {contractType === 'swiss' && (
-              <div className="mt-4 text-center text-sm text-slate-600 dark:text-slate-400">
+              <div className="mt-4 text-center text-sm text-subtle">
                 {t('tredicesima.results.eurEquiv')}: <strong className="text-slate-800 dark:text-slate-100">EUR {Math.round(result.annualNetBenefit).toLocaleString('it-CH')}</strong>
               </div>
             )}

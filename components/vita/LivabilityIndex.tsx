@@ -91,9 +91,9 @@ export default function LivabilityIndex() {
 
   const medalColor = (rank: number) => {
     if (rank === 1) return 'text-yellow-500';
-    if (rank === 2) return 'text-slate-500 dark:text-slate-400';
+    if (rank === 2) return 'text-muted';
     if (rank === 3) return 'text-amber-700';
-    return 'text-slate-500 dark:text-slate-400';
+    return 'text-muted';
   };
 
   const scoreBarColor = (score: number) => {
@@ -105,12 +105,12 @@ export default function LivabilityIndex() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="bg-white dark:bg-slate-800 rounded-xl shadow-lg p-5">
+      <div className="bg-surface rounded-xl shadow-lg p-5">
         <div className="flex items-center gap-3 mb-2">
           <MapPin className="text-amber-600 dark:text-amber-400" size={28} />
           <h2 className="text-2xl font-bold text-slate-800 dark:text-white">{t('livability.title')}</h2>
         </div>
-        <p className="text-slate-600 dark:text-slate-400">{t('livability.subtitle')}</p>
+        <p className="text-subtle">{t('livability.subtitle')}</p>
       </div>
 
       {/* Controls */}
@@ -118,7 +118,7 @@ export default function LivabilityIndex() {
         <div className="flex flex-wrap gap-4 items-end">
           {/* Province filter */}
           <div className="flex-1 min-w-[160px]">
-            <label htmlFor="li-prov" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">
+            <label htmlFor="li-prov" className="block text-sm font-medium text-body mb-1">
               {t('livability.filterProvince')}
             </label>
             <select
@@ -126,7 +126,7 @@ export default function LivabilityIndex() {
               value={filterProvince}
               onChange={(e) => setFilterProvince(e.target.value)}
               aria-label={t('livability.filterProvince') || 'Filtra per provincia'}
-              className="w-full rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 px-3 py-2 text-slate-800 dark:text-white"
+              className="w-full rounded-lg border border-edge bg-surface-alt px-3 py-2 text-slate-800 dark:text-white"
             >
               <option value="">{t('livability.allProvinces')}</option>
               {provinces.map((p) => (
@@ -137,7 +137,7 @@ export default function LivabilityIndex() {
 
           {/* Sort */}
           <div className="flex-1 min-w-[160px]">
-            <label htmlFor="li-sort" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">
+            <label htmlFor="li-sort" className="block text-sm font-medium text-body mb-1">
               {t('livability.sortBy')}
             </label>
             <select
@@ -145,7 +145,7 @@ export default function LivabilityIndex() {
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value as SortKey)}
               aria-label={t('livability.sortBy') || 'Ordina per'}
-              className="w-full rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 px-3 py-2 text-slate-800 dark:text-white"
+              className="w-full rounded-lg border border-edge bg-surface-alt px-3 py-2 text-slate-800 dark:text-white"
             >
               <option value="score">{t('livability.sortScore')}</option>
               <option value="distance">{t('livability.sortDistance')}</option>
@@ -156,13 +156,13 @@ export default function LivabilityIndex() {
           </div>
 
           {/* View toggle */}
-          <div className="flex gap-1 bg-slate-100 dark:bg-slate-700 rounded-lg p-1">
+          <div className="flex gap-1 bg-surface-raised rounded-lg p-1">
             <button
               onClick={() => setViewMode('table')}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium transition focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-800 ${
                 viewMode === 'table'
                   ? 'bg-white dark:bg-slate-600 text-amber-700 dark:text-amber-400 shadow'
-                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white'
+                  : 'text-subtle hover:text-slate-800 dark:hover:text-white'
               }`}
               aria-label={t('livability.table')}
             >
@@ -173,7 +173,7 @@ export default function LivabilityIndex() {
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium transition focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-800 ${
                 viewMode === 'map'
                   ? 'bg-white dark:bg-slate-600 text-amber-700 dark:text-amber-400 shadow'
-                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white'
+                  : 'text-subtle hover:text-slate-800 dark:hover:text-white'
               }`}
               aria-label={t('livability.map')}
             >
@@ -183,7 +183,7 @@ export default function LivabilityIndex() {
         </div>
 
         {/* Weight legend */}
-        <div className="mt-3 flex flex-wrap gap-3 text-xs text-slate-500 dark:text-slate-400">
+        <div className="mt-3 flex flex-wrap gap-3 text-xs text-muted">
           <span>{t('livability.weightDistance')}</span>
           <span>{t('livability.weightRent')}</span>
           <span>{t('livability.weightIrpef')}</span>
@@ -194,7 +194,7 @@ export default function LivabilityIndex() {
 
       {/* Content */}
       {viewMode === 'table' ? (
-        <div className="bg-white dark:bg-slate-800 rounded-xl shadow overflow-hidden" style={{ contentVisibility: 'auto', containIntrinsicSize: 'auto 500px' }}>          <div className="overflow-x-auto">
+        <div className="bg-surface rounded-xl shadow overflow-hidden" style={{ contentVisibility: 'auto', containIntrinsicSize: 'auto 500px' }}>          <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead className="bg-slate-50 dark:bg-slate-700">
                 <tr>
@@ -219,14 +219,14 @@ export default function LivabilityIndex() {
                       {m.rank <= 3 ? (
                         <Trophy size={16} className={medalColor(m.rank)} />
                       ) : (
-                        <span className="text-slate-500 dark:text-slate-400 font-mono">{m.rank}</span>
+                        <span className="text-muted font-mono">{m.rank}</span>
                       )}
                     </td>
                     <td className="py-2.5 px-4 font-medium text-slate-800 dark:text-white">{m.name}</td>
-                    <td className="py-2.5 px-3 text-center text-slate-600 dark:text-slate-400">{m.province}</td>
+                    <td className="py-2.5 px-3 text-center text-subtle">{m.province}</td>
                     <td className="py-2.5 px-3 text-right">
                       <div className="flex items-center justify-end gap-2">
-                        <div className="w-16 bg-slate-100 dark:bg-slate-700 rounded-full h-2 overflow-hidden">
+                        <div className="w-16 bg-surface-raised rounded-full h-2 overflow-hidden">
                           <div className={`h-full rounded-full ${scoreBarColor(m.score)}`} style={{ width: `${m.score * 100}%` }} />
                         </div>
                         <span className="font-mono font-bold text-slate-800 dark:text-white w-10 text-right">
@@ -234,16 +234,16 @@ export default function LivabilityIndex() {
                         </span>
                       </div>
                     </td>
-                    <td className="py-2.5 px-3 text-right font-mono text-slate-700 dark:text-slate-300">
+                    <td className="py-2.5 px-3 text-right font-mono text-body">
                       {m.distanceKm} {t('livability.km')}
                     </td>
-                    <td className="py-2.5 px-3 text-right font-mono text-slate-700 dark:text-slate-300">
+                    <td className="py-2.5 px-3 text-right font-mono text-body">
                       € {m.avgRentMonthly}
                     </td>
-                    <td className="py-2.5 px-3 text-right font-mono text-slate-700 dark:text-slate-300">
+                    <td className="py-2.5 px-3 text-right font-mono text-body">
                       {m.irpefAddizionale}%
                     </td>
-                    <td className="py-2.5 px-3 text-right font-mono text-slate-700 dark:text-slate-300">
+                    <td className="py-2.5 px-3 text-right font-mono text-body">
                       {m.population.toLocaleString()}
                     </td>
                     <td className="py-2.5 px-3 text-center">
@@ -263,21 +263,21 @@ export default function LivabilityIndex() {
             </table>
           </div>
           {filtered.length === 0 && (
-            <p className="text-center text-slate-500 dark:text-slate-400 py-8">
+            <p className="text-center text-muted py-8">
               Nessun risultato per i filtri selezionati
             </p>
           )}
         </div>
       ) : (
-        <div className="bg-white dark:bg-slate-800 rounded-xl shadow overflow-hidden" style={{ height: '500px' }}>
-          <React.Suspense fallback={<div className="flex items-center justify-center h-full text-slate-500 dark:text-slate-400">Loading map…</div>}>
+        <div className="bg-surface rounded-xl shadow overflow-hidden" style={{ height: '500px' }}>
+          <React.Suspense fallback={<div className="flex items-center justify-center h-full text-muted">Loading map…</div>}>
             <LeafletMap municipalities={filtered} />
           </React.Suspense>
         </div>
       )}
 
       {/* Disclaimer */}
-      <div className="flex items-start gap-2 text-xs text-slate-500 dark:text-slate-400">
+      <div className="flex items-start gap-2 text-xs text-muted">
         <AlertTriangle size={14} className="flex-shrink-0 mt-0.5" />
         <p>{t('livability.disclaimer')}</p>
       </div>

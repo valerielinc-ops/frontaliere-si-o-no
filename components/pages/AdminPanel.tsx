@@ -243,11 +243,11 @@ function CopyButton({ text, label }: { text: string; label?: string }) {
   return (
     <button
       onClick={handleCopy}
-      className="inline-flex items-center gap-1 px-2 py-0.5 text-xs rounded bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors font-mono"
+      className="inline-flex items-center gap-1 px-2 py-0.5 text-xs rounded bg-surface-raised hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors font-mono"
       title={`Copia: ${text}`}
       aria-label={`Copia ${label || text}`}
     >
-      {copied ? <Check size={12} className="text-emerald-500" /> : <Copy size={12} className="text-slate-500 dark:text-slate-400" />}
+      {copied ? <Check size={12} className="text-emerald-500" /> : <Copy size={12} className="text-muted" />}
       <span className="max-w-[200px] truncate">{text}</span>
     </button>
   );
@@ -882,21 +882,21 @@ export default function AdminPanel() {
           {parserDispatchMessage}
         </div>
       )}
-      <details className="group rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800">
+      <details className="group rounded-xl border border-edge bg-surface">
         <summary className="flex items-center gap-2 px-4 py-3 cursor-pointer select-none">
           <Shield size={14} className="text-violet-600 dark:text-violet-400" />
           <span className="text-sm font-semibold text-slate-800 dark:text-slate-100">Configurazione crawler</span>
-          <span className="ml-auto text-[10px] text-slate-500 dark:text-slate-400 group-open:hidden">▸</span>
-          <span className="ml-auto text-[10px] text-slate-500 dark:text-slate-400 hidden group-open:inline">▾</span>
+          <span className="ml-auto text-[10px] text-muted group-open:hidden">▸</span>
+          <span className="ml-auto text-[10px] text-muted hidden group-open:inline">▾</span>
         </summary>
-        <div className="px-4 pb-4 space-y-4 border-t border-slate-200 dark:border-slate-700">
+        <div className="px-4 pb-4 space-y-4 border-t border-edge">
           {/* Genera parser AI */}
-          <div className="rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/40 p-3 space-y-3 mt-4">
-            <div className="text-xs font-semibold text-slate-700 dark:text-slate-300">
+          <div className="rounded-lg border border-edge bg-surface-alt/40 p-3 space-y-3 mt-4">
+            <div className="text-xs font-semibold text-body">
               Genera parser/crawler AI per nuova azienda
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-              <label className="text-sm text-slate-600 dark:text-slate-400">
+              <label className="text-sm text-subtle">
                 Nome azienda
                 <input
                   type="text"
@@ -904,10 +904,10 @@ export default function AdminPanel() {
                   onChange={(e) => setParserCompanyName(e.target.value)}
                   placeholder="es. VF International"
                   aria-label="Nome azienda"
-                  className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100"
+                  className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-surface text-slate-800 dark:text-slate-100"
                 />
               </label>
-              <label className="text-sm text-slate-600 dark:text-slate-400">
+              <label className="text-sm text-subtle">
                 URL sito azienda
                 <input
                   type="url"
@@ -915,10 +915,10 @@ export default function AdminPanel() {
                   onChange={(e) => setParserCompanyWebsite(e.target.value)}
                   placeholder="https://azienda.ch"
                   aria-label="URL sito azienda"
-                  className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100"
+                  className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-surface text-slate-800 dark:text-slate-100"
                 />
               </label>
-              <label className="text-sm text-slate-600 dark:text-slate-400">
+              <label className="text-sm text-subtle">
                 Company key (opzionale)
                 <input
                   type="text"
@@ -926,7 +926,7 @@ export default function AdminPanel() {
                   onChange={(e) => setParserCompanyKey(e.target.value)}
                   placeholder="es. vf-international"
                   aria-label="Company key"
-                  className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100"
+                  className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-surface text-slate-800 dark:text-slate-100"
                 />
               </label>
             </div>
@@ -937,7 +937,7 @@ export default function AdminPanel() {
                 className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border text-xs font-semibold transition-colors ${
                   parserApplyConfig
                     ? 'border-amber-300 dark:border-amber-700 bg-amber-50 dark:bg-amber-900/20 text-amber-700 dark:text-amber-300'
-                    : 'border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300'
+                    : 'border-slate-300 dark:border-slate-600 bg-surface text-body'
                 }`}
               >
                 {parserApplyConfig ? <ToggleRight size={13} /> : <ToggleLeft size={13} />}
@@ -955,180 +955,180 @@ export default function AdminPanel() {
           </div>
 
           {/* ── Section 1: Quality Gates ── */}
-          <details className="group rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/50" open>
+          <details className="group rounded-lg border border-edge bg-surface/50" open>
             <summary className="flex items-center gap-2 px-4 py-3 cursor-pointer select-none">
               <Shield size={14} className="text-amber-600 dark:text-amber-400" />
               <span className="text-sm font-semibold text-slate-800 dark:text-slate-100">Filtri qualità</span>
-              <span className="ml-auto text-[10px] text-slate-500 dark:text-slate-400 group-open:hidden">▸</span>
-              <span className="ml-auto text-[10px] text-slate-500 dark:text-slate-400 hidden group-open:inline">▾</span>
+              <span className="ml-auto text-[10px] text-muted group-open:hidden">▸</span>
+              <span className="ml-auto text-[10px] text-muted hidden group-open:inline">▾</span>
             </summary>
             <div className="px-4 pb-4 space-y-3">
-              <p className="text-[11px] text-slate-500 dark:text-slate-400">Soglie minime per accettare un annuncio. Job sotto queste soglie vengono scartati.</p>
+              <p className="text-[11px] text-muted">Soglie minime per accettare un annuncio. Job sotto queste soglie vengono scartati.</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <label className="text-sm text-slate-600 dark:text-slate-400">
-                  <span className="flex items-center gap-1">Punteggio qualità minimo <span className="text-[10px] text-slate-500 dark:text-slate-400">(4–10)</span></span>
+                <label className="text-sm text-subtle">
+                  <span className="flex items-center gap-1">Punteggio qualità minimo <span className="text-[10px] text-muted">(4–10)</span></span>
                   <input type="number" inputMode="numeric" min={4} max={10} value={minQualityScoreInput} onChange={e => setMinQualityScoreInput(Number(e.target.value))}
                     aria-label="Punteggio qualità minimo"
-                    className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-sm" />
+                    className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-surface-alt text-slate-800 dark:text-slate-100 text-sm" />
                 </label>
-                <label className="text-sm text-slate-600 dark:text-slate-400">
-                  <span className="flex items-center gap-1">Lunghezza descrizione minima <span className="text-[10px] text-slate-500 dark:text-slate-400">(80–600 car.)</span></span>
+                <label className="text-sm text-subtle">
+                  <span className="flex items-center gap-1">Lunghezza descrizione minima <span className="text-[10px] text-muted">(80–600 car.)</span></span>
                   <input type="number" inputMode="numeric" min={80} max={600} value={minDescriptionCharsInput} onChange={e => setMinDescriptionCharsInput(Number(e.target.value))}
                     aria-label="Lunghezza descrizione minima"
-                    className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-sm" />
+                    className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-surface-alt text-slate-800 dark:text-slate-100 text-sm" />
                 </label>
               </div>
             </div>
           </details>
 
           {/* ── Section 2: AI Localization ── */}
-          <details className="group rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/50">
+          <details className="group rounded-lg border border-edge bg-surface/50">
             <summary className="flex items-center gap-2 px-4 py-3 cursor-pointer select-none">
               <Activity size={14} className="text-violet-600 dark:text-violet-400" />
               <span className="text-sm font-semibold text-slate-800 dark:text-slate-100">Traduzione AI</span>
-              <span className={`ml-2 px-1.5 py-0.5 rounded text-[10px] font-bold ${aiLocalizationEnabledInput ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300' : 'bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400'}`}>
+              <span className={`ml-2 px-1.5 py-0.5 rounded text-[10px] font-bold ${aiLocalizationEnabledInput ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300' : 'bg-surface-raised text-muted'}`}>
                 {aiLocalizationEnabledInput ? 'ON' : 'OFF'}
               </span>
-              <span className="ml-auto text-[10px] text-slate-500 dark:text-slate-400 group-open:hidden">▸</span>
-              <span className="ml-auto text-[10px] text-slate-500 dark:text-slate-400 hidden group-open:inline">▾</span>
+              <span className="ml-auto text-[10px] text-muted group-open:hidden">▸</span>
+              <span className="ml-auto text-[10px] text-muted hidden group-open:inline">▾</span>
             </summary>
             <div className="px-4 pb-4 space-y-3">
-              <p className="text-[11px] text-slate-500 dark:text-slate-400">Traduzione automatica annunci in IT/EN/DE/FR tramite LLM (free-first, paid fallback).</p>
+              <p className="text-[11px] text-muted">Traduzione automatica annunci in IT/EN/DE/FR tramite LLM (free-first, paid fallback).</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <label className="text-sm text-slate-600 dark:text-slate-400">
+                <label className="text-sm text-subtle">
                   Stato
                   <button type="button" onClick={() => setAiLocalizationEnabledInput(v => !v)}
                     className={`mt-1 w-full inline-flex items-center justify-center gap-2 px-3 py-2 rounded-lg border transition-colors text-sm font-medium ${
                       aiLocalizationEnabledInput
                         ? 'border-emerald-300 dark:border-emerald-700 bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300'
-                        : 'border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-700 dark:text-slate-300'
+                        : 'border-slate-300 dark:border-slate-600 bg-surface-alt text-body'
                     }`}>
                     {aiLocalizationEnabledInput ? <ToggleRight size={16} /> : <ToggleLeft size={16} />}
                     {aiLocalizationEnabledInput ? 'Attivo' : 'Disattivo'}
                   </button>
                 </label>
-                <label className="text-sm text-slate-600 dark:text-slate-400">
-                  <span className="flex items-center gap-1">Max job tradotti per run <span className="text-[10px] text-slate-500 dark:text-slate-400">(0–100)</span></span>
+                <label className="text-sm text-subtle">
+                  <span className="flex items-center gap-1">Max job tradotti per run <span className="text-[10px] text-muted">(0–100)</span></span>
                   <input type="number" inputMode="numeric" min={0} max={100} value={aiLocalizationMaxJobsPerRunInput} onChange={e => setAiLocalizationMaxJobsPerRunInput(Number(e.target.value))}
                     aria-label="Max job tradotti per run"
-                    className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-sm" />
+                    className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-surface-alt text-slate-800 dark:text-slate-100 text-sm" />
                 </label>
               </div>
             </div>
           </details>
 
           {/* ── Section 3: Content Reuse ── */}
-          <details className="group rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/50">
+          <details className="group rounded-lg border border-edge bg-surface/50">
             <summary className="flex items-center gap-2 px-4 py-3 cursor-pointer select-none">
-              <Copy size={14} className="text-blue-600 dark:text-blue-400" />
+              <Copy size={14} className="text-link" />
               <span className="text-sm font-semibold text-slate-800 dark:text-slate-100">Riuso traduzioni</span>
-              <span className={`ml-2 px-1.5 py-0.5 rounded text-[10px] font-bold ${contentReuseEnabledInput ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300' : 'bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400'}`}>
+              <span className={`ml-2 px-1.5 py-0.5 rounded text-[10px] font-bold ${contentReuseEnabledInput ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300' : 'bg-surface-raised text-muted'}`}>
                 {contentReuseEnabledInput ? 'ON' : 'OFF'}
               </span>
-              <span className="ml-auto text-[10px] text-slate-500 dark:text-slate-400 group-open:hidden">▸</span>
-              <span className="ml-auto text-[10px] text-slate-500 dark:text-slate-400 hidden group-open:inline">▾</span>
+              <span className="ml-auto text-[10px] text-muted group-open:hidden">▸</span>
+              <span className="ml-auto text-[10px] text-muted hidden group-open:inline">▾</span>
             </summary>
             <div className="px-4 pb-4 space-y-3">
-              <p className="text-[11px] text-slate-500 dark:text-slate-400">Se la descrizione di un job è molto simile al run precedente, riusa le traduzioni già fatte (risparmia crediti AI).</p>
+              <p className="text-[11px] text-muted">Se la descrizione di un job è molto simile al run precedente, riusa le traduzioni già fatte (risparmia crediti AI).</p>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                <label className="text-sm text-slate-600 dark:text-slate-400">
+                <label className="text-sm text-subtle">
                   Stato
                   <button type="button" onClick={() => setContentReuseEnabledInput(v => !v)}
                     className={`mt-1 w-full inline-flex items-center justify-center gap-1 px-2 py-2 rounded-lg border text-sm font-medium transition-colors ${
                       contentReuseEnabledInput
                         ? 'border-emerald-300 dark:border-emerald-700 bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300'
-                        : 'border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-700 dark:text-slate-300'
+                        : 'border-slate-300 dark:border-slate-600 bg-surface-alt text-body'
                     }`}>
                     {contentReuseEnabledInput ? <ToggleRight size={14} /> : <ToggleLeft size={14} />}
                     {contentReuseEnabledInput ? 'ON' : 'OFF'}
                   </button>
                 </label>
-                <label className="text-sm text-slate-600 dark:text-slate-400">
-                  <span>Similarità min <span className="text-[10px] text-slate-500 dark:text-slate-400">(0.70–1.00)</span></span>
+                <label className="text-sm text-subtle">
+                  <span>Similarità min <span className="text-[10px] text-muted">(0.70–1.00)</span></span>
                   <input type="number" inputMode="decimal" min={0.7} max={1} step={0.01} value={contentReuseSimilarityThresholdInput} onChange={e => setContentReuseSimilarityThresholdInput(Number(e.target.value))}
                     aria-label="Soglia similarità minima"
-                    className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-sm" />
+                    className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-surface-alt text-slate-800 dark:text-slate-100 text-sm" />
                 </label>
-                <label className="text-sm text-slate-600 dark:text-slate-400">
-                  <span>Char sorgente min <span className="text-[10px] text-slate-500 dark:text-slate-400">(120–8000)</span></span>
+                <label className="text-sm text-subtle">
+                  <span>Char sorgente min <span className="text-[10px] text-muted">(120–8000)</span></span>
                   <input type="number" inputMode="numeric" min={120} max={8000} value={contentReuseMinSourceCharsInput} onChange={e => setContentReuseMinSourceCharsInput(Number(e.target.value))}
                     aria-label="Caratteri sorgente minimi"
-                    className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-sm" />
+                    className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-surface-alt text-slate-800 dark:text-slate-100 text-sm" />
                 </label>
-                <label className="text-sm text-slate-600 dark:text-slate-400">
-                  <span>Delta lunghezza max <span className="text-[10px] text-slate-500 dark:text-slate-400">(0.02–1.00)</span></span>
+                <label className="text-sm text-subtle">
+                  <span>Delta lunghezza max <span className="text-[10px] text-muted">(0.02–1.00)</span></span>
                   <input type="number" inputMode="decimal" min={0.02} max={1} step={0.01} value={contentReuseMaxLengthDeltaRatioInput} onChange={e => setContentReuseMaxLengthDeltaRatioInput(Number(e.target.value))}
                     aria-label="Delta lunghezza massimo"
-                    className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-sm" />
+                    className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-surface-alt text-slate-800 dark:text-slate-100 text-sm" />
                 </label>
               </div>
             </div>
           </details>
 
           {/* ── Section 4: Domain Scope ── */}
-          <details className="group rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/50">
+          <details className="group rounded-lg border border-edge bg-surface/50">
             <summary className="flex items-center gap-2 px-4 py-3 cursor-pointer select-none">
-              <Shield size={14} className="text-slate-600 dark:text-slate-400" />
+              <Shield size={14} className="text-subtle" />
               <span className="text-sm font-semibold text-slate-800 dark:text-slate-100">Filtro domini</span>
-              <span className="ml-2 text-[10px] text-slate-500 dark:text-slate-400">{domainWhitelistText.split('\n').filter(Boolean).length} whitelist · {domainBlacklistText.split('\n').filter(Boolean).length} blacklist</span>
-              <span className="ml-auto text-[10px] text-slate-500 dark:text-slate-400 group-open:hidden">▸</span>
-              <span className="ml-auto text-[10px] text-slate-500 dark:text-slate-400 hidden group-open:inline">▾</span>
+              <span className="ml-2 text-[10px] text-muted">{domainWhitelistText.split('\n').filter(Boolean).length} whitelist · {domainBlacklistText.split('\n').filter(Boolean).length} blacklist</span>
+              <span className="ml-auto text-[10px] text-muted group-open:hidden">▸</span>
+              <span className="ml-auto text-[10px] text-muted hidden group-open:inline">▾</span>
             </summary>
             <div className="px-4 pb-4 space-y-3">
-              <p className="text-[11px] text-slate-500 dark:text-slate-400">Whitelist: se compilata, solo questi domini vengono crawlati. Blacklist: domini sempre esclusi.</p>
+              <p className="text-[11px] text-muted">Whitelist: se compilata, solo questi domini vengono crawlati. Blacklist: domini sempre esclusi.</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <label className="text-sm text-slate-600 dark:text-slate-400">
-                  Domain Whitelist <span className="text-[10px] text-slate-500 dark:text-slate-400">(1 host per riga)</span>
+                <label className="text-sm text-subtle">
+                  Domain Whitelist <span className="text-[10px] text-muted">(1 host per riga)</span>
                   <textarea rows={5} value={domainWhitelistText} onChange={e => setDomainWhitelistText(e.target.value)} placeholder="esempio.com"
                     aria-label="Domain Whitelist"
-                    className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 font-mono text-xs" />
+                    className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-surface-alt text-slate-800 dark:text-slate-100 font-mono text-xs" />
                 </label>
-                <label className="text-sm text-slate-600 dark:text-slate-400">
-                  Domain Blacklist <span className="text-[10px] text-slate-500 dark:text-slate-400">(1 host per riga)</span>
+                <label className="text-sm text-subtle">
+                  Domain Blacklist <span className="text-[10px] text-muted">(1 host per riga)</span>
                   <textarea rows={5} value={domainBlacklistText} onChange={e => setDomainBlacklistText(e.target.value)} placeholder="esempio-da-escludere.com"
                     aria-label="Domain Blacklist"
-                    className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 font-mono text-xs" />
+                    className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-surface-alt text-slate-800 dark:text-slate-100 font-mono text-xs" />
                 </label>
               </div>
             </div>
           </details>
 
           {/* ── Section 5: Company Priority & Seeds ── */}
-          <details className="group rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/50">
+          <details className="group rounded-lg border border-edge bg-surface/50">
             <summary className="flex items-center gap-2 px-4 py-3 cursor-pointer select-none">
               <Database size={14} className="text-emerald-600 dark:text-emerald-400" />
               <span className="text-sm font-semibold text-slate-800 dark:text-slate-100">Priorità aziende &amp; seed URL</span>
-              <span className="ml-auto text-[10px] text-slate-500 dark:text-slate-400 group-open:hidden">▸</span>
-              <span className="ml-auto text-[10px] text-slate-500 dark:text-slate-400 hidden group-open:inline">▾</span>
+              <span className="ml-auto text-[10px] text-muted group-open:hidden">▸</span>
+              <span className="ml-auto text-[10px] text-muted hidden group-open:inline">▾</span>
             </summary>
             <div className="px-4 pb-4 space-y-3">
-              <p className="text-[11px] text-slate-500 dark:text-slate-400">Priorità: punteggio numerico per ordinare le aziende nel crawl. Seed: URL career page iniziali.</p>
+              <p className="text-[11px] text-muted">Priorità: punteggio numerico per ordinare le aziende nel crawl. Seed: URL career page iniziali.</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <label className="text-sm text-slate-600 dark:text-slate-400">
-                  Priorità per dominio <span className="text-[10px] text-slate-500 dark:text-slate-400">(JSON: {`{"host": score}`})</span>
+                <label className="text-sm text-subtle">
+                  Priorità per dominio <span className="text-[10px] text-muted">(JSON: {`{"host": score}`})</span>
                   <textarea rows={6} value={companyPriorityByDomainText} onChange={e => setCompanyPriorityByDomainText(e.target.value)}
                     aria-label="Priorità per dominio"
-                    className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 font-mono text-xs" />
+                    className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-surface-alt text-slate-800 dark:text-slate-100 font-mono text-xs" />
                 </label>
-                <label className="text-sm text-slate-600 dark:text-slate-400">
-                  Priorità per nome <span className="text-[10px] text-slate-500 dark:text-slate-400">(JSON: {`{"name": score}`})</span>
+                <label className="text-sm text-subtle">
+                  Priorità per nome <span className="text-[10px] text-muted">(JSON: {`{"name": score}`})</span>
                   <textarea rows={6} value={companyPriorityByNameText} onChange={e => setCompanyPriorityByNameText(e.target.value)}
                     aria-label="Priorità per nome"
-                    className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 font-mono text-xs" />
+                    className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-surface-alt text-slate-800 dark:text-slate-100 font-mono text-xs" />
                 </label>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <label className="text-sm text-slate-600 dark:text-slate-400">
-                  Seed URL per dominio <span className="text-[10px] text-slate-500 dark:text-slate-400">(JSON: {`{"host": ["url1","url2"]}`})</span>
+                <label className="text-sm text-subtle">
+                  Seed URL per dominio <span className="text-[10px] text-muted">(JSON: {`{"host": ["url1","url2"]}`})</span>
                   <textarea rows={6} value={sourceSeedsByDomainText} onChange={e => setSourceSeedsByDomainText(e.target.value)}
                     aria-label="Seed URL per dominio"
-                    className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 font-mono text-xs" />
+                    className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-surface-alt text-slate-800 dark:text-slate-100 font-mono text-xs" />
                 </label>
-                <label className="text-sm text-slate-600 dark:text-slate-400">
-                  Seed URL per nome azienda <span className="text-[10px] text-slate-500 dark:text-slate-400">(JSON: {`{"name": ["url1"]}`})</span>
+                <label className="text-sm text-subtle">
+                  Seed URL per nome azienda <span className="text-[10px] text-muted">(JSON: {`{"name": ["url1"]}`})</span>
                   <textarea rows={6} value={sourceSeedsByNameText} onChange={e => setSourceSeedsByNameText(e.target.value)}
                     aria-label="Seed URL per nome azienda"
-                    className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 font-mono text-xs" />
+                    className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-surface-alt text-slate-800 dark:text-slate-100 font-mono text-xs" />
                 </label>
               </div>
             </div>
@@ -1159,7 +1159,7 @@ export default function AdminPanel() {
               {jobsCrawlerConfigSaving ? <RefreshCw size={14} className="animate-spin" /> : <Database size={14} />}
               Salva configurazione
             </button>
-            <span className="text-[11px] text-slate-500 dark:text-slate-400">
+            <span className="text-[11px] text-muted">
               Salvato in Firestore · applicato al prossimo run crawler.
             </span>
           </div>
@@ -1355,7 +1355,7 @@ export default function AdminPanel() {
           </button>
           <button
             onClick={loadJobsCrawlerAdminConfig}
-            className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 text-sm font-medium hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors"
+            className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-surface-raised text-slate-700 dark:text-slate-200 text-sm font-medium hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors"
           >
             <RefreshCw size={14} />
             Ricarica
@@ -1363,12 +1363,12 @@ export default function AdminPanel() {
         </div>
       </div>
 
-      <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-4 space-y-4">
-        <div className="rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/40 p-3">
-          <div className="text-xs font-semibold text-slate-700 dark:text-slate-300 mb-2">
+      <div className="bg-surface rounded-xl border border-edge p-4 space-y-4">
+        <div className="rounded-lg border border-edge bg-surface-alt/40 p-3">
+          <div className="text-xs font-semibold text-body mb-2">
             Azioni automatiche: avvio workflow e monitoraggio completo
           </div>
-          <p className="text-sm text-slate-500 dark:text-slate-400">
+          <p className="text-sm text-muted">
             Ogni bottone avvia un workflow GitHub, ne mostra lo stato in tempo reale e riassume output/errori direttamente qui.
           </p>
         </div>
@@ -1509,13 +1509,13 @@ export default function AdminPanel() {
               };
 
               const renderExpandedJobs = (jobs: CrawlerSummaryLinkRow[], type: 'new' | 'updated' | 'removed' | 'unchanged' | 'active') => {
-                if (jobs.length === 0) return <div className="text-[11px] text-slate-500 dark:text-slate-400 py-1">Nessun elemento.</div>;
+                if (jobs.length === 0) return <div className="text-[11px] text-muted py-1">Nessun elemento.</div>;
                 const styleMap = {
                   new: 'border-emerald-200 dark:border-emerald-800 bg-emerald-50/50 dark:bg-emerald-900/20',
                   updated: 'border-blue-200 dark:border-blue-800 bg-blue-50/50 dark:bg-blue-900/20',
                   removed: 'border-red-200 dark:border-red-800 bg-red-50/50 dark:bg-red-900/20',
                   unchanged: 'border-amber-200 dark:border-amber-800 bg-amber-50/50 dark:bg-amber-900/20',
-                  active: 'border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900',
+                  active: 'border-edge bg-surface',
                 } as const;
                 const jobSiteUrl = (slug: string) => slug ? `https://frontaliereticino.ch/cerca-lavoro-ticino/${slug}/` : '';
                 return (
@@ -1549,13 +1549,13 @@ export default function AdminPanel() {
                             <span className="text-xs font-medium text-slate-800 dark:text-slate-100">{job.title || 'Job senza titolo'}</span>
                             {qsBadge}
                           </div>
-                          <div className="text-[11px] text-slate-500 dark:text-slate-400">
+                          <div className="text-[11px] text-muted">
                             {job.company || 'Azienda n/d'}{job.location ? ` \u00B7 ${job.location}` : ''}
                           </div>
                           <div className="flex gap-3 mt-0.5">
-                            {job.url && <a href={job.url} target="_blank" rel="noreferrer" className="text-[10px] text-blue-600 dark:text-blue-400 hover:underline">🔗 Sorgente</a>}
+                            {job.url && <a href={job.url} target="_blank" rel="noreferrer" className="text-[10px] text-link hover:underline">🔗 Sorgente</a>}
                             {siteUrl && (type === 'removed' ? (
-                              <a href={siteUrl} target="_blank" rel="noreferrer" className="text-[10px] text-slate-500 dark:text-slate-400 hover:underline">🏚 Sito (archiviato)</a>
+                              <a href={siteUrl} target="_blank" rel="noreferrer" className="text-[10px] text-muted hover:underline">🏚 Sito (archiviato)</a>
                             ) : (
                               <a href={siteUrl} target="_blank" rel="noreferrer" className="text-[10px] text-indigo-600 dark:text-indigo-400 hover:underline">🏠 Sito</a>
                             ))}
@@ -1614,8 +1614,8 @@ export default function AdminPanel() {
                 <>
                   {/* Summary bar + filters */}
                   <div className="flex flex-col gap-2">
-                    <div className="flex flex-wrap items-center gap-3 px-3 py-2 rounded-lg bg-slate-50 dark:bg-slate-900/40 border border-slate-200 dark:border-slate-700 text-xs">
-                      <span className="font-semibold text-slate-700 dark:text-slate-300">{filtered.length}/{rows.length} crawler</span>
+                    <div className="flex flex-wrap items-center gap-3 px-3 py-2 rounded-lg bg-surface-alt/40 border border-edge text-xs">
+                      <span className="font-semibold text-body">{filtered.length}/{rows.length} crawler</span>
                       {/* Source badge: makes clear these numbers are per-crawler last-run diffs,
                           NOT the daily job-board delta from jobs-stats.json (todayAdded/todayUpdated/todayRemoved). */}
                       <span
@@ -1626,18 +1626,18 @@ export default function AdminPanel() {
                       </span>
                       {latestSummaryAt && (
                         <span
-                          className="text-slate-500 dark:text-slate-400 text-[10px] font-mono whitespace-nowrap"
+                          className="text-muted text-[10px] font-mono whitespace-nowrap"
                           title={`Dati aggiornati: ${latestSummaryAt}`}
                         >
                           {relativeTime(latestSummaryAt)}
                         </span>
                       )}
                       <span className="text-slate-500 dark:text-slate-600">|</span>
-                      <span className="font-semibold text-slate-600 dark:text-slate-400">{totals.active} annunci attivi</span>
+                      <span className="font-semibold text-subtle">{totals.active} annunci attivi</span>
                       {totals.newCount > 0 && <span className="text-emerald-700 dark:text-emerald-400 font-bold" title="Totale aggiunti nelle ultime run (Δ run, ≠ delta giornaliero)">+{totals.newCount} nuove</span>}
                       {totals.updated > 0 && <span className="text-blue-700 dark:text-blue-400 font-bold" title="Totale aggiornati nelle ultime run (Δ run, ≠ delta giornaliero)">~{totals.updated} agg.</span>}
                       {totals.removed > 0 && <span className="text-red-700 dark:text-red-400 font-bold" title="Totale rimossi nelle ultime run (Δ run, ≠ delta giornaliero)">-{totals.removed} rim.</span>}
-                      {totals.unchanged > 0 && <span className="text-slate-500 dark:text-slate-400" title="Totale invariati nelle ultime run (Δ run, ≠ delta giornaliero)">={totals.unchanged} inv.</span>}
+                      {totals.unchanged > 0 && <span className="text-muted" title="Totale invariati nelle ultime run (Δ run, ≠ delta giornaliero)">={totals.unchanged} inv.</span>}
                       {failedCrawlers.length > 0 && (
                         <>
                           <span className="text-slate-500 dark:text-slate-600">|</span>
@@ -1687,20 +1687,20 @@ export default function AdminPanel() {
                     {/* Filters */}
                     <div className="flex flex-wrap items-center gap-2 px-1">
                       <div className="relative">
-                        <Search size={12} className="absolute left-2 top-1/2 -translate-y-1/2 text-slate-500 dark:text-slate-400" />
+                        <Search size={12} className="absolute left-2 top-1/2 -translate-y-1/2 text-muted" />
                         <input
                           type="text"
                           value={crawlerNameFilter}
                           onChange={e => setCrawlerNameFilter(e.target.value)}
                           placeholder="Filtra crawler…"
-                          className="pl-7 pr-2 py-1.5 rounded-md border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-xs text-slate-800 dark:text-slate-200 w-44 focus:outline-none focus-visible:ring-1 focus-visible:ring-blue-500"
+                          className="pl-7 pr-2 py-1.5 rounded-md border border-slate-300 dark:border-slate-600 bg-surface text-xs text-strong w-44 focus:outline-none focus-visible:ring-1 focus-visible:ring-blue-500"
                           aria-label="Filtra per nome crawler"
                         />
                       </div>
                       <select
                         value={crawlerChangeFilter}
                         onChange={e => setCrawlerChangeFilter(e.target.value as typeof crawlerChangeFilter)}
-                        className="px-2 py-1.5 rounded-md border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus-visible:ring-1 focus-visible:ring-blue-500"
+                        className="px-2 py-1.5 rounded-md border border-slate-300 dark:border-slate-600 bg-surface text-xs text-strong focus:outline-none focus-visible:ring-1 focus-visible:ring-blue-500"
                         aria-label="Filtra per tipo variazione"
                       >
                         <option value="all">Tutte le variazioni</option>
@@ -1712,7 +1712,7 @@ export default function AdminPanel() {
                       {(crawlerNameFilter || crawlerChangeFilter !== 'all') && (
                         <button
                           onClick={() => { setCrawlerNameFilter(''); setCrawlerChangeFilter('all'); }}
-                          className="text-[10px] text-blue-600 dark:text-blue-400 hover:underline"
+                          className="text-[10px] text-link hover:underline"
                         >
                           Rimuovi filtri
                         </button>
@@ -1721,19 +1721,19 @@ export default function AdminPanel() {
                   </div>
 
                   {/* Table */}
-                  <div className="w-full overflow-x-auto rounded-lg border border-slate-200 dark:border-slate-700">
+                  <div className="w-full overflow-x-auto rounded-lg border border-edge">
                     <table className="min-w-[800px] w-full text-xs">
                       <thead>
-                        <tr className="bg-slate-50 dark:bg-slate-900/40 text-slate-600 dark:text-slate-400 border-b border-slate-200 dark:border-slate-700">
+                        <tr className="bg-surface-alt/40 text-subtle border-b border-edge">
                           <th className="text-left py-2 px-3 font-semibold">{renderCrawlerSortHeader('title', 'Crawler')}</th>
                           <th className="text-center py-2 px-2 font-semibold whitespace-nowrap">{renderCrawlerSortHeader('schedule', '⏰ Pianif.', { align: 'center' })}</th>
                           <th className="text-center py-2 px-2 font-semibold">{renderCrawlerSortHeader('lastRun', 'Ultimo', { align: 'center' })}</th>
                           <th className="text-center py-2 px-1.5 font-semibold text-emerald-700 dark:text-emerald-400 whitespace-nowrap" title="Nuove offerte aggiunte nell'ultima esecuzione del crawler (Δ run — distinto dal delta giornaliero del job board)">{renderCrawlerSortHeader('newCount', 'Aggiunti', { align: 'center', className: 'text-emerald-700 dark:text-emerald-400' })}</th>
                           <th className="text-center py-2 px-1.5 font-semibold text-blue-700 dark:text-blue-400 whitespace-nowrap" title="Offerte aggiornate nell'ultima esecuzione del crawler (Δ run — distinto dal delta giornaliero del job board)">{renderCrawlerSortHeader('updatedCount', 'Aggiornati', { align: 'center', className: 'text-blue-700 dark:text-blue-400' })}</th>
                           <th className="text-center py-2 px-1.5 font-semibold text-red-700 dark:text-red-400 whitespace-nowrap" title="Offerte rimosse nell'ultima esecuzione del crawler (Δ run — distinto dal delta giornaliero del job board)">{renderCrawlerSortHeader('removedCount', 'Rimossi', { align: 'center', className: 'text-red-700 dark:text-red-400' })}</th>
-                          <th className="text-center py-2 px-1.5 font-semibold text-slate-500 dark:text-slate-400 whitespace-nowrap" title="Offerte non cambiate nell'ultima esecuzione del crawler (Δ run — distinto dal delta giornaliero del job board)">{renderCrawlerSortHeader('unchangedCount', 'Invariati', { align: 'center', className: 'text-slate-500 dark:text-slate-400' })}</th>
+                          <th className="text-center py-2 px-1.5 font-semibold text-muted whitespace-nowrap" title="Offerte non cambiate nell'ultima esecuzione del crawler (Δ run — distinto dal delta giornaliero del job board)">{renderCrawlerSortHeader('unchangedCount', 'Invariati', { align: 'center', className: 'text-muted' })}</th>
                           <th className="text-center py-2 px-1.5 font-semibold text-violet-700 dark:text-violet-400 whitespace-nowrap" title="Totale offerte attive nella slice del crawler (dal job slice, non dal delta dell'ultima run)">{renderCrawlerSortHeader('total', 'Attivi', { align: 'center', className: 'text-violet-700 dark:text-violet-400' })}</th>
-                          <th className="text-center py-2 px-1.5 font-semibold text-slate-500 dark:text-slate-400 whitespace-nowrap">{renderCrawlerSortHeader('duration', '⏱️ Durata', { align: 'center', className: 'text-slate-500 dark:text-slate-400' })}</th>
+                          <th className="text-center py-2 px-1.5 font-semibold text-muted whitespace-nowrap">{renderCrawlerSortHeader('duration', '⏱️ Durata', { align: 'center', className: 'text-muted' })}</th>
                           <th className="text-center py-2 px-1.5 font-semibold whitespace-nowrap" title="Quality score: media ponderata su pulizia testo, ricchezza contenuto, qualità traduzione, completezza dati (0–100)">{renderCrawlerSortHeader('quality', '📊 Qualità', { align: 'center' })}</th>
                           <th className="text-center py-2 px-2 font-semibold">{renderCrawlerSortHeader('status', 'Stato', { align: 'center' })}</th>
                           <th className="text-center py-2 px-2 font-semibold">Azioni</th>
@@ -1753,7 +1753,7 @@ export default function AdminPanel() {
 
                           return (
                             <Fragment key={row.key}>
-                              <tr className={`border-b border-slate-200 dark:border-slate-700 hover:bg-slate-50/70 dark:hover:bg-slate-800/40 ${
+                              <tr className={`border-b border-edge hover:bg-slate-50/70 dark:hover:bg-slate-800/40 ${
                                 row.wf?.id === 'orchestrate-crawlers.yml' ? 'bg-violet-50/50 dark:bg-violet-900/10'
                                 : isFailure ? 'bg-red-50/30 dark:bg-red-900/10' : ''
                               }`}>
@@ -1762,11 +1762,11 @@ export default function AdminPanel() {
                                   <span className={`font-semibold ${row.wf?.id === 'orchestrate-crawlers.yml' ? 'text-violet-700 dark:text-violet-300' : 'text-slate-800 dark:text-slate-100'}`}>{row.title}</span>
                                 </td>
                                 {/* Schedule */}
-                                <td className="text-center py-2 px-2 font-mono text-[11px] text-slate-600 dark:text-slate-400 whitespace-nowrap">
+                                <td className="text-center py-2 px-2 font-mono text-[11px] text-subtle whitespace-nowrap">
                                   {row.schedule ? <span title={`UTC ${row.schedule}`}>{row.schedule}</span> : '—'}
                                 </td>
                                 {/* Last run */}
-                                <td className="text-center py-2 px-2 text-[11px] text-slate-500 dark:text-slate-400 whitespace-nowrap">
+                                <td className="text-center py-2 px-2 text-[11px] text-muted whitespace-nowrap">
                                   {lastRunAgo || '—'}
                                 </td>
                                 {/* Aggiunti */}
@@ -1832,10 +1832,10 @@ export default function AdminPanel() {
                                 {/* Durata */}
                                 <td className="text-center py-2 px-1.5">
                                   {s?.durationMs != null ? (
-                                    <span className="text-[10px] font-mono text-slate-600 dark:text-slate-400" title={s.avgDurationMs != null ? `Media: ${formatDurationMs(s.avgDurationMs)}` : undefined}>
+                                    <span className="text-[10px] font-mono text-subtle" title={s.avgDurationMs != null ? `Media: ${formatDurationMs(s.avgDurationMs)}` : undefined}>
                                       {formatDurationMs(s.durationMs)}
                                       {s.avgDurationMs != null && (
-                                        <span className="block text-[9px] text-slate-500 dark:text-slate-400">ø {formatDurationMs(s.avgDurationMs)}</span>
+                                        <span className="block text-[9px] text-muted">ø {formatDurationMs(s.avgDurationMs)}</span>
                                       )}
                                     </span>
                                   ) : '—'}
@@ -1878,7 +1878,7 @@ export default function AdminPanel() {
                                       isSuccess ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300'
                                         : isFailure ? 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300'
                                         : isRunning ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300'
-                                        : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400'
+                                        : 'bg-surface-raised text-subtle'
                                     }`}>
                                       {isRunning ? (<><Loader2 size={10} className="animate-spin" /> Run</>)
                                         : isSuccess ? (<><CheckCircle2 size={10} /> OK</>)
@@ -1904,7 +1904,7 @@ export default function AdminPanel() {
                                       </button>
                                       {wfState?.htmlUrl && (
                                         <a href={wfState.htmlUrl} target="_blank" rel="noreferrer"
-                                           className="inline-flex items-center px-1.5 py-1 rounded-md border border-slate-300 dark:border-slate-600 text-slate-500 dark:text-slate-400 text-[10px] hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors"
+                                           className="inline-flex items-center px-1.5 py-1 rounded-md border border-slate-300 dark:border-slate-600 text-muted text-[10px] hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors"
                                            aria-label={`GitHub ${row.title}`}>
                                           <ExternalLink size={10} />
                                         </a>
@@ -1921,14 +1921,14 @@ export default function AdminPanel() {
                               {/* Expanded job details row */}
                               {expanded && s && (
                                 <tr>
-                                  <td colSpan={10} className={`px-3 py-2 border-b border-slate-200 dark:border-slate-700 ${
+                                  <td colSpan={10} className={`px-3 py-2 border-b border-edge ${
                                     expanded === 'new' ? 'bg-emerald-50/50 dark:bg-emerald-900/10'
                                       : expanded === 'updated' ? 'bg-blue-50/50 dark:bg-blue-900/10'
                                       : expanded === 'unchanged' ? 'bg-amber-50/50 dark:bg-amber-900/10'
                                       : expanded === 'active' ? 'bg-violet-50/50 dark:bg-violet-900/10'
                                       : 'bg-red-50/50 dark:bg-red-900/10'
                                   }`}>
-                                    <div className="text-[11px] font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
+                                    <div className="text-[11px] font-semibold text-body mb-1.5">
                                       {expanded === 'new' ? `Aggiunti (${s.newCount})`
                                         : expanded === 'updated' ? `Aggiornati (${s.updatedCount})`
                                         : expanded === 'unchanged' ? `Invariati (${s.unchangedCount}${s.unchangedCount > s.unchangedJobs.length ? ` — mostrati ${s.unchangedJobs.length}` : ''})`
@@ -1988,9 +1988,9 @@ export default function AdminPanel() {
           </div>
         ) : (
           <div className="space-y-4">
-            <div className="rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/40 px-3 py-2">
-              <div className="text-xs font-bold text-slate-700 dark:text-slate-300">{meta.label}</div>
-              <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">{meta.description}</div>
+            <div className="rounded-lg border border-edge bg-surface-alt/40 px-3 py-2">
+              <div className="text-xs font-bold text-body">{meta.label}</div>
+              <div className="text-[11px] text-muted mt-0.5">{meta.description}</div>
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
               {grouped.map(renderWorkflowCard)}
@@ -2456,19 +2456,19 @@ export default function AdminPanel() {
           : 'border-l-slate-300 dark:border-l-slate-600';
 
     return (
-      <div key={wf.id} className={`rounded-lg border border-slate-200 dark:border-slate-700 border-l-4 ${borderColor} bg-white dark:bg-slate-900/40 p-4 space-y-3`}>
+      <div key={wf.id} className={`rounded-lg border border-edge border-l-4 ${borderColor} bg-surface/40 p-4 space-y-3`}>
         {/* ── Header: title + badge + last run ── */}
         <div className="flex items-start justify-between gap-3">
           <div className="min-w-0">
             <div className="flex items-center gap-2 flex-wrap">
               <h4 className="text-sm font-bold text-slate-800 dark:text-slate-100 truncate">{wf.title}</h4>
               {lastRunAgo && (
-                <span className="text-[10px] text-slate-500 dark:text-slate-400 font-mono whitespace-nowrap" title={wfState.updatedAt || ''}>
+                <span className="text-[10px] text-muted font-mono whitespace-nowrap" title={wfState.updatedAt || ''}>
                   {lastRunAgo}
                 </span>
               )}
             </div>
-            <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 leading-snug">{wf.description}</p>
+            <p className="text-[11px] text-muted mt-0.5 leading-snug">{wf.description}</p>
           </div>
           <span className={`shrink-0 inline-flex items-center gap-1 px-2 py-1 rounded-full text-[10px] font-bold uppercase tracking-wide ${
             isSuccess
@@ -2477,7 +2477,7 @@ export default function AdminPanel() {
                 ? 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300'
                 : isRunning
                   ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300'
-                  : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400'
+                  : 'bg-surface-raised text-subtle'
           }`}>
             {isRunning ? (
               <><Loader2 size={10} className="animate-spin" /> Run</>
@@ -2532,7 +2532,7 @@ export default function AdminPanel() {
               href={wfState.htmlUrl}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-300 dark:border-slate-600 text-slate-600 dark:text-slate-400 text-xs font-semibold hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-300 dark:border-slate-600 text-subtle text-xs font-semibold hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors"
             >
               <ExternalLink size={11} />
               GitHub
@@ -2549,7 +2549,7 @@ export default function AdminPanel() {
         {/* ── Log excerpt preview (visible immediately on failure) ── */}
         {isFailure && wfState.logExcerpt && (
           <div>
-            <div className="mb-1 text-[10px] font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wide">
+            <div className="mb-1 text-[10px] font-semibold text-muted uppercase tracking-wide">
               Log errore (ultime righe)
             </div>
             <pre className="max-h-32 overflow-auto rounded-md bg-slate-900 text-red-200 p-2 text-[10px] font-mono whitespace-pre-wrap break-words leading-relaxed border border-red-800/30">
@@ -2559,11 +2559,11 @@ export default function AdminPanel() {
         )}
 
         {/* ── Collapsible execution detail ── */}
-        <details className="rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/40 p-3 text-xs">
-          <summary className="cursor-pointer font-semibold text-slate-600 dark:text-slate-400 select-none">
+        <details className="rounded-lg border border-edge bg-surface-alt/40 p-3 text-xs">
+          <summary className="cursor-pointer font-semibold text-subtle select-none">
             Dettaglio · <span className="font-normal">{wf.details}</span> · <span className="font-mono text-[10px]">{wf.expectedDuration}</span>
           </summary>
-          <div className="mt-3 space-y-2 text-slate-600 dark:text-slate-400">
+          <div className="mt-3 space-y-2 text-subtle">
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-1 text-[11px]">
               <div>Run <span className="font-mono font-semibold">#{wfState.runNumber || '—'}</span></div>
               <div>Stato: <span className="font-semibold">{wfState.status || 'idle'}</span></div>
@@ -2574,9 +2574,9 @@ export default function AdminPanel() {
             </div>
 
             {wfState.jobs.length > 0 && (
-              <div className="rounded-md border border-slate-200 dark:border-slate-700 overflow-x-auto">
+              <div className="rounded-md border border-edge overflow-x-auto">
                 <table className="min-w-[420px] w-full text-[11px]">
-                  <thead className="bg-slate-100 dark:bg-slate-700/40 text-slate-500 dark:text-slate-400">
+                  <thead className="bg-surface-raised/40 text-muted">
                     <tr>
                       <th className="text-left py-1 px-2">Job</th>
                       <th className="text-left py-1 px-2">Esito</th>
@@ -2585,7 +2585,7 @@ export default function AdminPanel() {
                   </thead>
                   <tbody>
                     {wfState.jobs.map((job) => (
-                      <tr key={`${wf.id}-${job.id}`} className={`border-t border-slate-200 dark:border-slate-700 ${String(job.conclusion) === 'failure' ? 'bg-red-50/50 dark:bg-red-900/10' : ''}`}>
+                      <tr key={`${wf.id}-${job.id}`} className={`border-t border-edge ${String(job.conclusion) === 'failure' ? 'bg-red-50/50 dark:bg-red-900/10' : ''}`}>
                         <td className="py-1 px-2 font-medium">{job.name}</td>
                         <td className={`py-1 px-2 font-semibold ${String(job.conclusion) === 'failure' ? 'text-red-600 dark:text-red-400' : String(job.conclusion) === 'success' ? 'text-emerald-600 dark:text-emerald-400' : ''}`}>
                           {job.conclusion || job.status || '—'}
@@ -2601,7 +2601,7 @@ export default function AdminPanel() {
             {/* Log in details for successful runs too */}
             {!isFailure && wfState.logExcerpt && (
               <div>
-                <div className="mb-1 text-[10px] font-semibold text-slate-500 dark:text-slate-400">Output log</div>
+                <div className="mb-1 text-[10px] font-semibold text-muted">Output log</div>
                 <pre className="max-h-36 overflow-auto rounded-md bg-slate-900 text-slate-100 p-2 text-[10px] whitespace-pre-wrap break-words">
                   {wfState.logExcerpt}
                 </pre>
@@ -2609,7 +2609,7 @@ export default function AdminPanel() {
             )}
 
             {isFailure && !wfState.logExcerpt && (
-              <div className="text-[11px] italic text-slate-500 dark:text-slate-400">
+              <div className="text-[11px] italic text-muted">
                 Log non disponibile — apri il run su GitHub per i dettagli completi.
               </div>
             )}
@@ -2715,7 +2715,7 @@ export default function AdminPanel() {
       </div>
 
       {/* Tab navigation */}
-      <div className="flex gap-2 border-b border-slate-200 dark:border-slate-700 pb-1 flex-wrap">
+      <div className="flex gap-2 border-b border-edge pb-1 flex-wrap">
         {[
           { id: 'jobs' as const, label: 'Workflow Jobs', icon: ListChecks },
           { id: 'owner' as const, label: 'Owner Tools', icon: Activity },
@@ -2733,8 +2733,8 @@ export default function AdminPanel() {
               onClick={() => setActiveSection(tab.id as typeof activeSection)}
               className={`flex items-center gap-1.5 px-3 py-2 text-sm font-medium rounded-t-lg transition-colors ${
                 activeSection === tab.id
-                  ? 'bg-white dark:bg-slate-800 text-violet-700 dark:text-violet-400 border border-b-0 border-slate-200 dark:border-slate-700'
-                  : 'text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300'
+                  ? 'bg-surface text-violet-700 dark:text-violet-400 border border-b-0 border-edge'
+                  : 'text-muted hover:text-slate-700 dark:hover:text-slate-300'
               }`}
               aria-label={tab.label}
             >
@@ -2785,8 +2785,8 @@ export default function AdminPanel() {
             </div>
           )}
 
-          <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 px-4 py-2">
-            <p className="text-sm text-slate-500 dark:text-slate-400">Panoramica KPI e check runtime. Usa questa vista per un controllo rapido.</p>
+          <div className="bg-surface rounded-xl border border-edge px-4 py-2">
+            <p className="text-sm text-muted">Panoramica KPI e check runtime. Usa questa vista per un controllo rapido.</p>
           </div>
 
           {ownerTab === 'overview' && (
@@ -2800,57 +2800,57 @@ export default function AdminPanel() {
                   {serpDiagnostics.hasRemoteOverride ? <AlertTriangle size={16} /> : <CheckCircle2 size={16} />}
                   SEO SERP Experiment Config Check
                 </div>
-                <div className="mt-2 text-xs text-slate-700 dark:text-slate-300 font-mono break-all">
+                <div className="mt-2 text-xs text-body font-mono break-all">
                   runtime: enabled={String(serpDiagnostics.runtime.enabled)}, variant={serpDiagnostics.runtime.variant}, targets={serpDiagnostics.runtime.targets || '(vuoto)'}, year={serpDiagnostics.runtime.year}
                 </div>
-                <div className="mt-1 text-xs text-slate-600 dark:text-slate-400 font-mono break-all">
+                <div className="mt-1 text-xs text-subtle font-mono break-all">
                   default: enabled={String(serpDiagnostics.defaults.enabled)}, variant={serpDiagnostics.defaults.variant}, targets={serpDiagnostics.defaults.targets}, year={serpDiagnostics.defaults.year}
                 </div>
                 {!serpDiagnostics.loaded && (
-                  <div className="mt-2 text-xs text-slate-600 dark:text-slate-400">Caricamento stato Remote Config in corso…</div>
+                  <div className="mt-2 text-xs text-subtle">Caricamento stato Remote Config in corso…</div>
                 )}
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-4">
-                  <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">Social proof (counters/simulations)</div>
+                <div className="bg-surface rounded-xl border border-edge p-4">
+                  <div className="text-xs text-muted mb-1">Social proof (counters/simulations)</div>
                   <div className="text-2xl font-bold text-slate-800 dark:text-slate-100">
                     {ownerStats.loading ? '…' : (ownerStats.socialProofTotal ?? '—')}
                   </div>
                 </div>
-                <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-4">
-                  <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">Simulazioni cloud (collection)</div>
+                <div className="bg-surface rounded-xl border border-edge p-4">
+                  <div className="text-xs text-muted mb-1">Simulazioni cloud (collection)</div>
                   <div className="text-2xl font-bold text-slate-800 dark:text-slate-100">
                     {ownerStats.loading ? '…' : (ownerStats.simulationDocs ?? '—')}
                   </div>
                 </div>
-                <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-4">
-                  <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">Domande forum</div>
+                <div className="bg-surface rounded-xl border border-edge p-4">
+                  <div className="text-xs text-muted mb-1">Domande forum</div>
                   <div className="text-2xl font-bold text-slate-800 dark:text-slate-100">
                     {ownerStats.loading ? '…' : (ownerStats.forumQuestions ?? '—')}
                   </div>
                 </div>
-                <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-4">
-                  <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">Newsletter attivi</div>
+                <div className="bg-surface rounded-xl border border-edge p-4">
+                  <div className="text-xs text-muted mb-1">Newsletter attivi</div>
                   <div className="text-2xl font-bold text-slate-800 dark:text-slate-100">
                     {ownerStats.loading ? '…' : (ownerStats.newsletterActive ?? '—')}
                   </div>
                 </div>
               </div>
 
-              <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-4 space-y-3">
+              <div className="bg-surface rounded-xl border border-edge p-4 space-y-3">
                 <h3 className="text-sm font-bold text-slate-800 dark:text-slate-100">File Pubblici Critici</h3>
                 <div className="space-y-2">
                   {(Object.entries(ownerStats.publicFiles) as [string, boolean][]).map(([file, ok]) => (
                     <div key={file} className="flex items-center justify-between text-sm">
-                      <span className="font-mono text-slate-700 dark:text-slate-300">/{file}</span>
+                      <span className="font-mono text-body">/{file}</span>
                       <HealthBadge ok={ok} label={ok ? 'OK' : 'Missing'} />
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-4 space-y-3">
+              <div className="bg-surface rounded-xl border border-edge p-4 space-y-3">
                 <h3 className="text-sm font-bold text-slate-800 dark:text-slate-100">Azioni Rapide Owner</h3>
                 <div className="flex flex-wrap gap-2">
                   <CopyButton text="npm run build && npm run validate:structured-data && npm test" label="pipeline locale" />
@@ -2877,7 +2877,7 @@ export default function AdminPanel() {
               </div>
 
               {/* TODO / Da Implementare */}
-              <div className="bg-white dark:bg-slate-800 rounded-xl border border-amber-200 dark:border-amber-700/50 p-4 space-y-3">
+              <div className="bg-surface rounded-xl border border-amber-200 dark:border-amber-700/50 p-4 space-y-3">
                 <h3 className="text-sm font-bold text-amber-700 dark:text-amber-400 flex items-center gap-2">
                   <ListChecks size={16} />
                   TODO — Da Implementare
@@ -2892,7 +2892,7 @@ export default function AdminPanel() {
                       >
                         Weekly Digest — Pagina Digest Settimanale
                       </a>
-                      <p className="text-slate-500 dark:text-slate-400 mt-0.5">
+                      <p className="text-muted mt-0.5">
                         Implementare invio automatico del digest settimanale via newsletter: tasso CHF/EUR, nuovi articoli, offerte di lavoro, aggiornamenti fiscali. Collegare con Resend API e cron workflow.
                       </p>
                     </div>
@@ -2918,8 +2918,8 @@ export default function AdminPanel() {
 
           {/* Stats row */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-4">
-              <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400 text-sm mb-1">
+            <div className="bg-surface rounded-xl border border-edge p-4">
+              <div className="flex items-center gap-2 text-subtle text-sm mb-1">
                 <Users size={16} />
                 Iscritti attivi
               </div>
@@ -2927,8 +2927,8 @@ export default function AdminPanel() {
                 {nlLoading ? '…' : nlSubscriberCount ?? '—'}
               </div>
             </div>
-            <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-4">
-              <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400 text-sm mb-1">
+            <div className="bg-surface rounded-xl border border-edge p-4">
+              <div className="flex items-center gap-2 text-subtle text-sm mb-1">
                 <Calendar size={16} />
                 Ultimo invio
               </div>
@@ -2936,12 +2936,12 @@ export default function AdminPanel() {
                 {nlLoading ? '…' : nlLastSend ?? 'Nessun invio'}
               </div>
             </div>
-            <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-4">
-              <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400 text-sm mb-1">
+            <div className="bg-surface rounded-xl border border-edge p-4">
+              <div className="flex items-center gap-2 text-subtle text-sm mb-1">
                 <Mail size={16} />
                 Destinatari (anteprima)
               </div>
-              <div className="text-xs text-slate-600 dark:text-slate-400 mt-1 space-y-0.5">
+              <div className="text-xs text-subtle mt-1 space-y-0.5">
                 {nlLoading ? '…' : nlRecipients.length > 0
                   ? nlRecipients.map((e, i) => <div key={i} className="font-mono">{e}</div>)
                   : <span>Nessun iscritto</span>}
@@ -2949,46 +2949,46 @@ export default function AdminPanel() {
             </div>
           </div>
 
-          <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-6 space-y-3">
+          <div className="bg-surface rounded-xl border border-edge p-6 space-y-3">
             <div className="flex items-center justify-between">
               <h3 className="text-sm font-bold text-slate-800 dark:text-slate-100">Insight Cambio (settimana/mese)</h3>
               <button
                 onClick={fetchNewsletterInsights}
-                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-xs font-medium"
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-raised hover:bg-slate-200 dark:hover:bg-slate-600 text-xs font-medium"
               >
                 <RefreshCw size={13} />
                 Aggiorna
               </button>
             </div>
             {nlInsightLoading ? (
-              <div className="text-sm text-slate-500 dark:text-slate-400">Calcolo insight in corso…</div>
+              <div className="text-sm text-muted">Calcolo insight in corso…</div>
             ) : nlInsights ? (
               <div className="space-y-3">
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-sm">
-                  <div className="rounded-lg bg-slate-50 dark:bg-slate-900 p-3">
-                    <div className="text-slate-500 dark:text-slate-400 text-xs mb-1">Settimana vs precedente</div>
+                  <div className="rounded-lg bg-surface-alt p-3">
+                    <div className="text-muted text-xs mb-1">Settimana vs precedente</div>
                     <div className="font-semibold text-slate-800 dark:text-slate-100">
                       {nlInsights.weeklyDeltaPct >= 0 ? '+' : ''}{nlInsights.weeklyDeltaPct.toFixed(2)}%
                     </div>
                   </div>
-                  <div className="rounded-lg bg-slate-50 dark:bg-slate-900 p-3">
-                    <div className="text-slate-500 dark:text-slate-400 text-xs mb-1">Mese corrente vs precedente</div>
+                  <div className="rounded-lg bg-surface-alt p-3">
+                    <div className="text-muted text-xs mb-1">Mese corrente vs precedente</div>
                     <div className="font-semibold text-slate-800 dark:text-slate-100">
                       {nlInsights.monthDeltaPct >= 0 ? '+' : ''}{nlInsights.monthDeltaPct.toFixed(2)}%
                     </div>
                   </div>
-                  <div className="rounded-lg bg-slate-50 dark:bg-slate-900 p-3">
-                    <div className="text-slate-500 dark:text-slate-400 text-xs mb-1">Giorno medio migliore</div>
+                  <div className="rounded-lg bg-surface-alt p-3">
+                    <div className="text-muted text-xs mb-1">Giorno medio migliore</div>
                     <div className="font-semibold text-slate-800 dark:text-slate-100">{nlInsights.bestWeekday}</div>
                   </div>
                 </div>
-                <div className="text-sm text-slate-700 dark:text-slate-300">{nlInsights.recommendation}</div>
-                <div className="rounded-lg border border-slate-200 dark:border-slate-700 p-3">
-                  <div className="text-xs text-slate-500 dark:text-slate-400 mb-2">Provider consigliati (netto su 1.000 CHF)</div>
+                <div className="text-sm text-body">{nlInsights.recommendation}</div>
+                <div className="rounded-lg border border-edge p-3">
+                  <div className="text-xs text-muted mb-2">Provider consigliati (netto su 1.000 CHF)</div>
                   <div className="space-y-1">
                     {nlInsights.providerRanking.map((p) => (
                       <div key={p.name} className="flex items-center justify-between text-sm">
-                        <span className="text-slate-700 dark:text-slate-300">{p.name}</span>
+                        <span className="text-body">{p.name}</span>
                         <span className="font-semibold text-slate-800 dark:text-slate-100">{p.netEur.toFixed(2)} EUR</span>
                       </div>
                     ))}
@@ -2998,38 +2998,38 @@ export default function AdminPanel() {
                   href="/compara-servizi/cambio-franco-euro"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-1 text-sm text-blue-600 dark:text-blue-400 hover:underline"
+                  className="inline-flex items-center gap-1 text-sm text-link hover:underline"
                 >
                   Apri miglior comparatore cambio →
                 </a>
               </div>
             ) : (
-              <div className="text-sm text-slate-500 dark:text-slate-400">Insight non disponibili.</div>
+              <div className="text-sm text-muted">Insight non disponibili.</div>
             )}
           </div>
 
           {/* Content toggles + subject */}
-          <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-6 space-y-4">
+          <div className="bg-surface rounded-xl border border-edge p-6 space-y-4">
             <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
               <Mail size={20} className="text-violet-600 dark:text-violet-400" />
               Configura Newsletter
             </h2>
 
             <div>
-              <label htmlFor="nl-subject" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Oggetto email</label>
+              <label htmlFor="nl-subject" className="block text-sm font-medium text-body mb-1">Oggetto email</label>
               <input
                 id="nl-subject"
                 type="text"
                 value={nlSubject}
                 onChange={e => setNlSubject(e.target.value)}
-                className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-sm focus-visible:ring-2 focus-visible:ring-violet-500"
+                className="w-full px-3 py-2 rounded-lg border border-edge bg-surface text-slate-800 dark:text-slate-100 text-sm focus-visible:ring-2 focus-visible:ring-violet-500"
                 aria-label="Oggetto email newsletter"
               />
             </div>
 
-            <div className="rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 p-4">
+            <div className="rounded-lg border border-edge bg-surface-alt p-4">
               <p className="text-sm font-semibold text-slate-800 dark:text-slate-100 mb-2">Newsletter v2 — AI Personalizzata</p>
-              <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+              <p className="text-xs text-subtle leading-relaxed">
                 Ogni iscritto riceve un&apos;email unica: briefing AI personalizzato, job matching per zona/settore, oggetto generato dall&apos;AI.
                 Non ci sono più varianti (jobs/tax/general) né sezioni configurabili. Il template è fisso e minimale.
               </p>
@@ -3070,8 +3070,8 @@ export default function AdminPanel() {
 
           {/* Preview */}
           {nlPreviewHtml && (
-            <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden">
-              <div className="px-4 py-3 border-b border-slate-200 dark:border-slate-700 flex items-center gap-2">
+            <div className="bg-surface rounded-xl border border-edge overflow-hidden">
+              <div className="px-4 py-3 border-b border-edge flex items-center gap-2">
                 <Eye size={16} className="text-violet-600 dark:text-violet-400" />
                 <span className="text-sm font-semibold text-slate-800 dark:text-slate-100">Anteprima Newsletter</span>
               </div>
@@ -3086,14 +3086,14 @@ export default function AdminPanel() {
           )}
 
           {/* Double Opt-In — Confirmation Email Preview */}
-          <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden">
-            <div className="px-4 py-3 border-b border-slate-200 dark:border-slate-700 flex items-center gap-2">
+          <div className="bg-surface rounded-xl border border-edge overflow-hidden">
+            <div className="px-4 py-3 border-b border-edge flex items-center gap-2">
               <CheckCircle2 size={16} className="text-amber-600 dark:text-amber-400" />
               <span className="text-sm font-semibold text-slate-800 dark:text-slate-100">Double Opt-In — Anteprima Email di Conferma</span>
               <span className="ml-auto text-xs bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-400 px-2 py-0.5 rounded-full font-medium">DRY RUN</span>
             </div>
             <div className="p-4 space-y-3">
-              <p className="text-xs text-slate-600 dark:text-slate-400">
+              <p className="text-xs text-subtle">
                 Quando il sistema sarà attivo, i nuovi iscritti riceveranno questa email di conferma.
                 L'invio sarà gestito tramite GitHub Actions workflow dispatch.
                 Per ora i subscriber vengono salvati con <code className="text-xs bg-slate-100 dark:bg-slate-900 px-1 py-0.5 rounded">status: 'pending'</code>.
@@ -3162,27 +3162,27 @@ export default function AdminPanel() {
 </body>
 </html>`}
                 title="Confirmation email preview"
-                className="w-full border border-slate-200 dark:border-slate-700 rounded-lg"
+                className="w-full border border-edge rounded-lg"
                 style={{ height: '720px' }}
                 sandbox="allow-same-origin"
               />
-              <div className="bg-slate-50 dark:bg-slate-900 rounded-lg p-3 space-y-2">
-                <h4 className="text-xs font-semibold text-slate-700 dark:text-slate-300">Workflow dispatch (quando attivo):</h4>
+              <div className="bg-surface-alt rounded-lg p-3 space-y-2">
+                <h4 className="text-xs font-semibold text-body">Workflow dispatch (quando attivo):</h4>
                 <CopyButton
                   text="gh workflow run send-confirmation-email.yml -f email=subscriber@example.com -f token=UUID"
                   label="Workflow dispatch"
                 />
-                <p className="text-sm text-slate-500 dark:text-slate-400">
-                  Il workflow legge i subscriber con <code className="bg-slate-100 dark:bg-slate-800 px-1 py-0.5 rounded text-xs">status: 'pending'</code> da Firestore,
+                <p className="text-sm text-muted">
+                  Il workflow legge i subscriber con <code className="bg-surface-raised px-1 py-0.5 rounded text-xs">status: 'pending'</code> da Firestore,
                   genera un link di conferma con token, e invia via Resend.
-                  Al click del link, una Cloud Function aggiorna <code className="bg-slate-100 dark:bg-slate-800 px-1 py-0.5 rounded text-xs">status: 'confirmed'</code> e <code className="bg-slate-100 dark:bg-slate-800 px-1 py-0.5 rounded text-xs">isActive: true</code>.
+                  Al click del link, una Cloud Function aggiorna <code className="bg-surface-raised px-1 py-0.5 rounded text-xs">status: 'confirmed'</code> e <code className="bg-surface-raised px-1 py-0.5 rounded text-xs">isActive: true</code>.
                 </p>
               </div>
             </div>
           </div>
 
           {/* CLI Commands */}
-          <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-6 space-y-3">
+          <div className="bg-surface rounded-xl border border-edge p-6 space-y-3">
             <h3 className="text-sm font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
               <Terminal size={16} className="text-violet-600 dark:text-violet-400" />
               Comandi Newsletter
@@ -3195,7 +3195,7 @@ export default function AdminPanel() {
               { label: 'Invio a tutti (solo go-live)', cmd: 'NEWSLETTER_EXPERIMENTAL_MODE=false NEWSLETTER_ENABLE_SEND=true GOOGLE_APPLICATION_CREDENTIALS=path/to/sa.json node scripts/send-newsletter.mjs --send' },
             ].map(item => (
               <div key={item.label} className="flex items-center gap-2">
-                <span className="text-sm text-slate-500 dark:text-slate-400 w-24 shrink-0">{item.label}:</span>
+                <span className="text-sm text-muted w-24 shrink-0">{item.label}:</span>
                 <CopyButton text={item.cmd} label={item.label} />
               </div>
             ))}

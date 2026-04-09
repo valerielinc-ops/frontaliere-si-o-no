@@ -205,7 +205,7 @@ function ActionLink(props: { label: string; route: Parameters<typeof buildPath>[
 function Kpi(props: { label: string; value: string; accent: string }) {
   return (
     <div className={`rounded-2xl border p-4 ${props.accent}`}>
-      <div className="text-xs font-bold uppercase tracking-wide text-slate-500 dark:text-slate-400">{props.label}</div>
+      <div className="text-xs font-bold uppercase tracking-wide text-muted">{props.label}</div>
       <div className="mt-2 text-2xl font-bold text-slate-900 dark:text-white">{props.value}</div>
     </div>
   );
@@ -242,7 +242,7 @@ function LeaderBlock(props: {
               }}
             >
               <div className="min-w-0">
-                <div className="text-xs font-bold text-slate-500 dark:text-slate-400">#{index + 1}</div>
+                <div className="text-xs font-bold text-muted">#{index + 1}</div>
                 <div className="line-clamp-2 text-sm font-semibold text-slate-800 dark:text-slate-100">{item.name}</div>
               </div>
               <div className="shrink-0 text-right text-sm font-bold text-indigo-600 dark:text-indigo-300">
@@ -313,7 +313,7 @@ export const JobsSalaryObservatory: React.FC = () => {
               {copy.title}
             </h2>
             <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">{copy.intro}</p>
-            <p className="mt-3 text-sm leading-7 text-slate-500 dark:text-slate-400">{copy.methodology}</p>
+            <p className="mt-3 text-sm leading-7 text-muted">{copy.methodology}</p>
             <div className="mt-5 flex flex-wrap gap-2">
               <ActionLink label={copy.allJobs} route={{ activeTab: 'job-board' }} locale={locale} />
               <ActionLink label={copy.jobsToday} route={{ activeTab: 'job-board', jobSlug: locale === 'it' ? 'offerte-di-lavoro-ticino-oggi' : locale === 'en' ? 'ticino-jobs-today' : locale === 'de' ? 'jobs-tessin-heute' : 'offres-emploi-tessin-aujourdhui' }} locale={locale} />
@@ -322,7 +322,7 @@ export const JobsSalaryObservatory: React.FC = () => {
             </div>
           </div>
           <div className="rounded-2xl border border-slate-200/80 bg-slate-50/80 p-4 dark:border-slate-700 dark:bg-slate-900/40">
-            <div className="text-xs font-bold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">{copy.updated}</div>
+            <div className="text-xs font-bold uppercase tracking-[0.16em] text-muted">{copy.updated}</div>
             <div className="mt-2 text-sm font-semibold text-slate-800 dark:text-slate-100">{formatDate(data.generatedAt, locale)}</div>
             <button
               type="button"

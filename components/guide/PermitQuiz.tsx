@@ -206,13 +206,13 @@ const PermitQuiz: React.FC = () => {
             <Sparkles size={24} className="text-amber-500" />
             {t('permitQuiz.results.title')}
           </h2>
-          <p className="text-slate-600 dark:text-slate-400 mt-2">
+          <p className="text-subtle mt-2">
             {t('permitQuiz.results.subtitle')}
           </p>
         </div>
 
         {/* Score Bars */}
-        <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 sm:p-6 mb-6">
+        <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 mb-6">
           <div className="space-y-4">
             {/* Permit B */}
             <div>
@@ -220,9 +220,9 @@ const PermitQuiz: React.FC = () => {
                 <span className="font-semibold text-slate-700 dark:text-slate-200">
                   {t('permitQuiz.results.permitB')}
                 </span>
-                <span className="text-lg font-bold text-blue-600 dark:text-blue-400">{bPercent}%</span>
+                <span className="text-lg font-bold text-link">{bPercent}%</span>
               </div>
-              <div className="h-4 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
+              <div className="h-4 bg-surface-raised rounded-full overflow-hidden">
                 <div
                   className="h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-full transition-transform duration-1000 origin-left"
                   style={{ transform: `scaleX(${bPercent / 100})` }}
@@ -238,7 +238,7 @@ const PermitQuiz: React.FC = () => {
                 </span>
                 <span className="text-lg font-bold text-emerald-600 dark:text-emerald-400">{gPercent}%</span>
               </div>
-              <div className="h-4 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
+              <div className="h-4 bg-surface-raised rounded-full overflow-hidden">
                 <div
                   className="h-full bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-full transition-transform duration-1000 origin-left"
                   style={{ transform: `scaleX(${gPercent / 100})` }}
@@ -258,7 +258,7 @@ const PermitQuiz: React.FC = () => {
               <h3 className="font-bold text-lg text-slate-800 dark:text-slate-100">
                 {t(`permitQuiz.results.rec.${recommendation}`)}
               </h3>
-              <p className="text-slate-600 dark:text-slate-400 mt-1 text-sm">
+              <p className="text-subtle mt-1 text-sm">
                 {t(`permitQuiz.results.recDesc.${recommendation}`)}
               </p>
             </div>
@@ -266,7 +266,7 @@ const PermitQuiz: React.FC = () => {
         </div>
 
         {/* Key Factors */}
-        <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 sm:p-6 mb-6">
+        <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 mb-6">
           <h3 className="font-bold text-slate-800 dark:text-slate-100 mb-4 flex items-center gap-2">
             <FileText size={18} className="text-amber-500" />
             {t('permitQuiz.results.factors')}
@@ -276,11 +276,11 @@ const PermitQuiz: React.FC = () => {
               const dominant = a.bScore > a.gScore ? 'B' : a.gScore > a.bScore ? 'G' : '=';
               return (
                 <div key={a.questionId} className="flex items-center justify-between py-2 border-b border-slate-100 dark:border-slate-700 last:border-0">
-                  <span className="text-sm text-slate-600 dark:text-slate-400">
+                  <span className="text-sm text-subtle">
                     {t(`permitQuiz.q.${a.questionId}.title`)}
                   </span>
                   <div className="flex items-center gap-2">
-                    <span className="text-sm text-slate-500 dark:text-slate-400">
+                    <span className="text-sm text-muted">
                       {t(`permitQuiz.q.${a.questionId}.opt.${a.value}`)}
                     </span>
                     <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${
@@ -347,18 +347,18 @@ const PermitQuiz: React.FC = () => {
         <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-100">
           {t('permitQuiz.title')}
         </h2>
-        <p className="text-slate-600 dark:text-slate-400 mt-2 text-sm">
+        <p className="text-subtle mt-2 text-sm">
           {t('permitQuiz.subtitle')}
         </p>
       </div>
 
       {/* Progress */}
       <div className="mb-6">
-        <div className="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 mb-2">
+        <div className="flex items-center justify-between text-xs text-muted mb-2">
           <span>{t('permitQuiz.question')} {currentStep + 1} / {totalQuestions}</span>
           <span>{progress}%</span>
         </div>
-        <div className="h-2 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
+        <div className="h-2 bg-surface-raised rounded-full overflow-hidden">
           <div
             className="h-full bg-gradient-to-r from-amber-500 to-orange-500 rounded-full transition-transform duration-500 origin-left"
             style={{ transform: `scaleX(${progress / 100})` }}
@@ -367,7 +367,7 @@ const PermitQuiz: React.FC = () => {
       </div>
 
       {/* Question */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6">
+      <div className="bg-surface rounded-2xl border border-edge p-6">
         <div className="flex items-center gap-3 mb-5">
           <div className="w-10 h-10 rounded-xl bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center">
             <Icon size={20} className="text-amber-600 dark:text-amber-300" />
@@ -377,7 +377,7 @@ const PermitQuiz: React.FC = () => {
           </h3>
         </div>
 
-        <p className="text-sm text-slate-600 dark:text-slate-400 mb-4">
+        <p className="text-sm text-subtle mb-4">
           {t(`permitQuiz.q.${question.id}.desc`)}
         </p>
 
@@ -392,7 +392,7 @@ const PermitQuiz: React.FC = () => {
                 className={`w-full text-left px-4 py-3 rounded-xl border transition-colors ${
                   isSelected
                     ? 'border-amber-500 bg-amber-50 dark:bg-amber-900/30 dark:border-amber-600 ring-2 ring-amber-200 dark:ring-amber-800'
-                    : 'border-slate-200 dark:border-slate-600 hover:border-amber-300 dark:hover:border-amber-700 hover:bg-amber-50/50 dark:hover:bg-amber-900/10'
+                    : 'border-edge hover:border-amber-300 dark:hover:border-amber-700 hover:bg-amber-50/50 dark:hover:bg-amber-900/10'
                 }`}
                 aria-label={t(`permitQuiz.q.${question.id}.opt.${opt.value}`)}
               >

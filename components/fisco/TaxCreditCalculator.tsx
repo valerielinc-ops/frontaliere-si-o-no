@@ -31,13 +31,13 @@ const IRPEF_BRACKETS = [
 const ADDIZIONALE_COMUNALE_RATE = 0.008; // Common average
 
 const EDIT_FIELD_CLASS =
-  'w-full h-12 bg-slate-50 dark:bg-slate-900 px-4 rounded-xl border border-slate-200 dark:border-slate-700 text-sm font-semibold text-slate-800 dark:text-slate-100 outline-none focus-visible:border-indigo-500 focus-visible:ring-4 focus-visible:ring-indigo-500/10 transition-[color,background-color,border-color,box-shadow] placeholder-slate-500';
+  'w-full h-12 bg-surface-alt px-4 rounded-xl border border-edge text-sm font-semibold text-slate-800 dark:text-slate-100 outline-none focus-visible:border-indigo-500 focus-visible:ring-4 focus-visible:ring-indigo-500/10 transition-[color,background-color,border-color,box-shadow] placeholder-slate-500';
 
 const STEPPER_SHELL_CLASS =
-  'flex items-center bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden h-12 shadow-sm focus-within:ring-2 focus-within:ring-indigo-500/20 focus-within:border-indigo-500 transition-[color,background-color,border-color,box-shadow,transform]';
+  'flex items-center bg-surface-alt border border-edge rounded-xl overflow-hidden h-12 shadow-sm focus-within:ring-2 focus-within:ring-indigo-500/20 focus-within:border-indigo-500 transition-[color,background-color,border-color,box-shadow,transform]';
 
 const STEP_BTN_CLASS =
-  'w-10 shrink-0 h-full flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-indigo-600 hover:bg-slate-100 dark:hover:bg-slate-800 active:scale-90 transition-[color,background-color,border-color,box-shadow,transform]';
+  'w-10 shrink-0 h-full flex items-center justify-center text-muted hover:text-indigo-600 hover:bg-slate-100 dark:hover:bg-slate-800 active:scale-90 transition-[color,background-color,border-color,box-shadow,transform]';
 
 type NumberStepperProps = {
   id: string;
@@ -207,14 +207,14 @@ const TaxCreditCalculator: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 sm:p-6">
+      <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6">
         <div className="flex items-center gap-3 mb-4">
           <div className="p-2 rounded-xl bg-emerald-100 dark:bg-emerald-900/30">
             <Receipt size={24} className="text-emerald-700 dark:text-emerald-300" />
           </div>
           <div>
             <h2 className="text-lg font-bold text-slate-900 dark:text-white">{t('taxCredit.title')}</h2>
-            <p className="text-sm text-slate-600 dark:text-slate-400">{t('taxCredit.subtitle')}</p>
+            <p className="text-sm text-subtle">{t('taxCredit.subtitle')}</p>
           </div>
         </div>
 
@@ -227,8 +227,8 @@ const TaxCreditCalculator: React.FC = () => {
         </div>
 
         {/* Live exchange rate badge */}
-        <div className="flex items-center gap-2 mb-4 bg-slate-50 dark:bg-slate-900/50 rounded-lg px-3 py-2">
-          <span className="text-sm text-slate-600 dark:text-slate-400">{t('taxCredit.exchangeRate')}:</span>
+        <div className="flex items-center gap-2 mb-4 bg-surface-alt/50 rounded-lg px-3 py-2">
+          <span className="text-sm text-subtle">{t('taxCredit.exchangeRate')}:</span>
           <span className="text-sm font-semibold text-slate-900 dark:text-white">
             1 CHF = {exchangeRate.toFixed(4)} EUR
           </span>
@@ -238,7 +238,7 @@ const TaxCreditCalculator: React.FC = () => {
             className="ml-auto p-1 rounded-md hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
             aria-label={t('taxCredit.refreshRate')}
           >
-            <RefreshCw size={14} className={`text-slate-500 dark:text-slate-400 ${rateLoading ? 'animate-spin' : ''}`} />
+            <RefreshCw size={14} className={`text-muted ${rateLoading ? 'animate-spin' : ''}`} />
           </button>
         </div>
 
@@ -246,7 +246,7 @@ const TaxCreditCalculator: React.FC = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {/* Gross salary */}
           <div>
-            <label htmlFor="tc-gross" className="block text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wide mb-1">
+            <label htmlFor="tc-gross" className="block text-xs font-bold text-subtle uppercase tracking-wide mb-1">
               {t('taxCredit.grossSalary')}
             </label>
             <div className="relative">
@@ -259,13 +259,13 @@ const TaxCreditCalculator: React.FC = () => {
                 className={EDIT_FIELD_CLASS}
                 min={0}
               />
-              <span className="absolute right-4 top-3.5 text-xs font-bold text-slate-500 dark:text-slate-400">CHF</span>
+              <span className="absolute right-4 top-3.5 text-xs font-bold text-muted">CHF</span>
             </div>
           </div>
 
           {/* Age */}
           <div>
-            <label htmlFor="tc-age" className="block text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wide mb-1">
+            <label htmlFor="tc-age" className="block text-xs font-bold text-subtle uppercase tracking-wide mb-1">
               👤 {t('taxCredit.age')}
             </label>
             <NumberStepper
@@ -280,7 +280,7 @@ const TaxCreditCalculator: React.FC = () => {
 
           {/* Marital status */}
           <div>
-            <label htmlFor="tc-marital" className="block text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wide mb-1">
+            <label htmlFor="tc-marital" className="block text-xs font-bold text-subtle uppercase tracking-wide mb-1">
               <Users size={14} className="inline mr-1" />
               {t('taxCredit.maritalStatus')}
             </label>
@@ -297,7 +297,7 @@ const TaxCreditCalculator: React.FC = () => {
 
           {/* Children */}
           <div>
-            <label htmlFor="tc-children" className="block text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wide mb-1">
+            <label htmlFor="tc-children" className="block text-xs font-bold text-subtle uppercase tracking-wide mb-1">
               👶 {t('taxCredit.children')}
             </label>
             <NumberStepper
@@ -324,14 +324,14 @@ const TaxCreditCalculator: React.FC = () => {
                   />
                   <div className="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus-visible:ring-2 peer-focus-visible:ring-blue-300 dark:peer-focus-visible:ring-blue-800 rounded-full peer dark:bg-slate-600 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-transform dark:after:border-slate-500 peer-checked:bg-blue-600"></div>
                 </div>
-                <span className="text-sm font-medium text-slate-700 dark:text-slate-300">{t('taxCredit.spouseWorks')}</span>
+                <span className="text-sm font-medium text-body">{t('taxCredit.spouseWorks')}</span>
               </label>
             </div>
           )}
 
           {/* Other Italian income */}
           <div className="sm:col-span-2">
-            <label htmlFor="tc-other" className="block text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wide mb-1">
+            <label htmlFor="tc-other" className="block text-xs font-bold text-subtle uppercase tracking-wide mb-1">
               {t('taxCredit.otherIncome')}
             </label>
             <div className="relative">
@@ -344,15 +344,15 @@ const TaxCreditCalculator: React.FC = () => {
                 className={EDIT_FIELD_CLASS}
                 min={0}
               />
-              <span className="absolute right-4 top-3.5 text-xs font-bold text-slate-500 dark:text-slate-400">EUR</span>
+              <span className="absolute right-4 top-3.5 text-xs font-bold text-muted">EUR</span>
             </div>
-            <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">{t('taxCredit.otherIncomeHelp')}</p>
+            <p className="text-sm text-muted mt-1">{t('taxCredit.otherIncomeHelp')}</p>
           </div>
         </div>
 
         {/* Distance from border selector */}
         <div className="mt-4">
-          <label htmlFor="tc-distance" className="block text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wide mb-1">
+          <label htmlFor="tc-distance" className="block text-xs font-bold text-subtle uppercase tracking-wide mb-1">
             {t('taxCredit.distanceLabel')}
           </label>
           <select
@@ -365,20 +365,20 @@ const TaxCreditCalculator: React.FC = () => {
             <option value="beyond">{t('taxCredit.beyond20km')}</option>
           </select>
           <div className="flex items-center gap-1 mt-1">
-            <HelpCircle size={14} className="text-slate-500 dark:text-slate-400" />
-            <span className="text-sm text-slate-500 dark:text-slate-400">{t('taxCredit.distanceHelp')}</span>
+            <HelpCircle size={14} className="text-muted" />
+            <span className="text-sm text-muted">{t('taxCredit.distanceHelp')}</span>
           </div>
         </div>
 
         {/* Computed Swiss tax info */}
-        <div className="mt-4 bg-slate-50 dark:bg-slate-900/50 rounded-xl p-3 space-y-1">
-          <p className="text-xs font-medium text-slate-500 dark:text-slate-400">{t('taxCredit.autoCalculated')}</p>
+        <div className="mt-4 bg-surface-alt/50 rounded-xl p-3 space-y-1">
+          <p className="text-xs font-medium text-muted">{t('taxCredit.autoCalculated')}</p>
           <div className="flex flex-wrap gap-x-6 gap-y-1">
-            <span className="text-sm text-slate-700 dark:text-slate-300">
+            <span className="text-sm text-body">
               {t('taxCredit.swissTax')}: <span className="font-semibold">CHF {fmt(result.swissTaxCHF)}</span>
-              <span className="text-sm text-slate-500 dark:text-slate-400 ml-1">({t('taxCredit.table')} {result.tableCode}, {result.effectiveSwissRate}%)</span>
+              <span className="text-sm text-muted ml-1">({t('taxCredit.table')} {result.tableCode}, {result.effectiveSwissRate}%)</span>
             </span>
-            <span className="text-sm text-slate-700 dark:text-slate-300">
+            <span className="text-sm text-body">
               {t('taxCredit.socialDeductions')}: <span className="font-semibold">€{fmt(result.socialDeductionsEUR)}</span>
             </span>
           </div>
@@ -386,7 +386,7 @@ const TaxCreditCalculator: React.FC = () => {
       </div>
 
       {/* Results — always visible, updates automatically */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 sm:p-6">
+      <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6">
         <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-4">{t('taxCredit.results')}</h3>
 
         {/* Summary cards */}
@@ -408,7 +408,7 @@ const TaxCreditCalculator: React.FC = () => {
         {/* Details toggle */}
         <button
           onClick={() => setShowDetails(!showDetails)}
-          className="flex items-center gap-2 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+          className="flex items-center gap-2 text-sm font-medium text-link hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
         >
           {showDetails ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
           {t('taxCredit.showDetails')}
@@ -416,8 +416,8 @@ const TaxCreditCalculator: React.FC = () => {
 
         {showDetails && (
           <div className="mt-4 space-y-3">
-            <div className="bg-slate-50 dark:bg-slate-900/50 rounded-xl p-4 space-y-2">
-              <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">{t('taxCredit.breakdown')}</h4>
+            <div className="bg-surface-alt/50 rounded-xl p-4 space-y-2">
+              <h4 className="text-sm font-semibold text-body mb-3">{t('taxCredit.breakdown')}</h4>
               {[
                 [t('taxCredit.grossEUR'), `€${fmt(result.grossEUR)}`],
                 [t('taxCredit.socialDeductions'), `- €${fmt(result.socialDeductionsEUR)}`],
@@ -434,11 +434,11 @@ const TaxCreditCalculator: React.FC = () => {
                 [t('taxCredit.italianTaxOnForeign'), `€${fmt(result.italianTaxOnForeignIncome)}`],
               ].map(([label, value], i) => (
                 <div key={i} className="flex justify-between text-sm">
-                  <span className="text-slate-600 dark:text-slate-400">{label}</span>
+                  <span className="text-subtle">{label}</span>
                   <span className="font-medium text-slate-900 dark:text-white">{value}</span>
                 </div>
               ))}
-              <div className="border-t border-slate-200 dark:border-slate-700 pt-2 mt-2">
+              <div className="border-t border-edge pt-2 mt-2">
                 <div className="flex justify-between text-sm font-bold">
                   <span className="text-emerald-700 dark:text-emerald-300">{t('taxCredit.creditAmount')}</span>
                   <span className="text-emerald-700 dark:text-emerald-300">€{fmt(result.taxCredit)}</span>

@@ -202,14 +202,14 @@ export default function SalaryCompare() {
   return (
     <div className="space-y-6">
       {/* ── Header ── */}
-      <div className="bg-white dark:bg-slate-800 rounded-xl shadow-lg p-6">
+      <div className="bg-surface rounded-xl shadow-lg p-6">
         <div className="flex items-center gap-3 mb-2">
           <TrendingUp className="text-amber-600 dark:text-amber-400" size={28} />
           <h2 className="text-2xl font-bold text-slate-800 dark:text-white">
             {t('salaryCompare.title')}
           </h2>
         </div>
-        <p className="text-slate-600 dark:text-slate-400">
+        <p className="text-subtle">
           {t('salaryCompare.subtitle')}
         </p>
         <p className="text-sm text-slate-600 dark:text-slate-300 mt-3 leading-relaxed">
@@ -233,7 +233,7 @@ export default function SalaryCompare() {
         </div>
 
         {/* Sub-tabs */}
-        <div className="flex gap-1 bg-slate-100 dark:bg-slate-700 rounded-lg p-1 mt-4">
+        <div className="flex gap-1 bg-surface-raised rounded-lg p-1 mt-4">
           {tabConfig.map((tab) => (
             <button
               key={tab.id}
@@ -242,7 +242,7 @@ export default function SalaryCompare() {
                 'flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-bold transition ' +
                 (activeTab === tab.id
                   ? 'bg-white dark:bg-slate-600 ' + tab.cls + ' shadow'
-                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white')
+                  : 'text-subtle hover:text-slate-800 dark:hover:text-white')
               }
               aria-label={tab.label}
             >
@@ -267,13 +267,13 @@ export default function SalaryCompare() {
       ) : (
         <>
           {/* ── Controls ── */}
-          <div className="bg-white dark:bg-slate-800 rounded-xl shadow p-4">
+          <div className="bg-surface rounded-xl shadow p-4">
             <div className="flex flex-wrap gap-4 items-end">
               {/* Sector filter */}
               <div className="flex-1 min-w-[180px]">
                 <label
                   htmlFor="sc-sector"
-                  className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1"
+                  className="block text-sm font-medium text-body mb-1"
                 >
                   {t('salaryCompare.sector')}
                 </label>
@@ -281,7 +281,7 @@ export default function SalaryCompare() {
                   id="sc-sector"
                   value={selectedSector || ''}
                   onChange={(e) => setSelectedSector(e.target.value || null)}
-                  className="w-full rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 px-3 py-2 text-slate-800 dark:text-white"
+                  className="w-full rounded-lg border border-edge bg-surface-alt px-3 py-2 text-slate-800 dark:text-white"
                 >
                   <option value="">{t('salaryCompare.allSectors')}</option>
                   {SALARY_DATA.map((s) => (
@@ -296,14 +296,14 @@ export default function SalaryCompare() {
                 <div className="flex-1 min-w-[180px]">
                   <label
                     htmlFor="sc-search"
-                    className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1"
+                    className="block text-sm font-medium text-body mb-1"
                   >
                     {t('salaryCompare.searchProfession')}
                   </label>
                   <div className="relative">
                     <Search
                       size={16}
-                      className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 dark:text-slate-400"
+                      className="absolute left-3 top-1/2 -translate-y-1/2 text-muted"
                     />
                     <input
                       id="sc-search"
@@ -311,14 +311,14 @@ export default function SalaryCompare() {
                       value={profSearch}
                       onChange={(e) => setProfSearch(e.target.value)}
                       placeholder={t('salaryCompare.searchProfession')}
-                      className="w-full rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 pl-9 pr-3 py-2 text-slate-800 dark:text-white placeholder:text-slate-500"
+                      className="w-full rounded-lg border border-edge bg-surface-alt pl-9 pr-3 py-2 text-slate-800 dark:text-white placeholder:text-slate-500"
                     />
                   </div>
                 </div>
               )}
 
               {/* Level selector */}
-              <div className="flex gap-1 bg-slate-100 dark:bg-slate-700 rounded-lg p-1">
+              <div className="flex gap-1 bg-surface-raised rounded-lg p-1">
                 {(['junior', 'mid', 'senior'] as SalaryLevel[]).map((level) => (
                   <button
                     key={level}
@@ -327,7 +327,7 @@ export default function SalaryCompare() {
                       'px-4 py-1.5 rounded-md text-sm font-medium transition ' +
                       (selectedLevel === level
                         ? 'bg-white dark:bg-slate-600 text-amber-700 dark:text-amber-400 shadow'
-                        : 'text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white')
+                        : 'text-subtle hover:text-slate-800 dark:hover:text-white')
                     }
                     aria-label={levelLabel(level)}
                   >
@@ -355,7 +355,7 @@ export default function SalaryCompare() {
                 {sectorTableData.map((r) => (
                   <div
                     key={r.id}
-                    className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden"
+                    className="bg-surface rounded-xl border border-edge overflow-hidden"
                   >
                     {/* Sector row — tappable */}
                     <div
@@ -380,7 +380,7 @@ export default function SalaryCompare() {
                       <div className="flex-1 min-w-0 space-y-1">
                         <div className="flex items-center gap-1.5">
                           <span className="text-xs flex-shrink-0">{'\uD83C\uDDE8\uD83C\uDDED'}</span>
-                          <div className="flex-1 h-2 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
+                          <div className="flex-1 h-2 bg-surface-raised rounded-full overflow-hidden">
                             <div
                               className="h-full bg-red-500 rounded-full"
                               style={{ width: (r.chNetEUR / maxVal) * 100 + '%' }}
@@ -389,14 +389,14 @@ export default function SalaryCompare() {
                         </div>
                         <div className="flex items-center gap-1.5">
                           <span className="text-xs flex-shrink-0">{'\uD83C\uDDEE\uD83C\uDDF9'}</span>
-                          <div className="flex-1 h-2 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
+                          <div className="flex-1 h-2 bg-surface-raised rounded-full overflow-hidden">
                             <div
                               className="h-full bg-emerald-500 rounded-full"
                               style={{ width: (r.itNet / maxVal) * 100 + '%' }}
                             />
                           </div>
                         </div>
-                        <div className="flex justify-between text-xs font-mono text-slate-500 dark:text-slate-400 mt-0.5">
+                        <div className="flex justify-between text-xs font-mono text-muted mt-0.5">
                           <span>CH {'\u20AC'}{r.chNetEUR.toLocaleString()}</span>
                           <span>IT {'\u20AC'}{r.itNet.toLocaleString()}</span>
                         </div>
@@ -408,7 +408,7 @@ export default function SalaryCompare() {
                       </span>
 
                       {/* Chevron */}
-                      <span className="w-4 flex justify-center text-slate-500 dark:text-slate-400 flex-shrink-0">
+                      <span className="w-4 flex justify-center text-muted flex-shrink-0">
                         {expandedSectors.has(r.id) ? <ChevronUp size={12} /> : <ChevronDown size={12} />}
                       </span>
                     </div>
@@ -471,7 +471,7 @@ export default function SalaryCompare() {
 
               {/* ── Desktop layout (sm+) — unchanged ── */}
               <div className="hidden sm:block space-y-6">
-              <div className="bg-white dark:bg-slate-800 rounded-xl shadow overflow-hidden">
+              <div className="bg-surface rounded-xl shadow overflow-hidden">
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm">
                     <thead className="bg-slate-50 dark:bg-slate-700">
@@ -510,10 +510,10 @@ export default function SalaryCompare() {
                             <td className="py-3 px-4 font-medium text-slate-800 dark:text-white">
                               {r.name}
                             </td>
-                            <td className="py-3 px-3 text-right font-mono text-slate-700 dark:text-slate-300">
+                            <td className="py-3 px-3 text-right font-mono text-body">
                               CHF {r.chGross.toLocaleString()}
                             </td>
-                            <td className="py-3 px-3 text-right font-mono text-slate-700 dark:text-slate-300">
+                            <td className="py-3 px-3 text-right font-mono text-body">
                               {'\u20AC'} {r.itGross.toLocaleString()}
                             </td>
                             <td className="py-3 px-3 text-right font-mono font-bold text-slate-800 dark:text-white">
@@ -537,10 +537,10 @@ export default function SalaryCompare() {
                                 {r.deltaPercent}%)
                               </span>
                             </td>
-                            <td className="py-3 px-3 text-right font-mono text-slate-600 dark:text-slate-400">
+                            <td className="py-3 px-3 text-right font-mono text-subtle">
                               {'\u20AC'} {r.ppp.toLocaleString()}
                             </td>
-                            <td className="py-3 px-2 text-slate-500 dark:text-slate-400">
+                            <td className="py-3 px-2 text-muted">
                               {expandedSectors.has(r.id) ? (
                                 <ChevronUp size={16} />
                               ) : (
@@ -587,37 +587,37 @@ export default function SalaryCompare() {
                                   key={p.id}
                                   className="bg-slate-50/50 dark:bg-slate-700/20 border-b border-slate-100 dark:border-slate-700/30"
                                 >
-                                  <td className="py-2 pl-8 pr-4 text-sm text-slate-700 dark:text-slate-300">
+                                  <td className="py-2 pl-8 pr-4 text-sm text-body">
                                     <span className="flex items-center gap-2">
                                       <Briefcase
                                         size={12}
-                                        className="text-blue-600 dark:text-blue-400"
+                                        className="text-link"
                                       />
                                       {profName(p.id)}
                                     </span>
                                   </td>
-                                  <td className="py-2 px-3 text-right text-xs font-mono text-slate-600 dark:text-slate-400">
+                                  <td className="py-2 px-3 text-right text-xs font-mono text-subtle">
                                     <span className="block">
                                       CHF {ch[1].toLocaleString()}
                                     </span>
-                                    <span className="text-slate-500 dark:text-slate-400">
+                                    <span className="text-muted">
                                       {ch[0].toLocaleString()}-
                                       {ch[2].toLocaleString()}
                                     </span>
                                   </td>
-                                  <td className="py-2 px-3 text-right text-xs font-mono text-slate-600 dark:text-slate-400">
+                                  <td className="py-2 px-3 text-right text-xs font-mono text-subtle">
                                     <span className="block">
                                       {'\u20AC'} {it[1].toLocaleString()}
                                     </span>
-                                    <span className="text-slate-500 dark:text-slate-400">
+                                    <span className="text-muted">
                                       {it[0].toLocaleString()}-
                                       {it[2].toLocaleString()}
                                     </span>
                                   </td>
-                                  <td className="py-2 px-3 text-right text-xs font-mono text-slate-700 dark:text-slate-300">
+                                  <td className="py-2 px-3 text-right text-xs font-mono text-body">
                                     CHF {calcNetCH(ch[1]).toLocaleString()}
                                   </td>
-                                  <td className="py-2 px-3 text-right text-xs font-mono text-slate-700 dark:text-slate-300">
+                                  <td className="py-2 px-3 text-right text-xs font-mono text-body">
                                     {'\u20AC'} {calcNetIT(it[1]).toLocaleString()}
                                   </td>
                                   <td className="py-2 px-3 text-right text-xs font-mono text-emerald-700 dark:text-emerald-400">
@@ -647,7 +647,7 @@ export default function SalaryCompare() {
               </div>
 
               {/* Visual comparison bars */}
-              <div className="bg-white dark:bg-slate-800 rounded-xl shadow p-5">
+              <div className="bg-surface rounded-xl shadow p-5">
                 <div className="flex items-center gap-2 mb-4">
                   <BarChart3
                     className="text-amber-600 dark:text-amber-400"
@@ -660,7 +660,7 @@ export default function SalaryCompare() {
                 <div className="space-y-3">
                   {sectorTableData.map((r) => (
                     <div key={r.id} className="flex items-center gap-3">
-                      <span className="w-28 text-sm text-slate-700 dark:text-slate-300 truncate">
+                      <span className="w-28 text-sm text-body truncate">
                         {r.name}
                       </span>
                       <div className="flex-1 space-y-1">
@@ -668,7 +668,7 @@ export default function SalaryCompare() {
                           <span className="w-5 text-center text-xs">
                             {'\uD83C\uDDE8\uD83C\uDDED'}
                           </span>
-                          <div className="flex-1 bg-slate-100 dark:bg-slate-700 rounded-full h-4 overflow-hidden">
+                          <div className="flex-1 bg-surface-raised rounded-full h-4 overflow-hidden">
                             <div
                               className="h-full bg-red-500 rounded-full"
                               style={{
@@ -677,7 +677,7 @@ export default function SalaryCompare() {
                               }}
                             />
                           </div>
-                          <span className="w-20 text-right text-xs font-mono text-slate-600 dark:text-slate-400">
+                          <span className="w-20 text-right text-xs font-mono text-subtle">
                             {'\u20AC'} {r.chNetEUR.toLocaleString()}
                           </span>
                         </div>
@@ -685,7 +685,7 @@ export default function SalaryCompare() {
                           <span className="w-5 text-center text-xs">
                             {'\uD83C\uDDEE\uD83C\uDDF9'}
                           </span>
-                          <div className="flex-1 bg-slate-100 dark:bg-slate-700 rounded-full h-4 overflow-hidden">
+                          <div className="flex-1 bg-surface-raised rounded-full h-4 overflow-hidden">
                             <div
                               className="h-full bg-green-500 rounded-full"
                               style={{
@@ -694,7 +694,7 @@ export default function SalaryCompare() {
                               }}
                             />
                           </div>
-                          <span className="w-20 text-right text-xs font-mono text-slate-600 dark:text-slate-400">
+                          <span className="w-20 text-right text-xs font-mono text-subtle">
                             {'\u20AC'} {r.itNet.toLocaleString()}
                           </span>
                         </div>
@@ -707,7 +707,7 @@ export default function SalaryCompare() {
                   <p className="font-semibold text-amber-800 dark:text-amber-300">
                     {t('salaryCompare.ppp')}
                   </p>
-                  <p className="text-slate-600 dark:text-slate-400 text-xs mt-1">
+                  <p className="text-subtle text-xs mt-1">
                     {t('salaryCompare.pppDesc')}
                   </p>
                 </div>
@@ -719,7 +719,7 @@ export default function SalaryCompare() {
           {/* ══════════════ PROFESSIONS TAB ══════════════ */}
           {activeTab === 'professions' && (
             <div className="space-y-4">
-              <p className="text-sm text-slate-600 dark:text-slate-400">
+              <p className="text-sm text-subtle">
                 {filteredProfessions.length}{' '}
                 {t('salaryCompare.totalProfessions')}
               </p>
@@ -739,14 +739,14 @@ export default function SalaryCompare() {
                   return (
                     <div
                       key={p.sectorId + '-' + p.id}
-                      className="bg-white dark:bg-slate-800 rounded-xl shadow border border-slate-200 dark:border-slate-700 p-4 hover:shadow-md transition"
+                      className="bg-surface rounded-xl shadow border border-edge p-4 hover:shadow-md transition"
                     >
                       <div className="flex items-start justify-between mb-3">
                         <div>
                           <h4 className="font-bold text-slate-800 dark:text-white text-sm">
                             {p.professionName}
                           </h4>
-                          <span className="inline-block mt-1 text-xs bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 rounded-full px-2 py-0.5">
+                          <span className="inline-block mt-1 text-xs bg-surface-raised text-subtle rounded-full px-2 py-0.5">
                             {p.sectorName}
                           </span>
                         </div>
@@ -766,16 +766,16 @@ export default function SalaryCompare() {
                       {/* CH salary range */}
                       <div className="space-y-2">
                         <div>
-                          <div className="flex justify-between text-xs text-slate-500 dark:text-slate-400 mb-1">
+                          <div className="flex justify-between text-xs text-muted mb-1">
                             <span>
                               {'\uD83C\uDDE8\uD83C\uDDED'}{' '}
                               {t('salaryCompare.salaryRange')}
                             </span>
-                            <span className="font-mono font-bold text-slate-700 dark:text-slate-300">
+                            <span className="font-mono font-bold text-body">
                               CHF {ch[1].toLocaleString()}
                             </span>
                           </div>
-                          <div className="relative h-2 bg-slate-100 dark:bg-slate-700 rounded-full">
+                          <div className="relative h-2 bg-surface-raised rounded-full">
                             <div
                               className="absolute h-full bg-red-400 dark:bg-red-500 rounded-full"
                               style={{
@@ -791,7 +791,7 @@ export default function SalaryCompare() {
                               }}
                             />
                           </div>
-                          <div className="flex justify-between text-xs text-slate-500 dark:text-slate-400 mt-0.5 font-mono">
+                          <div className="flex justify-between text-xs text-muted mt-0.5 font-mono">
                             <span>{(ch[0] / 1000).toFixed(0)}k</span>
                             <span>{(ch[2] / 1000).toFixed(0)}k</span>
                           </div>
@@ -799,16 +799,16 @@ export default function SalaryCompare() {
 
                         {/* IT salary range */}
                         <div>
-                          <div className="flex justify-between text-xs text-slate-500 dark:text-slate-400 mb-1">
+                          <div className="flex justify-between text-xs text-muted mb-1">
                             <span>
                               {'\uD83C\uDDEE\uD83C\uDDF9'}{' '}
                               {t('salaryCompare.salaryRange')}
                             </span>
-                            <span className="font-mono font-bold text-slate-700 dark:text-slate-300">
+                            <span className="font-mono font-bold text-body">
                               {'\u20AC'} {it[1].toLocaleString()}
                             </span>
                           </div>
-                          <div className="relative h-2 bg-slate-100 dark:bg-slate-700 rounded-full">
+                          <div className="relative h-2 bg-surface-raised rounded-full">
                             <div
                               className="absolute h-full bg-green-400 dark:bg-green-500 rounded-full"
                               style={{
@@ -824,7 +824,7 @@ export default function SalaryCompare() {
                               }}
                             />
                           </div>
-                          <div className="flex justify-between text-xs text-slate-500 dark:text-slate-400 mt-0.5 font-mono">
+                          <div className="flex justify-between text-xs text-muted mt-0.5 font-mono">
                             <span>{(it[0] / 1000).toFixed(0)}k</span>
                             <span>{(it[2] / 1000).toFixed(0)}k</span>
                           </div>
@@ -834,18 +834,18 @@ export default function SalaryCompare() {
                       {/* Net comparison */}
                       <div className="mt-3 pt-3 border-t border-slate-100 dark:border-slate-700 flex justify-between text-xs">
                         <div>
-                          <span className="text-slate-500 dark:text-slate-400">
+                          <span className="text-muted">
                             {t('salaryCompare.netCH')}:{' '}
                           </span>
-                          <span className="font-mono font-bold text-slate-700 dark:text-slate-300">
+                          <span className="font-mono font-bold text-body">
                             CHF {chNetMedian.toLocaleString()}
                           </span>
                         </div>
                         <div>
-                          <span className="text-slate-500 dark:text-slate-400">
+                          <span className="text-muted">
                             {t('salaryCompare.netIT')}:{' '}
                           </span>
-                          <span className="font-mono font-bold text-slate-700 dark:text-slate-300">
+                          <span className="font-mono font-bold text-body">
                             {'\u20AC'} {itNetMedian.toLocaleString()}
                           </span>
                         </div>
@@ -860,14 +860,14 @@ export default function SalaryCompare() {
       )}
 
       {/* ── Methodology section (always visible, SEO content) ── */}
-      <div className="bg-white dark:bg-slate-800 rounded-xl shadow p-6">
+      <div className="bg-surface rounded-xl shadow p-6">
         <div className="flex items-center gap-2 mb-3">
-          <BookOpen className="text-slate-600 dark:text-slate-400" size={20} />
+          <BookOpen className="text-subtle" size={20} />
           <h3 className="text-lg font-bold text-slate-800 dark:text-white">
             {t('salaryCompare.methodology')}
           </h3>
         </div>
-        <div className="text-sm text-slate-600 dark:text-slate-400 space-y-3">
+        <div className="text-sm text-subtle space-y-3">
           <p>{t('salaryCompare.methodologyText1')}</p>
           <p>{t('salaryCompare.methodologyText2')}</p>
           <p>{t('salaryCompare.methodologyText3')}</p>
@@ -875,9 +875,9 @@ export default function SalaryCompare() {
       </div>
 
       {/* ── FAQ section (SEO content) ── */}
-      <div className="bg-white dark:bg-slate-800 rounded-xl shadow p-6">
+      <div className="bg-surface rounded-xl shadow p-6">
         <div className="flex items-center gap-2 mb-4">
-          <Info className="text-blue-600 dark:text-blue-400" size={20} />
+          <Info className="text-link" size={20} />
           <h3 className="text-lg font-bold text-slate-800 dark:text-white">
             {t('salaryCompare.faqTitle')}
           </h3>
@@ -886,16 +886,16 @@ export default function SalaryCompare() {
           {[1, 2, 3, 4, 5].map((n) => (
             <details
               key={n}
-              className="group border border-slate-200 dark:border-slate-700 rounded-lg"
+              className="group border border-edge rounded-lg"
             >
               <summary className="flex items-center justify-between p-4 cursor-pointer text-sm font-semibold text-slate-800 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-700/30 rounded-lg">
                 {t('salaryCompare.faq' + n + 'Q')}
                 <ChevronDown
                   size={16}
-                  className="text-slate-500 dark:text-slate-400 group-open:rotate-180 transition-transform"
+                  className="text-muted group-open:rotate-180 transition-transform"
                 />
               </summary>
-              <div className="px-4 pb-4 text-sm text-slate-600 dark:text-slate-400">
+              <div className="px-4 pb-4 text-sm text-subtle">
                 {t('salaryCompare.faq' + n + 'A')}
               </div>
             </details>
@@ -905,10 +905,10 @@ export default function SalaryCompare() {
 
       {/* ── Source + Disclaimer ── */}
       <div className="space-y-2">
-        <p className="text-sm text-slate-500 dark:text-slate-400 font-medium">
+        <p className="text-sm text-muted font-medium">
           {t('salaryCompare.source')}
         </p>
-        <div className="flex items-start gap-2 text-xs text-slate-500 dark:text-slate-400">
+        <div className="flex items-start gap-2 text-xs text-muted">
           <AlertTriangle size={14} className="flex-shrink-0 mt-0.5" />
           <p>{t('salaryCompare.disclaimer')}</p>
         </div>

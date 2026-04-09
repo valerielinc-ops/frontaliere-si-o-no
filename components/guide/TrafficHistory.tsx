@@ -165,7 +165,7 @@ function getColorClass(minutes: number): string {
 function getTrendIcon(current: number, previous: number) {
   if (current > previous + 2) return <TrendingUp size={14} className="text-red-500" />;
   if (current < previous - 2) return <TrendingDown size={14} className="text-emerald-500" />;
-  return <Minus size={14} className="text-slate-500 dark:text-slate-400" />;
+  return <Minus size={14} className="text-muted" />;
 }
 
 export default function TrafficHistory() {
@@ -236,10 +236,10 @@ export default function TrafficHistory() {
           <Clock size={28} className="text-blue-600" />
           {t('trafficHistory.title')}
         </h2>
-        <p className="text-slate-600 dark:text-slate-400">{t('trafficHistory.subtitle')}</p>
+        <p className="text-subtle">{t('trafficHistory.subtitle')}</p>
         {/* Data source badge */}
         {loading ? (
-          <span className="inline-flex items-center gap-1.5 mt-2 px-3 py-1 rounded-full text-xs font-medium bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300">
+          <span className="inline-flex items-center gap-1.5 mt-2 px-3 py-1 rounded-full text-xs font-medium bg-surface-raised text-slate-600 dark:text-slate-300">
             <Loader2 size={12} className="animate-spin" />
             {t('trafficHistory.loading')}
           </span>
@@ -264,7 +264,7 @@ export default function TrafficHistory() {
             className={`px-4 py-2 rounded-xl text-sm font-medium transition-[color,background-color,border-color,box-shadow] ${
               selectedCrossing === name
                 ? 'bg-blue-600 text-white shadow-lg'
-                : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:border-blue-400'
+                : 'bg-surface text-body border border-edge hover:border-blue-400'
             }`}
           >
             <MapPin size={14} className="inline mr-1" />
@@ -290,7 +290,7 @@ export default function TrafficHistory() {
           <p className="text-sm text-red-600 dark:text-red-400">{analysis.worstWait} min</p>
         </div>
         <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-4">
-          <p className="text-xs text-blue-600 dark:text-blue-400 font-semibold mb-1">{t('trafficHistory.dailyAvg')}</p>
+          <p className="text-xs text-link font-semibold mb-1">{t('trafficHistory.dailyAvg')}</p>
           <div className="flex gap-1 mt-1">
             {analysis.dayAverages.map(d => (
               <div key={d.day} className="flex-1 text-center">
@@ -305,7 +305,7 @@ export default function TrafficHistory() {
       </div>
 
       {/* Heatmap */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4">
+      <div className="bg-surface rounded-2xl border border-edge p-4">
         <h3 className="text-base font-semibold text-slate-700 dark:text-slate-200 mb-4 flex items-center gap-2">
           <AlertTriangle size={16} className="text-amber-500" />
           {t('trafficHistory.heatmapTitle')}
@@ -319,7 +319,7 @@ export default function TrafficHistory() {
           <div className="flex items-center mb-1">
             <div className="w-12 shrink-0" />
             {HOURS.filter(h => h >= 5 && h <= 21).map(h => (
-              <div key={h} className={`flex-1 text-center text-xs text-slate-500 dark:text-slate-400 font-mono ${!PEAK_HOURS.has(h) ? 'hidden sm:block' : ''}`}>
+              <div key={h} className={`flex-1 text-center text-xs text-muted font-mono ${!PEAK_HOURS.has(h) ? 'hidden sm:block' : ''}`}>
                 {h}
               </div>
             ))}
@@ -328,7 +328,7 @@ export default function TrafficHistory() {
           {/* Day rows */}
           {heatmapData.map(row => (
             <div key={row.dayIdx} className="flex items-center mb-1">
-              <div className="w-12 shrink-0 text-xs font-semibold text-slate-600 dark:text-slate-400">
+              <div className="w-12 shrink-0 text-xs font-semibold text-subtle">
                 {row.dayName}
               </div>
               {row.hours.filter(h => h.hour >= 5 && h.hour <= 21).map(cell => (
@@ -346,7 +346,7 @@ export default function TrafficHistory() {
         </div>
 
         {/* Legend */}
-        <div className="flex items-center gap-2 mt-4 text-xs text-slate-500 dark:text-slate-400">
+        <div className="flex items-center gap-2 mt-4 text-xs text-muted">
           <span>{t('trafficHistory.legend')}:</span>
           <span className="px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-900/40 text-emerald-800 dark:text-emerald-200">0-5'</span>
           <span className="px-2 py-0.5 rounded bg-yellow-100 dark:bg-yellow-900/40 text-yellow-800 dark:text-yellow-200">5-10'</span>
@@ -357,22 +357,22 @@ export default function TrafficHistory() {
       </div>
 
       {/* Daily comparison */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4">
+      <div className="bg-surface rounded-2xl border border-edge p-4">
         <h3 className="text-base font-semibold text-slate-700 dark:text-slate-200 mb-4">
           {t('trafficHistory.morningRush')} (7:00–9:00)
         </h3>
         <div className="space-y-2">
           {analysis.dayAverages.filter(d => d.day >= 1 && d.day <= 5).map((d, i) => (
             <div key={d.day} className="flex items-center gap-3">
-              <span className="w-10 text-sm font-medium text-slate-600 dark:text-slate-400">{d.name}</span>
-              <div className="flex-1 h-6 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
+              <span className="w-10 text-sm font-medium text-subtle">{d.name}</span>
+              <div className="flex-1 h-6 bg-surface-raised rounded-full overflow-hidden">
                 <div
                   className={`h-full w-full rounded-full transition-transform ${d.avg > 18 ? 'bg-red-500' : d.avg > 10 ? 'bg-orange-400' : 'bg-emerald-700'}`}
                   style={{ transform: `scaleX(${Math.min(d.avg / 30, 1)})`, transformOrigin: 'left' }}
                 />
               </div>
               <div className="flex items-center gap-1 w-16 text-right">
-                <span className="text-sm font-bold text-slate-700 dark:text-slate-300">{d.avg}'</span>
+                <span className="text-sm font-bold text-body">{d.avg}'</span>
                 {i > 0 && getTrendIcon(d.avg, analysis.dayAverages[d.day - 1]?.avg ?? d.avg)}
               </div>
             </div>
@@ -381,9 +381,9 @@ export default function TrafficHistory() {
       </div>
 
       {/* Info notice */}
-      <div className="bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-xl p-4 flex items-start gap-3">
+      <div className="bg-surface-alt/50 border border-edge rounded-xl p-4 flex items-start gap-3">
         <Info size={18} className="text-slate-500 dark:text-slate-300 shrink-0 mt-0.5" />
-        <p className="text-sm text-slate-500 dark:text-slate-400">
+        <p className="text-sm text-muted">
           {dataSource === 'firestore' ? t('trafficHistory.dataNoteReal') : t('trafficHistory.dataNote')}
         </p>
       </div>

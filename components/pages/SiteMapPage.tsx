@@ -102,7 +102,7 @@ export default function SiteMapPage() {
       ],
     },
     {
-      icon: <ExternalLink className="w-5 h-5 text-slate-600 dark:text-slate-400" />,
+      icon: <ExternalLink className="w-5 h-5 text-subtle" />,
       title: t('sitemap.section.other'),
       links: [
         { label: t('sitemap.link.blog'), route: { activeTab: 'blog' } },
@@ -123,12 +123,12 @@ export default function SiteMapPage() {
           {t('sitemap.badge')}
         </div>
         <h1 className="text-2xl font-bold text-slate-900 dark:text-white">{t('sitemap.title')}</h1>
-        <p className="text-sm text-slate-600 dark:text-slate-400 mt-1 max-w-xl mx-auto">{t('sitemap.subtitle')}</p>
+        <p className="text-sm text-subtle mt-1 max-w-xl mx-auto">{t('sitemap.subtitle')}</p>
       </div>
 
       <div className="grid gap-6 md:grid-cols-2">
         {sections.map((section) => (
-          <div key={section.title} className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-5">
+          <div key={section.title} className="bg-surface rounded-xl border border-edge p-5">
             <div className="flex items-center gap-2 mb-3">
               {section.icon}
               <h2 className="text-lg font-bold text-slate-900 dark:text-white">{section.title}</h2>

@@ -408,17 +408,17 @@ const MobileOperators: React.FC = () => {
       </div>
 
       {/* Filters */}
-      <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
+      <div className="bg-surface rounded-xl p-4 border border-edge">
         <div className="flex flex-wrap gap-4 items-center">
           <div className="flex items-center gap-2">
-            <label className="text-sm font-bold text-slate-700 dark:text-slate-300">{t('mobile.country')}:</label>
+            <label className="text-sm font-bold text-body">{t('mobile.country')}:</label>
             <div className="flex gap-2">
               <button
                 onClick={() => { setFilterCountry('all'); Analytics.trackMobileOperator('filter', undefined, 'all'); }}
                 className={`px-4 py-2 rounded-lg text-sm font-bold transition-colors ${
                   filterCountry === 'all' 
                     ? 'bg-amber-700 text-white'
-                    : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200'
+                    : 'bg-surface-raised text-slate-600 dark:text-slate-300 hover:bg-slate-200'
                 }`}
               >
                 {t('mobile.all')}
@@ -428,7 +428,7 @@ const MobileOperators: React.FC = () => {
                 className={`px-4 py-2 rounded-lg text-sm font-bold transition-colors ${
                   filterCountry === 'IT' 
                     ? 'bg-green-600 text-white' 
-                    : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200'
+                    : 'bg-surface-raised text-slate-600 dark:text-slate-300 hover:bg-slate-200'
                 }`}
               >
                 🇮🇹 {t('mobile.italy')}
@@ -438,7 +438,7 @@ const MobileOperators: React.FC = () => {
                 className={`px-4 py-2 rounded-lg text-sm font-bold transition-colors ${
                   filterCountry === 'CH' 
                     ? 'bg-red-600 text-white' 
-                    : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200'
+                    : 'bg-surface-raised text-slate-600 dark:text-slate-300 hover:bg-slate-200'
                 }`}
               >
                 🇨🇭 {t('mobile.switzerland')}
@@ -447,12 +447,12 @@ const MobileOperators: React.FC = () => {
           </div>
 
           <div className="flex items-center gap-2">
-            <label htmlFor="mo-sort-by" className="text-sm font-bold text-slate-700 dark:text-slate-300">{t('mobile.sortBy')}:</label>
+            <label htmlFor="mo-sort-by" className="text-sm font-bold text-body">{t('mobile.sortBy')}:</label>
             <select
               id="mo-sort-by"
               value={sortBy}
               onChange={(e) => { setSortBy(e.target.value as 'price' | 'roaming' | 'priceRoaming'); Analytics.trackMobileOperator('sort'); }}
-              className="px-4 py-2 rounded-lg text-sm font-bold bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-slate-600 cursor-pointer"
+              className="px-4 py-2 rounded-lg text-sm font-bold bg-surface-raised text-body border border-slate-300 dark:border-slate-600 cursor-pointer"
             >
               <option value="roaming">{t('mobile.roamingIncluded')}</option>
               <option value="price">{t('mobile.price')}</option>
@@ -471,7 +471,7 @@ const MobileOperators: React.FC = () => {
         <div className="grid md:grid-cols-2 gap-4">
           <div className="p-4 bg-white/50 dark:bg-slate-900/50 rounded-xl">
             <p className="font-bold text-emerald-700 dark:text-emerald-400 mb-2">🇮🇹 {t('mobile.italianWithRoaming')}:</p>
-            <ul className="space-y-1 text-sm text-slate-700 dark:text-slate-300">
+            <ul className="space-y-1 text-sm text-body">
               {bestForFrontierWorkers.filter(op => op.country === 'IT').map(op => (
                 <li key={op.name}>
                   <strong>{op.name}</strong> - {op.monthlyCost}€/mese - {op.roamingInSwitzerland?.dataLimit === 'illimitati' ? '∞' : op.roamingInSwitzerland?.dataLimit} GB roaming
@@ -481,7 +481,7 @@ const MobileOperators: React.FC = () => {
           </div>
           <div className="p-4 bg-white/50 dark:bg-slate-900/50 rounded-xl">
             <p className="font-bold text-emerald-700 dark:text-emerald-400 mb-2">🇨🇭 {t('mobile.swissWithRoaming')}:</p>
-            <ul className="space-y-1 text-sm text-slate-700 dark:text-slate-300">
+            <ul className="space-y-1 text-sm text-body">
               {bestForFrontierWorkers.filter(op => op.country === 'CH').map(op => (
                 <li key={op.name}>
                   <strong>{op.name}</strong> - {op.monthlyCost} CHF/mese - {op.roamingInItaly?.dataLimit === 'illimitati' ? '∞' : op.roamingInItaly?.dataLimit} GB roaming
@@ -506,16 +506,16 @@ const MobileOperators: React.FC = () => {
             target: '_blank',
             rel: 'noopener noreferrer',
             onClick: () => Analytics.trackMobileOperator('link_click', operator.name, operator.country),
-            className: `block bg-white dark:bg-slate-800 rounded-2xl border-2 p-4 sm:p-6 hover:shadow-lg transition-[color,background-color,border-color,box-shadow] cursor-pointer ${
+            className: `block bg-surface rounded-2xl border-2 p-4 sm:p-6 hover:shadow-lg transition-[color,background-color,border-color,box-shadow] cursor-pointer ${
               hasGoodRoaming 
                 ? 'border-emerald-500 ring-2 ring-emerald-500/20 hover:ring-emerald-500/40' 
-                : 'border-slate-200 dark:border-slate-700 hover:border-amber-400'
+                : 'border-edge hover:border-amber-400'
             }`
           } : {
-            className: `bg-white dark:bg-slate-800 rounded-2xl border-2 p-4 sm:p-6 hover:shadow-lg transition-[color,background-color,border-color,box-shadow] ${
+            className: `bg-surface rounded-2xl border-2 p-4 sm:p-6 hover:shadow-lg transition-[color,background-color,border-color,box-shadow] ${
               hasGoodRoaming 
                 ? 'border-emerald-500 ring-2 ring-emerald-500/20' 
-                : 'border-slate-200 dark:border-slate-700'
+                : 'border-edge'
             }`
           };
 
@@ -535,7 +535,7 @@ const MobileOperators: React.FC = () => {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100">{operator.name}</h3>
-                    <p className="text-sm text-slate-500 dark:text-slate-400">
+                    <p className="text-sm text-muted">
                       {operator.country === 'IT' ? '🇮🇹 Italia' : '🇨🇭 Svizzera'} • {operator.contractType}
                     </p>
                   </div>
@@ -544,7 +544,7 @@ const MobileOperators: React.FC = () => {
                 <div className="text-right">
                   {hasExtraCost ? (
                     <>
-                      <div className="text-sm text-slate-500 dark:text-slate-400 line-through">
+                      <div className="text-sm text-muted line-through">
                         {operator.country === 'IT' ? '€' : 'CHF'} {operator.monthlyCost.toFixed(2)}
                       </div>
                       <div className="text-2xl font-bold text-red-600 dark:text-red-400">
@@ -557,7 +557,7 @@ const MobileOperators: React.FC = () => {
                       <div className="text-2xl font-bold text-slate-800 dark:text-slate-100">
                         {operator.country === 'IT' ? '€' : 'CHF'} {operator.monthlyCost.toFixed(2)}
                       </div>
-                      <div className="text-xs text-slate-500 dark:text-slate-400">{t('mobile.perMonth')}</div>
+                      <div className="text-xs text-muted">{t('mobile.perMonth')}</div>
                     </>
                   )}
                 </div>
@@ -594,25 +594,25 @@ const MobileOperators: React.FC = () => {
 
               {/* Plan Details */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
-                <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-xl text-center">
+                <div className="p-3 bg-surface-alt rounded-xl text-center">
                   <Wifi className="mx-auto mb-1 text-amber-700" size={18} />
-                  <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">{t('mobile.data')}</div>
+                  <div className="text-xs text-muted mb-1">{t('mobile.data')}</div>
                   <div className="text-sm font-bold text-slate-800 dark:text-slate-100">
                     {operator.dataGB === 'illimitati' ? '∞' : `${operator.dataGB} GB`}
                   </div>
                 </div>
 
-                <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-xl text-center">
+                <div className="p-3 bg-surface-alt rounded-xl text-center">
                   <Phone className="mx-auto mb-1 text-emerald-700" size={18} />
-                  <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">{t('mobile.minutes')}</div>
+                  <div className="text-xs text-muted mb-1">{t('mobile.minutes')}</div>
                   <div className="text-sm font-bold text-slate-800 dark:text-slate-100">
                     {operator.minutes === 'illimitati' ? '∞' : operator.minutes}
                   </div>
                 </div>
 
-                <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-xl text-center">
+                <div className="p-3 bg-surface-alt rounded-xl text-center">
                   <MessageSquare className="mx-auto mb-1 text-rose-600" size={18} />
-                  <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">{t('mobile.sms')}</div>
+                  <div className="text-xs text-muted mb-1">{t('mobile.sms')}</div>
                   <div className="text-sm font-bold text-slate-800 dark:text-slate-100">
                     {operator.sms === 'illimitati' ? '∞' : operator.sms}
                   </div>
@@ -631,7 +631,7 @@ const MobileOperators: React.FC = () => {
                     <p className={`font-bold text-sm mb-1 ${roaming?.included ? 'text-emerald-700 dark:text-emerald-400' : 'text-red-700 dark:text-red-400'}`}>
                       {t('mobile.roamingIn')} {operator.country === 'IT' ? `${t('mobile.switzerland')} 🇨🇭` : `${t('mobile.italy')} 🇮🇹`}
                     </p>
-                    <p className="text-xs text-slate-700 dark:text-slate-300">
+                    <p className="text-xs text-body">
                       {roaming?.notes}
                     </p>
                     {roaming?.costPerDay && (
@@ -658,12 +658,12 @@ const MobileOperators: React.FC = () => {
               )}
 
               {/* Features */}
-              <div className="border-t border-slate-200 dark:border-slate-700 pt-3">
+              <div className="border-t border-edge pt-3">
                 <div className="flex flex-wrap gap-2">
                   {operator.features.map((feature, idx) => (
                     <span
                       key={idx}
-                      className="px-2.5 py-1 bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300 text-xs font-medium rounded-lg"
+                      className="px-2.5 py-1 bg-slate-100 dark:bg-slate-900 text-body text-xs font-medium rounded-lg"
                     >
                       {feature}
                     </span>
@@ -682,7 +682,7 @@ const MobileOperators: React.FC = () => {
           {t('mobile.tipsTitle')}
         </h3>
         
-        <div className="space-y-4 text-sm text-slate-700 dark:text-slate-300">
+        <div className="space-y-4 text-sm text-body">
           <div className="p-4 bg-white/50 dark:bg-slate-900/50 rounded-xl">
             <p className="font-bold text-blue-600 mb-2">📱 {t('mobile.whichOperator')}</p>
             <ul className="space-y-2 ml-4 list-disc">

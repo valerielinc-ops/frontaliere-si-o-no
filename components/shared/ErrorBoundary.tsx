@@ -108,11 +108,11 @@ export class ErrorBoundary extends Component<Props, State> {
              <AlertTriangle size={48} className="text-red-500" />
           </div>
           <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-100 mb-2">{t('error.title')}</h2>
-          <p className="text-slate-500 dark:text-slate-400 max-w-md mb-6">
+          <p className="text-muted max-w-md mb-6">
             {t('error.message')}
           </p>
           {this.state.errorDigest && (
-            <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 font-mono">
+            <p className="text-sm text-muted mb-4 font-mono">
               REF: {this.state.errorDigest}{this.state.errorHint && this.state.errorHint !== 'chunk' && this.state.errorHint !== 'network' ? ` — ${this.state.errorHint}` : ''}
             </p>
           )}

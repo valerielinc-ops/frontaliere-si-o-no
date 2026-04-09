@@ -115,7 +115,7 @@ const ApiStatus: React.FC = () => {
       case 'error':
         return <XCircle className="text-red-600 dark:text-red-400" size={24} />;
       default:
-        return <AlertTriangle className="text-slate-500 dark:text-slate-400" size={24} />;
+        return <AlertTriangle className="text-muted" size={24} />;
     }
   };
 
@@ -139,7 +139,7 @@ const ApiStatus: React.FC = () => {
       </div>
 
       {/* Summary Stats */}
-      <div className="flex flex-wrap items-baseline gap-x-5 gap-y-1.5 text-sm text-slate-600 dark:text-slate-400">
+      <div className="flex flex-wrap items-baseline gap-x-5 gap-y-1.5 text-sm text-subtle">
         <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-green-700 dark:text-green-400">{successCount}</span> Configurate</span>
         <span className="hidden sm:inline text-slate-300 dark:text-slate-600" aria-hidden="true">·</span>
         <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-amber-700 dark:text-amber-400">{warningCount}</span> Non Configurate</span>
@@ -148,9 +148,9 @@ const ApiStatus: React.FC = () => {
       </div>
 
       {/* Refresh Button */}
-      <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
+      <div className="bg-surface rounded-xl p-4 border border-edge">
         <div className="flex items-center justify-between">
-          <div className="text-sm text-slate-600 dark:text-slate-400">
+          <div className="text-sm text-subtle">
             Ultimo controllo: {lastCheck.toLocaleTimeString('it-IT')}
           </div>
           <button
@@ -169,7 +169,7 @@ const ApiStatus: React.FC = () => {
         {apiChecks.map((check, index) => (
           <div
             key={index}
-            className={`bg-white dark:bg-slate-800 border-2 rounded-xl p-4 sm:p-6 ${
+            className={`bg-surface border-2 rounded-xl p-4 sm:p-6 ${
               check.status === 'success'
                 ? 'border-green-200 dark:border-green-800'
                 : check.status === 'warning'
@@ -181,7 +181,7 @@ const ApiStatus: React.FC = () => {
               {getStatusIcon(check.status)}
               <div className="flex-1">
                 <div className="flex items-start justify-between mb-2">
-                  <h3 className="font-bold text-lg text-slate-900 dark:text-slate-100">
+                  <h3 className="font-bold text-lg text-heading">
                     {check.name}
                   </h3>
                 </div>
@@ -196,7 +196,7 @@ const ApiStatus: React.FC = () => {
                   }`}>
                     {check.value}
                   </p>
-                  <p className="text-sm text-slate-600 dark:text-slate-400">
+                  <p className="text-sm text-subtle">
                     {check.message}
                   </p>
                 </div>
@@ -207,8 +207,8 @@ const ApiStatus: React.FC = () => {
       </div>
 
       {/* Info Note */}
-      <div className="bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 p-4 sm:p-6 rounded-xl">
-        <p className="text-sm text-slate-600 dark:text-slate-400 text-center">
+      <div className="bg-surface-alt border border-edge p-4 sm:p-6 rounded-xl">
+        <p className="text-sm text-subtle text-center">
           🔒 <strong>Privacy:</strong> I dettagli delle chiavi API sono nascosti per motivi di sicurezza.
         </p>
       </div>

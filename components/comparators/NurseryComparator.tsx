@@ -112,22 +112,22 @@ const NurseryComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({
       </div>
 
       {/* Cost Calculator */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+      <div className="bg-surface rounded-2xl border border-edge overflow-hidden">
         <button
           onClick={() => setShowCalculator(!showCalculator)}
           className="w-full flex items-center justify-between p-4"
         >
-          <h3 className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2">
+          <h3 className="font-bold text-strong flex items-center gap-2">
             <Euro size={18} className="text-emerald-700" />
             {t('nursery.calculator')}
           </h3>
-          {showCalculator ? <ChevronUp size={18} className="text-slate-500 dark:text-slate-400" /> : <ChevronDown size={18} className="text-slate-500 dark:text-slate-400" />}
+          {showCalculator ? <ChevronUp size={18} className="text-muted" /> : <ChevronDown size={18} className="text-muted" />}
         </button>
         {showCalculator && (
           <div className="px-4 pb-4 space-y-4 border-t border-slate-100 dark:border-slate-700 pt-4">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div>
-                <label htmlFor="nursery-salary" className="block text-xs font-semibold text-slate-600 dark:text-slate-400 mb-1">
+                <label htmlFor="nursery-salary" className="block text-xs font-semibold text-subtle mb-1">
                   {t('nursery.monthlySalary')}
                 </label>
                 <input
@@ -136,24 +136,24 @@ const NurseryComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({
                   inputMode="numeric"
                   value={grossSalaryCHF}
                   onChange={e => setGrossSalaryCHF(Number(e.target.value))}
-                  className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-sm text-slate-800 dark:text-slate-200"
+                  className="w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-sm text-strong"
                 />
               </div>
               <div>
-                <label htmlFor="nursery-children" className="block text-xs font-semibold text-slate-600 dark:text-slate-400 mb-1">
+                <label htmlFor="nursery-children" className="block text-xs font-semibold text-subtle mb-1">
                   {t('nursery.numChildren')}
                 </label>
                 <select
                   id="nursery-children"
                   value={numChildren}
                   onChange={e => setNumChildren(Number(e.target.value))}
-                  className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-sm text-slate-800 dark:text-slate-200"
+                  className="w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-sm text-strong"
                 >
                   {[1, 2, 3, 4].map(n => <option key={n} value={n}>{n}</option>)}
                 </select>
               </div>
               <div>
-                <label htmlFor="nursery-age" className="block text-xs font-semibold text-slate-600 dark:text-slate-400 mb-1">
+                <label htmlFor="nursery-age" className="block text-xs font-semibold text-subtle mb-1">
                   {t('nursery.childAge')}
                 </label>
                 <input
@@ -164,7 +164,7 @@ const NurseryComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({
                   max={60}
                   value={childAge}
                   onChange={e => setChildAge(Number(e.target.value))}
-                  className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-sm text-slate-800 dark:text-slate-200"
+                  className="w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-sm text-strong"
                 />
               </div>
             </div>
@@ -190,20 +190,20 @@ const NurseryComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({
       {/* Filters */}
       <div className="flex flex-wrap gap-3 items-center">
         <div className="relative flex-1 min-w-[200px]">
-          <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 dark:text-slate-400" />
+          <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted" />
           <input
             type="text"
             value={searchTerm}
             onChange={e => setSearchTerm(e.target.value)}
             placeholder={t('nursery.searchPlaceholder')}
-            className="w-full pl-9 pr-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-sm text-slate-800 dark:text-slate-200"
+            className="w-full pl-9 pr-3 py-2 rounded-lg border border-edge bg-surface-alt text-sm text-strong"
             aria-label={t('nursery.searchPlaceholder')}
           />
         </div>
         <select
           value={cityFilter}
           onChange={e => setCityFilter(e.target.value)}
-          className="px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-sm text-slate-800 dark:text-slate-200"
+          className="px-3 py-2 rounded-lg border border-edge bg-surface-alt text-sm text-strong"
           aria-label={t('nursery.filterCity')}
         >
           <option value="all">{t('nursery.allCities')}</option>
@@ -212,7 +212,7 @@ const NurseryComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({
         <select
           value={typeFilter}
           onChange={e => setTypeFilter(e.target.value as any)}
-          className="px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-sm text-slate-800 dark:text-slate-200"
+          className="px-3 py-2 rounded-lg border border-edge bg-surface-alt text-sm text-strong"
           aria-label={t('nursery.filterType')}
         >
           <option value="all">{t('nursery.allTypes')}</option>
@@ -225,7 +225,7 @@ const NurseryComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({
       {/* Results */}
       <div className="space-y-3">
         {filteredNurseries.length === 0 ? (
-          <div className="text-center py-12 text-slate-500 dark:text-slate-400">
+          <div className="text-center py-12 text-muted">
             <Baby size={48} className="mx-auto mb-3 opacity-30" />
             <p className="font-semibold">{t('nursery.noResults')}</p>
           </div>
@@ -235,23 +235,23 @@ const NurseryComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({
             return (
               <div
                 key={nursery.name}
-                className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-4 hover:shadow-md transition-shadow"
+                className="bg-surface rounded-xl border border-edge p-4 hover:shadow-md transition-shadow"
               >
                 <div className="flex items-start justify-between gap-3">
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-1">
-                      <h4 className="font-bold text-sm text-slate-800 dark:text-slate-200">{nursery.name}</h4>
+                      <h4 className="font-bold text-sm text-strong">{nursery.name}</h4>
                       <span className={`text-xs font-bold px-1.5 py-0.5 rounded-full ${
                         nursery.type === 'public'
                           ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300'
                           : nursery.type === 'aziendali'
                           ? 'bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300'
-                          : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400'
+                          : 'bg-surface-raised text-subtle'
                       }`}>
                         {t(`nursery.type${nursery.type.charAt(0).toUpperCase() + nursery.type.slice(1)}`)}
                       </span>
                     </div>
-                    <div className="flex flex-wrap gap-3 text-xs text-slate-500 dark:text-slate-400">
+                    <div className="flex flex-wrap gap-3 text-xs text-muted">
                       <span className="flex items-center gap-1"><MapPin size={12} />{nursery.city}</span>
                       <span className="flex items-center gap-1"><Clock size={12} />{nursery.hours}</span>
                       <span className="flex items-center gap-1"><Baby size={12} />{nursery.ageMin}-{nursery.ageMax} {t('nursery.months')}</span>
@@ -261,7 +261,7 @@ const NurseryComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({
                     <p className="text-lg font-bold text-emerald-700 dark:text-emerald-300">
                       CHF {estimatedCost.toLocaleString()}
                     </p>
-                    <p className="text-sm text-slate-500 dark:text-slate-400">{t('nursery.perMonth')}</p>
+                    <p className="text-sm text-muted">{t('nursery.perMonth')}</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-2 mt-2">

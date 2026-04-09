@@ -768,7 +768,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
       <div
         key={d.id}
         className={`rounded-xl border p-3 transition-[color,background-color,border-color,opacity] ${
-          isPast ? 'bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-700 opacity-60'
+          isPast ? 'bg-surface-alt border-edge opacity-60'
             : days <= 7 ? 'bg-red-50 dark:bg-red-950/30 border-red-200 dark:border-red-800'
             : days <= 30 ? 'bg-amber-50 dark:bg-amber-950/30 border-amber-200 dark:border-amber-800'
             : 'bg-emerald-50 dark:bg-emerald-950/30 border-emerald-200 dark:border-emerald-800'
@@ -788,17 +788,17 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
               {days === 0 ? `⚠️ ${t('calendar.today')}` : `📅 ${days}g`}
             </span>
           )}
-          {isPast && <CheckCircle2 size={12} className="text-slate-500 dark:text-slate-400 ml-auto" />}
+          {isPast && <CheckCircle2 size={12} className="text-muted ml-auto" />}
         </div>
-        <div className="text-xs text-slate-500 dark:text-slate-400 mb-0.5">{formatDate(d.date)}</div>
+        <div className="text-xs text-muted mb-0.5">{formatDate(d.date)}</div>
         <h4 className="font-bold text-slate-800 dark:text-slate-100 text-sm leading-tight">{d.title}</h4>
-        {!compact && <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">{d.description}</p>}
+        {!compact && <p className="text-sm text-subtle mt-1">{d.description}</p>}
 
         {!compact && d.documents && d.documents.length > 0 && (
           <div className="mt-2">
             <div className="flex flex-wrap gap-1">
               {d.documents.map((doc, i) => (
-                <span key={i} className="px-2 py-0.5 bg-white dark:bg-slate-900 rounded text-xs font-medium border border-slate-200 dark:border-slate-700">
+                <span key={i} className="px-2 py-0.5 bg-surface rounded text-xs font-medium border border-edge">
                   📎 {doc}
                 </span>
               ))}
@@ -874,13 +874,13 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
       </div>
 
       {/* Personalized checklist + reminders + PDF export */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 shadow-sm space-y-3">
+      <div className="bg-surface rounded-2xl border border-edge p-4 shadow-sm space-y-3">
         <div className="flex items-center justify-between gap-2 flex-wrap">
           <h2 className="text-sm font-bold text-slate-800 dark:text-slate-100">Checklist fiscale personalizzata</h2>
           <div className="flex items-center gap-2">
             <button
               onClick={handleReminderToggle}
-              className={`px-3 py-1.5 rounded-lg text-xs font-bold ${reminderEnabled ? 'bg-emerald-600 text-white' : 'bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300'}`}
+              className={`px-3 py-1.5 rounded-lg text-xs font-bold ${reminderEnabled ? 'bg-emerald-600 text-white' : 'bg-slate-200 dark:bg-slate-700 text-body'}`}
             >
               {reminderEnabled ? 'Reminder ON' : 'Attiva reminder'}
             </button>
@@ -940,7 +940,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
                 value={reminderSignupEmail}
                 onChange={(val) => { setReminderSignupEmail(val); setReminderSignupError(''); }}
                 placeholder="La tua email..."
-                className="flex-1 px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-xs"
+                className="flex-1 px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-surface text-slate-800 dark:text-slate-100 text-xs"
               />
               <button
                 type="submit"
@@ -950,7 +950,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
                 {reminderSignupLoading ? '...' : 'Iscriviti'}
               </button>
             </form>
-            <div className="text-xs text-slate-600 dark:text-slate-400">
+            <div className="text-xs text-subtle">
               {t('newsletter.doubleOptIn.description')} {t('newsletter.doubleOptIn.spamHint')}
             </div>
             {reminderSignupError && (
@@ -966,7 +966,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
             <button
               key={profile}
               onClick={() => setChecklistProfile(profile)}
-              className={`px-2.5 py-1.5 rounded-lg text-xs font-bold ${checklistProfile === profile ? 'bg-amber-700 text-white' : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300'}`}
+              className={`px-2.5 py-1.5 rounded-lg text-xs font-bold ${checklistProfile === profile ? 'bg-amber-700 text-white' : 'bg-surface-raised text-slate-600 dark:text-slate-300'}`}
             >
               {profile === 'tutti' ? t('calendar.filterAll') : profile === 'vecchio' ? t('calendar.filterOld') : t('calendar.filterNew')}
             </button>
@@ -974,7 +974,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
         </div>
 
         <div className="grid sm:grid-cols-3 gap-2 text-xs">
-          <div className="p-2 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700">
+          <div className="p-2 rounded-lg bg-surface-alt border border-edge">
             Totale attivita: <strong>{checklistDeadlines.length}</strong>
           </div>
           <div className="p-2 rounded-lg bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800">
@@ -995,9 +995,9 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
           {checklistUpcoming.map(d => {
             const checked = completedIds.includes(d.id);
             return (
-              <label key={d.id} className="flex items-center gap-2 text-xs p-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900">
+              <label key={d.id} className="flex items-center gap-2 text-xs p-2 rounded-lg border border-edge bg-surface-alt">
                 <input type="checkbox" checked={checked} onChange={() => toggleChecklist(d.id)} aria-label={`Segna completato: ${d.title}`} />
-                <span className={`font-medium ${checked ? 'line-through text-slate-500' : 'text-slate-700 dark:text-slate-300'}`}>
+                <span className={`font-medium ${checked ? 'line-through text-slate-500' : 'text-body'}`}>
                   {formatDate(d.date)} · {d.title}
                 </span>
               </label>
@@ -1011,7 +1011,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
         <div className="flex flex-wrap gap-2 flex-grow">
           <button
             onClick={() => { setFilterCategory('all'); Analytics.trackCalendarEvent('filter', 'all'); }}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${filterCategory === 'all' ? 'bg-amber-700 text-white' : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700'}`}
+            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${filterCategory === 'all' ? 'bg-amber-700 text-white' : 'bg-surface text-subtle border border-edge'}`}
           >
             {t('calendar.all')}
           </button>
@@ -1019,7 +1019,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
             <button
               key={key}
               onClick={() => { setFilterCategory(key); Analytics.trackCalendarEvent('filter', key); }}
-              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors flex items-center gap-1.5 ${filterCategory === key ? `bg-${cfg.color}-600 text-white` : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700'}`}
+              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors flex items-center gap-1.5 ${filterCategory === key ? `bg-${cfg.color}-600 text-white` : 'bg-surface text-subtle border border-edge'}`}
             >
               <cfg.icon size={12} />
               {cfg.label}
@@ -1033,7 +1033,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
               {(['tutti', 'vecchio', 'nuovo'] as const).map(ft => (
                 <button key={ft}
                   onClick={() => { setFilterType(ft); Analytics.trackCalendarEvent('filter', ft); }}
-                  className={`px-2.5 py-1.5 rounded-lg text-xs font-bold transition-colors ${filterType === ft ? 'bg-slate-800 dark:bg-slate-100 text-white dark:text-slate-900' : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700'}`}
+                  className={`px-2.5 py-1.5 rounded-lg text-xs font-bold transition-colors ${filterType === ft ? 'bg-slate-800 dark:bg-slate-100 text-white dark:text-slate-900' : 'bg-surface text-subtle border border-edge'}`}
                 >
                   {ft === 'tutti' ? `👥 ${t('calendar.filterAll')}` : ft === 'vecchio' ? `📋 ${t('calendar.filterOld')}` : `📄 ${t('calendar.filterNew')}`}
                 </button>
@@ -1042,17 +1042,17 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
           )}
 
           {/* View mode toggle */}
-          <div className="flex bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg p-0.5">
+          <div className="flex bg-surface border border-edge rounded-lg p-0.5">
             <button
               onClick={() => setViewMode('calendar')}
-              className={`p-1.5 rounded-md transition-colors ${viewMode === 'calendar' ? 'bg-amber-100 dark:bg-amber-900/30 text-amber-700' : 'text-slate-500 dark:text-slate-400 hover:text-slate-600'}`}
+              className={`p-1.5 rounded-md transition-colors ${viewMode === 'calendar' ? 'bg-amber-100 dark:bg-amber-900/30 text-amber-700' : 'text-muted hover:text-slate-600'}`}
               title="Calendario"
             >
               <LayoutGrid size={16} />
             </button>
             <button
               onClick={() => setViewMode('list')}
-              className={`p-1.5 rounded-md transition-colors ${viewMode === 'list' ? 'bg-amber-100 dark:bg-amber-900/30 text-amber-700' : 'text-slate-500 dark:text-slate-400 hover:text-slate-600'}`}
+              className={`p-1.5 rounded-md transition-colors ${viewMode === 'list' ? 'bg-amber-100 dark:bg-amber-900/30 text-amber-700' : 'text-muted hover:text-slate-600'}`}
               title="Lista"
             >
               <List size={16} />
@@ -1065,12 +1065,12 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
       {viewMode === 'calendar' && (
         <>
           {/* Month navigation */}
-          <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 shadow-sm">
+          <div className="bg-surface rounded-2xl border border-edge p-4 shadow-sm">
             <div className="flex items-center gap-3">
               <button
                 onClick={() => { setCurrentMonth(m => Math.max(0, m - 1)); setSelectedDate(null); }}
                 disabled={currentMonth === 0}
-                className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-700 hover:bg-amber-100 dark:hover:bg-amber-900/30 disabled:opacity-30 transition-[color,background-color,opacity]"
+                className="p-2.5 rounded-xl bg-surface-raised hover:bg-amber-100 dark:hover:bg-amber-900/30 disabled:opacity-30 transition-[color,background-color,opacity]"
                 aria-label="Mese precedente"
               >
                 <ChevronLeft size={22} />
@@ -1084,7 +1084,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
                     className={`relative px-2 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-[color,background-color,box-shadow,transform] ${
                       currentMonth === i
                         ? 'bg-gradient-to-br from-amber-600 to-amber-700 text-white shadow-lg shadow-amber-500/25 scale-105'
-                        : 'text-slate-600 dark:text-slate-400 hover:bg-amber-50 dark:hover:bg-amber-900/20 hover:text-amber-700 dark:hover:text-amber-300'
+                        : 'text-subtle hover:bg-amber-50 dark:hover:bg-amber-900/20 hover:text-amber-700 dark:hover:text-amber-300'
                     }`}
                   >
                     {name.substring(0, 3)}
@@ -1102,7 +1102,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
               <button
                 onClick={() => { setCurrentMonth(m => Math.min(11, m + 1)); setSelectedDate(null); }}
                 disabled={currentMonth === 11}
-                className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-700 hover:bg-amber-100 dark:hover:bg-amber-900/30 disabled:opacity-30 transition-[color,background-color,opacity]"
+                className="p-2.5 rounded-xl bg-surface-raised hover:bg-amber-100 dark:hover:bg-amber-900/30 disabled:opacity-30 transition-[color,background-color,opacity]"
                 aria-label="Mese successivo"
               >
                 <ChevronRight size={22} />
@@ -1114,11 +1114,11 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
           <div className="grid grid-cols-1 lg:grid-cols-10 gap-4">
             {/* LEFT: Events list for current month (60%) */}
             <div className="lg:col-span-6">
-              <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-3">
-                <h3 className="text-sm font-bold text-slate-700 dark:text-slate-300 mb-3 flex items-center gap-2">
+              <div className="bg-surface rounded-xl border border-edge p-3">
+                <h3 className="text-sm font-bold text-body mb-3 flex items-center gap-2">
                   <Calendar size={14} />
                   {MONTH_NAMES_IT[currentMonth]} 2026
-                  <span className="ml-auto text-xs font-normal text-slate-500 dark:text-slate-400">{currentMonthDeadlines.length} {currentMonthDeadlines.length === 1 ? 'evento' : 'eventi'}</span>
+                  <span className="ml-auto text-xs font-normal text-muted">{currentMonthDeadlines.length} {currentMonthDeadlines.length === 1 ? 'evento' : 'eventi'}</span>
                 </h3>
                 <div className="space-y-2">
                   {currentMonthDeadlines.length > 0 ? (
@@ -1136,7 +1136,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
                       </div>
                     ))
                   ) : (
-                    <div className="text-center py-8 text-slate-500 dark:text-slate-400">
+                    <div className="text-center py-8 text-muted">
                       <Calendar size={32} className="mx-auto mb-2 opacity-30" />
                       <p className="text-xs font-medium">Nessun evento questo mese</p>
                     </div>
@@ -1147,11 +1147,11 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
 
             {/* RIGHT: Calendar grid (40%) */}
             <div className="lg:col-span-4">
-              <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+              <div className="bg-surface rounded-xl border border-edge overflow-hidden">
                 {/* Day names header */}
-                <div className="grid grid-cols-7 bg-slate-50 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-700">
+                <div className="grid grid-cols-7 bg-surface-alt border-b border-edge">
                   {DAY_NAMES_IT.map(day => (
-                    <div key={day} className="py-2 text-center text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">
+                    <div key={day} className="py-2 text-center text-xs font-bold text-muted uppercase">
                       {day}
                     </div>
                   ))}
@@ -1188,7 +1188,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
                       >
                         {/* Day number */}
                         <div className={`text-sm font-bold self-end w-7 h-7 flex items-center justify-center rounded-full ${
-                          isToday ? 'bg-amber-700 text-white shadow-sm' : isSelected ? 'bg-amber-200 dark:bg-amber-800 text-amber-800 dark:text-amber-200' : 'text-slate-700 dark:text-slate-300'
+                          isToday ? 'bg-amber-700 text-white shadow-sm' : isSelected ? 'bg-amber-200 dark:bg-amber-800 text-amber-800 dark:text-amber-200' : 'text-body'
                         }`}>
                           {day}
                         </div>
@@ -1227,7 +1227,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
                       📅 {formatDate(selectedDate)}
                     </div>
                     <div className="flex-grow h-px bg-slate-200 dark:bg-slate-700"></div>
-                    <button onClick={() => setSelectedDate(null)} className="text-xs text-slate-500 dark:text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 transition-colors">
+                    <button onClick={() => setSelectedDate(null)} className="text-xs text-muted hover:text-slate-600 dark:hover:text-slate-300 transition-colors">
                       ✕ {t('calendar.close') || 'Chiudi'}
                     </button>
                   </div>
@@ -1245,13 +1245,13 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
           {(Object.entries(groupedByMonth) as [string, TaxDeadline[]][])
             .sort(([a], [b]) => Number(a) - Number(b))
             .map(([monthIdx, events]) => (
-              <div key={monthIdx} className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden">
-                <div className="bg-slate-50 dark:bg-slate-900 px-4 py-2 border-b border-slate-200 dark:border-slate-700 flex items-center justify-between">
-                  <h3 className="text-sm font-bold text-slate-700 dark:text-slate-300 flex items-center gap-2">
+              <div key={monthIdx} className="bg-surface rounded-xl border border-edge overflow-hidden">
+                <div className="bg-surface-alt px-4 py-2 border-b border-edge flex items-center justify-between">
+                  <h3 className="text-sm font-bold text-body flex items-center gap-2">
                     <Calendar size={14} />
                     {MONTH_NAMES_IT[Number(monthIdx)]} 2026
                   </h3>
-                  <span className="text-xs font-bold text-slate-500 dark:text-slate-400 bg-slate-200 dark:bg-slate-700 px-2 py-0.5 rounded-full">
+                  <span className="text-xs font-bold text-muted bg-slate-200 dark:bg-slate-700 px-2 py-0.5 rounded-full">
                     {events.length}
                   </span>
                 </div>
@@ -1262,7 +1262,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
             ))}
 
           {filteredDeadlines.length === 0 && (
-            <div className="text-center py-12 text-slate-500 dark:text-slate-400">
+            <div className="text-center py-12 text-muted">
               <Calendar size={48} className="mx-auto mb-3 opacity-30" />
               <p className="font-bold">{t('calendar.noDeadlinesFound')}</p>
               <p className="text-sm">{t('calendar.noDeadlinesHint')}</p>

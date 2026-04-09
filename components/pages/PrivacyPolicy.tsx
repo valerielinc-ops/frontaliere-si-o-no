@@ -16,17 +16,17 @@ export const PrivacyPolicy: React.FC = () => {
       </button>
 
       {/* Header */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 sm:p-8 shadow-lg mb-6">
+      <div className="bg-surface rounded-2xl border border-edge p-5 sm:p-8 shadow-lg mb-6">
         <div className="flex items-center gap-4 mb-4">
           <div className="p-3 bg-teal-600 dark:bg-teal-700 rounded-2xl shadow-lg">
             <Shield className="text-white" size={32} />
           </div>
           <div>
             <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-800 dark:text-slate-100">Privacy Policy</h1>
-            <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">Ultimo aggiornamento: Febbraio 2026</p>
+            <p className="text-sm text-muted mt-1">Ultimo aggiornamento: Febbraio 2026</p>
           </div>
         </div>
-        <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+        <p className="text-subtle leading-relaxed">
           La tua privacy è importante per noi. Questa pagina descrive come gestiamo i dati quando utilizzi 
           il simulatore fiscale <strong>Frontaliere Ticino</strong>
         </p>
@@ -36,14 +36,14 @@ export const PrivacyPolicy: React.FC = () => {
       <div className="space-y-6">
         
         {/* Section 1: No Data Collection */}
-        <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 sm:p-6 shadow-sm">
+        <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm">
           <div className="flex items-center gap-3 mb-4">
             <div className="p-2 bg-green-100 dark:bg-green-900/30 rounded-xl">
               <Database className="text-green-600 dark:text-green-400" size={24} />
             </div>
             <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100">Raccolta e Utilizzo dei Dati</h2>
           </div>
-          <div className="space-y-3 text-slate-600 dark:text-slate-400">
+          <div className="space-y-3 text-subtle">
             <div className="flex items-start gap-3 bg-green-50 dark:bg-green-900/20 p-4 rounded-xl border border-green-200 dark:border-green-800">
               <CheckCircle2 className="text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5" size={20} />
               <div>
@@ -63,20 +63,20 @@ export const PrivacyPolicy: React.FC = () => {
         </div>
 
         {/* Section 2: Newsletter & Communications */}
-        <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 sm:p-6 shadow-sm">
+        <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm">
           <div className="flex items-center gap-3 mb-4">
             <div className="p-2 bg-indigo-100 dark:bg-indigo-900/30 rounded-xl">
               <Database className="text-indigo-600 dark:text-indigo-400" size={24} />
             </div>
             <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100">Newsletter e Comunicazioni</h2>
           </div>
-          <div className="space-y-3 text-slate-600 dark:text-slate-400">
+          <div className="space-y-3 text-subtle">
             <p>
               Qualora l'utente si iscriva volontariamente al servizio di newsletter, il Titolare del trattamento raccoglierà 
               e conserverà l'indirizzo e-mail fornito ai sensi dell'art. 6, par. 1, lett. a) del Regolamento (UE) 2016/679 (GDPR), 
               sulla base del consenso esplicito prestato dall'utente al momento dell'iscrizione.
             </p>
-            <div className="bg-slate-50 dark:bg-slate-900/50 p-4 rounded-xl border border-slate-200 dark:border-slate-700">
+            <div className="bg-surface-alt/50 p-4 rounded-xl border border-edge">
               <h3 className="font-bold text-slate-800 dark:text-slate-100 mb-2">Finalità del trattamento</h3>
               <p className="text-sm">
                 L'indirizzo e-mail sarà utilizzato per le seguenti finalità: (i) invio periodico di comunicazioni informative 
@@ -88,7 +88,7 @@ export const PrivacyPolicy: React.FC = () => {
                 con le comunicazioni ricevute, nel rispetto dei principi di minimizzazione e proporzionalità ex art. 5 GDPR.
               </p>
             </div>
-            <div className="bg-slate-50 dark:bg-slate-900/50 p-4 rounded-xl border border-slate-200 dark:border-slate-700">
+            <div className="bg-surface-alt/50 p-4 rounded-xl border border-edge">
               <h3 className="font-bold text-slate-800 dark:text-slate-100 mb-2">Base giuridica e conservazione</h3>
               <p className="text-sm">
                 Il trattamento è fondato sul consenso dell'interessato (art. 6, par. 1, lett. a), GDPR) e, limitatamente 
@@ -99,7 +99,7 @@ export const PrivacyPolicy: React.FC = () => {
                 basato sul consenso prestato prima della revoca.
               </p>
             </div>
-            <div className="bg-slate-50 dark:bg-slate-900/50 p-4 rounded-xl border border-slate-200 dark:border-slate-700">
+            <div className="bg-surface-alt/50 p-4 rounded-xl border border-edge">
               <h3 className="font-bold text-slate-800 dark:text-slate-100 mb-2">Autenticazione Google</h3>
               <p className="text-sm">
                 Qualora l'utente utilizzi l'autenticazione tramite Google Sign-In, la piattaforma potrà accedere 
@@ -113,14 +113,14 @@ export const PrivacyPolicy: React.FC = () => {
         </div>
 
         {/* Section 3: Client-Side Processing */}
-        <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 sm:p-6 shadow-sm">
+        <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm">
           <div className="flex items-center gap-3 mb-4">
             <div className="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-xl">
-              <Lock className="text-blue-600 dark:text-blue-400" size={24} />
+              <Lock className="text-link" size={24} />
             </div>
             <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100">Elaborazione Lato Client</h2>
           </div>
-          <div className="space-y-3 text-slate-600 dark:text-slate-400">
+          <div className="space-y-3 text-subtle">
             <p>
               Il simulatore è un'applicazione <strong>completamente lato client</strong>:
             </p>
@@ -134,14 +134,14 @@ export const PrivacyPolicy: React.FC = () => {
         </div>
 
         {/* Section 3: Analytics */}
-        <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 sm:p-6 shadow-sm">
+        <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm">
           <div className="flex items-center gap-3 mb-4">
             <div className="p-2 bg-purple-100 dark:bg-purple-900/30 rounded-xl">
               <Eye className="text-purple-600 dark:text-purple-400" size={24} />
             </div>
             <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100">Analytics e Statistiche</h2>
           </div>
-          <div className="space-y-3 text-slate-600 dark:text-slate-400">
+          <div className="space-y-3 text-subtle">
             <p>
               Utilizziamo <strong>Google Analytics 4</strong> per raccogliere statistiche anonime sull'utilizzo del sito:
             </p>
@@ -158,30 +158,30 @@ export const PrivacyPolicy: React.FC = () => {
         </div>
 
         {/* Section 4: Cookies */}
-        <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 sm:p-6 shadow-sm">
+        <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm">
           <div className="flex items-center gap-3 mb-4">
             <div className="p-2 bg-amber-100 dark:bg-amber-900/30 rounded-xl">
               <Database className="text-amber-600 dark:text-amber-400" size={24} />
             </div>
             <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100">Cookie e Storage Locale</h2>
           </div>
-          <div className="space-y-3 text-slate-600 dark:text-slate-400">
+          <div className="space-y-3 text-subtle">
             <p>Il sito utilizza tecnologie di storage locale per migliorare la tua esperienza:</p>
-            <div className="bg-slate-50 dark:bg-slate-900/50 p-4 rounded-xl border border-slate-200 dark:border-slate-700">
+            <div className="bg-surface-alt/50 p-4 rounded-xl border border-edge">
               <h3 className="font-bold text-slate-800 dark:text-slate-100 mb-2">LocalStorage</h3>
               <p className="text-sm">
                 Utilizziamo il LocalStorage del browser per salvare le tue preferenze (tema scuro/chiaro) 
                 e mantenere i parametri dell'ultima simulazione. Questi dati rimangono <strong>solo sul tuo dispositivo</strong>.
               </p>
             </div>
-            <div className="bg-slate-50 dark:bg-slate-900/50 p-4 rounded-xl border border-slate-200 dark:border-slate-700">
+            <div className="bg-surface-alt/50 p-4 rounded-xl border border-edge">
               <h3 className="font-bold text-slate-800 dark:text-slate-100 mb-2">Cookie Tecnici</h3>
               <p className="text-sm">
                 Cookie essenziali per il funzionamento del sito (es. preferenze tema). Non richiedono consenso 
                 ai sensi del GDPR.
               </p>
             </div>
-            <div className="bg-slate-50 dark:bg-slate-900/50 p-4 rounded-xl border border-slate-200 dark:border-slate-700">
+            <div className="bg-surface-alt/50 p-4 rounded-xl border border-edge">
               <h3 className="font-bold text-slate-800 dark:text-slate-100 mb-2">Cookie Analytics</h3>
               <p className="text-sm">
                 Cookie di Google Analytics per statistiche anonime (vedi sezione precedente).
@@ -191,14 +191,14 @@ export const PrivacyPolicy: React.FC = () => {
         </div>
 
         {/* Section 5: Third-Party Services */}
-        <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 sm:p-6 shadow-sm">
+        <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm">
           <div className="flex items-center gap-3 mb-4">
             <div className="p-2 bg-indigo-100 dark:bg-indigo-900/30 rounded-xl">
               <Shield className="text-indigo-600 dark:text-indigo-400" size={24} />
             </div>
             <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100">Servizi di Terze Parti</h2>
           </div>
-          <div className="space-y-3 text-slate-600 dark:text-slate-400">
+          <div className="space-y-3 text-subtle">
             <p>Il sito potrebbe includere collegamenti a servizi esterni:</p>
             <ul className="list-disc list-inside space-y-2 ml-4">
               <li><strong>Facebook</strong>: Link alla nostra pagina Facebook. Se clicchi sul link, sarai soggetto alla privacy policy di Facebook.</li>
@@ -212,14 +212,14 @@ export const PrivacyPolicy: React.FC = () => {
         </div>
 
         {/* Section 6: Data Security */}
-        <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 sm:p-6 shadow-sm">
+        <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm">
           <div className="flex items-center gap-3 mb-4">
             <div className="p-2 bg-red-100 dark:bg-red-900/30 rounded-xl">
               <Lock className="text-red-600 dark:text-red-400" size={24} />
             </div>
             <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100">Sicurezza</h2>
           </div>
-          <div className="space-y-3 text-slate-600 dark:text-slate-400">
+          <div className="space-y-3 text-subtle">
             <p>
               Poiché <strong>non raccogliamo dati personali</strong>, non esistono dati da proteggere sui nostri server. 
               La sicurezza dei tuoi dati dipende dalla sicurezza del tuo dispositivo e browser.
@@ -232,14 +232,14 @@ export const PrivacyPolicy: React.FC = () => {
         </div>
 
         {/* Section 7: Your Rights */}
-        <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 sm:p-6 shadow-sm">
+        <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm">
           <div className="flex items-center gap-3 mb-4">
             <div className="p-2 bg-cyan-100 dark:bg-cyan-900/30 rounded-xl">
               <CheckCircle2 className="text-cyan-600 dark:text-cyan-400" size={24} />
             </div>
             <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100">I Tuoi Diritti (GDPR)</h2>
           </div>
-          <div className="space-y-3 text-slate-600 dark:text-slate-400">
+          <div className="space-y-3 text-subtle">
             <p>
               Ai sensi del <strong>Regolamento Generale sulla Protezione dei Dati (GDPR)</strong>, hai diritto a:
             </p>
@@ -263,14 +263,14 @@ export const PrivacyPolicy: React.FC = () => {
         </div>
 
         {/* Section 8: Children Privacy */}
-        <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 sm:p-6 shadow-sm">
+        <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm">
           <div className="flex items-center gap-3 mb-4">
             <div className="p-2 bg-pink-100 dark:bg-pink-900/30 rounded-xl">
               <Shield className="text-pink-600 dark:text-pink-400" size={24} />
             </div>
             <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100">Privacy dei Minori</h2>
           </div>
-          <div className="space-y-3 text-slate-600 dark:text-slate-400">
+          <div className="space-y-3 text-subtle">
             <p>
               Il nostro servizio è destinato a persone maggiorenni che vogliono simulare la propria situazione fiscale 
               come lavoratori frontalieri. Non raccogliamo consapevolmente dati da minori di 18 anni.
@@ -279,14 +279,14 @@ export const PrivacyPolicy: React.FC = () => {
         </div>
 
         {/* Section 9: Changes */}
-        <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 sm:p-6 shadow-sm">
+        <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm">
           <div className="flex items-center gap-3 mb-4">
-            <div className="p-2 bg-slate-100 dark:bg-slate-700 rounded-xl">
-              <Eye className="text-slate-600 dark:text-slate-400" size={24} />
+            <div className="p-2 bg-surface-raised rounded-xl">
+              <Eye className="text-subtle" size={24} />
             </div>
             <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100">Modifiche alla Privacy Policy</h2>
           </div>
-          <div className="space-y-3 text-slate-600 dark:text-slate-400">
+          <div className="space-y-3 text-subtle">
             <p>
               Potremmo aggiornare questa Privacy Policy occasionalmente. Ti consigliamo di rivedere periodicamente 
               questa pagina per eventuali modifiche. Le modifiche saranno effettive immediatamente dopo la pubblicazione 
@@ -306,7 +306,7 @@ export const PrivacyPolicy: React.FC = () => {
             </div>
             <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100">Contattaci</h2>
           </div>
-          <div className="space-y-3 text-slate-600 dark:text-slate-400">
+          <div className="space-y-3 text-subtle">
             <p>
               Se hai domande su questa Privacy Policy o sulle nostre pratiche di privacy, puoi contattarci tramite:
             </p>

@@ -53,7 +53,7 @@ const NewsFeed: React.FC<NewsFeedProps> = ({ onNavigate }) => {
   const next = useCallback(() => setIdx(i => (i + 1) % count), [count]);
 
   // Keep placeholder while loading to prevent CLS — matches SkeletonNewsTicker height
-  if (!blogReady || count === 0) return <div className="animate-pulse h-[34px] bg-slate-100 dark:bg-slate-700 rounded-xl" />;
+  if (!blogReady || count === 0) return <div className="animate-pulse h-[34px] bg-surface-raised rounded-xl" />;
 
   const formatDate = (dateStr: string) => {
     const d = new Date(dateStr);
@@ -63,11 +63,11 @@ const NewsFeed: React.FC<NewsFeedProps> = ({ onNavigate }) => {
   };
 
   return (
-    <div className="flex items-center gap-2 h-[34px] bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 px-3 text-xs overflow-hidden">
+    <div className="flex items-center gap-2 h-[34px] bg-surface rounded-xl border border-edge px-3 text-xs overflow-hidden">
       {/* Icon + label */}
       <div className="flex items-center gap-1.5 flex-shrink-0">
         <Newspaper size={13} className="text-red-500 dark:text-red-400" />
-        <span className="font-bold text-slate-500 dark:text-slate-400 hidden sm:inline">{t('newsfeed.title')}</span>
+        <span className="font-bold text-muted hidden sm:inline">{t('newsfeed.title')}</span>
       </div>
 
       {/* Divider */}
@@ -95,7 +95,7 @@ const NewsFeed: React.FC<NewsFeedProps> = ({ onNavigate }) => {
               tabIndex={i === idx ? 0 : -1}
               {...(i !== idx ? { inert: true } : {})}
             >
-              <span className="text-slate-500 dark:text-slate-400 mr-1.5 flex-shrink-0">{formatDate(art.date)}</span>
+              <span className="text-muted mr-1.5 flex-shrink-0">{formatDate(art.date)}</span>
               <span className="line-clamp-1">{artTitle}</span>
             </a>
           );
@@ -114,7 +114,7 @@ const NewsFeed: React.FC<NewsFeedProps> = ({ onNavigate }) => {
         >
           <ChevronLeft size={14} />
         </button>
-        <span className="text-sm text-slate-500 dark:text-slate-400 tabular-nums w-7 text-center">{idx + 1}/{count}</span>
+        <span className="text-sm text-muted tabular-nums w-7 text-center">{idx + 1}/{count}</span>
         <button
           onClick={() => {
             next();
@@ -133,7 +133,7 @@ const NewsFeed: React.FC<NewsFeedProps> = ({ onNavigate }) => {
           Analytics.trackUIInteraction('newsfeed', 'ticker', 'view_all', 'open_blog');
           onNavigate('blog');
         }}
-        className="flex-shrink-0 text-xs font-semibold text-blue-600 dark:text-blue-400 hover:underline hidden sm:inline-flex items-center min-h-[24px] px-2"
+        className="flex-shrink-0 text-xs font-semibold text-link hover:underline hidden sm:inline-flex items-center min-h-[24px] px-2"
       >
         {t('newsfeed.viewAll')}
       </button>

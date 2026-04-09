@@ -19,7 +19,7 @@
 
 import React from 'react';
 import { ArrowRight, Calculator, FileText, Scale, Heart, Briefcase, TrendingUp, Shield, Globe, Landmark, Gift } from 'lucide-react';
-import { useTranslation } from '@/services/i18n';
+import { useTranslation, getCantonI18nParams } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
 
 // ─── Types ───────────────────────────────────────────────────────────────
@@ -203,7 +203,7 @@ const RelatedTools: React.FC<RelatedToolsProps> = ({ context, onNavigate }) => {
 
   return (
     <section className="mt-8 mb-4" aria-label={t('relatedTools.heading')}>
-      <h3 className="text-sm font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-3 flex items-center gap-2">
+      <h3 className="text-sm font-bold text-muted uppercase tracking-wider mb-3 flex items-center gap-2">
         <ArrowRight className="w-4 h-4" />
         {t('relatedTools.heading')}
       </h3>
@@ -213,17 +213,17 @@ const RelatedTools: React.FC<RelatedToolsProps> = ({ context, onNavigate }) => {
             key={tool.href}
             href={tool.href}
             onClick={(e) => handleClick(e, tool)}
-            className="group flex items-center gap-3 p-3 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl hover:border-indigo-300 dark:hover:border-indigo-600 hover:shadow-md transition-[color,background-color,border-color,box-shadow]"
+            className="group flex items-center gap-3 p-3 bg-surface border border-edge rounded-xl hover:border-indigo-300 dark:hover:border-indigo-600 hover:shadow-md transition-[color,background-color,border-color,box-shadow]"
           >
             <div className="p-2 bg-indigo-50 dark:bg-indigo-900/30 rounded-lg shrink-0 group-hover:bg-indigo-100 dark:group-hover:bg-indigo-900/50 transition-colors">
               <tool.Icon className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
             </div>
             <div className="min-w-0 flex-1">
               <p className="text-sm font-semibold text-slate-800 dark:text-slate-100 group-hover:text-indigo-700 dark:group-hover:text-indigo-300 transition-colors">
-                {t(tool.titleKey)}
+                {t(tool.titleKey, getCantonI18nParams())}
               </p>
-              <p className="text-sm text-slate-500 dark:text-slate-400 mt-0.5 line-clamp-2">
-                {t(tool.descKey)}
+              <p className="text-sm text-muted mt-0.5 line-clamp-2">
+                {t(tool.descKey, getCantonI18nParams())}
               </p>
             </div>
             <ArrowRight className="w-4 h-4 text-slate-300 dark:text-slate-600 group-hover:text-indigo-500 dark:group-hover:text-indigo-400 shrink-0 group-hover:translate-x-0.5 transition-[color,background-color,border-color,transform]" />

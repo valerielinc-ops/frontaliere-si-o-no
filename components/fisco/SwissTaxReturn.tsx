@@ -100,7 +100,7 @@ const SwissTaxReturn: React.FC = () => {
             className={`flex items-center gap-2 px-3 py-2 rounded-xl text-sm font-semibold transition-colors ${
               activeStep === key
                 ? 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 ring-1 ring-red-300 dark:ring-red-700'
-                : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700'
+                : 'bg-surface text-subtle hover:bg-slate-50 dark:hover:bg-slate-700 border border-edge'
             }`}
           >
             <Icon size={16} />
@@ -112,9 +112,9 @@ const SwissTaxReturn: React.FC = () => {
       {/* Overview */}
       {activeStep === 'overview' && (
         <div className="space-y-6 animate-fade-in">
-          <div className="bg-white dark:bg-slate-800 rounded-2xl p-4 sm:p-6 border border-slate-200 dark:border-slate-700">
-            <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200 mb-4">{t('swissTaxReturn.overview.title')}</h3>
-            <div className="space-y-4 text-sm text-slate-600 dark:text-slate-400">
+          <div className="bg-surface rounded-2xl p-4 sm:p-6 border border-edge">
+            <h3 className="text-lg font-bold text-strong mb-4">{t('swissTaxReturn.overview.title')}</h3>
+            <div className="space-y-4 text-sm text-subtle">
               <p>{t('swissTaxReturn.overview.intro')}</p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div className="bg-red-50 dark:bg-red-900/20 rounded-xl p-4 border border-red-200 dark:border-red-800">
@@ -170,11 +170,11 @@ const SwissTaxReturn: React.FC = () => {
                   <h4 className="font-bold text-amber-700 dark:text-amber-300">{t('swissTaxReturn.overview.oldVsNew')}</h4>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <div className="bg-white dark:bg-slate-800 rounded-lg p-3 border border-amber-300 dark:border-amber-700">
+                  <div className="bg-surface rounded-lg p-3 border border-amber-300 dark:border-amber-700">
                     <h5 className="font-bold text-sm text-amber-700 dark:text-amber-300 mb-1">{t('swissTaxReturn.overview.oldFrontalier')}</h5>
                     <p className="text-sm text-amber-700 dark:text-amber-400">{t('swissTaxReturn.overview.oldFrontalierDesc')}</p>
                   </div>
-                  <div className="bg-white dark:bg-slate-800 rounded-lg p-3 border border-amber-300 dark:border-amber-700">
+                  <div className="bg-surface rounded-lg p-3 border border-amber-300 dark:border-amber-700">
                     <h5 className="font-bold text-sm text-amber-700 dark:text-amber-300 mb-1">{t('swissTaxReturn.overview.newFrontalier')}</h5>
                     <p className="text-sm text-amber-700 dark:text-amber-400">{t('swissTaxReturn.overview.newFrontalierDesc')}</p>
                   </div>
@@ -184,8 +184,8 @@ const SwissTaxReturn: React.FC = () => {
           </div>
 
           {/* Official Links */}
-          <div className="bg-white dark:bg-slate-800 rounded-2xl p-4 sm:p-6 border border-slate-200 dark:border-slate-700">
-            <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200 mb-4 flex items-center gap-2">
+          <div className="bg-surface rounded-2xl p-4 sm:p-6 border border-edge">
+            <h3 className="text-lg font-bold text-strong mb-4 flex items-center gap-2">
               <ExternalLink size={20} /> {t('swissTaxReturn.overview.officialLinks')}
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -195,12 +195,12 @@ const SwissTaxReturn: React.FC = () => {
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-start gap-3 p-3 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-red-300 dark:hover:border-red-700 hover:bg-red-50 dark:hover:bg-red-900/10 transition-colors group"
+                  className="flex items-start gap-3 p-3 rounded-xl border border-edge hover:border-red-300 dark:hover:border-red-700 hover:bg-red-50 dark:hover:bg-red-900/10 transition-colors group"
                 >
                   <ExternalLink size={14} className="text-red-600 dark:text-red-400 mt-0.5 shrink-0" />
                   <div>
-                    <span className="font-semibold text-sm text-slate-800 dark:text-slate-200 group-hover:text-red-700 dark:group-hover:text-red-300">{t(`swissTaxReturn.overview.link.${link.key}`)}</span>
-                    <p className="text-sm text-slate-500 dark:text-slate-400 mt-0.5">{t(`swissTaxReturn.overview.linkDesc.${link.key}`)}</p>
+                    <span className="font-semibold text-sm text-strong group-hover:text-red-700 dark:group-hover:text-red-300">{t(`swissTaxReturn.overview.link.${link.key}`)}</span>
+                    <p className="text-sm text-muted mt-0.5">{t(`swissTaxReturn.overview.linkDesc.${link.key}`)}</p>
                   </div>
                 </a>
               ))}
@@ -212,19 +212,19 @@ const SwissTaxReturn: React.FC = () => {
       {/* Quellensteuer - Withholding Tax */}
       {activeStep === 'quellensteuer' && (
         <div className="space-y-6 animate-fade-in">
-          <div className="bg-white dark:bg-slate-800 rounded-2xl p-4 sm:p-6 border border-slate-200 dark:border-slate-700">
-            <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200 mb-4">{t('swissTaxReturn.quellensteuer.title')}</h3>
-            <p className="text-sm text-slate-600 dark:text-slate-400 mb-4">{t('swissTaxReturn.quellensteuer.intro')}</p>
+          <div className="bg-surface rounded-2xl p-4 sm:p-6 border border-edge">
+            <h3 className="text-lg font-bold text-strong mb-4">{t('swissTaxReturn.quellensteuer.title')}</h3>
+            <p className="text-sm text-subtle mb-4">{t('swissTaxReturn.quellensteuer.intro')}</p>
             
             <div className="space-y-4">
               {/* Tariff Tables */}
-              <div className="bg-slate-50 dark:bg-slate-700/50 rounded-xl p-4 border border-slate-200 dark:border-slate-600">
-                <h4 className="font-bold text-sm text-slate-800 dark:text-slate-200 mb-3">{t('swissTaxReturn.quellensteuer.tariffs')}</h4>
+              <div className="bg-slate-50 dark:bg-slate-700/50 rounded-xl p-4 border border-edge">
+                <h4 className="font-bold text-sm text-strong mb-3">{t('swissTaxReturn.quellensteuer.tariffs')}</h4>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {(['A', 'B', 'C', 'H'] as const).map(table => (
-                    <div key={table} className="bg-white dark:bg-slate-800 rounded-lg p-3 border border-slate-200 dark:border-slate-600">
+                    <div key={table} className="bg-surface rounded-lg p-3 border border-edge">
                       <span className="font-bold text-red-700 dark:text-red-400 text-sm">{t(`swissTaxReturn.quellensteuer.table${table}`)}</span>
-                      <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">{t(`swissTaxReturn.quellensteuer.table${table}Desc`)}</p>
+                      <p className="text-sm text-muted mt-1">{t(`swissTaxReturn.quellensteuer.table${table}Desc`)}</p>
                     </div>
                   ))}
                 </div>
@@ -249,11 +249,11 @@ const SwissTaxReturn: React.FC = () => {
                 </div>
                 <p className="text-sm text-amber-700 dark:text-amber-400 mb-3">{t('swissTaxReturn.quellensteuer.newAgreementDesc')}</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                  <div className="bg-white dark:bg-slate-800 rounded-lg p-2 border border-amber-300 dark:border-amber-700">
+                  <div className="bg-surface rounded-lg p-2 border border-amber-300 dark:border-amber-700">
                     <span className="text-xs font-bold text-amber-700 dark:text-amber-300">{t('swissTaxReturn.quellensteuer.newAgrOld')}</span>
                     <p className="text-sm text-amber-700 dark:text-amber-400 mt-0.5">{t('swissTaxReturn.quellensteuer.newAgrOldDesc')}</p>
                   </div>
-                  <div className="bg-white dark:bg-slate-800 rounded-lg p-2 border border-amber-300 dark:border-amber-700">
+                  <div className="bg-surface rounded-lg p-2 border border-amber-300 dark:border-amber-700">
                     <span className="text-xs font-bold text-amber-700 dark:text-amber-300">{t('swissTaxReturn.quellensteuer.newAgrNew')}</span>
                     <p className="text-sm text-amber-700 dark:text-amber-400 mt-0.5">{t('swissTaxReturn.quellensteuer.newAgrNewDesc')}</p>
                   </div>
@@ -261,9 +261,9 @@ const SwissTaxReturn: React.FC = () => {
               </div>
 
               {/* What's included in the forfait */}
-              <div className="bg-slate-50 dark:bg-slate-700/50 rounded-xl p-4 border border-slate-200 dark:border-slate-600">
-                <h4 className="font-bold text-sm text-slate-800 dark:text-slate-200 mb-2">{t('swissTaxReturn.quellensteuer.forfaitIncludes')}</h4>
-                <ul className="list-disc list-inside space-y-1 text-xs text-slate-600 dark:text-slate-400">
+              <div className="bg-slate-50 dark:bg-slate-700/50 rounded-xl p-4 border border-edge">
+                <h4 className="font-bold text-sm text-strong mb-2">{t('swissTaxReturn.quellensteuer.forfaitIncludes')}</h4>
+                <ul className="list-disc list-inside space-y-1 text-xs text-subtle">
                   {[1, 2, 3, 4, 5].map(i => (
                     <li key={i}>{t(`swissTaxReturn.quellensteuer.forfait${i}`)}</li>
                   ))}
@@ -277,7 +277,7 @@ const SwissTaxReturn: React.FC = () => {
                   <h4 className="font-bold text-emerald-700 dark:text-emerald-300 text-sm">{t('swissTaxReturn.quellensteuer.calcExample')}</h4>
                 </div>
                 <p className="text-sm text-emerald-700 dark:text-emerald-400 mb-2">{t('swissTaxReturn.quellensteuer.calcExampleIntro')}</p>
-                <div className="bg-white dark:bg-slate-800 rounded-lg p-3 border border-emerald-300 dark:border-emerald-700 space-y-1">
+                <div className="bg-surface rounded-lg p-3 border border-emerald-300 dark:border-emerald-700 space-y-1">
                   {[1, 2, 3, 4, 5].map(i => (
                     <p key={i} className="text-sm text-emerald-700 dark:text-emerald-400 font-mono">{t(`swissTaxReturn.quellensteuer.calcLine${i}`)}</p>
                   ))}
@@ -291,9 +291,9 @@ const SwissTaxReturn: React.FC = () => {
       {/* Correction */}
       {activeStep === 'correction' && (
         <div className="space-y-6 animate-fade-in">
-          <div className="bg-white dark:bg-slate-800 rounded-2xl p-4 sm:p-6 border border-slate-200 dark:border-slate-700">
-            <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200 mb-4">{t('swissTaxReturn.correction.title')}</h3>
-            <p className="text-sm text-slate-600 dark:text-slate-400 mb-4">{t('swissTaxReturn.correction.intro')}</p>
+          <div className="bg-surface rounded-2xl p-4 sm:p-6 border border-edge">
+            <h3 className="text-lg font-bold text-strong mb-4">{t('swissTaxReturn.correction.title')}</h3>
+            <p className="text-sm text-subtle mb-4">{t('swissTaxReturn.correction.intro')}</p>
 
             <div className="space-y-4">
               {/* Two request types */}
@@ -343,9 +343,9 @@ const SwissTaxReturn: React.FC = () => {
                 </ol>
               </div>
 
-              <div className="bg-slate-50 dark:bg-slate-700/50 rounded-xl p-4 border border-slate-200 dark:border-slate-600">
-                <h4 className="font-bold text-sm text-slate-800 dark:text-slate-200 mb-2">{t('swissTaxReturn.correction.deductible')}</h4>
-                <ul className="list-disc list-inside space-y-1 text-xs text-slate-600 dark:text-slate-400">
+              <div className="bg-slate-50 dark:bg-slate-700/50 rounded-xl p-4 border border-edge">
+                <h4 className="font-bold text-sm text-strong mb-2">{t('swissTaxReturn.correction.deductible')}</h4>
+                <ul className="list-disc list-inside space-y-1 text-xs text-subtle">
                   <li>{t('swissTaxReturn.correction.ded1')}</li>
                   <li>{t('swissTaxReturn.correction.ded2')}</li>
                   <li>{t('swissTaxReturn.correction.ded3')}</li>
@@ -361,7 +361,7 @@ const SwissTaxReturn: React.FC = () => {
                   <h4 className="font-bold text-emerald-700 dark:text-emerald-300 text-sm">{t('swissTaxReturn.correction.savingsExample')}</h4>
                 </div>
                 <p className="text-sm text-emerald-700 dark:text-emerald-400 mb-2">{t('swissTaxReturn.correction.savingsExampleDesc')}</p>
-                <div className="bg-white dark:bg-slate-800 rounded-lg p-3 border border-emerald-300 dark:border-emerald-700 space-y-1">
+                <div className="bg-surface rounded-lg p-3 border border-emerald-300 dark:border-emerald-700 space-y-1">
                   {[1, 2, 3, 4].map(i => (
                     <p key={i} className="text-sm text-emerald-700 dark:text-emerald-400 font-mono">{t(`swissTaxReturn.correction.savingsLine${i}`)}</p>
                   ))}
@@ -396,9 +396,9 @@ const SwissTaxReturn: React.FC = () => {
       {/* TDR - Tassazione Ordinaria Ulteriore */}
       {activeStep === 'tdr' && (
         <div className="space-y-6 animate-fade-in">
-          <div className="bg-white dark:bg-slate-800 rounded-2xl p-4 sm:p-6 border border-slate-200 dark:border-slate-700">
-            <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200 mb-4">{t('swissTaxReturn.tdr.title')}</h3>
-            <p className="text-sm text-slate-600 dark:text-slate-400 mb-4">{t('swissTaxReturn.tdr.intro')}</p>
+          <div className="bg-surface rounded-2xl p-4 sm:p-6 border border-edge">
+            <h3 className="text-lg font-bold text-strong mb-4">{t('swissTaxReturn.tdr.title')}</h3>
+            <p className="text-sm text-subtle mb-4">{t('swissTaxReturn.tdr.intro')}</p>
 
             <div className="space-y-4">
               <div className="bg-red-50 dark:bg-red-900/20 rounded-xl p-4 border border-red-200 dark:border-red-800">
@@ -413,20 +413,20 @@ const SwissTaxReturn: React.FC = () => {
               <div className="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-4 border border-blue-200 dark:border-blue-800">
                 <h4 className="font-bold text-blue-700 dark:text-blue-300 text-sm mb-2">{t('swissTaxReturn.tdr.quasiResident')}</h4>
                 <p className="text-sm text-blue-700 dark:text-blue-400 mb-2">{t('swissTaxReturn.tdr.quasiResidentDesc')}</p>
-                <div className="bg-white dark:bg-slate-800 rounded-lg p-3 border border-blue-300 dark:border-blue-700">
+                <div className="bg-surface rounded-lg p-3 border border-blue-300 dark:border-blue-700">
                   <p className="text-xs font-bold text-blue-700 dark:text-blue-300">{t('swissTaxReturn.tdr.quasiResidentRule')}</p>
                 </div>
-                <div className="mt-2 bg-white dark:bg-slate-800 rounded-lg p-3 border border-blue-300 dark:border-blue-700">
+                <div className="mt-2 bg-surface rounded-lg p-3 border border-blue-300 dark:border-blue-700">
                   <p className="text-xs font-bold text-blue-700 dark:text-blue-300 mb-1">{t('swissTaxReturn.tdr.quasiResidentExample')}</p>
                   <p className="text-sm text-blue-700 dark:text-blue-400">{t('swissTaxReturn.tdr.quasiResidentExampleDesc')}</p>
                 </div>
               </div>
 
               {/* Detailed eTax guide */}
-              <div className="bg-slate-50 dark:bg-slate-700/50 rounded-xl p-4 border border-slate-200 dark:border-slate-600">
-                <h4 className="font-bold text-sm text-slate-800 dark:text-slate-200 mb-2">{t('swissTaxReturn.tdr.etax')}</h4>
-                <p className="text-sm text-slate-600 dark:text-slate-400 mb-3">{t('swissTaxReturn.tdr.etaxDesc')}</p>
-                <ol className="list-decimal list-inside space-y-2 text-xs text-slate-600 dark:text-slate-400">
+              <div className="bg-slate-50 dark:bg-slate-700/50 rounded-xl p-4 border border-edge">
+                <h4 className="font-bold text-sm text-strong mb-2">{t('swissTaxReturn.tdr.etax')}</h4>
+                <p className="text-sm text-subtle mb-3">{t('swissTaxReturn.tdr.etaxDesc')}</p>
+                <ol className="list-decimal list-inside space-y-2 text-xs text-subtle">
                   {[1, 2, 3, 4, 5, 6, 7, 8].map(i => (
                     <li key={i}>{t(`swissTaxReturn.tdr.etaxStep${i}`)}</li>
                   ))}
@@ -437,7 +437,7 @@ const SwissTaxReturn: React.FC = () => {
               <div className="bg-violet-50 dark:bg-violet-900/20 rounded-xl p-4 border border-violet-200 dark:border-violet-800">
                 <h4 className="font-bold text-violet-700 dark:text-violet-300 text-sm mb-3">{t('swissTaxReturn.tdr.comparison')}</h4>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <div className="bg-white dark:bg-slate-800 rounded-lg p-3 border border-violet-300 dark:border-violet-700">
+                  <div className="bg-surface rounded-lg p-3 border border-violet-300 dark:border-violet-700">
                     <h5 className="font-bold text-xs text-violet-700 dark:text-violet-300 mb-2">{t('swissTaxReturn.tdr.compRettifica')}</h5>
                     <ul className="list-disc list-inside space-y-1 text-xs text-violet-700 dark:text-violet-400">
                       <li>{t('swissTaxReturn.tdr.compRettifica1')}</li>
@@ -445,7 +445,7 @@ const SwissTaxReturn: React.FC = () => {
                       <li>{t('swissTaxReturn.tdr.compRettifica3')}</li>
                     </ul>
                   </div>
-                  <div className="bg-white dark:bg-slate-800 rounded-lg p-3 border border-violet-300 dark:border-violet-700">
+                  <div className="bg-surface rounded-lg p-3 border border-violet-300 dark:border-violet-700">
                     <h5 className="font-bold text-xs text-violet-700 dark:text-violet-300 mb-2">{t('swissTaxReturn.tdr.compTDR')}</h5>
                     <ul className="list-disc list-inside space-y-1 text-xs text-violet-700 dark:text-violet-400">
                       <li>{t('swissTaxReturn.tdr.compTDR1')}</li>
@@ -485,17 +485,17 @@ const SwissTaxReturn: React.FC = () => {
       {/* Deductions */}
       {activeStep === 'deductions' && (
         <div className="space-y-4 animate-fade-in">
-          <div className="bg-white dark:bg-slate-800 rounded-2xl p-4 sm:p-6 border border-slate-200 dark:border-slate-700">
-            <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200 mb-4">{t('swissTaxReturn.deductions.title')}</h3>
-            <p className="text-sm text-slate-500 dark:text-slate-400 mb-6">{t('swissTaxReturn.deductions.intro')}</p>
+          <div className="bg-surface rounded-2xl p-4 sm:p-6 border border-edge">
+            <h3 className="text-lg font-bold text-strong mb-4">{t('swissTaxReturn.deductions.title')}</h3>
+            <p className="text-sm text-muted mb-6">{t('swissTaxReturn.deductions.intro')}</p>
             <div className="space-y-3">
               {SWISS_DEDUCTIONS.map(ded => (
                 <div
                   key={ded.key}
-                  className="bg-slate-50 dark:bg-slate-700/50 rounded-xl p-4 border border-slate-200 dark:border-slate-600"
+                  className="bg-slate-50 dark:bg-slate-700/50 rounded-xl p-4 border border-edge"
                 >
                   <div className="flex items-center justify-between mb-1">
-                    <h4 className="font-semibold text-sm text-slate-800 dark:text-slate-200">
+                    <h4 className="font-semibold text-sm text-strong">
                       {t(`swissTaxReturn.deductions.${ded.key}`)}
                     </h4>
                     {ded.maxCHF && (
@@ -504,7 +504,7 @@ const SwissTaxReturn: React.FC = () => {
                       </span>
                     )}
                   </div>
-                  <p className="text-sm text-slate-500 dark:text-slate-400">
+                  <p className="text-sm text-muted">
                     {t(`swissTaxReturn.deductions.${ded.key}Desc`)}
                   </p>
                 </div>
@@ -517,10 +517,10 @@ const SwissTaxReturn: React.FC = () => {
       {/* Documents checklist */}
       {activeStep === 'documents' && (
         <div className="space-y-4 animate-fade-in">
-          <div className="bg-white dark:bg-slate-800 rounded-2xl p-4 sm:p-6 border border-slate-200 dark:border-slate-700">
+          <div className="bg-surface rounded-2xl p-4 sm:p-6 border border-edge">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200">{t('swissTaxReturn.documents.title')}</h3>
-              <span className="text-sm text-slate-500 dark:text-slate-400">
+              <h3 className="text-lg font-bold text-strong">{t('swissTaxReturn.documents.title')}</h3>
+              <span className="text-sm text-muted">
                 {checkedDocs.size}/{SWISS_DOCUMENTS.length} {t('swissTaxReturn.documents.completed')}
               </span>
             </div>
@@ -537,7 +537,7 @@ const SwissTaxReturn: React.FC = () => {
                   className={`flex items-start gap-3 p-3 rounded-xl border cursor-pointer transition-colors ${
                     checkedDocs.has(doc.key)
                       ? 'bg-emerald-50 dark:bg-emerald-900/20 border-emerald-300 dark:border-emerald-700'
-                      : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600'
+                      : 'bg-surface border-edge hover:border-slate-300 dark:hover:border-slate-600'
                   }`}
                 >
                   <input
@@ -549,7 +549,7 @@ const SwissTaxReturn: React.FC = () => {
                   />
                   <div className="flex-1">
                     <div className="flex items-center gap-2">
-                      <span className="font-semibold text-sm text-slate-800 dark:text-slate-200">
+                      <span className="font-semibold text-sm text-strong">
                         {t(`swissTaxReturn.documents.${doc.key}`)}
                       </span>
                       {doc.required && (
@@ -558,7 +558,7 @@ const SwissTaxReturn: React.FC = () => {
                         </span>
                       )}
                     </div>
-                    <p className="text-sm text-slate-500 dark:text-slate-400 mt-0.5">
+                    <p className="text-sm text-muted mt-0.5">
                       {t(`swissTaxReturn.documents.${doc.key}Desc`)}
                     </p>
                   </div>
@@ -572,8 +572,8 @@ const SwissTaxReturn: React.FC = () => {
       {/* Deadlines */}
       {activeStep === 'deadlines' && (
         <div className="space-y-4 animate-fade-in">
-          <div className="bg-white dark:bg-slate-800 rounded-2xl p-4 sm:p-6 border border-slate-200 dark:border-slate-700">
-            <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200 mb-6">{t('swissTaxReturn.deadlines.title')}</h3>
+          <div className="bg-surface rounded-2xl p-4 sm:p-6 border border-edge">
+            <h3 className="text-lg font-bold text-strong mb-6">{t('swissTaxReturn.deadlines.title')}</h3>
             <div className="relative">
               <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-slate-200 dark:bg-slate-600" />
               <div className="space-y-6">
@@ -600,10 +600,10 @@ const SwissTaxReturn: React.FC = () => {
                             </span>
                           )}
                         </div>
-                        <h4 className="font-semibold text-sm text-slate-800 dark:text-slate-200">
+                        <h4 className="font-semibold text-sm text-strong">
                           {t(`swissTaxReturn.deadlines.${event.key}`)}
                         </h4>
-                        <p className="text-sm text-slate-500 dark:text-slate-400 mt-0.5">
+                        <p className="text-sm text-muted mt-0.5">
                           {t(`swissTaxReturn.deadlines.${event.key}Desc`)}
                         </p>
                       </div>
@@ -631,16 +631,16 @@ const SwissTaxReturn: React.FC = () => {
 const FaqItem: React.FC<{ q: string; a: string }> = ({ q, a }) => {
   const [open, setOpen] = useState(false);
   return (
-    <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+    <div className="bg-surface rounded-xl border border-edge overflow-hidden">
       <button
         onClick={() => setOpen(!open)}
         className="w-full flex items-center justify-between p-4 text-left"
       >
-        <span className="font-semibold text-sm text-slate-800 dark:text-slate-200">{q}</span>
-        <ArrowRight size={16} className={`text-slate-500 dark:text-slate-400 transition-transform ${open ? 'rotate-90' : ''}`} />
+        <span className="font-semibold text-sm text-strong">{q}</span>
+        <ArrowRight size={16} className={`text-muted transition-transform ${open ? 'rotate-90' : ''}`} />
       </button>
       {open && (
-        <div className="px-4 pb-4 text-sm text-slate-600 dark:text-slate-400 animate-fade-in">
+        <div className="px-4 pb-4 text-sm text-subtle animate-fade-in">
           {a}
         </div>
       )}

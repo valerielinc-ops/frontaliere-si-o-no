@@ -241,7 +241,7 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp }
       {onBack && (
         <button
           onClick={onBack}
-          className="inline-flex items-center gap-1.5 text-sm text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100"
+          className="inline-flex items-center gap-1.5 text-sm text-subtle hover:text-slate-900 dark:hover:text-slate-100"
         >
           <ArrowLeft size={14} />
           {locale === 'it' ? 'Torna alla lista' : locale === 'de' ? 'Zurück zur Liste' : locale === 'fr' ? 'Retour à la liste' : 'Back to list'}
@@ -249,7 +249,7 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp }
       )}
 
       {/* Job header card */}
-      <div className="rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900/80 overflow-hidden">
+      <div className="rounded-xl border border-edge bg-surface/80 overflow-hidden">
         {/* Amber status bar */}
         <div className="bg-amber-50 dark:bg-amber-900/20 border-b border-amber-200 dark:border-amber-700 px-5 py-2.5 flex items-center gap-2">
           <Briefcase size={14} className="text-amber-600 dark:text-amber-400 shrink-0" />
@@ -259,20 +259,20 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp }
         </div>
         {/* Title + metadata */}
         <div className="px-5 py-4">
-          <h1 className="text-xl font-bold text-slate-900 dark:text-slate-100 leading-snug">
+          <h1 className="text-xl font-bold text-heading leading-snug">
             {slugParts.title}
           </h1>
           {(slugParts.company || slugParts.location) && (
-            <div className="flex flex-wrap gap-3 mt-2.5 text-sm text-slate-600 dark:text-slate-400">
+            <div className="flex flex-wrap gap-3 mt-2.5 text-sm text-subtle">
               {slugParts.company && (
                 <span className="flex items-center gap-1.5">
-                  <Building2 size={14} className="text-slate-500 dark:text-slate-400" />
+                  <Building2 size={14} className="text-muted" />
                   {slugParts.company}
                 </span>
               )}
               {slugParts.location && (
                 <span className="flex items-center gap-1.5">
-                  <MapPin size={14} className="text-slate-500 dark:text-slate-400" />
+                  <MapPin size={14} className="text-muted" />
                   {slugParts.location}
                 </span>
               )}
@@ -292,15 +292,15 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp }
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="flex items-center gap-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-4 py-3 hover:border-indigo-300 dark:hover:border-indigo-600 hover:shadow-sm transition-[color,background-color,border-color,box-shadow]"
+                  className="flex items-center gap-3 rounded-xl border border-edge bg-surface px-4 py-3 hover:border-indigo-300 dark:hover:border-indigo-600 hover:shadow-sm transition-[color,background-color,border-color,box-shadow]"
                 >
                   <span className="flex-1 min-w-0">
                     <span className="block font-medium text-sm text-slate-800 dark:text-slate-100 truncate">{link.title}</span>
                     {link.company && (
-                      <span className="block text-xs text-slate-500 dark:text-slate-400 mt-0.5 truncate">{link.company}</span>
+                      <span className="block text-xs text-muted mt-0.5 truncate">{link.company}</span>
                     )}
                   </span>
-                  <ArrowRight size={14} className="text-slate-500 dark:text-slate-400 shrink-0" />
+                  <ArrowRight size={14} className="text-muted shrink-0" />
                 </a>
               </li>
             ))}
@@ -310,7 +310,7 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp }
 
       {/* Sign-in / alert block — hidden when user is already authenticated */}
       {!alreadySignedIn && (
-      <div className="rounded-xl border border-slate-200 dark:border-slate-700 bg-gradient-to-b from-slate-50 to-white dark:from-slate-900/60 dark:to-slate-900/40 p-5 text-center space-y-3">
+      <div className="rounded-xl border border-edge bg-gradient-to-b from-slate-50 to-white dark:from-slate-900/60 dark:to-slate-900/40 p-5 text-center space-y-3">
         <p className="text-sm font-semibold text-slate-800 dark:text-slate-100">
           {SIGNUP_COPY[locale] ?? SIGNUP_COPY.it}
         </p>
@@ -318,7 +318,7 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp }
         {!googleButtonReady && (
           <a
             href={`/?redirect=${encodeURIComponent(window.location.pathname)}`}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm font-semibold text-slate-800 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-slate-300 dark:border-slate-600 bg-surface text-sm font-semibold text-slate-800 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors"
           >
             {locale === 'it' ? 'Accedi' : locale === 'de' ? 'Anmelden' : locale === 'fr' ? 'Se connecter' : 'Sign in'}
           </a>
@@ -337,7 +337,7 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp }
 
         <div className="flex items-center gap-3">
           <div className="flex-1 h-px bg-slate-300/50 dark:bg-slate-600/50" />
-          <span className="text-sm text-slate-500 dark:text-slate-400">{EMAIL_OR_COPY[locale] ?? EMAIL_OR_COPY.it}</span>
+          <span className="text-sm text-muted">{EMAIL_OR_COPY[locale] ?? EMAIL_OR_COPY.it}</span>
           <div className="flex-1 h-px bg-slate-300/50 dark:bg-slate-600/50" />
         </div>
         <form onSubmit={handleEmailSubmit} className="space-y-2">
@@ -345,7 +345,7 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp }
             value={emailInput}
             onChange={setEmailInput}
             placeholder={EMAIL_PLACEHOLDER_COPY[locale] ?? EMAIL_PLACEHOLDER_COPY.it}
-            className="w-full px-3 py-2.5 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm text-slate-900 dark:text-white placeholder-slate-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+            className="w-full px-3 py-2.5 rounded-xl border border-slate-300 dark:border-slate-600 bg-surface text-sm text-slate-900 dark:text-white placeholder-slate-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
           />
           <button
             type="submit"
@@ -365,14 +365,14 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp }
 
       {/* Informational content from static HTML (SEO-friendly, collapsed) */}
       {staticBodyHtml && (
-        <details className="group rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900/80 overflow-hidden">
-          <summary className="px-5 py-3.5 text-sm font-semibold text-slate-700 dark:text-slate-300 cursor-pointer select-none hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors list-none flex items-center gap-2">
-            <Search size={14} className="text-slate-500 dark:text-slate-400" />
+        <details className="group rounded-xl border border-edge bg-surface/80 overflow-hidden">
+          <summary className="px-5 py-3.5 text-sm font-semibold text-body cursor-pointer select-none hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors list-none flex items-center gap-2">
+            <Search size={14} className="text-muted" />
             {locale === 'it' ? 'Informazioni per frontalieri' : locale === 'de' ? 'Informationen für Grenzgänger' : locale === 'fr' ? 'Informations pour frontaliers' : 'Information for cross-border workers'}
-            <ArrowRight size={12} className="ml-auto text-slate-500 dark:text-slate-400 transition-transform group-open:rotate-90" />
+            <ArrowRight size={12} className="ml-auto text-muted transition-transform group-open:rotate-90" />
           </summary>
           <div
-            className="px-5 pb-4 prose prose-sm dark:prose-invert max-w-none text-slate-600 dark:text-slate-400 [&_h1]:hidden [&_h2]:text-sm [&_h2]:font-semibold [&_h2]:text-slate-700 [&_h2]:dark:text-slate-300 [&_h2]:mt-4 [&_h2]:mb-1.5 [&_section]:border-t [&_section]:border-slate-100 [&_section]:dark:border-slate-800 [&_section]:pt-3 [&_section:first-of-type]:border-0 [&_a]:text-indigo-600 [&_a]:dark:text-indigo-400 [&_ul]:pl-0 [&_ul]:list-none [&_li]:pl-0"
+            className="px-5 pb-4 prose prose-sm dark:prose-invert max-w-none text-subtle [&_h1]:hidden [&_h2]:text-sm [&_h2]:font-semibold [&_h2]:text-slate-700 [&_h2]:dark:text-slate-300 [&_h2]:mt-4 [&_h2]:mb-1.5 [&_section]:border-t [&_section]:border-slate-100 [&_section]:dark:border-slate-800 [&_section]:pt-3 [&_section:first-of-type]:border-0 [&_a]:text-indigo-600 [&_a]:dark:text-indigo-400 [&_ul]:pl-0 [&_ul]:list-none [&_li]:pl-0"
             dangerouslySetInnerHTML={{ __html: staticBodyHtml }}
           />
         </details>

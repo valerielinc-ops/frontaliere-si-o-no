@@ -214,10 +214,10 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
 
       {/* Input Controls */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
-          <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">{t('ral.grossSalary')}</label>
+        <div className="bg-surface rounded-xl p-4 border border-edge">
+          <label className="block text-sm font-bold text-body mb-2">{t('ral.grossSalary')}</label>
           <div className="relative">
-            <Euro className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500 dark:text-slate-400" />
+            <Euro className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted" />
             <input
               type="number"
               inputMode="numeric"
@@ -227,7 +227,7 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
                 setGrossSalary(value);
                 Analytics.trackInputChange('ral_gross_salary', value);
               }}
-              className="w-full pl-9 pr-4 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 font-bold"
+              className="w-full pl-9 pr-4 py-2.5 rounded-lg border border-edge bg-surface-alt text-strong font-bold"
               min={15000}
               max={500000}
               step={1000}
@@ -248,23 +248,23 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
             className="w-full mt-2 accent-green-600"
             aria-label="Regola RAL lorda annuale"
           />
-          <div className="flex justify-between text-xs text-slate-500 dark:text-slate-400 mt-1">
+          <div className="flex justify-between text-xs text-muted mt-1">
             <span>€15k</span>
             <span>€250k</span>
           </div>
         </div>
 
-        <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
-          <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">{t('ral.exchangeRate')}</label>
-          <div className="flex items-center gap-2 px-4 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900">
-            <span className="font-bold text-slate-800 dark:text-slate-200">1 EUR = {eurChfRate.toFixed(4)} CHF</span>
-            {rateLoading && <RefreshCw size={14} className="animate-spin text-slate-500 dark:text-slate-400" />}
+        <div className="bg-surface rounded-xl p-4 border border-edge">
+          <label className="block text-sm font-bold text-body mb-2">{t('ral.exchangeRate')}</label>
+          <div className="flex items-center gap-2 px-4 py-2.5 rounded-lg border border-edge bg-surface-alt">
+            <span className="font-bold text-strong">1 EUR = {eurChfRate.toFixed(4)} CHF</span>
+            {rateLoading && <RefreshCw size={14} className="animate-spin text-muted" />}
           </div>
-          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">{t('exchange.liveRate') || 'Tasso di cambio live CHF/EUR'}</p>
+          <p className="text-xs text-muted mt-1">{t('exchange.liveRate') || 'Tasso di cambio live CHF/EUR'}</p>
         </div>
 
-        <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
-          <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">{t('ral.maritalStatus')}</label>
+        <div className="bg-surface rounded-xl p-4 border border-edge">
+          <label className="block text-sm font-bold text-body mb-2">{t('ral.maritalStatus')}</label>
           <select
             value={maritalStatus}
             onChange={(e) => {
@@ -272,7 +272,7 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
               setMaritalStatus(value);
               Analytics.trackInputChange('ral_marital_status', value);
             }}
-            className="w-full px-4 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 font-bold"
+            className="w-full px-4 py-2.5 rounded-lg border border-edge bg-surface-alt text-strong font-bold"
             aria-label="Stato civile"
           >
             <option value="SINGLE">{t('ral.single')}</option>
@@ -280,8 +280,8 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
           </select>
         </div>
 
-        <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
-          <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">{t('ral.children')}</label>
+        <div className="bg-surface rounded-xl p-4 border border-edge">
+          <label className="block text-sm font-bold text-body mb-2">{t('ral.children')}</label>
           <select
             value={children}
             onChange={(e) => {
@@ -289,22 +289,22 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
               setChildren(value);
               Analytics.trackInputChange('ral_children', value);
             }}
-            className="w-full px-4 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 font-bold"
+            className="w-full px-4 py-2.5 rounded-lg border border-edge bg-surface-alt text-strong font-bold"
             aria-label="Numero di figli a carico"
           >
             {[0, 1, 2, 3, 4].map(n => <option key={n} value={n}>{n}</option>)}
           </select>
         </div>
 
-        <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
-          <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">{t('ral.ageGroup')}</label>
+        <div className="bg-surface rounded-xl p-4 border border-edge">
+          <label className="block text-sm font-bold text-body mb-2">{t('ral.ageGroup')}</label>
           <select
             value={ageGroup}
             onChange={(e) => {
               setAgeGroup(e.target.value);
               Analytics.trackInputChange('ral_age_group', e.target.value);
             }}
-            className="w-full px-4 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 font-bold"
+            className="w-full px-4 py-2.5 rounded-lg border border-edge bg-surface-alt text-strong font-bold"
             aria-label="Fascia di età"
           >
             <option value="25-34">25-34</option>
@@ -314,8 +314,8 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
           </select>
         </div>
 
-        <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
-          <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">{t('ral.healthInsurance')}</label>
+        <div className="bg-surface rounded-xl p-4 border border-edge">
+          <label className="block text-sm font-bold text-body mb-2">{t('ral.healthInsurance')}</label>
           <input
             type="number"
             inputMode="numeric"
@@ -325,27 +325,27 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
               setHealthInsurance(value);
               Analytics.trackInputChange('ral_health_insurance', value);
             }}
-            className="w-full px-4 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 font-bold"
+            className="w-full px-4 py-2.5 rounded-lg border border-edge bg-surface-alt text-strong font-bold"
             min={0}
             max={1500}
             step={10}
             aria-label="Costo assicurazione sanitaria mensile in CHF"
           />
-          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">{t('ral.healthInsuranceNote')}</p>
+          <p className="text-xs text-muted mt-1">{t('ral.healthInsuranceNote')}</p>
         </div>
       </div>
 
       {/* Big Result Card */}
-      <div className={`rounded-2xl p-4 sm:p-6 border-2 ${diff > 0 ? 'bg-emerald-50 dark:bg-emerald-950/30 border-emerald-300 dark:border-emerald-700' : diff < 0 ? 'bg-red-50 dark:bg-red-950/30 border-red-300 dark:border-red-700' : 'bg-slate-50 dark:bg-slate-800 border-slate-300 dark:border-slate-700'}`}>
+      <div className={`rounded-2xl p-4 sm:p-6 border-2 ${diff > 0 ? 'bg-emerald-50 dark:bg-emerald-950/30 border-emerald-300 dark:border-emerald-700' : diff < 0 ? 'bg-red-50 dark:bg-red-950/30 border-red-300 dark:border-red-700' : 'bg-surface-alt border-slate-300 dark:border-slate-700'}`}>
         <div className="text-center space-y-2">
           <div className="flex items-center justify-center gap-2">
             {diff > 0 ? <TrendingUp className="w-6 h-6 text-emerald-700 dark:text-emerald-400" /> : diff < 0 ? <TrendingDown className="w-6 h-6 text-red-600 dark:text-red-400" /> : <Minus className="w-6 h-6 text-slate-600 dark:text-slate-300" />}
-            <p className="text-sm font-bold text-slate-600 dark:text-slate-400">{t('ral.monthlyDifference')}</p>
+            <p className="text-sm font-bold text-subtle">{t('ral.monthlyDifference')}</p>
           </div>
           <p className={`text-4xl font-bold ${diff > 0 ? 'text-emerald-700 dark:text-emerald-400' : diff < 0 ? 'text-red-600 dark:text-red-400' : 'text-slate-600 dark:text-slate-300'}`}>
             {diff > 0 ? '+' : ''}{formatCurrency(diff)} /mese
           </p>
-          <p className="text-sm text-slate-500 dark:text-slate-400">
+          <p className="text-sm text-muted">
             {t('ral.swissAdvantage')}: {diff > 0 ? '+' : ''}{diffPercent.toFixed(1)}%
           </p>
         </div>
@@ -354,17 +354,17 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
       {/* Side-by-Side Comparison */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Italy Card */}
-        <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+        <div className="bg-surface rounded-2xl border border-edge overflow-hidden">
           <div className="bg-gradient-to-r from-green-600 via-white to-red-600 h-1.5" />
           <div className="p-5 space-y-4">
             <div className="flex items-center gap-2">
               <span className="text-2xl">🇮🇹</span>
-              <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200">{t('ral.italyTitle')}</h3>
+              <h3 className="text-lg font-bold text-strong">{t('ral.italyTitle')}</h3>
             </div>
 
             <div className="space-y-2">
               <div className="flex justify-between">
-                <span className="text-sm text-slate-600 dark:text-slate-400">RAL</span>
+                <span className="text-sm text-subtle">RAL</span>
                 <span className="font-bold">{formatCurrency(itResult.ral)}</span>
               </div>
               <div className="flex justify-between text-red-600 dark:text-red-400">
@@ -379,24 +379,24 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
                 <span className="text-sm">{t('ral.addizionali')}</span>
                 <span className="font-bold">-{formatCurrency(itResult.addizionali)}</span>
               </div>
-              <hr className="border-slate-200 dark:border-slate-600" />
+              <hr className="border-edge" />
               <div className="flex justify-between">
-                <span className="font-bold text-slate-800 dark:text-slate-200">{t('ral.netAnnual')}</span>
+                <span className="font-bold text-strong">{t('ral.netAnnual')}</span>
                 <span className="font-bold text-lg text-green-700 dark:text-green-400">{formatCurrency(itResult.netAnnual)}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-sm text-slate-500 dark:text-slate-400">{t('ral.netMonthly')} (×13)</span>
+                <span className="text-sm text-muted">{t('ral.netMonthly')} (×13)</span>
                 <span className="font-bold text-green-600 dark:text-green-400">{formatCurrency(itResult.netMonthly)}</span>
               </div>
               <div className="mt-2 p-2 bg-slate-50 dark:bg-slate-700/50 rounded-lg">
-                <span className="text-sm text-slate-500 dark:text-slate-400">{t('ral.effectiveRate')}: <b>{itResult.effectiveRate.toFixed(1)}%</b></span>
+                <span className="text-sm text-muted">{t('ral.effectiveRate')}: <b>{itResult.effectiveRate.toFixed(1)}%</b></span>
               </div>
             </div>
           </div>
         </div>
 
         {/* Switzerland Card */}
-        <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+        <div className="bg-surface rounded-2xl border border-edge overflow-hidden">
           <div className="bg-gradient-to-r from-red-600 via-red-600 to-red-600 h-1.5 relative">
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="w-3 h-3 bg-white" style={{ clipPath: 'polygon(35% 0, 65% 0, 65% 35%, 100% 35%, 100% 65%, 65% 65%, 65% 100%, 35% 100%, 35% 65%, 0 65%, 0 35%, 35% 35%)' }} />
@@ -405,15 +405,15 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
           <div className="p-5 space-y-4">
             <div className="flex items-center gap-2">
               <span className="text-2xl">🇨🇭</span>
-              <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200">{t('ral.swissTitle')}</h3>
+              <h3 className="text-lg font-bold text-strong">{t('ral.swissTitle')}</h3>
             </div>
 
             <div className="space-y-2">
               <div className="flex justify-between">
-                <span className="text-sm text-slate-600 dark:text-slate-400">{t('ral.grossCHF')}</span>
+                <span className="text-sm text-subtle">{t('ral.grossCHF')}</span>
                 <span className="font-bold">{formatCurrency(chResult.grossCHF, 'CHF')}</span>
               </div>
-              <div className="flex justify-between text-sm text-slate-500 dark:text-slate-400">
+              <div className="flex justify-between text-sm text-muted">
                 <span>({t('ral.equivalentEUR')})</span>
                 <span>{formatCurrency(grossSalary)}</span>
               </div>
@@ -433,21 +433,21 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
                 <span className="text-sm">{t('ral.healthIns')}</span>
                 <span className="font-bold">-{formatCurrency(chResult.healthInsurance, 'CHF')}</span>
               </div>
-              <hr className="border-slate-200 dark:border-slate-600" />
+              <hr className="border-edge" />
               <div className="flex justify-between">
-                <span className="font-bold text-slate-800 dark:text-slate-200">{t('ral.netAnnual')}</span>
+                <span className="font-bold text-strong">{t('ral.netAnnual')}</span>
                 <span className="font-bold text-lg text-green-700 dark:text-green-400">{formatCurrency(chResult.netAnnual, 'CHF')}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-sm text-slate-500 dark:text-slate-400">{t('ral.netMonthly')} (×12)</span>
+                <span className="text-sm text-muted">{t('ral.netMonthly')} (×12)</span>
                 <span className="font-bold text-green-600 dark:text-green-400">{formatCurrency(chResult.netMonthly, 'CHF')}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-sm text-slate-500 dark:text-slate-400">{t('ral.inEUR')}</span>
+                <span className="text-sm text-muted">{t('ral.inEUR')}</span>
                 <span className="font-bold text-green-600 dark:text-green-400">{formatCurrency(chResult.netMonthly * chfEurRate)}</span>
               </div>
               <div className="mt-2 p-2 bg-slate-50 dark:bg-slate-700/50 rounded-lg">
-                <span className="text-sm text-slate-500 dark:text-slate-400">{t('ral.effectiveRate')}: <b>{chResult.effectiveRate.toFixed(1)}%</b></span>
+                <span className="text-sm text-muted">{t('ral.effectiveRate')}: <b>{chResult.effectiveRate.toFixed(1)}%</b></span>
               </div>
             </div>
           </div>
@@ -461,41 +461,41 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
           setShowDetails(next);
           Analytics.trackUIInteraction('ral_comparator', 'details', 'toggle', next ? 'open' : 'close');
         }}
-        className="flex items-center gap-2 text-sm font-bold text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300 transition-colors mx-auto"
+        className="flex items-center gap-2 text-sm font-bold text-muted hover:text-slate-700 dark:hover:text-slate-300 transition-colors mx-auto"
       >
         {showDetails ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
         {t('ral.showDetails')}
       </button>
 
       {showDetails && (
-        <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 space-y-4">
+        <div className="bg-surface rounded-2xl border border-edge p-5 space-y-4">
           <div className="flex items-center gap-2 mb-3">
             <Info className="w-5 h-5 text-blue-500" />
-            <h4 className="font-bold text-slate-800 dark:text-slate-200">{t('ral.detailsTitle')}</h4>
+            <h4 className="font-bold text-strong">{t('ral.detailsTitle')}</h4>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
             <div>
-              <h5 className="font-bold text-slate-700 dark:text-slate-300 mb-2">🇮🇹 {t('ral.italyDetails')}</h5>
+              <h5 className="font-bold text-body mb-2">🇮🇹 {t('ral.italyDetails')}</h5>
               <table className="w-full">
                 <tbody className="divide-y divide-slate-100 dark:divide-slate-700">
-                  <tr><td className="py-1 text-slate-500 dark:text-slate-400">{t('ral.taxableIncome')}</td><td className="py-1 text-right font-mono">{formatCurrency(itResult.taxableIncome)}</td></tr>
-                  <tr><td className="py-1 text-slate-500 dark:text-slate-400">IRPEF lorda</td><td className="py-1 text-right font-mono">{formatCurrency(itResult.irpefGross)}</td></tr>
-                  <tr><td className="py-1 text-slate-500 dark:text-slate-400">{t('ral.deductions')}</td><td className="py-1 text-right font-mono text-green-600 dark:text-green-400">-{formatCurrency(itResult.detrazioni)}</td></tr>
-                  <tr><td className="py-1 text-slate-500 dark:text-slate-400">IRPEF netta</td><td className="py-1 text-right font-mono">{formatCurrency(itResult.irpefNet)}</td></tr>
-                  <tr><td className="py-1 text-slate-500 dark:text-slate-400">{t('ral.addizionali')}</td><td className="py-1 text-right font-mono">{formatCurrency(itResult.addizionali)}</td></tr>
+                  <tr><td className="py-1 text-muted">{t('ral.taxableIncome')}</td><td className="py-1 text-right font-mono">{formatCurrency(itResult.taxableIncome)}</td></tr>
+                  <tr><td className="py-1 text-muted">IRPEF lorda</td><td className="py-1 text-right font-mono">{formatCurrency(itResult.irpefGross)}</td></tr>
+                  <tr><td className="py-1 text-muted">{t('ral.deductions')}</td><td className="py-1 text-right font-mono text-green-600 dark:text-green-400">-{formatCurrency(itResult.detrazioni)}</td></tr>
+                  <tr><td className="py-1 text-muted">IRPEF netta</td><td className="py-1 text-right font-mono">{formatCurrency(itResult.irpefNet)}</td></tr>
+                  <tr><td className="py-1 text-muted">{t('ral.addizionali')}</td><td className="py-1 text-right font-mono">{formatCurrency(itResult.addizionali)}</td></tr>
                 </tbody>
               </table>
             </div>
             <div>
-              <h5 className="font-bold text-slate-700 dark:text-slate-300 mb-2">🇨🇭 {t('ral.swissDetails')}</h5>
+              <h5 className="font-bold text-body mb-2">🇨🇭 {t('ral.swissDetails')}</h5>
               <table className="w-full">
                 <tbody className="divide-y divide-slate-100 dark:divide-slate-700">
-                  <tr><td className="py-1 text-slate-500 dark:text-slate-400">AVS (5.3%)</td><td className="py-1 text-right font-mono">{formatCurrency(chResult.avs, 'CHF')}</td></tr>
-                  <tr><td className="py-1 text-slate-500 dark:text-slate-400">AC (1.1%)</td><td className="py-1 text-right font-mono">{formatCurrency(chResult.ac, 'CHF')}</td></tr>
-                  <tr><td className="py-1 text-slate-500 dark:text-slate-400">LAA (0.7%)</td><td className="py-1 text-right font-mono">{formatCurrency(chResult.laa, 'CHF')}</td></tr>
-                  <tr><td className="py-1 text-slate-500 dark:text-slate-400">IJM (0.8%)</td><td className="py-1 text-right font-mono">{formatCurrency(chResult.ijm, 'CHF')}</td></tr>
-                  <tr><td className="py-1 text-slate-500 dark:text-slate-400">LPP ({ageGroup})</td><td className="py-1 text-right font-mono">{formatCurrency(chResult.lpp, 'CHF')}</td></tr>
+                  <tr><td className="py-1 text-muted">AVS (5.3%)</td><td className="py-1 text-right font-mono">{formatCurrency(chResult.avs, 'CHF')}</td></tr>
+                  <tr><td className="py-1 text-muted">AC (1.1%)</td><td className="py-1 text-right font-mono">{formatCurrency(chResult.ac, 'CHF')}</td></tr>
+                  <tr><td className="py-1 text-muted">LAA (0.7%)</td><td className="py-1 text-right font-mono">{formatCurrency(chResult.laa, 'CHF')}</td></tr>
+                  <tr><td className="py-1 text-muted">IJM (0.8%)</td><td className="py-1 text-right font-mono">{formatCurrency(chResult.ijm, 'CHF')}</td></tr>
+                  <tr><td className="py-1 text-muted">LPP ({ageGroup})</td><td className="py-1 text-right font-mono">{formatCurrency(chResult.lpp, 'CHF')}</td></tr>
                 </tbody>
               </table>
             </div>

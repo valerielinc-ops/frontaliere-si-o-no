@@ -159,8 +159,8 @@ const SubscriptionCTA: React.FC = () => {
           <>
             <Mail className="w-10 h-10 text-amber-500 mx-auto mb-2" />
             <p className="font-bold text-slate-800 dark:text-slate-100">{t('newsletter.doubleOptIn.title')}</p>
-            <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">{t('newsletter.doubleOptIn.description')}</p>
-            <p className="text-sm text-slate-500 dark:text-slate-400 mt-2">{t('newsletter.doubleOptIn.spamHint')}</p>
+            <p className="text-sm text-subtle mt-1">{t('newsletter.doubleOptIn.description')}</p>
+            <p className="text-sm text-muted mt-2">{t('newsletter.doubleOptIn.spamHint')}</p>
 
             {/* FRO-23: Email provider button */}
             {email && (() => {
@@ -206,7 +206,7 @@ const SubscriptionCTA: React.FC = () => {
           <>
             <CheckCircle2 className="w-10 h-10 text-emerald-500 mx-auto mb-2" />
             <p className="font-bold text-slate-800 dark:text-slate-100">{t('newsletter.subscriptionConfirmed')}</p>
-            <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">{t('newsletter.subscriptionConfirmedDesc')}</p>
+            <p className="text-sm text-subtle mt-1">{t('newsletter.subscriptionConfirmedDesc')}</p>
           </>
         )}
       </div>
@@ -241,27 +241,27 @@ const SubscriptionCTA: React.FC = () => {
             <h4 className="font-bold text-slate-800 dark:text-slate-100 text-sm leading-tight">
               {t('newsletter.cta.postCalc.title')}
             </h4>
-            <p className="text-sm text-slate-600 dark:text-slate-400 mt-0.5">
+            <p className="text-sm text-subtle mt-0.5">
               {t('newsletter.cta.postCalc.subtitle')}
             </p>
           </div>
         </div>
 
         {/* This week's preview */}
-        <div className="mb-4 p-3 bg-white dark:bg-slate-800 rounded-xl border border-slate-200/60 dark:border-slate-700/60">
+        <div className="mb-4 p-3 bg-surface rounded-xl border border-slate-200/60 dark:border-slate-700/60">
           <p className="text-xs text-amber-600 dark:text-amber-300 font-bold uppercase tracking-wider mb-2 flex items-center gap-1">
             <Sparkles className="w-3 h-3" /> {t('newsletter.cta.thisWeek')}
           </p>
           <div className="space-y-1.5">
-            <div className="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300">
+            <div className="flex items-center gap-2 text-xs text-body">
               <TrendingUp className="w-3 h-3 text-blue-500 shrink-0" />
               <span>{t('newsletter.cta.preview1')}</span>
             </div>
-            <div className="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300">
+            <div className="flex items-center gap-2 text-xs text-body">
               <FileText className="w-3 h-3 text-amber-500 shrink-0" />
               <span>{t('newsletter.cta.preview2')}</span>
             </div>
-            <div className="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300">
+            <div className="flex items-center gap-2 text-xs text-body">
               <Lightbulb className="w-3 h-3 text-emerald-500 shrink-0" />
               <span>{t('newsletter.cta.preview3')}</span>
             </div>
@@ -277,7 +277,7 @@ const SubscriptionCTA: React.FC = () => {
               value={email}
               onChange={(val) => { setEmail(val); setStatus('idle'); }}
               placeholder={t('newsletter.emailPlaceholder')}
-              className="w-full px-4 py-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 text-slate-800 dark:text-slate-100 text-sm"
+              className="w-full px-4 py-2.5 bg-surface border border-edge rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 text-slate-800 dark:text-slate-100 text-sm"
             />
           </div>
           <button
@@ -307,7 +307,7 @@ const SubscriptionCTA: React.FC = () => {
 
         {/* Footer: social proof + privacy */}
         <div className="flex items-center justify-between mt-3">
-          <div className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400">
+          <div className="flex items-center gap-1.5 text-xs text-muted">
             <Users className="w-3.5 h-3.5 text-indigo-500" />
             <span>{t('newsletter.cta.subscriberCount')}</span>
           </div>

@@ -277,7 +277,7 @@ const WorkPermitsGuide: React.FC = () => {
     const isOpen = expandedSection === id;
     const slug = getPermitSectionSlug(id as PermitSectionKey);
     return (
-      <div id={slug} className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+      <div id={slug} className="bg-surface rounded-2xl border border-edge overflow-hidden">
         <div
           role="button"
           tabIndex={0}
@@ -292,7 +292,7 @@ const WorkPermitsGuide: React.FC = () => {
           className="flex items-center justify-between p-4 cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors"
         >
           <div className="flex items-center gap-3">
-            <Icon size={20} className="text-slate-500 dark:text-slate-400" />
+            <Icon size={20} className="text-muted" />
             <h4 className="font-bold text-slate-800 dark:text-slate-100">{title}</h4>
           </div>
           {isOpen ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
@@ -334,13 +334,13 @@ const WorkPermitsGuide: React.FC = () => {
             className={`p-4 rounded-2xl border-2 transition-[color,background-color,border-color,box-shadow] text-left ${
               selectedPermit === p.id
                 ? `border-transparent bg-gradient-to-br ${p.color} text-white shadow-lg scale-[1.02]`
-                : 'border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:border-slate-300 dark:hover:border-slate-600'
+                : 'border-edge bg-surface hover:border-slate-300 dark:hover:border-slate-600'
             }`}
           >
             <div className="text-2xl mb-1">{p.icon}</div>
             <div className="font-bold text-lg">{p.name}</div>
-            <div className={`text-xs mt-0.5 ${selectedPermit === p.id ? 'text-white/90' : 'text-slate-500 dark:text-slate-400'}`}>{p.fullName}</div>
-            <div className={`text-xs mt-2 font-bold ${selectedPermit === p.id ? 'text-white/70' : 'text-slate-500 dark:text-slate-400'}`}>{p.duration}</div>
+            <div className={`text-xs mt-0.5 ${selectedPermit === p.id ? 'text-white/90' : 'text-muted'}`}>{p.fullName}</div>
+            <div className={`text-xs mt-2 font-bold ${selectedPermit === p.id ? 'text-white/70' : 'text-muted'}`}>{p.duration}</div>
           </button>
         ))}
       </div>
@@ -380,7 +380,7 @@ const WorkPermitsGuide: React.FC = () => {
         <Section id="requirements" icon={CheckCircle2} title={t('permits.requirements')}>
           <ul className="space-y-2 mt-2">
             {permit.requirements.map((req, i) => (
-              <li key={i} className="flex items-start gap-2 text-sm text-slate-700 dark:text-slate-300">
+              <li key={i} className="flex items-start gap-2 text-sm text-body">
                 <CheckCircle2 size={16} className="text-emerald-500 flex-shrink-0 mt-0.5" />
                 {req}
               </li>
@@ -391,7 +391,7 @@ const WorkPermitsGuide: React.FC = () => {
         <Section id="documents" icon={FileText} title={t('permits.documents')}>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">
             {permit.documents.map((doc, i) => (
-              <div key={i} className="flex items-center gap-2 p-2.5 bg-slate-50 dark:bg-slate-900 rounded-lg text-sm text-slate-700 dark:text-slate-300">
+              <div key={i} className="flex items-center gap-2 p-2.5 bg-surface-alt rounded-lg text-sm text-body">
                 <FileText size={14} className="text-blue-500 flex-shrink-0" />
                 {doc}
               </div>
@@ -402,7 +402,7 @@ const WorkPermitsGuide: React.FC = () => {
         <Section id="rights" icon={Shield} title={t('permits.sectionRights')}>
           <ul className="space-y-2 mt-2">
             {permit.rights.map((r, i) => (
-              <li key={i} className="flex items-start gap-2 text-sm text-slate-700 dark:text-slate-300">
+              <li key={i} className="flex items-start gap-2 text-sm text-body">
                 <ArrowRight size={14} className="text-emerald-500 flex-shrink-0 mt-1" />
                 {r}
               </li>
@@ -413,7 +413,7 @@ const WorkPermitsGuide: React.FC = () => {
         <Section id="limitations" icon={AlertCircle} title={t('permits.sectionLimitations')}>
           <ul className="space-y-2 mt-2">
             {permit.limitations.map((l, i) => (
-              <li key={i} className="flex items-start gap-2 text-sm text-slate-700 dark:text-slate-300">
+              <li key={i} className="flex items-start gap-2 text-sm text-body">
                 <AlertCircle size={14} className="text-amber-500 flex-shrink-0 mt-0.5" />
                 {l}
               </li>
@@ -422,11 +422,11 @@ const WorkPermitsGuide: React.FC = () => {
         </Section>
 
         <Section id="family" icon={Users} title={t('permits.sectionFamily')}>
-          <p className="text-sm text-slate-700 dark:text-slate-300 mt-2">{permit.familyReunion}</p>
+          <p className="text-sm text-body mt-2">{permit.familyReunion}</p>
         </Section>
 
         <Section id="tax" icon={Building2} title={t('permits.sectionTax')}>
-          <p className="text-sm text-slate-700 dark:text-slate-300 mt-2">{permit.taxImplications}</p>
+          <p className="text-sm text-body mt-2">{permit.taxImplications}</p>
         </Section>
 
         {/* Vecchio vs Nuovo Frontaliere — G permit only */}
@@ -434,7 +434,7 @@ const WorkPermitsGuide: React.FC = () => {
           <Section id="status-change" icon={RefreshCw} title={t('permits.g.statusTitle')}>
             <div className="space-y-4 mt-2">
               {/* Intro */}
-              <p className="text-sm text-slate-700 dark:text-slate-300">{t('permits.g.statusIntro')}</p>
+              <p className="text-sm text-body">{t('permits.g.statusIntro')}</p>
 
               {/* Vecchio definition */}
               <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-5">
@@ -442,9 +442,9 @@ const WorkPermitsGuide: React.FC = () => {
                   <Shield size={16} />
                   {t('permits.g.oldLabel')}
                 </h5>
-                <p className="text-sm text-slate-700 dark:text-slate-300 mb-2">{t('permits.g.oldDefinition')}</p>
-                <div className="bg-white dark:bg-slate-800 rounded-lg p-3 text-xs text-slate-600 dark:text-slate-400">
-                  <span className="font-bold text-blue-600 dark:text-blue-400">{t('permits.g.regimeLabel')}:</span> {t('permits.g.oldRegime')}
+                <p className="text-sm text-body mb-2">{t('permits.g.oldDefinition')}</p>
+                <div className="bg-surface rounded-lg p-3 text-xs text-subtle">
+                  <span className="font-bold text-link">{t('permits.g.regimeLabel')}:</span> {t('permits.g.oldRegime')}
                 </div>
               </div>
 
@@ -454,8 +454,8 @@ const WorkPermitsGuide: React.FC = () => {
                   <AlertCircle size={16} />
                   {t('permits.g.newLabel')}
                 </h5>
-                <p className="text-sm text-slate-700 dark:text-slate-300 mb-2">{t('permits.g.newDefinition')}</p>
-                <div className="bg-white dark:bg-slate-800 rounded-lg p-3 text-xs text-slate-600 dark:text-slate-400">
+                <p className="text-sm text-body mb-2">{t('permits.g.newDefinition')}</p>
+                <div className="bg-surface rounded-lg p-3 text-xs text-subtle">
                   <span className="font-bold text-amber-600 dark:text-amber-400">{t('permits.g.regimeLabel')}:</span> {t('permits.g.newRegime')}
                 </div>
               </div>
@@ -466,10 +466,10 @@ const WorkPermitsGuide: React.FC = () => {
                   <Scale size={16} />
                   {t('permits.g.switchTitle')}
                 </h5>
-                <p className="text-sm text-slate-700 dark:text-slate-300 mb-3">{t('permits.g.switchQuestion')}</p>
-                <div className="bg-white dark:bg-slate-800 rounded-lg p-3 space-y-2">
+                <p className="text-sm text-body mb-3">{t('permits.g.switchQuestion')}</p>
+                <div className="bg-surface rounded-lg p-3 space-y-2">
                   <p className="text-sm font-bold text-emerald-700 dark:text-emerald-400">{t('permits.g.switchAnswer')}</p>
-                  <p className="text-sm text-slate-700 dark:text-slate-300">{t('permits.g.switchExplanation')}</p>
+                  <p className="text-sm text-body">{t('permits.g.switchExplanation')}</p>
                 </div>
                 <div className="mt-3 flex items-start gap-2 bg-amber-50 dark:bg-amber-900/30 rounded-lg p-3">
                   <AlertTriangle size={16} className="text-amber-600 dark:text-amber-400 flex-shrink-0 mt-0.5" />
@@ -479,21 +479,21 @@ const WorkPermitsGuide: React.FC = () => {
 
               {/* Sources */}
               <div className="bg-warm-50 dark:bg-warm-950 rounded-xl p-5 flex items-start gap-3">
-                <FileText size={16} className="text-slate-500 dark:text-slate-400 flex-shrink-0 mt-0.5" />
-                <p className="text-sm text-slate-600 dark:text-slate-400">{t('permits.g.switchNote')}</p>
+                <FileText size={16} className="text-muted flex-shrink-0 mt-0.5" />
+                <p className="text-sm text-subtle">{t('permits.g.switchNote')}</p>
               </div>
             </div>
           </Section>
         )}
 
         <Section id="renewal" icon={Clock} title={t('permits.sectionRenewal')}>
-          <p className="text-sm text-slate-700 dark:text-slate-300 mt-2">{permit.renewal}</p>
+          <p className="text-sm text-body mt-2">{permit.renewal}</p>
         </Section>
 
         <Section id="tips" icon={Info} title={t('permits.sectionTips')}>
           <ul className="space-y-2 mt-2">
             {permit.tips.map((tip, i) => (
-              <li key={i} className="flex items-start gap-2 text-sm text-slate-700 dark:text-slate-300">
+              <li key={i} className="flex items-start gap-2 text-sm text-body">
                 <span className="text-base">💡</span>
                 {tip}
               </li>
@@ -503,7 +503,7 @@ const WorkPermitsGuide: React.FC = () => {
       </div>
 
       {/* Comparison table */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 sm:p-6">
+      <div className="bg-surface rounded-2xl border border-edge p-5 sm:p-6">
         <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-4 flex items-center gap-2">
           <Globe size={20} className="text-blue-600" />
           {t('permits.comparisonTitle')}
@@ -512,17 +512,17 @@ const WorkPermitsGuide: React.FC = () => {
         <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-white dark:from-slate-900 sm:hidden z-10" />
         <table className="w-full text-sm min-w-[600px] sm:min-w-0">
           <thead>
-            <tr className="border-b-2 border-slate-200 dark:border-slate-700">
-              <th className="text-left py-3 text-slate-500 dark:text-slate-400 font-bold">{t('permits.feature')}</th>
+            <tr className="border-b-2 border-edge">
+              <th className="text-left py-3 text-muted font-bold">{t('permits.feature')}</th>
               {permits.map(p => (
                 <th key={p.id} className="text-center py-3 font-bold">
                   <span className="text-lg">{p.icon}</span>
-                  <div className={`text-xs mt-1 ${selectedPermit === p.id ? 'text-blue-600 dark:text-blue-400' : 'text-slate-600 dark:text-slate-400'}`}>{p.name}</div>
+                  <div className={`text-xs mt-1 ${selectedPermit === p.id ? 'text-link' : 'text-subtle'}`}>{p.name}</div>
                 </th>
               ))}
             </tr>
           </thead>
-          <tbody className="text-slate-700 dark:text-slate-300">
+          <tbody className="text-body">
             {[
               { label: t('permits.cmp.residenceCH'), values: ['❌', '✅', '✅', '✅'] },
               { label: t('permits.cmp.duration'), values: [t('permits.cmp.5years'), t('permits.cmp.5years'), '∞', t('permits.cmp.max1year')] },

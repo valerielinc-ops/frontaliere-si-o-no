@@ -97,19 +97,19 @@ const ConsultingPage: React.FC = () => {
         <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">
           {t('consulting.title')}
         </h1>
-        <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-lg">
+        <p className="text-subtle max-w-2xl mx-auto text-lg">
           {t('consulting.subtitle')}
         </p>
       </div>
 
       {/* Trust bar */}
-      <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-slate-500 dark:text-slate-400">
+      <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-muted">
         <span className="inline-flex items-center gap-1.5">
           <Shield className="w-4 h-4 text-green-600 dark:text-green-400" />
           {t('consulting.trust.secure')}
         </span>
         <span className="inline-flex items-center gap-1.5">
-          <Users className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+          <Users className="w-4 h-4 text-link" />
           {t('consulting.trust.experts')}
         </span>
         <span className="inline-flex items-center gap-1.5">
@@ -131,7 +131,7 @@ const ConsultingPage: React.FC = () => {
               className={`relative rounded-2xl border-2 p-4 sm:p-6 cursor-pointer transition-colors duration-200 ${
                 tier.popular
                   ? 'border-amber-400 dark:border-amber-500 bg-amber-50/30 dark:bg-amber-950/20'
-                  : 'border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/50'
+                  : 'border-edge bg-surface/50'
               } ${isSelected ? 'ring-2 ring-blue-500 ring-offset-2 dark:ring-offset-slate-900 scale-[1.02]' : 'hover:border-slate-300 dark:hover:border-slate-600'}`}
             >
               {tier.popular && (
@@ -154,7 +154,7 @@ const ConsultingPage: React.FC = () => {
                     <h3 className="font-bold text-lg text-slate-900 dark:text-white">
                       {t(`consulting.${tier.id}.name`)}
                     </h3>
-                    <span className="text-sm text-slate-500 dark:text-slate-400 inline-flex items-center gap-1">
+                    <span className="text-sm text-muted inline-flex items-center gap-1">
                       <Clock className="w-3.5 h-3.5" />
                       {tier.duration} min
                     </span>
@@ -164,11 +164,11 @@ const ConsultingPage: React.FC = () => {
                 {/* Price */}
                 <div className="flex items-baseline gap-1">
                   <span className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">€{tier.price}</span>
-                  <span className="text-slate-500 dark:text-slate-400 text-sm">/{t('consulting.perSession')}</span>
+                  <span className="text-muted text-sm">/{t('consulting.perSession')}</span>
                 </div>
 
                 {/* Description */}
-                <p className="text-sm text-slate-600 dark:text-slate-400">
+                <p className="text-sm text-subtle">
                   {t(`consulting.${tier.id}.description`)}
                 </p>
 
@@ -179,9 +179,9 @@ const ConsultingPage: React.FC = () => {
                       <CheckCircle className={`w-4 h-4 mt-0.5 flex-shrink-0 ${
                         tier.popular
                           ? 'text-amber-600 dark:text-amber-400'
-                          : 'text-blue-600 dark:text-blue-400'
+                          : 'text-link'
                       }`} />
-                      <span className="text-slate-700 dark:text-slate-300">{feature.trim()}</span>
+                      <span className="text-body">{feature.trim()}</span>
                     </li>
                   ))}
                 </ul>
@@ -216,17 +216,17 @@ const ConsultingPage: React.FC = () => {
             { icon: <Video className="w-5 h-5" />, step: 2, key: 'step2' },
             { icon: <FileText className="w-5 h-5" />, step: 3, key: 'step3' },
           ].map(({ icon, step, key }) => (
-            <div key={step} className="text-center p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 space-y-2">
+            <div key={step} className="text-center p-4 rounded-xl bg-surface-alt/50 space-y-2">
               <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-400 font-bold text-sm">
                 {step}
               </div>
-              <div className="flex justify-center text-slate-600 dark:text-slate-400">
+              <div className="flex justify-center text-subtle">
                 {icon}
               </div>
               <h3 className="font-semibold text-sm text-slate-900 dark:text-white">
                 {t(`consulting.${key}.title`)}
               </h3>
-              <p className="text-sm text-slate-500 dark:text-slate-400">
+              <p className="text-sm text-muted">
                 {t(`consulting.${key}.desc`)}
               </p>
             </div>
@@ -235,13 +235,13 @@ const ConsultingPage: React.FC = () => {
       </div>
 
       {/* Topics */}
-      <div className="max-w-3xl mx-auto bg-slate-50 dark:bg-slate-800/30 rounded-2xl p-4 sm:p-6 space-y-4">
+      <div className="max-w-3xl mx-auto bg-surface-alt/30 rounded-2xl p-4 sm:p-6 space-y-4">
         <h2 className="text-lg font-bold text-slate-900 dark:text-white">
           {t('consulting.topicsTitle')}
         </h2>
         <div className="grid sm:grid-cols-2 gap-3">
           {(t('consulting.topicsList') || '').split('|').filter(Boolean).map((topic, i) => (
-            <div key={i} className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300">
+            <div key={i} className="flex items-center gap-2 text-sm text-body">
               <CheckCircle className="w-4 h-4 text-green-600 dark:text-green-400 flex-shrink-0" />
               {topic.trim()}
             </div>
@@ -254,7 +254,7 @@ const ConsultingPage: React.FC = () => {
         <div ref={calendlyRef} className="max-w-3xl mx-auto space-y-4">
           <div className="flex items-center justify-between">
             <h2 className="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
-              <Calendar className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+              <Calendar className="w-5 h-5 text-link" />
               {t(`consulting.${selectedTier}.name`)} — {t('consulting.book')}
             </h2>
             <button
@@ -266,7 +266,7 @@ const ConsultingPage: React.FC = () => {
             </button>
           </div>
           <div
-            className="calendly-inline-widget rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700"
+            className="calendly-inline-widget rounded-2xl overflow-hidden border border-edge"
             data-url={selectedTier === 'premium' ? CALENDLY_PREMIUM : CALENDLY_BASE}
             style={{ minWidth: '320px', height: '700px' }}
           />
@@ -274,7 +274,7 @@ const ConsultingPage: React.FC = () => {
       )}
 
       {/* Disclaimer */}
-      <p className="text-center text-xs text-slate-500 dark:text-slate-400 max-w-2xl mx-auto">
+      <p className="text-center text-xs text-muted max-w-2xl mx-auto">
         {t('consulting.disclaimer')}
       </p>
     </div>

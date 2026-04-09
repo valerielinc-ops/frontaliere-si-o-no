@@ -31,7 +31,7 @@ const CurrencyValue: React.FC<{ value: number; currency: string; className?: str
   <span className={`font-mono font-bold tracking-tight whitespace-nowrap tabular-nums ${className}`}>
     {!smallCurrency && (currency === 'EUR' ? '€ ' : 'CHF ')}
     {formatCurrency(value)}
-    {smallCurrency && <span className="text-[0.7em] ml-1 font-sans font-normal text-slate-500 dark:text-slate-400">{currency}</span>}
+    {smallCurrency && <span className="text-[0.7em] ml-1 font-sans font-normal text-muted">{currency}</span>}
   </span>
 );
 
@@ -117,13 +117,13 @@ const BreakdownTable: React.FC<{ data: TaxBreakdownItem[]; currency: string; sho
           <div className="flex-1 pr-3 flex items-center gap-2 min-w-0">
             {!isTotal && !isNet && <div className={`w-2 h-2 rounded-full flex-shrink-0 ${dotColor}`}></div>}
             <div className="flex items-center gap-1.5 min-w-0">
-              <div className={`truncate transition-colors ${isTotal || isNet ? 'font-bold text-base text-slate-900 dark:text-slate-100' : 'font-medium text-slate-600 dark:text-slate-400 group-hover:text-slate-900 dark:group-hover:text-slate-200'}`}>
+              <div className={`truncate transition-colors ${isTotal || isNet ? 'font-bold text-base text-heading' : 'font-medium text-subtle group-hover:text-slate-900 dark:group-hover:text-slate-200'}`}>
                 {translateKey(item.label)}
               </div>
               
               {!isTotal && item.description && (
                 <div className="group/tooltip relative inline-flex items-center flex-shrink-0">
-                  <Info size={12} className="text-slate-500 dark:text-slate-400 cursor-help group-hover/tooltip:text-indigo-500 transition-colors" />
+                  <Info size={12} className="text-muted cursor-help group-hover/tooltip:text-indigo-500 transition-colors" />
                   <div className={`absolute bottom-full left-0 mb-2 ${showMobileTooltip ? 'block' : 'hidden'} group-hover/tooltip:block w-56 p-3 bg-slate-900 dark:bg-slate-800 text-white text-xs font-medium rounded-xl shadow-2xl z-50 animate-fade-in border border-slate-700`}>
                     {translateKey(item.description)}
                     <div className="absolute top-full left-2 -translate-x-1/2 border-8 border-transparent border-t-slate-900 dark:border-t-slate-800"></div>
@@ -136,7 +136,7 @@ const BreakdownTable: React.FC<{ data: TaxBreakdownItem[]; currency: string; sho
           {/* Value Section */}
           <div className="text-right flex items-center justify-end gap-3 flex-shrink-0">
              {item.percentage !== 0 && !isNet && (
-                <div className="w-10 sm:w-12 text-xs font-bold text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 group-hover:bg-slate-200/70 rounded px-1 py-0.5 text-center flex-shrink-0 transition-colors hidden sm:block">
+                <div className="w-10 sm:w-12 text-xs font-bold text-subtle bg-surface-raised group-hover:bg-slate-200/70 rounded px-1 py-0.5 text-center flex-shrink-0 transition-colors hidden sm:block">
                   {Math.abs(item.percentage).toFixed(1)}%
                 </div>
              )}
@@ -146,7 +146,7 @@ const BreakdownTable: React.FC<{ data: TaxBreakdownItem[]; currency: string; sho
                     <div className={`text-right font-mono font-bold whitespace-nowrap tabular-nums ${isNet ? 'text-lg text-emerald-700 dark:text-emerald-400' : (isNegative ? 'text-red-700 dark:text-red-400' : 'text-slate-800 dark:text-slate-100')}`}>
                         {isNegative ? '-' : ''} <CurrencyValue value={item.amountEUR !== undefined && item.amountEUR !== 0 ? Math.abs(item.amountEUR) : (exchangeRate ? Math.abs(item.amount) * exchangeRate : Math.abs(item.amount))} currency="EUR" />
                     </div>
-                    <div className="text-xs font-mono text-slate-500 dark:text-slate-400 font-medium whitespace-nowrap tabular-nums h-4">
+                    <div className="text-xs font-mono text-muted font-medium whitespace-nowrap tabular-nums h-4">
                        ≈ CHF {formatCurrency(Math.abs(item.amount))}
                     </div>
                   </>
@@ -156,7 +156,7 @@ const BreakdownTable: React.FC<{ data: TaxBreakdownItem[]; currency: string; sho
                         {isNegative ? '-' : ''} <CurrencyValue value={item.amount} currency={currency} />
                     </div>
                     {showEUR && (
-                        <div className="text-xs font-mono text-slate-500 dark:text-slate-400 font-medium whitespace-nowrap tabular-nums h-4">
+                        <div className="text-xs font-mono text-muted font-medium whitespace-nowrap tabular-nums h-4">
                            {item.amountEUR !== undefined && item.amountEUR !== 0 ? `≈ € ${formatCurrency(Math.abs(item.amountEUR))}` : ''}
                         </div>
                     )}
@@ -248,7 +248,7 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
     if (inputs.children > 0) {
       tags.push({ label: t('input.childrenCount', { count: inputs.children }), icon: Baby, color: 'text-pink-700 dark:text-pink-400', bg: 'bg-pink-50 dark:bg-pink-900/20', field: 'children' });
     } else {
-        tags.push({ label: t('input.noChildren'), icon: Baby, color: 'text-slate-500 dark:text-slate-400', bg: 'bg-slate-100 dark:bg-slate-800', field: 'children' });
+        tags.push({ label: t('input.noChildren'), icon: Baby, color: 'text-muted', bg: 'bg-surface-raised', field: 'children' });
     }
 
     // Tag 4: Work Type
@@ -415,25 +415,25 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
   };
 
   return (
-    <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden flex flex-col h-full animate-fade-in-up transition-colors duration-300">
-      <div className="p-5 bg-white dark:bg-slate-800 border-b border-slate-100 dark:border-slate-800 flex justify-between items-start sm:items-center sticky top-0 z-10 gap-4 flex-col sm:flex-row">
+    <div className="bg-surface rounded-2xl shadow-sm border border-edge overflow-hidden flex flex-col h-full animate-fade-in-up transition-colors duration-300">
+      <div className="p-5 bg-surface border-b border-slate-100 dark:border-slate-800 flex justify-between items-start sm:items-center sticky top-0 z-10 gap-4 flex-col sm:flex-row">
         <div className="flex-1 w-full">
            <div className="flex justify-between items-center mb-2">
              <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100">{t('results.comparativeAnalysis')}</h2>
              {/* Action buttons - aligned together */}
              <div className="flex items-center gap-1">
                {/* CHF / EUR toggle switch */}
-               <div className="flex items-center bg-slate-100 dark:bg-slate-800 rounded-xl p-0.5 gap-0.5">
+               <div className="flex items-center bg-surface-raised rounded-xl p-0.5 gap-0.5">
                  <button
                    onClick={() => setShowEUR(false)}
-                   className={`px-2.5 py-1.5 rounded-lg text-xs font-bold transition-[color,background-color,box-shadow] ${!showEUR ? 'bg-white dark:bg-slate-700 text-blue-700 dark:text-blue-300 shadow-sm' : 'text-slate-600 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300'}`}
+                   className={`px-2.5 py-1.5 rounded-lg text-xs font-bold transition-[color,background-color,box-shadow] ${!showEUR ? 'bg-white dark:bg-slate-700 text-blue-700 dark:text-blue-300 shadow-sm' : 'text-subtle hover:text-slate-700 dark:hover:text-slate-300'}`}
                    aria-label={t('results.showCHF')}
                  >
                    CHF
                  </button>
                  <button
                    onClick={() => setShowEUR(true)}
-                   className={`px-2.5 py-1.5 rounded-lg text-xs font-bold transition-[color,background-color,box-shadow] ${showEUR ? 'bg-white dark:bg-slate-700 text-amber-700 dark:text-amber-300 shadow-sm' : 'text-slate-600 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300'}`}
+                   className={`px-2.5 py-1.5 rounded-lg text-xs font-bold transition-[color,background-color,box-shadow] ${showEUR ? 'bg-white dark:bg-slate-700 text-amber-700 dark:text-amber-300 shadow-sm' : 'text-subtle hover:text-slate-700 dark:hover:text-slate-300'}`}
                    aria-label={t('results.showEUR')}
                  >
                    EUR
@@ -442,7 +442,7 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
                {nav && (
                  <button
                    onClick={() => { const newFocus = !isFocusMode; nav.setIsFocusMode(newFocus); Analytics.trackFocusMode(newFocus); }}
-                   className={`p-2 rounded-xl transition-colors ${isFocusMode ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400' : 'text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
+                   className={`p-2 rounded-xl transition-colors ${isFocusMode ? 'bg-blue-50 dark:bg-blue-900/20 text-link' : 'text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
                    title={isFocusMode ? t('results.detailedView') : t('results.conciseView')}
                    aria-label={isFocusMode ? t('results.detailedView') : t('results.conciseView')}
                  >
@@ -541,7 +541,7 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
           <div
             id="results-ch-section"
             ref={chSectionRef}
-            className={`bg-white dark:bg-slate-800 rounded-3xl p-4 sm:p-6 shadow-sm border relative group transition-[box-shadow,border-color] hover:shadow-md ${
+            className={`bg-surface rounded-3xl p-4 sm:p-6 shadow-sm border relative group transition-[box-shadow,border-color] hover:shadow-md ${
               focusArea === 'CH'
                 ? 'border-blue-400 dark:border-blue-500 ring-2 ring-blue-200/80 dark:ring-blue-900/60'
                 : 'border-slate-100 dark:border-slate-700'
@@ -581,9 +581,9 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
                 <>
                   <BreakdownTable data={chResident.breakdown} currency="CHF" showEUR={showEUR} exchangeRate={exchangeRate} />
                   {chResident.details.notes.length > 0 && (
-                    <div className="mt-4 p-3 bg-slate-50 dark:bg-slate-900/50 rounded-xl border border-dashed border-slate-200 dark:border-slate-800">
-                        <p className="text-xs font-bold uppercase text-slate-500 dark:text-slate-400 mb-1">{t('results.notes')}</p>
-                        <ul className="text-xs text-slate-500 dark:text-slate-400 list-disc list-inside">
+                    <div className="mt-4 p-3 bg-surface-alt/50 rounded-xl border border-dashed border-slate-200 dark:border-slate-800">
+                        <p className="text-xs font-bold uppercase text-muted mb-1">{t('results.notes')}</p>
+                        <ul className="text-xs text-muted list-disc list-inside">
                             {chResident.details.notes.map((note, i) => <li key={i}>{t(note.split('|')[0])}</li>)}
                         </ul>
                     </div>
@@ -597,7 +597,7 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
           <div
             id="results-it-section"
             ref={itSectionRef}
-            className={`bg-white dark:bg-slate-800 rounded-3xl p-4 sm:p-6 shadow-sm border relative group transition-[box-shadow,border-color] hover:shadow-md ${
+            className={`bg-surface rounded-3xl p-4 sm:p-6 shadow-sm border relative group transition-[box-shadow,border-color] hover:shadow-md ${
               focusArea === 'IT'
                 ? 'border-emerald-400 dark:border-emerald-500 ring-2 ring-emerald-200/80 dark:ring-emerald-900/60'
                 : 'border-slate-100 dark:border-slate-700'
@@ -640,8 +640,8 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
 
                   {/* MOVED BLOCK: Swiss Net Salary (Pre-Italian Tax) */}
                   {itResident.swissNetIncomeMonthlyCHF && (
-                    <div className="bg-slate-50 dark:bg-slate-900/50 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 mt-2 relative overflow-hidden">
-                       <div className="text-xs text-slate-500 dark:text-slate-400 font-bold uppercase mb-1 relative z-10">
+                    <div className="bg-surface-alt/50 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 mt-2 relative overflow-hidden">
+                       <div className="text-xs text-muted font-bold uppercase mb-1 relative z-10">
                           {t('results.swissPayslipNet')}
                        </div>
                        <div className="text-xl font-bold text-slate-700 dark:text-slate-200 relative z-10">
@@ -650,22 +650,22 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
                        <ul className="mt-3 space-y-1.5 relative z-10">
                           {itResident.details.regime === "calc.regime.newFrontier" ? (
                               <>
-                                <li className="text-xs text-slate-500 dark:text-slate-400 font-medium flex items-center gap-1.5"><div className="w-1.5 h-1.5 rounded-full bg-indigo-500"></div> {t('results.concurrentTax')}</li>
+                                <li className="text-xs text-muted font-medium flex items-center gap-1.5"><div className="w-1.5 h-1.5 rounded-full bg-indigo-500"></div> {t('results.concurrentTax')}</li>
                                 {itResident.details.franchigiaEUR ? (
-                                  <li className="text-xs text-slate-500 dark:text-slate-400 font-medium flex items-center gap-1.5"><div className="w-1.5 h-1.5 rounded-full bg-emerald-500"></div> {t('results.franchiseApplied', { amount: formatCurrency(itResident.details.franchigiaEUR) })}</li>
+                                  <li className="text-xs text-muted font-medium flex items-center gap-1.5"><div className="w-1.5 h-1.5 rounded-full bg-emerald-500"></div> {t('results.franchiseApplied', { amount: formatCurrency(itResident.details.franchigiaEUR) })}</li>
                                 ) : null}
                               </>
                           ) : (
-                              <li className="text-xs text-slate-500 dark:text-slate-400 font-medium flex items-center gap-1.5"><div className="w-1.5 h-1.5 rounded-full bg-emerald-500"></div> {t('results.exclusiveSwissTax')}</li>
+                              <li className="text-xs text-muted font-medium flex items-center gap-1.5"><div className="w-1.5 h-1.5 rounded-full bg-emerald-500"></div> {t('results.exclusiveSwissTax')}</li>
                           )}
                        </ul>
                     </div>
                   )}
 
                   {itResident.details.notes.length > 0 && (
-                    <div className="mt-4 p-3 bg-slate-50 dark:bg-slate-900/50 rounded-xl border border-dashed border-slate-200 dark:border-slate-800">
-                        <p className="text-xs font-bold uppercase text-slate-500 dark:text-slate-400 mb-1">{t('results.notes')}</p>
-                        <ul className="text-xs text-slate-500 dark:text-slate-400 list-disc list-inside">
+                    <div className="mt-4 p-3 bg-surface-alt/50 rounded-xl border border-dashed border-slate-200 dark:border-slate-800">
+                        <p className="text-xs font-bold uppercase text-muted mb-1">{t('results.notes')}</p>
+                        <ul className="text-xs text-muted list-disc list-inside">
                             {itResident.details.notes.map((note, i) => <li key={i}>{t(note.split('|')[0])}</li>)}
                         </ul>
                     </div>
@@ -680,7 +680,7 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
         <>
         {/* WHY CHOOSE ONE OR THE OTHER? */}
         <div className="mb-8">
-           <h3 className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-6 flex items-center gap-2">
+           <h3 className="text-xs font-bold text-muted uppercase tracking-widest mb-6 flex items-center gap-2">
               <Heart size={14} className="text-rose-500" /> {t('results.whyConvenient')}
            </h3>
            
@@ -690,7 +690,7 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
                  <h4 className="flex items-center gap-2 text-blue-700 dark:text-blue-400 font-bold mb-4">
                     <ShieldCheck size={18} className="text-blue-500" /> {t('results.chooseSwissIf')}
                  </h4>
-                 <ul className="space-y-3 text-xs text-slate-600 dark:text-slate-400 font-medium">
+                 <ul className="space-y-3 text-xs text-subtle font-medium">
                     <li className="flex gap-3"><ChevronRight size={14} className="text-blue-500 shrink-0" /> <span><b>{t('results.ch.quality.title')}</b> {t('results.ch.quality')}</span></li>
                     <li className="flex gap-3"><ChevronRight size={14} className="text-blue-500 shrink-0" /> <span><b>{t('results.ch.career.title')}</b> {t('results.ch.career')}</span></li>
                     <li className="flex gap-3"><ChevronRight size={14} className="text-blue-500 shrink-0" /> <span><b>{t('results.ch.time.title')}</b> {t('results.ch.time')}</span></li>
@@ -703,7 +703,7 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
                  <h4 className="flex items-center gap-2 text-emerald-700 dark:text-emerald-400 font-bold mb-4">
                     <ShoppingBag size={18} className="text-emerald-500" /> {t('results.chooseItalyIf')}
                  </h4>
-                 <ul className="space-y-3 text-xs text-slate-600 dark:text-slate-400 font-medium">
+                 <ul className="space-y-3 text-xs text-subtle font-medium">
                     <li className="flex gap-3"><ChevronRight size={14} className="text-emerald-500 shrink-0" /> <span><b>{t('results.it.cost.title')}</b> {t('results.it.cost')}</span></li>
                     <li className="flex gap-3"><ChevronRight size={14} className="text-emerald-500 shrink-0" /> <span><b>{t('results.it.property.title')}</b> {t('results.it.property')}</span></li>
                     <li className="flex gap-3"><ChevronRight size={14} className="text-emerald-500 shrink-0" /> <span><b>{t('results.it.social.title')}</b> {t('results.it.social')}</span></li>
@@ -724,10 +724,10 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
         )}
 
         <div className="mb-8">
-           <h3 className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-4 flex items-center gap-2">
+           <h3 className="text-xs font-bold text-muted uppercase tracking-widest mb-4 flex items-center gap-2">
               <Calculator size={14} className="text-indigo-500" /> {t('results.monthlyReservesChart')}
            </h3>
-           <Suspense fallback={<div className="h-64 bg-slate-100 dark:bg-slate-800 rounded-xl animate-pulse" />}>
+           <Suspense fallback={<div className="h-64 bg-surface-raised rounded-xl animate-pulse" />}>
              <ComparisonChart result={result} inputs={inputs} isDarkMode={isDarkMode} isFocusMode={isFocusMode} />
            </Suspense>
         </div>
@@ -768,7 +768,7 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
                   <p className="text-sm font-bold text-teal-800 dark:text-teal-300 mb-1">
                     {t('results.compareCta.title')}
                   </p>
-                  <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                  <p className="text-xs text-subtle leading-relaxed">
                     {t('results.compareCta.subtitle')}
                   </p>
                   <div className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-teal-700 dark:text-teal-400 group-hover:gap-2.5 transition-[color,background-color,border-color,box-shadow,opacity,transform] duration-150">
@@ -776,7 +776,7 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
                   </div>
                 </div>
               </div>
-              <p className="mt-3 text-xs text-slate-600 dark:text-slate-400 border-t border-indigo-100 dark:border-indigo-900/40 pt-2.5">
+              <p className="mt-3 text-xs text-subtle border-t border-indigo-100 dark:border-indigo-900/40 pt-2.5">
                 {t('results.compareCta.hint')}
               </p>
             </button>
@@ -784,8 +784,8 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
         )}
 
         {/* Source methodology — AI SEO citability */}
-        <div className="mt-6 p-4 bg-slate-50 dark:bg-slate-900/50 rounded-xl border border-slate-200 dark:border-slate-700">
-          <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+        <div className="mt-6 p-4 bg-surface-alt/50 rounded-xl border border-edge">
+          <p className="text-xs text-muted leading-relaxed">
             <strong>{t('results.methodology.title')}</strong>{' '}
             {t('results.methodology.description')}
           </p>

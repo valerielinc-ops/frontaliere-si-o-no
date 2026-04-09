@@ -139,13 +139,13 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
       </div>
 
       {/* Input section */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl p-4 sm:p-6 border border-slate-200 dark:border-slate-700 space-y-4">
-        <h3 className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2">
+      <div className="bg-surface rounded-2xl p-4 sm:p-6 border border-edge space-y-4">
+        <h3 className="font-bold text-strong flex items-center gap-2">
           <Calculator size={18} className="text-orange-600" /> {t('renovation.inputs')}
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           <div>
-            <label htmlFor="reno-cost" className="block text-xs font-semibold text-slate-600 dark:text-slate-400 mb-1">
+            <label htmlFor="reno-cost" className="block text-xs font-semibold text-subtle mb-1">
               {t('renovation.totalCost')}
             </label>
             <input
@@ -154,18 +154,18 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
               inputMode="numeric"
               value={totalCost}
               onChange={e => setTotalCost(Number(e.target.value))}
-              className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-sm text-slate-800 dark:text-slate-200"
+              className="w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-sm text-strong"
             />
           </div>
           <div>
-            <label htmlFor="reno-country" className="block text-xs font-semibold text-slate-600 dark:text-slate-400 mb-1">
+            <label htmlFor="reno-country" className="block text-xs font-semibold text-subtle mb-1">
               {t('renovation.propertyLocation')}
             </label>
             <select
               id="reno-country"
               value={countryOfProperty}
               onChange={e => setCountryOfProperty(e.target.value as 'CH' | 'IT')}
-              className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-sm text-slate-800 dark:text-slate-200"
+              className="w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-sm text-strong"
             >
               <option value="IT">🇮🇹 Italia</option>
               <option value="CH">🇨🇭 Svizzera</option>
@@ -173,14 +173,14 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
           </div>
           {countryOfProperty === 'IT' ? (
             <div>
-              <label htmlFor="reno-bonus" className="block text-xs font-semibold text-slate-600 dark:text-slate-400 mb-1">
+              <label htmlFor="reno-bonus" className="block text-xs font-semibold text-subtle mb-1">
                 {t('renovation.bonusType')}
               </label>
               <select
                 id="reno-bonus"
                 value={selectedITBonus}
                 onChange={e => setSelectedITBonus(e.target.value)}
-                className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-sm text-slate-800 dark:text-slate-200"
+                className="w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-sm text-strong"
               >
                 {IT_BONUSES.map(b => (
                   <option key={b.key} value={b.key}>{t(`renovation.bonus.${b.key}`)}</option>
@@ -189,14 +189,14 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
             </div>
           ) : (
             <div>
-              <label htmlFor="reno-category" className="block text-xs font-semibold text-slate-600 dark:text-slate-400 mb-1">
+              <label htmlFor="reno-category" className="block text-xs font-semibold text-subtle mb-1">
                 {t('renovation.category')}
               </label>
               <select
                 id="reno-category"
                 value={selectedCategory}
                 onChange={e => setSelectedCategory(e.target.value)}
-                className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-sm text-slate-800 dark:text-slate-200"
+                className="w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-sm text-strong"
               >
                 {RENOVATION_CATEGORIES.map(cat => (
                   <option key={cat.key} value={cat.key}>{t(`renovation.cat.${cat.key}`)}</option>
@@ -209,7 +209,7 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
         {/* Property type selector (prima/seconda casa) — only for IT properties */}
         {countryOfProperty === 'IT' && (
           <div>
-            <label className="block text-sm font-semibold text-slate-600 dark:text-slate-400 mb-2">
+            <label className="block text-sm font-semibold text-subtle mb-2">
               {t('renovation.propertyType')}
             </label>
             <div className="flex gap-2">
@@ -218,7 +218,7 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
                 className={`flex-1 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
                   propertyType === 'prima_casa'
                     ? 'bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 border-2 border-orange-400 dark:border-orange-600'
-                    : 'bg-slate-50 dark:bg-slate-700 text-slate-600 dark:text-slate-400 border-2 border-transparent hover:border-slate-300 dark:hover:border-slate-600'
+                    : 'bg-slate-50 dark:bg-slate-700 text-subtle border-2 border-transparent hover:border-slate-300 dark:hover:border-slate-600'
                 }`}
               >
                 🏠 {t('renovation.primaCasa')}
@@ -228,7 +228,7 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
                 className={`flex-1 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
                   propertyType === 'seconda_casa'
                     ? 'bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 border-2 border-orange-400 dark:border-orange-600'
-                    : 'bg-slate-50 dark:bg-slate-700 text-slate-600 dark:text-slate-400 border-2 border-transparent hover:border-slate-300 dark:hover:border-slate-600'
+                    : 'bg-slate-50 dark:bg-slate-700 text-subtle border-2 border-transparent hover:border-slate-300 dark:hover:border-slate-600'
                 }`}
               >
                 🏡 {t('renovation.secondaCasa')}
@@ -246,7 +246,7 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
         {/* Gross salary input — for standalone IRPEF/capienza calculation */}
         {countryOfProperty === 'IT' && (
           <div>
-            <label htmlFor="stipendio-lordo" className="block text-xs font-semibold text-slate-600 dark:text-slate-400 mb-1">
+            <label htmlFor="stipendio-lordo" className="block text-xs font-semibold text-subtle mb-1">
               {t('capienza.grossSalary')} (CHF)
             </label>
             <input
@@ -257,7 +257,7 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
               step={1000}
               value={stipendioLordo || ''}
               onChange={e => setStipendioLordo(Math.max(0, Number(e.target.value)))}
-              className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-sm text-slate-800 dark:text-slate-200"
+              className="w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-sm text-strong"
               placeholder="100000"
             />
             {stipendioLordo > 0 && redditoImponibile > 0 && (
@@ -265,7 +265,7 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
                 {t('capienza.derivedBase', { base: redditoImponibile.toLocaleString() })}
               </p>
             )}
-            <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
+            <p className="text-sm text-muted mt-1">
               {hasSimulation
                 ? t('capienza.autoPopulated')
                 : t('capienza.grossSalaryHelp')
@@ -276,18 +276,18 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
       </div>
 
       {/* Result */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+      <div className="bg-surface rounded-2xl border border-edge overflow-hidden">
         <button onClick={() => toggleSection('result')} className="w-full flex items-center justify-between p-4">
-          <h3 className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2">
+          <h3 className="font-bold text-strong flex items-center gap-2">
             <Euro size={18} className="text-emerald-700" /> {t('renovation.result')}
           </h3>
-          {openSections.has('result') ? <ChevronUp size={18} className="text-slate-500 dark:text-slate-400" /> : <ChevronDown size={18} className="text-slate-500 dark:text-slate-400" />}
+          {openSections.has('result') ? <ChevronUp size={18} className="text-muted" /> : <ChevronDown size={18} className="text-muted" />}
         </button>
         {openSections.has('result') && (
           <div className="px-4 pb-4 space-y-4 border-t border-slate-100 dark:border-slate-700 pt-4 animate-fade-in">
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               <div className="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-3 text-center">
-                <p className="text-xs text-blue-600 dark:text-blue-400 font-semibold">{t('renovation.totalCostLabel')}</p>
+                <p className="text-xs text-link font-semibold">{t('renovation.totalCostLabel')}</p>
                 <p className="text-lg font-bold text-blue-700 dark:text-blue-300">{result.currency} {totalCost.toLocaleString()}</p>
               </div>
               <div className="bg-emerald-50 dark:bg-emerald-900/20 rounded-xl p-3 text-center">
@@ -305,19 +305,19 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
             </div>
             {countryOfProperty === 'IT' && (
               <>
-                <div className="bg-slate-50 dark:bg-slate-700/50 rounded-xl p-3 text-xs text-slate-500 dark:text-slate-400">
+                <div className="bg-slate-50 dark:bg-slate-700/50 rounded-xl p-3 text-xs text-muted">
                   <p>
                     <CheckCircle2 size={14} className="inline mr-1 text-emerald-500" />
                     {t('renovation.deductionInfo', { percent: String(result.percent), years: String(result.years) })}
                   </p>
                 </div>
                 {/* Capienza fiscale — dynamic simulation section */}
-                <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+                <div className="bg-surface rounded-xl border border-edge overflow-hidden">
                   <button onClick={() => toggleSection('capienza')} className="w-full flex items-center justify-between p-4">
-                    <h3 className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2">
+                    <h3 className="font-bold text-strong flex items-center gap-2">
                       <BarChart3 size={16} className="text-violet-600 dark:text-violet-400" /> {t('capienza.title')}
                     </h3>
-                    {openSections.has('capienza') ? <ChevronUp size={18} className="text-slate-500 dark:text-slate-400" /> : <ChevronDown size={18} className="text-slate-500 dark:text-slate-400" />}
+                    {openSections.has('capienza') ? <ChevronUp size={18} className="text-muted" /> : <ChevronDown size={18} className="text-muted" />}
                   </button>
                   {openSections.has('capienza') && (
                     <div className="px-4 pb-4 space-y-3">
@@ -339,24 +339,24 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
                               </p>
                               <div className="grid grid-cols-2 gap-2 text-xs">
                                 <div className="flex justify-between">
-                                  <span className="text-slate-500 dark:text-slate-400">{t('capienza.taxableBase')}</span>
+                                  <span className="text-muted">{t('capienza.taxableBase')}</span>
                                   <span className="font-medium text-slate-700 dark:text-slate-200">€{redditoImponibile.toLocaleString()}</span>
                                 </div>
                                 <div className="flex justify-between">
-                                  <span className="text-slate-500 dark:text-slate-400">{t('capienza.grossIrpef')}</span>
+                                  <span className="text-muted">{t('capienza.grossIrpef')}</span>
                                   <span className="font-medium text-slate-700 dark:text-slate-200">€{Math.round(taxResult?.irpefGross ?? 0).toLocaleString()}</span>
                                 </div>
                                 {taxResult && (
                                   <>
                                     <div className="flex justify-between">
-                                      <span className="text-slate-500 dark:text-slate-400">{t('capienza.addizionali')}</span>
+                                      <span className="text-muted">{t('capienza.addizionali')}</span>
                                       <span className="font-medium text-slate-700 dark:text-slate-200">€{Math.round(taxResult.totalAddizionali).toLocaleString()}</span>
                                     </div>
                                     <div className="flex justify-between">
-                                      <span className="text-slate-500 dark:text-slate-400">{t('capienza.swissCredit')}</span>
+                                      <span className="text-muted">{t('capienza.swissCredit')}</span>
                                       <span className="font-medium text-slate-700 dark:text-slate-200">−€{Math.round(taxResult.swissTaxCredit).toLocaleString()}</span>
                                     </div>
-                                    <div className="flex justify-between col-span-2 pt-1 border-t border-slate-200 dark:border-slate-600">
+                                    <div className="flex justify-between col-span-2 pt-1 border-t border-edge">
                                       <span className="text-slate-600 dark:text-slate-300 font-semibold">{t('capienza.netTax')}</span>
                                       <span className="font-bold text-slate-800 dark:text-slate-100">€{Math.round(taxResult.finalItalianTaxEUR).toLocaleString()}</span>
                                     </div>
@@ -395,11 +395,11 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
 
                               <div className="grid grid-cols-2 gap-2 text-xs mb-2">
                                 <div>
-                                  <p className="text-slate-500 dark:text-slate-400">{t('capienza.yourCapienza')}</p>
+                                  <p className="text-muted">{t('capienza.yourCapienza')}</p>
                                   <p className="font-bold text-slate-700 dark:text-slate-200">€{Math.round(grossTax).toLocaleString()}/{t('capienza.year')}</p>
                                 </div>
                                 <div>
-                                  <p className="text-slate-500 dark:text-slate-400">{t('capienza.yearlyQuota')}</p>
+                                  <p className="text-muted">{t('capienza.yearlyQuota')}</p>
                                   <p className="font-bold text-slate-700 dark:text-slate-200">€{yearlyDed.toLocaleString()}/{t('capienza.year')}</p>
                                 </div>
                               </div>
@@ -438,11 +438,11 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
                                 <div className="overflow-x-auto">
                                   <table className="w-full text-xs">
                                     <thead>
-                                      <tr className="border-b border-slate-200 dark:border-slate-600">
-                                        <th className="text-left py-1 text-slate-500 dark:text-slate-400 font-medium">{t('capienza.thYear')}</th>
-                                        <th className="text-right py-1 text-slate-500 dark:text-slate-400 font-medium">{t('capienza.thQuota')}</th>
-                                        <th className="text-right py-1 text-slate-500 dark:text-slate-400 font-medium">{t('capienza.thAbsorbed')}</th>
-                                        <th className="text-right py-1 text-slate-500 dark:text-slate-400 font-medium">{t('capienza.thLost')}</th>
+                                      <tr className="border-b border-edge">
+                                        <th className="text-left py-1 text-muted font-medium">{t('capienza.thYear')}</th>
+                                        <th className="text-right py-1 text-muted font-medium">{t('capienza.thQuota')}</th>
+                                        <th className="text-right py-1 text-muted font-medium">{t('capienza.thAbsorbed')}</th>
+                                        <th className="text-right py-1 text-muted font-medium">{t('capienza.thLost')}</th>
                                       </tr>
                                     </thead>
                                     <tbody>
@@ -451,16 +451,16 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
                                         const lost = yearlyDed - absorbed;
                                         return (
                                           <tr key={i} className="border-b border-slate-100 dark:border-slate-600/50">
-                                            <td className="py-1 text-slate-700 dark:text-slate-300">{i + 1}</td>
-                                            <td className="py-1 text-right text-slate-700 dark:text-slate-300">€{yearlyDed.toLocaleString()}</td>
+                                            <td className="py-1 text-body">{i + 1}</td>
+                                            <td className="py-1 text-right text-body">€{yearlyDed.toLocaleString()}</td>
                                             <td className="py-1 text-right text-emerald-700 dark:text-emerald-400">€{absorbed.toLocaleString()}</td>
                                             <td className="py-1 text-right text-red-600 dark:text-red-400">{lost > 0 ? `€${lost.toLocaleString()}` : '—'}</td>
                                           </tr>
                                         );
                                       })}
                                       <tr className="font-semibold">
-                                        <td className="py-1 text-slate-700 dark:text-slate-300">{t('capienza.total')}</td>
-                                        <td className="py-1 text-right text-slate-700 dark:text-slate-300">€{result.totalDeduction.toLocaleString()}</td>
+                                        <td className="py-1 text-body">{t('capienza.total')}</td>
+                                        <td className="py-1 text-right text-body">€{result.totalDeduction.toLocaleString()}</td>
                                         <td className="py-1 text-right text-emerald-700 dark:text-emerald-400">€{(Math.min(yearlyDed, Math.round(grossTax)) * result.years).toLocaleString()}</td>
                                         <td className="py-1 text-right text-red-600 dark:text-red-400">€{(Math.max(0, yearlyDed - Math.round(grossTax)) * result.years).toLocaleString()}</td>
                                       </tr>
@@ -488,9 +488,9 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
                       })() : (
                         /* No base imponibile entered — prompt user */
                         <div className="flex items-start gap-2.5">
-                          <Info size={16} className="text-blue-600 dark:text-blue-400 mt-0.5 shrink-0" />
+                          <Info size={16} className="text-link mt-0.5 shrink-0" />
                           <div>
-                            <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{t('capienza.enterGrossSalary')}</p>
+                            <p className="text-sm text-subtle leading-relaxed">{t('capienza.enterGrossSalary')}</p>
                           </div>
                         </div>
                       )}
@@ -505,12 +505,12 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
 
       {/* Italian bonuses detail */}
       {countryOfProperty === 'IT' && (
-        <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+        <div className="bg-surface rounded-2xl border border-edge overflow-hidden">
           <button onClick={() => toggleSection('bonuses')} className="w-full flex items-center justify-between p-4">
-            <h3 className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2">
+            <h3 className="font-bold text-strong flex items-center gap-2">
               <Info size={18} className="text-blue-600" /> {t('renovation.availableBonuses')}
             </h3>
-            {openSections.has('bonuses') ? <ChevronUp size={18} className="text-slate-500 dark:text-slate-400" /> : <ChevronDown size={18} className="text-slate-500 dark:text-slate-400" />}
+            {openSections.has('bonuses') ? <ChevronUp size={18} className="text-muted" /> : <ChevronDown size={18} className="text-muted" />}
           </button>
           {openSections.has('bonuses') && (
             <div className="px-4 pb-4 space-y-3 border-t border-slate-100 dark:border-slate-700 pt-4 animate-fade-in">
@@ -524,7 +524,7 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
                     className={`rounded-xl p-3 border ${
                       selectedITBonus === b.key
                         ? 'bg-emerald-50 dark:bg-emerald-900/20 border-emerald-300 dark:border-emerald-700'
-                        : 'bg-slate-50 dark:bg-slate-700/50 border-slate-200 dark:border-slate-600'
+                        : 'bg-slate-50 dark:bg-slate-700/50 border-edge'
                     } cursor-pointer transition-colors`}
                     onClick={() => setSelectedITBonus(b.key)}
                     role="button"
@@ -532,7 +532,7 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
                     onKeyDown={e => e.key === 'Enter' && setSelectedITBonus(b.key)}
                   >
                     <div className="flex items-center justify-between">
-                      <h4 className="font-semibold text-sm text-slate-800 dark:text-slate-200">{t(`renovation.bonus.${b.key}`)}</h4>
+                      <h4 className="font-semibold text-sm text-strong">{t(`renovation.bonus.${b.key}`)}</h4>
                       <div className="flex items-center gap-1.5">
                         {b.secondaCasa && propertyType === 'seconda_casa' && (
                           <span className="text-xs bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 px-1.5 py-0.5 rounded-full font-medium">
@@ -542,7 +542,7 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
                         <span className="text-sm font-bold text-emerald-700 dark:text-emerald-300">{effective.percent}%</span>
                       </div>
                     </div>
-                    <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
+                    <p className="text-sm text-muted mt-1">
                       {t(`renovation.bonusDesc.${b.key}`)} · Max €{effective.maxAmount.toLocaleString()} · {b.years} {t('renovation.years')}
                     </p>
                   </div>
@@ -555,12 +555,12 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
 
       {/* Swiss categories */}
       {countryOfProperty === 'CH' && (
-        <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+        <div className="bg-surface rounded-2xl border border-edge overflow-hidden">
           <button onClick={() => toggleSection('categories')} className="w-full flex items-center justify-between p-4">
-            <h3 className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2">
+            <h3 className="font-bold text-strong flex items-center gap-2">
               <Info size={18} className="text-blue-600" /> {t('renovation.swissCategories')}
             </h3>
-            {openSections.has('categories') ? <ChevronUp size={18} className="text-slate-500 dark:text-slate-400" /> : <ChevronDown size={18} className="text-slate-500 dark:text-slate-400" />}
+            {openSections.has('categories') ? <ChevronUp size={18} className="text-muted" /> : <ChevronDown size={18} className="text-muted" />}
           </button>
           {openSections.has('categories') && (
             <div className="px-4 pb-4 space-y-3 border-t border-slate-100 dark:border-slate-700 pt-4 animate-fade-in">
@@ -572,7 +572,7 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
                     className={`rounded-xl p-3 border ${
                       selectedCategory === cat.key
                         ? 'bg-emerald-50 dark:bg-emerald-900/20 border-emerald-300 dark:border-emerald-700'
-                        : 'bg-slate-50 dark:bg-slate-700/50 border-slate-200 dark:border-slate-600'
+                        : 'bg-slate-50 dark:bg-slate-700/50 border-edge'
                     } cursor-pointer transition-colors`}
                     onClick={() => setSelectedCategory(cat.key)}
                     role="button"
@@ -581,7 +581,7 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
                   >
                     <div className="flex items-center gap-2 mb-1">
                       <Icon size={16} className={cat.deductible ? 'text-emerald-700' : 'text-red-500'} />
-                      <h4 className="font-semibold text-sm text-slate-800 dark:text-slate-200">{t(`renovation.cat.${cat.key}`)}</h4>
+                      <h4 className="font-semibold text-sm text-strong">{t(`renovation.cat.${cat.key}`)}</h4>
                       <span className={`text-xs font-bold px-1.5 py-0.5 rounded-full ${
                         cat.deductible
                           ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300'
@@ -590,7 +590,7 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
                         {cat.deductible ? t('renovation.deductible') : t('renovation.notDeductible')}
                       </span>
                     </div>
-                    <p className="text-sm text-slate-500 dark:text-slate-400">{t(`renovation.catDesc.${cat.key}`)}</p>
+                    <p className="text-sm text-muted">{t(`renovation.catDesc.${cat.key}`)}</p>
                   </div>
                 );
               })}
@@ -601,28 +601,28 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
 
       {/* FAQ Section — Frontalieri & renovation bonuses */}
       {countryOfProperty === 'IT' && (
-        <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+        <div className="bg-surface rounded-2xl border border-edge overflow-hidden">
           <button onClick={() => toggleSection('faq')} className="w-full flex items-center justify-between p-4">
-            <h3 className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2">
+            <h3 className="font-bold text-strong flex items-center gap-2">
               <HelpCircle size={18} className="text-violet-600" /> {t('renovation.faqTitle')}
             </h3>
-            {openSections.has('faq') ? <ChevronUp size={18} className="text-slate-500 dark:text-slate-400" /> : <ChevronDown size={18} className="text-slate-500 dark:text-slate-400" />}
+            {openSections.has('faq') ? <ChevronUp size={18} className="text-muted" /> : <ChevronDown size={18} className="text-muted" />}
           </button>
           {openSections.has('faq') && (
             <div className="px-4 pb-4 space-y-2 border-t border-slate-100 dark:border-slate-700 pt-4 animate-fade-in">
               {FAQ_KEYS.map(fk => (
-                <div key={fk} className="rounded-xl border border-slate-200 dark:border-slate-600 overflow-hidden">
+                <div key={fk} className="rounded-xl border border-edge overflow-hidden">
                   <button
                     onClick={() => setExpandedFaq(expandedFaq === fk ? null : fk)}
                     className="w-full flex items-center justify-between p-3 text-left" aria-expanded={expandedFaq === fk}
                   >
-                    <span className="text-sm font-medium text-slate-700 dark:text-slate-300 pr-2">{t(`renovation.faq.${fk}.q`)}</span>
+                    <span className="text-sm font-medium text-body pr-2">{t(`renovation.faq.${fk}.q`)}</span>
                     {expandedFaq === fk
-                      ? <ChevronUp size={16} className="text-slate-500 dark:text-slate-400 shrink-0" />
-                      : <ChevronDown size={16} className="text-slate-500 dark:text-slate-400 shrink-0" />}
+                      ? <ChevronUp size={16} className="text-muted shrink-0" />
+                      : <ChevronDown size={16} className="text-muted shrink-0" />}
                   </button>
                   {expandedFaq === fk && (
-                    <div className="px-3 pb-3 text-xs text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-700 pt-2">
+                    <div className="px-3 pb-3 text-xs text-subtle leading-relaxed border-t border-slate-100 dark:border-slate-700 pt-2">
                       {t(`renovation.faq.${fk}.a`)}
                     </div>
                   )}

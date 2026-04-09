@@ -57,7 +57,7 @@ const CONTEXT_CONFIG: Record<SeoContext, {
     gradient: 'from-blue-50 to-blue-100 dark:from-blue-950/30 dark:to-blue-900/30',
     collapsedBg: 'bg-blue-50/60 dark:bg-blue-950/20',
     iconBg: 'bg-blue-100 dark:bg-blue-900/40',
-    iconText: 'text-blue-600 dark:text-blue-400',
+    iconText: 'text-link',
     features: 4,
     checklist: 5,
   },
@@ -211,19 +211,19 @@ const SeoContentBlock: React.FC<SeoContentBlockProps> = ({ context }) => {
           {t(`seoContent.${context}.title`)}
         </h2>
         <div className="hidden sm:flex items-center gap-2 mr-2">
-          <span className="flex items-center gap-1 text-xs text-slate-500 dark:text-slate-400">
+          <span className="flex items-center gap-1 text-xs text-muted">
             <Star className="w-3 h-3 text-amber-500" aria-hidden="true" />
             2026
           </span>
-          <span className="flex items-center gap-1 text-xs text-slate-500 dark:text-slate-400">
+          <span className="flex items-center gap-1 text-xs text-muted">
             <Shield className="w-3 h-3 text-emerald-500" aria-hidden="true" />
             {t('seoContent.trust.free')}
           </span>
         </div>
-        <Info className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400 shrink-0 group-hover:text-slate-600 dark:group-hover:text-slate-300 transition-colors" aria-hidden="true" />
+        <Info className="w-3.5 h-3.5 text-muted shrink-0 group-hover:text-slate-600 dark:group-hover:text-slate-300 transition-colors" aria-hidden="true" />
         {expanded
-          ? <ChevronUp className="w-4 h-4 text-slate-500 dark:text-slate-400 shrink-0" aria-hidden="true" />
-          : <ChevronDown className="w-4 h-4 text-slate-500 dark:text-slate-400 shrink-0" aria-hidden="true" />
+          ? <ChevronUp className="w-4 h-4 text-muted shrink-0" aria-hidden="true" />
+          : <ChevronDown className="w-4 h-4 text-muted shrink-0" aria-hidden="true" />
         }
       </button>
 
@@ -231,18 +231,18 @@ const SeoContentBlock: React.FC<SeoContentBlockProps> = ({ context }) => {
       {expanded && (
         <div className="px-4 pb-4 sm:px-5 sm:pb-5 animate-in fade-in duration-200">
           {/* Subtitle */}
-          <p className="text-sm text-slate-600 dark:text-slate-400 mb-3">
+          <p className="text-sm text-subtle mb-3">
             {t(`seoContent.${context}.subtitle`)}
           </p>
 
           {/* Expert quote — authority signal for AI citation (+30% visibility) */}
           {t(`seoContent.${context}.expertQuote`) !== `seoContent.${context}.expertQuote` && (
             <blockquote className="border-l-3 border-blue-400 dark:border-blue-500 pl-3 mb-3 py-1.5" data-speakable="true">
-              <p className="text-sm italic text-slate-600 dark:text-slate-400">
+              <p className="text-sm italic text-subtle">
                 <Quote className="inline w-3.5 h-3.5 mr-1 text-blue-400 dark:text-blue-500 -mt-0.5" aria-hidden="true" />
                 {t(`seoContent.${context}.expertQuote`)}
               </p>
-              <cite className="text-xs text-slate-500 dark:text-slate-400 not-italic font-medium">
+              <cite className="text-xs text-muted not-italic font-medium">
                 — {t(`seoContent.${context}.expertName`)}
               </cite>
             </blockquote>
@@ -250,15 +250,15 @@ const SeoContentBlock: React.FC<SeoContentBlockProps> = ({ context }) => {
 
           {/* Trust signals */}
           <div className="flex flex-wrap gap-3 mb-3">
-            <div className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400">
+            <div className="flex items-center gap-1.5 text-xs text-subtle">
               <Star className="w-3.5 h-3.5 text-amber-500" aria-hidden="true" />
               <span>{t('seoContent.trust.accuracy')}</span>
             </div>
-            <div className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400">
+            <div className="flex items-center gap-1.5 text-xs text-subtle">
               <Clock className="w-3.5 h-3.5 text-blue-500" aria-hidden="true" />
               <span>{t('seoContent.trust.updated')}</span>
             </div>
-            <div className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400">
+            <div className="flex items-center gap-1.5 text-xs text-subtle">
               <Shield className="w-3.5 h-3.5 text-emerald-500" aria-hidden="true" />
               <span>{t('seoContent.trust.free')}</span>
             </div>
@@ -281,7 +281,7 @@ const SeoContentBlock: React.FC<SeoContentBlockProps> = ({ context }) => {
                   <p className="text-sm font-medium text-slate-700 dark:text-slate-200 group-hover/card:text-blue-600 dark:group-hover/card:text-blue-400 transition-colors">
                     {t(`${feature.i18nKey}.title`)}
                   </p>
-                  <p className="text-sm text-slate-500 dark:text-slate-400 mt-0.5 line-clamp-1">
+                  <p className="text-sm text-muted mt-0.5 line-clamp-1">
                     {t(`${feature.i18nKey}.desc`)}
                   </p>
                 </div>
@@ -292,7 +292,7 @@ const SeoContentBlock: React.FC<SeoContentBlockProps> = ({ context }) => {
           {/* Checklist */}
           <div className="space-y-1">
             {Array.from({ length: config.checklist }, (_, i) => (
-              <div key={i} className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300">
+              <div key={i} className="flex items-center gap-2 text-sm text-body">
                 <Check className="w-3.5 h-3.5 text-emerald-500 shrink-0" aria-hidden="true" />
                 <span>{t(`seoContent.${context}.check${i + 1}`)}</span>
               </div>
@@ -301,8 +301,8 @@ const SeoContentBlock: React.FC<SeoContentBlockProps> = ({ context }) => {
 
           {/* Data updated label */}
           <div className="flex items-center gap-1.5 mt-3 pt-2 border-t border-slate-200/50 dark:border-slate-700/50">
-            <CalendarDays className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400 shrink-0" aria-hidden="true" />
-            <span className="text-sm text-slate-500 dark:text-slate-400">
+            <CalendarDays className="w-3.5 h-3.5 text-muted shrink-0" aria-hidden="true" />
+            <span className="text-sm text-muted">
               {t('seoContent.dataUpdated')}
             </span>
           </div>

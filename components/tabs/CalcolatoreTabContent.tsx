@@ -2,7 +2,7 @@ import React, { Suspense } from 'react';
 import { lazyRetry } from '@/services/lazyRetry';
 import { useNavigation } from '@/services/NavigationContext';
 import { useTabContent } from '@/services/TabContentContext';
-import { useTranslation } from '@/services/i18n';
+import { useTranslation, getCantonI18nParams } from '@/services/i18n';
 import { Analytics } from '@/services/analyticsProxy';
 import { pushRoute } from '@/services/router';
 import type { ActiveTab, CalcolatoreSubTab, BlogArticleId } from '@/services/router';
@@ -58,7 +58,7 @@ export default function CalcolatoreTabContent() {
             <h1 className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-1">
               {t('seoContent.calculator.title')}
             </h1>
-            <p className="text-sm text-slate-500 dark:text-slate-400 mb-4">
+            <p className="text-sm text-muted mb-4">
               {t('seoContent.calculator.subtitle')}
             </p>
 
@@ -91,8 +91,8 @@ export default function CalcolatoreTabContent() {
                       <Briefcase size={16} className="text-white" />
                     </div>
                     <div className="min-w-0">
-                      <div className="text-sm font-bold leading-tight line-clamp-2">{t('jobBoard.homeCta.title')}</div>
-                      <div className="text-xs text-blue-100 line-clamp-1">{t('jobBoard.homeCta.desc')}</div>
+                      <div className="text-sm font-bold leading-tight line-clamp-2">{t('jobBoard.homeCta.title', getCantonI18nParams())}</div>
+                      <div className="text-xs text-blue-100 line-clamp-1">{t('jobBoard.homeCta.desc', getCantonI18nParams())}</div>
                     </div>
                     <div className="ml-auto flex-shrink-0 text-xs font-semibold text-blue-100 whitespace-nowrap hidden lg:block">{t('jobBoard.homeCta.button')}</div>
                   </a>
@@ -174,7 +174,7 @@ export default function CalcolatoreTabContent() {
                   >
                     <div className="flex items-center gap-2.5 min-w-0">
                       <Briefcase size={18} className="text-white flex-shrink-0" />
-                      <span className="text-sm font-bold line-clamp-1">{t('jobBoard.homeCta.mobile.title')}</span>
+                      <span className="text-sm font-bold line-clamp-1">{t('jobBoard.homeCta.mobile.title', getCantonI18nParams())}</span>
                     </div>
                     <span className="text-xs font-semibold text-blue-100 flex-shrink-0">{t('jobBoard.homeCta.mobile.button')} →</span>
                   </a>

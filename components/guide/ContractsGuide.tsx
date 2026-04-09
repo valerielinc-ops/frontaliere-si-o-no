@@ -225,7 +225,7 @@ const ContractsGuide = () => {
         <h1 className="text-2xl font-bold text-slate-900 dark:text-white">
           {t('contracts.title')}
         </h1>
-        <p className="text-sm text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+        <p className="text-sm text-subtle max-w-2xl mx-auto">
           {t('contracts.subtitle')}
         </p>
       </div>
@@ -253,7 +253,7 @@ const ContractsGuide = () => {
           const isExpanded = expandedSector === sector.id;
 
           return (
-            <div key={sector.id} className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+            <div key={sector.id} className="bg-surface rounded-xl border border-edge overflow-hidden">
               {/* Sector header */}
               <button
                 onClick={() => toggleSector(sector.id)}
@@ -269,7 +269,7 @@ const ContractsGuide = () => {
                     <h3 className="font-bold text-slate-900 dark:text-white">
                       {t(`${sector.keyPrefix}.name`)}
                     </h3>
-                    <p className="text-sm text-slate-500 dark:text-slate-400">
+                    <p className="text-sm text-muted">
                       {t(`${sector.keyPrefix}.ccnlName`)}
                     </p>
                   </div>
@@ -288,8 +288,8 @@ const ContractsGuide = () => {
                   <div className="overflow-x-auto -mx-1">
                     <table className="w-full text-sm">
                       <thead>
-                        <tr className="border-b border-slate-200 dark:border-slate-600">
-                          <th className="text-left py-2 px-2 text-xs font-semibold text-slate-500 dark:text-slate-400 w-1/3">
+                        <tr className="border-b border-edge">
+                          <th className="text-left py-2 px-2 text-xs font-semibold text-muted w-1/3">
                             {t('contracts.table.aspect')}
                           </th>
                           <th className="text-center py-2 px-2 text-xs font-semibold text-red-700 dark:text-red-400 w-1/3">
@@ -303,8 +303,8 @@ const ContractsGuide = () => {
                       <tbody>
                         {/* Weekly hours */}
                         <tr className="border-b border-slate-100 dark:border-slate-700">
-                          <td className="py-2 px-2 text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
-                            <Clock size={14} className="text-slate-500 dark:text-slate-400 shrink-0" />
+                          <td className="py-2 px-2 text-body flex items-center gap-1.5">
+                            <Clock size={14} className="text-muted shrink-0" />
                             {t('contracts.table.weeklyHours')}
                           </td>
                           <td className="py-2 px-2 text-center font-semibold text-slate-900 dark:text-white">
@@ -316,28 +316,28 @@ const ContractsGuide = () => {
                         </tr>
                         {/* Vacation */}
                         <tr className="border-b border-slate-100 dark:border-slate-700">
-                          <td className="py-2 px-2 text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
-                            <Palmtree size={14} className="text-slate-500 dark:text-slate-400 shrink-0" />
+                          <td className="py-2 px-2 text-body flex items-center gap-1.5">
+                            <Palmtree size={14} className="text-muted shrink-0" />
                             {t('contracts.table.vacation')}
                           </td>
                           <td className="py-2 px-2 text-center text-slate-900 dark:text-white">
                             <span className="font-semibold">{sector.ch.vacationWeeks}</span>
-                            <span className="text-sm text-slate-500 dark:text-slate-400"> {t('contracts.table.weeks')}</span>
+                            <span className="text-sm text-muted"> {t('contracts.table.weeks')}</span>
                             {sector.ch.vacationWeeksYoung > sector.ch.vacationWeeks && (
-                              <div className="text-xs text-blue-600 dark:text-blue-400">
+                              <div className="text-xs text-link">
                                 ({sector.ch.vacationWeeksYoung} {t('contracts.table.under20')})
                               </div>
                             )}
                           </td>
                           <td className="py-2 px-2 text-center text-slate-900 dark:text-white">
                             <span className="font-semibold">{sector.it.vacationWeeks}</span>
-                            <span className="text-sm text-slate-500 dark:text-slate-400"> {t('contracts.table.weeks')}</span>
+                            <span className="text-sm text-muted"> {t('contracts.table.weeks')}</span>
                           </td>
                         </tr>
                         {/* 13th month */}
                         <tr className="border-b border-slate-100 dark:border-slate-700">
-                          <td className="py-2 px-2 text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
-                            <Gift size={14} className="text-slate-500 dark:text-slate-400 shrink-0" />
+                          <td className="py-2 px-2 text-body flex items-center gap-1.5">
+                            <Gift size={14} className="text-muted shrink-0" />
                             {t('contracts.table.thirteenthMonth')}
                           </td>
                           <td className="py-2 px-2 text-center">
@@ -366,26 +366,26 @@ const ContractsGuide = () => {
                         </tr>
                         {/* Notice period */}
                         <tr className="border-b border-slate-100 dark:border-slate-700">
-                          <td className="py-2 px-2 text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
-                            <Bell size={14} className="text-slate-500 dark:text-slate-400 shrink-0" />
+                          <td className="py-2 px-2 text-body flex items-center gap-1.5">
+                            <Bell size={14} className="text-muted shrink-0" />
                             {t('contracts.table.noticePeriod')}
                           </td>
                           <td className="py-2 px-2 text-center text-xs text-slate-900 dark:text-white">
-                            <div>{sector.ch.noticePeriodMonths} {t('contracts.table.months')} <span className="text-slate-500 dark:text-slate-400">(&lt;5a)</span></div>
-                            <div>{sector.ch.noticePeriodMonths5} {t('contracts.table.months')} <span className="text-slate-500 dark:text-slate-400">(5-9a)</span></div>
-                            <div>{sector.ch.noticePeriodMonths10} {t('contracts.table.months')} <span className="text-slate-500 dark:text-slate-400">(≥10a)</span></div>
+                            <div>{sector.ch.noticePeriodMonths} {t('contracts.table.months')} <span className="text-muted">(&lt;5a)</span></div>
+                            <div>{sector.ch.noticePeriodMonths5} {t('contracts.table.months')} <span className="text-muted">(5-9a)</span></div>
+                            <div>{sector.ch.noticePeriodMonths10} {t('contracts.table.months')} <span className="text-muted">(≥10a)</span></div>
                           </td>
                           <td className="py-2 px-2 text-center text-xs text-slate-900 dark:text-white">
                             <div>{sector.it.noticePeriodDaysMin}–{sector.it.noticePeriodDaysMax} {t('contracts.table.days')}</div>
-                            <div className="text-sm text-slate-500 dark:text-slate-400">
+                            <div className="text-sm text-muted">
                               ({t('contracts.table.byLevel')})
                             </div>
                           </td>
                         </tr>
                         {/* Probation */}
                         <tr className="border-b border-slate-100 dark:border-slate-700">
-                          <td className="py-2 px-2 text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
-                            <Shield size={14} className="text-slate-500 dark:text-slate-400 shrink-0" />
+                          <td className="py-2 px-2 text-body flex items-center gap-1.5">
+                            <Shield size={14} className="text-muted shrink-0" />
                             {t('contracts.table.probation')}
                           </td>
                           <td className="py-2 px-2 text-center font-semibold text-slate-900 dark:text-white">
@@ -398,8 +398,8 @@ const ContractsGuide = () => {
                         {/* Minimum wage */}
                         {(sector.ch.minWageCHF || sector.it.minWageEUR) && (
                           <tr className="border-b border-slate-100 dark:border-slate-700">
-                            <td className="py-2 px-2 text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
-                              <ArrowRightLeft size={14} className="text-slate-500 dark:text-slate-400 shrink-0" />
+                            <td className="py-2 px-2 text-body flex items-center gap-1.5">
+                              <ArrowRightLeft size={14} className="text-muted shrink-0" />
                               {t('contracts.table.minWage')}
                             </td>
                             <td className="py-2 px-2 text-center font-semibold text-slate-900 dark:text-white">
@@ -449,7 +449,7 @@ const ContractsGuide = () => {
       </div>
 
       {/* General Worker Rights CH */}
-      <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+      <div className="bg-surface rounded-xl border border-edge overflow-hidden">
         <button
           onClick={() => setShowRights(!showRights)}
           className="w-full flex items-center justify-between p-4 text-left hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors"
@@ -481,12 +481,12 @@ const ContractsGuide = () => {
                   <Heart size={14} className="text-red-500" />
                   {t('contracts.rights.sickLeave')}
                 </h4>
-                <ul className="space-y-1 text-xs text-slate-700 dark:text-slate-300">
+                <ul className="space-y-1 text-xs text-body">
                   <li>• {t('contracts.rights.sickLeaveYear1', { weeks: String(WORKER_RIGHTS_CH.sickLeave.year1) })}</li>
                   <li>• {t('contracts.rights.sickLeaveYear2', { weeks: String(WORKER_RIGHTS_CH.sickLeave.year2) })}</li>
                   <li>• {t('contracts.rights.sickLeaveYear3', { weeks: String(WORKER_RIGHTS_CH.sickLeave.year3Plus) })}</li>
                 </ul>
-                <p className="text-sm text-slate-500 dark:text-slate-400 mt-1.5">
+                <p className="text-sm text-muted mt-1.5">
                   {t('contracts.rights.sickLeaveNote')}
                 </p>
               </div>
@@ -497,11 +497,11 @@ const ContractsGuide = () => {
                   <Gift size={14} className="text-violet-500" />
                   {t('contracts.rights.parentalLeave')}
                 </h4>
-                <ul className="space-y-1 text-xs text-slate-700 dark:text-slate-300">
+                <ul className="space-y-1 text-xs text-body">
                   <li>• {t('contracts.rights.maternityWeeks', { weeks: String(WORKER_RIGHTS_CH.maternityWeeks) })}</li>
                   <li>• {t('contracts.rights.paternityWeeks', { weeks: String(WORKER_RIGHTS_CH.paternityWeeks) })}</li>
                 </ul>
-                <p className="text-sm text-slate-500 dark:text-slate-400 mt-1.5">
+                <p className="text-sm text-muted mt-1.5">
                   {t('contracts.rights.parentalNote')}
                 </p>
               </div>
@@ -512,10 +512,10 @@ const ContractsGuide = () => {
                   <Palmtree size={14} className="text-amber-500" />
                   {t('contracts.rights.publicHolidays')}
                 </h4>
-                <p className="text-xs text-slate-700 dark:text-slate-300">
+                <p className="text-xs text-body">
                   {t('contracts.rights.publicHolidaysText', { count: String(WORKER_RIGHTS_CH.publicHolidays) })}
                 </p>
-                <p className="text-sm text-slate-500 dark:text-slate-400 mt-1.5">
+                <p className="text-sm text-muted mt-1.5">
                   {t('contracts.rights.publicHolidaysNote')}
                 </p>
               </div>
@@ -526,10 +526,10 @@ const ContractsGuide = () => {
                   <Clock size={14} className="text-blue-500" />
                   {t('contracts.rights.overtime')}
                 </h4>
-                <p className="text-xs text-slate-700 dark:text-slate-300">
+                <p className="text-xs text-body">
                   {t('contracts.rights.overtimeText')}
                 </p>
-                <p className="text-sm text-slate-500 dark:text-slate-400 mt-1.5">
+                <p className="text-sm text-muted mt-1.5">
                   {t('contracts.rights.overtimeNote')}
                 </p>
               </div>
@@ -572,7 +572,7 @@ const ContractsGuide = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
           <div className="bg-white/70 dark:bg-slate-800/50 rounded-lg p-3">
             <p className="font-semibold text-red-700 dark:text-red-400 mb-1.5">🇨🇭 {t('contracts.keyDifferences.chTitle')}</p>
-            <ul className="space-y-1 text-slate-700 dark:text-slate-300">
+            <ul className="space-y-1 text-body">
               <li>• {t('contracts.keyDifferences.ch1')}</li>
               <li>• {t('contracts.keyDifferences.ch2')}</li>
               <li>• {t('contracts.keyDifferences.ch3')}</li>
@@ -582,7 +582,7 @@ const ContractsGuide = () => {
           </div>
           <div className="bg-white/70 dark:bg-slate-800/50 rounded-lg p-3">
             <p className="font-semibold text-green-700 dark:text-green-400 mb-1.5">🇮🇹 {t('contracts.keyDifferences.itTitle')}</p>
-            <ul className="space-y-1 text-slate-700 dark:text-slate-300">
+            <ul className="space-y-1 text-body">
               <li>• {t('contracts.keyDifferences.it1')}</li>
               <li>• {t('contracts.keyDifferences.it2')}</li>
               <li>• {t('contracts.keyDifferences.it3')}</li>
@@ -594,7 +594,7 @@ const ContractsGuide = () => {
       </div>
 
       {/* Disclaimer */}
-      <div className="text-center text-xs text-slate-500 dark:text-slate-400 px-4">
+      <div className="text-center text-xs text-muted px-4">
         {t('contracts.disclaimer')}
       </div>
     </div>

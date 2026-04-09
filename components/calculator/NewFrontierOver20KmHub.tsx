@@ -274,7 +274,7 @@ const NewFrontierOver20KmHub: React.FC = () => {
   }, []);
 
   return (
-    <section className="mb-6 rounded-[28px] border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 shadow-sm overflow-hidden">
+    <section className="mb-6 rounded-[28px] border border-edge bg-surface shadow-sm overflow-hidden">
       <div className="px-5 py-6 sm:px-7 sm:py-8 bg-[radial-gradient(circle_at_top_right,_rgba(14,165,233,0.14),_transparent_38%),linear-gradient(180deg,rgba(248,250,252,1),rgba(255,255,255,0.92))] dark:bg-[radial-gradient(circle_at_top_right,_rgba(56,189,248,0.16),_transparent_32%),linear-gradient(180deg,rgba(15,23,42,0.96),rgba(2,6,23,0.98))]">
         <div className="inline-flex items-center gap-2 rounded-full border border-sky-200 dark:border-sky-800 bg-sky-50 dark:bg-sky-950/40 px-3 py-1 text-xs font-semibold text-sky-700 dark:text-sky-300">
           <Sparkles className="w-3.5 h-3.5" />
@@ -310,7 +310,7 @@ const NewFrontierOver20KmHub: React.FC = () => {
           <div className="mt-4 grid grid-cols-1 lg:grid-cols-3 gap-4">
             {cases.map(({ title, summary, result, income }) => (
               <article key={title} className="rounded-2xl border border-warm-200 dark:border-warm-800 bg-warm-50 dark:bg-warm-950 p-4">
-                <div className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">
+                <div className="text-xs font-semibold uppercase tracking-[0.16em] text-muted">
                   {summary}
                 </div>
                 <h3 className="mt-2 text-lg font-bold text-slate-900 dark:text-white">{title}</h3>
@@ -327,7 +327,7 @@ const NewFrontierOver20KmHub: React.FC = () => {
                     <span className="text-slate-600 dark:text-slate-300">{copy.labelTaxes}</span>
                     <span className="font-bold text-slate-900 dark:text-white">{money(result.itResident.taxes, locale, 'CHF')}</span>
                   </div>
-                  <div className="mt-2 pt-2 border-t border-slate-200 dark:border-slate-700 flex items-center justify-between gap-3">
+                  <div className="mt-2 pt-2 border-t border-edge flex items-center justify-between gap-3">
                     <span className="text-slate-600 dark:text-slate-300">{copy.labelNetAnnual}</span>
                     <span className="font-bold text-slate-900 dark:text-white">{money(result.itResident.netIncomeAnnual, locale, 'CHF')}</span>
                   </div>
@@ -359,14 +359,14 @@ const NewFrontierOver20KmHub: React.FC = () => {
           </div>
           <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">{copy.compareBody}</p>
           <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-3">
-            <div className="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 p-4">
-              <div className="text-sm text-slate-500 dark:text-slate-400">{copy.compareOver}</div>
+            <div className="rounded-2xl bg-surface border border-edge p-4">
+              <div className="text-sm text-muted">{copy.compareOver}</div>
               <div className="mt-2 text-xl font-bold text-slate-900 dark:text-white">
                 {money(comparison.over20.itResident.netIncomeMonthly, locale, 'CHF')}
               </div>
             </div>
-            <div className="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 p-4">
-              <div className="text-sm text-slate-500 dark:text-slate-400">{copy.compareWithin}</div>
+            <div className="rounded-2xl bg-surface border border-edge p-4">
+              <div className="text-sm text-muted">{copy.compareWithin}</div>
               <div className="mt-2 text-xl font-bold text-slate-900 dark:text-white">
                 {money(comparison.within20.itResident.netIncomeMonthly, locale, 'CHF')}
               </div>
@@ -390,7 +390,7 @@ const NewFrontierOver20KmHub: React.FC = () => {
               <a
                 key={link.label}
                 href={buildPath(link.route, locale)}
-                className="group rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4 no-underline hover:border-sky-300 dark:hover:border-sky-600 transition-colors"
+                className="group rounded-2xl border border-edge bg-surface p-4 no-underline hover:border-sky-300 dark:hover:border-sky-600 transition-colors"
               >
                 <div className="flex items-center justify-between gap-3">
                   <span className="text-sm font-semibold text-slate-900 dark:text-white">{link.label}</span>
@@ -405,7 +405,7 @@ const NewFrontierOver20KmHub: React.FC = () => {
           <h3 className="text-sm font-bold text-slate-900 dark:text-white">{copy.faqTitle}</h3>
           <div className="mt-4 space-y-3">
             {copy.faq.map((item) => (
-              <div key={item.q} className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4">
+              <div key={item.q} className="rounded-2xl border border-edge bg-surface p-4">
                 <div className="text-sm font-semibold text-slate-900 dark:text-white">{item.q}</div>
                 <p className="mt-2 text-sm leading-7 text-slate-600 dark:text-slate-300">{item.a}</p>
               </div>

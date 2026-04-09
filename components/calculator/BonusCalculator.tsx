@@ -210,8 +210,8 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
       </div>
 
       {/* Input section */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl p-4 sm:p-6 border border-slate-200 dark:border-slate-700 space-y-4">
-        <h3 className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2">
+      <div className="bg-surface rounded-2xl p-4 sm:p-6 border border-edge space-y-4">
+        <h3 className="font-bold text-strong flex items-center gap-2">
           <Calculator size={18} className="text-emerald-700" /> {t('bonus.inputs')}
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -225,7 +225,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
               inputMode="numeric"
               value={monthlyGrossCHF}
               onChange={e => setMonthlyGrossCHF(Number(e.target.value))}
-              className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-sm text-slate-800 dark:text-slate-200"
+              className="w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-sm text-strong"
             />
           </div>
           <div>
@@ -238,7 +238,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
               inputMode="numeric"
               value={bonusAmountCHF}
               onChange={e => setBonusAmountCHF(Number(e.target.value))}
-              className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-sm text-slate-800 dark:text-slate-200"
+              className="w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-sm text-strong"
             />
           </div>
           <div>
@@ -249,7 +249,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
               id="bonus-type"
               value={selectedBonus}
               onChange={e => setSelectedBonus(e.target.value)}
-              className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-sm text-slate-800 dark:text-slate-200"
+              className="w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-sm text-strong"
             >
               {BONUS_TYPES.map(bt => (
                 <option key={bt.key} value={bt.key}>{t(`bonus.types.${bt.key}`)}</option>
@@ -264,7 +264,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
               id="bonus-married"
               value={isMarried ? 'married' : 'single'}
               onChange={e => setIsMarried(e.target.value === 'married')}
-              className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-sm text-slate-800 dark:text-slate-200"
+              className="w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-sm text-strong"
             >
               <option value="single">{t('bonus.single')}</option>
               <option value="married">{t('bonus.married')}</option>
@@ -282,7 +282,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
               max={10}
               value={children}
               onChange={e => setChildren(Number(e.target.value))}
-              className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-sm text-slate-800 dark:text-slate-200"
+              className="w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-sm text-strong"
             />
           </div>
           <div>
@@ -297,15 +297,15 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
                 step={0.01}
                 value={Number(exchangeRate.toFixed(4))}
                 onChange={e => setRateOverride(Number(e.target.value))}
-                className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-sm text-slate-800 dark:text-slate-200"
+                className="w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-sm text-strong"
               />
               <button
                 onClick={() => { setRateOverride(null); refreshRate(); }}
-                className="px-2 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-600 transition-colors"
+                className="px-2 py-2 rounded-lg border border-edge bg-surface-alt hover:bg-slate-50 dark:hover:bg-slate-600 transition-colors"
                 aria-label={t('bonus.refreshRate')}
                 title={t('bonus.refreshRate')}
               >
-                <RefreshCw size={14} className={`text-slate-500 dark:text-slate-400 ${rateLoading ? 'animate-spin' : ''}`} />
+                <RefreshCw size={14} className={`text-muted ${rateLoading ? 'animate-spin' : ''}`} />
               </button>
             </div>
             {rateOverride !== null && (
@@ -316,18 +316,18 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
       </div>
 
       {/* Result */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+      <div className="bg-surface rounded-2xl border border-edge overflow-hidden">
         <button onClick={() => toggleSection('result')} className="w-full flex items-center justify-between p-4" aria-expanded={expandedSection === 'result'}>
-          <h3 className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2">
+          <h3 className="font-bold text-strong flex items-center gap-2">
             <Euro size={18} className="text-emerald-700" /> {t('bonus.result')}
           </h3>
-          {expandedSection === 'result' ? <ChevronUp size={18} className="text-slate-500 dark:text-slate-400" /> : <ChevronDown size={18} className="text-slate-500 dark:text-slate-400" />}
+          {expandedSection === 'result' ? <ChevronUp size={18} className="text-muted" /> : <ChevronDown size={18} className="text-muted" />}
         </button>
         {expandedSection === 'result' && (
           <div className="px-4 pb-4 space-y-4 border-t border-slate-100 dark:border-slate-700 pt-4 animate-fade-in">
             {/* Swiss breakdown */}
             <div className="space-y-2">
-              <h4 className="text-sm font-bold text-slate-700 dark:text-slate-300">🇨🇭 {t('bonus.swissBreakdown')}</h4>
+              <h4 className="text-sm font-bold text-body">🇨🇭 {t('bonus.swissBreakdown')}</h4>
               <div className="grid grid-cols-2 gap-2">
                 <ResultRow label={t('bonus.grossBonus')} value={`CHF ${result.grossCHF.toLocaleString()}`} />
                 <ResultRow label={t('bonus.socialDeductions')} value={`- CHF ${result.socialDeductions.toLocaleString()}`} negative />
@@ -337,7 +337,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
             </div>
             {/* Italian breakdown */}
             <div className="space-y-2">
-              <h4 className="text-sm font-bold text-slate-700 dark:text-slate-300">🇮🇹 {t('bonus.italianBreakdown')}</h4>
+              <h4 className="text-sm font-bold text-body">🇮🇹 {t('bonus.italianBreakdown')}</h4>
               <div className="grid grid-cols-2 gap-2">
                 <ResultRow label={t('bonus.bonusEUR')} value={`€${result.bonusEUR.toLocaleString()}`} />
                 <ResultRow label={`IRPEF ${t('bonus.marginal')} (${(result.marginalRate * 100).toFixed(0)}%)`} value={`- €${result.additionalIrpef.toLocaleString()}`} negative />
@@ -356,12 +356,12 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
       </div>
 
       {/* Tax rate impact simulation */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+      <div className="bg-surface rounded-2xl border border-edge overflow-hidden">
         <button onClick={() => toggleSection('taxImpact')} className="w-full flex items-center justify-between p-4" aria-expanded={expandedSection === 'taxImpact'}>
-          <h3 className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2">
+          <h3 className="font-bold text-strong flex items-center gap-2">
             <TrendingUp size={18} className="text-orange-600" /> {t('bonus.taxImpact')}
           </h3>
-          {expandedSection === 'taxImpact' ? <ChevronUp size={18} className="text-slate-500 dark:text-slate-400" /> : <ChevronDown size={18} className="text-slate-500 dark:text-slate-400" />}
+          {expandedSection === 'taxImpact' ? <ChevronUp size={18} className="text-muted" /> : <ChevronDown size={18} className="text-muted" />}
         </button>
         {expandedSection === 'taxImpact' && (
           <div className="px-4 pb-4 space-y-4 border-t border-slate-100 dark:border-slate-700 pt-4 animate-fade-in">
@@ -370,35 +370,35 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
             {/* Comparison table */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs">
               {/* Header row */}
-              <div className="font-semibold text-slate-600 dark:text-slate-400" />
-              <div className="font-bold text-slate-700 dark:text-slate-300 text-center bg-slate-50 dark:bg-slate-700/50 rounded-lg p-2">{t('bonus.withoutBonus')}</div>
-              <div className="font-bold text-slate-700 dark:text-slate-300 text-center bg-orange-50 dark:bg-orange-900/20 rounded-lg p-2">{t('bonus.withBonus')}</div>
+              <div className="font-semibold text-subtle" />
+              <div className="font-bold text-body text-center bg-slate-50 dark:bg-slate-700/50 rounded-lg p-2">{t('bonus.withoutBonus')}</div>
+              <div className="font-bold text-body text-center bg-orange-50 dark:bg-orange-900/20 rounded-lg p-2">{t('bonus.withBonus')}</div>
 
               {/* Annual income */}
-              <div className="text-slate-600 dark:text-slate-400 flex items-center">{t('bonus.annualIncome')}</div>
-              <div className="text-center font-semibold text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-slate-700/50 rounded-lg p-2">CHF {annualGross.toLocaleString()}</div>
-              <div className="text-center font-semibold text-slate-700 dark:text-slate-300 bg-orange-50 dark:bg-orange-900/20 rounded-lg p-2">CHF {(annualGross + bonusAmountCHF).toLocaleString()}</div>
+              <div className="text-subtle flex items-center">{t('bonus.annualIncome')}</div>
+              <div className="text-center font-semibold text-body bg-slate-50 dark:bg-slate-700/50 rounded-lg p-2">CHF {annualGross.toLocaleString()}</div>
+              <div className="text-center font-semibold text-body bg-orange-50 dark:bg-orange-900/20 rounded-lg p-2">CHF {(annualGross + bonusAmountCHF).toLocaleString()}</div>
 
               {/* Swiss withholding rate */}
-              <div className="text-slate-600 dark:text-slate-400 flex items-center">{t('bonus.swissRate')}</div>
-              <div className="text-center font-semibold text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-slate-700/50 rounded-lg p-2">{(result.baseSwissRate * 100).toFixed(1)}%</div>
-              <div className={`text-center font-semibold rounded-lg p-2 ${result.swissRateDelta > 0 ? 'text-red-700 dark:text-red-400 bg-red-50 dark:bg-red-900/20' : 'text-slate-700 dark:text-slate-300 bg-orange-50 dark:bg-orange-900/20'}`}>
+              <div className="text-subtle flex items-center">{t('bonus.swissRate')}</div>
+              <div className="text-center font-semibold text-body bg-slate-50 dark:bg-slate-700/50 rounded-lg p-2">{(result.baseSwissRate * 100).toFixed(1)}%</div>
+              <div className={`text-center font-semibold rounded-lg p-2 ${result.swissRateDelta > 0 ? 'text-red-700 dark:text-red-400 bg-red-50 dark:bg-red-900/20' : 'text-body bg-orange-50 dark:bg-orange-900/20'}`}>
                 {(result.withBonusSwissRate * 100).toFixed(1)}%
                 {result.swissRateDelta > 0 && <span className="ml-1 text-xs">+{(result.swissRateDelta * 100).toFixed(1)}%</span>}
               </div>
 
               {/* IRPEF bracket */}
-              <div className="text-slate-600 dark:text-slate-400 flex items-center">{t('bonus.irpefBracket')}</div>
-              <div className="text-center font-semibold text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-slate-700/50 rounded-lg p-2">{result.baseBracketLabel}</div>
-              <div className={`text-center font-semibold rounded-lg p-2 ${result.bracketJumped ? 'text-red-700 dark:text-red-400 bg-red-50 dark:bg-red-900/20' : 'text-slate-700 dark:text-slate-300 bg-orange-50 dark:bg-orange-900/20'}`}>
+              <div className="text-subtle flex items-center">{t('bonus.irpefBracket')}</div>
+              <div className="text-center font-semibold text-body bg-slate-50 dark:bg-slate-700/50 rounded-lg p-2">{result.baseBracketLabel}</div>
+              <div className={`text-center font-semibold rounded-lg p-2 ${result.bracketJumped ? 'text-red-700 dark:text-red-400 bg-red-50 dark:bg-red-900/20' : 'text-body bg-orange-50 dark:bg-orange-900/20'}`}>
                 {result.withBonusBracketLabel}
                 {result.bracketJumped && <ArrowUpRight size={12} className="inline ml-1" />}
               </div>
 
               {/* IRPEF effective */}
-              <div className="text-slate-600 dark:text-slate-400 flex items-center">{t('bonus.irpefEffective')}</div>
-              <div className="text-center font-semibold text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-slate-700/50 rounded-lg p-2">{(result.baseEffectiveIrpef * 100).toFixed(1)}%</div>
-              <div className={`text-center font-semibold rounded-lg p-2 ${result.irpefRateDelta > 0.005 ? 'text-red-700 dark:text-red-400 bg-red-50 dark:bg-red-900/20' : 'text-slate-700 dark:text-slate-300 bg-orange-50 dark:bg-orange-900/20'}`}>
+              <div className="text-subtle flex items-center">{t('bonus.irpefEffective')}</div>
+              <div className="text-center font-semibold text-body bg-slate-50 dark:bg-slate-700/50 rounded-lg p-2">{(result.baseEffectiveIrpef * 100).toFixed(1)}%</div>
+              <div className={`text-center font-semibold rounded-lg p-2 ${result.irpefRateDelta > 0.005 ? 'text-red-700 dark:text-red-400 bg-red-50 dark:bg-red-900/20' : 'text-body bg-orange-50 dark:bg-orange-900/20'}`}>
                 {(result.withBonusEffectiveIrpef * 100).toFixed(1)}%
                 {result.irpefRateDelta > 0.005 && <span className="ml-1 text-xs">+{(result.irpefRateDelta * 100).toFixed(1)}%</span>}
               </div>
@@ -436,26 +436,26 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
               <p className={`text-2xl font-bold ${result.effectiveTaxRate > 40 ? 'text-red-600 dark:text-red-400' : result.effectiveTaxRate > 25 ? 'text-amber-600 dark:text-amber-400' : 'text-emerald-700 dark:text-emerald-400'}`}>
                 {result.effectiveTaxRate}%
               </p>
-              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">{t('bonus.effectiveBonusRateDesc')}</p>
+              <p className="text-xs text-muted mt-1">{t('bonus.effectiveBonusRateDesc')}</p>
             </div>
           </div>
         )}
       </div>
 
       {/* Info about bonus types */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+      <div className="bg-surface rounded-2xl border border-edge overflow-hidden">
         <button onClick={() => toggleSection('info')} className="w-full flex items-center justify-between p-4" aria-expanded={expandedSection === 'info'}>
-          <h3 className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2">
+          <h3 className="font-bold text-strong flex items-center gap-2">
             <Info size={18} className="text-blue-600" /> {t('bonus.typesInfo')}
           </h3>
-          {expandedSection === 'info' ? <ChevronUp size={18} className="text-slate-500 dark:text-slate-400" /> : <ChevronDown size={18} className="text-slate-500 dark:text-slate-400" />}
+          {expandedSection === 'info' ? <ChevronUp size={18} className="text-muted" /> : <ChevronDown size={18} className="text-muted" />}
         </button>
         {expandedSection === 'info' && (
           <div className="px-4 pb-4 space-y-3 border-t border-slate-100 dark:border-slate-700 pt-4 animate-fade-in">
             {BONUS_TYPES.map(bt => (
               <div key={bt.key} className="bg-slate-50 dark:bg-slate-700/50 rounded-xl p-3">
                 <div className="flex items-center gap-2 mb-1">
-                  <h4 className="font-semibold text-sm text-slate-800 dark:text-slate-200">{t(`bonus.types.${bt.key}`)}</h4>
+                  <h4 className="font-semibold text-sm text-strong">{t(`bonus.types.${bt.key}`)}</h4>
                   {bt.inKind && (
                     <span className="text-xs font-bold bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 px-1.5 py-0.5 rounded-full">
                       {t('bonus.inKind')}
@@ -475,11 +475,11 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
 
 const ResultRow: React.FC<{ label: string; value: string; negative?: boolean; highlight?: boolean }> = ({ label, value, negative, highlight }) => (
   <>
-    <span className="text-sm text-slate-600 dark:text-slate-400">{label}</span>
+    <span className="text-sm text-subtle">{label}</span>
     <span className={`text-sm font-bold text-right ${
       highlight ? 'text-emerald-700 dark:text-emerald-300' :
       negative ? 'text-red-600 dark:text-red-400' :
-      'text-slate-800 dark:text-slate-200'
+      'text-strong'
     }`}>
       {value}
     </span>

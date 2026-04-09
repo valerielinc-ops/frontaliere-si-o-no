@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { SearchX, ArrowRight, Home, Briefcase, FileText, BookOpen, Calculator, Search } from 'lucide-react';
-import { useTranslation } from '@/services/i18n';
+import { useTranslation, getCantonI18nParams } from '@/services/i18n';
 
 // Lazy-loaded data is passed via props to avoid coupling
 interface Suggestion {
@@ -72,7 +72,7 @@ function buildSuggestionIndex(t: (key: string) => string): Suggestion[] {
     { title: t('nav.simulator') || 'Simulatore', description: t('app.subtitle'), tab: 'calculator', icon: Calculator, color: 'text-blue-600', score: 0 },
     { title: t('comparators.exchange') || 'Cambio Valuta', description: t('notFound.desc.exchange'), tab: 'confronti', subTab: 'exchange', icon: Calculator, color: 'text-violet-600', score: 0 },
     { title: t('comparators.health') || 'Assicurazione Sanitaria', description: t('notFound.desc.health'), tab: 'confronti', subTab: 'health', icon: Calculator, color: 'text-emerald-600', score: 0 },
-    { title: t('comparators.jobs') || 'Offerte Lavoro', description: t('notFound.desc.jobs'), tab: 'job-board', icon: Briefcase, color: 'text-amber-600', score: 0 },
+    { title: t('comparators.jobs') || 'Offerte Lavoro', description: t('notFound.desc.jobs', getCantonI18nParams()), tab: 'job-board', icon: Briefcase, color: 'text-amber-600', score: 0 },
     { title: t('nav.blog') || 'Articoli', description: t('notFound.desc.articles'), tab: 'blog', icon: FileText, color: 'text-rose-600', score: 0 },
     { title: t('guide.tabs.firstDay') || 'Primo Giorno', description: t('notFound.desc.guide'), tab: 'guida', subTab: 'first-day', icon: BookOpen, color: 'text-indigo-600', score: 0 },
     { title: t('guide.tabs.permits') || 'Permessi', description: t('notFound.desc.permits'), tab: 'guida', subTab: 'permits', icon: BookOpen, color: 'text-indigo-600', score: 0 },
@@ -149,13 +149,13 @@ const NotFoundSuggestions: React.FC<NotFoundSuggestionsProps> = ({ path, onNavig
     <div className="max-w-2xl mx-auto py-8 sm:py-12 px-4">
       {/* Header */}
       <div className="text-center mb-8">
-        <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-slate-100 dark:bg-slate-800 mb-4">
-          <SearchX size={32} className="text-slate-500 dark:text-slate-400" />
+        <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-surface-raised mb-4">
+          <SearchX size={32} className="text-muted" />
         </div>
         <h1 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
           {t('notFound.title')}
         </h1>
-        <p className="text-slate-600 dark:text-slate-400 text-sm max-w-md mx-auto">
+        <p className="text-subtle text-sm max-w-md mx-auto">
           {t('notFound.subtitle')}
         </p>
         {contextMessage && (
@@ -176,7 +176,7 @@ const NotFoundSuggestions: React.FC<NotFoundSuggestionsProps> = ({ path, onNavig
               <button
                 key={`${s.tab}-${s.subTab || i}`}
                 onClick={() => onNavigate(s.tab, s.subTab)}
-                className="w-full flex items-center gap-4 p-4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl hover:border-blue-300 dark:hover:border-blue-600 hover:shadow-sm transition-[color,background-color,border-color,box-shadow] text-left group"
+                className="w-full flex items-center gap-4 p-4 bg-surface border border-edge rounded-xl hover:border-blue-300 dark:hover:border-blue-600 hover:shadow-sm transition-[color,background-color,border-color,box-shadow] text-left group"
               >
                 <div className={`shrink-0 w-10 h-10 rounded-lg bg-slate-50 dark:bg-slate-700 flex items-center justify-center ${s.color}`}>
                   <s.icon size={20} />
@@ -186,12 +186,12 @@ const NotFoundSuggestions: React.FC<NotFoundSuggestionsProps> = ({ path, onNavig
                     {s.title}
                   </p>
                   {s.description && (
-                    <p className="text-sm text-slate-500 dark:text-slate-400 line-clamp-2">
+                    <p className="text-sm text-muted line-clamp-2">
                       {s.description}
                     </p>
                   )}
                 </div>
-                <ArrowRight size={16} className="shrink-0 text-slate-500 dark:text-slate-400 group-hover:text-blue-500 transition-colors" />
+                <ArrowRight size={16} className="shrink-0 text-muted group-hover:text-blue-500 transition-colors" />
               </button>
             ))}
           </div>
@@ -200,7 +200,7 @@ const NotFoundSuggestions: React.FC<NotFoundSuggestionsProps> = ({ path, onNavig
 
       {/* Popular pages */}
       <div className="mb-6">
-        <h2 className="text-sm font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-3">
+        <h2 className="text-sm font-semibold text-muted uppercase tracking-wider mb-3">
           {t('notFound.popularPages')}
         </h2>
         <div className="grid grid-cols-2 gap-2">
@@ -213,9 +213,9 @@ const NotFoundSuggestions: React.FC<NotFoundSuggestionsProps> = ({ path, onNavig
             <button
               key={item.tab}
               onClick={() => onNavigate(item.tab, item.subTab)}
-              className="flex items-center gap-2 px-3 py-2.5 text-sm text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
+              className="flex items-center gap-2 px-3 py-2.5 text-sm text-body bg-surface-alt border border-edge rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
             >
-              <item.icon size={16} className="text-slate-500 dark:text-slate-400" />
+              <item.icon size={16} className="text-muted" />
               <span className="truncate">{item.label}</span>
             </button>
           ))}
@@ -226,7 +226,7 @@ const NotFoundSuggestions: React.FC<NotFoundSuggestionsProps> = ({ path, onNavig
       <div className="text-center">
         <button
           onClick={() => onNavigate('calculator')}
-          className="inline-flex items-center gap-2 text-sm text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+          className="inline-flex items-center gap-2 text-sm text-link hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
         >
           <Home size={16} />
           {t('notFound.backHome')}
@@ -235,7 +235,7 @@ const NotFoundSuggestions: React.FC<NotFoundSuggestionsProps> = ({ path, onNavig
 
       {/* Search hint */}
       <div className="mt-6 text-center">
-        <p className="text-sm text-slate-500 dark:text-slate-400 flex items-center justify-center gap-1">
+        <p className="text-sm text-muted flex items-center justify-center gap-1">
           <Search size={12} />
           {t('notFound.searchHint')}
         </p>

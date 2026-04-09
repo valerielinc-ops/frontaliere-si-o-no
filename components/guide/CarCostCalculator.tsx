@@ -160,28 +160,28 @@ export default function CarCostCalculator() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="bg-white dark:bg-slate-800 rounded-xl shadow-lg p-6">
+      <div className="bg-surface rounded-xl shadow-lg p-6">
         <div className="flex items-center gap-3 mb-2">
           <Car className="text-amber-600 dark:text-amber-400" size={28} />
           <h2 className="text-2xl font-bold text-slate-800 dark:text-white">{t('carCost.title')}</h2>
         </div>
-        <p className="text-slate-600 dark:text-slate-400">{t('carCost.subtitle')}</p>
+        <p className="text-subtle">{t('carCost.subtitle')}</p>
       </div>
 
       <div className="grid lg:grid-cols-5 gap-6">
         {/* ── Inputs ── */}
         <div className="lg:col-span-2 space-y-4">
-          <div className="bg-white dark:bg-slate-800 rounded-xl shadow p-5 space-y-4">
+          <div className="bg-surface rounded-xl shadow p-5 space-y-4">
             {/* Vehicle Type */}
             <div>
-              <label htmlFor="cc-vtype" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">
+              <label htmlFor="cc-vtype" className="block text-sm font-medium text-body mb-1">
                 {t('carCost.vehicleType')}
               </label>
               <select
                 id="cc-vtype"
                 value={vehicleType}
                 onChange={(e) => setVehicleType(e.target.value as VehicleType)}
-                className="w-full rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 px-3 py-2 text-slate-800 dark:text-white"
+                className="w-full rounded-lg border border-edge bg-surface-alt px-3 py-2 text-slate-800 dark:text-white"
               >
                 <option value="small">{t('carCost.smallCar')}</option>
                 <option value="medium">{t('carCost.mediumCar')}</option>
@@ -192,7 +192,7 @@ export default function CarCostCalculator() {
 
             {/* Vehicle Age */}
             <div>
-              <label htmlFor="cc-age" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">
+              <label htmlFor="cc-age" className="block text-sm font-medium text-body mb-1">
                 {t('carCost.vehicleAge')}: <span className="font-bold text-amber-600 dark:text-amber-400">{vehicleAge}</span>
               </label>
               <input
@@ -208,7 +208,7 @@ export default function CarCostCalculator() {
 
             {/* Annual Km */}
             <div>
-              <label htmlFor="cc-km" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">
+              <label htmlFor="cc-km" className="block text-sm font-medium text-body mb-1">
                 {t('carCost.annualKm')}: <span className="font-bold text-amber-600 dark:text-amber-400">{annualKm.toLocaleString()}</span>
               </label>
               <input
@@ -226,14 +226,14 @@ export default function CarCostCalculator() {
             {/* Fuel Type (hidden if electric) */}
             {vehicleType !== 'electric' && (
               <div>
-                <label htmlFor="cc-fuel" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">
+                <label htmlFor="cc-fuel" className="block text-sm font-medium text-body mb-1">
                   {t('carCost.fuelType')}
                 </label>
                 <select
                   id="cc-fuel"
                   value={fuelType}
                   onChange={(e) => setFuelType(e.target.value as FuelType)}
-                  className="w-full rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 px-3 py-2 text-slate-800 dark:text-white"
+                  className="w-full rounded-lg border border-edge bg-surface-alt px-3 py-2 text-slate-800 dark:text-white"
                 >
                   <option value="petrol">{t('carCost.petrol')}</option>
                   <option value="diesel">{t('carCost.diesel')}</option>
@@ -254,12 +254,12 @@ export default function CarCostCalculator() {
             {showSdoganamento && (
               <div className="bg-amber-50 dark:bg-amber-900/30 rounded-lg p-4 text-sm">
                 <p className="font-semibold text-amber-800 dark:text-amber-300 mb-2">{t('carCost.sdoganamento')}</p>
-                <p className="text-slate-700 dark:text-slate-300 mb-2">{t('carCost.sdoganamentoDesc')}</p>
+                <p className="text-body mb-2">{t('carCost.sdoganamentoDesc')}</p>
                 <div className="flex items-center gap-2">
                   <span className="text-lg font-bold text-amber-700 dark:text-amber-300">
                     CHF {result.sdoganamento.toLocaleString()}
                   </span>
-                  <span className="text-slate-500 dark:text-slate-400 text-xs">
+                  <span className="text-muted text-xs">
                     ({t('carCost.sdoganamentoNote')})
                   </span>
                 </div>
@@ -278,7 +278,7 @@ export default function CarCostCalculator() {
 
         {/* ── Results ── */}
         <div className="lg:col-span-3 space-y-4">
-          <div className="bg-white dark:bg-slate-800 rounded-xl shadow p-5">
+          <div className="bg-surface rounded-xl shadow p-5">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-lg font-bold text-slate-800 dark:text-white">{t('carCost.resultTitle')}</h3>
               <button
@@ -294,20 +294,20 @@ export default function CarCostCalculator() {
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="border-b border-slate-200 dark:border-slate-700">
-                    <th className="text-left py-2 pr-4 text-slate-600 dark:text-slate-400"></th>
-                    <th className="text-right py-2 px-4 text-slate-600 dark:text-slate-400">🇮🇹 {t('carCost.italy')}</th>
-                    <th className="text-right py-2 pl-4 text-slate-600 dark:text-slate-400">🇨🇭 {t('carCost.switzerland')}</th>
+                  <tr className="border-b border-edge">
+                    <th className="text-left py-2 pr-4 text-subtle"></th>
+                    <th className="text-right py-2 px-4 text-subtle">🇮🇹 {t('carCost.italy')}</th>
+                    <th className="text-right py-2 pl-4 text-subtle">🇨🇭 {t('carCost.switzerland')}</th>
                   </tr>
                 </thead>
                 <tbody>
                   {costRows.map((row) => (
                     <tr key={row.label} className="border-b border-slate-100 dark:border-slate-700/50">
-                      <td className="py-2.5 pr-4 text-slate-700 dark:text-slate-300">{row.label}</td>
-                      <td className="py-2.5 px-4 text-right font-mono text-slate-800 dark:text-slate-200">
+                      <td className="py-2.5 pr-4 text-body">{row.label}</td>
+                      <td className="py-2.5 px-4 text-right font-mono text-strong">
                         {row.unit[0]} {row.it.toLocaleString()}
                       </td>
-                      <td className="py-2.5 pl-4 text-right font-mono text-slate-800 dark:text-slate-200">
+                      <td className="py-2.5 pl-4 text-right font-mono text-strong">
                         {row.unit[1]} {row.ch.toLocaleString()}
                       </td>
                     </tr>
@@ -331,7 +331,7 @@ export default function CarCostCalculator() {
             <div className="mt-4 space-y-2">
               <div className="flex items-center gap-3">
                 <span className="w-6 text-center">🇮🇹</span>
-                <div className="flex-1 bg-slate-100 dark:bg-slate-700 rounded-full h-6 overflow-hidden">
+                <div className="flex-1 bg-surface-raised rounded-full h-6 overflow-hidden">
                   <div
                     className="h-full bg-green-500 rounded-full flex items-center justify-end pr-2 text-xs font-bold text-white"
                     style={{ width: `${Math.min((result.italy.total / Math.max(result.italy.total, result.switzerland.total)) * 100, 100)}%` }}
@@ -342,7 +342,7 @@ export default function CarCostCalculator() {
               </div>
               <div className="flex items-center gap-3">
                 <span className="w-6 text-center">🇨🇭</span>
-                <div className="flex-1 bg-slate-100 dark:bg-slate-700 rounded-full h-6 overflow-hidden">
+                <div className="flex-1 bg-surface-raised rounded-full h-6 overflow-hidden">
                   <div
                     className="h-full bg-red-500 rounded-full flex items-center justify-end pr-2 text-xs font-bold text-white"
                     style={{ width: `${Math.min((result.switzerland.total / Math.max(result.italy.total, result.switzerland.total)) * 100, 100)}%` }}
@@ -362,13 +362,13 @@ export default function CarCostCalculator() {
               )}
               <div>
                 <p className="font-semibold text-slate-800 dark:text-white">{t('carCost.switchPlates')}</p>
-                <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">
+                <p className="text-sm text-subtle mt-1">
                   {diff > 0
                     ? `${t('carCost.savings')}: € ${Math.abs(diff).toLocaleString()}/anno con targhe IT`
                     : `${t('carCost.savings')}: CHF ${Math.abs(diff).toLocaleString()}/anno con targhe CH`}
                 </p>
                 {showSdoganamento && diff < 0 && (
-                  <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
+                  <p className="text-sm text-muted mt-1">
                     Ammortamento sdoganamento: ~{Math.ceil(result.sdoganamento / Math.abs(diff))} anni
                   </p>
                 )}
@@ -377,7 +377,7 @@ export default function CarCostCalculator() {
           </div>
 
           {/* Disclaimer */}
-          <div className="flex items-start gap-2 text-xs text-slate-500 dark:text-slate-400">
+          <div className="flex items-start gap-2 text-xs text-muted">
             <AlertTriangle size={14} className="flex-shrink-0 mt-0.5" />
             <p>{t('carCost.disclaimer')}</p>
           </div>

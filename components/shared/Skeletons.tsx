@@ -19,7 +19,7 @@ export const SkeletonCircle: React.FC<{ size?: string; className?: string }> = (
 // ---- Skeleton Cards ----
 
 export const SkeletonCard: React.FC<{ lines?: number }> = ({ lines = 3 }) => (
-  <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 p-4 sm:p-6 space-y-4">
+  <div className="bg-surface rounded-2xl border border-slate-100 dark:border-slate-700 p-4 sm:p-6 space-y-4">
     <div className="flex items-center gap-3">
       <SkeletonCircle size="w-8 h-8" />
       <SkeletonLine width="w-40" height="h-5" />
@@ -31,7 +31,7 @@ export const SkeletonCard: React.FC<{ lines?: number }> = ({ lines = 3 }) => (
 );
 
 export const SkeletonChart: React.FC = () => (
-  <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 p-4 sm:p-6 space-y-4">
+  <div className="bg-surface rounded-2xl border border-slate-100 dark:border-slate-700 p-4 sm:p-6 space-y-4">
     <div className="flex items-center gap-3 mb-6">
       <SkeletonCircle size="w-8 h-8" />
       <SkeletonLine width="w-48" height="h-5" />
@@ -50,9 +50,9 @@ export const SkeletonChart: React.FC = () => (
 );
 
 export const SkeletonTable: React.FC<{ rows?: number; cols?: number }> = ({ rows = 4, cols = 4 }) => (
-  <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 overflow-hidden">
+  <div className="bg-surface rounded-2xl border border-slate-100 dark:border-slate-700 overflow-hidden">
     {/* Header */}
-    <div className="flex gap-4 p-4 border-b border-slate-100 dark:border-slate-700 bg-slate-50 dark:bg-slate-900">
+    <div className="flex gap-4 p-4 border-b border-slate-100 dark:border-slate-700 bg-surface-alt">
       {Array.from({ length: cols }).map((_, i) => (
         <SkeletonLine key={i} width="flex-1" height="h-4" />
       ))}
@@ -74,8 +74,8 @@ export const SkeletonComparator: React.FC = () => (
   <div className="min-h-[80vh] space-y-6">
     {/* Real heading for early LCP */}
     <div className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-slate-800 dark:to-slate-900 rounded-2xl p-6">
-      <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Confronta Servizi per Frontalieri</h2>
-      <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">Assicurazioni, banche, cambio valuta e trasporti a confronto</p>
+      <h2 className="text-2xl font-bold text-heading">Confronta Servizi per Frontalieri</h2>
+      <p className="text-sm text-subtle mt-1">Assicurazioni, banche, cambio valuta e trasporti a confronto</p>
     </div>
     {/* Controls */}
     <div className="flex gap-3">
@@ -96,8 +96,8 @@ export const SkeletonGuide: React.FC = () => (
   <div className="min-h-[80vh] space-y-6">
     {/* Real heading for early LCP */}
     <div className="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-slate-800 dark:to-slate-900 rounded-2xl p-6">
-      <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Guida Completa per Frontalieri</h2>
-      <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">Tutto quello che devi sapere per lavorare in Svizzera dall'Italia</p>
+      <h2 className="text-2xl font-bold text-heading">Guida Completa per Frontalieri</h2>
+      <p className="text-sm text-subtle mt-1">Tutto quello che devi sapere per lavorare in Svizzera dall'Italia</p>
     </div>
     <div className="space-y-4">
       {Array.from({ length: 5 }).map((_, i) => (
@@ -122,8 +122,8 @@ export const SkeletonDashboard: React.FC = () => (
 export const SkeletonFisco: React.FC = () => (
   <div className="min-h-[80vh] space-y-6">
     {/* Real heading for early LCP */}
-    <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Fisco e Previdenza Frontalieri</h2>
-    <p className="text-sm text-slate-600 dark:text-slate-400">Tasse, pensioni e pianificazione finanziaria per lavoratori transfrontalieri</p>
+    <h2 className="text-2xl font-bold text-heading">Fisco e Previdenza Frontalieri</h2>
+    <p className="text-sm text-subtle">Tasse, pensioni e pianificazione finanziaria per lavoratori transfrontalieri</p>
     {/* Sub-tab pills */}
     <div className="flex gap-2 overflow-x-auto">
       {Array.from({ length: 5 }).map((_, i) => (
@@ -140,8 +140,8 @@ export const SkeletonFisco: React.FC = () => (
 export const SkeletonStats: React.FC = () => (
   <div className="min-h-[80vh] space-y-6">
     {/* Real heading for early LCP */}
-    <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Statistiche Frontalieri</h2>
-    <p className="text-sm text-slate-600 dark:text-slate-400">Dati aggiornati su flussi, stipendi e tendenze del lavoro transfrontaliero</p>
+    <h2 className="text-2xl font-bold text-heading">Statistiche Frontalieri</h2>
+    <p className="text-sm text-subtle">Dati aggiornati su flussi, stipendi e tendenze del lavoro transfrontaliero</p>
     <div className={`${pulse} h-24 rounded-2xl`} />
     <div className="grid md:grid-cols-2 gap-4">
       <SkeletonChart />
@@ -177,7 +177,7 @@ export const SkeletonBlog: React.FC = () => {
     // Article-specific skeleton: H1 from seeded data + article body placeholder
     return (
       <div className="min-h-[80vh] space-y-6 max-w-3xl mx-auto">
-        <h1 className="text-2xl font-bold text-slate-900 dark:text-slate-100">{articleTitle}</h1>
+        <h1 className="text-2xl font-bold text-heading">{articleTitle}</h1>
         <div className={`${pulse} h-5 w-48`} />
         <div className={`${pulse} h-64 sm:h-80 rounded-2xl`} />
         <div className="space-y-3">
@@ -193,8 +193,8 @@ export const SkeletonBlog: React.FC = () => {
   // Blog listing skeleton
   return (
     <div className="min-h-[80vh] space-y-6">
-      <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Articoli e Notizie per Frontalieri</h2>
-      <p className="text-sm text-slate-600 dark:text-slate-400">Approfondimenti su tassazione, permessi, vita quotidiana e normative 2026</p>
+      <h2 className="text-2xl font-bold text-heading">Articoli e Notizie per Frontalieri</h2>
+      <p className="text-sm text-subtle">Approfondimenti su tassazione, permessi, vita quotidiana e normative 2026</p>
       <div className={`${pulse} h-64 sm:h-80 rounded-2xl`} />
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {Array.from({ length: 6 }).map((_, i) => (
@@ -208,8 +208,8 @@ export const SkeletonBlog: React.FC = () => {
 export const SkeletonVita: React.FC = () => (
   <div className="min-h-[80vh] space-y-6">
     {/* Real heading for early LCP */}
-    <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Vivere in Ticino</h2>
-    <p className="text-sm text-slate-600 dark:text-slate-400">Costo della vita, alloggi, trasporti e qualità della vita nel Canton Ticino</p>
+    <h2 className="text-2xl font-bold text-heading">Vivere in Ticino</h2>
+    <p className="text-sm text-subtle">Costo della vita, alloggi, trasporti e qualità della vita nel Canton Ticino</p>
     <div className={`${pulse} h-28 rounded-2xl`} />
     <div className="grid md:grid-cols-2 gap-4">
       <SkeletonCard lines={3} />
@@ -233,13 +233,13 @@ export const SkeletonWeeklyFact: React.FC = () => (
 
 /** Matches InputCard approximate height — tall form with 8+ fields */
 export const SkeletonInputCard: React.FC = () => (
-  <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 p-4 sm:p-6 space-y-4">
+  <div className="bg-surface rounded-2xl border border-slate-100 dark:border-slate-700 p-4 sm:p-6 space-y-4">
     {/* Real H1 text to serve as LCP: large text element renders before lazy InputCard chunk loads */}
-    <h1 className="text-[30px] font-extrabold text-slate-900 dark:text-slate-100 leading-tight">
+    <h1 className="text-[30px] font-extrabold text-heading leading-tight">
       Calcola Stipendio Netto Frontaliere
       <span className="block text-lg font-bold mt-1">Svizzera–Italia (Ticino)</span>
     </h1>
-    <p className="text-[13px] text-slate-500 dark:text-slate-400 leading-relaxed">Simulatore reddito netto, costo della vita e guida completa per frontalieri Italia-Svizzera</p>
+    <p className="text-[13px] text-muted leading-relaxed">Simulatore reddito netto, costo della vita e guida completa per frontalieri Italia-Svizzera</p>
     <div className="flex items-center gap-3">
       <SkeletonCircle size="w-8 h-8" />
       <SkeletonLine width="w-32" height="h-5" />
@@ -264,7 +264,7 @@ export const SkeletonInputCard: React.FC = () => (
 /** Mobile calc layout skeleton — matches MobileCalcLayout compact input card */
 export const SkeletonMobileCalc: React.FC = () => (
   <div className="space-y-4 pb-3">
-    <div className="bg-white dark:bg-slate-900 rounded-2xl shadow-lg border border-slate-200/80 dark:border-slate-800 p-4 space-y-3">
+    <div className="bg-surface rounded-2xl shadow-lg border border-slate-200/80 dark:border-slate-800 p-4 space-y-3">
       {/* Salary label + stepper */}
       <SkeletonLine width="w-20" height="h-3" />
       <div className="flex items-stretch gap-2">
@@ -301,7 +301,7 @@ export const SkeletonJobDetail: React.FC = () => (
     <div className={`${pulse} w-32 h-5 rounded`} />
 
     {/* Job header card — logo + title + meta badges */}
-    <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 space-y-3">
+    <div className="bg-surface rounded-2xl border border-edge p-5 space-y-3">
       <div className="flex items-start gap-4">
         <div className={`${pulse} w-12 h-12 rounded-lg flex-shrink-0`} />
         <div className="flex-1 min-w-0 space-y-2">
@@ -335,8 +335,8 @@ export const SkeletonJobBoard: React.FC = () => (
   <div className="space-y-4 min-h-[80vh]">
     {/* Header */}
     <div className="bg-gradient-to-br from-teal-50 to-blue-50 dark:from-slate-800 dark:to-slate-900 rounded-2xl p-6">
-      <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Offerte di Lavoro Ticino</h2>
-      <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">Trova lavoro in Svizzera come frontaliere</p>
+      <h2 className="text-2xl font-bold text-heading">Offerte di Lavoro Ticino</h2>
+      <p className="text-sm text-subtle mt-1">Trova lavoro in Svizzera come frontaliere</p>
     </div>
     {/* Search + filters bar */}
     <div className="flex gap-3">
@@ -463,25 +463,25 @@ export const SkeletonPageShell: React.FC = () => {
           <div className="flex justify-between h-20 items-center">
             {/* Logo placeholder */}
             <div className="flex items-center gap-3">
-              <div className="w-[38px] h-[38px] bg-white dark:bg-slate-900 rounded-xl ring-1 ring-slate-200 dark:ring-slate-800" />
+              <div className="w-[38px] h-[38px] bg-surface rounded-xl ring-1 ring-slate-200 dark:ring-slate-800" />
               <div className="hidden sm:block space-y-1">
-                <div className="w-[140px] h-[18px] bg-slate-100 dark:bg-slate-800 rounded" />
-                <div className="w-[100px] h-[10px] bg-slate-100 dark:bg-slate-800 rounded" />
+                <div className="w-[140px] h-[18px] bg-surface-raised rounded" />
+                <div className="w-[100px] h-[10px] bg-surface-raised rounded" />
               </div>
             </div>
             {/* Nav link placeholders — hidden mobile, flex md+ */}
             <div className="hidden md:flex items-center gap-1 mx-2 lg:mx-4 flex-1 min-w-0 justify-between">
               {Array.from({ length: 6 }).map((_, i) => (
                 <div key={i} className="flex-1 min-w-0 flex justify-center">
-                  <div className="w-10 h-10 bg-slate-100 dark:bg-slate-800 rounded-lg" />
+                  <div className="w-10 h-10 bg-surface-raised rounded-lg" />
                 </div>
               ))}
             </div>
             {/* Action button placeholders — hidden mobile, flex md+ */}
             <div className="hidden md:flex items-center gap-2 pl-4 border-l border-slate-200 dark:border-slate-800 shrink-0">
               <div className="w-[76px] h-9" aria-hidden="true" />
-              <div className="w-[34px] h-[34px] bg-slate-100 dark:bg-slate-800 rounded-xl" />
-              <div className="w-[34px] h-[34px] bg-slate-100 dark:bg-slate-800 rounded-xl" />
+              <div className="w-[34px] h-[34px] bg-surface-raised rounded-xl" />
+              <div className="w-[34px] h-[34px] bg-surface-raised rounded-xl" />
             </div>
           </div>
         </div>
@@ -489,7 +489,7 @@ export const SkeletonPageShell: React.FC = () => {
 
       {/* Sub-tab bar — matches real sub-nav: py-2.5 gap-1 grid-cols-4/8 */}
       {hasSubTabs && (
-        <div className="border-t border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900">
+        <div className="border-t border-edge bg-surface">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5">
             <div className="grid grid-cols-4 md:grid-cols-8 gap-1">
               {Array.from({ length: 8 }).map((_, i) => (
@@ -516,8 +516,8 @@ export const SkeletonPageShell: React.FC = () => {
       <nav className="fixed bottom-0 left-0 right-0 z-50 bg-white/95 dark:bg-slate-900/95 border-t border-slate-200/50 dark:border-slate-800/50 md:hidden h-14 grid grid-cols-6 items-center" style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}>
         {Array.from({ length: 6 }).map((_, i) => (
           <div key={i} className="flex flex-col items-center gap-0.5">
-            <div className="w-5 h-5 bg-slate-100 dark:bg-slate-800 rounded" />
-            <div className="w-8 h-2 bg-slate-100 dark:bg-slate-800 rounded" />
+            <div className="w-5 h-5 bg-surface-raised rounded" />
+            <div className="w-8 h-2 bg-surface-raised rounded" />
           </div>
         ))}
       </nav>

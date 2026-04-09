@@ -184,7 +184,7 @@ const UnemploymentStats: React.FC = () => {
 
   if (loading) {
     return (
-      <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 flex items-center justify-center py-32">
+      <div className="bg-surface rounded-2xl shadow-sm border border-edge flex items-center justify-center py-32">
         <Loader2 className="animate-spin h-10 w-10 text-amber-500" />
       </div>
     );
@@ -192,21 +192,21 @@ const UnemploymentStats: React.FC = () => {
 
   if (!data) {
     return (
-      <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 flex flex-col items-center justify-center py-32 space-y-3">
-        <BarChart3 size={40} className="text-slate-500 dark:text-slate-400" />
-        <p className="text-slate-500 dark:text-slate-400 text-sm">{localeLabels.noData}</p>
+      <div className="bg-surface rounded-2xl shadow-sm border border-edge flex flex-col items-center justify-center py-32 space-y-3">
+        <BarChart3 size={40} className="text-muted" />
+        <p className="text-muted text-sm">{localeLabels.noData}</p>
       </div>
     );
   }
 
   return (
-    <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 flex flex-col h-full animate-fade-in-up transition-colors duration-300 pb-8">
+    <div className="bg-surface rounded-2xl shadow-sm border border-edge flex flex-col h-full animate-fade-in-up transition-colors duration-300 pb-8">
       {/* Header */}
-      <div className="p-6 border-b border-slate-100 dark:border-slate-800 sticky top-0 z-10 bg-white dark:bg-slate-800 rounded-t-2xl">
+      <div className="p-6 border-b border-slate-100 dark:border-slate-800 sticky top-0 z-10 bg-surface rounded-t-2xl">
         <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100 tracking-tight flex items-center gap-2">
           <BarChart3 size={20} className="text-amber-500" /> {localeLabels.title}
         </h2>
-        <p className="text-slate-500 dark:text-slate-400 text-xs mt-1">
+        <p className="text-muted text-xs mt-1">
           {localeLabels.subtitle}
         </p>
       </div>
@@ -217,22 +217,22 @@ const UnemploymentStats: React.FC = () => {
         <div className="flex flex-wrap items-baseline gap-x-6 gap-y-2 text-sm">
           {/* Current Rate */}
           <div className="flex items-baseline gap-1">
-            <span className="text-slate-500 dark:text-slate-400">{localeLabels.currentRate}:</span>{' '}
+            <span className="text-muted">{localeLabels.currentRate}:</span>{' '}
             <span className="font-semibold text-amber-700 dark:text-amber-400">{data.rate.toFixed(1)}%</span>
             {kpis?.yoyChange != null && (
-              <span className={`text-xs font-semibold ${kpis.yoyChange > 0 ? 'text-red-600 dark:text-red-400' : kpis.yoyChange < 0 ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-500 dark:text-slate-400'}`}>
+              <span className={`text-xs font-semibold ${kpis.yoyChange > 0 ? 'text-red-600 dark:text-red-400' : kpis.yoyChange < 0 ? 'text-emerald-600 dark:text-emerald-400' : 'text-muted'}`}>
                 ({kpis.yoyChange > 0 ? '+' : ''}{kpis.yoyChange.toFixed(1)}pp {localeLabels.yoy})
               </span>
             )}
-            <span className="text-sm text-slate-500 dark:text-slate-400 capitalize">{currentPeriodLabel}</span>
+            <span className="text-sm text-muted capitalize">{currentPeriodLabel}</span>
           </div>
 
           {/* Historic Low */}
           <div>
-            <span className="text-slate-500 dark:text-slate-400">{localeLabels.minimum}:</span>{' '}
+            <span className="text-muted">{localeLabels.minimum}:</span>{' '}
             <span className="font-semibold text-emerald-600 dark:text-emerald-400">{kpis?.min.toFixed(1)}%</span>
             {kpis?.minEntry && (
-              <span className="text-sm text-slate-500 dark:text-slate-400 ml-1 capitalize">
+              <span className="text-sm text-muted ml-1 capitalize">
                 {(() => {
                   const [y, m] = kpis.minEntry.period.split('-').map(Number);
                   return new Date(Date.UTC(y, m - 1, 1)).toLocaleDateString(localeMap[locale] || 'it-CH', { month: 'short', year: 'numeric', timeZone: 'UTC' });
@@ -243,10 +243,10 @@ const UnemploymentStats: React.FC = () => {
 
           {/* Historic High */}
           <div>
-            <span className="text-slate-500 dark:text-slate-400">{localeLabels.maximum}:</span>{' '}
+            <span className="text-muted">{localeLabels.maximum}:</span>{' '}
             <span className="font-semibold text-red-600 dark:text-red-400">{kpis?.max.toFixed(1)}%</span>
             {kpis?.maxEntry && (
-              <span className="text-sm text-slate-500 dark:text-slate-400 ml-1 capitalize">
+              <span className="text-sm text-muted ml-1 capitalize">
                 {(() => {
                   const [y, m] = kpis.maxEntry.period.split('-').map(Number);
                   return new Date(Date.UTC(y, m - 1, 1)).toLocaleDateString(localeMap[locale] || 'it-CH', { month: 'short', year: 'numeric', timeZone: 'UTC' });
@@ -257,14 +257,14 @@ const UnemploymentStats: React.FC = () => {
 
           {/* Period Average */}
           <div>
-            <span className="text-slate-500 dark:text-slate-400">{localeLabels.average}:</span>{' '}
+            <span className="text-muted">{localeLabels.average}:</span>{' '}
             <span className="font-semibold text-slate-900 dark:text-white">{kpis?.avg.toFixed(1)}%</span>{' '}
-            <span className="text-sm text-slate-500 dark:text-slate-400">2016 – 2026</span>
+            <span className="text-sm text-muted">2016 – 2026</span>
           </div>
         </div>
 
         {/* 10-year Trend Chart */}
-        <div className="bg-white dark:bg-slate-800 p-5 rounded-3xl border border-slate-100 dark:border-slate-700 shadow-sm">
+        <div className="bg-surface p-5 rounded-3xl border border-slate-100 dark:border-slate-700 shadow-sm">
           <h3 className="text-sm font-bold text-slate-700 dark:text-slate-200 mb-6 flex items-center gap-2">
             <TrendingUp size={16} className="text-amber-500" /> {localeLabels.trendTitle}
           </h3>
@@ -305,7 +305,7 @@ const UnemploymentStats: React.FC = () => {
                 </LineChart>
               </ResponsiveContainer>
             ) : (
-              <div className="w-full h-full flex items-center justify-center text-slate-500 dark:text-slate-400 text-xs italic">
+              <div className="w-full h-full flex items-center justify-center text-muted text-xs italic">
                 {localeLabels.noData}
               </div>
             )}
@@ -314,7 +314,7 @@ const UnemploymentStats: React.FC = () => {
 
         {/* Yearly Average BarChart */}
         {yearlyData.length > 1 && (
-          <div className="bg-white dark:bg-slate-800 p-5 rounded-3xl border border-slate-100 dark:border-slate-700 shadow-sm">
+          <div className="bg-surface p-5 rounded-3xl border border-slate-100 dark:border-slate-700 shadow-sm">
             <h3 className="text-sm font-bold text-slate-700 dark:text-slate-200 mb-6 flex items-center gap-2">
               <Calendar size={16} className="text-amber-500" /> {localeLabels.yearlyTitle}
             </h3>
@@ -369,19 +369,19 @@ const UnemploymentStats: React.FC = () => {
               <TrendingUp size={14} className="text-amber-500" />
               {{ it: 'Analisi del mercato del lavoro svizzero', en: 'Swiss labour market analysis', de: 'Analyse des Schweizer Arbeitsmarktes', fr: 'Analyse du marché du travail suisse' }[locale] || 'Analisi del mercato del lavoro svizzero'}
             </h3>
-            <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">{seoText}</p>
+            <p className="text-xs text-subtle leading-relaxed">{seoText}</p>
           </article>
         </div>
       )}
 
       {/* Footer Info */}
       <div className="px-6">
-        <div className="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4 border border-slate-100 dark:border-slate-700">
+        <div className="bg-surface-alt/50 p-4 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4 border border-slate-100 dark:border-slate-700">
           <div className="flex items-center gap-3">
             <div className="bg-white dark:bg-slate-700 p-2 rounded-xl text-amber-600 shadow-sm hidden sm:block">
               <Info size={20} />
             </div>
-            <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed text-center sm:text-left">
+            <p className="text-xs text-muted leading-relaxed text-center sm:text-left">
               {localeLabels.source}
             </p>
           </div>
@@ -392,7 +392,7 @@ const UnemploymentStats: React.FC = () => {
                 target="_blank"
                 rel="noreferrer"
                 onClick={() => Analytics.trackExternalLink(data.releaseUrl || data.sourceUrl, 'unemployment_source_seco')}
-                className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-slate-700 hover:bg-amber-50 dark:hover:bg-amber-900/30 text-amber-700 dark:text-amber-300 text-xs font-bold rounded-xl transition-colors border border-slate-200 dark:border-slate-600 shadow-sm"
+                className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-slate-700 hover:bg-amber-50 dark:hover:bg-amber-900/30 text-amber-700 dark:text-amber-300 text-xs font-bold rounded-xl transition-colors border border-edge shadow-sm"
               >
                 {t('stats.sourceSECO')} <ExternalLink size={12} />
               </a>

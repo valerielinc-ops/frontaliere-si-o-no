@@ -3,7 +3,7 @@
  * Manages SEO metadata for different sections of the app
  */
 
-import { getLocale, setLocale, t, type Locale } from './i18n';
+import { getLocale, setLocale, t, getCantonI18nParams, type Locale } from './i18n';
 import { parsePath, buildPath, buildAllLocalePaths, type AppRoute } from './router';
 import { ALL_GLOSSARY_TERM_IDS, ALL_BORDER_CROSSING_IDS } from './router';
 import { resolveCompanyLogoUrl } from './jobDataNormalization';
@@ -994,7 +994,7 @@ const SEO_SECTION_DESCRIPTION_KEY_MAP: Record<string, string> = {
 
 function translateIfExists(key: string | undefined): string | null {
   if (!key) return null;
-  const value = t(key);
+  const value = t(key, getCantonI18nParams());
   return value && value !== key ? value : null;
 }
 

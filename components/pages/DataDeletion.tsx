@@ -13,20 +13,20 @@ export const DataDeletion: React.FC = () => {
       <div className="max-w-2xl w-full">
         
         {/* Header */}
-        <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 sm:p-8 shadow-xl mb-6">
+        <div className="bg-surface rounded-2xl border border-edge p-5 sm:p-8 shadow-xl mb-6">
           <div className="flex items-center gap-4 mb-6">
             <div className="p-3 bg-gradient-to-br from-red-500 to-pink-600 rounded-2xl shadow-lg">
               <Trash2 className="text-white" size={32} />
             </div>
             <div>
               <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-800 dark:text-slate-100">Data Deletion</h1>
-              <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">Facebook App Data Deletion Callback</p>
+              <p className="text-sm text-muted mt-1">Facebook App Data Deletion Callback</p>
             </div>
           </div>
         </div>
 
         {/* Main Content */}
-        <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 sm:p-8 shadow-lg space-y-6">
+        <div className="bg-surface rounded-2xl border border-edge p-5 sm:p-8 shadow-lg space-y-6">
           
           {/* No Data Collected Message */}
           <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-xl p-6">
@@ -44,7 +44,7 @@ export const DataDeletion: React.FC = () => {
           </div>
 
           {/* Explanation */}
-          <div className="space-y-4 text-slate-600 dark:text-slate-400">
+          <div className="space-y-4 text-subtle">
             <div className="flex items-start gap-3">
               <Shield className="text-indigo-500 flex-shrink-0 mt-1" size={20} />
               <div>
@@ -77,49 +77,49 @@ export const DataDeletion: React.FC = () => {
           </div>
 
           {/* Divider */}
-          <div className="border-t border-slate-200 dark:border-slate-700"></div>
+          <div className="border-t border-edge"></div>
 
           {/* What We Do Collect */}
           <div>
             <h3 className="font-bold text-slate-800 dark:text-slate-100 mb-3">What We Do Collect:</h3>
-            <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+            <ul className="space-y-2 text-sm text-subtle">
               <li className="flex items-start gap-2">
-                <span className="text-slate-500 dark:text-slate-400">•</span>
+                <span className="text-muted">•</span>
                 <span><strong>Account Data (if signed in):</strong> Email address, display name, and profile photo from your Google or Facebook account, stored in Firebase Authentication and Firestore.</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-slate-500 dark:text-slate-400">•</span>
+                <span className="text-muted">•</span>
                 <span><strong>Newsletter Subscription:</strong> Email address if you subscribe to our newsletter, stored in Firestore.</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-slate-500 dark:text-slate-400">•</span>
+                <span className="text-muted">•</span>
                 <span><strong>Anonymous Analytics:</strong> Google Analytics collects anonymous usage statistics (page views, device type, browser). No personally identifiable information.</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-slate-500 dark:text-slate-400">•</span>
+                <span className="text-muted">•</span>
                 <span><strong>Local Preferences:</strong> Theme preferences (dark/light mode) stored in your browser's local storage. Never leaves your device.</span>
               </li>
             </ul>
           </div>
 
           {/* Divider */}
-          <div className="border-t border-slate-200 dark:border-slate-700"></div>
+          <div className="border-t border-edge"></div>
 
           {/* Data Deletion Request */}
-          <div className="bg-slate-50 dark:bg-slate-900/50 rounded-xl p-4 sm:p-6 border border-slate-200 dark:border-slate-700">
+          <div className="bg-surface-alt/50 rounded-xl p-4 sm:p-6 border border-edge">
             <h3 className="font-bold text-slate-800 dark:text-slate-100 mb-3">Data Deletion Request</h3>
-            <p className="text-sm text-slate-600 dark:text-slate-400 mb-4">
+            <p className="text-sm text-subtle mb-4">
               To delete all data associated with your account:
             </p>
-            <ol className="text-sm text-slate-600 dark:text-slate-400 space-y-2 list-decimal list-inside mb-4">
+            <ol className="text-sm text-subtle space-y-2 list-decimal list-inside mb-4">
               <li>Go to your <a href="/profilo-utente" className="text-indigo-600 dark:text-indigo-400 hover:underline font-semibold">Profile page</a></li>
               <li>Click the <strong>"Delete Account"</strong> button</li>
               <li>Confirm the deletion when prompted</li>
             </ol>
-            <p className="text-sm text-slate-600 dark:text-slate-400">
+            <p className="text-sm text-subtle">
               This will permanently remove your Firebase Auth account, Firestore profile, newsletter subscription, and all associated data. You can also revoke app access from your <a href="https://www.facebook.com/settings?tab=applications" target="_blank" rel="noopener noreferrer" className="text-indigo-600 dark:text-indigo-400 hover:underline font-semibold">Facebook App Settings</a>.
             </p>
-            <p className="text-sm text-slate-600 dark:text-slate-400 mt-3">
+            <p className="text-sm text-subtle mt-3">
               For further questions, refer to our <a href="/privacy" className="text-indigo-600 dark:text-indigo-400 hover:underline font-semibold">Privacy Policy</a> or contact us via our Facebook page.
             </p>
           </div>
@@ -130,8 +130,8 @@ export const DataDeletion: React.FC = () => {
             <p className="text-sm text-indigo-700 dark:text-indigo-400">
               For Facebook App Review purposes: This page serves as the Data Deletion Callback URL as required by Facebook's Platform Policy.
             </p>
-            <div className="mt-4 p-3 bg-white dark:bg-slate-800 rounded-lg border border-indigo-200 dark:border-indigo-700">
-              <code className="text-xs text-slate-700 dark:text-slate-300 font-mono">
+            <div className="mt-4 p-3 bg-surface rounded-lg border border-indigo-200 dark:border-indigo-700">
+              <code className="text-xs text-body font-mono">
                 Status: DATA_DELETABLE<br/>
                 Method: Self-service via Profile page "Delete Account" button<br/>
                 Scope: Firebase Auth profile, Firestore user data, newsletter subscription
@@ -143,7 +143,7 @@ export const DataDeletion: React.FC = () => {
 
         {/* Contact */}
         <div className="mt-6 text-center">
-          <p className="text-sm text-slate-500 dark:text-slate-400">
+          <p className="text-sm text-muted">
             Questions? Contact us via{' '}
             <a 
               href="https://www.facebook.com/profile.php?id=61588174947294" 
@@ -154,7 +154,7 @@ export const DataDeletion: React.FC = () => {
               Facebook
             </a>
           </p>
-          <p className="text-xs text-slate-500 dark:text-slate-400 mt-2">
+          <p className="text-xs text-muted mt-2">
             © 2026 Frontaliere Ticino | <a href="/" className="hover:underline">Back to Home</a>
           </p>
         </div>

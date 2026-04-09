@@ -168,7 +168,7 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
         <div className="mt-3 p-4 bg-indigo-50 dark:bg-indigo-950/30 rounded-xl border border-indigo-200 dark:border-indigo-800 space-y-3">
           {/* Keyword */}
           <div>
-            <label className="block text-sm font-medium text-slate-600 dark:text-slate-400 mb-1">
+            <label className="block text-sm font-medium text-subtle mb-1">
               {t('jobAlert.keyword') || 'Parole chiave'}
             </label>
             <input
@@ -177,13 +177,13 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
               onChange={(e) => setKeyword(e.target.value)}
               placeholder={t('jobAlert.keywordPlaceholder') || 'es. developer, ingegnere, contabile'}
               aria-label={t('jobAlert.keyword') || 'Parole chiave'}
-              className="w-full px-3 py-2 text-sm rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 focus-visible:ring-2 focus-visible:ring-indigo-400 outline-none"
+              className="w-full px-3 py-2 text-sm rounded-lg border border-slate-300 dark:border-slate-600 bg-surface focus-visible:ring-2 focus-visible:ring-indigo-400 outline-none"
             />
           </div>
 
           {/* Locations */}
           <div>
-            <label className="block text-sm font-medium text-slate-600 dark:text-slate-400 mb-1">
+            <label className="block text-sm font-medium text-subtle mb-1">
               {t('jobAlert.zone') || 'Zona'}
             </label>
             <div className="flex flex-wrap gap-2">
@@ -194,7 +194,7 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
                   className={`px-3 py-1 text-xs rounded-full border transition-colors ${
                     selectedLocations.includes(loc.value)
                       ? 'bg-indigo-600 text-white border-indigo-600'
-                      : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 border-slate-300 dark:border-slate-600 hover:border-indigo-400'
+                      : 'bg-surface text-subtle border-slate-300 dark:border-slate-600 hover:border-indigo-400'
                   }`}
                 >
                   {loc.label}
@@ -205,7 +205,7 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
 
           {/* Contract types */}
           <div>
-            <label className="block text-sm font-medium text-slate-600 dark:text-slate-400 mb-1">
+            <label className="block text-sm font-medium text-subtle mb-1">
               {t('jobAlert.contractType') || 'Tipo contratto'}
             </label>
             <div className="flex flex-wrap gap-2">
@@ -216,7 +216,7 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
                   className={`px-3 py-1 text-xs rounded-full border transition-colors ${
                     selectedContracts.includes(ct.value)
                       ? 'bg-indigo-600 text-white border-indigo-600'
-                      : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 border-slate-300 dark:border-slate-600 hover:border-indigo-400'
+                      : 'bg-surface text-subtle border-slate-300 dark:border-slate-600 hover:border-indigo-400'
                   }`}
                 >
                   {t(ct.labelKey) || ct.value}
@@ -227,14 +227,14 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
 
           {/* Frequency */}
           <div className="flex items-center gap-3">
-            <label className="text-xs font-medium text-slate-600 dark:text-slate-400">
+            <label className="text-xs font-medium text-subtle">
               {t('jobAlert.frequency') || 'Frequenza'}:
             </label>
             <select
               value={frequency}
               onChange={(e) => setFrequency(e.target.value as 'daily' | 'weekly')}
               aria-label={t('jobAlert.frequency') || 'Frequenza'}
-              className="px-2 py-1 text-xs rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800"
+              className="px-2 py-1 text-xs rounded-lg border border-slate-300 dark:border-slate-600 bg-surface"
             >
               <option value="daily">{t('jobAlert.daily') || 'Giornaliera'}</option>
               <option value="weekly">{t('jobAlert.weekly') || 'Settimanale'}</option>
@@ -260,27 +260,27 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
           {/* Existing alerts */}
           {alerts.length > 0 && (
             <div className="border-t border-indigo-200 dark:border-indigo-800 pt-3 mt-3">
-              <h4 className="text-xs font-semibold text-slate-600 dark:text-slate-400 mb-2">
+              <h4 className="text-xs font-semibold text-subtle mb-2">
                 {t('jobAlert.yourAlerts') || 'Le tue alert'} ({alerts.length}/3)
               </h4>
               <div className="space-y-2">
                 {alerts.map((alert) => (
                   <div
                     key={alert.id}
-                    className="flex items-center justify-between p-2 bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700"
+                    className="flex items-center justify-between p-2 bg-surface rounded-lg border border-edge"
                   >
-                    <div className="text-xs text-slate-600 dark:text-slate-400">
-                      <span className="font-medium text-slate-800 dark:text-slate-200">
+                    <div className="text-xs text-subtle">
+                      <span className="font-medium text-strong">
                         {alert.keywords.join(', ') || 'Tutte le offerte'}
                       </span>
                       {alert.locations.length > 0 && (
                         <span> — {alert.locations.join(', ')}</span>
                       )}
-                      <span className="ml-2 text-slate-500 dark:text-slate-400">({alert.frequency})</span>
+                      <span className="ml-2 text-muted">({alert.frequency})</span>
                     </div>
                     <button
                       onClick={() => handleDelete(alert.id)}
-                      className="p-1 text-slate-500 dark:text-slate-400 hover:text-red-500 transition-colors"
+                      className="p-1 text-muted hover:text-red-500 transition-colors"
                       title={t('jobAlert.delete') || 'Elimina'}
                     >
                       <Trash2 className="w-3.5 h-3.5" />
@@ -292,7 +292,7 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
           )}
 
           {loadingAlerts && (
-            <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+            <div className="flex items-center gap-2 text-xs text-muted">
               <Loader2 className="w-3 h-3 animate-spin" />
               {t('jobAlert.loading') || 'Caricamento alert...'}
             </div>

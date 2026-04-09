@@ -114,19 +114,19 @@ const ITALIAN_UNIONS: UnionInfo[] = [
 const UnionCard: FC<{ union: UnionInfo; country: 'ch' | 'it' }> = ({ union, country }) => {
   const flag = country === 'ch' ? '🇨🇭' : '🇮🇹';
   return (
-    <div className="rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-4 hover:shadow-md transition-shadow">
+    <div className="rounded-xl border border-edge bg-surface p-4 hover:shadow-md transition-shadow">
       <div className="flex items-start justify-between mb-3">
         <div>
           <h3 className="font-bold text-slate-900 dark:text-white text-sm">
             {flag} {union.name}
           </h3>
-          <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">{union.sectors}</p>
+          <p className="text-xs text-muted mt-0.5">{union.sectors}</p>
         </div>
         <a
           href={union.website}
           target="_blank"
           rel="noreferrer"
-          className="flex-shrink-0 p-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-500 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+          className="flex-shrink-0 p-1.5 rounded-lg bg-surface-raised text-slate-500 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
           aria-label={`Visita ${union.acronym}`}
         >
           <ExternalLink size={14} />
@@ -134,7 +134,7 @@ const UnionCard: FC<{ union: UnionInfo; country: 'ch' | 'it' }> = ({ union, coun
       </div>
       <div className="space-y-1.5 mb-3">
         {union.highlights.map((h, i) => (
-          <div key={i} className="flex items-start gap-2 text-xs text-slate-600 dark:text-slate-400">
+          <div key={i} className="flex items-start gap-2 text-xs text-subtle">
             <ChevronRight size={12} className="text-indigo-500 flex-shrink-0 mt-0.5" />
             <span>{h}</span>
           </div>
@@ -168,7 +168,7 @@ export default function Sindacati() {
         <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
           Sindacati Svizzera e Italia per Frontalieri
         </h1>
-        <p className="mt-2 text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+        <p className="mt-2 text-subtle max-w-2xl mx-auto">
           Confronta i principali sindacati svizzeri e italiani: servizi, costi, sedi in Ticino e zone di confine. Scopri quale sindacato tutela meglio i tuoi diritti da lavoratore frontaliere.
         </p>
       </div>
@@ -190,7 +190,7 @@ export default function Sindacati() {
           ].map(({ icon: Icon, text }, i) => (
             <div key={i} className="flex items-start gap-3 p-3 rounded-xl bg-white/60 dark:bg-slate-900/40">
               <Icon size={18} className="text-indigo-600 dark:text-indigo-400 flex-shrink-0 mt-0.5" />
-              <span className="text-sm text-slate-700 dark:text-slate-300">{text}</span>
+              <span className="text-sm text-body">{text}</span>
             </div>
           ))}
         </div>
@@ -221,22 +221,22 @@ export default function Sindacati() {
       </div>
 
       {/* Frontalier-specific rights */}
-      <div className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-6">
+      <div className="rounded-2xl border border-edge bg-surface p-6">
         <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
           <Building2 size={20} className="text-amber-600" />
           Diritti specifici del frontaliere
         </h2>
-        <div className="space-y-3 text-sm text-slate-700 dark:text-slate-300">
-          <div className="p-3 rounded-lg bg-slate-50 dark:bg-slate-800/50">
+        <div className="space-y-3 text-sm text-body">
+          <div className="p-3 rounded-lg bg-surface-alt/50">
             <strong>Licenziamento:</strong> In Svizzera i termini di preavviso dipendono dall'anzianità (1-3 mesi). Il sindacato verifica la corretta applicazione e può impugnare licenziamenti abusivi.
           </div>
-          <div className="p-3 rounded-lg bg-slate-50 dark:bg-slate-800/50">
+          <div className="p-3 rounded-lg bg-surface-alt/50">
             <strong>Malattia e infortunio:</strong> L'assicurazione contro gli infortuni (LAINF) è obbligatoria. Il sindacato aiuta a ottenere il corretto indennizzo e verifica le prestazioni dell'assicurazione malattia.
           </div>
-          <div className="p-3 rounded-lg bg-slate-50 dark:bg-slate-800/50">
+          <div className="p-3 rounded-lg bg-surface-alt/50">
             <strong>Disoccupazione:</strong> I frontalieri hanno diritto alla NASpI italiana. I patronati sindacali (INCA, INAS, ITAL) gestiscono l'intera pratica di richiesta.
           </div>
-          <div className="p-3 rounded-lg bg-slate-50 dark:bg-slate-800/50">
+          <div className="p-3 rounded-lg bg-surface-alt/50">
             <strong>Tassazione:</strong> Il regime fiscale dei nuovi frontalieri (post 17/07/2023) prevede tassazione concorrente. Il sindacato offre consulenza sul regime applicabile e sulla dichiarazione dei redditi.
           </div>
         </div>
@@ -247,10 +247,10 @@ export default function Sindacati() {
         <a href="/guida-frontaliere/" className="inline-flex items-center gap-1 px-4 py-2 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-700 transition-colors">
           Guida Frontaliere <ChevronRight size={14} />
         </a>
-        <a href="/contratti-lavoro-svizzera/" className="inline-flex items-center gap-1 px-4 py-2 rounded-xl bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-slate-200 font-semibold hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors">
+        <a href="/contratti-lavoro-svizzera/" className="inline-flex items-center gap-1 px-4 py-2 rounded-xl bg-slate-200 dark:bg-slate-700 text-strong font-semibold hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors">
           Contratti di Lavoro <ChevronRight size={14} />
         </a>
-        <a href="/tasse-e-pensione/" className="inline-flex items-center gap-1 px-4 py-2 rounded-xl bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-slate-200 font-semibold hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors">
+        <a href="/tasse-e-pensione/" className="inline-flex items-center gap-1 px-4 py-2 rounded-xl bg-slate-200 dark:bg-slate-700 text-strong font-semibold hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors">
           Fisco e Previdenza <ChevronRight size={14} />
         </a>
       </div>

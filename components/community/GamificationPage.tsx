@@ -104,7 +104,7 @@ const GamificationPage: React.FC = () => {
               className={`flex items-center gap-2 px-4 py-2.5 text-sm font-bold whitespace-nowrap rounded-xl transition-[color,background-color,border-color,box-shadow] ${
                 selectedCategory === cat
                   ? `bg-gradient-to-r ${categoryColors[cat]} text-white shadow-md`
-                  : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700'
+                  : 'bg-surface text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-edge'
               }`}
             >
               {categoryIcons[cat]}
@@ -131,28 +131,28 @@ const GamificationPage: React.FC = () => {
               key={achievement.id}
               className={`relative flex items-start gap-4 p-4 rounded-2xl transition-[color,background-color,border-color,box-shadow] ${
                 isUnlocked
-                  ? 'bg-white dark:bg-slate-800 border-2 border-amber-300 dark:border-amber-700 shadow-md'
-                  : 'bg-white/60 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 opacity-70'
+                  ? 'bg-surface border-2 border-amber-300 dark:border-amber-700 shadow-md'
+                  : 'bg-white/60 dark:bg-slate-800/60 border border-edge opacity-70'
               }`}
             >
               {/* Icon */}
               <div className={`text-3xl flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center ${
                 isUnlocked
                   ? 'bg-amber-50 dark:bg-amber-900/20'
-                  : 'bg-slate-100 dark:bg-slate-700 grayscale'
+                  : 'bg-surface-raised grayscale'
               }`}>
-                {isUnlocked ? achievement.icon : <Lock size={20} className="text-slate-500 dark:text-slate-400" />}
+                {isUnlocked ? achievement.icon : <Lock size={20} className="text-muted" />}
               </div>
 
               {/* Content */}
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2">
-                  <h3 className={`text-sm font-bold ${isUnlocked ? 'text-amber-700 dark:text-amber-400' : 'text-slate-500 dark:text-slate-400'}`}>
+                  <h3 className={`text-sm font-bold ${isUnlocked ? 'text-amber-700 dark:text-amber-400' : 'text-muted'}`}>
                     {t(`gamification.achievement.${achievement.id}`)}
                   </h3>
                   {isUnlocked && <CheckCircle2 size={14} className="text-emerald-500 flex-shrink-0" />}
                 </div>
-                <p className="text-sm text-slate-500 dark:text-slate-400 mt-0.5">
+                <p className="text-sm text-muted mt-0.5">
                   {t(`gamification.achievementDesc.${achievement.id}`)}
                 </p>
 
@@ -162,13 +162,13 @@ const GamificationPage: React.FC = () => {
                     <div className="flex-1 bg-slate-200 dark:bg-slate-600 rounded-full h-1.5">
                       <div className="bg-amber-500 rounded-full h-1.5 transition-transform duration-300" style={{ width: '100%', transform: `scaleX(${progress})`, transformOrigin: 'left' }} />
                     </div>
-                    <span className="text-sm text-slate-500 dark:text-slate-400 font-bold">{count}/{achievement.requiredCount}</span>
+                    <span className="text-sm text-muted font-bold">{count}/{achievement.requiredCount}</span>
                   </div>
                 )}
 
                 {/* Unlocked date */}
                 {isUnlocked && unlockedDate && (
-                  <div className="text-sm text-slate-500 dark:text-slate-400 mt-1.5 flex items-center gap-1">
+                  <div className="text-sm text-muted mt-1.5 flex items-center gap-1">
                     <CheckCircle2 size={10} />
                     {t('gamification.unlockedOn') || 'Sbloccato il'} {unlockedDate}
                   </div>
@@ -176,8 +176,8 @@ const GamificationPage: React.FC = () => {
 
                 {/* XP reward */}
                 <div className="flex items-center gap-1 mt-1.5">
-                  <Zap size={10} className={isUnlocked ? 'text-amber-500' : 'text-slate-500 dark:text-slate-400'} />
-                  <span className={`text-xs font-bold ${isUnlocked ? 'text-amber-600 dark:text-amber-400' : 'text-slate-500 dark:text-slate-400'}`}>
+                  <Zap size={10} className={isUnlocked ? 'text-amber-500' : 'text-muted'} />
+                  <span className={`text-xs font-bold ${isUnlocked ? 'text-amber-600 dark:text-amber-400' : 'text-muted'}`}>
                     +50 XP
                   </span>
                 </div>
@@ -188,7 +188,7 @@ const GamificationPage: React.FC = () => {
       </div>
 
       {/* Level progression guide */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6">
+      <div className="bg-surface rounded-2xl border border-edge p-6">
         <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-4 flex items-center gap-2">
           <Trophy size={20} className="text-amber-500" />
           {t('gamification.levelGuide') || 'Livelli'}
@@ -206,10 +206,10 @@ const GamificationPage: React.FC = () => {
                     ? 'bg-gradient-to-br from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30 border-2 border-amber-400 dark:border-amber-700 shadow-sm'
                     : isReached
                       ? 'bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800'
-                      : 'bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 opacity-50'
+                      : 'bg-surface-alt/50 border border-edge opacity-50'
                 }`}
               >
-                <div className={`text-lg font-bold ${isCurrent ? 'text-amber-600' : isReached ? 'text-emerald-700' : 'text-slate-500 dark:text-slate-400'}`}>
+                <div className={`text-lg font-bold ${isCurrent ? 'text-amber-600' : isReached ? 'text-emerald-700' : 'text-muted'}`}>
                   {lvl}
                 </div>
                 <div className="text-xs font-bold text-slate-600 dark:text-slate-300 mt-0.5">{title}</div>

@@ -23,17 +23,17 @@ export const ChiSiamo: React.FC = () => {
       </button>
 
       {/* Header */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 sm:p-8 shadow-lg mb-6">
+      <div className="bg-surface rounded-2xl border border-edge p-5 sm:p-8 shadow-lg mb-6">
         <div className="flex items-center gap-4 mb-4">
           <div className="p-3 bg-teal-600 dark:bg-teal-700 rounded-2xl shadow-lg">
             <Users className="text-white" size={32} />
           </div>
           <div>
             <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-800 dark:text-slate-100">Chi Siamo</h1>
-            <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">Redazione Frontaliere Ticino</p>
+            <p className="text-sm text-muted mt-1">Redazione Frontaliere Ticino</p>
           </div>
         </div>
-        <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+        <p className="text-subtle leading-relaxed">
           <strong>Frontaliere Ticino</strong> è la piattaforma di riferimento per i lavoratori frontalieri
           italiani in Canton Ticino. Forniamo strumenti di calcolo, informazioni fiscali, offerte di lavoro
           e notizie quotidiane sul confine italo-svizzero.
@@ -107,7 +107,7 @@ export const ChiSiamo: React.FC = () => {
               pubblicazione ufficiale delle nuove tabelle e aliquote
             </BulletItem>
           </ul>
-          <p className="mt-4 text-xs text-slate-500 dark:text-slate-400">
+          <p className="mt-4 text-xs text-muted">
             Ultimo aggiornamento parametri: 2026. I dati sono forniti a scopo informativo e non
             sostituiscono la consulenza di un professionista fiscale abilitato.
           </p>
@@ -134,7 +134,7 @@ export const ChiSiamo: React.FC = () => {
               'TomTom Traffic API',
               'Agenzie stampa: RSI, Corriere del Ticino, LaRegione',
             ].map((source) => (
-              <div key={source} className="flex items-start gap-2 text-sm text-slate-600 dark:text-slate-400">
+              <div key={source} className="flex items-start gap-2 text-sm text-subtle">
                 <CheckCircle2 size={14} className="text-emerald-500 mt-0.5 shrink-0" />
                 <span>{source}</span>
               </div>
@@ -157,15 +157,15 @@ export const ChiSiamo: React.FC = () => {
         </Section>
 
         {/* Contact */}
-        <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 sm:p-6 shadow-sm">
+        <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm">
           <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-3">Contatti</h2>
-          <p className="text-sm text-slate-600 dark:text-slate-400">
+          <p className="text-sm text-subtle">
             Per segnalazioni, correzioni o collaborazioni editoriali:
           </p>
           <p className="mt-2 text-sm font-medium text-indigo-600 dark:text-indigo-400">
             redazione@frontaliereticino.ch
           </p>
-          <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
+          <p className="mt-1 text-xs text-muted">
             Frontaliere Ticino · Ticino, Svizzera · Fondata nel 2024
           </p>
         </div>
@@ -178,12 +178,12 @@ export const ChiSiamo: React.FC = () => {
 
 function Section({ icon: Icon, title, children }: { icon: React.FC<{ size?: number; className?: string }>; title: string; children: React.ReactNode }) {
   return (
-    <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 sm:p-6 shadow-sm">
+    <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm">
       <div className="flex items-center gap-3 mb-4">
         <Icon size={20} className="text-indigo-600 dark:text-indigo-400" />
         <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100">{title}</h2>
       </div>
-      <div className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+      <div className="text-sm text-subtle leading-relaxed">
         {children}
       </div>
     </div>

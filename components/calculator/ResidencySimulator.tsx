@@ -191,9 +191,9 @@ function LocationAutocomplete({
 
   return (
     <div ref={containerRef} className="relative">
-      <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 mb-1">{label}</label>
+      <label className="block text-xs font-bold text-muted mb-1">{label}</label>
       <div className="relative">
-        <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 dark:text-slate-400 pointer-events-none" />
+        <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted pointer-events-none" />
         <input
           ref={inputRef}
           type="text"
@@ -201,7 +201,7 @@ function LocationAutocomplete({
           onChange={(e) => { setQuery(e.target.value); setIsOpen(true); setHighlightIndex(-1); }}
           onFocus={() => { setIsOpen(true); setQuery(''); }}
           placeholder={displayValue || label}
-          className="w-full pl-9 pr-8 py-2.5 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-sm font-bold focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:border-transparent outline-none"
+          className="w-full pl-9 pr-8 py-2.5 rounded-lg bg-surface-alt border border-edge text-sm font-bold focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:border-transparent outline-none"
           onKeyDown={handleKeyDown}
           role="combobox"
           aria-expanded={isOpen}
@@ -212,7 +212,7 @@ function LocationAutocomplete({
         {value && !isOpen && (
           <button
             onClick={() => { setQuery(''); inputRef.current?.focus(); setIsOpen(true); }}
-            className="absolute right-2 top-1/2 -translate-y-1/2 p-1 text-slate-500 dark:text-slate-400 hover:text-slate-600 dark:hover:text-slate-300"
+            className="absolute right-2 top-1/2 -translate-y-1/2 p-1 text-muted hover:text-slate-600 dark:hover:text-slate-300"
             aria-label="Cambia"
           >
             <ChevronDown size={14} />
@@ -223,15 +223,15 @@ function LocationAutocomplete({
       {isOpen && (
         <div
           ref={listRef}
-          className="absolute z-50 w-full mt-1 max-h-64 overflow-y-auto bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl shadow-xl"
+          className="absolute z-50 w-full mt-1 max-h-64 overflow-y-auto bg-surface border border-edge rounded-xl shadow-xl"
           role="listbox"
         >
           {filtered.length === 0 && (
-            <p className="p-3 text-sm text-slate-500 dark:text-slate-400 text-center">Nessun risultato</p>
+            <p className="p-3 text-sm text-muted text-center">Nessun risultato</p>
           )}
           {itFiltered.length > 0 && (
             <>
-              <div className="sticky top-0 bg-slate-100 dark:bg-slate-700 px-3 py-1.5 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+              <div className="sticky top-0 bg-surface-raised px-3 py-1.5 text-xs font-bold text-muted uppercase tracking-wider">
                 {'\u{1F1EE}\u{1F1F9}'} Italia ({itFiltered.length})
               </div>
               {itFiltered.map((loc, i) => (
@@ -242,12 +242,12 @@ function LocationAutocomplete({
                   onClick={() => selectLocation(loc)}
                   className={`w-full text-left px-3 py-2 text-sm flex items-center justify-between hover:bg-indigo-50 dark:hover:bg-indigo-900/30 transition-colors ${
                     highlightIndex === i ? 'bg-indigo-50 dark:bg-indigo-900/30' : ''
-                  } ${value?.id === loc.id ? 'text-indigo-600 dark:text-indigo-400 font-bold' : 'text-slate-700 dark:text-slate-300'}`}
+                  } ${value?.id === loc.id ? 'text-indigo-600 dark:text-indigo-400 font-bold' : 'text-body'}`}
                   role="option"
                   aria-selected={value?.id === loc.id}
                 >
                   <span className="truncate">{loc.name} {loc.province ? `(${loc.province})` : ''}</span>
-                  <span className="text-sm text-slate-500 dark:text-slate-400 ml-2 shrink-0">
+                  <span className="text-sm text-muted ml-2 shrink-0">
                     {loc.distanceToBorderKm != null ? `${loc.distanceToBorderKm} km` : ''}
                   </span>
                 </button>
@@ -256,7 +256,7 @@ function LocationAutocomplete({
           )}
           {chFiltered.length > 0 && (
             <>
-              <div className="sticky top-0 bg-slate-100 dark:bg-slate-700 px-3 py-1.5 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+              <div className="sticky top-0 bg-surface-raised px-3 py-1.5 text-xs font-bold text-muted uppercase tracking-wider">
                 {'\u{1F1E8}\u{1F1ED}'} Svizzera ({chFiltered.length})
               </div>
               {chFiltered.map((loc, j) => (
@@ -267,13 +267,13 @@ function LocationAutocomplete({
                   onClick={() => selectLocation(loc)}
                   className={`w-full text-left px-3 py-2 text-sm flex items-center justify-between hover:bg-indigo-50 dark:hover:bg-indigo-900/30 transition-colors ${
                     highlightIndex === itFiltered.length + j ? 'bg-indigo-50 dark:bg-indigo-900/30' : ''
-                  } ${value?.id === loc.id ? 'text-indigo-600 dark:text-indigo-400 font-bold' : 'text-slate-700 dark:text-slate-300'}`}
+                  } ${value?.id === loc.id ? 'text-indigo-600 dark:text-indigo-400 font-bold' : 'text-body'}`}
                   role="option"
                   aria-selected={value?.id === loc.id}
                 >
                   <span className="truncate">{loc.name}</span>
                   {loc.population && (
-                    <span className="text-sm text-slate-500 dark:text-slate-400 ml-2 shrink-0">
+                    <span className="text-sm text-muted ml-2 shrink-0">
                       {loc.population.toLocaleString('it-IT')} ab.
                     </span>
                   )}
@@ -388,7 +388,7 @@ const ResidencySimulator: React.FC = () => {
       </div>
 
       {/* Inputs */}
-      <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-slate-700 space-y-4">
+      <div className="bg-surface rounded-xl p-5 border border-edge space-y-4">
         <div className="grid grid-cols-1 sm:grid-cols-[1fr,auto,1fr] gap-4 items-end">
           {/* From */}
           <LocationAutocomplete
@@ -418,23 +418,23 @@ const ResidencySimulator: React.FC = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 mb-1">{t('residency.grossMonthly')}</label>
+            <label className="block text-xs font-bold text-muted mb-1">{t('residency.grossMonthly')}</label>
             <input
               type="number"
               inputMode="numeric"
               value={grossMonthlyCHF}
               onChange={(e) => setGrossMonthlyCHF(+e.target.value)}
-              className="w-full px-3 py-2.5 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-sm font-bold"
+              className="w-full px-3 py-2.5 rounded-lg bg-surface-alt border border-edge text-sm font-bold"
               aria-label="Stipendio lordo mensile in CHF"
             />
           </div>
           <div>
-            <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 mb-1">{t('residency.exchangeRate')}</label>
-            <div className="flex items-center gap-2 px-3 py-2.5 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700">
-              <span className="text-sm font-bold text-slate-800 dark:text-slate-200">1 CHF = {chfEurRate.toFixed(4)} EUR</span>
-              {rateLoading && <RefreshCw size={12} className="animate-spin text-slate-500 dark:text-slate-400" />}
+            <label className="block text-xs font-bold text-muted mb-1">{t('residency.exchangeRate')}</label>
+            <div className="flex items-center gap-2 px-3 py-2.5 rounded-lg bg-surface-alt border border-edge">
+              <span className="text-sm font-bold text-strong">1 CHF = {chfEurRate.toFixed(4)} EUR</span>
+              {rateLoading && <RefreshCw size={12} className="animate-spin text-muted" />}
             </div>
-            <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">{t('exchange.liveRate') || 'Tasso live'}</p>
+            <p className="text-xs text-muted mt-0.5">{t('exchange.liveRate') || 'Tasso live'}</p>
           </div>
         </div>
       </div>
@@ -443,14 +443,14 @@ const ResidencySimulator: React.FC = () => {
       {/* Monthly comparison */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {/* From card */}
-        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-slate-700">
+        <div className="bg-surface rounded-xl p-5 border border-edge">
           <div className="flex items-center gap-2 mb-3">
-            <MapPin className="w-4 h-4 text-slate-500 dark:text-slate-400" />
-            <h3 className="font-bold text-sm text-slate-500 dark:text-slate-400">{fromLoc.name} ({t('residency.current')})</h3>
+            <MapPin className="w-4 h-4 text-muted" />
+            <h3 className="font-bold text-sm text-muted">{fromLoc.name} ({t('residency.current')})</h3>
           </div>
-          <p className="text-2xl font-bold text-slate-800 dark:text-slate-200">€{Math.round(result.fromMonthly).toLocaleString('it-IT')}</p>
-          <p className="text-xs text-slate-500 dark:text-slate-400">{t('residency.perMonth')}</p>
-          <div className="mt-3 space-y-1 text-xs text-slate-500 dark:text-slate-400">
+          <p className="text-2xl font-bold text-strong">€{Math.round(result.fromMonthly).toLocaleString('it-IT')}</p>
+          <p className="text-xs text-muted">{t('residency.perMonth')}</p>
+          <div className="mt-3 space-y-1 text-xs text-muted">
             <p>🏠 {t('residency.rent')}: {fromLoc.currency === 'CHF' ? 'CHF' : '€'}{fromLoc.avgRent}</p>
             <p>🛒 {t('residency.groceries')}: {fromLoc.currency === 'CHF' ? 'CHF' : '€'}{fromLoc.groceries}</p>
             <p>🚗 {t('residency.transport')}: {fromLoc.currency === 'CHF' ? 'CHF' : '€'}{fromLoc.transport}</p>
@@ -471,7 +471,7 @@ const ResidencySimulator: React.FC = () => {
           <p className={`text-3xl font-bold ${result.monthlyDiff > 0 ? 'text-red-600 dark:text-red-400' : 'text-emerald-700 dark:text-emerald-400'}`}>
             {result.monthlyDiff > 0 ? '+' : ''}€{Math.round(result.monthlyDiff).toLocaleString('it-IT')}
           </p>
-          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">{t('residency.monthlyDiff')}</p>
+          <p className="text-xs text-muted mt-1">{t('residency.monthlyDiff')}</p>
 
           {result.breakEvenMonths && (
             <div className="mt-3 flex items-center gap-1 text-sm text-emerald-700 dark:text-emerald-400">
@@ -482,14 +482,14 @@ const ResidencySimulator: React.FC = () => {
         </div>
 
         {/* To card */}
-        <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-slate-700">
+        <div className="bg-surface rounded-xl p-5 border border-edge">
           <div className="flex items-center gap-2 mb-3">
             <MapPin className="w-4 h-4 text-indigo-400" />
             <h3 className="font-bold text-sm text-indigo-500">{toLoc.name} ({t('residency.new')})</h3>
           </div>
-          <p className="text-2xl font-bold text-slate-800 dark:text-slate-200">€{Math.round(result.toMonthly).toLocaleString('it-IT')}</p>
-          <p className="text-xs text-slate-500 dark:text-slate-400">{t('residency.perMonth')}</p>
-          <div className="mt-3 space-y-1 text-xs text-slate-500 dark:text-slate-400">
+          <p className="text-2xl font-bold text-strong">€{Math.round(result.toMonthly).toLocaleString('it-IT')}</p>
+          <p className="text-xs text-muted">{t('residency.perMonth')}</p>
+          <div className="mt-3 space-y-1 text-xs text-muted">
             <p>🏠 {t('residency.rent')}: {toLoc.currency === 'CHF' ? 'CHF' : '€'}{toLoc.avgRent}</p>
             <p>🛒 {t('residency.groceries')}: {toLoc.currency === 'CHF' ? 'CHF' : '€'}{toLoc.groceries}</p>
             <p>🚗 {t('residency.transport')}: {toLoc.currency === 'CHF' ? 'CHF' : '€'}{toLoc.transport}</p>
@@ -502,15 +502,15 @@ const ResidencySimulator: React.FC = () => {
       </div>
 
       {/* One-time costs */}
-      <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-slate-700">
+      <div className="bg-surface rounded-xl p-5 border border-edge">
         <button onClick={() => setShowDetails(!showDetails)} className="flex items-center justify-between w-full">
           <div className="flex items-center gap-2">
             <Euro className="w-5 h-5 text-amber-500" />
-            <h3 className="font-bold text-slate-800 dark:text-slate-200">{t('residency.oneTimeCosts')}</h3>
+            <h3 className="font-bold text-strong">{t('residency.oneTimeCosts')}</h3>
           </div>
           <div className="flex items-center gap-2">
             <span className="text-lg font-bold text-amber-600 dark:text-amber-400">€{Math.round(result.totalOneTime).toLocaleString('it-IT')}</span>
-            {showDetails ? <ChevronUp size={16} className="text-slate-500 dark:text-slate-400" /> : <ChevronDown size={16} className="text-slate-500 dark:text-slate-400" />}
+            {showDetails ? <ChevronUp size={16} className="text-muted" /> : <ChevronDown size={16} className="text-muted" />}
           </div>
         </button>
 
@@ -519,7 +519,7 @@ const ResidencySimulator: React.FC = () => {
             {result.oneTimeCosts.map((cost, i) => (
               <div key={i} className="flex items-center justify-between py-2 border-b border-slate-100 dark:border-slate-700 last:border-0">
                 <span className="text-sm text-slate-600 dark:text-slate-300">{t(cost.label)}</span>
-                <span className="text-sm font-bold text-slate-800 dark:text-slate-200">
+                <span className="text-sm font-bold text-strong">
                   {cost.currency === 'CHF' ? 'CHF' : '€'}{cost.amount.toLocaleString('it-IT')}
                 </span>
               </div>
@@ -632,7 +632,7 @@ function BestMunicipalitySection({ grossMonthlyCHF, chfEurRate }: { grossMonthly
             className={`px-4 py-2 rounded-lg text-sm font-medium transition-[color,background-color,border-color,box-shadow] ${
               priority === p
                 ? 'bg-violet-600 text-white shadow-md'
-                : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:border-violet-400'
+                : 'bg-surface text-body border border-edge hover:border-violet-400'
             }`}
           >
             {p === 'balanced' && '\u2696\uFE0F '}{p === 'cost' && '\uD83D\uDCB0 '}{p === 'commute' && '\uD83D\uDE97 '}
@@ -645,17 +645,17 @@ function BestMunicipalitySection({ grossMonthlyCHF, chfEurRate }: { grossMonthly
       <div className="space-y-3">
         <div className="flex gap-2">
           <div className="relative flex-1">
-            <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 dark:text-slate-400 pointer-events-none" />
+            <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted pointer-events-none" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder={t('residency.bestMunicipality.searchPlaceholder') || 'Cerca comune...'}
-              className="w-full pl-9 pr-8 py-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:border-transparent outline-none"
+              className="w-full pl-9 pr-8 py-2 rounded-lg bg-surface border border-edge text-sm focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:border-transparent outline-none"
               aria-label={t('residency.bestMunicipality.searchPlaceholder') || 'Cerca comune'}
             />
             {searchQuery && (
-              <button onClick={() => setSearchQuery('')} className="absolute right-2 top-1/2 -translate-y-1/2 min-w-[44px] min-h-[44px] flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-slate-600" aria-label="Pulisci ricerca">
+              <button onClick={() => setSearchQuery('')} className="absolute right-2 top-1/2 -translate-y-1/2 min-w-[44px] min-h-[44px] flex items-center justify-center text-muted hover:text-slate-600" aria-label="Pulisci ricerca">
                 <X size={14} />
               </button>
             )}
@@ -665,7 +665,7 @@ function BestMunicipalitySection({ grossMonthlyCHF, chfEurRate }: { grossMonthly
             className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium border transition-colors ${
               showFilters || hasActiveFilters
                 ? 'bg-violet-100 dark:bg-violet-900/40 border-violet-300 dark:border-violet-700 text-violet-700 dark:text-violet-300'
-                : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-violet-400'
+                : 'bg-surface border-edge text-slate-600 dark:text-slate-300 hover:border-violet-400'
             }`}
             aria-label={t('residency.bestMunicipality.filters') || 'Filtri'}
           >
@@ -676,13 +676,13 @@ function BestMunicipalitySection({ grossMonthlyCHF, chfEurRate }: { grossMonthly
         </div>
 
         {showFilters && (
-          <div className="flex flex-wrap gap-3 p-3 bg-white/60 dark:bg-slate-800/60 rounded-lg border border-slate-200 dark:border-slate-700">
+          <div className="flex flex-wrap gap-3 p-3 bg-white/60 dark:bg-slate-800/60 rounded-lg border border-edge">
             <div>
-              <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 mb-1">{t('residency.bestMunicipality.province') || 'Provincia'}</label>
+              <label className="block text-xs font-bold text-muted mb-1">{t('residency.bestMunicipality.province') || 'Provincia'}</label>
               <select
                 value={filterProvince}
                 onChange={(e) => setFilterProvince(e.target.value)}
-                className="px-2 py-1.5 rounded-md bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-xs font-medium"
+                className="px-2 py-1.5 rounded-md bg-surface-alt border border-edge text-xs font-medium"
                 aria-label={t('residency.bestMunicipality.province') || 'Provincia'}
               >
                 <option value="">{t('residency.bestMunicipality.allProvinces') || 'Tutte'}</option>
@@ -692,11 +692,11 @@ function BestMunicipalitySection({ grossMonthlyCHF, chfEurRate }: { grossMonthly
               </select>
             </div>
             <div>
-              <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 mb-1">{t('residency.bestMunicipality.fascia') || 'Fascia'}</label>
+              <label className="block text-xs font-bold text-muted mb-1">{t('residency.bestMunicipality.fascia') || 'Fascia'}</label>
               <select
                 value={filterFascia}
                 onChange={(e) => setFilterFascia(e.target.value)}
-                className="px-2 py-1.5 rounded-md bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-xs font-medium"
+                className="px-2 py-1.5 rounded-md bg-surface-alt border border-edge text-xs font-medium"
                 aria-label={t('residency.bestMunicipality.fascia') || 'Fascia'}
               >
                 <option value="">{t('residency.bestMunicipality.allFasce') || 'Tutte'}</option>
@@ -719,30 +719,30 @@ function BestMunicipalitySection({ grossMonthlyCHF, chfEurRate }: { grossMonthly
 
       {/* Winner */}
       {best && (
-        <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border-2 border-violet-300 dark:border-violet-700 shadow-lg">
+        <div className="bg-surface rounded-xl p-4 border-2 border-violet-300 dark:border-violet-700 shadow-lg">
           <div className="flex items-center gap-2 mb-3">
             <span className="text-2xl">{'\uD83C\uDFC6'}</span>
             <div>
               <p className="text-xs text-violet-600 dark:text-violet-400 font-semibold">{t('residency.bestMunicipality.winner')}</p>
-              <p className="text-xl font-bold text-slate-800 dark:text-slate-200">{best.name}{best.province ? ` (${best.province})` : ''}</p>
+              <p className="text-xl font-bold text-strong">{best.name}{best.province ? ` (${best.province})` : ''}</p>
             </div>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
             <div>
-              <p className="text-xs text-slate-500 dark:text-slate-400">{t('residency.bestMunicipality.monthlyTotal')}</p>
-              <p className="text-sm font-bold text-slate-700 dark:text-slate-300">€{best.totalMonthlyCost.toLocaleString()}</p>
+              <p className="text-xs text-muted">{t('residency.bestMunicipality.monthlyTotal')}</p>
+              <p className="text-sm font-bold text-body">€{best.totalMonthlyCost.toLocaleString()}</p>
             </div>
             <div>
-              <p className="text-xs text-slate-500 dark:text-slate-400">{t('residency.bestMunicipality.irpef')}</p>
-              <p className="text-sm font-bold text-slate-700 dark:text-slate-300">{best.irpefComunale}%</p>
+              <p className="text-xs text-muted">{t('residency.bestMunicipality.irpef')}</p>
+              <p className="text-sm font-bold text-body">{best.irpefComunale}%</p>
             </div>
             <div>
-              <p className="text-xs text-slate-500 dark:text-slate-400">{t('residency.bestMunicipality.distance')}</p>
-              <p className="text-sm font-bold text-slate-700 dark:text-slate-300">{best.distanceToBorderKm} km</p>
+              <p className="text-xs text-muted">{t('residency.bestMunicipality.distance')}</p>
+              <p className="text-sm font-bold text-body">{best.distanceToBorderKm} km</p>
             </div>
             <div>
-              <p className="text-xs text-slate-500 dark:text-slate-400">{t('residency.bestMunicipality.queue')}</p>
-              <p className="text-sm font-bold text-slate-700 dark:text-slate-300">{best.avgQueueMinutes}' {t('residency.bestMunicipality.avg')}</p>
+              <p className="text-xs text-muted">{t('residency.bestMunicipality.queue')}</p>
+              <p className="text-sm font-bold text-body">{best.avgQueueMinutes}' {t('residency.bestMunicipality.avg')}</p>
             </div>
           </div>
         </div>
@@ -761,31 +761,31 @@ function BestMunicipalitySection({ grossMonthlyCHF, chfEurRate }: { grossMonthly
       <div className="space-y-2">
         {displayedRankings.map((loc, i) => (
           <div key={loc.id} className={`flex items-center gap-3 p-3 rounded-lg ${
-            i === 0 && !hasActiveFilters ? 'bg-white dark:bg-slate-800' : 'bg-white/50 dark:bg-slate-800/50'
-          } border border-slate-200 dark:border-slate-700`}>
-            <span className={`text-lg font-bold w-7 text-center shrink-0 ${i === 0 ? 'text-violet-600' : i === 1 ? 'text-slate-500 dark:text-slate-400' : 'text-slate-500 dark:text-slate-400'}`}>
+            i === 0 && !hasActiveFilters ? 'bg-surface' : 'bg-white/50 dark:bg-slate-800/50'
+          } border border-edge`}>
+            <span className={`text-lg font-bold w-7 text-center shrink-0 ${i === 0 ? 'text-violet-600' : i === 1 ? 'text-muted' : 'text-muted'}`}>
               {i + 1}
             </span>
             <div className="flex-1 min-w-0">
-              <p className="text-sm font-semibold text-slate-700 dark:text-slate-300 truncate">
-                {loc.name} {loc.province ? <span className="text-slate-500 dark:text-slate-400 font-normal">({loc.province})</span> : ''}
+              <p className="text-sm font-semibold text-body truncate">
+                {loc.name} {loc.province ? <span className="text-muted font-normal">({loc.province})</span> : ''}
                 {loc.fascia && <span className="ml-1.5 text-xs px-1.5 py-0.5 bg-violet-100 dark:bg-violet-900/30 text-violet-600 dark:text-violet-400 rounded-full font-medium">F{loc.fascia}</span>}
               </p>
-              <div className="flex items-center gap-3 text-xs text-slate-500 dark:text-slate-400">
+              <div className="flex items-center gap-3 text-xs text-muted">
                 <span className="flex items-center gap-0.5"><Navigation size={8} /> {loc.nearestCrossing}</span>
                 <span className="flex items-center gap-0.5"><Car size={8} /> {loc.distanceToBorderKm} km</span>
                 <span className="flex items-center gap-0.5"><Clock size={8} /> {loc.avgQueueMinutes}'</span>
               </div>
             </div>
             <div className="text-right shrink-0">
-              <p className="text-sm font-bold text-slate-700 dark:text-slate-300">€{loc.totalMonthlyCost.toLocaleString()}/m</p>
-              <p className="text-xs text-slate-500 dark:text-slate-400">IRPEF com. {loc.irpefComunale}%</p>
+              <p className="text-sm font-bold text-body">€{loc.totalMonthlyCost.toLocaleString()}/m</p>
+              <p className="text-xs text-muted">IRPEF com. {loc.irpefComunale}%</p>
             </div>
           </div>
         ))}
         
         {filteredRankings.length === 0 && (
-          <p className="text-center text-sm text-slate-500 dark:text-slate-400 py-4">{t('residency.bestMunicipality.noResults') || 'Nessun comune trovato con questi filtri'}</p>
+          <p className="text-center text-sm text-muted py-4">{t('residency.bestMunicipality.noResults') || 'Nessun comune trovato con questi filtri'}</p>
         )}
       </div>
 

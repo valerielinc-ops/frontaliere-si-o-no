@@ -378,7 +378,7 @@ const ShareableResultCard: React.FC<ShareableCardProps> = ({
         <button
           onClick={() => { setShowCard(true); generateAndDownload(); }}
           disabled={isGenerating}
-          className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 disabled:opacity-50 transition-colors"
+          className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-surface border border-edge rounded-xl text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 disabled:opacity-50 transition-colors"
           aria-label={t('shareCard.createCard')}
         >
           {isGenerating ? <Loader2 size={16} className="animate-spin text-violet-500" /> : <Camera size={16} className="text-violet-500" />}
@@ -392,7 +392,7 @@ const ShareableResultCard: React.FC<ShareableCardProps> = ({
           <div className="flex justify-end">
             <button
               onClick={() => { setShowCard(false); setGeneratedImage(null); }}
-              className="text-slate-500 dark:text-slate-400 hover:text-slate-600 dark:hover:text-slate-300"
+              className="text-muted hover:text-slate-600 dark:hover:text-slate-300"
               aria-label={t('shareCard.close')}
             >
               <X size={18} />
@@ -402,7 +402,7 @@ const ShareableResultCard: React.FC<ShareableCardProps> = ({
           {/* The Card (hidden when image is generated) */}
           <div
             ref={cardRef}
-            className="bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-lg w-full max-w-[600px]"
+            className="bg-surface rounded-2xl overflow-hidden shadow-lg w-full max-w-[600px]"
           >
             {/* Header */}
             <div className={`bg-gradient-to-r ${ACCENT_GRADIENTS[accent]} px-6 py-4`}>
@@ -423,14 +423,14 @@ const ShareableResultCard: React.FC<ShareableCardProps> = ({
                 <div
                   key={i}
                   className={`flex items-center justify-between py-2 ${
-                    row.highlight ? 'border-b-2 border-slate-200 dark:border-slate-700' : 'border-b border-slate-100 dark:border-slate-700'
+                    row.highlight ? 'border-b-2 border-edge' : 'border-b border-slate-100 dark:border-slate-700'
                   }`}
                 >
-                  <span className={`text-sm ${row.highlight ? 'font-semibold text-slate-800 dark:text-slate-200' : 'text-slate-600 dark:text-slate-400'}`}>
+                  <span className={`text-sm ${row.highlight ? 'font-semibold text-strong' : 'text-subtle'}`}>
                     {row.label}
                   </span>
                   <span className={`text-sm font-bold ${
-                    row.color ? ROW_COLORS[row.color] || 'text-slate-800 dark:text-slate-200' : row.highlight ? 'text-slate-900 dark:text-slate-100' : 'text-slate-700 dark:text-slate-300'
+                    row.color ? ROW_COLORS[row.color] || 'text-strong' : row.highlight ? 'text-heading' : 'text-body'
                   }`}>
                     {row.value}
                   </span>
@@ -440,10 +440,10 @@ const ShareableResultCard: React.FC<ShareableCardProps> = ({
 
             {/* Footer */}
             <div className="px-6 py-3 bg-slate-50 dark:bg-slate-700/50 flex items-center justify-between">
-              <span className="text-sm text-slate-500 dark:text-slate-400">
+              <span className="text-sm text-muted">
                 {footer || t('shareCard.generatedBy')}
               </span>
-              <span className="text-xs font-semibold text-slate-500 dark:text-slate-400">
+              <span className="text-xs font-semibold text-muted">
                 frontaliereticino.ch
               </span>
             </div>
@@ -474,7 +474,7 @@ const ShareableResultCard: React.FC<ShareableCardProps> = ({
 
           {/* Preview of generated image */}
           {generatedImage && (
-            <div className="rounded-xl overflow-hidden border border-slate-200 dark:border-slate-700">
+            <div className="rounded-xl overflow-hidden border border-edge">
               <img
                 src={generatedImage}
                 alt={t('shareCard.previewAlt')}

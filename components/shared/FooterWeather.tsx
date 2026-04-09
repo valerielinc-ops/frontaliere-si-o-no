@@ -37,13 +37,13 @@ function getWeatherEmoji(code: number, isDay: boolean): string {
 
 function getWeatherMiniIcon(code: number, size = 16): React.ReactNode {
   if (code === 0 || code === 1) return <Sun style={{ width: size, height: size }} className="text-amber-500 dark:text-amber-400" />;
-  if (code === 2) return <Cloud style={{ width: size, height: size }} className="text-slate-500 dark:text-slate-400" />;
-  if (code === 3) return <Cloud style={{ width: size, height: size }} className="text-slate-500 dark:text-slate-400" />;
-  if (code >= 45 && code <= 48) return <CloudFog style={{ width: size, height: size }} className="text-slate-500 dark:text-slate-400" />;
+  if (code === 2) return <Cloud style={{ width: size, height: size }} className="text-muted" />;
+  if (code === 3) return <Cloud style={{ width: size, height: size }} className="text-muted" />;
+  if (code >= 45 && code <= 48) return <CloudFog style={{ width: size, height: size }} className="text-muted" />;
   if (code >= 51 && code <= 57) return <CloudDrizzle style={{ width: size, height: size }} className="text-blue-400 dark:text-blue-300" />;
   if (code >= 61 && code <= 67) return <CloudRain style={{ width: size, height: size }} className="text-blue-500 dark:text-blue-400" />;
   if (code >= 71 && code <= 77) return <CloudSnow style={{ width: size, height: size }} className="text-blue-300 dark:text-blue-200" />;
-  if (code >= 80 && code <= 86) return <CloudRain style={{ width: size, height: size }} className="text-blue-600 dark:text-blue-400" />;
+  if (code >= 80 && code <= 86) return <CloudRain style={{ width: size, height: size }} className="text-link" />;
   if (code >= 95 && code <= 99) return <CloudLightning style={{ width: size, height: size }} className="text-amber-400 dark:text-amber-300" />;
   return <Sun style={{ width: size, height: size }} className="text-amber-500 dark:text-amber-400" />;
 }
@@ -137,9 +137,9 @@ const WeatherPill: React.FC<{ weather: MiniWeather; label: string; flag?: string
       ) : flag ? (
         <span className="text-xs" aria-hidden="true">{flag}</span>
       ) : (
-        <MapPin className="w-3 h-3 text-slate-500 dark:text-slate-400" aria-hidden="true" />
+        <MapPin className="w-3 h-3 text-muted" aria-hidden="true" />
       )}
-      <span className="font-semibold text-slate-700 dark:text-slate-300">{label}</span>
+      <span className="font-semibold text-body">{label}</span>
       <span className="text-sm" aria-hidden="true">{emoji}</span>
       <span className={`font-bold tabular-nums ${tempColor}`}>
         {Math.round(weather.temp)}°

@@ -177,13 +177,13 @@ const Glossary: React.FC<GlossaryProps> = ({ initialEntry }) => {
       {/* Search and filters */}
       <div className="flex flex-wrap gap-3 items-center">
         <div className="relative flex-1 min-w-[200px]">
-          <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 dark:text-slate-400" />
+          <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted" />
           <input
             type="text"
             value={searchTerm}
             onChange={e => setSearchTerm(e.target.value)}
             placeholder={t('glossary.searchPlaceholder')}
-            className="w-full pl-9 pr-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-sm text-slate-800 dark:text-slate-200"
+            className="w-full pl-9 pr-3 py-2 rounded-lg border border-edge bg-surface-alt text-sm text-strong"
             aria-label={t('glossary.searchPlaceholder')}
           />
         </div>
@@ -193,7 +193,7 @@ const Glossary: React.FC<GlossaryProps> = ({ initialEntry }) => {
             className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900 ${
               selectedCategory === 'all'
                 ? 'bg-slate-800 dark:bg-slate-200 text-white dark:text-slate-800'
-                : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-600'
+                : 'bg-surface-raised text-subtle hover:bg-slate-200 dark:hover:bg-slate-600'
             }`}
           >
             {t('glossary.all')}
@@ -207,7 +207,7 @@ const Glossary: React.FC<GlossaryProps> = ({ initialEntry }) => {
                 className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900 ${
                   selectedCategory === cat
                     ? `${colors.bg} ${colors.text} ${colors.darkBg} ${colors.darkText}`
-                    : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-600'
+                    : 'bg-surface-raised text-subtle hover:bg-slate-200 dark:hover:bg-slate-600'
                 }`}
               >
                 {t(`glossary.category.${cat}`)}
@@ -218,14 +218,14 @@ const Glossary: React.FC<GlossaryProps> = ({ initialEntry }) => {
       </div>
 
       {/* Entries count */}
-      <p className="text-sm text-slate-500 dark:text-slate-400">
+      <p className="text-sm text-muted">
         {filteredEntries.length} {t('glossary.termsFound')}
       </p>
 
       {/* Entries */}
       <div className="space-y-2">
         {filteredEntries.length === 0 ? (
-          <div className="text-center py-12 text-slate-500 dark:text-slate-400">
+          <div className="text-center py-12 text-muted">
             <BookOpen size={48} className="mx-auto mb-3 opacity-30" />
             <p className="font-semibold">{t('glossary.noResults')}</p>
           </div>
@@ -237,7 +237,7 @@ const Glossary: React.FC<GlossaryProps> = ({ initialEntry }) => {
               <div
                 key={entry.key}
                 id={`glossary-${entry.key}`}
-                className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden"
+                className="bg-surface rounded-xl border border-edge overflow-hidden"
               >
                 <button
                   onClick={() => { setExpandedEntry(isExpanded ? null : entry.key); if (!isExpanded) Analytics.trackGuideSection(`glossary_${entry.key}`, 'expand'); }}
@@ -247,18 +247,18 @@ const Glossary: React.FC<GlossaryProps> = ({ initialEntry }) => {
                     <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${colors.bg} ${colors.text} ${colors.darkBg} ${colors.darkText}`}>
                       {t(`glossary.category.${entry.category}`)}
                     </span>
-                    <span className="font-semibold text-sm text-slate-800 dark:text-slate-200">
+                    <span className="font-semibold text-sm text-strong">
                       {t(`glossary.terms.${entry.key}.title`)}
                     </span>
                   </div>
-                  {isExpanded ? <ChevronUp size={16} className="text-slate-500 dark:text-slate-400" /> : <ChevronDown size={16} className="text-slate-500 dark:text-slate-400" />}
+                  {isExpanded ? <ChevronUp size={16} className="text-muted" /> : <ChevronDown size={16} className="text-muted" />}
                 </button>
                 {isExpanded && (
-                  <div className="px-4 pb-4 text-sm text-slate-600 dark:text-slate-400 animate-fade-in border-t border-slate-100 dark:border-slate-700 pt-3">
+                  <div className="px-4 pb-4 text-sm text-subtle animate-fade-in border-t border-slate-100 dark:border-slate-700 pt-3">
                     <p>{t(`glossary.terms.${entry.key}.desc`)}</p>
                     {t(`glossary.terms.${entry.key}.example`) !== `glossary.terms.${entry.key}.example` && (
                       <div className="mt-2 bg-slate-50 dark:bg-slate-700/50 rounded-lg p-3 text-xs">
-                        <span className="font-semibold text-slate-700 dark:text-slate-300">{t('glossary.example')}: </span>
+                        <span className="font-semibold text-body">{t('glossary.example')}: </span>
                         {t(`glossary.terms.${entry.key}.example`)}
                       </div>
                     )}

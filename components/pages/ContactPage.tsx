@@ -132,7 +132,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ prefill, onPrefillConsumed })
           <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-100">
             {t('contact.successTitle')}
           </h2>
-          <p className="text-slate-600 dark:text-slate-400 max-w-md mx-auto">
+          <p className="text-subtle max-w-md mx-auto">
             {t('contact.successMessage')}
           </p>
           <button
@@ -152,12 +152,12 @@ const ContactPage: React.FC<ContactPageProps> = ({ prefill, onPrefillConsumed })
       {/* Header */}
       <div className="text-center mb-8">
         <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-blue-100 dark:bg-blue-900/30 mb-4">
-          <Mail className="w-7 h-7 text-blue-600 dark:text-blue-400" />
+          <Mail className="w-7 h-7 text-link" />
         </div>
         <h1 className="text-2xl sm:text-3xl font-bold text-slate-800 dark:text-slate-100 mb-2">
           {t('contact.title')}
         </h1>
-        <p className="text-slate-600 dark:text-slate-400 max-w-lg mx-auto">
+        <p className="text-subtle max-w-lg mx-auto">
           {t('contact.subtitle')}
         </p>
       </div>
@@ -166,7 +166,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ prefill, onPrefillConsumed })
       <form onSubmit={handleSubmit} className="space-y-5">
         {/* Name */}
         <div>
-          <label htmlFor="contact-name" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">
+          <label htmlFor="contact-name" className="block text-sm font-medium text-body mb-1.5">
             {t('contact.name')} *
           </label>
           <input
@@ -176,14 +176,14 @@ const ContactPage: React.FC<ContactPageProps> = ({ prefill, onPrefillConsumed })
             value={form.name}
             onChange={e => setForm(prev => ({ ...prev, name: e.target.value }))}
             autoComplete="name"
-            className="w-full px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:border-transparent outline-none transition-[color,background-color,border-color,box-shadow]"
+            className="w-full px-4 py-2.5 rounded-xl border border-edge bg-surface-alt text-slate-800 dark:text-slate-100 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:border-transparent outline-none transition-[color,background-color,border-color,box-shadow]"
             placeholder={t('contact.namePlaceholder')}
           />
         </div>
 
         {/* Email */}
         <div>
-          <label htmlFor="contact-email" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">
+          <label htmlFor="contact-email" className="block text-sm font-medium text-body mb-1.5">
             {t('contact.email')} *
           </label>
           <EmailInput
@@ -191,14 +191,14 @@ const ContactPage: React.FC<ContactPageProps> = ({ prefill, onPrefillConsumed })
             value={form.email}
             onChange={val => setForm(prev => ({ ...prev, email: val }))}
             autoComplete="email"
-            className="w-full px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:border-transparent outline-none transition-[color,background-color,border-color,box-shadow]"
+            className="w-full px-4 py-2.5 rounded-xl border border-edge bg-surface-alt text-slate-800 dark:text-slate-100 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:border-transparent outline-none transition-[color,background-color,border-color,box-shadow]"
             placeholder={t('contact.emailPlaceholder')}
           />
         </div>
 
         {/* Topic dropdown */}
         <div>
-          <label htmlFor="contact-topic" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">
+          <label htmlFor="contact-topic" className="block text-sm font-medium text-body mb-1.5">
             {t('contact.topicLabel')} *
           </label>
           <select
@@ -210,7 +210,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ prefill, onPrefillConsumed })
               setForm(prev => ({ ...prev, topic }));
               if (topic) Analytics.trackUIInteraction('contact', 'form', 'topic_select', topic);
             }}
-            className="w-full px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:border-transparent outline-none transition-[color,background-color,border-color,box-shadow]"
+            className="w-full px-4 py-2.5 rounded-xl border border-edge bg-surface-alt text-slate-800 dark:text-slate-100 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:border-transparent outline-none transition-[color,background-color,border-color,box-shadow]"
           >
             <option value="">{t('contact.topicPlaceholder')}</option>
             {TOPICS.map(topicKey => (
@@ -223,7 +223,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ prefill, onPrefillConsumed })
 
         {/* Message */}
         <div>
-          <label htmlFor="contact-message" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">
+          <label htmlFor="contact-message" className="block text-sm font-medium text-body mb-1.5">
             {t('contact.messageLabel')} *
           </label>
           <textarea
@@ -234,10 +234,10 @@ const ContactPage: React.FC<ContactPageProps> = ({ prefill, onPrefillConsumed })
             value={form.message}
             onChange={e => setForm(prev => ({ ...prev, message: e.target.value }))}
             spellCheck={true}
-            className="w-full px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:border-transparent outline-none transition-[color,background-color,border-color,box-shadow] resize-y min-h-[120px]"
+            className="w-full px-4 py-2.5 rounded-xl border border-edge bg-surface-alt text-slate-800 dark:text-slate-100 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:border-transparent outline-none transition-[color,background-color,border-color,box-shadow] resize-y min-h-[120px]"
             placeholder={t('contact.messagePlaceholder')}
           />
-          <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
+          <p className="mt-1 text-xs text-muted">
             {t('contact.messageHint')}
           </p>
         </div>
@@ -272,7 +272,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ prefill, onPrefillConsumed })
         </button>
 
         {/* reCAPTCHA notice */}
-        <p className="text-xs text-center text-slate-500 dark:text-slate-400">
+        <p className="text-xs text-center text-muted">
           {t('contact.recaptchaNotice')}
         </p>
         <div className="flex items-center justify-center gap-1.5 text-sm text-emerald-700 dark:text-emerald-400">

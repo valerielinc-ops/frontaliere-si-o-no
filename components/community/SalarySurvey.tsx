@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { useTranslation } from '@/services/i18n';
+import { useTranslation, getCantonI18nParams } from '@/services/i18n';
 import { unlockAchievement, addXp } from '@/services/gamificationService';
 import { BarChart3, Send, Eye, Users, Lock, ChevronDown, ChevronUp, TrendingUp, AlertCircle } from 'lucide-react';
 import { Analytics } from '@/services/analytics';
@@ -212,7 +212,7 @@ const SalarySurvey: React.FC = () => {
           </div>
           <h2 className="text-2xl font-bold text-teal-900 dark:text-teal-100">{t('salary.title')}</h2>
         </div>
-        <p className="text-teal-700 dark:text-teal-300 text-sm">{t('salary.subtitle')}</p>
+        <p className="text-teal-700 dark:text-teal-300 text-sm">{t('salary.subtitle', getCantonI18nParams())}</p>
       </div>
 
       {/* Privacy notice */}
@@ -223,19 +223,19 @@ const SalarySurvey: React.FC = () => {
 
       {/* Survey Form or Thank You */}
       {!submitted ? (
-        <div className="bg-white dark:bg-slate-800 rounded-2xl p-4 sm:p-6 border border-slate-200 dark:border-slate-700 space-y-5">
-          <h3 className="font-bold text-lg text-slate-900 dark:text-slate-100">{t('salary.formTitle')}</h3>
+        <div className="bg-surface rounded-2xl p-4 sm:p-6 border border-edge space-y-5">
+          <h3 className="font-bold text-lg text-heading">{t('salary.formTitle')}</h3>
 
           {/* Sector */}
           <div>
-            <label htmlFor="salary-sector" className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-1.5">
+            <label htmlFor="salary-sector" className="block text-sm font-bold text-body mb-1.5">
               {t('salary.sector')}
             </label>
             <select
               id="salary-sector"
               value={sector}
               onChange={e => setSector(e.target.value)}
-              className="w-full px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 font-medium"
+              className="w-full px-4 py-2.5 rounded-xl border border-edge bg-surface-alt text-heading font-medium"
             >
               <option value="">{t('salary.selectSector')}</option>
               {SECTORS.map(s => (
@@ -246,14 +246,14 @@ const SalarySurvey: React.FC = () => {
 
           {/* Experience */}
           <div>
-            <label htmlFor="salary-experience" className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-1.5">
+            <label htmlFor="salary-experience" className="block text-sm font-bold text-body mb-1.5">
               {t('salary.experience')}
             </label>
             <select
               id="salary-experience"
               value={experience}
               onChange={e => setExperience(e.target.value)}
-              className="w-full px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 font-medium"
+              className="w-full px-4 py-2.5 rounded-xl border border-edge bg-surface-alt text-heading font-medium"
             >
               <option value="">{t('salary.selectExperience')}</option>
               {EXPERIENCE_LEVELS.map(e => (
@@ -264,14 +264,14 @@ const SalarySurvey: React.FC = () => {
 
           {/* Canton */}
           <div>
-            <label htmlFor="salary-canton" className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-1.5">
+            <label htmlFor="salary-canton" className="block text-sm font-bold text-body mb-1.5">
               {t('salary.canton')}
             </label>
             <select
               id="salary-canton"
               value={canton}
               onChange={e => setCanton(e.target.value)}
-              className="w-full px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 font-medium"
+              className="w-full px-4 py-2.5 rounded-xl border border-edge bg-surface-alt text-heading font-medium"
             >
               {CANTONS.map(c => (
                 <option key={c.value} value={c.value}>{c.label}</option>
@@ -281,7 +281,7 @@ const SalarySurvey: React.FC = () => {
 
           {/* Gross Salary */}
           <div>
-            <label htmlFor="salary-gross" className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-1.5">
+            <label htmlFor="salary-gross" className="block text-sm font-bold text-body mb-1.5">
               {t('salary.grossSalary')}
             </label>
             <div className="relative">
@@ -295,9 +295,9 @@ const SalarySurvey: React.FC = () => {
                 value={salary}
                 onChange={e => setSalary(e.target.value)}
                 placeholder="80000"
-                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 font-medium pr-16"
+                className="w-full px-4 py-2.5 rounded-xl border border-edge bg-surface-alt text-heading font-medium pr-16"
               />
-              <span className="absolute right-4 top-1/2 -translate-y-1/2 text-sm font-bold text-slate-500 dark:text-slate-400">CHF/anno</span>
+              <span className="absolute right-4 top-1/2 -translate-y-1/2 text-sm font-bold text-muted">CHF/anno</span>
             </div>
           </div>
 
@@ -322,7 +322,7 @@ const SalarySurvey: React.FC = () => {
       {/* View Results */}
       <button
         onClick={handleShowResults}
-        className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-xl font-bold transition-colors"
+        className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-surface border-2 border-edge hover:bg-slate-50 dark:hover:bg-slate-700 text-body rounded-xl font-bold transition-colors"
       >
         <Eye className="w-4 h-4" />
         {showResults ? t('salary.hideResults') : t('salary.viewResults')}
@@ -337,17 +337,17 @@ const SalarySurvey: React.FC = () => {
               <div className="animate-spin rounded-full h-8 w-8 border-2 border-teal-500 border-t-transparent" />
             </div>
           ) : totalResponses === 0 ? (
-            <div className="bg-white dark:bg-slate-800 rounded-2xl p-5 sm:p-8 border border-slate-200 dark:border-slate-700 text-center">
-              <AlertCircle className="w-12 h-12 text-slate-500 dark:text-slate-400 mx-auto mb-3" />
-              <p className="text-slate-600 dark:text-slate-400">{t('salary.noData')}</p>
+            <div className="bg-surface rounded-2xl p-5 sm:p-8 border border-edge text-center">
+              <AlertCircle className="w-12 h-12 text-muted mx-auto mb-3" />
+              <p className="text-subtle">{t('salary.noData')}</p>
             </div>
           ) : (
             <>
               {/* Summary */}
-              <div className="bg-white dark:bg-slate-800 rounded-2xl p-5 border border-slate-200 dark:border-slate-700">
+              <div className="bg-surface rounded-2xl p-5 border border-edge">
                 <div className="flex items-center gap-2 mb-3">
                   <Users className="w-5 h-5 text-teal-500" />
-                  <span className="font-bold text-slate-800 dark:text-slate-200">
+                  <span className="font-bold text-strong">
                     {t('salary.totalResponses', { count: String(totalResponses) })}
                   </span>
                 </div>
@@ -357,21 +357,21 @@ const SalarySurvey: React.FC = () => {
               {aggregated.map(agg => (
                 <div
                   key={agg.sector}
-                  className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden"
+                  className="bg-surface rounded-2xl border border-edge overflow-hidden"
                 >
                   <button
                     onClick={() => setExpandedSector(expandedSector === agg.sector ? null : agg.sector)}
                     className="w-full p-5 flex items-center justify-between text-left"
                   >
                     <div>
-                      <h4 className="font-bold text-slate-900 dark:text-slate-100">
+                      <h4 className="font-bold text-heading">
                         {t(`salary.sector.${agg.sector}`)}
                       </h4>
-                      <p className="text-sm text-slate-500 dark:text-slate-400">
+                      <p className="text-sm text-muted">
                         {agg.count} {t('salary.responses')} · {t('salary.medianLabel')}: {formatCHF(agg.median)}
                       </p>
                     </div>
-                    {expandedSector === agg.sector ? <ChevronUp className="w-5 h-5 text-slate-500 dark:text-slate-400" /> : <ChevronDown className="w-5 h-5 text-slate-500 dark:text-slate-400" />}
+                    {expandedSector === agg.sector ? <ChevronUp className="w-5 h-5 text-muted" /> : <ChevronDown className="w-5 h-5 text-muted" />}
                   </button>
 
                   {expandedSector === agg.sector && (
@@ -379,8 +379,8 @@ const SalarySurvey: React.FC = () => {
                       {/* Salary range visualization */}
                       <div className="space-y-3">
                         <div className="flex justify-between text-sm">
-                          <span className="text-slate-500 dark:text-slate-400">25° percentile</span>
-                          <span className="font-bold text-slate-700 dark:text-slate-300">{formatCHF(agg.p25)}</span>
+                          <span className="text-muted">25° percentile</span>
+                          <span className="font-bold text-body">{formatCHF(agg.p25)}</span>
                         </div>
                         <div className="flex justify-between text-sm">
                           <span className="text-teal-600 dark:text-teal-400 font-bold flex items-center gap-1">
@@ -389,17 +389,17 @@ const SalarySurvey: React.FC = () => {
                           <span className="font-bold text-teal-700 dark:text-teal-300 text-lg">{formatCHF(agg.median)}</span>
                         </div>
                         <div className="flex justify-between text-sm">
-                          <span className="text-slate-500 dark:text-slate-400">75° percentile</span>
-                          <span className="font-bold text-slate-700 dark:text-slate-300">{formatCHF(agg.p75)}</span>
+                          <span className="text-muted">75° percentile</span>
+                          <span className="font-bold text-body">{formatCHF(agg.p75)}</span>
                         </div>
                         <div className="flex justify-between text-sm">
-                          <span className="text-slate-500 dark:text-slate-400">{t('salary.average')}</span>
-                          <span className="font-bold text-slate-700 dark:text-slate-300">{formatCHF(agg.avg)}</span>
+                          <span className="text-muted">{t('salary.average')}</span>
+                          <span className="font-bold text-body">{formatCHF(agg.avg)}</span>
                         </div>
                       </div>
 
                       {/* Simple bar chart */}
-                      <div className="mt-4 h-8 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden relative">
+                      <div className="mt-4 h-8 bg-surface-raised rounded-full overflow-hidden relative">
                         <div
                           className="absolute inset-y-0 left-0 bg-gradient-to-r from-teal-200 to-teal-400 dark:from-teal-800 dark:to-teal-600 rounded-full"
                           style={{

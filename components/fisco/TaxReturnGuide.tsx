@@ -94,17 +94,17 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
           className={`relative overflow-hidden rounded-2xl p-5 text-left transition-[color,background-color,border-color,box-shadow,transform] duration-300 ${
             countryTab === 'italia'
               ? 'bg-gradient-to-br from-emerald-600 to-green-700 text-white shadow-lg shadow-emerald-200 dark:shadow-emerald-900/40 ring-2 ring-emerald-400 dark:ring-emerald-500 scale-[1.02]'
-              : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-emerald-50 dark:hover:bg-slate-700 border-2 border-slate-200 dark:border-slate-700 hover:border-emerald-300 dark:hover:border-emerald-700'
+              : 'bg-surface text-subtle hover:bg-emerald-50 dark:hover:bg-slate-700 border-2 border-edge hover:border-emerald-300 dark:hover:border-emerald-700'
           }`}
           aria-label={t('taxReturn.countryTab.italia')}
         >
           <div className="flex items-center gap-3 mb-2">
             <span className="text-3xl">🇮🇹</span>
             <div>
-              <h3 className={`text-lg font-bold ${countryTab === 'italia' ? 'text-white' : 'text-slate-800 dark:text-slate-200'}`}>
+              <h3 className={`text-lg font-bold ${countryTab === 'italia' ? 'text-white' : 'text-strong'}`}>
                 {t('taxReturn.countryTab.italia')}
               </h3>
-              <p className={`text-xs ${countryTab === 'italia' ? 'text-emerald-100' : 'text-slate-500 dark:text-slate-400'}`}>
+              <p className={`text-xs ${countryTab === 'italia' ? 'text-emerald-100' : 'text-muted'}`}>
                 {t('taxReturn.countryTab.italiaDesc')}
               </p>
             </div>
@@ -121,17 +121,17 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
           className={`relative overflow-hidden rounded-2xl p-5 text-left transition-[color,background-color,border-color,box-shadow,transform] duration-300 ${
             countryTab === 'svizzera'
               ? 'bg-gradient-to-br from-red-600 to-red-700 text-white shadow-lg shadow-red-200 dark:shadow-red-900/40 ring-2 ring-red-400 dark:ring-red-500 scale-[1.02]'
-              : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-red-50 dark:hover:bg-slate-700 border-2 border-slate-200 dark:border-slate-700 hover:border-red-300 dark:hover:border-red-700'
+              : 'bg-surface text-subtle hover:bg-red-50 dark:hover:bg-slate-700 border-2 border-edge hover:border-red-300 dark:hover:border-red-700'
           }`}
           aria-label={t('taxReturn.countryTab.svizzera')}
         >
           <div className="flex items-center gap-3 mb-2">
             <span className="text-3xl">🇨🇭</span>
             <div>
-              <h3 className={`text-lg font-bold ${countryTab === 'svizzera' ? 'text-white' : 'text-slate-800 dark:text-slate-200'}`}>
+              <h3 className={`text-lg font-bold ${countryTab === 'svizzera' ? 'text-white' : 'text-strong'}`}>
                 {t('taxReturn.countryTab.svizzera')}
               </h3>
-              <p className={`text-xs ${countryTab === 'svizzera' ? 'text-red-100' : 'text-slate-500 dark:text-slate-400'}`}>
+              <p className={`text-xs ${countryTab === 'svizzera' ? 'text-red-100' : 'text-muted'}`}>
                 {t('taxReturn.countryTab.svizzeraDesc')}
               </p>
             </div>
@@ -179,7 +179,7 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
             className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-colors ${
               activeStep === key
                 ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 ring-1 ring-blue-300 dark:ring-blue-700'
-                : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700'
+                : 'bg-surface text-subtle hover:bg-slate-50 dark:hover:bg-slate-700 border border-edge'
             }`}
           >
             <Icon size={16} />
@@ -191,9 +191,9 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
       {/* Overview */}
       {activeStep === 'overview' && (
         <div className="space-y-6 animate-fade-in">
-          <div className="bg-white dark:bg-slate-800 rounded-2xl p-4 sm:p-6 border border-slate-200 dark:border-slate-700">
-            <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200 mb-4">{t('taxReturn.overview.title')}</h3>
-            <div className="space-y-4 text-sm text-slate-600 dark:text-slate-400">
+          <div className="bg-surface rounded-2xl p-4 sm:p-6 border border-edge">
+            <h3 className="text-lg font-bold text-strong mb-4">{t('taxReturn.overview.title')}</h3>
+            <div className="space-y-4 text-sm text-subtle">
               <p>{t('taxReturn.overview.intro')}</p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="bg-warm-50 dark:bg-warm-950 rounded-xl p-4 border border-warm-200 dark:border-warm-800">
@@ -225,10 +225,10 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
       {/* Documents checklist */}
       {activeStep === 'documents' && (
         <div className="space-y-4 animate-fade-in">
-          <div className="bg-white dark:bg-slate-800 rounded-2xl p-4 sm:p-6 border border-slate-200 dark:border-slate-700">
+          <div className="bg-surface rounded-2xl p-4 sm:p-6 border border-edge">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200">{t('taxReturn.documents.title')}</h3>
-              <span className="text-sm text-slate-500 dark:text-slate-400">
+              <h3 className="text-lg font-bold text-strong">{t('taxReturn.documents.title')}</h3>
+              <span className="text-sm text-muted">
                 {checkedDocs.size}/{DOCUMENTS_CHECKLIST.length} {t('taxReturn.documents.completed')}
               </span>
             </div>
@@ -245,7 +245,7 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
                   className={`flex items-start gap-3 p-3 rounded-xl border cursor-pointer transition-colors ${
                     checkedDocs.has(doc.key)
                       ? 'bg-emerald-50 dark:bg-emerald-900/20 border-emerald-300 dark:border-emerald-700'
-                      : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600'
+                      : 'bg-surface border-edge hover:border-slate-300 dark:hover:border-slate-600'
                   }`}
                 >
                   <input
@@ -257,7 +257,7 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
                   />
                   <div className="flex-1">
                     <div className="flex items-center gap-2">
-                      <span className="font-semibold text-sm text-slate-800 dark:text-slate-200">
+                      <span className="font-semibold text-sm text-strong">
                         {t(`taxReturn.documents.${doc.key}`)}
                       </span>
                       {doc.required && (
@@ -266,7 +266,7 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
                         </span>
                       )}
                     </div>
-                    <p className="text-sm text-slate-500 dark:text-slate-400 mt-0.5">
+                    <p className="text-sm text-muted mt-0.5">
                       {t(`taxReturn.documents.${doc.key}Desc`)}
                     </p>
                   </div>
@@ -280,9 +280,9 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
       {/* Deductions */}
       {activeStep === 'deductions' && (
         <div className="space-y-4 animate-fade-in">
-          <div className="bg-white dark:bg-slate-800 rounded-2xl p-4 sm:p-6 border border-slate-200 dark:border-slate-700">
-            <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200 mb-4">{t('taxReturn.deductions.title')}</h3>
-            <p className="text-sm text-slate-500 dark:text-slate-400 mb-6">{t('taxReturn.deductions.intro')}</p>
+          <div className="bg-surface rounded-2xl p-4 sm:p-6 border border-edge">
+            <h3 className="text-lg font-bold text-strong mb-4">{t('taxReturn.deductions.title')}</h3>
+            <p className="text-sm text-muted mb-6">{t('taxReturn.deductions.intro')}</p>
             <div className="space-y-3">
               {DEDUCTIONS.map(ded => (
                 <div
@@ -290,7 +290,7 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
                   className="bg-warm-50 dark:bg-warm-950 rounded-xl p-4 border border-warm-200 dark:border-warm-800"
                 >
                   <div className="flex items-center justify-between mb-1">
-                    <h4 className="font-semibold text-sm text-slate-800 dark:text-slate-200">
+                    <h4 className="font-semibold text-sm text-strong">
                       {t(`taxReturn.deductions.${ded.key}`)}
                     </h4>
                     {ded.maxCHF && (
@@ -299,7 +299,7 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
                       </span>
                     )}
                   </div>
-                  <p className="text-sm text-slate-500 dark:text-slate-400">
+                  <p className="text-sm text-muted">
                     {t(`taxReturn.deductions.${ded.key}Desc`)}
                   </p>
                 </div>
@@ -312,8 +312,8 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
       {/* Timeline */}
       {activeStep === 'timeline' && (
         <div className="space-y-4 animate-fade-in">
-          <div className="bg-white dark:bg-slate-800 rounded-2xl p-4 sm:p-6 border border-slate-200 dark:border-slate-700">
-            <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200 mb-6">{t('taxReturn.timeline.title')}</h3>
+          <div className="bg-surface rounded-2xl p-4 sm:p-6 border border-edge">
+            <h3 className="text-lg font-bold text-strong mb-6">{t('taxReturn.timeline.title')}</h3>
             <div className="relative">
               <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-slate-200 dark:bg-slate-600" />
               <div className="space-y-6">
@@ -331,7 +331,7 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
                       </div>
                       <div className="pb-2">
                         <div className="flex items-center gap-2 mb-1">
-                          <span className={`text-xs font-bold ${isPast ? 'text-emerald-700 dark:text-emerald-400' : 'text-blue-600 dark:text-blue-400'}`}>
+                          <span className={`text-xs font-bold ${isPast ? 'text-emerald-700 dark:text-emerald-400' : 'text-link'}`}>
                             {eventDate.toLocaleDateString('it-IT', { day: '2-digit', month: 'long', year: 'numeric' })}
                           </span>
                           {isPast && (
@@ -340,10 +340,10 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
                             </span>
                           )}
                         </div>
-                        <h4 className="font-semibold text-sm text-slate-800 dark:text-slate-200">
+                        <h4 className="font-semibold text-sm text-strong">
                           {t(`taxReturn.timeline.${event.key}`)}
                         </h4>
-                        <p className="text-sm text-slate-500 dark:text-slate-400 mt-0.5">
+                        <p className="text-sm text-muted mt-0.5">
                           {t(`taxReturn.timeline.${event.key}Desc`)}
                         </p>
                       </div>
@@ -376,16 +376,16 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
 const FaqItem: React.FC<{ q: string; a: string }> = ({ q, a }) => {
   const [open, setOpen] = useState(false);
   return (
-    <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+    <div className="bg-surface rounded-xl border border-edge overflow-hidden">
       <button
         onClick={() => setOpen(!open)}
         className="w-full flex items-center justify-between p-4 text-left"
       >
-        <span className="font-semibold text-sm text-slate-800 dark:text-slate-200">{q}</span>
-        <ArrowRight size={16} className={`text-slate-500 dark:text-slate-400 transition-transform ${open ? 'rotate-90' : ''}`} />
+        <span className="font-semibold text-sm text-strong">{q}</span>
+        <ArrowRight size={16} className={`text-muted transition-transform ${open ? 'rotate-90' : ''}`} />
       </button>
       {open && (
-        <div className="px-4 pb-4 text-sm text-slate-600 dark:text-slate-400 animate-fade-in">
+        <div className="px-4 pb-4 text-sm text-subtle animate-fade-in">
           {a}
         </div>
       )}

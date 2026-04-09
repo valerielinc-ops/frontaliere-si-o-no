@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useMemo, useCallback, lazy, Suspense, memo, Fragment, type FC, type ReactNode, type ReactElement } from 'react';
-import { useTranslation, useLocale, loadBlogMeta, loadArticleBody } from '@/services/i18n';
+import { useTranslation, useLocale, loadBlogMeta, loadArticleBody, getCantonI18nParams } from '@/services/i18n';
 import type { Locale } from '@/services/i18n';
 import { buildPath } from '@/services/router';
 import type { BlogArticleId } from '@/services/router';
@@ -231,7 +231,7 @@ function renderInlineFormatting(text: string, navigators?: NavigatorMap): ReactN
           </a>
         );
       } else {
-        parts.push(isBoldLink ? <strong key={`b${key++}`} className="font-semibold text-slate-800 dark:text-slate-200">{linkText}</strong> : linkText);
+        parts.push(isBoldLink ? <strong key={`b${key++}`} className="font-semibold text-strong">{linkText}</strong> : linkText);
       }
     } else if (match[5] && match[6]) {
       // [text](https://...) — external link
@@ -248,7 +248,7 @@ function renderInlineFormatting(text: string, navigators?: NavigatorMap): ReactN
       );
     } else if (match[8]) {
       // Recursively process bold content so nested links/italic are rendered
-      parts.push(<strong key={`b${key++}`} className="font-semibold text-slate-800 dark:text-slate-200">{renderInlineFormatting(match[8], navigators)}</strong>);
+      parts.push(<strong key={`b${key++}`} className="font-semibold text-strong">{renderInlineFormatting(match[8], navigators)}</strong>);
     } else if (match[10]) {
       // Recursively process italic content so nested links are rendered (e.g. *Fonte: [text](url)*)
       parts.push(<em key={`i${key++}`} className="italic">{renderInlineFormatting(match[10], navigators)}</em>);
@@ -265,7 +265,7 @@ function renderFormattedContent(text: string, navigators?: NavigatorMap): ReactE
 
   // If no block separators, render as a single paragraph (backward compatible)
   if (!processed.includes('\n\n') && !processed.includes('\n')) {
-    return <p className="text-slate-700 dark:text-slate-300 leading-relaxed">{renderInlineFormatting(processed, navigators)}</p>;
+    return <p className="text-body leading-relaxed">{renderInlineFormatting(processed, navigators)}</p>;
   }
 
   const blocks = processed.split('\n\n').filter(b => b.trim());
@@ -296,11 +296,11 @@ function renderFormattedContent(text: string, navigators?: NavigatorMap): ReactE
       const headingId = generateHeadingSlug(heading);
       renderedBlocks.push(
         <div key={`h3-${idx}`} className="space-y-1.5">
-          <h3 id={headingId} className="text-lg font-semibold text-slate-800 dark:text-slate-200 mt-4 mb-1 scroll-mt-20">
+          <h3 id={headingId} className="text-lg font-semibold text-strong mt-4 mb-1 scroll-mt-20">
             {renderInlineFormatting(heading, navigators)}
           </h3>
           {inlineBody && (
-            <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
+            <p className="text-body leading-relaxed">
               {renderInlineFormatting(inlineBody, navigators)}
             </p>
           )}
@@ -357,7 +357,7 @@ function renderFormattedContent(text: string, navigators?: NavigatorMap): ReactE
             {renderInlineFormatting(heading, navigators)}
           </h2>
           {inlineBody && (
-            <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
+            <p className="text-body leading-relaxed">
               {renderInlineFormatting(inlineBody, navigators)}
             </p>
           )}
@@ -378,7 +378,7 @@ function renderFormattedContent(text: string, navigators?: NavigatorMap): ReactE
     if (trimmed.startsWith('📊')) {
       renderedBlocks.push(
         <div key={`data-${idx}`} className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-4 flex gap-3">
-          <BarChart3 size={20} className="text-blue-600 dark:text-blue-400 shrink-0 mt-0.5" />
+          <BarChart3 size={20} className="text-link shrink-0 mt-0.5" />
           <p className="text-blue-800 dark:text-blue-200 leading-relaxed">{renderInlineFormatting(trimmed.slice(2).trim(), navigators)}</p>
         </div>
       );
@@ -420,7 +420,7 @@ function renderFormattedContent(text: string, navigators?: NavigatorMap): ReactE
         );
       } else {
         renderedBlocks.push(
-          <p key={`p-${idx}`} className="text-slate-700 dark:text-slate-300 leading-relaxed text-sm">
+          <p key={`p-${idx}`} className="text-body leading-relaxed text-sm">
             {renderInlineFormatting(quote, navigators)}
           </p>
         );
@@ -446,7 +446,7 @@ function renderFormattedContent(text: string, navigators?: NavigatorMap): ReactE
               <thead>
                 <tr>
                   {headers.map((h, hi) => (
-                    <th key={hi} className="border border-slate-300 dark:border-slate-600 bg-slate-100 dark:bg-slate-800 px-3 py-2 text-left font-semibold text-slate-800 dark:text-slate-200">
+                    <th key={hi} className="border border-slate-300 dark:border-slate-600 bg-surface-raised px-3 py-2 text-left font-semibold text-strong">
                       {renderInlineFormatting(h, navigators)}
                     </th>
                   ))}
@@ -454,9 +454,9 @@ function renderFormattedContent(text: string, navigators?: NavigatorMap): ReactE
               </thead>
               <tbody>
                 {bodyLines.map((row, ri) => (
-                  <tr key={ri} className={ri % 2 === 1 ? 'bg-slate-50 dark:bg-slate-800/50' : ''}>
+                  <tr key={ri} className={ri % 2 === 1 ? 'bg-surface-alt/50' : ''}>
                     {parseCells(row).map((cell, ci) => (
-                      <td key={ci} className="border border-slate-300 dark:border-slate-600 px-3 py-2 text-slate-700 dark:text-slate-300">
+                      <td key={ci} className="border border-slate-300 dark:border-slate-600 px-3 py-2 text-body">
                         {renderInlineFormatting(cell, navigators)}
                       </td>
                     ))}
@@ -476,7 +476,7 @@ function renderFormattedContent(text: string, navigators?: NavigatorMap): ReactE
       renderedBlocks.push(
         <ul key={`list-${idx}`} className="space-y-2 pl-1">
           {items.map((item, i) => (
-            <li key={i} className="flex items-start gap-2 text-slate-700 dark:text-slate-300 leading-relaxed">
+            <li key={i} className="flex items-start gap-2 text-body leading-relaxed">
               <CheckCircle2 size={16} className="text-emerald-500 shrink-0 mt-0.5" />
               <span>{renderInlineFormatting(item, navigators)}</span>
             </li>
@@ -488,7 +488,7 @@ function renderFormattedContent(text: string, navigators?: NavigatorMap): ReactE
 
     // Plain paragraph (default)
     renderedBlocks.push(
-      <p key={`p-${idx}`} className="text-slate-700 dark:text-slate-300 leading-relaxed">
+      <p key={`p-${idx}`} className="text-body leading-relaxed">
         {renderInlineFormatting(trimmed, navigators)}
       </p>
     );
@@ -882,7 +882,7 @@ const CTA_ICON_COLORS = {
   indigo: 'text-indigo-600 dark:text-indigo-400',
   emerald: 'text-emerald-700 dark:text-emerald-400',
   amber: 'text-amber-600 dark:text-amber-400',
-  blue: 'text-blue-600 dark:text-blue-400',
+  blue: 'text-link',
   violet: 'text-violet-600 dark:text-violet-400',
   rose: 'text-rose-600 dark:text-rose-400',
 };
@@ -891,7 +891,7 @@ const CTA_TEXT_COLORS = {
   indigo: { title: 'text-indigo-700 dark:text-indigo-300', desc: 'text-indigo-600 dark:text-indigo-400' },
   emerald: { title: 'text-emerald-700 dark:text-emerald-300', desc: 'text-emerald-700 dark:text-emerald-400' },
   amber: { title: 'text-amber-700 dark:text-amber-300', desc: 'text-amber-600 dark:text-amber-400' },
-  blue: { title: 'text-blue-700 dark:text-blue-300', desc: 'text-blue-600 dark:text-blue-400' },
+  blue: { title: 'text-blue-700 dark:text-blue-300', desc: 'text-link' },
   violet: { title: 'text-violet-700 dark:text-violet-300', desc: 'text-violet-600 dark:text-violet-400' },
   rose: { title: 'text-rose-700 dark:text-rose-300', desc: 'text-rose-600 dark:text-rose-400' },
 };
@@ -1333,7 +1333,7 @@ function BlogArticles({
       case 'pratico': return 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300';
       case 'novita': return 'bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300';
       case 'pensione': return 'bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300';
-      default: return 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300';
+      default: return 'bg-surface-raised text-body';
     }
   };
 
@@ -1558,8 +1558,8 @@ function BlogArticles({
               {t(partner.badgeKey)}
             </span>
           )}
-          <p className="text-sm text-slate-500 dark:text-slate-400 mt-1 leading-snug">{t(partner.taglineKey)}</p>
-          <span className="mt-1.5 inline-flex items-center gap-0.5 text-xs font-medium text-blue-600 dark:text-blue-400 group-hover:underline">
+          <p className="text-sm text-muted mt-1 leading-snug">{t(partner.taglineKey)}</p>
+          <span className="mt-1.5 inline-flex items-center gap-0.5 text-xs font-medium text-link group-hover:underline">
             {t('affiliate.cta')} <ExternalLink size={9} />
           </span>
         </a>
@@ -1583,7 +1583,7 @@ function BlogArticles({
         {/* Back button — prominent */}
         <button
           onClick={handleBackToList}
-          className="mb-6 inline-flex items-center gap-2 px-4 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors shadow-sm"
+          className="mb-6 inline-flex items-center gap-2 px-4 py-2 bg-surface border border-edge rounded-xl text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors shadow-sm"
           aria-label={t('blog.backToList')}
         >
           <ArrowLeft size={16} />
@@ -1596,7 +1596,7 @@ function BlogArticles({
           {/* ── Left Rail (desktop only) ── */}
           <aside className="hidden xl:block">
             <div className="sticky top-6 space-y-3">
-              <p className="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+              <p className="text-xs font-medium text-muted uppercase tracking-wider">
                 {t('affiliate.sectionTitle')}
               </p>
               {sidePartners.slice(0, 2).map((p, i) => <SideRailCard key={p.id} partner={p} idx={i} />)}
@@ -1620,7 +1620,7 @@ function BlogArticles({
             </div>
           </aside>
 
-        <article ref={articleRef} className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden shadow-lg">
+        <article ref={articleRef} className="bg-surface rounded-2xl border border-edge overflow-hidden shadow-lg">
           {/* Hero image */}
           <div className="relative overflow-hidden" style={{ aspectRatio: '2/1', contain: 'layout' }}>
             {(() => {
@@ -1667,7 +1667,7 @@ function BlogArticles({
           </div>
 
           {/* Meta bar */}
-          <div className="flex flex-wrap items-center gap-3 px-4 sm:px-6 py-3 bg-slate-50 dark:bg-slate-900/50 border-b border-slate-200 dark:border-slate-700 text-sm text-slate-600 dark:text-slate-400">
+          <div className="flex flex-wrap items-center gap-3 px-4 sm:px-6 py-3 bg-surface-alt/50 border-b border-edge text-sm text-subtle">
             <span className="flex items-center gap-1 font-medium text-indigo-700 dark:text-indigo-400">
               <PenLine size={14} />
               Valerie Linc
@@ -1691,7 +1691,7 @@ function BlogArticles({
               {/* Copy link */}
               <button
                 onClick={() => handleCopyLink(article.id)}
-                className="inline-flex items-center gap-1 px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-xs font-medium transition-colors"
+                className="inline-flex items-center gap-1 px-3 py-1 rounded-lg bg-surface-raised hover:bg-slate-200 dark:hover:bg-slate-700 text-xs font-medium transition-colors"
                 aria-label={t('blog.copyLink')}
               >
                 {copied ? <Check size={12} className="text-emerald-500" /> : <Copy size={12} />}
@@ -1709,7 +1709,7 @@ function BlogArticles({
               {/* Twitter/X */}
               <button
                 onClick={() => handleTwitterShare(article.id)}
-                className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-colors"
+                className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-surface-raised hover:bg-slate-200 dark:hover:bg-slate-700 text-body transition-colors"
                 aria-label={t('blog.shareTwitter')}
                 title={t('blog.shareTwitter')}
               >
@@ -1745,7 +1745,7 @@ function BlogArticles({
               {/* Email */}
               <button
                 onClick={() => handleEmailShare(article.id)}
-                className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-colors"
+                className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-surface-raised hover:bg-slate-200 dark:hover:bg-slate-700 text-body transition-colors"
                 aria-label={t('blog.shareEmail')}
                 title={t('blog.shareEmail')}
               >
@@ -1769,7 +1769,7 @@ function BlogArticles({
                 className={`inline-flex items-center justify-center w-9 h-9 rounded-lg transition-colors ${
                   savedArticles.has(article.id)
                     ? 'bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400'
-                    : 'bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300'
+                    : 'bg-surface-raised hover:bg-slate-200 dark:hover:bg-slate-700 text-body'
                 }`}
                 aria-label={savedArticles.has(article.id) ? t('blog.bookmarkRemove') : t('blog.bookmarkAdd')}
                 title={savedArticles.has(article.id) ? t('blog.bookmarkRemove') : t('blog.bookmarkAdd')}
@@ -1779,7 +1779,7 @@ function BlogArticles({
               {/* Print */}
               <button
                 onClick={handlePrint}
-                className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-colors print:hidden"
+                className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-surface-raised hover:bg-slate-200 dark:hover:bg-slate-700 text-body transition-colors print:hidden"
                 aria-label={t('blog.print')}
                 title={t('blog.print')}
               >
@@ -1801,13 +1801,13 @@ function BlogArticles({
 
           {/* Article body */}
           <div className="px-4 sm:px-6 py-6 space-y-5">
-            <p className="text-lg text-slate-600 dark:text-slate-400 italic border-l-4 border-indigo-500 pl-4">
+            <p className="text-lg text-subtle italic border-l-4 border-indigo-500 pl-4">
               {t(`blog.article.${article.id}.excerpt`)}
             </p>
 
             {/* Mobile TOC — collapsible (hidden on xl where it shows in right rail) */}
             {showToc && (
-              <div className="xl:hidden rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50/80 dark:bg-slate-900/50 overflow-hidden">
+              <div className="xl:hidden rounded-xl border border-edge bg-slate-50/80 dark:bg-slate-900/50 overflow-hidden">
                 <button
                   onClick={() => setTocOpen(prev => !prev)}
                   className="w-full flex items-center justify-between px-4 py-3 text-sm font-semibold text-slate-700 dark:text-slate-200"
@@ -1818,7 +1818,7 @@ function BlogArticles({
                     <List size={16} className="text-indigo-500" />
                     {t('blog.toc.title')} ({tocHeadings.length} {t('blog.toc.sections')})
                   </span>
-                  <ChevronDown size={16} className={`text-slate-500 dark:text-slate-400 transition-transform duration-200 ${tocOpen ? 'rotate-180' : ''}`} />
+                  <ChevronDown size={16} className={`text-muted transition-transform duration-200 ${tocOpen ? 'rotate-180' : ''}`} />
                 </button>
                 {tocOpen && (
                   <nav id="mobile-toc" className="px-4 pb-3 space-y-0.5" aria-label={t('blog.toc.title')}>
@@ -1827,7 +1827,7 @@ function BlogArticles({
                         key={h.id}
                         onClick={() => handleTocClick(h.id)}
                         className={`block w-full text-left text-sm py-2.5 transition-colors rounded-md px-2 ${
-                          h.level === 3 ? 'pl-5 text-slate-500 dark:text-slate-400' : 'text-slate-600 dark:text-slate-300 font-medium'
+                          h.level === 3 ? 'pl-5 text-muted' : 'text-slate-600 dark:text-slate-300 font-medium'
                         } hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-900/20`}
                       >
                         {h.text}
@@ -1876,7 +1876,7 @@ function BlogArticles({
                           <div className="flex items-center justify-between mb-3">
                             <p className="text-sm font-bold text-teal-800 dark:text-teal-300 flex items-center gap-1.5">
                               <Briefcase size={15} className="text-teal-500" />
-                              {t('blog.inlineJobs.title')}
+                              {t('blog.inlineJobs.title', getCantonI18nParams())}
                             </p>
                             <a
                               href={buildPath({ activeTab: 'job-board' })}
@@ -1903,11 +1903,11 @@ function BlogArticles({
                                   <p className="text-sm font-semibold text-slate-700 dark:text-slate-200 truncate group-hover:text-indigo-700 dark:group-hover:text-indigo-300 transition-colors">
                                     {job.titleByLocale?.[locale] ?? job.title}
                                   </p>
-                                  <p className="text-sm text-slate-500 dark:text-slate-400 truncate">
+                                  <p className="text-sm text-muted truncate">
                                     {job.company} · {job.location}
                                   </p>
                                 </div>
-                                <ChevronRight size={14} className="text-slate-500 dark:text-slate-400 shrink-0" />
+                                <ChevronRight size={14} className="text-muted shrink-0" />
                               </a>
                               );
                             })}
@@ -1967,8 +1967,8 @@ function BlogArticles({
                     <div id="article-faq-content" className="hidden px-4 sm:px-5 pb-4 sm:pb-5 space-y-3">
                       {validPairs.map((pair: { q: string; a: string }, i: number) => (
                         <div key={i} className="border-t border-amber-200/60 dark:border-amber-800/30 pt-3">
-                          <p className="font-semibold text-sm text-slate-800 dark:text-slate-200">{pair.q}</p>
-                          <p className="text-sm text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">{pair.a}</p>
+                          <p className="font-semibold text-sm text-strong">{pair.q}</p>
+                          <p className="text-sm text-subtle mt-1 leading-relaxed">{pair.a}</p>
                         </div>
                       ))}
                     </div>
@@ -2009,15 +2009,15 @@ function BlogArticles({
             )}
 
             {/* Article feedback — utile / non utile */}
-            <div className="mt-8 flex flex-col items-center gap-2 py-4 border-t border-slate-200 dark:border-slate-700">
-              <p className="text-sm font-medium text-slate-700 dark:text-slate-300">{t('blog.feedback.question')}</p>
+            <div className="mt-8 flex flex-col items-center gap-2 py-4 border-t border-edge">
+              <p className="text-sm font-medium text-body">{t('blog.feedback.question')}</p>
               <div className="flex items-center gap-3">
                 <button
                   onClick={() => handleFeedback(article.id, 'useful')}
                   className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                     articleFeedback[article.id] === 'useful'
                       ? 'bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-400 ring-1 ring-emerald-300 dark:ring-emerald-700'
-                      : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-emerald-50 dark:hover:bg-emerald-900/20'
+                      : 'bg-surface-raised text-subtle hover:bg-emerald-50 dark:hover:bg-emerald-900/20'
                   }`}
                   aria-label={t('blog.feedback.useful')}
                 >
@@ -2028,7 +2028,7 @@ function BlogArticles({
                   className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                     articleFeedback[article.id] === 'not-useful'
                       ? 'bg-red-100 dark:bg-red-900/40 text-red-700 dark:text-red-400 ring-1 ring-red-300 dark:ring-red-700'
-                      : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-red-50 dark:hover:bg-red-900/20'
+                      : 'bg-surface-raised text-subtle hover:bg-red-50 dark:hover:bg-red-900/20'
                   }`}
                   aria-label={t('blog.feedback.notUseful')}
                 >
@@ -2036,19 +2036,19 @@ function BlogArticles({
                 </button>
               </div>
               {articleFeedback[article.id] && (
-                <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">{t('blog.feedback.thanks')}</p>
+                <p className="text-sm text-muted mt-1">{t('blog.feedback.thanks')}</p>
               )}
             </div>
 
             {/* Author bio for E-E-A-T */}
-            <div className="mt-8 p-4 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
+            <div className="mt-8 p-4 bg-surface-alt rounded-xl border border-edge">
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center">
-                  <User size={24} className="text-blue-600 dark:text-blue-400" />
+                  <User size={24} className="text-link" />
                 </div>
                 <div>
                   <p className="font-bold text-slate-800 dark:text-white">Valerie Linc</p>
-                  <p className="text-sm text-slate-600 dark:text-slate-400">{t('blog.authorBio')}</p>
+                  <p className="text-sm text-subtle">{t('blog.authorBio')}</p>
                 </div>
               </div>
             </div>
@@ -2076,16 +2076,16 @@ function BlogArticles({
               const nextArticle = currentIdx > 0 ? articles[currentIdx - 1] : null;
               if (!prevArticle && !nextArticle) return null;
               return (
-                <div className="border-t border-slate-200 dark:border-slate-700 pt-6 mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="border-t border-edge pt-6 mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {prevArticle ? (
                     <a
                       href={buildPath({ activeTab: 'blog', blogArticle: prevArticle.id })}
                       onClick={(e) => { e.preventDefault(); handleArticleClick(prevArticle.id); }}
-                      className="flex items-center gap-3 p-4 bg-slate-50 dark:bg-slate-900/50 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-colors group"
+                      className="flex items-center gap-3 p-4 bg-surface-alt/50 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-colors group"
                     >
-                      <ChevronLeft size={20} className="text-slate-600 dark:text-slate-400 group-hover:text-indigo-500 shrink-0 transition-colors" />
+                      <ChevronLeft size={20} className="text-subtle group-hover:text-indigo-500 shrink-0 transition-colors" />
                       <div className="min-w-0">
-                        <p className="text-sm text-slate-500 dark:text-slate-400 mb-1">{t('blog.prevArticle')}</p>
+                        <p className="text-sm text-muted mb-1">{t('blog.prevArticle')}</p>
                         <p className="text-sm font-semibold text-slate-700 dark:text-slate-200 line-clamp-2">{t(`blog.article.${prevArticle.id}.title`)}</p>
                       </div>
                     </a>
@@ -2094,13 +2094,13 @@ function BlogArticles({
                     <a
                       href={buildPath({ activeTab: 'blog', blogArticle: nextArticle.id })}
                       onClick={(e) => { e.preventDefault(); handleArticleClick(nextArticle.id); }}
-                      className="flex items-center gap-3 p-4 bg-slate-50 dark:bg-slate-900/50 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-colors text-right group"
+                      className="flex items-center gap-3 p-4 bg-surface-alt/50 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-colors text-right group"
                     >
                       <div className="min-w-0 flex-1">
-                        <p className="text-sm text-slate-500 dark:text-slate-400 mb-1">{t('blog.nextArticle')}</p>
+                        <p className="text-sm text-muted mb-1">{t('blog.nextArticle')}</p>
                         <p className="text-sm font-semibold text-slate-700 dark:text-slate-200 line-clamp-2">{t(`blog.article.${nextArticle.id}.title`)}</p>
                       </div>
-                      <ChevronRight size={20} className="text-slate-600 dark:text-slate-400 group-hover:text-indigo-500 shrink-0 transition-colors" />
+                      <ChevronRight size={20} className="text-subtle group-hover:text-indigo-500 shrink-0 transition-colors" />
                     </a>
                   ) : <div />}
                 </div>
@@ -2108,7 +2108,7 @@ function BlogArticles({
             })()}
 
             {/* Related articles — FRO-301: moved above ads/trending for engagement */}
-            <div className="border-t border-slate-200 dark:border-slate-700 pt-6 mt-8">
+            <div className="border-t border-edge pt-6 mt-8">
               <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-4">{t('blog.relatedArticles')}</h3>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 {getRelatedArticles(article.id, articles, 3).map(related => (
@@ -2116,7 +2116,7 @@ function BlogArticles({
                     key={related.id}
                     href={buildPath({ activeTab: 'blog', blogArticle: related.id })}
                     onClick={(e) => { e.preventDefault(); handleArticleClick(related.id); }}
-                    className="flex items-center gap-3 p-3 bg-slate-50 dark:bg-slate-900/50 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-colors text-left"
+                    className="flex items-center gap-3 p-3 bg-surface-alt/50 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-colors text-left"
                   >
                     {(() => {
                       const responsive = imageFallbackMap[related.image] ? null : getResponsiveImageSet(related.image);
@@ -2142,7 +2142,7 @@ function BlogArticles({
                       <p className="text-sm font-semibold text-slate-700 dark:text-slate-200 line-clamp-2">
                         {t(`blog.article.${related.id}.title`)}
                       </p>
-                      <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">{estimateReadingMinutes(related.id, t)} min</p>
+                      <p className="text-sm text-muted mt-1">{estimateReadingMinutes(related.id, t)} min</p>
                     </div>
                   </a>
                 ))}
@@ -2174,7 +2174,7 @@ function BlogArticles({
                 .filter(Boolean) as Article[];
               if (trendingCards.length === 0) return null;
               return (
-                <div className="border-t border-slate-200 dark:border-slate-700 pt-6 mt-8">
+                <div className="border-t border-edge pt-6 mt-8">
                   <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-4 flex items-center gap-2">
                     <TrendingUp size={20} className="text-orange-500" />
                     {t('blog.trendingThisWeek')}
@@ -2220,8 +2220,8 @@ function BlogArticles({
                               <span className="text-xs text-orange-700 dark:text-orange-400 font-medium">
                                 {views} {t('blog.trendingThisWeek.views')}
                               </span>
-                              <span className="text-sm text-slate-500 dark:text-slate-400">·</span>
-                              <span className="text-sm text-slate-500 dark:text-slate-400">
+                              <span className="text-sm text-muted">·</span>
+                              <span className="text-sm text-muted">
                                 {estimateReadingMinutes(tr.id, t)} min
                               </span>
                             </div>
@@ -2237,7 +2237,7 @@ function BlogArticles({
 
             {/* Related jobs (cross-linking) */}
             {relatedJobs.length > 0 ? (
-              <div className="border-t border-slate-200 dark:border-slate-700 pt-6 mt-6">
+              <div className="border-t border-edge pt-6 mt-6">
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
                     <Briefcase size={18} className="text-indigo-500" />
@@ -2262,14 +2262,14 @@ function BlogArticles({
                         onClick={(e) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; e.preventDefault(); nav.navigateTo('job-board', jobSlug); }}
                         className="flex items-start gap-3 p-3 bg-indigo-50/60 dark:bg-indigo-950/20 rounded-xl hover:bg-indigo-100 dark:hover:bg-indigo-900/30 transition-colors text-left border border-indigo-100 dark:border-indigo-900/40"
                       >
-                        <div className="w-10 h-10 rounded-lg bg-white dark:bg-slate-700 flex items-center justify-center border border-slate-200 dark:border-slate-600 shrink-0 overflow-hidden">
+                        <div className="w-10 h-10 rounded-lg bg-white dark:bg-slate-700 flex items-center justify-center border border-edge shrink-0 overflow-hidden">
                           {logo ? <img src={logo} alt={`Logo ${job.company}`} width={28} height={28} className="w-7 h-7 object-contain" loading="lazy" onError={handleBlogLogoError} /> : <Briefcase size={16} className="text-indigo-500" />}
                         </div>
                         <div className="min-w-0">
                           <p className="text-sm font-semibold text-slate-700 dark:text-slate-200 line-clamp-2">
                             {job.titleByLocale?.[locale] ?? job.title}
                           </p>
-                          <p className="text-sm text-slate-600 dark:text-slate-400 mt-0.5">{job.company} · {job.location}</p>
+                          <p className="text-sm text-subtle mt-0.5">{job.company} · {job.location}</p>
                         </div>
                       </a>
                     );
@@ -2277,18 +2277,18 @@ function BlogArticles({
                 </div>
               </div>
             ) : (
-              <div className="border-t border-slate-200 dark:border-slate-700 pt-6 mt-6">
+              <div className="border-t border-edge pt-6 mt-6">
                 <a
                   href={buildPath({ activeTab: 'job-board' })}
                   onClick={(e) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; e.preventDefault(); nav.navigateTo('job-board'); }}
                   className="flex items-center gap-3 p-4 bg-indigo-50/60 dark:bg-indigo-950/20 rounded-xl hover:bg-indigo-100 dark:hover:bg-indigo-900/30 transition-colors border border-indigo-100 dark:border-indigo-900/40"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-white dark:bg-slate-700 flex items-center justify-center border border-slate-200 dark:border-slate-600 shrink-0">
+                  <div className="w-10 h-10 rounded-lg bg-white dark:bg-slate-700 flex items-center justify-center border border-edge shrink-0">
                     <Search size={18} className="text-indigo-500" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm font-semibold text-slate-700 dark:text-slate-200">{t('blog.cta.jobBoard.title')}</p>
-                    <p className="text-sm text-slate-600 dark:text-slate-400 mt-0.5">{t('blog.cta.jobBoard.desc')}</p>
+                    <p className="text-sm font-semibold text-slate-700 dark:text-slate-200">{t('blog.cta.jobBoard.title', getCantonI18nParams())}</p>
+                    <p className="text-sm text-subtle mt-0.5">{t('blog.cta.jobBoard.desc', getCantonI18nParams())}</p>
                   </div>
                   <ArrowRight size={16} className="text-indigo-500 shrink-0" />
                 </a>
@@ -2303,7 +2303,7 @@ function BlogArticles({
               {/* Desktop TOC */}
               {showToc && (
                 <nav className="max-h-[calc(100vh-8rem)] overflow-y-auto pb-3 mb-1" aria-label={t('blog.toc.title')}>
-                  <p className="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                  <p className="text-xs font-medium text-muted uppercase tracking-wider mb-2 flex items-center gap-1.5">
                     <List size={12} />
                     {t('blog.toc.title')}
                   </p>
@@ -2317,7 +2317,7 @@ function BlogArticles({
                           } ${
                             activeHeadingId === h.id
                               ? 'text-indigo-600 dark:text-indigo-400 font-medium border-l-2 border-indigo-500 pl-2'
-                              : `text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 ${h.level === 3 ? 'font-normal' : 'font-medium'}`
+                              : `text-subtle hover:text-indigo-600 dark:hover:text-indigo-400 ${h.level === 3 ? 'font-normal' : 'font-medium'}`
                           }`}
                         >
                           {h.text}
@@ -2328,7 +2328,7 @@ function BlogArticles({
                 </nav>
               )}
 
-              <p className="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+              <p className="text-xs font-medium text-muted uppercase tracking-wider">
                 {t('blog.resourcesTitle')}
               </p>
               {sidePartners.slice(2, 4).map((p, i) => <SideRailCard key={p.id} partner={p} idx={i + 2} />)}
@@ -2352,7 +2352,7 @@ function BlogArticles({
               {/* Donation mini-card */}
               <div className="rounded-xl border border-amber-200 dark:border-amber-800/50 bg-amber-50/80 dark:bg-amber-900/20 p-3 text-center space-y-2">
                 <Coffee size={18} className="mx-auto text-amber-600 dark:text-amber-400" />
-                <p className="text-xs leading-snug text-slate-600 dark:text-slate-400">
+                <p className="text-xs leading-snug text-subtle">
                   {t('donation.message').slice(0, 80)}…
                 </p>
                 <a
@@ -2365,7 +2365,7 @@ function BlogArticles({
                 </a>
               </div>
 
-              <p className="text-sm text-slate-500 dark:text-slate-400 leading-tight">
+              <p className="text-sm text-muted leading-tight">
                 {t('affiliate.disclosure')}
               </p>
             </div>
@@ -2374,7 +2374,7 @@ function BlogArticles({
         </div>
 
         {/* FRO-301: Sticky bottom nav on mobile — reduces bounce from social referrals */}
-        <div className="sm:hidden fixed bottom-0 inset-x-0 z-40 bg-white/95 dark:bg-slate-900/95 border-t border-slate-200 dark:border-slate-700 px-4 py-2.5 pb-[calc(0.625rem+env(safe-area-inset-bottom))] flex items-center justify-between">
+        <div className="sm:hidden fixed bottom-0 inset-x-0 z-40 bg-white/95 dark:bg-slate-900/95 border-t border-edge px-4 py-2.5 pb-[calc(0.625rem+env(safe-area-inset-bottom))] flex items-center justify-between">
           <button
             onClick={handleBackToList}
             className="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-700 dark:text-slate-200"
@@ -2402,7 +2402,7 @@ function BlogArticles({
             ) : (
               <button
                 onClick={() => handleCopyLink(selectedArticle)}
-                className="inline-flex items-center justify-center w-11 h-11 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300"
+                className="inline-flex items-center justify-center w-11 h-11 rounded-lg bg-surface-raised text-body"
                 aria-label={t('blog.copyLink')}
               >
                 {copied ? <Check size={20} className="text-emerald-500" /> : <Copy size={20} />}
@@ -2426,7 +2426,7 @@ function BlogArticles({
           <BookOpen size={28} className="text-indigo-600" />
           {t('blog.title')}
         </h1>
-        <p className="text-slate-600 dark:text-slate-400">{t('blog.subtitle')}</p>
+        <p className="text-subtle">{t('blog.subtitle')}</p>
       </div>
 
       {/* Stats bar — gives immediate sense of depth and freshness */}
@@ -2437,12 +2437,12 @@ function BlogArticles({
             {articles.length} {t('blog.statsArticles')}
           </span>
           <span className="text-slate-300 dark:text-slate-600">|</span>
-          <span className="inline-flex items-center gap-1.5 text-slate-600 dark:text-slate-400">
+          <span className="inline-flex items-center gap-1.5 text-subtle">
             <Newspaper size={15} />
             {categoryStats['novita'] || 0} {t('blog.statsNews')}
           </span>
           <span className="text-slate-300 dark:text-slate-600">|</span>
-          <span className="inline-flex items-center gap-1.5 text-slate-600 dark:text-slate-400">
+          <span className="inline-flex items-center gap-1.5 text-subtle">
             <TrendingUp size={15} />
             {t('blog.statsUpdated')}
           </span>
@@ -2458,7 +2458,7 @@ function BlogArticles({
             className={`px-4 py-2 rounded-full text-sm font-medium transition-[color,background-color,border-color,box-shadow] ${
               selectedCategory === cat
                 ? 'bg-indigo-600 text-white shadow-md'
-                : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:border-indigo-400'
+                : 'bg-surface text-body border border-edge hover:border-indigo-400'
             }`}
           >
             {t(`blog.category.${cat}`)}
@@ -2535,7 +2535,7 @@ function BlogArticles({
             <a
               key={article.id}
               href={buildPath({ activeTab: 'blog', blogArticle: article.id })}
-              className={`block text-left bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden hover:shadow-lg hover:border-indigo-300 dark:hover:border-indigo-600 transition-[border-color,box-shadow] group${idx >= 3 ? ' content-auto' : ''}`}
+              className={`block text-left bg-surface rounded-xl border border-edge overflow-hidden hover:shadow-lg hover:border-indigo-300 dark:hover:border-indigo-600 transition-[border-color,box-shadow] group${idx >= 3 ? ' content-auto' : ''}`}
               onClick={(e) => { e.preventDefault(); handleArticleClick(article.id); }}
             >
               {/* Card image */}
@@ -2569,7 +2569,7 @@ function BlogArticles({
                   <span className={`px-1.5 py-0.5 rounded-full text-xs font-semibold ${
                     article.category === 'novita'
                       ? 'bg-orange-500/90 text-white'
-                      : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300'
+                      : 'bg-surface text-slate-600 dark:text-slate-300'
                   }`}>
                     {article.category === 'novita'
                       ? t('blog.contentType.news')
@@ -2580,7 +2580,7 @@ function BlogArticles({
 
               {/* Card content */}
               <div className="p-4">
-                <div className="flex items-center gap-2 mb-2 text-xs text-slate-500 dark:text-slate-400">
+                <div className="flex items-center gap-2 mb-2 text-xs text-muted">
                   <span className="flex items-center gap-1">
                     <Calendar size={10} />
                     {formatDate(article.date)}
@@ -2593,7 +2593,7 @@ function BlogArticles({
                 <h3 className="text-sm font-bold text-slate-700 dark:text-slate-200 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors line-clamp-2 mb-2">
                   {t(`blog.article.${article.id}.title`)}
                 </h3>
-                <p className="text-sm text-slate-500 dark:text-slate-400 line-clamp-3 mb-3">
+                <p className="text-sm text-muted line-clamp-3 mb-3">
                   {t(`blog.article.${article.id}.excerpt`)}
                 </p>
                 <span className="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-semibold text-white bg-indigo-600 dark:bg-indigo-500 rounded-lg group-hover:bg-indigo-700 dark:group-hover:bg-indigo-600 transition-colors">
@@ -2610,7 +2610,7 @@ function BlogArticles({
         <div className="flex justify-center mt-2">
           <button
             onClick={() => setGridRevealCount(pageArticles.length - 1)}
-            className="px-4 py-2 rounded-lg text-sm font-semibold bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors"
+            className="px-4 py-2 rounded-lg text-sm font-semibold bg-surface border border-edge text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors"
           >
             {t('blog.readMore')}
           </button>
@@ -2623,7 +2623,7 @@ function BlogArticles({
           <button
             onClick={() => { setCurrentPage(p => Math.max(1, p - 1)); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
             disabled={currentPage === 1}
-            className="inline-flex items-center gap-1 px-2 sm:px-4 py-2 rounded-lg text-sm font-medium bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+            className="inline-flex items-center gap-1 px-2 sm:px-4 py-2 rounded-lg text-sm font-medium bg-surface border border-edge text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
             aria-label={t('blog.pagination.prev')}
           >
             <ChevronLeft size={16} />
@@ -2646,7 +2646,7 @@ function BlogArticles({
               }
               return pages.map((page, idx) =>
                 typeof page === 'string' ? (
-                  <span key={page} className="w-10 h-11 flex items-center justify-center text-slate-500 dark:text-slate-400 text-sm select-none">…</span>
+                  <span key={page} className="w-10 h-11 flex items-center justify-center text-muted text-sm select-none">…</span>
                 ) : (
                   <button
                     key={page}
@@ -2654,7 +2654,7 @@ function BlogArticles({
                     className={`w-11 h-11 rounded-lg text-sm font-medium transition-colors ${
                       page === currentPage
                         ? 'bg-indigo-600 text-white shadow-md'
-                        : 'bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700'
+                        : 'bg-surface border border-edge text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700'
                     }`}
                     aria-label={`${t('blog.pagination.page')} ${page}`}
                     aria-current={page === currentPage ? 'page' : undefined}
@@ -2668,7 +2668,7 @@ function BlogArticles({
           <button
             onClick={() => { setCurrentPage(p => Math.min(totalPages, p + 1)); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
             disabled={currentPage === totalPages}
-            className="inline-flex items-center gap-1 px-2 sm:px-4 py-2 rounded-lg text-sm font-medium bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+            className="inline-flex items-center gap-1 px-2 sm:px-4 py-2 rounded-lg text-sm font-medium bg-surface border border-edge text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
             aria-label={t('blog.pagination.next')}
           >
             <span className="hidden sm:inline">{t('blog.pagination.next')}</span>
@@ -2678,9 +2678,9 @@ function BlogArticles({
       )}
 
       {/* SEO content block */}
-      <div className="bg-slate-50 dark:bg-slate-800/50 rounded-xl p-4 sm:p-6 border border-slate-200 dark:border-slate-700">
+      <div className="bg-surface-alt/50 rounded-xl p-4 sm:p-6 border border-edge">
         <h3 className="font-semibold text-slate-700 dark:text-slate-200 mb-3">{t('blog.seoTitle')}</h3>
-        <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+        <p className="text-sm text-subtle leading-relaxed">
           {t('blog.seoContent')}
         </p>
       </div>

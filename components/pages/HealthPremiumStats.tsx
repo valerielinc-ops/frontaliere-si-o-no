@@ -109,7 +109,7 @@ const HealthPremiumStats: React.FC = () => {
 
   if (!data) {
     return (
-      <div className="flex items-center justify-center min-h-[300px] text-slate-500 dark:text-slate-400">
+      <div className="flex items-center justify-center min-h-[300px] text-muted">
         <Heart className="animate-pulse mr-2" size={20} /> Caricamento dati premi...
       </div>
     );
@@ -134,15 +134,15 @@ const HealthPremiumStats: React.FC = () => {
       </div>
 
       {/* Canton averages bar chart */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl p-5 border border-slate-200 dark:border-slate-700 shadow-sm">
-        <h3 className="text-sm font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-4">
+      <div className="bg-surface rounded-2xl p-5 border border-edge shadow-sm">
+        <h3 className="text-sm font-bold text-subtle uppercase tracking-wider mb-4">
           Premio medio per cantone (standard, adulti 26+)
         </h3>
         <div className="space-y-1.5 max-h-[500px] overflow-y-auto">
           {cantonAverages.map((c, i) => (
             <div key={c.canton} className="flex items-center gap-3 text-xs">
-              <span className="w-8 font-bold text-slate-700 dark:text-slate-300 text-right">{c.canton}</span>
-              <div className="flex-1 h-6 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
+              <span className="w-8 font-bold text-body text-right">{c.canton}</span>
+              <div className="flex-1 h-6 bg-surface-raised rounded-full overflow-hidden">
                 <div
                   className={`h-full rounded-full transition-transform origin-left ${
                     i < 5 ? 'bg-emerald-500' : i >= cantonAverages.length - 5 ? 'bg-red-500' : 'bg-blue-500'
@@ -150,7 +150,7 @@ const HealthPremiumStats: React.FC = () => {
                   style={{ transform: `scaleX(${Math.max(10, (c.avg / maxAvg) * 100) / 100})` }}
                 />
               </div>
-              <span className="w-16 text-right font-bold text-slate-700 dark:text-slate-300">{c.avg} CHF</span>
+              <span className="w-16 text-right font-bold text-body">{c.avg} CHF</span>
             </div>
           ))}
         </div>
@@ -167,8 +167,8 @@ const HealthPremiumStats: React.FC = () => {
               <div key={c.municipality} className="flex items-center justify-between text-sm">
                 <span className="flex items-center gap-2">
                   <span className="w-6 h-6 rounded-full bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300 flex items-center justify-center text-xs font-bold">{i + 1}</span>
-                  <span className="text-slate-700 dark:text-slate-300">{c.municipality.replace(/^\d+-/, '')}</span>
-                  <span className="text-slate-500 dark:text-slate-400 text-xs">({c.canton})</span>
+                  <span className="text-body">{c.municipality.replace(/^\d+-/, '')}</span>
+                  <span className="text-muted text-xs">({c.canton})</span>
                 </span>
                 <span className="font-bold text-emerald-700 dark:text-emerald-400">{c.avgPremium.toFixed(0)} CHF</span>
               </div>
@@ -184,8 +184,8 @@ const HealthPremiumStats: React.FC = () => {
               <div key={c.municipality} className="flex items-center justify-between text-sm">
                 <span className="flex items-center gap-2">
                   <span className="w-6 h-6 rounded-full bg-red-100 dark:bg-red-900/50 text-red-700 dark:text-red-300 flex items-center justify-center text-xs font-bold">{i + 1}</span>
-                  <span className="text-slate-700 dark:text-slate-300">{c.municipality.replace(/^\d+-/, '')}</span>
-                  <span className="text-slate-500 dark:text-slate-400 text-xs">({c.canton})</span>
+                  <span className="text-body">{c.municipality.replace(/^\d+-/, '')}</span>
+                  <span className="text-muted text-xs">({c.canton})</span>
                 </span>
                 <span className="font-bold text-red-700 dark:text-red-400">{c.avgPremium.toFixed(0)} CHF</span>
               </div>
@@ -195,17 +195,17 @@ const HealthPremiumStats: React.FC = () => {
       </div>
 
       {/* Full ranking table */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl p-5 border border-slate-200 dark:border-slate-700 shadow-sm">
+      <div className="bg-surface rounded-2xl p-5 border border-edge shadow-sm">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
-          <h3 className="text-sm font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider flex items-center gap-2">
+          <h3 className="text-sm font-bold text-subtle uppercase tracking-wider flex items-center gap-2">
             <MapPin size={16} /> Classifica completa ({filtered.length} comuni)
           </h3>
           <div className="flex items-center gap-2">
-            <Filter size={14} className="text-slate-500 dark:text-slate-400" />
+            <Filter size={14} className="text-muted" />
             <select
               value={cantonFilter}
               onChange={(e) => setCantonFilter(e.target.value)}
-              className="px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-xs"
+              className="px-3 py-1.5 rounded-lg border border-edge bg-surface-alt text-slate-800 dark:text-slate-100 text-xs"
               aria-label="Filtra per cantone"
             >
               <option value="all">Tutti i cantoni</option>
@@ -218,28 +218,28 @@ const HealthPremiumStats: React.FC = () => {
         <div className="overflow-x-auto">
           <table className="w-full text-xs">
             <thead>
-              <tr className="border-b-2 border-slate-200 dark:border-slate-700">
-                <th className="text-left py-2 px-2 text-slate-600 dark:text-slate-400 font-bold">#</th>
+              <tr className="border-b-2 border-edge">
+                <th className="text-left py-2 px-2 text-subtle font-bold">#</th>
                 <th
-                  className="text-left py-2 px-2 text-slate-600 dark:text-slate-400 font-bold cursor-pointer hover:text-rose-600"
+                  className="text-left py-2 px-2 text-subtle font-bold cursor-pointer hover:text-rose-600"
                   onClick={() => handleSort('name')}
                 >
                   Comune {sortKey === 'name' && (sortAsc ? <ChevronUp size={12} className="inline" /> : <ChevronDown size={12} className="inline" />)}
                 </th>
                 <th
-                  className="text-center py-2 px-2 text-slate-600 dark:text-slate-400 font-bold cursor-pointer hover:text-rose-600"
+                  className="text-center py-2 px-2 text-subtle font-bold cursor-pointer hover:text-rose-600"
                   onClick={() => handleSort('canton')}
                 >
                   Cantone {sortKey === 'canton' && (sortAsc ? <ChevronUp size={12} className="inline" /> : <ChevronDown size={12} className="inline" />)}
                 </th>
                 <th
-                  className="text-right py-2 px-2 text-slate-600 dark:text-slate-400 font-bold cursor-pointer hover:text-rose-600"
+                  className="text-right py-2 px-2 text-subtle font-bold cursor-pointer hover:text-rose-600"
                   onClick={() => handleSort('avgPremium')}
                 >
                   Premio medio {sortKey === 'avgPremium' && (sortAsc ? <ChevronUp size={12} className="inline" /> : <ChevronDown size={12} className="inline" />)}
                 </th>
                 <th
-                  className="text-right py-2 px-2 text-slate-600 dark:text-slate-400 font-bold cursor-pointer hover:text-rose-600"
+                  className="text-right py-2 px-2 text-subtle font-bold cursor-pointer hover:text-rose-600"
                   onClick={() => handleSort('numInsurers')}
                 >
                   Assicuratori {sortKey === 'numInsurers' && (sortAsc ? <ChevronUp size={12} className="inline" /> : <ChevronDown size={12} className="inline" />)}
@@ -251,20 +251,20 @@ const HealthPremiumStats: React.FC = () => {
                 const globalRank = filtered.indexOf(c) + 1;
                 return (
                   <tr key={c.municipality} className="border-b border-slate-100 dark:border-slate-700/50 hover:bg-slate-50 dark:hover:bg-slate-700/30">
-                    <td className="py-2 px-2 text-slate-500 dark:text-slate-400 font-mono">{globalRank}</td>
-                    <td className="py-2 px-2 text-slate-700 dark:text-slate-300 font-medium">
+                    <td className="py-2 px-2 text-muted font-mono">{globalRank}</td>
+                    <td className="py-2 px-2 text-body font-medium">
                       {c.municipality.replace(/^\d+-/, '')}
-                      <span className="text-slate-500 dark:text-slate-400 ml-1 text-xs">{c.municipality.match(/^\d+/)?.[0]}</span>
+                      <span className="text-muted ml-1 text-xs">{c.municipality.match(/^\d+/)?.[0]}</span>
                     </td>
-                    <td className="py-2 px-2 text-center text-slate-500 dark:text-slate-400">{c.canton}</td>
+                    <td className="py-2 px-2 text-center text-muted">{c.canton}</td>
                     <td className={`py-2 px-2 text-right font-bold ${
                       globalRank <= 10 ? 'text-emerald-700 dark:text-emerald-400' :
                       globalRank > filtered.length - 10 ? 'text-red-700 dark:text-red-400' :
-                      'text-slate-700 dark:text-slate-300'
+                      'text-body'
                     }`}>
                       {c.avgPremium.toFixed(0)} CHF
                     </td>
-                    <td className="py-2 px-2 text-right text-slate-500 dark:text-slate-400">{c.numInsurers}</td>
+                    <td className="py-2 px-2 text-right text-muted">{c.numInsurers}</td>
                   </tr>
                 );
               })}
@@ -283,7 +283,7 @@ const HealthPremiumStats: React.FC = () => {
       </div>
 
       {/* Source attribution */}
-      <div className="text-center text-xs text-slate-500 dark:text-slate-400 space-y-1">
+      <div className="text-center text-xs text-muted space-y-1">
         <p>
           Dati ufficiali UFSP/BAG {data.year}. Premi standard, adulti 26+, franchigia 300 CHF, senza copertura infortuni.
         </p>

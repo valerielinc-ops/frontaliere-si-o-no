@@ -537,7 +537,7 @@ export default function WithholdingRatesHub() {
             <a
               key={cta.title}
               href={buildPath(cta.route, locale)}
-              className="inline-flex items-center gap-2 rounded-2xl bg-white dark:bg-slate-800 px-4 py-3 text-sm font-bold text-emerald-800 dark:text-emerald-300 no-underline transition hover:-translate-y-0.5 hover:bg-emerald-50 dark:hover:bg-slate-700"
+              className="inline-flex items-center gap-2 rounded-2xl bg-surface px-4 py-3 text-sm font-bold text-emerald-800 dark:text-emerald-300 no-underline transition hover:-translate-y-0.5 hover:bg-emerald-50 dark:hover:bg-slate-700"
             >
               {cta.title}
               <ArrowRight className="h-4 w-4" />
@@ -609,7 +609,7 @@ export default function WithholdingRatesHub() {
           <ExternalLink className="h-5 w-5 text-emerald-700 dark:text-emerald-300" />
           <h2 className="text-2xl font-bold text-slate-900 dark:text-white">{copy.officialSourcesTitle}</h2>
         </div>
-        <p className="mt-3 max-w-4xl text-sm leading-7 text-slate-700 dark:text-slate-300">{copy.officialSourcesIntro}</p>
+        <p className="mt-3 max-w-4xl text-sm leading-7 text-body">{copy.officialSourcesIntro}</p>
         <div className="mt-5 grid gap-4 sm:grid-cols-2">
           {copy.officialLinks.map((link) => (
             <a

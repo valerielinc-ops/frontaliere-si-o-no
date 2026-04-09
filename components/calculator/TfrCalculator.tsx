@@ -111,7 +111,7 @@ const InfoTooltip = ({ text }: { text: string }) => {
   }, [open]);
   return (
     <button ref={ref} type="button" onClick={() => setOpen(v => !v)} aria-label="Info" className="group relative inline-flex items-center ml-1.5 cursor-help">
-      <Info size={14} className="text-slate-500 dark:text-slate-400 hover:text-teal-600 transition-colors" />
+      <Info size={14} className="text-muted hover:text-teal-600 transition-colors" />
       <div className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-64 p-3 bg-slate-800 dark:bg-slate-700 text-white text-xs leading-relaxed rounded-xl shadow-2xl z-50 border border-slate-600 ${open ? 'block' : 'hidden group-hover:block'}`}>
         {text}
         <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-800 dark:border-t-slate-700"></div>
@@ -233,7 +233,7 @@ const TfrCalculator: React.FC = () => {
           <Calculator size={14} /> {t('tfr.badge')}
         </span>
         <h1 className="text-2xl font-bold text-slate-900 dark:text-white">{t('tfr.title')}</h1>
-        <p className="text-sm text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">{t('tfr.subtitle')}</p>
+        <p className="text-sm text-subtle max-w-2xl mx-auto">{t('tfr.subtitle')}</p>
       </div>
 
       {/* ── Info toggle (mobile) / always visible (desktop) ── */}
@@ -257,15 +257,15 @@ const TfrCalculator: React.FC = () => {
           <AlertTriangle className="w-5 h-5 text-amber-600 dark:text-amber-400 flex-shrink-0 mt-0.5" />
           <div className="space-y-2">
             <h2 className="font-bold text-slate-900 dark:text-white text-sm">{t('tfr.noTfrTitle')}</h2>
-            <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">{t('tfr.noTfrText')}</p>
+            <p className="text-sm text-body leading-relaxed">{t('tfr.noTfrText')}</p>
           </div>
         </div>
       </div>
 
       {/* ── Explanation: What replaces TFR in Switzerland ── */}
-      <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-5 space-y-4">
+      <div className="bg-surface border border-edge rounded-2xl p-5 space-y-4">
         <h2 className="font-bold text-slate-900 dark:text-white text-lg flex items-center gap-2">
-          <PiggyBank className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+          <PiggyBank className="w-5 h-5 text-link" />
           {t('tfr.whatReplacesTitle')}
         </h2>
 
@@ -275,7 +275,7 @@ const TfrCalculator: React.FC = () => {
             <h3 className="font-semibold text-red-700 dark:text-red-300 text-sm flex items-center gap-2">
               🇮🇹 {t('tfr.tfrLabel')}
             </h3>
-            <ul className="text-xs text-slate-700 dark:text-slate-300 space-y-1.5">
+            <ul className="text-xs text-body space-y-1.5">
               <li className="flex items-start gap-1.5"><span className="text-red-500">•</span> {t('tfr.tfrPoint1')}</li>
               <li className="flex items-start gap-1.5"><span className="text-red-500">•</span> {t('tfr.tfrPoint2')}</li>
               <li className="flex items-start gap-1.5"><span className="text-red-500">•</span> {t('tfr.tfrPoint3')}</li>
@@ -288,7 +288,7 @@ const TfrCalculator: React.FC = () => {
             <h3 className="font-semibold text-blue-700 dark:text-blue-300 text-sm flex items-center gap-2">
               🇨🇭 {t('tfr.lppLabel')}
             </h3>
-            <ul className="text-xs text-slate-700 dark:text-slate-300 space-y-1.5">
+            <ul className="text-xs text-body space-y-1.5">
               <li className="flex items-start gap-1.5"><span className="text-blue-500">•</span> {t('tfr.lppPoint1')}</li>
               <li className="flex items-start gap-1.5"><span className="text-blue-500">•</span> {t('tfr.lppPoint2')}</li>
               <li className="flex items-start gap-1.5"><span className="text-blue-500">•</span> {t('tfr.lppPoint3')}</li>
@@ -300,7 +300,7 @@ const TfrCalculator: React.FC = () => {
       </div>
 
       {/* ── Simulator inputs ── */}
-      <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-5 space-y-5">
+      <div className="bg-surface border border-edge rounded-2xl p-5 space-y-5">
         <h2 className="font-bold text-slate-900 dark:text-white text-lg flex items-center gap-2">
           <Calculator className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
           {t('tfr.simulatorTitle')}
@@ -309,12 +309,12 @@ const TfrCalculator: React.FC = () => {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {/* Gross salary CHF */}
           <div>
-            <label htmlFor="tfr-salary-chf" className="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1">
+            <label htmlFor="tfr-salary-chf" className="block text-xs font-medium text-body mb-1">
               {t('tfr.salaryChf')}
               <InfoTooltip text={t('tfr.salaryChfInfo')} />
             </label>
             <div className="relative">
-              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-xs text-slate-500 dark:text-slate-400">CHF</span>
+              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-xs text-muted">CHF</span>
               <input
                 id="tfr-salary-chf"
                 type="number"
@@ -331,12 +331,12 @@ const TfrCalculator: React.FC = () => {
 
           {/* Gross salary EUR (synced) */}
           <div>
-            <label htmlFor="tfr-salary-eur" className="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1">
+            <label htmlFor="tfr-salary-eur" className="block text-xs font-medium text-body mb-1">
               {t('tfr.salaryEur')}
               <InfoTooltip text={t('tfr.salaryEurInfo')} />
             </label>
             <div className="relative">
-              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-xs text-slate-500 dark:text-slate-400">€</span>
+              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-xs text-muted">€</span>
               <input
                 id="tfr-salary-eur"
                 type="number"
@@ -353,7 +353,7 @@ const TfrCalculator: React.FC = () => {
 
           {/* Current age */}
           <div>
-            <label htmlFor="tfr-age" className="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1">
+            <label htmlFor="tfr-age" className="block text-xs font-medium text-body mb-1">
               {t('tfr.currentAge')}
             </label>
             <input
@@ -370,7 +370,7 @@ const TfrCalculator: React.FC = () => {
 
           {/* Years to simulate */}
           <div>
-            <label htmlFor="tfr-years" className="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1">
+            <label htmlFor="tfr-years" className="block text-xs font-medium text-body mb-1">
               {t('tfr.yearsToSimulate')}
               <InfoTooltip text={t('tfr.yearsToSimulateInfo')} />
             </label>
@@ -388,7 +388,7 @@ const TfrCalculator: React.FC = () => {
 
           {/* Inflation rate */}
           <div>
-            <label htmlFor="tfr-inflation" className="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1">
+            <label htmlFor="tfr-inflation" className="block text-xs font-medium text-body mb-1">
               {t('tfr.inflationRate')}
               <InfoTooltip text={t('tfr.inflationRateInfo')} />
             </label>
@@ -404,13 +404,13 @@ const TfrCalculator: React.FC = () => {
                 max={10}
                 step={0.1}
               />
-              <span className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-slate-500 dark:text-slate-400">%</span>
+              <span className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-muted">%</span>
             </div>
           </div>
 
           {/* LPP interest rate */}
           <div>
-            <label htmlFor="tfr-lpp-rate" className="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1">
+            <label htmlFor="tfr-lpp-rate" className="block text-xs font-medium text-body mb-1">
               {t('tfr.lppInterestRate')}
               <InfoTooltip text={t('tfr.lppInterestRateInfo')} />
             </label>
@@ -426,18 +426,18 @@ const TfrCalculator: React.FC = () => {
                 max={5}
                 step={0.25}
               />
-              <span className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-slate-500 dark:text-slate-400">%</span>
+              <span className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-muted">%</span>
             </div>
           </div>
         </div>
       </div>
 
       {/* ── Results ── */}
-      <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-5 space-y-5">
+      <div className="bg-surface border border-edge rounded-2xl p-5 space-y-5">
         <h2 className="font-bold text-slate-900 dark:text-white text-lg flex items-center gap-2">
           <Scale className="w-5 h-5 text-violet-600 dark:text-violet-400" />
           {t('tfr.resultsTitle')}
-          <span className="text-xs font-normal text-slate-500 dark:text-slate-400">
+          <span className="text-xs font-normal text-muted">
             ({inputs.yearsToSimulate} {t('tfr.years')})
           </span>
         </h2>
@@ -447,27 +447,27 @@ const TfrCalculator: React.FC = () => {
           <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl p-4 text-center space-y-1">
             <p className="text-xs font-medium text-red-600 dark:text-red-400">🇮🇹 {t('tfr.tfrAccumulated')}</p>
             <p className="text-xl font-bold text-red-700 dark:text-red-300">{fmtEur(result.tfrTotal)}</p>
-            <p className="text-xs text-slate-500 dark:text-slate-400">
+            <p className="text-xs text-muted">
               {t('tfr.monthlyEquivalent')}: {fmtEur(result.tfrMonthlyEquivalent)}/mese
             </p>
           </div>
 
           {/* LPP Total (in EUR) */}
           <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-4 text-center space-y-1">
-            <p className="text-xs font-medium text-blue-600 dark:text-blue-400">🇨🇭 {t('tfr.lppAccumulated')}</p>
+            <p className="text-xs font-medium text-link">🇨🇭 {t('tfr.lppAccumulated')}</p>
             <p className="text-xl font-bold text-blue-700 dark:text-blue-300">{fmtEur(result.lppTotal)}</p>
-            <p className="text-xs text-slate-500 dark:text-slate-400">
+            <p className="text-xs text-muted">
               {t('tfr.lppPension')}: {fmtChf(result.lppMonthlyPension)}/mese
             </p>
           </div>
 
           {/* Difference */}
           <div className={`${result.difference >= 0 ? 'bg-emerald-50 dark:bg-emerald-900/20 border-emerald-200 dark:border-emerald-800' : 'bg-amber-50 dark:bg-amber-900/20 border-amber-200 dark:border-amber-800'} border rounded-xl p-4 text-center space-y-1`}>
-            <p className="text-xs font-medium text-slate-600 dark:text-slate-400">{t('tfr.difference')}</p>
+            <p className="text-xs font-medium text-subtle">{t('tfr.difference')}</p>
             <p className={`text-xl font-bold ${result.difference >= 0 ? 'text-emerald-700 dark:text-emerald-300' : 'text-amber-700 dark:text-amber-300'}`}>
               {result.difference >= 0 ? '+' : ''}{fmtEur(result.difference)}
             </p>
-            <p className="text-xs text-slate-500 dark:text-slate-400">
+            <p className="text-xs text-muted">
               ({result.differencePercent >= 0 ? '+' : ''}{result.differencePercent}% {t('tfr.vsItalianTfr')})
             </p>
           </div>
@@ -477,7 +477,7 @@ const TfrCalculator: React.FC = () => {
         <div className="flex justify-end">
           <button
             onClick={handleShare}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 rounded-lg transition-colors"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-subtle bg-surface-raised hover:bg-slate-200 dark:hover:bg-slate-600 rounded-lg transition-colors"
             aria-label={t('tfr.shareResult')}
           >
             {copied ? <Check size={14} className="text-emerald-500" /> : <Share2 size={14} />}
@@ -487,17 +487,17 @@ const TfrCalculator: React.FC = () => {
       </div>
 
       {/* ── Yearly breakdown table ── */}
-      <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-5 space-y-4">
+      <div className="bg-surface border border-edge rounded-2xl p-5 space-y-4">
         <button
           onClick={() => setShowTable(!showTable)}
           className="w-full flex items-center justify-between text-left"
           aria-expanded={showTable}
         >
           <h2 className="font-bold text-slate-900 dark:text-white text-sm flex items-center gap-2">
-            <Clock className="w-4 h-4 text-slate-600 dark:text-slate-400" />
+            <Clock className="w-4 h-4 text-subtle" />
             {t('tfr.yearlyBreakdown')}
           </h2>
-          {showTable ? <ChevronUp size={16} className="text-slate-500 dark:text-slate-400" /> : <ChevronDown size={16} className="text-slate-500 dark:text-slate-400" />}
+          {showTable ? <ChevronUp size={16} className="text-muted" /> : <ChevronDown size={16} className="text-muted" />}
         </button>
 
         {showTable && (
@@ -505,26 +505,26 @@ const TfrCalculator: React.FC = () => {
             <table className="w-full text-xs">
               <thead>
                 <tr className="bg-slate-50 dark:bg-slate-700/50">
-                  <th className="px-2 py-2 text-left font-semibold text-slate-700 dark:text-slate-300">{t('tfr.tableYear')}</th>
-                  <th className="px-2 py-2 text-left font-semibold text-slate-700 dark:text-slate-300">{t('tfr.tableAge')}</th>
+                  <th className="px-2 py-2 text-left font-semibold text-body">{t('tfr.tableYear')}</th>
+                  <th className="px-2 py-2 text-left font-semibold text-body">{t('tfr.tableAge')}</th>
                   <th className="px-2 py-2 text-right font-semibold text-red-600 dark:text-red-400">{t('tfr.tableTfrAccrual')}</th>
                   <th className="px-2 py-2 text-right font-semibold text-red-600 dark:text-red-400">{t('tfr.tableTfrReval')}</th>
                   <th className="px-2 py-2 text-right font-semibold text-red-700 dark:text-red-300">{t('tfr.tableTfrTotal')}</th>
-                  <th className="px-2 py-2 text-right font-semibold text-blue-600 dark:text-blue-400">{t('tfr.tableLppContrib')}</th>
-                  <th className="px-2 py-2 text-right font-semibold text-blue-600 dark:text-blue-400">{t('tfr.tableLppInterest')}</th>
+                  <th className="px-2 py-2 text-right font-semibold text-link">{t('tfr.tableLppContrib')}</th>
+                  <th className="px-2 py-2 text-right font-semibold text-link">{t('tfr.tableLppInterest')}</th>
                   <th className="px-2 py-2 text-right font-semibold text-blue-700 dark:text-blue-300">{t('tfr.tableLppTotal')}</th>
                 </tr>
               </thead>
               <tbody>
                 {result.rows.map((row) => (
                   <tr key={row.year} className="border-t border-slate-100 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700/30">
-                    <td className="px-2 py-1.5 text-slate-700 dark:text-slate-300">{row.year}</td>
-                    <td className="px-2 py-1.5 text-slate-700 dark:text-slate-300">{row.age}</td>
+                    <td className="px-2 py-1.5 text-body">{row.year}</td>
+                    <td className="px-2 py-1.5 text-body">{row.age}</td>
                     <td className="px-2 py-1.5 text-right text-red-600 dark:text-red-400">{fmtEur(row.tfrAccrual)}</td>
                     <td className="px-2 py-1.5 text-right text-red-600 dark:text-red-400">{fmtEur(row.tfrRevaluation)}</td>
                     <td className="px-2 py-1.5 text-right font-semibold text-red-700 dark:text-red-300">{fmtEur(row.tfrCumulative)}</td>
-                    <td className="px-2 py-1.5 text-right text-blue-600 dark:text-blue-400">{fmtChf(row.lppContribution)}</td>
-                    <td className="px-2 py-1.5 text-right text-blue-600 dark:text-blue-400">{fmtChf(row.lppInterest)}</td>
+                    <td className="px-2 py-1.5 text-right text-link">{fmtChf(row.lppContribution)}</td>
+                    <td className="px-2 py-1.5 text-right text-link">{fmtChf(row.lppInterest)}</td>
                     <td className="px-2 py-1.5 text-right font-semibold text-blue-700 dark:text-blue-300">{fmtChf(row.lppCumulative)}</td>
                   </tr>
                 ))}
@@ -535,7 +535,7 @@ const TfrCalculator: React.FC = () => {
       </div>
 
       {/* ── Key differences explained ── */}
-      <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-5 space-y-4">
+      <div className="bg-surface border border-edge rounded-2xl p-5 space-y-4">
         <h2 className="font-bold text-slate-900 dark:text-white text-lg flex items-center gap-2">
           <HelpCircle className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
           {t('tfr.keyDifferencesTitle')}
@@ -548,8 +548,8 @@ const TfrCalculator: React.FC = () => {
               <Banknote size={16} className="text-emerald-600" /> {t('tfr.diffAccessTitle')}
             </h3>
             <div className="space-y-1">
-              <p className="text-xs text-slate-700 dark:text-slate-300"><span className="font-medium text-red-600 dark:text-red-400">🇮🇹 TFR:</span> {t('tfr.diffAccessTfr')}</p>
-              <p className="text-xs text-slate-700 dark:text-slate-300"><span className="font-medium text-blue-600 dark:text-blue-400">🇨🇭 LPP:</span> {t('tfr.diffAccessLpp')}</p>
+              <p className="text-xs text-body"><span className="font-medium text-red-600 dark:text-red-400">🇮🇹 TFR:</span> {t('tfr.diffAccessTfr')}</p>
+              <p className="text-xs text-body"><span className="font-medium text-link">🇨🇭 LPP:</span> {t('tfr.diffAccessLpp')}</p>
             </div>
           </div>
 
@@ -559,8 +559,8 @@ const TfrCalculator: React.FC = () => {
               <Euro size={16} className="text-amber-600" /> {t('tfr.diffTaxTitle')}
             </h3>
             <div className="space-y-1">
-              <p className="text-xs text-slate-700 dark:text-slate-300"><span className="font-medium text-red-600 dark:text-red-400">🇮🇹 TFR:</span> {t('tfr.diffTaxTfr')}</p>
-              <p className="text-xs text-slate-700 dark:text-slate-300"><span className="font-medium text-blue-600 dark:text-blue-400">🇨🇭 LPP:</span> {t('tfr.diffTaxLpp')}</p>
+              <p className="text-xs text-body"><span className="font-medium text-red-600 dark:text-red-400">🇮🇹 TFR:</span> {t('tfr.diffTaxTfr')}</p>
+              <p className="text-xs text-body"><span className="font-medium text-link">🇨🇭 LPP:</span> {t('tfr.diffTaxLpp')}</p>
             </div>
           </div>
 
@@ -570,8 +570,8 @@ const TfrCalculator: React.FC = () => {
               <TrendingUp size={16} className="text-violet-600" /> {t('tfr.diffReturnTitle')}
             </h3>
             <div className="space-y-1">
-              <p className="text-xs text-slate-700 dark:text-slate-300"><span className="font-medium text-red-600 dark:text-red-400">🇮🇹 TFR:</span> {t('tfr.diffReturnTfr')}</p>
-              <p className="text-xs text-slate-700 dark:text-slate-300"><span className="font-medium text-blue-600 dark:text-blue-400">🇨🇭 LPP:</span> {t('tfr.diffReturnLpp')}</p>
+              <p className="text-xs text-body"><span className="font-medium text-red-600 dark:text-red-400">🇮🇹 TFR:</span> {t('tfr.diffReturnTfr')}</p>
+              <p className="text-xs text-body"><span className="font-medium text-link">🇨🇭 LPP:</span> {t('tfr.diffReturnLpp')}</p>
             </div>
           </div>
 
@@ -581,15 +581,15 @@ const TfrCalculator: React.FC = () => {
               <ArrowRight size={16} className="text-blue-600" /> {t('tfr.diffFrontaliereTitle')}
             </h3>
             <div className="space-y-1.5">
-              <p className="text-xs text-slate-700 dark:text-slate-300">{t('tfr.diffFrontaliereText1')}</p>
-              <p className="text-xs text-slate-700 dark:text-slate-300">{t('tfr.diffFrontaliereText2')}</p>
+              <p className="text-xs text-body">{t('tfr.diffFrontaliereText1')}</p>
+              <p className="text-xs text-body">{t('tfr.diffFrontaliereText2')}</p>
             </div>
           </div>
         </div>
       </div>
 
       {/* ── FAQ section ── */}
-      <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-5 space-y-4">
+      <div className="bg-surface border border-edge rounded-2xl p-5 space-y-4">
         <h2 className="font-bold text-slate-900 dark:text-white text-lg flex items-center gap-2">
           <HelpCircle className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
           {t('tfr.faqTitle')}
@@ -600,9 +600,9 @@ const TfrCalculator: React.FC = () => {
             <details key={i} className="group bg-slate-50 dark:bg-slate-700/30 rounded-xl overflow-hidden">
               <summary className="px-4 py-3 cursor-pointer text-sm font-medium text-slate-900 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-colors list-none flex items-center justify-between">
                 {t(`tfr.faq${i}Q`)}
-                <ChevronDown size={14} className="text-slate-500 dark:text-slate-400 group-open:rotate-180 transition-transform" />
+                <ChevronDown size={14} className="text-muted group-open:rotate-180 transition-transform" />
               </summary>
-              <div className="px-4 pb-3 text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
+              <div className="px-4 pb-3 text-xs text-body leading-relaxed">
                 {t(`tfr.faq${i}A`)}
               </div>
             </details>
@@ -636,8 +636,8 @@ const TfrCalculator: React.FC = () => {
       </div>
 
       {/* ── Disclaimer ── */}
-      <div className="bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-xl p-4">
-        <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+      <div className="bg-surface-alt/50 border border-edge rounded-xl p-4">
+        <p className="text-xs text-muted leading-relaxed">
           <AlertTriangle size={10} className="inline mr-1 -mt-0.5" />
           {t('tfr.disclaimer')}
         </p>

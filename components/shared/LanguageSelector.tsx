@@ -42,7 +42,7 @@ const LanguageSelector: React.FC = () => {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-1 px-2 py-1.5 rounded-xl text-sm text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+        className="flex items-center gap-1 px-2 py-1.5 rounded-xl text-sm text-muted hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
         title="Lingua / Language" aria-expanded={isOpen}
       >
         <span className="hidden sm:inline text-xs font-bold uppercase">{current.toUpperCase()}</span>
@@ -50,7 +50,7 @@ const LanguageSelector: React.FC = () => {
       </button>
 
       {isOpen && (
-        <div className="absolute right-0 top-full mt-1 w-44 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl shadow-xl z-50 overflow-hidden animate-fade-in">
+        <div className="absolute right-0 top-full mt-1 w-44 bg-surface border border-edge rounded-xl shadow-xl z-50 overflow-hidden animate-fade-in">
           {(Object.entries(LOCALE_LABELS) as [Locale, typeof LOCALE_LABELS[Locale]][]).map(([locale, label]) => (
             <button
               key={locale}
@@ -58,7 +58,7 @@ const LanguageSelector: React.FC = () => {
               className={`w-full flex items-center gap-3 px-4 py-2.5 text-sm transition-colors ${
                 current === locale
                   ? 'bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 font-bold'
-                  : 'text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700'
+                  : 'text-body hover:bg-slate-50 dark:hover:bg-slate-700'
               }`}
             >
               <span className="text-lg">{label.flag}</span>

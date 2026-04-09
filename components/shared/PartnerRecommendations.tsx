@@ -51,12 +51,12 @@ const PartnerCard: React.FC<{ partner: AffiliatePartner; context: string }> = ({
             </span>
           )}
         </div>
-        <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+        <p className="text-sm text-subtle leading-relaxed">
           {t(partner.descriptionKey)}
         </p>
       </div>
 
-      <ExternalLink className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400 group-hover:text-slate-600 dark:group-hover:text-slate-300 flex-shrink-0 mt-1 opacity-0 group-hover:opacity-100 transition-opacity" />
+      <ExternalLink className="w-3.5 h-3.5 text-muted group-hover:text-slate-600 dark:group-hover:text-slate-300 flex-shrink-0 mt-1 opacity-0 group-hover:opacity-100 transition-opacity" />
     </a>
   );
 };
@@ -69,7 +69,7 @@ const PartnerRecommendations: React.FC<PartnerRecommendationsProps> = ({ context
 
   return (
     <div className="mt-4">
-      <p className="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+      <p className="text-xs font-medium text-muted uppercase tracking-wider mb-2 flex items-center gap-1.5">
         {t('affiliate.sectionTitle')}
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">

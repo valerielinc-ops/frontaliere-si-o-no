@@ -122,7 +122,7 @@ const InfoTooltip = ({ text }: { text: string }) => {
   }, [open]);
   return (
     <button ref={ref} type="button" onClick={() => setOpen(v => !v)} aria-label="Info" className="group relative inline-flex items-center ml-1.5 cursor-help z-50">
-      <Info size={12} className="text-slate-500 dark:text-slate-400 hover:text-teal-600 transition-colors" />
+      <Info size={12} className="text-muted hover:text-teal-600 transition-colors" />
       <div className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 p-2.5 bg-slate-800 dark:bg-slate-700 text-white text-xs font-medium leading-relaxed rounded-xl shadow-xl border border-slate-600 text-center ${open ? 'block' : 'hidden group-hover:block'}`}>
         {text}
         <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-800 dark:border-t-slate-700"></div>
@@ -131,13 +131,13 @@ const InfoTooltip = ({ text }: { text: string }) => {
   );
 };
 
-const StepperInput = ({ value, onChange, min = 0, max, label, icon: Icon, iconColor = "text-slate-500 dark:text-slate-400", tooltip, inputId, ariaLabel }: any) => (
+const StepperInput = ({ value, onChange, min = 0, max, label, icon: Icon, iconColor = "text-muted", tooltip, inputId, ariaLabel }: any) => (
   <div className="space-y-2">
-    {label && <label htmlFor={inputId} className="text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wide flex items-center gap-1.5 h-4">{Icon && <Icon size={12} className={iconColor}/>} {label} {tooltip && <InfoTooltip text={tooltip} />}</label>}
-    <div className="flex items-center bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden h-12 shadow-sm focus-within:ring-2 focus-within:ring-indigo-500/20 focus-within:border-indigo-500 transition-[color,background-color,border-color,box-shadow,transform]">
+    {label && <label htmlFor={inputId} className="text-xs font-bold text-subtle uppercase tracking-wide flex items-center gap-1.5 h-4">{Icon && <Icon size={12} className={iconColor}/>} {label} {tooltip && <InfoTooltip text={tooltip} />}</label>}
+    <div className="flex items-center bg-surface-alt border border-edge rounded-xl overflow-hidden h-12 shadow-sm focus-within:ring-2 focus-within:ring-indigo-500/20 focus-within:border-indigo-500 transition-[color,background-color,border-color,box-shadow,transform]">
       <button
         onClick={() => onChange(Math.max(min, value - 1))}
-        className="min-w-[48px] w-12 h-full flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-indigo-600 hover:bg-slate-100 dark:hover:bg-slate-800 active:scale-90 transition-[color,background-color,border-color,box-shadow,transform] border-r border-slate-100 dark:border-slate-800"
+        className="min-w-[48px] w-12 h-full flex items-center justify-center text-muted hover:text-indigo-600 hover:bg-slate-100 dark:hover:bg-slate-800 active:scale-90 transition-[color,background-color,border-color,box-shadow,transform] border-r border-slate-100 dark:border-slate-800"
         aria-label={`${ariaLabel || label || 'Valore'}: diminuisci`}
         type="button"
       >
@@ -164,7 +164,7 @@ const StepperInput = ({ value, onChange, min = 0, max, label, icon: Icon, iconCo
       </div>
       <button
         onClick={() => onChange(max ? Math.min(max, value + 1) : value + 1)}
-        className="min-w-[48px] w-12 h-full flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-indigo-600 hover:bg-slate-100 dark:hover:bg-slate-800 active:scale-90 transition-[color,background-color,border-color,transform] border-l border-slate-100 dark:border-slate-800"
+        className="min-w-[48px] w-12 h-full flex items-center justify-center text-muted hover:text-indigo-600 hover:bg-slate-100 dark:hover:bg-slate-800 active:scale-90 transition-[color,background-color,border-color,transform] border-l border-slate-100 dark:border-slate-800"
         aria-label={`${ariaLabel || label || 'Valore'}: aumenta`}
         type="button"
       >
@@ -238,33 +238,33 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
   const pct = (n: number) => (n * 100).toFixed(1) + '%';
 
   const renderAliquoteCard = (extraClassName = '') => (
-    <div className={`bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm overflow-hidden ${extraClassName}`}>
+    <div className={`bg-surface rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm overflow-hidden ${extraClassName}`}>
       <button
         onClick={() => setShowInfo(!showInfo)}
         className="w-full flex items-center justify-between p-4 rounded-xl transition-colors duration-300 group cursor-pointer hover:bg-white/50 dark:hover:bg-slate-800/50"
         aria-label={t('payslip.lppAgeRates')}
       >
         <div className="flex items-center gap-3">
-          <div className={`p-2 rounded-lg transition-colors ${showInfo ? 'bg-amber-100 text-amber-600' : 'bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400'}`}>
+          <div className={`p-2 rounded-lg transition-colors ${showInfo ? 'bg-amber-100 text-amber-600' : 'bg-surface-raised text-muted'}`}>
             <Info size={18} />
           </div>
-          <span className={`text-sm font-bold transition-colors ${showInfo ? 'text-slate-800 dark:text-slate-100' : 'text-slate-600 dark:text-slate-400'}`}>
+          <span className={`text-sm font-bold transition-colors ${showInfo ? 'text-slate-800 dark:text-slate-100' : 'text-subtle'}`}>
             {t('payslip.lppAgeRates')}
           </span>
         </div>
-        <div className={`transition-transform duration-300 ${showInfo ? 'rotate-180 text-indigo-500' : 'text-slate-500 dark:text-slate-400'}`}>
+        <div className={`transition-transform duration-300 ${showInfo ? 'rotate-180 text-indigo-500' : 'text-muted'}`}>
           <ChevronDown size={18} />
         </div>
       </button>
       {showInfo && (
-        <div className="px-5 pb-4 text-xs text-slate-600 dark:text-slate-400 bg-amber-50/50 dark:bg-amber-900/10 border-t border-slate-50 dark:border-slate-800/50 space-y-1 pt-3">
+        <div className="px-5 pb-4 text-xs text-subtle bg-amber-50/50 dark:bg-amber-900/10 border-t border-slate-50 dark:border-slate-800/50 space-y-1 pt-3">
           {LPP_RATES.map(r => (
             <div key={r.minAge} className={`flex items-center justify-between py-1 px-2 rounded-lg ${age >= r.minAge && age <= r.maxAge ? 'font-bold text-amber-700 dark:text-amber-300 bg-amber-100/50 dark:bg-amber-900/30' : ''}`}>
               <span>{r.minAge}-{r.maxAge} {t('payslip.age').toLowerCase()}</span>
               <span>{(r.rate * 100).toFixed(1)}%</span>
             </div>
           ))}
-          <p className="mt-2 text-xs text-slate-500 dark:text-slate-400">{t('payslip.anniFiglio')}</p>
+          <p className="mt-2 text-xs text-muted">{t('payslip.anniFiglio')}</p>
         </div>
       )}
     </div>
@@ -305,23 +305,23 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
           {t('strumenti.payslip')}
         </div>
         <h2 className="text-2xl sm:text-3xl font-bold text-slate-800 dark:text-slate-100">{t('payslip.title')}</h2>
-        <p className="text-slate-600 dark:text-slate-400 mt-2 max-w-2xl mx-auto">{t('payslip.subtitle')}</p>
+        <p className="text-subtle mt-2 max-w-2xl mx-auto">{t('payslip.subtitle')}</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
         {/* Input Panel — styled like InputCard */}
         <div className="lg:col-span-2 space-y-3">
           {/* Section 1: Income & Demographics */}
-          <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm p-5 space-y-6">
+          <div className="bg-surface rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm p-5 space-y-6">
             {/* Income Input — Prominent (matching InputCard) */}
             <div className="space-y-2">
-              <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide flex items-center gap-1.5">
+              <label className="text-xs font-bold text-muted uppercase tracking-wide flex items-center gap-1.5">
                 <Coins size={14} className="text-amber-500"/> {t('payslip.grossSalary')}
                 <InfoTooltip text={t('payslip.grossMonthly') + ': CHF ' + fmt(grossAnnual / 12)} />
               </label>
               <div className="relative group transition-transform duration-200 focus-within:scale-[1.01]">
                 <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                  <span className="text-slate-500 dark:text-slate-400 font-bold text-lg">CHF</span>
+                  <span className="text-muted font-bold text-lg">CHF</span>
                 </div>
                 <input
                   type="text"
@@ -331,7 +331,7 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
                     const val = parseNumber(e.target.value);
                     handleSalaryChange(Math.max(SALARY_MIN, Math.min(SALARY_MAX, val)));
                   }}
-                  className={`w-full pl-14 pr-4 py-4 bg-slate-50 dark:bg-slate-900 border-2 rounded-2xl focus-visible:ring-4 outline-none transition-[color,background-color,border-color,box-shadow] font-bold text-slate-800 dark:text-slate-100 text-2xl tracking-tight ${salaryError ? 'border-red-400 focus-visible:border-red-500 focus-visible:ring-red-500/10' : 'border-slate-100 dark:border-slate-700 focus-visible:border-indigo-500 focus-visible:ring-indigo-500/10'}`}
+                  className={`w-full pl-14 pr-4 py-4 bg-surface-alt border-2 rounded-2xl focus-visible:ring-4 outline-none transition-[color,background-color,border-color,box-shadow] font-bold text-slate-800 dark:text-slate-100 text-2xl tracking-tight ${salaryError ? 'border-red-400 focus-visible:border-red-500 focus-visible:ring-red-500/10' : 'border-slate-100 dark:border-slate-700 focus-visible:border-indigo-500 focus-visible:ring-indigo-500/10'}`}
                   placeholder="0"
                   aria-label="Stipendio lordo annuale in CHF"
                 />
@@ -348,7 +348,7 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
               <StepperInput inputId="payslip-age" label={t('payslip.age')} value={age} onChange={setAge} min={18} max={65} icon={User} iconColor="text-blue-500" tooltip={t('payslip.lppAgeRates')} />
               {/* Marital Status */}
               <div className="space-y-1.5">
-                <label htmlFor="payslip-status" className="text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wide flex items-center gap-1.5 h-4">
+                <label htmlFor="payslip-status" className="text-xs font-bold text-subtle uppercase tracking-wide flex items-center gap-1.5 h-4">
                   <Heart size={12} className="text-rose-500"/> {t('payslip.maritalStatus')}
                 </label>
                 <div className="relative">
@@ -356,20 +356,20 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
                     id="payslip-status"
                     value={maritalStatus}
                     onChange={e => setMaritalStatus(e.target.value as 'single' | 'married')}
-                    className="w-full h-11 pl-2.5 sm:pl-3 pr-8 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-semibold sm:font-bold appearance-none outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-indigo-500/10 transition-[color,background-color,border-color,box-shadow] cursor-pointer text-slate-700 dark:text-slate-200"
+                    className="w-full h-11 pl-2.5 sm:pl-3 pr-8 bg-surface-alt border border-edge rounded-xl text-xs font-semibold sm:font-bold appearance-none outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-indigo-500/10 transition-[color,background-color,border-color,box-shadow] cursor-pointer text-slate-700 dark:text-slate-200"
                   >
                     <option value="single">{t('payslip.single')}</option>
                     <option value="married">{t('payslip.married')}</option>
                   </select>
-                  <ChevronDown size={14} className="absolute right-3 top-3.5 text-slate-500 dark:text-slate-400 pointer-events-none"/>
+                  <ChevronDown size={14} className="absolute right-3 top-3.5 text-muted pointer-events-none"/>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Section 2: Family */}
-          <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm p-5 space-y-5">
-            <h3 className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest flex items-center gap-2">
+          <div className="bg-surface rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm p-5 space-y-5">
+            <h3 className="text-xs font-bold text-muted uppercase tracking-widest flex items-center gap-2">
               <Baby size={14} className="text-pink-500"/> {t('payslip.children')}
             </h3>
             <StepperInput
@@ -390,7 +390,7 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
         </div>
 
         {/* Results Panel */}
-        <div className="lg:col-span-3 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6">
+        <div className="lg:col-span-3 bg-surface rounded-2xl border border-edge p-6">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100">{t('payslip.resultTitle')}</h3>
             <button
@@ -417,10 +417,10 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
               <div key={d.key} className="flex items-center justify-between py-2.5 px-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700/30 transition-colors group">
                 <div className="flex-1">
                   <div className="text-sm font-semibold text-slate-700 dark:text-slate-200">{d.label}</div>
-                  <div className="text-xs text-slate-500 dark:text-slate-400">{d.desc}</div>
+                  <div className="text-xs text-muted">{d.desc}</div>
                 </div>
                 <div className="text-right tabular-nums">
-                  <div className="text-xs text-slate-500 dark:text-slate-400">{pct(d.rate)}</div>
+                  <div className="text-xs text-muted">{pct(d.rate)}</div>
                   <div className="text-sm font-semibold text-red-600 dark:text-red-400">-{fmt(d.amount)}</div>
                 </div>
               </div>
@@ -428,7 +428,7 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
           </div>
 
           {/* Separator */}
-          <div className="border-t border-slate-200 dark:border-slate-700 my-4" />
+          <div className="border-t border-edge my-4" />
 
           {/* Total deductions */}
           <div className="flex items-center justify-between py-2 px-3">
@@ -453,20 +453,20 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
               const widthPct = (d.amount / result.grossMonthly) * 100;
               return (
                 <div key={d.key + '-bar'} className="flex items-center gap-2">
-                  <span className="text-sm text-slate-600 dark:text-slate-400 w-32 sm:w-36 leading-tight">{d.label}</span>
-                  <div className="flex-1 bg-slate-100 dark:bg-slate-700 rounded-full h-3 overflow-hidden">
+                  <span className="text-sm text-subtle w-32 sm:w-36 leading-tight">{d.label}</span>
+                  <div className="flex-1 bg-surface-raised rounded-full h-3 overflow-hidden">
                     <div
                       className="h-full bg-red-400 dark:bg-red-500 rounded-full transition-transform duration-500 origin-left"
                       style={{ transform: `scaleX(${Math.max(widthPct, 1) / 100})` }}
                     />
                   </div>
-                  <span className="text-sm text-slate-500 dark:text-slate-400 w-12 text-right">{pct(d.rate)}</span>
+                  <span className="text-sm text-muted w-12 text-right">{pct(d.rate)}</span>
                 </div>
               );
             })}
             <div className="flex items-center gap-2">
               <span className="text-xs font-bold text-emerald-700 dark:text-emerald-400 w-32 sm:w-36 leading-tight">{t('payslip.netSalary')}</span>
-              <div className="flex-1 bg-slate-100 dark:bg-slate-700 rounded-full h-3 overflow-hidden">
+              <div className="flex-1 bg-surface-raised rounded-full h-3 overflow-hidden">
                 <div
                   className="h-full bg-emerald-500 dark:bg-emerald-400 rounded-full transition-transform duration-500 origin-left"
                   style={{ transform: `scaleX(${result.netMonthly / result.grossMonthly})` }}
@@ -480,7 +480,7 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
           {renderAliquoteCard('lg:hidden mt-6')}
 
           {/* Disclaimer */}
-          <p className="text-xs text-slate-500 dark:text-slate-400 mt-4 leading-relaxed">
+          <p className="text-xs text-muted mt-4 leading-relaxed">
             ⚠️ {t('payslip.disclaimer')}
           </p>
           <div className="flex items-center gap-1.5 mt-2 text-sm text-emerald-700 dark:text-emerald-400">

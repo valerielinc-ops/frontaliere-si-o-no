@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback, Suspense } from 'react';
 import { Coins, TrainFront, Check, ChevronUp, ArrowDown, Settings2, Home, Briefcase, TrendingUp, TrendingDown, Ruler, Mail, X, Loader2, CheckCircle2 } from 'lucide-react';
 import { SimulationInputs, SimulationResult } from '../../types';
-import { useTranslation } from '../../services/i18n';
+import { useTranslation, getCantonI18nParams } from '../../services/i18n';
 import { lazyRetry } from '@/services/lazyRetry';
 import { Analytics } from '@/services/analytics';
 import { upsertNewsletterSubscriber, requestConfirmationEmail, markNewsletterSubscribedLocally } from '@/services/newsletterSubscribers';
@@ -206,17 +206,17 @@ const MobileCalcLayout: React.FC<Props> = ({
   return (
     <div className="space-y-4 pb-3">
       {/* ─── SECTION 1: Compact Input ─── */}
-      <div className="bg-white dark:bg-slate-900 rounded-2xl shadow-lg border border-slate-200/80 dark:border-slate-800 overflow-hidden">
+      <div className="bg-surface rounded-2xl shadow-lg border border-slate-200/80 dark:border-slate-800 overflow-hidden">
         {/* Salary */}
         <div className="p-4 pb-3.5">
-          <label htmlFor="mc-salary" className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider flex items-center gap-1.5 mb-2">
+          <label htmlFor="mc-salary" className="text-xs font-bold text-muted uppercase tracking-wider flex items-center gap-1.5 mb-2">
             <Coins size={12} className="text-amber-500" />
             {t('mobileCalc.salary')}
           </label>
           <div className="flex items-stretch gap-2">
             <button
               onClick={() => handleChange('annualIncomeCHF', Math.max(SALARY_MIN, inputs.annualIncomeCHF - 5000))}
-              className="w-12 shrink-0 flex items-center justify-center rounded-xl bg-slate-100 dark:bg-slate-800 border-2 border-slate-100 dark:border-slate-700 text-slate-600 dark:text-slate-400 text-xl font-bold hover:bg-slate-200 dark:hover:bg-slate-700 active:scale-95 transition-[color,background-color,transform]"
+              className="w-12 shrink-0 flex items-center justify-center rounded-xl bg-surface-raised border-2 border-slate-100 dark:border-slate-700 text-subtle text-xl font-bold hover:bg-slate-200 dark:hover:bg-slate-700 active:scale-95 transition-[color,background-color,transform]"
               aria-label="Diminuisci stipendio di 5000"
               type="button"
             >−</button>
@@ -230,13 +230,13 @@ const MobileCalcLayout: React.FC<Props> = ({
                 inputMode="numeric"
                 value={formatNumber(inputs.annualIncomeCHF)}
                 onChange={(e) => handleChange('annualIncomeCHF', parseNumber(e.target.value))}
-                className="w-full pl-14 pr-3 py-3.5 bg-slate-50 dark:bg-slate-800 border-2 border-slate-100 dark:border-slate-700 rounded-xl focus-visible:ring-4 focus-visible:border-blue-500 focus-visible:ring-blue-500/10 outline-none transition-[color,border-color,box-shadow] font-bold text-slate-800 dark:text-slate-100 text-2xl tracking-tight text-center"
+                className="w-full pl-14 pr-3 py-3.5 bg-surface-alt border-2 border-slate-100 dark:border-slate-700 rounded-xl focus-visible:ring-4 focus-visible:border-blue-500 focus-visible:ring-blue-500/10 outline-none transition-[color,border-color,box-shadow] font-bold text-slate-800 dark:text-slate-100 text-2xl tracking-tight text-center"
                 placeholder="0"
               />
             </div>
             <button
               onClick={() => handleChange('annualIncomeCHF', Math.min(SALARY_MAX, inputs.annualIncomeCHF + 5000))}
-              className="w-12 shrink-0 flex items-center justify-center rounded-xl bg-slate-100 dark:bg-slate-800 border-2 border-slate-100 dark:border-slate-700 text-slate-600 dark:text-slate-400 text-xl font-bold hover:bg-slate-200 dark:hover:bg-slate-700 active:scale-95 transition-[color,background-color,transform]"
+              className="w-12 shrink-0 flex items-center justify-center rounded-xl bg-surface-raised border-2 border-slate-100 dark:border-slate-700 text-subtle text-xl font-bold hover:bg-slate-200 dark:hover:bg-slate-700 active:scale-95 transition-[color,background-color,transform]"
               aria-label="Aumenta stipendio di 5000"
               type="button"
             >+</button>
@@ -250,7 +250,7 @@ const MobileCalcLayout: React.FC<Props> = ({
                 className={`shrink-0 px-2.5 py-1 rounded-lg text-xs font-bold transition-colors ${
                   inputs.annualIncomeCHF === s
                     ? 'bg-blue-600 text-white shadow-sm'
-                    : 'bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 hover:bg-slate-200'
+                    : 'bg-surface-raised text-muted hover:bg-slate-200'
                 }`}
               >
                 {(s / 1000)}k
@@ -261,7 +261,7 @@ const MobileCalcLayout: React.FC<Props> = ({
 
         {/* Frontier type toggle */}
         <div className="px-4 pb-4">
-          <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider flex items-center gap-1.5 mb-2">
+          <label className="text-xs font-bold text-muted uppercase tracking-wider flex items-center gap-1.5 mb-2">
             <TrainFront size={12} className="text-emerald-600" />
             {t('input.frontierType')}
           </label>
@@ -271,37 +271,37 @@ const MobileCalcLayout: React.FC<Props> = ({
               className={`relative p-2.5 rounded-xl border-2 transition-[color,background-color,border-color] flex flex-col items-center gap-0.5 ${
                 inputs.frontierWorkerType === 'NEW'
                   ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/30'
-                  : 'border-slate-100 dark:border-slate-700 bg-slate-50 dark:bg-slate-800'
+                  : 'border-slate-100 dark:border-slate-700 bg-surface-alt'
               }`}
             >
               {inputs.frontierWorkerType === 'NEW' && (
                 <div className="absolute top-1.5 right-1.5 bg-blue-500 text-white rounded-full p-0.5"><Check size={8} strokeWidth={4} /></div>
               )}
-              <span className={`font-bold text-xs ${inputs.frontierWorkerType === 'NEW' ? 'text-blue-700 dark:text-blue-300' : 'text-slate-600 dark:text-slate-400'}`}>
+              <span className={`font-bold text-xs ${inputs.frontierWorkerType === 'NEW' ? 'text-blue-700 dark:text-blue-300' : 'text-subtle'}`}>
                 {t('input.newFrontier')}
               </span>
-              <span className="text-sm text-slate-500 dark:text-slate-400 font-medium">{t('input.postDate')}</span>
+              <span className="text-sm text-muted font-medium">{t('input.postDate')}</span>
             </button>
             <button
               onClick={() => handleChange('frontierWorkerType', 'OLD')}
               className={`relative p-2.5 rounded-xl border-2 transition-[color,background-color,border-color] flex flex-col items-center gap-0.5 ${
                 inputs.frontierWorkerType === 'OLD'
                   ? 'border-emerald-500 bg-emerald-50 dark:bg-emerald-900/30'
-                  : 'border-slate-100 dark:border-slate-700 bg-slate-50 dark:bg-slate-800'
+                  : 'border-slate-100 dark:border-slate-700 bg-surface-alt'
               }`}
             >
               {inputs.frontierWorkerType === 'OLD' && (
                 <div className="absolute top-1.5 right-1.5 bg-emerald-700 text-white rounded-full p-0.5"><Check size={8} strokeWidth={4} /></div>
               )}
-              <span className={`font-bold text-xs ${inputs.frontierWorkerType === 'OLD' ? 'text-emerald-700 dark:text-emerald-300' : 'text-slate-600 dark:text-slate-400'}`}>
+              <span className={`font-bold text-xs ${inputs.frontierWorkerType === 'OLD' ? 'text-emerald-700 dark:text-emerald-300' : 'text-subtle'}`}>
                 {t('input.oldFrontier')}
               </span>
-              <span className="text-sm text-slate-500 dark:text-slate-400 font-medium">{t('input.preDate')}</span>
+              <span className="text-sm text-muted font-medium">{t('input.preDate')}</span>
             </button>
           </div>
           {/* Distance zone for NEW */}
           {inputs.frontierWorkerType === 'NEW' && (
-            <div className="flex bg-slate-100 dark:bg-slate-800 p-1 rounded-xl mt-2.5">
+            <div className="flex bg-surface-raised p-1 rounded-xl mt-2.5">
               {[
                 { label: t('input.within20km'), value: 'WITHIN_20KM' },
                 { label: t('input.over20km'), value: 'OVER_20KM' },
@@ -312,7 +312,7 @@ const MobileCalcLayout: React.FC<Props> = ({
                   className={`flex-1 flex items-center justify-center gap-1 text-xs font-bold py-2 rounded-lg transition-[color,background-color,box-shadow] ${
                     inputs.distanceZone === opt.value
                       ? 'text-blue-700 dark:text-blue-300 bg-white dark:bg-slate-700 shadow-sm'
-                      : 'text-slate-600 dark:text-slate-400'
+                      : 'text-subtle'
                   }`}
                 >
                   <Ruler size={10} />
@@ -368,8 +368,8 @@ const MobileCalcLayout: React.FC<Props> = ({
                 aria-label={`${t('mobileCalc.viewFullAnalysis')} (${t('mobileCalc.liveInCH')})`}
               >
                 <div className="flex items-center gap-1.5 mb-1.5">
-                  <Home size={13} className="text-blue-600 dark:text-blue-400" />
-                  <span className="text-xs font-bold text-slate-600 dark:text-slate-400 uppercase">{t('mobileCalc.liveInCH')}</span>
+                  <Home size={13} className="text-link" />
+                  <span className="text-xs font-bold text-subtle uppercase">{t('mobileCalc.liveInCH')}</span>
                 </div>
                 <div className="flex flex-wrap items-center gap-1.5">
                   <div className="text-lg font-bold text-slate-800 dark:text-slate-100 tracking-tight">
@@ -379,7 +379,7 @@ const MobileCalcLayout: React.FC<Props> = ({
                     <InlineNetDeltaBadge key={`ch-${chDelta.key}`} delta={chDelta.delta} size="mobile" />
                   )}
                 </div>
-                <div className="text-xs text-slate-500 dark:text-slate-400 font-semibold">{t('mobileCalc.perMonth')}</div>
+                <div className="text-xs text-muted font-semibold">{t('mobileCalc.perMonth')}</div>
               </button>
 
               {/* IT Frontaliere */}
@@ -395,7 +395,7 @@ const MobileCalcLayout: React.FC<Props> = ({
               >
                 <div className="flex items-center gap-1.5 mb-1.5">
                   <Briefcase size={13} className="text-emerald-600 dark:text-emerald-400" />
-                  <span className="text-xs font-bold text-slate-600 dark:text-slate-400 uppercase">{t('mobileCalc.crossBorderIT')}</span>
+                  <span className="text-xs font-bold text-subtle uppercase">{t('mobileCalc.crossBorderIT')}</span>
                 </div>
                 <div className="flex flex-wrap items-center gap-1.5">
                   <div className="text-lg font-bold text-slate-800 dark:text-slate-100 tracking-tight">
@@ -405,7 +405,7 @@ const MobileCalcLayout: React.FC<Props> = ({
                     <InlineNetDeltaBadge key={`it-${itDelta.key}`} delta={itDelta.delta} size="mobile" />
                   )}
                 </div>
-                <div className="text-xs text-slate-500 dark:text-slate-400 font-semibold">{t('mobileCalc.perMonth')}</div>
+                <div className="text-xs text-muted font-semibold">{t('mobileCalc.perMonth')}</div>
               </button>
             </div>
 
@@ -424,7 +424,7 @@ const MobileCalcLayout: React.FC<Props> = ({
               </button>
               <button
                 onClick={openSheet}
-                className="px-4 py-2.5 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700 transition-[color,background-color,transform] active:scale-95"
+                className="px-4 py-2.5 rounded-xl text-xs font-bold bg-surface-raised text-subtle border border-edge hover:bg-slate-200 dark:hover:bg-slate-700 transition-[color,background-color,transform] active:scale-95"
                 aria-label={t('mobileCalc.customize')}
               >
                 <Settings2 size={16} />
@@ -438,7 +438,7 @@ const MobileCalcLayout: React.FC<Props> = ({
       {result && !showFullResults && !sheetOpen && (
         <button
           onClick={openSheet}
-          className="w-full flex items-center justify-center gap-2 py-2 text-xs font-semibold text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-400 transition-colors"
+          className="w-full flex items-center justify-center gap-2 py-2 text-xs font-semibold text-muted hover:text-slate-700 dark:hover:text-slate-400 transition-colors"
         >
           <Settings2 size={12} />
           {t('mobileCalc.adjustParams')}
@@ -479,21 +479,21 @@ const MobileCalcLayout: React.FC<Props> = ({
       {showNewsletterGate && (
         <>
           <div className="fixed inset-0 bg-black/50 z-[70] animate-fade-in" role="button" tabIndex={0} onClick={dismissGate} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); dismissGate(); } }} aria-label="Chiudi modale" />
-          <div role="dialog" aria-modal="true" aria-label={t('newsletterGate.title') || 'Iscriviti alla newsletter'} className="fixed inset-x-4 top-1/2 -translate-y-1/2 z-[71] bg-white dark:bg-slate-800 rounded-2xl shadow-2xl max-w-sm mx-auto overflow-hidden animate-fade-in">
+          <div role="dialog" aria-modal="true" aria-label={t('newsletterGate.title') || 'Iscriviti alla newsletter'} className="fixed inset-x-4 top-1/2 -translate-y-1/2 z-[71] bg-surface rounded-2xl shadow-2xl max-w-sm mx-auto overflow-hidden animate-fade-in">
             <div className="bg-gradient-to-r from-teal-600 to-emerald-600 px-5 py-4 text-center">
               <Mail size={28} className="text-white mx-auto mb-2" />
               <h3 className="text-white font-bold text-lg">{t('newsletterGate.title')}</h3>
               <p className="text-white/80 text-xs mt-1">{t('newsletterGate.subtitle')}</p>
             </div>
             <div className="p-5 space-y-3">
-              <div className="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+              <div className="space-y-2 text-sm text-subtle">
                 <div className="flex items-start gap-2">
                   <TrendingUp size={14} className="text-blue-600 mt-0.5 shrink-0" />
                   <span>{t('newsletterGate.benefit1')}</span>
                 </div>
                 <div className="flex items-start gap-2">
                   <Briefcase size={14} className="text-emerald-600 mt-0.5 shrink-0" />
-                  <span>{t('newsletterGate.benefit2')}</span>
+                  <span>{t('newsletterGate.benefit2', getCantonI18nParams())}</span>
                 </div>
                 <div className="flex items-start gap-2">
                   <Coins size={14} className="text-amber-600 mt-0.5 shrink-0" />
@@ -513,7 +513,7 @@ const MobileCalcLayout: React.FC<Props> = ({
                       value={gateEmail}
                       onChange={(e) => setGateEmail(e.target.value)}
                       placeholder={t('newsletter.emailPlaceholder')}
-                      className="flex-1 px-3 py-2.5 rounded-lg border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 text-sm text-slate-800 dark:text-slate-100 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:border-transparent outline-none"
+                      className="flex-1 px-3 py-2.5 rounded-lg border border-edge bg-slate-50 dark:bg-slate-700 text-sm text-slate-800 dark:text-slate-100 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:border-transparent outline-none"
                       aria-label={t('newsletter.emailPlaceholder')}
                       onKeyDown={(e) => e.key === 'Enter' && handleGateSubscribe()}
                     />
@@ -533,7 +533,7 @@ const MobileCalcLayout: React.FC<Props> = ({
               )}
               <button
                 onClick={dismissGate}
-                className="w-full text-center text-xs text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300 py-1"
+                className="w-full text-center text-xs text-muted hover:text-slate-700 dark:hover:text-slate-300 py-1"
               >
                 {t('newsletterGate.skip')}
               </button>
@@ -560,18 +560,18 @@ const MobileCalcLayout: React.FC<Props> = ({
         }`}
         style={{ maxHeight: '85vh' }}
       >
-        <div className="bg-white dark:bg-slate-900 rounded-t-3xl shadow-2xl border-t border-slate-200 dark:border-slate-700 flex flex-col" style={{ maxHeight: '85vh' }}>
+        <div className="bg-surface rounded-t-3xl shadow-2xl border-t border-edge flex flex-col" style={{ maxHeight: '85vh' }}>
           {/* Handle + header */}
           <div className="flex-shrink-0 pt-3 pb-2 px-4">
             <div className="w-10 h-1 bg-slate-300 dark:bg-slate-600 rounded-full mx-auto mb-3" />
             <div className="flex items-center justify-between">
               <h3 className="text-sm font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
-                <Settings2 size={16} className="text-blue-600 dark:text-blue-400" />
+                <Settings2 size={16} className="text-link" />
                 {t('mobileCalc.customize')}
               </h3>
               <button
                 onClick={() => setSheetOpen(false)}
-                className="px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+                className="px-3 py-1.5 rounded-lg text-xs font-bold bg-surface-raised text-subtle hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
               >
                 {t('mobileCalc.close')}
               </button>

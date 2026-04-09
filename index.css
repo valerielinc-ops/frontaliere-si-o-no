@@ -5,36 +5,49 @@
 /* Dark mode color-scheme — fixes native scrollbars, inputs, form controls */
 html.dark { color-scheme: dark; }
 
-/* ── Semantic Design Tokens ── */
+/* ── Semantic Design Tokens ──
+   Intermediate vars (--_*) hold mode-specific values.
+   @theme references them so Tailwind generates utilities:
+   bg-surface, text-muted, border-edge, etc.
+   Each utility auto-switches between light/dark — no dark: prefix needed. */
 :root {
-  --color-interactive: #4f46e5;
-  --color-interactive-hover: #4338ca;
-  --color-text-primary: #1e293b;
-  --color-text-secondary: #64748b;
-  --color-text-muted: #94a3b8;
-  --color-status-success: #059669;
-  --color-status-warning: #d97706;
-  --color-status-error: #dc2626;
-  --color-surface: #ffffff;
-  --color-surface-raised: #f8fafc;
-  --color-surface-warm: #fdf8f4;
-  --color-border: #e2e8f0;
-  --color-border-focus: #0d9488;
+  /* Surfaces */
+  --_surface: #ffffff;       /* white */
+  --_surface-alt: #f8fafc;   /* slate-50 */
+  --_surface-raised: #f1f5f9; /* slate-100 */
+  /* Text */
+  --_muted: #64748b;         /* slate-500 — helper text */
+  --_subtle: #475569;        /* slate-600 — secondary content */
+  --_body: #334155;          /* slate-700 — default body */
+  --_strong: #1e293b;        /* slate-800 — emphasized */
+  --_heading: #0f172a;       /* slate-900 — headings */
+  /* Borders */
+  --_edge: #e2e8f0;          /* slate-200 */
+  /* Interactive */
+  --_link: #2563eb;          /* blue-600 */
+  --_accent: #4f46e5;        /* indigo-600 */
+  --_accent-hover: #4338ca;  /* indigo-700 */
+  /* Status */
+  --_success: #059669;
+  --_warning: #d97706;
+  --_danger: #dc2626;
 }
 html.dark {
-  --color-interactive: #818cf8;
-  --color-interactive-hover: #6366f1;
-  --color-text-primary: #f1f5f9;
-  --color-text-secondary: #94a3b8;
-  --color-text-muted: #64748b;
-  --color-status-success: #34d399;
-  --color-status-warning: #fbbf24;
-  --color-status-error: #f87171;
-  --color-surface: #0f172a;
-  --color-surface-raised: #1e293b;
-  --color-surface-warm: #1a1510;
-  --color-border: #334155;
-  --color-border-focus: #2dd4bf;
+  --_surface: #1e293b;       /* slate-800 */
+  --_surface-alt: #0f172a;   /* slate-900 */
+  --_surface-raised: #334155; /* slate-700 */
+  --_muted: #94a3b8;         /* slate-400 */
+  --_subtle: #94a3b8;        /* slate-400 */
+  --_body: #cbd5e1;          /* slate-300 */
+  --_strong: #e2e8f0;        /* slate-200 */
+  --_heading: #f1f5f9;       /* slate-100 */
+  --_edge: #334155;          /* slate-700 */
+  --_link: #60a5fa;          /* blue-400 */
+  --_accent: #818cf8;        /* indigo-400 */
+  --_accent-hover: #6366f1;  /* indigo-500 */
+  --_success: #34d399;
+  --_warning: #fbbf24;
+  --_danger: #f87171;
 }
 
 /* Eliminate 300ms tap delay on all interactive elements (mobile) */
@@ -159,6 +172,23 @@ input[type=number] { -moz-appearance: textfield; }
 
   --color-slate-850: #1e293b;
   --color-slate-950: #020617;
+
+  /* Semantic color tokens — auto-switch light/dark via --_* intermediaries */
+  --color-surface: var(--_surface);
+  --color-surface-alt: var(--_surface-alt);
+  --color-surface-raised: var(--_surface-raised);
+  --color-muted: var(--_muted);
+  --color-subtle: var(--_subtle);
+  --color-body: var(--_body);
+  --color-strong: var(--_strong);
+  --color-heading: var(--_heading);
+  --color-edge: var(--_edge);
+  --color-link: var(--_link);
+  --color-accent: var(--_accent);
+  --color-accent-hover: var(--_accent-hover);
+  --color-success: var(--_success);
+  --color-warning: var(--_warning);
+  --color-danger: var(--_danger);
 
   --animate-slide-up: slide-up 0.3s ease-out both;
 

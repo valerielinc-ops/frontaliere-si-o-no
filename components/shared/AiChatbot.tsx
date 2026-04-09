@@ -327,7 +327,7 @@ function formatInline(text: string): React.ReactNode {
                 pushRoute(route);
                 window.dispatchEvent(new PopStateEvent('popstate'));
               }}
-              className="font-medium text-blue-600 dark:text-blue-400 underline underline-offset-2 decoration-blue-300 dark:decoration-blue-600 hover:decoration-blue-600 dark:hover:decoration-blue-400 transition-colors cursor-pointer"
+              className="font-medium text-link underline underline-offset-2 decoration-blue-300 dark:decoration-blue-600 hover:decoration-blue-600 dark:hover:decoration-blue-400 transition-colors cursor-pointer"
             >
               {label}
             </a>
@@ -350,7 +350,7 @@ function formatInline(text: string): React.ReactNode {
             }}
             target={isInternal ? undefined : '_blank'}
             rel={isInternal ? undefined : 'noopener noreferrer'}
-            className="font-medium text-blue-600 dark:text-blue-400 underline underline-offset-2 decoration-blue-300 dark:decoration-blue-600 hover:decoration-blue-600 dark:hover:decoration-blue-400 transition-colors cursor-pointer"
+            className="font-medium text-link underline underline-offset-2 decoration-blue-300 dark:decoration-blue-600 hover:decoration-blue-600 dark:hover:decoration-blue-400 transition-colors cursor-pointer"
           >
             {label}
           </a>
@@ -689,7 +689,7 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
 
       {/* Chat panel */}
       {isOpen && queueActive && (
-        <div className={`fixed right-4 z-[53] w-[360px] max-w-[calc(100vw-2rem)] h-[500px] max-h-[calc(100vh-6rem)] bg-white dark:bg-slate-800 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 flex flex-col overflow-hidden animate-fade-in ${hasBottomOverlay ? 'bottom-48 md:bottom-4' : 'bottom-24 md:bottom-4'}`}>
+        <div className={`fixed right-4 z-[53] w-[360px] max-w-[calc(100vw-2rem)] h-[500px] max-h-[calc(100vh-6rem)] bg-surface rounded-2xl shadow-2xl border border-edge flex flex-col overflow-hidden animate-fade-in ${hasBottomOverlay ? 'bottom-48 md:bottom-4' : 'bottom-24 md:bottom-4'}`}>
           {/* Header */}
           <div className="flex items-center justify-between px-4 py-3 bg-blue-600 text-white rounded-t-2xl shrink-0">
             <div className="flex items-center gap-2">
@@ -713,8 +713,8 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
                   <Bot size={32} className="text-blue-600 dark:text-blue-300" />
                 </div>
                 <h3 className="text-base font-semibold text-slate-800 dark:text-white mb-2">{t('chatbot.title')}</h3>
-                <p className="text-sm text-slate-600 dark:text-slate-400 mb-3 leading-relaxed">{t('chatbot.authRequiredToSend')}</p>
-                <p className="text-sm text-slate-500 dark:text-slate-400">{t('chatbot.preAuthHint')}</p>
+                <p className="text-sm text-subtle mb-3 leading-relaxed">{t('chatbot.authRequiredToSend')}</p>
+                <p className="text-sm text-muted">{t('chatbot.preAuthHint')}</p>
                 <div className="mt-4 w-full max-w-xs space-y-2">
                   {[
                     t('chatbot.suggestion1'),
@@ -751,7 +751,7 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
             {messages.length === 0 && (
               <div className="text-center py-8">
                 <Bot size={40} className="mx-auto text-slate-300 dark:text-slate-600 mb-3" />
-                <p className="text-sm text-slate-500 dark:text-slate-400">{t('chatbot.welcome')}</p>
+                <p className="text-sm text-muted">{t('chatbot.welcome')}</p>
                 <div className="mt-4 space-y-2">
                   {[
                     t('chatbot.suggestion1'),
@@ -784,7 +784,7 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
                   className={`max-w-[80%] px-3 py-2 rounded-2xl text-sm ${
                     msg.role === 'user'
                       ? 'bg-blue-600 text-white rounded-br-md whitespace-pre-wrap'
-                      : 'bg-slate-100 dark:bg-slate-700 text-slate-900 dark:text-white rounded-bl-md'
+                      : 'bg-surface-raised text-slate-900 dark:text-white rounded-bl-md'
                   }`}
                 >
                   {msg.role === 'assistant' ? renderMarkdown(msg.content) : msg.content}
@@ -802,7 +802,7 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
                 <div className="w-7 h-7 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center shrink-0">
                   <Bot size={14} className="text-blue-600 dark:text-blue-300" />
                 </div>
-                <div className="bg-slate-100 dark:bg-slate-700 rounded-2xl rounded-bl-md px-4 py-3">
+                <div className="bg-surface-raised rounded-2xl rounded-bl-md px-4 py-3">
                   <Loader2 size={16} className="animate-spin text-blue-500" />
                 </div>
               </div>
@@ -821,7 +821,7 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
           </div>
 
           {/* Input */}
-          <div className="px-3 py-3 border-t border-slate-200 dark:border-slate-700 shrink-0">
+          <div className="px-3 py-3 border-t border-edge shrink-0">
             <div className="flex gap-2">
               <input
                 ref={inputRef}
@@ -855,7 +855,7 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
                 <Send size={16} />
               </button>
             </div>
-            <p className="text-sm text-slate-500 dark:text-slate-400 mt-1.5 text-center">
+            <p className="text-sm text-muted mt-1.5 text-center">
               {t('chatbot.disclaimer')}
             </p>
           </div>
@@ -876,8 +876,8 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
                 </div>
                 <img src="/icons/icon-192x192.png" alt="Frontaliere Ticino" width={40} height={40} className="rounded-full mb-3 mx-auto" loading="lazy" />
                 <h3 className="text-base font-semibold text-slate-900 dark:text-white text-center">{t('chatbot.authTitle')}</h3>
-                <p className="text-xs font-medium text-blue-600 dark:text-blue-400 text-center">frontaliereticino.ch</p>
-                <p className="text-sm text-slate-600 dark:text-slate-400 text-center mt-1 mb-3">{t('chatbot.authSubtitle')}</p>
+                <p className="text-xs font-medium text-link text-center">frontaliereticino.ch</p>
+                <p className="text-sm text-subtle text-center mt-1 mb-3">{t('chatbot.authSubtitle')}</p>
 
                 <div className="text-sm text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded-lg p-2 mb-3">
                   <span className="font-semibold">{t('chatbot.authContinueQuestion')}:</span> {pendingQuestion}
@@ -915,7 +915,7 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
                   </button>
                 )}
 
-                <p className="flex items-center justify-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 mb-1">
+                <p className="flex items-center justify-center gap-1.5 text-xs text-muted mb-1">
                   <Shield size={11} className="text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
                   {t('jobBoard.gate.googleRedirectNote')}
                 </p>
@@ -936,8 +936,8 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
                 {/* TODO: Re-enable once Facebook app review is complete */}
 
                 <div className="relative my-3">
-                  <div className="absolute inset-0 flex items-center"><div className="w-full border-t border-slate-200 dark:border-slate-700" /></div>
-                  <div className="relative flex justify-center text-xs"><span className="bg-white dark:bg-slate-900 px-2 text-slate-500 dark:text-slate-400">{t('chatbot.orEmail')}</span></div>
+                  <div className="absolute inset-0 flex items-center"><div className="w-full border-t border-edge" /></div>
+                  <div className="relative flex justify-center text-xs"><span className="bg-surface px-2 text-muted">{t('chatbot.orEmail')}</span></div>
                 </div>
 
                 <div className="space-y-2">
@@ -945,7 +945,7 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
                     value={authEmail}
                     onChange={setAuthEmail}
                     placeholder={t('chatbot.emailPlaceholder')}
-                    className="w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm text-slate-900 dark:text-white"
+                    className="w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-surface text-sm text-slate-900 dark:text-white"
                   />
 
                   {authError && (

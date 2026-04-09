@@ -3,7 +3,7 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { Building2, Users, Search, SlidersHorizontal, ArrowUpDown, MapPin, ExternalLink, Filter, ChevronDown, Globe, Briefcase } from 'lucide-react';
-import { useLocale, useTranslation } from '@/services/i18n';
+import { useLocale, useTranslation, getCantonI18nParams } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
 import { buildPath } from '@/services/router';
 import { resolveCompanyWebsiteHost } from '@/services/jobDataNormalization';
@@ -637,7 +637,7 @@ const TicinoCompanies: React.FC = () => {
     const ld = {
       '@context': 'https://schema.org',
       '@type': 'CollectionPage',
-      name: t('companies.title') || 'Aziende in Ticino',
+      name: t('companies.title', getCantonI18nParams()) || 'Aziende in Ticino',
       description:
         t('companies.subtitle') ||
         'Mappa interattiva delle principali società con filtri per settore e dimensione',
@@ -716,7 +716,7 @@ const TicinoCompanies: React.FC = () => {
             <Building2 size={28} className="sm:w-8 sm:h-8" />
           </div>
           <div className="min-w-0">
-            <h1 className="text-xl sm:text-3xl font-extrabold">{t('companies.title') || 'Aziende in Ticino'}</h1>
+            <h1 className="text-xl sm:text-3xl font-extrabold">{t('companies.title', getCantonI18nParams()) || 'Aziende in Ticino'}</h1>
             <p className="text-teal-100 mt-1 text-sm sm:text-base">{t('companies.subtitle') || 'Mappa interattiva delle principali società con filtri per settore e dimensione'}</p>
           </div>
         </div>
@@ -727,18 +727,18 @@ const TicinoCompanies: React.FC = () => {
       </div>
 
       {/* Filters */}
-      <div className="bg-white dark:bg-slate-800 rounded-xl p-3 sm:p-4 border border-slate-200 dark:border-slate-700 space-y-3 overflow-hidden">
+      <div className="bg-surface rounded-xl p-3 sm:p-4 border border-edge space-y-3 overflow-hidden">
         <div className="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-2 sm:gap-3">
           {/* Search */}
           <div className="relative flex-1 min-w-0 w-full sm:min-w-[200px]">
-            <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 dark:text-slate-400" />
+            <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder={t('companies.search') || 'Cerca azienda, città, settore...'}
               aria-label={t('companies.search') || 'Cerca azienda, città, settore'}
-              className="w-full pl-10 pr-4 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
+              className="w-full pl-10 pr-4 py-2 bg-surface-alt border border-edge rounded-lg text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
             />
           </div>
 
@@ -748,11 +748,11 @@ const TicinoCompanies: React.FC = () => {
               value={selectedSector}
               onChange={(e) => setSelectedSector(e.target.value)}
               aria-label="Filtra per settore"
-              className="appearance-none pl-3 pr-8 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 cursor-pointer"
+              className="appearance-none pl-3 pr-8 py-2 bg-surface-alt border border-edge rounded-lg text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 cursor-pointer"
             >
               {SECTORS.map(s => <option key={s} value={s}>{s}</option>)}
             </select>
-            <ChevronDown size={14} className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-500 dark:text-slate-400 pointer-events-none" />
+            <ChevronDown size={14} className="absolute right-2.5 top-1/2 -translate-y-1/2 text-muted pointer-events-none" />
           </div>
 
           <button
@@ -770,7 +770,7 @@ const TicinoCompanies: React.FC = () => {
             className={`inline-flex items-center gap-2 px-3 py-2 rounded-lg border text-sm font-semibold transition-colors ${
               onlyWithPublishedJobs
                 ? 'bg-indigo-50 dark:bg-indigo-900/30 border-indigo-300 dark:border-indigo-700 text-indigo-700 dark:text-indigo-300'
-                : 'bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
+                : 'bg-surface-alt border-edge text-subtle hover:bg-slate-100 dark:hover:bg-slate-800'
             }`}
             aria-pressed={onlyWithPublishedJobs}
             aria-label={t('companies.filterPublishedJobs')}
@@ -783,8 +783,8 @@ const TicinoCompanies: React.FC = () => {
         {/* Employee filter + sort */}
         <div className="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-2 sm:gap-3">
           <div className="flex items-center gap-2 text-sm">
-            <Users size={14} className="text-slate-500 dark:text-slate-400 flex-shrink-0" />
-            <span className="text-slate-600 dark:text-slate-400 font-medium whitespace-nowrap text-xs sm:text-sm">{t('companies.minEmployees')}:</span>
+            <Users size={14} className="text-muted flex-shrink-0" />
+            <span className="text-subtle font-medium whitespace-nowrap text-xs sm:text-sm">{t('companies.minEmployees')}:</span>
             <input type="range" min={0} max={1000} step={50} value={minEmployees}
               onChange={(e) => setMinEmployees(Number(e.target.value))}
               aria-label={t('companies.minEmployees') || 'Dipendenti minimi'}
@@ -792,15 +792,15 @@ const TicinoCompanies: React.FC = () => {
             <span className="font-bold text-violet-600 w-10">{minEmployees}</span>
           </div>
           <div className="flex items-center gap-2 sm:ml-auto">
-            <ArrowUpDown size={14} className="text-slate-500 dark:text-slate-400" />
+            <ArrowUpDown size={14} className="text-muted" />
             <select value={sortBy} onChange={(e) => setSortBy(e.target.value as SortKey)}
               aria-label={t('companies.sortBy') || 'Ordina per'}
-              className="appearance-none px-3 py-1.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500">
+              className="appearance-none px-3 py-1.5 bg-surface-alt border border-edge rounded-lg text-xs font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500">
               <option value="employees">{t('companies.totalEmployees')}</option>
               <option value="name">{t('companies.sortName')}</option>
               <option value="city">{t('companies.sortCity')}</option>
             </select>
-            <button onClick={() => setSortDesc(!sortDesc)} aria-label={sortDesc ? (t('companies.sortAscending') || 'Ordine crescente') : (t('companies.sortDescending') || 'Ordine decrescente')} className="min-w-[44px] min-h-[44px] p-2.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors">
+            <button onClick={() => setSortDesc(!sortDesc)} aria-label={sortDesc ? (t('companies.sortAscending') || 'Ordine crescente') : (t('companies.sortDescending') || 'Ordine decrescente')} className="min-w-[44px] min-h-[44px] p-2.5 rounded-lg bg-surface-raised text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors">
               {sortDesc ? '↓' : '↑'}
             </button>
           </div>
@@ -812,7 +812,7 @@ const TicinoCompanies: React.FC = () => {
         {/* LIST (left) */}
         <div className="w-full lg:w-[45%] xl:w-[40%] lg:max-h-[calc(100vh-120px)] lg:overflow-y-auto lg:overflow-x-hidden space-y-3 pr-0 lg:pr-1 scrollbar-thin">
           {filtered.length === 0 ? (
-            <div className="text-center py-12 text-slate-500 dark:text-slate-400">
+            <div className="text-center py-12 text-muted">
               <Building2 size={48} className="mx-auto mb-3 opacity-50" />
               <p className="font-bold">{t('companies.noResults')}</p>
               <p className="text-sm">{t('companies.tryModifyFilters')}</p>
@@ -821,17 +821,17 @@ const TicinoCompanies: React.FC = () => {
             filtered.map((company) => (
               <div
                 key={company.name}
-                className={`bg-white dark:bg-slate-800 rounded-xl border p-4 hover:shadow-md transition-[color,background-color,border-color,box-shadow] min-w-0 overflow-hidden cursor-pointer ${
+                className={`bg-surface rounded-xl border p-4 hover:shadow-md transition-[color,background-color,border-color,box-shadow] min-w-0 overflow-hidden cursor-pointer ${
                   hoveredCompany === company.name
                     ? 'border-violet-400 dark:border-violet-500 shadow-md ring-2 ring-violet-200 dark:ring-violet-800'
-                    : 'border-slate-200 dark:border-slate-700'
+                    : 'border-edge'
                 }`}
                 onMouseEnter={() => setHoveredCompany(company.name)}
                 onMouseLeave={() => setHoveredCompany(null)}
               >
                 <div className="flex items-start gap-3 mb-2">
                   {getCompanyLogo(company) ? (
-                    <div className="w-9 h-9 rounded-lg bg-slate-100 dark:bg-slate-700 flex items-center justify-center overflow-hidden flex-shrink-0 border border-slate-200 dark:border-slate-600">
+                    <div className="w-9 h-9 rounded-lg bg-surface-raised flex items-center justify-center overflow-hidden flex-shrink-0 border border-edge">
                       <img src={getCompanyLogo(company)!} alt={company.name} width={22} height={22} className="w-[22px] h-[22px] object-contain" loading="lazy" onError={(e) => { const el = e.target as HTMLImageElement; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.display = 'none'; el.parentElement!.innerHTML = `<span class="text-lg">${SECTOR_ICONS[company.sector] || '🏢'}</span>`; } }} />
                     </div>
                   ) : (
@@ -844,13 +844,13 @@ const TicinoCompanies: React.FC = () => {
                     </span>
                   </div>
                 </div>
-                <p className="text-sm text-slate-600 dark:text-slate-400 mb-2 line-clamp-2">{company.description}</p>
+                <p className="text-sm text-subtle mb-2 line-clamp-2">{company.description}</p>
                 <div className="flex items-center justify-between text-xs">
-                  <div className="flex items-center gap-1 text-slate-600 dark:text-slate-400">
+                  <div className="flex items-center gap-1 text-subtle">
                     <Users size={12} />
                     <span className="font-bold">{company.employees.toLocaleString('it-IT')}</span>
                   </div>
-                  <div className="flex items-center gap-1 text-slate-500 dark:text-slate-400">
+                  <div className="flex items-center gap-1 text-muted">
                     <MapPin size={12} />
                     <span>{company.city}</span>
                   </div>
@@ -883,7 +883,7 @@ const TicinoCompanies: React.FC = () => {
 
         {/* MAP (right) */}
         <div className="w-full lg:w-[55%] xl:w-[60%] lg:sticky lg:top-4 lg:self-start">
-          <div className="rounded-2xl overflow-hidden border-2 border-slate-200 dark:border-slate-700 shadow-lg" tabIndex={0} aria-label="Mappa aziende in Ticino">
+          <div className="rounded-2xl overflow-hidden border-2 border-edge shadow-lg" tabIndex={0} aria-label="Mappa aziende in Ticino">
             <MapContainer center={mapCenter} zoom={10} style={{ height: 'min(600px, 70vh)', width: '100%' }} scrollWheelZoom={true}>
               <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -900,19 +900,19 @@ const TicinoCompanies: React.FC = () => {
                           <span className="text-2xl">{SECTOR_ICONS[company.sector] || '🏢'}</span>
                         )}
                         <div>
-                          <h3 className="font-bold text-base m-0 text-slate-800 dark:text-slate-200">{company.name}</h3>
+                          <h3 className="font-bold text-base m-0 text-strong">{company.name}</h3>
                           <span className="text-xs font-semibold" style={{ color: SECTOR_COLORS[company.sector] }}>{company.sector}</span>
                         </div>
                       </div>
-                      <p className="text-[13px] text-slate-600 dark:text-slate-400 mt-0 mb-2">{company.description}</p>
+                      <p className="text-[13px] text-subtle mt-0 mb-2">{company.description}</p>
                       <div className="flex flex-col gap-1 text-[13px]">
                         <div className="flex justify-between">
-                          <span className="text-slate-500 dark:text-slate-400">{t('companies.totalEmployees')}</span>
-                          <span className="font-bold text-slate-800 dark:text-slate-200">{company.employees.toLocaleString('it-IT')}</span>
+                          <span className="text-muted">{t('companies.totalEmployees')}</span>
+                          <span className="font-bold text-strong">{company.employees.toLocaleString('it-IT')}</span>
                         </div>
                         <div className="flex justify-between">
-                          <span className="text-slate-500 dark:text-slate-400">{t('companies.sortCity')}</span>
-                          <span className="font-bold text-slate-800 dark:text-slate-200">{company.city}</span>
+                          <span className="text-muted">{t('companies.sortCity')}</span>
+                          <span className="font-bold text-strong">{company.city}</span>
                         </div>
                       </div>
                       {companyJobsCount(company.name) > 0 && (
@@ -942,7 +942,7 @@ const TicinoCompanies: React.FC = () => {
             </MapContainer>
 
             {/* Legend */}
-            <div className="flex items-center justify-center gap-2 py-2.5 bg-white dark:bg-slate-800 text-xs text-slate-500 dark:text-slate-400 flex-wrap px-3">
+            <div className="flex items-center justify-center gap-2 py-2.5 bg-surface text-xs text-muted flex-wrap px-3">
               {Object.entries(SECTOR_ICONS).slice(0, 6).map(([sector, icon]) => (
                 <button key={sector} onClick={() => setSelectedSector(sector === selectedSector ? 'Tutti' : sector)}
                   className={`flex items-center gap-1 px-2 py-1 rounded-md transition-colors ${selectedSector === sector ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 font-bold' : 'hover:bg-slate-100 dark:hover:bg-slate-700'}`}>

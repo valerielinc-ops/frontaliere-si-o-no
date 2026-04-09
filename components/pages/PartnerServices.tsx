@@ -33,7 +33,7 @@ const PartnerServiceCard: React.FC<{ partner: AffiliatePartner }> = ({ partner }
       target="_blank"
       rel="noopener noreferrer sponsored"
       onClick={handleClick}
-      className="group relative flex flex-col p-5 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 hover:shadow-md transition-[color,background-color,border-color,box-shadow] duration-200"
+      className="group relative flex flex-col p-5 bg-surface rounded-2xl border border-edge hover:border-slate-300 dark:hover:border-slate-600 hover:shadow-md transition-[color,background-color,border-color,box-shadow] duration-200"
     >
       <div className="flex items-start justify-between mb-3">
         <div className="flex items-center gap-3">
@@ -42,7 +42,7 @@ const PartnerServiceCard: React.FC<{ partner: AffiliatePartner }> = ({ partner }
             <h3 className="font-bold text-slate-800 dark:text-slate-100 text-base">
               {partner.name}
             </h3>
-            <p className="text-xs text-slate-500 dark:text-slate-400">
+            <p className="text-xs text-muted">
               {t(partner.taglineKey)}
             </p>
           </div>
@@ -54,11 +54,11 @@ const PartnerServiceCard: React.FC<{ partner: AffiliatePartner }> = ({ partner }
         )}
       </div>
 
-      <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed flex-1">
+      <p className="text-sm text-subtle leading-relaxed flex-1">
         {t(partner.descriptionKey)}
       </p>
 
-      <div className="mt-4 flex items-center gap-1.5 text-xs font-medium text-blue-600 dark:text-blue-400 group-hover:underline">
+      <div className="mt-4 flex items-center gap-1.5 text-xs font-medium text-link group-hover:underline">
         {t('partners.visitSite')}
         <ExternalLink className="w-3 h-3" />
       </div>
@@ -89,7 +89,7 @@ const PartnerServices: React.FC = () => {
         <h1 className="text-2xl sm:text-3xl font-bold text-slate-800 dark:text-slate-100 mb-2">
           {t('partners.title')}
         </h1>
-        <p className="text-slate-600 dark:text-slate-400 max-w-lg mx-auto">
+        <p className="text-subtle max-w-lg mx-auto">
           {t('partners.subtitle')}
         </p>
       </div>
@@ -97,7 +97,7 @@ const PartnerServices: React.FC = () => {
       {/* Categories */}
       {partnersByCategory.map(({ cat, partners: categoryPartners }) => (
           <div key={cat.key}>
-            <h2 className="text-sm font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-3 flex items-center gap-2">
+            <h2 className="text-sm font-bold text-subtle uppercase tracking-wider mb-3 flex items-center gap-2">
               <span>{cat.emoji}</span>
               {t(cat.labelKey)}
             </h2>

@@ -2331,6 +2331,13 @@ Règles :
     'seoContent.stats.check4': 'Historique du change CHF-EUR et données communauté frontalière',
 
     // ─── What's New / Feature Announcements ─────────────────────────────────
+    'whatsNew.v3460.title': 'Expansion Canton du Valais',
+    'whatsNew.v3460.vsExpansion.title': 'Offres d\'emploi Valais',
+    'whatsNew.v3460.vsExpansion.desc': 'Offres d\'emploi des entreprises valaisannes : Sion, Brigue, Viège, Martigny, Monthey et Sierre avec pages dédiées.',
+    'whatsNew.v3460.vsHealthInsurance.title': 'Primes d\'assurance maladie VS',
+    'whatsNew.v3460.vsHealthInsurance.desc': 'Comparez les primes LAMal pour les 122 communes du Valais avec les données réelles de l\'OFSP.',
+    'whatsNew.v3460.multiCanton.title': 'Infrastructure multi-cantonale',
+    'whatsNew.v3460.multiCanton.desc': 'Tessin, Grisons et Valais désormais pris en charge avec des crawlers dédiés, des pages éditoriales et des traductions paramétrées.',
     'whatsNew.v3450.title': 'Estimations Salariales Plus Précises pour Frontaliers',
     'whatsNew.v3450.salaryFrontalieri.title': 'Décote Frontalier Appliquée',
     'whatsNew.v3450.salaryFrontalieri.desc': 'Les estimations salariales incluent désormais le différentiel de rémunération frontalier par secteur basé sur les données USTAT, avec des fourchettes plus réalistes.',

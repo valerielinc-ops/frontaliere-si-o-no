@@ -223,7 +223,7 @@ export default function SalaryQuiz() {
         <h2 className="text-2xl sm:text-3xl font-bold text-slate-800 dark:text-slate-100 mb-2">
           {t('salaryQuiz.title')}
         </h2>
-        <p className="text-slate-600 dark:text-slate-400">
+        <p className="text-subtle">
           {t('salaryQuiz.subtitle')}
         </p>
       </div>
@@ -248,10 +248,10 @@ export default function SalaryQuiz() {
               <button
                 key={key}
                 onClick={() => handleSectorSelect(key)}
-                className="flex items-center gap-3 p-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 hover:border-emerald-400 dark:hover:border-emerald-500 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-colors text-left group"
+                className="flex items-center gap-3 p-4 rounded-xl border-2 border-edge hover:border-emerald-400 dark:hover:border-emerald-500 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-colors text-left group"
               >
                 <span className="text-2xl">{icon}</span>
-                <span className="text-sm font-medium text-slate-700 dark:text-slate-300 group-hover:text-emerald-700 dark:group-hover:text-emerald-300">
+                <span className="text-sm font-medium text-body group-hover:text-emerald-700 dark:group-hover:text-emerald-300">
                   {t(`salaryQuiz.sector.${key}`)}
                 </span>
               </button>
@@ -272,12 +272,12 @@ export default function SalaryQuiz() {
               <button
                 key={level}
                 onClick={() => handleExperienceSelect(level)}
-                className="flex items-center justify-between p-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 hover:border-emerald-400 dark:hover:border-emerald-500 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-colors group"
+                className="flex items-center justify-between p-4 rounded-xl border-2 border-edge hover:border-emerald-400 dark:hover:border-emerald-500 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-colors group"
               >
-                <span className="text-sm font-medium text-slate-700 dark:text-slate-300 group-hover:text-emerald-700 dark:group-hover:text-emerald-300">
+                <span className="text-sm font-medium text-body group-hover:text-emerald-700 dark:group-hover:text-emerald-300">
                   {t(`salaryQuiz.experience.${level}`)}
                 </span>
-                <ChevronRight size={18} className="text-slate-500 dark:text-slate-400 group-hover:text-emerald-500" />
+                <ChevronRight size={18} className="text-muted group-hover:text-emerald-500" />
               </button>
             ))}
           </div>
@@ -296,10 +296,10 @@ export default function SalaryQuiz() {
               <button
                 key={prov}
                 onClick={() => handleProvinceSelect(prov)}
-                className="flex items-center gap-2 p-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 hover:border-emerald-400 dark:hover:border-emerald-500 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-colors group"
+                className="flex items-center gap-2 p-4 rounded-xl border-2 border-edge hover:border-emerald-400 dark:hover:border-emerald-500 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-colors group"
               >
-                <MapPin size={16} className="text-slate-500 dark:text-slate-400 group-hover:text-emerald-500" />
-                <span className="text-sm font-medium text-slate-700 dark:text-slate-300 group-hover:text-emerald-700 dark:group-hover:text-emerald-300 capitalize">
+                <MapPin size={16} className="text-muted group-hover:text-emerald-500" />
+                <span className="text-sm font-medium text-body group-hover:text-emerald-700 dark:group-hover:text-emerald-300 capitalize">
                   {t(`salaryQuiz.province.${prov}`)}
                 </span>
               </button>
@@ -353,7 +353,7 @@ export default function SalaryQuiz() {
           </div>
 
           {/* Share buttons */}
-          <div className="bg-white dark:bg-slate-800 rounded-2xl p-4 sm:p-6 border border-slate-200 dark:border-slate-700">
+          <div className="bg-surface rounded-2xl p-4 sm:p-6 border border-edge">
             <p className="text-sm font-semibold text-slate-700 dark:text-slate-200 mb-4 flex items-center gap-2">
               <Share2 size={16} />
               {t('salaryQuiz.shareTitle')}
@@ -390,7 +390,7 @@ export default function SalaryQuiz() {
           {/* Reset button */}
           <button
             onClick={reset}
-            className="flex items-center gap-2 mx-auto px-6 py-3 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-400 font-semibold text-sm transition-colors"
+            className="flex items-center gap-2 mx-auto px-6 py-3 rounded-xl bg-surface-raised hover:bg-slate-200 dark:hover:bg-slate-700 text-subtle font-semibold text-sm transition-colors"
           >
             <RotateCcw size={16} />
             {t('salaryQuiz.tryAgain')}

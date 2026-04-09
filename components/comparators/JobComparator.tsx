@@ -152,7 +152,7 @@ const JobComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
       {/* Offers Input */}
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
         {offers.map((offer, idx) => (
-          <div key={offer.id} className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 shadow-sm space-y-4">
+          <div key={offer.id} className="bg-surface rounded-2xl border border-edge p-5 shadow-sm space-y-4">
             <div className="flex items-center justify-between">
               <input
                 type="text"
@@ -172,7 +172,7 @@ const JobComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
             <div className="space-y-3">
               {/* Country selector */}
               <div>
-                <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase flex items-center gap-1">
+                <label className="text-xs font-bold text-muted uppercase flex items-center gap-1">
                   <MapPin size={12} />
                   {t('jobs.country') || 'Paese posizione'}
                 </label>
@@ -185,7 +185,7 @@ const JobComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
                     className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg text-sm font-bold transition-colors ${
                       offer.country === 'CH'
                         ? 'bg-red-600 text-white'
-                        : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600'
+                        : 'bg-surface-raised text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600'
                     }`}
                   >
                     🇨🇭 Svizzera
@@ -195,7 +195,7 @@ const JobComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
                     className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg text-sm font-bold transition-colors ${
                       offer.country === 'IT'
                         ? 'bg-green-600 text-white'
-                        : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600'
+                        : 'bg-surface-raised text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600'
                     }`}
                   >
                     🇮🇹 Italia
@@ -204,48 +204,48 @@ const JobComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
               </div>
 
               <div>
-                <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">
+                <label className="text-xs font-bold text-muted uppercase">
                   {offer.country === 'CH' ? t('jobs.grossSalary') : t('jobs.grossSalaryIT')}
                 </label>
                 <input type="number" inputMode="numeric" value={offer.grossSalaryCHF} onChange={(e) => updateOffer(offer.id, 'grossSalaryCHF', Number(e.target.value))}
-                  className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg font-bold text-slate-800 dark:text-slate-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
+                  className="w-full px-3 py-2 bg-surface-alt border border-edge rounded-lg font-bold text-strong focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
                   min={0} step={1000} aria-label="Stipendio lordo annuo" />
               </div>
 
               <div className="grid grid-cols-2 gap-2">
                 <div>
-                  <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">{t('jobs.distance')}</label>
+                  <label className="text-xs font-bold text-muted uppercase">{t('jobs.distance')}</label>
                   <input type="number" inputMode="numeric" value={offer.distanceKm} onChange={(e) => updateOffer(offer.id, 'distanceKm', Number(e.target.value))}
-                    className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg font-semibold text-slate-800 dark:text-slate-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
+                    className="w-full px-3 py-2 bg-surface-alt border border-edge rounded-lg font-semibold text-strong focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
                     min={0} aria-label="Distanza in km" />
                 </div>
                 <div>
-                  <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">{t('jobs.travelTime')}</label>
+                  <label className="text-xs font-bold text-muted uppercase">{t('jobs.travelTime')}</label>
                   <input type="number" inputMode="numeric" value={offer.travelTimeMin} onChange={(e) => updateOffer(offer.id, 'travelTimeMin', Number(e.target.value))}
-                    className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg font-semibold text-slate-800 dark:text-slate-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
+                    className="w-full px-3 py-2 bg-surface-alt border border-edge rounded-lg font-semibold text-strong focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
                     min={0} aria-label="Tempo di viaggio in minuti" />
                 </div>
               </div>
 
               <div>
-                <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">{t('jobs.homeOffice')}</label>
+                <label className="text-xs font-bold text-muted uppercase">{t('jobs.homeOffice')}</label>
                 <input type="range" min={0} max={5} value={offer.homeOfficeDays} onChange={(e) => updateOffer(offer.id, 'homeOfficeDays', Number(e.target.value))}
                   className="w-full accent-amber-600" aria-label="Giorni di home office a settimana" />
-                <div className="text-center text-sm font-bold text-slate-700 dark:text-slate-300">{offer.homeOfficeDays} {t('jobs.days')}</div>
+                <div className="text-center text-sm font-bold text-body">{offer.homeOfficeDays} {t('jobs.days')}</div>
               </div>
 
               {offer.country === 'IT' && (
                 <div className="flex items-center gap-2">
                   <input type="checkbox" id={`meal-vouchers-${offer.id}`} checked={offer.hasMealVouchers} onChange={(e) => updateOffer(offer.id, 'hasMealVouchers', e.target.checked)}
                     className="w-4 h-4 text-amber-600 rounded" />
-                  <label htmlFor={`meal-vouchers-${offer.id}`} className="text-xs font-bold text-slate-600 dark:text-slate-400">{t('jobs.mealVouchers')} (€{offer.mealVoucherValue}/{t('common.day') || 'gg'})</label>
+                  <label htmlFor={`meal-vouchers-${offer.id}`} className="text-xs font-bold text-subtle">{t('jobs.mealVouchers')} (€{offer.mealVoucherValue}/{t('common.day') || 'gg'})</label>
                 </div>
               )}
 
               <div className="flex items-center gap-2">
                 <input type="checkbox" id={`parking-${offer.id}`} checked={offer.hasParking} onChange={(e) => updateOffer(offer.id, 'hasParking', e.target.checked)}
                   className="w-4 h-4 text-amber-600 rounded" />
-                <label htmlFor={`parking-${offer.id}`} className="text-xs font-bold text-slate-600 dark:text-slate-400">{t('jobs.parking')}</label>
+                <label htmlFor={`parking-${offer.id}`} className="text-xs font-bold text-subtle">{t('jobs.parking')}</label>
               </div>
             </div>
           </div>
@@ -254,7 +254,7 @@ const JobComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
         {offers.length < 4 && (
           <button
             onClick={addOffer}
-            className="rounded-2xl border-2 border-dashed border-slate-300 dark:border-slate-600 p-4 sm:p-6 flex flex-col items-center justify-center gap-3 text-slate-500 dark:text-slate-400 hover:text-amber-600 hover:border-amber-400 transition-colors min-h-[200px]"
+            className="rounded-2xl border-2 border-dashed border-slate-300 dark:border-slate-600 p-4 sm:p-6 flex flex-col items-center justify-center gap-3 text-muted hover:text-amber-600 hover:border-amber-400 transition-colors min-h-[200px]"
           >
             <Plus size={32} />
             <span className="font-bold">{t('jobs.addOffer')}</span>
@@ -274,8 +274,8 @@ const JobComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
           return (
             <div
               key={r.offer.id}
-              className={`bg-white dark:bg-slate-800 rounded-2xl border-2 p-4 sm:p-6 transition-[color,background-color,border-color,box-shadow] ${
-                isBest ? 'border-emerald-500 ring-2 ring-emerald-500/20 shadow-lg' : 'border-slate-200 dark:border-slate-700'
+              className={`bg-surface rounded-2xl border-2 p-4 sm:p-6 transition-[color,background-color,border-color,box-shadow] ${
+                isBest ? 'border-emerald-500 ring-2 ring-emerald-500/20 shadow-lg' : 'border-edge'
               }`}
             >
               {isBest && (
@@ -288,20 +288,20 @@ const JobComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
               <div className="flex items-start justify-between gap-4 mb-4">
                 <div>
                   <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100">{r.offer.companyName || `${t('jobs.offer')} ${idx + 1}`}</h3>
-                  <p className="text-sm text-slate-500 dark:text-slate-400">RAL CHF {r.offer.grossSalaryCHF.toLocaleString('it-IT')} • {r.offer.distanceKm} km • {r.offer.travelTimeMin} min</p>
+                  <p className="text-sm text-muted">RAL CHF {r.offer.grossSalaryCHF.toLocaleString('it-IT')} • {r.offer.distanceKm} km • {r.offer.travelTimeMin} min</p>
                 </div>
                 <div className="text-right">
-                  <div className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">{t('jobs.effectiveNet')}</div>
+                  <div className="text-xs font-bold text-muted uppercase">{t('jobs.effectiveNet')}</div>
                   <div className={`text-3xl font-bold ${isBest ? 'text-emerald-700' : 'text-slate-800 dark:text-slate-100'}`}>
                     € {Math.round(r.effectiveNetMonthly).toLocaleString('it-IT')}
                   </div>
-                  <div className="text-xs text-slate-500 dark:text-slate-400">/mese</div>
+                  <div className="text-xs text-muted">/mese</div>
                 </div>
               </div>
 
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-xl">
-                  <div className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 mb-1">
+                <div className="p-3 bg-surface-alt rounded-xl">
+                  <div className="flex items-center gap-1.5 text-xs text-muted mb-1">
                     <DollarSign size={12} />
                     {t('jobs.netTaxes')}
                   </div>
@@ -335,7 +335,7 @@ const JobComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
                   <span className="text-orange-600 font-bold">
                     {t('jobs.difference')}: -€ {Math.round(bestResult.effectiveNetMonthly - r.effectiveNetMonthly).toLocaleString('it-IT')}/{t('common.monthly').toLowerCase()}
                   </span>
-                  <span className="text-slate-500 dark:text-slate-400 ml-2">
+                  <span className="text-muted ml-2">
                     (-€ {Math.round((bestResult.effectiveNetMonthly - r.effectiveNetMonthly) * 12).toLocaleString('it-IT')}/{t('common.annual').toLowerCase()})
                   </span>
                 </div>
@@ -349,7 +349,7 @@ const JobComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
       <div className="bg-warm-50 dark:bg-warm-950 rounded-2xl border border-warm-200 dark:border-warm-800 p-5">
         <div className="flex items-start gap-3">
           <Info size={20} className="text-blue-600 flex-shrink-0 mt-0.5" />
-          <div className="text-sm text-slate-700 dark:text-slate-300">
+          <div className="text-sm text-body">
             <p className="font-bold mb-1">{t('jobs.howItWorks')}</p>
             <ul className="space-y-1 text-xs list-disc ml-4">
               <li>{t('jobs.howItWorks1')}</li>

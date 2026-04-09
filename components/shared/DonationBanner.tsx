@@ -28,7 +28,7 @@ const DonationBanner: React.FC<DonationBannerProps> = ({ variant = 'inline' }) =
       <div className="flex items-center gap-3 p-3 bg-amber-50/50 dark:bg-amber-950/20 rounded-xl border border-amber-200/50 dark:border-amber-800/30">
         <Coffee className="w-5 h-5 text-amber-600 dark:text-amber-400 flex-shrink-0" />
         <div className="flex-1 min-w-0">
-          <p className="text-xs text-slate-700 dark:text-slate-300">
+          <p className="text-xs text-body">
             {t('donation.message')}
           </p>
         </div>

@@ -27,6 +27,30 @@ interface Release {
 
 export const RELEASES: Release[] = [
   {
+    version: '3.46.0',
+    date: '2026-04-09',
+    titleKey: 'whatsNew.v3460.title',
+    items: [
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3460.vsExpansion.title',
+        descKey: 'whatsNew.v3460.vsExpansion.desc',
+        link: { tab: 'job-board' },
+      },
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3460.vsHealthInsurance.title',
+        descKey: 'whatsNew.v3460.vsHealthInsurance.desc',
+        link: { tab: 'confronti', subTab: 'health' },
+      },
+      {
+        type: 'improvement',
+        titleKey: 'whatsNew.v3460.multiCanton.title',
+        descKey: 'whatsNew.v3460.multiCanton.desc',
+      },
+    ],
+  },
+  {
     version: '3.45.0',
     date: '2026-04-09',
     titleKey: 'whatsNew.v3450.title',
@@ -1734,7 +1758,7 @@ export function WhatsNewBell({ onClick }: BellButtonProps) {
         onClick();
         setUnread(0);
       }}
-      className="relative p-2 rounded-lg transition-colors text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700"
+      className="relative p-2 rounded-lg transition-colors text-subtle hover:bg-slate-100 dark:hover:bg-slate-700"
       aria-label={t('whatsNew.title')}
       title={t('whatsNew.title')}
     >
@@ -1815,9 +1839,9 @@ export default function WhatsNewModal({ open, onClose }: WhatsNewModalProps) {
       />
 
       {/* Card */}
-      <div className="relative w-full max-w-lg max-h-[80vh] bg-white dark:bg-slate-800 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 flex flex-col overflow-hidden animate-in fade-in zoom-in-95">
+      <div className="relative w-full max-w-lg max-h-[80vh] bg-surface rounded-2xl shadow-2xl border border-edge flex flex-col overflow-hidden animate-in fade-in zoom-in-95">
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-200 dark:border-slate-700">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-edge">
           <div className="flex items-center gap-2">
             <PartyPopper size={22} className="text-violet-600 dark:text-violet-400" />
             <h2 className="text-lg font-bold text-slate-800 dark:text-white">
@@ -1826,7 +1850,7 @@ export default function WhatsNewModal({ open, onClose }: WhatsNewModalProps) {
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
+            className="p-1.5 rounded-lg text-muted hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
             aria-label={t('whatsNew.close')}
           >
             <X size={18} />
@@ -1836,7 +1860,7 @@ export default function WhatsNewModal({ open, onClose }: WhatsNewModalProps) {
         {/* Content */}
         <div className="flex-1 overflow-y-auto px-6 py-4 space-y-6">
           {RELEASES.length === 0 ? (
-            <p className="text-center text-slate-500 dark:text-slate-400 py-8">
+            <p className="text-center text-muted py-8">
               {t('whatsNew.noUpdates')}
             </p>
           ) : (
@@ -1847,7 +1871,7 @@ export default function WhatsNewModal({ open, onClose }: WhatsNewModalProps) {
                   <span className="text-xs font-mono font-semibold text-violet-600 dark:text-violet-400 bg-violet-100 dark:bg-violet-900/40 px-2 py-0.5 rounded-full">
                     v{release.version}
                   </span>
-                  <span className="text-sm text-slate-500 dark:text-slate-400">
+                  <span className="text-sm text-muted">
                     {formatDate(release.date)}
                   </span>
                 </div>
@@ -1872,7 +1896,7 @@ export default function WhatsNewModal({ open, onClose }: WhatsNewModalProps) {
                           <p className="text-sm font-medium text-slate-700 dark:text-slate-200">
                             {t(item.titleKey)}
                           </p>
-                          <p className="text-sm text-slate-500 dark:text-slate-400 mt-0.5">
+                          <p className="text-sm text-muted mt-0.5">
                             {t(item.descKey)}
                           </p>
                         </div>
@@ -1908,8 +1932,8 @@ export default function WhatsNewModal({ open, onClose }: WhatsNewModalProps) {
         </div>
 
         {/* Footer */}
-        <div className="px-6 py-3 border-t border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50">
-          <p className="text-sm text-slate-500 dark:text-slate-400 text-center">
+        <div className="px-6 py-3 border-t border-edge bg-surface-alt/50">
+          <p className="text-sm text-muted text-center">
             {t('whatsNew.footer')}
           </p>
         </div>

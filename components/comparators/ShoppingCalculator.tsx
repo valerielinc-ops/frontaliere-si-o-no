@@ -192,7 +192,7 @@ const ShoppingCalculator: React.FC = () => {
               onClick={() => { setActiveTab(tab.id); Analytics.trackUIInteraction('guida', 'spesa', 'tab', 'click', tab.id); }}
               className={'flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-bold transition ' +
                 (activeTab === tab.id
-                  ? 'bg-white dark:bg-slate-800 text-orange-700 dark:text-orange-300 shadow'
+                  ? 'bg-surface text-orange-700 dark:text-orange-300 shadow'
                   : 'text-white/90 hover:text-white hover:bg-white/10')}
               aria-label={tab.label}
             >
@@ -208,8 +208,8 @@ const ShoppingCalculator: React.FC = () => {
         <>
           {/* Exchange Rate + Summary */}
           <div className="grid md:grid-cols-3 gap-4">
-            <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
-              <label htmlFor="shopping-rate" className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide flex items-center gap-2">
+            <div className="bg-surface rounded-xl p-4 border border-edge">
+              <label htmlFor="shopping-rate" className="text-xs font-bold text-muted uppercase tracking-wide flex items-center gap-2">
                 {t('shopping.exchangeRate')}
                 {rateLoading && <RefreshCw size={12} className="animate-spin text-orange-500" />}
               </label>
@@ -220,14 +220,14 @@ const ShoppingCalculator: React.FC = () => {
                 step="0.01"
                 value={effectiveRate}
                 onChange={e => setExchangeRate(parseFloat(e.target.value) || null)}
-                className="w-full mt-1 px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-lg font-bold text-slate-800 dark:text-white"
+                className="w-full mt-1 px-3 py-2 rounded-lg border border-edge bg-surface-alt text-lg font-bold text-slate-800 dark:text-white"
               />
-              <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">1 CHF = {effectiveRate.toFixed(4)} EUR</p>
+              <p className="text-sm text-muted mt-1">1 CHF = {effectiveRate.toFixed(4)} EUR</p>
             </div>
             <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
-              <div><span className="text-slate-500 dark:text-slate-400">{t('shopping.avgSavings')}:</span>{' '}<span className="font-semibold text-emerald-600 dark:text-emerald-400">{allProductStats.savingsPercent.toFixed(0)}%</span>{' '}<span className="text-slate-500 dark:text-slate-400">{t('shopping.buyingInItaly')}</span></div>
+              <div><span className="text-muted">{t('shopping.avgSavings')}:</span>{' '}<span className="font-semibold text-emerald-600 dark:text-emerald-400">{allProductStats.savingsPercent.toFixed(0)}%</span>{' '}<span className="text-muted">{t('shopping.buyingInItaly')}</span></div>
               {stats.selectedCount > 0 && (
-                <div><span className="text-slate-500 dark:text-slate-400">{t('shopping.yourSavings')}:</span>{' '}<span className="font-semibold text-blue-600 dark:text-blue-400">{'\u20AC'} {stats.savings.toFixed(2)}</span>{' '}<span className="text-slate-500 dark:text-slate-400">{t('shopping.perTrip')} ({stats.selectedCount} {t('shopping.products')})</span></div>
+                <div><span className="text-muted">{t('shopping.yourSavings')}:</span>{' '}<span className="font-semibold text-link">{'\u20AC'} {stats.savings.toFixed(2)}</span>{' '}<span className="text-muted">{t('shopping.perTrip')} ({stats.selectedCount} {t('shopping.products')})</span></div>
               )}
             </div>
           </div>
@@ -244,7 +244,7 @@ const ShoppingCalculator: React.FC = () => {
           </div>
 
           {/* Filters */}
-          <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
+          <div className="bg-surface rounded-xl p-4 border border-edge">
             <div className="flex flex-wrap gap-2 items-center justify-between">
               <div className="flex flex-wrap gap-2">
                 {CATEGORIES.map(cat => (
@@ -254,7 +254,7 @@ const ShoppingCalculator: React.FC = () => {
                     className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${
                       selectedCategory === cat
                         ? 'bg-orange-600 text-white'
-                        : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600'
+                        : 'bg-surface-raised text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600'
                     }`}
                     aria-label={t(`shopping.cat.${cat === 'all' ? 'all' : cat === 'alimentari' ? 'food' : cat === 'carne' ? 'meat' : cat === 'bevande' ? 'drinks' : cat === 'casa' ? 'home' : cat === 'bambini' ? 'baby' : cat === 'carburante' ? 'fuel' : 'pharma'}`)}
                   >
@@ -265,12 +265,12 @@ const ShoppingCalculator: React.FC = () => {
               <div className="flex gap-2 items-center">
                 <label className="flex items-center gap-2 cursor-pointer text-sm">
                   <input type="checkbox" checked={showOnlySavings} onChange={e => setShowOnlySavings(e.target.checked)} className="w-4 h-4" aria-label={t('shopping.onlySavings')} />
-                  <span className="font-bold text-slate-700 dark:text-slate-300">{t('shopping.onlySavings')}</span>
+                  <span className="font-bold text-body">{t('shopping.onlySavings')}</span>
                 </label>
                 <button onClick={selectAll} className="px-3 py-1.5 rounded-lg text-xs font-bold bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 hover:bg-blue-200 dark:hover:bg-blue-800" aria-label={t('shopping.selectAll')}>
                   {t('shopping.selectAll')}
                 </button>
-                <button onClick={clearAll} className="px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600" aria-label={t('shopping.clearAll')}>
+                <button onClick={clearAll} className="px-3 py-1.5 rounded-lg text-xs font-bold bg-surface-raised text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600" aria-label={t('shopping.clearAll')}>
                   {t('shopping.clearAll')}
                 </button>
               </div>
@@ -289,10 +289,10 @@ const ShoppingCalculator: React.FC = () => {
                 <div
                   key={product.id}
                   onClick={() => !isSelected && toggleProduct(product.id)}
-                  className={`bg-white dark:bg-slate-800 rounded-xl p-4 border-2 transition-[color,background-color,border-color,box-shadow] cursor-pointer ${
+                  className={`bg-surface rounded-xl p-4 border-2 transition-[color,background-color,border-color,box-shadow] cursor-pointer ${
                     isSelected
                       ? 'border-orange-500 ring-2 ring-orange-500/20 shadow-lg'
-                      : 'border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600'
+                      : 'border-edge hover:border-slate-300 dark:hover:border-slate-600'
                   }`}
                 >
                   <div className="flex items-start justify-between gap-2 mb-3">
@@ -300,7 +300,7 @@ const ShoppingCalculator: React.FC = () => {
                       <span className="text-orange-500">{product.icon}</span>
                       <div>
                         <div className="font-bold text-sm text-slate-800 dark:text-slate-100">{product.name}</div>
-                        <div className="text-xs text-slate-500 dark:text-slate-400">{product.unit}</div>
+                        <div className="text-xs text-muted">{product.unit}</div>
                       </div>
                     </div>
                     {saving > 0 && (
@@ -311,18 +311,18 @@ const ShoppingCalculator: React.FC = () => {
                   </div>
                   <div className="flex items-center justify-between gap-2 text-sm">
                     <div className="text-center">
-                      <div className="text-xs text-slate-500 dark:text-slate-400 uppercase">{'\uD83C\uDDEE\uD83C\uDDF9'} {product.storeIT}</div>
+                      <div className="text-xs text-muted uppercase">{'\uD83C\uDDEE\uD83C\uDDF9'} {product.storeIT}</div>
                       <div className="font-bold text-emerald-700 dark:text-emerald-400 text-lg">{'\u20AC'} {product.priceIT.toFixed(2)}</div>
                     </div>
-                    <ArrowRight size={14} className="text-slate-500 dark:text-slate-400" />
+                    <ArrowRight size={14} className="text-muted" />
                     <div className="text-center">
-                      <div className="text-xs text-slate-500 dark:text-slate-400 uppercase">{'\uD83C\uDDE8\uD83C\uDDED'} {product.storeCH}</div>
+                      <div className="text-xs text-muted uppercase">{'\uD83C\uDDE8\uD83C\uDDED'} {product.storeCH}</div>
                       <div className="font-bold text-red-600 dark:text-red-400 text-lg">{product.priceCH.toFixed(2)} CHF</div>
-                      <div className="text-xs text-slate-500 dark:text-slate-400">{'\u2248'} {'\u20AC'} {priceCHinEUR.toFixed(2)}</div>
+                      <div className="text-xs text-muted">{'\u2248'} {'\u20AC'} {priceCHinEUR.toFixed(2)}</div>
                     </div>
                   </div>
                   {isSelected && (
-                    <div className="mt-3 flex items-center justify-center gap-3 border-t border-slate-200 dark:border-slate-700 pt-3" onClick={e => e.stopPropagation()}>
+                    <div className="mt-3 flex items-center justify-center gap-3 border-t border-edge pt-3" onClick={e => e.stopPropagation()}>
                       <button onClick={() => updateQuantity(product.id, qty - 1)} className="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-700 font-bold text-lg flex items-center justify-center hover:bg-red-200 dark:hover:bg-red-800 text-slate-800 dark:text-white" aria-label="Decrease quantity">-</button>
                       <span className="text-lg font-bold w-8 text-center text-slate-800 dark:text-white">{qty}</span>
                       <button onClick={() => updateQuantity(product.id, qty + 1)} className="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-700 font-bold text-lg flex items-center justify-center hover:bg-emerald-200 dark:hover:bg-emerald-800 text-slate-800 dark:text-white" aria-label="Increase quantity">+</button>
@@ -375,15 +375,15 @@ const ShoppingCalculator: React.FC = () => {
       {activeTab === 'map' && (
         <>
           {/* Map filters */}
-          <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
+          <div className="bg-surface rounded-xl p-4 border border-edge">
             <div className="flex flex-wrap gap-4 items-end">
               <div className="flex-1 min-w-[180px]">
-                <label htmlFor="map-zone" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">{t('shopping.filterZone')}</label>
+                <label htmlFor="map-zone" className="block text-sm font-medium text-body mb-1">{t('shopping.filterZone')}</label>
                 <select
                   id="map-zone"
                   value={mapZone}
                   onChange={e => setMapZone(e.target.value)}
-                  className="w-full rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 px-3 py-2 text-slate-800 dark:text-white"
+                  className="w-full rounded-lg border border-edge bg-surface-alt px-3 py-2 text-slate-800 dark:text-white"
                 >
                   <option value="">{t('shopping.allZones')}</option>
                   {ZONES.map(z => (
@@ -392,12 +392,12 @@ const ShoppingCalculator: React.FC = () => {
                 </select>
               </div>
               <div className="flex-1 min-w-[180px]">
-                <label htmlFor="map-chain" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">{t('shopping.filterChain')}</label>
+                <label htmlFor="map-chain" className="block text-sm font-medium text-body mb-1">{t('shopping.filterChain')}</label>
                 <select
                   id="map-chain"
                   value={mapChain}
                   onChange={e => setMapChain(e.target.value)}
-                  className="w-full rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 px-3 py-2 text-slate-800 dark:text-white"
+                  className="w-full rounded-lg border border-edge bg-surface-alt px-3 py-2 text-slate-800 dark:text-white"
                 >
                   <option value="">{t('shopping.allChains')}</option>
                   {chains.map(c => (
@@ -405,14 +405,14 @@ const ShoppingCalculator: React.FC = () => {
                   ))}
                 </select>
               </div>
-              <div className="text-sm text-slate-600 dark:text-slate-400">
+              <div className="text-sm text-subtle">
                 {filteredSupermarkets.length} / {TOTAL_SUPERMARKETS} {t('shopping.totalSupermarkets')}
               </div>
             </div>
           </div>
 
           {/* Map */}
-          <div className="bg-white dark:bg-slate-800 rounded-xl shadow overflow-hidden" style={{ minHeight: 480 }}>
+          <div className="bg-surface rounded-xl shadow overflow-hidden" style={{ minHeight: 480 }}>
             <Suspense
               fallback={
                 <div className="flex items-center justify-center h-[480px]">
@@ -425,21 +425,21 @@ const ShoppingCalculator: React.FC = () => {
           </div>
 
           {/* Supermarket list */}
-          <div className="bg-white dark:bg-slate-800 rounded-xl shadow p-5">
+          <div className="bg-surface rounded-xl shadow p-5">
             <h3 className="text-lg font-bold text-slate-800 dark:text-white mb-4 flex items-center gap-2">
               <MapPin className="text-orange-600 dark:text-orange-400" size={20} />
               {t('shopping.mapTitle')}
             </h3>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
               {filteredSupermarkets.map(s => (
-                <div key={s.id} className="flex items-center gap-3 p-3 bg-slate-50 dark:bg-slate-700/50 rounded-lg border border-slate-200 dark:border-slate-700">
+                <div key={s.id} className="flex items-center gap-3 p-3 bg-slate-50 dark:bg-slate-700/50 rounded-lg border border-edge">
                   <div
                     className="w-3 h-3 rounded-full flex-shrink-0"
                     style={{ backgroundColor: CHAIN_COLORS[s.chain] || '#94a3b8' }}
                   />
                   <div className="min-w-0">
                     <div className="font-bold text-sm text-slate-800 dark:text-white truncate">{s.name}</div>
-                    <div className="text-xs text-slate-500 dark:text-slate-400 truncate">{s.address}, {s.city}</div>
+                    <div className="text-xs text-muted truncate">{s.address}, {s.city}</div>
                   </div>
                   <span className="ml-auto text-xs flex-shrink-0">
                     {s.country === 'CH' ? '\uD83C\uDDE8\uD83C\uDDED' : '\uD83C\uDDEE\uD83C\uDDF9'}
@@ -454,12 +454,12 @@ const ShoppingCalculator: React.FC = () => {
       {/* ══════════════ ZONES / CONVENIENCE INDEX TAB ══════════════ */}
       {activeTab === 'zones' && (
         <>
-          <div className="bg-white dark:bg-slate-800 rounded-xl shadow p-6">
+          <div className="bg-surface rounded-xl shadow p-6">
             <div className="flex items-center gap-3 mb-2">
               <BarChart3 className="text-orange-600 dark:text-orange-400" size={24} />
               <h3 className="text-lg font-bold text-slate-800 dark:text-white">{t('shopping.zoneIndex')}</h3>
             </div>
-            <p className="text-sm text-slate-600 dark:text-slate-400 mb-6">{t('shopping.zoneIndexDesc')}</p>
+            <p className="text-sm text-subtle mb-6">{t('shopping.zoneIndexDesc')}</p>
 
             <div className="space-y-4">
               {ZONE_CONVENIENCE.map((zc, idx) => {
@@ -468,7 +468,7 @@ const ShoppingCalculator: React.FC = () => {
                 const barWidth = (zc.savingsPercent / 50) * 100;
                 const netWidth = (zc.netConvenience / 100) * 100;
                 return (
-                  <div key={zc.zoneId} className="bg-slate-50 dark:bg-slate-700/30 rounded-xl p-5 border border-slate-200 dark:border-slate-700">
+                  <div key={zc.zoneId} className="bg-slate-50 dark:bg-slate-700/30 rounded-xl p-5 border border-edge">
                     <div className="flex items-start justify-between gap-3 mb-4">
                       <div>
                         <div className="flex items-center gap-2">
@@ -479,21 +479,21 @@ const ShoppingCalculator: React.FC = () => {
                           <span className={`text-xs px-2 py-0.5 rounded-full font-bold ${trafficColors[zc.trafficLevel]}`}>
                             {t(`shopping.traffic${zc.trafficLevel.charAt(0).toUpperCase() + zc.trafficLevel.slice(1)}`)}
                           </span>
-                          <span className="text-sm text-slate-500 dark:text-slate-400 flex items-center gap-1">
+                          <span className="text-sm text-muted flex items-center gap-1">
                             <Navigation size={10} /> {zc.distanceToIT} km
                           </span>
                         </div>
                       </div>
                       <div className="text-right">
                         <div className="text-2xl font-bold text-orange-700 dark:text-orange-400">{'\u20AC'} {zc.netConvenience.toFixed(0)}</div>
-                        <div className="text-xs text-slate-500 dark:text-slate-400">{t('shopping.perWeeklyTrip')}</div>
+                        <div className="text-xs text-muted">{t('shopping.perWeeklyTrip')}</div>
                       </div>
                     </div>
 
                     {/* Visual bars */}
                     <div className="space-y-3">
                       <div>
-                        <div className="flex justify-between text-xs text-slate-600 dark:text-slate-400 mb-1">
+                        <div className="flex justify-between text-xs text-subtle mb-1">
                           <span>{t('shopping.savingsOnBasket')}</span>
                           <span className="font-bold text-emerald-700 dark:text-emerald-400">-{zc.savingsPercent}%</span>
                         </div>
@@ -503,11 +503,11 @@ const ShoppingCalculator: React.FC = () => {
                       </div>
                       <div className="grid grid-cols-2 gap-4 text-sm">
                         <div>
-                          <span className="text-slate-500 dark:text-slate-400 text-xs">{t('shopping.fuelCost')}</span>
-                          <div className="font-bold text-slate-700 dark:text-slate-300">{'\u20AC'} {zc.fuelCostEUR.toFixed(2)}</div>
+                          <span className="text-muted text-xs">{t('shopping.fuelCost')}</span>
+                          <div className="font-bold text-body">{'\u20AC'} {zc.fuelCostEUR.toFixed(2)}</div>
                         </div>
                         <div>
-                          <span className="text-slate-500 dark:text-slate-400 text-xs">{t('shopping.netConvenience')}</span>
+                          <span className="text-muted text-xs">{t('shopping.netConvenience')}</span>
                           <div className="font-bold text-orange-700 dark:text-orange-400">{'\u20AC'} {zc.netConvenience.toFixed(0)}</div>
                           <div className="h-2 bg-slate-200 dark:bg-slate-600 rounded-full overflow-hidden mt-1">
                             <div className="h-full bg-orange-500 rounded-full" style={{ width: `${Math.min(netWidth, 100)}%` }} />
@@ -517,17 +517,17 @@ const ShoppingCalculator: React.FC = () => {
                     </div>
 
                     {/* Supermarket counts for this zone */}
-                    <div className="mt-3 pt-3 border-t border-slate-200 dark:border-slate-600 flex flex-wrap gap-2 text-xs">
+                    <div className="mt-3 pt-3 border-t border-edge flex flex-wrap gap-2 text-xs">
                       {(() => {
                         const zoneStores = SUPERMARKETS.filter(s => s.zone === zc.zoneId);
                         const chCount = zoneStores.filter(s => s.country === 'CH').length;
                         const itCount = zoneStores.filter(s => s.country === 'IT').length;
                         return (
                           <>
-                            <span className="text-slate-500 dark:text-slate-400">
+                            <span className="text-muted">
                               {'\uD83C\uDDE8\uD83C\uDDED'} {chCount} {t('shopping.supermarketsCH')}
                             </span>
-                            <span className="text-slate-500 dark:text-slate-400">
+                            <span className="text-muted">
                               {'\uD83C\uDDEE\uD83C\uDDF9'} {itCount} {t('shopping.supermarketsIT')}
                             </span>
                           </>
@@ -543,39 +543,39 @@ const ShoppingCalculator: React.FC = () => {
       )}
 
       {/* ── Methodology (always visible — SEO content) ── */}
-      <div className="bg-white dark:bg-slate-800 rounded-xl shadow p-6">
+      <div className="bg-surface rounded-xl shadow p-6">
         <div className="flex items-center gap-2 mb-3">
-          <BookOpen className="text-slate-600 dark:text-slate-400" size={20} />
+          <BookOpen className="text-subtle" size={20} />
           <h3 className="text-lg font-bold text-slate-800 dark:text-white">{t('shopping.methodology')}</h3>
         </div>
-        <div className="text-sm text-slate-600 dark:text-slate-400 space-y-3">
+        <div className="text-sm text-subtle space-y-3">
           <p>{t('shopping.methodologyText1')}</p>
           <p>{t('shopping.methodologyText2')}</p>
         </div>
       </div>
 
       {/* ── FAQ section (SEO content) ── */}
-      <div className="bg-white dark:bg-slate-800 rounded-xl shadow p-6">
+      <div className="bg-surface rounded-xl shadow p-6">
         <div className="flex items-center gap-2 mb-4">
-          <Info className="text-blue-600 dark:text-blue-400" size={20} />
+          <Info className="text-link" size={20} />
           <h3 className="text-lg font-bold text-slate-800 dark:text-white">{t('shopping.faqTitle')}</h3>
         </div>
         <div className="space-y-4">
           {[1, 2, 3, 4, 5].map(n => (
-            <details key={n} className="group border border-slate-200 dark:border-slate-700 rounded-lg">
+            <details key={n} className="group border border-edge rounded-lg">
               <summary className="flex items-center justify-between p-4 cursor-pointer text-sm font-semibold text-slate-800 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-700/30 rounded-lg">
                 {t(`shopping.faq${n}Q`)}
-                <ChevronDown size={16} className="text-slate-500 dark:text-slate-400 group-open:rotate-180 transition-transform" />
+                <ChevronDown size={16} className="text-muted group-open:rotate-180 transition-transform" />
               </summary>
-              <div className="px-4 pb-4 text-sm text-slate-600 dark:text-slate-400">{t(`shopping.faq${n}A`)}</div>
+              <div className="px-4 pb-4 text-sm text-subtle">{t(`shopping.faq${n}A`)}</div>
             </details>
           ))}
         </div>
       </div>
 
       {/* Supermarket Links + Disclaimer */}
-      <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
-        <h4 className="font-bold text-sm text-slate-700 dark:text-slate-300 mb-3 flex items-center gap-2">
+      <div className="bg-surface rounded-xl p-4 border border-edge">
+        <h4 className="font-bold text-sm text-body mb-3 flex items-center gap-2">
           <Info size={14} /> {t('shopping.sourcesTitle')}
         </h4>
         <div className="flex flex-wrap gap-2 text-xs">
@@ -595,12 +595,12 @@ const ShoppingCalculator: React.FC = () => {
             { name: 'Denner', url: 'https://www.denner.ch', flag: '\uD83C\uDDE8\uD83C\uDDED' },
           ].map(store => (
             <a key={store.name} href={store.url} target="_blank" rel="noopener noreferrer"
-              className="px-3 py-1.5 bg-slate-100 dark:bg-slate-700 rounded-lg hover:bg-orange-100 dark:hover:bg-orange-900/30 transition-colors font-bold text-slate-700 dark:text-slate-300">
+              className="px-3 py-1.5 bg-surface-raised rounded-lg hover:bg-orange-100 dark:hover:bg-orange-900/30 transition-colors font-bold text-body">
               {store.flag} {store.name}
             </a>
           ))}
         </div>
-        <p className="text-sm text-slate-500 dark:text-slate-400 mt-2">{t('shopping.disclaimer')}</p>
+        <p className="text-sm text-muted mt-2">{t('shopping.disclaimer')}</p>
       </div>
       <Suspense fallback={null}><RelatedTools context="comparison" /></Suspense>
     </div>

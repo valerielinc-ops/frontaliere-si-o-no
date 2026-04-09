@@ -86,7 +86,7 @@ const FaqSection: React.FC = () => {
 
       {/* Search */}
       <div className="relative">
-        <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 dark:text-slate-400" />
+        <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted" />
         <input
           type="text"
           value={searchTerm}
@@ -99,7 +99,7 @@ const FaqSection: React.FC = () => {
             }
           }}
           placeholder={t('faq.searchPlaceholder')}
-          className="w-full pl-9 pr-3 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-sm text-slate-800 dark:text-slate-200"
+          className="w-full pl-9 pr-3 py-2.5 rounded-xl border border-edge bg-surface-alt text-sm text-strong"
           aria-label={t('faq.searchPlaceholder')}
         />
       </div>
@@ -114,7 +114,7 @@ const FaqSection: React.FC = () => {
           className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
             selectedCategory === 'all'
               ? 'bg-blue-600 text-white'
-              : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700'
+              : 'bg-surface text-subtle border border-edge hover:bg-slate-50 dark:hover:bg-slate-700'
           }`}
         >
           {t('faq.allCategories')}
@@ -129,7 +129,7 @@ const FaqSection: React.FC = () => {
             className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
               selectedCategory === cat.key
                 ? 'bg-blue-600 text-white'
-                : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700'
+                : 'bg-surface text-subtle border border-edge hover:bg-slate-50 dark:hover:bg-slate-700'
             }`}
           >
             {cat.icon} {t(`faq.categories.${cat.key}`)}
@@ -138,14 +138,14 @@ const FaqSection: React.FC = () => {
       </div>
 
       {/* Results count */}
-      <p className="text-xs text-slate-500 dark:text-slate-400">
+      <p className="text-xs text-muted">
         {filteredQuestions.length} {t('faq.questionsFound')}
       </p>
 
       {/* Questions */}
       <div className="space-y-2">
         {filteredQuestions.length === 0 ? (
-          <div className="text-center py-12 text-slate-500 dark:text-slate-400">
+          <div className="text-center py-12 text-muted">
             <HelpCircle size={48} className="mx-auto mb-3 opacity-30" />
             <p className="font-semibold">{t('faq.noResults')}</p>
           </div>
@@ -156,7 +156,7 @@ const FaqSection: React.FC = () => {
             return (
               <div
                 key={q.id}
-                className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden"
+                className="bg-surface rounded-xl border border-edge overflow-hidden"
               >
                 <button
                   onClick={() => {
@@ -168,11 +168,11 @@ const FaqSection: React.FC = () => {
                   className="w-full flex items-start gap-3 p-4 text-left"
                 >
                   <span className="text-lg shrink-0 mt-0.5">{catInfo?.icon}</span>
-                  <span className="flex-1 font-semibold text-sm text-slate-800 dark:text-slate-200">{q.question}</span>
-                  {isExpanded ? <ChevronUp size={16} className="text-slate-500 dark:text-slate-400 shrink-0 mt-0.5" /> : <ChevronDown size={16} className="text-slate-500 dark:text-slate-400 shrink-0 mt-0.5" />}
+                  <span className="flex-1 font-semibold text-sm text-strong">{q.question}</span>
+                  {isExpanded ? <ChevronUp size={16} className="text-muted shrink-0 mt-0.5" /> : <ChevronDown size={16} className="text-muted shrink-0 mt-0.5" />}
                 </button>
                 {isExpanded && (
-                  <div className="px-4 pb-4 ml-10 text-sm text-slate-600 dark:text-slate-400 animate-fade-in border-t border-slate-100 dark:border-slate-700 pt-3">
+                  <div className="px-4 pb-4 ml-10 text-sm text-subtle animate-fade-in border-t border-slate-100 dark:border-slate-700 pt-3">
                     {q.answer}
                   </div>
                 )}

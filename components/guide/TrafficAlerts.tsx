@@ -214,10 +214,10 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
       </div>
 
       {/* Controls */}
-      <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
+      <div className="bg-surface rounded-xl p-4 border border-edge">
         <div className="flex items-center justify-between flex-wrap gap-3">
           <div className="flex items-center gap-4">
-            <div className="flex bg-slate-100 dark:bg-slate-700 rounded-lg p-1">
+            <div className="flex bg-surface-raised rounded-lg p-1">
               <button
                 onClick={() => setViewMode('map')}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${
@@ -240,14 +240,14 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
               </button>
             </div>
             <div className="flex items-center gap-2">
-              <Clock size={16} className="text-slate-500 dark:text-slate-400" />
-              <span className="text-sm text-slate-600 dark:text-slate-400">
+              <Clock size={16} className="text-muted" />
+              <span className="text-sm text-subtle">
                 {lastRefresh.toLocaleTimeString('it-IT')}
               </span>
             </div>
           </div>
           <div className="flex items-center gap-3">
-            <div className="hidden sm:flex items-center gap-3 text-xs text-slate-500 dark:text-slate-400">
+            <div className="hidden sm:flex items-center gap-3 text-xs text-muted">
               <span className="flex items-center gap-1"><span className="w-3 h-3 rounded-full bg-emerald-700 inline-block"></span> {t('traffic.status.green')}</span>
               <span className="flex items-center gap-1"><span className="w-3 h-3 rounded-full bg-yellow-500 inline-block"></span> {t('traffic.status.yellow')}</span>
               <span className="flex items-center gap-1"><span className="w-3 h-3 rounded-full bg-red-500 inline-block"></span> {t('traffic.status.red')}</span>
@@ -308,7 +308,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
 
       {/* MAP VIEW */}
       {viewMode === 'map' && (
-        <div className="rounded-2xl overflow-hidden border-2 border-slate-200 dark:border-slate-700 shadow-lg">
+        <div className="rounded-2xl overflow-hidden border-2 border-edge shadow-lg">
           <MapContainer
             center={mapCenter}
             zoom={11}
@@ -344,43 +344,43 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
                           className={`${STATUS_DOT_CLASSES[status]}`}
                           style={POPUP_DOT_STYLE}
                         />
-                        <h3 className="font-bold text-base text-slate-900 dark:text-slate-100" style={POPUP_TITLE_STYLE}>{crossing.name}</h3>
+                        <h3 className="font-bold text-base text-heading" style={POPUP_TITLE_STYLE}>{crossing.name}</h3>
                       </div>
 
                       <div style={POPUP_BODY_STYLE}>
                         <div style={POPUP_ROW_STYLE}>
-                          <span className="text-slate-500 dark:text-slate-400">{t('traffic.wait')}</span>
+                          <span className="text-muted">{t('traffic.wait')}</span>
                           <span className={`font-bold ${STATUS_TEXT_CLASSES[status]}`}>
                             {waitTime} min — {t(STATUS_LABEL_KEYS[status])}
                           </span>
                         </div>
                         <div style={POPUP_ROW_STYLE}>
-                          <span className="text-slate-500 dark:text-slate-400">{t('traffic.type')}</span>
+                          <span className="text-muted">{t('traffic.type')}</span>
                           <span className="font-bold" style={POPUP_CAPITALIZE_STYLE}>{crossing.type}</span>
                         </div>
                         <div style={POPUP_ROW_STYLE}>
-                          <span className="text-slate-500 dark:text-slate-400">{t('traffic.zone')}</span>
+                          <span className="text-muted">{t('traffic.zone')}</span>
                           <span className="font-bold">{crossing.canton} — {crossing.province}</span>
                         </div>
                         <div style={POPUP_ROW_STYLE}>
-                          <span className="text-slate-500 dark:text-slate-400">{t('traffic.hours')}</span>
+                          <span className="text-muted">{t('traffic.hours')}</span>
                           <span className="font-bold">{crossing.open24h ? '24/7' : t('traffic.limited')}</span>
                         </div>
                         {crossing.customsPresent && (
                           <div style={POPUP_ROW_STYLE}>
-                            <span className="text-slate-500 dark:text-slate-400">{t('traffic.customs')}</span>
-                            <span className="font-bold text-blue-600 dark:text-blue-400">{t('traffic.customsPresent')}</span>
+                            <span className="text-muted">{t('traffic.customs')}</span>
+                            <span className="font-bold text-link">{t('traffic.customsPresent')}</span>
                           </div>
                         )}
                         {traffic?.direction && (
                           <div style={POPUP_ROW_STYLE}>
-                            <span className="text-slate-500 dark:text-slate-400">{t('traffic.direction')}</span>
+                            <span className="text-muted">{t('traffic.direction')}</span>
                             <span className="font-bold">{traffic.direction}</span>
                           </div>
                         )}
                         {traffic?.source && (
                           <div style={POPUP_ROW_STYLE}>
-                            <span className="text-slate-500 dark:text-slate-400">{t('traffic.source')}</span>
+                            <span className="text-muted">{t('traffic.source')}</span>
                             <span className="font-bold">
                               {traffic.source === 'mock' ? `🎲 ${t('traffic.simulated')}` : '📍 Google Maps'}
                             </span>
@@ -404,7 +404,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
           </MapContainer>
 
           {/* Mobile legend */}
-          <div className="sm:hidden flex items-center justify-center gap-4 py-3 bg-white dark:bg-slate-800 text-xs text-slate-500 dark:text-slate-400">
+          <div className="sm:hidden flex items-center justify-center gap-4 py-3 bg-surface text-xs text-muted">
             <span className="flex items-center gap-1"><span className="w-3 h-3 rounded-full bg-emerald-700 inline-block"></span> {t('traffic.status.green')}</span>
             <span className="flex items-center gap-1"><span className="w-3 h-3 rounded-full bg-yellow-500 inline-block"></span> {t('traffic.status.yellow')}</span>
             <span className="flex items-center gap-1"><span className="w-3 h-3 rounded-full bg-red-500 inline-block"></span> {t('traffic.status.red')}</span>
@@ -431,8 +431,8 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
                 tabIndex={0}
                 onClick={() => setSelectedCrossing(isSelected ? null : crossing.name)}
                 onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setSelectedCrossing(isSelected ? null : crossing.name); }}
-                className={`text-left bg-white dark:bg-slate-800 rounded-xl border-2 p-4 hover:shadow-md transition-[color,background-color,border-color,box-shadow] cursor-pointer ${
-                  isSelected ? `${borderColor} ring-2 ring-offset-1` : 'border-slate-200 dark:border-slate-700'
+                className={`text-left bg-surface rounded-xl border-2 p-4 hover:shadow-md transition-[color,background-color,border-color,box-shadow] cursor-pointer ${
+                  isSelected ? `${borderColor} ring-2 ring-offset-1` : 'border-edge'
                 }`}
               >
                 <div className="flex items-center gap-3 mb-3">
@@ -441,7 +441,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
                   </div>
                   <div className="flex-1 min-w-0">
                     <h3 className="font-bold text-slate-800 dark:text-slate-100 truncate">{crossing.name}</h3>
-                    <p className="text-sm text-slate-500 dark:text-slate-400">{crossing.canton} — {crossing.province} · {crossing.type}</p>
+                    <p className="text-sm text-muted">{crossing.canton} — {crossing.province} · {crossing.type}</p>
                   </div>
                 </div>
 
@@ -449,22 +449,22 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
                   <span className={`text-sm font-bold ${textColor}`}>
                     {t(STATUS_LABEL_KEYS[status])} — {effectiveWait(traffic)} min
                   </span>
-                  <span className="text-sm text-slate-500 dark:text-slate-400">{traffic.direction}</span>
+                  <span className="text-sm text-muted">{traffic.direction}</span>
                 </div>
 
                 {isSelected && (
                   <div className="mt-3 pt-3 border-t border-slate-100 dark:border-slate-700 space-y-1.5 text-sm">
                     <div className="flex justify-between">
-                      <span className="text-slate-500 dark:text-slate-400">{t('traffic.hours')}</span>
+                      <span className="text-muted">{t('traffic.hours')}</span>
                       <span className="font-bold">{crossing.open24h ? '24/7' : t('traffic.limited')}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-slate-500 dark:text-slate-400">{t('traffic.customs')}</span>
+                      <span className="text-muted">{t('traffic.customs')}</span>
                       <span className="font-bold">{crossing.customsPresent ? t('traffic.yes') : t('traffic.no')}</span>
                     </div>
                     {traffic.source && (
                       <div className="flex justify-between">
-                        <span className="text-slate-500 dark:text-slate-400">{t('traffic.source')}</span>
+                        <span className="text-muted">{t('traffic.source')}</span>
                         <span className="font-bold">{traffic.source === 'mock' ? `🎲 ${t('traffic.simulated')}` : '📍 Google Maps'}</span>
                       </div>
                     )}
@@ -496,7 +496,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
         <div className="grid md:grid-cols-2 gap-4">
           <div className="p-4 bg-white/50 dark:bg-slate-900/50 rounded-xl">
             <p className="font-bold text-blue-600 mb-2">{t('traffic.tipsBestTimesTitle')}</p>
-            <ul className="space-y-1 text-sm text-slate-700 dark:text-slate-300 list-disc ml-4">
+            <ul className="space-y-1 text-sm text-body list-disc ml-4">
               <li>{t('traffic.tipsMorning')}</li>
               <li>{t('traffic.tipsEvening')}</li>
               <li>{t('traffic.tipsAvoidWeekend')}</li>
@@ -505,7 +505,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
 
           <div className="p-4 bg-white/50 dark:bg-slate-900/50 rounded-xl">
             <p className="font-bold text-blue-600 mb-2">{t('traffic.tipsAltRoutesTitle')}</p>
-            <ul className="space-y-1 text-sm text-slate-700 dark:text-slate-300 list-disc ml-4">
+            <ul className="space-y-1 text-sm text-body list-disc ml-4">
               <li>{t('traffic.tipsAvoidChiasso')}</li>
               <li>{t('traffic.tipsTryAlternatives')}</li>
               <li>{t('traffic.tipsLocalCrossings')}</li>

@@ -246,7 +246,7 @@ function formatDate(isoString: string, locale: Locale): string {
 function KpiCard(props: { label: string; value: number; accent: string }) {
   return (
     <div className="inline-flex items-baseline gap-1">
-      <span className="text-slate-500 dark:text-slate-400">{props.label}:</span>
+      <span className="text-muted">{props.label}:</span>
       <span className="font-semibold text-slate-900 dark:text-white">{props.value.toLocaleString('it-IT')}</span>
     </div>
   );
@@ -254,13 +254,13 @@ function KpiCard(props: { label: string; value: number; accent: string }) {
 
 function LeaderList(props: { title: string; icon: React.ReactNode; items: JobBoardLeader[]; valueKey: 'count' | 'added'; emptyText: string; locale: Locale }) {
   return (
-    <div className="bg-white dark:bg-slate-800 p-5 rounded-3xl border border-slate-100 dark:border-slate-700 shadow-sm">
+    <div className="bg-surface p-5 rounded-3xl border border-slate-100 dark:border-slate-700 shadow-sm">
       <h3 className="text-sm font-bold text-slate-700 dark:text-slate-200 mb-4 flex items-center gap-2">
         {props.icon}
         {props.title}
       </h3>
       {props.items.length === 0 ? (
-        <div className="rounded-2xl border border-dashed border-slate-200 dark:border-slate-700 px-4 py-6 text-sm text-slate-500 dark:text-slate-400">
+        <div className="rounded-2xl border border-dashed border-edge px-4 py-6 text-sm text-muted">
           {props.emptyText}
         </div>
       ) : (
@@ -273,7 +273,7 @@ function LeaderList(props: { title: string; icon: React.ReactNode; items: JobBoa
               onClick={(e) => navigateLeader(e, item, props.locale)}
             >
               <div className="min-w-0">
-                <div className="text-xs font-bold text-slate-500 dark:text-slate-400">#{index + 1}</div>
+                <div className="text-xs font-bold text-muted">#{index + 1}</div>
                 <div className="text-sm font-semibold text-slate-800 dark:text-slate-100 line-clamp-2">{item.name}</div>
               </div>
               <div className="shrink-0 text-sm font-bold text-indigo-600 dark:text-indigo-300">
@@ -331,7 +331,7 @@ const JobBoardStatsOverviewInner: React.FC<{ locale: Locale }> = ({ locale }) =>
 
   if (loading) {
     return (
-      <div className="bg-white dark:bg-slate-800 p-6 rounded-3xl border border-slate-100 dark:border-slate-700 shadow-sm flex items-center justify-center">
+      <div className="bg-surface p-6 rounded-3xl border border-slate-100 dark:border-slate-700 shadow-sm flex items-center justify-center">
         <Loader2 className="h-5 w-5 animate-spin text-indigo-600" />
       </div>
     );
@@ -339,7 +339,7 @@ const JobBoardStatsOverviewInner: React.FC<{ locale: Locale }> = ({ locale }) =>
 
   if (!data) {
     return (
-      <div className="bg-white dark:bg-slate-800 p-6 rounded-3xl border border-slate-100 dark:border-slate-700 shadow-sm text-sm text-slate-600 dark:text-slate-300">
+      <div className="bg-surface p-6 rounded-3xl border border-slate-100 dark:border-slate-700 shadow-sm text-sm text-slate-600 dark:text-slate-300">
         {error || copy.empty}
       </div>
     );
@@ -347,7 +347,7 @@ const JobBoardStatsOverviewInner: React.FC<{ locale: Locale }> = ({ locale }) =>
 
   return (
     <div className="space-y-6">
-      <div className="bg-white dark:bg-slate-800 p-6 rounded-3xl border border-slate-100 dark:border-slate-700 shadow-sm">
+      <div className="bg-surface p-6 rounded-3xl border border-slate-100 dark:border-slate-700 shadow-sm">
         <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
           <div className="max-w-4xl">
             <h3 className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
@@ -419,7 +419,7 @@ const JobBoardStatsOverviewInner: React.FC<{ locale: Locale }> = ({ locale }) =>
                 <div className="grid gap-3 md:grid-cols-2">
                   {topCompaniesForSeo.length > 0 ? (
                     <div className="rounded-2xl border border-slate-200/80 bg-slate-50/70 p-4 dark:border-slate-700 dark:bg-slate-900/40">
-                      <div className="text-xs font-bold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">
+                      <div className="text-xs font-bold uppercase tracking-[0.16em] text-muted">
                         {copy.companiesLabel}
                       </div>
                       <div className="mt-3 flex flex-wrap gap-2">
@@ -430,7 +430,7 @@ const JobBoardStatsOverviewInner: React.FC<{ locale: Locale }> = ({ locale }) =>
 
                   {topLocationsForSeo.length > 0 ? (
                     <div className="rounded-2xl border border-slate-200/80 bg-slate-50/70 p-4 dark:border-slate-700 dark:bg-slate-900/40">
-                      <div className="text-xs font-bold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">
+                      <div className="text-xs font-bold uppercase tracking-[0.16em] text-muted">
                         {copy.locationsLabel}
                       </div>
                       <div className="mt-3 flex flex-wrap gap-2">
@@ -444,7 +444,7 @@ const JobBoardStatsOverviewInner: React.FC<{ locale: Locale }> = ({ locale }) =>
           </div>
 
           <div className="flex flex-col items-start gap-3 self-start rounded-2xl border border-slate-200/80 bg-slate-50/80 p-4 dark:border-slate-700 dark:bg-slate-900/40">
-            <div className="text-xs font-bold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">
+            <div className="text-xs font-bold uppercase tracking-[0.16em] text-muted">
               {copy.updatedAt}
             </div>
             <div className="text-sm font-semibold text-slate-800 dark:text-slate-100 whitespace-nowrap">
@@ -457,7 +457,7 @@ const JobBoardStatsOverviewInner: React.FC<{ locale: Locale }> = ({ locale }) =>
                 void load(true);
               }}
               disabled={refreshing}
-              className="inline-flex items-center gap-2 px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 text-xs font-bold text-slate-700 dark:text-slate-200 hover:border-indigo-300 dark:hover:border-indigo-500"
+              className="inline-flex items-center gap-2 px-3 py-2 rounded-xl border border-edge text-xs font-bold text-slate-700 dark:text-slate-200 hover:border-indigo-300 dark:hover:border-indigo-500"
               title={copy.refresh}
             >
               <RefreshCw className={`w-4 h-4 ${refreshing ? 'animate-spin' : ''}`} />
@@ -475,7 +475,7 @@ const JobBoardStatsOverviewInner: React.FC<{ locale: Locale }> = ({ locale }) =>
         <KpiCard label={copy.activeCompanies} value={data.totals.activeCompanies} accent="" />
       </div>
 
-      <div className="bg-white dark:bg-slate-800 p-5 rounded-3xl border border-slate-100 dark:border-slate-700 shadow-sm">
+      <div className="bg-surface p-5 rounded-3xl border border-slate-100 dark:border-slate-700 shadow-sm">
         <h3 className="text-sm font-bold text-slate-700 dark:text-slate-200 mb-6 flex items-center gap-2">
           <TrendingUp size={16} className="text-indigo-600" />
           {copy.chartTitle}

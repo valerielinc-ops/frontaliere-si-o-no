@@ -38,7 +38,7 @@ const LazyLeafletMap = ({ children }: { children: (leaflet: { MapContainer: any,
     });
     return () => { mounted = false; };
   }, []);
-  if (!leaflet) return <div className="flex items-center justify-center h-[500px]"><span className="text-slate-500 dark:text-slate-400 text-sm">Loading map…</span></div>;
+  if (!leaflet) return <div className="flex items-center justify-center h-[500px]"><span className="text-muted text-sm">Loading map…</span></div>;
   return <>{children(leaflet)}</>;
 };
 import { MapPin, Clock, TrendingUp, Home, Car, ShoppingCart, FileText, AlertCircle, CheckCircle2, Info, ArrowRight, Building2, Landmark, Shield, Users, Navigation, Timer, BarChart3, Euro, Heart, Briefcase, Calendar, Mountain, GraduationCap, Baby, BookOpen, LifeBuoy, Search, Filter, Star, ExternalLink, Rocket, X, SmilePlus, Backpack } from 'lucide-react';
@@ -140,7 +140,7 @@ const InfoCard = ({ icon: Icon, title, children, color = "blue" }: any) => {
   };
 
   return (
-    <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 sm:p-6 shadow-sm hover:shadow-md transition-shadow">
+    <div className="bg-surface rounded-2xl border border-edge p-5 sm:p-6 shadow-sm hover:shadow-md transition-shadow">
       <div className="flex items-center gap-3 mb-4">
         <div className={`p-2.5 bg-gradient-to-br ${colorClasses[color as keyof typeof colorClasses]} rounded-xl`}>
           <Icon className="text-white" size={20} />
@@ -161,7 +161,7 @@ const SectionHeader = ({ icon: Icon, title, subtitle }: any) => (
     </div>
     <div>
       <h2 className="text-2xl sm:text-3xl font-bold text-slate-800 dark:text-slate-100">{title}</h2>
-      {subtitle && <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">{subtitle}</p>}
+      {subtitle && <p className="text-sm text-muted mt-1">{subtitle}</p>}
     </div>
   </div>
 );
@@ -251,7 +251,7 @@ const SchoolDirectory: React.FC<{ t: (key: string) => string }> = ({ t }) => {
   }, {} as Record<string, import('@/components/vita/TicinoSchoolsData').SchoolEntry[]>), [filteredSchools]);
 
   return (
-    <div className="bg-white dark:bg-slate-800 rounded-2xl border-2 border-indigo-200 dark:border-indigo-800 overflow-hidden">
+    <div className="bg-surface rounded-2xl border-2 border-indigo-200 dark:border-indigo-800 overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-teal-600 via-emerald-500 to-warm-600 p-5 text-white">
         <div className="flex items-center gap-3">
@@ -264,17 +264,17 @@ const SchoolDirectory: React.FC<{ t: (key: string) => string }> = ({ t }) => {
       </div>
 
       {/* Filters */}
-      <div className="p-4 border-b border-slate-200 dark:border-slate-700 space-y-3">
+      <div className="p-4 border-b border-edge space-y-3">
         {/* Search */}
         <div className="relative">
-          <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 dark:text-slate-400" />
+          <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted" />
           <input
             type="text"
             value={schoolSearch}
             onChange={(e) => setSchoolSearch(e.target.value)}
             placeholder={t('guide.schools.searchPlaceholder') || 'Cerca per nome o città...'}
             aria-label={t('guide.schools.searchPlaceholder') || 'Cerca per nome o città...'}
-            className="w-full pl-10 pr-4 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+            className="w-full pl-10 pr-4 py-2 bg-surface-alt border border-edge rounded-lg text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
           />
         </div>
 
@@ -282,7 +282,7 @@ const SchoolDirectory: React.FC<{ t: (key: string) => string }> = ({ t }) => {
         <div className="flex flex-wrap gap-1.5">
           <button
             onClick={() => setSchoolTypeFilter('all')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${schoolTypeFilter === 'all' ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300'}`}
+            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${schoolTypeFilter === 'all' ? 'bg-indigo-600 text-white' : 'bg-surface-raised text-slate-600 dark:text-slate-300'}`}
           >
             {t('calendar.all') || 'Tutte'}
           </button>
@@ -290,7 +290,7 @@ const SchoolDirectory: React.FC<{ t: (key: string) => string }> = ({ t }) => {
             <button
               key={key}
               onClick={() => setSchoolTypeFilter(key)}
-              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${schoolTypeFilter === key ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300'}`}
+              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${schoolTypeFilter === key ? 'bg-indigo-600 text-white' : 'bg-surface-raised text-slate-600 dark:text-slate-300'}`}
             >
               <cfg.Icon size={14} className="shrink-0" /> {cfg.label}
             </button>
@@ -303,7 +303,7 @@ const SchoolDirectory: React.FC<{ t: (key: string) => string }> = ({ t }) => {
             <button
               key={n}
               onClick={() => setSchoolNatureFilter(n)}
-              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${schoolNatureFilter === n ? 'bg-slate-800 dark:bg-slate-100 text-white dark:text-slate-900' : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300'}`}
+              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${schoolNatureFilter === n ? 'bg-slate-800 dark:bg-slate-100 text-white dark:text-slate-900' : 'bg-surface-raised text-slate-600 dark:text-slate-300'}`}
             >
               {n === 'all' ? (t('calendar.all') || 'Tutte') : n === 'pubblica' ? '🏛️ Pubblica' : '🏫 Privata'}
             </button>
@@ -323,12 +323,12 @@ const SchoolDirectory: React.FC<{ t: (key: string) => string }> = ({ t }) => {
               <div key={type}>
                 <div className="flex items-center gap-2 mb-2">
                   <cfg.Icon size={18} className="text-slate-600 dark:text-slate-300" />
-                  <h4 className="font-bold text-sm text-slate-700 dark:text-slate-300">{cfg.label}</h4>
-                  <span className="text-xs font-bold bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 px-2 py-0.5 rounded-full">{schools.length}</span>
+                  <h4 className="font-bold text-sm text-body">{cfg.label}</h4>
+                  <span className="text-xs font-bold bg-slate-200 dark:bg-slate-700 text-body px-2 py-0.5 rounded-full">{schools.length}</span>
                 </div>
                 <div className="space-y-1.5">
                   {schools.map((school, i) => (
-                    <div key={i} className="bg-slate-50 dark:bg-slate-900 rounded-xl p-3 border border-slate-200 dark:border-slate-700 hover:shadow-sm transition-[color,background-color,border-color,box-shadow]">
+                    <div key={i} className="bg-surface-alt rounded-xl p-3 border border-edge hover:shadow-sm transition-[color,background-color,border-color,box-shadow]">
                       <div className="flex items-start justify-between gap-2">
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2 flex-wrap">
@@ -337,7 +337,7 @@ const SchoolDirectory: React.FC<{ t: (key: string) => string }> = ({ t }) => {
                               {school.nature}
                             </span>
                           </div>
-                          <div className="flex items-center gap-3 mt-1 text-xs text-slate-500 dark:text-slate-400">
+                          <div className="flex items-center gap-3 mt-1 text-xs text-muted">
                             <span className="flex items-center gap-1"><MapPin size={11} /> {school.city}</span>
                             {school.address && <span className="hidden sm:inline">{school.address}</span>}
                             {school.phone && <span className="flex items-center gap-1">📞 {school.phone}</span>}
@@ -369,7 +369,7 @@ const SchoolDirectory: React.FC<{ t: (key: string) => string }> = ({ t }) => {
           })}
 
         {filteredSchools.length === 0 && (
-          <div className="text-center py-8 text-slate-500 dark:text-slate-400">
+          <div className="text-center py-8 text-muted">
             <GraduationCap size={32} className="mx-auto mb-2 opacity-30" />
             <p className="text-xs font-medium">{t('guide.schools.noSchoolsFound') || 'Nessuna scuola trovata con i filtri selezionati'}</p>
           </div>
@@ -380,11 +380,11 @@ const SchoolDirectory: React.FC<{ t: (key: string) => string }> = ({ t }) => {
 };
 
 const MunicipalityDetailPanel: React.FC<MunicipalityDetailPanelProps> = ({ municipality, t, onClose }) => (
-  <div className="bg-white dark:bg-slate-800 rounded-2xl border-2 border-indigo-500 dark:border-indigo-400 p-5 sm:p-6 shadow-lg animate-fade-in">
+  <div className="bg-surface rounded-2xl border-2 border-indigo-500 dark:border-indigo-400 p-5 sm:p-6 shadow-lg animate-fade-in">
     <div className="flex items-start justify-between gap-4 mb-5">
       <div>
         <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100">{municipality.name}</h3>
-        <p className="text-sm text-slate-500 dark:text-slate-400 mt-0.5">
+        <p className="text-sm text-muted mt-0.5">
           {municipality.province} · {
             municipality.type === 'both'
               ? `${t('guide.new')} + ${t('guide.old')}`
@@ -394,7 +394,7 @@ const MunicipalityDetailPanel: React.FC<MunicipalityDetailPanelProps> = ({ munic
       </div>
       <button
         onClick={(e) => { e.stopPropagation(); onClose(); }}
-        className="p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors text-slate-500 dark:text-slate-400 flex-shrink-0"
+        className="p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors text-muted flex-shrink-0"
         aria-label={t('guide.municipalities.detail.close')}
       >
         <X size={20} />
@@ -403,27 +403,27 @@ const MunicipalityDetailPanel: React.FC<MunicipalityDetailPanelProps> = ({ munic
 
     <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-5">
       <div className="bg-warm-50 dark:bg-warm-950 rounded-xl p-3">
-        <p className="text-sm text-slate-500 dark:text-slate-400 mb-1">{t('guide.municipalities.detail.fascia')}</p>
+        <p className="text-sm text-muted mb-1">{t('guide.municipalities.detail.fascia')}</p>
         <p className="font-bold text-slate-800 dark:text-slate-100">Fascia {municipality.fascia}</p>
       </div>
       <div className="bg-warm-50 dark:bg-warm-950 rounded-xl p-3">
-        <p className="text-sm text-slate-500 dark:text-slate-400 mb-1">{t('guide.municipalities.detail.irpef')}</p>
+        <p className="text-sm text-muted mb-1">{t('guide.municipalities.detail.irpef')}</p>
         <p className="font-bold text-slate-800 dark:text-slate-100">{municipality.irpefAddizionale}%</p>
       </div>
-      <div className="bg-slate-50 dark:bg-slate-900/50 rounded-xl p-3">
-        <p className="text-sm text-slate-500 dark:text-slate-400 mb-1">{t('guide.municipalities.detail.avgRent')}</p>
+      <div className="bg-surface-alt/50 rounded-xl p-3">
+        <p className="text-sm text-muted mb-1">{t('guide.municipalities.detail.avgRent')}</p>
         <p className="font-bold text-slate-800 dark:text-slate-100">€{municipality.avgRentMonthly}/{t('guide.municipalities.detail.perMonth')}</p>
       </div>
-      <div className="bg-slate-50 dark:bg-slate-900/50 rounded-xl p-3">
-        <p className="text-sm text-slate-500 dark:text-slate-400 mb-1">{t('guide.municipalities.detail.distance')}</p>
+      <div className="bg-surface-alt/50 rounded-xl p-3">
+        <p className="text-sm text-muted mb-1">{t('guide.municipalities.detail.distance')}</p>
         <p className="font-bold text-slate-800 dark:text-slate-100">{municipality.distance} km</p>
       </div>
-      <div className="bg-slate-50 dark:bg-slate-900/50 rounded-xl p-3">
-        <p className="text-sm text-slate-500 dark:text-slate-400 mb-1">{t('guide.municipalities.detail.borderCrossing')}</p>
+      <div className="bg-surface-alt/50 rounded-xl p-3">
+        <p className="text-sm text-muted mb-1">{t('guide.municipalities.detail.borderCrossing')}</p>
         <p className="font-bold text-slate-800 dark:text-slate-100 text-sm">{municipality.borderCrossing}</p>
       </div>
-      <div className="bg-slate-50 dark:bg-slate-900/50 rounded-xl p-3">
-        <p className="text-sm text-slate-500 dark:text-slate-400 mb-1">{t('guide.municipalities.detail.population')}</p>
+      <div className="bg-surface-alt/50 rounded-xl p-3">
+        <p className="text-sm text-muted mb-1">{t('guide.municipalities.detail.population')}</p>
         <p className="font-bold text-slate-800 dark:text-slate-100">{municipality.population.toLocaleString('it-IT')}</p>
       </div>
     </div>
@@ -461,8 +461,8 @@ const MunicipalityDetailPanel: React.FC<MunicipalityDetailPanelProps> = ({ munic
       </button>
     </div>
 
-    <div className="border-t border-slate-200 dark:border-slate-700 pt-4">
-      <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-3">{t('guide.municipalities.detail.links')}</p>
+    <div className="border-t border-edge pt-4">
+      <p className="text-xs font-semibold text-muted uppercase tracking-wider mb-3">{t('guide.municipalities.detail.links')}</p>
       <div className="flex flex-wrap gap-x-4 gap-y-2">
         <button
           onClick={() => { Analytics.trackUIInteraction('guida', 'municipalities', 'editorial_link', 'click', 'fisco'); window.dispatchEvent(new CustomEvent('navigate-tab', { detail: { tab: 'fisco' } })); }}
@@ -657,16 +657,16 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
           />
 
           {/* Filtri e Ordinamento */}
-          <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5">
+          <div className="bg-surface rounded-2xl border border-edge p-5">
             <div className="flex flex-wrap gap-4 items-center justify-between">
               <div className="flex items-center gap-2">
-                <span className="text-sm font-bold text-slate-700 dark:text-slate-300">{t('guide.sortBy')}:</span>
+                <span className="text-sm font-bold text-body">{t('guide.sortBy')}:</span>
                 <button
                   onClick={() => setSortBy('distance')}
                   className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
                     sortBy === 'distance'
                       ? 'bg-indigo-600 text-white shadow-md'
-                      : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600'
+                      : 'bg-surface-raised text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600'
                   }`}
                 >
                   📍 {t('guide.distance')}
@@ -676,20 +676,20 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                   className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
                     sortBy === 'population'
                       ? 'bg-indigo-600 text-white shadow-md'
-                      : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600'
+                      : 'bg-surface-raised text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600'
                   }`}
                 >
                   👥 {t('guide.population')}
                 </button>
               </div>
               <div className="flex items-center gap-2">
-                <span className="text-sm font-bold text-slate-700 dark:text-slate-300">{t('guide.show')}:</span>
+                <span className="text-sm font-bold text-body">{t('guide.show')}:</span>
                 <button
                   onClick={() => setFilterType('all')}
                   className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
                     filterType === 'all'
                       ? 'bg-purple-600 text-white shadow-md'
-                      : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600'
+                      : 'bg-surface-raised text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600'
                   }`}
                 >
                   {t('guide.all')}
@@ -699,7 +699,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                   className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
                     filterType === 'new'
                       ? 'bg-blue-600 text-white shadow-md'
-                      : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600'
+                      : 'bg-surface-raised text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600'
                   }`}
                 >
                   {t('guide.newWithin20km')}
@@ -709,7 +709,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                   className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
                     filterType === 'old'
                       ? 'bg-orange-600 text-white shadow-md'
-                      : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600'
+                      : 'bg-surface-raised text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600'
                   }`}
                 >
                   {t('guide.oldBeyond20km')}
@@ -717,8 +717,8 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
               </div>
             </div>
             {/* Province filter */}
-            <div className="flex flex-wrap gap-2 items-center mt-3 pt-3 border-t border-slate-200 dark:border-slate-700">
-              <span className="text-sm font-bold text-slate-700 dark:text-slate-300">{t('guide.province')}:</span>
+            <div className="flex flex-wrap gap-2 items-center mt-3 pt-3 border-t border-edge">
+              <span className="text-sm font-bold text-body">{t('guide.province')}:</span>
               {['all', 'CO', 'VA', 'VB', 'SO', 'LC'].map(p => (
                 <button
                   key={p}
@@ -726,7 +726,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                   className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
                     filterProvince === p
                       ? 'bg-emerald-600 text-white shadow-md'
-                      : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600'
+                      : 'bg-surface-raised text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600'
                   }`}
                 >
                   {p === 'all' ? t('guide.all') : PROVINCE_NAMES[p]}
@@ -772,19 +772,19 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                           </span>
                         </div>
                         <div className="grid sm:grid-cols-2 gap-3 text-sm">
-                          <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300">
+                          <div className="flex items-center gap-2 text-body">
                             <MapPin size={16} className="text-indigo-600" />
                             <span><strong>{t('guide.province')}:</strong> {m.province}</span>
                           </div>
-                          <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300">
+                          <div className="flex items-center gap-2 text-body">
                             <Navigation size={16} className="text-emerald-700" />
                             <span><strong>{t('guide.distance')}:</strong> {m.distance} {t('guide.kmFromBorder')}</span>
                           </div>
-                          <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300">
+                          <div className="flex items-center gap-2 text-body">
                             <Car size={16} className="text-orange-600" />
                             <span><strong>{t('guide.borderCrossing')}:</strong> {m.borderCrossing}</span>
                           </div>
-                          <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300">
+                          <div className="flex items-center gap-2 text-body">
                             <Users size={16} className="text-purple-600" />
                             <span><strong>{t('guide.population')}:</strong> {m.population.toLocaleString('it-IT')}</span>
                           </div>
@@ -809,7 +809,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
           </div>
 
           {/* Mappa Interattiva */}
-          <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 sm:p-6 overflow-hidden">
+          <div className="bg-surface rounded-2xl border border-edge p-5 sm:p-6 overflow-hidden">
             <div className="flex items-center gap-3 mb-4">
               <div className="p-2 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl">
                 <MapPin className="text-white" size={20} />
@@ -820,21 +820,21 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
             <div className="flex gap-4 mb-4 flex-wrap text-sm">
               <div className="flex items-center gap-2">
                 <div className="w-4 h-4 rounded-full bg-blue-600"></div>
-                <span className="text-slate-700 dark:text-slate-300">{t('guide.legendNewOnly')}</span>
+                <span className="text-body">{t('guide.legendNewOnly')}</span>
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-4 h-4 rounded-full bg-orange-600"></div>
-                <span className="text-slate-700 dark:text-slate-300">{t('guide.legendOldOnly')}</span>
+                <span className="text-body">{t('guide.legendOldOnly')}</span>
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-4 h-4 rounded-full bg-purple-600"></div>
-                <span className="text-slate-700 dark:text-slate-300">{t('guide.legendBoth')}</span>
+                <span className="text-body">{t('guide.legendBoth')}</span>
               </div>
             </div>
-            <Suspense fallback={<div className="flex items-center justify-center h-[500px]"><span className="text-slate-500 dark:text-slate-400 text-sm">Loading map…</span></div>}>
+            <Suspense fallback={<div className="flex items-center justify-center h-[500px]"><span className="text-muted text-sm">Loading map…</span></div>}>
               <LazyLeafletMap>
                 {({ MapContainer, TileLayer, Marker, Popup, L }) => (
-                  <div className="h-[500px] rounded-xl overflow-hidden border-2 border-slate-200 dark:border-slate-700">
+                  <div className="h-[500px] rounded-xl overflow-hidden border-2 border-edge">
                     <MapContainer
                       center={[46.0, 9.2]}
                       zoom={8}
@@ -909,8 +909,8 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
           />
 
           {/* Smart Filters */}
-          <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 shadow-sm">
-            <h3 className="text-base font-semibold text-slate-700 dark:text-slate-300 mb-4 flex items-center gap-2">
+          <div className="bg-surface rounded-2xl border border-edge p-5 shadow-sm">
+            <h3 className="text-base font-semibold text-body mb-4 flex items-center gap-2">
               <BarChart3 size={16} className="text-indigo-600" />
               {t('guide.border.smartFilters')}
             </h3>
@@ -976,7 +976,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
 
             {/* Time selector */}
             <div className="mt-4 p-4 bg-gradient-to-r from-teal-50 to-emerald-50 dark:from-teal-900/20 dark:to-emerald-900/20 rounded-xl border border-teal-200 dark:border-teal-800">
-              <div className="text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">
+              <div className="text-sm font-bold text-body mb-2">
                 💡 {t('guide.border.timeAdvice')}:
               </div>
               <div className="flex gap-2">
@@ -989,7 +989,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                     }).length;
                     Analytics.trackBorderTimeSelection('morning', count);
                   }}
-                  className={`flex-1 px-3 py-2 rounded-lg text-xs font-bold transition-colors ${selectedTime === 'morning' ? 'bg-orange-500 text-white' : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300'}`}
+                  className={`flex-1 px-3 py-2 rounded-lg text-xs font-bold transition-colors ${selectedTime === 'morning' ? 'bg-orange-500 text-white' : 'bg-surface text-slate-600 dark:text-slate-300'}`}
                 >
                   🌅 {t('guide.border.morning')} (7-9)
                 </button>
@@ -1002,7 +1002,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                     }).length;
                     Analytics.trackBorderTimeSelection('evening', count);
                   }}
-                  className={`flex-1 px-3 py-2 rounded-lg text-xs font-bold transition-colors ${selectedTime === 'evening' ? 'bg-purple-500 text-white' : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300'}`}
+                  className={`flex-1 px-3 py-2 rounded-lg text-xs font-bold transition-colors ${selectedTime === 'evening' ? 'bg-purple-500 text-white' : 'bg-surface text-slate-600 dark:text-slate-300'}`}
                 >
                   🌆 {t('guide.border.evening')} (17-19)
                 </button>
@@ -1012,7 +1012,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                     const count = borderCrossings.filter(b => b.hours === '24h' && b.traffic === 'low').length;
                     Analytics.trackBorderTimeSelection('night', count);
                   }}
-                  className={`flex-1 px-3 py-2 rounded-lg text-xs font-bold transition-colors ${selectedTime === 'night' ? 'bg-indigo-500 text-white' : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300'}`}
+                  className={`flex-1 px-3 py-2 rounded-lg text-xs font-bold transition-colors ${selectedTime === 'night' ? 'bg-indigo-500 text-white' : 'bg-surface text-slate-600 dark:text-slate-300'}`}
                 >
                   🌙 {t('guide.border.night')}
                 </button>
@@ -1021,15 +1021,15 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
           </div>
 
           {/* Interactive Map */}
-          <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 shadow-sm">
-            <h3 className="text-base font-semibold text-slate-700 dark:text-slate-300 mb-4 flex items-center gap-2">
+          <div className="bg-surface rounded-2xl border border-edge p-5 shadow-sm">
+            <h3 className="text-base font-semibold text-body mb-4 flex items-center gap-2">
               <MapPin size={16} className="text-red-500" />
               {t('guide.border.interactiveMap')}
             </h3>
-            <Suspense fallback={<div className="flex items-center justify-center h-[500px]"><span className="text-slate-500 dark:text-slate-400 text-sm">Loading map…</span></div>}>
+            <Suspense fallback={<div className="flex items-center justify-center h-[500px]"><span className="text-muted text-sm">Loading map…</span></div>}>
               <LazyLeafletMap>
                 {({ MapContainer, TileLayer, Marker, Popup, L }) => (
-                  <div className="h-[500px] rounded-xl overflow-hidden border-2 border-slate-200 dark:border-slate-700">
+                  <div className="h-[500px] rounded-xl overflow-hidden border-2 border-edge">
                     <MapContainer center={[45.87, 8.95]} zoom={10} style={{ height: '100%', width: '100%' }}>
                       <TileLayer
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -1063,12 +1063,12 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                               <Popup>
                                 <div className="text-sm min-w-[200px]">
                                   <div className="font-bold text-slate-800 dark:text-slate-100 mb-1">{border.name}</div>
-                                  <div className="text-sm text-slate-600 dark:text-slate-400 mb-2">📍 {border.italianSide}</div>
+                                  <div className="text-sm text-subtle mb-2">📍 {border.italianSide}</div>
                                   <div className="text-xs space-y-1">
                                     <div><strong>🌅 {t('guide.border.morning')}:</strong> {border.avgWaitMorning}</div>
                                     <div><strong>🌆 {t('guide.border.evening')}:</strong> {border.avgWaitEvening}</div>
                                     <div><strong>⏰ {t('guide.border.hours')}:</strong> {t(border.hours)}</div>
-                                    <div className="pt-2 border-t border-slate-200 dark:border-slate-700">
+                                    <div className="pt-2 border-t border-edge">
                                       <strong>💡</strong> {t(border.tips)}
                                     </div>
                                   </div>
@@ -1109,7 +1109,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                 return (
                   <div 
                     key={idx} 
-                    className={`bg-white dark:bg-slate-800 rounded-2xl border-2 p-5 hover:shadow-lg transition-[color,background-color,border-color,box-shadow] ${isRecommended ? 'border-emerald-500 ring-2 ring-emerald-500/20' : 'border-slate-200 dark:border-slate-700'}`}
+                    className={`bg-surface rounded-2xl border-2 p-5 hover:shadow-lg transition-[color,background-color,border-color,box-shadow] ${isRecommended ? 'border-emerald-500 ring-2 ring-emerald-500/20' : 'border-edge'}`}
                   >
                     {isRecommended && (
                       <div className="mb-3 px-3 py-1.5 bg-emerald-700 text-white text-xs font-bold rounded-full inline-flex items-center gap-1.5">
@@ -1123,25 +1123,25 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                       </div>
                       <div className="flex-1">
                         <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100">{border.name}</h3>
-                        <p className="text-sm text-slate-500 dark:text-slate-400">📍 {border.italianSide}</p>
+                        <p className="text-sm text-muted">📍 {border.italianSide}</p>
                       </div>
                     </div>
 
                     <div className="space-y-2">
                       <div className="flex items-center justify-between">
                         <span className="text-sm text-slate-600 dark:text-slate-300">{t('guide.border.waitMorning')} (🌅 7-9)</span>
-                        <span className={`text-sm font-bold ${selectedTime === 'morning' ? 'text-orange-600' : 'text-slate-600 dark:text-slate-400'}`}>{border.avgWaitMorning}</span>
+                        <span className={`text-sm font-bold ${selectedTime === 'morning' ? 'text-orange-600' : 'text-subtle'}`}>{border.avgWaitMorning}</span>
                       </div>
                       <div className="flex items-center justify-between">
                         <span className="text-sm text-slate-600 dark:text-slate-300">{t('guide.border.waitEvening')} (🌆 17-19)</span>
-                        <span className={`text-sm font-bold ${selectedTime === 'evening' ? 'text-purple-600' : 'text-slate-600 dark:text-slate-400'}`}>{border.avgWaitEvening}</span>
+                        <span className={`text-sm font-bold ${selectedTime === 'evening' ? 'text-purple-600' : 'text-subtle'}`}>{border.avgWaitEvening}</span>
                       </div>
-                      <div className="pt-2 border-t border-slate-200 dark:border-slate-700">
-                        <div className="text-sm text-slate-500 dark:text-slate-400 mb-1">⏰ {t('guide.border.openingHours')}</div>
+                      <div className="pt-2 border-t border-edge">
+                        <div className="text-sm text-muted mb-1">⏰ {t('guide.border.openingHours')}</div>
                         <div className={`text-sm font-semibold ${border.hours === '24h' ? 'text-emerald-700' : 'text-orange-600'}`}>{t(border.hours)}</div>
                       </div>
-                      <div className="pt-2 border-t border-slate-200 dark:border-slate-700">
-                        <div className="text-sm text-slate-500 dark:text-slate-400 mb-1">🔴 {t('guide.border.peakHours')}</div>
+                      <div className="pt-2 border-t border-edge">
+                        <div className="text-sm text-muted mb-1">🔴 {t('guide.border.peakHours')}</div>
                         <div className="text-xs font-semibold text-slate-800 dark:text-slate-100">{t(border.peak)}</div>
                       </div>
                       <div className="p-2.5 bg-warm-50 dark:bg-warm-950 rounded-lg border border-warm-200 dark:border-warm-800">
@@ -1157,24 +1157,24 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
 
           <InfoCard icon={Clock} title={t('guide.border.travelTimes')} color="blue">
             <div className="grid sm:grid-cols-2 gap-3">
-              <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-lg">
-                <div className="text-sm text-slate-500 dark:text-slate-400 mb-1">Como → Lugano</div>
+              <div className="p-3 bg-surface-alt rounded-lg">
+                <div className="text-sm text-muted mb-1">Como → Lugano</div>
                 <div className="text-lg font-bold text-blue-600">25-40 min</div>
               </div>
-              <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-lg">
-                <div className="text-sm text-slate-500 dark:text-slate-400 mb-1">Varese → Mendrisio</div>
+              <div className="p-3 bg-surface-alt rounded-lg">
+                <div className="text-sm text-muted mb-1">Varese → Mendrisio</div>
                 <div className="text-lg font-bold text-blue-600">20-35 min</div>
               </div>
-              <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-lg">
-                <div className="text-sm text-slate-500 dark:text-slate-400 mb-1">Varese → Lugano</div>
+              <div className="p-3 bg-surface-alt rounded-lg">
+                <div className="text-sm text-muted mb-1">Varese → Lugano</div>
                 <div className="text-lg font-bold text-blue-600">30-45 min</div>
               </div>
-              <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-lg">
-                <div className="text-sm text-slate-500 dark:text-slate-400 mb-1">Milano → Lugano</div>
+              <div className="p-3 bg-surface-alt rounded-lg">
+                <div className="text-sm text-muted mb-1">Milano → Lugano</div>
                 <div className="text-lg font-bold text-blue-600">60-90 min</div>
               </div>
             </div>
-            <p className="text-sm text-slate-500 dark:text-slate-400 mt-3">
+            <p className="text-sm text-muted mt-3">
               * {t('guide.border.travelTimesNote')}
             </p>
           </InfoCard>
@@ -1337,7 +1337,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                     <CheckCircle2 size={18} className="text-emerald-700" />
                     <strong className="text-emerald-700 dark:text-emerald-300">✅ {t('guide.livingCH.capitalGainTitle')}</strong>
                   </div>
-                  <p className="text-sm text-slate-700 dark:text-slate-300 mb-2">
+                  <p className="text-sm text-body mb-2">
                     {t('guide.livingCH.capitalGainDesc')}
                   </p>
                   <p className="text-sm text-slate-600 dark:text-slate-300">
@@ -1350,7 +1350,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                     <AlertCircle size={18} className="text-orange-600" />
                     <strong className="text-orange-700 dark:text-orange-300">⚠️ {t('guide.livingCH.wealthTaxTitle')}</strong>
                   </div>
-                  <p className="text-sm text-slate-700 dark:text-slate-300 mb-2">
+                  <p className="text-sm text-body mb-2">
                     {t('guide.livingCH.wealthTaxDesc')}
                   </p>
                   <div className="text-xs space-y-1 text-slate-600 dark:text-slate-300 mb-3">
@@ -1369,11 +1369,11 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                   </div>
                   
                   {/* Ticino progressive brackets table */}
-                  <div className="mt-3 p-3 bg-white dark:bg-slate-900/50 rounded-lg border border-orange-100 dark:border-orange-900">
+                  <div className="mt-3 p-3 bg-surface/50 rounded-lg border border-orange-100 dark:border-orange-900">
                     <p className="text-xs font-bold text-orange-700 dark:text-orange-300 mb-2">{t('guide.livingCH.wealthTaxBrackets')}</p>
                     <div className="grid grid-cols-2 gap-1 text-xs">
-                      <span className="font-semibold text-slate-700 dark:text-slate-300">{t('guide.livingCH.wealthBracketRange')}</span>
-                      <span className="font-semibold text-slate-700 dark:text-slate-300">{t('guide.livingCH.wealthBracketRate')}</span>
+                      <span className="font-semibold text-body">{t('guide.livingCH.wealthBracketRange')}</span>
+                      <span className="font-semibold text-body">{t('guide.livingCH.wealthBracketRate')}</span>
                       <span className="text-slate-600 dark:text-slate-300">CHF 0 – 200.000</span>
                       <span className="text-emerald-700 dark:text-emerald-400">0‰ ({t('guide.livingCH.wealthExempt')})</span>
                       <span className="text-slate-600 dark:text-slate-300">CHF 200.001 – 300.000</span>
@@ -1387,7 +1387,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                     </div>
                   </div>
 
-                  <div className="mt-3 text-sm text-slate-500 dark:text-slate-400 space-y-1">
+                  <div className="mt-3 text-sm text-muted space-y-1">
                     <p>🏠 <strong>{t('guide.livingCH.wealthTaxableAssets')}:</strong> {t('guide.livingCH.wealthTaxableAssetsDesc')}</p>
                     <p>🪪 <strong>{t('guide.livingCH.wealthPermitB')}:</strong> {t('guide.livingCH.wealthPermitBDesc')}</p>
                   </div>
@@ -1402,7 +1402,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                     <CheckCircle2 size={18} className="text-purple-600" />
                     <strong className="text-purple-700 dark:text-purple-300">✨ {t('guide.livingCH.taxFreeRight')}</strong>
                   </div>
-                  <p className="text-sm text-slate-700 dark:text-slate-300 mb-3">
+                  <p className="text-sm text-body mb-3">
                     {t('guide.livingCH.taxFreeDesc')}
                   </p>
                   <div className="space-y-2 text-xs text-slate-600 dark:text-slate-300">
@@ -1452,7 +1452,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
           {/* Religious Places in Ticino */}
           <InfoCard icon={Landmark} title={t('guide.livingCH.religiousTitle')} color="purple">
             <div className="space-y-4">
-              <p className="text-sm text-slate-700 dark:text-slate-300">{t('guide.livingCH.religiousIntro')}</p>
+              <p className="text-sm text-body">{t('guide.livingCH.religiousIntro')}</p>
 
               {/* Catholic */}
               <div>
@@ -1639,7 +1639,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
           {/* Religious Places in Italian border region */}
           <InfoCard icon={Landmark} title={t('guide.livingIT.religiousTitle')} color="purple">
             <div className="space-y-4">
-              <p className="text-sm text-slate-700 dark:text-slate-300">{t('guide.livingIT.religiousIntro')}</p>
+              <p className="text-sm text-body">{t('guide.livingIT.religiousIntro')}</p>
 
               {/* Catholic */}
               <div>
@@ -1739,7 +1739,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                   <img src="/images/places/monte-san-salvatore.webp" alt="Monte San Salvatore" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" width={400} height={128} />
                   <div className="font-bold text-emerald-700 dark:text-emerald-300 mb-1">🏔️ Monte San Salvatore</div>
                   <p className="text-xs">{t('guide.places.sanSalvatore')}</p>
-                  <div className="mt-2 flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+                  <div className="mt-2 flex items-center gap-2 text-xs text-muted">
                     <MapPin size={12} /> Lugano · <Clock size={12} /> {t('guide.places.funicular')}: 12 min
                   </div>
                 </div>
@@ -1747,7 +1747,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                   <img src="/images/places/monte-bre.webp" alt="Monte Brè" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" width={400} height={128} />
                   <div className="font-bold text-emerald-700 dark:text-emerald-300 mb-1">🏔️ Monte Brè</div>
                   <p className="text-xs">{t('guide.places.monteBreDesc')}</p>
-                  <div className="mt-2 flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+                  <div className="mt-2 flex items-center gap-2 text-xs text-muted">
                     <MapPin size={12} /> Lugano · <Clock size={12} /> {t('guide.places.funicular')}: 15 min
                   </div>
                 </div>
@@ -1755,7 +1755,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                   <img src="/images/places/monte-generoso.webp" alt="Monte Generoso" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" width={400} height={128} />
                   <div className="font-bold text-emerald-700 dark:text-emerald-300 mb-1">🏔️ Monte Generoso</div>
                   <p className="text-xs">{t('guide.places.monteGeneroso')}</p>
-                  <div className="mt-2 flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+                  <div className="mt-2 flex items-center gap-2 text-xs text-muted">
                     <MapPin size={12} /> Capolago · <Clock size={12} /> {t('guide.places.cograil')}: 40 min
                   </div>
                 </div>
@@ -1763,7 +1763,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                   <img src="/images/places/gandria.webp" alt="Sentiero dell'Olivo" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" width={400} height={128} />
                   <div className="font-bold text-emerald-700 dark:text-emerald-300 mb-1">🥾 Sentiero dell'Olivo</div>
                   <p className="text-xs">{t('guide.places.sentieroOlivo')}</p>
-                  <div className="mt-2 flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+                  <div className="mt-2 flex items-center gap-2 text-xs text-muted">
                     <MapPin size={12} /> Gandria-Castagnola · <Clock size={12} /> ~2h
                   </div>
                 </div>
@@ -1776,7 +1776,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                   <img src="/images/places/lago-lugano.webp" alt="Lago di Lugano" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" width={400} height={128} />
                   <div className="font-bold text-blue-700 dark:text-blue-300 mb-1">🌊 Lago di Lugano (Ceresio)</div>
                   <p className="text-xs">{t('guide.places.lagoCeresio')}</p>
-                  <div className="mt-2 flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+                  <div className="mt-2 flex items-center gap-2 text-xs text-muted">
                     <Navigation size={12} /> {t('guide.places.lakeActivities')}
                   </div>
                 </div>
@@ -1784,7 +1784,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                   <img src="/images/places/ascona.webp" alt="Lago Maggiore" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" width={400} height={128} />
                   <div className="font-bold text-blue-700 dark:text-blue-300 mb-1">🌊 Lago Maggiore</div>
                   <p className="text-xs">{t('guide.places.lagoMaggiore')}</p>
-                  <div className="mt-2 flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+                  <div className="mt-2 flex items-center gap-2 text-xs text-muted">
                     <Navigation size={12} /> Locarno, Ascona, Brissago
                   </div>
                 </div>
@@ -1792,7 +1792,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                   <img src="/images/places/foroglio.webp" alt="Cascata di Foroglio" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" width={400} height={128} />
                   <div className="font-bold text-blue-700 dark:text-blue-300 mb-1">💧 Cascata di Foroglio</div>
                   <p className="text-xs">{t('guide.places.foroglio')}</p>
-                  <div className="mt-2 flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+                  <div className="mt-2 flex items-center gap-2 text-xs text-muted">
                     <MapPin size={12} /> Val Bavona · <Clock size={12} /> ~1.5h {t('guide.places.fromLugano')}
                   </div>
                 </div>
@@ -1833,7 +1833,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                   <img src="/images/places/film-festival.webp" alt="Film Festival Locarno" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" width={400} height={128} />
                   <div className="font-bold text-orange-700 dark:text-orange-300 mb-1">🎬 Film Festival Locarno</div>
                   <p className="text-xs">{t('guide.places.filmFestival')}</p>
-                  <div className="mt-1 text-xs text-slate-500 dark:text-slate-400">📅 {t('guide.places.august')}</div>
+                  <div className="mt-1 text-xs text-muted">📅 {t('guide.places.august')}</div>
                 </div>
                 <div className="p-3 bg-orange-50 dark:bg-orange-900/20 rounded-xl">
                   <img src="/images/places/lac-lugano.webp" alt="LAC Lugano Arte e Cultura" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" width={400} height={128} />
@@ -1861,22 +1861,22 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                   <img src="/images/places/swissminiatur.webp" alt="Swissminiatur" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" width={400} height={128} />
                   <div className="font-bold text-teal-700 dark:text-teal-300 mb-1">🌿 Swissminiatur</div>
                   <p className="text-xs">{t('guide.places.swissminiatur')}</p>
-                  <div className="mt-1 text-xs text-slate-500 dark:text-slate-400"><MapPin size={12} className="inline" /> Melide · 💰 CHF 19/adulto</div>
+                  <div className="mt-1 text-xs text-muted"><MapPin size={12} className="inline" /> Melide · 💰 CHF 19/adulto</div>
                 </div>
                 <div className="p-3 bg-teal-50 dark:bg-teal-900/20 rounded-xl">
                   <div className="font-bold text-teal-700 dark:text-teal-300 mb-1">🦁 Parco Civico Lugano</div>
                   <p className="text-xs">{t('guide.places.parcoCivico')}</p>
-                  <div className="mt-1 text-xs text-slate-500 dark:text-slate-400"><MapPin size={12} className="inline" /> Lugano · 💰 {t('guide.places.free')}</div>
+                  <div className="mt-1 text-xs text-muted"><MapPin size={12} className="inline" /> Lugano · 💰 {t('guide.places.free')}</div>
                 </div>
                 <div className="p-3 bg-teal-50 dark:bg-teal-900/20 rounded-xl">
                   <div className="font-bold text-teal-700 dark:text-teal-300 mb-1">🏊 Lido di Lugano</div>
                   <p className="text-xs">{t('guide.places.lidoLugano')}</p>
-                  <div className="mt-1 text-xs text-slate-500 dark:text-slate-400"><MapPin size={12} className="inline" /> Lugano · 💰 CHF 10/adulto</div>
+                  <div className="mt-1 text-xs text-muted"><MapPin size={12} className="inline" /> Lugano · 💰 CHF 10/adulto</div>
                 </div>
                 <div className="p-3 bg-teal-50 dark:bg-teal-900/20 rounded-xl">
                   <div className="font-bold text-teal-700 dark:text-teal-300 mb-1">🚂 Ferrovia Monte Generoso</div>
                   <p className="text-xs">{t('guide.places.ferroviaGeneroso')}</p>
-                  <div className="mt-1 text-xs text-slate-500 dark:text-slate-400"><MapPin size={12} className="inline" /> Capolago · 💰 CHF 70/A-R</div>
+                  <div className="mt-1 text-xs text-muted"><MapPin size={12} className="inline" /> Capolago · 💰 CHF 70/A-R</div>
                 </div>
               </div>
             </InfoCard>
@@ -1887,17 +1887,17 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                   <img src="/images/places/foxtown.webp" alt="FoxTown Factory Stores" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" width={400} height={128} />
                   <div className="font-bold text-blue-700 dark:text-blue-300 mb-1">🛍️ FoxTown Factory Stores</div>
                   <p className="text-xs">{t('guide.places.foxtown')}</p>
-                  <div className="mt-1 text-xs text-slate-500 dark:text-slate-400"><MapPin size={12} className="inline" /> Mendrisio · <Navigation size={12} className="inline" /> 5 min {t('guide.places.fromBorder')}</div>
+                  <div className="mt-1 text-xs text-muted"><MapPin size={12} className="inline" /> Mendrisio · <Navigation size={12} className="inline" /> 5 min {t('guide.places.fromBorder')}</div>
                 </div>
                 <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-xl">
                   <div className="font-bold text-blue-700 dark:text-blue-300 mb-1">🛒 Centro Commerciale Lugano Sud</div>
                   <p className="text-xs">{t('guide.places.luganoSud')}</p>
-                  <div className="mt-1 text-xs text-slate-500 dark:text-slate-400"><MapPin size={12} className="inline" /> Grancia</div>
+                  <div className="mt-1 text-xs text-muted"><MapPin size={12} className="inline" /> Grancia</div>
                 </div>
                 <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-xl">
                   <div className="font-bold text-blue-700 dark:text-blue-300 mb-1">🏬 Manor Lugano</div>
                   <p className="text-xs">{t('guide.places.manorDesc')}</p>
-                  <div className="mt-1 text-xs text-slate-500 dark:text-slate-400"><MapPin size={12} className="inline" /> Lugano centro</div>
+                  <div className="mt-1 text-xs text-muted"><MapPin size={12} className="inline" /> Lugano centro</div>
                 </div>
               </div>
             </InfoCard>
@@ -1945,23 +1945,23 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
             <div className="space-y-4">
               <div className="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-xl border border-purple-200 dark:border-purple-800">
                 <div className="grid sm:grid-cols-3 gap-3 mb-3">
-                  <div className="text-center p-2 bg-white dark:bg-slate-800 rounded-lg">
-                    <div className="text-sm text-slate-500 dark:text-slate-400">{t('guide.schools.age')}</div>
+                  <div className="text-center p-2 bg-surface rounded-lg">
+                    <div className="text-sm text-muted">{t('guide.schools.age')}</div>
                     <div className="font-bold text-purple-600">0-3 {t('guide.schools.years')}</div>
                   </div>
-                  <div className="text-center p-2 bg-white dark:bg-slate-800 rounded-lg">
-                    <div className="text-sm text-slate-500 dark:text-slate-400">{t('guide.schools.cost')}</div>
+                  <div className="text-center p-2 bg-surface rounded-lg">
+                    <div className="text-sm text-muted">{t('guide.schools.cost')}</div>
                     <div className="font-bold text-purple-600">CHF 1'200-2'500/{t('guide.schools.month')}</div>
                   </div>
-                  <div className="text-center p-2 bg-white dark:bg-slate-800 rounded-lg">
-                    <div className="text-sm text-slate-500 dark:text-slate-400">{t('guide.schools.hours')}</div>
+                  <div className="text-center p-2 bg-surface rounded-lg">
+                    <div className="text-sm text-muted">{t('guide.schools.hours')}</div>
                     <div className="font-bold text-purple-600">7:00-18:30</div>
                   </div>
                 </div>
                 <p className="text-xs">{t('guide.schools.nidoDesc')}</p>
               </div>
               <div className="text-xs space-y-2">
-                <p className="font-bold text-slate-700 dark:text-slate-300">📍 {t('guide.schools.nearBorderTitle')}:</p>
+                <p className="font-bold text-body">📍 {t('guide.schools.nearBorderTitle')}:</p>
                 <div className="grid sm:grid-cols-2 gap-2">
                   <div className="flex items-start gap-2">
                     <CheckCircle2 size={14} className="text-purple-600 flex-shrink-0 mt-0.5" />
@@ -1989,23 +1989,23 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
             <div className="space-y-4">
               <div className="p-4 bg-emerald-50 dark:bg-emerald-900/20 rounded-xl border border-emerald-200 dark:border-emerald-800">
                 <div className="grid sm:grid-cols-3 gap-3 mb-3">
-                  <div className="text-center p-2 bg-white dark:bg-slate-800 rounded-lg">
-                    <div className="text-sm text-slate-500 dark:text-slate-400">{t('guide.schools.age')}</div>
+                  <div className="text-center p-2 bg-surface rounded-lg">
+                    <div className="text-sm text-muted">{t('guide.schools.age')}</div>
                     <div className="font-bold text-emerald-700">3-6 {t('guide.schools.years')}</div>
                   </div>
-                  <div className="text-center p-2 bg-white dark:bg-slate-800 rounded-lg">
-                    <div className="text-sm text-slate-500 dark:text-slate-400">{t('guide.schools.cost')}</div>
+                  <div className="text-center p-2 bg-surface rounded-lg">
+                    <div className="text-sm text-muted">{t('guide.schools.cost')}</div>
                     <div className="font-bold text-emerald-700">{t('guide.schools.free')} (pubblica)</div>
                   </div>
-                  <div className="text-center p-2 bg-white dark:bg-slate-800 rounded-lg">
-                    <div className="text-sm text-slate-500 dark:text-slate-400">{t('guide.schools.hours')}</div>
+                  <div className="text-center p-2 bg-surface rounded-lg">
+                    <div className="text-sm text-muted">{t('guide.schools.hours')}</div>
                     <div className="font-bold text-emerald-700">8:30-15:30</div>
                   </div>
                 </div>
                 <p className="text-xs">{t('guide.schools.kindergartenDesc')}</p>
               </div>
               <div className="text-xs space-y-2">
-                <p className="font-bold text-slate-700 dark:text-slate-300">📍 {t('guide.schools.nearBorderTitle')}:</p>
+                <p className="font-bold text-body">📍 {t('guide.schools.nearBorderTitle')}:</p>
                 <div className="grid sm:grid-cols-2 gap-2">
                   <div className="flex items-start gap-2">
                     <CheckCircle2 size={14} className="text-emerald-700 flex-shrink-0 mt-0.5" />
@@ -2033,23 +2033,23 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
             <div className="space-y-4">
               <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-xl border border-blue-200 dark:border-blue-800">
                 <div className="grid sm:grid-cols-3 gap-3 mb-3">
-                  <div className="text-center p-2 bg-white dark:bg-slate-800 rounded-lg">
-                    <div className="text-sm text-slate-500 dark:text-slate-400">{t('guide.schools.age')}</div>
+                  <div className="text-center p-2 bg-surface rounded-lg">
+                    <div className="text-sm text-muted">{t('guide.schools.age')}</div>
                     <div className="font-bold text-blue-600">6-11 {t('guide.schools.years')}</div>
                   </div>
-                  <div className="text-center p-2 bg-white dark:bg-slate-800 rounded-lg">
-                    <div className="text-sm text-slate-500 dark:text-slate-400">{t('guide.schools.cost')}</div>
+                  <div className="text-center p-2 bg-surface rounded-lg">
+                    <div className="text-sm text-muted">{t('guide.schools.cost')}</div>
                     <div className="font-bold text-blue-600">{t('guide.schools.free')} (pubblica)</div>
                   </div>
-                  <div className="text-center p-2 bg-white dark:bg-slate-800 rounded-lg">
-                    <div className="text-sm text-slate-500 dark:text-slate-400">{t('guide.schools.hours')}</div>
+                  <div className="text-center p-2 bg-surface rounded-lg">
+                    <div className="text-sm text-muted">{t('guide.schools.hours')}</div>
                     <div className="font-bold text-blue-600">8:15-15:45</div>
                   </div>
                 </div>
                 <p className="text-xs">{t('guide.schools.primaryDesc')}</p>
               </div>
               <div className="text-xs space-y-2">
-                <p className="font-bold text-slate-700 dark:text-slate-300">📍 {t('guide.schools.nearBorderTitle')}:</p>
+                <p className="font-bold text-body">📍 {t('guide.schools.nearBorderTitle')}:</p>
                 <div className="grid sm:grid-cols-2 gap-2">
                   <div className="flex items-start gap-2">
                     <CheckCircle2 size={14} className="text-blue-600 flex-shrink-0 mt-0.5" />
@@ -2077,23 +2077,23 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
             <div className="space-y-4">
               <div className="p-4 bg-orange-50 dark:bg-orange-900/20 rounded-xl border border-orange-200 dark:border-orange-800">
                 <div className="grid sm:grid-cols-3 gap-3 mb-3">
-                  <div className="text-center p-2 bg-white dark:bg-slate-800 rounded-lg">
-                    <div className="text-sm text-slate-500 dark:text-slate-400">{t('guide.schools.age')}</div>
+                  <div className="text-center p-2 bg-surface rounded-lg">
+                    <div className="text-sm text-muted">{t('guide.schools.age')}</div>
                     <div className="font-bold text-orange-600">11-15 {t('guide.schools.years')}</div>
                   </div>
-                  <div className="text-center p-2 bg-white dark:bg-slate-800 rounded-lg">
-                    <div className="text-sm text-slate-500 dark:text-slate-400">{t('guide.schools.cost')}</div>
+                  <div className="text-center p-2 bg-surface rounded-lg">
+                    <div className="text-sm text-muted">{t('guide.schools.cost')}</div>
                     <div className="font-bold text-orange-600">{t('guide.schools.free')} (pubblica)</div>
                   </div>
-                  <div className="text-center p-2 bg-white dark:bg-slate-800 rounded-lg">
-                    <div className="text-sm text-slate-500 dark:text-slate-400">{t('guide.schools.hours')}</div>
+                  <div className="text-center p-2 bg-surface rounded-lg">
+                    <div className="text-sm text-muted">{t('guide.schools.hours')}</div>
                     <div className="font-bold text-orange-600">8:00-16:00</div>
                   </div>
                 </div>
                 <p className="text-xs">{t('guide.schools.middleDesc')}</p>
               </div>
               <div className="text-xs space-y-2">
-                <p className="font-bold text-slate-700 dark:text-slate-300">📍 {t('guide.schools.nearBorderTitle')}:</p>
+                <p className="font-bold text-body">📍 {t('guide.schools.nearBorderTitle')}:</p>
                 <div className="grid sm:grid-cols-2 gap-2">
                   <div className="flex items-start gap-2">
                     <CheckCircle2 size={14} className="text-orange-600 flex-shrink-0 mt-0.5" />
@@ -2121,23 +2121,23 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
             <div className="space-y-4">
               <div className="p-4 bg-teal-50 dark:bg-teal-900/20 rounded-xl border border-teal-200 dark:border-teal-800">
                 <div className="grid sm:grid-cols-3 gap-3 mb-3">
-                  <div className="text-center p-2 bg-white dark:bg-slate-800 rounded-lg">
-                    <div className="text-sm text-slate-500 dark:text-slate-400">{t('guide.schools.age')}</div>
+                  <div className="text-center p-2 bg-surface rounded-lg">
+                    <div className="text-sm text-muted">{t('guide.schools.age')}</div>
                     <div className="font-bold text-teal-600">15-19 {t('guide.schools.years')}</div>
                   </div>
-                  <div className="text-center p-2 bg-white dark:bg-slate-800 rounded-lg">
-                    <div className="text-sm text-slate-500 dark:text-slate-400">{t('guide.schools.cost')}</div>
+                  <div className="text-center p-2 bg-surface rounded-lg">
+                    <div className="text-sm text-muted">{t('guide.schools.cost')}</div>
                     <div className="font-bold text-teal-600">{t('guide.schools.free')} / CHF 500-1'500</div>
                   </div>
-                  <div className="text-center p-2 bg-white dark:bg-slate-800 rounded-lg">
-                    <div className="text-sm text-slate-500 dark:text-slate-400">{t('guide.schools.hours')}</div>
+                  <div className="text-center p-2 bg-surface rounded-lg">
+                    <div className="text-sm text-muted">{t('guide.schools.hours')}</div>
                     <div className="font-bold text-teal-600">8:00-16:30</div>
                   </div>
                 </div>
                 <p className="text-xs">{t('guide.schools.highSchoolDesc')}</p>
               </div>
               <div className="text-xs space-y-2">
-                <p className="font-bold text-slate-700 dark:text-slate-300">🏫 {t('guide.schools.highSchoolTypes')}:</p>
+                <p className="font-bold text-body">🏫 {t('guide.schools.highSchoolTypes')}:</p>
                 <div className="grid sm:grid-cols-2 gap-2">
                   <div className="flex items-start gap-2">
                     <CheckCircle2 size={14} className="text-teal-600 flex-shrink-0 mt-0.5" />
@@ -2158,7 +2158,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                 </div>
               </div>
               <div className="text-xs space-y-2 mt-3">
-                <p className="font-bold text-slate-700 dark:text-slate-300">📍 {t('guide.schools.mainHighSchools')}:</p>
+                <p className="font-bold text-body">📍 {t('guide.schools.mainHighSchools')}:</p>
                 <div className="grid sm:grid-cols-2 gap-2">
                   <div className="flex items-start gap-2">
                     <MapPin size={14} className="text-teal-600 flex-shrink-0 mt-0.5" />
@@ -2217,7 +2217,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                 <div className="overflow-x-auto">
                   <table className="w-full text-xs">
                     <thead>
-                      <tr className="border-b border-slate-200 dark:border-slate-700">
+                      <tr className="border-b border-edge">
                         <th className="text-left py-2 font-bold">{t('guide.schools.schoolType')}</th>
                         <th className="text-right py-2 font-bold">{t('guide.schools.annualCost')}</th>
                       </tr>
@@ -2304,7 +2304,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
           <InfoCard icon={Shield} title={t('guide.unemployment.ch.title')} color="orange">
             <div className="space-y-4">
               {/* Who is entitled */}
-              <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-slate-700">
+              <div className="bg-surface rounded-xl p-5 border border-edge">
                 <h4 className="font-bold text-slate-800 dark:text-slate-100 mb-2 flex items-center gap-2">
                   <Users size={16} className="text-red-500" /> {t('guide.unemployment.ch.whoTitle')}
                 </h4>
@@ -2317,31 +2317,31 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
               </div>
 
               {/* Amounts */}
-              <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-slate-700">
+              <div className="bg-surface rounded-xl p-5 border border-edge">
                 <h4 className="font-bold text-slate-800 dark:text-slate-100 mb-2 flex items-center gap-2">
                   <Euro size={16} className="text-red-500" /> {t('guide.unemployment.ch.amountsTitle')}
                 </h4>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div className="bg-red-50 dark:bg-red-900/20 rounded-lg p-3">
                     <div className="text-2xl font-bold text-red-700 dark:text-red-300">70%</div>
-                    <div className="text-sm text-slate-500 dark:text-slate-400">{t('guide.unemployment.ch.amount70')}</div>
+                    <div className="text-sm text-muted">{t('guide.unemployment.ch.amount70')}</div>
                   </div>
                   <div className="bg-red-50 dark:bg-red-900/20 rounded-lg p-3">
                     <div className="text-2xl font-bold text-red-700 dark:text-red-300">80%</div>
-                    <div className="text-sm text-slate-500 dark:text-slate-400">{t('guide.unemployment.ch.amount80')}</div>
+                    <div className="text-sm text-muted">{t('guide.unemployment.ch.amount80')}</div>
                   </div>
                 </div>
-                <p className="text-sm text-slate-500 dark:text-slate-400 mt-2">{t('guide.unemployment.ch.maxInsured')}</p>
+                <p className="text-sm text-muted mt-2">{t('guide.unemployment.ch.maxInsured')}</p>
               </div>
 
               {/* Duration */}
-              <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-slate-700">
+              <div className="bg-surface rounded-xl p-5 border border-edge">
                 <h4 className="font-bold text-slate-800 dark:text-slate-100 mb-2 flex items-center gap-2">
                   <Clock size={16} className="text-red-500" /> {t('guide.unemployment.ch.durationTitle')}
                 </h4>
                 <div className="overflow-x-auto">
                   <table className="w-full text-xs">
-                    <thead><tr className="bg-slate-100 dark:bg-slate-700">
+                    <thead><tr className="bg-surface-raised">
                       <th className="p-2 text-left rounded-tl-lg">{t('guide.unemployment.ch.contributionPeriod')}</th>
                       <th className="p-2 text-left">{t('guide.unemployment.ch.age')}</th>
                       <th className="p-2 text-left rounded-tr-lg">{t('guide.unemployment.ch.maxDays')}</th>
@@ -2357,7 +2357,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
               </div>
 
               {/* Procedure */}
-              <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-slate-700">
+              <div className="bg-surface rounded-xl p-5 border border-edge">
                 <h4 className="font-bold text-slate-800 dark:text-slate-100 mb-2 flex items-center gap-2">
                   <FileText size={16} className="text-red-500" /> {t('guide.unemployment.ch.procedureTitle')}
                 </h4>
@@ -2389,7 +2389,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
           <InfoCard icon={Landmark} title={t('guide.unemployment.it.title')} color="green">
             <div className="space-y-4">
               {/* Who is entitled */}
-              <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-slate-700">
+              <div className="bg-surface rounded-xl p-5 border border-edge">
                 <h4 className="font-bold text-slate-800 dark:text-slate-100 mb-2 flex items-center gap-2">
                   <Users size={16} className="text-green-600" /> {t('guide.unemployment.it.whoTitle')}
                 </h4>
@@ -2401,7 +2401,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
               </div>
 
               {/* Amounts */}
-              <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-slate-700">
+              <div className="bg-surface rounded-xl p-5 border border-edge">
                 <h4 className="font-bold text-slate-800 dark:text-slate-100 mb-2 flex items-center gap-2">
                   <Euro size={16} className="text-green-600" /> {t('guide.unemployment.it.amountsTitle')}
                 </h4>
@@ -2410,13 +2410,13 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                   <p>{t('guide.unemployment.it.amount2')}</p>
                   <div className="bg-green-50 dark:bg-green-900/20 rounded-lg p-3 mt-2">
                     <div className="text-lg font-bold text-green-700 dark:text-green-300">€ 1.550,42</div>
-                    <div className="text-sm text-slate-500 dark:text-slate-400">{t('guide.unemployment.it.maxMonthly')} (2025)</div>
+                    <div className="text-sm text-muted">{t('guide.unemployment.it.maxMonthly')} (2025)</div>
                   </div>
                 </div>
               </div>
 
               {/* Duration */}
-              <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-slate-700">
+              <div className="bg-surface rounded-xl p-5 border border-edge">
                 <h4 className="font-bold text-slate-800 dark:text-slate-100 mb-2 flex items-center gap-2">
                   <Clock size={16} className="text-green-600" /> {t('guide.unemployment.it.durationTitle')}
                 </h4>
@@ -2425,7 +2425,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
               </div>
 
               {/* Procedure */}
-              <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-slate-700">
+              <div className="bg-surface rounded-xl p-5 border border-edge">
                 <h4 className="font-bold text-slate-800 dark:text-slate-100 mb-2 flex items-center gap-2">
                   <FileText size={16} className="text-green-600" /> {t('guide.unemployment.it.procedureTitle')}
                 </h4>
@@ -2457,7 +2457,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="bg-slate-100 dark:bg-slate-700">
+                  <tr className="bg-surface-raised">
                     <th className="p-3 text-left rounded-tl-lg"></th>
                     <th className="p-3 text-center text-red-600 dark:text-red-400 font-bold">🇨🇭 {t('guide.unemployment.comparison.switzerland')}</th>
                     <th className="p-3 text-center text-green-600 dark:text-green-400 font-bold rounded-tr-lg">🇮🇹 {t('guide.unemployment.comparison.italy')}</th>
@@ -2481,21 +2481,21 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
           {/* Useful Links */}
           <InfoCard icon={Info} title={t('guide.unemployment.links.title')} color="blue">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <a href="https://www.arbeit.swiss" target="_blank" rel="noopener noreferrer" className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-3 hover:border-red-400 transition-colors group">
+              <a href="https://www.arbeit.swiss" target="_blank" rel="noopener noreferrer" className="bg-surface border border-edge rounded-xl p-3 hover:border-red-400 transition-colors group">
                 <div className="font-bold text-sm text-slate-800 dark:text-slate-100 group-hover:text-red-600">🇨🇭 arbeit.swiss</div>
-                <div className="text-sm text-slate-500 dark:text-slate-400">{t('guide.unemployment.links.arbeit')}</div>
+                <div className="text-sm text-muted">{t('guide.unemployment.links.arbeit')}</div>
               </a>
-              <a href="https://www.seco.admin.ch/seco/it/home/Arbeit/Arbeitslosenversicherung.html" target="_blank" rel="noopener noreferrer" className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-3 hover:border-red-400 transition-colors group">
+              <a href="https://www.seco.admin.ch/seco/it/home/Arbeit/Arbeitslosenversicherung.html" target="_blank" rel="noopener noreferrer" className="bg-surface border border-edge rounded-xl p-3 hover:border-red-400 transition-colors group">
                 <div className="font-bold text-sm text-slate-800 dark:text-slate-100 group-hover:text-red-600">🇨🇭 SECO</div>
-                <div className="text-sm text-slate-500 dark:text-slate-400">{t('guide.unemployment.links.seco')}</div>
+                <div className="text-sm text-muted">{t('guide.unemployment.links.seco')}</div>
               </a>
-              <a href="https://www.inps.it/it/it/dettaglio-scheda.schede-servizio-strumento.schede-servizi.naspi-indennita-mensile-di-disoccupazione-51039.naspi-indennita-mensile-di-disoccupazione.html" target="_blank" rel="noopener noreferrer" className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-3 hover:border-green-400 transition-colors group">
+              <a href="https://www.inps.it/it/it/dettaglio-scheda.schede-servizio-strumento.schede-servizi.naspi-indennita-mensile-di-disoccupazione-51039.naspi-indennita-mensile-di-disoccupazione.html" target="_blank" rel="noopener noreferrer" className="bg-surface border border-edge rounded-xl p-3 hover:border-green-400 transition-colors group">
                 <div className="font-bold text-sm text-slate-800 dark:text-slate-100 group-hover:text-green-600">🇮🇹 INPS - NASpI</div>
-                <div className="text-sm text-slate-500 dark:text-slate-400">{t('guide.unemployment.links.inps')}</div>
+                <div className="text-sm text-muted">{t('guide.unemployment.links.inps')}</div>
               </a>
-              <a href="https://www.ti.ch/lav" target="_blank" rel="noopener noreferrer" className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-3 hover:border-red-400 transition-colors group">
+              <a href="https://www.ti.ch/lav" target="_blank" rel="noopener noreferrer" className="bg-surface border border-edge rounded-xl p-3 hover:border-red-400 transition-colors group">
                 <div className="font-bold text-sm text-slate-800 dark:text-slate-100 group-hover:text-red-600">🇨🇭 URC Ticino</div>
-                <div className="text-sm text-slate-500 dark:text-slate-400">{t('guide.unemployment.links.urc')}</div>
+                <div className="text-sm text-muted">{t('guide.unemployment.links.urc')}</div>
               </a>
             </div>
           </InfoCard>

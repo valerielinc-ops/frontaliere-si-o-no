@@ -303,7 +303,7 @@ export default function MortgageComparison() {
         <h1 className="text-2xl sm:text-3xl font-bold text-slate-800 dark:text-slate-100">
           {t('mortgage.title')}
         </h1>
-        <p className="text-sm text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+        <p className="text-sm text-subtle max-w-2xl mx-auto">
           {t('mortgage.subtitle')}
         </p>
         <p className="text-sm text-slate-600 dark:text-slate-300 mt-3 leading-relaxed max-w-2xl mx-auto">
@@ -312,7 +312,7 @@ export default function MortgageComparison() {
       </div>
 
       {/* Input Panel */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-300 dark:border-slate-600 p-4 sm:p-6 space-y-5 shadow-sm">
+      <div className="bg-surface rounded-2xl border border-slate-300 dark:border-slate-600 p-4 sm:p-6 space-y-5 shadow-sm">
         <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
           <Calculator size={20} className="text-purple-600 dark:text-purple-400" />
           {t('mortgage.parameters')}
@@ -321,7 +321,7 @@ export default function MortgageComparison() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {/* Property value */}
           <div className="bg-slate-50 dark:bg-slate-750 rounded-lg p-3">
-            <label htmlFor="propertyValue" className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
+            <label htmlFor="propertyValue" className="block text-xs font-bold text-body mb-1">
               {t('mortgage.propertyValue')} (€)
             </label>
             <input
@@ -339,7 +339,7 @@ export default function MortgageComparison() {
 
           {/* Down payment */}
           <div className="bg-slate-50 dark:bg-slate-750 rounded-lg p-3">
-            <label htmlFor="downPayment" className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
+            <label htmlFor="downPayment" className="block text-xs font-bold text-body mb-1">
               {t('mortgage.downPayment')} (%)
             </label>
             <input
@@ -359,7 +359,7 @@ export default function MortgageComparison() {
 
           {/* Duration */}
           <div className="bg-slate-50 dark:bg-slate-750 rounded-lg p-3">
-            <label htmlFor="duration" className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
+            <label htmlFor="duration" className="block text-xs font-bold text-body mb-1">
               {t('mortgage.duration')} ({t('mortgage.years')})
             </label>
             <input
@@ -377,7 +377,7 @@ export default function MortgageComparison() {
 
           {/* Gross income for Tragbarkeit */}
           <div className="bg-slate-50 dark:bg-slate-750 rounded-lg p-3">
-            <label htmlFor="grossIncome" className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
+            <label htmlFor="grossIncome" className="block text-xs font-bold text-body mb-1">
               {t('mortgage.grossIncome')} (CHF/mese)
             </label>
             <input
@@ -406,7 +406,7 @@ export default function MortgageComparison() {
               id="chRate"
               value={chRateKey}
               onChange={(e) => { setChRateKey(e.target.value as ChRateKey); setChCustomRate(null); }}
-              className="w-full rounded-lg border border-slate-400 dark:border-slate-500 bg-white dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-sm py-2 px-3 focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:border-purple-500 transition-colors"
+              className="w-full rounded-lg border border-slate-400 dark:border-slate-500 bg-white dark:bg-slate-700 text-strong text-sm py-2 px-3 focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:border-purple-500 transition-colors"
               aria-label={t('mortgage.chRate')}
             >
               {Object.entries(CH_RATES).map(([key, { label, rate }]) => (
@@ -425,9 +425,9 @@ export default function MortgageComparison() {
                 placeholder={CH_RATES[chRateKey].rate.toString()}
                 value={chCustomRate ?? ''}
                 onChange={(e) => setChCustomRate(e.target.value ? Number(e.target.value) : null)}
-                className="w-20 rounded border border-slate-400 dark:border-slate-500 bg-white dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-sm py-1 px-2 focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:border-purple-500"
+                className="w-20 rounded border border-slate-400 dark:border-slate-500 bg-white dark:bg-slate-700 text-strong text-sm py-1 px-2 focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:border-purple-500"
               />
-              <span className="text-xs font-medium text-slate-600 dark:text-slate-400">%</span>
+              <span className="text-xs font-medium text-subtle">%</span>
             </div>
           </div>
 
@@ -441,7 +441,7 @@ export default function MortgageComparison() {
               id="itRate"
               value={itRateKey}
               onChange={(e) => { setItRateKey(e.target.value as ItRateKey); setItCustomRate(null); }}
-              className="w-full rounded-lg border border-slate-400 dark:border-slate-500 bg-white dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-sm py-2 px-3 focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:border-purple-500 transition-colors"
+              className="w-full rounded-lg border border-slate-400 dark:border-slate-500 bg-white dark:bg-slate-700 text-strong text-sm py-2 px-3 focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:border-purple-500 transition-colors"
               aria-label={t('mortgage.itRate')}
             >
               {Object.entries(IT_RATES).map(([key, { label, rate }]) => (
@@ -460,9 +460,9 @@ export default function MortgageComparison() {
                 placeholder={IT_RATES[itRateKey].rate.toString()}
                 value={itCustomRate ?? ''}
                 onChange={(e) => setItCustomRate(e.target.value ? Number(e.target.value) : null)}
-                className="w-20 rounded border border-slate-400 dark:border-slate-500 bg-white dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-sm py-1 px-2 focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:border-purple-500"
+                className="w-20 rounded border border-slate-400 dark:border-slate-500 bg-white dark:bg-slate-700 text-strong text-sm py-1 px-2 focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:border-purple-500"
               />
-              <span className="text-xs font-medium text-slate-600 dark:text-slate-400">%</span>
+              <span className="text-xs font-medium text-subtle">%</span>
             </div>
           </div>
         </div>
@@ -470,7 +470,7 @@ export default function MortgageComparison() {
         {/* Exchange rate */}
         <div className="flex items-center gap-3 pt-3 border-t border-slate-300 dark:border-slate-600">
           <ArrowRightLeft size={16} className="text-purple-500 dark:text-purple-400" />
-          <label htmlFor="exchangeRate" className="text-xs font-bold text-slate-700 dark:text-slate-300">
+          <label htmlFor="exchangeRate" className="text-xs font-bold text-body">
             {t('mortgage.exchangeRate')} (1 CHF = € ...)
           </label>
           <input
@@ -482,7 +482,7 @@ export default function MortgageComparison() {
             max={1.5}
             value={exchangeRate}
             onChange={(e) => setExchangeRate(Number(e.target.value))}
-            className="w-20 rounded border border-slate-400 dark:border-slate-500 bg-white dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-sm py-1 px-2 focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:border-purple-500"
+            className="w-20 rounded border border-slate-400 dark:border-slate-500 bg-white dark:bg-slate-700 text-strong text-sm py-1 px-2 focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:border-purple-500"
           />
           <button
             onClick={handleReset}
@@ -497,21 +497,21 @@ export default function MortgageComparison() {
       {/* KPI Summary Cards */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
         {/* Monthly payment comparison */}
-        <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-300 dark:border-slate-600 p-4 text-center shadow-sm">
-          <div className="text-xs font-medium text-slate-600 dark:text-slate-400 mb-1">{t('mortgage.monthlyPayment')} 🇨🇭</div>
+        <div className="bg-surface rounded-xl border border-slate-300 dark:border-slate-600 p-4 text-center shadow-sm">
+          <div className="text-xs font-medium text-subtle mb-1">{t('mortgage.monthlyPayment')} 🇨🇭</div>
           <div className="text-xl font-bold text-red-600 dark:text-red-400">{fmtDec(chMonthlyPayment)}</div>
-          <div className="text-xs font-medium text-slate-600 dark:text-slate-400">{t('mortgage.rate')}: {fmtPct(chRate)}</div>
+          <div className="text-xs font-medium text-subtle">{t('mortgage.rate')}: {fmtPct(chRate)}</div>
         </div>
-        <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-300 dark:border-slate-600 p-4 text-center shadow-sm">
-          <div className="text-xs font-medium text-slate-600 dark:text-slate-400 mb-1">{t('mortgage.monthlyPayment')} 🇮🇹</div>
+        <div className="bg-surface rounded-xl border border-slate-300 dark:border-slate-600 p-4 text-center shadow-sm">
+          <div className="text-xs font-medium text-subtle mb-1">{t('mortgage.monthlyPayment')} 🇮🇹</div>
           <div className="text-xl font-bold text-green-600 dark:text-green-400">{fmtDec(itMonthlyPayment)}</div>
-          <div className="text-xs font-medium text-slate-600 dark:text-slate-400">{t('mortgage.rate')}: {fmtPct(itRate)}</div>
+          <div className="text-xs font-medium text-subtle">{t('mortgage.rate')}: {fmtPct(itRate)}</div>
         </div>
-        <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-300 dark:border-slate-600 p-4 text-center shadow-sm">
-          <div className="text-xs font-medium text-slate-600 dark:text-slate-400 mb-1">{t('mortgage.totalInterest')}</div>
+        <div className="bg-surface rounded-xl border border-slate-300 dark:border-slate-600 p-4 text-center shadow-sm">
+          <div className="text-xs font-medium text-subtle mb-1">{t('mortgage.totalInterest')}</div>
           <div className="text-lg font-bold text-slate-700 dark:text-slate-200">
             <span className="text-red-600 dark:text-red-400">{fmt(Math.round(chTotalInterest))}</span>
-            <span className="text-slate-500 dark:text-slate-400 mx-1">vs</span>
+            <span className="text-muted mx-1">vs</span>
             <span className="text-green-600 dark:text-green-400">{fmt(Math.round(itTotalInterest))}</span>
           </div>
         </div>
@@ -520,18 +520,18 @@ export default function MortgageComparison() {
             ? 'bg-red-50 dark:bg-red-900/20 border-red-200 dark:border-red-800'
             : 'bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-800'
         }`}>
-          <div className="text-xs font-medium text-slate-600 dark:text-slate-400 mb-1">{t('mortgage.savings')}</div>
+          <div className="text-xs font-medium text-subtle mb-1">{t('mortgage.savings')}</div>
           <div className={`text-xl font-bold ${savings > 0 ? 'text-red-600 dark:text-red-400' : 'text-green-600 dark:text-green-400'}`}>
             {fmt(Math.round(Math.abs(savings)))}
           </div>
-          <div className="text-xs text-slate-600 dark:text-slate-400">{savingsLabel}</div>
+          <div className="text-xs text-subtle">{savingsLabel}</div>
         </div>
       </div>
 
       {/* Affordability & Rules Checks */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {/* Swiss Tragbarkeit */}
-        <div className={`bg-white dark:bg-slate-800 rounded-xl border p-4 ${
+        <div className={`bg-surface rounded-xl border p-4 ${
           chTragbarkeitOk
             ? 'border-emerald-200 dark:border-emerald-800'
             : 'border-amber-200 dark:border-amber-800'
@@ -542,22 +542,22 @@ export default function MortgageComparison() {
           </h3>
           <div className="space-y-2 text-xs">
             <div className="flex justify-between">
-              <span className="text-slate-600 dark:text-slate-400">{t('mortgage.imputedRate')}</span>
-              <span className="font-semibold text-slate-800 dark:text-slate-200">{fmtPct(CH_IMPUTED_RATE)}</span>
+              <span className="text-subtle">{t('mortgage.imputedRate')}</span>
+              <span className="font-semibold text-strong">{fmtPct(CH_IMPUTED_RATE)}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-slate-600 dark:text-slate-400">{t('mortgage.annualCost')}</span>
-              <span className="font-semibold text-slate-800 dark:text-slate-200">{fmt(Math.round(chImputedAnnualCost), 'CHF ')}</span>
+              <span className="text-subtle">{t('mortgage.annualCost')}</span>
+              <span className="font-semibold text-strong">{fmt(Math.round(chImputedAnnualCost), 'CHF ')}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-slate-600 dark:text-slate-400">{t('mortgage.costToIncomeRatio')}</span>
+              <span className="text-subtle">{t('mortgage.costToIncomeRatio')}</span>
               <span className={`font-bold ${chTragbarkeitOk ? 'text-emerald-600 dark:text-emerald-400' : 'text-amber-600 dark:text-amber-400'}`}>
                 {fmtPct(chTragbarkeit * 100)} {chTragbarkeitOk ? '✓' : '✗'}
               </span>
             </div>
             <div className="flex justify-between">
-              <span className="text-slate-600 dark:text-slate-400">{t('mortgage.maxAllowed')}</span>
-              <span className="font-semibold text-slate-800 dark:text-slate-200">{fmtPct(CH_TRAGBARKEIT_RATIO * 100)}</span>
+              <span className="text-subtle">{t('mortgage.maxAllowed')}</span>
+              <span className="font-semibold text-strong">{fmtPct(CH_TRAGBARKEIT_RATIO * 100)}</span>
             </div>
             {!chTragbarkeitOk && (
               <div className="flex items-start gap-1.5 bg-amber-50 dark:bg-amber-900/20 rounded-lg p-2 mt-1">
@@ -569,7 +569,7 @@ export default function MortgageComparison() {
         </div>
 
         {/* Equity & LTV checks */}
-        <div className={`bg-white dark:bg-slate-800 rounded-xl border p-4 ${
+        <div className={`bg-surface rounded-xl border p-4 ${
           chEquityOk && itLtvOk
             ? 'border-emerald-200 dark:border-emerald-800'
             : 'border-amber-200 dark:border-amber-800'
@@ -580,24 +580,24 @@ export default function MortgageComparison() {
           </h3>
           <div className="space-y-2 text-xs">
             <div className="flex justify-between">
-              <span className="text-slate-600 dark:text-slate-400">{t('mortgage.yourEquity')}</span>
-              <span className="font-semibold text-slate-800 dark:text-slate-200">{fmt(equityAmount)} ({downPaymentPct}%)</span>
+              <span className="text-subtle">{t('mortgage.yourEquity')}</span>
+              <span className="font-semibold text-strong">{fmt(equityAmount)} ({downPaymentPct}%)</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-slate-600 dark:text-slate-400">🇨🇭 {t('mortgage.minEquity')}</span>
+              <span className="text-subtle">🇨🇭 {t('mortgage.minEquity')}</span>
               <span className={`font-bold ${chEquityOk ? 'text-emerald-600 dark:text-emerald-400' : 'text-amber-600 dark:text-amber-400'}`}>
                 20% — {fmt(propertyValue * 0.2)} {chEquityOk ? '✓' : '✗'}
               </span>
             </div>
             <div className="flex justify-between">
-              <span className="text-slate-600 dark:text-slate-400">🇮🇹 Max LTV</span>
+              <span className="text-subtle">🇮🇹 Max LTV</span>
               <span className={`font-bold ${itLtvOk ? 'text-emerald-600 dark:text-emerald-400' : 'text-amber-600 dark:text-amber-400'}`}>
                 80% — {fmt(propertyValue * 0.8)} {itLtvOk ? '✓' : '✗'}
               </span>
             </div>
             <div className="flex justify-between">
-              <span className="text-slate-600 dark:text-slate-400">{t('mortgage.loanAmount')}</span>
-              <span className="font-semibold text-slate-800 dark:text-slate-200">{fmt(loanAmount)}</span>
+              <span className="text-subtle">{t('mortgage.loanAmount')}</span>
+              <span className="font-semibold text-strong">{fmt(loanAmount)}</span>
             </div>
             {!chEquityOk && (
               <div className="flex items-start gap-1.5 bg-amber-50 dark:bg-amber-900/20 rounded-lg p-2 mt-1">
@@ -610,7 +610,7 @@ export default function MortgageComparison() {
       </div>
 
       {/* Tax Benefits Comparison */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 sm:p-6">
+      <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6">
         <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2 mb-4">
           <Receipt size={20} className="text-purple-600 dark:text-purple-400" />
           {t('mortgage.taxBenefits')}
@@ -624,18 +624,18 @@ export default function MortgageComparison() {
             </div>
             <div className="text-xs space-y-1.5">
               <div className="flex justify-between">
-                <span className="text-slate-600 dark:text-slate-400">{t('mortgage.interestDeduction')}</span>
-                <span className="font-semibold text-slate-800 dark:text-slate-200">{t('mortgage.fromTaxableIncome')}</span>
+                <span className="text-subtle">{t('mortgage.interestDeduction')}</span>
+                <span className="font-semibold text-strong">{t('mortgage.fromTaxableIncome')}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-slate-600 dark:text-slate-400">{t('mortgage.totalInterestPaid')}</span>
-                <span className="font-semibold text-slate-800 dark:text-slate-200">{fmt(Math.round(chTotalInterest))}</span>
+                <span className="text-subtle">{t('mortgage.totalInterestPaid')}</span>
+                <span className="font-semibold text-strong">{fmt(Math.round(chTotalInterest))}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-slate-600 dark:text-slate-400">{t('mortgage.estimatedTaxSaving')}</span>
+                <span className="text-subtle">{t('mortgage.estimatedTaxSaving')}</span>
                 <span className="font-bold text-emerald-600 dark:text-emerald-400">~{fmt(Math.round(chTaxSavings))}</span>
               </div>
-              <div className="text-xs text-slate-500 dark:text-slate-400 italic mt-1">
+              <div className="text-xs text-muted italic mt-1">
                 {t('mortgage.chTaxNote')}
               </div>
             </div>
@@ -649,22 +649,22 @@ export default function MortgageComparison() {
             </div>
             <div className="text-xs space-y-1.5">
               <div className="flex justify-between">
-                <span className="text-slate-600 dark:text-slate-400">{t('mortgage.interestDeduction')}</span>
-                <span className="font-semibold text-slate-800 dark:text-slate-200">19% {t('mortgage.onMax')} €4.000/{t('mortgage.year')}</span>
+                <span className="text-subtle">{t('mortgage.interestDeduction')}</span>
+                <span className="font-semibold text-strong">19% {t('mortgage.onMax')} €4.000/{t('mortgage.year')}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-slate-600 dark:text-slate-400">{t('mortgage.totalInterestPaid')}</span>
-                <span className="font-semibold text-slate-800 dark:text-slate-200">{fmt(Math.round(itTotalInterest))}</span>
+                <span className="text-subtle">{t('mortgage.totalInterestPaid')}</span>
+                <span className="font-semibold text-strong">{fmt(Math.round(itTotalInterest))}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-slate-600 dark:text-slate-400">{t('mortgage.estimatedTaxSaving')}</span>
+                <span className="text-subtle">{t('mortgage.estimatedTaxSaving')}</span>
                 <span className="font-bold text-emerald-600 dark:text-emerald-400">{fmt(Math.round(itTaxSavings))}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-slate-600 dark:text-slate-400">{t('mortgage.impostaSostitutiva')}</span>
+                <span className="text-subtle">{t('mortgage.impostaSostitutiva')}</span>
                 <span className="font-semibold text-amber-600 dark:text-amber-400">{fmt(Math.round(itImpostaSostitutiva))}</span>
               </div>
-              <div className="text-xs text-slate-500 dark:text-slate-400 italic mt-1">
+              <div className="text-xs text-muted italic mt-1">
                 {t('mortgage.itTaxNote')}
               </div>
             </div>
@@ -673,7 +673,7 @@ export default function MortgageComparison() {
       </div>
 
       {/* Interest vs Principal Chart (Yearly) */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 sm:p-6">
+      <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6">
         <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2 mb-4">
           <TrendingUp size={20} className="text-purple-600 dark:text-purple-400" />
           {t('mortgage.interestChart')}
@@ -700,7 +700,7 @@ export default function MortgageComparison() {
       </div>
 
       {/* Remaining Balance Chart */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 sm:p-6">
+      <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6">
         <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2 mb-4">
           <BadgePercent size={20} className="text-purple-600 dark:text-purple-400" />
           {t('mortgage.balanceChart')}
@@ -725,7 +725,7 @@ export default function MortgageComparison() {
       </div>
 
       {/* Detailed Summary Table */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 sm:p-6">
+      <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6">
         <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2 mb-4">
           <Landmark size={20} className="text-purple-600 dark:text-purple-400" />
           {t('mortgage.summaryTable')}
@@ -733,8 +733,8 @@ export default function MortgageComparison() {
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
-              <tr className="border-b border-slate-200 dark:border-slate-700">
-                <th className="text-left py-2 px-3 text-slate-600 dark:text-slate-400 font-semibold">{t('mortgage.parameter')}</th>
+              <tr className="border-b border-edge">
+                <th className="text-left py-2 px-3 text-subtle font-semibold">{t('mortgage.parameter')}</th>
                 <th className="text-right py-2 px-3 text-red-600 dark:text-red-400 font-semibold">🇨🇭 {t('mortgage.switzerland')}</th>
                 <th className="text-right py-2 px-3 text-green-600 dark:text-green-400 font-semibold">🇮🇹 {t('mortgage.italy')}</th>
                 <th className="text-right py-2 px-3 text-purple-600 dark:text-purple-400 font-semibold">{t('mortgage.difference')}</th>
@@ -742,37 +742,37 @@ export default function MortgageComparison() {
             </thead>
             <tbody className="divide-y divide-slate-100 dark:divide-slate-700">
               <tr>
-                <td className="py-2 px-3 text-slate-700 dark:text-slate-300">{t('mortgage.rate')}</td>
-                <td className="py-2 px-3 text-right font-semibold text-slate-800 dark:text-slate-200">{fmtPct(chRate)}</td>
-                <td className="py-2 px-3 text-right font-semibold text-slate-800 dark:text-slate-200">{fmtPct(itRate)}</td>
+                <td className="py-2 px-3 text-body">{t('mortgage.rate')}</td>
+                <td className="py-2 px-3 text-right font-semibold text-strong">{fmtPct(chRate)}</td>
+                <td className="py-2 px-3 text-right font-semibold text-strong">{fmtPct(itRate)}</td>
                 <td className="py-2 px-3 text-right font-semibold text-purple-600 dark:text-purple-400">{fmtPct(Math.abs(itRate - chRate))}</td>
               </tr>
               <tr>
-                <td className="py-2 px-3 text-slate-700 dark:text-slate-300">{t('mortgage.monthlyPayment')}</td>
-                <td className="py-2 px-3 text-right font-semibold text-slate-800 dark:text-slate-200">{fmtDec(chMonthlyPayment)}</td>
-                <td className="py-2 px-3 text-right font-semibold text-slate-800 dark:text-slate-200">{fmtDec(itMonthlyPayment)}</td>
+                <td className="py-2 px-3 text-body">{t('mortgage.monthlyPayment')}</td>
+                <td className="py-2 px-3 text-right font-semibold text-strong">{fmtDec(chMonthlyPayment)}</td>
+                <td className="py-2 px-3 text-right font-semibold text-strong">{fmtDec(itMonthlyPayment)}</td>
                 <td className="py-2 px-3 text-right font-semibold text-purple-600 dark:text-purple-400">{fmtDec(Math.abs(itMonthlyPayment - chMonthlyPayment))}</td>
               </tr>
               <tr>
-                <td className="py-2 px-3 text-slate-700 dark:text-slate-300">{t('mortgage.totalInterest')}</td>
-                <td className="py-2 px-3 text-right font-semibold text-slate-800 dark:text-slate-200">{fmt(Math.round(chTotalInterest))}</td>
-                <td className="py-2 px-3 text-right font-semibold text-slate-800 dark:text-slate-200">{fmt(Math.round(itTotalInterest))}</td>
+                <td className="py-2 px-3 text-body">{t('mortgage.totalInterest')}</td>
+                <td className="py-2 px-3 text-right font-semibold text-strong">{fmt(Math.round(chTotalInterest))}</td>
+                <td className="py-2 px-3 text-right font-semibold text-strong">{fmt(Math.round(itTotalInterest))}</td>
                 <td className="py-2 px-3 text-right font-semibold text-purple-600 dark:text-purple-400">{fmt(Math.round(Math.abs(itTotalInterest - chTotalInterest)))}</td>
               </tr>
               <tr>
-                <td className="py-2 px-3 text-slate-700 dark:text-slate-300">{t('mortgage.totalCost')}</td>
+                <td className="py-2 px-3 text-body">{t('mortgage.totalCost')}</td>
                 <td className="py-2 px-3 text-right font-bold text-red-600 dark:text-red-400">{fmt(Math.round(chTotalCost))}</td>
                 <td className="py-2 px-3 text-right font-bold text-green-600 dark:text-green-400">{fmt(Math.round(itTotalCost))}</td>
                 <td className="py-2 px-3 text-right font-bold text-purple-600 dark:text-purple-400">{fmt(Math.round(Math.abs(savings)))}</td>
               </tr>
               <tr>
-                <td className="py-2 px-3 text-slate-700 dark:text-slate-300">{t('mortgage.taxSaving')}</td>
+                <td className="py-2 px-3 text-body">{t('mortgage.taxSaving')}</td>
                 <td className="py-2 px-3 text-right font-semibold text-emerald-600 dark:text-emerald-400">~{fmt(Math.round(chTaxSavings))}</td>
                 <td className="py-2 px-3 text-right font-semibold text-emerald-600 dark:text-emerald-400">{fmt(Math.round(itTaxSavings))}</td>
                 <td className="py-2 px-3 text-right font-semibold text-purple-600 dark:text-purple-400">{fmt(Math.round(Math.abs(chTaxSavings - itTaxSavings)))}</td>
               </tr>
               <tr>
-                <td className="py-2 px-3 text-slate-700 dark:text-slate-300">{t('mortgage.netCost')}</td>
+                <td className="py-2 px-3 text-body">{t('mortgage.netCost')}</td>
                 <td className="py-2 px-3 text-right font-bold text-red-600 dark:text-red-400">{fmt(Math.round(chTotalCost - chTaxSavings))}</td>
                 <td className="py-2 px-3 text-right font-bold text-green-600 dark:text-green-400">{fmt(Math.round(itTotalCost - itTaxSavings))}</td>
                 <td className="py-2 px-3 text-right font-bold text-purple-600 dark:text-purple-400">
@@ -785,7 +785,7 @@ export default function MortgageComparison() {
       </div>
 
       {/* Amortization table (collapsible) */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700">
+      <div className="bg-surface rounded-2xl border border-edge">
         <button
           onClick={() => setShowAmortization(!showAmortization)}
           className="w-full flex items-center justify-between p-4 sm:p-6 text-left"
@@ -796,14 +796,14 @@ export default function MortgageComparison() {
             <Building2 size={20} className="text-purple-600 dark:text-purple-400" />
             {t('mortgage.amortizationTable')}
           </h2>
-          {showAmortization ? <ChevronUp size={20} className="text-slate-500 dark:text-slate-400" /> : <ChevronDown size={20} className="text-slate-500 dark:text-slate-400" />}
+          {showAmortization ? <ChevronUp size={20} className="text-muted" /> : <ChevronDown size={20} className="text-muted" />}
         </button>
         {showAmortization && (
           <div className="px-4 sm:px-6 pb-4 sm:pb-6 overflow-x-auto">
             <table className="w-full text-xs">
               <thead>
-                <tr className="border-b border-slate-200 dark:border-slate-700">
-                  <th className="text-left py-2 px-2 text-slate-600 dark:text-slate-400">{t('mortgage.year')}</th>
+                <tr className="border-b border-edge">
+                  <th className="text-left py-2 px-2 text-subtle">{t('mortgage.year')}</th>
                   <th className="text-right py-2 px-2 text-red-600 dark:text-red-400">🇨🇭 {t('mortgage.payment')}</th>
                   <th className="text-right py-2 px-2 text-red-600 dark:text-red-400">🇨🇭 {t('mortgage.interestLabel')}</th>
                   <th className="text-right py-2 px-2 text-red-600 dark:text-red-400">🇨🇭 {t('mortgage.balance')}</th>
@@ -822,13 +822,13 @@ export default function MortgageComparison() {
                   const itYearEndBalance = itAmort[Math.min((y + 1) * 12 - 1, months - 1)]?.balance ?? 0;
                   return (
                     <tr key={y} className="hover:bg-slate-50 dark:hover:bg-slate-700/50">
-                      <td className="py-1.5 px-2 font-semibold text-slate-700 dark:text-slate-300">{y + 1}</td>
-                      <td className="py-1.5 px-2 text-right text-slate-800 dark:text-slate-200">{fmt(Math.round(chYearPayment))}</td>
+                      <td className="py-1.5 px-2 font-semibold text-body">{y + 1}</td>
+                      <td className="py-1.5 px-2 text-right text-strong">{fmt(Math.round(chYearPayment))}</td>
                       <td className="py-1.5 px-2 text-right text-red-600 dark:text-red-400">{fmt(Math.round(chYearInterest))}</td>
-                      <td className="py-1.5 px-2 text-right text-slate-800 dark:text-slate-200">{fmt(Math.round(chYearEndBalance))}</td>
-                      <td className="py-1.5 px-2 text-right text-slate-800 dark:text-slate-200">{fmt(Math.round(itYearPayment))}</td>
+                      <td className="py-1.5 px-2 text-right text-strong">{fmt(Math.round(chYearEndBalance))}</td>
+                      <td className="py-1.5 px-2 text-right text-strong">{fmt(Math.round(itYearPayment))}</td>
                       <td className="py-1.5 px-2 text-right text-green-600 dark:text-green-400">{fmt(Math.round(itYearInterest))}</td>
-                      <td className="py-1.5 px-2 text-right text-slate-800 dark:text-slate-200">{fmt(Math.round(itYearEndBalance))}</td>
+                      <td className="py-1.5 px-2 text-right text-strong">{fmt(Math.round(itYearEndBalance))}</td>
                     </tr>
                   );
                 })}
@@ -839,7 +839,7 @@ export default function MortgageComparison() {
       </div>
 
       {/* Rules & Info (collapsible) */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700">
+      <div className="bg-surface rounded-2xl border border-edge">
         <button
           onClick={() => setShowRules(!showRules)}
           className="w-full flex items-center justify-between p-4 sm:p-6 text-left"
@@ -850,7 +850,7 @@ export default function MortgageComparison() {
             <Info size={20} className="text-purple-600 dark:text-purple-400" />
             {t('mortgage.rulesTitle')}
           </h2>
-          {showRules ? <ChevronUp size={20} className="text-slate-500 dark:text-slate-400" /> : <ChevronDown size={20} className="text-slate-500 dark:text-slate-400" />}
+          {showRules ? <ChevronUp size={20} className="text-muted" /> : <ChevronDown size={20} className="text-muted" />}
         </button>
         {showRules && (
           <div className="px-4 sm:px-6 pb-4 sm:pb-6 space-y-4">
@@ -859,7 +859,7 @@ export default function MortgageComparison() {
               <h3 className="text-sm font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2 mb-2">
                 🇨🇭 {t('mortgage.chRulesTitle')}
               </h3>
-              <ul className="text-xs text-slate-600 dark:text-slate-400 space-y-1.5 list-disc list-inside">
+              <ul className="text-xs text-subtle space-y-1.5 list-disc list-inside">
                 <li>{t('mortgage.chRule1')}</li>
                 <li>{t('mortgage.chRule2')}</li>
                 <li>{t('mortgage.chRule3')}</li>
@@ -873,7 +873,7 @@ export default function MortgageComparison() {
               <h3 className="text-sm font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2 mb-2">
                 🇮🇹 {t('mortgage.itRulesTitle')}
               </h3>
-              <ul className="text-xs text-slate-600 dark:text-slate-400 space-y-1.5 list-disc list-inside">
+              <ul className="text-xs text-subtle space-y-1.5 list-disc list-inside">
                 <li>{t('mortgage.itRule1')}</li>
                 <li>{t('mortgage.itRule2')}</li>
                 <li>{t('mortgage.itRule3')}</li>
@@ -887,7 +887,7 @@ export default function MortgageComparison() {
               <h3 className="text-sm font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2 mb-2">
                 🔑 {t('mortgage.frontalieroRulesTitle')}
               </h3>
-              <ul className="text-xs text-slate-600 dark:text-slate-400 space-y-1.5 list-disc list-inside">
+              <ul className="text-xs text-subtle space-y-1.5 list-disc list-inside">
                 <li>{t('mortgage.frontRule1')}</li>
                 <li>{t('mortgage.frontRule2')}</li>
                 <li>{t('mortgage.frontRule3')}</li>
@@ -899,7 +899,7 @@ export default function MortgageComparison() {
       </div>
 
       {/* Data sources disclaimer */}
-      <div className="text-center text-xs text-slate-500 dark:text-slate-400 space-y-0.5 pb-4">
+      <div className="text-center text-xs text-muted space-y-0.5 pb-4">
         <p>{t('mortgage.dataSource')}</p>
         <p>{t('mortgage.disclaimer')}</p>
       </div>

@@ -200,7 +200,7 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
       {onBack && (
         <button
           onClick={onBack}
-          className="inline-flex items-center gap-1.5 text-sm text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100"
+          className="inline-flex items-center gap-1.5 text-sm text-subtle hover:text-slate-900 dark:hover:text-slate-100"
         >
           <ArrowLeft size={14} />
           {locale === 'it' ? 'Torna alla lista' : locale === 'de' ? 'Zurück zur Liste' : locale === 'fr' ? 'Retour à la liste' : 'Back to list'}
@@ -214,7 +214,7 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
 
       {/* Countdown + direct link */}
       <div className="flex flex-col items-start gap-2">
-        <p className="text-sm text-slate-500 dark:text-slate-400">{redirectCopy}</p>
+        <p className="text-sm text-muted">{redirectCopy}</p>
         <a
           href={targetPath}
           className="inline-flex items-center gap-1.5 font-semibold text-indigo-600 dark:text-indigo-400 hover:underline text-sm"
@@ -228,7 +228,7 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
       {localizedTitle && (
         <div>
           <h1 className="text-xl font-bold text-slate-800 dark:text-slate-100 leading-snug">{localizedTitle}</h1>
-          <div className="flex flex-wrap gap-3 mt-2 text-sm text-slate-600 dark:text-slate-400">
+          <div className="flex flex-wrap gap-3 mt-2 text-sm text-subtle">
             {jobData?.company && (
               <span className="flex items-center gap-1">
                 <Building2 size={14} />
@@ -247,7 +247,7 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
 
       {/* Google Sign-In block — hidden when user is already authenticated */}
       {!alreadySignedIn && (
-      <div className="rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/60 p-5 text-center space-y-3">
+      <div className="rounded-xl border border-edge bg-surface-alt/60 p-5 text-center space-y-3">
         <p className="text-sm font-semibold text-slate-800 dark:text-slate-100">
           {SIGNUP_COPY[locale] ?? SIGNUP_COPY.it}
         </p>
@@ -255,7 +255,7 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
         {!googleButtonReady && (
           <a
             href={`/?redirect=${encodeURIComponent(listingPath)}`}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm font-semibold text-slate-800 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-slate-300 dark:border-slate-600 bg-surface text-sm font-semibold text-slate-800 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors"
           >
             {locale === 'it' ? 'Accedi' : locale === 'de' ? 'Anmelden' : locale === 'fr' ? 'Se connecter' : 'Sign in'}
           </a>
@@ -275,7 +275,7 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
         {/* Email divider + form */}
         <div className="flex items-center gap-3">
           <div className="flex-1 h-px bg-slate-300/50 dark:bg-slate-600/50" />
-          <span className="text-sm text-slate-500 dark:text-slate-400">{EMAIL_OR_COPY[locale] ?? EMAIL_OR_COPY.it}</span>
+          <span className="text-sm text-muted">{EMAIL_OR_COPY[locale] ?? EMAIL_OR_COPY.it}</span>
           <div className="flex-1 h-px bg-slate-300/50 dark:bg-slate-600/50" />
         </div>
         <form onSubmit={handleEmailSubmit} className="space-y-2">
@@ -283,7 +283,7 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
             value={emailInput}
             onChange={setEmailInput}
             placeholder={EMAIL_PLACEHOLDER_COPY[locale] ?? EMAIL_PLACEHOLDER_COPY.it}
-            className="w-full px-3 py-2.5 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm text-slate-900 dark:text-white placeholder-slate-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+            className="w-full px-3 py-2.5 rounded-xl border border-slate-300 dark:border-slate-600 bg-surface text-sm text-slate-900 dark:text-white placeholder-slate-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
           />
           <button
             type="submit"
@@ -314,11 +314,11 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
                 <li key={rjSlug}>
                   <a
                     href={rjPath}
-                    className="flex items-center gap-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-3 py-2 text-sm hover:border-indigo-300 dark:hover:border-indigo-600 transition-colors"
+                    className="flex items-center gap-2 rounded-lg border border-edge bg-surface px-3 py-2 text-sm hover:border-indigo-300 dark:hover:border-indigo-600 transition-colors"
                   >
                     <span className="flex-1 font-medium text-slate-800 dark:text-slate-100 truncate">{rjTitle}</span>
-                    {rj.company && <span className="text-slate-500 dark:text-slate-400 text-xs shrink-0">{rj.company}</span>}
-                    <ArrowRight size={12} className="text-slate-500 dark:text-slate-400 shrink-0" />
+                    {rj.company && <span className="text-muted text-xs shrink-0">{rj.company}</span>}
+                    <ArrowRight size={12} className="text-muted shrink-0" />
                   </a>
                 </li>
               );

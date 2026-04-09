@@ -199,7 +199,7 @@ const TransportCalculator: React.FC = () => {
       </div>
 
       {/* Input Section */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl p-4 sm:p-6 border border-slate-200 dark:border-slate-700">
+      <div className="bg-surface rounded-2xl p-4 sm:p-6 border border-edge">
         <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100 mb-4 flex items-center gap-2">
           <Calculator size={20} />
           {t('transport.travelData')}
@@ -207,7 +207,7 @@ const TransportCalculator: React.FC = () => {
 
         <div className="grid md:grid-cols-2 gap-6">
           <div>
-            <label htmlFor="tc-km" className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">
+            <label htmlFor="tc-km" className="block text-sm font-bold text-body mb-2">
               {t('transport.distanceOneWay')}
             </label>
             <div className="flex items-center gap-2">
@@ -217,17 +217,17 @@ const TransportCalculator: React.FC = () => {
                 inputMode="numeric"
                 value={kmOneWay}
                 onChange={(e) => { setKmOneWay(Number(e.target.value)); Analytics.trackTransportCalculator('change_param', 'km', Number(e.target.value)); }}
-                className="flex-1 px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100"
+                className="flex-1 px-4 py-2 rounded-lg border border-edge bg-surface-alt text-slate-800 dark:text-slate-100"
               />
-              <span className="text-sm font-bold text-slate-600 dark:text-slate-400">km</span>
+              <span className="text-sm font-bold text-subtle">km</span>
             </div>
-            <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
+            <p className="text-sm text-muted mt-1">
               {t('transport.roundTrip')}: {kmPerDay} km/{t('transport.day')}
             </p>
           </div>
 
           <div>
-            <label htmlFor="tc-days" className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">
+            <label htmlFor="tc-days" className="block text-sm font-bold text-body mb-2">
               {t('transport.workDaysPerMonth')}
             </label>
             <div className="flex items-center gap-2">
@@ -237,17 +237,17 @@ const TransportCalculator: React.FC = () => {
                 inputMode="numeric"
                 value={workDaysPerMonth}
                 onChange={(e) => { setWorkDaysPerMonth(Number(e.target.value)); Analytics.trackTransportCalculator('change_param', 'workDays', Number(e.target.value)); }}
-                className="flex-1 px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100"
+                className="flex-1 px-4 py-2 rounded-lg border border-edge bg-surface-alt text-slate-800 dark:text-slate-100"
               />
-              <span className="text-sm font-bold text-slate-600 dark:text-slate-400">{t('transport.days')}</span>
+              <span className="text-sm font-bold text-subtle">{t('transport.days')}</span>
             </div>
-            <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
+            <p className="text-sm text-muted mt-1">
               {t('transport.total')}: {kmPerMonth.toLocaleString()} km/{t('transport.month')}, {kmPerYear.toLocaleString()} km/{t('transport.year')}
             </p>
           </div>
 
           <div>
-            <label htmlFor="tc-consumption" className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">
+            <label htmlFor="tc-consumption" className="block text-sm font-bold text-body mb-2">
               {t('transport.fuelConsumption')}
             </label>
             <input
@@ -257,12 +257,12 @@ const TransportCalculator: React.FC = () => {
               step="0.1"
               value={consumptionPer100km}
               onChange={(e) => setConsumptionPer100km(Number(e.target.value))}
-              className="w-full px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100"
+              className="w-full px-4 py-2 rounded-lg border border-edge bg-surface-alt text-slate-800 dark:text-slate-100"
             />
           </div>
 
           <div>
-            <label htmlFor="tc-tolls" className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">
+            <label htmlFor="tc-tolls" className="block text-sm font-bold text-body mb-2">
               {t('transport.tollsMonthly')}
             </label>
             <div className="flex items-center gap-2">
@@ -272,14 +272,14 @@ const TransportCalculator: React.FC = () => {
                 inputMode="numeric"
                 value={tollsCost}
                 onChange={(e) => setTollsCost(Number(e.target.value))}
-                className="flex-1 px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100"
+                className="flex-1 px-4 py-2 rounded-lg border border-edge bg-surface-alt text-slate-800 dark:text-slate-100"
               />
-              <span className="text-sm font-bold text-slate-600 dark:text-slate-400">€</span>
+              <span className="text-sm font-bold text-subtle">€</span>
             </div>
           </div>
 
           <div>
-            <label htmlFor="tc-fuel-it" className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">
+            <label htmlFor="tc-fuel-it" className="block text-sm font-bold text-body mb-2">
               {t('transport.fuelPriceIT')}
             </label>
             <input
@@ -289,12 +289,12 @@ const TransportCalculator: React.FC = () => {
               step="0.01"
               value={fuelPriceIT}
               onChange={(e) => setFuelPriceIT(Number(e.target.value))}
-              className="w-full px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100"
+              className="w-full px-4 py-2 rounded-lg border border-edge bg-surface-alt text-slate-800 dark:text-slate-100"
             />
           </div>
 
           <div>
-            <label htmlFor="tc-fuel-ch" className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">
+            <label htmlFor="tc-fuel-ch" className="block text-sm font-bold text-body mb-2">
               {t('transport.fuelPriceCH')}
             </label>
             <input
@@ -304,12 +304,12 @@ const TransportCalculator: React.FC = () => {
               step="0.01"
               value={fuelPriceCH}
               onChange={(e) => setFuelPriceCH(Number(e.target.value))}
-              className="w-full px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100"
+              className="w-full px-4 py-2 rounded-lg border border-edge bg-surface-alt text-slate-800 dark:text-slate-100"
             />
           </div>
 
           <div>
-            <label htmlFor="tc-parking" className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">
+            <label htmlFor="tc-parking" className="block text-sm font-bold text-body mb-2">
               {t('transport.parkingMonthly')}
             </label>
             <div className="flex items-center gap-2">
@@ -319,9 +319,9 @@ const TransportCalculator: React.FC = () => {
                 inputMode="numeric"
                 value={parkingCost}
                 onChange={(e) => setParkingCost(Number(e.target.value))}
-                className="flex-1 px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100"
+                className="flex-1 px-4 py-2 rounded-lg border border-edge bg-surface-alt text-slate-800 dark:text-slate-100"
               />
-              <span className="text-sm font-bold text-slate-600 dark:text-slate-400">CHF</span>
+              <span className="text-sm font-bold text-subtle">CHF</span>
             </div>
           </div>
         </div>
@@ -342,7 +342,7 @@ const TransportCalculator: React.FC = () => {
           <div className="text-2xl sm:text-3xl font-bold text-emerald-700 mb-2">
             € {cheapest.costPerMonth.toFixed(2)}/mese
           </div>
-          <p className="text-sm text-slate-600 dark:text-slate-400">
+          <p className="text-sm text-subtle">
             {cheapest.costPerYear.toFixed(2)} €/anno
           </p>
         </div>
@@ -360,7 +360,7 @@ const TransportCalculator: React.FC = () => {
           <div className="text-2xl sm:text-3xl font-bold text-red-600 mb-2">
             € {mostExpensive.costPerMonth.toFixed(2)}/mese
           </div>
-          <p className="text-sm text-slate-600 dark:text-slate-400">
+          <p className="text-sm text-subtle">
             {t('transport.youSave')} <strong className="text-emerald-700">{savings.toFixed(2)} €/{t('transport.month')}</strong> {t('transport.with')} {cheapest.name}
           </p>
         </div>
@@ -371,10 +371,10 @@ const TransportCalculator: React.FC = () => {
         {results.map((result) => (
           <div
             key={result.name}
-            className={`bg-white dark:bg-slate-800 rounded-2xl border-2 p-4 sm:p-6 hover:shadow-lg transition-[color,background-color,border-color,box-shadow] ${
+            className={`bg-surface rounded-2xl border-2 p-4 sm:p-6 hover:shadow-lg transition-[color,background-color,border-color,box-shadow] ${
               result.name === cheapest.name 
                 ? 'border-emerald-500 ring-2 ring-emerald-500/20' 
-                : 'border-slate-200 dark:border-slate-700'
+                : 'border-edge'
             }`}
           >
             {result.name === cheapest.name && (
@@ -390,7 +390,7 @@ const TransportCalculator: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100">{result.name}</h3>
-                  <p className="text-sm text-slate-500 dark:text-slate-400">
+                  <p className="text-sm text-muted">
                     {result.type.includes('car') ? `${kmPerYear.toLocaleString()} km/${t('transport.year')}` : t('transport.publicTransport')}
                   </p>
                 </div>
@@ -400,41 +400,41 @@ const TransportCalculator: React.FC = () => {
                 <div className="text-2xl font-bold text-slate-800 dark:text-slate-100">
                   € {result.costPerMonth.toFixed(2)}
                 </div>
-                <div className="text-sm text-slate-500 dark:text-slate-400">{t('transport.perMonth')}</div>
+                <div className="text-sm text-muted">{t('transport.perMonth')}</div>
               </div>
             </div>
 
             {result.details && (
-              <div className="space-y-2 mt-4 pt-4 border-t border-slate-200 dark:border-slate-700">
+              <div className="space-y-2 mt-4 pt-4 border-t border-edge">
                 <div className="flex justify-between text-sm">
-                  <span className="text-slate-600 dark:text-slate-400">{t('transport.fuelEnergy')}</span>
+                  <span className="text-subtle">{t('transport.fuelEnergy')}</span>
                   <span className="font-bold text-slate-800 dark:text-slate-100">€ {result.details.fuelCost.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-slate-600 dark:text-slate-400">{t('transport.insurance')}</span>
+                  <span className="text-subtle">{t('transport.insurance')}</span>
                   <span className="font-bold text-slate-800 dark:text-slate-100">€ {result.details.insurance.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-slate-600 dark:text-slate-400">{t('transport.maintenance')}</span>
+                  <span className="text-subtle">{t('transport.maintenance')}</span>
                   <span className="font-bold text-slate-800 dark:text-slate-100">€ {result.details.maintenance.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-slate-600 dark:text-slate-400">{t('transport.wear')}</span>
+                  <span className="text-subtle">{t('transport.wear')}</span>
                   <span className="font-bold text-slate-800 dark:text-slate-100">€ {result.details.wear.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-slate-600 dark:text-slate-400">{t('transport.depreciation')}</span>
+                  <span className="text-subtle">{t('transport.depreciation')}</span>
                   <span className="font-bold text-slate-800 dark:text-slate-100">€ {result.details.depreciation.toFixed(2)}</span>
                 </div>
                 {result.details.tolls > 0 && (
                   <div className="flex justify-between text-sm">
-                    <span className="text-slate-600 dark:text-slate-400">{t('transport.tolls')}</span>
+                    <span className="text-subtle">{t('transport.tolls')}</span>
                     <span className="font-bold text-slate-800 dark:text-slate-100">€ {result.details.tolls.toFixed(2)}</span>
                   </div>
                 )}
                 {result.details.parking > 0 && (
                   <div className="flex justify-between text-sm">
-                    <span className="text-slate-600 dark:text-slate-400">{t('transport.parking')}</span>
+                    <span className="text-subtle">{t('transport.parking')}</span>
                     <span className="font-bold text-slate-800 dark:text-slate-100">CHF {result.details.parking.toFixed(2)}</span>
                   </div>
                 )}
@@ -470,7 +470,7 @@ const TransportCalculator: React.FC = () => {
         <div className="grid md:grid-cols-2 gap-4">
           <div className="p-4 bg-white/50 dark:bg-slate-900/50 rounded-xl">
             <p className="font-bold text-amber-700 dark:text-amber-400 mb-2">⛽ {t('transport.whereToFuel')}</p>
-            <ul className="space-y-1 text-sm text-slate-700 dark:text-slate-300 list-disc ml-4">
+            <ul className="space-y-1 text-sm text-body list-disc ml-4">
               <li>{t('transport.fuelTip1')}</li>
               <li>{t('transport.fuelTip2')}</li>
               <li>{t('transport.fuelTip3')}</li>
@@ -479,7 +479,7 @@ const TransportCalculator: React.FC = () => {
 
           <div className="p-4 bg-white/50 dark:bg-slate-900/50 rounded-xl">
             <p className="font-bold text-amber-700 dark:text-amber-400 mb-2">🚗 {t('transport.electricWorth')}</p>
-            <ul className="space-y-1 text-sm text-slate-700 dark:text-slate-300 list-disc ml-4">
+            <ul className="space-y-1 text-sm text-body list-disc ml-4">
               <li>{t('transport.electricTip1')}</li>
               <li>{t('transport.electricTip2')}</li>
               <li>{t('transport.electricTip3')}</li>
@@ -488,7 +488,7 @@ const TransportCalculator: React.FC = () => {
 
           <div className="p-4 bg-white/50 dark:bg-slate-900/50 rounded-xl">
             <p className="font-bold text-amber-700 dark:text-amber-400 mb-2">🚆 {t('transport.trainAlternative')}</p>
-            <ul className="space-y-1 text-sm text-slate-700 dark:text-slate-300 list-disc ml-4">
+            <ul className="space-y-1 text-sm text-body list-disc ml-4">
               <li>{t('transport.trainAltTip1')}</li>
               <li>{t('transport.trainAltTip2')}</li>
               <li>{t('transport.trainAltTip3')}</li>
@@ -497,7 +497,7 @@ const TransportCalculator: React.FC = () => {
 
           <div className="p-4 bg-white/50 dark:bg-slate-900/50 rounded-xl">
             <p className="font-bold text-amber-700 dark:text-amber-400 mb-2">💰 {t('transport.taxDeductions')}</p>
-            <ul className="space-y-1 text-sm text-slate-700 dark:text-slate-300 list-disc ml-4">
+            <ul className="space-y-1 text-sm text-body list-disc ml-4">
               <li>{t('transport.taxTip1')}</li>
               <li>{t('transport.taxTip2')}</li>
               <li>{t('transport.taxTip3')}</li>

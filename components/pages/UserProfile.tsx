@@ -231,7 +231,7 @@ export const ProfileLoginCTA: React.FC<{
   return (
     <div className="flex items-center gap-3 p-3 bg-gradient-to-r from-teal-50 to-emerald-50 dark:from-teal-950/40 dark:to-emerald-950/40 rounded-xl border border-teal-200 dark:border-teal-800">
       <Sparkles size={18} className="text-teal-500 flex-shrink-0" />
-      <p className="text-xs text-slate-700 dark:text-slate-300 flex-1">{t('profile.cta.title')}</p>
+      <p className="text-xs text-body flex-1">{t('profile.cta.title')}</p>
       <button
         onClick={onLogin}
         className="px-3 py-1 text-xs font-bold text-white bg-teal-600 hover:bg-teal-700 rounded-lg transition-colors"
@@ -241,7 +241,7 @@ export const ProfileLoginCTA: React.FC<{
       {onDismiss && (
         <button
           onClick={() => { setDismissed(true); onDismiss(); }}
-          className="text-xs text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300"
+          className="text-xs text-muted hover:text-slate-700 dark:hover:text-slate-300"
           aria-label={t('profile.cta.dismiss')}
         >
           ✕
@@ -323,7 +323,7 @@ const Autocomplete: React.FC<{
           ref={listRef}
           id={`${id}-listbox`}
           role="listbox"
-          className="absolute z-50 w-full mt-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl shadow-lg max-h-48 overflow-y-auto"
+          className="absolute z-50 w-full mt-1 bg-surface border border-edge rounded-xl shadow-lg max-h-48 overflow-y-auto"
         >
           {filtered.map((item, i) => (
             <li
@@ -331,7 +331,7 @@ const Autocomplete: React.FC<{
               id={`${id}-opt-${i}`}
               role="option"
               aria-selected={i === highlightIdx}
-              className={`px-4 py-2 text-sm cursor-pointer transition-colors ${i === highlightIdx ? 'bg-indigo-50 dark:bg-indigo-900/40 text-indigo-700 dark:text-indigo-300' : 'text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700'}`}
+              className={`px-4 py-2 text-sm cursor-pointer transition-colors ${i === highlightIdx ? 'bg-indigo-50 dark:bg-indigo-900/40 text-indigo-700 dark:text-indigo-300' : 'text-body hover:bg-slate-50 dark:hover:bg-slate-700'}`}
               onMouseDown={() => { onChange(item); setOpen(false); }}
             >
               {item}
@@ -354,16 +354,16 @@ const FamilyMemberRow: React.FC<{
 }> = ({ member, onUpdate, onRemove, disabled, t }) => {
   const currentYear = new Date().getFullYear();
   return (
-    <div className="flex flex-col sm:flex-row gap-2 p-3 bg-slate-50 dark:bg-slate-900/40 rounded-xl border border-slate-100 dark:border-slate-800">
+    <div className="flex flex-col sm:flex-row gap-2 p-3 bg-surface-alt/40 rounded-xl border border-slate-100 dark:border-slate-800">
       <div className="flex-1 grid grid-cols-2 gap-2">
         <div>
-          <label htmlFor={`rel-${member.id}`} className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">{t('profile.family.relationship')}</label>
+          <label htmlFor={`rel-${member.id}`} className="text-xs font-bold text-muted uppercase">{t('profile.family.relationship')}</label>
           <select
             id={`rel-${member.id}`}
             value={member.relationship}
             onChange={(e) => onUpdate({ ...member, relationship: e.target.value as FamilyMember['relationship'] })}
             disabled={disabled}
-            className="w-full px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-xs focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+            className="w-full px-3 py-1.5 bg-surface border border-edge rounded-lg text-xs focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
           >
             <option value="spouse">{t('profile.family.spouse')}</option>
             <option value="child">{t('profile.family.child')}</option>
@@ -373,7 +373,7 @@ const FamilyMemberRow: React.FC<{
           </select>
         </div>
         <div>
-          <label htmlFor={`year-${member.id}`} className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">{t('profile.family.birthYear')}</label>
+          <label htmlFor={`year-${member.id}`} className="text-xs font-bold text-muted uppercase">{t('profile.family.birthYear')}</label>
           <input
             id={`year-${member.id}`}
             type="number"
@@ -384,12 +384,12 @@ const FamilyMemberRow: React.FC<{
             onChange={(e) => onUpdate({ ...member, birthYear: e.target.value })}
             disabled={disabled}
             placeholder={t('profile.family.optional')}
-            className="w-full px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-xs focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+            className="w-full px-3 py-1.5 bg-surface border border-edge rounded-lg text-xs focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
           />
         </div>
       </div>
       <div className="flex items-center gap-3 sm:gap-2">
-        <label className="flex items-center gap-1 text-xs font-medium text-slate-600 dark:text-slate-400 cursor-pointer">
+        <label className="flex items-center gap-1 text-xs font-medium text-subtle cursor-pointer">
           <input
             type="checkbox"
             checked={member.dependent}
@@ -399,7 +399,7 @@ const FamilyMemberRow: React.FC<{
           />
           {t('profile.family.dependent')}
         </label>
-        <label className="flex items-center gap-1 text-xs font-medium text-slate-600 dark:text-slate-400 cursor-pointer">
+        <label className="flex items-center gap-1 text-xs font-medium text-subtle cursor-pointer">
           <input
             type="checkbox"
             checked={member.liveTogether}
@@ -790,7 +790,7 @@ const UserProfile: React.FC = () => {
   if (!user && !authLoading) {
     return (
       <div className="max-w-lg mx-auto animate-fade-in">
-        <div className="bg-white dark:bg-slate-800 rounded-3xl shadow-xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+        <div className="bg-surface rounded-3xl shadow-xl border border-edge overflow-hidden">
           {/* Header */}
           <div className="bg-gradient-to-br from-blue-600 via-teal-600 to-emerald-600 p-4 sm:p-8 text-center text-white">
             <div className="w-20 h-20 mx-auto bg-white/25 dark:bg-slate-800/40 rounded-full flex items-center justify-center mb-4">
@@ -803,7 +803,7 @@ const UserProfile: React.FC = () => {
           {/* Sign-in card */}
           <div className="p-4 sm:p-8 space-y-6">
             <div className="text-center space-y-3">
-              <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+              <p className="text-subtle text-sm leading-relaxed">
                 {t('profile.signInDescription')}
               </p>
             </div>
@@ -811,7 +811,7 @@ const UserProfile: React.FC = () => {
             {/* Benefits list */}
             <div className="space-y-2">
               {['personalizedSim', 'cloudSync', 'contextual'].map(key => (
-                <div key={key} className="flex items-center gap-2 text-xs text-slate-600 dark:text-slate-400">
+                <div key={key} className="flex items-center gap-2 text-xs text-subtle">
                   <CheckCircle2 size={14} className="text-emerald-500 flex-shrink-0" />
                   {t(`profile.benefit.${key}`)}
                 </div>
@@ -825,7 +825,7 @@ const UserProfile: React.FC = () => {
             {!gisButtonRendered && (
               <button
                 onClick={handleGoogleSignIn}
-                className="w-full flex items-center justify-center gap-3 px-6 py-3.5 bg-white dark:bg-slate-700 border-2 border-slate-200 dark:border-slate-600 rounded-2xl hover:border-blue-300 dark:hover:border-blue-600 hover:shadow-lg transition-[border-color,box-shadow] group"
+                className="w-full flex items-center justify-center gap-3 px-6 py-3.5 bg-white dark:bg-slate-700 border-2 border-edge rounded-2xl hover:border-blue-300 dark:hover:border-blue-600 hover:shadow-lg transition-[border-color,box-shadow] group"
               >
                 <svg viewBox="0 0 24 24" className="w-5 h-5" aria-hidden="true">
                   <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4" />
@@ -865,7 +865,7 @@ const UserProfile: React.FC = () => {
             </button>
             */}
 
-            <div className="flex items-center gap-2 justify-center text-xs text-slate-500 dark:text-slate-400">
+            <div className="flex items-center gap-2 justify-center text-xs text-muted">
               <Shield size={12} />
               <span>{t('profile.privacyNote')}</span>
             </div>
@@ -893,7 +893,7 @@ const UserProfile: React.FC = () => {
   return (
     <div className="max-w-2xl mx-auto space-y-6 animate-fade-in">
       {/* Profile header card */}
-      <div className="bg-white dark:bg-slate-800 rounded-3xl shadow-xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+      <div className="bg-surface rounded-3xl shadow-xl border border-edge overflow-hidden">
         <div className="bg-gradient-to-br from-blue-600 via-teal-600 to-emerald-600 p-4 sm:p-6 text-white">
           <div className="flex items-center gap-5">
             <div className="relative">
@@ -957,9 +957,9 @@ const UserProfile: React.FC = () => {
         </div>
 
         {/* Quick actions strip */}
-        <div className="px-6 py-3 bg-slate-50 dark:bg-slate-900/50 border-b border-slate-100 dark:border-slate-800">
+        <div className="px-6 py-3 bg-surface-alt/50 border-b border-slate-100 dark:border-slate-800">
           <div className="flex items-center gap-2 overflow-x-auto">
-            <span className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase whitespace-nowrap">{t('profile.quickActions')}</span>
+            <span className="text-xs font-bold text-muted uppercase whitespace-nowrap">{t('profile.quickActions')}</span>
             {[
               { icon: Calculator, label: t('profile.action.simulate'), tab: 'calculator' },
               { icon: Sparkles, label: t('profile.action.whatif'), tab: 'calculator', subTab: 'whatif' },
@@ -971,7 +971,7 @@ const UserProfile: React.FC = () => {
                 onClick={() => {
                   window.dispatchEvent(new CustomEvent('navigate-tab', { detail: { tab: a.tab, ...(a.subTab ? { subTab: a.subTab } : {}) } }));
                 }}
-                className="flex items-center gap-1.5 px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-medium text-slate-600 dark:text-slate-400 hover:border-teal-300 dark:hover:border-teal-600 hover:text-teal-600 dark:hover:text-teal-400 transition-[color,border-color] whitespace-nowrap"
+                className="flex items-center gap-1.5 px-3 py-1.5 bg-surface border border-edge rounded-lg text-xs font-medium text-subtle hover:border-teal-300 dark:hover:border-teal-600 hover:text-teal-600 dark:hover:text-teal-400 transition-[color,border-color] whitespace-nowrap"
               >
                 <a.icon size={13} />
                 {a.label}
@@ -989,13 +989,13 @@ const UserProfile: React.FC = () => {
                 <button
                   onClick={() => window.dispatchEvent(new CustomEvent('navigate-tab', { detail: { tab: 'calculator' } }))}
                   aria-label={t('profile.widget.netSalary')}
-                  className="flex flex-col items-center gap-1 p-3 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-teal-300 dark:hover:border-teal-600 transition-[border-color] cursor-pointer"
+                  className="flex flex-col items-center gap-1 p-3 bg-surface rounded-xl border border-edge hover:border-teal-300 dark:hover:border-teal-600 transition-[border-color] cursor-pointer"
                 >
-                  <span className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">{t('profile.widget.netCH')}</span>
+                  <span className="text-xs font-bold text-muted uppercase">{t('profile.widget.netCH')}</span>
                   <span className="text-lg font-bold text-emerald-700 dark:text-emerald-400 tabular-nums">
                     {Math.round(quickSimResult.chResident.netIncomeMonthly).toLocaleString('de-CH')}
                   </span>
-                  <span className="text-sm text-slate-500 dark:text-slate-400">CHF/{t('profile.widget.month')}</span>
+                  <span className="text-sm text-muted">CHF/{t('profile.widget.month')}</span>
                 </button>
               )}
               {/* Net salary (IT) */}
@@ -1003,34 +1003,34 @@ const UserProfile: React.FC = () => {
                 <button
                   onClick={() => window.dispatchEvent(new CustomEvent('navigate-tab', { detail: { tab: 'calculator' } }))}
                   aria-label={t('profile.widget.netSalary')}
-                  className="flex flex-col items-center gap-1 p-3 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-teal-300 dark:hover:border-teal-600 transition-[border-color] cursor-pointer"
+                  className="flex flex-col items-center gap-1 p-3 bg-surface rounded-xl border border-edge hover:border-teal-300 dark:hover:border-teal-600 transition-[border-color] cursor-pointer"
                 >
-                  <span className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">{t('profile.widget.netIT')}</span>
-                  <span className="text-lg font-bold text-blue-600 dark:text-blue-400 tabular-nums">
+                  <span className="text-xs font-bold text-muted uppercase">{t('profile.widget.netIT')}</span>
+                  <span className="text-lg font-bold text-link tabular-nums">
                     {Math.round(quickSimResult.itResident.netIncomeMonthly).toLocaleString('de-CH')}
                   </span>
-                  <span className="text-sm text-slate-500 dark:text-slate-400">EUR/{t('profile.widget.month')}</span>
+                  <span className="text-sm text-muted">EUR/{t('profile.widget.month')}</span>
                 </button>
               )}
               {/* EUR/CHF rate */}
               <button
                 onClick={() => window.dispatchEvent(new CustomEvent('navigate-tab', { detail: { tab: 'confronti', subTab: 'exchange' } }))}
                 aria-label={t('profile.widget.fxRate')}
-                className="flex flex-col items-center gap-1 p-3 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-teal-300 dark:hover:border-teal-600 transition-[border-color] cursor-pointer"
+                className="flex flex-col items-center gap-1 p-3 bg-surface rounded-xl border border-edge hover:border-teal-300 dark:hover:border-teal-600 transition-[border-color] cursor-pointer"
               >
-                <span className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">EUR/CHF</span>
+                <span className="text-xs font-bold text-muted uppercase">EUR/CHF</span>
                 <span className="text-lg font-bold text-amber-600 dark:text-amber-400 tabular-nums">
                   {fxRate.toFixed(4)}
                 </span>
-                <span className="text-sm text-slate-500 dark:text-slate-400">{t('profile.widget.live')}</span>
+                <span className="text-sm text-muted">{t('profile.widget.live')}</span>
               </button>
               {/* Preferred dogana / morning dashboard */}
               <button
                 onClick={() => window.dispatchEvent(new CustomEvent('navigate-tab', { detail: { tab: 'morning' } }))}
                 aria-label={t('profile.widget.morning')}
-                className="flex flex-col items-center gap-1 p-3 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-orange-300 dark:hover:border-orange-600 transition-[border-color] cursor-pointer"
+                className="flex flex-col items-center gap-1 p-3 bg-surface rounded-xl border border-edge hover:border-orange-300 dark:hover:border-orange-600 transition-[border-color] cursor-pointer"
               >
-                <span className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">
+                <span className="text-xs font-bold text-muted uppercase">
                   {preferredCrossing ? preferredCrossing.name : t('profile.widget.morning')}
                 </span>
                 <span className="text-lg">☀️</span>
@@ -1073,7 +1073,7 @@ const UserProfile: React.FC = () => {
             : isUrgent
             ? 'text-amber-600 dark:text-amber-400'
             : isSoon
-            ? 'text-blue-600 dark:text-blue-400'
+            ? 'text-link'
             : 'text-emerald-700 dark:text-emerald-400';
 
           const permitLabel = profile.frontaliereType === 'permit-g' ? t('profile.permitG') : t('profile.permitB');
@@ -1086,7 +1086,7 @@ const UserProfile: React.FC = () => {
                 </div>
                 <div className="flex-1 min-w-0">
                   <h3 className={`text-sm font-bold ${textColor}`}>{t('profile.permit.tracker')}</h3>
-                  <p className="text-xs text-slate-600 dark:text-slate-400 mt-0.5">
+                  <p className="text-xs text-subtle mt-0.5">
                     {permitLabel} — {t('profile.permit.expires')} {expiry.toLocaleDateString(locale === 'it' ? 'it-IT' : locale === 'de' ? 'de-DE' : locale === 'fr' ? 'fr-FR' : 'en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
                   </p>
                   <div className="flex items-baseline gap-1 mt-2">
@@ -1096,7 +1096,7 @@ const UserProfile: React.FC = () => {
                       <>
                         <span className={`text-2xl font-bold tabular-nums ${numColor}`}>{diffDays}</span>
                         <span className={`text-sm font-medium ${textColor}`}>{t('profile.permit.daysLeft')}</span>
-                        {diffMonths > 0 && <span className="text-sm text-slate-500 dark:text-slate-400 ml-1">({diffMonths} {t('profile.permit.months')})</span>}
+                        {diffMonths > 0 && <span className="text-sm text-muted ml-1">({diffMonths} {t('profile.permit.months')})</span>}
                       </>
                     )}
                   </div>
@@ -1127,7 +1127,7 @@ const UserProfile: React.FC = () => {
               </span>
             )}
             {saveStatus === 'saving' && (
-              <span className="flex items-center gap-1 text-xs text-slate-500 dark:text-slate-400 font-medium">
+              <span className="flex items-center gap-1 text-xs text-muted font-medium">
                 <Loader2 size={13} className="animate-spin" />
                 {t('profile.saving')}
               </span>
@@ -1149,7 +1149,7 @@ const UserProfile: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {/* Frontaliere Type */}
             <div>
-              <label htmlFor="frontaliereType" className="flex items-center gap-1.5 text-xs font-bold text-slate-600 dark:text-slate-400 uppercase mb-1.5">
+              <label htmlFor="frontaliereType" className="flex items-center gap-1.5 text-xs font-bold text-subtle uppercase mb-1.5">
                 <MapPin size={13} />
                 {t('profile.frontaliereType')}
               </label>
@@ -1157,7 +1157,7 @@ const UserProfile: React.FC = () => {
                 id="frontaliereType"
                 value={profile.frontaliereType}
                 onChange={(e) => updateField('frontaliereType', e.target.value)}
-                className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+                className="w-full px-4 py-2.5 bg-surface-alt border border-edge rounded-xl text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
               >
                 <option value="">{t('profile.selectOption')}</option>
                 <option value="permit-g">{t('profile.permitG')}</option>
@@ -1169,7 +1169,7 @@ const UserProfile: React.FC = () => {
             {/* Permit expiry date — shown only for G or B */}
             {(profile.frontaliereType === 'permit-g' || profile.frontaliereType === 'permit-b') && (
               <div>
-                <label htmlFor="permitExpiry" className="flex items-center gap-1.5 text-xs font-bold text-slate-600 dark:text-slate-400 uppercase mb-1.5">
+                <label htmlFor="permitExpiry" className="flex items-center gap-1.5 text-xs font-bold text-subtle uppercase mb-1.5">
                   <Clock size={13} />
                   {t('profile.permitExpiry')}
                 </label>
@@ -1179,15 +1179,15 @@ const UserProfile: React.FC = () => {
                   value={profile.permitExpiry}
                   onChange={(e) => updateField('permitExpiry', e.target.value)}
                   min={new Date().toISOString().split('T')[0]}
-                  className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+                  className="w-full px-4 py-2.5 bg-surface-alt border border-edge rounded-xl text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
                 />
-                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">{t('profile.permitExpiryHint')}</p>
+                <p className="text-xs text-muted mt-1">{t('profile.permitExpiryHint')}</p>
               </div>
             )}
 
             {/* Age */}
             <div>
-              <label htmlFor="age" className="flex items-center gap-1.5 text-xs font-bold text-slate-600 dark:text-slate-400 uppercase mb-1.5">
+              <label htmlFor="age" className="flex items-center gap-1.5 text-xs font-bold text-subtle uppercase mb-1.5">
                 <Calendar size={13} />
                 {t('profile.age')}
               </label>
@@ -1195,7 +1195,7 @@ const UserProfile: React.FC = () => {
                 id="age"
                 value={profile.age}
                 onChange={(e) => updateField('age', e.target.value)}
-                className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+                className="w-full px-4 py-2.5 bg-surface-alt border border-edge rounded-xl text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
               >
                 <option value="">{t('profile.selectOption')}</option>
                 <option value="18-25">18-25</option>
@@ -1209,7 +1209,7 @@ const UserProfile: React.FC = () => {
 
             {/* Gender */}
             <div>
-              <label htmlFor="gender" className="flex items-center gap-1.5 text-xs font-bold text-slate-600 dark:text-slate-400 uppercase mb-1.5">
+              <label htmlFor="gender" className="flex items-center gap-1.5 text-xs font-bold text-subtle uppercase mb-1.5">
                 <User size={13} />
                 {t('profile.gender')}
               </label>
@@ -1217,7 +1217,7 @@ const UserProfile: React.FC = () => {
                 id="gender"
                 value={profile.gender}
                 onChange={(e) => updateField('gender', e.target.value)}
-                className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+                className="w-full px-4 py-2.5 bg-surface-alt border border-edge rounded-xl text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
               >
                 <option value="">{t('profile.selectOption')}</option>
                 <option value="male">{t('profile.genderMale')}</option>
@@ -1228,7 +1228,7 @@ const UserProfile: React.FC = () => {
 
             {/* Family Situation */}
             <div>
-              <label htmlFor="familySituation" className="flex items-center gap-1.5 text-xs font-bold text-slate-600 dark:text-slate-400 uppercase mb-1.5">
+              <label htmlFor="familySituation" className="flex items-center gap-1.5 text-xs font-bold text-subtle uppercase mb-1.5">
                 <Heart size={13} />
                 {t('profile.familySituation')}
               </label>
@@ -1236,7 +1236,7 @@ const UserProfile: React.FC = () => {
                 id="familySituation"
                 value={profile.familySituation}
                 onChange={(e) => updateField('familySituation', e.target.value)}
-                className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+                className="w-full px-4 py-2.5 bg-surface-alt border border-edge rounded-xl text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
               >
                 <option value="">{t('profile.selectOption')}</option>
                 <option value="single">{t('profile.single')}</option>
@@ -1248,7 +1248,7 @@ const UserProfile: React.FC = () => {
 
             {/* Preferred language */}
             <div>
-              <label htmlFor="preferredLanguage" className="flex items-center gap-1.5 text-xs font-bold text-slate-600 dark:text-slate-400 uppercase mb-1.5">
+              <label htmlFor="preferredLanguage" className="flex items-center gap-1.5 text-xs font-bold text-subtle uppercase mb-1.5">
                 <Globe size={13} />
                 {t('profile.preferredLanguage')}
               </label>
@@ -1260,7 +1260,7 @@ const UserProfile: React.FC = () => {
                   updateField('preferredLanguage', locale);
                   setGlobalLocale(locale);
                 }}
-                className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+                className="w-full px-4 py-2.5 bg-surface-alt border border-edge rounded-xl text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
               >
                 {(Object.entries(LOCALE_LABELS) as [Locale, typeof LOCALE_LABELS[Locale]][]).map(([locale, label]) => (
                   <option key={locale} value={locale}>{label.flag} {label.nativeName}</option>
@@ -1270,7 +1270,7 @@ const UserProfile: React.FC = () => {
 
             {/* Municipality (autocomplete) */}
             <div className="sm:col-span-2">
-              <label htmlFor="municipality" className="flex items-center gap-1.5 text-xs font-bold text-slate-600 dark:text-slate-400 uppercase mb-1.5">
+              <label htmlFor="municipality" className="flex items-center gap-1.5 text-xs font-bold text-subtle uppercase mb-1.5">
                 <MapPin size={13} />
                 {t('profile.municipality')}
               </label>
@@ -1281,7 +1281,7 @@ const UserProfile: React.FC = () => {
                 suggestions={municipalityNames}
                 placeholder={t('profile.municipalityPlaceholder')}
                 autoComplete="address-level2"
-                className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+                className="w-full px-4 py-2.5 bg-surface-alt border border-edge rounded-xl text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
               />
               {/* Municipality info badges */}
               {selectedMuni && (
@@ -1318,7 +1318,7 @@ const UserProfile: React.FC = () => {
                   </span>
                 )}
               </h3>
-              <span className="text-slate-500 dark:text-slate-400 text-lg font-medium" aria-hidden>
+              <span className="text-muted text-lg font-medium" aria-hidden>
                 {showFamily ? '−' : '+'}
               </span>
             </button>
@@ -1328,7 +1328,7 @@ const UserProfile: React.FC = () => {
                 {/* Legacy selects for children/members */}
                 <div className="grid grid-cols-2 gap-3">
                   <div>
-                    <label htmlFor="children" className="flex items-center gap-1.5 text-xs font-bold text-slate-600 dark:text-slate-400 uppercase mb-1.5">
+                    <label htmlFor="children" className="flex items-center gap-1.5 text-xs font-bold text-subtle uppercase mb-1.5">
                       <Baby size={13} />
                       {t('profile.children')}
                     </label>
@@ -1336,7 +1336,7 @@ const UserProfile: React.FC = () => {
                       id="children"
                       value={profile.children}
                       onChange={(e) => updateField('children', e.target.value)}
-                      className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+                      className="w-full px-4 py-2.5 bg-surface-alt border border-edge rounded-xl text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
                     >
                       <option value="0">0</option>
                       <option value="1">1</option>
@@ -1346,7 +1346,7 @@ const UserProfile: React.FC = () => {
                     </select>
                   </div>
                   <div>
-                    <label htmlFor="familyMembers" className="flex items-center gap-1.5 text-xs font-bold text-slate-600 dark:text-slate-400 uppercase mb-1.5">
+                    <label htmlFor="familyMembers" className="flex items-center gap-1.5 text-xs font-bold text-subtle uppercase mb-1.5">
                       <Users size={13} />
                       {t('profile.familyMembers')}
                     </label>
@@ -1354,7 +1354,7 @@ const UserProfile: React.FC = () => {
                       id="familyMembers"
                       value={profile.familyMembers}
                       onChange={(e) => updateField('familyMembers', e.target.value)}
-                      className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+                      className="w-full px-4 py-2.5 bg-surface-alt border border-edge rounded-xl text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
                     >
                       <option value="1">1 ({t('profile.justMe')})</option>
                       <option value="2">2</option>
@@ -1368,7 +1368,7 @@ const UserProfile: React.FC = () => {
 
                 {/* Detailed family members list */}
                 <div className="space-y-2">
-                  <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">{t('profile.family.detailLabel')}</p>
+                  <p className="text-xs text-muted font-medium">{t('profile.family.detailLabel')}</p>
                   {(profile.familyMembersList || []).map(member => (
                     <FamilyMemberRow
                       key={member.id}
@@ -1399,7 +1399,7 @@ const UserProfile: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {/* Gross Salary CHF */}
               <div>
-                <label htmlFor="grossSalary" className="flex items-center gap-1.5 text-xs font-bold text-slate-600 dark:text-slate-400 uppercase mb-1.5">
+                <label htmlFor="grossSalary" className="flex items-center gap-1.5 text-xs font-bold text-subtle uppercase mb-1.5">
                   <Banknote size={13} />
                   {t('profile.grossSalary')}
                 </label>
@@ -1412,13 +1412,13 @@ const UserProfile: React.FC = () => {
                   value={profile.grossSalary}
                   onChange={(e) => updateField('grossSalary', e.target.value)}
                   placeholder="e.g. 85000"
-                  className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+                  className="w-full px-4 py-2.5 bg-surface-alt border border-edge rounded-xl text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
                 />
               </div>
 
               {/* Work Position (autocomplete) */}
               <div>
-                <label htmlFor="workPosition" className="flex items-center gap-1.5 text-xs font-bold text-slate-600 dark:text-slate-400 uppercase mb-1.5">
+                <label htmlFor="workPosition" className="flex items-center gap-1.5 text-xs font-bold text-subtle uppercase mb-1.5">
                   <Briefcase size={13} />
                   {t('profile.workPosition')}
                 </label>
@@ -1429,13 +1429,13 @@ const UserProfile: React.FC = () => {
                   suggestions={COMMON_POSITIONS}
                   placeholder={t('profile.workPositionPlaceholder')}
                   autoComplete="organization-title"
-                  className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+                  className="w-full px-4 py-2.5 bg-surface-alt border border-edge rounded-xl text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
                 />
               </div>
 
               {/* Workplace (autocomplete) */}
               <div>
-                <label htmlFor="workplace" className="flex items-center gap-1.5 text-xs font-bold text-slate-600 dark:text-slate-400 uppercase mb-1.5">
+                <label htmlFor="workplace" className="flex items-center gap-1.5 text-xs font-bold text-subtle uppercase mb-1.5">
                   <Building2 size={13} />
                   {t('profile.workplace')}
                 </label>
@@ -1446,13 +1446,13 @@ const UserProfile: React.FC = () => {
                   suggestions={COMMON_WORKPLACES}
                   placeholder={t('profile.workplacePlaceholder')}
                   autoComplete="address-level2"
-                  className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+                  className="w-full px-4 py-2.5 bg-surface-alt border border-edge rounded-xl text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
                 />
               </div>
 
               {/* Preferred border crossing (dogana) */}
               <div>
-                <label htmlFor="preferredDogana" className="flex items-center gap-1.5 text-xs font-bold text-slate-600 dark:text-slate-400 uppercase mb-1.5">
+                <label htmlFor="preferredDogana" className="flex items-center gap-1.5 text-xs font-bold text-subtle uppercase mb-1.5">
                   <Navigation size={13} />
                   {t('profile.preferredDogana')}
                 </label>
@@ -1460,7 +1460,7 @@ const UserProfile: React.FC = () => {
                   id="preferredDogana"
                   value={profile.preferredDogana}
                   onChange={(e) => updateField('preferredDogana', e.target.value)}
-                  className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+                  className="w-full px-4 py-2.5 bg-surface-alt border border-edge rounded-xl text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
                 >
                   <option value="">{t('profile.selectDogana')}</option>
                   {borderCrossings.map(bc => (
@@ -1475,7 +1475,7 @@ const UserProfile: React.FC = () => {
                     high: 'bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-400',
                     medium: 'bg-amber-50 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400',
                     low: 'bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400',
-                    closed: 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400',
+                    closed: 'bg-surface-raised text-subtle',
                   };
                   return (
                     <div className="flex flex-wrap gap-2 mt-2">
@@ -1516,7 +1516,7 @@ const UserProfile: React.FC = () => {
       )}
 
       {/* ─── Privacy & Data Management Section ─── */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden shadow-sm">
+      <div className="bg-surface rounded-2xl border border-edge overflow-hidden shadow-sm">
         <div className="p-6 space-y-4">
           <div
             role="button"
@@ -1527,7 +1527,7 @@ const UserProfile: React.FC = () => {
             aria-controls="profile-privacy-content"
             className="flex items-center gap-2 text-lg font-bold text-slate-800 dark:text-slate-100 focus:outline-none cursor-pointer rounded-md focus-visible:ring-2 focus-visible:ring-indigo-500"
           >
-            <Shield size={18} className="text-slate-500 dark:text-slate-400" />
+            <Shield size={18} className="text-muted" />
             <span>{t('profile.privacySection')}</span>
           </div>
 
@@ -1541,7 +1541,7 @@ const UserProfile: React.FC = () => {
           >
           <div className="overflow-hidden space-y-3 mt-3">
             {/* Privacy note */}
-            <div className="flex items-center gap-3 px-4 py-3 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 text-xs text-slate-500 dark:text-slate-400">
+            <div className="flex items-center gap-3 px-4 py-3 bg-surface-alt rounded-xl border border-edge text-xs text-muted">
               <Shield size={14} className="flex-shrink-0" />
               <p>{t('profile.dataPrivacy')}</p>
             </div>
@@ -1591,7 +1591,7 @@ const UserProfile: React.FC = () => {
                       </button>
                       <button
                         onClick={() => setShowDeleteConfirm(false)}
-                        className="px-3 py-1.5 bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-bold uppercase rounded-lg transition-colors hover:bg-slate-300 dark:hover:bg-slate-600"
+                        className="px-3 py-1.5 bg-slate-200 dark:bg-slate-700 text-body text-xs font-bold uppercase rounded-lg transition-colors hover:bg-slate-300 dark:hover:bg-slate-600"
                       >
                         {t('profile.deleteAccountCancel')}
                       </button>

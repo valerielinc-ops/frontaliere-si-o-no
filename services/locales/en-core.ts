@@ -2331,6 +2331,13 @@ Rules:
     'seoContent.stats.check4': 'Historical CHF-EUR exchange trends and community data',
 
     // ─── What's New / Feature Announcements ─────────────────────────────
+    'whatsNew.v3460.title': 'Canton Valais Expansion',
+    'whatsNew.v3460.vsExpansion.title': 'Valais Job Board',
+    'whatsNew.v3460.vsExpansion.desc': 'Job listings from Valais companies: Sion, Brig, Visp, Martigny, Monthey and Sierre with dedicated pages.',
+    'whatsNew.v3460.vsHealthInsurance.title': 'Health Insurance Premiums VS',
+    'whatsNew.v3460.vsHealthInsurance.desc': 'Compare LAMal premiums for all 122 communes in Valais with real FOPH data.',
+    'whatsNew.v3460.multiCanton.title': 'Multi-Canton Infrastructure',
+    'whatsNew.v3460.multiCanton.desc': 'Ticino, Graubünden and Valais now supported with dedicated crawlers, editorial landings and parametrized translations.',
     'whatsNew.v3450.title': 'More Accurate Salary Estimates for Cross-Border Workers',
     'whatsNew.v3450.salaryFrontalieri.title': 'Frontalieri Wage Discount Applied',
     'whatsNew.v3450.salaryFrontalieri.desc': 'Salary estimates now include the sector-specific cross-border worker wage differential based on USTAT data, with more realistic ranges.',

@@ -40,7 +40,7 @@ import {
   Users,
   X,
 } from 'lucide-react';
-import { type Locale, useLocale, useTranslation } from '@/services/i18n';
+import { type Locale, useLocale, useTranslation, getCantonI18nParams } from '@/services/i18n';
 import { loadBlogMeta } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
 import { buildPath, registerJobSlugMap } from '@/services/router';
@@ -625,7 +625,7 @@ function renderFormattedDescription(raw: string): React.ReactNode {
     blocks.push(
       <ul key={`ul-${keyIdx++}`} className="space-y-1.5 pl-4 list-disc marker:text-blue-500 dark:marker:text-blue-400">
         {bulletBuffer.map((b, i) => (
-          <li key={i} className="text-sm leading-relaxed text-slate-700 dark:text-slate-300">{b}</li>
+          <li key={i} className="text-sm leading-relaxed text-body">{b}</li>
         ))}
       </ul>
     );
@@ -663,7 +663,7 @@ function renderFormattedDescription(raw: string): React.ReactNode {
           blocks.push(
             <ul key={`ul-${keyIdx++}`} className="space-y-1.5 pl-4 list-disc marker:text-blue-500 dark:marker:text-blue-400">
               {items.map((item, i) => (
-                <li key={i} className="text-sm leading-relaxed text-slate-700 dark:text-slate-300">{item}</li>
+                <li key={i} className="text-sm leading-relaxed text-body">{item}</li>
               ))}
             </ul>
           );
@@ -681,7 +681,7 @@ function renderFormattedDescription(raw: string): React.ReactNode {
             </h3>
           );
           blocks.push(
-            <p key={`p-${keyIdx++}`} className="text-sm leading-relaxed text-slate-700 dark:text-slate-300">{splitMatch[2]}</p>
+            <p key={`p-${keyIdx++}`} className="text-sm leading-relaxed text-body">{splitMatch[2]}</p>
           );
           continue;
         }
@@ -718,7 +718,7 @@ function renderFormattedDescription(raw: string): React.ReactNode {
     // Regular paragraph
     flushBullets();
     blocks.push(
-      <p key={`p-${keyIdx++}`} className="text-sm leading-relaxed text-slate-700 dark:text-slate-300">{line}</p>
+      <p key={`p-${keyIdx++}`} className="text-sm leading-relaxed text-body">{line}</p>
     );
   }
 
@@ -727,7 +727,7 @@ function renderFormattedDescription(raw: string): React.ReactNode {
   // Fallback: if we got no blocks (e.g. text had no newlines), split via normalizeParagraphs
   if (blocks.length === 0) {
     return normalizeParagraphs(text).map((p, i) => (
-      <p key={i} className="text-sm leading-relaxed text-slate-700 dark:text-slate-300">{p}</p>
+      <p key={i} className="text-sm leading-relaxed text-body">{p}</p>
     ));
   }
 
@@ -2291,7 +2291,7 @@ const JobCard = React.memo(({ job, jobHref, salary, logo, isNew, postedLabel, lo
     className={`rounded-xl border p-3 sm:p-4 transition-colors min-h-[72px] ${
       job.featured
         ? 'border-amber-300 dark:border-amber-600 bg-amber-50/30 dark:bg-amber-950/10 hover:border-amber-400 dark:hover:border-amber-500'
-        : 'border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/50 hover:border-indigo-300 dark:hover:border-indigo-700'
+        : 'border-edge bg-surface/50 hover:border-indigo-300 dark:hover:border-indigo-700'
     }`}
   >
     <a
@@ -2300,7 +2300,7 @@ const JobCard = React.memo(({ job, jobHref, salary, logo, isNew, postedLabel, lo
       className="block cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded-lg"
     >
       <div className="flex items-start gap-3">
-        <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-lg bg-slate-100 dark:bg-slate-700 flex items-center justify-center overflow-hidden border border-slate-200 dark:border-slate-600 shrink-0">
+        <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-lg bg-surface-raised flex items-center justify-center overflow-hidden border border-edge shrink-0">
           {logo ? (
             <img src={logo} alt={`Logo ${job.company}`} className="w-7 h-7 sm:w-10 sm:h-10 object-contain" width={40} height={40} loading="lazy" onError={(e) => { const el = e.currentTarget; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.visibility = 'hidden'; } }} />
           ) : (
@@ -2330,12 +2330,12 @@ const JobCard = React.memo(({ job, jobHref, salary, logo, isNew, postedLabel, lo
         </div>
       </div>
 
-      <div className="mt-2 sm:mt-3 flex flex-wrap items-center gap-2 sm:gap-1.5 text-xs text-slate-500 dark:text-slate-400">
+      <div className="mt-2 sm:mt-3 flex flex-wrap items-center gap-2 sm:gap-1.5 text-xs text-muted">
         <span className="inline-flex items-center gap-1">
           <MapPin className="w-3 h-3" />
           {isMultiLocation(job.location) ? t('jobBoard.location.multiLocation') : job.location}
         </span>
-        <span className="px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300">
+        <span className="px-1.5 py-0.5 rounded bg-surface-raised text-slate-600 dark:text-slate-300">
           {t(contractTranslationKey(job))}
         </span>
         <span className="inline-flex items-center gap-1">
@@ -3948,7 +3948,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
     const pages = buildPageNumbers();
     const btnBase = 'inline-flex items-center justify-center rounded-lg border font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 disabled:opacity-40 disabled:cursor-not-allowed';
     const btnSize = 'min-w-[44px] h-11 px-2 text-sm sm:min-w-[44px] sm:h-11 sm:px-3 sm:text-sm';
-    const btnIdle = 'border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700';
+    const btnIdle = 'border-edge text-slate-600 dark:text-slate-300 bg-surface hover:bg-slate-50 dark:hover:bg-slate-700';
     const btnActive = 'border-indigo-500 bg-indigo-600 text-white hover:bg-indigo-700 dark:border-indigo-400 dark:bg-indigo-500 dark:hover:bg-indigo-600';
 
     return (
@@ -3978,7 +3978,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
         {/* Page numbers */}
         {pages.map((p, idx) =>
           p === 'ellipsis' ? (
-            <span key={`ellipsis-${idx}`} className="px-1 text-slate-500 dark:text-slate-400 select-none" aria-hidden>…</span>
+            <span key={`ellipsis-${idx}`} className="px-1 text-muted select-none" aria-hidden>…</span>
           ) : (
             <button
               key={p}
@@ -4099,7 +4099,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   };
 
   const salaryEstimateWidget = salaryEstimates ? (
-    <div className="rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4 border-l-4 border-l-amber-500">
+    <div className="rounded-xl border border-edge bg-surface p-4 border-l-4 border-l-amber-500">
       <div className="flex items-center gap-2 text-sm font-bold text-slate-900 dark:text-white mb-3">
         <Calculator size={15} className="text-amber-600 dark:text-amber-300" />
         {t('jobBoard.salaryEstimate.cta')}
@@ -4136,7 +4136,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
           </div>
         </a>
       </div>
-      <p className="mt-2 text-xs text-slate-500 dark:text-slate-400">{t('jobBoard.salaryEstimate.note')}</p>
+      <p className="mt-2 text-xs text-muted">{t('jobBoard.salaryEstimate.note')}</p>
       <a
         href={salaryCalcHref}
         onClick={goToCalc}
@@ -4155,13 +4155,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
   }, [selectedJob]);
 
   const sectorContextWidget = sectorContext ? (
-    <div className="rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 p-3 text-xs">
-      <div className="flex items-center gap-1.5 font-semibold text-slate-700 dark:text-slate-300 mb-2">
-        <Briefcase size={13} className="text-blue-600 dark:text-blue-400" />
+    <div className="rounded-xl border border-edge bg-surface-alt/50 p-3 text-xs">
+      <div className="flex items-center gap-1.5 font-semibold text-body mb-2">
+        <Briefcase size={13} className="text-link" />
         {t('jobBoard.sectorContext.title')}
       </div>
-      <div className="flex flex-wrap gap-x-4 gap-y-1.5 text-slate-600 dark:text-slate-400">
-        <span>{t('jobBoard.sectorContext.employees', { count: sectorContext.employeeCount.toLocaleString('de-CH') })}</span>
+      <div className="flex flex-wrap gap-x-4 gap-y-1.5 text-subtle">
+        <span>{t('jobBoard.sectorContext.employees', { count: sectorContext.employeeCount.toLocaleString('de-CH'), ...getCantonI18nParams() })}</span>
         {sectorContext.frontialieriDiscount > 0 && (
           <span>{t('jobBoard.sectorContext.frontialieriGap', { pct: String(sectorContext.frontialieriDiscount) })}</span>
         )}
@@ -4172,13 +4172,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
           <span>{t('jobBoard.sectorContext.educationPremium', { pct: String(Math.round((sectorContext.educationPremiumRatio - 1) * 100)) })}</span>
         )}
       </div>
-      <p className="mt-1.5 text-xs text-slate-500 dark:text-slate-400">{t('jobBoard.sectorContext.source')}</p>
+      <p className="mt-1.5 text-xs text-muted">{t('jobBoard.sectorContext.source')}</p>
     </div>
   ) : null;
 
   const authGateModalJsx = authGateOpen ? (
     <div className="fixed inset-0 z-[90] bg-black/45 backdrop-blur-sm flex items-center justify-center p-4" onClick={(e) => { if (e.target === e.currentTarget) { authUnlockCandidateRef.current = null; setAuthGateOpen(false); releaseSlot('job-auth-gate'); setPendingJob(null); setAuthError(null); } }}>
-      <div role="dialog" aria-modal="true" aria-label={t('jobBoard.authGateTitle') || 'Accedi per continuare'} className="w-full max-w-md rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-5 space-y-4">
+      <div role="dialog" aria-modal="true" aria-label={t('jobBoard.authGateTitle') || 'Accedi per continuare'} className="w-full max-w-md rounded-2xl border border-edge bg-surface p-5 space-y-4">
         {/* Close X button */}
         <div className="flex items-start justify-between">
           <div className="flex items-center gap-3">
@@ -4186,21 +4186,21 @@ const JobBoard: React.FC<JobBoardProps> = ({
             <div>
               <h2 className="text-lg font-bold text-slate-900 dark:text-white">{t('jobBoard.authGateTitle')}</h2>
               <p className="text-xs font-medium text-indigo-600 dark:text-indigo-400">frontaliereticino.ch</p>
-              <p className="text-sm text-slate-600 dark:text-slate-400">{t('jobBoard.authGateDescription')}</p>
+              <p className="text-sm text-subtle">{t('jobBoard.authGateDescription')}</p>
             </div>
           </div>
-          <button type="button" onClick={() => { authUnlockCandidateRef.current = null; setAuthGateOpen(false); releaseSlot('job-auth-gate'); setPendingJob(null); setAuthError(null); }} className="p-2.5 rounded-lg text-slate-500 dark:text-slate-400 hover:text-slate-600 dark:hover:text-slate-200" aria-label={t('common.close')}>
+          <button type="button" onClick={() => { authUnlockCandidateRef.current = null; setAuthGateOpen(false); releaseSlot('job-auth-gate'); setPendingJob(null); setAuthError(null); }} className="p-2.5 rounded-lg text-muted hover:text-slate-600 dark:hover:text-slate-200" aria-label={t('common.close')}>
             <X size={18} />
           </button>
         </div>
 
         {/* Pending job info */}
         {pendingJob && (
-          <div className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+          <div className="flex items-center gap-3 p-3 rounded-xl bg-surface-alt border border-edge">
             <Briefcase size={16} className="text-indigo-600 dark:text-indigo-400 flex-shrink-0" />
             <div className="min-w-0">
               <p className="text-sm font-semibold text-slate-900 dark:text-white line-clamp-2">{sanitizeJobTitle(pendingJob.titleByLocale?.[locale] ?? pendingJob.title)}</p>
-              <p className="text-sm text-slate-500 dark:text-slate-400 line-clamp-2">{pendingJob.company}{pendingJob.location ? ` — ${pendingJob.location}` : ''}</p>
+              <p className="text-sm text-muted line-clamp-2">{pendingJob.company}{pendingJob.location ? ` — ${pendingJob.location}` : ''}</p>
             </div>
           </div>
         )}
@@ -4213,7 +4213,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                 type="button"
                 onClick={() => void handleAuthAndOpen('google')}
                 disabled={authBusy !== null}
-                className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-700 disabled:opacity-60 text-slate-800 dark:text-slate-100 text-sm font-semibold shadow-sm transition-colors"
+                className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-surface border border-slate-300 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-700 disabled:opacity-60 text-slate-800 dark:text-slate-100 text-sm font-semibold shadow-sm transition-colors"
               >
                 {authBusy === 'google' ? <Loader2 className="w-4 h-4 animate-spin" /> : (
                   <svg className="w-4 h-4" viewBox="0 0 24 24" aria-hidden="true">
@@ -4241,7 +4241,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
           )}
 
           {/* Google redirect trust note */}
-          <p className="flex items-center justify-center gap-1.5 text-xs text-slate-500 dark:text-slate-400">
+          <p className="flex items-center justify-center gap-1.5 text-xs text-muted">
             <Shield size={12} className="text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
             {t('jobBoard.gate.googleRedirectNote')}
           </p>
@@ -4249,7 +4249,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
           {/* Divider */}
           <div className="flex items-center gap-3">
             <div className="flex-1 h-px bg-slate-200 dark:bg-slate-700" />
-            <span className="text-sm text-slate-500 dark:text-slate-400">{t('jobBoard.authGateOrEmail')}</span>
+            <span className="text-sm text-muted">{t('jobBoard.authGateOrEmail')}</span>
             <div className="flex-1 h-px bg-slate-200 dark:bg-slate-700" />
           </div>
 
@@ -4262,7 +4262,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
               value={emailInput}
               onChange={setEmailInput}
               placeholder={t('jobBoard.authGateEmailPlaceholder')}
-              className="w-full px-3 py-2.5 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm text-slate-900 dark:text-white placeholder-slate-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+              className="w-full px-3 py-2.5 rounded-xl border border-slate-300 dark:border-slate-600 bg-surface text-sm text-slate-900 dark:text-white placeholder-slate-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
             />
             <button
               type="submit"
@@ -4277,15 +4277,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
         {/* Trust signals */}
         <div className="pt-3 border-t border-slate-200/50 dark:border-slate-700/50 space-y-2">
-          <div className="flex items-center gap-2 text-xs text-slate-600 dark:text-slate-400">
+          <div className="flex items-center gap-2 text-xs text-subtle">
             <Eye size={14} className="text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
             <span>{t('jobBoard.gate.benefit1')}</span>
           </div>
-          <div className="flex items-center gap-2 text-xs text-slate-600 dark:text-slate-400">
+          <div className="flex items-center gap-2 text-xs text-subtle">
             <CheckCircle2 size={14} className="text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
             <span>{t('jobBoard.gate.benefit2')}</span>
           </div>
-          <div className="flex items-center gap-2 text-xs text-slate-600 dark:text-slate-400">
+          <div className="flex items-center gap-2 text-xs text-subtle">
             <Shield size={14} className="text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
             <span>{t('jobBoard.gate.privacyNote')}</span>
           </div>
@@ -4343,15 +4343,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
           <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
             {editorialJobTodayLanding.heading}
           </h1>
-          <p className="mt-4 max-w-4xl text-sm sm:text-base leading-7 text-slate-700 dark:text-slate-300">
+          <p className="mt-4 max-w-4xl text-sm sm:text-base leading-7 text-body">
             {editorialJobTodayLanding.description}
           </p>
-          <p className="mt-3 max-w-4xl text-sm leading-7 text-slate-600 dark:text-slate-400">
+          <p className="mt-3 max-w-4xl text-sm leading-7 text-subtle">
             {editorialJobTodayLanding.intro}
           </p>
         </section>
 
-        <div className="flex flex-wrap items-baseline gap-x-5 gap-y-1.5 text-sm text-slate-600 dark:text-slate-400">
+        <div className="flex flex-wrap items-baseline gap-x-5 gap-y-1.5 text-sm text-subtle">
           <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-slate-900 dark:text-white">{editorialJobTodayLanding.totalJobs}</span> {editorialJobTodayLanding.countsLabel}</span>
           <span className="hidden sm:inline text-slate-300 dark:text-slate-600" aria-hidden="true">·</span>
           <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-slate-900 dark:text-white">{editorialJobTodayLanding.sections.last24Hours.jobs.length}</span> {editorialJobTodayLanding.sections.last24Hours.label}</span>
@@ -4361,7 +4361,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
           <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-slate-900 dark:text-white">{editorialJobTodayLanding.sections.partTime.jobs.length}</span> {editorialJobTodayLanding.sections.partTime.label}</span>
         </div>
 
-        <section className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4 sm:p-5">
+        <section className="rounded-2xl border border-edge bg-surface p-4 sm:p-5">
           <div className="flex flex-wrap gap-2">
             {editorialJobTodayLanding.internalLinks.map((link) => (
               <a
@@ -4375,7 +4375,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
           </div>
         </section>
 
-        <section className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
+        <section className="rounded-2xl border border-edge bg-surface p-5">
           <div className="flex items-center justify-between gap-4 mb-4">
             <h2 className="text-lg font-bold text-slate-900 dark:text-white">{editorialJobTodayLanding.sections.cityHubLabel}</h2>
             <a
@@ -4402,7 +4402,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                     onJobRouteChange?.(citySlug);
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                   }}
-                  className="flex items-center justify-between gap-3 rounded-2xl border border-slate-200 dark:border-slate-700 px-4 py-3 no-underline hover:border-indigo-300 dark:hover:border-indigo-600 transition-colors"
+                  className="flex items-center justify-between gap-3 rounded-2xl border border-edge px-4 py-3 no-underline hover:border-indigo-300 dark:hover:border-indigo-600 transition-colors"
                 >
                   <span className="font-semibold text-slate-800 dark:text-slate-100">{city.name}</span>
                   <span className="text-sm font-bold text-indigo-700 dark:text-indigo-300">{city.count}</span>
@@ -4413,7 +4413,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
         </section>
 
         {editorialLandingSections.map((section) => (
-          <section key={section.id} id={section.id} className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
+          <section key={section.id} id={section.id} className="rounded-2xl border border-edge bg-surface p-5">
             <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-4">{section.label}</h2>
             <div className="space-y-3">
               {section.jobs.map((job) => renderJobCard(job))}
@@ -4435,15 +4435,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
           <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
             {editorialOfficialGazetteLanding.heading}
           </h1>
-          <p className="mt-4 max-w-4xl text-sm sm:text-base leading-7 text-slate-700 dark:text-slate-300">
+          <p className="mt-4 max-w-4xl text-sm sm:text-base leading-7 text-body">
             {editorialOfficialGazetteLanding.description}
           </p>
-          <p className="mt-3 max-w-4xl text-sm leading-7 text-slate-600 dark:text-slate-400">
+          <p className="mt-3 max-w-4xl text-sm leading-7 text-subtle">
             {editorialOfficialGazetteLanding.intro}
           </p>
         </section>
 
-        <div className="flex flex-wrap items-baseline gap-x-5 gap-y-1.5 text-sm text-slate-600 dark:text-slate-400">
+        <div className="flex flex-wrap items-baseline gap-x-5 gap-y-1.5 text-sm text-subtle">
           <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-slate-900 dark:text-white">{editorialOfficialGazetteLanding.totalJobs}</span> {editorialOfficialGazetteLanding.countsLabel}</span>
           <span className="hidden sm:inline text-slate-300 dark:text-slate-600" aria-hidden="true">·</span>
           <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-slate-900 dark:text-white">{editorialOfficialGazetteLanding.latestJobs.length}</span> {editorialOfficialGazetteLanding.latestLabel}</span>
@@ -4451,7 +4451,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
           <span className="inline-flex items-baseline gap-1.5">{editorialOfficialGazetteLanding.officialSourceLabel} <a href={editorialOfficialGazetteLanding.officialSourceUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 font-semibold text-indigo-700 dark:text-indigo-300 no-underline hover:underline">concorsi.ti.ch <ArrowUpRight className="w-3.5 h-3.5" /></a></span>
         </div>
 
-        <section className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4 sm:p-5">
+        <section className="rounded-2xl border border-edge bg-surface p-4 sm:p-5">
           <div className="flex flex-wrap gap-2">
             {editorialOfficialGazetteLanding.internalLinks.map((link) => {
               const localPath = link.href.startsWith(PUBLIC_SITE_URL) ? link.href.replace(PUBLIC_SITE_URL, '') : '';
@@ -4489,7 +4489,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
         <section className="grid gap-3 lg:grid-cols-3">
           {editorialOfficialGazetteLanding.explainerCards.map((card) => (
-            <article key={card.title} className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
+            <article key={card.title} className="rounded-2xl border border-edge bg-surface p-5">
               <h2 className="text-lg font-bold text-slate-900 dark:text-white">{card.title}</h2>
               <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">{card.body}</p>
             </article>
@@ -4497,7 +4497,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
         </section>
 
         {editorialLandingSections.map((section) => (
-          <section key={section.id} id={section.id} className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
+          <section key={section.id} id={section.id} className="rounded-2xl border border-edge bg-surface p-5">
             <div className="flex items-center justify-between gap-4 mb-4">
               <h2 className="text-lg font-bold text-slate-900 dark:text-white">{section.label}</h2>
               <a
@@ -4518,13 +4518,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
           </section>
         ))}
 
-        <section className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
+        <section className="rounded-2xl border border-edge bg-surface p-5">
           <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-4">
             {locale === 'it' ? 'Domande frequenti' : locale === 'en' ? 'Frequently asked questions' : locale === 'de' ? 'Haufige Fragen' : 'Questions frequentes'}
           </h2>
           <div className="space-y-3">
             {editorialOfficialGazetteLanding.faq.map((entry) => (
-              <details key={entry.question} className="rounded-2xl border border-slate-200 dark:border-slate-700 px-4 py-3">
+              <details key={entry.question} className="rounded-2xl border border-edge px-4 py-3">
                 <summary className="cursor-pointer text-sm font-bold text-slate-900 dark:text-white">{entry.question}</summary>
                 <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">{entry.answer}</p>
               </details>
@@ -4546,15 +4546,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
           <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
             {editorialNursesHubLanding.heading}
           </h1>
-          <p className="mt-4 max-w-4xl text-sm sm:text-base leading-7 text-slate-700 dark:text-slate-300">
+          <p className="mt-4 max-w-4xl text-sm sm:text-base leading-7 text-body">
             {editorialNursesHubLanding.description}
           </p>
-          <p className="mt-3 max-w-4xl text-sm leading-7 text-slate-600 dark:text-slate-400">
+          <p className="mt-3 max-w-4xl text-sm leading-7 text-subtle">
             {editorialNursesHubLanding.intro}
           </p>
         </section>
 
-        <div className="flex flex-wrap items-baseline gap-x-5 gap-y-1.5 text-sm text-slate-600 dark:text-slate-400">
+        <div className="flex flex-wrap items-baseline gap-x-5 gap-y-1.5 text-sm text-subtle">
           <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-slate-900 dark:text-white">{editorialNursesHubLanding.totalJobs}</span> {editorialNursesHubLanding.countsLabel}</span>
           <span className="hidden sm:inline text-slate-300 dark:text-slate-600" aria-hidden="true">·</span>
           <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-slate-900 dark:text-white">{editorialNursesHubLanding.latestJobs.length}</span> {editorialNursesHubLanding.latestLabel}</span>
@@ -4563,7 +4563,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
         </div>
 
         {editorialNursesHubLanding.variants.length > 0 && (
-          <section className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
+          <section className="rounded-2xl border border-edge bg-surface p-5">
             <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-4">{editorialNursesHubLanding.variantTitle}</h2>
             <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
               {editorialNursesHubLanding.variants.map((link) => {
@@ -4577,7 +4577,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                       onJobRouteChange?.(targetSlug);
                       window.scrollTo({ top: 0, behavior: 'smooth' });
                     }}
-                    className="flex items-center justify-between gap-3 rounded-2xl border border-slate-200 dark:border-slate-700 px-4 py-3 no-underline hover:border-indigo-300 dark:hover:border-indigo-600 transition-colors"
+                    className="flex items-center justify-between gap-3 rounded-2xl border border-edge px-4 py-3 no-underline hover:border-indigo-300 dark:hover:border-indigo-600 transition-colors"
                   >
                     <span className="font-semibold text-slate-800 dark:text-slate-100">{link.label}</span>
                     <span className="text-sm font-bold text-indigo-700 dark:text-indigo-300">{link.count}</span>
@@ -4590,7 +4590,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
         <section className="grid gap-3 lg:grid-cols-3">
           {editorialNursesHubLanding.explainerCards.map((card) => (
-            <article key={card.title} className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
+            <article key={card.title} className="rounded-2xl border border-edge bg-surface p-5">
               <h2 className="text-lg font-bold text-slate-900 dark:text-white">{card.title}</h2>
               <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">{card.body}</p>
             </article>
@@ -4598,7 +4598,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
         </section>
 
         {editorialLandingSections.map((section) => (
-          <section key={section.id} id={section.id} className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
+          <section key={section.id} id={section.id} className="rounded-2xl border border-edge bg-surface p-5">
             <div className="flex items-center justify-between gap-4 mb-4">
               <h2 className="text-lg font-bold text-slate-900 dark:text-white">{section.label}</h2>
               <a
@@ -4619,13 +4619,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
           </section>
         ))}
 
-        <section className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
+        <section className="rounded-2xl border border-edge bg-surface p-5">
           <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-4">
             {locale === 'it' ? 'Domande frequenti' : locale === 'en' ? 'Frequently asked questions' : locale === 'de' ? 'Haufige Fragen' : 'Questions frequentes'}
           </h2>
           <div className="space-y-3">
             {editorialNursesHubLanding.faq.map((entry) => (
-              <details key={entry.question} className="rounded-2xl border border-slate-200 dark:border-slate-700 px-4 py-3">
+              <details key={entry.question} className="rounded-2xl border border-edge px-4 py-3">
                 <summary className="cursor-pointer text-sm font-bold text-slate-900 dark:text-white">{entry.question}</summary>
                 <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">{entry.answer}</p>
               </details>
@@ -4648,10 +4648,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
           <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
             {editorialCareVariantLanding.heading}
           </h1>
-          <p className="mt-4 max-w-4xl text-sm sm:text-base leading-7 text-slate-700 dark:text-slate-300">
+          <p className="mt-4 max-w-4xl text-sm sm:text-base leading-7 text-body">
             {editorialCareVariantLanding.description}
           </p>
-          <p className="mt-3 max-w-4xl text-sm leading-7 text-slate-600 dark:text-slate-400">
+          <p className="mt-3 max-w-4xl text-sm leading-7 text-subtle">
             {editorialCareVariantLanding.intro}
           </p>
           <button
@@ -4668,14 +4668,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
           </button>
         </section>
 
-        <div className="flex flex-wrap items-baseline gap-x-5 gap-y-1.5 text-sm text-slate-600 dark:text-slate-400">
+        <div className="flex flex-wrap items-baseline gap-x-5 gap-y-1.5 text-sm text-subtle">
           <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-slate-900 dark:text-white">{editorialCareVariantLanding.totalJobs}</span> {editorialCareVariantLanding.countsLabel}</span>
           <span className="hidden sm:inline text-slate-300 dark:text-slate-600" aria-hidden="true">·</span>
           <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-slate-900 dark:text-white">{editorialCareVariantLanding.latestJobs.length}</span> {editorialCareVariantLanding.latestLabel}</span>
         </div>
 
         {editorialCareVariantLanding.siblingLinks.length > 0 && (
-          <section className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
+          <section className="rounded-2xl border border-edge bg-surface p-5">
             <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-4">
               {locale === 'it' ? 'Altri percorsi sanitari' : locale === 'en' ? 'Other care paths' : locale === 'de' ? 'Weitere Pflegepfade' : 'Autres parcours sante'}
             </h2>
@@ -4691,7 +4691,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                       onJobRouteChange?.(targetSlug);
                       window.scrollTo({ top: 0, behavior: 'smooth' });
                     }}
-                    className="flex items-center justify-between gap-3 rounded-2xl border border-slate-200 dark:border-slate-700 px-4 py-3 no-underline hover:border-indigo-300 dark:hover:border-indigo-600 transition-colors"
+                    className="flex items-center justify-between gap-3 rounded-2xl border border-edge px-4 py-3 no-underline hover:border-indigo-300 dark:hover:border-indigo-600 transition-colors"
                   >
                     <span className="font-semibold text-slate-800 dark:text-slate-100">{link.label}</span>
                     <span className="text-sm font-bold text-indigo-700 dark:text-indigo-300">{link.count}</span>
@@ -4703,7 +4703,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
         )}
 
         {editorialLandingSections.map((section) => (
-          <section key={section.id} id={section.id} className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
+          <section key={section.id} id={section.id} className="rounded-2xl border border-edge bg-surface p-5">
             <div className="flex items-center justify-between gap-4 mb-4">
               <h2 className="text-lg font-bold text-slate-900 dark:text-white">{section.label}</h2>
               <a
@@ -4738,22 +4738,22 @@ const JobBoard: React.FC<JobBoardProps> = ({
           <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
             {editorialLocationLanding.heading}
           </h1>
-          <p className="mt-4 max-w-4xl text-sm sm:text-base leading-7 text-slate-700 dark:text-slate-300">
+          <p className="mt-4 max-w-4xl text-sm sm:text-base leading-7 text-body">
             {editorialLocationLanding.description}
           </p>
-          <p className="mt-3 max-w-4xl text-sm leading-7 text-slate-600 dark:text-slate-400">
+          <p className="mt-3 max-w-4xl text-sm leading-7 text-subtle">
             {editorialLocationLanding.intro}
           </p>
         </section>
 
-        <div className="flex flex-wrap items-baseline gap-x-5 gap-y-1.5 text-sm text-slate-600 dark:text-slate-400">
+        <div className="flex flex-wrap items-baseline gap-x-5 gap-y-1.5 text-sm text-subtle">
           <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-slate-900 dark:text-white">{editorialLocationLanding.totalJobs}</span> {editorialLocationLanding.countsLabel}</span>
           <span className="hidden sm:inline text-slate-300 dark:text-slate-600" aria-hidden="true">·</span>
           <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-slate-900 dark:text-white">{editorialLocationLanding.latestJobs.length}</span> {editorialLocationLanding.latestLabel}</span>
         </div>
 
         {editorialLocationLanding.relatedTypeLinks.length > 0 && (
-          <section className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
+          <section className="rounded-2xl border border-edge bg-surface p-5">
             <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-4">
               {locale === 'it' ? `Tipi di lavoro a ${editorialLocationLanding.location}` : locale === 'en' ? `Job types in ${editorialLocationLanding.location}` : locale === 'de' ? `Jobtypen in ${editorialLocationLanding.location}` : `Types d'emploi a ${editorialLocationLanding.location}`}
             </h2>
@@ -4769,7 +4769,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                       onJobRouteChange?.(targetSlug);
                       window.scrollTo({ top: 0, behavior: 'smooth' });
                     }}
-                    className="flex items-center justify-between gap-3 rounded-2xl border border-slate-200 dark:border-slate-700 px-4 py-3 no-underline hover:border-indigo-300 dark:hover:border-indigo-600 transition-colors"
+                    className="flex items-center justify-between gap-3 rounded-2xl border border-edge px-4 py-3 no-underline hover:border-indigo-300 dark:hover:border-indigo-600 transition-colors"
                   >
                     <span className="font-semibold text-slate-800 dark:text-slate-100">{link.label}</span>
                     <span className="text-sm font-bold text-indigo-700 dark:text-indigo-300">{link.count}</span>
@@ -4781,7 +4781,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
         )}
 
         {editorialLocationLanding.relatedSectorLinks.length > 0 && (
-          <section className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
+          <section className="rounded-2xl border border-edge bg-surface p-5">
             <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-4">
               {locale === 'it' ? `Settori a ${editorialLocationLanding.location}` : locale === 'en' ? `Sectors in ${editorialLocationLanding.location}` : locale === 'de' ? `Branchen in ${editorialLocationLanding.location}` : `Secteurs a ${editorialLocationLanding.location}`}
             </h2>
@@ -4797,7 +4797,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                       onJobRouteChange?.(targetSlug);
                       window.scrollTo({ top: 0, behavior: 'smooth' });
                     }}
-                    className="flex items-center justify-between gap-3 rounded-2xl border border-slate-200 dark:border-slate-700 px-4 py-3 no-underline hover:border-indigo-300 dark:hover:border-indigo-600 transition-colors"
+                    className="flex items-center justify-between gap-3 rounded-2xl border border-edge px-4 py-3 no-underline hover:border-indigo-300 dark:hover:border-indigo-600 transition-colors"
                   >
                     <span className="font-semibold text-slate-800 dark:text-slate-100">{link.label}</span>
                     <span className="text-sm font-bold text-indigo-700 dark:text-indigo-300">{link.count}</span>
@@ -4809,7 +4809,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
         )}
 
         {editorialLandingSections.map((section) => (
-          <section key={section.id} id={section.id} className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
+          <section key={section.id} id={section.id} className="rounded-2xl border border-edge bg-surface p-5">
             <div className="flex items-center justify-between gap-4 mb-4">
               <h2 className="text-lg font-bold text-slate-900 dark:text-white">{section.label}</h2>
               <a
@@ -4845,10 +4845,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
           <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
             {editorialLocationTypeLanding.heading}
           </h1>
-          <p className="mt-4 max-w-4xl text-sm sm:text-base leading-7 text-slate-700 dark:text-slate-300">
+          <p className="mt-4 max-w-4xl text-sm sm:text-base leading-7 text-body">
             {editorialLocationTypeLanding.description}
           </p>
-          <p className="mt-3 max-w-4xl text-sm leading-7 text-slate-600 dark:text-slate-400">
+          <p className="mt-3 max-w-4xl text-sm leading-7 text-subtle">
             {editorialLocationTypeLanding.intro}
           </p>
           <button
@@ -4864,14 +4864,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
           </button>
         </section>
 
-        <div className="flex flex-wrap items-baseline gap-x-5 gap-y-1.5 text-sm text-slate-600 dark:text-slate-400">
+        <div className="flex flex-wrap items-baseline gap-x-5 gap-y-1.5 text-sm text-subtle">
           <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-slate-900 dark:text-white">{editorialLocationTypeLanding.totalJobs}</span> {editorialLocationTypeLanding.countsLabel}</span>
           <span className="hidden sm:inline text-slate-300 dark:text-slate-600" aria-hidden="true">·</span>
           <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-slate-900 dark:text-white">{editorialLocationTypeLanding.latestJobs.length}</span> {editorialLocationTypeLanding.latestLabel}</span>
         </div>
 
         {editorialLocationTypeLanding.siblingTypeLinks.length > 0 && (
-          <section className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
+          <section className="rounded-2xl border border-edge bg-surface p-5">
             <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-4">
               {locale === 'it' ? `Altri tipi di lavoro a ${editorialLocationTypeLanding.location}` : locale === 'en' ? `Other job types in ${editorialLocationTypeLanding.location}` : locale === 'de' ? `Weitere Jobtypen in ${editorialLocationTypeLanding.location}` : `Autres types d'emploi a ${editorialLocationTypeLanding.location}`}
             </h2>
@@ -4887,7 +4887,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                       onJobRouteChange?.(targetSlug);
                       window.scrollTo({ top: 0, behavior: 'smooth' });
                     }}
-                    className="flex items-center justify-between gap-3 rounded-2xl border border-slate-200 dark:border-slate-700 px-4 py-3 no-underline hover:border-indigo-300 dark:hover:border-indigo-600 transition-colors"
+                    className="flex items-center justify-between gap-3 rounded-2xl border border-edge px-4 py-3 no-underline hover:border-indigo-300 dark:hover:border-indigo-600 transition-colors"
                   >
                     <span className="font-semibold text-slate-800 dark:text-slate-100">{link.label}</span>
                     <span className="text-sm font-bold text-indigo-700 dark:text-indigo-300">{link.count}</span>
@@ -4899,7 +4899,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
         )}
 
         {editorialLandingSections.map((section) => (
-          <section key={section.id} id={section.id} className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
+          <section key={section.id} id={section.id} className="rounded-2xl border border-edge bg-surface p-5">
             <div className="flex items-center justify-between gap-4 mb-4">
               <h2 className="text-lg font-bold text-slate-900 dark:text-white">{section.label}</h2>
               <a
@@ -4935,10 +4935,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
           <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
             {editorialLocationSectorLanding.heading}
           </h1>
-          <p className="mt-4 max-w-4xl text-sm sm:text-base leading-7 text-slate-700 dark:text-slate-300">
+          <p className="mt-4 max-w-4xl text-sm sm:text-base leading-7 text-body">
             {editorialLocationSectorLanding.description}
           </p>
-          <p className="mt-3 max-w-4xl text-sm leading-7 text-slate-600 dark:text-slate-400">
+          <p className="mt-3 max-w-4xl text-sm leading-7 text-subtle">
             {editorialLocationSectorLanding.intro}
           </p>
           <button
@@ -4954,14 +4954,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
           </button>
         </section>
 
-        <div className="flex flex-wrap items-baseline gap-x-5 gap-y-1.5 text-sm text-slate-600 dark:text-slate-400">
+        <div className="flex flex-wrap items-baseline gap-x-5 gap-y-1.5 text-sm text-subtle">
           <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-slate-900 dark:text-white">{editorialLocationSectorLanding.totalJobs}</span> {editorialLocationSectorLanding.countsLabel}</span>
           <span className="hidden sm:inline text-slate-300 dark:text-slate-600" aria-hidden="true">·</span>
           <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-slate-900 dark:text-white">{editorialLocationSectorLanding.latestJobs.length}</span> {editorialLocationSectorLanding.latestLabel}</span>
         </div>
 
         {editorialLocationSectorLanding.siblingSectorLinks.length > 0 && (
-          <section className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
+          <section className="rounded-2xl border border-edge bg-surface p-5">
             <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-4">
               {locale === 'it' ? `Altri settori a ${editorialLocationSectorLanding.location}` : locale === 'en' ? `Other sectors in ${editorialLocationSectorLanding.location}` : locale === 'de' ? `Weitere Branchen in ${editorialLocationSectorLanding.location}` : `Autres secteurs a ${editorialLocationSectorLanding.location}`}
             </h2>
@@ -4977,7 +4977,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                       onJobRouteChange?.(targetSlug);
                       window.scrollTo({ top: 0, behavior: 'smooth' });
                     }}
-                    className="flex items-center justify-between gap-3 rounded-2xl border border-slate-200 dark:border-slate-700 px-4 py-3 no-underline hover:border-indigo-300 dark:hover:border-indigo-600 transition-colors"
+                    className="flex items-center justify-between gap-3 rounded-2xl border border-edge px-4 py-3 no-underline hover:border-indigo-300 dark:hover:border-indigo-600 transition-colors"
                   >
                     <span className="font-semibold text-slate-800 dark:text-slate-100">{link.label}</span>
                     <span className="text-sm font-bold text-indigo-700 dark:text-indigo-300">{link.count}</span>
@@ -4989,7 +4989,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
         )}
 
         {editorialLandingSections.map((section) => (
-          <section key={section.id} id={section.id} className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
+          <section key={section.id} id={section.id} className="rounded-2xl border border-edge bg-surface p-5">
             <div className="flex items-center justify-between gap-4 mb-4">
               <h2 className="text-lg font-bold text-slate-900 dark:text-white">{section.label}</h2>
               <a
@@ -5024,10 +5024,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
           <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
             {editorialSectorRegionLanding.heading}
           </h1>
-          <p className="mt-4 max-w-4xl text-sm sm:text-base leading-7 text-slate-700 dark:text-slate-300">
+          <p className="mt-4 max-w-4xl text-sm sm:text-base leading-7 text-body">
             {editorialSectorRegionLanding.description}
           </p>
-          <p className="mt-3 max-w-4xl text-sm leading-7 text-slate-600 dark:text-slate-400">
+          <p className="mt-3 max-w-4xl text-sm leading-7 text-subtle">
             {editorialSectorRegionLanding.intro}
           </p>
           <button
@@ -5043,14 +5043,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
           </button>
         </section>
 
-        <div className="flex flex-wrap items-baseline gap-x-5 gap-y-1.5 text-sm text-slate-600 dark:text-slate-400">
+        <div className="flex flex-wrap items-baseline gap-x-5 gap-y-1.5 text-sm text-subtle">
           <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-slate-900 dark:text-white">{editorialSectorRegionLanding.totalJobs}</span> {editorialSectorRegionLanding.countsLabel}</span>
           <span className="hidden sm:inline text-slate-300 dark:text-slate-600" aria-hidden="true">·</span>
           <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-slate-900 dark:text-white">{editorialSectorRegionLanding.latestJobs.length}</span> {editorialSectorRegionLanding.latestLabel}</span>
         </div>
 
         {editorialSectorRegionLanding.siblingSectorLinks.length > 0 && (
-          <section className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
+          <section className="rounded-2xl border border-edge bg-surface p-5">
             <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-4">
             {/* BLOCK-B: Regionalize for national expansion — currently hardcodes Ticino/Tessin text */}
               {locale === 'it' ? 'Altri settori in Ticino' : locale === 'en' ? 'Other sectors in Ticino' : locale === 'de' ? 'Weitere Branchen im Tessin' : 'Autres secteurs au Tessin'}
@@ -5067,7 +5067,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                       onJobRouteChange?.(targetSlug);
                       window.scrollTo({ top: 0, behavior: 'smooth' });
                     }}
-                    className="flex items-center justify-between gap-3 rounded-2xl border border-slate-200 dark:border-slate-700 px-4 py-3 no-underline hover:border-indigo-300 dark:hover:border-indigo-600 transition-colors"
+                    className="flex items-center justify-between gap-3 rounded-2xl border border-edge px-4 py-3 no-underline hover:border-indigo-300 dark:hover:border-indigo-600 transition-colors"
                   >
                     <span className="font-semibold text-slate-800 dark:text-slate-100">{link.label}</span>
                     <span className="text-sm font-bold text-indigo-700 dark:text-indigo-300">{link.count}</span>
@@ -5079,7 +5079,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
         )}
 
         {editorialLandingSections.map((section) => (
-          <section key={section.id} id={section.id} className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
+          <section key={section.id} id={section.id} className="rounded-2xl border border-edge bg-surface p-5">
             <div className="flex items-center justify-between gap-4 mb-4">
               <h2 className="text-lg font-bold text-slate-900 dark:text-white">{section.label}</h2>
               <a
@@ -5160,7 +5160,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
           {authPendingNoticeJsx}
 
           {/* Job header — always visible */}
-          <div className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
+          <div className="rounded-2xl border border-edge bg-surface p-5">
             <div className="flex items-start gap-4">
               {logoUrl && (
                 <img
@@ -5175,7 +5175,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
               )}
               <div className="flex-1 min-w-0">
                 <h1 className="text-xl font-bold text-slate-900 dark:text-white leading-tight">{localizedTitle}</h1>
-                <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-1.5 text-sm text-slate-600 dark:text-slate-400">
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-1.5 text-sm text-subtle">
                   <span className="inline-flex items-center gap-1"><Building2 size={14} />{companyName}</span>
                   {jobLocation && <span className="inline-flex items-center gap-1"><MapPin size={14} />{jobLocation}</span>}
                   {jobCategory && jobCategory !== 'other' && (
@@ -5188,7 +5188,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
             {descriptionPreview && (
               <div className="relative mt-4 w-full min-h-[80px] overflow-hidden rounded-lg sm:min-h-[148px]">
                 <p
-                  className="min-h-[80px] px-3 py-4 text-sm text-slate-600 dark:text-slate-400 leading-relaxed select-none blur-[6px] sm:min-h-[148px]"
+                  className="min-h-[80px] px-3 py-4 text-sm text-subtle leading-relaxed select-none blur-[6px] sm:min-h-[148px]"
                   aria-hidden="true"
                 >
                   {descriptionPreview}...
@@ -5205,7 +5205,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                 </div>
                 <div>
                   <h2 className="text-lg font-bold text-slate-900 dark:text-white">{t('jobBoard.gate.title')}</h2>
-                  <p className="text-sm text-slate-600 dark:text-slate-400">{t('jobBoard.gate.subtitle')}</p>
+                  <p className="text-sm text-subtle">{t('jobBoard.gate.subtitle')}</p>
                 </div>
               </div>
               <div className="space-y-3 mt-4">
@@ -5220,7 +5220,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                         void handleAuthAndOpen('google');
                       }}
                       disabled={authBusy !== null}
-                      className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-700 disabled:opacity-60 text-slate-800 dark:text-slate-100 text-sm font-semibold shadow-sm transition-colors"
+                      className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-surface border border-slate-300 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-700 disabled:opacity-60 text-slate-800 dark:text-slate-100 text-sm font-semibold shadow-sm transition-colors"
                     >
                       {authBusy === 'google' ? <Loader2 className="w-4 h-4 animate-spin" /> : (
                         <svg className="w-4 h-4" viewBox="0 0 24 24" aria-hidden="true">
@@ -5236,7 +5236,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="flex-1 h-px bg-slate-300/50 dark:bg-slate-600/50" />
-                  <span className="text-sm text-slate-500 dark:text-slate-400">{t('jobBoard.authGateOrEmail')}</span>
+                  <span className="text-sm text-muted">{t('jobBoard.authGateOrEmail')}</span>
                   <div className="flex-1 h-px bg-slate-300/50 dark:bg-slate-600/50" />
                 </div>
                 <form
@@ -5252,7 +5252,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                     value={emailInput}
                     onChange={setEmailInput}
                     placeholder={t('jobBoard.authGateEmailPlaceholder')}
-                    className="w-full px-3 py-2.5 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm text-slate-900 dark:text-white placeholder-slate-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+                    className="w-full px-3 py-2.5 rounded-xl border border-slate-300 dark:border-slate-600 bg-surface text-sm text-slate-900 dark:text-white placeholder-slate-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
                   />
                   <button
                     type="submit"
@@ -5267,15 +5267,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
               {/* Trust signals */}
               <div className="mt-4 pt-4 border-t border-indigo-200/50 dark:border-indigo-800/30 space-y-2">
-                <div className="flex items-center gap-2 text-xs text-slate-600 dark:text-slate-400">
+                <div className="flex items-center gap-2 text-xs text-subtle">
                   <CheckCircle2 size={14} className="text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
                   <span>{t('jobBoard.gate.benefit1')}</span>
                 </div>
-                <div className="flex items-center gap-2 text-xs text-slate-600 dark:text-slate-400">
+                <div className="flex items-center gap-2 text-xs text-subtle">
                   <CheckCircle2 size={14} className="text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
                   <span>{t('jobBoard.gate.benefit2')}</span>
                 </div>
-                <div className="flex items-center gap-2 text-xs text-slate-600 dark:text-slate-400">
+                <div className="flex items-center gap-2 text-xs text-subtle">
                   <Shield size={14} className="text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
                   <span>{t('jobBoard.gate.privacyNote')}</span>
                 </div>
@@ -5545,7 +5545,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                       onError={(e) => { const el = e.currentTarget; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.visibility = 'hidden'; } }}
                     />
                   ) : (
-                    <Building2 className="w-9 h-9 text-slate-500 dark:text-slate-400" />
+                    <Building2 className="w-9 h-9 text-muted" />
                   )}
                 </a>
                 <div className="min-w-0">
@@ -5561,14 +5561,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
                     </a>
                     {selectedJob.featured && <Star className="inline-block w-4 h-4 ml-2 text-amber-500 fill-amber-500" />}
                   </h1>
-                  <p className="mt-1 text-sm text-slate-700 dark:text-slate-300">
+                  <p className="mt-1 text-sm text-body">
                     {selectedJob.company} · {selectedJob.location} ({selectedJob.canton})
                   </p>
                 </div>
               </div>
 
               <div className="mt-4 flex flex-wrap gap-2 text-xs">
-                <span className="px-2 py-1 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300">
+                <span className="px-2 py-1 rounded-full bg-surface-raised text-body">
                   {t(categoryTranslationKey(selectedJob))}
                 </span>
                 <span className="px-2 py-1 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300">
@@ -5592,12 +5592,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
               </div>
             </header>
 
-            <section className="section rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4 sm:p-5 space-y-3">
+            <section className="section rounded-2xl border border-edge bg-surface p-4 sm:p-5 space-y-3">
               <h4 className="text-base font-bold text-slate-900 dark:text-white">{canonicalCopy.summary}</h4>
               {canonicalSummary.length > 0 ? (
                 <div className="space-y-2">
                   {canonicalSummary.map((line, i) => (
-                    <p key={i} className="text-sm leading-relaxed text-slate-700 dark:text-slate-300">{line}</p>
+                    <p key={i} className="text-sm leading-relaxed text-body">{line}</p>
                   ))}
                 </div>
               ) : (
@@ -5607,7 +5607,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
               )}
               {canonicalHighlights.length > 0 && (
                 <div className="pt-1">
-                  <h3 className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400 mb-2">{canonicalCopy.highlights}</h3>
+                  <h3 className="text-xs font-semibold uppercase tracking-wide text-muted mb-2">{canonicalCopy.highlights}</h3>
                   <div className="flex flex-wrap gap-2">
                     {canonicalHighlights.map((item, i) => (
                       <span
@@ -5628,12 +5628,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
                 {timelineSections.map((section, index) => (
                   <div key={`${section.id}-${index}`} className="timeline-step relative">
                     <span className="absolute -left-[23px] top-2 w-3 h-3 rounded-full bg-blue-500 dark:bg-blue-400 ring-2 ring-white dark:ring-slate-800" />
-                    <section className="section rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4 sm:p-5 space-y-2">
+                    <section className="section rounded-2xl border border-edge bg-surface p-4 sm:p-5 space-y-2">
                       <h4 className="text-sm font-bold text-slate-900 dark:text-white border-l-4 border-blue-500 pl-3">
                         {section.heading}
                       </h4>
                       {section.paragraphs.length > 0 && section.paragraphs.map((line, i) => (
-                        <p key={i} className="text-sm leading-relaxed text-slate-700 dark:text-slate-300">
+                        <p key={i} className="text-sm leading-relaxed text-body">
                           {isContactSection(section) ? renderContactRichText(line, selectedJob, locale, detailPageUrl) : line}
                         </p>
                       ))}
@@ -5643,7 +5643,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                             <li
                               key={i}
                               className={[
-                                'text-sm leading-relaxed text-slate-700 dark:text-slate-300',
+                                'text-sm leading-relaxed text-body',
                                 isSubheadBullet(item) ? 'list-none -ml-3 font-bold text-blue-700 dark:text-blue-300' : '',
                               ].join(' ').trim()}
                             >
@@ -5657,7 +5657,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                 ))}
               </div>
             ) : (
-              <section className="section rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4 sm:p-5 space-y-2">
+              <section className="section rounded-2xl border border-edge bg-surface p-4 sm:p-5 space-y-2">
                 <h4 className="text-base font-bold text-slate-900 dark:text-white">{canonicalCopy.details}</h4>
                 <div className="space-y-2">
                   {renderFormattedDescription(detailDescription)}
@@ -5694,10 +5694,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
                 window.scrollTo({ top: 0, behavior: 'smooth' });
                 Analytics.trackSelectContent('job_board_company_filter_open', selectedJob.company);
               }}
-              className="block rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/50 p-4 hover:border-indigo-300 dark:hover:border-indigo-700 hover:bg-slate-100 dark:hover:bg-slate-800/70 transition-colors"
+              className="block rounded-xl border border-edge bg-surface-alt/50 p-4 hover:border-indigo-300 dark:hover:border-indigo-700 hover:bg-slate-100 dark:hover:bg-slate-800/70 transition-colors"
             >
               <div className="flex items-start gap-3">
-                <div className="w-10 h-10 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-600 flex items-center justify-center overflow-hidden shrink-0">
+                <div className="w-10 h-10 rounded-lg bg-surface border border-edge flex items-center justify-center overflow-hidden shrink-0">
                   {logo ? (
                     <img
                       src={logo}
@@ -5709,7 +5709,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                       onError={(e) => { const el = e.currentTarget; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.visibility = 'hidden'; } }}
                     />
                   ) : (
-                    <Building2 className="w-4 h-4 text-slate-500 dark:text-slate-400" />
+                    <Building2 className="w-4 h-4 text-muted" />
                   )}
                 </div>
                 <div className="min-w-0">
@@ -5717,7 +5717,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                   <p className="text-sm text-slate-600 dark:text-slate-300 mt-1">
                     {selectedJob.company} · {selectedJob.location} ({selectedJob.canton})
                   </p>
-                  <p className="text-sm text-slate-500 dark:text-slate-400 mt-2">
+                  <p className="text-sm text-muted mt-2">
                   {/* BLOCK-B: Regionalize for national expansion — currently hardcodes Ticino/Tessin text */}
                     Frontaliere Ticino ha scovato questa opportunità nel monitoraggio aziende.
                   </p>
@@ -5745,7 +5745,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
           </article>
 
           <aside className="lg:col-span-4 space-y-4">
-            <div className="rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4 border-l-4 border-l-indigo-500">
+            <div className="rounded-xl border border-edge bg-surface p-4 border-l-4 border-l-indigo-500">
               <div className="flex items-center gap-2 text-sm font-bold text-slate-900 dark:text-white">
                 <Briefcase size={15} className="text-indigo-600 dark:text-indigo-300" />
                 {t('jobBoard.snapshotTitle')}
@@ -5754,11 +5754,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
                 <div className="flex items-center justify-between gap-2">
                   <span>{t('jobBoard.snapshot.location')}</span>
                   <div className="text-right">
-                    <div className="font-semibold text-slate-800 dark:text-slate-200">
+                    <div className="font-semibold text-strong">
                       {locationSnapshot?.locality || selectedJob.location}
                     </div>
                     {locationSnapshot?.postalCode && (
-                      <div className="text-sm text-slate-500 dark:text-slate-400">
+                      <div className="text-sm text-muted">
                         {t('jobBoard.snapshot.postalCode')}: {locationSnapshot.postalCode}
                       </div>
                     )}
@@ -5766,17 +5766,17 @@ const JobBoard: React.FC<JobBoardProps> = ({
                 </div>
                 <div className="flex items-center justify-between gap-2">
                   <span>{t('jobBoard.snapshot.contract')}</span>
-                  <span className="font-semibold text-slate-800 dark:text-slate-200">
+                  <span className="font-semibold text-strong">
                     {t(contractTranslationKey(selectedJob))}
                   </span>
                 </div>
                 <div className="flex items-center justify-between gap-2">
                   <span>{t('jobBoard.snapshot.published')}</span>
-                  <span className="font-semibold text-slate-800 dark:text-slate-200">{daysSincePosted(selectedJob.postedDate)}</span>
+                  <span className="font-semibold text-strong">{daysSincePosted(selectedJob.postedDate)}</span>
                 </div>
                 {locationSnapshot?.crossings && locationSnapshot.crossings.length > 0 && (
                   <div className="pt-2 border-t border-slate-100 dark:border-slate-700/60">
-                    <div className="mb-1.5 text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">
+                    <div className="mb-1.5 text-xs font-semibold uppercase tracking-wide text-muted">
                       {t('jobBoard.snapshot.borderCrossings')}
                     </div>
                     <div className="space-y-1">
@@ -5791,7 +5791,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                           className="flex items-center justify-between gap-2 rounded-lg px-2 py-1.5 bg-slate-50 hover:bg-slate-100 dark:bg-slate-900/50 dark:hover:bg-slate-900 text-slate-700 dark:text-slate-200 transition-colors"
                         >
                           <span className="font-medium leading-tight">{crossing.name}</span>
-                          <ArrowUpRight className="w-3 h-3 text-slate-500 dark:text-slate-400" />
+                          <ArrowUpRight className="w-3 h-3 text-muted" />
                         </a>
                       ))}
                     </div>
@@ -5801,7 +5801,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
             </div>
 
             {canonicalContent.process.length > 0 && timelineSections.length === 0 && (
-              <div className="rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4 border-l-4 border-l-cyan-500">
+              <div className="rounded-xl border border-edge bg-surface p-4 border-l-4 border-l-cyan-500">
                 <div className="flex items-center gap-2 text-sm font-bold text-slate-900 dark:text-white">
                   <Calendar size={15} className="text-cyan-600 dark:text-cyan-300" />
                   {canonicalCopy.process}
@@ -5814,7 +5814,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
               </div>
             )}
 
-            <div className="rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4 border-l-4 border-l-emerald-500">
+            <div className="rounded-xl border border-edge bg-surface p-4 border-l-4 border-l-emerald-500">
               <div className="flex items-center gap-2 text-sm font-bold text-slate-900 dark:text-white">
                 <Users size={15} className="text-emerald-600 dark:text-emerald-300" />
                 {t('jobBoard.adviceTitle')}
@@ -5831,7 +5831,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
             </div>
 
             {relatedSearches.length > 0 && (
-              <div className="rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4 border-l-4 border-l-fuchsia-500">
+              <div className="rounded-xl border border-edge bg-surface p-4 border-l-4 border-l-fuchsia-500">
                 <div className="flex items-center gap-2 text-sm font-bold text-slate-900 dark:text-white">
                   <Search size={15} className="text-fuchsia-600 dark:text-fuchsia-300" />
                   {canonicalCopy.keywords}
@@ -5868,13 +5868,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
               />
             )}
 
-            <div className="rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4 border-l-4 border-l-violet-500">
+            <div className="rounded-xl border border-edge bg-surface p-4 border-l-4 border-l-violet-500">
               <div className="flex items-center gap-2 text-sm font-bold text-slate-900 dark:text-white">
                 <Mail size={15} className="text-violet-600 dark:text-violet-300" />
                 {t('jobBoard.publishTitle')}
               </div>
               <p className="mt-2 text-xs leading-relaxed text-slate-600 dark:text-slate-300">
-                {t('jobBoard.publishDescription')}
+                {t('jobBoard.publishDescription', getCantonI18nParams())}
               </p>
               <button
                 onClick={onPostJob}
@@ -5894,7 +5894,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
         />
 
         {relatedJobs.length > 0 && (
-          <section className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
+          <section className="rounded-2xl border border-edge bg-surface p-5">
             <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-4">{t('jobBoard.relatedTitle')}</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
               {relatedJobs.map((job) => {
@@ -5903,14 +5903,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
                   <button
                     key={job.id}
                     onClick={() => openDetail(job)}
-                    className="text-left rounded-xl border border-slate-200 dark:border-slate-700 p-3 hover:border-indigo-300 dark:hover:border-indigo-700 hover:bg-slate-50 dark:hover:bg-slate-700/40 transition-colors"
+                    className="text-left rounded-xl border border-edge p-3 hover:border-indigo-300 dark:hover:border-indigo-700 hover:bg-slate-50 dark:hover:bg-slate-700/40 transition-colors"
                   >
                     <div className="flex items-start gap-3">
-                      <div className="w-12 h-12 rounded-lg bg-slate-100 dark:bg-slate-700 flex items-center justify-center overflow-hidden border border-slate-200 dark:border-slate-600 shrink-0">
+                      <div className="w-12 h-12 rounded-lg bg-surface-raised flex items-center justify-center overflow-hidden border border-edge shrink-0">
                         {jobLogo ? (
                           <img src={jobLogo} alt={`Logo ${job.company}`} className="w-8 h-8 object-contain" width={32} height={32} loading="lazy" onError={(e) => { const el = e.currentTarget; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.visibility = 'hidden'; } }} />
                         ) : (
-                          <Building2 className="w-5 h-5 text-slate-500 dark:text-slate-400" />
+                          <Building2 className="w-5 h-5 text-muted" />
                         )}
                       </div>
                       <div className="min-w-0">
@@ -5930,7 +5930,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
         )}
 
         {relatedArticles.length > 0 && (
-          <section className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
+          <section className="rounded-2xl border border-edge bg-surface p-5">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
                 <BookOpen className="w-5 h-5 text-emerald-500" />
@@ -5967,7 +5967,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                       <div className="text-sm font-bold text-slate-900 dark:text-white line-clamp-2">
                         {t(`blog.article.${article.id}.title`)}
                       </div>
-                      <div className="text-xs text-slate-600 dark:text-slate-400 mt-0.5">
+                      <div className="text-xs text-subtle mt-0.5">
                         {t(`blog.article.${article.id}.excerpt`).slice(0, 80)}…
                       </div>
                     </div>
@@ -5986,7 +5986,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
             className="inline-flex items-center gap-2 text-sm font-semibold text-indigo-700 dark:text-indigo-300 hover:underline"
           >
             <Briefcase className="w-4 h-4" />
-            {t('jobBoard.allJobsCta')}
+            {t('jobBoard.allJobsCta', getCantonI18nParams())}
           </a>
         </nav>
       </div>
@@ -6028,10 +6028,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
         </div>
         <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">
           {companyDisplayName
-            ? t('jobBoard.companyPageTitle', { company: companyDisplayName })
-            : t('jobBoard.title')}
+            ? t('jobBoard.companyPageTitle', { company: companyDisplayName, ...getCantonI18nParams() })
+            : t('jobBoard.title', getCantonI18nParams())}
         </h1>
-        <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">{t('jobBoard.subtitle')}</p>
+        <p className="text-sm sm:text-base text-subtle max-w-2xl mx-auto">{t('jobBoard.subtitle', getCantonI18nParams())}</p>
       </div>
 
       {/* ─── Search & Filters ─── */}
@@ -6039,8 +6039,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
         {/* Hero search bar */}
         <div className="relative group">
           <div className="absolute inset-0 bg-gradient-to-r from-teal-500/20 via-emerald-500/20 to-teal-500/20 rounded-2xl blur-xl opacity-0 group-focus-within:opacity-100 transition-opacity duration-300" />
-          <div className="relative flex items-center bg-white dark:bg-slate-800 rounded-2xl border-2 border-slate-200 dark:border-slate-700 group-focus-within:border-indigo-500 dark:group-focus-within:border-indigo-400 shadow-sm group-focus-within:shadow-lg group-focus-within:shadow-indigo-500/10 transition-[color,background-color,border-color,box-shadow] duration-200">
-            <Search className="ml-4 w-5 h-5 text-slate-500 dark:text-slate-400 group-focus-within:text-indigo-500 dark:group-focus-within:text-indigo-400 transition-colors shrink-0" />
+          <div className="relative flex items-center bg-surface rounded-2xl border-2 border-edge group-focus-within:border-indigo-500 dark:group-focus-within:border-indigo-400 shadow-sm group-focus-within:shadow-lg group-focus-within:shadow-indigo-500/10 transition-[color,background-color,border-color,box-shadow] duration-200">
+            <Search className="ml-4 w-5 h-5 text-muted group-focus-within:text-indigo-500 dark:group-focus-within:text-indigo-400 transition-colors shrink-0" />
             <input
               ref={searchInputRef}
               type="text"
@@ -6054,7 +6054,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
               <button
                 type="button"
                 onClick={() => setSearchQuery('')}
-                className="p-2 mr-1 rounded-full text-slate-500 dark:text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
+                className="p-2 mr-1 rounded-full text-muted hover:text-slate-600 dark:hover:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
                 aria-label="Clear search"
               >
                 <X className="w-4 h-4" />
@@ -6062,7 +6062,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
             )}
             {/* Keyboard shortcut hint — desktop only */}
             {!searchQuery && (
-              <kbd className="hidden sm:inline-flex items-center gap-0.5 mr-4 px-2 py-1 text-xs font-medium text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-700 rounded-md border border-slate-200 dark:border-slate-600 select-none">
+              <kbd className="hidden sm:inline-flex items-center gap-0.5 mr-4 px-2 py-1 text-xs font-medium text-muted bg-surface-raised rounded-md border border-edge select-none">
                 ⌘K
               </kbd>
             )}
@@ -6073,7 +6073,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
         <div className={autocompleteSuggestions.length > 0 ? 'min-h-[32px]' : ''}>
           {autocompleteSuggestions.length > 0 && (
             <div className="flex flex-wrap items-center gap-1.5">
-              <span className="text-sm text-slate-500 dark:text-slate-400 flex-shrink-0">{t('search.autocomplete') || 'Suggerimenti:'}</span>
+              <span className="text-sm text-muted flex-shrink-0">{t('search.autocomplete') || 'Suggerimenti:'}</span>
               {autocompleteSuggestions.map((s) => (
                 <button
                   key={s}
@@ -6105,7 +6105,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
               className={`px-3 py-1.5 text-xs font-medium rounded-full border transition-[color,background-color,border-color,box-shadow] ${
                 chip.active
                   ? 'bg-indigo-600 border-indigo-600 text-white shadow-sm shadow-indigo-600/20'
-                  : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 hover:border-indigo-300 dark:hover:border-indigo-600'
+                  : 'bg-surface border-edge text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 hover:border-indigo-300 dark:hover:border-indigo-600'
               }`}
               aria-pressed={chip.active}
             >
@@ -6116,7 +6116,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
         {/* FRO-332/353: Job Alert form (behind feature flag) */}
         {enableJobAlerts && (
-          <Suspense fallback={<div className="h-[100px] rounded-xl bg-slate-100 dark:bg-slate-800 animate-pulse" />}>
+          <Suspense fallback={<div className="h-[100px] rounded-xl bg-surface-raised animate-pulse" />}>
             <JobAlertForm
               authUser={authUser}
               onRequireAuth={onRequireAuth}
@@ -6133,7 +6133,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
             className={`inline-flex items-center gap-2 px-3.5 py-2 text-sm font-medium rounded-xl border transition-colors ${
               filtersExpanded || activeFilterCount > 0
                 ? 'bg-indigo-50 dark:bg-indigo-950/30 border-indigo-300 dark:border-indigo-700 text-indigo-700 dark:text-indigo-300'
-                : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700'
+                : 'bg-surface border-edge text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700'
             }`}
             aria-expanded={filtersExpanded}
             aria-label={t('jobBoard.filter.toggle') || 'Toggle filters'}
@@ -6154,7 +6154,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
             className={`inline-flex items-center gap-1.5 px-3 py-2 text-sm font-medium rounded-xl border transition-[color,background-color,border-color,box-shadow] ${
               showNewOnly
                 ? 'bg-emerald-600 border-emerald-600 text-white hover:bg-emerald-700 shadow-sm shadow-emerald-600/20'
-                : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700'
+                : 'bg-surface border-edge text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700'
             }`}
             aria-label={t('jobBoard.filter.newOnly')}
             aria-pressed={showNewOnly}
@@ -6179,7 +6179,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
         {/* Expandable filter panel — uses max-h transition to prevent CLS */}
         <div className={`transition-[max-height,opacity] duration-200 ease-in-out overflow-hidden ${filtersExpanded ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}>
-          <div className="bg-white dark:bg-slate-800/50 p-3 sm:p-4 rounded-xl border border-slate-200 dark:border-slate-700">
+          <div className="bg-surface/50 p-3 sm:p-4 rounded-xl border border-edge">
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
               <div className="relative">
                 <select
@@ -6188,7 +6188,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                   className={`w-full appearance-none pl-3 pr-8 py-2.5 text-sm rounded-xl border transition-colors focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:border-transparent ${
                     selectedCategory !== 'all'
                       ? 'border-indigo-300 dark:border-indigo-600 bg-indigo-50 dark:bg-indigo-950/20 text-indigo-700 dark:text-indigo-300'
-                      : 'border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white'
+                      : 'border-edge bg-surface text-slate-900 dark:text-white'
                   }`}
                   aria-label={t('jobBoard.filter.category')}
                 >
@@ -6198,7 +6198,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                     </option>
                   ))}
                 </select>
-                <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500 dark:text-slate-400 pointer-events-none" />
+                <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 text-muted pointer-events-none" />
               </div>
 
               <div className="relative">
@@ -6208,7 +6208,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                   className={`w-full appearance-none pl-3 pr-8 py-2.5 text-sm rounded-xl border transition-colors focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:border-transparent ${
                     selectedContract !== 'all'
                       ? 'border-indigo-300 dark:border-indigo-600 bg-indigo-50 dark:bg-indigo-950/20 text-indigo-700 dark:text-indigo-300'
-                      : 'border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white'
+                      : 'border-edge bg-surface text-slate-900 dark:text-white'
                   }`}
                   aria-label={t('jobBoard.filter.contract')}
                 >
@@ -6218,7 +6218,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                     </option>
                   ))}
                 </select>
-                <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500 dark:text-slate-400 pointer-events-none" />
+                <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 text-muted pointer-events-none" />
               </div>
 
               <div className="relative">
@@ -6228,7 +6228,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                   className={`w-full appearance-none pl-3 pr-8 py-2.5 text-sm rounded-xl border transition-colors focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:border-transparent truncate ${
                     selectedCompany !== 'all'
                       ? 'border-indigo-300 dark:border-indigo-600 bg-indigo-50 dark:bg-indigo-950/20 text-indigo-700 dark:text-indigo-300'
-                      : 'border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white'
+                      : 'border-edge bg-surface text-slate-900 dark:text-white'
                   }`}
                   aria-label={t('jobBoard.filter.company')}
                 >
@@ -6239,7 +6239,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                     </option>
                   ))}
                 </select>
-                <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500 dark:text-slate-400 pointer-events-none" />
+                <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 text-muted pointer-events-none" />
               </div>
 
               <div className="relative">
@@ -6249,7 +6249,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                   className={`w-full appearance-none pl-3 pr-8 py-2.5 text-sm rounded-xl border transition-colors focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:border-transparent ${
                     selectedDateRange !== 'all'
                       ? 'border-indigo-300 dark:border-indigo-600 bg-indigo-50 dark:bg-indigo-950/20 text-indigo-700 dark:text-indigo-300'
-                      : 'border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white'
+                      : 'border-edge bg-surface text-slate-900 dark:text-white'
                   }`}
                   aria-label={t('jobBoard.filter.dateRange')}
                 >
@@ -6259,7 +6259,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                     </option>
                   ))}
                 </select>
-                <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500 dark:text-slate-400 pointer-events-none" />
+                <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 text-muted pointer-events-none" />
               </div>
             </div>
           </div>
@@ -6284,7 +6284,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                       e.preventDefault();
                       navigateToRelatedSearch(term);
                     }}
-                    className="text-xs px-2.5 py-1 rounded-full bg-white dark:bg-slate-900/40 text-fuchsia-700 dark:text-fuchsia-300 border border-fuchsia-200 dark:border-fuchsia-700 hover:bg-fuchsia-100 dark:hover:bg-fuchsia-900/30 transition-colors"
+                    className="text-xs px-2.5 py-1 rounded-full bg-surface/40 text-fuchsia-700 dark:text-fuchsia-300 border border-fuchsia-200 dark:border-fuchsia-700 hover:bg-fuchsia-100 dark:hover:bg-fuchsia-900/30 transition-colors"
                   >
                     {term}
                   </a>
@@ -6297,7 +6297,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
       </div>
 
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-3 min-h-[28px]">
-        <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
+        <p className="text-xs sm:text-sm text-muted">
           {isMobile && filteredJobs.length > 0
             ? t('jobBoard.showingNJobs', { count: String(displayJobs.length), total: String(filteredJobs.length) })
             : t('jobBoard.resultsCount', { count: String(filteredJobs.length) })}
@@ -6341,7 +6341,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
         })}
 
         {filteredJobs.length === 0 && (
-          <div className="text-center py-12 text-slate-500 dark:text-slate-400">
+          <div className="text-center py-12 text-muted">
             <Briefcase className="w-10 h-10 mx-auto mb-3 opacity-30" />
             <p className="font-medium">{t('jobBoard.noResults')}</p>
             <p className="text-sm mt-1">{t('jobBoard.noResultsHint')}</p>
@@ -6387,8 +6387,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
             <Building2 className="w-8 h-8 text-teal-700 dark:text-teal-400" />
           </div>
           <div className="flex-1">
-            <h3 className="font-bold text-slate-900 dark:text-white text-lg">{t('jobBoard.cta.title')}</h3>
-            <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">{t('jobBoard.cta.description')}</p>
+            <h3 className="font-bold text-slate-900 dark:text-white text-lg">{t('jobBoard.cta.title', getCantonI18nParams())}</h3>
+            <p className="text-sm text-subtle mt-1">{t('jobBoard.cta.description')}</p>
           </div>
           <button
             onClick={() => {

@@ -437,13 +437,13 @@ const CurrencyExchange: React.FC = () => {
       </div>
 
       {/* Sub-tab navigation */}
-      <div className="flex gap-2 bg-white dark:bg-slate-800 rounded-2xl p-2 border border-slate-200 dark:border-slate-700 shadow-sm">
+      <div className="flex gap-2 bg-surface rounded-2xl p-2 border border-edge shadow-sm">
         <button
           onClick={() => { setExchangeSubTab('overview'); Analytics.trackCurrencyExchange('provider_view', 'overview'); }}
           className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-bold transition-[color,background-color,border-color,box-shadow] ${
             exchangeSubTab === 'overview'
               ? 'bg-emerald-700 text-white shadow-lg'
-              : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700'
+              : 'text-subtle hover:bg-slate-100 dark:hover:bg-slate-700'
           }`}
         >
           <ArrowLeftRight size={16} />
@@ -454,7 +454,7 @@ const CurrencyExchange: React.FC = () => {
           className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-bold transition-[color,background-color,border-color,box-shadow] ${
             exchangeSubTab === 'statistics'
               ? 'bg-emerald-700 text-white shadow-lg'
-              : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700'
+              : 'text-subtle hover:bg-slate-100 dark:hover:bg-slate-700'
           }`}
         >
           <ChartBar size={16} />
@@ -467,7 +467,7 @@ const CurrencyExchange: React.FC = () => {
       {/* Calculator + History Side by Side */}
       <div className="grid lg:grid-cols-2 gap-6 min-h-[420px]">
       {/* Calculator */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 sm:p-6 shadow-sm">
+      <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
             <Calculator size={20} className="text-emerald-700" />
@@ -485,10 +485,10 @@ const CurrencyExchange: React.FC = () => {
 
         <div className="space-y-4">
           <div className="space-y-2">
-            <label htmlFor="exchange-amount" className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide">{t('currency.amount_to_convert')}</label>
+            <label htmlFor="exchange-amount" className="text-xs font-bold text-muted uppercase tracking-wide">{t('currency.amount_to_convert')}</label>
             <div className="relative">
               <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                <span className="text-slate-500 dark:text-slate-400 font-bold">CHF</span>
+                <span className="text-muted font-bold">CHF</span>
               </div>
               <input
                 id="exchange-amount"
@@ -496,18 +496,18 @@ const CurrencyExchange: React.FC = () => {
                 inputMode="numeric"
                 value={amount}
                 onChange={(e) => setAmount(Math.max(0, parseFloat(e.target.value) || 0))}
-                className="w-full pl-14 pr-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus-visible:border-emerald-500 focus-visible:ring-2 focus-visible:ring-emerald-500/10 outline-none transition-[color,background-color,border-color,box-shadow] font-bold text-slate-800 dark:text-slate-100 text-lg"
+                className="w-full pl-14 pr-4 py-3 bg-surface-alt border border-edge rounded-xl focus-visible:border-emerald-500 focus-visible:ring-2 focus-visible:ring-emerald-500/10 outline-none transition-[color,background-color,border-color,box-shadow] font-bold text-slate-800 dark:text-slate-100 text-lg"
                 placeholder="1000"
               />
             </div>
           </div>
 
           <div className="space-y-2">
-            <label htmlFor="exchange-rate" className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide flex items-center gap-2">
+            <label htmlFor="exchange-rate" className="text-xs font-bold text-muted uppercase tracking-wide flex items-center gap-2">
               {t('currency.real_market_rate')}
               <div className="group relative inline-flex items-center cursor-help">
                 <button type="button" onClick={(e) => { const tip = e.currentTarget.nextElementSibling; if (tip) tip.classList.toggle('hidden'); }} aria-label="Info" className="inline-flex">
-                  <Info size={12} className="text-slate-500 dark:text-slate-400" />
+                  <Info size={12} className="text-muted" />
                 </button>
                 <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block w-48 p-2.5 bg-slate-800 text-white text-xs font-medium leading-relaxed rounded-xl shadow-xl border border-slate-600 z-50 text-center">
                   {t('currency.mid_market_tooltip')}
@@ -516,7 +516,7 @@ const CurrencyExchange: React.FC = () => {
             </label>
             <div className="relative">
               <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                <span className="text-slate-500 dark:text-slate-400 text-sm">1 CHF =</span>
+                <span className="text-muted text-sm">1 CHF =</span>
               </div>
               <input
                 id="exchange-rate"
@@ -524,10 +524,10 @@ const CurrencyExchange: React.FC = () => {
                 value={`${realRate.toFixed(4)} EUR`}
                 disabled
                 aria-label="Tasso di cambio CHF/EUR"
-                className="w-full pl-20 pr-4 py-3 bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl font-bold text-slate-600 dark:text-slate-300 text-lg"
+                className="w-full pl-20 pr-4 py-3 bg-slate-100 dark:bg-slate-900 border border-edge rounded-xl font-bold text-slate-600 dark:text-slate-300 text-lg"
               />
             </div>
-            <p className="text-sm text-slate-500 dark:text-slate-400 text-right min-h-[16px]">
+            <p className="text-sm text-muted text-right min-h-[16px]">
               {lastUpdate ? `${t('currency.updated')}: ${lastUpdate.toLocaleTimeString('it-IT')}` : '\u00A0'}
             </p>
           </div>
@@ -535,7 +535,7 @@ const CurrencyExchange: React.FC = () => {
       </div>
 
       {/* History Chart */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 sm:p-6 shadow-sm">
+      <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm">
         <div className="flex items-center justify-between mb-4 flex-wrap gap-3">
           <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
             <BarChart3 size={20} className="text-emerald-700" />
@@ -545,7 +545,7 @@ const CurrencyExchange: React.FC = () => {
             {(['1m', '3m', '6m', '1y', '5y'] as const).map(p => (
               <button key={p}
                 onClick={() => setHistoryPeriod(p)}
-                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${historyPeriod === p ? 'bg-emerald-700 text-white shadow' : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-600'}`}
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${historyPeriod === p ? 'bg-emerald-700 text-white shadow' : 'bg-surface-raised text-subtle hover:bg-slate-200 dark:hover:bg-slate-600'}`}
               >
                 {p === '1m' ? '1M' : p === '3m' ? '3M' : p === '6m' ? '6M' : p === '1y' ? '1A' : '5A'}
               </button>
@@ -553,22 +553,22 @@ const CurrencyExchange: React.FC = () => {
           </div>
         </div>
         {historyLoading ? (
-          <div className="h-[280px] flex items-center justify-center text-slate-500 dark:text-slate-400">
+          <div className="h-[280px] flex items-center justify-center text-muted">
             <RefreshCw size={24} className="animate-spin" />
           </div>
         ) : historyData.length > 0 ? (
           <div role="img" aria-label="Grafico tasso di cambio CHF/EUR" tabIndex={0}>
-            <Suspense fallback={<div className="h-[280px] flex items-center justify-center text-slate-500 dark:text-slate-400"><RefreshCw size={24} className="animate-spin" /></div>}>
+            <Suspense fallback={<div className="h-[280px] flex items-center justify-center text-muted"><RefreshCw size={24} className="animate-spin" /></div>}>
               <LazyExchangeChart data={historyData} />
             </Suspense>
           </div>
         ) : (
-          <div className="h-[280px] flex items-center justify-center text-slate-500 dark:text-slate-400 text-sm">
+          <div className="h-[280px] flex items-center justify-center text-muted text-sm">
             {t('currency.no_data_available')}
           </div>
         )}
         {historyData.length > 1 && (
-          <div className="flex justify-between mt-3 text-xs text-slate-500 dark:text-slate-400 min-h-[20px]">
+          <div className="flex justify-between mt-3 text-xs text-muted min-h-[20px]">
             <span>Min: {Math.min(...historyData.map(d => d.rate)).toFixed(4)}</span>
             <span>{t('currency.average')}: {(historyData.reduce((s, d) => s + d.rate, 0) / historyData.length).toFixed(4)}</span>
             <span>Max: {Math.max(...historyData.map(d => d.rate)).toFixed(4)}</span>
@@ -594,7 +594,7 @@ const CurrencyExchange: React.FC = () => {
             <div className="text-sm font-semibold text-slate-800 dark:text-slate-100 mb-1">{best.provider.name}</div>
             <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1 text-sm">
               <span className="font-semibold text-emerald-700 dark:text-emerald-400">€ {best.netAmount.toFixed(2)}</span>
-              <span className="text-slate-500 dark:text-slate-400">{t('currency.total_cost')}: CHF {best.totalCost.toFixed(2)} ({best.costPercent.toFixed(2)}%)</span>
+              <span className="text-muted">{t('currency.total_cost')}: CHF {best.totalCost.toFixed(2)} ({best.costPercent.toFixed(2)}%)</span>
             </div>
             <div className="text-sm text-emerald-700 dark:text-emerald-400 mt-2 font-semibold">
               👆 {t('currency.click_referral')}
@@ -609,7 +609,7 @@ const CurrencyExchange: React.FC = () => {
             <div className="text-sm font-semibold text-slate-800 dark:text-slate-100 mb-1">{best.provider.name}</div>
             <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1 text-sm">
               <span className="font-semibold text-emerald-700 dark:text-emerald-400">€ {best.netAmount.toFixed(2)}</span>
-              <span className="text-slate-500 dark:text-slate-400">{t('currency.total_cost')}: CHF {best.totalCost.toFixed(2)} ({best.costPercent.toFixed(2)}%)</span>
+              <span className="text-muted">{t('currency.total_cost')}: CHF {best.totalCost.toFixed(2)} ({best.costPercent.toFixed(2)}%)</span>
             </div>
           </div>
         )}
@@ -622,7 +622,7 @@ const CurrencyExchange: React.FC = () => {
           <div className="text-sm font-semibold text-slate-800 dark:text-slate-100 mb-1">{worst.provider.name}</div>
           <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1 text-sm">
             <span className="font-semibold text-red-600 dark:text-red-400">€ {worst.netAmount.toFixed(2)}</span>
-            <span className="text-slate-500 dark:text-slate-400">{t('currency.total_cost')}: CHF {worst.totalCost.toFixed(2)} ({worst.costPercent.toFixed(2)}%)</span>
+            <span className="text-muted">{t('currency.total_cost')}: CHF {worst.totalCost.toFixed(2)} ({worst.costPercent.toFixed(2)}%)</span>
           </div>
         </div>
       </div>
@@ -630,7 +630,7 @@ const CurrencyExchange: React.FC = () => {
       <div className="bg-gradient-to-r from-amber-50 to-yellow-50 dark:from-amber-950/30 dark:to-yellow-950/30 rounded-2xl border border-amber-200 dark:border-amber-800 p-4">
         <div className="flex items-start gap-3">
           <DollarSign size={24} className="text-amber-700 flex-shrink-0 mt-0.5" />
-          <div className="text-sm text-slate-700 dark:text-slate-300">
+          <div className="text-sm text-body">
             <strong>{t('currency.potential_savings')}:</strong> {t('currency.savings_prefix')} <strong>{best.provider.name}</strong> {t('currency.savings_middle')} <strong>{worst.provider.name}</strong> {t('currency.savings_suffix')} <strong className="text-amber-700">CHF {savingsVsWorst.toFixed(2)}</strong> {t('currency.on_this_conversion')}!
           </div>
         </div>
@@ -643,7 +643,7 @@ const CurrencyExchange: React.FC = () => {
             <Percent size={20} className="text-emerald-700 sm:w-6 sm:h-6" />
             {t('currency.detailed_comparison')}
           </h2>
-          <button onClick={handleShare} aria-label={t('common.share')} className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors text-sm font-semibold text-slate-600 dark:text-slate-300">
+          <button onClick={handleShare} aria-label={t('common.share')} className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-raised hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors text-sm font-semibold text-slate-600 dark:text-slate-300">
             {shareState === 'copied' ? <><Check size={16} className="text-emerald-500" /> {t('common.linkCopied')}</> : <><Share2 size={16} /> {t('common.share')}</>}
           </button>
         </div>
@@ -659,13 +659,13 @@ const CurrencyExchange: React.FC = () => {
             rel: 'noopener noreferrer',
             onClick: () => Analytics.trackExternalLink(result.provider.referralUrl!, result.provider.name),
             'aria-label': result.provider.name,
-            className: `block min-w-0 bg-white dark:bg-slate-800 rounded-xl sm:rounded-2xl border-2 p-3 sm:p-6 hover:shadow-lg transition-[color,background-color,border-color,box-shadow] cursor-pointer ${
-              isBest ? 'border-emerald-500 ring-2 ring-emerald-500/20 hover:ring-emerald-500/40' : isWorst ? 'border-red-500 ring-2 ring-red-500/20' : 'border-slate-200 dark:border-slate-700 hover:border-emerald-400'
+            className: `block min-w-0 bg-surface rounded-xl sm:rounded-2xl border-2 p-3 sm:p-6 hover:shadow-lg transition-[color,background-color,border-color,box-shadow] cursor-pointer ${
+              isBest ? 'border-emerald-500 ring-2 ring-emerald-500/20 hover:ring-emerald-500/40' : isWorst ? 'border-red-500 ring-2 ring-red-500/20' : 'border-edge hover:border-emerald-400'
             }`
           } : {
             'aria-label': result.provider.name,
-            className: `min-w-0 bg-white dark:bg-slate-800 rounded-xl sm:rounded-2xl border-2 p-3 sm:p-6 hover:shadow-lg transition-[color,background-color,border-color,box-shadow] ${
-              isBest ? 'border-emerald-500 ring-2 ring-emerald-500/20' : isWorst ? 'border-red-500 ring-2 ring-red-500/20' : 'border-slate-200 dark:border-slate-700'
+            className: `min-w-0 bg-surface rounded-xl sm:rounded-2xl border-2 p-3 sm:p-6 hover:shadow-lg transition-[color,background-color,border-color,box-shadow] ${
+              isBest ? 'border-emerald-500 ring-2 ring-emerald-500/20' : isWorst ? 'border-red-500 ring-2 ring-red-500/20' : 'border-edge'
             }`
           };
           
@@ -688,7 +688,7 @@ const CurrencyExchange: React.FC = () => {
                   </div>
                   <div className="min-w-0">
                     <h3 className="text-base sm:text-xl font-bold text-slate-800 dark:text-slate-100">{result.provider.name}</h3>
-                    <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">{t(`currency.${result.provider.transferTimeKey}`)}</p>
+                    <p className="text-xs sm:text-sm text-muted">{t(`currency.${result.provider.transferTimeKey}`)}</p>
                   </div>
                 </div>
 
@@ -697,10 +697,10 @@ const CurrencyExchange: React.FC = () => {
                     € {result.netAmount.toFixed(2)}
                   </div>
                   <div className="flex sm:flex-col items-center sm:items-end gap-1.5 sm:gap-0">
-                    <div className="text-xs text-slate-500 dark:text-slate-400 hidden sm:block">
+                    <div className="text-xs text-muted hidden sm:block">
                       {t('currency.net_after_fees')}
                     </div>
-                    <div className={`text-xs sm:text-sm font-bold ${isBest ? 'text-emerald-700' : isWorst ? 'text-red-600' : 'text-slate-600 dark:text-slate-400'}`}>
+                    <div className={`text-xs sm:text-sm font-bold ${isBest ? 'text-emerald-700' : isWorst ? 'text-red-600' : 'text-subtle'}`}>
                       {t('currency.cost')}: {result.costPercent.toFixed(2)}%
                     </div>
                   </div>
@@ -708,12 +708,12 @@ const CurrencyExchange: React.FC = () => {
               </div>
 
               <div className="grid grid-cols-3 gap-2 sm:gap-4 mb-4">
-                <div className="p-2 sm:p-3 bg-slate-50 dark:bg-slate-900 rounded-lg sm:rounded-xl">
-                  <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">{t('currency.applied_rate')}</div>
+                <div className="p-2 sm:p-3 bg-surface-alt rounded-lg sm:rounded-xl">
+                  <div className="text-xs text-muted mb-1">{t('currency.applied_rate')}</div>
                   <div className="text-sm sm:text-lg font-bold text-slate-800 dark:text-slate-100">
                     {result.appliedRate.toFixed(4)}
                   </div>
-                  <div className="text-xs text-slate-500 dark:text-slate-400">
+                  <div className="text-xs text-muted">
                     {result.appliedMarkup > 0 ? (
                       <span className="text-red-600">-{(result.appliedMarkup * 100).toFixed(2)}%</span>
                     ) : (
@@ -722,34 +722,34 @@ const CurrencyExchange: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="p-2 sm:p-3 bg-slate-50 dark:bg-slate-900 rounded-lg sm:rounded-xl">
-                  <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">{t('currency.declared_commission')}</div>
+                <div className="p-2 sm:p-3 bg-surface-alt rounded-lg sm:rounded-xl">
+                  <div className="text-xs text-muted mb-1">{t('currency.declared_commission')}</div>
                   <div className="text-sm sm:text-lg font-bold text-slate-800 dark:text-slate-100">
                     {result.totalCommission.toFixed(2)} €
                   </div>
-                  <div className="text-xs text-slate-500 dark:text-slate-400">
+                  <div className="text-xs text-muted">
                     {result.provider.commission > 0 && `CHF ${result.provider.commission}+ `}
                     {result.declaredCommissionPercent.toFixed(2)}%
                   </div>
                 </div>
 
-                <div className="p-2 sm:p-3 bg-slate-50 dark:bg-slate-900 rounded-lg sm:rounded-xl">
-                  <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">{t('currency.real_total_cost')}</div>
+                <div className="p-2 sm:p-3 bg-surface-alt rounded-lg sm:rounded-xl">
+                  <div className="text-xs text-muted mb-1">{t('currency.real_total_cost')}</div>
                   <div className="text-sm sm:text-lg font-bold text-slate-800 dark:text-slate-100">
                     CHF {result.totalCost.toFixed(2)}
                   </div>
-                  <div className="text-xs text-slate-500 dark:text-slate-400">
+                  <div className="text-xs text-muted">
                     {t('currency.commissions_spread')}
                   </div>
                 </div>
               </div>
 
-              <div className="border-t border-slate-200 dark:border-slate-700 pt-2 sm:pt-3">
+              <div className="border-t border-edge pt-2 sm:pt-3">
                 <div className="flex flex-wrap gap-1.5 sm:gap-2">
                   {result.provider.featureKeys.map((featureKey, fidx) => (
                     <span
                       key={fidx}
-                      className="px-2 sm:px-2.5 py-0.5 sm:py-1 bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300 text-xs font-medium rounded-md sm:rounded-lg"
+                      className="px-2 sm:px-2.5 py-0.5 sm:py-1 bg-slate-100 dark:bg-slate-900 text-body text-xs font-medium rounded-md sm:rounded-lg"
                     >
                       {t(`currency.${featureKey}`)}
                     </span>
@@ -772,7 +772,7 @@ const CurrencyExchange: React.FC = () => {
           {t('currency.how_hidden_spread_works')}
         </h2>
         
-        <div className="space-y-4 text-sm text-slate-700 dark:text-slate-300">
+        <div className="space-y-4 text-sm text-body">
           <div className="p-4 bg-white/50 dark:bg-slate-900/50 rounded-xl">
             <p className="font-bold text-blue-600 mb-2">📊 {t('currency.practical_example_title')}:</p>
             <ul className="space-y-2 ml-4">
@@ -814,8 +814,8 @@ const CurrencyExchange: React.FC = () => {
           />
         </div>
       )}
-      <div className="mt-3 p-4 bg-slate-50 dark:bg-slate-900/50 rounded-xl border border-slate-200 dark:border-slate-700">
-        <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+      <div className="mt-3 p-4 bg-surface-alt/50 rounded-xl border border-edge">
+        <p className="text-sm text-muted leading-relaxed">
           <strong>{t('exchange.methodology.title')}</strong>{' '}
           {t('exchange.methodology.description')}
         </p>

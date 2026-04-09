@@ -39,7 +39,7 @@ const CreatorProducts: React.FC<CreatorProductsProps> = ({
   if (!products.length) return null;
 
   return (
-    <div className={`overflow-visible rounded-xl border border-slate-200 dark:border-slate-700 bg-white/90 dark:bg-slate-800/90 p-3 space-y-2.5 ${className}`}>
+    <div className={`overflow-visible rounded-xl border border-edge bg-white/90 dark:bg-slate-800/90 p-3 space-y-2.5 ${className}`}>
       <div className="flex items-center gap-1.5 text-xs font-semibold tracking-normal text-slate-600 dark:text-slate-300">
         <Sparkles size={13} className="text-amber-500" />
         <span>{t('creatorPicks.title')}</span>
@@ -57,7 +57,7 @@ const CreatorProducts: React.FC<CreatorProductsProps> = ({
               Analytics.trackExternalLink(p.url, `creator_pick_${p.id}`);
               Analytics.trackSelectContent('creator_pick_click', p.id);
             }}
-            className="group block rounded-lg border border-slate-200/70 dark:border-slate-700/70 bg-slate-50 dark:bg-slate-900/40 px-2.5 py-2.5 hover:border-indigo-300 dark:hover:border-indigo-700 hover:scale-[1.01] transition-[color,background-color,border-color,transform]"
+            className="group block rounded-lg border border-slate-200/70 dark:border-slate-700/70 bg-surface-alt/40 px-2.5 py-2.5 hover:border-indigo-300 dark:hover:border-indigo-700 hover:scale-[1.01] transition-[color,background-color,border-color,transform]"
           >
             {showImage && (
               <div className="flex justify-center mb-2">
@@ -85,7 +85,7 @@ const CreatorProducts: React.FC<CreatorProductsProps> = ({
                   {p.price}
                 </span>
               ) : (
-                <span className="text-sm text-slate-500 dark:text-slate-400">
+                <span className="text-sm text-muted">
                   amazon.it
                 </span>
               )}
@@ -97,7 +97,7 @@ const CreatorProducts: React.FC<CreatorProductsProps> = ({
         );
       })}
 
-      <p className="text-xs text-slate-500 dark:text-slate-400 leading-snug">{t('creatorPicks.disclosure')}</p>
+      <p className="text-xs text-muted leading-snug">{t('creatorPicks.disclosure')}</p>
     </div>
   );
 };

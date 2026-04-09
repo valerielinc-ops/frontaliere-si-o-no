@@ -225,7 +225,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
                 />
               </div>
               <button type="submit" disabled={status === 'loading'}
-                className="px-5 py-2.5 bg-white dark:bg-slate-800 text-teal-700 dark:text-teal-300 font-bold text-sm rounded-xl hover:bg-teal-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                className="px-5 py-2.5 bg-surface text-teal-700 dark:text-teal-300 font-bold text-sm rounded-xl hover:bg-teal-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
                 aria-label={t('newsletter.subscribeFree')}
               >
                 {status === 'loading' ? <Loader2 size={16} className="animate-spin" /> : <Send size={16} />}
@@ -313,10 +313,10 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
         <div className="bg-amber-50 dark:bg-amber-950/30 rounded-2xl border border-amber-200 dark:border-amber-800 p-5 sm:p-8 text-center">
           <Mail size={48} className="text-amber-500 mx-auto mb-4" />
           <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100 mb-2">{t('newsletter.doubleOptIn.title')}</h3>
-          <p className="text-slate-600 dark:text-slate-400 mb-3">
+          <p className="text-subtle mb-3">
             {t('newsletter.doubleOptIn.description')}
           </p>
-          <p className="text-sm text-slate-500 dark:text-slate-400 mb-4">
+          <p className="text-sm text-muted mb-4">
             {t('newsletter.doubleOptIn.spamHint')}
           </p>
 
@@ -338,7 +338,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
           {/* FRO-26: Resend confirmation */}
           {email && (
             <div className="mt-4">
-              <p className="text-sm text-slate-500 dark:text-slate-400 mb-1">{t('newsletter.pendingReminder.resend')}</p>
+              <p className="text-sm text-muted mb-1">{t('newsletter.pendingReminder.resend')}</p>
               <button
                 disabled={resendStatus === 'sending' || resendStatus === 'sent'}
                 onClick={async () => {
@@ -362,33 +362,33 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
           )}
         </div>
       ) : (
-        <form onSubmit={handleSubscribe} className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 sm:p-6 shadow-sm space-y-5">
+        <form onSubmit={handleSubscribe} className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm space-y-5">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label htmlFor="newsletter-email" className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase mb-1 block">{t('newsletter.emailLabel')}</label>
+              <label htmlFor="newsletter-email" className="text-xs font-bold text-muted uppercase mb-1 block">{t('newsletter.emailLabel')}</label>
               <EmailInput
                 id="newsletter-email"
                 value={email}
                 onChange={(val) => { setEmail(val); setStatus('idle'); }}
                 placeholder="mario.rossi@gmail.com"
-                className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500"
+                className="w-full px-4 py-3 bg-surface-alt border border-edge rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500"
               />
             </div>
             <div>
-              <label htmlFor="newsletter-name" className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase mb-1 block">{t('newsletter.nameLabel')}</label>
+              <label htmlFor="newsletter-name" className="text-xs font-bold text-muted uppercase mb-1 block">{t('newsletter.nameLabel')}</label>
               <input type="text" value={name}
                 id="newsletter-name"
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Mario"
                 autoComplete="given-name"
                 name="name"
-                className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500" />
+                className="w-full px-4 py-3 bg-surface-alt border border-edge rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500" />
             </div>
           </div>
 
           {/* Preferences */}
           <div>
-            <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase mb-3 block">{t('newsletter.interestsLabel')}</label>
+            <label className="text-xs font-bold text-muted uppercase mb-3 block">{t('newsletter.interestsLabel')}</label>
             <div className="grid grid-cols-2 gap-3">
               {[
                 { key: 'exchangeRate', label: `💱 ${t('newsletter.exchangeRate')}`, desc: t('newsletter.exchangeRateDesc') },
@@ -400,7 +400,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
                   className={`flex items-start gap-3 p-3 rounded-xl cursor-pointer transition-colors border ${
                     preferences[pref.key as keyof typeof preferences]
                       ? 'border-teal-300 dark:border-teal-700 bg-teal-50 dark:bg-teal-950/30'
-                      : 'border-slate-200 dark:border-slate-700 hover:border-slate-300'
+                      : 'border-edge hover:border-slate-300'
                   }`}
                 >
                   <input type="checkbox"
@@ -410,7 +410,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
                     aria-label={pref.label} />
                   <div>
                     <div className="font-bold text-sm text-slate-800 dark:text-slate-100">{pref.label}</div>
-                    <div className="text-sm text-slate-500 dark:text-slate-400">{pref.desc}</div>
+                    <div className="text-sm text-muted">{pref.desc}</div>
                   </div>
                 </label>
               ))}
@@ -429,7 +429,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
           )}
 
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+            <div className="flex items-center gap-2 text-xs text-muted">
               <Shield size={14} />
               {t('newsletter.protectedBy')}
             </div>
@@ -450,7 +450,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
             </button>
           </div>
 
-          <p className="text-sm text-slate-500 dark:text-slate-400 text-center">
+          <p className="text-sm text-muted text-center">
             {t('newsletter.unsubscribeNotice')}
           </p>
         </form>

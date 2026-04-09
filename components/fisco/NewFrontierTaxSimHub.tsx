@@ -416,8 +416,8 @@ export default function NewFrontierTaxSimHub() {
           {c.badge}
         </span>
         <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white leading-tight">{c.title}</h1>
-        <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-3xl">{c.intro}</p>
-        <p className="text-sm text-slate-500 dark:text-slate-400 italic">{c.disclaimer}</p>
+        <p className="text-base sm:text-lg text-subtle leading-relaxed max-w-3xl">{c.intro}</p>
+        <p className="text-sm text-muted italic">{c.disclaimer}</p>
       </header>
 
       {/* Regime explanation cards */}
@@ -427,14 +427,14 @@ export default function NewFrontierTaxSimHub() {
           {c.regimeCards.map((card) => {
             const Icon = ICON_MAP[card.icon];
             return (
-              <div key={card.title} className="rounded-2xl border border-slate-200 dark:border-slate-700 p-5 bg-white dark:bg-slate-800">
+              <div key={card.title} className="rounded-2xl border border-edge p-5 bg-surface">
                 <div className="flex items-start gap-3">
                   <div className="flex-shrink-0 w-9 h-9 rounded-lg bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center">
                     <Icon className="w-5 h-5 text-emerald-700 dark:text-emerald-300" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-slate-900 dark:text-white text-sm">{card.title}</h3>
-                    <p className="mt-1 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{card.body}</p>
+                    <p className="mt-1 text-sm text-subtle leading-relaxed">{card.body}</p>
                   </div>
                 </div>
               </div>
@@ -452,7 +452,7 @@ export default function NewFrontierTaxSimHub() {
               <span className="flex-shrink-0 w-7 h-7 rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 text-xs font-bold flex items-center justify-center mt-0.5">
                 {i + 1}
               </span>
-              <span className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">{step}</span>
+              <span className="text-sm text-body leading-relaxed">{step}</span>
             </li>
           ))}
         </ol>
@@ -461,38 +461,38 @@ export default function NewFrontierTaxSimHub() {
       {/* Example table */}
       <section className="space-y-4">
         <h2 className="text-2xl font-bold text-slate-900 dark:text-white">{c.exampleTitle}</h2>
-        <p className="text-sm text-slate-600 dark:text-slate-400">{c.exampleIntro}</p>
-        <div className="rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+        <p className="text-sm text-subtle">{c.exampleIntro}</p>
+        <div className="rounded-2xl border border-edge overflow-hidden">
           <table className="w-full text-sm">
             <tbody>
               {c.exampleRows.map((row, i) => (
-                <tr key={i} className={i % 2 === 0 ? 'bg-slate-50 dark:bg-slate-800/50' : 'bg-white dark:bg-slate-800'}>
-                  <td className="px-4 py-2.5 text-slate-700 dark:text-slate-300 font-medium">{row.label}</td>
+                <tr key={i} className={i % 2 === 0 ? 'bg-surface-alt/50' : 'bg-surface'}>
+                  <td className="px-4 py-2.5 text-body font-medium">{row.label}</td>
                   <td className="px-4 py-2.5 text-right text-slate-900 dark:text-white font-semibold tabular-nums">{row.value}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
-        <p className="text-sm text-slate-500 dark:text-slate-400 italic">{c.exampleNote}</p>
+        <p className="text-sm text-muted italic">{c.exampleNote}</p>
       </section>
 
       {/* CTA deep links */}
       <section className="space-y-4">
         <h2 className="text-2xl font-bold text-slate-900 dark:text-white">{c.deepLinksTitle}</h2>
-        <p className="text-sm text-slate-600 dark:text-slate-400">{c.deepLinksIntro}</p>
+        <p className="text-sm text-subtle">{c.deepLinksIntro}</p>
         <div className="grid gap-3 sm:grid-cols-3">
           {c.ctas.map((cta) => (
             <a
               key={cta.title}
               href={buildPath(cta.route)}
-              className="group rounded-2xl border border-slate-200 dark:border-slate-700 p-5 bg-white dark:bg-slate-800 hover:border-emerald-400 dark:hover:border-emerald-600 transition-colors no-underline"
+              className="group rounded-2xl border border-edge p-5 bg-surface hover:border-emerald-400 dark:hover:border-emerald-600 transition-colors no-underline"
             >
               <h3 className="font-semibold text-emerald-700 dark:text-emerald-300 text-sm flex items-center gap-1.5">
                 {cta.title}
                 <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
               </h3>
-              <p className="mt-1 text-xs text-slate-600 dark:text-slate-400 leading-relaxed">{cta.body}</p>
+              <p className="mt-1 text-xs text-subtle leading-relaxed">{cta.body}</p>
             </a>
           ))}
         </div>
@@ -506,12 +506,12 @@ export default function NewFrontierTaxSimHub() {
         </h2>
         <div className="space-y-3">
           {c.faq.map((item) => (
-            <details key={item.question} className="group rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 overflow-hidden">
+            <details key={item.question} className="group rounded-2xl border border-edge bg-surface overflow-hidden">
               <summary className="cursor-pointer px-5 py-4 text-sm font-medium text-slate-900 dark:text-white select-none list-none flex items-center justify-between">
                 {item.question}
                 <CheckCircle2 className="w-4 h-4 text-emerald-500 dark:text-emerald-400 opacity-0 group-open:opacity-100 transition-opacity flex-shrink-0 ml-2" />
               </summary>
-              <div className="px-5 pb-4 text-sm text-slate-600 dark:text-slate-400 leading-relaxed faq-answer">{item.answer}</div>
+              <div className="px-5 pb-4 text-sm text-subtle leading-relaxed faq-answer">{item.answer}</div>
             </details>
           ))}
         </div>

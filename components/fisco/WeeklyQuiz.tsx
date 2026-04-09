@@ -203,7 +203,7 @@ function saveQuizState(state: QuizState): void {
 // ─── Category icons & colors ─────────────────────────────────
 
 const CATEGORY_STYLES: Record<string, { emoji: string; color: string }> = {
-  tax: { emoji: '📊', color: 'text-blue-600 dark:text-blue-400' },
+  tax: { emoji: '📊', color: 'text-link' },
   pension: { emoji: '🏦', color: 'text-emerald-700 dark:text-emerald-400' },
   insurance: { emoji: '🏥', color: 'text-rose-600 dark:text-rose-400' },
   permits: { emoji: '🪪', color: 'text-amber-600 dark:text-amber-400' },
@@ -322,12 +322,12 @@ const WeeklyQuiz: React.FC = () => {
         </div>
 
         {/* Results Card */}
-        <div className="bg-white dark:bg-slate-800 rounded-2xl p-5 sm:p-8 border border-slate-200 dark:border-slate-700 text-center">
+        <div className="bg-surface rounded-2xl p-5 sm:p-8 border border-edge text-center">
           <div className="text-6xl mb-4">{emoji}</div>
-          <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-2">
+          <h3 className="text-2xl font-bold text-heading mb-2">
             {t('quiz.completed')}
           </h3>
-          <p className="text-lg text-slate-600 dark:text-slate-400 mb-6">
+          <p className="text-lg text-subtle mb-6">
             {t('quiz.score', { score: String(score), total: String(questions.length) })}
           </p>
 
@@ -358,7 +358,7 @@ const WeeklyQuiz: React.FC = () => {
                     ? <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0" />
                     : <XCircle className="w-5 h-5 text-red-500 shrink-0" />
                   }
-                  <span className="text-sm font-medium text-slate-700 dark:text-slate-300">
+                  <span className="text-sm font-medium text-body">
                     {i + 1}. {t(q.questionKey)}
                   </span>
                 </div>
@@ -366,7 +366,7 @@ const WeeklyQuiz: React.FC = () => {
             })}
           </div>
 
-          <p className="text-sm text-slate-500 dark:text-slate-400 mb-4">
+          <p className="text-sm text-muted mb-4">
             {t('quiz.nextWeek')}
           </p>
 
@@ -405,9 +405,9 @@ const WeeklyQuiz: React.FC = () => {
       </div>
 
       {/* Progress */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl p-5 border border-slate-200 dark:border-slate-700">
+      <div className="bg-surface rounded-2xl p-5 border border-edge">
         <div className="flex items-center justify-between mb-3">
-          <span className="font-bold text-slate-800 dark:text-slate-200">
+          <span className="font-bold text-strong">
             {t('quiz.questionOf', { current: String(currentIndex + 1), total: String(questions.length) })}
           </span>
           <div className="flex items-center gap-2">
@@ -428,8 +428,8 @@ const WeeklyQuiz: React.FC = () => {
       </div>
 
       {/* Question Card */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl p-4 sm:p-6 border border-slate-200 dark:border-slate-700">
-        <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100 mb-6">
+      <div className="bg-surface rounded-2xl p-4 sm:p-6 border border-edge">
+        <h3 className="text-lg font-bold text-heading mb-6">
           {t(currentQuestion.questionKey)}
         </h3>
 
@@ -440,13 +440,13 @@ const WeeklyQuiz: React.FC = () => {
             const isCorrect = i === currentQuestion.correctIndex;
             const showResult = selectedAnswer !== null;
 
-            let optionClass = 'bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer';
+            let optionClass = 'bg-surface-alt border-edge hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer';
             if (showResult && isCorrect) {
               optionClass = 'bg-emerald-50 dark:bg-emerald-950/30 border-emerald-300 dark:border-emerald-700 ring-2 ring-emerald-400';
             } else if (showResult && isSelected && !isCorrect) {
               optionClass = 'bg-red-50 dark:bg-red-950/30 border-red-300 dark:border-red-700 ring-2 ring-red-400';
             } else if (showResult) {
-              optionClass = 'bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-700 opacity-60';
+              optionClass = 'bg-surface-alt border-edge opacity-60';
             }
 
             return (
@@ -460,13 +460,13 @@ const WeeklyQuiz: React.FC = () => {
                   <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold shrink-0 ${
                     showResult && isCorrect ? 'bg-emerald-500 text-white' :
                     showResult && isSelected ? 'bg-red-500 text-white' :
-                    'bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-400'
+                    'bg-slate-200 dark:bg-slate-700 text-subtle'
                   }`}>
                     {showResult && isCorrect ? '✓' :
                      showResult && isSelected ? '✗' :
                      String.fromCharCode(65 + i)}
                   </div>
-                  <span className="font-medium text-slate-700 dark:text-slate-300">
+                  <span className="font-medium text-body">
                     {t(optKey)}
                   </span>
                 </div>

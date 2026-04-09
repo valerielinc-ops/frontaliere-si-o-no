@@ -204,7 +204,7 @@ const GamificationWidget: React.FC = () => {
             hasUnreadAchievements
               ? 'bg-amber-50 dark:bg-amber-900/20 text-amber-600 dark:text-amber-400'
               : isOpen
-                ? 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300'
+                ? 'bg-surface-raised text-body'
                 : 'text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
           }`}
           title={`${levelTitle} — ${state.xp} XP`}
@@ -215,7 +215,7 @@ const GamificationWidget: React.FC = () => {
 
         {/* Dropdown panel — fixed on mobile, absolute on desktop */}
         {isOpen && (
-          <div className="fixed sm:absolute inset-x-2 sm:inset-x-auto sm:right-0 top-16 sm:top-full sm:mt-2 sm:w-[340px] bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 overflow-hidden z-[80] animate-slide-up max-h-[calc(100vh-5rem)] overflow-y-auto">
+          <div className="fixed sm:absolute inset-x-2 sm:inset-x-auto sm:right-0 top-16 sm:top-full sm:mt-2 sm:w-[340px] bg-surface rounded-2xl shadow-2xl border border-edge overflow-hidden z-[80] animate-slide-up max-h-[calc(100vh-5rem)] overflow-y-auto">
             {/* Header — level info */}
             <div className="px-4 py-3 bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-orange-950/30 border-b border-slate-200/60 dark:border-slate-700/50">
               <div className="flex items-center gap-3">
@@ -229,16 +229,16 @@ const GamificationWidget: React.FC = () => {
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="text-sm font-bold text-slate-800 dark:text-slate-100">{levelTitle}</div>
-                  <div className="text-sm text-slate-500 dark:text-slate-400">{state.xp} XP</div>
+                  <div className="text-sm text-muted">{state.xp} XP</div>
                 </div>
                 <div className="flex items-center gap-2 flex-shrink-0">
                   {state.streak > 0 && (
-                    <div className="flex items-center gap-1 text-xs text-slate-500 dark:text-slate-400">
+                    <div className="flex items-center gap-1 text-xs text-muted">
                       <Flame size={14} className="text-orange-400" />
                       <span className="font-bold">{state.streak}</span>
                     </div>
                   )}
-                  <div className="flex items-center gap-1 text-xs text-slate-500 dark:text-slate-400">
+                  <div className="flex items-center gap-1 text-xs text-muted">
                     <CheckCircle2 size={14} className="text-emerald-500" />
                     <span className="font-bold">{unlockedCount}/{totalCount}</span>
                   </div>
@@ -252,7 +252,7 @@ const GamificationWidget: React.FC = () => {
                     style={{ transform: `scaleX(${xpProgressPct / 100})` }}
                   />
                 </div>
-                <div className="flex justify-between text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                <div className="flex justify-between text-xs text-muted mt-0.5">
                   <span>{levelInfo.currentXp}/{levelInfo.nextLevelXp} XP</span>
                   <span>{progressPercent}%</span>
                 </div>
@@ -261,11 +261,11 @@ const GamificationWidget: React.FC = () => {
 
             {/* Recent achievements (last unlocked) */}
             <div className="px-3 py-2">
-              <div className="text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400 font-bold mb-2 px-1">
+              <div className="text-xs uppercase tracking-wider text-muted font-bold mb-2 px-1">
                 {t('gamification.recentAchievements') || 'Ultimi sbloccati'}
               </div>
               {recentAchievements.length === 0 ? (
-                <div className="text-center py-4 text-xs text-slate-500 dark:text-slate-400">
+                <div className="text-center py-4 text-xs text-muted">
                   {t('gamification.noAchievementsYet') || 'Nessun achievement sbloccato ancora. Esplora il sito!'}
                 </div>
               ) : (

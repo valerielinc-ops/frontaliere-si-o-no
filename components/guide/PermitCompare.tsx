@@ -445,12 +445,12 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
       )}
 
       {/* Header */}
-      <div className="bg-white dark:bg-slate-800 rounded-xl shadow-lg p-6">
+      <div className="bg-surface rounded-xl shadow-lg p-6">
         <div className="flex items-center gap-3 mb-2">
           <Users className="text-amber-600 dark:text-amber-400" size={28} />
           <h2 className="text-2xl font-bold text-slate-800 dark:text-white">{t('permitCompare.title')}</h2>
         </div>
-        <p className="text-slate-600 dark:text-slate-400">{t('permitCompare.subtitle')}</p>
+        <p className="text-subtle">{t('permitCompare.subtitle')}</p>
         <p className="text-sm text-slate-600 dark:text-slate-300 mt-3 leading-relaxed">
           {t('guide.permitCompare.intro.p1')}
         </p>
@@ -459,12 +459,12 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
       <div className="grid lg:grid-cols-5 gap-6">
         {/* Inputs */}
         <div className="lg:col-span-2 space-y-4">
-          <div className="bg-white dark:bg-slate-800 rounded-xl shadow p-5 space-y-4">
+          <div className="bg-surface rounded-xl shadow p-5 space-y-4">
             <div className="flex items-center gap-2">
               <Sparkles size={18} className="text-amber-600 dark:text-amber-400" />
               <h3 className="text-base font-bold text-slate-800 dark:text-white">{t('permitCompare.wizard.title')}</h3>
             </div>
-            <p className="text-sm text-slate-600 dark:text-slate-400">{t('permitCompare.wizard.subtitle')}</p>
+            <p className="text-sm text-subtle">{t('permitCompare.wizard.subtitle')}</p>
 
             <div className="flex items-center gap-2 text-xs">
               {[1, 2, 3, 4].map((step) => (
@@ -474,7 +474,7 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
                   className={`w-7 h-7 rounded-full border font-semibold ${
                     wizardStep >= step
                       ? 'bg-amber-500 border-amber-500 text-white'
-                      : 'border-slate-300 dark:border-slate-600 text-slate-500 dark:text-slate-400'
+                      : 'border-slate-300 dark:border-slate-600 text-muted'
                   }`}
                 >
                   {step}
@@ -484,7 +484,7 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
 
             {wizardStep === 1 && (
               <div className="space-y-2">
-                <p className="text-sm font-medium text-slate-700 dark:text-slate-300">{t('permitCompare.wizard.step1')}</p>
+                <p className="text-sm font-medium text-body">{t('permitCompare.wizard.step1')}</p>
                 <div className="space-y-2">
                   {([
                     { value: 'new_within_20km' as GPermitType, label: t('permitCompare.gTypeNew20') },
@@ -497,7 +497,7 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
                       className={`w-full rounded-lg border px-3 py-2 text-left text-sm ${
                         wizardState.profile === opt.value
                           ? 'border-amber-500 bg-amber-50 dark:bg-amber-900/20 dark:border-amber-400'
-                          : 'border-slate-200 dark:border-slate-600'
+                          : 'border-edge'
                       }`}
                     >
                       {opt.label}
@@ -509,7 +509,7 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
 
             {wizardStep === 2 && (
               <div className="space-y-2">
-                <p className="text-sm font-medium text-slate-700 dark:text-slate-300">{t('permitCompare.wizard.step2')}</p>
+                <p className="text-sm font-medium text-body">{t('permitCompare.wizard.step2')}</p>
                 <div className="grid grid-cols-1 gap-2">
                   {([
                     { value: 'italy' as WizardResidenceGoal, label: t('permitCompare.wizard.goalItaly') },
@@ -522,7 +522,7 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
                       className={`w-full rounded-lg border px-3 py-2 text-left text-sm ${
                         wizardState.residenceGoal === opt.value
                           ? 'border-amber-500 bg-amber-50 dark:bg-amber-900/20 dark:border-amber-400'
-                          : 'border-slate-200 dark:border-slate-600'
+                          : 'border-edge'
                       }`}
                     >
                       {opt.label}
@@ -535,7 +535,7 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
             {wizardStep === 3 && (
               <div className="space-y-3">
                 <div>
-                  <p className="text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">{t('permitCompare.wizard.step3A')}</p>
+                  <p className="text-sm font-medium text-body mb-2">{t('permitCompare.wizard.step3A')}</p>
                   <div className="grid grid-cols-2 gap-2">
                     {([
                       { value: 'short' as WizardHorizon, label: t('permitCompare.wizard.horizonShort') },
@@ -547,7 +547,7 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
                         className={`rounded-lg border px-3 py-2 text-sm ${
                           wizardState.horizon === opt.value
                             ? 'border-amber-500 bg-amber-50 dark:bg-amber-900/20 dark:border-amber-400'
-                            : 'border-slate-200 dark:border-slate-600'
+                            : 'border-edge'
                         }`}
                       >
                         {opt.label}
@@ -556,7 +556,7 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
                   </div>
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">{t('permitCompare.wizard.step3B')}</p>
+                  <p className="text-sm font-medium text-body mb-2">{t('permitCompare.wizard.step3B')}</p>
                   <div className="grid grid-cols-1 gap-2">
                     {([
                       { value: 'net' as WizardPriority, label: t('permitCompare.wizard.priorityNet') },
@@ -569,7 +569,7 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
                         className={`rounded-lg border px-3 py-2 text-sm text-left ${
                           wizardState.priority === opt.value
                             ? 'border-amber-500 bg-amber-50 dark:bg-amber-900/20 dark:border-amber-400'
-                            : 'border-slate-200 dark:border-slate-600'
+                            : 'border-edge'
                         }`}
                       >
                         {opt.label}
@@ -593,7 +593,7 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
                       ? t('permitCompare.permitB')
                       : t('permitCompare.similar')}
                   </p>
-                  <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">{t(wizardDecision.reasonKey)}</p>
+                  <p className="text-sm text-subtle mt-1">{t(wizardDecision.reasonKey)}</p>
                 </div>
                 <button
                   onClick={handleWizardApply}
@@ -607,23 +607,23 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
             <div className="flex items-center justify-between">
               <button
                 onClick={() => setWizardStep((prev) => Math.max(1, prev - 1))}
-                className="text-xs px-2 py-1 rounded border border-slate-200 dark:border-slate-600 text-slate-600 dark:text-slate-300"
+                className="text-xs px-2 py-1 rounded border border-edge text-slate-600 dark:text-slate-300"
               >
                 {t('common.back')}
               </button>
               <button
                 onClick={() => setWizardStep((prev) => Math.min(4, prev + 1))}
-                className="text-xs px-2 py-1 rounded border border-slate-200 dark:border-slate-600 text-slate-600 dark:text-slate-300"
+                className="text-xs px-2 py-1 rounded border border-edge text-slate-600 dark:text-slate-300"
               >
                 {t('common.next')}
               </button>
             </div>
           </div>
 
-          <div className="bg-white dark:bg-slate-800 rounded-xl shadow p-5 space-y-4">
+          <div className="bg-surface rounded-xl shadow p-5 space-y-4">
             {/* Gross Salary */}
             <div>
-              <label htmlFor="pc-salary" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">
+              <label htmlFor="pc-salary" className="block text-sm font-medium text-body mb-1">
                 {t('permitCompare.grossSalary')}: <span className="font-bold text-amber-600 dark:text-amber-400">CHF {grossSalary.toLocaleString()}</span>
               </label>
               <input
@@ -640,14 +640,14 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
 
             {/* Italian municipality */}
             <div>
-              <label htmlFor="pc-muni" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">
+              <label htmlFor="pc-muni" className="block text-sm font-medium text-body mb-1">
                 {t('permitCompare.municipality')}
               </label>
               <select
                 id="pc-muni"
                 value={municipalityIdx}
                 onChange={(e) => setMunicipalityIdx(Number(e.target.value))}
-                className="w-full rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 px-3 py-2 text-slate-800 dark:text-white"
+                className="w-full rounded-lg border border-edge bg-surface-alt px-3 py-2 text-slate-800 dark:text-white"
               >
                 {MUNICIPALITIES.map((m, i) => (
                   <option key={m.name} value={i}>
@@ -659,14 +659,14 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
 
             {/* Swiss city */}
             <div>
-              <label htmlFor="pc-swiss" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">
+              <label htmlFor="pc-swiss" className="block text-sm font-medium text-body mb-1">
                 {t('permitCompare.swissMunicipality')}
               </label>
               <select
                 id="pc-swiss"
                 value={swissCityIdx}
                 onChange={(e) => setSwissCityIdx(Number(e.target.value))}
-                className="w-full rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 px-3 py-2 text-slate-800 dark:text-white"
+                className="w-full rounded-lg border border-edge bg-surface-alt px-3 py-2 text-slate-800 dark:text-white"
               >
                 {SWISS_CITIES.map((c, i) => (
                   <option key={c.name} value={i}>{c.name}</option>
@@ -676,15 +676,15 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
 
             {/* Quick info about selected municipality */}
             <div className="bg-warm-50 dark:bg-warm-950 rounded-lg p-3 text-sm border border-warm-200 dark:border-warm-800">
-              <div className="flex justify-between text-slate-600 dark:text-slate-400">
+              <div className="flex justify-between text-subtle">
                 <span>{t('livability.distance')}</span>
                 <span className="font-mono">{muni.distanceKm} km</span>
               </div>
-              <div className="flex justify-between text-slate-600 dark:text-slate-400">
+              <div className="flex justify-between text-subtle">
                 <span>{t('livability.rent')}</span>
                 <span className="font-mono">€ {muni.avgRentMonthly}/mese</span>
               </div>
-              <div className="flex justify-between text-slate-600 dark:text-slate-400">
+              <div className="flex justify-between text-subtle">
                 <span>{t('livability.irpef')}</span>
                 <span className="font-mono">{muni.irpefAddizionale}%</span>
               </div>
@@ -692,7 +692,7 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
 
             {/* G Permit Type */}
             <div>
-              <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+              <label className="block text-sm font-medium text-body mb-2">
                 {t('permitCompare.gTypeLabel')}
               </label>
               <div className="space-y-2">
@@ -707,7 +707,7 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
                     className={`w-full text-left rounded-lg border p-3 transition ${
                       gType === opt.value
                         ? 'border-amber-500 bg-amber-50 dark:bg-amber-900/20 dark:border-amber-400'
-                        : 'border-slate-200 dark:border-slate-600 hover:border-slate-300 dark:hover:border-slate-500'
+                        : 'border-edge hover:border-slate-300 dark:hover:border-slate-500'
                     }`}
                     aria-label={opt.label}
                   >
@@ -720,10 +720,10 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
                       <span className={`text-sm font-semibold ${
                         gType === opt.value
                           ? 'text-amber-700 dark:text-amber-400'
-                          : 'text-slate-700 dark:text-slate-300'
+                          : 'text-body'
                       }`}>{opt.label}</span>
                     </div>
-                    <p className="text-sm text-slate-500 dark:text-slate-400 mt-1 ml-5">{opt.desc}</p>
+                    <p className="text-sm text-muted mt-1 ml-5">{opt.desc}</p>
                   </button>
                 ))}
               </div>
@@ -741,7 +741,7 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
 
         {/* Results */}
         <div className="lg:col-span-3 space-y-4">
-          <div className="bg-white dark:bg-slate-800 rounded-xl shadow p-5">
+          <div className="bg-surface rounded-xl shadow p-5">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-lg font-bold text-slate-800 dark:text-white">{t('permitCompare.comparison')}</h3>
               <button
@@ -757,17 +757,17 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="border-b border-slate-200 dark:border-slate-700">
-                    <th className="text-left py-2 pr-4 text-slate-600 dark:text-slate-400"></th>
-                    <th className="text-right py-2 px-3 text-slate-600 dark:text-slate-400 whitespace-nowrap">
+                  <tr className="border-b border-edge">
+                    <th className="text-left py-2 pr-4 text-subtle"></th>
+                    <th className="text-right py-2 px-3 text-subtle whitespace-nowrap">
                       🇮🇹 {t('permitCompare.permitG')}
-                      <div className="text-xs font-normal text-slate-500 dark:text-slate-400">
+                      <div className="text-xs font-normal text-muted">
                         {gType === 'new_within_20km' ? t('permitCompare.gTypeNew20Short')
                           : gType === 'new_beyond_20km' ? t('permitCompare.gTypeBeyond20Short')
                           : t('permitCompare.gTypeOldShort')}
                       </div>
                     </th>
-                    <th className="text-right py-2 pl-3 text-slate-600 dark:text-slate-400 whitespace-nowrap">
+                    <th className="text-right py-2 pl-3 text-subtle whitespace-nowrap">
                       🇨🇭 {t('permitCompare.permitB')}
                     </th>
                   </tr>
@@ -775,11 +775,11 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
                 <tbody>
                   {rows.map((r) => (
                     <tr key={r.label} className="border-b border-slate-100 dark:border-slate-700/50">
-                      <td className="py-2.5 pr-4 text-slate-700 dark:text-slate-300">{r.label}</td>
-                      <td className="py-2.5 px-3 text-right font-mono text-slate-800 dark:text-slate-200">
+                      <td className="py-2.5 pr-4 text-body">{r.label}</td>
+                      <td className="py-2.5 px-3 text-right font-mono text-strong">
                         € {r.gVal.toLocaleString()}
                       </td>
-                      <td className="py-2.5 pl-3 text-right font-mono text-slate-800 dark:text-slate-200">
+                      <td className="py-2.5 pl-3 text-right font-mono text-strong">
                         € {r.bVal.toLocaleString()}
                       </td>
                     </tr>
@@ -801,11 +801,11 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
 
             {/* Breakeven */}
             <div className="mt-4 bg-warm-50 dark:bg-warm-950 rounded-lg p-4 border border-warm-200 dark:border-warm-800">
-              <p className="text-sm font-semibold text-slate-700 dark:text-slate-300">{t('permitCompare.breakeven')}</p>
+              <p className="text-sm font-semibold text-body">{t('permitCompare.breakeven')}</p>
               <p className="text-2xl font-bold text-amber-600 dark:text-amber-400 mt-1">
                 CHF {result.breakeven.toLocaleString()} / anno
               </p>
-              <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">{t('permitCompare.breakevenDesc')}</p>
+              <p className="text-sm text-muted mt-1">{t('permitCompare.breakevenDesc')}</p>
             </div>
 
             {/* Verdict */}
@@ -829,31 +829,31 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
             </div>
           </div>
 
-          <div className="bg-white dark:bg-slate-800 rounded-xl shadow p-5 space-y-4">
+          <div className="bg-surface rounded-xl shadow p-5 space-y-4">
             <div className="flex items-center gap-2">
               <CheckSquare size={18} className="text-amber-600 dark:text-amber-400" />
               <h3 className="text-lg font-bold text-slate-800 dark:text-white">{t('permitCompare.docs.title')}</h3>
             </div>
-            <p className="text-sm text-slate-600 dark:text-slate-400">{t('permitCompare.docs.subtitle')}</p>
+            <p className="text-sm text-subtle">{t('permitCompare.docs.subtitle')}</p>
 
             <div className="grid md:grid-cols-2 gap-3">
               {documentTemplates.map((template) => (
                 <button
                   key={template.id}
                   onClick={() => handleDownloadTemplate(template.id)}
-                  className="text-left rounded-lg border border-slate-200 dark:border-slate-700 px-3 py-3 hover:border-amber-400 dark:hover:border-amber-500 transition"
+                  className="text-left rounded-lg border border-edge px-3 py-3 hover:border-amber-400 dark:hover:border-amber-500 transition"
                 >
                   <div className="flex items-center gap-2 mb-1">
                     <FileText size={14} className="text-amber-600 dark:text-amber-400" />
-                    <span className="font-semibold text-slate-800 dark:text-slate-200 text-sm">{template.title}</span>
+                    <span className="font-semibold text-strong text-sm">{template.title}</span>
                   </div>
-                  <p className="text-sm text-slate-500 dark:text-slate-400">{template.description}</p>
+                  <p className="text-sm text-muted">{template.description}</p>
                 </button>
               ))}
             </div>
 
-            <div className="border-t border-slate-200 dark:border-slate-700 pt-3">
-              <p className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">{t('permitCompare.docs.official')}</p>
+            <div className="border-t border-edge pt-3">
+              <p className="text-sm font-semibold text-body mb-2">{t('permitCompare.docs.official')}</p>
               <ul className="space-y-2">
                 {officialResources.map((resource) => (
                   <li key={resource.url}>
@@ -873,7 +873,7 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
           </div>
 
           {/* Disclaimer */}
-          <div className="flex items-start gap-2 text-sm text-slate-500 dark:text-slate-400">
+          <div className="flex items-start gap-2 text-sm text-muted">
             <AlertTriangle size={14} className="flex-shrink-0 mt-0.5" />
             <p>{t('permitCompare.disclaimer')}</p>
           </div>

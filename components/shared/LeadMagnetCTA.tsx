@@ -850,7 +850,7 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
       <div className={`mt-6 p-5 bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 border border-emerald-200 dark:border-emerald-800 rounded-2xl text-center`}>
         <CheckCircle2 className="w-10 h-10 text-emerald-500 mx-auto mb-2" />
         <p className="font-bold text-slate-800 dark:text-slate-100">{t('leadMagnet.success.title')}</p>
-        <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">{t('leadMagnet.success.desc')}</p>
+        <p className="text-sm text-subtle mt-1">{t('leadMagnet.success.desc')}</p>
         <button
           onClick={() => generateChecklistPDF(variant).catch(() => {})}
           className="mt-3 inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold rounded-lg transition-colors"
@@ -891,7 +891,7 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
               value={email}
               onChange={(val) => { setEmail(val); setStatus('idle'); }}
               placeholder={t('newsletter.emailPlaceholder')}
-              className="w-full px-3 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 text-slate-800 dark:text-slate-100 text-sm"
+              className="w-full px-3 py-2 bg-surface border border-edge rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 text-slate-800 dark:text-slate-100 text-sm"
             />
           </div>
           <button
@@ -943,7 +943,7 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
             <h4 className="font-bold text-slate-800 dark:text-slate-100 text-base leading-tight">
               {t(`leadMagnet.${variant}.title`)}
             </h4>
-            <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">
+            <p className="text-sm text-subtle mt-1">
               {t(`leadMagnet.${variant}.desc`)}
             </p>
           </div>
@@ -951,15 +951,15 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
 
         {/* What's included */}
         <div className="space-y-1.5 mb-4">
-          <div className="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300">
+          <div className="flex items-center gap-2 text-xs text-body">
             <ArrowRight className="w-3 h-3 text-emerald-500 shrink-0" />
             <span>{t(`leadMagnet.${variant}.bullet1`)}</span>
           </div>
-          <div className="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300">
+          <div className="flex items-center gap-2 text-xs text-body">
             <ArrowRight className="w-3 h-3 text-emerald-500 shrink-0" />
             <span>{t(`leadMagnet.${variant}.bullet2`)}</span>
           </div>
-          <div className="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-300">
+          <div className="flex items-center gap-2 text-xs text-body">
             <ArrowRight className="w-3 h-3 text-emerald-500 shrink-0" />
             <span>{t(`leadMagnet.${variant}.bullet3`)}</span>
           </div>
@@ -974,7 +974,7 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
               value={email}
               onChange={(val) => { setEmail(val); setStatus('idle'); }}
               placeholder={t('newsletter.emailPlaceholder')}
-              className="w-full px-4 py-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 text-slate-800 dark:text-slate-100 text-sm"
+              className="w-full px-4 py-2.5 bg-surface border border-edge rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 text-slate-800 dark:text-slate-100 text-sm"
             />
           </div>
           <button
@@ -1004,7 +1004,7 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
 
         {/* Footer: social proof + privacy */}
         <div className="flex items-center justify-between mt-3">
-          <div className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400">
+          <div className="flex items-center gap-1.5 text-xs text-muted">
             <Users className="w-3.5 h-3.5 text-indigo-500" />
             <span>{t('leadMagnet.socialProof')}</span>
           </div>

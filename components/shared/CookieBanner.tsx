@@ -68,19 +68,19 @@ const CookieBanner: React.FC = () => {
       aria-label={t('consent.title')}
       className="fixed bottom-0 left-0 right-0 z-[9999] p-3 sm:p-4 animate-slide-up"
     >
-      <div className="max-w-2xl mx-auto bg-white dark:bg-slate-800 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 p-4 sm:p-6">
+      <div className="max-w-2xl mx-auto bg-surface rounded-2xl shadow-2xl border border-edge p-4 sm:p-6">
         {/* Header */}
         <div className="flex items-start gap-3 mb-3">
-          <Shield className="w-5 h-5 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
+          <Shield className="w-5 h-5 text-link flex-shrink-0 mt-0.5" />
           <div className="flex-1 min-w-0">
-            <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100">
+            <h3 className="text-sm font-bold text-heading">
               {t('consent.title')}
             </h3>
-            <p className="text-sm text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">
+            <p className="text-sm text-subtle mt-1 leading-relaxed">
               {t('consent.description')}{' '}
               <a
                 href={privacyHref}
-                className="text-blue-600 dark:text-blue-400 underline hover:text-blue-700 dark:hover:text-blue-300"
+                className="text-link underline hover:text-blue-700 dark:hover:text-blue-300"
               >
                 {t('consent.privacyLink')}
               </a>
@@ -90,10 +90,10 @@ const CookieBanner: React.FC = () => {
 
         {/* Detail panel (expanded) */}
         {showDetails && (
-          <div className="mb-4 space-y-3 bg-slate-50 dark:bg-slate-900 rounded-xl p-3">
+          <div className="mb-4 space-y-3 bg-surface-alt rounded-xl p-3">
             {/* Essential — always on */}
             <label className="flex items-center justify-between gap-2">
-              <span className="text-xs text-slate-700 dark:text-slate-300 font-medium">
+              <span className="text-xs text-body font-medium">
                 {t('consent.essential')}
               </span>
               <span className="text-xs text-emerald-600 dark:text-emerald-400 font-medium">
@@ -103,7 +103,7 @@ const CookieBanner: React.FC = () => {
 
             {/* Analytics */}
             <label className="flex items-center justify-between gap-2 cursor-pointer">
-              <span className="text-xs text-slate-700 dark:text-slate-300">
+              <span className="text-xs text-body">
                 {t('consent.analytics')}
               </span>
               <button
@@ -126,7 +126,7 @@ const CookieBanner: React.FC = () => {
 
             {/* Advertising */}
             <label className="flex items-center justify-between gap-2 cursor-pointer">
-              <span className="text-xs text-slate-700 dark:text-slate-300">
+              <span className="text-xs text-body">
                 {t('consent.advertising')}
               </span>
               <button
@@ -166,14 +166,14 @@ const CookieBanner: React.FC = () => {
           </button>
           <button
             onClick={handleRejectAll}
-            className="flex-1 text-xs font-medium py-2.5 px-4 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors"
+            className="flex-1 text-xs font-medium py-2.5 px-4 rounded-lg bg-surface-raised text-body hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors"
           >
             {t('consent.rejectAll')}
           </button>
           {!showDetails && (
             <button
               onClick={() => setShowDetails(true)}
-              className="flex-1 text-xs font-medium py-2.5 px-4 rounded-lg border border-slate-300 dark:border-slate-600 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors inline-flex items-center justify-center gap-1"
+              className="flex-1 text-xs font-medium py-2.5 px-4 rounded-lg border border-slate-300 dark:border-slate-600 text-subtle hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors inline-flex items-center justify-center gap-1"
               aria-label={t('consent.customize')}
             >
               <Settings className="w-3.5 h-3.5" />

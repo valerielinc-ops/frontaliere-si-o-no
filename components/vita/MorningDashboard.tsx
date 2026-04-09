@@ -64,9 +64,9 @@ const LOCATIONS = {
 function getWeatherIcon(code: number, isDay: boolean): React.ReactNode {
   // WMO weather codes → icons
   if (code === 0 || code === 1) return <Sun className="w-full h-full text-amber-500" />;
-  if (code === 2) return <Cloud className="w-full h-full text-slate-500 dark:text-slate-400" />;
-  if (code === 3) return <Cloud className="w-full h-full text-slate-500 dark:text-slate-400" />;
-  if (code >= 45 && code <= 48) return <CloudFog className="w-full h-full text-slate-500 dark:text-slate-400" />;
+  if (code === 2) return <Cloud className="w-full h-full text-muted" />;
+  if (code === 3) return <Cloud className="w-full h-full text-muted" />;
+  if (code >= 45 && code <= 48) return <CloudFog className="w-full h-full text-muted" />;
   if (code >= 51 && code <= 55) return <CloudDrizzle className="w-full h-full text-blue-400" />;
   if (code >= 56 && code <= 57) return <CloudDrizzle className="w-full h-full text-blue-300" />;
   if (code >= 61 && code <= 65) return <CloudRain className="w-full h-full text-blue-500" />;
@@ -300,7 +300,7 @@ const MorningDashboard: React.FC = () => {
               <h2 className="text-lg font-bold text-slate-900 dark:text-white">
                 {t('morning.welcomeBack', { name: displayName })}
               </h2>
-              <p className="text-sm text-slate-600 dark:text-slate-400">{t('morning.welcomeSubtitle')}</p>
+              <p className="text-sm text-subtle">{t('morning.welcomeSubtitle')}</p>
             </div>
           </div>
         </div>
@@ -311,14 +311,14 @@ const MorningDashboard: React.FC = () => {
         <h1 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">
           {timeEmoji} {greeting}
         </h1>
-        <div className="flex items-center justify-center gap-3 text-slate-500 dark:text-slate-400">
+        <div className="flex items-center justify-center gap-3 text-muted">
           <Clock className="w-4 h-4" />
           <span className="text-lg font-medium tabular-nums">{timeStr}</span>
           <span className="text-sm capitalize">{dateStr}</span>
         </div>
         <button
           onClick={handleRefresh}
-          className="inline-flex items-center gap-1.5 px-3 py-1 text-xs text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors"
+          className="inline-flex items-center gap-1.5 px-3 py-1 text-xs text-muted hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors"
           aria-label={t('morning.refresh')}
         >
           <RefreshCw className="w-3.5 h-3.5" />
@@ -356,13 +356,13 @@ const MorningDashboard: React.FC = () => {
         />
 
         {/* Exchange Rate Card */}
-        <div className="bg-white dark:bg-slate-800/60 rounded-2xl border border-slate-200 dark:border-slate-700 p-3 sm:p-5 space-y-3">
+        <div className="bg-surface/60 rounded-2xl border border-edge p-3 sm:p-5 space-y-3">
           <div className="flex items-center justify-between">
             <h3 className="font-bold text-slate-900 dark:text-white flex items-center gap-2 text-sm sm:text-base">
-              <ArrowRightLeft className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+              <ArrowRightLeft className="w-4 h-4 text-link" />
               {t('morning.exchangeRate')}
             </h3>
-            <span className="text-sm text-slate-500 dark:text-slate-400">CHF → EUR</span>
+            <span className="text-sm text-muted">CHF → EUR</span>
           </div>
           {rateLoading ? (
             <div className="h-16 flex items-center justify-center">
@@ -383,11 +383,11 @@ const MorningDashboard: React.FC = () => {
               </div>
               <div className="grid grid-cols-2 gap-3 text-sm">
                 <div className="bg-slate-50 dark:bg-slate-700/50 rounded-lg p-2 text-center">
-                  <div className="text-sm text-slate-500 dark:text-slate-400">100 CHF =</div>
+                  <div className="text-sm text-muted">100 CHF =</div>
                   <div className="font-bold text-slate-900 dark:text-white">{(100 * rate).toFixed(2)} €</div>
                 </div>
                 <div className="bg-slate-50 dark:bg-slate-700/50 rounded-lg p-2 text-center">
-                  <div className="text-sm text-slate-500 dark:text-slate-400">1000 CHF =</div>
+                  <div className="text-sm text-muted">1000 CHF =</div>
                   <div className="font-bold text-slate-900 dark:text-white">{(1000 * rate).toFixed(2)} €</div>
                 </div>
               </div>
@@ -397,13 +397,13 @@ const MorningDashboard: React.FC = () => {
       </div>
 
       {/* Traffic Section */}
-      <div className="bg-white dark:bg-slate-800/60 rounded-2xl border border-slate-200 dark:border-slate-700 p-3 sm:p-5 space-y-3 sm:space-y-4">
+      <div className="bg-surface/60 rounded-2xl border border-edge p-3 sm:p-5 space-y-3 sm:space-y-4">
         <div className="flex items-center justify-between">
           <h3 className="font-bold text-slate-900 dark:text-white flex items-center gap-2 text-sm sm:text-base">
             <Navigation className="w-4 h-4 text-violet-600 dark:text-violet-400" />
             {t('morning.traffic.title')}
           </h3>
-          <span className="text-sm text-slate-500 dark:text-slate-400">
+          <span className="text-sm text-muted">
             {new Date().getHours() < 12 ? 'IT → CH' : 'CH → IT'}
           </span>
         </div>
@@ -428,7 +428,7 @@ const MorningDashboard: React.FC = () => {
                   <div className="font-semibold text-sm text-slate-900 dark:text-white truncate">
                     {crossing.name}
                   </div>
-                  <div className="text-sm text-slate-500 dark:text-slate-400">
+                  <div className="text-sm text-muted">
                     {crossing.italianSide}
                   </div>
                 </div>
@@ -449,7 +449,7 @@ const MorningDashboard: React.FC = () => {
           </div>
         )}
 
-        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-slate-500 dark:text-slate-400">
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted">
           <span>{t('morning.traffic.top5')}</span>
           <span className="flex items-center gap-1">
             <span className="w-2 h-2 rounded-full bg-green-500 inline-block" /> {t('morning.traffic.statusGreen')}
@@ -499,7 +499,7 @@ const MorningDashboard: React.FC = () => {
 
       {/* 3-Day Forecast */}
       {(weather.lugano || weather.como) && (
-        <div className="bg-white dark:bg-slate-800/60 rounded-2xl border border-slate-200 dark:border-slate-700 p-3 sm:p-5 space-y-4">
+        <div className="bg-surface/60 rounded-2xl border border-edge p-3 sm:p-5 space-y-4">
           <h3 className="font-bold text-slate-900 dark:text-white flex items-center gap-2 text-sm sm:text-base">
             <Cloud className="w-4 h-4 text-sky-600 dark:text-sky-400" />
             {t('morning.forecast.title')}
@@ -530,7 +530,7 @@ interface WeatherCardProps {
 const WeatherCard: React.FC<WeatherCardProps> = ({ location, loading, flag, t }) => {
   if (loading) {
     return (
-      <div className="bg-white dark:bg-slate-800/60 rounded-2xl border border-slate-200 dark:border-slate-700 p-3 sm:p-5 space-y-3">
+      <div className="bg-surface/60 rounded-2xl border border-edge p-3 sm:p-5 space-y-3">
         <div className="h-28 flex items-center justify-center">
           <div className="w-6 h-6 border-2 border-sky-500 border-t-transparent rounded-full animate-spin" />
         </div>
@@ -540,8 +540,8 @@ const WeatherCard: React.FC<WeatherCardProps> = ({ location, loading, flag, t })
 
   if (!location) {
     return (
-      <div className="bg-white dark:bg-slate-800/60 rounded-2xl border border-slate-200 dark:border-slate-700 p-3 sm:p-5">
-        <p className="text-sm text-slate-500 dark:text-slate-400">{t('morning.weather.unavailable')}</p>
+      <div className="bg-surface/60 rounded-2xl border border-edge p-3 sm:p-5">
+        <p className="text-sm text-muted">{t('morning.weather.unavailable')}</p>
       </div>
     );
   }
@@ -549,13 +549,13 @@ const WeatherCard: React.FC<WeatherCardProps> = ({ location, loading, flag, t })
   const { current } = location;
 
   return (
-    <div className="bg-white dark:bg-slate-800/60 rounded-2xl border border-slate-200 dark:border-slate-700 p-3 sm:p-5 space-y-3">
+    <div className="bg-surface/60 rounded-2xl border border-edge p-3 sm:p-5 space-y-3">
       <div className="flex items-center justify-between">
         <h3 className="font-bold text-slate-900 dark:text-white flex items-center gap-2 text-sm sm:text-base">
           <span className="text-lg">{flag}</span>
           {location.name}
         </h3>
-        <span className="text-sm text-slate-500 dark:text-slate-400">{location.country}</span>
+        <span className="text-sm text-muted">{location.country}</span>
       </div>
 
       <div className="flex items-center gap-4">
@@ -566,29 +566,29 @@ const WeatherCard: React.FC<WeatherCardProps> = ({ location, loading, flag, t })
           <div className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tabular-nums">
             {Math.round(current.temperature)}°C
           </div>
-          <div className="text-sm text-slate-600 dark:text-slate-400">
+          <div className="text-sm text-subtle">
             {getWeatherLabel(current.weatherCode, t)}
           </div>
         </div>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-1.5 sm:gap-2 text-xs">
-        <div className="flex items-center gap-1 text-slate-500 dark:text-slate-400">
+        <div className="flex items-center gap-1 text-muted">
           <Thermometer className="w-3 h-3" />
           <span>{t('morning.weather.feels')} {Math.round(current.apparentTemperature)}°</span>
         </div>
-        <div className="flex items-center gap-1 text-slate-500 dark:text-slate-400">
+        <div className="flex items-center gap-1 text-muted">
           <Droplets className="w-3 h-3" />
           <span>{current.humidity}%</span>
         </div>
-        <div className="flex items-center gap-1 text-slate-500 dark:text-slate-400">
+        <div className="flex items-center gap-1 text-muted">
           <Wind className="w-3 h-3" />
           <span>{Math.round(current.windSpeed)} km/h</span>
         </div>
       </div>
 
       {/* Sunrise / Sunset */}
-      <div className="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 pt-1 border-t border-slate-100 dark:border-slate-700">
+      <div className="flex items-center justify-between text-xs text-muted pt-1 border-t border-slate-100 dark:border-slate-700">
         <span className="flex items-center gap-1">
           <Sunrise className="w-3 h-3 text-amber-500" />
           {location.sunrise.split('T')[1]?.slice(0, 5)}
@@ -615,7 +615,7 @@ const TipCard: React.FC<TipCardProps> = ({ emoji, title, value, subtitle }) => (
       <span>{emoji}</span> {title}
     </div>
     <div className="font-bold text-slate-900 dark:text-white text-sm">{value}</div>
-    <div className="text-sm text-slate-500 dark:text-slate-400">{subtitle}</div>
+    <div className="text-sm text-muted">{subtitle}</div>
   </div>
 );
 
@@ -627,7 +627,7 @@ interface ForecastStripProps {
 
 const ForecastStrip: React.FC<ForecastStripProps> = ({ location, flag, t }) => (
   <div className="space-y-2">
-    <div className="text-sm font-semibold text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
+    <div className="text-sm font-semibold text-body flex items-center gap-1.5">
       <span>{flag}</span> {location.name}
     </div>
     <div className="flex gap-2 sm:gap-3 overflow-x-auto -mx-1 px-1">
@@ -640,7 +640,7 @@ const ForecastStrip: React.FC<ForecastStripProps> = ({ location, flag, t }) => (
 
         return (
           <div key={day.date} className="flex-1 text-center bg-slate-50 dark:bg-slate-700/40 rounded-lg p-2 space-y-1">
-            <div className="text-xs font-medium text-slate-500 dark:text-slate-400 capitalize">{dayLabel}</div>
+            <div className="text-xs font-medium text-muted capitalize">{dayLabel}</div>
             <div className="w-7 h-7 mx-auto">
               {getWeatherIcon(day.weatherCode, true)}
             </div>
@@ -648,7 +648,7 @@ const ForecastStrip: React.FC<ForecastStripProps> = ({ location, flag, t }) => (
               {Math.round(day.tempMax)}° / {Math.round(day.tempMin)}°
             </div>
             {day.precipitationProbability > 0 && (
-              <div className="text-xs text-blue-600 dark:text-blue-400 flex items-center justify-center gap-0.5">
+              <div className="text-xs text-link flex items-center justify-center gap-0.5">
                 <Droplets className="w-2.5 h-2.5" />
                 {day.precipitationProbability}%
               </div>

@@ -105,7 +105,7 @@ const trackSectionView = (section: string) => {
 const applyNotFoundSeo = (path: string) => {
   import('@/services/seoService').then(m => m.applyNotFoundSeo(path));
 };
-import { useTranslation, initLocale, setLocale, onLocaleChange, itReady, isTranslationsReady, loadTabTranslations } from '@/services/i18n';
+import { useTranslation, initLocale, setLocale, onLocaleChange, itReady, isTranslationsReady, loadTabTranslations, getCantonI18nParams } from '@/services/i18n';
 import { parsePath, parseHashToPath, pushRoute, replaceRoute, buildPath, getSeoSection, updatePathForLocale, scrollToAnchor, AppRoute, preloadBlogData, resolveBlogSlug, getLocalizedJobSlug } from '@/services/router';
 import type { ActiveTab, CalcolatoreSubTab, ConfrontiSubTab, FiscoSubTab, GuidaSubTab, VitaSubTab, StatsSubTab, BlogArticleId, SeoLandingId, GlossaryTermId, BorderCrossingId } from '@/services/router';
 import { NavigationContext } from '@/services/NavigationContext';
@@ -1910,7 +1910,7 @@ const App: React.FC = () => {
       if (statsSubTab === 'jobs-observatory') {
         return [
           tabTarget('stats', 'salary-compare', t('strumenti.salaryCompare'), 'stats:salary-compare'),
-          tabTarget('job-board', undefined, t('jobBoard.title'), 'jobboard'),
+          tabTarget('job-board', undefined, t('jobBoard.title', getCantonI18nParams()), 'jobboard'),
           tabTarget('stats', 'overview', t('stats.tabOverview'), 'stats:overview'),
         ];
       }
@@ -2550,7 +2550,7 @@ const App: React.FC = () => {
                       setCalcolatoreSubTab(key);
                       Analytics.trackUIInteraction('calcolatore', 'navigazione', 'tab_sezione', 'cambio', key);
                     }}
-                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-[11px] sm:text-xs font-semibold transition-[color,background-color,border-color,box-shadow] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 ${
+                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-[color,background-color,border-color,box-shadow] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 ${
                       calcolatoreSubTab === key
                         ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 ring-1 ring-blue-300 dark:ring-blue-700'
                         : 'text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
@@ -2586,7 +2586,7 @@ const App: React.FC = () => {
                       setConfrontiSubTab(key);
                       Analytics.trackComparatorView(key as any);
                     }}
-                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-[11px] sm:text-xs font-semibold transition-[color,background-color,border-color,box-shadow] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 ${
+                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-[color,background-color,border-color,box-shadow] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 ${
                       confrontiSubTab === key
                         ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 ring-1 ring-violet-300 dark:ring-violet-700'
                         : 'text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
@@ -2622,7 +2622,7 @@ const App: React.FC = () => {
                       setFiscoSubTab(key);
                       Analytics.trackUIInteraction('fisco', 'navigazione', 'tab_sezione', 'cambio', key);
                     }}
-                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-[11px] sm:text-xs font-semibold transition-[color,background-color,border-color,box-shadow] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 ${
+                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-[color,background-color,border-color,box-shadow] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 ${
                       fiscoSubTab === key
                         ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 ring-1 ring-emerald-300 dark:ring-emerald-700'
                         : 'text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
@@ -2658,7 +2658,7 @@ const App: React.FC = () => {
                       setGuidaSubTab(key);
                       Analytics.trackUIInteraction('guida', 'navigazione', 'tab_sezione', 'cambio', key);
                     }}
-                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-[11px] sm:text-xs font-semibold transition-[color,background-color,border-color,box-shadow] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 ${
+                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-[color,background-color,border-color,box-shadow] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 ${
                       guidaSubTab === key
                         ? 'bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 ring-1 ring-indigo-300 dark:ring-indigo-700'
                         : 'text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
@@ -2681,7 +2681,7 @@ const App: React.FC = () => {
                 {([
                   { key: 'living-ch' as const, icon: Home, label: t('guide.tabs.livingCH') },
                   { key: 'living-it' as const, icon: Users, label: t('guide.tabs.livingIT') },
-                  { key: 'companies' as const, icon: Building2, label: t('guide.tabs.companies') },
+                  { key: 'companies' as const, icon: Building2, label: t('guide.tabs.companies', getCantonI18nParams()) },
                   { key: 'schools' as const, icon: GraduationCap, label: t('guide.tabs.schools') },
                   { key: 'nursery' as const, icon: School, label: t('comparators.nursery') },
                   { key: 'places' as const, icon: Mountain, label: t('guide.tabs.places') },
@@ -2694,7 +2694,7 @@ const App: React.FC = () => {
                       setVitaSubTab(key);
                       Analytics.trackUIInteraction('vita', 'navigazione', 'tab_sezione', 'cambio', key);
                     }}
-                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-[11px] sm:text-xs font-semibold transition-[color,background-color,border-color,box-shadow] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 ${
+                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-[color,background-color,border-color,box-shadow] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 ${
                       vitaSubTab === key
                         ? 'bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 ring-1 ring-amber-300 dark:ring-amber-700'
                         : 'text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
@@ -2730,7 +2730,7 @@ const App: React.FC = () => {
                       setStatsSubTab(key);
                       Analytics.trackUIInteraction('statistiche', 'navigazione', 'tab_sezione', 'cambio', key);
                     }}
-                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-[11px] sm:text-xs font-semibold transition-[color,background-color,border-color,box-shadow] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 ${
+                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-[color,background-color,border-color,box-shadow] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 ${
                       statsSubTab === key
                         ? 'bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 ring-1 ring-purple-300 dark:ring-purple-700'
                         : 'text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
@@ -3083,7 +3083,7 @@ const App: React.FC = () => {
                 onClick={(e) => { e.preventDefault(); setJobSlug(null); navigateTo('job-board' as any); }}
                 className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors no-underline"
               >
-                {t('jobBoard.footerLink')}
+                {t('jobBoard.footerLink', getCantonI18nParams())}
               </a>
               <span className="text-slate-300 dark:text-slate-700">·</span>
               <a
@@ -3210,7 +3210,7 @@ const App: React.FC = () => {
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-4 text-left">
                 {/* Calcolatore */}
                 <div>
-                  <a href={buildPath({ activeTab: 'calculator' })} onClick={(e) => { e.preventDefault(); handleTabChange('calculator'); }} className="text-[11px] font-bold text-blue-700 dark:text-blue-400 no-underline hover:underline">{t('nav.simulator')}</a>
+                  <a href={buildPath({ activeTab: 'calculator' })} onClick={(e) => { e.preventDefault(); handleTabChange('calculator'); }} className="text-xs font-bold text-blue-700 dark:text-blue-400 no-underline hover:underline">{t('nav.simulator')}</a>
                   <ul className="mt-1 space-y-0.5 list-none p-0">
                     {([
                       { sub: 'whatif' as const, label: t('simulator.whatif') },
@@ -3233,7 +3233,7 @@ const App: React.FC = () => {
                 </div>
                 {/* Confronti */}
                 <div>
-                  <a href={buildPath({ activeTab: 'confronti' })} onClick={(e) => { e.preventDefault(); handleTabChange('confronti'); }} className="text-[11px] font-bold text-violet-700 dark:text-violet-400 no-underline hover:underline">{t('nav.confronti')}</a>
+                  <a href={buildPath({ activeTab: 'confronti' })} onClick={(e) => { e.preventDefault(); handleTabChange('confronti'); }} className="text-xs font-bold text-violet-700 dark:text-violet-400 no-underline hover:underline">{t('nav.confronti')}</a>
                   <ul className="mt-1 space-y-0.5 list-none p-0">
                     {([
                       { sub: 'exchange' as const, label: t('comparators.exchange') },
@@ -3257,7 +3257,7 @@ const App: React.FC = () => {
                 </div>
                 {/* Fisco */}
                 <div>
-                  <a href={buildPath({ activeTab: 'fisco' })} onClick={(e) => { e.preventDefault(); handleTabChange('fisco'); }} className="text-[11px] font-bold text-emerald-700 dark:text-emerald-400 no-underline hover:underline">{t('nav.fisco')}</a>
+                  <a href={buildPath({ activeTab: 'fisco' })} onClick={(e) => { e.preventDefault(); handleTabChange('fisco'); }} className="text-xs font-bold text-emerald-700 dark:text-emerald-400 no-underline hover:underline">{t('nav.fisco')}</a>
                   <ul className="mt-1 space-y-0.5 list-none p-0">
                     {([
                       { sub: 'tax-return' as const, label: t('comparators.taxReturn') },
@@ -3283,7 +3283,7 @@ const App: React.FC = () => {
                 </div>
                 {/* Guida */}
                 <div>
-                  <a href={buildPath({ activeTab: 'guida' })} onClick={(e) => { e.preventDefault(); handleTabChange('guida'); }} className="text-[11px] font-bold text-indigo-700 dark:text-indigo-400 no-underline hover:underline">{t('nav.guida')}</a>
+                  <a href={buildPath({ activeTab: 'guida' })} onClick={(e) => { e.preventDefault(); handleTabChange('guida'); }} className="text-xs font-bold text-indigo-700 dark:text-indigo-400 no-underline hover:underline">{t('nav.guida')}</a>
                   <ul className="mt-1 space-y-0.5 list-none p-0">
                     {([
                       { sub: 'first-day' as const, label: t('guide.tabs.firstDay') },
@@ -3307,12 +3307,12 @@ const App: React.FC = () => {
                 </div>
                 {/* Vita */}
                 <div>
-                  <a href={buildPath({ activeTab: 'vita' })} onClick={(e) => { e.preventDefault(); handleTabChange('vita'); }} className="text-[11px] font-bold text-amber-700 dark:text-amber-400 no-underline hover:underline">{t('nav.vita')}</a>
+                  <a href={buildPath({ activeTab: 'vita' })} onClick={(e) => { e.preventDefault(); handleTabChange('vita'); }} className="text-xs font-bold text-amber-700 dark:text-amber-400 no-underline hover:underline">{t('nav.vita')}</a>
                   <ul className="mt-1 space-y-0.5 list-none p-0">
                     {([
                       { sub: 'living-ch' as const, label: t('guide.tabs.livingCH') },
                       { sub: 'living-it' as const, label: t('guide.tabs.livingIT') },
-                      { sub: 'companies' as const, label: t('guide.tabs.companies') },
+                      { sub: 'companies' as const, label: t('guide.tabs.companies', getCantonI18nParams()) },
                       { sub: 'schools' as const, label: t('guide.tabs.schools') },
                       { sub: 'nursery' as const, label: t('comparators.nursery') },
                       { sub: 'places' as const, label: t('guide.tabs.places') },
@@ -3331,7 +3331,7 @@ const App: React.FC = () => {
                 </div>
                 {/* Statistiche */}
                 <div>
-                  <a href={buildPath({ activeTab: 'stats' })} onClick={(e) => { e.preventDefault(); handleTabChange('stats'); }} className="text-[11px] font-bold text-purple-700 dark:text-purple-400 no-underline hover:underline">{t('nav.stats')}</a>
+                  <a href={buildPath({ activeTab: 'stats' })} onClick={(e) => { e.preventDefault(); handleTabChange('stats'); }} className="text-xs font-bold text-purple-700 dark:text-purple-400 no-underline hover:underline">{t('nav.stats')}</a>
                   <ul className="mt-1 space-y-0.5 list-none p-0">
                     {([
                       { sub: 'jobs-observatory' as const, label: t('stats.tabJobsObservatory') },
@@ -3354,7 +3354,7 @@ const App: React.FC = () => {
                 </div>
                 {/* Articoli / Blog */}
                 <div>
-                  <a href={buildPath({ activeTab: 'blog' })} onClick={(e) => { e.preventDefault(); handleTabChange('blog'); }} className="text-[11px] font-bold text-rose-700 dark:text-rose-400 no-underline hover:underline">{t('nav.blog')}</a>
+                  <a href={buildPath({ activeTab: 'blog' })} onClick={(e) => { e.preventDefault(); handleTabChange('blog'); }} className="text-xs font-bold text-rose-700 dark:text-rose-400 no-underline hover:underline">{t('nav.blog')}</a>
                   <a href={buildPath({ activeTab: 'blog' })} onClick={(e) => { e.preventDefault(); handleTabChange('blog'); }} className="block mt-1 text-xs text-slate-500 dark:text-slate-400 hover:text-rose-600 dark:hover:text-rose-400 no-underline hover:underline leading-relaxed py-1 cursor-pointer">{t('blog.subtitle')}</a>
                 </div>
               </div>

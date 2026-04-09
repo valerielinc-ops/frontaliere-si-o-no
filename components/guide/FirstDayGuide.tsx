@@ -212,13 +212,13 @@ const FirstDayGuide: React.FC = () => {
       </div>
 
       {/* Progress Bar */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl p-5 border border-slate-200 dark:border-slate-700">
+      <div className="bg-surface rounded-2xl p-5 border border-edge">
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2">
             <Trophy className="w-5 h-5 text-amber-500" />
-            <span className="font-bold text-slate-800 dark:text-slate-200">{t('firstday.progress')}</span>
+            <span className="font-bold text-strong">{t('firstday.progress')}</span>
           </div>
-          <span className="text-sm font-bold text-slate-500 dark:text-slate-400">{completedCount}/{CHECKLIST_STEPS.length}</span>
+          <span className="text-sm font-bold text-muted">{completedCount}/{CHECKLIST_STEPS.length}</span>
         </div>
         <div className="w-full h-3 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
           <div
@@ -256,7 +256,7 @@ const FirstDayGuide: React.FC = () => {
               className={`rounded-xl border transition-colors duration-200 ${
                 isCompleted
                   ? 'bg-emerald-50/50 dark:bg-emerald-950/20 border-emerald-200 dark:border-emerald-800'
-                  : `bg-white dark:bg-slate-800 ${colors.border}`
+                  : `bg-surface ${colors.border}`
               }`}
             >
               <div className="p-4 flex items-center gap-3">
@@ -281,17 +281,17 @@ const FirstDayGuide: React.FC = () => {
                   <div className="flex-1">
                     <div className="flex items-center gap-2">
                       <span className="text-lg">{step.icon}</span>
-                      <span className={`font-bold text-sm ${isCompleted ? 'text-emerald-700 dark:text-emerald-300 line-through' : 'text-slate-800 dark:text-slate-200'}`}>
+                      <span className={`font-bold text-sm ${isCompleted ? 'text-emerald-700 dark:text-emerald-300 line-through' : 'text-strong'}`}>
                         {t(`firstday.step.${step.id}`)}
                       </span>
                     </div>
-                    <p className="text-sm text-slate-500 dark:text-slate-400 mt-0.5">{t(`firstday.step.${step.id}.desc`)}</p>
+                    <p className="text-sm text-muted mt-0.5">{t(`firstday.step.${step.id}.desc`)}</p>
                   </div>
                 </button>
 
                 {/* Time estimate + expand */}
                 <div className="flex items-center gap-2 shrink-0">
-                  <span className="hidden sm:flex items-center gap-1 text-xs text-slate-500 dark:text-slate-400">
+                  <span className="hidden sm:flex items-center gap-1 text-xs text-muted">
                     <Clock className="w-3 h-3" />
                     {step.estimatedDays}
                   </span>
@@ -321,7 +321,7 @@ const FirstDayGuide: React.FC = () => {
                   {step.substeps && (
                     <div className="space-y-1.5">
                       {step.substeps.map((sub, i) => (
-                        <div key={i} className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
+                        <div key={i} className="flex items-center gap-2 text-sm text-subtle">
                           <AlertCircle className="w-3.5 h-3.5 text-amber-400 shrink-0" />
                           {t(`firstday.${sub}`)}
                         </div>

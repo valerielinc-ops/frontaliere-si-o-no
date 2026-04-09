@@ -10,7 +10,7 @@
  */
 
 import React, { useState, useEffect, useCallback, lazy, Suspense } from 'react';
-import { useTranslation } from '@/services/i18n';
+import { useTranslation, getCantonI18nParams } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
 import { unlockAchievement } from '@/services/gamificationService';
 import {
@@ -136,7 +136,7 @@ const WeeklyDigest: React.FC = () => {
           <Newspaper size={24} className="text-indigo-500" />
           {t('weeklyDigest.title')}
         </h2>
-        <p className="text-slate-600 dark:text-slate-400 mt-2 text-sm max-w-md mx-auto">
+        <p className="text-subtle mt-2 text-sm max-w-md mx-auto">
           {t('weeklyDigest.subtitle')}
         </p>
       </div>
@@ -156,7 +156,7 @@ const WeeklyDigest: React.FC = () => {
 
       {/* Digest Preview */}
       {showPreview && (
-        <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden mb-6">
+        <div className="bg-surface rounded-2xl border border-edge overflow-hidden mb-6">
           {/* Preview Header */}
           <div className="bg-teal-600 dark:bg-teal-700 px-6 py-4">
             <div className="flex items-center gap-2 mb-1">
@@ -179,10 +179,10 @@ const WeeklyDigest: React.FC = () => {
             </div>
             <div className="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-3">
               <div className="flex items-center justify-between">
-                <span className="text-sm text-slate-600 dark:text-slate-400">CHF/EUR</span>
+                <span className="text-sm text-subtle">CHF/EUR</span>
                 <span className="font-bold text-blue-700 dark:text-blue-300">0.9421</span>
               </div>
-              <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
+              <p className="text-sm text-muted mt-1">
                 {t('weeklyDigest.preview.exchangeNote')}
               </p>
             </div>
@@ -203,7 +203,7 @@ const WeeklyDigest: React.FC = () => {
                   <p className="text-sm font-medium text-slate-700 dark:text-slate-200">
                     {t('weeklyDigest.preview.article1')}
                   </p>
-                  <p className="text-sm text-slate-500 dark:text-slate-400 mt-0.5">5 min</p>
+                  <p className="text-sm text-muted mt-0.5">5 min</p>
                 </div>
               </div>
               <div className="flex items-start gap-3 bg-slate-50 dark:bg-slate-700/50 rounded-xl p-3">
@@ -212,7 +212,7 @@ const WeeklyDigest: React.FC = () => {
                   <p className="text-sm font-medium text-slate-700 dark:text-slate-200">
                     {t('weeklyDigest.preview.article2')}
                   </p>
-                  <p className="text-sm text-slate-500 dark:text-slate-400 mt-0.5">4 min</p>
+                  <p className="text-sm text-muted mt-0.5">4 min</p>
                 </div>
               </div>
             </div>
@@ -247,20 +247,20 @@ const WeeklyDigest: React.FC = () => {
                 {t('weeklyDigest.preview.jobsTitle')}
               </h4>
             </div>
-            <p className="text-sm text-slate-600 dark:text-slate-400">
-              {t('weeklyDigest.preview.jobsDesc')}
+            <p className="text-sm text-subtle">
+              {t('weeklyDigest.preview.jobsDesc', getCantonI18nParams())}
             </p>
           </div>
         </div>
       )}
 
       {/* Subscribe Form */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6">
+      <div className="bg-surface rounded-2xl border border-edge p-6">
         <h3 className="font-bold text-slate-800 dark:text-slate-100 mb-1 flex items-center gap-2">
           <Mail size={18} className="text-indigo-500" />
           {t('weeklyDigest.subscribe')}
         </h3>
-        <p className="text-sm text-slate-600 dark:text-slate-400 mb-4">
+        <p className="text-sm text-subtle mb-4">
           {t('weeklyDigest.subscribeDesc')}
         </p>
 
@@ -282,7 +282,7 @@ const WeeklyDigest: React.FC = () => {
           </button>
         </div>
 
-        <div className="flex items-center gap-1 mt-3 text-xs text-slate-500 dark:text-slate-400">
+        <div className="flex items-center gap-1 mt-3 text-xs text-muted">
           <Shield size={12} />
           <span>{t('weeklyDigest.privacy')}</span>
         </div>
@@ -290,7 +290,7 @@ const WeeklyDigest: React.FC = () => {
         {/* Benefits */}
         <div className="grid grid-cols-2 gap-2 mt-4">
           {['rates', 'articles', 'tools', 'jobs'].map(benefit => (
-            <div key={benefit} className="flex items-center gap-2 text-xs text-slate-600 dark:text-slate-400">
+            <div key={benefit} className="flex items-center gap-2 text-xs text-subtle">
               <CheckCircle2 size={12} className="text-emerald-500 shrink-0" />
               <span>{t(`weeklyDigest.benefit.${benefit}`)}</span>
             </div>

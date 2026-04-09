@@ -2420,6 +2420,13 @@ Regole:
     'seoContent.stats.check4': 'Andamento storico cambio CHF-EUR e dati comunità frontaliera',
 
     // ─── What's New / Feature Announcements ─────────────────────────────
+    'whatsNew.v3460.title': 'Espansione Canton Vallese',
+    'whatsNew.v3460.vsExpansion.title': 'Job Board Vallese',
+    'whatsNew.v3460.vsExpansion.desc': 'Offerte di lavoro da aziende in Vallese: Sion, Brig, Visp, Martigny, Monthey e Sierre con pagine dedicate.',
+    'whatsNew.v3460.vsHealthInsurance.title': 'Premi Cassa Malati VS',
+    'whatsNew.v3460.vsHealthInsurance.desc': 'Confronta i premi LAMal per tutti i 122 comuni del Vallese con dati reali UFSP.',
+    'whatsNew.v3460.multiCanton.title': 'Infrastruttura Multi-Cantonale',
+    'whatsNew.v3460.multiCanton.desc': 'Ticino, Grigioni e Vallese ora supportati con crawlers dedicati, landing editoriali e traduzioni parametrizzate.',
     'whatsNew.v3450.title': 'Stime Salariali Più Precise per Frontalieri',
     'whatsNew.v3450.salaryFrontalieri.title': 'Sconto Frontaliere Applicato',
     'whatsNew.v3450.salaryFrontalieri.desc': 'Le stime salariali ora includono il differenziale retributivo frontaliere per settore basato su dati USTAT, con range più realistici.',

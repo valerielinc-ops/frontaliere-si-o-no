@@ -2331,6 +2331,13 @@ Regeln:
     'seoContent.stats.check4': 'Historische CHF-EUR Kursentwicklung und Gemeinschaftsdaten',
 
     // ─── What's New / Feature Announcements ─────────────────────────────
+    'whatsNew.v3460.title': 'Erweiterung Kanton Wallis',
+    'whatsNew.v3460.vsExpansion.title': 'Stellenmarkt Wallis',
+    'whatsNew.v3460.vsExpansion.desc': 'Stellenangebote von Walliser Unternehmen: Sion, Brig, Visp, Martigny, Monthey und Sierre mit eigenen Seiten.',
+    'whatsNew.v3460.vsHealthInsurance.title': 'Krankenkassenprämien VS',
+    'whatsNew.v3460.vsHealthInsurance.desc': 'Vergleichen Sie KVG-Prämien für alle 122 Gemeinden im Wallis mit echten BAG-Daten.',
+    'whatsNew.v3460.multiCanton.title': 'Multi-Kantons-Infrastruktur',
+    'whatsNew.v3460.multiCanton.desc': 'Tessin, Graubünden und Wallis jetzt unterstützt mit dedizierten Crawlern, redaktionellen Landingpages und parametrisierten Übersetzungen.',
     'whatsNew.v3450.title': 'Genauere Gehaltsschätzungen für Grenzgänger',
     'whatsNew.v3450.salaryFrontalieri.title': 'Grenzgänger-Lohnabschlag Angewendet',
     'whatsNew.v3450.salaryFrontalieri.desc': 'Gehaltsschätzungen berücksichtigen jetzt den branchenspezifischen Grenzgänger-Lohnunterschied basierend auf USTAT-Daten mit realistischeren Spannen.',

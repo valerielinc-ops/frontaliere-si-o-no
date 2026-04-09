@@ -126,7 +126,7 @@ const ToolOfTheWeek: React.FC<ToolOfTheWeekProps> = ({ compact = false, onNaviga
 
   if (compact) {
     return (
-      <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4">
+      <div className="bg-surface rounded-2xl border border-edge p-4">
         <div className="flex items-center gap-3 mb-3">
           <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${tool.color} flex items-center justify-center`}>
             <span className="text-lg">{tool.icon}</span>
@@ -141,7 +141,7 @@ const ToolOfTheWeek: React.FC<ToolOfTheWeekProps> = ({ compact = false, onNaviga
             </h4>
           </div>
         </div>
-        <p className="text-sm text-slate-600 dark:text-slate-400 mb-3 line-clamp-2">
+        <p className="text-sm text-subtle mb-3 line-clamp-2">
           {toolDesc}
         </p>
         <div className="flex items-center gap-2">
@@ -184,13 +184,13 @@ const ToolOfTheWeek: React.FC<ToolOfTheWeekProps> = ({ compact = false, onNaviga
         <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-100">
           {t('toolOfWeek.title')}
         </h2>
-        <p className="text-slate-600 dark:text-slate-400 mt-2 text-sm">
+        <p className="text-subtle mt-2 text-sm">
           {t('toolOfWeek.subtitle', { week: String(weekNum) })}
         </p>
       </div>
 
       {/* Featured Tool Card */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden mb-6">
+      <div className="bg-surface rounded-2xl border border-edge overflow-hidden mb-6">
         {/* Tool Header */}
         <div className={`bg-gradient-to-r ${tool.color} px-6 py-5`}>
           <div className="flex items-center gap-4">
@@ -211,7 +211,7 @@ const ToolOfTheWeek: React.FC<ToolOfTheWeekProps> = ({ compact = false, onNaviga
 
         {/* Description */}
         <div className="px-6 py-5">
-          <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+          <p className="text-subtle text-sm leading-relaxed">
             {toolDesc}
           </p>
 
@@ -228,7 +228,7 @@ const ToolOfTheWeek: React.FC<ToolOfTheWeekProps> = ({ compact = false, onNaviga
       </div>
 
       {/* Share Section */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6">
+      <div className="bg-surface rounded-2xl border border-edge p-6">
         <button
           onClick={() => setShowShareOptions(!showShareOptions)}
           className="w-full flex items-center justify-between"
@@ -238,14 +238,14 @@ const ToolOfTheWeek: React.FC<ToolOfTheWeekProps> = ({ compact = false, onNaviga
             <Share2 size={18} className="text-violet-500" />
             {t('toolOfWeek.shareTitle')}
           </h3>
-          {showShareOptions ? <ChevronUp size={16} className="text-slate-500 dark:text-slate-400" /> : <ChevronDown size={16} className="text-slate-500 dark:text-slate-400" />}
+          {showShareOptions ? <ChevronUp size={16} className="text-muted" /> : <ChevronDown size={16} className="text-muted" />}
         </button>
 
         {showShareOptions && (
           <div className="mt-4 space-y-3">
             {/* Pre-formatted share text */}
             <div className="bg-slate-50 dark:bg-slate-700/50 rounded-xl p-4">
-              <p className="text-sm text-slate-600 dark:text-slate-400 whitespace-pre-line">
+              <p className="text-sm text-subtle whitespace-pre-line">
                 {shareText}
               </p>
             </div>

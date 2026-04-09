@@ -45,7 +45,7 @@ const CustomTooltip = ({ active, payload, label, isDarkMode, currency = "CHF" }:
   if (active && payload && payload.length) {
     return (
       <div className={`p-4 border rounded-2xl shadow-xl min-w-[180px] z-50 pointer-events-none ${isDarkMode ? 'bg-slate-900 border-slate-700 shadow-slate-950/50' : 'bg-white border-slate-100 shadow-slate-200/50'}`}>
-        {label && <p className={`font-bold mb-3 text-xs uppercase tracking-wider border-b pb-2 ${isDarkMode ? 'text-slate-500 dark:text-slate-400 border-slate-700' : 'text-slate-500 dark:text-slate-400 border-slate-100'}`}>{label}</p>}
+        {label && <p className={`font-bold mb-3 text-xs uppercase tracking-wider border-b pb-2 ${isDarkMode ? 'text-muted border-slate-700' : 'text-muted border-slate-100'}`}>{label}</p>}
         <div className="space-y-2">
           {payload.map((entry: any, index: number) => (
             <div key={index} className="flex items-center justify-between gap-4 text-xs">
@@ -72,7 +72,7 @@ const FixedLegend = ({ payload, isDarkMode }: any) => {
       {payload.map((entry: any, index: number) => (
         <div key={`item-${index}`} className="flex items-center gap-2">
           <div className="w-3 h-3 rounded-full" style={{ backgroundColor: entry.color || entry.fill || entry.stroke }} />
-          <span className={`text-xs font-bold uppercase tracking-wide ${isDarkMode ? 'text-slate-500 dark:text-slate-400' : 'text-slate-600 dark:text-slate-400'}`}>
+          <span className={`text-xs font-bold uppercase tracking-wide ${isDarkMode ? 'text-muted' : 'text-subtle'}`}>
             {entry.value}
           </span>
         </div>
@@ -83,13 +83,13 @@ const FixedLegend = ({ payload, isDarkMode }: any) => {
 
 // KPI Card Component
 const KpiCard = ({ title, value, subtext, icon: Icon, colorClass }: any) => (
-  <div className="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-4 border border-slate-100 dark:border-slate-700 flex items-start justify-between group hover:border-slate-300 dark:hover:border-slate-600 transition-colors">
+  <div className="bg-surface-alt/50 rounded-2xl p-4 border border-slate-100 dark:border-slate-700 flex items-start justify-between group hover:border-slate-300 dark:hover:border-slate-600 transition-colors">
      <div>
-       <p className="text-xs font-bold uppercase text-slate-500 dark:text-slate-400 tracking-wider mb-1">{title}</p>
+       <p className="text-xs font-bold uppercase text-muted tracking-wider mb-1">{title}</p>
        <p className={`text-xl font-mono font-bold ${colorClass}`}>{value}</p>
-       {subtext && <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">{subtext}</p>}
+       {subtext && <p className="text-xs text-muted mt-1">{subtext}</p>}
      </div>
-     <div className={`p-2 rounded-xl bg-white dark:bg-slate-800 shadow-sm ${colorClass.replace('text-', 'text-opacity-80 text-')}`}>
+     <div className={`p-2 rounded-xl bg-surface shadow-sm ${colorClass.replace('text-', 'text-opacity-80 text-')}`}>
        <Icon size={18} />
      </div>
   </div>
@@ -215,7 +215,7 @@ const ComparisonChartBase: React.FC<Props> = ({ result, inputs, isDarkMode, isFo
             value={`${effectiveTaxRateCH}%`} 
             subtext={t('chart.tax_incidence')}
             icon={Percent} 
-            colorClass="text-blue-600 dark:text-blue-400"
+            colorClass="text-link"
          />
          <KpiCard 
             title={t('chart.effective_rate_it')} 
@@ -241,8 +241,8 @@ const ComparisonChartBase: React.FC<Props> = ({ result, inputs, isDarkMode, isFo
       </div>
 
       {/* Main Chart Container */}
-      <div className="bg-white dark:bg-slate-800 rounded-3xl p-1 shadow-sm border border-slate-100 dark:border-slate-700">
-         <div className="grid grid-cols-2 sm:grid-cols-4 gap-1 p-1 bg-slate-50 dark:bg-slate-900/50 rounded-2xl">
+      <div className="bg-surface rounded-3xl p-1 shadow-sm border border-slate-100 dark:border-slate-700">
+         <div className="grid grid-cols-2 sm:grid-cols-4 gap-1 p-1 bg-surface-alt/50 rounded-2xl">
             {[
               { id: 'overview', label: t('chart.tab_comparison'), icon: BarChart3 },
               { id: 'breakdown', label: t('chart.tab_details'), icon: PieIcon },
@@ -254,8 +254,8 @@ const ComparisonChartBase: React.FC<Props> = ({ result, inputs, isDarkMode, isFo
                 onClick={() => handleTabChange(tab.id as any)}
                 className={`flex flex-col sm:flex-row items-center justify-center gap-1.5 py-3 px-1 rounded-xl text-xs font-bold uppercase tracking-wide transition-[color,background-color,border-color,box-shadow,transform] ${
                   activeTab === tab.id 
-                  ? 'bg-white dark:bg-slate-800 text-indigo-600 dark:text-indigo-400 shadow-sm scale-[0.98]' 
-                  : 'text-slate-500 dark:text-slate-400 hover:text-slate-600 dark:hover:text-slate-300'
+                  ? 'bg-surface text-indigo-600 dark:text-indigo-400 shadow-sm scale-[0.98]' 
+                  : 'text-muted hover:text-slate-600 dark:hover:text-slate-300'
                 }`}
               >
                 <tab.icon size={16} className={activeTab === tab.id ? 'stroke-[2.5px]' : ''} />
@@ -265,7 +265,7 @@ const ComparisonChartBase: React.FC<Props> = ({ result, inputs, isDarkMode, isFo
          </div>
 
          {/* Chart Area */}
-         <div className="p-4 sm:p-6 min-h-[320px] bg-white dark:bg-slate-800 rounded-b-3xl relative">
+         <div className="p-4 sm:p-6 min-h-[320px] bg-surface rounded-b-3xl relative">
             {activeTab === 'projection' && (
                 <div className="mb-6 bg-indigo-50/50 dark:bg-indigo-900/20 p-4 rounded-xl border border-indigo-100 dark:border-indigo-800/50 flex gap-3 animate-fade-in">
                     <Info size={18} className="text-indigo-500 shrink-0 mt-0.5" />
@@ -287,19 +287,19 @@ const ComparisonChartBase: React.FC<Props> = ({ result, inputs, isDarkMode, isFo
                        <div className="flex bg-slate-100 dark:bg-slate-900 p-1 rounded-lg">
                           <button 
                             onClick={() => setAnalysisMode('NET')}
-                            className={`px-3 py-1.5 rounded-md text-xs font-bold uppercase transition-[color,background-color,border-color,box-shadow] ${analysisMode === 'NET' ? 'bg-white dark:bg-slate-700 text-emerald-700 shadow-sm' : 'text-slate-500 dark:text-slate-400 hover:text-slate-600'}`}
+                            className={`px-3 py-1.5 rounded-md text-xs font-bold uppercase transition-[color,background-color,border-color,box-shadow] ${analysisMode === 'NET' ? 'bg-white dark:bg-slate-700 text-emerald-700 shadow-sm' : 'text-muted hover:text-slate-600'}`}
                           >
                             {t('chart.net')}
                           </button>
                           <button 
                             onClick={() => setAnalysisMode('TAX')}
-                            className={`px-3 py-1.5 rounded-md text-xs font-bold uppercase transition-[color,background-color,border-color,box-shadow] ${analysisMode === 'TAX' ? 'bg-white dark:bg-slate-700 text-red-500 shadow-sm' : 'text-slate-500 dark:text-slate-400 hover:text-slate-600'}`}
+                            className={`px-3 py-1.5 rounded-md text-xs font-bold uppercase transition-[color,background-color,border-color,box-shadow] ${analysisMode === 'TAX' ? 'bg-white dark:bg-slate-700 text-red-500 shadow-sm' : 'text-muted hover:text-slate-600'}`}
                           >
                             {t('chart.taxes_charges')}
                           </button>
                        </div>
                     </div>
-                    <div className="bg-slate-50 dark:bg-slate-900/50 p-3 rounded-xl border border-slate-100 dark:border-slate-800 text-xs text-slate-500 dark:text-slate-400 mb-4">
+                    <div className="bg-surface-alt/50 p-3 rounded-xl border border-slate-100 dark:border-slate-800 text-xs text-muted mb-4">
                        {t('chart.salary_simulation_desc')}
                        {analysisMode === 'NET' ? ` ${t('chart.shows_net_residual')}` : ` ${t('chart.shows_total_taxes')}`}
                     </div>
@@ -309,7 +309,7 @@ const ComparisonChartBase: React.FC<Props> = ({ result, inputs, isDarkMode, isFo
             {activeTab === 'breakdown' ? (
               <div className="w-full flex flex-col md:flex-row gap-4" style={{ height: 320 }}>
                   <div className="flex-1 flex flex-col items-center relative">
-                      <h4 className="text-xs font-bold uppercase text-slate-500 dark:text-slate-400 mb-2">{t('chart.resident_ch')}</h4>
+                      <h4 className="text-xs font-bold uppercase text-muted mb-2">{t('chart.resident_ch')}</h4>
                       <div className="w-full h-full relative">
                         <ResponsiveContainer>
                             <PieChart>
@@ -321,12 +321,12 @@ const ComparisonChartBase: React.FC<Props> = ({ result, inputs, isDarkMode, isFo
                             </PieChart>
                         </ResponsiveContainer>
                         <div className="absolute inset-0 flex items-center justify-center pointer-events-none mb-8">
-                           <span className="text-xs font-bold text-slate-500 dark:text-slate-400">CH</span>
+                           <span className="text-xs font-bold text-muted">CH</span>
                         </div>
                       </div>
                   </div>
                   <div className="flex-1 flex flex-col items-center relative border-t md:border-t-0 md:border-l border-dashed border-slate-100 dark:border-slate-700 pt-4 md:pt-0">
-                      <h4 className="text-xs font-bold uppercase text-slate-500 dark:text-slate-400 mb-2">{t('chart.frontier_worker')}</h4>
+                      <h4 className="text-xs font-bold uppercase text-muted mb-2">{t('chart.frontier_worker')}</h4>
                        <div className="w-full h-full relative">
                           <ResponsiveContainer>
                               <PieChart>
@@ -338,7 +338,7 @@ const ComparisonChartBase: React.FC<Props> = ({ result, inputs, isDarkMode, isFo
                               </PieChart>
                           </ResponsiveContainer>
                           <div className="absolute inset-0 flex items-center justify-center pointer-events-none mb-8">
-                             <span className="text-xs font-bold text-slate-500 dark:text-slate-400">IT</span>
+                             <span className="text-xs font-bold text-muted">IT</span>
                           </div>
                        </div>
                   </div>
