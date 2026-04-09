@@ -268,7 +268,10 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
           const resolution = resolveSearchConsoleCompatTarget(String(compatPathRaw || ''));
           if (!resolution) continue;
           const from = normalize(String(compatPathRaw || ''));
-          if (from === '/' || from === resolution.canonicalPath) continue;
+          // Skip self-references (normalize strips trailing slash, canonicalPath may have it)
+          const fromNorm = from.replace(/\/+$/, '');
+          const toNorm = resolution.canonicalPath.replace(/\/+$/, '');
+          if (from === '/' || fromNorm === toNorm) continue;
           // Skip job paths — handled by jobsSeoPagesPlugin with enriched content
           if (isJobPath(from)) { skippedJobPaths++; continue; }
           const outDir = path.join(distDir, from.slice(1));
