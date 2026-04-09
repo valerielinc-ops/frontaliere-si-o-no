@@ -1,6 +1,6 @@
 {
   "crawlerKey": "dxt-commodities",
-  "assembledAt": "2026-04-08T09:25:59.959Z",
+  "assembledAt": "2026-04-09T21:25:33.300Z",
   "jobs": [
     {
       "url": "https://dxt.com/careers/?panel=20897_1",
@@ -68,7 +68,8 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "id": "dxt-commodities-f60f8843492a"
+      "id": "dxt-commodities-f60f8843492a",
+      "needsRetranslation": true
     }
   ]
 }
