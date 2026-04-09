@@ -1,6 +1,6 @@
 {
   "crawlerKey": "corner-banca",
-  "assembledAt": "2026-04-08T21:12:06.916Z",
+  "assembledAt": "2026-04-09T09:28:50.302Z",
   "jobs": [
     {
       "id": "corner-banca-f803e5cc9fe2",
@@ -55,20 +55,21 @@
       "url": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-04-08T21:12:05.248Z",
+      "crawledAt": "2026-04-09T09:28:48.631Z",
       "previousSlugs": [
         "initiativbewerbung-lehre-corner-banca-switzerland",
         "unsolicited-application-apprenticeship-corner-banca-switzerland"
       ],
-      "salaryMin": 61000,
-      "salaryMax": 83000,
+      "needsRetranslation": true,
+      "salaryMin": 59500,
+      "salaryMax": 104000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 61000,
-          "maxValue": 83000,
+          "minValue": 59500,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       },
@@ -117,7 +118,7 @@
       "url": "https://jobs.corner.ch/o/it-card-management-analyst-specialist",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-08T21:12:05.247Z",
+      "crawledAt": "2026-04-09T09:28:48.630Z",
       "previousSlugs": [
         "analista-specialista-gestione-carte-it-corner-banca-lugano",
         "it-card-management-analista-specialista-corner-banca-lugano",
@@ -127,15 +128,15 @@
         "it-card-management-analyste-specialiste-corner-banca-lugano"
       ],
       "needsRetranslation": true,
-      "salaryMin": 72500,
-      "salaryMax": 97500,
+      "salaryMin": 51500,
+      "salaryMax": 88000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 72500,
-          "maxValue": 97500,
+          "minValue": 51500,
+          "maxValue": 88000,
           "unitText": "YEAR"
         }
       },
@@ -208,19 +209,20 @@
       "url": "https://jobs.corner.ch/o/employee-card-onboarding",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-08T21:12:05.246Z",
+      "crawledAt": "2026-04-09T09:28:48.629Z",
       "previousSlugs": [
         "addetto-all-emission-carte-cliente-corner-banca-lugano"
       ],
-      "salaryMin": 58000,
-      "salaryMax": 78000,
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 58000,
-          "maxValue": 78000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       },
@@ -297,22 +299,23 @@
       "url": "https://jobs.corner.ch/o/collaboratore-servizi-logistici-ufficio-tecnico-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-04-08T21:12:05.245Z",
+      "crawledAt": "2026-04-09T09:28:48.626Z",
       "previousSlugs": [
         "collaboratore-servizi-logistici-ufficio-technician-corner-banca-lugano",
         "collaboratore-servizi-logistici-ufficio-techniker-corner-banca-lugano",
         "collaboratore-servizi-logistici-ufficio-technicien-corner-banca-lugano",
         "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano-h1bnmt"
       ],
-      "salaryMin": 58000,
-      "salaryMax": 78000,
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 58000,
-          "maxValue": 78000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       },
@@ -380,7 +383,7 @@
       "url": "https://jobs.corner.ch/o/risk-manager-asset-liability-management-alm-and-liquidity-risk-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-08T21:12:05.243Z",
+      "crawledAt": "2026-04-09T09:28:48.623Z",
       "previousSlugs": [
         "risk-manager-asset-liability-management-alm-e-rischio-di-liquidita-corner-banca-lugano",
         "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano",
@@ -388,15 +391,16 @@
         "responsable-des-risques-gestion-actifs-passifs-alm-et-risque-de-liquidite-corner-banca-lugano",
         "responsable-des-risques-gestion-des-actifs-et-passifs-alm-et-risque-de-liquidite-corner-banca-lugano"
       ],
-      "salaryMin": 109000,
-      "salaryMax": 147000,
+      "needsRetranslation": true,
+      "salaryMin": 142000,
+      "salaryMax": 249500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 109000,
-          "maxValue": 147000,
+          "minValue": 142000,
+          "maxValue": 249500,
           "unitText": "YEAR"
         }
       },
@@ -474,21 +478,22 @@
       "url": "https://jobs.corner.ch/o/compliance-officer-senior",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-08T21:12:05.242Z",
+      "crawledAt": "2026-04-09T09:28:48.622Z",
       "previousSlugs": [
         "responsabile-compliance-senior-corner-banca-lugano",
         "compliance-officer-senior-corner-banca-lugano-nnfx9o",
         "leitender-compliance-beauftragter-corner-banca-lugano-nnfx9o"
       ],
-      "salaryMin": 109000,
-      "salaryMax": 147000,
+      "needsRetranslation": true,
+      "salaryMin": 142000,
+      "salaryMax": 249500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 109000,
-          "maxValue": 147000,
+          "minValue": 142000,
+          "maxValue": 249500,
           "unitText": "YEAR"
         }
       },
@@ -569,19 +574,20 @@
       "url": "https://jobs.corner.ch/o/employee-collection-team-zurich",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-08T21:12:05.240Z",
+      "crawledAt": "2026-04-09T09:28:48.618Z",
       "previousSlugs": [
         "employee-collection-team-zurich-corner-banca-wallisellen"
       ],
-      "salaryMin": 54000,
-      "salaryMax": 73000,
+      "needsRetranslation": true,
+      "salaryMin": 59000,
+      "salaryMax": 90500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 54000,
-          "maxValue": 73000,
+          "minValue": 59000,
+          "maxValue": 90500,
           "unitText": "YEAR"
         }
       },
