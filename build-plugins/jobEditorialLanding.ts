@@ -1212,7 +1212,10 @@ function buildLocationSectorLinks(options: {
 
 export function isJobTodayLandingSlug(value: string): boolean {
   const slug = normalizeSpace(value);
-  return Object.values(JOB_TODAY_LANDING_SLUGS).includes(slug as (typeof JOB_TODAY_LANDING_SLUGS)[JobLandingLocale]);
+  for (const cantonSlugs of Object.values(JOB_TODAY_LANDING_SLUGS_BY_CANTON)) {
+    if (Object.values(cantonSlugs).includes(slug as JobLandingLocale)) return true;
+  }
+  return false;
 }
 
 export function resolveEditorialJobLandingDescriptor(value: string): EditorialLandingDescriptor | null {
@@ -1240,7 +1243,9 @@ export function resolveEditorialJobLandingDescriptor(value: string): EditorialLa
   const location = SUPPORTED_EDITORIAL_LOCATIONS.find((entry) => slugifyTerm(entry) === locationPart);
   if (!location) {
     // Try sector-region pattern: ricerca-{sector}-ticino / search-{sector}-ticino
-    const REGION_SLUGS = new Set(['ticino', 'tessin']);
+    const REGION_SLUGS = new Set(
+      Object.values(CANTON_SLUG_LOCALE).flatMap((localeMap) => Object.values(localeMap)),
+    );
     const sectorSlug = parts.slice(1, -1).join('-'); // everything between prefix and last part
     const regionSlug = parts[parts.length - 1];
     if (parts.length >= 3 && REGION_SLUGS.has(regionSlug)) {
