@@ -1,16 +1,16 @@
 {
   "key": "engel-voelkers",
   "label": "Engel & Völkers",
-  "generatedAt": "2026-04-08T21:17:45.924Z",
+  "generatedAt": "2026-04-09T09:34:32.703Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 2,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 19540,
-  "avgDurationMs": 19540,
+  "durationMs": 19822,
+  "avgDurationMs": 19822,
   "durationHistory": [
-    19540
+    19822
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +32,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-08",
+      "postedDate": "2026-04-09",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -51,79 +51,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Praktikum als Teamassistent/in (3–6 Monate) | Ascona",
-      "slug": "praktikum-come-assistente-di-team-3-6-mesi-ascona-ticino-premium-properties-sa-ascona",
-      "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/33d6dc9a-33d2-4e23-b6ff-d7ff86d8c80e",
-      "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/33d6dc9a-33d2-4e23-b6ff-d7ff86d8c80e",
-      "company": "Ticino Premium Properties SA",
-      "companyKey": "engel-voelkers",
-      "companyDomain": "engelvoelkers.com",
-      "location": "Ascona",
-      "addressLocality": "Ascona",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "marketing",
-      "sector": "Immobiliare",
-      "source": "engelvoelkers-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-04-08",
-      "employmentType": "internship",
-      "contractType": "internship",
-      "validThrough": "",
-      "salaryMin": 61500,
-      "salaryMax": 83500,
-      "currency": "CHF",
-      "streetAddress": "Via Nassa 17",
-      "postalCode": "6900",
-      "id": "engel-voelkers-5cb2a5a6809a",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Stage Assistente Team (3-6 mesi) | Lugano",
-      "slug": "stage-assistente-team-3-6-mesi-lugano-ticino-premium-properties-sa-lugano",
-      "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/c3bc26ca-013d-4028-ab5c-9fc4b1b71239",
-      "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/c3bc26ca-013d-4028-ab5c-9fc4b1b71239",
-      "company": "Ticino Premium Properties SA",
-      "companyKey": "engel-voelkers",
-      "companyDomain": "engelvoelkers.com",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "marketing",
-      "sector": "Immobiliare",
-      "source": "engelvoelkers-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-04-08",
-      "employmentType": "internship",
-      "contractType": "internship",
-      "validThrough": "",
-      "salaryMin": 48000,
-      "salaryMax": 65000,
-      "currency": "CHF",
-      "streetAddress": "Via Nassa 17",
-      "postalCode": "6900",
-      "id": "engel-voelkers-f9b83e86e65e",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
