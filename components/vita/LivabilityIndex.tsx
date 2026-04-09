@@ -114,7 +114,7 @@ export default function LivabilityIndex() {
       </div>
 
       {/* Controls */}
-      <div className="bg-white dark:bg-slate-800 rounded-xl shadow p-5">
+      <div className="bg-olive-50 dark:bg-olive-950 rounded-xl shadow p-5 border border-olive-200 dark:border-olive-800">
         <div className="flex flex-wrap gap-4 items-end">
           {/* Province filter */}
           <div className="flex-1 min-w-[160px]">

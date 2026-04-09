@@ -450,8 +450,8 @@ const TransportCalculator: React.FC = () => {
             )}
 
             {result.type === 'ebike' && (
-              <div className="mt-4 p-3 bg-rose-50 dark:bg-rose-950/30 rounded-lg">
-                <p className="text-xs text-rose-800 dark:text-rose-300">
+              <div className="mt-4 p-3 bg-olive-50 dark:bg-olive-950 rounded-lg border border-olive-200 dark:border-olive-800">
+                <p className="text-xs text-olive-800 dark:text-olive-300">
                   💡 {t('transport.ebikeTip')}
                 </p>
               </div>

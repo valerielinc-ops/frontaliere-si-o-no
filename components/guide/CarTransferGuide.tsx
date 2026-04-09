@@ -132,7 +132,7 @@ const CarTransferGuide: React.FC = () => {
             <p className="text-slate-600 dark:text-slate-400 mb-6">{t('carTransfer.customs.intro')}</p>
 
             <div className="space-y-4">
-              <div className="bg-slate-50 dark:bg-slate-900 rounded-xl p-4">
+              <div className="bg-warm-50 dark:bg-warm-950 rounded-xl p-4">
                 <h4 className="font-bold text-slate-700 dark:text-slate-300 mb-2">{t('carTransfer.customs.formTitle')}</h4>
                 <p className="text-sm text-slate-600 dark:text-slate-400 mb-3">{t('carTransfer.customs.formDesc')}</p>
                 <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-400">
@@ -203,7 +203,7 @@ const CarTransferGuide: React.FC = () => {
                 </ul>
               </div>
 
-              <div className="bg-slate-50 dark:bg-slate-900 rounded-xl p-4">
+              <div className="bg-warm-50 dark:bg-warm-950 rounded-xl p-4">
                 <h4 className="font-bold text-slate-700 dark:text-slate-300 mb-3">{t('carTransfer.registration.docsTitle')}</h4>
                 <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-400">
                   <li className="flex items-start gap-2"><FileText size={14} className="mt-1 shrink-0 text-blue-600" />{t('carTransfer.registration.doc1')}</li>

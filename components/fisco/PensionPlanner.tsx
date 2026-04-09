@@ -47,7 +47,7 @@ const InfoTooltip = ({ text }: { text: string }) => {
   return (
     <button ref={ref} type="button" onClick={() => setOpen(v => !v)} aria-label="Info" className="group relative inline-flex items-center ml-1.5 cursor-help">
       <Info size={14} className="text-slate-500 dark:text-slate-400 hover:text-teal-600 transition-colors" />
-      <div className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-64 p-3 bg-slate-800 dark:bg-slate-700 text-white text-xs leading-relaxed rounded-xl shadow-2xl z-50 border border-slate-600 ${open ? 'block' : 'hidden group-hover:block'}`}>
+      <div className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-64 p-3 bg-slate-800 dark:bg-slate-700 text-white text-sm leading-relaxed rounded-xl shadow-2xl z-50 border border-slate-600 ${open ? 'block' : 'hidden group-hover:block'}`}>
         {text}
         <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-800 dark:border-t-slate-700"></div>
       </div>
@@ -428,7 +428,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
                         {option === 'return_it' && `🇮🇹 ${t('pension.returnIT')}`}
                         {option === 'undecided' && `🤔 ${t('pension.undecided')}`}
                       </div>
-                      <div className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                      <div className="text-sm text-slate-500 dark:text-slate-400 mt-1">
                         {option === 'stay_ch' && t('pension.stayCHDesc')}
                         {option === 'return_it' && t('pension.returnITDesc')}
                         {option === 'undecided' && t('pension.undecidedDesc')}
@@ -463,7 +463,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
                   <TrendingUp size={32} className="text-emerald-200" />
                 </div>
               </div>
-              <div className="text-emerald-100 text-xs">
+              <div className="text-emerald-100 text-sm">
                 {t('pension.estimateBased')} {yearsUntilRetirement} {t('pension.yearsOfFutureContributions')}
               </div>
             </div>
@@ -489,7 +489,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
                   CHF {Math.round(result.lppMonthlyPension).toLocaleString('it-IT')}
                 </span>
               </div>
-              <div className="mt-2 text-xs text-slate-500 dark:text-slate-400">
+              <div className="mt-2 text-sm text-slate-500 dark:text-slate-400">
                 <InfoTooltip text="Tasso conversione 6.8% - Capitale può essere prelevato in parte o totalmente" />
                 {t('pension.conversionRate')}
               </div>
@@ -546,7 +546,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
                     {inputs.yearsWorkedIT} {t('pension.italianContributionYears')}
                   </span>
                 </div>
-                <div className="mt-3 p-2 bg-blue-50 dark:bg-blue-900/20 rounded-lg text-xs text-blue-700 dark:text-blue-400">
+                <div className="mt-3 p-2 bg-warm-50 dark:bg-warm-950 rounded-lg text-sm text-warm-700 dark:text-warm-400 border border-warm-200 dark:border-warm-800">
                   <strong>{t('pension.note')}:</strong> {t('pension.proportionalPension')}
                 </div>
               </div>
@@ -561,7 +561,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
             </h2>
 
             <div className="space-y-3">
-              <div className="flex items-center justify-between p-3 bg-slate-50 dark:bg-slate-900 rounded-lg">
+              <div className="flex items-center justify-between p-3 bg-warm-50 dark:bg-warm-950 rounded-lg border border-warm-200 dark:border-warm-800">
                 <span className="text-sm font-semibold text-slate-700 dark:text-slate-300">{t('pension.lppAnnuity')}</span>
                 <span className="text-lg font-bold text-blue-600">
                   CHF {Math.round(result.lppMonthlyPension).toLocaleString('it-IT')}
@@ -576,7 +576,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
               </div>
 
               {inputs.hasItalianContributions && result.italianPensionEUR > 0 && (
-                <div className="flex items-center justify-between p-3 bg-slate-50 dark:bg-slate-900 rounded-lg">
+                <div className="flex items-center justify-between p-3 bg-warm-50 dark:bg-warm-950 rounded-lg border border-warm-200 dark:border-warm-800">
                   <span className="text-sm font-semibold text-slate-700 dark:text-slate-300">{t('pension.inpsPension')}</span>
                   <span className="text-lg font-bold text-green-700">
                     € {Math.round(result.italianPensionEUR).toLocaleString('it-IT')}
@@ -639,7 +639,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
               <AlertCircle size={20} className="text-amber-700 flex-shrink-0 mt-0.5" />
               <div className="space-y-2 text-sm text-amber-800 dark:text-amber-200">
                 <p className="font-bold">⚠️ {t('pension.disclaimer')}</p>
-                <ul className="space-y-1 text-xs">
+                <ul className="space-y-1 text-sm">
                   <li>• {t('pension.disclaimer1')}</li>
                   <li>• {t('pension.disclaimer2')}</li>
                   <li>• {t('pension.disclaimer3')}</li>
@@ -647,7 +647,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
                   <li>• {t('pension.disclaimer5')}</li>
                 </ul>
               </div>
-              <div className="flex items-center gap-1.5 mt-3 text-xs text-emerald-700 dark:text-emerald-400">
+              <div className="flex items-center gap-1.5 mt-3 text-sm text-emerald-700 dark:text-emerald-400">
                 <Shield size={12} className="flex-shrink-0" />
                 <span>{t('pension.dataPrivacy')}</span>
               </div>
@@ -658,7 +658,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
 
       {/* Source methodology — AI SEO citability */}
       <div className="mt-6 p-4 bg-slate-50 dark:bg-slate-900/50 rounded-xl border border-slate-200 dark:border-slate-700">
-        <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+        <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
           <strong>{t('pension.methodology.title')}</strong>{' '}
           {t('pension.methodology.description')}
         </p>

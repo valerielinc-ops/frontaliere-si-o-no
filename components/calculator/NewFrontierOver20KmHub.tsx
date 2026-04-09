@@ -309,7 +309,7 @@ const NewFrontierOver20KmHub: React.FC = () => {
           </div>
           <div className="mt-4 grid grid-cols-1 lg:grid-cols-3 gap-4">
             {cases.map(({ title, summary, result, income }) => (
-              <article key={title} className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/70 p-4">
+              <article key={title} className="rounded-2xl border border-warm-200 dark:border-warm-800 bg-warm-50 dark:bg-warm-950 p-4">
                 <div className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">
                   {summary}
                 </div>
@@ -352,27 +352,27 @@ const NewFrontierOver20KmHub: React.FC = () => {
           </div>
         </div>
 
-        <div className="rounded-3xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/70 p-5">
+        <div className="rounded-3xl border border-warm-200 dark:border-warm-800 bg-warm-50 dark:bg-warm-950 p-5">
           <div className="flex items-center gap-2 text-sm font-bold text-slate-900 dark:text-white">
-            <Scale className="w-4 h-4 text-indigo-600 dark:text-indigo-300" />
+            <Scale className="w-4 h-4 text-warm-600 dark:text-warm-400" />
             {copy.compareTitle}
           </div>
           <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">{copy.compareBody}</p>
           <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-3">
             <div className="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 p-4">
-              <div className="text-xs text-slate-500 dark:text-slate-400">{copy.compareOver}</div>
+              <div className="text-sm text-slate-500 dark:text-slate-400">{copy.compareOver}</div>
               <div className="mt-2 text-xl font-bold text-slate-900 dark:text-white">
                 {money(comparison.over20.itResident.netIncomeMonthly, locale, 'CHF')}
               </div>
             </div>
             <div className="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 p-4">
-              <div className="text-xs text-slate-500 dark:text-slate-400">{copy.compareWithin}</div>
+              <div className="text-sm text-slate-500 dark:text-slate-400">{copy.compareWithin}</div>
               <div className="mt-2 text-xl font-bold text-slate-900 dark:text-white">
                 {money(comparison.within20.itResident.netIncomeMonthly, locale, 'CHF')}
               </div>
             </div>
             <div className="rounded-2xl bg-sky-600 text-white p-4">
-              <div className="text-xs text-sky-100">{copy.compareDelta}</div>
+              <div className="text-sm text-sky-100">{copy.compareDelta}</div>
               <div className="mt-2 text-xl font-bold">
                 {money(comparison.delta, locale, 'CHF')}
               </div>

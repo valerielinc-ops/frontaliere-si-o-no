@@ -196,11 +196,11 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
             <div className="space-y-4 text-sm text-slate-600 dark:text-slate-400">
               <p>{t('taxReturn.overview.intro')}</p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-4 border border-blue-200 dark:border-blue-800">
-                  <h4 className="font-bold text-blue-700 dark:text-blue-300 mb-2 flex items-center gap-2">
+                <div className="bg-warm-50 dark:bg-warm-950 rounded-xl p-4 border border-warm-200 dark:border-warm-800">
+                  <h4 className="font-bold text-warm-700 dark:text-warm-300 mb-2 flex items-center gap-2">
                     <Building2 size={16} /> {t('taxReturn.overview.newAgreement')}
                   </h4>
-                  <p className="text-blue-600 dark:text-blue-400">{t('taxReturn.overview.newAgreementDesc')}</p>
+                  <p className="text-warm-700 dark:text-warm-400">{t('taxReturn.overview.newAgreementDesc')}</p>
                 </div>
                 <div className="bg-amber-50 dark:bg-amber-900/20 rounded-xl p-4 border border-amber-200 dark:border-amber-800">
                   <h4 className="font-bold text-amber-700 dark:text-amber-300 mb-2 flex items-center gap-2">
@@ -287,7 +287,7 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
               {DEDUCTIONS.map(ded => (
                 <div
                   key={ded.key}
-                  className="bg-slate-50 dark:bg-slate-700/50 rounded-xl p-4 border border-slate-200 dark:border-slate-600"
+                  className="bg-warm-50 dark:bg-warm-950 rounded-xl p-4 border border-warm-200 dark:border-warm-800"
                 >
                   <div className="flex items-center justify-between mb-1">
                     <h4 className="font-semibold text-sm text-slate-800 dark:text-slate-200">

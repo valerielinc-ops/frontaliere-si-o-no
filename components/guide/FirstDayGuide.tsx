@@ -357,7 +357,7 @@ const FirstDayGuide: React.FC = () => {
                           href={link.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 text-xs px-3 py-1.5 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-lg hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-colors font-bold"
+                          className="inline-flex items-center gap-1 text-xs px-3 py-1.5 bg-warm-50 dark:bg-warm-950 text-warm-700 dark:text-warm-400 rounded-lg hover:bg-warm-100 dark:hover:bg-warm-900/50 transition-colors font-bold border border-warm-200 dark:border-warm-800"
                         >
                           <ExternalLink className="w-3 h-3" />
                           {link.label}

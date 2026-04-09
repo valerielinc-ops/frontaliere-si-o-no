@@ -675,7 +675,7 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
             </div>
 
             {/* Quick info about selected municipality */}
-            <div className="bg-slate-50 dark:bg-slate-700/50 rounded-lg p-3 text-sm">
+            <div className="bg-warm-50 dark:bg-warm-950 rounded-lg p-3 text-sm border border-warm-200 dark:border-warm-800">
               <div className="flex justify-between text-slate-600 dark:text-slate-400">
                 <span>{t('livability.distance')}</span>
                 <span className="font-mono">{muni.distanceKm} km</span>
@@ -730,10 +730,10 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
             </div>
 
             {/* Info box about G type */}
-            <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-3 text-xs">
+            <div className="bg-warm-50 dark:bg-warm-950 rounded-lg p-3 text-xs border border-warm-200 dark:border-warm-800">
               <div className="flex items-start gap-2">
-                <Info size={14} className="flex-shrink-0 mt-0.5 text-blue-600 dark:text-blue-400" />
-                <p className="text-blue-700 dark:text-blue-300">{t('permitCompare.gTypeInfo')}</p>
+                <Info size={14} className="flex-shrink-0 mt-0.5 text-warm-600 dark:text-warm-400" />
+                <p className="text-warm-700 dark:text-warm-300">{t('permitCompare.gTypeInfo')}</p>
               </div>
             </div>
           </div>
@@ -800,7 +800,7 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
             </div>
 
             {/* Breakeven */}
-            <div className="mt-4 bg-slate-50 dark:bg-slate-700/50 rounded-lg p-4">
+            <div className="mt-4 bg-warm-50 dark:bg-warm-950 rounded-lg p-4 border border-warm-200 dark:border-warm-800">
               <p className="text-sm font-semibold text-slate-700 dark:text-slate-300">{t('permitCompare.breakeven')}</p>
               <p className="text-2xl font-bold text-amber-600 dark:text-amber-400 mt-1">
                 CHF {result.breakeven.toLocaleString()} / anno

@@ -231,12 +231,12 @@ const ContractsGuide = () => {
       </div>
 
       {/* Info banner */}
-      <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-4">
+      <div className="bg-warm-50 dark:bg-warm-950 border border-warm-200 dark:border-warm-800 rounded-xl p-4">
         <div className="flex items-start gap-3">
-          <Info size={18} className="text-blue-600 dark:text-blue-400 mt-0.5 shrink-0" />
-          <div className="text-sm text-blue-800 dark:text-blue-200">
+          <Info size={18} className="text-warm-700 dark:text-warm-400 mt-0.5 shrink-0" />
+          <div className="text-sm text-warm-800 dark:text-warm-200">
             <p className="font-semibold">{t('contracts.infoTitle')}</p>
-            <p className="mt-1 text-blue-700 dark:text-blue-300">{t('contracts.infoText')}</p>
+            <p className="mt-1 text-warm-700 dark:text-warm-300">{t('contracts.infoText')}</p>
           </div>
         </div>
       </div>
@@ -476,7 +476,7 @@ const ContractsGuide = () => {
             {/* Rights cards grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {/* Sick leave */}
-              <div className="bg-slate-50 dark:bg-slate-700/50 rounded-lg p-3">
+              <div className="bg-warm-50 dark:bg-warm-950 rounded-lg p-3 border border-warm-200 dark:border-warm-800">
                 <h4 className="text-sm font-semibold text-slate-900 dark:text-white mb-2 flex items-center gap-1.5">
                   <Heart size={14} className="text-red-500" />
                   {t('contracts.rights.sickLeave')}
@@ -492,7 +492,7 @@ const ContractsGuide = () => {
               </div>
 
               {/* Maternity / Paternity */}
-              <div className="bg-slate-50 dark:bg-slate-700/50 rounded-lg p-3">
+              <div className="bg-warm-50 dark:bg-warm-950 rounded-lg p-3 border border-warm-200 dark:border-warm-800">
                 <h4 className="text-sm font-semibold text-slate-900 dark:text-white mb-2 flex items-center gap-1.5">
                   <Gift size={14} className="text-violet-500" />
                   {t('contracts.rights.parentalLeave')}

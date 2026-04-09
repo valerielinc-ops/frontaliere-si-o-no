@@ -346,7 +346,7 @@ const JobComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
       </div>
 
       {/* Info */}
-      <div className="bg-blue-50 dark:bg-blue-950/30 rounded-2xl border border-blue-200 dark:border-blue-800 p-5">
+      <div className="bg-warm-50 dark:bg-warm-950 rounded-2xl border border-warm-200 dark:border-warm-800 p-5">
         <div className="flex items-start gap-3">
           <Info size={20} className="text-blue-600 flex-shrink-0 mt-0.5" />
           <div className="text-sm text-slate-700 dark:text-slate-300">

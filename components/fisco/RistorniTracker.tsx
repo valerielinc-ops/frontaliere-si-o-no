@@ -93,9 +93,9 @@ const RistorniTracker: React.FC = () => {
         </h3>
         <p className="text-sm text-slate-600 dark:text-slate-400 mb-4">{t('ristorni.explanation')}</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <div className="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-3">
-            <h4 className="font-bold text-xs text-blue-700 dark:text-blue-300 mb-1">{t('ristorni.oldAgreement')}</h4>
-            <p className="text-xs text-blue-600 dark:text-blue-400">{t('ristorni.oldAgreementDesc')}</p>
+          <div className="bg-warm-50 dark:bg-warm-950 rounded-xl p-3 border border-warm-200 dark:border-warm-800">
+            <h4 className="font-bold text-xs text-warm-700 dark:text-warm-300 mb-1">{t('ristorni.oldAgreement')}</h4>
+            <p className="text-xs text-warm-700 dark:text-warm-400">{t('ristorni.oldAgreementDesc')}</p>
           </div>
           <div className="bg-amber-50 dark:bg-amber-900/20 rounded-xl p-3">
             <h4 className="font-bold text-xs text-amber-700 dark:text-amber-300 mb-1">{t('ristorni.newAgreement')}</h4>

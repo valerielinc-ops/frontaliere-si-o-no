@@ -174,9 +174,9 @@ const NurseryComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({
                 <p className="text-xs text-emerald-700 dark:text-emerald-400 font-semibold">{t('nursery.monthlyBenefit')}</p>
                 <p className="text-lg font-bold text-emerald-700 dark:text-emerald-300">CHF {monthlyBenefitCH}</p>
               </div>
-              <div className="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-3 text-center">
-                <p className="text-xs text-blue-600 dark:text-blue-400 font-semibold">{t('nursery.itDeduction')}</p>
-                <p className="text-lg font-bold text-blue-700 dark:text-blue-300">€{IT_NURSERY_DEDUCTION_MAX}/anno</p>
+              <div className="bg-warm-50 dark:bg-warm-950 rounded-xl p-3 text-center border border-warm-200 dark:border-warm-800">
+                <p className="text-xs text-warm-700 dark:text-warm-400 font-semibold">{t('nursery.itDeduction')}</p>
+                <p className="text-lg font-bold text-warm-700 dark:text-warm-300">€{IT_NURSERY_DEDUCTION_MAX}/anno</p>
               </div>
               <div className="bg-violet-50 dark:bg-violet-900/20 rounded-xl p-3 text-center">
                 <p className="text-xs text-violet-600 dark:text-violet-400 font-semibold">{t('nursery.bonusNido')}</p>

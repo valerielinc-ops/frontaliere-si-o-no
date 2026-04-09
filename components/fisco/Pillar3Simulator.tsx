@@ -276,9 +276,9 @@ const Pillar3Simulator: React.FC = () => {
           )}
 
           {/* 3a vs 3b Comparison */}
-          <div className="bg-blue-50 dark:bg-blue-950/30 rounded-2xl border border-blue-200 dark:border-blue-800 p-6">
+          <div className="bg-warm-50 dark:bg-warm-950 rounded-2xl border border-warm-200 dark:border-warm-800 p-6">
             <h3 className="font-bold text-slate-800 dark:text-slate-100 mb-3 flex items-center gap-2">
-              <Info size={18} className="text-blue-600" />
+              <Info size={18} className="text-warm-600 dark:text-warm-400" />
               {t('pillar3.comparison3a3b')}
             </h3>
             <div className="overflow-x-auto">

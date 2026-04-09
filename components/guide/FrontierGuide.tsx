@@ -1144,8 +1144,8 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                         <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">🔴 {t('guide.border.peakHours')}</div>
                         <div className="text-xs font-semibold text-slate-800 dark:text-slate-100">{t(border.peak)}</div>
                       </div>
-                      <div className="p-2.5 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
-                        <div className="text-xs text-blue-700 dark:text-blue-300">
+                      <div className="p-2.5 bg-warm-50 dark:bg-warm-950 rounded-lg border border-warm-200 dark:border-warm-800">
+                        <div className="text-xs text-warm-700 dark:text-warm-300">
                           <strong>💡 {t('guide.border.tip')}:</strong> {t(border.tips)}
                         </div>
                       </div>

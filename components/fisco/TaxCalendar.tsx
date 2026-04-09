@@ -812,9 +812,9 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
           </div>
         )}
         {!compact && d.notes && (
-          <div className="flex items-start gap-1.5 p-2 bg-blue-50 dark:bg-blue-950/30 rounded-lg mt-2">
-            <Info size={12} className="text-blue-500 flex-shrink-0 mt-0.5" />
-            <div className="text-xs text-blue-700 dark:text-blue-300">{d.notes}</div>
+          <div className="flex items-start gap-1.5 p-2 bg-warm-50 dark:bg-warm-950 rounded-lg mt-2 border border-warm-200 dark:border-warm-800">
+            <Info size={12} className="text-warm-600 dark:text-warm-400 flex-shrink-0 mt-0.5" />
+            <div className="text-xs text-warm-700 dark:text-warm-300">{d.notes}</div>
           </div>
         )}
       </div>
