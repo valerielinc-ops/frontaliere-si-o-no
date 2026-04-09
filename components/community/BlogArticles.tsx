@@ -1323,6 +1323,27 @@ function BlogArticles({
   // Article detail computed values — MUST be above early returns to maintain stable hook count.
   // React#310: placing useMemo after conditional returns (if !blogReady / if !bodyReady)
   // caused "Rendered more hooks than during the previous render" on article pages.
+
+  // ── Affiliate side-rail helpers (must be above the useMemo that calls getPartnersForCategory) ──
+  const CATEGORY_TO_CONTEXTS: Record<Article['category'], ComparatorContext[]> = {
+    fiscale:  ['exchange', 'banks', 'simulator'],
+    pratico:  ['transport', 'mobile', 'banks'],
+    novita:   ['exchange', 'banks', 'jobs'],
+    pensione: ['pension', 'banks', 'exchange'],
+  };
+
+  const getPartnersForCategory = (category: Article['category'], max = 4): AffiliatePartner[] => {
+    const contexts = CATEGORY_TO_CONTEXTS[category];
+    const seen = new Set<string>();
+    const result: AffiliatePartner[] = [];
+    for (const ctx of contexts) {
+      for (const p of PARTNERS.filter(p => p.contexts.includes(ctx)).sort((a, b) => b.priority - a.priority)) {
+        if (!seen.has(p.id) && result.length < max) { seen.add(p.id); result.push(p); }
+      }
+    }
+    return result;
+  };
+
   const selectedArticleObj = selectedArticle ? articleById.get(selectedArticle) ?? null : null;
   const articleCTAs = useMemo(() => selectedArticle ? getArticleCTAs(selectedArticle) : [], [selectedArticle, navigators, articles, t]);
   const sidePartners = useMemo(() => selectedArticleObj ? getPartnersForCategory(selectedArticleObj.category, 4) : [], [selectedArticleObj?.category]);
@@ -1476,27 +1497,7 @@ function BlogArticles({
     );
   }
 
-  // ── Affiliate side-rail helpers ──────────────────────
-
-  const CATEGORY_TO_CONTEXTS: Record<Article['category'], ComparatorContext[]> = {
-    fiscale:  ['exchange', 'banks', 'simulator'],
-    pratico:  ['transport', 'mobile', 'banks'],
-    novita:   ['exchange', 'banks', 'jobs'],
-    pensione: ['pension', 'banks', 'exchange'],
-  };
-
-  /** Get top partners relevant to an article category */
-  const getPartnersForCategory = (category: Article['category'], max = 4): AffiliatePartner[] => {
-    const contexts = CATEGORY_TO_CONTEXTS[category];
-    const seen = new Set<string>();
-    const result: AffiliatePartner[] = [];
-    for (const ctx of contexts) {
-      for (const p of PARTNERS.filter(p => p.contexts.includes(ctx)).sort((a, b) => b.priority - a.priority)) {
-        if (!seen.has(p.id) && result.length < max) { seen.add(p.id); result.push(p); }
-      }
-    }
-    return result;
-  };
+  // CATEGORY_TO_CONTEXTS + getPartnersForCategory moved above useMemo (line ~1326) to avoid TDZ
 
   // ── Single Article View ──────────────────────────────
   if (selectedArticle) {
