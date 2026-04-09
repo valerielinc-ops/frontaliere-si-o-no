@@ -1,16 +1,16 @@
 {
   "key": "alpiq",
   "label": "Alpiq",
-  "generatedAt": "2026-04-09T09:06:18.704Z",
+  "generatedAt": "2026-04-09T20:58:33.216Z",
   "total": 2,
-  "newCount": 2,
-  "updatedCount": 1,
-  "removedCount": 1,
+  "newCount": 3,
+  "updatedCount": 0,
+  "removedCount": 2,
   "unchangedCount": 0,
-  "durationMs": 4297,
-  "avgDurationMs": 4297,
+  "durationMs": 2756,
+  "avgDurationMs": 2756,
   "durationHistory": [
-    4297
+    2756
   ],
   "newJobs": [
     {
@@ -37,7 +37,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9440&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-09T09:06:16.635Z",
+      "crawledAt": "2026-04-09T20:58:31.522Z",
       "_qualityScore": 53,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -70,7 +70,40 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9482&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-09T09:06:16.636Z",
+      "crawledAt": "2026-04-09T20:58:31.523Z",
+      "_qualityScore": 60,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 14,
+        "translation": 4,
+        "completeness": 17
+      }
+    },
+    {
+      "id": "alpiq-49e5dd0aa532",
+      "slug": "head-intraday-algorithmic-trading-alpiq-olten",
+      "company": "Alpiq",
+      "companyKey": "alpiq",
+      "companyDomain": "alpiq.com",
+      "title": "Head Intraday Algorithmic Trading",
+      "location": "Olten",
+      "canton": "",
+      "postalCode": "4600",
+      "streetAddress": "",
+      "addressLocality": "Olten",
+      "addressRegion": "",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "category": "energy",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-09",
+      "url": "https://www.alpiq.com/career/open-jobs/your-application/9317",
+      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9317&lang=en_GB",
+      "source": "Alpiq Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-04-09T20:58:31.523Z",
       "_qualityScore": 60,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -80,7 +113,8 @@
       }
     }
   ],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [
     {
       "id": "alpiq-cf45d95b2ff9",
       "slug": "head-market-risk-asset-all-80-100-alpiq-lausanne",
@@ -100,22 +134,22 @@
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-03-30",
       "url": "https://www.alpiq.com/career/open-jobs/your-application/9433",
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9433&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
+      "crawledAt": "2026-03-30T19:56:14.221Z",
       "sourceLang": "en",
-      "crawledAt": "2026-04-09T09:06:16.636Z",
-      "_qualityScore": 81,
+      "salaryMin": 72000,
+      "salaryMax": 97000,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
-    }
-  ],
-  "removedJobs": [
+    },
     {
       "id": "alpiq-7ab1d45f31c3",
       "slug": "risk-technology-manager-all-80-100-alpiq-olten",
