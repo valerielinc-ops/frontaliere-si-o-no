@@ -1,18 +1,49 @@
 {
   "key": "ariston-group",
   "label": "Ariston Group",
-  "generatedAt": "2026-04-08T20:52:11.094Z",
-  "total": 0,
-  "newCount": 0,
+  "generatedAt": "2026-04-09T09:08:50.829Z",
+  "total": 1,
+  "newCount": 1,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1560,
-  "avgDurationMs": 1560,
+  "durationMs": 1849,
+  "avgDurationMs": 1849,
   "durationHistory": [
-    1560
+    1849
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "IMPIEGATO/A COMMERCIALE INTERNO (SALES SUPPORT)",
+      "slug": "impiegato-a-commerciale-interno-sales-support-ariston-group-bedano-ch-6930",
+      "url": "https://careers.aristongroup.com/job/Maerstetten-IMPIEGATOA-COMMERCIALE-INTERNO-%28SALES-SUPPORT%29-Beda-6930/1377887233/",
+      "applyUrl": "https://careers.aristongroup.com/talentcommunity/apply/1377887233/?locale=en_US",
+      "company": "Ariston Group",
+      "companyKey": "ariston-group",
+      "companyDomain": "aristongroup.com",
+      "location": "Bedano, CH, 6930",
+      "addressLocality": "Bedano, CH, 6930",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Energia & Riscaldamento",
+      "source": "ariston-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-03-26",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "2026-05-09",
+      "_qualityScore": 71,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 10,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
