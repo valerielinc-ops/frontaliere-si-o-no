@@ -32,7 +32,7 @@ const germanCantonPrep = (display: string): string => {
 };
 
 // The target cantons for editorial pages
-const EDITORIAL_CANTONS = ['TI', 'GR', 'VS'] as const;
+export const EDITORIAL_CANTONS = ['TI', 'GR', 'VS'] as const;
 
 // ── Per-canton slug tables ────────────────────────────────────────────
 

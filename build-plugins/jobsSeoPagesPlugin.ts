@@ -21,6 +21,7 @@ import {
   buildJobOfficialGazetteLandingModel,
   buildJobPartTimeLandingModel,
   buildJobTodayLandingModel,
+  EDITORIAL_CANTONS,
 } from './jobEditorialLanding';
 
 export const JOB_SEO_LOCALES = ['it', 'en', 'de', 'fr'] as const;
@@ -1908,6 +1909,21 @@ ${(() => {
           return { breadcrumbLd, collectionLd, itemListLd };
         };
 
+        const pushEditorialSitemapEntry = (
+          buildModel: (locale: typeof localeList[number]) => { slug: string },
+          priority: string,
+        ) => {
+          const itModel = buildModel('it');
+          const itPath = withSlash(`/${sectionByLocale.it}/${itModel.slug}`.replace(/\/+/g, '/'));
+          const alternateLinks = localeList.map((locale) => {
+            const localeModel = buildModel(locale);
+            const path = `${localePrefix[locale]}/${sectionByLocale[locale]}/${localeModel.slug}`.replace(/\/+/g, '/');
+            return `    <xhtml:link rel="alternate" hreflang="${locale}" href="${BASE_URL}${withSlash(path)}" />`;
+          }).join('\n');
+          editorialSitemapEntries.push(`  <url>\n    <loc>${BASE_URL}${itPath}</loc>\n${alternateLinks}\n    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>${priority}</priority>\n  </url>`);
+        };
+
+        for (const editorialCanton of EDITORIAL_CANTONS) {
         for (const locale of localeList) {
           const model = buildJobTodayLandingModel({
             jobs: validJobs,
@@ -1917,6 +1933,7 @@ ${(() => {
             baseUrl: BASE_URL,
             sectionSlug: sectionByLocale[locale],
             localePrefix: localePrefix[locale],
+            canton: editorialCanton,
           });
 
           const canonicalPath = withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${model.slug}`.replace(/\/+/g, '/'));
@@ -1931,6 +1948,7 @@ ${(() => {
                 baseUrl: BASE_URL,
                 sectionSlug: sectionByLocale[altLocale],
                 localePrefix: localePrefix[altLocale],
+                canton: editorialCanton,
               });
               const altPath = `${localePrefix[altLocale]}/${sectionByLocale[altLocale]}/${altModel.slug}`.replace(/\/+/g, '/');
               return `    <link rel="alternate" hreflang="${altLocale}" href="${BASE_URL}${withSlash(altPath)}">`;
@@ -1950,7 +1968,7 @@ ${(() => {
             isPartOf: sectionRootUrl,
             breadcrumbs: [
               { name: 'Home', item: `${BASE_URL}/` },
-              { name: locale === 'it' ? 'Cerca lavoro in Ticino' : locale === 'en' ? 'Find jobs in Ticino' : locale === 'de' ? 'Jobs im Tessin' : 'Trouver un emploi au Tessin', item: sectionRootUrl },
+              { name: cantonSectionName(locale, CANTON_DISPLAY[editorialCanton] || editorialCanton), item: sectionRootUrl },
               { name: model.heading, item: canonicalUrl },
             ],
             items: [...model.sections.last24Hours.jobs, ...model.sections.last3Days.jobs, ...model.sections.partTime.jobs],
@@ -2034,20 +2052,6 @@ ${alternates}
           }
         }
 
-        const pushEditorialSitemapEntry = (
-          buildModel: (locale: typeof localeList[number]) => { slug: string },
-          priority: string,
-        ) => {
-          const itModel = buildModel('it');
-          const itPath = withSlash(`/${sectionByLocale.it}/${itModel.slug}`.replace(/\/+/g, '/'));
-          const alternateLinks = localeList.map((locale) => {
-            const localeModel = buildModel(locale);
-            const path = `${localePrefix[locale]}/${sectionByLocale[locale]}/${localeModel.slug}`.replace(/\/+/g, '/');
-            return `    <xhtml:link rel="alternate" hreflang="${locale}" href="${BASE_URL}${withSlash(path)}" />`;
-          }).join('\n');
-          editorialSitemapEntries.push(`  <url>\n    <loc>${BASE_URL}${itPath}</loc>\n${alternateLinks}\n    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>${priority}</priority>\n  </url>`);
-        };
-
         pushEditorialSitemapEntry((locale) => buildJobTodayLandingModel({
           jobs: validJobs,
           locale,
@@ -2056,7 +2060,9 @@ ${alternates}
           baseUrl: BASE_URL,
           sectionSlug: sectionByLocale[locale],
           localePrefix: localePrefix[locale],
+          canton: editorialCanton,
         }), '0.8');
+        }
 
         for (const locale of localeList) {
           const model = buildJobOfficialGazetteLandingModel({
@@ -2202,6 +2208,7 @@ ${alternates}
           localePrefix: localePrefix[locale],
         }), '0.78');
 
+        for (const editorialCanton of EDITORIAL_CANTONS) {
         for (const locale of localeList) {
           const model = buildJobNursesHubLandingModel({
             jobs: validJobs,
@@ -2211,6 +2218,7 @@ ${alternates}
             baseUrl: BASE_URL,
             sectionSlug: sectionByLocale[locale],
             localePrefix: localePrefix[locale],
+            canton: editorialCanton,
           });
           editorialSearchSlugsByLocale.get(locale)?.add(model.slug);
           const canonicalPath = withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${model.slug}`.replace(/\/+/g, '/'));
@@ -2225,6 +2233,7 @@ ${alternates}
                 baseUrl: BASE_URL,
                 sectionSlug: sectionByLocale[altLocale],
                 localePrefix: localePrefix[altLocale],
+                canton: editorialCanton,
               });
               const altPath = `${localePrefix[altLocale]}/${sectionByLocale[altLocale]}/${altModel.slug}`.replace(/\/+/g, '/');
               return `    <link rel="alternate" hreflang="${altLocale}" href="${BASE_URL}${withSlash(altPath)}">`;
@@ -2243,7 +2252,7 @@ ${alternates}
             isPartOf: sectionRootUrl,
             breadcrumbs: [
               { name: 'Home', item: `${BASE_URL}/` },
-              { name: locale === 'it' ? 'Cerca lavoro in Ticino' : locale === 'en' ? 'Find jobs in Ticino' : locale === 'de' ? 'Jobs im Tessin' : 'Trouver un emploi au Tessin', item: sectionRootUrl },
+              { name: cantonSectionName(locale, CANTON_DISPLAY[editorialCanton] || editorialCanton), item: sectionRootUrl },
               { name: model.heading, item: canonicalUrl },
             ],
             items: [...model.feed.jobs, ...model.latestJobs],
@@ -2348,9 +2357,12 @@ ${alternates}
           baseUrl: BASE_URL,
           sectionSlug: sectionByLocale[locale],
           localePrefix: localePrefix[locale],
+          canton: editorialCanton,
         }), '0.77');
+        }
 
         /* ── Editorial landing: global part-time ───────────────────── */
+        for (const editorialCanton of EDITORIAL_CANTONS) {
         for (const locale of localeList) {
           const model = buildJobPartTimeLandingModel({
             jobs: validJobs,
@@ -2360,6 +2372,7 @@ ${alternates}
             baseUrl: BASE_URL,
             sectionSlug: sectionByLocale[locale],
             localePrefix: localePrefix[locale],
+            canton: editorialCanton,
           });
           editorialSearchSlugsByLocale.get(locale)?.add(model.slug);
           const canonicalPath = withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${model.slug}`.replace(/\/+/g, '/'));
@@ -2374,6 +2387,7 @@ ${alternates}
                 baseUrl: BASE_URL,
                 sectionSlug: sectionByLocale[altLocale],
                 localePrefix: localePrefix[altLocale],
+                canton: editorialCanton,
               });
               const altPath = `${localePrefix[altLocale]}/${sectionByLocale[altLocale]}/${altModel.slug}`.replace(/\/+/g, '/');
               return `    <link rel="alternate" hreflang="${altLocale}" href="${BASE_URL}${withSlash(altPath)}">`;
@@ -2391,7 +2405,7 @@ ${alternates}
             isPartOf: sectionRootUrl,
             breadcrumbs: [
               { name: 'Home', item: `${BASE_URL}/` },
-              { name: locale === 'it' ? 'Cerca lavoro in Ticino' : locale === 'en' ? 'Find jobs in Ticino' : locale === 'de' ? 'Jobs im Tessin' : 'Trouver un emploi au Tessin', item: sectionRootUrl },
+              { name: cantonSectionName(locale, CANTON_DISPLAY[editorialCanton] || editorialCanton), item: sectionRootUrl },
               { name: model.heading, item: canonicalUrl },
             ],
             items: [...model.feed.jobs, ...model.latestJobs],
@@ -2492,9 +2506,12 @@ ${alternates}
           baseUrl: BASE_URL,
           sectionSlug: sectionByLocale[locale],
           localePrefix: localePrefix[locale],
+          canton: editorialCanton,
         }), '0.76');
+        }
 
         for (const clusterKey of editorialCareKeys) {
+          for (const editorialCanton of EDITORIAL_CANTONS) {
           const italianCareModel = buildJobCareVariantLandingModel({
             jobs: validJobs,
             locale: 'it',
@@ -2504,6 +2521,7 @@ ${alternates}
             baseUrl: BASE_URL,
             sectionSlug: sectionByLocale.it,
             localePrefix: localePrefix.it,
+            canton: editorialCanton,
           });
           if (italianCareModel.totalJobs === 0) continue;
 
@@ -2517,6 +2535,7 @@ ${alternates}
               baseUrl: BASE_URL,
               sectionSlug: sectionByLocale[locale],
               localePrefix: localePrefix[locale],
+              canton: editorialCanton,
             });
             editorialSearchSlugsByLocale.get(locale)?.add(model.slug);
             const canonicalPath = withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${model.slug}`.replace(/\/+/g, '/'));
@@ -2532,6 +2551,7 @@ ${alternates}
                   baseUrl: BASE_URL,
                   sectionSlug: sectionByLocale[altLocale],
                   localePrefix: localePrefix[altLocale],
+                  canton: editorialCanton,
                 });
                 const altPath = `${localePrefix[altLocale]}/${sectionByLocale[altLocale]}/${altModel.slug}`.replace(/\/+/g, '/');
                 return `    <link rel="alternate" hreflang="${altLocale}" href="${BASE_URL}${withSlash(altPath)}">`;
@@ -2549,13 +2569,14 @@ ${alternates}
               isPartOf: model.parentHubHref,
               breadcrumbs: [
                 { name: 'Home', item: `${BASE_URL}/` },
-                { name: locale === 'it' ? 'Cerca lavoro in Ticino' : locale === 'en' ? 'Find jobs in Ticino' : locale === 'de' ? 'Jobs im Tessin' : 'Trouver un emploi au Tessin', item: sectionRootUrl },
-                { name: locale === 'it' ? 'Infermieri in Ticino' : locale === 'en' ? 'Nurses in Ticino' : locale === 'de' ? 'Pflege-Jobs im Tessin' : 'Infirmiers au Tessin', item: model.parentHubHref },
+                { name: cantonSectionName(locale, CANTON_DISPLAY[editorialCanton] || editorialCanton), item: sectionRootUrl },
+                { name: locale === 'it' ? `Infermieri in ${CANTON_DISPLAY[editorialCanton] || editorialCanton}` : locale === 'en' ? `Nurses in ${CANTON_DISPLAY[editorialCanton] || editorialCanton}` : locale === 'de' ? `Pflege-Jobs ${germanCantonPrep(CANTON_DISPLAY[editorialCanton] || editorialCanton)}` : `Infirmiers ${frenchCantonPrep(CANTON_DISPLAY[editorialCanton] || editorialCanton)}`, item: model.parentHubHref },
                 { name: model.heading, item: canonicalUrl },
               ],
               items: [...model.feed.jobs, ...model.latestJobs],
             });
-            const backLabel = locale === 'it' ? 'Torna all’hub infermieri in Ticino' : locale === 'en' ? 'Back to nurses in Ticino' : locale === 'de' ? 'Zuruck zum Pflege-Hub im Tessin' : 'Retour au hub infirmiers au Tessin';
+                        const edc = CANTON_DISPLAY[editorialCanton] || editorialCanton;
+            const backLabel = locale === 'it' ? `Torna all\u2019hub infermieri in ${edc}` : locale === 'en' ? `Back to nurses in ${edc}` : locale === 'de' ? `Zur\u00FCck zum Pflege-Hub ${germanCantonPrep(edc)}` : `Retour au hub infirmiers ${frenchCantonPrep(edc)}`;
             const html = `<!doctype html>
 <html lang="${locale}">
   <head>
@@ -2636,7 +2657,9 @@ ${alternates}
             baseUrl: BASE_URL,
             sectionSlug: sectionByLocale[locale],
             localePrefix: localePrefix[locale],
+            canton: editorialCanton,
           }), '0.71');
+          }
         }
 
         for (const location of editorialLocations) {
