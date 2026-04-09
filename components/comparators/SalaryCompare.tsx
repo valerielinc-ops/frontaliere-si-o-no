@@ -7,6 +7,7 @@ import {
 import { useExchangeRate } from '@/services/exchangeRateService';
 import {
   SALARY_DATA, getSectorMedian, TOTAL_PROFESSIONS, TOTAL_SECTORS,
+  SECTOR_METADATA,
   type SalaryLevel,
 } from '@/data/salaryData';
 
@@ -414,7 +415,27 @@ export default function SalaryCompare() {
 
                     {/* Expanded profession cards — 2-column grid */}
                     {expandedSectors.has(r.id) && (
-                      <div className="grid grid-cols-2 gap-2 px-3 pb-3">
+                      <div className="px-3 pb-3">
+                        {/* Sector metadata badges */}
+                        {SECTOR_METADATA[r.id] && (
+                          <div className="flex flex-wrap gap-1.5 mb-2.5">
+                            <span className="inline-flex items-center gap-1 text-[10px] bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-400 rounded-full px-2 py-0.5">
+                              <Users size={10} /> {SECTOR_METADATA[r.id].employeeCount.toLocaleString()} {t('salaryCompare.meta.employees')}
+                            </span>
+                            {SECTOR_METADATA[r.id].frontialieriRatio < 1.0 && (
+                              <span className="inline-flex items-center gap-1 text-[10px] bg-amber-50 dark:bg-amber-900/20 text-amber-700 dark:text-amber-400 rounded-full px-2 py-0.5">
+                                {t('salaryCompare.meta.frontalieri')} {Math.round((1 - SECTOR_METADATA[r.id].frontialieriRatio) * 100)}%
+                              </span>
+                            )}
+                            <span className="inline-flex items-center gap-1 text-[10px] bg-violet-50 dark:bg-violet-900/20 text-violet-700 dark:text-violet-400 rounded-full px-2 py-0.5">
+                              {t('salaryCompare.meta.genderGap')} {SECTOR_METADATA[r.id].genderGapPercent > 0 ? '+' : ''}{SECTOR_METADATA[r.id].genderGapPercent.toFixed(1)}%
+                            </span>
+                            <span className="inline-flex items-center gap-1 text-[10px] bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-400 rounded-full px-2 py-0.5">
+                              {t('salaryCompare.meta.eduPremium')} {SECTOR_METADATA[r.id].educationPremiumRatio.toFixed(2)}x
+                            </span>
+                          </div>
+                        )}
+                        <div className="grid grid-cols-2 gap-2">
                         {r.professions.map((p) => {
                           const ch = p.ch[selectedLevel]; // [min, median, max]
                           const it = p.it[selectedLevel]; // [min, median, max]
@@ -441,6 +462,7 @@ export default function SalaryCompare() {
                             </div>
                           );
                         })}
+                        </div>
                       </div>
                     )}
                   </div>
@@ -527,8 +549,37 @@ export default function SalaryCompare() {
                             </td>
                           </tr>
                           {/* Expanded profession rows */}
-                          {expandedSectors.has(r.id) &&
-                            r.professions.map((p) => {
+                          {expandedSectors.has(r.id) && (
+                            <>
+                              {/* Sector metadata row */}
+                              {SECTOR_METADATA[r.id] && (
+                                <tr className="bg-slate-50/80 dark:bg-slate-700/40 border-b border-slate-100 dark:border-slate-700/30">
+                                  <td colSpan={8} className="py-2 px-4">
+                                    <div className="flex flex-wrap gap-2">
+                                      <span className="inline-flex items-center gap-1 text-xs bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-400 rounded-full px-2.5 py-0.5">
+                                        <Users size={11} /> {SECTOR_METADATA[r.id].employeeCount.toLocaleString()} {t('salaryCompare.meta.employees')}
+                                      </span>
+                                      {SECTOR_METADATA[r.id].frontialieriRatio < 1.0 && (
+                                        <span className="inline-flex items-center gap-1 text-xs bg-amber-50 dark:bg-amber-900/20 text-amber-700 dark:text-amber-400 rounded-full px-2.5 py-0.5">
+                                          {t('salaryCompare.meta.frontalieri')} −{Math.round((1 - SECTOR_METADATA[r.id].frontialieriRatio) * 100)}%
+                                        </span>
+                                      )}
+                                      <span className="inline-flex items-center gap-1 text-xs bg-violet-50 dark:bg-violet-900/20 text-violet-700 dark:text-violet-400 rounded-full px-2.5 py-0.5">
+                                        {t('salaryCompare.meta.genderGap')} {SECTOR_METADATA[r.id].genderGapPercent > 0 ? '+' : ''}{SECTOR_METADATA[r.id].genderGapPercent.toFixed(1)}%
+                                      </span>
+                                      <span className="inline-flex items-center gap-1 text-xs bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-400 rounded-full px-2.5 py-0.5">
+                                        {t('salaryCompare.meta.eduPremium')} {SECTOR_METADATA[r.id].educationPremiumRatio.toFixed(2)}x
+                                      </span>
+                                      {SECTOR_METADATA[r.id].cclMinimumAnnual > 41600 && (
+                                        <span className="inline-flex items-center gap-1 text-xs bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-400 rounded-full px-2.5 py-0.5">
+                                          CCL min CHF {SECTOR_METADATA[r.id].cclMinimumAnnual.toLocaleString()}/yr
+                                        </span>
+                                      )}
+                                    </div>
+                                  </td>
+                                </tr>
+                              )}
+                            {r.professions.map((p) => {
                               const ch = p.ch[selectedLevel];
                               const it = p.it[selectedLevel];
                               return (
@@ -586,6 +637,8 @@ export default function SalaryCompare() {
                                 </tr>
                               );
                             })}
+                            </>
+                          )}
                         </React.Fragment>
                       ))}
                     </tbody>
