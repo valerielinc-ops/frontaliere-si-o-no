@@ -2,21 +2,23 @@
 /**
  * preserve-clarity-assets.mjs
  *
- * Downloads CSS and JS assets from the currently-deployed site so they survive
- * the next deploy. Microsoft Clarity session recordings reference specific
- * hashed asset URLs; if those files 404 after a deploy, recordings render
- * without styling.
+ * Preserves ALL CSS and JS assets from the previous deploy so Microsoft Clarity
+ * session recordings don't break. Clarity records DOM with references to specific
+ * hashed asset URLs (/assets/index-A3bC4d.css, /assets/App-XyZ123.js, etc.).
+ * When those files 404 after the next deploy, recordings render as unstyled HTML.
  *
- * Usage:
- *   BEFORE build:  node scripts/preserve-clarity-assets.mjs --download
- *                  → Fetches live index.html, extracts asset URLs, downloads them
- *                    to .clarity-asset-cache/
+ * How it works:
+ *   --snapshot (before build):
+ *     Copies every .css/.js file from dist/assets/ into .clarity-asset-cache/.
+ *     In CI, dist/assets/ exists because the GitHub Actions cache restores it.
+ *     Writes a manifest with timestamps for age-based expiry.
  *
- *   AFTER build:   node scripts/preserve-clarity-assets.mjs --merge
- *                  → Copies cached assets into dist/assets/ (skips files that
- *                    already exist from the fresh build)
+ *   --merge (after build):
+ *     Copies cached assets into dist/assets/ — skipping files already present
+ *     from the fresh build and files older than 30 days.
  *
- * The cache directory is gitignored and ephemeral (CI-only).
+ * The GitHub Actions cache (`clarity-assets-*`) persists .clarity-asset-cache/
+ * across deploys, accumulating 1-2 generations of old assets.
  */
 
 import fs from 'node:fs';
@@ -27,128 +29,88 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const CACHE_DIR = path.join(ROOT, '.clarity-asset-cache');
 const DIST_ASSETS = path.join(ROOT, 'dist', 'assets');
-const SITE_URL = 'https://frontaliereticino.ch';
 
-// Only preserve CSS and JS — these are what Clarity needs for recording playback.
-// Images, fonts, and HTML are not needed (Clarity caches those separately or
-// they don't affect recording fidelity).
 const ASSET_EXTENSIONS = ['.css', '.js'];
-
-// Maximum age for cached assets (30 days). Older recordings are rarely replayed,
-// and keeping too many old assets bloats the deploy artifact.
-const MAX_AGE_DAYS = 30;
-
-async function fetchText(url) {
-  const res = await fetch(url, {
-    headers: { 'User-Agent': 'Clarity-Asset-Preserver/1.0' },
-    signal: AbortSignal.timeout(15_000),
-  });
-  if (!res.ok) throw new Error(`${res.status} ${res.statusText} for ${url}`);
-  return res.text();
-}
-
-async function fetchBuffer(url) {
-  const res = await fetch(url, {
-    headers: { 'User-Agent': 'Clarity-Asset-Preserver/1.0' },
-    signal: AbortSignal.timeout(30_000),
-  });
-  if (!res.ok) return null; // Silently skip 404s — asset may have been purged
-  return Buffer.from(await res.arrayBuffer());
-}
+const MAX_AGE_DAYS = 7;
 
 /**
- * Extract hashed asset URLs from HTML content.
- * Matches patterns like: /assets/index-A3bC4dEf.css, /assets/vendor-react-XyZ123.js
+ * --snapshot: Save ALL current dist/assets/*.{css,js} into the cache.
+ * This runs BEFORE build (before prepareOutDirPlugin wipes dist/).
+ * In CI, the GitHub Actions cache restores dist/assets/ from the previous deploy.
  */
-function extractAssetUrls(html) {
-  const urls = new Set();
-  // Match src="..." and href="..." pointing to /assets/
-  const regex = /(?:src|href)=["']([^"']*\/assets\/[^"']+)["']/g;
-  let m;
-  while ((m = regex.exec(html)) !== null) {
-    const assetPath = m[1];
-    if (ASSET_EXTENSIONS.some(ext => assetPath.endsWith(ext))) {
-      urls.add(assetPath);
-    }
-  }
-  // Also match dynamic imports in inline scripts: import("/assets/...")
-  const importRegex = /import\s*\(\s*["']([^"']*\/assets\/[^"']+)["']\s*\)/g;
-  while ((m = importRegex.exec(html)) !== null) {
-    const assetPath = m[1];
-    if (ASSET_EXTENSIONS.some(ext => assetPath.endsWith(ext))) {
-      urls.add(assetPath);
-    }
-  }
-  return [...urls];
-}
+function snapshot() {
+  console.log('📸 Snapshotting current dist/assets/ for Clarity recording continuity...');
 
-async function download() {
-  console.log('📦 Downloading current live assets for Clarity recording continuity...');
-
-  // Step 1: Fetch the live index.html
-  let html;
-  try {
-    html = await fetchText(SITE_URL);
-  } catch (err) {
-    console.warn(`⚠️  Could not fetch live site (${err.message}) — skipping asset preservation`);
-    process.exit(0); // Non-blocking: fresh deploy will work, just old recordings may break
-  }
-
-  // Step 2: Extract asset URLs
-  const assetPaths = extractAssetUrls(html);
-  console.log(`   Found ${assetPaths.length} CSS/JS assets on live site`);
-
-  if (assetPaths.length === 0) {
-    console.log('   No assets to preserve');
+  if (!fs.existsSync(DIST_ASSETS)) {
+    console.log('   dist/assets/ does not exist — nothing to snapshot');
+    console.log('   (First deploy or cache miss — old recordings may lose styling)');
     return;
   }
 
-  // Step 3: Create cache directory
-  fs.mkdirSync(CACHE_DIR, { recursive: true });
+  const files = fs.readdirSync(DIST_ASSETS).filter(f =>
+    ASSET_EXTENSIONS.some(ext => f.endsWith(ext))
+  );
 
-  // Step 4: Download each asset
-  let downloaded = 0;
-  let skipped = 0;
-  for (const assetPath of assetPaths) {
-    const filename = path.basename(assetPath);
-    const cachePath = path.join(CACHE_DIR, filename);
-
-    // Skip if already cached
-    if (fs.existsSync(cachePath)) {
-      skipped++;
-      continue;
-    }
-
-    const url = assetPath.startsWith('http') ? assetPath : `${SITE_URL}${assetPath}`;
-    const buf = await fetchBuffer(url);
-    if (buf) {
-      fs.writeFileSync(cachePath, buf);
-      downloaded++;
-    }
+  if (files.length === 0) {
+    console.log('   No CSS/JS files found in dist/assets/ — skipping');
+    return;
   }
 
-  console.log(`   Downloaded: ${downloaded}, already cached: ${skipped}`);
+  fs.mkdirSync(CACHE_DIR, { recursive: true });
 
-  // Step 5: Write a manifest with timestamps for age-based cleanup
+  // Load existing manifest (may have entries from previous deploys via GH Actions cache)
   const manifestPath = path.join(CACHE_DIR, '_manifest.json');
   let manifest = {};
   if (fs.existsSync(manifestPath)) {
     try { manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8')); } catch {}
   }
+
   const now = new Date().toISOString();
-  for (const assetPath of assetPaths) {
-    const filename = path.basename(assetPath);
-    if (!manifest[filename]) {
-      manifest[filename] = { firstSeen: now, lastSeen: now };
-    } else {
-      manifest[filename].lastSeen = now;
+  let copied = 0;
+  let skipped = 0;
+
+  for (const file of files) {
+    const src = path.join(DIST_ASSETS, file);
+    const dest = path.join(CACHE_DIR, file);
+
+    if (fs.existsSync(dest)) {
+      // Already in cache — just update lastSeen
+      if (manifest[file]) manifest[file].lastSeen = now;
+      skipped++;
+      continue;
+    }
+
+    fs.copyFileSync(src, dest);
+    manifest[file] = { firstSeen: now, lastSeen: now };
+    copied++;
+  }
+
+  // Prune expired entries from manifest (files older than MAX_AGE_DAYS)
+  const maxAgeMs = MAX_AGE_DAYS * 24 * 60 * 60 * 1000;
+  const nowMs = Date.now();
+  let pruned = 0;
+  for (const [file, entry] of Object.entries(manifest)) {
+    if (entry.firstSeen && (nowMs - new Date(entry.firstSeen).getTime()) > maxAgeMs) {
+      // Remove expired asset from cache
+      const cached = path.join(CACHE_DIR, file);
+      if (fs.existsSync(cached)) fs.unlinkSync(cached);
+      delete manifest[file];
+      pruned++;
     }
   }
+
   fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2));
 
+  console.log(`   Snapshot: ${copied} new, ${skipped} already cached, ${pruned} expired & pruned`);
+  console.log(`   Total in cache: ${Object.keys(manifest).length} assets`);
   console.log('   ✅ Assets cached for post-build merge');
 }
 
+/**
+ * --merge: Copy cached assets into the fresh dist/assets/.
+ * Skips files that already exist (same hash = same filename).
+ * Skips files older than MAX_AGE_DAYS.
+ */
 function merge() {
   console.log('🔀 Merging previous CSS/JS assets into dist/ for Clarity...');
 
@@ -162,7 +124,6 @@ function merge() {
     return;
   }
 
-  // Load manifest for age filtering
   const manifestPath = path.join(CACHE_DIR, '_manifest.json');
   let manifest = {};
   if (fs.existsSync(manifestPath)) {
@@ -181,7 +142,6 @@ function merge() {
   let skippedOld = 0;
 
   for (const file of files) {
-    // Skip assets older than MAX_AGE_DAYS
     const entry = manifest[file];
     if (entry?.firstSeen) {
       const age = now - new Date(entry.firstSeen).getTime();
@@ -193,7 +153,7 @@ function merge() {
 
     const dest = path.join(DIST_ASSETS, file);
     if (fs.existsSync(dest)) {
-      skippedExists++; // Current build already has this file (hash unchanged)
+      skippedExists++;
       continue;
     }
 
@@ -207,11 +167,11 @@ function merge() {
 
 // ── CLI ──
 const cmd = process.argv[2];
-if (cmd === '--download') {
-  download().catch(err => { console.error('❌', err.message); process.exit(1); });
+if (cmd === '--snapshot') {
+  snapshot();
 } else if (cmd === '--merge') {
   merge();
 } else {
-  console.error('Usage: node preserve-clarity-assets.mjs --download | --merge');
+  console.error('Usage: node preserve-clarity-assets.mjs --snapshot | --merge');
   process.exit(1);
 }
