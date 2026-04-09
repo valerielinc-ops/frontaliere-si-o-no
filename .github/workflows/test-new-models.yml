@@ -15,6 +15,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
 
       - name: Prepare Firebase credentials
         run: echo '${{ secrets.FIREBASE_SA_KEY }}' > /tmp/sa-key.json
@@ -27,7 +31,7 @@ jobs:
       - name: Test new models
         run: |
           node -e "
-          const { callLLM, AI_MODELS, markExhausted } = await import('./scripts/lib/ai-models.mjs');
+          const { callLLM, AI_MODELS } = await import('./scripts/lib/ai-models.mjs');
 
           const modelsToTest = [
             { name: 'CF_GEMMA_4_26B', id: AI_MODELS.CF_GEMMA_4_26B },
@@ -40,21 +44,29 @@ jobs:
 
           const prompt = 'Translate to German. Output ONLY the translation, nothing else: Offerta di lavoro come ingegnere software a Lugano, Svizzera. Contratto a tempo indeterminato con salario competitivo.';
 
+          let passed = 0, failed = 0;
           for (const m of modelsToTest) {
-            console.log('---');
+            console.log('');
+            console.log('========================================');
             console.log('Testing:', m.name, '(' + m.id + ')');
+            console.log('========================================');
             try {
               const result = await callLLM(prompt, {
                 chain: [m.id],
                 maxTokens: 200,
                 temperature: 0.3,
               });
-              console.log('✅ SUCCESS');
-              console.log('Model used:', result.model);
-              console.log('Output:', result.text.slice(0, 200));
+              console.log('✅ SUCCESS — model:', result.model);
+              console.log('   Output:', result.text.slice(0, 300));
+              passed++;
             } catch (err) {
-              console.log('❌ FAILED:', err.message);
+              console.log('❌ FAILED:', err.message.slice(0, 500));
+              failed++;
             }
           }
-          console.log('--- DONE ---');
+          console.log('');
+          console.log('========================================');
+          console.log('RESULTS:', passed, 'passed,', failed, 'failed out of', modelsToTest.length);
+          console.log('========================================');
+          if (failed > 0) process.exit(1);
           "
