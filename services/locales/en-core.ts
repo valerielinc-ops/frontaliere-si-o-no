@@ -2330,6 +2330,13 @@ Rules:
     'seoContent.stats.check4': 'Historical CHF-EUR exchange trends and community data',
 
     // ─── What's New / Feature Announcements ─────────────────────────────
+    'whatsNew.v3450.title': 'More Accurate Salary Estimates for Cross-Border Workers',
+    'whatsNew.v3450.salaryFrontalieri.title': 'Frontalieri Wage Discount Applied',
+    'whatsNew.v3450.salaryFrontalieri.desc': 'Salary estimates now include the sector-specific cross-border worker wage differential based on USTAT data, with more realistic ranges.',
+    'whatsNew.v3450.sectorContext.title': 'Sector Context in Job Details',
+    'whatsNew.v3450.sectorContext.desc': 'Each job listing now shows USTAT sector data: employee count, frontalieri wage gap, CCL minimums, and education premium.',
+    'whatsNew.v3450.maxValueFix.title': 'Salary Range Fix',
+    'whatsNew.v3450.maxValueFix.desc': 'Fixed an issue where the maximum salary value could be missing from structured data for Google.',
     'whatsNew.v3440.title': 'AI SEO Optimization & New Pillar Articles',
     'whatsNew.v3440.pillarArticles.title': '4 In-Depth Guides for Cross-Border Workers',
     'whatsNew.v3440.pillarArticles.desc': 'New pillar articles: G Permit pros/cons, LAMal vs SSN, Finding work in Ticino, and Complete guide to becoming a cross-border worker.',

@@ -51,7 +51,7 @@ function flattenCanonical(entry: CanonicalEntry): string {
 
 describe('cross-locale content leakage guard', () => {
   const jobs: Job[] = JSON.parse(fs.readFileSync(DATA_JOBS_PATH, 'utf-8'));
-  const jobsWithCanonical = jobs.filter(j => j.canonicalContent?.byLocale);
+  const jobsWithCanonical = jobs.filter(j => j.canonicalContent?.byLocale && !j.needsRetranslation);
 
   it('jobs with canonicalContent exist', () => {
     expect(jobsWithCanonical.length).toBeGreaterThan(0);

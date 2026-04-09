@@ -2330,6 +2330,13 @@ Regeln:
     'seoContent.stats.check4': 'Historische CHF-EUR Kursentwicklung und Gemeinschaftsdaten',
 
     // ─── What's New / Feature Announcements ─────────────────────────────
+    'whatsNew.v3450.title': 'Genauere Gehaltsschätzungen für Grenzgänger',
+    'whatsNew.v3450.salaryFrontalieri.title': 'Grenzgänger-Lohnabschlag Angewendet',
+    'whatsNew.v3450.salaryFrontalieri.desc': 'Gehaltsschätzungen berücksichtigen jetzt den branchenspezifischen Grenzgänger-Lohnunterschied basierend auf USTAT-Daten mit realistischeren Spannen.',
+    'whatsNew.v3450.sectorContext.title': 'Branchenkontext in Stellendetails',
+    'whatsNew.v3450.sectorContext.desc': 'Jede Stellenanzeige zeigt nun USTAT-Branchendaten: Mitarbeiterzahl, Grenzgänger-Lohngefälle, GAV-Mindestlöhne und Bildungsprämie.',
+    'whatsNew.v3450.maxValueFix.title': 'Gehaltsbereichs-Korrektur',
+    'whatsNew.v3450.maxValueFix.desc': 'Ein Problem wurde behoben, bei dem der maximale Gehaltswert in den strukturierten Daten für Google fehlen konnte.',
     'whatsNew.v3440.title': 'AI-SEO-Optimierung und Neue Pillar-Artikel',
     'whatsNew.v3440.pillarArticles.title': '4 Ausführliche Ratgeber für Grenzgänger',
     'whatsNew.v3440.pillarArticles.desc': 'Neue Pillar-Artikel: G-Bewilligung Vor-/Nachteile, KVG vs SSN, Arbeit im Tessin finden und Kompletter Leitfaden für Grenzgänger.',

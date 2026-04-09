@@ -27,6 +27,30 @@ interface Release {
 
 export const RELEASES: Release[] = [
   {
+    version: '3.45.0',
+    date: '2026-04-09',
+    titleKey: 'whatsNew.v3450.title',
+    items: [
+      {
+        type: 'improvement',
+        titleKey: 'whatsNew.v3450.salaryFrontalieri.title',
+        descKey: 'whatsNew.v3450.salaryFrontalieri.desc',
+        link: { tab: 'job-board' },
+      },
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3450.sectorContext.title',
+        descKey: 'whatsNew.v3450.sectorContext.desc',
+        link: { tab: 'job-board' },
+      },
+      {
+        type: 'fix',
+        titleKey: 'whatsNew.v3450.maxValueFix.title',
+        descKey: 'whatsNew.v3450.maxValueFix.desc',
+      },
+    ],
+  },
+  {
     version: '3.44.0',
     date: '2026-04-03',
     titleKey: 'whatsNew.v3440.title',

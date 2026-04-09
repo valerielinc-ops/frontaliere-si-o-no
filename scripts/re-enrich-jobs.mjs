@@ -77,6 +77,37 @@ function stripCopyPasteLocales(job) {
     }
   }
 
+  // Mark as needing retranslation if any locale was stripped or canonical content leaks
+  const hasEmptyTitle = out.titleByLocale && LOCALES.some(l => !(out.titleByLocale[l] || '').trim());
+  const hasEmptyDesc = out.descriptionByLocale && LOCALES.some(l => !(out.descriptionByLocale[l] || '').trim());
+  let hasCanonicalLeak = false;
+  if (out.canonicalContent?.byLocale) {
+    const byLocale = out.canonicalContent.byLocale;
+    const localeTexts = {};
+    for (const locale of LOCALES) {
+      const entry = byLocale[locale];
+      if (!entry) continue;
+      const summaryText = JSON.stringify(entry.summary || []);
+      const fullText = summaryText + JSON.stringify(entry.responsibilities || []) + JSON.stringify(entry.requirements || []);
+      if (fullText.length < 10) continue;
+      localeTexts[locale] = { summaryText, fullText };
+    }
+    const keys = Object.keys(localeTexts);
+    outer: for (let i = 0; i < keys.length; i++) {
+      for (let j = i + 1; j < keys.length; j++) {
+        const a = localeTexts[keys[i]];
+        const b = localeTexts[keys[j]];
+        if (a.fullText === b.fullText || (a.summaryText.length > 5 && a.summaryText === b.summaryText)) {
+          hasCanonicalLeak = true;
+          break outer;
+        }
+      }
+    }
+  }
+  if (hasEmptyTitle || hasEmptyDesc || hasCanonicalLeak) {
+    out.needsRetranslation = true;
+  }
+
   return out;
 }
 

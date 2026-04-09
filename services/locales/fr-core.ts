@@ -2330,6 +2330,13 @@ Règles :
     'seoContent.stats.check4': 'Historique du change CHF-EUR et données communauté frontalière',
 
     // ─── What's New / Feature Announcements ─────────────────────────────────
+    'whatsNew.v3450.title': 'Estimations Salariales Plus Précises pour Frontaliers',
+    'whatsNew.v3450.salaryFrontalieri.title': 'Décote Frontalier Appliquée',
+    'whatsNew.v3450.salaryFrontalieri.desc': 'Les estimations salariales incluent désormais le différentiel de rémunération frontalier par secteur basé sur les données USTAT, avec des fourchettes plus réalistes.',
+    'whatsNew.v3450.sectorContext.title': 'Contexte Sectoriel dans les Détails d\'Emploi',
+    'whatsNew.v3450.sectorContext.desc': 'Chaque offre affiche maintenant les données USTAT du secteur : nombre d\'employés, écart salarial frontalier, minimums CCT et prime de formation.',
+    'whatsNew.v3450.maxValueFix.title': 'Correction de la Fourchette Salariale',
+    'whatsNew.v3450.maxValueFix.desc': 'Correction d\'un problème où la valeur maximale du salaire pouvait manquer dans les données structurées pour Google.',
     'whatsNew.v3440.title': 'Optimisation SEO IA et Nouveaux Articles Piliers',
     'whatsNew.v3440.pillarArticles.title': '4 Guides Approfondis pour Frontaliers',
     'whatsNew.v3440.pillarArticles.desc': 'Nouveaux articles piliers : Permis G avantages/inconvénients, LAMal vs SSN, Trouver un emploi au Tessin et Guide complet pour devenir frontalier.',

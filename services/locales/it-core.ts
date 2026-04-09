@@ -2419,6 +2419,13 @@ Regole:
     'seoContent.stats.check4': 'Andamento storico cambio CHF-EUR e dati comunità frontaliera',
 
     // ─── What's New / Feature Announcements ─────────────────────────────
+    'whatsNew.v3450.title': 'Stime Salariali Più Precise per Frontalieri',
+    'whatsNew.v3450.salaryFrontalieri.title': 'Sconto Frontaliere Applicato',
+    'whatsNew.v3450.salaryFrontalieri.desc': 'Le stime salariali ora includono il differenziale retributivo frontaliere per settore basato su dati USTAT, con range più realistici.',
+    'whatsNew.v3450.sectorContext.title': 'Contesto Settoriale nel Dettaglio Lavoro',
+    'whatsNew.v3450.sectorContext.desc': 'Ogni annuncio mostra ora dati USTAT del settore: numero dipendenti, gap salariale frontaliere, minimi CCL e premio formazione.',
+    'whatsNew.v3450.maxValueFix.title': 'Correzione Range Salariale',
+    'whatsNew.v3450.maxValueFix.desc': 'Risolto un problema per cui il valore massimo dello stipendio poteva mancare nei dati strutturati per Google.',
     'whatsNew.v3440.title': 'Ottimizzazione AI SEO e Nuovi Articoli Pilastro',
     'whatsNew.v3440.pillarArticles.title': '4 Guide Approfondite per Frontalieri',
     'whatsNew.v3440.pillarArticles.desc': 'Nuovi articoli pilastro: Permesso G pro/contro, LAMal vs SSN, Trovare lavoro in Ticino e Guida completa per diventare frontaliere.',
