@@ -4856,16 +4856,16 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-confusione-tassa-salute-frontalieri': {
-    title: 'Frontalieri e tassa salute: la confusione tra politica e',
+    title: 'Tassa Salute: Confusione tra Politica e Realtà',
     description: 'Le recenti dichiarazioni politiche sulla tassa salute creano incertezza tra i frontalieri e gli operatori del settore. Analisi delle posizioni e delle normative',
     keywords: 'frontalieri, ticino, svizzera, italia, tassa, salute, confusione, politica',
-    ogTitle: 'Frontalieri e tassa salute: la confusione tra politica e',
+    ogTitle: 'Tassa Salute: Confusione tra Politica e Realtà',
     ogDescription: 'Le recenti dichiarazioni politiche sulla tassa salute creano incertezza tra i frontalieri e gli operatori del settore. Analisi delle posizioni e delle normative',
     canonicalPath: '/articoli-frontaliere/confusione-tassa-salute-frontalieri',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Frontalieri e tassa salute: la confusione tra politica e",
+      "headline": "Tassa Salute: Confusione tra Politica e Realtà",
       "description": "Le recenti dichiarazioni politiche sulla tassa salute creano incertezza tra i frontalieri e gli operatori del settore. Analisi delle posizioni e delle normative",
       "image": {
         "@type": "ImageObject",
@@ -5841,6 +5841,35 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         ]
       }
     ]
+  },
+
+  'sindacati': {
+    title: 'Sindacati Frontalieri Svizzera 2026 | Guida',
+    description: 'UNIA, Syndicom, SEV, OCST: sindacati per frontalieri in Ticino. Costi, sedi, servizi legali, CCL e assistenza su licenziamento, busta paga e controversie.',
+    keywords: 'sindacati frontalieri, unia ticino, ocst, syndicom, sev, sindacato svizzero, contratto collettivo, ccl, diritti lavoratori frontalieri, assistenza legale',
+    ogTitle: 'Sindacati per Frontalieri in Ticino — Guida Completa',
+    ogDescription: 'UNIA, Syndicom, SEV, OCST: costi, sedi e servizi per frontalieri. Consulenza legale, contratti collettivi e tutela dei diritti.',
+    canonicalPath: '/sindacati-frontalieri',
+    structuredData: [
+      {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Sindacati per Frontalieri in Svizzera",
+        "url": `${BASE_URL}/sindacati-frontalieri/`,
+        "description": "Guida ai principali sindacati svizzeri per lavoratori frontalieri: UNIA, Syndicom, SEV, OCST. Costi, servizi e contatti Ticino.",
+        "inLanguage": "it",
+        "mainEntity": {
+          "@type": "ItemList",
+          "numberOfItems": 4,
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "UNIA — Sindacato svizzero", "url": "https://www.unia.ch/it" },
+            { "@type": "ListItem", "position": 2, "name": "Syndicom — Media e comunicazione", "url": "https://syndicom.ch/it" },
+            { "@type": "ListItem", "position": 3, "name": "SEV — Sindacato del personale dei trasporti", "url": "https://sev-online.ch/it" },
+            { "@type": "ListItem", "position": 4, "name": "OCST — Organizzazione Cristiano-Sociale Ticinese", "url": "https://www.ocst.com" }
+          ]
+        }
+      }
+    ],
   },
 
   'chi-siamo': {

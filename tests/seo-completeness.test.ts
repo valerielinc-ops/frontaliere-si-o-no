@@ -313,6 +313,7 @@ describe('SEO Completeness — every page has proper SEO setup', () => {
       'weekly-digest',
       'tool-of-week',
       'guidaCompleta',
+      'sindacati',
     ]);
 
     for (const key of Object.keys(SEO_METADATA)) {
