@@ -389,7 +389,7 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
                 <span className="font-bold text-green-600 dark:text-green-400">{formatCurrency(itResult.netMonthly)}</span>
               </div>
               <div className="mt-2 p-2 bg-slate-50 dark:bg-slate-700/50 rounded-lg">
-                <span className="text-xs text-slate-500 dark:text-slate-400">{t('ral.effectiveRate')}: <b>{itResult.effectiveRate.toFixed(1)}%</b></span>
+                <span className="text-sm text-slate-500 dark:text-slate-400">{t('ral.effectiveRate')}: <b>{itResult.effectiveRate.toFixed(1)}%</b></span>
               </div>
             </div>
           </div>
@@ -447,7 +447,7 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
                 <span className="font-bold text-green-600 dark:text-green-400">{formatCurrency(chResult.netMonthly * chfEurRate)}</span>
               </div>
               <div className="mt-2 p-2 bg-slate-50 dark:bg-slate-700/50 rounded-lg">
-                <span className="text-xs text-slate-500 dark:text-slate-400">{t('ral.effectiveRate')}: <b>{chResult.effectiveRate.toFixed(1)}%</b></span>
+                <span className="text-sm text-slate-500 dark:text-slate-400">{t('ral.effectiveRate')}: <b>{chResult.effectiveRate.toFixed(1)}%</b></span>
               </div>
             </div>
           </div>
@@ -502,7 +502,7 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
           </div>
 
           <div className="mt-4 p-3 bg-amber-50 dark:bg-amber-950/30 rounded-xl border border-amber-200 dark:border-amber-800">
-            <p className="text-xs text-amber-700 dark:text-amber-300">
+            <p className="text-sm text-amber-700 dark:text-amber-300">
               <Info className="inline w-3 h-3 mr-1" />
               {t('ral.disclaimer')}
             </p>

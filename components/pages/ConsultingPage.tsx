@@ -226,7 +226,7 @@ const ConsultingPage: React.FC = () => {
               <h3 className="font-semibold text-sm text-slate-900 dark:text-white">
                 {t(`consulting.${key}.title`)}
               </h3>
-              <p className="text-xs text-slate-500 dark:text-slate-400">
+              <p className="text-sm text-slate-500 dark:text-slate-400">
                 {t(`consulting.${key}.desc`)}
               </p>
             </div>

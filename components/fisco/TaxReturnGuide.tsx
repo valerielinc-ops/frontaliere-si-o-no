@@ -266,7 +266,7 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
                         </span>
                       )}
                     </div>
-                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                    <p className="text-sm text-slate-500 dark:text-slate-400 mt-0.5">
                       {t(`taxReturn.documents.${doc.key}Desc`)}
                     </p>
                   </div>
@@ -299,7 +299,7 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
                       </span>
                     )}
                   </div>
-                  <p className="text-xs text-slate-500 dark:text-slate-400">
+                  <p className="text-sm text-slate-500 dark:text-slate-400">
                     {t(`taxReturn.deductions.${ded.key}Desc`)}
                   </p>
                 </div>
@@ -343,7 +343,7 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
                         <h4 className="font-semibold text-sm text-slate-800 dark:text-slate-200">
                           {t(`taxReturn.timeline.${event.key}`)}
                         </h4>
-                        <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                        <p className="text-sm text-slate-500 dark:text-slate-400 mt-0.5">
                           {t(`taxReturn.timeline.${event.key}Desc`)}
                         </p>
                       </div>

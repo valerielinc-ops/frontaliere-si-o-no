@@ -115,7 +115,7 @@ export default function NaspiCalculator() {
       {/* Info banner */}
       <div className="flex items-start gap-2.5 bg-blue-50 dark:bg-blue-950/30 rounded-xl p-3 border border-blue-200 dark:border-blue-800">
         <Info size={16} className="text-blue-500 mt-0.5 shrink-0" />
-        <p className="text-xs text-blue-700 dark:text-blue-300">
+        <p className="text-sm text-blue-700 dark:text-blue-300">
           {t('naspi.calc.disclaimer')}
         </p>
       </div>

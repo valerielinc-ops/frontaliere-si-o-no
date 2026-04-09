@@ -368,7 +368,7 @@ export default function CarCostCalculator() {
                     : `${t('carCost.savings')}: CHF ${Math.abs(diff).toLocaleString()}/anno con targhe CH`}
                 </p>
                 {showSdoganamento && diff < 0 && (
-                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                  <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
                     Ammortamento sdoganamento: ~{Math.ceil(result.sdoganamento / Math.abs(diff))} anni
                   </p>
                 )}

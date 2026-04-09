@@ -221,7 +221,7 @@ const TransportCalculator: React.FC = () => {
               />
               <span className="text-sm font-bold text-slate-600 dark:text-slate-400">km</span>
             </div>
-            <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+            <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
               {t('transport.roundTrip')}: {kmPerDay} km/{t('transport.day')}
             </p>
           </div>
@@ -241,7 +241,7 @@ const TransportCalculator: React.FC = () => {
               />
               <span className="text-sm font-bold text-slate-600 dark:text-slate-400">{t('transport.days')}</span>
             </div>
-            <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+            <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
               {t('transport.total')}: {kmPerMonth.toLocaleString()} km/{t('transport.month')}, {kmPerYear.toLocaleString()} km/{t('transport.year')}
             </p>
           </div>
@@ -390,7 +390,7 @@ const TransportCalculator: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100">{result.name}</h3>
-                  <p className="text-xs text-slate-500 dark:text-slate-400">
+                  <p className="text-sm text-slate-500 dark:text-slate-400">
                     {result.type.includes('car') ? `${kmPerYear.toLocaleString()} km/${t('transport.year')}` : t('transport.publicTransport')}
                   </p>
                 </div>
@@ -400,7 +400,7 @@ const TransportCalculator: React.FC = () => {
                 <div className="text-2xl font-bold text-slate-800 dark:text-slate-100">
                   € {result.costPerMonth.toFixed(2)}
                 </div>
-                <div className="text-xs text-slate-500 dark:text-slate-400">{t('transport.perMonth')}</div>
+                <div className="text-sm text-slate-500 dark:text-slate-400">{t('transport.perMonth')}</div>
               </div>
             </div>
 

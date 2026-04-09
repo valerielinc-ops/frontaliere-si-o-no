@@ -441,7 +441,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
                   </div>
                   <div className="flex-1 min-w-0">
                     <h3 className="font-bold text-slate-800 dark:text-slate-100 truncate">{crossing.name}</h3>
-                    <p className="text-xs text-slate-500 dark:text-slate-400">{crossing.canton} — {crossing.province} · {crossing.type}</p>
+                    <p className="text-sm text-slate-500 dark:text-slate-400">{crossing.canton} — {crossing.province} · {crossing.type}</p>
                   </div>
                 </div>
 
@@ -449,7 +449,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
                   <span className={`text-sm font-bold ${textColor}`}>
                     {t(STATUS_LABEL_KEYS[status])} — {effectiveWait(traffic)} min
                   </span>
-                  <span className="text-xs text-slate-500 dark:text-slate-400">{traffic.direction}</span>
+                  <span className="text-sm text-slate-500 dark:text-slate-400">{traffic.direction}</span>
                 </div>
 
                 {isSelected && (

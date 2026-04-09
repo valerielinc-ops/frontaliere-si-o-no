@@ -325,7 +325,7 @@ const TredicesimalCalculator: React.FC = () => {
 
               {/* Tredicesima */}
               <div className="bg-amber-50 dark:bg-amber-900/20 rounded-xl p-4 text-center">
-                <p className="text-xs text-amber-700 dark:text-amber-300 mb-1">{t('tredicesima.results.tredicesima')}</p>
+                <p className="text-sm text-amber-700 dark:text-amber-300 mb-1">{t('tredicesima.results.tredicesima')}</p>
                 <p className="text-lg font-bold text-amber-700 dark:text-amber-300">{formatCurrency(result.tredicesima, result.currency)}</p>
               </div>
 
@@ -339,7 +339,7 @@ const TredicesimalCalculator: React.FC = () => {
 
               {/* Total Extra */}
               <div className="bg-emerald-50 dark:bg-emerald-900/20 rounded-xl p-4 text-center">
-                <p className="text-xs text-emerald-700 dark:text-emerald-300 mb-1">{t('tredicesima.results.totalExtra')}</p>
+                <p className="text-sm text-emerald-700 dark:text-emerald-300 mb-1">{t('tredicesima.results.totalExtra')}</p>
                 <p className="text-lg font-bold text-emerald-700 dark:text-emerald-300">{formatCurrency(result.totalExtra, result.currency)}</p>
               </div>
             </div>

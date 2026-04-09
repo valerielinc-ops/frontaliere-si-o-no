@@ -85,7 +85,7 @@ const CreatorProducts: React.FC<CreatorProductsProps> = ({
                   {p.price}
                 </span>
               ) : (
-                <span className="text-xs text-slate-500 dark:text-slate-400">
+                <span className="text-sm text-slate-500 dark:text-slate-400">
                   amazon.it
                 </span>
               )}

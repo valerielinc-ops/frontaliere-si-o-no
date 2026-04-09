@@ -4200,7 +4200,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
             <Briefcase size={16} className="text-indigo-600 dark:text-indigo-400 flex-shrink-0" />
             <div className="min-w-0">
               <p className="text-sm font-semibold text-slate-900 dark:text-white line-clamp-2">{sanitizeJobTitle(pendingJob.titleByLocale?.[locale] ?? pendingJob.title)}</p>
-              <p className="text-xs text-slate-500 dark:text-slate-400 line-clamp-2">{pendingJob.company}{pendingJob.location ? ` — ${pendingJob.location}` : ''}</p>
+              <p className="text-sm text-slate-500 dark:text-slate-400 line-clamp-2">{pendingJob.company}{pendingJob.location ? ` — ${pendingJob.location}` : ''}</p>
             </div>
           </div>
         )}
@@ -4249,7 +4249,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
           {/* Divider */}
           <div className="flex items-center gap-3">
             <div className="flex-1 h-px bg-slate-200 dark:bg-slate-700" />
-            <span className="text-xs text-slate-500 dark:text-slate-400">{t('jobBoard.authGateOrEmail')}</span>
+            <span className="text-sm text-slate-500 dark:text-slate-400">{t('jobBoard.authGateOrEmail')}</span>
             <div className="flex-1 h-px bg-slate-200 dark:bg-slate-700" />
           </div>
 
@@ -4291,7 +4291,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
           </div>
         </div>
 
-        {authError && <p className="text-xs text-red-600 dark:text-red-300">{authError}</p>}
+        {authError && <p className="text-sm text-red-600 dark:text-red-300">{authError}</p>}
       </div>
     </div>
   ) : null;
@@ -4326,7 +4326,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
         <div className="min-w-0">
           <p className="text-sm font-bold text-amber-900 dark:text-amber-100">{t('newsletter.doubleOptIn.title')}</p>
           <p className="mt-1 text-sm text-amber-800 dark:text-amber-200">{t('newsletter.doubleOptIn.description')}</p>
-          <p className="mt-1 text-xs text-amber-700 dark:text-amber-300">{t('newsletter.doubleOptIn.spamHint')}</p>
+          <p className="mt-1 text-sm text-amber-700 dark:text-amber-300">{t('newsletter.doubleOptIn.spamHint')}</p>
           <p className="mt-2 text-xs font-medium text-amber-700 dark:text-amber-300">{authNotice.email}</p>
         </div>
       </div>
@@ -5236,7 +5236,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="flex-1 h-px bg-slate-300/50 dark:bg-slate-600/50" />
-                  <span className="text-xs text-slate-500 dark:text-slate-400">{t('jobBoard.authGateOrEmail')}</span>
+                  <span className="text-sm text-slate-500 dark:text-slate-400">{t('jobBoard.authGateOrEmail')}</span>
                   <div className="flex-1 h-px bg-slate-300/50 dark:bg-slate-600/50" />
                 </div>
                 <form
@@ -5281,7 +5281,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                 </div>
               </div>
 
-              {authError && <p className="text-xs text-red-600 dark:text-red-300 mt-2">{authError}</p>}
+              {authError && <p className="text-sm text-red-600 dark:text-red-300 mt-2">{authError}</p>}
             </div>
           </div>
         </div>
@@ -5717,7 +5717,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                   <p className="text-sm text-slate-600 dark:text-slate-300 mt-1">
                     {selectedJob.company} · {selectedJob.location} ({selectedJob.canton})
                   </p>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-2">
+                  <p className="text-sm text-slate-500 dark:text-slate-400 mt-2">
                   {/* BLOCK-B: Regionalize for national expansion — currently hardcodes Ticino/Tessin text */}
                     Frontaliere Ticino ha scovato questa opportunità nel monitoraggio aziende.
                   </p>
@@ -5758,7 +5758,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                       {locationSnapshot?.locality || selectedJob.location}
                     </div>
                     {locationSnapshot?.postalCode && (
-                      <div className="text-xs text-slate-500 dark:text-slate-400">
+                      <div className="text-sm text-slate-500 dark:text-slate-400">
                         {t('jobBoard.snapshot.postalCode')}: {locationSnapshot.postalCode}
                       </div>
                     )}
@@ -6073,7 +6073,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
         <div className={autocompleteSuggestions.length > 0 ? 'min-h-[32px]' : ''}>
           {autocompleteSuggestions.length > 0 && (
             <div className="flex flex-wrap items-center gap-1.5">
-              <span className="text-xs text-slate-500 dark:text-slate-400 flex-shrink-0">{t('search.autocomplete') || 'Suggerimenti:'}</span>
+              <span className="text-sm text-slate-500 dark:text-slate-400 flex-shrink-0">{t('search.autocomplete') || 'Suggerimenti:'}</span>
               {autocompleteSuggestions.map((s) => (
                 <button
                   key={s}

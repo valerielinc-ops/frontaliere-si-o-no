@@ -154,12 +154,12 @@ const CarTransferGuide: React.FC = () => {
                   <div className="bg-white dark:bg-slate-800 rounded-lg p-3 border border-blue-200 dark:border-blue-800">
                     <div className="text-xs text-blue-600 dark:text-blue-400 font-semibold">{t('carTransfer.customs.ivaLabel')}</div>
                     <div className="text-xl font-bold text-slate-800 dark:text-slate-200">8.1%</div>
-                    <div className="text-xs text-slate-500 dark:text-slate-400">{t('carTransfer.customs.ivaNote')}</div>
+                    <div className="text-sm text-slate-500 dark:text-slate-400">{t('carTransfer.customs.ivaNote')}</div>
                   </div>
                   <div className="bg-white dark:bg-slate-800 rounded-lg p-3 border border-blue-200 dark:border-blue-800">
                     <div className="text-xs text-blue-600 dark:text-blue-400 font-semibold">{t('carTransfer.customs.dutyLabel')}</div>
                     <div className="text-xl font-bold text-slate-800 dark:text-slate-200">0 CHF</div>
-                    <div className="text-xs text-slate-500 dark:text-slate-400">{t('carTransfer.customs.dutyNote')}</div>
+                    <div className="text-sm text-slate-500 dark:text-slate-400">{t('carTransfer.customs.dutyNote')}</div>
                   </div>
                 </div>
               </div>

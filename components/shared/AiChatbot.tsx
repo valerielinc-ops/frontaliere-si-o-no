@@ -714,7 +714,7 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
                 </div>
                 <h3 className="text-base font-semibold text-slate-800 dark:text-white mb-2">{t('chatbot.title')}</h3>
                 <p className="text-sm text-slate-600 dark:text-slate-400 mb-3 leading-relaxed">{t('chatbot.authRequiredToSend')}</p>
-                <p className="text-xs text-slate-500 dark:text-slate-400">{t('chatbot.preAuthHint')}</p>
+                <p className="text-sm text-slate-500 dark:text-slate-400">{t('chatbot.preAuthHint')}</p>
                 <div className="mt-4 w-full max-w-xs space-y-2">
                   {[
                     t('chatbot.suggestion1'),
@@ -811,7 +811,7 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
             {error && (
               <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800">
                 <AlertCircle size={14} className="text-red-500 shrink-0" />
-                <p className="text-xs text-red-600 dark:text-red-400">{error}</p>
+                <p className="text-sm text-red-600 dark:text-red-400">{error}</p>
               </div>
             )}
             
@@ -855,7 +855,7 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
                 <Send size={16} />
               </button>
             </div>
-            <p className="text-xs text-slate-500 dark:text-slate-400 mt-1.5 text-center">
+            <p className="text-sm text-slate-500 dark:text-slate-400 mt-1.5 text-center">
               {t('chatbot.disclaimer')}
             </p>
           </div>
@@ -877,9 +877,9 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
                 <img src="/icons/icon-192x192.png" alt="Frontaliere Ticino" width={40} height={40} className="rounded-full mb-3 mx-auto" loading="lazy" />
                 <h3 className="text-base font-semibold text-slate-900 dark:text-white text-center">{t('chatbot.authTitle')}</h3>
                 <p className="text-xs font-medium text-blue-600 dark:text-blue-400 text-center">frontaliereticino.ch</p>
-                <p className="text-xs text-slate-600 dark:text-slate-400 text-center mt-1 mb-3">{t('chatbot.authSubtitle')}</p>
+                <p className="text-sm text-slate-600 dark:text-slate-400 text-center mt-1 mb-3">{t('chatbot.authSubtitle')}</p>
 
-                <div className="text-xs text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded-lg p-2 mb-3">
+                <div className="text-sm text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded-lg p-2 mb-3">
                   <span className="font-semibold">{t('chatbot.authContinueQuestion')}:</span> {pendingQuestion}
                 </div>
 
@@ -949,7 +949,7 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
                   />
 
                   {authError && (
-                    <div className="text-xs text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg px-2 py-1.5">
+                    <div className="text-sm text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg px-2 py-1.5">
                       {authError}
                     </div>
                   )}

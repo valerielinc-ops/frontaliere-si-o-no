@@ -723,7 +723,7 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
                           : 'text-slate-700 dark:text-slate-300'
                       }`}>{opt.label}</span>
                     </div>
-                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 ml-5">{opt.desc}</p>
+                    <p className="text-sm text-slate-500 dark:text-slate-400 mt-1 ml-5">{opt.desc}</p>
                   </button>
                 ))}
               </div>
@@ -805,7 +805,7 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
               <p className="text-2xl font-bold text-amber-600 dark:text-amber-400 mt-1">
                 CHF {result.breakeven.toLocaleString()} / anno
               </p>
-              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">{t('permitCompare.breakevenDesc')}</p>
+              <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">{t('permitCompare.breakevenDesc')}</p>
             </div>
 
             {/* Verdict */}
@@ -847,7 +847,7 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
                     <FileText size={14} className="text-amber-600 dark:text-amber-400" />
                     <span className="font-semibold text-slate-800 dark:text-slate-200 text-sm">{template.title}</span>
                   </div>
-                  <p className="text-xs text-slate-500 dark:text-slate-400">{template.description}</p>
+                  <p className="text-sm text-slate-500 dark:text-slate-400">{template.description}</p>
                 </button>
               ))}
             </div>
@@ -873,7 +873,7 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
           </div>
 
           {/* Disclaimer */}
-          <div className="flex items-start gap-2 text-xs text-slate-500 dark:text-slate-400">
+          <div className="flex items-start gap-2 text-sm text-slate-500 dark:text-slate-400">
             <AlertTriangle size={14} className="flex-shrink-0 mt-0.5" />
             <p>{t('permitCompare.disclaimer')}</p>
           </div>

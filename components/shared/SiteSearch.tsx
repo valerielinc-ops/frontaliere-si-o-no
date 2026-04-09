@@ -1213,7 +1213,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
                     <p className="text-sm font-semibold text-slate-700 dark:text-slate-300">
                       {t('search.noResults.title', { query }) || `Nessun risultato per «${query}»`}
                     </p>
-                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                    <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
                       {t('search.noResults.hint') || 'Prova con parole chiave diverse o esplora le categorie'}
                     </p>
                   </div>
@@ -1238,7 +1238,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
                               </div>
                               <div className="flex-1 min-w-0">
                                 <span className="text-sm font-semibold text-slate-800 dark:text-slate-100 truncate block">{item.title}</span>
-                                <span className="text-xs text-slate-500 dark:text-slate-400 truncate block">{item.description}</span>
+                                <span className="text-sm text-slate-500 dark:text-slate-400 truncate block">{item.description}</span>
                               </div>
                               <ArrowRight size={12} className="text-slate-500 dark:text-slate-400 flex-shrink-0" />
                             </button>
@@ -1298,7 +1298,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
                               {result.section}
                             </span>
                           </div>
-                          <p className="text-xs text-slate-500 dark:text-slate-400 truncate mt-0.5">
+                          <p className="text-sm text-slate-500 dark:text-slate-400 truncate mt-0.5">
                             {result.description}
                           </p>
                         </div>

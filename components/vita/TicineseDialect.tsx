@@ -391,7 +391,7 @@ const TicineseDialect: React.FC = () => {
                 );
               })}
               <div className="flex items-center justify-between pt-1">
-                <span className="text-xs text-slate-500 dark:text-slate-400">
+                <span className="text-sm text-slate-500 dark:text-slate-400">
                   {quizState.selected
                     ? quizState.selected === quizState.correct
                       ? tt('dialect.quizCorrect', 'Corretto!')
@@ -462,7 +462,7 @@ const TicineseDialect: React.FC = () => {
         </div>
       </div>
 
-      <p className="text-xs text-slate-500 dark:text-slate-400">{filteredEntries.length} {tt('dialect.termsFound', 'espressioni trovate')}</p>
+      <p className="text-sm text-slate-500 dark:text-slate-400">{filteredEntries.length} {tt('dialect.termsFound', 'espressioni trovate')}</p>
 
       <div className="space-y-2">
         {filteredEntries.length === 0 ? (
@@ -486,7 +486,7 @@ const TicineseDialect: React.FC = () => {
                     </span>
                     <div className="min-w-0">
                       <span className="font-semibold text-sm text-slate-800 dark:text-slate-200 italic block truncate">{phrase}</span>
-                      <span className="text-xs text-slate-500 dark:text-slate-400 block truncate">{italian}</span>
+                      <span className="text-sm text-slate-500 dark:text-slate-400 block truncate">{italian}</span>
                     </div>
                   </div>
                   {isExpanded ? <ChevronUp size={16} className="text-slate-500 dark:text-slate-300 shrink-0" /> : <ChevronDown size={16} className="text-slate-500 dark:text-slate-300 shrink-0" />}
@@ -565,8 +565,8 @@ const TicineseDialect: React.FC = () => {
             {userPhrases.map((p) => (
               <div key={p.id} className="rounded-lg border border-slate-200 dark:border-slate-700 p-2.5">
                 <p className="text-sm font-semibold italic text-slate-800 dark:text-slate-100">{p.phrase}</p>
-                <p className="text-xs text-slate-600 dark:text-slate-300">{p.italian}</p>
-                <p className="text-xs text-slate-500 dark:text-slate-400">{p.meaning}</p>
+                <p className="text-sm text-slate-600 dark:text-slate-300">{p.italian}</p>
+                <p className="text-sm text-slate-500 dark:text-slate-400">{p.meaning}</p>
               </div>
             ))}
           </div>

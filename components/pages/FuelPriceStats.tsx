@@ -469,7 +469,7 @@ export default function FuelPriceStats() {
                 aria-label={tt('fuelPrices.tankLiters', 'Litri da fare')}
                 className="w-full rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/50 px-4 py-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:border-orange-500 dark:text-slate-200"
               />
-              <span className="text-xs text-slate-500 dark:text-slate-400 mt-1 block">10 – 120 L</span>
+              <span className="text-sm text-slate-500 dark:text-slate-400 mt-1 block">10 – 120 L</span>
             </label>
 
             <label>
@@ -485,7 +485,7 @@ export default function FuelPriceStats() {
                 aria-label={tt('fuelPrices.costPerKm', 'Costo auto per km')}
                 className="w-full rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/50 px-4 py-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:border-orange-500 dark:text-slate-200"
               />
-              <span className="text-xs text-slate-500 dark:text-slate-400 mt-1 block">0.05 – 1.00 €/km</span>
+              <span className="text-sm text-slate-500 dark:text-slate-400 mt-1 block">0.05 – 1.00 €/km</span>
             </label>
           </div>
 

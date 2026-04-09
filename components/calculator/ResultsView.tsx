@@ -558,7 +558,7 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
 
             <div className="space-y-4">
               <div className="bg-blue-50/50 dark:bg-blue-900/20 p-4 rounded-2xl border border-blue-100 dark:border-blue-800/50">
-                <div className="text-xs text-blue-700 dark:text-blue-400 font-bold uppercase mb-1">{t('results.netMonthlyResidual')}</div>
+                <div className="text-sm text-blue-700 dark:text-blue-400 font-bold uppercase mb-1">{t('results.netMonthlyResidual')}</div>
                 <div className="flex items-center gap-2 flex-wrap">
                   {showEUR ? (
                     <div className="text-2xl font-bold text-blue-700 dark:text-blue-300">
@@ -715,7 +715,7 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
            {/* Critical Warning */}
            <div className="mt-6 p-4 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-2xl flex gap-3">
               <AlertCircle size={20} className="text-amber-500 shrink-0" />
-              <div className="text-xs text-amber-700 dark:text-amber-400 leading-relaxed font-medium">
+              <div className="text-sm text-amber-700 dark:text-amber-400 leading-relaxed font-medium">
                  <b>{t('results.notaBene')}</b> {t('results.disclaimer.housing')}
               </div>
            </div>

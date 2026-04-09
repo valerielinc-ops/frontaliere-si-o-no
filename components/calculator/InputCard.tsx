@@ -394,7 +394,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
             </div>
             <div className="flex items-center justify-between p-3 bg-blue-50 dark:bg-blue-900/20 rounded-xl border border-blue-100 dark:border-blue-800/50">
               <span className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase">{t('input.type')}</span>
-              <span className="font-bold text-xs text-blue-700 dark:text-blue-300">{inputs.frontierWorkerType === 'NEW' ? t('input.newFrontShort') : t('input.oldFrontShort')}</span>
+              <span className="font-bold text-sm text-blue-700 dark:text-blue-300">{inputs.frontierWorkerType === 'NEW' ? t('input.newFrontShort') : t('input.oldFrontShort')}</span>
             </div>
             <div className="flex items-center justify-between p-3 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700">
               <span className="text-xs font-bold text-slate-600 dark:text-slate-300 uppercase">{t('input.profile')}</span>
@@ -402,7 +402,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
             </div>
             <div className="flex items-center justify-between p-3 bg-indigo-50 dark:bg-indigo-900/20 rounded-xl border border-indigo-100 dark:border-indigo-800/50">
               <span className="text-xs font-bold text-indigo-600 dark:text-indigo-400 uppercase">{t('input.exchange')}</span>
-              <span className="font-bold text-xs text-indigo-700 dark:text-indigo-300">1 CHF = {inputs.customExchangeRate} EUR</span>
+              <span className="font-bold text-sm text-indigo-700 dark:text-indigo-300">1 CHF = {inputs.customExchangeRate} EUR</span>
             </div>
           </div>
         </div>
@@ -456,7 +456,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
                     </button>
                  </div>
                  {salaryError && (
-                   <p role="alert" aria-live="polite" className="text-xs text-red-600 dark:text-red-400 font-semibold mt-1 flex items-center gap-1">
+                   <p role="alert" aria-live="polite" className="text-sm text-red-600 dark:text-red-400 font-semibold mt-1 flex items-center gap-1">
                      <AlertTriangle size={12} /> {salaryError}
                    </p>
                  )}
@@ -539,7 +539,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
               >
                   {inputs.frontierWorkerType === 'NEW' && <div className="absolute top-2 right-2 bg-blue-500 text-white rounded-full p-0.5"><Check size={10} strokeWidth={4} /></div>}
                   <span className={`font-bold text-sm ${inputs.frontierWorkerType === 'NEW' ? 'text-blue-700 dark:text-blue-300' : 'text-slate-600 dark:text-slate-300'}`}>{t('input.newFrontier')}</span>
-                  <span className="text-xs text-slate-600 dark:text-slate-400 font-medium">{t('input.postDate')}</span>
+                  <span className="text-sm text-slate-600 dark:text-slate-400 font-medium">{t('input.postDate')}</span>
               </button>
               <button 
                 onClick={() => { handleChange('frontierWorkerType', 'OLD'); if (inputs.frontierWorkerType !== 'OLD') showFrontierEasterEgg('OLD'); }} 
@@ -547,7 +547,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
               >
                    {inputs.frontierWorkerType === 'OLD' && <div className="absolute top-2 right-2 bg-emerald-700 text-white rounded-full p-0.5"><Check size={10} strokeWidth={4} /></div>}
                   <span className={`font-bold text-sm ${inputs.frontierWorkerType === 'OLD' ? 'text-emerald-700 dark:text-emerald-300' : 'text-slate-600 dark:text-slate-300'}`}>{t('input.oldFrontier')}</span>
-                  <span className="text-xs text-slate-600 dark:text-slate-400 font-medium">{t('input.preDate')}</span>
+                  <span className="text-sm text-slate-600 dark:text-slate-400 font-medium">{t('input.preDate')}</span>
               </button>
            </div>
            
@@ -851,7 +851,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
                           </div>
                        </div>
                        
-                       <p className="text-xs text-amber-700 dark:text-amber-400 italic px-2">
+                       <p className="text-sm text-amber-700 dark:text-amber-400 italic px-2">
                           ℹ️ {t('input.ssnCapsNote')}
                        </p>
                     </div>
@@ -914,7 +914,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
         {/* Data privacy disclaimer */}
         <div className="flex items-start gap-2.5 mx-5 mb-5 p-3 bg-emerald-50 dark:bg-emerald-950/30 rounded-xl border border-emerald-100 dark:border-emerald-900/50">
           <Shield size={14} className="text-emerald-700 dark:text-emerald-400 flex-shrink-0 mt-0.5" />
-          <p className="text-xs text-emerald-700 dark:text-emerald-400 leading-relaxed">{t('input.dataDisclaimer')}</p>
+          <p className="text-sm text-emerald-700 dark:text-emerald-400 leading-relaxed">{t('input.dataDisclaimer')}</p>
         </div>
 
       </div>

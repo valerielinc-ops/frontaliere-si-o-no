@@ -419,7 +419,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
                     <ArrowUpRight size={14} /> {t('bonus.bracketJump')}
                   </p>
                   <p className="text-lg font-bold text-red-700 dark:text-red-400">{result.baseBracketLabel} → {result.withBonusBracketLabel}</p>
-                  <p className="text-xs text-red-600 dark:text-red-400 mt-1">{t('bonus.bracketJumpDesc')}</p>
+                  <p className="text-sm text-red-600 dark:text-red-400 mt-1">{t('bonus.bracketJumpDesc')}</p>
                 </div>
               )}
               {result.swissRateDelta === 0 && !result.bracketJumped && (
@@ -475,7 +475,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
 
 const ResultRow: React.FC<{ label: string; value: string; negative?: boolean; highlight?: boolean }> = ({ label, value, negative, highlight }) => (
   <>
-    <span className="text-xs text-slate-600 dark:text-slate-400">{label}</span>
+    <span className="text-sm text-slate-600 dark:text-slate-400">{label}</span>
     <span className={`text-sm font-bold text-right ${
       highlight ? 'text-emerald-700 dark:text-emerald-300' :
       negative ? 'text-red-600 dark:text-red-400' :

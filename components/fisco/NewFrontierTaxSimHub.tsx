@@ -417,7 +417,7 @@ export default function NewFrontierTaxSimHub() {
         </span>
         <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white leading-tight">{c.title}</h1>
         <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-3xl">{c.intro}</p>
-        <p className="text-xs text-slate-500 dark:text-slate-400 italic">{c.disclaimer}</p>
+        <p className="text-sm text-slate-500 dark:text-slate-400 italic">{c.disclaimer}</p>
       </header>
 
       {/* Regime explanation cards */}
@@ -474,7 +474,7 @@ export default function NewFrontierTaxSimHub() {
             </tbody>
           </table>
         </div>
-        <p className="text-xs text-slate-500 dark:text-slate-400 italic">{c.exampleNote}</p>
+        <p className="text-sm text-slate-500 dark:text-slate-400 italic">{c.exampleNote}</p>
       </section>
 
       {/* CTA deep links */}

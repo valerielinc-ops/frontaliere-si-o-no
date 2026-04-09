@@ -235,7 +235,7 @@ const ParentalLeaveCalculator: React.FC<ParentalLeaveProps> = ({ userProfile }) 
               </div>
               <div className="flex justify-between">
                 <span className="text-slate-500 dark:text-slate-400">{t('leave.maxDaily')}</span>
-                <span className="text-xs text-slate-500 dark:text-slate-400">CHF {IPG_DAILY_MAX_CHF}/giorno</span>
+                <span className="text-sm text-slate-500 dark:text-slate-400">CHF {IPG_DAILY_MAX_CHF}/giorno</span>
               </div>
               <hr className="border-slate-200 dark:border-slate-600" />
               <div className="flex justify-between">
@@ -435,7 +435,7 @@ const ParentalLeaveCalculator: React.FC<ParentalLeaveProps> = ({ userProfile }) 
 
       {/* Disclaimer */}
       <div className="p-3 bg-amber-50 dark:bg-amber-950/30 rounded-xl border border-amber-200 dark:border-amber-800">
-        <p className="text-xs text-amber-700 dark:text-amber-300">
+        <p className="text-sm text-amber-700 dark:text-amber-300">
           <Info className="inline w-3 h-3 mr-1" />
           {t('leave.disclaimer')}
         </p>

@@ -382,7 +382,7 @@ export default function SalaryQuiz() {
 
           {/* Info box */}
           <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-4">
-            <p className="text-xs text-amber-700 dark:text-amber-400">
+            <p className="text-sm text-amber-700 dark:text-amber-400">
               {t('salaryQuiz.disclaimer')}
             </p>
           </div>

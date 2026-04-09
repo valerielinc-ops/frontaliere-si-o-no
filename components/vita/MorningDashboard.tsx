@@ -362,7 +362,7 @@ const MorningDashboard: React.FC = () => {
               <ArrowRightLeft className="w-4 h-4 text-blue-600 dark:text-blue-400" />
               {t('morning.exchangeRate')}
             </h3>
-            <span className="text-xs text-slate-500 dark:text-slate-400">CHF → EUR</span>
+            <span className="text-sm text-slate-500 dark:text-slate-400">CHF → EUR</span>
           </div>
           {rateLoading ? (
             <div className="h-16 flex items-center justify-center">
@@ -383,11 +383,11 @@ const MorningDashboard: React.FC = () => {
               </div>
               <div className="grid grid-cols-2 gap-3 text-sm">
                 <div className="bg-slate-50 dark:bg-slate-700/50 rounded-lg p-2 text-center">
-                  <div className="text-xs text-slate-500 dark:text-slate-400">100 CHF =</div>
+                  <div className="text-sm text-slate-500 dark:text-slate-400">100 CHF =</div>
                   <div className="font-bold text-slate-900 dark:text-white">{(100 * rate).toFixed(2)} €</div>
                 </div>
                 <div className="bg-slate-50 dark:bg-slate-700/50 rounded-lg p-2 text-center">
-                  <div className="text-xs text-slate-500 dark:text-slate-400">1000 CHF =</div>
+                  <div className="text-sm text-slate-500 dark:text-slate-400">1000 CHF =</div>
                   <div className="font-bold text-slate-900 dark:text-white">{(1000 * rate).toFixed(2)} €</div>
                 </div>
               </div>
@@ -403,7 +403,7 @@ const MorningDashboard: React.FC = () => {
             <Navigation className="w-4 h-4 text-violet-600 dark:text-violet-400" />
             {t('morning.traffic.title')}
           </h3>
-          <span className="text-xs text-slate-500 dark:text-slate-400">
+          <span className="text-sm text-slate-500 dark:text-slate-400">
             {new Date().getHours() < 12 ? 'IT → CH' : 'CH → IT'}
           </span>
         </div>
@@ -428,7 +428,7 @@ const MorningDashboard: React.FC = () => {
                   <div className="font-semibold text-sm text-slate-900 dark:text-white truncate">
                     {crossing.name}
                   </div>
-                  <div className="text-xs text-slate-500 dark:text-slate-400">
+                  <div className="text-sm text-slate-500 dark:text-slate-400">
                     {crossing.italianSide}
                   </div>
                 </div>
@@ -555,7 +555,7 @@ const WeatherCard: React.FC<WeatherCardProps> = ({ location, loading, flag, t })
           <span className="text-lg">{flag}</span>
           {location.name}
         </h3>
-        <span className="text-xs text-slate-500 dark:text-slate-400">{location.country}</span>
+        <span className="text-sm text-slate-500 dark:text-slate-400">{location.country}</span>
       </div>
 
       <div className="flex items-center gap-4">
@@ -615,7 +615,7 @@ const TipCard: React.FC<TipCardProps> = ({ emoji, title, value, subtitle }) => (
       <span>{emoji}</span> {title}
     </div>
     <div className="font-bold text-slate-900 dark:text-white text-sm">{value}</div>
-    <div className="text-xs text-slate-500 dark:text-slate-400">{subtitle}</div>
+    <div className="text-sm text-slate-500 dark:text-slate-400">{subtitle}</div>
   </div>
 );
 

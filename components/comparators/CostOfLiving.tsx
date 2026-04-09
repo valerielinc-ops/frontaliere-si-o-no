@@ -286,7 +286,7 @@ const CostOfLiving: React.FC = () => {
             onChange={e => setExchangeRateOverride(parseFloat(e.target.value) || null)}
             className="w-full mt-1 px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 font-bold"
           />
-          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">1 CHF = {exchangeRate.toFixed(4)} EUR · <span className="text-blue-600 dark:text-blue-400">TwelveData</span></p>
+          <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">1 CHF = {exchangeRate.toFixed(4)} EUR · <span className="text-blue-600 dark:text-blue-400">TwelveData</span></p>
         </div>
       </div>
 
@@ -366,7 +366,7 @@ const CostOfLiving: React.FC = () => {
                       {Math.abs(diffPercent).toFixed(0)}%
                     </span>
                   ) : (
-                    <span className="text-xs text-slate-500 dark:text-slate-400">=</span>
+                    <span className="text-sm text-slate-500 dark:text-slate-400">=</span>
                   )}
                 </div>
               </div>
@@ -427,7 +427,7 @@ const CostOfLiving: React.FC = () => {
             </a>
           ))}
         </div>
-        <p className="text-xs text-slate-500 dark:text-slate-400 mt-2">{t('costOfLiving.disclaimer')}</p>
+        <p className="text-sm text-slate-500 dark:text-slate-400 mt-2">{t('costOfLiving.disclaimer')}</p>
       </div>
       <Suspense fallback={null}><RelatedTools context="comparison" /></Suspense>
     </div>

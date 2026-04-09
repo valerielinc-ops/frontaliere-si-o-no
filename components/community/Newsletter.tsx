@@ -316,7 +316,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
           <p className="text-slate-600 dark:text-slate-400 mb-3">
             {t('newsletter.doubleOptIn.description')}
           </p>
-          <p className="text-xs text-slate-500 dark:text-slate-400 mb-4">
+          <p className="text-sm text-slate-500 dark:text-slate-400 mb-4">
             {t('newsletter.doubleOptIn.spamHint')}
           </p>
 
@@ -338,7 +338,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
           {/* FRO-26: Resend confirmation */}
           {email && (
             <div className="mt-4">
-              <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">{t('newsletter.pendingReminder.resend')}</p>
+              <p className="text-sm text-slate-500 dark:text-slate-400 mb-1">{t('newsletter.pendingReminder.resend')}</p>
               <button
                 disabled={resendStatus === 'sending' || resendStatus === 'sent'}
                 onClick={async () => {
@@ -410,7 +410,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
                     aria-label={pref.label} />
                   <div>
                     <div className="font-bold text-sm text-slate-800 dark:text-slate-100">{pref.label}</div>
-                    <div className="text-xs text-slate-500 dark:text-slate-400">{pref.desc}</div>
+                    <div className="text-sm text-slate-500 dark:text-slate-400">{pref.desc}</div>
                   </div>
                 </label>
               ))}
@@ -450,7 +450,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
             </button>
           </div>
 
-          <p className="text-xs text-slate-500 dark:text-slate-400 text-center">
+          <p className="text-sm text-slate-500 dark:text-slate-400 text-center">
             {t('newsletter.unsubscribeNotice')}
           </p>
         </form>

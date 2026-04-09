@@ -1558,7 +1558,7 @@ function BlogArticles({
               {t(partner.badgeKey)}
             </span>
           )}
-          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-snug">{t(partner.taglineKey)}</p>
+          <p className="text-sm text-slate-500 dark:text-slate-400 mt-1 leading-snug">{t(partner.taglineKey)}</p>
           <span className="mt-1.5 inline-flex items-center gap-0.5 text-xs font-medium text-blue-600 dark:text-blue-400 group-hover:underline">
             {t('affiliate.cta')} <ExternalLink size={9} />
           </span>
@@ -1794,7 +1794,7 @@ function BlogArticles({
               <Newspaper size={18} className="text-amber-600 dark:text-amber-400 mt-0.5 shrink-0" />
               <div>
                 <p className="text-sm font-semibold text-amber-800 dark:text-amber-300">{t('blog.newsBanner.title')}</p>
-                <p className="text-xs text-amber-700 dark:text-amber-400 mt-0.5">{t('blog.newsBanner.desc')}</p>
+                <p className="text-sm text-amber-700 dark:text-amber-400 mt-0.5">{t('blog.newsBanner.desc')}</p>
               </div>
             </div>
           )}
@@ -1903,7 +1903,7 @@ function BlogArticles({
                                   <p className="text-sm font-semibold text-slate-700 dark:text-slate-200 truncate group-hover:text-indigo-700 dark:group-hover:text-indigo-300 transition-colors">
                                     {job.titleByLocale?.[locale] ?? job.title}
                                   </p>
-                                  <p className="text-xs text-slate-500 dark:text-slate-400 truncate">
+                                  <p className="text-sm text-slate-500 dark:text-slate-400 truncate">
                                     {job.company} · {job.location}
                                   </p>
                                 </div>
@@ -2036,7 +2036,7 @@ function BlogArticles({
                 </button>
               </div>
               {articleFeedback[article.id] && (
-                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">{t('blog.feedback.thanks')}</p>
+                <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">{t('blog.feedback.thanks')}</p>
               )}
             </div>
 
@@ -2058,7 +2058,7 @@ function BlogArticles({
               <MessageSquareMore size={20} className="text-indigo-600 dark:text-indigo-400 shrink-0" />
               <div className="flex-1">
                 <p className="text-sm font-semibold text-indigo-800 dark:text-indigo-300">{t('blog.discussInForum')}</p>
-                <p className="text-xs text-indigo-700 dark:text-indigo-400 mt-0.5">{t('blog.discussInForumDesc')}</p>
+                <p className="text-sm text-indigo-700 dark:text-indigo-400 mt-0.5">{t('blog.discussInForumDesc')}</p>
               </div>
               <a
                 href={buildPath({ activeTab: 'forum' })}
@@ -2085,7 +2085,7 @@ function BlogArticles({
                     >
                       <ChevronLeft size={20} className="text-slate-600 dark:text-slate-400 group-hover:text-indigo-500 shrink-0 transition-colors" />
                       <div className="min-w-0">
-                        <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">{t('blog.prevArticle')}</p>
+                        <p className="text-sm text-slate-500 dark:text-slate-400 mb-1">{t('blog.prevArticle')}</p>
                         <p className="text-sm font-semibold text-slate-700 dark:text-slate-200 line-clamp-2">{t(`blog.article.${prevArticle.id}.title`)}</p>
                       </div>
                     </a>
@@ -2097,7 +2097,7 @@ function BlogArticles({
                       className="flex items-center gap-3 p-4 bg-slate-50 dark:bg-slate-900/50 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-colors text-right group"
                     >
                       <div className="min-w-0 flex-1">
-                        <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">{t('blog.nextArticle')}</p>
+                        <p className="text-sm text-slate-500 dark:text-slate-400 mb-1">{t('blog.nextArticle')}</p>
                         <p className="text-sm font-semibold text-slate-700 dark:text-slate-200 line-clamp-2">{t(`blog.article.${nextArticle.id}.title`)}</p>
                       </div>
                       <ChevronRight size={20} className="text-slate-600 dark:text-slate-400 group-hover:text-indigo-500 shrink-0 transition-colors" />
@@ -2142,7 +2142,7 @@ function BlogArticles({
                       <p className="text-sm font-semibold text-slate-700 dark:text-slate-200 line-clamp-2">
                         {t(`blog.article.${related.id}.title`)}
                       </p>
-                      <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">{estimateReadingMinutes(related.id, t)} min</p>
+                      <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">{estimateReadingMinutes(related.id, t)} min</p>
                     </div>
                   </a>
                 ))}
@@ -2220,8 +2220,8 @@ function BlogArticles({
                               <span className="text-xs text-orange-700 dark:text-orange-400 font-medium">
                                 {views} {t('blog.trendingThisWeek.views')}
                               </span>
-                              <span className="text-xs text-slate-500 dark:text-slate-400">·</span>
-                              <span className="text-xs text-slate-500 dark:text-slate-400">
+                              <span className="text-sm text-slate-500 dark:text-slate-400">·</span>
+                              <span className="text-sm text-slate-500 dark:text-slate-400">
                                 {estimateReadingMinutes(tr.id, t)} min
                               </span>
                             </div>
@@ -2269,7 +2269,7 @@ function BlogArticles({
                           <p className="text-sm font-semibold text-slate-700 dark:text-slate-200 line-clamp-2">
                             {job.titleByLocale?.[locale] ?? job.title}
                           </p>
-                          <p className="text-xs text-slate-600 dark:text-slate-400 mt-0.5">{job.company} · {job.location}</p>
+                          <p className="text-sm text-slate-600 dark:text-slate-400 mt-0.5">{job.company} · {job.location}</p>
                         </div>
                       </a>
                     );
@@ -2288,7 +2288,7 @@ function BlogArticles({
                   </div>
                   <div className="flex-1 min-w-0">
                     <p className="text-sm font-semibold text-slate-700 dark:text-slate-200">{t('blog.cta.jobBoard.title')}</p>
-                    <p className="text-xs text-slate-600 dark:text-slate-400 mt-0.5">{t('blog.cta.jobBoard.desc')}</p>
+                    <p className="text-sm text-slate-600 dark:text-slate-400 mt-0.5">{t('blog.cta.jobBoard.desc')}</p>
                   </div>
                   <ArrowRight size={16} className="text-indigo-500 shrink-0" />
                 </a>
@@ -2365,7 +2365,7 @@ function BlogArticles({
                 </a>
               </div>
 
-              <p className="text-xs text-slate-500 dark:text-slate-400 leading-tight">
+              <p className="text-sm text-slate-500 dark:text-slate-400 leading-tight">
                 {t('affiliate.disclosure')}
               </p>
             </div>
@@ -2593,7 +2593,7 @@ function BlogArticles({
                 <h3 className="text-sm font-bold text-slate-700 dark:text-slate-200 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors line-clamp-2 mb-2">
                   {t(`blog.article.${article.id}.title`)}
                 </h3>
-                <p className="text-xs text-slate-500 dark:text-slate-400 line-clamp-3 mb-3">
+                <p className="text-sm text-slate-500 dark:text-slate-400 line-clamp-3 mb-3">
                   {t(`blog.article.${article.id}.excerpt`)}
                 </p>
                 <span className="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-semibold text-white bg-indigo-600 dark:bg-indigo-500 rounded-lg group-hover:bg-indigo-700 dark:group-hover:bg-indigo-600 transition-colors">

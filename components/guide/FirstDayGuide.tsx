@@ -285,7 +285,7 @@ const FirstDayGuide: React.FC = () => {
                         {t(`firstday.step.${step.id}`)}
                       </span>
                     </div>
-                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">{t(`firstday.step.${step.id}.desc`)}</p>
+                    <p className="text-sm text-slate-500 dark:text-slate-400 mt-0.5">{t(`firstday.step.${step.id}.desc`)}</p>
                   </div>
                 </button>
 
@@ -313,7 +313,7 @@ const FirstDayGuide: React.FC = () => {
                   {profileHints[step.id] && (
                     <div className="flex items-start gap-2 p-3 bg-indigo-50 dark:bg-indigo-950/30 rounded-lg border border-indigo-200 dark:border-indigo-800">
                       <User className="w-4 h-4 text-indigo-500 shrink-0 mt-0.5" />
-                      <p className="text-xs text-indigo-700 dark:text-indigo-300 font-medium">{profileHints[step.id]}</p>
+                      <p className="text-sm text-indigo-700 dark:text-indigo-300 font-medium">{profileHints[step.id]}</p>
                     </div>
                   )}
 

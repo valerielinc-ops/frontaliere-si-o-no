@@ -112,7 +112,7 @@ export class ErrorBoundary extends Component<Props, State> {
             {t('error.message')}
           </p>
           {this.state.errorDigest && (
-            <p className="text-xs text-slate-500 dark:text-slate-400 mb-4 font-mono">
+            <p className="text-sm text-slate-500 dark:text-slate-400 mb-4 font-mono">
               REF: {this.state.errorDigest}{this.state.errorHint && this.state.errorHint !== 'chunk' && this.state.errorHint !== 'network' ? ` — ${this.state.errorHint}` : ''}
             </p>
           )}

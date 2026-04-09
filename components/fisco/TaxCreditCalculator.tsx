@@ -228,7 +228,7 @@ const TaxCreditCalculator: React.FC = () => {
 
         {/* Live exchange rate badge */}
         <div className="flex items-center gap-2 mb-4 bg-slate-50 dark:bg-slate-900/50 rounded-lg px-3 py-2">
-          <span className="text-xs text-slate-600 dark:text-slate-400">{t('taxCredit.exchangeRate')}:</span>
+          <span className="text-sm text-slate-600 dark:text-slate-400">{t('taxCredit.exchangeRate')}:</span>
           <span className="text-sm font-semibold text-slate-900 dark:text-white">
             1 CHF = {exchangeRate.toFixed(4)} EUR
           </span>
@@ -346,7 +346,7 @@ const TaxCreditCalculator: React.FC = () => {
               />
               <span className="absolute right-4 top-3.5 text-xs font-bold text-slate-500 dark:text-slate-400">EUR</span>
             </div>
-            <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">{t('taxCredit.otherIncomeHelp')}</p>
+            <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">{t('taxCredit.otherIncomeHelp')}</p>
           </div>
         </div>
 
@@ -366,7 +366,7 @@ const TaxCreditCalculator: React.FC = () => {
           </select>
           <div className="flex items-center gap-1 mt-1">
             <HelpCircle size={14} className="text-slate-500 dark:text-slate-400" />
-            <span className="text-xs text-slate-500 dark:text-slate-400">{t('taxCredit.distanceHelp')}</span>
+            <span className="text-sm text-slate-500 dark:text-slate-400">{t('taxCredit.distanceHelp')}</span>
           </div>
         </div>
 
@@ -376,7 +376,7 @@ const TaxCreditCalculator: React.FC = () => {
           <div className="flex flex-wrap gap-x-6 gap-y-1">
             <span className="text-sm text-slate-700 dark:text-slate-300">
               {t('taxCredit.swissTax')}: <span className="font-semibold">CHF {fmt(result.swissTaxCHF)}</span>
-              <span className="text-xs text-slate-500 dark:text-slate-400 ml-1">({t('taxCredit.table')} {result.tableCode}, {result.effectiveSwissRate}%)</span>
+              <span className="text-sm text-slate-500 dark:text-slate-400 ml-1">({t('taxCredit.table')} {result.tableCode}, {result.effectiveSwissRate}%)</span>
             </span>
             <span className="text-sm text-slate-700 dark:text-slate-300">
               {t('taxCredit.socialDeductions')}: <span className="font-semibold">€{fmt(result.socialDeductionsEUR)}</span>

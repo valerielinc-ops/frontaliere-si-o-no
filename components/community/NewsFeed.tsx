@@ -114,7 +114,7 @@ const NewsFeed: React.FC<NewsFeedProps> = ({ onNavigate }) => {
         >
           <ChevronLeft size={14} />
         </button>
-        <span className="text-xs text-slate-500 dark:text-slate-400 tabular-nums w-7 text-center">{idx + 1}/{count}</span>
+        <span className="text-sm text-slate-500 dark:text-slate-400 tabular-nums w-7 text-center">{idx + 1}/{count}</span>
         <button
           onClick={() => {
             next();

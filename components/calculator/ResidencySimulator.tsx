@@ -247,7 +247,7 @@ function LocationAutocomplete({
                   aria-selected={value?.id === loc.id}
                 >
                   <span className="truncate">{loc.name} {loc.province ? `(${loc.province})` : ''}</span>
-                  <span className="text-xs text-slate-500 dark:text-slate-400 ml-2 shrink-0">
+                  <span className="text-sm text-slate-500 dark:text-slate-400 ml-2 shrink-0">
                     {loc.distanceToBorderKm != null ? `${loc.distanceToBorderKm} km` : ''}
                   </span>
                 </button>
@@ -273,7 +273,7 @@ function LocationAutocomplete({
                 >
                   <span className="truncate">{loc.name}</span>
                   {loc.population && (
-                    <span className="text-xs text-slate-500 dark:text-slate-400 ml-2 shrink-0">
+                    <span className="text-sm text-slate-500 dark:text-slate-400 ml-2 shrink-0">
                       {loc.population.toLocaleString('it-IT')} ab.
                     </span>
                   )}
@@ -474,7 +474,7 @@ const ResidencySimulator: React.FC = () => {
           <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">{t('residency.monthlyDiff')}</p>
 
           {result.breakEvenMonths && (
-            <div className="mt-3 flex items-center gap-1 text-xs text-emerald-700 dark:text-emerald-400">
+            <div className="mt-3 flex items-center gap-1 text-sm text-emerald-700 dark:text-emerald-400">
               <Clock className="w-3 h-3" />
               <span>{t('residency.breakEven', { months: result.breakEvenMonths.toString() })}</span>
             </div>
@@ -542,7 +542,7 @@ const ResidencySimulator: React.FC = () => {
       {/* Disclaimer */}
       <div className="bg-amber-50 dark:bg-amber-950/20 rounded-xl p-4 border border-amber-200 dark:border-amber-800 flex items-start gap-3">
         <AlertCircle className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
-        <p className="text-xs text-amber-700 dark:text-amber-300">{t('residency.disclaimer')}</p>
+        <p className="text-sm text-amber-700 dark:text-amber-300">{t('residency.disclaimer')}</p>
       </div>
     </div>
   );

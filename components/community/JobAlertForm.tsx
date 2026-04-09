@@ -168,7 +168,7 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
         <div className="mt-3 p-4 bg-indigo-50 dark:bg-indigo-950/30 rounded-xl border border-indigo-200 dark:border-indigo-800 space-y-3">
           {/* Keyword */}
           <div>
-            <label className="block text-xs font-medium text-slate-600 dark:text-slate-400 mb-1">
+            <label className="block text-sm font-medium text-slate-600 dark:text-slate-400 mb-1">
               {t('jobAlert.keyword') || 'Parole chiave'}
             </label>
             <input
@@ -183,7 +183,7 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
 
           {/* Locations */}
           <div>
-            <label className="block text-xs font-medium text-slate-600 dark:text-slate-400 mb-1">
+            <label className="block text-sm font-medium text-slate-600 dark:text-slate-400 mb-1">
               {t('jobAlert.zone') || 'Zona'}
             </label>
             <div className="flex flex-wrap gap-2">
@@ -205,7 +205,7 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
 
           {/* Contract types */}
           <div>
-            <label className="block text-xs font-medium text-slate-600 dark:text-slate-400 mb-1">
+            <label className="block text-sm font-medium text-slate-600 dark:text-slate-400 mb-1">
               {t('jobAlert.contractType') || 'Tipo contratto'}
             </label>
             <div className="flex flex-wrap gap-2">

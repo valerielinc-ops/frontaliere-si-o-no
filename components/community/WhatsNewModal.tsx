@@ -1847,7 +1847,7 @@ export default function WhatsNewModal({ open, onClose }: WhatsNewModalProps) {
                   <span className="text-xs font-mono font-semibold text-violet-600 dark:text-violet-400 bg-violet-100 dark:bg-violet-900/40 px-2 py-0.5 rounded-full">
                     v{release.version}
                   </span>
-                  <span className="text-xs text-slate-500 dark:text-slate-400">
+                  <span className="text-sm text-slate-500 dark:text-slate-400">
                     {formatDate(release.date)}
                   </span>
                 </div>
@@ -1872,7 +1872,7 @@ export default function WhatsNewModal({ open, onClose }: WhatsNewModalProps) {
                           <p className="text-sm font-medium text-slate-700 dark:text-slate-200">
                             {t(item.titleKey)}
                           </p>
-                          <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                          <p className="text-sm text-slate-500 dark:text-slate-400 mt-0.5">
                             {t(item.descKey)}
                           </p>
                         </div>
@@ -1909,7 +1909,7 @@ export default function WhatsNewModal({ open, onClose }: WhatsNewModalProps) {
 
         {/* Footer */}
         <div className="px-6 py-3 border-t border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50">
-          <p className="text-xs text-slate-500 dark:text-slate-400 text-center">
+          <p className="text-sm text-slate-500 dark:text-slate-400 text-center">
             {t('whatsNew.footer')}
           </p>
         </div>

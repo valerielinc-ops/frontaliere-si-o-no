@@ -490,7 +490,7 @@ const CommunityForum: React.FC = () => {
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 mb-1">{t('forum.category') || 'Categoria'}</label>
+              <label className="block text-sm font-bold text-slate-500 dark:text-slate-400 mb-1">{t('forum.category') || 'Categoria'}</label>
               <select
                 value={newCategory}
                 onChange={(e) => setNewCategory(e.target.value as ForumCategory)}
@@ -503,7 +503,7 @@ const CommunityForum: React.FC = () => {
               </select>
             </div>
             <div>
-              <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 mb-1">{t('forum.tags') || 'Tag (separati da virgola)'}</label>
+              <label className="block text-sm font-bold text-slate-500 dark:text-slate-400 mb-1">{t('forum.tags') || 'Tag (separati da virgola)'}</label>
               <input
                 type="text"
                 value={newTags}
@@ -573,7 +573,7 @@ const CommunityForum: React.FC = () => {
                   <h3 className="font-bold text-sm text-slate-800 dark:text-slate-200 line-clamp-2">
                     {q.title}
                   </h3>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 line-clamp-2">
+                  <p className="text-sm text-slate-500 dark:text-slate-400 mt-1 line-clamp-2">
                     {q.body}
                   </p>
                   <div className="flex flex-wrap items-center gap-2 mt-2">

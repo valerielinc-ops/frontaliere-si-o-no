@@ -174,6 +174,10 @@ export const GA4_MEASUREMENT_ID = 'G-LGJ9LE360F';
 export const GTAG_SNIPPET = `<script async src="https://www.googletagmanager.com/gtag/js?id=${GA4_MEASUREMENT_ID}"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${GA4_MEASUREMENT_ID}',{transport_type:'beacon'})</script>`;
 
+/** Favicon link tags shared across all static HTML pages. */
+export const FAVICON_LINKS = `<link rel="icon" href="/favicon.ico" sizes="48x48">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">`;
+
 /**
  * Count words of visible text in an HTML string, stripping all tags.
  * Used to decide whether a static page has enough content to be indexed (>= 50 words).

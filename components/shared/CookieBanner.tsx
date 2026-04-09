@@ -76,7 +76,7 @@ const CookieBanner: React.FC = () => {
             <h3 className="text-sm font-bold text-slate-900 dark:text-slate-100">
               {t('consent.title')}
             </h3>
-            <p className="text-xs text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">
+            <p className="text-sm text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">
               {t('consent.description')}{' '}
               <a
                 href={privacyHref}

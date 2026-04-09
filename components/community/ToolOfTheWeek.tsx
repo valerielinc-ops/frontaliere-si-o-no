@@ -141,7 +141,7 @@ const ToolOfTheWeek: React.FC<ToolOfTheWeekProps> = ({ compact = false, onNaviga
             </h4>
           </div>
         </div>
-        <p className="text-xs text-slate-600 dark:text-slate-400 mb-3 line-clamp-2">
+        <p className="text-sm text-slate-600 dark:text-slate-400 mb-3 line-clamp-2">
           {toolDesc}
         </p>
         <div className="flex items-center gap-2">

@@ -222,7 +222,7 @@ const ShoppingCalculator: React.FC = () => {
                 onChange={e => setExchangeRate(parseFloat(e.target.value) || null)}
                 className="w-full mt-1 px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-lg font-bold text-slate-800 dark:text-white"
               />
-              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">1 CHF = {effectiveRate.toFixed(4)} EUR</p>
+              <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">1 CHF = {effectiveRate.toFixed(4)} EUR</p>
             </div>
             <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
               <div><span className="text-slate-500 dark:text-slate-400">{t('shopping.avgSavings')}:</span>{' '}<span className="font-semibold text-emerald-600 dark:text-emerald-400">{allProductStats.savingsPercent.toFixed(0)}%</span>{' '}<span className="text-slate-500 dark:text-slate-400">{t('shopping.buyingInItaly')}</span></div>
@@ -479,7 +479,7 @@ const ShoppingCalculator: React.FC = () => {
                           <span className={`text-xs px-2 py-0.5 rounded-full font-bold ${trafficColors[zc.trafficLevel]}`}>
                             {t(`shopping.traffic${zc.trafficLevel.charAt(0).toUpperCase() + zc.trafficLevel.slice(1)}`)}
                           </span>
-                          <span className="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-1">
+                          <span className="text-sm text-slate-500 dark:text-slate-400 flex items-center gap-1">
                             <Navigation size={10} /> {zc.distanceToIT} km
                           </span>
                         </div>
@@ -600,7 +600,7 @@ const ShoppingCalculator: React.FC = () => {
             </a>
           ))}
         </div>
-        <p className="text-xs text-slate-500 dark:text-slate-400 mt-2">{t('shopping.disclaimer')}</p>
+        <p className="text-sm text-slate-500 dark:text-slate-400 mt-2">{t('shopping.disclaimer')}</p>
       </div>
       <Suspense fallback={null}><RelatedTools context="comparison" /></Suspense>
     </div>

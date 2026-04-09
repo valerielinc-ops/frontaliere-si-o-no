@@ -448,7 +448,7 @@ export default function SalaryCompare() {
                               key={p.id}
                               className="bg-slate-50 dark:bg-slate-700/50 rounded-lg p-2.5 border border-slate-100 dark:border-slate-700"
                             >
-                              <p className="text-xs text-slate-600 dark:text-slate-300 mb-1.5 leading-tight">
+                              <p className="text-sm text-slate-600 dark:text-slate-300 mb-1.5 leading-tight">
                                 {profName(p.id)}
                               </p>
                               <div className="flex items-center justify-between gap-1">
@@ -905,7 +905,7 @@ export default function SalaryCompare() {
 
       {/* ── Source + Disclaimer ── */}
       <div className="space-y-2">
-        <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">
+        <p className="text-sm text-slate-500 dark:text-slate-400 font-medium">
           {t('salaryCompare.source')}
         </p>
         <div className="flex items-start gap-2 text-xs text-slate-500 dark:text-slate-400">

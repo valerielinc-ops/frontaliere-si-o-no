@@ -308,21 +308,21 @@ const JobComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
                   <div className="font-bold text-slate-800 dark:text-slate-100">€ {Math.round(r.netMonthlyIT).toLocaleString('it-IT')}</div>
                 </div>
                 <div className="p-3 bg-red-50 dark:bg-red-950/30 rounded-xl">
-                  <div className="flex items-center gap-1.5 text-xs text-red-600 mb-1">
+                  <div className="flex items-center gap-1.5 text-sm text-red-600 mb-1">
                     <Car size={12} />
                     {t('jobs.transport')}
                   </div>
                   <div className="font-bold text-red-600">-€ {Math.round(r.transportCostMonthly).toLocaleString('it-IT')}</div>
                 </div>
                 <div className="p-3 bg-amber-50 dark:bg-amber-950/30 rounded-xl">
-                  <div className="flex items-center gap-1.5 text-xs text-amber-700 mb-1">
+                  <div className="flex items-center gap-1.5 text-sm text-amber-700 mb-1">
                     <Clock size={12} />
                     {t('jobs.timeValue')}
                   </div>
                   <div className="font-bold text-amber-700">-€ {Math.round(r.timeCostMonthly).toLocaleString('it-IT')}</div>
                 </div>
                 <div className="p-3 bg-emerald-50 dark:bg-emerald-950/30 rounded-xl">
-                  <div className="flex items-center gap-1.5 text-xs text-emerald-700 mb-1">
+                  <div className="flex items-center gap-1.5 text-sm text-emerald-700 mb-1">
                     <Coffee size={12} />
                     {t('jobs.benefits')}
                   </div>

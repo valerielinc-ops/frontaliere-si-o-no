@@ -844,7 +844,7 @@ const TicinoCompanies: React.FC = () => {
                     </span>
                   </div>
                 </div>
-                <p className="text-xs text-slate-600 dark:text-slate-400 mb-2 line-clamp-2">{company.description}</p>
+                <p className="text-sm text-slate-600 dark:text-slate-400 mb-2 line-clamp-2">{company.description}</p>
                 <div className="flex items-center justify-between text-xs">
                   <div className="flex items-center gap-1 text-slate-600 dark:text-slate-400">
                     <Users size={12} />

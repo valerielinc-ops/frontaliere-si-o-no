@@ -98,7 +98,7 @@ const RistorniTracker: React.FC = () => {
             <p className="text-xs text-warm-700 dark:text-warm-400">{t('ristorni.oldAgreementDesc')}</p>
           </div>
           <div className="bg-amber-50 dark:bg-amber-900/20 rounded-xl p-3">
-            <h4 className="font-bold text-xs text-amber-700 dark:text-amber-300 mb-1">{t('ristorni.newAgreement')}</h4>
+            <h4 className="font-bold text-sm text-amber-700 dark:text-amber-300 mb-1">{t('ristorni.newAgreement')}</h4>
             <p className="text-xs text-amber-600 dark:text-amber-400">{t('ristorni.newAgreementDesc')}</p>
           </div>
         </div>
@@ -154,7 +154,7 @@ const RistorniTracker: React.FC = () => {
                 <p className="text-lg font-bold text-teal-700 dark:text-teal-300">CHF {estimate.ristorniToItaly.toLocaleString()}</p>
               </div>
               <div className="bg-emerald-50 dark:bg-emerald-900/20 rounded-xl p-3 text-center">
-                <p className="text-xs text-emerald-700 dark:text-emerald-400 font-semibold">{t('ristorni.monthlyEquivalent')}</p>
+                <p className="text-sm text-emerald-700 dark:text-emerald-400 font-semibold">{t('ristorni.monthlyEquivalent')}</p>
                 <p className="text-lg font-bold text-emerald-700 dark:text-emerald-300">CHF {estimate.monthlyEquivalent.toLocaleString()}/{t('ristorni.month')}</p>
               </div>
             </div>
@@ -191,7 +191,7 @@ const RistorniTracker: React.FC = () => {
                 <div className="flex-1">
                   <div className="flex items-center gap-2">
                     <span className="font-semibold text-sm text-slate-800 dark:text-slate-200">{m.name}</span>
-                    <span className="text-xs text-slate-500 dark:text-slate-400">({m.province})</span>
+                    <span className="text-sm text-slate-500 dark:text-slate-400">({m.province})</span>
                   </div>
                   <div className="flex gap-3 text-xs text-slate-500 dark:text-slate-400">
                     <span>{m.frontalieri.toLocaleString()} {t('ristorni.frontalieri')}</span>
@@ -202,7 +202,7 @@ const RistorniTracker: React.FC = () => {
                   <p className="text-sm font-bold text-emerald-700 dark:text-emerald-300">
                     €{(m.estimatedRistorni / 1000000).toFixed(1)}M
                   </p>
-                  <p className="text-xs text-slate-500 dark:text-slate-400">/{t('ristorni.year')}</p>
+                  <p className="text-sm text-slate-500 dark:text-slate-400">/{t('ristorni.year')}</p>
                 </div>
               </div>
             ))}
@@ -235,7 +235,7 @@ const RistorniTracker: React.FC = () => {
                 </div>
               ))}
             </div>
-            <p className="text-xs text-slate-500 dark:text-slate-400 mt-3">
+            <p className="text-sm text-slate-500 dark:text-slate-400 mt-3">
               {t('ristorni.historicalNote')}
             </p>
           </div>

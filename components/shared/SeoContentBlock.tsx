@@ -281,7 +281,7 @@ const SeoContentBlock: React.FC<SeoContentBlockProps> = ({ context }) => {
                   <p className="text-sm font-medium text-slate-700 dark:text-slate-200 group-hover/card:text-blue-600 dark:group-hover/card:text-blue-400 transition-colors">
                     {t(`${feature.i18nKey}.title`)}
                   </p>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 line-clamp-1">
+                  <p className="text-sm text-slate-500 dark:text-slate-400 mt-0.5 line-clamp-1">
                     {t(`${feature.i18nKey}.desc`)}
                   </p>
                 </div>
@@ -302,7 +302,7 @@ const SeoContentBlock: React.FC<SeoContentBlockProps> = ({ context }) => {
           {/* Data updated label */}
           <div className="flex items-center gap-1.5 mt-3 pt-2 border-t border-slate-200/50 dark:border-slate-700/50">
             <CalendarDays className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400 shrink-0" aria-hidden="true" />
-            <span className="text-xs text-slate-500 dark:text-slate-400">
+            <span className="text-sm text-slate-500 dark:text-slate-400">
               {t('seoContent.dataUpdated')}
             </span>
           </div>

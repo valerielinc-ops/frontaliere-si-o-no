@@ -222,7 +222,7 @@ const RelatedTools: React.FC<RelatedToolsProps> = ({ context, onNavigate }) => {
               <p className="text-sm font-semibold text-slate-800 dark:text-slate-100 group-hover:text-indigo-700 dark:group-hover:text-indigo-300 transition-colors">
                 {t(tool.titleKey)}
               </p>
-              <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 line-clamp-2">
+              <p className="text-sm text-slate-500 dark:text-slate-400 mt-0.5 line-clamp-2">
                 {t(tool.descKey)}
               </p>
             </div>

@@ -152,7 +152,7 @@ const GamificationPage: React.FC = () => {
                   </h3>
                   {isUnlocked && <CheckCircle2 size={14} className="text-emerald-500 flex-shrink-0" />}
                 </div>
-                <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                <p className="text-sm text-slate-500 dark:text-slate-400 mt-0.5">
                   {t(`gamification.achievementDesc.${achievement.id}`)}
                 </p>
 
@@ -162,13 +162,13 @@ const GamificationPage: React.FC = () => {
                     <div className="flex-1 bg-slate-200 dark:bg-slate-600 rounded-full h-1.5">
                       <div className="bg-amber-500 rounded-full h-1.5 transition-transform duration-300" style={{ width: '100%', transform: `scaleX(${progress})`, transformOrigin: 'left' }} />
                     </div>
-                    <span className="text-xs text-slate-500 dark:text-slate-400 font-bold">{count}/{achievement.requiredCount}</span>
+                    <span className="text-sm text-slate-500 dark:text-slate-400 font-bold">{count}/{achievement.requiredCount}</span>
                   </div>
                 )}
 
                 {/* Unlocked date */}
                 {isUnlocked && unlockedDate && (
-                  <div className="text-xs text-slate-500 dark:text-slate-400 mt-1.5 flex items-center gap-1">
+                  <div className="text-sm text-slate-500 dark:text-slate-400 mt-1.5 flex items-center gap-1">
                     <CheckCircle2 size={10} />
                     {t('gamification.unlockedOn') || 'Sbloccato il'} {unlockedDate}
                   </div>

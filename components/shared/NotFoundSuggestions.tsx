@@ -235,7 +235,7 @@ const NotFoundSuggestions: React.FC<NotFoundSuggestionsProps> = ({ path, onNavig
 
       {/* Search hint */}
       <div className="mt-6 text-center">
-        <p className="text-xs text-slate-500 dark:text-slate-400 flex items-center justify-center gap-1">
+        <p className="text-sm text-slate-500 dark:text-slate-400 flex items-center justify-center gap-1">
           <Search size={12} />
           {t('notFound.searchHint')}
         </p>

@@ -160,7 +160,7 @@ const SubscriptionCTA: React.FC = () => {
             <Mail className="w-10 h-10 text-amber-500 mx-auto mb-2" />
             <p className="font-bold text-slate-800 dark:text-slate-100">{t('newsletter.doubleOptIn.title')}</p>
             <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">{t('newsletter.doubleOptIn.description')}</p>
-            <p className="text-xs text-slate-500 dark:text-slate-400 mt-2">{t('newsletter.doubleOptIn.spamHint')}</p>
+            <p className="text-sm text-slate-500 dark:text-slate-400 mt-2">{t('newsletter.doubleOptIn.spamHint')}</p>
 
             {/* FRO-23: Email provider button */}
             {email && (() => {
@@ -241,7 +241,7 @@ const SubscriptionCTA: React.FC = () => {
             <h4 className="font-bold text-slate-800 dark:text-slate-100 text-sm leading-tight">
               {t('newsletter.cta.postCalc.title')}
             </h4>
-            <p className="text-xs text-slate-600 dark:text-slate-400 mt-0.5">
+            <p className="text-sm text-slate-600 dark:text-slate-400 mt-0.5">
               {t('newsletter.cta.postCalc.subtitle')}
             </p>
           </div>
@@ -311,7 +311,7 @@ const SubscriptionCTA: React.FC = () => {
             <Users className="w-3.5 h-3.5 text-indigo-500" />
             <span>{t('newsletter.cta.subscriberCount')}</span>
           </div>
-          <div className="flex items-center gap-1.5 text-xs text-emerald-700 dark:text-emerald-400">
+          <div className="flex items-center gap-1.5 text-sm text-emerald-700 dark:text-emerald-400">
             <Shield className="w-3 h-3" />
             <span>{t('newsletter.dataPrivacy')}</span>
           </div>

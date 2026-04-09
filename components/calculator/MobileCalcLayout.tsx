@@ -280,7 +280,7 @@ const MobileCalcLayout: React.FC<Props> = ({
               <span className={`font-bold text-xs ${inputs.frontierWorkerType === 'NEW' ? 'text-blue-700 dark:text-blue-300' : 'text-slate-600 dark:text-slate-400'}`}>
                 {t('input.newFrontier')}
               </span>
-              <span className="text-xs text-slate-500 dark:text-slate-400 font-medium">{t('input.postDate')}</span>
+              <span className="text-sm text-slate-500 dark:text-slate-400 font-medium">{t('input.postDate')}</span>
             </button>
             <button
               onClick={() => handleChange('frontierWorkerType', 'OLD')}
@@ -296,7 +296,7 @@ const MobileCalcLayout: React.FC<Props> = ({
               <span className={`font-bold text-xs ${inputs.frontierWorkerType === 'OLD' ? 'text-emerald-700 dark:text-emerald-300' : 'text-slate-600 dark:text-slate-400'}`}>
                 {t('input.oldFrontier')}
               </span>
-              <span className="text-xs text-slate-500 dark:text-slate-400 font-medium">{t('input.preDate')}</span>
+              <span className="text-sm text-slate-500 dark:text-slate-400 font-medium">{t('input.preDate')}</span>
             </button>
           </div>
           {/* Distance zone for NEW */}

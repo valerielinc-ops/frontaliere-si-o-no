@@ -218,7 +218,7 @@ const Glossary: React.FC<GlossaryProps> = ({ initialEntry }) => {
       </div>
 
       {/* Entries count */}
-      <p className="text-xs text-slate-500 dark:text-slate-400">
+      <p className="text-sm text-slate-500 dark:text-slate-400">
         {filteredEntries.length} {t('glossary.termsFound')}
       </p>
 

@@ -550,7 +550,7 @@ const MobileOperators: React.FC = () => {
                       <div className="text-2xl font-bold text-red-600 dark:text-red-400">
                         {operator.country === 'IT' ? '€' : 'CHF'} {realMonthlyCost.toFixed(2)}
                       </div>
-                      <div className="text-xs text-red-600 dark:text-red-400 font-medium">{t('mobile.realCostMonth')}</div>
+                      <div className="text-sm text-red-600 dark:text-red-400 font-medium">{t('mobile.realCostMonth')}</div>
                     </>
                   ) : (
                     <>
@@ -567,7 +567,7 @@ const MobileOperators: React.FC = () => {
               {hasExtraCost && (
                 <div className="mb-4 p-3 bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800 rounded-lg">
                   <p className="text-xs font-bold text-amber-800 dark:text-amber-300 mb-2">💰 {t('mobile.costBreakdown')}:</p>
-                  <div className="space-y-1 text-xs text-amber-700 dark:text-amber-400">
+                  <div className="space-y-1 text-sm text-amber-700 dark:text-amber-400">
                     <div className="flex justify-between">
                       <span>{t('mobile.basePlan')}:</span>
                       <span className="font-medium">{operator.country === 'IT' ? '€' : 'CHF'} {operator.monthlyCost.toFixed(2)}</span>

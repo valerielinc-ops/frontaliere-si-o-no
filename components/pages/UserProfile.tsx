@@ -995,7 +995,7 @@ const UserProfile: React.FC = () => {
                   <span className="text-lg font-bold text-emerald-700 dark:text-emerald-400 tabular-nums">
                     {Math.round(quickSimResult.chResident.netIncomeMonthly).toLocaleString('de-CH')}
                   </span>
-                  <span className="text-xs text-slate-500 dark:text-slate-400">CHF/{t('profile.widget.month')}</span>
+                  <span className="text-sm text-slate-500 dark:text-slate-400">CHF/{t('profile.widget.month')}</span>
                 </button>
               )}
               {/* Net salary (IT) */}
@@ -1009,7 +1009,7 @@ const UserProfile: React.FC = () => {
                   <span className="text-lg font-bold text-blue-600 dark:text-blue-400 tabular-nums">
                     {Math.round(quickSimResult.itResident.netIncomeMonthly).toLocaleString('de-CH')}
                   </span>
-                  <span className="text-xs text-slate-500 dark:text-slate-400">EUR/{t('profile.widget.month')}</span>
+                  <span className="text-sm text-slate-500 dark:text-slate-400">EUR/{t('profile.widget.month')}</span>
                 </button>
               )}
               {/* EUR/CHF rate */}
@@ -1022,7 +1022,7 @@ const UserProfile: React.FC = () => {
                 <span className="text-lg font-bold text-amber-600 dark:text-amber-400 tabular-nums">
                   {fxRate.toFixed(4)}
                 </span>
-                <span className="text-xs text-slate-500 dark:text-slate-400">{t('profile.widget.live')}</span>
+                <span className="text-sm text-slate-500 dark:text-slate-400">{t('profile.widget.live')}</span>
               </button>
               {/* Preferred dogana / morning dashboard */}
               <button
@@ -1096,7 +1096,7 @@ const UserProfile: React.FC = () => {
                       <>
                         <span className={`text-2xl font-bold tabular-nums ${numColor}`}>{diffDays}</span>
                         <span className={`text-sm font-medium ${textColor}`}>{t('profile.permit.daysLeft')}</span>
-                        {diffMonths > 0 && <span className="text-xs text-slate-500 dark:text-slate-400 ml-1">({diffMonths} {t('profile.permit.months')})</span>}
+                        {diffMonths > 0 && <span className="text-sm text-slate-500 dark:text-slate-400 ml-1">({diffMonths} {t('profile.permit.months')})</span>}
                       </>
                     )}
                   </div>
@@ -1121,7 +1121,7 @@ const UserProfile: React.FC = () => {
               {t('profile.personalInfo')}
             </h2>
             {saveStatus === 'saved' && (
-              <span className="flex items-center gap-1 text-xs text-emerald-700 dark:text-emerald-400 font-medium">
+              <span className="flex items-center gap-1 text-sm text-emerald-700 dark:text-emerald-400 font-medium">
                 <CheckCircle2 size={13} />
                 {t('profile.saved')}
               </span>
@@ -1509,7 +1509,7 @@ const UserProfile: React.FC = () => {
             <Award size={20} className="text-amber-600 dark:text-amber-400 flex-shrink-0 mt-0.5" />
             <div>
               <p className="text-sm font-bold text-amber-800 dark:text-amber-300">{t('profile.cta.completeProfile')}</p>
-              <p className="text-xs text-amber-700 dark:text-amber-400 mt-1">{t('profile.cta.completeDesc')}</p>
+              <p className="text-sm text-amber-700 dark:text-amber-400 mt-1">{t('profile.cta.completeDesc')}</p>
             </div>
           </div>
         </div>
@@ -1548,7 +1548,7 @@ const UserProfile: React.FC = () => {
 
             {/* GDPR Data Export */}
             <div className="flex items-center justify-between px-4 py-3 bg-blue-50 dark:bg-blue-950/30 rounded-xl border border-blue-100 dark:border-blue-900/50">
-              <div className="flex items-center gap-2 text-xs text-blue-700 dark:text-blue-300 font-medium">
+              <div className="flex items-center gap-2 text-sm text-blue-700 dark:text-blue-300 font-medium">
                 <Shield size={14} className="flex-shrink-0" />
                 <span>{t('profile.gdprExportDesc')}</span>
               </div>
@@ -1566,7 +1566,7 @@ const UserProfile: React.FC = () => {
                 {!showDeleteConfirm ? (
                   <button
                     onClick={() => setShowDeleteConfirm(true)}
-                    className="flex items-center gap-2 text-xs text-red-600 dark:text-red-400 font-medium hover:text-red-700 dark:hover:text-red-300 transition-colors"
+                    className="flex items-center gap-2 text-sm text-red-600 dark:text-red-400 font-medium hover:text-red-700 dark:hover:text-red-300 transition-colors"
                     aria-label={t('profile.deleteAccount')}
                   >
                     <Trash2 size={14} className="flex-shrink-0" />

@@ -276,14 +276,14 @@ export default function TrafficHistory() {
       {/* Quick insights */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <div className="bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-xl p-4">
-          <p className="text-xs text-emerald-700 dark:text-emerald-400 font-semibold mb-1">{t('trafficHistory.bestTime')}</p>
+          <p className="text-sm text-emerald-700 dark:text-emerald-400 font-semibold mb-1">{t('trafficHistory.bestTime')}</p>
           <p className="text-lg font-bold text-emerald-700 dark:text-emerald-300">
             {DAY_NAMES_IT[analysis.bestDay]} {analysis.bestHour}:00
           </p>
           <p className="text-sm text-emerald-700 dark:text-emerald-400">{analysis.bestWait} min</p>
         </div>
         <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl p-4">
-          <p className="text-xs text-red-600 dark:text-red-400 font-semibold mb-1">{t('trafficHistory.worstTime')}</p>
+          <p className="text-sm text-red-600 dark:text-red-400 font-semibold mb-1">{t('trafficHistory.worstTime')}</p>
           <p className="text-lg font-bold text-red-700 dark:text-red-300">
             {DAY_NAMES_IT[analysis.worstDay]} {analysis.worstHour}:00
           </p>
@@ -383,7 +383,7 @@ export default function TrafficHistory() {
       {/* Info notice */}
       <div className="bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-xl p-4 flex items-start gap-3">
         <Info size={18} className="text-slate-500 dark:text-slate-300 shrink-0 mt-0.5" />
-        <p className="text-xs text-slate-500 dark:text-slate-400">
+        <p className="text-sm text-slate-500 dark:text-slate-400">
           {dataSource === 'firestore' ? t('trafficHistory.dataNoteReal') : t('trafficHistory.dataNote')}
         </p>
       </div>

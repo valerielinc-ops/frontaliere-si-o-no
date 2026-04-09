@@ -209,7 +209,7 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
         {/* Property type selector (prima/seconda casa) — only for IT properties */}
         {countryOfProperty === 'IT' && (
           <div>
-            <label className="block text-xs font-semibold text-slate-600 dark:text-slate-400 mb-2">
+            <label className="block text-sm font-semibold text-slate-600 dark:text-slate-400 mb-2">
               {t('renovation.propertyType')}
             </label>
             <div className="flex gap-2">
@@ -261,11 +261,11 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
               placeholder="100000"
             />
             {stipendioLordo > 0 && redditoImponibile > 0 && (
-              <p className="text-xs text-emerald-700 dark:text-emerald-400 mt-1 font-medium">
+              <p className="text-sm text-emerald-700 dark:text-emerald-400 mt-1 font-medium">
                 {t('capienza.derivedBase', { base: redditoImponibile.toLocaleString() })}
               </p>
             )}
-            <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+            <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
               {hasSimulation
                 ? t('capienza.autoPopulated')
                 : t('capienza.grossSalaryHelp')
@@ -291,7 +291,7 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
                 <p className="text-lg font-bold text-blue-700 dark:text-blue-300">{result.currency} {totalCost.toLocaleString()}</p>
               </div>
               <div className="bg-emerald-50 dark:bg-emerald-900/20 rounded-xl p-3 text-center">
-                <p className="text-xs text-emerald-700 dark:text-emerald-400 font-semibold">{t('renovation.totalDeduction')}</p>
+                <p className="text-sm text-emerald-700 dark:text-emerald-400 font-semibold">{t('renovation.totalDeduction')}</p>
                 <p className="text-lg font-bold text-emerald-700 dark:text-emerald-300">{result.currency} {result.totalDeduction.toLocaleString()}</p>
               </div>
               <div className="bg-violet-50 dark:bg-violet-900/20 rounded-xl p-3 text-center">
@@ -473,7 +473,7 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
                             {/* Tip cards */}
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                               <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-2.5 border border-blue-100 dark:border-blue-800">
-                                <p className="text-xs text-blue-700 dark:text-blue-300 flex items-center gap-1">
+                                <p className="text-sm text-blue-700 dark:text-blue-300 flex items-center gap-1">
                                   <CreditCard size={12} /> {t('capienza.tipOtherIncome')}
                                 </p>
                               </div>
@@ -490,7 +490,7 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
                         <div className="flex items-start gap-2.5">
                           <Info size={16} className="text-blue-600 dark:text-blue-400 mt-0.5 shrink-0" />
                           <div>
-                            <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">{t('capienza.enterGrossSalary')}</p>
+                            <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{t('capienza.enterGrossSalary')}</p>
                           </div>
                         </div>
                       )}
@@ -542,7 +542,7 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
                         <span className="text-sm font-bold text-emerald-700 dark:text-emerald-300">{effective.percent}%</span>
                       </div>
                     </div>
-                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                    <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
                       {t(`renovation.bonusDesc.${b.key}`)} · Max €{effective.maxAmount.toLocaleString()} · {b.years} {t('renovation.years')}
                     </p>
                   </div>
@@ -590,7 +590,7 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
                         {cat.deductible ? t('renovation.deductible') : t('renovation.notDeductible')}
                       </span>
                     </div>
-                    <p className="text-xs text-slate-500 dark:text-slate-400">{t(`renovation.catDesc.${cat.key}`)}</p>
+                    <p className="text-sm text-slate-500 dark:text-slate-400">{t(`renovation.catDesc.${cat.key}`)}</p>
                   </div>
                 );
               })}

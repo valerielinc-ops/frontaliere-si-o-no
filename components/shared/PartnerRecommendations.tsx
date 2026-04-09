@@ -51,7 +51,7 @@ const PartnerCard: React.FC<{ partner: AffiliatePartner; context: string }> = ({
             </span>
           )}
         </div>
-        <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+        <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
           {t(partner.descriptionKey)}
         </p>
       </div>
@@ -77,7 +77,7 @@ const PartnerRecommendations: React.FC<PartnerRecommendationsProps> = ({ context
           <PartnerCard key={partner.id} partner={partner} context={context} />
         ))}
       </div>
-      <p className="text-xs text-slate-500 dark:text-slate-600 mt-2 text-center">
+      <p className="text-sm text-slate-500 dark:text-slate-600 mt-2 text-center">
         {t('affiliate.disclosure')}
       </p>
     </div>

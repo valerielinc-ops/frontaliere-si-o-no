@@ -171,7 +171,7 @@ const NurseryComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({
             {/* Summary cards */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               <div className="bg-emerald-50 dark:bg-emerald-900/20 rounded-xl p-3 text-center">
-                <p className="text-xs text-emerald-700 dark:text-emerald-400 font-semibold">{t('nursery.monthlyBenefit')}</p>
+                <p className="text-sm text-emerald-700 dark:text-emerald-400 font-semibold">{t('nursery.monthlyBenefit')}</p>
                 <p className="text-lg font-bold text-emerald-700 dark:text-emerald-300">CHF {monthlyBenefitCH}</p>
               </div>
               <div className="bg-warm-50 dark:bg-warm-950 rounded-xl p-3 text-center border border-warm-200 dark:border-warm-800">
@@ -261,7 +261,7 @@ const NurseryComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({
                     <p className="text-lg font-bold text-emerald-700 dark:text-emerald-300">
                       CHF {estimatedCost.toLocaleString()}
                     </p>
-                    <p className="text-xs text-slate-500 dark:text-slate-400">{t('nursery.perMonth')}</p>
+                    <p className="text-sm text-slate-500 dark:text-slate-400">{t('nursery.perMonth')}</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-2 mt-2">

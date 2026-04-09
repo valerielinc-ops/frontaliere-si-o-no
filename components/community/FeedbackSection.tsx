@@ -268,7 +268,7 @@ export const FeedbackSection: React.FC = () => {
             </div>
             
             {submitError && (
-              <div className="p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl text-xs text-red-600 flex items-center gap-2">
+              <div className="p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl text-sm text-red-600 flex items-center gap-2">
                  <AlertTriangle size={14}/> {submitError}
               </div>
             )}
@@ -322,7 +322,7 @@ export const FeedbackSection: React.FC = () => {
                       </div>
                       <div>
                         <h4 className="text-sm font-bold text-slate-800 dark:text-slate-100 line-clamp-1 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">{item.title}</h4>
-                        <p className="text-xs text-slate-600 dark:text-slate-400 line-clamp-2 mt-1 leading-relaxed">
+                        <p className="text-sm text-slate-600 dark:text-slate-400 line-clamp-2 mt-1 leading-relaxed">
                           {item.description}
                         </p>
                         <div className="flex items-center gap-3 mt-3">
@@ -330,7 +330,7 @@ export const FeedbackSection: React.FC = () => {
                             {item.status === 'OPEN' ? <Clock size={10} /> : <CheckCircle size={10} />}
                             {item.status}
                           </span>
-                          <span className="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-1 font-medium">
+                          <span className="text-sm text-slate-500 dark:text-slate-400 flex items-center gap-1 font-medium">
                             <Clock size={10} /> {new Date(item.createdAt).toLocaleDateString()}
                           </span>
                         </div>

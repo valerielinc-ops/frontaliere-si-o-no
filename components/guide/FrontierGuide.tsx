@@ -403,27 +403,27 @@ const MunicipalityDetailPanel: React.FC<MunicipalityDetailPanelProps> = ({ munic
 
     <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-5">
       <div className="bg-warm-50 dark:bg-warm-950 rounded-xl p-3">
-        <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">{t('guide.municipalities.detail.fascia')}</p>
+        <p className="text-sm text-slate-500 dark:text-slate-400 mb-1">{t('guide.municipalities.detail.fascia')}</p>
         <p className="font-bold text-slate-800 dark:text-slate-100">Fascia {municipality.fascia}</p>
       </div>
       <div className="bg-warm-50 dark:bg-warm-950 rounded-xl p-3">
-        <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">{t('guide.municipalities.detail.irpef')}</p>
+        <p className="text-sm text-slate-500 dark:text-slate-400 mb-1">{t('guide.municipalities.detail.irpef')}</p>
         <p className="font-bold text-slate-800 dark:text-slate-100">{municipality.irpefAddizionale}%</p>
       </div>
       <div className="bg-slate-50 dark:bg-slate-900/50 rounded-xl p-3">
-        <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">{t('guide.municipalities.detail.avgRent')}</p>
+        <p className="text-sm text-slate-500 dark:text-slate-400 mb-1">{t('guide.municipalities.detail.avgRent')}</p>
         <p className="font-bold text-slate-800 dark:text-slate-100">€{municipality.avgRentMonthly}/{t('guide.municipalities.detail.perMonth')}</p>
       </div>
       <div className="bg-slate-50 dark:bg-slate-900/50 rounded-xl p-3">
-        <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">{t('guide.municipalities.detail.distance')}</p>
+        <p className="text-sm text-slate-500 dark:text-slate-400 mb-1">{t('guide.municipalities.detail.distance')}</p>
         <p className="font-bold text-slate-800 dark:text-slate-100">{municipality.distance} km</p>
       </div>
       <div className="bg-slate-50 dark:bg-slate-900/50 rounded-xl p-3">
-        <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">{t('guide.municipalities.detail.borderCrossing')}</p>
+        <p className="text-sm text-slate-500 dark:text-slate-400 mb-1">{t('guide.municipalities.detail.borderCrossing')}</p>
         <p className="font-bold text-slate-800 dark:text-slate-100 text-sm">{municipality.borderCrossing}</p>
       </div>
       <div className="bg-slate-50 dark:bg-slate-900/50 rounded-xl p-3">
-        <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">{t('guide.municipalities.detail.population')}</p>
+        <p className="text-sm text-slate-500 dark:text-slate-400 mb-1">{t('guide.municipalities.detail.population')}</p>
         <p className="font-bold text-slate-800 dark:text-slate-100">{municipality.population.toLocaleString('it-IT')}</p>
       </div>
     </div>
@@ -1063,7 +1063,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                               <Popup>
                                 <div className="text-sm min-w-[200px]">
                                   <div className="font-bold text-slate-800 dark:text-slate-100 mb-1">{border.name}</div>
-                                  <div className="text-xs text-slate-600 dark:text-slate-400 mb-2">📍 {border.italianSide}</div>
+                                  <div className="text-sm text-slate-600 dark:text-slate-400 mb-2">📍 {border.italianSide}</div>
                                   <div className="text-xs space-y-1">
                                     <div><strong>🌅 {t('guide.border.morning')}:</strong> {border.avgWaitMorning}</div>
                                     <div><strong>🌆 {t('guide.border.evening')}:</strong> {border.avgWaitEvening}</div>
@@ -1123,25 +1123,25 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                       </div>
                       <div className="flex-1">
                         <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100">{border.name}</h3>
-                        <p className="text-xs text-slate-500 dark:text-slate-400">📍 {border.italianSide}</p>
+                        <p className="text-sm text-slate-500 dark:text-slate-400">📍 {border.italianSide}</p>
                       </div>
                     </div>
 
                     <div className="space-y-2">
                       <div className="flex items-center justify-between">
-                        <span className="text-xs text-slate-600 dark:text-slate-300">{t('guide.border.waitMorning')} (🌅 7-9)</span>
+                        <span className="text-sm text-slate-600 dark:text-slate-300">{t('guide.border.waitMorning')} (🌅 7-9)</span>
                         <span className={`text-sm font-bold ${selectedTime === 'morning' ? 'text-orange-600' : 'text-slate-600 dark:text-slate-400'}`}>{border.avgWaitMorning}</span>
                       </div>
                       <div className="flex items-center justify-between">
-                        <span className="text-xs text-slate-600 dark:text-slate-300">{t('guide.border.waitEvening')} (🌆 17-19)</span>
+                        <span className="text-sm text-slate-600 dark:text-slate-300">{t('guide.border.waitEvening')} (🌆 17-19)</span>
                         <span className={`text-sm font-bold ${selectedTime === 'evening' ? 'text-purple-600' : 'text-slate-600 dark:text-slate-400'}`}>{border.avgWaitEvening}</span>
                       </div>
                       <div className="pt-2 border-t border-slate-200 dark:border-slate-700">
-                        <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">⏰ {t('guide.border.openingHours')}</div>
+                        <div className="text-sm text-slate-500 dark:text-slate-400 mb-1">⏰ {t('guide.border.openingHours')}</div>
                         <div className={`text-sm font-semibold ${border.hours === '24h' ? 'text-emerald-700' : 'text-orange-600'}`}>{t(border.hours)}</div>
                       </div>
                       <div className="pt-2 border-t border-slate-200 dark:border-slate-700">
-                        <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">🔴 {t('guide.border.peakHours')}</div>
+                        <div className="text-sm text-slate-500 dark:text-slate-400 mb-1">🔴 {t('guide.border.peakHours')}</div>
                         <div className="text-xs font-semibold text-slate-800 dark:text-slate-100">{t(border.peak)}</div>
                       </div>
                       <div className="p-2.5 bg-warm-50 dark:bg-warm-950 rounded-lg border border-warm-200 dark:border-warm-800">
@@ -1158,23 +1158,23 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
           <InfoCard icon={Clock} title={t('guide.border.travelTimes')} color="blue">
             <div className="grid sm:grid-cols-2 gap-3">
               <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-lg">
-                <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">Como → Lugano</div>
+                <div className="text-sm text-slate-500 dark:text-slate-400 mb-1">Como → Lugano</div>
                 <div className="text-lg font-bold text-blue-600">25-40 min</div>
               </div>
               <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-lg">
-                <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">Varese → Mendrisio</div>
+                <div className="text-sm text-slate-500 dark:text-slate-400 mb-1">Varese → Mendrisio</div>
                 <div className="text-lg font-bold text-blue-600">20-35 min</div>
               </div>
               <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-lg">
-                <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">Varese → Lugano</div>
+                <div className="text-sm text-slate-500 dark:text-slate-400 mb-1">Varese → Lugano</div>
                 <div className="text-lg font-bold text-blue-600">30-45 min</div>
               </div>
               <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-lg">
-                <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">Milano → Lugano</div>
+                <div className="text-sm text-slate-500 dark:text-slate-400 mb-1">Milano → Lugano</div>
                 <div className="text-lg font-bold text-blue-600">60-90 min</div>
               </div>
             </div>
-            <p className="text-xs text-slate-500 dark:text-slate-400 mt-3">
+            <p className="text-sm text-slate-500 dark:text-slate-400 mt-3">
               * {t('guide.border.travelTimesNote')}
             </p>
           </InfoCard>
@@ -1340,7 +1340,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                   <p className="text-sm text-slate-700 dark:text-slate-300 mb-2">
                     {t('guide.livingCH.capitalGainDesc')}
                   </p>
-                  <p className="text-xs text-slate-600 dark:text-slate-300">
+                  <p className="text-sm text-slate-600 dark:text-slate-300">
                     💡 {t('guide.livingCH.capitalGainNote')}
                   </p>
                 </div>
@@ -1387,7 +1387,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                     </div>
                   </div>
 
-                  <div className="mt-3 text-xs text-slate-500 dark:text-slate-400 space-y-1">
+                  <div className="mt-3 text-sm text-slate-500 dark:text-slate-400 space-y-1">
                     <p>🏠 <strong>{t('guide.livingCH.wealthTaxableAssets')}:</strong> {t('guide.livingCH.wealthTaxableAssetsDesc')}</p>
                     <p>🪪 <strong>{t('guide.livingCH.wealthPermitB')}:</strong> {t('guide.livingCH.wealthPermitBDesc')}</p>
                   </div>
@@ -1544,7 +1544,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                   <strong className="text-emerald-700">{t('guide.livingIT.healthOpt2')}</strong>
                   <div className="text-xs mt-1">{t('guide.livingIT.healthOpt2Desc')}</div>
                 </div>
-                <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg text-xs text-blue-700 dark:text-blue-300">
+                <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg text-sm text-blue-700 dark:text-blue-300">
                   💡 {t('guide.livingIT.healthTip')}
                 </div>
               </div>
@@ -1946,15 +1946,15 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
               <div className="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-xl border border-purple-200 dark:border-purple-800">
                 <div className="grid sm:grid-cols-3 gap-3 mb-3">
                   <div className="text-center p-2 bg-white dark:bg-slate-800 rounded-lg">
-                    <div className="text-xs text-slate-500 dark:text-slate-400">{t('guide.schools.age')}</div>
+                    <div className="text-sm text-slate-500 dark:text-slate-400">{t('guide.schools.age')}</div>
                     <div className="font-bold text-purple-600">0-3 {t('guide.schools.years')}</div>
                   </div>
                   <div className="text-center p-2 bg-white dark:bg-slate-800 rounded-lg">
-                    <div className="text-xs text-slate-500 dark:text-slate-400">{t('guide.schools.cost')}</div>
+                    <div className="text-sm text-slate-500 dark:text-slate-400">{t('guide.schools.cost')}</div>
                     <div className="font-bold text-purple-600">CHF 1'200-2'500/{t('guide.schools.month')}</div>
                   </div>
                   <div className="text-center p-2 bg-white dark:bg-slate-800 rounded-lg">
-                    <div className="text-xs text-slate-500 dark:text-slate-400">{t('guide.schools.hours')}</div>
+                    <div className="text-sm text-slate-500 dark:text-slate-400">{t('guide.schools.hours')}</div>
                     <div className="font-bold text-purple-600">7:00-18:30</div>
                   </div>
                 </div>
@@ -1990,15 +1990,15 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
               <div className="p-4 bg-emerald-50 dark:bg-emerald-900/20 rounded-xl border border-emerald-200 dark:border-emerald-800">
                 <div className="grid sm:grid-cols-3 gap-3 mb-3">
                   <div className="text-center p-2 bg-white dark:bg-slate-800 rounded-lg">
-                    <div className="text-xs text-slate-500 dark:text-slate-400">{t('guide.schools.age')}</div>
+                    <div className="text-sm text-slate-500 dark:text-slate-400">{t('guide.schools.age')}</div>
                     <div className="font-bold text-emerald-700">3-6 {t('guide.schools.years')}</div>
                   </div>
                   <div className="text-center p-2 bg-white dark:bg-slate-800 rounded-lg">
-                    <div className="text-xs text-slate-500 dark:text-slate-400">{t('guide.schools.cost')}</div>
+                    <div className="text-sm text-slate-500 dark:text-slate-400">{t('guide.schools.cost')}</div>
                     <div className="font-bold text-emerald-700">{t('guide.schools.free')} (pubblica)</div>
                   </div>
                   <div className="text-center p-2 bg-white dark:bg-slate-800 rounded-lg">
-                    <div className="text-xs text-slate-500 dark:text-slate-400">{t('guide.schools.hours')}</div>
+                    <div className="text-sm text-slate-500 dark:text-slate-400">{t('guide.schools.hours')}</div>
                     <div className="font-bold text-emerald-700">8:30-15:30</div>
                   </div>
                 </div>
@@ -2034,15 +2034,15 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
               <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-xl border border-blue-200 dark:border-blue-800">
                 <div className="grid sm:grid-cols-3 gap-3 mb-3">
                   <div className="text-center p-2 bg-white dark:bg-slate-800 rounded-lg">
-                    <div className="text-xs text-slate-500 dark:text-slate-400">{t('guide.schools.age')}</div>
+                    <div className="text-sm text-slate-500 dark:text-slate-400">{t('guide.schools.age')}</div>
                     <div className="font-bold text-blue-600">6-11 {t('guide.schools.years')}</div>
                   </div>
                   <div className="text-center p-2 bg-white dark:bg-slate-800 rounded-lg">
-                    <div className="text-xs text-slate-500 dark:text-slate-400">{t('guide.schools.cost')}</div>
+                    <div className="text-sm text-slate-500 dark:text-slate-400">{t('guide.schools.cost')}</div>
                     <div className="font-bold text-blue-600">{t('guide.schools.free')} (pubblica)</div>
                   </div>
                   <div className="text-center p-2 bg-white dark:bg-slate-800 rounded-lg">
-                    <div className="text-xs text-slate-500 dark:text-slate-400">{t('guide.schools.hours')}</div>
+                    <div className="text-sm text-slate-500 dark:text-slate-400">{t('guide.schools.hours')}</div>
                     <div className="font-bold text-blue-600">8:15-15:45</div>
                   </div>
                 </div>
@@ -2078,15 +2078,15 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
               <div className="p-4 bg-orange-50 dark:bg-orange-900/20 rounded-xl border border-orange-200 dark:border-orange-800">
                 <div className="grid sm:grid-cols-3 gap-3 mb-3">
                   <div className="text-center p-2 bg-white dark:bg-slate-800 rounded-lg">
-                    <div className="text-xs text-slate-500 dark:text-slate-400">{t('guide.schools.age')}</div>
+                    <div className="text-sm text-slate-500 dark:text-slate-400">{t('guide.schools.age')}</div>
                     <div className="font-bold text-orange-600">11-15 {t('guide.schools.years')}</div>
                   </div>
                   <div className="text-center p-2 bg-white dark:bg-slate-800 rounded-lg">
-                    <div className="text-xs text-slate-500 dark:text-slate-400">{t('guide.schools.cost')}</div>
+                    <div className="text-sm text-slate-500 dark:text-slate-400">{t('guide.schools.cost')}</div>
                     <div className="font-bold text-orange-600">{t('guide.schools.free')} (pubblica)</div>
                   </div>
                   <div className="text-center p-2 bg-white dark:bg-slate-800 rounded-lg">
-                    <div className="text-xs text-slate-500 dark:text-slate-400">{t('guide.schools.hours')}</div>
+                    <div className="text-sm text-slate-500 dark:text-slate-400">{t('guide.schools.hours')}</div>
                     <div className="font-bold text-orange-600">8:00-16:00</div>
                   </div>
                 </div>
@@ -2122,15 +2122,15 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
               <div className="p-4 bg-teal-50 dark:bg-teal-900/20 rounded-xl border border-teal-200 dark:border-teal-800">
                 <div className="grid sm:grid-cols-3 gap-3 mb-3">
                   <div className="text-center p-2 bg-white dark:bg-slate-800 rounded-lg">
-                    <div className="text-xs text-slate-500 dark:text-slate-400">{t('guide.schools.age')}</div>
+                    <div className="text-sm text-slate-500 dark:text-slate-400">{t('guide.schools.age')}</div>
                     <div className="font-bold text-teal-600">15-19 {t('guide.schools.years')}</div>
                   </div>
                   <div className="text-center p-2 bg-white dark:bg-slate-800 rounded-lg">
-                    <div className="text-xs text-slate-500 dark:text-slate-400">{t('guide.schools.cost')}</div>
+                    <div className="text-sm text-slate-500 dark:text-slate-400">{t('guide.schools.cost')}</div>
                     <div className="font-bold text-teal-600">{t('guide.schools.free')} / CHF 500-1'500</div>
                   </div>
                   <div className="text-center p-2 bg-white dark:bg-slate-800 rounded-lg">
-                    <div className="text-xs text-slate-500 dark:text-slate-400">{t('guide.schools.hours')}</div>
+                    <div className="text-sm text-slate-500 dark:text-slate-400">{t('guide.schools.hours')}</div>
                     <div className="font-bold text-teal-600">8:00-16:30</div>
                   </div>
                 </div>
@@ -2324,14 +2324,14 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div className="bg-red-50 dark:bg-red-900/20 rounded-lg p-3">
                     <div className="text-2xl font-bold text-red-700 dark:text-red-300">70%</div>
-                    <div className="text-xs text-slate-500 dark:text-slate-400">{t('guide.unemployment.ch.amount70')}</div>
+                    <div className="text-sm text-slate-500 dark:text-slate-400">{t('guide.unemployment.ch.amount70')}</div>
                   </div>
                   <div className="bg-red-50 dark:bg-red-900/20 rounded-lg p-3">
                     <div className="text-2xl font-bold text-red-700 dark:text-red-300">80%</div>
-                    <div className="text-xs text-slate-500 dark:text-slate-400">{t('guide.unemployment.ch.amount80')}</div>
+                    <div className="text-sm text-slate-500 dark:text-slate-400">{t('guide.unemployment.ch.amount80')}</div>
                   </div>
                 </div>
-                <p className="text-xs text-slate-500 dark:text-slate-400 mt-2">{t('guide.unemployment.ch.maxInsured')}</p>
+                <p className="text-sm text-slate-500 dark:text-slate-400 mt-2">{t('guide.unemployment.ch.maxInsured')}</p>
               </div>
 
               {/* Duration */}
@@ -2410,7 +2410,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                   <p>{t('guide.unemployment.it.amount2')}</p>
                   <div className="bg-green-50 dark:bg-green-900/20 rounded-lg p-3 mt-2">
                     <div className="text-lg font-bold text-green-700 dark:text-green-300">€ 1.550,42</div>
-                    <div className="text-xs text-slate-500 dark:text-slate-400">{t('guide.unemployment.it.maxMonthly')} (2025)</div>
+                    <div className="text-sm text-slate-500 dark:text-slate-400">{t('guide.unemployment.it.maxMonthly')} (2025)</div>
                   </div>
                 </div>
               </div>
@@ -2483,19 +2483,19 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <a href="https://www.arbeit.swiss" target="_blank" rel="noopener noreferrer" className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-3 hover:border-red-400 transition-colors group">
                 <div className="font-bold text-sm text-slate-800 dark:text-slate-100 group-hover:text-red-600">🇨🇭 arbeit.swiss</div>
-                <div className="text-xs text-slate-500 dark:text-slate-400">{t('guide.unemployment.links.arbeit')}</div>
+                <div className="text-sm text-slate-500 dark:text-slate-400">{t('guide.unemployment.links.arbeit')}</div>
               </a>
               <a href="https://www.seco.admin.ch/seco/it/home/Arbeit/Arbeitslosenversicherung.html" target="_blank" rel="noopener noreferrer" className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-3 hover:border-red-400 transition-colors group">
                 <div className="font-bold text-sm text-slate-800 dark:text-slate-100 group-hover:text-red-600">🇨🇭 SECO</div>
-                <div className="text-xs text-slate-500 dark:text-slate-400">{t('guide.unemployment.links.seco')}</div>
+                <div className="text-sm text-slate-500 dark:text-slate-400">{t('guide.unemployment.links.seco')}</div>
               </a>
               <a href="https://www.inps.it/it/it/dettaglio-scheda.schede-servizio-strumento.schede-servizi.naspi-indennita-mensile-di-disoccupazione-51039.naspi-indennita-mensile-di-disoccupazione.html" target="_blank" rel="noopener noreferrer" className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-3 hover:border-green-400 transition-colors group">
                 <div className="font-bold text-sm text-slate-800 dark:text-slate-100 group-hover:text-green-600">🇮🇹 INPS - NASpI</div>
-                <div className="text-xs text-slate-500 dark:text-slate-400">{t('guide.unemployment.links.inps')}</div>
+                <div className="text-sm text-slate-500 dark:text-slate-400">{t('guide.unemployment.links.inps')}</div>
               </a>
               <a href="https://www.ti.ch/lav" target="_blank" rel="noopener noreferrer" className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-3 hover:border-red-400 transition-colors group">
                 <div className="font-bold text-sm text-slate-800 dark:text-slate-100 group-hover:text-red-600">🇨🇭 URC Ticino</div>
-                <div className="text-xs text-slate-500 dark:text-slate-400">{t('guide.unemployment.links.urc')}</div>
+                <div className="text-sm text-slate-500 dark:text-slate-400">{t('guide.unemployment.links.urc')}</div>
               </a>
             </div>
           </InfoCard>

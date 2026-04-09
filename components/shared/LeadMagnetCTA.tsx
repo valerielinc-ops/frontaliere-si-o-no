@@ -1008,7 +1008,7 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
             <Users className="w-3.5 h-3.5 text-indigo-500" />
             <span>{t('leadMagnet.socialProof')}</span>
           </div>
-          <div className="flex items-center gap-1.5 text-xs text-emerald-700 dark:text-emerald-400">
+          <div className="flex items-center gap-1.5 text-sm text-emerald-700 dark:text-emerald-400">
             <Shield className="w-3 h-3" />
             <span>{t('newsletter.dataPrivacy')}</span>
           </div>

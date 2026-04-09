@@ -440,7 +440,7 @@ const ShareableResultCard: React.FC<ShareableCardProps> = ({
 
             {/* Footer */}
             <div className="px-6 py-3 bg-slate-50 dark:bg-slate-700/50 flex items-center justify-between">
-              <span className="text-xs text-slate-500 dark:text-slate-400">
+              <span className="text-sm text-slate-500 dark:text-slate-400">
                 {footer || t('shareCard.generatedBy')}
               </span>
               <span className="text-xs font-semibold text-slate-500 dark:text-slate-400">

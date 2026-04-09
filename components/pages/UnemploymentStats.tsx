@@ -224,7 +224,7 @@ const UnemploymentStats: React.FC = () => {
                 ({kpis.yoyChange > 0 ? '+' : ''}{kpis.yoyChange.toFixed(1)}pp {localeLabels.yoy})
               </span>
             )}
-            <span className="text-xs text-slate-500 dark:text-slate-400 capitalize">{currentPeriodLabel}</span>
+            <span className="text-sm text-slate-500 dark:text-slate-400 capitalize">{currentPeriodLabel}</span>
           </div>
 
           {/* Historic Low */}
@@ -232,7 +232,7 @@ const UnemploymentStats: React.FC = () => {
             <span className="text-slate-500 dark:text-slate-400">{localeLabels.minimum}:</span>{' '}
             <span className="font-semibold text-emerald-600 dark:text-emerald-400">{kpis?.min.toFixed(1)}%</span>
             {kpis?.minEntry && (
-              <span className="text-xs text-slate-500 dark:text-slate-400 ml-1 capitalize">
+              <span className="text-sm text-slate-500 dark:text-slate-400 ml-1 capitalize">
                 {(() => {
                   const [y, m] = kpis.minEntry.period.split('-').map(Number);
                   return new Date(Date.UTC(y, m - 1, 1)).toLocaleDateString(localeMap[locale] || 'it-CH', { month: 'short', year: 'numeric', timeZone: 'UTC' });
@@ -246,7 +246,7 @@ const UnemploymentStats: React.FC = () => {
             <span className="text-slate-500 dark:text-slate-400">{localeLabels.maximum}:</span>{' '}
             <span className="font-semibold text-red-600 dark:text-red-400">{kpis?.max.toFixed(1)}%</span>
             {kpis?.maxEntry && (
-              <span className="text-xs text-slate-500 dark:text-slate-400 ml-1 capitalize">
+              <span className="text-sm text-slate-500 dark:text-slate-400 ml-1 capitalize">
                 {(() => {
                   const [y, m] = kpis.maxEntry.period.split('-').map(Number);
                   return new Date(Date.UTC(y, m - 1, 1)).toLocaleDateString(localeMap[locale] || 'it-CH', { month: 'short', year: 'numeric', timeZone: 'UTC' });
@@ -259,7 +259,7 @@ const UnemploymentStats: React.FC = () => {
           <div>
             <span className="text-slate-500 dark:text-slate-400">{localeLabels.average}:</span>{' '}
             <span className="font-semibold text-slate-900 dark:text-white">{kpis?.avg.toFixed(1)}%</span>{' '}
-            <span className="text-xs text-slate-500 dark:text-slate-400">2016 – 2026</span>
+            <span className="text-sm text-slate-500 dark:text-slate-400">2016 – 2026</span>
           </div>
         </div>
 

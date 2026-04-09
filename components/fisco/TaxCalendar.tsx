@@ -792,7 +792,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
         </div>
         <div className="text-xs text-slate-500 dark:text-slate-400 mb-0.5">{formatDate(d.date)}</div>
         <h4 className="font-bold text-slate-800 dark:text-slate-100 text-sm leading-tight">{d.title}</h4>
-        {!compact && <p className="text-xs text-slate-600 dark:text-slate-400 mt-1">{d.description}</p>}
+        {!compact && <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">{d.description}</p>}
 
         {!compact && d.documents && d.documents.length > 0 && (
           <div className="mt-2">
@@ -808,7 +808,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
         {!compact && d.penalty && (
           <div className="flex items-start gap-1.5 p-2 bg-red-50 dark:bg-red-950/30 rounded-lg mt-2">
             <AlertTriangle size={12} className="text-red-500 flex-shrink-0 mt-0.5" />
-            <div className="text-xs text-red-600 dark:text-red-400">{d.penalty}</div>
+            <div className="text-sm text-red-600 dark:text-red-400">{d.penalty}</div>
           </div>
         )}
         {!compact && d.notes && (

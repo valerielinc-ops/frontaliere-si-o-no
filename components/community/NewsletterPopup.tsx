@@ -409,7 +409,7 @@ const NewsletterPopup: React.FC = () => {
                   <p className="text-sm text-slate-600 dark:text-slate-400">
                     {reminderMode ? t('newsletter.pendingReminder.description') : t('newsletter.doubleOptIn.description')}
                   </p>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-2">{t('newsletter.doubleOptIn.spamHint')}</p>
+                  <p className="text-sm text-slate-500 dark:text-slate-400 mt-2">{t('newsletter.doubleOptIn.spamHint')}</p>
 
                   {/* FRO-23: Email provider button */}
                   {email && (() => {
@@ -429,7 +429,7 @@ const NewsletterPopup: React.FC = () => {
                   {/* FRO-26: Resend confirmation button */}
                   {email && (
                     <div className="mt-3">
-                      <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">{t('newsletter.pendingReminder.resend')}</p>
+                      <p className="text-sm text-slate-500 dark:text-slate-400 mb-1">{t('newsletter.pendingReminder.resend')}</p>
                       <button
                         disabled={resendStatus === 'sending' || resendStatus === 'sent'}
                         onClick={async () => {
@@ -598,7 +598,7 @@ const NewsletterPopup: React.FC = () => {
                   {t('newsletter.popup.privacyLink')}
                 </button>
               </p>
-              <div className="flex items-center justify-center gap-1.5 text-xs text-emerald-700 dark:text-emerald-400">
+              <div className="flex items-center justify-center gap-1.5 text-sm text-emerald-700 dark:text-emerald-400">
                 <Shield className="w-3 h-3" />
                 <span>{t('newsletter.dataPrivacy')}</span>
               </div>

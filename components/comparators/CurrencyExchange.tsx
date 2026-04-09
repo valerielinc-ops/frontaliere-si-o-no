@@ -527,7 +527,7 @@ const CurrencyExchange: React.FC = () => {
                 className="w-full pl-20 pr-4 py-3 bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl font-bold text-slate-600 dark:text-slate-300 text-lg"
               />
             </div>
-            <p className="text-xs text-slate-500 dark:text-slate-400 text-right min-h-[16px]">
+            <p className="text-sm text-slate-500 dark:text-slate-400 text-right min-h-[16px]">
               {lastUpdate ? `${t('currency.updated')}: ${lastUpdate.toLocaleTimeString('it-IT')}` : '\u00A0'}
             </p>
           </div>
@@ -596,7 +596,7 @@ const CurrencyExchange: React.FC = () => {
               <span className="font-semibold text-emerald-700 dark:text-emerald-400">€ {best.netAmount.toFixed(2)}</span>
               <span className="text-slate-500 dark:text-slate-400">{t('currency.total_cost')}: CHF {best.totalCost.toFixed(2)} ({best.costPercent.toFixed(2)}%)</span>
             </div>
-            <div className="text-xs text-emerald-700 dark:text-emerald-400 mt-2 font-semibold">
+            <div className="text-sm text-emerald-700 dark:text-emerald-400 mt-2 font-semibold">
               👆 {t('currency.click_referral')}
             </div>
           </a>
@@ -815,7 +815,7 @@ const CurrencyExchange: React.FC = () => {
         </div>
       )}
       <div className="mt-3 p-4 bg-slate-50 dark:bg-slate-900/50 rounded-xl border border-slate-200 dark:border-slate-700">
-        <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+        <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
           <strong>{t('exchange.methodology.title')}</strong>{' '}
           {t('exchange.methodology.description')}
         </p>

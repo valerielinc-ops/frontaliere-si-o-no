@@ -337,7 +337,7 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
                 />
               </div>
               {salaryError && (
-                <p className="text-xs text-red-600 dark:text-red-400 font-semibold mt-1 flex items-center gap-1">
+                <p className="text-sm text-red-600 dark:text-red-400 font-semibold mt-1 flex items-center gap-1">
                   <AlertTriangle size={12} /> {salaryError}
                 </p>
               )}
@@ -441,7 +441,7 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
             <div className="flex items-center justify-between">
               <div>
                 <div className="text-sm font-bold text-emerald-700 dark:text-emerald-300">{t('payslip.netSalary')}</div>
-                <div className="text-xs text-emerald-700 dark:text-emerald-400 tabular-nums">{t('payslip.netAnnual')}: CHF {fmt(result.netMonthly * 12)}</div>
+                <div className="text-sm text-emerald-700 dark:text-emerald-400 tabular-nums">{t('payslip.netAnnual')}: CHF {fmt(result.netMonthly * 12)}</div>
               </div>
               <span className="text-2xl font-bold text-emerald-700 dark:text-emerald-300 tabular-nums">CHF {fmt(result.netMonthly)}</span>
             </div>
@@ -453,14 +453,14 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
               const widthPct = (d.amount / result.grossMonthly) * 100;
               return (
                 <div key={d.key + '-bar'} className="flex items-center gap-2">
-                  <span className="text-xs text-slate-600 dark:text-slate-400 w-32 sm:w-36 leading-tight">{d.label}</span>
+                  <span className="text-sm text-slate-600 dark:text-slate-400 w-32 sm:w-36 leading-tight">{d.label}</span>
                   <div className="flex-1 bg-slate-100 dark:bg-slate-700 rounded-full h-3 overflow-hidden">
                     <div
                       className="h-full bg-red-400 dark:bg-red-500 rounded-full transition-transform duration-500 origin-left"
                       style={{ transform: `scaleX(${Math.max(widthPct, 1) / 100})` }}
                     />
                   </div>
-                  <span className="text-xs text-slate-500 dark:text-slate-400 w-12 text-right">{pct(d.rate)}</span>
+                  <span className="text-sm text-slate-500 dark:text-slate-400 w-12 text-right">{pct(d.rate)}</span>
                 </div>
               );
             })}
@@ -483,7 +483,7 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
           <p className="text-xs text-slate-500 dark:text-slate-400 mt-4 leading-relaxed">
             ⚠️ {t('payslip.disclaimer')}
           </p>
-          <div className="flex items-center gap-1.5 mt-2 text-xs text-emerald-700 dark:text-emerald-400">
+          <div className="flex items-center gap-1.5 mt-2 text-sm text-emerald-700 dark:text-emerald-400">
             <Shield size={12} className="flex-shrink-0" />
             <span>{t('payslip.dataPrivacy')}</span>
           </div>

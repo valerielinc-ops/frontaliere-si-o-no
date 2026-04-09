@@ -182,7 +182,7 @@ const WeeklyDigest: React.FC = () => {
                 <span className="text-sm text-slate-600 dark:text-slate-400">CHF/EUR</span>
                 <span className="font-bold text-blue-700 dark:text-blue-300">0.9421</span>
               </div>
-              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+              <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
                 {t('weeklyDigest.preview.exchangeNote')}
               </p>
             </div>
@@ -203,7 +203,7 @@ const WeeklyDigest: React.FC = () => {
                   <p className="text-sm font-medium text-slate-700 dark:text-slate-200">
                     {t('weeklyDigest.preview.article1')}
                   </p>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">5 min</p>
+                  <p className="text-sm text-slate-500 dark:text-slate-400 mt-0.5">5 min</p>
                 </div>
               </div>
               <div className="flex items-start gap-3 bg-slate-50 dark:bg-slate-700/50 rounded-xl p-3">
@@ -212,7 +212,7 @@ const WeeklyDigest: React.FC = () => {
                   <p className="text-sm font-medium text-slate-700 dark:text-slate-200">
                     {t('weeklyDigest.preview.article2')}
                   </p>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">4 min</p>
+                  <p className="text-sm text-slate-500 dark:text-slate-400 mt-0.5">4 min</p>
                 </div>
               </div>
             </div>

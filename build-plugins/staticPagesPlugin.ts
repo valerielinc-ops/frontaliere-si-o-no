@@ -1809,6 +1809,18 @@ export function staticPagesPlugin(rootDir: string): Plugin {
               `<p style="color:#64748b;font-size:0.8rem;margin-top:.5rem;">Fonte: <a href="https://www.bfs.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">UST/BFS</a> · Agenzia delle Entrate · Canton Ticino DFE</p>` +
               `</div></details>`,
             );
+          } else if (canonicalPath === '/chi-siamo' || canonicalPath === '/chi-siamo/') {
+            editorialBlocks.push(
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Chi siamo — Il team di Frontaliere Ticino</h2>`,
+              `Frontaliere Ticino è la piattaforma informativa indipendente di riferimento per i lavoratori frontalieri italiani che lavorano nel Canton Ticino, Svizzera. Fondata nel 2024, nasce dall'esigenza concreta di oltre 80.000 frontalieri che ogni giorno attraversano la frontiera italo-svizzera e necessitano di informazioni chiare, aggiornate e imparziali su fiscalità, previdenza, permessi di lavoro e vita quotidiana.`,
+              `La redazione è composta da esperti in fiscalità transfrontaliera, previdenza sociale svizzera e italiana, e diritto del lavoro internazionale. Il team monitora quotidianamente le normative di entrambi i paesi — dall'Amministrazione federale delle contribuzioni (AFC/ESTV) all'Agenzia delle Entrate italiana, dalla SECO all'INPS — per garantire che ogni dato, aliquota e procedura pubblicata sia accurata e aggiornata.`,
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">La nostra missione</h2>`,
+              `La missione di Frontaliere Ticino è rendere accessibili e comprensibili le complessità fiscali e amministrative del lavoro transfrontaliero. I nostri simulatori calcolano il netto in busta paga con i parametri reali delle tabelle fiscali svizzere e italiane 2026, i comparatori confrontano assicurazioni sanitarie LAMal, costi della vita e opzioni di trasporto, e il motore di ricerca lavoro aggrega oltre 1.500 posizioni attive da più di 100 aziende ticinesi.`,
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Competenza e indipendenza</h2>`,
+              `Tutti i contenuti sono basati esclusivamente su fonti ufficiali: tabelle fiscali dell'AFC, parametri contributivi UFAS/BSV, dati statistici dell'Ufficio federale di statistica (UST/BFS), normative SECO e pubblicazioni dell'Agenzia delle Entrate. La piattaforma è completamente indipendente da banche, assicurazioni e datori di lavoro — le informazioni fornite sono imparziali e verificabili.`,
+              `Il sito è disponibile in quattro lingue (italiano, inglese, tedesco, francese) e viene aggiornato quotidianamente con le ultime novità legislative, offerte di lavoro verificate e dati di mercato. Oltre 700 articoli di approfondimento coprono ogni aspetto della vita del frontaliere, dalla prima assunzione alla pianificazione pensionistica.`,
+              `<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.estv.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">AFC</a> · <a href="https://www.bfs.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">UST/BFS</a> · <a href="https://www.agenziaentrate.gov.it" style="color:#2563eb;text-decoration:none;" rel="noopener">Agenzia delle Entrate</a></p>`,
+            );
           } else if (canonicalPath === '/contattaci' || canonicalPath === '/contattaci/') {
             editorialBlocks.push(
               `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Contatta Frontaliere Ticino</h2>`,
@@ -1947,13 +1959,13 @@ export function staticPagesPlugin(rootDir: string): Plugin {
           const dateLabel = LAST_UPDATED_LABEL[locale] ?? LAST_UPDATED_LABEL.it;
           const dateFormatLocale = locale === 'it' ? 'it-IT' : locale === 'de' ? 'de-DE' : locale === 'fr' ? 'fr-FR' : 'en-GB';
           const formattedDate = new Date().toLocaleDateString(dateFormatLocale, { month: 'long', year: 'numeric' });
-          const dateLine = `<p style="margin:.5rem 0;font-size:.8rem;color:#94a3b8"><time datetime="${new Date().toISOString().slice(0, 10)}">${dateLabel}: ${formattedDate}</time></p>`;
+          const dateLine = `<p style="margin:.5rem 0;font-size:.8rem;color:#94a3b8"><time itemprop="datePublished" datetime="${new Date().toISOString().slice(0, 10)}">${dateLabel}: ${formattedDate}</time></p>`;
 
           const AUTHOR_BYLINE: Record<string, string> = {
-            it: '<p style="color:#64748b;font-size:0.85rem;margin:4px 0 16px 0;">A cura di <a href="/chi-siamo" style="color:#2563eb;text-decoration:none;">Redazione Frontaliere Ticino</a> · Esperti in fiscalità e previdenza frontaliera</p>',
-            en: '<p style="color:#64748b;font-size:0.85rem;margin:4px 0 16px 0;">By <a href="/en/about-us" style="color:#2563eb;text-decoration:none;">Frontaliere Ticino Editorial Team</a> · Cross-border tax &amp; pension specialists</p>',
-            de: '<p style="color:#64748b;font-size:0.85rem;margin:4px 0 16px 0;">Von <a href="/de/ueber-uns" style="color:#2563eb;text-decoration:none;">Redaktion Frontaliere Ticino</a> · Experten für Grenzgänger-Steuern und Vorsorge</p>',
-            fr: '<p style="color:#64748b;font-size:0.85rem;margin:4px 0 16px 0;">Par <a href="/fr/a-propos" style="color:#2563eb;text-decoration:none;">Rédaction Frontaliere Ticino</a> · Spécialistes fiscalité et prévoyance frontalière</p>',
+            it: '<p style="color:#64748b;font-size:0.85rem;margin:4px 0 16px 0;" itemprop="author" itemscope itemtype="https://schema.org/Organization"><span itemprop="name">A cura di <a href="/chi-siamo" rel="author" style="color:#2563eb;text-decoration:none;">Redazione Frontaliere Ticino</a></span> · Esperti in fiscalità e previdenza frontaliera</p>',
+            en: '<p style="color:#64748b;font-size:0.85rem;margin:4px 0 16px 0;" itemprop="author" itemscope itemtype="https://schema.org/Organization"><span itemprop="name">By <a href="/en/about-us" rel="author" style="color:#2563eb;text-decoration:none;">Frontaliere Ticino Editorial Team</a></span> · Cross-border tax &amp; pension specialists</p>',
+            de: '<p style="color:#64748b;font-size:0.85rem;margin:4px 0 16px 0;" itemprop="author" itemscope itemtype="https://schema.org/Organization"><span itemprop="name">Von <a href="/de/ueber-uns" rel="author" style="color:#2563eb;text-decoration:none;">Redaktion Frontaliere Ticino</a></span> · Experten für Grenzgänger-Steuern und Vorsorge</p>',
+            fr: '<p style="color:#64748b;font-size:0.85rem;margin:4px 0 16px 0;" itemprop="author" itemscope itemtype="https://schema.org/Organization"><span itemprop="name">Par <a href="/fr/a-propos" rel="author" style="color:#2563eb;text-decoration:none;">Rédaction Frontaliere Ticino</a></span> · Spécialistes fiscalité et prévoyance frontalière</p>',
           };
           const authorLine = AUTHOR_BYLINE[locale] ?? AUTHOR_BYLINE.it;
 

@@ -249,7 +249,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
         {/* Email divider + form */}
         <div className="flex items-center gap-3">
           <div className="flex-1 h-px bg-slate-300/50 dark:bg-slate-600/50" />
-          <span className="text-xs text-slate-500 dark:text-slate-400">{EMAIL_OR_COPY[locale] ?? EMAIL_OR_COPY.it}</span>
+          <span className="text-sm text-slate-500 dark:text-slate-400">{EMAIL_OR_COPY[locale] ?? EMAIL_OR_COPY.it}</span>
           <div className="flex-1 h-px bg-slate-300/50 dark:bg-slate-600/50" />
         </div>
         <form onSubmit={handleEmailSubmit} className="space-y-2">
@@ -268,7 +268,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
             {EMAIL_CTA_COPY[locale] ?? EMAIL_CTA_COPY.it}
           </button>
         </form>
-        {emailError && <p className="text-xs text-red-600 dark:text-red-300">{emailError}</p>}
+        {emailError && <p className="text-sm text-red-600 dark:text-red-300">{emailError}</p>}
       </div>
       )}
 
