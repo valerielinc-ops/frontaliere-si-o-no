@@ -1,117 +1,5 @@
 [
   {
-    "timestamp": "2026-03-31T10:01:19.440Z",
-    "label": "before",
-    "total": 1355,
-    "needsRetranslation": 1062,
-    "incomplete": 603,
-    "complete": 752,
-    "missingByLocale": {
-      "it": 228,
-      "en": 433,
-      "de": 364,
-      "fr": 494
-    },
-    "topPending": [
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 160
-      },
-      {
-        "company": "Jumbo, Divisione di Coop Società Cooperativa",
-        "pending": 80
-      },
-      {
-        "company": "VOLG",
-        "pending": 45
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 25
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 23
-      },
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 21
-      },
-      {
-        "company": "PEMSA",
-        "pending": 21
-      },
-      {
-        "company": "ABB Svizzera (sede Ticino)",
-        "pending": 17
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 14
-      },
-      {
-        "company": "LIS – Lugano Istituti Sociali",
-        "pending": 13
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-03-31T10:09:07.926Z",
-    "label": "after",
-    "total": 1355,
-    "needsRetranslation": 508,
-    "incomplete": 507,
-    "complete": 848,
-    "missingByLocale": {
-      "it": 171,
-      "en": 348,
-      "de": 315,
-      "fr": 408
-    },
-    "topPending": [
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 160
-      },
-      {
-        "company": "Jumbo, Divisione di Coop Società Cooperativa",
-        "pending": 80
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 25
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 23
-      },
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 21
-      },
-      {
-        "company": "PEMSA",
-        "pending": 21
-      },
-      {
-        "company": "ABB Svizzera (sede Ticino)",
-        "pending": 15
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 14
-      },
-      {
-        "company": "LIS – Lugano Istituti Sociali",
-        "pending": 13
-      },
-      {
-        "company": "Denner",
-        "pending": 11
-      }
-    ]
-  },
-  {
     "timestamp": "2026-03-31T12:48:18.810Z",
     "label": "before",
     "total": 1351,
@@ -10389,6 +10277,62 @@
   },
   {
     "timestamp": "2026-04-09T17:17:41.744Z",
+    "label": "after",
+    "total": 1643,
+    "needsRetranslation": 60,
+    "incomplete": 7,
+    "complete": 1636,
+    "missingByLocale": {
+      "it": 6,
+      "en": 7,
+      "de": 1,
+      "fr": 7
+    },
+    "topPending": [
+      {
+        "company": "Hügli Nährmittel-Erzeugung GmbH",
+        "pending": 4
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 2
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-09T17:34:04.179Z",
+    "label": "before",
+    "total": 1643,
+    "needsRetranslation": 65,
+    "incomplete": 7,
+    "complete": 1636,
+    "missingByLocale": {
+      "it": 6,
+      "en": 7,
+      "de": 1,
+      "fr": 7
+    },
+    "topPending": [
+      {
+        "company": "Hügli Nährmittel-Erzeugung GmbH",
+        "pending": 4
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 2
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-09T17:34:55.700Z",
     "label": "after",
     "total": 1643,
     "needsRetranslation": 60,
