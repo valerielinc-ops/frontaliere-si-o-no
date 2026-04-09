@@ -239,6 +239,28 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs) {
   if (flagged > 0) console.log(`🔍 Quality gate: flagged ${flagged} jobs with wrong-language content`);
 
   const hardened = hardenJobsWithStructuredSalary(jobs);
+
+  // Final safety net: strip any previousSlug that matches an active slug.
+  // This MUST run at the last write point because earlier steps (AI translation,
+  // backfill localization, hardening) can modify slugByLocale after captureLostSlugs
+  // ran, leaving stale entries that would generate self-redirecting bridge pages.
+  for (const job of hardened.jobs) {
+    if (!Array.isArray(job.previousSlugs) || job.previousSlugs.length === 0) continue;
+    const active = new Set();
+    if (job.slug) active.add(String(job.slug).trim());
+    if (job.slugByLocale && typeof job.slugByLocale === 'object') {
+      for (const v of Object.values(job.slugByLocale)) {
+        if (v) active.add(String(v).trim());
+      }
+    }
+    const cleaned = job.previousSlugs.filter(s => !active.has(String(s).trim()));
+    if (cleaned.length === 0) {
+      delete job.previousSlugs;
+    } else {
+      job.previousSlugs = cleaned;
+    }
+  }
+
   fs.mkdirSync(JOBS_SLICES_DIR, { recursive: true });
   const slicePath = path.join(JOBS_SLICES_DIR, `${crawlerKey}.json`);
   const payload = {
