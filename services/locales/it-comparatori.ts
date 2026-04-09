@@ -629,6 +629,9 @@ const translations: Record<string, string> = {
     'health.generali.con2': 'Alcune prestazioni escluse',
     'health.generali.con3': 'Nessuna copertura in Svizzera',
     'health.generali.suitableFor': 'Chi vuole copertura premium in Italia',
+    'health.requestQuote': 'Richiedi preventivo',
+    'health.requestQuoteDesc': 'Confronta i prezzi e richiedi un preventivo personalizzato',
+    'health.visitSite': 'Vai al sito',
 
     // --- Newsletter ---
     'shopping.title': 'Calcolatore Risparmio Spesa',

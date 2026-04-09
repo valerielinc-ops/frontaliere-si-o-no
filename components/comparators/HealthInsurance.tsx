@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useEffect, lazy, Suspense } from 'react';
-import { Heart, Shield, AlertCircle, Info, ChevronDown, ChevronUp, TrendingDown, ExternalLink, Filter, Award, Search, Calculator, Globe, MapPin, Trophy } from 'lucide-react';
+import { Heart, Shield, AlertCircle, Info, ChevronDown, ChevronUp, TrendingDown, ExternalLink, Filter, Award, Search, Calculator, Globe, MapPin, Trophy, FileText } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
 import PartnerRecommendations from '@/components/shared/PartnerRecommendations';
@@ -433,10 +433,16 @@ const HealthInsurance: React.FC = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="flex items-center justify-end pt-3 border-t border-slate-100 dark:border-slate-700">
+                  <div className="flex flex-col gap-2 pt-3 border-t border-slate-100 dark:border-slate-700">
                     <a href={result.insurer.website} target="_blank" rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-rose-600 hover:bg-rose-700 text-white text-xs font-bold rounded-lg transition-colors">
-                      <ExternalLink size={12} /> Vai al sito</a>
+                      onClick={() => Analytics.trackExternalLink(result.insurer.website, `quote_request_${result.insurer.id}`)}
+                      className="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-rose-600 hover:bg-rose-700 text-white text-sm font-bold rounded-lg transition-colors w-full">
+                      <FileText size={16} /> {t('health.requestQuote')}</a>
+                    <p className="text-xs text-slate-500 dark:text-slate-400 text-center">{t('health.requestQuoteDesc')}</p>
+                    <a href={result.insurer.website} target="_blank" rel="noopener noreferrer"
+                      onClick={() => Analytics.trackExternalLink(result.insurer.website, `visit_site_${result.insurer.id}`)}
+                      className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 text-slate-600 dark:text-slate-300 hover:text-slate-800 dark:hover:text-white text-xs font-medium rounded-lg transition-colors border border-slate-200 dark:border-slate-600 hover:border-slate-300 dark:hover:border-slate-500">
+                      <ExternalLink size={12} /> {t('health.visitSite')}</a>
                   </div>
                 </div>
               )}
