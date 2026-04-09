@@ -1,16 +1,16 @@
 {
   "key": "coop-ticino",
   "label": "Coop",
-  "generatedAt": "2026-04-08T21:13:08.166Z",
-  "total": 169,
+  "generatedAt": "2026-04-09T09:30:01.438Z",
+  "total": 166,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 169,
-  "durationMs": 182233,
-  "avgDurationMs": 182233,
+  "unchangedCount": 166,
+  "durationMs": 193386,
+  "avgDurationMs": 193386,
   "durationHistory": [
-    182233
+    193386
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -534,39 +534,6 @@
       }
     },
     {
-      "id": "company-9xtr67",
-      "slug": "macellaia-macellaio-salumiera-salumiere-f-m-d-coop-mendrisio-ticino",
-      "company": "Coop Genossenschaft",
-      "title": "Macellaia / Macellaio - Salumiera / Salumiere (f/m/d)",
-      "location": "Mendrisio",
-      "canton": "TI",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-01",
-      "url": "https://jobs.coopjobs.ch/posti-vacanti/macellaia-macellaio-salumiera-salumiere-f-m-d/b64d0fdb-5a23-4904-972d-a6b8bb5636d3",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Ticino",
-        "canton": "TI"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-04-01T07:24:33.443Z",
-      "addressLocality": "Mendrisio",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
       "id": "company-bs45mj",
       "slug": "mitarbeiter-in-inventuren-coop-grigioni",
       "company": "Coop Genossenschaft",
@@ -1012,34 +979,71 @@
       }
     },
     {
-      "id": "company-6eaayb",
-      "slug": "tecnico-elettromeccanico-in-azienda-m-f-d-marche-dietlikon-6eaayb",
-      "company": "Marché Restaurants Schweiz AG",
-      "title": "Tecnico elettromeccanico in azienda (m/f/d)",
-      "location": "Dietlikon",
-      "canton": "TI",
+      "id": "company-63izi7",
+      "slug": "verkaufer-in-food-coop-zernez-graubunden-63izi7",
+      "company": "Coop Genossenschaft",
+      "title": "Verkäufer:in Food",
+      "location": "Zernez",
+      "canton": "GR",
       "category": "admin",
-      "contract": "full-time",
+      "contract": "part-time",
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-03-18",
-      "url": "https://jobs.coopjobs.ch/posti-vacanti/tecnico-elettromeccanico-in-azienda-m-f-d/795b2353-6758-4ddb-8ae1-cadfabe8b3a9",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/97a3ccb4-5269-4e5b-bc91-4d4700d9e50c",
       "source": "Company Careers Crawler",
       "_targetScope": {
         "type": "adapter_seed_meta",
-        "location": "Ticino",
-        "canton": "TI"
+        "location": "Grigioni",
+        "canton": "GR"
       },
       "companyKey": "coop-ticino",
       "companyDomain": "coop.ch",
       "crawledAt": "2026-03-31T07:18:28.826Z",
-      "addressLocality": "Dietlikon",
+      "addressLocality": "Zernez",
+      "sourceLang": "de",
       "salaryMin": 58000,
       "salaryMax": 78000,
-      "_qualityScore": 93,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 19
+      }
+    },
+    {
+      "id": "company-29vdmd",
+      "slug": "verkaufer-in-food-coop-sankt-moritz-graubunden-29vdmd",
+      "company": "Coop Genossenschaft",
+      "title": "Verkäufer:in Food",
+      "location": "Sankt Moritz",
+      "canton": "GR",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-18",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/d6e004eb-fb34-4c69-9569-e1f67f1fd008",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Grigioni",
+        "canton": "GR"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-03-31T07:18:28.826Z",
+      "addressLocality": "Sankt Moritz",
+      "sourceLang": "de",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
         "translation": 25,
         "completeness": 19
       }
