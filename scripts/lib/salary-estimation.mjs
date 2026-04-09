@@ -5,31 +5,44 @@
  *   - dedicated-crawler-common.mjs (inferSalaryRange)
  *   - re-enrich-jobs.mjs (estimateSalaryFromSectors)
  *
- * Data source: salaryData.ts profession medians averaged per sector,
- * then reduced by 10% Ticino regional factor (Ticino pays ~10% below
- * Swiss national average per UST/BFS Lohnstrukturerhebung).
+ * Data source: USTAT Ticino — Rilevazione svizzera della struttura dei salari
+ *   (cubi_RSS_02), anno 2024, settore privato, Canton Ticino.
+ *   https://www3.ti.ch/DFE/DR/USTAT/allegati/cubo/cubi_RSS_02_csv.zip
+ *
+ * Position-level mapping:
+ *   junior = "Senza funzione di quadro" (no management function)
+ *   mid    = avg("Quadri inferiori" + "Responsabile esecuzione lavori")
+ *   senior = "Quadri superiori e medi" (upper/middle management)
+ *
+ * Key statistical facts (Ticino 2024):
+ *   Overall median: CHF 5,393/month = CHF 64,716/year
+ *   Ticino vs Swiss national: ~82% (not 90% as previously assumed)
+ *   Frontalieri earn ~89% of Ticino total (CHF 4,800/month median)
+ *
+ * Min/max range: ×0.80 / ×1.25 based on USTAT p25/p75 interquartile ratios.
+ *   Average p25/p50 = 0.82, average p75/p50 = 1.32 (capped to ×1.25).
  */
 
-// ── Ticino-adjusted sector salary medians ──────────────────────────────────
-// Computed: avg(profession medians from salaryData.ts) × 0.90 Ticino factor
-// Rounded to nearest 500.
+// ── Ticino sector salary medians (annual gross CHF) ────────────────────────
+// USTAT 2024 official data, p50 by NOGA 2008 sector × position level.
+// NOGA codes mapped to project categories (see comments per sector).
 const TICINO_SECTOR_MEDIANS = {
-  IT:             { junior: 65500, mid: 85000,  senior: 110500 },
-  Finance:        { junior: 72000, mid: 97000,  senior: 128000 },
-  Pharma:         { junior: 69500, mid: 90000,  senior: 115500 },
-  Engineering:    { junior: 64000, mid: 84500,  senior: 108500 },
-  Healthcare:     { junior: 68500, mid: 94000,  senior: 119500 },
-  Retail:         { junior: 50500, mid: 63500,  senior: 77500  },
-  Hospitality:    { junior: 51500, mid: 67500,  senior: 85500  },
-  Construction:   { junior: 59000, mid: 74500,  senior: 94000  },
-  Education:      { junior: 77500, mid: 98000,  senior: 121000 },
-  Logistics:      { junior: 54500, mid: 68000,  senior: 84500  },
-  Legal:          { junior: 72000, mid: 94500,  senior: 122500 },
-  Insurance:      { junior: 65000, mid: 84500,  senior: 107500 },
-  Telecom:        { junior: 65500, mid: 85000,  senior: 109000 },
-  Marketing:      { junior: 56500, mid: 72500,  senior: 91000  },
-  Consulting:     { junior: 68000, mid: 91000,  senior: 118500 },
-  MedicalDevices: { junior: 69500, mid: 90000,  senior: 115500 }, // same as Pharma
+  IT:             { junior: 70000, mid:  78000, senior: 120000 }, // NOGA 62 (programmazione) + 63 (servizi informativi)
+  Finance:        { junior: 77000, mid: 110500, senior: 184000 }, // NOGA 64 (servizi finanziari) + 66 (attività ausiliarie)
+  Pharma:         { junior: 62000, mid:  91000, senior: 139500 }, // NOGA 20 (chimica) + 21 (farmaceutica) + 72 (R&S)
+  Engineering:    { junior: 52500, mid:  76000, senior: 104000 }, // NOGA 25+27+28 (metallo, elettronica, macchinari)
+  Healthcare:     { junior: 72500, mid:  81000, senior: 109500 }, // NOGA 86 (sanitario) + 88 (assistenza sociale)
+  Retail:         { junior: 59500, mid:  75500, senior: 106000 }, // NOGA 45+46+47 (commercio auto/ingrosso/dettaglio)
+  Hospitality:    { junior: 49000, mid:  61500, senior:  82500 }, // NOGA 55 (alloggio) + 56 (ristorazione)
+  Construction:   { junior: 59000, mid:  69500, senior:  93500 }, // NOGA 41+42+43 (edilizia, ing. civile, lavori spec.)
+  Education:      { junior: 53000, mid:  62500, senior:  94000 }, // NOGA 85 (istruzione)
+  Logistics:      { junior: 55500, mid:  66000, senior:  91000 }, // NOGA 49 (trasporti) + 52 (magazzinaggio) + 82 (supporto)
+  Legal:          { junior: 64500, mid:  80500, senior: 125000 }, // NOGA 69 (attività legali e contabilità)
+  Insurance:      { junior: 61000, mid:  75000, senior: 103000 }, // NOGA 68 (immobiliare; NOGA 65 assicurazioni soppressa)
+  Telecom:        { junior: 70000, mid:  78000, senior: 120000 }, // Mapped to IT (NOGA 61 telecom soppressa per Ticino)
+  Marketing:      { junior: 62000, mid:  75000, senior: 112000 }, // NOGA 58 (editoria) + 73 (pubblicità/ricerche mercato)
+  Consulting:     { junior: 60500, mid:  85500, senior: 106000 }, // NOGA 71 (architettura/ingegneria) + 74 (altre profess.)
+  MedicalDevices: { junior: 62000, mid:  91000, senior: 139500 }, // Same as Pharma (NOGA 20+21+72)
 };
 
 // ── Category → Sector mapping ──────────────────────────────────────────────
@@ -79,8 +92,9 @@ export function estimateTicinoSalary(job) {
   else if (LEVEL_SENIOR_RE.test(title)) level = 'senior';
 
   const median = sector[level];
-  const minValue = roundTo500(median * 0.85);
-  const maxValue = roundTo500(median * 1.15);
+  // Min/max from USTAT p25/p75 interquartile ratios (avg p25/p50=0.82, p75/p50=1.32)
+  const minValue = roundTo500(median * 0.80);
+  const maxValue = roundTo500(median * 1.25);
 
   return { minValue, maxValue, level, sectorName };
 }
