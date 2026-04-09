@@ -1,18 +1,66 @@
 {
   "key": "migros-ticino",
   "label": "Migros",
-  "generatedAt": "2026-04-09T09:52:32.410Z",
-  "total": 3,
-  "newCount": 0,
+  "generatedAt": "2026-04-09T21:46:44.294Z",
+  "total": 4,
+  "newCount": 1,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 13011,
-  "avgDurationMs": 13011,
+  "durationMs": 13740,
+  "avgDurationMs": 13740,
   "durationHistory": [
-    13011
+    13740
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "company-752d7f",
+      "slug": "insegnante-inglese-f-m-d-scuola-club-bellinzona-scuola-club-migros-bellinzona",
+      "company": "Scuola Club Migros",
+      "title": "Insegnante Inglese (f/m/d) - Scuola Club Bellinzona",
+      "location": "Bellinzona",
+      "canton": "TI",
+      "category": "other",
+      "contract": "temporary",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-09",
+      "url": "https://jobs.migros.ch/it/le-nostre-imprese/job/scuola-club-migros/insegnante-inglese-fmd-scuola-club-bellinzona/883bde74-d371-4fb3-bbb6-726a7636b0b1",
+      "source": "Company Careers Crawler",
+      "_migrosResponsibilities": [
+        "Preparazione, attuazione e follow-up delle lezioni inglese dal livello A1 a C2",
+        "Progettazione delle lezioni orientata alla pratica e secondo i criteri dell’educazione per gli adulti",
+        "Strutturazione delle lezioni tenendo conto delle diverse esigenze dei partecipanti",
+        "Coordinamento regolare con i tuoi referenti dell'amministrazione della Scuola Club",
+        "Partecipazione ai corsi di perfezionamento"
+      ],
+      "_migrosBenefits": [
+        "Parte del Gruppo Migros: Come parte del gruppo Migros, benefici di strutture stabili, diverse opportunità di carriera e vantaggi attraenti",
+        "Luogo di lavoro centrale: Le nostre sedi sono situate in posizione centrale",
+        "Infrastruttura moderna: Ambiente d'ufficio invitante e funzionale, moderna infrastruttura IT",
+        "Orario di lavoro flessibile: I nostri orari di lavoro flessibili supportano un equilibrio sano tra lavoro e vita privata",
+        "Abbonamento per il cellulare: Condizioni commerciali scontate per l'abbonamento privato al telefono cellulare",
+        "Prestazioni sociali: Migros offre condizioni di lavoro attraenti con ottime prestazioni sociali",
+        "Banca Migros: Conto privato e d'investimento con tassi d'interesse preferenziali e gestione gratuita del conto",
+        "Formazione su misura: Promozione della formazione e del perfezionamento professionale",
+        "Darsi del tu: I nostri valori sono sostenuti dalla cultura del \"tu\" che viviamo",
+        "Responsabilità propria e spazio libero: Gamma variegata di compiti con un alto grado di responsabilità personale"
+      ],
+      "_migrosWorkPercentage": "",
+      "companyKey": "migros-ticino",
+      "companyDomain": "migros.ch",
+      "crawledAt": "2026-04-09T21:46:43.833Z",
+      "needsRetranslation": true,
+      "sourceLang": "it",
+      "_qualityScore": 66,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 2,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "company-cewp3w",
