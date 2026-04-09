@@ -775,11 +775,11 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
         }`}
       >
         <div className="flex items-center gap-2 flex-wrap mb-1">
-          <span className={`px-1.5 py-0.5 rounded text-[9px] font-bold uppercase bg-${cfg.color}-100 dark:bg-${cfg.color}-900/30 text-${cfg.color}-700 dark:text-${cfg.color}-300`}>
+          <span className={`px-1.5 py-0.5 rounded text-xs font-bold uppercase bg-${cfg.color}-100 dark:bg-${cfg.color}-900/30 text-${cfg.color}-700 dark:text-${cfg.color}-300`}>
             {cfg.label}
           </span>
           {!compact && d.who.map(w => (
-            <span key={w} className="px-1.5 py-0.5 rounded text-[9px] font-bold bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300">
+            <span key={w} className="px-1.5 py-0.5 rounded text-xs font-bold bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300">
               {w === 'tutti' ? `👥 ${t('calendar.filterAll')}` : w === 'vecchio' ? `📋 ${t('calendar.filterOld')}` : `📄 ${t('calendar.filterNew')}`}
             </span>
           ))}

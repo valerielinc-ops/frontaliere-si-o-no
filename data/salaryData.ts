@@ -576,3 +576,48 @@ export const SECTOR_METADATA: Record<string, SectorMetadata> = {
     nogaCodes: '93, 96',
   },
 };
+
+// ─── Category → Sector ID mapping (mirrors salary-estimation.mjs CATEGORY_TO_SECTOR) ──
+const CATEGORY_TO_SECTOR_ID: Record<string, string> = {
+  tech: 'IT', finance: 'Finance', pharma: 'Pharma', engineering: 'Engineering',
+  health: 'Healthcare', healthcare: 'Healthcare', admin: 'Logistics',
+  sales: 'Retail', hr: 'Logistics', legal: 'Legal', logistics: 'Logistics',
+  hospitality: 'Hospitality', construction: 'Construction', education: 'Education',
+  retail: 'Retail', other: 'Logistics', marketing: 'Marketing',
+  consulting: 'Consulting', insurance: 'Insurance', telecom: 'IT',
+  'dispositivi medici': 'Pharma', 'medical devices': 'Pharma',
+  production: 'Engineering', it: 'IT', 'information technology': 'IT',
+  energy: 'Energy', food: 'FoodIndustry', manufacturing: 'Manufacturing',
+  'real estate': 'RealEstate', 'real-estate': 'RealEstate',
+  'personal services': 'PersonalServices', beauty: 'PersonalServices',
+};
+
+/** Salary context for a specific job — used by JobBoard to enrich job detail pages */
+export interface JobSalaryContext {
+  sectorId: string;
+  employeeCount: number;
+  frontialieriDiscount: number;
+  genderGapPercent: number;
+  cclMinimumAnnual: number;
+  educationPremiumRatio: number;
+  nogaCodes: string;
+}
+
+/**
+ * Get salary context metadata for a job's sector.
+ * Returns null if the sector is not found.
+ */
+export function getJobSalaryContext(category: string): JobSalaryContext | null {
+  const sectorId = CATEGORY_TO_SECTOR_ID[category?.toLowerCase()] || 'Logistics';
+  const meta = SECTOR_METADATA[sectorId];
+  if (!meta) return null;
+  return {
+    sectorId,
+    employeeCount: meta.employeeCount,
+    frontialieriDiscount: Math.round((1 - meta.frontialieriRatio) * 100),
+    genderGapPercent: meta.genderGapPercent,
+    cclMinimumAnnual: meta.cclMinimumAnnual,
+    educationPremiumRatio: meta.educationPremiumRatio,
+    nogaCodes: meta.nogaCodes,
+  };
+}

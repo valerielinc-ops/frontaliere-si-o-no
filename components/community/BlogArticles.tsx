@@ -1554,7 +1554,7 @@ function BlogArticles({
           <span className="text-xl block mb-1">{partner.emoji}</span>
           <span className="text-xs font-semibold text-slate-700 dark:text-slate-200 block leading-tight">{partner.name}</span>
           {partner.badgeKey && (
-            <span className={`mt-1 inline-block text-[9px] font-bold px-1.5 py-0.5 rounded-full bg-gradient-to-r ${partner.color} text-white`}>
+            <span className={`mt-1 inline-block text-xs font-bold px-1.5 py-0.5 rounded-full bg-gradient-to-r ${partner.color} text-white`}>
               {t(partner.badgeKey)}
             </span>
           )}
@@ -2566,7 +2566,7 @@ function BlogArticles({
                   <span className={`px-2 py-0.5 rounded-full text-xs font-bold ${getCategoryColor(article.category)}`}>
                     {t(`blog.category.${article.category}`)}
                   </span>
-                  <span className={`px-1.5 py-0.5 rounded-full text-[9px] font-semibold ${
+                  <span className={`px-1.5 py-0.5 rounded-full text-xs font-semibold ${
                     article.category === 'novita'
                       ? 'bg-orange-500/90 text-white'
                       : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300'

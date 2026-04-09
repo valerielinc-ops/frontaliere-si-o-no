@@ -574,11 +574,11 @@ const CommunityForum: React.FC = () => {
                     {q.body}
                   </p>
                   <div className="flex flex-wrap items-center gap-2 mt-2">
-                    <span className={`inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-full text-[9px] font-bold ${CATEGORY_COLORS[q.category] || CATEGORY_COLORS.generale}`}>
+                    <span className={`inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-full text-xs font-bold ${CATEGORY_COLORS[q.category] || CATEGORY_COLORS.generale}`}>
                       {CATEGORY_ICONS[q.category]} {t(`forum.cat.${q.category}`)}
                     </span>
                     {q.tags.slice(0, 3).map(tag => (
-                      <span key={tag} className="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400 rounded text-[9px]">
+                      <span key={tag} className="px-1.5 py-0.5 bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400 rounded text-xs">
                         {tag}
                       </span>
                     ))}

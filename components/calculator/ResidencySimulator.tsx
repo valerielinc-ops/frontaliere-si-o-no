@@ -765,7 +765,7 @@ function BestMunicipalitySection({ grossMonthlyCHF, chfEurRate }: { grossMonthly
             <div className="flex-1 min-w-0">
               <p className="text-sm font-semibold text-slate-700 dark:text-slate-300 truncate">
                 {loc.name} {loc.province ? <span className="text-slate-500 dark:text-slate-400 font-normal">({loc.province})</span> : ''}
-                {loc.fascia && <span className="ml-1.5 text-[9px] px-1.5 py-0.5 bg-violet-100 dark:bg-violet-900/30 text-violet-600 dark:text-violet-400 rounded-full font-medium">F{loc.fascia}</span>}
+                {loc.fascia && <span className="ml-1.5 text-xs px-1.5 py-0.5 bg-violet-100 dark:bg-violet-900/30 text-violet-600 dark:text-violet-400 rounded-full font-medium">F{loc.fascia}</span>}
               </p>
               <div className="flex items-center gap-3 text-xs text-slate-500 dark:text-slate-400">
                 <span className="flex items-center gap-0.5"><Navigation size={8} /> {loc.nearestCrossing}</span>

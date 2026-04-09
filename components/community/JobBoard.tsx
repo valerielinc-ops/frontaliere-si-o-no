@@ -61,6 +61,7 @@ import {
   resolveCompanyWebsiteHost,
 } from '@/services/jobDataNormalization';
 import { deriveJobPostalCode, getJobLocationSnapshot } from '@/services/jobLocationSnapshot';
+import { getJobSalaryContext } from '@/data/salaryData';
 import {
   upsertNewsletterSubscriber,
   markNewsletterSubscribedLocally,
@@ -4147,6 +4148,34 @@ const JobBoard: React.FC<JobBoardProps> = ({
     </div>
   ) : null;
 
+  // ── Sector salary context (USTAT metadata) ──────────────────────────────
+  const sectorContext = useMemo(() => {
+    if (!selectedJob) return null;
+    return getJobSalaryContext(selectedJob.category || '');
+  }, [selectedJob]);
+
+  const sectorContextWidget = sectorContext ? (
+    <div className="rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 p-3 text-xs">
+      <div className="flex items-center gap-1.5 font-semibold text-slate-700 dark:text-slate-300 mb-2">
+        <Briefcase size={13} className="text-blue-600 dark:text-blue-400" />
+        {t('jobBoard.sectorContext.title')}
+      </div>
+      <div className="flex flex-wrap gap-x-4 gap-y-1.5 text-slate-600 dark:text-slate-400">
+        <span>{t('jobBoard.sectorContext.employees', { count: sectorContext.employeeCount.toLocaleString('de-CH') })}</span>
+        {sectorContext.frontialieriDiscount > 0 && (
+          <span>{t('jobBoard.sectorContext.frontialieriGap', { pct: String(sectorContext.frontialieriDiscount) })}</span>
+        )}
+        {sectorContext.cclMinimumAnnual > 41600 && (
+          <span>{t('jobBoard.sectorContext.cclMinimum', { amount: `CHF ${(sectorContext.cclMinimumAnnual / 1000).toFixed(1)}k` })}</span>
+        )}
+        {sectorContext.educationPremiumRatio > 1.3 && (
+          <span>{t('jobBoard.sectorContext.educationPremium', { pct: String(Math.round((sectorContext.educationPremiumRatio - 1) * 100)) })}</span>
+        )}
+      </div>
+      <p className="mt-1.5 text-[11px] text-slate-500 dark:text-slate-500">{t('jobBoard.sectorContext.source')}</p>
+    </div>
+  ) : null;
+
   const authGateModalJsx = authGateOpen ? (
     <div className="fixed inset-0 z-[90] bg-black/45 backdrop-blur-sm flex items-center justify-center p-4" onClick={(e) => { if (e.target === e.currentTarget) { authUnlockCandidateRef.current = null; setAuthGateOpen(false); releaseSlot('job-auth-gate'); setPendingJob(null); setAuthError(null); } }}>
       <div role="dialog" aria-modal="true" aria-label={t('jobBoard.authGateTitle') || 'Accedi per continuare'} className="w-full max-w-md rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-5 space-y-4">
@@ -5473,6 +5502,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
             {salaryEstimateWidget && (
               <div className="mt-4">{salaryEstimateWidget}</div>
             )}
+            {sectorContextWidget && (
+              <div className="mt-3">{sectorContextWidget}</div>
+            )}
           </article>
         </div>
       );
@@ -5826,8 +5858,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
             )}
 
             {salaryEstimateWidget}
-
-            {/* AdSense — job detail sidebar (desktop lg only, conditional mount) */}
+            {sectorContextWidget}
             {isDesktopLg && (
               <AdSenseBanner
                 adSlot={AD_SLOTS.JOBDETAIL_SIDEBAR.slot}

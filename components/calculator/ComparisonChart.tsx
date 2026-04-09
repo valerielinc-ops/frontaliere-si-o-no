@@ -252,7 +252,7 @@ const ComparisonChartBase: React.FC<Props> = ({ result, inputs, isDarkMode, isFo
               <button
                 key={tab.id}
                 onClick={() => handleTabChange(tab.id as any)}
-                className={`flex flex-col sm:flex-row items-center justify-center gap-1.5 py-3 px-1 rounded-xl text-[9px] sm:text-xs font-bold uppercase tracking-wide transition-[color,background-color,border-color,box-shadow,transform] ${
+                className={`flex flex-col sm:flex-row items-center justify-center gap-1.5 py-3 px-1 rounded-xl text-xs font-bold uppercase tracking-wide transition-[color,background-color,border-color,box-shadow,transform] ${
                   activeTab === tab.id 
                   ? 'bg-white dark:bg-slate-800 text-indigo-600 dark:text-indigo-400 shadow-sm scale-[0.98]' 
                   : 'text-slate-500 dark:text-slate-400 hover:text-slate-600 dark:hover:text-slate-300'

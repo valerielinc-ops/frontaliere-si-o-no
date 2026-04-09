@@ -85,7 +85,7 @@ const GamificationPage: React.FC = () => {
           <div className="w-full max-w-xs bg-white/20 rounded-full h-1.5 mt-3">
             <div className="bg-white dark:bg-slate-600 rounded-full h-1.5 transition-transform duration-500" style={{ width: '100%', transform: `scaleX(${xpProgressPct / 100})`, transformOrigin: 'left' }} />
           </div>
-          <div className="text-[9px] text-amber-200 mt-1">{levelInfo.currentXp}/{levelInfo.nextLevelXp} → {t('gamification.level')} {levelInfo.level + 1}</div>
+          <div className="text-xs text-amber-200 mt-1">{levelInfo.currentXp}/{levelInfo.nextLevelXp} → {t('gamification.level')} {levelInfo.level + 1}</div>
         </div>
       </div>
 

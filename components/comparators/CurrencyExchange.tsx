@@ -501,7 +501,7 @@ const CurrencyExchange: React.FC = () => {
               {t('currency.real_market_rate')}
               <div className="group relative inline-flex items-center cursor-help">
                 <Info size={12} className="text-slate-500 dark:text-slate-400" />
-                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block w-48 p-2.5 bg-slate-800 text-white text-[10px] font-medium leading-relaxed rounded-xl shadow-xl border border-slate-600 pointer-events-none z-50 text-center">
+                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block w-48 p-2.5 bg-slate-800 text-white text-xs font-medium leading-relaxed rounded-xl shadow-xl border border-slate-600 pointer-events-none z-50 text-center">
                   {t('currency.mid_market_tooltip')}
                 </div>
               </div>

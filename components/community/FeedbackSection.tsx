@@ -326,11 +326,11 @@ export const FeedbackSection: React.FC = () => {
                           {item.description}
                         </p>
                         <div className="flex items-center gap-3 mt-3">
-                          <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded flex items-center gap-1 ${item.status === 'OPEN' ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-900/20' : 'bg-slate-100 text-slate-500 dark:text-slate-400 dark:bg-slate-800'}`}>
+                          <span className={`text-xs font-bold px-1.5 py-0.5 rounded flex items-center gap-1 ${item.status === 'OPEN' ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-900/20' : 'bg-slate-100 text-slate-500 dark:text-slate-400 dark:bg-slate-800'}`}>
                             {item.status === 'OPEN' ? <Clock size={10} /> : <CheckCircle size={10} />}
                             {item.status}
                           </span>
-                          <span className="text-[9px] text-slate-500 dark:text-slate-400 flex items-center gap-1 font-medium">
+                          <span className="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-1 font-medium">
                             <Clock size={10} /> {new Date(item.createdAt).toLocaleDateString()}
                           </span>
                         </div>

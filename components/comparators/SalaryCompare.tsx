@@ -379,7 +379,7 @@ export default function SalaryCompare() {
                       {/* Bars + amounts */}
                       <div className="flex-1 min-w-0 space-y-1">
                         <div className="flex items-center gap-1.5">
-                          <span className="text-[11px] flex-shrink-0">{'\uD83C\uDDE8\uD83C\uDDED'}</span>
+                          <span className="text-xs flex-shrink-0">{'\uD83C\uDDE8\uD83C\uDDED'}</span>
                           <div className="flex-1 h-2 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
                             <div
                               className="h-full bg-red-500 rounded-full"
@@ -388,7 +388,7 @@ export default function SalaryCompare() {
                           </div>
                         </div>
                         <div className="flex items-center gap-1.5">
-                          <span className="text-[11px] flex-shrink-0">{'\uD83C\uDDEE\uD83C\uDDF9'}</span>
+                          <span className="text-xs flex-shrink-0">{'\uD83C\uDDEE\uD83C\uDDF9'}</span>
                           <div className="flex-1 h-2 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
                             <div
                               className="h-full bg-emerald-500 rounded-full"
@@ -396,7 +396,7 @@ export default function SalaryCompare() {
                             />
                           </div>
                         </div>
-                        <div className="flex justify-between text-[10px] font-mono text-slate-500 dark:text-slate-400 mt-0.5">
+                        <div className="flex justify-between text-xs font-mono text-slate-500 dark:text-slate-400 mt-0.5">
                           <span>CH {'\u20AC'}{r.chNetEUR.toLocaleString()}</span>
                           <span>IT {'\u20AC'}{r.itNet.toLocaleString()}</span>
                         </div>
@@ -419,18 +419,18 @@ export default function SalaryCompare() {
                         {/* Sector metadata badges */}
                         {SECTOR_METADATA[r.id] && (
                           <div className="flex flex-wrap gap-1.5 mb-2.5">
-                            <span className="inline-flex items-center gap-1 text-[10px] bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-400 rounded-full px-2 py-0.5">
+                            <span className="inline-flex items-center gap-1 text-xs bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-400 rounded-full px-2 py-0.5">
                               <Users size={10} /> {SECTOR_METADATA[r.id].employeeCount.toLocaleString()} {t('salaryCompare.meta.employees')}
                             </span>
                             {SECTOR_METADATA[r.id].frontialieriRatio < 1.0 && (
-                              <span className="inline-flex items-center gap-1 text-[10px] bg-amber-50 dark:bg-amber-900/20 text-amber-700 dark:text-amber-400 rounded-full px-2 py-0.5">
+                              <span className="inline-flex items-center gap-1 text-xs bg-amber-50 dark:bg-amber-900/20 text-amber-700 dark:text-amber-400 rounded-full px-2 py-0.5">
                                 {t('salaryCompare.meta.frontalieri')} {Math.round((1 - SECTOR_METADATA[r.id].frontialieriRatio) * 100)}%
                               </span>
                             )}
-                            <span className="inline-flex items-center gap-1 text-[10px] bg-violet-50 dark:bg-violet-900/20 text-violet-700 dark:text-violet-400 rounded-full px-2 py-0.5">
+                            <span className="inline-flex items-center gap-1 text-xs bg-violet-50 dark:bg-violet-900/20 text-violet-700 dark:text-violet-400 rounded-full px-2 py-0.5">
                               {t('salaryCompare.meta.genderGap')} {SECTOR_METADATA[r.id].genderGapPercent > 0 ? '+' : ''}{SECTOR_METADATA[r.id].genderGapPercent.toFixed(1)}%
                             </span>
-                            <span className="inline-flex items-center gap-1 text-[10px] bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-400 rounded-full px-2 py-0.5">
+                            <span className="inline-flex items-center gap-1 text-xs bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-400 rounded-full px-2 py-0.5">
                               {t('salaryCompare.meta.eduPremium')} {SECTOR_METADATA[r.id].educationPremiumRatio.toFixed(2)}x
                             </span>
                           </div>
@@ -448,7 +448,7 @@ export default function SalaryCompare() {
                               key={p.id}
                               className="bg-slate-50 dark:bg-slate-700/50 rounded-lg p-2.5 border border-slate-100 dark:border-slate-700"
                             >
-                              <p className="text-[11px] text-slate-600 dark:text-slate-300 mb-1.5 leading-tight">
+                              <p className="text-xs text-slate-600 dark:text-slate-300 mb-1.5 leading-tight">
                                 {profName(p.id)}
                               </p>
                               <div className="flex items-center justify-between gap-1">

@@ -136,7 +136,7 @@ const BreakdownTable: React.FC<{ data: TaxBreakdownItem[]; currency: string; sho
           {/* Value Section */}
           <div className="text-right flex items-center justify-end gap-3 flex-shrink-0">
              {item.percentage !== 0 && !isNet && (
-                <div className="w-10 sm:w-12 text-[9px] sm:text-xs font-bold text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 group-hover:bg-slate-200/70 rounded px-1 py-0.5 text-center flex-shrink-0 transition-colors hidden sm:block">
+                <div className="w-10 sm:w-12 text-xs font-bold text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 group-hover:bg-slate-200/70 rounded px-1 py-0.5 text-center flex-shrink-0 transition-colors hidden sm:block">
                   {Math.abs(item.percentage).toFixed(1)}%
                 </div>
              )}
@@ -476,14 +476,14 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
                     key={idx}
                     type="button"
                     onClick={() => onProfileTagClick(tag.field!)}
-                    className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg ${tag.field === 'maritalStatus' ? 'text-[9px] sm:text-xs' : 'text-xs'} font-bold uppercase tracking-wide border border-transparent transition-transform active:scale-[0.98] ${tag.bg} ${tag.color} sm:cursor-default`}
+                    className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-bold uppercase tracking-wide border border-transparent transition-transform active:scale-[0.98] ${tag.bg} ${tag.color} sm:cursor-default`}
                     aria-label={tag.label}
                   >
                     <tag.icon size={12} strokeWidth={2.5} />
                     <span className={`truncate ${tag.field === 'maritalStatus' ? 'max-w-[130px] sm:max-w-none' : 'max-w-[150px] sm:max-w-none'}`}>{tag.label}</span>
                   </button>
                 ) : (
-                  <div key={idx} className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg ${tag.field === 'maritalStatus' ? 'text-[9px] sm:text-xs' : 'text-xs'} font-bold uppercase tracking-wide border border-transparent ${tag.bg} ${tag.color}`}>
+                  <div key={idx} className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-bold uppercase tracking-wide border border-transparent ${tag.bg} ${tag.color}`}>
                     <tag.icon size={12} strokeWidth={2.5} />
                     <span className={`truncate ${tag.field === 'maritalStatus' ? 'max-w-[130px] sm:max-w-none' : 'max-w-[150px] sm:max-w-none'}`}>{tag.label}</span>
                   </div>
@@ -776,7 +776,7 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
                   </div>
                 </div>
               </div>
-              <p className="mt-3 text-[11px] text-slate-600 dark:text-slate-400 border-t border-indigo-100 dark:border-indigo-900/40 pt-2.5">
+              <p className="mt-3 text-xs text-slate-600 dark:text-slate-400 border-t border-indigo-100 dark:border-indigo-900/40 pt-2.5">
                 {t('results.compareCta.hint')}
               </p>
             </button>

@@ -324,7 +324,7 @@ const SchoolDirectory: React.FC<{ t: (key: string) => string }> = ({ t }) => {
                 <div className="flex items-center gap-2 mb-2">
                   <cfg.Icon size={18} className="text-slate-600 dark:text-slate-300" />
                   <h4 className="font-bold text-sm text-slate-700 dark:text-slate-300">{cfg.label}</h4>
-                  <span className="text-[10px] font-bold bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 px-2 py-0.5 rounded-full">{schools.length}</span>
+                  <span className="text-xs font-bold bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 px-2 py-0.5 rounded-full">{schools.length}</span>
                 </div>
                 <div className="space-y-1.5">
                   {schools.map((school, i) => (
@@ -333,7 +333,7 @@ const SchoolDirectory: React.FC<{ t: (key: string) => string }> = ({ t }) => {
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2 flex-wrap">
                             <h5 className="font-bold text-sm text-slate-800 dark:text-slate-100">{school.name}</h5>
-                            <span className={`px-1.5 py-0.5 rounded text-[9px] font-bold uppercase ${school.nature === 'pubblica' ? 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300' : 'bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300'}`}>
+                            <span className={`px-1.5 py-0.5 rounded text-xs font-bold uppercase ${school.nature === 'pubblica' ? 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300' : 'bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300'}`}>
                               {school.nature}
                             </span>
                           </div>
@@ -1371,7 +1371,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                   {/* Ticino progressive brackets table */}
                   <div className="mt-3 p-3 bg-white dark:bg-slate-900/50 rounded-lg border border-orange-100 dark:border-orange-900">
                     <p className="text-xs font-bold text-orange-700 dark:text-orange-300 mb-2">{t('guide.livingCH.wealthTaxBrackets')}</p>
-                    <div className="grid grid-cols-2 gap-1 text-[10px]">
+                    <div className="grid grid-cols-2 gap-1 text-xs">
                       <span className="font-semibold text-slate-700 dark:text-slate-300">{t('guide.livingCH.wealthBracketRange')}</span>
                       <span className="font-semibold text-slate-700 dark:text-slate-300">{t('guide.livingCH.wealthBracketRate')}</span>
                       <span className="text-slate-600 dark:text-slate-300">CHF 0 – 200.000</span>
@@ -1387,7 +1387,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                     </div>
                   </div>
 
-                  <div className="mt-3 text-[10px] text-slate-500 dark:text-slate-400 space-y-1">
+                  <div className="mt-3 text-xs text-slate-500 dark:text-slate-400 space-y-1">
                     <p>🏠 <strong>{t('guide.livingCH.wealthTaxableAssets')}:</strong> {t('guide.livingCH.wealthTaxableAssetsDesc')}</p>
                     <p>🪪 <strong>{t('guide.livingCH.wealthPermitB')}:</strong> {t('guide.livingCH.wealthPermitBDesc')}</p>
                   </div>

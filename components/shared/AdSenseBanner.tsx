@@ -279,7 +279,7 @@ export default function AdSenseBanner({
       aria-hidden={!isVisible}
     >
       {label && (
-        <p className="text-[9px] font-medium text-slate-500 dark:text-slate-600 uppercase tracking-wider mb-1 text-center">
+        <p className="text-xs font-medium text-slate-500 dark:text-slate-600 uppercase tracking-wider mb-1 text-center">
           {label}
         </p>
       )}
