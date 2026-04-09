@@ -36,7 +36,7 @@ interface PensionResult {
 
 const InfoTooltip = ({ text }: { text: string }) => (
   <div className="group relative inline-flex items-center ml-1.5 cursor-help">
-    <Info size={14} className="text-slate-500 hover:text-indigo-500 transition-colors" />
+    <Info size={14} className="text-slate-500 dark:text-slate-400 hover:text-indigo-500 transition-colors" />
     <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block w-64 p-3 bg-slate-800 dark:bg-slate-700 text-white text-xs leading-relaxed rounded-xl shadow-2xl z-50 border border-slate-600">
       {text}
       <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-800 dark:border-t-slate-700"></div>

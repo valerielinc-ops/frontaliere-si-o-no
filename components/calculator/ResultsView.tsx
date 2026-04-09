@@ -248,7 +248,7 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
     if (inputs.children > 0) {
       tags.push({ label: t('input.childrenCount', { count: inputs.children }), icon: Baby, color: 'text-pink-700 dark:text-pink-400', bg: 'bg-pink-50 dark:bg-pink-900/20', field: 'children' });
     } else {
-        tags.push({ label: t('input.noChildren'), icon: Baby, color: 'text-slate-500', bg: 'bg-slate-100 dark:bg-slate-800', field: 'children' });
+        tags.push({ label: t('input.noChildren'), icon: Baby, color: 'text-slate-500 dark:text-slate-400', bg: 'bg-slate-100 dark:bg-slate-800', field: 'children' });
     }
 
     // Tag 4: Work Type
@@ -582,7 +582,7 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
                   <BreakdownTable data={chResident.breakdown} currency="CHF" showEUR={showEUR} exchangeRate={exchangeRate} />
                   {chResident.details.notes.length > 0 && (
                     <div className="mt-4 p-3 bg-slate-50 dark:bg-slate-900/50 rounded-xl border border-dashed border-slate-200 dark:border-slate-800">
-                        <p className="text-xs font-bold uppercase text-slate-500 mb-1">{t('results.notes')}</p>
+                        <p className="text-xs font-bold uppercase text-slate-500 dark:text-slate-400 mb-1">{t('results.notes')}</p>
                         <ul className="text-xs text-slate-500 dark:text-slate-400 list-disc list-inside">
                             {chResident.details.notes.map((note, i) => <li key={i}>{t(note.split('|')[0])}</li>)}
                         </ul>
@@ -664,7 +664,7 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
 
                   {itResident.details.notes.length > 0 && (
                     <div className="mt-4 p-3 bg-slate-50 dark:bg-slate-900/50 rounded-xl border border-dashed border-slate-200 dark:border-slate-800">
-                        <p className="text-xs font-bold uppercase text-slate-500 mb-1">{t('results.notes')}</p>
+                        <p className="text-xs font-bold uppercase text-slate-500 dark:text-slate-400 mb-1">{t('results.notes')}</p>
                         <ul className="text-xs text-slate-500 dark:text-slate-400 list-disc list-inside">
                             {itResident.details.notes.map((note, i) => <li key={i}>{t(note.split('|')[0])}</li>)}
                         </ul>

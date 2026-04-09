@@ -14,11 +14,11 @@ interface TransportOption {
 }
 
 const transportOptions: TransportOption[] = [
-  { type: 'car-benzina', name: 'Auto Benzina', icon: <Car size={20} />, color: 'from-red-500 to-orange-600' },
-  { type: 'car-diesel', name: 'Auto Diesel', icon: <Car size={20} />, color: 'from-slate-600 to-gray-700' },
-  { type: 'car-electric', name: 'Auto Elettrica', icon: <Zap size={20} />, color: 'from-green-500 to-emerald-600' },
-  { type: 'train', name: 'Treno', icon: <Train size={20} />, color: 'from-blue-500 to-blue-700' },
-  { type: 'ebike', name: 'eBike', icon: <Bike size={20} />, color: 'from-rose-500 to-pink-600' }
+  { type: 'car-benzina', name: 'Auto Benzina', icon: <Car size={20} />, color: 'bg-red-600' },
+  { type: 'car-diesel', name: 'Auto Diesel', icon: <Car size={20} />, color: 'bg-slate-600' },
+  { type: 'car-electric', name: 'Auto Elettrica', icon: <Zap size={20} />, color: 'bg-emerald-600' },
+  { type: 'train', name: 'Treno', icon: <Train size={20} />, color: 'bg-blue-600' },
+  { type: 'ebike', name: 'eBike', icon: <Bike size={20} />, color: 'bg-rose-600' }
 ];
 
 const TransportCalculator: React.FC = () => {
@@ -99,7 +99,7 @@ const TransportCalculator: React.FC = () => {
         costPerMonth: costsBenzinaIT.total,
         costPerYear: costsBenzinaIT.total * 12,
         details: costsBenzinaIT,
-        color: 'from-red-500 to-orange-600',
+        color: 'bg-red-600',
         icon: <Car size={24} />,
         fuelLocation: 'IT'
       },
@@ -109,7 +109,7 @@ const TransportCalculator: React.FC = () => {
         costPerMonth: costsBenzinaCH.total,
         costPerYear: costsBenzinaCH.total * 12,
         details: costsBenzinaCH,
-        color: 'from-red-600 to-rose-700',
+        color: 'bg-red-600',
         icon: <Car size={24} />,
         fuelLocation: 'CH'
       },
@@ -119,7 +119,7 @@ const TransportCalculator: React.FC = () => {
         costPerMonth: costsDieselIT.total,
         costPerYear: costsDieselIT.total * 12,
         details: costsDieselIT,
-        color: 'from-slate-600 to-gray-700',
+        color: 'bg-slate-600',
         icon: <Car size={24} />,
         fuelLocation: 'IT'
       },
@@ -129,7 +129,7 @@ const TransportCalculator: React.FC = () => {
         costPerMonth: costsElectricIT.total,
         costPerYear: costsElectricIT.total * 12,
         details: costsElectricIT,
-        color: 'from-green-500 to-emerald-600',
+        color: 'bg-emerald-600',
         icon: <Zap size={24} />,
         fuelLocation: 'IT'
       },
@@ -139,7 +139,7 @@ const TransportCalculator: React.FC = () => {
         costPerMonth: costsElectricCH.total,
         costPerYear: costsElectricCH.total * 12,
         details: costsElectricCH,
-        color: 'from-green-600 to-teal-700',
+        color: 'bg-emerald-600',
         icon: <Zap size={24} />,
         fuelLocation: 'CH'
       },
@@ -149,7 +149,7 @@ const TransportCalculator: React.FC = () => {
         costPerMonth: trainCostPerMonth,
         costPerYear: trainCostPerMonth * 12,
         details: null,
-        color: 'from-blue-500 to-blue-700',
+        color: 'bg-blue-600',
         icon: <Train size={24} />,
         fuelLocation: null
       },
@@ -159,7 +159,7 @@ const TransportCalculator: React.FC = () => {
         costPerMonth: ebikeCostPerMonth + ebikePurchaseCost,
         costPerYear: (ebikeCostPerMonth + ebikePurchaseCost) * 12,
         details: null,
-        color: 'from-rose-500 to-pink-600',
+        color: 'bg-rose-600',
         icon: <Bike size={24} />,
         fuelLocation: null
       }
@@ -188,7 +188,7 @@ const TransportCalculator: React.FC = () => {
       </div>
 
       {/* Header */}
-      <div className="bg-gradient-to-br from-emerald-800 to-green-900 rounded-2xl p-5 sm:p-8 text-white">
+      <div className="bg-emerald-600 dark:bg-emerald-700 rounded-2xl p-5 sm:p-8 text-white">
         <div className="flex items-center gap-3 mb-4">
           <Car size={32} />
           <h2 className="text-2xl sm:text-3xl font-bold">{t('transport.title')}</h2>
@@ -378,7 +378,7 @@ const TransportCalculator: React.FC = () => {
 
             <div className="flex items-start justify-between gap-4 mb-4">
               <div className="flex items-center gap-3">
-                <div className={`text-white p-3 bg-gradient-to-br ${result.color} rounded-2xl`}>
+                <div className={`text-white p-3 ${result.color} rounded-2xl`}>
                   {result.icon}
                 </div>
                 <div>

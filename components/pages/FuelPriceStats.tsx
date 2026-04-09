@@ -575,7 +575,7 @@ export default function FuelPriceStats() {
 
             <div className="grid gap-3 lg:grid-cols-[1fr,auto,auto]">
               <label className="relative">
-                <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500" />
+                <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 dark:text-slate-400" />
                 <input
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}

@@ -193,7 +193,7 @@ const UnemploymentStats: React.FC = () => {
   if (!data) {
     return (
       <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 flex flex-col items-center justify-center py-32 space-y-3">
-        <BarChart3 size={40} className="text-slate-500" />
+        <BarChart3 size={40} className="text-slate-500 dark:text-slate-400" />
         <p className="text-slate-500 dark:text-slate-400 text-sm">{localeLabels.noData}</p>
       </div>
     );
@@ -214,59 +214,52 @@ const UnemploymentStats: React.FC = () => {
       <div className="p-6 space-y-8">
 
         {/* KPI Row */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="flex flex-wrap items-baseline gap-x-6 gap-y-2 text-sm">
           {/* Current Rate */}
-          <div className="bg-amber-50/50 dark:bg-amber-900/20 p-4 rounded-2xl border border-amber-100 dark:border-amber-800 group relative">
-            <p className="text-xs font-bold text-amber-600 uppercase flex items-center gap-1">
-              {localeLabels.currentRate}
-              <Info size={12} className="text-amber-400 cursor-help" />
-            </p>
-            <div className="flex items-end gap-2 mt-1">
-              <p className="text-2xl font-bold text-slate-800 dark:text-slate-100">
-                {data.rate.toFixed(1)}%
-              </p>
-              {kpis?.yoyChange != null && (
-                <span className={`text-xs font-bold mb-1 ${kpis.yoyChange > 0 ? 'text-red-500' : kpis.yoyChange < 0 ? 'text-emerald-500' : 'text-slate-500'}`}>
-                  {kpis.yoyChange > 0 ? '+' : ''}{kpis.yoyChange.toFixed(1)}pp {localeLabels.yoy}
-                </span>
-              )}
-            </div>
-            <p className="text-xs text-amber-700 dark:text-amber-300 mt-1 capitalize">{currentPeriodLabel}</p>
+          <div className="flex items-baseline gap-1">
+            <span className="text-slate-500 dark:text-slate-400">{localeLabels.currentRate}:</span>{' '}
+            <span className="font-semibold text-amber-700 dark:text-amber-400">{data.rate.toFixed(1)}%</span>
+            {kpis?.yoyChange != null && (
+              <span className={`text-xs font-semibold ${kpis.yoyChange > 0 ? 'text-red-600 dark:text-red-400' : kpis.yoyChange < 0 ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-500 dark:text-slate-400'}`}>
+                ({kpis.yoyChange > 0 ? '+' : ''}{kpis.yoyChange.toFixed(1)}pp {localeLabels.yoy})
+              </span>
+            )}
+            <span className="text-xs text-slate-500 dark:text-slate-400 capitalize">{currentPeriodLabel}</span>
           </div>
 
           {/* Historic Low */}
-          <div className="bg-emerald-50/50 dark:bg-emerald-900/20 p-4 rounded-2xl border border-emerald-100 dark:border-emerald-800">
-            <p className="text-xs font-bold text-emerald-600 uppercase">{localeLabels.minimum}</p>
-            <p className="text-2xl font-bold text-slate-800 dark:text-slate-100 mt-1">{kpis?.min.toFixed(1)}%</p>
+          <div>
+            <span className="text-slate-500 dark:text-slate-400">{localeLabels.minimum}:</span>{' '}
+            <span className="font-semibold text-emerald-600 dark:text-emerald-400">{kpis?.min.toFixed(1)}%</span>
             {kpis?.minEntry && (
-              <p className="text-xs text-emerald-700 dark:text-emerald-300 mt-1 capitalize">
+              <span className="text-xs text-slate-500 dark:text-slate-400 ml-1 capitalize">
                 {(() => {
                   const [y, m] = kpis.minEntry.period.split('-').map(Number);
                   return new Date(Date.UTC(y, m - 1, 1)).toLocaleDateString(localeMap[locale] || 'it-CH', { month: 'short', year: 'numeric', timeZone: 'UTC' });
                 })()}
-              </p>
+              </span>
             )}
           </div>
 
           {/* Historic High */}
-          <div className="bg-red-50/50 dark:bg-red-900/20 p-4 rounded-2xl border border-red-100 dark:border-red-800">
-            <p className="text-xs font-bold text-red-600 uppercase">{localeLabels.maximum}</p>
-            <p className="text-2xl font-bold text-slate-800 dark:text-slate-100 mt-1">{kpis?.max.toFixed(1)}%</p>
+          <div>
+            <span className="text-slate-500 dark:text-slate-400">{localeLabels.maximum}:</span>{' '}
+            <span className="font-semibold text-red-600 dark:text-red-400">{kpis?.max.toFixed(1)}%</span>
             {kpis?.maxEntry && (
-              <p className="text-xs text-red-700 dark:text-red-300 mt-1 capitalize">
+              <span className="text-xs text-slate-500 dark:text-slate-400 ml-1 capitalize">
                 {(() => {
                   const [y, m] = kpis.maxEntry.period.split('-').map(Number);
                   return new Date(Date.UTC(y, m - 1, 1)).toLocaleDateString(localeMap[locale] || 'it-CH', { month: 'short', year: 'numeric', timeZone: 'UTC' });
                 })()}
-              </p>
+              </span>
             )}
           </div>
 
           {/* Period Average */}
-          <div className="bg-blue-50/50 dark:bg-blue-900/20 p-4 rounded-2xl border border-blue-100 dark:border-blue-800">
-            <p className="text-xs font-bold text-blue-600 uppercase">{localeLabels.average}</p>
-            <p className="text-2xl font-bold text-slate-800 dark:text-slate-100 mt-1">{kpis?.avg.toFixed(1)}%</p>
-            <p className="text-xs text-blue-700 dark:text-blue-300 mt-1">2016 – 2026</p>
+          <div>
+            <span className="text-slate-500 dark:text-slate-400">{localeLabels.average}:</span>{' '}
+            <span className="font-semibold text-slate-900 dark:text-white">{kpis?.avg.toFixed(1)}%</span>{' '}
+            <span className="text-xs text-slate-500 dark:text-slate-400">2016 – 2026</span>
           </div>
         </div>
 
@@ -312,7 +305,7 @@ const UnemploymentStats: React.FC = () => {
                 </LineChart>
               </ResponsiveContainer>
             ) : (
-              <div className="w-full h-full flex items-center justify-center text-slate-500 text-xs italic">
+              <div className="w-full h-full flex items-center justify-center text-slate-500 dark:text-slate-400 text-xs italic">
                 {localeLabels.noData}
               </div>
             )}

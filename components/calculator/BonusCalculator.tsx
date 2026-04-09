@@ -201,7 +201,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="bg-gradient-to-r from-emerald-500 to-teal-600 rounded-2xl p-4 sm:p-6 text-white">
+      <div className="bg-emerald-600 dark:bg-emerald-700 rounded-2xl p-4 sm:p-6 text-white">
         <div className="flex items-center gap-3 mb-2">
           <Gift size={28} />
           <h2 className="text-2xl font-bold">{t('bonus.title')}</h2>

@@ -285,7 +285,7 @@ const CostOfLiving: React.FC = () => {
             onChange={e => setExchangeRateOverride(parseFloat(e.target.value) || null)}
             className="w-full mt-1 px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 font-bold"
           />
-          <p className="text-xs text-slate-500 mt-1">1 CHF = {exchangeRate.toFixed(4)} EUR · <span className="text-blue-600 dark:text-blue-400">TwelveData</span></p>
+          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">1 CHF = {exchangeRate.toFixed(4)} EUR · <span className="text-blue-600 dark:text-blue-400">TwelveData</span></p>
         </div>
       </div>
 
@@ -307,27 +307,15 @@ const CostOfLiving: React.FC = () => {
         </div>
       </div>
 
-      {/* Summary Cards */}
-      <div className="grid md:grid-cols-3 gap-4">
-        <div className="bg-gradient-to-br from-red-500 to-red-700 rounded-xl p-5 text-white">
-          <div className="text-xs font-bold uppercase tracking-wider text-white/90">🇨🇭 {cityCH.name}</div>
-          <div className="text-2xl sm:text-3xl font-bold mt-1">€ {totalCH_EUR.toFixed(0)}</div>
-          <div className="text-xs text-white/80">{showAnnual ? t('costOfLiving.perYear') : t('costOfLiving.perMonth')}</div>
-        </div>
-        <div className="bg-gradient-to-br from-green-500 to-emerald-700 rounded-xl p-5 text-white">
-          <div className="text-xs font-bold uppercase tracking-wider text-white/90">🇮🇹 {cityIT.name}</div>
-          <div className="text-2xl sm:text-3xl font-bold mt-1">€ {totalIT_EUR.toFixed(0)}</div>
-          <div className="text-xs text-white/80">{showAnnual ? t('costOfLiving.perYear') : t('costOfLiving.perMonth')}</div>
-        </div>
-        <div className={`rounded-xl p-5 text-white ${totalSavings > 0 ? 'bg-gradient-to-br from-emerald-500 to-teal-700' : 'bg-gradient-to-br from-amber-500 to-orange-700'}`}>
-          <div className="text-xs font-bold uppercase tracking-wider text-white/70">{t('costOfLiving.savings')}</div>
-          <div className="text-2xl sm:text-3xl font-bold mt-1 flex items-center gap-2">
-            {totalSavings > 0 ? <TrendingDown size={24} /> : <TrendingUp size={24} />}
-            € {Math.abs(totalSavings).toFixed(0)}
-          </div>
-          <div className="text-xs text-white/90">
-            {savingsPercent.toFixed(0)}% {totalSavings > 0 ? t('costOfLiving.cheaperInItaly') : t('costOfLiving.cheaperInSwitzerland')}
-          </div>
+      {/* Summary Stats */}
+      <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
+        <div><span className="text-slate-500 dark:text-slate-400">🇨🇭 {cityCH.name}:</span>{' '}<span className="font-semibold text-slate-900 dark:text-white">€ {totalCH_EUR.toFixed(0)}</span>{' '}<span className="text-slate-500 dark:text-slate-400">{showAnnual ? t('costOfLiving.perYear') : t('costOfLiving.perMonth')}</span></div>
+        <div><span className="text-slate-500 dark:text-slate-400">🇮🇹 {cityIT.name}:</span>{' '}<span className="font-semibold text-slate-900 dark:text-white">€ {totalIT_EUR.toFixed(0)}</span>{' '}<span className="text-slate-500 dark:text-slate-400">{showAnnual ? t('costOfLiving.perYear') : t('costOfLiving.perMonth')}</span></div>
+        <div className="flex items-center gap-1">
+          <span className="text-slate-500 dark:text-slate-400">{t('costOfLiving.savings')}:</span>{' '}
+          {totalSavings > 0 ? <TrendingDown size={16} className="text-emerald-600 dark:text-emerald-400" /> : <TrendingUp size={16} className="text-red-600 dark:text-red-400" />}
+          <span className={`font-semibold ${totalSavings > 0 ? 'text-emerald-600 dark:text-emerald-400' : 'text-red-600 dark:text-red-400'}`}>€ {Math.abs(totalSavings).toFixed(0)}</span>{' '}
+          <span className="text-slate-500 dark:text-slate-400">({savingsPercent.toFixed(0)}% {totalSavings > 0 ? t('costOfLiving.cheaperInItaly') : t('costOfLiving.cheaperInSwitzerland')})</span>
         </div>
       </div>
 

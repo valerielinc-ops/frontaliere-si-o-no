@@ -218,7 +218,7 @@ const FirstDayGuide: React.FC = () => {
             <Trophy className="w-5 h-5 text-amber-500" />
             <span className="font-bold text-slate-800 dark:text-slate-200">{t('firstday.progress')}</span>
           </div>
-          <span className="text-sm font-bold text-slate-500">{completedCount}/{CHECKLIST_STEPS.length}</span>
+          <span className="text-sm font-bold text-slate-500 dark:text-slate-400">{completedCount}/{CHECKLIST_STEPS.length}</span>
         </div>
         <div className="w-full h-3 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
           <div
@@ -285,13 +285,13 @@ const FirstDayGuide: React.FC = () => {
                         {t(`firstday.step.${step.id}`)}
                       </span>
                     </div>
-                    <p className="text-xs text-slate-500 mt-0.5">{t(`firstday.step.${step.id}.desc`)}</p>
+                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">{t(`firstday.step.${step.id}.desc`)}</p>
                   </div>
                 </button>
 
                 {/* Time estimate + expand */}
                 <div className="flex items-center gap-2 shrink-0">
-                  <span className="hidden sm:flex items-center gap-1 text-xs text-slate-500">
+                  <span className="hidden sm:flex items-center gap-1 text-xs text-slate-500 dark:text-slate-400">
                     <Clock className="w-3 h-3" />
                     {step.estimatedDays}
                   </span>

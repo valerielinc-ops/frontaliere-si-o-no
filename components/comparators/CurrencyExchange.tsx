@@ -576,62 +576,44 @@ const CurrencyExchange: React.FC = () => {
             href={best.provider.referralUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30 rounded-xl sm:rounded-2xl border-2 border-emerald-200 dark:border-emerald-800 p-3 sm:p-6 hover:shadow-lg hover:border-emerald-400 transition-[color,background-color,border-color,box-shadow] cursor-pointer"
+            className="bg-emerald-50 dark:bg-emerald-950/30 rounded-xl sm:rounded-2xl border border-emerald-200 dark:border-emerald-800 p-3 sm:p-5 hover:shadow-md hover:border-emerald-400 transition-[color,background-color,border-color,box-shadow] cursor-pointer"
           >
-            <div className="flex items-center gap-3 mb-3">
-              <div className="p-2 bg-emerald-700 rounded-xl">
-                <TrendingUp className="text-white" size={20} />
-              </div>
-              <div>
-                <div className="text-xs font-bold text-emerald-700 dark:text-emerald-400 uppercase">{t('currency.best_offer')}</div>
-                <div className="text-xl font-bold text-slate-800 dark:text-slate-100">{best.provider.name}</div>
-              </div>
+            <div className="flex items-center gap-2 mb-2">
+              <TrendingUp className="text-emerald-600 dark:text-emerald-400" size={16} />
+              <span className="text-xs font-semibold text-emerald-700 dark:text-emerald-400 uppercase">{t('currency.best_offer')}</span>
             </div>
-            <div className="text-2xl sm:text-3xl font-bold text-emerald-700 mb-1">
-              € {best.netAmount.toFixed(2)}
+            <div className="text-sm font-semibold text-slate-800 dark:text-slate-100 mb-1">{best.provider.name}</div>
+            <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1 text-sm">
+              <span className="font-semibold text-emerald-700 dark:text-emerald-400">€ {best.netAmount.toFixed(2)}</span>
+              <span className="text-slate-500 dark:text-slate-400">{t('currency.total_cost')}: CHF {best.totalCost.toFixed(2)} ({best.costPercent.toFixed(2)}%)</span>
             </div>
-            <div className="text-sm text-slate-600 dark:text-slate-400">
-              {t('currency.total_cost')}: <strong>CHF {best.totalCost.toFixed(2)}</strong> ({best.costPercent.toFixed(2)}%)
-            </div>
-            <div className="text-xs text-emerald-700 dark:text-emerald-400 mt-2 font-bold">
+            <div className="text-xs text-emerald-700 dark:text-emerald-400 mt-2 font-semibold">
               👆 {t('currency.click_referral')}
             </div>
           </a>
         ) : (
-          <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30 rounded-xl sm:rounded-2xl border-2 border-emerald-200 dark:border-emerald-800 p-3 sm:p-6">
-            <div className="flex items-center gap-3 mb-3">
-              <div className="p-2 bg-emerald-700 rounded-xl">
-                <TrendingUp className="text-white" size={20} />
-              </div>
-              <div>
-                <div className="text-xs font-bold text-emerald-700 dark:text-emerald-400 uppercase">{t('currency.best_offer')}</div>
-                <div className="text-base sm:text-xl font-bold text-slate-800 dark:text-slate-100">{best.provider.name}</div>
-              </div>
+          <div className="bg-emerald-50 dark:bg-emerald-950/30 rounded-xl sm:rounded-2xl border border-emerald-200 dark:border-emerald-800 p-3 sm:p-5">
+            <div className="flex items-center gap-2 mb-2">
+              <TrendingUp className="text-emerald-600 dark:text-emerald-400" size={16} />
+              <span className="text-xs font-semibold text-emerald-700 dark:text-emerald-400 uppercase">{t('currency.best_offer')}</span>
             </div>
-            <div className="text-2xl sm:text-3xl font-bold text-emerald-700 mb-1">
-              € {best.netAmount.toFixed(2)}
-            </div>
-            <div className="text-xs sm:text-sm text-slate-600 dark:text-slate-400">
-              {t('currency.total_cost')}: <strong>CHF {best.totalCost.toFixed(2)}</strong> ({best.costPercent.toFixed(2)}%)
+            <div className="text-sm font-semibold text-slate-800 dark:text-slate-100 mb-1">{best.provider.name}</div>
+            <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1 text-sm">
+              <span className="font-semibold text-emerald-700 dark:text-emerald-400">€ {best.netAmount.toFixed(2)}</span>
+              <span className="text-slate-500 dark:text-slate-400">{t('currency.total_cost')}: CHF {best.totalCost.toFixed(2)} ({best.costPercent.toFixed(2)}%)</span>
             </div>
           </div>
         )}
 
-        <div className="bg-gradient-to-br from-red-50 to-orange-50 dark:from-red-950/30 dark:to-orange-950/30 rounded-xl sm:rounded-2xl border-2 border-red-200 dark:border-red-800 p-3 sm:p-6">
-          <div className="flex items-center gap-3 mb-3">
-            <div className="p-2 bg-red-500 rounded-xl">
-              <TrendingDown className="text-white" size={20} />
-            </div>
-            <div>
-              <div className="text-xs font-bold text-red-600 dark:text-red-400 uppercase">{t('currency.worst_offer')}</div>
-              <div className="text-base sm:text-xl font-bold text-slate-800 dark:text-slate-100">{worst.provider.name}</div>
-            </div>
+        <div className="bg-red-50 dark:bg-red-950/30 rounded-xl sm:rounded-2xl border border-red-200 dark:border-red-800 p-3 sm:p-5">
+          <div className="flex items-center gap-2 mb-2">
+            <TrendingDown className="text-red-600 dark:text-red-400" size={16} />
+            <span className="text-xs font-semibold text-red-700 dark:text-red-400 uppercase">{t('currency.worst_offer')}</span>
           </div>
-          <div className="text-2xl sm:text-3xl font-bold text-red-600 mb-1">
-            € {worst.netAmount.toFixed(2)}
-          </div>
-          <div className="text-xs sm:text-sm text-slate-600 dark:text-slate-400">
-            {t('currency.total_cost')}: <strong>CHF {worst.totalCost.toFixed(2)}</strong> ({worst.costPercent.toFixed(2)}%)
+          <div className="text-sm font-semibold text-slate-800 dark:text-slate-100 mb-1">{worst.provider.name}</div>
+          <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1 text-sm">
+            <span className="font-semibold text-red-600 dark:text-red-400">€ {worst.netAmount.toFixed(2)}</span>
+            <span className="text-slate-500 dark:text-slate-400">{t('currency.total_cost')}: CHF {worst.totalCost.toFixed(2)} ({worst.costPercent.toFixed(2)}%)</span>
           </div>
         </div>
       </div>

@@ -292,7 +292,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
                   >
                     <span className="flex-1 font-medium text-slate-800 dark:text-slate-100 truncate">{rjTitle}</span>
                     {rj.company && <span className="text-slate-500 dark:text-slate-400 text-xs shrink-0">{rj.company}</span>}
-                    <ArrowRight size={12} className="text-slate-500 shrink-0" />
+                    <ArrowRight size={12} className="text-slate-500 dark:text-slate-400 shrink-0" />
                   </a>
                 </li>
               );

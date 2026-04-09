@@ -191,7 +191,7 @@ const NotFoundSuggestions: React.FC<NotFoundSuggestionsProps> = ({ path, onNavig
                     </p>
                   )}
                 </div>
-                <ArrowRight size={16} className="shrink-0 text-slate-500 group-hover:text-blue-500 transition-colors" />
+                <ArrowRight size={16} className="shrink-0 text-slate-500 dark:text-slate-400 group-hover:text-blue-500 transition-colors" />
               </button>
             ))}
           </div>
@@ -215,7 +215,7 @@ const NotFoundSuggestions: React.FC<NotFoundSuggestionsProps> = ({ path, onNavig
               onClick={() => onNavigate(item.tab, item.subTab)}
               className="flex items-center gap-2 px-3 py-2.5 text-sm text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
             >
-              <item.icon size={16} className="text-slate-500" />
+              <item.icon size={16} className="text-slate-500 dark:text-slate-400" />
               <span className="truncate">{item.label}</span>
             </button>
           ))}

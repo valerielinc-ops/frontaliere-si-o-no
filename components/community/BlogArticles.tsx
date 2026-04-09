@@ -1818,7 +1818,7 @@ function BlogArticles({
                     <List size={16} className="text-indigo-500" />
                     {t('blog.toc.title')} ({tocHeadings.length} {t('blog.toc.sections')})
                   </span>
-                  <ChevronDown size={16} className={`text-slate-500 transition-transform duration-200 ${tocOpen ? 'rotate-180' : ''}`} />
+                  <ChevronDown size={16} className={`text-slate-500 dark:text-slate-400 transition-transform duration-200 ${tocOpen ? 'rotate-180' : ''}`} />
                 </button>
                 {tocOpen && (
                   <nav id="mobile-toc" className="px-4 pb-3 space-y-0.5" aria-label={t('blog.toc.title')}>

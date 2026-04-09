@@ -682,7 +682,7 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
           aria-label={t('chatbot.openLabel')}
         >
           <MessageCircle size={24} className="group-hover:scale-110 transition-transform" />
-          <span className="absolute -top-1 -right-1 w-3 h-3 bg-emerald-400 rounded-full animate-pulse" />
+          <span className="absolute -top-1 -right-1 w-3 h-3 bg-emerald-400 rounded-full" />
         </button>
       )}
 

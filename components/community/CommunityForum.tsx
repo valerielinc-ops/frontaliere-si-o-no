@@ -432,7 +432,7 @@ const CommunityForum: React.FC = () => {
           <button
             onClick={() => setSortBy('recent')}
             className={`flex items-center gap-1 px-3 py-1.5 rounded-md text-xs font-bold transition-colors ${
-              sortBy === 'recent' ? 'bg-violet-100 text-violet-700 dark:bg-violet-900/30 dark:text-violet-400' : 'text-slate-500'
+              sortBy === 'recent' ? 'bg-violet-100 text-violet-700 dark:bg-violet-900/30 dark:text-violet-400' : 'text-slate-500 dark:text-slate-400'
             }`}
           >
             <Clock className="w-3 h-3" /> {t('forum.recent') || 'Recenti'}
@@ -440,7 +440,7 @@ const CommunityForum: React.FC = () => {
           <button
             onClick={() => setSortBy('popular')}
             className={`flex items-center gap-1 px-3 py-1.5 rounded-md text-xs font-bold transition-colors ${
-              sortBy === 'popular' ? 'bg-violet-100 text-violet-700 dark:bg-violet-900/30 dark:text-violet-400' : 'text-slate-500'
+              sortBy === 'popular' ? 'bg-violet-100 text-violet-700 dark:bg-violet-900/30 dark:text-violet-400' : 'text-slate-500 dark:text-slate-400'
             }`}
           >
             <TrendingUp className="w-3 h-3" /> {t('forum.popular') || 'Popolari'}
@@ -492,6 +492,7 @@ const CommunityForum: React.FC = () => {
               <select
                 value={newCategory}
                 onChange={(e) => setNewCategory(e.target.value as ForumCategory)}
+                aria-label={t('forum.category') || 'Categoria'}
                 className="w-full px-3 py-2 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-sm"
               >
                 {FORUM_CATEGORIES.map(cat => (
@@ -561,7 +562,7 @@ const CommunityForum: React.FC = () => {
               <div className="flex items-start gap-3">
                 {/* Upvotes */}
                 <div className="flex flex-col items-center gap-0.5 pt-0.5">
-                  <ThumbsUp className={`w-4 h-4 ${user && q.upvotedBy.includes(user.uid) ? 'text-emerald-500' : 'text-slate-500'}`} />
+                  <ThumbsUp className={`w-4 h-4 ${user && q.upvotedBy.includes(user.uid) ? 'text-emerald-500' : 'text-slate-500 dark:text-slate-400'}`} />
                   <span className="text-xs font-bold text-slate-500 dark:text-slate-400">{q.upvotes}</span>
                 </div>
 

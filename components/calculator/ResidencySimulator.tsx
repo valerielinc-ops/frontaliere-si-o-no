@@ -603,7 +603,7 @@ function BestMunicipalitySection({ grossMonthlyCHF, chfEurRate }: { grossMonthly
     ? filteredRankings 
     : filteredRankings.slice(0, 10);
 
-  const provinces = [...new Set(IT_LOCATIONS.map(l => l.province).filter(Boolean))].sort() as string[];
+  const provinces = useMemo(() => [...new Set(IT_LOCATIONS.map(l => l.province).filter(Boolean))].sort() as string[], []);
   const best = filteredRankings[0];
   const hasActiveFilters = searchQuery || filterProvince || filterFascia;
 
@@ -759,7 +759,7 @@ function BestMunicipalitySection({ grossMonthlyCHF, chfEurRate }: { grossMonthly
           <div key={loc.id} className={`flex items-center gap-3 p-3 rounded-lg ${
             i === 0 && !hasActiveFilters ? 'bg-white dark:bg-slate-800' : 'bg-white/50 dark:bg-slate-800/50'
           } border border-slate-200 dark:border-slate-700`}>
-            <span className={`text-lg font-bold w-7 text-center shrink-0 ${i === 0 ? 'text-violet-600' : i === 1 ? 'text-slate-500' : 'text-slate-500'}`}>
+            <span className={`text-lg font-bold w-7 text-center shrink-0 ${i === 0 ? 'text-violet-600' : i === 1 ? 'text-slate-500 dark:text-slate-400' : 'text-slate-500 dark:text-slate-400'}`}>
               {i + 1}
             </span>
             <div className="flex-1 min-w-0">

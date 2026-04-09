@@ -369,7 +369,7 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp }
           <summary className="px-5 py-3.5 text-sm font-semibold text-slate-700 dark:text-slate-300 cursor-pointer select-none hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors list-none flex items-center gap-2">
             <Search size={14} className="text-slate-500 dark:text-slate-400" />
             {locale === 'it' ? 'Informazioni per frontalieri' : locale === 'de' ? 'Informationen für Grenzgänger' : locale === 'fr' ? 'Informations pour frontaliers' : 'Information for cross-border workers'}
-            <ArrowRight size={12} className="ml-auto text-slate-500 transition-transform group-open:rotate-90" />
+            <ArrowRight size={12} className="ml-auto text-slate-500 dark:text-slate-400 transition-transform group-open:rotate-90" />
           </summary>
           <div
             className="px-5 pb-4 prose prose-sm dark:prose-invert max-w-none text-slate-600 dark:text-slate-400 [&_h1]:hidden [&_h2]:text-sm [&_h2]:font-semibold [&_h2]:text-slate-700 [&_h2]:dark:text-slate-300 [&_h2]:mt-4 [&_h2]:mb-1.5 [&_section]:border-t [&_section]:border-slate-100 [&_section]:dark:border-slate-800 [&_section]:pt-3 [&_section:first-of-type]:border-0 [&_a]:text-indigo-600 [&_a]:dark:text-indigo-400 [&_ul]:pl-0 [&_ul]:list-none [&_li]:pl-0"

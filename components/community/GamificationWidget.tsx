@@ -176,7 +176,7 @@ const GamificationWidget: React.FC = () => {
       {/* Portal to document.body so backdrop-blur on header doesn't break fixed positioning */}
       {toast && toastVisible && createPortal(
         <div className="fixed bottom-20 md:bottom-4 right-4 sm:right-6 z-[60] animate-toast-in pointer-events-auto">
-          <div className="bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-xl shadow-lg px-4 py-2.5 flex items-center gap-2.5 max-w-xs">
+          <div className="bg-amber-500 text-white rounded-xl shadow-lg px-4 py-2.5 flex items-center gap-2.5 max-w-xs">
             <span className="text-xl flex-shrink-0">{ACHIEVEMENTS.find(a => a.id === toast)?.icon || '🏆'}</span>
             <div className="min-w-0">
               <div className="text-xs font-bold uppercase tracking-wider opacity-80">{t('gamification.achievementUnlocked')}</div>
@@ -220,7 +220,7 @@ const GamificationWidget: React.FC = () => {
             <div className="px-4 py-3 bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-orange-950/30 border-b border-slate-200/60 dark:border-slate-700/50">
               <div className="flex items-center gap-3">
                 <div className="relative flex-shrink-0">
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center shadow-sm">
+                  <div className="w-10 h-10 rounded-xl bg-amber-500 flex items-center justify-center shadow-sm">
                     <Trophy size={18} className="text-white" />
                   </div>
                   <span className="absolute -top-1 -right-1 bg-slate-800 dark:bg-slate-200 text-white dark:text-slate-800 text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center shadow-sm">
@@ -248,7 +248,7 @@ const GamificationWidget: React.FC = () => {
               <div className="mt-2">
                 <div className="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-1.5 overflow-hidden">
                   <div
-                    className="bg-gradient-to-r from-amber-400 to-orange-500 rounded-full h-1.5 transition-transform duration-500 origin-left"
+                    className="bg-amber-500 rounded-full h-1.5 transition-transform duration-500 origin-left"
                     style={{ transform: `scaleX(${xpProgressPct / 100})` }}
                   />
                 </div>

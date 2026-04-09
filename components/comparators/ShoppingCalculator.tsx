@@ -223,18 +223,12 @@ const ShoppingCalculator: React.FC = () => {
               />
               <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">1 CHF = {effectiveRate.toFixed(4)} EUR</p>
             </div>
-            <div className="bg-gradient-to-br from-emerald-500 to-green-600 rounded-xl p-4 text-white">
-              <div className="text-xs font-bold uppercase tracking-wider text-white/70">{t('shopping.avgSavings')}</div>
-              <div className="text-2xl sm:text-3xl font-bold">{allProductStats.savingsPercent.toFixed(0)}%</div>
-              <div className="text-xs text-white/90">{t('shopping.buyingInItaly')}</div>
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
+              <div><span className="text-slate-500 dark:text-slate-400">{t('shopping.avgSavings')}:</span>{' '}<span className="font-semibold text-emerald-600 dark:text-emerald-400">{allProductStats.savingsPercent.toFixed(0)}%</span>{' '}<span className="text-slate-500 dark:text-slate-400">{t('shopping.buyingInItaly')}</span></div>
+              {stats.selectedCount > 0 && (
+                <div><span className="text-slate-500 dark:text-slate-400">{t('shopping.yourSavings')}:</span>{' '}<span className="font-semibold text-blue-600 dark:text-blue-400">{'\u20AC'} {stats.savings.toFixed(2)}</span>{' '}<span className="text-slate-500 dark:text-slate-400">{t('shopping.perTrip')} ({stats.selectedCount} {t('shopping.products')})</span></div>
+              )}
             </div>
-            {stats.selectedCount > 0 && (
-              <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl p-4 text-white">
-                <div className="text-xs font-bold uppercase tracking-wider text-white/70">{t('shopping.yourSavings')}</div>
-                <div className="text-2xl sm:text-3xl font-bold">{'\u20AC'} {stats.savings.toFixed(2)}</div>
-                <div className="text-xs text-white/90">{t('shopping.perTrip')} ({stats.selectedCount} {t('shopping.products')})</div>
-              </div>
-            )}
           </div>
 
           {/* Customs Warning */}
@@ -269,7 +263,7 @@ const ShoppingCalculator: React.FC = () => {
               </div>
               <div className="flex gap-2 items-center">
                 <label className="flex items-center gap-2 cursor-pointer text-sm">
-                  <input type="checkbox" checked={showOnlySavings} onChange={e => setShowOnlySavings(e.target.checked)} className="w-4 h-4" />
+                  <input type="checkbox" checked={showOnlySavings} onChange={e => setShowOnlySavings(e.target.checked)} className="w-4 h-4" aria-label={t('shopping.onlySavings')} />
                   <span className="font-bold text-slate-700 dark:text-slate-300">{t('shopping.onlySavings')}</span>
                 </label>
                 <button onClick={selectAll} className="px-3 py-1.5 rounded-lg text-xs font-bold bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 hover:bg-blue-200 dark:hover:bg-blue-800" aria-label={t('shopping.selectAll')}>

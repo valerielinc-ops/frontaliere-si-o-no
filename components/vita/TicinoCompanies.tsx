@@ -710,7 +710,7 @@ const TicinoCompanies: React.FC = () => {
       `}</style>
 
       {/* Header */}
-      <div className="bg-gradient-to-br from-teal-600 via-emerald-600 to-teal-700 rounded-2xl sm:rounded-3xl p-4 sm:p-8 text-white shadow-2xl">
+      <div className="bg-teal-600 dark:bg-teal-700 rounded-2xl sm:rounded-3xl p-4 sm:p-8 text-white shadow-2xl">
         <div className="flex items-center gap-3 sm:gap-4 mb-4">
           <div className="p-2 sm:p-3 bg-white/20 rounded-xl sm:rounded-2xl flex-shrink-0">
             <Building2 size={28} className="sm:w-8 sm:h-8" />

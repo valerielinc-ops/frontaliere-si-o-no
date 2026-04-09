@@ -18,7 +18,7 @@ export const PrivacyPolicy: React.FC = () => {
       {/* Header */}
       <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 sm:p-8 shadow-lg mb-6">
         <div className="flex items-center gap-4 mb-4">
-          <div className="p-3 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl shadow-lg">
+          <div className="p-3 bg-teal-600 dark:bg-teal-700 rounded-2xl shadow-lg">
             <Shield className="text-white" size={32} />
           </div>
           <div>

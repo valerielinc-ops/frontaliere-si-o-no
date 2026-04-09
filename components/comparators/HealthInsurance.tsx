@@ -426,7 +426,7 @@ const HealthInsurance: React.FC = () => {
                             <div key={f} className="flex items-center justify-between text-xs">
                               <span className={`text-slate-500 ${f === effectiveFranchise ? 'font-bold text-slate-800 dark:text-slate-100' : ''}`}>
                                 {f} CHF</span>
-                              <span className={`font-mono ${f === effectiveFranchise ? 'font-bold text-slate-800 dark:text-slate-100' : 'text-slate-500'}`}>
+                              <span className={`font-mono ${f === effectiveFranchise ? 'font-bold text-slate-800 dark:text-slate-100' : 'text-slate-500 dark:text-slate-400'}`}>
                                 {p.toFixed(2)} CHF/mese</span>
                             </div>) : null;
                         })}
@@ -489,7 +489,7 @@ const HealthInsurance: React.FC = () => {
                       <td className="py-2 px-2 text-right text-slate-700 dark:text-slate-300">{p.toFixed(2)}</td>
                       <td className="py-2 px-2 text-right text-slate-700 dark:text-slate-300">{annual.toFixed(0)}</td>
                       <td className="py-2 px-2 text-right text-slate-700 dark:text-slate-300">{totalMax.toFixed(0)}</td>
-                      <td className={`py-2 px-2 text-right ${saving > 0 ? 'text-emerald-700 dark:text-emerald-400' : saving < 0 ? 'text-red-600 dark:text-red-400' : 'text-slate-500'}`}>
+                      <td className={`py-2 px-2 text-right ${saving > 0 ? 'text-emerald-700 dark:text-emerald-400' : saving < 0 ? 'text-red-600 dark:text-red-400' : 'text-slate-500 dark:text-slate-400'}`}>
                         {saving > 0 ? `-${saving.toFixed(0)}` : saving < 0 ? `+${Math.abs(saving).toFixed(0)}` : '—'}
                       </td>
                     </tr>

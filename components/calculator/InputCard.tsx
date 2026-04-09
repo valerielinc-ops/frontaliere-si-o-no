@@ -65,7 +65,7 @@ const SectionHeader = ({ title, icon: Icon, isOpen, onToggle, subtext, iconColor
     </div>
     <div className="flex items-center gap-2">
       {action && <div onClick={e => e.stopPropagation()}>{action}</div>}
-      <div className={`transition-transform duration-300 ${isOpen ? 'rotate-180 text-indigo-600' : 'text-slate-500'}`}>
+      <div className={`transition-transform duration-300 ${isOpen ? 'rotate-180 text-indigo-600' : 'text-slate-500 dark:text-slate-400'}`}>
         <ChevronDown size={18} />
       </div>
     </div>

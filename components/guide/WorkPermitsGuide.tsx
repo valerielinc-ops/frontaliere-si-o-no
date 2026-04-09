@@ -183,7 +183,7 @@ function getPermits(t: (key: string) => string): PermitType[] {
       id: 'L',
       name: t('permits.l.name'),
       fullName: t('permits.l.fullName'),
-      color: 'from-purple-500 to-pink-600',
+      color: 'from-teal-500 to-teal-600',
       icon: '🟣',
       duration: t('permits.l.duration'),
       forWhom: t('permits.l.forWhom'),

@@ -91,7 +91,7 @@ export default function LivabilityIndex() {
 
   const medalColor = (rank: number) => {
     if (rank === 1) return 'text-yellow-500';
-    if (rank === 2) return 'text-slate-500';
+    if (rank === 2) return 'text-slate-500 dark:text-slate-400';
     if (rank === 3) return 'text-amber-700';
     return 'text-slate-500 dark:text-slate-400';
   };
@@ -263,7 +263,7 @@ export default function LivabilityIndex() {
         </div>
       ) : (
         <div className="bg-white dark:bg-slate-800 rounded-xl shadow overflow-hidden" style={{ height: '500px' }}>
-          <React.Suspense fallback={<div className="flex items-center justify-center h-full text-slate-500">Loading map...</div>}>
+          <React.Suspense fallback={<div className="flex items-center justify-center h-full text-slate-500 dark:text-slate-400">Loading map...</div>}>
             <LeafletMap municipalities={filtered} />
           </React.Suspense>
         </div>

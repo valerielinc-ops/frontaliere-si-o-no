@@ -283,7 +283,7 @@ const StatsViewInner: React.FC = () => {
                         </LineChart>
                     </ResponsiveContainer>
                  ) : (
-                    <div className="w-full h-full flex flex-col items-center justify-center text-slate-500">
+                    <div className="w-full h-full flex flex-col items-center justify-center text-slate-500 dark:text-slate-400">
                         {loading ? <Loader2 className="animate-spin" /> : <span className="text-xs italic">{t('stats.dataNotAvailable')}</span>}
                     </div>
                  )}

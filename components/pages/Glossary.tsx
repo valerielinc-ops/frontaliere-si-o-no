@@ -154,7 +154,7 @@ const Glossary: React.FC<GlossaryProps> = ({ initialEntry }) => {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="bg-gradient-to-r from-indigo-600 to-purple-700 rounded-2xl p-4 sm:p-6 text-white" data-speakable>
+      <div className="bg-teal-600 dark:bg-teal-700 rounded-2xl p-4 sm:p-6 text-white" data-speakable>
         <div className="flex items-center gap-3 mb-2">
           <BookOpen size={28} />
           {initialEntry ? (
@@ -177,7 +177,7 @@ const Glossary: React.FC<GlossaryProps> = ({ initialEntry }) => {
       {/* Search and filters */}
       <div className="flex flex-wrap gap-3 items-center">
         <div className="relative flex-1 min-w-[200px]">
-          <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500" />
+          <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 dark:text-slate-400" />
           <input
             type="text"
             value={searchTerm}
@@ -251,7 +251,7 @@ const Glossary: React.FC<GlossaryProps> = ({ initialEntry }) => {
                       {t(`glossary.terms.${entry.key}.title`)}
                     </span>
                   </div>
-                  {isExpanded ? <ChevronUp size={16} className="text-slate-500" /> : <ChevronDown size={16} className="text-slate-500" />}
+                  {isExpanded ? <ChevronUp size={16} className="text-slate-500 dark:text-slate-400" /> : <ChevronDown size={16} className="text-slate-500 dark:text-slate-400" />}
                 </button>
                 {isExpanded && (
                   <div className="px-4 pb-4 text-sm text-slate-600 dark:text-slate-400 animate-fade-in border-t border-slate-100 dark:border-slate-700 pt-3">

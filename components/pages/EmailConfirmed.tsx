@@ -26,7 +26,7 @@ export const EmailConfirmed: React.FC = () => {
     {
       id: 'blog',
       icon: BookOpen,
-      colorClass: 'from-violet-500 to-purple-600',
+      colorClass: 'from-teal-500 to-teal-600',
       titleKey: 'emailConfirmed.cta.blog.title',
       descKey: 'emailConfirmed.cta.blog.desc',
       href: buildPath({ activeTab: 'blog' }),

@@ -45,7 +45,7 @@ export interface ShareableCardProps {
 /** Tailwind classes for the visible card preview */
 const ACCENT_GRADIENTS: Record<string, string> = {
   blue: 'from-blue-600 to-blue-700',
-  violet: 'from-violet-600 to-purple-700',
+  violet: 'from-teal-600 to-teal-700',
   emerald: 'from-emerald-600 to-teal-700',
   amber: 'from-amber-500 to-orange-600',
 };

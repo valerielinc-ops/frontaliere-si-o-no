@@ -120,7 +120,7 @@ const InfoTooltip = ({ text }: { text: string }) => (
   </div>
 );
 
-const StepperInput = ({ value, onChange, min = 0, max, label, icon: Icon, iconColor = "text-slate-500", tooltip, inputId, ariaLabel }: any) => (
+const StepperInput = ({ value, onChange, min = 0, max, label, icon: Icon, iconColor = "text-slate-500 dark:text-slate-400", tooltip, inputId, ariaLabel }: any) => (
   <div className="space-y-2">
     {label && <label htmlFor={inputId} className="text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wide flex items-center gap-1.5 h-4">{Icon && <Icon size={12} className={iconColor}/>} {label} {tooltip && <InfoTooltip text={tooltip} />}</label>}
     <div className="flex items-center bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden h-12 shadow-sm focus-within:ring-2 focus-within:ring-indigo-500/20 focus-within:border-indigo-500 transition-[color,background-color,border-color,box-shadow,transform]">

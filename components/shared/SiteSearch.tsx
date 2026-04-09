@@ -1239,7 +1239,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
                                 <span className="text-sm font-semibold text-slate-800 dark:text-slate-100 truncate block">{item.title}</span>
                                 <span className="text-xs text-slate-500 dark:text-slate-400 truncate block">{item.description}</span>
                               </div>
-                              <ArrowRight size={12} className="text-slate-500 flex-shrink-0" />
+                              <ArrowRight size={12} className="text-slate-500 dark:text-slate-400 flex-shrink-0" />
                             </button>
                           );
                         })}
@@ -1301,7 +1301,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
                             {result.description}
                           </p>
                         </div>
-                        <ArrowRight size={14} className="text-slate-500 flex-shrink-0" />
+                        <ArrowRight size={14} className="text-slate-500 dark:text-slate-400 flex-shrink-0" />
                       </button>
                     );
                   })}

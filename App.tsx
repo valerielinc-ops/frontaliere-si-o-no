@@ -2108,12 +2108,10 @@ const App: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'instant' });
   }, [handleSearchNavigate]);
 
-  // --- 5-click logo easter egg: cache reset with coin explosion ---
+  // --- 5-click logo easter egg: cache reset ---
   const logoClickCountRef = useRef(0);
   const logoClickTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const [showCoinExplosion, setShowCoinExplosion] = useState(false);
   const [showWhatsNew, setShowWhatsNew] = useState(false);
-  const CoinExplosionRef = useRef<React.ComponentType<{ onComplete: () => void }> | null>(null);
 
   const handleLogoClick = useCallback(() => {
     logoClickCountRef.current += 1;
@@ -2121,32 +2119,22 @@ const App: React.FC = () => {
 
     if (logoClickCountRef.current >= 5) {
       logoClickCountRef.current = 0;
-      // Lazy-load the coin explosion component, then show it
-      import('@/components/shared/CoinExplosion').then(mod => {
-        CoinExplosionRef.current = mod.default;
-        setShowCoinExplosion(true);
-      }).catch(() => {});
+      // Trigger cache reset directly
+      (async () => {
+        try { const keys = await caches.keys(); await Promise.all(keys.map(k => caches.delete(k))); } catch {}
+        localStorage.clear();
+        sessionStorage.clear();
+        document.cookie.split(';').forEach(c => {
+          document.cookie = c.replace(/^ +/, '').replace(/=.*/, '=;expires=' + new Date(0).toUTCString() + ';path=/');
+        });
+        window.location.replace('/?_t=' + Date.now());
+      })();
     } else {
       // Reset counter after 2s of inactivity
       logoClickTimerRef.current = setTimeout(() => {
         logoClickCountRef.current = 0;
       }, 2000);
     }
-  }, []);
-
-  const handleCoinExplosionComplete = useCallback(async () => {
-    // Wait a beat so the animation ending feels smooth
-    await new Promise(r => setTimeout(r, 200));
-    // 1. Wipe all caches (SW + CacheStorage)
-    try { const keys = await caches.keys(); await Promise.all(keys.map(k => caches.delete(k))); } catch {}
-    // 2. Clear local data
-    localStorage.clear();
-    sessionStorage.clear();
-    document.cookie.split(';').forEach(c => {
-      document.cookie = c.replace(/^ +/, '').replace(/=.*/, '=;expires=' + new Date(0).toUTCString() + ';path=/');
-    });
-    // 3. Force-fetch latest version (cache-bust so the browser doesn't serve stale HTML)
-    window.location.replace('/?_t=' + Date.now());
   }, []);
 
   // Track whether initial render is complete to defer first calculation
@@ -2986,7 +2974,7 @@ const App: React.FC = () => {
           )}
         </main>
 
-        <footer className="border-t border-slate-200/60 dark:border-slate-800 bg-slate-50 dark:bg-slate-800 py-8 pb-20 md:pb-8 mt-auto relative z-10" style={{ contentVisibility: 'auto', containIntrinsicSize: 'auto 850px' }}>
+        <footer className="border-t border-slate-200/60 dark:border-slate-800 bg-slate-50 dark:bg-slate-800 py-8 pb-20 md:pb-8 mt-auto relative z-10">
           <div className="max-w-7xl mx-auto px-4 space-y-6">
             {/* Footer weather widget */}
             <Suspense fallback={<SkeletonFooterSlot height="min-h-[36px]" />}><FooterWeather /></Suspense>
@@ -3421,9 +3409,6 @@ const App: React.FC = () => {
       </div>
     </NavigationContext.Provider>
     </TabContentContext.Provider>
-    {showCoinExplosion && CoinExplosionRef.current && (
-      <CoinExplosionRef.current onComplete={handleCoinExplosionComplete} />
-    )}
     </ErrorBoundary>
   );
 };

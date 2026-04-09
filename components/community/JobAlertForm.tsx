@@ -176,6 +176,7 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
               value={keyword}
               onChange={(e) => setKeyword(e.target.value)}
               placeholder={t('jobAlert.keywordPlaceholder') || 'es. developer, ingegnere, contabile'}
+              aria-label={t('jobAlert.keyword') || 'Parole chiave'}
               className="w-full px-3 py-2 text-sm rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 focus:ring-2 focus:ring-indigo-400 outline-none"
             />
           </div>
@@ -232,6 +233,7 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
             <select
               value={frequency}
               onChange={(e) => setFrequency(e.target.value as 'daily' | 'weekly')}
+              aria-label={t('jobAlert.frequency') || 'Frequenza'}
               className="px-2 py-1 text-xs rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800"
             >
               <option value="daily">{t('jobAlert.daily') || 'Giornaliera'}</option>

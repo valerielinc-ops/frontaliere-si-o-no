@@ -397,7 +397,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
           {/* Controls */}
           <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700 flex flex-wrap gap-3 items-center">
             <div className="flex items-center gap-2">
-              <Filter className="w-4 h-4 text-slate-500" />
+              <Filter className="w-4 h-4 text-slate-500 dark:text-slate-400" />
               <span className="text-sm font-bold text-slate-600 dark:text-slate-300">{t('bordermap.colorBy')}:</span>
             </div>
             {([
@@ -503,7 +503,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
                 <span className="text-sm font-bold text-slate-600 dark:text-slate-400">CHF</span>
               </div>
             </div>
-            <div className="flex justify-between text-xs text-slate-500 mt-1 px-1">
+            <div className="flex justify-between text-xs text-slate-500 dark:text-slate-400 mt-1 px-1">
               <span>30k</span>
               <span>100k</span>
               <span>150k</span>
@@ -658,7 +658,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
       {/* Sort controls + count */}
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div className="flex items-center gap-2 flex-wrap">
-          <ArrowUpDown className="w-4 h-4 text-slate-500" />
+          <ArrowUpDown className="w-4 h-4 text-slate-500 dark:text-slate-400" />
           <span className="text-sm font-bold text-slate-600 dark:text-slate-300">{t('bordermap.sortBy')}:</span>
           {([
             { field: 'name' as const, label: t('bordermap.sortName') },

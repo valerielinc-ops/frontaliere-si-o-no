@@ -34,7 +34,7 @@ export default function FaqAccordion({ title, items, className = '' }: FaqAccord
               id={`faq-heading-${i}`}
             >
               <span className="font-medium text-slate-800 dark:text-white pr-4">{item.question}</span>
-              <ChevronDown size={18} className={`flex-shrink-0 text-slate-500 transition-transform ${openIndex === i ? 'rotate-180' : ''}`} />
+              <ChevronDown size={18} className={`flex-shrink-0 text-slate-500 dark:text-slate-400 transition-transform ${openIndex === i ? 'rotate-180' : ''}`} />
             </button>
             <div
               id={`faq-panel-${i}`}

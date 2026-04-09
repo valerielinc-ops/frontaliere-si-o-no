@@ -280,7 +280,7 @@ const MobileCalcLayout: React.FC<Props> = ({
               <span className={`font-bold text-xs ${inputs.frontierWorkerType === 'NEW' ? 'text-blue-700 dark:text-blue-300' : 'text-slate-600 dark:text-slate-400'}`}>
                 {t('input.newFrontier')}
               </span>
-              <span className="text-xs text-slate-500 font-medium">{t('input.postDate')}</span>
+              <span className="text-xs text-slate-500 dark:text-slate-400 font-medium">{t('input.postDate')}</span>
             </button>
             <button
               onClick={() => handleChange('frontierWorkerType', 'OLD')}
@@ -296,7 +296,7 @@ const MobileCalcLayout: React.FC<Props> = ({
               <span className={`font-bold text-xs ${inputs.frontierWorkerType === 'OLD' ? 'text-emerald-700 dark:text-emerald-300' : 'text-slate-600 dark:text-slate-400'}`}>
                 {t('input.oldFrontier')}
               </span>
-              <span className="text-xs text-slate-500 font-medium">{t('input.preDate')}</span>
+              <span className="text-xs text-slate-500 dark:text-slate-400 font-medium">{t('input.preDate')}</span>
             </button>
           </div>
           {/* Distance zone for NEW */}
@@ -379,7 +379,7 @@ const MobileCalcLayout: React.FC<Props> = ({
                     <InlineNetDeltaBadge key={`ch-${chDelta.key}`} delta={chDelta.delta} size="mobile" />
                   )}
                 </div>
-                <div className="text-xs text-slate-500 font-semibold">{t('mobileCalc.perMonth')}</div>
+                <div className="text-xs text-slate-500 dark:text-slate-400 font-semibold">{t('mobileCalc.perMonth')}</div>
               </button>
 
               {/* IT Frontaliere */}
@@ -405,7 +405,7 @@ const MobileCalcLayout: React.FC<Props> = ({
                     <InlineNetDeltaBadge key={`it-${itDelta.key}`} delta={itDelta.delta} size="mobile" />
                   )}
                 </div>
-                <div className="text-xs text-slate-500 font-semibold">{t('mobileCalc.perMonth')}</div>
+                <div className="text-xs text-slate-500 dark:text-slate-400 font-semibold">{t('mobileCalc.perMonth')}</div>
               </button>
             </div>
 

@@ -158,7 +158,7 @@ const WeeklyDigest: React.FC = () => {
       {showPreview && (
         <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden mb-6">
           {/* Preview Header */}
-          <div className="bg-gradient-to-r from-indigo-600 to-purple-700 px-6 py-4">
+          <div className="bg-teal-600 dark:bg-teal-700 px-6 py-4">
             <div className="flex items-center gap-2 mb-1">
               <Bell size={16} className="text-white/90" />
               <span className="text-white/90 text-xs">{t('weeklyDigest.preview.header')}</span>

@@ -637,7 +637,7 @@ const FaqItem: React.FC<{ q: string; a: string }> = ({ q, a }) => {
         className="w-full flex items-center justify-between p-4 text-left"
       >
         <span className="font-semibold text-sm text-slate-800 dark:text-slate-200">{q}</span>
-        <ArrowRight size={16} className={`text-slate-500 transition-transform ${open ? 'rotate-90' : ''}`} />
+        <ArrowRight size={16} className={`text-slate-500 dark:text-slate-400 transition-transform ${open ? 'rotate-90' : ''}`} />
       </button>
       {open && (
         <div className="px-4 pb-4 text-sm text-slate-600 dark:text-slate-400 animate-fade-in">

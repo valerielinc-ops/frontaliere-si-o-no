@@ -235,20 +235,20 @@ const SchoolDirectory: React.FC<{ t: (key: string) => string }> = ({ t }) => {
     return () => { mounted = false; };
   }, []);
 
-  const filteredSchools = (schools || []).filter(s => {
+  const filteredSchools = useMemo(() => (schools || []).filter(s => {
     const matchSearch = !schoolSearch ||
       s.name.toLowerCase().includes(schoolSearch.toLowerCase()) ||
       s.city.toLowerCase().includes(schoolSearch.toLowerCase());
     const matchType = schoolTypeFilter === 'all' || s.type === schoolTypeFilter;
     const matchNature = schoolNatureFilter === 'all' || s.nature === schoolNatureFilter;
     return matchSearch && matchType && matchNature;
-  });
+  }), [schools, schoolSearch, schoolTypeFilter, schoolNatureFilter]);
 
-  const groupedByType = filteredSchools.reduce((acc, s) => {
+  const groupedByType = useMemo(() => filteredSchools.reduce((acc, s) => {
     if (!acc[s.type]) acc[s.type] = [];
     acc[s.type].push(s);
     return acc;
-  }, {} as Record<string, import('@/components/vita/TicinoSchoolsData').SchoolEntry[]>);
+  }, {} as Record<string, import('@/components/vita/TicinoSchoolsData').SchoolEntry[]>), [filteredSchools]);
 
   return (
     <div className="bg-white dark:bg-slate-800 rounded-2xl border-2 border-indigo-200 dark:border-indigo-800 overflow-hidden">

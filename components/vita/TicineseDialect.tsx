@@ -319,7 +319,7 @@ const TicineseDialect: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      <div className="bg-gradient-to-r from-orange-600 to-red-700 rounded-2xl p-4 sm:p-6 text-white">
+      <div className="bg-orange-600 dark:bg-orange-700 rounded-2xl p-4 sm:p-6 text-white">
         <div className="flex items-center gap-3 mb-2">
           <Languages size={28} />
           <h2 className="text-2xl font-bold">{tt('dialect.title', 'Dialetto Ticinese')}</h2>

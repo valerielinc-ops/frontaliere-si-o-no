@@ -40,7 +40,7 @@ const GamificationPage: React.FC = () => {
     all: 'from-amber-500 to-orange-500',
     explorer: 'from-blue-500 to-blue-600',
     calculator: 'from-emerald-500 to-teal-500',
-    expert: 'from-purple-500 to-violet-500',
+    expert: 'from-teal-500 to-teal-600',
     social: 'from-pink-500 to-rose-500',
   };
 
@@ -177,7 +177,7 @@ const GamificationPage: React.FC = () => {
                 {/* XP reward */}
                 <div className="flex items-center gap-1 mt-1.5">
                   <Zap size={10} className={isUnlocked ? 'text-amber-500' : 'text-slate-500 dark:text-slate-400'} />
-                  <span className={`text-xs font-bold ${isUnlocked ? 'text-amber-600 dark:text-amber-400' : 'text-slate-500'}`}>
+                  <span className={`text-xs font-bold ${isUnlocked ? 'text-amber-600 dark:text-amber-400' : 'text-slate-500 dark:text-slate-400'}`}>
                     +50 XP
                   </span>
                 </div>
