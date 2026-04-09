@@ -2979,10 +2979,16 @@ function optimizeSeoMetadata(data) {
   const it = data.content?.it || {};
   if (!data.seo) data.seo = {};
 
-  const baseTitle = truncateAtWordBoundary(it.title || data.id || 'Articolo frontalieri', 72);
+  const TITLE_SUFFIX = ' | Frontaliere Ticino';
+  const TITLE_MAX = 60;
+  const coreBudget = TITLE_MAX - TITLE_SUFFIX.length; // 40 chars for the core title
+  const baseTitle = truncateAtWordBoundary(it.title || data.id || 'Articolo frontalieri', coreBudget);
   const seoTitleCore = baseTitle.replace(/\s*\|\s*Frontaliere Ticino$/i, '');
-  data.seo.title = `${truncateAtWordBoundary(seoTitleCore, 72)} | Frontaliere Ticino`;
-  data.seo.ogTitle = truncateAtWordBoundary(data.seo.ogTitle || seoTitleCore, 90);
+  const fullTitle = `${seoTitleCore}${TITLE_SUFFIX}`;
+  data.seo.title = fullTitle.length <= TITLE_MAX
+    ? fullTitle
+    : truncateAtWordBoundary(seoTitleCore, TITLE_MAX);
+  data.seo.ogTitle = truncateAtWordBoundary(data.seo.ogTitle || seoTitleCore, TITLE_MAX);
   data.seo.headline = truncateAtWordBoundary(data.seo.headline || seoTitleCore, 100);
   data.seo.breadcrumbName = truncateAtWordBoundary(
     data.seo.breadcrumbName || seoTitleCore.split(/[:.–—]/)[0] || 'Articolo',
