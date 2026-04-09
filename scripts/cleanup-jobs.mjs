@@ -336,8 +336,12 @@ async function main() {
     }
 
     // Run locale hardening on the slice (skip if JOBS_SKIP_LOCALE_HARDENING=1,
-    // e.g. when slug hardening is deferred to after translations in the combined pipeline)
-    const skipHardening = process.env.JOBS_SKIP_LOCALE_HARDENING === '1';
+    // e.g. when slug hardening is deferred to after translations in the combined pipeline).
+    // Also auto-skip when running in scoped mode (JOBS_HOUSEKEEPING_SCOPE set): the
+    // dedicated crawler already hardened this slice moments ago — re-hardening in a
+    // separate process can revert AI-translated slugs and generate spurious previousSlugs.
+    const skipHardening = process.env.JOBS_SKIP_LOCALE_HARDENING === '1'
+      || !!process.env.JOBS_HOUSEKEEPING_SCOPE;
     const tempPath = slicePath + '.cleanup-tmp.json';
     writeJson(tempPath, sliceJobs);
     try {

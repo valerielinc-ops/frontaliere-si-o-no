@@ -1479,6 +1479,26 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
     return result;
   }
 
+  // Safety net: strip any previousSlug that matches an active slug.
+  // This prevents bridge pages that redirect to themselves — even if
+  // captureLostSlugs missed the overlap due to cross-process re-hardening.
+  for (const job of raw) {
+    if (!Array.isArray(job.previousSlugs) || job.previousSlugs.length === 0) continue;
+    const active = new Set();
+    if (job.slug) active.add(normalizeSpace(job.slug));
+    if (job.slugByLocale && typeof job.slugByLocale === 'object') {
+      for (const v of Object.values(job.slugByLocale)) {
+        if (v) active.add(normalizeSpace(String(v)));
+      }
+    }
+    const cleaned = job.previousSlugs.filter(s => !active.has(normalizeSpace(String(s))));
+    if (cleaned.length === 0) {
+      delete job.previousSlugs;
+    } else {
+      job.previousSlugs = cleaned;
+    }
+  }
+
   writeJson(dataJobsPath, raw);
   const publicJobsPath = inferPublicJobsPath(dataJobsPath);
   if (fs.existsSync(publicJobsPath)) {
