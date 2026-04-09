@@ -5717,4 +5717,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/asili-bellinzona-progetto-pilota-orario-prolungato-2027.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'multe-vignetta-chiasso-2026',
+    category: 'novita',
+    date: '2026-04-09T22:03:26.061Z',
+    image: '/images/blog/multe-vignetta-chiasso-2026.jpg',
+    hasCalculator: true,
+  },
 ];

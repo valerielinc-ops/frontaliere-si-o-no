@@ -2028,6 +2028,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.asili-bellinzona-progetto-pilota-orario-prolungato-2027.title': 'Asili a Bellinzona: progetto pilota per orario prolungato dal 2027',
     'blog.article.asili-bellinzona-progetto-pilota-orario-prolungato-2027.excerpt': 'Mozione interpartitica chiede a Bellinzona di avviare entro il 2027/2028 sezioni a orario prolungato in 1-2 asili. Soluzione già attiva a Lugano, Locarno e Mendrisio per conciliare lavoro e famiglia.',
     'blog.article.asili-bellinzona-progetto-pilota-orario-prolungato-2027.imageAlt': 'Scuola dell\'infanzia a Bellinzona con bambini che giocano all\'aperto nel tardo pomeriggio, cortile alberato e architettura liberty',
+    'blog.article.multe-vignetta-chiasso-2026.title': '190 multe per vignetta mancante a Chiasso in 4 giorni: controlli a tappeto',
+    'blog.article.multe-vignetta-chiasso-2026.excerpt': 'Tra il 3 e il 6 aprile 190 automobilisti multati al valico di Chiasso-Brogeda. Multe da 200 CHF e obbligo di acquisto della vignetta.',
+    'blog.article.multe-vignetta-chiasso-2026.imageAlt': 'Controlli alla dogana di Chiasso-Brogeda con code di veicoli in attesa',
 };
 
 export default blogMetaIt;

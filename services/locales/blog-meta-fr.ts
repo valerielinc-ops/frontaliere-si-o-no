@@ -2028,6 +2028,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.asili-bellinzona-progetto-pilota-orario-prolungato-2027.title': 'Crèches à Bellinzone : projet pilote pour des horaires prolongés dès 2027',
     'blog.article.asili-bellinzona-progetto-pilota-orario-prolungato-2027.excerpt': 'Une motion interpartis a demandé à Bellinzone d\'ouvrir, d\'ici 2027/2028, des sections à horaires prolongés dans 1 à 2 crèches. Une solution déjà mise en place à Lugano, Locarno et Mendrisio pour faciliter la conciliation entre vie professionnelle et vie de famille.',
     'blog.article.asili-bellinzona-progetto-pilota-orario-prolungato-2027.imageAlt': 'École enfantine à Bellinzone avec des enfants jouant à l’extérieur en fin d’après-midi, cour arborée et architecture Art Nouveau',
+    'blog.article.multe-vignetta-chiasso-2026.title': '190 amendes pour absence de vignette à Chiasso en 4 jours : contrôles intensifs',
+    'blog.article.multe-vignetta-chiasso-2026.excerpt': 'Entre le 3 et le 6 avril, 190 automobilistes ont été verbalisés au poste-frontière de Chiasso-Brogeda. Les amendes s\'élèvent à 200 CHF et l\'achat de la vignette est obligatoire.',
+    'blog.article.multe-vignetta-chiasso-2026.imageAlt': 'Contrôles à la douane de Chiasso-Brogeda avec des files de véhicules',
 };
 
 export default blogMetaFr;

@@ -2028,6 +2028,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.asili-bellinzona-progetto-pilota-orario-prolungato-2027.title': 'Kitas in Bellinzona: Pilotprojekt für verlängerte Öffnungszeiten ab 2027',
     'blog.article.asili-bellinzona-progetto-pilota-orario-prolungato-2027.excerpt': 'Ein interfraktioneller Vorstoss fordert Bellinzona auf, bis 2027/2028 in ein bis zwei Kitas Abschnitte mit verlängerten Öffnungszeiten einzuführen. Eine Lösung, die in Lugano, Locarno und Mendrisio bereits Realität ist, um Beruf und Familie besser zu vereinbaren.',
     'blog.article.asili-bellinzona-progetto-pilota-orario-prolungato-2027.imageAlt': 'Kindergarten in Bellinzona mit Kindern, die draußen am späten Nachmittag spielen, von Bäumen gesäumter Innenhof und Art-Nouveau-Architektur',
+    'blog.article.multe-vignetta-chiasso-2026.title': '190 Bussen wegen fehlender Vignette in Chiasso in 4 Tagen: Großkontrollen',
+    'blog.article.multe-vignetta-chiasso-2026.excerpt': 'Zwischen dem 3. und 6. April wurden 190 Autofahrer am Grenzübergang Chiasso-Brogeda gebüsst. Bussen von 200 CHF und Pflicht zum Kauf der Vignette.',
+    'blog.article.multe-vignetta-chiasso-2026.imageAlt': 'Grenz Kontrolle in Chiasso-Brogeda mit wartenden Fahrzeugen',
 };
 
 export default blogMetaDe;

@@ -1931,6 +1931,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-multe-vignetta-chiasso-pasqua-2026': { name: 'Pasqua 2026', path: '/articoli-frontaliere/multe-vignetta-chiasso-pasqua-2026', parent: 'blog' },
     'blog-tasse-ticino-frontalieri-perequazione-2026': { name: 'Ticino penalizzato', path: '/articoli-frontaliere/tasse-ticino-frontalieri-perequazione-2026', parent: 'blog' },
     'blog-asili-bellinzona-progetto-pilota-orario-prolungato-2027': { name: 'Asili a Bellinzona', path: '/articoli-frontaliere/asili-bellinzona-progetto-pilota-orario-prolungato-2027', parent: 'blog' },
+    'blog-multe-vignetta-chiasso-2026': { name: 'Multe Vignetta', path: '/articoli-frontaliere/multe-vignetta-chiasso-2026', parent: 'blog' },
   };
 
   const info = sectionNames[section];

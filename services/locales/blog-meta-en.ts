@@ -2028,6 +2028,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.asili-bellinzona-progetto-pilota-orario-prolungato-2027.title': 'Bellinzona nurseries: pilot project for extended hours from 2027',
     'blog.article.asili-bellinzona-progetto-pilota-orario-prolungato-2027.excerpt': 'A cross-party motion urges Bellinzona to introduce extended-hour sections in one or two nurseries by the 2027/2028 school year. A similar solution is already in place in Lugano, Locarno and Mendrisio to help parents balance work and family commitments.',
     'blog.article.asili-bellinzona-progetto-pilota-orario-prolungato-2027.imageAlt': 'Kindergarten in Bellinzona with children playing outside in the late afternoon, tree-lined courtyard and Art Nouveau architecture',
+    'blog.article.multe-vignetta-chiasso-2026.title': '190 fines for missing motorway vignettes in Chiasso in 4 days: blanket checks',
+    'blog.article.multe-vignetta-chiasso-2026.excerpt': 'Between April 3 and 6, 190 motorists were fined at the Chiasso-Brogeda border crossing. Fines of 200 CHF and obligation to purchase the vignette.',
+    'blog.article.multe-vignetta-chiasso-2026.imageAlt': 'Border checks at Chiasso-Brogeda with queues of vehicles waiting',
 };
 
 export default blogMetaEn;

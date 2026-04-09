@@ -6473,6 +6473,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-multe-vignetta-chiasso-2026': {
+    title: '190 multe per vignetta mancante a | Frontaliere Ticino',
+    description: '190 multe per vignetta mancante a Chiasso in 4 giorni. Controlli a tappeto e sanzioni da 200 CHF. Cosa fare per evitare le multe. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, multe, vignetta, mancante, chiasso',
+    ogTitle: 'Multe per vignetta a Chiasso: 190 sanzioni in 4 giorni',
+    ogDescription: 'Controlli intensificati al valico di Chiasso-Brogeda: 190 multe da 200 CHF per mancanza della vignetta autostradale svizzera.',
+    canonicalPath: '/articoli-frontaliere/multe-vignetta-chiasso-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "190 multe per vignetta mancante a Chiasso in 4 giorni",
+      "description": "190 multe per vignetta mancante a Chiasso in 4 giorni. Controlli a tappeto e sanzioni da 200 CHF. Cosa fare per evitare le multe. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/multe-vignetta-chiasso-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Controlli alla dogana di Chiasso-Brogeda con code di veicoli in attesa"
+      },
+      "datePublished": "2026-04-09T22:03:26+00:00",
+      "dateModified": "2026-04-09T22:03:26+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/multe-vignetta-chiasso-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
