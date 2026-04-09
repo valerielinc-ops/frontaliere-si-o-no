@@ -1301,7 +1301,7 @@ export function buildJobOfficialGazetteLandingModel(options: {
     explainerTitle: copy.explainerTitle,
     explainerCards: copy.explainerCards,
     officialSourceLabel: copy.officialSourceLabel,
-    officialSourceUrl: 'https://www.concorsi.ti.ch/offerte-d-impieghi.html',
+    officialSourceUrl: 'https://www.concorsi.ti.ch/',
     internalLinks: [
       { label: copy.internalLinks[0], href: `${landingHref}#official-competitions` },
       { label: copy.internalLinks[1], href: allJobsHref },

@@ -2217,7 +2217,7 @@ function BlogArticles({
                               {t(`blog.article.${tr.id}.title`)}
                             </p>
                             <div className="flex items-center gap-2 mt-1">
-                              <span className="text-xs text-orange-600 dark:text-orange-400 font-medium">
+                              <span className="text-xs text-orange-700 dark:text-orange-400 font-medium">
                                 {views} {t('blog.trendingThisWeek.views')}
                               </span>
                               <span className="text-xs text-slate-500 dark:text-slate-400">·</span>

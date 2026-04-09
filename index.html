@@ -204,6 +204,7 @@
          blocking critical resources and deprecated-API warnings (Fledge) -->
 </head>
   <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300 overflow-x-hidden">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:px-4 focus:py-2 focus:text-blue-600 focus:rounded focus:shadow-lg focus:underline" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap">Vai al contenuto principale</a>
     <!-- Loading shell: fixed overlay so it never participates in layout flow.
          React renders behind it inside #root; shell is removed after first paint.
          Because the shell is position:fixed, removing it causes ZERO layout shift. -->
@@ -467,7 +468,7 @@
         </nav>
 
       </div>
-    <div id="root"></div>
+    <div id="root"><main id="main-content"></main></div>
     <div id="modal-root"></div>
     <!-- Chunk-load error recovery: detect stale SW cache serving old HTML
          that references JS chunks no longer on the server (404). Force-reload
@@ -755,12 +756,7 @@
       "@id": "https://frontaliereticino.ch/#organization",
       "name": "Frontaliere Ticino",
       "url": "https://frontaliereticino.ch",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://frontaliereticino.ch/icons/icon-512x512.png",
-        "width": 512,
-        "height": 512
-      },
+      "logo": "https://frontaliereticino.ch/icons/icon-512x512.png",
       "image": "https://frontaliereticino.ch/icons/icon-512x512.png",
       "foundingDate": "2023",
       "description": "Piattaforma informativa per frontalieri italiani in Svizzera: tassazione, permessi, lavoro, sanità e aggiornamenti normativi.",

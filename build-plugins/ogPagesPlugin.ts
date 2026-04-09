@@ -826,7 +826,7 @@ ${headTags}
     ${GTAG_SNIPPET}
   </head>
   <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 overflow-x-hidden">
-    <div id="root"><article><h1>${esc(localizedTitle)}</h1><p class="article-byline" style="font-size:0.85rem;color:#64748b;margin:0.25rem 0 1rem">Di Valerie Linc · <time datetime="${esc(normalizeDateTime(en.datePub || en.dateMod || todayIso))}">${esc(formatHumanDateTime(normalizeDateTime(en.datePub || en.dateMod || todayIso), locale))}</time></p><p>${esc(localizedDesc)}</p>${articleBodyHtml}${visibleFaqHtml}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/articoli-frontaliere/">Articoli</a></nav></article></div>
+    <div id="root"><main id="main-content"><article><h1>${esc(localizedTitle)}</h1><p class="article-byline" style="font-size:0.85rem;color:#64748b;margin:0.25rem 0 1rem">Di Valerie Linc · <time datetime="${esc(normalizeDateTime(en.datePub || en.dateMod || todayIso))}">${esc(formatHumanDateTime(normalizeDateTime(en.datePub || en.dateMod || todayIso), locale))}</time></p><p>${esc(localizedDesc)}</p>${articleBodyHtml}${visibleFaqHtml}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/articoli-frontaliere/">Articoli</a></nav></article></main></div>
     <script type="module" crossorigin fetchpriority="high" src="/assets/${entryJs}"></script>
   </body>
 </html>`;
@@ -840,7 +840,7 @@ ${headTags}
     ${GTAG_SNIPPET}
   </head>
   <body>
-    <div id="root"><article><h1>${esc(localizedTitle)}</h1><p>${esc(localizedDesc)}</p><nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi">Confronta Servizi</a> | <a href="/tasse-e-pensione">Tasse e Pensione</a> | <a href="/guida-frontaliere">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri">FAQ</a> | <a href="/glossario-frontaliere">Glossario</a> | <a href="/articoli-frontaliere">Articoli</a></nav></article></div>
+    <div id="root"><main id="main-content"><article><h1>${esc(localizedTitle)}</h1><p>${esc(localizedDesc)}</p><nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi">Confronta Servizi</a> | <a href="/tasse-e-pensione">Tasse e Pensione</a> | <a href="/guida-frontaliere">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri">FAQ</a> | <a href="/glossario-frontaliere">Glossario</a> | <a href="/articoli-frontaliere">Articoli</a></nav></article></main></div>
     <script>location.replace('/${pp.replace(/~and~/g, '&')}'+location.hash)</script>
   </body>
 </html>`;

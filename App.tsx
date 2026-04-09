@@ -2746,7 +2746,7 @@ const App: React.FC = () => {
         )}
 
         {/* Main Content */}
-        <main className={`flex-grow mx-auto py-4 lg:py-8 transition-[max-width,padding] duration-300 ease-out relative z-10 ${
+        <main id="main-content" className={`flex-grow mx-auto py-4 lg:py-8 transition-[max-width,padding] duration-300 ease-out relative z-10 ${
           activeTab === 'admin' ? 'w-full px-3 sm:px-6' : '!max-w-[2400px] !w-[95%] px-2 sm:px-4'
         }`}>
          <Suspense fallback={<LazyFallback />}>

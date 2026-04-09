@@ -1095,6 +1095,9 @@ export function staticPagesPlugin(rootDir: string): Plugin {
           { href: '/glossario-frontaliere', label: 'Glossario' },
           { href: '/articoli-frontaliere', label: 'Articoli' },
           { href: '/mappa-del-sito', label: 'Mappa del Sito' },
+          { href: '/chi-siamo', label: 'Chi Siamo' },
+          { href: '/contattaci', label: 'Contattaci' },
+          { href: '/privacy', label: 'Privacy' },
         ],
         en: [
           { href: '/en/', label: 'Tax Simulator' },
@@ -1105,6 +1108,9 @@ export function staticPagesPlugin(rootDir: string): Plugin {
           { href: '/en/glossary', label: 'Glossary' },
           { href: '/en/frontier-articles', label: 'Articles' },
           { href: '/en/site-map', label: 'Site Map' },
+          { href: '/en/about-us', label: 'About Us' },
+          { href: '/en/contact-us', label: 'Contact Us' },
+          { href: '/en/privacy', label: 'Privacy' },
         ],
         de: [
           { href: '/de/', label: 'Steuersimulator' },
@@ -1115,6 +1121,9 @@ export function staticPagesPlugin(rootDir: string): Plugin {
           { href: '/de/glossar', label: 'Glossar' },
           { href: '/de/grenzgaenger-artikel', label: 'Artikel' },
           { href: '/de/seitenplan', label: 'Seitenplan' },
+          { href: '/de/ueber-uns', label: 'Über Uns' },
+          { href: '/de/kontakt', label: 'Kontakt' },
+          { href: '/de/datenschutz', label: 'Datenschutz' },
         ],
         fr: [
           { href: '/fr/', label: 'Simulateur Fiscal' },
@@ -1125,6 +1134,9 @@ export function staticPagesPlugin(rootDir: string): Plugin {
           { href: '/fr/glossaire', label: 'Glossaire' },
           { href: '/fr/articles-frontalier', label: 'Articles' },
           { href: '/fr/plan-du-site', label: 'Plan du Site' },
+          { href: '/fr/a-propos', label: 'À Propos' },
+          { href: '/fr/contactez-nous', label: 'Contactez-nous' },
+          { href: '/fr/confidentialite', label: 'Confidentialité' },
         ],
       };
 
@@ -2022,11 +2034,17 @@ export function staticPagesPlugin(rootDir: string): Plugin {
                 const localePrefix = localePrefixes.includes(urlSegs[0] ?? '') ? urlSegs[0] : '';
                 const cardLocale = (localePrefix || 'it') as 'it' | 'en' | 'de' | 'fr';
                 const topArticles = blogArticlesStatic.slice(0, 20);
+                const ARTICLES_HEADING: Record<string, string> = {
+                  it: 'Ultimi Articoli per Frontalieri',
+                  en: 'Latest Articles for Cross-Border Workers',
+                  de: 'Neueste Artikel für Grenzgänger',
+                  fr: 'Derniers Articles pour Frontaliers',
+                };
                 const CATEGORY_COLORS: Record<string, string> = {
                   fiscale: 'background:#eef2ff;color:#4338ca',
-                  pratico: 'background:#ecfdf5;color:#059669',
-                  novita: 'background:#fff7ed;color:#ea580c',
-                  pensione: 'background:#fdf4ff;color:#a855f7',
+                  pratico: 'background:#ecfdf5;color:#047857',
+                  novita: 'background:#fff7ed;color:#c2410c',
+                  pensione: 'background:#fdf4ff;color:#7e22ce',
                 };
                 const CATEGORY_LABELS: Record<string, Record<string, string>> = {
                   fiscale: { it: 'Fiscale', en: 'Tax', de: 'Steuer', fr: 'Fiscal' },
@@ -2034,7 +2052,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
                   novita: { it: 'Novità', en: 'News', de: 'News', fr: 'Actualité' },
                   pensione: { it: 'Pensione', en: 'Pension', de: 'Rente', fr: 'Retraite' },
                 };
-                const articleCardsHtml = topArticles.map(art => {
+                const articleCardsHtml = topArticles.map((art, idx) => {
                   const artSlug = articleIdToSlug[cardLocale]?.[art.id] ?? art.id;
                   const artPath = localePrefix ? `/${localePrefix}/${blogListSlug}/${artSlug}` : `/${blogListSlug}/${artSlug}`;
                   const artSeo = seoMap.get(artPath);
@@ -2043,9 +2061,9 @@ export function staticPagesPlugin(rootDir: string): Plugin {
                   const catColor = CATEGORY_COLORS[art.category] ?? CATEGORY_COLORS.fiscale;
                   const catLabel = CATEGORY_LABELS[art.category]?.[cardLocale] ?? art.category;
                   const dateStr = new Date(art.date).toLocaleDateString(cardLocale === 'it' ? 'it-IT' : cardLocale, { day: 'numeric', month: 'short', year: 'numeric' });
-                  return `<a href="${artPath}" style="display:block;text-decoration:none;color:inherit;${sp};overflow:hidden"><img src="${art.image}" alt="${title}" width="400" height="200" style="width:100%;height:10rem;object-fit:cover" loading="lazy"><div style="padding:.75rem"><span style="display:inline-block;padding:2px 8px;border-radius:9999px;font-size:.625rem;font-weight:700;${catColor}">${esc(catLabel)}</span><span style="font-size:.625rem;color:#94a3b8;margin-left:.5rem">${dateStr}</span><h3 style="font-size:.875rem;font-weight:700;color:#334155;margin:.5rem 0 .25rem;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">${title}</h3>${desc ? `<p style="font-size:.75rem;color:#64748b;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">${desc}</p>` : ''}</div></a>`;
+                  return `<a href="${artPath}" style="display:block;text-decoration:none;color:inherit;${sp};overflow:hidden"><img src="${art.image}" alt="${title}" width="400" height="200" style="width:100%;height:10rem;object-fit:cover"${idx < 2 ? '' : ' loading="lazy"'}><div style="padding:.75rem"><span style="display:inline-block;padding:2px 8px;border-radius:9999px;font-size:.625rem;font-weight:700;${catColor}">${esc(catLabel)}</span><span style="font-size:.625rem;color:#94a3b8;margin-left:.5rem">${dateStr}</span><h3 style="font-size:.875rem;font-weight:700;color:#334155;margin:.5rem 0 .25rem;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">${title}</h3>${desc ? `<p style="font-size:.75rem;color:#64748b;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">${desc}</p>` : ''}</div></a>`;
                 }).join('');
-                return `<style>.ssg-article-grid{display:grid;grid-template-columns:1fr;gap:1.25rem;margin-top:1.5rem}@media(min-width:640px){.ssg-article-grid{grid-template-columns:repeat(2,1fr)}}@media(min-width:1024px){.ssg-article-grid{grid-template-columns:repeat(3,1fr)}}</style><div style="max-width:56rem;margin:0 auto;padding:1rem">${heroImg}<article><h1 style="font-size:1.25rem;font-weight:700;margin-bottom:.5rem">${esc(seoData.ogT)}</h1><p style="color:#64748b;font-size:.875rem">${esc(seoData.desc)}</p>${editorialHtml}</article><div class="ssg-article-grid">${articleCardsHtml}</div><nav style="margin-top:1.5rem;font-size:.75rem;color:#64748b">${navHtml}</nav></div>`;
+                return `<style>.ssg-article-grid{display:grid;grid-template-columns:1fr;gap:1.25rem;margin-top:1.5rem}@media(min-width:640px){.ssg-article-grid{grid-template-columns:repeat(2,1fr)}}@media(min-width:1024px){.ssg-article-grid{grid-template-columns:repeat(3,1fr)}}</style><div style="max-width:56rem;margin:0 auto;padding:1rem">${heroImg}<article><h1 style="font-size:1.25rem;font-weight:700;margin-bottom:.5rem">${esc(seoData.ogT)}</h1><p style="color:#64748b;font-size:.875rem">${esc(seoData.desc)}</p>${editorialHtml}</article><h2 style="font-size:1.1rem;font-weight:700;margin:1.5rem 0 1rem;color:#1e293b">${ARTICLES_HEADING[locale] ?? ARTICLES_HEADING.it}</h2><div class="ssg-article-grid">${articleCardsHtml}</div><nav style="margin-top:1.5rem;font-size:.75rem;color:#64748b">${navHtml}</nav></div>`;
               })();
           } else if (statsSlugs.includes(firstSeg)) {
             rootHtml = `<div style="max-width:72rem;margin:0 auto;padding:1rem"><div style="${sp};height:6rem;margin-bottom:1.5rem"></div><article><h1 style="font-size:1.25rem;font-weight:700;margin-bottom:.5rem">${esc(seoData.ogT)}</h1><p style="color:#64748b;font-size:.875rem">${esc(seoData.desc)}</p>${editorialHtml}</article><div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:1.5rem"><div style="${sp};height:14rem"></div><div style="${sp};height:14rem"></div></div><nav style="margin-top:1.5rem;font-size:.75rem;color:#64748b">${navHtml}</nav></div>`;
@@ -2113,7 +2131,7 @@ ${hrefTags}
   </head>
   <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 overflow-x-hidden">
     <script type="application/ld+json">${breadcrumbJsonLd}</script>${seoData.sd ? `\n    <script type="application/ld+json">${seoData.sd}</script>` : ''}${speakableLd}
-    <div id="root">${rootHtml}</div>
+    <div id="root"><main id="main-content">${rootHtml}</main></div>
     <script type="module" crossorigin fetchpriority="high" src="/assets/${entryJs}"></script>
   </body>
 </html>`;
@@ -2153,7 +2171,7 @@ ${hrefTags}
   <body>
     <script type="application/ld+json">${breadcrumbJsonLd}</script>${seoData.sd ? `\n    <script type="application/ld+json">${seoData.sd}</script>` : ''}${speakableLd}
     <style>${skeletonAnim}</style>
-    <div id="root">${rootHtml}</div>
+    <div id="root"><main id="main-content">${rootHtml}</main></div>
     <script>location.replace('/${pp.replace(/~and~/g, '&')}'+location.hash)</script>
   </body>
 </html>`;
@@ -2183,13 +2201,13 @@ ${hrefTags}
           if (url.path === '/' && seo) {
             try {
               const generatedPage = buildPage('it', url.path, seo, url.hreflangs);
-              const rootMatch = generatedPage.match(/<div id="root">([\s\S]*?)<\/div>\s*<script/);
+              const rootMatch = generatedPage.match(/<div id="root"><main id="main-content">([\s\S]*?)<\/main><\/div>\s*<script/);
               if (rootMatch?.[1]) {
                 let existingHtml = fs.readFileSync(filePath, 'utf-8');
-                if (existingHtml.includes('<div id="root"></div>')) {
+                if (existingHtml.includes('<div id="root"><main id="main-content"></main></div>')) {
                   existingHtml = existingHtml.replace(
-                    '<div id="root"></div>',
-                    `<div id="root">${rootMatch[1]}</div>`,
+                    '<div id="root"><main id="main-content"></main></div>',
+                    `<div id="root"><main id="main-content">${rootMatch[1]}</main></div>`,
                   );
                   _qw(filePath, existingHtml);
                   console.log('[static-pages] Injected static content into homepage index.html');
