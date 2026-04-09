@@ -2,6 +2,13 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Global keyboard focus indicator — teal-600 ring on all interactive elements */
+button:focus-visible, a:focus-visible, [role="button"]:focus-visible,
+input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid #0d9488;
+  outline-offset: 2px;
+}
+
 /* Prevent scrollbar appearance from causing layout shift (CLS) */
 html { scrollbar-gutter: stable; }
 
