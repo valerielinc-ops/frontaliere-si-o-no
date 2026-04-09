@@ -7,6 +7,11 @@ import PartnerRecommendations from '@/components/shared/PartnerRecommendations';
 import { useExchangeRate } from '@/services/exchangeRateService';
 import { reportCaughtError } from '@/services/errorReporter';
 
+function appendUtm(url: string, providerName: string): string {
+  const sep = url.includes('?') ? '&' : '?';
+  return `${url}${sep}utm_source=frontaliereticino&utm_medium=referral&utm_campaign=exchange_compare&utm_content=${encodeURIComponent(providerName.toLowerCase().replace(/\s+/g, '-'))}`;
+}
+
 // Lazy-load Recharts to avoid 386KB vendor-charts blocking main thread (TBT fix)
 const LazyExchangeChart = React.lazy(() =>
   import('recharts').then(({ AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer }) => ({
@@ -576,9 +581,10 @@ const CurrencyExchange: React.FC = () => {
       <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
         {best.provider.referralUrl ? (
           <a
-            href={best.provider.referralUrl}
+            href={appendUtm(best.provider.referralUrl, best.provider.name)}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => Analytics.trackExternalLink(best.provider.referralUrl!, best.provider.name)}
             className="bg-emerald-50 dark:bg-emerald-950/30 rounded-xl sm:rounded-2xl border border-emerald-200 dark:border-emerald-800 p-3 sm:p-5 hover:shadow-md hover:border-emerald-400 transition-[color,background-color,border-color,box-shadow] cursor-pointer"
           >
             <div className="flex items-center gap-2 mb-2">
@@ -648,9 +654,10 @@ const CurrencyExchange: React.FC = () => {
           
           const CardWrapper = result.provider.referralUrl ? 'a' : 'div';
           const cardProps = result.provider.referralUrl ? {
-            href: result.provider.referralUrl,
+            href: appendUtm(result.provider.referralUrl, result.provider.name),
             target: '_blank',
             rel: 'noopener noreferrer',
+            onClick: () => Analytics.trackExternalLink(result.provider.referralUrl!, result.provider.name),
             'aria-label': result.provider.name,
             className: `block min-w-0 bg-white dark:bg-slate-800 rounded-xl sm:rounded-2xl border-2 p-3 sm:p-6 hover:shadow-lg transition-[color,background-color,border-color,box-shadow] cursor-pointer ${
               isBest ? 'border-emerald-500 ring-2 ring-emerald-500/20 hover:ring-emerald-500/40' : isWorst ? 'border-red-500 ring-2 ring-red-500/20' : 'border-slate-200 dark:border-slate-700 hover:border-emerald-400'
