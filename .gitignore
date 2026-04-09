@@ -74,3 +74,6 @@ public/data/jobs-fr.json
 .playwright-mcp
 gsc
 download
+
+# Clarity asset cache (CI ephemeral)
+.clarity-asset-cache/
