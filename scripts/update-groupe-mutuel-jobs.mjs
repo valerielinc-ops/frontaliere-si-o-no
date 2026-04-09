@@ -49,6 +49,7 @@ import {
 } from './lib/dedicated-crawler-common.mjs';
 import { inferSwissTargetCanton } from './lib/target-swiss-locations.mjs';
 import { isTargetCanton, TARGET_CANTONS, COMPANY_HQ } from './lib/crawler-location-config.mjs';
+import { isSlugStable } from './lib/dedicated-crawler-common.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -655,6 +656,46 @@ async function mergeGroupeMutuelJobs(discoveredJobs) {
         descriptionByLocale: mergeLocaleTextMap(existingJob.descriptionByLocale, discovered.descriptionByLocale, 30),
         slugByLocale: mergeLocaleTextMap(existingJob.slugByLocale, discovered.slugByLocale, 3),
       };
+
+      // Protect slugs from churn when job title language changes
+      if (existingJob.slug && discovered.slug && existingJob.slug !== discovered.slug) {
+        const locHints = {
+          existingLocation: existingJob.location || '',
+          newLocation: discovered.location || '',
+        };
+        if (isSlugStable(existingJob.slug, discovered.slug, locHints)) {
+          updatedJob.slug = existingJob.slug;
+        } else {
+          updatedJob.slug = discovered.slug;
+          updatedJob.previousSlugs = [...new Set([
+            ...(existingJob.previousSlugs || []),
+            existingJob.slug,
+          ])];
+        }
+      }
+
+      // Protect per-locale slugs
+      if (existingJob.slugByLocale && updatedJob.slugByLocale) {
+        for (const locale of ['it', 'en', 'de', 'fr']) {
+          const oldSlug = existingJob.slugByLocale[locale];
+          const newSlug = updatedJob.slugByLocale[locale];
+          if (oldSlug && newSlug && oldSlug !== newSlug) {
+            const locHints = {
+              existingLocation: existingJob.location || '',
+              newLocation: discovered.location || '',
+            };
+            if (isSlugStable(oldSlug, newSlug, locHints)) {
+              updatedJob.slugByLocale[locale] = oldSlug;
+            } else {
+              updatedJob.previousSlugs = [...new Set([
+                ...(updatedJob.previousSlugs || []),
+                ...(existingJob.previousSlugs || []),
+                oldSlug,
+              ])];
+            }
+          }
+        }
+      }
 
       if (discovered.description && discovered.description.length > (existingJob.description || '').length) {
         updatedJob.description = discovered.description;
