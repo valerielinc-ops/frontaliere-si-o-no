@@ -1,19 +1,21 @@
 {
   "key": "jysk",
   "label": "JYSK",
-  "generatedAt": "2026-04-09T09:46:21.888Z",
+  "generatedAt": "2026-04-09T21:39:09.881Z",
   "total": 1,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 38947,
-  "avgDurationMs": 38947,
+  "unchangedCount": 1,
+  "durationMs": 33514,
+  "avgDurationMs": 33514,
   "durationHistory": [
-    38947
+    33514
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "company-p6s7zm",
       "slug": "venditore-a-a-20-sabato-aushilfe-nel-negozio-davos-jysk-davos",
@@ -44,7 +46,5 @@
         "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
