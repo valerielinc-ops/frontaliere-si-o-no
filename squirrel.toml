@@ -19,6 +19,11 @@ drop_query_prefixes = [ "utm_", "gclid", "fbclid" ]
 respect_robots = true
 breadth_first = true
 max_prefix_budget = 0.25
+seed_urls = [
+  "https://frontaliereticino.ch/chi-siamo",
+  "https://frontaliereticino.ch/contattaci",
+  "https://frontaliereticino.ch/privacy"
+]
 
 [rules]
 enable = [ "*" ]
