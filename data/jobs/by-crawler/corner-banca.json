@@ -1,6 +1,6 @@
 {
   "crawlerKey": "corner-banca",
-  "assembledAt": "2026-04-09T09:28:50.302Z",
+  "assembledAt": "2026-04-09T21:21:19.973Z",
   "jobs": [
     {
       "id": "corner-banca-f803e5cc9fe2",
@@ -55,10 +55,11 @@
       "url": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-04-09T09:28:48.631Z",
+      "crawledAt": "2026-04-09T21:21:17.883Z",
       "previousSlugs": [
         "initiativbewerbung-lehre-corner-banca-switzerland"
       ],
+      "needsRetranslation": true,
       "salaryMin": 59500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -116,7 +117,7 @@
       "url": "https://jobs.corner.ch/o/it-card-management-analyst-specialist",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-09T09:28:48.630Z",
+      "crawledAt": "2026-04-09T21:21:17.882Z",
       "previousSlugs": [
         "analista-specialista-gestione-carte-it-corner-banca-lugano",
         "it-card-management-analista-specialista-corner-banca-lugano",
@@ -207,102 +208,11 @@
       "url": "https://jobs.corner.ch/o/employee-card-onboarding",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-09T09:28:48.629Z",
+      "crawledAt": "2026-04-09T21:21:17.881Z",
       "previousSlugs": [
         "addetto-all-emission-carte-cliente-corner-banca-lugano"
       ],
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Canova 16",
-      "postalCode": "6901",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
-    },
-    {
-      "id": "corner-banca-7a70bd719a1e",
-      "slug": "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano",
-      "slugByLocale": {
-        "it": "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano",
-        "en": "logistics-services-coordinator-technical-office-corner-banca-lugano",
-        "de": "logistikdienstleistungskoordinator-technisches-buro-corner-banca-lugano",
-        "fr": "coordinateur-coordinateuse-des-services-logistiques-bureau-technique-corner-banca-lugano"
-      },
-      "company": "Cornèr Banca",
-      "companyKey": "corner-banca",
-      "companyDomain": "corner.ch",
-      "title": "Collaboratore Servizi Logistici - Ufficio Tecnico",
-      "titleByLocale": {
-        "it": "Collaboratore Servizi Logistici - Ufficio Tecnico",
-        "en": "Logistics Services Coordinator - Technical Office",
-        "de": "Logistikdienstleistungskoordinator - Technisches Büro",
-        "fr": "Coordinateur/Coordinateuse des services logistiques - Bureau technique"
-      },
-      "description": "Siamo alla ricerca di un/una Collaboratore/Collaboratrice Servizi Logistici – Ufficio Tecnico per rafforzare il nostro team. In questo ruolo sarai responsabile del coordinamento e della pianificazione delle attività di manutenzione e riparazione degli edifici e degli impianti tecnici, garantendo operazioni efficienti e un servizio di alta qualità per i nostri clienti interni.\n\nOrganizzazione e pianificazione dei lavori di manutenzione e riparazione degli edifici e degli impianti tecnici\n\nGestione delle richieste di intervento e comunicazione con i clienti interni\n\nGestione dei processi di acquisto materiale e ordini di lavoro\n\nAttività di manutenzione, riparazione e altre attività in ambito logistica incluso servizio di picchetto\n\nGestione e coordinamento del team di manutenzione\n\nConoscenza della tecnica degli edifici (impianti elettrici, riscaldamento, impianti frigoriferi, impianti sanitari, ventilazione, reti ICT)\n\nEsperienza (10 anni) nella gestione, manutenzione e riparazione di edifici e impianti tecnici, incluso il servizio di picchetto\n\nConoscenza di applicativi per la gestione di ticket e asset (EAM, SAP o simili)\n\nBuone conoscenze di sistemi di gestione edifici (Siemens, Honeywell o simili)\n\nOttima conoscenza degli applicativi Office e best practice nell’utilizzo delle tecnologie (PC, App, ecc.)\n\nEsperienza nella conduzione di un team e nella gestione di piccoli progetti\n\nOrientamento verso il cliente (interno) e forte spirito per il lavoro di squadra\n\nResidente in Ticino\n\nDiploma AFC in ambito tecnico (edilizia e/o impianti) con preferenza per l’ambito elettrico, elettrotecnico o elettromeccanico. Eventuali formazioni superiori in ambito tecnico costituiscono titolo preferenziale\n\nItaliano (lingua madre) e buona conoscenza di una seconda lingua nazionale (preferibilmente tedesco). Buone conoscenze dell’inglese",
-      "descriptionByLocale": {
-        "it": "Siamo alla ricerca di un/una Collaboratore/Collaboratrice Servizi Logistici – Ufficio Tecnico per rafforzare il nostro team. In questo ruolo sarai responsabile del coordinamento e della pianificazione delle attività di manutenzione e riparazione degli edifici e degli impianti tecnici, garantendo operazioni efficienti e un servizio di alta qualità per i nostri clienti interni. Organizzazione e pianificazione dei lavori di manutenzione e riparazione degli edifici e degli impianti tecnici Gestione delle richieste di intervento e comunicazione con i clienti interni Gestione dei processi di acquisto materiale e ordini di lavoro Attività di manutenzione, riparazione e altre attività in ambito logistica incluso servizio di picchetto Gestione e coordinamento del team di manutenzione Conoscenza della tecnica degli edifici (impianti elettrici, riscaldamento, impianti frigoriferi, impianti sanitari, ventilazione, reti ICT) Esperienza (10 anni) nella gestione, manutenzione e riparazione di edifici e impianti tecnici, incluso il servizio di picchetto Conoscenza di applicativi per la gestione di ticket e asset (EAM, SAP o simili) Buone conoscenze di sistemi di gestione edifici (Siemens, Honeywell o simili) Ottima conoscenza degli applicativi Office e best practice nell’utilizzo delle tecnologie (PC, App, ecc.) Esperienza nella conduzione di un team e nella gestione di piccoli progetti Orientamento verso il cliente (interno) e forte spirito per il lavoro di squadra Residente in Ticino Diploma AFC in ambito tecnico (edilizia e/o impianti) con preferenza per l’ambito elettrico, elettrotecnico o elettromeccanico. Eventuali formazioni superiori in ambito tecnico costituiscono titolo preferenziale Italiano (lingua madre) e buona conoscenza di una seconda lingua nazionale (preferibilmente tedesco). Buone conoscenze dell’inglese",
-        "en": "We are looking for a Logistics Services Coordinator - Technical Office to strengthen our team. In this role, you will be responsible for coordinating and planning maintenance and repair activities for buildings and technical facilities, ensuring efficient operations and high-quality service for our internal clients. Responsibilities include: Organizing and planning maintenance and repair work for buildings and technical facilities Managing requests for intervention and communication with internal clients Managing material procurement processes and work orders Maintenance, repair, and other logistics activities, including night watch service Managing and coordinating the maintenance team Knowledge of building technology (electrical systems, heating, refrigeration systems, sanitary systems, ventilation, ICT networks) 10 years of experience in managing, maintaining, and repairing buildings and technical facilities, including night watch service Knowledge of ticket and asset management applications (EAM, SAP, etc.) Good knowledge of building management systems (Siemens, Honeywell, etc.) Excellent knowledge of Office applications and best practices in using technologies (PC, Apps, etc.) Experience in leading a team and managing small projects Client-oriented and strong team spirit Resident in Ticino Diploma in a technical field (construction and/or installations) with a preference for the electrical, electromechanical, or electrical engineering field. Advanced technical training is a preferred title Italian (mother tongue) and good knowledge of a second national language (preferably German). Good knowledge of English Requirements: * Knowledge of building technology (electrical systems, heating, refrigeration systems, sanitary systems, ventilation, ICT networks) * 10 years of experience in managing, maintaining, and repairing buildings and technical facilities, including night watch service * Knowledge of ticket and asset management applications (EAM, SAP, etc.) * Good knowledge of building management systems (Siemens, Honeywell, etc.) * Excellent knowledge of Office applications and best practices in using technologies (PC, Apps, etc.) * Experience in leading a team and managing small projects * Client-oriented and strong team spirit * Resident in Ticino",
-        "de": "Wir suchen einen Logistikdienstleistungskoordinator - Technisches Büro, um unser Team zu stärken. In dieser Rolle sind Sie für die Koordination und Planung von Wartungs- und Reparaturaktivitäten für Gebäude und technische Einrichtungen verantwortlich, um effiziente Betriebsabläufe und einen hohen Servicequalitätsstandard für unsere internen Kunden sicherzustellen. Zu Ihren Aufgaben gehören: Organisation und Planung von Wartungs- und Reparaturarbeiten für Gebäude und technische Einrichtungen Verwaltung von Eingabe- und Kommunikationsprozessen mit internen Kunden Verwaltung von Materialbeschaffungsprozessen und Arbeitsaufträgen Wartungs-, Reparatur- und andere Logistikaktivitäten, einschließlich Nachtwächterdienst Verwaltung und Koordination des Wartungsteams Kenntnisse der Gebäudetechnik (elektrische Systeme, Heizung, Kühlsysteme, Sanitärsysteme, Ventilation, ICT-Netzwerke) 10 Jahre Erfahrung in der Verwaltung, Wartung und Reparatur von Gebäuden und technischen Einrichtungen, einschließlich Nachtwächterdienst Kenntnisse von Ticket- und Asset-Management-Anwendungen (EAM, SAP, etc.) Gute Kenntnisse von Gebäude-Management-Systemen (Siemens, Honeywell, etc.) Ausgezeichnete Kenntnisse von Office-Anwendungen und Best Practices im Umgang mit Technologien (PC, Apps, etc.) Erfahrung in der Führung eines Teams und der Verwaltung von kleinen Projekten Kundenorientierung und starkes Teamgefühl Wohnhaft in Tessin Diplom in einem technischen Fach (Bauwesen und/oder Installationen) mit Vorliebe für das elektrische, elektromechanische oder elektrotechnische Fachgebiet. Fortgeschrittene technische Ausbildung ist ein bevorzugter Titel Italienisch (Muttersprache) und gute Kenntnisse einer zweiten nationalen Sprache (vorzugsweise Deutsch). Gute Kenntnisse des Englischen Anforderungen: * Kenntnisse der Gebäudetechnik (elektrische Systeme, Heizung, Kühlsysteme, Sanitärsysteme, Ventilation, ICT-Netzwerke) * 10 Jahre Erfahrung in der Verwaltung, Wartung und Reparatur von Gebäuden und technischen Einrichtungen, einschließlich Nachtwächterdienst * Kenntnisse von Ticket- und Asset-Management-Anwendungen (EAM, SAP, etc.) * Gute Kenntnisse von Gebäude-Management-Systemen (Siemens, Honeywell, etc.) * Ausgezeichnete Kenntnisse von Office-Anwendungen und Best Practices im Umgang mit Technologien (PC, Apps, etc.) * Erfahrung in der Führung eines Teams und der Verwaltung von kleinen Projekten * Kundenorientierung und starkes Teamgefühl * Wohnhaft in Tessin",
-        "fr": "Nous recherchons un Coordinateur/Coordinateuse des services logistiques - Bureau technique pour renforcer notre équipe. Dans ce rôle, vous serez responsable de la coordination et de la planification des activités de maintenance et de réparation des bâtiments et des installations techniques, en garantissant des opérations efficaces et un service de haute qualité pour nos clients internes. À vos responsabilités figurent : Organisation et planification des travaux de maintenance et de réparation des bâtiments et des installations techniques Gestion des demandes d'intervention et de la communication avec les clients internes Gestion des processus d'approvisionnement de matériel et des ordres de travail Activités de maintenance, de réparation et d'autres activités logistiques, y compris le service de garde Gestion et coordination de l'équipe de maintenance Connaissance de la technologie des bâtiments (systèmes électriques, chauffage, systèmes de réfrigération, systèmes sanitaires, ventilation, réseaux ICT) 10 ans d'expérience dans la gestion, la maintenance et la réparation des bâtiments et des installations techniques, y compris le service de garde Connaissance des applications de gestion de tickets et d'actifs (EAM, SAP, etc.) Bonnes connaissances des systèmes de gestion des bâtiments (Siemens, Honeywell, etc.) Connaissance excellente des applications Office et des meilleures pratiques dans l'utilisation des technologies (PC, Apps, etc.) Expérience dans la conduite d'une équipe et la gestion de petits projets Orienté vers le client (intérieur) et fort esprit d'équipe Résident en Tessin Diplôme en un domaine technique (bâtiment et/ou installations) avec une préférence pour le domaine électrique, électromécanique ou électrotechnique. Des formations supérieures en domaine technique sont un titre préféré Italien (langue maternelle) et bonne connaissance d'une deuxième langue nationale (préférablement allemand). Bonnes connaissances de l'anglais Exigences : * Connaissance de la technologie des bâtiments (systèmes électriques, chauffage, systèmes de réfrigération, systèmes sanitaires, ventilation, réseaux ICT) * 10 ans d'expérience dans la gestion, la maintenance et la réparation des bâtiments et des installations techniques, y compris le service de garde * Connaissance des applications de gestion de tickets et d'actifs (EAM, SAP, etc.) * Bonnes connaissances des systèmes de gestion des bâtiments (Siemens, Honeywell, etc.) * Connaissance excellente des applications Office et des meilleures pratiques dans l'utilisation des technologies (PC, Apps, etc.) * Expérience dans la conduite d'une équipe et la gestion de petits projets * Orienté vers le client (intérieur) et fort esprit d'équipe * Résident en Tessin"
-      },
-      "requirements": [
-        "Conoscenza della tecnica degli edifici (impianti elettrici, riscaldamento, impianti frigoriferi, impianti sanitari, ventilazione, reti ICT)",
-        "Esperienza (10 anni) nella gestione, manutenzione e riparazione di edifici e impianti tecnici, incluso il servizio di picchetto",
-        "Conoscenza di applicativi per la gestione di ticket e asset (EAM, SAP o simili)",
-        "Buone conoscenze di sistemi di gestione edifici (Siemens, Honeywell o simili)",
-        "Ottima conoscenza degli applicativi Office e best practice nell’utilizzo delle tecnologie (PC, App, ecc.)",
-        "Esperienza nella conduzione di un team e nella gestione di piccoli progetti",
-        "Orientamento verso il cliente (interno) e forte spirito per il lavoro di squadra",
-        "Residente in Ticino",
-        "Diploma AFC in ambito tecnico (edilizia e/o impianti) con preferenza per l’ambito elettrico, elettrotecnico o elettromeccanico. Eventuali formazioni superiori in ambito tecnico costituiscono titolo preferenziale",
-        "Italiano (lingua madre) e buona conoscenza di una seconda lingua nazionale (preferibilmente tedesco). Buone conoscenze dell’inglese"
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Conoscenza di applicativi per la gestione di ticket e asset (EAM, SAP o simili)",
-          "Buone conoscenze di sistemi di gestione edifici (Siemens, Honeywell o simili)",
-          "Ottima conoscenza degli applicativi Office e best practice nell’utilizzo delle tecnologie (PC, App, ecc.)",
-          "Esperienza nella conduzione di un team e nella gestione di piccoli progetti",
-          "Orientamento verso il cliente (interno) e forte spirito per il lavoro di squadra",
-          "Residente in Ticino"
-        ],
-        "en": [
-          "Conoscenza di applicativi per la gestione di ticket e asset (EAM, SAP o simili)",
-          "Buone conoscenze di sistemi di gestione edifici (Siemens, Honeywell o simili)",
-          "Ottima conoscenza degli applicativi Office e best practice nell’utilizzo delle tecnologie (PC, App, ecc.)",
-          "Esperienza nella conduzione di un team e nella gestione di piccoli progetti",
-          "Orientamento verso il cliente (interno) e forte spirito per il lavoro di squadra",
-          "Residente in Ticino"
-        ]
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "category": "other",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-09",
-      "url": "https://jobs.corner.ch/o/collaboratore-servizi-logistici-ufficio-tecnico-1",
-      "source": "Corner Dedicated Parser (Recruitee API)",
-      "sourceLang": "it",
-      "crawledAt": "2026-04-09T09:28:48.626Z",
-      "previousSlugs": [
-        "collaboratore-servizi-logistici-ufficio-technician-corner-banca-lugano",
-        "collaboratore-servizi-logistici-ufficio-techniker-corner-banca-lugano",
-        "collaboratore-servizi-logistici-ufficio-technicien-corner-banca-lugano",
-        "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano-h1bnmt"
-      ],
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -379,13 +289,14 @@
       "url": "https://jobs.corner.ch/o/risk-manager-asset-liability-management-alm-and-liquidity-risk-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-09T09:28:48.623Z",
+      "crawledAt": "2026-04-09T21:21:17.880Z",
       "previousSlugs": [
         "risk-manager-asset-liability-management-alm-e-rischio-di-liquidita-corner-banca-lugano",
         "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano-jzwq45",
         "responsable-des-risques-gestion-actifs-passifs-alm-et-risque-de-liquidite-corner-banca-lugano",
         "responsable-des-risques-gestion-des-actifs-et-passifs-alm-et-risque-de-liquidite-corner-banca-lugano"
       ],
+      "needsRetranslation": true,
       "salaryMin": 142000,
       "salaryMax": 249500,
       "baseSalary": {
@@ -395,6 +306,99 @@
           "@type": "QuantitativeValue",
           "minValue": 142000,
           "maxValue": 249500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Canova 16",
+      "postalCode": "6901",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME"
+    },
+    {
+      "id": "corner-banca-7a70bd719a1e",
+      "slug": "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano",
+      "slugByLocale": {
+        "it": "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano",
+        "en": "logistics-services-coordinator-technical-office-corner-banca-lugano",
+        "de": "logistikdienstleistungskoordinator-technisches-buro-corner-banca-lugano",
+        "fr": "coordinateur-coordinateuse-des-services-logistiques-bureau-technique-corner-banca-lugano"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Collaboratore Servizi Logistici - Ufficio Tecnico",
+      "titleByLocale": {
+        "it": "Collaboratore Servizi Logistici - Ufficio Tecnico",
+        "en": "Logistics Services Coordinator - Technical Office",
+        "de": "Logistikdienstleistungskoordinator - Technisches Büro",
+        "fr": "Coordinateur/Coordinateuse des services logistiques - Bureau technique"
+      },
+      "description": "Siamo alla ricerca di un/una Collaboratore/Collaboratrice Servizi Logistici – Ufficio Tecnico per rafforzare il nostro team. In questo ruolo sarai responsabile del coordinamento e della pianificazione delle attività di manutenzione e riparazione degli edifici e degli impianti tecnici, garantendo operazioni efficienti e un servizio di alta qualità per i nostri clienti interni.\n\nOrganizzazione e pianificazione dei lavori di manutenzione e riparazione degli edifici e degli impianti tecnici\n\nGestione delle richieste di intervento e comunicazione con i clienti interni\n\nGestione dei processi di acquisto materiale e ordini di lavoro\n\nAttività di manutenzione, riparazione e altre attività in ambito logistica incluso servizio di picchetto\n\nGestione e coordinamento del team di manutenzione\n\nConoscenza della tecnica degli edifici (impianti elettrici, riscaldamento, impianti frigoriferi, impianti sanitari, ventilazione, reti ICT)\n\nEsperienza (10 anni) nella gestione, manutenzione e riparazione di edifici e impianti tecnici, incluso il servizio di picchetto\n\nConoscenza di applicativi per la gestione di ticket e asset (EAM, SAP o simili)\n\nBuone conoscenze di sistemi di gestione edifici (Siemens, Honeywell o simili)\n\nOttima conoscenza degli applicativi Office e best practice nell’utilizzo delle tecnologie (PC, App, ecc.)\n\nEsperienza nella conduzione di un team e nella gestione di piccoli progetti\n\nOrientamento verso il cliente (interno) e forte spirito per il lavoro di squadra\n\nResidente in Ticino\n\nDiploma AFC in ambito tecnico (edilizia e/o impianti) con preferenza per l’ambito elettrico, elettrotecnico o elettromeccanico. Eventuali formazioni superiori in ambito tecnico costituiscono titolo preferenziale\n\nItaliano (lingua madre) e buona conoscenza di una seconda lingua nazionale (preferibilmente tedesco). Buone conoscenze dell’inglese",
+      "descriptionByLocale": {
+        "it": "Siamo alla ricerca di un/una Collaboratore/Collaboratrice Servizi Logistici – Ufficio Tecnico per rafforzare il nostro team. In questo ruolo sarai responsabile del coordinamento e della pianificazione delle attività di manutenzione e riparazione degli edifici e degli impianti tecnici, garantendo operazioni efficienti e un servizio di alta qualità per i nostri clienti interni. Organizzazione e pianificazione dei lavori di manutenzione e riparazione degli edifici e degli impianti tecnici Gestione delle richieste di intervento e comunicazione con i clienti interni Gestione dei processi di acquisto materiale e ordini di lavoro Attività di manutenzione, riparazione e altre attività in ambito logistica incluso servizio di picchetto Gestione e coordinamento del team di manutenzione Conoscenza della tecnica degli edifici (impianti elettrici, riscaldamento, impianti frigoriferi, impianti sanitari, ventilazione, reti ICT) Esperienza (10 anni) nella gestione, manutenzione e riparazione di edifici e impianti tecnici, incluso il servizio di picchetto Conoscenza di applicativi per la gestione di ticket e asset (EAM, SAP o simili) Buone conoscenze di sistemi di gestione edifici (Siemens, Honeywell o simili) Ottima conoscenza degli applicativi Office e best practice nell’utilizzo delle tecnologie (PC, App, ecc.) Esperienza nella conduzione di un team e nella gestione di piccoli progetti Orientamento verso il cliente (interno) e forte spirito per il lavoro di squadra Residente in Ticino Diploma AFC in ambito tecnico (edilizia e/o impianti) con preferenza per l’ambito elettrico, elettrotecnico o elettromeccanico. Eventuali formazioni superiori in ambito tecnico costituiscono titolo preferenziale Italiano (lingua madre) e buona conoscenza di una seconda lingua nazionale (preferibilmente tedesco). Buone conoscenze dell’inglese",
+        "en": "We are looking for a Logistics Services Coordinator - Technical Office to strengthen our team. In this role, you will be responsible for coordinating and planning maintenance and repair activities for buildings and technical facilities, ensuring efficient operations and high-quality service for our internal clients. Responsibilities include: Organizing and planning maintenance and repair work for buildings and technical facilities Managing requests for intervention and communication with internal clients Managing material procurement processes and work orders Maintenance, repair, and other logistics activities, including night watch service Managing and coordinating the maintenance team Knowledge of building technology (electrical systems, heating, refrigeration systems, sanitary systems, ventilation, ICT networks) 10 years of experience in managing, maintaining, and repairing buildings and technical facilities, including night watch service Knowledge of ticket and asset management applications (EAM, SAP, etc.) Good knowledge of building management systems (Siemens, Honeywell, etc.) Excellent knowledge of Office applications and best practices in using technologies (PC, Apps, etc.) Experience in leading a team and managing small projects Client-oriented and strong team spirit Resident in Ticino Diploma in a technical field (construction and/or installations) with a preference for the electrical, electromechanical, or electrical engineering field. Advanced technical training is a preferred title Italian (mother tongue) and good knowledge of a second national language (preferably German). Good knowledge of English Requirements: * Knowledge of building technology (electrical systems, heating, refrigeration systems, sanitary systems, ventilation, ICT networks) * 10 years of experience in managing, maintaining, and repairing buildings and technical facilities, including night watch service * Knowledge of ticket and asset management applications (EAM, SAP, etc.) * Good knowledge of building management systems (Siemens, Honeywell, etc.) * Excellent knowledge of Office applications and best practices in using technologies (PC, Apps, etc.) * Experience in leading a team and managing small projects * Client-oriented and strong team spirit * Resident in Ticino",
+        "de": "Wir suchen einen Logistikdienstleistungskoordinator - Technisches Büro, um unser Team zu stärken. In dieser Rolle sind Sie für die Koordination und Planung von Wartungs- und Reparaturaktivitäten für Gebäude und technische Einrichtungen verantwortlich, um effiziente Betriebsabläufe und einen hohen Servicequalitätsstandard für unsere internen Kunden sicherzustellen. Zu Ihren Aufgaben gehören: Organisation und Planung von Wartungs- und Reparaturarbeiten für Gebäude und technische Einrichtungen Verwaltung von Eingabe- und Kommunikationsprozessen mit internen Kunden Verwaltung von Materialbeschaffungsprozessen und Arbeitsaufträgen Wartungs-, Reparatur- und andere Logistikaktivitäten, einschließlich Nachtwächterdienst Verwaltung und Koordination des Wartungsteams Kenntnisse der Gebäudetechnik (elektrische Systeme, Heizung, Kühlsysteme, Sanitärsysteme, Ventilation, ICT-Netzwerke) 10 Jahre Erfahrung in der Verwaltung, Wartung und Reparatur von Gebäuden und technischen Einrichtungen, einschließlich Nachtwächterdienst Kenntnisse von Ticket- und Asset-Management-Anwendungen (EAM, SAP, etc.) Gute Kenntnisse von Gebäude-Management-Systemen (Siemens, Honeywell, etc.) Ausgezeichnete Kenntnisse von Office-Anwendungen und Best Practices im Umgang mit Technologien (PC, Apps, etc.) Erfahrung in der Führung eines Teams und der Verwaltung von kleinen Projekten Kundenorientierung und starkes Teamgefühl Wohnhaft in Tessin Diplom in einem technischen Fach (Bauwesen und/oder Installationen) mit Vorliebe für das elektrische, elektromechanische oder elektrotechnische Fachgebiet. Fortgeschrittene technische Ausbildung ist ein bevorzugter Titel Italienisch (Muttersprache) und gute Kenntnisse einer zweiten nationalen Sprache (vorzugsweise Deutsch). Gute Kenntnisse des Englischen Anforderungen: * Kenntnisse der Gebäudetechnik (elektrische Systeme, Heizung, Kühlsysteme, Sanitärsysteme, Ventilation, ICT-Netzwerke) * 10 Jahre Erfahrung in der Verwaltung, Wartung und Reparatur von Gebäuden und technischen Einrichtungen, einschließlich Nachtwächterdienst * Kenntnisse von Ticket- und Asset-Management-Anwendungen (EAM, SAP, etc.) * Gute Kenntnisse von Gebäude-Management-Systemen (Siemens, Honeywell, etc.) * Ausgezeichnete Kenntnisse von Office-Anwendungen und Best Practices im Umgang mit Technologien (PC, Apps, etc.) * Erfahrung in der Führung eines Teams und der Verwaltung von kleinen Projekten * Kundenorientierung und starkes Teamgefühl * Wohnhaft in Tessin",
+        "fr": "Nous recherchons un Coordinateur/Coordinateuse des services logistiques - Bureau technique pour renforcer notre équipe. Dans ce rôle, vous serez responsable de la coordination et de la planification des activités de maintenance et de réparation des bâtiments et des installations techniques, en garantissant des opérations efficaces et un service de haute qualité pour nos clients internes. À vos responsabilités figurent : Organisation et planification des travaux de maintenance et de réparation des bâtiments et des installations techniques Gestion des demandes d'intervention et de la communication avec les clients internes Gestion des processus d'approvisionnement de matériel et des ordres de travail Activités de maintenance, de réparation et d'autres activités logistiques, y compris le service de garde Gestion et coordination de l'équipe de maintenance Connaissance de la technologie des bâtiments (systèmes électriques, chauffage, systèmes de réfrigération, systèmes sanitaires, ventilation, réseaux ICT) 10 ans d'expérience dans la gestion, la maintenance et la réparation des bâtiments et des installations techniques, y compris le service de garde Connaissance des applications de gestion de tickets et d'actifs (EAM, SAP, etc.) Bonnes connaissances des systèmes de gestion des bâtiments (Siemens, Honeywell, etc.) Connaissance excellente des applications Office et des meilleures pratiques dans l'utilisation des technologies (PC, Apps, etc.) Expérience dans la conduite d'une équipe et la gestion de petits projets Orienté vers le client (intérieur) et fort esprit d'équipe Résident en Tessin Diplôme en un domaine technique (bâtiment et/ou installations) avec une préférence pour le domaine électrique, électromécanique ou électrotechnique. Des formations supérieures en domaine technique sont un titre préféré Italien (langue maternelle) et bonne connaissance d'une deuxième langue nationale (préférablement allemand). Bonnes connaissances de l'anglais Exigences : * Connaissance de la technologie des bâtiments (systèmes électriques, chauffage, systèmes de réfrigération, systèmes sanitaires, ventilation, réseaux ICT) * 10 ans d'expérience dans la gestion, la maintenance et la réparation des bâtiments et des installations techniques, y compris le service de garde * Connaissance des applications de gestion de tickets et d'actifs (EAM, SAP, etc.) * Bonnes connaissances des systèmes de gestion des bâtiments (Siemens, Honeywell, etc.) * Connaissance excellente des applications Office et des meilleures pratiques dans l'utilisation des technologies (PC, Apps, etc.) * Expérience dans la conduite d'une équipe et la gestion de petits projets * Orienté vers le client (intérieur) et fort esprit d'équipe * Résident en Tessin"
+      },
+      "requirements": [
+        "Conoscenza della tecnica degli edifici (impianti elettrici, riscaldamento, impianti frigoriferi, impianti sanitari, ventilazione, reti ICT)",
+        "Esperienza (10 anni) nella gestione, manutenzione e riparazione di edifici e impianti tecnici, incluso il servizio di picchetto",
+        "Conoscenza di applicativi per la gestione di ticket e asset (EAM, SAP o simili)",
+        "Buone conoscenze di sistemi di gestione edifici (Siemens, Honeywell o simili)",
+        "Ottima conoscenza degli applicativi Office e best practice nell’utilizzo delle tecnologie (PC, App, ecc.)",
+        "Esperienza nella conduzione di un team e nella gestione di piccoli progetti",
+        "Orientamento verso il cliente (interno) e forte spirito per il lavoro di squadra",
+        "Residente in Ticino",
+        "Diploma AFC in ambito tecnico (edilizia e/o impianti) con preferenza per l’ambito elettrico, elettrotecnico o elettromeccanico. Eventuali formazioni superiori in ambito tecnico costituiscono titolo preferenziale",
+        "Italiano (lingua madre) e buona conoscenza di una seconda lingua nazionale (preferibilmente tedesco). Buone conoscenze dell’inglese"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Conoscenza di applicativi per la gestione di ticket e asset (EAM, SAP o simili)",
+          "Buone conoscenze di sistemi di gestione edifici (Siemens, Honeywell o simili)",
+          "Ottima conoscenza degli applicativi Office e best practice nell’utilizzo delle tecnologie (PC, App, ecc.)",
+          "Esperienza nella conduzione di un team e nella gestione di piccoli progetti",
+          "Orientamento verso il cliente (interno) e forte spirito per il lavoro di squadra",
+          "Residente in Ticino"
+        ],
+        "en": [
+          "Conoscenza di applicativi per la gestione di ticket e asset (EAM, SAP o simili)",
+          "Buone conoscenze di sistemi di gestione edifici (Siemens, Honeywell o simili)",
+          "Ottima conoscenza degli applicativi Office e best practice nell’utilizzo delle tecnologie (PC, App, ecc.)",
+          "Esperienza nella conduzione di un team e nella gestione di piccoli progetti",
+          "Orientamento verso il cliente (interno) e forte spirito per il lavoro di squadra",
+          "Residente in Ticino"
+        ]
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "category": "other",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-09",
+      "url": "https://jobs.corner.ch/o/collaboratore-servizi-logistici-ufficio-tecnico-1",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "it",
+      "crawledAt": "2026-04-09T21:21:17.880Z",
+      "previousSlugs": [
+        "collaboratore-servizi-logistici-ufficio-technician-corner-banca-lugano",
+        "collaboratore-servizi-logistici-ufficio-techniker-corner-banca-lugano",
+        "collaboratore-servizi-logistici-ufficio-technicien-corner-banca-lugano",
+        "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano-h1bnmt"
+      ],
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       },
@@ -472,12 +476,13 @@
       "url": "https://jobs.corner.ch/o/compliance-officer-senior",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-09T09:28:48.622Z",
+      "crawledAt": "2026-04-09T21:21:17.879Z",
       "previousSlugs": [
         "responsabile-compliance-senior-corner-banca-lugano",
         "compliance-officer-senior-corner-banca-lugano-nnfx9o",
         "leitender-compliance-beauftragter-corner-banca-lugano-nnfx9o"
       ],
+      "needsRetranslation": true,
       "salaryMin": 142000,
       "salaryMax": 249500,
       "baseSalary": {
@@ -567,7 +572,203 @@
       "url": "https://jobs.corner.ch/o/employee-collection-team-zurich",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-09T09:28:48.618Z",
+      "crawledAt": "2026-04-09T21:21:17.877Z",
+      "previousSlugs": [],
+      "needsRetranslation": true,
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 59000,
+          "maxValue": 90500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Canova 16",
+      "postalCode": "6901",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME"
+    },
+    {
+      "id": "corner-banca-3772e858781f",
+      "slug": "employee-front-office-corner-banca-wallisellen",
+      "slugByLocale": {
+        "it": "employee-front-office-corner-banca-wallisellen",
+        "en": "employee-front-office-corner-banca-wallisellen",
+        "de": "employee-front-office-corner-banca-wallisellen",
+        "fr": "employee-front-office-corner-banca-wallisellen"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Employee Front Office",
+      "titleByLocale": {
+        "it": "Employee Front Office",
+        "en": "Employee Front Office",
+        "de": "Employee Front Office",
+        "fr": "Employee Front Office"
+      },
+      "description": "As part of our growing operations in Zurich, we are seeking a dedicated and customer-focused professional to join our Front Office Team in the Dunning & Collection area. This role offers the opportunity to contribute to effective credit management while ensuring high-quality customer interactions.\n\nKey Responsibilities:\n\nAnswer incoming calls and conduct outbound calls with customers regarding outstanding balances, payment arrangements, and account-related matters\n\nHandle written correspondence with customers related to dunning and collection cases\n\nIndependently manage dunning and collection cases in accordance with internal guidelines and legal requirements\n\nIdentify and negotiate individual payment solutions with customers while maintaining a professional and solution-oriented communication style\n\nSupport and coordinate with external collection partners regarding collection mandates and individual customer dossiers\n\nEnsure accurate documentation and administration of collection cases and internal processes\n\nPerform administrative and back-office tasks related to case management and collections activities\n\nEscalate complex or sensitive cases to the appropriate department when necessary\n\nCollaborate closely with internal departments such as Underwriting, Operations and Finance\n\nSupport process improvements, projects and operational optimizations within the department\n\nCommercial apprenticeship (KV) or equivalent diploma\n\n1–2 years of professional experience, ideally in dunning, collections, financial services or customer service\n\nExperience in roles requiring regular customer interaction by phone (inbound and outbound communication)\n\nExperience with financial products is considered an advantage\n\nAffinity for numbers, accuracy, and strong attention to detail\n\nGood knowledge of MS Office and the ability to quickly learn and work with different IT systems\n\nStrong communication and negotiation skills, particularly in challenging customer situations\n\nLanguages: German / Swiss German (written and spoken) and French (written and spoken) are mandatory; Italian is an advantage; additional languages are welcomed\n\nAs the first point of contact with customers in sensitive financial matters, the following soft skills are needed: resilience, patience, empathy, strong communication skills, customer orientation, and ability to work in team",
+      "descriptionByLocale": {
+        "it": "As part of our growing operations in Zurich, we are seeking a dedicated and customer-focused professional to join our Front Office Team in the Dunning & Collection area. This role offers the opportunity to contribute to effective credit management while ensuring high-quality customer interactions.\n\nKey Responsibilities:\n\nAnswer incoming calls and conduct outbound calls with customers regarding outstanding balances, payment arrangements, and account-related matters\n\nHandle written correspondence with customers related to dunning and collection cases\n\nIndependently manage dunning and collection cases in accordance with internal guidelines and legal requirements\n\nIdentify and negotiate individual payment solutions with customers while maintaining a professional and solution-oriented communication style\n\nSupport and coordinate with external collection partners regarding collection mandates and individual customer dossiers\n\nEnsure accurate documentation and administration of collection cases and internal processes\n\nPerform administrative and back-office tasks related to case management and collections activities\n\nEscalate complex or sensitive cases to the appropriate department when necessary\n\nCollaborate closely with internal departments such as Underwriting, Operations and Finance\n\nSupport process improvements, projects and operational optimizations within the department\n\nCommercial apprenticeship (KV) or equivalent diploma\n\n1–2 years of professional experience, ideally in dunning, collections, financial services or customer service\n\nExperience in roles requiring regular customer interaction by phone (inbound and outbound communication)\n\nExperience with financial products is considered an advantage\n\nAffinity for numbers, accuracy, and strong attention to detail\n\nGood knowledge of MS Office and the ability to quickly learn and work with different IT systems\n\nStrong communication and negotiation skills, particularly in challenging customer situations\n\nLanguages: German / Swiss German (written and spoken) and French (written and spoken) are mandatory; Italian is an advantage; additional languages are welcomed\n\nAs the first point of contact with customers in sensitive financial matters, the following soft skills are needed: resilience, patience, empathy, strong communication skills, customer orientation, and ability to work in team",
+        "en": "As part of our growing operations in Zurich, we are seeking a dedicated and customer-focused professional to join our Front Office Team in the Dunning & Collection area. This role offers the opportunity to contribute to effective credit management while ensuring high-quality customer interactions.\n\nKey Responsibilities:\n\nAnswer incoming calls and conduct outbound calls with customers regarding outstanding balances, payment arrangements, and account-related matters\n\nHandle written correspondence with customers related to dunning and collection cases\n\nIndependently manage dunning and collection cases in accordance with internal guidelines and legal requirements\n\nIdentify and negotiate individual payment solutions with customers while maintaining a professional and solution-oriented communication style\n\nSupport and coordinate with external collection partners regarding collection mandates and individual customer dossiers\n\nEnsure accurate documentation and administration of collection cases and internal processes\n\nPerform administrative and back-office tasks related to case management and collections activities\n\nEscalate complex or sensitive cases to the appropriate department when necessary\n\nCollaborate closely with internal departments such as Underwriting, Operations and Finance\n\nSupport process improvements, projects and operational optimizations within the department\n\nCommercial apprenticeship (KV) or equivalent diploma\n\n1–2 years of professional experience, ideally in dunning, collections, financial services or customer service\n\nExperience in roles requiring regular customer interaction by phone (inbound and outbound communication)\n\nExperience with financial products is considered an advantage\n\nAffinity for numbers, accuracy, and strong attention to detail\n\nGood knowledge of MS Office and the ability to quickly learn and work with different IT systems\n\nStrong communication and negotiation skills, particularly in challenging customer situations\n\nLanguages: German / Swiss German (written and spoken) and French (written and spoken) are mandatory; Italian is an advantage; additional languages are welcomed\n\nAs the first point of contact with customers in sensitive financial matters, the following soft skills are needed: resilience, patience, empathy, strong communication skills, customer orientation, and ability to work in team",
+        "de": "As part of our growing operations in Zurich, we are seeking a dedicated and customer-focused professional to join our Front Office Team in the Dunning & Collection area. This role offers the opportunity to contribute to effective credit management while ensuring high-quality customer interactions.\n\nKey Responsibilities:\n\nAnswer incoming calls and conduct outbound calls with customers regarding outstanding balances, payment arrangements, and account-related matters\n\nHandle written correspondence with customers related to dunning and collection cases\n\nIndependently manage dunning and collection cases in accordance with internal guidelines and legal requirements\n\nIdentify and negotiate individual payment solutions with customers while maintaining a professional and solution-oriented communication style\n\nSupport and coordinate with external collection partners regarding collection mandates and individual customer dossiers\n\nEnsure accurate documentation and administration of collection cases and internal processes\n\nPerform administrative and back-office tasks related to case management and collections activities\n\nEscalate complex or sensitive cases to the appropriate department when necessary\n\nCollaborate closely with internal departments such as Underwriting, Operations and Finance\n\nSupport process improvements, projects and operational optimizations within the department\n\nCommercial apprenticeship (KV) or equivalent diploma\n\n1–2 years of professional experience, ideally in dunning, collections, financial services or customer service\n\nExperience in roles requiring regular customer interaction by phone (inbound and outbound communication)\n\nExperience with financial products is considered an advantage\n\nAffinity for numbers, accuracy, and strong attention to detail\n\nGood knowledge of MS Office and the ability to quickly learn and work with different IT systems\n\nStrong communication and negotiation skills, particularly in challenging customer situations\n\nLanguages: German / Swiss German (written and spoken) and French (written and spoken) are mandatory; Italian is an advantage; additional languages are welcomed\n\nAs the first point of contact with customers in sensitive financial matters, the following soft skills are needed: resilience, patience, empathy, strong communication skills, customer orientation, and ability to work in team",
+        "fr": "As part of our growing operations in Zurich, we are seeking a dedicated and customer-focused professional to join our Front Office Team in the Dunning & Collection area. This role offers the opportunity to contribute to effective credit management while ensuring high-quality customer interactions.\n\nKey Responsibilities:\n\nAnswer incoming calls and conduct outbound calls with customers regarding outstanding balances, payment arrangements, and account-related matters\n\nHandle written correspondence with customers related to dunning and collection cases\n\nIndependently manage dunning and collection cases in accordance with internal guidelines and legal requirements\n\nIdentify and negotiate individual payment solutions with customers while maintaining a professional and solution-oriented communication style\n\nSupport and coordinate with external collection partners regarding collection mandates and individual customer dossiers\n\nEnsure accurate documentation and administration of collection cases and internal processes\n\nPerform administrative and back-office tasks related to case management and collections activities\n\nEscalate complex or sensitive cases to the appropriate department when necessary\n\nCollaborate closely with internal departments such as Underwriting, Operations and Finance\n\nSupport process improvements, projects and operational optimizations within the department\n\nCommercial apprenticeship (KV) or equivalent diploma\n\n1–2 years of professional experience, ideally in dunning, collections, financial services or customer service\n\nExperience in roles requiring regular customer interaction by phone (inbound and outbound communication)\n\nExperience with financial products is considered an advantage\n\nAffinity for numbers, accuracy, and strong attention to detail\n\nGood knowledge of MS Office and the ability to quickly learn and work with different IT systems\n\nStrong communication and negotiation skills, particularly in challenging customer situations\n\nLanguages: German / Swiss German (written and spoken) and French (written and spoken) are mandatory; Italian is an advantage; additional languages are welcomed\n\nAs the first point of contact with customers in sensitive financial matters, the following soft skills are needed: resilience, patience, empathy, strong communication skills, customer orientation, and ability to work in team"
+      },
+      "requirements": [
+        "Commercial apprenticeship (KV) or equivalent diploma",
+        "1–2 years of professional experience, ideally in dunning, collections, financial services or customer service",
+        "Experience in roles requiring regular customer interaction by phone (inbound and outbound communication)",
+        "Experience with financial products is considered an advantage",
+        "Affinity for numbers, accuracy, and strong attention to detail",
+        "Good knowledge of MS Office and the ability to quickly learn and work with different IT systems",
+        "Strong communication and negotiation skills, particularly in challenging customer situations",
+        "Languages: German / Swiss German (written and spoken) and French (written and spoken) are mandatory; Italian is an advantage; additional languages are welcomed",
+        "As the first point of contact with customers in sensitive financial matters, the following soft skills are needed: resilience, patience, empathy, strong communication skills, customer orientation, and ability to work in team"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Commercial apprenticeship (KV) or equivalent diploma",
+          "1–2 years of professional experience, ideally in dunning, collections, financial services or customer service",
+          "Experience in roles requiring regular customer interaction by phone (inbound and outbound communication)",
+          "Experience with financial products is considered an advantage",
+          "Affinity for numbers, accuracy, and strong attention to detail",
+          "Good knowledge of MS Office and the ability to quickly learn and work with different IT systems",
+          "Strong communication and negotiation skills, particularly in challenging customer situations",
+          "Languages: German / Swiss German (written and spoken) and French (written and spoken) are mandatory; Italian is an advantage; additional languages are welcomed",
+          "As the first point of contact with customers in sensitive financial matters, the following soft skills are needed: resilience, patience, empathy, strong communication skills, customer orientation, and ability to work in team"
+        ],
+        "en": [
+          "Commercial apprenticeship (KV) or equivalent diploma",
+          "1–2 years of professional experience, ideally in dunning, collections, financial services or customer service",
+          "Experience in roles requiring regular customer interaction by phone (inbound and outbound communication)",
+          "Experience with financial products is considered an advantage",
+          "Affinity for numbers, accuracy, and strong attention to detail",
+          "Good knowledge of MS Office and the ability to quickly learn and work with different IT systems",
+          "Strong communication and negotiation skills, particularly in challenging customer situations",
+          "Languages: German / Swiss German (written and spoken) and French (written and spoken) are mandatory; Italian is an advantage; additional languages are welcomed",
+          "As the first point of contact with customers in sensitive financial matters, the following soft skills are needed: resilience, patience, empathy, strong communication skills, customer orientation, and ability to work in team"
+        ],
+        "de": [],
+        "fr": []
+      },
+      "location": "Wallisellen",
+      "canton": "ZH",
+      "addressLocality": "Wallisellen",
+      "addressCountry": "CH",
+      "category": "finance",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-09",
+      "url": "https://jobs.corner.ch/o/employee-front-office",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-04-09T21:21:17.876Z",
+      "needsRetranslation": true,
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85500,
+          "maxValue": 150000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Canova 16",
+      "postalCode": "6901",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME"
+    },
+    {
+      "id": "corner-banca-7be6f12f5702",
+      "slug": "credit-e-client-advisor-m-f-corner-banca-lugano",
+      "slugByLocale": {
+        "it": "credit-e-client-advisor-m-f-corner-banca-lugano",
+        "en": "credit-e-client-advisor-m-f-corner-banca-lugano",
+        "de": "credit-e-client-advisor-m-f-corner-banca-lugano",
+        "fr": "credit-e-client-advisor-m-f-corner-banca-lugano"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Credit & Client Advisor (m/f)",
+      "titleByLocale": {
+        "it": "Credit & Client Consulente (m/f)",
+        "en": "Credit & Client Advisor (m/f)",
+        "de": "Credit & Client Berater (m/f)",
+        "fr": "Credit & Client Conseiller (m/f)"
+      },
+      "description": "As part of our growing operations in Zurich, we are seeking a dedicated and customer-focused professional to join our Front Office Team in the Dunning & Collection area. This role offers the opportunity to contribute to effective credit management while ensuring high-quality customer interactions.\n\nKey Responsibilities:\n\nManaging customer interactions via phone and email\n\nActively listening to client needs and supporting the identification of suitable solutions\n\nAnalyzing financial documentation, including salary slips and financial statements\n\nConducting preliminary assessments of credit risk and clients’ financial capacity\n\nCollaborating with the team on case processing and monitoring\n\nMaintaining and updating data in internal systems\n\nExcellent knowledge of at least three of the following languages: Italian, German, French, and English\n\nCommercial training or equivalent qualification\n\nStrong communication skills and active listening abilities\n\nInterest in and ability to analyze financial data (salary slips, financial statements, economic documentation)\n\nAnalytical mindset and accuracy in risk assessment\n\nTeam spirit, reliability, and sense of responsibility\n\nGood IT skills, including proficiency with spreadsheets\n\nResident in Ticino or willing to relocate\n\nIdeal Profile:\n\nYoung, curious individual with a strong willingness to learn\n\nProfessional and customer-oriented approach\n\nAbility to work in a structured and organized manner",
+      "descriptionByLocale": {
+        "it": "As part of our growing operations in Zurich, we are seeking a dedicated and customer-focused professional to join our Front Office Team in the Dunning & Collection area. This role offers the opportunity to contribute to effective credit management while ensuring high-quality customer interactions.\n\nKey Responsibilities:\n\nManaging customer interactions via phone and email\n\nActively listening to client needs and supporting the identification of suitable solutions\n\nAnalyzing financial documentation, including salary slips and financial statements\n\nConducting preliminary assessments of credit risk and clients’ financial capacity\n\nCollaborating with the team on case processing and monitoring\n\nMaintaining and updating data in internal systems\n\nExcellent knowledge of at least three of the following languages: Italian, German, French, and English\n\nCommercial training or equivalent qualification\n\nStrong communication skills and active listening abilities\n\nInterest in and ability to analyze financial data (salary slips, financial statements, economic documentation)\n\nAnalytical mindset and accuracy in risk assessment\n\nTeam spirit, reliability, and sense of responsibility\n\nGood IT skills, including proficiency with spreadsheets\n\nResident in Ticino or willing to relocate\n\nIdeal Profile:\n\nYoung, curious individual with a strong willingness to learn\n\nProfessional and customer-oriented approach\n\nAbility to work in a structured and organized manner",
+        "en": "As part of our growing operations in Zurich, we are seeking a dedicated and customer-focused professional to join our Front Office Team in the Dunning & Collection area. This role offers the opportunity to contribute to effective credit management while ensuring high-quality customer interactions.\n\nKey Responsibilities:\n\nManaging customer interactions via phone and email\n\nActively listening to client needs and supporting the identification of suitable solutions\n\nAnalyzing financial documentation, including salary slips and financial statements\n\nConducting preliminary assessments of credit risk and clients’ financial capacity\n\nCollaborating with the team on case processing and monitoring\n\nMaintaining and updating data in internal systems\n\nExcellent knowledge of at least three of the following languages: Italian, German, French, and English\n\nCommercial training or equivalent qualification\n\nStrong communication skills and active listening abilities\n\nInterest in and ability to analyze financial data (salary slips, financial statements, economic documentation)\n\nAnalytical mindset and accuracy in risk assessment\n\nTeam spirit, reliability, and sense of responsibility\n\nGood IT skills, including proficiency with spreadsheets\n\nResident in Ticino or willing to relocate\n\nIdeal Profile:\n\nYoung, curious individual with a strong willingness to learn\n\nProfessional and customer-oriented approach\n\nAbility to work in a structured and organized manner",
+        "de": "As part of our growing operations in Zurich, we are seeking a dedicated and customer-focused professional to join our Front Office Team in the Dunning & Collection area. This role offers the opportunity to contribute to effective credit management while ensuring high-quality customer interactions.\n\nKey Responsibilities:\n\nManaging customer interactions via phone and email\n\nActively listening to client needs and supporting the identification of suitable solutions\n\nAnalyzing financial documentation, including salary slips and financial statements\n\nConducting preliminary assessments of credit risk and clients’ financial capacity\n\nCollaborating with the team on case processing and monitoring\n\nMaintaining and updating data in internal systems\n\nExcellent knowledge of at least three of the following languages: Italian, German, French, and English\n\nCommercial training or equivalent qualification\n\nStrong communication skills and active listening abilities\n\nInterest in and ability to analyze financial data (salary slips, financial statements, economic documentation)\n\nAnalytical mindset and accuracy in risk assessment\n\nTeam spirit, reliability, and sense of responsibility\n\nGood IT skills, including proficiency with spreadsheets\n\nResident in Ticino or willing to relocate\n\nIdeal Profile:\n\nYoung, curious individual with a strong willingness to learn\n\nProfessional and customer-oriented approach\n\nAbility to work in a structured and organized manner",
+        "fr": "As part of our growing operations in Zurich, we are seeking a dedicated and customer-focused professional to join our Front Office Team in the Dunning & Collection area. This role offers the opportunity to contribute to effective credit management while ensuring high-quality customer interactions.\n\nKey Responsibilities:\n\nManaging customer interactions via phone and email\n\nActively listening to client needs and supporting the identification of suitable solutions\n\nAnalyzing financial documentation, including salary slips and financial statements\n\nConducting preliminary assessments of credit risk and clients’ financial capacity\n\nCollaborating with the team on case processing and monitoring\n\nMaintaining and updating data in internal systems\n\nExcellent knowledge of at least three of the following languages: Italian, German, French, and English\n\nCommercial training or equivalent qualification\n\nStrong communication skills and active listening abilities\n\nInterest in and ability to analyze financial data (salary slips, financial statements, economic documentation)\n\nAnalytical mindset and accuracy in risk assessment\n\nTeam spirit, reliability, and sense of responsibility\n\nGood IT skills, including proficiency with spreadsheets\n\nResident in Ticino or willing to relocate\n\nIdeal Profile:\n\nYoung, curious individual with a strong willingness to learn\n\nProfessional and customer-oriented approach\n\nAbility to work in a structured and organized manner"
+      },
+      "requirements": [
+        "Excellent knowledge of at least three of the following languages: Italian, German, French, and English",
+        "Commercial training or equivalent qualification",
+        "Strong communication skills and active listening abilities",
+        "Interest in and ability to analyze financial data (salary slips, financial statements, economic documentation)",
+        "Analytical mindset and accuracy in risk assessment",
+        "Team spirit, reliability, and sense of responsibility",
+        "Good IT skills, including proficiency with spreadsheets",
+        "Resident in Ticino or willing to relocate\n\nIdeal Profile:",
+        "Young, curious individual with a strong willingness to learn",
+        "Professional and customer-oriented approach",
+        "Ability to work in a structured and organized manner"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Excellent knowledge of at least three of the following languages: Italian, German, French, and English",
+          "Commercial training or equivalent qualification",
+          "Strong communication skills and active listening abilities",
+          "Interest in and ability to analyze financial data (salary slips, financial statements, economic documentation)",
+          "Analytical mindset and accuracy in risk assessment",
+          "Team spirit, reliability, and sense of responsibility",
+          "Good IT skills, including proficiency with spreadsheets",
+          "Resident in Ticino or willing to relocate\n\nIdeal Profile:",
+          "Young, curious individual with a strong willingness to learn",
+          "Professional and customer-oriented approach",
+          "Ability to work in a structured and organized manner"
+        ],
+        "en": [
+          "Excellent knowledge of at least three of the following languages: Italian, German, French, and English",
+          "Commercial training or equivalent qualification",
+          "Strong communication skills and active listening abilities",
+          "Interest in and ability to analyze financial data (salary slips, financial statements, economic documentation)",
+          "Analytical mindset and accuracy in risk assessment",
+          "Team spirit, reliability, and sense of responsibility",
+          "Good IT skills, including proficiency with spreadsheets",
+          "Resident in Ticino or willing to relocate\n\nIdeal Profile:",
+          "Young, curious individual with a strong willingness to learn",
+          "Professional and customer-oriented approach",
+          "Ability to work in a structured and organized manner"
+        ],
+        "de": [],
+        "fr": []
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "category": "sales",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-09",
+      "url": "https://jobs.corner.ch/o/credit-client-advisor-mf-1",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-04-09T21:21:17.874Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
