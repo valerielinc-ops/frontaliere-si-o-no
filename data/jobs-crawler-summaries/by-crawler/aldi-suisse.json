@@ -1,19 +1,58 @@
 {
   "key": "aldi-suisse",
   "label": "ALDI Suisse",
-  "generatedAt": "2026-04-09T09:04:48.695Z",
-  "total": 3,
-  "newCount": 0,
-  "updatedCount": 3,
+  "generatedAt": "2026-04-09T20:57:08.327Z",
+  "total": 4,
+  "newCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 4530,
-  "avgDurationMs": 4530,
+  "unchangedCount": 3,
+  "durationMs": 6751,
+  "avgDurationMs": 6751,
   "durationHistory": [
-    4530
+    6751
   ],
-  "newJobs": [],
-  "updatedJobs": [
+  "newJobs": [
+    {
+      "id": "aldi-suisse-75eae9a09a65",
+      "slug": "addetto-a-alle-vendite-m-w-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem",
+      "company": "ALDI SUISSE",
+      "companyKey": "aldi-suisse",
+      "companyDomain": "aldi.ch",
+      "title": "Mitarbeiter Verkauf (m/w/d)",
+      "location": "en in elf Ländern weltweit. Seit dem",
+      "postalCode": "6928",
+      "canton": "TI",
+      "addressLocality": "en in elf Ländern weltweit. Seit dem",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "streetAddress": "Centro Monda 8",
+      "employmentType": "PART_TIME",
+      "category": "retail",
+      "contract": "full-time",
+      "workPercentage": "",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-09",
+      "url": "https://www.jobs.aldi.ch/job/1266137901",
+      "source": "ALDI Suisse Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-04-09T20:57:04.912Z",
+      "needsRetranslation": true,
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 21,
+        "translation": 21,
+        "completeness": 25
+      }
+    }
+  ],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "aldi-suisse-c84740c470c4",
       "slug": "vice-direttore-di-filiale-m-f-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem",
@@ -38,7 +77,7 @@
       "url": "https://www.jobs.aldi.ch/job/1287177101",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-09T09:04:46.771Z",
+      "crawledAt": "2026-04-09T20:57:06.267Z",
       "needsRetranslation": true,
       "salaryMin": 82500,
       "salaryMax": 127000,
@@ -74,7 +113,7 @@
       "url": "https://www.jobs.aldi.ch/job/1266053601",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-09T09:04:46.769Z",
+      "crawledAt": "2026-04-09T20:57:04.910Z",
       "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -110,7 +149,7 @@
       "url": "https://www.jobs.aldi.ch/job/1224938701",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-09T09:04:46.767Z",
+      "crawledAt": "2026-04-09T20:57:04.908Z",
       "needsRetranslation": true,
       "salaryMin": 46500,
       "salaryMax": 71500,
@@ -122,7 +161,5 @@
         "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
