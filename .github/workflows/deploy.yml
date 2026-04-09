@@ -123,10 +123,6 @@ jobs:
           key: clarity-assets-${{ github.run_number }}
           restore-keys: clarity-assets-
 
-      - name: Preserve live CSS/JS for Clarity recording fidelity
-        continue-on-error: true
-        run: node scripts/preserve-clarity-assets.mjs --download
-
       - name: Build
         env:
           NODE_OPTIONS: '--max-old-space-size=7168'
@@ -134,7 +130,9 @@ jobs:
 
       - name: Merge previous CSS/JS assets for Clarity recordings
         continue-on-error: true
-        run: node scripts/preserve-clarity-assets.mjs --merge
+        run: |
+          node scripts/preserve-clarity-assets.mjs --merge
+          node scripts/preserve-clarity-assets.mjs --snapshot
 
       - name: SPA fallback (GitHub Pages serves 404.html for unknown paths)
         run: cp dist/index.html dist/404.html

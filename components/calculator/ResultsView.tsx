@@ -28,7 +28,7 @@ const formatCurrency = (value: number) => {
 };
 
 const CurrencyValue: React.FC<{ value: number; currency: string; className?: string; smallCurrency?: boolean }> = ({ value, currency, className = "", smallCurrency }) => (
-  <span className={`font-mono font-bold tracking-tight whitespace-nowrap ${className}`}>
+  <span className={`font-mono font-bold tracking-tight whitespace-nowrap tabular-nums ${className}`}>
     {!smallCurrency && (currency === 'EUR' ? '€ ' : 'CHF ')}
     {formatCurrency(value)}
     {smallCurrency && <span className="text-[0.7em] ml-1 font-sans font-normal text-slate-500 dark:text-slate-400">{currency}</span>}
@@ -143,20 +143,20 @@ const BreakdownTable: React.FC<{ data: TaxBreakdownItem[]; currency: string; sho
              <div className="flex flex-col items-end w-[110px]">
                 {showEUR && currency === 'CHF' ? (
                   <>
-                    <div className={`text-right font-mono font-bold whitespace-nowrap ${isNet ? 'text-lg text-emerald-700 dark:text-emerald-400' : (isNegative ? 'text-red-700 dark:text-red-400' : 'text-slate-800 dark:text-slate-100')}`}>
+                    <div className={`text-right font-mono font-bold whitespace-nowrap tabular-nums ${isNet ? 'text-lg text-emerald-700 dark:text-emerald-400' : (isNegative ? 'text-red-700 dark:text-red-400' : 'text-slate-800 dark:text-slate-100')}`}>
                         {isNegative ? '-' : ''} <CurrencyValue value={item.amountEUR !== undefined && item.amountEUR !== 0 ? Math.abs(item.amountEUR) : (exchangeRate ? Math.abs(item.amount) * exchangeRate : Math.abs(item.amount))} currency="EUR" />
                     </div>
-                    <div className="text-xs font-mono text-slate-500 dark:text-slate-400 font-medium whitespace-nowrap h-4">
+                    <div className="text-xs font-mono text-slate-500 dark:text-slate-400 font-medium whitespace-nowrap tabular-nums h-4">
                        ≈ CHF {formatCurrency(Math.abs(item.amount))}
                     </div>
                   </>
                 ) : (
                   <>
-                    <div className={`text-right font-mono font-bold whitespace-nowrap ${isNet ? 'text-lg text-emerald-700 dark:text-emerald-400' : (isNegative ? 'text-red-700 dark:text-red-400' : 'text-slate-800 dark:text-slate-100')}`}>
+                    <div className={`text-right font-mono font-bold whitespace-nowrap tabular-nums ${isNet ? 'text-lg text-emerald-700 dark:text-emerald-400' : (isNegative ? 'text-red-700 dark:text-red-400' : 'text-slate-800 dark:text-slate-100')}`}>
                         {isNegative ? '-' : ''} <CurrencyValue value={item.amount} currency={currency} />
                     </div>
                     {showEUR && (
-                        <div className="text-xs font-mono text-slate-500 dark:text-slate-400 font-medium whitespace-nowrap h-4">
+                        <div className="text-xs font-mono text-slate-500 dark:text-slate-400 font-medium whitespace-nowrap tabular-nums h-4">
                            {item.amountEUR !== undefined && item.amountEUR !== 0 ? `≈ € ${formatCurrency(Math.abs(item.amountEUR))}` : ''}
                         </div>
                     )}
@@ -518,15 +518,15 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
                   <span>{t('results.netAdvantage')}</span>
                   {showEUR ? (
                     <>
-                      <span className="font-bold font-mono text-base sm:text-lg bg-white/20 px-2 py-0.5 rounded-lg border border-white/10">
+                      <span className="font-bold font-mono text-base sm:text-lg bg-white/20 px-2 py-0.5 rounded-lg border border-white/10 tabular-nums">
                           € {formatCurrency(savingsEUR)}
                       </span>
-                      <span className="font-bold font-mono text-base sm:text-lg bg-white/10 px-2 py-0.5 rounded-lg border border-white/10">
+                      <span className="font-bold font-mono text-base sm:text-lg bg-white/10 px-2 py-0.5 rounded-lg border border-white/10 tabular-nums">
                         ≈ CHF {formatCurrency(savingsCHF)}
                       </span>
                     </>
                   ) : (
-                    <span className="font-bold font-mono text-base sm:text-lg bg-white/20 px-2 py-0.5 rounded-lg border border-white/10">
+                    <span className="font-bold font-mono text-base sm:text-lg bg-white/20 px-2 py-0.5 rounded-lg border border-white/10 tabular-nums">
                         CHF {formatCurrency(savingsCHF)}
                     </span>
                   )}
@@ -572,7 +572,7 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
                   {chDelta.key > 0 && <InlineNetDeltaBadge key={chDelta.key} delta={chDelta.delta} />}
                 </div>
                 {showEUR && (
-                  <div className="text-sm font-mono text-blue-600/70 dark:text-blue-400/70 mt-0.5">
+                  <div className="text-sm font-mono text-blue-600/70 dark:text-blue-400/70 mt-0.5 tabular-nums">
                     ≈ CHF {formatCurrency(chResident.netIncomeMonthly)}
                   </div>
                 )}
@@ -628,7 +628,7 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
                   {itDelta.key > 0 && <InlineNetDeltaBadge key={itDelta.key} delta={itDelta.delta} />}
                 </div>
                 {showEUR && (
-                  <div className="text-sm font-mono text-red-600/70 dark:text-red-400/70 mt-0.5">
+                  <div className="text-sm font-mono text-red-600/70 dark:text-red-400/70 mt-0.5 tabular-nums">
                     ≈ CHF {formatCurrency(itResident.netIncomeMonthly)}
                   </div>
                 )}

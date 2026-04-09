@@ -201,12 +201,13 @@ function LocationAutocomplete({
           onChange={(e) => { setQuery(e.target.value); setIsOpen(true); setHighlightIndex(-1); }}
           onFocus={() => { setIsOpen(true); setQuery(''); }}
           placeholder={displayValue || label}
-          className="w-full pl-9 pr-8 py-2.5 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-sm font-bold focus:ring-2 focus:ring-indigo-400 focus:border-transparent outline-none"
+          className="w-full pl-9 pr-8 py-2.5 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-sm font-bold focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:border-transparent outline-none"
           onKeyDown={handleKeyDown}
           role="combobox"
           aria-expanded={isOpen}
           aria-haspopup="listbox"
           aria-label={label}
+          aria-activedescendant={highlightIndex >= 0 ? `location-option-${highlightIndex}` : undefined}
         />
         {value && !isOpen && (
           <button
@@ -236,6 +237,7 @@ function LocationAutocomplete({
               {itFiltered.map((loc, i) => (
                 <button
                   key={loc.id}
+                  id={`location-option-${i}`}
                   data-option
                   onClick={() => selectLocation(loc)}
                   className={`w-full text-left px-3 py-2 text-sm flex items-center justify-between hover:bg-indigo-50 dark:hover:bg-indigo-900/30 transition-colors ${
@@ -260,6 +262,7 @@ function LocationAutocomplete({
               {chFiltered.map((loc, j) => (
                 <button
                   key={loc.id}
+                  id={`location-option-${itFiltered.length + j}`}
                   data-option
                   onClick={() => selectLocation(loc)}
                   className={`w-full text-left px-3 py-2 text-sm flex items-center justify-between hover:bg-indigo-50 dark:hover:bg-indigo-900/30 transition-colors ${
@@ -648,7 +651,7 @@ function BestMunicipalitySection({ grossMonthlyCHF, chfEurRate }: { grossMonthly
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder={t('residency.bestMunicipality.searchPlaceholder') || 'Cerca comune...'}
-              className="w-full pl-9 pr-8 py-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus:ring-2 focus:ring-violet-400 focus:border-transparent outline-none"
+              className="w-full pl-9 pr-8 py-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:border-transparent outline-none"
               aria-label={t('residency.bestMunicipality.searchPlaceholder') || 'Cerca comune'}
             />
             {searchQuery && (

@@ -158,7 +158,7 @@ const StepperInput = ({ value, onChange, min = 0, max, label, icon: Icon, iconCo
           }}
           min={min}
           max={max}
-          className="w-full h-full min-h-[48px] min-w-[48px] bg-transparent text-center font-bold text-base text-slate-700 dark:text-slate-200 outline-none focus:ring-2 focus:ring-blue-500 appearance-none px-2 py-3"
+          className="w-full h-full min-h-[48px] min-w-[48px] bg-transparent text-center font-bold text-base text-slate-700 dark:text-slate-200 outline-none focus-visible:ring-2 focus-visible:ring-blue-500 appearance-none px-2 py-3"
           aria-label={ariaLabel || label || 'Valore numerico'}
         />
       </div>
@@ -331,7 +331,7 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
                     const val = parseNumber(e.target.value);
                     handleSalaryChange(Math.max(SALARY_MIN, Math.min(SALARY_MAX, val)));
                   }}
-                  className={`w-full pl-14 pr-4 py-4 bg-slate-50 dark:bg-slate-900 border-2 rounded-2xl focus:ring-4 outline-none transition-[color,background-color,border-color,box-shadow] font-bold text-slate-800 dark:text-slate-100 text-2xl tracking-tight ${salaryError ? 'border-red-400 focus:border-red-500 focus:ring-red-500/10' : 'border-slate-100 dark:border-slate-700 focus:border-indigo-500 focus:ring-indigo-500/10'}`}
+                  className={`w-full pl-14 pr-4 py-4 bg-slate-50 dark:bg-slate-900 border-2 rounded-2xl focus-visible:ring-4 outline-none transition-[color,background-color,border-color,box-shadow] font-bold text-slate-800 dark:text-slate-100 text-2xl tracking-tight ${salaryError ? 'border-red-400 focus-visible:border-red-500 focus-visible:ring-red-500/10' : 'border-slate-100 dark:border-slate-700 focus-visible:border-indigo-500 focus-visible:ring-indigo-500/10'}`}
                   placeholder="0"
                   aria-label="Stipendio lordo annuale in CHF"
                 />
@@ -356,7 +356,7 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
                     id="payslip-status"
                     value={maritalStatus}
                     onChange={e => setMaritalStatus(e.target.value as 'single' | 'married')}
-                    className="w-full h-11 pl-2.5 sm:pl-3 pr-8 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-semibold sm:font-bold appearance-none outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/10 transition-[color,background-color,border-color,box-shadow] cursor-pointer text-slate-700 dark:text-slate-200"
+                    className="w-full h-11 pl-2.5 sm:pl-3 pr-8 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-semibold sm:font-bold appearance-none outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-indigo-500/10 transition-[color,background-color,border-color,box-shadow] cursor-pointer text-slate-700 dark:text-slate-200"
                   >
                     <option value="single">{t('payslip.single')}</option>
                     <option value="married">{t('payslip.married')}</option>
@@ -407,7 +407,7 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
           <div className="bg-slate-50 dark:bg-slate-700/50 rounded-xl p-4 mb-4">
             <div className="flex justify-between items-center">
               <span className="text-sm font-semibold text-slate-600 dark:text-slate-300">{t('payslip.grossMonthly')}</span>
-              <span className="text-xl font-bold text-slate-800 dark:text-slate-100">CHF {fmt(result.grossMonthly)}</span>
+              <span className="text-xl font-bold text-slate-800 dark:text-slate-100 tabular-nums">CHF {fmt(result.grossMonthly)}</span>
             </div>
           </div>
 
@@ -419,7 +419,7 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
                   <div className="text-sm font-semibold text-slate-700 dark:text-slate-200">{d.label}</div>
                   <div className="text-xs text-slate-500 dark:text-slate-400">{d.desc}</div>
                 </div>
-                <div className="text-right">
+                <div className="text-right tabular-nums">
                   <div className="text-xs text-slate-500 dark:text-slate-400">{pct(d.rate)}</div>
                   <div className="text-sm font-semibold text-red-600 dark:text-red-400">-{fmt(d.amount)}</div>
                 </div>
@@ -433,7 +433,7 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
           {/* Total deductions */}
           <div className="flex items-center justify-between py-2 px-3">
             <span className="text-sm font-bold text-slate-700 dark:text-slate-200">{t('payslip.totalDeductions')}</span>
-            <span className="text-lg font-bold text-red-600 dark:text-red-400">-CHF {fmt(result.totalDeductions)}</span>
+            <span className="text-lg font-bold text-red-600 dark:text-red-400 tabular-nums">-CHF {fmt(result.totalDeductions)}</span>
           </div>
 
           {/* Net salary */}
@@ -441,9 +441,9 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
             <div className="flex items-center justify-between">
               <div>
                 <div className="text-sm font-bold text-emerald-700 dark:text-emerald-300">{t('payslip.netSalary')}</div>
-                <div className="text-xs text-emerald-700 dark:text-emerald-400">{t('payslip.netAnnual')}: CHF {fmt(result.netMonthly * 12)}</div>
+                <div className="text-xs text-emerald-700 dark:text-emerald-400 tabular-nums">{t('payslip.netAnnual')}: CHF {fmt(result.netMonthly * 12)}</div>
               </div>
-              <span className="text-2xl font-bold text-emerald-700 dark:text-emerald-300">CHF {fmt(result.netMonthly)}</span>
+              <span className="text-2xl font-bold text-emerald-700 dark:text-emerald-300 tabular-nums">CHF {fmt(result.netMonthly)}</span>
             </div>
           </div>
 

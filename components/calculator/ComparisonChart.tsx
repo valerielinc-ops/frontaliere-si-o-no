@@ -53,7 +53,7 @@ const CustomTooltip = ({ active, payload, label, isDarkMode, currency = "CHF" }:
                  <div className="w-2.5 h-2.5 rounded-full shadow-sm" style={{ backgroundColor: entry.color || entry.fill || entry.stroke }} />
                  <span className={`font-bold ${isDarkMode ? 'text-slate-300' : 'text-slate-600'}`}>{entry.name}</span>
               </div>
-              <span className={`font-mono font-bold ${isDarkMode ? 'text-slate-100' : 'text-slate-800'}`}>
+              <span className={`font-mono font-bold ${isDarkMode ? 'text-slate-100' : 'text-slate-800'} tabular-nums`}>
                 {currency} {entry.value.toLocaleString('it-IT', {maximumFractionDigits: 0})}
               </span>
             </div>
