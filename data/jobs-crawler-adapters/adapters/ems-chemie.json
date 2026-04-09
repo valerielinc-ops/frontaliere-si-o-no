@@ -8,6 +8,8 @@
     "html"
   ],
   "seedUrls": [
+    "https://jobs.ems-group.com/offene-stellen/assistenz-der-divisionsleitung-m-w-d/8f140804-acc5-46c1-af04-81a0baa38ad0",
+    "https://jobs.ems-group.com/offene-stellen/leiter-umweltschutz-und-sicherheit-m-w-d/242e08e0-a181-4bec-b26b-9140e840eedb",
     "https://jobs.ems-group.com/offene-stellen/distribution-manager-m-w-d/422b427e-8f2c-42c7-87fd-d91d1d23dd46",
     "https://jobs.ems-group.com/offene-stellen/leitung-assistenz-marketing-verkauf-m-w-d/b1a22d5c-9894-4964-ada6-ab9a4483baa6",
     "https://jobs.ems-group.com/offene-stellen/anwendungstechniker-technische-fasern/a257fe67-7cec-4c0d-924d-444eefecd159",
@@ -15,11 +17,17 @@
     "https://jobs.ems-group.com/offene-stellen/transportdisponent-sachbearbeiter-export-m-w/9cac7ace-f0ef-4158-ad7c-21012cba9db6",
     "https://jobs.ems-group.com/offene-stellen/key-account-manager-m-w-d-homeoffice/4aa59321-0063-4499-bdf7-53a3dc75ec9c",
     "https://jobs.ems-group.com/offene-stellen/laborant-materialpruefung-m-w-d/f4838ff6-2c0b-4dda-bede-826bc55d6b48",
-    "https://jobs.ems-group.com/offene-stellen/leiter-controlling-m-w-d/3a614b30-caf6-4712-a572-d828b8320266",
-    "https://jobs.ems-group.com/offene-stellen/projektleiter-materialpruefung-m-w-d/61bf9a4f-6d90-47b3-ae9c-c207a3d36330",
-    "https://jobs.ems-group.com/offene-stellen/leiter-finanzbuchhaltung-m-w-d/a36b0fbe-404c-49e8-b025-33718b7d34b5"
+    "https://jobs.ems-group.com/offene-stellen/leiter-controlling-m-w-d/3a614b30-caf6-4712-a572-d828b8320266"
   ],
   "seedMetaByUrl": {
+    "https://jobs.ems-group.com/offene-stellen/assistenz-der-divisionsleitung-m-w-d/8f140804-acc5-46c1-af04-81a0baa38ad0": {
+      "company": "EMS-Chemie AG",
+      "companyDomain": "ems-group.com"
+    },
+    "https://jobs.ems-group.com/offene-stellen/leiter-umweltschutz-und-sicherheit-m-w-d/242e08e0-a181-4bec-b26b-9140e840eedb": {
+      "company": "EMS-Chemie AG",
+      "companyDomain": "ems-group.com"
+    },
     "https://jobs.ems-group.com/offene-stellen/distribution-manager-m-w-d/422b427e-8f2c-42c7-87fd-d91d1d23dd46": {
       "company": "EMS-Chemie AG",
       "companyDomain": "ems-group.com"
@@ -51,16 +59,8 @@
     "https://jobs.ems-group.com/offene-stellen/leiter-controlling-m-w-d/3a614b30-caf6-4712-a572-d828b8320266": {
       "company": "EMS-Chemie AG",
       "companyDomain": "ems-group.com"
-    },
-    "https://jobs.ems-group.com/offene-stellen/projektleiter-materialpruefung-m-w-d/61bf9a4f-6d90-47b3-ae9c-c207a3d36330": {
-      "company": "EMS-Chemie AG",
-      "companyDomain": "ems-group.com"
-    },
-    "https://jobs.ems-group.com/offene-stellen/leiter-finanzbuchhaltung-m-w-d/a36b0fbe-404c-49e8-b025-33718b7d34b5": {
-      "company": "EMS-Chemie AG",
-      "companyDomain": "ems-group.com"
     }
   },
   "notes": "Specialty chemicals company HQ in Domat/Ems (GR). Career page HTML crawler.",
-  "updatedAt": "2026-04-08T21:16:58.531Z"
+  "updatedAt": "2026-04-09T09:33:46.628Z"
 }
