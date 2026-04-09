@@ -67,6 +67,8 @@ const enFisco: Record<string, string> = {
     'pension.disclaimer4': 'Italian pension: approximate estimate, verify with INPS',
     'pension.disclaimer5': 'We recommend consulting a certified pension advisor',
     'pension.dataPrivacy': 'Your pension data is not stored or transmitted. All calculations happen entirely in your browser.',
+    'pension.methodology.title': 'Sources and methodology:',
+    'pension.methodology.description': 'Calculated using official AVS/AI parameters (source: FSIO/BSV), minimum LPP conversion rate of 6.8% (source: LPP Art. 14), and INPS contributions per current tables. Projections use historical returns of Swiss pension funds (source: Swisscanto, LPP Index 2024).',
     'calendar.title': 'Tax Deadline Calendar 2026',
     'calendar.subtitle': 'Key dates for cross-border workers: IRPEF, Form 730, AVS, ordinary option',
     'calendar.tabFiscal': 'Tax Deadlines',

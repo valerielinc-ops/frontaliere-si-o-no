@@ -67,6 +67,8 @@ const deFisco: Record<string, string> = {
     'pension.disclaimer4': 'Italienische Rente: ungefähre Schätzung, bei INPS überprüfen',
     'pension.disclaimer5': 'Wir empfehlen die Beratung durch einen zertifizierten Rentenberater',
     'pension.dataPrivacy': 'Ihre Rentendaten werden weder gespeichert noch übertragen. Alle Berechnungen erfolgen vollständig in Ihrem Browser.',
+    'pension.methodology.title': 'Quellen und Methodik:',
+    'pension.methodology.description': 'Berechnet mit offiziellen AHV/IV-Parametern (Quelle: BSV), BVG-Mindestumwandlungssatz von 6.8% (Quelle: BVG Art. 14), und INPS-Beiträgen gemäss aktuellen Tabellen. Prognosen basieren auf historischen Renditen Schweizer Pensionskassen (Quelle: Swisscanto, BVG-Index 2024).',
     'calendar.title': 'Steuerterminkalender 2026',
     'calendar.subtitle': 'Wichtige Termine für Grenzgänger: IRPEF, Formular 730, AHV',
     'calendar.tabFiscal': 'Steuertermine',

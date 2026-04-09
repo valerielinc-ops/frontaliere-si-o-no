@@ -3,6 +3,7 @@ import type { UserProfileData } from '@/components/pages/UserProfile';
 import { Analytics } from '@/services/analytics';
 import { TrendingUp, PiggyBank, Calendar, Info, AlertCircle, CheckCircle2, Users, Home, Banknote, Calculator, Clock, Globe, Percent, Shield, Share2, Check } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
+import DataFreshness from '@/components/shared/DataFreshness';
 const LeadMagnetCTA = lazy(() => import('@/components/shared/LeadMagnetCTA'));
 const RelatedTools = lazy(() => import('@/components/shared/RelatedTools'));
 
@@ -633,6 +634,14 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Source methodology — AI SEO citability */}
+      <div className="mt-6 p-4 bg-slate-50 dark:bg-slate-900/50 rounded-xl border border-slate-200 dark:border-slate-700">
+        <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+          <strong>{t('pension.methodology.title')}</strong>{' '}
+          {t('pension.methodology.description')}
+        </p>
       </div>
 
       <Suspense fallback={null}>

@@ -70,6 +70,8 @@ const translations: Record<string, string> = {
     'pension.disclaimer4': 'Pensione italiana: stima approssimativa, verificare con INPS',
     'pension.disclaimer5': 'Consigliamo consultazione con consulente previdenziale certificato',
     'pension.dataPrivacy': 'I tuoi dati previdenziali non vengono memorizzati né inviati. Il calcolo avviene interamente nel browser.',
+    'pension.methodology.title': 'Fonti e metodologia:',
+    'pension.methodology.description': 'Calcolo basato sui parametri ufficiali AVS/AI (fonte: UFAS/BSV), tasso di conversione LPP minimo del 6.8% (fonte: LPP Art. 14), e contributi INPS secondo le tabelle vigenti. Le proiezioni utilizzano rendimenti storici dei fondi pensione svizzeri (fonte: Swisscanto, indice LPP 2024).',
     
     // Common
     'calendar.title': 'Calendario Scadenze Fiscali 2026',

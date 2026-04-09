@@ -67,6 +67,8 @@ const frFisco: Record<string, string> = {
     'pension.disclaimer4': 'Retraite italienne : estimation approximative, vérifier auprès de l\'INPS',
     'pension.disclaimer5': 'Nous recommandons de consulter un conseiller en retraite certifié',
     'pension.dataPrivacy': 'Vos données de retraite ne sont ni stockées ni transmises. Tous les calculs sont effectués entièrement dans votre navigateur.',
+    'pension.methodology.title': 'Sources et méthodologie :',
+    'pension.methodology.description': 'Calculé avec les paramètres officiels AVS/AI (source : OFAS/BSV), taux de conversion LPP minimum de 6.8% (source : LPP Art. 14), et cotisations INPS selon les barèmes en vigueur. Projections basées sur les rendements historiques des caisses de pension suisses (source : Swisscanto, indice LPP 2024).',
     'calendar.title': 'Calendrier Fiscal 2026',
     'calendar.subtitle': 'Dates clés pour frontaliers : IRPEF, formulaire 730, AVS, option ordinaire',
     'calendar.tabFiscal': 'Échéances Fiscales',

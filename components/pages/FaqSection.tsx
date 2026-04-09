@@ -18,7 +18,7 @@ const FAQ_CATEGORIES: FaqCategory[] = [
 ];
 
 // Number of Q&A per category
-const QUESTIONS_PER_CATEGORY = 5;
+const QUESTIONS_PER_CATEGORY = 8;
 
 const FaqSection: React.FC = () => {
   const { t } = useTranslation();
