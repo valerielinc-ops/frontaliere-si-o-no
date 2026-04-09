@@ -324,14 +324,14 @@ function isHomeCriticalStaticPath(urlPath: string): boolean {
   return HOME_CRITICAL_STATIC_PATHS.has(urlPath);
 }
 
-// Utility pages that should NOT be indexed — thin by design (contact form, legal boilerplate,
+// Utility pages that should NOT be indexed — thin by design (partner services, consulting,
 // API status). These are removed from sitemaps and served with noindex so bots stop crawling them.
+// NOTE: Contact and Privacy pages are NOT noindexed — they have rich editorial content and are
+// critical for E-E-A-T signals (squirrelscan, Google quality raters). They are in the sitemap.
 const NOINDEX_CANONICAL_PATHS = new Set([
-  '/contattaci/', '/en/contact-us/', '/de/kontakt/', '/fr/contactez-nous/',
   '/servizi-partner/', '/en/partner-services/', '/de/partner-dienste/', '/fr/services-partenaires/',
   '/consulenza/', '/en/consulting/', '/de/beratung/', '/fr/consultation/',
   '/stato-api/', '/en/api-status/', '/de/api-status/', '/fr/etat-api/',
-  '/privacy/', '/en/privacy/', '/de/datenschutz/', '/fr/confidentialite/',
 ]);
 
 export function staticPagesPlugin(rootDir: string): Plugin {

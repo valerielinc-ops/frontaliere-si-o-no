@@ -554,7 +554,20 @@ if [ "$SLICE_ONLY" = false ] && [ -f "data/jobs.json" ]; then
 fi
 
 # ── 1. Detect changes ──────────────────────────────────────────────────────
-if git diff --quiet && git diff --cached --quiet; then
+# Check tracked modifications AND untracked new files in tracked directories.
+# `git diff --quiet` only sees tracked files. If a previously-tracked file was
+# deleted and then recreated by the crawler, it's untracked until `git add`.
+HAS_UNTRACKED=false
+for path_item in "${ALL_FILES[@]}"; do
+  if [[ -d "${path_item%/}" ]]; then
+    if [ -n "$(git ls-files --others --exclude-standard "${path_item%/}" 2>/dev/null)" ]; then
+      HAS_UNTRACKED=true
+      break
+    fi
+  fi
+done
+
+if git diff --quiet && git diff --cached --quiet && [ "$HAS_UNTRACKED" = false ]; then
   echo "ℹ️ No changes detected"
   [ -n "${GITHUB_OUTPUT:-}" ] && echo "has_changes=false" >> "$GITHUB_OUTPUT"
   exit 0
