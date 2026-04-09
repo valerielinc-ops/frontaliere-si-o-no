@@ -12,7 +12,7 @@
 // ─── THE SWITCH ─────────────────────────────────────────────────────────────
 // Change this array to expand crawling scope.
 // Today: only TI + GR. Tomorrow: all 26 cantons.
-export const TARGET_CANTONS = ['TI', 'GR'];
+export const TARGET_CANTONS = ['TI', 'GR', 'VS'];
 
 // ─── ALL 26 SWISS CANTONS ──────────────────────────────────────────────────
 // Each canton has: code, names (all official languages + common aliases),
@@ -55,7 +55,7 @@ export const SWISS_CANTONS = {
   },
   UR: { code: 'UR', names: ['uri', 'altdorf'] },
   VD: { code: 'VD', names: ['vaud', 'waadt', 'lausanne', 'montreux', 'vevey', 'nyon', 'morges', 'renens', 'yverdon', 'yverdon-les-bains'] },
-  VS: { code: 'VS', names: ['valais', 'wallis', 'vallese', 'sion', 'sitten', 'brig', 'visp', 'martigny', 'monthey', 'zermatt'] },
+  VS: { code: 'VS', names: ['valais', 'wallis', 'vallese', 'sion', 'sitten', 'brig', 'visp', 'martigny', 'monthey', 'zermatt', 'sierre', 'naters', 'crans-montana', 'leukerbad', 'saas-fee', 'verbier'] },
   ZG: { code: 'ZG', names: ['zug', 'zoug', 'zugo', 'baar', 'cham'] },
   ZH: { code: 'ZH', names: ['zürich', 'zurich', 'zuerich', 'zurigo', 'winterthur', 'uster', 'dübendorf', 'kloten', 'wetzikon', 'dietikon', 'opfikon', 'spreitenbach'] },
 };
@@ -164,6 +164,16 @@ export const COMPANY_HQ = {
   'grand-hotel-kronenhof':        { city: 'Pontresina',         canton: 'GR', postalCode: '7504', addressRegion: 'GR' },
   'kantonsspital-graubuenden-ksgr': { city: 'Chur',             canton: 'GR', postalCode: '7000', addressRegion: 'GR' },
   'la-fonte':                     { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
+  // ── Valais / Wallis (VS) — major employers ──
+  'lonza':                        { city: 'Visp',               canton: 'VS', postalCode: '3930', addressRegion: 'VS' },
+  'hopital-du-valais':            { city: 'Sion',               canton: 'VS', postalCode: '1950', addressRegion: 'VS' },
+  'etat-du-valais':               { city: 'Sion',               canton: 'VS', postalCode: '1950', addressRegion: 'VS' },
+  'groupe-mutuel':                { city: 'Martigny',            canton: 'VS', postalCode: '1920', addressRegion: 'VS' },
+  'hes-so-valais':                { city: 'Sion',               canton: 'VS', postalCode: '1950', addressRegion: 'VS' },
+  'novelis':                      { city: 'Sierre',             canton: 'VS', postalCode: '3960', addressRegion: 'VS' },
+  'commune-de-sion':              { city: 'Sion',               canton: 'VS', postalCode: '1950', addressRegion: 'VS' },
+  'clinique-de-valere':           { city: 'Sion',               canton: 'VS', postalCode: '1950', addressRegion: 'VS' },
+  'cimo-sa':                      { city: 'Monthey',            canton: 'VS', postalCode: '1870', addressRegion: 'VS' },
 };
 
 /**
@@ -176,15 +186,18 @@ export function getCompanyDefaults(slug = '') {
 
 // ─── PROSPECTIVE.CH REGION IDS ─────────────────────────────────────────────
 // Per-platform canton-to-regionId mapping for Prospective.ch crawlers.
+// Canonical source: data/platform-region-ids.json (maintained manually + discovery script).
+// This inline copy is kept for backward compatibility and fast access.
 export const PROSPECTIVE_REGION_IDS = {
   // medium 1000103 (Coop, Fust) — attribute 30 = canton
   'm1000103': { TI: '1024522', GR: '1024512' },
   // medium 1000624 (Confederazione, VTG) — attribute = region
-  'm1000624': { TI: '1083341', GR_OSTSCHWEIZ: '1083334' },
+  // Romandie macro-region covers VS+VD+GE+NE+FR+JU — needs post-filtering
+  'm1000624': { TI: '1083341', GR_OSTSCHWEIZ: '1083334', VS_ROMANDIE: '1083337' },
   // CC 2193 (AXA) — filter_20 = region
-  'cc2193': { TI: '68794', GR: '68792' },
+  'cc2193': { TI: '68794', GR_OSTSCHWEIZ: '68792' },
   // CC 1001859 (Volg) — filter_20 = region
-  'cc1001859': { TI: '1164274', GR: '1164264' },
+  'cc1001859': { TI: '1164274', GR: '1164264', VS: '1164278' },
 };
 
 /**

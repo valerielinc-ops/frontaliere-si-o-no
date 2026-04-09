@@ -320,7 +320,7 @@ export function updateJobsStatsHistory(existingHistory = {}, diff = {}, currentJ
   // Compact old entries: strip verbose fields for entries older than COMPACT_AFTER_DAYS
   // to keep the history file under GitHub's 100 MB file size limit.
   const compactCutoff = zurichDate(
-    new Date(Date.now() - COMPACT_AFTER_DAYS * 86_400_000).toISOString()
+    new Date(new Date(now).getTime() - COMPACT_AFTER_DAYS * 86_400_000).toISOString()
   );
   for (const e of history.entries) {
     if (e.date < compactCutoff) {

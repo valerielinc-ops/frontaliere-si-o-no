@@ -1,4 +1,20 @@
 import { TARGET_CANTONS, SWISS_CANTONS, isTargetCanton } from './crawler-location-config.mjs';
+import { readFileSync } from 'node:fs';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const DATA_DIR = join(__dirname, '..', '..', 'data');
+
+// ── Load BFS municipality data + manual aliases from JSON ──
+let _municipalityData = {};
+let _aliasData = {};
+try {
+  _municipalityData = JSON.parse(readFileSync(join(DATA_DIR, 'canton-municipalities.json'), 'utf8'));
+} catch { /* file missing or malformed — fall back to inline arrays */ }
+try {
+  _aliasData = JSON.parse(readFileSync(join(DATA_DIR, 'canton-location-aliases.json'), 'utf8'));
+} catch { /* file missing — no aliases */ }
 
 function normalizeSpace(value = '') {
   return String(value || '')
@@ -16,6 +32,13 @@ function normalizeToken(value = '') {
     .replace(/\s+/g, ' ')
     .trim();
 }
+
+// Border proximity keywords by canton (Italian border → TI/GR, French border → VS)
+export const BORDER_PROXIMITY_BY_CANTON = {
+  TI: ['como', 'varese', 'lecco', 'novara', 'saronno', 'gallarate', 'busto arsizio', 'provincia di como', 'provincia di varese'],
+  GR: ['chiavenna', 'sondrio', 'tirano'],
+  VS: ['evian', 'thonon', 'saint-julien', 'annemasse', 'haute-savoie', 'pays du leman'],
+};
 
 export const BORDER_PROXIMITY_KEYWORDS = [
   'como',
@@ -150,6 +173,11 @@ export function isGrigioniRelevant(text = '') {
 export function inferSwissTargetCanton(text = '') {
   if (isGrigioniRelevant(text)) return 'GR';
   if (isTicinoRelevant(text)) return 'TI';
+  // Check remaining target cantons via generic isCantonRelevant
+  for (const canton of TARGET_CANTONS) {
+    if (canton === 'TI' || canton === 'GR') continue;
+    if (isCantonRelevant(text, canton)) return canton;
+  }
   return '';
 }
 
@@ -158,14 +186,14 @@ export function inferSwissTargetCanton(text = '') {
  * Useful when you need to know what canton a job is in regardless of target scope.
  */
 export function inferAnyCanton(text = '') {
-  // Check TI/GR first (most common in our dataset)
+  // Check target cantons first (most common in our dataset)
   const target = inferSwissTargetCanton(text);
   if (target) return target;
-  // Check all other cantons via their names/aliases
+  // Check all other cantons via their names/aliases (SWISS_CANTONS only, no BFS data for non-target)
   const lower = normalizeSwissTargetLocationText(text);
   if (!lower) return '';
   for (const [code, canton] of Object.entries(SWISS_CANTONS)) {
-    if (code === 'TI' || code === 'GR') continue; // already checked
+    if (TARGET_CANTONS.includes(code)) continue; // already checked
     if (canton.names.some((name) => {
       const norm = name.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
       return norm.length < 6
@@ -196,12 +224,78 @@ export function normalizeCantonCode(raw = '') {
 export function isTargetSwissLocation(text = '', { includeGrigioni = true } = {}) {
   if (isTicinoRelevant(text) && isTargetCanton('TI')) return true;
   if (includeGrigioni && isGrigioniRelevant(text) && isTargetCanton('GR')) return true;
-  // If TARGET_CANTONS includes cantons beyond TI/GR, check via inferAnyCanton
-  const hasNonTiGr = TARGET_CANTONS.some((c) => c !== 'TI' && c !== 'GR');
-  if (hasNonTiGr) {
-    const canton = inferAnyCanton(text);
-    if (canton && isTargetCanton(canton)) return true;
+  // Check all TARGET_CANTONS via the generic isCantonRelevant
+  for (const canton of TARGET_CANTONS) {
+    if (canton === 'TI' || canton === 'GR') continue; // already checked above
+    if (isCantonRelevant(text, canton) && isTargetCanton(canton)) return true;
   }
+  return false;
+}
+
+// ── Generic canton relevance (JSON-driven) ──────────────────────────────────
+// Cache of normalized city tokens per canton from JSON data
+const _cantonCityTokensCache = new Map();
+
+function getCantonCityTokens(cantonCode) {
+  if (_cantonCityTokensCache.has(cantonCode)) return _cantonCityTokensCache.get(cantonCode);
+
+  const tokens = new Set();
+  // BFS municipalities from JSON
+  const cantonData = _municipalityData?.cantons?.[cantonCode];
+  if (cantonData?.municipalities) {
+    for (const m of cantonData.municipalities) tokens.add(normalizeToken(m));
+  }
+  // Manual aliases from JSON
+  const aliases = _aliasData?.[cantonCode];
+  if (Array.isArray(aliases)) {
+    for (const a of aliases) tokens.add(normalizeToken(a));
+  }
+  // SWISS_CANTONS names (from crawler-location-config)
+  const cantonDef = SWISS_CANTONS[cantonCode];
+  if (cantonDef?.names) {
+    for (const name of cantonDef.names) tokens.add(normalizeToken(name));
+  }
+
+  const result = [...tokens].filter(Boolean);
+  _cantonCityTokensCache.set(cantonCode, result);
+  return result;
+}
+
+// Codes that are safe for word-boundary matching (won't false-positive on common words)
+const SAFE_WORD_BOUNDARY_CODES = new Set(['TI', 'GR', 'VS', 'ZH', 'BE', 'LU', 'BS', 'AG', 'SG']);
+
+/**
+ * Generic canton relevance check — works for ANY canton using JSON data.
+ * @param {string} text — location string to check
+ * @param {string} cantonCode — 2-letter canton code (e.g., 'VS', 'TI', 'GR')
+ * @returns {boolean}
+ */
+export function isCantonRelevant(text = '', cantonCode = '') {
+  const lower = normalizeSwissTargetLocationText(text);
+  if (!lower || !cantonCode) return false;
+
+  const code = cantonCode.toUpperCase();
+
+  // 1. Check SWISS_CANTONS names + BFS municipalities + aliases (all pre-tokenized)
+  const cityTokens = getCantonCityTokens(code);
+  if (hasToken(cityTokens, lower)) return true;
+
+  // 2. Check canton code patterns: (TI), CH TI, 6900 TI
+  const codeLower = code.toLowerCase();
+  const codeEscaped = codeLower.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  if (new RegExp(`\\(${codeEscaped}\\)`).test(lower)) return true;
+  if (new RegExp(`\\bch\\s+${codeEscaped}\\b`).test(lower)) return true;
+  if (new RegExp(`\\d{4}\\s+${codeEscaped}\\b`).test(lower)) return true;
+
+  // 3. Bare word-boundary for safe codes only
+  if (SAFE_WORD_BOUNDARY_CODES.has(code)) {
+    if (new RegExp(`\\b${codeEscaped}\\b`).test(lower)) return true;
+  }
+
+  // 4. Border proximity keywords
+  const borderKeywords = BORDER_PROXIMITY_BY_CANTON[code];
+  if (borderKeywords?.some((kw) => lower.includes(kw))) return true;
+
   return false;
 }
 

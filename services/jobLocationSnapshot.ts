@@ -58,6 +58,13 @@ const LOCATION_SEEDS: LocationSeed[] = [
   { locality: 'Bissone', postalCode: '6816', lat: 45.9542, lng: 8.9682 },
   { locality: 'Paradiso', postalCode: '6900', lat: 45.9907, lng: 8.9456 },
   { locality: 'Castel San Pietro', postalCode: '6874', lat: 45.8626, lng: 9.0088, aliases: ['rancate'] },
+  // ── Valais / Wallis (VS) ──
+  { locality: 'Sion', postalCode: '1950', lat: 46.2330, lng: 7.3592, aliases: ['sitten'] },
+  { locality: 'Brig', postalCode: '3900', lat: 46.3161, lng: 7.9872, aliases: ['brig-glis'] },
+  { locality: 'Visp', postalCode: '3930', lat: 46.2944, lng: 7.8829 },
+  { locality: 'Martigny', postalCode: '1920', lat: 46.1028, lng: 7.0736 },
+  { locality: 'Monthey', postalCode: '1870', lat: 46.2548, lng: 6.9548 },
+  { locality: 'Sierre', postalCode: '3960', lat: 46.2920, lng: 7.5350, aliases: ['siders'] },
 ];
 
 const POSTAL_FALLBACK_SEEDS: PostalSeed[] = [
@@ -153,7 +160,7 @@ const POSTAL_FALLBACK_SEEDS: PostalSeed[] = [
   { locality: 'Thusis', postalCode: '7430' },
   { locality: 'Scuol', postalCode: '7550' },
   { locality: 'Poschiavo', postalCode: '7742' },
-  // ── Vallese ──
+  // ── Vallese — additional comuni ──
   { locality: 'Brig', postalCode: '3900' },
   { locality: 'Brig-Glis', postalCode: '3902' },
   { locality: 'Visp', postalCode: '3930' },
@@ -163,6 +170,23 @@ const POSTAL_FALLBACK_SEEDS: PostalSeed[] = [
   { locality: 'Sierre', postalCode: '3960' },
   { locality: 'Martigny', postalCode: '1920' },
   { locality: 'Monthey', postalCode: '1870' },
+  { locality: 'Fully', postalCode: '1926' },
+  { locality: 'Conthey', postalCode: '1964' },
+  { locality: 'Savièse', postalCode: '1965' },
+  { locality: 'Crans-Montana', postalCode: '3963', aliases: ['crans montana', 'montana'] },
+  { locality: 'Leuk', postalCode: '3953', aliases: ['loèche'] },
+  { locality: 'Raron', postalCode: '3942' },
+  { locality: 'Stalden', postalCode: '3933' },
+  { locality: 'Saas-Fee', postalCode: '3906' },
+  { locality: 'Leukerbad', postalCode: '3954', aliases: ['loèche-les-bains'] },
+  { locality: 'Verbier', postalCode: '1936' },
+  { locality: 'Saxon', postalCode: '1907' },
+  { locality: 'Collombey-Muraz', postalCode: '1868' },
+  { locality: 'Vouvry', postalCode: '1896' },
+  { locality: 'Saint-Maurice', postalCode: '1890' },
+  { locality: 'Bagnes', postalCode: '1934' },
+  { locality: 'Ayent', postalCode: '1966' },
+  { locality: 'Vallese', postalCode: '1950', aliases: ['canton vallese', 'valais', 'wallis'] },
   // ── Other major Swiss cities ──
   { locality: 'Zürich', postalCode: '8001', aliases: ['zurich', 'zurigo'] },
   { locality: 'Bern', postalCode: '3001', aliases: ['berna'] },

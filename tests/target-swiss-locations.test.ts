@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {
   GRIGIONI_MUNICIPALITIES,
   inferSwissTargetCanton,
+  isCantonRelevant,
   isGrigioniRelevant,
   isTargetSwissLocation,
   isTicinoRelevant,
@@ -35,5 +36,84 @@ describe('target swiss locations', () => {
   it('does not classify unrelated Swiss cities as target', () => {
     expect(isTargetSwissLocation('Zurich, CH')).toBe(false);
     expect(inferSwissTargetCanton('Geneva, CH')).toBe('');
+  });
+
+  // ── VS (Valais/Wallis) canton matching ──
+  describe('Valais (VS) canton matching', () => {
+    it('recognizes VS major cities', () => {
+      expect(isCantonRelevant('Sion, CH', 'VS')).toBe(true);
+      expect(isCantonRelevant('Brig, Switzerland', 'VS')).toBe(true);
+      expect(isCantonRelevant('Visp', 'VS')).toBe(true);
+      expect(isCantonRelevant('Martigny', 'VS')).toBe(true);
+      expect(isCantonRelevant('Monthey', 'VS')).toBe(true);
+      expect(isCantonRelevant('Sierre', 'VS')).toBe(true);
+    });
+
+    it('recognizes VS canton names in all languages', () => {
+      expect(isCantonRelevant('Valais', 'VS')).toBe(true);
+      expect(isCantonRelevant('Wallis', 'VS')).toBe(true);
+      expect(isCantonRelevant('Vallese', 'VS')).toBe(true);
+    });
+
+    it('recognizes VS BFS municipalities', () => {
+      expect(isCantonRelevant('Fully', 'VS')).toBe(true);
+      expect(isCantonRelevant('Conthey', 'VS')).toBe(true);
+      expect(isCantonRelevant('Naters', 'VS')).toBe(true);
+      expect(isCantonRelevant('Zermatt', 'VS')).toBe(true);
+    });
+
+    it('recognizes VS location aliases', () => {
+      expect(isCantonRelevant('Crans-Montana', 'VS')).toBe(true);
+      expect(isCantonRelevant('Saas-Fee', 'VS')).toBe(true);
+      expect(isCantonRelevant('Verbier', 'VS')).toBe(true);
+      expect(isCantonRelevant('Leukerbad', 'VS')).toBe(true);
+    });
+
+    it('does not cross-match TI locations as VS', () => {
+      expect(isCantonRelevant('Lugano', 'VS')).toBe(false);
+      expect(isCantonRelevant('Bellinzona', 'VS')).toBe(false);
+      expect(isCantonRelevant('Ticino', 'VS')).toBe(false);
+    });
+
+    it('does not cross-match VS locations as TI', () => {
+      expect(isCantonRelevant('Sion', 'TI')).toBe(false);
+      expect(isCantonRelevant('Valais', 'TI')).toBe(false);
+      expect(isCantonRelevant('Brig', 'TI')).toBe(false);
+    });
+  });
+
+  describe('inferSwissTargetCanton for VS', () => {
+    it('infers VS from city names', () => {
+      expect(inferSwissTargetCanton('Lavoro a Sion, VS')).toBe('VS');
+      expect(inferSwissTargetCanton('Martigny, Valais, CH')).toBe('VS');
+      expect(inferSwissTargetCanton('Visp (VS)')).toBe('VS');
+    });
+
+    it('infers VS from canton name', () => {
+      expect(inferSwissTargetCanton('Canton Valais')).toBe('VS');
+      expect(inferSwissTargetCanton('Wallis, Schweiz')).toBe('VS');
+    });
+  });
+
+  describe('isTargetSwissLocation includes VS', () => {
+    it('recognizes VS locations as target', () => {
+      expect(isTargetSwissLocation('Sion, CH')).toBe(true);
+      expect(isTargetSwissLocation('Martigny')).toBe(true);
+      expect(isTargetSwissLocation('Brig-Glis')).toBe(true);
+    });
+  });
+
+  describe('backward compatibility', () => {
+    it('TI/GR wrapper functions still work', () => {
+      expect(isTicinoRelevant('Lugano')).toBe(true);
+      expect(isGrigioniRelevant('Chur')).toBe(true);
+      expect(isTicinoRelevant('Sion')).toBe(false);
+      expect(isGrigioniRelevant('Martigny')).toBe(false);
+    });
+
+    it('TICINO_MUNICIPALITIES and GRIGIONI_MUNICIPALITIES are non-empty arrays', () => {
+      expect(TICINO_MUNICIPALITIES.length).toBeGreaterThan(90);
+      expect(GRIGIONI_MUNICIPALITIES.length).toBeGreaterThan(90);
+    });
   });
 });
