@@ -279,9 +279,9 @@ async function fetchSchindlerJobDetail(url) {
   }
 
   // Extract description from <span class="jobdescription">...</span>
-  // Content runs until "Candidati ora" apply button
+  // Content runs until apply button (IT: "Candidati ora", EN: "Apply Now", DE: "Jetzt bewerben", FR: "Postuler maintenant")
   let description = '';
-  const descMatch = html.match(/class="jobdescription"[^>]*>([\s\S]*?)Candidati ora/i);
+  const descMatch = html.match(/class="jobdescription"[^>]*>([\s\S]*?)(?:Candidati ora|Apply [Nn]ow|Jetzt bewerben|Postuler maintenant)/i);
   if (descMatch) {
     let rawDesc = descMatch[1];
     // Remove images
@@ -289,6 +289,17 @@ async function fetchSchindlerJobDetail(url) {
     // Remove slogan h1
     rawDesc = rawDesc.replace(/<h1[^>]*class="slogan"[^>]*>[\s\S]*?<\/h1>/gi, '');
     description = stripHtml(rawDesc);
+  }
+
+  // Fallback: try extracting from jobdescription span until end of span
+  if (!description) {
+    const fallbackMatch = html.match(/class="jobdescription"[^>]*>([\s\S]*?)<\/span>/i);
+    if (fallbackMatch) {
+      let rawDesc = fallbackMatch[1];
+      rawDesc = rawDesc.replace(/<img[^>]*>/gi, '');
+      rawDesc = rawDesc.replace(/<h1[^>]*class="slogan"[^>]*>[\s\S]*?<\/h1>/gi, '');
+      description = stripHtml(rawDesc);
+    }
   }
 
   // Extract Microdata: datePosted, addressLocality, addressRegion, hiringOrganization
@@ -319,9 +330,12 @@ function parseSchindlerJob(searchResult, detailData) {
   }
 
   const description = detailData?.description || '';
+  if (description.length === 0) {
+    console.warn(`  ⚠️ Empty description for: ${title} — skipping (extraction failed)`);
+    return null;
+  }
   if (description.length < 50) {
     console.warn(`  ⚠️ Thin description (${description.length} chars) for: ${title}`);
-    // Still allow it — some SuccessFactors pages have very short descriptions
   }
 
   // Location: prefer detail page Microdata, fallback to search page
