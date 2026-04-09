@@ -140,7 +140,7 @@ const InfoCard = ({ icon: Icon, title, children, color = "blue" }: any) => {
   };
 
   return (
-    <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 sm:p-6 shadow-sm hover:shadow-md transition-shadow">
+    <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 sm:p-6 shadow-sm hover:shadow-md transition-shadow">
       <div className="flex items-center gap-3 mb-4">
         <div className={`p-2.5 bg-gradient-to-br ${colorClasses[color as keyof typeof colorClasses]} rounded-xl`}>
           <Icon className="text-white" size={20} />
@@ -156,7 +156,7 @@ const InfoCard = ({ icon: Icon, title, children, color = "blue" }: any) => {
 
 const SectionHeader = ({ icon: Icon, title, subtitle }: any) => (
   <div className="flex items-center gap-4 mb-6">
-    <div className="p-3 bg-gradient-to-br from-teal-500 to-emerald-600 rounded-2xl shadow-lg">
+    <div className="p-3 bg-gradient-to-br from-teal-500 to-warm-500 rounded-2xl shadow-lg">
       <Icon className="text-white" size={28} />
     </div>
     <div>
@@ -253,7 +253,7 @@ const SchoolDirectory: React.FC<{ t: (key: string) => string }> = ({ t }) => {
   return (
     <div className="bg-white dark:bg-slate-800 rounded-2xl border-2 border-indigo-200 dark:border-indigo-800 overflow-hidden">
       {/* Header */}
-      <div className="bg-gradient-to-r from-teal-600 to-emerald-600 p-5 text-white">
+      <div className="bg-gradient-to-r from-teal-600 via-emerald-500 to-warm-600 p-5 text-white">
         <div className="flex items-center gap-3">
           <BookOpen size={24} />
           <div>
@@ -402,11 +402,11 @@ const MunicipalityDetailPanel: React.FC<MunicipalityDetailPanelProps> = ({ munic
     </div>
 
     <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-5">
-      <div className="bg-slate-50 dark:bg-slate-900/50 rounded-xl p-3">
+      <div className="bg-warm-50 dark:bg-warm-950 rounded-xl p-3">
         <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">{t('guide.municipalities.detail.fascia')}</p>
         <p className="font-bold text-slate-800 dark:text-slate-100">Fascia {municipality.fascia}</p>
       </div>
-      <div className="bg-slate-50 dark:bg-slate-900/50 rounded-xl p-3">
+      <div className="bg-warm-50 dark:bg-warm-950 rounded-xl p-3">
         <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">{t('guide.municipalities.detail.irpef')}</p>
         <p className="font-bold text-slate-800 dark:text-slate-100">{municipality.irpefAddizionale}%</p>
       </div>
@@ -657,7 +657,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
           />
 
           {/* Filtri e Ordinamento */}
-          <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4">
+          <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5">
             <div className="flex flex-wrap gap-4 items-center justify-between">
               <div className="flex items-center gap-2">
                 <span className="text-sm font-bold text-slate-700 dark:text-slate-300">{t('guide.sortBy')}:</span>
@@ -809,7 +809,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
           </div>
 
           {/* Mappa Interattiva */}
-          <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 sm:p-6 overflow-hidden">
+          <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 sm:p-6 overflow-hidden">
             <div className="flex items-center gap-3 mb-4">
               <div className="p-2 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl">
                 <MapPin className="text-white" size={20} />
@@ -910,7 +910,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
 
           {/* Smart Filters */}
           <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 shadow-sm">
-            <h3 className="text-sm font-bold text-slate-700 dark:text-slate-300 mb-4 flex items-center gap-2">
+            <h3 className="text-base font-semibold text-slate-700 dark:text-slate-300 mb-4 flex items-center gap-2">
               <BarChart3 size={16} className="text-indigo-600" />
               {t('guide.border.smartFilters')}
             </h3>
@@ -1022,7 +1022,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
 
           {/* Interactive Map */}
           <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 shadow-sm">
-            <h3 className="text-sm font-bold text-slate-700 dark:text-slate-300 mb-4 flex items-center gap-2">
+            <h3 className="text-base font-semibold text-slate-700 dark:text-slate-300 mb-4 flex items-center gap-2">
               <MapPin size={16} className="text-red-500" />
               {t('guide.border.interactiveMap')}
             </h3>
@@ -2304,7 +2304,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
           <InfoCard icon={Shield} title={t('guide.unemployment.ch.title')} color="orange">
             <div className="space-y-4">
               {/* Who is entitled */}
-              <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
+              <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-slate-700">
                 <h4 className="font-bold text-slate-800 dark:text-slate-100 mb-2 flex items-center gap-2">
                   <Users size={16} className="text-red-500" /> {t('guide.unemployment.ch.whoTitle')}
                 </h4>
@@ -2317,7 +2317,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
               </div>
 
               {/* Amounts */}
-              <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
+              <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-slate-700">
                 <h4 className="font-bold text-slate-800 dark:text-slate-100 mb-2 flex items-center gap-2">
                   <Euro size={16} className="text-red-500" /> {t('guide.unemployment.ch.amountsTitle')}
                 </h4>
@@ -2335,7 +2335,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
               </div>
 
               {/* Duration */}
-              <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
+              <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-slate-700">
                 <h4 className="font-bold text-slate-800 dark:text-slate-100 mb-2 flex items-center gap-2">
                   <Clock size={16} className="text-red-500" /> {t('guide.unemployment.ch.durationTitle')}
                 </h4>
@@ -2357,7 +2357,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
               </div>
 
               {/* Procedure */}
-              <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
+              <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-slate-700">
                 <h4 className="font-bold text-slate-800 dark:text-slate-100 mb-2 flex items-center gap-2">
                   <FileText size={16} className="text-red-500" /> {t('guide.unemployment.ch.procedureTitle')}
                 </h4>
@@ -2371,7 +2371,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
               </div>
 
               {/* Frontalieri specifics */}
-              <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-4">
+              <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-5">
                 <h4 className="font-bold text-amber-800 dark:text-amber-300 mb-2 flex items-center gap-2">
                   <AlertCircle size={16} /> {t('guide.unemployment.ch.frontalieriTitle')}
                 </h4>
@@ -2389,7 +2389,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
           <InfoCard icon={Landmark} title={t('guide.unemployment.it.title')} color="green">
             <div className="space-y-4">
               {/* Who is entitled */}
-              <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
+              <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-slate-700">
                 <h4 className="font-bold text-slate-800 dark:text-slate-100 mb-2 flex items-center gap-2">
                   <Users size={16} className="text-green-600" /> {t('guide.unemployment.it.whoTitle')}
                 </h4>
@@ -2401,7 +2401,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
               </div>
 
               {/* Amounts */}
-              <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
+              <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-slate-700">
                 <h4 className="font-bold text-slate-800 dark:text-slate-100 mb-2 flex items-center gap-2">
                   <Euro size={16} className="text-green-600" /> {t('guide.unemployment.it.amountsTitle')}
                 </h4>
@@ -2416,7 +2416,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
               </div>
 
               {/* Duration */}
-              <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
+              <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-slate-700">
                 <h4 className="font-bold text-slate-800 dark:text-slate-100 mb-2 flex items-center gap-2">
                   <Clock size={16} className="text-green-600" /> {t('guide.unemployment.it.durationTitle')}
                 </h4>
@@ -2425,7 +2425,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
               </div>
 
               {/* Procedure */}
-              <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
+              <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-slate-700">
                 <h4 className="font-bold text-slate-800 dark:text-slate-100 mb-2 flex items-center gap-2">
                   <FileText size={16} className="text-green-600" /> {t('guide.unemployment.it.procedureTitle')}
                 </h4>
@@ -2439,7 +2439,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
               </div>
 
               {/* Frontalieri specifics */}
-              <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-4">
+              <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-5">
                 <h4 className="font-bold text-blue-800 dark:text-blue-300 mb-2 flex items-center gap-2">
                   <Info size={16} /> {t('guide.unemployment.it.frontalieriTitle')}
                 </h4>

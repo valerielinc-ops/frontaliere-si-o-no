@@ -320,6 +320,15 @@ const JobBoardStatsOverviewInner: React.FC<{ locale: Locale }> = ({ locale }) =>
     return () => observer.disconnect();
   }, []);
 
+  // All hooks MUST be called before any early return (React rules of hooks)
+  const leaders = data?.leaders;
+  const topCompaniesForSeo = useMemo(() => leaders?.topCompaniesActive.slice(0, 3) ?? [], [leaders?.topCompaniesActive]);
+  const topLocationsForSeo = useMemo(() => leaders?.topLocationsActive.slice(0, 3) ?? [], [leaders?.topLocationsActive]);
+  const topCompaniesRecent = useMemo(() => leaders?.topCompaniesAdded30d.slice(0, 8) ?? [], [leaders?.topCompaniesAdded30d]);
+  const topTitlesRecent = useMemo(() => leaders?.topTitlesAdded30d.slice(0, 8) ?? [], [leaders?.topTitlesAdded30d]);
+  const topLocationsActive = useMemo(() => leaders?.topLocationsActive.slice(0, 8) ?? [], [leaders?.topLocationsActive]);
+  const topCompaniesActive = useMemo(() => leaders?.topCompaniesActive.slice(0, 8) ?? [], [leaders?.topCompaniesActive]);
+
   if (loading) {
     return (
       <div className="bg-white dark:bg-slate-800 p-6 rounded-3xl border border-slate-100 dark:border-slate-700 shadow-sm flex items-center justify-center">
@@ -335,13 +344,6 @@ const JobBoardStatsOverviewInner: React.FC<{ locale: Locale }> = ({ locale }) =>
       </div>
     );
   }
-
-  const topCompaniesForSeo = useMemo(() => data.leaders.topCompaniesActive.slice(0, 3), [data.leaders.topCompaniesActive]);
-  const topLocationsForSeo = useMemo(() => data.leaders.topLocationsActive.slice(0, 3), [data.leaders.topLocationsActive]);
-  const topCompaniesRecent = useMemo(() => data.leaders.topCompaniesAdded30d.slice(0, 8), [data.leaders.topCompaniesAdded30d]);
-  const topTitlesRecent = useMemo(() => data.leaders.topTitlesAdded30d.slice(0, 8), [data.leaders.topTitlesAdded30d]);
-  const topLocationsActive = useMemo(() => data.leaders.topLocationsActive.slice(0, 8), [data.leaders.topLocationsActive]);
-  const topCompaniesActive = useMemo(() => data.leaders.topCompaniesActive.slice(0, 8), [data.leaders.topCompaniesActive]);
 
   return (
     <div className="space-y-6">

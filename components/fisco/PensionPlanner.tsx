@@ -204,7 +204,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
         {/* Left Column: Inputs */}
         <div className="space-y-4">
           {/* Personal Info */}
-          <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 sm:p-6 shadow-sm">
+          <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 sm:p-6 shadow-sm">
             <div className="flex items-center gap-3 mb-4">
               <Users className="text-emerald-700" size={20} />
               <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100">{t('pension.personalData')}</h2>
@@ -257,7 +257,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
           </div>
 
           {/* Work History */}
-          <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 sm:p-6 shadow-sm">
+          <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 sm:p-6 shadow-sm">
             <div className="flex items-center gap-3 mb-4">
               <Calendar className="text-blue-600" size={20} />
               <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100">{t('pension.workHistory')}</h2>
@@ -334,7 +334,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
           </div>
 
           {/* Financial Info */}
-          <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 sm:p-6 shadow-sm">
+          <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 sm:p-6 shadow-sm">
             <div className="flex items-center gap-3 mb-4">
               <Banknote className="text-purple-600" size={20} />
               <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100">{t('pension.financialData')}</h2>
@@ -396,7 +396,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
           </div>
 
           {/* Repatriation Plan */}
-          <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 sm:p-6 shadow-sm">
+          <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 sm:p-6 shadow-sm">
             <div className="flex items-center gap-3 mb-4">
               <Globe className="text-orange-600" size={20} />
               <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100">{t('pension.repatriationPlan')}</h2>
@@ -446,7 +446,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
           {/* Summary Cards */}
           <div className="grid grid-cols-1 gap-4">
             {/* Total Monthly Pension */}
-            <div className="bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl p-4 sm:p-6 shadow-lg text-white">
+            <div className="bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl p-5 sm:p-6 shadow-lg text-white">
               <div className="flex items-start justify-between mb-4">
                 <div>
                   <div className="text-emerald-100 text-sm font-semibold uppercase tracking-wide mb-1">
@@ -469,7 +469,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
             </div>
 
             {/* LPP Capital */}
-            <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 sm:p-6 shadow-sm">
+            <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 sm:p-6 shadow-sm">
               <div className="flex items-center gap-3 mb-3">
                 <div className="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
                   <PiggyBank className="text-blue-600" size={20} />
@@ -496,7 +496,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
             </div>
 
             {/* AVS Pension */}
-            <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 sm:p-6 shadow-sm">
+            <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 sm:p-6 shadow-sm">
               <div className="flex items-center gap-3 mb-3">
                 <div className="p-2 bg-red-100 dark:bg-red-900/30 rounded-lg">
                   <Home className="text-red-600" size={20} />
@@ -526,7 +526,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
 
             {/* Italian Pension */}
             {inputs.hasItalianContributions && (
-              <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 sm:p-6 shadow-sm">
+              <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 sm:p-6 shadow-sm">
                 <div className="flex items-center gap-3 mb-3">
                   <div className="p-2 bg-green-100 dark:bg-green-900/30 rounded-lg">
                     <Globe className="text-green-700" size={20} />
@@ -554,7 +554,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
           </div>
 
           {/* Breakdown Table */}
-          <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 sm:p-6 shadow-sm">
+          <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 sm:p-6 shadow-sm">
             <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-4 flex items-center gap-2">
               <Calculator size={20} className="text-emerald-700" />
               {t('pension.monthlyBreakdown')}
@@ -597,7 +597,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
 
           {/* Repatriation Info */}
           {inputs.repatriationPlan !== 'undecided' && (
-            <div className={`rounded-2xl border-2 p-4 sm:p-6 ${
+            <div className={`rounded-2xl border-2 p-5 sm:p-6 ${
               inputs.repatriationPlan === 'stay_ch'
                 ? 'bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800'
                 : 'bg-orange-50 dark:bg-orange-900/20 border-orange-200 dark:border-orange-800'

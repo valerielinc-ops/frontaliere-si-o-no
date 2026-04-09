@@ -306,7 +306,7 @@ export default function TrafficHistory() {
 
       {/* Heatmap */}
       <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4">
-        <h3 className="text-sm font-semibold text-slate-700 dark:text-slate-200 mb-4 flex items-center gap-2">
+        <h3 className="text-base font-semibold text-slate-700 dark:text-slate-200 mb-4 flex items-center gap-2">
           <AlertTriangle size={16} className="text-amber-500" />
           {t('trafficHistory.heatmapTitle')}
         </h3>
@@ -358,7 +358,7 @@ export default function TrafficHistory() {
 
       {/* Daily comparison */}
       <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4">
-        <h3 className="text-sm font-semibold text-slate-700 dark:text-slate-200 mb-4">
+        <h3 className="text-base font-semibold text-slate-700 dark:text-slate-200 mb-4">
           {t('trafficHistory.morningRush')} (7:00–9:00)
         </h3>
         <div className="space-y-2">

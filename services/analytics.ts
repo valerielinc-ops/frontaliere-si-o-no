@@ -317,7 +317,7 @@ const REACT_ERROR_CODES: Record<number, string> = {
   152: 'Nothing was returned from render',
   185: 'Maximum update depth exceeded (infinite re-render loop)',
   286: 'Component suspended while the fallback boundary was already showing',
-  310: 'Cannot update a component from inside the function body of a different component',
+  310: 'Rendered more hooks than during the previous render',
   321: 'useContext requires a valid React context (got undefined)',
   362: 'Hooks can only be called inside the body of a function component',
   394: 'Cannot call a class as a function',

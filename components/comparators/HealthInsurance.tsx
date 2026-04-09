@@ -205,7 +205,7 @@ const HealthInsurance: React.FC = () => {
 
   return (
     <div className="space-y-6 pb-8">
-      <div className="bg-gradient-to-br from-rose-700 to-rose-900 rounded-2xl p-4 sm:p-8 text-white">
+      <div className="bg-gradient-to-br from-rose-700 to-rose-900 rounded-2xl p-5 sm:p-8 text-white">
         <div className="flex items-center gap-3 mb-3">
           <Heart size={28} />
           <h2 className="text-2xl sm:text-3xl font-bold">{t('health.title')}</h2>
@@ -216,7 +216,7 @@ const HealthInsurance: React.FC = () => {
         <div className="mt-3"><DataFreshness lastUpdated={data?.fetchedAt?.slice(0, 7) || '2026-01'} source="Premi UFSP" sourceUrl="https://www.priminfo.admin.ch" variant="badge" /></div>
       </div>
 
-      <div className="bg-amber-50 dark:bg-amber-950/30 border-l-4 border-amber-500 p-4 rounded-lg">
+      <div className="bg-amber-50 dark:bg-amber-950/30 border-l-4 border-amber-500 p-5 rounded-lg">
         <div className="flex items-start gap-3">
           <AlertCircle className="text-amber-700 flex-shrink-0 mt-0.5" size={20} />
           <div className="text-sm text-amber-900 dark:text-amber-200">
@@ -302,7 +302,7 @@ const HealthInsurance: React.FC = () => {
       <div className="min-h-[100px]">
       {cheapest && mostExpensive && (
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <div className="bg-emerald-50 dark:bg-emerald-950/30 rounded-xl p-4 border border-emerald-200 dark:border-emerald-800">
+          <div className="bg-emerald-50 dark:bg-emerald-950/30 rounded-xl p-5 border border-emerald-200 dark:border-emerald-800">
             <div className="flex items-center gap-2 text-emerald-700 dark:text-emerald-400 mb-1">
               <TrendingDown size={16} />
               <span className="text-xs font-bold uppercase tracking-wider">{'Più economica'}</span>
@@ -310,14 +310,14 @@ const HealthInsurance: React.FC = () => {
             <p className="text-2xl font-bold text-slate-800 dark:text-slate-100">{cheapest.premium.toFixed(2)} CHF</p>
             <p className="text-xs text-slate-500 dark:text-slate-400">{cheapest.insurer.name} /mese</p>
           </div>
-          <div className="bg-blue-50 dark:bg-blue-950/30 rounded-xl p-4 border border-blue-200 dark:border-blue-800">
+          <div className="bg-blue-50 dark:bg-blue-950/30 rounded-xl p-5 border border-blue-200 dark:border-blue-800">
             <div className="flex items-center gap-2 text-blue-700 dark:text-blue-400 mb-1">
               <Award size={16} />
               <span className="text-xs font-bold uppercase tracking-wider">Miglior rapporto</span>
             </div>
             {(() => { const bv = filtered.find(r => r.isBestValue); return bv ? (<><p className="text-2xl font-bold text-slate-800 dark:text-slate-100">{bv.premium.toFixed(2)} CHF</p><p className="text-xs text-slate-500">{bv.insurer.name}</p></>) : null; })()}
           </div>
-          <div className="bg-slate-50 dark:bg-slate-800/50 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
+          <div className="bg-slate-50 dark:bg-slate-800/50 rounded-xl p-5 border border-slate-200 dark:border-slate-700">
             <div className="flex items-center gap-2 text-slate-500 dark:text-slate-400 mb-1">
               <Info size={16} />
               <span className="text-xs font-bold uppercase tracking-wider">Risparmio max annuo</span>

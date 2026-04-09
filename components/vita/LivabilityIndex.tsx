@@ -105,7 +105,7 @@ export default function LivabilityIndex() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="bg-white dark:bg-slate-800 rounded-xl shadow-lg p-6">
+      <div className="bg-white dark:bg-slate-800 rounded-xl shadow-lg p-5">
         <div className="flex items-center gap-3 mb-2">
           <MapPin className="text-amber-600 dark:text-amber-400" size={28} />
           <h2 className="text-2xl font-bold text-slate-800 dark:text-white">{t('livability.title')}</h2>
@@ -114,7 +114,7 @@ export default function LivabilityIndex() {
       </div>
 
       {/* Controls */}
-      <div className="bg-white dark:bg-slate-800 rounded-xl shadow p-4">
+      <div className="bg-white dark:bg-slate-800 rounded-xl shadow p-5">
         <div className="flex flex-wrap gap-4 items-end">
           {/* Province filter */}
           <div className="flex-1 min-w-[160px]">

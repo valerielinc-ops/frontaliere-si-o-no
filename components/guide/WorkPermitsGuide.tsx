@@ -309,7 +309,7 @@ const WorkPermitsGuide: React.FC = () => {
   return (
     <div className="space-y-6 animate-fade-in">
       {/* Header */}
-      <div className="bg-gradient-to-br from-teal-600 via-teal-500 to-emerald-600 rounded-3xl p-5 sm:p-8 text-white shadow-2xl">
+      <div className="bg-gradient-to-br from-teal-600 via-emerald-500 to-warm-600 rounded-3xl p-5 sm:p-8 text-white shadow-2xl">
         <div className="flex items-center gap-4 mb-4">
           <div className="p-3 bg-white/20 dark:bg-white/8 rounded-2xl">
             <Shield size={32} />
@@ -348,7 +348,7 @@ const WorkPermitsGuide: React.FC = () => {
       {/* Selected Permit Details */}
       <div className="space-y-3">
         {/* Overview */}
-        <div className={`bg-gradient-to-r ${permit.color} rounded-2xl p-4 sm:p-6 text-white`}>
+        <div className={`bg-gradient-to-r ${permit.color} rounded-2xl p-5 sm:p-6 text-white`}>
           <div className="flex items-center gap-3 mb-3">
             <span className="text-4xl">{permit.icon}</span>
             <div>
@@ -437,7 +437,7 @@ const WorkPermitsGuide: React.FC = () => {
               <p className="text-sm text-slate-700 dark:text-slate-300">{t('permits.g.statusIntro')}</p>
 
               {/* Vecchio definition */}
-              <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-4">
+              <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-5">
                 <h5 className="font-bold text-blue-700 dark:text-blue-400 text-sm flex items-center gap-2 mb-2">
                   <Shield size={16} />
                   {t('permits.g.oldLabel')}
@@ -449,7 +449,7 @@ const WorkPermitsGuide: React.FC = () => {
               </div>
 
               {/* Nuovo definition */}
-              <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-4">
+              <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-5">
                 <h5 className="font-bold text-amber-700 dark:text-amber-400 text-sm flex items-center gap-2 mb-2">
                   <AlertCircle size={16} />
                   {t('permits.g.newLabel')}
@@ -461,7 +461,7 @@ const WorkPermitsGuide: React.FC = () => {
               </div>
 
               {/* G → B → G scenario */}
-              <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-4">
+              <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-5">
                 <h5 className="font-bold text-blue-700 dark:text-blue-400 text-sm flex items-center gap-2 mb-2">
                   <Scale size={16} />
                   {t('permits.g.switchTitle')}
@@ -478,7 +478,7 @@ const WorkPermitsGuide: React.FC = () => {
               </div>
 
               {/* Sources */}
-              <div className="bg-slate-50 dark:bg-slate-900 rounded-xl p-4 flex items-start gap-3">
+              <div className="bg-warm-50 dark:bg-warm-950 rounded-xl p-5 flex items-start gap-3">
                 <FileText size={16} className="text-slate-500 dark:text-slate-400 flex-shrink-0 mt-0.5" />
                 <p className="text-xs text-slate-600 dark:text-slate-400">{t('permits.g.switchNote')}</p>
               </div>
@@ -503,7 +503,7 @@ const WorkPermitsGuide: React.FC = () => {
       </div>
 
       {/* Comparison table */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 sm:p-6">
+      <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 sm:p-6">
         <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-4 flex items-center gap-2">
           <Globe size={20} className="text-blue-600" />
           {t('permits.comparisonTitle')}

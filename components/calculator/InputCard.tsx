@@ -70,7 +70,7 @@ const SectionHeader = ({ title, icon: Icon, isOpen, onToggle, subtext, iconColor
         <Icon size={18} />
       </div>
       <div className="text-left">
-        <div className={`text-sm font-bold transition-colors ${isOpen ? 'text-slate-800 dark:text-slate-100' : 'text-slate-600 dark:text-slate-300'}`}>{title}</div>
+        <div className={`text-base font-semibold transition-colors ${isOpen ? 'text-slate-800 dark:text-slate-100' : 'text-slate-600 dark:text-slate-300'}`}>{title}</div>
         {subtext && <div className="text-xs text-slate-600 dark:text-slate-400 font-medium uppercase tracking-wide">{subtext}</div>}
       </div>
     </div>
@@ -526,7 +526,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
         </div>
 
         {/* SECTION 2: FRONTIER TYPE */}
-        <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm p-5 space-y-4">
+        <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm p-5 space-y-5">
            <h3 className="text-xs font-bold text-slate-600 dark:text-slate-300 uppercase tracking-widest flex items-center gap-2">
              <TrainFront size={14} className="text-emerald-500"/> {t('input.frontierType')}
              <InfoTooltip text={t('input.frontierTypeTooltip')} />
@@ -760,7 +760,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
                         <InfoTooltip text={t('input.healthInsuranceTooltip')} />
                       </label>
                       <div className="relative group">
-                          <input type="number" inputMode="numeric" value={inputs.healthInsuranceCHF || ''} onChange={(e) => handleChange('healthInsuranceCHF', Number(e.target.value))} aria-label={t('input.healthInsurance') || 'Cassa malati CHF'} className="w-full pl-3 pr-10 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus-visible:ring-4 focus-visible:ring-blue-100 focus-visible:border-blue-500 outline-none transition-[color,border-color,box-shadow] font-bold text-slate-800 dark:text-slate-100 text-sm h-11" placeholder="0" />
+                          <input type="number" inputMode="numeric" value={inputs.healthInsuranceCHF || ''} onChange={(e) => handleChange('healthInsuranceCHF', Number(e.target.value))} aria-label={t('input.healthInsurance') || 'Cassa malati CHF'} className="w-full pl-3 pr-10 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus-visible:ring-4 focus-visible:ring-blue-100 focus-visible:border-blue-500 outline-none transition-[color,border-color,box-shadow] font-bold text-slate-800 dark:text-slate-100 text-base h-11" placeholder="0" />
                           <span className="absolute right-3 top-3.5 text-slate-600 dark:text-slate-300 font-bold text-xs">CHF</span>
                       </div>
                   </div>
@@ -772,7 +772,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
                         <InfoTooltip text={t('input.netWealthTooltip')} />
                       </label>
                       <div className="relative group">
-                          <input type="number" inputMode="numeric" value={inputs.netWealthCHF || ''} onChange={(e) => handleChange('netWealthCHF', Number(e.target.value))} aria-label={t('input.netWealth') || 'Patrimonio netto CHF'} className="w-full pl-3 pr-10 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus-visible:ring-4 focus-visible:ring-blue-100 focus-visible:border-blue-500 outline-none transition-[color,border-color,box-shadow] font-bold text-slate-800 dark:text-slate-100 text-sm h-11" placeholder="0" />
+                          <input type="number" inputMode="numeric" value={inputs.netWealthCHF || ''} onChange={(e) => handleChange('netWealthCHF', Number(e.target.value))} aria-label={t('input.netWealth') || 'Patrimonio netto CHF'} className="w-full pl-3 pr-10 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus-visible:ring-4 focus-visible:ring-blue-100 focus-visible:border-blue-500 outline-none transition-[color,border-color,box-shadow] font-bold text-slate-800 dark:text-slate-100 text-base h-11" placeholder="0" />
                           <span className="absolute right-3 top-3.5 text-slate-600 dark:text-slate-300 font-bold text-xs">CHF</span>
                       </div>
                       <p className="text-xs text-slate-600 dark:text-slate-400">{t('input.netWealthNote')}</p>

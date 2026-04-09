@@ -2,6 +2,66 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Dark mode color-scheme — fixes native scrollbars, inputs, form controls */
+html.dark { color-scheme: dark; }
+
+/* ── Semantic Design Tokens ── */
+:root {
+  --color-interactive: #4f46e5;
+  --color-interactive-hover: #4338ca;
+  --color-text-primary: #1e293b;
+  --color-text-secondary: #64748b;
+  --color-text-muted: #94a3b8;
+  --color-status-success: #059669;
+  --color-status-warning: #d97706;
+  --color-status-error: #dc2626;
+  --color-surface: #ffffff;
+  --color-surface-raised: #f8fafc;
+  --color-surface-warm: #fdf8f4;
+  --color-border: #e2e8f0;
+  --color-border-focus: #0d9488;
+}
+html.dark {
+  --color-interactive: #818cf8;
+  --color-interactive-hover: #6366f1;
+  --color-text-primary: #f1f5f9;
+  --color-text-secondary: #94a3b8;
+  --color-text-muted: #64748b;
+  --color-status-success: #34d399;
+  --color-status-warning: #fbbf24;
+  --color-status-error: #f87171;
+  --color-surface: #0f172a;
+  --color-surface-raised: #1e293b;
+  --color-surface-warm: #1a1510;
+  --color-border: #334155;
+  --color-border-focus: #2dd4bf;
+}
+
+/* Eliminate 300ms tap delay on all interactive elements (mobile) */
+button, a, [role="button"], input, select, textarea, label, summary {
+  touch-action: manipulation;
+}
+
+/* Tabular numbers for financial data alignment */
+.tabular-nums, [data-numeric], td, th, output, .font-mono {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Respect user motion preferences — disable all animations/transitions */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Prevent modal/drawer scroll bleed */
+[role="dialog"], [role="alertdialog"], .modal-overlay {
+  overscroll-behavior: contain;
+}
+
 /* Global keyboard focus indicator — teal-600 ring on all interactive elements */
 button:focus-visible, a:focus-visible, [role="button"]:focus-visible,
 input:focus-visible, select:focus-visible, textarea:focus-visible {
