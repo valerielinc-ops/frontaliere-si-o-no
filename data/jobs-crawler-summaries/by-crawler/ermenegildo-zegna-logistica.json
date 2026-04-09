@@ -1,16 +1,16 @@
 {
   "key": "ermenegildo-zegna-logistica",
   "label": "Zegna",
-  "generatedAt": "2026-04-08T21:59:15.432Z",
+  "generatedAt": "2026-04-09T10:16:04.628Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5700,
-  "avgDurationMs": 5700,
+  "durationMs": 8128,
+  "avgDurationMs": 8128,
   "durationHistory": [
-    5700
+    8128
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -57,49 +57,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "url": "https://careers.zegnagroup.com/jobs/job-details?JobID=259465840&Team=231361275",
-      "applyUrl": "https://careers.zegnagroup.com/jobs/job-details?JobID=259465840&Team=231361275",
-      "title": "Senior Credit Specialist",
-      "company": "Ermenegildo Zegna Group",
-      "companyKey": "ermenegildo-zegna-logistica",
-      "location": "Stabio",
-      "canton": "TI",
-      "country": "CH",
-      "slug": "senior-credit-specialista-ermenegildo-zegna-group-stabio",
-      "department": "Corporate and Staff Functions/Finance & Control",
-      "category": "Corporate and Staff Functions/Finance & Control",
-      "datePosted": "2026-03-29",
-      "source": "zegna-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Finanza",
-      "brand": "Zegna",
-      "contractType": "Permanent Job",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Stabio"
-      },
-      "crawledAt": "",
-      "sourceLang": "en",
-      "salaryMin": 72000,
-      "salaryMax": 97000,
-      "currency": "CHF",
-      "streetAddress": "Via Lugano 13",
-      "postalCode": "6855",
-      "addressLocality": "Stabio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "id": "ermenegildo-zegna-logistica-50948496907c",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
