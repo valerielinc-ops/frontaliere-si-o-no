@@ -1,53 +1,5 @@
 [
   {
-    "timestamp": "2026-03-31T05:21:16.189Z",
-    "label": "before",
-    "total": 1253,
-    "needsRetranslation": 10,
-    "incomplete": 10,
-    "complete": 1243,
-    "missingByLocale": {
-      "it": 0,
-      "en": 10,
-      "de": 10,
-      "fr": 10
-    },
-    "topPending": [
-      {
-        "company": "Rapelli - ORIOR Food AG",
-        "pending": 8
-      },
-      {
-        "company": "Denner",
-        "pending": 1
-      },
-      {
-        "company": "Zambon Svizzera SA",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-03-31T05:21:50.312Z",
-    "label": "after",
-    "total": 1253,
-    "needsRetranslation": 1,
-    "incomplete": 1,
-    "complete": 1252,
-    "missingByLocale": {
-      "it": 0,
-      "en": 1,
-      "de": 1,
-      "fr": 1
-    },
-    "topPending": [
-      {
-        "company": "Denner",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-03-31T07:49:12.521Z",
     "label": "before",
     "total": 1322,
@@ -10367,6 +10319,86 @@
       },
       {
         "company": "Guess Europe Sagl",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-09T14:03:39.356Z",
+    "label": "before",
+    "total": 1582,
+    "needsRetranslation": 136,
+    "incomplete": 85,
+    "complete": 1497,
+    "missingByLocale": {
+      "it": 27,
+      "en": 85,
+      "de": 58,
+      "fr": 85
+    },
+    "topPending": [
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 47
+      },
+      {
+        "company": "Swiss Armed Forces (VTG)",
+        "pending": 21
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 7
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 4
+      },
+      {
+        "company": "Hügli Nährmittel-Erzeugung GmbH",
+        "pending": 4
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      },
+      {
+        "company": "Banca del Sempione",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-09T14:06:36.300Z",
+    "label": "after",
+    "total": 1582,
+    "needsRetranslation": 68,
+    "incomplete": 18,
+    "complete": 1564,
+    "missingByLocale": {
+      "it": 11,
+      "en": 18,
+      "de": 7,
+      "fr": 18
+    },
+    "topPending": [
+      {
+        "company": "Lidl Svizzera",
+        "pending": 7
+      },
+      {
+        "company": "Swiss Armed Forces (VTG)",
+        "pending": 5
+      },
+      {
+        "company": "Hügli Nährmittel-Erzeugung GmbH",
+        "pending": 4
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      },
+      {
+        "company": "Banca del Sempione",
         "pending": 1
       }
     ]
