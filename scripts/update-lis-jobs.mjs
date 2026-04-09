@@ -36,6 +36,7 @@ import {
   buildLisJob,
 } from './lib/lis-lugano-istituti-sociali-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { detectLanguage } from './lib/detect-language.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -86,14 +87,7 @@ function normalizeKey(value = '') {
 }
 
 function detectLang(text = '') {
-  const t = ` ${normalize(text)} `;
-  // Keep LIS source language detection conservative: generic articles such as
-  // "das/la/il" create false positives on mixed-content ATS pages.
-  if (/( luogo di lavoro | data di scadenza | concorso pubblico | candidatura | candidati | svizzera | ticino )/.test(t)) return 'it';
-  if (/( work location | expiry date | job description | requirements | apply now )/.test(t)) return 'en';
-  if (/( arbeitsort | stellenbeschreibung | anforderungen | bewerben )/.test(t)) return 'de';
-  if (/( lieu de travail | date d expiration | description du poste | exigences | postuler | envoyer )/.test(t)) return 'fr';
-  return 'it';
+  return detectLanguage(text, 'it');
 }
 
 /**

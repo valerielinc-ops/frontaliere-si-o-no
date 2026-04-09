@@ -48,6 +48,7 @@ import { extractDrupalNodeId, extractIrsolDetailPage, MIN_IRSOL_BODY_LENGTH } fr
 import { translateTextWithLocalPipeline } from './lib/job-localization-pipeline.mjs';
 import { freeTranslateWithRetry } from './lib/free-translate.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { detectLanguage } from './lib/detect-language.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -122,12 +123,7 @@ function normalizeSpace(s = '') {
 }
 
 function detectLang(text = '') {
-  const t = ` ${normalize(text)} `;
-  if (/( das | und | bei uns | stellenbeschreibung | arbeitsort )/.test(t)) return 'de';
-  if (/( the | with | requirements | apply now | faculty )/.test(t)) return 'en';
-  if (/( il | la | con | requisiti | candidati | bando | concorsi )/.test(t)) return 'it';
-  if (/( le | la | avec | exigences | poste )/.test(t)) return 'fr';
-  return 'it'; // USI default is Italian
+  return detectLanguage(text, 'it');
 }
 
 /**

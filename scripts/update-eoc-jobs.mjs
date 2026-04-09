@@ -26,6 +26,7 @@ import {
   validateDedicatedLocaleCoverage,
   stableSlugHash,
 } from './lib/dedicated-crawler-common.mjs';
+import { detectLanguage } from './lib/detect-language.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -89,12 +90,7 @@ function extractVacancyId(url) {
 }
 
 function detectLang(text = '') {
-  const t = ` ${normalize(text)} `;
-  if (/( das | und | bei uns | stellenbeschreibung | arbeitsort )/.test(t)) return 'de';
-  if (/( the | with | requirements | apply now )/.test(t)) return 'en';
-  if (/( il | la | con | requisiti | candidati )/.test(t)) return 'it';
-  if (/( le | la | avec | exigences | poste )/.test(t)) return 'fr';
-  return 'it';
+  return detectLanguage(text, 'it');
 }
 
 /**

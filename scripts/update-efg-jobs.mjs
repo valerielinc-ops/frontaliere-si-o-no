@@ -29,6 +29,7 @@ import {
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage } from './lib/dedicated-crawler-common.mjs';
 import { parseEfgOracleDescription } from './lib/efg-job-parser.mjs';
+import { detectLanguage } from './lib/detect-language.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -124,12 +125,7 @@ function normalizeKey(value = '') {
 }
 
 function detectLang(text = '') {
-  const t = ` ${normalize(text)} `;
-  if (/( das | und | bei uns | stellenbeschreibung | arbeitsort )/.test(t)) return 'de';
-  if (/( the | with | requirements | apply now )/.test(t)) return 'en';
-  if (/( il | la | con | requisiti | candidati )/.test(t)) return 'it';
-  if (/( le | la | avec | exigences | poste )/.test(t)) return 'fr';
-  return 'en'; // EFG uses English as default language
+  return detectLanguage(text, 'en');
 }
 
 /**
