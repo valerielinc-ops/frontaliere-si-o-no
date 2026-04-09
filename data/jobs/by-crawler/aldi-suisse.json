@@ -1,6 +1,6 @@
 {
   "crawlerKey": "aldi-suisse",
-  "assembledAt": "2026-04-08T20:47:56.840Z",
+  "assembledAt": "2026-04-09T09:04:48.694Z",
   "jobs": [
     {
       "id": "aldi-suisse-c84740c470c4",
@@ -73,24 +73,25 @@
       "workPercentage": "",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-08",
+      "postedDate": "2026-04-09",
       "url": "https://www.jobs.aldi.ch/job/1287177101",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-08T20:47:55.156Z",
+      "crawledAt": "2026-04-09T09:04:46.771Z",
       "previousSlugs": [
         "stellvertretender-filialleiter-m-w-d-aldi-suisse",
         "stellvertretender-filialleiter-m-w-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem"
       ],
-      "salaryMin": 66000,
-      "salaryMax": 89000,
+      "needsRetranslation": true,
+      "salaryMin": 82500,
+      "salaryMax": 127000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 66000,
-          "maxValue": 89000,
+          "minValue": 82500,
+          "maxValue": 127000,
           "unitText": "YEAR"
         }
       }
@@ -163,25 +164,26 @@
       "workPercentage": "",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-08",
+      "postedDate": "2026-04-09",
       "url": "https://www.jobs.aldi.ch/job/1266053601",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-08T20:47:55.153Z",
+      "crawledAt": "2026-04-09T09:04:46.769Z",
       "previousSlugs": [
         "addetto-vendite-m-f-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem",
         "mitarbeiter-verkauf-m-w-d-aldi-suisse",
         "mitarbeiter-verkauf-m-w-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem-4n4np8"
       ],
-      "salaryMin": 54000,
-      "salaryMax": 73000,
+      "needsRetranslation": true,
+      "salaryMin": 59000,
+      "salaryMax": 90500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 54000,
-          "maxValue": 73000,
+          "minValue": 59000,
+          "maxValue": 90500,
           "unitText": "YEAR"
         }
       }
@@ -252,23 +254,24 @@
       "workPercentage": "",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-08",
+      "postedDate": "2026-04-09",
       "url": "https://www.jobs.aldi.ch/job/1224938701",
       "source": "ALDI Suisse Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-08T20:47:55.151Z",
+      "crawledAt": "2026-04-09T09:04:46.767Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse"
       ],
-      "salaryMin": 43000,
-      "salaryMax": 58000,
+      "needsRetranslation": true,
+      "salaryMin": 46500,
+      "salaryMax": 71500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 43000,
-          "maxValue": 58000,
+          "minValue": 46500,
+          "maxValue": 71500,
           "unitText": "YEAR"
         }
       }
