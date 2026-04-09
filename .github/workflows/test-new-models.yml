@@ -20,13 +20,20 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Prepare Firebase credentials
-        run: echo '${{ secrets.FIREBASE_SA_KEY }}' > /tmp/sa-key.json
+      - name: Prepare Firebase credentials (optional)
         env:
-          FIREBASE_SA_KEY: ${{ secrets.FIREBASE_SA_KEY }}
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          else
+            echo "ℹ️ Firebase secrets not set — cannot test models."
+            exit 1
+          fi
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
 
       - name: Load secrets from Remote Config
-        run: GOOGLE_APPLICATION_CREDENTIALS=/tmp/sa-key.json node scripts/load-rc-env.mjs
+        run: node scripts/load-rc-env.mjs
 
       - name: Test new models
         run: |
