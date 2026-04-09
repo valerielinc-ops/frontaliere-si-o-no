@@ -1071,6 +1071,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
                 onClick={() => { setCurrentMonth(m => Math.max(0, m - 1)); setSelectedDate(null); }}
                 disabled={currentMonth === 0}
                 className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-700 hover:bg-amber-100 dark:hover:bg-amber-900/30 disabled:opacity-30 transition-[color,background-color,opacity]"
+                aria-label="Mese precedente"
               >
                 <ChevronLeft size={22} />
               </button>
@@ -1102,6 +1103,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
                 onClick={() => { setCurrentMonth(m => Math.min(11, m + 1)); setSelectedDate(null); }}
                 disabled={currentMonth === 11}
                 className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-700 hover:bg-amber-100 dark:hover:bg-amber-900/30 disabled:opacity-30 transition-[color,background-color,opacity]"
+                aria-label="Mese successivo"
               >
                 <ChevronRight size={22} />
               </button>
