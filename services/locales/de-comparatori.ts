@@ -1,5 +1,5 @@
 const deComparatori: Record<string, string> = {
-    'companies.title': 'Unternehmen im Tessin',
+    'companies.title': 'Unternehmen {cantonPrep}',
     'companies.subtitle': 'Interaktive Karte der wichtigsten Unternehmen mit Filtern nach Branche und Größe',
     'companies.totalCompanies': 'Unternehmen',
     'companies.totalEmployees': 'Mitarbeiter',

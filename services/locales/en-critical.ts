@@ -92,7 +92,7 @@ const criticalTranslations: Record<string, string> = {
   'guide.tabs.calendar': 'Tax Deadlines',
   'guide.tabs.holidays': 'Ticino Holidays 2026',
   'guide.tabs.permits': 'Work Permits',
-  'guide.tabs.companies': 'Ticino Companies',
+  'guide.tabs.companies': '{canton} Companies',
   'guide.tabs.shopping': 'Cross-Border Shopping',
   'guide.tabs.costOfLiving': 'Cost of Living',
   'guide.tabs.places': 'Places to Visit',

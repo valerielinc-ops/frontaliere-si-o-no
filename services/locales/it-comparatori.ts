@@ -1,6 +1,6 @@
 // Italian translations — comparatori page chunk
 const translations: Record<string, string> = {
-    'companies.title': 'Aziende in Ticino',
+    'companies.title': 'Aziende in {canton}',
     'companies.subtitle': 'Mappa interattiva delle principali società con filtri per settore e dimensione',
     'companies.totalCompanies': 'Aziende',
     'companies.totalEmployees': 'Dipendenti',

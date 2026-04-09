@@ -92,7 +92,7 @@ const criticalTranslations: Record<string, string> = {
   'guide.tabs.calendar': 'Scadenze Fiscali',
   'guide.tabs.holidays': 'Festività Ticino 2026',
   'guide.tabs.permits': 'Permessi Lavoro',
-  'guide.tabs.companies': 'Aziende Ticino',
+  'guide.tabs.companies': 'Aziende {canton}',
   'guide.tabs.shopping': 'Spesa Transfrontaliera',
   'guide.tabs.costOfLiving': 'Costo della Vita',
   'guide.tabs.places': 'Posti da Visitare',

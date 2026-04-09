@@ -1,5 +1,5 @@
 const frComparatori: Record<string, string> = {
-    'companies.title': 'Entreprises au Tessin',
+    'companies.title': 'Entreprises {cantonPrep}',
     'companies.subtitle': 'Carte interactive des principales entreprises avec filtres par secteur et taille',
     'companies.totalCompanies': 'Entreprises',
     'companies.totalEmployees': 'Employés',

@@ -59,20 +59,20 @@ describe('i18n Service', () => {
 
   it('has companies translations in all locales', () => {
     setLocale('it');
-    expect(t('companies.title')).toBe('Aziende in Ticino');
+    expect(t('companies.title', { canton: 'Ticino' })).toBe('Aziende in Ticino');
     setLocale('en');
-    expect(t('companies.title')).toBe('Companies in Ticino');
+    expect(t('companies.title', { canton: 'Ticino' })).toBe('Companies in Ticino');
     setLocale('de');
-    expect(t('companies.title')).toBe('Unternehmen im Tessin');
+    expect(t('companies.title', { cantonPrep: 'im Tessin' })).toBe('Unternehmen im Tessin');
     setLocale('fr');
-    expect(t('companies.title')).toBe('Entreprises au Tessin');
+    expect(t('companies.title', { cantonPrep: 'au Tessin' })).toBe('Entreprises au Tessin');
   });
 
   it('has comparator sub-tab translations', () => {
     setLocale('en');
     expect(t('comparators.exchange')).toBe('Currency Exchange');
     expect(t('comparators.jobs')).toBe('Job Offers');
-    expect(t('comparators.companies')).toBe('Ticino Companies');
+    expect(t('comparators.companies', { canton: 'Ticino' })).toBe('Ticino Companies');
   });
 
   it('keeps canonical Italian locale on non-prefixed deep links even if another locale is stored', () => {

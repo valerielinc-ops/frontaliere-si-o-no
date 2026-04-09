@@ -1,5 +1,5 @@
 const enComparatori: Record<string, string> = {
-    'companies.title': 'Companies in Ticino',
+    'companies.title': 'Companies in {canton}',
     'companies.subtitle': 'Interactive map of major companies with filters by sector and size',
     'companies.totalCompanies': 'Companies',
     'companies.totalEmployees': 'Employees',
