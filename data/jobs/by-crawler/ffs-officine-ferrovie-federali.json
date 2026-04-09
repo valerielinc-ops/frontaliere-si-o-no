@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ffs-officine-ferrovie-federali",
-  "assembledAt": "2026-04-08T21:46:14.313Z",
+  "assembledAt": "2026-04-09T10:02:35.471Z",
   "jobs": [
     {
       "id": "sbb-8b00fa855f2e",
@@ -61,28 +61,29 @@
       "postedDate": "2026-03-31",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/gestore-immobiliare-con-responsabilita-per-il-partner-management-m-f-d/fc920ba5-21e7-4d5e-b4f9-ff0a96e4f27e",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-04-08T21:45:37.746Z",
+      "crawledAt": "2026-04-09T10:02:22.256Z",
       "previousSlugs": [
         "gestionnaire-immobilier-responsable-de-la-gestion-des-associes-m-f-d-ffs-officine-ferrovie-federali-bellinzona",
         "real-estate-manager-with-responsibility-for-partner-management-m-f-d-ffs-officine-ferrovie",
         "gestionnaire-immobilier-avec-responsabilite-pour-le-partenaire-de-gestion-m-f-d-ffs-officine-ferrovie-federali-bellinzona"
       ],
-      "salaryMin": 94000,
-      "salaryMax": 127000,
+      "salaryMin": 79500,
+      "salaryMax": 135000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 94000,
-          "maxValue": 127000,
+          "minValue": 79500,
+          "maxValue": 135000,
           "unitText": "YEAR"
         }
       },
       "streetAddress": "Via Officina 3",
       "postalCode": "6500",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-95a0230fa695",
@@ -148,16 +149,16 @@
       "postedDate": "2026-03-30",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/polimeccanico-a-o-operatore-trice-in-automazione/393cdbc2-cf24-42ef-8889-4596d8f569fd",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-04-08T21:45:34.663Z",
-      "salaryMin": 72500,
-      "salaryMax": 97500,
+      "crawledAt": "2026-04-09T10:02:29.691Z",
+      "salaryMin": 51500,
+      "salaryMax": 88000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 72500,
-          "maxValue": 97500,
+          "minValue": 51500,
+          "maxValue": 88000,
           "unitText": "YEAR"
         }
       },
@@ -168,9 +169,9 @@
     },
     {
       "id": "sbb-f4d78cef9cf1",
-      "slug": "rangierspezialist-in-ffs-officine-ferrovie-federali-landquart",
+      "slug": "specialista-di-manovra-ffs-officine-ferrovie-federali-landquart",
       "slugByLocale": {
-        "it": "rangierspezialist-in-ffs-officine-ferrovie-federali-landquart",
+        "it": "specialista-di-manovra-ffs-officine-ferrovie-federali-landquart",
         "en": "shunting-specialist-ffs-officine-ferrovie-federali-landquart",
         "de": "rangierspezialist-in-ffs-officine-ferrovie-federali-landquart",
         "fr": "specialiste-de-man-uvre-ffs-officine-ferrovie-federali-landquart"
@@ -229,19 +230,19 @@
       "postedDate": "2026-02-24",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/rangierspezialist-in/d30a361d-1d2c-4850-9396-a9275f04e39c",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-04-08T21:46:14.220Z",
+      "crawledAt": "2026-04-09T10:02:34.771Z",
       "previousSlugs": [
-        "specialista-di-manovra-ffs-officine-ferrovie-federali-landquart"
+        "rangierspezialist-in-ffs-officine-ferrovie-federali-landquart"
       ],
-      "salaryMin": 72500,
-      "salaryMax": 97500,
+      "salaryMin": 51500,
+      "salaryMax": 88000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 72500,
-          "maxValue": 97500,
+          "minValue": 51500,
+          "maxValue": 88000,
           "unitText": "YEAR"
         }
       },
@@ -252,7 +253,7 @@
     },
     {
       "id": "sbb-a1f86d50ca96",
-      "slug": "quereinstieg-lokfuhrer-in-personenverkehr-12-2026-ffs-officine-ferrovie-federali-chur",
+      "slug": "ingresso-come-macchinista-per-il-traffico-passeggeri-12-2026-ffs-officine-ferrovie-federali-chur",
       "slugByLocale": {
         "it": "ingresso-come-macchinista-per-il-traffico-passeggeri-12-2026-ffs-officine-ferrovie-federali-chur",
         "en": "entry-as-a-train-driver-for-passenger-traffic-12-2026-ffs-officine-ferrovie-federali-chur",
@@ -296,21 +297,20 @@
       "postedDate": "2026-01-18",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-personenverkehr-12-2026/487416de-186e-4114-81be-57d23b61e08b",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-04-08T21:45:40.896Z",
+      "crawledAt": "2026-04-09T10:02:35.379Z",
       "previousSlugs": [
         "quereinstieg-lokfuhrer-in-personenverkehr-12-2026-ffs-officine-ferrovie-federali-chur",
-        "quereinstieg-lokfuhrer-in-personenverkehr-12-026-ffs-officine-ferrovie-federali-chur",
-        "ingresso-come-macchinista-per-il-traffico-passeggeri-12-2026-ffs-officine-ferrovie-federali-chur"
+        "quereinstieg-lokfuhrer-in-personenverkehr-12-026-ffs-officine-ferrovie-federali-chur"
       ],
-      "salaryMin": 72500,
-      "salaryMax": 97500,
+      "salaryMin": 51500,
+      "salaryMax": 88000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 72500,
-          "maxValue": 97500,
+          "minValue": 51500,
+          "maxValue": 88000,
           "unitText": "YEAR"
         }
       },
