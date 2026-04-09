@@ -6328,6 +6328,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-petizione-aromat-svizzera': {
+    title: 'Petizione per mantenere la produzione di Aromat in Svizzera | Frontaliere Ticino',
+    description: 'Una petizione online mira a preservare la produzione svizzera dell\'Aromat, minacciata dalla fusione tra Unilever e McCormick. Scopri come sostenere',
+    keywords: 'frontalieri, ticino, svizzera, italia, petizione, mantenere, produzione, aromat',
+    ogTitle: 'Petizione per mantenere la produzione di Aromat in Svizzera',
+    ogDescription: 'Una petizione online raccoglie firme per preservare la produzione svizzera dell\'Aromat, minacciata dalla fusione tra Unilever e McCormick.',
+    canonicalPath: '/articoli-frontaliere/petizione-aromat-svizzera',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Petizione per mantenere la produzione di Aromat in Svizzera",
+      "description": "Una petizione online mira a preservare la produzione svizzera dell'Aromat, minacciata dalla fusione tra Unilever e McCormick. Scopri come sostenere",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/petizione-aromat-svizzera.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stabilimento Unilever a Thayngen, Schaffhausen, con la bandiera svizzera in primo piano."
+      },
+      "datePublished": "2026-04-09T10:08:05+00:00",
+      "dateModified": "2026-04-09T10:08:05+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/petizione-aromat-svizzera`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -2013,6 +2013,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.multe-vignetta-chiasso-2024.title': 'Bussen wegen fehlender Autobahnvignette: 190 Sanktionen in Chiasso',
     'blog.article.multe-vignetta-chiasso-2024.excerpt': 'Während des Osterwochenendes wurden 190 Autofahrer am Grenzübergang Chiasso wegen fehlender Schweizer Autobahnvignette gebüsst. Das droht den Grenzgängern.',
     'blog.article.multe-vignetta-chiasso-2024.imageAlt': 'Schweizer Autobahnvignette auf einer Windschutzscheibe mit dem Grenzübergang Chiasso im Hintergrund.',
+    'blog.article.petizione-aromat-svizzera.title': 'Petition zur Beibehaltung der Aromat-Produktion in der Schweiz',
+    'blog.article.petizione-aromat-svizzera.excerpt': 'Eine von einem Basler Unternehmer gestartete Online-Petition zielt darauf ab, die Schweizer Produktion von Aromat zu bewahren, die nach der Fusion von Unilever und McCormick von einer möglichen Verlagerung bedroht ist.',
+    'blog.article.petizione-aromat-svizzera.imageAlt': 'Unilever-Werk in Thayngen, Schaffhausen, mit der Schweizer Flagge im Vordergrund.',
 };
 
 export default blogMetaDe;

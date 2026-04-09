@@ -2013,6 +2013,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.multe-vignetta-chiasso-2024.title': 'Fines for missing motorway vignette: 190 penalties issued in Chiasso',
     'blog.article.multe-vignetta-chiasso-2024.excerpt': 'During the Easter weekend, 190 drivers were fined at the Chiasso border crossing for not having a valid Swiss motorway vignette. Here\'s what cross-border workers risk.',
     'blog.article.multe-vignetta-chiasso-2024.imageAlt': 'Swiss motorway vignette sticker on a car windshield with the Chiasso border crossing in the background.',
+    'blog.article.petizione-aromat-svizzera.title': 'Petition to Keep Aromat Production in Switzerland',
+    'blog.article.petizione-aromat-svizzera.excerpt': 'An online petition launched by a Basel entrepreneur aims to preserve Swiss production of Aromat, threatened by a potential relocation following the merger between Unilever and McCormick.',
+    'blog.article.petizione-aromat-svizzera.imageAlt': 'Unilever factory in Thayngen, Schaffhausen, with the Swiss flag prominently displayed.',
 };
 
 export default blogMetaEn;

@@ -1926,6 +1926,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-consiglio-federale-ferma-perequazione-2030': { name: 'Perequazione, Ticino deluso', path: '/articoli-frontaliere/consiglio-federale-ferma-perequazione-2030', parent: 'blog' },
     'blog-camionisti-furbetti-governo-ticino-2026': { name: 'Caso camionisti', path: '/articoli-frontaliere/camionisti-furbetti-governo-ticino-2026', parent: 'blog' },
     'blog-multe-vignetta-chiasso-2024': { name: 'Multe Vignetta', path: '/articoli-frontaliere/multe-vignetta-chiasso-2024', parent: 'blog' },
+    'blog-petizione-aromat-svizzera': { name: 'Petizione Aromat', path: '/articoli-frontaliere/petizione-aromat-svizzera', parent: 'blog' },
   };
 
   const info = sectionNames[section];

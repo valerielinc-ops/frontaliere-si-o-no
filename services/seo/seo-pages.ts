@@ -3670,7 +3670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 722,
+        "numberOfItems": 723,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -4370,7 +4370,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 719, "name": "Modifiche ai collegamenti TILO S50 tra Varese, ...", "url": `${BASE_URL}/articoli-frontaliere/tilo-s50-modifiche-aprile` },
           { "@type": "ListItem", "position": 720, "name": "Perequazione, Ticino deluso: Berna blocca fino ...", "url": `${BASE_URL}/articoli-frontaliere/consiglio-federale-ferma-perequazione-2030` },
           { "@type": "ListItem", "position": 721, "name": "Camionisti furbetti a Ticino: il governo valuta...", "url": `${BASE_URL}/articoli-frontaliere/camionisti-furbetti-governo-ticino-2026` },
-          { "@type": "ListItem", "position": 722, "name": "Multe per Mancata Vignetta Autostradale: 190 Sa...", "url": `${BASE_URL}/articoli-frontaliere/multe-vignetta-chiasso-2024` }
+          { "@type": "ListItem", "position": 722, "name": "Multe per Mancata Vignetta Autostradale: 190 Sa...", "url": `${BASE_URL}/articoli-frontaliere/multe-vignetta-chiasso-2024` },
+          { "@type": "ListItem", "position": 723, "name": "Petizione per mantenere la produzione di Aromat...", "url": `${BASE_URL}/articoli-frontaliere/petizione-aromat-svizzera` }
         ]
       }
     ]

@@ -2013,6 +2013,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.multe-vignetta-chiasso-2024.title': 'Amendes pour absence de vignette autoroutière : 190 sanctions à Chiasso',
     'blog.article.multe-vignetta-chiasso-2024.excerpt': 'Pendant le week-end de Pâques, 190 conducteurs ont été verbalisés au poste-frontière de Chiasso pour absence de vignette autoroutière suisse. Voici ce que risquent les frontaliers.',
     'blog.article.multe-vignetta-chiasso-2024.imageAlt': 'Vignette autoroutière suisse sur un pare-brise avec le poste frontière de Chiasso en arrière-plan.',
+    'blog.article.petizione-aromat-svizzera.title': 'Pétition pour maintenir la production d\'Aromat en Suisse',
+    'blog.article.petizione-aromat-svizzera.excerpt': 'Une pétition en ligne lancée par un entrepreneur bâlois vise à préserver la production suisse de l\'Aromat, menacée par une possible délocalisation après la fusion entre Unilever et McCormick.',
+    'blog.article.petizione-aromat-svizzera.imageAlt': 'Usine Unilever à Thayngen, Schaffhouse, avec le drapeau suisse en premier plan.',
 };
 
 export default blogMetaFr;

@@ -5682,4 +5682,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/multe-vignetta-chiasso-2024.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'petizione-aromat-svizzera',
+    category: 'novita',
+    date: '2026-04-09T10:08:05.730Z',
+    image: '/images/blog/petizione-aromat-svizzera.jpg',
+    hasCalculator: true,
+  },
 ];

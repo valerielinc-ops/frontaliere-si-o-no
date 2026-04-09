@@ -2013,6 +2013,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.multe-vignetta-chiasso-2024.title': 'Multe per mancata vignetta autostradale: 190 sanzioni a Chiasso',
     'blog.article.multe-vignetta-chiasso-2024.excerpt': 'Durante il weekend pasquale, 190 conducenti sono stati multati al valico di Chiasso per mancanza della vignetta autostradale svizzera. Ecco cosa rischiano i frontalieri.',
     'blog.article.multe-vignetta-chiasso-2024.imageAlt': 'Vignetta autostradale svizzera su un parabrezza con il valico di Chiasso sullo sfondo.',
+    'blog.article.petizione-aromat-svizzera.title': 'Petizione per mantenere la produzione di Aromat in Svizzera',
+    'blog.article.petizione-aromat-svizzera.excerpt': 'Una petizione online lanciata da un imprenditore basilese mira a preservare la produzione svizzera dell\'Aromat, minacciata da una possibile delocalizzazione dopo la fusione tra Unilever e McCormick.',
+    'blog.article.petizione-aromat-svizzera.imageAlt': 'Stabilimento Unilever a Thayngen, Schaffhausen, con la bandiera svizzera in primo piano.',
 };
 
 export default blogMetaIt;
