@@ -236,10 +236,10 @@ export const AI_MODELS = Object.freeze({
   COH_CMD_R7B:         'cohere/command-r7b-12-2024',
 
   // ── Cloudflare Workers AI (OpenAI-compatible, free tier — 10K neurons/day) ──
-  CF_LLAMA_3_3_70B:    'cf/@cf/meta/llama-3.3-70b-instruct-fp8',
-  CF_LLAMA_4_SCOUT:    'cf/@cf/meta/llama-4-scout-instruct',
+  CF_LLAMA_3_3_70B:    'cf/@cf/meta/llama-3.3-70b-instruct-fp8-fast',
+  CF_LLAMA_4_SCOUT:    'cf/@cf/meta/llama-4-scout-17b-16e-instruct',
   CF_MISTRAL_SM_31:    'cf/@cf/mistralai/mistral-small-3.1-24b-instruct',
-  CF_QWQ_32B:          'cf/@cf/qwen/qwen-qwq-32b',
+  CF_QWQ_32B:          'cf/@cf/qwen/qwq-32b',
   CF_QWEN3_30B:        'cf/@cf/qwen/qwen3-30b-a3b-fp8',
   CF_GPT_OSS_120B:     'cf/@cf/openai/gpt-oss-120b',
   CF_GPT_OSS_20B:      'cf/@cf/openai/gpt-oss-20b',
@@ -345,24 +345,24 @@ export const DEFAULT_CHAIN = [
   AI_MODELS.GEMINI_FLASH_LITE,  // 51. Google flash lite      (Gemini API free)
   AI_MODELS.CF_QWEN3_30B,       // 52. Qwen3 30B              (Cloudflare Workers AI)
   AI_MODELS.OR_QWEN3_CODER,     // 53. Qwen3 Coder            (OpenRouter free)
-  AI_MODELS.CB_GPT_OSS_120B,    // 54. GPT-OSS 120B           (Cerebras)
-  AI_MODELS.GROQ_GEMMA2_9B,     // 55. Gemma2 9B              (Groq)
-  AI_MODELS.GROQ_LLAMA_3_1_8B,  // 56. Llama 3.1 8B instant   (Groq)
-  AI_MODELS.GROQ_GPT_OSS_SAFE,  // 56b. GPT-OSS Safeguard 20B (Groq — 1000/day)
-  AI_MODELS.MISTRAL_SM_31_GH,   // 56c. Mistral Small 3.1     (GitHub Models)
-  AI_MODELS.PHI_4_MINI_INST,    // 56d. Phi-4 mini instruct   (GitHub Models)
+  // CB_GPT_OSS_120B removed — Cerebras HTTP 404 "Model gpt-oss-120b does not exist" (2026-04)
+  // GROQ_GEMMA2_9B removed — Groq HTTP 400 "model has been decommissioned" (2026-04)
+  AI_MODELS.GROQ_LLAMA_3_1_8B,  // 54. Llama 3.1 8B instant   (Groq)
+  AI_MODELS.GROQ_GPT_OSS_SAFE,  // 54b. GPT-OSS Safeguard 20B (Groq — 1000/day)
+  AI_MODELS.MISTRAL_SM_31_GH,   // 54c. Mistral Small 3.1     (GitHub Models)
+  AI_MODELS.PHI_4_MINI_INST,    // 54d. Phi-4 mini instruct   (GitHub Models)
   // SN_DEEPSEEK_V3 removed — SambaNova HTTP 402 PAYMENT_METHOD_REQUIRED (2026-04)
   // SN_QWEN_2_5_72B removed — SambaNova HTTP 402 PAYMENT_METHOD_REQUIRED (2026-04)
-  AI_MODELS.OR_GEMMA_4_26B,     // 57. Gemma 4 26B MoE         (OpenRouter free — replaces DeepSeek R1 Zero)
+  AI_MODELS.OR_GEMMA_4_26B,     // 55. Gemma 4 26B MoE         (OpenRouter free — replaces DeepSeek R1 Zero)
   // OR_DEEPSEEK_R1Z removed from OpenRouter free list (2026-04)
-  AI_MODELS.GROQ_COMPOUND_MINI, // 58. Compound Mini           (Groq)
-  AI_MODELS.LLAMA_3_1_8B,       // 59. Meta 8B fast           (GitHub Models)
-  AI_MODELS.MINISTRAL_3B,       // 60. Mistral 3B fast        (GitHub Models)
-  AI_MODELS.CF_GPT_OSS_20B,     // 61. GPT-OSS 20B            (Cloudflare Workers AI)
-  AI_MODELS.O3_MINI,            // 62. OpenAI o3-mini reason  (GitHub Models)
-  AI_MODELS.O1_MINI,            // 62b. OpenAI o1-mini reason (GitHub Models)
-  AI_MODELS.CDSTRL_LATEST,      // 62c. Codestral latest      (Codestral endpoint — 2000/day)
-  AI_MODELS.MISTRAL_NEMO,       // 62d. Mistral Nemo          (Mistral AI direct)
+  // GROQ_COMPOUND_MINI removed — Groq HTTP 404 "model compound-mini does not exist" (2026-04)
+  AI_MODELS.LLAMA_3_1_8B,       // 56. Meta 8B fast           (GitHub Models)
+  AI_MODELS.MINISTRAL_3B,       // 57. Mistral 3B fast        (GitHub Models)
+  AI_MODELS.CF_GPT_OSS_20B,     // 58. GPT-OSS 20B            (Cloudflare Workers AI)
+  AI_MODELS.O3_MINI,            // 59. OpenAI o3-mini reason  (GitHub Models)
+  AI_MODELS.O1_MINI,            // 59b. OpenAI o1-mini reason (GitHub Models)
+  AI_MODELS.CDSTRL_LATEST,      // 59c. Codestral latest      (Codestral endpoint — 2000/day)
+  AI_MODELS.MISTRAL_NEMO,       // 59d. Mistral Nemo          (Mistral AI direct)
   AI_MODELS.PHI_4_MINI_REASON,  // 63. Phi-4 mini reasoning   (GitHub Models)
   AI_MODELS.OR_TRINITY,         // 64. Arcee Trinity Large    (OpenRouter free)
   AI_MODELS.MISTRAL_8B,         // 65. Ministral 8B latest    (Mistral AI direct)
@@ -509,7 +509,7 @@ function getProvider(model) {
  *      'fireworks/accounts/fireworks/models/...' → 'accounts/fireworks/models/...'
  *      'nvidia/meta/llama-3.1-8b-instruct' → 'meta/llama-3.1-8b-instruct'
  *      'hf/mistralai/Mistral-7B-Instruct-v0.3' → 'mistralai/Mistral-7B-Instruct-v0.3'
- *      'cf/@cf/meta/llama-3.3-70b-instruct-fp8' → '@cf/meta/llama-3.3-70b-instruct-fp8'
+ *      'cf/@cf/meta/llama-3.3-70b-instruct-fp8-fast' → '@cf/meta/llama-3.3-70b-instruct-fp8-fast'
  *      'mistral/mistral-small-latest' → 'mistral-small-latest'
  *      'codestral/codestral-latest' → 'codestral-latest'
  *      'gpt-4o' → 'gpt-4o' (no prefix)
@@ -1137,10 +1137,22 @@ function classifyNonRetryableError(status, bodyText = '') {
     return { nonRetryable: true, markExhausted: false };
   }
 
+  // HTTP 404 — model not found (Cerebras, Groq, OpenRouter return 404 for invalid model IDs)
+  if (status === 404) {
+    if (b.includes('model_not_found') || b.includes('not_found_error') || b.includes('does not exist')) {
+      return { nonRetryable: true, markExhausted: true };
+    }
+    return { nonRetryable: true, markExhausted: false };
+  }
+
   if (status !== 400) return { nonRetryable: false, markExhausted: false };
 
   // Model doesn't exist — mark exhausted for entire run
-  if (b.includes('unknown_model') || b.includes('unknown model')) {
+  // Cloudflare returns 400 with "No such model", others use "unknown_model" / "does not exist"
+  if (
+    b.includes('unknown_model') || b.includes('unknown model') ||
+    b.includes('no such model') || b.includes('does not exist')
+  ) {
     return { nonRetryable: true, markExhausted: true };
   }
   // Provider-side deprecation/removal — retrying the same model is always useless
