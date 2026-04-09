@@ -3010,6 +3010,15 @@ const App: React.FC = () => {
             {/* Footer links */}
             <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
               <a
+                href={buildPath({ activeTab: 'chi-siamo' as any })}
+                onClick={(e) => { e.preventDefault(); navigateTo('chi-siamo' as any); }}
+                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors no-underline"
+              >
+                <Users className="w-3.5 h-3.5" />
+                {t('footer.aboutUs')}
+              </a>
+              <span className="text-slate-300 dark:text-slate-700">·</span>
+              <a
                 href={buildPath({ activeTab: 'contact' as any })}
                 onClick={(e) => { e.preventDefault(); navigateTo('contact' as any); }}
                 className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors no-underline"

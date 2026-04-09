@@ -531,6 +531,7 @@ const frCore: Record<string, string> = {
     'footer.followUs': 'Suivez-nous sur',
     'footer.followFacebook': 'Suivez-nous sur Facebook',
     'footer.contactTitle': 'Contactez-nous',
+    'footer.aboutUs': 'À propos',
     'footer.contactDescription': 'Vous avez des questions sur le travail frontalier, les impôts ou la retraite ? Besoin d\'aide avec le simulateur ? Écrivez-nous, nous sommes là pour vous aider !',
     'footer.contactFacebook': 'Écrivez-nous sur Facebook',
     'footer.improveTitle': 'Aidez-nous à améliorer',

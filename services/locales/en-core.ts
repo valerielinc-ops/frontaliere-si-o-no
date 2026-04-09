@@ -531,6 +531,7 @@ const enCore: Record<string, string> = {
     'footer.followUs': 'Follow us on',
     'footer.followFacebook': 'Follow us on Facebook',
     'footer.contactTitle': 'Contact Us',
+    'footer.aboutUs': 'About Us',
     'footer.contactDescription': 'Have questions about cross-border work, taxes, or pensions? Need help using the simulator? Write to us, we are here to help!',
     'footer.contactFacebook': 'Write to us on Facebook',
     'footer.improveTitle': 'Help Us Improve',

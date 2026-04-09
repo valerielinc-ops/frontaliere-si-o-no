@@ -73,6 +73,7 @@ const criticalTranslations: Record<string, string> = {
   'footer.followUs': 'Seguici su',
   'footer.followFacebook': 'Seguici su Facebook',
   'footer.contactTitle': 'Contattaci',
+  'footer.aboutUs': 'Chi Siamo',
   'footer.contactDescription': 'Hai domande sul lavoro frontaliero, sulle tasse o sulla pensione? Vuoi un chiarimento su come usare il simulatore? Scrivici, siamo qui per aiutarti!',
   'footer.contactFacebook': 'Scrivici su Facebook',
   'footer.improveTitle': 'Aiutaci a Migliorare',

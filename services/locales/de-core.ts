@@ -531,6 +531,7 @@ const deCore: Record<string, string> = {
     'footer.followUs': 'Folgen Sie uns auf',
     'footer.followFacebook': 'Folgen Sie uns auf Facebook',
     'footer.contactTitle': 'Kontakt',
+    'footer.aboutUs': 'Über uns',
     'footer.contactDescription': 'Haben Sie Fragen zur Grenzgängerarbeit, Steuern oder Rente? Brauchen Sie Hilfe mit dem Simulator? Schreiben Sie uns, wir helfen Ihnen gerne!',
     'footer.contactFacebook': 'Schreiben Sie uns auf Facebook',
     'footer.improveTitle': 'Helfen Sie uns zu verbessern',
