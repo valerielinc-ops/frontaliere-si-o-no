@@ -1159,6 +1159,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 onKeyDown={handleKeyDown}
+                spellCheck={false}
                 placeholder={t('search.placeholder') || 'Cerca sezioni, strumenti, funzionalità...'}
                 aria-label={t('search.placeholder') || 'Cerca sezioni, strumenti, funzionalità'}
                 className="flex-1 bg-transparent text-slate-800 dark:text-slate-100 placeholder-slate-500 outline-none focus:ring-2 focus:ring-blue-500 text-base sm:text-sm"

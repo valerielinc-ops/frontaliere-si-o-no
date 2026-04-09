@@ -190,7 +190,7 @@ const Glossary: React.FC<GlossaryProps> = ({ initialEntry }) => {
         <div className="flex gap-1.5 flex-wrap">
           <button
             onClick={() => { setSelectedCategory('all'); Analytics.trackGuideSection('glossary', 'view'); }}
-            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
+            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900 ${
               selectedCategory === 'all'
                 ? 'bg-slate-800 dark:bg-slate-200 text-white dark:text-slate-800'
                 : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-600'
@@ -204,7 +204,7 @@ const Glossary: React.FC<GlossaryProps> = ({ initialEntry }) => {
               <button
                 key={cat}
                 onClick={() => { setSelectedCategory(cat); Analytics.trackGuideSection(`glossary_${cat}`, 'view'); }}
-                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
+                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900 ${
                   selectedCategory === cat
                     ? `${colors.bg} ${colors.text} ${colors.darkBg} ${colors.darkText}`
                     : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-600'
@@ -241,7 +241,7 @@ const Glossary: React.FC<GlossaryProps> = ({ initialEntry }) => {
               >
                 <button
                   onClick={() => { setExpandedEntry(isExpanded ? null : entry.key); if (!isExpanded) Analytics.trackGuideSection(`glossary_${entry.key}`, 'expand'); }}
-                  className="w-full flex items-center justify-between p-4 text-left"
+                  className="w-full flex items-center justify-between p-4 text-left focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-800 focus-visible:rounded-xl"
                 >
                   <div className="flex items-center gap-3">
                     <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${colors.bg} ${colors.text} ${colors.darkBg} ${colors.darkText}`}>

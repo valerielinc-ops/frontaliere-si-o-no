@@ -367,6 +367,7 @@ const CommunityForum: React.FC = () => {
               onChange={(e) => setNewAnswer(e.target.value)}
               placeholder={t('forum.answerPlaceholder') || 'Scrivi la tua risposta...'}
               aria-label={t('forum.answerPlaceholder') || 'Scrivi la tua risposta'}
+              spellCheck={true}
               className="w-full px-3 py-2 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-sm min-h-[80px] resize-y"
             />
             <div className="flex justify-end mt-2">
@@ -484,6 +485,7 @@ const CommunityForum: React.FC = () => {
             onChange={(e) => setNewBody(e.target.value)}
             placeholder={t('forum.bodyPlaceholder') || 'Descrivi la tua domanda in dettaglio...'}
             aria-label={t('forum.bodyPlaceholder') || 'Descrivi la tua domanda in dettaglio'}
+            spellCheck={true}
             className="w-full px-4 py-2.5 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-sm min-h-[120px] resize-y"
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">

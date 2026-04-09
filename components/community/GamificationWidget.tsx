@@ -182,7 +182,7 @@ const GamificationWidget: React.FC = () => {
               <div className="text-xs font-bold uppercase tracking-wider opacity-80">{t('gamification.achievementUnlocked')}</div>
               <div className="font-bold text-xs truncate">{t(`gamification.achievement.${toast}`)}</div>
             </div>
-            <button onClick={() => setToast(null)} className="ml-1 p-2 hover:bg-white/20 rounded-full transition-colors flex-shrink-0" aria-label="Chiudi">
+            <button onClick={() => setToast(null)} className="ml-1 p-2 hover:bg-white/20 rounded-full transition-colors flex-shrink-0 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-amber-500" aria-label="Chiudi">
               <X size={12} />
             </button>
           </div>
@@ -200,7 +200,7 @@ const GamificationWidget: React.FC = () => {
             setIsOpen(nextOpen);
             Analytics.trackUIInteraction('gamification', 'widget', 'toggle', isOpen ? 'close' : 'open');
           }}
-          className={`relative p-2 rounded-xl transition-colors ${
+          className={`relative p-2 rounded-xl transition-colors focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900 ${
             hasUnreadAchievements
               ? 'bg-amber-50 dark:bg-amber-900/20 text-amber-600 dark:text-amber-400'
               : isOpen
@@ -295,7 +295,7 @@ const GamificationWidget: React.FC = () => {
               <div className="px-3 pb-3">
                 <button
                   onClick={() => { setIsOpen(false); nav.navigateTo('gamification'); }}
-                  className="w-full py-2.5 text-xs font-bold text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-900/20 hover:bg-amber-100 dark:hover:bg-amber-900/40 rounded-xl transition-colors border border-amber-200/60 dark:border-amber-800/40"
+                  className="w-full py-2.5 text-xs font-bold text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-900/20 hover:bg-amber-100 dark:hover:bg-amber-900/40 rounded-xl transition-colors border border-amber-200/60 dark:border-amber-800/40 focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-slate-900"
                 >
                   {t('gamification.viewAll') || 'Vedi tutti gli achievement →'}
                 </button>

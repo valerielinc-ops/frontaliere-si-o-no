@@ -175,6 +175,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ prefill, onPrefillConsumed })
             required
             value={form.name}
             onChange={e => setForm(prev => ({ ...prev, name: e.target.value }))}
+            autoComplete="name"
             className="w-full px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-[color,background-color,border-color,box-shadow]"
             placeholder={t('contact.namePlaceholder')}
           />
@@ -189,6 +190,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ prefill, onPrefillConsumed })
             id="contact-email"
             value={form.email}
             onChange={val => setForm(prev => ({ ...prev, email: val }))}
+            autoComplete="email"
             className="w-full px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-[color,background-color,border-color,box-shadow]"
             placeholder={t('contact.emailPlaceholder')}
           />
@@ -231,6 +233,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ prefill, onPrefillConsumed })
             minLength={10}
             value={form.message}
             onChange={e => setForm(prev => ({ ...prev, message: e.target.value }))}
+            spellCheck={true}
             className="w-full px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-[color,background-color,border-color,box-shadow] resize-y min-h-[120px]"
             placeholder={t('contact.messagePlaceholder')}
           />

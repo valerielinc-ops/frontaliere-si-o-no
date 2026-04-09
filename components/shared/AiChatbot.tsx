@@ -838,6 +838,7 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
                     questionStartedRef.current = false;
                   }
                 }}
+                spellCheck={true}
                 onKeyDown={handleKeyDown}
                 placeholder={t('chatbot.placeholder')}
                 className="flex-1 px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-base md:text-sm text-slate-900 dark:text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-700"

@@ -283,7 +283,12 @@ const WorkPermitsGuide: React.FC = () => {
           tabIndex={0}
           aria-expanded={isOpen}
           onClick={() => toggleSection(id)}
-          onKeyDown={(e) => e.key === 'Enter' && toggleSection(id)}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              toggleSection(id);
+            }
+          }}
           className="flex items-center justify-between p-4 cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors"
         >
           <div className="flex items-center gap-3">
