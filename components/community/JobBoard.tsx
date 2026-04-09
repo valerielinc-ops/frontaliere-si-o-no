@@ -6038,7 +6038,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
       <div className="space-y-3">
         {/* Hero search bar */}
         <div className="relative group">
-          <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/20 via-blue-500/20 to-violet-500/20 rounded-2xl blur-xl opacity-0 group-focus-within:opacity-100 transition-opacity duration-300" />
+          <div className="absolute inset-0 bg-gradient-to-r from-teal-500/20 via-emerald-500/20 to-teal-500/20 rounded-2xl blur-xl opacity-0 group-focus-within:opacity-100 transition-opacity duration-300" />
           <div className="relative flex items-center bg-white dark:bg-slate-800 rounded-2xl border-2 border-slate-200 dark:border-slate-700 group-focus-within:border-indigo-500 dark:group-focus-within:border-indigo-400 shadow-sm group-focus-within:shadow-lg group-focus-within:shadow-indigo-500/10 transition-[color,background-color,border-color,box-shadow] duration-200">
             <Search className="ml-4 w-5 h-5 text-slate-500 dark:text-slate-400 group-focus-within:text-indigo-500 dark:group-focus-within:text-indigo-400 transition-colors shrink-0" />
             <input

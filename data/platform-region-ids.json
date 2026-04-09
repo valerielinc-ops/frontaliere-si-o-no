@@ -1,0 +1,192 @@
+{
+  "_comment": "Central registry of platform-specific region/location filter IDs for all job crawling platforms. Each platform has its own ID scheme — this file maps canton codes to those IDs. Used by crawler scripts to filter jobs by canton. Maintained manually + scripts/discover-prospective-regions.mjs for Prospective.",
+  "_lastUpdated": "2026-04-09",
+
+  "prospective": {
+    "_comment": "Prospective.ch ATS — JSON API mediums and HTML Career Centers",
+    "platforms": {
+      "m1000103": {
+        "name": "Coop / Fust",
+        "filterParam": "f=30:{id}",
+        "note": "Attribute 30 = canton",
+        "cantons": { "TI": "1024522", "GR": "1024512" }
+      },
+      "m1000624": {
+        "name": "Confederazione / VTG",
+        "filterParam": "f=region:{id}",
+        "note": "Macro-regions. Romandie includes VS+VD+GE+NE+FR+JU — needs post-filtering",
+        "cantons": { "TI": "1083341" },
+        "macroRegions": {
+          "Ostschweiz": { "id": "1083334", "includes": ["GR", "SG", "AI", "AR", "GL", "SH", "TG"] },
+          "Romandie": { "id": "1083337", "includes": ["VS", "VD", "GE", "NE", "FR", "JU"] }
+        }
+      },
+      "cc2193": {
+        "name": "AXA",
+        "filterParam": "filter_20={id}",
+        "cantons": { "TI": "68794" },
+        "macroRegions": {
+          "Ostschweiz": { "id": "68792", "includes": ["GR", "SG", "AI", "AR", "GL", "SH", "TG"] }
+        }
+      },
+      "cc1001859": {
+        "name": "Volg / fenaco",
+        "filterParam": "filter_20={id}",
+        "cantons": { "TI": "1164274", "GR": "1164264", "VS": "1164278" }
+      }
+    },
+    "discoveryEndpoint": "https://ohws.prospective.ch/public/v1/medium/{mediumId}/attributes?lang=it"
+  },
+
+  "workday": {
+    "_comment": "Workday ATS — appliedFacets in POST body. Facet IDs are UUIDs unique per tenant.",
+    "platforms": {
+      "bracco.wd103": {
+        "name": "Bracco",
+        "filterMethod": "appliedFacets.locations",
+        "locations": {
+          "Cadempino": "9f72af9e4e8c01e5fdfab2f4a00d0000"
+        }
+      },
+      "fnz.wd3": {
+        "name": "FNZ",
+        "filterMethod": "appliedFacets.locations",
+        "locations": {
+          "Chiasso": "35010ebf8e8801f15f4abb4e38010000"
+        }
+      },
+      "hamilton.wd3": {
+        "name": "Hamilton",
+        "filterMethod": "appliedFacets.locationCountry",
+        "locations": {
+          "Switzerland": "187134fc447f01af89f0c2c517590000"
+        },
+        "note": "Country-level filter — post-filters by isTargetSwissLocation"
+      },
+      "juliusbaer.wd3": {
+        "name": "Julius Bär",
+        "filterMethod": "Location_Region_State_Province",
+        "locations": {
+          "Lugano": "abb0edcf3353016df6283de5bd3b4518"
+        },
+        "note": "Auto-discovered facet ID. Expand by querying facets endpoint."
+      }
+    },
+    "discoveryMethod": "POST /jobs with empty body → response.facets[].values[]"
+  },
+
+  "migros": {
+    "_comment": "Migros Group careers portal — URL parameter REGION=",
+    "platforms": {
+      "migros": {
+        "name": "Migros / Denner",
+        "filterParam": "?REGION={id}",
+        "cantons": {
+          "TI": "871",
+          "GR": "868"
+        },
+        "note": "TI = 'Svizzera meridionale'. GR = 'Grigioni'. Discover via dropdown on listing page."
+      }
+    }
+  },
+
+  "oracleHcm": {
+    "_comment": "Oracle HCM Cloud — locationId parameter",
+    "platforms": {
+      "efg": {
+        "name": "EFG International",
+        "filterParam": "locationId={id}",
+        "locations": {
+          "Switzerland": "300000000425282"
+        },
+        "note": "Country-level — post-filters by isTargetSwissLocation"
+      }
+    },
+    "discoveryMethod": "API with facetsList=LOCATIONS"
+  },
+
+  "umantis": {
+    "_comment": "Umantis/Abacus ATS — POST form with region ID",
+    "platforms": {
+      "allianz": {
+        "name": "Allianz Suisse",
+        "filterMethod": "POST region filter",
+        "cantons": {
+          "TI": "38999405",
+          "GR": "38999401"
+        },
+        "discoveryMethod": "Scrape region dropdown from listing page"
+      }
+    }
+  },
+
+  "successFactors": {
+    "_comment": "SAP SuccessFactors / NES — keyword-based location search",
+    "platforms": {
+      "schindler": { "name": "Schindler", "searchTerms": { "TI": ["Ticino"], "GR": ["Graubünden", "Grisons", "Chur"] } },
+      "zurich": { "name": "Zurich Insurance", "searchTerms": { "TI": ["Ticino", "Tessin", "Lugano"], "GR": ["Graubünden", "Grisons", "Chur"] } },
+      "ibsa": { "name": "IBSA", "searchTerms": { "TI": ["TI, CH"] } },
+      "skyguide": { "name": "Skyguide", "searchTerms": { "TI": ["Locarno, CH", "Lugano Agno, CH"] } }
+    },
+    "note": "Keyword-based — add VS city/canton names to searchTerms to expand"
+  },
+
+  "phenom": {
+    "_comment": "Phenom People — keyword search parameter",
+    "platforms": {
+      "abb": {
+        "name": "ABB",
+        "filterParam": "?keywords={term}",
+        "searchTerms": {
+          "TI": ["ticino"],
+          "GR": ["graubünden", "grisons", "chur", "davos", "engadin"]
+        },
+        "note": "Add VS terms: valais, wallis, sion, brig, visp, martigny"
+      }
+    }
+  },
+
+  "lidl": {
+    "_comment": "Lidl — geo bounding box search",
+    "platforms": {
+      "lidl": {
+        "name": "Lidl Schweiz",
+        "filterMethod": "Geo bounding box: midpoint_name, min_lat, max_lat, min_lng, max_lng",
+        "cantons": {
+          "TI": { "midpoint_name": "Canton Ticino", "min_lat": 45.8, "max_lat": 46.6, "min_lng": 8.5, "max_lng": 9.2 },
+          "GR": { "midpoint_name": "Graubünden", "min_lat": 46.3, "max_lat": 47.1, "min_lng": 9.2, "max_lng": 10.5 },
+          "VS": { "midpoint_name": "Valais", "min_lat": 45.9, "max_lat": 46.7, "min_lng": 6.8, "max_lng": 8.5 }
+        }
+      }
+    }
+  },
+
+  "loginOrg": {
+    "_comment": "login.org (SBB apprenticeships) — canton filter parameter",
+    "platforms": {
+      "login": {
+        "name": "login.org",
+        "filterParam": "f[0]=canton:{id}",
+        "cantons": {
+          "TI": "296"
+        },
+        "note": "Discover VS canton ID via dropdown on search page"
+      }
+    }
+  },
+
+  "solique": {
+    "_comment": "Solique (Galenica group) — API field contact.state",
+    "platforms": {
+      "galenica": {
+        "name": "Galenica",
+        "filterMethod": "contact.state === '{code}'",
+        "cantons": {
+          "TI": "TI",
+          "VS": "VS"
+        },
+        "note": "Uses 2-letter canton codes directly — auto-expands"
+      }
+    }
+  }
+}
