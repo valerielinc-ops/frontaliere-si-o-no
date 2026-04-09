@@ -305,6 +305,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
                     checked={inputs.hasItalianContributions}
                     onChange={(e) => handleChange('hasItalianContributions', e.target.checked)}
                     className="mr-2 w-4 h-4 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
+                    aria-label={t('pension.hasItalianContributions') || 'Contributi italiani'}
                   />
                   {t('pension.hasItalianContributions')}
                   <InfoTooltip text={t('pension.hasItalianContributionsTooltip')} />

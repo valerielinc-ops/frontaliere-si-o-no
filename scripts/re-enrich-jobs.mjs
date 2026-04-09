@@ -77,9 +77,11 @@ function stripCopyPasteLocales(job) {
     }
   }
 
-  // Mark as needing retranslation if any locale was stripped or canonical content leaks
+  // Mark as needing retranslation if any locale was stripped
   const hasEmptyTitle = out.titleByLocale && LOCALES.some(l => !(out.titleByLocale[l] || '').trim());
   const hasEmptyDesc = out.descriptionByLocale && LOCALES.some(l => !(out.descriptionByLocale[l] || '').trim());
+
+  // Also detect cross-locale leaks in canonicalContent.byLocale
   let hasCanonicalLeak = false;
   if (out.canonicalContent?.byLocale) {
     const byLocale = out.canonicalContent.byLocale;
@@ -87,23 +89,17 @@ function stripCopyPasteLocales(job) {
     for (const locale of LOCALES) {
       const entry = byLocale[locale];
       if (!entry) continue;
-      const summaryText = JSON.stringify(entry.summary || []);
-      const fullText = summaryText + JSON.stringify(entry.responsibilities || []) + JSON.stringify(entry.requirements || []);
-      if (fullText.length < 10) continue;
-      localeTexts[locale] = { summaryText, fullText };
+      const text = JSON.stringify(entry.summary || []) + JSON.stringify(entry.responsibilities || []) + JSON.stringify(entry.requirements || []);
+      if (text.length < 10) continue;
+      localeTexts[locale] = text;
     }
-    const keys = Object.keys(localeTexts);
-    outer: for (let i = 0; i < keys.length; i++) {
-      for (let j = i + 1; j < keys.length; j++) {
-        const a = localeTexts[keys[i]];
-        const b = localeTexts[keys[j]];
-        if (a.fullText === b.fullText || (a.summaryText.length > 5 && a.summaryText === b.summaryText)) {
-          hasCanonicalLeak = true;
-          break outer;
-        }
-      }
+    const vals = Object.values(localeTexts);
+    const unique = new Set(vals);
+    if (vals.length > 1 && unique.size < vals.length) {
+      hasCanonicalLeak = true;
     }
   }
+
   if (hasEmptyTitle || hasEmptyDesc || hasCanonicalLeak) {
     out.needsRetranslation = true;
   }
@@ -139,6 +135,7 @@ const CANONICAL_AI_FALLBACK_ENABLED = /^(1|true|yes)$/i.test(String(process.env.
 const CANONICAL_AI_MAX_JOBS = Math.max(0, Number(process.env.JOBS_CANONICAL_AI_MAX_JOBS || 25));
 const CANONICAL_AI_TIMEOUT_MS = Math.max(3000, Number(process.env.JOBS_CANONICAL_AI_TIMEOUT_MS || 12000));
 const CANONICAL_AI_MIN_COVERAGE = Math.min(99, Math.max(30, Number(process.env.JOBS_CANONICAL_AI_MIN_COVERAGE || 65)));
+const FORCE_REESTIMATE = /^(1|true|yes)$/i.test(String(process.env.FORCE_REESTIMATE || '0'));
 
 function cleanText(raw = '') {
   return String(raw || '')
@@ -953,8 +950,9 @@ async function enrichJob(job, aiState) {
   const jobWithNormalizedCategory = { ...job, category: normalizedCategory };
 
   // --- Salary: prefer reported text > existing structured salary > sector estimation ---
+  // When FORCE_REESTIMATE=1, skip existing salary so sector estimation is reapplied
   const reportedSalary = extractReportedAnnualSalary(jobWithNormalizedCategory);
-  const existingSalary = extractExistingAnnualSalary(jobWithNormalizedCategory);
+  const existingSalary = FORCE_REESTIMATE ? null : extractExistingAnnualSalary(jobWithNormalizedCategory);
   const estimated = estimateSalaryFromSectors(jobWithNormalizedCategory);
   const salary = reportedSalary || existingSalary || {
     salaryMin: estimated.minValue,

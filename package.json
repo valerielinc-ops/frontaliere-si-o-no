@@ -125,6 +125,7 @@
     "jobs:company-keys": "node scripts/list-job-crawler-company-keys.mjs --json",
     "images:thumbs": "node scripts/generate-image-thumbnails.mjs",
     "fuel:generate": "node scripts/generate-fuel-prices-dataset.mjs",
+    "data:municipalities": "node scripts/generate-canton-municipalities.mjs",
     "optimize:blog-images": "node scripts/optimize-blog-images.mjs",
     "test:post-build": "vitest run --config vitest.post-build.config.ts",
     "validate:structured-data": "node scripts/validate-structured-data.mjs",

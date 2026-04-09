@@ -28,6 +28,7 @@ interface CanonicalEntry {
 interface Job {
   slug?: string;
   company?: string;
+  needsRetranslation?: boolean;
   canonicalContent?: {
     byLocale?: Partial<Record<string, CanonicalEntry>>;
   };

@@ -595,7 +595,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
                         <button onClick={() => resetExpenses('CH')} className="min-w-[44px] min-h-[44px] p-2.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 hover:bg-red-100 dark:hover:bg-red-900/30 hover:text-red-600 transition-colors text-xs font-bold uppercase flex items-center justify-center gap-1" title={t('input.clearAll')} aria-label={t('input.clearAll')}>
                           <RotateCcw size={12}/>
                         </button>
-                        <button onClick={() => loadAllPresets('CH')} className="px-2 py-1.5 rounded-lg bg-gradient-to-r from-blue-600 to-blue-700 text-white text-xs font-bold uppercase hover:from-blue-700 hover:to-blue-800 transition-[color,background-color,box-shadow] shadow-sm hover:shadow-md flex items-center gap-1">
+                        <button onClick={() => loadAllPresets('CH')} className="min-w-[44px] min-h-[44px] px-2 py-1.5 rounded-lg bg-gradient-to-r from-blue-600 to-blue-700 text-white text-xs font-bold uppercase hover:from-blue-700 hover:to-blue-800 transition-[color,background-color,box-shadow] shadow-sm hover:shadow-md flex items-center gap-1">
                           <Home size={12}/> {t('input.prefill')}
                         </button>
                         <button onClick={() => setShowPresets(showPresets === 'CH' ? null : 'CH')} className={`min-w-[44px] min-h-[44px] p-2.5 rounded-lg transition-colors flex items-center justify-center gap-1 text-xs font-bold uppercase ${showPresets === 'CH' ? 'bg-blue-100 text-blue-700' : 'bg-blue-50 dark:bg-blue-900/30 text-blue-600 hover:bg-blue-100'}`} aria-label="Aggiungi spese Svizzera" aria-expanded={showPresets === 'CH'}>
@@ -664,7 +664,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
                         <button onClick={() => resetExpenses('IT')} className="min-w-[44px] min-h-[44px] p-2.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 hover:bg-red-100 dark:hover:bg-red-900/30 hover:text-red-600 transition-colors text-xs font-bold uppercase flex items-center justify-center gap-1" title={t('input.clearAll')} aria-label={t('input.clearAll')}>
                           <RotateCcw size={12}/>
                         </button>
-                        <button onClick={() => loadAllPresets('IT')} className="px-2 py-1.5 rounded-lg bg-gradient-to-r from-red-600 to-orange-600 text-white text-xs font-bold uppercase hover:from-red-700 hover:to-orange-700 transition-[color,background-color,box-shadow] shadow-sm hover:shadow-md flex items-center gap-1">
+                        <button onClick={() => loadAllPresets('IT')} className="min-w-[44px] min-h-[44px] px-2 py-1.5 rounded-lg bg-gradient-to-r from-red-600 to-orange-600 text-white text-xs font-bold uppercase hover:from-red-700 hover:to-orange-700 transition-[color,background-color,box-shadow] shadow-sm hover:shadow-md flex items-center gap-1">
                           <Home size={12}/> {t('input.prefill')}
                         </button>
                         <button onClick={() => setShowPresets(showPresets === 'IT' ? null : 'IT')} className={`min-w-[44px] min-h-[44px] p-2.5 rounded-lg transition-colors flex items-center justify-center gap-1 text-xs font-bold uppercase ${showPresets === 'IT' ? 'bg-red-100 text-red-700' : 'bg-red-50 dark:bg-red-900/30 text-red-600 hover:bg-red-100'}`} aria-label="Aggiungi spese Italia" aria-expanded={showPresets === 'IT'}>
@@ -736,7 +736,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
                                 <Coins size={10} className="text-yellow-500" /> {t('input.exchangeRate')}
                                 <InfoTooltip text={t('input.exchangeRateTooltip')} />
                             </label>
-                            <button onClick={fetchRate} disabled={loadingRate} className={`text-xs flex items-center gap-1 px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-700 hover:text-indigo-600 font-bold transition-[color,opacity] ${loadingRate ? 'opacity-50' : ''}`}>
+                            <button onClick={fetchRate} disabled={loadingRate} aria-label={t('input.refresh') || 'Aggiorna tasso di cambio'} className={`text-xs flex items-center gap-1 min-w-[44px] min-h-[44px] px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-700 hover:text-indigo-600 font-bold transition-[color,opacity] ${loadingRate ? 'opacity-50' : ''}`}>
                                 <RefreshCw size={8} className={loadingRate ? 'animate-spin' : ''} /> {lastRateUpdate ? t('input.live') : t('input.refresh')}
                             </button>
                         </div>

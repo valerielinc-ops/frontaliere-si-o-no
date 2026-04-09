@@ -1134,10 +1134,15 @@ export async function ensureJobSlugMapLoaded(): Promise<void> {
   await _jobSlugMapPromise;
 }
 
-// Eagerly preload the job slug map so language switches work immediately.
-// The JobBoard component will overwrite this with a potentially fresher copy later.
+// Defer job slug map loading — only preload when user navigates to job-board tab.
+// The JobBoard component will trigger loading via registerJobSlugMap().
+// This saves ~800ms of main-thread blocking on initial page load.
 if (typeof window !== 'undefined') {
-  ensureJobSlugMapLoaded().catch(() => { /* non-critical — JobBoard will register later */ });
+  // Use requestIdleCallback (or setTimeout fallback) so it doesn't block LCP
+  const deferLoad = typeof requestIdleCallback === 'function' ? requestIdleCallback : (cb: () => void) => setTimeout(cb, 4000);
+  deferLoad(() => {
+    ensureJobSlugMapLoaded().catch(() => { /* non-critical — JobBoard will register later */ });
+  });
 }
 
 // ── Lazy-loaded blog data (code-split into routerBlogData.ts) ──

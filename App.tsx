@@ -2974,7 +2974,7 @@ const App: React.FC = () => {
           )}
         </main>
 
-        <footer className="border-t border-slate-200/60 dark:border-slate-800 bg-slate-50 dark:bg-slate-800 py-8 pb-20 md:pb-8 mt-auto relative z-10">
+        <footer className="border-t border-slate-200/60 dark:border-slate-800 bg-slate-50 dark:bg-slate-800 py-8 pb-20 md:pb-8 mt-auto relative z-10" style={{ contentVisibility: 'auto', containIntrinsicSize: 'auto 1600px' }}>
           <div className="max-w-7xl mx-auto px-4 space-y-6">
             {/* Footer weather widget */}
             <Suspense fallback={<SkeletonFooterSlot height="min-h-[36px]" />}><FooterWeather /></Suspense>

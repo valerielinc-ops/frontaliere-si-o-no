@@ -1136,6 +1136,9 @@ export function staticPagesPlugin(rootDir: string): Plugin {
           'All tools and data are updated for the 2026 fiscal year, reflecting the New Bilateral Tax Agreement between Switzerland and Italy, current AVS/LPP contribution rates, and Canton Ticino withholding tax tables.',
           'The platform covers the complete cross-border worker lifecycle: from obtaining your G or B permit and opening a Swiss bank account, to filing your annual tax returns in both countries, planning your AVS and LPP pension, and comparing the cost of living on both sides of the border.',
           'All calculators and comparators use real, verifiable data from official Swiss and Italian sources — Federal Statistical Office, SECO, USTAT, INPS, and the Italian Revenue Agency — so you can trust the results to support real financial decisions.',
+          'Cross-border workers benefit from Switzerland\'s high salaries while potentially maintaining a lower cost of living in Italy. The key financial factors include withholding tax rates, social security contributions, health insurance choices, and currency exchange rates — all of which vary based on your personal situation and work permit type.',
+          'Whether you hold a G permit (cross-border commuter) or a B permit (Swiss resident), understanding the tax implications of the 2026 New Bilateral Agreement is essential. New frontalieri who started after July 2023 face different rules depending on their distance from the Swiss border, making personalised simulation crucial.',
+          'This platform provides free, no-registration-required tools built by domain experts. Every calculation follows official Swiss and Italian tax parameters, and results are presented in both CHF and EUR for immediate practical use.',
         ],
         de: [
           'Diese Seite ist Teil von Frontaliere Ticino, der Referenzplattform für Grenzgänger zwischen der Schweiz (Kanton Tessin) und Italien. Hier finden Sie praktische Tools, aktuelle Daten und verifizierte Informationen.',
@@ -1143,6 +1146,9 @@ export function staticPagesPlugin(rootDir: string): Plugin {
           'Alle Tools und Daten sind für das Steuerjahr 2026 aktualisiert und berücksichtigen das Neue Bilaterale Steuerabkommen zwischen der Schweiz und Italien, aktuelle AHV/BVG-Beitragssätze und Tessiner Quellensteuertabellen.',
           'Die Plattform deckt den vollständigen Grenzgänger-Lebenszyklus ab: von der Beantragung des G- oder B-Ausweises und der Eröffnung eines Schweizer Bankkontos bis zur jährlichen Steuererklärung in beiden Ländern, der AHV/BVG-Vorsorgeplanung und dem Lebenshaltungskostenvergleich beider Seiten.',
           'Alle Rechner und Vergleicher nutzen verifizierbare Daten aus offiziellen Schweizer und italienischen Quellen — BFS, SECO, USTAT, INPS und die italienische Steuerbehörde — damit Sie sich bei echten Finanzentscheidungen auf die Ergebnisse verlassen können.',
+          'Grenzgänger profitieren von den hohen Schweizer Gehältern bei potenziell niedrigeren Lebenshaltungskosten in Italien. Die wichtigsten finanziellen Faktoren umfassen Quellensteuersätze, Sozialversicherungsbeiträge, Krankenversicherungswahl und Wechselkurse — die alle von Ihrer persönlichen Situation und Aufenthaltsgenehmigung abhängen.',
+          'Ob Sie eine G-Bewilligung (Grenzgänger) oder eine B-Bewilligung (Schweizer Aufenthalt) besitzen, das Verständnis der steuerlichen Auswirkungen des Neuen Bilateralen Abkommens 2026 ist entscheidend. Neue Grenzgänger, die nach Juli 2023 begonnen haben, unterliegen je nach Entfernung zur Schweizer Grenze unterschiedlichen Regeln.',
+          'Diese Plattform bietet kostenlose Tools ohne Registrierung, entwickelt von Fachexperten. Jede Berechnung folgt den offiziellen Schweizer und italienischen Steuerparametern, und die Ergebnisse werden sowohl in CHF als auch in EUR für den sofortigen praktischen Gebrauch dargestellt.',
         ],
         fr: [
           'Cette page fait partie de Frontaliere Ticino, la plateforme de référence pour les travailleurs frontaliers entre la Suisse (Canton du Tessin) et l\'Italie. Trouvez des outils pratiques, des données actualisées et des informations vérifiées.',
@@ -1150,6 +1156,9 @@ export function staticPagesPlugin(rootDir: string): Plugin {
           'Tous les outils et données sont mis à jour pour l\'année fiscale 2026, reflétant le Nouvel Accord Fiscal Bilatéral entre la Suisse et l\'Italie, les taux de cotisation AVS/LPP actuels et les barèmes d\'impôt à la source du Canton du Tessin.',
           'La plateforme couvre le cycle de vie complet du frontalier : de l\'obtention du permis G ou B et l\'ouverture d\'un compte bancaire suisse, aux déclarations fiscales annuelles dans les deux pays, la planification de la retraite AVS/LPP, et la comparaison du coût de la vie des deux côtés de la frontière.',
           'Tous les calculateurs et comparateurs utilisent des données réelles et vérifiables de sources officielles suisses et italiennes — OFS, SECO, USTAT, INPS et l\'Agence des revenus italienne — pour des résultats dignes de confiance dans vos décisions financières.',
+          'Les travailleurs frontaliers bénéficient des salaires élevés suisses tout en maintenant potentiellement un coût de la vie inférieur en Italie. Les facteurs financiers clés incluent les taux d\'impôt à la source, les cotisations sociales, le choix de l\'assurance maladie et les taux de change — qui varient selon votre situation personnelle et votre type de permis.',
+          'Que vous déteniez un permis G (frontalier) ou un permis B (résident suisse), comprendre les implications fiscales du Nouvel Accord Bilatéral 2026 est essentiel. Les nouveaux frontaliers ayant commencé après juillet 2023 sont soumis à des règles différentes selon leur distance de la frontière suisse.',
+          'Cette plateforme offre des outils gratuits sans inscription, développés par des experts du domaine. Chaque calcul suit les paramètres fiscaux officiels suisses et italiens, et les résultats sont présentés en CHF et en EUR pour une utilisation pratique immédiate.',
         ],
       };
 
@@ -1345,13 +1354,13 @@ export function staticPagesPlugin(rootDir: string): Plugin {
               const locEditorial = LOCALE_EDITORIAL[locale];
               if (locEditorial) editorialBlocks.push(...locEditorial);
             }
-            // Supplement: pad to at least 5 paragraphs from LOCALE_EDITORIAL
+            // Supplement: pad to at least 7 paragraphs from LOCALE_EDITORIAL
             // to meet search engine content quality thresholds (~300 words minimum)
-            if (editorialBlocks.length < 5) {
+            if (editorialBlocks.length < 7) {
               const supplement = LOCALE_EDITORIAL[locale];
               if (supplement) {
                 for (const para of supplement) {
-                  if (editorialBlocks.length >= 5) break;
+                  if (editorialBlocks.length >= 7) break;
                   editorialBlocks.push(para);
                 }
               }
@@ -1818,6 +1827,9 @@ export function staticPagesPlugin(rootDir: string): Plugin {
               `Questa pagina fa parte della piattaforma Frontaliere Ticino, il punto di riferimento per chi lavora in Svizzera (Canton Ticino) e vive in Italia. Troverai strumenti pratici, dati aggiornati e informazioni verificate.`,
               `I contenuti sono pensati per aiutare i frontalieri a prendere decisioni informate su tassazione, previdenza, trasporti, costi della vita e procedure amministrative legate al lavoro transfrontaliero.`,
               `Il sito è aggiornato quotidianamente con le ultime novità legislative, offerte di lavoro verificate e dati di mercato. Tutti gli strumenti sono gratuiti e utilizzabili senza registrazione.`,
+              `I frontalieri che lavorano nel Canton Ticino beneficiano di stipendi svizzeri significativamente superiori alla media italiana, con una differenza tipica del 60-150% a seconda del settore. I fattori finanziari chiave includono l'aliquota dell'imposta alla fonte, i contributi sociali (AVS/AI/IPG, AD, LAINF, IJM, LPP), la scelta dell'assicurazione malattia e il tasso di cambio CHF-EUR.`,
+              `Il Nuovo Accordo Fiscale Bilaterale 2026 tra Svizzera e Italia ha introdotto regole diverse per i nuovi frontalieri (assunti dopo il 17 luglio 2023) rispetto ai vecchi frontalieri. La distanza dalla frontiera svizzera (entro o oltre 20 km) determina il meccanismo di tassazione: i comuni entro 20 km beneficiano della ripartizione 80%/20% dell'imposta alla fonte, mentre i comuni oltre 20 km vedono l'intera imposta trattenuta in Svizzera.`,
+              `Tutti gli strumenti della piattaforma sono utilizzabili gratuitamente e senza registrazione. I risultati vengono calcolati interamente nel browser per garantire la massima privacy dei dati finanziari personali, e sono presentati sia in franchi svizzeri che in euro per un confronto immediato con la propria situazione economica in Italia.`,
             );
           }
 

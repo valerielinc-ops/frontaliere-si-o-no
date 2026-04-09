@@ -134,6 +134,7 @@ export function buildArticleSeoSections(locale: Locale, title: string, desc: str
         heading: labels.next,
         paragraphs: [
           `Nutzen Sie anschliessend die verknupften Bereiche zu Rechnern, Ratgebern, Stellenangeboten und FAQ, um das Thema in Ihren konkreten Fall zu ubertragen. So bleibt der Besuch nicht bei einer kurzen Nachricht stehen, sondern wird zu einer verwertbaren Entscheidungshilfe fur Arbeit, Steuern und Leben zwischen Italien und der Schweiz.`,
+          `Falls Sie spezifische Fragen haben, wie dieses Thema Ihre personliche Situation betrifft — Gehalt, Besteuerung, Krankenversicherung, Vorsorge oder Pendeln — konnen die interaktiven Rechner der Plattform Ihnen prazise quantitative Antworten mit offiziellen Steuerparametern 2026 liefern, ohne externe Beratung.`,
         ],
       },
     ];
@@ -173,6 +174,7 @@ export function buildArticleSeoSections(locale: Locale, title: string, desc: str
         heading: labels.next,
         paragraphs: [
           `Apres cette lecture, le plus utile est d ouvrir les simulateurs, les guides et les autres pages liees afin de transformer l information en plan d action. L objectif est qu un lecteur quitte cette page avec une meilleure vision des options, des risques et des etapes suivantes a verifier.`,
+          `Si vous avez des questions specifiques sur l impact de ce sujet sur votre situation personnelle — salaire, fiscalite, assurance maladie, prevoyance ou transport — les calculateurs interactifs de la plateforme peuvent vous donner des reponses quantitatives precises avec les parametres fiscaux officiels 2026, sans consultation externe.`,
         ],
       },
     ];
@@ -212,6 +214,7 @@ export function buildArticleSeoSections(locale: Locale, title: string, desc: str
         heading: labels.next,
         paragraphs: [
           `The best next step is to use the linked calculators, guides, FAQs, and job search pages to test the topic against your exact case. That turns a single article into a practical decision flow, which is the core value users expect from Frontaliere Ticino.`,
+          `If you have specific questions about how this topic affects your personal situation — salary, taxation, health insurance, pension planning, or transport — the platform's interactive calculators can give you precise quantitative answers using official 2026 fiscal parameters, without the need for external consultations.`,
         ],
       },
     ];
@@ -250,6 +253,7 @@ export function buildArticleSeoSections(locale: Locale, title: string, desc: str
       heading: labels.next,
       paragraphs: [
         `Il passo successivo migliore e usare i link interni verso simulatore fiscale, guida frontalieri, FAQ e cerca lavoro per trasformare l'informazione in un piano concreto. In questo modo la visita non si ferma alla lettura del titolo ma diventa un supporto reale per scegliere meglio tra Italia e Ticino.`,
+        `Se hai domande specifiche su come questo tema influisce sulla tua situazione personale — stipendio, tassazione, assicurazione sanitaria, previdenza o trasporti — i calcolatori interattivi della piattaforma possono darti risposte quantitative precise, aggiornate ai parametri fiscali 2026, senza bisogno di consulenze esterne.`,
       ],
     },
   ];
