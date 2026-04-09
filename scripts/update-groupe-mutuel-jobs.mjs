@@ -61,8 +61,8 @@ const GROUPE_MUTUEL_COMPANY_NAME = 'Groupe Mutuel';
 const GROUPE_MUTUEL_HOST = 'groupemutuel.csod.com';
 const GROUPE_MUTUEL_COMPANY_DOMAIN = 'groupemutuel.ch';
 const CSOD_CAREER_URL = 'https://groupemutuel.csod.com/ux/ats/careersite/4/home?c=groupemutuel&lang=fr-FR';
-const CSOD_API_BASE = 'https://groupemutuel.csod.com';
 const CSOD_CAREER_SITE_ID = '4';
+const CSOD_CULTURE_ID = 13; // fr-FR
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
 const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT ||
@@ -211,7 +211,12 @@ async function acquireToken() {
     console.log(`  🍪 Session cookies captured (${setCookieHeaders.length} cookies)`);
   }
 
-  return { token, cookies: cookieString };
+  // Extract cloud API base from csod.context endpoints
+  const cloudMatch = html.match(/"cloud"\s*:\s*"(https?:\/\/[^"]+)"/);
+  const cloudApiBase = cloudMatch?.[1] || 'https://eu-fra.api.csod.com/';
+  console.log(`  ☁️  Cloud API: ${cloudApiBase}`);
+
+  return { token, cookies: cookieString, cloudApiBase };
 }
 
 /* ── CSOD Search API ───────────────────────────────────────── */
@@ -243,31 +248,52 @@ async function fetchWithAuth(url, token, cookies, options = {}) {
 }
 
 /**
- * Search CSOD for all job listings using paginated API.
+ * Search CSOD for all job listings using the cloud API (POST).
+ * CSOD migrated from GET on the portal host to POST on the cloud API.
  * Returns null if token expired (caller should re-acquire).
  */
-async function searchJobs(token, cookies) {
+async function searchJobs(token, cookies, cloudApiBase = 'https://eu-fra.api.csod.com/') {
   const allJobs = [];
-  let startIndex = 0;
+  let pageNumber = 1;
   const pageSize = 25;
   let retries = 0;
 
+  // Ensure trailing slash
+  const apiBase = cloudApiBase.endsWith('/') ? cloudApiBase : cloudApiBase + '/';
+  const searchUrl = `${apiBase}rec-job-search/external/jobs`;
+
   while (true) {
-    // Primary endpoint: rec-job-search/external
-    const url = `${CSOD_API_BASE}/rec-job-search/external?q=&c=groupemutuel&lang=fr-FR&pagesize=${pageSize}&startindex=${startIndex}`;
+    const body = JSON.stringify({
+      careerSiteId: Number(CSOD_CAREER_SITE_ID),
+      careerSitePageId: Number(CSOD_CAREER_SITE_ID),
+      pageNumber,
+      pageSize,
+      cultureId: CSOD_CULTURE_ID,
+      searchText: '',
+      cultureName: 'fr-FR',
+      states: [],
+      countryCodes: [],
+      cities: [],
+      placeID: '',
+      radius: null,
+      postingsWithinDays: null,
+      customFieldCheckboxKeys: [],
+      customFieldDropdowns: [],
+      customFieldRadios: [],
+    });
 
-    console.log(`  📄 Fetching page at startIndex=${startIndex}...`);
-    let response = await fetchWithAuth(url, token, cookies);
-
-    // If primary fails, try alternative endpoint
-    if (!response || (!response.ok && response.status !== 401)) {
-      const altUrl = `${CSOD_API_BASE}/services/x/career-site/${CSOD_CAREER_SITE_ID}/search?q=&c=groupemutuel&lang=fr-FR&pagesize=${pageSize}&startindex=${startIndex}`;
-      console.log(`  🔄 Primary endpoint failed, trying alternative...`);
-      response = await fetchWithAuth(altUrl, token, cookies);
-    }
+    console.log(`  📄 Fetching page ${pageNumber}...`);
+    let response = await fetchWithAuth(searchUrl, token, cookies, {
+      method: 'POST',
+      body,
+      headers: {
+        'csod-accept-language': 'fr-FR',
+        'Referer': 'https://groupemutuel.csod.com/',
+      },
+    });
 
     if (!response) {
-      console.warn('⚠️ No response from CSOD API');
+      console.warn('⚠️ No response from CSOD cloud API');
       break;
     }
 
@@ -295,24 +321,26 @@ async function searchJobs(token, cookies) {
       break;
     }
 
-    // CSOD response structures vary — handle multiple formats
-    const jobs = data?.data || data?.jobPostings || data?.results || data?.items || [];
+    // New CSOD API: { status, data: { totalCount, requisitions[] } }
+    const innerData = data?.data || data;
+    const jobs = innerData?.requisitions || innerData?.data || data?.jobPostings || data?.results || data?.items || [];
     if (!Array.isArray(jobs)) {
       console.warn('⚠️ Unexpected response format — no job array found');
       console.warn(`   Response keys: ${Object.keys(data || {}).join(', ')}`);
+      if (data?.data) console.warn(`   data keys: ${Object.keys(data.data).join(', ')}`);
       break;
     }
 
     allJobs.push(...jobs);
 
-    const total = data.total || data.totalCount || data.totalResults || 0;
+    const total = innerData?.totalCount || data?.total || data?.totalCount || data?.totalResults || 0;
     console.log(`  📋 Fetched ${jobs.length} jobs (total so far: ${allJobs.length}/${total || '?'})`);
 
     if (total > 0 && allJobs.length >= total) break;
     if (jobs.length < pageSize) break;
     if (jobs.length === 0) break;
 
-    startIndex += pageSize;
+    pageNumber++;
     retries = 0;
 
     // Rate limiting
@@ -428,8 +456,9 @@ function buildPublicUrl(requisitionId) {
  * CSOD response fields vary by instance — handle multiple field names.
  */
 function parseCsodJob(rawJob) {
+  // New CSOD API uses displayJobTitle; old used title/jobTitle
   const title = normalizeSpace(
-    rawJob.title || rawJob.jobTitle || rawJob.requisitionTitle || rawJob.name || ''
+    rawJob.displayJobTitle || rawJob.title || rawJob.jobTitle || rawJob.requisitionTitle || rawJob.name || ''
   );
   if (!title || title.length < 3) return null;
 
@@ -437,12 +466,21 @@ function parseCsodJob(rawJob) {
     rawJob.requisitionId || rawJob.id || rawJob.jobId || rawJob.reqId || ''
   );
 
-  const locationRaw = rawJob.location || rawJob.locationName || rawJob.city || rawJob.jobLocation || '';
-  const city = parseCsodLocation(locationRaw) || 'Martigny';
+  // New API: locations is an array of { city, state }
+  let city = '';
+  if (Array.isArray(rawJob.locations) && rawJob.locations.length > 0) {
+    city = rawJob.locations[0].city || '';
+  }
+  if (!city) {
+    const locationRaw = rawJob.location || rawJob.locationName || rawJob.city || rawJob.jobLocation || '';
+    city = parseCsodLocation(locationRaw) || 'Martigny';
+  }
+  if (!city) city = 'Martigny';
 
   const canton = inferCanton(city);
 
-  const descriptionRaw = rawJob.description || rawJob.jobDescription || rawJob.shortDescription || '';
+  // New API: externalDescription; old: description/jobDescription
+  const descriptionRaw = rawJob.externalDescription || rawJob.description || rawJob.jobDescription || rawJob.shortDescription || '';
   const descriptionText = stripHtml(descriptionRaw);
 
   const publicUrl = requisitionId
@@ -455,7 +493,16 @@ function parseCsodJob(rawJob) {
   const slug = slugify(title, 'groupe-mutuel');
   const employmentType = detectEmploymentType(rawJob.employmentType || rawJob.timeType || rawJob.type || '');
 
-  const datePosted = rawJob.datePosted || rawJob.postingDate || rawJob.createdDate || rawJob.startDate || new Date().toISOString().split('T')[0];
+  // New API: postingEffectiveDate in DD/MM/YYYY format
+  let datePosted = rawJob.datePosted || rawJob.postingDate || rawJob.createdDate || rawJob.startDate || '';
+  if (!datePosted && rawJob.postingEffectiveDate && rawJob.postingEffectiveDate !== '-') {
+    // Convert DD/MM/YYYY → YYYY-MM-DD
+    const parts = rawJob.postingEffectiveDate.split('/');
+    if (parts.length === 3) {
+      datePosted = `${parts[2]}-${parts[1]}-${parts[0]}`;
+    }
+  }
+  if (!datePosted) datePosted = new Date().toISOString().split('T')[0];
 
   const job = {
     url: publicUrl,
@@ -506,8 +553,8 @@ async function fetchGroupeMutuelJobs() {
     return [];
   }
 
-  // Step 2: Search for jobs
-  let rawJobs = await searchJobs(auth.token, auth.cookies);
+  // Step 2: Search for jobs (using cloud API)
+  let rawJobs = await searchJobs(auth.token, auth.cookies, auth.cloudApiBase);
 
   // If token expired, try re-acquiring once
   if (rawJobs === null) {
@@ -517,7 +564,7 @@ async function fetchGroupeMutuelJobs() {
       console.warn('⚠️ Token re-acquisition failed.');
       return [];
     }
-    rawJobs = await searchJobs(auth.token, auth.cookies);
+    rawJobs = await searchJobs(auth.token, auth.cookies, auth.cloudApiBase);
     if (rawJobs === null) {
       console.warn('⚠️ Search failed even after token refresh.');
       return [];
