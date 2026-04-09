@@ -2007,6 +2007,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.consiglio-federale-ferma-perequazione-2030.title': 'Interkantonale Ressourcenausgleich: Kanton Tessin enttäuscht – Bern blockiert bis 2030',
     'blog.article.consiglio-federale-ferma-perequazione-2030.excerpt': 'Der Bundesrat ändert die Verordnung zum interkantonalen Ressourcenausgleich bis 2030 nicht. Der Kanton Tessin hatte eine andere Gewichtung für die Grenzgänger gefordert, wurde aber damit abgewiesen.',
     'blog.article.consiglio-federale-ferma-perequazione-2030.imageAlt': 'Sonnenuntergang am Monte Generoso: Eine Person blickt auf die Po-Ebene und liest Nachrichten über den Bundesrat, der die Finanzausgleichszahlungen bis 2030 blockiert',
+    'blog.article.camionisti-furbetti-governo-ticino-2026.title': 'Caso camionisti furbetti, decisione sul tavolo del governo ticinese',
+    'blog.article.camionisti-furbetti-governo-ticino-2026.excerpt': 'Il governo del Ticino si confronta con il traffico parassitario di camion a Giornico.',
+    'blog.article.camionisti-furbetti-governo-ticino-2026.imageAlt': 'Ein Foto einer ländlichen Straße im Kanton Tessin, auf dem ein LKW durch eine bergige Landschaft an einem sonnigen Tag fährt.',
 };
 
 export default blogMetaDe;

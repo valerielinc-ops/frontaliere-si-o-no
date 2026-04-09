@@ -2007,6 +2007,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.consiglio-federale-ferma-perequazione-2030.title': 'Equalisation payments: Ticino disappointed as Bern blocks changes until 2030',
     'blog.article.consiglio-federale-ferma-perequazione-2030.excerpt': 'The Federal Council will not amend the intercantonal financial equalisation ordinance until 2030. Ticino had requested a different weighting for cross-border commuters, but the request was rejected.',
     'blog.article.consiglio-federale-ferma-perequazione-2030.imageAlt': 'Sunset at Monte Generoso: a person looking at the Po Valley while reading news about the Federal Council blocking equalization payments until 2030',
+    'blog.article.camionisti-furbetti-governo-ticino-2026.title': 'Caso camionisti furbetti, decisione sul tavolo del governo ticinese',
+    'blog.article.camionisti-furbetti-governo-ticino-2026.excerpt': 'Il governo del Ticino si confronta con il traffico parassitario di camion a Giornico.',
+    'blog.article.camionisti-furbetti-governo-ticino-2026.imageAlt': 'A photograph of a rural road in Canton Ticino, showing a truck crossing a mountainous landscape on a sunny day.',
 };
 
 export default blogMetaEn;

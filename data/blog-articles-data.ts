@@ -5668,4 +5668,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/consiglio-federale-ferma-perequazione-2030.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'camionisti-furbetti-governo-ticino-2026',
+    category: 'novita',
+    date: '2026-04-09T03:39:08.053Z',
+    image: '/images/blog/camionisti-furbetti-governo-ticino-2026.jpg',
+    hasCalculator: true,
+  },
 ];

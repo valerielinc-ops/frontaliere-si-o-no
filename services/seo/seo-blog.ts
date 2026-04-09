@@ -6270,6 +6270,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-camionisti-furbetti-governo-ticino-2026': {
+    title: 'Caso camionisti furbetti, decisione sul tavolo del governo ticinese | Frontaliere Ticino',
+    description: 'Il controverso tema dei camion furbetti arriva sul tavolo del governo ticinese. Scopri di più sulle implicazioni e le azioni disponibili. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, caso, camionisti, furbetti, decisione',
+    ogTitle: 'Caso camionisti furbetti, decisione su Governo Ticino',
+    ogDescription: 'Il governo ticinese si confronta con il problema dei camionisti che aggirano i controlli a Giornico.',
+    canonicalPath: '/articoli-frontaliere/camionisti-furbetti-governo-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Camionisti furbetti a Ticino: il governo valuta azioni",
+      "description": "Il controverso tema dei camion furbetti arriva sul tavolo del governo ticinese. Scopri di più sulle implicazioni e le azioni disponibili. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/camionisti-furbetti-governo-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una fotografia di una strada rurale nel Canton Ticino, con un camion che attraversa un paesaggio montuoso durante una giornata soleggiata."
+      },
+      "datePublished": "2026-04-09T03:39:08+00:00",
+      "dateModified": "2026-04-09T03:39:08+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/camionisti-furbetti-governo-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

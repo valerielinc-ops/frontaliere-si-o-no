@@ -2007,6 +2007,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.consiglio-federale-ferma-perequazione-2030.title': 'Péréquation, le Tessin déçu : Berne bloque jusqu’en 2030',
     'blog.article.consiglio-federale-ferma-perequazione-2030.excerpt': 'Le Conseil fédéral ne modifie pas l’ordonnance sur la péréquation financière intercantonale avant 2030. Le Tessin réclamait une pondération différente pour les frontaliers, mais se voit opposé un refus.',
     'blog.article.consiglio-federale-ferma-perequazione-2030.imageAlt': 'Coucher de soleil au Monte Generoso : une personne observe la plaine du Pô en lisant des nouvelles sur le Conseil fédéral qui bloque les paiements de péréquation jusqu\'en 2030',
+    'blog.article.camionisti-furbetti-governo-ticino-2026.title': 'Affaire des camionneurs malins : le gouvernement tessinois prend les choses en main',
+    'blog.article.camionisti-furbetti-governo-ticino-2026.excerpt': 'Le gouvernement tessinois doit se pencher sur le trafic parasitaire de camions à Giornico.',
+    'blog.article.camionisti-furbetti-governo-ticino-2026.imageAlt': 'Une photographie d\'une route rurale dans le canton du Tessin, montrant un camion traversant un paysage montagneux par une journée ensoleillée.',
 };
 
 export default blogMetaFr;
