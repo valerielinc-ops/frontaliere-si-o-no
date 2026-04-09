@@ -1,16 +1,16 @@
 {
   "key": "colin-cie",
   "label": "colin-cie",
-  "generatedAt": "2026-04-09T09:23:27.886Z",
+  "generatedAt": "2026-04-09T21:16:47.201Z",
   "total": 9,
   "newCount": 0,
   "updatedCount": 9,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6564,
-  "avgDurationMs": 6564,
+  "durationMs": 61797,
+  "avgDurationMs": 61797,
   "durationHistory": [
-    6564
+    61797
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -186,10 +186,10 @@
       "streetAddress": "Via Nassa 15",
       "postalCode": "6900",
       "id": "colin-cie-adcd3df17efa",
-      "_qualityScore": 97,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 22,
+        "richness": 0,
         "translation": 25,
         "completeness": 25
       }
@@ -222,10 +222,10 @@
       "streetAddress": "Via Nassa 15",
       "postalCode": "6900",
       "id": "colin-cie-25bf344d3639",
-      "_qualityScore": 97,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 22,
+        "richness": 0,
         "translation": 25,
         "completeness": 25
       }
@@ -258,10 +258,10 @@
       "streetAddress": "Via Nassa 15",
       "postalCode": "6900",
       "id": "colin-cie-c86147c7ab5e",
-      "_qualityScore": 97,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 22,
+        "richness": 0,
         "translation": 25,
         "completeness": 25
       }
