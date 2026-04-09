@@ -1,18 +1,50 @@
 {
   "key": "fust",
   "label": "Fust",
-  "generatedAt": "2026-04-09T09:37:50.108Z",
-  "total": 3,
-  "newCount": 0,
+  "generatedAt": "2026-04-09T21:30:08.136Z",
+  "total": 4,
+  "newCount": 1,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 18203,
-  "avgDurationMs": 18203,
+  "durationMs": 12447,
+  "avgDurationMs": 12447,
   "durationHistory": [
-    18203
+    12447
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "company-86y4zp",
+      "slug": "verkaufsberater-in-per-elektrohaushalt-e-multimedia-fust-chur-graubunden-86y4zp",
+      "company": "Fust",
+      "title": "Verkaufsberater:in für Elektrohaushalt und Multimedia",
+      "location": "Chur, Graubünden",
+      "canton": "GR",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-09",
+      "url": "https://jobs.fust.ch/offene-stellen/verkaufsberater-in-fuer-elektrohaushalt-und-multimedia/8a422763-3e5f-476b-96b5-1b9ad6f10754",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Grigioni",
+        "canton": "GR"
+      },
+      "companyKey": "fust",
+      "companyDomain": "fust.ch",
+      "crawledAt": "2026-04-09T21:30:07.480Z",
+      "sourceLang": "de",
+      "_qualityScore": 78,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 19,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
