@@ -1,61 +1,5 @@
 [
   {
-    "timestamp": "2026-03-31T02:28:35.652Z",
-    "label": "before",
-    "total": 1253,
-    "needsRetranslation": 10,
-    "incomplete": 10,
-    "complete": 1243,
-    "missingByLocale": {
-      "it": 9,
-      "en": 9,
-      "de": 10,
-      "fr": 10
-    },
-    "topPending": [
-      {
-        "company": "Rapelli - ORIOR Food AG",
-        "pending": 8
-      },
-      {
-        "company": "Denner",
-        "pending": 1
-      },
-      {
-        "company": "Zambon Svizzera SA",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-03-31T02:28:40.538Z",
-    "label": "after",
-    "total": 1253,
-    "needsRetranslation": 10,
-    "incomplete": 10,
-    "complete": 1243,
-    "missingByLocale": {
-      "it": 9,
-      "en": 9,
-      "de": 10,
-      "fr": 10
-    },
-    "topPending": [
-      {
-        "company": "Rapelli - ORIOR Food AG",
-        "pending": 8
-      },
-      {
-        "company": "Denner",
-        "pending": 1
-      },
-      {
-        "company": "Zambon Svizzera SA",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-03-31T03:27:38.950Z",
     "label": "before",
     "total": 1253,
@@ -10313,6 +10257,62 @@
   },
   {
     "timestamp": "2026-04-09T02:27:54.010Z",
+    "label": "after",
+    "total": 1558,
+    "needsRetranslation": 54,
+    "incomplete": 6,
+    "complete": 1552,
+    "missingByLocale": {
+      "it": 5,
+      "en": 6,
+      "de": 2,
+      "fr": 6
+    },
+    "topPending": [
+      {
+        "company": "Bell Deutschland GmbH & Co. KG",
+        "pending": 4
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      },
+      {
+        "company": "Schindler",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-09T03:31:10.941Z",
+    "label": "before",
+    "total": 1558,
+    "needsRetranslation": 54,
+    "incomplete": 6,
+    "complete": 1552,
+    "missingByLocale": {
+      "it": 5,
+      "en": 6,
+      "de": 2,
+      "fr": 6
+    },
+    "topPending": [
+      {
+        "company": "Bell Deutschland GmbH & Co. KG",
+        "pending": 4
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      },
+      {
+        "company": "Schindler",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-09T03:31:52.391Z",
     "label": "after",
     "total": 1558,
     "needsRetranslation": 54,
