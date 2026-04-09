@@ -1,16 +1,16 @@
 {
   "key": "usi-universita-della-svizzera-italiana",
   "label": "USI",
-  "generatedAt": "2026-04-08T21:58:14.082Z",
+  "generatedAt": "2026-04-09T10:14:29.305Z",
   "total": 25,
   "newCount": 0,
-  "updatedCount": 11,
+  "updatedCount": 12,
   "removedCount": 0,
-  "unchangedCount": 14,
-  "durationMs": 109308,
-  "avgDurationMs": 109308,
+  "unchangedCount": 13,
+  "durationMs": 83086,
+  "avgDurationMs": 83086,
   "durationHistory": [
-    109308
+    83086
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -49,6 +49,45 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
+      "url": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-docenza-diritto-tributario-2026.pdf",
+      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-docenza-diritto-tributario-2026.pdf",
+      "title": "Bando di concorso per una docenza a contratto in Diritto tributario",
+      "company": "USI – Università della Svizzera italiana",
+      "companyKey": "usi-universita-della-svizzera-italiana",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "slug": "bando-di-concorso-per-una-docenza-a-contratto-in-diritto-tributario-usi-lugano",
+      "department": "Facoltà di scienze economiche",
+      "category": "staff",
+      "datePosted": "2026-03-29",
+      "source": "usi-drupal-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Istruzione e ricerca",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "sourceLang": "it",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "streetAddress": "Via Giuseppe Buffi 13",
+      "postalCode": "6900",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "id": "usi-universita-della-svizzera-italiana-05ea612c193d",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
         "translation": 25,
         "completeness": 20
       }
@@ -477,45 +516,6 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "id": "usi-universita-della-svizzera-italiana-9caac50d561c",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "url": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-docenza-diritto-tributario-2026.pdf",
-      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-docenza-diritto-tributario-2026.pdf",
-      "title": "Bando di concorso per una docenza a contratto in Diritto tributario",
-      "company": "USI – Università della Svizzera italiana",
-      "companyKey": "usi-universita-della-svizzera-italiana",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "slug": "bando-di-concorso-per-una-docenza-a-contratto-in-diritto-tributario-usi-lugano",
-      "department": "Facoltà di scienze economiche",
-      "category": "staff",
-      "datePosted": "2026-03-29",
-      "source": "usi-drupal-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Istruzione e ricerca",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "sourceLang": "it",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "streetAddress": "Via Giuseppe Buffi 13",
-      "postalCode": "6900",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "id": "usi-universita-della-svizzera-italiana-05ea612c193d",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
