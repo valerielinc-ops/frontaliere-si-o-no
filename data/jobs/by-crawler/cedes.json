@@ -1,6 +1,6 @@
 {
   "crawlerKey": "cedes",
-  "assembledAt": "2026-04-08T11:27:47.153Z",
+  "assembledAt": "2026-04-09T21:11:58.896Z",
   "jobs": [
     {
       "id": "cedes-08f2188aed4b",
@@ -39,20 +39,22 @@
       "employmentType": "FULL_TIME",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-08",
+      "postedDate": "2026-04-09",
       "url": "https://www.cedes.com/en/career/jobs/packaging-line-worker-100-1/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-08T11:27:45.568Z",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
+      "crawledAt": "2026-04-09T21:11:57.057Z",
+      "previousSlugs": [],
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 58000,
-          "maxValue": 78000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       },
@@ -95,23 +97,23 @@
       "employmentType": "FULL_TIME",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-08",
+      "postedDate": "2026-04-09",
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-08T11:27:45.289Z",
+      "crawledAt": "2026-04-09T21:11:56.770Z",
       "previousSlugs": [
         "unsolicited-applications-cedes-ag-landquart"
       ],
-      "salaryMin": 58000,
-      "salaryMax": 78000,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 58000,
-          "maxValue": 78000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       },
