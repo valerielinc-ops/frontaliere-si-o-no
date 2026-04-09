@@ -159,19 +159,19 @@ export const SECTION_EDITORIAL: SectionEditorialMap = {
   },
   '/compara-servizi/confronta-offerte-lavoro': {
     en: [
-      'The Ticino jobs section gathers job postings published on official company sources, with data normalization to facilitate comparison between role, location, contract type, and match with your professional profile.',
+      'The Swiss jobs section gathers job postings published on official company sources across Cantons Ticino, Graubünden and Valais, with data normalization to facilitate comparison between role, location, contract type, and match with your professional profile.',
       'For each position, useful metadata is maintained: publication date, company, location, requirements, and direct link to apply on the employer\'s original website.',
-      'Listings are filtered for Canton Ticino and updated daily by dedicated crawlers that monitor the HR portals of over 100 Ticino companies, public entities, and multinationals based in the canton.',
+      'Listings are filtered for target cantons (TI, GR, VS) and updated daily by dedicated crawlers that monitor the HR portals of over 100 companies, public entities, and multinationals based in the region.',
     ],
     de: [
-      'Die Tessiner Stellensuche sammelt Stellenangebote von offiziellen Unternehmensquellen mit Datennormalisierung zum einfachen Vergleich von Rolle, Standort, Vertragsart und Übereinstimmung mit Ihrem Berufsprofil.',
+      'Die Stellensuche in der Schweiz sammelt Stellenangebote von offiziellen Unternehmensquellen in den Kantonen Tessin, Graubünden und Wallis mit Datennormalisierung zum einfachen Vergleich von Rolle, Standort, Vertragsart und Übereinstimmung mit Ihrem Berufsprofil.',
       'Für jede Stelle werden nützliche Metadaten gepflegt: Veröffentlichungsdatum, Unternehmen, Standort, Anforderungen und Direktlink zur Bewerbung auf der Originalwebsite des Arbeitgebers.',
-      'Die Angebote werden für den Kanton Tessin gefiltert und täglich von dedizierten Crawlern aktualisiert, die die HR-Portale von über 100 Tessiner Unternehmen, öffentlichen Einrichtungen und Konzernen überwachen.',
+      'Die Angebote werden für die Zielkantone (TI, GR, VS) gefiltert und täglich von dedizierten Crawlern aktualisiert, die die HR-Portale von über 100 Unternehmen, öffentlichen Einrichtungen und Konzernen in der Region überwachen.',
     ],
     fr: [
-      'La section emploi au Tessin recueille les offres d\'emploi publiées sur les sources officielles des entreprises, avec normalisation des données pour faciliter la comparaison entre poste, lieu, type de contrat et adéquation avec votre profil professionnel.',
+      'La section emploi en Suisse recueille les offres d\'emploi publiées sur les sources officielles des entreprises dans les cantons du Tessin, des Grisons et du Valais, avec normalisation des données pour faciliter la comparaison entre poste, lieu, type de contrat et adéquation avec votre profil professionnel.',
       'Pour chaque poste, des métadonnées utiles sont conservées : date de publication, entreprise, localité, exigences et lien direct pour postuler sur le site original de l\'employeur.',
-      'Les offres sont filtrées pour le Canton du Tessin et mises à jour quotidiennement par des crawlers dédiés qui surveillent les portails RH de plus de 100 entreprises tessinoises.',
+      'Les offres sont filtrées pour les cantons cibles (TI, GR, VS) et mises à jour quotidiennement par des crawlers dédiés qui surveillent les portails RH de plus de 100 entreprises dans la région.',
     ],
   },
   '/compara-servizi/costo-auto': {

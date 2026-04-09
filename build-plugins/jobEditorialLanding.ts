@@ -3,6 +3,58 @@ export type JobLandingTypeKey = 'apprenticeship' | 'internship' | 'partTime';
 export type JobLandingSectorKey = 'health' | 'finance' | 'tech' | 'engineering' | 'admin' | 'hospitality' | 'sales';
 export type JobCareClusterKey = 'clinics' | 'careHomes' | 'oss' | 'educators';
 
+// Canton display names by locale for editorial landings
+const CANTON_DISPLAY_LOCALE: Record<string, Record<JobLandingLocale, string>> = {
+  TI: { it: 'Ticino', en: 'Ticino', de: 'Tessin', fr: 'Tessin' },
+  GR: { it: 'Grigioni', en: 'Graubünden', de: 'Graubünden', fr: 'Grisons' },
+  VS: { it: 'Vallese', en: 'Valais', de: 'Wallis', fr: 'Valais' },
+};
+
+// Canton slug by locale (URL-safe)
+const CANTON_SLUG_LOCALE: Record<string, Record<JobLandingLocale, string>> = {
+  TI: { it: 'ticino', en: 'ticino', de: 'tessin', fr: 'tessin' },
+  GR: { it: 'grigioni', en: 'graubunden', de: 'graubunden', fr: 'grisons' },
+  VS: { it: 'vallese', en: 'valais', de: 'wallis', fr: 'valais' },
+};
+
+// French preposition for canton names
+const frenchCantonPrep = (display: string): string => {
+  if (['Tessin', 'Jura'].includes(display)) return `au ${display}`;
+  if (display === 'Grisons') return `aux ${display}`;
+  if (display === 'Valais') return `en ${display}`;
+  return `dans le canton de ${display}`;
+};
+
+// German preposition for canton names
+const germanCantonPrep = (display: string): string => {
+  if (['Tessin', 'Wallis', 'Jura'].includes(display)) return `im ${display}`;
+  return `in ${display}`;
+};
+
+// The target cantons for editorial pages
+const EDITORIAL_CANTONS = ['TI', 'GR', 'VS'] as const;
+
+// ── Per-canton slug tables ────────────────────────────────────────────
+
+const JOB_TODAY_LANDING_SLUGS_BY_CANTON: Record<string, Record<JobLandingLocale, string>> = {
+  TI: { it: 'offerte-di-lavoro-ticino-oggi', en: 'ticino-jobs-today', de: 'jobs-tessin-heute', fr: 'offres-emploi-tessin-aujourdhui' },
+  GR: { it: 'offerte-di-lavoro-grigioni-oggi', en: 'graubunden-jobs-today', de: 'jobs-graubunden-heute', fr: 'offres-emploi-grisons-aujourdhui' },
+  VS: { it: 'offerte-di-lavoro-vallese-oggi', en: 'valais-jobs-today', de: 'jobs-wallis-heute', fr: 'offres-emploi-valais-aujourdhui' },
+};
+
+const JOB_NURSES_HUB_SLUGS_BY_CANTON: Record<string, Record<JobLandingLocale, string>> = {
+  TI: { it: 'infermieri-in-ticino', en: 'nurses-in-ticino', de: 'pflege-jobs-im-tessin', fr: 'infirmiers-au-tessin' },
+  GR: { it: 'infermieri-in-grigioni', en: 'nurses-in-graubunden', de: 'pflege-jobs-in-graubunden', fr: 'infirmiers-aux-grisons' },
+  VS: { it: 'infermieri-in-vallese', en: 'nurses-in-valais', de: 'pflege-jobs-im-wallis', fr: 'infirmiers-en-valais' },
+};
+
+const JOB_PART_TIME_LANDING_SLUGS_BY_CANTON: Record<string, Record<JobLandingLocale, string>> = {
+  TI: { it: 'lavoro-part-time-ticino', en: 'part-time-jobs-ticino', de: 'teilzeit-jobs-tessin', fr: 'emploi-temps-partiel-tessin' },
+  GR: { it: 'lavoro-part-time-grigioni', en: 'part-time-jobs-graubunden', de: 'teilzeit-jobs-graubunden', fr: 'emploi-temps-partiel-grisons' },
+  VS: { it: 'lavoro-part-time-vallese', en: 'part-time-jobs-valais', de: 'teilzeit-jobs-wallis', fr: 'emploi-temps-partiel-valais' },
+};
+
+// Backward-compatible exports: TI defaults
 export const JOB_PART_TIME_LANDING_SLUGS: Record<JobLandingLocale, string> = {
   it: 'lavoro-part-time',
   en: 'part-time-jobs',
@@ -10,12 +62,7 @@ export const JOB_PART_TIME_LANDING_SLUGS: Record<JobLandingLocale, string> = {
   fr: 'emploi-temps-partiel',
 };
 
-export const JOB_TODAY_LANDING_SLUGS: Record<JobLandingLocale, string> = {
-  it: 'offerte-di-lavoro-ticino-oggi',
-  en: 'ticino-jobs-today',
-  de: 'jobs-tessin-heute',
-  fr: 'offres-emploi-tessin-aujourdhui',
-};
+export const JOB_TODAY_LANDING_SLUGS = JOB_TODAY_LANDING_SLUGS_BY_CANTON['TI'];
 
 export const JOB_OFFICIAL_GAZETTE_LANDING_SLUGS: Record<JobLandingLocale, string> = {
   it: 'foglio-ufficiale-offerte-di-lavoro-ticino',
@@ -24,12 +71,7 @@ export const JOB_OFFICIAL_GAZETTE_LANDING_SLUGS: Record<JobLandingLocale, string
   fr: 'feuille-officielle-emplois-tessin',
 };
 
-export const JOB_NURSES_HUB_SLUGS: Record<JobLandingLocale, string> = {
-  it: 'infermieri-in-ticino',
-  en: 'nurses-in-ticino',
-  de: 'pflege-jobs-im-tessin',
-  fr: 'infirmiers-au-tessin',
-};
+export const JOB_NURSES_HUB_SLUGS = JOB_NURSES_HUB_SLUGS_BY_CANTON['TI'];
 
 const SEARCH_ROUTE_PREFIX: Record<JobLandingLocale, string> = {
   it: 'ricerca',
@@ -38,7 +80,14 @@ const SEARCH_ROUTE_PREFIX: Record<JobLandingLocale, string> = {
   fr: 'recherche',
 };
 
-const SUPPORTED_EDITORIAL_LOCATIONS = ['Lugano', 'Bellinzona', 'Mendrisio', 'Locarno', 'Chiasso'] as const;
+const EDITORIAL_LOCATIONS_BY_CANTON: Record<string, readonly string[]> = {
+  TI: ['Lugano', 'Bellinzona', 'Mendrisio', 'Locarno', 'Chiasso'],
+  GR: ['Chur', 'Davos', 'St. Moritz'],
+  VS: ['Sion', 'Brig', 'Visp', 'Martigny', 'Monthey', 'Sierre'],
+};
+
+// Backward compatibility: all supported locations across all cantons
+const SUPPORTED_EDITORIAL_LOCATIONS = Object.values(EDITORIAL_LOCATIONS_BY_CANTON).flat() as string[];
 const SUPPORTED_EDITORIAL_LOCATION_SET = new Set<string>(SUPPORTED_EDITORIAL_LOCATIONS);
 
 // SEO plugin uses Italian sector keys that don't always match JOB_SECTOR_DEFS slugs
@@ -267,17 +316,17 @@ export type JobPartTimeLandingModel = {
 };
 
 export type EditorialLandingDescriptor =
-  | { kind: 'today' }
+  | { kind: 'today'; canton?: string }
   | { kind: 'official-gazette' }
-  | { kind: 'nurses-hub' }
-  | { kind: 'part-time' }
-  | { kind: 'care-variant'; clusterKey: JobCareClusterKey }
+  | { kind: 'nurses-hub'; canton?: string }
+  | { kind: 'part-time'; canton?: string }
+  | { kind: 'care-variant'; clusterKey: JobCareClusterKey; canton?: string }
   | { kind: 'location'; location: string }
   | { kind: 'location-type'; location: string; typeKey: JobLandingTypeKey }
   | { kind: 'location-sector'; location: string; sectorKey: JobLandingSectorKey }
-  | { kind: 'sector-region'; sectorKey: JobLandingSectorKey };
+  | { kind: 'sector-region'; sectorKey: JobLandingSectorKey; canton?: string };
 
-const TODAY_COPY: Record<JobLandingLocale, {
+function makeTodayCopy(cantonCode: string): Record<JobLandingLocale, {
   title: string;
   heading: string;
   description: string;
@@ -290,64 +339,70 @@ const TODAY_COPY: Record<JobLandingLocale, {
   cityHub: string;
   openAll: string;
   internalLinks: [string, string, string];
-}> = {
-  it: {
-    title: 'Offerte di lavoro Ticino oggi | Ultime 24 ore e ultimi 3 giorni',
-    heading: 'Offerte di lavoro Ticino oggi',
-    description: 'Scopri le offerte di lavoro in Ticino pubblicate oggi o negli ultimi 3 giorni, con blocchi dedicati a ultime 24 ore, part-time e citta come Lugano, Bellinzona, Mendrisio, Locarno e Chiasso.',
-    intro: 'Questa landing editoriale raccoglie gli annunci piu freschi del nostro job board Ticino e li organizza in blocchi utili per chi cerca lavoro in Ticino e vuole capire subito dove si sta muovendo il mercato.',
-    updatedLabel: 'Aggiornamento',
-    countsLabel: 'annunci attivi monitorati',
-    fresh24h: 'Ultime 24 ore',
-    fresh3d: 'Ultimi 3 giorni',
-    partTime: 'Part-time in Ticino',
-    cityHub: 'Per citta',
-    openAll: 'Vedi tutte le offerte di lavoro in Ticino',
-    internalLinks: ['Ultime 24 ore', 'Ultimi 3 giorni', 'Part-time in Ticino'],
-  },
-  en: {
-    title: 'Ticino jobs today | Last 24 hours and last 3 days',
-    heading: 'Ticino jobs today',
-    description: 'Browse Ticino jobs published today or in the last 3 days, with dedicated blocks for the last 24 hours, part-time roles and key cities such as Lugano, Bellinzona, Mendrisio, Locarno and Chiasso.',
-    intro: 'This editorial landing page groups the freshest jobs from our Ticino job board and makes it easier to scan where employers are actively hiring.',
-    updatedLabel: 'Updated',
-    countsLabel: 'active jobs tracked',
-    fresh24h: 'New jobs in the last 24 hours',
-    fresh3d: 'Jobs from the last 3 days',
-    partTime: 'Part-time jobs in Ticino',
-    cityHub: 'Browse by city',
-    openAll: 'See all jobs in Ticino',
-    internalLinks: ['Last 24 hours', 'Last 3 days', 'Part-time jobs in Ticino'],
-  },
-  de: {
-    title: 'Jobs im Tessin heute | Letzte 24 Stunden und letzte 3 Tage',
-    heading: 'Jobs im Tessin heute',
-    description: 'Entdecken Sie Jobs im Tessin, die heute oder in den letzten 3 Tagen veroffentlicht wurden, mit Bereichen fur die letzten 24 Stunden, Teilzeit und Stadte wie Lugano, Bellinzona, Mendrisio, Locarno und Chiasso.',
-    intro: 'Diese Landingpage bundelt die frischesten Stellen aus unserem Tessiner Job Board und ordnet sie in nutzliche Blöcke fur eine schnelle Orientierung.',
-    updatedLabel: 'Aktualisiert',
-    countsLabel: 'aktive Jobs im Monitoring',
-    fresh24h: 'Neue Jobs in den letzten 24 Stunden',
-    fresh3d: 'Jobs der letzten 3 Tage',
-    partTime: 'Teilzeitjobs im Tessin',
-    cityHub: 'Nach Stadt suchen',
-    openAll: 'Alle Jobs im Tessin ansehen',
-    internalLinks: ['Neue Jobs in den letzten 24 Stunden', 'Jobs der letzten 3 Tage', 'Teilzeitjobs im Tessin'],
-  },
-  fr: {
-    title: "Offres d'emploi au Tessin aujourd'hui | Dernieres 24 heures et 3 derniers jours",
-    heading: "Offres d'emploi au Tessin aujourd'hui",
-    description: "Consultez les offres d'emploi au Tessin publiees aujourd'hui ou durant les 3 derniers jours, avec des blocs dedies aux 24 dernieres heures, au temps partiel et aux villes comme Lugano, Bellinzone, Mendrisio, Locarno et Chiasso.",
-    intro: "Cette landing page regroupe les offres les plus recentes de notre job board au Tessin et les organise en blocs utiles pour lire rapidement le marche.",
-    updatedLabel: 'Mis a jour',
-    countsLabel: 'offres actives suivies',
-    fresh24h: 'Nouvelles offres des dernieres 24 heures',
-    fresh3d: 'Offres des 3 derniers jours',
-    partTime: 'Temps partiel au Tessin',
-    cityHub: 'Par ville',
-    openAll: 'Voir toutes les offres au Tessin',
-    internalLinks: ['Dernieres 24 heures', '3 derniers jours', 'Temps partiel au Tessin'],
-  },
-};
+}> {
+  const cd = CANTON_DISPLAY_LOCALE[cantonCode] || CANTON_DISPLAY_LOCALE['TI'];
+  const cities = (EDITORIAL_LOCATIONS_BY_CANTON[cantonCode] || EDITORIAL_LOCATIONS_BY_CANTON['TI']).join(', ');
+  return {
+    it: {
+      title: `Offerte di lavoro ${cd.it} oggi | Ultime 24 ore e ultimi 3 giorni`,
+      heading: `Offerte di lavoro ${cd.it} oggi`,
+      description: `Scopri le offerte di lavoro in ${cd.it} pubblicate oggi o negli ultimi 3 giorni, con blocchi dedicati a ultime 24 ore, part-time e citta come ${cities}.`,
+      intro: `Questa landing editoriale raccoglie gli annunci piu freschi del nostro job board ${cd.it} e li organizza in blocchi utili per chi cerca lavoro in ${cd.it} e vuole capire subito dove si sta muovendo il mercato.`,
+      updatedLabel: 'Aggiornamento',
+      countsLabel: 'annunci attivi monitorati',
+      fresh24h: 'Ultime 24 ore',
+      fresh3d: 'Ultimi 3 giorni',
+      partTime: `Part-time in ${cd.it}`,
+      cityHub: 'Per citta',
+      openAll: `Vedi tutte le offerte di lavoro in ${cd.it}`,
+      internalLinks: ['Ultime 24 ore', 'Ultimi 3 giorni', `Part-time in ${cd.it}`],
+    },
+    en: {
+      title: `${cd.en} jobs today | Last 24 hours and last 3 days`,
+      heading: `${cd.en} jobs today`,
+      description: `Browse ${cd.en} jobs published today or in the last 3 days, with dedicated blocks for the last 24 hours, part-time roles and key cities such as ${cities}.`,
+      intro: `This editorial landing page groups the freshest jobs from our ${cd.en} job board and makes it easier to scan where employers are actively hiring.`,
+      updatedLabel: 'Updated',
+      countsLabel: 'active jobs tracked',
+      fresh24h: 'New jobs in the last 24 hours',
+      fresh3d: 'Jobs from the last 3 days',
+      partTime: `Part-time jobs in ${cd.en}`,
+      cityHub: 'Browse by city',
+      openAll: `See all jobs in ${cd.en}`,
+      internalLinks: ['Last 24 hours', 'Last 3 days', `Part-time jobs in ${cd.en}`],
+    },
+    de: {
+      title: `Jobs ${germanCantonPrep(cd.de)} heute | Letzte 24 Stunden und letzte 3 Tage`,
+      heading: `Jobs ${germanCantonPrep(cd.de)} heute`,
+      description: `Entdecken Sie Jobs ${germanCantonPrep(cd.de)}, die heute oder in den letzten 3 Tagen veroffentlicht wurden, mit Bereichen fur die letzten 24 Stunden, Teilzeit und Stadte wie ${cities}.`,
+      intro: `Diese Landingpage bundelt die frischesten Stellen aus unserem Job Board ${cd.de} und ordnet sie in nutzliche Blocke fur eine schnelle Orientierung.`,
+      updatedLabel: 'Aktualisiert',
+      countsLabel: 'aktive Jobs im Monitoring',
+      fresh24h: 'Neue Jobs in den letzten 24 Stunden',
+      fresh3d: 'Jobs der letzten 3 Tage',
+      partTime: `Teilzeitjobs ${germanCantonPrep(cd.de)}`,
+      cityHub: 'Nach Stadt suchen',
+      openAll: `Alle Jobs ${germanCantonPrep(cd.de)} ansehen`,
+      internalLinks: ['Neue Jobs in den letzten 24 Stunden', 'Jobs der letzten 3 Tage', `Teilzeitjobs ${germanCantonPrep(cd.de)}`],
+    },
+    fr: {
+      title: `Offres d'emploi ${frenchCantonPrep(cd.fr)} aujourd'hui | Dernieres 24 heures et 3 derniers jours`,
+      heading: `Offres d'emploi ${frenchCantonPrep(cd.fr)} aujourd'hui`,
+      description: `Consultez les offres d'emploi ${frenchCantonPrep(cd.fr)} publiees aujourd'hui ou durant les 3 derniers jours, avec des blocs dedies aux 24 dernieres heures, au temps partiel et aux villes comme ${cities}.`,
+      intro: `Cette landing page regroupe les offres les plus recentes de notre job board ${frenchCantonPrep(cd.fr)} et les organise en blocs utiles pour lire rapidement le marche.`,
+      updatedLabel: 'Mis a jour',
+      countsLabel: 'offres actives suivies',
+      fresh24h: 'Nouvelles offres des dernieres 24 heures',
+      fresh3d: 'Offres des 3 derniers jours',
+      partTime: `Temps partiel ${frenchCantonPrep(cd.fr)}`,
+      cityHub: 'Par ville',
+      openAll: `Voir toutes les offres ${frenchCantonPrep(cd.fr)}`,
+      internalLinks: ['Dernieres 24 heures', '3 derniers jours', `Temps partiel ${frenchCantonPrep(cd.fr)}`],
+    },
+  };
+}
+
+const TODAY_COPY = makeTodayCopy('TI');
 
 const OFFICIAL_GAZETTE_COPY: Record<JobLandingLocale, {
   title: string;
@@ -535,7 +590,7 @@ const OFFICIAL_GAZETTE_COPY: Record<JobLandingLocale, {
   },
 };
 
-const NURSES_HUB_COPY: Record<JobLandingLocale, {
+function makeNursesHubCopy(cantonCode: string): Record<JobLandingLocale, {
   title: string;
   heading: string;
   description: (count: number) => string;
@@ -548,96 +603,123 @@ const NURSES_HUB_COPY: Record<JobLandingLocale, {
   explainerCards: Array<{ title: string; body: string }>;
   faq: Array<{ question: string; answer: string }>;
   openAll: string;
-}> = {
-  it: {
-    title: 'Infermieri in Ticino | Cliniche, case anziani, OSS ed educatori',
-    heading: 'Infermieri e sanita in Ticino',
-    description: (count) => `Scopri ${count} offerte per infermieri, OSS, educatori e ruoli nelle cliniche o case anziani in Ticino, con pagine dedicate ai cluster che convertono meglio.`,
-    intro: 'Questo hub raccoglie i lavori sanita e care che intercettano piu domanda: infermieri, OSS, educatori, cliniche private e case anziani. Serve per trovare piu velocemente le opportunita davvero vicine al tuo profilo.',
-    updatedLabel: 'Aggiornamento',
-    countsLabel: 'offerte sanita e care',
-    feedLabel: 'Offerte per infermieri e sanita in Ticino',
-    latestLabel: 'Nuove offerte sanita negli ultimi 3 giorni',
-    variantTitle: 'Percorsi piu cercati nel cluster sanita',
-    explainerCards: [
-      { title: 'Cliniche', body: 'Ruoli in cliniche private, ospedali e strutture sanitarie dove il volume di candidature e alto ma la domanda resta costante.' },
-      { title: 'Case anziani', body: 'Annunci in RSA, geriatria, strutture assistenziali e cure a lungo termine, utili per chi cerca continuita e turni stabili.' },
-      { title: 'OSS ed educatori', body: 'Sottocluster ad alta conversione per operatori sociosanitari, socioassistenziali ed educatori attivi in scuole, centri e strutture sociali.' },
-    ],
-    faq: [
-      { question: 'Qui trovo solo infermieri?', answer: 'No. L hub include anche OSS, educatori, case anziani e cliniche, cioe i cluster care che generano piu interesse e candidature in Ticino.' },
-      { question: 'Le offerte arrivano da strutture pubbliche e private?', answer: 'Si. Il feed include annunci da ospedali, cliniche, enti pubblici, case anziani e altri datori di lavoro gia indicizzati nel nostro job board.' },
-      { question: 'Come conviene usare questa pagina?', answer: 'Parti dal cluster piu vicino al tuo profilo, poi apri le pagine dedicate per affinare la ricerca tra cliniche, case anziani, OSS o educatori.' },
-    ],
-    openAll: 'Vedi tutte le offerte in Ticino',
-  },
-  en: {
-    title: 'Nurses in Ticino | Clinics, care homes, healthcare assistants and educators',
-    heading: 'Nurses and healthcare jobs in Ticino',
-    description: (count) => `Browse ${count} jobs for nurses, healthcare assistants, educators and roles in clinics or care homes in Ticino, with dedicated pages for the strongest converting clusters.`,
-    intro: 'This hub groups together the healthcare and care jobs that attract the strongest demand: nurses, healthcare assistants, educators, private clinics and care homes.',
-    updatedLabel: 'Updated',
-    countsLabel: 'healthcare and care jobs',
-    feedLabel: 'Nursing and healthcare jobs in Ticino',
-    latestLabel: 'Newest healthcare jobs in the last 3 days',
-    variantTitle: 'Most searched healthcare paths',
-    explainerCards: [
-      { title: 'Clinics', body: 'Roles in private clinics, hospitals and medical facilities where hiring demand stays consistently high.' },
-      { title: 'Care homes', body: 'Openings in elderly care, geriatrics and long-term care facilities for candidates looking for stable healthcare roles.' },
-      { title: 'Healthcare assistants and educators', body: 'High-intent subclusters for OSS-style roles, socio-assistance and educators active in care or social settings.' },
-    ],
-    faq: [
-      { question: 'Does this hub only cover nurses?', answer: 'No. It also includes healthcare assistants, educators, care-home roles and clinic jobs across Ticino.' },
-      { question: 'Are these jobs public or private?', answer: 'Both. The feed can include hospitals, clinics, public institutions, care homes and other employers already indexed in our job board.' },
-      { question: 'How should I use this page?', answer: 'Start from the subcluster closest to your profile, then open the dedicated pages to narrow the search.' },
-    ],
-    openAll: 'See all jobs in Ticino',
-  },
-  de: {
-    title: 'Pflege Jobs im Tessin | Kliniken, Altersheime, OSS und Erzieher',
-    heading: 'Pflege- und Gesundheitsjobs im Tessin',
-    description: (count) => `Entdecken Sie ${count} Jobs fur Pflege, OSS-nahe Rollen, Erzieher und Positionen in Kliniken oder Altersheimen im Tessin, mit eigenen Seiten fur die relevantesten Cluster.`,
-    intro: 'Dieser Hub bundelt die Gesundheits- und Care-Jobs mit hoher Nachfrage: Pflege, Betreuung, Erziehung, Kliniken und Altersheime.',
-    updatedLabel: 'Aktualisiert',
-    countsLabel: 'Pflege- und Care-Jobs',
-    feedLabel: 'Pflege- und Gesundheitsjobs im Tessin',
-    latestLabel: 'Neue Gesundheitsjobs der letzten 3 Tage',
-    variantTitle: 'Meistgesuchte Wege im Gesundheitsbereich',
-    explainerCards: [
-      { title: 'Kliniken', body: 'Rollen in Privatkliniken, Spitalern und medizinischen Einrichtungen mit konstantem Bedarf.' },
-      { title: 'Altersheime', body: 'Angebote in Geriatrie, Langzeitpflege und betreuten Einrichtungen fur Kandidaten mit Fokus auf Kontinuitat.' },
-      { title: 'OSS und Erzieher', body: 'Wichtige Untercluster fur sozio-sanitarische Assistenz und padagogische Rollen in sozialen Strukturen.' },
-    ],
-    faq: [
-      { question: 'Geht es hier nur um Pflegefachpersonen?', answer: 'Nein. Der Hub umfasst auch OSS-nahe Rollen, Erzieher, Altersheime und Kliniken im Tessin.' },
-      { question: 'Sind die Stellen offentlich oder privat?', answer: 'Beides. Der Feed kann Stellen aus Kliniken, Spitalern, offentlichen Einrichtungen und Pflegeheimen enthalten.' },
-      { question: 'Wie nutzt man diese Seite am besten?', answer: 'Starten Sie mit dem passendsten Untercluster und gehen Sie dann in die jeweilige Spezialseite.' },
-    ],
-    openAll: 'Alle Jobs im Tessin ansehen',
-  },
-  fr: {
-    title: 'Infirmiers au Tessin | Cliniques, EMS, OSS et educateurs',
-    heading: 'Infirmiers et sante au Tessin',
-    description: (count) => `Consultez ${count} offres pour infirmiers, OSS, educateurs et roles en cliniques ou en maisons de retraite au Tessin, avec des pages dediees aux sous-clusters les plus performants.`,
-    intro: 'Ce hub regroupe les offres sante et care qui attirent le plus de demande: infirmiers, OSS, educateurs, cliniques privees et maisons de retraite.',
-    updatedLabel: 'Mis a jour',
-    countsLabel: 'offres sante et care',
-    feedLabel: 'Offres infirmiers et sante au Tessin',
-    latestLabel: 'Nouvelles offres sante des 3 derniers jours',
-    variantTitle: 'Parcours les plus recherches en sante',
-    explainerCards: [
-      { title: 'Cliniques', body: 'Postes en cliniques privees, hopitaux et structures medicales ou la demande reste constante.' },
-      { title: 'Maisons de retraite', body: 'Offres en geriatrie, soins de longue duree et structures medico-sociales pour des profils cherchant de la stabilite.' },
-      { title: 'OSS et educateurs', body: 'Sous-clusters a forte intention pour les roles socio-sanitaires, socio-educatifs et pedagogiques.' },
-    ],
-    faq: [
-      { question: 'Ce hub parle-t-il seulement des infirmiers ?', answer: 'Non. Il inclut aussi les OSS, les educateurs, les maisons de retraite et les cliniques au Tessin.' },
-      { question: 'Les offres viennent-elles du public et du prive ?', answer: 'Oui. Le feed peut inclure hopitaux, cliniques, institutions publiques, EMS et autres employeurs deja indexes.' },
-      { question: 'Comment utiliser cette page ?', answer: 'Commencez par le sous-cluster le plus proche de votre profil puis ouvrez la page dediee pour affiner la recherche.' },
-    ],
-    openAll: 'Voir toutes les offres au Tessin',
-  },
-};
+}> {
+  const cd = CANTON_DISPLAY_LOCALE[cantonCode] || CANTON_DISPLAY_LOCALE['TI'];
+  return {
+    it: {
+      title: `Infermieri in ${cd.it} | Cliniche, case anziani, OSS ed educatori`,
+      heading: `Infermieri e sanita in ${cd.it}`,
+      description: (count) => `Scopri ${count} offerte per infermieri, OSS, educatori e ruoli nelle cliniche o case anziani in ${cd.it}, con pagine dedicate ai cluster che convertono meglio.`,
+      intro: `Questo hub raccoglie i lavori sanita e care che intercettano piu domanda: infermieri, OSS, educatori, cliniche private e case anziani. Serve per trovare piu velocemente le opportunita davvero vicine al tuo profilo.`,
+      updatedLabel: 'Aggiornamento',
+      countsLabel: 'offerte sanita e care',
+      feedLabel: `Offerte per infermieri e sanita in ${cd.it}`,
+      latestLabel: 'Nuove offerte sanita negli ultimi 3 giorni',
+      variantTitle: 'Percorsi piu cercati nel cluster sanita',
+      explainerCards: [
+        { title: 'Cliniche', body: 'Ruoli in cliniche private, ospedali e strutture sanitarie dove il volume di candidature e alto ma la domanda resta costante.' },
+        { title: 'Case anziani', body: 'Annunci in RSA, geriatria, strutture assistenziali e cure a lungo termine, utili per chi cerca continuita e turni stabili.' },
+        { title: 'OSS ed educatori', body: 'Sottocluster ad alta conversione per operatori sociosanitari, socioassistenziali ed educatori attivi in scuole, centri e strutture sociali.' },
+      ],
+      faq: [
+        { question: 'Qui trovo solo infermieri?', answer: `No. L hub include anche OSS, educatori, case anziani e cliniche, cioe i cluster care che generano piu interesse e candidature in ${cd.it}.` },
+        { question: 'Le offerte arrivano da strutture pubbliche e private?', answer: 'Si. Il feed include annunci da ospedali, cliniche, enti pubblici, case anziani e altri datori di lavoro gia indicizzati nel nostro job board.' },
+        { question: 'Come conviene usare questa pagina?', answer: 'Parti dal cluster piu vicino al tuo profilo, poi apri le pagine dedicate per affinare la ricerca tra cliniche, case anziani, OSS o educatori.' },
+      ],
+      openAll: `Vedi tutte le offerte in ${cd.it}`,
+    },
+    en: {
+      title: `Nurses in ${cd.en} | Clinics, care homes, healthcare assistants and educators`,
+      heading: `Nurses and healthcare jobs in ${cd.en}`,
+      description: (count) => `Browse ${count} jobs for nurses, healthcare assistants, educators and roles in clinics or care homes in ${cd.en}, with dedicated pages for the strongest converting clusters.`,
+      intro: 'This hub groups together the healthcare and care jobs that attract the strongest demand: nurses, healthcare assistants, educators, private clinics and care homes.',
+      updatedLabel: 'Updated',
+      countsLabel: 'healthcare and care jobs',
+      feedLabel: `Nursing and healthcare jobs in ${cd.en}`,
+      latestLabel: 'Newest healthcare jobs in the last 3 days',
+      variantTitle: 'Most searched healthcare paths',
+      explainerCards: [
+        { title: 'Clinics', body: 'Roles in private clinics, hospitals and medical facilities where hiring demand stays consistently high.' },
+        { title: 'Care homes', body: 'Openings in elderly care, geriatrics and long-term care facilities for candidates looking for stable healthcare roles.' },
+        { title: 'Healthcare assistants and educators', body: 'High-intent subclusters for OSS-style roles, socio-assistance and educators active in care or social settings.' },
+      ],
+      faq: [
+        { question: 'Does this hub only cover nurses?', answer: `No. It also includes healthcare assistants, educators, care-home roles and clinic jobs across ${cd.en}.` },
+        { question: 'Are these jobs public or private?', answer: 'Both. The feed can include hospitals, clinics, public institutions, care homes and other employers already indexed in our job board.' },
+        { question: 'How should I use this page?', answer: 'Start from the subcluster closest to your profile, then open the dedicated pages to narrow the search.' },
+      ],
+      openAll: `See all jobs in ${cd.en}`,
+    },
+    de: {
+      title: `Pflege Jobs ${germanCantonPrep(cd.de)} | Kliniken, Altersheime, OSS und Erzieher`,
+      heading: `Pflege- und Gesundheitsjobs ${germanCantonPrep(cd.de)}`,
+      description: (count) => `Entdecken Sie ${count} Jobs fur Pflege, OSS-nahe Rollen, Erzieher und Positionen in Kliniken oder Altersheimen ${germanCantonPrep(cd.de)}, mit eigenen Seiten fur die relevantesten Cluster.`,
+      intro: 'Dieser Hub bundelt die Gesundheits- und Care-Jobs mit hoher Nachfrage: Pflege, Betreuung, Erziehung, Kliniken und Altersheime.',
+      updatedLabel: 'Aktualisiert',
+      countsLabel: 'Pflege- und Care-Jobs',
+      feedLabel: `Pflege- und Gesundheitsjobs ${germanCantonPrep(cd.de)}`,
+      latestLabel: 'Neue Gesundheitsjobs der letzten 3 Tage',
+      variantTitle: 'Meistgesuchte Wege im Gesundheitsbereich',
+      explainerCards: [
+        { title: 'Kliniken', body: 'Rollen in Privatkliniken, Spitalern und medizinischen Einrichtungen mit konstantem Bedarf.' },
+        { title: 'Altersheime', body: 'Angebote in Geriatrie, Langzeitpflege und betreuten Einrichtungen fur Kandidaten mit Fokus auf Kontinuitat.' },
+        { title: 'OSS und Erzieher', body: 'Wichtige Untercluster fur sozio-sanitarische Assistenz und padagogische Rollen in sozialen Strukturen.' },
+      ],
+      faq: [
+        { question: 'Geht es hier nur um Pflegefachpersonen?', answer: `Nein. Der Hub umfasst auch OSS-nahe Rollen, Erzieher, Altersheime und Kliniken ${germanCantonPrep(cd.de)}.` },
+        { question: 'Sind die Stellen offentlich oder privat?', answer: 'Beides. Der Feed kann Stellen aus Kliniken, Spitalern, offentlichen Einrichtungen und Pflegeheimen enthalten.' },
+        { question: 'Wie nutzt man diese Seite am besten?', answer: 'Starten Sie mit dem passendsten Untercluster und gehen Sie dann in die jeweilige Spezialseite.' },
+      ],
+      openAll: `Alle Jobs ${germanCantonPrep(cd.de)} ansehen`,
+    },
+    fr: {
+      title: `Infirmiers ${frenchCantonPrep(cd.fr)} | Cliniques, EMS, OSS et educateurs`,
+      heading: `Infirmiers et sante ${frenchCantonPrep(cd.fr)}`,
+      description: (count) => `Consultez ${count} offres pour infirmiers, OSS, educateurs et roles en cliniques ou en maisons de retraite ${frenchCantonPrep(cd.fr)}, avec des pages dediees aux sous-clusters les plus performants.`,
+      intro: `Ce hub regroupe les offres sante et care qui attirent le plus de demande: infirmiers, OSS, educateurs, cliniques privees et maisons de retraite.`,
+      updatedLabel: 'Mis a jour',
+      countsLabel: 'offres sante et care',
+      feedLabel: `Offres infirmiers et sante ${frenchCantonPrep(cd.fr)}`,
+      latestLabel: 'Nouvelles offres sante des 3 derniers jours',
+      variantTitle: 'Parcours les plus recherches en sante',
+      explainerCards: [
+        { title: 'Cliniques', body: 'Postes en cliniques privees, hopitaux et structures medicales ou la demande reste constante.' },
+        { title: 'Maisons de retraite', body: 'Offres en geriatrie, soins de longue duree et structures medico-sociales pour des profils cherchant de la stabilite.' },
+        { title: 'OSS et educateurs', body: 'Sous-clusters a forte intention pour les roles socio-sanitaires, socio-educatifs et pedagogiques.' },
+      ],
+      faq: [
+        { question: 'Ce hub parle-t-il seulement des infirmiers ?', answer: `Non. Il inclut aussi les OSS, les educateurs, les maisons de retraite et les cliniques ${frenchCantonPrep(cd.fr)}.` },
+        { question: 'Les offres viennent-elles du public et du prive ?', answer: 'Oui. Le feed peut inclure hopitaux, cliniques, institutions publiques, EMS et autres employeurs deja indexes.' },
+        { question: 'Comment utiliser cette page ?', answer: 'Commencez par le sous-cluster le plus proche de votre profil puis ouvrez la page dediee pour affiner la recherche.' },
+      ],
+      openAll: `Voir toutes les offres ${frenchCantonPrep(cd.fr)}`,
+    },
+  };
+}
+
+const NURSES_HUB_COPY = makeNursesHubCopy('TI');
+
+function careClusterSlug(key: JobCareClusterKey, cantonCode: string, locale: JobLandingLocale): string {
+  const cantonSlug = CANTON_SLUG_LOCALE[cantonCode]?.[locale] || CANTON_SLUG_LOCALE['TI'][locale];
+  const base: Record<JobCareClusterKey, Record<JobLandingLocale, string>> = {
+    clinics: { it: 'cliniche', en: 'clinics', de: 'kliniken', fr: 'cliniques' },
+    careHomes: { it: 'case-anziani', en: 'care-homes', de: 'altersheime', fr: 'maisons-retraite' },
+    oss: { it: 'oss', en: 'healthcare-assistants', de: 'pflegeassistenz', fr: 'oss' },
+    educators: { it: 'educatori', en: 'educators', de: 'paedagogen', fr: 'educateurs' },
+  };
+  return `${base[key][locale]}-${cantonSlug}${locale === 'en' || locale === 'de' ? '-jobs' : ''}`;
+}
+
+function careClusterLabel(key: JobCareClusterKey, cantonCode: string, locale: JobLandingLocale): string {
+  const cd = CANTON_DISPLAY_LOCALE[cantonCode]?.[locale] || CANTON_DISPLAY_LOCALE['TI'][locale];
+  const base: Record<JobCareClusterKey, Record<JobLandingLocale, string>> = {
+    clinics: { it: `Cliniche in ${cd}`, en: `Clinics in ${cd}`, de: `Kliniken ${germanCantonPrep(cd)}`, fr: `Cliniques ${frenchCantonPrep(cd)}` },
+    careHomes: { it: `Case anziani in ${cd}`, en: `Care homes in ${cd}`, de: `Altersheime ${germanCantonPrep(cd)}`, fr: `Maisons de retraite ${frenchCantonPrep(cd)}` },
+    oss: { it: `OSS in ${cd}`, en: `Healthcare assistants in ${cd}`, de: `Pflegeassistenz ${germanCantonPrep(cd)}`, fr: `OSS ${frenchCantonPrep(cd)}` },
+    educators: { it: `Educatori in ${cd}`, en: `Educators in ${cd}`, de: `Padagogen ${germanCantonPrep(cd)}`, fr: `Educateurs ${frenchCantonPrep(cd)}` },
+  };
+  return base[key][locale];
+}
 
 const CARE_CLUSTER_DEFS: Record<JobCareClusterKey, {
   slug: Record<JobLandingLocale, string>;
@@ -645,8 +727,8 @@ const CARE_CLUSTER_DEFS: Record<JobCareClusterKey, {
   matcher: (job: JobLike) => boolean;
 }> = {
   clinics: {
-    slug: { it: 'cliniche-ticino', en: 'clinics-ticino-jobs', de: 'kliniken-tessin-jobs', fr: 'cliniques-tessin' },
-    label: { it: 'Cliniche in Ticino', en: 'Clinics in Ticino', de: 'Kliniken im Tessin', fr: 'Cliniques au Tessin' },
+    slug: { it: careClusterSlug('clinics', 'TI', 'it'), en: careClusterSlug('clinics', 'TI', 'en'), de: careClusterSlug('clinics', 'TI', 'de'), fr: careClusterSlug('clinics', 'TI', 'fr') },
+    label: { it: careClusterLabel('clinics', 'TI', 'it'), en: careClusterLabel('clinics', 'TI', 'en'), de: careClusterLabel('clinics', 'TI', 'de'), fr: careClusterLabel('clinics', 'TI', 'fr') },
     matcher: (job) => {
       const titleText = normalizeSpace(`${job.title || ''}`);
       const contextText = normalizeSpace(`${job.title || ''} ${job.description || ''}`);
@@ -654,8 +736,8 @@ const CARE_CLUSTER_DEFS: Record<JobCareClusterKey, {
     },
   },
   careHomes: {
-    slug: { it: 'case-anziani-ticino', en: 'care-homes-ticino-jobs', de: 'altersheime-tessin-jobs', fr: 'maisons-retraite-tessin' },
-    label: { it: 'Case anziani in Ticino', en: 'Care homes in Ticino', de: 'Altersheime im Tessin', fr: 'Maisons de retraite au Tessin' },
+    slug: { it: careClusterSlug('careHomes', 'TI', 'it'), en: careClusterSlug('careHomes', 'TI', 'en'), de: careClusterSlug('careHomes', 'TI', 'de'), fr: careClusterSlug('careHomes', 'TI', 'fr') },
+    label: { it: careClusterLabel('careHomes', 'TI', 'it'), en: careClusterLabel('careHomes', 'TI', 'en'), de: careClusterLabel('careHomes', 'TI', 'de'), fr: careClusterLabel('careHomes', 'TI', 'fr') },
     matcher: (job) => {
       const titleText = normalizeSpace(`${job.title || ''}`);
       const contextText = normalizeSpace(`${job.title || ''} ${job.description || ''}`);
@@ -663,13 +745,13 @@ const CARE_CLUSTER_DEFS: Record<JobCareClusterKey, {
     },
   },
   oss: {
-    slug: { it: 'oss-ticino', en: 'healthcare-assistants-ticino', de: 'pflegeassistenz-tessin', fr: 'oss-tessin' },
-    label: { it: 'OSS in Ticino', en: 'Healthcare assistants in Ticino', de: 'Pflegeassistenz im Tessin', fr: 'OSS au Tessin' },
+    slug: { it: careClusterSlug('oss', 'TI', 'it'), en: careClusterSlug('oss', 'TI', 'en'), de: careClusterSlug('oss', 'TI', 'de'), fr: careClusterSlug('oss', 'TI', 'fr') },
+    label: { it: careClusterLabel('oss', 'TI', 'it'), en: careClusterLabel('oss', 'TI', 'en'), de: careClusterLabel('oss', 'TI', 'de'), fr: careClusterLabel('oss', 'TI', 'fr') },
     matcher: (job) => /\b(oss\b|operatore socio|operatrice socio|socioassist|socioassistenziale|healthcare assistant|pflegeassist|assistente di cura|addetto alle cure)\b/i.test(normalizeSpace(`${job.title || ''} ${job.description || ''}`)),
   },
   educators: {
-    slug: { it: 'educatori-ticino', en: 'educators-ticino', de: 'paedagogen-tessin', fr: 'educateurs-tessin' },
-    label: { it: 'Educatori in Ticino', en: 'Educators in Ticino', de: 'Padagogen im Tessin', fr: 'Educateurs au Tessin' },
+    slug: { it: careClusterSlug('educators', 'TI', 'it'), en: careClusterSlug('educators', 'TI', 'en'), de: careClusterSlug('educators', 'TI', 'de'), fr: careClusterSlug('educators', 'TI', 'fr') },
+    label: { it: careClusterLabel('educators', 'TI', 'it'), en: careClusterLabel('educators', 'TI', 'en'), de: careClusterLabel('educators', 'TI', 'de'), fr: careClusterLabel('educators', 'TI', 'fr') },
     matcher: (job) => /\b(educator|educatrice|educatore|educatori|pedagog|socioeduc|social care worker|leisure management)\b/i.test(normalizeSpace(`${job.title || ''} ${job.description || ''}`)),
   },
 };
@@ -976,9 +1058,13 @@ function isInLast3Days(jobDate: Date | null, now: Date): boolean {
   return calendarDiff >= 0 && calendarDiff <= 2;
 }
 
-function isTicinoScoped(job: JobLike): boolean {
+function isCantonScoped(job: JobLike, cantonCode: string): boolean {
   const canton = normalizeSpace(job.canton || '').toUpperCase();
-  return !canton || canton === 'TI';
+  return !canton || canton === cantonCode;
+}
+
+function isTicinoScoped(job: JobLike): boolean {
+  return isCantonScoped(job, 'TI');
 }
 
 function isOfficialGazetteJob(job: JobLike): boolean {
@@ -1256,16 +1342,18 @@ export function buildJobNursesHubLandingModel(options: {
   baseUrl: string;
   sectionSlug: string;
   localePrefix: string;
+  canton?: string;
 }): JobNursesHubLandingModel {
   const locale = options.locale;
-  const copy = NURSES_HUB_COPY[locale];
+  const cantonCode = options.canton || 'TI';
+  const copy = makeNursesHubCopy(cantonCode)[locale];
   const now = options.now instanceof Date ? options.now : new Date(options.now || new Date().toISOString());
   const baseUrl = options.baseUrl.replace(/\/+$/, '');
   const matches = options.jobs.filter((job) => isNursingHubJob(job));
   const latestJobs = matches.filter((job) => isInLast3Days(getJobFreshnessDate(job), now));
   return {
     kind: 'nurses-hub',
-    slug: JOB_NURSES_HUB_SLUGS[locale],
+    slug: (JOB_NURSES_HUB_SLUGS_BY_CANTON[cantonCode] || JOB_NURSES_HUB_SLUGS)[locale],
     title: copy.title,
     heading: copy.heading,
     description: copy.description(matches.length),
@@ -1293,29 +1381,32 @@ export function buildJobCareVariantLandingModel(options: {
   baseUrl: string;
   sectionSlug: string;
   localePrefix: string;
+  canton?: string;
 }): JobCareVariantLandingModel {
   const locale = options.locale;
   const clusterKey = options.clusterKey;
+  const cantonCode = options.canton || 'TI';
   const def = getCareClusterDef(clusterKey);
   const now = options.now instanceof Date ? options.now : new Date(options.now || new Date().toISOString());
   const baseUrl = options.baseUrl.replace(/\/+$/, '');
   const matches = options.jobs.filter((job) => isNursingHubJob(job) && def.matcher(job));
   const latestJobs = matches.filter((job) => isInLast3Days(getJobFreshnessDate(job), now));
-  const label = def.label[locale];
+  const label = careClusterLabel(clusterKey, cantonCode, locale);
+  const cd = CANTON_DISPLAY_LOCALE[cantonCode] || CANTON_DISPLAY_LOCALE['TI'];
   const title = locale === 'it'
-    ? `${label} | Offerte di lavoro aggiornate in Ticino`
+    ? `${label} | Offerte di lavoro aggiornate in ${cd.it}`
     : locale === 'en'
-      ? `${label} | Updated job offers in Ticino`
+      ? `${label} | Updated job offers in ${cd.en}`
       : locale === 'de'
-        ? `${label} | Aktuelle Jobangebote im Tessin`
-        : `${label} | Offres d'emploi a jour au Tessin`;
+        ? `${label} | Aktuelle Jobangebote ${germanCantonPrep(cd.de)}`
+        : `${label} | Offres d'emploi a jour ${frenchCantonPrep(cd.fr)}`;
   const description = locale === 'it'
-    ? `Scopri ${matches.length} offerte per ${label.toLowerCase()} con annunci aggiornati, nuovi inserimenti degli ultimi 3 giorni e link diretti alle candidature ufficiali in Ticino.`
+    ? `Scopri ${matches.length} offerte per ${label.toLowerCase()} con annunci aggiornati, nuovi inserimenti degli ultimi 3 giorni e link diretti alle candidature ufficiali in ${cd.it}.`
     : locale === 'en'
-      ? `Browse ${matches.length} ${label.toLowerCase()} job offers in Ticino, with updated listings, jobs from the last 3 days and direct links to official applications.`
+      ? `Browse ${matches.length} ${label.toLowerCase()} job offers in ${cd.en}, with updated listings, jobs from the last 3 days and direct links to official applications.`
       : locale === 'de'
-        ? `Entdecken Sie ${matches.length} Jobangebote fur ${label.toLowerCase()} im Tessin mit aktuellen Inseraten der letzten 3 Tage und direkten Bewerbungslinks.`
-        : `Consultez ${matches.length} offres pour ${label.toLowerCase()} au Tessin, avec annonces a jour, offres des 3 derniers jours et liens directs vers la candidature officielle.`;
+        ? `Entdecken Sie ${matches.length} Jobangebote fur ${label.toLowerCase()} ${germanCantonPrep(cd.de)} mit aktuellen Inseraten der letzten 3 Tage und direkten Bewerbungslinks.`
+        : `Consultez ${matches.length} offres pour ${label.toLowerCase()} ${frenchCantonPrep(cd.fr)}, avec annonces a jour, offres des 3 derniers jours et liens directs vers la candidature officielle.`;
   const intro = locale === 'it'
     ? `Questa pagina restringe il cluster sanita ai profili ${label.toLowerCase()}, cosi puoi leggere solo gli annunci davvero pertinenti senza passare da una lista troppo ampia.`
     : locale === 'en'
@@ -1326,7 +1417,7 @@ export function buildJobCareVariantLandingModel(options: {
   const siblingLinks = buildCareVariantLinks({ jobs: options.jobs, locale, now, baseUrl, localePrefix: options.localePrefix, sectionSlug: options.sectionSlug }).filter((entry) => entry.key !== clusterKey);
   return {
     kind: 'care-variant',
-    slug: def.slug[locale],
+    slug: careClusterSlug(clusterKey, cantonCode, locale),
     clusterKey,
     title,
     heading: label,
@@ -1341,9 +1432,9 @@ export function buildJobCareVariantLandingModel(options: {
     },
     latestLabel: locale === 'it' ? `Nuove offerte ${label.toLowerCase()} negli ultimi 3 giorni` : locale === 'en' ? `Newest ${label.toLowerCase()} jobs in the last 3 days` : locale === 'de' ? `Neueste ${label.toLowerCase()} der letzten 3 Tage` : `Nouvelles offres ${label.toLowerCase()} des 3 derniers jours`,
     latestJobs: toLinkedJobs(latestJobs, now, locale, { ...options, baseUrl }, 12),
-    parentHubHref: ensureTrailingSlash(`${baseUrl}${`${options.localePrefix}/${options.sectionSlug}/${JOB_NURSES_HUB_SLUGS[locale]}`.replace(/\/+/g, '/')}`),
+    parentHubHref: ensureTrailingSlash(`${baseUrl}${`${options.localePrefix}/${options.sectionSlug}/${(JOB_NURSES_HUB_SLUGS_BY_CANTON[cantonCode] || JOB_NURSES_HUB_SLUGS)[locale]}`.replace(/\/+/g, '/')}`),
     siblingLinks,
-    openAllLabel: locale === 'it' ? 'Vedi tutte le offerte in Ticino' : locale === 'en' ? 'See all jobs in Ticino' : locale === 'de' ? 'Alle Jobs im Tessin ansehen' : 'Voir toutes les offres au Tessin',
+    openAllLabel: locale === 'it' ? `Vedi tutte le offerte in ${cd.it}` : locale === 'en' ? `See all jobs in ${cd.en}` : locale === 'de' ? `Alle Jobs ${germanCantonPrep(cd.de)} ansehen` : `Voir toutes les offres ${frenchCantonPrep(cd.fr)}`,
   };
 }
 
@@ -1355,17 +1446,20 @@ export function buildJobTodayLandingModel(options: {
   baseUrl: string;
   sectionSlug: string;
   localePrefix: string;
+  canton?: string;
 }): JobTodayLandingModel {
   const locale = options.locale;
-  const copy = TODAY_COPY[locale];
+  const cantonCode = options.canton || 'TI';
+  const copy = makeTodayCopy(cantonCode)[locale];
   const now = options.now instanceof Date ? options.now : new Date(options.now || new Date().toISOString());
   const baseUrl = options.baseUrl.replace(/\/+$/, '');
-  const landingHref = ensureTrailingSlash(`${baseUrl}${`${options.localePrefix}/${options.sectionSlug}/${JOB_TODAY_LANDING_SLUGS[locale]}`.replace(/\/+/g, '/')}`);
+  const todaySlugs = JOB_TODAY_LANDING_SLUGS_BY_CANTON[cantonCode] || JOB_TODAY_LANDING_SLUGS;
+  const landingHref = ensureTrailingSlash(`${baseUrl}${`${options.localePrefix}/${options.sectionSlug}/${todaySlugs[locale]}`.replace(/\/+/g, '/')}`);
   const recent24h = options.jobs.filter((job) => isInLast24Hours(getJobFreshnessDate(job), now));
   const recent3d = options.jobs.filter((job) => isInLast3Days(getJobFreshnessDate(job), now));
   const partTime = options.jobs.filter((job) => isPartTime(job));
   const citySourceJobs = options.jobs.some((job) => normalizeSpace(job.canton || ''))
-    ? options.jobs.filter((job) => isTicinoScoped(job))
+    ? options.jobs.filter((job) => isCantonScoped(job, cantonCode))
     : options.jobs;
   const cityLeaders = Array.from(
     citySourceJobs.reduce<Map<string, number>>((map, job) => {
@@ -1384,7 +1478,7 @@ export function buildJobTodayLandingModel(options: {
     .slice(0, 8);
 
   return {
-    slug: JOB_TODAY_LANDING_SLUGS[locale],
+    slug: todaySlugs[locale],
     title: copy.title,
     heading: copy.heading,
     description: copy.description,
@@ -1531,7 +1625,7 @@ export function buildJobLocationSectorLandingModel(options: {
   };
 }
 
-const SECTOR_REGION_COPY: Record<JobLandingLocale, {
+function makeSectorRegionCopy(cantonCode: string): Record<JobLandingLocale, {
   heading: (label: string) => string;
   title: (label: string) => string;
   description: (label: string, count: number) => string;
@@ -1541,52 +1635,57 @@ const SECTOR_REGION_COPY: Record<JobLandingLocale, {
   feedLabel: (label: string) => string;
   latestLabel: (label: string) => string;
   openAll: string;
-}> = {
-  it: {
-    heading: (label) => `Lavoro ${label} in Ticino`,
-    title: (label) => `Lavoro ${label} in Ticino | Offerte aggiornate`,
-    description: (label, count) => `Scopri ${count} offerte di lavoro nel settore ${label.toLowerCase()} in Ticino. Posizioni attive aggiornate ogni giorno per frontalieri.`,
-    intro: (label) => `Tutte le offerte nel settore ${label.toLowerCase()} disponibili nel Canton Ticino, ideale per chi cerca lavoro come frontaliere.`,
-    countsLabel: 'annunci attivi',
-    updatedLabel: 'Aggiornamento',
-    feedLabel: (label) => `${label} attivi in Ticino`,
-    latestLabel: (label) => `Nuovi annunci ${label.toLowerCase()} in Ticino`,
-    openAll: 'Vedi tutte le offerte in Ticino',
-  },
-  en: {
-    heading: (label) => `${label} Jobs in Ticino`,
-    title: (label) => `${label} Jobs in Ticino | Updated Listings`,
-    description: (label, count) => `Browse ${count} ${label.toLowerCase()} job openings in Ticino. Updated daily for cross-border workers.`,
-    intro: (label) => `All ${label.toLowerCase()} positions available in Canton Ticino for cross-border workers.`,
-    countsLabel: 'active listings',
-    updatedLabel: 'Updated',
-    feedLabel: (label) => `${label} jobs in Ticino`,
-    latestLabel: (label) => `Latest ${label.toLowerCase()} jobs in Ticino`,
-    openAll: 'View all Ticino jobs',
-  },
-  de: {
-    heading: (label) => `${label}-Jobs im Tessin`,
-    title: (label) => `${label}-Jobs im Tessin | Aktuelle Stellenangebote`,
-    description: (label, count) => `Entdecken Sie ${count} offene Stellen im Bereich ${label} im Tessin. Taglich aktualisiert fur Grenzganger.`,
-    intro: (label) => `Alle Stellenangebote im Bereich ${label} im Kanton Tessin fur Grenzganger.`,
-    countsLabel: 'aktive Inserate',
-    updatedLabel: 'Aktualisiert',
-    feedLabel: (label) => `${label}-Stellen im Tessin`,
-    latestLabel: (label) => `Neueste ${label}-Stellen im Tessin`,
-    openAll: 'Alle Stellen im Tessin ansehen',
-  },
-  fr: {
-    heading: (label) => `Emplois ${label} au Tessin`,
-    title: (label) => `Emplois ${label} au Tessin | Offres a jour`,
-    description: (label, count) => `Decouvrez ${count} offres d'emploi dans le secteur ${label.toLowerCase()} au Tessin. Mises a jour quotidiennement pour les frontaliers.`,
-    intro: (label) => `Toutes les offres dans le secteur ${label.toLowerCase()} disponibles au Tessin pour les frontaliers.`,
-    countsLabel: 'annonces actives',
-    updatedLabel: 'Mis a jour',
-    feedLabel: (label) => `Emplois ${label} au Tessin`,
-    latestLabel: (label) => `Derniers emplois ${label.toLowerCase()} au Tessin`,
-    openAll: 'Voir toutes les offres au Tessin',
-  },
-};
+}> {
+  const cd = CANTON_DISPLAY_LOCALE[cantonCode] || CANTON_DISPLAY_LOCALE['TI'];
+  return {
+    it: {
+      heading: (label) => `Lavoro ${label} in ${cd.it}`,
+      title: (label) => `Lavoro ${label} in ${cd.it} | Offerte aggiornate`,
+      description: (label, count) => `Scopri ${count} offerte di lavoro nel settore ${label.toLowerCase()} in ${cd.it}. Posizioni attive aggiornate ogni giorno per frontalieri.`,
+      intro: (label) => `Tutte le offerte nel settore ${label.toLowerCase()} disponibili nel Canton ${cd.it}, ideale per chi cerca lavoro come frontaliere.`,
+      countsLabel: 'annunci attivi',
+      updatedLabel: 'Aggiornamento',
+      feedLabel: (label) => `${label} attivi in ${cd.it}`,
+      latestLabel: (label) => `Nuovi annunci ${label.toLowerCase()} in ${cd.it}`,
+      openAll: `Vedi tutte le offerte in ${cd.it}`,
+    },
+    en: {
+      heading: (label) => `${label} Jobs in ${cd.en}`,
+      title: (label) => `${label} Jobs in ${cd.en} | Updated Listings`,
+      description: (label, count) => `Browse ${count} ${label.toLowerCase()} job openings in ${cd.en}. Updated daily for cross-border workers.`,
+      intro: (label) => `All ${label.toLowerCase()} positions available in Canton ${cd.en} for cross-border workers.`,
+      countsLabel: 'active listings',
+      updatedLabel: 'Updated',
+      feedLabel: (label) => `${label} jobs in ${cd.en}`,
+      latestLabel: (label) => `Latest ${label.toLowerCase()} jobs in ${cd.en}`,
+      openAll: `View all ${cd.en} jobs`,
+    },
+    de: {
+      heading: (label) => `${label}-Jobs ${germanCantonPrep(cd.de)}`,
+      title: (label) => `${label}-Jobs ${germanCantonPrep(cd.de)} | Aktuelle Stellenangebote`,
+      description: (label, count) => `Entdecken Sie ${count} offene Stellen im Bereich ${label} ${germanCantonPrep(cd.de)}. Taglich aktualisiert fur Grenzganger.`,
+      intro: (label) => `Alle Stellenangebote im Bereich ${label} im Kanton ${cd.de} fur Grenzganger.`,
+      countsLabel: 'aktive Inserate',
+      updatedLabel: 'Aktualisiert',
+      feedLabel: (label) => `${label}-Stellen ${germanCantonPrep(cd.de)}`,
+      latestLabel: (label) => `Neueste ${label}-Stellen ${germanCantonPrep(cd.de)}`,
+      openAll: `Alle Stellen ${germanCantonPrep(cd.de)} ansehen`,
+    },
+    fr: {
+      heading: (label) => `Emplois ${label} ${frenchCantonPrep(cd.fr)}`,
+      title: (label) => `Emplois ${label} ${frenchCantonPrep(cd.fr)} | Offres a jour`,
+      description: (label, count) => `Decouvrez ${count} offres d'emploi dans le secteur ${label.toLowerCase()} ${frenchCantonPrep(cd.fr)}. Mises a jour quotidiennement pour les frontaliers.`,
+      intro: (label) => `Toutes les offres dans le secteur ${label.toLowerCase()} disponibles ${frenchCantonPrep(cd.fr)} pour les frontaliers.`,
+      countsLabel: 'annonces actives',
+      updatedLabel: 'Mis a jour',
+      feedLabel: (label) => `Emplois ${label} ${frenchCantonPrep(cd.fr)}`,
+      latestLabel: (label) => `Derniers emplois ${label.toLowerCase()} ${frenchCantonPrep(cd.fr)}`,
+      openAll: `Voir toutes les offres ${frenchCantonPrep(cd.fr)}`,
+    },
+  };
+}
+
+const SECTOR_REGION_COPY = makeSectorRegionCopy('TI');
 
 export function buildJobSectorRegionLandingModel(options: {
   jobs: JobLike[];
@@ -1597,16 +1696,19 @@ export function buildJobSectorRegionLandingModel(options: {
   baseUrl: string;
   sectionSlug: string;
   localePrefix: string;
+  canton?: string;
 }): JobSectorRegionLandingModel {
   const locale = options.locale;
+  const cantonCode = options.canton || 'TI';
   const sectorKey = options.sectorKey;
   const sectorDef = getSectorDef(sectorKey);
   const label = sectorDef.label[locale];
-  const copy = SECTOR_REGION_COPY[locale];
+  const copy = makeSectorRegionCopy(cantonCode)[locale];
   const now = options.now instanceof Date ? options.now : new Date(options.now || new Date().toISOString());
   const baseUrl = options.baseUrl.replace(/\/+$/, '');
   const sectorSlug = sectorDef.slug[locale];
-  const slug = `${SEARCH_ROUTE_PREFIX[locale]}-${sectorSlug}-${locale === 'de' ? 'tessin' : 'ticino'}`;
+  const cantonSlug = CANTON_SLUG_LOCALE[cantonCode]?.[locale] || CANTON_SLUG_LOCALE['TI'][locale];
+  const slug = `${SEARCH_ROUTE_PREFIX[locale]}-${sectorSlug}-${cantonSlug}`;
   const matches = options.jobs.filter((job) => sectorDef.matcher(job));
   const latestJobs = matches.filter((job) => isInLast3Days(getJobFreshnessDate(job), now));
   const siblingSectorLinks = (Object.keys(JOB_SECTOR_DEFS) as JobLandingSectorKey[])
@@ -1616,7 +1718,7 @@ export function buildJobSectorRegionLandingModel(options: {
       const count = options.jobs.filter((job) => def.matcher(job)).length;
       if (count === 0) return null;
       const kSlug = def.slug[locale];
-      const kRegion = locale === 'de' ? 'tessin' : 'ticino';
+      const kRegion = CANTON_SLUG_LOCALE[cantonCode]?.[locale] || CANTON_SLUG_LOCALE['TI'][locale];
       return {
         key: k,
         label: def.label[locale],
@@ -1645,7 +1747,7 @@ export function buildJobSectorRegionLandingModel(options: {
   };
 }
 
-const PART_TIME_COPY: Record<JobLandingLocale, {
+function makePartTimeCopy(cantonCode: string): Record<JobLandingLocale, {
   title: string;
   heading: string;
   description: (count: number) => string;
@@ -1657,112 +1759,117 @@ const PART_TIME_COPY: Record<JobLandingLocale, {
   cityHub: string;
   openAll: string;
   faq: Array<{ question: string; answer: string }>;
-}> = {
-  it: {
-    title: 'Lavoro part-time in Ticino | Offerte a tempo parziale per frontalieri',
-    heading: 'Lavoro part-time in Ticino',
-    description: (count) => `Scopri ${count} offerte di lavoro part-time in Ticino per frontalieri. Posizioni a tempo parziale aggiornate ogni giorno da aziende svizzere, con filtri per citta, settore e percentuale di impiego.`,
-    intro: 'Questa landing raccoglie tutte le offerte a tempo parziale disponibili nel Canton Ticino, ideale per chi cerca flessibilita lavorativa come frontaliere. Le posizioni spaziano da contratti al 20% fino al 80% e coprono tutti i principali settori.',
-    updatedLabel: 'Aggiornamento',
-    countsLabel: 'annunci part-time attivi',
-    feedLabel: 'Offerte part-time in Ticino',
-    latestLabel: 'Nuove offerte part-time negli ultimi 3 giorni',
-    cityHub: 'Part-time per citta',
-    openAll: 'Vedi tutte le offerte di lavoro in Ticino',
-    faq: [
-      {
-        question: 'Cosa si intende per lavoro part-time in Svizzera?',
-        answer: 'In Svizzera il lavoro part-time indica qualsiasi contratto con un grado di occupazione inferiore al 100%. Puo essere espresso in percentuale (es. 60%, 80%) o in ore settimanali. Anche contratti al 90% sono considerati part-time.',
-      },
-      {
-        question: 'Un frontaliere puo lavorare part-time con il permesso G?',
-        answer: 'Si, il permesso G consente anche contratti a tempo parziale. L\'importante e che il rapporto di lavoro sia regolare e dichiarato. Il part-time non influisce sulla validita del permesso.',
-      },
-      {
-        question: 'Come vengono filtrate le offerte part-time?',
-        answer: 'Il nostro sistema identifica le offerte part-time analizzando il titolo, il contratto e la percentuale di impiego indicata nell\'annuncio. Le posizioni con percentuale tra 1% e 99% vengono automaticamente classificate come part-time.',
-      },
-    ],
-  },
-  en: {
-    title: 'Part-time jobs in Ticino | Flexible positions for cross-border workers',
-    heading: 'Part-time jobs in Ticino',
-    description: (count) => `Browse ${count} part-time job openings in Ticino for cross-border workers. Flexible positions updated daily from Swiss employers, filterable by city, sector and employment percentage.`,
-    intro: 'This page collects all part-time positions available in Canton Ticino, ideal for cross-border workers seeking flexibility. Roles range from 20% to 80% contracts across all major sectors.',
-    updatedLabel: 'Updated',
-    countsLabel: 'active part-time jobs',
-    feedLabel: 'Part-time jobs in Ticino',
-    latestLabel: 'New part-time jobs in the last 3 days',
-    cityHub: 'Part-time by city',
-    openAll: 'See all jobs in Ticino',
-    faq: [
-      {
-        question: 'What counts as part-time work in Switzerland?',
-        answer: 'In Switzerland, part-time means any contract with an employment level below 100%. It can be expressed as a percentage (e.g. 60%, 80%) or weekly hours. Even 90% contracts are considered part-time.',
-      },
-      {
-        question: 'Can a cross-border worker hold a part-time job with a G permit?',
-        answer: 'Yes, the G permit allows part-time contracts. The key requirement is that the employment relationship is regular and declared. Part-time status does not affect permit validity.',
-      },
-      {
-        question: 'How are part-time jobs identified?',
-        answer: 'Our system identifies part-time jobs by analysing the title, contract type and employment percentage stated in the listing. Positions with a percentage between 1% and 99% are automatically classified as part-time.',
-      },
-    ],
-  },
-  de: {
-    title: 'Teilzeitjobs im Tessin | Flexible Stellen fur Grenzganger',
-    heading: 'Teilzeitjobs im Tessin',
-    description: (count) => `Entdecken Sie ${count} Teilzeitstellen im Tessin fur Grenzganger. Flexible Positionen von Schweizer Arbeitgebern, taglich aktualisiert, filterbar nach Stadt, Branche und Beschaftigungsgrad.`,
-    intro: 'Diese Seite sammelt alle Teilzeitstellen im Kanton Tessin, ideal fur Grenzganger auf der Suche nach flexibler Arbeit. Die Positionen reichen von 20%- bis 80%-Vertragen in allen wichtigen Branchen.',
-    updatedLabel: 'Aktualisiert',
-    countsLabel: 'aktive Teilzeitstellen',
-    feedLabel: 'Teilzeitstellen im Tessin',
-    latestLabel: 'Neue Teilzeitstellen der letzten 3 Tage',
-    cityHub: 'Teilzeit nach Stadt',
-    openAll: 'Alle Jobs im Tessin ansehen',
-    faq: [
-      {
-        question: 'Was gilt in der Schweiz als Teilzeitarbeit?',
-        answer: 'In der Schweiz bezeichnet Teilzeitarbeit jeden Vertrag mit einem Beschaftigungsgrad unter 100%. Er kann als Prozentsatz (z. B. 60%, 80%) oder in Wochenstunden angegeben werden. Auch 90%-Vertrage gelten als Teilzeit.',
-      },
-      {
-        question: 'Darf ein Grenzganger mit G-Bewilligung Teilzeit arbeiten?',
-        answer: 'Ja, die G-Bewilligung erlaubt auch Teilzeitvertrage. Wichtig ist, dass das Arbeitsverhaltnis regulaer und gemeldet ist. Der Teilzeitstatus beeinflusst die Gultigkeit der Bewilligung nicht.',
-      },
-      {
-        question: 'Wie werden Teilzeitstellen erkannt?',
-        answer: 'Unser System erkennt Teilzeitstellen anhand von Titel, Vertragsart und angegebenem Beschaftigungsgrad. Positionen mit einem Pensum zwischen 1% und 99% werden automatisch als Teilzeit klassifiziert.',
-      },
-    ],
-  },
-  fr: {
-    title: "Emploi temps partiel au Tessin | Postes flexibles pour frontaliers",
-    heading: "Emploi temps partiel au Tessin",
-    description: (count) => `Consultez ${count} offres d'emploi a temps partiel au Tessin pour les frontaliers. Postes flexibles mis a jour quotidiennement par des employeurs suisses, filtrables par ville, secteur et taux d'occupation.`,
-    intro: "Cette page regroupe toutes les offres a temps partiel disponibles dans le canton du Tessin, ideales pour les frontaliers a la recherche de flexibilite. Les postes vont de contrats a 20% jusqu'a 80% dans tous les secteurs majeurs.",
-    updatedLabel: 'Mis a jour',
-    countsLabel: 'offres temps partiel actives',
-    feedLabel: "Offres a temps partiel au Tessin",
-    latestLabel: 'Nouvelles offres temps partiel des 3 derniers jours',
-    cityHub: 'Temps partiel par ville',
-    openAll: 'Voir toutes les offres au Tessin',
-    faq: [
-      {
-        question: "Qu'est-ce que le temps partiel en Suisse ?",
-        answer: "En Suisse, le temps partiel designe tout contrat avec un taux d'occupation inferieur a 100%. Il peut etre exprime en pourcentage (ex. 60%, 80%) ou en heures hebdomadaires. Meme les contrats a 90% sont consideres comme du temps partiel.",
-      },
-      {
-        question: "Un frontalier peut-il travailler a temps partiel avec un permis G ?",
-        answer: "Oui, le permis G autorise egalement les contrats a temps partiel. L'essentiel est que la relation de travail soit reguliere et declaree. Le statut a temps partiel n'affecte pas la validite du permis.",
-      },
-      {
-        question: "Comment les offres a temps partiel sont-elles identifiees ?",
-        answer: "Notre systeme identifie les offres a temps partiel en analysant le titre, le type de contrat et le taux d'occupation indique dans l'annonce. Les postes avec un taux entre 1% et 99% sont automatiquement classes comme temps partiel.",
-      },
-    ],
-  },
-};
+}> {
+  const cd = CANTON_DISPLAY_LOCALE[cantonCode] || CANTON_DISPLAY_LOCALE['TI'];
+  return {
+    it: {
+      title: `Lavoro part-time in ${cd.it} | Offerte a tempo parziale per frontalieri`,
+      heading: `Lavoro part-time in ${cd.it}`,
+      description: (count) => `Scopri ${count} offerte di lavoro part-time in ${cd.it} per frontalieri. Posizioni a tempo parziale aggiornate ogni giorno da aziende svizzere, con filtri per citta, settore e percentuale di impiego.`,
+      intro: `Questa landing raccoglie tutte le offerte a tempo parziale disponibili nel Canton ${cd.it}, ideale per chi cerca flessibilita lavorativa come frontaliere. Le posizioni spaziano da contratti al 20% fino al 80% e coprono tutti i principali settori.`,
+      updatedLabel: 'Aggiornamento',
+      countsLabel: 'annunci part-time attivi',
+      feedLabel: `Offerte part-time in ${cd.it}`,
+      latestLabel: 'Nuove offerte part-time negli ultimi 3 giorni',
+      cityHub: 'Part-time per citta',
+      openAll: `Vedi tutte le offerte di lavoro in ${cd.it}`,
+      faq: [
+        {
+          question: 'Cosa si intende per lavoro part-time in Svizzera?',
+          answer: 'In Svizzera il lavoro part-time indica qualsiasi contratto con un grado di occupazione inferiore al 100%. Puo essere espresso in percentuale (es. 60%, 80%) o in ore settimanali. Anche contratti al 90% sono considerati part-time.',
+        },
+        {
+          question: 'Un frontaliere puo lavorare part-time con il permesso G?',
+          answer: "Si, il permesso G consente anche contratti a tempo parziale. L'importante e che il rapporto di lavoro sia regolare e dichiarato. Il part-time non influisce sulla validita del permesso.",
+        },
+        {
+          question: 'Come vengono filtrate le offerte part-time?',
+          answer: "Il nostro sistema identifica le offerte part-time analizzando il titolo, il contratto e la percentuale di impiego indicata nell'annuncio. Le posizioni con percentuale tra 1% e 99% vengono automaticamente classificate come part-time.",
+        },
+      ],
+    },
+    en: {
+      title: `Part-time jobs in ${cd.en} | Flexible positions for cross-border workers`,
+      heading: `Part-time jobs in ${cd.en}`,
+      description: (count) => `Browse ${count} part-time job openings in ${cd.en} for cross-border workers. Flexible positions updated daily from Swiss employers, filterable by city, sector and employment percentage.`,
+      intro: `This page collects all part-time positions available in Canton ${cd.en}, ideal for cross-border workers seeking flexibility. Roles range from 20% to 80% contracts across all major sectors.`,
+      updatedLabel: 'Updated',
+      countsLabel: 'active part-time jobs',
+      feedLabel: `Part-time jobs in ${cd.en}`,
+      latestLabel: 'New part-time jobs in the last 3 days',
+      cityHub: 'Part-time by city',
+      openAll: `See all jobs in ${cd.en}`,
+      faq: [
+        {
+          question: 'What counts as part-time work in Switzerland?',
+          answer: 'In Switzerland, part-time means any contract with an employment level below 100%. It can be expressed as a percentage (e.g. 60%, 80%) or weekly hours. Even 90% contracts are considered part-time.',
+        },
+        {
+          question: 'Can a cross-border worker hold a part-time job with a G permit?',
+          answer: 'Yes, the G permit allows part-time contracts. The key requirement is that the employment relationship is regular and declared. Part-time status does not affect permit validity.',
+        },
+        {
+          question: 'How are part-time jobs identified?',
+          answer: 'Our system identifies part-time jobs by analysing the title, contract type and employment percentage stated in the listing. Positions with a percentage between 1% and 99% are automatically classified as part-time.',
+        },
+      ],
+    },
+    de: {
+      title: `Teilzeitjobs ${germanCantonPrep(cd.de)} | Flexible Stellen fur Grenzganger`,
+      heading: `Teilzeitjobs ${germanCantonPrep(cd.de)}`,
+      description: (count) => `Entdecken Sie ${count} Teilzeitstellen ${germanCantonPrep(cd.de)} fur Grenzganger. Flexible Positionen von Schweizer Arbeitgebern, taglich aktualisiert, filterbar nach Stadt, Branche und Beschaftigungsgrad.`,
+      intro: `Diese Seite sammelt alle Teilzeitstellen im Kanton ${cd.de}, ideal fur Grenzganger auf der Suche nach flexibler Arbeit. Die Positionen reichen von 20%- bis 80%-Vertragen in allen wichtigen Branchen.`,
+      updatedLabel: 'Aktualisiert',
+      countsLabel: 'aktive Teilzeitstellen',
+      feedLabel: `Teilzeitstellen ${germanCantonPrep(cd.de)}`,
+      latestLabel: 'Neue Teilzeitstellen der letzten 3 Tage',
+      cityHub: 'Teilzeit nach Stadt',
+      openAll: `Alle Jobs ${germanCantonPrep(cd.de)} ansehen`,
+      faq: [
+        {
+          question: 'Was gilt in der Schweiz als Teilzeitarbeit?',
+          answer: 'In der Schweiz bezeichnet Teilzeitarbeit jeden Vertrag mit einem Beschaftigungsgrad unter 100%. Er kann als Prozentsatz (z. B. 60%, 80%) oder in Wochenstunden angegeben werden. Auch 90%-Vertrage gelten als Teilzeit.',
+        },
+        {
+          question: 'Darf ein Grenzganger mit G-Bewilligung Teilzeit arbeiten?',
+          answer: 'Ja, die G-Bewilligung erlaubt auch Teilzeitvertrage. Wichtig ist, dass das Arbeitsverhaltnis regulaer und gemeldet ist. Der Teilzeitstatus beeinflusst die Gultigkeit der Bewilligung nicht.',
+        },
+        {
+          question: 'Wie werden Teilzeitstellen erkannt?',
+          answer: 'Unser System erkennt Teilzeitstellen anhand von Titel, Vertragsart und angegebenem Beschaftigungsgrad. Positionen mit einem Pensum zwischen 1% und 99% werden automatisch als Teilzeit klassifiziert.',
+        },
+      ],
+    },
+    fr: {
+      title: `Emploi temps partiel ${frenchCantonPrep(cd.fr)} | Postes flexibles pour frontaliers`,
+      heading: `Emploi temps partiel ${frenchCantonPrep(cd.fr)}`,
+      description: (count) => `Consultez ${count} offres d'emploi a temps partiel ${frenchCantonPrep(cd.fr)} pour les frontaliers. Postes flexibles mis a jour quotidiennement par des employeurs suisses, filtrables par ville, secteur et taux d'occupation.`,
+      intro: `Cette page regroupe toutes les offres a temps partiel disponibles dans le canton ${cd.fr}, ideales pour les frontaliers a la recherche de flexibilite. Les postes vont de contrats a 20% jusqu'a 80% dans tous les secteurs majeurs.`,
+      updatedLabel: 'Mis a jour',
+      countsLabel: 'offres temps partiel actives',
+      feedLabel: `Offres a temps partiel ${frenchCantonPrep(cd.fr)}`,
+      latestLabel: 'Nouvelles offres temps partiel des 3 derniers jours',
+      cityHub: 'Temps partiel par ville',
+      openAll: `Voir toutes les offres ${frenchCantonPrep(cd.fr)}`,
+      faq: [
+        {
+          question: "Qu'est-ce que le temps partiel en Suisse ?",
+          answer: "En Suisse, le temps partiel designe tout contrat avec un taux d'occupation inferieur a 100%. Il peut etre exprime en pourcentage (ex. 60%, 80%) ou en heures hebdomadaires. Meme les contrats a 90% sont consideres comme du temps partiel.",
+        },
+        {
+          question: "Un frontalier peut-il travailler a temps partiel avec un permis G ?",
+          answer: "Oui, le permis G autorise egalement les contrats a temps partiel. L'essentiel est que la relation de travail soit reguliere et declaree. Le statut a temps partiel n'affecte pas la validite du permis.",
+        },
+        {
+          question: "Comment les offres a temps partiel sont-elles identifiees ?",
+          answer: "Notre systeme identifie les offres a temps partiel en analysant le titre, le type de contrat et le taux d'occupation indique dans l'annonce. Les postes avec un taux entre 1% et 99% sont automatiquement classes comme temps partiel.",
+        },
+      ],
+    },
+  };
+}
+
+const PART_TIME_COPY = makePartTimeCopy('TI');
 
 export function buildJobPartTimeLandingModel(options: {
   jobs: JobLike[];
@@ -1772,12 +1879,14 @@ export function buildJobPartTimeLandingModel(options: {
   baseUrl: string;
   sectionSlug: string;
   localePrefix: string;
+  canton?: string;
 }): JobPartTimeLandingModel {
   const locale = options.locale;
-  const copy = PART_TIME_COPY[locale];
+  const cantonCode = options.canton || 'TI';
+  const copy = makePartTimeCopy(cantonCode)[locale];
   const now = options.now instanceof Date ? options.now : new Date(options.now || new Date().toISOString());
   const baseUrl = options.baseUrl.replace(/\/+$/, '');
-  const matches = options.jobs.filter((job) => isTicinoScoped(job) && isPartTime(job));
+  const matches = options.jobs.filter((job) => isCantonScoped(job, cantonCode) && isPartTime(job));
   const latestJobs = matches.filter((job) => isInLast3Days(getJobFreshnessDate(job), now));
 
   // Build city breakdown for part-time jobs
@@ -1785,7 +1894,8 @@ export function buildJobPartTimeLandingModel(options: {
   for (const job of matches) {
     const loc = normalizeSpace(job.location || '');
     if (!loc) continue;
-    const canonical = SUPPORTED_EDITORIAL_LOCATIONS.find((l) => l.toLowerCase() === loc.toLowerCase());
+    const cantonLocations = EDITORIAL_LOCATIONS_BY_CANTON[cantonCode] || EDITORIAL_LOCATIONS_BY_CANTON['TI'];
+    const canonical = cantonLocations.find((l) => l.toLowerCase() === loc.toLowerCase());
     if (canonical) {
       cityCountMap.set(canonical, (cityCountMap.get(canonical) || 0) + 1);
     }
@@ -1800,7 +1910,9 @@ export function buildJobPartTimeLandingModel(options: {
 
   return {
     kind: 'part-time',
-    slug: JOB_PART_TIME_LANDING_SLUGS[locale],
+    slug: cantonCode !== 'TI' && JOB_PART_TIME_LANDING_SLUGS_BY_CANTON[cantonCode]
+      ? JOB_PART_TIME_LANDING_SLUGS_BY_CANTON[cantonCode][locale]
+      : JOB_PART_TIME_LANDING_SLUGS[locale],
     title: copy.title,
     heading: copy.heading,
     description: copy.description(matches.length),
