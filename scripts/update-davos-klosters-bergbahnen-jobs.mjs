@@ -22,7 +22,6 @@ const PUBLIC_DATA_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
 const COMPANY_KEY = 'davos-klosters-bergbahnen';
 const HQ = getCompanyDefaults(COMPANY_KEY);
 const COMPANY_NAME = 'Davos Klosters Bergbahnen AG';
-const HQ = getCompanyDefaults(COMPANY_KEY);
 
 function isCompanyJob(job) {
   const key = String(job?.companyKey || job?.company || '').toLowerCase();
