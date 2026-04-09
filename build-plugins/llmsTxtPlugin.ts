@@ -311,18 +311,18 @@ export function llmsTxtPlugin(rootDir: string): Plugin {
       const localeHeaders: Record<string, { lang: string; description: string; audience: string }> = {
         en: {
           lang: 'English',
-          description: 'Frontaliere Ticino is a comprehensive free web application for cross-border workers ("frontalieri") commuting between Italy and Switzerland, especially Canton Ticino. It provides fiscal simulation tools, pension planning, health insurance comparison, currency exchange calculators, transport cost tools, and practical guides.',
-          audience: 'English-speaking cross-border workers commuting between Italy and Switzerland (Ticino)',
+          description: 'Frontaliere Ticino is a comprehensive free web application for cross-border workers ("frontalieri") commuting between Italy and Switzerland, covering Cantons Ticino, Graubünden, and Valais. It provides fiscal simulation tools, pension planning, health insurance comparison, currency exchange calculators, transport cost tools, job board, and practical guides.',
+          audience: 'English-speaking cross-border workers commuting between Italy and Switzerland (Ticino, Graubünden, Valais)',
         },
         de: {
           lang: 'German',
-          description: 'Frontaliere Ticino ist eine umfassende kostenlose Webanwendung für Grenzgänger, die zwischen Italien und der Schweiz pendeln, insbesondere Kanton Tessin. Sie bietet Steuersimulationstools, Pensionsplanung, Krankenversicherungsvergleich, Währungsumrechner, Transportkostenrechner und praktische Leitfäden.',
-          audience: 'Deutschsprachige Grenzgänger, die zwischen Italien und der Schweiz (Tessin) pendeln',
+          description: 'Frontaliere Ticino ist eine umfassende kostenlose Webanwendung für Grenzgänger, die zwischen Italien und der Schweiz pendeln, insbesondere in den Kantonen Tessin, Graubünden und Wallis. Sie bietet Steuersimulationstools, Pensionsplanung, Krankenversicherungsvergleich, Währungsumrechner, Transportkostenrechner, Jobbörse und praktische Leitfäden.',
+          audience: 'Deutschsprachige Grenzgänger, die zwischen Italien und der Schweiz (Tessin, Graubünden, Wallis) pendeln',
         },
         fr: {
           lang: 'French',
-          description: 'Frontaliere Ticino est une application web gratuite et complète pour les travailleurs frontaliers qui font la navette entre l\'Italie et la Suisse, en particulier le Canton du Tessin. Elle propose des outils de simulation fiscale, de planification de retraite, de comparaison d\'assurance maladie, de conversion de devises, de calcul des frais de transport et des guides pratiques.',
-          audience: 'Travailleurs frontaliers francophones faisant la navette entre l\'Italie et la Suisse (Tessin)',
+          description: 'Frontaliere Ticino est une application web gratuite et complète pour les travailleurs frontaliers qui font la navette entre l\'Italie et la Suisse, couvrant les Cantons du Tessin, des Grisons et du Valais. Elle propose des outils de simulation fiscale, de planification de retraite, de comparaison d\'assurance maladie, de conversion de devises, de calcul des frais de transport, un portail emploi et des guides pratiques.',
+          audience: 'Travailleurs frontaliers francophones faisant la navette entre l\'Italie et la Suisse (Tessin, Grisons, Valais)',
         },
       };
 

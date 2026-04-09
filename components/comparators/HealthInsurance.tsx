@@ -38,7 +38,7 @@ interface HealthPremiumsData {
 }
 
 // Cantons with commune-level data
-const COMMUNE_DETAIL_CANTONS = ['TI', 'GR'];
+const COMMUNE_DETAIL_CANTONS = ['TI', 'GR', 'VS'];
 
 const FRANCHISES = [300, 500, 1000, 1500, 2000, 2500];
 const FRANCHISES_CHILD = [0, 100, 200, 300, 400, 500, 600];

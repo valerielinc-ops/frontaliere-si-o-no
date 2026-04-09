@@ -73,7 +73,7 @@ const TARIFF_TYPE_MAP = {
 };
 
 // Cantons with commune-level detail
-const COMMUNE_DETAIL_CANTONS = ['TI', 'GR'];
+const COMMUNE_DETAIL_CANTONS = ['TI', 'GR', 'VS'];
 
 // ── CSV parser (no dependencies) ──
 function parseCSV(text, separator = ',') {
