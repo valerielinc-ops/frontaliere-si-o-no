@@ -2653,8 +2653,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-maternita-paternita-frontaliere-guida': {
-    title: 'Maternità e Paternità Frontalieri: Guida 2026 Svizzera-Italia | Frontaliere Ticino',
-    description: 'Guida completa 2026 al congedo maternità e paternità per frontalieri in Ticino. Scopri indennità, durata, come fare domanda AVS e differenze con l\'Italia.',
+    title: 'Congedo Maternità e Paternità Frontalieri 2026 | Guida',
+    description: 'Congedo maternità e paternità per frontalieri in Svizzera: indennità IPG, durata, come fare domanda AVS e differenze con INPS Italia. Guida aggiornata 2026.',
     keywords: 'frontaliere maternità, congedo paternità svizzera, indennità maternità ticino, assegni familiari frontalieri, avs maternità, inps frontalieri, congedo parentale italia svizzera',
     ogTitle: 'Genitore e Frontaliere? La Guida 2026 a Maternità e Paternità',
     ogDescription: 'Lavori in Ticino e stai per avere un figlio? Scopri come ottenere fino a CHF 230 al giorno di indennità. La guida completa.',
@@ -2798,8 +2798,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-simulazione-fiscale-frontaliere-2026': {
-    title: 'Simulazione Nuovo Accordo Fiscale 2026 Frontalieri | Frontaliere Ticino',
-    description: 'Scopri l\'impatto del nuovo accordo fiscale 2026 sul tuo stipendio da frontaliere in Ticino. Simulazione reale con 65\'000 CHF: confronto vecchio-nuovo regime.',
+    title: 'Nuovo Accordo Fiscale 2026: Simulazione Tasse Frontalieri',
+    description: 'Quanto costa il nuovo accordo fiscale? Simulazione con stipendio 65.000 CHF: confronto vecchio vs nuovo regime, IRPEF e imposta alla fonte. Calcola il tuo.',
     keywords: 'frontaliere nuovo accordo fiscale 2026, simulazione tasse frontalieri, tassazione frontalieri ticino, calcolo stipendio netto frontaliere, irpef frontalieri, imposta alla fonte',
     ogTitle: 'Accordo Fiscale 2026: Quanto ti costerà? La simulazione',
     ogDescription: 'Un salario di 65\'000 CHF in Ticino: ecco la differenza netta in busta paga tra vecchio e nuovo accordo fiscale per frontalieri. Calcola il tuo.',
@@ -3088,17 +3088,17 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-costo-vita-svizzera-mappa': {
-    title: 'Costo della Vita in Svizzera: Classifica Comuni 2026 | Frontaliere Ticino',
-    description: 'Scopri dove vivere in Svizzera costa meno. Analisi su affitti, imposte e cassa malati per cantone, con un focus sul Ticino e i suoi premi record.',
+    title: 'Costo della Vita in Svizzera 2026: Classifica per Comune',
+    description: 'Quanto costa vivere in Svizzera? Da 3.000 a 7.000 CHF/mese. Classifica comuni per affitti, imposte e cassa malati — con focus Ticino e confronto Italia.',
     keywords: 'costo della vita svizzera, vivere in svizzera, classifica comuni svizzeri, affitti ticino, cassa malati ticino, imposte svizzera, frontalieri, permesso b',
-    ogTitle: 'Vivere in Svizzera? Ecco dove ti costa di più (e di meno)',
-    ogDescription: 'Una famiglia può spendere da 3.000 a 7.000 CHF al mese. Scopri la mappa dei costi e la posizione del Ticino nella classifica.',
+    ogTitle: 'Vivere in Svizzera: Classifica Costi per Comune 2026',
+    ogDescription: 'Da 3.000 a 7.000 CHF/mese. Classifica comuni svizzeri per costo della vita: affitti, imposte e cassa malati.',
     canonicalPath: '/articoli-frontaliere/costo-vita-svizzera-classifica-comuni-ticino',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Vivere in Svizzera? Ecco dove ti costa di più (e di meno)",
-      "description": "Scopri dove vivere in Svizzera costa meno. Analisi su affitti, imposte e cassa malati per cantone, con un focus sul Ticino e i suoi premi record.",
+      "headline": "Costo della Vita in Svizzera 2026: Classifica per Comune",
+      "description": "Quanto costa vivere in Svizzera? Da 3.000 a 7.000 CHF/mese. Classifica comuni per affitti, imposte e cassa malati con focus Ticino.",
       "image": {
         "@type": "ImageObject",
         "url": `${BASE_URL}/images/blog/costo-vita-svizzera-mappa.webp`,
@@ -4453,18 +4453,18 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-naspi-ex-frontalieri-2026': {
-    title: 'NASpI ex frontalieri 2026: guida completa, requisiti e casi pratici | Frontaliere Ticino',
-    description: 'Guida completa NASpI ex frontalieri 2026: requisiti, documenti, tempi INPS, scenari reali e differenze rispetto alla disoccupazione svizzera.',
+    title: 'NASpI Ex Frontalieri 2026: Requisiti, Importi e Domanda',
+    description: 'Come richiedere la NASpI dopo il licenziamento dalla Svizzera: requisiti, documenti, tempi INPS, importi calcolati e differenze con la disoccupazione svizzera.',
     keywords: 'naspi ex frontalieri 2026, naspi frontalieri svizzera italia, domanda naspi ex frontalieri, documenti naspi frontalieri, requisiti naspi ex frontalieri, tempi inps naspi frontalieri',
-    ogTitle: 'NASpI ex frontalieri 2026: guida completa e casi pratici',
-    ogDescription: 'Requisiti, documenti, tempi INPS, scenari reali e confronto con la disoccupazione svizzera per ex frontalieri.',
+    ogTitle: 'NASpI Ex Frontalieri 2026: Requisiti, Importi e Domanda',
+    ogDescription: 'Licenziato dalla Svizzera? Ecco come richiedere la NASpI: requisiti, documenti e importi calcolati per ex frontalieri.',
     canonicalPath: '/articoli-frontaliere/naspi-ex-frontalieri-2026',
     structuredData: [
       {
         "@context": "https://schema.org",
         "@type": "NewsArticle",
-        "headline": "NASpI ex frontalieri 2026: guida completa, requisiti e casi pratici",
-        "description": "Guida completa NASpI ex frontalieri 2026: requisiti, documenti, tempi INPS, scenari reali e differenze rispetto alla disoccupazione svizzera.",
+        "headline": "NASpI Ex Frontalieri 2026: Requisiti, Importi e Domanda",
+        "description": "Come richiedere la NASpI dopo il licenziamento dalla Svizzera: requisiti, documenti, tempi INPS, importi calcolati e differenze con la disoccupazione svizzera.",
         "image": {
           "@type": "ImageObject",
           "url": `${BASE_URL}/images/places/lugano-view.webp`,
@@ -4514,17 +4514,17 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-mutuo-casa-frontalieri-italia': {
-    title: 'Mutuo per frontalieri: acquisto casa in Italia | Frontaliere Ticino',
-    description: 'Scopri come ottenere un mutuo per comprare casa in Italia con uno stipendio svizzero: requisiti, banche, documenti e tassi aggiornati al 2026.',
-    keywords: 'frontalieri, mutuo, casa, Italia, Ticino, stipendio svizzero, mutuo frontaliere, acquisto casa',
-    ogTitle: 'Mutuo per frontalieri: acquisto casa in Italia',
-    ogDescription: 'Guida completa per frontalieri: come comprare casa in Italia con stipendio svizzero. Requisiti, banche e tassi aggiornati al 2026.',
+    title: 'Mutuo Casa con Stipendio Svizzero: Guida Frontalieri 2026',
+    description: 'Comprare casa in Italia con stipendio svizzero: banche che accettano frontalieri, requisiti, documenti e tassi mutuo aggiornati 2026. Casi pratici.',
+    keywords: 'mutuo frontaliere, mutuo casa stipendio svizzero, comprare casa frontaliere, banche frontalieri italia, mutuo italia stipendio svizzera, acquisto casa frontaliere',
+    ogTitle: 'Mutuo Casa con Stipendio Svizzero: Guida Frontalieri',
+    ogDescription: 'Quali banche accettano frontalieri? Requisiti, documenti e tassi mutuo per comprare casa in Italia con stipendio svizzero.',
     canonicalPath: '/articoli-frontaliere/mutuo-casa-frontalieri-italia',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Mutuo per frontalieri: acquisto casa in Italia",
-      "description": "Scopri come ottenere un mutuo per comprare casa in Italia con uno stipendio svizzero: requisiti, banche, documenti e tassi aggiornati al 2026.",
+      "headline": "Mutuo Casa con Stipendio Svizzero: Guida Frontalieri 2026",
+      "description": "Comprare casa in Italia con stipendio svizzero: banche che accettano frontalieri, requisiti, documenti e tassi mutuo aggiornati 2026.",
       "image": {
         "@type": "ImageObject",
         "url": `${BASE_URL}/images/blog/mutuo-casa-frontalieri-italia.webp`,
@@ -4862,17 +4862,17 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-permesso-b-vs-g-differenze': {
-    title: 'Permesso B e G: tutte le differenze | Frontaliere Ticino',
-    description: 'Scopri le differenze tra permesso B e G per frontalieri: residenza, tasse, diritti e scelta migliore per lavorare in Ticino.',
-    keywords: 'frontalieri, ticino, pratico, svizzera, italia',
-    ogTitle: 'Permesso B e G: tutte le differenze',
-    ogDescription: 'Scopri le differenze tra permesso B e G per frontalieri: residenza, tasse, diritti e scelta migliore per lavorare in Ticino.',
+    title: 'Permesso B vs G: Quale Scegliere nel 2026? Confronto',
+    description: 'Permesso B o G per lavorare in Svizzera? Confronto completo: tasse, residenza, diritti, costi e vantaggi. Quale conviene davvero al frontaliere nel 2026.',
+    keywords: 'permesso b vs g, differenze permesso b g, permesso g frontaliere, permesso b svizzera, lavorare in svizzera permesso, frontaliere residenza',
+    ogTitle: 'Permesso B vs G: Quale Conviene nel 2026?',
+    ogDescription: 'Permesso B o G? Confronto completo per frontalieri: tasse, residenza, diritti e costi. Scopri quale conviene nel 2026.',
     canonicalPath: '/articoli-frontaliere/permesso-b-vs-g-differenze',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Permesso B e G: tutte le differenze",
-      "description": "Scopri le differenze tra permesso B e G per frontalieri: residenza, tasse, diritti e scelta migliore per lavorare in Ticino.",
+      "headline": "Permesso B vs G: Quale Scegliere nel 2026? Confronto",
+      "description": "Permesso B o G per lavorare in Svizzera? Confronto completo: tasse, residenza, diritti, costi e vantaggi per frontalieri nel 2026.",
       "image": {
         "@type": "ImageObject",
         "url": `${BASE_URL}/images/blog/permesso-b-vs-g-differenze.webp`,

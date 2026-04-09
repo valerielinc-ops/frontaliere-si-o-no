@@ -1703,11 +1703,11 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   },
 
   municipalities: {
-    title: 'Comuni di Frontiera Italia-Svizzera | Frontaliere Ticino',
-    description: 'Mappa interattiva dei comuni italiani nella fascia di 20 km dal confine svizzero: distanze dai valichi, popolazione, servizi e trasporti per frontalieri.',
-    keywords: 'comuni di frontiera, comuni frontalieri italia svizzera, mappa comuni frontiera, comuni vicino svizzera, comuni como varese frontiera, distanza valichi frontiera, comuni 20 km confine svizzera',
-    ogTitle: 'Comuni di Frontiera Italia-Svizzera | Mappa e Distanze',
-    ogDescription: '🗺️ Mappa interattiva dei comuni italiani di frontiera: distanze dai valichi, servizi e informazioni per frontalieri.',
+    title: '146 Comuni di Frontiera Svizzera 2026 | Mappa Interattiva',
+    description: 'Elenco completo dei 146 comuni italiani entro 20 km dal confine svizzero. Mappa interattiva con distanze dai valichi, addizionale IRPEF e trasporti per frontalieri.',
+    keywords: 'comuni di frontiera, elenco comuni frontalieri svizzera 2026, comuni frontalieri svizzera mappa, comuni 20 km confine svizzera, comuni como varese frontiera, distanza valichi frontiera, mappa comuni frontiera',
+    ogTitle: '146 Comuni di Frontiera Svizzera — Mappa e Distanze',
+    ogDescription: 'Mappa interattiva dei 146 comuni italiani di frontiera. Distanze dai valichi, addizionale IRPEF e trasporti per frontalieri.',
     canonicalPath: '/vivere-in-ticino/comuni-di-frontiera',
     structuredData: [
       {
@@ -1903,8 +1903,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   },
 
   ral: {
-    title: 'Stipendio Frontaliere CH vs IT | Confronto RAL Netta',
-    description: 'Stipendio frontaliere Svizzera vs Italia: confronta RAL netta con calcolo IRPEF, INPS, imposta alla fonte e contributi sociali svizzeri. Simulazione 2026.',
+    title: 'Confronto RAL Netta Svizzera vs Italia | Frontaliere 2026',
+    description: 'Calcolo stipendio netto frontaliere: confronta la RAL in Svizzera e Italia. Imposta alla fonte, IRPEF, contributi AVS e INPS a confronto. Simulazione 2026.',
     keywords: 'ral netta italia svizzera, confronto stipendio netto, busta paga frontaliere, imposta alla fonte ticino, irpef vs imposta fonte, stipendio netto svizzera',
     ogTitle: 'Stipendio Frontaliere Svizzera vs Italia | RAL Netta',
     ogDescription: '💰 Stipendio frontaliere Svizzera vs Italia: confronta netto a parità di RAL. Imposta alla fonte, IRPEF e contributi.',
@@ -2105,8 +2105,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   },
 
   residency: {
-    title: 'Simulatore Cambio Residenza | Frontaliere Ticino',
-    description: 'Simula il costo del cambio residenza tra Italia e Svizzera. Confronto costi mensili (affitto, spesa, assicurazione), costi una tantum, break-even point per.',
+    title: 'Trasferirsi in Svizzera: Simulatore Costi vs Italia 2026',
+    description: 'Simula il costo del cambio residenza tra Italia e Svizzera. Confronto affitto, spesa, assicurazione, costi una tantum e break-even point per frontalieri.',
     keywords: 'cambio residenza frontaliere, trasferimento italia svizzera costi, vivere in svizzera costi, traslocare ticino, permesso B svizzera costi, break-even residenza',
     ogTitle: 'Simulatore Cambio Residenza Italia ↔ Svizzera',
     ogDescription: '🏠 Simula costi e risparmi del cambio residenza tra Italia e Svizzera: affitti, spese, break-even point.',
@@ -2125,8 +2125,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   },
 
   salaryQuiz: {
-    title: 'Quiz Stipendio Svizzera | Frontaliere Ticino',
-    description: 'Quiz interattivo per scoprire quanto guadagneresti come frontaliere in Svizzera: stima stipendio netto in base a professione, esperienza e settore.',
+    title: 'Quiz: Quanto Guadagneresti in Svizzera? | Stipendio 2026',
+    description: 'Quiz interattivo per scoprire quanto guadagneresti come frontaliere in Svizzera: stima stipendio netto in base a professione, esperienza e settore. Gratis.',
     keywords: 'quiz stipendio svizzera, quanto guadagnerei in svizzera, stipendio frontaliere per professione, stima stipendio ticino, lavoro svizzera stipendio netto, quanto si guadagna in svizzera',
     ogTitle: 'Quiz Stipendio Svizzera | Quanto Guadagneresti?',
     ogDescription: '🎯 Quiz interattivo: scopri quanto guadagneresti come frontaliere in Svizzera in base alla tua professione e esperienza.',
@@ -2476,10 +2476,10 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
   jobboard: {
     title: 'Offerte di Lavoro Ticino Oggi — 1500+ Posti da 100 Aziende',
-    description: 'Cerchi lavoro in Ticino? 1500+ offerte aggiornate ogni giorno da Lugano, Mendrisio e Bellinzona. Banche, IT, pharma, sanità. Candidati gratis.',
-    keywords: 'offerte di lavoro ticino, lavoro ticino, offerte lavoro ticino, cerco lavoro ticino, posti vacanti ticino, offerte di lavoro frontalieri svizzera, lavoro frontaliere ticino 2026, impiego ticino, lavoro lugano, lavoro mendrisio, offerte lavoro ticino oggi, posti di lavoro ticino, lavoro ticino offerte, offerte di lavoro lugano, lavoro in ticino, offerte di lavoro ticino negli ultimi 3 giorni, lavoro ticino da ieri, lavoro ticino negli ultimi 3 giorni',
-    ogTitle: 'Offerte di Lavoro Ticino Oggi — 1500+ Posti da 100 Aziende',
-    ogDescription: 'Cerchi lavoro in Ticino? 1500+ offerte aggiornate ogni giorno da Lugano, Mendrisio e Bellinzona. Banche, IT, pharma, sanità. Candidatura diretta — gratis!',
+    description: 'Lavoro in Svizzera per italiani: 1500+ offerte aggiornate in Ticino da Lugano, Mendrisio e Bellinzona. Banche, IT, pharma, sanità. Candidati gratis.',
+    keywords: 'offerte di lavoro ticino, lavoro ticino, lavoro in svizzera per italiani, offerte lavoro ticino, cerco lavoro ticino, posti vacanti ticino, offerte di lavoro frontalieri svizzera, lavoro frontaliere ticino 2026, impiego ticino, lavoro lugano, lavoro mendrisio, offerte lavoro ticino oggi, posti di lavoro ticino, lavoro ticino offerte, offerte di lavoro lugano, lavoro in ticino, offerte di lavoro ticino negli ultimi 3 giorni, lavoro ticino da ieri, lavoro ticino negli ultimi 3 giorni',
+    ogTitle: 'Offerte Lavoro Ticino | 1500+ Posti per Frontalieri Italiani',
+    ogDescription: 'Lavoro in Svizzera per italiani: 1500+ offerte in Ticino da Lugano, Mendrisio e Bellinzona. Candidatura diretta — gratis!',
     canonicalPath: '/cerca-lavoro-ticino',
     structuredData: [
       {
