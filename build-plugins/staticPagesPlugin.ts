@@ -1381,6 +1381,9 @@ export function staticPagesPlugin(rootDir: string): Plugin {
               `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Quando usare il simulatore what-if</h2>`,
               `Ogni scenario viene calcolato con le stesse regole del simulatore principale: deduzioni sociali svizzere, imposta alla fonte cantonale, e conversione CHF-EUR. Le differenze vengono evidenziate in modo visivo per facilitare il confronto rapido.`,
               `Questo strumento è particolarmente utile quando si valuta un cambio di residenza, un matrimonio, la nascita di un figlio o il passaggio al tempo parziale: tutte situazioni che modificano significativamente la tassazione del frontaliere.`,
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Esempi pratici di simulazione</h2>`,
+              `Tra gli scenari più richiesti: il passaggio da single a coniugato (che modifica la tabella dell'imposta alla fonte da A0 a C0-C5), il trasferimento da un comune entro 20 km a uno oltre 20 km dal confine (che cambia la ripartizione fiscale 80/20), e la riduzione dal 100% al 80% di lavoro (che incide su contributi AVS, LPP e soglie IRPEF in Italia).`,
+              `Il risultato mostra il confronto diretto tra la situazione attuale e quella ipotetica, con il delta netto in CHF e in EUR. Puoi anche esportare i risultati in PDF per condividerli con il tuo commercialista o consulente fiscale.`,
             );
           } else if (canonicalPath.startsWith('/calcola-stipendio/confronta-stipendi')) {
             editorialBlocks.push(
