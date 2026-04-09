@@ -363,9 +363,9 @@
       },
       "slugByLocale": {
         "it": "cercasi-neolaureato-a-in-ingegneria-gestionale-per-stage-in-ambito-purchasing-boggi-milano-mendrisio-ticino",
-        "en": "cercasi-neolaureato-a-in-ingegneria-gestionale-per-stage-in-ambito-purchasing-boggi-milano-mendrisio-ticino",
-        "de": "cercasi-neolaureato-a-in-ingegneria-gestionale-per-stage-in-ambito-purchasing-boggi-milano-mendrisio-ticino",
-        "fr": "cercasi-neolaureato-a-in-ingegneria-gestionale-per-stage-in-ambito-purchasing-boggi-milano-mendrisio-ticino"
+        "en": "graduate-in-management-engineering-for-purchasing-internship-boggi-milano-mendrisio-ticino",
+        "de": "absolvent-in-wirtschaftsingenieurwesen-fur-praktikum-im-einkauf-boggi-milano-mendrisio-ticino",
+        "fr": "diplome-en-genie-industriel-pour-stage-en-achats-boggi-milano-mendrisio-ticino"
       },
       "id": "boggi-milano-25076f81f261",
       "salaryMin": 46500,
@@ -382,7 +382,10 @@
         }
       },
       "streetAddress": "Via A. Maspoli 18",
-      "postalCode": "6850"
+      "postalCode": "6850",
+      "previousSlugs": [
+        "cercasi-neolaureato-a-in-ingegneria-gestionale-per-stage-in-ambito-purchasing-boggi-milano-mendrisio-ticino"
+      ]
     }
   ]
 }

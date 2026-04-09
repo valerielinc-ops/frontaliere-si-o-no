@@ -503,8 +503,8 @@
       "slug": "vivier-des-talents-service-technicien-monteur-repairman-otis-cp-464",
       "slugByLocale": {
         "en": "vivier-des-talents-service-technicien-monteur-repairman-otis-cp-464",
-        "it": "vivier-des-talents-service-technicien-monteur-repairman-otis-cp-464",
-        "de": "vivier-des-talents-service-technicien-monteur-repairman-otis-cp-464",
+        "it": "vivier-dei-talenti-tecnico-installatore-repairman-otis-sa-cp-464",
+        "de": "talentpool-servicetechniker-monteur-reparaturtechniker-otis-sa-cp-464",
         "fr": "vivier-des-talents-service-technicien-monteur-repairman-otis-cp-464"
       },
       "company": "Otis SA",
@@ -554,15 +554,18 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6500"
+      "postalCode": "6500",
+      "previousSlugs": [
+        "vivier-des-talents-service-technicien-monteur-repairman-otis-cp-464"
+      ]
     },
     {
       "id": "otis-bf781d5b803b",
       "slug": "vivier-des-talents-service-technicien-monteur-repairman-otis-rue-des-sablons-15",
       "slugByLocale": {
         "en": "vivier-des-talents-service-technicien-monteur-repairman-otis-rue-des-sablons-15",
-        "it": "vivier-des-talents-service-technicien-monteur-repairman-otis-rue-des-sablons-15",
-        "de": "vivier-des-talents-service-technicien-monteur-repairman-otis-rue-des-sablons-15",
+        "it": "vivier-dei-talenti-tecnico-installatore-repairman-otis-sa-rue-des-sablons-15",
+        "de": "vielseitigkeit-der-talente-servicetechniker-monteur-repairman-otis-sa-rue-des-sablons-15",
         "fr": "vivier-des-talents-service-technicien-monteur-repairman-otis-rue-des-sablons-15"
       },
       "company": "Otis SA",
@@ -612,7 +615,10 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6500"
+      "postalCode": "6500",
+      "previousSlugs": [
+        "vivier-des-talents-service-technicien-monteur-repairman-otis-rue-des-sablons-15"
+      ]
     },
     {
       "id": "otis-2ad7ac1459d1",
@@ -680,8 +686,8 @@
       "slug": "vivier-des-talents-service-technicien-monteur-repairman-otis-chemin-de-mouille-galand",
       "slugByLocale": {
         "en": "vivier-des-talents-service-technicien-monteur-repairman-otis-chemin-de-mouille-galand",
-        "it": "vivier-des-talents-service-technicien-monteur-repairman-otis-chemin-de-mouille-galand",
-        "de": "vivier-des-talents-service-technicien-monteur-repairman-otis-chemin-de-mouille-galand",
+        "it": "vivier-dei-talenti-tecnico-installatore-repairman-otis-sa-chemin-de-mouille-galand",
+        "de": "talent-pool-servicetechniker-monteur-repairman-otis-sa-chemin-de-mouille-galand",
         "fr": "vivier-des-talents-service-technicien-monteur-repairman-otis-chemin-de-mouille-galand"
       },
       "company": "Otis SA",
@@ -731,14 +737,17 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6500"
+      "postalCode": "6500",
+      "previousSlugs": [
+        "vivier-des-talents-service-technicien-monteur-repairman-otis-chemin-de-mouille-galand"
+      ]
     },
     {
       "id": "otis-38c4a4ee7c00",
       "slug": "talent-community-chur-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-triststrasse-8",
       "slugByLocale": {
-        "en": "talent-community-chur-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-triststrasse-8",
-        "it": "talent-community-chur-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-triststrasse-8",
+        "en": "elevator-technician-repair-service-technician-chur-otis-sa-triststrasse-8",
+        "it": "tecnico-montatore-manutentore-ascensori-chur-otis-sa-triststrasse-8",
         "de": "talent-community-chur-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-triststrasse-8",
         "fr": "talent-community-chur-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-triststrasse-8"
       },
@@ -778,7 +787,8 @@
       "source": "Otis Dedicated Parser (Workday)",
       "crawledAt": "2026-04-08T21:39:47.063Z",
       "previousSlugs": [
-        "talent-community-chur-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-triststrasse-8"
+        "talent-community-chur-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-triststrasse-8",
+        "talent-community-chur-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-triststrasse-8"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -798,8 +808,8 @@
       "id": "otis-4759d5ee3c4a",
       "slug": "talent-community-luzern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-kreuzstrasse-34",
       "slugByLocale": {
-        "en": "talent-community-luzern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-kreuzstrasse-34",
-        "it": "talent-community-luzern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-kreuzstrasse-34",
+        "en": "lift-technician-installer-service-technician-luzern-m-f-d-otis-sa-kreuzstrasse-34",
+        "it": "tecnico-montatore-manutentore-ascensori-luzern-m-w-d-otis-sa-kreuzstrasse-34",
         "de": "talent-community-luzern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-kreuzstrasse-34",
         "fr": "talent-community-luzern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-kreuzstrasse-34"
       },
@@ -839,7 +849,8 @@
       "source": "Otis Dedicated Parser (Workday)",
       "crawledAt": "2026-04-08T21:39:46.819Z",
       "previousSlugs": [
-        "talent-community-luzern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-kreuzstrasse-34"
+        "talent-community-luzern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-kreuzstrasse-34",
+        "talent-community-luzern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-kreuzstrasse-34"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -859,8 +870,8 @@
       "id": "otis-8f950977a58b",
       "slug": "talent-community-basel-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-nenzlingerweg-2",
       "slugByLocale": {
-        "en": "talent-community-basel-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-nenzlingerweg-2",
-        "it": "talent-community-basel-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-nenzlingerweg-2",
+        "en": "talent-community-basel-elevator-installer-repair-technician-service-technician-m-f-d-otis-sa-nenzlingerweg-2",
+        "it": "talent-community-basel-montatore-assistente-ascensori-tecnico-di-servizio-m-f-d-otis-sa-nenzlingerweg-2",
         "de": "talent-community-basel-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-nenzlingerweg-2",
         "fr": "talent-community-basel-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-nenzlingerweg-2"
       },
@@ -900,7 +911,8 @@
       "source": "Otis Dedicated Parser (Workday)",
       "crawledAt": "2026-04-08T21:39:46.584Z",
       "previousSlugs": [
-        "talent-community-basel-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-nenzlingerweg-2"
+        "talent-community-basel-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-nenzlingerweg-2",
+        "talent-community-basel-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-nenzlingerweg-2"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -921,9 +933,9 @@
       "slug": "o-t-sales-lead-oa-otis-cp-1136",
       "slugByLocale": {
         "en": "o-t-sales-lead-oa-otis-cp-1136",
-        "it": "o-t-sales-lead-oa-otis-cp-1136",
-        "de": "o-t-sales-lead-oa-otis-cp-1136",
-        "fr": "o-t-sales-lead-oa-otis-cp-1136"
+        "it": "responsabile-vendite-o-t-oa-otis-sa-cp-1136",
+        "de": "o-t-vertriebsleiter-oa-otis-sa-cp-1136",
+        "fr": "responsable-commercial-o-t-oa-otis-sa-cp-1136"
       },
       "company": "Otis SA",
       "companyKey": "otis",
@@ -972,7 +984,10 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1136"
+      "postalCode": "1136",
+      "previousSlugs": [
+        "o-t-sales-lead-oa-otis-cp-1136"
+      ]
     },
     {
       "id": "otis-40bff711697f",
