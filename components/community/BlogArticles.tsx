@@ -1320,6 +1320,13 @@ function BlogArticles({
     return counts;
   }, [articles]);
 
+  // Article detail computed values — MUST be above early returns to maintain stable hook count.
+  // React#310: placing useMemo after conditional returns (if !blogReady / if !bodyReady)
+  // caused "Rendered more hooks than during the previous render" on article pages.
+  const selectedArticleObj = selectedArticle ? articleById.get(selectedArticle) ?? null : null;
+  const articleCTAs = useMemo(() => selectedArticle ? getArticleCTAs(selectedArticle) : [], [selectedArticle, navigators, articles, t]);
+  const sidePartners = useMemo(() => selectedArticleObj ? getPartnersForCategory(selectedArticleObj.category, 4) : [], [selectedArticleObj?.category]);
+
   /** Returns imageAlt translation if available, falls back to article title */
   const getImageAlt = (id: string) => {
     const altKey = `blog.article.${id}.imageAlt`;
@@ -1493,7 +1500,7 @@ function BlogArticles({
 
   // ── Single Article View ──────────────────────────────
   if (selectedArticle) {
-    const article = articles.find(a => a.id === selectedArticle);
+    const article = selectedArticleObj;
     if (!article) return null;
 
     // Wait for article body translations to load
@@ -1511,9 +1518,6 @@ function BlogArticles({
       );
     }
 
-    const articleCTAs = useMemo(() => getArticleCTAs(selectedArticle), [selectedArticle]);
-
-    const sidePartners = useMemo(() => getPartnersForCategory(article.category, 4), [article.category]);
     const creatorContextText = `${article.category} ${t(`blog.article.${article.id}.title`)} ${t(`blog.article.${article.id}.excerpt`)}`;
     const bodySegments = collectBodyParts(article.id, t);
     const presentSegments = bodySegments;
