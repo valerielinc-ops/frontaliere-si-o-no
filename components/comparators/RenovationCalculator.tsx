@@ -151,6 +151,7 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
             <input
               id="reno-cost"
               type="number"
+              inputMode="numeric"
               value={totalCost}
               onChange={e => setTotalCost(Number(e.target.value))}
               className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-sm text-slate-800 dark:text-slate-200"
@@ -251,6 +252,7 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
             <input
               id="stipendio-lordo"
               type="number"
+              inputMode="numeric"
               min={0}
               step={1000}
               value={stipendioLordo || ''}

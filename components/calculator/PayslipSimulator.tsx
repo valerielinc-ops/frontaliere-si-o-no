@@ -110,15 +110,26 @@ function calculatePayslip(grossAnnual: number, age: number, maritalStatus: 'sing
 
 // --- Reusable UI Components (matching InputCard style) ---
 
-const InfoTooltip = ({ text }: { text: string }) => (
-  <div className="group relative inline-flex items-center ml-1.5 cursor-help z-50">
-    <Info size={12} className="text-slate-500 dark:text-slate-400 hover:text-indigo-500 transition-colors" />
-    <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block w-48 p-2.5 bg-slate-800 dark:bg-slate-700 text-white text-xs font-medium leading-relaxed rounded-xl shadow-xl border border-slate-600 pointer-events-none text-center">
-      {text}
-      <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-800 dark:border-t-slate-700"></div>
-    </div>
-  </div>
-);
+const InfoTooltip = ({ text }: { text: string }) => {
+  const [open, setOpen] = React.useState(false);
+  const ref = React.useRef<HTMLButtonElement>(null);
+  React.useEffect(() => {
+    if (!open) return;
+    const close = (e: MouseEvent | TouchEvent) => { if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false); };
+    document.addEventListener('mousedown', close);
+    document.addEventListener('touchstart', close);
+    return () => { document.removeEventListener('mousedown', close); document.removeEventListener('touchstart', close); };
+  }, [open]);
+  return (
+    <button ref={ref} type="button" onClick={() => setOpen(v => !v)} aria-label="Info" className="group relative inline-flex items-center ml-1.5 cursor-help z-50">
+      <Info size={12} className="text-slate-500 dark:text-slate-400 hover:text-teal-600 transition-colors" />
+      <div className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 p-2.5 bg-slate-800 dark:bg-slate-700 text-white text-xs font-medium leading-relaxed rounded-xl shadow-xl border border-slate-600 text-center ${open ? 'block' : 'hidden group-hover:block'}`}>
+        {text}
+        <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-800 dark:border-t-slate-700"></div>
+      </div>
+    </button>
+  );
+};
 
 const StepperInput = ({ value, onChange, min = 0, max, label, icon: Icon, iconColor = "text-slate-500 dark:text-slate-400", tooltip, inputId, ariaLabel }: any) => (
   <div className="space-y-2">
@@ -136,6 +147,7 @@ const StepperInput = ({ value, onChange, min = 0, max, label, icon: Icon, iconCo
         <input
           id={inputId}
           type="number"
+          inputMode="numeric"
           value={value}
           onChange={(e) => {
             let v = parseInt(e.target.value);

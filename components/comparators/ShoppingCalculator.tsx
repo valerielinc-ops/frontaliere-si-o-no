@@ -216,6 +216,7 @@ const ShoppingCalculator: React.FC = () => {
               <input
                 id="shopping-rate"
                 type="number"
+                inputMode="decimal"
                 step="0.01"
                 value={effectiveRate}
                 onChange={e => setExchangeRate(parseFloat(e.target.value) || null)}

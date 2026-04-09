@@ -99,15 +99,26 @@ function calculateTfrRevaluation(previousTotal: number, inflationRate: number): 
 
 // ── Info tooltip ──────────────────────────────────────────────
 
-const InfoTooltip = ({ text }: { text: string }) => (
-  <div className="group relative inline-flex items-center ml-1.5 cursor-help">
-    <Info size={14} className="text-slate-500 dark:text-slate-400 hover:text-blue-500 transition-colors" />
-    <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block w-64 p-3 bg-slate-800 dark:bg-slate-700 text-white text-xs leading-relaxed rounded-xl shadow-2xl z-50 border border-slate-600">
-      {text}
-      <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-800 dark:border-t-slate-700"></div>
-    </div>
-  </div>
-);
+const InfoTooltip = ({ text }: { text: string }) => {
+  const [open, setOpen] = React.useState(false);
+  const ref = React.useRef<HTMLButtonElement>(null);
+  React.useEffect(() => {
+    if (!open) return;
+    const close = (e: MouseEvent | TouchEvent) => { if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false); };
+    document.addEventListener('mousedown', close);
+    document.addEventListener('touchstart', close);
+    return () => { document.removeEventListener('mousedown', close); document.removeEventListener('touchstart', close); };
+  }, [open]);
+  return (
+    <button ref={ref} type="button" onClick={() => setOpen(v => !v)} aria-label="Info" className="group relative inline-flex items-center ml-1.5 cursor-help">
+      <Info size={14} className="text-slate-500 dark:text-slate-400 hover:text-teal-600 transition-colors" />
+      <div className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-64 p-3 bg-slate-800 dark:bg-slate-700 text-white text-xs leading-relaxed rounded-xl shadow-2xl z-50 border border-slate-600 ${open ? 'block' : 'hidden group-hover:block'}`}>
+        {text}
+        <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-800 dark:border-t-slate-700"></div>
+      </div>
+    </button>
+  );
+};
 
 // ── Component ────────────────────────────────────────────────
 
@@ -307,6 +318,7 @@ const TfrCalculator: React.FC = () => {
               <input
                 id="tfr-salary-chf"
                 type="number"
+                inputMode="numeric"
                 value={inputs.grossSalaryCHF}
                 onChange={(e) => handleChange('grossSalaryCHF', Number(e.target.value))}
                 className="w-full pl-12 pr-3 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
@@ -328,6 +340,7 @@ const TfrCalculator: React.FC = () => {
               <input
                 id="tfr-salary-eur"
                 type="number"
+                inputMode="numeric"
                 value={inputs.grossSalaryEUR}
                 onChange={(e) => handleChange('grossSalaryEUR', Number(e.target.value))}
                 className="w-full pl-8 pr-3 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
@@ -346,6 +359,7 @@ const TfrCalculator: React.FC = () => {
             <input
               id="tfr-age"
               type="number"
+              inputMode="numeric"
               value={inputs.currentAge}
               onChange={(e) => handleChange('currentAge', Number(e.target.value))}
               className="w-full px-3 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
@@ -363,6 +377,7 @@ const TfrCalculator: React.FC = () => {
             <input
               id="tfr-years"
               type="number"
+              inputMode="numeric"
               value={inputs.yearsToSimulate}
               onChange={(e) => handleChange('yearsToSimulate', Math.min(45, Math.max(1, Number(e.target.value))))}
               className="w-full px-3 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
@@ -381,6 +396,7 @@ const TfrCalculator: React.FC = () => {
               <input
                 id="tfr-inflation"
                 type="number"
+                inputMode="decimal"
                 value={inputs.inflationRate}
                 onChange={(e) => handleChange('inflationRate', Number(e.target.value))}
                 className="w-full px-3 py-2 pr-8 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
@@ -402,6 +418,7 @@ const TfrCalculator: React.FC = () => {
               <input
                 id="tfr-lpp-rate"
                 type="number"
+                inputMode="decimal"
                 value={inputs.lppInterestRate}
                 onChange={(e) => handleChange('lppInterestRate', Number(e.target.value))}
                 className="w-full px-3 py-2 pr-8 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"

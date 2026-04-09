@@ -214,6 +214,7 @@ const TransportCalculator: React.FC = () => {
               <input
                 id="tc-km"
                 type="number"
+                inputMode="numeric"
                 value={kmOneWay}
                 onChange={(e) => { setKmOneWay(Number(e.target.value)); Analytics.trackTransportCalculator('change_param', 'km', Number(e.target.value)); }}
                 className="flex-1 px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100"
@@ -233,6 +234,7 @@ const TransportCalculator: React.FC = () => {
               <input
                 id="tc-days"
                 type="number"
+                inputMode="numeric"
                 value={workDaysPerMonth}
                 onChange={(e) => { setWorkDaysPerMonth(Number(e.target.value)); Analytics.trackTransportCalculator('change_param', 'workDays', Number(e.target.value)); }}
                 className="flex-1 px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100"
@@ -251,6 +253,7 @@ const TransportCalculator: React.FC = () => {
             <input
               id="tc-consumption"
               type="number"
+              inputMode="decimal"
               step="0.1"
               value={consumptionPer100km}
               onChange={(e) => setConsumptionPer100km(Number(e.target.value))}
@@ -266,6 +269,7 @@ const TransportCalculator: React.FC = () => {
               <input
                 id="tc-tolls"
                 type="number"
+                inputMode="numeric"
                 value={tollsCost}
                 onChange={(e) => setTollsCost(Number(e.target.value))}
                 className="flex-1 px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100"
@@ -281,6 +285,7 @@ const TransportCalculator: React.FC = () => {
             <input
               id="tc-fuel-it"
               type="number"
+              inputMode="decimal"
               step="0.01"
               value={fuelPriceIT}
               onChange={(e) => setFuelPriceIT(Number(e.target.value))}
@@ -295,6 +300,7 @@ const TransportCalculator: React.FC = () => {
             <input
               id="tc-fuel-ch"
               type="number"
+              inputMode="decimal"
               step="0.01"
               value={fuelPriceCH}
               onChange={(e) => setFuelPriceCH(Number(e.target.value))}
@@ -310,6 +316,7 @@ const TransportCalculator: React.FC = () => {
               <input
                 id="tc-parking"
                 type="number"
+                inputMode="numeric"
                 value={parkingCost}
                 onChange={(e) => setParkingCost(Number(e.target.value))}
                 className="flex-1 px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100"

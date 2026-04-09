@@ -34,15 +34,26 @@ interface PensionResult {
   };
 }
 
-const InfoTooltip = ({ text }: { text: string }) => (
-  <div className="group relative inline-flex items-center ml-1.5 cursor-help">
-    <Info size={14} className="text-slate-500 dark:text-slate-400 hover:text-indigo-500 transition-colors" />
-    <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block w-64 p-3 bg-slate-800 dark:bg-slate-700 text-white text-xs leading-relaxed rounded-xl shadow-2xl z-50 border border-slate-600">
-      {text}
-      <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-800 dark:border-t-slate-700"></div>
-    </div>
-  </div>
-);
+const InfoTooltip = ({ text }: { text: string }) => {
+  const [open, setOpen] = React.useState(false);
+  const ref = React.useRef<HTMLButtonElement>(null);
+  React.useEffect(() => {
+    if (!open) return;
+    const close = (e: MouseEvent | TouchEvent) => { if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false); };
+    document.addEventListener('mousedown', close);
+    document.addEventListener('touchstart', close);
+    return () => { document.removeEventListener('mousedown', close); document.removeEventListener('touchstart', close); };
+  }, [open]);
+  return (
+    <button ref={ref} type="button" onClick={() => setOpen(v => !v)} aria-label="Info" className="group relative inline-flex items-center ml-1.5 cursor-help">
+      <Info size={14} className="text-slate-500 dark:text-slate-400 hover:text-teal-600 transition-colors" />
+      <div className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-64 p-3 bg-slate-800 dark:bg-slate-700 text-white text-xs leading-relaxed rounded-xl shadow-2xl z-50 border border-slate-600 ${open ? 'block' : 'hidden group-hover:block'}`}>
+        {text}
+        <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-800 dark:border-t-slate-700"></div>
+      </div>
+    </button>
+  );
+};
 
 const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ userProfile }) => {
   const { t } = useTranslation();
@@ -208,6 +219,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
                 <input
                   id="pp-age"
                   type="number"
+                  inputMode="numeric"
                   value={inputs.currentAge}
                   onChange={(e) => handleChange('currentAge', parseInt(e.target.value) || 0)}
                   className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-800 dark:text-slate-200 font-semibold focus:outline-none focus:ring-2 focus:ring-emerald-500"
@@ -224,6 +236,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
                 <input
                   id="pp-retire"
                   type="number"
+                  inputMode="numeric"
                   value={inputs.retirementAge}
                   onChange={(e) => handleChange('retirementAge', parseInt(e.target.value) || 65)}
                   className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-800 dark:text-slate-200 font-semibold focus:outline-none focus:ring-2 focus:ring-emerald-500"
@@ -259,6 +272,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
                 <input
                   id="pp-years-ch"
                   type="number"
+                  inputMode="numeric"
                   value={inputs.yearsWorkedCH}
                   onChange={(e) => handleChange('yearsWorkedCH', parseInt(e.target.value) || 0)}
                   className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-800 dark:text-slate-200 font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -275,6 +289,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
                 <input
                   id="pp-planned-ch"
                   type="number"
+                  inputMode="numeric"
                   value={inputs.plannedYearsCH}
                   onChange={(e) => handleChange('plannedYearsCH', parseInt(e.target.value) || 0)}
                   className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-800 dark:text-slate-200 font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -305,6 +320,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
                   <input
                     id="pp-years-it"
                     type="number"
+                    inputMode="numeric"
                     value={inputs.yearsWorkedIT}
                     onChange={(e) => handleChange('yearsWorkedIT', parseInt(e.target.value) || 0)}
                     className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-800 dark:text-slate-200 font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -332,6 +348,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
                 <input
                   id="pp-salary"
                   type="number"
+                  inputMode="numeric"
                   value={inputs.currentSalaryCHF}
                   onChange={(e) => handleChange('currentSalaryCHF', parseInt(e.target.value) || 0)}
                   className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-800 dark:text-slate-200 font-semibold focus:outline-none focus:ring-2 focus:ring-purple-500"
@@ -348,6 +365,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
                 <input
                   id="pp-lpp"
                   type="number"
+                  inputMode="numeric"
                   value={inputs.currentLPPCapital}
                   onChange={(e) => handleChange('currentLPPCapital', parseInt(e.target.value) || 0)}
                   className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-800 dark:text-slate-200 font-semibold focus:outline-none focus:ring-2 focus:ring-purple-500"
@@ -364,6 +382,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
                 <input
                   id="pp-return"
                   type="number"
+                  inputMode="decimal"
                   value={inputs.expectedReturnRate}
                   onChange={(e) => handleChange('expectedReturnRate', parseFloat(e.target.value) || 0)}
                   className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-800 dark:text-slate-200 font-semibold focus:outline-none focus:ring-2 focus:ring-purple-500"

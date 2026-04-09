@@ -131,6 +131,7 @@ export default function NaspiCalculator() {
             <input
               id="naspi-salary"
               type="number"
+              inputMode="numeric"
               min={1000}
               max={30000}
               step={100}
@@ -151,6 +152,7 @@ export default function NaspiCalculator() {
           <input
             id="naspi-months"
             type="number"
+            inputMode="numeric"
             min={3}
             max={48}
             step={1}
@@ -169,6 +171,7 @@ export default function NaspiCalculator() {
           <input
             id="naspi-age"
             type="number"
+            inputMode="numeric"
             min={18}
             max={67}
             step={1}
@@ -189,6 +192,7 @@ export default function NaspiCalculator() {
           <input
             id="naspi-rate"
             type="number"
+            inputMode="decimal"
             min={0.7}
             max={1.2}
             step={0.01}

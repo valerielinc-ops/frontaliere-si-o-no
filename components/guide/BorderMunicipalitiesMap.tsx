@@ -301,6 +301,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
                 <div className="flex items-center gap-1.5">
                   <input
                     type="number"
+                    inputMode="numeric"
                     id="salary-input-mobile"
                     value={salary}
                     onChange={e => {
@@ -489,6 +490,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
               <div className="flex items-center gap-2">
                 <input
                   type="number"
+                  inputMode="numeric"
                   id="salary-input"
                   value={salary}
                   onChange={e => {

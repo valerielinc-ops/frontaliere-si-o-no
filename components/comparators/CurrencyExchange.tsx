@@ -488,6 +488,7 @@ const CurrencyExchange: React.FC = () => {
               <input
                 id="exchange-amount"
                 type="number"
+                inputMode="numeric"
                 value={amount}
                 onChange={(e) => setAmount(Math.max(0, parseFloat(e.target.value) || 0))}
                 className="w-full pl-14 pr-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/10 outline-none transition-[color,background-color,border-color,box-shadow] font-bold text-slate-800 dark:text-slate-100 text-lg"
@@ -500,8 +501,10 @@ const CurrencyExchange: React.FC = () => {
             <label htmlFor="exchange-rate" className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide flex items-center gap-2">
               {t('currency.real_market_rate')}
               <div className="group relative inline-flex items-center cursor-help">
-                <Info size={12} className="text-slate-500 dark:text-slate-400" />
-                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block w-48 p-2.5 bg-slate-800 text-white text-xs font-medium leading-relaxed rounded-xl shadow-xl border border-slate-600 pointer-events-none z-50 text-center">
+                <button type="button" onClick={(e) => { const tip = e.currentTarget.nextElementSibling; if (tip) tip.classList.toggle('hidden'); }} aria-label="Info" className="inline-flex">
+                  <Info size={12} className="text-slate-500 dark:text-slate-400" />
+                </button>
+                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block w-48 p-2.5 bg-slate-800 text-white text-xs font-medium leading-relaxed rounded-xl shadow-xl border border-slate-600 z-50 text-center">
                   {t('currency.mid_market_tooltip')}
                 </div>
               </div>

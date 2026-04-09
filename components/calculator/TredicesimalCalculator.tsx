@@ -204,6 +204,7 @@ const TredicesimalCalculator: React.FC = () => {
           <input
             id="tred-gross"
             type="number"
+            inputMode="numeric"
             value={annualGross}
             onChange={e => { setAnnualGross(Number(e.target.value)); setCalculated(false); }}
             className="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-800 dark:text-slate-100 text-sm"
@@ -284,6 +285,7 @@ const TredicesimalCalculator: React.FC = () => {
             <input
               id="tred-rate"
               type="number"
+              inputMode="decimal"
               value={exchangeRate}
               onChange={e => { setExchangeRate(Number(e.target.value)); setCalculated(false); }}
               className="w-full px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-800 dark:text-slate-100 text-sm"

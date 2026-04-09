@@ -222,6 +222,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
             <input
               id="bonus-salary"
               type="number"
+              inputMode="numeric"
               value={monthlyGrossCHF}
               onChange={e => setMonthlyGrossCHF(Number(e.target.value))}
               className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-sm text-slate-800 dark:text-slate-200"
@@ -234,6 +235,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
             <input
               id="bonus-amount"
               type="number"
+              inputMode="numeric"
               value={bonusAmountCHF}
               onChange={e => setBonusAmountCHF(Number(e.target.value))}
               className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-sm text-slate-800 dark:text-slate-200"
@@ -275,6 +277,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
             <input
               id="bonus-children"
               type="number"
+              inputMode="numeric"
               min={0}
               max={10}
               value={children}
@@ -290,6 +293,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
               <input
                 id="bonus-exchange"
                 type="number"
+                inputMode="decimal"
                 step={0.01}
                 value={Number(exchangeRate.toFixed(4))}
                 onChange={e => setRateOverride(Number(e.target.value))}

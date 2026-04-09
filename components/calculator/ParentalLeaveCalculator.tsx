@@ -183,6 +183,7 @@ const ParentalLeaveCalculator: React.FC<ParentalLeaveProps> = ({ userProfile }) 
           <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">{t('leave.grossMonthlyCHF')}</label>
           <input
             type="number"
+            inputMode="numeric"
             value={grossMonthlyCHF}
             onChange={(e) => setGrossMonthlyCHF(Number(e.target.value) || 0)}
             className="w-full px-4 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 font-bold"

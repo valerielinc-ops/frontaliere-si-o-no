@@ -280,6 +280,7 @@ const CostOfLiving: React.FC = () => {
           <input
             id="col-exchange-rate"
             type="number"
+            inputMode="decimal"
             step="0.01"
             value={exchangeRate}
             onChange={e => setExchangeRateOverride(parseFloat(e.target.value) || null)}

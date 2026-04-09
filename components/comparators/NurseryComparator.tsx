@@ -133,6 +133,7 @@ const NurseryComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({
                 <input
                   id="nursery-salary"
                   type="number"
+                  inputMode="numeric"
                   value={grossSalaryCHF}
                   onChange={e => setGrossSalaryCHF(Number(e.target.value))}
                   className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-sm text-slate-800 dark:text-slate-200"
@@ -158,6 +159,7 @@ const NurseryComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({
                 <input
                   id="nursery-age"
                   type="number"
+                  inputMode="numeric"
                   min={0}
                   max={60}
                   value={childAge}

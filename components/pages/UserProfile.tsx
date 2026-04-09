@@ -377,6 +377,7 @@ const FamilyMemberRow: React.FC<{
           <input
             id={`year-${member.id}`}
             type="number"
+            inputMode="numeric"
             min={1920}
             max={currentYear}
             value={member.birthYear || ''}

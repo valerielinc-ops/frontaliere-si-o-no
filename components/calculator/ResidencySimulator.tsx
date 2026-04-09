@@ -418,6 +418,7 @@ const ResidencySimulator: React.FC = () => {
             <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 mb-1">{t('residency.grossMonthly')}</label>
             <input
               type="number"
+              inputMode="numeric"
               value={grossMonthlyCHF}
               onChange={(e) => setGrossMonthlyCHF(+e.target.value)}
               className="w-full px-3 py-2.5 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-sm font-bold"

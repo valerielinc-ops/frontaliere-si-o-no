@@ -148,7 +148,7 @@ const Pillar3Simulator: React.FC = () => {
 
             <div>
               <label htmlFor="p3-contribution" className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase mb-1 block">{t('pillar3.annualContribution')}</label>
-              <input id="p3-contribution" type="number" value={inputs.annualContribution}
+              <input id="p3-contribution" type="number" inputMode="numeric" value={inputs.annualContribution}
                 onChange={(e) => handleChange('annualContribution', Math.min(Number(e.target.value), inputs.type === '3a' ? MAX_3A_2026 : 100000))}
                 className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg font-bold focus:outline-none focus:ring-2 focus:ring-teal-500"
                 max={inputs.type === '3a' ? MAX_3A_2026 : 100000} min={0} step={100} />
@@ -157,7 +157,7 @@ const Pillar3Simulator: React.FC = () => {
 
             <div>
               <label htmlFor="p3-capital" className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase mb-1 block">{t('pillar3.currentCapital')}</label>
-              <input id="p3-capital" type="number" value={inputs.currentCapital}
+              <input id="p3-capital" type="number" inputMode="numeric" value={inputs.currentCapital}
                 onChange={(e) => handleChange('currentCapital', Number(e.target.value))}
                 className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg font-bold focus:outline-none focus:ring-2 focus:ring-teal-500"
                 min={0} step={1000} />
@@ -195,7 +195,7 @@ const Pillar3Simulator: React.FC = () => {
 
             <div>
               <label htmlFor="p3-age" className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase mb-1 block">{t('pillar3.currentAge')}</label>
-              <input id="p3-age" type="number" value={inputs.age}
+              <input id="p3-age" type="number" inputMode="numeric" value={inputs.age}
                 onChange={(e) => handleChange('age', Number(e.target.value))}
                 className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg font-bold focus:outline-none focus:ring-2 focus:ring-teal-500"
                 min={18} max={65} />

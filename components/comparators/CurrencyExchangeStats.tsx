@@ -819,6 +819,7 @@ const WeeklyExchangeAlert: React.FC<{ currentRate: number; historyData: Array<{ 
           Target minimo (EUR)
           <input
             type="number"
+            inputMode="decimal"
             step="0.0001"
             min="0.8"
             max="1.3"
@@ -832,6 +833,7 @@ const WeeklyExchangeAlert: React.FC<{ currentRate: number; historyData: Array<{ 
           Percentile minimo
           <input
             type="number"
+            inputMode="numeric"
             min={1}
             max={99}
             value={prefs.minPercentile}

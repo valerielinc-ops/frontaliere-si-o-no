@@ -288,6 +288,7 @@ const SalarySurvey: React.FC = () => {
               <input
                 id="salary-gross"
                 type="number"
+                inputMode="numeric"
                 min={1000}
                 max={500000}
                 step={1000}

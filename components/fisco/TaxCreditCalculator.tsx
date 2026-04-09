@@ -62,6 +62,7 @@ const NumberStepper: React.FC<NumberStepperProps> = ({ id, value, min, max, onCh
       <input
         id={id}
         type="number"
+        inputMode="numeric"
         value={value}
         min={min}
         max={max}
@@ -252,6 +253,7 @@ const TaxCreditCalculator: React.FC = () => {
               <input
                 id="tc-gross"
                 type="number"
+                inputMode="numeric"
                 value={grossSalaryCHF}
                 onChange={(e) => setGrossSalaryCHF(Number(e.target.value))}
                 className={EDIT_FIELD_CLASS}
@@ -336,6 +338,7 @@ const TaxCreditCalculator: React.FC = () => {
               <input
                 id="tc-other"
                 type="number"
+                inputMode="numeric"
                 value={otherItalianIncome}
                 onChange={(e) => setOtherItalianIncome(Number(e.target.value))}
                 className={EDIT_FIELD_CLASS}

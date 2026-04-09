@@ -418,6 +418,7 @@ export default function MortgageComparison() {
               <input
                 id="chCustomRate"
                 type="number"
+                inputMode="decimal"
                 step={0.05}
                 min={0}
                 max={10}
@@ -452,6 +453,7 @@ export default function MortgageComparison() {
               <input
                 id="itCustomRate"
                 type="number"
+                inputMode="decimal"
                 step={0.05}
                 min={0}
                 max={10}
@@ -474,6 +476,7 @@ export default function MortgageComparison() {
           <input
             id="exchangeRate"
             type="number"
+            inputMode="decimal"
             step={0.01}
             min={0.5}
             max={1.5}

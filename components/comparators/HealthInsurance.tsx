@@ -238,7 +238,7 @@ const HealthInsurance: React.FC = () => {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
           <div>
             <label htmlFor="hi-age" className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5">{'Età'}</label>
-            <input id="hi-age" type="number" min={0} max={99} value={age}
+            <input id="hi-age" type="number" inputMode="numeric" min={0} max={99} value={age}
               onChange={(e) => setAge(Math.max(0, Math.min(99, Number(e.target.value))))}
               className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-sm" />
             <span className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 block">

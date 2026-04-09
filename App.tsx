@@ -3377,7 +3377,7 @@ const App: React.FC = () => {
                   }`}
                 >
                   <Icon size={20} />
-                  <span className="text-[10px] font-semibold leading-tight text-center w-full line-clamp-2">{label}</span>
+                  <span className="text-xs font-semibold leading-tight text-center w-full line-clamp-1">{label}</span>
                   {isActive && (
                     <span className={`absolute top-0 left-1/2 -translate-x-1/2 w-8 h-0.5 ${barClass} rounded-full`} />
                   )}

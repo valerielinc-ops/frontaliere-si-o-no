@@ -220,6 +220,7 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
             <Euro className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500 dark:text-slate-400" />
             <input
               type="number"
+              inputMode="numeric"
               value={grossSalary}
               onChange={(e) => {
                 const value = Number(e.target.value) || 0;
@@ -317,6 +318,7 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
           <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">{t('ral.healthInsurance')}</label>
           <input
             type="number"
+            inputMode="numeric"
             value={healthInsurance}
             onChange={(e) => {
               const value = Number(e.target.value) || 0;

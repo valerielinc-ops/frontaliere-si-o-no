@@ -297,7 +297,7 @@ const FirstDayGuide: React.FC = () => {
                   </span>
                   <button
                     onClick={() => setExpandedStep(isExpanded ? null : step.id)}
-                    className="p-1 text-slate-500 hover:text-slate-600 dark:hover:text-slate-300"
+                    className="p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center text-slate-500 hover:text-slate-600 dark:hover:text-slate-300"
                     aria-label={isExpanded ? 'Comprimi' : 'Espandi'}
                     aria-expanded={isExpanded}
                   >

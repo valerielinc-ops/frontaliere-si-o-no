@@ -122,6 +122,7 @@ const RistorniTracker: React.FC = () => {
                 <input
                   id="ristorni-salary"
                   type="number"
+                  inputMode="numeric"
                   value={grossMonthlyCHF}
                   onChange={e => setGrossMonthlyCHF(Number(e.target.value))}
                   className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-sm text-slate-800 dark:text-slate-200"

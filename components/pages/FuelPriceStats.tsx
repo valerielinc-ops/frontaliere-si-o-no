@@ -460,6 +460,7 @@ export default function FuelPriceStats() {
               <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">{tt('fuelPrices.tankLiters', 'Litri da fare')}</div>
               <input
                 type="number"
+                inputMode="numeric"
                 min={10}
                 max={120}
                 step={5}
@@ -475,6 +476,7 @@ export default function FuelPriceStats() {
               <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">{tt('fuelPrices.costPerKm', 'Costo auto per km')}</div>
               <input
                 type="number"
+                inputMode="decimal"
                 min={0.05}
                 max={1}
                 step={0.01}
