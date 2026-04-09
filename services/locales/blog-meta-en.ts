@@ -2010,6 +2010,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.camionisti-furbetti-governo-ticino-2026.title': 'Cheating truck drivers case: decision on the table of the Ticino government',
     'blog.article.camionisti-furbetti-governo-ticino-2026.excerpt': 'The Ticino government confronts the issue of parasitic truck traffic in Giornico.',
     'blog.article.camionisti-furbetti-governo-ticino-2026.imageAlt': 'A photograph of a rural road in Canton Ticino, showing a truck crossing a mountainous landscape on a sunny day.',
+    'blog.article.multe-vignetta-chiasso-2024.title': 'Fines for missing motorway vignette: 190 penalties issued in Chiasso',
+    'blog.article.multe-vignetta-chiasso-2024.excerpt': 'During the Easter weekend, 190 drivers were fined at the Chiasso border crossing for not having a valid Swiss motorway vignette. Here\'s what cross-border workers risk.',
+    'blog.article.multe-vignetta-chiasso-2024.imageAlt': 'Swiss motorway vignette sticker on a car windshield with the Chiasso border crossing in the background.',
 };
 
 export default blogMetaEn;

@@ -2010,6 +2010,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.camionisti-furbetti-governo-ticino-2026.title': 'Affaire des camionneurs malins : le gouvernement tessinois prend les choses en main',
     'blog.article.camionisti-furbetti-governo-ticino-2026.excerpt': 'Le gouvernement tessinois doit se pencher sur le trafic parasitaire de camions à Giornico.',
     'blog.article.camionisti-furbetti-governo-ticino-2026.imageAlt': 'Une photographie d\'une route rurale dans le canton du Tessin, montrant un camion traversant un paysage montagneux par une journée ensoleillée.',
+    'blog.article.multe-vignetta-chiasso-2024.title': 'Amendes pour absence de vignette autoroutière : 190 sanctions à Chiasso',
+    'blog.article.multe-vignetta-chiasso-2024.excerpt': 'Pendant le week-end de Pâques, 190 conducteurs ont été verbalisés au poste-frontière de Chiasso pour absence de vignette autoroutière suisse. Voici ce que risquent les frontaliers.',
+    'blog.article.multe-vignetta-chiasso-2024.imageAlt': 'Vignette autoroutière suisse sur un pare-brise avec le poste frontière de Chiasso en arrière-plan.',
 };
 
 export default blogMetaFr;

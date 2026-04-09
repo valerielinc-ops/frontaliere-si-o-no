@@ -2010,6 +2010,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.camionisti-furbetti-governo-ticino-2026.title': 'Fall der betrügerischen LKW-Fahrer: Entscheidung auf dem Tisch der Tessiner Regierung',
     'blog.article.camionisti-furbetti-governo-ticino-2026.excerpt': 'Die Tessiner Regierung befasst sich mit dem Schleichverkehr von LKW in Giornico.',
     'blog.article.camionisti-furbetti-governo-ticino-2026.imageAlt': 'Ein Foto einer ländlichen Straße im Kanton Tessin, auf dem ein LKW durch eine bergige Landschaft an einem sonnigen Tag fährt.',
+    'blog.article.multe-vignetta-chiasso-2024.title': 'Bussen wegen fehlender Autobahnvignette: 190 Sanktionen in Chiasso',
+    'blog.article.multe-vignetta-chiasso-2024.excerpt': 'Während des Osterwochenendes wurden 190 Autofahrer am Grenzübergang Chiasso wegen fehlender Schweizer Autobahnvignette gebüsst. Das droht den Grenzgängern.',
+    'blog.article.multe-vignetta-chiasso-2024.imageAlt': 'Schweizer Autobahnvignette auf einer Windschutzscheibe mit dem Grenzübergang Chiasso im Hintergrund.',
 };
 
 export default blogMetaDe;

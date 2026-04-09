@@ -6299,6 +6299,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-multe-vignetta-chiasso-2024': {
+    title: 'Multe per mancata vignetta autostradale: 190 sanzioni a Chiasso | Frontaliere Ticino',
+    description: '190 multe per mancata vignetta autostradale a Chiasso. Ecco cosa rischiano i frontalieri e come evitare sanzioni. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, multe, mancata, vignetta, autostradale',
+    ogTitle: 'Multe per Vignetta Autostradale a Chiasso: 190 Sanzioni',
+    ogDescription: 'Controlli a tappeto al valico di Chiasso: 190 multe per mancata vignetta autostradale. Cosa devono sapere i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/multe-vignetta-chiasso-2024',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Multe per Mancata Vignetta Autostradale: 190 Sanzioni a Chiasso",
+      "description": "190 multe per mancata vignetta autostradale a Chiasso. Ecco cosa rischiano i frontalieri e come evitare sanzioni. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/multe-vignetta-chiasso-2024.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vignetta autostradale svizzera su un parabrezza con il valico di Chiasso sullo sfondo."
+      },
+      "datePublished": "2026-04-09T08:40:19+00:00",
+      "dateModified": "2026-04-09T08:40:19+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/multe-vignetta-chiasso-2024`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

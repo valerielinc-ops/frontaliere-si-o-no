@@ -2010,6 +2010,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.camionisti-furbetti-governo-ticino-2026.title': 'Caso camionisti furbetti, decisione sul tavolo del governo ticinese',
     'blog.article.camionisti-furbetti-governo-ticino-2026.excerpt': 'Il governo del Ticino si confronta con il traffico parassitario di camion a Giornico.',
     'blog.article.camionisti-furbetti-governo-ticino-2026.imageAlt': 'Una fotografia di una strada rurale nel Canton Ticino, con un camion che attraversa un paesaggio montuoso durante una giornata soleggiata.',
+    'blog.article.multe-vignetta-chiasso-2024.title': 'Multe per mancata vignetta autostradale: 190 sanzioni a Chiasso',
+    'blog.article.multe-vignetta-chiasso-2024.excerpt': 'Durante il weekend pasquale, 190 conducenti sono stati multati al valico di Chiasso per mancanza della vignetta autostradale svizzera. Ecco cosa rischiano i frontalieri.',
+    'blog.article.multe-vignetta-chiasso-2024.imageAlt': 'Vignetta autostradale svizzera su un parabrezza con il valico di Chiasso sullo sfondo.',
 };
 
 export default blogMetaIt;

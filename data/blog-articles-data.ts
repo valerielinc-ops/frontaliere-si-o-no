@@ -5675,4 +5675,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/camionisti-furbetti-governo-ticino-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'multe-vignetta-chiasso-2024',
+    category: 'novita',
+    date: '2026-04-09T08:40:19.499Z',
+    image: '/images/blog/multe-vignetta-chiasso-2024.jpg',
+    hasCalculator: true,
+  },
 ];
