@@ -78,18 +78,18 @@ const RistorniTracker: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="bg-gradient-to-r from-violet-600 to-purple-700 rounded-2xl p-4 sm:p-6 text-white">
+      <div className="bg-gradient-to-r from-teal-600 to-emerald-700 rounded-2xl p-4 sm:p-6 text-white">
         <div className="flex items-center gap-3 mb-2">
           <Coins size={28} />
           <h2 className="text-2xl font-bold">{t('ristorni.title')}</h2>
         </div>
-        <p className="text-violet-100 text-sm">{t('ristorni.subtitle')}</p>
+        <p className="text-teal-100 text-sm">{t('ristorni.subtitle')}</p>
       </div>
 
       {/* What are ristorni */}
       <div className="bg-white dark:bg-slate-800 rounded-2xl p-4 sm:p-6 border border-slate-200 dark:border-slate-700">
         <h3 className="font-bold text-slate-800 dark:text-slate-200 mb-3 flex items-center gap-2">
-          <Info size={18} className="text-violet-600" /> {t('ristorni.whatAre')}
+          <Info size={18} className="text-teal-600" /> {t('ristorni.whatAre')}
         </h3>
         <p className="text-sm text-slate-600 dark:text-slate-400 mb-4">{t('ristorni.explanation')}</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -108,7 +108,7 @@ const RistorniTracker: React.FC = () => {
       <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden">
         <button onClick={() => toggleSection('calculator')} className="w-full flex items-center justify-between p-4" aria-expanded={expandedSection === 'calculator'}>
           <h3 className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2">
-            <Calculator size={18} className="text-violet-600" /> {t('ristorni.yourContribution')}
+            <Calculator size={18} className="text-teal-600" /> {t('ristorni.yourContribution')}
           </h3>
           {expandedSection === 'calculator' ? <ChevronUp size={18} className="text-slate-500 dark:text-slate-400" /> : <ChevronDown size={18} className="text-slate-500 dark:text-slate-400" />}
         </button>
@@ -148,9 +148,9 @@ const RistorniTracker: React.FC = () => {
                 <p className="text-xs text-blue-600 dark:text-blue-400 font-semibold">{t('ristorni.annualSwissTax')}</p>
                 <p className="text-lg font-bold text-blue-700 dark:text-blue-300">CHF {estimate.annualSwissTax.toLocaleString()}</p>
               </div>
-              <div className="bg-violet-50 dark:bg-violet-900/20 rounded-xl p-3 text-center">
-                <p className="text-xs text-violet-600 dark:text-violet-400 font-semibold">{t('ristorni.ristorniToMunicipality')}</p>
-                <p className="text-lg font-bold text-violet-700 dark:text-violet-300">CHF {estimate.ristorniToItaly.toLocaleString()}</p>
+              <div className="bg-teal-50 dark:bg-teal-900/20 rounded-xl p-3 text-center">
+                <p className="text-xs text-teal-600 dark:text-teal-400 font-semibold">{t('ristorni.ristorniToMunicipality')}</p>
+                <p className="text-lg font-bold text-teal-700 dark:text-teal-300">CHF {estimate.ristorniToItaly.toLocaleString()}</p>
               </div>
               <div className="bg-emerald-50 dark:bg-emerald-900/20 rounded-xl p-3 text-center">
                 <p className="text-xs text-emerald-700 dark:text-emerald-400 font-semibold">{t('ristorni.monthlyEquivalent')}</p>
@@ -182,7 +182,7 @@ const RistorniTracker: React.FC = () => {
                 key={m.name}
                 className={`flex items-center gap-3 p-3 rounded-xl ${
                   m.name === municipality
-                    ? 'bg-violet-50 dark:bg-violet-900/20 border border-violet-300 dark:border-violet-700'
+                    ? 'bg-teal-50 dark:bg-teal-900/20 border border-teal-300 dark:border-teal-700'
                     : 'bg-slate-50 dark:bg-slate-700/50'
                 }`}
               >
@@ -225,7 +225,7 @@ const RistorniTracker: React.FC = () => {
                   <span className="text-sm font-bold text-slate-600 dark:text-slate-400 w-12">{rate.year}</span>
                   <div className="flex-1 bg-slate-100 dark:bg-slate-700 rounded-full h-6 overflow-hidden">
                     <div
-                      className="h-full bg-gradient-to-r from-violet-500 to-purple-600 rounded-full flex items-center justify-end pr-2"
+                      className="h-full bg-gradient-to-r from-teal-500 to-emerald-600 rounded-full flex items-center justify-end pr-2"
                       style={{ width: `${Math.min(100, (rate.totalMillions / 120) * 100)}%` }}
                     >
                       <span className="text-xs font-bold text-white">€{rate.totalMillions}M</span>

@@ -207,7 +207,7 @@ const CATEGORY_STYLES: Record<string, { emoji: string; color: string }> = {
   pension: { emoji: '🏦', color: 'text-emerald-700 dark:text-emerald-400' },
   insurance: { emoji: '🏥', color: 'text-rose-600 dark:text-rose-400' },
   permits: { emoji: '🪪', color: 'text-amber-600 dark:text-amber-400' },
-  general: { emoji: '📋', color: 'text-violet-600 dark:text-violet-400' },
+  general: { emoji: '📋', color: 'text-teal-600 dark:text-teal-400' },
 };
 
 const DIFFICULTY_LABELS: Record<string, { key: string; color: string }> = {
@@ -308,14 +308,14 @@ const WeeklyQuiz: React.FC = () => {
     return (
       <div className="space-y-6">
         {/* Header */}
-        <div className="bg-gradient-to-br from-violet-50 to-purple-50 dark:from-violet-950/30 dark:to-purple-950/30 rounded-2xl p-4 sm:p-6 border border-violet-200 dark:border-violet-800">
+        <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30 rounded-2xl p-4 sm:p-6 border border-emerald-200 dark:border-emerald-800">
           <div className="flex items-center gap-3 mb-2">
-            <div className="p-2 bg-violet-100 dark:bg-violet-900/50 rounded-xl">
-              <Brain className="w-6 h-6 text-violet-600 dark:text-violet-400" />
+            <div className="p-2 bg-emerald-100 dark:bg-emerald-900/50 rounded-xl">
+              <Brain className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
             </div>
-            <h2 className="text-2xl font-bold text-violet-900 dark:text-violet-100">{t('quiz.title')}</h2>
+            <h2 className="text-2xl font-bold text-emerald-900 dark:text-emerald-100">{t('quiz.title')}</h2>
           </div>
-          <p className="text-violet-700 dark:text-violet-300 text-sm flex items-center gap-2">
+          <p className="text-emerald-700 dark:text-emerald-300 text-sm flex items-center gap-2">
             <Clock className="w-4 h-4" />
             {t('quiz.weekLabel', { week: String(weekNumber) })}
           </p>
@@ -372,7 +372,7 @@ const WeeklyQuiz: React.FC = () => {
 
           <button
             onClick={handleRestart}
-            className="inline-flex items-center gap-2 px-6 py-3 bg-violet-600 hover:bg-violet-700 text-white rounded-xl font-bold transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-bold transition-colors"
           >
             <RotateCcw className="w-4 h-4" />
             {t('quiz.retry')}
@@ -391,14 +391,14 @@ const WeeklyQuiz: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="bg-gradient-to-br from-violet-50 to-purple-50 dark:from-violet-950/30 dark:to-purple-950/30 rounded-2xl p-4 sm:p-6 border border-violet-200 dark:border-violet-800">
+      <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30 rounded-2xl p-4 sm:p-6 border border-emerald-200 dark:border-emerald-800">
         <div className="flex items-center gap-3 mb-2">
-          <div className="p-2 bg-violet-100 dark:bg-violet-900/50 rounded-xl">
-            <Brain className="w-6 h-6 text-violet-600 dark:text-violet-400" />
+          <div className="p-2 bg-emerald-100 dark:bg-emerald-900/50 rounded-xl">
+            <Brain className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
           </div>
-          <h2 className="text-2xl font-bold text-violet-900 dark:text-violet-100">{t('quiz.title')}</h2>
+          <h2 className="text-2xl font-bold text-emerald-900 dark:text-emerald-100">{t('quiz.title')}</h2>
         </div>
-        <p className="text-violet-700 dark:text-violet-300 text-sm flex items-center gap-2">
+        <p className="text-emerald-700 dark:text-emerald-300 text-sm flex items-center gap-2">
           <Clock className="w-4 h-4" />
           {t('quiz.weekLabel', { week: String(weekNumber) })}
         </p>
@@ -421,7 +421,7 @@ const WeeklyQuiz: React.FC = () => {
         </div>
         <div className="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
           <div
-            className="h-full bg-gradient-to-r from-violet-500 to-purple-500 rounded-full transition-transform duration-300 origin-left"
+            className="h-full bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full transition-transform duration-300 origin-left"
             style={{ transform: `scaleX(${(currentIndex + 1) / questions.length})` }}
           />
         </div>
@@ -492,7 +492,7 @@ const WeeklyQuiz: React.FC = () => {
           <div className="mt-6 flex justify-end">
             <button
               onClick={handleNext}
-              className="inline-flex items-center gap-2 px-6 py-3 bg-violet-600 hover:bg-violet-700 text-white rounded-xl font-bold transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-bold transition-colors"
             >
               {isLastQuestion ? t('quiz.seeResults') : t('quiz.next')}
               <ArrowRight className="w-4 h-4" />

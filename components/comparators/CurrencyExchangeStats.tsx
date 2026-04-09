@@ -290,8 +290,8 @@ const EnhancedHistoricalStats: React.FC<{ historyData: Array<{ date: string; rat
       )}
       
       {stats.yearsCount >= 2 && (
-        <div className="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-950/20 dark:to-purple-950/20 rounded-xl p-4 border border-indigo-200 dark:border-indigo-800">
-          <h3 className="font-bold text-sm text-indigo-700 dark:text-indigo-300 mb-3 flex items-center gap-2">
+        <div className="bg-gradient-to-r from-teal-50 to-emerald-50 dark:from-teal-950/20 dark:to-emerald-950/20 rounded-xl p-4 border border-teal-200 dark:border-teal-800">
+          <h3 className="font-bold text-sm text-teal-700 dark:text-teal-300 mb-3 flex items-center gap-2">
             🗓️ {t('currency.seasonal_patterns')}
           </h3>
           <div className="grid sm:grid-cols-2 gap-4">
@@ -547,24 +547,14 @@ const ExchangeTimingSection: React.FC<{ historyData: Array<{ date: string; rate:
       </div>
 
       {volatility && (
-        <div className="bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl p-5 text-white space-y-2">
+        <div className="bg-gradient-to-r from-teal-600 to-emerald-700 rounded-xl px-5 py-4 text-white space-y-2">
           <h3 className="font-bold text-sm flex items-center gap-2">🧮 {t('currency.how_much_difference')}</h3>
-          <div className="grid sm:grid-cols-3 gap-3 text-center">
-            <div className="bg-white/15 rounded-lg p-3">
-              <div className="text-xs uppercase tracking-wider text-white/70">{t('currency.1000chf_best_rate')}</div>
-              <div className="text-xl font-bold">€ {(1000 * volatility.max).toFixed(2)}</div>
-            </div>
-            <div className="bg-white/15 rounded-lg p-3">
-              <div className="text-xs uppercase tracking-wider text-white/70">{t('currency.1000chf_worst_rate')}</div>
-              <div className="text-xl font-bold">€ {(1000 * volatility.min).toFixed(2)}</div>
-            </div>
-            <div className="bg-white/25 rounded-lg p-3 ring-2 ring-white/50">
-              <div className="text-xs uppercase tracking-wider text-white/90">{t('currency.potential_difference')}</div>
-              <div className="text-xl font-bold text-amber-300">€ {(1000 * volatility.range).toFixed(2)}</div>
-              <div className="text-xs text-white/70">{t('currency.on_1000chf_period')}</div>
-            </div>
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-white">
+            <div><span className="text-lg font-semibold">€ {(1000 * volatility.max).toFixed(2)}</span> <span className="text-sm text-white/80">{t('currency.1000chf_best_rate')}</span></div>
+            <div><span className="text-lg font-semibold">€ {(1000 * volatility.min).toFixed(2)}</span> <span className="text-sm text-white/80">{t('currency.1000chf_worst_rate')}</span></div>
+            <div><span className="text-lg font-semibold text-amber-300">€ {(1000 * volatility.range).toFixed(2)}</span> <span className="text-sm text-white/80">{t('currency.potential_difference')} · {t('currency.on_1000chf_period')}</span></div>
           </div>
-          <p className="text-xs text-white/60 text-center mt-1">
+          <p className="text-xs text-white/90 text-center mt-1">
             {t('currency.on_5000chf_annual')} <strong>€ {(5000 * volatility.range * 12).toFixed(0)}</strong>!
           </p>
         </div>
@@ -712,29 +702,20 @@ const WeightedAverageStats: React.FC<{
         </div>
       )}
 
-      <div className="bg-gradient-to-r from-indigo-500 to-blue-600 rounded-xl p-5 text-white space-y-3">
+      <div className="bg-gradient-to-r from-teal-600 to-emerald-700 rounded-xl px-5 py-4 text-white space-y-3">
         <h3 className="font-bold text-sm flex items-center gap-2">💰 {t('currency.impact_frontaliere')}</h3>
-        <div className="grid sm:grid-cols-3 gap-3 text-center">
-          <div className="bg-white/15 rounded-lg p-3">
-            <div className="text-xs uppercase tracking-wider text-white/70">{t('currency.at_current_rate')}</div>
-            <div className="text-xl font-bold">€ {stats.currentMonthly.toFixed(0)}/{t('currency.month_abbr')}</div>
-          </div>
-          <div className="bg-white/15 rounded-lg p-3">
-            <div className="text-xs uppercase tracking-wider text-white/70">{t('currency.at_weighted_avg')}</div>
-            <div className="text-xl font-bold">€ {stats.avgMonthly.toFixed(0)}/{t('currency.month_abbr')}</div>
-          </div>
-          <div className="bg-white/25 rounded-lg p-3 ring-2 ring-white/50">
-            <div className="text-xs uppercase tracking-wider text-white/90">{t('currency.annual_difference')}</div>
-            <div className={`text-xl font-bold ${stats.annualDiff >= 0 ? 'text-emerald-300' : 'text-amber-300'}`}>
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-white">
+          <div><span className="text-lg font-semibold">€ {stats.currentMonthly.toFixed(0)}/{t('currency.month_abbr')}</span> <span className="text-sm text-white/80">{t('currency.at_current_rate')}</span></div>
+          <div><span className="text-lg font-semibold">€ {stats.avgMonthly.toFixed(0)}/{t('currency.month_abbr')}</span> <span className="text-sm text-white/80">{t('currency.at_weighted_avg')}</span></div>
+          <div>
+            <span className={`text-lg font-semibold ${stats.annualDiff >= 0 ? 'text-emerald-300' : 'text-amber-300'}`}>
               {stats.annualDiff >= 0 ? '+' : ''}€ {stats.annualDiff.toFixed(0)}
-            </div>
-            <div className="text-xs text-white/70">
-              {stats.annualDiff >= 0 ? `✅ ${t('currency.rate_favors_you')}` : `⚠️ ${t('currency.rate_below_average')}`}
-            </div>
+            </span>
+            {' '}<span className="text-sm text-white/80">{t('currency.annual_difference')} · {stats.annualDiff >= 0 ? `✅ ${t('currency.rate_favors_you')}` : `⚠️ ${t('currency.rate_below_average')}`}</span>
           </div>
         </div>
         {stats.annualTrend !== 0 && (
-          <p className="text-xs text-white/60 text-center">
+          <p className="text-xs text-white/90 text-center">
             {t('currency.avg_trend')}: {stats.annualTrend >= 0 ? '+' : ''}{stats.annualTrend.toFixed(3)}% {t('currency.annual')}
             {stats.annualTrend > 0 ? ` (${t('currency.eur_strengthens')})` : ` (${t('currency.chf_strengthens')})`}
           </p>

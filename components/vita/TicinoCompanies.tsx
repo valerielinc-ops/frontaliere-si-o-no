@@ -710,25 +710,19 @@ const TicinoCompanies: React.FC = () => {
       `}</style>
 
       {/* Header */}
-      <div className="bg-gradient-to-br from-violet-600 via-purple-600 to-fuchsia-600 rounded-2xl sm:rounded-3xl p-4 sm:p-8 text-white shadow-2xl">
+      <div className="bg-gradient-to-br from-teal-600 via-emerald-600 to-teal-700 rounded-2xl sm:rounded-3xl p-4 sm:p-8 text-white shadow-2xl">
         <div className="flex items-center gap-3 sm:gap-4 mb-4">
           <div className="p-2 sm:p-3 bg-white/20 rounded-xl sm:rounded-2xl flex-shrink-0">
             <Building2 size={28} className="sm:w-8 sm:h-8" />
           </div>
           <div className="min-w-0">
             <h1 className="text-xl sm:text-3xl font-extrabold">{t('companies.title') || 'Aziende in Ticino'}</h1>
-            <p className="text-purple-100 mt-1 text-sm sm:text-base">{t('companies.subtitle') || 'Mappa interattiva delle principali società con filtri per settore e dimensione'}</p>
+            <p className="text-teal-100 mt-1 text-sm sm:text-base">{t('companies.subtitle') || 'Mappa interattiva delle principali società con filtri per settore e dimensione'}</p>
           </div>
         </div>
-        <div className="flex gap-3 sm:gap-4 mt-4">
-          <div className="bg-white/20 rounded-xl px-3 sm:px-4 py-2 flex-1 min-w-0">
-            <div className="text-purple-100 text-xs font-bold uppercase">{t('companies.totalCompanies') || 'Aziende'}</div>
-            <div className="text-xl sm:text-2xl font-bold">{filtered.length}</div>
-          </div>
-          <div className="bg-white/20 rounded-xl px-3 sm:px-4 py-2 flex-1 min-w-0">
-            <div className="text-purple-100 text-xs font-bold uppercase">{t('companies.totalEmployees') || 'Dipendenti'}</div>
-            <div className="text-xl sm:text-2xl font-bold">{totalEmployees.toLocaleString('it-IT')}</div>
-          </div>
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-white mt-4">
+          <div><span className="text-lg font-semibold">{filtered.length}</span> <span className="text-sm text-white/80">{t('companies.totalCompanies') || 'Aziende'}</span></div>
+          <div><span className="text-lg font-semibold">{totalEmployees.toLocaleString('it-IT')}</span> <span className="text-sm text-white/80">{t('companies.totalEmployees') || 'Dipendenti'}</span></div>
         </div>
       </div>
 

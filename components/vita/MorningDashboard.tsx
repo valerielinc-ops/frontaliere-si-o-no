@@ -464,8 +464,8 @@ const MorningDashboard: React.FC = () => {
       </div>
 
       {/* Quick Tips */}
-      <div className="bg-gradient-to-br from-indigo-50 to-violet-50 dark:from-indigo-950/30 dark:to-violet-950/30 rounded-2xl border border-indigo-100 dark:border-indigo-800/40 p-3 sm:p-5 space-y-3">
-        <h3 className="font-bold text-indigo-900 dark:text-indigo-200 flex items-center gap-2">
+      <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30 rounded-2xl border border-emerald-100 dark:border-emerald-800/40 p-3 sm:p-5 space-y-3">
+        <h3 className="font-bold text-emerald-900 dark:text-emerald-200 flex items-center gap-2">
           <Eye className="w-4 h-4" />
           {t('morning.tips.title')}
         </h3>

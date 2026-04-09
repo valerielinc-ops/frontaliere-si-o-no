@@ -31,7 +31,7 @@ const IRPEF_BRACKETS = [
 const ADDIZIONALE_COMUNALE_RATE = 0.008; // Common average
 
 const EDIT_FIELD_CLASS =
-  'w-full h-12 bg-slate-50 dark:bg-slate-900 px-4 rounded-xl border border-slate-200 dark:border-slate-700 text-sm font-semibold text-slate-800 dark:text-slate-100 outline-none focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10 transition-[color,background-color,border-color,box-shadow] placeholder-slate-400';
+  'w-full h-12 bg-slate-50 dark:bg-slate-900 px-4 rounded-xl border border-slate-200 dark:border-slate-700 text-sm font-semibold text-slate-800 dark:text-slate-100 outline-none focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10 transition-[color,background-color,border-color,box-shadow] placeholder-slate-500';
 
 const STEPPER_SHELL_CLASS =
   'flex items-center bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden h-12 shadow-sm focus-within:ring-2 focus-within:ring-indigo-500/20 focus-within:border-indigo-500 transition-[color,background-color,border-color,box-shadow,transform]';

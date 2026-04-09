@@ -346,21 +346,21 @@ const ShoppingCalculator: React.FC = () => {
               </h4>
               <div className="grid md:grid-cols-4 gap-4">
                 <div className="bg-white/10 rounded-xl p-4">
-                  <div className="text-xs uppercase tracking-wider text-white/60">{'\uD83C\uDDEE\uD83C\uDDF9'} {t('shopping.totalItaly')}</div>
+                  <div className="text-xs uppercase tracking-wider text-white/90">{'\uD83C\uDDEE\uD83C\uDDF9'} {t('shopping.totalItaly')}</div>
                   <div className="text-2xl font-bold">{'\u20AC'} {stats.totalIT.toFixed(2)}</div>
                 </div>
                 <div className="bg-white/10 rounded-xl p-4">
-                  <div className="text-xs uppercase tracking-wider text-white/60">{'\uD83C\uDDE8\uD83C\uDDED'} {t('shopping.totalSwitzerland')}</div>
+                  <div className="text-xs uppercase tracking-wider text-white/90">{'\uD83C\uDDE8\uD83C\uDDED'} {t('shopping.totalSwitzerland')}</div>
                   <div className="text-2xl font-bold">{stats.totalCH.toFixed(2)} CHF</div>
-                  <div className="text-xs text-white/50">{'\u2248'} {'\u20AC'} {stats.totalCHinEUR.toFixed(2)}</div>
+                  <div className="text-xs text-white/80">{'\u2248'} {'\u20AC'} {stats.totalCHinEUR.toFixed(2)}</div>
                 </div>
                 <div className={`rounded-xl p-4 ${stats.savings > 0 ? 'bg-emerald-500/30' : 'bg-red-500/30'}`}>
-                  <div className="text-xs uppercase tracking-wider text-white/60">{t('shopping.savings')}</div>
+                  <div className="text-xs uppercase tracking-wider text-white/90">{t('shopping.savings')}</div>
                   <div className="text-2xl font-bold">{'\u20AC'} {stats.savings.toFixed(2)}</div>
                   <div className="text-xs text-white/90">{stats.savingsPercent.toFixed(0)}% {stats.savings > 0 ? t('shopping.cheaper') : t('shopping.moreExpensive')}</div>
                 </div>
                 <div className="bg-amber-500/30 rounded-xl p-4">
-                  <div className="text-xs uppercase tracking-wider text-white/60">{t('shopping.annualSavings')}</div>
+                  <div className="text-xs uppercase tracking-wider text-white/90">{t('shopping.annualSavings')}</div>
                   <div className="text-2xl font-bold">{'\u20AC'} {stats.annualSavings.toFixed(0)}</div>
                   <div className="text-xs text-white/90">{t('shopping.weeklyTrips')}</div>
                 </div>

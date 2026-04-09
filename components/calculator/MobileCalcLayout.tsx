@@ -480,7 +480,7 @@ const MobileCalcLayout: React.FC<Props> = ({
         <>
           <div className="fixed inset-0 bg-black/50 z-[70] animate-fade-in" role="button" tabIndex={0} onClick={dismissGate} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); dismissGate(); } }} aria-label="Chiudi modale" />
           <div role="dialog" aria-modal="true" aria-label={t('newsletterGate.title') || 'Iscriviti alla newsletter'} className="fixed inset-x-4 top-1/2 -translate-y-1/2 z-[71] bg-white dark:bg-slate-800 rounded-2xl shadow-2xl max-w-sm mx-auto overflow-hidden animate-fade-in">
-            <div className="bg-gradient-to-r from-blue-600 to-violet-600 px-5 py-4 text-center">
+            <div className="bg-gradient-to-r from-teal-600 to-emerald-600 px-5 py-4 text-center">
               <Mail size={28} className="text-white mx-auto mb-2" />
               <h3 className="text-white font-bold text-lg">{t('newsletterGate.title')}</h3>
               <p className="text-white/80 text-xs mt-1">{t('newsletterGate.subtitle')}</p>
