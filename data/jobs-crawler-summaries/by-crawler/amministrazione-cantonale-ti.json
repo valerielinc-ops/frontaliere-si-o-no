@@ -1,46 +1,18 @@
 {
   "key": "amministrazione-cantonale-ti",
   "label": "Ti.CH",
-  "generatedAt": "2026-04-09T10:11:02.648Z",
+  "generatedAt": "2026-04-09T22:05:05.132Z",
   "total": 22,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 17,
   "removedCount": 0,
-  "unchangedCount": 4,
-  "durationMs": 20486,
-  "avgDurationMs": 20486,
+  "unchangedCount": 5,
+  "durationMs": 19965,
+  "avgDurationMs": 19965,
   "durationHistory": [
-    20486
+    19965
   ],
-  "newJobs": [
-    {
-      "id": "company-213ie3",
-      "slug": "candidature-spontanee-per-lavoro-estivo-presso-l-amministrazione-cantonale-per-studenti-domiciliati-nel-cantone-ticino-o-nel-grigioni-italia",
-      "company": "Amministrazione Cantonale Ticino",
-      "title": "Candidature spontanee per lavoro estivo presso l'Amministrazione cantonale per studenti domiciliati nel Cantone Ticino o nel Grigioni italiano",
-      "location": "Bellinzona",
-      "canton": "TI",
-      "category": "admin",
-      "contract": "internship",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-09",
-      "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4148",
-      "source": "Company Careers Crawler",
-      "companyKey": "amministrazione-cantonale-ti",
-      "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-04-09T10:10:56.228Z",
-      "needsRetranslation": true,
-      "sourceLang": "it",
-      "_qualityScore": 64,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 4,
-        "completeness": 14
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "id": "company-213ie5",
@@ -627,6 +599,41 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [
+    {
+      "id": "company-213ie3",
+      "slug": "candidature-spontanee-per-lavoro-estivo-presso-l-amministrazione-cantonale-per-studenti-domiciliati-nel-cantone-ticino-o-nel-grigioni-italia-213ie3",
+      "company": "Amministrazione Cantonale Ticino",
+      "title": "Candidature spontanee per lavoro estivo presso l'Amministrazione cantonale per studenti domiciliati nel Cantone Ticino o nel Grigioni italiano",
+      "location": "Bellinzona",
+      "canton": "TI",
+      "category": "admin",
+      "contract": "internship",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-09",
+      "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4148",
+      "source": "Company Careers Crawler",
+      "companyKey": "amministrazione-cantonale-ti",
+      "companyDomain": "concorsi.ti.ch",
+      "crawledAt": "2026-04-09T10:10:56.228Z",
+      "sourceLang": "it",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "streetAddress": "Piazza Governo",
+      "postalCode": "6501",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "_qualityScore": 96,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 21,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
     {
       "id": "company-213j0l",
       "slug": "concorso-generale-2026-personale-ai-servizi-generali-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-mendrisio-sociopsichiatrica-can-213j0l",
