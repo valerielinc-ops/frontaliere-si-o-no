@@ -6444,6 +6444,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-asili-bellinzona-progetto-pilota-orario-prolungato-2027': {
+    title: 'Asili a Bellinzona: progetto pilota per | Frontaliere Ticino',
+    description: 'Mozione interpartitica chiede a Bellinzona di avviare entro il 2027/2028 sezioni a orario prolungato in 1-2 asili. Soluzione già attiva a Lugano, Locarno e Mend',
+    keywords: 'frontalieri, ticino, svizzera, italia, asili, bellinzona, progetto, pilota',
+    ogTitle: 'Asili a Bellinzona: progetto pilota per orario prolungato',
+    ogDescription: 'Mozione interpartitica chiede a Bellinzona di avviare entro il 2027/2028 sezioni a orario prolungato in 1-2 asili. Soluzione già attiva a Lugano, Locarno e Mend',
+    canonicalPath: '/articoli-frontaliere/asili-bellinzona-progetto-pilota-orario-prolungato-2027',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Asili a Bellinzona: progetto pilota per orario prolungato",
+      "description": "Mozione interpartitica chiede a Bellinzona di avviare entro il 2027/2028 sezioni a orario prolungato in 1-2 asili. Soluzione già attiva a Lugano, Locarno e Mend",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/asili-bellinzona-progetto-pilota-orario-prolungato-2027.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scuola dell'infanzia a Bellinzona con bambini che giocano all'aperto nel tardo pomeriggio, cortile alberato e architettura liberty"
+      },
+      "datePublished": "2026-04-09T21:12:51+00:00",
+      "dateModified": "2026-04-09T21:12:51+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/asili-bellinzona-progetto-pilota-orario-prolungato-2027`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

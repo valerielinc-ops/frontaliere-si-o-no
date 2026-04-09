@@ -2025,6 +2025,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tasse-ticino-frontalieri-perequazione-2026.title': 'Tessin benachteiligt: Grenzgänger blähen den fiktiven Reichtum des Kantons auf',
     'blog.article.tasse-ticino-frontalieri-perequazione-2026.excerpt': 'Bern betrachtet das Tessin als reicher, als es tatsächlich ist – und zwar aufgrund der Löhne der Grenzgänger. Das Ergebnis: Ab 2026 fließen jährlich 9 Millionen Franken weniger in die Kantonskasse.',
     'blog.article.tasse-ticino-frontalieri-perequazione-2026.imageAlt': 'Grenzpendler, die morgens um 8 Uhr unter Frühlingssonne die italienisch-schweizerische Grenze in Lugano überqueren',
+    'blog.article.asili-bellinzona-progetto-pilota-orario-prolungato-2027.title': 'Kitas in Bellinzona: Pilotprojekt für verlängerte Öffnungszeiten ab 2027',
+    'blog.article.asili-bellinzona-progetto-pilota-orario-prolungato-2027.excerpt': 'Ein interfraktioneller Vorstoss fordert Bellinzona auf, bis 2027/2028 in ein bis zwei Kitas Abschnitte mit verlängerten Öffnungszeiten einzuführen. Eine Lösung, die in Lugano, Locarno und Mendrisio bereits Realität ist, um Beruf und Familie besser zu vereinbaren.',
+    'blog.article.asili-bellinzona-progetto-pilota-orario-prolungato-2027.imageAlt': 'Kindergarten in Bellinzona mit Kindern, die draußen am späten Nachmittag spielen, von Bäumen gesäumter Innenhof und Art-Nouveau-Architektur',
 };
 
 export default blogMetaDe;

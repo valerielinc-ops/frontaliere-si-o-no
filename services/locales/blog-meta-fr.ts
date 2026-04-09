@@ -2025,6 +2025,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tasse-ticino-frontalieri-perequazione-2026.title': 'Le Tessin pénalisé: les frontaliers gonflent la richesse fictive du canton',
     'blog.article.tasse-ticino-frontalieri-perequazione-2026.excerpt': 'Berne considère le Tessin plus riche qu’il ne l’est réellement en raison des salaires des frontaliers. Résultat: 9 millions de francs en moins par an pour les caisses cantonales à partir de 2026.',
     'blog.article.tasse-ticino-frontalieri-perequazione-2026.imageAlt': 'Frontaliers traversant la frontière italo-suisse à Lugano à 8 heures du matin sous un soleil printanier',
+    'blog.article.asili-bellinzona-progetto-pilota-orario-prolungato-2027.title': 'Crèches à Bellinzone : projet pilote pour des horaires prolongés dès 2027',
+    'blog.article.asili-bellinzona-progetto-pilota-orario-prolungato-2027.excerpt': 'Une motion interpartis a demandé à Bellinzone d\'ouvrir, d\'ici 2027/2028, des sections à horaires prolongés dans 1 à 2 crèches. Une solution déjà mise en place à Lugano, Locarno et Mendrisio pour faciliter la conciliation entre vie professionnelle et vie de famille.',
+    'blog.article.asili-bellinzona-progetto-pilota-orario-prolungato-2027.imageAlt': 'École enfantine à Bellinzone avec des enfants jouant à l’extérieur en fin d’après-midi, cour arborée et architecture Art Nouveau',
 };
 
 export default blogMetaFr;

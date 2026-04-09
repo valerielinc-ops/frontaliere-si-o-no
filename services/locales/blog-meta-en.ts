@@ -2025,6 +2025,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tasse-ticino-frontalieri-perequazione-2026.title': 'Ticino penalised: cross-border workers inflate the canton’s fictitious wealth',
     'blog.article.tasse-ticino-frontalieri-perequazione-2026.excerpt': 'Bern considers Ticino wealthier than it actually is due to cross-border workers\' salaries. Result: CHF 9 million less per year for the canton’s coffers from 2026 onwards.',
     'blog.article.tasse-ticino-frontalieri-perequazione-2026.imageAlt': 'Cross-border workers crossing the Italian-Swiss border in Lugano at 8 AM under spring sunlight',
+    'blog.article.asili-bellinzona-progetto-pilota-orario-prolungato-2027.title': 'Bellinzona nurseries: pilot project for extended hours from 2027',
+    'blog.article.asili-bellinzona-progetto-pilota-orario-prolungato-2027.excerpt': 'A cross-party motion urges Bellinzona to introduce extended-hour sections in one or two nurseries by the 2027/2028 school year. A similar solution is already in place in Lugano, Locarno and Mendrisio to help parents balance work and family commitments.',
+    'blog.article.asili-bellinzona-progetto-pilota-orario-prolungato-2027.imageAlt': 'Kindergarten in Bellinzona with children playing outside in the late afternoon, tree-lined courtyard and Art Nouveau architecture',
 };
 
 export default blogMetaEn;

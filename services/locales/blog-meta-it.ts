@@ -2025,6 +2025,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tasse-ticino-frontalieri-perequazione-2026.title': 'Ticino penalizzato: frontalieri gonfiano la ricchezza fittizia del Cantone',
     'blog.article.tasse-ticino-frontalieri-perequazione-2026.excerpt': 'Berna considera il Ticino più ricco di quanto sia realmente a causa dei salari dei frontalieri. Risultato: 9 milioni di franchi in meno all’anno per le casse cantonali dal 2026.',
     'blog.article.tasse-ticino-frontalieri-perequazione-2026.imageAlt': 'Frontalieri che varcano il confine italo-svizzero a Lugano alle 8 del mattino sotto il sole primaverile',
+    'blog.article.asili-bellinzona-progetto-pilota-orario-prolungato-2027.title': 'Asili a Bellinzona: progetto pilota per orario prolungato dal 2027',
+    'blog.article.asili-bellinzona-progetto-pilota-orario-prolungato-2027.excerpt': 'Mozione interpartitica chiede a Bellinzona di avviare entro il 2027/2028 sezioni a orario prolungato in 1-2 asili. Soluzione già attiva a Lugano, Locarno e Mendrisio per conciliare lavoro e famiglia.',
+    'blog.article.asili-bellinzona-progetto-pilota-orario-prolungato-2027.imageAlt': 'Scuola dell\'infanzia a Bellinzona con bambini che giocano all\'aperto nel tardo pomeriggio, cortile alberato e architettura liberty',
 };
 
 export default blogMetaIt;

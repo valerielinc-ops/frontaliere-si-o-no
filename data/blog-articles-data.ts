@@ -5710,4 +5710,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/tasse-ticino-frontalieri-perequazione-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'asili-bellinzona-progetto-pilota-orario-prolungato-2027',
+    category: 'pratico',
+    date: '2026-04-09T21:12:51.292Z',
+    image: '/images/blog/asili-bellinzona-progetto-pilota-orario-prolungato-2027.jpg',
+    hasCalculator: true,
+  },
 ];
