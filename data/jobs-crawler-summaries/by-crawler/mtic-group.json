@@ -1,16 +1,16 @@
 {
   "key": "mtic-group",
   "label": "MTIC Group",
-  "generatedAt": "2026-04-08T21:39:44.376Z",
+  "generatedAt": "2026-04-09T09:56:14.124Z",
   "total": 5,
   "newCount": 4,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 32953,
-  "avgDurationMs": 32953,
+  "unchangedCount": 0,
+  "durationMs": 28885,
+  "avgDurationMs": 28885,
   "durationHistory": [
-    32953
+    28885
   ],
   "newJobs": [
     {
@@ -31,7 +31,7 @@
       "sector": "Certificazione e Ispezioni",
       "source": "mtic-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-08",
+      "postedDate": "2026-04-09",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -61,7 +61,7 @@
       "sector": "Certificazione e Ispezioni",
       "source": "mtic-dedicated-crawler",
       "sourceLang": "fr",
-      "postedDate": "2026-04-08",
+      "postedDate": "2026-04-09",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -91,7 +91,7 @@
       "sector": "Certificazione e Ispezioni",
       "source": "mtic-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-08",
+      "postedDate": "2026-04-09",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -121,7 +121,7 @@
       "sector": "Certificazione e Ispezioni",
       "source": "mtic-dedicated-crawler",
       "sourceLang": "fr",
-      "postedDate": "2026-04-08",
+      "postedDate": "2026-04-09",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -134,9 +134,7 @@
       }
     }
   ],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "title": "Auditors, Technical & Clinical Experts",
       "slug": "auditors-technical-clinical-experts-mtic-group-lugano-paradiso",
@@ -155,7 +153,7 @@
       "sector": "Certificazione e Ispezioni",
       "source": "mtic-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-08",
+      "postedDate": "2026-04-09",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -172,5 +170,7 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
