@@ -293,7 +293,7 @@ const NewFrontierOver20KmHub: React.FC = () => {
           {copy.bullets.map((bullet) => (
             <div
               key={bullet}
-              className="rounded-2xl border border-slate-200/80 dark:border-slate-700 bg-white/90 dark:bg-slate-800/90 p-4 text-sm leading-6 text-slate-700 dark:text-slate-200"
+              className="rounded-2xl border border-slate-200/80 dark:border-slate-700 bg-surface/90 p-4 text-sm leading-6 text-slate-700 dark:text-slate-200"
             >
               {bullet}
             </div>

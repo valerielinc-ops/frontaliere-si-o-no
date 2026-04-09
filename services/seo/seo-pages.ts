@@ -1704,7 +1704,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
   municipalities: {
     title: '146 Comuni di Frontiera Svizzera 2026 | Mappa Interattiva',
-    description: 'Elenco completo dei 146 comuni italiani entro 20 km dal confine svizzero. Mappa interattiva con distanze dai valichi, addizionale IRPEF e trasporti per frontalieri.',
+    description: 'Elenco completo dei 146 comuni italiani entro 20 km dal confine svizzero. Mappa interattiva con distanze, addizionale IRPEF e trasporti.',
     keywords: 'comuni di frontiera, elenco comuni frontalieri svizzera 2026, comuni frontalieri svizzera mappa, comuni 20 km confine svizzera, comuni como varese frontiera, distanza valichi frontiera, mappa comuni frontiera',
     ogTitle: '146 Comuni di Frontiera Svizzera — Mappa e Distanze',
     ogDescription: 'Mappa interattiva dei 146 comuni italiani di frontiera. Distanze dai valichi, addizionale IRPEF e trasporti per frontalieri.',
@@ -4799,7 +4799,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
   'blog-tilo-record-passeggeri-2025': {
     title: 'TILO raggiunge i 25 milioni di passeggeri nel 2025',
-    description: 'TILO raggiunge un nuovo record con 25 milioni di passeggeri nel 2025. Scopri di più sull\'incremento del traffico ferroviario in Ticino. Dati aggiornati 2026 per',
+    description: 'TILO raggiunge un nuovo record con 25 milioni di passeggeri nel 2025. Scopri l\'incremento del traffico ferroviario in Ticino. Dati aggiornati 2026.',
     keywords: 'frontalieri, ticino, svizzera, italia, tilo, raggiunge, milioni, passeggeri',
     ogTitle: 'TILO: 25 milioni di passeggeri nel 2025',
     ogDescription: 'La società ferroviaria TILO raggiunge un nuovo record con 25 milioni di passeggeri nel 2025. L\'incremento è del 3,7% rispetto al 2024.',
@@ -4829,7 +4829,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
   'blog-trasporti-lombardia-ticino-record-tilo': {
     title: 'Trasporti Lombardia-Ticino: Tilo batte record con 25',
-    description: 'I treni Tilo hanno trasportato 25 milioni di passeggeri tra Ticino e Lombardia nel 2025, con un aumento del 3,7% rispetto all\'anno precedente. Scopri i vantaggi',
+    description: 'I treni Tilo hanno trasportato 25 milioni di passeggeri tra Ticino e Lombardia nel 2025, con un aumento del 3,7%. Scopri i vantaggi per frontalieri.',
     keywords: 'frontalieri, ticino, svizzera, italia, trasporti, lombardia-ticino, tilo, batte',
     ogTitle: 'Tilo: record di passeggeri tra Lombardia e Ticino',
     ogDescription: 'I treni Tilo hanno trasportato 25 milioni di passeggeri tra Ticino e Lombardia nel 2025, con un aumento del 3,7% rispetto all\'anno precedente. Scopri di più su',
@@ -4949,7 +4949,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
   'blog-casellario-giudiziale-ue-ticino': {
     title: 'Canton Grigioni: Impossibile richiedere il casellario',
-    description: 'Il Canton Grigioni chiarisce che non è possibile richiedere sistematicamente il casellario giudiziale per cittadini dell\'UE, sollevando interrogativi sulla sicu',
+    description: 'Il Canton Grigioni chiarisce che non è possibile richiedere il casellario giudiziale per cittadini UE, sollevando interrogativi sulla sicurezza.',
     keywords: 'frontalieri, ticino, svizzera, italia, canton, grigioni, impossibile, richiedere',
     ogTitle: 'Canton Grigioni: Impossibile richiedere il casellario giu',
     ogDescription: 'Il Canton Grigioni chiarisce che non è possibile richiedere sistematicamente il casellario giudiziale per cittadini dell\'UE, sollevando interrogativi sulla sicu',

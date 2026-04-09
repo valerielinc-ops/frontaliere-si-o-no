@@ -95,7 +95,7 @@ const StepperInput = ({ value, onChange, min = 0, max, label, icon: Icon, iconCo
       >
         <Minus size={16} strokeWidth={2.5} />
       </button>
-      <div className="flex-1 min-w-[40px] h-full relative flex items-center justify-center bg-white/50 dark:bg-slate-900/50">
+      <div className="flex-1 min-w-[40px] h-full relative flex items-center justify-center bg-surface/50">
         <input 
           id={inputId}
           type="number" 
@@ -365,9 +365,9 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
   };
 
   return (
-    <div className="bg-white/90 dark:bg-slate-900/90 rounded-[2rem] shadow-xl border border-white/60 dark:border-slate-800 h-full flex flex-col overflow-hidden transition-colors duration-300">
+    <div className="bg-surface/90 rounded-[2rem] shadow-xl border border-white/60 dark:border-slate-800 h-full flex flex-col overflow-hidden transition-colors duration-300">
       {/* Header */}
-      <div className="p-5 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between bg-white/50 dark:bg-slate-900/50 z-10">
+      <div className="p-5 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between bg-surface/50 z-10">
         <div className="flex items-center gap-3">
             <div className="p-2.5 bg-gradient-to-br from-teal-500 to-emerald-600 text-white rounded-xl shadow-lg shadow-teal-500/20">
               <Wand2 size={20} />
@@ -647,7 +647,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
                           <button onClick={() => removeExpense('CH', exp.id)} className="p-2 sm:p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center text-muted hover:text-red-500 transition-colors flex-shrink-0" aria-label={t('input.removeExpense')}><X size={14}/></button>
                         </div>
                      ))}
-                     {inputs.expensesCH.length === 0 && !showPresets && <div className="text-xs text-subtle italic text-center py-4 bg-slate-50/50 dark:bg-slate-800/50 rounded-xl border border-dashed border-edge">{t('input.noExpenses')}</div>}
+                     {inputs.expensesCH.length === 0 && !showPresets && <div className="text-xs text-subtle italic text-center py-4 bg-surface-alt/50 rounded-xl border border-dashed border-edge">{t('input.noExpenses')}</div>}
                    </div>
                 </div>
                 
@@ -716,7 +716,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
                           <button onClick={() => removeExpense('IT', exp.id)} className="p-2 sm:p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center text-muted hover:text-red-500 transition-colors flex-shrink-0" aria-label={t('input.removeExpense')}><X size={14}/></button>
                         </div>
                      ))}
-                      {inputs.expensesIT.length === 0 && !showPresets && <div className="text-xs text-subtle italic text-center py-4 bg-slate-50/50 dark:bg-slate-800/50 rounded-xl border border-dashed border-edge">{t('input.noExpenses')}</div>}
+                      {inputs.expensesIT.length === 0 && !showPresets && <div className="text-xs text-subtle italic text-center py-4 bg-surface-alt/50 rounded-xl border border-dashed border-edge">{t('input.noExpenses')}</div>}
                    </div>
                 </div>
              </div>

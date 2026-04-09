@@ -468,7 +468,7 @@ const TransportCalculator: React.FC = () => {
         </h3>
         
         <div className="grid md:grid-cols-2 gap-4">
-          <div className="p-4 bg-white/50 dark:bg-slate-900/50 rounded-xl">
+          <div className="p-4 bg-surface/50 rounded-xl">
             <p className="font-bold text-amber-700 dark:text-amber-400 mb-2">⛽ {t('transport.whereToFuel')}</p>
             <ul className="space-y-1 text-sm text-body list-disc ml-4">
               <li>{t('transport.fuelTip1')}</li>
@@ -477,7 +477,7 @@ const TransportCalculator: React.FC = () => {
             </ul>
           </div>
 
-          <div className="p-4 bg-white/50 dark:bg-slate-900/50 rounded-xl">
+          <div className="p-4 bg-surface/50 rounded-xl">
             <p className="font-bold text-amber-700 dark:text-amber-400 mb-2">🚗 {t('transport.electricWorth')}</p>
             <ul className="space-y-1 text-sm text-body list-disc ml-4">
               <li>{t('transport.electricTip1')}</li>
@@ -486,7 +486,7 @@ const TransportCalculator: React.FC = () => {
             </ul>
           </div>
 
-          <div className="p-4 bg-white/50 dark:bg-slate-900/50 rounded-xl">
+          <div className="p-4 bg-surface/50 rounded-xl">
             <p className="font-bold text-amber-700 dark:text-amber-400 mb-2">🚆 {t('transport.trainAlternative')}</p>
             <ul className="space-y-1 text-sm text-body list-disc ml-4">
               <li>{t('transport.trainAltTip1')}</li>
@@ -495,7 +495,7 @@ const TransportCalculator: React.FC = () => {
             </ul>
           </div>
 
-          <div className="p-4 bg-white/50 dark:bg-slate-900/50 rounded-xl">
+          <div className="p-4 bg-surface/50 rounded-xl">
             <p className="font-bold text-amber-700 dark:text-amber-400 mb-2">💰 {t('transport.taxDeductions')}</p>
             <ul className="space-y-1 text-sm text-body list-disc ml-4">
               <li>{t('transport.taxTip1')}</li>

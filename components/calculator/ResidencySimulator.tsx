@@ -676,7 +676,7 @@ function BestMunicipalitySection({ grossMonthlyCHF, chfEurRate }: { grossMonthly
         </div>
 
         {showFilters && (
-          <div className="flex flex-wrap gap-3 p-3 bg-white/60 dark:bg-slate-800/60 rounded-lg border border-edge">
+          <div className="flex flex-wrap gap-3 p-3 bg-surface/60 rounded-lg border border-edge">
             <div>
               <label className="block text-xs font-bold text-muted mb-1">{t('residency.bestMunicipality.province') || 'Provincia'}</label>
               <select
@@ -761,7 +761,7 @@ function BestMunicipalitySection({ grossMonthlyCHF, chfEurRate }: { grossMonthly
       <div className="space-y-2">
         {displayedRankings.map((loc, i) => (
           <div key={loc.id} className={`flex items-center gap-3 p-3 rounded-lg ${
-            i === 0 && !hasActiveFilters ? 'bg-surface' : 'bg-white/50 dark:bg-slate-800/50'
+            i === 0 && !hasActiveFilters ? 'bg-surface' : 'bg-surface/50'
           } border border-edge`}>
             <span className={`text-lg font-bold w-7 text-center shrink-0 ${i === 0 ? 'text-violet-600' : i === 1 ? 'text-muted' : 'text-muted'}`}>
               {i + 1}
@@ -793,7 +793,7 @@ function BestMunicipalitySection({ grossMonthlyCHF, chfEurRate }: { grossMonthly
       {!hasActiveFilters && filteredRankings.length > 10 && (
         <button
           onClick={() => setShowAll(!showAll)}
-          className="w-full py-2.5 text-sm font-medium text-violet-600 dark:text-violet-400 hover:text-violet-800 dark:hover:text-violet-200 bg-white/60 dark:bg-slate-800/60 rounded-lg border border-violet-200 dark:border-violet-700 transition-colors flex items-center justify-center gap-1.5"
+          className="w-full py-2.5 text-sm font-medium text-violet-600 dark:text-violet-400 hover:text-violet-800 dark:hover:text-violet-200 bg-surface/60 rounded-lg border border-violet-200 dark:border-violet-700 transition-colors flex items-center justify-center gap-1.5"
         >
           {showAll ? (
             <><ChevronUp size={14} /> {t('residency.bestMunicipality.showLess') || `Mostra top 10`}</>

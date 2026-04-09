@@ -561,7 +561,7 @@ const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({ baseInputs, baseResul
                     
                     {/* Show what actually happens with this scenario change */}
                     <div className="grid grid-cols-2 gap-3 mb-3">
-                      <div className="bg-white/70 dark:bg-slate-800/70 rounded-lg p-3">
+                      <div className="bg-surface/70 rounded-lg p-3">
                         <div className="text-xs font-bold text-muted uppercase">{t('whatif.yourNetChange')}</div>
                         <div className={`text-xl font-bold ${diffIT >= 0 ? 'text-emerald-700' : 'text-red-600'}`}>
                           {diffIT >= 0 ? '+' : ''}{Math.round(diffIT).toLocaleString('it-IT')} €/{t('common.months')}
@@ -571,7 +571,7 @@ const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({ baseInputs, baseResul
                         </div>
                         <div className="text-xs text-muted mt-0.5">({t('whatif.asItalyFrontier')})</div>
                       </div>
-                      <div className="bg-white/70 dark:bg-slate-800/70 rounded-lg p-3">
+                      <div className="bg-surface/70 rounded-lg p-3">
                         <div className="text-xs font-bold text-muted uppercase">{t('whatif.chComparison')}</div>
                         <div className={`text-xl font-bold ${diffCH >= 0 ? 'text-emerald-700' : 'text-red-600'}`}>
                           {diffCH >= 0 ? '+' : ''}{Math.round(diffCH).toLocaleString('it-IT')} CHF/{t('common.months')}
@@ -584,7 +584,7 @@ const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({ baseInputs, baseResul
                     </div>
 
                     {/* IT vs CH advantage explanation */}
-                    <div className="bg-white/50 dark:bg-slate-800/50 rounded-lg p-3 border border-slate-200/50 dark:border-slate-700/50">
+                    <div className="bg-surface/50 rounded-lg p-3 border border-edge/50">
                       <div className="flex items-center gap-2 text-sm">
                         <ArrowLeftRight size={14} className="text-amber-600" />
                         <span className="text-subtle">{t('whatif.comparisonLabel')}:</span>

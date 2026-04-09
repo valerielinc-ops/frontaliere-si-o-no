@@ -2468,7 +2468,7 @@ const App: React.FC = () => {
 
                 <button 
                   onClick={toggleTheme}
-                  className="p-2 rounded-xl text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors shrink-0"
+                  className="p-2 rounded-xl text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors shrink-0 min-w-[44px] min-h-[44px] flex items-center justify-center"
                   aria-label={isDarkMode ? t('app.lightMode') : t('app.darkMode')}
                 >
                   {isDarkMode ? <Sun size={18} className="text-amber-400" /> : <Moon size={18} className="text-slate-600" />}
@@ -2502,7 +2502,7 @@ const App: React.FC = () => {
                 ) : (
                   <button
                     onClick={() => handleTabChange('profile')}
-                    className="p-2 rounded-xl text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors shrink-0"
+                    className="p-2 rounded-xl text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors shrink-0 min-w-[44px] min-h-[44px] flex items-center justify-center"
                     aria-label={t('profile.signIn')}
                     title={t('profile.signIn')}
                   >
@@ -2969,7 +2969,7 @@ const App: React.FC = () => {
 
           {/* Visible "last updated" date — AI freshness signal + user trust */}
           {!(['admin', 'profile', 'email-confirmed', 'privacy', 'terms', 'data-deletion'] as string[]).includes(activeTab) && (
-            <p className="text-xs text-slate-500 dark:text-slate-400 text-center mt-6">
+            <p className="text-sm text-slate-500 dark:text-slate-400 text-center mt-6">
               <time dateTime={footerDateStr.dateTimeAttr}>
                 {t('stats.lastUpdate')}: {footerDateStr.display}
               </time>
@@ -2993,7 +2993,7 @@ const App: React.FC = () => {
                 href={`https://github.com/valerielinc-ops/frontaliere-si-o-no/commit/${typeof __COMMIT_HASH__ !== 'undefined' ? __COMMIT_HASH__ : 'unknown'}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs font-mono text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 px-1 py-0.5 rounded transition-colors opacity-70 hover:opacity-100"
+                className="text-sm font-mono text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 px-1 py-0.5 rounded transition-colors opacity-70 hover:opacity-100"
                 title="Versione del sito: commit GitHub deploy"
               >
                 <span>v</span>

@@ -1549,7 +1549,7 @@ function BlogArticles({
           target="_blank"
           rel="noopener noreferrer sponsored"
           onClick={handleAffClick}
-          className="group block p-3 bg-white/70 dark:bg-slate-800/70 rounded-xl border border-slate-200/60 dark:border-slate-700/60 hover:border-slate-300 dark:hover:border-slate-600 hover:shadow-sm transition-[color,border-color,box-shadow] text-center"
+          className="group block p-3 bg-surface/70 rounded-xl border border-edge/60 hover:border-slate-300 dark:hover:border-slate-600 hover:shadow-sm transition-[color,border-color,box-shadow] text-center"
         >
           <span className="text-xl block mb-1">{partner.emoji}</span>
           <span className="text-xs font-semibold text-slate-700 dark:text-slate-200 block leading-tight">{partner.name}</span>
@@ -2029,64 +2029,7 @@ function BlogArticles({
                     articleFeedback[article.id] === 'not-useful'
                       ? 'bg-red-100 dark:bg-red-900/40 text-red-700 dark:text-red-400 ring-1 ring-red-300 dark:ring-red-700'
                       : 'bg-surface-raised text-subtle hover:bg-red-50 dark:hover:bg-red-900/20'
-                  }`}
-                  aria-label={t('blog.feedback.notUseful')}
-                >
-                  <ThumbsDown size={16} /> {t('blog.feedback.notUseful')}
-                </button>
-              </div>
-              {articleFeedback[article.id] && (
-                <p className="text-sm text-muted mt-1">{t('blog.feedback.thanks')}</p>
-              )}
-            </div>
-
-            {/* Author bio for E-E-A-T */}
-            <div className="mt-8 p-4 bg-surface-alt rounded-xl border border-edge">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center">
-                  <User size={24} className="text-link" />
-                </div>
-                <div>
-                  <p className="font-bold text-slate-800 dark:text-white">Valerie Linc</p>
-                  <p className="text-sm text-subtle">{t('blog.authorBio')}</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Discuss in forum CTA */}
-            <div className="mt-6 p-4 bg-indigo-50 dark:bg-indigo-900/20 rounded-xl border border-indigo-200 dark:border-indigo-800/40 flex items-center gap-3">
-              <MessageSquareMore size={20} className="text-indigo-600 dark:text-indigo-400 shrink-0" />
-              <div className="flex-1">
-                <p className="text-sm font-semibold text-indigo-800 dark:text-indigo-300">{t('blog.discussInForum')}</p>
-                <p className="text-sm text-indigo-700 dark:text-indigo-400 mt-0.5">{t('blog.discussInForumDesc')}</p>
-              </div>
-              <a
-                href={buildPath({ activeTab: 'forum' })}
-                onClick={(e) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; e.preventDefault(); nav.navigateTo('forum'); }}
-                className="shrink-0 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium rounded-lg transition-colors"
-              >
-                {t('blog.goToForum')} →
-              </a>
-            </div>
-
-            {/* Prev/Next article navigation */}
-            {(() => {
-              const currentIdx = articles.findIndex(a => a.id === article.id);
-              const prevArticle = currentIdx < articles.length - 1 ? articles[currentIdx + 1] : null;
-              const nextArticle = currentIdx > 0 ? articles[currentIdx - 1] : null;
-              if (!prevArticle && !nextArticle) return null;
-              return (
-                <div className="border-t border-edge pt-6 mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {prevArticle ? (
-                    <a
-                      href={buildPath({ activeTab: 'blog', blogArticle: prevArticle.id })}
-                      onClick={(e) => { e.preventDefault(); handleArticleClick(prevArticle.id); }}
-                      className="flex items-center gap-3 p-4 bg-surface-alt/50 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-colors group"
-                    >
-                      <ChevronLeft size={20} className="text-subtle group-hover:text-indigo-500 shrink-0 transition-colors" />
-                      <div className="min-w-0">
-                        <p className="text-sm text-muted mb-1">{t('blog.prevArticle')}</p>
-                        <p className="text-sm font-semibold text-slate-700 dark:text-slate-200 line-clamp-2">{t(`blog.article.${prevArticle.id}.title`)}</p>
+                  }`} aria-label={t('blog.feedback.notUseful')} > <ThumbsDown size={16} /> {t('blog.feedback.notUseful')} </button> </div> {articleFeedback[article.id] && ( <p className="text-sm text-muted mt-1">{t('blog.feedback.thanks')}</p> )} </div> {/* Author bio for E-E-A-T */} <div className="mt-8 p-4 bg-surface-alt rounded-xl border border-edge"> <div className="flex items-center gap-3"> <div className="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center"> <User size={24} className="text-link" /> </div> <div> <p className="font-bold text-strong dark:text-white">Valerie Linc</p> <p className="text-sm text-subtle">{t('blog.authorBio')}</p> </div> </div> </div> {/* Discuss in forum CTA */} <div className="mt-6 p-4 bg-indigo-50 dark:bg-indigo-900/20 rounded-xl border border-indigo-200 dark:border-indigo-800/40 flex items-center gap-3"> <MessageSquareMore size={20} className="text-indigo-600 dark:text-indigo-400 shrink-0" /> <div className="flex-1"> <p className="text-sm font-semibold text-indigo-800 dark:text-indigo-300">{t('blog.discussInForum')}</p> <p className="text-sm text-indigo-700 dark:text-indigo-400 mt-0.5">{t('blog.discussInForumDesc')}</p> </div> <a href={buildPath({ activeTab: 'forum' })} onClick={(e) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; e.preventDefault(); nav.navigateTo('forum'); }} className="shrink-0 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium rounded-lg transition-colors" > {t('blog.goToForum')} → </a> </div> {/* Prev/Next article navigation */} {(() => { const currentIdx = articles.findIndex(a => a.id === article.id); const prevArticle = currentIdx < articles.length - 1 ? articles[currentIdx + 1] : null; const nextArticle = currentIdx > 0 ? articles[currentIdx - 1] : null; if (!prevArticle && !nextArticle) return null; return ( <div className="border-t border-edge pt-6 mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3"> {prevArticle ? ( <a href={buildPath({ activeTab: 'blog', blogArticle: prevArticle.id })} onClick={(e) => { e.preventDefault(); handleArticleClick(prevArticle.id); }} className="flex items-center gap-3 p-4 bg-surface-alt/50 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-colors group" > <ChevronLeft size={20} className="text-subtle group-hover:text-indigo-500 shrink-0 transition-colors" /> <div className="min-w-0"> <p className="text-sm text-muted mb-1">{t('blog.prevArticle')}</p> <p className="text-sm font-semibold text-slate-700 line-clamp-2">{t(`blog.article.${prevArticle.id}.title`)}</p>
                       </div>
                     </a>
                   ) : <div />}
@@ -2098,123 +2041,7 @@ function BlogArticles({
                     >
                       <div className="min-w-0 flex-1">
                         <p className="text-sm text-muted mb-1">{t('blog.nextArticle')}</p>
-                        <p className="text-sm font-semibold text-slate-700 dark:text-slate-200 line-clamp-2">{t(`blog.article.${nextArticle.id}.title`)}</p>
-                      </div>
-                      <ChevronRight size={20} className="text-subtle group-hover:text-indigo-500 shrink-0 transition-colors" />
-                    </a>
-                  ) : <div />}
-                </div>
-              );
-            })()}
-
-            {/* Related articles — FRO-301: moved above ads/trending for engagement */}
-            <div className="border-t border-edge pt-6 mt-8">
-              <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-4">{t('blog.relatedArticles')}</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                {getRelatedArticles(article.id, articles, 3).map(related => (
-                  <a
-                    key={related.id}
-                    href={buildPath({ activeTab: 'blog', blogArticle: related.id })}
-                    onClick={(e) => { e.preventDefault(); handleArticleClick(related.id); }}
-                    className="flex items-center gap-3 p-3 bg-surface-alt/50 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-colors text-left"
-                  >
-                    {(() => {
-                      const responsive = imageFallbackMap[related.image] ? null : getResponsiveImageSet(related.image);
-                      return (
-                        <picture className="w-16 h-12 shrink-0">
-                          {responsive && <source type="image/avif" srcSet={responsive.avif} />}
-                          {responsive && <source type="image/webp" srcSet={responsive.webp} />}
-                          <img
-                            src={related.image}
-                            srcSet={responsive?.jpgSet}
-                            sizes="64px"
-                            alt={getImageAlt(related.id)}
-                            width={60}
-                            height={40}
-                            className="w-16 h-12 object-cover rounded-lg shrink-0"
-                            loading="lazy"
-                            onError={() => handleResponsiveImageError(related.image)}
-                          />
-                        </picture>
-                      );
-                    })()}
-                    <div className="min-w-0">
-                      <p className="text-sm font-semibold text-slate-700 dark:text-slate-200 line-clamp-2">
-                        {t(`blog.article.${related.id}.title`)}
-                      </p>
-                      <p className="text-sm text-muted mt-1">{estimateReadingMinutes(related.id, t)} min</p>
-                    </div>
-                  </a>
-                ))}
-              </div>
-            </div>
-
-            {/* AdSense — end-of-article multiplex */}
-            <div className="mt-8">
-              <Suspense fallback={adEligible ? <div style={{ minHeight: AD_SLOTS.ARTICLE_END_MULTIPLEX.placeholderMinHeight, contain: 'content' }} className="my-4" /> : null}>
-                <AdSenseBanner
-                  adSlot={AD_SLOTS.ARTICLE_END_MULTIPLEX.slot}
-                  adFormat={AD_SLOTS.ARTICLE_END_MULTIPLEX.format}
-                  enabled={adEligible}
-                  className="my-4"
-                />
-              </Suspense>
-            </div>
-
-            {/* Explore tools — category-aware grid of evergreen page links */}
-            {/* Trending articles this week */}
-            {(() => {
-              const trendingFiltered = trendingArticles
-                .filter(e => e.id !== article.id)
-                .slice(0, 4);
-              if (trendingFiltered.length === 0) return null;
-              const trendingLookup = new Map(trendingFiltered.map(e => [e.id, e.views]));
-              const trendingCards = trendingFiltered
-                .map(e => articleById.get(e.id))
-                .filter(Boolean) as Article[];
-              if (trendingCards.length === 0) return null;
-              return (
-                <div className="border-t border-edge pt-6 mt-8">
-                  <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-4 flex items-center gap-2">
-                    <TrendingUp size={20} className="text-orange-500" />
-                    {t('blog.trendingThisWeek')}
-                  </h3>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    {trendingCards.map((tr, idx) => {
-                      const views = trendingLookup.get(tr.id) ?? 0;
-                      const responsive = imageFallbackMap[tr.image] ? null : getResponsiveImageSet(tr.image);
-                      return (
-                        <a
-                          key={tr.id}
-                          href={buildPath({ activeTab: 'blog', blogArticle: tr.id })}
-                          onClick={(e) => { e.preventDefault(); handleArticleClick(tr.id); }}
-                          className="flex items-center gap-3 p-3 bg-gradient-to-r from-orange-50 to-amber-50 dark:from-orange-950/30 dark:to-amber-950/20 border border-orange-200/60 dark:border-orange-800/40 rounded-xl hover:from-orange-100 hover:to-amber-100 dark:hover:from-orange-900/40 dark:hover:to-amber-900/30 transition-colors text-left group"
-                        >
-                          <div className="relative shrink-0">
-                            <picture className="w-16 h-12 shrink-0">
-                              {responsive && <source type="image/avif" srcSet={responsive.avif} />}
-                              {responsive && <source type="image/webp" srcSet={responsive.webp} />}
-                              <img
-                                src={tr.image}
-                                srcSet={responsive?.jpgSet}
-                                sizes="64px"
-                                alt={getImageAlt(tr.id)}
-                                width={60}
-                                height={40}
-                                className="w-16 h-12 object-cover rounded-lg"
-                                loading="lazy"
-                                onError={() => handleResponsiveImageError(tr.image)}
-                              />
-                            </picture>
-                            {idx === 0 && (
-                              <span className="absolute -top-1.5 -left-1.5 bg-orange-500 text-white text-xs font-bold px-1.5 py-0.5 rounded-full leading-none">
-                                🔥
-                              </span>
-                            )}
-                          </div>
-                          <div className="min-w-0 flex-1">
-                            <p className="text-sm font-semibold text-slate-700 dark:text-slate-200 line-clamp-2 group-hover:text-orange-700 dark:group-hover:text-orange-300 transition-colors">
-                              {t(`blog.article.${tr.id}.title`)}
+                        <p className="text-sm font-semibold text-slate-700 dark:text-slate-200 line-clamp-2">{t(`blog.article.${nextArticle.id}.title`)}</p> </div> <ChevronRight size={20} className="text-subtle group-hover:text-indigo-500 shrink-0 transition-colors" /> </a> ) : <div />} </div> ); })()} {/* Related articles — FRO-301: moved above ads/trending for engagement */} <div className="border-t border-edge pt-6 mt-8"> <h3 className="text-lg font-bold text-strong dark:text-slate-100 mb-4">{t('blog.relatedArticles')}</h3> <div className="grid grid-cols-1 sm:grid-cols-3 gap-3"> {getRelatedArticles(article.id, articles, 3).map(related => ( <a key={related.id} href={buildPath({ activeTab: 'blog', blogArticle: related.id })} onClick={(e) => { e.preventDefault(); handleArticleClick(related.id); }} className="flex items-center gap-3 p-3 bg-surface-alt/50 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-colors text-left" > {(() => { const responsive = imageFallbackMap[related.image] ? null : getResponsiveImageSet(related.image); return ( <picture className="w-16 h-12 shrink-0"> {responsive && <source type="image/avif" srcSet={responsive.avif} />} {responsive && <source type="image/webp" srcSet={responsive.webp} />} <img src={related.image} srcSet={responsive?.jpgSet} sizes="64px" alt={getImageAlt(related.id)} width={60} height={40} className="w-16 h-12 object-cover rounded-lg shrink-0" loading="lazy" onError={() => handleResponsiveImageError(related.image)} /> </picture> ); })()} <div className="min-w-0"> <p className="text-sm font-semibold text-slate-700 line-clamp-2"> {t(`blog.article.${related.id}.title`)} </p> <p className="text-sm text-muted mt-1">{estimateReadingMinutes(related.id, t)} min</p> </div> </a> ))} </div> </div> {/* AdSense — end-of-article multiplex */} <div className="mt-8"> <Suspense fallback={adEligible ? <div style={{ minHeight: AD_SLOTS.ARTICLE_END_MULTIPLEX.placeholderMinHeight, contain: 'content' }} className="my-4" /> : null}> <AdSenseBanner adSlot={AD_SLOTS.ARTICLE_END_MULTIPLEX.slot} adFormat={AD_SLOTS.ARTICLE_END_MULTIPLEX.format} enabled={adEligible} className="my-4" /> </Suspense> </div> {/* Explore tools — category-aware grid of evergreen page links */} {/* Trending articles this week */} {(() => { const trendingFiltered = trendingArticles .filter(e => e.id !== article.id) .slice(0, 4); if (trendingFiltered.length === 0) return null; const trendingLookup = new Map(trendingFiltered.map(e => [e.id, e.views])); const trendingCards = trendingFiltered .map(e => articleById.get(e.id)) .filter(Boolean) as Article[]; if (trendingCards.length === 0) return null; return ( <div className="border-t border-edge pt-6 mt-8"> <h3 className="text-lg font-bold text-strong dark:text-slate-100 mb-4 flex items-center gap-2"> <TrendingUp size={20} className="text-orange-500" /> {t('blog.trendingThisWeek')} </h3> <div className="grid grid-cols-1 sm:grid-cols-2 gap-3"> {trendingCards.map((tr, idx) => { const views = trendingLookup.get(tr.id) ?? 0; const responsive = imageFallbackMap[tr.image] ? null : getResponsiveImageSet(tr.image); return ( <a key={tr.id} href={buildPath({ activeTab: 'blog', blogArticle: tr.id })} onClick={(e) => { e.preventDefault(); handleArticleClick(tr.id); }} className="flex items-center gap-3 p-3 bg-gradient-to-r from-orange-50 to-amber-50 dark:from-orange-950/30 dark:to-amber-950/20 border border-orange-200/60 dark:border-orange-800/40 rounded-xl hover:from-orange-100 hover:to-amber-100 dark:hover:from-orange-900/40 dark:hover:to-amber-900/30 transition-colors text-left group" > <div className="relative shrink-0"> <picture className="w-16 h-12 shrink-0"> {responsive && <source type="image/avif" srcSet={responsive.avif} />} {responsive && <source type="image/webp" srcSet={responsive.webp} />} <img src={tr.image} srcSet={responsive?.jpgSet} sizes="64px" alt={getImageAlt(tr.id)} width={60} height={40} className="w-16 h-12 object-cover rounded-lg" loading="lazy" onError={() => handleResponsiveImageError(tr.image)} /> </picture> {idx === 0 && ( <span className="absolute -top-1.5 -left-1.5 bg-orange-500 text-white text-xs font-bold px-1.5 py-0.5 rounded-full leading-none"> 🔥 </span> )} </div> <div className="min-w-0 flex-1"> <p className="text-sm font-semibold text-slate-700 line-clamp-2 group-hover:text-orange-700 dark:group-hover:text-orange-300 transition-colors"> {t(`blog.article.${tr.id}.title`)}
                             </p>
                             <div className="flex items-center gap-2 mt-1">
                               <span className="text-xs text-orange-700 dark:text-orange-400 font-medium">
@@ -2374,7 +2201,7 @@ function BlogArticles({
         </div>
 
         {/* FRO-301: Sticky bottom nav on mobile — reduces bounce from social referrals */}
-        <div className="sm:hidden fixed bottom-0 inset-x-0 z-40 bg-white/95 dark:bg-slate-900/95 border-t border-edge px-4 py-2.5 pb-[calc(0.625rem+env(safe-area-inset-bottom))] flex items-center justify-between">
+        <div className="sm:hidden fixed bottom-0 inset-x-0 z-40 bg-surface/95 border-t border-edge px-4 py-2.5 pb-[calc(0.625rem+env(safe-area-inset-bottom))] flex items-center justify-between">
           <button
             onClick={handleBackToList}
             className="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-700 dark:text-slate-200"

@@ -320,7 +320,7 @@ const PermitQuiz: React.FC = () => {
         <div className="text-center mt-6">
           <button
             onClick={restart}
-            className="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 transition-colors"
+            className="inline-flex items-center gap-2 text-sm text-muted hover:text-slate-700 dark:hover:text-slate-200 transition-colors"
             aria-label={t('permitQuiz.restart')}
           >
             <RotateCcw size={14} />
@@ -417,7 +417,7 @@ const PermitQuiz: React.FC = () => {
         <button
           onClick={goBack}
           disabled={currentStep === 0}
-          className="flex items-center gap-2 text-sm text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+          className="flex items-center gap-2 text-sm text-muted hover:text-slate-700 dark:hover:text-slate-200 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
           aria-label={t('permitQuiz.back')}
         >
           <ArrowLeft size={16} />

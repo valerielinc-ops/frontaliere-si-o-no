@@ -259,7 +259,7 @@ const ConsultingPage: React.FC = () => {
             </h2>
             <button
               onClick={() => setSelectedTier(null)}
-              className="text-sm text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 underline"
+              className="text-sm text-muted hover:text-slate-700 dark:hover:text-slate-200 underline"
               aria-label={t('consulting.changeSelection')}
             >
               {t('consulting.changeSelection')}

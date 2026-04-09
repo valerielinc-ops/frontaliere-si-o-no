@@ -2271,7 +2271,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                   <li>• {t('guide.schools.important4')}</li>
                   <li>• {t('guide.schools.important5')}</li>
                 </ul>
-                <div className="mt-3 p-3 bg-white/50 dark:bg-slate-800/50 rounded-xl text-xs">
+                <div className="mt-3 p-3 bg-surface/50 rounded-xl text-xs">
                   <strong>🔗 {t('guide.schools.usefulLinks')}:</strong>
                   <div className="mt-2 space-y-1">
                     <div>• <a href="https://www4.ti.ch/decs/ds/cosa-offre-la-scuola" target="_blank" rel="noopener noreferrer" className="underline font-semibold">DECS - {t('guide.schools.linkDecs')}</a></div>

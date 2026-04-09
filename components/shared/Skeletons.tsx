@@ -458,7 +458,7 @@ export const SkeletonPageShell: React.FC = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-teal-50 via-slate-50 to-emerald-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 -z-20" style={{ contain: 'strict' }} />
 
       {/* Skeleton Nav — matches loading shell sticky nav h-20 (80px) */}
-      <nav className="sticky top-0 z-50 bg-white/95 dark:bg-slate-900/95 border-b border-slate-200/50 dark:border-slate-800/50 shadow-sm">
+      <nav className="sticky top-0 z-50 bg-surface/95 border-b border-slate-200/50 dark:border-slate-800/50 shadow-sm">
         <div className="max-w-[2400px] w-[95%] mx-auto px-4 sm:px-6">
           <div className="flex justify-between h-20 items-center">
             {/* Logo placeholder */}
@@ -513,7 +513,7 @@ export const SkeletonPageShell: React.FC = () => {
       </main>
 
       {/* Mobile bottom nav — matches loading shell fixed h-14, hidden md+ */}
-      <nav className="fixed bottom-0 left-0 right-0 z-50 bg-white/95 dark:bg-slate-900/95 border-t border-slate-200/50 dark:border-slate-800/50 md:hidden h-14 grid grid-cols-6 items-center" style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}>
+      <nav className="fixed bottom-0 left-0 right-0 z-50 bg-surface/95 border-t border-slate-200/50 dark:border-slate-800/50 md:hidden h-14 grid grid-cols-6 items-center" style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}>
         {Array.from({ length: 6 }).map((_, i) => (
           <div key={i} className="flex flex-col items-center gap-0.5">
             <div className="w-5 h-5 bg-surface-raised rounded" />

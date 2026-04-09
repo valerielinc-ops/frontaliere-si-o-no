@@ -1758,7 +1758,7 @@ export function WhatsNewBell({ onClick }: BellButtonProps) {
         onClick();
         setUnread(0);
       }}
-      className="relative p-2 rounded-lg transition-colors text-subtle hover:bg-slate-100 dark:hover:bg-slate-700"
+      className="relative p-2 rounded-lg transition-colors text-subtle hover:bg-slate-100 dark:hover:bg-slate-700 min-w-[44px] min-h-[44px] flex items-center justify-center"
       aria-label={t('whatsNew.title')}
       title={t('whatsNew.title')}
     >

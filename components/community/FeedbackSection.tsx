@@ -326,7 +326,7 @@ export const FeedbackSection: React.FC = () => {
                           {item.description}
                         </p>
                         <div className="flex items-center gap-3 mt-3">
-                          <span className={`text-xs font-bold px-1.5 py-0.5 rounded flex items-center gap-1 ${item.status === 'OPEN' ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-900/20' : 'bg-slate-100 text-muted dark:bg-slate-800'}`}>
+                          <span className={`text-xs font-bold px-1.5 py-0.5 rounded flex items-center gap-1 ${item.status === 'OPEN' ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-900/20' : 'bg-surface-raised text-muted'}`}>
                             {item.status === 'OPEN' ? <Clock size={10} /> : <CheckCircle size={10} />}
                             {item.status}
                           </span>
@@ -341,7 +341,7 @@ export const FeedbackSection: React.FC = () => {
                 </a>
               ))
             ) : (
-              <div className="text-center py-12 bg-slate-50/50 dark:bg-slate-900/50 rounded-3xl border-2 border-dashed border-slate-200 dark:border-slate-800">
+              <div className="text-center py-12 bg-surface-alt/50 rounded-3xl border-2 border-dashed border-slate-200 dark:border-slate-800">
                 <Github size={32} className="mx-auto text-muted mb-3" />
                 <p className="text-sm text-muted">{t('feedback.noReports')}</p>
               </div>

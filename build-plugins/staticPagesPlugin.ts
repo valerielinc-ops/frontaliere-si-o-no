@@ -2101,6 +2101,9 @@ export function staticPagesPlugin(rootDir: string): Plugin {
 
           // SPA shell: loads the app directly at the correct URL (no redirect)
           if (hasSpaBundle) {
+            if (seoData.title.length > 60) {
+              console.warn(`[static-pages] ⚠️ Title too long (${seoData.title.length} chars): ${seoData.title.slice(0, 50)}...`);
+            }
             const useBlockingHomeCss = isHomeCriticalStaticPath(canonicalPath);
             const stylesheetMarkup = useBlockingHomeCss
               ? `<link rel="stylesheet" href="/assets/${entryCss}" crossorigin data-clarity-unmask="true">`
@@ -2150,6 +2153,9 @@ ${hrefTags}
           }
 
           // Fallback: redirect to SPA (only if bundles not found)
+          if (seoData.title.length > 60) {
+            console.warn(`[static-pages] ⚠️ Title too long (${seoData.title.length} chars): ${seoData.title.slice(0, 50)}...`);
+          }
           return `<!DOCTYPE html>
 <html lang="${locale}">
   <head>

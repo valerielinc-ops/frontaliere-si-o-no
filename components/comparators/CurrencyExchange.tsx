@@ -773,7 +773,7 @@ const CurrencyExchange: React.FC = () => {
         </h2>
         
         <div className="space-y-4 text-sm text-body">
-          <div className="p-4 bg-white/50 dark:bg-slate-900/50 rounded-xl">
+          <div className="p-4 bg-surface/50 rounded-xl">
             <p className="font-bold text-blue-600 mb-2">📊 {t('currency.practical_example_title')}:</p>
             <ul className="space-y-2 ml-4">
               <li><strong>{t('currency.example_real_rate')}:</strong> {t('currency.example_real_rate_text')}</li>
@@ -784,7 +784,7 @@ const CurrencyExchange: React.FC = () => {
             </ul>
           </div>
 
-          <div className="p-4 bg-white/50 dark:bg-slate-900/50 rounded-xl">
+          <div className="p-4 bg-surface/50 rounded-xl">
             <p className="font-bold text-emerald-700 mb-2">💡 {t('currency.tips_to_save_title')}:</p>
             <ul className="space-y-1 ml-4 list-disc">
               <li>{t('currency.tip_use_wise')}</li>

@@ -264,7 +264,7 @@
         </div>
 
         <!-- Main content area — matches React's flex-grow max-w-[1800px] w-[95%] -->
-        <main class="sh-main" style="flex:1;max-width:1800px;width:95%;margin:0 auto;padding-top:24px;padding-bottom:24px">
+        <div class="sh-main" style="flex:1;max-width:1800px;width:95%;margin:0 auto;padding-top:24px;padding-bottom:24px">
           <!-- NewsFeed + WeeklyFact tickers — calculator pages only (hidden on other pages via sh-route script) -->
           <div id="sh-ticker-area" style="display:flex;flex-direction:column;gap:8px;margin-bottom:24px">
             <div class="sh-skel sh-pulse" style="height:34px;background:#f1f5f9;border-radius:12px"></div>
@@ -455,7 +455,7 @@
               Le pagine includono dati aggiornati, percorsi di confronto e contenuti editoriali operativi che aiutano a preparare documenti, verificare scadenze e confrontare scenari stipendiali prima di inviare pratiche fiscali o candidature lavorative.
             </p>
           </section>
-        </main>
+        </div>
 
         <!-- Mobile bottom navigation — matches React's fixed bottom-0 md:hidden grid-cols-6 h-14 -->
         <nav class="sh-mobile-nav" style="position:fixed;bottom:0;left:0;right:0;z-index:50;background:rgba(255,255,255,0.95);border-top:1px solid rgba(226,232,240,0.5);height:56px;align-items:center;padding-bottom:env(safe-area-inset-bottom)">

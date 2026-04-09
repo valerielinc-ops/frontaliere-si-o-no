@@ -248,7 +248,7 @@ const SubscriptionCTA: React.FC = () => {
         </div>
 
         {/* This week's preview */}
-        <div className="mb-4 p-3 bg-surface rounded-xl border border-slate-200/60 dark:border-slate-700/60">
+        <div className="mb-4 p-3 bg-surface rounded-xl border border-edge/60">
           <p className="text-xs text-amber-600 dark:text-amber-300 font-bold uppercase tracking-wider mb-2 flex items-center gap-1">
             <Sparkles className="w-3 h-3" /> {t('newsletter.cta.thisWeek')}
           </p>

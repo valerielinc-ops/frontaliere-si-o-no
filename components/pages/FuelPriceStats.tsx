@@ -166,7 +166,7 @@ function DetailSection({
   tt: (key: string, fallback: string) => string;
 }) {
   return (
-    <div className="mt-4 space-y-4 rounded-[1.75rem] border border-edge bg-white/90 dark:bg-slate-800/90 p-4 sm:p-5">
+    <div className="mt-4 space-y-4 rounded-[1.75rem] border border-edge bg-surface/90 p-4 sm:p-5">
       <div className="flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
         <div>
           <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-muted">
@@ -326,85 +326,7 @@ export default function FuelPriceStats() {
     const list = (data?.municipalities || []).filter((row) => {
       if (province !== 'ALL' && row.province !== province) return false;
       if (!q) return true;
-      return `${row.municipality} ${row.province}`.toLowerCase().includes(q);
-    });
-
-    return [...list].sort((a, b) => {
-      if (sortKey === 'name') return municipalityLabel(a).localeCompare(municipalityLabel(b));
-      if (sortKey === 'italy') return (a.italy.minPriceEur ?? 99) - (b.italy.minPriceEur ?? 99);
-      if (sortKey === 'swiss') return (a.swiss.minPriceEur ?? 99) - (b.swiss.minPriceEur ?? 99);
-      if (sortKey === 'delta') return Math.abs(b.comparison.priceDeltaEur ?? 0) - Math.abs(a.comparison.priceDeltaEur ?? 0);
-      return (b.comparison.saving50LEur ?? -1) - (a.comparison.saving50LEur ?? -1);
-    });
-  }, [data, province, search, sortKey]);
-
-  const selected = useMemo(() => {
-    if (!selectedKey) return null;
-    return rows.find((row) => municipalityKey(row) === selectedKey) || null;
-  }, [rows, selectedKey]);
-
-  const homeMunicipality = useMemo(() => {
-    return (data?.municipalities || []).find((row) => municipalityKey(row) === homeMunicipalityKey) || null;
-  }, [data, homeMunicipalityKey]);
-
-  const personalizedRecommendation = useMemo(() => {
-    if (!homeMunicipality) return null;
-    return buildPersonalizedOption(homeMunicipality, tankLiters, costPerKmEur);
-  }, [costPerKmEur, homeMunicipality, tankLiters]);
-
-  if (loading) {
-    return (
-      <div className="rounded-3xl border border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-900/80 p-8 flex items-center justify-center gap-3 text-slate-600 dark:text-slate-300">
-        <Loader2 className="animate-spin" size={20} />
-        <span>{tt('fuelPrices.loading', 'Caricamento prezzi carburanti...')}</span>
-      </div>
-    );
-  }
-
-  if (error || !data) {
-    return (
-      <div className="rounded-3xl border border-red-200 dark:border-red-800 bg-red-50 dark:bg-red-900/30 p-6 text-red-800 dark:text-red-300">
-        <h2 className="font-bold text-lg">{tt('fuelPrices.errorTitle', 'Impossibile caricare i dati carburanti')}</h2>
-        <p className="text-sm mt-2">{error || tt('fuelPrices.errorBody', 'Il dataset non e disponibile al momento.')}</p>
-      </div>
-    );
-  }
-
-  return (
-    <div className="space-y-6">
-      <section className="rounded-[2rem] border border-orange-200/70 dark:border-orange-800/40 bg-gradient-to-br from-orange-50 via-white to-blue-50 dark:from-orange-950/40 dark:via-slate-900 dark:to-blue-950/40 p-5 sm:p-8">
-        <div className="flex flex-col gap-5 xl:flex-row xl:items-end xl:justify-between">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 rounded-full bg-white/80 dark:bg-slate-800/80 px-3 py-1 text-xs font-semibold text-orange-700 dark:text-orange-300 ring-1 ring-orange-200 dark:ring-orange-700">
-              <Fuel size={14} />
-              {tt('fuelPrices.badge', 'Osservatorio carburanti')}
-            </div>
-            <h1 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
-              {tt('fuelPrices.title', 'Prezzi carburanti Italia-Svizzera')}
-            </h1>
-            <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-600 dark:text-slate-300 sm:text-base">
-              {tt('fuelPrices.subtitle', 'Confronta i prezzi della benzina nei comuni di confine italiani con le stazioni svizzere vicine e scopri dove conviene fare rifornimento oggi.')}
-            </p>
-          </div>
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-            <div className="rounded-2xl border border-white dark:border-slate-700 bg-white/85 dark:bg-slate-800/85 px-4 py-3">
-              <div className="text-xs font-semibold uppercase tracking-wide text-muted">{tt('fuelPrices.italySnapshot', 'Snapshot Italia')}</div>
-              <div className="mt-1 font-bold text-heading">{formatDate(data.sources.italy.priceSnapshotDate, locale)}</div>
-            </div>
-            <div className="rounded-2xl border border-white dark:border-slate-700 bg-white/85 dark:bg-slate-800/85 px-4 py-3">
-              <div className="text-xs font-semibold uppercase tracking-wide text-muted">{tt('fuelPrices.exchangeRate', 'Cambio CHF/EUR')}</div>
-              <div className="mt-1 font-bold text-heading">1 CHF = {formatMoney(data.sources.exchangeRate.eurPerChf, 'EUR', locale, 4)}</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div className="flex flex-wrap items-baseline gap-x-5 gap-y-1.5 text-sm text-subtle">
-        <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-emerald-600 dark:text-emerald-400">{data.summary.cheaperItalyCount}</span> {tt('fuelPrices.cheaperItalyCount', 'Comuni dove conviene IT')}</span>
-        <span className="hidden sm:inline text-slate-300 dark:text-slate-600" aria-hidden="true">·</span>
-        <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-link">{data.summary.cheaperSwissCount}</span> {tt('fuelPrices.cheaperSwissCount', 'Comuni dove conviene CH')}</span>
-        <span className="hidden sm:inline text-slate-300 dark:text-slate-600" aria-hidden="true">·</span>
-        <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-heading">{data.summary.cheapestItalyMunicipality ? `${data.summary.cheapestItalyMunicipality.municipality}` : '—'}</span> {tt('fuelPrices.bestItalyToday', 'Miglior prezzo Italia')} {data.summary.cheapestItalyMunicipality ? formatMoney(data.summary.cheapestItalyMunicipality.minPriceEur, 'EUR', locale) : ''}</span>
+      return `${row.municipality} ${row.province}`.toLowerCase().includes(q); }); return [...list].sort((a, b) => { if (sortKey === 'name') return municipalityLabel(a).localeCompare(municipalityLabel(b)); if (sortKey === 'italy') return (a.italy.minPriceEur ?? 99) - (b.italy.minPriceEur ?? 99); if (sortKey === 'swiss') return (a.swiss.minPriceEur ?? 99) - (b.swiss.minPriceEur ?? 99); if (sortKey === 'delta') return Math.abs(b.comparison.priceDeltaEur ?? 0) - Math.abs(a.comparison.priceDeltaEur ?? 0); return (b.comparison.saving50LEur ?? -1) - (a.comparison.saving50LEur ?? -1); }); }, [data, province, search, sortKey]); const selected = useMemo(() => { if (!selectedKey) return null; return rows.find((row) => municipalityKey(row) === selectedKey) || null; }, [rows, selectedKey]); const homeMunicipality = useMemo(() => { return (data?.municipalities || []).find((row) => municipalityKey(row) === homeMunicipalityKey) || null; }, [data, homeMunicipalityKey]); const personalizedRecommendation = useMemo(() => { if (!homeMunicipality) return null; return buildPersonalizedOption(homeMunicipality, tankLiters, costPerKmEur); }, [costPerKmEur, homeMunicipality, tankLiters]); if (loading) { return ( <div className="rounded-3xl border border-edge dark:border-slate-800 bg-surface/80 p-8 flex items-center justify-center gap-3 text-slate-600 dark:text-slate-300"> <Loader2 className="animate-spin" size={20} /> <span>{tt('fuelPrices.loading', 'Caricamento prezzi carburanti...')}</span> </div> ); } if (error || !data) { return ( <div className="rounded-3xl border border-red-200 dark:border-red-800 bg-red-50 dark:bg-red-900/30 p-6 text-red-800 dark:text-red-300"> <h2 className="font-bold text-lg">{tt('fuelPrices.errorTitle', 'Impossibile caricare i dati carburanti')}</h2> <p className="text-sm mt-2">{error || tt('fuelPrices.errorBody', 'Il dataset non e disponibile al momento.')}</p> </div> ); } return ( <div className="space-y-6"> <section className="rounded-[2rem] border border-orange-200/70 dark:border-orange-800/40 bg-gradient-to-br from-orange-50 via-white to-blue-50 dark:from-orange-950/40 dark:via-slate-900 dark:to-blue-950/40 p-5 sm:p-8"> <div className="flex flex-col gap-5 xl:flex-row xl:items-end xl:justify-between"> <div className="max-w-3xl"> <div className="inline-flex items-center gap-2 rounded-full bg-surface/80 px-3 py-1 text-xs font-semibold text-orange-700 dark:text-orange-300 ring-1 ring-orange-200 dark:ring-orange-700"> <Fuel size={14} /> {tt('fuelPrices.badge', 'Osservatorio carburanti')} </div> <h1 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl"> {tt('fuelPrices.title', 'Prezzi carburanti Italia-Svizzera')} </h1> <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-600 dark:text-slate-300 sm:text-base"> {tt('fuelPrices.subtitle', 'Confronta i prezzi della benzina nei comuni di confine italiani con le stazioni svizzere vicine e scopri dove conviene fare rifornimento oggi.')} </p> </div> <div className="grid grid-cols-1 gap-3 sm:grid-cols-2"> <div className="rounded-2xl border border-white bg-surface/85 px-4 py-3"> <div className="text-xs font-semibold uppercase tracking-wide text-muted">{tt('fuelPrices.italySnapshot', 'Snapshot Italia')}</div> <div className="mt-1 font-bold text-heading">{formatDate(data.sources.italy.priceSnapshotDate, locale)}</div> </div> <div className="rounded-2xl border border-white dark:border-slate-700 bg-surface/85 px-4 py-3"> <div className="text-xs font-semibold uppercase tracking-wide text-muted">{tt('fuelPrices.exchangeRate', 'Cambio CHF/EUR')}</div> <div className="mt-1 font-bold text-heading">1 CHF = {formatMoney(data.sources.exchangeRate.eurPerChf, 'EUR', locale, 4)}</div> </div> </div> </div> </section> <div className="flex flex-wrap items-baseline gap-x-5 gap-y-1.5 text-sm text-subtle"> <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-emerald-600 dark:text-emerald-400">{data.summary.cheaperItalyCount}</span> {tt('fuelPrices.cheaperItalyCount', 'Comuni dove conviene IT')}</span> <span className="hidden sm:inline text-slate-300 dark:text-slate-600" aria-hidden="true">·</span> <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-link">{data.summary.cheaperSwissCount}</span> {tt('fuelPrices.cheaperSwissCount', 'Comuni dove conviene CH')}</span> <span className="hidden sm:inline text-slate-300 dark:text-slate-600" aria-hidden="true">·</span> <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-heading">{data.summary.cheapestItalyMunicipality ? `${data.summary.cheapestItalyMunicipality.municipality}` : '—'}</span> {tt('fuelPrices.bestItalyToday', 'Miglior prezzo Italia')} {data.summary.cheapestItalyMunicipality ? formatMoney(data.summary.cheapestItalyMunicipality.minPriceEur, 'EUR', locale) : ''}</span>
         <span className="hidden sm:inline text-slate-300 dark:text-slate-600" aria-hidden="true">·</span>
         <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-heading">{data.summary.cheapestSwissStation ? data.summary.cheapestSwissStation.name : '—'}</span> {tt('fuelPrices.bestSwissToday', 'Miglior prezzo Svizzera')} {data.summary.cheapestSwissStation ? `${formatMoney(data.summary.cheapestSwissStation.sp95PriceChf, 'CHF', locale)}` : ''}</span>
       </div>

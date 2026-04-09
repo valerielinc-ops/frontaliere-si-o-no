@@ -308,12 +308,12 @@ const ParentalLeaveCalculator: React.FC<ParentalLeaveProps> = ({ userProfile }) 
         </h4>
         <p className="text-sm text-teal-700 dark:text-teal-300 mb-3">{t('leave.frontaliereDesc')}</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
-          <div className="bg-white/60 dark:bg-slate-800/60 rounded-lg p-3">
+          <div className="bg-surface/60 rounded-lg p-3">
             <p className="text-muted">{t('leave.chIPG')}</p>
             <p className="font-bold text-lg">{fmt(chResult.totalAllowance, 'CHF')}</p>
             <p className="text-xs text-muted">≈ {fmt(totalFrontaliereEUR)}</p>
           </div>
-          <div className="bg-white/60 dark:bg-slate-800/60 rounded-lg p-3">
+          <div className="bg-surface/60 rounded-lg p-3">
             <p className="text-muted">{t('leave.monthlySalaryLoss')}</p>
             <p className="font-bold text-lg text-amber-600 dark:text-amber-400">-{fmt(grossMonthlyCHF - chResult.maxMonthly / (leaveType === 'maternity' ? 3.5 : 1), 'CHF')}</p>
             <p className="text-xs text-muted">{t('leave.vsFullSalary')}</p>

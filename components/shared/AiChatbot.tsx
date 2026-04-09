@@ -862,7 +862,7 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
 
           {/* Soft-auth gate: appears only when user tries to send while logged out */}
           {authGateOpen && !canChat && (
-            <div className="absolute left-0 right-0 top-[56px] bottom-0 z-20 bg-white/95 dark:bg-slate-900/95 p-4 overflow-y-auto">
+            <div className="absolute left-0 right-0 top-[56px] bottom-0 z-20 bg-surface/95 p-4 overflow-y-auto">
               <div className="max-w-sm mx-auto">
                 <div className="flex justify-end mb-1">
                   <button

@@ -12,7 +12,7 @@ const BUILD_DATE_ISO = new Date().toISOString();
 
 const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   'blog-stipendio-netto-2026': {
-    title: 'Stipendio Netto Frontaliere 2026 | Calcolo Completo | Frontaliere Ticino',
+    title: 'Stipendio Netto Frontaliere 2026 | Frontaliere Ticino',
     description: 'Calcolo stipendio netto frontaliere 2026: deduzioni AVS, LPP, imposta alla fonte, IRPEF italiana e nuovo accordo fiscale. Esempi pratici e simulatore.',
     keywords: 'stipendio netto frontaliere 2026, calcolo stipendio svizzera, deduzioni avs lpp, imposta alla fonte ticino, nuovo accordo fiscale frontalieri, stipendio lordo netto svizzera',
     ogTitle: 'Stipendio Netto Frontaliere 2026 | Calcolo Completo',
@@ -38,7 +38,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
 
 
   'blog-lamal-vs-cmi': {
-    title: 'LAMal vs CMI Frontaliere | Quale Assicurazione Sanitaria Scegliere',
+    title: 'LAMal vs CMI Frontaliere | Quale Assicurazione Sanitaria',
     description: 'Confronto dettagliato LAMal svizzera vs CMI/SSN italiano per frontalieri: costi, copertura, diritto di opzione, pro e contro. Guida alla scelta con calcolatore premi.',
     keywords: 'lamal frontaliere, cmi frontaliere, assicurazione sanitaria frontaliere, diritto opzione lamal, cassa malati svizzera, ssn frontaliere, confronto lamal cmi',
     ogTitle: 'LAMal vs CMI | Assicurazione Sanitaria Frontaliere',
@@ -63,7 +63,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-primo-giorno-frontaliere': {
-    title: 'Primo Giorno da Frontaliere | Checklist Completa | Frontaliere Ticino',
+    title: 'Primo Giorno da Frontaliere | Frontaliere Ticino',
     description: 'Checklist completa per il primo giorno di lavoro in Svizzera: documenti, permesso G, dogana, conto bancario, consigli pratici. Preparati al meglio.',
     keywords: 'primo giorno frontaliere, checklist frontaliere, documenti lavoro svizzera, permesso g primo giorno, dogana primo giorno, consigli frontaliere',
     ogTitle: 'Primo Giorno da Frontaliere | Checklist Completa',
@@ -88,7 +88,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-tredicesima-frontaliere': {
-    title: 'Tredicesima Frontaliere Netta | Come Calcolarla | Frontaliere Ticino',
+    title: 'Tredicesima Frontaliere Netta | Frontaliere Ticino',
     description: 'Calcolo tredicesima netta per frontalieri in Svizzera: deduzioni AVS, LPP, imposta alla fonte. Differenze con la tredicesima italiana, impatto IRPEF.',
     keywords: 'tredicesima frontaliere, tredicesima netta svizzera, 13esima mensilità frontaliere, deduzioni tredicesima, calcolo tredicesima netta',
     ogTitle: 'Tredicesima Frontaliere Netta | Come Calcolarla',
@@ -113,7 +113,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-pilastro-3a-frontaliere': {
-    title: 'Terzo Pilastro 3a Frontaliere | Conviene? | Frontaliere Ticino',
+    title: 'Terzo Pilastro 3a Frontaliere | Frontaliere Ticino',
     description: 'Il terzo pilastro 3a per frontalieri: vantaggi fiscali, massimale 2026 CHF 7.258, alternative italiane, fondo pensione vs ETF. Analisi completa con simulatore.',
     keywords: 'terzo pilastro frontaliere, pilastro 3a frontaliere, previdenza privata svizzera, massimale 3a 2026, fondo pensione frontaliere, investimenti frontaliere',
     ogTitle: 'Terzo Pilastro 3a Frontaliere | Conviene?',
@@ -138,7 +138,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-comuni-migliori-frontalieri': {
-    title: 'Migliori Comuni per Frontalieri 2026 | Classifica | Frontaliere Ticino',
+    title: 'Migliori Comuni per Frontalieri 2026 | Frontaliere Ticino',
     description: 'Classifica dei migliori comuni italiani per frontalieri: affitti, IRPEF comunale, distanza dal confine, servizi. Top 10 comuni con simulatore di residenza.',
     keywords: 'migliori comuni frontalieri, dove vivere frontaliere, comuni frontiera italia svizzera, affitti comuni frontiera, irpef comunale frontaliere, comuni como varese',
     ogTitle: 'Migliori Comuni per Frontalieri 2026 | Classifica',
@@ -163,7 +163,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-costo-vita-ticino-vs-lombardia': {
-    title: 'Costo della Vita Ticino vs Lombardia | Confronto 2026 | Frontaliere Ticino',
+    title: 'Costo della Vita Ticino vs Lombardia | Frontaliere Ticino',
     description: 'Confronto costo della vita Ticino vs Lombardia 2026: affitti, spesa alimentare, trasporti, sanità, bollette. Quanto costa vivere in Svizzera vs Italia per un frontaliere.',
     keywords: 'costo vita ticino, costo vita lombardia, confronto svizzera italia costi, affitti lugano como, spesa svizzera italia, trasporti frontaliere costi',
     ogTitle: 'Costo della Vita Ticino vs Lombardia 2026',
@@ -213,7 +213,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-casa-oltre-confine-ticino': {
-    title: 'Comprare Casa in Italia dal Ticino: Conviene? | Frontaliere Ticino',
+    title: 'Comprare Casa in Italia dal Ticino | Frontaliere Ticino',
     description: 'Sempre più ticinesi comprano casa in Italia per i prezzi proibitivi. Scopri vantaggi, sfide e confronta il costo della vita tra Ticino e Lombardia.',
     keywords: 'comprare casa italia, frontaliere ticino, immobiliare confine, costo vita ticino, prezzi case lombardia, pendolare svizzera italia, trasferirsi italia',
     ogTitle: 'Comprare Casa in Italia: Quando il Ticino è Troppo Caro',
@@ -238,7 +238,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-franco-forte-stipendio-frontalieri': {
-    title: 'Franco Forte: Impatto sul Stipendio Frontalieri 2026 | Frontaliere Ticino',
+    title: 'Franco Forte: Impatto sul Stipendio | Frontaliere Ticino',
     description: 'Il franco svizzero si rafforza sull\'euro: scopri come il tasso di cambio CHF-EUR incide sullo stipendio netto dei frontalieri in Ticino.',
     keywords: 'franco forte, cambio CHF EUR, stipendio frontalieri, tasso cambio 2026, franco svizzero euro, frontalieri ticino stipendio, conversione franchi euro',
     ogTitle: 'Franco Forte: Come Cambia lo Stipendio dei Frontalieri',
@@ -263,7 +263,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-cu-2026-novita-frontalieri': {
-    title: 'CU 2026 e Frontalieri: Scadenze e Novità | Frontaliere Ticino',
+    title: 'CU 2026 e Frontalieri: Scadenze e | Frontaliere Ticino',
     description: 'CU 2026: scadenze, telelavoro (25%), 45 giorni senza rientro. Cosa cambia per i frontalieri ticinesi? Scoprilo subito!',
     keywords: 'frontalieri, ticino, CU 2026, certificazione unica, telelavoro, accordo italia svizzera, franchigia fiscale, scadenze fiscali',
     ogTitle: 'CU 2026: Cosa cambia per i Frontalieri?',
@@ -294,7 +294,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-telelavoro-italia-svizzera-ratifica': {
-    title: 'Telelavoro Italia-Svizzera: accordo ratificato | Frontaliere Ticino',
+    title: 'Telelavoro Italia-Svizzera: accordo | Frontaliere Ticino',
     description: 'Accordo telelavoro Italia-Svizzera ratificato: cosa cambia per i frontalieri del Ticino? Fino al 25% da casa senza impatto fiscale.',
     keywords: 'frontalieri, ticino, telelavoro, italia, svizzera, accordo, fiscale, imposizione',
     ogTitle: 'Telelavoro: Italia-Svizzera, accordo OK!',
@@ -325,7 +325,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-telelavoro-accordo-definitivo-italia': {
-    title: 'Accordo Telelavoro Frontalieri Italia-Svizzera: Ratifica Definitiva | Frontaliere Ticino',
+    title: 'Accordo Telelavoro Frontalieri | Frontaliere Ticino',
     description: 'Approvazione finale dall\'Italia per l\'accordo sul telelavoro per frontalieri in Ticino. Scopri le regole sul 40%, le implicazioni fiscali e cosa cambia dal 2026.',
     keywords: 'telelavoro frontalieri, accordo italia svizzera, ratifica telelavoro, frontalieri ticino, smart working, fiscalità frontalieri, lavoro da casa',
     ogTitle: 'Telelavoro Frontalieri: L\'Italia dice SÌ. Ecco le nuove regole',
@@ -356,7 +356,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-stop-ristorni-tassa-salute': {
-    title: 'Stop Ristorni per Tassa Salute: Mozione in Ticino | Frontaliere Ticino',
+    title: 'Stop Ristorni per Tassa Salute: Mozione | Frontaliere Ticino',
     description: 'Una mozione interpartitica in Ticino chiede di sospendere i ristorni fiscali all\'Italia a causa della tassa sulla salute, violazione dell\'accordo frontalieri.',
     keywords: 'tassa salute frontalieri, stop ristorni, accordo fiscale italia svizzera, mozione ticino, frontalieri ticino, imposta alla fonte, doppio imposizione',
     ogTitle: 'Tassa Salute: il Ticino pronto a bloccare i soldi per l\'Italia',
@@ -387,7 +387,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-cu-telelavoro-regole-frontalieri': {
-    title: 'Frontalieri: Regole Telelavoro e 45 Giorni | Frontaliere Ticino',
+    title: 'Frontalieri: Regole Telelavoro e 45 | Frontaliere Ticino',
     description: 'Guida completa alle nuove regole per i frontalieri: telelavoro al 25%, 45 giorni di non rientro e franchigia a 10.000€. Scadenze CU 2026 e consigli pratici.',
     keywords: 'frontalieri, ticino, telelavoro svizzera, accordo fiscale italia svizzera, cu 2026, franchigia 10000 euro, 45 giorni non rientro, tassazione frontalieri',
     ogTitle: 'Telelavoro al 25% e 45 giorni extra: le nuove regole d\'oro per i frontalieri',
@@ -418,7 +418,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-smood-chiusura-impatto-lavoro': {
-    title: 'Smood Chiude in Ticino: Impatto sul Lavoro | Frontaliere Ticino',
+    title: 'Smood Chiude in Ticino: Impatto sul | Frontaliere Ticino',
     description: 'Smood SA cessa le attività dal 30 aprile 2026. Scopri le conseguenze per i lavoratori in Ticino, i dettagli del piano sociale e i diritti dei frontalieri.',
     keywords: 'smood chiude, lavoro ticino, frontalieri, licenziamento collettivo, syndicom, piano sociale, mercato lavoro ticino, delivery',
     ogTitle: 'Smood chiude in Ticino: cosa succede ora ai lavoratori?',
@@ -449,7 +449,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-disoccupazione-svizzera-ticino-gennaio': {
-    title: 'Disoccupazione Svizzera Gennaio 2026: Dati Ticino | Frontaliere Ticino',
+    title: 'Disoccupazione Svizzera Gennaio 2026 | Frontaliere Ticino',
     description: 'Analisi completa dei dati SECO sulla disoccupazione di gennaio 2026 in Svizzera e Ticino (3.3%). Impatto su frontalieri, settori in crisi e problemi tecnici.',
     keywords: 'disoccupazione svizzera, lavoro ticino, frontalieri, seco, mercato del lavoro, stipendio ticino, edilizia svizzera, ristorazione ticino',
     ogTitle: 'Mercato del Lavoro Svizzero: Segnali Contrastanti a Gennaio',
@@ -480,7 +480,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-riscaldamento-casa-ticino-norme': {
-    title: 'Riscaldamento Casa Ticino: Risparmiare con le Nuove Norme | Frontaliere Ticino',
+    title: 'Riscaldamento Casa Ticino: Risparmiare | Frontaliere Ticino',
     description: 'Le nuove norme energetiche RUEn 2026 in Ticino rendono obsoleti molti impianti. Scopri come una consulenza gratuita può tagliare le bollette per i frontalieri.',
     keywords: 'riscaldamento ticino, pompa di calore, norme energetiche RUEn, frontalieri proprietari casa, risparmio energetico, Christian Bernasconi, Calor Tech, bollette ticino',
     ogTitle: 'Bollette del riscaldamento troppo alte? La soluzione in Ticino',
@@ -511,7 +511,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-sostituzione-caldaia-ticino-2026': {
-    title: 'Sostituzione Caldaia Ticino: Norme 2026 e Risparmio | Frontaliere Ticino',
+    title: 'Sostituzione Caldaia Ticino: Norme 2026 | Frontaliere Ticino',
     description: 'Le normative energetiche (RUEn) in Ticino cambiano nel 2026. Se il tuo impianto ha più di 15 anni, scopri se conviene sostituirlo e come risparmiare in bolletta.',
     keywords: 'sostituzione caldaia ticino, pompa di calore ticino, norme energetiche RUEn, incentivi riscaldamento, risparmio energetico, frontalieri ticino, calor tech',
     ogTitle: 'La tua caldaia in Ticino ha più di 15 anni? Attenzione alle nuove norme 2026',
@@ -542,7 +542,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-hic-sunt-leones-confini-ticino': {
-    title: 'Mostra \'Hic Sunt Leones\': i confini svizzeri visti dai frontalieri | Frontaliere Ticino',
+    title: 'Mostra \'Hic Sunt Leones\': i confini | Frontaliere Ticino',
     description: 'Scopri la mostra fotografica \'Hic Sunt Leones\' di Gabriele Spalluto sui 175 valichi svizzeri. Un\'analisi del confine per i frontalieri che lavorano in Ticino.',
     keywords: 'frontalieri, ticino, mostra fotografica, confine svizzera, valichi di confine, Gabriele Spalluto, hic sunt leones, lavoro in svizzera',
     ogTitle: 'I 175 volti del confine: una mostra che parla ai frontalieri',
@@ -600,7 +600,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-carnevale-bambini-lugano-2026': {
-    title: 'Carnevale 2026 Lugano: laboratori per figli di frontalieri | Frontaliere Ticino',
+    title: 'Carnevale 2026 Lugano: laboratori per | Frontaliere Ticino',
     description: 'Scopri i laboratori creativi per bambini (4-11 anni) al Museo in erba di Lugano dal 16 al 20 febbraio 2026. Un\'idea per le famiglie frontaliere durante le vacanze.',
     keywords: 'frontalieri, ticino, bambini lugano, vacanze carnevale 2026, museo in erba, laboratori creativi, famiglie frontalieri, attività bambini ticino',
     ogTitle: 'Vacanze di Carnevale 2026: cosa fare con i figli in Ticino?',
@@ -658,7 +658,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-arte-anima-ticino-frontalieri': {
-    title: 'Mostra Arte Ticino: Sentimento e Osservazione al LAC | Frontaliere Ticino',
+    title: 'Mostra Arte Ticino: Sentimento e | Frontaliere Ticino',
     description: 'Scopri la mostra \'Sentimento e osservazione\' al MASI di Lugano (2025-2026). Un\'analisi dell\'arte e dell\'identità ticinese, perfetta per i frontalieri.',
     keywords: 'mostra arte ticino, frontalieri, lac lugano, masi lugano, sentimento e osservazione, cultura ticino, cosa fare lugano',
     ogTitle: 'Oltre il Lavoro: L\'Arte che Svela la Vera Anima del Ticino',
@@ -716,7 +716,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-arca-russa-chiasso-cultura-frontaliere': {
-    title: 'Arca Russa a Chiasso: evento culturale per frontalieri | Frontaliere Ticino',
+    title: 'Arca Russa a Chiasso: evento culturale | Frontaliere Ticino',
     description: 'Il 18 febbraio 2026, il Cinema Teatro di Chiasso proietta \'Arca Russa\' di Sokurov. Scopri i dettagli di questo evento culturale imperdibile per i frontalieri.',
     keywords: 'arca russa chiasso, cinema chiasso, eventi culturali ticino, frontalieri como, frontalieri varese, cultura mendrisiotto, sokurov',
     ogTitle: 'Un capolavoro del cinema a due passi dal confine: Arca Russa a Chiasso',
@@ -774,7 +774,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-rsi-mostra-storia-ticino': {
-    title: 'Mostra RSI: la storia del Ticino in foto per i frontalieri | Frontaliere Ticino',
+    title: 'Mostra RSI: la storia del Ticino in | Frontaliere Ticino',
     description: 'Scopri la mostra gratuita \'Una Storia\' di RSI ad Airolo dal 16 al 22 febbraio. Un viaggio fotografico nella Svizzera italiana dagli anni \'60 ai 2000. Info e date.',
     keywords: 'mostra fotografica ticino, rsi eventi, storia svizzera italiana, frontalieri cultura, caseificio gottardo airolo, eventi gratuiti ticino, leventina, airolo',
     ogTitle: 'Un viaggio nel tempo in Ticino: la mostra gratuita della RSI che ogni frontaliere dovrebbe vedere',
@@ -832,7 +832,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-carnevale-bambini-lugano-tinguely': {
-    title: 'Vacanze Carnevale 2026 in Ticino: laboratori per bambini | Frontaliere Ticino',
+    title: 'Vacanze Carnevale 2026 in Ticino | Frontaliere Ticino',
     description: 'Scopri i laboratori creativi per bambini (4-11 anni) al Museo in erba di Lugano durante le vacanze di Carnevale, dal 16 al 20 febbraio 2026. Info e costi.',
     keywords: 'carnevale bambini ticino, laboratori creativi lugano, vacanze scolastiche, frontalieri figli, museo in erba, attività famiglie ticino, jean tinguely',
     ogTitle: 'Figli a casa per Carnevale? A Lugano laboratori d\'arte a 20 CHF',
@@ -890,7 +890,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-daniela-rebuzzi-mostra-caslano': {
-    title: 'Mostra Daniela Rebuzzi a Caslano: Arte in Ticino | Frontaliere Ticino',
+    title: 'Mostra Daniela Rebuzzi a Caslano: Arte | Frontaliere Ticino',
     description: 'Scopri la mostra \'TRA-S-PARENZE\' dell\'artista ticinese Daniela Rebuzzi a Caslano, dal 16 gennaio al 26 aprile 2026. Info, orari e significato per i frontalieri.',
     keywords: 'mostra arte ticino, daniela rebuzzi, caslano eventi, frontalieri tempo libero, cultura ticino, cosa fare lugano, arte contemporanea, malcantone',
     ogTitle: 'Un\'artista ticinese di fama mondiale espone a Caslano: da non perdere',
@@ -948,7 +948,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-corpi-in-prestito-arte-agno': {
-    title: 'Corpi in Prestito: Mostra d\'Arte a Agno per Frontalieri | Frontaliere Ticino',
+    title: 'Corpi in Prestito: Mostra d\'Arte a Agno | Frontaliere Ticino',
     description: 'Scopri la mostra "Corpi in prestito" di Gloria Guidi Nobile a Serocca d\'Agno. Un\'opportunità culturale in Ticino, aperta fino a dicembre 2026.',
     keywords: 'arte ticino, mostra agno, gloria guidi nobile, corpi in prestito, cultura frontalieri, tempo libero ticino, eventi luganese',
     ogTitle: 'Oltre il lavoro: una mostra a Agno che fa riflettere',
@@ -1006,7 +1006,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-rsi-storia-svizzera-italiana-mostra': {
-    title: 'Mostra RSI ad Airolo: la storia del Ticino in foto | Frontaliere Ticino',
+    title: 'Mostra RSI ad Airolo: la storia del | Frontaliere Ticino',
     description: 'Scopri la mostra gratuita "Una Storia" della RSI ad Airolo, dal 16 al 22 febbraio 2026. Un viaggio nella storia del Ticino attraverso foto d\'archivio.',
     keywords: 'mostra RSI Ticino, frontalieri, cultura Ticino, storia Svizzera italiana, evento Airolo, fotografia archivio RSI, Caseificio Gottardo',
     ogTitle: 'RSI in mostra: un viaggio gratuito nella storia del Ticino ad Airolo',
@@ -1064,7 +1064,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-rauschenberg-arte-mendrisiotto': {
-    title: 'Mostra Rauschenberg a Bruzella: arte gratuita nel Mendrisiotto | Frontaliere Ticino',
+    title: 'Mostra Rauschenberg a Bruzella: arte | Frontaliere Ticino',
     description: 'Scopri la mostra gratuita \'Began with Rauschenberg\' alla Fondazione Rolla di Bruzella (Mendrisiotto), dall\'8 novembre 2025. Un evento culturale per frontalieri.',
     keywords: 'mostra arte ticino, rauschenberg bruzella, fondazione rolla, mendrisiotto eventi, cosa fare ticino frontalieri, arte gratuita svizzera, valle di muggio',
     ogTitle: 'Rauschenberg in Ticino: una mostra gratuita a due passi dall\'Italia',
@@ -1122,7 +1122,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-nakba-mostra-giubiasco-ticino': {
-    title: 'Mostra Nakba a Giubiasco: arte e riflessione in Ticino | Frontaliere Ticino',
+    title: 'Mostra Nakba a Giubiasco: arte e | Frontaliere Ticino',
     description: 'La Galleria Job di Giubiasco ospita la mostra \'Collettiva Nakba\' dal 25/01 al 19/02/2026. Un\'occasione di riflessione culturale per i frontalieri in Ticino.',
     keywords: 'mostra ticino, eventi culturali giubiasco, galleria job, nakba, frontalieri, arte bellinzona, tempo libero ticino',
     ogTitle: 'A Giubiasco una mostra che scuote le coscienze: \'Nakba\'',
@@ -1180,7 +1180,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-de-andre-anime-salve-locarno': {
-    title: 'De André a Locarno: Conferenza su Anime Salve | Frontaliere Ticino',
+    title: 'De André a Locarno: Conferenza su Anime | Frontaliere Ticino',
     description: 'Il 19 febbraio 2026, conferenza gratuita a Muralto sull\'ultimo album di Fabrizio De André, \'Anime salve\'. Un\'analisi per frontalieri e amanti della cultura.',
     keywords: 'fabrizio de andré, anime salve, locarno, frontalieri, ticino, cultura ticino, eventi gratuiti, palazzo congressi muralto',
     ogTitle: 'De André a Locarno: Serata Gratuita sul suo Ultimo Capolavoro',
@@ -1238,7 +1238,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-sentimento-osservazione-masi-lugano': {
-    title: 'Mostra MASI Lugano: capire il Ticino per i frontalieri | Frontaliere Ticino',
+    title: 'Mostra MASI Lugano: capire il Ticino | Frontaliere Ticino',
     description: 'La mostra \'Sentimento e osservazione\' al MASI di Lugano esplora l\'identità del Ticino. Una guida per frontalieri per capire la cultura del cantone dove lavorano.',
     keywords: 'mostra arte lugano, masi lugano, frontalieri ticino, cultura ticino, lac lugano, sentimento e osservazione, lavorare in ticino, arte svizzera italiana',
     ogTitle: 'L\'arte che spiega il Ticino: la nuova mostra al MASI di Lugano',
@@ -1296,7 +1296,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-rsi-archivio-gottardo-2026': {
-    title: 'RSI Mostra "Una Storia": Foto d\'Archivio ad Airolo | Frontaliere Ticino',
+    title: 'RSI Mostra "Una Storia": Foto | Frontaliere Ticino',
     description: 'Scopri la mostra fotografica gratuita della RSI ad Airolo, dal 16 al 22 febbraio 2026. Un viaggio nella storia della Svizzera italiana dagli anni \'60 ai 2000.',
     keywords: 'mostra ticino, rsi una storia, eventi airolo, frontalieri cultura, caseificio gottardo, fotografia archivio, svizzera italiana, storia ticino',
     ogTitle: 'Il Ticino si racconta in 60 anni di foto: mostra gratuita RSI ad Airolo',
@@ -1354,7 +1354,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-carnevale-blenio-chiescia-bosc': {
-    title: 'Carnevale Chièscia Bòsc 2026 in Valle di Blenio | Frontaliere Ticino',
+    title: 'Carnevale Chièscia Bòsc 2026 in Valle | Frontaliere Ticino',
     description: 'Scopri il programma completo del Carnevale Chièscia Bòsc a Ludiano, dal 19 al 21 febbraio 2026. Gastronomia, musica e ballo in maschera in Valle di Blenio.',
     keywords: 'carnevale ticino 2026, carnevale chièscia bòsc, ludiano, valle di blenio, eventi frontalieri, tradizioni ticinesi, serravalle, feste ticino',
     ogTitle: 'Carnevale 2026 in Valle di Blenio: 3 giorni di festa a Ludiano',
@@ -1412,7 +1412,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-tf-permesso-integrazione-ticino': {
-    title: 'Permesso B in Ticino: Sentenza TF sull\'integrazione | Frontaliere Ticino',
+    title: 'Permesso B in Ticino: Sentenza TF | Frontaliere Ticino',
     description: 'Il Tribunale Federale dà ragione a due stranieri contro il Canton Ticino, definendo la loro integrazione \'riuscita\'. Scopri cosa significa per i frontalieri.',
     keywords: 'permesso b ticino, integrazione stranieri svizzera, tribunale federale, sezione popolazione ticino, frontalieri, permesso di dimora, ricorso permesso',
     ogTitle: 'Permesso B negato in Ticino? Il Tribunale Federale ribalta tutto',
@@ -1441,7 +1441,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-tassazione-individuale-lavoro-ticino': {
-    title: 'Tassazione Individuale Svizzera: Impatto Lavoro in Ticino | Frontaliere Ticino',
+    title: 'Tassazione Individuale Svizzera | Frontaliere Ticino',
     description: 'La riforma sull\'imposizione individuale potrebbe creare 16.000 nuovi posti di lavoro in Svizzera. Scopri cosa cambia per i frontalieri in Ticino e la concorrenza.',
     keywords: 'tassazione individuale svizzera, frontalieri ticino, lavoro ticino, imposizione individuale, riforma fiscale 2026, mercato del lavoro svizzero, concorrenza frontalieri',
     ogTitle: 'Riforma Fiscale Svizzera: 16\'000 Nuovi Posti di Lavoro in Arrivo?',
@@ -1470,7 +1470,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-ristorni-scontro-gobbi-berna': {
-    title: 'Ristorni Frontalieri a Rischio: Scontro Ticino-Berna | Frontaliere Ticino',
+    title: 'Ristorni Frontalieri a Rischio: Scontro | Frontaliere Ticino',
     description: 'Il Ticino minaccia di bloccare i ristorni per la tassa salute italiana. Berna frena: sarebbe una violazione. Analisi completa sulla disputa fiscale e le conseguenze.',
     keywords: 'ristorni frontalieri, tassa salute, norman gobbi, accordo fiscale italia svizzera, blocco ristorni, ticino, frontalieri',
     ogTitle: 'Ristorni a Rischio? Il Ticino Minaccia il Blocco, ma Berna Dice No',
@@ -1499,7 +1499,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-pendolarismo-affitto-tempo-ticino': {
-    title: 'Affitto e Pendolarismo: il Costo del Tempo per i Frontalieri | Frontaliere Ticino',
+    title: 'Affitto e Pendolarismo: il Costo del | Frontaliere Ticino',
     description: 'Un sondaggio svela che il 75% degli svizzeri non allunga il tragitto per un affitto basso. Analisi del dilemma tempo vs. denaro per i frontalieri in Ticino.',
     keywords: 'pendolarismo ticino, affitto frontalieri, costo vita frontaliere, comparis sondaggio, lavoro ticino, stipendio frontaliere, brogeda traffico, tempo vs denaro',
     ogTitle: 'Vale la pena passare ore in coda? Il vero costo del pendolarismo',
@@ -1528,7 +1528,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-centrodestra-stop-ristorni-2026': {
-    title: 'Stop Ristorni Frontalieri: il Ticino contro la Tassa Salute | Frontaliere Ticino',
+    title: 'Stop Ristorni Frontalieri: il Ticino | Frontaliere Ticino',
     description: 'Il centrodestra ticinese chiede la sospensione dei ristorni fiscali all\'Italia. La mossa è una risposta alla "tassa sulla salute", vista come violazione dell\'accordo.',
     keywords: 'ristorni frontalieri, tassa salute, accordo fiscale svizzera italia, frontalieri ticino, plr, lega, centro, udc, tassazione frontalieri',
     ogTitle: 'Scontro Ticino-Italia: Sospesi i Ristorni dei Frontalieri?',
@@ -1557,7 +1557,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-frontalieri-ticino-dati-q4-2025': {
-    title: 'Frontalieri in Ticino: Dati in Calo a Fine 2025 | Frontaliere Ticino',
+    title: 'Frontalieri in Ticino: Dati in Calo a | Frontaliere Ticino',
     description: 'A fine 2025, i frontalieri in Ticino scendono a 78.809 (-1%), in controtendenza con la Svizzera (+1.1%). Analisi delle cause e impatto sul mercato del lavoro.',
     keywords: 'frontalieri, ticino, lavoro svizzera, permesso g, dati statistici, calo frontalieri, economia ticino, accordo fiscale',
     ogTitle: 'Frontalieri in Ticino: Perché il numero sta calando?',
@@ -1586,7 +1586,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-calo-entrate-irregolari-chiasso': {
-    title: 'Calo Ingressi Irregolari Chiasso: Dati e Impatti | Frontaliere Ticino',
+    title: 'Calo Ingressi Irregolari Chiasso: Dati | Frontaliere Ticino',
     description: 'Gennaio 2026 segna un calo degli ingressi irregolari in Ticino (392 casi). Analisi dei dati UDSC e delle implicazioni per i frontalieri al confine di Chiasso.',
     keywords: 'ingressi irregolari ticino, frontiera chiasso, migranti svizzera, frontalieri, UDSC, sicurezza confine, mendrisiotto, lavoro ticino',
     ogTitle: 'Confine di Chiasso: Crollano gli Ingressi Irregolari. Cosa Cambia?',
@@ -1615,7 +1615,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-frontalieri-salari-polemica-ticino': {
-    title: 'Frontalieri e Salari in Ticino: Analisi della Polemica | Frontaliere Ticino',
+    title: 'Frontalieri e Salari in Ticino: Analisi | Frontaliere Ticino',
     description: 'La polemica sui frontalieri in Ticino si riaccende. Un\'analisi svela il vero problema: l\'impatto sui salari dei residenti e il ruolo delle aziende. Cosa significa per te.',
     keywords: 'frontalieri, ticino, stipendio, polemica, la regione, lavoro confine, dumping salariale, economia ticino',
     ogTitle: 'Frontalieri nel mirino: è solo una questione di numeri o di stipendi?',
@@ -1645,7 +1645,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-ristorni-frontalieri-scontro-ticino-lombardia': {
-    title: 'Ristorni Frontalieri a Rischio: Scontro Ticino-Lombardia | Frontaliere Ticino',
+    title: 'Ristorni Frontalieri a Rischio: Scontro | Frontaliere Ticino',
     description: 'La mozione del Canton Ticino per bloccare i ristorni fiscali ai comuni italiani accende lo scontro. Reazioni dalla Lombardia e il nodo della tassa sulla salute.',
     keywords: 'ristorni frontalieri, tassa salute frontalieri, accordo fiscale italia svizzera, ticino, lombardia, frontalieri, tasse svizzera',
     ogTitle: 'Ristorni Bloccati? Il Ticino Minaccia Roma e la Lombardia Reagisce',
@@ -1675,7 +1675,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-tredicesima-avs-iva-contributi': {
-    title: 'Tredicesima AVS: Aumento IVA e Contributi Salariali | Frontaliere Ticino',
+    title: 'Tredicesima AVS: Aumento IVA e | Frontaliere Ticino',
     description: 'La Commissione degli Stati propone un aumento di 0,3 punti sui salari e 0,4 sull\'IVA per la 13esima AVS. Scopri l\'impatto per i frontalieri in Ticino.',
     keywords: 'tredicesima avs, contributi salariali svizzera, aumento iva svizzera, pensione frontalieri, stipendio netto ticino, finanziamento avs, frontalieri, ticino',
     ogTitle: '13esima AVS: Aumenti su IVA e stipendi. Cosa cambia per te?',
@@ -1705,7 +1705,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-tredicesima-avs-finanziamento-misto': {
-    title: 'Finanziamento 13esima AVS: Aumento Contributi e IVA | Frontaliere Ticino',
+    title: 'Finanziamento 13esima AVS: Aumento | Frontaliere Ticino',
     description: 'La Commissione degli Stati propone un finanziamento misto per la 13esima AVS: più contributi salariali e IVA. Scopri l\'impatto sul tuo stipendio da frontaliere in Ticino.',
     keywords: '13esima avs, finanziamento avs, contributi salariali svizzera, aumento iva svizzera, frontalieri ticino, stipendio netto, pensione svizzera',
     ogTitle: '13esima AVS: prelievi più alti in busta paga. Ecco perché',
@@ -1735,7 +1735,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-tredicesima-avs-finanziamento-scontro': {
-    title: '13esima AVS: Aumento IVA e Contributi? Novità Finanziamento | Frontaliere Ticino',
+    title: '13esima AVS: Aumento IVA e Contributi? | Frontaliere Ticino',
     description: 'La Commissione degli Stati vuole un finanziamento misto per la 13esima AVS da 4,2 mld. Scopri le implicazioni su stipendio e IVA per i frontalieri in Ticino.',
     keywords: '13esima avs, finanziamento avs, contributi salariali svizzera, aumento iva svizzera, frontalieri, ticino, pensione svizzera, stipendio frontaliere',
     ogTitle: '13esima AVS: la tua busta paga e la spesa in Svizzera costeranno di più?',
@@ -1765,7 +1765,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-ristorni-imprese-allarme-ticino': {
-    title: 'Blocco Ristorni e Calo Frontalieri: Allarme Imprese | Frontaliere Ticino',
+    title: 'Blocco Ristorni e Calo Frontalieri | Frontaliere Ticino',
     description: 'Le imprese ticinesi sono preoccupate: il calo di 2.000 frontalieri e lo scontro sui ristorni fiscali minacciano l\'economia. Analisi e impatto per i lavoratori.',
     keywords: 'ristorni frontalieri, tassa salute ticino, calo frontalieri, economia ticino, accordo fiscale svizzera italia, lavoro frontaliere, imprese ticino, aiti',
     ogTitle: 'Ristorni bloccati? Imprese ticinesi lanciano l\'allarme',
@@ -1795,7 +1795,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-denaro-non-dichiarato-dogana-brogeda': {
-    title: 'Trasporto contanti Svizzera-Italia: guida e rischi | Frontaliere Ticino',
+    title: 'Trasporto contanti Svizzera-Italia | Frontaliere Ticino',
     description: 'Fermata con 154\'300€ non dichiarati a Brogeda. Scopri le regole sul trasporto di contanti tra Italia e Svizzera, la soglia di 10\'000 euro e le sanzioni.',
     keywords: 'trasporto contanti svizzera italia, dichiarazione valuta dogana, limite contanti confine, frontalieri, ticino, dogana chiasso, sanzioni valuta, 10000 euro',
     ogTitle: 'Nascosti 150mila euro in auto: le regole che ogni frontaliere deve sapere',
@@ -1825,7 +1825,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-frontalieri-salari-dibattito-ticino': {
-    title: 'Frontalieri e Salari in Ticino: Analisi del Dibattito | Frontaliere Ticino',
+    title: 'Frontalieri e Salari in Ticino: Analisi | Frontaliere Ticino',
     description: 'Il dibattito sui frontalieri in Ticino si riaccende. Analizziamo le cause reali: la pressione sui salari dei residenti e un\'economia in un circolo vizioso.',
     keywords: 'frontalieri, ticino, stipendio, salari, dibattito, economia ticinese, dumping salariale, lavoro confine',
     ogTitle: 'Frontalieri nel mirino? La verità sul dibattito salariale in Ticino',
@@ -1855,7 +1855,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-tredicesima-avs-stipendio-iva': {
-    title: '13esima AVS: Finanziamento Misto tra Stipendio e IVA | Frontaliere Ticino',
+    title: '13esima AVS: Finanziamento Misto tra | Frontaliere Ticino',
     description: 'Scontro a Berna sul finanziamento della 13esima AVS. La Commissione degli Stati propone un mix di aumento contributi salariali e IVA. Cosa cambia per i frontalieri.',
     keywords: '13esima AVS, frontalieri, finanziamento, contributi salariali, IVA, stipendio ticino, pensione svizzera, consiglio degli stati',
     ogTitle: '13esima AVS: Aumento Stipendio o IVA? La Decisione che Tocca il Tuo Portafoglio',
@@ -1885,7 +1885,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-stop-ristorni-mozione-partiti': {
-    title: 'Stop Ristorni per Tassa Salute: Mozione in Ticino | Frontaliere Ticino',
+    title: 'Stop Ristorni per Tassa Salute: Mozione | Frontaliere Ticino',
     description: 'Una mozione di PLR, Centro, UDC e Lega chiede al Ticino di sospendere i ristorni fiscali all\'Italia a causa della nuova tassa sulla salute per i frontalieri.',
     keywords: 'ristorni frontalieri, tassa salute frontalieri, ticino italia, accordo fiscale svizzera italia, sospensione ristorni, politica ticinese, mozione',
     ogTitle: 'Ristorni all\'Italia a Rischio: la Politica Ticinese Fa Fronte Comune',
@@ -1915,7 +1915,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-partiti-ticino-stop-ristorni': {
-    title: 'Stop Ristorni per Tassa Salute Frontalieri: Ticino vs Italia | Frontaliere Ticino',
+    title: 'Stop Ristorni per Tassa Salute | Frontaliere Ticino',
     description: 'La politica ticinese chiede la sospensione dei ristorni all\'Italia a causa della nuova tassa sulla salute per i frontalieri. Analisi della mozione e impatto.',
     keywords: 'ristorni frontalieri, tassa salute frontalieri, ticino, accordo fiscale svizzera italia, sospensione ristorni, frontalieri vecchi, tassazione frontalieri',
     ogTitle: 'Stop ai Ristorni: il Ticino Alza la Voce Contro la Tassa Salute',
@@ -1945,7 +1945,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-conti-federali-aumento-iva-ticino': {
-    title: 'Conti Federali 2025 e Aumento IVA: Impatto su Ticino | Frontaliere Ticino',
+    title: 'Conti Federali 2025 e Aumento IVA | Frontaliere Ticino',
     description: 'I conti della Confederazione chiudono il 2025 in attivo, ma dal 2027 sono previsti tagli e un aumento dell\'IVA. Scopri l\'impatto per i frontalieri in Ticino.',
     keywords: 'conti federali svizzera, aumento IVA svizzera, finanze confederazione, frontalieri ticino, pacchetto sgravio 27, costo vita svizzera, stipendio frontaliere',
     ogTitle: 'Conti Svizzeri in attivo, ma l\'IVA aumenterà: cosa cambia?',
@@ -1975,7 +1975,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-tredicesima-avs-stipendi-iva': {
-    title: '13esima AVS e Stipendio: Meno Netto in Busta Paga? | Frontaliere Ticino',
+    title: '13esima AVS e Stipendio: Meno Netto in | Frontaliere Ticino',
     description: 'La 13esima AVS costerà 4,2 miliardi. Si profila un aumento dei contributi salariali e dell\'IVA. Scopri l\'impatto diretto sul tuo stipendio netto da frontaliere in Ticino.',
     keywords: 'tredicesima avs, finanziamento avs, contributi salariali svizzera, aumento iva svizzera, stipendio netto frontaliere, frontalieri ticino, pensione svizzera',
     ogTitle: '13esima AVS: Aumento Contributi e IVA in Vista. Cosa Cambia per il Tuo Stipendio?',
@@ -2005,7 +2005,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-ristorni-lombardia-reazione': {
-    title: 'Ristorni Frontalieri: la Lombardia contro il blocco | Frontaliere Ticino',
+    title: 'Ristorni Frontalieri: la Lombardia | Frontaliere Ticino',
     description: 'La mozione ticinese per bloccare i ristorni sulla tassa salute provoca la reazione della Lombardia. Politici e sindacati contro l\'escalation.',
     keywords: 'ristorni frontalieri, tassa salute ticino, accordo fiscale italia svizzera, frontalieri ticino, tasse frontalieri, politica confine, lombardia ticino',
     ogTitle: 'Stop ai Ristorni? La Lombardia frena il Ticino: \'Scelta sbagliata\'',
@@ -2035,7 +2035,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-truffa-falso-bancario-ticino': {
-    title: 'Truffa falso bancario in Ticino: allarme per i frontalieri | Frontaliere Ticino',
+    title: 'Truffa falso bancario in Ticino | Frontaliere Ticino',
     description: 'La Polizia Cantonale lancia l\'allarme per un\'ondata di truffe con finti funzionari di banca in Ticino. Scopri come funziona lo spoofing e come proteggere il tuo conto.',
     keywords: 'truffa bancaria ticino, spoofing, frontalieri, sicurezza e-banking, polizia cantonale, truffa telefonica, conto svizzero, protezione dati',
     ogTitle: 'Falso bancario al telefono? L\'allarme della Polizia in Ticino',
@@ -2065,7 +2065,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-dazi-usa-impatto-ticino': {
-    title: 'Dazi USA 10% e Svizzera: impatto sull\'economia del Ticino | Frontaliere Ticino',
+    title: 'Dazi USA 10% e Svizzera: impatto | Frontaliere Ticino',
     description: 'L\'annuncio di dazi USA al 10% mette in allerta Berna. Analizziamo le conseguenze per l\'export ticinese, l\'industria farmaceutica e il lavoro dei frontalieri.',
     keywords: 'dazi usa svizzera, economia ticino, frontalieri, lavoro ticino, export svizzero, trump dazi, industria farmaceutica ticino',
     ogTitle: 'Dazi USA al 10%: cosa rischia l\'economia del Ticino e il tuo lavoro?',
@@ -2095,7 +2095,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-sanita-ticino-tagli-orselina': {
-    title: 'Sanità Ticino: 8 posti a rischio alla Clinica Varini | Frontaliere Ticino',
+    title: 'Sanità Ticino: 8 posti a rischio alla | Frontaliere Ticino',
     description: 'L\'accordo Clinica Varini-Hildebrand causa la perdita di 8 posti nel team fisioterapia. Impatto sul mercato sanitario ticinese per i frontalieri.',
     keywords: 'frontalieri, ticino, lavoro sanità, clinica varini, clinica hildebrand, licenziamenti ticino, fisioterapia, orselina',
     ogTitle: 'Sanità Ticino: accordo tra cliniche, 8 posti a rischio',
@@ -2125,7 +2125,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-dumping-salari-architetti-ticino': {
-    title: 'Dumping Salariale Ticino: Falsi Part-Time | Frontaliere Ticino',
+    title: 'Dumping Salariale Ticino: Falsi | Frontaliere Ticino',
     description: 'Un studio di architettura nel Mendrisiotto accusato di dumping salariale: contratti part-time per lavoro full-time. Scopri come tutelarti e quali sono i tuoi diritti.',
     keywords: 'dumping salariale, frontalieri, ticino, lavoro part-time, studio architettura, diritti lavoratori, commissione paritetica, mendrisiotto',
     ogTitle: 'Lavoro 100%, Pagato 50%: Scandalo Dumping Salariale in Ticino',
@@ -2155,7 +2155,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-tredicesima-avs-finanziamento-contributi': {
-    title: '13a AVS: Come sarà finanziata e l\'impatto sui frontalieri | Frontaliere Ticino',
+    title: '13a AVS: Come sarà finanziata e | Frontaliere Ticino',
     description: 'Il Consiglio federale ha deciso: la 13esima AVS sarà finanziata con un aumento dei contributi dello 0,5% dal 2026. Scopri l\'impatto sul tuo stipendio netto.',
     keywords: 'tredicesima avs, finanziamento avs, contributi sociali svizzera, frontalieri ticino, stipendio netto 2026, pensione svizzera, busta paga frontaliere',
     ogTitle: 'Tredicesima AVS: Aumento contributi in arrivo. Cosa cambia?',
@@ -2185,7 +2185,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-tredicesima-avs-stipendio-trattenute': {
-    title: '13a AVS e Stipendio: Aumento Trattenute per Frontalieri? | Frontaliere Ticino',
+    title: '13a AVS e Stipendio: Aumento Trattenute | Frontaliere Ticino',
     description: 'La Commissione degli Stati propone di finanziare la 13a AVS con aumento IVA e contributi salariali. Scopri l\'impatto diretto sulla busta paga dei frontalieri.',
     keywords: '13esima avs, frontalieri, ticino, contributi salariali, trattenute stipendio, aumento iva, busta paga svizzera, pensione svizzera',
     ogTitle: '13a AVS: la tua busta paga in Ticino potrebbe ridursi',
@@ -2214,7 +2214,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-scambio-dati-polizia-ticino': {
-    title: 'Scambio Dati Polizia Svizzera: Novità per il Ticino | Frontaliere Ticino',
+    title: 'Scambio Dati Polizia Svizzera: Novità | Frontaliere Ticino',
     description: 'Berna avvia la consultazione per la piattaforma POLAP, per unificare i dati delle polizie cantonali. Scopri le implicazioni per la sicurezza in Ticino.',
     keywords: 'polizia cantonale, scambio dati, POLAP, sicurezza ticino, frontalieri, svizzera, protezione dati, criminalità organizzata',
     ogTitle: 'Polizia Ticino: Dati condivisi con l\'Italia prima che con Zurigo?',
@@ -2243,7 +2243,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-tredicesima-avs-finanziamento-misto-proposta': {
-    title: '13esima AVS: Finanziamento con Aumento Stipendi e IVA | Frontaliere Ticino',
+    title: '13esima AVS: Finanziamento con Aumento | Frontaliere Ticino',
     description: 'La Commissione degli Stati propone un finanziamento misto per la 13esima AVS: aumento dei contributi salariali e dell\'IVA. Ecco l\'impatto su stipendi e busta paga.',
     keywords: '13esima AVS, finanziamento, contributi salariali, aumento IVA, frontalieri, ticino, stipendio netto, busta paga svizzera',
     ogTitle: '13esima AVS: Più Trattenute in Busta Paga? Il Piano sul Tavolo',
@@ -2272,7 +2272,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-frontalieri-ticino-dati-ingannevoli': {
-    title: 'Frontalieri in calo in Ticino? I dati che smentiscono la notizia | Frontaliere Ticino',
+    title: 'Frontalieri in calo in Ticino? I dati | Frontaliere Ticino',
     description: 'Analisi dei dati 2025 sui frontalieri in Ticino. Un calo dello 0.2% nasconde un aumento nei settori qualificati come IT e ingegneria. Scopri la vera tendenza.',
     keywords: 'frontalieri, ticino, dati lavoro, permesso g, mercato del lavoro ticino, sostituzione manodopera, statistiche frontalieri, economia ticinese',
     ogTitle: 'Calo dei frontalieri in Ticino? Non è come sembra: i dati settore per settore',
@@ -2302,7 +2302,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-tredicesima-avs-finanziamento-busta-paga': {
-    title: '13esima AVS: Aumento Contributi e IVA in Vista | Frontaliere Ticino',
+    title: '13esima AVS: Aumento Contributi e IVA | Frontaliere Ticino',
     description: 'La Commissione degli Stati propone di finanziare la 13esima AVS con un mix di aumento contributi salariali e IVA. Scopri l\'impatto sul tuo stipendio netto.',
     keywords: 'tredicesima avs, frontalieri, ticino, stipendio netto, contributi salariali, aumento iva, busta paga svizzera, finanziamento avs',
     ogTitle: '13esima AVS: come cambierà la tua busta paga? Aumento trattenute e IVA',
@@ -2332,7 +2332,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-permesso-s-salari-bassi-ticino': {
-    title: 'Permesso S e Salari Bassi: Impatto per Frontalieri in Ticino | Frontaliere Ticino',
+    title: 'Permesso S e Salari Bassi: Impatto per | Frontaliere Ticino',
     description: 'Analisi sull\'integrazione lavorativa dei titolari di Permesso S in Svizzera. Con stipendi medi di 4\'571 CHF, quale impatto per il mercato del lavoro in Ticino?',
     keywords: 'permesso s, stipendi ticino, frontalieri, lavoro ticino, dumping salariale, mercato del lavoro svizzera, ucraini svizzera, salario minimo ticino',
     ogTitle: 'Stipendi Sotto la Media per i Permessi S: Cosa Cambia in Ticino?',
@@ -2362,7 +2362,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-ristorni-reazione-lombardia': {
-    title: 'Ristorni Frontalieri a Rischio: Reazione Lombardia | Frontaliere Ticino',
+    title: 'Ristorni Frontalieri a Rischio | Frontaliere Ticino',
     description: 'La mozione ticinese per bloccare i ristorni fiscali dei frontalieri scatena la reazione della Lombardia. Analisi delle tensioni e delle possibili conseguenze economiche.',
     keywords: 'frontalieri, ristorni, ticino, lombardia, tassa sulla salute, accordo fiscale, tassazione frontalieri, svizzera',
     ogTitle: 'Ristorni Bloccati? La Lombardia Avverte il Ticino: \'Scelta Sbagliata\'',
@@ -2392,7 +2392,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-tredicesima-avs-busta-paga-frontaliere': {
-    title: '13esima AVS Finanziamento: Aumento Contributi e IVA | Frontaliere Ticino',
+    title: '13esima AVS Finanziamento: Aumento | Frontaliere Ticino',
     description: 'La Commissione degli Stati propone di finanziare la 13esima AVS con più contributi salariali e IVA. Scopri l\'impatto sulla busta paga dei frontalieri in Ticino.',
     keywords: '13esima avs, finanziamento avs, contributi salariali svizzera, aumento iva svizzera, frontalieri ticino, stipendio netto frontaliere, busta paga svizzera',
     ogTitle: '13esima AVS: come verrà pagata? La tua busta paga potrebbe cambiare',
@@ -2421,7 +2421,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-acqua-mendrisiotto-prezzi-2026': {
-    title: 'Costo Acqua Mendrisiotto: Aumento del 30% bloccato da Berna | Frontaliere Ticino',
+    title: 'Costo Acqua Mendrisiotto: Aumento del | Frontaliere Ticino',
     description: 'Aumento delle tariffe dell\'acqua nel Basso Mendrisiotto a 1,55 CHF/m³. Scopri come l\'intervento del Sorvegliante dei prezzi ha limitato il rincaro per i residenti.',
     keywords: 'costo acqua ticino, tariffe sibm, aumento bollette mendrisiotto, sorvegliante prezzi svizzera, frontalieri, costo vita ticino, bollette svizzera',
     ogTitle: 'Bollette acqua: Rincaro frenato nel Mendrisiotto. Ecco quanto pagherai',
@@ -2450,7 +2450,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-cooperazione-giudiziaria-svizzera-italia': {
-    title: 'Cooperazione Giudiziaria Svizzera-Italia: Cosa Significa | Frontaliere Ticino',
+    title: 'Cooperazione Giudiziaria | Frontaliere Ticino',
     description: 'L\'accordo post Crans-Montana rafforza la collaborazione giudiziaria tra Italia e Svizzera. Scopri le implicazioni per i frontalieri in Ticino e la sicurezza.',
     keywords: 'cooperazione giudiziaria svizzera italia, frontalieri, ticino, assistenza giudiziaria, rogatoria, confine chiasso, sicurezza transfrontaliera, accordi bilaterali',
     ogTitle: 'Svizzera e Italia più unite nelle indagini: cosa cambia al confine ticinese',
@@ -2479,7 +2479,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-sanita-locarnese-licenziamenti': {
-    title: 'Sanità Ticino: 8 Licenziamenti alla Varini-Hildebrand | Frontaliere Ticino',
+    title: 'Sanità Ticino: 8 Licenziamenti alla | Frontaliere Ticino',
     description: 'Nuova collaborazione tra Clinica Varini e Centro Hildebrand nel Locarnese porta al licenziamento di 8 fisioterapisti. Analisi e impatto sul lavoro.',
     keywords: 'licenziamenti ticino, frontalieri sanità, clinica varini, centro hildebrand, lavoro fisioterapista, crisi lavoro ticino, orselina, brissago',
     ogTitle: 'Doccia fredda nel Locarnese: 8 posti di lavoro persi',
@@ -2508,7 +2508,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-legionellosi-ticino-allarme': {
-    title: 'Allarme Legionellosi in Ticino: Tasso Record in Svizzera | Frontaliere Ticino',
+    title: 'Allarme Legionellosi in Ticino: Tasso | Frontaliere Ticino',
     description: 'Il Canton Ticino registra il tasso più alto di legionellosi in Svizzera (13,9 casi/100k). Scopri le cause, i rischi per la salute e i consigli per i frontalieri.',
     keywords: 'legionellosi ticino, legionella svizzera, frontalieri, sanità ticino, ufsp, rischio batteri, acqua contaminata, lavoro ticino',
     ogTitle: 'Legionellosi: il Ticino ha il tasso più alto di tutta la Svizzera',
@@ -2537,7 +2537,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-prezzi-dinamici-ticino-futuro': {
-    title: 'Prezzi Dinamici in Ticino: Futuro del Commercio o Rischio? | Frontaliere Ticino',
+    title: 'Prezzi Dinamici in Ticino: Futuro del | Frontaliere Ticino',
     description: 'Un\'inchiesta RSI svela i prezzi dinamici in UK. Analizziamo l\'impatto potenziale su spesa, stipendi e potere d\'acquisto per i frontalieri in Ticino.',
     keywords: 'prezzi dinamici, ticino, frontalieri, costo della vita, spesa svizzera, potere d\'acquisto, stipendio frontaliere, rsi patti chiari',
     ogTitle: 'Il prezzo della tua birra in Ticino potrebbe cambiare ogni minuto',
@@ -2566,7 +2566,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-lugano-manifestazioni-regole-polemica': {
-    title: 'Manifestazioni a Lugano: Regole e Trattamento Equo | Frontaliere Ticino',
+    title: 'Manifestazioni a Lugano: Regole e | Frontaliere Ticino',
     description: 'Polemica a Lugano sulla gestione delle manifestazioni. Un evento di destra negato, uno di sinistra non autorizzato tollerato. L\'analisi sui costi e la fiducia.',
     keywords: 'manifestazioni lugano, regole ordine pubblico, frontalieri ticino, polemica politica lugano, parità di trattamento, costi polizia, andrea togni plr',
     ogTitle: 'Doppio Standard a Lugano? Manifestazioni Vietate ad Alcuni, Consentite ad Altri',
@@ -2595,7 +2595,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-addizionale-irpef-mappa-comuni': {
-    title: 'Addizionale IRPEF Comuni di Confine: Mappa Tasse 2026 | Frontaliere Ticino',
+    title: 'Addizionale IRPEF Comuni di Confine | Frontaliere Ticino',
     description: 'Scopri la mappa completa dell\'addizionale comunale IRPEF 2026 per i frontalieri. Confronta le aliquote di Como, Varese e altri comuni e risparmia sul netto.',
     keywords: 'frontaliere tasse comunali, addizionale irpef, comuni confine, residenza fiscale frontalieri, nuovo accordo fiscale, stipendio netto frontaliere, ticino',
     ogTitle: 'Tasse Comunali: La Scelta della Residenza può Farti Risparmiare 500€',
@@ -2624,7 +2624,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-mappa-fiscale-comuni-frontiera': {
-    title: 'Addizionale Comunale IRPEF Comuni Confine: Guida 2026 | Frontaliere Ticino',
+    title: 'Addizionale Comunale IRPEF Comuni | Frontaliere Ticino',
     description: 'La mappa completa delle aliquote 2026 dell\'addizionale comunale IRPEF per frontalieri. Scopri dove pagare meno tasse tra Como e Varese e come incide sul tuo netto.',
     keywords: 'addizionale comunale irpef, frontalieri ticino, tasse comunali, comuni confine, residenza fiscale, nuovo accordo fiscale, stipendio netto frontaliere, como, varese',
     ogTitle: 'Addizionale IRPEF: Dove ti conviene vivere se lavori in Ticino?',
@@ -2682,7 +2682,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-guida-contributi-sociali-svizzera': {
-    title: 'Contributi Sociali Svizzera: Guida Busta Paga Frontalieri | Frontaliere Ticino',
+    title: 'Contributi Sociali Svizzera: Guida | Frontaliere Ticino',
     description: 'Guida completa 2026 alle trattenute sulla busta paga svizzera per frontalieri in Ticino. Scopri le aliquote AVS, LPP, LAINF e calcola il tuo stipendio netto.',
     keywords: 'frontaliere contributi sociali svizzeri, dettaglio busta paga svizzera, trattenute stipendio svizzera, AVS LPP frontalieri, calcolo stipendio netto ticino, lavoro in svizzera',
     ogTitle: 'Busta Paga Svizzera: Svelate Tutte le Trattenute 2026',
@@ -2711,7 +2711,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-costo-vivere-lugano-trasferirsi': {
-    title: 'Quanto costa vivere a Lugano da frontaliere (Analisi 2026) | Frontaliere Ticino',
+    title: 'Quanto costa vivere a Lugano da | Frontaliere Ticino',
     description: 'Un frontaliere valuta di trasferirsi a Lugano? Analisi completa dei costi 2026: affitto (da 1.500 CHF), LAMal, tasse, trasporti e spesa. Calcola il tuo budget.',
     keywords: 'costo vita lugano, vivere a lugano, frontaliere trasferimento ticino, affitti lugano, lamal costo, tasse residenti ticino, budget mensile svizzera',
     ogTitle: 'Vivere a Lugano: il budget reale che un frontaliere deve conoscere',
@@ -2740,7 +2740,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-permesso-g-pro-contro-2026': {
-    title: 'Permesso G Frontalieri: Vantaggi e Svantaggi 2026 | Frontaliere Ticino',
+    title: 'Permesso G Frontalieri: Vantaggi e | Frontaliere Ticino',
     description: 'Guida completa ai pro e contro del permesso G per frontalieri in Ticino nel 2026. Analisi fisco, pensione LPP, sanità LAMal e nuovo accordo fiscale.',
     keywords: 'permesso g vantaggi, permesso g svantaggi, frontaliere ticino 2026, nuovo accordo fiscale, lavorare in svizzera, permesso frontaliere, fiscalità frontalieri, pensione lpp',
     ogTitle: 'Permesso G: Conviene Ancora Lavorare in Ticino nel 2026?',
@@ -2827,7 +2827,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-lamal-cmi-scelta-frontaliere-2026': {
-    title: 'LAMal o CMI 2026: quale conviene al frontaliere? | Frontaliere Ticino',
+    title: 'LAMal o CMI 2026: quale conviene al | Frontaliere Ticino',
     description: 'Guida completa 2026 per frontalieri in Ticino: confronto premi, coperture e franchigie tra LAMal (da 350 CHF) e CMI (da 180€). Scopri la scelta migliore.',
     keywords: 'LAMal frontaliere 2026, CMI frontaliere, assicurazione malattia svizzera italia, diritto opzione frontaliere, costo LAMal ticino, sanità frontalieri ticino, quale assicurazione scegliere',
     ogTitle: 'LAMal vs CMI 2026: la scelta che può farti risparmiare 2000€ l\'anno',
@@ -2856,7 +2856,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-credito-imposta-doppia-tassazione': {
-    title: 'Doppia imposizione frontaliere: guida al credito d\'imposta | Frontaliere Ticino',
+    title: 'Doppia imposizione frontaliere: guida | Frontaliere Ticino',
     description: 'Nuovo frontaliere in Ticino? Scopri il credito d\'imposta per evitare la doppia tassazione sullo stipendio svizzero. Guida al Quadro CE del 730 con esempi 2026.',
     keywords: 'frontaliere doppia imposizione, credito imposta, come funziona, tasse frontalieri ticino, quadro ce 730, nuovo accordo fiscale, dichiarazione redditi frontalieri',
     ogTitle: 'Frontalieri, stop alla doppia tassa: la guida al credito d\'imposta',
@@ -2885,7 +2885,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-costo-reale-auto-frontaliere': {
-    title: 'Costo Auto Pendolare Frontaliere Ticino 2026: Analisi Completa | Frontaliere Ticino',
+    title: 'Costo Auto Pendolare Frontaliere Ticino | Frontaliere Ticino',
     description: 'Quanto costa davvero usare l\'auto per lavorare in Ticino? Analisi 2026 dei costi reali per un frontaliere: benzina, vignetta, usura, parcheggio e confronto con il treno.',
     keywords: 'costo auto frontaliere, pendolare ticino, spesa auto svizzera, benzina ticino, parcheggio lugano, vignetta autostradale, frontalieri, ticino',
     ogTitle: 'L\'auto ti costa 8\'500 CHF l\'anno? La verità sul pendolarismo in Ticino',
@@ -2914,7 +2914,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-congedo-genitori-frontaliere-ticino': {
-    title: 'Congedo Parentale Svizzera-Italia 2026: Guida Frontalieri | Frontaliere Ticino',
+    title: 'Congedo Parentale Svizzera-Italia 2026 | Frontaliere Ticino',
     description: 'Guida completa al congedo di maternità e paternità per frontalieri in Ticino. Scopri indennità 2026, requisiti AVS, come fare domanda e diritti.',
     keywords: 'congedo parentale frontaliere, maternità svizzera, paternità svizzera, indennità maternità ticino, frontalieri genitori, assegni familiari svizzera, cassa compensazione ticino',
     ogTitle: 'Maternità e Paternità da Frontaliere: La Guida Completa 2026',
@@ -2943,7 +2943,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-costo-pendolare-auto-ticino-2026': {
-    title: 'Costo Auto Frontaliere Ticino 2026: L\'Analisi Completa | Frontaliere Ticino',
+    title: 'Costo Auto Frontaliere Ticino 2026 | Frontaliere Ticino',
     description: 'Quanto costa davvero l\'auto per un frontaliere in Ticino? Analisi 2026 di benzina, parcheggio, usura e vignette. Scopri se conviene rispetto al treno.',
     keywords: 'costo auto frontaliere, pendolare ticino, spese auto svizzera, vignetta autostradale 2026, parcheggio lugano, conviene treno o auto',
     ogTitle: 'L\'auto ti costa fino a 8.500 CHF l\'anno? La verità sui costi da frontaliere',
@@ -2972,7 +2972,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-guida-dichiarazione-redditi-frontalieri': {
-    title: 'Guida Dichiarazione Redditi Frontaliere 730 (2026) | Frontaliere Ticino',
+    title: 'Guida Dichiarazione Redditi Frontaliere | Frontaliere Ticino',
     description: 'La guida completa al Modello 730/2026 per frontalieri in Ticino: come compilare il Quadro CE, calcolare il credito d\'imposta e le scadenze da non perdere.',
     keywords: 'dichiarazione redditi frontaliere, modello 730 frontalieri, quadro ce, credito imposta svizzera, tasse frontalieri ticino, fiscalità frontalieri, guida fiscale',
     ogTitle: 'Frontaliere e 730: La Guida Definitiva per non Sbagliare',
@@ -3001,7 +3001,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-checklist-documenti-lavoro-svizzera': {
-    title: 'Documenti Lavoro Svizzera 2026: Guida per Frontalieri | Frontaliere Ticino',
+    title: 'Documenti Lavoro Svizzera 2026: Guida | Frontaliere Ticino',
     description: 'La checklist completa dei documenti necessari per iniziare a lavorare in Svizzera come frontaliere in Ticino: Permesso G, contratto, AVS, conto e assicurazione.',
     keywords: 'frontaliere documenti, lavoro svizzera, permesso g, contratto lavoro svizzero, conto svizzero, avs frontaliere, ticino, iniziare lavoro svizzera',
     ogTitle: 'Lavoro in Svizzera? La lista dei 6 documenti che devi avere PRONTI',
@@ -3030,7 +3030,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-asilo-nido-frontaliere-ticino': {
-    title: 'Asilo Nido Svizzera per Frontalieri: Costi e Guida 2026 | Frontaliere Ticino',
+    title: 'Asilo Nido Svizzera per Frontalieri | Frontaliere Ticino',
     description: 'Guida completa per frontalieri con figli: costi reali 2026 degli asili nido in Ticino, rette, sussidi e liste d\'attesa. Confronta le opzioni Svizzera vs Italia.',
     keywords: 'asilo nido svizzera, costo asilo nido ticino, frontaliere con figli, sussidi asilo nido svizzera, asili nido lugano, lavoro svizzera famiglia, rette asilo ticino',
     ogTitle: 'Asilo Nido in Ticino per Frontalieri: una spesa fino a 2.800 CHF/mese',
@@ -3059,7 +3059,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-locarno-stop-residenze-secondarie': {
-    title: 'Locarno Stop Seconde Case: Superata Soglia 20% | Frontaliere Ticino',
+    title: 'Locarno Stop Seconde Case: Superata | Frontaliere Ticino',
     description: 'Locarno blocca la costruzione di nuove residenze secondarie. L\'Ufficio federale ha confermato il superamento della quota del 20%. Dettagli e impatti.',
     keywords: 'residenze secondarie, locarno, lex weber, mercato immobiliare ticino, frontalieri, edilizia ticino, comune di locarno',
     ogTitle: 'Locarno, scatta lo stop: niente più nuove case di vacanza',
@@ -3117,7 +3117,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-sicurezza-lavoro-audit-suva': {
-    title: 'Sicurezza Lavoro in Svizzera: Audit Svela Falle e Conflitti | Frontaliere Ticino',
+    title: 'Sicurezza Lavoro in Svizzera: Audit | Frontaliere Ticino',
     description: 'Audit federale rivela lacune nei controlli sulla sicurezza sul lavoro in Svizzera e conflitto d\'interessi della SUVA. Implicazioni per i frontalieri.',
     keywords: 'sicurezza sul lavoro, frontalieri, ticino, SUVA, infortuni professionali, controlli aziende, audit federale, CFST',
     ogTitle: 'Sicurezza sul lavoro in Ticino a rischio? Un audit federale accusa la SUVA',
@@ -3146,7 +3146,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-costo-vivere-mappa-comuni': {
-    title: 'Costo della vita in Svizzera: la classifica dei comuni | Frontaliere Ticino',
+    title: 'Costo della vita in Svizzera: la | Frontaliere Ticino',
     description: 'Scopri la mappa dei comuni svizzeri dove vivere costa meno. Analisi su affitti, imposte e cassa malati, con un focus sul costo della vita in Ticino.',
     keywords: 'costo vita svizzera, vivere in ticino, classifica comuni svizzeri, affitti svizzera, tasse svizzera, cassa malati ticino, frontalieri, permesso b',
     ogTitle: 'Vivere in Svizzera: ecco dove costa 4\'000 CHF in meno al mese',
@@ -3175,7 +3175,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-architetti-sottopagati-ticino': {
-    title: 'Architetti Sottopagati a Mendrisio: Ore Gratis e Sfruttamento | Frontaliere Ticino',
+    title: 'Architetti Sottopagati a Mendrisio: Ore | Frontaliere Ticino',
     description: 'Due studi di architettura di Mendrisio multati per 160\'000 CHF. La testimonianza di un neolaureato rivela ore di lavoro gratis e false promesse. Dettagli sul caso.',
     keywords: 'architetti ticino, dumping salariale, mendrisio, lavoro frontalieri, sfruttamento lavoro svizzera, stipendio architetti, commissione paritetica',
     ogTitle: 'Ore gratis fino a tardi: lo sfogo di un architetto a Mendrisio',
@@ -3204,7 +3204,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-calo-frontalieri-non-tassa-salute': {
-    title: 'Calo Frontalieri Ticino: l\'Economia, non la Tassa Salute | Frontaliere Ticino',
+    title: 'Calo Frontalieri Ticino: l\'Economia | Frontaliere Ticino',
     description: 'Registrato un calo dei lavoratori frontalieri in Ticino. L\'analisi del sindacato CGIL smentisce la tassa sulla salute come causa, indicando la crisi economica cantonale.',
     keywords: 'frontalieri, ticino, calo frontalieri, economia ticino, tassa salute frontalieri, lavoro svizzera, cgil, permesso g',
     ogTitle: 'Frontalieri in calo in Ticino? La vera causa non è quella che pensi',
@@ -3233,7 +3233,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-maternita-cassazione-diritti-frontalieri': {
-    title: 'Maternità Frontalieri: Sentenza Cassazione per Indennità | Frontaliere Ticino',
+    title: 'Maternità Frontalieri: Sentenza | Frontaliere Ticino',
     description: 'Una sentenza della Cassazione riconosce l\'indennità di maternità INPS alle lavoratrici frontaliere in Ticino, valorizzando i contributi versati in Svizzera.',
     keywords: 'indennità maternità, frontalieri, ticino, cassazione, diritti lavoratrici, INPS, naspi, totalizzazione contributi',
     ogTitle: 'Svolta per le mamme frontaliere: la Cassazione riconosce l\'indennità INPS',
@@ -3262,7 +3262,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-galenica-bichsel-ristrutturazione-lavoro': {
-    title: 'Galenica chiude Bichsel: 170 posti a rischio | Frontaliere Ticino',
+    title: 'Galenica chiude Bichsel: 170 posti a | Frontaliere Ticino',
     description: 'Galenica annuncia la chiusura della filiale Bichsel, mettendo a rischio 170 posti di lavoro. Analisi dell\'impatto sul settore farmaceutico e per i frontalieri in Ticino.',
     keywords: 'Galenica, lavoro Svizzera, posti di lavoro, frontalieri, Ticino, farmacie, Amavita, ristrutturazione',
     ogTitle: 'Terremoto in Galenica: 170 posti a rischio. Cosa significa per il Ticino?',
@@ -3291,7 +3291,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-dazi-trump-export-ticinese': {
-    title: 'Dazi USA di Trump: Impatto su Export e Lavoro in Ticino | Frontaliere Ticino',
+    title: 'Dazi USA di Trump: Impatto su Export e | Frontaliere Ticino',
     description: 'I nuovi dazi USA del 15% sono attivi. Scopri le conseguenze per le aziende esportatrici del Ticino (farmaceutica, meccanica) e i rischi per il lavoro dei frontalieri.',
     keywords: 'dazi usa svizzera, tariffe trump ticino, export farmaceutico ticino, lavoro frontalieri, economia mendrisiotto, aiti, protezionismo usa, commercio internazionale',
     ogTitle: 'Dazi USA al 15%: l\'industria del Ticino trema? Ecco cosa rischi',
@@ -3320,7 +3320,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-campione-italia-fine-dissesto': {
-    title: 'Campione d\'Italia fuori dal dissesto: nuove assunzioni | Frontaliere Ticino',
+    title: 'Campione d\'Italia fuori dal dissesto | Frontaliere Ticino',
     description: 'Ufficiale: Campione d\'Italia non è più in dissesto finanziario dal 1° gennaio 2026. Il Comune può assumere senza autorizzazione. Le implicazioni per il lavoro.',
     keywords: 'campione d\'italia, dissesto finanziario, frontalieri, lavoro ticino, comune campione, assunzioni, economia luganese',
     ogTitle: 'Svolta a Campione d\'Italia: via libera a nuove assunzioni',
@@ -3349,7 +3349,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-gavetta-tossica-architetti-ticino': {
-    title: 'Architetti Sottopagati a Mendrisio: Ore Gratis e Dumping | Frontaliere Ticino',
+    title: 'Architetti Sottopagati a Mendrisio: Ore | Frontaliere Ticino',
     description: 'Multa da 160\'000 CHF a studi di Mendrisio per sfruttamento di stagisti. La testimonianza di un giovane architetto svela un sistema di ore extra non pagate.',
     keywords: 'architetti sottopagati, dumping salariale ticino, lavoro mendrisio, frontalieri, contratto di lavoro svizzera, stipendio ticino, commissione paritetica, sfruttamento lavoro',
     ogTitle: '"Ore gratis la sera": lo sfogo di un architetto sfruttato in Ticino',
@@ -3378,7 +3378,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-eurocity-bloccato-caos-pendolari': {
-    title: 'Eurocity Basilea-Milano bloccato: caos per pendolari | Frontaliere Ticino',
+    title: 'Eurocity Basilea-Milano bloccato: caos | Frontaliere Ticino',
     description: 'Caos sulla linea FFS: un Eurocity con 500 passeggeri diretto a Milano è rimasto bloccato in galleria. Due ore di ritardo e pesanti disagi per i pendolari.',
     keywords: 'eurocity bloccato, ffs, treni svizzera, pendolari ticino, disagio treni, ritardo treno milano, frontaliere',
     ogTitle: 'Odissea in galleria: 2 ore di ritardo sul treno per Milano',
@@ -3407,7 +3407,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-sicurezza-lavoro-controlli-svizzera': {
-    title: 'Sicurezza sul Lavoro in Svizzera: Controlli Insufficienti | Frontaliere Ticino',
+    title: 'Sicurezza sul Lavoro in Svizzera | Frontaliere Ticino',
     description: 'Audit federale rivela lacune nei controlli sulla sicurezza sul lavoro in Svizzera e conflitto d\'interessi della Suva. Cosa cambia per i frontalieri.',
     keywords: 'sicurezza lavoro svizzera, suva, controlli lavoro ticino, frontalieri, infortuni professionali, cfst, audit cdf, ispettorato lavoro',
     ogTitle: 'Lavoro Sicuro in Svizzera? Un Audit Ufficiale Svela Controlli "Troppo Larghi"',
@@ -3436,7 +3436,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-startup-investimenti-boom-ticino': {
-    title: 'Boom Investimenti Startup Svizzera: Opportunità in Ticino | Frontaliere Ticino',
+    title: 'Boom Investimenti Startup Svizzera | Frontaliere Ticino',
     description: 'Le startup svizzere raccolgono 3,3 miliardi (+44%) nel 2025, trainate dall\'IA. Scopri cosa significano i 53 milioni investiti in Ticino per i frontalieri.',
     keywords: 'startup svizzera, investimenti ticino, intelligenza artificiale, lavoro frontalieri, economia ticino, medtech, fintech, opportunità lavoro',
     ogTitle: 'Boom Startup in Svizzera (+44%): 53 Milioni per il Ticino, nuove opportunità',
@@ -3465,7 +3465,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-long-covid-malattia-professionale': {
-    title: 'Long Covid è Malattia Professionale: Sentenza TF | Frontaliere Ticino',
+    title: 'Long Covid è Malattia Professionale | Frontaliere Ticino',
     description: 'Il Tribunale federale stabilisce che il Long Covid è malattia professionale per operatori sanitari. Bâloise condannata. Cosa cambia per i frontalieri.',
     keywords: 'long covid, malattia professionale, tribunale federale, frontalieri, ticino, assicurazione infortuni, la bâloise, sanità',
     ogTitle: 'Long Covid: Sentenza storica del Tribunale Federale Svizzero',
@@ -3494,7 +3494,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-accordo-ue-svizzera-mercato-interno': {
-    title: 'Accordo UE-Svizzera: Via Libera al Mercato Interno | Frontaliere Ticino',
+    title: 'Accordo UE-Svizzera: Via Libera al | Frontaliere Ticino',
     description: 'Il Consiglio UE approva la firma dei nuovi accordi con la Svizzera. Analisi delle conseguenze per i frontalieri in Ticino su lavoro, salari e Permesso G.',
     keywords: 'accordi bilaterali svizzera ue, frontalieri ticino, mercato interno europeo, permesso g, libera circolazione persone, salari ticino, politica europea svizzera',
     ogTitle: 'Bruxelles dà il via libera: cosa cambia per chi lavora in Ticino?',
@@ -3523,7 +3523,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-fonderie-svizzere-crisi-2025': {
-    title: 'Crisi Fonderie Svizzere 2025: Impatto su Ticino e Frontalieri | Frontaliere Ticino',
+    title: 'Crisi Fonderie Svizzere 2025: Impatto | Frontaliere Ticino',
     description: 'La produzione delle fonderie svizzere cala del 7.6% nel 2025. Analisi delle cause, dall\'auto tedesca ai dazi USA, e le conseguenze per il lavoro in Ticino.',
     keywords: 'fonderie svizzere, crisi industria, lavoro ticino, frontalieri, settore metalmeccanico, economia ticino, dazi trump, franco forte',
     ogTitle: 'Fonderie Svizzere: Produzione in calo del 7.6%. Cosa significa per il tuo lavoro in Ticino?',
@@ -3552,7 +3552,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-salario-minimo-ticino-accordo': {
-    title: 'Salario Minimo Ticino: Accordo per Aumento a 22 CHF/ora | Frontaliere Ticino',
+    title: 'Salario Minimo Ticino: Accordo per | Frontaliere Ticino',
     description: 'Scopri i dettagli della bozza di accordo sul salario minimo in Ticino: aumento graduale da 20.50 a 22 CHF orari entro il 2029. Cosa cambia per i frontalieri.',
     keywords: 'salario minimo ticino, stipendio frontalieri, aumento salario svizzera, lavoro ticino, 22 franchi ora, contratti collettivi, busta paga svizzera',
     ogTitle: 'Salario minimo in Ticino verso i 22 CHF orari: cosa significa per la tua busta paga',
@@ -3581,7 +3581,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-trasporti-pubblici-crescita-svizzera': {
-    title: 'Trasporti Pubblici in Svizzera: Crescita Record e Impatto sui Frontalieri | Frontaliere Ticino',
+    title: 'Trasporti Pubblici in Svizzera | Frontaliere Ticino',
     description: 'Trasporti pubblici svizzeri: fatturato record di 7,04 miliardi CHF. Cosa significa per i frontalieri in Ticino e i costi del pendolarismo.',
     keywords: 'trasporti pubblici svizzera, frontalieri ticino, abbonamento arcobaleno, pendolarismo svizzera, costo treno frontaliere, TILO, Alliance SwissPass',
     ogTitle: 'Trasporti pubblici da record: treni più cari o più affollati per i frontalieri?',
@@ -3610,7 +3610,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-cantieri-notturni-lugano-marzo-2026': {
-    title: 'Lavori Notturni Lugano: Strade Chiuse e Traffico a Marzo 2026 | Frontaliere Ticino',
+    title: 'Lavori Notturni Lugano: Strade Chiuse e | Frontaliere Ticino',
     description: 'Guida completa ai cantieri notturni a Lugano per marzo 2026. Elenco delle strade chiuse e delle deviazioni a Viganello, Pregassona, Castagnola. Pianifica il tuo viaggio.',
     keywords: 'lavori stradali lugano, cantieri notturni ticino, strade chiuse lugano, traffico frontalieri, viabilità viganello, polizia lugano, pendolari ticino',
     ogTitle: 'Attenzione Frontalieri: Cantieri Notturni a Lugano per Tutto Marzo',
@@ -3639,7 +3639,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-supsi-nuova-direttrice-formazione': {
-    title: 'SUPSI: Daniela Willi-Piezzi nuova direttrice DFA | Frontaliere Ticino',
+    title: 'SUPSI: Daniela Willi-Piezzi nuova | Frontaliere Ticino',
     description: 'SUPSI nomina Daniela Willi-Piezzi nuova direttrice del Dipartimento formazione e apprendimento. Dal 1° maggio 2026 guiderà la formazione dei docenti in Ticino.',
     keywords: 'SUPSI, Daniela Willi-Piezzi, formazione docenti, Ticino, università, scuola ticinese, frontalieri, lavoro Ticino',
     ogTitle: 'Nuova guida per la formazione docenti in Ticino: chi è Daniela Willi-Piezzi',
@@ -3668,7 +3668,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-bps-suisse-risultati-bper': {
-    title: 'BPS Suisse Risultati 2025: Utile Solido e Futuro BPER | Frontaliere Ticino',
+    title: 'BPS Suisse Risultati 2025: Utile Solido | Frontaliere Ticino',
     description: 'BPS Suisse celebra 30 anni con un utile di 27,6 milioni di CHF nel 2025. Analisi dei risultati, dell\'impatto dell\'acquisizione BPER e cosa significa per i frontalieri.',
     keywords: 'bps suisse, frontalieri, ticino, bper banca, risultati finanziari, banca popolare sondrio, conti correnti svizzera',
     ogTitle: 'BPS Suisse: utile quasi record. Ecco cosa cambia con l\'arrivo di BPER.',
@@ -3697,7 +3697,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-aiuti-energia-proroga-taglio': {
-    title: 'Aiuti Energia Svizzera: Proroga ridotta e fondi tagliati | Frontaliere Ticino',
+    title: 'Aiuti Energia Svizzera: Proroga ridotta | Frontaliere Ticino',
     description: 'Berna rivede gli aiuti alle imprese energetiche: il fondo di salvataggio scende a 5 miliardi e la proroga è fino al 2029. Analisi dell\'impatto sui costi in Ticino.',
     keywords: 'aiuti energia svizzera, CAPTE-N, imprese energetiche, costi elettricità ticino, paracadute finanziario, frontalieri, economia ticino',
     ogTitle: 'Energia: Berna taglia i fondi di salvataggio. Meno rischi per le bollette?',
@@ -3726,7 +3726,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-salario-minimo-sociale-ticino-dibattito': {
-    title: 'Salario Minimo Sociale in Ticino: Cosa Cambia per i Frontalieri | Frontaliere Ticino',
+    title: 'Salario Minimo Sociale in Ticino: Cosa | Frontaliere Ticino',
     description: 'Il Ticino discute un controprogetto per il salario minimo sociale. Scopri i 5 principi in discussione e le possibili conseguenze sul tuo stipendio da frontaliere.',
     keywords: 'salario minimo ticino, frontalieri, stipendio svizzera, lavoro ticino, controprogetto PS, dumping salariale, CCL, retribuzione ticino',
     ogTitle: 'Salario Minimo in Ticino: la Politica Cerca un Accordo. E il Tuo Stipendio?',
@@ -3755,7 +3755,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-bps-suisse-utili-consigli-crisi': {
-    title: 'BPS Suisse: Utili e Consigli per Risparmi e Mutui | Frontaliere Ticino',
+    title: 'BPS Suisse: Utili e Consigli per | Frontaliere Ticino',
     description: 'Banca Popolare di Sondrio (Suisse) chiude il 2025 con 27,6 mln di utile. Scopri i consigli del CEO per gestire investimenti e mutui in Ticino per i frontalieri.',
     keywords: 'banca popolare sondrio suisse, bps suisse, utili 2025, consigli finanziari, mutui ticino, risparmio frontalieri, investimenti svizzera, mauro de stefani',
     ogTitle: 'BPS Suisse: Utili Record e Consigli Anti-Crisi per i Frontalieri',
@@ -3784,7 +3784,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-accordo-ue-voto-obbligatorio-ticino': {
-    title: 'Accordo UE-Svizzera: Ticino chiede referendum obbligatorio | Frontaliere Ticino',
+    title: 'Accordo UE-Svizzera: Ticino chiede | Frontaliere Ticino',
     description: 'Il Gran Consiglio ticinese approva la mozione UDC per un referendum con doppia maggioranza sul nuovo accordo con l\'UE. Analisi delle implicazioni per i frontalieri.',
     keywords: 'accordo quadro 2.0, referendum obbligatorio, UDC ticino, frontalieri, svizzera ue, sovranità, doppia maggioranza, canton ticino',
     ogTitle: 'Accordo UE: da Bellinzona un muro contro la \'sottomissione\'',
@@ -3813,7 +3813,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-accordo-ue-svizzera-impatto-frontalieri': {
-    title: 'Accordo Svizzera-UE: Cosa Cambia per i Frontalieri | Frontaliere Ticino',
+    title: 'Accordo Svizzera-UE: Cosa Cambia per i | Frontaliere Ticino',
     description: 'Il Consiglio UE approva il pacchetto di accordi con la Svizzera. Novità per i frontalieri in Ticino: libera circolazione, salari e referendum.',
     keywords: 'accordo svizzera ue, frontalieri ticino, libera circolazione persone, protezione salari, bilaterali III, referendum svizzera, lavoro in svizzera, permesso g',
     ogTitle: 'Accordo Svizzera-UE: Cosa Significa per il Tuo Lavoro in Ticino?',
@@ -3842,7 +3842,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-locarno-stop-case-vacanza': {
-    title: 'Locarno: stop licenze case secondarie, impatto frontalieri | Frontaliere Ticino',
+    title: 'Locarno: stop licenze case secondarie | Frontaliere Ticino',
     description: 'Locarno ha superato il 20% di case secondarie secondo l\'ARE, bloccando nuove licenze. Scopri l\'impatto sul mercato immobiliare e il costo della vita per i frontalieri.',
     keywords: 'frontalieri, ticino, locarno, case secondarie, lex weber, mercato immobiliare, affitti, costo vita, alloggi',
     ogTitle: 'Locarno: Blocco licenze case vacanza, cosa cambia per i frontalieri?',
@@ -3871,7 +3871,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-bilaterali-ue-svizzera-firma': {
-    title: 'Accordi Svizzera-UE: Firma Vicina, Impatto Frontalieri | Frontaliere Ticino',
+    title: 'Accordi Svizzera-UE: Firma Vicina | Frontaliere Ticino',
     description: 'Il Consiglio UE approva la firma degli accordi bilaterali con la Svizzera. Novità per i frontalieri: libera circolazione, salari e voto 2027.',
     keywords: 'accordi bilaterali svizzera ue, frontalieri ticino, libera circolazione persone, protezione salari, accordo quadro, voto svizzera ue, Guy Parmelin',
     ogTitle: 'Accordi UE-Svizzera: Firma a un passo. Cosa cambia per te?',
@@ -3900,7 +3900,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-aumento-iva-esercito-impatto-spesa': {
-    title: 'Aumento IVA Esercito: Impatto su Stipendi e Spesa in Ticino | Frontaliere Ticino',
+    title: 'Aumento IVA Esercito: Impatto su | Frontaliere Ticino',
     description: 'Il Consiglio federale propone un aumento dell\'IVA per finanziare l\'esercito. Scopri l\'impatto di 80 centesimi in più ogni 100 CHF sulla tua spesa e stipendio.',
     keywords: 'aumento IVA svizzera, finanziamento esercito, costo vita ticino, stipendio frontaliere, imposta valore aggiunto, spesa frontalieri, sicurezza svizzera',
     ogTitle: 'Aumento IVA in arrivo? Come cambierà la tua spesa in Ticino',
@@ -3929,7 +3929,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-maternita-paternita-ticino': {
-    title: 'Congedo parentale per frontalieri in Ticino | Frontaliere Ticino',
+    title: 'Congedo parentale per frontalieri in | Frontaliere Ticino',
     description: 'Guida pratica ai diritti di maternità e paternità per frontalieri: congedo Svizzera e Italia, indennità, come richiedere le prestazioni.',
     keywords: 'frontalieri, maternità, paternità, Ticino, congedo parentale, Svizzera, Italia, indennità',
     ogTitle: 'Scopri i tuoi diritti di maternità e paternità in Ticino',
@@ -3988,7 +3988,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-frontalieri-economia-ticino': {
-    title: 'Frontalieri in calo: economia ticinese 2026 | Frontaliere Ticino',
+    title: 'Frontalieri in calo: economia ticinese | Frontaliere Ticino',
     description: 'Il numero di frontalieri cala in Ticino. Scopri le cause economiche e come pianificare il tuo futuro da frontaliere.',
     keywords: 'frontalieri, ticino, economia, permesso G, tassa salute, ristorni, costo della vita, lavoro Svizzera',
     ogTitle: 'Frontalieri in calo: cosa sta succedendo in Ticino?',
@@ -4017,7 +4017,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-inflazione-frontalieri-ticino': {
-    title: 'Inflazione stabile 2026: Impatti per frontalieri | Frontaliere Ticino',
+    title: 'Inflazione stabile 2026: Impatti per | Frontaliere Ticino',
     description: 'L\'inflazione svizzera è quasi ferma allo 0,1%: scopri cosa significa per i frontalieri in Ticino e il cambio franco-euro.',
     keywords: 'frontalieri, ticino, inflazione svizzera, cambio franco euro, IPC 2026, economia transfrontaliera, potere d\'acquisto',
     ogTitle: 'Inflazione stabile in Svizzera: cosa cambia per i frontalieri',
@@ -4046,7 +4046,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-aprire-conto-bancario-frontaliere': {
-    title: 'Aprire un conto bancario svizzero da frontaliere | Frontaliere Ticino',
+    title: 'Aprire un conto bancario svizzero da | Frontaliere Ticino',
     description: 'Scopri come aprire un conto bancario svizzero da frontaliere. Scegli la banca migliore in Ticino: costi, carte, online banking, requisiti.',
     keywords: 'aprire conto bancario svizzero, frontalieri ticino, banche ticino, costi conto svizzero, carte debito credito svizzera',
     ogTitle: 'Aprire un conto bancario svizzero da frontaliere',
@@ -4075,7 +4075,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-ristorni-fiscali-ticino': {
-    title: 'Ristorni fiscali frontalieri: come funzionano | Frontaliere Ticino',
+    title: 'Ristorni fiscali frontalieri: come | Frontaliere Ticino',
     description: 'Guida completa ai ristorni fiscali per frontalieri in Ticino. Scopri chi paga, come si calcolano e il futuro degli accordi bilaterali.',
     keywords: 'ristorni fiscali, frontalieri, ticino, accordo fiscale, imposte, lavoro, comuni di frontiera',
     ogTitle: 'Guida ai ristorni fiscali frontalieri 2026',
@@ -4104,7 +4104,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-contributi-sociali-busta-paga': {
-    title: 'Contributi sociali svizzeri: guida busta paga | Frontaliere Ticino',
+    title: 'Contributi sociali svizzeri: guida | Frontaliere Ticino',
     description: 'Guida pratica per frontalieri: tutto sui contributi sociali in Svizzera (AVS, AI, LPP, AD). Scopri le trattenute e calcola il tuo netto 2026.',
     keywords: 'frontalieri, ticino, contributi sociali, busta paga, AVS, AI, LPP, trattenute, stipendio netto',
     ogTitle: 'Contributi sociali svizzeri: tutto sulla busta paga',
@@ -4162,7 +4162,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-assicurazione-malattia-famiglia': {
-    title: 'Assicurazione malattia famiglia frontalieri | Frontaliere Ticino',
+    title: 'Assicurazione malattia famiglia | Frontaliere Ticino',
     description: 'Come frontalieri in Ticino, scopri le migliori opzioni di assicurazione malattia per te e la tua famiglia: LAMal, EHIC, integrative. Confronta ora.',
     keywords: 'assicurazione malattia, frontalieri, ticino, LAMal, EHIC, polizze integrative, sanitario, famiglia',
     ogTitle: 'Assicurazione malattia per tutta la famiglia',
@@ -4221,7 +4221,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-usi-startup-centre-ranking': {
-    title: 'USI Startup Centre tra i migliori hub europei | Frontaliere Ticino',
+    title: 'USI Startup Centre tra i migliori hub | Frontaliere Ticino',
     description: 'L\'USI Startup Centre si classifica al 69° posto in Europa e al 5° tra gli hub svizzeri secondo il Financial Times. Scopri di più!',
     keywords: 'frontalieri, ticino, innovation hub, startup, USI, Lugano, incubatori, imprenditorialità',
     ogTitle: 'USI Startup Centre: un\'eccellenza europea',
@@ -4250,7 +4250,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-sciopero-treni-tilo-febbraio-2026': {
-    title: 'Sciopero in Italia: Impatti sui Treni Tilo | Frontaliere Ticino',
+    title: 'Sciopero in Italia: Impatti sui Treni | Frontaliere Ticino',
     description: 'Dal 27 al 28 febbraio, i treni Tilo subiscono interruzioni per sciopero in Italia. Ecco cosa sapere.',
     keywords: 'frontalieri, ticino, pratico, svizzera, italia',
     ogTitle: 'Sciopero in Italia: Impatti sui Treni Tilo',
@@ -4279,7 +4279,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-piscina-chiasso-copertura-2026': {
-    title: 'Piscina Chiasso: nuova copertura in arrivo | Frontaliere Ticino',
+    title: 'Piscina Chiasso: nuova copertura in | Frontaliere Ticino',
     description: 'Chiasso investe 850\'000 CHF per una nuova copertura pressostatica alla piscina comunale. Scopri le implicazioni per sicurezza e costi.',
     keywords: 'frontalieri, ticino, chiasso, piscina comunale, copertura pressostatica, sicurezza, costi, infrastruttura',
     ogTitle: 'Piscina di Chiasso: 850\'000 CHF per la sicurezza',
@@ -4337,7 +4337,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-naspi-frontaliere-italia-requisiti': {
-    title: 'NASpI frontalieri Italia: requisiti e calcolo | Frontaliere Ticino',
+    title: 'NASpI frontalieri Italia: requisiti e | Frontaliere Ticino',
     description: 'Scopri i requisiti per la NASpI per frontalieri italiani, come calcolare l\'importo e la durata, con esempi e guida pratica 2026.',
     keywords: 'NASpI frontalieri, indennità disoccupazione Italia, requisiti NASpI, calcolo NASpI, frontalieri Ticino, disoccupazione svizzera, frontalieri 2026',
     ogTitle: 'NASpI frontalieri: calcolo e requisiti 2026',
@@ -4366,7 +4366,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-prelievo-secondo-pilastro-frontaliere': {
-    title: 'Prelievo del secondo pilastro LPP per frontalieri | Frontaliere Ticino',
+    title: 'Prelievo del secondo pilastro LPP per | Frontaliere Ticino',
     description: 'Guida pratica sul prelievo del secondo pilastro LPP per frontalieri: quando, tassazione e strategie ottimali.',
     keywords: 'frontalieri, ticino, pensione, svizzera, italia',
     ogTitle: 'Prelievo del secondo pilastro LPP per frontalieri',
@@ -4395,7 +4395,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-accordo-ue-frontalieri-ticino': {
-    title: 'Accordo Svizzera-UE, firma in arrivo per i frontalieri | Frontaliere Ticino',
+    title: 'Accordo Svizzera-UE, firma in arrivo | Frontaliere Ticino',
     description: 'Il pacchetto di accordi con l\'UE sarà firmato il 2 marzo, un passo cruciale per i frontalieri del Ticino.',
     keywords: 'frontalieri, ticino, novita, svizzera, italia',
     ogTitle: 'Accordo Svizzera-UE, firma in arrivo per i frontalieri',
@@ -4424,7 +4424,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-ristorni-congelati-ticino-italia': {
-    title: 'Ticino pronto a congelare i ristorni fiscali | Frontaliere Ticino',
+    title: 'Ticino pronto a congelare i ristorni | Frontaliere Ticino',
     description: 'Tensioni tra Ticino e Berna: Gobbi minaccia il blocco dei ristorni per tutelare i frontalieri e i rapporti con l\'Italia. Scopri di più.',
     keywords: 'frontalieri, Ticino, ristorni fiscali, tassa salute, Berna Italia, Norman Gobbi, relazioni transfrontaliere',
     ogTitle: 'Ticino: possibile blocco dei ristorni fiscali',
@@ -4543,7 +4543,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-piscina-chiasso-investimento': {
-    title: 'Piscina di Chiasso: 850mila CHF per la nuova copertura | Frontaliere Ticino',
+    title: 'Piscina di Chiasso: 850mila CHF per la | Frontaliere Ticino',
     description: 'Chiasso investe 850mila CHF per rinnovare la copertura della piscina comunale. Scopri le implicazioni per frontalieri e residenti.',
     keywords: 'frontalieri, ticino, piscina Chiasso, copertura piscina, investimenti Chiasso, piscina comunale, frontalieri Chiasso, valichi di confine',
     ogTitle: 'Piscina di Chiasso: nuovo investimento da 850mila CHF',
@@ -4601,7 +4601,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-asilo-nido-ticino-guida-2026': {
-    title: 'Frontaliere con figli: asili nido in Ticino 2026 | Frontaliere Ticino',
+    title: 'Frontaliere con figli: asili nido in | Frontaliere Ticino',
     description: 'Scopri tutto sugli asili nido in Ticino per frontalieri: costi, liste d\'attesa, sussidi disponibili e alternative italiane. Guida aggiornata al 2026.',
     keywords: 'asilo nido Ticino, frontaliere con figli, costi asilo nido, sussidi asilo Ticino, liste attesa nidi, alternative nidi Italia',
     ogTitle: 'Frontaliere con figli: guida agli asili nido in Ticino',
@@ -4659,7 +4659,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-tassa-salute-scontro-ticino-berna': {
-    title: 'Ticino minaccia blocco ristorni per tassa salute | Frontaliere Ticino',
+    title: 'Ticino minaccia blocco ristorni per | Frontaliere Ticino',
     description: 'Il Ticino minaccia di congelare i ristorni fiscali all\'Italia per il mancato indennizzo federale sulla tassa salute dei frontalieri. La tensione cresce.',
     keywords: 'ristorni fiscali, tassa salute, frontalieri, Ticino, Berna, Italia, Norman Gobbi, accordi bilaterali, laRegione',
     ogTitle: 'Crisi Ristorni: Ticino contro Berna per la Tassa Salute Frontalieri',
@@ -4688,7 +4688,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-piscina-chiasso-rinnovo-sicurezza': {
-    title: 'Chiasso: 850\'000 CHF per nuova copertura piscina | Frontaliere Ticino',
+    title: 'Chiasso: 850\'000 CHF per nuova | Frontaliere Ticino',
     description: 'Chiasso investe 850\'000 CHF nella sicurezza della piscina comunale, sostituendo la copertura pressostatica dopo 15 anni. Onere netto di soli 60\'000 CHF per il Comune.',
     keywords: 'chiasso, piscina, copertura pressostatica, sicurezza, investimento, ticino, frontalieri, mendrisiotto',
     ogTitle: 'Piscina di Chiasso: un investimento da 850\'000 CHF per la sicurezza',
@@ -4717,7 +4717,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-disagi-tilo-sciopero-italia': {
-    title: 'Sciopero Tilo 27-28 Febbraio: Disagi Frontalieri | Frontaliere Ticino',
+    title: 'Sciopero Tilo 27-28 Febbraio: Disagi | Frontaliere Ticino',
     description: 'Sciopero Italia 27-28 febbraio 2026: treni Tilo RE80, S10, S30, S40, S50 bloccati oltre confine. Servizi garantiti e bus sostitutivi per frontalieri.',
     keywords: 'sciopero treni, tilo, frontalieri, ticino, italia, trasporti, pendolari, disagi, febbraio 2026',
     ogTitle: 'Allerta Sciopero Tilo: Cosa cambia per il tuo viaggio in Ticino?',
@@ -4833,7 +4833,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-confronto-assicurazioni-auto': {
-    title: 'Confronto assicurazioni auto frontalieri | Frontaliere Ticino',
+    title: 'Confronto assicurazioni auto | Frontaliere Ticino',
     description: 'Assicurazioni auto 2026: scopri costi, coperture e consigli per frontalieri tra Italia e Svizzera. Confronta offerte e calcola i costi.',
     keywords: 'assicurazione auto, frontalieri, Ticino, Svizzera, Italia, costi RC auto, polizze auto frontalieri, sinistri transfrontalieri',
     ogTitle: 'Assicurazioni auto frontalieri: Italia vs Svizzera',
@@ -4892,7 +4892,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-spese-sanitarie-frontalieri': {
-    title: 'Spese sanitarie rimborsabili per frontalieri | Frontaliere Ticino',
+    title: 'Spese sanitarie rimborsabili per | Frontaliere Ticino',
     description: 'Scopri quali spese sanitarie sostenute in Svizzera sono rimborsabili in Italia per i frontalieri e come richiedere il rimborso.',
     keywords: 'frontalieri, ticino, spese sanitarie, rimborso, LAMal, SSN, ASL, Italia-Svizzera',
     ogTitle: 'Spese sanitarie rimborsabili per frontalieri',
@@ -4922,7 +4922,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-naspi-disoccupazione-frontalieri': {
-    title: 'NASpI: Indennità di disoccupazione frontalieri | Frontaliere Ticino',
+    title: 'NASpI: Indennità di disoccupazione | Frontaliere Ticino',
     description: 'Scopri tutto sulla NASpI per ex-frontalieri: requisiti, calcolo importo, durata e differenze con la disoccupazione svizzera.',
     keywords: 'disoccupazione frontalieri, naspi frontalieri, requisiti naspi, frontalieri ticino, indennità disoccupazione, naspi 2026',
     ogTitle: 'NASpI: Indennità di disoccupazione frontalieri',
@@ -4982,7 +4982,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-cantieri-traffico-a9-ticino': {
-    title: 'Cantieri sull\'A9: disagi per i frontalieri | Frontaliere Ticino',
+    title: 'Cantieri sull\'A9: disagi per i | Frontaliere Ticino',
     description: 'Code e deviazioni sulla A9 fino all\'Ascensione: impatti per frontalieri, tempi di percorrenza e costi di trasporto.',
     keywords: 'frontalieri, ticino, traffico, A9, Chiasso, code, pedaggio, trasporto pendolari, lavori stradali',
     ogTitle: 'Cantieri sull\'A9: disagi per i frontalieri',
@@ -5012,7 +5012,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-migranti-seghezzone-risparmi': {
-    title: 'Migranti al Seghezzone: risparmi fino a 2 milioni | Frontaliere Ticino',
+    title: 'Migranti al Seghezzone: risparmi fino a | Frontaliere Ticino',
     description: 'A Giubiasco arriva una nuova struttura per richiedenti asilo: 88 posti letto e risparmi fino a 2 milioni. Scopri i dettagli.',
     keywords: 'migranti, ticino, frontalieri, giubiasco, seghezzone, risparmi, canton ticino, bellinzona',
     ogTitle: 'Migranti al Seghezzone: risparmi fino a 2 milioni',
@@ -5042,7 +5042,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-cantieri-traffico-frontiera': {
-    title: 'Cantieri sull\'A9: disagi per i frontalieri | Frontaliere Ticino',
+    title: 'Cantieri sull\'A9: disagi per i | Frontaliere Ticino',
     description: 'Nuovi lavori sull\'A9: disagi e code al confine italo-svizzero. Scopri come gestire il traffico e minimizzare l\'impatto economico. Dati aggiornati 2026 per',
     keywords: 'frontalieri, ticino, svizzera, italia, cantieri, sull, disagi, torna',
     ogTitle: 'Traffico frontalieri: cantieri sull\'A9',
@@ -5072,7 +5072,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-salario-minimo-ps-compromesso': {
-    title: 'Salario minimo: il PS approva il compromesso | Frontaliere Ticino',
+    title: 'Salario minimo: il PS approva il | Frontaliere Ticino',
     description: 'Il Partito Socialista ticinese approva all\'unanimità il compromesso sul salario minimo, con deroghe e benefit. Scopri come influirà sui frontalieri.',
     keywords: 'frontalieri, ticino, svizzera, italia, salario, minimo, approva, compromesso',
     ogTitle: 'Salario minimo: compromesso PS approvato',
@@ -5102,7 +5102,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-cocaina-lusso-perquisizioni-ticino': {
-    title: 'Traffico di cocaina: perquisizioni in Ticino | Frontaliere Ticino',
+    title: 'Traffico di cocaina: perquisizioni in | Frontaliere Ticino',
     description: 'Operazione contro il traffico di cocaina: perquisizioni in Ticino e arresti in Italia e Francia. Impatto sui frontalieri e normative doganali. Dati aggiornati',
     keywords: 'frontalieri, ticino, svizzera, italia, traffico, cocaina, perquisizioni, operazione',
     ogTitle: 'Traffico di Cocaina: Perquisizioni in Ticino',
@@ -5132,7 +5132,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-calcolo-tasse-entro-confine': {
-    title: 'Calcolo tasse frontalieri entro 20 km confine | Frontaliere Ticino',
+    title: 'Calcolo tasse frontalieri entro 20 km | Frontaliere Ticino',
     description: 'Scopri come calcolare le tasse per frontalieri entro i 20 km dal confine. Franchigia di 10.000€, credito d\'imposta e nuovi regimi 2026. Dati aggiornati 2026 per',
     keywords: 'frontalieri, ticino, svizzera, italia, calcolo, tasse, entro, confine',
     ogTitle: 'Calcolo tasse frontalieri entro 20 km',
@@ -5162,7 +5162,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-riforma-giustizia-pace-ticino': {
-    title: 'Riforma della Giustizia di Pace in Ticino | Frontaliere Ticino',
+    title: 'Riforma della Giustizia di Pace in | Frontaliere Ticino',
     description: 'Approvata la Riforma della Giustizia di pace in Ticino: meno Giudicature, più efficienza e formazione. Scopri le implicazioni per i frontalieri. Dati aggiornati',
     keywords: 'frontalieri, ticino, svizzera, italia, riforma, giustizia, pace, approvata',
     ogTitle: 'Riforma Giustizia di Pace Ticino',
@@ -5192,7 +5192,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-cantieri-a9-disagi-frontiera': {
-    title: 'Cantieri sulla A9: disagi ai valichi di frontiera | Frontaliere Ticino',
+    title: 'Cantieri sulla A9: disagi ai valichi di | Frontaliere Ticino',
     description: 'Lavori al viadotto Fati sulla A9: code e deviazioni fino all\'Ascensione. Scopri come gestire gli spostamenti e ridurre i disagi. Dati aggiornati 2026 per',
     keywords: 'frontalieri, ticino, svizzera, italia, cantieri, sulla, disagi, valichi',
     ogTitle: 'Cantieri sulla A9: disagi ai valichi di frontiera',
@@ -5222,7 +5222,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-revoca-uso-acqua-magliaso': {
-    title: 'Magliaso revoca l\'avviso di uso parsimonioso dell\'acqua | Frontaliere Ticino',
+    title: 'Magliaso revoca l\'avviso di uso | Frontaliere Ticino',
     description: 'Magliaso revoca l\'avviso di uso parsimonioso dell\'acqua potabile emesso il 24 febbraio. Riparata la condotta, la situazione torna alla normalità.',
     keywords: 'frontalieri, ticino, svizzera, italia, magliaso, revoca, avviso, parsimonioso',
     ogTitle: 'Magliaso, revocato l\'uso parsimonioso dell\'acqua',
@@ -5282,7 +5282,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-frontaliers-sabotage-varese': {
-    title: 'Frontaliers Sabotage arriva a Varese: il film che ha | Frontaliere Ticino',
+    title: 'Frontaliers Sabotage arriva a Varese | Frontaliere Ticino',
     description: 'Il film \'Frontaliers Sabotage\' sbarca a Varese il 3 marzo con due proiezioni speciali. Scopri di più sulla saga e sul mondo dei frontalieri. Dati aggiornati',
     keywords: 'frontalieri, ticino, svizzera, italia, frontaliers, sabotage, arriva, varese',
     ogTitle: 'Frontaliers Sabotage arriva a Varese',
@@ -5312,7 +5312,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-ristorni-congelati-scontro-ticino': {
-    title: 'Ristorni congelati: scontro tra Ticino e Berna | Frontaliere Ticino',
+    title: 'Ristorni congelati: scontro tra Ticino | Frontaliere Ticino',
     description: 'Gobbi minaccia di congelare i ristorni fiscali verso l\'Italia, aumentando la tensione tra Ticino e Berna sulla tassa salute frontalieri. Dati aggiornati 2026',
     keywords: 'frontalieri, ticino, svizzera, italia, ristorni, congelati, scontro, berna',
     ogTitle: 'Ristorni congelati: tensioni tra Ticino e Berna',
@@ -5342,7 +5342,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-tassazione-individuale-lavoro-donne': {
-    title: 'Tassazione individuale: più lavoro per le donne in Ticino? | Frontaliere Ticino',
+    title: 'Tassazione individuale: più lavoro per | Frontaliere Ticino',
     description: 'La tassazione individuale potrebbe creare migliaia di nuovi posti di lavoro per le donne in Ticino. Scopri di più e calcola il tuo stipendio netto.',
     keywords: 'frontalieri, ticino, svizzera, italia, tassazione, individuale, lavoro, donne',
     ogTitle: 'Tassazione individuale: impatto sui frontalieri',
@@ -5372,7 +5372,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-diversita-religiosa-ticino-2026': {
-    title: 'Ticino, 500 comunità religiose: un record svizzero | Frontaliere Ticino',
+    title: 'Ticino, 500 comunità religiose: un | Frontaliere Ticino',
     description: 'Il Ticino ospita oltre 500 comunità religiose di 10 tradizioni diverse, con una densità superiore alla media svizzera. Scopri i dettagli. Dati aggiornati 2026',
     keywords: 'frontalieri, ticino, svizzera, italia, comunità, religiose, record, svizzero',
     ogTitle: 'Ticino: oltre 500 comunità religiose',
@@ -5402,7 +5402,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-voto-corrispondenza-ticino-2026': {
-    title: 'Voto per corrispondenza: la scelta del futuro | Frontaliere Ticino',
+    title: 'Voto per corrispondenza: la scelta del | Frontaliere Ticino',
     description: 'Scopri perché il voto per corrispondenza è sempre più scelto in Ticino e come può facilitare la partecipazione dei frontalieri alle elezioni. Dati aggiornati',
     keywords: 'frontalieri, ticino, svizzera, italia, voto, corrispondenza, scelta, futuro',
     ogTitle: 'Voto per corrispondenza: la scelta del futuro',
@@ -5462,7 +5462,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-controlli-velocita-ticino-2026': {
-    title: 'Controlli mobili della velocità in Ticino | Frontaliere Ticino',
+    title: 'Controlli mobili della velocità in | Frontaliere Ticino',
     description: 'La Polizia ticinese intensifica i controlli della velocità dal 2 all\'8 marzo 2026. Scopri dove e come evitare sanzioni. Dati aggiornati 2026 per frontalieri in',
     keywords: 'frontalieri, ticino, svizzera, italia, controlli, mobili, velocità, marzo',
     ogTitle: 'Controlli di velocità in Ticino: date e località',
@@ -5492,7 +5492,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-sanremo-2026-aiello-gassmann': {
-    title: 'Sanremo 2026: Aiello e Leo Gassmann incantano con la loro | Frontaliere Ticino',
+    title: 'Sanremo 2026: Aiello e Leo Gassmann | Frontaliere Ticino',
     description: 'Scopri la performance di Aiello e Leo Gassmann a Sanremo 2026 e il legame culturale tra Italia e Ticino. Approfondisci su Frontaliere Ticino. Dati aggiornati',
     keywords: 'frontalieri, ticino, svizzera, italia, sanremo, aiello, gassmann, incantano',
     ogTitle: 'Sanremo 2026: Aiello e Leo Gassmann incantano',
@@ -5522,7 +5522,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-violenza-adolescenti-ticino': {
-    title: 'Violenza giovanile in Ticino: un allarme crescente | Frontaliere Ticino',
+    title: 'Violenza giovanile in Ticino: un | Frontaliere Ticino',
     description: 'Aumentano gli episodi di violenza giovanile in Svizzera. Scopri i dati e le implicazioni per i frontalieri e la sicurezza nei valichi. Dati aggiornati 2026 per',
     keywords: 'frontalieri, ticino, svizzera, italia, violenza, giovanile, allarme, crescente',
     ogTitle: 'Violenza giovanile in Ticino: dati e sicurezza',
@@ -5552,7 +5552,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-comuni-frontalieri-distanza': {
-    title: 'Comuni frontalieri: la distanza che conta | Frontaliere Ticino',
+    title: 'Comuni frontalieri: la distanza che | Frontaliere Ticino',
     description: 'Scopri i nuovi criteri sui Comuni di confine e come 20 km possono cambiare tutto per i frontalieri. Verifica il tuo status fiscale. Dati aggiornati 2026 per',
     keywords: 'frontalieri, ticino, svizzera, italia, comuni, distanza, conta, nuovi',
     ogTitle: 'Comuni frontalieri: la distanza che conta',
@@ -5582,7 +5582,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-elezioni-comunali-ticino': {
-    title: 'Elezioni Comunali in Ticino: cosa cambia | Frontaliere Ticino',
+    title: 'Elezioni Comunali in Ticino: cosa | Frontaliere Ticino',
     description: 'Scopri come le elezioni comunali in Ticino influenzeranno frontalieri e residenti: trasporti, fiscalità e nuove opportunità lavorative. Dati aggiornati 2026 per',
     keywords: 'frontalieri, ticino, svizzera, italia, elezioni, comunali, cosa, cambia',
     ogTitle: 'Elezioni Comunali in Ticino: Impatti per i Frontalieri',
@@ -5612,7 +5612,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-eroina-auto-chiasso-brogeda': {
-    title: 'Chiasso-Brogeda: sequestrati 5 kg di eroina in auto | Frontaliere Ticino',
+    title: 'Chiasso-Brogeda: sequestrati 5 kg di | Frontaliere Ticino',
     description: 'Coppia arrestata al valico di Chiasso-Brogeda con 5 kg di eroina. Implicazioni per frontalieri e sicurezza transfrontaliera. Dati aggiornati 2026 per',
     keywords: 'frontalieri, ticino, svizzera, italia, chiasso-brogeda, sequestrati, eroina, auto',
     ogTitle: 'Eroina a Brogeda: scoperti 5 kg in auto',
@@ -5642,7 +5642,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-bilaterali-iii-cassis-ticino': {
-    title: 'Cassis: "Il prodotto è buono". L\'accordo Bilaterali III | Frontaliere Ticino',
+    title: 'Cassis: "Il prodotto è buono". | Frontaliere Ticino',
     description: 'L\'accordo Bilaterali III prevede la creazione di una zona di libero scambio tra la Svizzera e l\'Unione Europea. L\'accordo permetterebbe di mantenere relazioni',
     keywords: 'frontalieri, ticino, svizzera, italia, cassis, prodotto, buono, accordo',
     ogTitle: 'Bilaterali III, Cassis: "Il prodotto è buono". L\'accordo per',
@@ -5673,7 +5673,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
 
 
   'blog-fermato-brogeda-cocaina': {
-    title: 'Fermato a Brogeda con oltre 15 chili di cocaina nell\'auto | Frontaliere Ticino',
+    title: 'Fermato a Brogeda con oltre 15 chili di | Frontaliere Ticino',
     description: 'Un cittadino dominicano residente in Spagna è stato arrestato con l\'accusa di traffico internazionale di stupefacenti. Dati aggiornati 2026 per frontalieri in',
     keywords: 'frontalieri, ticino, svizzera, italia, fermato, brogeda, oltre, chili',
     ogTitle: 'Fermato a Brogeda con oltre 15 chili di cocaina nell\'auto',
@@ -5703,7 +5703,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-dominicano-auto-svizzera-arresto': {
-    title: 'Dominicano con auto svizzera e trafficante: arresto in | Frontaliere Ticino',
+    title: 'Dominicano con auto svizzera e | Frontaliere Ticino',
     description: 'Un cittadino dominicano con un veicolo con targhe svizzere è stato arrestato al valico di Chiasso con oltre 15 chilogrammi di cocaina. Dati aggiornati 2026 per',
     keywords: 'frontalieri, ticino, svizzera, italia, dominicano, auto, trafficante, arresto',
     ogTitle: 'Dominicano con auto svizzera e trafficante: arresto in',
@@ -5733,7 +5733,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-salari-bassi-rischio-povert': {
-    title: 'Salari bassi e rischio povertà in Ticino: il PLR interroga | Frontaliere Ticino',
+    title: 'Salari bassi e rischio povertà in | Frontaliere Ticino',
     description: 'Il PLR interroga il Consiglio di Stato sul tema dei salari bassi e del rischio povertà in Ticino. Scopri quali sono le strategie per migliorare la situazione',
     keywords: 'frontalieri, ticino, svizzera, italia, salari, bassi, rischio, povertà',
     ogTitle: 'Salari bassi e rischio povertà in Ticino',
@@ -5763,7 +5763,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-ticino-svolta-per-apprendisti': {
-    title: 'Ticino, svolta storica per gli apprendisti frontalieri | Frontaliere Ticino',
+    title: 'Ticino, svolta storica per gli | Frontaliere Ticino',
     description: 'Il Consiglio nazionale approva la riforma che estende la validità del permesso di lavoro G per gli apprendisti frontalieri in Ticino. Dati aggiornati 2026 per',
     keywords: 'frontalieri, ticino, svizzera, italia, svolta, storica, apprendisti, consiglio',
     ogTitle: 'Ticino, svolta storica per gli apprendisti frontalieri',
@@ -5793,7 +5793,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-bellinzona-crescita-qualita-vita': {
-    title: 'Bellinzona: alta qualità di vita e impieghi di qualità | Frontaliere Ticino',
+    title: 'Bellinzona: alta qualità di vita e | Frontaliere Ticino',
     description: 'Il Municipio di Bellinzona punta su alta qualità di vita e posti di lavoro specialistici per attrarre profili qualificati. Dati aggiornati 2026 per frontalieri',
     keywords: 'frontalieri, ticino, svizzera, italia, bellinzona, alta, qualità, vita',
     ogTitle: 'Bellinzona: alta qualità di vita e impieghi di qualità',
@@ -5823,7 +5823,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-crisi-spermatozoi-svizzera-ticino': {
-    title: 'La crisi degli spermatozoi in Svizzera: un problema anche | Frontaliere Ticino',
+    title: 'La crisi degli spermatozoi in Svizzera | Frontaliere Ticino',
     description: 'Scopri come la crisi degli spermatozoi sta influenzando la fertilità maschile in Svizzera e nel Ticino. Leggi il nostro articolo e scopri cosa puoi fare per',
     keywords: 'frontalieri, ticino, svizzera, italia, crisi, spermatozoi, problema, anche',
     ogTitle: 'La crisi degli spermatozoi in Svizzera',
@@ -5854,7 +5854,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
 
 
   'blog-droga-brogeda-sequestro-cocaina': {
-    title: 'Brogeda: 15 chili di cocaina sequestrati al confine | Frontaliere Ticino',
+    title: 'Brogeda: 15 chili di cocaina | Frontaliere Ticino',
     description: 'Importante operazione antidroga al valico di Brogeda: sequestrati 15 kg di cocaina in un\'auto. Le Fiamme Gialle colpiscono il traffico illecito tra Italia e',
     keywords: 'frontalieri, ticino, svizzera, italia, brogeda, chili, cocaina, sequestrati',
     ogTitle: 'Sequestrati 15 kg di cocaina a Brogeda: operazione al',
@@ -5884,7 +5884,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-bellinzona-auscultazione-2026': {
-    title: 'A Bellinzona mancano 75 posti auto pubblici e la soluzione | Frontaliere Ticino',
+    title: 'A Bellinzona mancano 75 posti auto | Frontaliere Ticino',
     description: 'Il comune di Bellinzona ha annunciato la costruzione di un nuovo autosilo interrato con parco pubblico e nuovo edificio amministrativo. Dati aggiornati 2026 per',
     keywords: 'frontalieri, ticino, svizzera, italia, bellinzona, mancano, posti, auto',
     ogTitle: 'A Bellinzona mancano 75 posti auto pubblici e la soluzione è',
@@ -5914,7 +5914,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-lombardia-affitto-famiglie-varesine': {
-    title: '228.463€ dalla Lombardia per l\'affitto: 218 famiglie | Frontaliere Ticino',
+    title: '228.463€ dalla Lombardia per l\'affitto | Frontaliere Ticino',
     description: '228.463€ per 218 famiglie varesine: requisiti, importi e scadenze del bando regionale per contrastare la morosità incolpevole. Dati aggiornati 2026 per',
     keywords: 'frontalieri, ticino, svizzera, italia, dalla, lombardia, affitto, famiglie',
     ogTitle: '228.463€ dalla Lombardia per l\'affitto: 218 famiglie salvate',
@@ -5944,7 +5944,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-malcantone-fai-di-primavera-2026': {
-    title: 'Trovare il Malcantone con le Giornate Fai di Primavera | Frontaliere Ticino',
+    title: 'Trovare il Malcantone con le Giornate | Frontaliere Ticino',
     description: 'Le Giornate Fai di Primavera tornano in Ticino con un focus sul Malcantone. Scopri i borghi, i monumenti, le chiese e le dimore storiche della regione.',
     keywords: 'frontalieri, ticino, svizzera, italia, trovare, malcantone, giornate, primavera',
     ogTitle: 'Malcantone Fai di Primavera 2026 | Frontaliere Ticino',
@@ -5974,7 +5974,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-sicurezza-privata-chiasso-nebiopoli': {
-    title: 'Sicurezza privata sotto accusa dopo Nebiopoli | Frontaliere Ticino',
+    title: 'Sicurezza privata sotto accusa dopo | Frontaliere Ticino',
     description: 'Deputato UDC Tuto Rossi chiede controlli su agenti sicurezza privata dopo episodi violenza Carnevale Chiasso. Normativa, diritti, segnalazioni. Dati aggiornati',
     keywords: 'frontalieri, ticino, svizzera, italia, sicurezza, privata, sotto, accusa',
     ogTitle: 'Sicurezza privata sotto accusa dopo Nebiopoli',
@@ -6004,7 +6004,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-sfruttamento-corsieri-ticino-2026': {
-    title: 'Sfruttamento corrieri: la verità nascosta dietro le | Frontaliere Ticino',
+    title: 'Sfruttamento corrieri: la verità | Frontaliere Ticino',
     description: 'Paghe da fame, turni massacranti e controlli digitali: l\'inchiesta di Milano svela il lato oscuro del lavoro dei fattorini in Ticino e Lombardia. Dati',
     keywords: 'frontalieri, ticino, svizzera, italia, sfruttamento, corrieri, verità, nascosta',
     ogTitle: 'Sfruttamento corrieri: la verità nascosta dietro le consegne',
@@ -6034,7 +6034,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-lavoro-economia-2026': {
-    title: 'La fuga di talenti a Zurigo: anche le aziende si lamentano | Frontaliere Ticino',
+    title: 'La fuga di talenti a Zurigo: anche le | Frontaliere Ticino',
     description: 'La carenza di alloggi a Zurigo è un problema serio che sta scoraggiando i candidati dalle aziende zurighesi. Dati aggiornati 2026 per frontalieri in Ticino.',
     keywords: 'frontalieri, ticino, svizzera, italia, fuga, talenti, zurigo, anche',
     ogTitle: 'La fuga di talenti a Zurigo: anche le aziende si lamentano',
@@ -6064,7 +6064,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-sequestro-cocaina-brogeda-2026': {
-    title: '15 kg di cocaina sequestrati a Brogeda: cosa cambia per i | Frontaliere Ticino',
+    title: '15 kg di cocaina sequestrati a Brogeda | Frontaliere Ticino',
     description: '15 kg di cocaina sequestrati a Brogeda: tempi di attesa, controlli rafforzati e rischi per i 68.000 frontalieri. Guida pratica per non perdere permesso e',
     keywords: 'frontalieri, ticino, svizzera, italia, cocaina, sequestrati, brogeda, cosa',
     ogTitle: 'Cocaina a Brogeda: guida sopravvivenza frontaliere',
@@ -6094,7 +6094,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-infiltrazioni-criminali-ticino-grigioni': {
-    title: 'Cultura, soldi, infiltrazioni criminali: Ticino e Grigioni | Frontaliere Ticino',
+    title: 'Cultura, soldi, infiltrazioni | Frontaliere Ticino',
     description: 'Il confronto tra il Ticino e il Grigioni in materia di infiltrazioni criminali e cultura economica. Dati aggiornati 2026 per frontalieri in Ticino.',
     keywords: 'frontalieri, ticino, svizzera, italia, cultura, soldi, infiltrazioni, criminali',
     ogTitle: 'Cultura, soldi, infiltrazioni criminali: Ticino e Grigion',
@@ -6124,7 +6124,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-turismo-luganese-formazione': {
-    title: 'Il Luganese punta sulla formazione per migliorare | Frontaliere Ticino',
+    title: 'Il Luganese punta sulla formazione per | Frontaliere Ticino',
     description: 'L\'Ente Turistico del Luganese (ETL) ha lanciato il progetto \'Lugano Region Ti Conosco\', che ha coinvolto 68 operatori di 24 strutture ricettive dei comprensori',
     keywords: 'frontalieri, ticino, svizzera, italia, luganese, punta, sulla, formazione',
     ogTitle: 'Il Luganese punta sulla formazione per migliorare',
@@ -6155,7 +6155,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
 
 
   'blog-incidente-rampa-a9-chiasso-2026': {
-    title: 'Incidente sulla rampa A9 per Chiasso: code e feriti lievi | Frontaliere Ticino',
+    title: 'Incidente sulla rampa A9 per Chiasso | Frontaliere Ticino',
     description: 'Tre auto coinvolte in un incidente sulla rampa dell\'A9 verso Chiasso. Strada chiusa per due ore. Ferite lievi per tre persone. Disagi per i frontalieri.',
     keywords: 'frontalieri, ticino, svizzera, italia, incidente, sulla, rampa, chiasso',
     ogTitle: 'Incidente sulla rampa A9 per Chiasso: code e feriti lievi',
@@ -6184,7 +6184,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-tilo-s50-lavori-mal-pensa-varese-2026': {
-    title: 'TILO S50: fermate tra Varese e Malpensa cambiano il 11-12 aprile | Frontaliere Ticino',
+    title: 'TILO S50: fermate tra Varese e Malpensa | Frontaliere Ticino',
     description: 'Sabato 11 e domenica 12 aprile 2026 fermate TILO S50 tra Varese, Gallarate e Malpensa Aeroporto sostituite da bus. Tempi di viaggio allungati, soppressioni e bu',
     keywords: 'frontalieri, ticino, svizzera, italia, tilo, fermate, varese, malpensa',
     ogTitle: 'TILO S50: fermate tra Varese e Malpensa cambiano il 11-12',
@@ -6213,7 +6213,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-tilo-s50-modifiche-aprile': {
-    title: 'Modifiche ai collegamenti TILO S50 tra Varese, Gallarate e Malpensa | Frontaliere Ticino',
+    title: 'Modifiche ai collegamenti TILO S50 tra | Frontaliere Ticino',
     description: 'Scopri le modifiche ai collegamenti TILO S50 tra Varese, Gallarate e Malpensa Aeroporto previste per l\'11 e 12 aprile. Bus sostitutivi e tempi più lunghi.',
     keywords: 'frontalieri, ticino, svizzera, italia, modifiche, collegamenti, tilo, varese',
     ogTitle: 'Modifiche TILO S50: Cosa cambia per i frontalieri?',
@@ -6242,7 +6242,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-consiglio-federale-ferma-perequazione-2030': {
-    title: 'Perequazione, Ticino deluso: Berna blocca fino al 2030 | Frontaliere Ticino',
+    title: 'Perequazione, Ticino deluso: Berna | Frontaliere Ticino',
     description: 'Il Consiglio federale non modifica l’ordinanza sulla perequazione finanziaria intercantonale fino al 2030. Il Ticino chiedeva una ponderazione diversa per i fro',
     keywords: 'frontalieri, ticino, svizzera, italia, perequazione, deluso, berna, blocca',
     ogTitle: 'Perequazione, Ticino deluso: Berna blocca fino al 2030',
@@ -6271,7 +6271,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-camionisti-furbetti-governo-ticino-2026': {
-    title: 'Caso camionisti furbetti, decisione sul tavolo del governo ticinese | Frontaliere Ticino',
+    title: 'Caso camionisti furbetti, decisione sul | Frontaliere Ticino',
     description: 'Il controverso tema dei camion furbetti arriva sul tavolo del governo ticinese. Scopri di più sulle implicazioni e le azioni disponibili. Dati aggiornati 2026',
     keywords: 'frontalieri, ticino, svizzera, italia, caso, camionisti, furbetti, decisione',
     ogTitle: 'Caso camionisti furbetti, decisione su Governo Ticino',
@@ -6300,7 +6300,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-multe-vignetta-chiasso-2024': {
-    title: 'Multe per mancata vignetta autostradale: 190 sanzioni a Chiasso | Frontaliere Ticino',
+    title: 'Multe per mancata vignetta | Frontaliere Ticino',
     description: '190 multe per mancata vignetta autostradale a Chiasso. Ecco cosa rischiano i frontalieri e come evitare sanzioni. Dati aggiornati 2026 per frontalieri in',
     keywords: 'frontalieri, ticino, svizzera, italia, multe, mancata, vignetta, autostradale',
     ogTitle: 'Multe per Vignetta Autostradale a Chiasso: 190 Sanzioni',
@@ -6329,7 +6329,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-petizione-aromat-svizzera': {
-    title: 'Petizione per mantenere la produzione di Aromat in Svizzera | Frontaliere Ticino',
+    title: 'Petizione per mantenere la produzione | Frontaliere Ticino',
     description: 'Una petizione online mira a preservare la produzione svizzera dell\'Aromat, minacciata dalla fusione tra Unilever e McCormick. Scopri come sostenere',
     keywords: 'frontalieri, ticino, svizzera, italia, petizione, mantenere, produzione, aromat',
     ogTitle: 'Petizione per mantenere la produzione di Aromat in Svizzera',
@@ -6358,7 +6358,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-frontalieri-tassa-salute-scontro': {
-    title: 'Frontalieri e tassa sulla salute: scontro in consiglio regionale | Frontaliere Ticino',
+    title: 'Frontalieri e tassa sulla salute | Frontaliere Ticino',
     description: 'Salta l\'audizione dell\'assessore Sertori. Il Pd presenta una mozione per bloccare l\'imposta e tutelare i ristorni dei Comuni di frontiera. Dati aggiornati 2026',
     keywords: 'frontalieri, ticino, svizzera, italia, tassa, sulla, salute, scontro',
     ogTitle: 'Frontalieri e tassa sulla salute: scontro in consiglio regionale',

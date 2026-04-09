@@ -9,7 +9,7 @@
 
 import path from 'path';
 import type { Plugin } from 'vite';
-import { BASE_URL, buildFlatRedirect, GTAG_SNIPPET, type FlatRedirectOgMeta } from './constants';
+import { BASE_URL, buildFlatRedirect, GTAG_SNIPPET, FAVICON_LINKS, type FlatRedirectOgMeta } from './constants';
 import { buildArticleSeoSections, cleanupArticleBodySections } from './articleSeoFallback';
 
 export function ogPagesPlugin(rootDir: string): Plugin {
@@ -497,6 +497,9 @@ export function ogPagesPlugin(rootDir: string): Plugin {
             : metaDescRaw;
           // <title> = pure headline + publisher suffix, matching <h1> content
           const htmlPageTitle = `${localizedTitle} | Frontaliere Ticino`;
+          if (htmlPageTitle.length > 60) {
+            console.warn(`[og-pages] ⚠️ Title too long (${htmlPageTitle.length} chars): ${htmlPageTitle.slice(0, 50)}...`);
+          }
           const articleBodyLocale = (locale === 'it' || locale === 'en' || locale === 'de' || locale === 'fr') ? locale : 'it';
           const localizedBody = blogBodyByLocale[articleBodyLocale][en.articleId] ?? blogBodyByLocale.it[en.articleId];
           const allBodyKeys = localizedBody ? Object.keys(localizedBody).sort((a, b) => {
@@ -620,16 +623,23 @@ export function ogPagesPlugin(rootDir: string): Plugin {
               '@type': 'NewsArticle',
               headline: localizedTitle,
               description: localizedDesc,
-              image: {
-                '@type': 'ImageObject',
-                url: imgU,
-                width: 1200,
-                height: 675,
-              },
+              image: imgU,
               url: full,
               inLanguage: locale,
-              publisher: { '@id': `${BASE_URL}/#organization` },
-              author: authorObj,
+              author: {
+                '@type': 'Organization',
+                name: 'Redazione Frontaliere Ticino',
+                url: `${BASE_URL}/chi-siamo`,
+              },
+              publisher: {
+                '@type': 'Organization',
+                name: 'Frontaliere Ticino',
+                url: BASE_URL,
+                logo: {
+                  '@type': 'ImageObject',
+                  url: `${BASE_URL}/images/logo-192.png`,
+                },
+              },
               mainEntityOfPage: full,
               isPartOf: { '@type': 'WebSite', '@id': `${BASE_URL}/#website`, name: 'Frontaliere Ticino' },
               speakable: {
@@ -752,6 +762,7 @@ export function ogPagesPlugin(rootDir: string): Plugin {
 
           const headTags = `    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    ${FAVICON_LINKS}
     <title>${esc(htmlPageTitle)}</title>
     <meta name="description" content="${esc(metaDesc)}">
     <link rel="canonical" href="${full}">

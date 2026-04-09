@@ -300,7 +300,7 @@ const SeoContentBlock: React.FC<SeoContentBlockProps> = ({ context }) => {
           </div>
 
           {/* Data updated label */}
-          <div className="flex items-center gap-1.5 mt-3 pt-2 border-t border-slate-200/50 dark:border-slate-700/50">
+          <div className="flex items-center gap-1.5 mt-3 pt-2 border-t border-edge/50">
             <CalendarDays className="w-3.5 h-3.5 text-muted shrink-0" aria-hidden="true" />
             <span className="text-sm text-muted">
               {t('seoContent.dataUpdated')}

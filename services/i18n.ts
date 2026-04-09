@@ -342,35 +342,29 @@ export function useLocale(): [Locale, (l: Locale) => void] {
   return [locale, setLocale];
 }
 
-export function useTranslation() {
-  const [locale] = useLocale();
-  return { t, locale, setLocale };
-}
-
-// ─── Canton i18n params ─────────────────────────────────────
-
 const CANTON_NAMES: Record<string, Record<string, string>> = {
   TI: { it: 'Ticino', en: 'Ticino', de: 'Tessin', fr: 'Tessin' },
   GR: { it: 'Grigioni', en: 'Graubünden', de: 'Graubünden', fr: 'Grisons' },
   VS: { it: 'Vallese', en: 'Valais', de: 'Wallis', fr: 'Valais' },
 };
-
 const CANTON_PREP: Record<string, Record<string, string>> = {
   TI: { it: 'in Ticino', en: 'in Ticino', de: 'im Tessin', fr: 'au Tessin' },
   GR: { it: 'in Grigioni', en: 'in Graubünden', de: 'in Graubünden', fr: 'aux Grisons' },
   VS: { it: 'in Vallese', en: 'in Valais', de: 'im Wallis', fr: 'en Valais' },
 };
 
-/**
- * Returns i18n interpolation params for canton-aware strings.
- * Used by components that render parametrized keys containing {canton} / {cantonPrep}.
- * Default canton is "Ticino" (brand home canton).
- */
+/** Returns {canton, cantonPrep} interpolation params for locale-aware strings. */
 export function getCantonI18nParams(cantonCode: string = 'TI'): Record<string, string> {
   const locale = getLocale();
-  const canton = CANTON_NAMES[cantonCode]?.[locale] || CANTON_NAMES['TI'][locale] || 'Ticino';
-  const cantonPrep = CANTON_PREP[cantonCode]?.[locale] || CANTON_PREP['TI'][locale] || 'in Ticino';
-  return { canton, cantonPrep };
+  return {
+    canton: CANTON_NAMES[cantonCode]?.[locale] || CANTON_NAMES['TI'][locale] || 'Ticino',
+    cantonPrep: CANTON_PREP[cantonCode]?.[locale] || CANTON_PREP['TI'][locale] || 'in Ticino',
+  };
+}
+
+export function useTranslation() {
+  const [locale] = useLocale();
+  return { t, locale, setLocale };
 }
 
 // ─── Locale Labels ───────────────────────────────────────────

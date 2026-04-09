@@ -383,7 +383,7 @@ const TicineseDialect: React.FC = () => {
                         ? 'border-emerald-400 bg-emerald-50 text-emerald-800 dark:bg-emerald-900/20 dark:text-emerald-200'
                         : isSelected
                           ? 'border-red-400 bg-red-50 text-red-800 dark:bg-red-900/30 dark:text-red-200'
-                          : 'border-slate-300 bg-white text-slate-700 hover:bg-slate-100 focus:bg-slate-100 dark:border-slate-500 dark:bg-slate-800 dark:text-white dark:hover:bg-slate-700 dark:focus:bg-slate-700'}
+                          : 'border-slate-300 bg-surface text-slate-700 hover:bg-slate-100 focus:bg-slate-100 dark:border-slate-500 dark:text-white dark:hover:bg-slate-700 dark:focus:bg-slate-700'}
                     `}
                   >
                     {termField({ key: opt, category: 'espressioni' }, 'italian')}

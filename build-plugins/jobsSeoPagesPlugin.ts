@@ -1283,6 +1283,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    ${FAVICON_LINKS}
     <title>${esc(title)}</title>
     <meta name="description" content="${esc(description)}">
     <meta property="og:type" content="website">
@@ -1697,6 +1698,7 @@ ${jobLd ? `    <script type="application/ld+json">${jobLd}</script>\n` : ''}    
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    ${FAVICON_LINKS}
     <title>${esc(title)}</title>
     <meta name="description" content="${esc(description)}">
     <meta property="og:type" content="website">
@@ -1979,6 +1981,7 @@ ${(() => {
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    ${FAVICON_LINKS}
     <title>${esc(model.title)}</title>
     <meta name="description" content="${esc(model.description)}">
     <meta property="og:type" content="website">
@@ -2126,6 +2129,7 @@ ${alternates}
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    ${FAVICON_LINKS}
     <title>${esc(model.title)}</title>
     <meta name="description" content="${esc(model.description)}">
     <meta property="og:type" content="website">
@@ -2275,6 +2279,7 @@ ${alternates}
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    ${FAVICON_LINKS}
     <title>${esc(model.title)}</title>
     <meta name="description" content="${esc(model.description)}">
     <meta property="og:type" content="website">
@@ -2428,6 +2433,7 @@ ${alternates}
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    ${FAVICON_LINKS}
     <title>${esc(model.title)}</title>
     <meta name="description" content="${esc(model.description)}">
     <meta property="og:type" content="website">
@@ -2582,6 +2588,7 @@ ${alternates}
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    ${FAVICON_LINKS}
     <title>${esc(model.title)}</title>
     <meta name="description" content="${esc(model.description)}">
     <meta property="og:type" content="website">
@@ -2730,6 +2737,7 @@ ${alternates}
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    ${FAVICON_LINKS}
     <title>${esc(model.title)}</title>
     <meta name="description" content="${esc(model.description)}">
     <meta property="og:type" content="website">
@@ -2880,6 +2888,7 @@ ${alternates}
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    ${FAVICON_LINKS}
     <title>${esc(model.title)}</title>
     <meta name="description" content="${esc(model.description)}">
     <meta property="og:type" content="website">
@@ -3029,6 +3038,7 @@ ${alternates}
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    ${FAVICON_LINKS}
     <title>${esc(model.title)}</title>
     <meta name="description" content="${esc(model.description)}">
     <meta property="og:type" content="website">
@@ -3166,12 +3176,12 @@ ${alternates}
           const pgCollLd = JSON.stringify({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: pgTitle, url: pgCanonicalUrl, description: pgDesc, inLanguage: locale, isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: BASE_URL } });
           const pgItemLd = JSON.stringify({ '@context': 'https://schema.org', '@type': 'ItemList', name: pgTitle, numberOfItems: pgJobs.length, itemListElement: pgJobs.slice(0, 10).map((job: any, i: number) => ({ '@type': 'ListItem', position: i + 1, name: String(job?.titleByLocale?.[locale] || job.title || ''), url: `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${localizedSlug(job, locale)}`.replace(/\/+/g, '/'))}` })) });
           const pgMainUrl = `${BASE_URL}${withSlash(pgSectionPath)}`;
-          const pgNav: string[] = [`<a href="${pgMainUrl}">1</a>`];
+          const pgNav: string[] = [`<a href="${pgMainUrl}" style="display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;padding:8px 12px">1</a>`];
           for (let np2 = Math.max(2, pageNum - 2); np2 <= Math.min(totalListingPages, pageNum + 2); np2++) {
             if (np2 === pageNum) { pgNav.push(`<strong>${np2}</strong>`); continue; }
-            pgNav.push(`<a href="${BASE_URL}${withSlash(`${pgSectionPath}/${paginationSlugs[locale]}-${np2}`.replace(/\/+/g, '/'))}">${np2}</a>`);
+            pgNav.push(`<a href="${BASE_URL}${withSlash(`${pgSectionPath}/${paginationSlugs[locale]}-${np2}`.replace(/\/+/g, '/'))}" style="display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;padding:8px 12px">${np2}</a>`);
           }
-          const pgHtml = `<!doctype html>\n<html lang="${locale}">\n  <head>\n    <meta charset="utf-8">\n    <meta name="viewport" content="width=device-width,initial-scale=1">\n    <title>${esc(pgTitle)}</title>\n    <meta name="description" content="${esc(pgDesc)}">\n    <meta name="robots" content="index,follow">\n    <meta property="og:type" content="website">\n    <meta property="og:locale" content="${localeOg[locale]}">\n    <meta property="og:title" content="${esc(pgTitle)}">\n    <meta property="og:description" content="${esc(pgDesc)}">\n    <meta property="og:url" content="${pgCanonicalUrl}">\n    <link rel="canonical" href="${pgCanonicalUrl}">\n${pgAlternates}\n${pgXDefault}\n${pgPrevLink}${pgNextLink}\n    <script type="application/ld+json">${pgCollLd}</script>\n    <script type="application/ld+json">${pgItemLd}</script>${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all">` : ''}\n    ${GTAG_SNIPPET}\n  </head>\n  <body>\n    <div id="root">\n    <main class="static-job-page">\n      <h1>${esc(pgCopy.heading(pageNum))}</h1>\n      <p>${esc(pgDesc)}</p>\n      <ul style="list-style:none;padding:0;margin:16px 0">${pgListHtml}</ul>\n      <nav style="margin:24px 0;text-align:center;font-size:14px">${pgNav.join(' &middot; ')}</nav>\n      <p><a href="${pgMainUrl}">${locale === 'it' ? 'Torna alla lista completa' : locale === 'en' ? 'Back to full listing' : locale === 'de' ? 'Zur\u00fcck zur Liste' : 'Retour \u00e0 la liste'}</a></p>\n    </main>\n    </div>${hasSpaBundle ? `\n    <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}\n  </body>\n</html>`;
+          const pgHtml = `<!doctype html>\n<html lang="${locale}">\n  <head>\n    <meta charset="utf-8">\n    <meta name="viewport" content="width=device-width,initial-scale=1">\n    ${FAVICON_LINKS}\n    <title>${esc(pgTitle)}</title>\n    <meta name="description" content="${esc(pgDesc)}">\n    <meta name="robots" content="index,follow">\n    <meta property="og:type" content="website">\n    <meta property="og:locale" content="${localeOg[locale]}">\n    <meta property="og:title" content="${esc(pgTitle)}">\n    <meta property="og:description" content="${esc(pgDesc)}">\n    <meta property="og:url" content="${pgCanonicalUrl}">\n    <link rel="canonical" href="${pgCanonicalUrl}">\n${pgAlternates}\n${pgXDefault}\n${pgPrevLink}${pgNextLink}\n    <script type="application/ld+json">${pgCollLd}</script>\n    <script type="application/ld+json">${pgItemLd}</script>${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all">` : ''}\n    ${GTAG_SNIPPET}\n  </head>\n  <body>\n    <div id="root">\n    <main class="static-job-page">\n      <h1>${esc(pgCopy.heading(pageNum))}</h1>\n      <p>${esc(pgDesc)}</p>\n      <ul style="list-style:none;padding:0;margin:16px 0">${pgListHtml}</ul>\n      <nav style="margin:24px 0;text-align:center;font-size:14px">${pgNav.join(' &middot; ')}</nav>\n      <p><a href="${pgMainUrl}">${locale === 'it' ? 'Torna alla lista completa' : locale === 'en' ? 'Back to full listing' : locale === 'de' ? 'Zur\u00fcck zur Liste' : 'Retour \u00e0 la liste'}</a></p>\n    </main>\n    </div>${hasSpaBundle ? `\n    <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}\n  </body>\n</html>`;
           const pgOutDir = np.join(distDir, pgCanonicalPath.slice(1));
           activeJobDirs.add(pgCanonicalPath.slice(1).replace(/\/+$/, ''));
           _md(pgOutDir);
@@ -3234,7 +3244,7 @@ ${alternates}
             const catDescription = locale === 'it' ? `${catJobs.length} offerte di lavoro ${catLabel.toLowerCase()} in Ticino da ${catUniqueCompanies.length} aziende in ${catUniqueLocations.length} localit\u00e0. Annunci aggiornati quotidianamente con link diretto alla candidatura.` : locale === 'en' ? `${catJobs.length} ${catLabel.toLowerCase()} jobs in Ticino from ${catUniqueCompanies.length} companies across ${catUniqueLocations.length} locations. Updated daily with direct application links.` : locale === 'de' ? `${catJobs.length} ${catLabel}-Stellen im Tessin von ${catUniqueCompanies.length} Unternehmen an ${catUniqueLocations.length} Standorten. T\u00e4glich aktualisiert mit direkten Bewerbungslinks.` : `${catJobs.length} offres ${catLabel.toLowerCase()} au Tessin de ${catUniqueCompanies.length} entreprises dans ${catUniqueLocations.length} localit\u00e9s. Mises \u00e0 jour quotidiennement avec lien direct de candidature.`;
             const catAlternates = localeList.map((al) => { const alSlug = `${catPrefix[al]}-${catSlugsMap[catKey][al]}${catPage > 1 ? `/${paginationSlugs[al]}-${catPage}` : ''}`; const alPath = `${localePrefix[al]}/${sectionByLocale[al]}/${alSlug}`.replace(/\/+/g, '/'); return `    <link rel="alternate" hreflang="${al}" href="${BASE_URL}${withSlash(alPath)}">`; }).join('\n');
             const catListHtml = catPageJobs.map((job: any) => { const jSlug = localizedSlug(job, locale); const jPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/${jSlug}`.replace(/\/+/g, '/'); const jTitle = String(job?.titleByLocale?.[locale] || job.title || ''); return `<li style="margin:0 0 10px 0"><a href="${BASE_URL}${withSlash(jPath)}" style="text-decoration:none;color:#1e3a8a;font-weight:600">${esc(jTitle)}</a><div style="font-size:13px;color:#64748b">${esc(job.company)} \u00b7 ${esc(job.location)}</div></li>`; }).join('');
-            const catOtherLinks = Object.keys(catSlugsMap).filter((k) => k !== catKey).map((k) => { const kSlug = `${catPrefix[locale]}-${catSlugsMap[k][locale]}`; return `<a href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${kSlug}`.replace(/\/+/g, '/'))}" style="text-decoration:none;color:#1e3a8a">${catLabels[k][locale]}</a>`; });
+            const catOtherLinks = Object.keys(catSlugsMap).filter((k) => k !== catKey).map((k) => { const kSlug = `${catPrefix[locale]}-${catSlugsMap[k][locale]}`; return `<a href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${kSlug}`.replace(/\/+/g, '/'))}" style="text-decoration:none;color:#1e3a8a;display:inline-flex;align-items:center;min-height:44px;padding:8px 4px">${catLabels[k][locale]}</a>`; });
             const catCollLd = JSON.stringify({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: catTitle, url: catCanonicalUrl, description: catDescription, inLanguage: locale, isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: BASE_URL } });
             const catSectionUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}`;
             const catBreadcrumbLd = JSON.stringify({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
@@ -3257,7 +3267,7 @@ ${alternates}
               return `<section style="margin-top:20px"><h2>Travailler dans le secteur ${catLabel.toLowerCase()} au Tessin</h2><p>Le Canton du Tessin est le principal p\u00f4le \u00e9conomique de la Suisse italienne avec plus de 180 000 emplois. Le secteur ${catLabel.toLowerCase()} est l'un des domaines les plus actifs du march\u00e9 tessinois. Pour les frontaliers avec un permis G, le Tessin applique un imp\u00f4t \u00e0 la source sur le revenu brut. Utilisez notre <a href="${BASE_URL}/fr/">simulateur fiscal gratuit</a> pour calculer votre salaire net en tant que frontalier.</p></section>`;
             })();
             const catOpenAllLabel = locale === 'it' ? 'Apri il job board completo' : locale === 'en' ? 'Open the full job board' : locale === 'de' ? 'Komplettes Job Board \u00f6ffnen' : 'Ouvrir le job board complet';
-            const catHtml = `<!doctype html>\n<html lang="${locale}">\n  <head>\n    <meta charset="utf-8">\n    <meta name="viewport" content="width=device-width,initial-scale=1">\n    <title>${esc(catTitle)}</title>\n    <meta name="description" content="${esc(catDescription)}">\n    <meta name="robots" content="index,follow">\n    <meta property="og:type" content="website">\n    <meta property="og:site_name" content="Frontaliere Ticino">\n    <meta property="og:locale" content="${localeOg[locale]}">\n    <meta property="og:title" content="${esc(catTitle)}">\n    <meta property="og:description" content="${esc(catDescription)}">\n    <meta property="og:url" content="${catCanonicalUrl}">\n    <link rel="canonical" href="${catCanonicalUrl}">\n${catAlternates}\n    <script type="application/ld+json">${catCollLd}</script>\n    <script type="application/ld+json">${catBreadcrumbLd}</script>${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all">` : ''}\n    ${GTAG_SNIPPET}\n  </head>\n  <body>\n    <div id="root">\n    <main class="static-job-page">\n      <h1>${esc(catTitle.replace(' | Frontaliere Ticino', ''))}</h1>\n      <p>${esc(catDescription)}</p>\n      ${catIntro}\n      <ul style="list-style:none;padding:0;margin:16px 0">${catListHtml}</ul>\n      <p><a href="${catSectionUrl}">${esc(catOpenAllLabel)}</a></p>\n      ${catMarketSection}\n      <nav style="margin:20px 0;font-size:14px">${locale === 'it' ? 'Altre categorie' : locale === 'en' ? 'Other categories' : locale === 'de' ? 'Weitere Kategorien' : 'Autres cat\u00e9gories'}: ${catOtherLinks.join(' \u00b7 ')}</nav>\n    </main>\n    </div>${hasSpaBundle ? `\n    <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}\n  </body>\n</html>`;
+            const catHtml = `<!doctype html>\n<html lang="${locale}">\n  <head>\n    <meta charset="utf-8">\n    <meta name="viewport" content="width=device-width,initial-scale=1">\n    ${FAVICON_LINKS}\n    <title>${esc(catTitle)}</title>\n    <meta name="description" content="${esc(catDescription)}">\n    <meta name="robots" content="index,follow">\n    <meta property="og:type" content="website">\n    <meta property="og:site_name" content="Frontaliere Ticino">\n    <meta property="og:locale" content="${localeOg[locale]}">\n    <meta property="og:title" content="${esc(catTitle)}">\n    <meta property="og:description" content="${esc(catDescription)}">\n    <meta property="og:url" content="${catCanonicalUrl}">\n    <link rel="canonical" href="${catCanonicalUrl}">\n${catAlternates}\n    <script type="application/ld+json">${catCollLd}</script>\n    <script type="application/ld+json">${catBreadcrumbLd}</script>${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all">` : ''}\n    ${GTAG_SNIPPET}\n  </head>\n  <body>\n    <div id="root">\n    <main class="static-job-page">\n      <h1>${esc(catTitle.replace(' | Frontaliere Ticino', ''))}</h1>\n      <p>${esc(catDescription)}</p>\n      ${catIntro}\n      <ul style="list-style:none;padding:0;margin:16px 0">${catListHtml}</ul>\n      <p><a href="${catSectionUrl}">${esc(catOpenAllLabel)}</a></p>\n      ${catMarketSection}\n      <nav style="margin:20px 0;font-size:14px">${locale === 'it' ? 'Altre categorie' : locale === 'en' ? 'Other categories' : locale === 'de' ? 'Weitere Kategorien' : 'Autres cat\u00e9gories'}: ${catOtherLinks.join(' \u00b7 ')}</nav>\n    </main>\n    </div>${hasSpaBundle ? `\n    <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}\n  </body>\n</html>`;
             const catOutDir = np.join(distDir, catCanonicalPath.slice(1));
             activeJobDirs.add(catCanonicalPath.slice(1).replace(/\/+$/, ''));
             _md(catOutDir);
@@ -3346,7 +3356,7 @@ ${alternates}
                 return `<section style="margin-top:20px"><h2>Le march\u00e9 de l'emploi au Tessin</h2><p>Le Canton du Tessin est le principal p\u00f4le \u00e9conomique de la Suisse italienne avec plus de 180 000 emplois. Pour les frontaliers avec un permis G, le Tessin applique un imp\u00f4t \u00e0 la source sur le revenu brut. Utilisez notre <a href="${BASE_URL}/fr/">simulateur fiscal gratuit</a> pour calculer votre salaire net en tant que frontalier.</p></section>`;
               })();
               const kwOpenAllLabel = locale === 'it' ? 'Apri il job board completo' : locale === 'en' ? 'Open the full job board' : locale === 'de' ? 'Komplettes Job Board \u00f6ffnen' : 'Ouvrir le job board complet';
-              const kwHtml = `<!doctype html>\n<html lang="${locale}">\n  <head>\n    <meta charset="utf-8">\n    <meta name="viewport" content="width=device-width,initial-scale=1">\n    <title>${esc(kwTitle)}</title>\n    <meta name="description" content="${esc(kwDesc)}">\n    <meta name="robots" content="index,follow">\n    <meta property="og:type" content="website">\n    <meta property="og:site_name" content="Frontaliere Ticino">\n    <meta property="og:locale" content="${localeOg[locale]}">\n    <meta property="og:title" content="${esc(kwTitle)}">\n    <meta property="og:description" content="${esc(kwDesc)}">\n    <meta property="og:url" content="${kwCanonicalUrl}">\n    <link rel="canonical" href="${kwCanonicalUrl}">\n${kwAlternates}\n    <script type="application/ld+json">${kwCollLd}</script>${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all">` : ''}\n    ${GTAG_SNIPPET}\n  </head>\n  <body>\n    <div id="root">\n    <main class="static-job-page">\n      <h1>${esc(itCopy.heading)}</h1>\n      <p>${esc(kwDesc)}</p>\n      ${kwIntro}\n      <p>${esc(kwCta)}</p>\n      <ul style="list-style:none;padding:0;margin:16px 0">${kwListHtml}</ul>\n      <p><a href="${kwSectionUrl}">${esc(kwOpenAllLabel)}</a></p>\n      ${kwMarketSection}\n    </main>\n    </div>${hasSpaBundle ? `\n    <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}\n  </body>\n</html>`;
+              const kwHtml = `<!doctype html>\n<html lang="${locale}">\n  <head>\n    <meta charset="utf-8">\n    <meta name="viewport" content="width=device-width,initial-scale=1">\n    ${FAVICON_LINKS}\n    <title>${esc(kwTitle)}</title>\n    <meta name="description" content="${esc(kwDesc)}">\n    <meta name="robots" content="index,follow">\n    <meta property="og:type" content="website">\n    <meta property="og:site_name" content="Frontaliere Ticino">\n    <meta property="og:locale" content="${localeOg[locale]}">\n    <meta property="og:title" content="${esc(kwTitle)}">\n    <meta property="og:description" content="${esc(kwDesc)}">\n    <meta property="og:url" content="${kwCanonicalUrl}">\n    <link rel="canonical" href="${kwCanonicalUrl}">\n${kwAlternates}\n    <script type="application/ld+json">${kwCollLd}</script>${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all">` : ''}\n    ${GTAG_SNIPPET}\n  </head>\n  <body>\n    <div id="root">\n    <main class="static-job-page">\n      <h1>${esc(itCopy.heading)}</h1>\n      <p>${esc(kwDesc)}</p>\n      ${kwIntro}\n      <p>${esc(kwCta)}</p>\n      <ul style="list-style:none;padding:0;margin:16px 0">${kwListHtml}</ul>\n      <p><a href="${kwSectionUrl}">${esc(kwOpenAllLabel)}</a></p>\n      ${kwMarketSection}\n    </main>\n    </div>${hasSpaBundle ? `\n    <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}\n  </body>\n</html>`;
               const kwOutDir = np.join(distDir, kwCanonicalPath.slice(1));
               activeJobDirs.add(kwRelDir);
               _md(kwOutDir);
@@ -3431,6 +3441,7 @@ ${alternates}
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    ${FAVICON_LINKS}
     <title>${esc(title)}</title>
     <meta name="description" content="${esc(description)}">
     <meta name="robots" content="${matchingJobs.length >= 3 ? 'index,follow' : 'noindex,follow'}">
@@ -3554,6 +3565,7 @@ ${(() => {
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    ${FAVICON_LINKS}
     <title>${esc(copy.title)}</title>
     <meta name="description" content="${esc(description)}">
     <meta property="og:type" content="website">

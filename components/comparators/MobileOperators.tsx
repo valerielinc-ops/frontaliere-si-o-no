@@ -469,7 +469,7 @@ const MobileOperators: React.FC = () => {
           {t('mobile.bestOptions')}
         </h3>
         <div className="grid md:grid-cols-2 gap-4">
-          <div className="p-4 bg-white/50 dark:bg-slate-900/50 rounded-xl">
+          <div className="p-4 bg-surface/50 rounded-xl">
             <p className="font-bold text-emerald-700 dark:text-emerald-400 mb-2">🇮🇹 {t('mobile.italianWithRoaming')}:</p>
             <ul className="space-y-1 text-sm text-body">
               {bestForFrontierWorkers.filter(op => op.country === 'IT').map(op => (
@@ -479,7 +479,7 @@ const MobileOperators: React.FC = () => {
               ))}
             </ul>
           </div>
-          <div className="p-4 bg-white/50 dark:bg-slate-900/50 rounded-xl">
+          <div className="p-4 bg-surface/50 rounded-xl">
             <p className="font-bold text-emerald-700 dark:text-emerald-400 mb-2">🇨🇭 {t('mobile.swissWithRoaming')}:</p>
             <ul className="space-y-1 text-sm text-body">
               {bestForFrontierWorkers.filter(op => op.country === 'CH').map(op => (
@@ -683,7 +683,7 @@ const MobileOperators: React.FC = () => {
         </h3>
         
         <div className="space-y-4 text-sm text-body">
-          <div className="p-4 bg-white/50 dark:bg-slate-900/50 rounded-xl">
+          <div className="p-4 bg-surface/50 rounded-xl">
             <p className="font-bold text-blue-600 mb-2">📱 {t('mobile.whichOperator')}</p>
             <ul className="space-y-2 ml-4 list-disc">
               <li>{t('mobile.operatorTip1')}</li>
@@ -692,7 +692,7 @@ const MobileOperators: React.FC = () => {
             </ul>
           </div>
 
-          <div className="p-4 bg-white/50 dark:bg-slate-900/50 rounded-xl">
+          <div className="p-4 bg-surface/50 rounded-xl">
             <p className="font-bold text-blue-600 mb-2">💡 {t('mobile.tricksTitle')}</p>
             <ul className="space-y-2 ml-4 list-disc">
               <li>{t('mobile.trick1')}</li>

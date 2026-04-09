@@ -132,7 +132,7 @@ const GamificationPage: React.FC = () => {
               className={`relative flex items-start gap-4 p-4 rounded-2xl transition-[color,background-color,border-color,box-shadow] ${
                 isUnlocked
                   ? 'bg-surface border-2 border-amber-300 dark:border-amber-700 shadow-md'
-                  : 'bg-white/60 dark:bg-slate-800/60 border border-edge opacity-70'
+                  : 'bg-surface/60 border border-edge opacity-70'
               }`}
             >
               {/* Icon */}

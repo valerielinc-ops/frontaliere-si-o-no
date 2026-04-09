@@ -58,7 +58,7 @@ const NumberStepper: React.FC<NumberStepperProps> = ({ id, value, min, max, onCh
     >
       <Minus size={16} strokeWidth={2.5} />
     </button>
-    <div className="flex-1 min-w-[40px] h-full relative flex items-center justify-center bg-white/50 dark:bg-slate-900/50">
+    <div className="flex-1 min-w-[40px] h-full relative flex items-center justify-center bg-surface/50">
       <input
         id={id}
         type="number"

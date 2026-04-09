@@ -374,7 +374,7 @@ function makeTodayCopy(cantonCode: string): Record<JobLandingLocale, {
     de: {
       title: `Jobs ${germanCantonPrep(cd.de)} heute | Letzte 24 Stunden und letzte 3 Tage`,
       heading: `Jobs ${germanCantonPrep(cd.de)} heute`,
-      description: `Entdecken Sie Jobs ${germanCantonPrep(cd.de)}, die heute oder in den letzten 3 Tagen veroffentlicht wurden, mit Bereichen fur die letzten 24 Stunden, Teilzeit und Stadte wie ${cities}.`,
+      description: `Entdecken Sie Jobs ${germanCantonPrep(cd.de)}, die heute oder in den letzten 3 Tagen veroffentlicht wurden, mit Bereichen fur 24h, Teilzeit und Stadte.`,
       intro: `Diese Landingpage bundelt die frischesten Stellen aus unserem Job Board ${cd.de} und ordnet sie in nutzliche Blocke fur eine schnelle Orientierung.`,
       updatedLabel: 'Aktualisiert',
       countsLabel: 'aktive Jobs im Monitoring',
@@ -388,7 +388,7 @@ function makeTodayCopy(cantonCode: string): Record<JobLandingLocale, {
     fr: {
       title: `Offres d'emploi ${frenchCantonPrep(cd.fr)} aujourd'hui | Dernieres 24 heures et 3 derniers jours`,
       heading: `Offres d'emploi ${frenchCantonPrep(cd.fr)} aujourd'hui`,
-      description: `Consultez les offres d'emploi ${frenchCantonPrep(cd.fr)} publiees aujourd'hui ou durant les 3 derniers jours, avec des blocs dedies aux 24 dernieres heures, au temps partiel et aux villes comme ${cities}.`,
+      description: `Consultez les offres d'emploi ${frenchCantonPrep(cd.fr)} publiees aujourd'hui ou ces 3 derniers jours, avec blocs 24h, temps partiel et villes.`,
       intro: `Cette landing page regroupe les offres les plus recentes de notre job board ${frenchCantonPrep(cd.fr)} et les organise en blocs utiles pour lire rapidement le marche.`,
       updatedLabel: 'Mis a jour',
       countsLabel: 'offres actives suivies',
@@ -423,7 +423,7 @@ const OFFICIAL_GAZETTE_COPY: Record<JobLandingLocale, {
   it: {
     title: 'Foglio ufficiale offerte di lavoro Ticino | Concorsi pubblici e fonti ufficiali',
     heading: 'Foglio ufficiale offerte di lavoro Ticino',
-    description: (count) => `Consulta ${count} concorsi pubblici e offerte di lavoro dal Foglio ufficiale del Ticino gia indicizzati da Frontaliere Ticino, con differenze tra concorsi pubblici, job board e fonti ufficiali.`,
+    description: (count) => `Consulta ${count} concorsi pubblici e offerte dal Foglio ufficiale del Ticino indicizzati da Frontaliere Ticino, con spiegazione su concorsi, job board e fonti.`,
     intro: 'Questa pagina ti aiuta a distinguere tra concorsi pubblici, annunci del nostro job board e fonti ufficiali cantonali. Qui trovi soprattutto concorsi pubblici indicizzati da fonti ufficiali come concorsi.ti.ch, con link interni alle schede gia pulite e leggibili.',
     updatedLabel: 'Aggiornamento',
     countsLabel: 'concorsi pubblici indicizzati',
@@ -465,7 +465,7 @@ const OFFICIAL_GAZETTE_COPY: Record<JobLandingLocale, {
   en: {
     title: 'Official Gazette Ticino jobs | Public competitions and official sources',
     heading: 'Official Gazette jobs in Ticino',
-    description: (count) => `Browse ${count} public competitions and job listings from the Ticino Official Gazette already indexed by Frontaliere Ticino, with a clear explanation of public competitions, job boards and official sources.`,
+    description: (count) => `Browse ${count} public competitions and jobs from the Ticino Official Gazette indexed by Frontaliere Ticino, with public vs job board vs official sources explained.`,
     intro: 'This page helps you understand the difference between public competitions, our broader job board and official canton sources. It focuses on public-sector listings already indexed from official sources such as concorsi.ti.ch.',
     updatedLabel: 'Updated',
     countsLabel: 'indexed public competitions',
@@ -507,7 +507,7 @@ const OFFICIAL_GAZETTE_COPY: Record<JobLandingLocale, {
   de: {
     title: 'Amtsblatt Stellen Tessin | Offentliche Ausschreibungen und offizielle Quellen',
     heading: 'Amtsblatt-Stellen im Tessin',
-    description: (count) => `Entdecken Sie ${count} offentliche Ausschreibungen und Stellen aus offiziellen Tessiner Quellen, die bereits von Frontaliere Ticino indexiert wurden, inklusive Erklarung zu Wettbewerb, Job Board und offizieller Quelle.`,
+    description: (count) => `Entdecken Sie ${count} offentliche Ausschreibungen aus offiziellen Tessiner Quellen, indexiert von Frontaliere Ticino, mit Erklarung zu Wettbewerb und Quellen.`,
     intro: 'Diese Seite hilft bei der Unterscheidung zwischen offentlichen Ausschreibungen, unserem umfassenderen Job Board und offiziellen kantonalen Quellen. Im Fokus stehen bereits indexierte Ausschreibungen aus offiziellen Quellen wie concorsi.ti.ch.',
     updatedLabel: 'Aktualisiert',
     countsLabel: 'indexierte offentliche Ausschreibungen',
@@ -549,7 +549,7 @@ const OFFICIAL_GAZETTE_COPY: Record<JobLandingLocale, {
   fr: {
     title: "Feuille officielle emplois Tessin | Concours publics et sources officielles",
     heading: "Emplois de la Feuille officielle au Tessin",
-    description: (count) => `Consultez ${count} concours publics et offres issues de sources officielles du Tessin deja indexes par Frontaliere Ticino, avec une explication claire entre concours publics, job board et source officielle.`,
+    description: (count) => `Consultez ${count} concours publics et offres de sources officielles du Tessin indexes par Frontaliere Ticino, avec explication concours, job board et sources.`,
     intro: "Cette page vous aide a distinguer les concours publics, notre job board plus large et les sources officielles cantonales. Elle se concentre sur les offres publiques deja indexees depuis des sources officielles comme concorsi.ti.ch.",
     updatedLabel: 'Mis a jour',
     countsLabel: 'concours publics indexes',
@@ -631,7 +631,7 @@ function makeNursesHubCopy(cantonCode: string): Record<JobLandingLocale, {
     en: {
       title: `Nurses in ${cd.en} | Clinics, care homes, healthcare assistants and educators`,
       heading: `Nurses and healthcare jobs in ${cd.en}`,
-      description: (count) => `Browse ${count} jobs for nurses, healthcare assistants, educators and roles in clinics or care homes in ${cd.en}, with dedicated pages for the strongest converting clusters.`,
+      description: (count) => `Browse ${count} nursing, healthcare assistant, educator and clinic or care home jobs in ${cd.en}, with dedicated pages for top converting clusters.`,
       intro: 'This hub groups together the healthcare and care jobs that attract the strongest demand: nurses, healthcare assistants, educators, private clinics and care homes.',
       updatedLabel: 'Updated',
       countsLabel: 'healthcare and care jobs',
@@ -653,7 +653,7 @@ function makeNursesHubCopy(cantonCode: string): Record<JobLandingLocale, {
     de: {
       title: `Pflege Jobs ${germanCantonPrep(cd.de)} | Kliniken, Altersheime, OSS und Erzieher`,
       heading: `Pflege- und Gesundheitsjobs ${germanCantonPrep(cd.de)}`,
-      description: (count) => `Entdecken Sie ${count} Jobs fur Pflege, OSS-nahe Rollen, Erzieher und Positionen in Kliniken oder Altersheimen ${germanCantonPrep(cd.de)}, mit eigenen Seiten fur die relevantesten Cluster.`,
+      description: (count) => `Entdecken Sie ${count} Pflege-, OSS-, Erzieher- und Klinikstellen ${germanCantonPrep(cd.de)}, mit eigenen Seiten fur die relevantesten Cluster.`,
       intro: 'Dieser Hub bundelt die Gesundheits- und Care-Jobs mit hoher Nachfrage: Pflege, Betreuung, Erziehung, Kliniken und Altersheime.',
       updatedLabel: 'Aktualisiert',
       countsLabel: 'Pflege- und Care-Jobs',
@@ -675,7 +675,7 @@ function makeNursesHubCopy(cantonCode: string): Record<JobLandingLocale, {
     fr: {
       title: `Infirmiers ${frenchCantonPrep(cd.fr)} | Cliniques, EMS, OSS et educateurs`,
       heading: `Infirmiers et sante ${frenchCantonPrep(cd.fr)}`,
-      description: (count) => `Consultez ${count} offres pour infirmiers, OSS, educateurs et roles en cliniques ou en maisons de retraite ${frenchCantonPrep(cd.fr)}, avec des pages dediees aux sous-clusters les plus performants.`,
+      description: (count) => `Consultez ${count} offres infirmiers, OSS, educateurs et cliniques ou EMS ${frenchCantonPrep(cd.fr)}, avec pages dediees aux sous-clusters performants.`,
       intro: `Ce hub regroupe les offres sante et care qui attirent le plus de demande: infirmiers, OSS, educateurs, cliniques privees et maisons de retraite.`,
       updatedLabel: 'Mis a jour',
       countsLabel: 'offres sante et care',
@@ -771,7 +771,7 @@ const LOCATION_COPY: Record<JobLandingLocale, {
   it: {
     heading: (location) => `Lavoro a ${location} in Ticino`,
     title: (location) => `Offerte di lavoro a ${location} in Ticino | Lavoro ${location} aggiornato`,
-    description: (location, count) => `Scopri ${count} offerte di lavoro a ${location} in Ticino, con annunci aggiornati, aziende che assumono, nuovi annunci degli ultimi 3 giorni e link diretti alle candidature ufficiali.`,
+    description: (location, count) => `Scopri ${count} offerte di lavoro a ${location} in Ticino con annunci aggiornati, aziende che assumono, nuovi annunci degli ultimi 3 giorni e link alle candidature.`,
     intro: (location) => `Questa pagina raccoglie in un solo punto gli annunci con sede a ${location}, cosi puoi capire subito quali aziende stanno assumendo davvero in citta e quali profili compaiono piu spesso.`,
     countsLabel: 'annunci attivi in citta',
     updatedLabel: 'Aggiornamento',
@@ -793,7 +793,7 @@ const LOCATION_COPY: Record<JobLandingLocale, {
   de: {
     heading: (location) => `Jobs in ${location}, Tessin`,
     title: (location) => `Jobs in ${location}, Tessin | Aktuelle Stellenangebote und Arbeitgeber`,
-    description: (location, count) => `Entdecken Sie ${count} Jobs in ${location} im Tessin mit aktuellen Stellenangeboten, aktiven Arbeitgebern, neuen Inseraten der letzten 3 Tage und direkten Links zur offiziellen Bewerbung.`,
+    description: (location, count) => `Entdecken Sie ${count} Jobs in ${location} im Tessin mit aktuellen Angeboten, aktiven Arbeitgebern, neuen Inseraten der letzten 3 Tage und Bewerbungslinks.`,
     intro: (location) => `Diese Seite bundelt Stellen mit Arbeitsort ${location}, damit Sie sofort sehen, welche Arbeitgeber vor Ort einstellen und welche Profile besonders gefragt sind.`,
     countsLabel: 'aktive lokale Jobs',
     updatedLabel: 'Aktualisiert',
@@ -804,7 +804,7 @@ const LOCATION_COPY: Record<JobLandingLocale, {
   fr: {
     heading: (location) => `Emploi a ${location}, Tessin`,
     title: (location) => `Offres d'emploi a ${location}, Tessin | Emploi local a jour`,
-    description: (location, count) => `Consultez ${count} offres d'emploi a ${location} au Tessin, avec des annonces a jour, des employeurs actifs, des offres des 3 derniers jours et des liens directs vers la candidature officielle.`,
+    description: (location, count) => `Consultez ${count} offres d'emploi a ${location} au Tessin avec annonces a jour, employeurs actifs, offres des 3 derniers jours et liens vers la candidature.`,
     intro: (location) => `Cette page regroupe les offres basees a ${location} afin de voir rapidement quelles entreprises recrutent localement et quels profils reviennent le plus souvent.`,
     countsLabel: 'offres locales actives',
     updatedLabel: 'Mis a jour',
@@ -885,7 +885,7 @@ const LOCATION_SECTOR_COPY: Record<JobLandingLocale, {
   it: {
     heading: (label, location) => `${label} a ${location} in Ticino`,
     title: (label, location) => `${label} a ${location} in Ticino | Offerte di lavoro aggiornate`,
-    description: (label, location, count) => `Scopri ${count} offerte di lavoro nel settore ${label.toLowerCase()} a ${location} in Ticino, con aziende attive, annunci aggiornati, nuovi inserimenti degli ultimi 3 giorni e link diretti alle candidature ufficiali.`,
+    description: (label, location, count) => `Scopri ${count} offerte ${label.toLowerCase()} a ${location} in Ticino con aziende attive, annunci aggiornati, nuovi inserimenti degli ultimi 3 giorni e link alle candidature.`,
     intro: (label, location) => `Questa pagina raccoglie le offerte di ${label.toLowerCase()} con sede a ${location}, utile per capire subito quali aziende cercano profili di questo settore nella zona.`,
     countsLabel: 'annunci attivi',
     updatedLabel: 'Aggiornamento',
@@ -907,7 +907,7 @@ const LOCATION_SECTOR_COPY: Record<JobLandingLocale, {
   de: {
     heading: (label, location) => `${label} in ${location}, Tessin`,
     title: (label, location) => `${label} in ${location}, Tessin | Aktuelle Jobangebote`,
-    description: (label, location, count) => `Entdecken Sie ${count} Stellen im Bereich ${label.toLowerCase()} in ${location} im Tessin mit aktiven Arbeitgebern, aktuellen Stellenangeboten, Inseraten der letzten 3 Tage und direkten Bewerbungslinks.`,
+    description: (label, location, count) => `Entdecken Sie ${count} ${label.toLowerCase()}-Stellen in ${location} im Tessin mit aktiven Arbeitgebern, aktuellen Angeboten und direkten Bewerbungslinks.`,
     intro: (label, location) => `Diese Seite bundelt ${label.toLowerCase()}-Stellen mit Arbeitsort ${location}, damit Sie einen lokalen Sektor gezielt durchsuchen konnen.`,
     countsLabel: 'aktive Inserate',
     updatedLabel: 'Aktualisiert',
@@ -918,7 +918,7 @@ const LOCATION_SECTOR_COPY: Record<JobLandingLocale, {
   fr: {
     heading: (label, location) => `${label} a ${location}, Tessin`,
     title: (label, location) => `${label} a ${location}, Tessin | Offres d'emploi a jour`,
-    description: (label, location, count) => `Consultez ${count} offres de ${label.toLowerCase()} a ${location} au Tessin, avec employeurs actifs, annonces a jour, offres des 3 derniers jours et liens directs vers la candidature officielle.`,
+    description: (label, location, count) => `Consultez ${count} offres ${label.toLowerCase()} a ${location} au Tessin avec employeurs actifs, annonces a jour et liens directs vers la candidature.`,
     intro: (label, location) => `Cette page rassemble les offres de ${label.toLowerCase()} basees a ${location}, afin de suivre un secteur local de maniere plus utile qu'une liste generaliste.`,
     countsLabel: 'offres actives',
     updatedLabel: 'Mis a jour',
@@ -1770,7 +1770,7 @@ function makePartTimeCopy(cantonCode: string): Record<JobLandingLocale, {
     it: {
       title: `Lavoro part-time in ${cd.it} | Offerte a tempo parziale per frontalieri`,
       heading: `Lavoro part-time in ${cd.it}`,
-      description: (count) => `Scopri ${count} offerte di lavoro part-time in ${cd.it} per frontalieri. Posizioni a tempo parziale aggiornate ogni giorno da aziende svizzere, con filtri per citta, settore e percentuale di impiego.`,
+      description: (count) => `Scopri ${count} offerte part-time in ${cd.it} per frontalieri. Posizioni a tempo parziale aggiornate da aziende svizzere, con filtri per citta e settore.`,
       intro: `Questa landing raccoglie tutte le offerte a tempo parziale disponibili nel Canton ${cd.it}, ideale per chi cerca flessibilita lavorativa come frontaliere. Le posizioni spaziano da contratti al 20% fino al 80% e coprono tutti i principali settori.`,
       updatedLabel: 'Aggiornamento',
       countsLabel: 'annunci part-time attivi',
@@ -1796,7 +1796,7 @@ function makePartTimeCopy(cantonCode: string): Record<JobLandingLocale, {
     en: {
       title: `Part-time jobs in ${cd.en} | Flexible positions for cross-border workers`,
       heading: `Part-time jobs in ${cd.en}`,
-      description: (count) => `Browse ${count} part-time job openings in ${cd.en} for cross-border workers. Flexible positions updated daily from Swiss employers, filterable by city, sector and employment percentage.`,
+      description: (count) => `Browse ${count} part-time jobs in ${cd.en} for cross-border workers. Flexible positions updated daily, filterable by city, sector and employment percentage.`,
       intro: `This page collects all part-time positions available in Canton ${cd.en}, ideal for cross-border workers seeking flexibility. Roles range from 20% to 80% contracts across all major sectors.`,
       updatedLabel: 'Updated',
       countsLabel: 'active part-time jobs',
@@ -1822,7 +1822,7 @@ function makePartTimeCopy(cantonCode: string): Record<JobLandingLocale, {
     de: {
       title: `Teilzeitjobs ${germanCantonPrep(cd.de)} | Flexible Stellen fur Grenzganger`,
       heading: `Teilzeitjobs ${germanCantonPrep(cd.de)}`,
-      description: (count) => `Entdecken Sie ${count} Teilzeitstellen ${germanCantonPrep(cd.de)} fur Grenzganger. Flexible Positionen von Schweizer Arbeitgebern, taglich aktualisiert, filterbar nach Stadt, Branche und Beschaftigungsgrad.`,
+      description: (count) => `Entdecken Sie ${count} Teilzeitstellen ${germanCantonPrep(cd.de)} fur Grenzganger. Flexible Positionen taglich aktualisiert, filterbar nach Stadt und Branche.`,
       intro: `Diese Seite sammelt alle Teilzeitstellen im Kanton ${cd.de}, ideal fur Grenzganger auf der Suche nach flexibler Arbeit. Die Positionen reichen von 20%- bis 80%-Vertragen in allen wichtigen Branchen.`,
       updatedLabel: 'Aktualisiert',
       countsLabel: 'aktive Teilzeitstellen',
@@ -1848,7 +1848,7 @@ function makePartTimeCopy(cantonCode: string): Record<JobLandingLocale, {
     fr: {
       title: `Emploi temps partiel ${frenchCantonPrep(cd.fr)} | Postes flexibles pour frontaliers`,
       heading: `Emploi temps partiel ${frenchCantonPrep(cd.fr)}`,
-      description: (count) => `Consultez ${count} offres d'emploi a temps partiel ${frenchCantonPrep(cd.fr)} pour les frontaliers. Postes flexibles mis a jour quotidiennement par des employeurs suisses, filtrables par ville, secteur et taux d'occupation.`,
+      description: (count) => `Consultez ${count} offres a temps partiel ${frenchCantonPrep(cd.fr)} pour frontaliers. Postes flexibles mis a jour quotidiennement, filtrables par ville et secteur.`,
       intro: `Cette page regroupe toutes les offres a temps partiel disponibles dans le canton ${cd.fr}, ideales pour les frontaliers a la recherche de flexibilite. Les postes vont de contrats a 20% jusqu'a 80% dans tous les secteurs majeurs.`,
       updatedLabel: 'Mis a jour',
       countsLabel: 'offres temps partiel actives',

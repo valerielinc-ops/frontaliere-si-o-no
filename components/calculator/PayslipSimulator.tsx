@@ -143,7 +143,7 @@ const StepperInput = ({ value, onChange, min = 0, max, label, icon: Icon, iconCo
       >
         <Minus size={16} strokeWidth={2.5} />
       </button>
-      <div className="flex-1 h-full relative flex items-center justify-center bg-white/50 dark:bg-slate-900/50">
+      <div className="flex-1 h-full relative flex items-center justify-center bg-surface/50">
         <input
           id={inputId}
           type="number"

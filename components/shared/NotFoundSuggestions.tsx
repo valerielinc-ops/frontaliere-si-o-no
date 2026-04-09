@@ -67,7 +67,7 @@ function scoreMatch(keywords: string[], targets: string[]): number {
 }
 
 // Static search index for suggestions (mirrors top-level SiteSearch items)
-function buildSuggestionIndex(t: (key: string) => string): Suggestion[] {
+function buildSuggestionIndex(t: (key: string, params?: Record<string, string>) => string): Suggestion[] {
   return [
     { title: t('nav.simulator') || 'Simulatore', description: t('app.subtitle'), tab: 'calculator', icon: Calculator, color: 'text-blue-600', score: 0 },
     { title: t('comparators.exchange') || 'Cambio Valuta', description: t('notFound.desc.exchange'), tab: 'confronti', subTab: 'exchange', icon: Calculator, color: 'text-violet-600', score: 0 },

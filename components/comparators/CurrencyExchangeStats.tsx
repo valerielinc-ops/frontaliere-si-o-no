@@ -538,7 +538,7 @@ const ExchangeTimingSection: React.FC<{ historyData: Array<{ date: string; rate:
             { emoji: '⚡', text: t('currency.hack_avoid_friday') },
             { emoji: '🔔', text: t('currency.hack_set_alert') },
           ].map((hack, i) => (
-            <div key={i} className="flex items-start gap-2 bg-white/60 dark:bg-slate-800/60 rounded-lg p-2.5 text-xs text-body">
+            <div key={i} className="flex items-start gap-2 bg-surface/60 rounded-lg p-2.5 text-xs text-body">
               <span className="text-base flex-shrink-0">{hack.emoji}</span>
               <span>{hack.text}</span>
             </div>
