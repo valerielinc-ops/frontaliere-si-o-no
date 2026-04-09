@@ -1,18 +1,82 @@
 {
   "key": "ariston-group",
   "label": "Ariston Group",
-  "generatedAt": "2026-04-09T09:08:50.829Z",
-  "total": 1,
-  "newCount": 1,
+  "generatedAt": "2026-04-09T21:01:08.839Z",
+  "total": 3,
+  "newCount": 2,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 1849,
-  "avgDurationMs": 1849,
+  "unchangedCount": 1,
+  "durationMs": 3523,
+  "avgDurationMs": 3523,
   "durationHistory": [
-    1849
+    3523
   ],
   "newJobs": [
+    {
+      "title": "SERVICETECHNIKER/IN ÖL - OBERWALLIS",
+      "slug": "servicetechniker-in-ol-oberwallis-ariston-group-brig-glis-ch-3902",
+      "url": "https://careers.aristongroup.com/job/Maerstetten-SERVICETECHNIKERIN-%C3%96L-OBERWALLIS-Brig-3902/1185843001/",
+      "applyUrl": "https://careers.aristongroup.com/talentcommunity/apply/1185843001/?locale=en_US",
+      "company": "Ariston Group",
+      "companyKey": "ariston-group",
+      "companyDomain": "aristongroup.com",
+      "location": "Brig-Glis, CH, 3902",
+      "addressLocality": "Brig-Glis, CH, 3902",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "canton": "VS",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Energia & Riscaldamento",
+      "source": "ariston-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-03-21",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "2026-04-11",
+      "_qualityScore": 71,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 10,
+        "completeness": 14
+      }
+    },
+    {
+      "title": "VERKAUFSBERATER/IN AUSSENDIENST (W/M) - REGION OBERWALLIS",
+      "slug": "verkaufsberater-in-aussendienst-w-m-region-oberwallis-ariston-group-brig-ch-1070",
+      "url": "https://careers.aristongroup.com/job/Brig-VERKAUFSBERATERIN-AUSSENDIENST-%28WM%29-REGION-OBERWALLIS-Brig-1070/1187004201/",
+      "applyUrl": "https://careers.aristongroup.com/talentcommunity/apply/1187004201/?locale=en_US",
+      "company": "Ariston Group",
+      "companyKey": "ariston-group",
+      "companyDomain": "aristongroup.com",
+      "location": "Brig, CH, 1070",
+      "addressLocality": "Brig, CH, 1070",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "canton": "VS",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Energia & Riscaldamento",
+      "source": "ariston-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-03-22",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "2026-05-09",
+      "_qualityScore": 71,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 10,
+        "completeness": 14
+      }
+    }
+  ],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "IMPIEGATO/A COMMERCIALE INTERNO (SALES SUPPORT)",
       "slug": "impiegato-a-commerciale-interno-sales-support-ariston-group-bedano-ch-6930",
@@ -35,16 +99,19 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "2026-05-09",
-      "_qualityScore": 71,
+      "id": "ariston-group-aa9bfd740eb8",
+      "needsRetranslation": true,
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "postalCode": "6930",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 10,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 22
       }
     }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
