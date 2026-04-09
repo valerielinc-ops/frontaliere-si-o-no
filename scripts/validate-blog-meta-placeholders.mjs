@@ -105,22 +105,76 @@ for (const filePath of FILES_TO_SCAN) {
 
 if (violations.length === 0) {
   console.log(`[validate-blog-meta-placeholders] OK — scanned ${FILES_TO_SCAN.length} files, no LLM template placeholders found.`);
-  process.exit(0);
+} else {
+  console.error('');
+  console.error('❌ BLOG META PLACEHOLDER VALIDATION FAILED');
+  console.error('');
+  console.error(`Found ${violations.length} literal placeholder string(s) from create-article.mjs JSON template.`);
+  console.error('This means the LLM returned the skeleton verbatim instead of filling it in.');
+  console.error('');
+  console.error('Violations:');
+  for (const v of violations) {
+    console.error(`  ${v.file}:${v.line}`);
+    console.error(`    pattern: ${JSON.stringify(v.pattern)}`);
+    console.error(`    line:    ${v.context}`);
+  }
+  console.error('');
+  console.error('Fix: rewrite the affected entries with real content matching the article body.');
+  console.error('See CLAUDE.md "Never accept thin content" + "Fix root cause".');
+  process.exit(1);
 }
 
-console.error('');
-console.error('❌ BLOG META PLACEHOLDER VALIDATION FAILED');
-console.error('');
-console.error(`Found ${violations.length} literal placeholder string(s) from create-article.mjs JSON template.`);
-console.error('This means the LLM returned the skeleton verbatim instead of filling it in.');
-console.error('');
-console.error('Violations:');
-for (const v of violations) {
-  console.error(`  ${v.file}:${v.line}`);
-  console.error(`    pattern: ${JSON.stringify(v.pattern)}`);
-  console.error(`    line:    ${v.context}`);
+// ── Untranslated title/excerpt check ──────────────────────────────────
+// Detects blog-meta entries where EN/DE/FR title or excerpt is identical
+// to the Italian version (translation failure — LLM returned IT unchanged).
+// Skip articles whose IT text is already in the target language (e.g.,
+// pfaffikon-kanton-schwyz — German-origin article, IT file has German text).
+const parseTitles = (filePath) => {
+  const out = {};
+  try {
+    const src = readFileSync(filePath, 'utf-8');
+    const rx = /'blog\.article\.([^']+)\.(title|excerpt)'\s*:\s*'((?:[^'\\]|\\.)*)'/g;
+    let m;
+    while ((m = rx.exec(src)) !== null) {
+      if (!out[m[1]]) out[m[1]] = {};
+      out[m[1]][m[2]] = m[3];
+    }
+  } catch { /* file may not exist */ }
+  return out;
+};
+
+// Articles whose IT version is NOT Italian (German-origin, etc.) — skip match check
+const FOREIGN_ORIGIN_ARTICLES = new Set([
+  'pfaffikon-kanton-schwyz-franzosi-einbrecher',
+]);
+
+const itMeta = parseTitles(join(localesDir, 'blog-meta-it.ts'));
+const untranslated = [];
+
+for (const locale of ['en', 'de', 'fr']) {
+  const locMeta = parseTitles(join(localesDir, `blog-meta-${locale}.ts`));
+  for (const [articleId, fields] of Object.entries(locMeta)) {
+    if (!itMeta[articleId]) continue;
+    if (FOREIGN_ORIGIN_ARTICLES.has(articleId)) continue;
+    for (const field of ['title', 'excerpt']) {
+      if (fields[field] && itMeta[articleId][field] && fields[field] === itMeta[articleId][field]) {
+        untranslated.push({ locale, articleId, field, value: fields[field].slice(0, 80) });
+      }
+    }
+  }
 }
-console.error('');
-console.error('Fix: rewrite the affected entries with real content matching the article body.');
-console.error('See CLAUDE.md "Never accept thin content" + "Fix root cause".');
-process.exit(1);
+
+if (untranslated.length > 0) {
+  console.error('');
+  console.error(`⚠️  UNTRANSLATED BLOG META WARNING: ${untranslated.length} entries identical to Italian`);
+  console.error('');
+  for (const u of untranslated) {
+    console.error(`  blog-meta-${u.locale}.ts → ${u.articleId}.${u.field}: "${u.value}..."`);
+  }
+  console.error('');
+  console.error('These entries have the Italian text instead of a proper translation.');
+  console.error('Fix: translate the title/excerpt in the target language.');
+  // Warning only — don't block build, but visible in CI logs
+}
+
+process.exit(0);

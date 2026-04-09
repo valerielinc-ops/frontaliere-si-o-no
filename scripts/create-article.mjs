@@ -2445,6 +2445,33 @@ async function translateArticle(data) {
     }
   }
 
+  // Detect untranslated title/excerpt (identical to Italian = translation failure)
+  // Retry once per affected locale; if still identical, warn but don't block.
+  for (const locale of ['en', 'de', 'fr']) {
+    for (const field of ['title', 'excerpt']) {
+      const itVal = (itContent[field] || '').trim();
+      const locVal = (data.content[locale][field] || '').trim();
+      if (itVal && locVal === itVal) {
+        const langName = locale === 'en' ? 'inglese' : locale === 'de' ? 'tedesco' : 'francese';
+        console.error(`  ⚠️  [translation-check] ${locale.toUpperCase()}.${field} identico all'italiano — retry traduzione...`);
+        try {
+          const retryResult = await callWithRetry(makePrompt(
+            `ATTENZIONE: la traduzione precedente è rimasta in ITALIANO. Traduci OBBLIGATORIAMENTE in ${langName}.\n\nCONTENUTO ITALIANO DA TRADURRE:\n- ${field}: ${itVal}`,
+            `{"${field}": "..."}`,
+          ), 1000, `${locale}:${field}-retry`);
+          if (retryResult?.[field] && retryResult[field].trim() !== itVal) {
+            data.content[locale][field] = retryResult[field];
+            console.error(`  ✅ [translation-check] ${locale.toUpperCase()}.${field} ritradotto con successo`);
+          } else {
+            console.error(`  ⚠️  [translation-check] ${locale.toUpperCase()}.${field} ancora identico dopo retry — accettato con warning`);
+          }
+        } catch (retryErr) {
+          console.error(`  ⚠️  [translation-check] Retry fallito per ${locale}.${field}: ${retryErr.message}`);
+        }
+      }
+    }
+  }
+
   console.error(`  ✅ Articolo assemblato — ${Object.keys(data.content).length} lingue`);
 }
 
