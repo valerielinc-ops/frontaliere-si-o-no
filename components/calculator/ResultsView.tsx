@@ -3,6 +3,7 @@ import { ScrollText, Trophy, Armchair, Info, PartyPopper, Calculator, ChevronRig
 // jsPDF and autoTable are lazy-imported inside exportPDF() — only needed on user click (~134KB gzip saved from critical path)
 import { SimulationResult, TaxResult, TaxBreakdownItem, SimulationInputs } from '../../types';
 import { lazyRetry } from '@/services/lazyRetry';
+import DataFreshness from '@/components/shared/DataFreshness';
 // ComparisonChart is lazy-loaded to avoid pulling vendor-charts (~114KB gzip) into the critical path
 const ComparisonChart = lazyRetry(() => import('./ComparisonChart').then(m => ({ default: m.ComparisonChart })));
 const SubscriptionCTA = lazyRetry(() => import('@/components/shared/SubscriptionCTA'));
@@ -499,14 +500,7 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
             ? 'bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-600' 
             : 'bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700'
         }`}>
-           {/* Confetti / Particle Background Effect */}
-           <div className="absolute inset-0 opacity-10 pointer-events-none overflow-hidden">
-              <div className="absolute top-[-10%] left-[10%] w-4 h-4 bg-white rounded-full animate-pulse [animation-duration:3s]"></div>
-              <div className="absolute top-[-5%] left-[30%] w-3 h-3 bg-yellow-300 rounded-full animate-pulse [animation-duration:2.5s] [animation-delay:0.5s]"></div>
-              <div className="absolute top-[-15%] left-[60%] w-5 h-5 bg-white rounded-full animate-pulse [animation-duration:3.2s] [animation-delay:1s]"></div>
-              <div className="absolute top-[-8%] left-[80%] w-2 h-2 bg-yellow-300 rounded-full animate-pulse [animation-duration:2.8s] [animation-delay:0.2s]"></div>
-              <div className="absolute top-[20%] right-[-5%] w-6 h-6 bg-white/30 rounded-full animate-ping [animation-duration:4s]"></div>
-           </div>
+
            
            <div className="flex items-center gap-4 sm:gap-6 relative z-10">
               <div className="bg-white/10 p-3 sm:p-4 rounded-2xl shrink-0 transition-transform group-hover:scale-110 duration-300">
@@ -524,7 +518,7 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
                   <span>{t('results.netAdvantage')}</span>
                   {showEUR ? (
                     <>
-                      <span className="font-bold font-mono text-base sm:text-lg bg-white/20 px-2 py-0.5 rounded-lg border border-white/10 animate-pulse">
+                      <span className="font-bold font-mono text-base sm:text-lg bg-white/20 px-2 py-0.5 rounded-lg border border-white/10">
                           € {formatCurrency(savingsEUR)}
                       </span>
                       <span className="font-bold font-mono text-base sm:text-lg bg-white/10 px-2 py-0.5 rounded-lg border border-white/10">
@@ -532,7 +526,7 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
                       </span>
                     </>
                   ) : (
-                    <span className="font-bold font-mono text-base sm:text-lg bg-white/20 px-2 py-0.5 rounded-lg border border-white/10 animate-pulse">
+                    <span className="font-bold font-mono text-base sm:text-lg bg-white/20 px-2 py-0.5 rounded-lg border border-white/10">
                         CHF {formatCurrency(savingsCHF)}
                     </span>
                   )}
@@ -788,6 +782,14 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
             </button>
           </div>
         )}
+
+        {/* Source methodology — AI SEO citability */}
+        <div className="mt-6 p-4 bg-slate-50 dark:bg-slate-900/50 rounded-xl border border-slate-200 dark:border-slate-700">
+          <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+            <strong>{t('results.methodology.title')}</strong>{' '}
+            {t('results.methodology.description')}
+          </p>
+        </div>
 
         {/* Post-calculation newsletter CTA */}
         <Suspense fallback={null}>

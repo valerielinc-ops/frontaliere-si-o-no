@@ -102,7 +102,7 @@ export default function SiteMapPage() {
       ],
     },
     {
-      icon: <ExternalLink className="w-5 h-5 text-slate-600" />,
+      icon: <ExternalLink className="w-5 h-5 text-slate-600 dark:text-slate-400" />,
       title: t('sitemap.section.other'),
       links: [
         { label: t('sitemap.link.blog'), route: { activeTab: 'blog' } },

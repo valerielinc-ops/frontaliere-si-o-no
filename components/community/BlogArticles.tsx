@@ -1187,16 +1187,20 @@ function BlogArticles({
 
   // Track viewport for mobile-first performance tuning on hub list.
   useEffect(() => {
+    let rafId = 0;
     const updateViewport = () => {
-      const w = window.innerWidth;
-      // Keep initial above-the-fold payload tiny on mobile.
-      if (w < 640) setGridRevealCount(2);
-      else if (w < 1024) setGridRevealCount(4);
-      else setGridRevealCount(6);
+      cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
+        const w = window.innerWidth;
+        // Keep initial above-the-fold payload tiny on mobile.
+        if (w < 640) setGridRevealCount(2);
+        else if (w < 1024) setGridRevealCount(4);
+        else setGridRevealCount(6);
+      });
     };
     updateViewport();
     window.addEventListener('resize', updateViewport);
-    return () => window.removeEventListener('resize', updateViewport);
+    return () => { window.removeEventListener('resize', updateViewport); cancelAnimationFrame(rafId); };
   }, []);
 
   const filteredArticles = useMemo(() => {
@@ -1507,9 +1511,9 @@ function BlogArticles({
       );
     }
 
-    const articleCTAs = getArticleCTAs(selectedArticle);
+    const articleCTAs = useMemo(() => getArticleCTAs(selectedArticle), [selectedArticle]);
 
-    const sidePartners = getPartnersForCategory(article.category, 4);
+    const sidePartners = useMemo(() => getPartnersForCategory(article.category, 4), [article.category]);
     const creatorContextText = `${article.category} ${t(`blog.article.${article.id}.title`)} ${t(`blog.article.${article.id}.excerpt`)}`;
     const bodySegments = collectBodyParts(article.id, t);
     const presentSegments = bodySegments;
@@ -2511,7 +2515,7 @@ function BlogArticles({
                   <Clock size={12} />
                   {estimateReadingMinutes(pageArticles[0].id, t)} min
                 </span>
-                <span className="text-xs text-white/60">{formatDate(pageArticles[0].date)}</span>
+                <span className="text-xs text-white/80">{formatDate(pageArticles[0].date)}</span>
               </div>
               <h2 className="text-xl sm:text-2xl font-bold text-white mb-2 leading-tight">
                 {t(`blog.article.${pageArticles[0].id}.title`)}
@@ -2526,7 +2530,7 @@ function BlogArticles({
 
       {/* Article grid — newspaper 3-column layout */}
       {pageArticles.length > 1 && (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5" style={{ contentVisibility: 'auto', containIntrinsicSize: 'auto 600px' }}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5" aria-live="polite" style={{ contentVisibility: 'auto', containIntrinsicSize: 'auto 600px' }}>
           {pageArticles.slice(1, 1 + gridRevealCount).map((article, idx) => (
             <a
               key={article.id}

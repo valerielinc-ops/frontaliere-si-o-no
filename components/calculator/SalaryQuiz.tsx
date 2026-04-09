@@ -321,15 +321,9 @@ export default function SalaryQuiz() {
               <p className="text-emerald-200 text-sm">{t('salaryQuiz.grossPerMonth')}</p>
             </div>
 
-            <div className="grid grid-cols-2 gap-4 mb-6">
-              <div className="bg-white/20 rounded-xl p-4 text-center">
-                <p className="text-emerald-100 text-xs mb-1">{t('salaryQuiz.netCHF')}</p>
-                <p className="text-2xl font-bold">CHF {result.netCHF.toLocaleString()}</p>
-              </div>
-              <div className="bg-white/20 rounded-xl p-4 text-center">
-                <p className="text-emerald-100 text-xs mb-1">{t('salaryQuiz.netEUR')}</p>
-                <p className="text-2xl font-bold">€{result.netEUR.toLocaleString()}</p>
-              </div>
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mb-6">
+              <div><span className="text-lg font-semibold">CHF {result.netCHF.toLocaleString()}</span> <span className="text-sm text-white/80">{t('salaryQuiz.netCHF')}</span></div>
+              <div><span className="text-lg font-semibold">€{result.netEUR.toLocaleString()}</span> <span className="text-sm text-white/80">{t('salaryQuiz.netEUR')}</span></div>
             </div>
 
             {/* Salary range bar */}

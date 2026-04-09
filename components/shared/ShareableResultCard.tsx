@@ -59,11 +59,11 @@ const ACCENT_HEX: Record<string, [string, string]> = {
 };
 
 const ROW_COLORS: Record<string, string> = {
-  emerald: 'text-emerald-700',
-  blue: 'text-blue-700',
-  amber: 'text-amber-700',
-  red: 'text-red-700',
-  violet: 'text-violet-700',
+  emerald: 'text-emerald-700 dark:text-emerald-400',
+  blue: 'text-blue-700 dark:text-blue-400',
+  amber: 'text-amber-700 dark:text-amber-400',
+  red: 'text-red-700 dark:text-red-400',
+  violet: 'text-violet-700 dark:text-violet-400',
 };
 
 /** Hex values for Canvas row value colors */
@@ -430,7 +430,7 @@ const ShareableResultCard: React.FC<ShareableCardProps> = ({
                     {row.label}
                   </span>
                   <span className={`text-sm font-bold ${
-                    row.color ? ROW_COLORS[row.color] || 'text-slate-800' : row.highlight ? 'text-slate-900' : 'text-slate-700 dark:text-slate-300'
+                    row.color ? ROW_COLORS[row.color] || 'text-slate-800 dark:text-slate-200' : row.highlight ? 'text-slate-900 dark:text-slate-100' : 'text-slate-700 dark:text-slate-300'
                   }`}>
                     {row.value}
                   </span>
@@ -439,7 +439,7 @@ const ShareableResultCard: React.FC<ShareableCardProps> = ({
             </div>
 
             {/* Footer */}
-            <div className="px-6 py-3 bg-slate-50 flex items-center justify-between">
+            <div className="px-6 py-3 bg-slate-50 dark:bg-slate-700/50 flex items-center justify-between">
               <span className="text-xs text-slate-500 dark:text-slate-400">
                 {footer || t('shareCard.generatedBy')}
               </span>

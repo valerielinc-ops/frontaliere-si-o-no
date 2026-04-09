@@ -374,7 +374,7 @@ const ResidencySimulator: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="bg-gradient-to-br from-indigo-50 to-violet-50 dark:from-indigo-950/30 dark:to-violet-950/30 rounded-2xl p-4 sm:p-6 border border-indigo-200 dark:border-indigo-800">
+      <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30 rounded-2xl p-4 sm:p-6 border border-indigo-200 dark:border-indigo-800">
         <div className="flex items-center gap-3 mb-2">
           <div className="p-2 bg-indigo-100 dark:bg-indigo-900/50 rounded-xl">
             <Home className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
@@ -608,7 +608,7 @@ function BestMunicipalitySection({ grossMonthlyCHF, chfEurRate }: { grossMonthly
   const hasActiveFilters = searchQuery || filterProvince || filterFascia;
 
   return (
-    <div className="bg-gradient-to-br from-violet-50 to-violet-100 dark:from-violet-950/20 dark:to-violet-900/20 rounded-2xl p-4 sm:p-6 border border-violet-200 dark:border-violet-800 space-y-4">
+    <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/20 dark:to-teal-950/20 rounded-2xl p-4 sm:p-6 border border-violet-200 dark:border-violet-800 space-y-4">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
           <Star className="w-6 h-6 text-violet-600 dark:text-violet-400" />
@@ -651,7 +651,7 @@ function BestMunicipalitySection({ grossMonthlyCHF, chfEurRate }: { grossMonthly
               aria-label={t('residency.bestMunicipality.searchPlaceholder') || 'Cerca comune'}
             />
             {searchQuery && (
-              <button onClick={() => setSearchQuery('')} className="absolute right-2 top-1/2 -translate-y-1/2 text-slate-500 dark:text-slate-400 hover:text-slate-600" aria-label="Pulisci ricerca">
+              <button onClick={() => setSearchQuery('')} className="absolute right-2 top-1/2 -translate-y-1/2 min-w-[44px] min-h-[44px] flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-slate-600" aria-label="Pulisci ricerca">
                 <X size={14} />
               </button>
             )}
