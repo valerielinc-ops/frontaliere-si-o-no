@@ -2961,5 +2961,18 @@ Regole:
     'seo.stats.description': 'Statistiche frontalieri in tempo reale: stipendi, occupazione, traffico, prezzi benzina e osservatorio mercato del lavoro.',
     'seo.vita.description': 'Vivere da frontaliere: comuni migliori, scuole, aziende ticinesi, eventi e qualità della vita in Canton Ticino.',
     'seo.blog.description': 'Articoli e guide per frontalieri: tassazione, previdenza, mercato del lavoro, assicurazioni e novità normative 2026.',
+
+    // Onboarding Hero
+    'onboarding.welcome': 'Benvenuto su Frontaliere Ticino',
+    'onboarding.subtitle': 'Di cosa hai bisogno?',
+    'onboarding.path.evaluate': 'Sto valutando se trasferirmi',
+    'onboarding.path.evaluate.desc': 'Simula il tuo stipendio netto e confronta costi tra Svizzera e Italia',
+    'onboarding.path.commuter': 'Faccio già il frontaliere',
+    'onboarding.path.commuter.desc': 'Confronta banche, assicurazioni, cambio valuta e servizi',
+    'onboarding.path.jobs': 'Cerco lavoro in Ticino',
+    'onboarding.path.jobs.desc': 'Oltre 4000 offerte di lavoro aggiornate ogni giorno',
+    'onboarding.path.tax': 'Ho bisogno di informazioni fiscali',
+    'onboarding.path.tax.desc': 'Guida completa a tasse, deduzioni e nuovo accordo 2026',
+    'onboarding.skipToCalculator': 'Vai direttamente al calcolatore',
 };
 export default translations;

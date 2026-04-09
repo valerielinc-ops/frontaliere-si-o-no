@@ -2872,6 +2872,19 @@ Règles :
     'seo.stats.description': 'Statistiques frontaliers en temps réel : salaires, emploi, trafic, prix carburant et observatoire du marché du travail.',
     'seo.vita.description': 'Vivre en tant que frontalier : meilleures communes, écoles, entreprises tessinoises, événements et qualité de vie au Tessin.',
     'seo.blog.description': 'Articles et guides pour frontaliers : fiscalité, prévoyance, marché du travail, assurances et nouveautés réglementaires 2026.',
+
+    // Onboarding Hero
+    'onboarding.welcome': 'Bienvenue sur Frontaliere Ticino',
+    'onboarding.subtitle': 'De quoi avez-vous besoin ?',
+    'onboarding.path.evaluate': 'J\'envisage de déménager en Suisse',
+    'onboarding.path.evaluate.desc': 'Simulez votre salaire net et comparez les coûts entre la Suisse et l\'Italie',
+    'onboarding.path.commuter': 'Je suis déjà frontalier',
+    'onboarding.path.commuter.desc': 'Comparez banques, assurances, change de devises et services',
+    'onboarding.path.jobs': 'Je cherche du travail au Tessin',
+    'onboarding.path.jobs.desc': 'Plus de 4000 offres d\'emploi mises à jour quotidiennement',
+    'onboarding.path.tax': 'J\'ai besoin d\'informations fiscales',
+    'onboarding.path.tax.desc': 'Guide complet sur les impôts, déductions et le nouvel accord 2026',
+    'onboarding.skipToCalculator': 'Aller directement au calculateur',
 };
 
 export default frCore;

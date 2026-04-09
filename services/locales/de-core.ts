@@ -2872,6 +2872,19 @@ Regeln:
     'seo.stats.description': 'Echtzeit-Grenzgängerstatistiken: Löhne, Beschäftigung, Verkehr, Benzinpreise und Arbeitsmarkt-Observatorium.',
     'seo.vita.description': 'Leben als Grenzgänger: beste Gemeinden, Schulen, Tessiner Unternehmen, Events und Lebensqualität im Kanton Tessin.',
     'seo.blog.description': 'Artikel und Leitfäden für Grenzgänger: Besteuerung, Vorsorge, Arbeitsmarkt, Versicherungen und Neuerungen 2026.',
+
+    // Onboarding Hero
+    'onboarding.welcome': 'Willkommen bei Frontaliere Ticino',
+    'onboarding.subtitle': 'Was brauchen Sie?',
+    'onboarding.path.evaluate': 'Ich überlege, in die Schweiz zu ziehen',
+    'onboarding.path.evaluate.desc': 'Simulieren Sie Ihr Nettogehalt und vergleichen Sie die Kosten zwischen der Schweiz und Italien',
+    'onboarding.path.commuter': 'Ich bin bereits Grenzgänger',
+    'onboarding.path.commuter.desc': 'Vergleichen Sie Banken, Versicherungen, Währungswechsel und Dienstleistungen',
+    'onboarding.path.jobs': 'Ich suche Arbeit im Tessin',
+    'onboarding.path.jobs.desc': 'Über 4000 Stellenangebote, täglich aktualisiert',
+    'onboarding.path.tax': 'Ich brauche Steuerinformationen',
+    'onboarding.path.tax.desc': 'Vollständiger Leitfaden zu Steuern, Abzügen und dem neuen Abkommen 2026',
+    'onboarding.skipToCalculator': 'Direkt zum Rechner',
 };
 
 export default deCore;

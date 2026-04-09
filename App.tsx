@@ -7,12 +7,14 @@ import { TabContentContext } from '@/services/TabContentContext';
 import type { TabContentState } from '@/services/TabContentContext';
 
 import { ErrorBoundary } from '@/components/shared/ErrorBoundary';
+import { isReturningVisitor, markAsReturningVisitor } from '@/components/OnboardingHero';
 import { reportCaughtError } from '@/services/errorReporter';
 // Gamification lazily loaded — all calls are fire-and-forget
 const unlockAchievement = (id: string) => {
   import('@/services/gamificationService').then(m => m.unlockAchievement(id)).catch(() => {});
 };
 const GamificationWidget = lazyRetry(() => import('@/components/community/GamificationWidget'));
+const OnboardingHero = lazyRetry(() => import('@/components/OnboardingHero'));
 const NewsletterPopup = lazyRetry(() => import('@/components/community/NewsletterPopup'));
 const LanguageSelector = lazyRetry(() => import('@/components/shared/LanguageSelector'));
 const SiteSearch = lazyRetry(() => import('@/components/shared/SiteSearch'));
@@ -173,6 +175,7 @@ const App: React.FC = () => {
   const [isDarkMode, setIsDarkMode] = useState(() => document.documentElement.classList.contains('dark'));
   const [isFocusMode, setIsFocusMode] = useState(false);
   const [showDeferredHomeWidgets, setShowDeferredHomeWidgets] = useState(false);
+  const [showOnboardingHero, setShowOnboardingHero] = useState(() => !isReturningVisitor());
   // Read initial route from URL path (or migrate legacy hash)
   const [initialRoute] = useState(() => {
     const parsed = parsePath(window.location.pathname);
@@ -2759,7 +2762,23 @@ const App: React.FC = () => {
               />
             </div>
           ) : activeTab === 'calculator' ? (
-            <CalcolatoreTabContent />
+            showOnboardingHero && calcolatoreSubTab === 'calculator' ? (
+              <Suspense fallback={null}>
+                <OnboardingHero
+                  onNavigate={(tab) => {
+                    markAsReturningVisitor();
+                    setShowOnboardingHero(false);
+                    handleTabChange(tab as ActiveTab);
+                  }}
+                  onDismiss={() => {
+                    markAsReturningVisitor();
+                    setShowOnboardingHero(false);
+                  }}
+                />
+              </Suspense>
+            ) : (
+              <CalcolatoreTabContent />
+            )
           ) : activeTab === 'confronti' ? (
             <ConfrontiTabContent />
           ) : activeTab === 'fisco' ? (
