@@ -29,7 +29,7 @@ const SPEAKABLE_SECTION = {
 
 const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   calculator: {
-    title: 'Frontaliere Ticino 2026 — Calcolo Netto Nuovi e Vecchi Frontalieri',
+    title: 'Frontaliere Ticino 2026 — Calcolo Netto Frontalieri',
     description: 'Calcola il netto come frontaliere in Svizzera 2026: simulatore per nuovi e vecchi frontalieri, imposta alla fonte Ticino, IRPEF Italia, AVS/LPP. Accordo 2026.',
     keywords: 'simulazione tasse nuovi frontalieri, vecchi frontalieri calcolo, calcolo tasse frontalieri, simulazione netto frontalieri, imposta alla fonte ticino, stipendio frontaliere svizzera, calcolo tasse frontalieri oltre 20 km, calcolo tasse svizzera frontalieri, nuovo accordo frontalieri 2026',
     ogTitle: 'Frontaliere Ticino 2026 — Calcolo Netto Nuovi e Vecchi Frontalieri',
@@ -172,7 +172,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
     ogTitle: 'IRPEF — Glossario Frontalieri',
     ogDescription: 'Cos\'è l\'IRPEF e come si applica ai frontalieri con il nuovo accordo.',
     canonicalPath: '/glossario-frontaliere/irpef',
-    structuredData: { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'IRPEF', description: 'Definizione e spiegazione di IRPEF per frontalieri.', url: `${BASE_URL}/glossario-frontaliere/irpef`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere` } },
+    structuredData: { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'IRPEF', description: 'IRPEF: imposta sul reddito delle persone fisiche in Italia. Per i frontalieri 2026, scaglioni dal 23% al 43% con franchigia di €10.000.', url: `${BASE_URL}/glossario-frontaliere/irpef`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere` } },
   },
 
   'glossario-franchigia': {
@@ -182,7 +182,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
     ogTitle: 'Franchigia — Glossario Frontalieri',
     ogDescription: 'Cos\'è la franchigia e come influisce sulle tasse dei frontalieri.',
     canonicalPath: '/glossario-frontaliere/franchigia',
-    structuredData: { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'Franchigia', description: 'Definizione e spiegazione di franchigia per frontalieri.', url: `${BASE_URL}/glossario-frontaliere/franchigia`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere` } },
+    structuredData: { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'Franchigia', description: 'Franchigia fiscale €10.000 per nuovi frontalieri dal 2024: reddito svizzero esente IRPEF fino a questa soglia. Nuovo accordo CH-IT.', url: `${BASE_URL}/glossario-frontaliere/franchigia`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere` } },
   },
 
   'glossario-ristorni': {
@@ -192,7 +192,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
     ogTitle: 'Ristorni — Glossario Frontalieri',
     ogDescription: 'Cosa sono i ristorni fiscali e perché contano per i frontalieri.',
     canonicalPath: '/glossario-frontaliere/ristorni',
-    structuredData: { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'Ristorni fiscali', description: 'Definizione e spiegazione di ristorni fiscali.', url: `${BASE_URL}/glossario-frontaliere/ristorni`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere` } },
+    structuredData: { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'Ristorni fiscali', description: 'Ristorni fiscali: quota delle imposte alla fonte svizzere retrocessa ai comuni italiani di confine dei lavoratori frontalieri.', url: `${BASE_URL}/glossario-frontaliere/ristorni`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere` } },
   },
 
   'glossario-lamal': {
@@ -202,7 +202,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
     ogTitle: 'LAMal — Glossario Frontalieri',
     ogDescription: 'Cos\'è LAMal e come scegliere franchigia e modello assicurativo.',
     canonicalPath: '/glossario-frontaliere/lamal',
-    structuredData: { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'LAMal', description: 'Definizione e spiegazione di LAMal per frontalieri.', url: `${BASE_URL}/glossario-frontaliere/lamal`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere` } },
+    structuredData: { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'LAMal', description: 'LAMal: assicurazione malattia obbligatoria svizzera. Copre cure mediche, ospedaliere e farmaci. I frontalieri scelgono franchigia e modello.', url: `${BASE_URL}/glossario-frontaliere/lamal`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere` } },
   },
 
   'glossario-cmu': {
@@ -212,7 +212,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
     ogTitle: 'CMU — Glossario Frontalieri',
     ogDescription: 'Cos\'è la CMU e in cosa differisce da LAMal per i frontalieri.',
     canonicalPath: '/glossario-frontaliere/cmu',
-    structuredData: { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'CMU', description: 'Definizione e spiegazione di CMU per frontalieri.', url: `${BASE_URL}/glossario-frontaliere/cmu`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere` } },
+    structuredData: { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'CMU', description: 'CMU (Couverture Maladie Universelle): assicurazione sanitaria pubblica francese, alternativa a LAMal per frontalieri in Francia.', url: `${BASE_URL}/glossario-frontaliere/cmu`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere` } },
   },
 
   'glossario-permessoG': {
@@ -222,7 +222,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
     ogTitle: 'Permesso G — Glossario Frontalieri',
     ogDescription: 'Cos\'è il permesso G e cosa cambia rispetto al permesso B.',
     canonicalPath: '/glossario-frontaliere/permesso-g',
-    structuredData: { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'Permesso G', description: 'Definizione e spiegazione del permesso G.', url: `${BASE_URL}/glossario-frontaliere/permesso-g`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere` } },
+    structuredData: { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'Permesso G', description: 'Permesso G: autorizzazione di lavoro per frontalieri che risiedono in un Paese confinante e rientrano quotidianamente. Validità 5 anni.', url: `${BASE_URL}/glossario-frontaliere/permesso-g`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere` } },
   },
 
   'glossario-permessoB': {
@@ -232,7 +232,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
     ogTitle: 'Permesso B — Glossario Frontalieri',
     ogDescription: 'Cos\'è il permesso B e quando conviene rispetto al permesso G.',
     canonicalPath: '/glossario-frontaliere/permesso-b',
-    structuredData: { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'Permesso B', description: 'Definizione e spiegazione del permesso B.', url: `${BASE_URL}/glossario-frontaliere/permesso-b`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere` } },
+    structuredData: { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'Permesso B', description: 'Permesso B: autorizzazione di dimora in Svizzera per cittadini UE/AELS. Consente residenza e lavoro in Svizzera, validità 5 anni.', url: `${BASE_URL}/glossario-frontaliere/permesso-b`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere` } },
   },
 
   'glossario-avs': {
@@ -242,7 +242,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
     ogTitle: 'AVS — Glossario Frontalieri',
     ogDescription: 'Cos\'è AVS e come incide su busta paga e pensione.',
     canonicalPath: '/glossario-frontaliere/avs',
-    structuredData: { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'AVS', description: 'Definizione e spiegazione di AVS.', url: `${BASE_URL}/glossario-frontaliere/avs`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere` } },
+    structuredData: { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'AVS', description: 'AVS (Assicurazione Vecchiaia e Superstiti): primo pilastro previdenziale svizzero. Contributo del 5,3% sullo stipendio dei frontalieri.', url: `${BASE_URL}/glossario-frontaliere/avs`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere` } },
   },
 
   'glossario-lpp': {
@@ -252,7 +252,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
     ogTitle: 'LPP — Glossario Frontalieri',
     ogDescription: 'Cos\'è LPP e come influisce su netto e pensione.',
     canonicalPath: '/glossario-frontaliere/lpp',
-    structuredData: { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'LPP', description: 'Definizione e spiegazione di LPP.', url: `${BASE_URL}/glossario-frontaliere/lpp`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere` } },
+    structuredData: { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'LPP', description: 'LPP (Previdenza Professionale): secondo pilastro pensionistico svizzero. Contributi crescenti per età, dal 7% al 18% del salario coordinato.', url: `${BASE_URL}/glossario-frontaliere/lpp`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere` } },
   },
 
   'glossario-terzoPilastro': {
@@ -262,7 +262,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
     ogTitle: 'Terzo Pilastro — Glossario Frontalieri',
     ogDescription: 'Cos\'è il terzo pilastro e come si usa per ridurre le tasse.',
     canonicalPath: '/glossario-frontaliere/terzo-pilastro',
-    structuredData: { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'Terzo Pilastro', description: 'Definizione e spiegazione del terzo pilastro.', url: `${BASE_URL}/glossario-frontaliere/terzo-pilastro`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere` } },
+    structuredData: { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'Terzo Pilastro', description: 'Terzo pilastro (3a/3b): previdenza privata svizzera con vantaggi fiscali. Il pilastro 3a è deducibile fino a CHF 7.258 annui per dipendenti.', url: `${BASE_URL}/glossario-frontaliere/terzo-pilastro`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere` } },
   },
 
   'glossario-tassoCambio': {
@@ -272,7 +272,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
     ogTitle: 'Tasso di cambio — Glossario Frontalieri',
     ogDescription: 'Cos\'è il tasso di cambio e perché conta per frontalieri e trasferimenti.',
     canonicalPath: '/glossario-frontaliere/tasso-di-cambio',
-    structuredData: { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'Tasso di cambio CHF/EUR', description: 'Definizione e spiegazione di tasso di cambio CHF/EUR.', url: `${BASE_URL}/glossario-frontaliere/tasso-di-cambio`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere` } },
+    structuredData: { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'Tasso di cambio CHF/EUR', description: 'Tasso di cambio CHF/EUR: rapporto franco svizzero-euro, fondamentale per calcolare netto in euro e tasse italiane dei frontalieri.', url: `${BASE_URL}/glossario-frontaliere/tasso-di-cambio`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere` } },
   },
 
   comparatori: {
@@ -516,8 +516,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   },
 
   fisco: {
-    title: 'Calcolatore Imposte alla Fonte 2026 | Tasse e Pensione Frontalieri',
-    description: 'Calcolatore imposte alla fonte Ticino 2026: nuovi frontalieri pagano 6–15% CH più IRPEF con franchigia 10.000 €. Vecchi mantengono regime pre-2024. eTax, AVS, LPP.',
+    title: 'Calcolatore Imposte alla Fonte 2026 | Frontalieri',
+    description: 'Calcolatore imposte alla fonte Ticino 2026: nuovi frontalieri pagano 6–15% CH più IRPEF con franchigia 10.000 €. Vecchi mantengono regime pre-2024.',
     keywords: 'tasse frontalieri 2026, calcolatore imposte alla fonte 2026, etax ticino 2026, dichiarazione redditi frontaliere, ristorni fiscali ticino, pensione frontaliere avs lpp, terzo pilastro 3a frontaliere, scadenze fiscali frontaliere, imposta alla fonte ticino, calcolo stipendio netto svizzera',
     ogTitle: 'Calcolatore Imposte alla Fonte 2026 | Frontaliere Ticino',
     ogDescription: 'Nuovo accordo 2026: calcola imposte alla fonte Ticino (6–15%) + IRPEF con franchigia 10.000 €. Guida completa a tasse, eTax, pensione AVS/LPP e previdenza.',
@@ -784,8 +784,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   },
 
   newFrontierTaxSim: {
-    title: 'Simulazione Tasse Nuovi Frontalieri 2026 | Calcolo IRPEF e Imposta alla Fonte',
-    description: 'Simulazione tasse nuovi frontalieri: calcola imposta alla fonte Ticino, IRPEF con franchigia €10.000, credito d\'imposta e stipendio netto 2026. Simulatore gratuito.',
+    title: 'Simulazione Tasse Nuovi Frontalieri 2026 | IRPEF',
+    description: 'Simulazione tasse nuovi frontalieri: calcola imposta alla fonte Ticino, IRPEF con franchigia €10.000, credito d\'imposta e netto 2026.',
     keywords: 'simulazione tasse nuovi frontalieri, calcolo tasse nuovi frontalieri 2026, imposta alla fonte nuovi frontalieri, IRPEF frontalieri franchigia 10000, nuovo accordo frontalieri tasse, doppia imposizione nuovi frontalieri, differenza vecchi nuovi frontalieri tasse, franchigia nuovi frontalieri',
     ogTitle: 'Simulazione Tasse Nuovi Frontalieri 2026',
     ogDescription: 'Calcola le tasse come nuovo frontaliere: imposta alla fonte CH + IRPEF Italia con franchigia €10.000 e credito d\'imposta. Simulatore gratuito.',
@@ -934,7 +934,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
   exchange: {
     title: 'Cambio CHF/EUR Oggi | Confronto Wise, Revolut, PostFinance',
-    description: 'Cambio CHF/EUR: Wise e Revolut applicano 0,3–0,5% di commissione, le banche 1–3%. Su 5.000 CHF/mese risparmi fino a 150 CHF. Confronta 6 provider in tempo reale.',
+    description: 'Cambio CHF/EUR: Wise e Revolut applicano 0,3–0,5% di commissione, le banche 1–3%. Su 5.000 CHF/mese risparmi fino a 150 CHF. Confronta i provider.',
     keywords: 'cambio chf eur oggi, wise tasso cambio, revolut commissioni, postfinance cambio valuta, ubs credit suisse cambio, n26 trasferimenti, miglior cambio svizzera italia, commissioni cambio valuta',
     ogTitle: 'Cambio CHF/EUR in Tempo Reale',
     ogDescription: 'Cambio CHF/EUR: Wise e Revolut applicano 0,3–0,5% di commissione, le banche tradizionali 1–3%. Su uno stipendio di 5.000 CHF/mese risparmi fino a 150 CHF. Confronta 6 provider in tempo reale.',
@@ -1536,8 +1536,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   },
 
   'cost-of-living': {
-    title: 'Costo Vita Svizzera vs Italia 2026: Confronto Completo per Frontalieri',
-    description: 'Costo vita Svizzera vs Italia a confronto: affitti, spesa, trasporti e sanità tra Lugano, Mendrisio, Chiasso e Como, Varese. Dati aggiornati 2026 per frontalieri.',
+    title: 'Costo Vita Svizzera vs Italia 2026 | Frontalieri',
+    description: 'Costo vita Svizzera vs Italia a confronto: affitti, spesa, trasporti e sanità tra Lugano, Mendrisio e Como. Dati aggiornati 2026 per frontalieri.',
     keywords: 'costo vita svizzera vs italia, costo vita svizzera italia, costo vita lugano, costo vita como, affitto ticino prezzi, costo vita mendrisio chiasso, confronto prezzi svizzera italia, vivere in svizzera costi, costo vita frontiera',
     ogTitle: 'Costo Vita Svizzera vs Italia | Confronto Completo 2026',
     ogDescription: '🏠 Costo vita Svizzera vs Italia: confronta affitti, spesa, trasporti e sanità tra città di frontiera. Dati aggiornati 2026.',
@@ -1871,8 +1871,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   },
 
   holidays: {
-    title: 'Festività Ticino 2026: Tutti i Giorni Festivi del Canton Ticino',
-    description: 'Giorni festivi Ticino 2026: tutti i 15 giorni festivi del Canton Ticino, feste ufficiali e facoltative, ponti e confronto con festività italiane per frontalieri.',
+    title: 'Festività Ticino 2026: Giorni Festivi Cantonali',
+    description: 'Giorni festivi Ticino 2026: tutti i 15 giorni festivi del Canton Ticino, feste ufficiali, facoltative e ponti per frontalieri.',
     keywords: 'festività ticino 2026, giorni festivi ticino 2026, festivi ticino 2026, feste ticino 2026, festività canton ticino, giorni festivi canton ticino, ferie svizzera frontalieri, calendario festivo ticino 2026, ponti svizzera 2026, festività svizzere 2026, giorni festivi svizzera italia confronto',
     ogTitle: 'Festività Ticino 2026 | Tutti i Giorni Festivi Canton Ticino',
     ogDescription: '📅 Giorni festivi Ticino 2026: tutti i 15 giorni festivi del Canton Ticino, feste ufficiali, facoltative, ponti e confronto con festività italiane.',
@@ -2476,7 +2476,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
   jobboard: {
     title: 'Offerte di Lavoro Ticino Oggi — 1500+ Posti da 100 Aziende',
-    description: 'Cerchi lavoro in Ticino? 1500+ offerte aggiornate ogni giorno da Lugano, Mendrisio e Bellinzona. Banche, IT, pharma, sanità. Candidati gratis, senza registrazione.',
+    description: 'Cerchi lavoro in Ticino? 1500+ offerte aggiornate ogni giorno da Lugano, Mendrisio e Bellinzona. Banche, IT, pharma, sanità. Candidati gratis.',
     keywords: 'offerte di lavoro ticino, lavoro ticino, offerte lavoro ticino, cerco lavoro ticino, posti vacanti ticino, offerte di lavoro frontalieri svizzera, lavoro frontaliere ticino 2026, impiego ticino, lavoro lugano, lavoro mendrisio, offerte lavoro ticino oggi, posti di lavoro ticino, lavoro ticino offerte, offerte di lavoro lugano, lavoro in ticino, offerte di lavoro ticino negli ultimi 3 giorni, lavoro ticino da ieri, lavoro ticino negli ultimi 3 giorni',
     ogTitle: 'Offerte di Lavoro Ticino Oggi — 1500+ Posti da 100 Aziende',
     ogDescription: 'Cerchi lavoro in Ticino? 1500+ offerte aggiornate ogni giorno da Lugano, Mendrisio e Bellinzona. Banche, IT, pharma, sanità. Candidatura diretta — gratis!',
@@ -3506,8 +3506,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   },
 
   consulting: {
-    title: 'Consulenza Fiscale Frontalieri Svizzera | Esperti Tasse CH-IT 2026',
-    description: 'Consulenza fiscale per frontalieri: ottimizzazione tasse Svizzera-Italia, dichiarazione redditi, scelta regime fiscale nuovo accordo 2026. Prenota una consulenza.',
+    title: 'Consulenza Fiscale Frontalieri | Tasse CH-IT 2026',
+    description: 'Consulenza fiscale per frontalieri: ottimizzazione tasse Svizzera-Italia, dichiarazione redditi, scelta regime fiscale nuovo accordo 2026.',
     keywords: 'consulenza fiscale frontalieri, consulenza frontaliere, consulente fiscale frontaliere, ottimizzazione fiscale svizzera italia, dichiarazione redditi frontaliere, esperto frontaliero, consulenza fiscale frontalieri svizzera',
     ogTitle: 'Consulenza Fiscale per Frontalieri Svizzera',
     ogDescription: '🎯 Consulenza fiscale per frontalieri Svizzera-Italia: ottimizzazione tasse, dichiarazione redditi e pianificazione. Prenota gratis.',
@@ -5696,7 +5696,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   },
 
   guidaCompleta: {
-    title: 'Guida Completa al Lavoro Frontaliere in Svizzera 2026 | Frontaliere Ticino',
+    title: 'Guida Lavoro Frontaliere Svizzera 2026',
     description: 'Guida definitiva al lavoro frontaliere Svizzera-Italia 2026: permesso G, tassazione nuovo accordo, AVS/LPP, LAMal, pendolarismo e dichiarazione redditi.',
     keywords: 'lavoro frontaliere svizzera 2026, guida completa frontaliere, permesso G svizzera, nuovo accordo frontalieri, imposta alla fonte ticino, frontaliere italia svizzera, lavorare in svizzera dall italia, tassazione frontalieri 2026, assicurazione LAMal frontalieri, pendolare svizzera italia',
     ogTitle: 'Guida Completa al Lavoro Frontaliere in Svizzera 2026',
