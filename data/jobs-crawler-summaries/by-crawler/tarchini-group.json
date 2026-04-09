@@ -1,18 +1,49 @@
 {
   "key": "tarchini-group",
   "label": "Tarchini Group",
-  "generatedAt": "2026-04-09T10:10:26.307Z",
-  "total": 3,
-  "newCount": 0,
-  "updatedCount": 3,
+  "generatedAt": "2026-04-09T22:04:29.074Z",
+  "total": 4,
+  "newCount": 1,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 5744,
-  "avgDurationMs": 5744,
+  "unchangedCount": 1,
+  "durationMs": 5160,
+  "avgDurationMs": 5160,
   "durationHistory": [
-    5744
+    5160
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Responsabile commerciale progetto Swiss Energy Program",
+      "slug": "responsabile-commerciale-progetto-swiss-energy-program-tarchini-group-manno",
+      "url": "https://www.tarchinigroup.com/it/work/1540/responsabile-commerciale-progetto-swiss-energy-program",
+      "applyUrl": "mailto:info@tarchinigroup.com?subject=Responsabile%20commerciale%20progetto%20Swiss%20Energy%20Program",
+      "company": "Tarchini Group",
+      "companyKey": "tarchini-group",
+      "companyDomain": "tarchinigroup.com",
+      "location": "Manno",
+      "addressLocality": "Manno",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "management",
+      "sector": "Immobiliare",
+      "source": "tarchini-group-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-04-09",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "_qualityScore": 75,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Junior Facility Manager",
@@ -42,42 +73,6 @@
       "streetAddress": "Via Cantonale 12",
       "postalCode": "6533",
       "id": "tarchini-group-12e715eba42b",
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Responsabile investimenti e partecipazioni",
-      "slug": "responsabile-investimenti-e-partecipazioni-tarchini-group-manno",
-      "url": "https://www.tarchinigroup.com/it/work/1537/responsabile-investimenti-e-partecipazioni",
-      "applyUrl": "mailto:info@tarchinigroup.com?subject=Responsabile%20investimenti%20e%20partecipazioni",
-      "company": "Tarchini Group",
-      "companyKey": "tarchini-group",
-      "companyDomain": "tarchinigroup.com",
-      "location": "Manno",
-      "addressLocality": "Manno",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "management",
-      "sector": "Immobiliare",
-      "source": "tarchini-group-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-04-09",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "salaryMin": 72000,
-      "salaryMax": 97000,
-      "currency": "CHF",
-      "streetAddress": "Via Cantonale 12",
-      "postalCode": "6533",
-      "id": "tarchini-group-7009d4ce2f04",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -124,5 +119,42 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "title": "Responsabile investimenti e partecipazioni",
+      "slug": "responsabile-investimenti-e-partecipazioni-tarchini-group-manno",
+      "url": "https://www.tarchinigroup.com/it/work/1537/responsabile-investimenti-e-partecipazioni",
+      "applyUrl": "mailto:info@tarchinigroup.com?subject=Responsabile%20investimenti%20e%20partecipazioni",
+      "company": "Tarchini Group",
+      "companyKey": "tarchini-group",
+      "companyDomain": "tarchinigroup.com",
+      "location": "Manno",
+      "addressLocality": "Manno",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "management",
+      "sector": "Immobiliare",
+      "source": "tarchini-group-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-04-09",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "salaryMin": 72000,
+      "salaryMax": 97000,
+      "currency": "CHF",
+      "streetAddress": "Via Cantonale 12",
+      "postalCode": "6533",
+      "id": "tarchini-group-7009d4ce2f04",
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ]
 }
