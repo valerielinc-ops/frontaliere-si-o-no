@@ -1017,10 +1017,28 @@ function slugMatchesTitle(slug, title, company = '', location = '') {
   });
 }
 
+// File-level cache: track which files have been hardened in this process run.
+// Prevents double-processing when called from translateMissingJobLocales + validateDedicatedLocaleCoverage.
+const _hardenResultCache = new Map();
+
+/** Clear the harden cache (for testing). */
+export function resetHardenCache() {
+  _hardenResultCache.clear();
+}
+
 export function hardenJobLocaleFields({ dataJobsPath }) {
   if (!dataJobsPath || !fs.existsSync(dataJobsPath)) {
     return { changed: false, repaired: 0, total: 0 };
   }
+
+  // File-level dedup: if this file was already hardened in this process run,
+  // return the cached result. This prevents the 2nd call (from validate) from
+  // re-deriving slugs and generating spurious previousSlugs.
+  const resolvedPath = path.resolve(dataJobsPath);
+  if (_hardenResultCache.has(resolvedPath)) {
+    return _hardenResultCache.get(resolvedPath);
+  }
+
   const parsed = JSON.parse(fs.readFileSync(dataJobsPath, 'utf-8'));
   // Support both flat array format and { jobs: [...] } wrapper format
   const raw = Array.isArray(parsed) ? parsed : (Array.isArray(parsed?.jobs) ? parsed.jobs : null);
@@ -1417,7 +1435,14 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
 
     // Preserve old slugs as aliases when slugs change (prevents 404s for renamed jobs)
     if (jobChanged) {
-      captureLostSlugs(job, slugsByLocaleBefore, baseSlug);
+      // First-run guard: for brand-new jobs (all slugsByLocaleBefore empty and no
+      // existing previousSlugs), slug derivation is not a "rename" — it's the
+      // initial assignment. Capturing these would create spurious bridge pages.
+      const hadPreviousSlugs = Array.isArray(job.previousSlugs) && job.previousSlugs.length > 0;
+      const allBeforeWereEmpty = !baseSlug && Object.values(slugsByLocaleBefore).every(s => !s);
+      if (!allBeforeWereEmpty || hadPreviousSlugs) {
+        captureLostSlugs(job, slugsByLocaleBefore, baseSlug);
+      }
       changed = true;
       repaired += 1;
     }
@@ -1449,7 +1474,9 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
   }
 
   if (!changed) {
-    return { changed: false, repaired: 0, total: raw.length };
+    const result = { changed: false, repaired: 0, total: raw.length };
+    _hardenResultCache.set(resolvedPath, result);
+    return result;
   }
 
   writeJson(dataJobsPath, raw);
@@ -1457,7 +1484,9 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
   if (fs.existsSync(publicJobsPath)) {
     writeJson(publicJobsPath, raw);
   }
-  return { changed: true, repaired, total: raw.length };
+  const result = { changed: true, repaired, total: raw.length };
+  _hardenResultCache.set(resolvedPath, result);
+  return result;
 }
 
 /**
@@ -4484,11 +4513,16 @@ export function captureLostSlugs(job, prevSlugByLocale = {}, prevSlug = '', cap 
 
   if (!Array.isArray(job.previousSlugs)) job.previousSlugs = [];
   const allPrevious = new Set([...job.previousSlugs, ...lost]);
-  // Only exclude the current MASTER slug — locale slugs in slugByLocale should
-  // NOT be removed from previousSlugs because they may still be needed as bridge
-  // redirects. An old master slug that happens to coincide with a current locale
-  // slug was being incorrectly purged, losing SEO continuity.
+  // Exclude the current master slug — it already has a live page
   if (job.slug) allPrevious.delete(normalizeSpace(job.slug));
+  // Exclude all current locale slugs — each active slugByLocale value already
+  // generates a live page; a bridge page redirecting to itself is redundant.
+  if (job.slugByLocale && typeof job.slugByLocale === 'object') {
+    for (const locale of LOCALES) {
+      const currentSlug = normalizeSpace(job.slugByLocale[locale] || '');
+      if (currentSlug) allPrevious.delete(currentSlug);
+    }
+  }
   job.previousSlugs = [...allPrevious].slice(0, cap);
   return lost;
 }
