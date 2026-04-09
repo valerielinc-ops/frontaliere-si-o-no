@@ -2873,18 +2873,7 @@ Rules:
     'seo.vita.description': 'Living as a cross-border worker: best municipalities, schools, Ticino companies, events and quality of life in Canton Ticino.',
     'seo.blog.description': 'Articles and guides for cross-border workers: taxation, pensions, job market, insurance and 2026 regulatory updates.',
 
-    // Onboarding Hero
-    'onboarding.welcome': 'Welcome to Frontaliere Ticino',
-    'onboarding.subtitle': 'What do you need?',
-    'onboarding.path.evaluate': 'I\'m considering moving to Switzerland',
-    'onboarding.path.evaluate.desc': 'Simulate your net salary and compare costs between Switzerland and Italy',
-    'onboarding.path.commuter': 'I\'m already a cross-border worker',
-    'onboarding.path.commuter.desc': 'Compare banks, insurance, currency exchange and services',
-    'onboarding.path.jobs': 'I\'m looking for work in {canton}',
-    'onboarding.path.jobs.desc': 'Over 4000 job offers updated daily',
-    'onboarding.path.tax': 'I need tax information',
-    'onboarding.path.tax.desc': 'Complete guide to taxes, deductions and the 2026 new agreement',
-    'onboarding.skipToCalculator': 'Go directly to the calculator',
+
 };
 
 export default enCore;
