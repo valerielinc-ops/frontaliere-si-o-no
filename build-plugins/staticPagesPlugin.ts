@@ -1357,18 +1357,14 @@ export function staticPagesPlugin(rootDir: string): Plugin {
           // Use the Italian path (from outer loop) for editorial lookup since
           // SECTION_EDITORIAL_KEYS use Italian slugs, not locale-specific ones
           const italianPath = url.path; // e.g. '/tasse-e-pensione/credito-imposta'
-          if (locale !== 'it') {
-            const sectionKey = SECTION_EDITORIAL_KEYS
-              .find(prefix => italianPath.startsWith(prefix));
-            if (sectionKey && SECTION_EDITORIAL[sectionKey]?.[locale]) {
-              editorialBlocks.push(...SECTION_EDITORIAL[sectionKey][locale]);
-            } else {
-              const locEditorial = LOCALE_EDITORIAL[locale];
-              if (locEditorial) editorialBlocks.push(...locEditorial);
-            }
-            // Supplement: pad to at least 7 paragraphs from LOCALE_EDITORIAL
-            // to meet search engine content quality thresholds (~300 words minimum)
-            if (editorialBlocks.length < 7) {
+          // Check SECTION_EDITORIAL for ALL locales (including Italian).
+          // If the entry has an 'it' key, use it instead of the inline chain below.
+          const sectionKey = SECTION_EDITORIAL_KEYS
+            .find(prefix => italianPath.startsWith(prefix));
+          if (sectionKey && SECTION_EDITORIAL[sectionKey]?.[locale]) {
+            editorialBlocks.push(...SECTION_EDITORIAL[sectionKey][locale]);
+            // For non-IT locales: pad to at least 7 paragraphs
+            if (locale !== 'it' && editorialBlocks.length < 7) {
               const supplement = LOCALE_EDITORIAL[locale];
               if (supplement) {
                 for (const para of supplement) {
@@ -1377,6 +1373,10 @@ export function staticPagesPlugin(rootDir: string): Plugin {
                 }
               }
             }
+          } else if (locale !== 'it') {
+            // Generic non-IT locale fallback (no section-specific editorial)
+            const locEditorial = LOCALE_EDITORIAL[locale];
+            if (locEditorial) editorialBlocks.push(...locEditorial);
           } else if (canonicalPath.startsWith('/calcola-stipendio/simula-busta-paga')) {
             editorialBlocks.push(
               `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Come simulare la busta paga del frontaliere</h2>`,

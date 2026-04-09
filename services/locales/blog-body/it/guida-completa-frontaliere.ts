@@ -7,7 +7,7 @@ Questa guida copre **ogni aspetto** del percorso frontaliero: dalla decisione in
 
 ## I numeri del fenomeno frontaliero nel 2025
 
-Il fenomeno frontaliero in Ticino ha raggiunto dimensioni senza precedenti. Secondo i dati dell'Ufficio federale di statistica (UST, Q4 2025):
+Il fenomeno frontaliero in Ticino ha raggiunto dimensioni senza precedenti. Secondo i dati dell'<a href="https://www.bfs.admin.ch/bfs/it/home/statistiche/lavoro-reddito/attivita-professionale-orario-lavoro/lavoratori-frontalieri.html" target="_blank" rel="noopener">Ufficio federale di statistica (UST)</a> (Q4 2025):
 
 | Indicatore | Valore | Fonte |
 |---|---|---|
@@ -16,7 +16,7 @@ Il fenomeno frontaliero in Ticino ha raggiunto dimensioni senza precedenti. Seco
 | **Stipendio mediano frontalieri** | CHF 5.400/mese | Rilevazione svizzera della struttura dei salari |
 | **Crescita ultimi 5 anni** | +15,2% | UST, serie storica |
 | **Settore più rappresentato** | Manifattura (31%) | UST, STATIMP |
-| **Età media** | 42 anni | SEM, Rapporto migrazione 2025 |
+| **Età media** | 42 anni | <a href="https://www.sem.admin.ch/sem/it/home/publiservice/statistik.html" target="_blank" rel="noopener">SEM</a>, Rapporto migrazione 2025 |
 
 > «Il Ticino è un caso unico in Europa: quasi un lavoratore su tre attraversa un confine internazionale ogni mattina. Questo crea un mercato del lavoro binazionale di fatto, con dinamiche che non si trovano in nessun altro cantone svizzero.» — Prof. Roberto Bentivoglio, Professore di Diritto del Lavoro, USI
 
