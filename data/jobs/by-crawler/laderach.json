@@ -6,10 +6,10 @@
       "id": "laderach-032d3cd21aa6",
       "slug": "canary-wharf-deputy-store-manager-laderach-england",
       "slugByLocale": {
-        "de": "canary-wharf-deputy-store-manager-laderach-england",
+        "de": "canary-wharf-stellvertretender-filialleiter-laderach-schweiz-ag-england",
         "it": "canary-wharf-deputy-store-manager-laderach-england",
         "en": "canary-wharf-deputy-store-manager-laderach-england",
-        "fr": "canary-wharf-deputy-store-manager-laderach-england"
+        "fr": "canary-wharf-adjoint-du-gerant-de-boutique-laderach-schweiz-ag-england"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -58,15 +58,18 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7000"
+      "postalCode": "7000",
+      "previousSlugs": [
+        "canary-wharf-deputy-store-manager-laderach-england"
+      ]
     },
     {
       "id": "laderach-c699092f0cc3",
       "slug": "verkaufer-20-40-chocolaterie-winterthur-w-m-d-laderach-winterthur",
       "slugByLocale": {
         "de": "verkaufer-20-40-chocolaterie-winterthur-w-m-d-laderach-winterthur",
-        "it": "verkaufer-20-40-chocolaterie-winterthur-w-m-d-laderach-winterthur",
-        "en": "verkaufer-20-40-chocolaterie-winterthur-w-m-d-laderach-winterthur",
+        "it": "venditore-20-40-chocolateria-winterthur-w-m-d-laderach-schweiz-ag-winterthur",
+        "en": "salesperson-20-40-chocolateria-winterthur-w-m-d-laderach-schweiz-ag-winterthur",
         "fr": "verkaufer-20-40-chocolaterie-winterthur-w-m-d-laderach-winterthur"
       },
       "company": "Läderach (Schweiz) AG",
@@ -116,7 +119,10 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8400"
+      "postalCode": "8400",
+      "previousSlugs": [
+        "verkaufer-20-40-chocolaterie-winterthur-w-m-d-laderach-winterthur"
+      ]
     },
     {
       "id": "laderach-2ec719337727",

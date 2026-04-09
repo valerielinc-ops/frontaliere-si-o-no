@@ -169,7 +169,7 @@
       "crawledAt": "2026-04-09T09:38:22.107Z",
       "slugByLocale": {
         "it": "medico-assistente-medicina-interna-eoc-ente-ospedaliero-cantonale-lugano",
-        "en": "medico-assistente-medicina-interna-eoc-ente-ospedaliero-cantonale-lugano-uilmk8",
+        "en": "internal-medicine-assistant-physician-eoc-ente-ospedaliero-cantonale-lugano",
         "de": "assistenzarzt-fur-innere-medizin-eoc-ente-ospedaliero-cantonale-lugano",
         "fr": "medecin-assistant-en-medecine-interne-eoc-ente-ospedaliero-cantonale-lugano"
       },
@@ -204,7 +204,10 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "medico-assistente-medicina-interna-eoc-ente-ospedaliero-cantonale-lugano-uilmk8"
+      ]
     },
     {
       "id": "company-uilmkv",
@@ -487,9 +490,9 @@
       "crawledAt": "2026-04-09T09:38:22.107Z",
       "slugByLocale": {
         "it": "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano",
-        "en": "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano-uil2r1",
+        "en": "medical-study-assistant-eoc-ente-ospedaliero-cantonale-lugano",
         "de": "arzthelferin-eoc-ente-ospedaliero-cantonale-lugano",
-        "fr": "assistante-de-cabinet-medical-eoc-ente-ospedaliero-cantonale-lugano"
+        "fr": "assistant-d-etude-medicale-eoc-ente-ospedaliero-cantonale-lugano"
       },
       "titleByLocale": {
         "it": "Assistente di studio medico",
@@ -532,7 +535,11 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano-uil2r1",
+        "assistante-de-cabinet-medical-eoc-ente-ospedaliero-cantonale-lugano"
+      ]
     },
     {
       "id": "company-uil169",
@@ -736,8 +743,8 @@
       "slugByLocale": {
         "it": "infermiere-a-specializzato-a-in-anestesia-eoc-ente-ospedaliero-cantonale-bellinzona",
         "en": "nurse-specialized-in-anesthesia-eoc-ente-ospedaliero-cantonale-mendrisio",
-        "de": "krankenschwester-mit-spezialisierung-auf-anasthesie-eoc-ente-ospedaliero-cantonale-mendrisio",
-        "fr": "infirmiere-specialisee-en-anesthesie-eoc-ente-ospedaliero-cantonale-mendrisio"
+        "de": "fachkrankpfleger-in-fur-anasthesie-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "fr": "infirmier-ere-specialise-e-en-anesthesie-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
         "it": "Infermiere/a specializzato/a in anestesia",
@@ -774,7 +781,9 @@
       "previousSlugs": [
         "specialized-nurse-in-anesthesia-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fachkrankenpfleger-in-fur-anasthesie-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "infirmier-ere-specialise-e-en-anesthesie-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "infirmier-ere-specialise-e-en-anesthesie-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "krankenschwester-mit-spezialisierung-auf-anasthesie-eoc-ente-ospedaliero-cantonale-mendrisio",
+        "infirmiere-specialisee-en-anesthesie-eoc-ente-ospedaliero-cantonale-mendrisio"
       ]
     },
     {
@@ -1060,7 +1069,7 @@
         "it": "tecnico-di-sala-operatoria-tso-e-o-infermiere-a-strumentista-eoc-ente-ospedaliero-cantonale-bellinzona",
         "en": "operating-room-technician-tso-and-or-instrumental-nurse-eoc-ente-ospedaliero-cantonale-bellinzona",
         "de": "operationstechniker-tso-und-oder-instrumentenschwester-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "fr": "technicien-de-bloc-operatoire-tso-et-ou-infirmiere-instrumentale-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "fr": "technicien-de-salle-d-operation-tso-et-ou-infirmier-ere-instrumentiste-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
         "it": "Tecnico di sala operatoria (TSO) e/o infermiere/a strumentista",
@@ -1100,7 +1109,10 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "technicien-de-bloc-operatoire-tso-et-ou-infirmiere-instrumentale-eoc-ente-ospedaliero-cantonale-bellinzona"
+      ]
     },
     {
       "id": "company-x29n4d",
@@ -2285,7 +2297,7 @@
       "crawledAt": "2026-04-09T09:38:22.107Z",
       "slugByLocale": {
         "it": "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uil171",
+        "en": "domestic-economy-assistant-eoc-ente-ospedaliero-cantonale-bellinzona",
         "de": "mitarbeiter-im-bereich-hauswirtschaft-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "collaborateur-en-economie-domestique-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
@@ -2320,7 +2332,10 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uil171"
+      ]
     },
     {
       "id": "company-uikz1n",
@@ -2587,9 +2602,9 @@
       "crawledAt": "2026-04-09T09:38:22.107Z",
       "slugByLocale": {
         "it": "assistente-di-cura-o-addetto-a-alle-cure-sociosanitarie-eoc-ente-ospedaliero-cantonale-locarno",
-        "en": "assistente-di-cura-o-addetto-a-alle-cure-sociosanitarie-eoc-ente-ospedaliero-cantonale-locarno-uikzn3",
+        "en": "care-assistant-or-social-and-healthcare-assistant-eoc-ente-ospedaliero-cantonale-locarno",
         "de": "pflegehelfer-oder-sozialarbeiter-eoc-ente-ospedaliero-cantonale-locarno",
-        "fr": "infirmiere-auxiliaire-ou-assistante-sociale-eoc-ente-ospedaliero-cantonale-locarno"
+        "fr": "assistant-de-soins-ou-assistant-socio-sanitaire-eoc-ente-ospedaliero-cantonale-locarno"
       },
       "titleByLocale": {
         "it": "Assistente di cura o addetto/a alle cure sociosanitarie",
@@ -2622,7 +2637,11 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "assistente-di-cura-o-addetto-a-alle-cure-sociosanitarie-eoc-ente-ospedaliero-cantonale-locarno-uikzn3",
+        "infirmiere-auxiliaire-ou-assistante-sociale-eoc-ente-ospedaliero-cantonale-locarno"
+      ]
     },
     {
       "id": "company-uikzn4",
@@ -2772,7 +2791,7 @@
         "it": "tecnico-di-sala-operatoria-tso-e-o-infermiere-a-strumentista-eoc-ente-ospedaliero-cantonale-locarno",
         "en": "operating-room-technician-tso-and-or-instrumental-nurse-eoc-ente-ospedaliero-cantonale-locarno",
         "de": "operationstechniker-tso-und-oder-instrumentenschwester-eoc-ente-ospedaliero-cantonale-locarno",
-        "fr": "technicien-de-bloc-operatoire-tso-et-ou-infirmiere-instrumentale-eoc-ente-ospedaliero-cantonale-locarno"
+        "fr": "technicien-ne-de-salle-d-operation-tso-et-ou-infirmier-ere-instrumentiste-eoc-ente-ospedaliero-cantonale-locarno"
       },
       "titleByLocale": {
         "it": "Tecnico di sala operatoria (TSO) e/o infermiere/a strumentista",
@@ -2805,7 +2824,10 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "technicien-de-bloc-operatoire-tso-et-ou-infirmiere-instrumentale-eoc-ente-ospedaliero-cantonale-locarno"
+      ]
     },
     {
       "id": "company-uikzou",
@@ -2828,7 +2850,7 @@
       "crawledAt": "2026-04-09T09:38:22.107Z",
       "slugByLocale": {
         "it": "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-locarno",
-        "en": "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-locarno-uikzou",
+        "en": "medical-office-assistant-eoc-ente-ospedaliero-cantonale-locarno",
         "de": "arzthelferin-eoc-ente-ospedaliero-cantonale-locarno",
         "fr": "assistante-de-cabinet-medical-eoc-ente-ospedaliero-cantonale-locarno"
       },
@@ -2863,7 +2885,10 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-locarno-uikzou"
+      ]
     },
     {
       "id": "company-uikzov",
@@ -2944,7 +2969,7 @@
       "crawledAt": "2026-04-09T09:38:22.107Z",
       "slugByLocale": {
         "it": "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uil171",
+        "en": "domestic-economy-assistant-eoc-ente-ospedaliero-cantonale-bellinzona",
         "de": "mitarbeiter-im-bereich-hauswirtschaft-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "collaborateur-en-economie-domestique-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
@@ -2981,7 +3006,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "previousSlugs": [
-        "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uikzow"
+        "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uikzow",
+        "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uil171"
       ]
     },
     {
@@ -3005,9 +3031,9 @@
       "crawledAt": "2026-04-09T09:38:22.107Z",
       "slugByLocale": {
         "it": "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano",
-        "en": "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano-uil2r1",
+        "en": "medical-study-assistant-eoc-ente-ospedaliero-cantonale-lugano",
         "de": "arzthelferin-eoc-ente-ospedaliero-cantonale-lugano",
-        "fr": "assistante-de-cabinet-medical-eoc-ente-ospedaliero-cantonale-lugano"
+        "fr": "assistant-d-etude-medicale-eoc-ente-ospedaliero-cantonale-lugano"
       },
       "titleByLocale": {
         "it": "Assistente di studio medico",
@@ -3040,7 +3066,11 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano-uil2r1",
+        "assistante-de-cabinet-medical-eoc-ente-ospedaliero-cantonale-lugano"
+      ]
     },
     {
       "id": "company-x29n60",
@@ -3478,7 +3508,7 @@
       "crawledAt": "2026-04-08T09:31:13.463Z",
       "slugByLocale": {
         "it": "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uil171",
+        "en": "domestic-economy-assistant-eoc-ente-ospedaliero-cantonale-bellinzona",
         "de": "mitarbeiter-im-bereich-hauswirtschaft-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "collaborateur-en-economie-domestique-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
@@ -3516,7 +3546,8 @@
       "employmentType": "FULL_TIME",
       "previousSlugs": [
         "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uikzow",
-        "domestic-economy-assistant-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "domestic-economy-assistant-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uil171"
       ]
     },
     {
@@ -3960,7 +3991,7 @@
         "it": "tecnico-di-sala-operatoria-tso-e-o-infermiere-a-strumentista-eoc-ente-ospedaliero-cantonale-bellinzona",
         "en": "operating-room-technician-tso-and-or-instrumental-nurse-eoc-ente-ospedaliero-cantonale-bellinzona",
         "de": "operationstechniker-tso-und-oder-instrumentenschwester-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "fr": "technicien-de-bloc-operatoire-tso-et-ou-infirmiere-instrumentale-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "fr": "technicien-de-salle-d-operation-tso-et-ou-infirmier-ere-instrumentiste-eoc-ente-ospedaliero-cantonale-lugano"
       },
       "titleByLocale": {
         "it": "Tecnico di sala operatoria (TSO) e/o infermiere/a strumentista",
@@ -4007,7 +4038,8 @@
         "technicien-de-bloc-operatoire-tso-et-ou-infirmiere-instrumentale-eoc-ente-ospedaliero-cantonale-locarno",
         "operating-room-technician-tso-and-or-instrumental-nurse-eoc-ente-ospedaliero-cantonale-lugano",
         "operateurin-operateur-der-operationsabteilung-tso-und-oder-instrumentelle-pflegefachkraft-eoc-ente-ospedaliero-cantonale",
-        "technicien-technicienne-de-salle-d-operation-tso-et-ou-infirmiere-infirmier-instrumental-eoc-ente-ospedaliero-cantonale-"
+        "technicien-technicienne-de-salle-d-operation-tso-et-ou-infirmiere-infirmier-instrumental-eoc-ente-ospedaliero-cantonale-",
+        "technicien-de-bloc-operatoire-tso-et-ou-infirmiere-instrumentale-eoc-ente-ospedaliero-cantonale-bellinzona"
       ]
     },
     {

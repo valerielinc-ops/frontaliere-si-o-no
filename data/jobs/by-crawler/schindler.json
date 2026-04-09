@@ -127,9 +127,9 @@
       "id": "schindler-6c4629f60473",
       "slug": "electronics-pcba-production-supervisor-m-f-d-100-schindler-locarno",
       "slugByLocale": {
-        "it": "electronics-pcba-production-supervisor-m-f-d-100-schindler-locarno",
+        "it": "supervisore-produzione-elettronica-pcba-m-f-d-100-schindler-locarno",
         "en": "electronics-pcba-production-supervisor-m-f-d-100-schindler-locarno",
-        "de": "electronics-pcba-production-supervisor-m-f-d-100-schindler-locarno",
+        "de": "produktionsleiter-elektronik-pcba-m-w-d-100-schindler-locarno",
         "fr": "electronics-pcba-production-supervisor-m-f-d-100-schindler-locarno"
       },
       "company": "Schindler",
@@ -182,7 +182,10 @@
       "streetAddress": "Via Industria 11",
       "postalCode": "6934",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "electronics-pcba-production-supervisor-m-f-d-100-schindler-locarno"
+      ]
     },
     {
       "id": "schindler-662375d58209",

@@ -69,8 +69,8 @@
       "slug": "prada-part-time-repair-center-warehouse-assistant-prada-group-mendrisio",
       "slugByLocale": {
         "en": "prada-part-time-repair-center-warehouse-assistant-prada-group-mendrisio",
-        "it": "prada-part-time-repair-center-warehouse-assistant-prada-group-mendrisio",
-        "de": "prada-teilzeit-repair-center-warehouse-assistent-prada-group-mendrisio",
+        "it": "assistente-magazzino-centro-riparazioni-part-time-prada-group-mendrisio",
+        "de": "teilzeit-lagerassistent-fur-reparaturzentrum-prada-group-mendrisio",
         "fr": "prada-part-time-repair-center-warehouse-assistant-prada-group-mendrisio"
       },
       "company": "Prada Group",
@@ -121,7 +121,10 @@
         }
       },
       "postalCode": "6850",
-      "previousSlugs": []
+      "previousSlugs": [
+        "prada-part-time-repair-center-warehouse-assistant-prada-group-mendrisio",
+        "prada-teilzeit-repair-center-warehouse-assistent-prada-group-mendrisio"
+      ]
     },
     {
       "id": "prada-48b56cba13d0",
@@ -186,7 +189,7 @@
       "slug": "miu-miu-client-advisor-paris-h-f-prada-group-mendrisio",
       "slugByLocale": {
         "en": "miu-miu-client-advisor-paris-h-f-prada-group-mendrisio",
-        "it": "miu-miu-client-advisor-paris-h-f-prada-group-mendrisio",
+        "it": "miu-miu-consulente-clienti-parigi-h-f-prada-group-mendrisio",
         "de": "miu-miu-client-advisor-paris-h-f-prada-group-mendrisio",
         "fr": "miu-miu-client-advisor-paris-h-f-prada-group-mendrisio"
       },
@@ -237,7 +240,10 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6850"
+      "postalCode": "6850",
+      "previousSlugs": [
+        "miu-miu-client-advisor-paris-h-f-prada-group-mendrisio"
+      ]
     },
     {
       "id": "prada-c2ab249d1692",

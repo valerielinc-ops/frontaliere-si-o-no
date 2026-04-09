@@ -1118,9 +1118,9 @@
       },
       "slugByLocale": {
         "en": "sales-associate-glattzentrum-hourly-up-to-80pt-guess-europe-sagl-wallisellen-ticino-switzerland",
-        "it": "sales-associate-glattzentrum-hourly-up-to-80pt-guess-europe-sagl-wallisellen-ticino-switzerland",
+        "it": "associato-di-vendita-glattzentrum-orario-fino-a-80pt-guess-europe-sagl-wallisellen",
         "de": "sales-associate-glattzentrum-hourly-up-to-80pt-guess-europe-sagl-wallisellen-ticino-switzerland",
-        "fr": "sales-associate-glattzentrum-hourly-up-to-80pt-guess-europe-sagl-wallisellen-ticino-switzerland"
+        "fr": "associe-de-vente-glattzentrum-horaire-jusqu-a-80pt-guess-europe-sagl-wallisellen"
       },
       "requirements": [
         "Kunden- und serviceorientiertes Verkaufstalent",
@@ -1153,7 +1153,10 @@
         }
       },
       "streetAddress": "Via Industria 5",
-      "postalCode": "6814"
+      "postalCode": "6814",
+      "previousSlugs": [
+        "sales-associate-glattzentrum-hourly-up-to-80pt-guess-europe-sagl-wallisellen-ticino-switzerland"
+      ]
     },
     {
       "title": "Senior Product Developer (Fixed-term Contract)",

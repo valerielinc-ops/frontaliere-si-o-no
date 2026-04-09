@@ -39,9 +39,9 @@
       },
       "slugByLocale": {
         "it": "pianificatore-elettricista-afc-f-m-d-secondo-apprendistato-bellinzona-afry-bellinzona",
-        "en": "pianificatore-elettricista-afc-f-m-d-secondo-apprendistato-bellinzona-afry-bellinzona",
-        "de": "pianificatore-elettricista-afc-f-m-d-secondo-apprendistato-bellinzona-afry-bellinzona",
-        "fr": "pianificatore-elettricista-afc-f-m-d-secondo-apprendistato-bellinzona-afry-bellinzona"
+        "en": "electrician-draughtsman-f-m-d-vocational-training-bellinzona-afry-bellinzona",
+        "de": "elektroplaner-efz-w-m-d-lehrstelle-bellinzona-afry-bellinzona",
+        "fr": "dessinateur-electricien-cfc-f-h-d-apprentissage-bellinzone-afry-bellinzona"
       },
       "id": "afry-a125ae1e9576",
       "salaryMin": 42640,
@@ -58,7 +58,10 @@
         }
       },
       "streetAddress": "Via Besso 23",
-      "postalCode": "6900"
+      "postalCode": "6900",
+      "previousSlugs": [
+        "pianificatore-elettricista-afc-f-m-d-secondo-apprendistato-bellinzona-afry-bellinzona"
+      ]
     },
     {
       "title": "Geologo Junior (f/m/d) 80-100% - Cantiere “N2 - Secondo tubo del San Gottardo” ad Airolo",

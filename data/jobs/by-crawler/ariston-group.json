@@ -39,9 +39,9 @@
       },
       "slugByLocale": {
         "it": "impiegato-a-commerciale-interno-sales-support-ariston-group-bedano-ch-6930",
-        "en": "impiegato-a-commerciale-interno-sales-support-ariston-group-bedano-ch-6930",
-        "de": "impiegato-a-commerciale-interno-sales-support-ariston-group-bedano-ch-6930",
-        "fr": "impiegato-a-commerciale-interno-sales-support-ariston-group-bedano-ch-6930"
+        "en": "internal-sales-employee-ariston-group-bedano-ch-6930",
+        "de": "innendienstlicher-verkaufsmitarbeiter-ariston-group-bedano-ch-6930",
+        "fr": "employe-e-commercial-e-interne-ariston-group-bedano-ch-6930"
       },
       "id": "ariston-group-aa9bfd740eb8",
       "needsRetranslation": true,
@@ -58,7 +58,10 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6930"
+      "postalCode": "6930",
+      "previousSlugs": [
+        "impiegato-a-commerciale-interno-sales-support-ariston-group-bedano-ch-6930"
+      ]
     }
   ]
 }

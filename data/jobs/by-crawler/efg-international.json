@@ -3250,8 +3250,8 @@
       "slugByLocale": {
         "it": "talent-acquisition-internship-efg-lugano",
         "en": "talent-acquisition-internship-efg-lugano",
-        "de": "talent-acquisition-internship-efg-lugano",
-        "fr": "talent-acquisition-internship-efg-lugano"
+        "de": "praktikum-zur-talentakquise-efg-international-ag-lugano",
+        "fr": "stage-en-acquisition-de-talents-efg-international-ag-lugano"
       },
       "addressLocality": "Lugano",
       "addressCountry": "CH",
@@ -3271,7 +3271,10 @@
       "streetAddress": "Via Pretorio 22",
       "postalCode": "6900",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "talent-acquisition-internship-efg-lugano"
+      ]
     },
     {
       "id": "efg-6230",
@@ -3324,10 +3327,10 @@
       },
       "crawledAt": "2026-04-09T09:33:55.016Z",
       "slugByLocale": {
-        "it": "efg-graduate-programme-2026-digital-and-it-cyber-security-and-cloud-architecture-efg-genev",
+        "it": "programma-di-formazione-efg-2026-digitale-e-it-sicurezza-informatica-e-architettura-cloud-efg-international-ag-geneve",
         "en": "efg-graduate-programme-2026-digital-and-it-cyber-security-and-cloud-architecture-efg-international-ag-geneve",
         "de": "efg-graduate-programme-2026-digital-and-it-cyber-security-and-cloud-architecture-efg-genev",
-        "fr": "efg-graduate-programme-2026-digital-and-it-cyber-security-and-cloud-architecture-efg-genev"
+        "fr": "programme-de-formation-efg-2026-digital-et-it-securite-informatique-et-architecture-cloud-efg-international-ag-geneve"
       },
       "addressLocality": "Geneve",
       "addressCountry": "CH",
@@ -3347,7 +3350,10 @@
       "streetAddress": "Via Pretorio 22",
       "postalCode": "6900",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "efg-graduate-programme-2026-digital-and-it-cyber-security-and-cloud-architecture-efg-genev"
+      ]
     },
     {
       "id": "efg-6064",
