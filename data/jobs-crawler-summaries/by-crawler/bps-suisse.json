@@ -1,16 +1,16 @@
 {
   "key": "bps-suisse",
   "label": "BPS Suisse",
-  "generatedAt": "2026-04-08T20:59:43.825Z",
-  "total": 4,
+  "generatedAt": "2026-04-09T09:16:39.516Z",
+  "total": 3,
   "newCount": 0,
-  "updatedCount": 2,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 4654,
-  "avgDurationMs": 4654,
+  "updatedCount": 3,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 5668,
+  "avgDurationMs": 5668,
   "durationHistory": [
-    4654
+    5668
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,9 +35,48 @@
       "category": "finance",
       "contract": "full-time",
       "currency": "CHF",
-      "postedDate": "2026-04-08",
+      "postedDate": "2026-04-09",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-04-08T20:59:40.300Z",
+      "crawledAt": "2026-04-09T09:16:35.402Z",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "sourceLang": "it",
+      "salaryMin": 82500,
+      "salaryMax": 111500,
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "bps-suisse-ec1de76eae01",
+      "title": "Collaboratore Trice Gestione Crediti",
+      "company": "BPS (Banca Popolare di Sondrio) SUISSE",
+      "companyKey": "bps-suisse",
+      "companyDomain": "bps-suisse.ch",
+      "url": "https://www.bps-suisse.ch/carriera-collaboratore_trice_gestione_crediti__100_.php",
+      "applyUrl": "https://www.bps-suisse.ch/carriera-collaboratore_trice_gestione_crediti__100_.php",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6900",
+      "streetAddress": "Via Giacomo Bentina 5",
+      "employmentType": "FULL_TIME",
+      "slug": "collaboratore-trice-gestione-crediti-bps-suisse-lugano",
+      "category": "finance",
+      "contract": "full-time",
+      "currency": "CHF",
+      "postedDate": "2026-04-09",
+      "source": "bps-suisse-careers-crawler",
+      "crawledAt": "2026-04-09T09:16:36.981Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -74,9 +113,9 @@
       "category": "finance",
       "contract": "full-time",
       "currency": "CHF",
-      "postedDate": "2026-04-08",
+      "postedDate": "2026-04-09",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-04-08T20:59:42.116Z",
+      "crawledAt": "2026-04-09T09:16:37.527Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -93,47 +132,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "bps-suisse-ec1de76eae01",
-      "title": "Collaboratore Trice Gestione Crediti",
-      "company": "BPS (Banca Popolare di Sondrio) SUISSE",
-      "companyKey": "bps-suisse",
-      "companyDomain": "bps-suisse.ch",
-      "url": "https://www.bps-suisse.ch/carriera-collaboratore_trice_gestione_crediti__100_.php",
-      "applyUrl": "https://www.bps-suisse.ch/carriera-collaboratore_trice_gestione_crediti__100_.php",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "streetAddress": "Via Giacomo Bentina 5",
-      "employmentType": "FULL_TIME",
-      "slug": "collaboratore-trice-gestione-crediti-bps-suisse-lugano",
-      "category": "finance",
-      "contract": "full-time",
-      "currency": "CHF",
-      "postedDate": "2026-04-08",
-      "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-04-08T20:59:41.050Z",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "sourceLang": "it",
-      "salaryMin": 82500,
-      "salaryMax": 111500,
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
+  "removedJobs": [
     {
       "id": "bps-suisse-945e75352fd6",
       "title": "Consulente Alla Clientela Commerciale Ipotecaria 100",
@@ -173,5 +172,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
