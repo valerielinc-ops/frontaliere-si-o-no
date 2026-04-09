@@ -1,6 +1,6 @@
 {
   "crawlerKey": "a-group",
-  "assembledAt": "2026-04-09T09:01:55.682Z",
+  "assembledAt": "2026-04-09T20:54:13.616Z",
   "jobs": [
     {
       "title": "Ingegnere edile Jr.",
@@ -127,70 +127,8 @@
           "unitText": "YEAR"
         }
       },
-      "id": "a-group-a6dac446b24d"
-    },
-    {
-      "title": "Tecnico di cantiere (Ingegere edile o Geometra)",
-      "slug": "tecnico-di-cantiere-ingegere-edile-o-geometra-a-plus-plus-group-massagno",
-      "url": "https://inrecruiting.intervieweb.it/a2plus/jobs/tecnico-di-cantiere-ingegere-edile-o-geometra-692104/en/",
-      "applyUrl": "https://inrecruiting.intervieweb.it/a2plus/jobs/tecnico-di-cantiere-ingegere-edile-o-geometra-692104/en/",
-      "company": "A++ Group",
-      "companyKey": "a-group",
-      "companyDomain": "a2plus.green",
-      "location": "Massagno",
-      "addressLocality": "Massagno",
-      "postalCode": "6900",
-      "streetAddress": "Via Molinazzo 4",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "architecture",
-      "sector": "Architettura & Design",
-      "source": "a-plus-plus-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-04-09",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "description": "Principali responsabilità :\n\n- Gestione e organizzazione delle attività di cantiere per conto dell’impresa generale\n- Coordinamento operativo dei subappaltatori e delle maestranze presenti in cantiere\n- Controllo della logistica di cantiere e pianificazione delle forniture\n- Accettazione e verifica della merce in ingresso in cantiere\n- Controllo della corretta esecuzione delle lavorazioni\n- Verifica della conformità delle opere ai dettagli progettuali e alle specifiche tecniche\n- Supporto nel monitoraggio dell’avanzamento lavori",
-      "titleByLocale": {
-        "it": "Tecnico di cantiere (Ingegere edile o Geometra)",
-        "en": "Site technician (Construction engineer or Surveyor)",
-        "de": "Bauingenieur (Bauingenieur oder Vermessungsingenieur)",
-        "fr": "Technicien de chantier (Ingénieur du bâtiment ou Géomètre)"
-      },
-      "descriptionByLocale": {
-        "it": "Principali responsabilità : - Gestione e organizzazione delle attività di cantiere per conto dell’impresa generale - Coordinamento operativo dei subappaltatori e delle maestranze presenti in cantiere - Controllo della logistica di cantiere e pianificazione delle forniture - Accettazione e verifica della merce in ingresso in cantiere - Controllo della corretta esecuzione delle lavorazioni - Verifica della conformità delle opere ai dettagli progettuali e alle specifiche tecniche - Supporto nel monitoraggio dell’avanzamento lavori",
-        "en": "Main responsibilities: - Management and organization of construction site activities on behalf of the general contractor - Operational coordination of subcontractors and workers present on the construction site - Control of construction site logistics and planning of supplies - Acceptance and verification of goods entering the construction site - Control of the correct execution of the work - Verification of the conformity of the works with the project details and technical specifications - Support in monitoring the progress of the works",
-        "de": "Hauptaufgaben: - Leitung und Organisation der Baustellenaktivitäten im Auftrag des Generalunternehmers - Operative Koordination der auf der Baustelle anwesenden Subunternehmer und Arbeitskräfte - Steuerung der Baustellenlogistik und Planung der Lieferungen - Annahme und Überprüfung der auf die Baustelle eingehenden Waren - Kontrolle der ordnungsgemäßen Ausführung der Arbeiten - Überprüfung der Übereinstimmung der Arbeiten mit den Projektdetails und technischen Spezifikationen - Unterstützung bei der Überwachung des Baufortschritts",
-        "fr": "Principales responsabilités : - Gestion et organisation des activités de chantier pour le compte de l'entrepreneur général - Coordination opérationnelle des sous-traitants et ouvriers présents sur le chantier - Contrôle de la logistique du chantier et planification des approvisionnements - Réception et vérification des marchandises entrant sur le chantier - Contrôle de la bonne exécution des travaux - Vérification de la conformité des travaux aux détails du projet et aux spécifications techniques - Appui au suivi de l'avancement des travaux"
-      },
-      "slugByLocale": {
-        "it": "tecnico-di-cantiere-ingegere-edile-o-geometra-a-plus-plus-group-massagno",
-        "en": "site-technician-construction-engineer-or-surveyor-a-group-massagno-0k8y3e",
-        "de": "bauingenieur-bauingenieur-oder-vermessungsingenieur-a-group-massagno",
-        "fr": "technicien-de-chantier-ingenieur-du-batiment-ou-geometre-a-group-massagno-0k8y3e"
-      },
-      "previousSlugs": [
-        "site-technician-construction-engineer-or-surveyor-a-group-massagno",
-        "technicien-de-chantier-ingenieur-du-batiment-ou-geometre-a-group-massagno",
-        "bauingenieur-bauingenieur-oder-vermessungsingenieur-a-group-massagno-0k8y3e"
-      ],
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 58000,
-          "maxValue": 78000,
-          "unitText": "YEAR"
-        }
-      },
-      "id": "a-group-8be7e14ea42e"
+      "id": "a-group-a6dac446b24d",
+      "needsRetranslation": true
     }
   ]
 }
