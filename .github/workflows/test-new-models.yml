@@ -49,7 +49,7 @@ jobs:
             { name: 'CB_GLM_47', id: AI_MODELS.CB_GLM_47 },
           ];
 
-          const prompt = 'Translate to German. Output ONLY the translation, nothing else: Offerta di lavoro come ingegnere software a Lugano, Svizzera. Contratto a tempo indeterminato con salario competitivo.';
+          const messages = [{ role: 'user', content: 'Translate to German. Output ONLY the translation, nothing else: Offerta di lavoro come ingegnere software a Lugano, Svizzera. Contratto a tempo indeterminato con salario competitivo.' }];
 
           let passed = 0, failed = 0;
           for (const m of modelsToTest) {
@@ -58,7 +58,7 @@ jobs:
             console.log('Testing:', m.name, '(' + m.id + ')');
             console.log('========================================');
             try {
-              const result = await callLLM(prompt, {
+              const result = await callLLM(messages, {
                 chain: [m.id],
                 maxTokens: 200,
                 temperature: 0.3,
