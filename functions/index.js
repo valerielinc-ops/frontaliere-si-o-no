@@ -4,6 +4,7 @@ import {
   handleResendWebhookRequest,
 } from './src/newsletterResendWebhookCore.js';
 import { handleMailgunWebhookRequest } from './src/newsletterMailgunWebhookCore.js';
+import { handleMailjetWebhookRequest } from './src/newsletterMailjetWebhookCore.js';
 import { handleUnosendWebhookRequest } from './src/newsletterUnosendWebhookCore.js';
 import { handleSubscriptionManagement } from './src/newsletterSubscriptionManagement.js';
 import { sendNewsletterConfirmationEmail } from './src/newsletterConfirmationEmail.js';
@@ -71,6 +72,38 @@ export const newsletterMailgunWebhook = onRequest(
       const message = error instanceof Error ? error.message : String(error || 'unknown_error');
       const status = /signature/i.test(message) ? 401 : 500;
       console.error('[newsletterMailgunWebhook] Error:', message);
+      res.status(status).json({ ok: false, error: message });
+    }
+  },
+);
+
+// Mailjet delivery event webhooks
+export const newsletterMailjetWebhook = onRequest(
+  {
+    region: 'europe-west6',
+    memory: '256MiB',
+    timeoutSeconds: 60,
+    cors: false,
+  },
+  async (req, res) => {
+    if (req.method !== 'POST') {
+      res.status(405).json({ ok: false, error: 'method_not_allowed' });
+      return;
+    }
+
+    try {
+      const webhookSecret = await getRemoteConfigValue('MAILJET_WEBHOOK_SECRET');
+      const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
+      const result = await handleMailjetWebhookRequest({
+        body,
+        query: req.query,
+        webhookSecret,
+      });
+      res.status(200).json({ ok: true, result });
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error || 'unknown_error');
+      const status = /secret/i.test(message) ? 401 : 500;
+      console.error('[newsletterMailjetWebhook] Error:', message);
       res.status(status).json({ ok: false, error: message });
     }
   },
