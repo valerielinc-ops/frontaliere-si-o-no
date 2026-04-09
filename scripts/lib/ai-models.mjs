@@ -311,12 +311,12 @@ export const DEFAULT_CHAIN = [
   AI_MODELS.COH_CMD_R_PLUS,     // 18c. Cohere Command R+     (Cohere direct - 1000/month)
   AI_MODELS.CF_LLAMA_3_3_70B,   // 19. Llama 3.3 70B FP8     (Cloudflare Workers AI)
   AI_MODELS.LLAMA_3_1_405B,     // 20. Meta 405B flagship     (GitHub Models)
-  AI_MODELS.MISTRAL_MEDIUM_3,   // 21. Mistral Medium 3       (GitHub Models)
+  // MISTRAL_MEDIUM_3 removed — GitHub Models HTTP 404 "unknown_model" (2026-04)
   AI_MODELS.GROQ_QWEN3_32B,      // 22. Qwen3 32B              (Groq - ultra fast)
   AI_MODELS.CB_QWEN3_235B,       // 22a. Qwen3 235B frontier   (Cerebras preview — ultra fast)
   AI_MODELS.CB_GLM_47,           // 22b. Z.ai GLM 4.7 355B     (Cerebras preview — ultra fast)
   AI_MODELS.GEMMA_3_12B,         // 22c. Gemma 3 12B           (Gemini API — 14,400/day!)
-  AI_MODELS.JAMBA_1_5_LARGE,     // 22d. AI21 Jamba 1.5 Large  (GitHub Models)
+  // JAMBA_1_5_LARGE removed — GitHub Models HTTP 400 "unknown_model" (2026-04)
   // SN_LLAMA_3_3_70B removed — SambaNova HTTP 402 PAYMENT_METHOD_REQUIRED (2026-04)
   AI_MODELS.O1,                  // 23. OpenAI o1 reasoning    (GitHub Models)
   AI_MODELS.LLAMA_3_2_90B,      // 24. Llama 3.2 90B           (GitHub Models)
@@ -352,7 +352,7 @@ export const DEFAULT_CHAIN = [
   AI_MODELS.COH_AYA_32B,        // 46. Aya Expanse 32B        (Cohere direct)
   AI_MODELS.OR_GEMMA_4_31B,     // 47. Gemma 4 31B             (OpenRouter free — replaces Mistral Small 3.1)
   // OR_MISTRAL_SM removed from OpenRouter free list (2026-04)
-  AI_MODELS.MAI_DS_R1,          // 48. MAI-DS-R1 reasoning    (GitHub Models)
+  // MAI_DS_R1 removed — GitHub Models HTTP 400 "unknown_model" (2026-04)
   AI_MODELS.O4_MINI,            // 49. OpenAI o4-mini reason  (GitHub Models)
   AI_MODELS.CODESTRAL,          // 50. Mistral Codestral      (GitHub Models)
   AI_MODELS.GEMINI_FLASH_LITE,  // 51. Google flash lite      (Gemini API free)
@@ -362,7 +362,7 @@ export const DEFAULT_CHAIN = [
   // GROQ_GEMMA2_9B removed — Groq HTTP 400 "model has been decommissioned" (2026-04)
   AI_MODELS.GROQ_LLAMA_3_1_8B,  // 54. Llama 3.1 8B instant   (Groq)
   AI_MODELS.GROQ_GPT_OSS_SAFE,  // 54b. GPT-OSS Safeguard 20B (Groq — 1000/day)
-  AI_MODELS.MISTRAL_SM_31_GH,   // 54c. Mistral Small 3.1     (GitHub Models)
+  // MISTRAL_SM_31_GH removed — GitHub Models HTTP 404 "unknown_model" (2026-04)
   AI_MODELS.PHI_4_MINI_INST,    // 54d. Phi-4 mini instruct   (GitHub Models)
   // SN_DEEPSEEK_V3 removed — SambaNova HTTP 402 PAYMENT_METHOD_REQUIRED (2026-04)
   // SN_QWEN_2_5_72B removed — SambaNova HTTP 402 PAYMENT_METHOD_REQUIRED (2026-04)
@@ -1168,6 +1168,10 @@ function classifyNonRetryableError(status, bodyText = '') {
     b.includes('no such model') || b.includes('does not exist')
   ) {
     return { nonRetryable: true, markExhausted: true };
+  }
+  // Model temporarily unavailable — skip but don't exhaust (it may come back)
+  if (b.includes('unavailable_model') || b.includes('unavailable model')) {
+    return { nonRetryable: true, markExhausted: false };
   }
   // Provider-side deprecation/removal — retrying the same model is always useless
   if (
