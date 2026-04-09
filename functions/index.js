@@ -92,7 +92,7 @@ export const newsletterMailjetWebhook = onRequest(
     }
 
     try {
-      const webhookSecret = await getRemoteConfigValue('MAILJET_WEBHOOK_SECRET');
+      const webhookSecret = await getRemoteConfigValue('MAILJET_SECRET_KEY');
       const body = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
       const result = await handleMailjetWebhookRequest({
         body,
