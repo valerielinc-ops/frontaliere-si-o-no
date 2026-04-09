@@ -2019,6 +2019,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-tassa-salute-scontro.title': 'Frontaliers et taxe sur la santé : affrontement au conseil régional',
     'blog.article.frontalieri-tassa-salute-scontro.excerpt': 'L\'audition de l\'assessore Sertori est annulée. Le Parti démocrate présente une motion pour bloquer l\'impôt et protéger les ristournes des communes frontalières.',
     'blog.article.frontalieri-tassa-salute-scontro.imageAlt': 'Bâtiment du gouvernement à Bellinzona, Tessin, sous des cieux nuageux symbolisant des tensions politiques.',
+    'blog.article.multe-vignetta-chiasso-pasqua-2026.title': 'Pâques 2026 : 190 frontaliers verbalisés à Chiasso pour la vignette autoroutière',
+    'blog.article.multe-vignetta-chiasso-pasqua-2026.excerpt': 'Pendant le long week-end de Pâques 2026, la douane de Chiasso a infligé 190 amendes à des conducteurs sans vignette. 45 % des frontaliers ont opté pour l’e-vignette en 2025.',
+    'blog.article.multe-vignetta-chiasso-pasqua-2026.imageAlt': 'File de voitures au poste frontière de Chiasso pendant Pâques 2026',
 };
 
 export default blogMetaFr;

@@ -2019,6 +2019,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-tassa-salute-scontro.title': 'Cross-border workers and health tax: clash in regional council',
     'blog.article.frontalieri-tassa-salute-scontro.excerpt': 'Councillor Sertori\'s hearing is cancelled. The Democratic Party presents a motion to block the tax and protect the rebates of border municipalities.',
     'blog.article.frontalieri-tassa-salute-scontro.imageAlt': 'Government building in Bellinzona, Ticino, under cloudy skies symbolizing political tension.',
+    'blog.article.multe-vignetta-chiasso-pasqua-2026.title': 'Easter 2026: 190 cross-border commuters fined in Chiasso for missing motorway vignette',
+    'blog.article.multe-vignetta-chiasso-pasqua-2026.excerpt': 'During the extended Easter weekend in 2026, Chiasso customs issued 190 fines to drivers without a valid motorway vignette. In 2025, 45% of cross-border commuters opted for the e-vignette.',
+    'blog.article.multe-vignetta-chiasso-pasqua-2026.imageAlt': 'Car queue at the Chiasso border crossing during Easter 2026',
 };
 
 export default blogMetaEn;

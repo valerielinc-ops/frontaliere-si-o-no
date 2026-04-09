@@ -6386,6 +6386,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-multe-vignetta-chiasso-pasqua-2026': {
+    title: 'Pasqua 2026: 190 frontalieri multati a Chiasso per la vignetta | Frontaliere Ticino',
+    description: 'Durante il lungo weekend pasquale 2026, la dogana di Chiasso ha inflitto 190 multe a conducenti senza vignetta. Il 45% dei frontalieri ha optato per l’e-vignett',
+    keywords: 'frontalieri, ticino, svizzera, italia, pasqua, multati, chiasso, vignetta',
+    ogTitle: 'Pasqua 2026: 190 frontalieri multati a Chiasso per la vig',
+    ogDescription: 'Durante il lungo weekend pasquale 2026, la dogana di Chiasso ha inflitto 190 multe a conducenti senza vignetta. Il 45% dei frontalieri ha optato per l’e-vignett',
+    canonicalPath: '/articoli-frontaliere/multe-vignetta-chiasso-pasqua-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pasqua 2026: 190 frontalieri multati a Chiasso per la vig",
+      "description": "Durante il lungo weekend pasquale 2026, la dogana di Chiasso ha inflitto 190 multe a conducenti senza vignetta. Il 45% dei frontalieri ha optato per l’e-vignett",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/multe-vignetta-chiasso-pasqua-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Coda di auto al valico di Chiasso durante le feste pasquali 2026"
+      },
+      "datePublished": "2026-04-09T16:23:22+00:00",
+      "dateModified": "2026-04-09T16:23:22+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/multe-vignetta-chiasso-pasqua-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

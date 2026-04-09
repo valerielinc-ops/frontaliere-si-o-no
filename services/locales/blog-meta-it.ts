@@ -2019,6 +2019,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-tassa-salute-scontro.title': 'Frontalieri e tassa sulla salute: scontro in consiglio regionale',
     'blog.article.frontalieri-tassa-salute-scontro.excerpt': 'Salta l\'audizione dell\'assessore Sertori. Il Pd presenta una mozione per bloccare l\'imposta e tutelare i ristorni dei Comuni di frontiera.',
     'blog.article.frontalieri-tassa-salute-scontro.imageAlt': 'Palazzo del Governo di Bellinzona, sede delle istituzioni ticinesi, in una giornata nuvolosa.',
+    'blog.article.multe-vignetta-chiasso-pasqua-2026.title': 'Pasqua 2026: 190 frontalieri multati a Chiasso per la vignetta autostradale',
+    'blog.article.multe-vignetta-chiasso-pasqua-2026.excerpt': 'Durante il lungo weekend pasquale 2026, la dogana di Chiasso ha inflitto 190 multe a conducenti senza vignetta. Il 45% dei frontalieri ha optato per l’e-vignetta nel 2025.',
+    'blog.article.multe-vignetta-chiasso-pasqua-2026.imageAlt': 'Coda di auto al valico di Chiasso durante le feste pasquali 2026',
 };
 
 export default blogMetaIt;

@@ -5696,4 +5696,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/frontalieri-tassa-salute-scontro.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'multe-vignetta-chiasso-pasqua-2026',
+    category: 'pratico',
+    date: '2026-04-09T16:23:22.367Z',
+    image: '/images/blog/multe-vignetta-chiasso-pasqua-2026.jpg',
+    hasCalculator: true,
+  },
 ];

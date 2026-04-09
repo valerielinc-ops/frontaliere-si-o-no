@@ -2019,6 +2019,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-tassa-salute-scontro.title': 'Grenzpendler und Gesundheitssteuer: Streit im Regionalrat',
     'blog.article.frontalieri-tassa-salute-scontro.excerpt': 'Anhörung von Stadtrat Sertori geplatzt. Die PD reicht eine Motion ein, um die Steuer zu blockieren und die Rückerstattungen an die Grenzgemeinden zu schützen.',
     'blog.article.frontalieri-tassa-salute-scontro.imageAlt': 'Regierungsgebäude in Bellinzona, Tessin, an einem bewölkten Tag, der politische Spannungen symbolisiert.',
+    'blog.article.multe-vignetta-chiasso-pasqua-2026.title': 'Ostern 2026: 190 Grenzgänger in Chiasso wegen fehlender Autobahnvignette gebüsst',
+    'blog.article.multe-vignetta-chiasso-pasqua-2026.excerpt': 'Über das lange Osterwochenende 2026 verteilte die Zollstelle Chiasso 190 Bussen an Fahrer ohne Vignette. Im Jahr 2025 entschieden sich 45 % der Grenzgänger für die E-Vignette.',
+    'blog.article.multe-vignetta-chiasso-pasqua-2026.imageAlt': 'Autokolonne am Grenzübergang Chiasso während Ostern 2026',
 };
 
 export default blogMetaDe;
