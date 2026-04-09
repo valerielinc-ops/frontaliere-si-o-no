@@ -1049,10 +1049,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "apprendista-fachmann-frau-betriebsunterhalt-cfc-specializzazione-hausdienst-swiss-armed-forces-vtg-bellinzona",
-        "en": "apprentice-fachmann-frau-betriebsunterhalt-efz-fachrichtung-hausdienst-swiss-armed-forces-vtg-bellinzona",
+        "it": "tecnico-operativo-di-manutenzione-di-edifici-efz-specializzazione-servizio-edilizio-swiss-armed-forces-vtg-bern",
+        "en": "facility-maintenance-technician-efz-specialization-building-services-swiss-armed-forces-vtg-bern",
         "de": "lernende-r-fachmann-frau-betriebsunterhalt-efz-fachrichtung-hausdienst-swiss-armed-forces-vtg-bellinzona",
-        "fr": "apprenti-e-fachmann-frau-betriebsunterhalt-efz-fachrichtung-hausdienst-swiss-armed-forces-vtg-bellinzona"
+        "fr": "technicien-de-maintenance-des-installations-efz-specialisation-services-generaux-swiss-armed-forces-vtg-bern"
       },
       "sourceLang": "de",
       "previousSlugs": [
@@ -1061,7 +1061,10 @@
         "apprendista-fachmann-frau-betriebsunterhalt-cfc-specializzazione-hausdienst-swiss-armed-forces-vtg-bern",
         "apprentice-fachmann-frau-betriebsunterhalt-efz-fachrichtung-hausdienst-swiss-armed-forces-vtg-bern-19jg19",
         "lernende-r-fachmann-frau-betriebsunterhalt-efz-fachrichtung-hausdienst-swiss-armed-forces-vtg-bern-19jg19",
-        "apprenti-e-fachmann-frau-betriebsunterhalt-efz-fachrichtung-hausdienst-swiss-armed-forces-vtg-bern-19jg19"
+        "apprenti-e-fachmann-frau-betriebsunterhalt-efz-fachrichtung-hausdienst-swiss-armed-forces-vtg-bern-19jg19",
+        "apprendista-fachmann-frau-betriebsunterhalt-cfc-specializzazione-hausdienst-swiss-armed-forces-vtg-bellinzona",
+        "apprentice-fachmann-frau-betriebsunterhalt-efz-fachrichtung-hausdienst-swiss-armed-forces-vtg-bellinzona",
+        "apprenti-e-fachmann-frau-betriebsunterhalt-efz-fachrichtung-hausdienst-swiss-armed-forces-vtg-bellinzona"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -1115,7 +1118,7 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "apprendista-polymechaniker-in-cfc-swiss-armed-forces-vtg-bellinzona",
+        "it": "apprendista-meccanico-polivalente-afc-swiss-armed-forces-vtg-bern",
         "en": "apprentice-polymechaniker-in-efz-swiss-armed-forces-vtg-bern-aofox1",
         "de": "lernende-r-polymechaniker-in-efz-swiss-armed-forces-vtg-bellinzona",
         "fr": "apprenti-e-polymechaniker-in-efz-swiss-armed-forces-vtg-bern-aofox1"
@@ -1124,7 +1127,8 @@
       "previousSlugs": [
         "lernende-r-polymechaniker-in-efz-swiss-armed-forces-vtg-bern",
         "apprendista-polymechaniker-in-cfc-swiss-armed-forces-vtg-bern-aofox1",
-        "lernende-r-polymechaniker-in-efz-swiss-armed-forces-vtg-bern-aofox1"
+        "lernende-r-polymechaniker-in-efz-swiss-armed-forces-vtg-bern-aofox1",
+        "apprendista-polymechaniker-in-cfc-swiss-armed-forces-vtg-bellinzona"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -1178,17 +1182,20 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "apprendista-fachmann-frau-textilpflege-cfc-specializzazione-wascherei-swiss-armed-forces-vtg-bellinzona",
-        "en": "apprentice-fachmann-frau-textilpflege-efz-fachrichtung-wascherei-swiss-armed-forces-vtg-bern-s6dztf",
+        "it": "apprendista-specializzato-in-igiene-tessile-efz-settore-lavanderia-swiss-armed-forces-vtg-bern",
+        "en": "apprentice-textile-care-specialist-efz-laundry-sector-swiss-armed-forces-vtg-bern",
         "de": "lernende-r-fachmann-frau-textilpflege-efz-fachrichtung-wascherei-swiss-armed-forces-vtg-bellinzona",
-        "fr": "apprenti-e-fachmann-frau-textilpflege-efz-fachrichtung-wascherei-swiss-armed-forces-vtg-bern-s6dztf"
+        "fr": "apprenti-specialise-en-hygiene-textile-efz-secteur-lavanderie-swiss-armed-forces-vtg-bern"
       },
       "sourceLang": "de",
       "previousSlugs": [
         "lernende-r-fachmann-frau-textilpflege-efz-fachrichtung-wascherei-swiss-armed-forces-vtg-bern",
         "apprendista-fachmann-frau-textilpflege-cfc-specializzazione-wascherei-swiss-armed-forces-vtg-bern-s6dztf",
         "apprendista-fachmann-frau-textilpflege-cfc-specializzazione-wascherei-swiss-armed-forces-vtg-bern",
-        "lernende-r-fachmann-frau-textilpflege-efz-fachrichtung-wascherei-swiss-armed-forces-vtg-bern-s6dztf"
+        "lernende-r-fachmann-frau-textilpflege-efz-fachrichtung-wascherei-swiss-armed-forces-vtg-bern-s6dztf",
+        "apprendista-fachmann-frau-textilpflege-cfc-specializzazione-wascherei-swiss-armed-forces-vtg-bellinzona",
+        "apprentice-fachmann-frau-textilpflege-efz-fachrichtung-wascherei-swiss-armed-forces-vtg-bern-s6dztf",
+        "apprenti-e-fachmann-frau-textilpflege-efz-fachrichtung-wascherei-swiss-armed-forces-vtg-bern-s6dztf"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -1243,9 +1250,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "apprendista-impiegato-a-in-logistica-cfc-specializzazione-magazzino-swiss-armed-forces-vtg-bellinzona",
-        "en": "apprentice-logistiker-in-efz-fachrichtung-lager-swiss-armed-forces-vtg-bellinzona",
+        "en": "apprentice-logisticians-efz-specialization-warehouse-swiss-armed-forces-vtg-bern",
         "de": "lernende-r-logistiker-in-efz-fachrichtung-lager-swiss-armed-forces-vtg-bellinzona",
-        "fr": "apprenti-e-logistiker-in-efz-fachrichtung-lager-swiss-armed-forces-vtg-bellinzona"
+        "fr": "apprenti-logisticiens-efz-specialisation-entrepot-swiss-armed-forces-vtg-bern"
       },
       "sourceLang": "de",
       "previousSlugs": [
@@ -1253,7 +1260,9 @@
         "apprendista-impiegato-a-in-logistica-cfc-specializzazione-magazzino-swiss-armed-forces-vtg-bern-givy1f",
         "apprentice-logistiker-in-efz-fachrichtung-lager-swiss-armed-forces-vtg-bern-givy1f",
         "lernende-r-logistiker-in-efz-fachrichtung-lager-swiss-armed-forces-vtg-bern-givy1f",
-        "apprenti-e-logistiker-in-efz-fachrichtung-lager-swiss-armed-forces-vtg-bern-givy1f"
+        "apprenti-e-logistiker-in-efz-fachrichtung-lager-swiss-armed-forces-vtg-bern-givy1f",
+        "apprentice-logistiker-in-efz-fachrichtung-lager-swiss-armed-forces-vtg-bellinzona",
+        "apprenti-e-logistiker-in-efz-fachrichtung-lager-swiss-armed-forces-vtg-bellinzona"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -1307,10 +1316,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "apprendista-fachmann-frau-betriebsunterhalt-cfc-specializzazione-werkdienst-swiss-armed-forces-vtg-bellinzona",
-        "en": "apprentice-fachmann-frau-betriebsunterhalt-efz-fachrichtung-werkdienst-swiss-armed-forces-vtg-bellinzona",
+        "it": "apprendista-specializzato-in-manutenzione-infrastrutture-efz-settore-manutenzione-swiss-armed-forces-vtg-bern",
+        "en": "apprentice-specialized-in-infrastructure-maintenance-efz-maintenance-sector-swiss-armed-forces-vtg-bern",
         "de": "lernende-r-fachmann-frau-betriebsunterhalt-efz-fachrichtung-werkdienst-swiss-armed-forces-vtg-bellinzona",
-        "fr": "apprenti-e-fachmann-frau-betriebsunterhalt-efz-fachrichtung-werkdienst-swiss-armed-forces-vtg-bellinzona"
+        "fr": "apprenti-specialise-en-maintenance-d-infrastructures-efz-secteur-maintenance-swiss-armed-forces-vtg-bern"
       },
       "sourceLang": "de",
       "previousSlugs": [
@@ -1319,7 +1328,10 @@
         "apprendista-fachmann-frau-betriebsunterhalt-cfc-specializzazione-werkdienst-swiss-armed-forces-vtg-bern",
         "apprentice-fachmann-frau-betriebsunterhalt-efz-fachrichtung-werkdienst-swiss-armed-forces-vtg-bern-kahwfm",
         "lernende-r-fachmann-frau-betriebsunterhalt-efz-fachrichtung-werkdienst-swiss-armed-forces-vtg-bern-kahwfm",
-        "apprenti-e-fachmann-frau-betriebsunterhalt-efz-fachrichtung-werkdienst-swiss-armed-forces-vtg-bern-kahwfm"
+        "apprenti-e-fachmann-frau-betriebsunterhalt-efz-fachrichtung-werkdienst-swiss-armed-forces-vtg-bern-kahwfm",
+        "apprendista-fachmann-frau-betriebsunterhalt-cfc-specializzazione-werkdienst-swiss-armed-forces-vtg-bellinzona",
+        "apprentice-fachmann-frau-betriebsunterhalt-efz-fachrichtung-werkdienst-swiss-armed-forces-vtg-bellinzona",
+        "apprenti-e-fachmann-frau-betriebsunterhalt-efz-fachrichtung-werkdienst-swiss-armed-forces-vtg-bellinzona"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,

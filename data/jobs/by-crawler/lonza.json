@@ -1065,7 +1065,7 @@
       "slug": "analista-di-laboratorio-laborante-m-f-d-controllo-della-qualita-4-turni-lonza-ch",
       "slugByLocale": {
         "en": "laboratory-analyst-laborant-m-f-d-quality-control-4-schichtbetrieb-lonza",
-        "it": "analista-di-laboratorio-laborante-m-f-d-controllo-della-qualita-4-turni-lonza-ch",
+        "it": "laboratory-analista-laborant-m-f-d-quality-control-4-schichtbetrieb-lonza-ch",
         "de": "laboranalytiker-laborant-m-w-d-qualitatskontrolle-4-schichtbetrieb-lonza-ch",
         "fr": "analyste-de-laboratoire-technicien-m-f-d-controle-de-qualite-4-quartiers-lonza-ch"
       },
@@ -1116,7 +1116,8 @@
       },
       "id": "lonza-0e84640a1f03",
       "previousSlugs": [
-        "laboratory-analyst-laborant-m-f-d-quality-control-4-schichtbetrieb-lonza"
+        "laboratory-analyst-laborant-m-f-d-quality-control-4-schichtbetrieb-lonza",
+        "analista-di-laboratorio-laborante-m-f-d-controllo-della-qualita-4-turni-lonza-ch"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1749,7 +1750,7 @@
       "slugByLocale": {
         "en": "manufacturing-specialist-lonza",
         "it": "specialista-produzione-lonza-ch",
-        "de": "produktionsspezialist-lonza-ch",
+        "de": "manufacturing-spezialist-lonza-ch",
         "fr": "specialiste-de-la-production-lonza-ch"
       },
       "category": "manufacturing",
@@ -1796,7 +1797,8 @@
       },
       "id": "lonza-d1c50fbe1af1",
       "previousSlugs": [
-        "manufacturing-specialist-lonza"
+        "manufacturing-specialist-lonza",
+        "produktionsspezialist-lonza-ch"
       ],
       "salaryMin": 55500,
       "salaryMax": 75000,
@@ -2538,7 +2540,7 @@
       "slug": "elettricista-efz-80-100-lonza-ch",
       "slugByLocale": {
         "en": "electrical-installer-efz-80-100-lonza-ch",
-        "it": "elettricista-efz-80-100-lonza-ch",
+        "it": "installatore-trice-elettrico-a-cfc-80-100-m-w-d-lonza-ch",
         "de": "elektroinstallateur-efz-80-100-m-w-d-lonza",
         "fr": "installateur-electrique-efz-80-100-lonza-ch"
       },
@@ -2583,7 +2585,8 @@
       },
       "id": "lonza-afc62a1ce612",
       "previousSlugs": [
-        "elektroinstallateur-efz-80-100-m-w-d-lonza"
+        "elektroinstallateur-efz-80-100-m-w-d-lonza",
+        "elettricista-efz-80-100-lonza-ch"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2624,7 +2627,7 @@
       "slug": "automatista-efz-elettricista-efz-turno-emr-80-100-m-w-d-lonza-ch",
       "slugByLocale": {
         "en": "automation-technician-efz-electrical-installer-efz-emr-shift-80-100-m-w-d-lonza-ch",
-        "it": "automatista-efz-elettricista-efz-turno-emr-80-100-m-w-d-lonza-ch",
+        "it": "automatiker-cfc-installatore-trice-elettrico-a-cfc-emr-schicht-80-100-m-w-d-lonza-ch",
         "de": "automatiker-efz-elektroinstallateur-efz-emr-schicht-80-100-m-w-d-lonza",
         "fr": "technicien-automatisation-efz-electricien-efz-service-emr-80-100-m-w-d-lonza-ch"
       },
@@ -2670,7 +2673,8 @@
       },
       "id": "lonza-cff029425372",
       "previousSlugs": [
-        "automatiker-efz-elektroinstallateur-efz-emr-schicht-80-100-m-w-d-lonza"
+        "automatiker-efz-elektroinstallateur-efz-emr-schicht-80-100-m-w-d-lonza",
+        "automatista-efz-elettricista-efz-turno-emr-80-100-m-w-d-lonza-ch"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
