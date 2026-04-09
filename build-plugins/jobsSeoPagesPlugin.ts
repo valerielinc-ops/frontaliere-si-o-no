@@ -87,13 +87,12 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
         _pendingWrites.push({ p: filePath, c: content });
       }
       async function _flushAllWrites() {
-        const BATCH = 300;
+        const BATCH = 200;
         let failed = 0;
         for (let i = 0; i < _pendingWrites.length; i += BATCH) {
+          const batch = _pendingWrites.slice(i, i + BATCH);
           const results = await Promise.allSettled(
-            _pendingWrites.slice(i, i + BATCH).map(async w => {
-              // _md already created dirs synchronously — only need writeFile.
-              // Defensive mkdir retry in case dir was removed between _qw and flush.
+            batch.map(async w => {
               try {
                 await fs.promises.writeFile(w.p, w.c, 'utf-8');
               } catch {
@@ -102,10 +101,34 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
               }
             })
           );
-          failed += results.filter(r => r.status === 'rejected').length;
+          for (let k = 0; k < results.length; k++) {
+            if (results[k].status === 'rejected') {
+              failed++;
+              console.error(`[jobs-seo-pages] Write failed: ${batch[k].p}`, (results[k] as PromiseRejectedResult).reason);
+            }
+          }
         }
         if (failed > 0) {
           console.warn(`\x1b[33m[jobs-seo-pages]\x1b[0m ⚠ ${failed}/${_pendingWrites.length} writes failed during flush`);
+        }
+
+        // Sync repair pass: fix any 0-byte files left by O_TRUNC + failed write
+        let repaired = 0;
+        for (const w of _pendingWrites) {
+          try {
+            const stat = fs.statSync(w.p);
+            if (stat.size === 0 && w.c.length > 0) {
+              fs.writeFileSync(w.p, w.c, 'utf-8');
+              repaired++;
+            }
+          } catch {
+            fs.mkdirSync(np.dirname(w.p), { recursive: true });
+            fs.writeFileSync(w.p, w.c, 'utf-8');
+            repaired++;
+          }
+        }
+        if (repaired > 0) {
+          console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Repaired ${repaired} 0-byte/missing files via sync fallback`);
         }
       }
 

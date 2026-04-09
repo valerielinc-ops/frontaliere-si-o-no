@@ -101,6 +101,10 @@ export function flatContentPlugin(): Plugin {
             }
 
             // Replace flat file with the directory index.html content
+            // Skip 0-byte source files to avoid propagating I/O failures
+            try {
+              if (fs.statSync(indexPath).size === 0) { skipped++; continue; }
+            } catch { continue; }
             fs.copyFileSync(indexPath, flatPath);
             replaced++;
           }
