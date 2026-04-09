@@ -299,9 +299,9 @@ export const PrivacyPolicy: React.FC = () => {
         </div>
 
         {/* Section 10: Contact */}
-        <div className="bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-950/30 dark:to-purple-950/30 rounded-2xl border border-indigo-200 dark:border-indigo-800 p-4 sm:p-6 shadow-sm">
+        <div className="bg-gradient-to-br from-teal-50 to-emerald-50 dark:from-teal-950/30 dark:to-emerald-950/30 rounded-2xl border border-teal-200 dark:border-teal-800 p-4 sm:p-6 shadow-sm">
           <div className="flex items-center gap-3 mb-4">
-            <div className="p-2 bg-indigo-500 rounded-xl">
+            <div className="p-2 bg-teal-500 rounded-xl">
               <Shield className="text-white" size={24} />
             </div>
             <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100">Contattaci</h2>

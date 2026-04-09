@@ -89,10 +89,10 @@ const VARIANT_COLORS: Record<LeadMagnetVariant, { gradient: string; iconBg: stri
     border: 'border-teal-200 dark:border-teal-800',
   },
   pension: {
-    gradient: 'from-cyan-50 to-sky-50 dark:from-cyan-900/20 dark:to-sky-900/20',
-    iconBg: 'bg-cyan-100 dark:bg-cyan-800',
-    iconText: 'text-cyan-600 dark:text-cyan-300',
-    border: 'border-cyan-200 dark:border-cyan-800',
+    gradient: 'from-teal-50 to-blue-50 dark:from-teal-900/20 dark:to-blue-900/20',
+    iconBg: 'bg-teal-100 dark:bg-teal-800',
+    iconText: 'text-teal-600 dark:text-teal-300',
+    border: 'border-teal-200 dark:border-teal-800',
   },
   generic: {
     gradient: 'from-amber-50 via-orange-50 to-rose-50 dark:from-amber-900/20 dark:via-orange-900/20 dark:to-rose-900/20',

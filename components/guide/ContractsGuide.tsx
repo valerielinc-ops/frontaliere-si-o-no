@@ -564,9 +564,9 @@ const ContractsGuide = () => {
       </div>
 
       {/* Key differences summary */}
-      <div className="bg-gradient-to-br from-indigo-50 to-violet-50 dark:from-indigo-900/20 dark:to-violet-900/20 rounded-xl border border-indigo-200 dark:border-indigo-800/50 p-4">
+      <div className="bg-gradient-to-br from-teal-50 to-emerald-50 dark:from-teal-900/20 dark:to-emerald-900/20 rounded-xl border border-teal-200 dark:border-teal-800/50 p-4">
         <h3 className="font-bold text-slate-900 dark:text-white mb-3 flex items-center gap-2">
-          <ArrowRightLeft size={18} className="text-indigo-600 dark:text-indigo-400" />
+          <ArrowRightLeft size={18} className="text-teal-600 dark:text-teal-400" />
           {t('contracts.keyDifferences.title')}
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">

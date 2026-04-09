@@ -127,76 +127,15 @@ const StatsViewInner: React.FC = () => {
           )}
         </div>
 
-        {/* KPI Row */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div className="bg-blue-50/50 dark:bg-blue-900/20 p-4 rounded-2xl border border-blue-100 dark:border-blue-800 group relative">
-               <p className="text-xs font-bold text-blue-500 uppercase flex items-center gap-1">
-                 {t('stats.totalFrontierWorkers')}
-                 <Info size={12} className="text-blue-400 cursor-help" />
-               </p>
-               <p className="text-2xl font-bold text-slate-800 dark:text-slate-100 mt-1">
-                 {loading ? <Loader2 className="animate-spin h-6 w-6"/> : (latestValue / 1000).toFixed(1) + 'k'}
-               </p>
-               {/* Tooltip */}
-               <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block z-20 w-56">
-                 <div className="bg-slate-900 text-white text-xs rounded-xl p-3 shadow-xl">
-                   <p className="font-semibold mb-1">{t('stats.totalTooltipTitle')}</p>
-                   <p className="text-slate-300">{t('stats.totalTooltipDesc')}</p>
-                   <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-slate-900"></div>
-                 </div>
-               </div>
-            </div>
-            <div className={`p-4 rounded-2xl border group relative ${Number(qoqPercent) >= 0 ? 'bg-emerald-50/50 border-emerald-100 dark:bg-emerald-900/20 dark:border-emerald-800' : 'bg-red-50/50 border-red-100'}`}>
-               <p className={`text-xs font-bold uppercase flex items-center gap-1 ${Number(qoqPercent) >= 0 ? 'text-emerald-500' : 'text-red-500'}`}>
-                 {t('stats.quarterlyTrend')}
-                 <Info size={12} className={`cursor-help ${Number(qoqPercent) >= 0 ? 'text-emerald-400' : 'text-red-400'}`} />
-               </p>
-               <div className="flex items-center gap-2 mt-1">
-                 <p className="text-2xl font-bold text-slate-800 dark:text-slate-100">{qoqPercent}%</p>
-                 {Number(qoqPercent) >= 0 ? <TrendingUp size={18} className="text-emerald-500"/> : <TrendingUp size={18} className="text-red-500 rotate-180"/>}
-               </div>
-               {/* Tooltip */}
-               <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block z-20 w-56">
-                 <div className="bg-slate-900 text-white text-xs rounded-xl p-3 shadow-xl">
-                   <p className="font-semibold mb-1">{t('stats.trendTooltipTitle')}</p>
-                   <p className="text-slate-300">{t('stats.trendTooltipDesc')}</p>
-                   <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-slate-900"></div>
-                 </div>
-               </div>
-            </div>
-            <div className="bg-indigo-50/50 dark:bg-indigo-900/20 p-4 rounded-2xl border border-indigo-100 dark:border-indigo-800 group relative">
-               <p className="text-xs font-bold text-indigo-600 uppercase flex items-center gap-1">
-                 {t('stats.permitsEstimated')}
-                 <Info size={12} className="text-indigo-400 cursor-help" />
-               </p>
-               <p className="text-lg font-bold text-slate-800 dark:text-slate-100 mt-2 line-clamp-2">{t('stats.permitG')}</p>
-               {/* Tooltip */}
-               <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block z-20 w-56">
-                 <div className="bg-slate-900 text-white text-xs rounded-xl p-3 shadow-xl">
-                   <p className="font-semibold mb-1">{t('stats.permitTooltipTitle')}</p>
-                   <p className="text-slate-300">{t('stats.permitTooltipDesc')}</p>
-                   <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-slate-900"></div>
-                 </div>
-               </div>
-            </div>
-            <div className="bg-purple-50/50 dark:bg-purple-900/20 p-4 rounded-2xl border border-purple-100 dark:border-purple-800 group relative">
-               <p className="text-xs font-bold text-purple-500 uppercase flex items-center gap-1">
-                 {t('stats.genderRatio')}
-                 <Info size={12} className="text-purple-400 cursor-help" />
-               </p>
-               <div className="flex items-end gap-1 mt-1">
-                  <p className="text-2xl font-bold text-slate-800 dark:text-slate-100">{malePercent}%</p>
-                  <span className="text-xs text-slate-500 dark:text-slate-400 mb-1">M</span>
-               </div>
-               {/* Tooltip */}
-               <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block z-20 w-56">
-                 <div className="bg-slate-900 text-white text-xs rounded-xl p-3 shadow-xl">
-                   <p className="font-semibold mb-1">{t('stats.genderTooltipTitle')}</p>
-                   <p className="text-slate-300">{t('stats.genderTooltipDesc')}</p>
-                   <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-slate-900"></div>
-                 </div>
-               </div>
-            </div>
+        {/* KPI Strip */}
+        <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-700 dark:text-slate-300">
+          <span><span className="font-semibold text-blue-700 dark:text-blue-400">{loading ? '…' : (latestValue / 1000).toFixed(1) + 'k'}</span> {t('stats.totalFrontierWorkers')}</span>
+          <span className="text-slate-300 dark:text-slate-600">·</span>
+          <span>{t('stats.quarterlyTrend')}: <span className={`font-semibold ${Number(qoqPercent) >= 0 ? 'text-emerald-700 dark:text-emerald-400' : 'text-red-700 dark:text-red-400'}`}>{qoqPercent}%</span> {Number(qoqPercent) >= 0 ? <TrendingUp size={14} className="inline text-emerald-600"/> : <TrendingUp size={14} className="inline text-red-500 rotate-180"/>}</span>
+          <span className="text-slate-300 dark:text-slate-600">·</span>
+          <span>{t('stats.permitsEstimated')}: <span className="font-semibold">{t('stats.permitG')}</span></span>
+          <span className="text-slate-300 dark:text-slate-600">·</span>
+          <span>{t('stats.genderRatio')}: <span className="font-semibold">{malePercent}% M</span></span>
         </div>
 
         {/* Chart Grid */}

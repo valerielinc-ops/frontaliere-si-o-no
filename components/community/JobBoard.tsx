@@ -4172,7 +4172,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
           <span>{t('jobBoard.sectorContext.educationPremium', { pct: String(Math.round((sectorContext.educationPremiumRatio - 1) * 100)) })}</span>
         )}
       </div>
-      <p className="mt-1.5 text-[11px] text-slate-500 dark:text-slate-500">{t('jobBoard.sectorContext.source')}</p>
+      <p className="mt-1.5 text-xs text-slate-500 dark:text-slate-400">{t('jobBoard.sectorContext.source')}</p>
     </div>
   ) : null;
 
@@ -4336,8 +4336,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
   if (editorialJobTodayLanding) {
     return (
       <div className="space-y-6">
-        <section className="rounded-3xl border border-indigo-100 dark:border-indigo-900/60 bg-gradient-to-br from-indigo-50 via-white to-cyan-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 p-6 sm:p-8">
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-indigo-700 dark:text-indigo-300">
+        <section className="rounded-3xl border border-teal-100 dark:border-teal-900/60 bg-gradient-to-br from-teal-50 via-white to-emerald-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 p-6 sm:p-8">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-teal-700 dark:text-teal-300">
             {editorialJobTodayLanding.updatedLabel} · {new Date().toLocaleDateString('it-CH')}
           </p>
           <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
@@ -4428,8 +4428,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
   if (editorialOfficialGazetteLanding) {
     return (
       <div className="space-y-6">
-        <section className="rounded-3xl border border-indigo-100 dark:border-indigo-900/60 bg-gradient-to-br from-indigo-50 via-white to-cyan-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 p-6 sm:p-8">
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-indigo-700 dark:text-indigo-300">
+        <section className="rounded-3xl border border-teal-100 dark:border-teal-900/60 bg-gradient-to-br from-teal-50 via-white to-emerald-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 p-6 sm:p-8">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-teal-700 dark:text-teal-300">
             {editorialOfficialGazetteLanding.updatedLabel} · {new Date().toLocaleDateString('it-CH')}
           </p>
           <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
@@ -4539,8 +4539,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
   if (editorialNursesHubLanding) {
     return (
       <div className="space-y-6">
-        <section className="rounded-3xl border border-indigo-100 dark:border-indigo-900/60 bg-gradient-to-br from-indigo-50 via-white to-cyan-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 p-6 sm:p-8">
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-indigo-700 dark:text-indigo-300">
+        <section className="rounded-3xl border border-teal-100 dark:border-teal-900/60 bg-gradient-to-br from-teal-50 via-white to-emerald-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 p-6 sm:p-8">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-teal-700 dark:text-teal-300">
             {editorialNursesHubLanding.updatedLabel} · {new Date().toLocaleDateString('it-CH')}
           </p>
           <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
@@ -4641,8 +4641,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
     const parentSlug = editorialCareVariantLanding.parentHubHref.split('/').filter(Boolean).pop() || '';
     return (
       <div className="space-y-6">
-        <section className="rounded-3xl border border-indigo-100 dark:border-indigo-900/60 bg-gradient-to-br from-indigo-50 via-white to-cyan-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 p-6 sm:p-8">
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-indigo-700 dark:text-indigo-300">
+        <section className="rounded-3xl border border-teal-100 dark:border-teal-900/60 bg-gradient-to-br from-teal-50 via-white to-emerald-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 p-6 sm:p-8">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-teal-700 dark:text-teal-300">
             {editorialCareVariantLanding.updatedLabel} · {new Date().toLocaleDateString('it-CH')}
           </p>
           <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
@@ -4731,8 +4731,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
   if (editorialLocationLanding) {
     return (
       <div className="space-y-6">
-        <section className="rounded-3xl border border-indigo-100 dark:border-indigo-900/60 bg-gradient-to-br from-indigo-50 via-white to-cyan-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 p-6 sm:p-8">
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-indigo-700 dark:text-indigo-300">
+        <section className="rounded-3xl border border-teal-100 dark:border-teal-900/60 bg-gradient-to-br from-teal-50 via-white to-emerald-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 p-6 sm:p-8">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-teal-700 dark:text-teal-300">
             {editorialLocationLanding.updatedLabel} · {new Date().toLocaleDateString('it-CH')}
           </p>
           <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
@@ -4838,8 +4838,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
     const parentSlug = editorialLocationTypeLanding.parentLocationHref.split('/').filter(Boolean).pop() || '';
     return (
       <div className="space-y-6">
-        <section className="rounded-3xl border border-indigo-100 dark:border-indigo-900/60 bg-gradient-to-br from-indigo-50 via-white to-cyan-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 p-6 sm:p-8">
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-indigo-700 dark:text-indigo-300">
+        <section className="rounded-3xl border border-teal-100 dark:border-teal-900/60 bg-gradient-to-br from-teal-50 via-white to-emerald-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 p-6 sm:p-8">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-teal-700 dark:text-teal-300">
             {editorialLocationTypeLanding.updatedLabel} · {new Date().toLocaleDateString('it-CH')}
           </p>
           <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
@@ -4928,8 +4928,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
     const parentSlug = editorialLocationSectorLanding.parentLocationHref.split('/').filter(Boolean).pop() || '';
     return (
       <div className="space-y-6">
-        <section className="rounded-3xl border border-indigo-100 dark:border-indigo-900/60 bg-gradient-to-br from-indigo-50 via-white to-cyan-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 p-6 sm:p-8">
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-indigo-700 dark:text-indigo-300">
+        <section className="rounded-3xl border border-teal-100 dark:border-teal-900/60 bg-gradient-to-br from-teal-50 via-white to-emerald-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 p-6 sm:p-8">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-teal-700 dark:text-teal-300">
             {editorialLocationSectorLanding.updatedLabel} · {new Date().toLocaleDateString('it-CH')}
           </p>
           <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
@@ -5017,8 +5017,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
   if (editorialSectorRegionLanding) {
     return (
       <div className="space-y-6">
-        <section className="rounded-3xl border border-indigo-100 dark:border-indigo-900/60 bg-gradient-to-br from-indigo-50 via-white to-cyan-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 p-6 sm:p-8">
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-indigo-700 dark:text-indigo-300">
+        <section className="rounded-3xl border border-teal-100 dark:border-teal-900/60 bg-gradient-to-br from-teal-50 via-white to-emerald-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 p-6 sm:p-8">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-teal-700 dark:text-teal-300">
             {editorialSectorRegionLanding.updatedLabel} · {new Date().toLocaleDateString('it-CH')}
           </p>
           <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
@@ -5198,10 +5198,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
             )}
 
             {/* Auth gate — embedded inline for all viewports (no extra click needed) */}
-            <div id="job-auth-gate" className="relative z-10 mt-3 scroll-mt-20 rounded-2xl border border-indigo-200 dark:border-indigo-800 bg-gradient-to-br from-indigo-50 to-blue-50 dark:from-indigo-950/30 dark:to-blue-950/20 p-5 sm:p-6">
+            <div id="job-auth-gate" className="relative z-10 mt-3 scroll-mt-20 rounded-2xl border border-teal-200 dark:border-teal-800 bg-gradient-to-br from-teal-50 to-blue-50 dark:from-teal-950/30 dark:to-blue-950/20 p-5 sm:p-6">
               <div className="flex items-center gap-3 mb-3">
-                <div className="flex-shrink-0 p-2 bg-indigo-100 dark:bg-indigo-900/50 rounded-xl">
-                  <Lock className="w-5 h-5 text-indigo-700 dark:text-indigo-400" />
+                <div className="flex-shrink-0 p-2 bg-teal-100 dark:bg-teal-900/50 rounded-xl">
+                  <Lock className="w-5 h-5 text-teal-700 dark:text-teal-400" />
                 </div>
                 <div>
                   <h2 className="text-lg font-bold text-slate-900 dark:text-white">{t('jobBoard.gate.title')}</h2>
@@ -5524,7 +5524,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6">
           <article className="lg:col-span-8 space-y-4 sm:space-y-5">
-            <header className="rounded-3xl border border-blue-100 dark:border-slate-700 bg-gradient-to-br from-cyan-50 via-white to-emerald-50 dark:from-cyan-950/40 dark:via-slate-900 dark:to-emerald-950/40 p-4 sm:p-6">
+            <header className="rounded-3xl border border-blue-100 dark:border-slate-700 bg-gradient-to-br from-teal-50 via-white to-emerald-50 dark:from-teal-950/40 dark:via-slate-900 dark:to-emerald-950/40 p-4 sm:p-6">
               <div className="flex items-start gap-3 sm:gap-4">
                 <a
                   href={applyUrl}
@@ -5532,7 +5532,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                   rel="noopener noreferrer"
                   onClick={() => Analytics.trackSelectContent('job_board_apply_header_logo', `${selectedJob.company}_${selectedJob.title}`)}
                   aria-label={`${t('jobBoard.apply')} ${selectedJob.company}`}
-                  className="w-14 h-14 sm:w-20 sm:h-20 rounded-xl bg-white/90 dark:bg-slate-800/80 flex items-center justify-center overflow-hidden border border-blue-100 dark:border-slate-700 shrink-0 shadow-sm transition-transform hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+                  className="w-14 h-14 sm:w-20 sm:h-20 rounded-xl bg-white/90 dark:bg-slate-800/80 flex items-center justify-center overflow-hidden border border-blue-100 dark:border-slate-700 shrink-0 shadow-sm transition-transform hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500"
                 >
                   {logo ? (
                     <img
@@ -6381,10 +6381,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
       {authGateModalJsx}
 
-      <div className="bg-gradient-to-br from-indigo-50 to-blue-50 dark:from-indigo-950/30 dark:to-blue-950/20 rounded-2xl p-6 border border-indigo-200/50 dark:border-indigo-800/30">
+      <div className="bg-gradient-to-br from-teal-50 to-blue-50 dark:from-teal-950/30 dark:to-blue-950/20 rounded-2xl p-6 border border-teal-200/50 dark:border-teal-800/30">
         <div className="flex flex-col md:flex-row items-center gap-4 text-center md:text-left">
-          <div className="flex-shrink-0 p-3 bg-indigo-100 dark:bg-indigo-900/40 rounded-xl">
-            <Building2 className="w-8 h-8 text-indigo-700 dark:text-indigo-400" />
+          <div className="flex-shrink-0 p-3 bg-teal-100 dark:bg-teal-900/40 rounded-xl">
+            <Building2 className="w-8 h-8 text-teal-700 dark:text-teal-400" />
           </div>
           <div className="flex-1">
             <h3 className="font-bold text-slate-900 dark:text-white text-lg">{t('jobBoard.cta.title')}</h3>
@@ -6395,7 +6395,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
               Analytics.trackSelectContent('job_board_cta', 'company_post_job');
               onPostJob?.();
             }}
-            className="inline-flex items-center gap-2 px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl transition-colors text-sm whitespace-nowrap cursor-pointer"
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-teal-600 hover:bg-teal-700 text-white font-semibold rounded-xl transition-colors text-sm whitespace-nowrap cursor-pointer"
           >
             <Mail className="w-4 h-4" />
             {t('jobBoard.cta.button')}

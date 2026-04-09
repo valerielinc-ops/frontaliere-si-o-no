@@ -336,7 +336,7 @@ export const FeedbackSection: React.FC = () => {
                         </div>
                       </div>
                     </div>
-                    <ChevronRight size={14} className="text-slate-500 group-hover:translate-x-1 transition-transform" />
+                    <ChevronRight size={14} className="text-slate-500 dark:text-slate-400 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </a>
               ))

@@ -758,20 +758,20 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
                 Analytics.trackFunnelStep('compare', { source: 'results_cta' });
                 nav.navigateTo('calculator', 'whatif');
               }}
-              className="w-full text-left rounded-2xl border border-indigo-200 dark:border-indigo-700 bg-gradient-to-br from-indigo-50 via-white to-violet-50 dark:from-indigo-950/60 dark:via-slate-900 dark:to-violet-950/40 p-5 sm:p-6 shadow-sm hover:shadow-md hover:border-indigo-300 dark:hover:border-indigo-600 transition-[color,background-color,border-color,box-shadow,opacity,transform] duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400"
+              className="w-full text-left rounded-2xl border border-teal-200 dark:border-teal-700 bg-gradient-to-br from-teal-50 via-white to-emerald-50 dark:from-teal-950/60 dark:via-slate-900 dark:to-emerald-950/40 p-5 sm:p-6 shadow-sm hover:shadow-md hover:border-teal-300 dark:hover:border-teal-600 transition-[color,background-color,border-color,box-shadow,opacity,transform] duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400"
             >
               <div className="flex items-start gap-4">
-                <div className="shrink-0 w-10 h-10 rounded-xl bg-indigo-100 dark:bg-indigo-900/60 flex items-center justify-center text-indigo-600 dark:text-indigo-400 group-hover:bg-indigo-200 dark:group-hover:bg-indigo-800/70 transition-colors">
+                <div className="shrink-0 w-10 h-10 rounded-xl bg-teal-100 dark:bg-teal-900/60 flex items-center justify-center text-teal-600 dark:text-teal-400 group-hover:bg-teal-200 dark:group-hover:bg-teal-800/70 transition-colors">
                   <Sliders size={20} />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-bold text-indigo-800 dark:text-indigo-300 mb-1">
+                  <p className="text-sm font-bold text-teal-800 dark:text-teal-300 mb-1">
                     {t('results.compareCta.title')}
                   </p>
                   <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
                     {t('results.compareCta.subtitle')}
                   </p>
-                  <div className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-indigo-700 dark:text-indigo-400 group-hover:gap-2.5 transition-[color,background-color,border-color,box-shadow,opacity,transform] duration-150">
+                  <div className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-teal-700 dark:text-teal-400 group-hover:gap-2.5 transition-[color,background-color,border-color,box-shadow,opacity,transform] duration-150">
                     {t('results.compareCta.button')} <ArrowRight size={14} />
                   </div>
                 </div>

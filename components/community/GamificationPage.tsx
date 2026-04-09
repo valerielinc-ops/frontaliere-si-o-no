@@ -41,7 +41,7 @@ const GamificationPage: React.FC = () => {
     explorer: 'from-blue-500 to-blue-600',
     calculator: 'from-emerald-500 to-teal-500',
     expert: 'from-teal-500 to-teal-600',
-    social: 'from-pink-500 to-rose-500',
+    social: 'from-amber-500 to-amber-500',
   };
 
   // Sort: unlocked first (most recent first), then locked

@@ -334,7 +334,7 @@ export const SkeletonJobDetail: React.FC = () => (
 export const SkeletonJobBoard: React.FC = () => (
   <div className="space-y-4 min-h-[80vh]">
     {/* Header */}
-    <div className="bg-gradient-to-br from-indigo-50 to-blue-50 dark:from-slate-800 dark:to-slate-900 rounded-2xl p-6">
+    <div className="bg-gradient-to-br from-teal-50 to-blue-50 dark:from-slate-800 dark:to-slate-900 rounded-2xl p-6">
       <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Offerte di Lavoro Ticino</h2>
       <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">Trova lavoro in Svizzera come frontaliere</p>
     </div>
@@ -455,7 +455,7 @@ export const SkeletonPageShell: React.FC = () => {
   return (
     <div className="min-h-screen relative flex flex-col font-sans text-slate-800 dark:text-slate-100 overflow-hidden">
       {/* Background gradient — matches real layout + loading shell */}
-      <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 via-slate-50 to-purple-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 -z-20" style={{ contain: 'strict' }} />
+      <div className="absolute inset-0 bg-gradient-to-br from-teal-50 via-slate-50 to-emerald-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 -z-20" style={{ contain: 'strict' }} />
 
       {/* Skeleton Nav — matches loading shell sticky nav h-20 (80px) */}
       <nav className="sticky top-0 z-50 bg-white/95 dark:bg-slate-900/95 border-b border-slate-200/50 dark:border-slate-800/50 shadow-sm">

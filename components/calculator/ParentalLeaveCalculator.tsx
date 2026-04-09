@@ -145,14 +145,14 @@ const ParentalLeaveCalculator: React.FC<ParentalLeaveProps> = ({ userProfile }) 
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="bg-gradient-to-br from-pink-50 to-rose-50 dark:from-pink-950/30 dark:to-rose-950/30 rounded-2xl p-4 sm:p-6 border border-pink-200 dark:border-pink-800">
+      <div className="bg-gradient-to-br from-amber-50 to-amber-50 dark:from-amber-950/30 dark:to-amber-950/30 rounded-2xl p-4 sm:p-6 border border-amber-200 dark:border-amber-800">
         <div className="flex items-center gap-3 mb-2">
-          <div className="p-2 bg-pink-100 dark:bg-pink-900/50 rounded-xl">
-            <Baby className="w-6 h-6 text-pink-600 dark:text-pink-400" />
+          <div className="p-2 bg-amber-100 dark:bg-amber-900/50 rounded-xl">
+            <Baby className="w-6 h-6 text-amber-600 dark:text-amber-400" />
           </div>
-          <h2 className="text-2xl font-bold text-pink-900 dark:text-pink-100">{t('leave.title')}</h2>
+          <h2 className="text-2xl font-bold text-amber-900 dark:text-amber-100">{t('leave.title')}</h2>
         </div>
-        <p className="text-pink-700 dark:text-pink-300 text-sm">{t('leave.subtitle')}</p>
+        <p className="text-amber-700 dark:text-amber-300 text-sm">{t('leave.subtitle')}</p>
       </div>
 
       {/* Type Selector */}
@@ -300,12 +300,12 @@ const ParentalLeaveCalculator: React.FC<ParentalLeaveProps> = ({ userProfile }) 
       </div>
 
       {/* Frontaliere Summary */}
-      <div className="bg-gradient-to-r from-indigo-50 to-violet-50 dark:from-indigo-950/30 dark:to-violet-950/30 rounded-2xl p-5 border border-indigo-200 dark:border-indigo-800">
-        <h4 className="font-bold text-indigo-800 dark:text-indigo-200 mb-3 flex items-center gap-2">
+      <div className="bg-gradient-to-r from-teal-50 to-emerald-50 dark:from-teal-950/30 dark:to-emerald-950/30 rounded-2xl p-5 border border-teal-200 dark:border-teal-800">
+        <h4 className="font-bold text-teal-800 dark:text-teal-200 mb-3 flex items-center gap-2">
           <Calendar className="w-5 h-5" />
           {t('leave.frontaliereTitle')}
         </h4>
-        <p className="text-sm text-indigo-700 dark:text-indigo-300 mb-3">{t('leave.frontaliereDesc')}</p>
+        <p className="text-sm text-teal-700 dark:text-teal-300 mb-3">{t('leave.frontaliereDesc')}</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
           <div className="bg-white/60 dark:bg-slate-800/60 rounded-lg p-3">
             <p className="text-slate-500 dark:text-slate-400">{t('leave.chIPG')}</p>

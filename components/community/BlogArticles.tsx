@@ -1872,16 +1872,16 @@ function BlogArticles({
                     <>
                       {/* Inline job teaser — shows 1-2 relevant jobs mid-article */}
                       {relatedJobs.length > 0 && (
-                        <div className="my-4 p-4 bg-gradient-to-r from-indigo-50 to-blue-50 dark:from-indigo-950/30 dark:to-blue-950/20 border border-indigo-200/60 dark:border-indigo-800/40 rounded-xl">
+                        <div className="my-4 p-4 bg-gradient-to-r from-teal-50 to-blue-50 dark:from-teal-950/30 dark:to-blue-950/20 border border-teal-200/60 dark:border-teal-800/40 rounded-xl">
                           <div className="flex items-center justify-between mb-3">
-                            <p className="text-sm font-bold text-indigo-800 dark:text-indigo-300 flex items-center gap-1.5">
-                              <Briefcase size={15} className="text-indigo-500" />
+                            <p className="text-sm font-bold text-teal-800 dark:text-teal-300 flex items-center gap-1.5">
+                              <Briefcase size={15} className="text-teal-500" />
                               {t('blog.inlineJobs.title')}
                             </p>
                             <a
                               href={buildPath({ activeTab: 'job-board' })}
                               onClick={(e) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; e.preventDefault(); nav.navigateTo('job-board'); Analytics.trackUIInteraction('blog_inline_jobs', 'link', 'click', 'view_all'); }}
-                              className="text-xs text-indigo-600 dark:text-indigo-400 hover:underline font-medium"
+                              className="text-xs text-teal-600 dark:text-teal-400 hover:underline font-medium"
                             >
                               {t('blog.relatedJobs.viewAll')} →
                             </a>
@@ -2365,7 +2365,7 @@ function BlogArticles({
                 </a>
               </div>
 
-              <p className="text-[8px] text-slate-500 dark:text-slate-600 leading-tight">
+              <p className="text-xs text-slate-500 dark:text-slate-400 leading-tight">
                 {t('affiliate.disclosure')}
               </p>
             </div>

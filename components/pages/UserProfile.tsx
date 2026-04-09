@@ -229,12 +229,12 @@ export const ProfileLoginCTA: React.FC<{
   const [dismissed, setDismissed] = React.useState(false);
   if (dismissed) return null;
   return (
-    <div className="flex items-center gap-3 p-3 bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-950/40 dark:to-purple-950/40 rounded-xl border border-indigo-200 dark:border-indigo-800">
-      <Sparkles size={18} className="text-indigo-500 flex-shrink-0" />
+    <div className="flex items-center gap-3 p-3 bg-gradient-to-r from-teal-50 to-emerald-50 dark:from-teal-950/40 dark:to-emerald-950/40 rounded-xl border border-teal-200 dark:border-teal-800">
+      <Sparkles size={18} className="text-teal-500 flex-shrink-0" />
       <p className="text-xs text-slate-700 dark:text-slate-300 flex-1">{t('profile.cta.title')}</p>
       <button
         onClick={onLogin}
-        className="px-3 py-1 text-xs font-bold text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg transition-colors"
+        className="px-3 py-1 text-xs font-bold text-white bg-teal-600 hover:bg-teal-700 rounded-lg transition-colors"
       >
         {t('profile.cta.login')}
       </button>
@@ -970,7 +970,7 @@ const UserProfile: React.FC = () => {
                 onClick={() => {
                   window.dispatchEvent(new CustomEvent('navigate-tab', { detail: { tab: a.tab, ...(a.subTab ? { subTab: a.subTab } : {}) } }));
                 }}
-                className="flex items-center gap-1.5 px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-medium text-slate-600 dark:text-slate-400 hover:border-indigo-300 dark:hover:border-indigo-600 hover:text-indigo-600 dark:hover:text-indigo-400 transition-[color,border-color] whitespace-nowrap"
+                className="flex items-center gap-1.5 px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-medium text-slate-600 dark:text-slate-400 hover:border-teal-300 dark:hover:border-teal-600 hover:text-teal-600 dark:hover:text-teal-400 transition-[color,border-color] whitespace-nowrap"
               >
                 <a.icon size={13} />
                 {a.label}
@@ -981,14 +981,14 @@ const UserProfile: React.FC = () => {
 
         {/* ─── Sidebar Widget: key metrics ─── */}
         {(quickSimResult || fxRate) && (
-          <div className="px-6 py-4 bg-gradient-to-r from-indigo-50/50 to-purple-50/50 dark:from-indigo-950/20 dark:to-purple-950/20 border-b border-slate-100 dark:border-slate-800">
+          <div className="px-6 py-4 bg-gradient-to-r from-teal-50/50 to-emerald-50/50 dark:from-teal-950/20 dark:to-emerald-950/20 border-b border-slate-100 dark:border-slate-800">
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               {/* Net salary (CH) */}
               {quickSimResult && (
                 <button
                   onClick={() => window.dispatchEvent(new CustomEvent('navigate-tab', { detail: { tab: 'calculator' } }))}
                   aria-label={t('profile.widget.netSalary')}
-                  className="flex flex-col items-center gap-1 p-3 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-600 transition-[border-color] cursor-pointer"
+                  className="flex flex-col items-center gap-1 p-3 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-teal-300 dark:hover:border-teal-600 transition-[border-color] cursor-pointer"
                 >
                   <span className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">{t('profile.widget.netCH')}</span>
                   <span className="text-lg font-bold text-emerald-700 dark:text-emerald-400 tabular-nums">
@@ -1002,7 +1002,7 @@ const UserProfile: React.FC = () => {
                 <button
                   onClick={() => window.dispatchEvent(new CustomEvent('navigate-tab', { detail: { tab: 'calculator' } }))}
                   aria-label={t('profile.widget.netSalary')}
-                  className="flex flex-col items-center gap-1 p-3 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-600 transition-[border-color] cursor-pointer"
+                  className="flex flex-col items-center gap-1 p-3 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-teal-300 dark:hover:border-teal-600 transition-[border-color] cursor-pointer"
                 >
                   <span className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">{t('profile.widget.netIT')}</span>
                   <span className="text-lg font-bold text-blue-600 dark:text-blue-400 tabular-nums">
@@ -1015,7 +1015,7 @@ const UserProfile: React.FC = () => {
               <button
                 onClick={() => window.dispatchEvent(new CustomEvent('navigate-tab', { detail: { tab: 'confronti', subTab: 'exchange' } }))}
                 aria-label={t('profile.widget.fxRate')}
-                className="flex flex-col items-center gap-1 p-3 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-600 transition-[border-color] cursor-pointer"
+                className="flex flex-col items-center gap-1 p-3 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-teal-300 dark:hover:border-teal-600 transition-[border-color] cursor-pointer"
               >
                 <span className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">EUR/CHF</span>
                 <span className="text-lg font-bold text-amber-600 dark:text-amber-400 tabular-nums">

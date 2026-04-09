@@ -329,7 +329,7 @@ const CommunityForum: React.FC = () => {
                         className={`p-1 rounded-lg transition-colors ${
                           user && answer.upvotedBy.includes(user.uid)
                             ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400'
-                            : 'text-slate-500 hover:text-emerald-500'
+                            : 'text-slate-500 dark:text-slate-400 hover:text-emerald-500'
                         } ${!user ? 'opacity-50 cursor-not-allowed' : ''}`}
                         aria-label="Vota positivo"
                       >
@@ -397,14 +397,14 @@ const CommunityForum: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="bg-gradient-to-br from-violet-50 to-purple-50 dark:from-violet-950/30 dark:to-purple-950/30 rounded-2xl p-4 sm:p-6 border border-violet-200 dark:border-violet-800">
+      <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30 rounded-2xl p-4 sm:p-6 border border-emerald-200 dark:border-emerald-800">
         <div className="flex items-center gap-3 mb-2">
-          <div className="p-2 bg-violet-100 dark:bg-violet-900/50 rounded-xl">
-            <MessageSquare className="w-6 h-6 text-violet-600 dark:text-violet-400" />
+          <div className="p-2 bg-emerald-100 dark:bg-emerald-900/50 rounded-xl">
+            <MessageSquare className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
           </div>
-          <h2 className="text-2xl font-bold text-violet-900 dark:text-violet-100">{t('forum.title')}</h2>
+          <h2 className="text-2xl font-bold text-emerald-900 dark:text-emerald-100">{t('forum.title')}</h2>
         </div>
-        <p className="text-violet-700 dark:text-violet-300 text-sm">{t('forum.subtitle')}</p>
+        <p className="text-emerald-700 dark:text-emerald-300 text-sm">{t('forum.subtitle')}</p>
       </div>
 
       {/* Controls */}

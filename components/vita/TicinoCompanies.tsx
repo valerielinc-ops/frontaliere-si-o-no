@@ -865,7 +865,7 @@ const TicinoCompanies: React.FC = () => {
                 {companyJobsCount(company.name) > 0 && (
                   <a
                     href={companyJobsHref(company.name)}
-                    className="mt-3 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gradient-to-r from-indigo-50 to-violet-50 dark:from-indigo-900/30 dark:to-violet-900/30 border border-indigo-200 dark:border-indigo-700 text-indigo-700 dark:text-indigo-200 text-xs font-bold hover:from-indigo-100 hover:to-violet-100 dark:hover:from-indigo-900/40 dark:hover:to-violet-900/40 transition-colors"
+                    className="mt-3 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gradient-to-r from-teal-50 to-emerald-50 dark:from-teal-900/30 dark:to-emerald-900/30 border border-teal-200 dark:border-teal-700 text-teal-700 dark:text-teal-200 text-xs font-bold hover:from-teal-100 hover:to-emerald-100 dark:hover:from-teal-900/40 dark:hover:to-emerald-900/40 transition-colors"
                     onClick={() => Analytics.trackSelectContent('companies_open_jobs_by_company', company.name)}
                   >
                     <Briefcase size={12} />

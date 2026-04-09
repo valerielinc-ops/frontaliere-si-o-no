@@ -215,7 +215,7 @@ const operators: MobileOperator[] = [
     },
     setupCost: 0,
     contractType: 'abbonamento',
-    color: 'from-pink-600 to-rose-700',
+    color: 'from-amber-600 to-amber-700',
     features: ['Dati illimitati CH+UE', '20 GB high-speed roaming', 'Sconto -65% a vita'],
     website: 'https://www.salt.ch/en/mobile/plans/travel'
   },
@@ -234,7 +234,7 @@ const operators: MobileOperator[] = [
     },
     setupCost: 0,
     contractType: 'abbonamento',
-    color: 'from-pink-500 to-rose-600',
+    color: 'from-amber-500 to-amber-600',
     features: ['Dati illimitati CH', 'Solo 1 GB roaming UE', 'Sconto -63% a vita'],
     website: 'https://www.salt.ch/en/mobile/plans/swiss-max'
   },

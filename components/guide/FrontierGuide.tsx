@@ -134,9 +134,9 @@ const InfoCard = ({ icon: Icon, title, children, color = "blue" }: any) => {
   const colorClasses = {
     blue: "from-teal-500 to-emerald-600 border-teal-200 dark:border-teal-800",
     green: "from-emerald-500 to-teal-600 border-emerald-200 dark:border-emerald-800",
-    purple: "from-purple-500 to-pink-600 border-purple-200 dark:border-purple-800",
+    purple: "from-emerald-500 to-amber-600 border-emerald-200 dark:border-emerald-800",
     orange: "from-orange-500 to-red-600 border-orange-200 dark:border-orange-800",
-    teal: "from-teal-500 to-cyan-600 border-teal-200 dark:border-teal-800"
+    teal: "from-teal-500 to-teal-600 border-teal-200 dark:border-teal-800"
   };
 
   return (

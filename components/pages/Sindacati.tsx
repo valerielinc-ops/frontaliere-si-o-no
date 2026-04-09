@@ -174,10 +174,10 @@ export default function Sindacati() {
       </div>
 
       {/* Why join a union */}
-      <div className="rounded-2xl bg-gradient-to-br from-indigo-50 to-blue-50 dark:from-indigo-950/30 dark:to-blue-950/20 border border-indigo-200/50 dark:border-indigo-800/30 p-6">
+      <div className="rounded-2xl bg-gradient-to-br from-teal-50 to-blue-50 dark:from-teal-950/30 dark:to-blue-950/20 border border-teal-200/50 dark:border-teal-800/30 p-6">
         <div className="flex items-center gap-3 mb-4">
-          <div className="p-2 bg-indigo-100 dark:bg-indigo-900/50 rounded-xl">
-            <Shield className="w-5 h-5 text-indigo-700 dark:text-indigo-400" />
+          <div className="p-2 bg-teal-100 dark:bg-teal-900/50 rounded-xl">
+            <Shield className="w-5 h-5 text-teal-700 dark:text-teal-400" />
           </div>
           <h2 className="text-lg font-bold text-slate-900 dark:text-white">Perché iscriversi a un sindacato?</h2>
         </div>
