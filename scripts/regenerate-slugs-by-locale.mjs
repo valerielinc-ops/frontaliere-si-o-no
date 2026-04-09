@@ -193,10 +193,23 @@ async function main() {
     if (sliceChanged) {
       slicesChanged++;
       const crawlerKey = file.replace('.json', '');
-      const fixedInSlice = jobs.filter(j => {
-        // Count how many were actually changed (approximate)
-        return true;
-      }).length;
+
+      // Safety net: strip any previousSlug that matches an active slug.
+      // Multiple locale changes per job can leave stale entries.
+      for (const job of jobs) {
+        if (!Array.isArray(job.previousSlugs) || job.previousSlugs.length === 0) continue;
+        const active = new Set();
+        if (job.slug) active.add(String(job.slug).trim());
+        if (job.slugByLocale && typeof job.slugByLocale === 'object') {
+          for (const v of Object.values(job.slugByLocale)) {
+            if (v) active.add(String(v).trim());
+          }
+        }
+        const cleaned = job.previousSlugs.filter(s => !active.has(String(s).trim()));
+        if (cleaned.length === 0) delete job.previousSlugs;
+        else job.previousSlugs = cleaned;
+      }
+
       console.log(`  ✅ ${crawlerKey}`);
       writeJson(slicePath, sliceData);
     }
