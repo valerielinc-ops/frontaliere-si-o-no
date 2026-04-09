@@ -902,6 +902,7 @@ const UserProfile: React.FC = () => {
                   alt={displayName}
                   width={72}
                   height={72}
+                  loading="lazy"
                   className="w-[72px] h-[72px] rounded-full ring-3 ring-white/40 object-cover"
                   referrerPolicy="no-referrer"
                 />

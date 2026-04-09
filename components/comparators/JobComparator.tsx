@@ -163,7 +163,7 @@ const JobComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
                 aria-label="Nome azienda"
               />
               {offers.length > 2 && (
-                <button onClick={() => removeOffer(offer.id)} className="p-1.5 text-red-400 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-950/30 rounded-lg transition-colors focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2" aria-label={t('jobs.removeOffer')}>
+                <button onClick={() => removeOffer(offer.id)} className="p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center text-red-400 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-950/30 rounded-lg transition-colors focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2" aria-label={t('jobs.removeOffer')}>
                   <Trash2 size={16} />
                 </button>
               )}

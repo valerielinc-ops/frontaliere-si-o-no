@@ -140,12 +140,12 @@ export default function CalcolatoreTabContent() {
 
             {/* Desktop: side-by-side layout */}
             <div className="hidden md:grid grid-cols-12 gap-6 h-full">
-              <div className="transition-[width] duration-300 ease-out md:col-span-4 lg:col-span-4 xl:col-span-3 h-full">
+              <div className="md:col-span-4 lg:col-span-4 xl:col-span-3 h-full">
                 <Suspense fallback={<SkeletonInputCard />}>
                   <InputCard inputs={inputs} setInputs={setInputs} onCalculate={handleCalculate} />
                 </Suspense>
               </div>
-              <div className="transition-[width] duration-300 ease-out md:col-span-8 lg:col-span-8 xl:col-span-9 h-full">
+              <div className="md:col-span-8 lg:col-span-8 xl:col-span-9 h-full">
                 {result && (
                   <Suspense fallback={<LazyFallback />}>
                     <ResultsView result={result} inputs={inputs} />

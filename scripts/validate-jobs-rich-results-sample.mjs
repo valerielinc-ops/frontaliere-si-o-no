@@ -120,7 +120,9 @@ function hasValidBaseSalary(baseSalary) {
   const min = Number(value.minValue);
   const max = value.maxValue !== undefined ? Number(value.maxValue) : null;
   if (!Number.isFinite(min) || min <= 0) return false;
-  if (max !== null && (!Number.isFinite(max) || max < min)) return false;
+  // FRO-maxValue: maxValue is now MANDATORY — GSC flags missing maxValue as quality issue.
+  if (max === null) return false;
+  if (!Number.isFinite(max) || max < min) return false;
   if (!value.unitText || String(value.unitText).trim().length === 0) return false;
   return true;
 }

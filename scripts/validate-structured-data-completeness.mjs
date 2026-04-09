@@ -167,6 +167,13 @@ function validateJobPosting(schema, filePath) {
       if (!Number.isFinite(minVal) || minVal <= 0) {
         errors.push({ file: filePath, type: 'JobPosting', field: 'baseSalary.value.minValue', message: 'JobPosting baseSalary.value.minValue missing or invalid' });
       }
+      // FRO-maxValue: maxValue is now MANDATORY — GSC flags missing maxValue as quality issue.
+      const maxVal = Number(val.maxValue);
+      if (!Number.isFinite(maxVal) || maxVal <= 0) {
+        errors.push({ file: filePath, type: 'JobPosting', field: 'baseSalary.value.maxValue', message: 'JobPosting baseSalary.value.maxValue missing or invalid' });
+      } else if (Number.isFinite(minVal) && maxVal < minVal) {
+        errors.push({ file: filePath, type: 'JobPosting', field: 'baseSalary.value.maxValue', message: 'JobPosting baseSalary.value.maxValue < minValue' });
+      }
       if (!isNonEmpty(val.unitText)) {
         errors.push({ file: filePath, type: 'JobPosting', field: 'baseSalary.value.unitText', message: 'JobPosting baseSalary.value.unitText missing' });
       }

@@ -88,7 +88,7 @@ import {
 const DEFAULT_CANTON = 'TI';
 const DEFAULT_CANTON_DISPLAY = 'Ticino';
 const DEFAULT_POSTAL_CODE = '6900';
-const TARGET_CANTONS_ORDERED = ['TI', 'GR'] as const;
+const TARGET_CANTONS_ORDERED = ['TI', 'GR', 'VS'] as const;
 
 const CANTON_DISPLAY: Record<string, string> = {
   'TI': 'Ticino', 'GR': 'Graubünden', 'ZH': 'Zürich', 'BE': 'Bern',
@@ -3308,13 +3308,17 @@ const JobBoard: React.FC<JobBoardProps> = ({
         url: canonicalUrl,
       };
       if (Number.isFinite(salaryMin)) {
+        // FRO-maxValue: maxValue MUST always be present — GSC flags missing maxValue as quality issue.
+        const effectiveMax = Number.isFinite(salaryMax) && salaryMax > salaryMin
+          ? salaryMax
+          : Math.round(salaryMin * 1.2);
         posting.baseSalary = {
           '@type': 'MonetaryAmount',
           currency: salaryCurrency,
           value: {
             '@type': 'QuantitativeValue',
             minValue: salaryMin,
-            ...(Number.isFinite(salaryMax) ? { maxValue: salaryMax } : {}),
+            maxValue: effectiveMax,
             unitText: 'YEAR',
           },
         };
@@ -3326,6 +3330,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
           value: {
             '@type': 'QuantitativeValue',
             minValue: 41080,
+            maxValue: 49296,
             unitText: 'YEAR',
           },
         };
@@ -4155,7 +4160,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
               <p className="text-sm text-slate-600 dark:text-slate-400">{t('jobBoard.authGateDescription')}</p>
             </div>
           </div>
-          <button type="button" onClick={() => { authUnlockCandidateRef.current = null; setAuthGateOpen(false); releaseSlot('job-auth-gate'); setPendingJob(null); setAuthError(null); }} className="p-1 rounded-lg text-slate-500 dark:text-slate-400 hover:text-slate-600 dark:hover:text-slate-200" aria-label={t('common.close')}>
+          <button type="button" onClick={() => { authUnlockCandidateRef.current = null; setAuthGateOpen(false); releaseSlot('job-auth-gate'); setPendingJob(null); setAuthError(null); }} className="p-2.5 rounded-lg text-slate-500 dark:text-slate-400 hover:text-slate-600 dark:hover:text-slate-200" aria-label={t('common.close')}>
             <X size={18} />
           </button>
         </div>
@@ -4228,7 +4233,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
               value={emailInput}
               onChange={setEmailInput}
               placeholder={t('jobBoard.authGateEmailPlaceholder')}
-              className="w-full px-3 py-2.5 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full px-3 py-2.5 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm text-slate-900 dark:text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
             />
             <button
               type="submit"
@@ -5218,7 +5223,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                     value={emailInput}
                     onChange={setEmailInput}
                     placeholder={t('jobBoard.authGateEmailPlaceholder')}
-                    className="w-full px-3 py-2.5 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    className="w-full px-3 py-2.5 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm text-slate-900 dark:text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                   />
                   <button
                     type="submit"
@@ -6142,7 +6147,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
         </div>
 
         {/* Expandable filter panel — uses max-h transition to prevent CLS */}
-        <div className={`transition-all duration-200 ease-in-out overflow-hidden ${filtersExpanded ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}>
+        <div className={`transition-[max-height,opacity] duration-200 ease-in-out overflow-hidden ${filtersExpanded ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}>
           <div className="bg-white dark:bg-slate-800/50 p-3 sm:p-4 rounded-xl border border-slate-200 dark:border-slate-700">
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
               <div className="relative">
@@ -6230,7 +6235,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
         </div>
 
         {/* Related search suggestions — overflow-hidden transition prevents CLS */}
-        <div className={`transition-all duration-200 overflow-hidden ${searchQuery.trim() && relatedSearchSuggestions.length > 0 ? 'max-h-[200px] opacity-100' : 'max-h-0 opacity-0'}`}>
+        <div className={`transition-[max-height,opacity] duration-200 overflow-hidden ${searchQuery.trim() && relatedSearchSuggestions.length > 0 ? 'max-h-[200px] opacity-100' : 'max-h-0 opacity-0'}`}>
           {searchQuery.trim() && relatedSearchSuggestions.length > 0 && (
             <div className="rounded-xl border border-fuchsia-200 dark:border-fuchsia-800 bg-fuchsia-50/50 dark:bg-fuchsia-950/20 p-3">
             <div className="flex items-center gap-2 mb-2">

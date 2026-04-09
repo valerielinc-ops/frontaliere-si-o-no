@@ -187,26 +187,27 @@ const BankComparison: React.FC = () => {
   const banks = useMemo(() => getBanks(t), [t]);
   const [filterCountry, setFilterCountry] = useState<'all' | 'CH' | 'IT'>('all');
   const [showOnlyFrontalieri, setShowOnlyFrontalieri] = useState<boolean>(true);
-  const sponsoredPriority = ['wise'];
+  const filtered = useMemo(() => {
+    const sponsoredPriority = ['wise'];
+    return banks
+      .filter(b => filterCountry === 'all' || b.country === filterCountry)
+      .filter(b => !showOnlyFrontalieri || b.acceptsFrontalieri)
+      .sort((a, b) => {
+        const aPriority = sponsoredPriority.indexOf(a.name.toLowerCase());
+        const bPriority = sponsoredPriority.indexOf(b.name.toLowerCase());
+        if (aPriority !== -1 || bPriority !== -1) {
+          if (aPriority === -1) return 1;
+          if (bPriority === -1) return -1;
+          return aPriority - bPriority;
+        }
 
-  const filtered = banks
-    .filter(b => filterCountry === 'all' || b.country === filterCountry)
-    .filter(b => !showOnlyFrontalieri || b.acceptsFrontalieri)
-    .sort((a, b) => {
-      const aPriority = sponsoredPriority.indexOf(a.name.toLowerCase());
-      const bPriority = sponsoredPriority.indexOf(b.name.toLowerCase());
-      if (aPriority !== -1 || bPriority !== -1) {
-        if (aPriority === -1) return 1;
-        if (bPriority === -1) return -1;
-        return aPriority - bPriority;
-      }
-
-      // Neutral ranking: objective costs first, deterministic lexical tie-breakers.
-      // This avoids implicit ordering bias from array position (including affiliate entries).
-      if (a.accountFee !== b.accountFee) return a.accountFee - b.accountFee;
-      if (a.country !== b.country) return a.country.localeCompare(b.country);
-      return a.name.localeCompare(b.name, 'it', { sensitivity: 'base' });
-    });
+        // Neutral ranking: objective costs first, deterministic lexical tie-breakers.
+        // This avoids implicit ordering bias from array position (including affiliate entries).
+        if (a.accountFee !== b.accountFee) return a.accountFee - b.accountFee;
+        if (a.country !== b.country) return a.country.localeCompare(b.country);
+        return a.name.localeCompare(b.name, 'it', { sensitivity: 'base' });
+      });
+  }, [banks, filterCountry, showOnlyFrontalieri]);
 
   return (
     <div className="space-y-6 pb-8">

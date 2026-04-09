@@ -193,6 +193,7 @@ interface MunicipalityDetailPanelProps {
 }
 
 // ══════════ SCHOOL DIRECTORY DATA ══════════
+const SCHOOL_TYPE_ORDER = ['nido', 'infanzia', 'elementare', 'media', 'superiore'];
 interface SchoolEntry {
   name: string;
   type: 'nido' | 'infanzia' | 'elementare' | 'media' | 'superiore';
@@ -314,8 +315,7 @@ const SchoolDirectory: React.FC<{ t: (key: string) => string }> = ({ t }) => {
       <div className="p-4 space-y-4 max-h-[600px] overflow-y-auto">
         {(Object.entries(groupedByType) as [string, import('@/components/vita/TicinoSchoolsData').SchoolEntry[]][])
           .sort(([a], [b]) => {
-            const order = ['nido', 'infanzia', 'elementare', 'media', 'superiore'];
-            return order.indexOf(a) - order.indexOf(b);
+            return SCHOOL_TYPE_ORDER.indexOf(a) - SCHOOL_TYPE_ORDER.indexOf(b);
           })
           .map(([type, schools]) => {
             const cfg = SCHOOL_TYPE_CONFIG[type as SchoolEntry['type']];
@@ -614,6 +614,36 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
     traffic: c.trafficLevel,
   })), []);
 
+  const filteredBorderCrossings = useMemo(() =>
+    borderCrossings
+      .filter(border => {
+        if (border.traffic === 'closed') return false;
+        if (borderFilter === 'low-traffic') return border.traffic === 'low';
+        if (borderFilter === '24h') return border.hours === '24h';
+        if (borderFilter === 'morning') {
+          const maxWait = parseInt(border.avgWaitMorning.split('-')[1]);
+          return !isNaN(maxWait) && maxWait <= 10;
+        }
+        if (borderFilter === 'evening') {
+          const maxWait = parseInt(border.avgWaitEvening.split('-')[1]);
+          return !isNaN(maxWait) && maxWait <= 12;
+        }
+        return true;
+      })
+      .sort((a, b) => {
+        if (selectedTime === 'morning') {
+          const aWait = parseInt(a.avgWaitMorning.split('-')[0]) || 999;
+          const bWait = parseInt(b.avgWaitMorning.split('-')[0]) || 999;
+          return aWait - bWait;
+        } else if (selectedTime === 'evening') {
+          const aWait = parseInt(a.avgWaitEvening.split('-')[0]) || 999;
+          const bWait = parseInt(b.avgWaitEvening.split('-')[0]) || 999;
+          return aWait - bWait;
+        }
+        return 0;
+      }),
+    [borderCrossings, borderFilter, selectedTime]
+  );
 
   return (
     <div className="space-y-8 pb-12">
@@ -1070,34 +1100,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
 
           {/* Border Crossings Grid */}
           <div className="grid md:grid-cols-2 gap-4">
-            {borderCrossings
-              .filter(border => {
-                if (border.traffic === 'closed') return false;
-                if (borderFilter === 'low-traffic') return border.traffic === 'low';
-                if (borderFilter === '24h') return border.hours === '24h';
-                if (borderFilter === 'morning') {
-                  const maxWait = parseInt(border.avgWaitMorning.split('-')[1]);
-                  return !isNaN(maxWait) && maxWait <= 10;
-                }
-                if (borderFilter === 'evening') {
-                  const maxWait = parseInt(border.avgWaitEvening.split('-')[1]);
-                  return !isNaN(maxWait) && maxWait <= 12;
-                }
-                return true;
-              })
-              .sort((a, b) => {
-                if (selectedTime === 'morning') {
-                  const aWait = parseInt(a.avgWaitMorning.split('-')[0]) || 999;
-                  const bWait = parseInt(b.avgWaitMorning.split('-')[0]) || 999;
-                  return aWait - bWait;
-                } else if (selectedTime === 'evening') {
-                  const aWait = parseInt(a.avgWaitEvening.split('-')[0]) || 999;
-                  const bWait = parseInt(b.avgWaitEvening.split('-')[0]) || 999;
-                  return aWait - bWait;
-                }
-                return 0;
-              })
-              .map((border, idx) => {
+            {filteredBorderCrossings.map((border, idx) => {
                 const isRecommended = 
                   (selectedTime === 'morning' && parseInt(border.avgWaitMorning.split('-')[1]) <= 8) ||
                   (selectedTime === 'evening' && parseInt(border.avgWaitEvening.split('-')[1]) <= 12) ||

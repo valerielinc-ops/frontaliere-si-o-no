@@ -1193,25 +1193,23 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
               },
             },
             // FRO-358: baseSalary fallback must use a valid minValue > 0 (validator rejects 0).
+            // FRO-maxValue: maxValue MUST always be present — GSC flags missing maxValue as quality issue.
             // Ticino minimum wage ~CHF 19.75/h ≈ CHF 41,080/year as a floor.
-            baseSalary: Number.isFinite(salaryMin) && salaryMin > 0 ? {
-              '@type': 'MonetaryAmount',
-              currency: salaryCurrency,
-              value: {
-                '@type': 'QuantitativeValue',
-                minValue: salaryMin,
-                ...(Number.isFinite(salaryMax) && salaryMax > salaryMin ? { maxValue: salaryMax } : {}),
-                unitText: 'YEAR',
-              },
-            } : {
-              '@type': 'MonetaryAmount',
-              currency: 'CHF',
-              value: {
-                '@type': 'QuantitativeValue',
-                minValue: 41080,
-                unitText: 'YEAR',
-              },
-            },
+            baseSalary: (() => {
+              const min = Number.isFinite(salaryMin) && salaryMin > 0 ? salaryMin : 41080;
+              const max = Number.isFinite(salaryMax) && salaryMax > min ? salaryMax : Math.round(min * 1.2);
+              const cur = Number.isFinite(salaryMin) && salaryMin > 0 ? salaryCurrency : 'CHF';
+              return {
+                '@type': 'MonetaryAmount',
+                currency: cur,
+                value: {
+                  '@type': 'QuantitativeValue',
+                  minValue: min,
+                  maxValue: max,
+                  unitText: 'YEAR',
+                },
+              };
+            })(),
             directApply: Boolean(job.url),
             url: canonicalUrl,
             ...(canonicalResponsibilities.length > 0 ? { responsibilities: canonicalResponsibilities.join('\n') } : {}),
@@ -4698,25 +4696,21 @@ ${hreflangLinks}
               }
               jp.jobLocation = { '@type': 'Place', address };
             }
-            if (ejData?.salaryMin || ejData?.salaryMax) {
-              const salaryValue: Record<string, unknown> = { '@type': 'QuantitativeValue' };
-              if (ejData.salaryMin && ejData.salaryMax) {
-                salaryValue.minValue = ejData.salaryMin;
-                salaryValue.maxValue = ejData.salaryMax;
-              } else {
-                salaryValue.value = ejData.salaryMin || ejData.salaryMax;
-              }
-              salaryValue.unitText = ejData?.salaryPeriod || 'YEAR';
+            // FRO-maxValue: maxValue MUST always be present — GSC flags missing maxValue as quality issue.
+            {
+              const ejMin = Number(ejData?.salaryMin) || 0;
+              const ejMax = Number(ejData?.salaryMax) || 0;
+              const min = ejMin > 0 ? ejMin : 41080;
+              const max = ejMax > min ? ejMax : Math.round(min * 1.2);
               jp.baseSalary = {
                 '@type': 'MonetaryAmount',
-                currency: ejData?.salaryCurrency || 'CHF',
-                value: salaryValue,
-              };
-            } else {
-              jp.baseSalary = {
-                '@type': 'MonetaryAmount',
-                currency: 'CHF',
-                value: { '@type': 'QuantitativeValue', minValue: 41080, unitText: 'YEAR' },
+                currency: ejMin > 0 ? (ejData?.salaryCurrency || 'CHF') : 'CHF',
+                value: {
+                  '@type': 'QuantitativeValue',
+                  minValue: min,
+                  maxValue: max,
+                  unitText: ejData?.salaryPeriod || 'YEAR',
+                },
               };
             }
             return `<script type="application/ld+json">${JSON.stringify(jp)}</script>`;
