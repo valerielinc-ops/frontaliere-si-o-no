@@ -1,44 +1,19 @@
 {
   "key": "ems-chemie",
   "label": "EMS-Chemie AG",
-  "generatedAt": "2026-04-09T09:33:48.581Z",
+  "generatedAt": "2026-04-09T21:26:13.418Z",
   "total": 10,
-  "newCount": 2,
-  "updatedCount": 8,
-  "removedCount": 2,
-  "unchangedCount": 0,
-  "durationMs": 3298,
-  "avgDurationMs": 3298,
+  "newCount": 0,
+  "updatedCount": 9,
+  "removedCount": 0,
+  "unchangedCount": 1,
+  "durationMs": 3724,
+  "avgDurationMs": 3724,
   "durationHistory": [
-    3298
+    3724
   ],
-  "newJobs": [
-    {
-      "title": "Assistenz der Divisionsleitung (m/w/d) 100%",
-      "company": "EMS-Chemie AG",
-      "companyKey": "ems-chemie",
-      "url": "https://jobs.ems-group.com/offene-stellen/assistenz-der-divisionsleitung-m-w-d/8f140804-acc5-46c1-af04-81a0baa38ad0",
-      "location": "Domat/Ems",
-      "canton": "GR",
-      "country": "CH",
-      "postalCode": "7013",
-      "streetAddress": "Via Innovativa 1",
-      "addressLocality": "Domat/Ems",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "science",
-      "postedDate": "2026-04-09",
-      "source": "company-website",
-      "slug": "assistenz-der-divisionsleitung-m-w-d-100-ems-chemie-domat-ems",
-      "_qualityScore": 60,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 10,
-        "translation": 8,
-        "completeness": 17
-      }
-    },
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Leiter Umweltschutz und Sicherheit (m/w/d) 100%",
       "company": "EMS-Chemie AG",
@@ -57,16 +32,20 @@
       "postedDate": "2026-04-09",
       "source": "company-website",
       "slug": "leiter-umweltschutz-und-sicherheit-m-w-d-100-ems-chemie-domat-ems",
-      "_qualityScore": 60,
+      "crawledAt": "",
+      "id": "ems-chemie-1e3965e6935f",
+      "sourceLang": "it",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 8,
-        "completeness": 17
+        "translation": 25,
+        "completeness": 22
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Distribution Manager (m/w/d) 100%",
       "company": "EMS-Chemie AG",
@@ -324,72 +303,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Projektleiter Materialprüfung (m/w/d) 100%",
-      "company": "EMS-Chemie AG",
-      "companyKey": "ems-chemie",
-      "url": "https://jobs.ems-group.com/offene-stellen/projektleiter-materialpruefung-m-w-d/61bf9a4f-6d90-47b3-ae9c-c207a3d36330",
-      "location": "Domat/Ems",
-      "canton": "GR",
-      "country": "CH",
-      "postalCode": "7013",
-      "streetAddress": "Via Innovativa 1",
-      "addressLocality": "Domat/Ems",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "science",
-      "postedDate": "2026-04-08",
-      "source": "company-website",
-      "slug": "project-manager-verifica-materiali-m-w-d-100-ems-chemie-domat-ems",
-      "crawledAt": "",
-      "sourceLang": "it",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "id": "ems-chemie-eb46f35e579f",
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 10,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "Leiter Finanzbuchhaltung (m/w/d) 100%",
-      "company": "EMS-Chemie AG",
-      "companyKey": "ems-chemie",
-      "url": "https://jobs.ems-group.com/offene-stellen/leiter-finanzbuchhaltung-m-w-d/a36b0fbe-404c-49e8-b025-33718b7d34b5",
-      "location": "Domat/Ems",
-      "canton": "GR",
-      "country": "CH",
-      "postalCode": "7013",
-      "streetAddress": "Via Innovativa 1",
-      "addressLocality": "Domat/Ems",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "science",
-      "postedDate": "2026-04-08",
-      "source": "company-website",
-      "slug": "leiter-finanzbuchhaltung-m-w-d-100-ems-chemie-ag-domat-ems",
-      "crawledAt": "",
-      "id": "ems-chemie-a5b502c2da24",
-      "sourceLang": "it",
-      "salaryMin": 72000,
-      "salaryMax": 97000,
-      "currency": "CHF",
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 10,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Assistenz der Divisionsleitung (m/w/d) 100%",
@@ -408,19 +322,18 @@
       "category": "science",
       "postedDate": "2026-04-09",
       "source": "company-website",
-      "slug": "assistenz-der-divisionsleitung-m-w-d-100-ems-chemie-domat-ems",
+      "slug": "assistente-della-direzione-di-divisione-m-f-d-100-ems-chemie-ag-domat-ems",
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "ems-chemie-d02e910a3c25",
       "sourceLang": "it",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
-      "_qualityScore": 73,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -441,19 +354,18 @@
       "category": "science",
       "postedDate": "2026-04-09",
       "source": "company-website",
-      "slug": "leiter-umweltschutz-e-sicherheit-m-w-d-100-ems-chemie-ag-domat-ems",
+      "slug": "responsabile-ambiente-e-sicurezza-m-f-d-100-ems-chemie-ag-domat-ems",
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "ems-chemie-1e3965e6935f",
       "sourceLang": "it",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
-      "_qualityScore": 76,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 19,
+        "translation": 25,
         "completeness": 22
       }
     },
