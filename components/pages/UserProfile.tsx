@@ -363,7 +363,7 @@ const FamilyMemberRow: React.FC<{
             value={member.relationship}
             onChange={(e) => onUpdate({ ...member, relationship: e.target.value as FamilyMember['relationship'] })}
             disabled={disabled}
-            className="w-full px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="w-full px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-xs focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
           >
             <option value="spouse">{t('profile.family.spouse')}</option>
             <option value="child">{t('profile.family.child')}</option>
@@ -384,7 +384,7 @@ const FamilyMemberRow: React.FC<{
             onChange={(e) => onUpdate({ ...member, birthYear: e.target.value })}
             disabled={disabled}
             placeholder={t('profile.family.optional')}
-            className="w-full px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-xs focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="w-full px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-xs focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
           />
         </div>
       </div>
@@ -395,7 +395,7 @@ const FamilyMemberRow: React.FC<{
             checked={member.dependent}
             onChange={(e) => onUpdate({ ...member, dependent: e.target.checked })}
             disabled={disabled}
-            className="rounded border-slate-300 dark:border-slate-600 text-indigo-600 focus:ring-indigo-500"
+            className="rounded border-slate-300 dark:border-slate-600 text-indigo-600 focus-visible:ring-indigo-500"
           />
           {t('profile.family.dependent')}
         </label>
@@ -405,7 +405,7 @@ const FamilyMemberRow: React.FC<{
             checked={member.liveTogether}
             onChange={(e) => onUpdate({ ...member, liveTogether: e.target.checked })}
             disabled={disabled}
-            className="rounded border-slate-300 dark:border-slate-600 text-indigo-600 focus:ring-indigo-500"
+            className="rounded border-slate-300 dark:border-slate-600 text-indigo-600 focus-visible:ring-indigo-500"
           />
           {t('profile.family.liveTogether')}
         </label>
@@ -1157,7 +1157,7 @@ const UserProfile: React.FC = () => {
                 id="frontaliereType"
                 value={profile.frontaliereType}
                 onChange={(e) => updateField('frontaliereType', e.target.value)}
-                className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
               >
                 <option value="">{t('profile.selectOption')}</option>
                 <option value="permit-g">{t('profile.permitG')}</option>
@@ -1179,7 +1179,7 @@ const UserProfile: React.FC = () => {
                   value={profile.permitExpiry}
                   onChange={(e) => updateField('permitExpiry', e.target.value)}
                   min={new Date().toISOString().split('T')[0]}
-                  className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
                 />
                 <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">{t('profile.permitExpiryHint')}</p>
               </div>
@@ -1195,7 +1195,7 @@ const UserProfile: React.FC = () => {
                 id="age"
                 value={profile.age}
                 onChange={(e) => updateField('age', e.target.value)}
-                className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
               >
                 <option value="">{t('profile.selectOption')}</option>
                 <option value="18-25">18-25</option>
@@ -1217,7 +1217,7 @@ const UserProfile: React.FC = () => {
                 id="gender"
                 value={profile.gender}
                 onChange={(e) => updateField('gender', e.target.value)}
-                className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
               >
                 <option value="">{t('profile.selectOption')}</option>
                 <option value="male">{t('profile.genderMale')}</option>
@@ -1236,7 +1236,7 @@ const UserProfile: React.FC = () => {
                 id="familySituation"
                 value={profile.familySituation}
                 onChange={(e) => updateField('familySituation', e.target.value)}
-                className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
               >
                 <option value="">{t('profile.selectOption')}</option>
                 <option value="single">{t('profile.single')}</option>
@@ -1260,7 +1260,7 @@ const UserProfile: React.FC = () => {
                   updateField('preferredLanguage', locale);
                   setGlobalLocale(locale);
                 }}
-                className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
               >
                 {(Object.entries(LOCALE_LABELS) as [Locale, typeof LOCALE_LABELS[Locale]][]).map(([locale, label]) => (
                   <option key={locale} value={locale}>{label.flag} {label.nativeName}</option>
@@ -1281,7 +1281,7 @@ const UserProfile: React.FC = () => {
                 suggestions={municipalityNames}
                 placeholder={t('profile.municipalityPlaceholder')}
                 autoComplete="address-level2"
-                className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
               />
               {/* Municipality info badges */}
               {selectedMuni && (
@@ -1336,7 +1336,7 @@ const UserProfile: React.FC = () => {
                       id="children"
                       value={profile.children}
                       onChange={(e) => updateField('children', e.target.value)}
-                      className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                      className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
                     >
                       <option value="0">0</option>
                       <option value="1">1</option>
@@ -1354,7 +1354,7 @@ const UserProfile: React.FC = () => {
                       id="familyMembers"
                       value={profile.familyMembers}
                       onChange={(e) => updateField('familyMembers', e.target.value)}
-                      className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                      className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
                     >
                       <option value="1">1 ({t('profile.justMe')})</option>
                       <option value="2">2</option>
@@ -1412,7 +1412,7 @@ const UserProfile: React.FC = () => {
                   value={profile.grossSalary}
                   onChange={(e) => updateField('grossSalary', e.target.value)}
                   placeholder="e.g. 85000"
-                  className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
                 />
               </div>
 
@@ -1429,7 +1429,7 @@ const UserProfile: React.FC = () => {
                   suggestions={COMMON_POSITIONS}
                   placeholder={t('profile.workPositionPlaceholder')}
                   autoComplete="organization-title"
-                  className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
                 />
               </div>
 
@@ -1446,7 +1446,7 @@ const UserProfile: React.FC = () => {
                   suggestions={COMMON_WORKPLACES}
                   placeholder={t('profile.workplacePlaceholder')}
                   autoComplete="address-level2"
-                  className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
                 />
               </div>
 
@@ -1460,7 +1460,7 @@ const UserProfile: React.FC = () => {
                   id="preferredDogana"
                   value={profile.preferredDogana}
                   onChange={(e) => updateField('preferredDogana', e.target.value)}
-                  className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
                 >
                   <option value="">{t('profile.selectDogana')}</option>
                   {borderCrossings.map(bc => (
@@ -1525,7 +1525,7 @@ const UserProfile: React.FC = () => {
             onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setPrivacyOpen(o => !o); } }}
             aria-expanded={privacyOpen}
             aria-controls="profile-privacy-content"
-            className="flex items-center gap-2 text-lg font-bold text-slate-800 dark:text-slate-100 focus:outline-none cursor-pointer rounded-md focus:ring-2 focus:ring-indigo-500"
+            className="flex items-center gap-2 text-lg font-bold text-slate-800 dark:text-slate-100 focus:outline-none cursor-pointer rounded-md focus-visible:ring-2 focus-visible:ring-indigo-500"
           >
             <Shield size={18} className="text-slate-500 dark:text-slate-400" />
             <span>{t('profile.privacySection')}</span>

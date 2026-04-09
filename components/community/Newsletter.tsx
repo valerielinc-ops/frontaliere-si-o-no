@@ -220,7 +220,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
                   value={email}
                   onChange={(val) => { setEmail(val); setStatus('idle'); }}
                   placeholder={t('newsletter.emailPlaceholder')}
-                  className="w-full px-4 py-2.5 bg-white/15 border border-white/25 rounded-xl text-white placeholder-white/50 text-sm focus:outline-none focus:ring-2 focus:ring-white/50"
+                  className="w-full px-4 py-2.5 bg-white/15 border border-white/25 rounded-xl text-white placeholder-white/50 text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
                   darkVariant
                 />
               </div>
@@ -371,7 +371,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
                 value={email}
                 onChange={(val) => { setEmail(val); setStatus('idle'); }}
                 placeholder="mario.rossi@gmail.com"
-                className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500"
+                className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500"
               />
             </div>
             <div>
@@ -382,7 +382,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
                 placeholder="Mario"
                 autoComplete="given-name"
                 name="name"
-                className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500" />
+                className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500" />
             </div>
           </div>
 
@@ -406,7 +406,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
                   <input type="checkbox"
                     checked={preferences[pref.key as keyof typeof preferences]}
                     onChange={(e) => setPreferences(prev => ({ ...prev, [pref.key]: e.target.checked }))}
-                    className="mt-1 w-4 h-4 rounded text-teal-600 focus:ring-teal-500"
+                    className="mt-1 w-4 h-4 rounded text-teal-600 focus-visible:ring-teal-500"
                     aria-label={pref.label} />
                   <div>
                     <div className="font-bold text-sm text-slate-800 dark:text-slate-100">{pref.label}</div>

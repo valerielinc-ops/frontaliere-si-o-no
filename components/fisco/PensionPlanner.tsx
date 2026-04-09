@@ -222,7 +222,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
                   inputMode="numeric"
                   value={inputs.currentAge}
                   onChange={(e) => handleChange('currentAge', parseInt(e.target.value) || 0)}
-                  className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-800 dark:text-slate-200 font-semibold focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                  className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-800 dark:text-slate-200 font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
                   min="18"
                   max="70"
                 />
@@ -239,7 +239,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
                   inputMode="numeric"
                   value={inputs.retirementAge}
                   onChange={(e) => handleChange('retirementAge', parseInt(e.target.value) || 65)}
-                  className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-800 dark:text-slate-200 font-semibold focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                  className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-800 dark:text-slate-200 font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
                   min="55"
                   max="70"
                 />
@@ -275,7 +275,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
                   inputMode="numeric"
                   value={inputs.yearsWorkedCH}
                   onChange={(e) => handleChange('yearsWorkedCH', parseInt(e.target.value) || 0)}
-                  className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-800 dark:text-slate-200 font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-800 dark:text-slate-200 font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
                   min="0"
                   max="50"
                 />
@@ -292,7 +292,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
                   inputMode="numeric"
                   value={inputs.plannedYearsCH}
                   onChange={(e) => handleChange('plannedYearsCH', parseInt(e.target.value) || 0)}
-                  className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-800 dark:text-slate-200 font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-800 dark:text-slate-200 font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
                   min="0"
                   max="50"
                 />
@@ -304,7 +304,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
                     type="checkbox"
                     checked={inputs.hasItalianContributions}
                     onChange={(e) => handleChange('hasItalianContributions', e.target.checked)}
-                    className="mr-2 w-4 h-4 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
+                    className="mr-2 w-4 h-4 text-blue-600 rounded focus-visible:ring-2 focus-visible:ring-blue-500"
                     aria-label={t('pension.hasItalianContributions') || 'Contributi italiani'}
                   />
                   {t('pension.hasItalianContributions')}
@@ -324,7 +324,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
                     inputMode="numeric"
                     value={inputs.yearsWorkedIT}
                     onChange={(e) => handleChange('yearsWorkedIT', parseInt(e.target.value) || 0)}
-                    className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-800 dark:text-slate-200 font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-800 dark:text-slate-200 font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
                     min="0"
                     max="50"
                   />
@@ -352,7 +352,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
                   inputMode="numeric"
                   value={inputs.currentSalaryCHF}
                   onChange={(e) => handleChange('currentSalaryCHF', parseInt(e.target.value) || 0)}
-                  className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-800 dark:text-slate-200 font-semibold focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-800 dark:text-slate-200 font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500"
                   min="0"
                   step="1000"
                 />
@@ -369,7 +369,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
                   inputMode="numeric"
                   value={inputs.currentLPPCapital}
                   onChange={(e) => handleChange('currentLPPCapital', parseInt(e.target.value) || 0)}
-                  className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-800 dark:text-slate-200 font-semibold focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-800 dark:text-slate-200 font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500"
                   min="0"
                   step="5000"
                 />
@@ -386,7 +386,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
                   inputMode="decimal"
                   value={inputs.expectedReturnRate}
                   onChange={(e) => handleChange('expectedReturnRate', parseFloat(e.target.value) || 0)}
-                  className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-800 dark:text-slate-200 font-semibold focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-800 dark:text-slate-200 font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500"
                   min="0"
                   max="5"
                   step="0.1"

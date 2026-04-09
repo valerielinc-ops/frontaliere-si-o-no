@@ -496,7 +496,7 @@ const CurrencyExchange: React.FC = () => {
                 inputMode="numeric"
                 value={amount}
                 onChange={(e) => setAmount(Math.max(0, parseFloat(e.target.value) || 0))}
-                className="w-full pl-14 pr-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/10 outline-none transition-[color,background-color,border-color,box-shadow] font-bold text-slate-800 dark:text-slate-100 text-lg"
+                className="w-full pl-14 pr-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus-visible:border-emerald-500 focus-visible:ring-2 focus-visible:ring-emerald-500/10 outline-none transition-[color,background-color,border-color,box-shadow] font-bold text-slate-800 dark:text-slate-100 text-lg"
                 placeholder="1000"
               />
             </div>

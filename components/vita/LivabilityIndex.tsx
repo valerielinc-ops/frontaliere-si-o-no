@@ -262,7 +262,7 @@ export default function LivabilityIndex() {
               </tbody>
             </table>
           </div>
-          {filteredItems.length === 0 && (
+          {filtered.length === 0 && (
             <p className="text-center text-slate-500 dark:text-slate-400 py-8">
               Nessun risultato per i filtri selezionati
             </p>

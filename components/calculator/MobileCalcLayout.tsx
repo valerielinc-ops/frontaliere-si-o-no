@@ -230,7 +230,7 @@ const MobileCalcLayout: React.FC<Props> = ({
                 inputMode="numeric"
                 value={formatNumber(inputs.annualIncomeCHF)}
                 onChange={(e) => handleChange('annualIncomeCHF', parseNumber(e.target.value))}
-                className="w-full pl-14 pr-3 py-3.5 bg-slate-50 dark:bg-slate-800 border-2 border-slate-100 dark:border-slate-700 rounded-xl focus:ring-4 focus:border-blue-500 focus:ring-blue-500/10 outline-none transition-[color,border-color,box-shadow] font-bold text-slate-800 dark:text-slate-100 text-2xl tracking-tight text-center"
+                className="w-full pl-14 pr-3 py-3.5 bg-slate-50 dark:bg-slate-800 border-2 border-slate-100 dark:border-slate-700 rounded-xl focus-visible:ring-4 focus-visible:border-blue-500 focus-visible:ring-blue-500/10 outline-none transition-[color,border-color,box-shadow] font-bold text-slate-800 dark:text-slate-100 text-2xl tracking-tight text-center"
                 placeholder="0"
               />
             </div>
@@ -513,7 +513,7 @@ const MobileCalcLayout: React.FC<Props> = ({
                       value={gateEmail}
                       onChange={(e) => setGateEmail(e.target.value)}
                       placeholder={t('newsletter.emailPlaceholder')}
-                      className="flex-1 px-3 py-2.5 rounded-lg border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 text-sm text-slate-800 dark:text-slate-100 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+                      className="flex-1 px-3 py-2.5 rounded-lg border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 text-sm text-slate-800 dark:text-slate-100 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:border-transparent outline-none"
                       aria-label={t('newsletter.emailPlaceholder')}
                       onKeyDown={(e) => e.key === 'Enter' && handleGateSubscribe()}
                     />

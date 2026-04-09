@@ -4262,7 +4262,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
               value={emailInput}
               onChange={setEmailInput}
               placeholder={t('jobBoard.authGateEmailPlaceholder')}
-              className="w-full px-3 py-2.5 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm text-slate-900 dark:text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full px-3 py-2.5 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm text-slate-900 dark:text-white placeholder-slate-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
             />
             <button
               type="submit"
@@ -5252,7 +5252,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                     value={emailInput}
                     onChange={setEmailInput}
                     placeholder={t('jobBoard.authGateEmailPlaceholder')}
-                    className="w-full px-3 py-2.5 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm text-slate-900 dark:text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    className="w-full px-3 py-2.5 rounded-xl border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-sm text-slate-900 dark:text-white placeholder-slate-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
                   />
                   <button
                     type="submit"
@@ -6185,7 +6185,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                 <select
                   value={selectedCategory}
                   onChange={(e) => setSelectedCategory(e.target.value as JobCategory | 'all')}
-                  className={`w-full appearance-none pl-3 pr-8 py-2.5 text-sm rounded-xl border transition-colors focus:ring-2 focus:ring-indigo-500 focus:border-transparent ${
+                  className={`w-full appearance-none pl-3 pr-8 py-2.5 text-sm rounded-xl border transition-colors focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:border-transparent ${
                     selectedCategory !== 'all'
                       ? 'border-indigo-300 dark:border-indigo-600 bg-indigo-50 dark:bg-indigo-950/20 text-indigo-700 dark:text-indigo-300'
                       : 'border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white'
@@ -6205,7 +6205,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                 <select
                   value={selectedContract}
                   onChange={(e) => setSelectedContract(e.target.value as ContractType | 'all')}
-                  className={`w-full appearance-none pl-3 pr-8 py-2.5 text-sm rounded-xl border transition-colors focus:ring-2 focus:ring-indigo-500 focus:border-transparent ${
+                  className={`w-full appearance-none pl-3 pr-8 py-2.5 text-sm rounded-xl border transition-colors focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:border-transparent ${
                     selectedContract !== 'all'
                       ? 'border-indigo-300 dark:border-indigo-600 bg-indigo-50 dark:bg-indigo-950/20 text-indigo-700 dark:text-indigo-300'
                       : 'border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white'
@@ -6225,7 +6225,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                 <select
                   value={selectedCompany}
                   onChange={(e) => setSelectedCompany(e.target.value)}
-                  className={`w-full appearance-none pl-3 pr-8 py-2.5 text-sm rounded-xl border transition-colors focus:ring-2 focus:ring-indigo-500 focus:border-transparent truncate ${
+                  className={`w-full appearance-none pl-3 pr-8 py-2.5 text-sm rounded-xl border transition-colors focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:border-transparent truncate ${
                     selectedCompany !== 'all'
                       ? 'border-indigo-300 dark:border-indigo-600 bg-indigo-50 dark:bg-indigo-950/20 text-indigo-700 dark:text-indigo-300'
                       : 'border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white'
@@ -6246,7 +6246,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                 <select
                   value={selectedDateRange}
                   onChange={(e) => setSelectedDateRange(e.target.value as DateRange)}
-                  className={`w-full appearance-none pl-3 pr-8 py-2.5 text-sm rounded-xl border transition-colors focus:ring-2 focus:ring-indigo-500 focus:border-transparent ${
+                  className={`w-full appearance-none pl-3 pr-8 py-2.5 text-sm rounded-xl border transition-colors focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:border-transparent ${
                     selectedDateRange !== 'all'
                       ? 'border-indigo-300 dark:border-indigo-600 bg-indigo-50 dark:bg-indigo-950/20 text-indigo-700 dark:text-indigo-300'
                       : 'border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-white'

@@ -321,7 +321,7 @@ const TfrCalculator: React.FC = () => {
                 inputMode="numeric"
                 value={inputs.grossSalaryCHF}
                 onChange={(e) => handleChange('grossSalaryCHF', Number(e.target.value))}
-                className="w-full pl-12 pr-3 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                className="w-full pl-12 pr-3 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white text-sm focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:border-blue-500"
                 min={20000}
                 max={300000}
                 step={5000}
@@ -343,7 +343,7 @@ const TfrCalculator: React.FC = () => {
                 inputMode="numeric"
                 value={inputs.grossSalaryEUR}
                 onChange={(e) => handleChange('grossSalaryEUR', Number(e.target.value))}
-                className="w-full pl-8 pr-3 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                className="w-full pl-8 pr-3 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white text-sm focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:border-blue-500"
                 min={15000}
                 max={280000}
                 step={5000}
@@ -362,7 +362,7 @@ const TfrCalculator: React.FC = () => {
               inputMode="numeric"
               value={inputs.currentAge}
               onChange={(e) => handleChange('currentAge', Number(e.target.value))}
-              className="w-full px-3 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              className="w-full px-3 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white text-sm focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:border-blue-500"
               min={18}
               max={60}
             />
@@ -380,7 +380,7 @@ const TfrCalculator: React.FC = () => {
               inputMode="numeric"
               value={inputs.yearsToSimulate}
               onChange={(e) => handleChange('yearsToSimulate', Math.min(45, Math.max(1, Number(e.target.value))))}
-              className="w-full px-3 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              className="w-full px-3 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white text-sm focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:border-blue-500"
               min={1}
               max={45}
             />
@@ -399,7 +399,7 @@ const TfrCalculator: React.FC = () => {
                 inputMode="decimal"
                 value={inputs.inflationRate}
                 onChange={(e) => handleChange('inflationRate', Number(e.target.value))}
-                className="w-full px-3 py-2 pr-8 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                className="w-full px-3 py-2 pr-8 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white text-sm focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:border-blue-500"
                 min={0}
                 max={10}
                 step={0.1}
@@ -421,7 +421,7 @@ const TfrCalculator: React.FC = () => {
                 inputMode="decimal"
                 value={inputs.lppInterestRate}
                 onChange={(e) => handleChange('lppInterestRate', Number(e.target.value))}
-                className="w-full px-3 py-2 pr-8 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                className="w-full px-3 py-2 pr-8 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white text-sm focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:border-blue-500"
                 min={0}
                 max={5}
                 step={0.25}

@@ -557,7 +557,7 @@ const NewsletterPopup: React.FC = () => {
                   value={email}
                   onChange={(val) => { setEmail(val); setStatus('idle'); }}
                   placeholder={t('newsletter.emailPlaceholder')}
-                  className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500 text-slate-800 dark:text-slate-100"
+                  className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 text-slate-800 dark:text-slate-100"
                 />
               </div>
 

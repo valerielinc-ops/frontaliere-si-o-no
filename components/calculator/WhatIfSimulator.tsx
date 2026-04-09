@@ -391,7 +391,7 @@ const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({ baseInputs, baseResul
                       value={currentVal as string}
                       onChange={(e) => handleFieldChange(field.key, e.target.value)}
                       aria-label={field.label}
-                      className="w-full px-4 py-2.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-800 dark:text-slate-200 font-semibold focus:outline-none focus:ring-2 focus:ring-amber-500"
+                      className="w-full px-4 py-2.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-800 dark:text-slate-200 font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
                     >
                       {field.options?.map(opt => (
                         <option key={opt.value} value={opt.value}>{opt.label}</option>

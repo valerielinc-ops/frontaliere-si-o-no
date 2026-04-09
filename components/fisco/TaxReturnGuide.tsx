@@ -252,7 +252,7 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
                     type="checkbox"
                     checked={checkedDocs.has(doc.key)}
                     onChange={() => toggleDoc(doc.key)}
-                    className="mt-0.5 w-4 h-4 text-emerald-700 rounded border-slate-300 dark:border-slate-600 focus:ring-emerald-500"
+                    className="mt-0.5 w-4 h-4 text-emerald-700 rounded border-slate-300 dark:border-slate-600 focus-visible:ring-emerald-500"
                     aria-label={t(`taxReturn.documents.${doc.key}`)}
                   />
                   <div className="flex-1">

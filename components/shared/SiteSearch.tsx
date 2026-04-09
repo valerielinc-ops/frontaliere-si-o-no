@@ -1162,7 +1162,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
                 spellCheck={false}
                 placeholder={t('search.placeholder') || 'Cerca sezioni, strumenti, funzionalità...'}
                 aria-label={t('search.placeholder') || 'Cerca sezioni, strumenti, funzionalità'}
-                className="flex-1 bg-transparent text-slate-800 dark:text-slate-100 placeholder-slate-500 outline-none focus:ring-2 focus:ring-blue-500 text-base sm:text-sm"
+                className="flex-1 bg-transparent text-slate-800 dark:text-slate-100 placeholder-slate-500 outline-none focus-visible:ring-2 focus-visible:ring-blue-500 text-base sm:text-sm"
               />
               {query && (
                 <button

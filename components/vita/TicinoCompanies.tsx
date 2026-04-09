@@ -738,7 +738,7 @@ const TicinoCompanies: React.FC = () => {
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder={t('companies.search') || 'Cerca azienda, città, settore...'}
               aria-label={t('companies.search') || 'Cerca azienda, città, settore'}
-              className="w-full pl-10 pr-4 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-violet-500"
+              className="w-full pl-10 pr-4 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
             />
           </div>
 
@@ -748,7 +748,7 @@ const TicinoCompanies: React.FC = () => {
               value={selectedSector}
               onChange={(e) => setSelectedSector(e.target.value)}
               aria-label="Filtra per settore"
-              className="appearance-none pl-3 pr-8 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium focus:outline-none focus:ring-2 focus:ring-violet-500 cursor-pointer"
+              className="appearance-none pl-3 pr-8 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 cursor-pointer"
             >
               {SECTORS.map(s => <option key={s} value={s}>{s}</option>)}
             </select>
@@ -795,7 +795,7 @@ const TicinoCompanies: React.FC = () => {
             <ArrowUpDown size={14} className="text-slate-500 dark:text-slate-400" />
             <select value={sortBy} onChange={(e) => setSortBy(e.target.value as SortKey)}
               aria-label={t('companies.sortBy') || 'Ordina per'}
-              className="appearance-none px-3 py-1.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-medium focus:outline-none focus:ring-2 focus:ring-blue-500">
+              className="appearance-none px-3 py-1.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500">
               <option value="employees">{t('companies.totalEmployees')}</option>
               <option value="name">{t('companies.sortName')}</option>
               <option value="city">{t('companies.sortCity')}</option>

@@ -1693,14 +1693,14 @@ export default function AdminPanel() {
                           value={crawlerNameFilter}
                           onChange={e => setCrawlerNameFilter(e.target.value)}
                           placeholder="Filtra crawler…"
-                          className="pl-7 pr-2 py-1.5 rounded-md border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-xs text-slate-800 dark:text-slate-200 w-44 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                          className="pl-7 pr-2 py-1.5 rounded-md border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-xs text-slate-800 dark:text-slate-200 w-44 focus:outline-none focus-visible:ring-1 focus-visible:ring-blue-500"
                           aria-label="Filtra per nome crawler"
                         />
                       </div>
                       <select
                         value={crawlerChangeFilter}
                         onChange={e => setCrawlerChangeFilter(e.target.value as typeof crawlerChangeFilter)}
-                        className="px-2 py-1.5 rounded-md border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                        className="px-2 py-1.5 rounded-md border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-xs text-slate-800 dark:text-slate-200 focus:outline-none focus-visible:ring-1 focus-visible:ring-blue-500"
                         aria-label="Filtra per tipo variazione"
                       >
                         <option value="all">Tutte le variazioni</option>
@@ -3022,7 +3022,7 @@ export default function AdminPanel() {
                 type="text"
                 value={nlSubject}
                 onChange={e => setNlSubject(e.target.value)}
-                className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-sm focus:ring-2 focus:ring-violet-500"
+                className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-sm focus-visible:ring-2 focus-visible:ring-violet-500"
                 aria-label="Oggetto email newsletter"
               />
             </div>

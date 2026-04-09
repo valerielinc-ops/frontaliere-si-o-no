@@ -241,7 +241,7 @@ export const FeedbackSection: React.FC = () => {
                 id="feedback-title"
                 value={formData.title}
                 onChange={e => setFormData(prev => ({...prev, title: e.target.value}))}
-                className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 px-4 py-3 rounded-2xl outline-none focus:ring-4 focus:ring-indigo-50 dark:focus:ring-indigo-900/20 focus:border-indigo-500 transition-[color,background-color,border-color,box-shadow] text-sm"
+                className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 px-4 py-3 rounded-2xl outline-none focus-visible:ring-4 focus-visible:ring-indigo-50 dark:focus-visible:ring-indigo-900/20 focus-visible:border-indigo-500 transition-[color,background-color,border-color,box-shadow] text-sm"
                 placeholder={t('feedback.titlePlaceholder')}
               />
             </div>
@@ -253,7 +253,7 @@ export const FeedbackSection: React.FC = () => {
                 value={formData.description}
                 onChange={e => setFormData(prev => ({...prev, description: e.target.value}))}
                 rows={5}
-                className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 px-4 py-3 rounded-2xl outline-none focus:ring-4 focus:ring-indigo-50 dark:focus:ring-indigo-900/20 focus:border-indigo-500 transition-[color,background-color,border-color,box-shadow] text-sm resize-none"
+                className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 px-4 py-3 rounded-2xl outline-none focus-visible:ring-4 focus-visible:ring-indigo-50 dark:focus-visible:ring-indigo-900/20 focus-visible:border-indigo-500 transition-[color,background-color,border-color,box-shadow] text-sm resize-none"
                 placeholder={t('feedback.detailsPlaceholder')}
               />
               <button 

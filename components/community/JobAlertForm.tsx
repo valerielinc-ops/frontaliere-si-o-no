@@ -177,7 +177,7 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
               onChange={(e) => setKeyword(e.target.value)}
               placeholder={t('jobAlert.keywordPlaceholder') || 'es. developer, ingegnere, contabile'}
               aria-label={t('jobAlert.keyword') || 'Parole chiave'}
-              className="w-full px-3 py-2 text-sm rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 focus:ring-2 focus:ring-indigo-400 outline-none"
+              className="w-full px-3 py-2 text-sm rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 focus-visible:ring-2 focus-visible:ring-indigo-400 outline-none"
             />
           </div>
 

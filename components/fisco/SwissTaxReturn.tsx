@@ -544,7 +544,7 @@ const SwissTaxReturn: React.FC = () => {
                     type="checkbox"
                     checked={checkedDocs.has(doc.key)}
                     onChange={() => toggleDoc(doc.key)}
-                    className="mt-0.5 w-4 h-4 text-red-700 rounded border-slate-300 dark:border-slate-600 focus:ring-red-500"
+                    className="mt-0.5 w-4 h-4 text-red-700 rounded border-slate-300 dark:border-slate-600 focus-visible:ring-red-500"
                     aria-label={t(`swissTaxReturn.documents.${doc.key}`)}
                   />
                   <div className="flex-1">

@@ -114,7 +114,7 @@ const StepperInput = ({ value, onChange, min = 0, max, label, icon: Icon, iconCo
           }}
           min={min}
           max={max}
-          className="w-full h-full min-h-[48px] bg-transparent text-center font-bold text-base text-slate-700 dark:text-slate-200 outline-none focus:ring-2 focus:ring-blue-500 appearance-none px-1 py-3"
+          className="w-full h-full min-h-[48px] bg-transparent text-center font-bold text-base text-slate-700 dark:text-slate-200 outline-none focus-visible:ring-2 focus-visible:ring-blue-500 appearance-none px-1 py-3"
           aria-label={label || 'Valore numerico'}
         />
       </div>
@@ -174,7 +174,7 @@ const TechInput: React.FC<{
                   onChange(isPercentage ? val / 100 : val);
               }}
               aria-label={label}
-              className="w-full h-11 bg-white dark:bg-slate-900 px-3 rounded-xl border border-slate-200 dark:border-slate-700 text-sm font-bold text-slate-700 dark:text-slate-200 outline-none focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10 transition-[color,border-color,box-shadow]"
+              className="w-full h-11 bg-white dark:bg-slate-900 px-3 rounded-xl border border-slate-200 dark:border-slate-700 text-sm font-bold text-slate-700 dark:text-slate-200 outline-none focus-visible:border-indigo-500 focus-visible:ring-4 focus-visible:ring-indigo-500/10 transition-[color,border-color,box-shadow]"
             />
             {suffix && <span className="absolute right-3 top-3.5 text-xs font-bold text-slate-600 dark:text-slate-300 pointer-events-none">{suffix}</span>}
         </div>
@@ -442,7 +442,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
                           handleChange('annualIncomeCHF', clamped);
                         }}
                         aria-label="Reddito annuo lordo CHF"
-                        className={`w-full pl-14 pr-4 py-4 bg-slate-50 dark:bg-slate-900 border-2 border-x-0 focus:ring-4 focus:ring-inset outline-none transition-[color,border-color,box-shadow] font-bold text-slate-800 dark:text-slate-100 text-2xl tracking-tight ${salaryError ? 'border-red-400 focus:border-red-500 focus:ring-red-500/10' : 'border-slate-100 dark:border-slate-700 focus:border-indigo-500 focus:ring-indigo-500/10'}`}
+                        className={`w-full pl-14 pr-4 py-4 bg-slate-50 dark:bg-slate-900 border-2 border-x-0 focus-visible:ring-4 focus-visible:ring-inset outline-none transition-[color,border-color,box-shadow] font-bold text-slate-800 dark:text-slate-100 text-2xl tracking-tight ${salaryError ? 'border-red-400 focus-visible:border-red-500 focus-visible:ring-red-500/10' : 'border-slate-100 dark:border-slate-700 focus-visible:border-indigo-500 focus-visible:ring-indigo-500/10'}`}
                         placeholder="0"
                       />
                     </div>
@@ -492,7 +492,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
                        id="maritalStatus"
                        value={inputs.maritalStatus} 
                        onChange={(e) => handleChange('maritalStatus', e.target.value)}
-                       className="w-full h-12 pl-3 pr-8 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-bold uppercase appearance-none outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/10 transition-[color,border-color,box-shadow] cursor-pointer text-slate-700 dark:text-slate-200"
+                       className="w-full h-12 pl-3 pr-8 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-bold uppercase appearance-none outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-indigo-500/10 transition-[color,border-color,box-shadow] cursor-pointer text-slate-700 dark:text-slate-200"
                      >
                        <option value="SINGLE">{t('input.single')}</option>
                        <option value="MARRIED">{t('input.married')}</option>
@@ -516,7 +516,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
                       role="switch"
                       aria-checked={inputs.spouseWorks}
                       aria-label={t('input.spouseWorks')}
-                      className={`relative w-11 h-6 rounded-full transition-colors duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 ${inputs.spouseWorks ? 'bg-indigo-500' : 'bg-slate-300 dark:bg-slate-600'}`}
+                      className={`relative w-11 h-6 rounded-full transition-colors duration-300 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-indigo-500 ${inputs.spouseWorks ? 'bg-indigo-500' : 'bg-slate-300 dark:bg-slate-600'}`}
                     >
                       <span className={`block w-4 h-4 bg-white rounded-full shadow-md transform transition-transform duration-200 ease-in-out mt-1 ml-1 ${inputs.spouseWorks ? 'translate-x-5' : 'translate-x-0'}`}/>
                     </button>
@@ -636,13 +636,13 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
                               type="text" 
                               value={t(exp.label)} 
                               onChange={e => updateExpense('CH', exp.id, { label: e.target.value })} 
-                              className="flex-1 min-w-0 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2 py-2 text-xs font-bold outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 transition-colors truncate"
+                              className="flex-1 min-w-0 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2 py-2 text-xs font-bold outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-indigo-500/20 transition-colors truncate"
                               title={t(exp.label)}
                               aria-label={t('input.expenseName') || 'Nome spesa CH'}
                             />
                             {exp.tooltip && <InfoTooltip text={t(exp.tooltip)} />}
                           </div>
-                          <input type="number" inputMode="numeric" value={exp.amount || ''} onChange={e => updateExpense('CH', exp.id, { amount: Number(e.target.value) })} placeholder="0" aria-label={t('input.expenseAmount') || 'Importo spesa CH'} className="w-14 sm:w-16 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-1 sm:px-2 py-2 text-xs font-mono font-bold outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 text-right transition-colors" />
+                          <input type="number" inputMode="numeric" value={exp.amount || ''} onChange={e => updateExpense('CH', exp.id, { amount: Number(e.target.value) })} placeholder="0" aria-label={t('input.expenseAmount') || 'Importo spesa CH'} className="w-14 sm:w-16 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-1 sm:px-2 py-2 text-xs font-mono font-bold outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-indigo-500/20 text-right transition-colors" />
                           <button onClick={() => updateExpense('CH', exp.id, { frequency: exp.frequency === 'MONTHLY' ? 'ANNUAL' : 'MONTHLY' })} className="px-1.5 sm:px-2 py-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-xs font-bold uppercase text-slate-600 dark:text-slate-400 w-10 sm:w-12 text-center hover:bg-slate-200 transition-colors flex-shrink-0" aria-label={t('input.toggleFrequency') || 'Cambia frequenza mensile/annuale'}>{exp.frequency === 'MONTHLY' ? '/m' : '/a'}</button>
                           <button onClick={() => removeExpense('CH', exp.id)} className="p-2 sm:p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-red-500 transition-colors flex-shrink-0" aria-label={t('input.removeExpense')}><X size={14}/></button>
                         </div>
@@ -705,13 +705,13 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
                               type="text" 
                               value={t(exp.label)} 
                               onChange={e => updateExpense('IT', exp.id, { label: e.target.value })} 
-                              className="flex-1 min-w-0 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2 py-2 text-xs font-bold outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 transition-colors truncate"
+                              className="flex-1 min-w-0 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2 py-2 text-xs font-bold outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-indigo-500/20 transition-colors truncate"
                               title={t(exp.label)}
                               aria-label={t('input.expenseName') || 'Nome spesa IT'}
                             />
                             {exp.tooltip && <InfoTooltip text={t(exp.tooltip)} />}
                           </div>
-                          <input type="number" inputMode="numeric" value={exp.amount || ''} onChange={e => updateExpense('IT', exp.id, { amount: Number(e.target.value) })} placeholder="0" aria-label={t('input.expenseAmount') || 'Importo spesa IT'} className="w-14 sm:w-16 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-1 sm:px-2 py-2 text-xs font-mono font-bold outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 text-right transition-colors" />
+                          <input type="number" inputMode="numeric" value={exp.amount || ''} onChange={e => updateExpense('IT', exp.id, { amount: Number(e.target.value) })} placeholder="0" aria-label={t('input.expenseAmount') || 'Importo spesa IT'} className="w-14 sm:w-16 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-1 sm:px-2 py-2 text-xs font-mono font-bold outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-indigo-500/20 text-right transition-colors" />
                           <button onClick={() => updateExpense('IT', exp.id, { frequency: exp.frequency === 'MONTHLY' ? 'ANNUAL' : 'MONTHLY' })} className="px-1.5 sm:px-2 py-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-xs font-bold uppercase text-slate-600 dark:text-slate-400 w-10 sm:w-12 text-center hover:bg-slate-200 transition-colors flex-shrink-0" aria-label={t('input.toggleFrequency') || 'Cambia frequenza mensile/annuale'}>{exp.frequency === 'MONTHLY' ? '/m' : '/a'}</button>
                           <button onClick={() => removeExpense('IT', exp.id)} className="p-2 sm:p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-red-500 transition-colors flex-shrink-0" aria-label={t('input.removeExpense')}><X size={14}/></button>
                         </div>
@@ -747,7 +747,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
                            value={inputs.customExchangeRate} 
                            onChange={(e) => handleChange('customExchangeRate', Number(e.target.value))} 
                            aria-label={t('input.exchangeRate') || 'Tasso di cambio CHF/EUR'}
-                           className="w-full h-11 bg-slate-50 dark:bg-slate-900 px-3 rounded-xl border border-slate-200 dark:border-slate-700 outline-none text-base font-bold focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 transition-colors" 
+                           className="w-full h-11 bg-slate-50 dark:bg-slate-900 px-3 rounded-xl border border-slate-200 dark:border-slate-700 outline-none text-base font-bold focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-indigo-500/20 transition-colors" 
                         />
                      </div>
                      <StepperInput inputId="input-monthsBasis" label={t('input.monthsBasis')} value={inputs.monthsBasis} onChange={(v: number) => handleChange('monthsBasis', v)} min={12} max={15} icon={CalendarClock} iconColor="text-orange-400" tooltip={t('input.monthsTooltip')} />
@@ -760,7 +760,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
                         <InfoTooltip text={t('input.healthInsuranceTooltip')} />
                       </label>
                       <div className="relative group">
-                          <input type="number" inputMode="numeric" value={inputs.healthInsuranceCHF || ''} onChange={(e) => handleChange('healthInsuranceCHF', Number(e.target.value))} aria-label={t('input.healthInsurance') || 'Cassa malati CHF'} className="w-full pl-3 pr-10 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus:ring-4 focus:ring-blue-100 focus:border-blue-500 outline-none transition-[color,border-color,box-shadow] font-bold text-slate-800 dark:text-slate-100 text-sm h-11" placeholder="0" />
+                          <input type="number" inputMode="numeric" value={inputs.healthInsuranceCHF || ''} onChange={(e) => handleChange('healthInsuranceCHF', Number(e.target.value))} aria-label={t('input.healthInsurance') || 'Cassa malati CHF'} className="w-full pl-3 pr-10 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus-visible:ring-4 focus-visible:ring-blue-100 focus-visible:border-blue-500 outline-none transition-[color,border-color,box-shadow] font-bold text-slate-800 dark:text-slate-100 text-sm h-11" placeholder="0" />
                           <span className="absolute right-3 top-3.5 text-slate-600 dark:text-slate-300 font-bold text-xs">CHF</span>
                       </div>
                   </div>
@@ -772,7 +772,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
                         <InfoTooltip text={t('input.netWealthTooltip')} />
                       </label>
                       <div className="relative group">
-                          <input type="number" inputMode="numeric" value={inputs.netWealthCHF || ''} onChange={(e) => handleChange('netWealthCHF', Number(e.target.value))} aria-label={t('input.netWealth') || 'Patrimonio netto CHF'} className="w-full pl-3 pr-10 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus:ring-4 focus:ring-blue-100 focus:border-blue-500 outline-none transition-[color,border-color,box-shadow] font-bold text-slate-800 dark:text-slate-100 text-sm h-11" placeholder="0" />
+                          <input type="number" inputMode="numeric" value={inputs.netWealthCHF || ''} onChange={(e) => handleChange('netWealthCHF', Number(e.target.value))} aria-label={t('input.netWealth') || 'Patrimonio netto CHF'} className="w-full pl-3 pr-10 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus-visible:ring-4 focus-visible:ring-blue-100 focus-visible:border-blue-500 outline-none transition-[color,border-color,box-shadow] font-bold text-slate-800 dark:text-slate-100 text-sm h-11" placeholder="0" />
                           <span className="absolute right-3 top-3.5 text-slate-600 dark:text-slate-300 font-bold text-xs">CHF</span>
                       </div>
                       <p className="text-xs text-slate-600 dark:text-slate-400">{t('input.netWealthNote')}</p>
@@ -816,7 +816,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
                       aria-label={t('input.ssnHealthTax') || 'Contributo SSN sanitario'}
                       role="switch"
                       aria-checked={inputs.enableOldFrontierHealthTax}
-                      className={`relative flex-shrink-0 w-14 h-7 rounded-full transition-colors duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500 shadow-inner ${inputs.enableOldFrontierHealthTax ? 'bg-gradient-to-r from-amber-500 to-orange-500' : 'bg-slate-300 dark:bg-slate-600'}`}
+                      className={`relative flex-shrink-0 w-14 h-7 rounded-full transition-colors duration-300 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-amber-500 shadow-inner ${inputs.enableOldFrontierHealthTax ? 'bg-gradient-to-r from-amber-500 to-orange-500' : 'bg-slate-300 dark:bg-slate-600'}`}
                     >
                       <span className={`block w-5 h-5 bg-white rounded-full shadow-lg transform transition-transform duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] mt-1 ml-1 ${inputs.enableOldFrontierHealthTax ? 'translate-x-7' : 'translate-x-0'}`}/>
                       {inputs.enableOldFrontierHealthTax && (
@@ -845,7 +845,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
                                min="0"
                                max="100"
                                aria-label={t('input.netIncomePercentage') || 'Percentuale reddito netto per contributo SSN'}
-                               className="w-14 text-right bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-700 rounded px-2 py-1 text-xs font-bold focus:outline-none focus:ring-1 focus:ring-amber-500" 
+                               className="w-14 text-right bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-700 rounded px-2 py-1 text-xs font-bold focus:outline-none focus-visible:ring-1 focus-visible:ring-amber-500" 
                              />
                              <span className="text-xs font-bold text-slate-600 dark:text-slate-400">%</span>
                           </div>
