@@ -41,12 +41,8 @@ jobs:
           const { callLLM, AI_MODELS } = await import('./scripts/lib/ai-models.mjs');
 
           const modelsToTest = [
-            { name: 'CF_GEMMA_4_26B', id: AI_MODELS.CF_GEMMA_4_26B },
-            { name: 'CF_KIMI_K2_5', id: AI_MODELS.CF_KIMI_K2_5 },
             { name: 'CF_NV_NEMOTRON_120B', id: AI_MODELS.CF_NV_NEMOTRON_120B },
-            { name: 'CF_GRANITE_4_MICRO', id: AI_MODELS.CF_GRANITE_4_MICRO },
             { name: 'CB_QWEN3_235B', id: AI_MODELS.CB_QWEN3_235B },
-            { name: 'CB_GLM_47', id: AI_MODELS.CB_GLM_47 },
           ];
 
           const messages = [{ role: 'user', content: 'Translate to German. Output ONLY the translation, nothing else: Offerta di lavoro come ingegnere software a Lugano, Svizzera. Contratto a tempo indeterminato con salario competitivo.' }];
@@ -63,8 +59,8 @@ jobs:
                 maxTokens: 200,
                 temperature: 0.3,
               });
-              console.log('✅ SUCCESS — model:', result.model);
-              console.log('   Output:', result.text.slice(0, 300));
+              console.log('✅ SUCCESS');
+              console.log('   Output:', String(result).slice(0, 300));
               passed++;
             } catch (err) {
               console.log('❌ FAILED:', err.message.slice(0, 500));
