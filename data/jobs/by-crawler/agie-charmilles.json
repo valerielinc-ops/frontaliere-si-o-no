@@ -1,6 +1,6 @@
 {
   "crawlerKey": "agie-charmilles",
-  "assembledAt": "2026-04-09T09:03:17.686Z",
+  "assembledAt": "2026-04-09T20:55:38.076Z",
   "jobs": [
     {
       "title": "SAP Developer",
@@ -163,7 +163,6 @@
         "fr": "electronic-engineer-r-d-agie-charmilles-biel-bienne"
       },
       "id": "agie-charmilles-ca96021ad15c",
-      "needsRetranslation": true,
       "salaryMin": 58000,
       "salaryMax": 88000,
       "currency": "CHF",
@@ -182,7 +181,7 @@
     },
     {
       "title": "Metrology Technician",
-      "slug": "metrology-technician-agie-charmilles-biel-bienne",
+      "slug": "tecnico-laboratorio-metrologia-agie-charmilles-sa-biel-bienne",
       "url": "https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-metrology-technician/",
       "applyUrl": "https://tracking.jobchannel.ch/redirect/42d5e9427f9e2bc6db3173cdcee0e242bf3ed52661469d6416a8fccc4ffdcbac5828d3ac3e44b51019fb9eb99a43d55394a76fa1d894fd67a21d5d9f0d0809",
       "company": "AGIE Charmilles SA",
@@ -223,7 +222,6 @@
         "fr": "metrology-technician-agie-charmilles-biel-bienne"
       },
       "id": "agie-charmilles-e9ad10358b65",
-      "needsRetranslation": true,
       "salaryMin": 58000,
       "salaryMax": 88000,
       "currency": "CHF",
@@ -238,7 +236,8 @@
         }
       },
       "streetAddress": "Via Goldau 7",
-      "postalCode": "6616"
+      "postalCode": "6616",
+      "previousSlugs": []
     },
     {
       "title": "Software PLC Engineer - R&D",

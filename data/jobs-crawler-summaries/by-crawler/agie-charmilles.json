@@ -1,18 +1,19 @@
 {
   "key": "agie-charmilles",
   "label": "AGIE Charmilles",
-  "generatedAt": "2026-04-09T09:03:11.570Z",
+  "generatedAt": "2026-04-09T20:55:32.143Z",
   "total": 11,
-  "newCount": 5,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 17128,
-  "avgDurationMs": 17128,
+  "durationMs": 17393,
+  "avgDurationMs": 17393,
   "durationHistory": [
-    17128
+    17393
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "SAP Developer",
       "slug": "sap-developer-agie-charmilles-biel-bienne",
@@ -36,12 +37,18 @@
       "contractType": "temporary",
       "validThrough": "",
       "workload": "100%",
-      "_qualityScore": 74,
+      "id": "agie-charmilles-e67647fb366d",
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "streetAddress": "Via Goldau 7",
+      "postalCode": "6616",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 24,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
@@ -67,12 +74,18 @@
       "contractType": "full-time",
       "validThrough": "",
       "workload": "100%",
-      "_qualityScore": 74,
+      "id": "agie-charmilles-24a01c95baf5",
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "streetAddress": "Via Goldau 7",
+      "postalCode": "6616",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 24,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
@@ -98,12 +111,19 @@
       "contractType": "full-time",
       "validThrough": "",
       "workload": "100%",
-      "_qualityScore": 72,
+      "id": "agie-charmilles-ca96021ad15c",
+      "needsRetranslation": true,
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "streetAddress": "Via Goldau 7",
+      "postalCode": "6616",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 22,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
@@ -129,12 +149,19 @@
       "contractType": "full-time",
       "validThrough": "",
       "workload": "100%",
-      "_qualityScore": 72,
+      "id": "agie-charmilles-e9ad10358b65",
+      "needsRetranslation": true,
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "streetAddress": "Via Goldau 7",
+      "postalCode": "6616",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 22,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
@@ -160,16 +187,21 @@
       "contractType": "full-time",
       "validThrough": "",
       "workload": "100%",
-      "_qualityScore": 74,
+      "id": "agie-charmilles-3709aa7e95e4",
+      "salaryMin": 58000,
+      "salaryMax": 88000,
+      "currency": "CHF",
+      "streetAddress": "Via Goldau 7",
+      "postalCode": "6616",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 24,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
