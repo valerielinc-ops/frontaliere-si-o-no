@@ -1,0 +1,17 @@
+{
+  "companyKey": "hes-so-valais",
+  "companyName": "HES-SO Valais-Wallis",
+  "companyHost": "www.hevs.ch",
+  "enabled": true,
+  "priority": 10,
+  "crawlerModes": [
+    "html-scraping"
+  ],
+  "seedUrls": [
+    "https://www.hevs.ch/fr/emplois/",
+    "https://www.hevs.ch/de/stellenangebote/",
+    "https://www.hevs.ch/en/job-offers/"
+  ],
+  "notes": "Nuxt.js 2 SSR page with AIO CMS — job entries in __NUXT__ data blob. All jobs in Canton VS.",
+  "updatedAt": "2026-04-09T16:17:43.473Z"
+}
