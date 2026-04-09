@@ -195,6 +195,9 @@ export const AI_MODELS = Object.freeze({
   CB_LLAMA_3_1_70B: 'cerebras/llama3.1-70b',
   CB_LLAMA_3_3_70B: 'cerebras/llama3.3-70b',
   CB_GPT_OSS_120B:  'cerebras/gpt-oss-120b',
+  // New Cerebras preview models (2026-04)
+  CB_QWEN3_235B:    'cerebras/qwen-3-235b-a22b-instruct-2507',
+  CB_GLM_47:        'cerebras/zai-glm-4.7',
 
   // ── Together AI (OpenAI-compatible, free tier inference) ──
   TGT_MISTRAL_7B:  'together/mistralai/Mistral-7B-Instruct-v0.3',
@@ -246,6 +249,11 @@ export const AI_MODELS = Object.freeze({
   CF_GEMMA_3_12B:      'cf/@cf/google/gemma-3-12b-it',
   CF_GLM_47_FLASH:     'cf/@cf/zai-org/glm-4.7-flash',
   CF_DEEPSEEK_R1_32B:  'cf/@cf/deepseek/deepseek-r1-distill-qwen-32b',
+  // New Cloudflare models (2026-04)
+  CF_GEMMA_4_26B:      'cf/@cf/google/gemma-4-26b-a4b-it',
+  CF_KIMI_K2_5:        'cf/@cf/moonshotai/kimi-k2.5',
+  CF_NV_NEMOTRON_120B: 'cf/@cf/nvidia/nemotron-3-120b-a12b',
+  CF_GRANITE_4_MICRO:  'cf/@cf/ibm/granite-4.0-h-micro',
 
   // ── Mistral AI La Plateforme (OpenAI-compatible, free tier — 1B tokens/month) ──
   MISTRAL_SMALL:       'mistral/mistral-small-latest',
@@ -305,8 +313,10 @@ export const DEFAULT_CHAIN = [
   AI_MODELS.LLAMA_3_1_405B,     // 20. Meta 405B flagship     (GitHub Models)
   AI_MODELS.MISTRAL_MEDIUM_3,   // 21. Mistral Medium 3       (GitHub Models)
   AI_MODELS.GROQ_QWEN3_32B,      // 22. Qwen3 32B              (Groq - ultra fast)
-  AI_MODELS.GEMMA_3_12B,         // 22b. Gemma 3 12B           (Gemini API — 14,400/day!)
-  AI_MODELS.JAMBA_1_5_LARGE,     // 22c. AI21 Jamba 1.5 Large  (GitHub Models)
+  AI_MODELS.CB_QWEN3_235B,       // 22a. Qwen3 235B frontier   (Cerebras preview — ultra fast)
+  AI_MODELS.CB_GLM_47,           // 22b. Z.ai GLM 4.7 355B     (Cerebras preview — ultra fast)
+  AI_MODELS.GEMMA_3_12B,         // 22c. Gemma 3 12B           (Gemini API — 14,400/day!)
+  AI_MODELS.JAMBA_1_5_LARGE,     // 22d. AI21 Jamba 1.5 Large  (GitHub Models)
   // SN_LLAMA_3_3_70B removed — SambaNova HTTP 402 PAYMENT_METHOD_REQUIRED (2026-04)
   AI_MODELS.O1,                  // 23. OpenAI o1 reasoning    (GitHub Models)
   AI_MODELS.LLAMA_3_2_90B,      // 24. Llama 3.2 90B           (GitHub Models)
@@ -315,6 +325,9 @@ export const DEFAULT_CHAIN = [
   AI_MODELS.MISTRAL_CODESTRAL,  // 26. Codestral latest       (Mistral AI direct)
   AI_MODELS.GPT_5_MINI,         // 27. GPT-5 mini reason     (GitHub Models)
   AI_MODELS.CF_LLAMA_4_SCOUT,   // 28. Llama 4 Scout          (Cloudflare Workers AI)
+  AI_MODELS.CF_GEMMA_4_26B,     // 28a. Gemma 4 26B MoE       (Cloudflare Workers AI)
+  AI_MODELS.CF_KIMI_K2_5,       // 28b. Kimi K2.5 256K ctx    (Cloudflare Workers AI)
+  AI_MODELS.CF_NV_NEMOTRON_120B,// 28c. Nemotron 120B MoE     (Cloudflare Workers AI)
   AI_MODELS.DEEPSEEK_V3,        // 29. DeepSeek V3            (GitHub Models)
   AI_MODELS.OR_LLAMA_3_3,       // 30. Llama 3.3 70B          (OpenRouter free)
   AI_MODELS.CF_GPT_OSS_120B,    // 31. GPT-OSS 120B           (Cloudflare Workers AI)
@@ -380,6 +393,7 @@ export const DEFAULT_CHAIN = [
   AI_MODELS.NV_LLAMA_3_1_8B,    // 71. Llama 3.1 8B           (NVIDIA NIM)
   AI_MODELS.NV_PHI_3_MINI,      // 72. Phi-3 Mini             (NVIDIA NIM)
   AI_MODELS.CF_DEEPSEEK_R1_32B, // 73. DeepSeek R1 32B        (Cloudflare Workers AI)
+  AI_MODELS.CF_GRANITE_4_MICRO, // 73a. Granite 4.0 Micro     (Cloudflare Workers AI)
   // HF_MISTRAL_7B removed — HuggingFace HTTP 400 "not a chat model" (2026-04)
   // HF_ZEPHYR_7B removed — HuggingFace HTTP 400 "not supported by any provider" (2026-04)
   // ── Extended capacity: new OpenRouter free models (200 req/day each) ──
