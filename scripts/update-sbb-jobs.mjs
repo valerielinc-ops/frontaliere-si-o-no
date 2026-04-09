@@ -53,6 +53,7 @@ import { freeTranslateWithRetry } from './lib/free-translate.mjs';
 import { GRIGIONI_CITIES, TICINO_CITIES, inferSwissTargetCanton, isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
 import { parseSbbDetailPage, MIN_SBB_DESC_LENGTH } from './lib/sbb-job-parser.mjs';
 import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
+import { detectLanguage } from './lib/detect-language.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -96,12 +97,7 @@ function normalizeKey(value = '') {
 }
 
 function detectLang(text = '') {
-  const t = ` ${normalize(text)} `;
-  if (/( das | und | bei uns | stellenbeschreibung | arbeitsort )/.test(t)) return 'de';
-  if (/( the | with | requirements | apply now )/.test(t)) return 'en';
-  if (/( il | la | con | requisiti | candidati )/.test(t)) return 'it';
-  if (/( le | la | avec | exigences | poste )/.test(t)) return 'fr';
-  return 'it';
+  return detectLanguage(text, 'it');
 }
 
 /**
@@ -791,7 +787,7 @@ async function parseSbbJobFromDetailUrl(detailUrl, apiMetaByUrl, apiMetaByTitle 
     : {};
   const sourceLocale = isLoginOrgDetail
     ? (localizedLoginData.it ? 'it' : (Object.keys(localizedLoginData)[0] || 'it'))
-    : 'it';
+    : null; // determined after title/description are parsed (see below)
   const sourceLoginData = isLoginOrgDetail
     ? (localizedLoginData[sourceLocale] || extractLoginLocalizedPageData(html))
     : { title: '', description: '', location: '', requirements: [] };
@@ -836,6 +832,10 @@ async function parseSbbJobFromDetailUrl(detailUrl, apiMetaByUrl, apiMetaByTitle 
     if (description.length < 50) return null;
   }
 
+  // For non-login.org pages, detect the actual source language from content
+  // (SBB posts GR/non-Ticino jobs in German, not Italian)
+  const resolvedSourceLocale = sourceLocale || detectLang(`${title} ${description}`);
+
   const requirements = sourceLoginData.requirements?.length
     ? sourceLoginData.requirements
     : (sbbParsed?.requirements?.length
@@ -859,22 +859,22 @@ async function parseSbbJobFromDetailUrl(detailUrl, apiMetaByUrl, apiMetaByTitle 
     if (localized?.title) localeTitles[locale] = localized.title;
     if (localized?.description) localeDescriptions[locale] = localized.description;
   }
-  if (!localeTitles[sourceLocale]) localeTitles[sourceLocale] = title;
-  if (!localeDescriptions[sourceLocale]) localeDescriptions[sourceLocale] = description;
+  if (!localeTitles[resolvedSourceLocale]) localeTitles[resolvedSourceLocale] = title;
+  if (!localeDescriptions[resolvedSourceLocale]) localeDescriptions[resolvedSourceLocale] = description;
   for (const locale of ['it', 'en', 'de', 'fr']) {
-    if (!localeTitles[locale] && localeTitles[sourceLocale]) {
+    if (!localeTitles[locale] && localeTitles[resolvedSourceLocale]) {
       const translatedTitle = await freeTranslateWithRetry({
-        text: localeTitles[sourceLocale],
-        sourceLang: sourceLocale,
+        text: localeTitles[resolvedSourceLocale],
+        sourceLang: resolvedSourceLocale,
         targetLang: locale,
         maxRetries: 2,
       });
       if (translatedTitle) localeTitles[locale] = translatedTitle;
     }
-    if (!localeDescriptions[locale] && localeDescriptions[sourceLocale]) {
+    if (!localeDescriptions[locale] && localeDescriptions[resolvedSourceLocale]) {
       const translatedDescription = await freeTranslateWithRetry({
-        text: localeDescriptions[sourceLocale],
-        sourceLang: sourceLocale,
+        text: localeDescriptions[resolvedSourceLocale],
+        sourceLang: resolvedSourceLocale,
         targetLang: locale,
         maxRetries: 2,
       });
@@ -910,7 +910,7 @@ async function parseSbbJobFromDetailUrl(detailUrl, apiMetaByUrl, apiMetaByTitle 
     contract: inferContract(apiMeta, String(jobPosting?.employmentType || ''), title),
     currency: 'CHF',
     featured: false,
-    sourceLang: sourceLocale,
+    sourceLang: resolvedSourceLocale,
     postedDate,
     url: detailUrl,
     source: 'SBB Dedicated Parser (API + login.org)',
