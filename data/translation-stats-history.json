@@ -1,117 +1,5 @@
 [
   {
-    "timestamp": "2026-03-31T14:43:13.778Z",
-    "label": "before",
-    "total": 1351,
-    "needsRetranslation": 323,
-    "incomplete": 322,
-    "complete": 1029,
-    "missingByLocale": {
-      "it": 138,
-      "en": 220,
-      "de": 148,
-      "fr": 245
-    },
-    "topPending": [
-      {
-        "company": "Jumbo, Divisione di Coop Società Cooperativa",
-        "pending": 80
-      },
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 67
-      },
-      {
-        "company": "PEMSA",
-        "pending": 21
-      },
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 19
-      },
-      {
-        "company": "ABB Svizzera (sede Ticino)",
-        "pending": 15
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 14
-      },
-      {
-        "company": "Denner",
-        "pending": 11
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 11
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 10
-      },
-      {
-        "company": "Cornèr Banca",
-        "pending": 9
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-03-31T14:56:09.918Z",
-    "label": "after",
-    "total": 1351,
-    "needsRetranslation": 151,
-    "incomplete": 151,
-    "complete": 1200,
-    "missingByLocale": {
-      "it": 33,
-      "en": 103,
-      "de": 90,
-      "fr": 109
-    },
-    "topPending": [
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 67
-      },
-      {
-        "company": "Jumbo, Divisione di Coop Società Cooperativa",
-        "pending": 36
-      },
-      {
-        "company": "PEMSA",
-        "pending": 14
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 11
-      },
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 7
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 3
-      },
-      {
-        "company": "Kulm Hotel St. Moritz",
-        "pending": 2
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 2
-      },
-      {
-        "company": "ABB Svizzera (sede Ticino)",
-        "pending": 1
-      },
-      {
-        "company": "AFRY",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-03-31T21:54:35.478Z",
     "label": "before",
     "total": 1352,
@@ -10165,6 +10053,62 @@
   },
   {
     "timestamp": "2026-04-09T19:46:51.966Z",
+    "label": "after",
+    "total": 1644,
+    "needsRetranslation": 60,
+    "incomplete": 7,
+    "complete": 1637,
+    "missingByLocale": {
+      "it": 6,
+      "en": 7,
+      "de": 1,
+      "fr": 7
+    },
+    "topPending": [
+      {
+        "company": "Hügli Nährmittel-Erzeugung GmbH",
+        "pending": 4
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 2
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-09T19:58:59.599Z",
+    "label": "before",
+    "total": 1644,
+    "needsRetranslation": 65,
+    "incomplete": 7,
+    "complete": 1637,
+    "missingByLocale": {
+      "it": 6,
+      "en": 7,
+      "de": 1,
+      "fr": 7
+    },
+    "topPending": [
+      {
+        "company": "Hügli Nährmittel-Erzeugung GmbH",
+        "pending": 4
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 2
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-09T19:59:51.822Z",
     "label": "after",
     "total": 1644,
     "needsRetranslation": 60,
