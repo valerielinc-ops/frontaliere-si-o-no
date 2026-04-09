@@ -77,6 +77,44 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       },
       {
         "@context": "https://schema.org",
+        "@type": "Organization",
+        "@id": "https://frontaliereticino.ch/#organization",
+        "name": "Frontaliere Ticino",
+        "url": BASE_URL,
+        "logo": {
+          "@type": "ImageObject",
+          "url": `${BASE_URL}/icons/icon-512x512.png`,
+          "width": 512,
+          "height": 512
+        },
+        "description": "La risorsa più completa per i lavoratori frontalieri tra Italia e Svizzera: simulatore fiscale, pensione, assicurazione sanitaria, cambio valuta e guide pratiche.",
+        "foundingDate": "2024",
+        "sameAs": [
+          "https://www.facebook.com/profile.php?id=61588174947294"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer support",
+          "url": `${BASE_URL}/contattaci`,
+          "availableLanguage": ["Italian", "English", "German", "French"]
+        },
+        "areaServed": [
+          { "@type": "Country", "name": "Switzerland" },
+          { "@type": "Country", "name": "Italy" }
+        ],
+        "knowsAbout": [
+          "Cross-border worker taxation",
+          "Swiss withholding tax",
+          "Italian IRPEF",
+          "LAMal health insurance",
+          "Swiss pension system AVS LPP",
+          "CHF EUR exchange rates",
+          "Permit G Permit B",
+          "Canton Ticino employment"
+        ]
+      },
+      {
+        "@context": "https://schema.org",
         "@type": "FAQPage",
         "mainEntity": [
           { "@type": "Question", "name": "Qual è la differenza tra vecchio e nuovo frontaliere?", "acceptedAnswer": { "@type": "Answer", "text": "Il vecchio frontaliere (assunto prima del 17 luglio 2023 nei comuni entro 20 km dal confine) paga solo l'imposta alla fonte in Svizzera. Il nuovo frontaliere paga sia l'imposta alla fonte svizzera (ridotta all'80%) che l'IRPEF italiana, con un credito d'imposta e una franchigia di €10.000. Come spiega l'Avv. Marco Bernasconi, fiscalista transfrontaliero: «La distinzione è fondamentale perché determina l'intero regime fiscale applicabile al lavoratore per tutta la durata del rapporto di lavoro»." } },
@@ -119,10 +157,11 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
     canonicalPath: '/glossario-frontaliere/imposta-alla-fonte',
     structuredData: {
       '@context': 'https://schema.org',
-      '@type': 'WebPage',
-      name: 'Imposta alla fonte (Glossario)',
-      url: `${BASE_URL}/glossario-frontaliere/imposta-alla-fonte`,
+      '@type': 'DefinedTerm',
+      name: 'Imposta alla fonte',
       description: 'Definizione e spiegazione di imposta alla fonte per frontalieri (Ticino).',
+      url: `${BASE_URL}/glossario-frontaliere/imposta-alla-fonte`,
+      inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere` },
     },
   },
 
@@ -133,7 +172,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
     ogTitle: 'IRPEF — Glossario Frontalieri',
     ogDescription: 'Cos\'è l\'IRPEF e come si applica ai frontalieri con il nuovo accordo.',
     canonicalPath: '/glossario-frontaliere/irpef',
-    structuredData: { '@context': 'https://schema.org', '@type': 'WebPage', name: 'IRPEF (Glossario)', url: `${BASE_URL}/glossario-frontaliere/irpef`, description: 'Definizione e spiegazione di IRPEF per frontalieri.' },
+    structuredData: { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'IRPEF', description: 'Definizione e spiegazione di IRPEF per frontalieri.', url: `${BASE_URL}/glossario-frontaliere/irpef`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere` } },
   },
 
   'glossario-franchigia': {
@@ -143,7 +182,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
     ogTitle: 'Franchigia — Glossario Frontalieri',
     ogDescription: 'Cos\'è la franchigia e come influisce sulle tasse dei frontalieri.',
     canonicalPath: '/glossario-frontaliere/franchigia',
-    structuredData: { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Franchigia (Glossario)', url: `${BASE_URL}/glossario-frontaliere/franchigia`, description: 'Definizione e spiegazione di franchigia per frontalieri.' },
+    structuredData: { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'Franchigia', description: 'Definizione e spiegazione di franchigia per frontalieri.', url: `${BASE_URL}/glossario-frontaliere/franchigia`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere` } },
   },
 
   'glossario-ristorni': {
@@ -153,7 +192,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
     ogTitle: 'Ristorni — Glossario Frontalieri',
     ogDescription: 'Cosa sono i ristorni fiscali e perché contano per i frontalieri.',
     canonicalPath: '/glossario-frontaliere/ristorni',
-    structuredData: { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Ristorni (Glossario)', url: `${BASE_URL}/glossario-frontaliere/ristorni`, description: 'Definizione e spiegazione di ristorni fiscali.' },
+    structuredData: { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'Ristorni fiscali', description: 'Definizione e spiegazione di ristorni fiscali.', url: `${BASE_URL}/glossario-frontaliere/ristorni`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere` } },
   },
 
   'glossario-lamal': {
@@ -163,7 +202,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
     ogTitle: 'LAMal — Glossario Frontalieri',
     ogDescription: 'Cos\'è LAMal e come scegliere franchigia e modello assicurativo.',
     canonicalPath: '/glossario-frontaliere/lamal',
-    structuredData: { '@context': 'https://schema.org', '@type': 'WebPage', name: 'LAMal (Glossario)', url: `${BASE_URL}/glossario-frontaliere/lamal`, description: 'Definizione e spiegazione di LAMal per frontalieri.' },
+    structuredData: { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'LAMal', description: 'Definizione e spiegazione di LAMal per frontalieri.', url: `${BASE_URL}/glossario-frontaliere/lamal`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere` } },
   },
 
   'glossario-cmu': {
@@ -173,7 +212,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
     ogTitle: 'CMU — Glossario Frontalieri',
     ogDescription: 'Cos\'è la CMU e in cosa differisce da LAMal per i frontalieri.',
     canonicalPath: '/glossario-frontaliere/cmu',
-    structuredData: { '@context': 'https://schema.org', '@type': 'WebPage', name: 'CMU (Glossario)', url: `${BASE_URL}/glossario-frontaliere/cmu`, description: 'Definizione e spiegazione di CMU per frontalieri.' },
+    structuredData: { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'CMU', description: 'Definizione e spiegazione di CMU per frontalieri.', url: `${BASE_URL}/glossario-frontaliere/cmu`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere` } },
   },
 
   'glossario-permessoG': {
@@ -183,7 +222,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
     ogTitle: 'Permesso G — Glossario Frontalieri',
     ogDescription: 'Cos\'è il permesso G e cosa cambia rispetto al permesso B.',
     canonicalPath: '/glossario-frontaliere/permesso-g',
-    structuredData: { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Permesso G (Glossario)', url: `${BASE_URL}/glossario-frontaliere/permesso-g`, description: 'Definizione e spiegazione del permesso G.' },
+    structuredData: { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'Permesso G', description: 'Definizione e spiegazione del permesso G.', url: `${BASE_URL}/glossario-frontaliere/permesso-g`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere` } },
   },
 
   'glossario-permessoB': {
@@ -193,7 +232,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
     ogTitle: 'Permesso B — Glossario Frontalieri',
     ogDescription: 'Cos\'è il permesso B e quando conviene rispetto al permesso G.',
     canonicalPath: '/glossario-frontaliere/permesso-b',
-    structuredData: { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Permesso B (Glossario)', url: `${BASE_URL}/glossario-frontaliere/permesso-b`, description: 'Definizione e spiegazione del permesso B.' },
+    structuredData: { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'Permesso B', description: 'Definizione e spiegazione del permesso B.', url: `${BASE_URL}/glossario-frontaliere/permesso-b`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere` } },
   },
 
   'glossario-avs': {
@@ -203,7 +242,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
     ogTitle: 'AVS — Glossario Frontalieri',
     ogDescription: 'Cos\'è AVS e come incide su busta paga e pensione.',
     canonicalPath: '/glossario-frontaliere/avs',
-    structuredData: { '@context': 'https://schema.org', '@type': 'WebPage', name: 'AVS (Glossario)', url: `${BASE_URL}/glossario-frontaliere/avs`, description: 'Definizione e spiegazione di AVS.' },
+    structuredData: { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'AVS', description: 'Definizione e spiegazione di AVS.', url: `${BASE_URL}/glossario-frontaliere/avs`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere` } },
   },
 
   'glossario-lpp': {
@@ -213,7 +252,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
     ogTitle: 'LPP — Glossario Frontalieri',
     ogDescription: 'Cos\'è LPP e come influisce su netto e pensione.',
     canonicalPath: '/glossario-frontaliere/lpp',
-    structuredData: { '@context': 'https://schema.org', '@type': 'WebPage', name: 'LPP (Glossario)', url: `${BASE_URL}/glossario-frontaliere/lpp`, description: 'Definizione e spiegazione di LPP.' },
+    structuredData: { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'LPP', description: 'Definizione e spiegazione di LPP.', url: `${BASE_URL}/glossario-frontaliere/lpp`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere` } },
   },
 
   'glossario-terzoPilastro': {
@@ -223,7 +262,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
     ogTitle: 'Terzo Pilastro — Glossario Frontalieri',
     ogDescription: 'Cos\'è il terzo pilastro e come si usa per ridurre le tasse.',
     canonicalPath: '/glossario-frontaliere/terzo-pilastro',
-    structuredData: { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Terzo Pilastro (Glossario)', url: `${BASE_URL}/glossario-frontaliere/terzo-pilastro`, description: 'Definizione e spiegazione del terzo pilastro.' },
+    structuredData: { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'Terzo Pilastro', description: 'Definizione e spiegazione del terzo pilastro.', url: `${BASE_URL}/glossario-frontaliere/terzo-pilastro`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere` } },
   },
 
   'glossario-tassoCambio': {
@@ -233,7 +272,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
     ogTitle: 'Tasso di cambio — Glossario Frontalieri',
     ogDescription: 'Cos\'è il tasso di cambio e perché conta per frontalieri e trasferimenti.',
     canonicalPath: '/glossario-frontaliere/tasso-di-cambio',
-    structuredData: { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Tasso di cambio (Glossario)', url: `${BASE_URL}/glossario-frontaliere/tasso-di-cambio`, description: 'Definizione e spiegazione di tasso di cambio CHF/EUR.' },
+    structuredData: { '@context': 'https://schema.org', '@type': 'DefinedTerm', name: 'Tasso di cambio CHF/EUR', description: 'Definizione e spiegazione di tasso di cambio CHF/EUR.', url: `${BASE_URL}/glossario-frontaliere/tasso-di-cambio`, inDefinedTermSet: { '@type': 'DefinedTermSet', name: 'Glossario Frontalieri', url: `${BASE_URL}/glossario-frontaliere` } },
   },
 
   comparatori: {

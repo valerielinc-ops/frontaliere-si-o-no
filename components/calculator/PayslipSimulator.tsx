@@ -444,8 +444,8 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
                   <span className="text-xs text-slate-600 dark:text-slate-400 w-32 sm:w-36 leading-tight">{d.label}</span>
                   <div className="flex-1 bg-slate-100 dark:bg-slate-700 rounded-full h-3 overflow-hidden">
                     <div
-                      className="h-full bg-red-400 dark:bg-red-500 rounded-full transition-[width] duration-500"
-                      style={{ width: `${Math.max(widthPct, 1)}%` }}
+                      className="h-full bg-red-400 dark:bg-red-500 rounded-full transition-transform duration-500 origin-left"
+                      style={{ transform: `scaleX(${Math.max(widthPct, 1) / 100})` }}
                     />
                   </div>
                   <span className="text-xs text-slate-500 dark:text-slate-400 w-12 text-right">{pct(d.rate)}</span>
@@ -456,8 +456,8 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
               <span className="text-xs font-bold text-emerald-700 dark:text-emerald-400 w-32 sm:w-36 leading-tight">{t('payslip.netSalary')}</span>
               <div className="flex-1 bg-slate-100 dark:bg-slate-700 rounded-full h-3 overflow-hidden">
                 <div
-                  className="h-full bg-emerald-500 dark:bg-emerald-400 rounded-full transition-[width] duration-500"
-                  style={{ width: `${(result.netMonthly / result.grossMonthly) * 100}%` }}
+                  className="h-full bg-emerald-500 dark:bg-emerald-400 rounded-full transition-transform duration-500 origin-left"
+                  style={{ transform: `scaleX(${result.netMonthly / result.grossMonthly})` }}
                 />
               </div>
               <span className="text-xs font-bold text-emerald-700 dark:text-emerald-400 w-12 text-right">{((result.netMonthly / result.grossMonthly) * 100).toFixed(1)}%</span>

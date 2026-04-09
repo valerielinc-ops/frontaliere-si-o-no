@@ -1089,7 +1089,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
                     {name.substring(0, 3)}
                     {monthEventCounts[i] > 0 && (
                       <span className={`absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full text-xs font-bold flex items-center justify-center shadow-sm ${
-                        currentMonth === i ? 'bg-white text-amber-700' : 'bg-amber-600 text-white'
+                        currentMonth === i ? 'bg-white dark:bg-slate-700 text-amber-700 dark:text-amber-300' : 'bg-amber-600 text-white'
                       }`}>
                         {monthEventCounts[i]}
                       </span>

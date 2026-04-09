@@ -144,10 +144,10 @@ const HealthPremiumStats: React.FC = () => {
               <span className="w-8 font-bold text-slate-700 dark:text-slate-300 text-right">{c.canton}</span>
               <div className="flex-1 h-6 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
                 <div
-                  className={`h-full rounded-full transition-[width] ${
+                  className={`h-full rounded-full transition-transform origin-left ${
                     i < 5 ? 'bg-emerald-500' : i >= cantonAverages.length - 5 ? 'bg-red-500' : 'bg-blue-500'
                   }`}
-                  style={{ width: `${Math.max(10, (c.avg / maxAvg) * 100)}%` }}
+                  style={{ transform: `scaleX(${Math.max(10, (c.avg / maxAvg) * 100) / 100})` }}
                 />
               </div>
               <span className="w-16 text-right font-bold text-slate-700 dark:text-slate-300">{c.avg} CHF</span>

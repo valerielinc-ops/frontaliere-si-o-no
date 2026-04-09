@@ -399,38 +399,15 @@ export default function FuelPriceStats() {
         </div>
       </section>
 
-      <section className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-        <div className="rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800 p-5">
-          <div className="text-xs font-semibold uppercase text-slate-500 dark:text-slate-400">{tt('fuelPrices.cheaperItalyCount', 'Comuni dove conviene IT')}</div>
-          <div className="mt-2 text-3xl font-bold text-emerald-600 dark:text-emerald-400">{data.summary.cheaperItalyCount}</div>
-          <p className="mt-2 text-xs text-slate-500 dark:text-slate-400">{tt('fuelPrices.cheaperItalyHint', 'Confronti in cui il prezzo italiano e piu basso del migliore prezzo svizzero vicino.')}</p>
-        </div>
-        <div className="rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800 p-5">
-          <div className="text-xs font-semibold uppercase text-slate-500 dark:text-slate-400">{tt('fuelPrices.cheaperSwissCount', 'Comuni dove conviene CH')}</div>
-          <div className="mt-2 text-3xl font-bold text-blue-600 dark:text-blue-400">{data.summary.cheaperSwissCount}</div>
-          <p className="mt-2 text-xs text-slate-500 dark:text-slate-400">{tt('fuelPrices.cheaperSwissHint', 'Confronti in cui la stazione svizzera piu conveniente batte il miglior prezzo locale italiano.')}</p>
-        </div>
-        <div className="rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800 p-5">
-          <div className="text-xs font-semibold uppercase text-slate-500 dark:text-slate-400">{tt('fuelPrices.bestItalyToday', 'Miglior prezzo Italia')}</div>
-          <div className="mt-2 text-xl font-bold text-slate-900 dark:text-slate-100">
-            {data.summary.cheapestItalyMunicipality
-              ? `${data.summary.cheapestItalyMunicipality.municipality} (${data.summary.cheapestItalyMunicipality.province})`
-              : '—'}
-          </div>
-          <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">
-            {data.summary.cheapestItalyMunicipality ? formatMoney(data.summary.cheapestItalyMunicipality.minPriceEur, 'EUR', locale) : '—'}
-          </p>
-        </div>
-        <div className="rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800 p-5">
-          <div className="text-xs font-semibold uppercase text-slate-500 dark:text-slate-400">{tt('fuelPrices.bestSwissToday', 'Miglior prezzo Svizzera')}</div>
-          <div className="mt-2 text-xl font-bold text-slate-900 dark:text-slate-100">
-            {data.summary.cheapestSwissStation ? data.summary.cheapestSwissStation.name : '—'}
-          </div>
-          <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">
-            {data.summary.cheapestSwissStation ? `${formatMoney(data.summary.cheapestSwissStation.sp95PriceChf, 'CHF', locale)} / ${formatMoney(data.summary.cheapestSwissStation.sp95PriceEur, 'EUR', locale)}` : '—'}
-          </p>
-        </div>
-      </section>
+      <div className="flex flex-wrap items-baseline gap-x-5 gap-y-1.5 text-sm text-slate-600 dark:text-slate-400">
+        <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-emerald-600 dark:text-emerald-400">{data.summary.cheaperItalyCount}</span> {tt('fuelPrices.cheaperItalyCount', 'Comuni dove conviene IT')}</span>
+        <span className="hidden sm:inline text-slate-300 dark:text-slate-600" aria-hidden="true">·</span>
+        <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-blue-600 dark:text-blue-400">{data.summary.cheaperSwissCount}</span> {tt('fuelPrices.cheaperSwissCount', 'Comuni dove conviene CH')}</span>
+        <span className="hidden sm:inline text-slate-300 dark:text-slate-600" aria-hidden="true">·</span>
+        <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-slate-900 dark:text-slate-100">{data.summary.cheapestItalyMunicipality ? `${data.summary.cheapestItalyMunicipality.municipality}` : '—'}</span> {tt('fuelPrices.bestItalyToday', 'Miglior prezzo Italia')} {data.summary.cheapestItalyMunicipality ? formatMoney(data.summary.cheapestItalyMunicipality.minPriceEur, 'EUR', locale) : ''}</span>
+        <span className="hidden sm:inline text-slate-300 dark:text-slate-600" aria-hidden="true">·</span>
+        <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-slate-900 dark:text-slate-100">{data.summary.cheapestSwissStation ? data.summary.cheapestSwissStation.name : '—'}</span> {tt('fuelPrices.bestSwissToday', 'Miglior prezzo Svizzera')} {data.summary.cheapestSwissStation ? `${formatMoney(data.summary.cheapestSwissStation.sp95PriceChf, 'CHF', locale)}` : ''}</span>
+      </div>
 
       <section className="rounded-[2rem] border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5 sm:p-6">
         <div className="flex flex-col gap-4 xl:flex-row xl:items-start xl:justify-between">

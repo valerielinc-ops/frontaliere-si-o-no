@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState, memo } from 'react';
 import { 
   AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, 
   Legend, Cell, BarChart, Bar, LineChart, Line
@@ -11,7 +11,7 @@ import JobBoardStatsOverview from './JobBoardStatsOverview';
 
 // StatsSubTab is defined in services/router.ts — use that as the canonical source
 
-export const StatsView: React.FC = () => {
+const StatsViewInner: React.FC = () => {
   const { t, locale } = useTranslation();
   const [historicalData, setHistoricalData] = useState<TrendPoint[]>([]);
   const [ageData, setAgeData] = useState<AgePoint[]>([]);
@@ -226,7 +226,7 @@ export const StatsView: React.FC = () => {
                         contentStyle={{borderRadius: '12px', border: 'none', boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)', backgroundColor: isDark ? '#1e293b' : '#fff', color: isDark ? '#e2e8f0' : '#1e293b'}}
                         formatter={(value: any) => [Number(value).toLocaleString('it-IT'), t('stats.workers')]}
                      />
-                     <Area type="monotone" dataKey="frontalieri" stroke="#f59e0b" strokeWidth={3} fillOpacity={1} fill="url(#colorFront)" animationDuration={1500} />
+                     <Area type="monotone" dataKey="frontalieri" stroke="#f59e0b" strokeWidth={3} fillOpacity={1} fill="url(#colorFront)" animationDuration={800} />
                    </AreaChart>
                  </ResponsiveContainer>
                </div>
@@ -331,3 +331,5 @@ export const StatsView: React.FC = () => {
     </div>
   );
 };
+
+export const StatsView = memo(StatsViewInner);

@@ -259,8 +259,9 @@ const CommunityForum: React.FC = () => {
                   className={`p-1.5 rounded-lg transition-colors ${
                     user && selectedQuestion.upvotedBy.includes(user.uid)
                       ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400'
-                      : 'text-slate-300 hover:text-emerald-500 hover:bg-emerald-50 dark:hover:bg-emerald-900/20'
+                      : 'text-slate-500 hover:text-emerald-500 hover:bg-emerald-50 dark:hover:bg-emerald-900/20'
                   } ${!user ? 'opacity-50 cursor-not-allowed' : ''}`}
+                  aria-label="Vota positivo"
                 >
                   <ThumbsUp className="w-5 h-5" />
                 </button>
@@ -328,8 +329,9 @@ const CommunityForum: React.FC = () => {
                         className={`p-1 rounded-lg transition-colors ${
                           user && answer.upvotedBy.includes(user.uid)
                             ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400'
-                            : 'text-slate-300 hover:text-emerald-500'
+                            : 'text-slate-500 hover:text-emerald-500'
                         } ${!user ? 'opacity-50 cursor-not-allowed' : ''}`}
+                        aria-label="Vota positivo"
                       >
                         <ThumbsUp className="w-4 h-4" />
                       </button>
@@ -559,7 +561,7 @@ const CommunityForum: React.FC = () => {
               <div className="flex items-start gap-3">
                 {/* Upvotes */}
                 <div className="flex flex-col items-center gap-0.5 pt-0.5">
-                  <ThumbsUp className={`w-4 h-4 ${user && q.upvotedBy.includes(user.uid) ? 'text-emerald-500' : 'text-slate-300'}`} />
+                  <ThumbsUp className={`w-4 h-4 ${user && q.upvotedBy.includes(user.uid) ? 'text-emerald-500' : 'text-slate-500'}`} />
                   <span className="text-xs font-bold text-slate-500 dark:text-slate-400">{q.upvotes}</span>
                 </div>
 

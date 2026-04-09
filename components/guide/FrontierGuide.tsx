@@ -1032,13 +1032,13 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                             <Marker key={idx} position={[border.lat, border.lng]} icon={customIcon}>
                               <Popup>
                                 <div className="text-sm min-w-[200px]">
-                                  <div className="font-bold text-slate-800 mb-1">{border.name}</div>
+                                  <div className="font-bold text-slate-800 dark:text-slate-100 mb-1">{border.name}</div>
                                   <div className="text-xs text-slate-600 dark:text-slate-400 mb-2">📍 {border.italianSide}</div>
                                   <div className="text-xs space-y-1">
                                     <div><strong>🌅 {t('guide.border.morning')}:</strong> {border.avgWaitMorning}</div>
                                     <div><strong>🌆 {t('guide.border.evening')}:</strong> {border.avgWaitEvening}</div>
                                     <div><strong>⏰ {t('guide.border.hours')}:</strong> {t(border.hours)}</div>
-                                    <div className="pt-2 border-t border-slate-200">
+                                    <div className="pt-2 border-t border-slate-200 dark:border-slate-700">
                                       <strong>💡</strong> {t(border.tips)}
                                     </div>
                                   </div>

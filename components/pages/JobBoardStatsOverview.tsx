@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { memo, useEffect, useMemo, useState } from 'react';
 import {
   ResponsiveContainer,
   ComposedChart,
@@ -287,7 +287,7 @@ function LeaderList(props: { title: string; icon: React.ReactNode; items: JobBoa
   );
 }
 
-export const JobBoardStatsOverview: React.FC<{ locale: Locale }> = ({ locale }) => {
+const JobBoardStatsOverviewInner: React.FC<{ locale: Locale }> = ({ locale }) => {
   const copy = COPY_BY_LOCALE[locale] || COPY_BY_LOCALE.it;
   const [data, setData] = useState<JobBoardStatsData | null>(null);
   const [loading, setLoading] = useState(true);
@@ -336,12 +336,12 @@ export const JobBoardStatsOverview: React.FC<{ locale: Locale }> = ({ locale }) 
     );
   }
 
-  const topCompaniesForSeo = data.leaders.topCompaniesActive.slice(0, 3);
-  const topLocationsForSeo = data.leaders.topLocationsActive.slice(0, 3);
-  const topCompaniesRecent = data.leaders.topCompaniesAdded30d.slice(0, 8);
-  const topTitlesRecent = data.leaders.topTitlesAdded30d.slice(0, 8);
-  const topLocationsActive = data.leaders.topLocationsActive.slice(0, 8);
-  const topCompaniesActive = data.leaders.topCompaniesActive.slice(0, 8);
+  const topCompaniesForSeo = useMemo(() => data.leaders.topCompaniesActive.slice(0, 3), [data.leaders.topCompaniesActive]);
+  const topLocationsForSeo = useMemo(() => data.leaders.topLocationsActive.slice(0, 3), [data.leaders.topLocationsActive]);
+  const topCompaniesRecent = useMemo(() => data.leaders.topCompaniesAdded30d.slice(0, 8), [data.leaders.topCompaniesAdded30d]);
+  const topTitlesRecent = useMemo(() => data.leaders.topTitlesAdded30d.slice(0, 8), [data.leaders.topTitlesAdded30d]);
+  const topLocationsActive = useMemo(() => data.leaders.topLocationsActive.slice(0, 8), [data.leaders.topLocationsActive]);
+  const topCompaniesActive = useMemo(() => data.leaders.topCompaniesActive.slice(0, 8), [data.leaders.topCompaniesActive]);
 
   return (
     <div className="space-y-6">
@@ -510,4 +510,5 @@ export const JobBoardStatsOverview: React.FC<{ locale: Locale }> = ({ locale }) 
   );
 };
 
+export const JobBoardStatsOverview = memo(JobBoardStatsOverviewInner);
 export default JobBoardStatsOverview;

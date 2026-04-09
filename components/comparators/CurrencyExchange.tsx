@@ -381,7 +381,7 @@ const CurrencyExchange: React.FC = () => {
     };
   };
 
-  const results = providers.map(p => ({
+  const results = useMemo(() => providers.map(p => ({
     provider: p,
     ...calculateExchange(p)
   })).sort((a, b) => {
@@ -394,7 +394,7 @@ const CurrencyExchange: React.FC = () => {
     if (a.provider.name === 'Wise (TransferWise)') return -1;
     if (b.provider.name === 'Wise (TransferWise)') return 1;
     return 0;
-  });
+  }), [amount, realRate]);
 
   const best = results[0];
   const worst = results[results.length - 1];

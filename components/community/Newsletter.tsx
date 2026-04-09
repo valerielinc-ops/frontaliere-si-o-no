@@ -225,7 +225,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
                 />
               </div>
               <button type="submit" disabled={status === 'loading'}
-                className="px-5 py-2.5 bg-white text-teal-700 font-bold text-sm rounded-xl hover:bg-teal-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                className="px-5 py-2.5 bg-white dark:bg-slate-800 text-teal-700 dark:text-teal-300 font-bold text-sm rounded-xl hover:bg-teal-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
                 aria-label={t('newsletter.subscribeFree')}
               >
                 {status === 'loading' ? <Loader2 size={16} className="animate-spin" /> : <Send size={16} />}

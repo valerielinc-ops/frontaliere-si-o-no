@@ -251,7 +251,7 @@ const CarTransferGuide: React.FC = () => {
                 <h4 className="font-bold text-slate-700 dark:text-slate-300 mb-3">{t('carTransfer.plates.typesTitle')}</h4>
                 <ul className="space-y-3 text-sm">
                   <li className="flex items-start gap-3">
-                    <div className="shrink-0 w-16 h-8 bg-white border-2 border-slate-300 rounded flex items-center justify-center text-xs font-bold text-slate-700 dark:text-slate-300">TI ···</div>
+                    <div className="shrink-0 w-16 h-8 bg-white dark:bg-slate-800 border-2 border-slate-300 dark:border-slate-600 rounded flex items-center justify-center text-xs font-bold text-slate-700 dark:text-slate-300">TI ···</div>
                     <div>
                       <div className="font-semibold text-slate-700 dark:text-slate-300">{t('carTransfer.plates.permanent')}</div>
                       <div className="text-slate-500 dark:text-slate-400">{t('carTransfer.plates.permanentDesc')}</div>

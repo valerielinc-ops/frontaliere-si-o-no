@@ -336,13 +336,13 @@ export const FeedbackSection: React.FC = () => {
                         </div>
                       </div>
                     </div>
-                    <ChevronRight size={14} className="text-slate-300 group-hover:translate-x-1 transition-transform" />
+                    <ChevronRight size={14} className="text-slate-500 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </a>
               ))
             ) : (
               <div className="text-center py-12 bg-slate-50/50 dark:bg-slate-900/50 rounded-3xl border-2 border-dashed border-slate-200 dark:border-slate-800">
-                <Github size={32} className="mx-auto text-slate-300 mb-3" />
+                <Github size={32} className="mx-auto text-slate-500 mb-3" />
                 <p className="text-sm text-slate-500 dark:text-slate-400">{t('feedback.noReports')}</p>
               </div>
             )}

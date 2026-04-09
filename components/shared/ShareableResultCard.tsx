@@ -402,8 +402,7 @@ const ShareableResultCard: React.FC<ShareableCardProps> = ({
           {/* The Card (hidden when image is generated) */}
           <div
             ref={cardRef}
-            className="bg-white rounded-2xl overflow-hidden shadow-lg"
-            style={{ width: 600, maxWidth: '100%' }}
+            className="bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-lg w-full max-w-[600px]"
           >
             {/* Header */}
             <div className={`bg-gradient-to-r ${ACCENT_GRADIENTS[accent]} px-6 py-4`}>
@@ -424,10 +423,10 @@ const ShareableResultCard: React.FC<ShareableCardProps> = ({
                 <div
                   key={i}
                   className={`flex items-center justify-between py-2 ${
-                    row.highlight ? 'border-b-2 border-slate-200' : 'border-b border-slate-100'
+                    row.highlight ? 'border-b-2 border-slate-200 dark:border-slate-700' : 'border-b border-slate-100 dark:border-slate-700'
                   }`}
                 >
-                  <span className={`text-sm ${row.highlight ? 'font-semibold text-slate-800' : 'text-slate-600 dark:text-slate-400'}`}>
+                  <span className={`text-sm ${row.highlight ? 'font-semibold text-slate-800 dark:text-slate-200' : 'text-slate-600 dark:text-slate-400'}`}>
                     {row.label}
                   </span>
                   <span className={`text-sm font-bold ${

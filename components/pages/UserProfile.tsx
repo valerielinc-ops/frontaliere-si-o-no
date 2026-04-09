@@ -942,10 +942,10 @@ const UserProfile: React.FC = () => {
               <span className="text-blue-100 font-medium">{t('profile.completeness')}</span>
               <span className="font-bold">{completeness}%</span>
             </div>
-            <div className="w-full bg-white/20 rounded-full h-2">
+            <div className="w-full bg-white/20 rounded-full h-2 overflow-hidden">
               <div
-                className="bg-white rounded-full h-2 transition-[width] duration-500"
-                style={{ width: `${completeness}%` }}
+                className="bg-white dark:bg-slate-600 rounded-full h-2 transition-transform duration-500 origin-left"
+                style={{ transform: `scaleX(${completeness / 100})` }}
               />
             </div>
             {completeness < 100 && (

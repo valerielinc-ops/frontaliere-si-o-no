@@ -2301,7 +2301,7 @@ const JobCard = React.memo(({ job, jobHref, salary, logo, isNew, postedLabel, lo
       <div className="flex items-start gap-3">
         <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-lg bg-slate-100 dark:bg-slate-700 flex items-center justify-center overflow-hidden border border-slate-200 dark:border-slate-600 shrink-0">
           {logo ? (
-            <img src={logo} alt={`Logo ${job.company}`} className="w-7 h-7 sm:w-10 sm:h-10 object-contain" width={40} height={40} loading="lazy" onError={(e) => { const el = e.currentTarget; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.display = 'none'; } }} />
+            <img src={logo} alt={`Logo ${job.company}`} className="w-7 h-7 sm:w-10 sm:h-10 object-contain" width={40} height={40} loading="lazy" onError={(e) => { const el = e.currentTarget; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.visibility = 'hidden'; } }} />
           ) : (
             <span className="text-base sm:text-lg">{CATEGORY_EMOJI[job.category]}</span>
           )}
@@ -4317,24 +4317,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
           </p>
         </section>
 
-        <section className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
-          <div className="rounded-2xl border border-indigo-100 dark:border-indigo-900/60 bg-indigo-50 dark:bg-indigo-950/20 p-4">
-            <div className="text-xs font-bold uppercase tracking-wide text-indigo-700 dark:text-indigo-300">{editorialJobTodayLanding.countsLabel}</div>
-            <div className="mt-2 text-3xl font-bold text-slate-900 dark:text-white">{editorialJobTodayLanding.totalJobs}</div>
-          </div>
-          <div className="rounded-2xl border border-cyan-100 dark:border-cyan-900/60 bg-cyan-50 dark:bg-cyan-950/20 p-4">
-            <div className="text-xs font-bold uppercase tracking-wide text-cyan-700 dark:text-cyan-300">{editorialJobTodayLanding.sections.last24Hours.label}</div>
-            <div className="mt-2 text-3xl font-bold text-slate-900 dark:text-white">{editorialJobTodayLanding.sections.last24Hours.jobs.length}</div>
-          </div>
-          <div className="rounded-2xl border border-emerald-100 dark:border-emerald-900/60 bg-emerald-50 dark:bg-emerald-950/20 p-4">
-            <div className="text-xs font-bold uppercase tracking-wide text-emerald-700 dark:text-emerald-300">{editorialJobTodayLanding.sections.last3Days.label}</div>
-            <div className="mt-2 text-3xl font-bold text-slate-900 dark:text-white">{editorialJobTodayLanding.sections.last3Days.jobs.length}</div>
-          </div>
-          <div className="rounded-2xl border border-amber-100 dark:border-amber-900/60 bg-amber-50 dark:bg-amber-950/20 p-4">
-            <div className="text-xs font-bold uppercase tracking-wide text-amber-700 dark:text-amber-300">{editorialJobTodayLanding.sections.partTime.label}</div>
-            <div className="mt-2 text-3xl font-bold text-slate-900 dark:text-white">{editorialJobTodayLanding.sections.partTime.jobs.length}</div>
-          </div>
-        </section>
+        <div className="flex flex-wrap items-baseline gap-x-5 gap-y-1.5 text-sm text-slate-600 dark:text-slate-400">
+          <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-slate-900 dark:text-white">{editorialJobTodayLanding.totalJobs}</span> {editorialJobTodayLanding.countsLabel}</span>
+          <span className="hidden sm:inline text-slate-300 dark:text-slate-600" aria-hidden="true">·</span>
+          <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-slate-900 dark:text-white">{editorialJobTodayLanding.sections.last24Hours.jobs.length}</span> {editorialJobTodayLanding.sections.last24Hours.label}</span>
+          <span className="hidden sm:inline text-slate-300 dark:text-slate-600" aria-hidden="true">·</span>
+          <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-slate-900 dark:text-white">{editorialJobTodayLanding.sections.last3Days.jobs.length}</span> {editorialJobTodayLanding.sections.last3Days.label}</span>
+          <span className="hidden sm:inline text-slate-300 dark:text-slate-600" aria-hidden="true">·</span>
+          <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-slate-900 dark:text-white">{editorialJobTodayLanding.sections.partTime.jobs.length}</span> {editorialJobTodayLanding.sections.partTime.label}</span>
+        </div>
 
         <section className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4 sm:p-5">
           <div className="flex flex-wrap gap-2">
@@ -4418,28 +4409,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
           </p>
         </section>
 
-        <section className="grid gap-3 sm:grid-cols-3">
-          <div className="rounded-2xl border border-indigo-100 dark:border-indigo-900/60 bg-indigo-50 dark:bg-indigo-950/20 p-4">
-            <div className="text-xs font-bold uppercase tracking-wide text-indigo-700 dark:text-indigo-300">{editorialOfficialGazetteLanding.countsLabel}</div>
-            <div className="mt-2 text-3xl font-bold text-slate-900 dark:text-white">{editorialOfficialGazetteLanding.totalJobs}</div>
-          </div>
-          <div className="rounded-2xl border border-cyan-100 dark:border-cyan-900/60 bg-cyan-50 dark:bg-cyan-950/20 p-4">
-            <div className="text-xs font-bold uppercase tracking-wide text-cyan-700 dark:text-cyan-300">{editorialOfficialGazetteLanding.latestLabel}</div>
-            <div className="mt-2 text-3xl font-bold text-slate-900 dark:text-white">{editorialOfficialGazetteLanding.latestJobs.length}</div>
-          </div>
-          <div className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 p-4">
-            <div className="text-xs font-bold uppercase tracking-wide text-slate-600 dark:text-slate-300">{editorialOfficialGazetteLanding.officialSourceLabel}</div>
-            <a
-              href={editorialOfficialGazetteLanding.officialSourceUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-2 inline-flex items-center gap-2 text-sm font-bold text-indigo-700 dark:text-indigo-300 no-underline hover:underline"
-            >
-              concorsi.ti.ch
-              <ArrowUpRight className="w-4 h-4" />
-            </a>
-          </div>
-        </section>
+        <div className="flex flex-wrap items-baseline gap-x-5 gap-y-1.5 text-sm text-slate-600 dark:text-slate-400">
+          <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-slate-900 dark:text-white">{editorialOfficialGazetteLanding.totalJobs}</span> {editorialOfficialGazetteLanding.countsLabel}</span>
+          <span className="hidden sm:inline text-slate-300 dark:text-slate-600" aria-hidden="true">·</span>
+          <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-slate-900 dark:text-white">{editorialOfficialGazetteLanding.latestJobs.length}</span> {editorialOfficialGazetteLanding.latestLabel}</span>
+          <span className="hidden sm:inline text-slate-300 dark:text-slate-600" aria-hidden="true">·</span>
+          <span className="inline-flex items-baseline gap-1.5">{editorialOfficialGazetteLanding.officialSourceLabel} <a href={editorialOfficialGazetteLanding.officialSourceUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 font-semibold text-indigo-700 dark:text-indigo-300 no-underline hover:underline">concorsi.ti.ch <ArrowUpRight className="w-3.5 h-3.5" /></a></span>
+        </div>
 
         <section className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4 sm:p-5">
           <div className="flex flex-wrap gap-2">
@@ -4544,20 +4520,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
           </p>
         </section>
 
-        <section className="grid gap-3 sm:grid-cols-3">
-          <div className="rounded-2xl border border-indigo-100 dark:border-indigo-900/60 bg-indigo-50 dark:bg-indigo-950/20 p-4">
-            <div className="text-xs font-bold uppercase tracking-wide text-indigo-700 dark:text-indigo-300">{editorialNursesHubLanding.countsLabel}</div>
-            <div className="mt-2 text-3xl font-bold text-slate-900 dark:text-white">{editorialNursesHubLanding.totalJobs}</div>
-          </div>
-          <div className="rounded-2xl border border-cyan-100 dark:border-cyan-900/60 bg-cyan-50 dark:bg-cyan-950/20 p-4">
-            <div className="text-xs font-bold uppercase tracking-wide text-cyan-700 dark:text-cyan-300">{editorialNursesHubLanding.latestLabel}</div>
-            <div className="mt-2 text-3xl font-bold text-slate-900 dark:text-white">{editorialNursesHubLanding.latestJobs.length}</div>
-          </div>
-          <div className="rounded-2xl border border-emerald-100 dark:border-emerald-900/60 bg-emerald-50 dark:bg-emerald-950/20 p-4">
-            <div className="text-xs font-bold uppercase tracking-wide text-emerald-700 dark:text-emerald-300">{editorialNursesHubLanding.variantTitle}</div>
-            <div className="mt-2 text-3xl font-bold text-slate-900 dark:text-white">{editorialNursesHubLanding.variants.length}</div>
-          </div>
-        </section>
+        <div className="flex flex-wrap items-baseline gap-x-5 gap-y-1.5 text-sm text-slate-600 dark:text-slate-400">
+          <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-slate-900 dark:text-white">{editorialNursesHubLanding.totalJobs}</span> {editorialNursesHubLanding.countsLabel}</span>
+          <span className="hidden sm:inline text-slate-300 dark:text-slate-600" aria-hidden="true">·</span>
+          <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-slate-900 dark:text-white">{editorialNursesHubLanding.latestJobs.length}</span> {editorialNursesHubLanding.latestLabel}</span>
+          <span className="hidden sm:inline text-slate-300 dark:text-slate-600" aria-hidden="true">·</span>
+          <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-slate-900 dark:text-white">{editorialNursesHubLanding.variants.length}</span> {editorialNursesHubLanding.variantTitle}</span>
+        </div>
 
         {editorialNursesHubLanding.variants.length > 0 && (
           <section className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
@@ -4665,16 +4634,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
           </button>
         </section>
 
-        <section className="grid gap-3 sm:grid-cols-2">
-          <div className="rounded-2xl border border-indigo-100 dark:border-indigo-900/60 bg-indigo-50 dark:bg-indigo-950/20 p-4">
-            <div className="text-xs font-bold uppercase tracking-wide text-indigo-700 dark:text-indigo-300">{editorialCareVariantLanding.countsLabel}</div>
-            <div className="mt-2 text-3xl font-bold text-slate-900 dark:text-white">{editorialCareVariantLanding.totalJobs}</div>
-          </div>
-          <div className="rounded-2xl border border-cyan-100 dark:border-cyan-900/60 bg-cyan-50 dark:bg-cyan-950/20 p-4">
-            <div className="text-xs font-bold uppercase tracking-wide text-cyan-700 dark:text-cyan-300">{editorialCareVariantLanding.latestLabel}</div>
-            <div className="mt-2 text-3xl font-bold text-slate-900 dark:text-white">{editorialCareVariantLanding.latestJobs.length}</div>
-          </div>
-        </section>
+        <div className="flex flex-wrap items-baseline gap-x-5 gap-y-1.5 text-sm text-slate-600 dark:text-slate-400">
+          <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-slate-900 dark:text-white">{editorialCareVariantLanding.totalJobs}</span> {editorialCareVariantLanding.countsLabel}</span>
+          <span className="hidden sm:inline text-slate-300 dark:text-slate-600" aria-hidden="true">·</span>
+          <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-slate-900 dark:text-white">{editorialCareVariantLanding.latestJobs.length}</span> {editorialCareVariantLanding.latestLabel}</span>
+        </div>
 
         {editorialCareVariantLanding.siblingLinks.length > 0 && (
           <section className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
@@ -4748,16 +4712,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
           </p>
         </section>
 
-        <section className="grid gap-3 sm:grid-cols-2">
-          <div className="rounded-2xl border border-indigo-100 dark:border-indigo-900/60 bg-indigo-50 dark:bg-indigo-950/20 p-4">
-            <div className="text-xs font-bold uppercase tracking-wide text-indigo-700 dark:text-indigo-300">{editorialLocationLanding.countsLabel}</div>
-            <div className="mt-2 text-3xl font-bold text-slate-900 dark:text-white">{editorialLocationLanding.totalJobs}</div>
-          </div>
-          <div className="rounded-2xl border border-cyan-100 dark:border-cyan-900/60 bg-cyan-50 dark:bg-cyan-950/20 p-4">
-            <div className="text-xs font-bold uppercase tracking-wide text-cyan-700 dark:text-cyan-300">{editorialLocationLanding.latestLabel}</div>
-            <div className="mt-2 text-3xl font-bold text-slate-900 dark:text-white">{editorialLocationLanding.latestJobs.length}</div>
-          </div>
-        </section>
+        <div className="flex flex-wrap items-baseline gap-x-5 gap-y-1.5 text-sm text-slate-600 dark:text-slate-400">
+          <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-slate-900 dark:text-white">{editorialLocationLanding.totalJobs}</span> {editorialLocationLanding.countsLabel}</span>
+          <span className="hidden sm:inline text-slate-300 dark:text-slate-600" aria-hidden="true">·</span>
+          <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-slate-900 dark:text-white">{editorialLocationLanding.latestJobs.length}</span> {editorialLocationLanding.latestLabel}</span>
+        </div>
 
         {editorialLocationLanding.relatedTypeLinks.length > 0 && (
           <section className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
@@ -4871,16 +4830,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
           </button>
         </section>
 
-        <section className="grid gap-3 sm:grid-cols-2">
-          <div className="rounded-2xl border border-indigo-100 dark:border-indigo-900/60 bg-indigo-50 dark:bg-indigo-950/20 p-4">
-            <div className="text-xs font-bold uppercase tracking-wide text-indigo-700 dark:text-indigo-300">{editorialLocationTypeLanding.countsLabel}</div>
-            <div className="mt-2 text-3xl font-bold text-slate-900 dark:text-white">{editorialLocationTypeLanding.totalJobs}</div>
-          </div>
-          <div className="rounded-2xl border border-cyan-100 dark:border-cyan-900/60 bg-cyan-50 dark:bg-cyan-950/20 p-4">
-            <div className="text-xs font-bold uppercase tracking-wide text-cyan-700 dark:text-cyan-300">{editorialLocationTypeLanding.latestLabel}</div>
-            <div className="mt-2 text-3xl font-bold text-slate-900 dark:text-white">{editorialLocationTypeLanding.latestJobs.length}</div>
-          </div>
-        </section>
+        <div className="flex flex-wrap items-baseline gap-x-5 gap-y-1.5 text-sm text-slate-600 dark:text-slate-400">
+          <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-slate-900 dark:text-white">{editorialLocationTypeLanding.totalJobs}</span> {editorialLocationTypeLanding.countsLabel}</span>
+          <span className="hidden sm:inline text-slate-300 dark:text-slate-600" aria-hidden="true">·</span>
+          <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-slate-900 dark:text-white">{editorialLocationTypeLanding.latestJobs.length}</span> {editorialLocationTypeLanding.latestLabel}</span>
+        </div>
 
         {editorialLocationTypeLanding.siblingTypeLinks.length > 0 && (
           <section className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
@@ -4966,16 +4920,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
           </button>
         </section>
 
-        <section className="grid gap-3 sm:grid-cols-2">
-          <div className="rounded-2xl border border-indigo-100 dark:border-indigo-900/60 bg-indigo-50 dark:bg-indigo-950/20 p-4">
-            <div className="text-xs font-bold uppercase tracking-wide text-indigo-700 dark:text-indigo-300">{editorialLocationSectorLanding.countsLabel}</div>
-            <div className="mt-2 text-3xl font-bold text-slate-900 dark:text-white">{editorialLocationSectorLanding.totalJobs}</div>
-          </div>
-          <div className="rounded-2xl border border-cyan-100 dark:border-cyan-900/60 bg-cyan-50 dark:bg-cyan-950/20 p-4">
-            <div className="text-xs font-bold uppercase tracking-wide text-cyan-700 dark:text-cyan-300">{editorialLocationSectorLanding.latestLabel}</div>
-            <div className="mt-2 text-3xl font-bold text-slate-900 dark:text-white">{editorialLocationSectorLanding.latestJobs.length}</div>
-          </div>
-        </section>
+        <div className="flex flex-wrap items-baseline gap-x-5 gap-y-1.5 text-sm text-slate-600 dark:text-slate-400">
+          <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-slate-900 dark:text-white">{editorialLocationSectorLanding.totalJobs}</span> {editorialLocationSectorLanding.countsLabel}</span>
+          <span className="hidden sm:inline text-slate-300 dark:text-slate-600" aria-hidden="true">·</span>
+          <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-slate-900 dark:text-white">{editorialLocationSectorLanding.latestJobs.length}</span> {editorialLocationSectorLanding.latestLabel}</span>
+        </div>
 
         {editorialLocationSectorLanding.siblingSectorLinks.length > 0 && (
           <section className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
@@ -5060,16 +5009,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
           </button>
         </section>
 
-        <section className="grid gap-3 sm:grid-cols-2">
-          <div className="rounded-2xl border border-indigo-100 dark:border-indigo-900/60 bg-indigo-50 dark:bg-indigo-950/20 p-4">
-            <div className="text-xs font-bold uppercase tracking-wide text-indigo-700 dark:text-indigo-300">{editorialSectorRegionLanding.countsLabel}</div>
-            <div className="mt-2 text-3xl font-bold text-slate-900 dark:text-white">{editorialSectorRegionLanding.totalJobs}</div>
-          </div>
-          <div className="rounded-2xl border border-cyan-100 dark:border-cyan-900/60 bg-cyan-50 dark:bg-cyan-950/20 p-4">
-            <div className="text-xs font-bold uppercase tracking-wide text-cyan-700 dark:text-cyan-300">{editorialSectorRegionLanding.latestLabel}</div>
-            <div className="mt-2 text-3xl font-bold text-slate-900 dark:text-white">{editorialSectorRegionLanding.latestJobs.length}</div>
-          </div>
-        </section>
+        <div className="flex flex-wrap items-baseline gap-x-5 gap-y-1.5 text-sm text-slate-600 dark:text-slate-400">
+          <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-slate-900 dark:text-white">{editorialSectorRegionLanding.totalJobs}</span> {editorialSectorRegionLanding.countsLabel}</span>
+          <span className="hidden sm:inline text-slate-300 dark:text-slate-600" aria-hidden="true">·</span>
+          <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-slate-900 dark:text-white">{editorialSectorRegionLanding.latestJobs.length}</span> {editorialSectorRegionLanding.latestLabel}</span>
+        </div>
 
         {editorialSectorRegionLanding.siblingSectorLinks.length > 0 && (
           <section className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
@@ -5192,7 +5136,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                   height={48}
                   className="w-12 h-12 rounded-lg object-contain bg-slate-50 dark:bg-slate-700 flex-shrink-0"
                   loading="lazy"
-                  onError={(e) => { const el = e.currentTarget; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.display = 'none'; } }}
+                  onError={(e) => { const el = e.currentTarget; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.visibility = 'hidden'; } }}
                 />
               )}
               <div className="flex-1 min-w-0">
@@ -5561,7 +5505,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                       width={56}
                       height={56}
                       loading="lazy"
-                      onError={(e) => { const el = e.currentTarget; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.display = 'none'; } }}
+                      onError={(e) => { const el = e.currentTarget; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.visibility = 'hidden'; } }}
                     />
                   ) : (
                     <Building2 className="w-9 h-9 text-slate-500 dark:text-slate-400" />
@@ -5725,7 +5669,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                       width={28}
                       height={28}
                       loading="lazy"
-                      onError={(e) => { const el = e.currentTarget; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.display = 'none'; } }}
+                      onError={(e) => { const el = e.currentTarget; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.visibility = 'hidden'; } }}
                     />
                   ) : (
                     <Building2 className="w-4 h-4 text-slate-500 dark:text-slate-400" />
@@ -5928,7 +5872,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                     <div className="flex items-start gap-3">
                       <div className="w-12 h-12 rounded-lg bg-slate-100 dark:bg-slate-700 flex items-center justify-center overflow-hidden border border-slate-200 dark:border-slate-600 shrink-0">
                         {jobLogo ? (
-                          <img src={jobLogo} alt={`Logo ${job.company}`} className="w-8 h-8 object-contain" width={32} height={32} loading="lazy" onError={(e) => { const el = e.currentTarget; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.display = 'none'; } }} />
+                          <img src={jobLogo} alt={`Logo ${job.company}`} className="w-8 h-8 object-contain" width={32} height={32} loading="lazy" onError={(e) => { const el = e.currentTarget; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.visibility = 'hidden'; } }} />
                         ) : (
                           <Building2 className="w-5 h-5 text-slate-500 dark:text-slate-400" />
                         )}
@@ -6089,22 +6033,24 @@ const JobBoard: React.FC<JobBoardProps> = ({
           </div>
         </div>
 
-        {/* Autocomplete suggestions */}
-        {autocompleteSuggestions.length > 0 && (
-          <div className="flex flex-wrap items-center gap-1.5">
-            <span className="text-xs text-slate-500 dark:text-slate-400 flex-shrink-0">{t('search.autocomplete') || 'Suggerimenti:'}</span>
-            {autocompleteSuggestions.map((s) => (
-              <button
-                key={s}
-                type="button"
-                onClick={() => setSearchQuery(s)}
-                className="px-2.5 py-1 rounded-full text-xs bg-indigo-50 dark:bg-indigo-950/30 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800 hover:bg-indigo-100 dark:hover:bg-indigo-900/40 transition-colors"
-              >
-                {s}
-              </button>
-            ))}
-          </div>
-        )}
+        {/* Autocomplete suggestions — min-h prevents CLS when suggestions appear */}
+        <div className={autocompleteSuggestions.length > 0 ? 'min-h-[32px]' : ''}>
+          {autocompleteSuggestions.length > 0 && (
+            <div className="flex flex-wrap items-center gap-1.5">
+              <span className="text-xs text-slate-500 dark:text-slate-400 flex-shrink-0">{t('search.autocomplete') || 'Suggerimenti:'}</span>
+              {autocompleteSuggestions.map((s) => (
+                <button
+                  key={s}
+                  type="button"
+                  onClick={() => setSearchQuery(s)}
+                  className="px-2.5 py-1 rounded-full text-xs bg-indigo-50 dark:bg-indigo-950/30 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800 hover:bg-indigo-100 dark:hover:bg-indigo-900/40 transition-colors"
+                >
+                  {s}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
 
         {/* Quick-filter chips */}
         <div className="flex flex-wrap gap-1.5" role="group" aria-label={t('jobBoard.quickFilters.label')}>
@@ -6134,7 +6080,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
         {/* FRO-332/353: Job Alert form (behind feature flag) */}
         {enableJobAlerts && (
-          <Suspense fallback={null}>
+          <Suspense fallback={<div className="h-[100px] rounded-xl bg-slate-100 dark:bg-slate-800 animate-pulse" />}>
             <JobAlertForm
               authUser={authUser}
               onRequireAuth={onRequireAuth}
@@ -6195,9 +6141,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
           )}
         </div>
 
-        {/* Expandable filter panel */}
-        {filtersExpanded && (
-          <div className="bg-white dark:bg-slate-800/50 p-3 sm:p-4 rounded-xl border border-slate-200 dark:border-slate-700 animate-fade-in">
+        {/* Expandable filter panel — uses max-h transition to prevent CLS */}
+        <div className={`transition-all duration-200 ease-in-out overflow-hidden ${filtersExpanded ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}>
+          <div className="bg-white dark:bg-slate-800/50 p-3 sm:p-4 rounded-xl border border-slate-200 dark:border-slate-700">
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
               <div className="relative">
                 <select
@@ -6281,10 +6227,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
               </div>
             </div>
           </div>
-        )}
+        </div>
 
-        {searchQuery.trim() && relatedSearchSuggestions.length > 0 && (
-          <div className="rounded-xl border border-fuchsia-200 dark:border-fuchsia-800 bg-fuchsia-50/50 dark:bg-fuchsia-950/20 p-3">
+        {/* Related search suggestions — overflow-hidden transition prevents CLS */}
+        <div className={`transition-all duration-200 overflow-hidden ${searchQuery.trim() && relatedSearchSuggestions.length > 0 ? 'max-h-[200px] opacity-100' : 'max-h-0 opacity-0'}`}>
+          {searchQuery.trim() && relatedSearchSuggestions.length > 0 && (
+            <div className="rounded-xl border border-fuchsia-200 dark:border-fuchsia-800 bg-fuchsia-50/50 dark:bg-fuchsia-950/20 p-3">
             <div className="flex items-center gap-2 mb-2">
               <Search className="w-4 h-4 text-fuchsia-600 dark:text-fuchsia-300" />
               <p className="text-xs font-semibold uppercase tracking-wide text-fuchsia-700 dark:text-fuchsia-300">Ricerche correlate</p>
@@ -6308,10 +6256,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
               })}
             </div>
           </div>
-        )}
+          )}
+        </div>
       </div>
 
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-3">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-3 min-h-[28px]">
         <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
           {isMobile && filteredJobs.length > 0
             ? t('jobBoard.showingNJobs', { count: String(displayJobs.length), total: String(filteredJobs.length) })
@@ -6330,7 +6279,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
             <React.Fragment key={job.id || job.slug || idx}>
               {renderJobCard(job)}
               {showAd && isMobile && (
-                <div key={`infeed-m-${idx}-${adRefreshKey}`}>
+                <div key={`infeed-m-${idx}-${adRefreshKey}`} style={{ minHeight: '280px' }}>
                   <AdSenseBanner
                     adSlot={AD_SLOTS.JOBLIST_INFEED_MOBILE.slot}
                     adFormat={AD_SLOTS.JOBLIST_INFEED_MOBILE.format}
@@ -6341,7 +6290,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                 </div>
               )}
               {showAd && !isMobile && (
-                <div key={`infeed-d-${idx}-${adRefreshKey}`}>
+                <div key={`infeed-d-${idx}-${adRefreshKey}`} style={{ minHeight: '110px' }}>
                   <AdSenseBanner
                     adSlot={AD_SLOTS.JOBLIST_INFEED_DESKTOP.slot}
                     adFormat={AD_SLOTS.JOBLIST_INFEED_DESKTOP.format}
@@ -6364,18 +6313,20 @@ const JobBoard: React.FC<JobBoardProps> = ({
         )}
       </div>
 
-      {/* Mobile: Load More button */}
-      {hasMoreMobileJobs && (
-        <div className="flex justify-center mt-4 sm:hidden">
-          <button
-            type="button"
-            onClick={loadMoreMobile}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-indigo-600 text-white font-medium text-sm hover:bg-indigo-700 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
-          >
-            {t('jobBoard.loadMore')} ({Math.min(10, filteredJobs.length - mobileJobLimit)} {t('jobBoard.moreJobs')})
-          </button>
-        </div>
-      )}
+      {/* Mobile: Load More button — always reserve space to prevent CLS */}
+      <div className="min-h-[48px] sm:hidden">
+        {hasMoreMobileJobs && (
+          <div className="flex justify-center mt-4">
+            <button
+              type="button"
+              onClick={loadMoreMobile}
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-indigo-600 text-white font-medium text-sm hover:bg-indigo-700 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+            >
+              {t('jobBoard.loadMore')} ({Math.min(10, filteredJobs.length - mobileJobLimit)} {t('jobBoard.moreJobs')})
+            </button>
+          </div>
+        )}
+      </div>
 
       <div className="flex flex-wrap items-center justify-center sm:justify-end gap-3">
         {!isMobile && renderPagination()}

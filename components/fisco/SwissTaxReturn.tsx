@@ -524,10 +524,10 @@ const SwissTaxReturn: React.FC = () => {
                 {checkedDocs.size}/{SWISS_DOCUMENTS.length} {t('swissTaxReturn.documents.completed')}
               </span>
             </div>
-            <div className="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2 mb-6">
+            <div className="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2 mb-6 overflow-hidden">
               <div
-                className="bg-red-700 h-2 rounded-full transition-[width] duration-300"
-                style={{ width: `${(checkedDocs.size / SWISS_DOCUMENTS.length) * 100}%` }}
+                className="bg-red-700 h-2 rounded-full transition-transform duration-300 origin-left"
+                style={{ transform: `scaleX(${checkedDocs.size / SWISS_DOCUMENTS.length})` }}
               />
             </div>
             <div className="space-y-3">

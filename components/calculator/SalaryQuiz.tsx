@@ -231,8 +231,8 @@ export default function SalaryQuiz() {
       {/* Progress bar */}
       <div className="h-2 bg-slate-200 dark:bg-slate-700 rounded-full mb-8 overflow-hidden">
         <div
-          className="h-full bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full transition-[width] duration-500"
-          style={{ width: progressWidth }}
+          className="h-full bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full transition-transform duration-500 origin-left"
+          style={{ transform: `scaleX(${progressWidth === '25%' ? 0.25 : progressWidth === '50%' ? 0.5 : progressWidth === '75%' ? 0.75 : 1})` }}
         />
       </div>
 

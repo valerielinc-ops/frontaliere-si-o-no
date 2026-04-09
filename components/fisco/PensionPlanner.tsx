@@ -1,4 +1,4 @@
-import React, { useState, useEffect, lazy, Suspense } from 'react';
+import React, { useState, useEffect, useMemo, lazy, Suspense } from 'react';
 import type { UserProfileData } from '@/components/pages/UserProfile';
 import { Analytics } from '@/services/analytics';
 import { TrendingUp, PiggyBank, Calendar, Info, AlertCircle, CheckCircle2, Users, Home, Banknote, Calculator, Clock, Globe, Percent, Shield, Share2, Check } from 'lucide-react';
@@ -128,7 +128,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
     };
   };
 
-  const result = calculatePension();
+  const result = useMemo(() => calculatePension(), [inputs]);
   const yearsUntilRetirement = inputs.retirementAge - inputs.currentAge;
 
   const [shareState, setShareState] = useState<'idle' | 'copied'>('idle');
@@ -497,8 +497,8 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
               </div>
               <div className="mt-2 w-full bg-slate-100 dark:bg-slate-700 rounded-full h-2 overflow-hidden">
                 <div 
-                  className="bg-red-500 h-full rounded-full transition-[width]"
-                  style={{ width: `${Math.min((result.yearsOfContributions.switzerland / 44) * 100, 100)}%` }}
+                  className="bg-red-500 h-full rounded-full transition-transform duration-500 origin-left"
+                  style={{ transform: `scaleX(${Math.min(result.yearsOfContributions.switzerland / 44, 1)})` }}
                 />
               </div>
             </div>

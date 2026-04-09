@@ -246,10 +246,10 @@ const GamificationWidget: React.FC = () => {
               </div>
               {/* XP progress bar */}
               <div className="mt-2">
-                <div className="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-1.5">
+                <div className="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-1.5 overflow-hidden">
                   <div
-                    className="bg-gradient-to-r from-amber-400 to-orange-500 rounded-full h-1.5 transition-[width] duration-500"
-                    style={{ width: `${xpProgressPct}%` }}
+                    className="bg-gradient-to-r from-amber-400 to-orange-500 rounded-full h-1.5 transition-transform duration-500 origin-left"
+                    style={{ transform: `scaleX(${xpProgressPct / 100})` }}
                   />
                 </div>
                 <div className="flex justify-between text-[9px] text-slate-500 dark:text-slate-400 mt-0.5">

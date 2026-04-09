@@ -73,34 +73,19 @@ const GamificationPage: React.FC = () => {
           </div>
 
           {/* Level + Stats row */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-            <div className="bg-white/20 rounded-xl p-4">
-              <div className="text-xs uppercase tracking-wider text-amber-200 font-bold mb-1">{t('gamification.level') || 'Livello'}</div>
-              <div className="text-2xl sm:text-3xl font-bold">{levelInfo.level}</div>
-              <div className="text-xs text-amber-100 font-semibold">{levelTitle}</div>
-            </div>
-            <div className="bg-white/20 rounded-xl p-4">
-              <div className="text-xs uppercase tracking-wider text-amber-200 font-bold mb-1">XP</div>
-              <div className="text-2xl sm:text-3xl font-bold">{state.xp}</div>
-              <div className="w-full bg-white/20 rounded-full h-1.5 mt-2">
-                <div className="bg-white rounded-full h-1.5 transition-transform duration-500" style={{ width: '100%', transform: `scaleX(${xpProgressPct / 100})`, transformOrigin: 'left' }} />
-              </div>
-              <div className="text-[9px] text-amber-200 mt-1">{levelInfo.currentXp}/{levelInfo.nextLevelXp} → {t('gamification.level')} {levelInfo.level + 1}</div>
-            </div>
-            <div className="bg-white/20 rounded-xl p-4">
-              <div className="text-xs uppercase tracking-wider text-amber-200 font-bold mb-1">{t('gamification.dayStreak') || 'Streak'}</div>
-              <div className="flex items-center gap-2">
-                <Flame size={24} className="text-orange-200" />
-                <span className="text-2xl sm:text-3xl font-bold">{state.streak}</span>
-              </div>
-              <div className="text-xs text-amber-100">{t('gamification.daysInARow') || 'giorni consecutivi'}</div>
-            </div>
-            <div className="bg-white/20 rounded-xl p-4">
-              <div className="text-xs uppercase tracking-wider text-amber-200 font-bold mb-1">{t('gamification.progress') || 'Progressi'}</div>
-              <div className="text-2xl sm:text-3xl font-bold">{unlockedCount}<span className="text-lg text-amber-200">/{totalCount}</span></div>
-              <div className="text-xs text-amber-100">{progressPercent}% {t('gamification.completed') || 'completato'}</div>
-            </div>
+          <div className="flex flex-wrap items-baseline gap-x-5 gap-y-1.5 text-sm text-white/80">
+            <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-white">{levelInfo.level}</span> {t('gamification.level') || 'Livello'} — <span className="text-xs text-amber-100 font-semibold">{levelTitle}</span></span>
+            <span className="text-white/30" aria-hidden="true">·</span>
+            <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-white">{state.xp}</span> XP</span>
+            <span className="text-white/30" aria-hidden="true">·</span>
+            <span className="inline-flex items-baseline gap-1.5"><Flame size={16} className="text-orange-200" /><span className="text-lg font-semibold text-white">{state.streak}</span> {t('gamification.daysInARow') || 'giorni consecutivi'}</span>
+            <span className="text-white/30" aria-hidden="true">·</span>
+            <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-white">{unlockedCount}<span className="text-sm text-amber-200">/{totalCount}</span></span> {progressPercent}% {t('gamification.completed') || 'completato'}</span>
           </div>
+          <div className="w-full max-w-xs bg-white/20 rounded-full h-1.5 mt-3">
+            <div className="bg-white dark:bg-slate-600 rounded-full h-1.5 transition-transform duration-500" style={{ width: '100%', transform: `scaleX(${xpProgressPct / 100})`, transformOrigin: 'left' }} />
+          </div>
+          <div className="text-[9px] text-amber-200 mt-1">{levelInfo.currentXp}/{levelInfo.nextLevelXp} → {t('gamification.level')} {levelInfo.level + 1}</div>
         </div>
       </div>
 

@@ -138,37 +138,13 @@ const ApiStatus: React.FC = () => {
         </p>
       </div>
 
-      {/* Summary Cards */}
-      <div className="grid md:grid-cols-3 gap-4">
-        <div className="bg-green-50 dark:bg-green-950/30 border-2 border-green-200 dark:border-green-800 rounded-xl p-4">
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-sm text-green-700 dark:text-green-400 font-medium">Configurate</p>
-              <p className="text-2xl sm:text-3xl font-bold text-green-900 dark:text-green-200">{successCount}</p>
-            </div>
-            <CheckCircle2 className="text-green-600 dark:text-green-400" size={32} />
-          </div>
-        </div>
-
-        <div className="bg-amber-50 dark:bg-amber-950/30 border-2 border-amber-200 dark:border-amber-800 rounded-xl p-4">
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-sm text-amber-700 dark:text-amber-400 font-medium">Non Configurate</p>
-              <p className="text-2xl sm:text-3xl font-bold text-amber-900 dark:text-amber-200">{warningCount}</p>
-            </div>
-            <AlertTriangle className="text-amber-600 dark:text-amber-400" size={32} />
-          </div>
-        </div>
-
-        <div className="bg-red-50 dark:bg-red-950/30 border-2 border-red-200 dark:border-red-800 rounded-xl p-4">
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-sm text-red-700 dark:text-red-400 font-medium">Errori</p>
-              <p className="text-2xl sm:text-3xl font-bold text-red-900 dark:text-red-200">{errorCount}</p>
-            </div>
-            <XCircle className="text-red-600 dark:text-red-400" size={32} />
-          </div>
-        </div>
+      {/* Summary Stats */}
+      <div className="flex flex-wrap items-baseline gap-x-5 gap-y-1.5 text-sm text-slate-600 dark:text-slate-400">
+        <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-green-700 dark:text-green-400">{successCount}</span> Configurate</span>
+        <span className="hidden sm:inline text-slate-300 dark:text-slate-600" aria-hidden="true">·</span>
+        <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-amber-700 dark:text-amber-400">{warningCount}</span> Non Configurate</span>
+        <span className="hidden sm:inline text-slate-300 dark:text-slate-600" aria-hidden="true">·</span>
+        <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-red-700 dark:text-red-400">{errorCount}</span> Errori</span>
       </div>
 
       {/* Refresh Button */}

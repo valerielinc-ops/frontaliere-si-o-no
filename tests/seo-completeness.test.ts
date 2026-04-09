@@ -164,7 +164,7 @@ const VALID_SCHEMA_TYPES = new Set([
   'Article', 'BlogPosting', 'NewsArticle', 'HowTo', 'FAQPage', 'Dataset', 'Quiz',
   'CollectionPage', 'ContactPage', 'ItemList', 'AboutPage',
   'Service', 'DiscussionForum', 'BreadcrumbList',
-  'Organization', 'FinancialService', 'DefinedTermSet',
+  'Organization', 'FinancialService', 'DefinedTermSet', 'DefinedTerm',
   'Product', 'Offer', 'Event', 'Review', 'AggregateRating',
 ]);
 

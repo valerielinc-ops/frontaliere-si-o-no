@@ -1,4 +1,4 @@
-import React, { useState, lazy, Suspense } from 'react';
+import React, { useState, useMemo, lazy, Suspense } from 'react';
 import { Smartphone, Wifi, Phone, MessageSquare, AlertCircle, CheckCircle2, Info, Euro, Globe } from 'lucide-react';
 
 const RelatedTools = lazy(() => import('@/components/shared/RelatedTools'));
@@ -353,7 +353,7 @@ const MobileOperators: React.FC = () => {
     return totalCost;
   };
 
-  const filteredOperators = operators
+  const filteredOperators = useMemo(() => operators
     .filter(op => filterCountry === 'all' || op.country === filterCountry)
     .sort((a, b) => {
       if (sortBy === 'price') {
@@ -373,7 +373,7 @@ const MobileOperators: React.FC = () => {
         if (!aHasRoaming && bHasRoaming) return 1;
         return calculateRealMonthlyCost(a) - calculateRealMonthlyCost(b);
       }
-    });
+    }), [filterCountry, sortBy]);
 
   const bestForFrontierWorkers = operators.filter(op => 
     (op.country === 'IT' && op.roamingInSwitzerland?.included) ||
@@ -593,7 +593,7 @@ const MobileOperators: React.FC = () => {
               )}
 
               {/* Plan Details */}
-              <div className="grid grid-cols-3 gap-3 mb-4">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
                 <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-xl text-center">
                   <Wifi className="mx-auto mb-1 text-amber-700" size={18} />
                   <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">{t('mobile.data')}</div>

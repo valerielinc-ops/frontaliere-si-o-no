@@ -1,4 +1,4 @@
-import React, { useState, lazy, Suspense } from 'react';
+import React, { useState, useMemo, lazy, Suspense } from 'react';
 import { Car, Train, Bike, TrendingDown, TrendingUp, AlertCircle, Calculator, Euro, Fuel, Clock, Zap } from 'lucide-react';
 
 const RelatedTools = lazy(() => import('@/components/shared/RelatedTools'));
@@ -85,84 +85,86 @@ const TransportCalculator: React.FC = () => {
   const ebikeCostPerMonth = 50; // Manutenzione + ricarica batteria
   const ebikePurchaseCost = 2500; // Costo eBike ammortizzato su 5 anni = 500/anno = 42/mese
 
-  const costsBenzinaIT = calculateCarCosts('benzina', 'IT');
-  const costsBenzinaCH = calculateCarCosts('benzina', 'CH');
-  const costsDieselIT = calculateCarCosts('diesel', 'IT');
-  const costsElectricIT = calculateCarCosts('electric', 'IT');
-  const costsElectricCH = calculateCarCosts('electric', 'CH');
+  const results = useMemo(() => {
+    const costsBenzinaIT = calculateCarCosts('benzina', 'IT');
+    const costsBenzinaCH = calculateCarCosts('benzina', 'CH');
+    const costsDieselIT = calculateCarCosts('diesel', 'IT');
+    const costsElectricIT = calculateCarCosts('electric', 'IT');
+    const costsElectricCH = calculateCarCosts('electric', 'CH');
 
-  const results = [
-    {
-      name: 'Auto Benzina (rifornimento IT)',
-      type: 'car-benzina',
-      costPerMonth: costsBenzinaIT.total,
-      costPerYear: costsBenzinaIT.total * 12,
-      details: costsBenzinaIT,
-      color: 'from-red-500 to-orange-600',
-      icon: <Car size={24} />,
-      fuelLocation: 'IT'
-    },
-    {
-      name: 'Auto Benzina (rifornimento CH)',
-      type: 'car-benzina',
-      costPerMonth: costsBenzinaCH.total,
-      costPerYear: costsBenzinaCH.total * 12,
-      details: costsBenzinaCH,
-      color: 'from-red-600 to-rose-700',
-      icon: <Car size={24} />,
-      fuelLocation: 'CH'
-    },
-    {
-      name: 'Auto Diesel (rifornimento IT)',
-      type: 'car-diesel',
-      costPerMonth: costsDieselIT.total,
-      costPerYear: costsDieselIT.total * 12,
-      details: costsDieselIT,
-      color: 'from-slate-600 to-gray-700',
-      icon: <Car size={24} />,
-      fuelLocation: 'IT'
-    },
-    {
-      name: 'Auto Elettrica (ricarica casa IT)',
-      type: 'car-electric',
-      costPerMonth: costsElectricIT.total,
-      costPerYear: costsElectricIT.total * 12,
-      details: costsElectricIT,
-      color: 'from-green-500 to-emerald-600',
-      icon: <Zap size={24} />,
-      fuelLocation: 'IT'
-    },
-    {
-      name: 'Auto Elettrica (ricarica CH)',
-      type: 'car-electric',
-      costPerMonth: costsElectricCH.total,
-      costPerYear: costsElectricCH.total * 12,
-      details: costsElectricCH,
-      color: 'from-green-600 to-teal-700',
-      icon: <Zap size={24} />,
-      fuelLocation: 'CH'
-    },
-    {
-      name: 'Treno',
-      type: 'train',
-      costPerMonth: trainCostPerMonth,
-      costPerYear: trainCostPerMonth * 12,
-      details: null,
-      color: 'from-blue-500 to-blue-700',
-      icon: <Train size={24} />,
-      fuelLocation: null
-    },
-    {
-      name: 'eBike + Treno (giorni pioggia)',
-      type: 'ebike',
-      costPerMonth: ebikeCostPerMonth + ebikePurchaseCost,
-      costPerYear: (ebikeCostPerMonth + ebikePurchaseCost) * 12,
-      details: null,
-      color: 'from-rose-500 to-pink-600',
-      icon: <Bike size={24} />,
-      fuelLocation: null
-    }
-  ].sort((a, b) => a.costPerMonth - b.costPerMonth);
+    return [
+      {
+        name: 'Auto Benzina (rifornimento IT)',
+        type: 'car-benzina',
+        costPerMonth: costsBenzinaIT.total,
+        costPerYear: costsBenzinaIT.total * 12,
+        details: costsBenzinaIT,
+        color: 'from-red-500 to-orange-600',
+        icon: <Car size={24} />,
+        fuelLocation: 'IT'
+      },
+      {
+        name: 'Auto Benzina (rifornimento CH)',
+        type: 'car-benzina',
+        costPerMonth: costsBenzinaCH.total,
+        costPerYear: costsBenzinaCH.total * 12,
+        details: costsBenzinaCH,
+        color: 'from-red-600 to-rose-700',
+        icon: <Car size={24} />,
+        fuelLocation: 'CH'
+      },
+      {
+        name: 'Auto Diesel (rifornimento IT)',
+        type: 'car-diesel',
+        costPerMonth: costsDieselIT.total,
+        costPerYear: costsDieselIT.total * 12,
+        details: costsDieselIT,
+        color: 'from-slate-600 to-gray-700',
+        icon: <Car size={24} />,
+        fuelLocation: 'IT'
+      },
+      {
+        name: 'Auto Elettrica (ricarica casa IT)',
+        type: 'car-electric',
+        costPerMonth: costsElectricIT.total,
+        costPerYear: costsElectricIT.total * 12,
+        details: costsElectricIT,
+        color: 'from-green-500 to-emerald-600',
+        icon: <Zap size={24} />,
+        fuelLocation: 'IT'
+      },
+      {
+        name: 'Auto Elettrica (ricarica CH)',
+        type: 'car-electric',
+        costPerMonth: costsElectricCH.total,
+        costPerYear: costsElectricCH.total * 12,
+        details: costsElectricCH,
+        color: 'from-green-600 to-teal-700',
+        icon: <Zap size={24} />,
+        fuelLocation: 'CH'
+      },
+      {
+        name: 'Treno',
+        type: 'train',
+        costPerMonth: trainCostPerMonth,
+        costPerYear: trainCostPerMonth * 12,
+        details: null,
+        color: 'from-blue-500 to-blue-700',
+        icon: <Train size={24} />,
+        fuelLocation: null
+      },
+      {
+        name: 'eBike + Treno (giorni pioggia)',
+        type: 'ebike',
+        costPerMonth: ebikeCostPerMonth + ebikePurchaseCost,
+        costPerYear: (ebikeCostPerMonth + ebikePurchaseCost) * 12,
+        details: null,
+        color: 'from-rose-500 to-pink-600',
+        icon: <Bike size={24} />,
+        fuelLocation: null
+      }
+    ].sort((a, b) => a.costPerMonth - b.costPerMonth);
+  }, [kmOneWay, workDaysPerMonth, fuelPriceIT, fuelPriceCH, consumptionPer100km, tollsCost, parkingCost]);
 
   const cheapest = results[0];
   const mostExpensive = results[results.length - 1];

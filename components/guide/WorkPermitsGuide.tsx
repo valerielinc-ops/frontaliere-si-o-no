@@ -505,7 +505,7 @@ const WorkPermitsGuide: React.FC = () => {
         </h3>
         <div className="relative overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0">
         <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-white dark:from-slate-900 sm:hidden z-10" />
-        <table className="w-full text-sm min-w-[600px]">
+        <table className="w-full text-sm min-w-[600px] sm:min-w-0">
           <thead>
             <tr className="border-b-2 border-slate-200 dark:border-slate-700">
               <th className="text-left py-3 text-slate-500 dark:text-slate-400 font-bold">{t('permits.feature')}</th>

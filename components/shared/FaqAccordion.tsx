@@ -30,11 +30,16 @@ export default function FaqAccordion({ title, items, className = '' }: FaqAccord
               onClick={() => setOpenIndex(openIndex === i ? null : i)}
               className="w-full flex items-center justify-between px-4 py-3 text-left bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors"
               aria-expanded={openIndex === i}
+              aria-controls={`faq-panel-${i}`}
+              id={`faq-heading-${i}`}
             >
               <span className="font-medium text-slate-800 dark:text-white pr-4">{item.question}</span>
               <ChevronDown size={18} className={`flex-shrink-0 text-slate-500 transition-transform ${openIndex === i ? 'rotate-180' : ''}`} />
             </button>
             <div
+              id={`faq-panel-${i}`}
+              role="region"
+              aria-labelledby={`faq-heading-${i}`}
               className={`overflow-hidden transition-[max-height] duration-200 ${openIndex === i ? 'max-h-96' : 'max-h-0'}`}
             >
               <div className="px-4 py-3 text-sm text-slate-600 dark:text-slate-400 bg-slate-50 dark:bg-slate-900/30 border-t border-slate-100 dark:border-slate-700">

@@ -1030,25 +1030,32 @@ function BlogArticles({
   }, [selectedArticle]);
 
   // Reading progress bar — passive scroll listener for article view
+  const scrollRafId = useRef(0);
   useEffect(() => {
     if (!selectedArticle || !bodyReady) {
       setReadingProgress(0);
       return;
     }
     const handleScroll = () => {
-      const el = articleRef.current;
-      if (!el) return;
-      const rect = el.getBoundingClientRect();
-      const windowH = window.innerHeight;
-      // 0% when top of article is at viewport top, 100% when bottom reaches viewport bottom
-      const total = rect.height - windowH;
-      if (total <= 0) { setReadingProgress(100); return; }
-      const scrolled = -rect.top;
-      setReadingProgress(Math.min(100, Math.max(0, (scrolled / total) * 100)));
+      cancelAnimationFrame(scrollRafId.current);
+      scrollRafId.current = requestAnimationFrame(() => {
+        const el = articleRef.current;
+        if (!el) return;
+        const rect = el.getBoundingClientRect();
+        const windowH = window.innerHeight;
+        // 0% when top of article is at viewport top, 100% when bottom reaches viewport bottom
+        const total = rect.height - windowH;
+        if (total <= 0) { setReadingProgress(100); return; }
+        const scrolled = -rect.top;
+        setReadingProgress(Math.min(100, Math.max(0, (scrolled / total) * 100)));
+      });
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      cancelAnimationFrame(scrollRafId.current);
+    };
   }, [selectedArticle, bodyReady]);
 
   // IntersectionObserver for TOC active heading tracking
@@ -1560,8 +1567,8 @@ function BlogArticles({
       <div className="max-w-3xl xl:max-w-6xl mx-auto">
         {/* Reading progress bar */}
         <div
-          className="fixed top-0 left-0 z-50 h-[3px] bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 transition-[width] duration-150 ease-out"
-          style={{ width: `${readingProgress}%` }}
+          className="fixed top-0 left-0 z-50 h-[3px] w-full bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 transition-transform duration-150 ease-out origin-left"
+          style={{ transform: `scaleX(${readingProgress / 100})` }}
           role="progressbar"
           aria-valuenow={Math.round(readingProgress)}
           aria-valuemin={0}

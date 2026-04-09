@@ -224,8 +224,8 @@ const PermitQuiz: React.FC = () => {
               </div>
               <div className="h-4 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
                 <div
-                  className="h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-full transition-[width] duration-1000"
-                  style={{ width: `${bPercent}%` }}
+                  className="h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-full transition-transform duration-1000 origin-left"
+                  style={{ transform: `scaleX(${bPercent / 100})` }}
                 />
               </div>
             </div>
@@ -240,8 +240,8 @@ const PermitQuiz: React.FC = () => {
               </div>
               <div className="h-4 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
                 <div
-                  className="h-full bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-full transition-[width] duration-1000"
-                  style={{ width: `${gPercent}%` }}
+                  className="h-full bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-full transition-transform duration-1000 origin-left"
+                  style={{ transform: `scaleX(${gPercent / 100})` }}
                 />
               </div>
             </div>
@@ -360,8 +360,8 @@ const PermitQuiz: React.FC = () => {
         </div>
         <div className="h-2 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
           <div
-            className="h-full bg-gradient-to-r from-amber-500 to-orange-500 rounded-full transition-[width] duration-500"
-            style={{ width: `${progress}%` }}
+            className="h-full bg-gradient-to-r from-amber-500 to-orange-500 rounded-full transition-transform duration-500 origin-left"
+            style={{ transform: `scaleX(${progress / 100})` }}
           />
         </div>
       </div>
