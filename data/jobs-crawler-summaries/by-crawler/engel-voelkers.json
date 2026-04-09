@@ -1,18 +1,79 @@
 {
   "key": "engel-voelkers",
   "label": "Engel & Völkers",
-  "generatedAt": "2026-04-09T09:34:32.703Z",
-  "total": 1,
-  "newCount": 0,
+  "generatedAt": "2026-04-09T21:26:42.573Z",
+  "total": 3,
+  "newCount": 2,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 19822,
-  "avgDurationMs": 19822,
+  "durationMs": 20257,
+  "avgDurationMs": 20257,
   "durationHistory": [
-    19822
+    20257
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Assistente Team 100% (m/f) | Lugano",
+      "slug": "assistente-team-100-m-f-lugano-engel-voelkers-lugano",
+      "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/811857cd-17ba-45da-ba12-d066407d01c5",
+      "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/811857cd-17ba-45da-ba12-d066407d01c5",
+      "company": "Ticino Premium Properties SA",
+      "companyKey": "engel-voelkers",
+      "companyDomain": "engelvoelkers.com",
+      "location": "Lugano",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "marketing",
+      "sector": "Immobiliare",
+      "source": "engelvoelkers-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-04-09",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "_qualityScore": 77,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 20,
+        "completeness": 14
+      }
+    },
+    {
+      "title": "Teamassistent/in 100 % | Ascona",
+      "slug": "teamassistent-in-100-ascona-engel-voelkers-ascona",
+      "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/550a5ca8-0011-4cbe-9e37-402d6f165d8b",
+      "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/550a5ca8-0011-4cbe-9e37-402d6f165d8b",
+      "company": "Ticino Premium Properties SA",
+      "companyKey": "engel-voelkers",
+      "companyDomain": "engelvoelkers.com",
+      "location": "Ascona",
+      "addressLocality": "Ascona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "marketing",
+      "sector": "Immobiliare",
+      "source": "engelvoelkers-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-04-09",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "_qualityScore": 77,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 20,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Immobilienberater/in 100 % | Ascona",
