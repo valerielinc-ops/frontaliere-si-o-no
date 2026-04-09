@@ -5703,4 +5703,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/multe-vignetta-chiasso-pasqua-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'tasse-ticino-frontalieri-perequazione-2026',
+    category: 'fiscale',
+    date: '2026-04-09T18:39:31.763Z',
+    image: '/images/blog/tasse-ticino-frontalieri-perequazione-2026.jpg',
+    hasCalculator: true,
+  },
 ];

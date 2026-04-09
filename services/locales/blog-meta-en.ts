@@ -2022,6 +2022,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.multe-vignetta-chiasso-pasqua-2026.title': 'Easter 2026: 190 cross-border commuters fined in Chiasso for missing motorway vignette',
     'blog.article.multe-vignetta-chiasso-pasqua-2026.excerpt': 'During the extended Easter weekend in 2026, Chiasso customs issued 190 fines to drivers without a valid motorway vignette. In 2025, 45% of cross-border commuters opted for the e-vignette.',
     'blog.article.multe-vignetta-chiasso-pasqua-2026.imageAlt': 'Car queue at the Chiasso border crossing during Easter 2026',
+    'blog.article.tasse-ticino-frontalieri-perequazione-2026.title': 'Ticino penalised: cross-border workers inflate the canton’s fictitious wealth',
+    'blog.article.tasse-ticino-frontalieri-perequazione-2026.excerpt': 'Bern considers Ticino wealthier than it actually is due to cross-border workers\' salaries. Result: CHF 9 million less per year for the canton’s coffers from 2026 onwards.',
+    'blog.article.tasse-ticino-frontalieri-perequazione-2026.imageAlt': 'Cross-border workers crossing the Italian-Swiss border in Lugano at 8 AM under spring sunlight',
 };
 
 export default blogMetaEn;

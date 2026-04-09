@@ -2022,6 +2022,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.multe-vignetta-chiasso-pasqua-2026.title': 'Ostern 2026: 190 Grenzgänger in Chiasso wegen fehlender Autobahnvignette gebüsst',
     'blog.article.multe-vignetta-chiasso-pasqua-2026.excerpt': 'Über das lange Osterwochenende 2026 verteilte die Zollstelle Chiasso 190 Bussen an Fahrer ohne Vignette. Im Jahr 2025 entschieden sich 45 % der Grenzgänger für die E-Vignette.',
     'blog.article.multe-vignetta-chiasso-pasqua-2026.imageAlt': 'Autokolonne am Grenzübergang Chiasso während Ostern 2026',
+    'blog.article.tasse-ticino-frontalieri-perequazione-2026.title': 'Tessin benachteiligt: Grenzgänger blähen den fiktiven Reichtum des Kantons auf',
+    'blog.article.tasse-ticino-frontalieri-perequazione-2026.excerpt': 'Bern betrachtet das Tessin als reicher, als es tatsächlich ist – und zwar aufgrund der Löhne der Grenzgänger. Das Ergebnis: Ab 2026 fließen jährlich 9 Millionen Franken weniger in die Kantonskasse.',
+    'blog.article.tasse-ticino-frontalieri-perequazione-2026.imageAlt': 'Grenzpendler, die morgens um 8 Uhr unter Frühlingssonne die italienisch-schweizerische Grenze in Lugano überqueren',
 };
 
 export default blogMetaDe;

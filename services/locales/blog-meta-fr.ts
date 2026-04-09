@@ -2022,6 +2022,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.multe-vignetta-chiasso-pasqua-2026.title': 'Pâques 2026 : 190 frontaliers verbalisés à Chiasso pour la vignette autoroutière',
     'blog.article.multe-vignetta-chiasso-pasqua-2026.excerpt': 'Pendant le long week-end de Pâques 2026, la douane de Chiasso a infligé 190 amendes à des conducteurs sans vignette. 45 % des frontaliers ont opté pour l’e-vignette en 2025.',
     'blog.article.multe-vignetta-chiasso-pasqua-2026.imageAlt': 'File de voitures au poste frontière de Chiasso pendant Pâques 2026',
+    'blog.article.tasse-ticino-frontalieri-perequazione-2026.title': 'Le Tessin pénalisé: les frontaliers gonflent la richesse fictive du canton',
+    'blog.article.tasse-ticino-frontalieri-perequazione-2026.excerpt': 'Berne considère le Tessin plus riche qu’il ne l’est réellement en raison des salaires des frontaliers. Résultat: 9 millions de francs en moins par an pour les caisses cantonales à partir de 2026.',
+    'blog.article.tasse-ticino-frontalieri-perequazione-2026.imageAlt': 'Frontaliers traversant la frontière italo-suisse à Lugano à 8 heures du matin sous un soleil printanier',
 };
 
 export default blogMetaFr;

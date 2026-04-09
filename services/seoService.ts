@@ -1929,6 +1929,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-petizione-aromat-svizzera': { name: 'Petizione Aromat', path: '/articoli-frontaliere/petizione-aromat-svizzera', parent: 'blog' },
     'blog-frontalieri-tassa-salute-scontro': { name: 'Tassa salute', path: '/articoli-frontaliere/frontalieri-tassa-salute-scontro', parent: 'blog' },
     'blog-multe-vignetta-chiasso-pasqua-2026': { name: 'Pasqua 2026', path: '/articoli-frontaliere/multe-vignetta-chiasso-pasqua-2026', parent: 'blog' },
+    'blog-tasse-ticino-frontalieri-perequazione-2026': { name: 'Ticino penalizzato', path: '/articoli-frontaliere/tasse-ticino-frontalieri-perequazione-2026', parent: 'blog' },
   };
 
   const info = sectionNames[section];

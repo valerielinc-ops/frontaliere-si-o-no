@@ -6415,6 +6415,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tasse-ticino-frontalieri-perequazione-2026': {
+    title: 'Ticino penalizzato: frontalieri | Frontaliere Ticino',
+    description: 'Berna considera il Ticino più ricco di quanto sia realmente a causa dei salari dei frontalieri. Risultato: 9 milioni di franchi in meno all’anno per le casse ca',
+    keywords: 'frontalieri, ticino, svizzera, italia, penalizzato, gonfiano, ricchezza, fittizia',
+    ogTitle: 'Ticino penalizzato: frontalieri gonfiano la ricchezza fit',
+    ogDescription: 'Berna considera il Ticino più ricco di quanto sia realmente a causa dei salari dei frontalieri. Risultato: 9 milioni di franchi in meno all’anno per le casse ca',
+    canonicalPath: '/articoli-frontaliere/tasse-ticino-frontalieri-perequazione-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ticino penalizzato: frontalieri gonfiano la ricchezza fit",
+      "description": "Berna considera il Ticino più ricco di quanto sia realmente a causa dei salari dei frontalieri. Risultato: 9 milioni di franchi in meno all’anno per le casse ca",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tasse-ticino-frontalieri-perequazione-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontalieri che varcano il confine italo-svizzero a Lugano alle 8 del mattino sotto il sole primaverile"
+      },
+      "datePublished": "2026-04-09T18:39:31+00:00",
+      "dateModified": "2026-04-09T18:39:31+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tasse-ticino-frontalieri-perequazione-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
