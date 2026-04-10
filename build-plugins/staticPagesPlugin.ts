@@ -334,6 +334,15 @@ const NOINDEX_CANONICAL_PATHS = new Set([
   '/stato-api/', '/en/api-status/', '/de/api-status/', '/fr/etat-api/',
 ]);
 
+// Pages that should NOT load the SPA bundle — they serve as pure static HTML
+// for crawlers (e.g., squirrelscan E-E-A-T detection). The SPA doesn't know
+// these routes, so loading it would replace the editorial content with the homepage.
+const STATIC_ONLY_PATHS = new Set([
+  '/about', '/about/',
+  '/contact', '/contact/',
+  '/privacy-policy', '/privacy-policy/',
+]);
+
 export function staticPagesPlugin(rootDir: string): Plugin {
   return {
     name: 'static-pages',
@@ -2130,6 +2139,55 @@ export function staticPagesPlugin(rootDir: string): Plugin {
             : '';
 
           // SPA shell: loads the app directly at the correct URL (no redirect)
+          const isStaticOnly = STATIC_ONLY_PATHS.has(canonicalPath) || STATIC_ONLY_PATHS.has(canonicalPath.replace(/\/$/, ''));
+
+          // Static-only pages: pure HTML for crawlers, no SPA bundle, no JS redirect
+          if (isStaticOnly) {
+            return `<!DOCTYPE html>
+<html lang="${locale}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>${esc(seoData.title)}</title>
+    <meta name="description" content="${esc(seoData.desc)}">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="canonical" href="${fullUrl}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="${fullUrl}">
+    <meta property="og:title" content="${esc(seoData.ogT)}">
+    <meta property="og:description" content="${esc(seoData.ogD)}">
+    <meta property="og:image" content="${BASE_URL}/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:locale" content="${LOC_TAG[locale] ?? 'it_IT'}">
+    <meta property="og:site_name" content="Frontaliere Ticino">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="${esc(seoData.ogT)}">
+    <meta name="twitter:description" content="${esc(seoData.ogD)}">
+    <meta name="twitter:image" content="${BASE_URL}/og-image.png">
+${hrefTags}
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <style>body{font-family:Inter,system-ui,sans-serif;max-width:800px;margin:0 auto;padding:2rem 1rem;background:#f8fafc;color:#1e293b}a{color:#2563eb;text-decoration:none}a:hover{text-decoration:underline}h1{font-size:1.5rem;font-weight:700;margin-bottom:0.5rem}nav{margin-top:2rem;padding-top:1rem;border-top:1px solid #e2e8f0;font-size:0.9rem}nav a{margin-right:1rem}</style>
+  </head>
+  <body>
+    <script type="application/ld+json">${breadcrumbJsonLd}</script>${seoData.sd ? `\n    <script type="application/ld+json">${seoData.sd}</script>` : ''}${speakableLd}
+    <main>
+      <h1>${esc(seoData.title.replace(' | Frontaliere Ticino', ''))}</h1>
+      <div>${editorialHtml}</div>
+    </main>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/chi-siamo/">Chi Siamo</a>
+      <a href="/contattaci/">Contattaci</a>
+      <a href="/privacy/">Privacy</a>
+      <a href="/articoli-frontaliere/">Articoli</a>
+      <a href="/glossario-frontaliere/">Glossario</a>
+    </nav>
+  </body>
+</html>`;
+          }
+
           if (hasSpaBundle) {
             const useBlockingHomeCss = isHomeCriticalStaticPath(canonicalPath);
             const stylesheetMarkup = useBlockingHomeCss
