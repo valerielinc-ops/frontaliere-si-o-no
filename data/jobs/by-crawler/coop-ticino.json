@@ -1,10 +1,63 @@
 {
   "crawlerKey": "coop-ticino",
-  "assembledAt": "2026-04-10T07:58:19.327Z",
+  "assembledAt": "2026-04-10T09:30:15.726Z",
   "jobs": [
     {
+      "id": "company-4qr3gx",
+      "slug": "filialleiter-in-interdiscount-chur-graubunden",
+      "company": "Interdiscount",
+      "title": "Filialleiter:in",
+      "location": "Chur",
+      "canton": "GR",
+      "category": "admin",
+      "contract": "temporary",
+      "currency": "CHF",
+      "description": "## Filialleiter:in\n\n**Interdiscount** — Chur, Graubünden, Svizzera\n\n## Wir von Interdiscount bieten unseren Kundinnen und Kunden das beste Einkaufserlebnis in der Schweiz. Engagiere dich in einem dynamischen und unternehmerisch geprägten Arbeitsumfeld. Übernimm Verantwortung, sei mit uns initiativ und entwickle dich weiter.\n\n## Aufgaben\n- Du führst rund vier Mitarbeitende fachlich und personell\n- Du stellst eine hohe Kundenzufriedenheit sicher\n- Du trägst die Budget- und Ergebnisverantwortung gemäss definierter Jahreszielsetzung\n- Du förderst deine Mitarbeitenden stufengerecht und stellst deren Fachkompetenz sowie den Nachwuchs sicher\n- Du erreichst die festgelegten Provider- und Servicequotenziele in deinem Verantwortungsbereich\n\n## Anforderungen\n- Du hast eine Berufsausbildung im Detailhandel mit Weiterbildung im Verkauf und/ oder Betriebswirtschaft abgeschlossen\n- Du verfügst über mehrjährige Führungserfahrung und ausgewiesene Produktkenntnisse im Bereich Unterhaltungselektronik\n- Kunden- und lösungsorientierte Einstellung mit abschlussstarkem Verhandlungsgeschick ist für dich selbstverständlich\n- Du hast sehr gute Team- und Kommunikationsfähigkeiten\n- Du bist eine flexible, engagierte und belastbare Persönlichkeit und verfügst über eine zielorientierte und vernetzte Denkweise\n\n## Was wir bieten\n\n## Deine Ansprechperson\nAlexandra Studer\nHR Marketing\n+41 31 764 42 61\n\n---\n**Tipo:** Part-time\n**Sede:** Chur",
+      "requirements": [],
+      "featured": false,
+      "postedDate": "2026-04-10",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/filialleiter-in/2a9bd7b7-013c-4789-9910-4db4a0838f0f",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Grigioni",
+        "canton": "GR"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-04-10T09:28:39.368Z",
+      "titleByLocale": {
+        "de": "Filialleiter:in"
+      },
+      "descriptionByLocale": {
+        "de": "## Filialleiter:in\n\n**Interdiscount** — Chur, Graubünden, Svizzera\n\n## Wir von Interdiscount bieten unseren Kundinnen und Kunden das beste Einkaufserlebnis in der Schweiz. Engagiere dich in einem dynamischen und unternehmerisch geprägten Arbeitsumfeld. Übernimm Verantwortung, sei mit uns initiativ und entwickle dich weiter.\n\n## Aufgaben\n- Du führst rund vier Mitarbeitende fachlich und personell\n- Du stellst eine hohe Kundenzufriedenheit sicher\n- Du trägst die Budget- und Ergebnisverantwortung gemäss definierter Jahreszielsetzung\n- Du förderst deine Mitarbeitenden stufengerecht und stellst deren Fachkompetenz sowie den Nachwuchs sicher\n- Du erreichst die festgelegten Provider- und Servicequotenziele in deinem Verantwortungsbereich\n\n## Anforderungen\n- Du hast eine Berufsausbildung im Detailhandel mit Weiterbildung im Verkauf und/ oder Betriebswirtschaft abgeschlossen\n- Du verfügst über mehrjährige Führungserfahrung und ausgewiesene Produktkenntnisse im Bereich Unterhaltungselektronik\n- Kunden- und lösungsorientierte Einstellung mit abschlussstarkem Verhandlungsgeschick ist für dich selbstverständlich\n- Du hast sehr gute Team- und Kommunikationsfähigkeiten\n- Du bist eine flexible, engagierte und belastbare Persönlichkeit und verfügst über eine zielorientierte und vernetzte Denkweise\n\n## Was wir bieten\n\n## Deine Ansprechperson\nAlexandra Studer\nHR Marketing\n+41 31 764 42 61\n\n---\n**Tipo:** Part-time\n**Sede:** Chur"
+      },
+      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "slugByLocale": {
+        "it": "filialleiter-in-interdiscount-chur-graubunden-4qr3gx",
+        "en": "filialleiter-in-interdiscount-chur-graubunden-4qr3gx",
+        "de": "filialleiter-in-interdiscount-chur-graubunden-4qr3gx",
+        "fr": "filialleiter-in-interdiscount-chur-graubunden-4qr3gx"
+      },
+      "addressLocality": "Chur",
+      "sourceLang": "de",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "company-86y4zp",
-      "slug": "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-chur-graubunden",
+      "slug": "verkaufsberater-in-per-elektrohaushalt-e-multimedia-fust-chur-graubunden-86y4zp",
       "company": "Fust | Swiss Household Services AG",
       "title": "Verkaufsberater:in für Elektrohaushalt und Multimedia",
       "location": "Chur",
@@ -60,9 +113,6 @@
         }
       },
       "previousSlugsByLocale": {
-        "it": [
-          "verkaufsberater-in-per-elektrohaushalt-e-multimedia-fust-chur-graubunden-86y4zp"
-        ],
         "en": [
           "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-chur-graubunden-86y4zp"
         ],
@@ -71,7 +121,6 @@
         ]
       },
       "previousSlugs": [
-        "verkaufsberater-in-per-elektrohaushalt-e-multimedia-fust-chur-graubunden-86y4zp",
         "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-chur-graubunden-86y4zp"
       ]
     },
@@ -140,7 +189,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-hs6koo",
@@ -207,7 +257,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-ruyan0",
@@ -274,7 +325,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-aedhb0",
@@ -344,7 +396,8 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-7haru0",
@@ -547,7 +600,8 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-m2qsz9",
@@ -672,7 +726,8 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-pztp1c",
@@ -820,7 +875,8 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-z82xrv",
@@ -919,7 +975,8 @@
           "verkaufer-in-food-coop-disentis-muster-graubunden-yw2vrg",
           "vendeur-de-produits-alimentaires-coop-disentis-muster-graubunden"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-qvpnyt",
@@ -998,7 +1055,8 @@
         "de": [
           "koch-kochin-mit-zusatzfunktion-stv-geschaftsfuhrer-in-coop-genossenschaft-chur"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-xzo8qe",
@@ -1099,7 +1157,8 @@
           "verkaufsberater-in-import-parfumerie-chur-graubunden-kj0yby",
           "verkaufsberater-in-import-parfumerie-chur-graubunden-iull67"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-x19tlj",
@@ -1280,7 +1339,8 @@
           "associate-gastronomie-coop-ristorante-chur-graubunden-jri4bo",
           "collaborateur-trice-gastronomie-coop-ristorante-chur-graubunden-jri4bo"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-5t9qhe",
@@ -1374,7 +1434,8 @@
           "associate-gastronomie-coop-landquart-graubunden-5t9qhe",
           "collaborateur-trice-gastronomie-coop-landquart-graubunden-5t9qhe"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-bs45mj",
@@ -1468,7 +1529,8 @@
           "collaboratore-trice-inventuren-coop-grigioni-bs45mj",
           "collaborateur-trice-inventuren-coop-grigioni-bs45mj"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-45zfce",
@@ -1862,7 +1924,8 @@
           "directeur-adjoint-coop-genossenschaft-arosa",
           "stv-geschaftsfuhrer-in-coop-genossenschaft-arosa"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-h7g6s6",
@@ -1956,7 +2019,8 @@
           "salesperson-fresh-produce-fruits-vegetables-coop-genossenschaft-ilanz-glion-h7g6s6",
           "vendeur-produits-frais-fruits-et-legumes-coop-genossenschaft-ilanz-glion-h7g6s6"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-n3eyyx",
@@ -2035,7 +2099,8 @@
         "fr": [
           "conseiller-ere-de-vente-avec-suppleance-de-la-direction-christ-uhren-schmuck-ag-chur"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-8tzaj8",
@@ -2199,7 +2264,8 @@
           "verkaufer-in-food-frischprodukte-blumen-kiosk-coop-genossenschaft-chur",
           "verkaufer-in-food-coop-genossenschaft-chur"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-tcv189",
@@ -2298,7 +2364,8 @@
           "vendeur-food-pain-frais-coop-genossenschaft-churwalden",
           "verkaufer-in-food-brot-frische-coop-genossenschaft-churwalden"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-46pqaj",
@@ -2373,7 +2440,8 @@
         "fr": [
           "chef-chef-w-m-d-coop-genossenschaft-chur"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-mm4mox",
@@ -2710,7 +2778,8 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-29vdmd",
@@ -2777,7 +2846,8 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-vn56hi",
@@ -2844,7 +2914,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-33l5v6",
@@ -2911,7 +2982,8 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-l1gprk",
@@ -3048,7 +3120,8 @@
           "verkaufer-in-kassen-services-coop-disentis-muster-graubunden-hbxhxq",
           "caissier-ere-services-coop-genossenschaft-disentis-muster"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-l6wxbs",
@@ -3115,7 +3188,8 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-z5k5f",
@@ -3194,7 +3268,8 @@
         "fr": [
           "directeur-directrice-christ-orologi-gioielli-chur-graubunden"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-ymbq5g",
@@ -3283,7 +3358,8 @@
           "sales-advisor-christ-orologi-gioielli-chur-graubunden",
           "conseiller-ere-de-vente-christ-orologi-gioielli-chur-graubunden"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-hzmde2",
@@ -3440,7 +3516,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-m6q8xe",
@@ -3507,7 +3584,8 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-9yar0z",
@@ -3584,7 +3662,8 @@
           "quereinstieg-associate-fleisch-und-fisch-coop-grigioni-9yar0z",
           "quereinstieg-collaborateur-trice-fleisch-und-fisch-coop-grigioni-9yar0z"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-oal0zl",
@@ -3791,7 +3870,8 @@
         "fr": [
           "debut-de-carriere-chef-en-gastronomie-systematique-m-f-d-coop-ristorante-graubunden"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-3jfhc8",
@@ -4224,7 +4304,8 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-z0zxuf",
@@ -4307,7 +4388,8 @@
         "fr": [
           "impiegata-o-di-gastronomia-standardizzata-addettao-digastronomia-standardizzata-marche-mezzovico"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-2p2jlr",
@@ -12435,7 +12517,8 @@
           "quereinstieg-associate-fleisch-und-fisch-coop-grigioni-ncbhm0",
           "quereinstieg-collaborateur-trice-fleisch-und-fisch-coop-grigioni-ncbhm0"
         ]
-      }
+      },
+      "needsRetranslation": true
     }
   ]
 }
