@@ -1,6 +1,6 @@
 {
   "crawlerKey": "davos-klosters-bergbahnen",
-  "assembledAt": "2026-04-09T21:22:29.544Z",
+  "assembledAt": "2026-04-10T09:30:25.695Z",
   "jobs": [
     {
       "id": "davos-klosters-bergbahnen-381c04d92a7b",
@@ -39,28 +39,15 @@
       "employmentType": "TEMPORARY",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Service_j_3702762",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-09T21:22:27.543Z",
+      "crawledAt": "2026-04-10T09:30:24.019Z",
       "previousSlugs": [
         "collaboratore-trice-service-davos-klosters-bergbahnen-ag-davos",
         "mitarbeiter-in-service-davos-klosters-bergbahnen-ag-davos"
       ],
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "7270",
       "previousSlugsByLocale": {
         "it": [
           "collaboratore-trice-service-davos-klosters-bergbahnen-ag-davos",
@@ -78,7 +65,20 @@
           "collaboratore-trice-service-davos-klosters-bergbahnen-ag-davos",
           "mitarbeiter-in-service-davos-klosters-bergbahnen-ag-davos"
         ]
-      }
+      },
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "7270"
     },
     {
       "id": "davos-klosters-bergbahnen-9884a452c7d6",
@@ -117,28 +117,15 @@
       "employmentType": "TEMPORARY",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-IT_j_3809206",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-09T21:22:27.224Z",
+      "crawledAt": "2026-04-10T09:30:23.768Z",
       "previousSlugs": [
         "mitarbeiter-in-it-davos-klosters-bergbahnen-ag-davos",
         "collaboratore-it-davos-klosters-bergbahnen-ag-davos"
       ],
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "7270",
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-it-davos-klosters-bergbahnen-ag-davos",
@@ -156,7 +143,20 @@
           "mitarbeiter-in-it-davos-klosters-bergbahnen-ag-davos",
           "collaboratore-it-davos-klosters-bergbahnen-ag-davos"
         ]
-      }
+      },
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "7270"
     },
     {
       "id": "davos-klosters-bergbahnen-5684cfff3552",
@@ -195,30 +195,17 @@
       "employmentType": "TEMPORARY",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Gruppen-Events_j_2433221",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-09T21:22:26.909Z",
+      "crawledAt": "2026-04-10T09:30:23.514Z",
       "previousSlugs": [
         "collaboratore-trice-gruppen-events-davos-klosters-bergbahnen-ag-davos",
         "associate-gruppen-events-davos-klosters-bergbahnen-ag-davos",
         "mitarbeiter-in-gruppen-events-davos-klosters-bergbahnen-ag-davos",
         "collaborateur-trice-gruppen-events-davos-klosters-bergbahnen-ag-davos"
       ],
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "7270",
       "previousSlugsByLocale": {
         "it": [
           "collaboratore-trice-gruppen-events-davos-klosters-bergbahnen-ag-davos",
@@ -244,7 +231,20 @@
           "mitarbeiter-in-gruppen-events-davos-klosters-bergbahnen-ag-davos",
           "collaborateur-trice-gruppen-events-davos-klosters-bergbahnen-ag-davos"
         ]
-      }
+      },
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "7270"
     },
     {
       "id": "davos-klosters-bergbahnen-da1009241443",
@@ -283,28 +283,15 @@
       "employmentType": "TEMPORARY",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Front-Office_j_2808482",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-09T21:22:26.584Z",
+      "crawledAt": "2026-04-10T09:30:23.273Z",
       "previousSlugs": [
         "associate-front-office-davos-klosters-bergbahnen-ag-davos",
         "mitarbeiter-in-front-office-davos-klosters-bergbahnen-ag-davos"
       ],
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "7270",
       "previousSlugsByLocale": {
         "it": [
           "associate-front-office-davos-klosters-bergbahnen-ag-davos",
@@ -322,7 +309,20 @@
           "associate-front-office-davos-klosters-bergbahnen-ag-davos",
           "mitarbeiter-in-front-office-davos-klosters-bergbahnen-ag-davos"
         ]
-      }
+      },
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "7270"
     },
     {
       "id": "davos-klosters-bergbahnen-e3676e5fd118",
@@ -361,15 +361,23 @@
       "employmentType": "TEMPORARY",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Leiter-in-Gebaeudeunterhalt-Infrastruktur_j_2938831",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-09T21:22:26.273Z",
+      "crawledAt": "2026-04-10T09:30:23.017Z",
       "previousSlugs": [
         "responsabile-gebaudeunterhalt-infrastruktur-davos-klosters-bergbahnen-ag-davos",
         "leiter-in-gebaudeunterhalt-infrastruktur-davos-klosters-bergbahnen-ag-davos"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "responsabile-gebaudeunterhalt-infrastruktur-davos-klosters-bergbahnen-ag-davos"
+        ],
+        "de": [
+          "leiter-in-gebaudeunterhalt-infrastruktur-davos-klosters-bergbahnen-ag-davos"
+        ]
+      },
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -382,15 +390,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7270",
-      "previousSlugsByLocale": {
-        "it": [
-          "responsabile-gebaudeunterhalt-infrastruktur-davos-klosters-bergbahnen-ag-davos"
-        ],
-        "de": [
-          "leiter-in-gebaudeunterhalt-infrastruktur-davos-klosters-bergbahnen-ag-davos"
-        ]
-      }
+      "postalCode": "7270"
     },
     {
       "id": "davos-klosters-bergbahnen-c03615bee673",
@@ -429,14 +429,23 @@
       "employmentType": "TEMPORARY",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Chef-de-Service_j_3702688",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-09T21:22:25.964Z",
+      "crawledAt": "2026-04-10T09:30:22.764Z",
       "previousSlugs": [
-        "chef-de-service-davos-klosters-bergbahnen-ag-davos"
+        "chef-de-service-davos-klosters-bergbahnen-ag-davos",
+        "chef-de-service-davos-klosters-bergbahnen-davos"
       ],
+      "previousSlugsByLocale": {
+        "fr": [
+          "chef-de-service-davos-klosters-bergbahnen-ag-davos"
+        ],
+        "it": [
+          "chef-de-service-davos-klosters-bergbahnen-davos"
+        ]
+      },
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -449,12 +458,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7270",
-      "previousSlugsByLocale": {
-        "fr": [
-          "chef-de-service-davos-klosters-bergbahnen-ag-davos"
-        ]
-      }
+      "postalCode": "7270"
     },
     {
       "id": "davos-klosters-bergbahnen-04875753134f",
@@ -493,14 +497,24 @@
       "employmentType": "TEMPORARY",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Chef-de-Partie-Mountain-Plaza-Hotel_j_3024838",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-09T21:22:25.680Z",
+      "crawledAt": "2026-04-10T09:30:22.538Z",
       "previousSlugs": [
-        "leiter-der-mountain-plaza-hotel-party-davos-klosters-bergbahnen-ag-davos"
+        "leiter-der-mountain-plaza-hotel-party-davos-klosters-bergbahnen-ag-davos",
+        "chef-de-partie-mountain-plaza-hotel-davos-klosters-bergbahnen-davos"
       ],
+      "previousSlugsByLocale": {
+        "de": [
+          "leiter-der-mountain-plaza-hotel-party-davos-klosters-bergbahnen-ag-davos"
+        ],
+        "it": [
+          "chef-de-partie-mountain-plaza-hotel-davos-klosters-bergbahnen-davos"
+        ]
+      },
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -513,12 +527,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7270",
-      "previousSlugsByLocale": {
-        "de": [
-          "leiter-der-mountain-plaza-hotel-party-davos-klosters-bergbahnen-ag-davos"
-        ]
-      }
+      "postalCode": "7270"
     },
     {
       "id": "davos-klosters-bergbahnen-e19f7f290e00",
@@ -557,27 +566,14 @@
       "employmentType": "TEMPORARY",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Betriebselektriker-in_j_2730837",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-09T21:22:25.365Z",
+      "crawledAt": "2026-04-10T09:30:22.269Z",
       "previousSlugs": [
         "betriebselektriker-in-davos-klosters-bergbahnen-ag-davos"
       ],
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "7270",
       "previousSlugsByLocale": {
         "it": [
           "betriebselektriker-in-davos-klosters-bergbahnen-ag-davos"
@@ -591,7 +587,20 @@
         "fr": [
           "betriebselektriker-in-davos-klosters-bergbahnen-ag-davos"
         ]
-      }
+      },
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "7270"
     },
     {
       "id": "davos-klosters-bergbahnen-7fd2202b6ea7",
@@ -630,11 +639,12 @@
       "employmentType": "TEMPORARY",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Allrounder-in-Restaurant-Bolgen-Plaza_j_3007454",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-09T21:22:25.060Z",
+      "crawledAt": "2026-04-10T09:30:22.009Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
