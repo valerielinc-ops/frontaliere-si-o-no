@@ -2046,6 +2046,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.discover-eu-2026-frontalieri-ticino.title': 'DiscoverEU 2026: 40mila pass gratuiti in treno per 18enni in tutta Europa',
     'blog.article.discover-eu-2026-frontalieri-ticino.excerpt': 'Scadenza candidature 22 aprile 2026 per viaggiare gratis in treno fino al 30 settembre 2027. Aperto anche a frontalieri ticinesi se residenti in Paesi UE o associati a Erasmus+.',
     'blog.article.discover-eu-2026-frontalieri-ticino.imageAlt': 'Giovane con zaino alla stazione di Lugano pronta a partire con DiscoverEU',
+    'blog.article.banche-svizzere-pronti-clienti-golfo-2026.title': 'Banche svizzere in allerta per i clienti del Golfo: cosa cambia per i frontalieri',
+    'blog.article.banche-svizzere-pronti-clienti-golfo-2026.excerpt': 'Trasferimenti di fondi verso la Svizzera già in atto. I patrimoni del Golfo rivalutano la Confederazione per sicurezza e neutralità. Apprezzamento del franco come segnale positivo.',
+    'blog.article.banche-svizzere-pronti-clienti-golfo-2026.imageAlt': 'Vista panoramica di Lugano con il lungolago e gli edifici bancari sullo sfondo',
 };
 
 export default blogMetaIt;

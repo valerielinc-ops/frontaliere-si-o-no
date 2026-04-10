@@ -1937,6 +1937,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-benzina-lombardia-frontalieri-ticinesi-2026': { name: 'Frontalieri presi d’assalto', path: '/articoli-frontaliere/benzina-lombardia-frontalieri-ticinesi-2026', parent: 'blog' },
     'blog-diploma-usa-non-riconosciuto-ticino': { name: 'Diploma statunitense bloccato in Ticino', path: '/articoli-frontaliere/diploma-usa-non-riconosciuto-ticino', parent: 'blog' },
     'blog-discover-eu-2026-frontalieri-ticino': { name: 'DiscoverEU 2026', path: '/articoli-frontaliere/discover-eu-2026-frontalieri-ticino', parent: 'blog' },
+    'blog-banche-svizzere-pronti-clienti-golfo-2026': { name: 'Banche svizzere in allerta per i clienti', path: '/articoli-frontaliere/banche-svizzere-pronti-clienti-golfo-2026', parent: 'blog' },
   };
 
   const info = sectionNames[section];

@@ -5759,4 +5759,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/discover-eu-2026-frontalieri-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'banche-svizzere-pronti-clienti-golfo-2026',
+    category: 'fiscale',
+    date: '2026-04-10T19:44:10.923Z',
+    image: '/images/blog/banche-svizzere-pronti-clienti-golfo-2026.jpg',
+    hasCalculator: true,
+  },
 ];

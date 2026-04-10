@@ -6647,6 +6647,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-banche-svizzere-pronti-clienti-golfo-2026': {
+    title: 'Banche svizzere in allerta per i | Frontaliere Ticino',
+    description: 'Trasferimenti di fondi verso la Svizzera già in atto. I patrimoni del Golfo rivalutano la Confederazione per sicurezza e neutralità. Apprezzamento del franco co',
+    keywords: 'frontalieri, ticino, svizzera, italia, banche, svizzere, allerta, clienti',
+    ogTitle: 'Banche svizzere in allerta per i clienti del Golfo: cosa',
+    ogDescription: 'Trasferimenti di fondi verso la Svizzera già in atto. I patrimoni del Golfo rivalutano la Confederazione per sicurezza e neutralità. Apprezzamento del franco co',
+    canonicalPath: '/articoli-frontaliere/banche-svizzere-pronti-clienti-golfo-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Banche svizzere in allerta per i clienti del Golfo: cosa",
+      "description": "Trasferimenti di fondi verso la Svizzera già in atto. I patrimoni del Golfo rivalutano la Confederazione per sicurezza e neutralità. Apprezzamento del franco co",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/banche-svizzere-pronti-clienti-golfo-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano con il lungolago e gli edifici bancari sullo sfondo"
+      },
+      "datePublished": "2026-04-10T19:44:10+00:00",
+      "dateModified": "2026-04-10T19:44:10+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/banche-svizzere-pronti-clienti-golfo-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

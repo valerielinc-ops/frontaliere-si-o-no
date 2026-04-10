@@ -2046,6 +2046,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.discover-eu-2026-frontalieri-ticino.title': 'DiscoverEU 2026: 40,000 free train passes for 18-year-olds across Europe',
     'blog.article.discover-eu-2026-frontalieri-ticino.excerpt': 'Applications close on April 22, 2026, for free train travel until September 30, 2027. Open to Ticino cross-border workers as well if they reside in EU countries or Erasmus+ associated nations.',
     'blog.article.discover-eu-2026-frontalieri-ticino.imageAlt': 'Young person with backpack at Lugano train station ready to board DiscoverEU train',
+    'blog.article.banche-svizzere-pronti-clienti-golfo-2026.title': 'Swiss banks on alert for Gulf clients: what changes for cross-border workers',
+    'blog.article.banche-svizzere-pronti-clienti-golfo-2026.excerpt': 'Fund transfers to Switzerland already underway. Gulf wealth reconsiders the Confederation for security and neutrality. Franc appreciation seen as a positive signal.',
+    'blog.article.banche-svizzere-pronti-clienti-golfo-2026.imageAlt': 'Panoramic view of Lugano with lakefront and banking buildings in the background',
 };
 
 export default blogMetaEn;

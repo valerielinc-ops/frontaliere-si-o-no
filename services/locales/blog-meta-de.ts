@@ -2046,6 +2046,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.discover-eu-2026-frontalieri-ticino.title': 'DiscoverEU 2026: 40.000 kostenlose Zugtickets für 18-Jährige in ganz Europa',
     'blog.article.discover-eu-2026-frontalieri-ticino.excerpt': 'Bewerbungsschluss am 22. April 2026 für kostenlose Zugfahrten bis zum 30. September 2027. Auch Grenzgänger aus dem Tessin können teilnehmen, sofern sie in EU-Ländern oder Erasmus+-assoziierten Staaten wohnhaft sind.',
     'blog.article.discover-eu-2026-frontalieri-ticino.imageAlt': 'Junge Person mit Rucksack am Bahnhof Lugano bereit für DiscoverEU-Reise',
+    'blog.article.banche-svizzere-pronti-clienti-golfo-2026.title': 'Schweizer Banken in Alarmbereitschaft für Kunden aus dem Golf: Was sich für Grenzgänger ändert',
+    'blog.article.banche-svizzere-pronti-clienti-golfo-2026.excerpt': 'Fondsverschiebungen in die Schweiz bereits im Gange. Vermögen aus dem Golf bewerten die Eidgenossenschaft neu – aus Sicherheits- und Neutralitätsgründen. Die Aufwertung des Frankens wird als positives Signal gewertet.',
+    'blog.article.banche-svizzere-pronti-clienti-golfo-2026.imageAlt': 'Panoramablick von Lugano mit Seepromenade und Bankgebäuden im Hintergrund',
 };
 
 export default blogMetaDe;
