@@ -1,6 +1,6 @@
 {
   "crawlerKey": "convit-holding",
-  "assembledAt": "2026-04-09T21:19:43.000Z",
+  "assembledAt": "2026-04-10T09:28:07.373Z",
   "jobs": [
     {
       "title": "Tirocinante pianificazione finanziaria (entrata laterale) tempo indeterminato",
@@ -208,7 +208,8 @@
         "fr": [
           "sales-finance-social-security-side-entry-fixed-bonus-convit-holding-gmbh-giubiasco"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Sales Consultant Previdenza/Finanza (entrata laterale) Ibrido",
@@ -266,7 +267,15 @@
       },
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
-      "id": "convit-88cd58677a41"
+      "id": "convit-88cd58677a41",
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-consultant-previdenza-finanza-entrata-laterale-ibrido-convit-arbedo-castione"
+        ]
+      },
+      "previousSlugs": [
+        "sales-consultant-previdenza-finanza-entrata-laterale-ibrido-convit-arbedo-castione"
+      ]
     },
     {
       "title": "Posizione di ingresso consulenza finanziaria formazione pagata",
@@ -331,7 +340,6 @@
         "posizione-di-ingresso-consulenza-finanziaria-formazione-pagata-convit-holding-gmbh-massagno"
       ],
       "id": "convit-ab4bf77c3453",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "posizione-di-ingresso-consulenza-finanziaria-formazione-pagata-convit-mendrisio-borgo",
@@ -357,7 +365,8 @@
           "posizione-di-ingresso-consulenza-finanziaria-formazione-pagata-convit-massagno",
           "posizione-di-ingresso-consulenza-finanziaria-formazione-pagata-convit-holding-gmbh-massagno"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Pianificazione finanziaria (junior) – mentoring",
@@ -645,7 +654,6 @@
         "admission-3a-3b-financial-advice-flexible-hours-convit-holding-gmbh-giubiasco-monte-carasso"
       ],
       "id": "convit-cb94b1dded29",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "admission-3a-3b-conseils-financiers-horaires-flexibles-convit-holding-gmbh-giubiasco-monte-carasso",
@@ -663,7 +671,8 @@
           "admission-3a-3b-conseils-financiers-horaires-flexibles-convit-holding-gmbh-giubiasco-monte-carasso",
           "admission-3a-3b-financial-advice-flexible-hours-convit-holding-gmbh-giubiasco-monte-carasso"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Impiegato/a di finanza (entrata laterale) previdenza/finanza",
@@ -971,7 +980,15 @@
       },
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
-      "id": "convit-e629adda55fe"
+      "id": "convit-e629adda55fe",
+      "previousSlugsByLocale": {
+        "it": [
+          "consultant-patrimonio-junior-part-time-o-100-convit-agra"
+        ]
+      },
+      "previousSlugs": [
+        "consultant-patrimonio-junior-part-time-o-100-convit-agra"
+      ]
     },
     {
       "title": "Consulenza previdenziale – 3a/3b, Homeoffice",
@@ -1035,7 +1052,6 @@
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
       "id": "convit-31d91c71471b",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "consulenza-previdenziale-3a-3b-homeoffice-convit-pazzallo",
@@ -1057,7 +1073,8 @@
           "preliminary-advice-3a-3b-homeoffice-convit-holding-gmbh-pazzallo",
           "pension-advice-3a-3b-homeoffice-convit-holding-gmbh-pazzallo"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Consulenza investimenti & previdenza (entrata laterale) tempo indeterminato",
@@ -1301,7 +1318,6 @@
         "online-financial-advice-side-entry-hybrid-home-office-convit-holding-gmbh-arbedo-castione"
       ],
       "id": "convit-2323c0b40462",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "online-financial-advice-side-entrance-hybrid-homeoffice-convit-holding-gmbh-arbedo-castione",
@@ -1323,7 +1339,8 @@
           "consulenza-finanziaria-online-entrata-laterale-ibrido-homeoffice-convit-holding-gmbh-arbedo-castione",
           "online-financial-advice-side-entry-hybrid-home-office-convit-holding-gmbh-arbedo-castione"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Consulenza finanziaria (entrata laterale) part-time/lavoro secondario",
@@ -1385,7 +1402,6 @@
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
       "id": "convit-04586044c827",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "conseils-financiers-entree-laterale-a-temps-partiel-secondaire-convit-holding-gmbh-quinto"
@@ -1399,7 +1415,8 @@
         "fr": [
           "conseils-financiers-entree-laterale-a-temps-partiel-secondaire-convit-holding-gmbh-quinto"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Consulenza finanziaria (entrata laterale) fisso + bonus, part-time o 100 %",
@@ -1479,7 +1496,8 @@
           "consulenza-finanziaria-entrata-laterale-fisso-bonus-temps-partiel-o-100-convit-holding-gmbh-losone-hohte6",
           "conseils-financiers-entree-laterale-fixe-bonus-temps-partiel-ou-100-convit-holding-gmbh-losone"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "convit-7d3d94a1e1d6",
@@ -1599,12 +1617,12 @@
         "consultant-financial-solutions-junior-convit-holding-gmbh-biasca-sud"
       ],
       "id": "convit-db067ca6879c",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "en": [
           "consultant-financial-solutions-junior-convit-holding-gmbh-biasca-sud"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Consulente privati pianificazione finanziaria (junior) orari flessibili",
@@ -1732,12 +1750,12 @@
         "consulente-privato-junior-homeoffice-convit-holding-gmbh-origlio"
       ],
       "id": "convit-4ed3cb54692f",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "en": [
           "consulente-privato-junior-homeoffice-convit-holding-gmbh-origlio"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Consulente privati finanza entrata laterale",
@@ -1890,7 +1908,6 @@
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
       "id": "convit-131bb55e1c75",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "consultant-prive-3a-3b-hybrid-convit-holding-gmbh-sementina",
@@ -1908,7 +1925,8 @@
           "consultant-prive-3a-3b-hybrid-convit-holding-gmbh-sementina",
           "private-advisor-3a-3b-hybrid-convit-holding-gmbh-sementina"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Consulente previdenziale (senza esperienza) formazione pagata",
@@ -2150,7 +2168,7 @@
       "sector": "Finanza & Previdenza",
       "source": "convit-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -2316,7 +2334,7 @@
       "sector": "Finanza & Previdenza",
       "source": "convit-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -2647,14 +2665,14 @@
         "consulente-previdenziale-junior-entrata-laterale-mentoring-coaching-convit-holding-gmbh-ca"
       ],
       "id": "convit-4afd0f60af04",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "en": [
           "prevident-consultant-junior-lateral-entrance-mentoring-coaching-convit-holding-gmbh-camorino",
           "consulente-previdenziale-junior-entrata-laterale-mentoring-coaching-convit-holding-gmbh-camorino",
           "consulente-previdenziale-junior-entrata-laterale-mentoring-coaching-convit-holding-gmbh-ca"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Consulente previdenziale (Ibrido) ingresso senza esperienza",
