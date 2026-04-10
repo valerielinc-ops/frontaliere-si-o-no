@@ -143,6 +143,24 @@ function unwrapFirestoreValue(node) {
   return null;
 }
 
+async function fetchJsonWithRetry(url, retries = 3) {
+  for (let attempt = 1; attempt <= retries; attempt++) {
+    try {
+      const res = await fetch(url, {
+        headers: { 'user-agent': 'FrontaliereTicino/1.0' },
+        signal: AbortSignal.timeout(30_000),
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
+      return await res.json();
+    } catch (err) {
+      if (attempt === retries) throw err;
+      const delay = attempt * 5_000;
+      console.warn(`⚠️ Attempt ${attempt}/${retries} failed for ${url}: ${err.message} — retrying in ${delay / 1000}s`);
+      await new Promise((r) => setTimeout(r, delay));
+    }
+  }
+}
+
 async function fetchSwissStations() {
   const now = Date.now();
   const docs = [];
@@ -158,9 +176,7 @@ async function fetchSwissStations() {
     url.searchParams.append('mask.fieldPaths', 'location');
     url.searchParams.append('mask.fieldPaths', 'isDeleted');
     if (pageToken) url.searchParams.set('pageToken', pageToken);
-    const res = await fetch(url, { headers: { 'user-agent': 'FrontaliereTicino/1.0' } });
-    if (!res.ok) throw new Error(`Swiss source failed ${res.status}`);
-    const json = await res.json();
+    const json = await fetchJsonWithRetry(url.toString());
     for (const doc of json.documents || []) {
       docs.push(doc);
     }
@@ -488,7 +504,17 @@ async function main() {
       exchangeRate,
     });
 
-    await writeToFirestore(payload);
+    // Retry Firestore write — transient 503/UNAVAILABLE errors happen
+    for (let attempt = 1; attempt <= 3; attempt++) {
+      try {
+        await writeToFirestore(payload);
+        break;
+      } catch (err) {
+        if (attempt === 3) throw err;
+        console.warn(`⚠️ Firestore write attempt ${attempt}/3 failed: ${err.message} — retrying in ${attempt * 3}s`);
+        await new Promise((r) => setTimeout(r, attempt * 3_000));
+      }
+    }
 
     if (saveLocal) {
       writeJson(DATA_OUT, payload);

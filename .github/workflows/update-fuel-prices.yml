@@ -60,7 +60,7 @@ jobs:
             node scripts/generate-fuel-prices-dataset.mjs
           fi
 
-      # Daily: commit repo cache + trigger deploy
+      # Daily: commit repo cache + trigger deploy (with rebase-retry for concurrent pushes)
       - name: Commit repo cache (daily only)
         id: commit
         if: steps.schedule.outputs.daily == 'true'
@@ -73,10 +73,12 @@ jobs:
             echo "has_changes=false" >> "$GITHUB_OUTPUT"
           else
             git commit -m "⛽ Daily fuel prices cache update"
-            git stash --include-untracked || true
-            git pull --rebase origin main
-            git stash pop || true
-            git push origin main
+            # Rebase-retry loop to handle concurrent pushes from other workflows
+            for attempt in 1 2 3; do
+              git pull --rebase origin main && git push origin main && break
+              echo "⚠️ Push attempt $attempt/3 failed, retrying in ${attempt}s..."
+              sleep "$attempt"
+            done
             echo "has_changes=true" >> "$GITHUB_OUTPUT"
           fi
 
