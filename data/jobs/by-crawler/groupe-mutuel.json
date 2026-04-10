@@ -1,6 +1,6 @@
 {
   "crawlerKey": "groupe-mutuel",
-  "assembledAt": "2026-04-09T21:32:24.035Z",
+  "assembledAt": "2026-04-10T09:40:27.903Z",
   "jobs": [
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3964?c=groupemutuel&lang=fr-FR",
@@ -91,8 +91,15 @@
         }
       },
       "postalCode": "1700",
-      "previousSlugs": [],
-      "needsRetranslation": true
+      "previousSlugs": [
+        "gestionnaire-sante-laa-h-f-80-100-groupe-mutuel"
+      ],
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "gestionnaire-sante-laa-h-f-80-100-groupe-mutuel"
+        ]
+      }
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3967?c=groupemutuel&lang=fr-FR",
@@ -183,7 +190,15 @@
         }
       },
       "postalCode": "1700",
-      "previousSlugs": []
+      "previousSlugs": [
+        "responsable-vente-h-f-80-100-groupe-mutuel"
+      ],
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-vente-h-f-80-100-groupe-mutuel"
+        ]
+      }
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3957?c=groupemutuel&lang=fr-FR",
@@ -274,7 +289,15 @@
         }
       },
       "postalCode": "8001",
-      "previousSlugs": []
+      "previousSlugs": [
+        "sachbearbeiter-unternehmen-uw-m-w-100-temporar-4-monate-groupe-mutuel"
+      ],
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-unternehmen-uw-m-w-100-temporar-4-monate-groupe-mutuel"
+        ]
+      }
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3944?c=groupemutuel&lang=fr-FR",
@@ -356,9 +379,16 @@
         }
       },
       "postalCode": "9500",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel"
+      ],
       "needsRetranslation": true,
-      "addressRegion": "SG"
+      "addressRegion": "SG",
+      "previousSlugsByLocale": {
+        "it": [
+          "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel"
+        ]
+      }
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3946?c=groupemutuel&lang=fr-FR",
@@ -443,7 +473,15 @@
         }
       },
       "postalCode": "1920",
-      "previousSlugs": []
+      "previousSlugs": [
+        "gestionnaire-prevoyance-individuelle-h-f-80-groupe-mutuel"
+      ],
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "gestionnaire-prevoyance-individuelle-h-f-80-groupe-mutuel"
+        ]
+      }
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3927?c=groupemutuel&lang=fr-FR",
@@ -522,8 +560,15 @@
         }
       },
       "postalCode": "1003",
-      "previousSlugs": [],
-      "needsRetranslation": true
+      "previousSlugs": [
+        "conseiller-clientele-contact-center-h-f-100-temporaire-3-mois-prolongeable-groupe-mutuel"
+      ],
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-clientele-contact-center-h-f-100-temporaire-3-mois-prolongeable-groupe-mutuel"
+        ]
+      }
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3926?c=groupemutuel&lang=fr-FR",
@@ -799,7 +844,8 @@
       },
       "id": "groupe-mutuel-82a83c32fdbb",
       "previousSlugs": [
-        "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel"
+        "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel",
+        "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel-2"
       ],
       "salaryMin": 53500,
       "salaryMax": 89000,
@@ -820,6 +866,9 @@
       "previousSlugsByLocale": {
         "de": [
           "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel"
+        ],
+        "it": [
+          "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel-2"
         ]
       }
     },
@@ -882,7 +931,15 @@
       },
       "postalCode": "5000",
       "needsRetranslation": true,
-      "addressRegion": "AG"
+      "addressRegion": "AG",
+      "previousSlugs": [
+        "kundenberater-agenturen-m-w-80-100-groupe-mutuel"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-agenturen-m-w-80-100-groupe-mutuel"
+        ]
+      }
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3861?c=groupemutuel&lang=fr-FR",
@@ -960,7 +1017,16 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "previousSlugs": [
+        "conseiller-en-assurances-et-prevoyance-at-h-f-80-100-groupe-mutuel"
+      ],
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-en-assurances-et-prevoyance-at-h-f-80-100-groupe-mutuel"
+        ]
+      }
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3852?c=groupemutuel&lang=fr-FR",
@@ -984,7 +1050,7 @@
         "de": "Business Analyst Private Vorsorge (m/w/d) 80-100%",
         "fr": "Analyste d'affaires Prévoyance Individuelle (h/f) 80-100%"
       },
-      "slug": "business-analyst-previdenza-individuale-m-f-80-100-groupe-mutuel-lausanne",
+      "slug": "business-analista-prevoyance-individuelle-h-f-80-100-groupe-mutuel-lausanne",
       "slugByLocale": {
         "it": "business-analista-prevoyance-individuelle-h-f-80-100-groupe-mutuel-lausanne",
         "en": "business-analyst-prevoyance-individuelle-h-f-80-100-groupe-mutuel",
@@ -1050,7 +1116,17 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1003"
+      "postalCode": "1003",
+      "previousSlugs": [
+        "business-analyst-prevoyance-individuelle-h-f-80-100-groupe-mutuel",
+        "business-analyst-previdenza-individuale-m-f-80-100-groupe-mutuel-lausanne"
+      ],
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "business-analyst-prevoyance-individuelle-h-f-80-100-groupe-mutuel"
+        ]
+      }
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3765?c=groupemutuel&lang=fr-FR",
@@ -1140,7 +1216,16 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1003"
+      "postalCode": "1003",
+      "previousSlugs": [
+        "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel"
+      ],
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel"
+        ]
+      }
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3724?c=groupemutuel&lang=fr-FR",
@@ -1227,7 +1312,16 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "previousSlugs": [
+        "conseiller-en-prevoyance-h-f-80-100-groupe-mutuel"
+      ],
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-en-prevoyance-h-f-80-100-groupe-mutuel"
+        ]
+      }
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3722?c=groupemutuel&lang=fr-FR",
@@ -1317,7 +1411,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6900"
+      "postalCode": "6900",
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3696?c=groupemutuel&lang=fr-FR",
@@ -1416,7 +1511,8 @@
         "fr": [
           "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel-2"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/2796?c=groupemutuel&lang=fr-FR",
@@ -1474,6 +1570,14 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
+      },
+      "previousSlugs": [
+        "candidature-spontanee-groupe-mutuel"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "candidature-spontanee-groupe-mutuel"
+        ]
       }
     }
   ]
