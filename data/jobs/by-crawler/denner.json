@@ -7,9 +7,9 @@
       "slug": "verkaufer-in-denner-rubigen",
       "slugByLocale": {
         "it": "verkaufer-in-denner-rubigen",
-        "en": "verkaufer-in-denner-rubigen",
+        "en": "sales-associate-denner-rubigen",
         "de": "verkaufer-in-denner-rubigen",
-        "fr": "verkaufer-in-denner-rubigen"
+        "fr": "vendeur-vendeuse-denner-rubigen"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -189,10 +189,10 @@
       "id": "denner-93c98c4eaac5",
       "slug": "verkaufer-in-im-stundenlohn-denner-worb",
       "slugByLocale": {
-        "it": "verkaufer-in-im-stundenlohn-denner-worb",
-        "en": "verkaufer-in-im-stundenlohn-denner-worb",
+        "it": "venditore-a-a-tempo-determinato-denner-worb",
+        "en": "hourly-wage-salesperson-denner-worb",
         "de": "verkaufer-in-im-stundenlohn-denner-worb",
-        "fr": "verkaufer-in-im-stundenlohn-denner-worb"
+        "fr": "vendeur-eusea-l-heure-denner-worb"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -374,10 +374,10 @@
       "id": "denner-c613f7f07188",
       "slug": "assistent-in-filialleitung-denner",
       "slugByLocale": {
-        "it": "assistent-in-filialleitung-denner",
-        "en": "assistent-in-filialleitung-denner-flims-dorf-gzl76k",
+        "it": "assistente-di-filiale-denner-biel-bienne",
+        "en": "filial-assistant-denner-biel-bienne",
         "de": "assistent-in-filialleitung-denner-biel-bienne",
-        "fr": "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
+        "fr": "assistant-de-filiale-denner-biel-bienne"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -437,10 +437,17 @@
       "previousSlugsByLocale": {
         "de": [
           "assistent-in-filialleitung-denner-flims-dorf"
+        ],
+        "en": [
+          "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
+        ],
+        "fr": [
+          "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
         ]
       },
       "previousSlugs": [
-        "assistent-in-filialleitung-denner-flims-dorf"
+        "assistent-in-filialleitung-denner-flims-dorf",
+        "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
       ],
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -735,10 +742,10 @@
       "id": "denner-7e7e80a6e0df",
       "slug": "teamleiter-in-kommissionierung-dietlikon-denner",
       "slugByLocale": {
-        "it": "teamleiter-in-kommissionierung-dietlikon-denner",
-        "en": "teamleiter-in-kommissionierung-dietlikon-denner",
+        "it": "responsabile-della-logistica-dietlikon-denner-dietlikon",
+        "en": "logistics-team-leader-dietlikon-denner-dietlikon",
         "de": "teamleiter-in-kommissionierung-dietlikon-denner",
-        "fr": "teamleiter-in-kommissionierung-dietlikon-denner"
+        "fr": "responsable-de-la-logistique-dietlikon-denner-dietlikon"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -816,10 +823,10 @@
       "id": "denner-bff7c6128d41",
       "slug": "stv-filialleiter-in-denner-neuhausen",
       "slugByLocale": {
-        "it": "stv-filialleiter-in-denner-neuhausen",
-        "en": "stv-filialleiter-in-denner-neuhausen",
+        "it": "vice-responsabile-di-filiale-denner-neuhausen",
+        "en": "deputy-store-manager-denner-neuhausen",
         "de": "stv-filialleiter-in-denner-neuhausen",
-        "fr": "stv-filialleiter-in-denner-neuhausen"
+        "fr": "adjoint-e-de-responsable-de-magasin-denner-neuhausen"
       },
       "company": "Denner",
       "companyKey": "denner",

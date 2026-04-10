@@ -40,10 +40,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "filialleiter-in-interdiscount-chur-graubunden-4qr3gx",
-        "en": "filialleiter-in-interdiscount-chur-graubunden-4qr3gx",
+        "it": "responsabile-di-filiale-interdiscount-chur",
+        "en": "branch-manager-interdiscount-chur",
         "de": "filialleiter-in-interdiscount-chur-graubunden-4qr3gx",
-        "fr": "filialleiter-in-interdiscount-chur-graubunden-4qr3gx"
+        "fr": "responsable-de-magasin-interdiscount-chur"
       },
       "addressLocality": "Chur",
       "sourceLang": "de",
@@ -58,7 +58,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "filialleiter-in-interdiscount-chur-graubunden-4qr3gx"
+        ],
+        "en": [
+          "filialleiter-in-interdiscount-chur-graubunden-4qr3gx"
+        ],
+        "fr": [
+          "filialleiter-in-interdiscount-chur-graubunden-4qr3gx"
+        ]
+      },
+      "previousSlugs": [
+        "filialleiter-in-interdiscount-chur-graubunden-4qr3gx"
+      ]
     },
     {
       "id": "company-86y4zp",

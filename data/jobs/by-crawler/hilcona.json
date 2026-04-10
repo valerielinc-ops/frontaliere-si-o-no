@@ -76,9 +76,9 @@
       "slug": "verantwortlicher-verantwortliche-betriebsmittel-e-instandhaltungsplanung-bell-schweiz-ag-oensingen",
       "slugByLocale": {
         "de": "verantwortlicher-verantwortliche-betriebsmittel-und-instandhaltungsplanung-bell-schweiz-ag-oensingen",
-        "it": "verantwortlicher-verantwortliche-betriebsmittel-e-instandhaltungsplanung-bell-schweiz-ag-oensingen",
-        "en": "verantwortlicher-verantwortliche-betriebsmittel-und-instandhaltungsplanung-bell-schweiz-ag-oensingen",
-        "fr": "verantwortlicher-verantwortliche-betriebsmittel-und-instandhaltungsplanung-bell-schweiz-ag-oensingen"
+        "it": "responsabile-della-gestione-e-manutenzione-degli-strumenti-di-lavoro-bell-schweiz-ag-oensingen",
+        "en": "responsible-for-work-equipment-and-maintenance-planning-bell-schweiz-ag-oensingen",
+        "fr": "responsable-de-la-gestion-et-de-la-maintenance-des-equipements-de-travail-bell-schweiz-ag-oensingen"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -121,10 +121,17 @@
         ],
         "de": [
           "verantwortlicher-verantwortliche-betriebsmittel-und-instandhaltungsplanung-hilcona-oensingen"
+        ],
+        "en": [
+          "verantwortlicher-verantwortliche-betriebsmittel-und-instandhaltungsplanung-bell-schweiz-ag-oensingen"
+        ],
+        "fr": [
+          "verantwortlicher-verantwortliche-betriebsmittel-und-instandhaltungsplanung-bell-schweiz-ag-oensingen"
         ]
       },
       "previousSlugs": [
-        "verantwortlicher-verantwortliche-betriebsmittel-und-instandhaltungsplanung-hilcona-oensingen"
+        "verantwortlicher-verantwortliche-betriebsmittel-und-instandhaltungsplanung-hilcona-oensingen",
+        "verantwortlicher-verantwortliche-betriebsmittel-und-instandhaltungsplanung-bell-schweiz-ag-oensingen"
       ],
       "salaryMin": 55500,
       "salaryMax": 75000,
@@ -145,8 +152,8 @@
       "slug": "prakitkant-praktikantin-qualitaetsmanagement-befristet-fuer-6-monate-bell-schweiz-ag-basel",
       "slugByLocale": {
         "de": "prakitkant-praktikantin-qualitaetsmanagement-befristet-fuer-6-monate-hilcona-basel",
-        "it": "prakitkant-praktikantin-qualitaetsmanagement-befristet-fuer-6-monate-bell-schweiz-ag-basel",
-        "en": "prakitkant-praktikantin-qualitaetsmanagement-befristet-fuer-6-monate-hilcona-basel",
+        "it": "trainee-qualita-management-a-tempo-determinato-per-6-mesi-bell-schweiz-ag-basel",
+        "en": "quality-management-trainee-for-6-months-bell-schweiz-ag-basel",
         "fr": "prakitkant-praktikantin-qualitaetsmanagement-befristet-fuer-6-monate-hilcona-basel"
       },
       "company": "Bell Schweiz AG",
@@ -187,6 +194,9 @@
       "previousSlugsByLocale": {
         "it": [
           "prakitkant-praktikantin-qualitaetsmanagement-befristet-fuer-6-monate-hilcona-basel"
+        ],
+        "en": [
+          "prakitkant-praktikantin-qualitaetsmanagement-befristet-fuer-6-monate-hilcona-basel"
         ]
       },
       "previousSlugs": [
@@ -211,9 +221,9 @@
       "slug": "betriebsmechaniker-betriebsmechanikerin-foerdertechnik-bell-schweiz-ag-oensingen",
       "slugByLocale": {
         "de": "betriebsmechaniker-betriebsmechanikerin-foerdertechnik-bell-schweiz-ag-oensingen",
-        "it": "betriebsmechaniker-betriebsmechanikerin-foerdertechnik-bell-schweiz-ag-oensingen",
-        "en": "betriebsmechaniker-betriebsmechanikerin-foerdertechnik-bell-schweiz-ag-oensingen",
-        "fr": "betriebsmechaniker-betriebsmechanikerin-foerdertechnik-bell-schweiz-ag-oensingen"
+        "it": "meccanico-di-impianti-di-trasporto-bell-schweiz-ag-oensingen",
+        "en": "conveyor-technician-bell-schweiz-ag-oensingen",
+        "fr": "technicien-en-convoyage-bell-schweiz-ag-oensingen"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
