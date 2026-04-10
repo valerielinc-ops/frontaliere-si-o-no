@@ -5773,4 +5773,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/fertilizzanti-crisi-hormuz-rincari-ticino-40.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'tassa-salute-frontalieri-lombardia-isola-2026',
+    category: 'fiscale',
+    date: '2026-04-10T20:56:32.924Z',
+    image: '/images/blog/tassa-salute-frontalieri-lombardia-isola-2026.jpg',
+    hasCalculator: true,
+  },
 ];

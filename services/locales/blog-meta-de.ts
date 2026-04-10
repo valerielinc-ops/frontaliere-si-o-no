@@ -2052,6 +2052,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.fertilizzanti-crisi-hormuz-rincari-ticino-40.title': 'Düngemittel +40% im Tessin: Die Krise von Hormuz trifft auch die Felder',
     'blog.article.fertilizzanti-crisi-hormuz-rincari-ticino-40.excerpt': 'Die Blockade der Straße von Hormuz lässt Stickstoff, Kalium und Phosphor stark im Preis steigen. Bäuerinnen und Bauern im Tessin riskieren Gewinneinbußen von bis zu 10 %.',
     'blog.article.fertilizzanti-crisi-hormuz-rincari-ticino-40.imageAlt': 'Tessinbauer prüft Gemüsefeld bei Mendrisio mit Bergkulisse',
+    'blog.article.tassa-salute-frontalieri-lombardia-isola-2026.title': 'Gesundheitssteuer für Grenzgänger: Nur die Lombardei beharrt, der Kanton Tessin droht mit Vergeltung',
+    'blog.article.tassa-salute-frontalieri-lombardia-isola-2026.excerpt': 'Die Lombardei ist die einzige italienische Region, die die sogenannte \'Gesundheitssteuer\' für Grenzgänger einführen will. Diese Steuer ist seit 27 Monaten in Kraft, wurde jedoch nie angewendet. Der Kanton Tessin droht nun mit der Kürzung der Rückerstattungen.',
+    'blog.article.tassa-salute-frontalieri-lombardia-isola-2026.imageAlt': 'Grenzschild Italien-Schweiz in Mendrisio mit Verwaltungsgebäuden im Hintergrund bei leichtem Regen',
 };
 
 export default blogMetaDe;

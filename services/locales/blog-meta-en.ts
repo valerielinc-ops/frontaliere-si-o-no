@@ -2052,6 +2052,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.fertilizzanti-crisi-hormuz-rincari-ticino-40.title': 'Fertilizers up 40% in Ticino: the Hormuz crisis hits the fields too',
     'blog.article.fertilizzanti-crisi-hormuz-rincari-ticino-40.excerpt': 'Blockade of the Strait of Hormuz drives up nitrogen, potassium and phosphorus prices. Ticino farmers face potential 10% losses on margins.',
     'blog.article.fertilizzanti-crisi-hormuz-rincari-ticino-40.imageAlt': 'Ticino farmer checking vegetable field near Mendrisio with mountain backdrop',
+    'blog.article.tassa-salute-frontalieri-lombardia-isola-2026.title': 'Cross-border health tax: Lombardy stands alone, Ticino threatens retaliation',
+    'blog.article.tassa-salute-frontalieri-lombardia-isola-2026.excerpt': 'Lombardy is the only Italian region pushing for the implementation of the \'cross-border health tax\' for frontier workers, which came into force 27 months ago but has never been applied. The Canton of Ticino has threatened to reduce reimbursements in response.',
+    'blog.article.tassa-salute-frontalieri-lombardia-isola-2026.imageAlt': 'Italian-Swiss border sign at Mendrisio with administrative offices in the background during light rain',
 };
 
 export default blogMetaEn;

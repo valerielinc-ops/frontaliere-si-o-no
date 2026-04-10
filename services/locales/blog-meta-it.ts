@@ -2052,6 +2052,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.fertilizzanti-crisi-hormuz-rincari-ticino-40.title': 'Fertilizzanti +40% in Ticino: la crisi di Hormuz colpisce anche i campi',
     'blog.article.fertilizzanti-crisi-hormuz-rincari-ticino-40.excerpt': 'Blocco dello Stretto di Hormuz fa lievitare azoto, potassio e fosforo. Agricoltori ticinesi rischiano perdite fino al 10% sui margini.',
     'blog.article.fertilizzanti-crisi-hormuz-rincari-ticino-40.imageAlt': 'Agricoltore ticinese nei campi vicino a Mendrisio con la valle in secondo piano',
+    'blog.article.tassa-salute-frontalieri-lombardia-isola-2026.title': 'Tassa salute frontalieri: Lombardia sola a insistere, Ticino minaccia ritorsioni',
+    'blog.article.tassa-salute-frontalieri-lombardia-isola-2026.excerpt': 'La Lombardia è l\'unica regione italiana a voler applicare la "tassa salute" per i frontalieri, entrata in vigore 27 mesi fa ma mai applicata. Minacce di decurtazione dei ristorni da parte del Canton Ticino',
+    'blog.article.tassa-salute-frontalieri-lombardia-isola-2026.imageAlt': 'Cartello di confine tra Italia e Svizzera a Mendrisio con uffici amministrativi sullo sfondo sotto la pioggia',
 };
 
 export default blogMetaIt;

@@ -6705,6 +6705,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tassa-salute-frontalieri-lombardia-isola-2026': {
+    title: 'Tassa salute frontalieri: Lombardia | Frontaliere Ticino',
+    description: 'La Lombardia è l\'unica regione italiana a voler applicare la "tassa salute" per i frontalieri, entrata in vigore 27 mesi fa ma mai applicata. Minacce di decurta',
+    keywords: 'frontalieri, ticino, svizzera, italia, tassa, salute, lombardia, sola',
+    ogTitle: 'Tassa salute frontalieri: Lombardia sola a insistere, Tic',
+    ogDescription: 'La Lombardia è l\'unica regione italiana a voler applicare la "tassa salute" per i frontalieri, entrata in vigore 27 mesi fa ma mai applicata. Minacce di decurta',
+    canonicalPath: '/articoli-frontaliere/tassa-salute-frontalieri-lombardia-isola-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tassa salute frontalieri: Lombardia sola a insistere, Tic",
+      "description": "La Lombardia è l'unica regione italiana a voler applicare la \"tassa salute\" per i frontalieri, entrata in vigore 27 mesi fa ma mai applicata. Minacce di decurta",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tassa-salute-frontalieri-lombardia-isola-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cartello di confine tra Italia e Svizzera a Mendrisio con uffici amministrativi sullo sfondo sotto la pioggia"
+      },
+      "datePublished": "2026-04-10T20:56:32+00:00",
+      "dateModified": "2026-04-10T20:56:32+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-salute-frontalieri-lombardia-isola-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

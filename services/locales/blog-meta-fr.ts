@@ -2052,6 +2052,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.fertilizzanti-crisi-hormuz-rincari-ticino-40.title': 'Engrais +40 % au Tessin : la crise d’Hormuz frappe aussi les champs',
     'blog.article.fertilizzanti-crisi-hormuz-rincari-ticino-40.excerpt': 'Le blocage du détroit d’Ormuz fait flamber le prix de l’azote, du potassium et du phosphore. Les agriculteurs tessinois risquent de voir leurs marges fondre jusqu’à 10 %.',
     'blog.article.fertilizzanti-crisi-hormuz-rincari-ticino-40.imageAlt': 'Agriculteur tessinois contrôlant un champ de légumes près de Mendrisio avec vue sur les montagnes',
+    'blog.article.tassa-salute-frontalieri-lombardia-isola-2026.title': 'Taxe santé pour les frontaliers : la Lombardie seule à vouloir l’appliquer, le Tessin menace des représailles',
+    'blog.article.tassa-salute-frontalieri-lombardia-isola-2026.excerpt': 'La Lombardie est la seule région italienne à vouloir appliquer la « taxe santé » pour les frontaliers, entrée en vigueur il y a 27 mois mais jamais appliquée. Le Canton du Tessin menace de réduire les ristournes.',
+    'blog.article.tassa-salute-frontalieri-lombardia-isola-2026.imageAlt': 'Panneau frontalier Italie-Suisse à Mendrisio avec bureaux administratifs en arrière-plan sous une légère pluie',
 };
 
 export default blogMetaFr;
