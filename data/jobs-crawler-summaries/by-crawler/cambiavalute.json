@@ -1,60 +1,16 @@
 {
   "key": "cambiavalute",
   "label": "Cambiavalute",
-  "generatedAt": "2026-04-10T09:18:14.707Z",
-  "total": 1,
+  "generatedAt": "2026-04-10T20:55:20.098Z",
+  "total": 0,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 17006,
-  "avgDurationMs": 17006,
-  "durationHistory": [
-    17006
-  ],
   "newJobs": [],
-  "updatedJobs": [
-    {
-      "id": "company-kbhp6",
-      "slug": "senior-backend-sviluppatore-cambiavalute-ch-2025-cambiavalute-0kbhp6",
-      "company": "CambiaValute.ch",
-      "title": "Senior Backend developer",
-      "location": "2026 CambiaValute.ch. All Rights Reserved. Cambi",
-      "canton": "TI",
-      "category": "tech",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-02",
-      "url": "https://cambiavalute.ch/annuncio-di-lavoro/senior-backend-developer/",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Chiasso",
-        "canton": "TI"
-      },
-      "companyKey": "cambiavalute",
-      "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-03-31T21:00:33.446Z",
-      "country": "CH",
-      "sourceLang": "it",
-      "salaryMin": 94000,
-      "salaryMax": 127000,
-      "streetAddress": "Via Pessina 6",
-      "postalCode": "6900",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "updatedJobs": [],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "earlyExit": true,
+  "exitCode": 0
 }
