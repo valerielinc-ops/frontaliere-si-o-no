@@ -6618,6 +6618,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-discover-eu-2026-frontalieri-ticino': {
+    title: 'DiscoverEU 2026: 40mila pass gratuiti | Frontaliere Ticino',
+    description: 'Scadenza candidature 22 aprile 2026 per viaggiare gratis in treno fino al 30 settembre 2027. Aperto anche a frontalieri ticinesi se residenti in Paesi UE o asso',
+    keywords: 'frontalieri, ticino, svizzera, italia, discovereu, 40mila, pass, gratuiti',
+    ogTitle: 'DiscoverEU 2026: 40mila pass gratuiti in treno per 18enni',
+    ogDescription: 'Scadenza candidature 22 aprile 2026 per viaggiare gratis in treno fino al 30 settembre 2027. Aperto anche a frontalieri ticinesi se residenti in Paesi UE o asso',
+    canonicalPath: '/articoli-frontaliere/discover-eu-2026-frontalieri-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "DiscoverEU 2026: 40mila pass gratuiti in treno per 18enni",
+      "description": "Scadenza candidature 22 aprile 2026 per viaggiare gratis in treno fino al 30 settembre 2027. Aperto anche a frontalieri ticinesi se residenti in Paesi UE o asso",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/discover-eu-2026-frontalieri-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Giovane con zaino alla stazione di Lugano pronta a partire con DiscoverEU"
+      },
+      "datePublished": "2026-04-10T18:09:55+00:00",
+      "dateModified": "2026-04-10T18:09:55+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/discover-eu-2026-frontalieri-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

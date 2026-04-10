@@ -3670,7 +3670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 732,
+        "numberOfItems": 733,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -4380,7 +4380,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 729, "name": "Servizio Trasfusionale di Locarno chiude il 24 ...", "url": `${BASE_URL}/articoli-frontaliere/servizio-trasfusionale-locarno-chiusura-24-giugno` },
           { "@type": "ListItem", "position": 730, "name": "Ritardi nei versamenti disoccupazione Ticino", "url": `${BASE_URL}/articoli-frontaliere/ritardi-disoccupazione-ticino` },
           { "@type": "ListItem", "position": 731, "name": "Frontalieri presi d’assalto: benzinai lombardi ...", "url": `${BASE_URL}/articoli-frontaliere/benzina-lombardia-frontalieri-ticinesi-2026` },
-          { "@type": "ListItem", "position": 732, "name": "Diploma statunitense bloccato in Ticino: un’odi...", "url": `${BASE_URL}/articoli-frontaliere/diploma-usa-non-riconosciuto-ticino` }
+          { "@type": "ListItem", "position": 732, "name": "Diploma statunitense bloccato in Ticino: un’odi...", "url": `${BASE_URL}/articoli-frontaliere/diploma-usa-non-riconosciuto-ticino` },
+          { "@type": "ListItem", "position": 733, "name": "DiscoverEU 2026: 40mila pass gratuiti in treno ...", "url": `${BASE_URL}/articoli-frontaliere/discover-eu-2026-frontalieri-ticino` }
         ]
       }
     ]

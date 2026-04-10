@@ -2043,6 +2043,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.diploma-usa-non-riconosciuto-ticino.title': 'US degree stuck in Ticino: a bureaucratic ordeal for dental hygienists',
     'blog.article.diploma-usa-non-riconosciuto-ticino.excerpt': 'Lugano, April 10, 2026. US degree recognition denied: a custom aptitude exam and over a year of waiting. The story of Anna, a Ticinese with 10 years of experience in the USA, forced to give up moving back home.',
     'blog.article.diploma-usa-non-riconosciuto-ticino.imageAlt': 'Ticinese dental hygienist in a Swiss clinic analyzing an X-ray',
+    'blog.article.discover-eu-2026-frontalieri-ticino.title': 'DiscoverEU 2026: 40,000 free train passes for 18-year-olds across Europe',
+    'blog.article.discover-eu-2026-frontalieri-ticino.excerpt': 'Applications close on April 22, 2026, for free train travel until September 30, 2027. Open to Ticino cross-border workers as well if they reside in EU countries or Erasmus+ associated nations.',
+    'blog.article.discover-eu-2026-frontalieri-ticino.imageAlt': 'Young person with backpack at Lugano train station ready to board DiscoverEU train',
 };
 
 export default blogMetaEn;

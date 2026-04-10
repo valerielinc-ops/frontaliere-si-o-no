@@ -2043,6 +2043,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.diploma-usa-non-riconosciuto-ticino.title': 'Diploma statunitense bloccato in Ticino: un’odissea burocratica per gli igienisti dentali',
     'blog.article.diploma-usa-non-riconosciuto-ticino.excerpt': 'Lugano, 10 aprile 2026. Riconoscimento del titolo statunitense rifiutato: un esame attitudinale ad hoc e attese di oltre un anno. La storia di Anna, ticinese con 10 anni di esperienza negli USA, costretta a rinunciare al ritorno a casa.',
     'blog.article.diploma-usa-non-riconosciuto-ticino.imageAlt': 'Igienista dentale ticinese in una clinica svizzera mentre analizza una radiografia',
+    'blog.article.discover-eu-2026-frontalieri-ticino.title': 'DiscoverEU 2026: 40mila pass gratuiti in treno per 18enni in tutta Europa',
+    'blog.article.discover-eu-2026-frontalieri-ticino.excerpt': 'Scadenza candidature 22 aprile 2026 per viaggiare gratis in treno fino al 30 settembre 2027. Aperto anche a frontalieri ticinesi se residenti in Paesi UE o associati a Erasmus+.',
+    'blog.article.discover-eu-2026-frontalieri-ticino.imageAlt': 'Giovane con zaino alla stazione di Lugano pronta a partire con DiscoverEU',
 };
 
 export default blogMetaIt;

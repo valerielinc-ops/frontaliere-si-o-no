@@ -2043,6 +2043,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.diploma-usa-non-riconosciuto-ticino.title': 'US-Diplom in der Schweiz blockiert: Eine bürokratische Odyssee für Dentalhygienikerinnen',
     'blog.article.diploma-usa-non-riconosciuto-ticino.excerpt': 'Lugano, 10. April 2026. Anerkennung des US-Abschlusses verweigert: Eine spezielle Eignungsprüfung und Wartezeiten von über einem Jahr. Die Geschichte von Anna, einer Tessinerin mit zehn Jahren Berufserfahrung in den USA, die gezwungen ist, auf die Rückkehr in ihre Heimat zu verzichten.',
     'blog.article.diploma-usa-non-riconosciuto-ticino.imageAlt': 'Tessinische Dentalhygienikerin in einer Schweizer Klinik bei der Auswertung eines Röntgenbilds',
+    'blog.article.discover-eu-2026-frontalieri-ticino.title': 'DiscoverEU 2026: 40.000 kostenlose Zugtickets für 18-Jährige in ganz Europa',
+    'blog.article.discover-eu-2026-frontalieri-ticino.excerpt': 'Bewerbungsschluss am 22. April 2026 für kostenlose Zugfahrten bis zum 30. September 2027. Auch Grenzgänger aus dem Tessin können teilnehmen, sofern sie in EU-Ländern oder Erasmus+-assoziierten Staaten wohnhaft sind.',
+    'blog.article.discover-eu-2026-frontalieri-ticino.imageAlt': 'Junge Person mit Rucksack am Bahnhof Lugano bereit für DiscoverEU-Reise',
 };
 
 export default blogMetaDe;

@@ -1936,6 +1936,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ritardi-disoccupazione-ticino': { name: 'Disoccupazione', path: '/articoli-frontaliere/ritardi-disoccupazione-ticino', parent: 'blog' },
     'blog-benzina-lombardia-frontalieri-ticinesi-2026': { name: 'Frontalieri presi d’assalto', path: '/articoli-frontaliere/benzina-lombardia-frontalieri-ticinesi-2026', parent: 'blog' },
     'blog-diploma-usa-non-riconosciuto-ticino': { name: 'Diploma statunitense bloccato in Ticino', path: '/articoli-frontaliere/diploma-usa-non-riconosciuto-ticino', parent: 'blog' },
+    'blog-discover-eu-2026-frontalieri-ticino': { name: 'DiscoverEU 2026', path: '/articoli-frontaliere/discover-eu-2026-frontalieri-ticino', parent: 'blog' },
   };
 
   const info = sectionNames[section];

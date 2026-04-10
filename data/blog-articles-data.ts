@@ -5752,4 +5752,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/diploma-usa-non-riconosciuto-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'discover-eu-2026-frontalieri-ticino',
+    category: 'novita',
+    date: '2026-04-10T18:09:55.266Z',
+    image: '/images/blog/discover-eu-2026-frontalieri-ticino.jpg',
+    hasCalculator: true,
+  },
 ];
