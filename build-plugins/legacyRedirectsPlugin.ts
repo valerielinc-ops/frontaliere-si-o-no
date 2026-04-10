@@ -149,11 +149,6 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
     '/cerca-lavoro-ticino/nachwuchskader-verkauf-coop-grigioni/': '/cerca-lavoro-ticino/vendita-quadri-junior-coop-grigioni/',
     '/cerca-lavoro-ticino/galenica-amavita-pharma-assistent-w-m-d-ascona/': '/cerca-lavoro-ticino/assistente-farmaceutico-f-m-d-amavita-galenica-ascona/',
     '/cerca-lavoro-ticino/kundenbetreuer-in-customer-center-mit-begeisterungsfahigkeit-und-noch-viel-mehr-pioniergei/': '/cerca-lavoro-ticino/responsabile-dell-assistenza-clienti-nel-customer-center-con-entusiasmo-e-molto-piu-spirit/',
-
-    // English alias pages for E-E-A-T discovery (crawlers look for /about, /contact, /privacy-policy)
-    '/about/': '/chi-siamo/',
-    '/contact/': '/contattaci/',
-    '/privacy-policy/': '/privacy/',
   };
 
   const normalize = (p: string): string => {

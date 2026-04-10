@@ -1216,6 +1216,8 @@ export function staticPagesPlugin(rootDir: string): Plugin {
           if (p.startsWith('/en/') || p === '/en') return 'en';
           if (p.startsWith('/de/') || p === '/de') return 'de';
           if (p.startsWith('/fr/') || p === '/fr') return 'fr';
+          // English E-E-A-T alias pages at root level
+          if (p === '/about' || p === '/about/' || p === '/contact' || p === '/contact/' || p === '/privacy-policy' || p === '/privacy-policy/') return 'en';
           return 'it';
         };
 
@@ -1845,6 +1847,34 @@ export function staticPagesPlugin(rootDir: string): Plugin {
               `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Dati raccolti e finalità del trattamento</h2>`,
               `I dati eventualmente raccolti (indirizzo e-mail per le allerte lavoro, dati di navigazione tramite Google Analytics 4) vengono utilizzati esclusivamente per il funzionamento dei servizi richiesti dall'utente e per l'analisi aggregata dell'utilizzo della piattaforma. Non vengono ceduti a terzi per finalità di marketing.`,
               `Le simulazioni fiscali e previdenziali vengono eseguite interamente nel browser dell'utente: i dati inseriti nei calcolatori (stipendio, stato civile, numero di figli) non vengono mai trasmessi ai server. Questa architettura garantisce la massima riservatezza delle informazioni finanziarie personali.`,
+            );
+          } else if (canonicalPath === '/about' || canonicalPath === '/about/') {
+            editorialBlocks.push(
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">About Us — The Frontaliere Ticino Team</h2>`,
+              `Frontaliere Ticino is the leading independent information platform for Italian cross-border workers employed in Canton Ticino, Switzerland. Founded in 2024, it was created to serve the over 80,000 frontalieri who cross the Swiss-Italian border daily and need clear, up-to-date, and impartial information on taxation, social security, work permits, and daily life.`,
+              `Our editorial team consists of experts in cross-border taxation, Swiss and Italian social security systems, and international labour law. The team monitors regulations from both countries daily — from the Federal Tax Administration (FTA/ESTV) to the Italian Revenue Agency (Agenzia delle Entrate), from SECO to INPS — to ensure every rate, procedure, and data point published is accurate and current.`,
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Our Mission</h2>`,
+              `Frontaliere Ticino's mission is to make the fiscal and administrative complexities of cross-border work accessible and understandable. Our simulators calculate net salary using actual 2026 Swiss and Italian tax tables, our comparators benchmark LAMal health insurance, cost of living, and transport options, and our job search engine aggregates over 1,500 active positions from more than 100 Ticino-based companies.`,
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Expertise and Independence</h2>`,
+              `All content is based exclusively on official sources: FTA tax tables, FSIO/BSV contribution parameters, FSO/BFS statistical data, SECO regulations, and Italian Revenue Agency publications. The platform is completely independent from banks, insurance companies, and employers — the information provided is impartial and verifiable.`,
+              `The site is available in four languages (Italian, English, German, French) and is updated daily with the latest legislative developments, verified job offers, and market data. Over 700 in-depth articles cover every aspect of the cross-border worker's life, from first employment to retirement planning.`,
+              `<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Sources: <a href="https://www.estv.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">FTA</a> · <a href="https://www.bfs.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">FSO/BFS</a> · <a href="https://www.agenziaentrate.gov.it" style="color:#2563eb;text-decoration:none;" rel="noopener">Agenzia delle Entrate</a></p>`,
+            );
+          } else if (canonicalPath === '/contact' || canonicalPath === '/contact/') {
+            editorialBlocks.push(
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Contact Frontaliere Ticino</h2>`,
+              `Frontaliere Ticino is available for questions about taxation, social security, work permits, and daily life for cross-border workers between Switzerland and Italy. Our team answers practical questions about platform tools, calculator error reports, and suggestions for new features.`,
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Response Times and Available Channels</h2>`,
+              `Responses are provided within 48 business hours. For complex tax questions (income tax returns, tax credits, 2026 new frontalieri regime), we recommend our dedicated consulting service with professionals specialising in cross-border taxation.`,
+              `The platform is independent from banks, insurance companies, and employers: all information provided is impartial and based on official Swiss and Italian sources (FTA, Italian Revenue Agency, SECO, INPS).`,
+            );
+          } else if (canonicalPath === '/privacy-policy' || canonicalPath === '/privacy-policy/') {
+            editorialBlocks.push(
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Privacy Policy for Cross-Border Workers</h2>`,
+              `Frontaliere Ticino processes personal data in compliance with the General Data Protection Regulation (GDPR, EU Regulation 2016/679) and the Swiss Federal Act on Data Protection (FADP, nDSG 2023). The platform does not require mandatory registration: all calculators and comparators can be used without providing personal data.`,
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Data Collection and Processing Purposes</h2>`,
+              `Data collected (email addresses for job alerts, browsing data via Google Analytics 4) is used exclusively for operating user-requested services and aggregate platform usage analysis. No data is shared with third parties for marketing purposes.`,
+              `Tax and pension simulations are performed entirely in the user's browser: data entered in calculators (salary, marital status, number of children) is never transmitted to servers. This architecture ensures maximum privacy of personal financial information.`,
             );
           } else if (canonicalPath === '/stato-api' || canonicalPath === '/stato-api/') {
             editorialBlocks.push(

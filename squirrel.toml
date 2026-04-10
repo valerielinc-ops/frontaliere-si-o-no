@@ -22,7 +22,10 @@ max_prefix_budget = 0.25
 seed_urls = [
   "https://frontaliereticino.ch/chi-siamo",
   "https://frontaliereticino.ch/contattaci",
-  "https://frontaliereticino.ch/privacy"
+  "https://frontaliereticino.ch/privacy",
+  "https://frontaliereticino.ch/en/about-us",
+  "https://frontaliereticino.ch/en/contact-us",
+  "https://frontaliereticino.ch/en/privacy"
 ]
 
 [rules]

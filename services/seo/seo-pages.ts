@@ -5901,6 +5901,63 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
     ],
   },
 
+  // ─── English E-E-A-T alias pages ─────────────────────────────────────────
+  // Root-level English paths so SEO crawlers (squirrelscan, Bing) find
+  // About / Contact / Privacy pages using English URL heuristics.
+  'about': {
+    title: 'About Us | Frontaliere Ticino',
+    description: 'Frontaliere Ticino is the leading platform for Italian cross-border workers in Switzerland. Tax simulation, permits, health insurance, pension planning.',
+    keywords: 'frontaliere ticino, about us, cross-border workers platform, swiss italian workers',
+    ogTitle: 'About Us — Frontaliere Ticino',
+    ogDescription: 'The leading platform for Italian cross-border workers in Switzerland: tax simulation, permits, job board, and more.',
+    canonicalPath: '/about',
+    structuredData: [
+      {
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        "name": "About Us — Frontaliere Ticino",
+        "url": `${BASE_URL}/about/`,
+        "mainEntity": { "@id": `${BASE_URL}/#organization` },
+        "description": "Frontaliere Ticino is the leading platform for Italian cross-border workers in Switzerland",
+        "inLanguage": "en"
+      }
+    ],
+  },
+
+  'contact-alias': {
+    title: 'Contact Us | Frontaliere Ticino',
+    description: 'Contact the Frontaliere Ticino team: suggestions, bug reports, collaborations. We answer questions about taxes, fiscal simulation, and cross-border tools.',
+    keywords: 'contact frontaliere, support frontaliere, cross-border workers support, frontaliere ticino contact',
+    ogTitle: 'Contact Us | Frontaliere Ticino',
+    ogDescription: '✉️ Contact the Frontaliere Ticino team for questions, suggestions, or collaborations.',
+    canonicalPath: '/contact',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "name": "Contact Frontaliere Ticino",
+      "url": `${BASE_URL}/contact/`,
+      "description": "Contact page for Frontaliere Ticino cross-border workers platform",
+      "inLanguage": "en"
+    },
+  },
+
+  'privacy-policy-alias': {
+    title: 'Privacy Policy | Frontaliere Ticino',
+    description: 'Privacy policy of Frontaliere Ticino: personal data processing, cookies, analytics, user rights. Compliant with GDPR and Swiss DPA.',
+    keywords: 'privacy policy frontaliere, GDPR frontaliere, cookie policy, data processing, privacy information',
+    ogTitle: 'Privacy Policy | Frontaliere Ticino',
+    ogDescription: '🔒 Privacy policy: how we process your data. Compliant with GDPR and Swiss DPA.',
+    canonicalPath: '/privacy-policy',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Privacy Policy — Frontaliere Ticino",
+      "url": `${BASE_URL}/privacy-policy/`,
+      "description": "Privacy policy of Frontaliere Ticino",
+      "inLanguage": "en"
+    },
+  },
+
 };
 
 export default SEO_PAGES_METADATA;
