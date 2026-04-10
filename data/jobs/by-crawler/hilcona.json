@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "hilcona-ce71e7b27344",
-      "slug": "betriebsmechaniker-instandhaltungsfachmann-m-w-d-hugli-nahrmittel-ag-steinach",
+      "slug": "tecnico-di-manutenzione-e-riparazioni-hugli-nahrmittel-ag-steinach",
       "slugByLocale": {
         "de": "betriebsmechaniker-instandhaltungsfachmann-m-w-d-hugli-nahrmittel-ag-steinach",
-        "it": "betriebsmechaniker-instandhaltungsfachmann-m-w-d-hugli-nahrmittel-ag-steinach",
-        "en": "betriebsmechaniker-instandhaltungsfachmann-m-w-d-hugli-nahrmittel-ag-steinach",
-        "fr": "betriebsmechaniker-instandhaltungsfachmann-m-w-d-hugli-nahrmittel-ag-steinach"
+        "it": "tecnico-di-manutenzione-e-riparazioni-hugli-nahrmittel-ag-steinach",
+        "en": "maintenance-and-repair-technician-hugli-nahrmittel-ag-steinach",
+        "fr": "technicien-de-maintenance-et-de-reparation-hugli-nahrmittel-ag-steinach"
       },
       "company": "Hügli Nährmittel AG",
       "companyKey": "hilcona",
@@ -48,14 +48,22 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "betriebsmechaniker-instandhaltungsfachmann-m-w-d-hilcona-steinach"
+          "betriebsmechaniker-instandhaltungsfachmann-m-w-d-hilcona-steinach",
+          "betriebsmechaniker-instandhaltungsfachmann-m-w-d-hugli-nahrmittel-ag-steinach"
         ],
         "de": [
           "betriebsmechaniker-instandhaltungsfachmann-m-w-d-hilcona-steinach"
+        ],
+        "en": [
+          "betriebsmechaniker-instandhaltungsfachmann-m-w-d-hugli-nahrmittel-ag-steinach"
+        ],
+        "fr": [
+          "betriebsmechaniker-instandhaltungsfachmann-m-w-d-hugli-nahrmittel-ag-steinach"
         ]
       },
       "previousSlugs": [
-        "betriebsmechaniker-instandhaltungsfachmann-m-w-d-hilcona-steinach"
+        "betriebsmechaniker-instandhaltungsfachmann-m-w-d-hilcona-steinach",
+        "betriebsmechaniker-instandhaltungsfachmann-m-w-d-hugli-nahrmittel-ag-steinach"
       ],
       "salaryMin": 55500,
       "salaryMax": 75000,

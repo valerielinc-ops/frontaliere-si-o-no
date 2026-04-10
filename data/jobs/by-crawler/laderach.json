@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "laderach-806152a53f25",
-      "slug": "store-manager-laderach-west-hartford",
+      "slug": "responsabile-negozio-laderach-schweiz-ag-west-hartford",
       "slugByLocale": {
-        "de": "store-manager-laderach-west-hartford",
-        "it": "store-manager-laderach-west-hartford",
+        "de": "filialleiter-laderach-schweiz-ag-west-hartford",
+        "it": "responsabile-negozio-laderach-schweiz-ag-west-hartford",
         "en": "store-manager-laderach-west-hartford",
-        "fr": "store-manager-laderach-west-hartford"
+        "fr": "responsable-de-boutique-laderach-schweiz-ag-west-hartford"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -58,16 +58,30 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7000"
+      "postalCode": "7000",
+      "previousSlugsByLocale": {
+        "it": [
+          "store-manager-laderach-west-hartford"
+        ],
+        "de": [
+          "store-manager-laderach-west-hartford"
+        ],
+        "fr": [
+          "store-manager-laderach-west-hartford"
+        ]
+      },
+      "previousSlugs": [
+        "store-manager-laderach-west-hartford"
+      ]
     },
     {
       "id": "laderach-55be2b73aba0",
-      "slug": "store-manager-laderach-durham",
+      "slug": "responsabile-negozio-laderach-schweiz-ag-durham",
       "slugByLocale": {
-        "de": "store-manager-laderach-durham",
-        "it": "store-manager-laderach-durham",
+        "de": "filialleiter-laderach-schweiz-ag-durham",
+        "it": "responsabile-negozio-laderach-schweiz-ag-durham",
         "en": "store-manager-laderach-durham",
-        "fr": "store-manager-laderach-durham"
+        "fr": "responsable-de-magasin-laderach-schweiz-ag-durham"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -116,7 +130,21 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7000"
+      "postalCode": "7000",
+      "previousSlugsByLocale": {
+        "it": [
+          "store-manager-laderach-durham"
+        ],
+        "de": [
+          "store-manager-laderach-durham"
+        ],
+        "fr": [
+          "store-manager-laderach-durham"
+        ]
+      },
+      "previousSlugs": [
+        "store-manager-laderach-durham"
+      ]
     },
     {
       "id": "laderach-032d3cd21aa6",

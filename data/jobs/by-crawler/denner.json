@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "denner-412b2834e676",
-      "slug": "student-in-im-stundenlohn-denner",
+      "slug": "studente-in-ore-lavorative-denner-bellach",
       "slugByLocale": {
-        "it": "student-in-im-stundenlohn-denner",
+        "it": "studente-in-ore-lavorative-denner-bellach",
         "en": "student-in-im-stundenlohn-denner-bellach",
         "de": "student-in-im-stundenlohn-denner",
-        "fr": "student-in-im-stundenlohn-denner"
+        "fr": "etudiant-en-salaire-horaire-denner-bellach"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -67,10 +67,17 @@
       "previousSlugsByLocale": {
         "en": [
           "student-in-im-stundenlohn-denner-biel-bienne"
+        ],
+        "it": [
+          "student-in-im-stundenlohn-denner"
+        ],
+        "fr": [
+          "student-in-im-stundenlohn-denner"
         ]
       },
       "previousSlugs": [
-        "student-in-im-stundenlohn-denner-biel-bienne"
+        "student-in-im-stundenlohn-denner-biel-bienne",
+        "student-in-im-stundenlohn-denner"
       ],
       "salaryMin": 59000,
       "salaryMax": 90500,

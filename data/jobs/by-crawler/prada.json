@@ -62,11 +62,11 @@
     },
     {
       "id": "prada-609d835668fe",
-      "slug": "prada-in-store-client-development-milan-prada-group-mendrisio",
+      "slug": "sviluppo-clienti-in-negozio-milano-prada-group-mendrisio",
       "slugByLocale": {
         "en": "prada-in-store-client-development-milan-prada-group-mendrisio",
-        "it": "prada-in-store-client-development-milan-prada-group-mendrisio",
-        "de": "prada-in-store-client-development-milan-prada-group-mendrisio",
+        "it": "sviluppo-clienti-in-negozio-milano-prada-group-mendrisio",
+        "de": "in-store-kundenentwicklung-mailand-prada-group-mendrisio",
         "fr": "prada-in-store-client-development-milan-prada-group-mendrisio"
       },
       "company": "Prada Group",
@@ -116,7 +116,18 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6850"
+      "postalCode": "6850",
+      "previousSlugsByLocale": {
+        "it": [
+          "prada-in-store-client-development-milan-prada-group-mendrisio"
+        ],
+        "de": [
+          "prada-in-store-client-development-milan-prada-group-mendrisio"
+        ]
+      },
+      "previousSlugs": [
+        "prada-in-store-client-development-milan-prada-group-mendrisio"
+      ]
     },
     {
       "id": "prada-569c4f971b2d",
@@ -234,11 +245,11 @@
     },
     {
       "id": "prada-50a4bc38f19e",
-      "slug": "prada-stock-controller-cophenagen-prada-group-mendrisio",
+      "slug": "controllore-di-magazzino-prada-copenaghen-prada-group-mendrisio",
       "slugByLocale": {
         "en": "prada-stock-controller-cophenagen-prada-group-mendrisio",
-        "it": "prada-stock-controller-cophenagen-prada-group-mendrisio",
-        "de": "prada-stock-controller-cophenagen-prada-group-mendrisio",
+        "it": "controllore-di-magazzino-prada-copenaghen-prada-group-mendrisio",
+        "de": "prada-lagerverwalter-kopenhagen-prada-group-mendrisio",
         "fr": "prada-stock-controller-cophenagen-prada-group-mendrisio"
       },
       "company": "Prada Group",
@@ -288,7 +299,18 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6850"
+      "postalCode": "6850",
+      "previousSlugsByLocale": {
+        "it": [
+          "prada-stock-controller-cophenagen-prada-group-mendrisio"
+        ],
+        "de": [
+          "prada-stock-controller-cophenagen-prada-group-mendrisio"
+        ]
+      },
+      "previousSlugs": [
+        "prada-stock-controller-cophenagen-prada-group-mendrisio"
+      ]
     },
     {
       "id": "prada-a4bcd6072bb4",

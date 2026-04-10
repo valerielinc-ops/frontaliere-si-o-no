@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "lonza-3e53489abc68",
-      "slug": "deltav-automation-engineer-80-100-m-f-d-lonza-ch",
+      "slug": "ingegnere-di-automazione-deltav-80-100-m-f-d-lonza-ch",
       "slugByLocale": {
         "en": "deltav-automation-engineer-80-100-m-f-d-lonza-ch",
-        "it": "deltav-automation-engineer-80-100-m-f-d-lonza-ch",
+        "it": "ingegnere-di-automazione-deltav-80-100-m-f-d-lonza-ch",
         "de": "deltav-automation-engineer-80-100-m-f-d-lonza-ch",
-        "fr": "deltav-automation-engineer-80-100-m-f-d-lonza-ch"
+        "fr": "ingenieur-d-automatisation-deltav-80-100-h-f-x-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -62,7 +62,18 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "deltav-automation-engineer-80-100-m-f-d-lonza-ch"
+        ],
+        "fr": [
+          "deltav-automation-engineer-80-100-m-f-d-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "deltav-automation-engineer-80-100-m-f-d-lonza-ch"
+      ]
     },
     {
       "id": "lonza-bed2e0461119",
@@ -1634,12 +1645,12 @@
     },
     {
       "id": "lonza-7f1202c0966c",
-      "slug": "teamleiter-werkstatt-mechanik-80-100-m-w-d-lonza-ch",
+      "slug": "responsabile-di-squadra-meccanica-80-100-lonza-ch",
       "slugByLocale": {
         "de": "teamleiter-werkstatt-mechanik-80-100-m-w-d-lonza-ch",
-        "it": "teamleiter-werkstatt-mechanik-80-100-m-w-d-lonza-ch",
-        "en": "teamleiter-werkstatt-mechanik-80-100-m-w-d-lonza-ch",
-        "fr": "teamleiter-werkstatt-mechanik-80-100-m-w-d-lonza-ch"
+        "it": "responsabile-di-squadra-meccanica-80-100-lonza-ch",
+        "en": "team-leader-mechanics-80-100-lonza-ch",
+        "fr": "chef-d-equipe-mecanique-80-100-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -1692,16 +1703,30 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-werkstatt-mechanik-80-100-m-w-d-lonza-ch"
+        ],
+        "en": [
+          "teamleiter-werkstatt-mechanik-80-100-m-w-d-lonza-ch"
+        ],
+        "fr": [
+          "teamleiter-werkstatt-mechanik-80-100-m-w-d-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-werkstatt-mechanik-80-100-m-w-d-lonza-ch"
+      ]
     },
     {
       "id": "lonza-bdbc94cac089",
-      "slug": "operatore-utilities-collaboratore-trice-technischer-unterhalt-80-100-m-w-d-lonza-ch",
+      "slug": "operatore-utilities-tecnico-manutenzione-80-100-lonza-ch",
       "slugByLocale": {
         "de": "operator-utilities-mitarbeiter-technischer-unterhalt-80-100-m-w-d-lonza-ch",
-        "it": "operatore-utilities-collaboratore-trice-technischer-unterhalt-80-100-m-w-d-lonza-ch",
-        "en": "operator-utilities-mitarbeiter-technischer-unterhalt-80-100-m-w-d-lonza-ch",
-        "fr": "operator-utilities-mitarbeiter-technischer-unterhalt-80-100-m-w-d-lonza-ch"
+        "it": "operatore-utilities-tecnico-manutenzione-80-100-lonza-ch",
+        "en": "utilities-operator-technical-maintenance-80-100-lonza-ch",
+        "fr": "operateur-utilities-technicien-maintenance-80-100-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -1745,11 +1770,19 @@
       "jobReqId": "R72980",
       "previousSlugsByLocale": {
         "it": [
+          "operator-utilities-mitarbeiter-technischer-unterhalt-80-100-m-w-d-lonza-ch",
+          "operatore-utilities-collaboratore-trice-technischer-unterhalt-80-100-m-w-d-lonza-ch"
+        ],
+        "en": [
+          "operator-utilities-mitarbeiter-technischer-unterhalt-80-100-m-w-d-lonza-ch"
+        ],
+        "fr": [
           "operator-utilities-mitarbeiter-technischer-unterhalt-80-100-m-w-d-lonza-ch"
         ]
       },
       "previousSlugs": [
-        "operator-utilities-mitarbeiter-technischer-unterhalt-80-100-m-w-d-lonza-ch"
+        "operator-utilities-mitarbeiter-technischer-unterhalt-80-100-m-w-d-lonza-ch",
+        "operatore-utilities-collaboratore-trice-technischer-unterhalt-80-100-m-w-d-lonza-ch"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1766,12 +1799,12 @@
     },
     {
       "id": "lonza-9c6a8ec2e132",
-      "slug": "automation-control-systems-engineer-80-100-m-w-d-lonza-ch",
+      "slug": "ingegnere-di-automazione-e-controllo-dei-sistemi-80-100-lonza-ch",
       "slugByLocale": {
         "de": "automation-control-systems-engineer-80-100-m-w-d-lonza-ch",
-        "it": "automation-control-systems-engineer-80-100-m-w-d-lonza-ch",
+        "it": "ingegnere-di-automazione-e-controllo-dei-sistemi-80-100-lonza-ch",
         "en": "automation-control-systems-engineer-80-100-m-w-d-lonza-ch",
-        "fr": "automation-control-systems-engineer-80-100-m-w-d-lonza-ch"
+        "fr": "ingenieur-en-automatisation-et-controle-des-systemes-80-100-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -1824,16 +1857,27 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "automation-control-systems-engineer-80-100-m-w-d-lonza-ch"
+        ],
+        "fr": [
+          "automation-control-systems-engineer-80-100-m-w-d-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "automation-control-systems-engineer-80-100-m-w-d-lonza-ch"
+      ]
     },
     {
       "id": "lonza-4281038ccfcc",
-      "slug": "automation-engineer-80-100-m-f-d-lonza-ch",
+      "slug": "ingegnere-per-l-automazione-80-100-m-f-d-lonza-ch",
       "slugByLocale": {
         "en": "automation-engineer-80-100-m-f-d-lonza-ch",
-        "it": "automation-engineer-80-100-m-f-d-lonza-ch",
-        "de": "automation-engineer-80-100-m-f-d-lonza-ch",
-        "fr": "automation-engineer-80-100-m-f-d-lonza-ch"
+        "it": "ingegnere-per-l-automazione-80-100-m-f-d-lonza-ch",
+        "de": "automatisierungstechniker-80-100-m-w-d-lonza-ch",
+        "fr": "ingenieur-en-automatisation-80-100-m-f-d-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -1886,16 +1930,30 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "automation-engineer-80-100-m-f-d-lonza-ch"
+        ],
+        "de": [
+          "automation-engineer-80-100-m-f-d-lonza-ch"
+        ],
+        "fr": [
+          "automation-engineer-80-100-m-f-d-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "automation-engineer-80-100-m-f-d-lonza-ch"
+      ]
     },
     {
       "id": "lonza-2fa31316f515",
-      "slug": "anlagen-e-apparatebau-rohrbau-80-100-m-w-d-lonza-ch",
+      "slug": "costruttore-di-impianti-e-attrezzature-tubazioni-80-100-lonza-ch",
       "slugByLocale": {
         "de": "anlagen-und-apparatebau-rohrbau-80-100-m-w-d-lonza-ch",
-        "it": "anlagen-e-apparatebau-rohrbau-80-100-m-w-d-lonza-ch",
-        "en": "anlagen-und-apparatebau-rohrbau-80-100-m-w-d-lonza-ch",
-        "fr": "anlagen-und-apparatebau-rohrbau-80-100-m-w-d-lonza-ch"
+        "it": "costruttore-di-impianti-e-attrezzature-tubazioni-80-100-lonza-ch",
+        "en": "plant-and-equipment-builder-pipework-80-100-lonza-ch",
+        "fr": "constructeur-d-installations-et-d-equipements-tuyauterie-80-100-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -1939,11 +1997,19 @@
       "jobReqId": "R74597",
       "previousSlugsByLocale": {
         "it": [
+          "anlagen-und-apparatebau-rohrbau-80-100-m-w-d-lonza-ch",
+          "anlagen-e-apparatebau-rohrbau-80-100-m-w-d-lonza-ch"
+        ],
+        "en": [
+          "anlagen-und-apparatebau-rohrbau-80-100-m-w-d-lonza-ch"
+        ],
+        "fr": [
           "anlagen-und-apparatebau-rohrbau-80-100-m-w-d-lonza-ch"
         ]
       },
       "previousSlugs": [
-        "anlagen-und-apparatebau-rohrbau-80-100-m-w-d-lonza-ch"
+        "anlagen-und-apparatebau-rohrbau-80-100-m-w-d-lonza-ch",
+        "anlagen-e-apparatebau-rohrbau-80-100-m-w-d-lonza-ch"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1960,12 +2026,12 @@
     },
     {
       "id": "lonza-4470ffb86189",
-      "slug": "rohrschlosser-vorrichter-80-100-m-w-d-lonza-ch",
+      "slug": "tecnico-installazioni-montatore-tubazioni-80-100-lonza-ch",
       "slugByLocale": {
         "de": "rohrschlosser-vorrichter-80-100-m-w-d-lonza-ch",
-        "it": "rohrschlosser-vorrichter-80-100-m-w-d-lonza-ch",
-        "en": "rohrschlosser-vorrichter-80-100-m-w-d-lonza-ch",
-        "fr": "rohrschlosser-vorrichter-80-100-m-w-d-lonza-ch"
+        "it": "tecnico-installazioni-montatore-tubazioni-80-100-lonza-ch",
+        "en": "plant-and-equipment-builder-pipefitter-80-100-lonza-ch",
+        "fr": "constructeur-d-installations-monteur-de-tubes-80-100-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -2018,7 +2084,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "rohrschlosser-vorrichter-80-100-m-w-d-lonza-ch"
+        ],
+        "en": [
+          "rohrschlosser-vorrichter-80-100-m-w-d-lonza-ch"
+        ],
+        "fr": [
+          "rohrschlosser-vorrichter-80-100-m-w-d-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "rohrschlosser-vorrichter-80-100-m-w-d-lonza-ch"
+      ]
     },
     {
       "id": "lonza-aa533b0c1f9e",
@@ -2027,7 +2107,7 @@
         "de": "operator-utilities-ibex-mitarbeiter-technischer-unterhalt-m-w-d-lonza-ch",
         "it": "operatore-utilities-ibex-collaboratore-trice-technischer-unterhalt-m-w-d-lonza-ch",
         "en": "operator-utilities-ibex-mitarbeiter-technischer-unterhalt-m-w-d-lonza-ch",
-        "fr": "operator-utilities-ibex-mitarbeiter-technischer-unterhalt-m-w-d-lonza-ch"
+        "fr": "operateur-utilities-ibex-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -2071,6 +2151,9 @@
       "jobReqId": "R51316",
       "previousSlugsByLocale": {
         "it": [
+          "operator-utilities-ibex-mitarbeiter-technischer-unterhalt-m-w-d-lonza-ch"
+        ],
+        "fr": [
           "operator-utilities-ibex-mitarbeiter-technischer-unterhalt-m-w-d-lonza-ch"
         ]
       },
@@ -2154,12 +2237,12 @@
     },
     {
       "id": "lonza-1f319465b197",
-      "slug": "projektingenieur-80-100-m-w-d-lonza-ch",
+      "slug": "ingegnere-di-progetto-80-100-lonza-ch",
       "slugByLocale": {
         "de": "projektingenieur-80-100-m-w-d-lonza-ch",
-        "it": "projektingenieur-80-100-m-w-d-lonza-ch",
+        "it": "ingegnere-di-progetto-80-100-lonza-ch",
         "en": "projektingenieur-80-100-m-w-d-lonza-ch",
-        "fr": "projektingenieur-80-100-m-w-d-lonza-ch"
+        "fr": "ingenieur-de-projet-80-100-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -2212,16 +2295,27 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "projektingenieur-80-100-m-w-d-lonza-ch"
+        ],
+        "fr": [
+          "projektingenieur-80-100-m-w-d-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "projektingenieur-80-100-m-w-d-lonza-ch"
+      ]
     },
     {
       "id": "lonza-21af643e97c9",
-      "slug": "installatore-trice-elettrico-a-cfc-automatiker-cfc-80-100-m-w-d-lonza-ch",
+      "slug": "elettricista-efz-automazionista-efz-80-100-lonza-ch",
       "slugByLocale": {
         "de": "elektroinstallateur-efz-automatiker-efz-80-100-m-w-d-lonza-ch",
-        "it": "installatore-trice-elettrico-a-cfc-automatiker-cfc-80-100-m-w-d-lonza-ch",
-        "en": "elektroinstallateur-efz-automatiker-efz-80-100-m-w-d-lonza-ch",
-        "fr": "elektroinstallateur-efz-automatiker-efz-80-100-m-w-d-lonza-ch"
+        "it": "elettricista-efz-automazionista-efz-80-100-lonza-ch",
+        "en": "electrical-installer-efz-automation-technician-efz-80-100-lonza-ch",
+        "fr": "electricien-efz-technicien-en-automatisation-efz-80-100-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -2265,11 +2359,19 @@
       "jobReqId": "R71901",
       "previousSlugsByLocale": {
         "it": [
+          "elektroinstallateur-efz-automatiker-efz-80-100-m-w-d-lonza-ch",
+          "installatore-trice-elettrico-a-cfc-automatiker-cfc-80-100-m-w-d-lonza-ch"
+        ],
+        "en": [
+          "elektroinstallateur-efz-automatiker-efz-80-100-m-w-d-lonza-ch"
+        ],
+        "fr": [
           "elektroinstallateur-efz-automatiker-efz-80-100-m-w-d-lonza-ch"
         ]
       },
       "previousSlugs": [
-        "elektroinstallateur-efz-automatiker-efz-80-100-m-w-d-lonza-ch"
+        "elektroinstallateur-efz-automatiker-efz-80-100-m-w-d-lonza-ch",
+        "installatore-trice-elettrico-a-cfc-automatiker-cfc-80-100-m-w-d-lonza-ch"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2286,12 +2388,12 @@
     },
     {
       "id": "lonza-8b95d2dff53c",
-      "slug": "project-engineer-biopharma-80-100-m-w-d-lonza-ch",
+      "slug": "ingegnere-di-progetto-biopharma-80-100-lonza-ch",
       "slugByLocale": {
         "de": "project-engineer-biopharma-80-100-m-w-d-lonza-ch",
-        "it": "project-engineer-biopharma-80-100-m-w-d-lonza-ch",
+        "it": "ingegnere-di-progetto-biopharma-80-100-lonza-ch",
         "en": "project-engineer-biopharma-80-100-m-w-d-lonza-ch",
-        "fr": "project-engineer-biopharma-80-100-m-w-d-lonza-ch"
+        "fr": "ingenieur-de-projet-biopharma-80-100-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -2344,7 +2446,18 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "project-engineer-biopharma-80-100-m-w-d-lonza-ch"
+        ],
+        "fr": [
+          "project-engineer-biopharma-80-100-m-w-d-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "project-engineer-biopharma-80-100-m-w-d-lonza-ch"
+      ]
     },
     {
       "id": "lonza-32c5f7c389ad",
@@ -2631,12 +2744,12 @@
     },
     {
       "id": "lonza-6580df7f8b86",
-      "slug": "anlage-e-apparatebauer-rohrbau-cfc-vorrichter-80-100-m-w-d-lonza-ch",
+      "slug": "costruttore-di-impianti-e-attrezzature-per-la-tubazione-efz-manutentore-80-100-lonza-ch",
       "slugByLocale": {
         "de": "anlage-und-apparatebauer-rohrbau-efz-vorrichter-80-100-m-w-d-lonza-ch",
-        "it": "anlage-e-apparatebauer-rohrbau-cfc-vorrichter-80-100-m-w-d-lonza-ch",
-        "en": "anlage-und-apparatebauer-rohrbau-efz-vorrichter-80-100-m-w-d-lonza-ch",
-        "fr": "anlage-und-apparatebauer-rohrbau-efz-vorrichter-80-100-m-w-d-lonza-ch"
+        "it": "costruttore-di-impianti-e-attrezzature-per-la-tubazione-efz-manutentore-80-100-lonza-ch",
+        "en": "plant-and-equipment-builder-pipe-construction-efz-maintainer-80-100-lonza-ch",
+        "fr": "constructeur-d-installations-et-d-equipements-pour-la-tuyauterie-efz-mainteneur-80-100-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -2680,11 +2793,19 @@
       "jobReqId": "R71271",
       "previousSlugsByLocale": {
         "it": [
+          "anlage-und-apparatebauer-rohrbau-efz-vorrichter-80-100-m-w-d-lonza-ch",
+          "anlage-e-apparatebauer-rohrbau-cfc-vorrichter-80-100-m-w-d-lonza-ch"
+        ],
+        "en": [
+          "anlage-und-apparatebauer-rohrbau-efz-vorrichter-80-100-m-w-d-lonza-ch"
+        ],
+        "fr": [
           "anlage-und-apparatebauer-rohrbau-efz-vorrichter-80-100-m-w-d-lonza-ch"
         ]
       },
       "previousSlugs": [
-        "anlage-und-apparatebauer-rohrbau-efz-vorrichter-80-100-m-w-d-lonza-ch"
+        "anlage-und-apparatebauer-rohrbau-efz-vorrichter-80-100-m-w-d-lonza-ch",
+        "anlage-e-apparatebauer-rohrbau-cfc-vorrichter-80-100-m-w-d-lonza-ch"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2701,12 +2822,12 @@
     },
     {
       "id": "lonza-fe15e68a52c1",
-      "slug": "energiemanager-80-100-m-w-d-lonza-ch",
+      "slug": "gestore-energetico-80-100-lonza-ch",
       "slugByLocale": {
         "de": "energiemanager-80-100-m-w-d-lonza-ch",
-        "it": "energiemanager-80-100-m-w-d-lonza-ch",
-        "en": "energiemanager-80-100-m-w-d-lonza-ch",
-        "fr": "energiemanager-80-100-m-w-d-lonza-ch"
+        "it": "gestore-energetico-80-100-lonza-ch",
+        "en": "energy-manager-80-100-lonza-ch",
+        "fr": "responsable-energie-80-100-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -2759,15 +2880,29 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "energiemanager-80-100-m-w-d-lonza-ch"
+        ],
+        "en": [
+          "energiemanager-80-100-m-w-d-lonza-ch"
+        ],
+        "fr": [
+          "energiemanager-80-100-m-w-d-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "energiemanager-80-100-m-w-d-lonza-ch"
+      ]
     },
     {
       "id": "lonza-735cc36632e3",
-      "slug": "msat-expert-drug-product-80-100-lonza-ch",
+      "slug": "esperto-msat-prodotto-farmaceutico-80-100-lonza-ch",
       "slugByLocale": {
         "en": "msat-expert-drug-product-80-100-lonza-ch",
-        "it": "msat-expert-drug-product-80-100-lonza-ch",
-        "de": "msat-expert-drug-product-80-100-lonza-ch",
+        "it": "esperto-msat-prodotto-farmaceutico-80-100-lonza-ch",
+        "de": "msat-experte-fur-arzneimittelprodukte-80-100-lonza-ch",
         "fr": "msat-expert-drug-product-80-100-lonza-ch"
       },
       "company": "Lonza",
@@ -2821,16 +2956,27 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "msat-expert-drug-product-80-100-lonza-ch"
+        ],
+        "de": [
+          "msat-expert-drug-product-80-100-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "msat-expert-drug-product-80-100-lonza-ch"
+      ]
     },
     {
       "id": "lonza-051f95b2ef87",
-      "slug": "laborantin-m-f-d-qualitatskontrolle-80-100-lonza-ch",
+      "slug": "laborante-m-f-d-controllo-qualita-80-100-lonza-ch",
       "slugByLocale": {
         "de": "laborantin-m-f-d-qualitatskontrolle-80-100-lonza-ch",
-        "it": "laborantin-m-f-d-qualitatskontrolle-80-100-lonza-ch",
-        "en": "laborantin-m-f-d-qualitatskontrolle-80-100-lonza-ch",
-        "fr": "laborantin-m-f-d-qualitatskontrolle-80-100-lonza-ch"
+        "it": "laborante-m-f-d-controllo-qualita-80-100-lonza-ch",
+        "en": "laboratory-technician-m-f-d-quality-control-80-100-lonza-ch",
+        "fr": "technicien-ne-de-laboratoire-m-f-d-controle-qualite-80-100-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -2883,7 +3029,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "laborantin-m-f-d-qualitatskontrolle-80-100-lonza-ch"
+        ],
+        "en": [
+          "laborantin-m-f-d-qualitatskontrolle-80-100-lonza-ch"
+        ],
+        "fr": [
+          "laborantin-m-f-d-qualitatskontrolle-80-100-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "laborantin-m-f-d-qualitatskontrolle-80-100-lonza-ch"
+      ]
     }
   ]
 }
