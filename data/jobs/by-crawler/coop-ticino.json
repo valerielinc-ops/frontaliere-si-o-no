@@ -40,10 +40,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "verkaufsberater-in-per-elektrohaushalt-e-multimedia-fust-chur-graubunden-86y4zp",
-        "en": "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-chur-graubunden-86y4zp",
+        "it": "consulente-vendite-per-elettrodomestici-e-multimedia-fust-swiss-household-services-ag-chur",
+        "en": "sales-consultant-for-home-appliances-and-multimedia-fust-swiss-household-services-ag-chur",
         "de": "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-chur-graubunden-86y4zp",
-        "fr": "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-chur-graubunden-86y4zp"
+        "fr": "conseiller-ere-commercial-e-en-electromenager-et-multimedia-fust-swiss-household-services-ag-chur"
       },
       "addressLocality": "Chur",
       "sourceLang": "de",
@@ -58,7 +58,22 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-per-elektrohaushalt-e-multimedia-fust-chur-graubunden-86y4zp"
+        ],
+        "en": [
+          "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-chur-graubunden-86y4zp"
+        ],
+        "fr": [
+          "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-chur-graubunden-86y4zp"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-per-elektrohaushalt-e-multimedia-fust-chur-graubunden-86y4zp",
+        "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-chur-graubunden-86y4zp"
+      ]
     },
     {
       "id": "company-qzx86i",
@@ -3640,12 +3655,8 @@
         "einzelhandelsausbildung-afc-einkaufserlebnisse-schaffen-fust-tenero-contra-ticino",
         "apprentissage-en-vente-au-detail-afc-creation-d-experiences-d-achat-fust-tenero-contra-ticino",
         "apprentissage-commerce-de-detail-cfc-creation-d-experiences-d-achat-fust-swiss-household-services-ag-tenero-contra",
-        "einzelhandelsspezialist-efz-einkaufserlebnisse-schaffen-interdiscount-jegensdorf",
-        "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-oal0zl",
-        "retail-specialist-efz-creating-shopping-experiences-interdiscount-jegensdorf",
         "retail-specialist-efz-creating-shopping-experiences-fust-swiss-household-services-ag-tenero-contra",
         "einzelhandelsspezialist-efz-einkaufserlebnisse-schaffen-fust-swiss-household-services-ag-tenero-contra",
-        "specialiste-du-commerce-de-detail-efz-creer-des-experiences-d-achat-interdiscount-jegensdorf",
         "specialiste-du-commerce-de-detail-efz-creer-des-experiences-d-achat-fust-swiss-household-services-ag-tenero-contra"
       ],
       "previousSlugsByLocale": {
