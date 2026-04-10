@@ -1,18 +1,19 @@
 {
   "key": "ffs-officine-ferrovie-federali",
   "label": "SBB",
-  "generatedAt": "2026-04-09T21:56:33.248Z",
+  "generatedAt": "2026-04-10T10:04:39.914Z",
   "total": 4,
-  "newCount": 1,
-  "updatedCount": 3,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 4,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 21676,
-  "avgDurationMs": 21676,
+  "durationMs": 19532,
+  "avgDurationMs": 19532,
   "durationHistory": [
-    21676
+    19532
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "sbb-6dc4f1ee9c4f",
       "slug": "polimeccanico-a-o-operatore-trice-in-automazione-ffs-officine-ferrovie-federali-bellinzona",
@@ -32,7 +33,7 @@
       "postedDate": "2026-04-08",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/polimeccanico-a-o-operatore-trice-in-automazione/3fa23934-56b0-4da1-9382-4e3e6e922fdb",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-04-09T21:56:24.955Z",
+      "crawledAt": "2026-04-10T10:04:39.837Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -40,9 +41,7 @@
         "translation": 25,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "sbb-8b00fa855f2e",
       "slug": "gestore-immobiliare-con-responsabilita-per-il-partner-management-m-f-d-ffs-officine-ferrovie-federali-bellinzona",
@@ -62,7 +61,7 @@
       "postedDate": "2026-03-31",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/gestore-immobiliare-con-responsabilita-per-il-partner-management-m-f-d/fc920ba5-21e7-4d5e-b4f9-ff0a96e4f27e",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-04-09T21:56:33.176Z",
+      "crawledAt": "2026-04-10T10:04:39.228Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -90,7 +89,7 @@
       "postedDate": "2026-02-24",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/rangierspezialist-in/d30a361d-1d2c-4850-9396-a9275f04e39c",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-04-09T21:56:32.349Z",
+      "crawledAt": "2026-04-10T10:04:31.295Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -118,7 +117,7 @@
       "postedDate": "2026-01-18",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-personenverkehr-12-2026/487416de-186e-4114-81be-57d23b61e08b",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-04-09T21:56:24.944Z",
+      "crawledAt": "2026-04-10T10:04:31.275Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -128,41 +127,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "sbb-95a0230fa695",
-      "slug": "polimeccanico-a-o-operatore-trice-in-automazione-ffs-officine-ferrovie-federali-bellinzona",
-      "company": "FFS Officine (Ferrovie Federali)",
-      "companyKey": "ffs-officine-ferrovie-federali",
-      "companyDomain": "jobs.sbb.ch",
-      "title": "Polimeccanico/a o Operatore/trice in automazione",
-      "location": "Bellinzona",
-      "canton": "TI",
-      "addressLocality": "Bellinzona",
-      "addressCountry": "CH",
-      "category": "tech",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "sourceLang": "it",
-      "postedDate": "2026-03-30",
-      "url": "https://jobs.sbb.ch/v2/offene-stellen/polimeccanico-a-o-operatore-trice-in-automazione/393cdbc2-cf24-42ef-8889-4596d8f569fd",
-      "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-04-09T10:02:29.691Z",
-      "salaryMin": 51500,
-      "salaryMax": 88000,
-      "streetAddress": "Via Officina 3",
-      "postalCode": "6500",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "_qualityScore": 100,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
