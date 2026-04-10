@@ -1,18 +1,19 @@
 {
   "key": "banca-cler",
   "label": "Cler",
-  "generatedAt": "2026-04-10T09:23:18.552Z",
+  "generatedAt": "2026-04-10T21:00:32.371Z",
   "total": 6,
-  "newCount": 1,
-  "updatedCount": 5,
+  "newCount": 0,
+  "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 22934,
-  "avgDurationMs": 22934,
+  "durationMs": 16859,
+  "avgDurationMs": 16859,
   "durationHistory": [
-    22934
+    16859
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Werkstudentin Zak Digital Banking (w/m)",
       "slug": "werkstudentin-zak-digital-banking-w-m-banca-cler",
@@ -36,17 +37,23 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-04-10T09:22:58.019Z",
-      "_qualityScore": 65,
+      "crawledAt": "2026-04-10T21:00:17.026Z",
+      "id": "company-ymmgcx",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "streetAddress": "Via Pretorio 13",
+      "postalCode": "6900",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Geschäftsstellenleiterin Olten (w/m)",
       "slug": "geschaftsstellenleiterin-olten-w-m-banca-cler",
@@ -70,7 +77,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-04-10T09:22:58.587Z",
+      "crawledAt": "2026-04-10T21:00:17.463Z",
       "id": "company-crpf0w",
       "contract": "full-time",
       "currency": "CHF",
@@ -110,7 +117,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-04-10T09:22:59.185Z",
+      "crawledAt": "2026-04-10T21:00:17.904Z",
       "id": "company-67xwtt",
       "contract": "full-time",
       "currency": "CHF",
@@ -150,7 +157,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-04-10T09:22:59.766Z",
+      "crawledAt": "2026-04-10T21:00:18.366Z",
       "id": "company-7od0f",
       "contract": "full-time",
       "currency": "CHF",
@@ -190,7 +197,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-04-10T09:23:00.356Z",
+      "crawledAt": "2026-04-10T21:00:18.787Z",
       "id": "company-vlfwqx",
       "contract": "full-time",
       "currency": "CHF",
@@ -230,7 +237,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-04-10T09:23:00.891Z",
+      "crawledAt": "2026-04-10T21:00:19.249Z",
       "id": "company-g1x21d",
       "contract": "full-time",
       "currency": "CHF",
