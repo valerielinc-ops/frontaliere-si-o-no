@@ -1,117 +1,5 @@
 [
   {
-    "timestamp": "2026-04-01T05:06:25.755Z",
-    "label": "before",
-    "total": 1352,
-    "needsRetranslation": 322,
-    "incomplete": 322,
-    "complete": 1030,
-    "missingByLocale": {
-      "it": 109,
-      "en": 196,
-      "de": 189,
-      "fr": 241
-    },
-    "topPending": [
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 64
-      },
-      {
-        "company": "Jumbo, Divisione di Coop Società Cooperativa",
-        "pending": 36
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 23
-      },
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 21
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 21
-      },
-      {
-        "company": "PEMSA",
-        "pending": 20
-      },
-      {
-        "company": "ABB Svizzera (sede Ticino)",
-        "pending": 14
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 14
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 10
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 10
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-01T05:06:44.629Z",
-    "label": "after",
-    "total": 1352,
-    "needsRetranslation": 287,
-    "incomplete": 287,
-    "complete": 1065,
-    "missingByLocale": {
-      "it": 105,
-      "en": 164,
-      "de": 159,
-      "fr": 211
-    },
-    "topPending": [
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 64
-      },
-      {
-        "company": "Jumbo, Divisione di Coop Società Cooperativa",
-        "pending": 36
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 21
-      },
-      {
-        "company": "PEMSA",
-        "pending": 20
-      },
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 19
-      },
-      {
-        "company": "ABB Svizzera (sede Ticino)",
-        "pending": 14
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 14
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 10
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 10
-      },
-      {
-        "company": "Cornèr Banca",
-        "pending": 9
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-01T05:08:19.865Z",
     "label": "before",
     "total": 1352,
@@ -10064,6 +9952,86 @@
       {
         "company": "Hilcona Gourmet S.A.",
         "pending": 4
+      },
+      {
+        "company": "AXA Svizzera",
+        "pending": 2
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      },
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "Fust | Swiss Household Services AG",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-10T05:34:59.386Z",
+    "label": "before",
+    "total": 1681,
+    "needsRetranslation": 59,
+    "incomplete": 12,
+    "complete": 1669,
+    "missingByLocale": {
+      "it": 10,
+      "en": 9,
+      "de": 2,
+      "fr": 9
+    },
+    "topPending": [
+      {
+        "company": "Hilcona Gourmet S.A.",
+        "pending": 4
+      },
+      {
+        "company": "Colin&Cie Wealth Management",
+        "pending": 3
+      },
+      {
+        "company": "AXA Svizzera",
+        "pending": 2
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      },
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "Fust | Swiss Household Services AG",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-10T05:35:06.612Z",
+    "label": "after",
+    "total": 1681,
+    "needsRetranslation": 59,
+    "incomplete": 12,
+    "complete": 1669,
+    "missingByLocale": {
+      "it": 10,
+      "en": 9,
+      "de": 2,
+      "fr": 9
+    },
+    "topPending": [
+      {
+        "company": "Hilcona Gourmet S.A.",
+        "pending": 4
+      },
+      {
+        "company": "Colin&Cie Wealth Management",
+        "pending": 3
       },
       {
         "company": "AXA Svizzera",
