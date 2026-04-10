@@ -6502,6 +6502,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-servizio-trasfusionale-locarno-chiusura-24-giugno': {
+    title: 'Servizio Trasfusionale di Locarno | Frontaliere Ticino',
+    description: 'Dal 24 giugno 2026 il Servizio Trasfusionale di Locarno cesserà l’attività. La scelta, maturata in 4 anni di riflessioni, è dovuta al calo delle entrate dalla v',
+    keywords: 'frontalieri, ticino, svizzera, italia, servizio, trasfusionale, locarno, chiude',
+    ogTitle: 'Servizio Trasfusionale di Locarno chiude il 24 giugno: do',
+    ogDescription: 'Dal 24 giugno 2026 il Servizio Trasfusionale di Locarno cesserà l’attività. La scelta, maturata in 4 anni di riflessioni, è dovuta al calo delle entrate dalla v',
+    canonicalPath: '/articoli-frontaliere/servizio-trasfusionale-locarno-chiusura-24-giugno',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Servizio Trasfusionale di Locarno chiude il 24 giugno: do",
+      "description": "Dal 24 giugno 2026 il Servizio Trasfusionale di Locarno cesserà l’attività. La scelta, maturata in 4 anni di riflessioni, è dovuta al calo delle entrate dalla v",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/servizio-trasfusionale-locarno-chiusura-24-giugno.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Servizio Trasfusionale di Locarno con annuncio di chiusura definitivo dal 24 giugno 2026"
+      },
+      "datePublished": "2026-04-10T03:40:57+00:00",
+      "dateModified": "2026-04-10T03:40:57+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/servizio-trasfusionale-locarno-chiusura-24-giugno`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -2031,6 +2031,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.multe-vignetta-chiasso-2026.title': '190 fines for missing motorway vignettes in Chiasso in 4 days: blanket checks',
     'blog.article.multe-vignetta-chiasso-2026.excerpt': 'Between April 3 and 6, 190 motorists were fined at the Chiasso-Brogeda border crossing. Fines of 200 CHF and obligation to purchase the vignette.',
     'blog.article.multe-vignetta-chiasso-2026.imageAlt': 'Border checks at Chiasso-Brogeda with queues of vehicles waiting',
+    'blog.article.servizio-trasfusionale-locarno-chiusura-24-giugno.title': 'Locarno Blood Service to Close on June 24: Where to Donate Now',
+    'blog.article.servizio-trasfusionale-locarno-chiusura-24-giugno.excerpt': 'From June 24, 2026, the Locarno Blood Service will cease operations. The decision, made after four years of reflection, is due to a decrease in revenue from the sale of blood components. Partial alternative: every Tuesday of the month at the Centro La Torre in Losone.',
+    'blog.article.servizio-trasfusionale-locarno-chiusura-24-giugno.imageAlt': 'Locarno blood donation centre closed from 24 June 2026, exterior view',
 };
 
 export default blogMetaEn;

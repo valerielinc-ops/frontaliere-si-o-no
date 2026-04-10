@@ -3670,7 +3670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 728,
+        "numberOfItems": 729,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -4376,7 +4376,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 725, "name": "Pasqua 2026: 190 frontalieri multati a Chiasso ...", "url": `${BASE_URL}/articoli-frontaliere/multe-vignetta-chiasso-pasqua-2026` },
           { "@type": "ListItem", "position": 726, "name": "Ticino penalizzato: frontalieri gonfiano la ric...", "url": `${BASE_URL}/articoli-frontaliere/tasse-ticino-frontalieri-perequazione-2026` },
           { "@type": "ListItem", "position": 727, "name": "Asili a Bellinzona: progetto pilota per orario ...", "url": `${BASE_URL}/articoli-frontaliere/asili-bellinzona-progetto-pilota-orario-prolungato-2027` },
-          { "@type": "ListItem", "position": 728, "name": "190 multe per vignetta mancante a Chiasso in 4 ...", "url": `${BASE_URL}/articoli-frontaliere/multe-vignetta-chiasso-2026` }
+          { "@type": "ListItem", "position": 728, "name": "190 multe per vignetta mancante a Chiasso in 4 ...", "url": `${BASE_URL}/articoli-frontaliere/multe-vignetta-chiasso-2026` },
+          { "@type": "ListItem", "position": 729, "name": "Servizio Trasfusionale di Locarno chiude il 24 ...", "url": `${BASE_URL}/articoli-frontaliere/servizio-trasfusionale-locarno-chiusura-24-giugno` }
         ]
       }
     ]

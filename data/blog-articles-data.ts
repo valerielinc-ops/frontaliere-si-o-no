@@ -5724,4 +5724,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/multe-vignetta-chiasso-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'servizio-trasfusionale-locarno-chiusura-24-giugno',
+    category: 'pratico',
+    date: '2026-04-10T03:40:57.577Z',
+    image: '/images/blog/servizio-trasfusionale-locarno-chiusura-24-giugno.jpg',
+    hasCalculator: false,
+  },
 ];

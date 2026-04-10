@@ -2031,6 +2031,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.multe-vignetta-chiasso-2026.title': '190 amendes pour absence de vignette à Chiasso en 4 jours : contrôles intensifs',
     'blog.article.multe-vignetta-chiasso-2026.excerpt': 'Entre le 3 et le 6 avril, 190 automobilistes ont été verbalisés au poste-frontière de Chiasso-Brogeda. Les amendes s\'élèvent à 200 CHF et l\'achat de la vignette est obligatoire.',
     'blog.article.multe-vignetta-chiasso-2026.imageAlt': 'Contrôles à la douane de Chiasso-Brogeda avec des files de véhicules',
+    'blog.article.servizio-trasfusionale-locarno-chiusura-24-giugno.title': 'Le services de transfusion de Locarno fermera le 24 juin 2026 : où donner du sang maintenant',
+    'blog.article.servizio-trasfusionale-locarno-chiusura-24-giugno.excerpt': 'À partir du 24 juin 2026, le service de transfusion de Locarno cessera ses activités. Cette décision, prise après quatre ans de réflexion, est due à la baisse des revenus provenant de la vente d\'émocomposants. Alternative partielle : un mercredi de chaque mois au Centre La Torre de Losone.',
+    'blog.article.servizio-trasfusionale-locarno-chiusura-24-giugno.imageAlt': 'Centre de transfusion sanguine de Locarno fermé à partir du 24 juin 2026, vue extérieure',
 };
 
 export default blogMetaFr;

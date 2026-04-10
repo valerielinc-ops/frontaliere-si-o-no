@@ -2031,6 +2031,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.multe-vignetta-chiasso-2026.title': '190 multe per vignetta mancante a Chiasso in 4 giorni: controlli a tappeto',
     'blog.article.multe-vignetta-chiasso-2026.excerpt': 'Tra il 3 e il 6 aprile 190 automobilisti multati al valico di Chiasso-Brogeda. Multe da 200 CHF e obbligo di acquisto della vignetta.',
     'blog.article.multe-vignetta-chiasso-2026.imageAlt': 'Controlli alla dogana di Chiasso-Brogeda con code di veicoli in attesa',
+    'blog.article.servizio-trasfusionale-locarno-chiusura-24-giugno.title': 'Servizio Trasfusionale di Locarno chiude il 24 giugno: dove donare ora',
+    'blog.article.servizio-trasfusionale-locarno-chiusura-24-giugno.excerpt': 'Dal 24 giugno 2026 il Servizio Trasfusionale di Locarno cesserà l’attività. La scelta, maturata in 4 anni di riflessioni, è dovuta al calo delle entrate dalla vendita di emocomponenti. Alternativa parziale: un martedì al mese al Centro La Torre di Losone.',
+    'blog.article.servizio-trasfusionale-locarno-chiusura-24-giugno.imageAlt': 'Servizio Trasfusionale di Locarno con annuncio di chiusura definitivo dal 24 giugno 2026',
 };
 
 export default blogMetaIt;

@@ -2031,6 +2031,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.multe-vignetta-chiasso-2026.title': '190 Bussen wegen fehlender Vignette in Chiasso in 4 Tagen: Großkontrollen',
     'blog.article.multe-vignetta-chiasso-2026.excerpt': 'Zwischen dem 3. und 6. April wurden 190 Autofahrer am Grenzübergang Chiasso-Brogeda gebüsst. Bussen von 200 CHF und Pflicht zum Kauf der Vignette.',
     'blog.article.multe-vignetta-chiasso-2026.imageAlt': 'Grenz Kontrolle in Chiasso-Brogeda mit wartenden Fahrzeugen',
+    'blog.article.servizio-trasfusionale-locarno-chiusura-24-giugno.title': 'Bluttransfusionsdienst von Locarno schließt am 24. Juni: Wo man jetzt donate kann',
+    'blog.article.servizio-trasfusionale-locarno-chiusura-24-giugno.excerpt': 'Ab dem 24. Juni 2026 wird der Bluttransfusionsdienst von Locarno seine Tätigkeit einstellen. Die Entscheidung, die nach vier Jahren Reflexion getroffen wurde, resultiert aus dem Rückgang der Einnahmen aus der Verkauf von Blutkomponenten. Alternative Lösung: Ein Mittwoch pro Monat im Centro La Torre in Losone.',
+    'blog.article.servizio-trasfusionale-locarno-chiusura-24-giugno.imageAlt': 'Blutspendezentrum Locarno, geschlossen ab 24. Juni 2026, Außenansicht',
 };
 
 export default blogMetaDe;
