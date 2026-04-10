@@ -1,117 +1,5 @@
 [
   {
-    "timestamp": "2026-04-01T10:07:16.521Z",
-    "label": "before",
-    "total": 1326,
-    "needsRetranslation": 713,
-    "incomplete": 369,
-    "complete": 957,
-    "missingByLocale": {
-      "it": 151,
-      "en": 247,
-      "de": 204,
-      "fr": 287
-    },
-    "topPending": [
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 69
-      },
-      {
-        "company": "VOLG",
-        "pending": 39
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 36
-      },
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 21
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 19
-      },
-      {
-        "company": "LIS – Lugano Istituti Sociali",
-        "pending": 13
-      },
-      {
-        "company": "Denner",
-        "pending": 12
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 11
-      },
-      {
-        "company": "EMS-Chemie AG",
-        "pending": 10
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 10
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-01T10:08:10.898Z",
-    "label": "after",
-    "total": 1326,
-    "needsRetranslation": 283,
-    "incomplete": 281,
-    "complete": 1045,
-    "missingByLocale": {
-      "it": 112,
-      "en": 161,
-      "de": 152,
-      "fr": 206
-    },
-    "topPending": [
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 52
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 36
-      },
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 21
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 19
-      },
-      {
-        "company": "LIS – Lugano Istituti Sociali",
-        "pending": 13
-      },
-      {
-        "company": "Denner",
-        "pending": 12
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 11
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 10
-      },
-      {
-        "company": "ABB Svizzera (sede Ticino)",
-        "pending": 9
-      },
-      {
-        "company": "Cornèr Banca",
-        "pending": 9
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-01T13:56:20.165Z",
     "label": "before",
     "total": 1326,
@@ -9951,6 +9839,110 @@
       },
       {
         "company": "Ticino Premium Properties SA",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-10T21:56:18.826Z",
+    "label": "before",
+    "total": 1694,
+    "needsRetranslation": 526,
+    "incomplete": 55,
+    "complete": 1639,
+    "missingByLocale": {
+      "it": 40,
+      "en": 38,
+      "de": 20,
+      "fr": 48
+    },
+    "topPending": [
+      {
+        "company": "Lonza",
+        "pending": 19
+      },
+      {
+        "company": "Hügli Nährmittel AG",
+        "pending": 5
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 5
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 4
+      },
+      {
+        "company": "Prada Group",
+        "pending": 4
+      },
+      {
+        "company": "Denner",
+        "pending": 2
+      },
+      {
+        "company": "Läderach (Schweiz) AG",
+        "pending": 2
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 2
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      },
+      {
+        "company": "Avaloq",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-10T22:02:08.803Z",
+    "label": "after",
+    "total": 1694,
+    "needsRetranslation": 64,
+    "incomplete": 15,
+    "complete": 1679,
+    "missingByLocale": {
+      "it": 9,
+      "en": 13,
+      "de": 7,
+      "fr": 14
+    },
+    "topPending": [
+      {
+        "company": "Città di Mendrisio",
+        "pending": 4
+      },
+      {
+        "company": "Hügli Nährmittel AG",
+        "pending": 4
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 2
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      },
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "Banca del Sempione",
+        "pending": 1
+      },
+      {
+        "company": "Ticino Premium Properties SA",
+        "pending": 1
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
         "pending": 1
       }
     ]
