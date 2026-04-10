@@ -1,18 +1,19 @@
 {
   "key": "engel-voelkers",
   "label": "Engel & Völkers",
-  "generatedAt": "2026-04-09T21:26:42.573Z",
+  "generatedAt": "2026-04-10T09:34:52.413Z",
   "total": 3,
-  "newCount": 2,
-  "updatedCount": 1,
+  "newCount": 0,
+  "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 20257,
-  "avgDurationMs": 20257,
+  "durationMs": 19101,
+  "avgDurationMs": 19101,
   "durationHistory": [
-    20257
+    19101
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Assistente Team 100% (m/f) | Lugano",
       "slug": "assistente-team-100-m-f-lugano-engel-voelkers-lugano",
@@ -31,16 +32,22 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "_qualityScore": 77,
+      "id": "engel-voelkers-5ac15a670c5e",
+      "salaryMin": 50500,
+      "salaryMax": 89000,
+      "currency": "CHF",
+      "streetAddress": "Via Nassa 17",
+      "postalCode": "6900",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 20,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
@@ -61,20 +68,24 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "_qualityScore": 77,
+      "id": "engel-voelkers-b4166ab88f78",
+      "salaryMin": 50500,
+      "salaryMax": 89000,
+      "currency": "CHF",
+      "streetAddress": "Via Nassa 17",
+      "postalCode": "6900",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 20,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Immobilienberater/in 100 % | Ascona",
       "slug": "immobilienberater-in-100-ascona-engel-voelkers-ascona",
@@ -93,7 +104,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",

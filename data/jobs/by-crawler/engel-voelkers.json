@@ -1,6 +1,6 @@
 {
   "crawlerKey": "engel-voelkers",
-  "assembledAt": "2026-04-09T21:26:42.572Z",
+  "assembledAt": "2026-04-10T09:34:52.413Z",
   "jobs": [
     {
       "title": "Assistente Team 100% (m/f) | Lugano",
@@ -20,7 +20,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -39,8 +39,8 @@
       },
       "slugByLocale": {
         "it": "assistente-team-100-m-f-lugano-ticino-premium-properties-sa-lugano",
-        "en": "assistente-team-100-m-f-lugano-engel-voelkers-lugano",
-        "de": "assistente-team-100-m-f-lugano-engel-voelkers-lugano",
+        "en": "team-assistant-m-f-100-lugano-ticino-premium-properties-sa-lugano",
+        "de": "team-assistent-m-w-100-lugano-ticino-premium-properties-sa-lugano",
         "fr": "assistant-e-d-equipe-100-m-f-lugano-ticino-premium-properties-sa-lugano"
       },
       "id": "engel-voelkers-5ac15a670c5e",
@@ -58,11 +58,25 @@
         }
       },
       "streetAddress": "Via Nassa 17",
-      "postalCode": "6900"
+      "postalCode": "6900",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistente-team-100-m-f-lugano-engel-voelkers-lugano"
+        ],
+        "en": [
+          "assistente-team-100-m-f-lugano-engel-voelkers-lugano"
+        ],
+        "de": [
+          "assistente-team-100-m-f-lugano-engel-voelkers-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "assistente-team-100-m-f-lugano-engel-voelkers-lugano"
+      ]
     },
     {
       "title": "Teamassistent/in 100 % | Ascona",
-      "slug": "teamassistent-in-100-ascona-engel-voelkers-ascona",
+      "slug": "assistente-di-squadra-a-tempo-pieno-ascona-ticino-premium-properties-sa-ascona",
       "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/550a5ca8-0011-4cbe-9e37-402d6f165d8b",
       "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/550a5ca8-0011-4cbe-9e37-402d6f165d8b",
       "company": "Ticino Premium Properties SA",
@@ -78,7 +92,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -90,7 +104,7 @@
         "fr": "Assistant d'équipe à temps plein | Ascona"
       },
       "descriptionByLocale": {
-        "it": "Descrizione Cerchiamo te per il nostro team! Per rafforzare il nostro team ad Ascona, stiamo cercando una/e assistente/i di squadra a tempo pieno per supportare il nostro team. In questa funzione, otterrai interessanti informazioni sul mondo delle proprietà immobiliari di lusso e imparerai i vari processi amministrativi della nostra azienda. Engel & Völkers Ascona è specializzata nella mediazione di immobili esclusivi nel Ticino, dalle eleganti case città fino alle eccezionali ville con vista sul lago. Insieme viviamo i valori di Competenza, Esclusività e Passione.",
+        "it": "Wir suchen dich für unser Team! Zur Verstärkung unseres Teams in Ascona suchen wir ab sofort oder nach Vereinbarung eine/n engagierte/n Teamassistent/in zur Unterstützung unseres Teams. In dieser Funktion erhalten Sie spannende Einblicke in die Welt der Luxusimmobilien und lernen die vielfältigen administrativen Abläufe unseres Unternehmens kennen. Engel & Völkers Ascona ist auf die Vermittlung exklusiver Immobilien im Tessin spezialisiert, von eleganten Stadtwohnungen bis zu aussergewöhnlichen Villen mit Seeblick. Gemeinsam leben wir die Werte Kompetenz, Exklusivität und Leidenschaft.",
         "en": "Description We are looking for you to join our team! To strengthen our team in Ascona, we are currently looking for a motivated team assistant to support our team. In this role, you will gain interesting insights into the world of luxury real estate and learn about the various administrative processes of our company. Engel & Völkers Ascona specializes in the brokerage of exclusive properties in Ticino, from elegant city apartments to exceptional lakefront villas. Together, we live the values of Competence, Exclusivity, and Passion.",
         "de": "Descrizione Wir suchen dich für unser Team! Zur Verstärkung unseres Teams in Ascona suchen wir ab sofort oder nach Vereinbarung eine/n engagierte/n Teamassistent/in zur Unterstützung unseres Teams. In dieser Funktion erhalten Sie spannende Einblicke in die Welt der Luxusimmobilien und lernen die vielfältigen administrativen Abläufe unseres Unternehmens kennen. Engel & Völkers Ascona ist auf die Vermittlung exklusiver Immobilien im Tessin spezialisiert, von eleganten Stadtwohnungen bis zu aussergewöhnlichen Villen mit Seeblick. Gemeinsam leben wir die Werte Kompetenz, Exklusivität und Leidenschaft.",
         "fr": "Description Nous recherchons quelqu'un pour renforcer notre équipe à Ascona. Nous cherchons actuellement une assistante d'équipe motivée pour soutenir notre équipe. Dans ce rôle, vous obtiendrez des informations intéressantes sur le monde de l'immobilier de luxe et vous apprendrez les différents processus administratifs de notre entreprise. Engel & Völkers Ascona est spécialisée dans la négociation d'immeubles exclusifs dans le Tessin, des appartements de ville élégants aux villas exceptionnelles avec vue sur le lac. Ensemble, nous vivons les valeurs de Compétence, d'Exclusivité et de Passion."
@@ -116,7 +130,15 @@
         }
       },
       "streetAddress": "Via Nassa 17",
-      "postalCode": "6900"
+      "postalCode": "6900",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamassistent-in-100-ascona-engel-voelkers-ascona"
+        ]
+      },
+      "previousSlugs": [
+        "teamassistent-in-100-ascona-engel-voelkers-ascona"
+      ]
     },
     {
       "title": "Immobilienberater/in 100 % | Ascona",
@@ -136,7 +158,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -196,7 +218,8 @@
           "immobilienberater-in-100-ascona-engel-voelkers-ascona",
           "conseiller-en-immobilier-100-ascona-ticino-premium-properties-sa-ascona"
         ]
-      }
+      },
+      "needsRetranslation": true
     }
   ]
 }
