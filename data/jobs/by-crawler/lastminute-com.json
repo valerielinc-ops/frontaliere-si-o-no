@@ -1,6 +1,6 @@
 {
   "crawlerKey": "lastminute-com",
-  "assembledAt": "2026-04-09T21:41:30.853Z",
+  "assembledAt": "2026-04-10T09:50:14.900Z",
   "jobs": [
     {
       "id": "company-s60y08",
@@ -66,7 +66,8 @@
       "previousSlugs": [
         "leitender-software-ingenieur-chiasso",
         "ingegnere-del-software-senior-chiasso",
-        "ingenieur-frontend-senior-chiasso"
+        "ingenieur-frontend-senior-chiasso",
+        "senior-frontend-software-engineer-chiasso"
       ],
       "salaryMin": 94000,
       "salaryMax": 127000,
@@ -89,7 +90,8 @@
         "it": [
           "leitender-software-ingenieur-chiasso",
           "ingegnere-del-software-senior-chiasso",
-          "ingenieur-frontend-senior-chiasso"
+          "ingenieur-frontend-senior-chiasso",
+          "senior-frontend-software-engineer-chiasso"
         ],
         "en": [
           "leitender-software-ingenieur-chiasso",
@@ -103,7 +105,8 @@
           "leitender-software-ingenieur-chiasso",
           "ingenieur-frontend-senior-chiasso"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-us91lh",
@@ -197,7 +200,8 @@
         "fr": [
           "client-affiliation-partner-lastminute-com-chiasso-us91lh"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-2oxpfe",
@@ -261,7 +265,8 @@
       "previousSlugs": [
         "global-payroll-ressources-humaines-systems-responsable-chiasso",
         "global-payroll-personalwesen-systems-manager-lastminute-com-chiasso",
-        "global-payroll-risorse-umane-systems-manager-lastminute-com-chiasso"
+        "global-payroll-risorse-umane-systems-manager-lastminute-com-chiasso",
+        "global-payroll-hr-systems-manager-chiasso"
       ],
       "salaryMin": 94000,
       "salaryMax": 127000,
@@ -287,8 +292,12 @@
         "en": [
           "global-payroll-personalwesen-systems-manager-lastminute-com-chiasso",
           "global-payroll-risorse-umane-systems-manager-lastminute-com-chiasso"
+        ],
+        "it": [
+          "global-payroll-hr-systems-manager-chiasso"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-o2ikw3",
@@ -351,7 +360,8 @@
       "sourceLang": "en",
       "previousSlugs": [
         "head-of-data-platform-engineering-lastminute-com-switzerland",
-        "responsabile-data-platform-engineering-lastminute-com-chiasso"
+        "responsabile-data-platform-engineering-lastminute-com-chiasso",
+        "head-of-data-platform-engineering-chiasso"
       ],
       "salaryMin": 94000,
       "salaryMax": 127000,
@@ -373,7 +383,8 @@
       "previousSlugsByLocale": {
         "it": [
           "head-of-data-platform-engineering-lastminute-com-switzerland",
-          "responsabile-data-platform-engineering-lastminute-com-chiasso"
+          "responsabile-data-platform-engineering-lastminute-com-chiasso",
+          "head-of-data-platform-engineering-chiasso"
         ],
         "en": [
           "head-of-data-platform-engineering-lastminute-com-switzerland"
@@ -384,7 +395,8 @@
         "fr": [
           "head-of-data-platform-engineering-lastminute-com-switzerland"
         ]
-      }
+      },
+      "needsRetranslation": true
     }
   ]
 }
