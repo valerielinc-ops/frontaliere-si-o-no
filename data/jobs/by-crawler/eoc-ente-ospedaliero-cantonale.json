@@ -4158,7 +4158,7 @@
       "slugByLocale": {
         "it": "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-bellinzona",
         "en": "medical-study-assistant-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "de": "medizinischer-studienassistent-eoc-ente-ospedaliero-cantonale-lugano",
+        "de": "arzthelferin-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "assistant-d-etude-medicale-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
@@ -4228,7 +4228,8 @@
         "arzthelferin-eoc-ente-ospedaliero-cantonale-lugano",
         "arzthelferin-eoc-ente-ospedaliero-cantonale-bellinzona",
         "assistante-de-cabinet-medical-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "assistant-d-etude-medicale-eoc-ente-ospedaliero-cantonale-lugano"
+        "assistant-d-etude-medicale-eoc-ente-ospedaliero-cantonale-lugano",
+        "medizinischer-studienassistent-eoc-ente-ospedaliero-cantonale-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4251,7 +4252,8 @@
           "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano-uil2r1",
           "assistante-de-cabinet-medical-eoc-ente-ospedaliero-cantonale-lugano",
           "arzthelferin-eoc-ente-ospedaliero-cantonale-lugano",
-          "arzthelferin-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "arzthelferin-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "medizinischer-studienassistent-eoc-ente-ospedaliero-cantonale-lugano"
         ],
         "fr": [
           "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano",
@@ -5059,9 +5061,9 @@
       "crawledAt": "2026-04-09T09:38:22.107Z",
       "slugByLocale": {
         "it": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+        "en": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona",
         "de": "qualifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "fr": "physiotherapeute-certifie-eoc-ente-ospedaliero-cantonale-novaggio"
+        "fr": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
         "it": "Fisioterapista diplomato/a",
@@ -5123,7 +5125,9 @@
         "certified-physiotherapist-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-uil2ol",
         "physiotherapeute-certifie-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-uil2ol",
         "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "physiotherapeute-certifie-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "physiotherapeute-certifie-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
+        "physiotherapeute-certifie-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -5165,7 +5169,8 @@
           "kinesitherapeute-qualifie-eoc-ente-ospedaliero-cantonale-bellinzona",
           "certified-physiotherapist-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-uil2ol",
           "physiotherapeute-certifie-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-uil2ol",
-          "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio"
         ],
         "de": [
           "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
@@ -5188,7 +5193,8 @@
           "kinesitherapeute-qualifie-eoc-ente-ospedaliero-cantonale-bellinzona",
           "certified-physiotherapist-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-uil2ol",
           "physiotherapeute-certifie-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-uil2ol",
-          "physiotherapeute-certifie-eoc-ente-ospedaliero-cantonale-bellinzona"
+          "physiotherapeute-certifie-eoc-ente-ospedaliero-cantonale-bellinzona",
+          "physiotherapeute-certifie-eoc-ente-ospedaliero-cantonale-novaggio"
         ]
       }
     },
