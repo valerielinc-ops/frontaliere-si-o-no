@@ -1,21 +1,21 @@
 {
   "key": "ibsa-institut-biochimique",
   "label": "IBSA",
-  "generatedAt": "2026-04-09T21:37:35.170Z",
+  "generatedAt": "2026-04-10T09:45:25.472Z",
   "total": 13,
   "newCount": 13,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 21761,
-  "avgDurationMs": 21761,
+  "durationMs": 14694,
+  "avgDurationMs": 14694,
   "durationHistory": [
-    21761
+    14694
   ],
   "newJobs": [
     {
       "id": "company-u7vkyi",
-      "slug": "clinical-ricerca-officer-e-il-mantenimento-del-trial-master-file-tmf-attraverso-la-gestione-e-l-archiviazione-della-documentazione-di-studio-u7vkyi",
+      "slug": "funzionario-della-ricerca-clinica-ibsa-institut-biochimique-montagnola",
       "company": "IBSA Institut Biochimique",
       "title": "Clinical Research Officer",
       "location": "6926 Working Area",
@@ -35,7 +35,6 @@
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
       "crawledAt": "2026-04-09T21:37:33.940Z",
-      "needsRetranslation": true,
       "sourceLang": "it",
       "country": "CH",
       "salaryMin": 85500,
@@ -46,17 +45,18 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 92,
+      "needsRetranslation": true,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 21,
+        "translation": 25,
         "completeness": 25
       }
     },
     {
       "id": "company-um2f7f",
-      "slug": "industrial-controlling-manager-ibsa-institut-biochimique-6926-working-area",
+      "slug": "responsabile-industrial-controlling-ibsa-institut-biochimique-montagnola",
       "company": "IBSA Institut Biochimique",
       "title": "Industrial Controlling Manager",
       "location": "6926 Working Area",
@@ -76,7 +76,6 @@
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
       "crawledAt": "2026-04-09T21:37:33.940Z",
-      "needsRetranslation": true,
       "sourceLang": "it",
       "country": "CH",
       "salaryMin": 142000,
@@ -87,11 +86,12 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 87,
+      "needsRetranslation": true,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 16,
+        "translation": 25,
         "completeness": 25
       }
     },
