@@ -512,10 +512,10 @@
       "id": "otis-e1587a27b927",
       "slug": "gruppenleiter-reparatur-svc-m-w-d-otis-postfach-123",
       "slugByLocale": {
-        "en": "gruppenleiter-reparatur-svc-m-w-d-otis-postfach-123",
+        "en": "repair-service-group-leader-m-w-d-otis-sa-postfach-123",
         "it": "gruppenleiter-reparatur-svc-m-w-d-otis-postfach-123",
         "de": "gruppenleiter-reparatur-svc-m-w-d-otis-postfach-123",
-        "fr": "gruppenleiter-reparatur-svc-m-w-d-otis-postfach-123"
+        "fr": "responsable-service-reparation-m-w-d-otis-sa-postfach-123"
       },
       "company": "Otis SA",
       "companyKey": "otis",
@@ -782,12 +782,12 @@
     },
     {
       "id": "otis-0c18f83f9548",
-      "slug": "servicetechniker-per-aufzuge-m-w-d-otis-sa-postfach-371",
+      "slug": "tecnico-di-servizio-per-ascensori-m-f-d-otis-sa-postfach-371",
       "slugByLocale": {
         "en": "servicetechniker-fur-aufzuge-m-w-d-otis-postfach-371",
-        "it": "servicetechniker-per-aufzuge-m-w-d-otis-sa-postfach-371",
+        "it": "tecnico-di-servizio-per-ascensori-m-f-d-otis-sa-postfach-371",
         "de": "servicetechniker-fur-aufzuge-m-w-d-otis-postfach-371",
-        "fr": "servicetechniker-fur-aufzuge-m-w-d-otis-postfach-371"
+        "fr": "technicien-de-service-pour-ascenseurs-h-f-x-otis-sa-postfach-371"
       },
       "company": "Otis SA",
       "companyKey": "otis",
@@ -826,11 +826,16 @@
       "crawledAt": "2026-04-10T09:58:53.857Z",
       "previousSlugsByLocale": {
         "it": [
+          "servicetechniker-fur-aufzuge-m-w-d-otis-postfach-371",
+          "servicetechniker-per-aufzuge-m-w-d-otis-sa-postfach-371"
+        ],
+        "fr": [
           "servicetechniker-fur-aufzuge-m-w-d-otis-postfach-371"
         ]
       },
       "previousSlugs": [
-        "servicetechniker-fur-aufzuge-m-w-d-otis-postfach-371"
+        "servicetechniker-fur-aufzuge-m-w-d-otis-postfach-371",
+        "servicetechniker-per-aufzuge-m-w-d-otis-sa-postfach-371"
       ],
       "salaryMin": 55500,
       "salaryMax": 75000,
@@ -1191,7 +1196,7 @@
       "id": "otis-aa74ae9b5213",
       "slug": "tecnico-di-servizio-m-f-d-otis-sa-nenzlingerweg-2",
       "slugByLocale": {
-        "en": "servicetechniker-m-w-d-otis-nenzlingerweg-2",
+        "en": "technical-assistant-m-w-d-otis-sa-nenzlingerweg-2",
         "it": "tecnico-di-servizio-m-f-d-otis-sa-nenzlingerweg-2",
         "de": "service-techniker-m-w-d-otis-sa-nenzlingerweg-2",
         "fr": "servicetechniker-m-w-d-otis-nenzlingerweg-2"
@@ -1239,12 +1244,15 @@
         ],
         "de": [
           "servicetechniker-m-w-d-otis-nenzlingerweg-2"
+        ],
+        "en": [
+          "servicetechniker-m-w-d-otis-nenzlingerweg-2"
         ]
       },
       "previousSlugs": [
         "servicetechniker-m-w-d-otis-sa-nenzlingerweg-2-2",
-        "servicetechniker-m-w-d-otis-nenzlingerweg-2",
-        "servicetechniker-m-w-d-otis-sa-nenzlingerweg-2"
+        "servicetechniker-m-w-d-otis-sa-nenzlingerweg-2",
+        "servicetechniker-m-w-d-otis-nenzlingerweg-2"
       ],
       "salaryMin": 55500,
       "salaryMax": 75000,
@@ -1264,7 +1272,7 @@
       "id": "otis-e151ad3e9647",
       "slug": "talent-community-st-gallen-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-sandackerstrasse-26",
       "slugByLocale": {
-        "en": "talent-community-st-gallen-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sandackerstrasse-26",
+        "en": "talent-community-st-gallen-elevator-mechanic-repairer-service-technician-m-w-d-otis-sa-sandackerstrasse-26",
         "it": "talent-community-st-gallen-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-sandackerstrasse-26",
         "de": "talent-community-st-gallen-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sandackerstrasse-26",
         "fr": "talent-community-st-gallen-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sandackerstrasse-26"
@@ -1306,6 +1314,9 @@
       "crawledAt": "2026-04-10T09:58:52.312Z",
       "previousSlugsByLocale": {
         "it": [
+          "talent-community-st-gallen-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sandackerstrasse-26"
+        ],
+        "en": [
           "talent-community-st-gallen-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sandackerstrasse-26"
         ]
       },
@@ -1395,12 +1406,12 @@
     },
     {
       "id": "otis-f459ef4aa687",
-      "slug": "talent-community-zurich-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-postfach-371",
+      "slug": "talent-community-zurigo-monteur-reparatore-tecnico-di-servizio-m-f-d-otis-sa-postfach-371",
       "slugByLocale": {
         "en": "talent-community-zurich-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-postfach-371",
-        "it": "talent-community-zurich-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-postfach-371",
+        "it": "talent-community-zurigo-monteur-reparatore-tecnico-di-servizio-m-f-d-otis-sa-postfach-371",
         "de": "talent-community-zurich-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-postfach-371",
-        "fr": "talent-community-zurich-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-postfach-371"
+        "fr": "communaute-de-talents-zurich-monteur-reparateur-technicien-de-service-m-f-d-otis-sa-postfach-371"
       },
       "company": "Otis SA",
       "companyKey": "otis",
@@ -1439,11 +1450,16 @@
       "crawledAt": "2026-04-10T09:58:51.872Z",
       "previousSlugsByLocale": {
         "it": [
+          "talent-community-zurich-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-postfach-371",
+          "talent-community-zurich-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-postfach-371"
+        ],
+        "fr": [
           "talent-community-zurich-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-postfach-371"
         ]
       },
       "previousSlugs": [
-        "talent-community-zurich-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-postfach-371"
+        "talent-community-zurich-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-postfach-371",
+        "talent-community-zurich-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-postfach-371"
       ],
       "salaryMin": 55500,
       "salaryMax": 75000,

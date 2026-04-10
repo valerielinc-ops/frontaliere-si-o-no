@@ -3538,12 +3538,12 @@
     },
     {
       "id": "lonza-9f37dab5b634",
-      "slug": "senior-brand-manager-lonza-ch",
+      "slug": "responsabile-senior-del-marchio-lonza-uk",
       "slugByLocale": {
         "en": "senior-brand-manager-lonza-ch",
-        "it": "senior-brand-manager-lonza-ch",
-        "de": "senior-brand-manager-lonza-ch",
-        "fr": "senior-brand-manager-lonza-ch"
+        "it": "responsabile-senior-del-marchio-lonza-uk",
+        "de": "leitender-markenmanager-lonza-uk",
+        "fr": "responsable-de-marque-senior-lonza-uk"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -3596,7 +3596,21 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-brand-manager-lonza-ch"
+        ],
+        "de": [
+          "senior-brand-manager-lonza-ch"
+        ],
+        "fr": [
+          "senior-brand-manager-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-brand-manager-lonza-ch"
+      ]
     }
   ]
 }
