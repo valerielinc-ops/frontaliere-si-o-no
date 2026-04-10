@@ -1,21 +1,22 @@
 {
   "key": "banca-raiffeisen-vedeggio-cassarate",
   "label": "Raiffeisen VC",
-  "generatedAt": "2026-04-09T21:53:38.357Z",
+  "generatedAt": "2026-04-10T10:01:57.137Z",
   "total": 3,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 18961,
-  "avgDurationMs": 18961,
+  "durationMs": 20646,
+  "avgDurationMs": 20646,
   "durationHistory": [
-    18961
+    20646
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-q14jnx",
-      "slug": "consulente-clientela-privata-individuale-banca-raiffeisen-vedeggio-cassarate-gravesano-ticino-q14jnx",
+      "slug": "consulente-clientela-privata-individuale-banca-raiffeisen-vedeggio-cassarate-cadempino",
       "company": "Banca Raiffeisen Vedeggio Cassarate",
       "title": "Consulente clientela privata individuale",
       "location": "Gravesano, Ticino",
@@ -35,18 +36,24 @@
       "companyKey": "banca-raiffeisen-vedeggio-cassarate",
       "companyDomain": "raiffeisen.ch",
       "crawledAt": "2026-04-09T21:53:37.986Z",
-      "needsRetranslation": true,
       "sourceLang": "it",
-      "_qualityScore": 73,
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "streetAddress": "Piazza Indipendenza",
+      "postalCode": "6814",
+      "addressLocality": "Cadempino",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
