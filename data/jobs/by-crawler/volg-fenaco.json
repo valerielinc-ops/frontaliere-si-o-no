@@ -1,6 +1,6 @@
 {
   "crawlerKey": "volg-fenaco",
-  "assembledAt": "2026-04-09T22:08:36.185Z",
+  "assembledAt": "2026-04-10T10:16:47.491Z",
   "jobs": [
     {
       "title": "Betriebsmitarbeiterin / Betriebsmitarbeiter 100% (w/m/d)",
@@ -22,7 +22,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -45,7 +45,7 @@
         "de": "betriebsmitarbeiterin-betriebsmitarbeiter-100-w-m-d-volg-landquart",
         "fr": "operateur-de-magasin-100-volg-landquart"
       },
-      "crawledAt": "2026-04-09T22:08:15.023Z",
+      "crawledAt": "2026-04-10T10:16:26.451Z",
       "id": "volg-fenaco-2d1d36921331",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -60,7 +60,14 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugs": []
+      "previousSlugs": [
+        "betriebsmitarbeiterin-betriebsmitarbeiter-100-w-m-d-volg-landquart"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "betriebsmitarbeiterin-betriebsmitarbeiter-100-w-m-d-volg-landquart"
+        ]
+      }
     },
     {
       "title": "Verkäuferin / Verkäufer (m/w/d)",
@@ -82,7 +89,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "validThrough": "",
       "employmentType": "part-time",
       "contractType": "permanent",
@@ -105,7 +112,7 @@
         "de": "verkauferin-verkaufer-m-w-d-volg-vals",
         "fr": "vendeur-vendeuse-volg-vals"
       },
-      "crawledAt": "2026-04-09T22:08:15.024Z",
+      "crawledAt": "2026-04-10T10:16:26.452Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -120,12 +127,14 @@
         }
       },
       "previousSlugs": [
-        "vendeur-vendeuse-h-f-d-volg-vals-shyscx"
+        "vendeur-vendeuse-h-f-d-volg-vals-shyscx",
+        "verkauferin-verkaufer-m-w-d-volg-vals"
       ],
       "id": "volg-fenaco-81f4b6e75871",
       "previousSlugsByLocale": {
         "it": [
-          "vendeur-vendeuse-h-f-d-volg-vals-shyscx"
+          "vendeur-vendeuse-h-f-d-volg-vals-shyscx",
+          "verkauferin-verkaufer-m-w-d-volg-vals"
         ],
         "en": [
           "vendeur-vendeuse-h-f-d-volg-vals-shyscx"
@@ -158,7 +167,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "validThrough": "",
       "employmentType": "part-time",
       "contractType": "permanent",
@@ -181,7 +190,7 @@
         "de": "verkauferin-verkaufer-m-w-d-volg-tenna-gr",
         "fr": "vendeur-vendeuse-m-f-d-volg-tenna-gr"
       },
-      "crawledAt": "2026-04-09T22:08:15.024Z",
+      "crawledAt": "2026-04-10T10:16:26.453Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -196,12 +205,14 @@
         }
       },
       "previousSlugs": [
-        "vendeur-vendeuse-h-f-d-volg-tenna-gr-wzmyhj"
+        "vendeur-vendeuse-h-f-d-volg-tenna-gr-wzmyhj",
+        "verkauferin-verkaufer-m-w-d-volg-tenna-gr"
       ],
       "id": "volg-fenaco-bb8cb82c3c63",
       "previousSlugsByLocale": {
         "it": [
-          "vendeur-vendeuse-h-f-d-volg-tenna-gr-wzmyhj"
+          "vendeur-vendeuse-h-f-d-volg-tenna-gr-wzmyhj",
+          "verkauferin-verkaufer-m-w-d-volg-tenna-gr"
         ],
         "en": [
           "vendeur-vendeuse-h-f-d-volg-tenna-gr-wzmyhj"
@@ -234,7 +245,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "validThrough": "",
       "employmentType": "part-time",
       "contractType": "permanent",
@@ -257,7 +268,7 @@
         "de": "verkauferin-verkaufer-m-w-d-volg-nufenen",
         "fr": "vendeur-vendeuse-m-f-d-volg-nufenen"
       },
-      "crawledAt": "2026-04-09T22:08:15.024Z",
+      "crawledAt": "2026-04-10T10:16:26.453Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -272,12 +283,14 @@
         }
       },
       "previousSlugs": [
-        "vendeur-vendeuse-h-f-volg-nufenen-bdxlo0"
+        "vendeur-vendeuse-h-f-volg-nufenen-bdxlo0",
+        "verkauferin-verkaufer-m-w-d-volg-nufenen"
       ],
       "id": "volg-fenaco-a5586d7427c5",
       "previousSlugsByLocale": {
         "it": [
-          "vendeur-vendeuse-h-f-volg-nufenen-bdxlo0"
+          "vendeur-vendeuse-h-f-volg-nufenen-bdxlo0",
+          "verkauferin-verkaufer-m-w-d-volg-nufenen"
         ],
         "en": [
           "vendeur-vendeuse-h-f-volg-nufenen-bdxlo0"
@@ -310,7 +323,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -333,7 +346,7 @@
         "de": "stellvertretende-ladenleitung-m-w-d-volg-laax-signina",
         "fr": "directeur-adjoint-du-magasin-m-f-d-volg-laax-signina"
       },
-      "crawledAt": "2026-04-09T22:08:15.024Z",
+      "crawledAt": "2026-04-10T10:16:26.453Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -348,12 +361,16 @@
         }
       },
       "previousSlugs": [
-        "deputy-store-manager-m-f-d-volg-laax-signina-fthcw6"
+        "deputy-store-manager-m-f-d-volg-laax-signina-fthcw6",
+        "stellvertretende-ladenleitung-m-w-d-volg-laax-signina"
       ],
       "id": "volg-fenaco-51a5b8d7b459",
       "previousSlugsByLocale": {
         "en": [
           "deputy-store-manager-m-f-d-volg-laax-signina-fthcw6"
+        ],
+        "it": [
+          "stellvertretende-ladenleitung-m-w-d-volg-laax-signina"
         ]
       }
     },
@@ -377,7 +394,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -400,7 +417,7 @@
         "de": "ladenleitung-m-w-d-volg-andeer",
         "fr": "gerant-de-magasin-m-f-d-volg-andeer"
       },
-      "crawledAt": "2026-04-09T22:08:15.024Z",
+      "crawledAt": "2026-04-10T10:16:26.453Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -415,12 +432,16 @@
         }
       },
       "previousSlugs": [
-        "store-manager-m-f-d-volg-andeer-05w8q3"
+        "store-manager-m-f-d-volg-andeer-05w8q3",
+        "ladenleitung-m-w-d-volg-andeer"
       ],
       "id": "volg-fenaco-63fe4aa4864a",
       "previousSlugsByLocale": {
         "en": [
           "store-manager-m-f-d-volg-andeer-05w8q3"
+        ],
+        "it": [
+          "ladenleitung-m-w-d-volg-andeer"
         ]
       }
     },
@@ -444,7 +465,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "validThrough": "",
       "employmentType": "part-time",
       "contractType": "permanent",
@@ -467,7 +488,7 @@
         "de": "betriebsmitarbeiterin-betriebsmitarbeiter-fur-sonn-und-feiertage-15-w-m-d-volg-landquart",
         "fr": "employe-e-d-exploitation-pour-dimanches-et-jours-feries-15-w-m-d-volg-landquart-4m43di"
       },
-      "crawledAt": "2026-04-09T22:08:15.025Z",
+      "crawledAt": "2026-04-10T10:16:26.453Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -483,13 +504,15 @@
       },
       "previousSlugs": [
         "betriebsmitarbeiterin-betriebsmitarbeiter-per-sonn-e-feiertage-15-w-m-d-volg-landquart",
+        "betriebsmitarbeiterin-betriebsmitarbeiter-fur-sonn-und-feiertage-15-w-m-d-volg-landquart",
         "employe-e-d-exploitation-pour-dimanches-et-jours-feries-15-w-m-d-volg-landquart",
         "operations-worker-for-sundays-and-public-holidays-15-w-m-d-volg-landquart"
       ],
       "id": "volg-fenaco-c24e1b5dc58c",
       "previousSlugsByLocale": {
         "it": [
-          "betriebsmitarbeiterin-betriebsmitarbeiter-per-sonn-e-feiertage-15-w-m-d-volg-landquart"
+          "betriebsmitarbeiterin-betriebsmitarbeiter-per-sonn-e-feiertage-15-w-m-d-volg-landquart",
+          "betriebsmitarbeiterin-betriebsmitarbeiter-fur-sonn-und-feiertage-15-w-m-d-volg-landquart"
         ],
         "fr": [
           "employe-e-d-exploitation-pour-dimanches-et-jours-feries-15-w-m-d-volg-landquart"
@@ -519,7 +542,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "fixed-term",
@@ -542,7 +565,7 @@
         "de": "betriebsmitarbeitende-w-m-d-fur-die-getrankeabteilung-als-sommeraushilfe-volg-landquart",
         "fr": "collaborateur-trice-operationnel-le-pour-le-departement-des-boissons-en-tant-qu-aide-d-ete-volg-landquart-hyuiar"
       },
-      "crawledAt": "2026-04-09T22:08:15.025Z",
+      "crawledAt": "2026-04-10T10:16:26.453Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -557,12 +580,14 @@
         }
       },
       "previousSlugs": [
-        "betriebsmitarbeitende-w-m-d-per-la-getrankeabteilung-come-sommeraushilfe-volg-landquart"
+        "betriebsmitarbeitende-w-m-d-per-la-getrankeabteilung-come-sommeraushilfe-volg-landquart",
+        "betriebsmitarbeitende-w-m-d-fur-die-getrankeabteilung-als-sommeraushilfe-volg-landquart"
       ],
       "id": "volg-fenaco-99fb10891884",
       "previousSlugsByLocale": {
         "it": [
-          "betriebsmitarbeitende-w-m-d-per-la-getrankeabteilung-come-sommeraushilfe-volg-landquart"
+          "betriebsmitarbeitende-w-m-d-per-la-getrankeabteilung-come-sommeraushilfe-volg-landquart",
+          "betriebsmitarbeitende-w-m-d-fur-die-getrankeabteilung-als-sommeraushilfe-volg-landquart"
         ]
       }
     },
@@ -586,7 +611,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -609,7 +634,7 @@
         "de": "stellvertretende-ladenleitung-m-w-d-volg-vals",
         "fr": "adjoint-e-responsable-de-magasin-h-f-d-volg-vals-c7glqx"
       },
-      "crawledAt": "2026-04-09T22:08:15.025Z",
+      "crawledAt": "2026-04-10T10:16:26.453Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -623,7 +648,15 @@
           "unitText": "YEAR"
         }
       },
-      "id": "volg-fenaco-9801f6cb3849"
+      "id": "volg-fenaco-9801f6cb3849",
+      "previousSlugsByLocale": {
+        "it": [
+          "stellvertretende-ladenleitung-m-w-d-volg-vals"
+        ]
+      },
+      "previousSlugs": [
+        "stellvertretende-ladenleitung-m-w-d-volg-vals"
+      ]
     },
     {
       "title": "Stellvertretende Ladenleitung (m/w/d)",
@@ -645,7 +678,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "validThrough": "",
       "employmentType": "part-time",
       "contractType": "permanent",
@@ -668,7 +701,7 @@
         "de": "stellvertretende-ladenleitung-m-w-d-volg-zuoz",
         "fr": "adjoint-e-responsable-de-magasin-h-f-d-volg-zuoz-fpmquk"
       },
-      "crawledAt": "2026-04-09T22:08:15.025Z",
+      "crawledAt": "2026-04-10T10:16:26.453Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -682,7 +715,15 @@
           "unitText": "YEAR"
         }
       },
-      "id": "volg-fenaco-965d1b085848"
+      "id": "volg-fenaco-965d1b085848",
+      "previousSlugsByLocale": {
+        "it": [
+          "stellvertretende-ladenleitung-m-w-d-volg-zuoz"
+        ]
+      },
+      "previousSlugs": [
+        "stellvertretende-ladenleitung-m-w-d-volg-zuoz"
+      ]
     },
     {
       "title": "Chauffeuse / Chauffeur Kat. C (Ablöser Samstagseinsatz) (w/m/d)",
@@ -704,7 +745,7 @@
       "sector": "Trasporti & Logistica",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "validThrough": "",
       "employmentType": "part-time",
       "contractType": "permanent",
@@ -727,7 +768,7 @@
         "de": "chauffeuse-chauffeur-kat-c-abloser-samstagseinsatz-w-m-d-traveco-transporte-ag-landquart",
         "fr": "chauffeur-categorie-c-remplacant-le-samedi-h-f-d-traveco-transporte-ag-landquart-7bkpt0"
       },
-      "crawledAt": "2026-04-09T22:08:15.025Z",
+      "crawledAt": "2026-04-10T10:16:26.454Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -741,7 +782,15 @@
           "unitText": "YEAR"
         }
       },
-      "id": "volg-fenaco-1af50c44f637"
+      "id": "volg-fenaco-1af50c44f637",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeuse-chauffeur-kat-c-abloser-samstagseinsatz-w-m-d-traveco-transporte-ag-landquart"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeuse-chauffeur-kat-c-abloser-samstagseinsatz-w-m-d-traveco-transporte-ag-landquart"
+      ]
     },
     {
       "title": "Lehrstelle als Detailhandelsfachfrau / Detailhandelsfachmann EFZ (w/m/d)",
@@ -763,7 +812,7 @@
       "sector": "Agricoltura & Dettaglio",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "fixed-term",
@@ -786,7 +835,7 @@
         "de": "lehrstelle-als-detailhandelsfachfrau-detailhandelsfachmann-efz-w-m-d-landi-graubunden-ag-chur",
         "fr": "apprenti-apprentie-en-vente-au-detail-efz-w-m-d-landi-graubunden-ag-chur"
       },
-      "crawledAt": "2026-04-09T22:08:15.025Z",
+      "crawledAt": "2026-04-10T10:16:26.454Z",
       "salaryMin": 46500,
       "salaryMax": 62500,
       "currency": "CHF",
@@ -805,7 +854,8 @@
         "stage-en-tant-que-specialiste-du-commerce-de-detail-efz-h-f-landi-graubunden-ag-chur-kncbgw",
         "lehrstelle-in-vendita-al-dettaglio-efz-w-m-d-landi-graubunden-ag-chur",
         "apprendistato-come-detailhandelsfachfrau-detailhandelsfachmann-cfc-w-m-d-landi-graubunden-ag-chur",
-        "apprendistato-nella-vendita-al-dettaglio-afc-w-m-d-volg-fenaco-chur"
+        "apprendistato-nella-vendita-al-dettaglio-afc-w-m-d-volg-fenaco-chur",
+        "lehrstelle-als-detailhandelsfachfrau-detailhandelsfachmann-efz-w-m-d-landi-graubunden-ag-chur"
       ],
       "id": "volg-fenaco-45ecfd02361a",
       "previousSlugsByLocale": {
@@ -819,7 +869,8 @@
           "stage-en-tant-que-specialiste-du-commerce-de-detail-efz-h-f-landi-graubunden-ag-chur-kncbgw",
           "lehrstelle-in-vendita-al-dettaglio-efz-w-m-d-landi-graubunden-ag-chur",
           "apprendistato-come-detailhandelsfachfrau-detailhandelsfachmann-cfc-w-m-d-landi-graubunden-ag-chur",
-          "apprendistato-nella-vendita-al-dettaglio-afc-w-m-d-volg-fenaco-chur"
+          "apprendistato-nella-vendita-al-dettaglio-afc-w-m-d-volg-fenaco-chur",
+          "lehrstelle-als-detailhandelsfachfrau-detailhandelsfachmann-efz-w-m-d-landi-graubunden-ag-chur"
         ],
         "de": [
           "stage-en-tant-que-specialiste-du-commerce-de-detail-efz-h-f-landi-graubunden-ag-chur-kncbgw",
@@ -853,7 +904,7 @@
       "sector": "Agricoltura & Dettaglio",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "fixed-term",
@@ -876,7 +927,7 @@
         "de": "lehrstelle-als-detailhandelsfachfrau-detailhandelsfachmann-efz-w-m-d-landi-graubunden-ag-thusis",
         "fr": "apprenti-ere-en-vente-au-detail-efz-w-m-d-landi-graubunden-ag-thusis"
       },
-      "crawledAt": "2026-04-09T22:08:15.025Z",
+      "crawledAt": "2026-04-10T10:16:26.454Z",
       "salaryMin": 46500,
       "salaryMax": 62500,
       "currency": "CHF",
@@ -896,6 +947,7 @@
         "retail-sales-assistant-efz-w-m-d-apprenticeship-landi-graubunden-ag-landquart",
         "apprendistato-come-detailhandelsfachfrau-detailhandelsfachmann-cfc-w-m-d-landi-graubunden-ag-thusis",
         "apprendistato-come-addetta-addetto-al-commercio-al-dettaglio-afc-w-m-d-volg-fenaco-thusis",
+        "lehrstelle-als-detailhandelsfachfrau-detailhandelsfachmann-efz-w-m-d-landi-graubunden-ag-thusis",
         "lehrstelle-als-detailhandelsfachfrau-detailhandelsfachmann-efz-w-m-d-landi-graubunden-ag-t"
       ],
       "id": "volg-fenaco-f555a5dfdc6a",
@@ -911,7 +963,8 @@
           "lehrstelle-detailhandelsfachfrau-detialhandelsfachmann-efz-w-m-d-landi-graubunden-ag-thusis",
           "retail-sales-assistant-efz-w-m-d-apprenticeship-landi-graubunden-ag-landquart",
           "apprendistato-come-detailhandelsfachfrau-detailhandelsfachmann-cfc-w-m-d-landi-graubunden-ag-thusis",
-          "apprendistato-come-addetta-addetto-al-commercio-al-dettaglio-afc-w-m-d-volg-fenaco-thusis"
+          "apprendistato-come-addetta-addetto-al-commercio-al-dettaglio-afc-w-m-d-volg-fenaco-thusis",
+          "lehrstelle-als-detailhandelsfachfrau-detailhandelsfachmann-efz-w-m-d-landi-graubunden-ag-thusis"
         ],
         "de": [
           "lehrstelle-detailhandelsfachfrau-detialhandelsfachmann-efz-w-m-d-landi-graubunden-ag-thusis",
@@ -948,7 +1001,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "fixed-term",
@@ -971,7 +1024,7 @@
         "de": "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-pany",
         "fr": "poste-de-formation-en-vente-au-detail-volg-pany"
       },
-      "crawledAt": "2026-04-09T22:08:15.025Z",
+      "crawledAt": "2026-04-10T10:16:26.454Z",
       "salaryMin": 46500,
       "salaryMax": 62500,
       "currency": "CHF",
@@ -990,7 +1043,8 @@
         "retail-sales-assistant-trainee-eba-food-volg-pany",
         "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-lenzerheide",
         "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-pany",
-        "apprendistato-come-assistente-del-commercio-al-dettaglio-afc-alimentari-volg-fenaco-pany"
+        "apprendistato-come-assistente-del-commercio-al-dettaglio-afc-alimentari-volg-fenaco-pany",
+        "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-pany"
       ],
       "id": "volg-fenaco-8a3b0a4e02de",
       "previousSlugsByLocale": {
@@ -999,7 +1053,8 @@
           "retail-sales-assistant-trainee-eba-food-volg-pany",
           "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-lenzerheide",
           "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-pany",
-          "apprendistato-come-assistente-del-commercio-al-dettaglio-afc-alimentari-volg-fenaco-pany"
+          "apprendistato-come-assistente-del-commercio-al-dettaglio-afc-alimentari-volg-fenaco-pany",
+          "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-pany"
         ],
         "en": [
           "lehrstelle-in-dettaglio-assistente-a-eba-alimentari-volg-pany",
@@ -1035,7 +1090,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "fixed-term",
@@ -1058,7 +1113,7 @@
         "de": "lehrstelle-als-detailhandelsfachmann-frau-efz-lebensmittel-volg-pany",
         "fr": "poste-de-vente-efz-alimentaire-volg-pany"
       },
-      "crawledAt": "2026-04-09T22:08:15.025Z",
+      "crawledAt": "2026-04-10T10:16:26.454Z",
       "salaryMin": 46500,
       "salaryMax": 62500,
       "currency": "CHF",
@@ -1077,7 +1132,8 @@
         "lehrstelle-in-dettaglio-commercio-efz-alimentari-volg-pany",
         "apprenticeship-as-retail-salesperson-efz-food-volg-pany",
         "apprendistato-come-addetto-a-al-commercio-al-dettaglio-cfc-alimentari-volg-pany",
-        "apprendistato-nel-commercio-al-dettaglio-afc-alimentari-volg-fenaco-pany"
+        "apprendistato-nel-commercio-al-dettaglio-afc-alimentari-volg-fenaco-pany",
+        "lehrstelle-als-detailhandelsfachmann-frau-efz-lebensmittel-volg-pany"
       ],
       "id": "volg-fenaco-4e38d0b633cd",
       "previousSlugsByLocale": {
@@ -1086,7 +1142,8 @@
           "lehrstelle-in-dettaglio-commercio-efz-alimentari-volg-pany",
           "apprenticeship-as-retail-salesperson-efz-food-volg-pany",
           "apprendistato-come-addetto-a-al-commercio-al-dettaglio-cfc-alimentari-volg-pany",
-          "apprendistato-nel-commercio-al-dettaglio-afc-alimentari-volg-fenaco-pany"
+          "apprendistato-nel-commercio-al-dettaglio-afc-alimentari-volg-fenaco-pany",
+          "lehrstelle-als-detailhandelsfachmann-frau-efz-lebensmittel-volg-pany"
         ],
         "en": [
           "apprentissage-en-tant-que-vendeur-vendeuse-de-detail-efz-alimentation-volg-pany",
@@ -1131,7 +1188,7 @@
       "sector": "Trasporti & Logistica",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -1154,7 +1211,7 @@
         "de": "chauffeuse-chauffeur-kat-c-w-m-d-traveco-transporte-ag-landquart",
         "fr": "chauffeur-categorie-c-h-f-d-traveco-transporte-ag-landquart"
       },
-      "crawledAt": "2026-04-09T22:08:15.025Z",
+      "crawledAt": "2026-04-10T10:16:26.454Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -1173,7 +1230,8 @@
         "chauffeur-categorie-c-h-f-d-traveco-transporte-ag-landquart-1o8389",
         "autista-categoria-c-m-f-d-traveco-transporte-ag-landquart",
         "autista-cat-c-f-m-d-traveco-transporte-ag-landquart",
-        "driver-cat-c-f-m-d-traveco-transporte-ag-landquart"
+        "driver-cat-c-f-m-d-traveco-transporte-ag-landquart",
+        "chauffeuse-chauffeur-kat-c-w-m-d-traveco-transporte-ag-landquart"
       ],
       "id": "volg-fenaco-fa473ae8822a",
       "previousSlugsByLocale": {
@@ -1182,7 +1240,8 @@
           "chauffeur-categorie-c-h-f-d-traveco-transporte-ag-landquart-1o8389",
           "autista-categoria-c-m-f-d-traveco-transporte-ag-landquart",
           "autista-cat-c-f-m-d-traveco-transporte-ag-landquart",
-          "driver-cat-c-f-m-d-traveco-transporte-ag-landquart"
+          "driver-cat-c-f-m-d-traveco-transporte-ag-landquart",
+          "chauffeuse-chauffeur-kat-c-w-m-d-traveco-transporte-ag-landquart"
         ],
         "en": [
           "driver-category-c-m-f-d-traveco-transporte-ag-landquart-1o8389",
@@ -1227,7 +1286,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -1250,7 +1309,7 @@
         "de": "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-disentis-muster",
         "fr": "apprenti-e-specialiste-du-commerce-de-detail-cfc-produits-alimentaires-volg-disentis-muster-ikn7j6"
       },
-      "crawledAt": "2026-04-09T22:08:15.026Z",
+      "crawledAt": "2026-04-10T10:16:26.454Z",
       "salaryMin": 46500,
       "salaryMax": 62500,
       "currency": "CHF",
@@ -1266,12 +1325,14 @@
       },
       "previousSlugs": [
         "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-volg-disentis-muster",
+        "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-disentis-muster",
         "apprenticeship-as-retail-specialist-efz-foodstuffs-volg-disentis-muster"
       ],
       "id": "volg-fenaco-cca2e6651202",
       "previousSlugsByLocale": {
         "it": [
-          "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-volg-disentis-muster"
+          "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-volg-disentis-muster",
+          "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-disentis-muster"
         ],
         "en": [
           "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-volg-disentis-muster",
@@ -1305,7 +1366,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -1328,7 +1389,7 @@
         "de": "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-disentis-muster",
         "fr": "apprentissage-d-assistant-de-commerce-de-detail-eba-produits-alimentaires-volg-disentis-muster-438yu5"
       },
-      "crawledAt": "2026-04-09T22:08:15.026Z",
+      "crawledAt": "2026-04-10T10:16:26.454Z",
       "salaryMin": 46500,
       "salaryMax": 62500,
       "currency": "CHF",
@@ -1344,13 +1405,15 @@
       },
       "previousSlugs": [
         "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-disentis-muster",
-        "apprenticeship-as-retail-assistant-eba-food-volg-disentis-muster"
+        "apprenticeship-as-retail-assistant-eba-food-volg-disentis-muster",
+        "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-disentis-muster"
       ],
       "id": "volg-fenaco-fdef6ee495f5",
       "previousSlugsByLocale": {
         "it": [
           "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-disentis-muster",
-          "apprenticeship-as-retail-assistant-eba-food-volg-disentis-muster"
+          "apprenticeship-as-retail-assistant-eba-food-volg-disentis-muster",
+          "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-disentis-muster"
         ],
         "en": [
           "apprenticeship-as-retail-assistant-eba-food-volg-disentis-muster"
@@ -1383,7 +1446,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -1406,7 +1469,7 @@
         "de": "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-vals",
         "fr": "apprentissage-d-assistant-de-commerce-de-detail-eba-produits-alimentaires-volg-vals-qsaqy0"
       },
-      "crawledAt": "2026-04-09T22:08:15.026Z",
+      "crawledAt": "2026-04-10T10:16:26.454Z",
       "salaryMin": 46500,
       "salaryMax": 62500,
       "currency": "CHF",
@@ -1423,14 +1486,16 @@
       "previousSlugs": [
         "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-vals",
         "apprenticeship-as-retail-assistant-eba-food-volg-vals",
-        "apprentissage-d-assistant-de-commerce-de-detail-eba-produits-alimentaires-volg-vals"
+        "apprentissage-d-assistant-de-commerce-de-detail-eba-produits-alimentaires-volg-vals",
+        "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-vals"
       ],
       "id": "volg-fenaco-2568fe5d2c1b",
       "previousSlugsByLocale": {
         "it": [
           "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-vals",
           "apprenticeship-as-retail-assistant-eba-food-volg-vals",
-          "apprentissage-d-assistant-de-commerce-de-detail-eba-produits-alimentaires-volg-vals"
+          "apprentissage-d-assistant-de-commerce-de-detail-eba-produits-alimentaires-volg-vals",
+          "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-vals"
         ],
         "en": [
           "apprenticeship-as-retail-assistant-eba-food-volg-vals",
@@ -1466,7 +1531,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "fixed-term",
@@ -1489,7 +1554,7 @@
         "de": "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-sils-maria",
         "fr": "stage-en-vente-au-detail-alimentaire-volg-sils-maria"
       },
-      "crawledAt": "2026-04-09T22:08:15.026Z",
+      "crawledAt": "2026-04-10T10:16:26.454Z",
       "salaryMin": 46500,
       "salaryMax": 62500,
       "currency": "CHF",
@@ -1506,14 +1571,16 @@
       "previousSlugs": [
         "apprenticeship-as-retail-assistant-eba-food-volg-sils-maria",
         "lehrstelle-in-dettaglio-assistente-a-eba-alimentari-volg-sils-maria",
-        "apprendistato-come-assistente-al-commercio-al-dettaglio-cfp-alimentari-volg-sils-maria"
+        "apprendistato-come-assistente-al-commercio-al-dettaglio-cfp-alimentari-volg-sils-maria",
+        "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-sils-maria"
       ],
       "id": "volg-fenaco-53c70b0f6ce6",
       "previousSlugsByLocale": {
         "it": [
           "apprenticeship-as-retail-assistant-eba-food-volg-sils-maria",
           "lehrstelle-in-dettaglio-assistente-a-eba-alimentari-volg-sils-maria",
-          "apprendistato-come-assistente-al-commercio-al-dettaglio-cfp-alimentari-volg-sils-maria"
+          "apprendistato-come-assistente-al-commercio-al-dettaglio-cfp-alimentari-volg-sils-maria",
+          "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-sils-maria"
         ],
         "en": [
           "apprenticeship-as-retail-assistant-eba-food-volg-sils-maria",
@@ -1552,7 +1619,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -1575,7 +1642,7 @@
         "de": "lehrstelle-als-detailhandelsfachmann-frau-efz-lebensmittel-volg-vals",
         "fr": "apprenti-e-en-tant-que-specialiste-du-commerce-de-detail-cfc-produits-alimentaires-volg-vals-rg1zqh"
       },
-      "crawledAt": "2026-04-09T22:08:15.026Z",
+      "crawledAt": "2026-04-10T10:16:26.454Z",
       "salaryMin": 46500,
       "salaryMax": 62500,
       "currency": "CHF",
@@ -1590,12 +1657,14 @@
         }
       },
       "previousSlugs": [
-        "apprendistato-come-addetto-a-al-commercio-al-dettaglio-cfc-alimentari-volg-vals"
+        "apprendistato-come-addetto-a-al-commercio-al-dettaglio-cfc-alimentari-volg-vals",
+        "lehrstelle-als-detailhandelsfachmann-frau-efz-lebensmittel-volg-vals"
       ],
       "id": "volg-fenaco-609184814b1a",
       "previousSlugsByLocale": {
         "it": [
-          "apprendistato-come-addetto-a-al-commercio-al-dettaglio-cfc-alimentari-volg-vals"
+          "apprendistato-come-addetto-a-al-commercio-al-dettaglio-cfc-alimentari-volg-vals",
+          "lehrstelle-als-detailhandelsfachmann-frau-efz-lebensmittel-volg-vals"
         ],
         "en": [
           "apprendistato-come-addetto-a-al-commercio-al-dettaglio-cfc-alimentari-volg-vals"
@@ -1628,7 +1697,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "fixed-term",
@@ -1651,7 +1720,7 @@
         "de": "lehrstelle-als-detailhandelsfachmann-frau-efz-lebensmittel-volg-sils-maria",
         "fr": "poste-de-vente-efz-alimentaire-volg-sils-maria"
       },
-      "crawledAt": "2026-04-09T22:08:15.026Z",
+      "crawledAt": "2026-04-10T10:16:26.455Z",
       "salaryMin": 46500,
       "salaryMax": 62500,
       "currency": "CHF",
@@ -1670,6 +1739,7 @@
         "lehrstelle-come-dettagliante-efz-alimentari-volg-sils-maria",
         "apprendistato-come-addetto-a-al-commercio-al-dettaglio-cfc-alimentari-volg-sils-maria",
         "apprendistato-come-addetto-al-commercio-al-dettaglio-afc-alimentari-volg-fenaco-sils-maria",
+        "lehrstelle-als-detailhandelsfachmann-frau-efz-lebensmittel-volg-sils-maria",
         "poste-de-vente-efz-alimentation-volg-sils-maria"
       ],
       "id": "volg-fenaco-faebe8367786",
@@ -1678,7 +1748,8 @@
           "sales-assistant-efz-food-retail-volg-sils-maria",
           "lehrstelle-come-dettagliante-efz-alimentari-volg-sils-maria",
           "apprendistato-come-addetto-a-al-commercio-al-dettaglio-cfc-alimentari-volg-sils-maria",
-          "apprendistato-come-addetto-al-commercio-al-dettaglio-afc-alimentari-volg-fenaco-sils-maria"
+          "apprendistato-come-addetto-al-commercio-al-dettaglio-afc-alimentari-volg-fenaco-sils-maria",
+          "lehrstelle-als-detailhandelsfachmann-frau-efz-lebensmittel-volg-sils-maria"
         ],
         "en": [
           "sales-assistant-efz-food-retail-volg-sils-maria",
@@ -1721,7 +1792,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "fixed-term",
@@ -1744,7 +1815,7 @@
         "de": "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-eggersriet-sg",
         "fr": "poste-de-formation-en-vente-au-detail-volg-eggersriet-sg"
       },
-      "crawledAt": "2026-04-09T22:08:15.027Z",
+      "crawledAt": "2026-04-10T10:16:26.455Z",
       "salaryMin": 46500,
       "salaryMax": 62500,
       "currency": "CHF",
@@ -1763,6 +1834,7 @@
         "retail-sales-assistant-eba-food-position-volg-eggersriet-sg",
         "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-eggersriet-sg",
         "apprendistato-nel-commercio-al-dettaglio-alimentari-volg-fenaco-eggersriet-sg",
+        "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-eggersriet-sg",
         "poste-de-vente-en-detail-eba-alimentation-volg-eggersriet-sg"
       ],
       "id": "volg-fenaco-e81658123dc5",
@@ -1771,7 +1843,8 @@
           "lehrstelle-in-dettaglio-nel-commercio-alimentare-volg-eggersriet-sg",
           "retail-sales-assistant-eba-food-position-volg-eggersriet-sg",
           "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-eggersriet-sg",
-          "apprendistato-nel-commercio-al-dettaglio-alimentari-volg-fenaco-eggersriet-sg"
+          "apprendistato-nel-commercio-al-dettaglio-alimentari-volg-fenaco-eggersriet-sg",
+          "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-eggersriet-sg"
         ],
         "en": [
           "lehrstelle-in-dettaglio-nel-commercio-alimentare-volg-eggersriet-sg",
@@ -1811,7 +1884,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -1834,7 +1907,7 @@
         "de": "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-untervaz",
         "fr": "apprentissage-d-assistant-de-commerce-de-detail-eba-produits-alimentaires-volg-untervaz-uiccmi"
       },
-      "crawledAt": "2026-04-09T22:08:15.027Z",
+      "crawledAt": "2026-04-10T10:16:26.455Z",
       "salaryMin": 46500,
       "salaryMax": 62500,
       "currency": "CHF",
@@ -1849,12 +1922,16 @@
         }
       },
       "previousSlugs": [
-        "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-grusch"
+        "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-grusch",
+        "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-untervaz"
       ],
       "id": "volg-fenaco-51b4337a6fa7",
       "previousSlugsByLocale": {
         "de": [
           "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-grusch"
+        ],
+        "it": [
+          "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-untervaz"
         ]
       }
     },
@@ -1878,7 +1955,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -1901,7 +1978,7 @@
         "de": "lehrstelle-als-detailhandelsfachmann-frau-efz-lebensmittel-volg-untervaz",
         "fr": "apprenti-e-en-tant-que-specialiste-du-commerce-de-detail-cfc-produits-alimentaires-volg-untervaz-js8uv4"
       },
-      "crawledAt": "2026-04-09T22:08:15.027Z",
+      "crawledAt": "2026-04-10T10:16:26.455Z",
       "salaryMin": 46500,
       "salaryMax": 62500,
       "currency": "CHF",
@@ -1918,6 +1995,7 @@
       "previousSlugs": [
         "apprendistato-come-addetto-a-al-commercio-al-dettaglio-cfc-alimentari-volg-untervaz",
         "apprenti-e-en-tant-que-specialiste-du-commerce-de-detail-cfc-produits-alimentaires-volg-un",
+        "lehrstelle-als-detailhandelsfachmann-frau-efz-lebensmittel-volg-untervaz",
         "apprenticeship-as-a-retail-specialist-efz-food-volg-untervaz",
         "lehrstelle-als-detailhandelsfachmann-frau-efz-lebensmittel-volg-lenzerheide"
       ],
@@ -1925,7 +2003,8 @@
       "previousSlugsByLocale": {
         "it": [
           "apprendistato-come-addetto-a-al-commercio-al-dettaglio-cfc-alimentari-volg-untervaz",
-          "apprenti-e-en-tant-que-specialiste-du-commerce-de-detail-cfc-produits-alimentaires-volg-un"
+          "apprenti-e-en-tant-que-specialiste-du-commerce-de-detail-cfc-produits-alimentaires-volg-un",
+          "lehrstelle-als-detailhandelsfachmann-frau-efz-lebensmittel-volg-untervaz"
         ],
         "en": [
           "apprendistato-come-addetto-a-al-commercio-al-dettaglio-cfc-alimentari-volg-untervaz",
@@ -1945,7 +2024,7 @@
     },
     {
       "title": "Verkäuferin / Verkäufer TopShop w/m/d",
-      "slug": "verkauferin-verkaufer-topshop-w-m-d-landi-oberwallis-ag-eyholz",
+      "slug": "venditore-a-topshop-w-m-d-landi-oberwallis-ag-eyholz",
       "url": "https://jobs.fenaco.com/offene-stellen/verkaeuferin-verkaeufer-topshop-w-m-d/705e5236-3140-4a3a-b8a3-16e60c111558",
       "applyUrl": "https://jobs.fenaco.com/offene-stellen/verkaeuferin-verkaeufer-topshop-w-m-d/705e5236-3140-4a3a-b8a3-16e60c111558",
       "company": "LANDI Oberwallis AG",
@@ -1963,30 +2042,30 @@
       "sector": "Agricoltura & Dettaglio",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "validThrough": "",
       "employmentType": "part-time",
       "contractType": "permanent",
       "description": "Die LANDI Oberwallis AG ist ein Handels- und Dienstleistungsunternehmen mit Standorten in Eyholz, Steg und Brig. Für unseren TopShop in Eyholz suchen wir per sofort oder nach Vereinbarung eine engagierte, innovative und aufgestellte Persönlichkeit.\n\n## Deine Aufgaben\n- Freundliche, fachkundige Beratung der Kunden und aktiver Verkauf unserer Produkte\n- Warenbewirtschaftung und Bestellung des Verkaufssortiments\n- Sicherstellung der optimalen Warenpräsentation im und vor dem Verkaufslokal\n- Einhalten der vorgeschriebenen Ordnung sowie Sauberkeit\n- Bedienen der Kasse inkl. Abrechnung\n- Aufbacken von Backwaren\n\n## Dein Profil\n- Ausbildung im Detailhandel und/oder Erfahrung im Lebensmittelbereich\n- Freude am Umgang mit Kunden\n- Flexibel in Bezug auf die Arbeitseinsätze, d.h. unregelmässige Arbeitszeiten (Früh-/Spätdienst, Einsätze an Wochenenden und Feiertagen) betrachtest du als eine willkommene Abwechslung\n- Du bist initiativ, belastbar und schätzt eine selbständige Tätigkeit\n- Stilsicheres Deutsch setzen wir voraus, mündliche Französischkenntnisse sind ein Plus\n- Vorzugsweise aus der Region und mobil\n\n## Deine Vorteile\n- Vielseitige und abwechslungsreiche Tätigkeit\n- Hohe Selbstständigkeit\n- Du profitierst von fortschrittlichen Anstellungsbedingungen und Sozialleistungen der fenaco Genossenschaft\n- Div. Vergünstigungen (REKA-Checks, Mobile Abo, uvm.)",
       "titleByLocale": {
-        "de": "Verkäuferin / Verkäufer TopShop w/m/d",
         "it": "Venditore/a TopShop w/m/d",
         "en": "Sales Associate TopShop w/m/d",
+        "de": "Verkäuferin / Verkäufer TopShop w/m/d",
         "fr": "Vendeur/ère TopShop w/m/d"
       },
       "descriptionByLocale": {
-        "de": "Die LANDI Oberwallis AG ist ein Handels- und Dienstleistungsunternehmen mit Standorten in Eyholz, Steg und Brig. Für unseren TopShop in Eyholz suchen wir per sofort oder nach Vereinbarung eine engagierte, innovative und aufgestellte Persönlichkeit. ## Deine Aufgaben - Freundliche, fachkundige Beratung der Kunden und aktiver Verkauf unserer Produkte - Warenbewirtschaftung und Bestellung des Verkaufssortiments - Sicherstellung der optimalen Warenpräsentation im und vor dem Verkaufslokal - Einhalten der vorgeschriebenen Ordnung sowie Sauberkeit - Bedienen der Kasse inkl. Abrechnung - Aufbacken von Backwaren ## Dein Profil - Ausbildung im Detailhandel und/oder Erfahrung im Lebensmittelbereich - Freude am Umgang mit Kunden - Flexibel in Bezug auf die Arbeitseinsätze, d.h. unregelmässige Arbeitszeiten (Früh-/Spätdienst, Einsätze an Wochenenden und Feiertagen) betrachtest du als eine willkommene Abwechslung - Du bist initiativ, belastbar und schätzt eine selbständige Tätigkeit - Stilsicheres Deutsch setzen wir voraus, mündliche Französischkenntnisse sind ein Plus - Vorzugsweise aus der Region und mobil ## Deine Vorteile - Vielseitige und abwechslungsreiche Tätigkeit - Hohe Selbstständigkeit - Du profitierst von fortschrittlichen Anstellungsbedingungen und Sozialleistungen der fenaco Genossenschaft - Div. Vergünstigungen (REKA-Checks, Mobile Abo, uvm.)",
         "it": "La LANDI Oberwallis AG è un'azienda di commercio e servizi con sedi a Eyholz, Steg e Brig. Per il nostro TopShop a Eyholz stiamo cercando immediatamente o dopo accordo una persona impegnata, innovativa e organizzata. ## Le tue responsabilità - Consulenza amichevole e professionale dei clienti e vendita attiva dei nostri prodotti - Gestione e ordine del materiale di vendita - Assicurazione della presentazione ottimale dei prodotti all'interno e davanti al negozio - Rispetto dell'ordine e della pulizia prescritti - Gestione del bancone e gestione delle transazioni - Preparazione di prodotti da forno ## Il tuo profilo - Formazione nel settore del dettaglio e/o esperienza nel settore alimentare - Piacere nel trattare i clienti - Flessibilità nei turni di lavoro, cioè orari irregolari (turni mattutini e serali, turni di sabato e festivi) li consideri come una gradevole varietà - Sei iniziativa, resistente e apprezzi l'attività autonoma - Sappiamo che parli correttamente l'italiano, conoscenze di francese orale sono un plus - Preferibilmente da questa regione e mobile ## I tuoi vantaggi - Attività variegata e interessante - Alta autonomia - Ti gioverà di condizioni di lavoro avanzate e prestazioni sociali della fenaco Genossenschaft - Diversi vantaggi (REKA-Checks, Abbonamento mobile, ecc.)",
         "en": "LANDI Oberwallis AG is a trading and service company with locations in Eyholz, Steg and Brig. We are looking for an engaged, innovative and organized person immediately or after agreement for our TopShop in Eyholz. ## Your Responsibilities - Friendly and professional customer advice and active sales of our products - Inventory management and ordering of the sales assortment - Ensuring optimal product presentation inside and in front of the sales area - Compliance with the prescribed order and cleanliness - Operating the cash desk and handling transactions - Baking pastries ## Your Profile - Education in the retail sector and/or experience in the food sector - Enjoyment of dealing with customers - Flexible in terms of working hours, i.e. irregular working hours (morning/afternoon shifts, weekend and holiday shifts) you consider as a welcome change - You are initiative, resilient and appreciate independent work - We expect correct German, oral French knowledge is a plus - Preferably from the region and mobile ## Your Benefits - Varied and interesting work - High autonomy - You will benefit from advanced employment conditions and social benefits of the fenaco cooperative - Various benefits (REKA-Checks, mobile subscription, etc.)",
+        "de": "Die LANDI Oberwallis AG ist ein Handels- und Dienstleistungsunternehmen mit Standorten in Eyholz, Steg und Brig. Für unseren TopShop in Eyholz suchen wir per sofort oder nach Vereinbarung eine engagierte, innovative und aufgestellte Persönlichkeit. ## Deine Aufgaben - Freundliche, fachkundige Beratung der Kunden und aktiver Verkauf unserer Produkte - Warenbewirtschaftung und Bestellung des Verkaufssortiments - Sicherstellung der optimalen Warenpräsentation im und vor dem Verkaufslokal - Einhalten der vorgeschriebenen Ordnung sowie Sauberkeit - Bedienen der Kasse inkl. Abrechnung - Aufbacken von Backwaren ## Dein Profil - Ausbildung im Detailhandel und/oder Erfahrung im Lebensmittelbereich - Freude am Umgang mit Kunden - Flexibel in Bezug auf die Arbeitseinsätze, d.h. unregelmässige Arbeitszeiten (Früh-/Spätdienst, Einsätze an Wochenenden und Feiertagen) betrachtest du als eine willkommene Abwechslung - Du bist initiativ, belastbar und schätzt eine selbständige Tätigkeit - Stilsicheres Deutsch setzen wir voraus, mündliche Französischkenntnisse sind ein Plus - Vorzugsweise aus der Region und mobil ## Deine Vorteile - Vielseitige und abwechslungsreiche Tätigkeit - Hohe Selbstständigkeit - Du profitierst von fortschrittlichen Anstellungsbedingungen und Sozialleistungen der fenaco Genossenschaft - Div. Vergünstigungen (REKA-Checks, Mobile Abo, uvm.)",
         "fr": "La LANDI Oberwallis AG est une entreprise de commerce et de services avec des bureaux à Eyholz, Steg et Brig. Nous recherchons un(e) personne engagée, innovante et organisée pour notre TopShop à Eyholz. ## Vos responsabilités - Conseil amical et professionnel des clients et vente active de nos produits - Gestion et commande de l'assortiment de vente - Assurer une présentation optimale des produits à l'intérieur et devant le magasin - Respecter l'ordre et la propreté prescrits - Gérer le comptoir et gérer les transactions - Préparation de pâtisseries ## Votre profil - Formation dans le secteur du détail et/ou expérience dans le secteur alimentaire - Plaisir de traiter les clients - Flexible en termes d'heures de travail, c'est-à-dire des horaires irréguliers (tours de matin et de soir, tours de week-end et de jours fériés) vous considérez comme une agréable variété - Vous êtes initiée, résistante et appréciez le travail indépendant - Nous attendons que vous parliez correctement l'allemand, les connaissances de français oral sont un plus - Préférentiellement de cette région et mobile ## Vos avantages - Travail varié et intéressant - Haute autonomie - Vous bénéficierez de conditions d'emploi avancées et de prestations sociales de la coopérative fenaco - Diverses avantages (REKA-Checks, abonnement mobile, etc.)"
       },
       "slugByLocale": {
-        "it": "verkauferin-verkaufer-topshop-w-m-d-landi-oberwallis-ag-eyholz",
-        "en": "verkauferin-verkaufer-topshop-w-m-d-landi-oberwallis-ag-eyholz",
+        "it": "venditore-a-topshop-w-m-d-landi-oberwallis-ag-eyholz",
+        "en": "sales-associate-topshop-w-m-d-landi-oberwallis-ag-eyholz",
         "de": "verkauferin-verkaufer-topshop-w-m-d-landi-oberwallis-ag-eyholz",
-        "fr": "verkauferin-verkaufer-topshop-w-m-d-landi-oberwallis-ag-eyholz"
+        "fr": "vendeur-ere-topshop-w-m-d-landi-oberwallis-ag-eyholz"
       },
-      "crawledAt": "2026-04-09T22:08:15.027Z",
+      "crawledAt": "2026-04-10T10:16:26.456Z",
       "id": "volg-fenaco-c7b4c39ac157",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2004,11 +2083,13 @@
       "previousSlugsByLocale": {
         "it": [
           "sales-associate-topshop-w-m-d-landi-oberwallis-ag-eyholz-r38nh8",
-          "vendeur-vendeuse-topshop-w-m-d-landi-oberwallis-ag-eyholz-r38nh8"
+          "vendeur-vendeuse-topshop-w-m-d-landi-oberwallis-ag-eyholz-r38nh8",
+          "verkauferin-verkaufer-topshop-w-m-d-landi-oberwallis-ag-eyholz"
         ],
         "en": [
           "sales-associate-topshop-w-m-d-landi-oberwallis-ag-eyholz-r38nh8",
-          "vendeur-vendeuse-topshop-w-m-d-landi-oberwallis-ag-eyholz-r38nh8"
+          "vendeur-vendeuse-topshop-w-m-d-landi-oberwallis-ag-eyholz-r38nh8",
+          "verkauferin-verkaufer-topshop-w-m-d-landi-oberwallis-ag-eyholz"
         ],
         "de": [
           "sales-associate-topshop-w-m-d-landi-oberwallis-ag-eyholz-r38nh8",
@@ -2016,12 +2097,14 @@
         ],
         "fr": [
           "sales-associate-topshop-w-m-d-landi-oberwallis-ag-eyholz-r38nh8",
-          "vendeur-vendeuse-topshop-w-m-d-landi-oberwallis-ag-eyholz-r38nh8"
+          "vendeur-vendeuse-topshop-w-m-d-landi-oberwallis-ag-eyholz-r38nh8",
+          "verkauferin-verkaufer-topshop-w-m-d-landi-oberwallis-ag-eyholz"
         ]
       },
       "previousSlugs": [
         "sales-associate-topshop-w-m-d-landi-oberwallis-ag-eyholz-r38nh8",
-        "vendeur-vendeuse-topshop-w-m-d-landi-oberwallis-ag-eyholz-r38nh8"
+        "vendeur-vendeuse-topshop-w-m-d-landi-oberwallis-ag-eyholz-r38nh8",
+        "verkauferin-verkaufer-topshop-w-m-d-landi-oberwallis-ag-eyholz"
       ]
     },
     {
@@ -2044,7 +2127,7 @@
       "sector": "Agricoltura & Dettaglio",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "fr",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -2067,7 +2150,7 @@
         "de": "allrounder-allrounderin-im-bereich-agro-f-h-d-landi-rhone-lavaux-sa-collombey-muraz",
         "fr": "collaborateur-polyvalent-secteur-agro-f-h-d-landi-rhone-lavaux-sa-collombey-muraz"
       },
-      "crawledAt": "2026-04-09T22:08:15.027Z",
+      "crawledAt": "2026-04-10T10:16:26.456Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -2125,7 +2208,7 @@
       "sector": "Agricoltura & Dettaglio",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -2148,7 +2231,7 @@
         "de": "ladenleitung-w-m-d-landi-oberwallis-ag-visp",
         "fr": "direction-du-magasin-w-m-d-landi-oberwallis-ag-visp"
       },
-      "crawledAt": "2026-04-09T22:08:15.027Z",
+      "crawledAt": "2026-04-10T10:16:26.456Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -2167,7 +2250,8 @@
         "gerant-de-magasin-landi-oberwallis-ag-visp-yd79gw",
         "linea-di-ricarica-w-m-d-landi-oberwallis-ag-visp",
         "shop-management-f-m-d-landi-oberwallis-ag-visp-yd79gw",
-        "direction-du-magasin-w-m-d-landi-oberwallis-ag-visp-yd79gw"
+        "direction-du-magasin-w-m-d-landi-oberwallis-ag-visp-yd79gw",
+        "ladenleitung-w-m-d-landi-oberwallis-ag-visp"
       ],
       "id": "volg-fenaco-23edce8281ee",
       "previousSlugsByLocale": {
@@ -2182,7 +2266,8 @@
           "gerant-de-magasin-landi-oberwallis-ag-visp-yd79gw",
           "linea-di-ricarica-w-m-d-landi-oberwallis-ag-visp",
           "shop-management-f-m-d-landi-oberwallis-ag-visp-yd79gw",
-          "direction-du-magasin-w-m-d-landi-oberwallis-ag-visp-yd79gw"
+          "direction-du-magasin-w-m-d-landi-oberwallis-ag-visp-yd79gw",
+          "ladenleitung-w-m-d-landi-oberwallis-ag-visp"
         ],
         "de": [
           "gerant-de-magasin-landi-oberwallis-ag-visp-yd79gw",
@@ -2218,7 +2303,7 @@
       "sector": "Agricoltura & Dettaglio",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "fr",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "validThrough": "",
       "employmentType": "part-time",
       "contractType": "permanent",
@@ -2241,7 +2326,7 @@
         "de": "kassiererin-kassier-topshop-f-h-d-landi-rhone-lavaux-sa-saint-maurice",
         "fr": "caissiere-vendeuse-caissier-vendeur-topshop-f-h-d-landi-rhone-lavaux-sa-saint-maurice"
       },
-      "crawledAt": "2026-04-09T22:08:15.027Z",
+      "crawledAt": "2026-04-10T10:16:26.456Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -2259,7 +2344,8 @@
         "cashier-seller-topshop-f-h-d-landi-rhone-lavaux-sa-saint-maurice",
         "kassiererin-verkauferin-kassierer-verkaufer-topshop-f-h-d-landi-rhone-lavaux-sa-saint-maurice",
         "cassiera-venditrice-cassiere-venditore-topshop-f-h-d-landi-rhone-lavaux-sa-saint-maurice",
-        "cassiera-venditrice-cassiere-venditore-topshop-f-m-d-landi-rhone-lavaux-sa-saint-maurice"
+        "cassiera-venditrice-cassiere-venditore-topshop-f-m-d-landi-rhone-lavaux-sa-saint-maurice",
+        "caissiere-vendeuse-caissier-vendeur-topshop-f-h-d-landi-rhone-lavaux-sa-saint-maurice"
       ],
       "id": "volg-fenaco-d118c907cd07",
       "previousSlugsByLocale": {
@@ -2267,7 +2353,8 @@
           "cashier-seller-topshop-f-h-d-landi-rhone-lavaux-sa-saint-maurice",
           "kassiererin-verkauferin-kassierer-verkaufer-topshop-f-h-d-landi-rhone-lavaux-sa-saint-maurice",
           "cassiera-venditrice-cassiere-venditore-topshop-f-h-d-landi-rhone-lavaux-sa-saint-maurice",
-          "cassiera-venditrice-cassiere-venditore-topshop-f-m-d-landi-rhone-lavaux-sa-saint-maurice"
+          "cassiera-venditrice-cassiere-venditore-topshop-f-m-d-landi-rhone-lavaux-sa-saint-maurice",
+          "caissiere-vendeuse-caissier-vendeur-topshop-f-h-d-landi-rhone-lavaux-sa-saint-maurice"
         ],
         "en": [
           "cashier-seller-topshop-f-h-d-landi-rhone-lavaux-sa-saint-maurice",
@@ -2309,7 +2396,7 @@
       "sector": "Agricoltura & Dettaglio",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "fr",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "validThrough": "",
       "employmentType": "part-time",
       "contractType": "permanent",
@@ -2332,7 +2419,7 @@
         "de": "verkaufsassistent-student-mit-mutter-und-freundschaft-landi-rhone-lavaux-sa-saxon",
         "fr": "auxiliaire-de-vente-etudiant-e-f-h-d-landi-rhone-lavaux-sa-saxon"
       },
-      "crawledAt": "2026-04-09T22:08:15.027Z",
+      "crawledAt": "2026-04-10T10:16:26.456Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -2349,14 +2436,16 @@
       "previousSlugs": [
         "assistente-alle-vendite-etudiant-e-f-m-d-landi-rhone-lavaux-sa-saxon",
         "sales-assistant-student-man-woman-other-landi-rhone-lavaux-sa-saxon",
-        "verkaufsassistent-student-mann-frau-divers-landi-rhone-lavaux-sa-saxon"
+        "verkaufsassistent-student-mann-frau-divers-landi-rhone-lavaux-sa-saxon",
+        "auxiliaire-de-vente-etudiant-e-f-h-d-landi-rhone-lavaux-sa-saxon"
       ],
       "id": "volg-fenaco-df9e37608079",
       "previousSlugsByLocale": {
         "it": [
           "assistente-alle-vendite-etudiant-e-f-m-d-landi-rhone-lavaux-sa-saxon",
           "sales-assistant-student-man-woman-other-landi-rhone-lavaux-sa-saxon",
-          "verkaufsassistent-student-mann-frau-divers-landi-rhone-lavaux-sa-saxon"
+          "verkaufsassistent-student-mann-frau-divers-landi-rhone-lavaux-sa-saxon",
+          "auxiliaire-de-vente-etudiant-e-f-h-d-landi-rhone-lavaux-sa-saxon"
         ],
         "en": [
           "assistente-alle-vendite-etudiant-e-f-m-d-landi-rhone-lavaux-sa-saxon",
@@ -2395,7 +2484,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "fr",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "validThrough": "",
       "employmentType": "part-time",
       "contractType": "permanent",
@@ -2418,7 +2507,7 @@
         "de": "verkaufer-in-h-f-d-volg-vissoie",
         "fr": "vendeuse-vendeur-h-f-d-volg-vissoie"
       },
-      "crawledAt": "2026-04-09T22:08:15.027Z",
+      "crawledAt": "2026-04-10T10:16:26.456Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -2433,12 +2522,14 @@
         }
       },
       "previousSlugs": [
-        "venditrice-venditore-f-m-d-volg-vissoie"
+        "venditrice-venditore-f-m-d-volg-vissoie",
+        "vendeuse-vendeur-h-f-d-volg-vissoie"
       ],
       "id": "volg-fenaco-83ecb0d07df9",
       "previousSlugsByLocale": {
         "it": [
-          "venditrice-venditore-f-m-d-volg-vissoie"
+          "venditrice-venditore-f-m-d-volg-vissoie",
+          "vendeuse-vendeur-h-f-d-volg-vissoie"
         ],
         "en": [
           "venditrice-venditore-f-m-d-volg-vissoie"
@@ -2471,7 +2562,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "validThrough": "",
       "employmentType": "part-time",
       "contractType": "permanent",
@@ -2494,7 +2585,7 @@
         "de": "ladenleitung-stellvertretung-m-w-d-volg-reckingen",
         "fr": "direction-du-magasin-remplacement-m-f-d-volg-reckingen-g8e1mw"
       },
-      "crawledAt": "2026-04-09T22:08:15.027Z",
+      "crawledAt": "2026-04-10T10:16:26.456Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -2508,7 +2599,15 @@
           "unitText": "YEAR"
         }
       },
-      "id": "volg-fenaco-f33249adf78c"
+      "id": "volg-fenaco-f33249adf78c",
+      "previousSlugsByLocale": {
+        "it": [
+          "ladenleitung-stellvertretung-m-w-d-volg-reckingen"
+        ]
+      },
+      "previousSlugs": [
+        "ladenleitung-stellvertretung-m-w-d-volg-reckingen"
+      ]
     },
     {
       "title": "Ladenleiterin / Ladenleiter w/m/d",
@@ -2530,7 +2629,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -2553,7 +2652,7 @@
         "de": "ladenleiterin-ladenleiter-w-m-d-volg-baltschieder",
         "fr": "gerant-e-de-magasin-volg-baltschieder"
       },
-      "crawledAt": "2026-04-09T22:08:15.027Z",
+      "crawledAt": "2026-04-10T10:16:26.456Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -2570,13 +2669,15 @@
       "previousSlugs": [
         "ladenleitera-ladenleitera-volg-baltschieder",
         "gerant-e-de-magasin-volg-baltschieder-vtu3s2",
+        "ladenleiterin-ladenleiter-w-m-d-volg-baltschieder",
         "store-manager-volg-baltschieder-vtu3s2"
       ],
       "id": "volg-fenaco-d0dcf80df4b3",
       "previousSlugsByLocale": {
         "it": [
           "ladenleitera-ladenleitera-volg-baltschieder",
-          "gerant-e-de-magasin-volg-baltschieder-vtu3s2"
+          "gerant-e-de-magasin-volg-baltschieder-vtu3s2",
+          "ladenleiterin-ladenleiter-w-m-d-volg-baltschieder"
         ],
         "en": [
           "ladenleitera-ladenleitera-volg-baltschieder",
@@ -2613,7 +2714,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "validThrough": "",
       "employmentType": "part-time",
       "contractType": "permanent",
@@ -2636,7 +2737,7 @@
         "de": "ladenleitung-w-m-d-volg-raron",
         "fr": "direction-du-magasin-w-m-d-volg-raron"
       },
-      "crawledAt": "2026-04-09T22:08:15.028Z",
+      "crawledAt": "2026-04-10T10:16:26.456Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -2655,7 +2756,8 @@
         "gerant-de-magasin-h-f-d-volg-raron-dv0crx",
         "shop-management-f-m-d-volg-raron-dv0crx",
         "direction-du-magasin-w-m-d-volg-raron-dv0crx",
-        "linea-di-ricarica-f-m-d-volg-raron"
+        "linea-di-ricarica-f-m-d-volg-raron",
+        "ladenleitung-w-m-d-volg-raron"
       ],
       "id": "volg-fenaco-4ab81ef3e278",
       "previousSlugsByLocale": {
@@ -2670,7 +2772,8 @@
           "gerant-de-magasin-h-f-d-volg-raron-dv0crx",
           "shop-management-f-m-d-volg-raron-dv0crx",
           "direction-du-magasin-w-m-d-volg-raron-dv0crx",
-          "linea-di-ricarica-f-m-d-volg-raron"
+          "linea-di-ricarica-f-m-d-volg-raron",
+          "ladenleitung-w-m-d-volg-raron"
         ],
         "de": [
           "gerant-de-magasin-h-f-d-volg-raron-dv0crx",
@@ -2706,7 +2809,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "fr",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "validThrough": "",
       "employmentType": "part-time",
       "contractType": "permanent",
@@ -2729,7 +2832,7 @@
         "de": "assistenzleiter-in-h-f-d-volg-anniviers",
         "fr": "gerante-adjointe-gerant-adjoint-h-f-d-volg-anniviers"
       },
-      "crawledAt": "2026-04-09T22:08:15.028Z",
+      "crawledAt": "2026-04-10T10:16:26.456Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -2745,7 +2848,8 @@
       },
       "previousSlugs": [
         "assistenz-store-leiter-h-f-d-volg-anniviers",
-        "vicegerente-gerente-aggiunto-a-f-m-d-volg-anniviers"
+        "vicegerente-gerente-aggiunto-a-f-m-d-volg-anniviers",
+        "gerante-adjointe-gerant-adjoint-h-f-d-volg-anniviers"
       ],
       "id": "volg-fenaco-6903d715351c",
       "previousSlugsByLocale": {
@@ -2754,7 +2858,8 @@
           "vicegerente-gerente-aggiunto-a-f-m-d-volg-anniviers"
         ],
         "it": [
-          "vicegerente-gerente-aggiunto-a-f-m-d-volg-anniviers"
+          "vicegerente-gerente-aggiunto-a-f-m-d-volg-anniviers",
+          "gerante-adjointe-gerant-adjoint-h-f-d-volg-anniviers"
         ],
         "en": [
           "vicegerente-gerente-aggiunto-a-f-m-d-volg-anniviers"
@@ -2784,7 +2889,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -2807,7 +2912,7 @@
         "de": "verkauferin-verkaufer-volg-binn",
         "fr": "vendeuse-vendeur-volg-binn"
       },
-      "crawledAt": "2026-04-09T22:08:15.028Z",
+      "crawledAt": "2026-04-10T10:16:26.456Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -2825,7 +2930,8 @@
         "sales-associate-volg-binn-b65i2n",
         "vendeur-vendeuse-volg-binn-b65i2n",
         "saleswoman-salesperson-volg-binn-b65i2n",
-        "vendeuse-vendeur-volg-binn-b65i2n"
+        "vendeuse-vendeur-volg-binn-b65i2n",
+        "verkauferin-verkaufer-volg-binn"
       ],
       "id": "volg-fenaco-952aeda56522",
       "previousSlugsByLocale": {
@@ -2833,7 +2939,8 @@
           "sales-associate-volg-binn-b65i2n",
           "vendeur-vendeuse-volg-binn-b65i2n",
           "saleswoman-salesperson-volg-binn-b65i2n",
-          "vendeuse-vendeur-volg-binn-b65i2n"
+          "vendeuse-vendeur-volg-binn-b65i2n",
+          "verkauferin-verkaufer-volg-binn"
         ],
         "en": [
           "sales-associate-volg-binn-b65i2n",
@@ -2875,7 +2982,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -2898,11 +3005,12 @@
         "de": "place-d-apprentissage-de-gestionnaire-ou-assistent-e-du-commerce-de-detail-volg-founex",
         "fr": "place-d-apprentissage-de-gestionnaire-ou-assistant-e-du-commerce-de-detail-volg-founex"
       },
-      "crawledAt": "2026-04-09T22:08:15.028Z",
+      "crawledAt": "2026-04-10T10:16:26.456Z",
       "previousSlugs": [
         "retail-management-or-assistant-training-volg-founex-q63fpx",
         "luogo-d-apprentissage-de-gestionnaire-ou-assistente-e-du-commerce-de-detail-volg-founex",
-        "posto-di-apprendistato-come-gestore-o-assistente-del-commercio-al-dettaglio-volg-fenaco-founex"
+        "posto-di-apprendistato-come-gestore-o-assistente-del-commercio-al-dettaglio-volg-fenaco-founex",
+        "place-d-apprentissage-de-gestionnaire-ou-assistant-e-du-commerce-de-detail-volg-founex"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -2923,7 +3031,8 @@
         "it": [
           "retail-management-or-assistant-training-volg-founex-q63fpx",
           "luogo-d-apprentissage-de-gestionnaire-ou-assistente-e-du-commerce-de-detail-volg-founex",
-          "posto-di-apprendistato-come-gestore-o-assistente-del-commercio-al-dettaglio-volg-fenaco-founex"
+          "posto-di-apprendistato-come-gestore-o-assistente-del-commercio-al-dettaglio-volg-fenaco-founex",
+          "place-d-apprentissage-de-gestionnaire-ou-assistant-e-du-commerce-de-detail-volg-founex"
         ],
         "en": [
           "retail-management-or-assistant-training-volg-founex-q63fpx",
@@ -2959,7 +3068,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -2982,11 +3091,12 @@
         "de": "place-d-apprentissage-de-gestionnaire-ou-assistent-e-du-commerce-de-detail-volg-orsieres",
         "fr": "place-d-apprentissage-de-gestionnaire-ou-assistant-e-du-commerce-de-detail-volg-orsieres"
       },
-      "crawledAt": "2026-04-09T22:08:15.028Z",
+      "crawledAt": "2026-04-10T10:16:26.456Z",
       "previousSlugs": [
         "retail-management-or-assistant-training-position-volg-orsieres-4o5f3w",
         "luogo-d-apprentissage-de-gestionnaire-ou-assistente-e-du-commerce-de-detail-volg-orsieres",
-        "posto-di-apprendistato-come-gestore-o-assistente-del-commercio-al-dettaglio-volg-fenaco-orsieres"
+        "posto-di-apprendistato-come-gestore-o-assistente-del-commercio-al-dettaglio-volg-fenaco-orsieres",
+        "place-d-apprentissage-de-gestionnaire-ou-assistant-e-du-commerce-de-detail-volg-orsieres"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -3007,7 +3117,8 @@
         "it": [
           "retail-management-or-assistant-training-position-volg-orsieres-4o5f3w",
           "luogo-d-apprentissage-de-gestionnaire-ou-assistente-e-du-commerce-de-detail-volg-orsieres",
-          "posto-di-apprendistato-come-gestore-o-assistente-del-commercio-al-dettaglio-volg-fenaco-orsieres"
+          "posto-di-apprendistato-come-gestore-o-assistente-del-commercio-al-dettaglio-volg-fenaco-orsieres",
+          "place-d-apprentissage-de-gestionnaire-ou-assistant-e-du-commerce-de-detail-volg-orsieres"
         ],
         "en": [
           "retail-management-or-assistant-training-position-volg-orsieres-4o5f3w",
@@ -3043,7 +3154,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -3066,11 +3177,12 @@
         "de": "place-d-apprentissage-de-gestionnaire-ou-assistent-e-du-commerce-de-detail-volg-vex",
         "fr": "place-d-apprentissage-de-gestionnaire-ou-assistant-e-du-commerce-de-detail-volg-vex"
       },
-      "crawledAt": "2026-04-09T22:08:15.028Z",
+      "crawledAt": "2026-04-10T10:16:26.456Z",
       "previousSlugs": [
         "retail-management-or-assistant-training-volg-vex-478boi",
         "luogo-d-apprentissage-de-gestionnaire-ou-assistente-e-du-commerce-de-detail-volg-vex",
-        "posto-di-apprendistato-come-gestore-o-assistente-del-commercio-al-dettaglio-volg-fenaco-vex"
+        "posto-di-apprendistato-come-gestore-o-assistente-del-commercio-al-dettaglio-volg-fenaco-vex",
+        "place-d-apprentissage-de-gestionnaire-ou-assistant-e-du-commerce-de-detail-volg-vex"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -3091,7 +3203,8 @@
         "it": [
           "retail-management-or-assistant-training-volg-vex-478boi",
           "luogo-d-apprentissage-de-gestionnaire-ou-assistente-e-du-commerce-de-detail-volg-vex",
-          "posto-di-apprendistato-come-gestore-o-assistente-del-commercio-al-dettaglio-volg-fenaco-vex"
+          "posto-di-apprendistato-come-gestore-o-assistente-del-commercio-al-dettaglio-volg-fenaco-vex",
+          "place-d-apprentissage-de-gestionnaire-ou-assistant-e-du-commerce-de-detail-volg-vex"
         ],
         "en": [
           "retail-management-or-assistant-training-volg-vex-478boi",
@@ -3127,7 +3240,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -3150,11 +3263,12 @@
         "de": "place-d-apprentissage-de-gestionnaire-ou-assistent-e-du-commerce-de-detail-volg-veysonnaz",
         "fr": "place-d-apprentissage-de-gestionnaire-ou-assistant-e-du-commerce-de-detail-volg-veysonnaz"
       },
-      "crawledAt": "2026-04-09T22:08:15.028Z",
+      "crawledAt": "2026-04-10T10:16:26.456Z",
       "previousSlugs": [
         "retail-management-or-assistant-training-position-volg-veysonnaz-4wznrh",
         "luogo-d-apprentissage-de-gestionnaire-ou-assistente-e-du-commerce-de-detail-volg-veysonnaz",
-        "posto-di-apprendistato-come-gestore-o-assistente-del-commercio-al-dettaglio-volg-fenaco-veysonnaz"
+        "posto-di-apprendistato-come-gestore-o-assistente-del-commercio-al-dettaglio-volg-fenaco-veysonnaz",
+        "place-d-apprentissage-de-gestionnaire-ou-assistant-e-du-commerce-de-detail-volg-veysonnaz"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -3175,7 +3289,8 @@
         "it": [
           "retail-management-or-assistant-training-position-volg-veysonnaz-4wznrh",
           "luogo-d-apprentissage-de-gestionnaire-ou-assistente-e-du-commerce-de-detail-volg-veysonnaz",
-          "posto-di-apprendistato-come-gestore-o-assistente-del-commercio-al-dettaglio-volg-fenaco-veysonnaz"
+          "posto-di-apprendistato-come-gestore-o-assistente-del-commercio-al-dettaglio-volg-fenaco-veysonnaz",
+          "place-d-apprentissage-de-gestionnaire-ou-assistant-e-du-commerce-de-detail-volg-veysonnaz"
         ],
         "en": [
           "retail-management-or-assistant-training-position-volg-veysonnaz-4wznrh",
@@ -3211,7 +3326,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -3234,11 +3349,12 @@
         "de": "place-d-apprentissage-de-gestionnaire-ou-assistent-e-du-commerce-de-detail-volg-anniviers",
         "fr": "place-d-apprentissage-de-gestionnaire-ou-assistant-e-du-commerce-de-detail-volg-anniviers"
       },
-      "crawledAt": "2026-04-09T22:08:15.028Z",
+      "crawledAt": "2026-04-10T10:16:26.457Z",
       "previousSlugs": [
         "retail-management-or-assistant-training-volg-anniviers-yy59f6",
         "luogo-d-apprentissage-de-gestionnaire-ou-assistente-e-du-commerce-de-detail-volg-anniviers",
-        "posto-di-apprendistato-come-gestore-o-assistente-del-commercio-al-dettaglio-volg-fenaco-anniviers"
+        "posto-di-apprendistato-come-gestore-o-assistente-del-commercio-al-dettaglio-volg-fenaco-anniviers",
+        "place-d-apprentissage-de-gestionnaire-ou-assistant-e-du-commerce-de-detail-volg-anniviers"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -3259,7 +3375,8 @@
         "it": [
           "retail-management-or-assistant-training-volg-anniviers-yy59f6",
           "luogo-d-apprentissage-de-gestionnaire-ou-assistente-e-du-commerce-de-detail-volg-anniviers",
-          "posto-di-apprendistato-come-gestore-o-assistente-del-commercio-al-dettaglio-volg-fenaco-anniviers"
+          "posto-di-apprendistato-come-gestore-o-assistente-del-commercio-al-dettaglio-volg-fenaco-anniviers",
+          "place-d-apprentissage-de-gestionnaire-ou-assistant-e-du-commerce-de-detail-volg-anniviers"
         ],
         "en": [
           "retail-management-or-assistant-training-volg-anniviers-yy59f6",
@@ -3295,7 +3412,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -3318,7 +3435,7 @@
         "de": "lehrstelle-als-detailhandelsfachmann-frau-oder-detailhandelsassistent-in-volg-baltschieder",
         "fr": "poste-de-vente-ou-de-vendeur-volg-baltschieder"
       },
-      "crawledAt": "2026-04-09T22:08:15.028Z",
+      "crawledAt": "2026-04-10T10:16:26.457Z",
       "salaryMin": 46500,
       "salaryMax": 62500,
       "currency": "CHF",
@@ -3334,12 +3451,14 @@
       },
       "previousSlugs": [
         "apprendistato-come-addetto-a-al-commercio-al-dettaglio-o-assistente-del-commercio-al-dettaglio-volg-baltschieder",
+        "lehrstelle-als-detailhandelsfachmann-frau-oder-detailhandelsassistent-in-volg-baltschieder",
         "emploi-comme-vendeur-ou-vendeuse-en-detail-ou-assistant-commercial-volg-baltschieder"
       ],
       "id": "volg-fenaco-0381e02427d4",
       "previousSlugsByLocale": {
         "it": [
-          "apprendistato-come-addetto-a-al-commercio-al-dettaglio-o-assistente-del-commercio-al-dettaglio-volg-baltschieder"
+          "apprendistato-come-addetto-a-al-commercio-al-dettaglio-o-assistente-del-commercio-al-dettaglio-volg-baltschieder",
+          "lehrstelle-als-detailhandelsfachmann-frau-oder-detailhandelsassistent-in-volg-baltschieder"
         ],
         "fr": [
           "emploi-comme-vendeur-ou-vendeuse-en-detail-ou-assistant-commercial-volg-baltschieder"
@@ -3366,7 +3485,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -3389,7 +3508,7 @@
         "de": "lehrstelle-als-detailhandelsfachmann-frau-oder-detailhandelsassistent-in-volg-bettmeralp",
         "fr": "poste-de-vendeur-vendeuse-ou-assistant-vente-volg-bettmeralp"
       },
-      "crawledAt": "2026-04-09T22:08:15.028Z",
+      "crawledAt": "2026-04-10T10:16:26.457Z",
       "salaryMin": 46500,
       "salaryMax": 62500,
       "currency": "CHF",
@@ -3406,13 +3525,15 @@
       "previousSlugs": [
         "apprendistato-come-addetto-a-al-commercio-al-dettaglio-o-assistente-del-commercio-al-dettaglio-volg-bettmeralp",
         "job-as-a-retail-salesperson-or-retail-sales-assistant-volg-bettmeralp",
+        "lehrstelle-als-detailhandelsfachmann-frau-oder-detailhandelsassistent-in-volg-bettmeralp",
         "poste-de-vente-ou-assistant-de-vente-volg-bettmeralp"
       ],
       "id": "volg-fenaco-1b58acf55b06",
       "previousSlugsByLocale": {
         "it": [
           "apprendistato-come-addetto-a-al-commercio-al-dettaglio-o-assistente-del-commercio-al-dettaglio-volg-bettmeralp",
-          "job-as-a-retail-salesperson-or-retail-sales-assistant-volg-bettmeralp"
+          "job-as-a-retail-salesperson-or-retail-sales-assistant-volg-bettmeralp",
+          "lehrstelle-als-detailhandelsfachmann-frau-oder-detailhandelsassistent-in-volg-bettmeralp"
         ],
         "en": [
           "job-as-a-retail-salesperson-or-retail-sales-assistant-volg-bettmeralp"
@@ -3446,7 +3567,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -3469,7 +3590,7 @@
         "de": "lehrstelle-als-detailhandelsfachmann-frau-oder-detailhandelsassistent-in-volg-burchen",
         "fr": "poste-de-vendeur-ou-assistant-vendeur-volg-burchen"
       },
-      "crawledAt": "2026-04-09T22:08:15.028Z",
+      "crawledAt": "2026-04-10T10:16:26.457Z",
       "salaryMin": 46500,
       "salaryMax": 62500,
       "currency": "CHF",
@@ -3486,13 +3607,15 @@
       "previousSlugs": [
         "apprendistato-come-addetto-a-al-commercio-al-dettaglio-o-assistente-del-commercio-al-dettaglio-volg-burchen",
         "job-as-retail-sales-associate-or-assistant-volg-burchen",
+        "lehrstelle-als-detailhandelsfachmann-frau-oder-detailhandelsassistent-in-volg-burchen",
         "emploi-en-tant-que-vendeur-ou-assistant-de-vente-volg-burchen"
       ],
       "id": "volg-fenaco-9126423288b5",
       "previousSlugsByLocale": {
         "it": [
           "apprendistato-come-addetto-a-al-commercio-al-dettaglio-o-assistente-del-commercio-al-dettaglio-volg-burchen",
-          "job-as-retail-sales-associate-or-assistant-volg-burchen"
+          "job-as-retail-sales-associate-or-assistant-volg-burchen",
+          "lehrstelle-als-detailhandelsfachmann-frau-oder-detailhandelsassistent-in-volg-burchen"
         ],
         "en": [
           "job-as-retail-sales-associate-or-assistant-volg-burchen"
@@ -3526,7 +3649,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -3549,7 +3672,7 @@
         "de": "lehrstelle-als-detailhandelsfachmann-frau-oder-detailhandelsassistent-in-volg-ernen",
         "fr": "poste-de-vendeur-ou-vendeuse-ou-assistant-de-vente-volg-ernen"
       },
-      "crawledAt": "2026-04-09T22:08:15.028Z",
+      "crawledAt": "2026-04-10T10:16:26.457Z",
       "salaryMin": 46500,
       "salaryMax": 62500,
       "currency": "CHF",
@@ -3566,13 +3689,15 @@
       "previousSlugs": [
         "apprendistato-come-addetto-a-al-commercio-al-dettaglio-o-assistente-del-commercio-al-dettaglio-volg-ernen",
         "place-d-apprentissage-en-tant-que-specialiste-du-commerce-de-detail-ou-assistant-e-du-commerce-de-detail-volg-ernen",
+        "lehrstelle-als-detailhandelsfachmann-frau-oder-detailhandelsassistent-in-volg-ernen",
         "apprenticeship-as-retail-specialist-or-retail-assistant-volg-ernen"
       ],
       "id": "volg-fenaco-dcc0a2d0b553",
       "previousSlugsByLocale": {
         "it": [
           "apprendistato-come-addetto-a-al-commercio-al-dettaglio-o-assistente-del-commercio-al-dettaglio-volg-ernen",
-          "place-d-apprentissage-en-tant-que-specialiste-du-commerce-de-detail-ou-assistant-e-du-commerce-de-detail-volg-ernen"
+          "place-d-apprentissage-en-tant-que-specialiste-du-commerce-de-detail-ou-assistant-e-du-commerce-de-detail-volg-ernen",
+          "lehrstelle-als-detailhandelsfachmann-frau-oder-detailhandelsassistent-in-volg-ernen"
         ],
         "en": [
           "apprenticeship-as-retail-specialist-or-retail-assistant-volg-ernen",
@@ -3606,7 +3731,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -3629,7 +3754,7 @@
         "de": "lehrstelle-als-detailhandelsfachmann-frau-oder-detailhandelsassistent-in-volg-grachen",
         "fr": "poste-de-vente-ou-assistant-de-vente-volg-grachen"
       },
-      "crawledAt": "2026-04-09T22:08:15.028Z",
+      "crawledAt": "2026-04-10T10:16:26.457Z",
       "salaryMin": 46500,
       "salaryMax": 62500,
       "currency": "CHF",
@@ -3645,13 +3770,15 @@
       },
       "previousSlugs": [
         "job-as-sales-assistant-or-sales-associate-volg-grachen",
-        "job-as-a-retail-salesperson-or-retail-sales-assistant-volg-visperterminen"
+        "job-as-a-retail-salesperson-or-retail-sales-assistant-volg-visperterminen",
+        "lehrstelle-als-detailhandelsfachmann-frau-oder-detailhandelsassistent-in-volg-grachen"
       ],
       "id": "volg-fenaco-e6906731b758",
       "previousSlugsByLocale": {
         "it": [
           "job-as-sales-assistant-or-sales-associate-volg-grachen",
-          "job-as-a-retail-salesperson-or-retail-sales-assistant-volg-visperterminen"
+          "job-as-a-retail-salesperson-or-retail-sales-assistant-volg-visperterminen",
+          "lehrstelle-als-detailhandelsfachmann-frau-oder-detailhandelsassistent-in-volg-grachen"
         ],
         "en": [
           "job-as-sales-assistant-or-sales-associate-volg-grachen",
@@ -3687,7 +3814,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -3710,7 +3837,7 @@
         "de": "lehrstelle-als-detailhandelsfachmann-frau-oder-detailhandelsassistent-in-volg-obergoms-vs",
         "fr": "poste-de-vendeur-ou-assistant-vendeur-volg-obergoms-vs"
       },
-      "crawledAt": "2026-04-09T22:08:15.028Z",
+      "crawledAt": "2026-04-10T10:16:26.457Z",
       "salaryMin": 46500,
       "salaryMax": 62500,
       "currency": "CHF",
@@ -3727,13 +3854,15 @@
       "previousSlugs": [
         "apprendistato-come-addetto-a-al-commercio-al-dettaglio-o-assistente-del-commercio-al-dettaglio-volg-obergoms-vs",
         "job-as-a-retail-salesperson-or-retail-sales-assistant-volg-obergoms-vs",
+        "lehrstelle-als-detailhandelsfachmann-frau-oder-detailhandelsassistent-in-volg-obergoms-vs",
         "emploi-en-tant-que-vendeur-ou-assistant-vendeur-de-detail-volg-obergoms-vs"
       ],
       "id": "volg-fenaco-b5c8510972ce",
       "previousSlugsByLocale": {
         "it": [
           "apprendistato-come-addetto-a-al-commercio-al-dettaglio-o-assistente-del-commercio-al-dettaglio-volg-obergoms-vs",
-          "job-as-a-retail-salesperson-or-retail-sales-assistant-volg-obergoms-vs"
+          "job-as-a-retail-salesperson-or-retail-sales-assistant-volg-obergoms-vs",
+          "lehrstelle-als-detailhandelsfachmann-frau-oder-detailhandelsassistent-in-volg-obergoms-vs"
         ],
         "en": [
           "job-as-a-retail-salesperson-or-retail-sales-assistant-volg-obergoms-vs"
@@ -3767,7 +3896,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "fixed-term",
@@ -3790,7 +3919,7 @@
         "de": "lehrstelle-als-detailhandelsfachmann-frau-oder-detailhandelsassistent-in-volg-unterbach",
         "fr": "poste-de-vendeur-ou-assistant-vendeur-volg-unterbach"
       },
-      "crawledAt": "2026-04-09T22:08:15.029Z",
+      "crawledAt": "2026-04-10T10:16:26.457Z",
       "salaryMin": 46500,
       "salaryMax": 62500,
       "currency": "CHF",
@@ -3807,13 +3936,15 @@
       "previousSlugs": [
         "apprendistato-come-addetto-a-al-commercio-al-dettaglio-o-assistente-del-commercio-al-dettaglio-volg-unterbach",
         "sales-assistant-position-volg-unterbach",
+        "lehrstelle-als-detailhandelsfachmann-frau-oder-detailhandelsassistent-in-volg-unterbach",
         "poste-de-vente-volg-unterbach"
       ],
       "id": "volg-fenaco-ddac3404e417",
       "previousSlugsByLocale": {
         "it": [
           "apprendistato-come-addetto-a-al-commercio-al-dettaglio-o-assistente-del-commercio-al-dettaglio-volg-unterbach",
-          "sales-assistant-position-volg-unterbach"
+          "sales-assistant-position-volg-unterbach",
+          "lehrstelle-als-detailhandelsfachmann-frau-oder-detailhandelsassistent-in-volg-unterbach"
         ],
         "en": [
           "sales-assistant-position-volg-unterbach"
@@ -3847,7 +3978,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -3870,7 +4001,7 @@
         "de": "lehrstelle-als-detailhandelsfachmann-frau-oder-detailhandelsassistent-in-volg-visperterminen",
         "fr": "poste-de-vendeur-ou-assistante-vendeur-volg-visperterminen"
       },
-      "crawledAt": "2026-04-09T22:08:15.029Z",
+      "crawledAt": "2026-04-10T10:16:26.457Z",
       "salaryMin": 46500,
       "salaryMax": 62500,
       "currency": "CHF",
@@ -3887,13 +4018,15 @@
       "previousSlugs": [
         "apprendistato-come-addetto-a-al-commercio-al-dettaglio-o-assistente-del-commercio-al-dettaglio-volg-visperterminen",
         "job-as-a-retail-salesperson-or-retail-sales-assistant-volg-visperterminen",
+        "lehrstelle-als-detailhandelsfachmann-frau-oder-detailhandelsassistent-in-volg-visperterminen",
         "poste-de-vente-en-detail-ou-assistant-e-de-vente-en-detail-volg-visperterminen"
       ],
       "id": "volg-fenaco-f28ee877c0a5",
       "previousSlugsByLocale": {
         "it": [
           "apprendistato-come-addetto-a-al-commercio-al-dettaglio-o-assistente-del-commercio-al-dettaglio-volg-visperterminen",
-          "job-as-a-retail-salesperson-or-retail-sales-assistant-volg-visperterminen"
+          "job-as-a-retail-salesperson-or-retail-sales-assistant-volg-visperterminen",
+          "lehrstelle-als-detailhandelsfachmann-frau-oder-detailhandelsassistent-in-volg-visperterminen"
         ],
         "en": [
           "job-as-a-retail-salesperson-or-retail-sales-assistant-volg-visperterminen"
@@ -3927,7 +4060,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -3950,7 +4083,7 @@
         "de": "lehrstelle-als-detailhandelsfachmann-frau-oder-detailhandelsassistent-in-volg-wiler-lotschen",
         "fr": "poste-de-vente-ou-assistant-de-vente-volg-wiler-lotschen"
       },
-      "crawledAt": "2026-04-09T22:08:15.029Z",
+      "crawledAt": "2026-04-10T10:16:26.457Z",
       "salaryMin": 46500,
       "salaryMax": 62500,
       "currency": "CHF",
@@ -3966,13 +4099,15 @@
       },
       "previousSlugs": [
         "apprendistato-come-addetto-a-al-commercio-al-dettaglio-o-assistente-del-commercio-al-dettaglio-volg-wiler-lotschen",
-        "job-as-retail-salesperson-or-retail-sales-assistant-volg-wiler-lotschen"
+        "job-as-retail-salesperson-or-retail-sales-assistant-volg-wiler-lotschen",
+        "lehrstelle-als-detailhandelsfachmann-frau-oder-detailhandelsassistent-in-volg-wiler-lotschen"
       ],
       "id": "volg-fenaco-3a6322cab5b6",
       "previousSlugsByLocale": {
         "it": [
           "apprendistato-come-addetto-a-al-commercio-al-dettaglio-o-assistente-del-commercio-al-dettaglio-volg-wiler-lotschen",
-          "job-as-retail-salesperson-or-retail-sales-assistant-volg-wiler-lotschen"
+          "job-as-retail-salesperson-or-retail-sales-assistant-volg-wiler-lotschen",
+          "lehrstelle-als-detailhandelsfachmann-frau-oder-detailhandelsassistent-in-volg-wiler-lotschen"
         ],
         "en": [
           "job-as-retail-salesperson-or-retail-sales-assistant-volg-wiler-lotschen"
@@ -4005,7 +4140,7 @@
       "sector": "Dettaglio & Alimentari",
       "source": "volg-fenaco-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -4028,11 +4163,12 @@
         "de": "place-d-apprentissage-de-gestionnaire-ou-assistent-e-du-commerce-de-detail-volg-collombey-muraz",
         "fr": "place-d-apprentissage-de-gestionnaire-ou-assistant-e-du-commerce-de-detail-volg-collombey-muraz"
       },
-      "crawledAt": "2026-04-09T22:08:15.029Z",
+      "crawledAt": "2026-04-10T10:16:26.457Z",
       "previousSlugs": [
         "retail-management-or-assistant-trainee-volg-collombey-muraz-lzn8tf",
         "luogo-d-apprentissage-de-gestionnaire-ou-assistente-e-du-commerce-de-detail-volg-collombey-muraz",
-        "posto-di-apprendistato-come-gestore-o-assistente-del-commercio-al-dettaglio-volg-fenaco-collombey-muraz"
+        "posto-di-apprendistato-come-gestore-o-assistente-del-commercio-al-dettaglio-volg-fenaco-collombey-muraz",
+        "place-d-apprentissage-de-gestionnaire-ou-assistant-e-du-commerce-de-detail-volg-collombey-muraz"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -4053,7 +4189,8 @@
         "it": [
           "retail-management-or-assistant-trainee-volg-collombey-muraz-lzn8tf",
           "luogo-d-apprentissage-de-gestionnaire-ou-assistente-e-du-commerce-de-detail-volg-collombey-muraz",
-          "posto-di-apprendistato-come-gestore-o-assistente-del-commercio-al-dettaglio-volg-fenaco-collombey-muraz"
+          "posto-di-apprendistato-come-gestore-o-assistente-del-commercio-al-dettaglio-volg-fenaco-collombey-muraz",
+          "place-d-apprentissage-de-gestionnaire-ou-assistant-e-du-commerce-de-detail-volg-collombey-muraz"
         ],
         "en": [
           "retail-management-or-assistant-trainee-volg-collombey-muraz-lzn8tf",
