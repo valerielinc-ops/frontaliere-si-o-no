@@ -8,6 +8,7 @@
     "html"
   ],
   "seedUrls": [
+    "https://www.rhb.ch/it/job/senior-projektleiter-in-bauherrenvertretung-70-100_2026-2184/",
     "https://www.rhb.ch/it/job/unternehmensentwickler-in-50-100_2026-2183/",
     "https://www.rhb.ch/it/job/leiter-in-prufungswesen-50-100_2026-2181/",
     "https://www.rhb.ch/it/job/technische-r-kontrolleur-in-50-100_2026-2180/",
@@ -16,10 +17,13 @@
     "https://www.rhb.ch/it/job/standortleiter-in-zugvorbereitung-and-reinigung-nord-and-mittelbunden-50-100_2026-2172/",
     "https://www.rhb.ch/it/job/standortleiter-in-zugvorbereitung-and-reinigung-bernina-sud-50-100_2026-2174/",
     "https://www.rhb.ch/it/job/standortleiter-in-zugvorbereitung-and-reinigung-unterengadin-and-vereina-50-100_2026-2173/",
-    "https://www.rhb.ch/it/job/horizontverantwortliche-r-planung-50-100_2026-2175/",
-    "https://www.rhb.ch/it/job/leiter-in-geschaftssteuerung-50-100_2026-2176/"
+    "https://www.rhb.ch/it/job/horizontverantwortliche-r-planung-50-100_2026-2175/"
   ],
   "seedMetaByUrl": {
+    "https://www.rhb.ch/it/job/senior-projektleiter-in-bauherrenvertretung-70-100_2026-2184/": {
+      "company": "Ferrovia Retica (RhB)",
+      "companyDomain": "rhb.ch"
+    },
     "https://www.rhb.ch/it/job/unternehmensentwickler-in-50-100_2026-2183/": {
       "company": "Ferrovia Retica (RhB)",
       "companyDomain": "rhb.ch"
@@ -55,12 +59,8 @@
     "https://www.rhb.ch/it/job/horizontverantwortliche-r-planung-50-100_2026-2175/": {
       "company": "Ferrovia Retica (RhB)",
       "companyDomain": "rhb.ch"
-    },
-    "https://www.rhb.ch/it/job/leiter-in-geschaftssteuerung-50-100_2026-2176/": {
-      "company": "Ferrovia Retica (RhB)",
-      "companyDomain": "rhb.ch"
     }
   },
   "notes": "Rhaetian Railway, largest employer in Graubünden. Career page HTML crawler.",
-  "updatedAt": "2026-04-10T09:36:34.833Z"
+  "updatedAt": "2026-04-10T21:13:52.010Z"
 }
