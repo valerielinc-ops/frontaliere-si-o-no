@@ -1,16 +1,16 @@
 {
   "key": "tsmg",
   "label": "TSMG",
-  "generatedAt": "2026-04-10T14:58:02.524Z",
+  "generatedAt": "2026-04-10T21:52:39.133Z",
   "total": 8,
   "newCount": 0,
   "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 23726,
-  "avgDurationMs": 23726,
+  "durationMs": 16892,
+  "avgDurationMs": 16892,
   "durationHistory": [
-    23726
+    16892
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -154,8 +154,8 @@
       "streetAddress": "Via Cantonale 1",
       "postalCode": "6928",
       "id": "tsmg-2d2283cb9788",
-      "needsRetranslation": true,
       "slugDisambiguator": "dfa1adf1",
+      "needsRetranslation": true,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
