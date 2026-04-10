@@ -65,10 +65,22 @@ function parseDelimited(text) {
   };
 }
 
-async function fetchText(url) {
-  const res = await fetch(url, { headers: { 'user-agent': 'FrontaliereTicino/1.0' } });
-  if (!res.ok) throw new Error(`Request failed ${res.status} for ${url}`);
-  return res.text();
+async function fetchText(url, retries = 3) {
+  for (let attempt = 1; attempt <= retries; attempt++) {
+    try {
+      const res = await fetch(url, {
+        headers: { 'user-agent': 'FrontaliereTicino/1.0' },
+        signal: AbortSignal.timeout(30_000),
+      });
+      if (!res.ok) throw new Error(`Request failed ${res.status} for ${url}`);
+      return await res.text();
+    } catch (err) {
+      if (attempt === retries) throw err;
+      const delay = attempt * 5_000;
+      console.warn(`⚠️ Attempt ${attempt}/${retries} failed for ${url}: ${err.message} — retrying in ${delay / 1000}s`);
+      await new Promise((r) => setTimeout(r, delay));
+    }
+  }
 }
 
 function toNumber(value) {
