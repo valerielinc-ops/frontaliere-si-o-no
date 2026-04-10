@@ -12,19 +12,19 @@
     "https://tinext.kenjo.io/api/controller/career-site/public/tinext/positions"
   ],
   "notes": "Dedicated Tinext crawler uses the Kenjo public listing API at https://tinext.kenjo.io/api/controller/career-site/public/tinext/positions (returns activePositions) and fetches each detail page from https://tinext.kenjo.io/{customUrl}. Tinext SA is a digital transformation company based in Lugano (TI).",
-  "updatedAt": "2026-04-09T22:05:08.324Z",
+  "updatedAt": "2026-04-10T10:13:19.834Z",
   "seedMetaByUrl": {
     "https://tinext.kenjo.io/javadev": {
       "location": "Morbio",
       "canton": "TI",
       "company": "Tinext SA",
-      "postedDate": "2026-04-09"
+      "postedDate": "2026-04-10"
     },
     "https://tinext.kenjo.io/exass": {
       "location": "Lugano",
       "canton": "TI",
       "company": "Tinext SA",
-      "postedDate": "2026-04-09"
+      "postedDate": "2026-04-10"
     }
   }
 }

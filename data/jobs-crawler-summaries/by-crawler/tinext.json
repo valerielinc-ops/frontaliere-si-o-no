@@ -1,16 +1,16 @@
 {
   "key": "tinext",
   "label": "tinext",
-  "generatedAt": "2026-04-09T22:05:08.356Z",
+  "generatedAt": "2026-04-10T10:13:19.866Z",
   "total": 2,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 1209,
-  "avgDurationMs": 1209,
+  "unchangedCount": 0,
+  "durationMs": 1007,
+  "avgDurationMs": 1007,
   "durationHistory": [
-    1209
+    1007
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +32,7 @@
       "sector": "IT & Digital Transformation",
       "source": "tinext-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -49,10 +49,7 @@
         "translation": 25,
         "completeness": 25
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "title": "Executive Assistant",
       "slug": "executive-assistant-tinext-lugano-exass",
@@ -71,7 +68,7 @@
       "sector": "IT & Digital Transformation",
       "source": "tinext-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -89,5 +86,7 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
