@@ -174,6 +174,16 @@ async function main() {
 
         sbl[locale] = newSlug;
         job.slugByLocale = sbl;
+
+        // Keep master slug in sync with IT slug (master serves the IT path)
+        if (locale === 'it' && job.slug && job.slug !== newSlug) {
+          // Capture old master as IT previousSlug before overwriting
+          if (job.slug !== currentSlug) {
+            addPreviousSlugForLocale(job, 'it', job.slug, 20);
+          }
+          job.slug = newSlug;
+        }
+
         sliceChanged = true;
         totalFixed++;
       }

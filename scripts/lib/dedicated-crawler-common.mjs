@@ -4293,33 +4293,19 @@ export function mergeLocaleTextMap(a = {}, b = {}, minChars = 1, sourceLocale = 
     return out;
   }
 
-  // Fallback: no sourceLocale — use cross-locale-duplicate heuristic.
-  // Detect source-lang value in b across ALL locales to guard against
-  // overwriting real translations with source-language copies.
-  const bValues = {};
-  for (const locale of LOCALES) {
-    const v = normalizeSpace(String(b?.[locale] || ''));
-    if (v.length >= minChars) bValues[locale] = v;
-  }
-  const bValueCounts = new Map();
-  for (const v of Object.values(bValues)) {
-    bValueCounts.set(v, (bValueCounts.get(v) || 0) + 1);
-  }
-
+  // Fallback: no sourceLocale — existing data (a) always wins when both exist.
+  // The old "longer wins" heuristic was wrong: it let crawler-generated
+  // slugs (English-derived, with hash suffixes) overwrite properly
+  // translated slugs. For titles/descriptions, hardenJobLocaleFields
+  // will propagate the fresh base title to the source locale anyway,
+  // and non-source locales should only update through the translation pipeline.
   for (const locale of LOCALES) {
     const av = normalizeSpace(String(a?.[locale] || ''));
     const bv = normalizeSpace(String(b?.[locale] || ''));
     if (av.length < minChars && bv.length < minChars) continue;
     if (av.length < minChars) { out[locale] = bv; continue; }
-    if (bv.length < minChars) { out[locale] = av; continue; }
-    // If `b` has the same value in 2+ locale slots (source-lang copy pattern)
-    // and `a` has a DIFFERENT value for this locale, keep `a` — it's a real translation.
-    const bIsCrossLocaleDuplicate = (bValueCounts.get(bv) || 0) >= 2 && av !== bv;
-    if (bIsCrossLocaleDuplicate) {
-      out[locale] = av;
-    } else {
-      out[locale] = bv.length >= av.length ? bv : av;
-    }
+    // Existing value wins (b fills gaps, never overwrites)
+    out[locale] = av;
   }
   return out;
 }
@@ -4890,19 +4876,11 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
         }
       }
     }
-    // Source-copy protection for slugByLocale: source-derived slugs can overwrite real
-    // locale-specific slugs via mergeLocaleTextMap's longer-wins rule.
-    const sourceSlugNorm = normalizeSpace(best.slug || '');
-    if (sourceSlugNorm.length >= 3) {
-      for (const locale of LOCALES) {
-        const mergedSlug = normalizeSpace(best.slugByLocale?.[locale] || '');
-        const prevLocaleSlug = (prev.slugByLocale || {})[locale] || '';
-        const prevSlugNorm = normalizeSpace(prevLocaleSlug);
-        if (mergedSlug === sourceSlugNorm && prevSlugNorm.length >= 3 && prevSlugNorm !== sourceSlugNorm) {
-          best.slugByLocale[locale] = prevLocaleSlug;
-        }
-      }
-    }
+    // Source-copy protection for slugByLocale is no longer needed:
+    // mergeLocaleTextMap now uses "existing wins" when sourceLocale is unknown,
+    // and "source only updates source locale" when sourceLocale is known.
+    // Both prevent the old "longer-wins" overwrite of translated slugs.
+
     if (localeTextCoverage(best.descriptionByLocale, 120) === 0 && (best.description || '').length >= 120) {
       const fallbackDesc = {};
       const descSourceLang = detectLang(best.description || '', 'en');

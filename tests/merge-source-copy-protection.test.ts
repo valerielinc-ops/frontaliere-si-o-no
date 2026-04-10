@@ -218,7 +218,7 @@ describe('mergeAndDeduplicate source-copy protection', () => {
     expect(merged.titleByLocale.it).toBe('Specialista della Sostenibilità');
   });
 
-  it('preserves replaced slugs in previousSlugs when slugByLocale changes during merge', () => {
+  it('preserves existing locale slugs when crawler brings longer variants (existing wins)', () => {
     const prevJob = {
       id: 'job-4',
       slug: 'coordinatore-marketing-vf-stabio',
@@ -250,8 +250,8 @@ describe('mergeAndDeduplicate source-copy protection', () => {
       previousSlugs: [],
     };
 
-    // Fresh crawl brings a LONGER slug for IT (e.g. regenerated with extra tokens)
-    // Also includes requirements to make preferJob pick the merged "best" over "prev"
+    // Fresh crawl brings a LONGER slug for IT (e.g. regenerated with extra tokens).
+    // With "existing wins" merge, existing slugs are preserved — no overwrite.
     const freshCrawl = {
       ...prevJob,
       crawledAt: '2026-03-31T09:00:00Z',
@@ -267,10 +267,12 @@ describe('mergeAndDeduplicate source-copy protection', () => {
     const result = mergeAndDeduplicate([prevJob], [freshCrawl], QUALITY_CFG);
     const merged = result.merged[0];
 
-    // The old IT slug should be in previousSlugs since it was replaced
-    expect(merged.previousSlugs).toContain('coordinatore-marketing-the-north-face-vf-stabio');
-    expect(merged.previousSlugs).toContain('marketing-koordinator-the-north-face-vf-stabio');
-    expect(merged.previousSlugs).toContain('coordinateur-marketing-the-north-face-vf-stabio');
+    // Existing slugs should be preserved (not overwritten by longer crawler variants)
+    expect(merged.slugByLocale.it).toBe('coordinatore-marketing-the-north-face-vf-stabio');
+    expect(merged.slugByLocale.de).toBe('marketing-koordinator-the-north-face-vf-stabio');
+    expect(merged.slugByLocale.fr).toBe('coordinateur-marketing-the-north-face-vf-stabio');
+    // No slug changes → no previousSlugs entries needed
+    expect(merged.previousSlugs).not.toContain('coordinatore-marketing-the-north-face-vf-stabio');
   });
 
   it('protects locale slugs from EN source-copy overwrite', () => {
