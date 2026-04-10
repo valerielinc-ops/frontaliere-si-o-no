@@ -2055,6 +2055,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-lombardia-isola-2026.title': 'Tassa salute frontalieri: Lombardia sola a insistere, Ticino minaccia ritorsioni',
     'blog.article.tassa-salute-frontalieri-lombardia-isola-2026.excerpt': 'La Lombardia è l\'unica regione italiana a voler applicare la "tassa salute" per i frontalieri, entrata in vigore 27 mesi fa ma mai applicata. Minacce di decurtazione dei ristorni da parte del Canton Ticino',
     'blog.article.tassa-salute-frontalieri-lombardia-isola-2026.imageAlt': 'Cartello di confine tra Italia e Svizzera a Mendrisio con uffici amministrativi sullo sfondo sotto la pioggia',
+    'blog.article.reclutamento-infermieri-lombardia.title': 'Reclutatori ticinesi a caccia di futuri infermieri nelle università lombarde',
+    'blog.article.reclutamento-infermieri-lombardia.excerpt': 'Il sindacato infermieristico italiano NurSind segnala che reclutatori ticinesi stanno offrendo preassunzioni a giovani studenti di infermieristica in Lombardia.',
+    'blog.article.reclutamento-infermieri-lombardia.imageAlt': 'Reclutatori ticinesi in università lombarde per futuri infermieri',
 };
 
 export default blogMetaIt;

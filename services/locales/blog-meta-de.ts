@@ -2055,6 +2055,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-lombardia-isola-2026.title': 'Gesundheitssteuer für Grenzgänger: Nur die Lombardei beharrt, der Kanton Tessin droht mit Vergeltung',
     'blog.article.tassa-salute-frontalieri-lombardia-isola-2026.excerpt': 'Die Lombardei ist die einzige italienische Region, die die sogenannte \'Gesundheitssteuer\' für Grenzgänger einführen will. Diese Steuer ist seit 27 Monaten in Kraft, wurde jedoch nie angewendet. Der Kanton Tessin droht nun mit der Kürzung der Rückerstattungen.',
     'blog.article.tassa-salute-frontalieri-lombardia-isola-2026.imageAlt': 'Grenzschild Italien-Schweiz in Mendrisio mit Verwaltungsgebäuden im Hintergrund bei leichtem Regen',
+    'blog.article.reclutamento-infermieri-lombardia.title': 'Tessinische Personalvermittler auf der Suche nach zukünftigen Pflegekräften an lombardischen Universitäten',
+    'blog.article.reclutamento-infermieri-lombardia.excerpt': 'Die italienische Pflegegewerkschaft NurSind meldet, dass tessinische Personalvermittler jungen Pflegestudierenden in der Lombardei Vorverträge anbieten.',
+    'blog.article.reclutamento-infermieri-lombardia.imageAlt': 'Tessinische Rekrutierer in lombardischen Universitäten für zukünftige Pflegekräfte',
 };
 
 export default blogMetaDe;

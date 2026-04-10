@@ -3670,7 +3670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 736,
+        "numberOfItems": 737,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -4384,7 +4384,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 733, "name": "DiscoverEU 2026: 40mila pass gratuiti in treno ...", "url": `${BASE_URL}/articoli-frontaliere/discover-eu-2026-frontalieri-ticino` },
           { "@type": "ListItem", "position": 734, "name": "Banche svizzere in allerta per i clienti del Go...", "url": `${BASE_URL}/articoli-frontaliere/banche-svizzere-pronti-clienti-golfo-2026` },
           { "@type": "ListItem", "position": 735, "name": "Fertilizzanti +40% in Ticino: la crisi di Hormu...", "url": `${BASE_URL}/articoli-frontaliere/fertilizzanti-crisi-hormuz-rincari-ticino-40` },
-          { "@type": "ListItem", "position": 736, "name": "Tassa salute frontalieri: Lombardia sola a insi...", "url": `${BASE_URL}/articoli-frontaliere/tassa-salute-frontalieri-lombardia-isola-2026` }
+          { "@type": "ListItem", "position": 736, "name": "Tassa salute frontalieri: Lombardia sola a insi...", "url": `${BASE_URL}/articoli-frontaliere/tassa-salute-frontalieri-lombardia-isola-2026` },
+          { "@type": "ListItem", "position": 737, "name": "Reclutatori ticinesi a caccia di futuri infermi...", "url": `${BASE_URL}/articoli-frontaliere/reclutamento-infermieri-lombardia` }
         ]
       }
     ]

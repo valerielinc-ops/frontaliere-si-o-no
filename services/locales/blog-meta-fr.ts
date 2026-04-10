@@ -2055,6 +2055,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-lombardia-isola-2026.title': 'Taxe santé pour les frontaliers : la Lombardie seule à vouloir l’appliquer, le Tessin menace des représailles',
     'blog.article.tassa-salute-frontalieri-lombardia-isola-2026.excerpt': 'La Lombardie est la seule région italienne à vouloir appliquer la « taxe santé » pour les frontaliers, entrée en vigueur il y a 27 mois mais jamais appliquée. Le Canton du Tessin menace de réduire les ristournes.',
     'blog.article.tassa-salute-frontalieri-lombardia-isola-2026.imageAlt': 'Panneau frontalier Italie-Suisse à Mendrisio avec bureaux administratifs en arrière-plan sous une légère pluie',
+    'blog.article.reclutamento-infermieri-lombardia.title': 'Recruteurs tessinois à la recherche de futurs infirmiers dans les universités lombardes',
+    'blog.article.reclutamento-infermieri-lombardia.excerpt': 'Le syndicat infirmier italien NurSind signale que des recruteurs tessinois proposent des pré-embauches à de jeunes étudiants en soins infirmiers en Lombardie.',
+    'blog.article.reclutamento-infermieri-lombardia.imageAlt': 'Recruteurs tessinois dans les universités lombardes pour futurs infirmiers',
 };
 
 export default blogMetaFr;

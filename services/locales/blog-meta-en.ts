@@ -2055,6 +2055,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-lombardia-isola-2026.title': 'Cross-border health tax: Lombardy stands alone, Ticino threatens retaliation',
     'blog.article.tassa-salute-frontalieri-lombardia-isola-2026.excerpt': 'Lombardy is the only Italian region pushing for the implementation of the \'cross-border health tax\' for frontier workers, which came into force 27 months ago but has never been applied. The Canton of Ticino has threatened to reduce reimbursements in response.',
     'blog.article.tassa-salute-frontalieri-lombardia-isola-2026.imageAlt': 'Italian-Swiss border sign at Mendrisio with administrative offices in the background during light rain',
+    'blog.article.reclutamento-infermieri-lombardia.title': 'Ticino recruiters hunting for future nurses in Lombardy universities',
+    'blog.article.reclutamento-infermieri-lombardia.excerpt': 'The Italian nursing union NurSind reports that Ticino recruiters are offering pre-employment contracts to young nursing students in Lombardy.',
+    'blog.article.reclutamento-infermieri-lombardia.imageAlt': 'Ticino recruiters in Lombard universities for future nurses',
 };
 
 export default blogMetaEn;

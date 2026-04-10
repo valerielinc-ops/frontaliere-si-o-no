@@ -1940,6 +1940,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-banche-svizzere-pronti-clienti-golfo-2026': { name: 'Banche svizzere in allerta per i clienti', path: '/articoli-frontaliere/banche-svizzere-pronti-clienti-golfo-2026', parent: 'blog' },
     'blog-fertilizzanti-crisi-hormuz-rincari-ticino-40': { name: 'Fertilizzanti +40% in Ticino', path: '/articoli-frontaliere/fertilizzanti-crisi-hormuz-rincari-ticino-40', parent: 'blog' },
     'blog-tassa-salute-frontalieri-lombardia-isola-2026': { name: 'Tassa salute frontalieri', path: '/articoli-frontaliere/tassa-salute-frontalieri-lombardia-isola-2026', parent: 'blog' },
+    'blog-reclutamento-infermieri-lombardia': { name: 'Reclutamento Infermieri', path: '/articoli-frontaliere/reclutamento-infermieri-lombardia', parent: 'blog' },
   };
 
   const info = sectionNames[section];

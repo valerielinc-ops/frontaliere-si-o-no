@@ -6734,6 +6734,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-reclutamento-infermieri-lombardia': {
+    title: 'Reclutatori ticinesi a caccia di futuri | Frontaliere Ticino',
+    description: 'Reclutatori ticinesi offrono preassunzioni a studenti di infermieristica in Lombardia. Scopri opportunità, requisiti e sfide del lavoro transfrontaliero.',
+    keywords: 'frontalieri, ticino, svizzera, italia, reclutatori, ticinesi, caccia, futuri',
+    ogTitle: 'Reclutamento Infermieri Lombardia Ticino',
+    ogDescription: 'Reclutatori ticinesi offrono preassunzioni a studenti di infermieristica in Lombardia. Dettagli su opportunità e requisiti.',
+    canonicalPath: '/articoli-frontaliere/reclutamento-infermieri-lombardia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Reclutatori ticinesi a caccia di futuri infermieri nelle università lombarde",
+      "description": "Reclutatori ticinesi offrono preassunzioni a studenti di infermieristica in Lombardia. Scopri opportunità, requisiti e sfide del lavoro transfrontaliero.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/reclutamento-infermieri-lombardia.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Reclutatori ticinesi in università lombarde per futuri infermieri"
+      },
+      "datePublished": "2026-04-10T23:08:27+00:00",
+      "dateModified": "2026-04-10T23:08:27+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/reclutamento-infermieri-lombardia`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

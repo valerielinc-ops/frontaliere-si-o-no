@@ -5780,4 +5780,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/tassa-salute-frontalieri-lombardia-isola-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'reclutamento-infermieri-lombardia',
+    category: 'novita',
+    date: '2026-04-10T23:08:27.559Z',
+    image: '/images/blog/reclutamento-infermieri-lombardia.jpg',
+    hasCalculator: true,
+  },
 ];
