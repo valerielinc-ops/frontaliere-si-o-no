@@ -1,6 +1,6 @@
 {
   "crawlerKey": "axa-svizzera",
-  "assembledAt": "2026-04-10T09:11:05.485Z",
+  "assembledAt": "2026-04-10T20:48:25.065Z",
   "jobs": [
     {
       "title": "Agente Principale",
@@ -202,7 +202,8 @@
       },
       "streetAddress": "Via della Posta 2",
       "postalCode": "6901",
-      "id": "axa-svizzera-1c7816dfff3c"
+      "id": "axa-svizzera-1c7816dfff3c",
+      "needsRetranslation": true
     },
     {
       "title": "Collaboratore/Collaboratrice Servizio Interno",
@@ -432,7 +433,8 @@
         "en": [
           "senior-underwriter-responsabilita-civile-axa-svizzera-axa-assicurazioni"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Consulente Assicurativo",
@@ -676,7 +678,8 @@
         "it": [
           "consulente-assicurativo-per-il-mendrisiotto-axa-svizzera-agenzia-generale-andrea-tarello"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Senior Specialist Fullstack Engineering (all genders)",
@@ -717,7 +720,7 @@
       "slugByLocale": {
         "it": "senior-specialista-fullstack-engineering-all-genders-axa-svizzera-winterthur-smart-working",
         "en": "senior-specialist-fullstack-engineering-all-genders-axa-svizzera-winterthur-smart-working",
-        "de": "senior-specialist-fullstack-engineering-all-genders-axa-winterthur-smart-working-q132qi",
+        "de": "senior-spezialist-fullstack-engineering-all-genders-axa-svizzera-winterthur-smart-working",
         "fr": "senior-specialiste-fullstack-engineering-all-genders-axa-svizzera-winterthur-smart-working"
       },
       "id": "axa-svizzera-a387616fa049",
@@ -742,11 +745,13 @@
         ],
         "fr": [
           "senior-specialist-fullstack-engineering-all-genders-axa-winterthur-smart-working-q132qi"
+        ],
+        "de": [
+          "senior-specialist-fullstack-engineering-all-genders-axa-winterthur-smart-working-q132qi"
         ]
       },
       "previousSlugs": [
-        "senior-specialist-fullstack-engineering-all-genders-axa-winterthur-smart-working-q132qi",
-        "senior-spezialist-fullstack-engineering-all-genders-axa-svizzera-winterthur-smart-working"
+        "senior-specialist-fullstack-engineering-all-genders-axa-winterthur-smart-working-q132qi"
       ]
     },
     {
@@ -972,7 +977,8 @@
       },
       "previousSlugs": [
         "senior-sales-relationship-manager-institutional-clients-asset-management-all-gender-z3ly18"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Leiter:in Innendienst für die Generalagentur Vorsorge & Vermögen Chur",
