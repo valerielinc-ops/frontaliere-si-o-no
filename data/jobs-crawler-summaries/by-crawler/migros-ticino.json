@@ -1,21 +1,22 @@
 {
   "key": "migros-ticino",
   "label": "Migros",
-  "generatedAt": "2026-04-09T21:46:44.294Z",
+  "generatedAt": "2026-04-10T09:54:54.736Z",
   "total": 4,
-  "newCount": 1,
-  "updatedCount": 2,
+  "newCount": 0,
+  "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 13740,
-  "avgDurationMs": 13740,
+  "durationMs": 12514,
+  "avgDurationMs": 12514,
   "durationHistory": [
-    13740
+    12514
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-752d7f",
-      "slug": "insegnante-inglese-f-m-d-scuola-club-bellinzona-scuola-club-migros-bellinzona",
+      "slug": "insegnante-inglese-f-m-d-scuola-club-bellinzona-scuola-club-migros-bellinzona-752d7f",
       "company": "Scuola Club Migros",
       "title": "Insegnante Inglese (f/m/d) - Scuola Club Bellinzona",
       "location": "Bellinzona",
@@ -50,18 +51,24 @@
       "companyKey": "migros-ticino",
       "companyDomain": "migros.ch",
       "crawledAt": "2026-04-09T21:46:43.833Z",
-      "needsRetranslation": true,
       "sourceLang": "it",
-      "_qualityScore": 66,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "streetAddress": "Via Lugano 2",
+      "postalCode": "6500",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 2,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "company-cewp3w",
       "slug": "consulente-clienti-privati-tutti-generi-banca-migros-lugano-cewp3w",
