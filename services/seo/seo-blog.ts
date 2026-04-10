@@ -6676,6 +6676,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-fertilizzanti-crisi-hormuz-rincari-ticino-40': {
+    title: 'Fertilizzanti +40% in Ticino: la crisi | Frontaliere Ticino',
+    description: 'Blocco dello Stretto di Hormuz fa lievitare azoto, potassio e fosforo. Agricoltori ticinesi rischiano perdite fino al 10% sui margini. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, fertilizzanti, crisi, hormuz, colpisce',
+    ogTitle: 'Fertilizzanti +40% in Ticino: la crisi di Hormuz colpisce',
+    ogDescription: 'Blocco dello Stretto di Hormuz fa lievitare azoto, potassio e fosforo. Agricoltori ticinesi rischiano perdite fino al 10% sui margini.',
+    canonicalPath: '/articoli-frontaliere/fertilizzanti-crisi-hormuz-rincari-ticino-40',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Fertilizzanti +40% in Ticino: la crisi di Hormuz colpisce",
+      "description": "Blocco dello Stretto di Hormuz fa lievitare azoto, potassio e fosforo. Agricoltori ticinesi rischiano perdite fino al 10% sui margini. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/fertilizzanti-crisi-hormuz-rincari-ticino-40.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Agricoltore ticinese nei campi vicino a Mendrisio con la valle in secondo piano"
+      },
+      "datePublished": "2026-04-10T20:19:36+00:00",
+      "dateModified": "2026-04-10T20:19:36+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/fertilizzanti-crisi-hormuz-rincari-ticino-40`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

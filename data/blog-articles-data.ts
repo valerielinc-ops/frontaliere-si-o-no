@@ -5766,4 +5766,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/banche-svizzere-pronti-clienti-golfo-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'fertilizzanti-crisi-hormuz-rincari-ticino-40',
+    category: 'novita',
+    date: '2026-04-10T20:19:36.144Z',
+    image: '/images/blog/fertilizzanti-crisi-hormuz-rincari-ticino-40.jpg',
+    hasCalculator: true,
+  },
 ];

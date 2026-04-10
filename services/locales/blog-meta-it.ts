@@ -2049,6 +2049,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.banche-svizzere-pronti-clienti-golfo-2026.title': 'Banche svizzere in allerta per i clienti del Golfo: cosa cambia per i frontalieri',
     'blog.article.banche-svizzere-pronti-clienti-golfo-2026.excerpt': 'Trasferimenti di fondi verso la Svizzera già in atto. I patrimoni del Golfo rivalutano la Confederazione per sicurezza e neutralità. Apprezzamento del franco come segnale positivo.',
     'blog.article.banche-svizzere-pronti-clienti-golfo-2026.imageAlt': 'Vista panoramica di Lugano con il lungolago e gli edifici bancari sullo sfondo',
+    'blog.article.fertilizzanti-crisi-hormuz-rincari-ticino-40.title': 'Fertilizzanti +40% in Ticino: la crisi di Hormuz colpisce anche i campi',
+    'blog.article.fertilizzanti-crisi-hormuz-rincari-ticino-40.excerpt': 'Blocco dello Stretto di Hormuz fa lievitare azoto, potassio e fosforo. Agricoltori ticinesi rischiano perdite fino al 10% sui margini.',
+    'blog.article.fertilizzanti-crisi-hormuz-rincari-ticino-40.imageAlt': 'Agricoltore ticinese nei campi vicino a Mendrisio con la valle in secondo piano',
 };
 
 export default blogMetaIt;

@@ -2049,6 +2049,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.banche-svizzere-pronti-clienti-golfo-2026.title': 'Swiss banks on alert for Gulf clients: what changes for cross-border workers',
     'blog.article.banche-svizzere-pronti-clienti-golfo-2026.excerpt': 'Fund transfers to Switzerland already underway. Gulf wealth reconsiders the Confederation for security and neutrality. Franc appreciation seen as a positive signal.',
     'blog.article.banche-svizzere-pronti-clienti-golfo-2026.imageAlt': 'Panoramic view of Lugano with lakefront and banking buildings in the background',
+    'blog.article.fertilizzanti-crisi-hormuz-rincari-ticino-40.title': 'Fertilizers up 40% in Ticino: the Hormuz crisis hits the fields too',
+    'blog.article.fertilizzanti-crisi-hormuz-rincari-ticino-40.excerpt': 'Blockade of the Strait of Hormuz drives up nitrogen, potassium and phosphorus prices. Ticino farmers face potential 10% losses on margins.',
+    'blog.article.fertilizzanti-crisi-hormuz-rincari-ticino-40.imageAlt': 'Ticino farmer checking vegetable field near Mendrisio with mountain backdrop',
 };
 
 export default blogMetaEn;

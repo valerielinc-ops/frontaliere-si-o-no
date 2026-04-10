@@ -2049,6 +2049,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.banche-svizzere-pronti-clienti-golfo-2026.title': 'Schweizer Banken in Alarmbereitschaft für Kunden aus dem Golf: Was sich für Grenzgänger ändert',
     'blog.article.banche-svizzere-pronti-clienti-golfo-2026.excerpt': 'Fondsverschiebungen in die Schweiz bereits im Gange. Vermögen aus dem Golf bewerten die Eidgenossenschaft neu – aus Sicherheits- und Neutralitätsgründen. Die Aufwertung des Frankens wird als positives Signal gewertet.',
     'blog.article.banche-svizzere-pronti-clienti-golfo-2026.imageAlt': 'Panoramablick von Lugano mit Seepromenade und Bankgebäuden im Hintergrund',
+    'blog.article.fertilizzanti-crisi-hormuz-rincari-ticino-40.title': 'Düngemittel +40% im Tessin: Die Krise von Hormuz trifft auch die Felder',
+    'blog.article.fertilizzanti-crisi-hormuz-rincari-ticino-40.excerpt': 'Die Blockade der Straße von Hormuz lässt Stickstoff, Kalium und Phosphor stark im Preis steigen. Bäuerinnen und Bauern im Tessin riskieren Gewinneinbußen von bis zu 10 %.',
+    'blog.article.fertilizzanti-crisi-hormuz-rincari-ticino-40.imageAlt': 'Tessinbauer prüft Gemüsefeld bei Mendrisio mit Bergkulisse',
 };
 
 export default blogMetaDe;
