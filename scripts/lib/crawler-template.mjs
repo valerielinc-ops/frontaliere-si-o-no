@@ -96,6 +96,13 @@
  *     postedDate     — ISO date string (YYYY-MM-DD)
  *     applyUrl       — Direct application URL
  *     featured       — Boolean (default false)
+ *     slugDisambiguator — Stable suffix for companies with duplicate title+company+location
+ *                         jobs. Use stableSlugHash(job) from dedicated-crawler-common.mjs
+ *                         or a deterministic ID prefix (e.g. first 8 chars of a UUID from
+ *                         the job URL). The pipeline (hardenJobLocaleFields, regenerate-
+ *                         slugs-by-locale) re-appends this suffix whenever it rebuilds
+ *                         slugs, preventing churn. Only needed when the same company posts
+ *                         identical-title roles in the same city.
  *
  *   NEVER SET BY PARSER (filled by pipeline):
  *     titleByLocale.{otherLocale}

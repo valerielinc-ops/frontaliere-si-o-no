@@ -1000,14 +1000,19 @@ export function isSlugStable(existingSlug, newSlug, thresholdOrOpts = 0.80) {
  *  When company/location are provided, they are appended to produce a full slug
  *  for comparison — prevents false negatives when the slug contains company/location
  *  tokens that dilute the Jaccard score against a title-only slugified string. */
-function slugMatchesTitle(slug, title, company = '', location = '') {
+function slugMatchesTitle(slug, title, company = '', location = '', disambiguator = '') {
   const parts = [title, company, location].filter(Boolean).join(' ');
-  const slugified = parts
+  let slugified = parts
     .toLowerCase()
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
+  // When the job has a slugDisambiguator, include it in the expected slug so that
+  // disambiguator-suffixed slugs are correctly recognized as matching the title.
+  if (disambiguator) {
+    slugified = appendSlugDisambiguator(slugified, disambiguator);
+  }
   // Both inputs describe the same job, so the location hint is identical on
   // both sides — passing it is a no-op for the location precondition but
   // keeps the call self-documenting and aligned with other call sites.
@@ -1091,6 +1096,7 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
       jobChanged = true;
     }
     const baseSlug = String(job.slug || '').trim();
+    const disambiguator = String(job.slugDisambiguator || '').trim();
     const detectedSourceLang = detectLang(baseDesc || baseTitle, 'it');
     let titleSourceLang = detectJobTitleLang(baseTitle, detectedSourceLang);
     const sourceLang = detectTextLocale(baseDesc || baseTitle, titleSourceLang).lang;
@@ -1303,19 +1309,24 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
         const staleLocation = String(job.addressLocality || job.location || '').trim();
         const isStaleSlug = isSourceLocale
           // Source locale: re-derive if slug doesn't match a slug-ified version of current title+company+location
-          ? existingSlug && localizedTitle && !slugMatchesTitle(existingSlug, localizedTitle, staleCompany, staleLocation)
+          // Pass disambiguator so suffixed slugs are correctly recognized as matching
+          ? existingSlug && localizedTitle && !slugMatchesTitle(existingSlug, localizedTitle, staleCompany, staleLocation, disambiguator)
           // Non-source locale: re-derive if slug matches untranslated base OR contains foreign words
           : (existingSlug && existingSlug === baseSlug && localizedTitle && localizedTitle !== baseTitle)
             || (hasForeignWord && localizedTitle);
         if (isStaleSlug) {
           const parts = [localizedTitle, staleCompany, staleLocation].filter(Boolean).join('-');
-          const derived = parts
+          const derivedBase = parts
             .toLowerCase()
             .normalize('NFD')
             .replace(/[\u0300-\u036f]/g, '')
             .replace(/[^a-z0-9]+/g, '-')
             .replace(/^-+|-+$/g, '')
             .slice(0, 120);
+          // Re-append disambiguator so the rebuilt slug keeps the same suffix
+          const derived = disambiguator
+            ? appendSlugDisambiguator(derivedBase, disambiguator)
+            : derivedBase;
           if (derived && derived !== existingSlug && !isSlugStable(existingSlug, derived, {
             threshold: 0.70,
             existingLocation: staleLocation,
@@ -4060,6 +4071,29 @@ export function stableSlugHash(job) {
   return Math.abs(hash).toString(36).padStart(6, '0').slice(-6);
 }
 
+/**
+ * Append a disambiguator suffix to a slug, respecting max length.
+ *
+ * Crawlers with duplicate title+company+location jobs (e.g. TSMG, AXA, EOC)
+ * store a stable disambiguator on `job.slugDisambiguator`. ALL slug-building
+ * code paths (hardenJobLocaleFields, regenerate-slugs-by-locale) re-append it
+ * so the suffix survives across pipeline stages.
+ *
+ * @param {string} slug — Base slug (without disambiguator)
+ * @param {string} disambiguator — Suffix string (e.g. from stableSlugHash or UUID prefix)
+ * @param {number} [maxLen=120] — Max total slug length
+ * @returns {string} Slug with disambiguator appended, or base slug if no disambiguator
+ */
+export function appendSlugDisambiguator(slug, disambiguator, maxLen = 120) {
+  const base = String(slug || '').trim();
+  const d = String(disambiguator || '').trim();
+  if (!d) return base;
+  if (!base) return d;
+  const maxBase = Math.max(0, maxLen - d.length - 1);
+  const trimmed = base.slice(0, maxBase).replace(/-+$/, '');
+  return trimmed ? `${trimmed}-${d}` : d;
+}
+
 export function buildStableId(job) {
   const s = fingerprintJob(job);
   let hash = 0;
@@ -4438,6 +4472,11 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
     // Preserve sourceLang from existing
     if (old.sourceLang && !fresh.sourceLang) {
       fresh.sourceLang = old.sourceLang;
+    }
+
+    // Preserve slugDisambiguator — crawler sets it once, pipeline carries it forward
+    if (old.slugDisambiguator && !fresh.slugDisambiguator) {
+      fresh.slugDisambiguator = old.slugDisambiguator;
     }
 
     return fresh;

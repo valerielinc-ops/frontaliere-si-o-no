@@ -53,10 +53,16 @@ function slugify(text) {
 
 /**
  * Build a slug from title + company + location (same format as the crawler).
+ * When disambiguator is provided, appends it as a stable suffix.
  */
-function buildSlug(title, company, location) {
+function buildSlug(title, company, location, disambiguator = '') {
   const parts = [title, company, location].filter(Boolean);
-  return slugify(parts.join(' '));
+  const base = slugify(parts.join(' '));
+  const d = String(disambiguator || '').trim();
+  if (!d || !base) return base;
+  const maxBase = Math.max(0, MAX_SLUG_LENGTH - d.length - 1);
+  const trimmed = base.slice(0, maxBase).replace(/-+$/, '');
+  return trimmed ? `${trimmed}-${d}` : d;
 }
 
 // Stop words filtered from slug tokens (IT/EN/DE/FR connectives)
@@ -103,9 +109,9 @@ function isLikelyUntranslated(localeTitle, sourceTitle) {
  * when the existing slug contains company/location tokens that dilute Jaccard
  * against a title-only slugified string.
  */
-function slugMatchesTitle(slug, title, company, location) {
+function slugMatchesTitle(slug, title, company, location, disambiguator = '') {
   if (!slug || !title) return false;
-  const fullSlug = buildSlug(title, company, location);
+  const fullSlug = buildSlug(title, company, location, disambiguator);
   if (!fullSlug) return false;
   return slugJaccard(slug, fullSlug) >= 0.5;
 }
@@ -132,6 +138,7 @@ async function main() {
       const sbl = job.slugByLocale || {};
       const company = job.company || '';
       const location = job.location || job.addressLocality || '';
+      const disambiguator = String(job.slugDisambiguator || '').trim();
 
       totalJobs++;
 
@@ -153,11 +160,11 @@ async function main() {
         const sourceTitle = (tbl[sourceLang] || '').trim();
         if (sourceTitle && isLikelyUntranslated(title, sourceTitle)) continue;
 
-        // If slug already matches title+company+location, skip
-        if (currentSlug && slugMatchesTitle(currentSlug, title, company, location)) continue;
+        // If slug already matches title+company+location (+ disambiguator), skip
+        if (currentSlug && slugMatchesTitle(currentSlug, title, company, location, disambiguator)) continue;
 
-        // Generate new slug from locale title
-        const newSlug = buildSlug(title, company, location);
+        // Generate new slug from locale title, re-appending disambiguator
+        const newSlug = buildSlug(title, company, location, disambiguator);
         if (!newSlug || newSlug === currentSlug) continue;
 
         // Don't replace if slug is the same as another locale's slug (avoid collisions)

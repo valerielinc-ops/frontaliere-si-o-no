@@ -117,12 +117,21 @@ function buildJob(job) {
   const localized = buildTsmgLocalizedContent(job);
   const location = String(job?.categories?.location || '').trim();
   const region = inferTsmgRegion(location);
-  const shortId = String(job.id || '').trim().slice(0, 8).toLowerCase();
-  const withId = (base) => (shortId ? `${base}-${shortId}` : base);
-  const slug = withId(localized.it.slug);
+  // slugDisambiguator: first 8 hex chars of Lever UUID — deterministic per job,
+  // survives across all pipeline stages (hardenJobLocaleFields, regenerate-slugs).
+  // Backwards-compatible with existing TSMG slugs that already have this suffix.
+  const disambiguator = String(job.id || '').trim().slice(0, 8).toLowerCase() || '';
+  const appendDisambiguator = (base) => {
+    if (!disambiguator || !base) return base || '';
+    const maxBase = Math.max(0, 120 - disambiguator.length - 1);
+    const trimmed = base.slice(0, maxBase).replace(/-+$/, '');
+    return trimmed ? `${trimmed}-${disambiguator}` : disambiguator;
+  };
+  const slug = appendDisambiguator(localized.it.slug);
   return {
     title: localized.it.title,
     slug,
+    slugDisambiguator: disambiguator || undefined,
     url: String(job.hostedUrl || '').trim(),
     applyUrl: String(job.applyUrl || job.hostedUrl || '').trim(),
     company: COMPANY_NAME,
@@ -156,10 +165,10 @@ function buildJob(job) {
       fr: localized.fr.description,
     },
     slugByLocale: {
-      it: withId(localized.it.slug),
-      en: withId(localized.en.slug),
-      de: withId(localized.de.slug),
-      fr: withId(localized.fr.slug),
+      it: appendDisambiguator(localized.it.slug),
+      en: appendDisambiguator(localized.en.slug),
+      de: appendDisambiguator(localized.de.slug),
+      fr: appendDisambiguator(localized.fr.slug),
     },
   };
 }
