@@ -1,6 +1,6 @@
 {
   "crawlerKey": "mks-pamp",
-  "assembledAt": "2026-04-09T21:49:48.144Z",
+  "assembledAt": "2026-04-10T09:58:03.312Z",
   "jobs": [
     {
       "title": "Tecnico di laboratorio",
@@ -58,8 +58,7 @@
         }
       },
       "streetAddress": "Via delle Fornaci",
-      "postalCode": "6828",
-      "previousSlugs": []
+      "postalCode": "6828"
     },
     {
       "title": "HR Business Partner",
@@ -106,7 +105,8 @@
         "partner-hr-business-mks-pamp-castel-san-pietro",
         "partenaire-operationnel-rh-mks-pamp-castel-san-pietro",
         "hr-business-partner-mks-pamp-castel-san-pietro-v3h9nn",
-        "ressources-humaines-business-partner-mks-pamp-castel-san-pietro-v3h9nn"
+        "ressources-humaines-business-partner-mks-pamp-castel-san-pietro-v3h9nn",
+        "hr-business-partner-mks-pamp-castel-san-pietro"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -129,7 +129,8 @@
           "partner-hr-business-mks-pamp-castel-san-pietro",
           "partenaire-operationnel-rh-mks-pamp-castel-san-pietro",
           "hr-business-partner-mks-pamp-castel-san-pietro-v3h9nn",
-          "ressources-humaines-business-partner-mks-pamp-castel-san-pietro-v3h9nn"
+          "ressources-humaines-business-partner-mks-pamp-castel-san-pietro-v3h9nn",
+          "hr-business-partner-mks-pamp-castel-san-pietro"
         ],
         "en": [
           "partner-hr-business-mks-pamp-castel-san-pietro",
@@ -149,7 +150,8 @@
           "hr-business-partner-mks-pamp-castel-san-pietro-v3h9nn",
           "ressources-humaines-business-partner-mks-pamp-castel-san-pietro-v3h9nn"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Idraulico Manutentore Macchinari Industriali",
@@ -304,7 +306,8 @@
         "fr": [
           "metal-amp-inventory-controller-mks-pamp-castel-san-pietro"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Specialista tecnico chimico responsabile conduzione impianto",
