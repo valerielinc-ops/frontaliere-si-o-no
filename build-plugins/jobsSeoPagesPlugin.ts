@@ -3884,23 +3884,28 @@ ${(() => {
       // FRO-SEO: Add previousSlugs entries to sitemap so Google can associate
       // old indexed URLs with sitemap entries. These bridge pages have canonical
       // pointing to the current active slug, helping Google consolidate signals.
+      //
+      // IMPORTANT: Sitemap entries MUST match the paths where bridge pages are
+      // actually generated (see bridge page generator below). Locale-specific
+      // previousSlugs (pslByLocale[locale]) get bridge pages only under that
+      // locale's prefix; legacy flat previousSlugs get bridge pages under all
+      // locale prefixes but the sitemap uses the Italian path as canonical.
       const prevSlugEntries: string[] = [];
+      const prevSlugSitemapPaths = new Set<string>(); // dedup
       for (const job of sitemapEligibleJobs) {
         const prevSlugsLegacy: string[] = Array.isArray((job as any).previousSlugs) ? (job as any).previousSlugs : [];
-        const prevSlugsByLocale = (job as any).previousSlugsByLocale;
-        // Union of all previous slugs across all locales + legacy for sitemap
-        const prevSlugsAll = new Set(prevSlugsLegacy);
-        if (prevSlugsByLocale && typeof prevSlugsByLocale === 'object') {
-          for (const arr of Object.values(prevSlugsByLocale)) {
-            if (Array.isArray(arr)) for (const s of arr as string[]) prevSlugsAll.add(s as string);
+        const pslByLocale = (job as any).previousSlugsByLocale;
+        // Identify locale-aware slugs so we can separate legacy-only
+        const localeAwareAll = new Set<string>();
+        if (pslByLocale && typeof pslByLocale === 'object') {
+          for (const arr of Object.values(pslByLocale)) {
+            if (Array.isArray(arr)) for (const s of arr as string[]) localeAwareAll.add(s as string);
           }
         }
-        if (prevSlugsAll.size === 0) continue;
+        const legacyOnly = prevSlugsLegacy.filter(s => !localeAwareAll.has(s));
+        if (localeAwareAll.size === 0 && legacyOnly.length === 0) continue;
+
         const currentItSlug = localizedSlug(job, 'it');
-        // Verify we have cached HTML for the IT page — without it, the bridge
-        // page generator cannot create a full-content page and the previousSlug
-        // would get a thin legacy redirect with canonical → listing page.
-        if (!jobHtmlCache.has(`it:${currentItSlug}`)) continue;
         const currentItPath = withSlash(`/${sectionByLocale.it}/${currentItSlug}`.replace(/\/+/g, '/'));
         const canonicalAlternates = localeList.map((l) => {
           const p = `${localePrefix[l]}/${sectionByLocale[l]}/${localizedSlug(job, l)}`.replace(/\/+/g, '/');
@@ -3908,15 +3913,28 @@ ${(() => {
         }).join('\n');
         const xDefault = `    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${currentItPath}" />`;
         const jobLastmod = job.crawledAt ? new Date(job.crawledAt).toISOString().slice(0, 10) : dateStamp;
-        for (const ps of prevSlugsAll) {
-          if (!ps || ps === currentItSlug) continue;
-          // Only add to sitemap if the bridge page path is not occupied by an
-          // active job page (which would mean a different job owns that URL).
-          const psRelPath = `${sectionByLocale.it}/${ps}`.replace(/\/+/g, '/');
-          if (activeJobDirs.has(psRelPath)) continue;
+
+        const addEntry = (ps: string, locale: string) => {
+          const currentSlug = localizedSlug(job, locale);
+          if (!ps || ps === currentSlug) return;
+          if (!jobHtmlCache.has(`${locale}:${currentSlug}`)) return;
+          const psRelPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/${ps}`.replace(/\/+/g, '/').replace(/^\//, '');
+          if (activeJobDirs.has(psRelPath)) return;
+          if (prevSlugSitemapPaths.has(psRelPath)) return;
+          prevSlugSitemapPaths.add(psRelPath);
           const psPath = withSlash(`/${psRelPath}`);
           prevSlugEntries.push(`  <url>\n    <loc>${BASE_URL}${psPath}</loc>\n${canonicalAlternates}\n${xDefault}\n    <lastmod>${jobLastmod}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.3</priority>\n  </url>`);
+        };
+
+        // Locale-specific previousSlugs → sitemap entry under their locale prefix
+        if (pslByLocale && typeof pslByLocale === 'object') {
+          for (const [locale, slugs] of Object.entries(pslByLocale)) {
+            if (!Array.isArray(slugs) || !localeList.includes(locale as any)) continue;
+            for (const ps of slugs as string[]) addEntry(ps, locale as typeof localeList[number]);
+          }
         }
+        // Legacy flat previousSlugs → sitemap entry under Italian path
+        for (const ps of legacyOnly) addEntry(ps, 'it');
       }
       const prevSlugSitemap = prevSlugEntries.length > 0 ? '\n' + prevSlugEntries.join('\n') : '';
 
