@@ -215,20 +215,10 @@ export function inferAnyCanton(text = '') {
   const target = inferSwissTargetCanton(text);
   if (target) return target;
 
-  // Check all other cantons via their names/aliases
-  const lower = normalizeSwissTargetLocationText(text);
-  if (!lower) return '';
-
-  for (const [code, canton] of Object.entries(SWISS_CANTONS)) {
+  // Check all other cantons using full isCantonRelevant (BFS + names + aliases)
+  for (const code of Object.keys(SWISS_CANTONS)) {
     if (TARGET_CANTONS.includes(code)) continue; // already checked
-    if (canton.names.some((name) => {
-      const norm = name.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-      return norm.length < 6
-        ? new RegExp(`\\b${norm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i').test(lower)
-        : lower.includes(norm);
-    })) {
-      return code;
-    }
+    if (isCantonRelevant(text, code)) return code;
   }
   return '';
 }

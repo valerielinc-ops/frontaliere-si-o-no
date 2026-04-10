@@ -9,7 +9,7 @@ import {
   localizeJobContentWithPipeline,
 } from './job-localization-pipeline.mjs';
 import { hardenJobsWithStructuredSalary } from './structured-salary.mjs';
-import { normalizeCantonCode, isTargetSwissLocation, isTargetCanton, TICINO_CITIES, GRIGIONI_CITIES } from './target-swiss-locations.mjs';
+import { normalizeCantonCode, isTargetSwissLocation, isTargetCanton, TICINO_CITIES, GRIGIONI_CITIES, inferAnyCanton } from './target-swiss-locations.mjs';
 let _aiModels = null;
 try { _aiModels = await import('./ai-models.mjs'); } catch { /* ai-models not available */ }
 import {
@@ -3105,8 +3105,25 @@ export function hardenJobsRichResultsData({ dataJobsPath }) {
     }
   }
 
-  const changed = salaryChanged || postalFilled > 0 || companyDefaultsFilled > 0;
-  const updated = salaryUpdated + postalFilled + companyDefaultsFilled;
+  // ── Canton inference: fill missing canton from location/addressLocality ──
+  let cantonFilled = 0;
+  for (const job of hardened) {
+    if (job.canton) continue;
+    const locText = [job.location, job.addressLocality, job.addressRegion, job.city].filter(Boolean).join(' ');
+    if (!locText) continue;
+    const inferred = inferAnyCanton(locText);
+    if (inferred) {
+      job.canton = inferred;
+      if (!job.addressRegion) job.addressRegion = inferred;
+      cantonFilled++;
+    }
+  }
+  if (cantonFilled > 0) {
+    console.log(`  🗺️  Canton inference: filled ${cantonFilled} jobs from location text`);
+  }
+
+  const changed = salaryChanged || postalFilled > 0 || companyDefaultsFilled > 0 || cantonFilled > 0;
+  const updated = salaryUpdated + postalFilled + companyDefaultsFilled + cantonFilled;
 
   if (!changed) {
     return { changed: false, updated: 0, total };
