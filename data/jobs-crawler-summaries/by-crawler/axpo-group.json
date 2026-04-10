@@ -1,18 +1,19 @@
 {
   "key": "axpo-group",
   "label": "axpo",
-  "generatedAt": "2026-04-09T21:03:34.186Z",
+  "generatedAt": "2026-04-10T09:11:55.194Z",
   "total": 1,
-  "newCount": 1,
-  "updatedCount": 0,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1519,
-  "avgDurationMs": 1519,
+  "durationMs": 1196,
+  "avgDurationMs": 1196,
   "durationHistory": [
-    1519
+    1196
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Logisticien de Maintenance (f/m/d)",
       "slug": "logisticien-de-maintenance-f-m-d-feca2680-9ce8-49e2-af09-ac77e3fab9ff",
@@ -36,55 +37,22 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-04-09T21:03:34.161Z",
-      "_qualityScore": 61,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 0,
-        "completeness": 14
-      }
-    }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [
-    {
-      "title": "Dispatcher/in Betriebs- und Schichtdienst",
-      "slug": "dispatcher-in-betriebs-e-schichtdienst-axpo-group-tavanasa",
-      "url": "https://careers.axpo.com/jobs/7290386-dispatcher-in-betriebs-und-schichtdienst",
-      "applyUrl": "https://careers.axpo.com/jobs/7290386-dispatcher-in-betriebs-und-schichtdienst",
-      "company": "Axpo Group",
-      "companyKey": "axpo-group",
-      "companyDomain": "axpo.com",
-      "location": "Tavanasa",
-      "addressLocality": "Tavanasa",
-      "addressRegion": "Graubünden",
-      "addressCountry": "CH",
-      "canton": "GR",
-      "country": "CH",
-      "category": "operations",
-      "sector": "Energia & Utilities",
-      "department": "Operation / Production",
-      "source": "axpo-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-02-25",
-      "validThrough": "",
-      "employmentType": "full_time",
-      "contractType": "permanent",
-      "crawledAt": "2026-04-01T20:55:24.083Z",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
+      "crawledAt": "2026-04-10T09:11:55.167Z",
+      "id": "axpo-group-8fe260efb3ca",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "currency": "CHF",
       "streetAddress": "Viale Stazione 31",
       "postalCode": "6500",
-      "_qualityScore": 99,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 22,
         "translation": 25,
         "completeness": 25
       }
     }
   ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
