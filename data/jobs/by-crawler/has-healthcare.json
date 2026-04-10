@@ -1,6 +1,6 @@
 {
   "crawlerKey": "has-healthcare",
-  "assembledAt": "2026-04-09T21:35:12.092Z",
+  "assembledAt": "2026-04-10T09:42:52.961Z",
   "jobs": [
     {
       "title": "Tecnica/o diplomata/o SSS costruzioni meccaniche",
@@ -92,7 +92,8 @@
         "fr": [
           "tecnica-o-diplomata-o-sss-costruzioni-meccaniche-has-healthcare-advanced-synthesis-biasca-068qa9"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "HSE Specialist",
@@ -191,7 +192,8 @@
           "hse-spezialist-has-healthcare-advanced-synthesis-biasca-068qaa",
           "hse-specialiste-has-healthcare-advanced-synthesis-biasca-068qaa",
           "ricerca-has-healthcare-advanced-synthesis-biasca",
-          "search-has-healthcare-advanced-synthesis-biasca"
+          "search-has-healthcare-advanced-synthesis-biasca",
+          "hse-specialist-has-healthcare"
         ],
         "de": [
           "hse-spezialist-has-healthcare-advanced-synthesis-biasca-068qaa",
@@ -205,7 +207,8 @@
           "ricerca-has-healthcare-advanced-synthesis-biasca",
           "search-has-healthcare-advanced-synthesis-biasca"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Assistente di Produzione",
@@ -371,6 +374,9 @@
         "en": [
           "production-manager-has-healthcare",
           "production-manager-has-healthcare-advanced-synthesis-biasca"
+        ],
+        "it": [
+          "production-manager-has-healthcare"
         ]
       }
     }
