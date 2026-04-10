@@ -1,117 +1,5 @@
 [
   {
-    "timestamp": "2026-04-01T02:39:25.075Z",
-    "label": "before",
-    "total": 1352,
-    "needsRetranslation": 478,
-    "incomplete": 453,
-    "complete": 899,
-    "missingByLocale": {
-      "it": 114,
-      "en": 303,
-      "de": 300,
-      "fr": 352
-    },
-    "topPending": [
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 160
-      },
-      {
-        "company": "Jumbo, Divisione di Coop Società Cooperativa",
-        "pending": 36
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 24
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 23
-      },
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 21
-      },
-      {
-        "company": "PEMSA",
-        "pending": 20
-      },
-      {
-        "company": "ABB Svizzera (sede Ticino)",
-        "pending": 14
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 14
-      },
-      {
-        "company": "LIS – Lugano Istituti Sociali",
-        "pending": 13
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 11
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-01T02:39:35.720Z",
-    "label": "after",
-    "total": 1352,
-    "needsRetranslation": 357,
-    "incomplete": 357,
-    "complete": 995,
-    "missingByLocale": {
-      "it": 114,
-      "en": 208,
-      "de": 204,
-      "fr": 256
-    },
-    "topPending": [
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 71
-      },
-      {
-        "company": "Jumbo, Divisione di Coop Società Cooperativa",
-        "pending": 36
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 24
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 23
-      },
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 21
-      },
-      {
-        "company": "PEMSA",
-        "pending": 20
-      },
-      {
-        "company": "ABB Svizzera (sede Ticino)",
-        "pending": 14
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 14
-      },
-      {
-        "company": "LIS – Lugano Istituti Sociali",
-        "pending": 13
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 11
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-01T03:47:35.873Z",
     "label": "before",
     "total": 1352,
@@ -10131,6 +10019,106 @@
       },
       {
         "company": "Banca del Sempione",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-10T02:36:18.097Z",
+    "label": "before",
+    "total": 1681,
+    "needsRetranslation": 78,
+    "incomplete": 18,
+    "complete": 1663,
+    "missingByLocale": {
+      "it": 10,
+      "en": 17,
+      "de": 9,
+      "fr": 18
+    },
+    "topPending": [
+      {
+        "company": "Città di Mendrisio",
+        "pending": 4
+      },
+      {
+        "company": "Hilcona Gourmet S.A.",
+        "pending": 4
+      },
+      {
+        "company": "AXA Svizzera",
+        "pending": 2
+      },
+      {
+        "company": "Swiss Armed Forces (VTG)",
+        "pending": 2
+      },
+      {
+        "company": "AFRY",
+        "pending": 1
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      },
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "Banca del Sempione",
+        "pending": 1
+      },
+      {
+        "company": "Fust | Swiss Household Services AG",
+        "pending": 1
+      },
+      {
+        "company": "Cornèr Banca",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-10T02:38:26.388Z",
+    "label": "after",
+    "total": 1681,
+    "needsRetranslation": 59,
+    "incomplete": 11,
+    "complete": 1670,
+    "missingByLocale": {
+      "it": 8,
+      "en": 11,
+      "de": 3,
+      "fr": 11
+    },
+    "topPending": [
+      {
+        "company": "Hilcona Gourmet S.A.",
+        "pending": 4
+      },
+      {
+        "company": "AXA Svizzera",
+        "pending": 2
+      },
+      {
+        "company": "AFRY",
+        "pending": 1
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      },
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "Fust | Swiss Household Services AG",
+        "pending": 1
+      },
+      {
+        "company": "Swiss Armed Forces (VTG)",
         "pending": 1
       }
     ]
