@@ -1,6 +1,6 @@
 {
   "crawlerKey": "a-group",
-  "assembledAt": "2026-04-09T20:54:13.616Z",
+  "assembledAt": "2026-04-10T09:02:29.883Z",
   "jobs": [
     {
       "title": "Ingegnere edile Jr.",
@@ -22,7 +22,7 @@
       "sector": "Architettura & Design",
       "source": "a-plus-plus-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -103,7 +103,7 @@
       "sector": "Architettura & Design",
       "source": "a-plus-plus-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -127,7 +127,8 @@
         "fr": "receptionniste-a-group-massagno"
       },
       "previousSlugs": [
-        "receptionist-100-a-plus-plus-group-massagno"
+        "receptionist-100-a-plus-plus-group-massagno",
+        "receptionist-a-plus-plus-group-massagno"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -145,7 +146,8 @@
       "id": "a-group-a6dac446b24d",
       "previousSlugsByLocale": {
         "it": [
-          "receptionist-100-a-plus-plus-group-massagno"
+          "receptionist-100-a-plus-plus-group-massagno",
+          "receptionist-a-plus-plus-group-massagno"
         ],
         "en": [
           "receptionist-100-a-plus-plus-group-massagno"
@@ -156,7 +158,8 @@
         "fr": [
           "receptionist-100-a-plus-plus-group-massagno"
         ]
-      }
+      },
+      "needsRetranslation": true
     }
   ]
 }
