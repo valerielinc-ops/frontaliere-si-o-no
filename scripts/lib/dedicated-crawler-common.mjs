@@ -1479,24 +1479,11 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
     return result;
   }
 
-  // Safety net: strip any previousSlug that matches an active slug.
-  // This prevents bridge pages that redirect to themselves — even if
-  // captureLostSlugs missed the overlap due to cross-process re-hardening.
+  // Safety net: per-locale slug cleanup. Only strips a previousSlug if it
+  // matches the SAME locale's active slug. Cross-locale matches are preserved
+  // (e.g. old FR slug that equals current DE slug → bridge page needed for FR).
   for (const job of raw) {
-    if (!Array.isArray(job.previousSlugs) || job.previousSlugs.length === 0) continue;
-    const active = new Set();
-    if (job.slug) active.add(normalizeSpace(job.slug));
-    if (job.slugByLocale && typeof job.slugByLocale === 'object') {
-      for (const v of Object.values(job.slugByLocale)) {
-        if (v) active.add(normalizeSpace(String(v)));
-      }
-    }
-    const cleaned = job.previousSlugs.filter(s => !active.has(normalizeSpace(String(s))));
-    if (cleaned.length === 0) {
-      delete job.previousSlugs;
-    } else {
-      job.previousSlugs = cleaned;
-    }
+    cleanPreviousSlugsPerLocale(job);
   }
 
   writeJson(dataJobsPath, raw);
@@ -4407,11 +4394,8 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
           if (stable) {
             fresh.slugByLocale[locale] = oldSlug;
           } else {
-            // Slug genuinely changed — capture old one in previousSlugs
-            fresh.previousSlugs = [...new Set([
-              ...(fresh.previousSlugs || []),
-              oldSlug,
-            ])];
+            // Slug genuinely changed — capture old one with locale context
+            addPreviousSlugForLocale(fresh, locale, oldSlug);
           }
         }
       }
@@ -4426,12 +4410,21 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
       );
     }
 
-    // Preserve previousSlugs
+    // Preserve previousSlugs and previousSlugsByLocale from old job
     if (old.previousSlugs?.length) {
       fresh.previousSlugs = [...new Set([
         ...(old.previousSlugs || []),
         ...(fresh.previousSlugs || []),
       ])];
+    }
+    if (old.previousSlugsByLocale && typeof old.previousSlugsByLocale === 'object') {
+      if (!fresh.previousSlugsByLocale) fresh.previousSlugsByLocale = {};
+      for (const locale of LOCALES) {
+        const oldArr = Array.isArray(old.previousSlugsByLocale[locale]) ? old.previousSlugsByLocale[locale] : [];
+        const freshArr = Array.isArray(fresh.previousSlugsByLocale?.[locale]) ? fresh.previousSlugsByLocale[locale] : [];
+        const merged = [...new Set([...oldArr, ...freshArr])];
+        if (merged.length > 0) fresh.previousSlugsByLocale[locale] = merged.slice(0, 20);
+      }
     }
 
     // Preserve slug (use existing if stable). Pass per-job location hints so
@@ -4446,11 +4439,8 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
       if (stable) {
         fresh.slug = old.slug;
       } else {
-        // Slug genuinely changed — capture old one
-        fresh.previousSlugs = [...new Set([
-          ...(fresh.previousSlugs || []),
-          old.slug,
-        ])];
+        // Master slug changed — capture under IT locale (master serves IT path)
+        addPreviousSlugForLocale(fresh, 'it', old.slug);
       }
     }
 
@@ -4524,48 +4514,192 @@ export function shouldReusePreviousLocalization(prev = {}, next = {}, cfg = {}) 
 
 /**
  * Detect slugs that were replaced or removed from a job and capture them into
- * previousSlugs for SEO redirect/bridge-page continuity.
+ * previousSlugsByLocale for SEO redirect/bridge-page continuity.
  *
- * Language-agnostic: works regardless of source language (EN, IT, DE, FR).
+ * Now locale-aware: each lost slug is stored under the specific locale it
+ * belonged to, so bridge pages are generated under the correct locale prefix.
  *
  * @param {Object} job               – The job AFTER changes (mutated in place).
  * @param {Object} prevSlugByLocale  – slugByLocale snapshot BEFORE changes.
  * @param {string} prevSlug          – Canonical slug BEFORE changes.
- * @param {number} cap               – Max previousSlugs entries (default 20).
+ * @param {number} cap               – Max previousSlugs entries per locale (default 20).
  * @returns {string[]} Newly captured lost slugs (may be empty).
  */
 export function captureLostSlugs(job, prevSlugByLocale = {}, prevSlug = '', cap = 20) {
   const lost = [];
+
+  // Master slug changed → add to IT locale (master slug serves the IT path)
   if (prevSlug && prevSlug !== normalizeSpace(job.slug || '')) {
     lost.push(prevSlug);
+    addPreviousSlugForLocale(job, 'it', prevSlug, cap);
   }
+
+  // Per-locale slug changes
   for (const locale of LOCALES) {
     const oldSlug = normalizeSpace(prevSlugByLocale[locale] || '');
     const newSlug = normalizeSpace((job.slugByLocale || {})[locale] || '');
     if (oldSlug && oldSlug !== newSlug) {
       lost.push(oldSlug);
+      addPreviousSlugForLocale(job, locale, oldSlug, cap);
     }
   }
+
   if (lost.length === 0) return [];
 
-  if (!Array.isArray(job.previousSlugs)) job.previousSlugs = [];
-  const allPrevious = new Set([...job.previousSlugs, ...lost]);
-  // Exclude the current master slug — it already has a live page
-  if (job.slug) allPrevious.delete(normalizeSpace(job.slug));
-  // Exclude all current locale slugs — each active slugByLocale value already
-  // generates a live page; a bridge page redirecting to itself is redundant.
-  if (job.slugByLocale && typeof job.slugByLocale === 'object') {
-    for (const locale of LOCALES) {
-      const currentSlug = normalizeSpace(job.slugByLocale[locale] || '');
-      if (currentSlug) allPrevious.delete(currentSlug);
-    }
-  }
-  job.previousSlugs = [...allPrevious].slice(0, cap);
+  // Per-locale safety: cleanPreviousSlugsPerLocale only removes a previousSlug
+  // if it matches the SAME locale's active slug (not cross-locale).
+  cleanPreviousSlugsPerLocale(job);
+
   return lost;
 }
 
+// ── previousSlugsByLocale helpers ─────────────────────────────────────────
+// These helpers abstract locale-aware slug history so bridge pages are
+// generated under the correct locale prefix (e.g. /fr/trouver-emploi-tessin/old-slug)
+// instead of blindly across all locales.
+
+/**
+ * Record a previous slug for a specific locale.
+ * Writes to `job.previousSlugsByLocale[locale]` AND keeps legacy
+ * `job.previousSlugs` in sync (union of all locale entries) for
+ * backward compatibility with consumers not yet migrated.
+ */
+export function addPreviousSlugForLocale(job, locale, slug, cap = 20) {
+  if (!slug || !locale) return;
+  const norm = normalizeSpace(String(slug));
+  if (!norm) return;
+
+  // Write to locale-aware field
+  if (!job.previousSlugsByLocale || typeof job.previousSlugsByLocale !== 'object') {
+    job.previousSlugsByLocale = {};
+  }
+  if (!Array.isArray(job.previousSlugsByLocale[locale])) {
+    job.previousSlugsByLocale[locale] = [];
+  }
+  if (!job.previousSlugsByLocale[locale].includes(norm)) {
+    job.previousSlugsByLocale[locale].push(norm);
+  }
+  // Cap per-locale
+  if (job.previousSlugsByLocale[locale].length > cap) {
+    job.previousSlugsByLocale[locale] = job.previousSlugsByLocale[locale].slice(-cap);
+  }
+
+  // Sync legacy flat array
+  syncLegacyPreviousSlugs(job, cap);
+}
+
+/**
+ * Get previous slugs for a specific locale, merging locale-aware and legacy data.
+ * Legacy `previousSlugs` entries (without locale context) are included as a
+ * fallback — they could belong to any locale.
+ */
+export function getPreviousSlugsForLocale(job, locale) {
+  const perLocale = (job.previousSlugsByLocale && Array.isArray(job.previousSlugsByLocale[locale]))
+    ? job.previousSlugsByLocale[locale]
+    : [];
+  // Legacy: include flat previousSlugs that are NOT in any locale-specific bucket
+  // (once migrated, these are entries we couldn't attribute to a locale)
+  const localeAwareAll = new Set();
+  if (job.previousSlugsByLocale && typeof job.previousSlugsByLocale === 'object') {
+    for (const arr of Object.values(job.previousSlugsByLocale)) {
+      if (Array.isArray(arr)) for (const s of arr) localeAwareAll.add(s);
+    }
+  }
+  const legacy = Array.isArray(job.previousSlugs)
+    ? job.previousSlugs.filter(s => !localeAwareAll.has(s))
+    : [];
+
+  return [...new Set([...perLocale, ...legacy])];
+}
+
+/**
+ * Get ALL previous slugs across all locales + legacy. Useful for sitemap
+ * generation and bridge slug exclusion sets.
+ */
+export function getAllPreviousSlugs(job) {
+  const all = new Set(Array.isArray(job.previousSlugs) ? job.previousSlugs : []);
+  if (job.previousSlugsByLocale && typeof job.previousSlugsByLocale === 'object') {
+    for (const arr of Object.values(job.previousSlugsByLocale)) {
+      if (Array.isArray(arr)) for (const s of arr) all.add(s);
+    }
+  }
+  return [...all];
+}
+
+/**
+ * Per-locale safety net: for each locale, strip previousSlugsByLocale entries
+ * that match ONLY that same locale's active slug. Cross-locale matches are
+ * preserved (e.g. old FR slug that matches current DE slug → keep for FR bridge).
+ * Also cleans legacy flat previousSlugs by removing entries that match the
+ * master slug or any locale slug that has no locale-aware bucket.
+ */
+export function cleanPreviousSlugsPerLocale(job) {
+  // Clean locale-aware entries: per-locale comparison only
+  if (job.previousSlugsByLocale && typeof job.previousSlugsByLocale === 'object') {
+    for (const locale of LOCALES) {
+      const arr = job.previousSlugsByLocale[locale];
+      if (!Array.isArray(arr) || arr.length === 0) continue;
+      const activeSlug = normalizeSpace((job.slugByLocale || {})[locale] || '');
+      const masterSlug = normalizeSpace(job.slug || '');
+      const cleaned = arr.filter(s => {
+        const norm = normalizeSpace(String(s));
+        // Remove if matches THIS locale's active slug (self-redirect)
+        if (norm === activeSlug) return false;
+        // Remove if matches master slug (always has a live page at IT path)
+        if (norm === masterSlug) return false;
+        return true;
+      });
+      if (cleaned.length === 0) {
+        delete job.previousSlugsByLocale[locale];
+      } else {
+        job.previousSlugsByLocale[locale] = cleaned;
+      }
+    }
+    // Remove empty object
+    if (Object.keys(job.previousSlugsByLocale).length === 0) {
+      delete job.previousSlugsByLocale;
+    }
+  }
+
+  // Sync legacy flat array from locale-aware data
+  syncLegacyPreviousSlugs(job);
+}
+
+/**
+ * Rebuild the legacy flat `previousSlugs` array as the union of all
+ * `previousSlugsByLocale` entries. This keeps backward compatibility
+ * for consumers that still read the flat array.
+ */
+function syncLegacyPreviousSlugs(job, cap = 20) {
+  const all = new Set();
+  if (job.previousSlugsByLocale && typeof job.previousSlugsByLocale === 'object') {
+    for (const arr of Object.values(job.previousSlugsByLocale)) {
+      if (Array.isArray(arr)) for (const s of arr) all.add(s);
+    }
+  }
+  if (all.size === 0) {
+    delete job.previousSlugs;
+  } else {
+    job.previousSlugs = [...all].slice(0, cap);
+  }
+}
+
+/**
+ * Merge two previousSlugsByLocale objects. Used by preferJob and dedup merges.
+ */
+function mergePreviousSlugsByLocale(a, b) {
+  if (!a && !b) return undefined;
+  const result = {};
+  for (const locale of LOCALES) {
+    const aArr = (a && Array.isArray(a[locale])) ? a[locale] : [];
+    const bArr = (b && Array.isArray(b[locale])) ? b[locale] : [];
+    const merged = [...new Set([...aArr, ...bArr])].slice(0, 20);
+    if (merged.length > 0) result[locale] = merged;
+  }
+  return Object.keys(result).length > 0 ? result : undefined;
+}
+
 export function preferJob(a, b) {
-  const aScore = qualityScore(a) + (a.featured ? 2 : 0) + ((a.source === 'Company Careers Crawler') ? 1 : 0);
   const bScore = qualityScore(b) + (b.featured ? 2 : 0) + ((b.source === 'Company Careers Crawler') ? 1 : 0);
   if (aScore !== bScore) return aScore > bScore ? a : b;
   const aRecency = recencyTs(a);
@@ -4688,6 +4822,7 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
           ...(Array.isArray(next.previousSlugs) ? next.previousSlugs : []),
         ])
       ].slice(0, 20),
+      previousSlugsByLocale: mergePreviousSlugsByLocale(prev.previousSlugsByLocale, next.previousSlugsByLocale),
     };
     if (shouldReusePreviousLocalization(prev, next, options.contentReuse || {})) {
       best.titleByLocale = { ...(prev.titleByLocale || {}) };

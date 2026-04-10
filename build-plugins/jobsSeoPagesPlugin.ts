@@ -351,7 +351,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
       };
 
       const validJobs = jobs
-        .filter((j: any) => j?.title && j?.company && j?.location && j?.description)
+        .filter((j: any) => j?.title && j?.company && j?.location && (j?.description || j?.descriptionByLocale))
         .map((j: any) => ({
           ...j,
           slug: j.slug || slugify(`${j.title}-${j.company}-${j.location}`) || j.id || '',
@@ -3886,8 +3886,16 @@ ${(() => {
       // pointing to the current active slug, helping Google consolidate signals.
       const prevSlugEntries: string[] = [];
       for (const job of sitemapEligibleJobs) {
-        const prevSlugs: string[] = Array.isArray((job as any).previousSlugs) ? (job as any).previousSlugs : [];
-        if (prevSlugs.length === 0) continue;
+        const prevSlugsLegacy: string[] = Array.isArray((job as any).previousSlugs) ? (job as any).previousSlugs : [];
+        const prevSlugsByLocale = (job as any).previousSlugsByLocale;
+        // Union of all previous slugs across all locales + legacy for sitemap
+        const prevSlugsAll = new Set(prevSlugsLegacy);
+        if (prevSlugsByLocale && typeof prevSlugsByLocale === 'object') {
+          for (const arr of Object.values(prevSlugsByLocale)) {
+            if (Array.isArray(arr)) for (const s of arr as string[]) prevSlugsAll.add(s as string);
+          }
+        }
+        if (prevSlugsAll.size === 0) continue;
         const currentItSlug = localizedSlug(job, 'it');
         // Verify we have cached HTML for the IT page — without it, the bridge
         // page generator cannot create a full-content page and the previousSlug
@@ -3900,7 +3908,7 @@ ${(() => {
         }).join('\n');
         const xDefault = `    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${currentItPath}" />`;
         const jobLastmod = job.crawledAt ? new Date(job.crawledAt).toISOString().slice(0, 10) : dateStamp;
-        for (const ps of prevSlugs) {
+        for (const ps of prevSlugsAll) {
           if (!ps || ps === currentItSlug) continue;
           // Only add to sitemap if the bridge page path is not occupied by an
           // active job page (which would mean a different job owns that URL).
@@ -4156,6 +4164,16 @@ ${(() => {
             if (ps && !expiredBySlug.has(ps)) expiredBySlug.set(ps, ej);
           }
         }
+        // Also index previousSlugsByLocale entries
+        if (ej.previousSlugsByLocale && typeof ej.previousSlugsByLocale === 'object') {
+          for (const arr of Object.values(ej.previousSlugsByLocale)) {
+            if (Array.isArray(arr)) {
+              for (const ps of arr as string[]) {
+                if (ps && !expiredBySlug.has(ps)) expiredBySlug.set(ps, ej);
+              }
+            }
+          }
+        }
       }
 
       // FRO-343: Load swiss-postal-codes for postalCode enrichment of soft-landing pages
@@ -4173,23 +4191,39 @@ ${(() => {
       // fs.existsSync cannot guard against the bridge page overwriting the expired HTML, so
       // the cleanest fix is to exclude bridge slugs from expiredSlugs entirely.
       const bridgeSlugSet = new Set<string>();
+      // Helper: collect all previous slugs from both formats
+      const _allPrevSlugs = (j: any): string[] => {
+        const all = new Set<string>(Array.isArray(j.previousSlugs) ? j.previousSlugs : []);
+        if (j.previousSlugsByLocale && typeof j.previousSlugsByLocale === 'object') {
+          for (const arr of Object.values(j.previousSlugsByLocale)) {
+            if (Array.isArray(arr)) for (const s of arr as string[]) all.add(s);
+          }
+        }
+        return [...all];
+      };
       // Collect IT paths of all previous slugs so we can also exclude their
       // locale-variant tracking keys (e.g. EN/DE/FR slug for the same old job).
       // The tracking file stores one key per locale slug, all pointing to the
       // same IT path, so we must group by IT path to catch them all.
       const bridgeItPaths = new Set<string>();
       for (const job of validJobs) {
-        const prevSlugs = Array.isArray(job.previousSlugs) ? job.previousSlugs : [];
-        for (const s of prevSlugs) {
+        for (const s of _allPrevSlugs(job)) {
           bridgeSlugSet.add(s);
           const itPath = (tracking[s] as any)?.it;
           if (itPath) bridgeItPaths.add(itPath);
         }
       }
       // Add implicit previous slugs (job.slug ≠ slugByLocale.it) to bridge set
-      // and ensure they're in previousSlugs for bridge page generation
+      // and ensure they're in previousSlugsByLocale for bridge page generation
       for (const { job, slug } of implicitPreviousSlugs) {
         bridgeSlugSet.add(slug);
+        // Write to locale-aware field (IT locale since these are master slug mismatches)
+        if (!(job as any).previousSlugsByLocale) (job as any).previousSlugsByLocale = {};
+        if (!Array.isArray((job as any).previousSlugsByLocale.it)) (job as any).previousSlugsByLocale.it = [];
+        if (!(job as any).previousSlugsByLocale.it.includes(slug)) {
+          (job as any).previousSlugsByLocale.it.push(slug);
+        }
+        // Also keep legacy flat array in sync
         if (!Array.isArray(job.previousSlugs)) job.previousSlugs = [];
         if (!job.previousSlugs.includes(slug)) job.previousSlugs.push(slug);
         // Ensure tracking has this slug with correct locale paths
@@ -4211,8 +4245,7 @@ ${(() => {
       // Now we exclude only the specific locale paths that actually conflict.
       const bridgeClaimedPaths = new Set<string>();
       for (const job of validJobs) {
-        const prevSlugs = Array.isArray(job.previousSlugs) ? job.previousSlugs : [];
-        for (const oldSlug of prevSlugs) {
+        for (const oldSlug of _allPrevSlugs(job)) {
           if (!oldSlug) continue;
           for (const locale of localeList) {
             const p = `${localePrefix[locale]}/${sectionByLocale[locale]}/${oldSlug}`.replace(/\/+/g, '/');
@@ -4868,18 +4901,41 @@ ${hreflangLinks}
       // The only difference: <link rel="canonical"> points to the current slug URL,
       // and window.__BRIDGE_TARGET_SLUG__ tells the SPA to use the current slug.
       // No redirect, no countdown — user sees full job content immediately.
+      //
+      // Uses locale-aware previousSlugsByLocale when available:
+      // - previousSlugsByLocale[locale] → bridge pages only under that locale's prefix
+      // - Legacy flat previousSlugs → bridge pages under ALL locale prefixes (safe fallback)
 
       let bridgeCount = 0;
       for (const job of validJobs) {
-        const prevSlugs = Array.isArray(job.previousSlugs) ? job.previousSlugs : [];
-        if (prevSlugs.length === 0) continue;
+        // Collect previous slugs that aren't locale-attributed (legacy flat entries)
+        const localeAwareAll = new Set<string>();
+        const pslByLocale = (job as any).previousSlugsByLocale;
+        if (pslByLocale && typeof pslByLocale === 'object') {
+          for (const arr of Object.values(pslByLocale)) {
+            if (Array.isArray(arr)) for (const s of arr as string[]) localeAwareAll.add(s);
+          }
+        }
+        const legacyOnly = Array.isArray(job.previousSlugs)
+          ? job.previousSlugs.filter(s => !localeAwareAll.has(s))
+          : [];
+        // Check if there's anything to do
+        if (localeAwareAll.size === 0 && legacyOnly.length === 0) continue;
 
         for (const locale of localeList) {
           const currentSlug = localizedSlug(job, locale);
           const cachedHtml = jobHtmlCache.get(`${locale}:${currentSlug}`);
           if (!cachedHtml) continue;
 
-          for (const oldSlug of prevSlugs) {
+          // Locale-specific previous slugs + legacy (unknown locale → all locales)
+          const prevSlugsForLocale = [
+            ...new Set([
+              ...(pslByLocale && Array.isArray(pslByLocale[locale]) ? pslByLocale[locale] : []),
+              ...legacyOnly,
+            ]),
+          ];
+
+          for (const oldSlug of prevSlugsForLocale) {
             if (oldSlug === currentSlug) continue;
             const oldPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/${oldSlug}`.replace(/\/+/g, '/');
             const oldRelPath = oldPath.replace(/^\//, '');

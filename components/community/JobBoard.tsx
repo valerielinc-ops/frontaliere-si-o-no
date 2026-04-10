@@ -154,6 +154,7 @@ interface JobListing {
   source?: string;
   companyDomain?: string;
   previousSlugs?: string[];
+  previousSlugsByLocale?: Partial<Record<string, string[]>>;
   canonicalContent?: {
     version?: number;
     generatedAt?: string;
@@ -2031,8 +2032,13 @@ function matchesRouteSlug(job: JobListing, routeSlug: string): boolean {
   for (const locale of (['it', 'en', 'de', 'fr'] as const)) {
     if (deriveLocalizedJobSlug(job, locale) === target) return true;
   }
-  // Check legacy slug aliases (renamed active jobs)
+  // Check legacy slug aliases (renamed active jobs) — both flat and locale-aware
   if (job.previousSlugs?.includes(target)) return true;
+  if (job.previousSlugsByLocale) {
+    for (const arr of Object.values(job.previousSlugsByLocale)) {
+      if (arr?.includes(target)) return true;
+    }
+  }
   return false;
 }
 
@@ -2915,6 +2921,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
       if (job.previousSlugs) {
         for (const s of job.previousSlugs) {
           if (s) slugIndex.set(s, job);
+        }
+      }
+      if (job.previousSlugsByLocale) {
+        for (const arr of Object.values(job.previousSlugsByLocale)) {
+          if (arr) for (const s of arr) {
+            if (s) slugIndex.set(s, job);
+          }
         }
       }
       // Index derived locale slugs (covers fallback generation in matchesRouteSlug)

@@ -8,7 +8,7 @@ const LOCALES = ['it', 'en', 'de', 'fr'] as const;
  *  Detail-only fields (description, requirements, canonicalContent, baseSalary,
  *  streetAddress, postalCode, applyUrl) are excluded to keep the index small. */
 const SLIM_INDEX_FIELDS = new Set([
-  'id', 'slug', 'previousSlugs',
+  'id', 'slug', 'previousSlugs', 'previousSlugsByLocale',
   'title',
   'company', 'companyKey', 'companyDomain', 'url',
   'location', 'canton',

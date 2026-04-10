@@ -27,6 +27,9 @@ const BY_CRAWLER_DIR = path.resolve(__dirname, '..', 'data', 'jobs', 'by-crawler
 const LOCALES = ['it', 'en', 'de', 'fr'];
 const MAX_SLUG_LENGTH = 120;
 
+// Import locale-aware previousSlugs helpers
+import { addPreviousSlugForLocale, cleanPreviousSlugsPerLocale } from './lib/dedicated-crawler-common.mjs';
+
 function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
 }
@@ -163,24 +166,10 @@ async function main() {
         );
         if (otherSlugs.has(newSlug)) continue;
 
-        // Preserve old slug in previousSlugs for SEO bridge pages
+        // Preserve old slug in previousSlugsByLocale for SEO bridge pages
+        // Uses locale-aware storage so bridge page is generated under correct locale prefix
         if (currentSlug && currentSlug !== newSlug) {
-          if (!job.previousSlugs) job.previousSlugs = [];
-          if (!job.previousSlugs.includes(currentSlug)) {
-            // Don't add if it's still an active slug in another locale
-            const activeSlugs = new Set([
-              job.slug,
-              ...LOCALES.map(l => (sbl[l] || '').trim()).filter(Boolean),
-            ]);
-            activeSlugs.delete(currentSlug); // remove the one we're replacing
-            if (!activeSlugs.has(currentSlug)) {
-              job.previousSlugs.push(currentSlug);
-            }
-          }
-          // Cap previousSlugs at 20
-          if (job.previousSlugs.length > 20) {
-            job.previousSlugs = job.previousSlugs.slice(-20);
-          }
+          addPreviousSlugForLocale(job, locale, currentSlug, 20);
         }
 
         sbl[locale] = newSlug;
@@ -194,20 +183,10 @@ async function main() {
       slicesChanged++;
       const crawlerKey = file.replace('.json', '');
 
-      // Safety net: strip any previousSlug that matches an active slug.
-      // Multiple locale changes per job can leave stale entries.
+      // Per-locale safety net: only strip a previousSlug if it matches the
+      // SAME locale's active slug. Cross-locale matches are preserved.
       for (const job of jobs) {
-        if (!Array.isArray(job.previousSlugs) || job.previousSlugs.length === 0) continue;
-        const active = new Set();
-        if (job.slug) active.add(String(job.slug).trim());
-        if (job.slugByLocale && typeof job.slugByLocale === 'object') {
-          for (const v of Object.values(job.slugByLocale)) {
-            if (v) active.add(String(v).trim());
-          }
-        }
-        const cleaned = job.previousSlugs.filter(s => !active.has(String(s).trim()));
-        if (cleaned.length === 0) delete job.previousSlugs;
-        else job.previousSlugs = cleaned;
+        cleanPreviousSlugsPerLocale(job);
       }
 
       console.log(`  ✅ ${crawlerKey}`);

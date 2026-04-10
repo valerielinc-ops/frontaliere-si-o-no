@@ -1057,7 +1057,7 @@ let _jobSlugMap: Map<string, Record<string, string>> | null = null;
 let _jobSlugMapPromise: Promise<void> | null = null;
 
 /** Register the job slug map so the router can translate job slugs across locales. */
-export function registerJobSlugMap(jobs: Array<{ slug?: string; slugByLocale?: Partial<Record<string, string>>; previousSlugs?: string[] }>): void {
+export function registerJobSlugMap(jobs: Array<{ slug?: string; slugByLocale?: Partial<Record<string, string>>; previousSlugs?: string[]; previousSlugsByLocale?: Partial<Record<string, string[]>> }>): void {
   const map = new Map<string, Record<string, string>>();
   for (const job of jobs) {
     const byLocale = job.slugByLocale;

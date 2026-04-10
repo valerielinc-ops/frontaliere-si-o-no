@@ -41,7 +41,7 @@ import {
 } from './lib/crawler-summary-store.mjs';
 import { buildStableJobIdentity } from './lib/job-identity.mjs';
 import { hardenJobsWithStructuredSalary } from './lib/structured-salary.mjs';
-import { computeCrawlerQualityAggregate, computeJobQualityScore, buildStableId } from './lib/dedicated-crawler-common.mjs';
+import { computeCrawlerQualityAggregate, computeJobQualityScore, buildStableId, cleanPreviousSlugsPerLocale } from './lib/dedicated-crawler-common.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -240,25 +240,10 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs) {
 
   const hardened = hardenJobsWithStructuredSalary(jobs);
 
-  // Final safety net: strip any previousSlug that matches an active slug.
-  // This MUST run at the last write point because earlier steps (AI translation,
-  // backfill localization, hardening) can modify slugByLocale after captureLostSlugs
-  // ran, leaving stale entries that would generate self-redirecting bridge pages.
+  // Per-locale safety net: only strip a previousSlug if it matches the SAME
+  // locale's active slug. Cross-locale matches are preserved for bridge pages.
   for (const job of hardened.jobs) {
-    if (!Array.isArray(job.previousSlugs) || job.previousSlugs.length === 0) continue;
-    const active = new Set();
-    if (job.slug) active.add(String(job.slug).trim());
-    if (job.slugByLocale && typeof job.slugByLocale === 'object') {
-      for (const v of Object.values(job.slugByLocale)) {
-        if (v) active.add(String(v).trim());
-      }
-    }
-    const cleaned = job.previousSlugs.filter(s => !active.has(String(s).trim()));
-    if (cleaned.length === 0) {
-      delete job.previousSlugs;
-    } else {
-      job.previousSlugs = cleaned;
-    }
+    cleanPreviousSlugsPerLocale(job);
   }
 
   fs.mkdirSync(JOBS_SLICES_DIR, { recursive: true });
@@ -438,6 +423,24 @@ function assembleJobs() {
 
   if (slugDupeCount > 0) {
     console.log(`  🧹 Slug dedup: removed ${slugDupeCount} entries with duplicate slugs (${deduped.length} remaining)`);
+  }
+
+  // ── Backfill empty description from descriptionByLocale ────────────
+  // Some crawlers (skip_ai_translation=1 mode) write jobs with empty
+  // description but populated descriptionByLocale. The build plugin
+  // needs description for its validity filter, so backfill from Italian.
+  let backfilledDescs = 0;
+  for (const job of deduped) {
+    if (!job.description && job.descriptionByLocale) {
+      const fallback = job.descriptionByLocale.it || job.descriptionByLocale.de || job.descriptionByLocale.en || job.descriptionByLocale.fr || '';
+      if (fallback) {
+        job.description = fallback;
+        backfilledDescs++;
+      }
+    }
+  }
+  if (backfilledDescs > 0) {
+    console.log(`  📝 Backfilled ${backfilledDescs} empty descriptions from descriptionByLocale`);
   }
 
   // ── Backfill missing IDs ─────────────────────────────────────────────
