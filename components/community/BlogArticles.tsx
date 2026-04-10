@@ -259,6 +259,46 @@ function renderInlineFormatting(text: string, navigators?: NavigatorMap): ReactN
   return parts;
 }
 
+/** Try to render a markdown table from text. Returns null if not a valid table. */
+function tryRenderMdTable(text: string, keyPrefix: string, navigators?: NavigatorMap): ReactElement | null {
+  if (!text.includes('|') || !/^\|[^|]+\|/m.test(text)) return null;
+  const tableLines = text.split('\n').filter(l => l.trim().startsWith('|'));
+  const isSeparator = (line: string) => /^\|(\s*:?-{2,}:?\s*\|)+\s*$/.test(line.trim());
+  const sepIdx = tableLines.findIndex(l => isSeparator(l));
+  if (sepIdx <= 0) return null;
+  const headerLines = tableLines.slice(0, sepIdx);
+  const bodyLines = tableLines.slice(sepIdx + 1);
+  if (headerLines.length === 0 || bodyLines.length === 0) return null;
+  const parseCells = (line: string) => line.trim().replace(/^\|/, '').replace(/\|$/, '').split('|').map(c => c.trim());
+  const headers = parseCells(headerLines[0]);
+  return (
+    <div key={keyPrefix} className="overflow-x-auto my-4">
+      <table className="w-full border-collapse text-sm">
+        <thead>
+          <tr>
+            {headers.map((h, hi) => (
+              <th key={hi} className="border border-slate-300 dark:border-slate-600 bg-surface-raised px-3 py-2 text-left font-semibold text-strong">
+                {renderInlineFormatting(h, navigators)}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {bodyLines.map((row, ri) => (
+            <tr key={ri} className={ri % 2 === 1 ? 'bg-surface-alt/50' : ''}>
+              {parseCells(row).map((cell, ci) => (
+                <td key={ci} className="border border-slate-300 dark:border-slate-600 px-3 py-2 text-body">
+                  {renderInlineFormatting(cell, navigators)}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
 function renderFormattedContent(text: string, navigators?: NavigatorMap): ReactElement {
   // Auto-link keywords if navigators provided
   const processed = navigators ? autoLinkKeywords(text, navigators) : text;
@@ -294,16 +334,17 @@ function renderFormattedContent(text: string, navigators?: NavigatorMap): ReactE
       const heading = lines[0].replace(/^###\s+/, '').trim();
       const inlineBody = lines.slice(1).join('\n').trim();
       const headingId = generateHeadingSlug(heading);
+      const tableEl = inlineBody ? tryRenderMdTable(inlineBody, `h3tbl-${idx}`, navigators) : null;
       renderedBlocks.push(
         <div key={`h3-${idx}`} className="space-y-1.5">
           <h3 id={headingId} className="text-lg font-semibold text-strong mt-4 mb-1 scroll-mt-20">
             {renderInlineFormatting(heading, navigators)}
           </h3>
-          {inlineBody && (
+          {tableEl || (inlineBody && (
             <p className="text-body leading-relaxed">
               {renderInlineFormatting(inlineBody, navigators)}
             </p>
-          )}
+          ))}
         </div>
       );
       continue;
@@ -351,16 +392,17 @@ function renderFormattedContent(text: string, navigators?: NavigatorMap): ReactE
         continue;
       }
 
+      const h2TableEl = inlineBody ? tryRenderMdTable(inlineBody, `h2tbl-${idx}`, navigators) : null;
       renderedBlocks.push(
         <div key={`heading-${idx}`} className="space-y-2">
           <h2 id={generateHeadingSlug(heading)} className="text-xl font-bold text-slate-900 dark:text-white border-l-4 border-indigo-500 pl-3 mt-6 mb-2 scroll-mt-20">
             {renderInlineFormatting(heading, navigators)}
           </h2>
-          {inlineBody && (
+          {h2TableEl || (inlineBody && (
             <p className="text-body leading-relaxed">
               {renderInlineFormatting(inlineBody, navigators)}
             </p>
-          )}
+          ))}
         </div>
       );
       continue;
@@ -429,45 +471,10 @@ function renderFormattedContent(text: string, navigators?: NavigatorMap): ReactE
     }
 
     // Markdown table: lines starting with | and containing a separator row |---|
-    const isMdTable = trimmed.includes('|') && /^\|[^|]+\|/m.test(trimmed);
-    if (isMdTable) {
-      const tableLines = trimmed.split('\n').filter(l => l.trim().startsWith('|'));
-      const isSeparator = (line: string) => /^\|(\s*:?-{2,}:?\s*\|)+\s*$/.test(line.trim());
-      const sepIdx = tableLines.findIndex(l => isSeparator(l));
-      const headerLines = sepIdx > 0 ? tableLines.slice(0, sepIdx) : [];
-      const bodyLines = sepIdx >= 0 ? tableLines.slice(sepIdx + 1) : [];
-      const parseCells = (line: string) => line.trim().replace(/^\|/, '').replace(/\|$/, '').split('|').map(c => c.trim());
-
-      if (headerLines.length > 0 && bodyLines.length > 0) {
-        const headers = parseCells(headerLines[0]);
-        renderedBlocks.push(
-          <div key={`table-${idx}`} className="overflow-x-auto my-4">
-            <table className="w-full border-collapse text-sm">
-              <thead>
-                <tr>
-                  {headers.map((h, hi) => (
-                    <th key={hi} className="border border-slate-300 dark:border-slate-600 bg-surface-raised px-3 py-2 text-left font-semibold text-strong">
-                      {renderInlineFormatting(h, navigators)}
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {bodyLines.map((row, ri) => (
-                  <tr key={ri} className={ri % 2 === 1 ? 'bg-surface-alt/50' : ''}>
-                    {parseCells(row).map((cell, ci) => (
-                      <td key={ci} className="border border-slate-300 dark:border-slate-600 px-3 py-2 text-body">
-                        {renderInlineFormatting(cell, navigators)}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        );
-        continue;
-      }
+    const standaloneTable = tryRenderMdTable(trimmed, `table-${idx}`, navigators);
+    if (standaloneTable) {
+      renderedBlocks.push(standaloneTable);
+      continue;
     }
 
     // List: lines starting with -

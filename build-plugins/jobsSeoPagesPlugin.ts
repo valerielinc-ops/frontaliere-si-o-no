@@ -3914,7 +3914,7 @@ ${(() => {
         const xDefault = `    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${currentItPath}" />`;
         const jobLastmod = job.crawledAt ? new Date(job.crawledAt).toISOString().slice(0, 10) : dateStamp;
 
-        const addEntry = (ps: string, locale: string) => {
+        const addEntry = (ps: string, locale: 'it' | 'en' | 'de' | 'fr') => {
           const currentSlug = localizedSlug(job, locale);
           if (!ps || ps === currentSlug) return;
           if (!jobHtmlCache.has(`${locale}:${currentSlug}`)) return;
