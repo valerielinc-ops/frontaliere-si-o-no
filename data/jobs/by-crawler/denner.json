@@ -187,7 +187,7 @@
     },
     {
       "id": "denner-93c98c4eaac5",
-      "slug": "verkaufer-in-im-stundenlohn-denner-worb",
+      "slug": "venditore-a-a-tempo-determinato-denner-worb",
       "slugByLocale": {
         "it": "venditore-a-a-tempo-determinato-denner-worb",
         "en": "hourly-wage-salesperson-denner-worb",
@@ -252,7 +252,8 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-worb"
         ],
         "en": [
           "verkaufer-in-im-stundenlohn-denner"
@@ -262,7 +263,8 @@
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-im-stundenlohn-denner"
+        "verkaufer-in-im-stundenlohn-denner",
+        "verkaufer-in-im-stundenlohn-denner-worb"
       ],
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -372,7 +374,7 @@
     },
     {
       "id": "denner-c613f7f07188",
-      "slug": "assistent-in-filialleitung-denner",
+      "slug": "assistente-di-filiale-denner-biel-bienne",
       "slugByLocale": {
         "it": "assistente-di-filiale-denner-biel-bienne",
         "en": "filial-assistant-denner-biel-bienne",
@@ -443,11 +445,15 @@
         ],
         "fr": [
           "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
+        ],
+        "it": [
+          "assistent-in-filialleitung-denner"
         ]
       },
       "previousSlugs": [
         "assistent-in-filialleitung-denner-flims-dorf",
-        "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
+        "assistent-in-filialleitung-denner-flims-dorf-gzl76k",
+        "assistent-in-filialleitung-denner"
       ],
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -740,7 +746,7 @@
     },
     {
       "id": "denner-7e7e80a6e0df",
-      "slug": "teamleiter-in-kommissionierung-dietlikon-denner",
+      "slug": "responsabile-della-logistica-dietlikon-denner-dietlikon",
       "slugByLocale": {
         "it": "responsabile-della-logistica-dietlikon-denner-dietlikon",
         "en": "logistics-team-leader-dietlikon-denner-dietlikon",
@@ -817,11 +823,19 @@
           "maxValue": 90500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-in-kommissionierung-dietlikon-denner"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-in-kommissionierung-dietlikon-denner"
+      ]
     },
     {
       "id": "denner-bff7c6128d41",
-      "slug": "stv-filialleiter-in-denner-neuhausen",
+      "slug": "vice-responsabile-di-filiale-denner-neuhausen",
       "slugByLocale": {
         "it": "vice-responsabile-di-filiale-denner-neuhausen",
         "en": "deputy-store-manager-denner-neuhausen",
@@ -885,7 +899,8 @@
       "crawledAt": "2026-04-10T09:31:38.211Z",
       "previousSlugsByLocale": {
         "it": [
-          "stv-filialleiter-in-denner"
+          "stv-filialleiter-in-denner",
+          "stv-filialleiter-in-denner-neuhausen"
         ],
         "en": [
           "stv-filialleiter-in-denner"
@@ -899,7 +914,8 @@
       },
       "previousSlugs": [
         "stv-filialleiter-in-denner",
-        "stv-filialleiter-in-denner-basel"
+        "stv-filialleiter-in-denner-basel",
+        "stv-filialleiter-in-denner-neuhausen"
       ],
       "salaryMin": 59000,
       "salaryMax": 90500,
