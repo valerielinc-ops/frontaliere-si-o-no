@@ -68,9 +68,19 @@
       "previousSlugs": [
         "teaching-as-a-logistics-provider-mixed-delivery-in-efz-distribution-letters-and-packages-post-ch-ag-davos",
         "enseignement-en-tant-que-fournisseur-de-logistique-livraison-mixte-dans-efz-distribution-lettres-et-paquets-post-ch-ag-d",
-        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-ch-ag-bellinzona",
         "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-ch-ag-bellinzona"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "en": [
+          "teaching-as-a-logistics-provider-mixed-delivery-in-efz-distribution-letters-and-packages-post-ch-ag-davos"
+        ],
+        "fr": [
+          "enseignement-en-tant-que-fournisseur-de-logistique-livraison-mixte-dans-efz-distribution-lettres-et-paquets-post-ch-ag-d"
+        ],
+        "de": [
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-ch-ag-bellinzona"
+        ]
+      }
     },
     {
       "url": "https://job.post.ch/v2/job-vacancies/lehre-als-detailhandelsfachmann-frau-efz/caaa8343-8b2b-47a4-bce7-0976d2ca9982",
@@ -136,9 +146,23 @@
       "addressCountry": "CH",
       "previousSlugs": [
         "lehre-als-detailhandelsfachmann-frau-efz-post-ch-ag-ilanz",
-        "apprendistato-come-detailhandelsfachmann-frau-cfc-post-ch-ag-ilanz",
         "apprendistato-come-detailhandelsfachmann-frau-cfc-post-ch-ag-ilanz"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "de": [
+          "lehre-als-detailhandelsfachmann-frau-efz-post-ch-ag-ilanz",
+          "apprendistato-come-detailhandelsfachmann-frau-cfc-post-ch-ag-ilanz"
+        ],
+        "it": [
+          "apprendistato-come-detailhandelsfachmann-frau-cfc-post-ch-ag-ilanz"
+        ],
+        "en": [
+          "apprendistato-come-detailhandelsfachmann-frau-cfc-post-ch-ag-ilanz"
+        ],
+        "fr": [
+          "apprendistato-come-detailhandelsfachmann-frau-cfc-post-ch-ag-ilanz"
+        ]
+      }
     },
     {
       "url": "https://job.post.ch/v2/job-vacancies/compliance-officer/f9112476-fc9b-47f5-87cf-05582fe6b57e",
@@ -205,7 +229,12 @@
       "addressCountry": "CH",
       "previousSlugs": [
         "compliance-officer-con-ambizione-e-spirito-pionieristico-postfinance-ag-bellinzona-82fqw7"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "compliance-officer-con-ambizione-e-spirito-pionieristico-postfinance-ag-bellinzona-82fqw7"
+        ]
+      }
     }
   ]
 }

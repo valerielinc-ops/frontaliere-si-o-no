@@ -62,7 +62,15 @@
       },
       "streetAddress": "Via Luserte 11",
       "postalCode": "6572",
-      "id": "centiel-562fab2ccb9f"
+      "id": "centiel-562fab2ccb9f",
+      "previousSlugsByLocale": {
+        "it": [
+          "application-ingegnere-critical-power-centiel-lugano"
+        ],
+        "en": [
+          "application-engineer-critical-power-centiel-ticino"
+        ]
+      }
     },
     {
       "title": "Research & Development Engineer",
@@ -107,10 +115,10 @@
       },
       "previousSlugs": [
         "research-development-engineer-centiel-ticino",
-        "ricerca-development-ingegnere-centiel-lugano",
         "forschung-development-ingenieur-centiel-lugano",
-        "recherche-development-ingenieur-centiel-lugano",
-        "ingegnere-di-ricerca-e-sviluppo-centiel-cadro-lugano"
+        "ricerca-development-ingegnere-centiel-lugano",
+        "ingegnere-di-ricerca-e-sviluppo-centiel-cadro-lugano",
+        "recherche-development-ingenieur-centiel-lugano"
       ],
       "salaryMin": 72000,
       "salaryMax": 97000,
@@ -127,7 +135,25 @@
       },
       "streetAddress": "Via Luserte 11",
       "postalCode": "6572",
-      "id": "centiel-ced8dc312c7e"
+      "id": "centiel-ced8dc312c7e",
+      "previousSlugsByLocale": {
+        "en": [
+          "research-development-engineer-centiel-ticino",
+          "forschung-development-ingenieur-centiel-lugano"
+        ],
+        "it": [
+          "ricerca-development-ingegnere-centiel-lugano",
+          "forschung-development-ingenieur-centiel-lugano",
+          "ingegnere-di-ricerca-e-sviluppo-centiel-cadro-lugano"
+        ],
+        "de": [
+          "forschung-development-ingenieur-centiel-lugano"
+        ],
+        "fr": [
+          "forschung-development-ingenieur-centiel-lugano",
+          "recherche-development-ingenieur-centiel-lugano"
+        ]
+      }
     },
     {
       "title": "Sales – 3-phase UPS Channel Partners Manager",
@@ -188,7 +214,12 @@
       "previousSlugs": [
         "sales-3-phase-ups-channel-partners-manager-centiel-ticino"
       ],
-      "id": "centiel-0bde96076198"
+      "id": "centiel-0bde96076198",
+      "previousSlugsByLocale": {
+        "en": [
+          "sales-3-phase-ups-channel-partners-manager-centiel-ticino"
+        ]
+      }
     },
     {
       "title": "After-Sales Technician",
@@ -250,7 +281,22 @@
       },
       "streetAddress": "Via Luserte 11",
       "postalCode": "6572",
-      "id": "centiel-31fb67bd3d47"
+      "id": "centiel-31fb67bd3d47",
+      "previousSlugsByLocale": {
+        "it": [
+          "after-sales-technician-centiel-ticino"
+        ],
+        "en": [
+          "after-sales-technician-centiel-ticino"
+        ],
+        "de": [
+          "after-sales-technician-centiel-ticino"
+        ],
+        "fr": [
+          "after-sales-technician-centiel-ticino",
+          "after-sales-technicien-centiel-lugano"
+        ]
+      }
     }
   ]
 }

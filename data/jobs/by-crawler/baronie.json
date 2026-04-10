@@ -45,9 +45,9 @@
       },
       "previousSlugs": [
         "internationaler-vertriebsleiter-chocolat-alprose-sa-baronie-switzerland-sa-caslano-1ylajb",
-        "responsable-des-ventes-internationales-chocolat-alprose-sa-baronie-switzerland-sa-caslano-1ylajb",
         "responsabile-vendite-internazionali-chocolat-alprose-sa-baronie-switzerland-sa-caslano",
-        "international-vendite-manager-chocolat-alprose-sa-baronie-switzerland-sa-ticino"
+        "international-vendite-manager-chocolat-alprose-sa-baronie-switzerland-sa-ticino",
+        "responsable-des-ventes-internationales-chocolat-alprose-sa-baronie-switzerland-sa-caslano-1ylajb"
       ],
       "salaryMin": 66000,
       "salaryMax": 89000,
@@ -64,7 +64,24 @@
       },
       "streetAddress": "Via Cantonale",
       "postalCode": "6613",
-      "id": "baronie-796d576b4aa4"
+      "id": "baronie-796d576b4aa4",
+      "previousSlugsByLocale": {
+        "it": [
+          "internationaler-vertriebsleiter-chocolat-alprose-sa-baronie-switzerland-sa-caslano-1ylajb",
+          "responsabile-vendite-internazionali-chocolat-alprose-sa-baronie-switzerland-sa-caslano"
+        ],
+        "en": [
+          "internationaler-vertriebsleiter-chocolat-alprose-sa-baronie-switzerland-sa-caslano-1ylajb",
+          "international-vendite-manager-chocolat-alprose-sa-baronie-switzerland-sa-ticino"
+        ],
+        "de": [
+          "internationaler-vertriebsleiter-chocolat-alprose-sa-baronie-switzerland-sa-caslano-1ylajb"
+        ],
+        "fr": [
+          "internationaler-vertriebsleiter-chocolat-alprose-sa-baronie-switzerland-sa-caslano-1ylajb",
+          "responsable-des-ventes-internationales-chocolat-alprose-sa-baronie-switzerland-sa-caslano-1ylajb"
+        ]
+      }
     }
   ]
 }

@@ -76,8 +76,8 @@
         "capireparto",
         "capireparto-lis-lugano-istituti-sociali-pregassona",
         "chapitre-lis-lugano-istituti-sociali-pregassona",
-        "chef-de-service-lis-lugano-istituti-sociali-pregassona",
-        "aides-soignants-lis-lugano-istituti-sociali-pregassona"
+        "aides-soignants-lis-lugano-istituti-sociali-pregassona",
+        "chef-de-service-lis-lugano-istituti-sociali-pregassona"
       ],
       "currency": "CHF",
       "baseSalary": {
@@ -102,7 +102,34 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "id": "lis-lugano-istituti-sociali-141ef52d04c5"
+      "id": "lis-lugano-istituti-sociali-141ef52d04c5",
+      "previousSlugsByLocale": {
+        "it": [
+          "capireparto",
+          "capireparto-lis-lugano-istituti-sociali-pregassona",
+          "chapitre-lis-lugano-istituti-sociali-pregassona",
+          "aides-soignants-lis-lugano-istituti-sociali-pregassona"
+        ],
+        "en": [
+          "capireparto",
+          "capireparto-lis-lugano-istituti-sociali-pregassona",
+          "chapitre-lis-lugano-istituti-sociali-pregassona",
+          "aides-soignants-lis-lugano-istituti-sociali-pregassona"
+        ],
+        "de": [
+          "capireparto",
+          "capireparto-lis-lugano-istituti-sociali-pregassona",
+          "chapitre-lis-lugano-istituti-sociali-pregassona",
+          "aides-soignants-lis-lugano-istituti-sociali-pregassona"
+        ],
+        "fr": [
+          "capireparto",
+          "capireparto-lis-lugano-istituti-sociali-pregassona",
+          "chapitre-lis-lugano-istituti-sociali-pregassona",
+          "chef-de-service-lis-lugano-istituti-sociali-pregassona",
+          "aides-soignants-lis-lugano-istituti-sociali-pregassona"
+        ]
+      }
     },
     {
       "title": "Infermieri",
@@ -204,7 +231,25 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "id": "lis-lugano-istituti-sociali-f650fe01210f"
+      "id": "lis-lugano-istituti-sociali-f650fe01210f",
+      "previousSlugsByLocale": {
+        "it": [
+          "infermieri",
+          "infermieri-lis-lugano-istituti-sociali-pregassona"
+        ],
+        "en": [
+          "infermieri",
+          "infermieri-lis-lugano-istituti-sociali-pregassona"
+        ],
+        "de": [
+          "infermieri",
+          "infermieri-lis-lugano-istituti-sociali-pregassona"
+        ],
+        "fr": [
+          "infermieri",
+          "infermieri-lis-lugano-istituti-sociali-pregassona"
+        ]
+      }
     },
     {
       "title": "Operatori Sociosanitari",
@@ -286,9 +331,9 @@
         "operatori-sociosanitari-lis-lugano-istituti-sociali-pregassona",
         "unternehmen-lis-lugano-istituti-sociali-pregassona",
         "entreprises-lis-lugano-istituti-sociali-pregassona",
+        "travailleurs-sociaux-et-de-sante-lis-lugano-istituti-sociali-pregassona",
         "social-and-health-workers-lis-lugano-istituti-sociali-pregassona",
-        "sozial-und-gesundheitsarbeiter-lis-lugano-istituti-sociali-pregassona",
-        "travailleurs-sociaux-et-de-sante-lis-lugano-istituti-sociali-pregassona"
+        "sozial-und-gesundheitsarbeiter-lis-lugano-istituti-sociali-pregassona"
       ],
       "currency": "CHF",
       "baseSalary": {
@@ -313,7 +358,47 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "id": "lis-lugano-istituti-sociali-46ddf621dede"
+      "id": "lis-lugano-istituti-sociali-46ddf621dede",
+      "previousSlugsByLocale": {
+        "it": [
+          "operatori-sociosanitari",
+          "operatori-sociosanitari-lis-lugano-istituti-sociali-pregassona-ceayh7",
+          "corporate-operators-lis-lugano-istituti-sociali-pregassona",
+          "operatori-sociosanitari-lis-lugano-istituti-sociali-pregassona",
+          "unternehmen-lis-lugano-istituti-sociali-pregassona",
+          "entreprises-lis-lugano-istituti-sociali-pregassona",
+          "travailleurs-sociaux-et-de-sante-lis-lugano-istituti-sociali-pregassona"
+        ],
+        "en": [
+          "operatori-sociosanitari",
+          "operatori-sociosanitari-lis-lugano-istituti-sociali-pregassona-ceayh7",
+          "corporate-operators-lis-lugano-istituti-sociali-pregassona",
+          "operatori-sociosanitari-lis-lugano-istituti-sociali-pregassona",
+          "unternehmen-lis-lugano-istituti-sociali-pregassona",
+          "entreprises-lis-lugano-istituti-sociali-pregassona",
+          "social-and-health-workers-lis-lugano-istituti-sociali-pregassona",
+          "travailleurs-sociaux-et-de-sante-lis-lugano-istituti-sociali-pregassona"
+        ],
+        "de": [
+          "operatori-sociosanitari",
+          "operatori-sociosanitari-lis-lugano-istituti-sociali-pregassona-ceayh7",
+          "corporate-operators-lis-lugano-istituti-sociali-pregassona",
+          "operatori-sociosanitari-lis-lugano-istituti-sociali-pregassona",
+          "unternehmen-lis-lugano-istituti-sociali-pregassona",
+          "entreprises-lis-lugano-istituti-sociali-pregassona",
+          "sozial-und-gesundheitsarbeiter-lis-lugano-istituti-sociali-pregassona",
+          "travailleurs-sociaux-et-de-sante-lis-lugano-istituti-sociali-pregassona"
+        ],
+        "fr": [
+          "operatori-sociosanitari",
+          "operatori-sociosanitari-lis-lugano-istituti-sociali-pregassona-ceayh7",
+          "corporate-operators-lis-lugano-istituti-sociali-pregassona",
+          "operatori-sociosanitari-lis-lugano-istituti-sociali-pregassona",
+          "unternehmen-lis-lugano-istituti-sociali-pregassona",
+          "entreprises-lis-lugano-istituti-sociali-pregassona",
+          "travailleurs-sociaux-et-de-sante-lis-lugano-istituti-sociali-pregassona"
+        ]
+      }
     },
     {
       "title": "Assistenti di cura",
@@ -421,7 +506,49 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "id": "lis-lugano-istituti-sociali-3e5d8c322840"
+      "id": "lis-lugano-istituti-sociali-3e5d8c322840",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenti-di-cura-lis-lugano-istituti-sociali-pregassona",
+          "assistenti-di-cura-lis-lugano-istituti-sociali-pregassona-d2blfr",
+          "pflegeassistenten-lis-lugano-istituti-sociali-pregassona",
+          "betreuungsassistenten-lis-lugano-istituti-sociali-pregassona",
+          "care-assistants-lis-lugano-istituti-sociali-pregassona",
+          "assistant-di-cura-lis-lugano-istituti-sociali-pregassona",
+          "assistants-de-soins-lis-lugano-istituti-sociali-pregassona",
+          "assistants-de-cours-lis-lugano-istituti-sociali-pregassona"
+        ],
+        "en": [
+          "assistenti-di-cura-lis-lugano-istituti-sociali-pregassona",
+          "assistenti-di-cura-lis-lugano-istituti-sociali-pregassona-d2blfr",
+          "pflegeassistenten-lis-lugano-istituti-sociali-pregassona",
+          "betreuungsassistenten-lis-lugano-istituti-sociali-pregassona",
+          "care-assistants-lis-lugano-istituti-sociali-pregassona",
+          "assistant-di-cura-lis-lugano-istituti-sociali-pregassona",
+          "assistants-de-soins-lis-lugano-istituti-sociali-pregassona",
+          "assistants-de-cours-lis-lugano-istituti-sociali-pregassona"
+        ],
+        "de": [
+          "assistenti-di-cura-lis-lugano-istituti-sociali-pregassona",
+          "assistenti-di-cura-lis-lugano-istituti-sociali-pregassona-d2blfr",
+          "pflegeassistenten-lis-lugano-istituti-sociali-pregassona",
+          "betreuungsassistenten-lis-lugano-istituti-sociali-pregassona",
+          "care-assistants-lis-lugano-istituti-sociali-pregassona",
+          "assistant-di-cura-lis-lugano-istituti-sociali-pregassona",
+          "assistants-de-soins-lis-lugano-istituti-sociali-pregassona",
+          "assistants-de-cours-lis-lugano-istituti-sociali-pregassona"
+        ],
+        "fr": [
+          "assistenti-di-cura-lis-lugano-istituti-sociali-pregassona",
+          "assistenti-di-cura-lis-lugano-istituti-sociali-pregassona-d2blfr",
+          "pflegeassistenten-lis-lugano-istituti-sociali-pregassona",
+          "betreuungsassistenten-lis-lugano-istituti-sociali-pregassona",
+          "care-assistants-lis-lugano-istituti-sociali-pregassona",
+          "assistant-di-cura-lis-lugano-istituti-sociali-pregassona",
+          "assistants-de-soins-lis-lugano-istituti-sociali-pregassona",
+          "assistants-de-cours-lis-lugano-istituti-sociali-pregassona"
+        ]
+      }
     },
     {
       "title": "Collaboratori sanitari",
@@ -520,7 +647,49 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "id": "lis-lugano-istituti-sociali-3d122d9fd62d"
+      "id": "lis-lugano-istituti-sociali-3d122d9fd62d",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaboratori-sanitari",
+          "collaboratori-sanitari-lis-lugano-istituti-sociali-pregassona-o2ljp6",
+          "health-workers-lis-lugano-istituti-sociali-pregassona",
+          "collaboratori-sanitari-lis-lugano-istituti-sociali-pregassona",
+          "arbeitnehmer-lis-lugano-istituti-sociali-pregassona",
+          "healthcare-workers-lis-lugano-istituti-sociali-pregassona",
+          "gesundheitsfachkrafte-lis-lugano-istituti-sociali-pregassona",
+          "travailleurs-de-la-sante-lis-lugano-istituti-sociali-pregassona"
+        ],
+        "en": [
+          "collaboratori-sanitari",
+          "collaboratori-sanitari-lis-lugano-istituti-sociali-pregassona-o2ljp6",
+          "health-workers-lis-lugano-istituti-sociali-pregassona",
+          "collaboratori-sanitari-lis-lugano-istituti-sociali-pregassona",
+          "arbeitnehmer-lis-lugano-istituti-sociali-pregassona",
+          "healthcare-workers-lis-lugano-istituti-sociali-pregassona",
+          "gesundheitsfachkrafte-lis-lugano-istituti-sociali-pregassona",
+          "travailleurs-de-la-sante-lis-lugano-istituti-sociali-pregassona"
+        ],
+        "de": [
+          "collaboratori-sanitari",
+          "collaboratori-sanitari-lis-lugano-istituti-sociali-pregassona-o2ljp6",
+          "health-workers-lis-lugano-istituti-sociali-pregassona",
+          "collaboratori-sanitari-lis-lugano-istituti-sociali-pregassona",
+          "arbeitnehmer-lis-lugano-istituti-sociali-pregassona",
+          "healthcare-workers-lis-lugano-istituti-sociali-pregassona",
+          "gesundheitsfachkrafte-lis-lugano-istituti-sociali-pregassona",
+          "travailleurs-de-la-sante-lis-lugano-istituti-sociali-pregassona"
+        ],
+        "fr": [
+          "collaboratori-sanitari",
+          "collaboratori-sanitari-lis-lugano-istituti-sociali-pregassona-o2ljp6",
+          "health-workers-lis-lugano-istituti-sociali-pregassona",
+          "collaboratori-sanitari-lis-lugano-istituti-sociali-pregassona",
+          "arbeitnehmer-lis-lugano-istituti-sociali-pregassona",
+          "healthcare-workers-lis-lugano-istituti-sociali-pregassona",
+          "gesundheitsfachkrafte-lis-lugano-istituti-sociali-pregassona",
+          "travailleurs-de-la-sante-lis-lugano-istituti-sociali-pregassona"
+        ]
+      }
     },
     {
       "title": "Operatori settore animazione",
@@ -568,11 +737,11 @@
         "operatori-settore-animazione",
         "operatori-settore-animazione-lis-lugano-istituti-sociali-pregassona-6skb5e",
         "operatori-settore-animazione-lis-lugano-istituti-sociali-pregassona",
-        "operators-in-the-entertainment-sector-lis-lugano-istituti-sociali-pregassona",
-        "betreiber-des-sektors-lis-lugano-istituti-sociali-pregassona",
         "operateurs-du-secteur-de-l-animation-lis-lugano-istituti-sociali-pregassona",
         "betreiber-im-unterhaltungssektor-lis-lugano-istituti-sociali-pregassona",
-        "operateurs-du-secteur-du-divertissement-lis-lugano-istituti-sociali-pregassona"
+        "operateurs-du-secteur-du-divertissement-lis-lugano-istituti-sociali-pregassona",
+        "operators-in-the-entertainment-sector-lis-lugano-istituti-sociali-pregassona",
+        "betreiber-des-sektors-lis-lugano-istituti-sociali-pregassona"
       ],
       "currency": "CHF",
       "baseSalary": {
@@ -597,7 +766,43 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "id": "lis-lugano-istituti-sociali-7eba8dbeeb0a"
+      "id": "lis-lugano-istituti-sociali-7eba8dbeeb0a",
+      "previousSlugsByLocale": {
+        "it": [
+          "operatori-settore-animazione",
+          "operatori-settore-animazione-lis-lugano-istituti-sociali-pregassona-6skb5e",
+          "operatori-settore-animazione-lis-lugano-istituti-sociali-pregassona",
+          "operateurs-du-secteur-de-l-animation-lis-lugano-istituti-sociali-pregassona",
+          "betreiber-im-unterhaltungssektor-lis-lugano-istituti-sociali-pregassona",
+          "operateurs-du-secteur-du-divertissement-lis-lugano-istituti-sociali-pregassona"
+        ],
+        "en": [
+          "operatori-settore-animazione",
+          "operatori-settore-animazione-lis-lugano-istituti-sociali-pregassona-6skb5e",
+          "operatori-settore-animazione-lis-lugano-istituti-sociali-pregassona",
+          "operators-in-the-entertainment-sector-lis-lugano-istituti-sociali-pregassona",
+          "operateurs-du-secteur-de-l-animation-lis-lugano-istituti-sociali-pregassona",
+          "betreiber-im-unterhaltungssektor-lis-lugano-istituti-sociali-pregassona",
+          "operateurs-du-secteur-du-divertissement-lis-lugano-istituti-sociali-pregassona"
+        ],
+        "de": [
+          "operatori-settore-animazione",
+          "operatori-settore-animazione-lis-lugano-istituti-sociali-pregassona-6skb5e",
+          "operatori-settore-animazione-lis-lugano-istituti-sociali-pregassona",
+          "operateurs-du-secteur-de-l-animation-lis-lugano-istituti-sociali-pregassona",
+          "betreiber-im-unterhaltungssektor-lis-lugano-istituti-sociali-pregassona",
+          "operateurs-du-secteur-du-divertissement-lis-lugano-istituti-sociali-pregassona"
+        ],
+        "fr": [
+          "operatori-settore-animazione",
+          "operatori-settore-animazione-lis-lugano-istituti-sociali-pregassona-6skb5e",
+          "operatori-settore-animazione-lis-lugano-istituti-sociali-pregassona",
+          "betreiber-des-sektors-lis-lugano-istituti-sociali-pregassona",
+          "operateurs-du-secteur-de-l-animation-lis-lugano-istituti-sociali-pregassona",
+          "betreiber-im-unterhaltungssektor-lis-lugano-istituti-sociali-pregassona",
+          "operateurs-du-secteur-du-divertissement-lis-lugano-istituti-sociali-pregassona"
+        ]
+      }
     },
     {
       "title": "Fisioterapisti / Ergoterapisti",
@@ -705,7 +910,49 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "id": "lis-lugano-istituti-sociali-7642ecdf144c"
+      "id": "lis-lugano-istituti-sociali-7642ecdf144c",
+      "previousSlugsByLocale": {
+        "it": [
+          "fisioterapisti-ergoterapisti-lis-lugano-istituti-sociali-pregassona-qdaggp",
+          "physiotherapists-ergotherapists-lis-lugano-istituti-sociali-pregassona",
+          "physiotherapeutes-ergotherapeutes-lis-lugano-istituti-sociali-pregassona",
+          "physiotherapeuten-ergotherapisten-lis-lugano-istituti-sociali-pregassona",
+          "fisioterapisti-ergoterapisti-lis-lugano-istituti-sociali-pregassona",
+          "physiotherapists-occupational-therapists-lis-lugano-istituti-sociali-pregassona",
+          "kinesitherapeutes-ergotherapeutes-lis-lugano-istituti-sociali-pregassona",
+          "fisioterapisti-ergoterapisti"
+        ],
+        "en": [
+          "fisioterapisti-ergoterapisti-lis-lugano-istituti-sociali-pregassona-qdaggp",
+          "physiotherapists-ergotherapists-lis-lugano-istituti-sociali-pregassona",
+          "physiotherapeutes-ergotherapeutes-lis-lugano-istituti-sociali-pregassona",
+          "physiotherapeuten-ergotherapisten-lis-lugano-istituti-sociali-pregassona",
+          "fisioterapisti-ergoterapisti-lis-lugano-istituti-sociali-pregassona",
+          "physiotherapists-occupational-therapists-lis-lugano-istituti-sociali-pregassona",
+          "kinesitherapeutes-ergotherapeutes-lis-lugano-istituti-sociali-pregassona",
+          "fisioterapisti-ergoterapisti"
+        ],
+        "de": [
+          "fisioterapisti-ergoterapisti-lis-lugano-istituti-sociali-pregassona-qdaggp",
+          "physiotherapists-ergotherapists-lis-lugano-istituti-sociali-pregassona",
+          "physiotherapeutes-ergotherapeutes-lis-lugano-istituti-sociali-pregassona",
+          "physiotherapeuten-ergotherapisten-lis-lugano-istituti-sociali-pregassona",
+          "fisioterapisti-ergoterapisti-lis-lugano-istituti-sociali-pregassona",
+          "physiotherapists-occupational-therapists-lis-lugano-istituti-sociali-pregassona",
+          "kinesitherapeutes-ergotherapeutes-lis-lugano-istituti-sociali-pregassona",
+          "fisioterapisti-ergoterapisti"
+        ],
+        "fr": [
+          "fisioterapisti-ergoterapisti-lis-lugano-istituti-sociali-pregassona-qdaggp",
+          "physiotherapists-ergotherapists-lis-lugano-istituti-sociali-pregassona",
+          "physiotherapeutes-ergotherapeutes-lis-lugano-istituti-sociali-pregassona",
+          "physiotherapeuten-ergotherapisten-lis-lugano-istituti-sociali-pregassona",
+          "fisioterapisti-ergoterapisti-lis-lugano-istituti-sociali-pregassona",
+          "physiotherapists-occupational-therapists-lis-lugano-istituti-sociali-pregassona",
+          "kinesitherapeutes-ergotherapeutes-lis-lugano-istituti-sociali-pregassona",
+          "fisioterapisti-ergoterapisti"
+        ]
+      }
     },
     {
       "title": "Educatori sociali",
@@ -804,7 +1051,34 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "id": "lis-lugano-istituti-sociali-80dcd2586afe"
+      "id": "lis-lugano-istituti-sociali-80dcd2586afe",
+      "previousSlugsByLocale": {
+        "it": [
+          "educatori-sociali",
+          "educatori-sociali-lis-lugano-istituti-sociali-pregassona-mncghv",
+          "educatori-sociali-lis-lugano-istituti-sociali-pregassona",
+          "sozialpadagogik-lis-lugano-istituti-sociali-pregassona"
+        ],
+        "en": [
+          "educatori-sociali",
+          "educatori-sociali-lis-lugano-istituti-sociali-pregassona-mncghv",
+          "educatori-sociali-lis-lugano-istituti-sociali-pregassona",
+          "sozialpadagogik-lis-lugano-istituti-sociali-pregassona"
+        ],
+        "de": [
+          "educatori-sociali",
+          "educatori-sociali-lis-lugano-istituti-sociali-pregassona-mncghv",
+          "educatori-sociali-lis-lugano-istituti-sociali-pregassona",
+          "sozialpadagogik-lis-lugano-istituti-sociali-pregassona"
+        ],
+        "fr": [
+          "educatori-sociali",
+          "educatori-sociali-lis-lugano-istituti-sociali-pregassona-mncghv",
+          "educatori-sociali-lis-lugano-istituti-sociali-pregassona",
+          "sozialpadagogik-lis-lugano-istituti-sociali-pregassona",
+          "les-educateurs-sociaux-lis-lugano-istituti-sociali-pregassona"
+        ]
+      }
     },
     {
       "title": "Operatori socioassistenziali (infanza)",
@@ -881,12 +1155,12 @@
         "operatori-socioassistenziali-infanza-lis-lugano-istituti-sociali-pregassona",
         "social-workers-in-fact-lis-lugano-istituti-sociali-pregassona",
         "social-care-workers-infanza-lis-lugano-istituti-sociali-pregassona",
-        "sozialarbeiter-in-der-tat-lis-lugano-istituti-sociali-pregassona",
         "travailleurs-sociaux-en-fait-lis-lugano-istituti-sociali-pregassona",
         "sozialarbeiter-infanza-lis-lugano-istituti-sociali-pregassona",
         "travailleurs-sociaux-infanza-lis-lugano-istituti-sociali-pregassona",
         "operatori-socioassistenziali-infanza",
-        "operateurs-socio-assistanciels-enfance-lis-lugano-istituti-sociali-pregassona"
+        "operateurs-socio-assistanciels-enfance-lis-lugano-istituti-sociali-pregassona",
+        "sozialarbeiter-in-der-tat-lis-lugano-istituti-sociali-pregassona"
       ],
       "currency": "CHF",
       "baseSalary": {
@@ -911,7 +1185,54 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "id": "lis-lugano-istituti-sociali-7296ba54869b"
+      "id": "lis-lugano-istituti-sociali-7296ba54869b",
+      "previousSlugsByLocale": {
+        "it": [
+          "operatori-socioassistenziali-infanza-lis-lugano-istituti-sociali-pregassona-5xg3s1",
+          "operatori-socioassistenziali-infanza-lis-lugano-istituti-sociali-pregassona",
+          "social-workers-in-fact-lis-lugano-istituti-sociali-pregassona",
+          "social-care-workers-infanza-lis-lugano-istituti-sociali-pregassona",
+          "travailleurs-sociaux-en-fait-lis-lugano-istituti-sociali-pregassona",
+          "sozialarbeiter-infanza-lis-lugano-istituti-sociali-pregassona",
+          "travailleurs-sociaux-infanza-lis-lugano-istituti-sociali-pregassona",
+          "operatori-socioassistenziali-infanza",
+          "operateurs-socio-assistanciels-enfance-lis-lugano-istituti-sociali-pregassona"
+        ],
+        "en": [
+          "operatori-socioassistenziali-infanza-lis-lugano-istituti-sociali-pregassona-5xg3s1",
+          "operatori-socioassistenziali-infanza-lis-lugano-istituti-sociali-pregassona",
+          "social-workers-in-fact-lis-lugano-istituti-sociali-pregassona",
+          "social-care-workers-infanza-lis-lugano-istituti-sociali-pregassona",
+          "travailleurs-sociaux-en-fait-lis-lugano-istituti-sociali-pregassona",
+          "sozialarbeiter-infanza-lis-lugano-istituti-sociali-pregassona",
+          "travailleurs-sociaux-infanza-lis-lugano-istituti-sociali-pregassona",
+          "operatori-socioassistenziali-infanza",
+          "operateurs-socio-assistanciels-enfance-lis-lugano-istituti-sociali-pregassona"
+        ],
+        "de": [
+          "operatori-socioassistenziali-infanza-lis-lugano-istituti-sociali-pregassona-5xg3s1",
+          "operatori-socioassistenziali-infanza-lis-lugano-istituti-sociali-pregassona",
+          "social-workers-in-fact-lis-lugano-istituti-sociali-pregassona",
+          "social-care-workers-infanza-lis-lugano-istituti-sociali-pregassona",
+          "sozialarbeiter-in-der-tat-lis-lugano-istituti-sociali-pregassona",
+          "travailleurs-sociaux-en-fait-lis-lugano-istituti-sociali-pregassona",
+          "sozialarbeiter-infanza-lis-lugano-istituti-sociali-pregassona",
+          "travailleurs-sociaux-infanza-lis-lugano-istituti-sociali-pregassona",
+          "operatori-socioassistenziali-infanza",
+          "operateurs-socio-assistanciels-enfance-lis-lugano-istituti-sociali-pregassona"
+        ],
+        "fr": [
+          "operatori-socioassistenziali-infanza-lis-lugano-istituti-sociali-pregassona-5xg3s1",
+          "operatori-socioassistenziali-infanza-lis-lugano-istituti-sociali-pregassona",
+          "social-workers-in-fact-lis-lugano-istituti-sociali-pregassona",
+          "social-care-workers-infanza-lis-lugano-istituti-sociali-pregassona",
+          "travailleurs-sociaux-en-fait-lis-lugano-istituti-sociali-pregassona",
+          "sozialarbeiter-infanza-lis-lugano-istituti-sociali-pregassona",
+          "travailleurs-sociaux-infanza-lis-lugano-istituti-sociali-pregassona",
+          "operatori-socioassistenziali-infanza",
+          "operateurs-socio-assistanciels-enfance-lis-lugano-istituti-sociali-pregassona"
+        ]
+      }
     },
     {
       "title": "Educatori dell'infanzia",
@@ -960,11 +1281,11 @@
         "educatori-dell-infanzia-lis-lugano-istituti-sociali-pregassona-arxo48",
         "childhood-educators-lis-lugano-istituti-sociali-pregassona",
         "educatori-dell-infanzia-lis-lugano-istituti-sociali-pregassona",
-        "bildung-von-kindern-lis-lugano-istituti-sociali-pregassona",
         "early-childhood-educators-lis-lugano-istituti-sociali-pregassona",
         "educateurs-d-enfants-lis-lugano-istituti-sociali-pregassona",
         "fruhkindliche-padagogen-lis-lugano-istituti-sociali-pregassona",
-        "educateurs-de-la-petite-enfance-lis-lugano-istituti-sociali-pregassona"
+        "educateurs-de-la-petite-enfance-lis-lugano-istituti-sociali-pregassona",
+        "bildung-von-kindern-lis-lugano-istituti-sociali-pregassona"
       ],
       "currency": "CHF",
       "baseSalary": {
@@ -989,7 +1310,50 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "id": "lis-lugano-istituti-sociali-a24dc6ee20f4"
+      "id": "lis-lugano-istituti-sociali-a24dc6ee20f4",
+      "previousSlugsByLocale": {
+        "it": [
+          "educatori-dell-infanzia",
+          "educatori-dell-infanzia-lis-lugano-istituti-sociali-pregassona-arxo48",
+          "childhood-educators-lis-lugano-istituti-sociali-pregassona",
+          "educatori-dell-infanzia-lis-lugano-istituti-sociali-pregassona",
+          "early-childhood-educators-lis-lugano-istituti-sociali-pregassona",
+          "educateurs-d-enfants-lis-lugano-istituti-sociali-pregassona",
+          "fruhkindliche-padagogen-lis-lugano-istituti-sociali-pregassona",
+          "educateurs-de-la-petite-enfance-lis-lugano-istituti-sociali-pregassona"
+        ],
+        "en": [
+          "educatori-dell-infanzia",
+          "educatori-dell-infanzia-lis-lugano-istituti-sociali-pregassona-arxo48",
+          "childhood-educators-lis-lugano-istituti-sociali-pregassona",
+          "educatori-dell-infanzia-lis-lugano-istituti-sociali-pregassona",
+          "early-childhood-educators-lis-lugano-istituti-sociali-pregassona",
+          "educateurs-d-enfants-lis-lugano-istituti-sociali-pregassona",
+          "fruhkindliche-padagogen-lis-lugano-istituti-sociali-pregassona",
+          "educateurs-de-la-petite-enfance-lis-lugano-istituti-sociali-pregassona"
+        ],
+        "de": [
+          "educatori-dell-infanzia",
+          "educatori-dell-infanzia-lis-lugano-istituti-sociali-pregassona-arxo48",
+          "childhood-educators-lis-lugano-istituti-sociali-pregassona",
+          "educatori-dell-infanzia-lis-lugano-istituti-sociali-pregassona",
+          "bildung-von-kindern-lis-lugano-istituti-sociali-pregassona",
+          "early-childhood-educators-lis-lugano-istituti-sociali-pregassona",
+          "educateurs-d-enfants-lis-lugano-istituti-sociali-pregassona",
+          "fruhkindliche-padagogen-lis-lugano-istituti-sociali-pregassona",
+          "educateurs-de-la-petite-enfance-lis-lugano-istituti-sociali-pregassona"
+        ],
+        "fr": [
+          "educatori-dell-infanzia",
+          "educatori-dell-infanzia-lis-lugano-istituti-sociali-pregassona-arxo48",
+          "childhood-educators-lis-lugano-istituti-sociali-pregassona",
+          "educatori-dell-infanzia-lis-lugano-istituti-sociali-pregassona",
+          "early-childhood-educators-lis-lugano-istituti-sociali-pregassona",
+          "educateurs-d-enfants-lis-lugano-istituti-sociali-pregassona",
+          "fruhkindliche-padagogen-lis-lugano-istituti-sociali-pregassona",
+          "educateurs-de-la-petite-enfance-lis-lugano-istituti-sociali-pregassona"
+        ]
+      }
     },
     {
       "title": "Capisquadra - chef di cucina",
@@ -1088,7 +1452,28 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "id": "lis-lugano-istituti-sociali-c3e0b152a64d"
+      "id": "lis-lugano-istituti-sociali-c3e0b152a64d",
+      "previousSlugsByLocale": {
+        "fr": [
+          "capisquadra-chef-di-cucina",
+          "capisquadra-chef-di-cucina-lis-lugano-istituti-sociali-pregassona-0rvbn5",
+          "team-leaders-kitchen-chef-lis-lugano-istituti-sociali-pregassona",
+          "capisquadra-chef-di-cucina-lis-lugano-istituti-sociali-pregassona",
+          "teamleiter-kuchenkoch-lis-lugano-istituti-sociali-pregassona"
+        ],
+        "it": [
+          "team-leaders-kitchen-chef-lis-lugano-istituti-sociali-pregassona",
+          "teamleiter-kuchenkoch-lis-lugano-istituti-sociali-pregassona"
+        ],
+        "en": [
+          "team-leaders-kitchen-chef-lis-lugano-istituti-sociali-pregassona",
+          "teamleiter-kuchenkoch-lis-lugano-istituti-sociali-pregassona"
+        ],
+        "de": [
+          "team-leaders-kitchen-chef-lis-lugano-istituti-sociali-pregassona",
+          "teamleiter-kuchenkoch-lis-lugano-istituti-sociali-pregassona"
+        ]
+      }
     },
     {
       "title": "Cuochi",
@@ -1181,7 +1566,25 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "id": "lis-lugano-istituti-sociali-8b7fd953ec8f"
+      "id": "lis-lugano-istituti-sociali-8b7fd953ec8f",
+      "previousSlugsByLocale": {
+        "it": [
+          "cuochi",
+          "cuochi-lis-lugano-istituti-sociali-pregassona"
+        ],
+        "en": [
+          "cuochi",
+          "cuochi-lis-lugano-istituti-sociali-pregassona"
+        ],
+        "de": [
+          "cuochi",
+          "cuochi-lis-lugano-istituti-sociali-pregassona"
+        ],
+        "fr": [
+          "cuochi",
+          "cuochi-lis-lugano-istituti-sociali-pregassona"
+        ]
+      }
     },
     {
       "title": "Addetti servizi alla casa",
@@ -1279,14 +1682,47 @@
       "previousSlugs": [
         "additions-to-the-house-lis-lugano-istituti-sociali-pregassona",
         "addetti-servizi-alla-casa-lis-lugano-istituti-sociali-pregassona",
-        "erganzungen-zum-haus-lis-lugano-istituti-sociali-pregassona",
         "ajouts-a-la-maison-lis-lugano-istituti-sociali-pregassona",
         "household-service-workers-lis-lugano-istituti-sociali-pregassona",
         "haushaltsdienstmitarbeiter-lis-lugano-istituti-sociali-pregassona",
-        "travailleurs-des-services-menagers-lis-lugano-istituti-sociali-pregassona",
-        "agent-de-services-domestiques-lis-lugano-istituti-sociali-pregassona"
+        "agent-de-services-domestiques-lis-lugano-istituti-sociali-pregassona",
+        "erganzungen-zum-haus-lis-lugano-istituti-sociali-pregassona",
+        "travailleurs-des-services-menagers-lis-lugano-istituti-sociali-pregassona"
       ],
-      "id": "lis-lugano-istituti-sociali-728912efd55d"
+      "id": "lis-lugano-istituti-sociali-728912efd55d",
+      "previousSlugsByLocale": {
+        "en": [
+          "additions-to-the-house-lis-lugano-istituti-sociali-pregassona",
+          "addetti-servizi-alla-casa-lis-lugano-istituti-sociali-pregassona",
+          "ajouts-a-la-maison-lis-lugano-istituti-sociali-pregassona",
+          "household-service-workers-lis-lugano-istituti-sociali-pregassona",
+          "haushaltsdienstmitarbeiter-lis-lugano-istituti-sociali-pregassona",
+          "agent-de-services-domestiques-lis-lugano-istituti-sociali-pregassona"
+        ],
+        "it": [
+          "addetti-servizi-alla-casa-lis-lugano-istituti-sociali-pregassona",
+          "ajouts-a-la-maison-lis-lugano-istituti-sociali-pregassona",
+          "household-service-workers-lis-lugano-istituti-sociali-pregassona",
+          "haushaltsdienstmitarbeiter-lis-lugano-istituti-sociali-pregassona",
+          "agent-de-services-domestiques-lis-lugano-istituti-sociali-pregassona"
+        ],
+        "de": [
+          "addetti-servizi-alla-casa-lis-lugano-istituti-sociali-pregassona",
+          "erganzungen-zum-haus-lis-lugano-istituti-sociali-pregassona",
+          "ajouts-a-la-maison-lis-lugano-istituti-sociali-pregassona",
+          "household-service-workers-lis-lugano-istituti-sociali-pregassona",
+          "haushaltsdienstmitarbeiter-lis-lugano-istituti-sociali-pregassona",
+          "agent-de-services-domestiques-lis-lugano-istituti-sociali-pregassona"
+        ],
+        "fr": [
+          "addetti-servizi-alla-casa-lis-lugano-istituti-sociali-pregassona",
+          "ajouts-a-la-maison-lis-lugano-istituti-sociali-pregassona",
+          "household-service-workers-lis-lugano-istituti-sociali-pregassona",
+          "haushaltsdienstmitarbeiter-lis-lugano-istituti-sociali-pregassona",
+          "travailleurs-des-services-menagers-lis-lugano-istituti-sociali-pregassona",
+          "agent-de-services-domestiques-lis-lugano-istituti-sociali-pregassona"
+        ]
+      }
     }
   ]
 }

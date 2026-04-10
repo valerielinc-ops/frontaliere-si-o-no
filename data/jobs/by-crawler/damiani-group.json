@@ -61,7 +61,21 @@
       "previousSlugs": [
         "specialiste-tresorerie-damiani-group-mendrisio"
       ],
-      "id": "damiani-group-90e45aa75e37"
+      "id": "damiani-group-90e45aa75e37",
+      "previousSlugsByLocale": {
+        "it": [
+          "specialiste-tresorerie-damiani-group-mendrisio"
+        ],
+        "en": [
+          "specialiste-tresorerie-damiani-group-mendrisio"
+        ],
+        "de": [
+          "specialiste-tresorerie-damiani-group-mendrisio"
+        ],
+        "fr": [
+          "specialiste-tresorerie-damiani-group-mendrisio"
+        ]
+      }
     },
     {
       "title": "Specialista Customer Service - lingua araba o russa",
@@ -124,7 +138,16 @@
       },
       "streetAddress": "Via Penate 12",
       "postalCode": "6850",
-      "id": "damiani-group-2fbffcd3e777"
+      "id": "damiani-group-2fbffcd3e777",
+      "previousSlugsByLocale": {
+        "en": [
+          "customer-service-specialist-arabic-or-russian-speaking-damiani-group-mendrisio"
+        ],
+        "it": [
+          "specialista-service-client-lingua-araba-o-russa-damiani-group-mendrisio-fstjwv",
+          "specialista-kundendienst-lingua-araba-o-russa-damiani-group-mendrisio-fstjwv"
+        ]
+      }
     },
     {
       "title": "Brand Marketing Specialist",
@@ -185,7 +208,12 @@
       },
       "streetAddress": "Via Penate 12",
       "postalCode": "6850",
-      "id": "damiani-group-3f6de5e746fe"
+      "id": "damiani-group-3f6de5e746fe",
+      "previousSlugsByLocale": {
+        "en": [
+          "brand-marketing-specialiste-damiani-group-mendrisio"
+        ]
+      }
     },
     {
       "title": "Sales Assistant",
@@ -232,7 +260,6 @@
         "sales-assistent-damiani-group-serravalle-scrivia",
         "assistant-commercial-damiani-group-serravalle-scrivia-2sd2ck",
         "sales-assistant-damiani-group-serravalle-scrivia-2sd2ck",
-        "sales-assistant-damiani-group-serravalle-scrivia-2sd2ck",
         "assistante-commerciale-damiani-group-serravalle-scrivia"
       ],
       "salaryMin": 54000,
@@ -250,7 +277,33 @@
       },
       "streetAddress": "Via Penate 12",
       "postalCode": "6850",
-      "id": "damiani-group-1e3bfdd1100f"
+      "id": "damiani-group-1e3bfdd1100f",
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-assistent-damiani-group-serravalle-scrivia",
+          "assistant-commercial-damiani-group-serravalle-scrivia-2sd2ck",
+          "sales-assistant-damiani-group-serravalle-scrivia-2sd2ck",
+          "assistante-commerciale-damiani-group-serravalle-scrivia"
+        ],
+        "en": [
+          "sales-assistent-damiani-group-serravalle-scrivia",
+          "assistant-commercial-damiani-group-serravalle-scrivia-2sd2ck",
+          "sales-assistant-damiani-group-serravalle-scrivia-2sd2ck",
+          "assistante-commerciale-damiani-group-serravalle-scrivia"
+        ],
+        "de": [
+          "sales-assistent-damiani-group-serravalle-scrivia",
+          "assistant-commercial-damiani-group-serravalle-scrivia-2sd2ck",
+          "sales-assistant-damiani-group-serravalle-scrivia-2sd2ck",
+          "assistante-commerciale-damiani-group-serravalle-scrivia"
+        ],
+        "fr": [
+          "sales-assistent-damiani-group-serravalle-scrivia",
+          "assistant-commercial-damiani-group-serravalle-scrivia-2sd2ck",
+          "sales-assistant-damiani-group-serravalle-scrivia-2sd2ck",
+          "assistante-commerciale-damiani-group-serravalle-scrivia"
+        ]
+      }
     },
     {
       "title": "IT Business Intelligence Developer (Microsoft Ecosystem)",
@@ -312,7 +365,25 @@
       },
       "streetAddress": "Via Penate 12",
       "postalCode": "6850",
-      "id": "damiani-group-57aabbd0ac2b"
+      "id": "damiani-group-57aabbd0ac2b",
+      "previousSlugsByLocale": {
+        "it": [
+          "it-business-intelligence-entwickler-microsoft-ecosystem-damiani-group-mendrisio",
+          "it-business-intelligence-developpeur-microsoft-ecosystem-damiani-group-mendrisio"
+        ],
+        "en": [
+          "it-business-intelligence-entwickler-microsoft-ecosystem-damiani-group-mendrisio",
+          "it-business-intelligence-developpeur-microsoft-ecosystem-damiani-group-mendrisio"
+        ],
+        "de": [
+          "it-business-intelligence-entwickler-microsoft-ecosystem-damiani-group-mendrisio",
+          "it-business-intelligence-developpeur-microsoft-ecosystem-damiani-group-mendrisio"
+        ],
+        "fr": [
+          "it-business-intelligence-entwickler-microsoft-ecosystem-damiani-group-mendrisio",
+          "it-business-intelligence-developpeur-microsoft-ecosystem-damiani-group-mendrisio"
+        ]
+      }
     }
   ]
 }

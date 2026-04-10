@@ -101,7 +101,7 @@
  *     titleByLocale.{otherLocale}
  *     descriptionByLocale.{otherLocale}
  *     slugByLocale.{otherLocale}
- *     previousSlugs
+ *     previousSlugs / previousSlugsByLocale
  *     needsRetranslation
  *     qualityScore
  */

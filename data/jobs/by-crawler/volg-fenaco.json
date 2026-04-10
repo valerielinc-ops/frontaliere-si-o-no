@@ -122,7 +122,21 @@
       "previousSlugs": [
         "vendeur-vendeuse-h-f-d-volg-vals-shyscx"
       ],
-      "id": "volg-fenaco-81f4b6e75871"
+      "id": "volg-fenaco-81f4b6e75871",
+      "previousSlugsByLocale": {
+        "it": [
+          "vendeur-vendeuse-h-f-d-volg-vals-shyscx"
+        ],
+        "en": [
+          "vendeur-vendeuse-h-f-d-volg-vals-shyscx"
+        ],
+        "de": [
+          "vendeur-vendeuse-h-f-d-volg-vals-shyscx"
+        ],
+        "fr": [
+          "vendeur-vendeuse-h-f-d-volg-vals-shyscx"
+        ]
+      }
     },
     {
       "title": "Verkäuferin / Verkäufer (m/w/d)",
@@ -184,7 +198,21 @@
       "previousSlugs": [
         "vendeur-vendeuse-h-f-d-volg-tenna-gr-wzmyhj"
       ],
-      "id": "volg-fenaco-bb8cb82c3c63"
+      "id": "volg-fenaco-bb8cb82c3c63",
+      "previousSlugsByLocale": {
+        "it": [
+          "vendeur-vendeuse-h-f-d-volg-tenna-gr-wzmyhj"
+        ],
+        "en": [
+          "vendeur-vendeuse-h-f-d-volg-tenna-gr-wzmyhj"
+        ],
+        "de": [
+          "vendeur-vendeuse-h-f-d-volg-tenna-gr-wzmyhj"
+        ],
+        "fr": [
+          "vendeur-vendeuse-h-f-d-volg-tenna-gr-wzmyhj"
+        ]
+      }
     },
     {
       "title": "Verkäuferin / Verkäufer (m/w/d)",
@@ -246,7 +274,21 @@
       "previousSlugs": [
         "vendeur-vendeuse-h-f-volg-nufenen-bdxlo0"
       ],
-      "id": "volg-fenaco-a5586d7427c5"
+      "id": "volg-fenaco-a5586d7427c5",
+      "previousSlugsByLocale": {
+        "it": [
+          "vendeur-vendeuse-h-f-volg-nufenen-bdxlo0"
+        ],
+        "en": [
+          "vendeur-vendeuse-h-f-volg-nufenen-bdxlo0"
+        ],
+        "de": [
+          "vendeur-vendeuse-h-f-volg-nufenen-bdxlo0"
+        ],
+        "fr": [
+          "vendeur-vendeuse-h-f-volg-nufenen-bdxlo0"
+        ]
+      }
     },
     {
       "title": "Stellvertretende Ladenleitung (m/w/d)",
@@ -308,7 +350,12 @@
       "previousSlugs": [
         "deputy-store-manager-m-f-d-volg-laax-signina-fthcw6"
       ],
-      "id": "volg-fenaco-51a5b8d7b459"
+      "id": "volg-fenaco-51a5b8d7b459",
+      "previousSlugsByLocale": {
+        "en": [
+          "deputy-store-manager-m-f-d-volg-laax-signina-fthcw6"
+        ]
+      }
     },
     {
       "title": "Ladenleitung (m/w/d)",
@@ -370,7 +417,12 @@
       "previousSlugs": [
         "store-manager-m-f-d-volg-andeer-05w8q3"
       ],
-      "id": "volg-fenaco-63fe4aa4864a"
+      "id": "volg-fenaco-63fe4aa4864a",
+      "previousSlugsByLocale": {
+        "en": [
+          "store-manager-m-f-d-volg-andeer-05w8q3"
+        ]
+      }
     },
     {
       "title": "Betriebsmitarbeiterin / Betriebsmitarbeiter für Sonn-und Feiertage 15 % (w/m/d)",
@@ -434,7 +486,18 @@
         "employe-e-d-exploitation-pour-dimanches-et-jours-feries-15-w-m-d-volg-landquart",
         "operations-worker-for-sundays-and-public-holidays-15-w-m-d-volg-landquart"
       ],
-      "id": "volg-fenaco-c24e1b5dc58c"
+      "id": "volg-fenaco-c24e1b5dc58c",
+      "previousSlugsByLocale": {
+        "it": [
+          "betriebsmitarbeiterin-betriebsmitarbeiter-per-sonn-e-feiertage-15-w-m-d-volg-landquart"
+        ],
+        "fr": [
+          "employe-e-d-exploitation-pour-dimanches-et-jours-feries-15-w-m-d-volg-landquart"
+        ],
+        "en": [
+          "operations-worker-for-sundays-and-public-holidays-15-w-m-d-volg-landquart"
+        ]
+      }
     },
     {
       "title": "Betriebsmitarbeitende (w/m/d) für die Getränkeabteilung als Sommeraushilfe",
@@ -496,7 +559,12 @@
       "previousSlugs": [
         "betriebsmitarbeitende-w-m-d-per-la-getrankeabteilung-come-sommeraushilfe-volg-landquart"
       ],
-      "id": "volg-fenaco-99fb10891884"
+      "id": "volg-fenaco-99fb10891884",
+      "previousSlugsByLocale": {
+        "it": [
+          "betriebsmitarbeitende-w-m-d-per-la-getrankeabteilung-come-sommeraushilfe-volg-landquart"
+        ]
+      }
     },
     {
       "title": "Stellvertretende Ladenleitung (m/w/d)",
@@ -555,8 +623,7 @@
           "unitText": "YEAR"
         }
       },
-      "id": "volg-fenaco-9801f6cb3849",
-      "previousSlugs": []
+      "id": "volg-fenaco-9801f6cb3849"
     },
     {
       "title": "Stellvertretende Ladenleitung (m/w/d)",
@@ -615,8 +682,7 @@
           "unitText": "YEAR"
         }
       },
-      "id": "volg-fenaco-965d1b085848",
-      "previousSlugs": []
+      "id": "volg-fenaco-965d1b085848"
     },
     {
       "title": "Chauffeuse / Chauffeur Kat. C (Ablöser Samstagseinsatz) (w/m/d)",
@@ -675,8 +741,7 @@
           "unitText": "YEAR"
         }
       },
-      "id": "volg-fenaco-1af50c44f637",
-      "previousSlugs": []
+      "id": "volg-fenaco-1af50c44f637"
     },
     {
       "title": "Lehrstelle als Detailhandelsfachfrau / Detailhandelsfachmann EFZ (w/m/d)",
@@ -742,7 +807,31 @@
         "apprendistato-come-detailhandelsfachfrau-detailhandelsfachmann-cfc-w-m-d-landi-graubunden-ag-chur",
         "apprendistato-nella-vendita-al-dettaglio-afc-w-m-d-volg-fenaco-chur"
       ],
-      "id": "volg-fenaco-45ecfd02361a"
+      "id": "volg-fenaco-45ecfd02361a",
+      "previousSlugsByLocale": {
+        "en": [
+          "apprenticeship-as-retail-specialist-efz-m-f-landi-graubunden-ag-chur-kncbgw",
+          "stage-en-tant-que-specialiste-du-commerce-de-detail-efz-h-f-landi-graubunden-ag-chur-kncbgw",
+          "lehrstelle-in-vendita-al-dettaglio-efz-w-m-d-landi-graubunden-ag-chur",
+          "apprendistato-come-detailhandelsfachfrau-detailhandelsfachmann-cfc-w-m-d-landi-graubunden-ag-chur"
+        ],
+        "it": [
+          "stage-en-tant-que-specialiste-du-commerce-de-detail-efz-h-f-landi-graubunden-ag-chur-kncbgw",
+          "lehrstelle-in-vendita-al-dettaglio-efz-w-m-d-landi-graubunden-ag-chur",
+          "apprendistato-come-detailhandelsfachfrau-detailhandelsfachmann-cfc-w-m-d-landi-graubunden-ag-chur",
+          "apprendistato-nella-vendita-al-dettaglio-afc-w-m-d-volg-fenaco-chur"
+        ],
+        "de": [
+          "stage-en-tant-que-specialiste-du-commerce-de-detail-efz-h-f-landi-graubunden-ag-chur-kncbgw",
+          "lehrstelle-in-vendita-al-dettaglio-efz-w-m-d-landi-graubunden-ag-chur",
+          "apprendistato-come-detailhandelsfachfrau-detailhandelsfachmann-cfc-w-m-d-landi-graubunden-ag-chur"
+        ],
+        "fr": [
+          "stage-en-tant-que-specialiste-du-commerce-de-detail-efz-h-f-landi-graubunden-ag-chur-kncbgw",
+          "lehrstelle-in-vendita-al-dettaglio-efz-w-m-d-landi-graubunden-ag-chur",
+          "apprendistato-come-detailhandelsfachfrau-detailhandelsfachmann-cfc-w-m-d-landi-graubunden-ag-chur"
+        ]
+      }
     },
     {
       "title": "Lehrstelle als Detailhandelsfachfrau / Detailhandelsfachmann EFZ (w/m/d)",
@@ -809,7 +898,35 @@
         "apprendistato-come-addetta-addetto-al-commercio-al-dettaglio-afc-w-m-d-volg-fenaco-thusis",
         "lehrstelle-als-detailhandelsfachfrau-detailhandelsfachmann-efz-w-m-d-landi-graubunden-ag-t"
       ],
-      "id": "volg-fenaco-f555a5dfdc6a"
+      "id": "volg-fenaco-f555a5dfdc6a",
+      "previousSlugsByLocale": {
+        "en": [
+          "apprenticeship-as-retail-specialist-efz-m-f-landi-graubunden-ag-thusis-xhqtq0",
+          "lehrstelle-detailhandelsfachfrau-detialhandelsfachmann-efz-w-m-d-landi-graubunden-ag-thusis",
+          "retail-sales-assistant-efz-w-m-d-apprenticeship-landi-graubunden-ag-landquart",
+          "apprendistato-come-detailhandelsfachfrau-detailhandelsfachmann-cfc-w-m-d-landi-graubunden-ag-thusis",
+          "apprendistato-come-addetta-addetto-al-commercio-al-dettaglio-afc-w-m-d-volg-fenaco-thusis"
+        ],
+        "it": [
+          "lehrstelle-detailhandelsfachfrau-detialhandelsfachmann-efz-w-m-d-landi-graubunden-ag-thusis",
+          "retail-sales-assistant-efz-w-m-d-apprenticeship-landi-graubunden-ag-landquart",
+          "apprendistato-come-detailhandelsfachfrau-detailhandelsfachmann-cfc-w-m-d-landi-graubunden-ag-thusis",
+          "apprendistato-come-addetta-addetto-al-commercio-al-dettaglio-afc-w-m-d-volg-fenaco-thusis"
+        ],
+        "de": [
+          "lehrstelle-detailhandelsfachfrau-detialhandelsfachmann-efz-w-m-d-landi-graubunden-ag-thusis",
+          "retail-sales-assistant-efz-w-m-d-apprenticeship-landi-graubunden-ag-landquart",
+          "apprendistato-come-detailhandelsfachfrau-detailhandelsfachmann-cfc-w-m-d-landi-graubunden-ag-thusis",
+          "apprendistato-come-addetta-addetto-al-commercio-al-dettaglio-afc-w-m-d-volg-fenaco-thusis",
+          "lehrstelle-als-detailhandelsfachfrau-detailhandelsfachmann-efz-w-m-d-landi-graubunden-ag-t"
+        ],
+        "fr": [
+          "lehrstelle-detailhandelsfachfrau-detialhandelsfachmann-efz-w-m-d-landi-graubunden-ag-thusis",
+          "retail-sales-assistant-efz-w-m-d-apprenticeship-landi-graubunden-ag-landquart",
+          "apprendistato-come-detailhandelsfachfrau-detailhandelsfachmann-cfc-w-m-d-landi-graubunden-ag-thusis",
+          "apprendistato-come-addetta-addetto-al-commercio-al-dettaglio-afc-w-m-d-volg-fenaco-thusis"
+        ]
+      }
     },
     {
       "title": "Lehrstelle als Detailhandelsassistent/in EBA Lebensmittel",
@@ -875,7 +992,28 @@
         "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-pany",
         "apprendistato-come-assistente-del-commercio-al-dettaglio-afc-alimentari-volg-fenaco-pany"
       ],
-      "id": "volg-fenaco-8a3b0a4e02de"
+      "id": "volg-fenaco-8a3b0a4e02de",
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrstelle-in-dettaglio-assistente-a-eba-alimentari-volg-pany",
+          "retail-sales-assistant-trainee-eba-food-volg-pany",
+          "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-lenzerheide",
+          "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-pany",
+          "apprendistato-come-assistente-del-commercio-al-dettaglio-afc-alimentari-volg-fenaco-pany"
+        ],
+        "en": [
+          "lehrstelle-in-dettaglio-assistente-a-eba-alimentari-volg-pany",
+          "retail-sales-assistant-trainee-eba-food-volg-pany"
+        ],
+        "de": [
+          "lehrstelle-in-dettaglio-assistente-a-eba-alimentari-volg-pany",
+          "retail-sales-assistant-trainee-eba-food-volg-pany"
+        ],
+        "fr": [
+          "lehrstelle-in-dettaglio-assistente-a-eba-alimentari-volg-pany",
+          "retail-sales-assistant-trainee-eba-food-volg-pany"
+        ]
+      }
     },
     {
       "title": "Lehrstelle als Detailhandelsfachmann/-frau EFZ Lebensmittel",
@@ -941,7 +1079,37 @@
         "apprendistato-come-addetto-a-al-commercio-al-dettaglio-cfc-alimentari-volg-pany",
         "apprendistato-nel-commercio-al-dettaglio-afc-alimentari-volg-fenaco-pany"
       ],
-      "id": "volg-fenaco-4e38d0b633cd"
+      "id": "volg-fenaco-4e38d0b633cd",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprentissage-en-tant-que-vendeur-vendeuse-de-detail-efz-alimentation-volg-pany",
+          "lehrstelle-in-dettaglio-commercio-efz-alimentari-volg-pany",
+          "apprenticeship-as-retail-salesperson-efz-food-volg-pany",
+          "apprendistato-come-addetto-a-al-commercio-al-dettaglio-cfc-alimentari-volg-pany",
+          "apprendistato-nel-commercio-al-dettaglio-afc-alimentari-volg-fenaco-pany"
+        ],
+        "en": [
+          "apprentissage-en-tant-que-vendeur-vendeuse-de-detail-efz-alimentation-volg-pany",
+          "lehrstelle-in-dettaglio-commercio-efz-alimentari-volg-pany",
+          "apprenticeship-as-retail-salesperson-efz-food-volg-pany",
+          "apprendistato-come-addetto-a-al-commercio-al-dettaglio-cfc-alimentari-volg-pany",
+          "apprendistato-nel-commercio-al-dettaglio-afc-alimentari-volg-fenaco-pany"
+        ],
+        "de": [
+          "apprentissage-en-tant-que-vendeur-vendeuse-de-detail-efz-alimentation-volg-pany",
+          "lehrstelle-in-dettaglio-commercio-efz-alimentari-volg-pany",
+          "apprenticeship-as-retail-salesperson-efz-food-volg-pany",
+          "apprendistato-come-addetto-a-al-commercio-al-dettaglio-cfc-alimentari-volg-pany",
+          "apprendistato-nel-commercio-al-dettaglio-afc-alimentari-volg-fenaco-pany"
+        ],
+        "fr": [
+          "apprentissage-en-tant-que-vendeur-vendeuse-de-detail-efz-alimentation-volg-pany",
+          "lehrstelle-in-dettaglio-commercio-efz-alimentari-volg-pany",
+          "apprenticeship-as-retail-salesperson-efz-food-volg-pany",
+          "apprendistato-come-addetto-a-al-commercio-al-dettaglio-cfc-alimentari-volg-pany",
+          "apprendistato-nel-commercio-al-dettaglio-afc-alimentari-volg-fenaco-pany"
+        ]
+      }
     },
     {
       "title": "Chauffeuse / Chauffeur Kat. C (w/m/d)",
@@ -1007,7 +1175,37 @@
         "autista-cat-c-f-m-d-traveco-transporte-ag-landquart",
         "driver-cat-c-f-m-d-traveco-transporte-ag-landquart"
       ],
-      "id": "volg-fenaco-fa473ae8822a"
+      "id": "volg-fenaco-fa473ae8822a",
+      "previousSlugsByLocale": {
+        "it": [
+          "driver-category-c-m-f-d-traveco-transporte-ag-landquart-1o8389",
+          "chauffeur-categorie-c-h-f-d-traveco-transporte-ag-landquart-1o8389",
+          "autista-categoria-c-m-f-d-traveco-transporte-ag-landquart",
+          "autista-cat-c-f-m-d-traveco-transporte-ag-landquart",
+          "driver-cat-c-f-m-d-traveco-transporte-ag-landquart"
+        ],
+        "en": [
+          "driver-category-c-m-f-d-traveco-transporte-ag-landquart-1o8389",
+          "chauffeur-categorie-c-h-f-d-traveco-transporte-ag-landquart-1o8389",
+          "autista-categoria-c-m-f-d-traveco-transporte-ag-landquart",
+          "autista-cat-c-f-m-d-traveco-transporte-ag-landquart",
+          "driver-cat-c-f-m-d-traveco-transporte-ag-landquart"
+        ],
+        "de": [
+          "driver-category-c-m-f-d-traveco-transporte-ag-landquart-1o8389",
+          "chauffeur-categorie-c-h-f-d-traveco-transporte-ag-landquart-1o8389",
+          "autista-categoria-c-m-f-d-traveco-transporte-ag-landquart",
+          "autista-cat-c-f-m-d-traveco-transporte-ag-landquart",
+          "driver-cat-c-f-m-d-traveco-transporte-ag-landquart"
+        ],
+        "fr": [
+          "driver-category-c-m-f-d-traveco-transporte-ag-landquart-1o8389",
+          "chauffeur-categorie-c-h-f-d-traveco-transporte-ag-landquart-1o8389",
+          "autista-categoria-c-m-f-d-traveco-transporte-ag-landquart",
+          "autista-cat-c-f-m-d-traveco-transporte-ag-landquart",
+          "driver-cat-c-f-m-d-traveco-transporte-ag-landquart"
+        ]
+      }
     },
     {
       "title": "Lehrstelle als Detailhandelsfachfrau/mann EFZ Lebensmittel",
@@ -1070,7 +1268,22 @@
         "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-volg-disentis-muster",
         "apprenticeship-as-retail-specialist-efz-foodstuffs-volg-disentis-muster"
       ],
-      "id": "volg-fenaco-cca2e6651202"
+      "id": "volg-fenaco-cca2e6651202",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-volg-disentis-muster"
+        ],
+        "en": [
+          "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-volg-disentis-muster",
+          "apprenticeship-as-retail-specialist-efz-foodstuffs-volg-disentis-muster"
+        ],
+        "de": [
+          "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-volg-disentis-muster"
+        ],
+        "fr": [
+          "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-volg-disentis-muster"
+        ]
+      }
     },
     {
       "title": "Lehrstelle als Detailhandelsassistent/in EBA Lebensmittel",
@@ -1133,7 +1346,22 @@
         "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-disentis-muster",
         "apprenticeship-as-retail-assistant-eba-food-volg-disentis-muster"
       ],
-      "id": "volg-fenaco-fdef6ee495f5"
+      "id": "volg-fenaco-fdef6ee495f5",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-disentis-muster",
+          "apprenticeship-as-retail-assistant-eba-food-volg-disentis-muster"
+        ],
+        "en": [
+          "apprenticeship-as-retail-assistant-eba-food-volg-disentis-muster"
+        ],
+        "de": [
+          "apprenticeship-as-retail-assistant-eba-food-volg-disentis-muster"
+        ],
+        "fr": [
+          "apprenticeship-as-retail-assistant-eba-food-volg-disentis-muster"
+        ]
+      }
     },
     {
       "title": "Lehrstelle als Detailhandelsassistent/in EBA Lebensmittel",
@@ -1197,7 +1425,26 @@
         "apprenticeship-as-retail-assistant-eba-food-volg-vals",
         "apprentissage-d-assistant-de-commerce-de-detail-eba-produits-alimentaires-volg-vals"
       ],
-      "id": "volg-fenaco-2568fe5d2c1b"
+      "id": "volg-fenaco-2568fe5d2c1b",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-vals",
+          "apprenticeship-as-retail-assistant-eba-food-volg-vals",
+          "apprentissage-d-assistant-de-commerce-de-detail-eba-produits-alimentaires-volg-vals"
+        ],
+        "en": [
+          "apprenticeship-as-retail-assistant-eba-food-volg-vals",
+          "apprentissage-d-assistant-de-commerce-de-detail-eba-produits-alimentaires-volg-vals"
+        ],
+        "de": [
+          "apprenticeship-as-retail-assistant-eba-food-volg-vals",
+          "apprentissage-d-assistant-de-commerce-de-detail-eba-produits-alimentaires-volg-vals"
+        ],
+        "fr": [
+          "apprenticeship-as-retail-assistant-eba-food-volg-vals",
+          "apprentissage-d-assistant-de-commerce-de-detail-eba-produits-alimentaires-volg-vals"
+        ]
+      }
     },
     {
       "title": "Lehrstelle als Detailhandelsassistent/in EBA Lebensmittel",
@@ -1261,7 +1508,29 @@
         "lehrstelle-in-dettaglio-assistente-a-eba-alimentari-volg-sils-maria",
         "apprendistato-come-assistente-al-commercio-al-dettaglio-cfp-alimentari-volg-sils-maria"
       ],
-      "id": "volg-fenaco-53c70b0f6ce6"
+      "id": "volg-fenaco-53c70b0f6ce6",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenticeship-as-retail-assistant-eba-food-volg-sils-maria",
+          "lehrstelle-in-dettaglio-assistente-a-eba-alimentari-volg-sils-maria",
+          "apprendistato-come-assistente-al-commercio-al-dettaglio-cfp-alimentari-volg-sils-maria"
+        ],
+        "en": [
+          "apprenticeship-as-retail-assistant-eba-food-volg-sils-maria",
+          "lehrstelle-in-dettaglio-assistente-a-eba-alimentari-volg-sils-maria",
+          "apprendistato-come-assistente-al-commercio-al-dettaglio-cfp-alimentari-volg-sils-maria"
+        ],
+        "de": [
+          "apprenticeship-as-retail-assistant-eba-food-volg-sils-maria",
+          "lehrstelle-in-dettaglio-assistente-a-eba-alimentari-volg-sils-maria",
+          "apprendistato-come-assistente-al-commercio-al-dettaglio-cfp-alimentari-volg-sils-maria"
+        ],
+        "fr": [
+          "apprenticeship-as-retail-assistant-eba-food-volg-sils-maria",
+          "lehrstelle-in-dettaglio-assistente-a-eba-alimentari-volg-sils-maria",
+          "apprendistato-come-assistente-al-commercio-al-dettaglio-cfp-alimentari-volg-sils-maria"
+        ]
+      }
     },
     {
       "title": "Lehrstelle als Detailhandelsfachmann/-frau EFZ Lebensmittel",
@@ -1323,7 +1592,21 @@
       "previousSlugs": [
         "apprendistato-come-addetto-a-al-commercio-al-dettaglio-cfc-alimentari-volg-vals"
       ],
-      "id": "volg-fenaco-609184814b1a"
+      "id": "volg-fenaco-609184814b1a",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprendistato-come-addetto-a-al-commercio-al-dettaglio-cfc-alimentari-volg-vals"
+        ],
+        "en": [
+          "apprendistato-come-addetto-a-al-commercio-al-dettaglio-cfc-alimentari-volg-vals"
+        ],
+        "de": [
+          "apprendistato-come-addetto-a-al-commercio-al-dettaglio-cfc-alimentari-volg-vals"
+        ],
+        "fr": [
+          "apprendistato-come-addetto-a-al-commercio-al-dettaglio-cfc-alimentari-volg-vals"
+        ]
+      }
     },
     {
       "title": "Lehrstelle als Detailhandelsfachmann/-frau EFZ Lebensmittel",
@@ -1385,11 +1668,38 @@
       "previousSlugs": [
         "sales-assistant-efz-food-retail-volg-sils-maria",
         "lehrstelle-come-dettagliante-efz-alimentari-volg-sils-maria",
-        "poste-de-vente-efz-alimentation-volg-sils-maria",
         "apprendistato-come-addetto-a-al-commercio-al-dettaglio-cfc-alimentari-volg-sils-maria",
-        "apprendistato-come-addetto-al-commercio-al-dettaglio-afc-alimentari-volg-fenaco-sils-maria"
+        "apprendistato-come-addetto-al-commercio-al-dettaglio-afc-alimentari-volg-fenaco-sils-maria",
+        "poste-de-vente-efz-alimentation-volg-sils-maria"
       ],
-      "id": "volg-fenaco-faebe8367786"
+      "id": "volg-fenaco-faebe8367786",
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-assistant-efz-food-retail-volg-sils-maria",
+          "lehrstelle-come-dettagliante-efz-alimentari-volg-sils-maria",
+          "apprendistato-come-addetto-a-al-commercio-al-dettaglio-cfc-alimentari-volg-sils-maria",
+          "apprendistato-come-addetto-al-commercio-al-dettaglio-afc-alimentari-volg-fenaco-sils-maria"
+        ],
+        "en": [
+          "sales-assistant-efz-food-retail-volg-sils-maria",
+          "lehrstelle-come-dettagliante-efz-alimentari-volg-sils-maria",
+          "apprendistato-come-addetto-a-al-commercio-al-dettaglio-cfc-alimentari-volg-sils-maria",
+          "apprendistato-come-addetto-al-commercio-al-dettaglio-afc-alimentari-volg-fenaco-sils-maria"
+        ],
+        "de": [
+          "sales-assistant-efz-food-retail-volg-sils-maria",
+          "lehrstelle-come-dettagliante-efz-alimentari-volg-sils-maria",
+          "apprendistato-come-addetto-a-al-commercio-al-dettaglio-cfc-alimentari-volg-sils-maria",
+          "apprendistato-come-addetto-al-commercio-al-dettaglio-afc-alimentari-volg-fenaco-sils-maria"
+        ],
+        "fr": [
+          "sales-assistant-efz-food-retail-volg-sils-maria",
+          "lehrstelle-come-dettagliante-efz-alimentari-volg-sils-maria",
+          "poste-de-vente-efz-alimentation-volg-sils-maria",
+          "apprendistato-come-addetto-a-al-commercio-al-dettaglio-cfc-alimentari-volg-sils-maria",
+          "apprendistato-come-addetto-al-commercio-al-dettaglio-afc-alimentari-volg-fenaco-sils-maria"
+        ]
+      }
     },
     {
       "title": "Lehrstelle als Detailhandelsassistent/in EBA Lebensmittel",
@@ -1451,11 +1761,35 @@
       "previousSlugs": [
         "lehrstelle-in-dettaglio-nel-commercio-alimentare-volg-eggersriet-sg",
         "retail-sales-assistant-eba-food-position-volg-eggersriet-sg",
-        "poste-de-vente-en-detail-eba-alimentation-volg-eggersriet-sg",
         "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-eggersriet-sg",
-        "apprendistato-nel-commercio-al-dettaglio-alimentari-volg-fenaco-eggersriet-sg"
+        "apprendistato-nel-commercio-al-dettaglio-alimentari-volg-fenaco-eggersriet-sg",
+        "poste-de-vente-en-detail-eba-alimentation-volg-eggersriet-sg"
       ],
-      "id": "volg-fenaco-e81658123dc5"
+      "id": "volg-fenaco-e81658123dc5",
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrstelle-in-dettaglio-nel-commercio-alimentare-volg-eggersriet-sg",
+          "retail-sales-assistant-eba-food-position-volg-eggersriet-sg",
+          "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-eggersriet-sg",
+          "apprendistato-nel-commercio-al-dettaglio-alimentari-volg-fenaco-eggersriet-sg"
+        ],
+        "en": [
+          "lehrstelle-in-dettaglio-nel-commercio-alimentare-volg-eggersriet-sg",
+          "retail-sales-assistant-eba-food-position-volg-eggersriet-sg",
+          "apprendistato-nel-commercio-al-dettaglio-alimentari-volg-fenaco-eggersriet-sg"
+        ],
+        "de": [
+          "lehrstelle-in-dettaglio-nel-commercio-alimentare-volg-eggersriet-sg",
+          "retail-sales-assistant-eba-food-position-volg-eggersriet-sg",
+          "apprendistato-nel-commercio-al-dettaglio-alimentari-volg-fenaco-eggersriet-sg"
+        ],
+        "fr": [
+          "lehrstelle-in-dettaglio-nel-commercio-alimentare-volg-eggersriet-sg",
+          "retail-sales-assistant-eba-food-position-volg-eggersriet-sg",
+          "poste-de-vente-en-detail-eba-alimentation-volg-eggersriet-sg",
+          "apprendistato-nel-commercio-al-dettaglio-alimentari-volg-fenaco-eggersriet-sg"
+        ]
+      }
     },
     {
       "title": "Lehrstelle als Detailhandelsassistent/in EBA Lebensmittel",
@@ -1517,7 +1851,12 @@
       "previousSlugs": [
         "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-grusch"
       ],
-      "id": "volg-fenaco-51b4337a6fa7"
+      "id": "volg-fenaco-51b4337a6fa7",
+      "previousSlugsByLocale": {
+        "de": [
+          "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-grusch"
+        ]
+      }
     },
     {
       "title": "Lehrstelle als Detailhandelsfachmann/-frau EFZ Lebensmittel",
@@ -1578,11 +1917,31 @@
       },
       "previousSlugs": [
         "apprendistato-come-addetto-a-al-commercio-al-dettaglio-cfc-alimentari-volg-untervaz",
-        "lehrstelle-als-detailhandelsfachmann-frau-efz-lebensmittel-volg-lenzerheide",
+        "apprenti-e-en-tant-que-specialiste-du-commerce-de-detail-cfc-produits-alimentaires-volg-un",
         "apprenticeship-as-a-retail-specialist-efz-food-volg-untervaz",
-        "apprenti-e-en-tant-que-specialiste-du-commerce-de-detail-cfc-produits-alimentaires-volg-un"
+        "lehrstelle-als-detailhandelsfachmann-frau-efz-lebensmittel-volg-lenzerheide"
       ],
-      "id": "volg-fenaco-8bb331bcabf5"
+      "id": "volg-fenaco-8bb331bcabf5",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprendistato-come-addetto-a-al-commercio-al-dettaglio-cfc-alimentari-volg-untervaz",
+          "apprenti-e-en-tant-que-specialiste-du-commerce-de-detail-cfc-produits-alimentaires-volg-un"
+        ],
+        "en": [
+          "apprendistato-come-addetto-a-al-commercio-al-dettaglio-cfc-alimentari-volg-untervaz",
+          "apprenticeship-as-a-retail-specialist-efz-food-volg-untervaz",
+          "apprenti-e-en-tant-que-specialiste-du-commerce-de-detail-cfc-produits-alimentaires-volg-un"
+        ],
+        "de": [
+          "apprendistato-come-addetto-a-al-commercio-al-dettaglio-cfc-alimentari-volg-untervaz",
+          "lehrstelle-als-detailhandelsfachmann-frau-efz-lebensmittel-volg-lenzerheide",
+          "apprenti-e-en-tant-que-specialiste-du-commerce-de-detail-cfc-produits-alimentaires-volg-un"
+        ],
+        "fr": [
+          "apprendistato-come-addetto-a-al-commercio-al-dettaglio-cfc-alimentari-volg-untervaz",
+          "apprenti-e-en-tant-que-specialiste-du-commerce-de-detail-cfc-produits-alimentaires-volg-un"
+        ]
+      }
     },
     {
       "title": "Verkäuferin / Verkäufer TopShop w/m/d",
@@ -1641,7 +2000,29 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-associate-topshop-w-m-d-landi-oberwallis-ag-eyholz-r38nh8",
+          "vendeur-vendeuse-topshop-w-m-d-landi-oberwallis-ag-eyholz-r38nh8"
+        ],
+        "en": [
+          "sales-associate-topshop-w-m-d-landi-oberwallis-ag-eyholz-r38nh8",
+          "vendeur-vendeuse-topshop-w-m-d-landi-oberwallis-ag-eyholz-r38nh8"
+        ],
+        "de": [
+          "sales-associate-topshop-w-m-d-landi-oberwallis-ag-eyholz-r38nh8",
+          "vendeur-vendeuse-topshop-w-m-d-landi-oberwallis-ag-eyholz-r38nh8"
+        ],
+        "fr": [
+          "sales-associate-topshop-w-m-d-landi-oberwallis-ag-eyholz-r38nh8",
+          "vendeur-vendeuse-topshop-w-m-d-landi-oberwallis-ag-eyholz-r38nh8"
+        ]
+      },
+      "previousSlugs": [
+        "sales-associate-topshop-w-m-d-landi-oberwallis-ag-eyholz-r38nh8",
+        "vendeur-vendeuse-topshop-w-m-d-landi-oberwallis-ag-eyholz-r38nh8"
+      ]
     },
     {
       "title": "Collaboratrice polyvalente/collaborateur polyvalent secteur Agro f/h/d",
@@ -1702,11 +2083,27 @@
       },
       "previousSlugs": [
         "collaboratrice-polyvalente-collaborateur-polyvalent-secteur-agro-f-h-d-landi-rhone-lavaux-",
-        "collaboratrice-polyvalente-collaborateur-polyvalent-secteur-agro-f-h-d-landi-rhone-lavaux-",
-        "versatile-assistant-versatile-assistant-agro-sector-f-h-d-landi-rhone-lavaux-sa-collombey-",
         "versatile-assistant-versatile-assistant-agro-sector-f-h-d-landi-rhone-lavaux-sa-collombey-"
       ],
-      "id": "volg-fenaco-e5ed69f23207"
+      "id": "volg-fenaco-e5ed69f23207",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaboratrice-polyvalente-collaborateur-polyvalent-secteur-agro-f-h-d-landi-rhone-lavaux-",
+          "versatile-assistant-versatile-assistant-agro-sector-f-h-d-landi-rhone-lavaux-sa-collombey-"
+        ],
+        "en": [
+          "collaboratrice-polyvalente-collaborateur-polyvalent-secteur-agro-f-h-d-landi-rhone-lavaux-",
+          "versatile-assistant-versatile-assistant-agro-sector-f-h-d-landi-rhone-lavaux-sa-collombey-"
+        ],
+        "de": [
+          "collaboratrice-polyvalente-collaborateur-polyvalent-secteur-agro-f-h-d-landi-rhone-lavaux-",
+          "versatile-assistant-versatile-assistant-agro-sector-f-h-d-landi-rhone-lavaux-sa-collombey-"
+        ],
+        "fr": [
+          "collaboratrice-polyvalente-collaborateur-polyvalent-secteur-agro-f-h-d-landi-rhone-lavaux-",
+          "versatile-assistant-versatile-assistant-agro-sector-f-h-d-landi-rhone-lavaux-sa-collombey-"
+        ]
+      }
     },
     {
       "title": "Ladenleitung w/m/d",
@@ -1772,7 +2169,34 @@
         "shop-management-f-m-d-landi-oberwallis-ag-visp-yd79gw",
         "direction-du-magasin-w-m-d-landi-oberwallis-ag-visp-yd79gw"
       ],
-      "id": "volg-fenaco-23edce8281ee"
+      "id": "volg-fenaco-23edce8281ee",
+      "previousSlugsByLocale": {
+        "en": [
+          "store-manager-landi-oberwallis-ag-visp-yd79gw",
+          "gerant-de-magasin-landi-oberwallis-ag-visp-yd79gw",
+          "linea-di-ricarica-w-m-d-landi-oberwallis-ag-visp",
+          "shop-management-f-m-d-landi-oberwallis-ag-visp-yd79gw",
+          "direction-du-magasin-w-m-d-landi-oberwallis-ag-visp-yd79gw"
+        ],
+        "it": [
+          "gerant-de-magasin-landi-oberwallis-ag-visp-yd79gw",
+          "linea-di-ricarica-w-m-d-landi-oberwallis-ag-visp",
+          "shop-management-f-m-d-landi-oberwallis-ag-visp-yd79gw",
+          "direction-du-magasin-w-m-d-landi-oberwallis-ag-visp-yd79gw"
+        ],
+        "de": [
+          "gerant-de-magasin-landi-oberwallis-ag-visp-yd79gw",
+          "linea-di-ricarica-w-m-d-landi-oberwallis-ag-visp",
+          "shop-management-f-m-d-landi-oberwallis-ag-visp-yd79gw",
+          "direction-du-magasin-w-m-d-landi-oberwallis-ag-visp-yd79gw"
+        ],
+        "fr": [
+          "gerant-de-magasin-landi-oberwallis-ag-visp-yd79gw",
+          "linea-di-ricarica-w-m-d-landi-oberwallis-ag-visp",
+          "shop-management-f-m-d-landi-oberwallis-ag-visp-yd79gw",
+          "direction-du-magasin-w-m-d-landi-oberwallis-ag-visp-yd79gw"
+        ]
+      }
     },
     {
       "title": "Caissière-vendeuse/caissier-vendeur TopShop f/h/d",
@@ -1837,7 +2261,33 @@
         "cassiera-venditrice-cassiere-venditore-topshop-f-h-d-landi-rhone-lavaux-sa-saint-maurice",
         "cassiera-venditrice-cassiere-venditore-topshop-f-m-d-landi-rhone-lavaux-sa-saint-maurice"
       ],
-      "id": "volg-fenaco-d118c907cd07"
+      "id": "volg-fenaco-d118c907cd07",
+      "previousSlugsByLocale": {
+        "it": [
+          "cashier-seller-topshop-f-h-d-landi-rhone-lavaux-sa-saint-maurice",
+          "kassiererin-verkauferin-kassierer-verkaufer-topshop-f-h-d-landi-rhone-lavaux-sa-saint-maurice",
+          "cassiera-venditrice-cassiere-venditore-topshop-f-h-d-landi-rhone-lavaux-sa-saint-maurice",
+          "cassiera-venditrice-cassiere-venditore-topshop-f-m-d-landi-rhone-lavaux-sa-saint-maurice"
+        ],
+        "en": [
+          "cashier-seller-topshop-f-h-d-landi-rhone-lavaux-sa-saint-maurice",
+          "kassiererin-verkauferin-kassierer-verkaufer-topshop-f-h-d-landi-rhone-lavaux-sa-saint-maurice",
+          "cassiera-venditrice-cassiere-venditore-topshop-f-h-d-landi-rhone-lavaux-sa-saint-maurice",
+          "cassiera-venditrice-cassiere-venditore-topshop-f-m-d-landi-rhone-lavaux-sa-saint-maurice"
+        ],
+        "de": [
+          "cashier-seller-topshop-f-h-d-landi-rhone-lavaux-sa-saint-maurice",
+          "kassiererin-verkauferin-kassierer-verkaufer-topshop-f-h-d-landi-rhone-lavaux-sa-saint-maurice",
+          "cassiera-venditrice-cassiere-venditore-topshop-f-h-d-landi-rhone-lavaux-sa-saint-maurice",
+          "cassiera-venditrice-cassiere-venditore-topshop-f-m-d-landi-rhone-lavaux-sa-saint-maurice"
+        ],
+        "fr": [
+          "cashier-seller-topshop-f-h-d-landi-rhone-lavaux-sa-saint-maurice",
+          "kassiererin-verkauferin-kassierer-verkaufer-topshop-f-h-d-landi-rhone-lavaux-sa-saint-maurice",
+          "cassiera-venditrice-cassiere-venditore-topshop-f-h-d-landi-rhone-lavaux-sa-saint-maurice",
+          "cassiera-venditrice-cassiere-venditore-topshop-f-m-d-landi-rhone-lavaux-sa-saint-maurice"
+        ]
+      }
     },
     {
       "title": "Auxiliaire de vente - étudiant/e f/h/d",
@@ -1901,7 +2351,29 @@
         "sales-assistant-student-man-woman-other-landi-rhone-lavaux-sa-saxon",
         "verkaufsassistent-student-mann-frau-divers-landi-rhone-lavaux-sa-saxon"
       ],
-      "id": "volg-fenaco-df9e37608079"
+      "id": "volg-fenaco-df9e37608079",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistente-alle-vendite-etudiant-e-f-m-d-landi-rhone-lavaux-sa-saxon",
+          "sales-assistant-student-man-woman-other-landi-rhone-lavaux-sa-saxon",
+          "verkaufsassistent-student-mann-frau-divers-landi-rhone-lavaux-sa-saxon"
+        ],
+        "en": [
+          "assistente-alle-vendite-etudiant-e-f-m-d-landi-rhone-lavaux-sa-saxon",
+          "sales-assistant-student-man-woman-other-landi-rhone-lavaux-sa-saxon",
+          "verkaufsassistent-student-mann-frau-divers-landi-rhone-lavaux-sa-saxon"
+        ],
+        "de": [
+          "assistente-alle-vendite-etudiant-e-f-m-d-landi-rhone-lavaux-sa-saxon",
+          "sales-assistant-student-man-woman-other-landi-rhone-lavaux-sa-saxon",
+          "verkaufsassistent-student-mann-frau-divers-landi-rhone-lavaux-sa-saxon"
+        ],
+        "fr": [
+          "assistente-alle-vendite-etudiant-e-f-m-d-landi-rhone-lavaux-sa-saxon",
+          "sales-assistant-student-man-woman-other-landi-rhone-lavaux-sa-saxon",
+          "verkaufsassistent-student-mann-frau-divers-landi-rhone-lavaux-sa-saxon"
+        ]
+      }
     },
     {
       "title": "vendeuse / vendeur (h/f/d)",
@@ -1963,7 +2435,21 @@
       "previousSlugs": [
         "venditrice-venditore-f-m-d-volg-vissoie"
       ],
-      "id": "volg-fenaco-83ecb0d07df9"
+      "id": "volg-fenaco-83ecb0d07df9",
+      "previousSlugsByLocale": {
+        "it": [
+          "venditrice-venditore-f-m-d-volg-vissoie"
+        ],
+        "en": [
+          "venditrice-venditore-f-m-d-volg-vissoie"
+        ],
+        "de": [
+          "venditrice-venditore-f-m-d-volg-vissoie"
+        ],
+        "fr": [
+          "venditrice-venditore-f-m-d-volg-vissoie"
+        ]
+      }
     },
     {
       "title": "Ladenleitung Stellvertretung m/w/d",
@@ -2022,8 +2508,7 @@
           "unitText": "YEAR"
         }
       },
-      "id": "volg-fenaco-f33249adf78c",
-      "previousSlugs": []
+      "id": "volg-fenaco-f33249adf78c"
     },
     {
       "title": "Ladenleiterin / Ladenleiter w/m/d",
@@ -2084,10 +2569,29 @@
       },
       "previousSlugs": [
         "ladenleitera-ladenleitera-volg-baltschieder",
-        "store-manager-volg-baltschieder-vtu3s2",
-        "gerant-e-de-magasin-volg-baltschieder-vtu3s2"
+        "gerant-e-de-magasin-volg-baltschieder-vtu3s2",
+        "store-manager-volg-baltschieder-vtu3s2"
       ],
-      "id": "volg-fenaco-d0dcf80df4b3"
+      "id": "volg-fenaco-d0dcf80df4b3",
+      "previousSlugsByLocale": {
+        "it": [
+          "ladenleitera-ladenleitera-volg-baltschieder",
+          "gerant-e-de-magasin-volg-baltschieder-vtu3s2"
+        ],
+        "en": [
+          "ladenleitera-ladenleitera-volg-baltschieder",
+          "store-manager-volg-baltschieder-vtu3s2",
+          "gerant-e-de-magasin-volg-baltschieder-vtu3s2"
+        ],
+        "de": [
+          "ladenleitera-ladenleitera-volg-baltschieder",
+          "gerant-e-de-magasin-volg-baltschieder-vtu3s2"
+        ],
+        "fr": [
+          "ladenleitera-ladenleitera-volg-baltschieder",
+          "gerant-e-de-magasin-volg-baltschieder-vtu3s2"
+        ]
+      }
     },
     {
       "title": "Ladenleitung (w/m/d)",
@@ -2153,7 +2657,34 @@
         "direction-du-magasin-w-m-d-volg-raron-dv0crx",
         "linea-di-ricarica-f-m-d-volg-raron"
       ],
-      "id": "volg-fenaco-4ab81ef3e278"
+      "id": "volg-fenaco-4ab81ef3e278",
+      "previousSlugsByLocale": {
+        "en": [
+          "store-manager-m-f-d-volg-raron-dv0crx",
+          "gerant-de-magasin-h-f-d-volg-raron-dv0crx",
+          "shop-management-f-m-d-volg-raron-dv0crx",
+          "direction-du-magasin-w-m-d-volg-raron-dv0crx",
+          "linea-di-ricarica-f-m-d-volg-raron"
+        ],
+        "it": [
+          "gerant-de-magasin-h-f-d-volg-raron-dv0crx",
+          "shop-management-f-m-d-volg-raron-dv0crx",
+          "direction-du-magasin-w-m-d-volg-raron-dv0crx",
+          "linea-di-ricarica-f-m-d-volg-raron"
+        ],
+        "de": [
+          "gerant-de-magasin-h-f-d-volg-raron-dv0crx",
+          "shop-management-f-m-d-volg-raron-dv0crx",
+          "direction-du-magasin-w-m-d-volg-raron-dv0crx",
+          "linea-di-ricarica-f-m-d-volg-raron"
+        ],
+        "fr": [
+          "gerant-de-magasin-h-f-d-volg-raron-dv0crx",
+          "shop-management-f-m-d-volg-raron-dv0crx",
+          "direction-du-magasin-w-m-d-volg-raron-dv0crx",
+          "linea-di-ricarica-f-m-d-volg-raron"
+        ]
+      }
     },
     {
       "title": "Gérante-adjointe / Gérant-adjoint (h/f/d)",
@@ -2216,7 +2747,22 @@
         "assistenz-store-leiter-h-f-d-volg-anniviers",
         "vicegerente-gerente-aggiunto-a-f-m-d-volg-anniviers"
       ],
-      "id": "volg-fenaco-6903d715351c"
+      "id": "volg-fenaco-6903d715351c",
+      "previousSlugsByLocale": {
+        "de": [
+          "assistenz-store-leiter-h-f-d-volg-anniviers",
+          "vicegerente-gerente-aggiunto-a-f-m-d-volg-anniviers"
+        ],
+        "it": [
+          "vicegerente-gerente-aggiunto-a-f-m-d-volg-anniviers"
+        ],
+        "en": [
+          "vicegerente-gerente-aggiunto-a-f-m-d-volg-anniviers"
+        ],
+        "fr": [
+          "vicegerente-gerente-aggiunto-a-f-m-d-volg-anniviers"
+        ]
+      }
     },
     {
       "title": "Verkäuferin, Verkäufer",
@@ -2281,7 +2827,33 @@
         "saleswoman-salesperson-volg-binn-b65i2n",
         "vendeuse-vendeur-volg-binn-b65i2n"
       ],
-      "id": "volg-fenaco-952aeda56522"
+      "id": "volg-fenaco-952aeda56522",
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-associate-volg-binn-b65i2n",
+          "vendeur-vendeuse-volg-binn-b65i2n",
+          "saleswoman-salesperson-volg-binn-b65i2n",
+          "vendeuse-vendeur-volg-binn-b65i2n"
+        ],
+        "en": [
+          "sales-associate-volg-binn-b65i2n",
+          "vendeur-vendeuse-volg-binn-b65i2n",
+          "saleswoman-salesperson-volg-binn-b65i2n",
+          "vendeuse-vendeur-volg-binn-b65i2n"
+        ],
+        "de": [
+          "sales-associate-volg-binn-b65i2n",
+          "vendeur-vendeuse-volg-binn-b65i2n",
+          "saleswoman-salesperson-volg-binn-b65i2n",
+          "vendeuse-vendeur-volg-binn-b65i2n"
+        ],
+        "fr": [
+          "sales-associate-volg-binn-b65i2n",
+          "vendeur-vendeuse-volg-binn-b65i2n",
+          "saleswoman-salesperson-volg-binn-b65i2n",
+          "vendeuse-vendeur-volg-binn-b65i2n"
+        ]
+      }
     },
     {
       "title": "Place d'apprentissage de gestionnaire ou assistant/e du commerce de détail",
@@ -2346,7 +2918,26 @@
         }
       },
       "needsRetranslation": false,
-      "id": "volg-fenaco-55d027d94402"
+      "id": "volg-fenaco-55d027d94402",
+      "previousSlugsByLocale": {
+        "it": [
+          "retail-management-or-assistant-training-volg-founex-q63fpx",
+          "luogo-d-apprentissage-de-gestionnaire-ou-assistente-e-du-commerce-de-detail-volg-founex",
+          "posto-di-apprendistato-come-gestore-o-assistente-del-commercio-al-dettaglio-volg-fenaco-founex"
+        ],
+        "en": [
+          "retail-management-or-assistant-training-volg-founex-q63fpx",
+          "luogo-d-apprentissage-de-gestionnaire-ou-assistente-e-du-commerce-de-detail-volg-founex"
+        ],
+        "de": [
+          "retail-management-or-assistant-training-volg-founex-q63fpx",
+          "luogo-d-apprentissage-de-gestionnaire-ou-assistente-e-du-commerce-de-detail-volg-founex"
+        ],
+        "fr": [
+          "retail-management-or-assistant-training-volg-founex-q63fpx",
+          "luogo-d-apprentissage-de-gestionnaire-ou-assistente-e-du-commerce-de-detail-volg-founex"
+        ]
+      }
     },
     {
       "title": "Place d'apprentissage de gestionnaire ou assistant/e du commerce de détail",
@@ -2411,7 +3002,26 @@
         }
       },
       "needsRetranslation": false,
-      "id": "volg-fenaco-722cbd29f4f3"
+      "id": "volg-fenaco-722cbd29f4f3",
+      "previousSlugsByLocale": {
+        "it": [
+          "retail-management-or-assistant-training-position-volg-orsieres-4o5f3w",
+          "luogo-d-apprentissage-de-gestionnaire-ou-assistente-e-du-commerce-de-detail-volg-orsieres",
+          "posto-di-apprendistato-come-gestore-o-assistente-del-commercio-al-dettaglio-volg-fenaco-orsieres"
+        ],
+        "en": [
+          "retail-management-or-assistant-training-position-volg-orsieres-4o5f3w",
+          "luogo-d-apprentissage-de-gestionnaire-ou-assistente-e-du-commerce-de-detail-volg-orsieres"
+        ],
+        "de": [
+          "retail-management-or-assistant-training-position-volg-orsieres-4o5f3w",
+          "luogo-d-apprentissage-de-gestionnaire-ou-assistente-e-du-commerce-de-detail-volg-orsieres"
+        ],
+        "fr": [
+          "retail-management-or-assistant-training-position-volg-orsieres-4o5f3w",
+          "luogo-d-apprentissage-de-gestionnaire-ou-assistente-e-du-commerce-de-detail-volg-orsieres"
+        ]
+      }
     },
     {
       "title": "Place d'apprentissage de gestionnaire ou assistant/e du commerce de détail",
@@ -2476,7 +3086,26 @@
         }
       },
       "needsRetranslation": false,
-      "id": "volg-fenaco-272ec18d9023"
+      "id": "volg-fenaco-272ec18d9023",
+      "previousSlugsByLocale": {
+        "it": [
+          "retail-management-or-assistant-training-volg-vex-478boi",
+          "luogo-d-apprentissage-de-gestionnaire-ou-assistente-e-du-commerce-de-detail-volg-vex",
+          "posto-di-apprendistato-come-gestore-o-assistente-del-commercio-al-dettaglio-volg-fenaco-vex"
+        ],
+        "en": [
+          "retail-management-or-assistant-training-volg-vex-478boi",
+          "luogo-d-apprentissage-de-gestionnaire-ou-assistente-e-du-commerce-de-detail-volg-vex"
+        ],
+        "de": [
+          "retail-management-or-assistant-training-volg-vex-478boi",
+          "luogo-d-apprentissage-de-gestionnaire-ou-assistente-e-du-commerce-de-detail-volg-vex"
+        ],
+        "fr": [
+          "retail-management-or-assistant-training-volg-vex-478boi",
+          "luogo-d-apprentissage-de-gestionnaire-ou-assistente-e-du-commerce-de-detail-volg-vex"
+        ]
+      }
     },
     {
       "title": "Place d'apprentissage de gestionnaire ou assistant/e du commerce de détail",
@@ -2541,7 +3170,26 @@
         }
       },
       "needsRetranslation": false,
-      "id": "volg-fenaco-77eaeb225a2b"
+      "id": "volg-fenaco-77eaeb225a2b",
+      "previousSlugsByLocale": {
+        "it": [
+          "retail-management-or-assistant-training-position-volg-veysonnaz-4wznrh",
+          "luogo-d-apprentissage-de-gestionnaire-ou-assistente-e-du-commerce-de-detail-volg-veysonnaz",
+          "posto-di-apprendistato-come-gestore-o-assistente-del-commercio-al-dettaglio-volg-fenaco-veysonnaz"
+        ],
+        "en": [
+          "retail-management-or-assistant-training-position-volg-veysonnaz-4wznrh",
+          "luogo-d-apprentissage-de-gestionnaire-ou-assistente-e-du-commerce-de-detail-volg-veysonnaz"
+        ],
+        "de": [
+          "retail-management-or-assistant-training-position-volg-veysonnaz-4wznrh",
+          "luogo-d-apprentissage-de-gestionnaire-ou-assistente-e-du-commerce-de-detail-volg-veysonnaz"
+        ],
+        "fr": [
+          "retail-management-or-assistant-training-position-volg-veysonnaz-4wznrh",
+          "luogo-d-apprentissage-de-gestionnaire-ou-assistente-e-du-commerce-de-detail-volg-veysonnaz"
+        ]
+      }
     },
     {
       "title": "Place d'apprentissage de gestionnaire ou assistant/e du commerce de détail",
@@ -2606,7 +3254,26 @@
         }
       },
       "needsRetranslation": false,
-      "id": "volg-fenaco-fc941f9e7ea3"
+      "id": "volg-fenaco-fc941f9e7ea3",
+      "previousSlugsByLocale": {
+        "it": [
+          "retail-management-or-assistant-training-volg-anniviers-yy59f6",
+          "luogo-d-apprentissage-de-gestionnaire-ou-assistente-e-du-commerce-de-detail-volg-anniviers",
+          "posto-di-apprendistato-come-gestore-o-assistente-del-commercio-al-dettaglio-volg-fenaco-anniviers"
+        ],
+        "en": [
+          "retail-management-or-assistant-training-volg-anniviers-yy59f6",
+          "luogo-d-apprentissage-de-gestionnaire-ou-assistente-e-du-commerce-de-detail-volg-anniviers"
+        ],
+        "de": [
+          "retail-management-or-assistant-training-volg-anniviers-yy59f6",
+          "luogo-d-apprentissage-de-gestionnaire-ou-assistente-e-du-commerce-de-detail-volg-anniviers"
+        ],
+        "fr": [
+          "retail-management-or-assistant-training-volg-anniviers-yy59f6",
+          "luogo-d-apprentissage-de-gestionnaire-ou-assistente-e-du-commerce-de-detail-volg-anniviers"
+        ]
+      }
     },
     {
       "title": "Lehrstelle als Detailhandelsfachmann/-frau oder Detailhandelsassistent/-in",
@@ -2669,7 +3336,15 @@
         "apprendistato-come-addetto-a-al-commercio-al-dettaglio-o-assistente-del-commercio-al-dettaglio-volg-baltschieder",
         "emploi-comme-vendeur-ou-vendeuse-en-detail-ou-assistant-commercial-volg-baltschieder"
       ],
-      "id": "volg-fenaco-0381e02427d4"
+      "id": "volg-fenaco-0381e02427d4",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprendistato-come-addetto-a-al-commercio-al-dettaglio-o-assistente-del-commercio-al-dettaglio-volg-baltschieder"
+        ],
+        "fr": [
+          "emploi-comme-vendeur-ou-vendeuse-en-detail-ou-assistant-commercial-volg-baltschieder"
+        ]
+      }
     },
     {
       "title": "Lehrstelle als Detailhandelsfachmann/-frau oder Detailhandelsassistent/-in",
@@ -2733,7 +3408,23 @@
         "job-as-a-retail-salesperson-or-retail-sales-assistant-volg-bettmeralp",
         "poste-de-vente-ou-assistant-de-vente-volg-bettmeralp"
       ],
-      "id": "volg-fenaco-1b58acf55b06"
+      "id": "volg-fenaco-1b58acf55b06",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprendistato-come-addetto-a-al-commercio-al-dettaglio-o-assistente-del-commercio-al-dettaglio-volg-bettmeralp",
+          "job-as-a-retail-salesperson-or-retail-sales-assistant-volg-bettmeralp"
+        ],
+        "en": [
+          "job-as-a-retail-salesperson-or-retail-sales-assistant-volg-bettmeralp"
+        ],
+        "de": [
+          "job-as-a-retail-salesperson-or-retail-sales-assistant-volg-bettmeralp"
+        ],
+        "fr": [
+          "job-as-a-retail-salesperson-or-retail-sales-assistant-volg-bettmeralp",
+          "poste-de-vente-ou-assistant-de-vente-volg-bettmeralp"
+        ]
+      }
     },
     {
       "title": "Lehrstelle als Detailhandelsfachmann/-frau oder Detailhandelsassistent/-in",
@@ -2797,7 +3488,23 @@
         "job-as-retail-sales-associate-or-assistant-volg-burchen",
         "emploi-en-tant-que-vendeur-ou-assistant-de-vente-volg-burchen"
       ],
-      "id": "volg-fenaco-9126423288b5"
+      "id": "volg-fenaco-9126423288b5",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprendistato-come-addetto-a-al-commercio-al-dettaglio-o-assistente-del-commercio-al-dettaglio-volg-burchen",
+          "job-as-retail-sales-associate-or-assistant-volg-burchen"
+        ],
+        "en": [
+          "job-as-retail-sales-associate-or-assistant-volg-burchen"
+        ],
+        "de": [
+          "job-as-retail-sales-associate-or-assistant-volg-burchen"
+        ],
+        "fr": [
+          "job-as-retail-sales-associate-or-assistant-volg-burchen",
+          "emploi-en-tant-que-vendeur-ou-assistant-de-vente-volg-burchen"
+        ]
+      }
     },
     {
       "title": "Lehrstelle als Detailhandelsfachmann/-frau oder Detailhandelsassistent/-in",
@@ -2858,10 +3565,26 @@
       },
       "previousSlugs": [
         "apprendistato-come-addetto-a-al-commercio-al-dettaglio-o-assistente-del-commercio-al-dettaglio-volg-ernen",
-        "apprenticeship-as-retail-specialist-or-retail-assistant-volg-ernen",
-        "place-d-apprentissage-en-tant-que-specialiste-du-commerce-de-detail-ou-assistant-e-du-commerce-de-detail-volg-ernen"
+        "place-d-apprentissage-en-tant-que-specialiste-du-commerce-de-detail-ou-assistant-e-du-commerce-de-detail-volg-ernen",
+        "apprenticeship-as-retail-specialist-or-retail-assistant-volg-ernen"
       ],
-      "id": "volg-fenaco-dcc0a2d0b553"
+      "id": "volg-fenaco-dcc0a2d0b553",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprendistato-come-addetto-a-al-commercio-al-dettaglio-o-assistente-del-commercio-al-dettaglio-volg-ernen",
+          "place-d-apprentissage-en-tant-que-specialiste-du-commerce-de-detail-ou-assistant-e-du-commerce-de-detail-volg-ernen"
+        ],
+        "en": [
+          "apprenticeship-as-retail-specialist-or-retail-assistant-volg-ernen",
+          "place-d-apprentissage-en-tant-que-specialiste-du-commerce-de-detail-ou-assistant-e-du-commerce-de-detail-volg-ernen"
+        ],
+        "de": [
+          "place-d-apprentissage-en-tant-que-specialiste-du-commerce-de-detail-ou-assistant-e-du-commerce-de-detail-volg-ernen"
+        ],
+        "fr": [
+          "place-d-apprentissage-en-tant-que-specialiste-du-commerce-de-detail-ou-assistant-e-du-commerce-de-detail-volg-ernen"
+        ]
+      }
     },
     {
       "title": "Lehrstelle als Detailhandelsfachmann/-frau oder Detailhandelsassistent/-in",
@@ -2924,7 +3647,25 @@
         "job-as-sales-assistant-or-sales-associate-volg-grachen",
         "job-as-a-retail-salesperson-or-retail-sales-assistant-volg-visperterminen"
       ],
-      "id": "volg-fenaco-e6906731b758"
+      "id": "volg-fenaco-e6906731b758",
+      "previousSlugsByLocale": {
+        "it": [
+          "job-as-sales-assistant-or-sales-associate-volg-grachen",
+          "job-as-a-retail-salesperson-or-retail-sales-assistant-volg-visperterminen"
+        ],
+        "en": [
+          "job-as-sales-assistant-or-sales-associate-volg-grachen",
+          "job-as-a-retail-salesperson-or-retail-sales-assistant-volg-visperterminen"
+        ],
+        "de": [
+          "job-as-sales-assistant-or-sales-associate-volg-grachen",
+          "job-as-a-retail-salesperson-or-retail-sales-assistant-volg-visperterminen"
+        ],
+        "fr": [
+          "job-as-sales-assistant-or-sales-associate-volg-grachen",
+          "job-as-a-retail-salesperson-or-retail-sales-assistant-volg-visperterminen"
+        ]
+      }
     },
     {
       "title": "Lehrstelle als Detailhandelsfachmann/-frau oder Detailhandelsassistent/-in",
@@ -2988,7 +3729,23 @@
         "job-as-a-retail-salesperson-or-retail-sales-assistant-volg-obergoms-vs",
         "emploi-en-tant-que-vendeur-ou-assistant-vendeur-de-detail-volg-obergoms-vs"
       ],
-      "id": "volg-fenaco-b5c8510972ce"
+      "id": "volg-fenaco-b5c8510972ce",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprendistato-come-addetto-a-al-commercio-al-dettaglio-o-assistente-del-commercio-al-dettaglio-volg-obergoms-vs",
+          "job-as-a-retail-salesperson-or-retail-sales-assistant-volg-obergoms-vs"
+        ],
+        "en": [
+          "job-as-a-retail-salesperson-or-retail-sales-assistant-volg-obergoms-vs"
+        ],
+        "de": [
+          "job-as-a-retail-salesperson-or-retail-sales-assistant-volg-obergoms-vs"
+        ],
+        "fr": [
+          "job-as-a-retail-salesperson-or-retail-sales-assistant-volg-obergoms-vs",
+          "emploi-en-tant-que-vendeur-ou-assistant-vendeur-de-detail-volg-obergoms-vs"
+        ]
+      }
     },
     {
       "title": "Lehrstelle als Detailhandelsfachmann/-frau oder Detailhandelsassistent/-in",
@@ -3052,7 +3809,23 @@
         "sales-assistant-position-volg-unterbach",
         "poste-de-vente-volg-unterbach"
       ],
-      "id": "volg-fenaco-ddac3404e417"
+      "id": "volg-fenaco-ddac3404e417",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprendistato-come-addetto-a-al-commercio-al-dettaglio-o-assistente-del-commercio-al-dettaglio-volg-unterbach",
+          "sales-assistant-position-volg-unterbach"
+        ],
+        "en": [
+          "sales-assistant-position-volg-unterbach"
+        ],
+        "de": [
+          "sales-assistant-position-volg-unterbach"
+        ],
+        "fr": [
+          "sales-assistant-position-volg-unterbach",
+          "poste-de-vente-volg-unterbach"
+        ]
+      }
     },
     {
       "title": "Lehrstelle als Detailhandelsfachmann/-frau oder Detailhandelsassistent/-in",
@@ -3116,7 +3889,23 @@
         "job-as-a-retail-salesperson-or-retail-sales-assistant-volg-visperterminen",
         "poste-de-vente-en-detail-ou-assistant-e-de-vente-en-detail-volg-visperterminen"
       ],
-      "id": "volg-fenaco-f28ee877c0a5"
+      "id": "volg-fenaco-f28ee877c0a5",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprendistato-come-addetto-a-al-commercio-al-dettaglio-o-assistente-del-commercio-al-dettaglio-volg-visperterminen",
+          "job-as-a-retail-salesperson-or-retail-sales-assistant-volg-visperterminen"
+        ],
+        "en": [
+          "job-as-a-retail-salesperson-or-retail-sales-assistant-volg-visperterminen"
+        ],
+        "de": [
+          "job-as-a-retail-salesperson-or-retail-sales-assistant-volg-visperterminen"
+        ],
+        "fr": [
+          "job-as-a-retail-salesperson-or-retail-sales-assistant-volg-visperterminen",
+          "poste-de-vente-en-detail-ou-assistant-e-de-vente-en-detail-volg-visperterminen"
+        ]
+      }
     },
     {
       "title": "Lehrstelle als Detailhandelsfachmann/-frau oder Detailhandelsassistent/-in",
@@ -3179,7 +3968,22 @@
         "apprendistato-come-addetto-a-al-commercio-al-dettaglio-o-assistente-del-commercio-al-dettaglio-volg-wiler-lotschen",
         "job-as-retail-salesperson-or-retail-sales-assistant-volg-wiler-lotschen"
       ],
-      "id": "volg-fenaco-3a6322cab5b6"
+      "id": "volg-fenaco-3a6322cab5b6",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprendistato-come-addetto-a-al-commercio-al-dettaglio-o-assistente-del-commercio-al-dettaglio-volg-wiler-lotschen",
+          "job-as-retail-salesperson-or-retail-sales-assistant-volg-wiler-lotschen"
+        ],
+        "en": [
+          "job-as-retail-salesperson-or-retail-sales-assistant-volg-wiler-lotschen"
+        ],
+        "de": [
+          "job-as-retail-salesperson-or-retail-sales-assistant-volg-wiler-lotschen"
+        ],
+        "fr": [
+          "job-as-retail-salesperson-or-retail-sales-assistant-volg-wiler-lotschen"
+        ]
+      }
     },
     {
       "title": "Place d'apprentissage de gestionnaire ou assistant/e du commerce de détail",
@@ -3244,7 +4048,26 @@
         }
       },
       "needsRetranslation": false,
-      "id": "volg-fenaco-4f3168af6054"
+      "id": "volg-fenaco-4f3168af6054",
+      "previousSlugsByLocale": {
+        "it": [
+          "retail-management-or-assistant-trainee-volg-collombey-muraz-lzn8tf",
+          "luogo-d-apprentissage-de-gestionnaire-ou-assistente-e-du-commerce-de-detail-volg-collombey-muraz",
+          "posto-di-apprendistato-come-gestore-o-assistente-del-commercio-al-dettaglio-volg-fenaco-collombey-muraz"
+        ],
+        "en": [
+          "retail-management-or-assistant-trainee-volg-collombey-muraz-lzn8tf",
+          "luogo-d-apprentissage-de-gestionnaire-ou-assistente-e-du-commerce-de-detail-volg-collombey-muraz"
+        ],
+        "de": [
+          "retail-management-or-assistant-trainee-volg-collombey-muraz-lzn8tf",
+          "luogo-d-apprentissage-de-gestionnaire-ou-assistente-e-du-commerce-de-detail-volg-collombey-muraz"
+        ],
+        "fr": [
+          "retail-management-or-assistant-trainee-volg-collombey-muraz-lzn8tf",
+          "luogo-d-apprentissage-de-gestionnaire-ou-assistente-e-du-commerce-de-detail-volg-collombey-muraz"
+        ]
+      }
     }
   ]
 }

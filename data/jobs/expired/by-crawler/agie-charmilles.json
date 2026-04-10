@@ -62,15 +62,31 @@
     "expiredAt": "2026-04-03T07:21:27.710Z",
     "previousSlugs": [
       "electrical-engineer-r-d-agie-charmilles-losone",
-      "ingegnere-elettrico-r-d-agie-charmilles-sa-losone",
-      "elektroingenieur-f-e-agie-charmilles-sa-losone"
+      "elektroingenieur-f-e-agie-charmilles-sa-losone",
+      "ingegnere-elettrico-r-d-agie-charmilles-sa-losone"
     ],
     "postalCode": "6616",
     "streetAddress": "Via Goldau 7",
     "salaryMin": 72000,
     "salaryMax": 97000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "previousSlugsByLocale": {
+      "en": [
+        "electrical-engineer-r-d-agie-charmilles-losone",
+        "elektroingenieur-f-e-agie-charmilles-sa-losone"
+      ],
+      "it": [
+        "ingegnere-elettrico-r-d-agie-charmilles-sa-losone",
+        "elektroingenieur-f-e-agie-charmilles-sa-losone"
+      ],
+      "de": [
+        "elektroingenieur-f-e-agie-charmilles-sa-losone"
+      ],
+      "fr": [
+        "elektroingenieur-f-e-agie-charmilles-sa-losone"
+      ]
+    }
   },
   {
     "slug": "impiegato-in-logistica-di-magazzino-agie-charmilles-sa-losone",
@@ -111,6 +127,36 @@
     "salaryMin": 58000,
     "salaryMax": 78000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "previousSlugsByLocale": {
+      "it": [
+        "impiegato-in-logistica-di-magazzino-agie-charmilles-losone",
+        "employed-in-warehouse-logistics-agie-charmilles-sa-losone-5kkjqc",
+        "sachbearbeiter-lagerlogistik-agie-charmilles-sa-losone-5kkjqc",
+        "angestellter-in-logistik-di-lager-agie-charmilles-sa-losone-5kkjqc",
+        "employe-en-logistique-d-entrepot-agie-charmilles-sa-losone-5kkjqc"
+      ],
+      "en": [
+        "impiegato-in-logistica-di-magazzino-agie-charmilles-losone",
+        "employed-in-warehouse-logistics-agie-charmilles-sa-losone-5kkjqc",
+        "sachbearbeiter-lagerlogistik-agie-charmilles-sa-losone-5kkjqc",
+        "angestellter-in-logistik-di-lager-agie-charmilles-sa-losone-5kkjqc",
+        "employe-en-logistique-d-entrepot-agie-charmilles-sa-losone-5kkjqc"
+      ],
+      "de": [
+        "impiegato-in-logistica-di-magazzino-agie-charmilles-losone",
+        "employed-in-warehouse-logistics-agie-charmilles-sa-losone-5kkjqc",
+        "sachbearbeiter-lagerlogistik-agie-charmilles-sa-losone-5kkjqc",
+        "angestellter-in-logistik-di-lager-agie-charmilles-sa-losone-5kkjqc",
+        "employe-en-logistique-d-entrepot-agie-charmilles-sa-losone-5kkjqc"
+      ],
+      "fr": [
+        "impiegato-in-logistica-di-magazzino-agie-charmilles-losone",
+        "employed-in-warehouse-logistics-agie-charmilles-sa-losone-5kkjqc",
+        "sachbearbeiter-lagerlogistik-agie-charmilles-sa-losone-5kkjqc",
+        "angestellter-in-logistik-di-lager-agie-charmilles-sa-losone-5kkjqc",
+        "employe-en-logistique-d-entrepot-agie-charmilles-sa-losone-5kkjqc"
+      ]
+    }
   }
 ]

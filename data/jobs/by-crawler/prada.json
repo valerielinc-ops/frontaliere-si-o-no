@@ -59,7 +59,12 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6850"
+      "postalCode": "6850",
+      "previousSlugsByLocale": {
+        "it": [
+          "prada-client-consulente-m-f-d-prada-group-mendrisio"
+        ]
+      }
     },
     {
       "id": "prada-88f5f0261817",
@@ -118,7 +123,21 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6850"
+      "postalCode": "6850",
+      "previousSlugsByLocale": {
+        "it": [
+          "prada-teilzeit-repair-center-warehouse-assistent-prada-group-mendrisio"
+        ],
+        "en": [
+          "prada-teilzeit-repair-center-warehouse-assistent-prada-group-mendrisio"
+        ],
+        "de": [
+          "prada-teilzeit-repair-center-warehouse-assistent-prada-group-mendrisio"
+        ],
+        "fr": [
+          "prada-teilzeit-repair-center-warehouse-assistent-prada-group-mendrisio"
+        ]
+      }
     },
     {
       "id": "prada-48b56cba13d0",
@@ -162,7 +181,6 @@
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
       "crawledAt": "2026-04-09T21:52:41.879Z",
-      "previousSlugs": [],
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -238,7 +256,18 @@
         "prada-client-consulente-m-f-d-prada-group-mendrisio",
         "prada-client-berater-m-f-d-prada-group-mendrisio",
         "prada-client-conseiller-m-f-d-prada-group-mendrisio"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "prada-client-consulente-m-f-d-prada-group-mendrisio"
+        ],
+        "de": [
+          "prada-client-berater-m-f-d-prada-group-mendrisio"
+        ],
+        "fr": [
+          "prada-client-conseiller-m-f-d-prada-group-mendrisio"
+        ]
+      }
     },
     {
       "id": "prada-bb1d885ed9f2",
@@ -282,7 +311,6 @@
       "source": "Prada Group Dedicated Parser",
       "sourceLang": "en",
       "crawledAt": "2026-04-09T21:52:41.042Z",
-      "previousSlugs": [],
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -410,7 +438,12 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6850"
+      "postalCode": "6850",
+      "previousSlugsByLocale": {
+        "en": [
+          "miu-miu-store-manager-saint-moritz-prada-mendrisio"
+        ]
+      }
     },
     {
       "id": "prada-e41a47cd1c53",
@@ -470,7 +503,21 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6850"
+      "postalCode": "6850",
+      "previousSlugsByLocale": {
+        "it": [
+          "mendrisio-outlet-client-advisor-part-time-domenicale-limited-contract-prada-mendrisio"
+        ],
+        "en": [
+          "mendrisio-outlet-client-advisor-part-time-domenicale-limited-contract-prada-mendrisio"
+        ],
+        "de": [
+          "mendrisio-outlet-client-advisor-part-time-domenicale-limited-contract-prada-mendrisio"
+        ],
+        "fr": [
+          "mendrisio-outlet-client-advisor-part-time-domenicale-limited-contract-prada-mendrisio"
+        ]
+      }
     }
   ]
 }

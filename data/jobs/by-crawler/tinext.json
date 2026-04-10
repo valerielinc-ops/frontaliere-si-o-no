@@ -63,7 +63,26 @@
       },
       "streetAddress": "Via Cantonale 18",
       "postalCode": "6928",
-      "id": "tinext-dfd44ec52573"
+      "id": "tinext-dfd44ec52573",
+      "previousSlugsByLocale": {
+        "en": [
+          "freelance-java-developer-full-remote-tinext-lugano-javadev",
+          "freelance-java-entwickler-full-remote-tinext-sa-morbio",
+          "freelance-java-developpeur-full-remote-tinext-sa-morbio"
+        ],
+        "it": [
+          "freelance-java-entwickler-full-remote-tinext-sa-morbio",
+          "freelance-java-developpeur-full-remote-tinext-sa-morbio"
+        ],
+        "de": [
+          "freelance-java-entwickler-full-remote-tinext-sa-morbio",
+          "freelance-java-developpeur-full-remote-tinext-sa-morbio"
+        ],
+        "fr": [
+          "freelance-java-entwickler-full-remote-tinext-sa-morbio",
+          "freelance-java-developpeur-full-remote-tinext-sa-morbio"
+        ]
+      }
     },
     {
       "title": "Executive Assistant",
@@ -126,7 +145,29 @@
       },
       "streetAddress": "Via Cantonale 18",
       "postalCode": "6928",
-      "id": "tinext-79bef914fa4b"
+      "id": "tinext-79bef914fa4b",
+      "previousSlugsByLocale": {
+        "it": [
+          "pouvoir-executif-tinext-sa-lugano",
+          "assistant-e-de-direction-tinext-sa-lugano",
+          "eec-tinext-sa-lugano-zi181w"
+        ],
+        "en": [
+          "pouvoir-executif-tinext-sa-lugano",
+          "assistant-e-de-direction-tinext-sa-lugano",
+          "eec-tinext-sa-lugano-zi181w"
+        ],
+        "de": [
+          "pouvoir-executif-tinext-sa-lugano",
+          "assistant-e-de-direction-tinext-sa-lugano",
+          "eec-tinext-sa-lugano-zi181w"
+        ],
+        "fr": [
+          "pouvoir-executif-tinext-sa-lugano",
+          "assistant-e-de-direction-tinext-sa-lugano",
+          "eec-tinext-sa-lugano-zi181w"
+        ]
+      }
     }
   ]
 }

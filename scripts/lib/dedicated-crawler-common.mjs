@@ -4661,21 +4661,53 @@ export function cleanPreviousSlugsPerLocale(job) {
     }
   }
 
-  // Sync legacy flat array from locale-aware data
-  syncLegacyPreviousSlugs(job);
+  // Also clean legacy flat array: remove entries that match master slug
+  // or any active locale slug (the old behavior for unattributed entries)
+  if (Array.isArray(job.previousSlugs)) {
+    const masterSlug = normalizeSpace(job.slug || '');
+    const activeSet = new Set();
+    if (masterSlug) activeSet.add(masterSlug);
+    if (job.slugByLocale && typeof job.slugByLocale === 'object') {
+      for (const s of Object.values(job.slugByLocale)) {
+        if (s) activeSet.add(normalizeSpace(String(s)));
+      }
+    }
+    // Keep entries that are in a locale-aware bucket (they're managed per-locale)
+    // or that don't match any active slug
+    const localeAwareAll = new Set();
+    if (job.previousSlugsByLocale && typeof job.previousSlugsByLocale === 'object') {
+      for (const arr of Object.values(job.previousSlugsByLocale)) {
+        if (Array.isArray(arr)) for (const s of arr) localeAwareAll.add(s);
+      }
+    }
+    job.previousSlugs = job.previousSlugs.filter(s => {
+      const norm = normalizeSpace(String(s));
+      // If it's in a locale bucket, keep it (locale cleaning already handled it)
+      if (localeAwareAll.has(norm)) return true;
+      // Otherwise apply the old global cleanup: remove if matches any active slug
+      return !activeSet.has(norm);
+    });
+    if (job.previousSlugs.length === 0) delete job.previousSlugs;
+  }
 }
 
 /**
  * Rebuild the legacy flat `previousSlugs` array as the union of all
- * `previousSlugsByLocale` entries. This keeps backward compatibility
- * for consumers that still read the flat array.
+ * `previousSlugsByLocale` entries PLUS any existing legacy entries
+ * that haven't been attributed to a locale yet.
+ * This keeps backward compatibility for consumers that still read the flat array.
  */
 function syncLegacyPreviousSlugs(job, cap = 20) {
   const all = new Set();
+  // Include locale-aware entries
   if (job.previousSlugsByLocale && typeof job.previousSlugsByLocale === 'object') {
     for (const arr of Object.values(job.previousSlugsByLocale)) {
       if (Array.isArray(arr)) for (const s of arr) all.add(s);
     }
+  }
+  // Preserve existing legacy entries (pre-migration or unattributed)
+  if (Array.isArray(job.previousSlugs)) {
+    for (const s of job.previousSlugs) all.add(s);
   }
   if (all.size === 0) {
     delete job.previousSlugs;
@@ -4700,6 +4732,7 @@ function mergePreviousSlugsByLocale(a, b) {
 }
 
 export function preferJob(a, b) {
+  const aScore = qualityScore(a) + (a.featured ? 2 : 0) + ((a.source === 'Company Careers Crawler') ? 1 : 0);
   const bScore = qualityScore(b) + (b.featured ? 2 : 0) + ((b.source === 'Company Careers Crawler') ? 1 : 0);
   if (aScore !== bScore) return aScore > bScore ? a : b;
   const aRecency = recencyTs(a);

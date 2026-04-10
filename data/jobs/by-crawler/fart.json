@@ -80,11 +80,11 @@
         "1-capotasto-100-f-m-fart-ferrovie-autolinee-regionali-ticinesi-locarno",
         "capo-movimento-fart-ferrovie-autolinee-regionali-ticinesi-locarno",
         "1-bewegungsleiter-100-m-w-fart-ferrovie-autolinee-regionali-ticinesi-locarno",
-        "chef-femme-de-departement-des-operations-fart-ferrovie-autolinee-regionali-ticinesi-locarno",
         "head-of-operations-department-f-m-fart-ferrovie-autolinee-regionali-ticinesi-locarno",
-        "leiter-der-bewegung-100-f-m-fart-ferrovie-autolinee-regionali-ticinesi-locarno",
         "1-capo-dipartimento-dell-esercizio-f-m-fart-ferrovie-autolinee-regionali-ticinesi-locarno",
-        "1-capo-movimento-100-f-m-fart"
+        "1-capo-movimento-100-f-m-fart",
+        "leiter-der-bewegung-100-f-m-fart-ferrovie-autolinee-regionali-ticinesi-locarno",
+        "chef-femme-de-departement-des-operations-fart-ferrovie-autolinee-regionali-ticinesi-locarno"
       ],
       "salaryMin": 72000,
       "salaryMax": 97000,
@@ -104,7 +104,35 @@
       "addressLocality": "Locarno",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "id": "fart-db7e1d87ec99"
+      "id": "fart-db7e1d87ec99",
+      "previousSlugsByLocale": {
+        "it": [
+          "1-capo-movimento-100-f-m-fart-ferrovie-autolinee-regionali-ticinesi-locarno-n33ctb",
+          "1-capotasto-100-f-m-fart-ferrovie-autolinee-regionali-ticinesi-locarno",
+          "capo-movimento-fart-ferrovie-autolinee-regionali-ticinesi-locarno",
+          "1-bewegungsleiter-100-m-w-fart-ferrovie-autolinee-regionali-ticinesi-locarno",
+          "head-of-operations-department-f-m-fart-ferrovie-autolinee-regionali-ticinesi-locarno",
+          "1-capo-dipartimento-dell-esercizio-f-m-fart-ferrovie-autolinee-regionali-ticinesi-locarno",
+          "1-capo-movimento-100-f-m-fart"
+        ],
+        "en": [
+          "1-capotasto-100-f-m-fart-ferrovie-autolinee-regionali-ticinesi-locarno",
+          "1-bewegungsleiter-100-m-w-fart-ferrovie-autolinee-regionali-ticinesi-locarno",
+          "head-of-operations-department-f-m-fart-ferrovie-autolinee-regionali-ticinesi-locarno"
+        ],
+        "de": [
+          "1-capotasto-100-f-m-fart-ferrovie-autolinee-regionali-ticinesi-locarno",
+          "1-bewegungsleiter-100-m-w-fart-ferrovie-autolinee-regionali-ticinesi-locarno",
+          "head-of-operations-department-f-m-fart-ferrovie-autolinee-regionali-ticinesi-locarno",
+          "leiter-der-bewegung-100-f-m-fart-ferrovie-autolinee-regionali-ticinesi-locarno"
+        ],
+        "fr": [
+          "1-capotasto-100-f-m-fart-ferrovie-autolinee-regionali-ticinesi-locarno",
+          "1-bewegungsleiter-100-m-w-fart-ferrovie-autolinee-regionali-ticinesi-locarno",
+          "chef-femme-de-departement-des-operations-fart-ferrovie-autolinee-regionali-ticinesi-locarno",
+          "head-of-operations-department-f-m-fart-ferrovie-autolinee-regionali-ticinesi-locarno"
+        ]
+      }
     }
   ]
 }

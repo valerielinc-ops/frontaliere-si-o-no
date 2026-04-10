@@ -62,7 +62,13 @@
       },
       "streetAddress": "Via Pretorio 22",
       "postalCode": "6900",
-      "id": "allianz-suisse-f641408a8387"
+      "id": "allianz-suisse-f641408a8387",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsabile-vendite-nel-servizio-esterno-f-m-d-100-bellinzona-allianz-suisse-bellinzona",
+          "ricerca-responsabile-vendite-nel-servizio-esterno-f-m-d-100-bellinzona"
+        ]
+      }
     },
     {
       "title": "Consulente assicurativo (m/f/d) al 100%, Agenzia generale Sopraceneri",
@@ -110,8 +116,7 @@
         "consulente-assicurativo-m-f-d-al-100-agenzia-generale-sopraceneri-allianz-suisse-bellinzona",
         "consultant-en-assurance-m-f-j-a-100-agence-generale-sopraceneri-allianz-suisse-bellinzona",
         "insurance-consultant-m-f-d-100-sopraceneri-general-agency-allianz-suisse-bellinzona",
-        "versicherungsberater-m-w-d-100-generalagentur-sopraceneri-allianz-suisse-bellinzona",
-        "consultant-en-assurance-m-f-j-a-100-agence-generale-sopraceneri-allianz-suisse-bellinzona"
+        "versicherungsberater-m-w-d-100-generalagentur-sopraceneri-allianz-suisse-bellinzona"
       ],
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -128,7 +133,37 @@
       },
       "streetAddress": "Via Pretorio 22",
       "postalCode": "6900",
-      "id": "allianz-suisse-645012b65c6d"
+      "id": "allianz-suisse-645012b65c6d",
+      "previousSlugsByLocale": {
+        "it": [
+          "consulente-assicurativo-m-f-d-al-100-agenzia-generale-sopraceneri-allianz-suisse-bellinzon",
+          "consulente-assicurativo-m-f-d-al-100-agenzia-generale-sopraceneri-allianz-suisse-bellinzona",
+          "consultant-en-assurance-m-f-j-a-100-agence-generale-sopraceneri-allianz-suisse-bellinzona",
+          "insurance-consultant-m-f-d-100-sopraceneri-general-agency-allianz-suisse-bellinzona",
+          "versicherungsberater-m-w-d-100-generalagentur-sopraceneri-allianz-suisse-bellinzona"
+        ],
+        "en": [
+          "consulente-assicurativo-m-f-d-al-100-agenzia-generale-sopraceneri-allianz-suisse-bellinzon",
+          "consulente-assicurativo-m-f-d-al-100-agenzia-generale-sopraceneri-allianz-suisse-bellinzona",
+          "consultant-en-assurance-m-f-j-a-100-agence-generale-sopraceneri-allianz-suisse-bellinzona",
+          "insurance-consultant-m-f-d-100-sopraceneri-general-agency-allianz-suisse-bellinzona",
+          "versicherungsberater-m-w-d-100-generalagentur-sopraceneri-allianz-suisse-bellinzona"
+        ],
+        "de": [
+          "consulente-assicurativo-m-f-d-al-100-agenzia-generale-sopraceneri-allianz-suisse-bellinzon",
+          "consulente-assicurativo-m-f-d-al-100-agenzia-generale-sopraceneri-allianz-suisse-bellinzona",
+          "consultant-en-assurance-m-f-j-a-100-agence-generale-sopraceneri-allianz-suisse-bellinzona",
+          "insurance-consultant-m-f-d-100-sopraceneri-general-agency-allianz-suisse-bellinzona",
+          "versicherungsberater-m-w-d-100-generalagentur-sopraceneri-allianz-suisse-bellinzona"
+        ],
+        "fr": [
+          "consulente-assicurativo-m-f-d-al-100-agenzia-generale-sopraceneri-allianz-suisse-bellinzon",
+          "consulente-assicurativo-m-f-d-al-100-agenzia-generale-sopraceneri-allianz-suisse-bellinzona",
+          "consultant-en-assurance-m-f-j-a-100-agence-generale-sopraceneri-allianz-suisse-bellinzona",
+          "insurance-consultant-m-f-d-100-sopraceneri-general-agency-allianz-suisse-bellinzona",
+          "versicherungsberater-m-w-d-100-generalagentur-sopraceneri-allianz-suisse-bellinzona"
+        ]
+      }
     },
     {
       "title": "Consulente alla clientela in ambito assicurativo (m/f/d) al 100%",
@@ -422,7 +457,25 @@
       },
       "streetAddress": "Via Pretorio 22",
       "postalCode": "6900",
-      "id": "allianz-suisse-673166e2ef7b"
+      "id": "allianz-suisse-673166e2ef7b",
+      "previousSlugsByLocale": {
+        "it": [
+          "allianz-gestione-candidati-allianz-suisse-region-graubunden",
+          "allianz-bewerbermanagement"
+        ],
+        "en": [
+          "allianz-gestione-candidati-allianz-suisse-region-graubunden",
+          "allianz-bewerbermanagement"
+        ],
+        "de": [
+          "allianz-gestione-candidati-allianz-suisse-region-graubunden",
+          "allianz-bewerbermanagement"
+        ],
+        "fr": [
+          "allianz-gestione-candidati-allianz-suisse-region-graubunden",
+          "allianz-bewerbermanagement"
+        ]
+      }
     }
   ]
 }

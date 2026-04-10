@@ -235,7 +235,21 @@
       },
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
-      "id": "pemsa-40353f9a0331"
+      "id": "pemsa-40353f9a0331",
+      "previousSlugsByLocale": {
+        "it": [
+          "metalcostruttore-saldatore-pemsa-bellinzona"
+        ],
+        "en": [
+          "metalcostruttore-saldatore-pemsa-bellinzona"
+        ],
+        "de": [
+          "metalcostruttore-saldatore-pemsa-bellinzona"
+        ],
+        "fr": [
+          "metalcostruttore-saldatore-pemsa-bellinzona"
+        ]
+      }
     },
     {
       "title": "IMPERMEABILIZZATORI",
@@ -278,7 +292,6 @@
         "de": "wasserdichter-pemsa-locarno",
         "fr": "impermeables-pemsa-locarno"
       },
-      "previousSlugs": [],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -337,7 +350,6 @@
         "de": "fliesenlegung-pemsa-locarno",
         "fr": "carrelage-pemsa-locarno"
       },
-      "previousSlugs": [],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -396,7 +408,6 @@
         "de": "maler-pemsa-locarno",
         "fr": "peintre-pemsa-locarno"
       },
-      "previousSlugs": [],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -455,7 +466,6 @@
         "de": "fassadenmonteur-pemsa-locarno",
         "fr": "installateur-de-facade-pemsa-locarno"
       },
-      "previousSlugs": [],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -822,11 +832,33 @@
       "previousSlugs": [
         "manutentore-elettromeccanico-macchinari-edili-e-silos-automatizzati-pemsa-cadempino",
         "manutentorelettrico-su-macchinari-edili-e-silos-automatizzati-pemsa-lugano",
-        "technicien-de-maintenance-electrique-sur-des-machines-de-construction-et-des-silos-automatises-pemsa-lugano",
         "manutentore-elettro-su-macchinari-edili-e-silos-automatizzati-pemsa-lugano",
-        "manutentore-elettro-su-macchinari-edili-e-silos-automatizzati-pemsa-lugano"
+        "technicien-de-maintenance-electrique-sur-des-machines-de-construction-et-des-silos-automatises-pemsa-lugano"
       ],
-      "id": "pemsa-ef5ff0cea776"
+      "id": "pemsa-ef5ff0cea776",
+      "previousSlugsByLocale": {
+        "it": [
+          "manutentore-elettromeccanico-macchinari-edili-e-silos-automatizzati-pemsa-cadempino",
+          "manutentorelettrico-su-macchinari-edili-e-silos-automatizzati-pemsa-lugano",
+          "manutentore-elettro-su-macchinari-edili-e-silos-automatizzati-pemsa-lugano"
+        ],
+        "en": [
+          "manutentore-elettromeccanico-macchinari-edili-e-silos-automatizzati-pemsa-cadempino",
+          "manutentorelettrico-su-macchinari-edili-e-silos-automatizzati-pemsa-lugano",
+          "manutentore-elettro-su-macchinari-edili-e-silos-automatizzati-pemsa-lugano"
+        ],
+        "de": [
+          "manutentore-elettromeccanico-macchinari-edili-e-silos-automatizzati-pemsa-cadempino",
+          "manutentorelettrico-su-macchinari-edili-e-silos-automatizzati-pemsa-lugano",
+          "manutentore-elettro-su-macchinari-edili-e-silos-automatizzati-pemsa-lugano"
+        ],
+        "fr": [
+          "manutentore-elettromeccanico-macchinari-edili-e-silos-automatizzati-pemsa-cadempino",
+          "manutentorelettrico-su-macchinari-edili-e-silos-automatizzati-pemsa-lugano",
+          "technicien-de-maintenance-electrique-sur-des-machines-de-construction-et-des-silos-automatises-pemsa-lugano",
+          "manutentore-elettro-su-macchinari-edili-e-silos-automatizzati-pemsa-lugano"
+        ]
+      }
     },
     {
       "title": "Costruttore stradale",
@@ -890,7 +922,33 @@
         "stra-enpflasterer-pemsa-bellinzona",
         "plancher-routier-pemsa-bellinzona"
       ],
-      "id": "pemsa-b83b91fcb71e"
+      "id": "pemsa-b83b91fcb71e",
+      "previousSlugsByLocale": {
+        "it": [
+          "pavimentatore-stradale-pemsa-bellinzona",
+          "road-paver-pemsa-bellinzona",
+          "stra-enpflasterer-pemsa-bellinzona",
+          "plancher-routier-pemsa-bellinzona"
+        ],
+        "en": [
+          "pavimentatore-stradale-pemsa-bellinzona",
+          "road-paver-pemsa-bellinzona",
+          "stra-enpflasterer-pemsa-bellinzona",
+          "plancher-routier-pemsa-bellinzona"
+        ],
+        "de": [
+          "pavimentatore-stradale-pemsa-bellinzona",
+          "road-paver-pemsa-bellinzona",
+          "stra-enpflasterer-pemsa-bellinzona",
+          "plancher-routier-pemsa-bellinzona"
+        ],
+        "fr": [
+          "pavimentatore-stradale-pemsa-bellinzona",
+          "road-paver-pemsa-bellinzona",
+          "stra-enpflasterer-pemsa-bellinzona",
+          "plancher-routier-pemsa-bellinzona"
+        ]
+      }
     },
     {
       "title": "IDRAULICO IMPIANTI SANITARI",
@@ -951,7 +1009,21 @@
       "previousSlugs": [
         "sanitarhydraulik-pemsa-lugano-oilwn9"
       ],
-      "id": "pemsa-43925ddc67d2"
+      "id": "pemsa-43925ddc67d2",
+      "previousSlugsByLocale": {
+        "it": [
+          "sanitarhydraulik-pemsa-lugano-oilwn9"
+        ],
+        "en": [
+          "sanitarhydraulik-pemsa-lugano-oilwn9"
+        ],
+        "de": [
+          "sanitarhydraulik-pemsa-lugano-oilwn9"
+        ],
+        "fr": [
+          "sanitarhydraulik-pemsa-lugano-oilwn9"
+        ]
+      }
     },
     {
       "title": "Muratore",
@@ -1014,7 +1086,29 @@
         "maurer-pemsa-bellinzona-4dsm5u",
         "macon-pemsa-bellinzona-4dsm5u"
       ],
-      "id": "pemsa-81420766200f"
+      "id": "pemsa-81420766200f",
+      "previousSlugsByLocale": {
+        "it": [
+          "bricjlayer-pemsa-bellinzona-4dsm5u",
+          "maurer-pemsa-bellinzona-4dsm5u",
+          "macon-pemsa-bellinzona-4dsm5u"
+        ],
+        "en": [
+          "bricjlayer-pemsa-bellinzona-4dsm5u",
+          "maurer-pemsa-bellinzona-4dsm5u",
+          "macon-pemsa-bellinzona-4dsm5u"
+        ],
+        "de": [
+          "bricjlayer-pemsa-bellinzona-4dsm5u",
+          "maurer-pemsa-bellinzona-4dsm5u",
+          "macon-pemsa-bellinzona-4dsm5u"
+        ],
+        "fr": [
+          "bricjlayer-pemsa-bellinzona-4dsm5u",
+          "maurer-pemsa-bellinzona-4dsm5u",
+          "macon-pemsa-bellinzona-4dsm5u"
+        ]
+      }
     },
     {
       "title": "Carpentiere Edile",
@@ -1078,7 +1172,33 @@
         "construction-carpenter-pemsa-bellinzona-s5255a",
         "macon-constructeur-pemsa-bellinzona-s5255a"
       ],
-      "id": "pemsa-13d68c6ac789"
+      "id": "pemsa-13d68c6ac789",
+      "previousSlugsByLocale": {
+        "it": [
+          "bautischlerei-pemsa-bellinzona",
+          "bauzimmerer-pemsa-bellinzona",
+          "construction-carpenter-pemsa-bellinzona-s5255a",
+          "macon-constructeur-pemsa-bellinzona-s5255a"
+        ],
+        "en": [
+          "bautischlerei-pemsa-bellinzona",
+          "bauzimmerer-pemsa-bellinzona",
+          "construction-carpenter-pemsa-bellinzona-s5255a",
+          "macon-constructeur-pemsa-bellinzona-s5255a"
+        ],
+        "de": [
+          "bautischlerei-pemsa-bellinzona",
+          "bauzimmerer-pemsa-bellinzona",
+          "construction-carpenter-pemsa-bellinzona-s5255a",
+          "macon-constructeur-pemsa-bellinzona-s5255a"
+        ],
+        "fr": [
+          "bautischlerei-pemsa-bellinzona",
+          "bauzimmerer-pemsa-bellinzona",
+          "construction-carpenter-pemsa-bellinzona-s5255a",
+          "macon-constructeur-pemsa-bellinzona-s5255a"
+        ]
+      }
     },
     {
       "title": "IDRAULICO",
@@ -1141,7 +1261,29 @@
         "hydraulique-pemsa-locarno-6097fr",
         "group-pemsa-locarno-6097fr"
       ],
-      "id": "pemsa-a2864019366a"
+      "id": "pemsa-a2864019366a",
+      "previousSlugsByLocale": {
+        "it": [
+          "installateur-pemsa-locarno-6097fr",
+          "hydraulique-pemsa-locarno-6097fr",
+          "group-pemsa-locarno-6097fr"
+        ],
+        "en": [
+          "installateur-pemsa-locarno-6097fr",
+          "hydraulique-pemsa-locarno-6097fr",
+          "group-pemsa-locarno-6097fr"
+        ],
+        "de": [
+          "installateur-pemsa-locarno-6097fr",
+          "hydraulique-pemsa-locarno-6097fr",
+          "group-pemsa-locarno-6097fr"
+        ],
+        "fr": [
+          "installateur-pemsa-locarno-6097fr",
+          "hydraulique-pemsa-locarno-6097fr",
+          "group-pemsa-locarno-6097fr"
+        ]
+      }
     },
     {
       "title": "MECCANICO DI MACCHINE DA CANTIERE",
@@ -1202,7 +1344,21 @@
       "previousSlugs": [
         "construction-machine-mechanic-pemsa-locarno-f50cmm"
       ],
-      "id": "pemsa-0ef3272c3e63"
+      "id": "pemsa-0ef3272c3e63",
+      "previousSlugsByLocale": {
+        "it": [
+          "construction-machine-mechanic-pemsa-locarno-f50cmm"
+        ],
+        "en": [
+          "construction-machine-mechanic-pemsa-locarno-f50cmm"
+        ],
+        "de": [
+          "construction-machine-mechanic-pemsa-locarno-f50cmm"
+        ],
+        "fr": [
+          "construction-machine-mechanic-pemsa-locarno-f50cmm"
+        ]
+      }
     },
     {
       "title": "IMPERMEABILIZZATORE",
@@ -1265,7 +1421,29 @@
         "impragniermittel-pemsa-locarno-a8v54u",
         "impermeabilisateur-pemsa-locarno-a8v54u"
       ],
-      "id": "pemsa-a5dfe1192a8b"
+      "id": "pemsa-a5dfe1192a8b",
+      "previousSlugsByLocale": {
+        "it": [
+          "hypermeabilizer-pemsa-locarno-a8v54u",
+          "impragniermittel-pemsa-locarno-a8v54u",
+          "impermeabilisateur-pemsa-locarno-a8v54u"
+        ],
+        "en": [
+          "hypermeabilizer-pemsa-locarno-a8v54u",
+          "impragniermittel-pemsa-locarno-a8v54u",
+          "impermeabilisateur-pemsa-locarno-a8v54u"
+        ],
+        "de": [
+          "hypermeabilizer-pemsa-locarno-a8v54u",
+          "impragniermittel-pemsa-locarno-a8v54u",
+          "impermeabilisateur-pemsa-locarno-a8v54u"
+        ],
+        "fr": [
+          "hypermeabilizer-pemsa-locarno-a8v54u",
+          "impragniermittel-pemsa-locarno-a8v54u",
+          "impermeabilisateur-pemsa-locarno-a8v54u"
+        ]
+      }
     },
     {
       "title": "MACCHINISTA",
@@ -1328,7 +1506,29 @@
         "lokfuhrer-pemsa-locarno-88b5e7",
         "machiniste-pemsa-locarno-88b5e7"
       ],
-      "id": "pemsa-047033b4ddab"
+      "id": "pemsa-047033b4ddab",
+      "previousSlugsByLocale": {
+        "it": [
+          "train-master-pemsa-locarno-88b5e7",
+          "lokfuhrer-pemsa-locarno-88b5e7",
+          "machiniste-pemsa-locarno-88b5e7"
+        ],
+        "en": [
+          "train-master-pemsa-locarno-88b5e7",
+          "lokfuhrer-pemsa-locarno-88b5e7",
+          "machiniste-pemsa-locarno-88b5e7"
+        ],
+        "de": [
+          "train-master-pemsa-locarno-88b5e7",
+          "lokfuhrer-pemsa-locarno-88b5e7",
+          "machiniste-pemsa-locarno-88b5e7"
+        ],
+        "fr": [
+          "train-master-pemsa-locarno-88b5e7",
+          "lokfuhrer-pemsa-locarno-88b5e7",
+          "machiniste-pemsa-locarno-88b5e7"
+        ]
+      }
     },
     {
       "title": "LATTONIERI",
@@ -1390,7 +1590,25 @@
         "spengler-pemsa-locarno-oah52n",
         "tin-makers-pemsa-locarno-oah52n"
       ],
-      "id": "pemsa-8e0ff1519a55"
+      "id": "pemsa-8e0ff1519a55",
+      "previousSlugsByLocale": {
+        "it": [
+          "spengler-pemsa-locarno-oah52n",
+          "tin-makers-pemsa-locarno-oah52n"
+        ],
+        "en": [
+          "spengler-pemsa-locarno-oah52n",
+          "tin-makers-pemsa-locarno-oah52n"
+        ],
+        "de": [
+          "spengler-pemsa-locarno-oah52n",
+          "tin-makers-pemsa-locarno-oah52n"
+        ],
+        "fr": [
+          "spengler-pemsa-locarno-oah52n",
+          "tin-makers-pemsa-locarno-oah52n"
+        ]
+      }
     },
     {
       "title": "CARPENTIERE TETTI",
@@ -1453,7 +1671,29 @@
         "zimmermann-dacher-pemsa-locarno-30ggqk",
         "charpentier-toits-pemsa-locarno-30ggqk"
       ],
-      "id": "pemsa-16ef10318252"
+      "id": "pemsa-16ef10318252",
+      "previousSlugsByLocale": {
+        "it": [
+          "roof-carpenters-pemsa-locarno-30ggqk",
+          "zimmermann-dacher-pemsa-locarno-30ggqk",
+          "charpentier-toits-pemsa-locarno-30ggqk"
+        ],
+        "en": [
+          "roof-carpenters-pemsa-locarno-30ggqk",
+          "zimmermann-dacher-pemsa-locarno-30ggqk",
+          "charpentier-toits-pemsa-locarno-30ggqk"
+        ],
+        "de": [
+          "roof-carpenters-pemsa-locarno-30ggqk",
+          "zimmermann-dacher-pemsa-locarno-30ggqk",
+          "charpentier-toits-pemsa-locarno-30ggqk"
+        ],
+        "fr": [
+          "roof-carpenters-pemsa-locarno-30ggqk",
+          "zimmermann-dacher-pemsa-locarno-30ggqk",
+          "charpentier-toits-pemsa-locarno-30ggqk"
+        ]
+      }
     },
     {
       "title": "Macchinista",
@@ -1516,7 +1756,29 @@
         "lokfuhrer-pemsa-bellinzona-88aes1",
         "machiniste-pemsa-bellinzona-88aes1"
       ],
-      "id": "pemsa-7aebb676628d"
+      "id": "pemsa-7aebb676628d",
+      "previousSlugsByLocale": {
+        "it": [
+          "train-master-pemsa-bellinzona-88aes1",
+          "lokfuhrer-pemsa-bellinzona-88aes1",
+          "machiniste-pemsa-bellinzona-88aes1"
+        ],
+        "en": [
+          "train-master-pemsa-bellinzona-88aes1",
+          "lokfuhrer-pemsa-bellinzona-88aes1",
+          "machiniste-pemsa-bellinzona-88aes1"
+        ],
+        "de": [
+          "train-master-pemsa-bellinzona-88aes1",
+          "lokfuhrer-pemsa-bellinzona-88aes1",
+          "machiniste-pemsa-bellinzona-88aes1"
+        ],
+        "fr": [
+          "train-master-pemsa-bellinzona-88aes1",
+          "lokfuhrer-pemsa-bellinzona-88aes1",
+          "machiniste-pemsa-bellinzona-88aes1"
+        ]
+      }
     },
     {
       "title": "Rullista",
@@ -1579,7 +1841,29 @@
         "rollenbahn-pemsa-bellinzona-82esm3",
         "rouleau-pemsa-bellinzona-82esm3"
       ],
-      "id": "pemsa-ce7bf1905028"
+      "id": "pemsa-ce7bf1905028",
+      "previousSlugsByLocale": {
+        "it": [
+          "rollerist-pemsa-bellinzona-82esm3",
+          "rollenbahn-pemsa-bellinzona-82esm3",
+          "rouleau-pemsa-bellinzona-82esm3"
+        ],
+        "en": [
+          "rollerist-pemsa-bellinzona-82esm3",
+          "rollenbahn-pemsa-bellinzona-82esm3",
+          "rouleau-pemsa-bellinzona-82esm3"
+        ],
+        "de": [
+          "rollerist-pemsa-bellinzona-82esm3",
+          "rollenbahn-pemsa-bellinzona-82esm3",
+          "rouleau-pemsa-bellinzona-82esm3"
+        ],
+        "fr": [
+          "rollerist-pemsa-bellinzona-82esm3",
+          "rollenbahn-pemsa-bellinzona-82esm3",
+          "rouleau-pemsa-bellinzona-82esm3"
+        ]
+      }
     },
     {
       "title": "Selciatore",
@@ -1641,7 +1925,25 @@
         "pflasterer-pemsa-bellinzona-l71bxi",
         "paveur-pemsa-bellinzona-l71bxi"
       ],
-      "id": "pemsa-0da263d705ed"
+      "id": "pemsa-0da263d705ed",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflasterer-pemsa-bellinzona-l71bxi",
+          "paveur-pemsa-bellinzona-l71bxi"
+        ],
+        "en": [
+          "pflasterer-pemsa-bellinzona-l71bxi",
+          "paveur-pemsa-bellinzona-l71bxi"
+        ],
+        "de": [
+          "pflasterer-pemsa-bellinzona-l71bxi",
+          "paveur-pemsa-bellinzona-l71bxi"
+        ],
+        "fr": [
+          "pflasterer-pemsa-bellinzona-l71bxi",
+          "paveur-pemsa-bellinzona-l71bxi"
+        ]
+      }
     },
     {
       "title": "Meccanico di mezzi pesanti",
@@ -1705,7 +2007,33 @@
         "meccanico-di-mezzi-pesanti-pemsa-bellinzona-ens3sh",
         "heavy-equipment-mechanic-pemsa-bellinzona-ens3sh"
       ],
-      "id": "pemsa-a5bdddcb7a6f"
+      "id": "pemsa-a5bdddcb7a6f",
+      "previousSlugsByLocale": {
+        "it": [
+          "schwerlastfahrzeugmechaniker-pemsa-bellinzona-ens3sh",
+          "meccanico-di-mezzi-graviti-pemsa-bellinzona",
+          "meccanico-di-mezzi-pesanti-pemsa-bellinzona-ens3sh",
+          "heavy-equipment-mechanic-pemsa-bellinzona-ens3sh"
+        ],
+        "en": [
+          "schwerlastfahrzeugmechaniker-pemsa-bellinzona-ens3sh",
+          "meccanico-di-mezzi-graviti-pemsa-bellinzona",
+          "meccanico-di-mezzi-pesanti-pemsa-bellinzona-ens3sh",
+          "heavy-equipment-mechanic-pemsa-bellinzona-ens3sh"
+        ],
+        "de": [
+          "schwerlastfahrzeugmechaniker-pemsa-bellinzona-ens3sh",
+          "meccanico-di-mezzi-graviti-pemsa-bellinzona",
+          "meccanico-di-mezzi-pesanti-pemsa-bellinzona-ens3sh",
+          "heavy-equipment-mechanic-pemsa-bellinzona-ens3sh"
+        ],
+        "fr": [
+          "schwerlastfahrzeugmechaniker-pemsa-bellinzona-ens3sh",
+          "meccanico-di-mezzi-graviti-pemsa-bellinzona",
+          "meccanico-di-mezzi-pesanti-pemsa-bellinzona-ens3sh",
+          "heavy-equipment-mechanic-pemsa-bellinzona-ens3sh"
+        ]
+      }
     },
     {
       "title": "Piastrellista",
@@ -1766,7 +2094,21 @@
       "previousSlugs": [
         "keramikfliese-pemsa-bellinzona-jj5g46"
       ],
-      "id": "pemsa-5603424e6d66"
+      "id": "pemsa-5603424e6d66",
+      "previousSlugsByLocale": {
+        "it": [
+          "keramikfliese-pemsa-bellinzona-jj5g46"
+        ],
+        "en": [
+          "keramikfliese-pemsa-bellinzona-jj5g46"
+        ],
+        "de": [
+          "keramikfliese-pemsa-bellinzona-jj5g46"
+        ],
+        "fr": [
+          "keramikfliese-pemsa-bellinzona-jj5g46"
+        ]
+      }
     },
     {
       "title": "Lattoniere",
@@ -1828,7 +2170,25 @@
         "ferblantier-pemsa-bellinzona-o8tlzm",
         "spengler-pemsa-bellinzona-o8tlzm"
       ],
-      "id": "pemsa-b68abb58f9a3"
+      "id": "pemsa-b68abb58f9a3",
+      "previousSlugsByLocale": {
+        "it": [
+          "ferblantier-pemsa-bellinzona-o8tlzm",
+          "spengler-pemsa-bellinzona-o8tlzm"
+        ],
+        "en": [
+          "ferblantier-pemsa-bellinzona-o8tlzm",
+          "spengler-pemsa-bellinzona-o8tlzm"
+        ],
+        "de": [
+          "ferblantier-pemsa-bellinzona-o8tlzm",
+          "spengler-pemsa-bellinzona-o8tlzm"
+        ],
+        "fr": [
+          "ferblantier-pemsa-bellinzona-o8tlzm",
+          "spengler-pemsa-bellinzona-o8tlzm"
+        ]
+      }
     },
     {
       "title": "Montatore di ponteggi",
@@ -1886,7 +2246,6 @@
       },
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
-      "previousSlugs": [],
       "id": "pemsa-4c14801c9c80"
     },
     {
@@ -1930,7 +2289,6 @@
         "de": "fraser-taglio-beton-pemsa-bellinzona",
         "fr": "fraiseur-taglio-beton-pemsa-bellinzona"
       },
-      "previousSlugs": [],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -2007,7 +2365,21 @@
       "previousSlugs": [
         "garten-pemsa-bellinzona"
       ],
-      "id": "pemsa-c0d027ffd487"
+      "id": "pemsa-c0d027ffd487",
+      "previousSlugsByLocale": {
+        "it": [
+          "garten-pemsa-bellinzona"
+        ],
+        "en": [
+          "garten-pemsa-bellinzona"
+        ],
+        "de": [
+          "garten-pemsa-bellinzona"
+        ],
+        "fr": [
+          "garten-pemsa-bellinzona"
+        ]
+      }
     },
     {
       "title": "Cartongessista – Gessatore",
@@ -2068,7 +2440,21 @@
       "previousSlugs": [
         "plasterer-amp-8211-chalk-pemsa-bellinzona"
       ],
-      "id": "pemsa-c56dc40e76bd"
+      "id": "pemsa-c56dc40e76bd",
+      "previousSlugsByLocale": {
+        "it": [
+          "plasterer-amp-8211-chalk-pemsa-bellinzona"
+        ],
+        "en": [
+          "plasterer-amp-8211-chalk-pemsa-bellinzona"
+        ],
+        "de": [
+          "plasterer-amp-8211-chalk-pemsa-bellinzona"
+        ],
+        "fr": [
+          "plasterer-amp-8211-chalk-pemsa-bellinzona"
+        ]
+      }
     },
     {
       "title": "Muuratore – carpentiere edile",
@@ -2129,7 +2515,21 @@
       "previousSlugs": [
         "muuratore-amp-8211-construction-carpenter-pemsa-bellinzona"
       ],
-      "id": "pemsa-4497178d9a26"
+      "id": "pemsa-4497178d9a26",
+      "previousSlugsByLocale": {
+        "it": [
+          "muuratore-amp-8211-construction-carpenter-pemsa-bellinzona"
+        ],
+        "en": [
+          "muuratore-amp-8211-construction-carpenter-pemsa-bellinzona"
+        ],
+        "de": [
+          "muuratore-amp-8211-construction-carpenter-pemsa-bellinzona"
+        ],
+        "fr": [
+          "muuratore-amp-8211-construction-carpenter-pemsa-bellinzona"
+        ]
+      }
     },
     {
       "title": "Elettricista",
@@ -2187,7 +2587,6 @@
       },
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
-      "previousSlugs": [],
       "id": "pemsa-b48712113f67"
     },
     {
@@ -2246,7 +2645,6 @@
       },
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
-      "previousSlugs": [],
       "id": "pemsa-63c060a0461c"
     }
   ]

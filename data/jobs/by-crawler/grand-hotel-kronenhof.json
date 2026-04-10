@@ -65,7 +65,14 @@
       },
       "streetAddress": "Via Maistra",
       "postalCode": "7504",
-      "id": "grand-hotel-kronenhof-26d874f7d536"
+      "id": "grand-hotel-kronenhof-26d874f7d536",
+      "previousSlugsByLocale": {
+        "en": [
+          "assistant-event-manager-m-w-d-kulm-hotel-st-moritz-st-moritz-588",
+          "assistent-event-manager-m-w-d-kulm-hotel-st-moritz-st-moritz",
+          "assistant-event-manager-m-w-d-kulm-hotel-st-moritz-st-moritz-ymxht1"
+        ]
+      }
     },
     {
       "title": "Assistant Front Office Manager (m/w/d)",
@@ -128,7 +135,12 @@
       },
       "streetAddress": "Via Maistra",
       "postalCode": "7504",
-      "id": "grand-hotel-kronenhof-23a58df24f9b"
+      "id": "grand-hotel-kronenhof-23a58df24f9b",
+      "previousSlugsByLocale": {
+        "en": [
+          "assistent-front-office-manager-m-w-d-kulm-hotel-st-moritz-st-moritz"
+        ]
+      }
     },
     {
       "title": "Assistant Reservations Manager  (m/w/d)",
@@ -177,8 +189,8 @@
         "assistant-reservations-manager-m-w-d-grand-hotel-kronenhof-pontresina-665",
         "assistant-reservations-manager-m-p-g-grand-hotel-kronenhof-pontresina",
         "assistent-reservations-manager-m-w-d-grand-hotel-kronenhof-pontresina",
-        "assistant-responsable-des-reservations-h-w-j-grand-hotel-kronenhof-pontresina-ymxh45",
-        "assistant-reservations-manager-m-w-d-grand-hotel-kronenhof-pontresina-ymxh45"
+        "assistant-reservations-manager-m-w-d-grand-hotel-kronenhof-pontresina-ymxh45",
+        "assistant-responsable-des-reservations-h-w-j-grand-hotel-kronenhof-pontresina-ymxh45"
       ],
       "salaryMin": 72000,
       "salaryMax": 97000,
@@ -195,7 +207,18 @@
       },
       "streetAddress": "Via Maistra",
       "postalCode": "7504",
-      "id": "grand-hotel-kronenhof-4b5ac4c16a6d"
+      "id": "grand-hotel-kronenhof-4b5ac4c16a6d",
+      "previousSlugsByLocale": {
+        "en": [
+          "assistant-reservations-manager-m-w-d-grand-hotel-kronenhof-pontresina-665",
+          "assistant-reservations-manager-m-p-g-grand-hotel-kronenhof-pontresina",
+          "assistent-reservations-manager-m-w-d-grand-hotel-kronenhof-pontresina",
+          "assistant-reservations-manager-m-w-d-grand-hotel-kronenhof-pontresina-ymxh45"
+        ],
+        "fr": [
+          "assistant-responsable-des-reservations-h-w-j-grand-hotel-kronenhof-pontresina-ymxh45"
+        ]
+      }
     },
     {
       "title": "Chef de Partie - Gardemanger (m/w/d)",
@@ -255,8 +278,7 @@
         }
       },
       "streetAddress": "Via Maistra",
-      "postalCode": "7504",
-      "previousSlugs": []
+      "postalCode": "7504"
     },
     {
       "title": "Chef de Partie - Kulm Country Club (m/w/d)",
@@ -319,7 +341,12 @@
       "previousSlugs": [
         "chef-de-partie-kulm-country-club-m-w-d-kulm-hotel-st-moritz-st-moritz-ymxh8d"
       ],
-      "id": "grand-hotel-kronenhof-57aefcd21168"
+      "id": "grand-hotel-kronenhof-57aefcd21168",
+      "previousSlugsByLocale": {
+        "fr": [
+          "chef-de-partie-kulm-country-club-m-w-d-kulm-hotel-st-moritz-st-moritz-ymxh8d"
+        ]
+      }
     },
     {
       "title": "Chef de Partie Mitarbeiterrestaurant/ Personalkoch (m/w/d)",
@@ -379,8 +406,7 @@
         }
       },
       "streetAddress": "Via Maistra",
-      "postalCode": "7504",
-      "previousSlugs": []
+      "postalCode": "7504"
     },
     {
       "title": "Chef de Rang  (m/w/d)",
@@ -444,7 +470,13 @@
       },
       "streetAddress": "Via Maistra",
       "postalCode": "7504",
-      "id": "grand-hotel-kronenhof-19e2c435d46a"
+      "id": "grand-hotel-kronenhof-19e2c435d46a",
+      "previousSlugsByLocale": {
+        "fr": [
+          "chef-de-rang-m-w-d-kulm-hotel-st-moritz-st-moritz-622",
+          "chef-de-rang-m-w-d-kulm-hotel-st-moritz-st-moritz-ymxh7o"
+        ]
+      }
     },
     {
       "title": "Chef de Rang (m/w/d)",
@@ -508,7 +540,13 @@
         "chef-de-rang-m-w-d-grand-hotel-kronenhof-pontresina-650",
         "chef-de-rang-m-w-d-grand-hotel-kronenhof-pontresina-ymxh55"
       ],
-      "id": "grand-hotel-kronenhof-2bd05ec65b5a"
+      "id": "grand-hotel-kronenhof-2bd05ec65b5a",
+      "previousSlugsByLocale": {
+        "fr": [
+          "chef-de-rang-m-w-d-grand-hotel-kronenhof-pontresina-650",
+          "chef-de-rang-m-w-d-grand-hotel-kronenhof-pontresina-ymxh55"
+        ]
+      }
     },
     {
       "title": "Commis de Bar  (m/w/d)",
@@ -571,7 +609,21 @@
       },
       "streetAddress": "Via Maistra",
       "postalCode": "7504",
-      "id": "grand-hotel-kronenhof-b1168a375ad7"
+      "id": "grand-hotel-kronenhof-b1168a375ad7",
+      "previousSlugsByLocale": {
+        "it": [
+          "commis-de-bar-m-w-d-kulm-hotel-st-moritz-st-moritz-624"
+        ],
+        "en": [
+          "commis-de-bar-m-w-d-kulm-hotel-st-moritz-st-moritz-624"
+        ],
+        "de": [
+          "commis-de-bar-m-w-d-kulm-hotel-st-moritz-st-moritz-624"
+        ],
+        "fr": [
+          "commis-de-bar-m-w-d-kulm-hotel-st-moritz-st-moritz-624"
+        ]
+      }
     },
     {
       "title": "Commis de Cuisine  (m/w/d)",
@@ -634,7 +686,21 @@
       },
       "streetAddress": "Via Maistra",
       "postalCode": "7504",
-      "id": "grand-hotel-kronenhof-ff98dc92419c"
+      "id": "grand-hotel-kronenhof-ff98dc92419c",
+      "previousSlugsByLocale": {
+        "it": [
+          "commis-de-cuisine-m-w-d-grand-hotel-kronenhof-pontresina-658"
+        ],
+        "en": [
+          "commis-de-cuisine-m-w-d-grand-hotel-kronenhof-pontresina-658"
+        ],
+        "de": [
+          "commis-de-cuisine-m-w-d-grand-hotel-kronenhof-pontresina-658"
+        ],
+        "fr": [
+          "commis-de-cuisine-m-w-d-grand-hotel-kronenhof-pontresina-658"
+        ]
+      }
     },
     {
       "title": "Commis de Rang/ Assistant Waiter  (m/w/d)",
@@ -699,7 +765,29 @@
       },
       "streetAddress": "Via Maistra",
       "postalCode": "7504",
-      "id": "grand-hotel-kronenhof-95001f9e3871"
+      "id": "grand-hotel-kronenhof-95001f9e3871",
+      "previousSlugsByLocale": {
+        "it": [
+          "commis-de-rang-assistant-waiter-m-w-d-grand-hotel-kronenhof-pontresina-651",
+          "commissaire-de-rang-assistant-serveur-m-m-j-grand-hotel-kronenhof-pontresina",
+          "commis-de-rang-assistant-waiter-m-w-d-grand-hotel-kronenhof-pontresina-ymxh54"
+        ],
+        "en": [
+          "commis-de-rang-assistant-waiter-m-w-d-grand-hotel-kronenhof-pontresina-651",
+          "commissaire-de-rang-assistant-serveur-m-m-j-grand-hotel-kronenhof-pontresina",
+          "commis-de-rang-assistant-waiter-m-w-d-grand-hotel-kronenhof-pontresina-ymxh54"
+        ],
+        "de": [
+          "commis-de-rang-assistant-waiter-m-w-d-grand-hotel-kronenhof-pontresina-651",
+          "commissaire-de-rang-assistant-serveur-m-m-j-grand-hotel-kronenhof-pontresina",
+          "commis-de-rang-assistant-waiter-m-w-d-grand-hotel-kronenhof-pontresina-ymxh54"
+        ],
+        "fr": [
+          "commis-de-rang-assistant-waiter-m-w-d-grand-hotel-kronenhof-pontresina-651",
+          "commissaire-de-rang-assistant-serveur-m-m-j-grand-hotel-kronenhof-pontresina",
+          "commis-de-rang-assistant-waiter-m-w-d-grand-hotel-kronenhof-pontresina-ymxh54"
+        ]
+      }
     },
     {
       "title": "Cook - Staff Restaurant - unlimited contract (m/w/d)",
@@ -759,8 +847,7 @@
         }
       },
       "streetAddress": "Via Maistra",
-      "postalCode": "7504",
-      "previousSlugs": []
+      "postalCode": "7504"
     },
     {
       "title": "Cook - Staff Restaurant (m/w/d)",
@@ -825,7 +912,29 @@
         "koch-personalrestaurant-m-w-d-grand-hotel-kronenhof-pontresina-ymxh49",
         "cuisiner-restaurant-du-personnel-m-m-j-grand-hotel-kronenhof-pontresina"
       ],
-      "id": "grand-hotel-kronenhof-32f44a256bc3"
+      "id": "grand-hotel-kronenhof-32f44a256bc3",
+      "previousSlugsByLocale": {
+        "it": [
+          "cook-staff-restaurant-m-w-d-grand-hotel-kronenhof-pontresina-661",
+          "koch-personalrestaurant-m-w-d-grand-hotel-kronenhof-pontresina-ymxh49",
+          "cuisiner-restaurant-du-personnel-m-m-j-grand-hotel-kronenhof-pontresina"
+        ],
+        "en": [
+          "cook-staff-restaurant-m-w-d-grand-hotel-kronenhof-pontresina-661",
+          "koch-personalrestaurant-m-w-d-grand-hotel-kronenhof-pontresina-ymxh49",
+          "cuisiner-restaurant-du-personnel-m-m-j-grand-hotel-kronenhof-pontresina"
+        ],
+        "de": [
+          "cook-staff-restaurant-m-w-d-grand-hotel-kronenhof-pontresina-661",
+          "koch-personalrestaurant-m-w-d-grand-hotel-kronenhof-pontresina-ymxh49",
+          "cuisiner-restaurant-du-personnel-m-m-j-grand-hotel-kronenhof-pontresina"
+        ],
+        "fr": [
+          "cook-staff-restaurant-m-w-d-grand-hotel-kronenhof-pontresina-661",
+          "koch-personalrestaurant-m-w-d-grand-hotel-kronenhof-pontresina-ymxh49",
+          "cuisiner-restaurant-du-personnel-m-m-j-grand-hotel-kronenhof-pontresina"
+        ]
+      }
     },
     {
       "title": "Demi Chef de Partie - Breakfast (m/w/d)",
@@ -885,8 +994,7 @@
         }
       },
       "streetAddress": "Via Maistra",
-      "postalCode": "7504",
-      "previousSlugs": []
+      "postalCode": "7504"
     },
     {
       "title": "Driver  (m/w/d)",
@@ -952,7 +1060,33 @@
       },
       "streetAddress": "Via Maistra",
       "postalCode": "7504",
-      "id": "grand-hotel-kronenhof-9a7643a1f957"
+      "id": "grand-hotel-kronenhof-9a7643a1f957",
+      "previousSlugsByLocale": {
+        "it": [
+          "driver-m-w-d-grand-hotel-kronenhof-pontresina-638",
+          "chauffeur-m-w-j-grand-hotel-kronenhof-pontresina-ymxh6n",
+          "fahrer-m-w-d-grand-hotel-kronenhof-pontresina",
+          "driver-m-w-d-grand-hotel-kronenhof-pontresina-ymxh6n"
+        ],
+        "en": [
+          "driver-m-w-d-grand-hotel-kronenhof-pontresina-638",
+          "chauffeur-m-w-j-grand-hotel-kronenhof-pontresina-ymxh6n",
+          "fahrer-m-w-d-grand-hotel-kronenhof-pontresina",
+          "driver-m-w-d-grand-hotel-kronenhof-pontresina-ymxh6n"
+        ],
+        "de": [
+          "driver-m-w-d-grand-hotel-kronenhof-pontresina-638",
+          "chauffeur-m-w-j-grand-hotel-kronenhof-pontresina-ymxh6n",
+          "fahrer-m-w-d-grand-hotel-kronenhof-pontresina",
+          "driver-m-w-d-grand-hotel-kronenhof-pontresina-ymxh6n"
+        ],
+        "fr": [
+          "driver-m-w-d-grand-hotel-kronenhof-pontresina-638",
+          "chauffeur-m-w-j-grand-hotel-kronenhof-pontresina-ymxh6n",
+          "fahrer-m-w-d-grand-hotel-kronenhof-pontresina",
+          "driver-m-w-d-grand-hotel-kronenhof-pontresina-ymxh6n"
+        ]
+      }
     },
     {
       "title": "Florist (m/w/d)",
@@ -1020,7 +1154,41 @@
         "fleuriste-h-w-j-grand-hotel-kronenhof-pontresina-ymxh8g",
         "florist-m-w-d-grand-hotel-kronenhof-pontresina-ymxh8g"
       ],
-      "id": "grand-hotel-kronenhof-9f2f54cd2282"
+      "id": "grand-hotel-kronenhof-9f2f54cd2282",
+      "previousSlugsByLocale": {
+        "it": [
+          "fiorista-m-w-d-grand-hotel-kronenhof-pontresina",
+          "florist-m-w-d-grand-hotel-kronenhof-pontresina-615",
+          "fiorista-lunedi-mercoledi-d-grand-hotel-kronenhof-pontresina",
+          "blumenhandler-m-w-d-grand-hotel-kronenhof-pontresina-ymxh8g",
+          "fleuriste-h-w-j-grand-hotel-kronenhof-pontresina-ymxh8g",
+          "florist-m-w-d-grand-hotel-kronenhof-pontresina-ymxh8g"
+        ],
+        "en": [
+          "fiorista-m-w-d-grand-hotel-kronenhof-pontresina",
+          "florist-m-w-d-grand-hotel-kronenhof-pontresina-615",
+          "fiorista-lunedi-mercoledi-d-grand-hotel-kronenhof-pontresina",
+          "blumenhandler-m-w-d-grand-hotel-kronenhof-pontresina-ymxh8g",
+          "fleuriste-h-w-j-grand-hotel-kronenhof-pontresina-ymxh8g",
+          "florist-m-w-d-grand-hotel-kronenhof-pontresina-ymxh8g"
+        ],
+        "de": [
+          "fiorista-m-w-d-grand-hotel-kronenhof-pontresina",
+          "florist-m-w-d-grand-hotel-kronenhof-pontresina-615",
+          "fiorista-lunedi-mercoledi-d-grand-hotel-kronenhof-pontresina",
+          "blumenhandler-m-w-d-grand-hotel-kronenhof-pontresina-ymxh8g",
+          "fleuriste-h-w-j-grand-hotel-kronenhof-pontresina-ymxh8g",
+          "florist-m-w-d-grand-hotel-kronenhof-pontresina-ymxh8g"
+        ],
+        "fr": [
+          "fiorista-m-w-d-grand-hotel-kronenhof-pontresina",
+          "florist-m-w-d-grand-hotel-kronenhof-pontresina-615",
+          "fiorista-lunedi-mercoledi-d-grand-hotel-kronenhof-pontresina",
+          "blumenhandler-m-w-d-grand-hotel-kronenhof-pontresina-ymxh8g",
+          "fleuriste-h-w-j-grand-hotel-kronenhof-pontresina-ymxh8g",
+          "florist-m-w-d-grand-hotel-kronenhof-pontresina-ymxh8g"
+        ]
+      }
     },
     {
       "title": "Food and Beverage Assistant (m/w/d)",
@@ -1084,7 +1252,13 @@
       },
       "streetAddress": "Via Maistra",
       "postalCode": "7504",
-      "id": "grand-hotel-kronenhof-beeb90ac25ef"
+      "id": "grand-hotel-kronenhof-beeb90ac25ef",
+      "previousSlugsByLocale": {
+        "en": [
+          "food-and-beverage-assistent-m-w-d-kulm-hotel-st-moritz-st-moritz",
+          "food-and-beverage-assistant-m-w-d-kulm-hotel-st-moritz-st-moritz-ymxh98"
+        ]
+      }
     },
     {
       "title": "Food and Beverage Director (m/w/d)",
@@ -1151,7 +1325,31 @@
       },
       "streetAddress": "Via Maistra",
       "postalCode": "7504",
-      "id": "grand-hotel-kronenhof-6cbcde2616a2"
+      "id": "grand-hotel-kronenhof-6cbcde2616a2",
+      "previousSlugsByLocale": {
+        "en": [
+          "food-and-beverage-director-m-w-d-grand-hotel-kronenhof-pontresina-609",
+          "food-and-beverage-direttore-m-w-d-grand-hotel-kronenhof-pontresina",
+          "food-and-beverage-direktor-m-w-d-grand-hotel-kronenhof-pontresina",
+          "food-and-beverage-directeur-m-w-d-grand-hotel-kronenhof-pontresina",
+          "direttore-food-and-beverage-m-p-g-grand-hotel-kronenhof-pontresina"
+        ],
+        "it": [
+          "food-and-beverage-direttore-m-w-d-grand-hotel-kronenhof-pontresina",
+          "food-and-beverage-directeur-m-w-d-grand-hotel-kronenhof-pontresina",
+          "direttore-food-and-beverage-m-p-g-grand-hotel-kronenhof-pontresina"
+        ],
+        "de": [
+          "food-and-beverage-direttore-m-w-d-grand-hotel-kronenhof-pontresina",
+          "food-and-beverage-directeur-m-w-d-grand-hotel-kronenhof-pontresina",
+          "direttore-food-and-beverage-m-p-g-grand-hotel-kronenhof-pontresina"
+        ],
+        "fr": [
+          "food-and-beverage-direttore-m-w-d-grand-hotel-kronenhof-pontresina",
+          "food-and-beverage-directeur-m-w-d-grand-hotel-kronenhof-pontresina",
+          "direttore-food-and-beverage-m-p-g-grand-hotel-kronenhof-pontresina"
+        ]
+      }
     },
     {
       "title": "Front Office Agent (m/w/d)",
@@ -1215,7 +1413,25 @@
         "front-office-agent-m-w-d-kulm-hotel-st-moritz-st-moritz-610",
         "front-office-agent-m-w-d-kulm-hotel-st-moritz-st-moritz-ymxh8l"
       ],
-      "id": "grand-hotel-kronenhof-8d1d07dcd89b"
+      "id": "grand-hotel-kronenhof-8d1d07dcd89b",
+      "previousSlugsByLocale": {
+        "it": [
+          "front-office-agent-m-w-d-kulm-hotel-st-moritz-st-moritz-610",
+          "front-office-agent-m-w-d-kulm-hotel-st-moritz-st-moritz-ymxh8l"
+        ],
+        "en": [
+          "front-office-agent-m-w-d-kulm-hotel-st-moritz-st-moritz-610",
+          "front-office-agent-m-w-d-kulm-hotel-st-moritz-st-moritz-ymxh8l"
+        ],
+        "de": [
+          "front-office-agent-m-w-d-kulm-hotel-st-moritz-st-moritz-610",
+          "front-office-agent-m-w-d-kulm-hotel-st-moritz-st-moritz-ymxh8l"
+        ],
+        "fr": [
+          "front-office-agent-m-w-d-kulm-hotel-st-moritz-st-moritz-610",
+          "front-office-agent-m-w-d-kulm-hotel-st-moritz-st-moritz-ymxh8l"
+        ]
+      }
     },
     {
       "title": "Linen Employee (part-time 50%) (m/w/d)",
@@ -1282,7 +1498,37 @@
       },
       "streetAddress": "Via Maistra",
       "postalCode": "7504",
-      "id": "grand-hotel-kronenhof-702f71205df0"
+      "id": "grand-hotel-kronenhof-702f71205df0",
+      "previousSlugsByLocale": {
+        "it": [
+          "linen-employee-part-time-50-m-w-d-grand-hotel-kronenhof-pontresina-648",
+          "linen-employee-temps-partiel-50-m-w-d-grand-hotel-kronenhof-pontresina-ymxh5s",
+          "linen-employee-teilzeit-50-m-w-d-grand-hotel-kronenhof-pontresina",
+          "employe-du-linge-temps-partiel-50-lundi-mercredi-j-grand-hotel-kronenhof-pontresina",
+          "linen-employee-part-time-50-m-w-d-grand-hotel-kronenhof-pontresina-ymxh5s"
+        ],
+        "en": [
+          "linen-employee-part-time-50-m-w-d-grand-hotel-kronenhof-pontresina-648",
+          "linen-employee-temps-partiel-50-m-w-d-grand-hotel-kronenhof-pontresina-ymxh5s",
+          "linen-employee-teilzeit-50-m-w-d-grand-hotel-kronenhof-pontresina",
+          "employe-du-linge-temps-partiel-50-lundi-mercredi-j-grand-hotel-kronenhof-pontresina",
+          "linen-employee-part-time-50-m-w-d-grand-hotel-kronenhof-pontresina-ymxh5s"
+        ],
+        "de": [
+          "linen-employee-part-time-50-m-w-d-grand-hotel-kronenhof-pontresina-648",
+          "linen-employee-temps-partiel-50-m-w-d-grand-hotel-kronenhof-pontresina-ymxh5s",
+          "linen-employee-teilzeit-50-m-w-d-grand-hotel-kronenhof-pontresina",
+          "employe-du-linge-temps-partiel-50-lundi-mercredi-j-grand-hotel-kronenhof-pontresina",
+          "linen-employee-part-time-50-m-w-d-grand-hotel-kronenhof-pontresina-ymxh5s"
+        ],
+        "fr": [
+          "linen-employee-part-time-50-m-w-d-grand-hotel-kronenhof-pontresina-648",
+          "linen-employee-temps-partiel-50-m-w-d-grand-hotel-kronenhof-pontresina-ymxh5s",
+          "linen-employee-teilzeit-50-m-w-d-grand-hotel-kronenhof-pontresina",
+          "employe-du-linge-temps-partiel-50-lundi-mercredi-j-grand-hotel-kronenhof-pontresina",
+          "linen-employee-part-time-50-m-w-d-grand-hotel-kronenhof-pontresina-ymxh5s"
+        ]
+      }
     },
     {
       "title": "Maître de Rang (m/w/d)",
@@ -1347,7 +1593,29 @@
         "rangmeister-m-w-d-grand-hotel-kronenhof-pontresina-ymxh53",
         "maitre-de-rang-m-w-d-grand-hotel-kronenhof-pontresina-ymxh53"
       ],
-      "id": "grand-hotel-kronenhof-f20a66ec9df5"
+      "id": "grand-hotel-kronenhof-f20a66ec9df5",
+      "previousSlugsByLocale": {
+        "it": [
+          "maitre-de-rang-m-w-d-grand-hotel-kronenhof-pontresina-652",
+          "rangmeister-m-w-d-grand-hotel-kronenhof-pontresina-ymxh53",
+          "maitre-de-rang-m-w-d-grand-hotel-kronenhof-pontresina-ymxh53"
+        ],
+        "en": [
+          "maitre-de-rang-m-w-d-grand-hotel-kronenhof-pontresina-652",
+          "rangmeister-m-w-d-grand-hotel-kronenhof-pontresina-ymxh53",
+          "maitre-de-rang-m-w-d-grand-hotel-kronenhof-pontresina-ymxh53"
+        ],
+        "de": [
+          "maitre-de-rang-m-w-d-grand-hotel-kronenhof-pontresina-652",
+          "rangmeister-m-w-d-grand-hotel-kronenhof-pontresina-ymxh53",
+          "maitre-de-rang-m-w-d-grand-hotel-kronenhof-pontresina-ymxh53"
+        ],
+        "fr": [
+          "maitre-de-rang-m-w-d-grand-hotel-kronenhof-pontresina-652",
+          "rangmeister-m-w-d-grand-hotel-kronenhof-pontresina-ymxh53",
+          "maitre-de-rang-m-w-d-grand-hotel-kronenhof-pontresina-ymxh53"
+        ]
+      }
     },
     {
       "title": "Office Employee - Steward (start immediately) (m/w/d)",
@@ -1411,7 +1679,25 @@
         "office-employee-steward-start-immediately-m-w-d-grand-hotel-kronenhof-pontresina-629",
         "buroangestellte-steward-m-w-d-grand-hotel-kronenhof-pontresina"
       ],
-      "id": "grand-hotel-kronenhof-c964f4644a08"
+      "id": "grand-hotel-kronenhof-c964f4644a08",
+      "previousSlugsByLocale": {
+        "it": [
+          "office-employee-steward-start-immediately-m-w-d-grand-hotel-kronenhof-pontresina-629",
+          "buroangestellte-steward-m-w-d-grand-hotel-kronenhof-pontresina"
+        ],
+        "en": [
+          "office-employee-steward-start-immediately-m-w-d-grand-hotel-kronenhof-pontresina-629",
+          "buroangestellte-steward-m-w-d-grand-hotel-kronenhof-pontresina"
+        ],
+        "de": [
+          "office-employee-steward-start-immediately-m-w-d-grand-hotel-kronenhof-pontresina-629",
+          "buroangestellte-steward-m-w-d-grand-hotel-kronenhof-pontresina"
+        ],
+        "fr": [
+          "office-employee-steward-start-immediately-m-w-d-grand-hotel-kronenhof-pontresina-629",
+          "buroangestellte-steward-m-w-d-grand-hotel-kronenhof-pontresina"
+        ]
+      }
     },
     {
       "title": "Office Employee/Steward - Staff Restaurant \"Capricorn\" (m/w/d)",
@@ -1477,7 +1763,33 @@
         "office-employee-steward-staff-restaurant-capricorn-m-w-d-grand-hotel-kronenhof-pontresina-664",
         "employe-de-bureau-steward-debut-immediat-h-f-d-grand-hotel-kronenhof-pontresina-ymxh46"
       ],
-      "id": "grand-hotel-kronenhof-517f2506113d"
+      "id": "grand-hotel-kronenhof-517f2506113d",
+      "previousSlugsByLocale": {
+        "it": [
+          "office-employee-steward-start-immediately-m-w-d-grand-hotel-kronenhof-pontresina-664",
+          "buroangestellte-steward-m-w-d-grand-hotel-kronenhof-pontresina",
+          "office-employee-steward-staff-restaurant-capricorn-m-w-d-grand-hotel-kronenhof-pontresina-664",
+          "employe-de-bureau-steward-debut-immediat-h-f-d-grand-hotel-kronenhof-pontresina-ymxh46"
+        ],
+        "en": [
+          "office-employee-steward-start-immediately-m-w-d-grand-hotel-kronenhof-pontresina-664",
+          "buroangestellte-steward-m-w-d-grand-hotel-kronenhof-pontresina",
+          "office-employee-steward-staff-restaurant-capricorn-m-w-d-grand-hotel-kronenhof-pontresina-664",
+          "employe-de-bureau-steward-debut-immediat-h-f-d-grand-hotel-kronenhof-pontresina-ymxh46"
+        ],
+        "de": [
+          "office-employee-steward-start-immediately-m-w-d-grand-hotel-kronenhof-pontresina-664",
+          "buroangestellte-steward-m-w-d-grand-hotel-kronenhof-pontresina",
+          "office-employee-steward-staff-restaurant-capricorn-m-w-d-grand-hotel-kronenhof-pontresina-664",
+          "employe-de-bureau-steward-debut-immediat-h-f-d-grand-hotel-kronenhof-pontresina-ymxh46"
+        ],
+        "fr": [
+          "office-employee-steward-start-immediately-m-w-d-grand-hotel-kronenhof-pontresina-664",
+          "buroangestellte-steward-m-w-d-grand-hotel-kronenhof-pontresina",
+          "office-employee-steward-staff-restaurant-capricorn-m-w-d-grand-hotel-kronenhof-pontresina-664",
+          "employe-de-bureau-steward-debut-immediat-h-f-d-grand-hotel-kronenhof-pontresina-ymxh46"
+        ]
+      }
     },
     {
       "title": "Pool Attendant/ Life Guard (m/w/d)",
@@ -1542,7 +1854,29 @@
         "pool-attendant-life-guard-m-w-d-grand-hotel-kronenhof-pontresina-663",
         "garde-de-sauvetage-m-m-j-grand-hotel-kronenhof-pontresina"
       ],
-      "id": "grand-hotel-kronenhof-eae24993e371"
+      "id": "grand-hotel-kronenhof-eae24993e371",
+      "previousSlugsByLocale": {
+        "it": [
+          "schwimmbadmitarbeiter-rettungsschwimmer-m-w-d-grand-hotel-kronenhof-pontresina-ymxh47",
+          "pool-attendant-life-guard-m-w-d-grand-hotel-kronenhof-pontresina-663",
+          "garde-de-sauvetage-m-m-j-grand-hotel-kronenhof-pontresina"
+        ],
+        "en": [
+          "schwimmbadmitarbeiter-rettungsschwimmer-m-w-d-grand-hotel-kronenhof-pontresina-ymxh47",
+          "pool-attendant-life-guard-m-w-d-grand-hotel-kronenhof-pontresina-663",
+          "garde-de-sauvetage-m-m-j-grand-hotel-kronenhof-pontresina"
+        ],
+        "de": [
+          "schwimmbadmitarbeiter-rettungsschwimmer-m-w-d-grand-hotel-kronenhof-pontresina-ymxh47",
+          "pool-attendant-life-guard-m-w-d-grand-hotel-kronenhof-pontresina-663",
+          "garde-de-sauvetage-m-m-j-grand-hotel-kronenhof-pontresina"
+        ],
+        "fr": [
+          "schwimmbadmitarbeiter-rettungsschwimmer-m-w-d-grand-hotel-kronenhof-pontresina-ymxh47",
+          "pool-attendant-life-guard-m-w-d-grand-hotel-kronenhof-pontresina-663",
+          "garde-de-sauvetage-m-m-j-grand-hotel-kronenhof-pontresina"
+        ]
+      }
     },
     {
       "title": "Reservations Agent  (m/w/d)",
@@ -1609,7 +1943,37 @@
       },
       "streetAddress": "Via Maistra",
       "postalCode": "7504",
-      "id": "grand-hotel-kronenhof-fb2c3f04bd69"
+      "id": "grand-hotel-kronenhof-fb2c3f04bd69",
+      "previousSlugsByLocale": {
+        "it": [
+          "reservations-agent-m-w-d-kulm-hotel-st-moritz-st-moritz-602",
+          "reservationsagent-m-w-d-kulm-hotel-st-moritz-st-moritz-ymxh9e",
+          "reservationsagent-m-w-d-kulm-hotel-st-moritz-st-moritz",
+          "agent-de-reservation-m-w-d-kulm-hotel-st-moritz-st-moritz",
+          "reservations-agent-m-w-d-kulm-hotel-st-moritz-st-moritz-ymxh9e"
+        ],
+        "en": [
+          "reservations-agent-m-w-d-kulm-hotel-st-moritz-st-moritz-602",
+          "reservationsagent-m-w-d-kulm-hotel-st-moritz-st-moritz-ymxh9e",
+          "reservationsagent-m-w-d-kulm-hotel-st-moritz-st-moritz",
+          "agent-de-reservation-m-w-d-kulm-hotel-st-moritz-st-moritz",
+          "reservations-agent-m-w-d-kulm-hotel-st-moritz-st-moritz-ymxh9e"
+        ],
+        "de": [
+          "reservations-agent-m-w-d-kulm-hotel-st-moritz-st-moritz-602",
+          "reservationsagent-m-w-d-kulm-hotel-st-moritz-st-moritz-ymxh9e",
+          "reservationsagent-m-w-d-kulm-hotel-st-moritz-st-moritz",
+          "agent-de-reservation-m-w-d-kulm-hotel-st-moritz-st-moritz",
+          "reservations-agent-m-w-d-kulm-hotel-st-moritz-st-moritz-ymxh9e"
+        ],
+        "fr": [
+          "reservations-agent-m-w-d-kulm-hotel-st-moritz-st-moritz-602",
+          "reservationsagent-m-w-d-kulm-hotel-st-moritz-st-moritz-ymxh9e",
+          "reservationsagent-m-w-d-kulm-hotel-st-moritz-st-moritz",
+          "agent-de-reservation-m-w-d-kulm-hotel-st-moritz-st-moritz",
+          "reservations-agent-m-w-d-kulm-hotel-st-moritz-st-moritz-ymxh9e"
+        ]
+      }
     },
     {
       "title": "Spa Therapist (m/w/d)",
@@ -1674,7 +2038,29 @@
         "spa-therapeut-m-w-d-grand-hotel-kronenhof-pontresina-ymxhtw",
         "therapeute-spa-h-w-j-grand-hotel-kronenhof-pontresina-ymxhtw"
       ],
-      "id": "grand-hotel-kronenhof-b32669874fc2"
+      "id": "grand-hotel-kronenhof-b32669874fc2",
+      "previousSlugsByLocale": {
+        "it": [
+          "spa-therapist-m-w-d-grand-hotel-kronenhof-pontresina-578",
+          "spa-therapeut-m-w-d-grand-hotel-kronenhof-pontresina-ymxhtw",
+          "therapeute-spa-h-w-j-grand-hotel-kronenhof-pontresina-ymxhtw"
+        ],
+        "en": [
+          "spa-therapist-m-w-d-grand-hotel-kronenhof-pontresina-578",
+          "spa-therapeut-m-w-d-grand-hotel-kronenhof-pontresina-ymxhtw",
+          "therapeute-spa-h-w-j-grand-hotel-kronenhof-pontresina-ymxhtw"
+        ],
+        "de": [
+          "spa-therapist-m-w-d-grand-hotel-kronenhof-pontresina-578",
+          "spa-therapeut-m-w-d-grand-hotel-kronenhof-pontresina-ymxhtw",
+          "therapeute-spa-h-w-j-grand-hotel-kronenhof-pontresina-ymxhtw"
+        ],
+        "fr": [
+          "spa-therapist-m-w-d-grand-hotel-kronenhof-pontresina-578",
+          "spa-therapeut-m-w-d-grand-hotel-kronenhof-pontresina-ymxhtw",
+          "therapeute-spa-h-w-j-grand-hotel-kronenhof-pontresina-ymxhtw"
+        ]
+      }
     },
     {
       "title": "Supervisor Stewarding (m/w/d)",
@@ -1739,7 +2125,29 @@
       },
       "streetAddress": "Via Maistra",
       "postalCode": "7504",
-      "id": "grand-hotel-kronenhof-6fa69226e2b5"
+      "id": "grand-hotel-kronenhof-6fa69226e2b5",
+      "previousSlugsByLocale": {
+        "it": [
+          "supervisor-stewarding-m-w-d-kulm-hotel-st-moritz-st-moritz-653",
+          "supervisore-stewarding-m-f-d-kulm-hotel-st-moritz-st-moritz",
+          "vorgesetzter-stewarding-m-w-d-kulm-hotel-st-moritz-st-moritz"
+        ],
+        "en": [
+          "supervisor-stewarding-m-w-d-kulm-hotel-st-moritz-st-moritz-653",
+          "supervisore-stewarding-m-f-d-kulm-hotel-st-moritz-st-moritz",
+          "vorgesetzter-stewarding-m-w-d-kulm-hotel-st-moritz-st-moritz"
+        ],
+        "de": [
+          "supervisor-stewarding-m-w-d-kulm-hotel-st-moritz-st-moritz-653",
+          "supervisore-stewarding-m-f-d-kulm-hotel-st-moritz-st-moritz",
+          "vorgesetzter-stewarding-m-w-d-kulm-hotel-st-moritz-st-moritz"
+        ],
+        "fr": [
+          "supervisor-stewarding-m-w-d-kulm-hotel-st-moritz-st-moritz-653",
+          "supervisore-stewarding-m-f-d-kulm-hotel-st-moritz-st-moritz",
+          "vorgesetzter-stewarding-m-w-d-kulm-hotel-st-moritz-st-moritz"
+        ]
+      }
     }
   ]
 }

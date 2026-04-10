@@ -103,24 +103,41 @@ for (const file of sliceFiles) {
       const mergedDesc = mergeLocaleMap(sliceJob.descriptionByLocale, assembled.descriptionByLocale);
       const mergedSlug = mergeLocaleMap(sliceJob.slugByLocale, assembled.slugByLocale);
 
-      // Track slug changes: preserve old slug values in previousSlugs so the build
+      // Track slug changes: preserve old slug values in previousSlugsByLocale so the build
       // plugin can generate bridge/redirect pages for SEO continuity (prevents 404s
       // for URLs that Google/Bing may have already indexed).
       const oldSlugs = sliceJob.slugByLocale && typeof sliceJob.slugByLocale === 'object'
         ? sliceJob.slugByLocale : {};
       const newSlugs = mergedSlug && typeof mergedSlug === 'object' ? mergedSlug : {};
-      const newSlugValues = new Set(Object.values(newSlugs).map((s) => String(s || '').trim()).filter(Boolean));
-      const lostSlugs = Object.values(oldSlugs)
-        .map((s) => String(s || '').trim())
-        .filter((s) => s && !newSlugValues.has(s));
 
       let updatedJob = { ...sliceJob, titleByLocale: mergedTitle, descriptionByLocale: mergedDesc, slugByLocale: mergedSlug };
-      if (lostSlugs.length > 0) {
-        const existing = new Set(Array.isArray(sliceJob.previousSlugs) ? sliceJob.previousSlugs : []);
-        // Also exclude any slug that is still current
-        for (const s of newSlugValues) existing.delete(s);
-        for (const s of lostSlugs) existing.add(s);
-        updatedJob.previousSlugs = [...existing];
+
+      // Detect per-locale slug changes and record with locale context
+      const locales = ['it', 'en', 'de', 'fr'];
+      let hadChanges = false;
+      for (const locale of locales) {
+        const oldSlug = String(oldSlugs[locale] || '').trim();
+        const newSlug = String(newSlugs[locale] || '').trim();
+        if (oldSlug && newSlug && oldSlug !== newSlug) {
+          if (!updatedJob.previousSlugsByLocale) updatedJob.previousSlugsByLocale = {};
+          if (!Array.isArray(updatedJob.previousSlugsByLocale[locale])) {
+            updatedJob.previousSlugsByLocale[locale] = [];
+          }
+          if (!updatedJob.previousSlugsByLocale[locale].includes(oldSlug)) {
+            updatedJob.previousSlugsByLocale[locale].push(oldSlug);
+          }
+          hadChanges = true;
+        }
+      }
+      // Sync legacy flat array
+      if (hadChanges) {
+        const all = new Set(Array.isArray(updatedJob.previousSlugs) ? updatedJob.previousSlugs : []);
+        if (updatedJob.previousSlugsByLocale) {
+          for (const arr of Object.values(updatedJob.previousSlugsByLocale)) {
+            if (Array.isArray(arr)) for (const s of arr) all.add(s);
+          }
+        }
+        updatedJob.previousSlugs = [...all].slice(0, 20);
       }
 
       return updatedJob;

@@ -84,7 +84,26 @@
       "postalCode": "6900",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitender-software-ingenieur-chiasso",
+          "ingegnere-del-software-senior-chiasso",
+          "ingenieur-frontend-senior-chiasso"
+        ],
+        "en": [
+          "leitender-software-ingenieur-chiasso",
+          "ingenieur-frontend-senior-chiasso"
+        ],
+        "de": [
+          "leitender-software-ingenieur-chiasso",
+          "ingenieur-frontend-senior-chiasso"
+        ],
+        "fr": [
+          "leitender-software-ingenieur-chiasso",
+          "ingenieur-frontend-senior-chiasso"
+        ]
+      }
     },
     {
       "id": "company-us91lh",
@@ -146,7 +165,6 @@
       "country": "CH",
       "sourceLang": "en",
       "previousSlugs": [
-        "client-affiliation-partner-lastminute-com-chiasso-us91lh",
         "client-affiliation-partner-lastminute-com-chiasso-us91lh"
       ],
       "salaryMin": 82500,
@@ -165,7 +183,21 @@
       "postalCode": "6900",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "it": [
+          "client-affiliation-partner-lastminute-com-chiasso-us91lh"
+        ],
+        "en": [
+          "client-affiliation-partner-lastminute-com-chiasso-us91lh"
+        ],
+        "de": [
+          "client-affiliation-partner-lastminute-com-chiasso-us91lh"
+        ],
+        "fr": [
+          "client-affiliation-partner-lastminute-com-chiasso-us91lh"
+        ]
+      }
     },
     {
       "id": "company-2oxpfe",
@@ -247,7 +279,16 @@
       "postalCode": "6900",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "fr": [
+          "global-payroll-ressources-humaines-systems-responsable-chiasso"
+        ],
+        "en": [
+          "global-payroll-personalwesen-systems-manager-lastminute-com-chiasso",
+          "global-payroll-risorse-umane-systems-manager-lastminute-com-chiasso"
+        ]
+      }
     },
     {
       "id": "company-o2ikw3",
@@ -328,7 +369,22 @@
       "postalCode": "6900",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "it": [
+          "head-of-data-platform-engineering-lastminute-com-switzerland",
+          "responsabile-data-platform-engineering-lastminute-com-chiasso"
+        ],
+        "en": [
+          "head-of-data-platform-engineering-lastminute-com-switzerland"
+        ],
+        "de": [
+          "head-of-data-platform-engineering-lastminute-com-switzerland"
+        ],
+        "fr": [
+          "head-of-data-platform-engineering-lastminute-com-switzerland"
+        ]
+      }
     }
   ]
 }

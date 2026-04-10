@@ -275,7 +275,7 @@ export function writeSummaryCrawlerSlice(summaryEntry) {
   // Strip heavy locale/description data from job lists — summaries should only
   // contain metadata (title, slug, company, url) for monitoring, not full translations.
   // Compute per-job quality score BEFORE stripping (needs description/locale fields).
-  const HEAVY_FIELDS = ['descriptionByLocale', 'titleByLocale', 'slugByLocale', 'description', 'baseSalary', 'previousSlugs', 'requirementsByLocale', 'requirements'];
+  const HEAVY_FIELDS = ['descriptionByLocale', 'titleByLocale', 'slugByLocale', 'description', 'baseSalary', 'previousSlugs', 'previousSlugsByLocale', 'requirementsByLocale', 'requirements'];
   const stripJob = (job) => {
     if (!job || typeof job !== 'object') return job;
     // Compute quality score while full data is still available
@@ -621,6 +621,11 @@ function reconcileGhostExpired(activeJobs, expiredJobs) {
   for (const j of activeJobs) {
     if (j.slugByLocale) Object.values(j.slugByLocale).forEach(s => activeSlugSet.add(s));
     if (j.previousSlugs) j.previousSlugs.forEach(s => activeSlugSet.add(s));
+    if (j.previousSlugsByLocale && typeof j.previousSlugsByLocale === 'object') {
+      for (const arr of Object.values(j.previousSlugsByLocale)) {
+        if (Array.isArray(arr)) arr.forEach(s => activeSlugSet.add(s));
+      }
+    }
   }
 
   const ghostIds = new Set();

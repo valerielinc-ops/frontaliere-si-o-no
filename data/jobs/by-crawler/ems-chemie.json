@@ -112,7 +112,12 @@
       },
       "previousSlugs": [
         "leiter-umweltschutz-e-sicherheit-m-w-d-100-ems-chemie-ag-domat-ems"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "leiter-umweltschutz-e-sicherheit-m-w-d-100-ems-chemie-ag-domat-ems"
+        ]
+      }
     },
     {
       "title": "Distribution Manager (m/w/d) 100%",
@@ -166,8 +171,7 @@
           "maxValue": 97000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugs": []
+      }
     },
     {
       "title": "Leitung Assistenz Marketing & Verkauf (m/w/d) 100%",
@@ -263,7 +267,6 @@
       },
       "sourceLang": "it",
       "previousSlugs": [
-        "anwendungstechniker-technische-fasern-100-ems-chemie-domat-ems",
         "anwendungstechniker-technische-fasern-100-ems-chemie-domat-ems"
       ],
       "salaryMin": 58000,
@@ -279,7 +282,21 @@
           "unitText": "YEAR"
         }
       },
-      "id": "ems-chemie-84154a577bee"
+      "id": "ems-chemie-84154a577bee",
+      "previousSlugsByLocale": {
+        "it": [
+          "anwendungstechniker-technische-fasern-100-ems-chemie-domat-ems"
+        ],
+        "en": [
+          "anwendungstechniker-technische-fasern-100-ems-chemie-domat-ems"
+        ],
+        "de": [
+          "anwendungstechniker-technische-fasern-100-ems-chemie-domat-ems"
+        ],
+        "fr": [
+          "anwendungstechniker-technische-fasern-100-ems-chemie-domat-ems"
+        ]
+      }
     },
     {
       "title": "Laborant Forschung & Entwicklung (m/w/d) 100%",
@@ -336,7 +353,12 @@
       "previousSlugs": [
         "tecnico-di-laboratorio-ricerca-e-sviluppo-m-f-d-100-ems-chemie-domat-ems"
       ],
-      "id": "ems-chemie-ede055479e24"
+      "id": "ems-chemie-ede055479e24",
+      "previousSlugsByLocale": {
+        "it": [
+          "tecnico-di-laboratorio-ricerca-e-sviluppo-m-f-d-100-ems-chemie-domat-ems"
+        ]
+      }
     },
     {
       "title": "Transportdisponent / Sachbearbeiter Export 100% (m/w) 100%",
@@ -395,7 +417,23 @@
           "unitText": "YEAR"
         }
       },
-      "id": "ems-chemie-423a98fac3a2"
+      "id": "ems-chemie-423a98fac3a2",
+      "previousSlugsByLocale": {
+        "it": [
+          "transportdisponent-sachbearbeiter-export-100-m-w-100-romanshorn-eftec-ag-romanshorn-ems-chemie-ag-domat-ems",
+          "dispatcher-dei-trasporti-impiegato-esportazione-100-m-f-100-ems-chemie-domat-ems"
+        ],
+        "en": [
+          "transportdisponent-sachbearbeiter-export-100-m-w-100-romanshorn-eftec-ag-romanshorn-ems-chemie-ag-domat-ems",
+          "transport-coordinator-export-administrator-100-m-f-100-romanshorn-eftec-ag-romanshorn-ems-"
+        ],
+        "de": [
+          "transportdisponent-sachbearbeiter-export-100-m-w-100-romanshorn-eftec-ag-romanshorn-ems-chemie-ag-domat-ems"
+        ],
+        "fr": [
+          "transportdisponent-sachbearbeiter-export-100-m-w-100-romanshorn-eftec-ag-romanshorn-ems-chemie-ag-domat-ems"
+        ]
+      }
     },
     {
       "title": "Key Account Manager (m/w/d) (Homeoffice) 100%",
@@ -453,7 +491,15 @@
         "key-account-manager-m-w-d-homeoffice-100-ems-chemie-domat-ems",
         "responsabile-conto-chiave-lunedi-mercoledi-giorno-homeoffice-100-ems-chemie-domat-ems"
       ],
-      "id": "ems-chemie-67c54bdda271"
+      "id": "ems-chemie-67c54bdda271",
+      "previousSlugsByLocale": {
+        "en": [
+          "key-account-manager-m-w-d-homeoffice-100-ems-chemie-domat-ems"
+        ],
+        "it": [
+          "responsabile-conto-chiave-lunedi-mercoledi-giorno-homeoffice-100-ems-chemie-domat-ems"
+        ]
+      }
     },
     {
       "title": "Laborant Materialprüfung (m/w/d) 100%",
@@ -511,7 +557,22 @@
           "unitText": "YEAR"
         }
       },
-      "id": "ems-chemie-5dbf8c40f526"
+      "id": "ems-chemie-5dbf8c40f526",
+      "previousSlugsByLocale": {
+        "it": [
+          "laboratorio-di-prova-dei-materiali-m-f-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems",
+          "laborant-materialprufung-m-w-d-100-ems-chemie-domat-ems"
+        ],
+        "en": [
+          "laborant-materialprufung-m-w-d-100-ems-chemie-domat-ems"
+        ],
+        "de": [
+          "laborant-materialprufung-m-w-d-100-ems-chemie-domat-ems"
+        ],
+        "fr": [
+          "laborant-materialprufung-m-w-d-100-ems-chemie-domat-ems"
+        ]
+      }
     },
     {
       "title": "Leiter Controlling (m/w/d) 100%",
@@ -554,9 +615,9 @@
       "sourceLang": "it",
       "previousSlugs": [
         "responsabile-controlling-m-f-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems",
+        "responsabile-controlling-m-f-d-100-ems-chemie-domat-ems",
         "leiter-controlling-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems",
-        "leiter-controlling-m-w-d-100-ems-chemie-domat-ems",
-        "responsabile-controlling-m-f-d-100-ems-chemie-domat-ems"
+        "leiter-controlling-m-w-d-100-ems-chemie-domat-ems"
       ],
       "salaryMin": 72000,
       "salaryMax": 97000,
@@ -571,7 +632,17 @@
           "unitText": "YEAR"
         }
       },
-      "id": "ems-chemie-f1add2d99da7"
+      "id": "ems-chemie-f1add2d99da7",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsabile-controlling-m-f-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems",
+          "responsabile-controlling-m-f-d-100-ems-chemie-domat-ems"
+        ],
+        "de": [
+          "leiter-controlling-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems",
+          "leiter-controlling-m-w-d-100-ems-chemie-domat-ems"
+        ]
+      }
     }
   ]
 }

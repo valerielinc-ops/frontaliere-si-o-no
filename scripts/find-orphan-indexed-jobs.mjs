@@ -64,6 +64,11 @@ function collectKnownSlugs() {
           if (s) slugs.add(s);
         }
       }
+      if (job.previousSlugsByLocale && typeof job.previousSlugsByLocale === 'object') {
+        for (const arr of Object.values(job.previousSlugsByLocale)) {
+          if (Array.isArray(arr)) for (const s of arr) { if (s) slugs.add(s); }
+        }
+      }
     }
   }
 

@@ -132,7 +132,21 @@
       "previousSlugs": [
         "anwendungseigentumer-bankwesen-kapitalma-nahmen-fincons-group-lugano-podif8"
       ],
-      "id": "fincons-group-b7ddb70a41e1"
+      "id": "fincons-group-b7ddb70a41e1",
+      "previousSlugsByLocale": {
+        "it": [
+          "anwendungseigentumer-bankwesen-kapitalma-nahmen-fincons-group-lugano-podif8"
+        ],
+        "en": [
+          "anwendungseigentumer-bankwesen-kapitalma-nahmen-fincons-group-lugano-podif8"
+        ],
+        "de": [
+          "anwendungseigentumer-bankwesen-kapitalma-nahmen-fincons-group-lugano-podif8"
+        ],
+        "fr": [
+          "anwendungseigentumer-bankwesen-kapitalma-nahmen-fincons-group-lugano-podif8"
+        ]
+      }
     },
     {
       "title": "Developer PL/SQL - Banking Area",
@@ -201,7 +215,29 @@
         }
       },
       "streetAddress": "Via Industria 3",
-      "id": "fincons-group-9817cd4f0da2"
+      "id": "fincons-group-9817cd4f0da2",
+      "previousSlugsByLocale": {
+        "it": [
+          "sviluppatore-pl-sql-banking-area-fincons-group-lugano",
+          "entwickler-pl-sql-banking-area-fincons-group-lugano",
+          "developpeur-pl-sql-banking-area-fincons-group-lugano"
+        ],
+        "en": [
+          "sviluppatore-pl-sql-banking-area-fincons-group-lugano",
+          "entwickler-pl-sql-banking-area-fincons-group-lugano",
+          "developpeur-pl-sql-banking-area-fincons-group-lugano"
+        ],
+        "de": [
+          "sviluppatore-pl-sql-banking-area-fincons-group-lugano",
+          "entwickler-pl-sql-banking-area-fincons-group-lugano",
+          "developpeur-pl-sql-banking-area-fincons-group-lugano"
+        ],
+        "fr": [
+          "sviluppatore-pl-sql-banking-area-fincons-group-lugano",
+          "entwickler-pl-sql-banking-area-fincons-group-lugano",
+          "developpeur-pl-sql-banking-area-fincons-group-lugano"
+        ]
+      }
     },
     {
       "title": "JAVA Senior Engineer",
@@ -269,7 +305,22 @@
         }
       },
       "streetAddress": "Via Industria 3",
-      "id": "fincons-group-9cf152e74fea"
+      "id": "fincons-group-9cf152e74fea",
+      "previousSlugsByLocale": {
+        "it": [
+          "java-senior-ingegnere-fincons-group-lugano"
+        ],
+        "en": [
+          "java-senior-ingegnere-fincons-group-lugano",
+          "senior-software-engineer-java-fincons-group-lugano"
+        ],
+        "de": [
+          "java-senior-ingegnere-fincons-group-lugano"
+        ],
+        "fr": [
+          "java-senior-ingegnere-fincons-group-lugano"
+        ]
+      }
     },
     {
       "title": "QA/Test Automation Engineer",
@@ -336,7 +387,12 @@
         }
       },
       "streetAddress": "Via Industria 3",
-      "id": "fincons-group-46c782981b3e"
+      "id": "fincons-group-46c782981b3e",
+      "previousSlugsByLocale": {
+        "it": [
+          "qa-test-automation-ingegnere-fincons-group-lugano"
+        ]
+      }
     },
     {
       "title": "Senior Quality Assurance & Test Automation Engineer",
@@ -405,7 +461,29 @@
         }
       },
       "streetAddress": "Via Industria 3",
-      "id": "fincons-group-f491d19bd20b"
+      "id": "fincons-group-f491d19bd20b",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-quality-assurance-test-automation-ingegnere-fincons-group-lugano",
+          "senior-qualitat-assurance-test-automation-ingenieur-fincons-group-lugano",
+          "senior-qualite-assurance-test-automation-ingenieur-fincons-group-lugano"
+        ],
+        "en": [
+          "senior-quality-assurance-test-automation-ingegnere-fincons-group-lugano",
+          "senior-qualitat-assurance-test-automation-ingenieur-fincons-group-lugano",
+          "senior-qualite-assurance-test-automation-ingenieur-fincons-group-lugano"
+        ],
+        "de": [
+          "senior-quality-assurance-test-automation-ingegnere-fincons-group-lugano",
+          "senior-qualitat-assurance-test-automation-ingenieur-fincons-group-lugano",
+          "senior-qualite-assurance-test-automation-ingenieur-fincons-group-lugano"
+        ],
+        "fr": [
+          "senior-quality-assurance-test-automation-ingegnere-fincons-group-lugano",
+          "senior-qualitat-assurance-test-automation-ingenieur-fincons-group-lugano",
+          "senior-qualite-assurance-test-automation-ingenieur-fincons-group-lugano"
+        ]
+      }
     },
     {
       "title": "ServiceNow Developer (ITSM - CMDB)",
@@ -472,7 +550,21 @@
         }
       },
       "streetAddress": "Via Industria 3",
-      "id": "fincons-group-1ae8c4e7d020"
+      "id": "fincons-group-1ae8c4e7d020",
+      "previousSlugsByLocale": {
+        "it": [
+          "servicenow-sviluppatore-itsm-cmdb-fincons-group-lugano"
+        ],
+        "en": [
+          "servicenow-sviluppatore-itsm-cmdb-fincons-group-lugano"
+        ],
+        "de": [
+          "servicenow-sviluppatore-itsm-cmdb-fincons-group-lugano"
+        ],
+        "fr": [
+          "servicenow-sviluppatore-itsm-cmdb-fincons-group-lugano"
+        ]
+      }
     }
   ]
 }

@@ -78,7 +78,21 @@
       "previousSlugs": [
         "tecnica-o-diplomata-o-sss-costruzioni-meccaniche-has-healthcare-advanced-synthesis-biasca-068qa9"
       ],
-      "id": "has-healthcare-6569d01d625f"
+      "id": "has-healthcare-6569d01d625f",
+      "previousSlugsByLocale": {
+        "it": [
+          "tecnica-o-diplomata-o-sss-costruzioni-meccaniche-has-healthcare-advanced-synthesis-biasca-068qa9"
+        ],
+        "en": [
+          "tecnica-o-diplomata-o-sss-costruzioni-meccaniche-has-healthcare-advanced-synthesis-biasca-068qa9"
+        ],
+        "de": [
+          "tecnica-o-diplomata-o-sss-costruzioni-meccaniche-has-healthcare-advanced-synthesis-biasca-068qa9"
+        ],
+        "fr": [
+          "tecnica-o-diplomata-o-sss-costruzioni-meccaniche-has-healthcare-advanced-synthesis-biasca-068qa9"
+        ]
+      }
     },
     {
       "title": "HSE Specialist",
@@ -162,7 +176,36 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "id": "has-healthcare-8e63c477e71b"
+      "id": "has-healthcare-8e63c477e71b",
+      "previousSlugsByLocale": {
+        "en": [
+          "hse-specialist-has-healthcare",
+          "hse-specialist-has-healthcare-advanced-synthesis-biasca-068qaa",
+          "hse-specialist-has-healthcare-advanced-synthesis-biasca",
+          "hse-spezialist-has-healthcare-advanced-synthesis-biasca-068qaa",
+          "hse-specialiste-has-healthcare-advanced-synthesis-biasca-068qaa",
+          "ricerca-has-healthcare-advanced-synthesis-biasca",
+          "search-has-healthcare-advanced-synthesis-biasca"
+        ],
+        "it": [
+          "hse-spezialist-has-healthcare-advanced-synthesis-biasca-068qaa",
+          "hse-specialiste-has-healthcare-advanced-synthesis-biasca-068qaa",
+          "ricerca-has-healthcare-advanced-synthesis-biasca",
+          "search-has-healthcare-advanced-synthesis-biasca"
+        ],
+        "de": [
+          "hse-spezialist-has-healthcare-advanced-synthesis-biasca-068qaa",
+          "hse-specialiste-has-healthcare-advanced-synthesis-biasca-068qaa",
+          "ricerca-has-healthcare-advanced-synthesis-biasca",
+          "search-has-healthcare-advanced-synthesis-biasca"
+        ],
+        "fr": [
+          "hse-spezialist-has-healthcare-advanced-synthesis-biasca-068qaa",
+          "hse-specialiste-has-healthcare-advanced-synthesis-biasca-068qaa",
+          "ricerca-has-healthcare-advanced-synthesis-biasca",
+          "search-has-healthcare-advanced-synthesis-biasca"
+        ]
+      }
     },
     {
       "title": "Assistente di Produzione",
@@ -231,7 +274,34 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "id": "has-healthcare-53aed444d9c3"
+      "id": "has-healthcare-53aed444d9c3",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistente-di-produzione-has-healthcare",
+          "assistente-di-produzione-has-healthcare-advanced-synthesis-biasca",
+          "assistente-di-produzione-has-healthcare-advanced-synthesis-biasca-068qb5",
+          "responsabile-di-produzione-has-healthcare-advanced-synthesis-biasca",
+          "production-assistant-has-healthcare-advanced-synthesis-biasca"
+        ],
+        "en": [
+          "assistente-di-produzione-has-healthcare",
+          "assistente-di-produzione-has-healthcare-advanced-synthesis-biasca",
+          "assistente-di-produzione-has-healthcare-advanced-synthesis-biasca-068qb5",
+          "production-assistant-has-healthcare-advanced-synthesis-biasca"
+        ],
+        "de": [
+          "assistente-di-produzione-has-healthcare",
+          "assistente-di-produzione-has-healthcare-advanced-synthesis-biasca",
+          "assistente-di-produzione-has-healthcare-advanced-synthesis-biasca-068qb5",
+          "production-assistant-has-healthcare-advanced-synthesis-biasca"
+        ],
+        "fr": [
+          "assistente-di-produzione-has-healthcare",
+          "assistente-di-produzione-has-healthcare-advanced-synthesis-biasca",
+          "assistente-di-produzione-has-healthcare-advanced-synthesis-biasca-068qb5",
+          "production-assistant-has-healthcare-advanced-synthesis-biasca"
+        ]
+      }
     },
     {
       "title": "Production Manager",
@@ -296,7 +366,13 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "id": "has-healthcare-85b120d1a5af"
+      "id": "has-healthcare-85b120d1a5af",
+      "previousSlugsByLocale": {
+        "en": [
+          "production-manager-has-healthcare",
+          "production-manager-has-healthcare-advanced-synthesis-biasca"
+        ]
+      }
     }
   ]
 }

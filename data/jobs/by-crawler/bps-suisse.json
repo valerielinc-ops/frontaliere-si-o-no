@@ -68,6 +68,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "consulente-senior-con-esperienza-professionale-bps-banca-popolare-di-sondrio-suisse-lugano"
+        ],
+        "en": [
+          "consulente-senior-con-esperienza-professionale-bps-banca-popolare-di-sondrio-suisse-lugano"
+        ],
+        "de": [
+          "consulente-senior-con-esperienza-professionale-bps-banca-popolare-di-sondrio-suisse-lugano",
+          "seniorkundenberater-mit-f-uuml-hrungserfahrung-bps-suisse-lugano"
+        ],
+        "fr": [
+          "consulente-senior-con-esperienza-professionale-bps-banca-popolare-di-sondrio-suisse-lugano"
+        ]
       }
     },
     {
@@ -132,8 +147,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugs": []
+      }
     },
     {
       "id": "bps-suisse-54648af8fe2f",
@@ -200,6 +214,20 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "consulente-clientela-individuale-bps-suisse-lugano"
+        ],
+        "en": [
+          "consulente-clientela-individuale-bps-suisse-lugano"
+        ],
+        "de": [
+          "consulente-clientela-individuale-bps-suisse-lugano"
+        ],
+        "fr": [
+          "consulente-clientela-individuale-bps-suisse-lugano"
+        ]
       }
     }
   ]

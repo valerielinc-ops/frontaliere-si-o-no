@@ -1078,6 +1078,16 @@ export function registerJobSlugMap(jobs: Array<{ slug?: string; slugByLocale?: P
         if (alias && !map.has(alias)) map.set(alias, record);
       }
     }
+    // Index locale-aware previous slugs
+    if (job.previousSlugsByLocale && typeof job.previousSlugsByLocale === 'object') {
+      for (const arr of Object.values(job.previousSlugsByLocale)) {
+        if (Array.isArray(arr)) {
+          for (const alias of arr) {
+            if (alias && !map.has(alias)) map.set(alias, record);
+          }
+        }
+      }
+    }
   }
   _jobSlugMap = map;
 
@@ -1124,7 +1134,7 @@ export async function ensureJobSlugMapLoaded(): Promise<void> {
   if (!_jobSlugMapPromise) {
     _jobSlugMapPromise = fetch('/data/jobs.json')
       .then(r => r.ok ? r.json() : Promise.reject(r.status))
-      .then((data: Array<{ slug?: string; slugByLocale?: Partial<Record<string, string>>; previousSlugs?: string[] }>) => {
+      .then((data: Array<{ slug?: string; slugByLocale?: Partial<Record<string, string>>; previousSlugs?: string[]; previousSlugsByLocale?: Partial<Record<string, string[]>> }>) => {
         registerJobSlugMap(data);
       })
       .finally(() => {

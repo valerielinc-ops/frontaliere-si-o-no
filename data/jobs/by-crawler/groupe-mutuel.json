@@ -605,7 +605,21 @@
         }
       },
       "postalCode": "1700",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-clientele-contact-center-h-f-100-temporaire-3-mois-prolongeable-groupe-mutuel-2"
+        ],
+        "en": [
+          "conseiller-clientele-contact-center-h-f-100-temporaire-3-mois-prolongeable-groupe-mutuel-2"
+        ],
+        "de": [
+          "conseiller-clientele-contact-center-h-f-100-temporaire-3-mois-prolongeable-groupe-mutuel-2"
+        ],
+        "fr": [
+          "conseiller-clientele-contact-center-h-f-100-temporaire-3-mois-prolongeable-groupe-mutuel-2"
+        ]
+      }
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3925?c=groupemutuel&lang=fr-FR",
@@ -699,7 +713,21 @@
         }
       },
       "postalCode": "1950",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-clientele-contact-center-h-f-100-temporaire-3-mois-prolongeable-groupe-mutuel-3"
+        ],
+        "en": [
+          "conseiller-clientele-contact-center-h-f-100-temporaire-3-mois-prolongeable-groupe-mutuel-3"
+        ],
+        "de": [
+          "conseiller-clientele-contact-center-h-f-100-temporaire-3-mois-prolongeable-groupe-mutuel-3"
+        ],
+        "fr": [
+          "conseiller-clientele-contact-center-h-f-100-temporaire-3-mois-prolongeable-groupe-mutuel-3"
+        ]
+      }
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3916?c=groupemutuel&lang=fr-FR",
@@ -788,7 +816,12 @@
       },
       "postalCode": "5000",
       "needsRetranslation": true,
-      "addressRegion": "AG"
+      "addressRegion": "AG",
+      "previousSlugsByLocale": {
+        "de": [
+          "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel"
+        ]
+      }
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3883?c=groupemutuel&lang=fr-FR",
@@ -849,7 +882,6 @@
       },
       "postalCode": "5000",
       "needsRetranslation": true,
-      "previousSlugs": [],
       "addressRegion": "AG"
     },
     {
@@ -928,7 +960,6 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugs": [],
       "addressRegion": "VD"
     },
     {
@@ -1109,8 +1140,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1003",
-      "previousSlugs": []
+      "postalCode": "1003"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3724?c=groupemutuel&lang=fr-FR",
@@ -1197,7 +1227,6 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugs": [],
       "addressRegion": "VD"
     },
     {
@@ -1275,7 +1304,6 @@
         ]
       },
       "id": "groupe-mutuel-6a26ecf27135",
-      "previousSlugs": [],
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -1374,7 +1402,21 @@
         }
       },
       "postalCode": "1400",
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel-2"
+        ],
+        "en": [
+          "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel-2"
+        ],
+        "de": [
+          "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel-2"
+        ],
+        "fr": [
+          "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel-2"
+        ]
+      }
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/2796?c=groupemutuel&lang=fr-FR",
@@ -1432,8 +1474,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugs": []
+      }
     }
   ]
 }

@@ -46,9 +46,9 @@
       "previousSlugs": [
         "au-erordentlicher-oder-ordentlicher-professor-fur-volkswirtschaftslehre-und-direktor-des-i",
         "au-erordentlicher-oder-ordentlicher-professor-fur-volkswirtschaftslehre-und-direktor-des-instituts-fur-wirtschaftsforsch",
-        "professeur-associe-ou-titulaire-en-economie-et-directeur-de-l-institut-de-recherche-econom",
         "au-erordentlicher-oder-ordentlicher-professor-fur-wirtschaftswissenschaften-und-direktor-d",
         "au-erordentlicher-oder-ordentlicher-professor-fur-wirtschaftswissenschaften-und-direktor-des-instituts-fur-wirtschaftsforschung-usi-universi-ybk62u",
+        "professeur-associe-ou-titulaire-en-economie-et-directeur-de-l-institut-de-recherche-econom",
         "professore-associato-o-ordinario-di-economia-e-direttore-dell-istituto-per-la-ricerca-economica-usi-universita-della-svizzera-italiana-lugano"
       ],
       "salaryMin": 72000,
@@ -69,7 +69,21 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "id": "usi-universita-della-svizzera-italiana-2707c787725e"
+      "id": "usi-universita-della-svizzera-italiana-2707c787725e",
+      "previousSlugsByLocale": {
+        "de": [
+          "au-erordentlicher-oder-ordentlicher-professor-fur-volkswirtschaftslehre-und-direktor-des-i",
+          "au-erordentlicher-oder-ordentlicher-professor-fur-volkswirtschaftslehre-und-direktor-des-instituts-fur-wirtschaftsforsch",
+          "au-erordentlicher-oder-ordentlicher-professor-fur-wirtschaftswissenschaften-und-direktor-d",
+          "au-erordentlicher-oder-ordentlicher-professor-fur-wirtschaftswissenschaften-und-direktor-des-instituts-fur-wirtschaftsforschung-usi-universi-ybk62u"
+        ],
+        "fr": [
+          "professeur-associe-ou-titulaire-en-economie-et-directeur-de-l-institut-de-recherche-econom"
+        ],
+        "it": [
+          "professore-associato-o-ordinario-di-economia-e-direttore-dell-istituto-per-la-ricerca-economica-usi-universita-della-svizzera-italiana-lugano"
+        ]
+      }
     },
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/imca/imca-assistant-professor-marketing-2026.pdf",
@@ -114,13 +128,13 @@
       "sourceLang": "it",
       "previousSlugs": [
         "assistenzprofessor-fur-marketing-tenure-track-usi-lugano",
+        "assistenzprofessor-fur-marketing-tenure-track-usi-universita-della-svizzera-italiana-lugano",
+        "assistenzprofessorin-fur-marketing-tenure-track-usi-lugano",
+        "professeur-assistant-en-marketing-tenure-track-usi-universita-della-svizzera-italiana-luga",
         "professore-assistente-in-marketing-percorso-di-ruolo-usi-lugano",
         "assistant-professor-in-marketing-tenure-track-usi",
-        "assistenzprofessor-fur-marketing-tenure-track-usi-universita-della-svizzera-italiana-lugano",
         "professeur-adjoint-en-marketing-tenure-track-usi-lugano",
-        "assistenzprofessorin-fur-marketing-tenure-track-usi-lugano",
-        "professore-assistente-di-marketing-carriera-di-ruolo-usi-lugano",
-        "professeur-assistant-en-marketing-tenure-track-usi-universita-della-svizzera-italiana-luga"
+        "professore-assistente-di-marketing-carriera-di-ruolo-usi-lugano"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -140,7 +154,37 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "id": "usi-universita-della-svizzera-italiana-9caac50d561c"
+      "id": "usi-universita-della-svizzera-italiana-9caac50d561c",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzprofessor-fur-marketing-tenure-track-usi-lugano",
+          "assistenzprofessor-fur-marketing-tenure-track-usi-universita-della-svizzera-italiana-lugano",
+          "assistenzprofessorin-fur-marketing-tenure-track-usi-lugano",
+          "professeur-assistant-en-marketing-tenure-track-usi-universita-della-svizzera-italiana-luga"
+        ],
+        "en": [
+          "assistenzprofessor-fur-marketing-tenure-track-usi-lugano",
+          "professore-assistente-in-marketing-percorso-di-ruolo-usi-lugano",
+          "assistant-professor-in-marketing-tenure-track-usi",
+          "assistenzprofessor-fur-marketing-tenure-track-usi-universita-della-svizzera-italiana-lugano",
+          "professeur-adjoint-en-marketing-tenure-track-usi-lugano",
+          "assistenzprofessorin-fur-marketing-tenure-track-usi-lugano",
+          "professore-assistente-di-marketing-carriera-di-ruolo-usi-lugano",
+          "professeur-assistant-en-marketing-tenure-track-usi-universita-della-svizzera-italiana-luga"
+        ],
+        "de": [
+          "assistenzprofessor-fur-marketing-tenure-track-usi-lugano",
+          "assistenzprofessor-fur-marketing-tenure-track-usi-universita-della-svizzera-italiana-lugano",
+          "assistenzprofessorin-fur-marketing-tenure-track-usi-lugano",
+          "professeur-assistant-en-marketing-tenure-track-usi-universita-della-svizzera-italiana-luga"
+        ],
+        "fr": [
+          "assistenzprofessor-fur-marketing-tenure-track-usi-lugano",
+          "assistenzprofessor-fur-marketing-tenure-track-usi-universita-della-svizzera-italiana-lugano",
+          "assistenzprofessorin-fur-marketing-tenure-track-usi-lugano",
+          "professeur-assistant-en-marketing-tenure-track-usi-universita-della-svizzera-italiana-luga"
+        ]
+      }
     },
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-docenza-diritto-tributario-2026.pdf",
@@ -203,10 +247,15 @@
       "addressCountry": "CH",
       "previousSlugs": [
         "bando-di-concorso-per-una-docenza-a-contratto-in-diritto-tributario-usi",
-        "bando-di-concorso-per-una-docenza-a-contratto-in-diritto-tributario-usi-universita-della-svizzera-italiana-lugano-junbv5",
         "bando-di-concorso-per-una-docenza-a-contratto-in-diritto-tributario-usi-universita-della-svizzera-italiana-lugano-junbv5"
       ],
-      "id": "usi-universita-della-svizzera-italiana-05ea612c193d"
+      "id": "usi-universita-della-svizzera-italiana-05ea612c193d",
+      "previousSlugsByLocale": {
+        "it": [
+          "bando-di-concorso-per-una-docenza-a-contratto-in-diritto-tributario-usi",
+          "bando-di-concorso-per-una-docenza-a-contratto-in-diritto-tributario-usi-universita-della-svizzera-italiana-lugano-junbv5"
+        ]
+      }
     },
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-docenza-public-management-2026.pdf",
@@ -270,7 +319,12 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "id": "usi-universita-della-svizzera-italiana-729fc508e5f2"
+      "id": "usi-universita-della-svizzera-italiana-729fc508e5f2",
+      "previousSlugsByLocale": {
+        "it": [
+          "bando-di-concorso-per-una-docenza-a-contratto-in-pubblica-amministrazione-usi"
+        ]
+      }
     },
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-docenza-economics-market-design.pdf",
@@ -337,7 +391,19 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "id": "usi-universita-della-svizzera-italiana-2127129167ca"
+      "id": "usi-universita-della-svizzera-italiana-2127129167ca",
+      "previousSlugsByLocale": {
+        "en": [
+          "call-for-applications-for-a-contract-lecturer-position-in-economics-and-market-design-usi"
+        ],
+        "it": [
+          "invito-a-presentare-candidature-per-una-posizione-di-docente-a-contratto-in-economia-e-progettazione-del-mercato-usi-uni",
+          "invito-a-presentare-candidature-per-una-posizione-di-docente-a-contratto-in-economia-e-pro"
+        ],
+        "de": [
+          "ausschreibung-fur-eine-lehrauftragsposition-im-bereich-volkswirtschaftslehre-und-marktdesi"
+        ]
+      }
     },
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-phd-neuroscienze.pdf",
@@ -403,7 +469,29 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "id": "usi-universita-della-svizzera-italiana-087f833e6951"
+      "id": "usi-universita-della-svizzera-italiana-087f833e6951",
+      "previousSlugsByLocale": {
+        "it": [
+          "dottorando-di-ricerca-in-neuroscienze-usi",
+          "promotion-in-neurowissenschaften-usi-lugano",
+          "dottorando-di-ricerca-in-neuroscienze-usi-lugano"
+        ],
+        "en": [
+          "dottorando-di-ricerca-in-neuroscienze-usi",
+          "promotion-in-neurowissenschaften-usi-lugano",
+          "dottorando-di-ricerca-in-neuroscienze-usi-lugano"
+        ],
+        "de": [
+          "dottorando-di-ricerca-in-neuroscienze-usi",
+          "promotion-in-neurowissenschaften-usi-lugano",
+          "dottorando-di-ricerca-in-neuroscienze-usi-lugano"
+        ],
+        "fr": [
+          "dottorando-di-ricerca-in-neuroscienze-usi",
+          "promotion-in-neurowissenschaften-usi-lugano",
+          "dottorando-di-ricerca-in-neuroscienze-usi-lugano"
+        ]
+      }
     },
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/imo/imo-leaps-2posdoc-2024.pdf",
@@ -449,7 +537,6 @@
       "previousSlugs": [
         "zwei-postdoktoranden-usi-lugano",
         "two-post-doctoral-researchers-usi",
-        "two-post-doctoral-researchers-usi-universita-della-svizzera-italiana-lugano",
         "two-post-doctoral-researchers-usi-universita-della-svizzera-italiana-lugano"
       ],
       "salaryMin": 58000,
@@ -470,7 +557,26 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "id": "usi-universita-della-svizzera-italiana-ceb3beaca884"
+      "id": "usi-universita-della-svizzera-italiana-ceb3beaca884",
+      "previousSlugsByLocale": {
+        "it": [
+          "zwei-postdoktoranden-usi-lugano",
+          "two-post-doctoral-researchers-usi",
+          "two-post-doctoral-researchers-usi-universita-della-svizzera-italiana-lugano"
+        ],
+        "en": [
+          "zwei-postdoktoranden-usi-lugano",
+          "two-post-doctoral-researchers-usi"
+        ],
+        "de": [
+          "zwei-postdoktoranden-usi-lugano",
+          "two-post-doctoral-researchers-usi"
+        ],
+        "fr": [
+          "zwei-postdoktoranden-usi-lugano",
+          "two-post-doctoral-researchers-usi"
+        ]
+      }
     },
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-usi-eoc-phd-2025.pdf",
@@ -536,7 +642,16 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "id": "usi-universita-della-svizzera-italiana-adda987d8317"
+      "id": "usi-universita-della-svizzera-italiana-adda987d8317",
+      "previousSlugsByLocale": {
+        "de": [
+          "phd-in-neurowissenschaften-mit-schwerpunkt-chronobiologie-arbeitsmedizin-und-schlafmedizin"
+        ],
+        "it": [
+          "dottorato-di-ricerca-in-neuroscienze-con-focus-su-cronobiologia-medicina-del-lavoro-e-medicina-del-sonno-usi-universita-della-svizzera-italiana-lugano",
+          "dottorato-di-ricerca-in-neuroscienze-con-focus-su-cronobiologia-medicina-del-lavoro-e-medicina-del-sonno-usi-universita-della-svizzera-itali"
+        ]
+      }
     },
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/imo/imo-phd-2026.pdf",
@@ -601,7 +716,22 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "id": "usi-universita-della-svizzera-italiana-dba4b8565001"
+      "id": "usi-universita-della-svizzera-italiana-dba4b8565001",
+      "previousSlugsByLocale": {
+        "it": [
+          "posizioni-di-dottorato-usi-lugano",
+          "phd-posizioni-usi-universita-della-svizzera-italiana-lugano"
+        ],
+        "en": [
+          "posizioni-di-dottorato-usi-lugano"
+        ],
+        "de": [
+          "posizioni-di-dottorato-usi-lugano"
+        ],
+        "fr": [
+          "posizioni-di-dottorato-usi-lugano"
+        ]
+      }
     },
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/idep/idep-phd-position-2025.pdf",
@@ -665,7 +795,21 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "id": "usi-universita-della-svizzera-italiana-2b3f47cf60be"
+      "id": "usi-universita-della-svizzera-italiana-2b3f47cf60be",
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-student-position-usi"
+        ],
+        "en": [
+          "phd-student-position-usi"
+        ],
+        "de": [
+          "phd-student-position-usi"
+        ],
+        "fr": [
+          "phd-student-position-usi"
+        ]
+      }
     },
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/idusi/idusi-phd-refuel-2025-2.pdf",
@@ -730,7 +874,25 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "id": "usi-universita-della-svizzera-italiana-c86503b7b022"
+      "id": "usi-universita-della-svizzera-italiana-c86503b7b022",
+      "previousSlugsByLocale": {
+        "it": [
+          "doktorandenstelle-im-internationalen-wirtschaftsrecht-usi-lugano",
+          "phd-student-position-in-international-economic-law-usi"
+        ],
+        "en": [
+          "doktorandenstelle-im-internationalen-wirtschaftsrecht-usi-lugano",
+          "phd-student-position-in-international-economic-law-usi"
+        ],
+        "de": [
+          "doktorandenstelle-im-internationalen-wirtschaftsrecht-usi-lugano",
+          "phd-student-position-in-international-economic-law-usi"
+        ],
+        "fr": [
+          "doktorandenstelle-im-internationalen-wirtschaftsrecht-usi-lugano",
+          "phd-student-position-in-international-economic-law-usi"
+        ]
+      }
     },
     {
       "url": "https://www.irsol.usi.ch/it/eventi-notizie/posizione-a-tempo-pieno-di-scienziatoingegnere-del-41206",
@@ -776,11 +938,11 @@
       "previousSlugs": [
         "full-time-position-of-an-instrumentation-scientist-engineer-usi",
         "full-time-position-of-an-instrumentation-scientist-engineer-usi-universita-della-svizzera-italiana-locarno",
-        "vollzeitstelle-als-instrumentierungswissenschaftler-ingenieur-usi-universita-della-svizzera-italiana-locarno",
-        "poste-a-temps-plein-de-scientifique-ingenieur-de-l-instrumentation-usi-universita-della-svizzera-italiana-locarno",
         "posizione-a-tempo-pieno-di-scienziato-ingegnere-della-strumentazione-usi",
         "posizione-a-tempo-pieno-di-scienziato-engineer-della-strumentazione-usi-universita-della-svizzera-italiana-locarno-huohlm",
-        "posizione-a-tempo-pieno-di-scienziato-ingenieur-della-strumentazione-usi-universita-della-svizzera-italiana-locarno-huohlm"
+        "posizione-a-tempo-pieno-di-scienziato-ingenieur-della-strumentazione-usi-universita-della-svizzera-italiana-locarno-huohlm",
+        "vollzeitstelle-als-instrumentierungswissenschaftler-ingenieur-usi-universita-della-svizzera-italiana-locarno",
+        "poste-a-temps-plein-de-scientifique-ingenieur-de-l-instrumentation-usi-universita-della-svizzera-italiana-locarno"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -800,7 +962,27 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "id": "usi-universita-della-svizzera-italiana-9177ed8e4482"
+      "id": "usi-universita-della-svizzera-italiana-9177ed8e4482",
+      "previousSlugsByLocale": {
+        "en": [
+          "full-time-position-of-an-instrumentation-scientist-engineer-usi",
+          "full-time-position-of-an-instrumentation-scientist-engineer-usi-universita-della-svizzera-italiana-locarno"
+        ],
+        "it": [
+          "full-time-position-of-an-instrumentation-scientist-engineer-usi-universita-della-svizzera-italiana-locarno",
+          "posizione-a-tempo-pieno-di-scienziato-ingegnere-della-strumentazione-usi",
+          "posizione-a-tempo-pieno-di-scienziato-engineer-della-strumentazione-usi-universita-della-svizzera-italiana-locarno-huohlm",
+          "posizione-a-tempo-pieno-di-scienziato-ingenieur-della-strumentazione-usi-universita-della-svizzera-italiana-locarno-huohlm"
+        ],
+        "de": [
+          "full-time-position-of-an-instrumentation-scientist-engineer-usi-universita-della-svizzera-italiana-locarno",
+          "vollzeitstelle-als-instrumentierungswissenschaftler-ingenieur-usi-universita-della-svizzera-italiana-locarno"
+        ],
+        "fr": [
+          "full-time-position-of-an-instrumentation-scientist-engineer-usi-universita-della-svizzera-italiana-locarno",
+          "poste-a-temps-plein-de-scientifique-ingenieur-de-l-instrumentation-usi-universita-della-svizzera-italiana-locarno"
+        ]
+      }
     },
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-modellistica-2026.pdf",
@@ -865,7 +1047,22 @@
         "scientific-collaborator-for-modelling-usi-mendrisio",
         "wissenschaftliche-r-mitarbeiter-in-fur-modellbau-usi-universita-della-svizzera-italiana-mendrisio"
       ],
-      "id": "usi-universita-della-svizzera-italiana-2927f3b5a6be"
+      "id": "usi-universita-della-svizzera-italiana-2927f3b5a6be",
+      "previousSlugsByLocale": {
+        "en": [
+          "scientific-collaborator-for-modelling-usi-mendrisio",
+          "wissenschaftliche-r-mitarbeiter-in-fur-modellbau-usi-universita-della-svizzera-italiana-mendrisio"
+        ],
+        "it": [
+          "wissenschaftliche-r-mitarbeiter-in-fur-modellbau-usi-universita-della-svizzera-italiana-mendrisio"
+        ],
+        "de": [
+          "wissenschaftliche-r-mitarbeiter-in-fur-modellbau-usi-universita-della-svizzera-italiana-mendrisio"
+        ],
+        "fr": [
+          "wissenschaftliche-r-mitarbeiter-in-fur-modellbau-usi-universita-della-svizzera-italiana-mendrisio"
+        ]
+      }
     },
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/cds/cds-coordinatore-scient-2026.pdf",
@@ -910,8 +1107,8 @@
       "sourceLang": "it",
       "previousSlugs": [
         "wissenschaftliche-koordinatorin-wissenschaftliche-koordinatorin-mit-lehraufgaben-fur-das-h",
-        "scientific-coordinator-with-teaching-assignments-for-the-house-of-sustainability-usi-lugan",
-        "wissenschaftliche-koordinatorin-wissenschaftliche-koordinatorin-mit-lehraufgaben-fur-das-haus-der-nachhaltigkeit-usi-universita-della-svizze-i57vfx"
+        "wissenschaftliche-koordinatorin-wissenschaftliche-koordinatorin-mit-lehraufgaben-fur-das-haus-der-nachhaltigkeit-usi-universita-della-svizze-i57vfx",
+        "scientific-coordinator-with-teaching-assignments-for-the-house-of-sustainability-usi-lugan"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -931,7 +1128,16 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "id": "usi-universita-della-svizzera-italiana-3efec04af10f"
+      "id": "usi-universita-della-svizzera-italiana-3efec04af10f",
+      "previousSlugsByLocale": {
+        "de": [
+          "wissenschaftliche-koordinatorin-wissenschaftliche-koordinatorin-mit-lehraufgaben-fur-das-h",
+          "wissenschaftliche-koordinatorin-wissenschaftliche-koordinatorin-mit-lehraufgaben-fur-das-haus-der-nachhaltigkeit-usi-universita-della-svizze-i57vfx"
+        ],
+        "en": [
+          "scientific-coordinator-with-teaching-assignments-for-the-house-of-sustainability-usi-lugan"
+        ]
+      }
     },
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/servizio-ricerca/servizio-ricerca-senior-grant-writer.pdf",
@@ -996,7 +1202,22 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "id": "usi-universita-della-svizzera-italiana-7e2dfe6422bb"
+      "id": "usi-universita-della-svizzera-italiana-7e2dfe6422bb",
+      "previousSlugsByLocale": {
+        "en": [
+          "senior-grant-writer-usi",
+          "scrittore-di-sovvenzioni-senior-usi-universita-della-svizzera-italiana-lugano"
+        ],
+        "it": [
+          "scrittore-di-sovvenzioni-senior-usi-universita-della-svizzera-italiana-lugano"
+        ],
+        "de": [
+          "scrittore-di-sovvenzioni-senior-usi-universita-della-svizzera-italiana-lugano"
+        ],
+        "fr": [
+          "scrittore-di-sovvenzioni-senior-usi-universita-della-svizzera-italiana-lugano"
+        ]
+      }
     },
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/servizio-ricerca/servizio-ricerca-research-manager-snf.pdf",
@@ -1040,9 +1261,10 @@
       },
       "sourceLang": "it",
       "previousSlugs": [
+        "ricerca-manager-con-focus-sui-programmi-snsf-usi-universita-della-svizzera-italiana-lugano",
         "research-manager-with-a-focus-on-snsf-programs-usi-lugano",
-        "research-manager-con-focus-sui-programmi-snsf-usi-universita-della-svizzera-italiana-lugano",
         "research-manager-con-focus-sui-programmi-snsf-usi-lugano",
+        "research-manager-con-focus-sui-programmi-snsf-usi-universita-della-svizzera-italiana-lugano",
         "forschungsleiter-con-focus-sui-programmi-snf-usi-universita-della-svizzera-italiana-lugano",
         "responsabile-della-ricerca-con-focus-sui-programmi-snsf-usi-universita-della-svizzera-italiana-lugano"
       ],
@@ -1064,7 +1286,26 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "id": "usi-universita-della-svizzera-italiana-e2ceaeed7686"
+      "id": "usi-universita-della-svizzera-italiana-e2ceaeed7686",
+      "previousSlugsByLocale": {
+        "en": [
+          "ricerca-manager-con-focus-sui-programmi-snsf-usi-universita-della-svizzera-italiana-lugano",
+          "research-manager-with-a-focus-on-snsf-programs-usi-lugano",
+          "research-manager-con-focus-sui-programmi-snsf-usi-lugano"
+        ],
+        "it": [
+          "research-manager-con-focus-sui-programmi-snsf-usi-universita-della-svizzera-italiana-lugano",
+          "research-manager-con-focus-sui-programmi-snsf-usi-lugano",
+          "forschungsleiter-con-focus-sui-programmi-snf-usi-universita-della-svizzera-italiana-lugano",
+          "responsabile-della-ricerca-con-focus-sui-programmi-snsf-usi-universita-della-svizzera-italiana-lugano"
+        ],
+        "de": [
+          "research-manager-con-focus-sui-programmi-snsf-usi-lugano"
+        ],
+        "fr": [
+          "research-manager-con-focus-sui-programmi-snsf-usi-lugano"
+        ]
+      }
     },
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/bul/bul-bando-e-resources-2026.pdf",
@@ -1131,7 +1372,27 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "id": "usi-universita-della-svizzera-italiana-e17590d2cde8"
+      "id": "usi-universita-della-svizzera-italiana-e17590d2cde8",
+      "previousSlugsByLocale": {
+        "it": [
+          "bibliotecaria-o-specializzata-o-in-risorse-elettroniche-e-resources-librarian-usi",
+          "bibliotecaria-o-specializzata-o-in-risorse-elettroniche-e-risorse-bibliotecario-usi-universita-della-svizzera-italiana-lugano",
+          "bibliotecaria-o-specializzata-o-in-risorse-elettroniche-e-risorse-bibliotecario-usi-universita-della-svizzera-italiana-l",
+          "librarian-specialized-in-electronic-resources-e-resources-librarian-usi-lugano"
+        ],
+        "en": [
+          "bibliotecaria-o-specializzata-o-in-risorse-elettroniche-e-resources-librarian-usi",
+          "librarian-specialized-in-electronic-resources-e-resources-librarian-usi-lugano"
+        ],
+        "de": [
+          "bibliotecaria-o-specializzata-o-in-risorse-elettroniche-e-resources-librarian-usi",
+          "librarian-specialized-in-electronic-resources-e-resources-librarian-usi-lugano"
+        ],
+        "fr": [
+          "bibliotecaria-o-specializzata-o-in-risorse-elettroniche-e-resources-librarian-usi",
+          "librarian-specialized-in-electronic-resources-e-resources-librarian-usi-lugano"
+        ]
+      }
     },
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-amministratore-reti-2026.pdf",
@@ -1178,11 +1439,9 @@
         "netzwerkadministrator-in-network-engineer-usi-lugano",
         "amministratore-trice-di-reti-network-engineer-usi",
         "amministratore-trice-di-reti-network-engineer-usi-universita-della-svizzera-italiana-lugano",
-        "amministratore-trice-di-reti-network-engineer-usi-universita-della-svizzera-italiana-lugano",
         "amministratore-trice-di-reti-network-ingenieur-usi-universita-della-svizzera-italiana-lugano",
         "administrateur-trice-de-reseaux-network-engineer-usi-lugano",
         "amministratore-trice-di-reti-network-ingenieur-usi-universita-della-svizzera-italiana-luga",
-        "network-administrator-network-engineer-usi-lugano",
         "network-administrator-network-engineer-usi-lugano"
       ],
       "salaryMin": 58000,
@@ -1203,7 +1462,33 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "id": "usi-universita-della-svizzera-italiana-6f7a448c9640"
+      "id": "usi-universita-della-svizzera-italiana-6f7a448c9640",
+      "previousSlugsByLocale": {
+        "en": [
+          "netzwerkadministrator-in-network-engineer-usi-lugano",
+          "amministratore-trice-di-reti-network-engineer-usi",
+          "amministratore-trice-di-reti-network-engineer-usi-universita-della-svizzera-italiana-lugano",
+          "amministratore-trice-di-reti-network-ingenieur-usi-universita-della-svizzera-italiana-lugano",
+          "administrateur-trice-de-reseaux-network-engineer-usi-lugano",
+          "amministratore-trice-di-reti-network-ingenieur-usi-universita-della-svizzera-italiana-luga",
+          "network-administrator-network-engineer-usi-lugano"
+        ],
+        "it": [
+          "amministratore-trice-di-reti-network-engineer-usi-universita-della-svizzera-italiana-lugano",
+          "amministratore-trice-di-reti-network-ingenieur-usi-universita-della-svizzera-italiana-lugano",
+          "amministratore-trice-di-reti-network-ingenieur-usi-universita-della-svizzera-italiana-luga"
+        ],
+        "de": [
+          "amministratore-trice-di-reti-network-engineer-usi-universita-della-svizzera-italiana-lugano",
+          "amministratore-trice-di-reti-network-ingenieur-usi-universita-della-svizzera-italiana-lugano",
+          "amministratore-trice-di-reti-network-ingenieur-usi-universita-della-svizzera-italiana-luga"
+        ],
+        "fr": [
+          "amministratore-trice-di-reti-network-engineer-usi-universita-della-svizzera-italiana-lugano",
+          "amministratore-trice-di-reti-network-ingenieur-usi-universita-della-svizzera-italiana-lugano",
+          "amministratore-trice-di-reti-network-ingenieur-usi-universita-della-svizzera-italiana-luga"
+        ]
+      }
     },
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/logistica-lugano/logistica-lugano-collab-tecnico-imp-2026.pdf",
@@ -1254,7 +1539,6 @@
         "collaboratore-trice-logistik-techniker-impiantista-usi-universita-della-svizzera-italiana-lugano-sy79lh",
         "collaboratore-trice-logistique-technicien-impiantista-usi-universita-della-svizzera-italiana-lugano-sy79lh",
         "collaboratore-trice-logistica-tecnico-impiantista-usi-universita-della-svizzera-italiana-lugano",
-        "collaboratore-trice-logistica-tecnico-impiantista-usi-universita-della-svizzera-italiana-lugano",
         "collaborateur-trice-logistique-technicien-installateur-usi-lugano"
       ],
       "salaryMin": 58000,
@@ -1275,7 +1559,37 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "id": "usi-universita-della-svizzera-italiana-5786c4fb1ec9"
+      "id": "usi-universita-della-svizzera-italiana-5786c4fb1ec9",
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-logistik-anlagentechniker-in-usi-lugano",
+          "collaborator-logistics-trice-installation-technician-usi-lugano",
+          "collaboratore-trice-logistica-tecnico-impiantista-usi",
+          "collaboratore-trice-logistics-technician-impiantista-usi-universita-della-svizzera-italiana-lugano-sy79lh",
+          "collaboratore-trice-logistik-techniker-impiantista-usi-universita-della-svizzera-italiana-lugano-sy79lh",
+          "collaboratore-trice-logistique-technicien-impiantista-usi-universita-della-svizzera-italiana-lugano-sy79lh",
+          "collaboratore-trice-logistica-tecnico-impiantista-usi-universita-della-svizzera-italiana-lugano"
+        ],
+        "en": [
+          "mitarbeiter-in-logistik-anlagentechniker-in-usi-lugano",
+          "collaborator-logistics-trice-installation-technician-usi-lugano",
+          "collaboratore-trice-logistik-techniker-impiantista-usi-universita-della-svizzera-italiana-lugano-sy79lh",
+          "collaboratore-trice-logistique-technicien-impiantista-usi-universita-della-svizzera-italiana-lugano-sy79lh"
+        ],
+        "de": [
+          "mitarbeiter-in-logistik-anlagentechniker-in-usi-lugano",
+          "collaborator-logistics-trice-installation-technician-usi-lugano",
+          "collaboratore-trice-logistik-techniker-impiantista-usi-universita-della-svizzera-italiana-lugano-sy79lh",
+          "collaboratore-trice-logistique-technicien-impiantista-usi-universita-della-svizzera-italiana-lugano-sy79lh"
+        ],
+        "fr": [
+          "mitarbeiter-in-logistik-anlagentechniker-in-usi-lugano",
+          "collaborator-logistics-trice-installation-technician-usi-lugano",
+          "collaboratore-trice-logistik-techniker-impiantista-usi-universita-della-svizzera-italiana-lugano-sy79lh",
+          "collaboratore-trice-logistique-technicien-impiantista-usi-universita-della-svizzera-italiana-lugano-sy79lh",
+          "collaborateur-trice-logistique-technicien-installateur-usi-lugano"
+        ]
+      }
     },
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/elab/elab-sviluppatore-junior-2026.pdf",
@@ -1341,7 +1655,14 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "id": "usi-universita-della-svizzera-italiana-112665c8e637"
+      "id": "usi-universita-della-svizzera-italiana-112665c8e637",
+      "previousSlugsByLocale": {
+        "en": [
+          "sviluppatore-trice-junior-usi",
+          "sviluppatore-trice-junior-usi-lugano",
+          "developer-junior-trice-usi-lugano"
+        ]
+      }
     },
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/press/press-multimedia-content-creator-2026.pdf",
@@ -1405,10 +1726,25 @@
       "previousSlugs": [
         "multimedia-content-creator-junior-usi",
         "multimedia-content-creator-junior-usi-universita-della-svizzera-italiana-lugano",
-        "multimedia-content-creator-junior-usi-universita-della-svizzera-italiana-lugano",
         "multimedia-content-creator-j-usi-universita-della-svizzera-italiana-lugano"
       ],
-      "id": "usi-universita-della-svizzera-italiana-91cd8b1db0c3"
+      "id": "usi-universita-della-svizzera-italiana-91cd8b1db0c3",
+      "previousSlugsByLocale": {
+        "en": [
+          "multimedia-content-creator-junior-usi",
+          "multimedia-content-creator-junior-usi-universita-della-svizzera-italiana-lugano"
+        ],
+        "it": [
+          "multimedia-content-creator-junior-usi-universita-della-svizzera-italiana-lugano",
+          "multimedia-content-creator-j-usi-universita-della-svizzera-italiana-lugano"
+        ],
+        "de": [
+          "multimedia-content-creator-junior-usi-universita-della-svizzera-italiana-lugano"
+        ],
+        "fr": [
+          "multimedia-content-creator-junior-usi-universita-della-svizzera-italiana-lugano"
+        ]
+      }
     },
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/arc/arc-stagiaire-fmaa-2026.pdf",
@@ -1475,7 +1811,27 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "id": "usi-universita-della-svizzera-italiana-0513d3b4e1fb"
+      "id": "usi-universita-della-svizzera-italiana-0513d3b4e1fb",
+      "previousSlugsByLocale": {
+        "it": [
+          "tirocinio-in-architettura-e-tecnologia-usi-universita-della-svizzera-italiana-mendrisio",
+          "stage-en-architecture-et-technologie-usi-universita-della-svizzera-italiana-mendrisio",
+          "tirocinio-in-architettura-e-tecnologia-usi-mendrisio",
+          "internship-in-architecture-and-technology-usi-universita-della-svizzera-italiana-mendrisio"
+        ],
+        "en": [
+          "tirocinio-in-architettura-e-tecnologia-usi-mendrisio",
+          "internship-in-architecture-and-technology-usi-universita-della-svizzera-italiana-mendrisio"
+        ],
+        "de": [
+          "tirocinio-in-architettura-e-tecnologia-usi-mendrisio",
+          "internship-in-architecture-and-technology-usi-universita-della-svizzera-italiana-mendrisio"
+        ],
+        "fr": [
+          "tirocinio-in-architettura-e-tecnologia-usi-mendrisio",
+          "internship-in-architecture-and-technology-usi-universita-della-svizzera-italiana-mendrisio"
+        ]
+      }
     },
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/serv-inf/serv-inf-apprendista-operatore-informtico-2026.pdf",
@@ -1542,7 +1898,24 @@
         "lernende-r-informatico-a-operatore-informatico-afc-usi-universita-della-svizzera-italiana-lugano-dtx2ap",
         "apprenti-e-informatico-a-operatore-informatico-afc-usi-universita-della-svizzera-italiana-lugano-dtx2ap"
       ],
-      "id": "usi-universita-della-svizzera-italiana-09c4fed2d6b3"
+      "id": "usi-universita-della-svizzera-italiana-09c4fed2d6b3",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprendista-informatico-a-operatore-informatico-afc-usi",
+          "apprentice-informatico-a-operatore-informatico-afc-usi-universita-della-svizzera-italiana-lugano-dtx2ap",
+          "lernende-r-informatico-a-operatore-informatico-afc-usi-universita-della-svizzera-italiana-lugano-dtx2ap",
+          "apprenti-e-informatico-a-operatore-informatico-afc-usi-universita-della-svizzera-italiana-lugano-dtx2ap"
+        ],
+        "en": [
+          "apprendista-informatico-a-operatore-informatico-afc-usi"
+        ],
+        "de": [
+          "apprendista-informatico-a-operatore-informatico-afc-usi"
+        ],
+        "fr": [
+          "apprendista-informatico-a-operatore-informatico-afc-usi"
+        ]
+      }
     },
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/arc/arc-postdoc-isat-2025.pdf",
@@ -1587,13 +1960,13 @@
       "sourceLang": "it",
       "previousSlugs": [
         "poste-postdoctoral-dans-le-domaine-de-la-durabilite-de-l-architecture-et-de-la-technologie",
-        "postdoc-position-in-the-field-of-sustainability-architecture-and-technology-usi",
-        "postdoctorat-posizione-nel-campo-della-sostenibilita-architecture-et-technologie-usi-universita-della-svizzera-italiana-",
         "postdoc-poste-dans-le-domaine-de-la-durabilite-de-l-architecture-et-de-la-technologie-usi-universita-della-svizzera-ital",
-        "postdoc-posizione-nel-campo-della-sostenibilita-architettura-e-tecnologia-usi-universita-della-svizzera-italiana-mendris",
-        "postdoctorat-posizione-nel-campo-della-sostenibilita-architecture-et-technologie-usi-mendr",
         "poste-de-postdoctorant-dans-le-domaine-de-la-durabilite-de-l-architecture-et-de-la-technol",
-        "postdoc-position-in-the-field-of-sustainability-architecture-and-technology-usi-universita-della-svizzera-italiana-mendrisio"
+        "postdoc-position-in-the-field-of-sustainability-architecture-and-technology-usi",
+        "postdoc-position-in-the-field-of-sustainability-architecture-and-technology-usi-universita-della-svizzera-italiana-mendrisio",
+        "postdoctorat-posizione-nel-campo-della-sostenibilita-architecture-et-technologie-usi-universita-della-svizzera-italiana-",
+        "postdoc-posizione-nel-campo-della-sostenibilita-architettura-e-tecnologia-usi-universita-della-svizzera-italiana-mendris",
+        "postdoctorat-posizione-nel-campo-della-sostenibilita-architecture-et-technologie-usi-mendr"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -1613,7 +1986,23 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "id": "usi-universita-della-svizzera-italiana-51bba80ca662"
+      "id": "usi-universita-della-svizzera-italiana-51bba80ca662",
+      "previousSlugsByLocale": {
+        "fr": [
+          "poste-postdoctoral-dans-le-domaine-de-la-durabilite-de-l-architecture-et-de-la-technologie",
+          "postdoc-poste-dans-le-domaine-de-la-durabilite-de-l-architecture-et-de-la-technologie-usi-universita-della-svizzera-ital",
+          "poste-de-postdoctorant-dans-le-domaine-de-la-durabilite-de-l-architecture-et-de-la-technol"
+        ],
+        "en": [
+          "postdoc-position-in-the-field-of-sustainability-architecture-and-technology-usi",
+          "postdoc-position-in-the-field-of-sustainability-architecture-and-technology-usi-universita-della-svizzera-italiana-mendrisio"
+        ],
+        "it": [
+          "postdoctorat-posizione-nel-campo-della-sostenibilita-architecture-et-technologie-usi-universita-della-svizzera-italiana-",
+          "postdoc-posizione-nel-campo-della-sostenibilita-architettura-e-tecnologia-usi-universita-della-svizzera-italiana-mendris",
+          "postdoctorat-posizione-nel-campo-della-sostenibilita-architecture-et-technologie-usi-mendr"
+        ]
+      }
     },
     {
       "url": "https://www.irsol.usi.ch/en/events-news/full-time-position-of-an-instrumentation-scientist-41206",
@@ -1658,12 +2047,12 @@
       "sourceLang": "it",
       "previousSlugs": [
         "full-time-position-of-an-instrument-scientist-engineer-usi-locarno",
-        "vollzeitstelle-eines-instrumentierungswissenschaftlers-ingenieurs-usi-universita-della-svizzera-italiana-locarno",
-        "poste-a-temps-plein-d-un-scientifique-ingenieur-en-instrumentation-usi-universita-della-svizzera-italiana-locarno",
         "full-time-position-of-an-instrumentation-scientist-engineer-usi-universita-della-svizzera-italiana-locarno",
-        "tempo-pieno-position-of-an-instrumentation-scientist-ingegnere-usi-universita-della-svizzera-italiana-locarno",
         "vollzeit-position-of-an-instrumentation-scientist-ingenieur-usi-universita-della-svizzera-italiana-locarno-0spog4",
-        "temps-plein-position-of-an-instrumentation-scientist-ingenieur-usi-universita-della-svizzera-italiana-locarno-0spog4"
+        "temps-plein-position-of-an-instrumentation-scientist-ingenieur-usi-universita-della-svizzera-italiana-locarno-0spog4",
+        "vollzeitstelle-eines-instrumentierungswissenschaftlers-ingenieurs-usi-universita-della-svizzera-italiana-locarno",
+        "tempo-pieno-position-of-an-instrumentation-scientist-ingegnere-usi-universita-della-svizzera-italiana-locarno",
+        "poste-a-temps-plein-d-un-scientifique-ingenieur-en-instrumentation-usi-universita-della-svizzera-italiana-locarno"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -1683,7 +2072,33 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "id": "usi-universita-della-svizzera-italiana-20d4eef1df72"
+      "id": "usi-universita-della-svizzera-italiana-20d4eef1df72",
+      "previousSlugsByLocale": {
+        "en": [
+          "full-time-position-of-an-instrument-scientist-engineer-usi-locarno",
+          "full-time-position-of-an-instrumentation-scientist-engineer-usi-universita-della-svizzera-italiana-locarno",
+          "vollzeit-position-of-an-instrumentation-scientist-ingenieur-usi-universita-della-svizzera-italiana-locarno-0spog4",
+          "temps-plein-position-of-an-instrumentation-scientist-ingenieur-usi-universita-della-svizzera-italiana-locarno-0spog4"
+        ],
+        "it": [
+          "vollzeitstelle-eines-instrumentierungswissenschaftlers-ingenieurs-usi-universita-della-svizzera-italiana-locarno",
+          "full-time-position-of-an-instrumentation-scientist-engineer-usi-universita-della-svizzera-italiana-locarno",
+          "tempo-pieno-position-of-an-instrumentation-scientist-ingegnere-usi-universita-della-svizzera-italiana-locarno",
+          "vollzeit-position-of-an-instrumentation-scientist-ingenieur-usi-universita-della-svizzera-italiana-locarno-0spog4",
+          "temps-plein-position-of-an-instrumentation-scientist-ingenieur-usi-universita-della-svizzera-italiana-locarno-0spog4"
+        ],
+        "fr": [
+          "poste-a-temps-plein-d-un-scientifique-ingenieur-en-instrumentation-usi-universita-della-svizzera-italiana-locarno",
+          "full-time-position-of-an-instrumentation-scientist-engineer-usi-universita-della-svizzera-italiana-locarno",
+          "vollzeit-position-of-an-instrumentation-scientist-ingenieur-usi-universita-della-svizzera-italiana-locarno-0spog4",
+          "temps-plein-position-of-an-instrumentation-scientist-ingenieur-usi-universita-della-svizzera-italiana-locarno-0spog4"
+        ],
+        "de": [
+          "full-time-position-of-an-instrumentation-scientist-engineer-usi-universita-della-svizzera-italiana-locarno",
+          "vollzeit-position-of-an-instrumentation-scientist-ingenieur-usi-universita-della-svizzera-italiana-locarno-0spog4",
+          "temps-plein-position-of-an-instrumentation-scientist-ingenieur-usi-universita-della-svizzera-italiana-locarno-0spog4"
+        ]
+      }
     }
   ]
 }

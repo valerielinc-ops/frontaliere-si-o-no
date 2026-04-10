@@ -48,10 +48,8 @@
       "previousSlugs": [
         "junior-civil-engineer-a-group-massagno-s9epo4",
         "junior-bauingenieur-a-group-massagno-s9epo4",
-        "ingegnere-edile-jr-a-group-massagno-s9epo4",
-        "ingegnere-edile-jr-a-group-massagno-s9epo4",
         "ingenieur-edile-jr-a-group-massagno-s9epo4",
-        "ingenieur-edile-jr-a-group-massagno-s9epo4"
+        "ingegnere-edile-jr-a-group-massagno-s9epo4"
       ],
       "salaryMin": 55500,
       "salaryMax": 75500,
@@ -66,7 +64,24 @@
           "unitText": "YEAR"
         }
       },
-      "id": "a-group-95bf228f7209"
+      "id": "a-group-95bf228f7209",
+      "previousSlugsByLocale": {
+        "en": [
+          "junior-civil-engineer-a-group-massagno-s9epo4",
+          "junior-bauingenieur-a-group-massagno-s9epo4",
+          "ingenieur-edile-jr-a-group-massagno-s9epo4"
+        ],
+        "it": [
+          "ingegnere-edile-jr-a-group-massagno-s9epo4",
+          "ingenieur-edile-jr-a-group-massagno-s9epo4"
+        ],
+        "de": [
+          "ingenieur-edile-jr-a-group-massagno-s9epo4"
+        ],
+        "fr": [
+          "ingenieur-edile-jr-a-group-massagno-s9epo4"
+        ]
+      }
     },
     {
       "title": "Receptionist",
@@ -127,7 +142,21 @@
           "unitText": "YEAR"
         }
       },
-      "id": "a-group-a6dac446b24d"
+      "id": "a-group-a6dac446b24d",
+      "previousSlugsByLocale": {
+        "it": [
+          "receptionist-100-a-plus-plus-group-massagno"
+        ],
+        "en": [
+          "receptionist-100-a-plus-plus-group-massagno"
+        ],
+        "de": [
+          "receptionist-100-a-plus-plus-group-massagno"
+        ],
+        "fr": [
+          "receptionist-100-a-plus-plus-group-massagno"
+        ]
+      }
     }
   ]
 }

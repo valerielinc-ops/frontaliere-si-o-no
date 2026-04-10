@@ -45,8 +45,8 @@
       },
       "previousSlugs": [
         "verkaufsprojektingenieur-in-tessin-rittmeyer-ag-tessin",
-        "sales-project-engineer-a-ticino-rittmeyer-ag-tessin",
-        "ingenieur-commercial-projets-tessin-rittmeyer-ag-tessin"
+        "ingenieur-commercial-projets-tessin-rittmeyer-ag-tessin",
+        "sales-project-engineer-a-ticino-rittmeyer-ag-tessin"
       ],
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -63,7 +63,26 @@
       },
       "streetAddress": "Inwilerriedstrasse 57",
       "postalCode": "6340",
-      "id": "rittmeyer-ag-e474959dc11f"
+      "id": "rittmeyer-ag-e474959dc11f",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsprojektingenieur-in-tessin-rittmeyer-ag-tessin",
+          "ingenieur-commercial-projets-tessin-rittmeyer-ag-tessin"
+        ],
+        "en": [
+          "verkaufsprojektingenieur-in-tessin-rittmeyer-ag-tessin",
+          "sales-project-engineer-a-ticino-rittmeyer-ag-tessin",
+          "ingenieur-commercial-projets-tessin-rittmeyer-ag-tessin"
+        ],
+        "de": [
+          "verkaufsprojektingenieur-in-tessin-rittmeyer-ag-tessin",
+          "ingenieur-commercial-projets-tessin-rittmeyer-ag-tessin"
+        ],
+        "fr": [
+          "verkaufsprojektingenieur-in-tessin-rittmeyer-ag-tessin",
+          "ingenieur-commercial-projets-tessin-rittmeyer-ag-tessin"
+        ]
+      }
     }
   ]
 }

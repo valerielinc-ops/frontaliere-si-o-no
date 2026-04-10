@@ -2924,8 +2924,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
         }
       }
       if (job.previousSlugsByLocale) {
-        for (const arr of Object.values(job.previousSlugsByLocale)) {
-          if (arr) for (const s of arr) {
+        for (const arr of Object.values(job.previousSlugsByLocale) as string[][]) {
+          if (Array.isArray(arr)) for (const s of arr) {
             if (s) slugIndex.set(s, job);
           }
         }

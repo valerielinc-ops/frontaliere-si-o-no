@@ -67,10 +67,26 @@
       },
       "previousSlugs": [
         "head-market-risk-asset-alle-80-100-alpiq-lausanne",
-        "head-market-risk-asset-alle-80-100-alpiq-lausanne",
-        "head-market-risk-asset-tutti-80-100-alpiq-lausanne",
         "head-market-risk-asset-tutti-80-100-alpiq-lausanne"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "head-market-risk-asset-alle-80-100-alpiq-lausanne",
+          "head-market-risk-asset-tutti-80-100-alpiq-lausanne"
+        ],
+        "en": [
+          "head-market-risk-asset-alle-80-100-alpiq-lausanne",
+          "head-market-risk-asset-tutti-80-100-alpiq-lausanne"
+        ],
+        "de": [
+          "head-market-risk-asset-alle-80-100-alpiq-lausanne",
+          "head-market-risk-asset-tutti-80-100-alpiq-lausanne"
+        ],
+        "fr": [
+          "head-market-risk-asset-alle-80-100-alpiq-lausanne",
+          "head-market-risk-asset-tutti-80-100-alpiq-lausanne"
+        ]
+      }
     },
     {
       "id": "alpiq-7ab1d45f31c3",
@@ -137,10 +153,14 @@
       },
       "previousSlugs": [
         "risk-technology-manager-alle-80-100-alpiq-olten",
-        "risk-technology-manager-alle-80-100-alpiq-olten",
-        "risk-technology-manager-tutti-80-100-alpiq-olten",
         "risk-technology-manager-tutti-80-100-alpiq-olten"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "en": [
+          "risk-technology-manager-alle-80-100-alpiq-olten",
+          "risk-technology-manager-tutti-80-100-alpiq-olten"
+        ]
+      }
     }
   ]
 }

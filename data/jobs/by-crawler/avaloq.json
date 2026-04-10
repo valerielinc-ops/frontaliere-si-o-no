@@ -119,7 +119,12 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 1"
+      "streetAddress": "Via Industria 1",
+      "previousSlugsByLocale": {
+        "it": [
+          "jira-configuration-specialista-avaloq-bioggio"
+        ]
+      }
     },
     {
       "title": "Portfolio Manager & Project Delivery Standards",
@@ -177,8 +182,7 @@
         }
       },
       "streetAddress": "Via Industria 1",
-      "id": "avaloq-a266cdea1773",
-      "previousSlugs": []
+      "id": "avaloq-a266cdea1773"
     },
     {
       "title": "IT Operation Center - Batch Testing Specialist",
@@ -236,8 +240,7 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 1",
-      "previousSlugs": []
+      "streetAddress": "Via Industria 1"
     },
     {
       "title": "Head of Quality Assurance & Client Onboarding",
@@ -283,8 +286,8 @@
       },
       "previousSlugs": [
         "responsabile-quality-assurance-client-onboarding-avaloq-bioggio",
-        "leiter-qualitat-assurance-client-onboarding-avaloq-bioggio",
         "responsabile-assicurazione-qualita-onboarding-clienti-avaloq-bioggio",
+        "leiter-qualitat-assurance-client-onboarding-avaloq-bioggio",
         "leiter-qualitatssicherung-kunden-onboarding-avaloq-bioggio"
       ],
       "salaryMin": 94000,
@@ -301,7 +304,17 @@
         }
       },
       "streetAddress": "Via Industria 1",
-      "id": "avaloq-2a00399b5615"
+      "id": "avaloq-2a00399b5615",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsabile-quality-assurance-client-onboarding-avaloq-bioggio",
+          "responsabile-assicurazione-qualita-onboarding-clienti-avaloq-bioggio"
+        ],
+        "de": [
+          "leiter-qualitat-assurance-client-onboarding-avaloq-bioggio",
+          "leiter-qualitatssicherung-kunden-onboarding-avaloq-bioggio"
+        ]
+      }
     },
     {
       "title": "Offering Manager",
@@ -359,8 +372,7 @@
         }
       },
       "streetAddress": "Via Industria 1",
-      "id": "avaloq-837fba83df08",
-      "previousSlugs": []
+      "id": "avaloq-837fba83df08"
     },
     {
       "title": "One Identity Manager Engineer",
@@ -421,7 +433,21 @@
         }
       },
       "streetAddress": "Via Industria 1",
-      "id": "avaloq-b0df1004d5d9"
+      "id": "avaloq-b0df1004d5d9",
+      "previousSlugsByLocale": {
+        "it": [
+          "one-identity-manager-ingegnere-avaloq-bioggio"
+        ],
+        "en": [
+          "one-identity-manager-ingegnere-avaloq-bioggio"
+        ],
+        "de": [
+          "one-identity-manager-ingegnere-avaloq-bioggio"
+        ],
+        "fr": [
+          "one-identity-manager-ingegnere-avaloq-bioggio"
+        ]
+      }
     },
     {
       "title": "Banking Specialist in Payments CH (10-month fixed-term contract)",
@@ -469,8 +495,8 @@
         "banking-specialista-in-payments-ch-10-month-fixed-term-contract-avaloq-bioggio",
         "banking-spezialist-in-payments-ch-10-month-fixed-term-contract-avaloq-bioggio",
         "banking-specialiste-in-payments-ch-10-month-fixed-term-contract-avaloq-bioggio",
-        "banking-specialist-in-payments-ch-10-month-fixed-term-contract-avaloq-bioggio-tqfpn5",
-        "banking-spezialist-in-payments-ch-10-month-fixed-term-contract-avaloq-bioggio-tqfpn5"
+        "banking-spezialist-in-payments-ch-10-month-fixed-term-contract-avaloq-bioggio-tqfpn5",
+        "banking-specialist-in-payments-ch-10-month-fixed-term-contract-avaloq-bioggio-tqfpn5"
       ],
       "salaryMin": 72500,
       "salaryMax": 97500,
@@ -486,7 +512,31 @@
         }
       },
       "streetAddress": "Via Industria 1",
-      "id": "avaloq-5b506e7f7d20"
+      "id": "avaloq-5b506e7f7d20",
+      "previousSlugsByLocale": {
+        "it": [
+          "banking-specialista-in-payments-ch-10-month-fixed-term-contract-avaloq-bioggio",
+          "banking-spezialist-in-payments-ch-10-month-fixed-term-contract-avaloq-bioggio",
+          "banking-specialiste-in-payments-ch-10-month-fixed-term-contract-avaloq-bioggio",
+          "banking-spezialist-in-payments-ch-10-month-fixed-term-contract-avaloq-bioggio-tqfpn5"
+        ],
+        "en": [
+          "banking-spezialist-in-payments-ch-10-month-fixed-term-contract-avaloq-bioggio",
+          "banking-specialiste-in-payments-ch-10-month-fixed-term-contract-avaloq-bioggio",
+          "banking-specialist-in-payments-ch-10-month-fixed-term-contract-avaloq-bioggio-tqfpn5",
+          "banking-spezialist-in-payments-ch-10-month-fixed-term-contract-avaloq-bioggio-tqfpn5"
+        ],
+        "de": [
+          "banking-spezialist-in-payments-ch-10-month-fixed-term-contract-avaloq-bioggio",
+          "banking-specialiste-in-payments-ch-10-month-fixed-term-contract-avaloq-bioggio",
+          "banking-spezialist-in-payments-ch-10-month-fixed-term-contract-avaloq-bioggio-tqfpn5"
+        ],
+        "fr": [
+          "banking-spezialist-in-payments-ch-10-month-fixed-term-contract-avaloq-bioggio",
+          "banking-specialiste-in-payments-ch-10-month-fixed-term-contract-avaloq-bioggio",
+          "banking-spezialist-in-payments-ch-10-month-fixed-term-contract-avaloq-bioggio-tqfpn5"
+        ]
+      }
     },
     {
       "title": "Banking Specialist - OTC Derivatives Processing (10-month fixed-term contract)",
@@ -534,9 +584,9 @@
         "banking-specialista-otc-derivatives-processing-10-month-fixed-term-contract-avaloq-bioggio",
         "banking-spezialist-otc-derivatives-processing-10-month-fixed-term-contract-avaloq-bioggio",
         "banking-specialiste-otc-derivatives-processing-10-month-fixed-term-contract-avaloq-bioggio",
-        "banking-specialist-otc-derivatives-processing-10-month-fixed-term-contract-avaloq-bioggio-idq2ur",
         "banking-spezialist-otc-derivatives-processing-10-month-fixed-term-contract-avaloq-bioggio-idq2ur",
-        "specialista-bancario-elaborazione-derivati-otc-contratto-a-tempo-determinato-di-10-mesi-av"
+        "specialista-bancario-elaborazione-derivati-otc-contratto-a-tempo-determinato-di-10-mesi-av",
+        "banking-specialist-otc-derivatives-processing-10-month-fixed-term-contract-avaloq-bioggio-idq2ur"
       ],
       "salaryMin": 72500,
       "salaryMax": 97500,
@@ -552,7 +602,32 @@
         }
       },
       "streetAddress": "Via Industria 1",
-      "id": "avaloq-e388ed595841"
+      "id": "avaloq-e388ed595841",
+      "previousSlugsByLocale": {
+        "it": [
+          "banking-specialista-otc-derivatives-processing-10-month-fixed-term-contract-avaloq-bioggio",
+          "banking-spezialist-otc-derivatives-processing-10-month-fixed-term-contract-avaloq-bioggio",
+          "banking-specialiste-otc-derivatives-processing-10-month-fixed-term-contract-avaloq-bioggio",
+          "banking-spezialist-otc-derivatives-processing-10-month-fixed-term-contract-avaloq-bioggio-idq2ur",
+          "specialista-bancario-elaborazione-derivati-otc-contratto-a-tempo-determinato-di-10-mesi-av"
+        ],
+        "en": [
+          "banking-spezialist-otc-derivatives-processing-10-month-fixed-term-contract-avaloq-bioggio",
+          "banking-specialiste-otc-derivatives-processing-10-month-fixed-term-contract-avaloq-bioggio",
+          "banking-specialist-otc-derivatives-processing-10-month-fixed-term-contract-avaloq-bioggio-idq2ur",
+          "banking-spezialist-otc-derivatives-processing-10-month-fixed-term-contract-avaloq-bioggio-idq2ur"
+        ],
+        "de": [
+          "banking-spezialist-otc-derivatives-processing-10-month-fixed-term-contract-avaloq-bioggio",
+          "banking-specialiste-otc-derivatives-processing-10-month-fixed-term-contract-avaloq-bioggio",
+          "banking-spezialist-otc-derivatives-processing-10-month-fixed-term-contract-avaloq-bioggio-idq2ur"
+        ],
+        "fr": [
+          "banking-spezialist-otc-derivatives-processing-10-month-fixed-term-contract-avaloq-bioggio",
+          "banking-specialiste-otc-derivatives-processing-10-month-fixed-term-contract-avaloq-bioggio",
+          "banking-spezialist-otc-derivatives-processing-10-month-fixed-term-contract-avaloq-bioggio-idq2ur"
+        ]
+      }
     },
     {
       "title": "German Speaking Banking Specialist in Corporate Actions Pre-Processing",
@@ -598,8 +673,8 @@
       },
       "previousSlugs": [
         "german-speaking-banking-specialiste-in-corporate-actions-pre-processing-avaloq-bioggio",
-        "german-speaking-banking-specialist-in-corporate-actions-pre-processing-avaloq-bioggio-omqqvd",
-        "german-speaking-banking-spezialist-in-corporate-actions-pre-processing-avaloq-bioggio-omqqvd"
+        "german-speaking-banking-spezialist-in-corporate-actions-pre-processing-avaloq-bioggio-omqqvd",
+        "german-speaking-banking-specialist-in-corporate-actions-pre-processing-avaloq-bioggio-omqqvd"
       ],
       "salaryMin": 72500,
       "salaryMax": 97500,
@@ -615,7 +690,26 @@
         }
       },
       "streetAddress": "Via Industria 1",
-      "id": "avaloq-b28927357fc4"
+      "id": "avaloq-b28927357fc4",
+      "previousSlugsByLocale": {
+        "it": [
+          "german-speaking-banking-specialiste-in-corporate-actions-pre-processing-avaloq-bioggio",
+          "german-speaking-banking-spezialist-in-corporate-actions-pre-processing-avaloq-bioggio-omqqvd"
+        ],
+        "en": [
+          "german-speaking-banking-specialiste-in-corporate-actions-pre-processing-avaloq-bioggio",
+          "german-speaking-banking-specialist-in-corporate-actions-pre-processing-avaloq-bioggio-omqqvd",
+          "german-speaking-banking-spezialist-in-corporate-actions-pre-processing-avaloq-bioggio-omqqvd"
+        ],
+        "de": [
+          "german-speaking-banking-specialiste-in-corporate-actions-pre-processing-avaloq-bioggio",
+          "german-speaking-banking-spezialist-in-corporate-actions-pre-processing-avaloq-bioggio-omqqvd"
+        ],
+        "fr": [
+          "german-speaking-banking-specialiste-in-corporate-actions-pre-processing-avaloq-bioggio",
+          "german-speaking-banking-spezialist-in-corporate-actions-pre-processing-avaloq-bioggio-omqqvd"
+        ]
+      }
     },
     {
       "title": "Swiss Regulatory Reporting Expert - FiRE",
@@ -677,7 +771,21 @@
         "swiss-regulatory-reporting-expert-fire-avaloq-bioggio-ticino-switzerland"
       ],
       "id": "avaloq-f3996f7b4502",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "swiss-regulatory-reporting-expert-fire-avaloq-bioggio-ticino-switzerland"
+        ],
+        "en": [
+          "swiss-regulatory-reporting-expert-fire-avaloq-bioggio-ticino-switzerland"
+        ],
+        "de": [
+          "swiss-regulatory-reporting-expert-fire-avaloq-bioggio-ticino-switzerland"
+        ],
+        "fr": [
+          "swiss-regulatory-reporting-expert-fire-avaloq-bioggio-ticino-switzerland"
+        ]
+      }
     },
     {
       "title": "Apprendista di commercio AFC con Maturità",
@@ -738,7 +846,12 @@
         }
       },
       "streetAddress": "Via Industria 1",
-      "id": "avaloq-be6d532df207"
+      "id": "avaloq-be6d532df207",
+      "previousSlugsByLocale": {
+        "it": [
+          "lernende-r-di-commercio-afc-con-maturita-avaloq-bioggio"
+        ]
+      }
     },
     {
       "title": "IT Operation Center Specialist",
@@ -785,8 +898,8 @@
       "previousSlugs": [
         "it-operation-center-specialiste-avaloq-bioggio",
         "specialista-centro-operativo-it-avaloq-bioggio",
-        "it-operation-center-specialist-avaloq-bioggio-lvnvt7",
-        "it-operation-center-spezialist-avaloq-bioggio-lvnvt7"
+        "it-operation-center-spezialist-avaloq-bioggio-lvnvt7",
+        "it-operation-center-specialist-avaloq-bioggio-lvnvt7"
       ],
       "salaryMin": 72500,
       "salaryMax": 97500,
@@ -802,7 +915,27 @@
         }
       },
       "streetAddress": "Via Industria 1",
-      "id": "avaloq-448d510c1aed"
+      "id": "avaloq-448d510c1aed",
+      "previousSlugsByLocale": {
+        "it": [
+          "it-operation-center-specialiste-avaloq-bioggio",
+          "specialista-centro-operativo-it-avaloq-bioggio",
+          "it-operation-center-spezialist-avaloq-bioggio-lvnvt7"
+        ],
+        "en": [
+          "it-operation-center-specialiste-avaloq-bioggio",
+          "it-operation-center-specialist-avaloq-bioggio-lvnvt7",
+          "it-operation-center-spezialist-avaloq-bioggio-lvnvt7"
+        ],
+        "de": [
+          "it-operation-center-specialiste-avaloq-bioggio",
+          "it-operation-center-spezialist-avaloq-bioggio-lvnvt7"
+        ],
+        "fr": [
+          "it-operation-center-specialiste-avaloq-bioggio",
+          "it-operation-center-spezialist-avaloq-bioggio-lvnvt7"
+        ]
+      }
     }
   ]
 }

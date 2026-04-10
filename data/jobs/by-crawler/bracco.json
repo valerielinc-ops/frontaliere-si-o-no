@@ -46,10 +46,10 @@
       "sourceLang": "en",
       "previousSlugs": [
         "continuous-improvement-manager-bracco-suisse-s-a-plan-les-ouates",
-        "continuous-improvement-manager-bracco-suisse",
         "continuous-improvement-manager-bracco-suisse-s-a-plan-les-ouates-x6s9se",
         "responsabile-miglioramento-continuo-bracco-suisse-s-a-plan-les-ouates",
-        "responsabile-del-miglioramento-continuo-bracco-suisse-s-a-chiasso"
+        "responsabile-del-miglioramento-continuo-bracco-suisse-s-a-chiasso",
+        "continuous-improvement-manager-bracco-suisse"
       ],
       "salaryMin": 72000,
       "salaryMax": 97000,
@@ -69,7 +69,31 @@
       "addressLocality": "Chiasso",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "id": "bracco-d1dc7ee35b89"
+      "id": "bracco-d1dc7ee35b89",
+      "previousSlugsByLocale": {
+        "it": [
+          "continuous-improvement-manager-bracco-suisse-s-a-plan-les-ouates",
+          "continuous-improvement-manager-bracco-suisse-s-a-plan-les-ouates-x6s9se",
+          "responsabile-miglioramento-continuo-bracco-suisse-s-a-plan-les-ouates",
+          "responsabile-del-miglioramento-continuo-bracco-suisse-s-a-chiasso"
+        ],
+        "en": [
+          "continuous-improvement-manager-bracco-suisse-s-a-plan-les-ouates",
+          "continuous-improvement-manager-bracco-suisse",
+          "continuous-improvement-manager-bracco-suisse-s-a-plan-les-ouates-x6s9se",
+          "responsabile-miglioramento-continuo-bracco-suisse-s-a-plan-les-ouates"
+        ],
+        "de": [
+          "continuous-improvement-manager-bracco-suisse-s-a-plan-les-ouates",
+          "continuous-improvement-manager-bracco-suisse-s-a-plan-les-ouates-x6s9se",
+          "responsabile-miglioramento-continuo-bracco-suisse-s-a-plan-les-ouates"
+        ],
+        "fr": [
+          "continuous-improvement-manager-bracco-suisse-s-a-plan-les-ouates",
+          "continuous-improvement-manager-bracco-suisse-s-a-plan-les-ouates-x6s9se",
+          "responsabile-miglioramento-continuo-bracco-suisse-s-a-plan-les-ouates"
+        ]
+      }
     }
   ]
 }

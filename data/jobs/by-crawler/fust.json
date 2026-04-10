@@ -66,7 +66,12 @@
       "addressLocality": "Cadenazzo",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "de": [
+          "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-chur-graubunden"
+        ]
+      }
     },
     {
       "id": "company-7haru0",
@@ -133,7 +138,25 @@
       "addressLocality": "Cadenazzo",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprendistato-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-fust-tenero-contra-ticino",
+          "apprendistato-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-fust-tenero-contra-ticino-7haru0"
+        ],
+        "en": [
+          "apprendistato-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-fust-tenero-contra-ticino",
+          "apprendistato-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-fust-tenero-contra-ticino-7haru0"
+        ],
+        "de": [
+          "apprendistato-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-fust-tenero-contra-ticino",
+          "apprendistato-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-fust-tenero-contra-ticino-7haru0"
+        ],
+        "fr": [
+          "apprendistato-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-fust-tenero-contra-ticino",
+          "apprendistato-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-fust-tenero-contra-ticino-7haru0"
+        ]
+      }
     },
     {
       "id": "company-pztp1c",
@@ -201,7 +224,23 @@
       "addressLocality": "Cadenazzo",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "de": [
+          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-grigioni-pztp1c",
+          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-grigioni",
+          "installatore-di-elettrodomestici-a-domicilio-fust-grigioni"
+        ],
+        "it": [
+          "installatore-di-elettrodomestici-a-domicilio-fust-grigioni"
+        ],
+        "en": [
+          "installatore-di-elettrodomestici-a-domicilio-fust-grigioni"
+        ],
+        "fr": [
+          "installatore-di-elettrodomestici-a-domicilio-fust-grigioni"
+        ]
+      }
     },
     {
       "id": "company-jqltq",
@@ -268,7 +307,15 @@
       "previousSlugs": [
         "kuchen-und-badezimmermonteur-fust-swiss-household-services-ag-bellinzona",
         "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino-0jqltq"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "de": [
+          "kuchen-und-badezimmermonteur-fust-swiss-household-services-ag-bellinzona"
+        ],
+        "it": [
+          "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino-0jqltq"
+        ]
+      }
     }
   ]
 }

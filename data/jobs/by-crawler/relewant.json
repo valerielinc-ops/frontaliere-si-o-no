@@ -64,9 +64,36 @@
         "bi-spezialist-relewant-chiasso",
         "specialiste-bi-relewant-chiasso",
         "responsabile-progetto-swift-sepa-relewant-chiasso",
-        "project-manager-swift-sepa-relewant-chiasso-pqrule",
         "project-manager-swift-sepa-relewant-chiasso-pqrule"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "bi-spezialist-relewant-chiasso-pqrule",
+          "specialiste-bi-relewant-chiasso-pqrule",
+          "bi-spezialist-relewant-chiasso",
+          "specialiste-bi-relewant-chiasso",
+          "responsabile-progetto-swift-sepa-relewant-chiasso"
+        ],
+        "en": [
+          "bi-spezialist-relewant-chiasso-pqrule",
+          "specialiste-bi-relewant-chiasso-pqrule",
+          "bi-spezialist-relewant-chiasso",
+          "specialiste-bi-relewant-chiasso",
+          "project-manager-swift-sepa-relewant-chiasso-pqrule"
+        ],
+        "de": [
+          "bi-spezialist-relewant-chiasso-pqrule",
+          "specialiste-bi-relewant-chiasso-pqrule",
+          "bi-spezialist-relewant-chiasso",
+          "specialiste-bi-relewant-chiasso"
+        ],
+        "fr": [
+          "bi-spezialist-relewant-chiasso-pqrule",
+          "specialiste-bi-relewant-chiasso-pqrule",
+          "bi-spezialist-relewant-chiasso",
+          "specialiste-bi-relewant-chiasso"
+        ]
+      }
     },
     {
       "title": "BI Specialist",
@@ -126,7 +153,21 @@
         }
       },
       "streetAddress": "Via Cantonale 2A",
-      "postalCode": "6928"
+      "postalCode": "6928",
+      "previousSlugsByLocale": {
+        "it": [
+          "bi-specialiste-relewant-bellinzona"
+        ],
+        "en": [
+          "bi-specialiste-relewant-bellinzona"
+        ],
+        "de": [
+          "bi-specialiste-relewant-bellinzona"
+        ],
+        "fr": [
+          "bi-specialiste-relewant-bellinzona"
+        ]
+      }
     },
     {
       "title": "Sviluppatore Front end React",
@@ -185,9 +226,22 @@
       "streetAddress": "Via Cantonale 2A",
       "postalCode": "6928",
       "previousSlugs": [
-        "sviluppatore-front-end-react-relewant-chiasso-e6ky0z",
         "sviluppatore-front-end-react-relewant-chiasso-e6ky0z"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sviluppatore-front-end-react-relewant-chiasso-e6ky0z"
+        ],
+        "en": [
+          "sviluppatore-front-end-react-relewant-chiasso-e6ky0z"
+        ],
+        "de": [
+          "sviluppatore-front-end-react-relewant-chiasso-e6ky0z"
+        ],
+        "fr": [
+          "sviluppatore-front-end-react-relewant-chiasso-e6ky0z"
+        ]
+      }
     },
     {
       "title": "Business Solutions Specialist",
@@ -230,7 +284,6 @@
         "de": "business-solutions-spezialist-relewant-chiasso",
         "fr": "business-solutions-specialiste-relewant-chiasso"
       },
-      "previousSlugs": [],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -347,7 +400,6 @@
       },
       "previousSlugs": [
         "full-stack-java-developer-middle-relewant-chiasso-hq3181",
-        "full-stack-java-developer-middle-relewant-chiasso-hq3181",
         "full-stack-java-entwickler-middle-relewant-chiasso-hq3181"
       ],
       "salaryMin": 58000,
@@ -364,7 +416,22 @@
         }
       },
       "streetAddress": "Via Cantonale 2A",
-      "postalCode": "6928"
+      "postalCode": "6928",
+      "previousSlugsByLocale": {
+        "en": [
+          "full-stack-java-developer-middle-relewant-chiasso-hq3181",
+          "full-stack-java-entwickler-middle-relewant-chiasso-hq3181"
+        ],
+        "it": [
+          "full-stack-java-entwickler-middle-relewant-chiasso-hq3181"
+        ],
+        "de": [
+          "full-stack-java-entwickler-middle-relewant-chiasso-hq3181"
+        ],
+        "fr": [
+          "full-stack-java-entwickler-middle-relewant-chiasso-hq3181"
+        ]
+      }
     },
     {
       "title": "Technical Architect",
@@ -409,7 +476,6 @@
       },
       "previousSlugs": [
         "technical-architecte-relewant-chiasso",
-        "technical-architect-relewant-chiasso-7jfpjo",
         "technical-architect-relewant-chiasso-7jfpjo"
       ],
       "salaryMin": 58000,
@@ -426,7 +492,25 @@
         }
       },
       "streetAddress": "Via Cantonale 2A",
-      "postalCode": "6928"
+      "postalCode": "6928",
+      "previousSlugsByLocale": {
+        "it": [
+          "technical-architecte-relewant-chiasso",
+          "technical-architect-relewant-chiasso-7jfpjo"
+        ],
+        "en": [
+          "technical-architecte-relewant-chiasso",
+          "technical-architect-relewant-chiasso-7jfpjo"
+        ],
+        "de": [
+          "technical-architecte-relewant-chiasso",
+          "technical-architect-relewant-chiasso-7jfpjo"
+        ],
+        "fr": [
+          "technical-architecte-relewant-chiasso",
+          "technical-architect-relewant-chiasso-7jfpjo"
+        ]
+      }
     },
     {
       "title": "Java Developer",
@@ -469,7 +553,6 @@
         "de": "java-entwickler-relewant-chiasso",
         "fr": "java-developpeur-relewant-chiasso"
       },
-      "previousSlugs": [],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -544,7 +627,12 @@
       "postalCode": "6928",
       "previousSlugs": [
         "consulente-expert-senior-program-project-manager-relewant-chiasso"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "en": [
+          "consulente-expert-senior-program-project-manager-relewant-chiasso"
+        ]
+      }
     },
     {
       "title": "Senior IT Security Architect",
@@ -591,7 +679,6 @@
         "leitender-it-sicherheitsarchitekt-relewant-chiasso-a4qy95",
         "senior-it-security-architecte-relewant-chiasso",
         "senior-it-security-architect-relewant-chiasso-ticino-switzerland",
-        "senior-it-securit-archit-relewant-chiasso",
         "senior-it-securit-archit-relewant-chiasso"
       ],
       "salaryMin": 72000,
@@ -608,7 +695,24 @@
         }
       },
       "streetAddress": "Via Cantonale 2A",
-      "postalCode": "6928"
+      "postalCode": "6928",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitender-it-sicherheitsarchitekt-relewant-chiasso-a4qy95"
+        ],
+        "en": [
+          "leitender-it-sicherheitsarchitekt-relewant-chiasso-a4qy95",
+          "senior-it-security-architecte-relewant-chiasso",
+          "senior-it-security-architect-relewant-chiasso-ticino-switzerland",
+          "senior-it-securit-archit-relewant-chiasso"
+        ],
+        "de": [
+          "leitender-it-sicherheitsarchitekt-relewant-chiasso-a4qy95"
+        ],
+        "fr": [
+          "leitender-it-sicherheitsarchitekt-relewant-chiasso-a4qy95"
+        ]
+      }
     },
     {
       "title": "Sviluppatore PL/SQL",
@@ -670,7 +774,26 @@
         "pl-sql-developer-relewant-chiasso-ce8nq2",
         "pl-sql-entwickler-relewant-chiasso-ce8nq2",
         "developpeur-pl-sql-relewant-chiasso-ce8nq2"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "en": [
+          "pl-sql-developer-relewant-chiasso-ce8nq2",
+          "pl-sql-entwickler-relewant-chiasso-ce8nq2",
+          "developpeur-pl-sql-relewant-chiasso-ce8nq2"
+        ],
+        "it": [
+          "pl-sql-entwickler-relewant-chiasso-ce8nq2",
+          "developpeur-pl-sql-relewant-chiasso-ce8nq2"
+        ],
+        "de": [
+          "pl-sql-entwickler-relewant-chiasso-ce8nq2",
+          "developpeur-pl-sql-relewant-chiasso-ce8nq2"
+        ],
+        "fr": [
+          "pl-sql-entwickler-relewant-chiasso-ce8nq2",
+          "developpeur-pl-sql-relewant-chiasso-ce8nq2"
+        ]
+      }
     },
     {
       "title": "IT Card Management Analyst / Specialist",
@@ -730,7 +853,21 @@
         }
       },
       "streetAddress": "Via Cantonale 2A",
-      "postalCode": "6928"
+      "postalCode": "6928",
+      "previousSlugsByLocale": {
+        "it": [
+          "it-card-management-analyste-specialiste-relewant-chiasso"
+        ],
+        "en": [
+          "it-card-management-analyste-specialiste-relewant-chiasso"
+        ],
+        "de": [
+          "it-card-management-analyste-specialiste-relewant-chiasso"
+        ],
+        "fr": [
+          "it-card-management-analyste-specialiste-relewant-chiasso"
+        ]
+      }
     },
     {
       "title": "Automation & MFT Specialist",
@@ -791,7 +928,25 @@
         }
       },
       "streetAddress": "Via Cantonale 2A",
-      "postalCode": "6928"
+      "postalCode": "6928",
+      "previousSlugsByLocale": {
+        "it": [
+          "automation-mft-spezialist-relewant-lugano",
+          "automation-mft-specialiste-relewant-lugano"
+        ],
+        "en": [
+          "automation-mft-spezialist-relewant-lugano",
+          "automation-mft-specialiste-relewant-lugano"
+        ],
+        "de": [
+          "automation-mft-spezialist-relewant-lugano",
+          "automation-mft-specialiste-relewant-lugano"
+        ],
+        "fr": [
+          "automation-mft-spezialist-relewant-lugano",
+          "automation-mft-specialiste-relewant-lugano"
+        ]
+      }
     },
     {
       "title": "Network Engineer",
@@ -910,7 +1065,26 @@
         "plsql-developer-relewant-chiasso-hrbojx",
         "plsql-entwickler-relewant-chiasso-hrbojx",
         "developpeur-plsql-relewant-chiasso-hrbojx"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "en": [
+          "plsql-developer-relewant-chiasso-hrbojx",
+          "plsql-entwickler-relewant-chiasso-hrbojx",
+          "developpeur-plsql-relewant-chiasso-hrbojx"
+        ],
+        "it": [
+          "plsql-entwickler-relewant-chiasso-hrbojx",
+          "developpeur-plsql-relewant-chiasso-hrbojx"
+        ],
+        "de": [
+          "plsql-entwickler-relewant-chiasso-hrbojx",
+          "developpeur-plsql-relewant-chiasso-hrbojx"
+        ],
+        "fr": [
+          "plsql-entwickler-relewant-chiasso-hrbojx",
+          "developpeur-plsql-relewant-chiasso-hrbojx"
+        ]
+      }
     },
     {
       "title": "Analista Funzionale",
@@ -972,7 +1146,29 @@
         "funktionsanalyst-relewant-chiasso-czslhp",
         "functional-analyst-relewant-chiasso-czslhp",
         "analyste-fonctionnel-relewant-chiasso-czslhp"
-      ]
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "funktionsanalyst-relewant-chiasso-czslhp",
+          "functional-analyst-relewant-chiasso-czslhp",
+          "analyste-fonctionnel-relewant-chiasso-czslhp"
+        ],
+        "en": [
+          "funktionsanalyst-relewant-chiasso-czslhp",
+          "functional-analyst-relewant-chiasso-czslhp",
+          "analyste-fonctionnel-relewant-chiasso-czslhp"
+        ],
+        "de": [
+          "funktionsanalyst-relewant-chiasso-czslhp",
+          "functional-analyst-relewant-chiasso-czslhp",
+          "analyste-fonctionnel-relewant-chiasso-czslhp"
+        ],
+        "fr": [
+          "funktionsanalyst-relewant-chiasso-czslhp",
+          "functional-analyst-relewant-chiasso-czslhp",
+          "analyste-fonctionnel-relewant-chiasso-czslhp"
+        ]
+      }
     },
     {
       "title": "Senior .NET Developer",
@@ -1015,7 +1211,6 @@
         "de": "senior-net-entwickler-relewant-chiasso",
         "fr": "senior-net-developpeur-relewant-chiasso"
       },
-      "previousSlugs": [],
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
@@ -1075,7 +1270,6 @@
       },
       "previousSlugs": [
         "senior-fullstack-java-developer-relewant-chiasso-trkqhm",
-        "senior-fullstack-java-developer-relewant-chiasso-trkqhm",
         "senior-fullstack-java-entwickler-relewant-chiasso-trkqhm"
       ],
       "salaryMin": 72000,
@@ -1092,7 +1286,13 @@
         }
       },
       "streetAddress": "Via Cantonale 2A",
-      "postalCode": "6928"
+      "postalCode": "6928",
+      "previousSlugsByLocale": {
+        "en": [
+          "senior-fullstack-java-developer-relewant-chiasso-trkqhm",
+          "senior-fullstack-java-entwickler-relewant-chiasso-trkqhm"
+        ]
+      }
     },
     {
       "title": "Senior Backend Engineer (Node.js / C#)",
@@ -1135,7 +1335,6 @@
         "de": "senior-backend-ingenieur-node-js-c-relewant-chiasso",
         "fr": "senior-backend-ingenieur-node-js-c-relewant-chiasso"
       },
-      "previousSlugs": [],
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
@@ -1195,7 +1394,6 @@
       },
       "previousSlugs": [
         "full-stack-java-developer-expert-relewant-chiasso-qkaen5",
-        "full-stack-java-developer-expert-relewant-chiasso-qkaen5",
         "full-stack-java-entwickler-expert-relewant-chiasso-qkaen5"
       ],
       "salaryMin": 58000,
@@ -1212,7 +1410,22 @@
         }
       },
       "streetAddress": "Via Cantonale 2A",
-      "postalCode": "6928"
+      "postalCode": "6928",
+      "previousSlugsByLocale": {
+        "en": [
+          "full-stack-java-developer-expert-relewant-chiasso-qkaen5",
+          "full-stack-java-entwickler-expert-relewant-chiasso-qkaen5"
+        ],
+        "it": [
+          "full-stack-java-entwickler-expert-relewant-chiasso-qkaen5"
+        ],
+        "de": [
+          "full-stack-java-entwickler-expert-relewant-chiasso-qkaen5"
+        ],
+        "fr": [
+          "full-stack-java-entwickler-expert-relewant-chiasso-qkaen5"
+        ]
+      }
     }
   ]
 }

@@ -34,7 +34,21 @@
     "salaryMin": 72500,
     "salaryMax": 97500,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "previousSlugsByLocale": {
+      "it": [
+        "80-100-scrum-master-abb-svizzera-sede-ticino-quartino-ticino"
+      ],
+      "en": [
+        "80-100-scrum-master-abb-svizzera-sede-ticino-quartino-ticino"
+      ],
+      "de": [
+        "80-100-scrum-master-abb-svizzera-sede-ticino-quartino-ticino"
+      ],
+      "fr": [
+        "80-100-scrum-master-abb-svizzera-sede-ticino-quartino-ticino"
+      ]
+    }
   },
   {
     "slug": "ingegnere-di-test-80-100-abb-svizzera-sede-ticino-quartino-ticino-quartino-ticino",
@@ -76,7 +90,12 @@
     "salaryMin": 72500,
     "salaryMax": 97500,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "previousSlugsByLocale": {
+      "it": [
+        "ingegnere-di-test-80-100-abb-svizzera-sede-ticino-quartino-ticino"
+      ]
+    }
   },
   {
     "slug": "ingegnere-di-test-80-100-abb-svizzera-sede-ticino-quartino-ticino-quartino-ticino-2",
@@ -118,7 +137,12 @@
     "salaryMin": 72500,
     "salaryMax": 97500,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "previousSlugsByLocale": {
+      "it": [
+        "ingegnere-di-test-80-100-abb-svizzera-sede-ticino-quartino-ticino"
+      ]
+    }
   },
   {
     "slug": "ingegnere-di-test-80-100-abb-svizzera-sede-ticino-quartino-ticino-quartino-ticino-3",
@@ -160,6 +184,11 @@
     "salaryMin": 72500,
     "salaryMax": 97500,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "previousSlugsByLocale": {
+      "it": [
+        "ingegnere-di-test-80-100-abb-svizzera-sede-ticino-quartino-ticino"
+      ]
+    }
   }
 ]
