@@ -2040,6 +2040,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.benzina-lombardia-frontalieri-ticinesi-2026.title': 'Frontalieri presi d’assalto: benzinai lombardi esauriti, cosa cambia per chi lavora in Ticino',
     'blog.article.benzina-lombardia-frontalieri-ticinesi-2026.excerpt': 'Da Como a Varese distributori a secco per i frontalieri ticinesi. I prezzi in Svizzera caleranno lentamente, mentre in Lombardia lo sciopero delle scorte costringe a lunghe attese. I numeri aggiornati del 8 aprile 2026.',
     'blog.article.benzina-lombardia-frontalieri-ticinesi-2026.imageAlt': 'Stazione di servizio a Como con distributori esauriti e frontalieri ticinesi in fila per il rifornimento',
+    'blog.article.diploma-usa-non-riconosciuto-ticino.title': 'Diploma statunitense bloccato in Ticino: un’odissea burocratica per gli igienisti dentali',
+    'blog.article.diploma-usa-non-riconosciuto-ticino.excerpt': 'Lugano, 10 aprile 2026. Riconoscimento del titolo statunitense rifiutato: un esame attitudinale ad hoc e attese di oltre un anno. La storia di Anna, ticinese con 10 anni di esperienza negli USA, costretta a rinunciare al ritorno a casa.',
+    'blog.article.diploma-usa-non-riconosciuto-ticino.imageAlt': 'Igienista dentale ticinese in una clinica svizzera mentre analizza una radiografia',
 };
 
 export default blogMetaIt;

@@ -2040,6 +2040,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.benzina-lombardia-frontalieri-ticinesi-2026.title': 'Border workers overwhelmed: Lombardy gas stations run dry, what changes for those working in Ticino',
     'blog.article.benzina-lombardia-frontalieri-ticinesi-2026.excerpt': 'From Como to Varese, gas stations are out of fuel for Ticino border workers. Prices in Switzerland will drop slowly, while the fuel shortage strike in Lombardy forces long waits. Updated figures as of April 8, 2026.',
     'blog.article.benzina-lombardia-frontalieri-ticinesi-2026.imageAlt': 'Service station in Como with empty pumps and Ticinese cross-border commuters queuing for fuel',
+    'blog.article.diploma-usa-non-riconosciuto-ticino.title': 'US degree stuck in Ticino: a bureaucratic ordeal for dental hygienists',
+    'blog.article.diploma-usa-non-riconosciuto-ticino.excerpt': 'Lugano, April 10, 2026. US degree recognition denied: a custom aptitude exam and over a year of waiting. The story of Anna, a Ticinese with 10 years of experience in the USA, forced to give up moving back home.',
+    'blog.article.diploma-usa-non-riconosciuto-ticino.imageAlt': 'Ticinese dental hygienist in a Swiss clinic analyzing an X-ray',
 };
 
 export default blogMetaEn;

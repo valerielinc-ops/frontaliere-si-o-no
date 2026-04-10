@@ -2040,6 +2040,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.benzina-lombardia-frontalieri-ticinesi-2026.title': 'Frontaliers pris d’assaut : stations-service lombardes à sec, quelles conséquences pour les travailleurs du Tessin',
     'blog.article.benzina-lombardia-frontalieri-ticinesi-2026.excerpt': 'De Côme à Varèse, les stations-service lombardes sont à sec pour les frontaliers tessinois. Les prix en Suisse diminueront lentement, tandis qu’en Lombardie, la grève des stocks impose de longues attentes. Les chiffres mis à jour au 8 avril 2026.',
     'blog.article.benzina-lombardia-frontalieri-ticinesi-2026.imageAlt': 'Station-service à Côme avec pompes vides et frontaliers tessinois en file pour le carburant',
+    'blog.article.diploma-usa-non-riconosciuto-ticino.title': 'Un diplôme américain bloqué au Tessin : une odyssée bureaucratique pour les hygiénistes dentaires',
+    'blog.article.diploma-usa-non-riconosciuto-ticino.excerpt': 'Lugano, 10 avril 2026. Reconnaissance du diplôme américain refusée : un examen d’aptitude spécifique et des délais d’attente de plus d’un an. L’histoire d’Anna, Tessinoise avec 10 ans d’expérience aux États-Unis, contrainte d’abandonner son projet de retour au pays.',
+    'blog.article.diploma-usa-non-riconosciuto-ticino.imageAlt': 'Une hygiéniste dentaire tessinoise dans une clinique suisse analysant une radiographie',
 };
 
 export default blogMetaFr;

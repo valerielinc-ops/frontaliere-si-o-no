@@ -5745,4 +5745,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/benzina-lombardia-frontalieri-ticinesi-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'diploma-usa-non-riconosciuto-ticino',
+    category: 'pratico',
+    date: '2026-04-10T14:07:59.385Z',
+    image: '/images/blog/diploma-usa-non-riconosciuto-ticino.jpg',
+    hasCalculator: true,
+  },
 ];

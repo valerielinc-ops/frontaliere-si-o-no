@@ -6589,6 +6589,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-diploma-usa-non-riconosciuto-ticino': {
+    title: 'Diploma statunitense bloccato in | Frontaliere Ticino',
+    description: 'Lugano, 10 aprile 2026. Riconoscimento del titolo statunitense rifiutato: un esame attitudinale ad hoc e attese di oltre un anno. La storia di Anna, ticinese co',
+    keywords: 'frontalieri, ticino, svizzera, italia, diploma, statunitense, bloccato, odissea',
+    ogTitle: 'Diploma statunitense bloccato in Ticino: un’odissea buroc',
+    ogDescription: 'Lugano, 10 aprile 2026. Riconoscimento del titolo statunitense rifiutato: un esame attitudinale ad hoc e attese di oltre un anno. La storia di Anna, ticinese co',
+    canonicalPath: '/articoli-frontaliere/diploma-usa-non-riconosciuto-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Diploma statunitense bloccato in Ticino: un’odissea buroc",
+      "description": "Lugano, 10 aprile 2026. Riconoscimento del titolo statunitense rifiutato: un esame attitudinale ad hoc e attese di oltre un anno. La storia di Anna, ticinese co",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/diploma-usa-non-riconosciuto-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Igienista dentale ticinese in una clinica svizzera mentre analizza una radiografia"
+      },
+      "datePublished": "2026-04-10T14:07:59+00:00",
+      "dateModified": "2026-04-10T14:07:59+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/diploma-usa-non-riconosciuto-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

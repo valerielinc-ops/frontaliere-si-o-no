@@ -2040,6 +2040,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.benzina-lombardia-frontalieri-ticinesi-2026.title': 'Grenzpendler unter Druck: Benzin in der Lombardei knapp – was das für Pendler ins Tessin bedeutet',
     'blog.article.benzina-lombardia-frontalieri-ticinesi-2026.excerpt': 'Von Como bis Varese sind die Tankstellen für Tessin-Grenzpendler leer. Während die Preise in der Schweiz langsam sinken, zwingt der Streik um die Vorräte in der Lombardei zu langen Wartezeiten. Die aktualisierten Zahlen vom 8. April 2026.',
     'blog.article.benzina-lombardia-frontalieri-ticinesi-2026.imageAlt': 'Tankstelle in Como mit leeren Zapfsäulen und Grenzgängern aus dem Tessin, die auf Sprit warten',
+    'blog.article.diploma-usa-non-riconosciuto-ticino.title': 'US-Diplom in der Schweiz blockiert: Eine bürokratische Odyssee für Dentalhygienikerinnen',
+    'blog.article.diploma-usa-non-riconosciuto-ticino.excerpt': 'Lugano, 10. April 2026. Anerkennung des US-Abschlusses verweigert: Eine spezielle Eignungsprüfung und Wartezeiten von über einem Jahr. Die Geschichte von Anna, einer Tessinerin mit zehn Jahren Berufserfahrung in den USA, die gezwungen ist, auf die Rückkehr in ihre Heimat zu verzichten.',
+    'blog.article.diploma-usa-non-riconosciuto-ticino.imageAlt': 'Tessinische Dentalhygienikerin in einer Schweizer Klinik bei der Auswertung eines Röntgenbilds',
 };
 
 export default blogMetaDe;
