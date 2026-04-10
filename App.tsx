@@ -3360,6 +3360,15 @@ const App: React.FC = () => {
               </div>
             </nav>
 
+            {/* English E-E-A-T alias links — plain <a> tags for crawler discoverability */}
+            <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 mt-3 text-[10px] text-slate-400 dark:text-slate-600">
+              <a href="/about/" className="hover:text-slate-600 dark:hover:text-slate-400 no-underline">About</a>
+              <span>·</span>
+              <a href="/contact/" className="hover:text-slate-600 dark:hover:text-slate-400 no-underline">Contact</a>
+              <span>·</span>
+              <a href="/privacy-policy/" className="hover:text-slate-600 dark:hover:text-slate-400 no-underline">Privacy Policy</a>
+            </div>
+
             <div className="flex items-center justify-center gap-1.5 mt-3 text-xs text-emerald-700 dark:text-emerald-400 font-medium">
               <Shield className="w-3 h-3" />
               <span>{t('footer.securityBadge')}</span>

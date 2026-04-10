@@ -1107,6 +1107,9 @@ export function staticPagesPlugin(rootDir: string): Plugin {
           { href: '/chi-siamo', label: 'Chi Siamo' },
           { href: '/contattaci', label: 'Contattaci' },
           { href: '/privacy', label: 'Privacy' },
+          { href: '/about/', label: 'About' },
+          { href: '/contact/', label: 'Contact' },
+          { href: '/privacy-policy/', label: 'Privacy Policy' },
         ],
         en: [
           { href: '/en/', label: 'Tax Simulator' },
@@ -1117,9 +1120,9 @@ export function staticPagesPlugin(rootDir: string): Plugin {
           { href: '/en/glossary', label: 'Glossary' },
           { href: '/en/frontier-articles', label: 'Articles' },
           { href: '/en/site-map', label: 'Site Map' },
-          { href: '/en/about-us', label: 'About Us' },
-          { href: '/en/contact-us', label: 'Contact Us' },
-          { href: '/en/privacy', label: 'Privacy' },
+          { href: '/about/', label: 'About Us' },
+          { href: '/contact/', label: 'Contact Us' },
+          { href: '/privacy-policy/', label: 'Privacy Policy' },
         ],
         de: [
           { href: '/de/', label: 'Steuersimulator' },
@@ -1130,9 +1133,9 @@ export function staticPagesPlugin(rootDir: string): Plugin {
           { href: '/de/glossar', label: 'Glossar' },
           { href: '/de/grenzgaenger-artikel', label: 'Artikel' },
           { href: '/de/seitenplan', label: 'Seitenplan' },
-          { href: '/de/ueber-uns', label: 'Über Uns' },
-          { href: '/de/kontakt', label: 'Kontakt' },
-          { href: '/de/datenschutz', label: 'Datenschutz' },
+          { href: '/about/', label: 'About' },
+          { href: '/contact/', label: 'Contact' },
+          { href: '/privacy-policy/', label: 'Privacy Policy' },
         ],
         fr: [
           { href: '/fr/', label: 'Simulateur Fiscal' },
@@ -1143,9 +1146,9 @@ export function staticPagesPlugin(rootDir: string): Plugin {
           { href: '/fr/glossaire', label: 'Glossaire' },
           { href: '/fr/articles-frontalier', label: 'Articles' },
           { href: '/fr/plan-du-site', label: 'Plan du Site' },
-          { href: '/fr/a-propos', label: 'À Propos' },
-          { href: '/fr/contactez-nous', label: 'Contactez-nous' },
-          { href: '/fr/confidentialite', label: 'Confidentialité' },
+          { href: '/about/', label: 'About' },
+          { href: '/contact/', label: 'Contact' },
+          { href: '/privacy-policy/', label: 'Privacy Policy' },
         ],
       };
 
@@ -2334,6 +2337,8 @@ ${hrefTags}
           if (hl.lang === 'it' || hl.lang === 'x-default') continue;
           const locPath = (hl.href.replace(BASE_URL, '') || '/').replace(/\/+$/, '') || '/';
           if (!locPath || locPath === '/') continue;
+          // Skip if locale variant resolves to same path as primary page (e.g. /about/ is both loc and en hreflang)
+          if (locPath === url.path) continue;
 
           const locFile = np.join(distDir, locPath, 'index.html');
           if (fs.existsSync(locFile)) {
