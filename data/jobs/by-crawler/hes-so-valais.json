@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hes-so-valais",
-  "assembledAt": "2026-04-09T21:35:31.580Z",
+  "assembledAt": "2026-04-10T09:43:33.128Z",
   "jobs": [
     {
       "url": "https://www.hevs.ch/fr/recruitee/collaborateur-ou-collaboratrice-scientifique-hes-80-100-***-academic-associate-uas-80-100-214198",
@@ -64,7 +64,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "url": "https://www.hevs.ch/fr/recruitee/assistant-ou-assistante-de-direction-avec-responsabilite-de-conduite-80-100-213985",
@@ -128,7 +129,14 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugs": []
+      "previousSlugs": [
+        "assistant-ou-assistante-de-direction-avec-responsabilite-de-hes-so-valais"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-ou-assistante-de-direction-avec-responsabilite-de-hes-so-valais"
+        ]
+      }
     },
     {
       "url": "https://www.hevs.ch/fr/recruitee/professor-uas-and-director-of-the-earthquake-prevention-learning-centre-cpps-40-50--213914",
@@ -192,7 +200,14 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugs": []
+      "previousSlugs": [
+        "professor-uas-and-director-of-the-earthquake-prevention-hes-so-valais"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "professor-uas-and-director-of-the-earthquake-prevention-hes-so-valais"
+        ]
+      }
     },
     {
       "url": "https://www.hevs.ch/fr/recruitee/professeure-ou-professeur-hes-et-responsable-centre-pedagogique-prevention-seisme-cpps-40--50--213915",
@@ -256,7 +271,14 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugs": []
+      "previousSlugs": [
+        "professeure-ou-professeur-hes-et-responsable-centre-pedagogique-hes-so-valais"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "professeure-ou-professeur-hes-et-responsable-centre-pedagogique-hes-so-valais"
+        ]
+      }
     }
   ]
 }
