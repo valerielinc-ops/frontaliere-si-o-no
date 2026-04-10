@@ -1,117 +1,5 @@
 [
   {
-    "timestamp": "2026-04-01T03:47:35.873Z",
-    "label": "before",
-    "total": 1352,
-    "needsRetranslation": 357,
-    "incomplete": 357,
-    "complete": 995,
-    "missingByLocale": {
-      "it": 114,
-      "en": 208,
-      "de": 204,
-      "fr": 256
-    },
-    "topPending": [
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 71
-      },
-      {
-        "company": "Jumbo, Divisione di Coop Società Cooperativa",
-        "pending": 36
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 24
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 23
-      },
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 21
-      },
-      {
-        "company": "PEMSA",
-        "pending": 20
-      },
-      {
-        "company": "ABB Svizzera (sede Ticino)",
-        "pending": 14
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 14
-      },
-      {
-        "company": "LIS – Lugano Istituti Sociali",
-        "pending": 13
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 11
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-01T03:49:55.698Z",
-    "label": "after",
-    "total": 1352,
-    "needsRetranslation": 322,
-    "incomplete": 322,
-    "complete": 1030,
-    "missingByLocale": {
-      "it": 109,
-      "en": 196,
-      "de": 189,
-      "fr": 241
-    },
-    "topPending": [
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 64
-      },
-      {
-        "company": "Jumbo, Divisione di Coop Società Cooperativa",
-        "pending": 36
-      },
-      {
-        "company": "Amministrazione Cantonale Ticino",
-        "pending": 23
-      },
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 21
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 21
-      },
-      {
-        "company": "PEMSA",
-        "pending": 20
-      },
-      {
-        "company": "ABB Svizzera (sede Ticino)",
-        "pending": 14
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 14
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 10
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 10
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-01T05:06:25.755Z",
     "label": "before",
     "total": 1352,
@@ -10119,6 +10007,78 @@
       },
       {
         "company": "Swiss Armed Forces (VTG)",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-10T03:44:18.054Z",
+    "label": "before",
+    "total": 1681,
+    "needsRetranslation": 59,
+    "incomplete": 9,
+    "complete": 1672,
+    "missingByLocale": {
+      "it": 7,
+      "en": 9,
+      "de": 2,
+      "fr": 9
+    },
+    "topPending": [
+      {
+        "company": "Hilcona Gourmet S.A.",
+        "pending": 4
+      },
+      {
+        "company": "AXA Svizzera",
+        "pending": 2
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      },
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "Fust | Swiss Household Services AG",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-10T03:45:07.921Z",
+    "label": "after",
+    "total": 1681,
+    "needsRetranslation": 59,
+    "incomplete": 9,
+    "complete": 1672,
+    "missingByLocale": {
+      "it": 7,
+      "en": 9,
+      "de": 2,
+      "fr": 9
+    },
+    "topPending": [
+      {
+        "company": "Hilcona Gourmet S.A.",
+        "pending": 4
+      },
+      {
+        "company": "AXA Svizzera",
+        "pending": 2
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      },
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "Fust | Swiss Household Services AG",
         "pending": 1
       }
     ]
