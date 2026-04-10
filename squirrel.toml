@@ -12,13 +12,13 @@ follow_redirects = true
 concurrency = 5
 per_host_concurrency = 2
 per_host_delay_ms = 200
-include = []
+include = ["/about", "/contact", "/privacy-policy"]
 exclude = []
 allow_query_params = []
 drop_query_prefixes = [ "utm_", "gclid", "fbclid" ]
 respect_robots = true
 breadth_first = true
-max_prefix_budget = 0.25
+max_prefix_budget = 1.0
 seed_urls = [
   "https://frontaliereticino.ch/chi-siamo",
   "https://frontaliereticino.ch/contattaci",

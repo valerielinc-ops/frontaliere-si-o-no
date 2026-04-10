@@ -1870,7 +1870,11 @@ export function staticPagesPlugin(rootDir: string): Plugin {
               `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Expertise and Independence</h2>`,
               `All content is based exclusively on official sources: FTA tax tables, FSIO/BSV contribution parameters, FSO/BFS statistical data, SECO regulations, and Italian Revenue Agency publications. The platform is completely independent from banks, insurance companies, and employers — the information provided is impartial and verifiable.`,
               `The site is available in four languages (Italian, English, German, French) and is updated daily with the latest legislative developments, verified job offers, and market data. Over 700 in-depth articles cover every aspect of the cross-border worker's life, from first employment to retirement planning.`,
-              `<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Sources: <a href="https://www.estv.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">FTA</a> · <a href="https://www.bfs.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">FSO/BFS</a> · <a href="https://www.agenziaentrate.gov.it" style="color:#2563eb;text-decoration:none;" rel="noopener">Agenzia delle Entrate</a></p>`,
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Platform Features</h2>`,
+              `Key features include a comprehensive fiscal simulator comparing Permit B (Swiss resident) and Permit G (cross-border commuter) scenarios, a pension planner covering AVS/AHV first pillar and LPP/BVG second pillar projections, a health insurance comparator with real LAMal premiums from 14 Swiss insurers across 7 cantons, a currency exchange tracker with live CHF-EUR rates, and a border crossing traffic monitor providing real-time wait estimates for all Ticino-Italy crossings.`,
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Contact and Community</h2>`,
+              `<p>We welcome feedback, corrections, and feature suggestions from our users. The platform evolves continuously based on community input — every tool, article, and comparison was built to solve real problems faced by real frontalieri. Visit our <a href="/contact/">contact page</a> for questions, or explore our <a href="/privacy-policy/">privacy policy</a> for data handling details.</p>`,
+              `<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Sources: <a href="https://www.estv.admin.ch" rel="noopener">FTA</a> · <a href="https://www.bfs.admin.ch" rel="noopener">FSO/BFS</a> · <a href="https://www.agenziaentrate.gov.it" rel="noopener">Agenzia delle Entrate</a> · <a href="https://www.seco.admin.ch" rel="noopener">SECO</a></p>`,
             );
           } else if (canonicalPath === '/contact' || canonicalPath === '/contact/') {
             editorialBlocks.push(
@@ -1879,14 +1883,28 @@ export function staticPagesPlugin(rootDir: string): Plugin {
               `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Response Times and Available Channels</h2>`,
               `Responses are provided within 48 business hours. For complex tax questions (income tax returns, tax credits, 2026 new frontalieri regime), we recommend our dedicated consulting service with professionals specialising in cross-border taxation.`,
               `The platform is independent from banks, insurance companies, and employers: all information provided is impartial and based on official Swiss and Italian sources (FTA, Italian Revenue Agency, SECO, INPS).`,
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">How to Reach Us</h2>`,
+              `The best way to contact us is via email at info@frontaliereticino.ch. We also monitor social media channels for questions and feedback. For urgent technical issues with the calculators or job search, please include a screenshot and the browser you are using so we can diagnose the problem efficiently.`,
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Common Questions We Can Help With</h2>`,
+              `Our team regularly assists with questions about: understanding your Swiss payslip deductions (AVS, AC, LAA, IJM, LPP), choosing between LAMal and Italian SSN health insurance, calculating the impact of the 2026 bilateral tax agreement on your take-home pay, interpreting your Italian income tax return for Swiss-sourced income, comparing the financial implications of Permit B versus Permit G, and navigating the pension system across both countries.`,
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Professional Consulting Services</h2>`,
+              `<p>For personalized advice beyond the scope of our free tools, we partner with licensed Swiss and Italian tax consultants who specialize in cross-border employment. These professionals can assist with specific tax return preparation, optimization strategies, and complex scenarios involving multiple jurisdictions or family situations. Learn more on our <a href="/about/">about page</a> or review our <a href="/privacy-policy/">privacy policy</a>.</p>`,
+              `<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Sources: <a href="https://www.estv.admin.ch" rel="noopener">FTA</a> · <a href="https://www.agenziaentrate.gov.it" rel="noopener">Agenzia delle Entrate</a> · <a href="https://www.seco.admin.ch" rel="noopener">SECO</a></p>`,
             );
           } else if (canonicalPath === '/privacy-policy' || canonicalPath === '/privacy-policy/') {
             editorialBlocks.push(
               `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Privacy Policy for Cross-Border Workers</h2>`,
               `Frontaliere Ticino processes personal data in compliance with the General Data Protection Regulation (GDPR, EU Regulation 2016/679) and the Swiss Federal Act on Data Protection (FADP, nDSG 2023). The platform does not require mandatory registration: all calculators and comparators can be used without providing personal data.`,
               `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Data Collection and Processing Purposes</h2>`,
-              `Data collected (email addresses for job alerts, browsing data via Google Analytics 4) is used exclusively for operating user-requested services and aggregate platform usage analysis. No data is shared with third parties for marketing purposes.`,
-              `Tax and pension simulations are performed entirely in the user's browser: data entered in calculators (salary, marital status, number of children) is never transmitted to servers. This architecture ensures maximum privacy of personal financial information.`,
+              `Any collected information (email addresses for job alerts, browsing behaviour via Google Analytics 4) is used exclusively for operating user-requested services and aggregate platform usage analysis. No information is shared with third parties for marketing purposes.`,
+              `Tax and pension simulations are performed entirely in the user's browser: inputs entered in calculators (salary, marital status, number of children) are never transmitted to servers. This architecture ensures maximum privacy of personal financial information.`,
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Cookies and Tracking Technologies</h2>`,
+              `The platform uses first-party cookies for essential functionality (language preference, consent state) and Google Analytics 4 for anonymised traffic analysis. No advertising or remarketing cookies are used. Users can opt out of analytics tracking via the cookie consent banner displayed on first visit. Consent preferences are stored locally and can be updated at any time from the footer settings link.`,
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Your Rights Under GDPR and FADP</h2>`,
+              `<p>Under GDPR and Swiss FADP, you have the right to access, rectify, delete, and port your personal information. You may also object to processing or request restriction of processing. To exercise any of these rights, contact us at info@frontaliereticino.ch. We respond to all requests within 30 days as required by law. For more information about our team and mission, visit our <a href="/about/">about page</a> or <a href="/contact/">contact page</a>.</p>`,
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Third-Party Services</h2>`,
+              `The platform integrates with the following third-party services: Firebase (Google) for hosting, analytics, and configuration; TwelveData for live CHF-EUR exchange rates; Google Maps API for border crossing traffic estimates; and reCAPTCHA v3 for form protection. Each service has its own privacy policy, and we limit the information shared to the minimum necessary for service operation. No personal financial information entered in our calculators is ever sent to any third party.`,
+              `<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">References: <a href="https://gdpr.eu/" rel="noopener">GDPR</a> · <a href="https://www.fedlex.admin.ch/eli/cc/2022/491/en" rel="noopener">Swiss FADP</a></p>`,
             );
           } else if (canonicalPath === '/stato-api' || canonicalPath === '/stato-api/') {
             editorialBlocks.push(
@@ -2171,12 +2189,13 @@ export function staticPagesPlugin(rootDir: string): Plugin {
     <meta name="twitter:image" content="${BASE_URL}/og-image.png">
 ${hrefTags}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <style>body{font-family:Inter,system-ui,sans-serif;max-width:800px;margin:0 auto;padding:2rem 1rem;background:#f8fafc;color:#1e293b}a{color:#2563eb;text-decoration:none}a:hover{text-decoration:underline}h1{font-size:1.5rem;font-weight:700;margin-bottom:0.5rem}nav{margin-top:2rem;padding-top:1rem;border-top:1px solid #e2e8f0;font-size:0.9rem}nav a{margin-right:1rem}</style>
+    <style>body{font-family:Inter,system-ui,sans-serif;max-width:800px;margin:0 auto;padding:2rem 1rem;background:#f8fafc;color:#1e293b}a{color:#2563eb;text-decoration:underline}a:hover{color:#1d4ed8}h1{font-size:1.5rem;font-weight:700;margin-bottom:0.5rem}h2{font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem}nav{margin-top:2rem;padding-top:1rem;border-top:1px solid #e2e8f0;font-size:0.9rem}nav a{margin-right:1rem}.byline{font-size:0.85rem;color:#64748b;margin-bottom:1rem}</style>
   </head>
   <body>
     <script type="application/ld+json">${breadcrumbJsonLd}</script>${seoData.sd ? `\n    <script type="application/ld+json">${seoData.sd}</script>` : ''}${speakableLd}
     <main>
       <h1>${esc(seoData.title.replace(' | Frontaliere Ticino', ''))}</h1>
+      <p class="byline">By <a href="/chi-siamo/" rel="author">Redazione Frontaliere Ticino</a> · Last updated: <time datetime="2026-04-10">April 10, 2026</time></p>
       <div>${editorialHtml}</div>
     </main>
     <nav>
@@ -2184,6 +2203,9 @@ ${hrefTags}
       <a href="/chi-siamo/">Chi Siamo</a>
       <a href="/contattaci/">Contattaci</a>
       <a href="/privacy/">Privacy</a>
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
       <a href="/articoli-frontaliere/">Articoli</a>
       <a href="/glossario-frontaliere/">Glossario</a>
     </nav>
