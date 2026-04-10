@@ -5738,4 +5738,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/ritardi-disoccupazione-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'benzina-lombardia-frontalieri-ticinesi-2026',
+    category: 'pratico',
+    date: '2026-04-10T09:38:38.012Z',
+    image: '/images/blog/benzina-lombardia-frontalieri-ticinesi-2026.jpg',
+    hasCalculator: true,
+  },
 ];

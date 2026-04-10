@@ -2037,6 +2037,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ritardi-disoccupazione-ticino.title': 'Nouveaux retards dans le versement des allocations chômage au Tessin',
     'blog.article.ritardi-disoccupazione-ticino.excerpt': 'En mars, le taux de chômage au Tessin est descendu à 3,1 %, mais les retards dans le versement des indemnités de chômage persistent en raison de problèmes techniques à l’OFS. La normalisation des paiements prendra plusieurs semaines.',
     'blog.article.ritardi-disoccupazione-ticino.imageAlt': 'Bureau du chômage dans le Tessin avec documents et ordinateur',
+    'blog.article.benzina-lombardia-frontalieri-ticinesi-2026.title': 'Frontaliers pris d’assaut : stations-service lombardes à sec, quelles conséquences pour les travailleurs du Tessin',
+    'blog.article.benzina-lombardia-frontalieri-ticinesi-2026.excerpt': 'De Côme à Varèse, les stations-service lombardes sont à sec pour les frontaliers tessinois. Les prix en Suisse diminueront lentement, tandis qu’en Lombardie, la grève des stocks impose de longues attentes. Les chiffres mis à jour au 8 avril 2026.',
+    'blog.article.benzina-lombardia-frontalieri-ticinesi-2026.imageAlt': 'Station-service à Côme avec pompes vides et frontaliers tessinois en file pour le carburant',
 };
 
 export default blogMetaFr;

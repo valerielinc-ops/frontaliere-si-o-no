@@ -1934,6 +1934,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-multe-vignetta-chiasso-2026': { name: 'Multe Vignetta', path: '/articoli-frontaliere/multe-vignetta-chiasso-2026', parent: 'blog' },
     'blog-servizio-trasfusionale-locarno-chiusura-24-giugno': { name: 'Servizio Trasfusionale di Locarno chiude', path: '/articoli-frontaliere/servizio-trasfusionale-locarno-chiusura-24-giugno', parent: 'blog' },
     'blog-ritardi-disoccupazione-ticino': { name: 'Disoccupazione', path: '/articoli-frontaliere/ritardi-disoccupazione-ticino', parent: 'blog' },
+    'blog-benzina-lombardia-frontalieri-ticinesi-2026': { name: 'Frontalieri presi d’assalto', path: '/articoli-frontaliere/benzina-lombardia-frontalieri-ticinesi-2026', parent: 'blog' },
   };
 
   const info = sectionNames[section];

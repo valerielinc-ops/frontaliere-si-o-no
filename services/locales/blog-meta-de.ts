@@ -2037,6 +2037,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ritardi-disoccupazione-ticino.title': 'Weitere Verzögerungen bei den Arbeitslosenentschädigungen im Tessin',
     'blog.article.ritardi-disoccupazione-ticino.excerpt': 'Im März sank die Arbeitslosenquote im Tessin auf 3,1%, doch die Zahlungen der Arbeitslosenentschädigungen verzögern sich weiterhin aufgrund technischer Probleme beim seco. Eine Normalisierung wird noch Wochen in Anspruch nehmen.',
     'blog.article.ritardi-disoccupazione-ticino.imageAlt': 'Arbeitslosigkeitsbüro in Tessin mit Dokumenten und Computer',
+    'blog.article.benzina-lombardia-frontalieri-ticinesi-2026.title': 'Grenzpendler unter Druck: Benzin in der Lombardei knapp – was das für Pendler ins Tessin bedeutet',
+    'blog.article.benzina-lombardia-frontalieri-ticinesi-2026.excerpt': 'Von Como bis Varese sind die Tankstellen für Tessin-Grenzpendler leer. Während die Preise in der Schweiz langsam sinken, zwingt der Streik um die Vorräte in der Lombardei zu langen Wartezeiten. Die aktualisierten Zahlen vom 8. April 2026.',
+    'blog.article.benzina-lombardia-frontalieri-ticinesi-2026.imageAlt': 'Tankstelle in Como mit leeren Zapfsäulen und Grenzgängern aus dem Tessin, die auf Sprit warten',
 };
 
 export default blogMetaDe;

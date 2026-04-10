@@ -2037,6 +2037,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ritardi-disoccupazione-ticino.title': 'Delays in unemployment benefit payments persist in Ticino',
     'blog.article.ritardi-disoccupazione-ticino.excerpt': 'In March, Ticino\'s unemployment rate fell to 3.1%, but delays in unemployment benefit payments continue due to technical issues at the SECO. Normalization is expected to take weeks.',
     'blog.article.ritardi-disoccupazione-ticino.imageAlt': 'Disoccupazione office in Ticino with documents and computer',
+    'blog.article.benzina-lombardia-frontalieri-ticinesi-2026.title': 'Border workers overwhelmed: Lombardy gas stations run dry, what changes for those working in Ticino',
+    'blog.article.benzina-lombardia-frontalieri-ticinesi-2026.excerpt': 'From Como to Varese, gas stations are out of fuel for Ticino border workers. Prices in Switzerland will drop slowly, while the fuel shortage strike in Lombardy forces long waits. Updated figures as of April 8, 2026.',
+    'blog.article.benzina-lombardia-frontalieri-ticinesi-2026.imageAlt': 'Service station in Como with empty pumps and Ticinese cross-border commuters queuing for fuel',
 };
 
 export default blogMetaEn;

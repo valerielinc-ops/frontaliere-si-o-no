@@ -6560,6 +6560,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-benzina-lombardia-frontalieri-ticinesi-2026': {
+    title: 'Frontalieri presi d’assalto: benzinai | Frontaliere Ticino',
+    description: 'Da Como a Varese distributori a secco per i frontalieri ticinesi. I prezzi in Svizzera caleranno lentamente, mentre in Lombardia lo sciopero delle scorte costri',
+    keywords: 'frontalieri, ticino, svizzera, italia, presi, assalto, benzinai, lombardi',
+    ogTitle: 'Frontalieri presi d’assalto: benzinai lombardi esauriti,',
+    ogDescription: 'Da Como a Varese distributori a secco per i frontalieri ticinesi. I prezzi in Svizzera caleranno lentamente, mentre in Lombardia lo sciopero delle scorte costri',
+    canonicalPath: '/articoli-frontaliere/benzina-lombardia-frontalieri-ticinesi-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri presi d’assalto: benzinai lombardi esauriti,",
+      "description": "Da Como a Varese distributori a secco per i frontalieri ticinesi. I prezzi in Svizzera caleranno lentamente, mentre in Lombardia lo sciopero delle scorte costri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/benzina-lombardia-frontalieri-ticinesi-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stazione di servizio a Como con distributori esauriti e frontalieri ticinesi in fila per il rifornimento"
+      },
+      "datePublished": "2026-04-10T09:38:38+00:00",
+      "dateModified": "2026-04-10T09:38:38+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/benzina-lombardia-frontalieri-ticinesi-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

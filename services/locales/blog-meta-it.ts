@@ -2037,6 +2037,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ritardi-disoccupazione-ticino.title': 'Ancora ritardi nei versamenti della disoccupazione in Ticino',
     'blog.article.ritardi-disoccupazione-ticino.excerpt': 'A marzo, il tasso di disoccupazione in Ticino è sceso al 3,1%, ma i ritardi nei pagamenti delle indennità di disoccupazione persistono a causa di problemi tecnici della SECO. La normalizzazione richiederà settimane.',
     'blog.article.ritardi-disoccupazione-ticino.imageAlt': 'Ufficio disoccupazione in Ticino con documenti e computer',
+    'blog.article.benzina-lombardia-frontalieri-ticinesi-2026.title': 'Frontalieri presi d’assalto: benzinai lombardi esauriti, cosa cambia per chi lavora in Ticino',
+    'blog.article.benzina-lombardia-frontalieri-ticinesi-2026.excerpt': 'Da Como a Varese distributori a secco per i frontalieri ticinesi. I prezzi in Svizzera caleranno lentamente, mentre in Lombardia lo sciopero delle scorte costringe a lunghe attese. I numeri aggiornati del 8 aprile 2026.',
+    'blog.article.benzina-lombardia-frontalieri-ticinesi-2026.imageAlt': 'Stazione di servizio a Como con distributori esauriti e frontalieri ticinesi in fila per il rifornimento',
 };
 
 export default blogMetaIt;
