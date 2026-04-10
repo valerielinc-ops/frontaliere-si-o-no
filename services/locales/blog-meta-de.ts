@@ -2034,6 +2034,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.servizio-trasfusionale-locarno-chiusura-24-giugno.title': 'Bluttransfusionsdienst von Locarno schließt am 24. Juni: Wo man jetzt donate kann',
     'blog.article.servizio-trasfusionale-locarno-chiusura-24-giugno.excerpt': 'Ab dem 24. Juni 2026 wird der Bluttransfusionsdienst von Locarno seine Tätigkeit einstellen. Die Entscheidung, die nach vier Jahren Reflexion getroffen wurde, resultiert aus dem Rückgang der Einnahmen aus der Verkauf von Blutkomponenten. Alternative Lösung: Ein Mittwoch pro Monat im Centro La Torre in Losone.',
     'blog.article.servizio-trasfusionale-locarno-chiusura-24-giugno.imageAlt': 'Blutspendezentrum Locarno, geschlossen ab 24. Juni 2026, Außenansicht',
+    'blog.article.ritardi-disoccupazione-ticino.title': 'Weitere Verzögerungen bei den Arbeitslosenentschädigungen im Tessin',
+    'blog.article.ritardi-disoccupazione-ticino.excerpt': 'Im März sank die Arbeitslosenquote im Tessin auf 3,1%, doch die Zahlungen der Arbeitslosenentschädigungen verzögern sich weiterhin aufgrund technischer Probleme beim seco. Eine Normalisierung wird noch Wochen in Anspruch nehmen.',
+    'blog.article.ritardi-disoccupazione-ticino.imageAlt': 'Arbeitslosigkeitsbüro in Tessin mit Dokumenten und Computer',
 };
 
 export default blogMetaDe;

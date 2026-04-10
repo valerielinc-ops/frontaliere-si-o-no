@@ -2034,6 +2034,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.servizio-trasfusionale-locarno-chiusura-24-giugno.title': 'Servizio Trasfusionale di Locarno chiude il 24 giugno: dove donare ora',
     'blog.article.servizio-trasfusionale-locarno-chiusura-24-giugno.excerpt': 'Dal 24 giugno 2026 il Servizio Trasfusionale di Locarno cesserà l’attività. La scelta, maturata in 4 anni di riflessioni, è dovuta al calo delle entrate dalla vendita di emocomponenti. Alternativa parziale: un martedì al mese al Centro La Torre di Losone.',
     'blog.article.servizio-trasfusionale-locarno-chiusura-24-giugno.imageAlt': 'Servizio Trasfusionale di Locarno con annuncio di chiusura definitivo dal 24 giugno 2026',
+    'blog.article.ritardi-disoccupazione-ticino.title': 'Ancora ritardi nei versamenti della disoccupazione in Ticino',
+    'blog.article.ritardi-disoccupazione-ticino.excerpt': 'A marzo, il tasso di disoccupazione in Ticino è sceso al 3,1%, ma i ritardi nei pagamenti delle indennità di disoccupazione persistono a causa di problemi tecnici della SECO. La normalizzazione richiederà settimane.',
+    'blog.article.ritardi-disoccupazione-ticino.imageAlt': 'Ufficio disoccupazione in Ticino con documenti e computer',
 };
 
 export default blogMetaIt;

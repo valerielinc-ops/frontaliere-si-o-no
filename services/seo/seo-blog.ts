@@ -6531,6 +6531,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ritardi-disoccupazione-ticino': {
+    title: 'Ancora ritardi nei versamenti della | Frontaliere Ticino',
+    description: 'A marzo, il tasso di disoccupazione in Ticino si attesta al 3,1%, ma i ritardi nei versamenti delle indennità sono ancora presenti. Ecco cosa fare.',
+    keywords: 'frontalieri, ticino, svizzera, italia, ancora, ritardi, versamenti, disoccupazione',
+    ogTitle: 'Ritardi pagamenti disoccupazione Ticino | Frontaliere Ticino',
+    ogDescription: 'Disoccupati in Ticino affrontano ancora ritardi nei versamenti a causa di problemi tecnici. Scopri come procedere e cosa fare.',
+    canonicalPath: '/articoli-frontaliere/ritardi-disoccupazione-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ritardi nei versamenti disoccupazione Ticino",
+      "description": "A marzo, il tasso di disoccupazione in Ticino si attesta al 3,1%, ma i ritardi nei versamenti delle indennità sono ancora presenti. Ecco cosa fare.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ritardi-disoccupazione-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio disoccupazione in Ticino con documenti e computer"
+      },
+      "datePublished": "2026-04-10T05:44:30+00:00",
+      "dateModified": "2026-04-10T05:44:30+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ritardi-disoccupazione-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

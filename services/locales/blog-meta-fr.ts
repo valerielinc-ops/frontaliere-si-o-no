@@ -2034,6 +2034,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.servizio-trasfusionale-locarno-chiusura-24-giugno.title': 'Le services de transfusion de Locarno fermera le 24 juin 2026 : où donner du sang maintenant',
     'blog.article.servizio-trasfusionale-locarno-chiusura-24-giugno.excerpt': 'À partir du 24 juin 2026, le service de transfusion de Locarno cessera ses activités. Cette décision, prise après quatre ans de réflexion, est due à la baisse des revenus provenant de la vente d\'émocomposants. Alternative partielle : un mercredi de chaque mois au Centre La Torre de Losone.',
     'blog.article.servizio-trasfusionale-locarno-chiusura-24-giugno.imageAlt': 'Centre de transfusion sanguine de Locarno fermé à partir du 24 juin 2026, vue extérieure',
+    'blog.article.ritardi-disoccupazione-ticino.title': 'Nouveaux retards dans le versement des allocations chômage au Tessin',
+    'blog.article.ritardi-disoccupazione-ticino.excerpt': 'En mars, le taux de chômage au Tessin est descendu à 3,1 %, mais les retards dans le versement des indemnités de chômage persistent en raison de problèmes techniques à l’OFS. La normalisation des paiements prendra plusieurs semaines.',
+    'blog.article.ritardi-disoccupazione-ticino.imageAlt': 'Bureau du chômage dans le Tessin avec documents et ordinateur',
 };
 
 export default blogMetaFr;

@@ -5731,4 +5731,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/servizio-trasfusionale-locarno-chiusura-24-giugno.jpg',
     hasCalculator: false,
   },
+  {
+    id: 'ritardi-disoccupazione-ticino',
+    category: 'pratico',
+    date: '2026-04-10T05:44:30.464Z',
+    image: '/images/blog/ritardi-disoccupazione-ticino.jpg',
+    hasCalculator: true,
+  },
 ];

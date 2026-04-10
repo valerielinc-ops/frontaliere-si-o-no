@@ -2034,6 +2034,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.servizio-trasfusionale-locarno-chiusura-24-giugno.title': 'Locarno Blood Service to Close on June 24: Where to Donate Now',
     'blog.article.servizio-trasfusionale-locarno-chiusura-24-giugno.excerpt': 'From June 24, 2026, the Locarno Blood Service will cease operations. The decision, made after four years of reflection, is due to a decrease in revenue from the sale of blood components. Partial alternative: every Tuesday of the month at the Centro La Torre in Losone.',
     'blog.article.servizio-trasfusionale-locarno-chiusura-24-giugno.imageAlt': 'Locarno blood donation centre closed from 24 June 2026, exterior view',
+    'blog.article.ritardi-disoccupazione-ticino.title': 'Delays in unemployment benefit payments persist in Ticino',
+    'blog.article.ritardi-disoccupazione-ticino.excerpt': 'In March, Ticino\'s unemployment rate fell to 3.1%, but delays in unemployment benefit payments continue due to technical issues at the SECO. Normalization is expected to take weeks.',
+    'blog.article.ritardi-disoccupazione-ticino.imageAlt': 'Disoccupazione office in Ticino with documents and computer',
 };
 
 export default blogMetaEn;
