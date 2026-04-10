@@ -1,6 +1,6 @@
 {
   "crawlerKey": "lwphr",
-  "assembledAt": "2026-04-09T21:44:40.321Z",
+  "assembledAt": "2026-04-10T09:53:03.502Z",
   "jobs": [
     {
       "title": "BACK OFFICE (AMM.) TITOLI & TESORERIA",
@@ -20,7 +20,7 @@
       "sector": "Consulenza",
       "source": "lwphr-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -78,7 +78,7 @@
       "sector": "Consulenza",
       "source": "lwphr-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -116,7 +116,8 @@
         }
       },
       "streetAddress": "Via Cantonale 18",
-      "postalCode": "6928"
+      "postalCode": "6928",
+      "needsRetranslation": true
     },
     {
       "title": "CONSULENTE PATRIMONIALE SENIOR CH",
@@ -136,7 +137,7 @@
       "sector": "Consulenza",
       "source": "lwphr-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -194,7 +195,7 @@
       "sector": "Consulenza",
       "source": "lwphr-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -218,7 +219,14 @@
         "fr": "ressources-humaines-specialiste-lwp-ledermann-wieting-partners-lugano"
       },
       "id": "lwphr-8e151fb5fd60",
-      "previousSlugs": [],
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-specialist-lwp-ledermann-wieting-partners-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "hr-specialist-lwp-ledermann-wieting-partners-lugano"
+      ],
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
@@ -253,7 +261,7 @@
       "sector": "Consulenza",
       "source": "lwphr-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -291,7 +299,8 @@
         }
       },
       "streetAddress": "Via Cantonale 18",
-      "postalCode": "6928"
+      "postalCode": "6928",
+      "needsRetranslation": true
     },
     {
       "title": "MARKETING MANAGER SVIZZERA",
@@ -311,7 +320,7 @@
       "sector": "Consulenza",
       "source": "lwphr-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -339,21 +348,6 @@
         "marketingleiter-svizzera-lwp-ledermann-wieting-partners-ticino-aojtj9",
         "responsabile-marketing-svizzera-lwp-ledermann-wieting-partners-ticino"
       ],
-      "salaryMin": 79500,
-      "salaryMax": 135000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 79500,
-          "maxValue": 135000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Cantonale 18",
-      "postalCode": "6928",
       "previousSlugsByLocale": {
         "it": [
           "marketingleiter-svizzera-lwp-ledermann-wieting-partners-ticino-aojtj9",
@@ -371,7 +365,23 @@
           "marketingleiter-svizzera-lwp-ledermann-wieting-partners-ticino-aojtj9",
           "responsabile-marketing-svizzera-lwp-ledermann-wieting-partners-ticino"
         ]
-      }
+      },
+      "salaryMin": 79500,
+      "salaryMax": 135000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 79500,
+          "maxValue": 135000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Cantonale 18",
+      "postalCode": "6928",
+      "needsRetranslation": true
     },
     {
       "title": "IT SECURITY ARCHITECT",
@@ -391,7 +401,7 @@
       "sector": "Consulenza",
       "source": "lwphr-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -415,6 +425,14 @@
         "fr": "it-security-architecte-lwp-ledermann-wieting-partners-lugano"
       },
       "id": "lwphr-64c97595da41",
+      "previousSlugsByLocale": {
+        "it": [
+          "it-security-architect-lwp-ledermann-wieting-partners-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "it-security-architect-lwp-ledermann-wieting-partners-lugano"
+      ],
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
@@ -429,7 +447,8 @@
         }
       },
       "streetAddress": "Via Cantonale 18",
-      "postalCode": "6928"
+      "postalCode": "6928",
+      "needsRetranslation": true
     },
     {
       "title": "SENIOR PRIVATE BANKER",
@@ -449,7 +468,7 @@
       "sector": "Consulenza",
       "source": "lwphr-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -487,7 +506,8 @@
         }
       },
       "streetAddress": "Via Cantonale 18",
-      "postalCode": "6928"
+      "postalCode": "6928",
+      "needsRetranslation": true
     },
     {
       "title": "SPECIALISTA CONTABILE",
@@ -507,7 +527,7 @@
       "sector": "Consulenza",
       "source": "lwphr-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -534,6 +554,20 @@
       "previousSlugs": [
         "buchhaltungsspezialist-lwp-ledermann-wieting-partners-lugano-06w6n5"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "buchhaltungsspezialist-lwp-ledermann-wieting-partners-lugano-06w6n5"
+        ],
+        "en": [
+          "buchhaltungsspezialist-lwp-ledermann-wieting-partners-lugano-06w6n5"
+        ],
+        "de": [
+          "buchhaltungsspezialist-lwp-ledermann-wieting-partners-lugano-06w6n5"
+        ],
+        "fr": [
+          "buchhaltungsspezialist-lwp-ledermann-wieting-partners-lugano-06w6n5"
+        ]
+      },
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
@@ -548,21 +582,7 @@
         }
       },
       "streetAddress": "Via Cantonale 18",
-      "postalCode": "6928",
-      "previousSlugsByLocale": {
-        "it": [
-          "buchhaltungsspezialist-lwp-ledermann-wieting-partners-lugano-06w6n5"
-        ],
-        "en": [
-          "buchhaltungsspezialist-lwp-ledermann-wieting-partners-lugano-06w6n5"
-        ],
-        "de": [
-          "buchhaltungsspezialist-lwp-ledermann-wieting-partners-lugano-06w6n5"
-        ],
-        "fr": [
-          "buchhaltungsspezialist-lwp-ledermann-wieting-partners-lugano-06w6n5"
-        ]
-      }
+      "postalCode": "6928"
     },
     {
       "title": "WEB DEVELOPER",
@@ -582,7 +602,7 @@
       "sector": "Consulenza",
       "source": "lwphr-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -609,6 +629,20 @@
       "previousSlugs": [
         "web-sviluppatore-lwp-ledermann-wieting-partners-lugano"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "web-sviluppatore-lwp-ledermann-wieting-partners-lugano"
+        ],
+        "en": [
+          "web-sviluppatore-lwp-ledermann-wieting-partners-lugano"
+        ],
+        "de": [
+          "web-sviluppatore-lwp-ledermann-wieting-partners-lugano"
+        ],
+        "fr": [
+          "web-sviluppatore-lwp-ledermann-wieting-partners-lugano"
+        ]
+      },
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
@@ -623,21 +657,7 @@
         }
       },
       "streetAddress": "Via Cantonale 18",
-      "postalCode": "6928",
-      "previousSlugsByLocale": {
-        "it": [
-          "web-sviluppatore-lwp-ledermann-wieting-partners-lugano"
-        ],
-        "en": [
-          "web-sviluppatore-lwp-ledermann-wieting-partners-lugano"
-        ],
-        "de": [
-          "web-sviluppatore-lwp-ledermann-wieting-partners-lugano"
-        ],
-        "fr": [
-          "web-sviluppatore-lwp-ledermann-wieting-partners-lugano"
-        ]
-      }
+      "postalCode": "6928"
     },
     {
       "title": "CONSULENTE VENDITA",
@@ -657,7 +677,7 @@
       "sector": "Consulenza",
       "source": "lwphr-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -684,6 +704,20 @@
       "previousSlugs": [
         "ricerca-consulente-vendita-lwp-ledermann-wieting-partners"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "ricerca-consulente-vendita-lwp-ledermann-wieting-partners"
+        ],
+        "en": [
+          "ricerca-consulente-vendita-lwp-ledermann-wieting-partners"
+        ],
+        "de": [
+          "ricerca-consulente-vendita-lwp-ledermann-wieting-partners"
+        ],
+        "fr": [
+          "ricerca-consulente-vendita-lwp-ledermann-wieting-partners"
+        ]
+      },
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
@@ -698,21 +732,7 @@
         }
       },
       "streetAddress": "Via Cantonale 18",
-      "postalCode": "6928",
-      "previousSlugsByLocale": {
-        "it": [
-          "ricerca-consulente-vendita-lwp-ledermann-wieting-partners"
-        ],
-        "en": [
-          "ricerca-consulente-vendita-lwp-ledermann-wieting-partners"
-        ],
-        "de": [
-          "ricerca-consulente-vendita-lwp-ledermann-wieting-partners"
-        ],
-        "fr": [
-          "ricerca-consulente-vendita-lwp-ledermann-wieting-partners"
-        ]
-      }
+      "postalCode": "6928"
     },
     {
       "title": "SEGRETARIA LEGALE",
@@ -732,7 +752,7 @@
       "sector": "Consulenza",
       "source": "lwphr-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -790,7 +810,7 @@
       "sector": "Consulenza",
       "source": "lwphr-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-04-09",
+      "postedDate": "2026-04-10",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -814,6 +834,14 @@
         "fr": "full-stack-developpeur-lwp-ledermann-wieting-partners-lugano"
       },
       "id": "lwphr-6421a8aa2f7c",
+      "previousSlugsByLocale": {
+        "it": [
+          "full-stack-developer-lwp-ledermann-wieting-partners-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "full-stack-developer-lwp-ledermann-wieting-partners-lugano"
+      ],
       "salaryMin": 51500,
       "salaryMax": 88000,
       "currency": "CHF",
