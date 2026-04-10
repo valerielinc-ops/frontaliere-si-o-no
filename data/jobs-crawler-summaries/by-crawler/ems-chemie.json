@@ -1,18 +1,19 @@
 {
   "key": "ems-chemie",
   "label": "EMS-Chemie AG",
-  "generatedAt": "2026-04-10T09:34:10.574Z",
+  "generatedAt": "2026-04-10T21:11:39.169Z",
   "total": 10,
-  "newCount": 2,
-  "updatedCount": 8,
-  "removedCount": 2,
-  "unchangedCount": 0,
-  "durationMs": 3590,
-  "avgDurationMs": 3590,
+  "newCount": 0,
+  "updatedCount": 9,
+  "removedCount": 0,
+  "unchangedCount": 1,
+  "durationMs": 2726,
+  "avgDurationMs": 2726,
   "durationHistory": [
-    3590
+    2726
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Key Account Manager Deutschland, Segment Industrie und Konsumgüter (m/w/d) 100%",
       "company": "EMS-Chemie AG",
@@ -31,42 +32,20 @@
       "postedDate": "2026-04-10",
       "source": "company-website",
       "slug": "key-account-manager-deutschland-segment-industrie-und-konsumguter-m-w-d-100-ems-chemie-domat-ems",
-      "_qualityScore": 64,
+      "crawledAt": "",
+      "id": "ems-chemie-2265106b7431",
+      "sourceLang": "it",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 8,
-        "completeness": 17
+        "translation": 25,
+        "completeness": 22
       }
     },
-    {
-      "title": "Ingenieur / Techniker Automatisierungstechnik (m/w/d) 100%",
-      "company": "EMS-Chemie AG",
-      "companyKey": "ems-chemie",
-      "url": "https://jobs.ems-group.com/offene-stellen/ingenieur-techniker-automatisierungstechnik-m-w-d/bc0e65fc-0dd1-4df7-a026-42aeaebb3dda",
-      "location": "Markdorf",
-      "canton": "GR",
-      "country": "CH",
-      "postalCode": "7013",
-      "streetAddress": "Via Innovativa 1",
-      "addressLocality": "Markdorf",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "science",
-      "postedDate": "2026-04-10",
-      "source": "company-website",
-      "slug": "ingenieur-techniker-automatisierungstechnik-m-w-d-100-ems-chemie-markdorf",
-      "_qualityScore": 60,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 10,
-        "translation": 8,
-        "completeness": 17
-      }
-    }
-  ],
-  "updatedJobs": [
     {
       "title": "Assistenz der Divisionsleitung (m/w/d) 100%",
       "company": "EMS-Chemie AG",
@@ -324,72 +303,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Laborant Materialprüfung (m/w/d) 100%",
-      "company": "EMS-Chemie AG",
-      "companyKey": "ems-chemie",
-      "url": "https://jobs.ems-group.com/offene-stellen/laborant-materialpruefung-m-w-d/f4838ff6-2c0b-4dda-bede-826bc55d6b48",
-      "location": "Domat/Ems",
-      "canton": "GR",
-      "country": "CH",
-      "postalCode": "7013",
-      "streetAddress": "Via Innovativa 1",
-      "addressLocality": "Domat/Ems",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "science",
-      "postedDate": "2026-04-09",
-      "source": "company-website",
-      "slug": "laborant-materialprufung-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems",
-      "crawledAt": "",
-      "sourceLang": "it",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "id": "ems-chemie-5dbf8c40f526",
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 10,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "Leiter Controlling (m/w/d) 100%",
-      "company": "EMS-Chemie AG",
-      "companyKey": "ems-chemie",
-      "url": "https://jobs.ems-group.com/offene-stellen/leiter-controlling-m-w-d/3a614b30-caf6-4712-a572-d828b8320266",
-      "location": "Domat/Ems",
-      "canton": "GR",
-      "country": "CH",
-      "postalCode": "7013",
-      "streetAddress": "Via Innovativa 1",
-      "addressLocality": "Domat/Ems",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "science",
-      "postedDate": "2026-04-09",
-      "source": "company-website",
-      "slug": "responsabile-controlling-m-w-d-100-ems-chemie-domat-ems",
-      "crawledAt": "",
-      "sourceLang": "it",
-      "salaryMin": 72000,
-      "salaryMax": 97000,
-      "currency": "CHF",
-      "id": "ems-chemie-f1add2d99da7",
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 10,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Key Account Manager Deutschland, Segment Industrie und Konsumgüter (m/w/d) 100%",
@@ -410,17 +324,17 @@
       "source": "company-website",
       "slug": "key-account-manager-deutschland-segment-industrie-e-konsumguter-m-w-d-100-ems-chemie-ag-domat-ems",
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "ems-chemie-2265106b7431",
       "sourceLang": "it",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
-      "_qualityScore": 80,
+      "needsRetranslation": true,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 19,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -441,19 +355,18 @@
       "category": "science",
       "postedDate": "2026-04-10",
       "source": "company-website",
-      "slug": "ingenieur-techniker-automatisierungstechnik-m-w-d-100-ems-chemie-markdorf",
+      "slug": "ingegnere-tecnico-automazione-m-f-d-100-ems-chemie-ag-markdorf",
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "ems-chemie-75db4701ffda",
       "sourceLang": "it",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
-      "_qualityScore": 73,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     },

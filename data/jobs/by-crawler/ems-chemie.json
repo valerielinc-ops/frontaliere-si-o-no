@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ems-chemie",
-  "assembledAt": "2026-04-10T09:34:10.574Z",
+  "assembledAt": "2026-04-10T21:11:39.169Z",
   "jobs": [
     {
       "title": "Key Account Manager Deutschland, Segment Industrie und Konsumgüter (m/w/d) 100%",
@@ -28,7 +28,7 @@
         "fr": "responsable-de-compte-cle-allemagne-segment-industrie-et-produits-de-consommation-m-f-d-100-ems-chemie-ag-domat-ems"
       },
       "titleByLocale": {
-        "it": "Key Account Manager Deutschland, Segment Industrie und Konsumgüter (m/p/g) 100%",
+        "it": "Key Account Manager Deutschland, Segment Industrie e Konsumgüter (m/w/d) 100%",
         "en": "Key Account Manager Deutschland, Segment Industrie und Konsumgüter (m/w/d) 100%",
         "de": "Key Account Manager Deutschland, Segment Industrie und Konsumgüter (m/w/d) 100%",
         "fr": "Responsable de compte clé Allemagne, Segment Industrie et produits de consommation (m/f/d) 100%"
@@ -65,7 +65,8 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Ingenieur / Techniker Automatisierungstechnik (m/w/d) 100%",
@@ -85,12 +86,12 @@
       "description": "Ingenieur / Techniker Automatisierungstechnik (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Markdorf.",
       "postedDate": "2026-04-10",
       "source": "company-website",
-      "slug": "ingenieur-techniker-automatisierungstechnik-m-w-d-100-ems-chemie-markdorf",
+      "slug": "ingegnere-tecnico-automazione-m-f-d-100-ems-chemie-ag-markdorf",
       "slugByLocale": {
-        "it": "ingenieur-techniker-automatisierungstechnik-m-w-d-100-ems-chemie-markdorf",
+        "it": "ingegnere-tecnico-automazione-m-f-d-100-ems-chemie-ag-markdorf",
         "en": "automation-engineer-technician-m-f-d-100-ems-chemie-ag-markdorf",
         "de": "ingenieur-techniker-automatisierungstechnik-m-w-d-100-ems-chemie-markdorf",
-        "fr": "ingenieur-techniker-automatisierungstechnik-m-w-d-100-ems-chemie-markdorf"
+        "fr": "ingenieur-technicien-automatisation-m-f-d-100-ems-chemie-ag-markdorf"
       },
       "titleByLocale": {
         "it": "Ingegnere / Tecnico Automazione (m/f/d) 100%",
@@ -119,7 +120,18 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "ingenieur-techniker-automatisierungstechnik-m-w-d-100-ems-chemie-markdorf"
+        ],
+        "fr": [
+          "ingenieur-techniker-automatisierungstechnik-m-w-d-100-ems-chemie-markdorf"
+        ]
+      },
+      "previousSlugs": [
+        "ingenieur-techniker-automatisierungstechnik-m-w-d-100-ems-chemie-markdorf"
+      ]
     },
     {
       "title": "Assistenz der Divisionsleitung (m/w/d) 100%",
