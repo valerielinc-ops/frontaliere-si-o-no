@@ -156,9 +156,12 @@ function parseListingPage(html) {
   const listings = [];
   if (!html) return listings;
 
-  // Job cards are <a> tags linking to /job/ detail pages
-  // Pattern: <a href="/la-bcvs/carriere/.../job/{slug}">...<h4>Title</h4>...<li>Location</li>...<li>Pensum</li>...</a>
-  const cardPattern = /<a\s+href="(\/la-bcvs\/carriere\/[^"]*\/job\/[^"]+)"[^>]*>([\s\S]*?)<\/a>/gi;
+  // Job cards are <a> tags linking to /job/ detail pages.
+  // The <a> tag may have a title attribute before href:
+  //   <a title="Job Title" href="/la-bcvs/carriere/.../job/{slug}">
+  //     <div>...<h4>Title</h4><ul><li>Location</li><li>Pensum</li></ul>...</div>
+  //   </a>
+  const cardPattern = /<a\s+[^>]*href="(\/la-bcvs\/carriere\/[^"]*\/job\/[^"]+)"[^>]*>([\s\S]*?)<\/a>/gi;
   let match;
 
   while ((match = cardPattern.exec(html)) !== null) {
