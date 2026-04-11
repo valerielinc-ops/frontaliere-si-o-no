@@ -1,16 +1,16 @@
 {
   "key": "tsmg",
   "label": "TSMG",
-  "generatedAt": "2026-04-10T21:52:39.133Z",
+  "generatedAt": "2026-04-11T09:48:15.989Z",
   "total": 8,
   "newCount": 0,
-  "updatedCount": 6,
+  "updatedCount": 8,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 16892,
-  "avgDurationMs": 16892,
+  "unchangedCount": 0,
+  "durationMs": 17897,
+  "avgDurationMs": 17897,
   "durationHistory": [
-    16892
+    17897
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +32,7 @@
       "sector": "Tecnologia & IT",
       "source": "tsmg-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-04-10",
+      "postedDate": "2026-04-11",
       "employmentType": "part-time",
       "contractType": "part-time",
       "validThrough": "",
@@ -42,7 +42,6 @@
       "streetAddress": "Via Cantonale 1",
       "postalCode": "6928",
       "id": "tsmg-a2d608938d5a",
-      "needsRetranslation": true,
       "slugDisambiguator": "2df1b780",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -70,7 +69,7 @@
       "sector": "Tecnologia & IT",
       "source": "tsmg-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-04-10",
+      "postedDate": "2026-04-11",
       "employmentType": "part-time",
       "contractType": "part-time",
       "validThrough": "",
@@ -107,7 +106,7 @@
       "sector": "Tecnologia & IT",
       "source": "tsmg-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-04-10",
+      "postedDate": "2026-04-11",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -144,7 +143,7 @@
       "sector": "Tecnologia & IT",
       "source": "tsmg-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-04-10",
+      "postedDate": "2026-04-11",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -182,7 +181,7 @@
       "sector": "Tecnologia & IT",
       "source": "tsmg-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-04-10",
+      "postedDate": "2026-04-11",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -219,7 +218,7 @@
       "sector": "Tecnologia & IT",
       "source": "tsmg-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-04-10",
+      "postedDate": "2026-04-11",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -237,10 +236,7 @@
         "translation": 25,
         "completeness": 25
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "title": "Autista / Addetto raccolta dati in Bellinzona, Switzerland",
       "slug": "autista-addetto-raccolta-dati-in-bellinzona-switzerland-tsmg-bellinzona-677ef911",
@@ -259,7 +255,7 @@
       "sector": "Tecnologia & IT",
       "source": "tsmg-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-04-10",
+      "postedDate": "2026-04-11",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -296,7 +292,7 @@
       "sector": "Tecnologia & IT",
       "source": "tsmg-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-04-10",
+      "postedDate": "2026-04-11",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -315,5 +311,7 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }

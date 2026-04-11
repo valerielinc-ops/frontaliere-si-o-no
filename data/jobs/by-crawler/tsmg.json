@@ -1,6 +1,6 @@
 {
   "crawlerKey": "tsmg",
-  "assembledAt": "2026-04-10T21:52:39.132Z",
+  "assembledAt": "2026-04-11T09:48:15.988Z",
   "jobs": [
     {
       "title": "Tester conversazioni vocali AI (Italian native speaker - Switzerland regional variant)",
@@ -20,7 +20,7 @@
       "sector": "Tecnologia & IT",
       "source": "tsmg-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-04-10",
+      "postedDate": "2026-04-11",
       "employmentType": "part-time",
       "contractType": "part-time",
       "validThrough": "",
@@ -120,7 +120,7 @@
       "sector": "Tecnologia & IT",
       "source": "tsmg-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-04-10",
+      "postedDate": "2026-04-11",
       "employmentType": "part-time",
       "contractType": "part-time",
       "validThrough": "",
@@ -215,7 +215,7 @@
       "sector": "Tecnologia & IT",
       "source": "tsmg-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-04-10",
+      "postedDate": "2026-04-11",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -276,7 +276,8 @@
           "fahrer-datenerfasser-in-chalais-switzerland-tsmg-chalais-c23075ac"
         ]
       },
-      "slugDisambiguator": "c23075ac"
+      "slugDisambiguator": "c23075ac",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Chur, Switzerland",
@@ -296,7 +297,7 @@
       "sector": "Tecnologia & IT",
       "source": "tsmg-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-04-10",
+      "postedDate": "2026-04-11",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -403,7 +404,7 @@
       "sector": "Tecnologia & IT",
       "source": "tsmg-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-04-10",
+      "postedDate": "2026-04-11",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -469,7 +470,8 @@
           "chauffeur-collecteur-de-donnees-in-landquart-switzerland-for-chur-area-tsmg-landquart-061cc5b5"
         ]
       },
-      "slugDisambiguator": "061cc5b5"
+      "slugDisambiguator": "061cc5b5",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Obervaz, Switzerland (for Chur area)",
@@ -489,7 +491,7 @@
       "sector": "Tecnologia & IT",
       "source": "tsmg-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-04-10",
+      "postedDate": "2026-04-11",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -553,7 +555,8 @@
           "autista-addetto-raccolta-dati-in-obervaz-switzerland-for-chur-area-tsmg-obervaz-661cb622"
         ]
       },
-      "slugDisambiguator": "661cb622"
+      "slugDisambiguator": "661cb622",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Bellinzona, Switzerland",
@@ -573,7 +576,7 @@
       "sector": "Tecnologia & IT",
       "source": "tsmg-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-04-10",
+      "postedDate": "2026-04-11",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -644,7 +647,8 @@
           "fahrer-datenerfasser-in-bellinzona-switzerland-tsmg-bellinzona-677ef911"
         ]
       },
-      "slugDisambiguator": "677ef911"
+      "slugDisambiguator": "677ef911",
+      "needsRetranslation": true
     },
     {
       "title": "Autista / Addetto raccolta dati in Chur, Switzerland",
@@ -664,7 +668,7 @@
       "sector": "Tecnologia & IT",
       "source": "tsmg-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-04-10",
+      "postedDate": "2026-04-11",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -725,7 +729,8 @@
           "autista-mitarbeiter-raccolta-dati-in-chur-switzerland-tsmg-chur"
         ]
       },
-      "slugDisambiguator": "e483453a"
+      "slugDisambiguator": "e483453a",
+      "needsRetranslation": true
     }
   ]
 }
