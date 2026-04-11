@@ -2064,6 +2064,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.multa-vignetta-pasqua-chiasso-2024.title': '190 multati in una notte a Chiasso: ecco come evitare la sanzione da 200 CHF',
     'blog.article.multa-vignetta-pasqua-chiasso-2024.excerpt': 'Durante il weekend di Pasqua 2024, 190 automobilisti su 1\'620 sono stati multati alla dogana di Chiasso per mancanza della vignetta autostradale. La multa è di 200 franchi.',
     'blog.article.multa-vignetta-pasqua-chiasso-2024.imageAlt': 'Dogana di Chiasso: agenti dell\'UDSC controllano la vignetta autostradale su 1\'620 veicoli durante il weekend di Pasqua 2024',
+    'blog.article.salva-venti-anni-monito-infarti.title': 'SALVA compie 20 anni: meno della metà chiama l’ambulanza in caso di infarto',
+    'blog.article.salva-venti-anni-monito-infarti.excerpt': 'Il Servizio Ambulanza Locarnese e Valli (SALVA) celebra 20 anni con un monito: solo il 40% degli infartuati chiama il 144. Punti salienti della giornata porte aperte a Locarno il 3 ottobre.',
+    'blog.article.salva-venti-anni-monito-infarti.imageAlt': 'Soccorritori del SALVA in azione a Locarno con ambulanze e attrezzature mediche moderne',
 };
 
 export default blogMetaIt;

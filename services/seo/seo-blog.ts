@@ -6821,6 +6821,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-salva-venti-anni-monito-infarti': {
+    title: 'SALVA compie 20 anni: meno della metà | Frontaliere Ticino',
+    description: 'Il Servizio Ambulanza Locarnese e Valli (SALVA) celebra 20 anni con un monito: solo il 40% degli infartuati chiama il 144. Punti salienti della giornata porte a',
+    keywords: 'frontalieri, ticino, svizzera, italia, salva, compie, anni, meno',
+    ogTitle: 'SALVA compie 20 anni: meno della metà chiama l’ambulanza',
+    ogDescription: 'Il Servizio Ambulanza Locarnese e Valli (SALVA) celebra 20 anni con un monito: solo il 40% degli infartuati chiama il 144. Punti salienti della giornata porte a',
+    canonicalPath: '/articoli-frontaliere/salva-venti-anni-monito-infarti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "SALVA compie 20 anni: meno della metà chiama l’ambulanza",
+      "description": "Il Servizio Ambulanza Locarnese e Valli (SALVA) celebra 20 anni con un monito: solo il 40% degli infartuati chiama il 144. Punti salienti della giornata porte a",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/salva-venti-anni-monito-infarti.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Soccorritori del SALVA in azione a Locarno con ambulanze e attrezzature mediche moderne"
+      },
+      "datePublished": "2026-04-11T05:25:28+00:00",
+      "dateModified": "2026-04-11T05:25:28+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/salva-venti-anni-monito-infarti`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

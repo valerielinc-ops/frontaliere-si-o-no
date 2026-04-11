@@ -2064,6 +2064,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.multa-vignetta-pasqua-chiasso-2024.title': '190 amendes en une nuit à Chiasso : voici comment éviter une sanction de 200 CHF',
     'blog.article.multa-vignetta-pasqua-chiasso-2024.excerpt': 'Lors du week-end de Pâques 2024, 190 automobilistes sur 1 620 ont été verbalisés au poste douanier de Chiasso pour défaut de vignette autoroutière. L’amende s’élève à 200 francs.',
     'blog.article.multa-vignetta-pasqua-chiasso-2024.imageAlt': 'Frontière de Chiasso: agents des douanes suisses vérifient vignettes autoroutières sur 1 620 véhicules pendant le week-end de Pâques 2024',
+    'blog.article.salva-venti-anni-monito-infarti.title': 'SALVA fête ses 20 ans : moins de la moitié appelle l’ambulance en cas d’infarctus',
+    'blog.article.salva-venti-anni-monito-infarti.excerpt': 'Le Service Ambulance Locarno et Vallées (SALVA) célèbre ses 20 ans avec un appel à la vigilance : seulement 40 % des personnes victimes d’un infarctus contactent le 144. Points forts de la journée portes ouvertes à Locarno le 3 octobre.',
+    'blog.article.salva-venti-anni-monito-infarti.imageAlt': 'Équipe de secours SALVA à Locarno, Tessin, intervenant avec une ambulance et du matériel médical professionnel',
 };
 
 export default blogMetaFr;

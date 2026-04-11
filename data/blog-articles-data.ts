@@ -5801,4 +5801,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/multa-vignetta-pasqua-chiasso-2024.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'salva-venti-anni-monito-infarti',
+    category: 'pratico',
+    date: '2026-04-11T05:25:28.707Z',
+    image: '/images/blog/salva-venti-anni-monito-infarti.jpg',
+    hasCalculator: true,
+  },
 ];

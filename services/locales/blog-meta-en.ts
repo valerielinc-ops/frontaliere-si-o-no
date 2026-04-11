@@ -2064,6 +2064,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.multa-vignetta-pasqua-chiasso-2024.title': '190 drivers fined in one night in Chiasso: here’s how to avoid the 200 CHF penalty',
     'blog.article.multa-vignetta-pasqua-chiasso-2024.excerpt': 'During the Easter weekend of 2024, 190 out of 1,620 drivers were fined at the Chiasso border for failing to display a valid Swiss motorway vignette. The penalty amounts to 200 francs.',
     'blog.article.multa-vignetta-pasqua-chiasso-2024.imageAlt': 'Chiasso border: Swiss customs agents check motorway vignettes on 1,620 vehicles during Easter 2024 weekend',
+    'blog.article.salva-venti-anni-monito-infarti.title': 'SALVA turns 20: fewer than half call an ambulance in case of a heart attack',
+    'blog.article.salva-venti-anni-monito-infarti.excerpt': 'The Locarno and Valleys Ambulance Service (SALVA) is celebrating 20 years with a warning: only 40% of heart attack victims call 144. Highlights of the open day in Locarno on October 3.',
+    'blog.article.salva-venti-anni-monito-infarti.imageAlt': 'SALVA emergency responders in Locarno, Ticino, handling professional ambulance and medical equipment',
 };
 
 export default blogMetaEn;

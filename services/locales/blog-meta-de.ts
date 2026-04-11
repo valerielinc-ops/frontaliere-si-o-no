@@ -2064,6 +2064,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.multa-vignetta-pasqua-chiasso-2024.title': '190 Bussgelder in einer Nacht in Chiasso: So vermeiden Sie die Strafe von 200 CHF',
     'blog.article.multa-vignetta-pasqua-chiasso-2024.excerpt': 'Während des Osterwochenendes 2024 wurden an der Zollstation Chiasso 190 von 1\'620 Autofahrern wegen fehlender Autobahnvignette mit einer Strafe belegt. Die Busse beträgt 200 Franken.',
     'blog.article.multa-vignetta-pasqua-chiasso-2024.imageAlt': 'Chiasso Grenze: Schweizer Zollbeamte überprüfen Autobahnvignetten an 1\'620 Fahrzeugen über Ostern 2024',
+    'blog.article.salva-venti-anni-monito-infarti.title': 'SALVA wird 20: Weniger als die Hälfte ruft bei einem Herzinfarkt den Krankenwagen',
+    'blog.article.salva-venti-anni-monito-infarti.excerpt': 'Der Rettungsdienst Locarno und Täler (SALVA) feiert sein 20-jähriges Bestehen mit einer Warnung: Nur 40 % der Infarktpatienten rufen die 144. Highlights des Tages der offenen Tür in Locarno am 3. Oktober.',
+    'blog.article.salva-venti-anni-monito-infarti.imageAlt': 'SALVA Rettungsteam in Locarno, Tessin, mit professionellen Rettungsfahrzeugen und medizinischer Ausrüstung',
 };
 
 export default blogMetaDe;

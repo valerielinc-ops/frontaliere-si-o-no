@@ -1943,6 +1943,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-reclutamento-infermieri-lombardia': { name: 'Reclutamento Infermieri', path: '/articoli-frontaliere/reclutamento-infermieri-lombardia', parent: 'blog' },
     'blog-autostrada-a9-chiude-de-notti-2026': { name: 'Autostrada A9 verso Chiasso chiusa di no', path: '/articoli-frontaliere/autostrada-a9-chiude-de-notti-2026', parent: 'blog' },
     'blog-multa-vignetta-pasqua-chiasso-2024': { name: 'Vignetta Svizzera', path: '/articoli-frontaliere/multa-vignetta-pasqua-chiasso-2024', parent: 'blog' },
+    'blog-salva-venti-anni-monito-infarti': { name: 'SALVA compie 20 anni', path: '/articoli-frontaliere/salva-venti-anni-monito-infarti', parent: 'blog' },
   };
 
   const info = sectionNames[section];
