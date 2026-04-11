@@ -310,12 +310,13 @@ export function parseOstendisJob(entry, detailData = {}) {
   const idSource = entry.id ? String(entry.id) : publicUrl;
   const urlHash = createHash('sha1').update(idSource).digest('hex').slice(0, 12);
 
-  // Build description: prefer detail page JSON-LD, fall back to title-based
+  // Build description: prefer detail page JSON-LD, fall back to title-based + company boilerplate
   let descriptionText = detailData.description || '';
   if (!descriptionText || descriptionText.length < 30) {
     const parts = [`${title} — Regionalspital Surselva (RSS)`];
     if (entry.department) parts.push(`Abteilung: ${entry.department}`);
     parts.push(`Arbeitsort: ${location} (${canton})`);
+    parts.push('Die Regionalspital Surselva AG ist ein regional verankertes Spital in Ilanz und stellt die erweiterte Grund- und Notfallversorgung für rund 22\'000 Einwohner und saisonal 20\'000 Feriengäste der Region Surselva sicher');
     descriptionText = parts.join('. ');
   }
 

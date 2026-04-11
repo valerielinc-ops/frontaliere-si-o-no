@@ -305,12 +305,13 @@ export async function fetchAllFluryStiftungJobs() {
     const sourceLang = 'de';
     const jobSlug = slugify(`${title} flury-stiftung ch`);
 
-    // Build description from title + section + company + location
+    // Build description from title + section + company + location + company boilerplate
     const descParts = [`${title} — Flury Stiftung`];
     if (section && section !== 'Flury Stiftung') {
       descParts.push(`Bereich: ${section}`);
     }
     descParts.push(`Arbeitsort: ${location} (${canton})`);
+    descParts.push('Die Flury Stiftung betreibt das Spital Schiers, zwei Altersheime, eine Spitex-Organisation, ein medizinisches Zentrum sowie Kinderkrippen in der Region Prättigau');
     const descriptionText = descParts.join('. ');
 
     const pensum = extractPensum(title);
