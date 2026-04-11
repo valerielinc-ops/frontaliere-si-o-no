@@ -4446,6 +4446,9 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
         if (merged.length > 0) fresh.previousSlugsByLocale[locale] = merged.slice(0, 20);
       }
     }
+    // Sync flat previousSlugs from locale-aware entries (ensures no desync
+    // when old job had previousSlugsByLocale but no flat previousSlugs)
+    syncLegacyPreviousSlugs(fresh);
 
     // Preserve slug (use existing if stable). Pass per-job location hints so
     // that two distinct city openings (e.g. Lidl in Cadenazzo vs Locarno) can
