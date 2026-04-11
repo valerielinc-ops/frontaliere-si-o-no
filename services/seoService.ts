@@ -2144,8 +2144,14 @@ export async function updateMetaTags(section: string): Promise<void> {
   updateOrCreateMetaTag('property', 'og:site_name', 'Frontaliere Ticino');
 
   // Use article-specific image for blog posts, generic OG image for other pages
-  if (isBlogArticle && metadata.structuredData && !Array.isArray(metadata.structuredData)) {
-    const sd = metadata.structuredData as Record<string, any>;
+  // Supports both single-object and array structuredData (array may contain NewsArticle + FAQPage)
+  const blogArticleSd = isBlogArticle && metadata.structuredData
+    ? (Array.isArray(metadata.structuredData)
+        ? metadata.structuredData.find(item => item?.['@type'] === 'NewsArticle' || item?.['@type'] === 'Article')
+        : metadata.structuredData) as Record<string, any> | undefined
+    : undefined;
+  if (isBlogArticle && blogArticleSd) {
+    const sd = blogArticleSd;
     const imgUrl = typeof sd.image === 'string' ? sd.image : sd.image?.url;
     if (imgUrl) {
       const resolvedImgUrl = imgUrl.startsWith('http') ? imgUrl : `${BASE_URL}${imgUrl}`;
@@ -2186,8 +2192,8 @@ export async function updateMetaTags(section: string): Promise<void> {
   }
 
   // Article-specific OG tags for Google News & Bing News indexing
-  if (isBlogArticle && metadata.structuredData && !Array.isArray(metadata.structuredData)) {
-    const sd = metadata.structuredData as Record<string, any>;
+  if (isBlogArticle && blogArticleSd) {
+    const sd = blogArticleSd;
     if (sd.datePublished) updateOrCreateMetaTag('property', 'article:published_time', sd.datePublished);
     if (sd.dateModified) updateOrCreateMetaTag('property', 'article:modified_time', sd.dateModified);
     if (sd.articleSection) updateOrCreateMetaTag('property', 'article:section', sd.articleSection);
