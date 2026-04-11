@@ -2571,7 +2571,7 @@
         "de": "fachpsychologe-in-fur-das-mobile-team-60-hopital-du-valais-brig",
         "it": "fachpsychologe-in-per-das-mobile-team-60-hopital-du-valais-brig",
         "en": "fachpsychologe-in-fur-das-mobile-team-60-hopital-du-valais-brig",
-        "fr": "fachpsychologe-in-fur-das-mobile-team-60-hopital-du-valais-brig"
+        "fr": "psychologue-specialiste-pour-l-equipe-mobile-60-hopital-du-valais-brig"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -2617,6 +2617,9 @@
       "previousSlugsByLocale": {
         "it": [
           "fachpsychologe-in-fur-das-mobile-team-60-hopital-du-valais-brig"
+        ],
+        "fr": [
+          "fachpsychologe-in-fur-das-mobile-team-60-hopital-du-valais-brig"
         ]
       },
       "previousSlugs": [
@@ -2642,8 +2645,8 @@
       "slugByLocale": {
         "de": "fachpsychologe-in-ambulatorium-80-100-hopital-du-valais-brig",
         "it": "fachpsychologe-in-ambulatorium-80-100-hopital-du-valais-brig",
-        "en": "fachpsychologe-in-ambulatorium-80-100-hopital-du-valais-brig",
-        "fr": "fachpsychologe-in-ambulatorium-80-100-hopital-du-valais-brig"
+        "en": "specialist-psychologist-outpatient-clinic-80-100-hopital-du-valais-brig",
+        "fr": "psychologue-specialiste-ambulatoire-80-100-hopital-du-valais-brig"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -2702,12 +2705,12 @@
     },
     {
       "id": "hopital-du-valais-a1d6bb8943dc",
-      "slug": "leitende-n-arztin-arzt-anasthesie-60-100-hopital-du-valais-brig",
+      "slug": "medico-dirigente-anestesiologia-60-100-hopital-du-valais-brig",
       "slugByLocale": {
         "de": "leitende-n-arztin-arzt-anasthesie-60-100-hopital-du-valais-brig",
-        "it": "leitende-n-arztin-arzt-anasthesie-60-100-hopital-du-valais-brig",
-        "en": "leitende-n-arztin-arzt-anasthesie-60-100-hopital-du-valais-brig",
-        "fr": "leitende-n-arztin-arzt-anasthesie-60-100-hopital-du-valais-brig"
+        "it": "medico-dirigente-anestesiologia-60-100-hopital-du-valais-brig",
+        "en": "senior-physician-anesthesiology-60-100-hopital-du-valais-brig",
+        "fr": "medecin-cadre-anesthesiologie-60-100-hopital-du-valais-brig"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -2762,16 +2765,30 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "leitende-n-arztin-arzt-anasthesie-60-100-hopital-du-valais-brig"
+        ],
+        "en": [
+          "leitende-n-arztin-arzt-anasthesie-60-100-hopital-du-valais-brig"
+        ],
+        "fr": [
+          "leitende-n-arztin-arzt-anasthesie-60-100-hopital-du-valais-brig"
+        ]
+      },
+      "previousSlugs": [
+        "leitende-n-arztin-arzt-anasthesie-60-100-hopital-du-valais-brig"
+      ]
     },
     {
       "id": "hopital-du-valais-5ab09e1d7ed5",
-      "slug": "apprenti-e-agent-e-d-exploitation-hopital-du-valais-sierre",
+      "slug": "apprendista-operatore-di-esercizio-hopital-du-valais-sierre",
       "slugByLocale": {
         "fr": "apprenti-e-agent-e-d-exploitation-hopital-du-valais-sierre",
-        "it": "apprenti-e-agent-e-d-exploitation-hopital-du-valais-sierre",
-        "en": "apprenti-e-agent-e-d-exploitation-hopital-du-valais-sierre",
-        "de": "apprenti-e-agent-e-d-exploitation-hopital-du-valais-sierre"
+        "it": "apprendista-operatore-di-esercizio-hopital-du-valais-sierre",
+        "en": "apprentice-facility-services-operator-hopital-du-valais-sierre",
+        "de": "lernende-r-betriebsunterhaltspraktiker-in-hopital-du-valais-sierre"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -2826,14 +2843,28 @@
           "maxValue": 77500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-e-agent-e-d-exploitation-hopital-du-valais-sierre"
+        ],
+        "en": [
+          "apprenti-e-agent-e-d-exploitation-hopital-du-valais-sierre"
+        ],
+        "de": [
+          "apprenti-e-agent-e-d-exploitation-hopital-du-valais-sierre"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-e-agent-e-d-exploitation-hopital-du-valais-sierre"
+      ]
     },
     {
       "id": "hopital-du-valais-7e819bc76a04",
-      "slug": "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion",
+      "slug": "medico-aggiunto-specialista-in-radiologia-al-100-hopital-du-valais-sion",
       "slugByLocale": {
-        "it": "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion",
-        "en": "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion",
+        "it": "medico-aggiunto-specialista-in-radiologia-al-100-hopital-du-valais-sion",
+        "en": "associate-physician-specialist-in-radiology-at-100-hopital-du-valais-sion",
         "de": "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion",
         "fr": "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion"
       },
@@ -2890,16 +2921,27 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion"
+        ],
+        "en": [
+          "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion"
+      ]
     },
     {
       "id": "hopital-du-valais-2289b011a0ac",
-      "slug": "oberarztin-arzt-anasthesie-80-100-hopital-du-valais-brig",
+      "slug": "medico-capoclinica-anestesia-80-100-hopital-du-valais-brig",
       "slugByLocale": {
         "de": "oberarztin-arzt-anasthesie-80-100-hopital-du-valais-brig",
-        "it": "oberarztin-arzt-anasthesie-80-100-hopital-du-valais-brig",
-        "en": "oberarztin-arzt-anasthesie-80-100-hopital-du-valais-brig",
-        "fr": "oberarztin-arzt-anasthesie-80-100-hopital-du-valais-brig"
+        "it": "medico-capoclinica-anestesia-80-100-hopital-du-valais-brig",
+        "en": "senior-physician-anesthesiology-80-100-hopital-du-valais-brig",
+        "fr": "medecin-cadre-anesthesie-80-100-hopital-du-valais-brig"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -2954,7 +2996,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-arzt-anasthesie-80-100-hopital-du-valais-brig"
+        ],
+        "en": [
+          "oberarztin-arzt-anasthesie-80-100-hopital-du-valais-brig"
+        ],
+        "fr": [
+          "oberarztin-arzt-anasthesie-80-100-hopital-du-valais-brig"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-arzt-anasthesie-80-100-hopital-du-valais-brig"
+      ]
     },
     {
       "id": "hopital-du-valais-9f9ebd69732c",

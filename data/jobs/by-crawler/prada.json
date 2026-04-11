@@ -68,10 +68,10 @@
     },
     {
       "id": "prada-52a892ce5545",
-      "slug": "prada-group-stock-assistant-h-f-prada-group-mendrisio",
+      "slug": "prada-group-assistente-di-magazzino-h-f-prada-group-mendrisio",
       "slugByLocale": {
         "en": "prada-group-stock-assistant-h-f-prada-group-mendrisio",
-        "it": "prada-group-stock-assistant-h-f-prada-group-mendrisio",
+        "it": "prada-group-assistente-di-magazzino-h-f-prada-group-mendrisio",
         "de": "prada-group-stock-assistant-h-f-prada-group-mendrisio",
         "fr": "prada-group-stock-assistant-h-f-prada-group-mendrisio"
       },
@@ -122,7 +122,15 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6850"
+      "postalCode": "6850",
+      "previousSlugsByLocale": {
+        "it": [
+          "prada-group-stock-assistant-h-f-prada-group-mendrisio"
+        ]
+      },
+      "previousSlugs": [
+        "prada-group-stock-assistant-h-f-prada-group-mendrisio"
+      ]
     },
     {
       "id": "prada-688d3339526f",
@@ -131,7 +139,7 @@
         "en": "prada-stock-specialist-milano-prada-group-mendrisio",
         "it": "prada-stock-specialist-milano-prada-group-mendrisio",
         "de": "prada-stock-specialist-milano-prada-group-mendrisio",
-        "fr": "prada-stock-specialist-milano-prada-group-mendrisio"
+        "fr": "specialiste-des-stocks-prada-milan-prada-group-mendrisio"
       },
       "company": "Prada Group",
       "companyKey": "prada",
@@ -247,7 +255,7 @@
         "en": "in-store-trainer-m-f-d-prada-group-mendrisio",
         "it": "in-store-trainer-m-f-d-prada-group-mendrisio",
         "de": "in-store-trainer-m-f-d-prada-group-mendrisio",
-        "fr": "in-store-trainer-m-f-d-prada-group-mendrisio"
+        "fr": "formateur-en-magasin-h-f-d-prada-group-mendrisio"
       },
       "company": "Prada Group",
       "companyKey": "prada",
