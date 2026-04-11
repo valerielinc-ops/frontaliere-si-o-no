@@ -148,6 +148,7 @@ export function parseRssItems(xml = '') {
     attributeNamePrefix: '',
     parseTagValue: false,
     trimValues: false,
+    processEntities: false,
   });
 
   const parsed = parser.parse(xml);
