@@ -1,229 +1,5 @@
 [
   {
-    "timestamp": "2026-04-02T18:24:19.342Z",
-    "label": "before",
-    "total": 1547,
-    "needsRetranslation": 267,
-    "incomplete": 219,
-    "complete": 1328,
-    "missingByLocale": {
-      "it": 146,
-      "en": 191,
-      "de": 101,
-      "fr": 211
-    },
-    "topPending": [
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 65
-      },
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 46
-      },
-      {
-        "company": "Hilcona AG (Bell Food Group)",
-        "pending": 36
-      },
-      {
-        "company": "Interdiscount",
-        "pending": 35
-      },
-      {
-        "company": "Davos Klosters Bergbahnen AG",
-        "pending": 9
-      },
-      {
-        "company": "Prada Group",
-        "pending": 8
-      },
-      {
-        "company": "EFG International AG",
-        "pending": 5
-      },
-      {
-        "company": "Otis SA",
-        "pending": 3
-      },
-      {
-        "company": "CEDES AG",
-        "pending": 2
-      },
-      {
-        "company": "Scuola Club Migros",
-        "pending": 2
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-02T18:24:24.312Z",
-    "label": "after",
-    "total": 1547,
-    "needsRetranslation": 261,
-    "incomplete": 219,
-    "complete": 1328,
-    "missingByLocale": {
-      "it": 146,
-      "en": 191,
-      "de": 101,
-      "fr": 211
-    },
-    "topPending": [
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 65
-      },
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 46
-      },
-      {
-        "company": "Hilcona AG (Bell Food Group)",
-        "pending": 36
-      },
-      {
-        "company": "Interdiscount",
-        "pending": 35
-      },
-      {
-        "company": "Davos Klosters Bergbahnen AG",
-        "pending": 9
-      },
-      {
-        "company": "Prada Group",
-        "pending": 8
-      },
-      {
-        "company": "EFG International AG",
-        "pending": 5
-      },
-      {
-        "company": "Otis SA",
-        "pending": 3
-      },
-      {
-        "company": "CEDES AG",
-        "pending": 2
-      },
-      {
-        "company": "Scuola Club Migros",
-        "pending": 2
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-02T18:40:54.469Z",
-    "label": "before",
-    "total": 1547,
-    "needsRetranslation": 261,
-    "incomplete": 219,
-    "complete": 1328,
-    "missingByLocale": {
-      "it": 146,
-      "en": 191,
-      "de": 101,
-      "fr": 211
-    },
-    "topPending": [
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 65
-      },
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 46
-      },
-      {
-        "company": "Hilcona AG (Bell Food Group)",
-        "pending": 36
-      },
-      {
-        "company": "Interdiscount",
-        "pending": 35
-      },
-      {
-        "company": "Davos Klosters Bergbahnen AG",
-        "pending": 9
-      },
-      {
-        "company": "Prada Group",
-        "pending": 8
-      },
-      {
-        "company": "EFG International AG",
-        "pending": 5
-      },
-      {
-        "company": "Otis SA",
-        "pending": 3
-      },
-      {
-        "company": "CEDES AG",
-        "pending": 2
-      },
-      {
-        "company": "Scuola Club Migros",
-        "pending": 2
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-02T18:40:58.543Z",
-    "label": "after",
-    "total": 1547,
-    "needsRetranslation": 261,
-    "incomplete": 219,
-    "complete": 1328,
-    "missingByLocale": {
-      "it": 146,
-      "en": 191,
-      "de": 101,
-      "fr": 211
-    },
-    "topPending": [
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 65
-      },
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 46
-      },
-      {
-        "company": "Hilcona AG (Bell Food Group)",
-        "pending": 36
-      },
-      {
-        "company": "Interdiscount",
-        "pending": 35
-      },
-      {
-        "company": "Davos Klosters Bergbahnen AG",
-        "pending": 9
-      },
-      {
-        "company": "Prada Group",
-        "pending": 8
-      },
-      {
-        "company": "EFG International AG",
-        "pending": 5
-      },
-      {
-        "company": "Otis SA",
-        "pending": 3
-      },
-      {
-        "company": "CEDES AG",
-        "pending": 2
-      },
-      {
-        "company": "Scuola Club Migros",
-        "pending": 2
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-02T18:53:38.403Z",
     "label": "before",
     "total": 1547,
@@ -9407,6 +9183,106 @@
       },
       {
         "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "Ticino Premium Properties SA",
+        "pending": 1
+      },
+      {
+        "company": "Swiss Armed Forces (VTG)",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-11T22:10:25.974Z",
+    "label": "before",
+    "total": 2500,
+    "needsRetranslation": 1002,
+    "incomplete": 48,
+    "complete": 2452,
+    "missingByLocale": {
+      "it": 36,
+      "en": 17,
+      "de": 29,
+      "fr": 40
+    },
+    "topPending": [
+      {
+        "company": "Reboot Monkey",
+        "pending": 24
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 5
+      },
+      {
+        "company": "Air Zermatt AG",
+        "pending": 3
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 2
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      },
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "Banca Raiffeisen Vedeggio Cassarate",
+        "pending": 1
+      },
+      {
+        "company": "Banca del Sempione",
+        "pending": 1
+      },
+      {
+        "company": "EFG International AG",
+        "pending": 1
+      },
+      {
+        "company": "Ticino Premium Properties SA",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-11T22:17:01.030Z",
+    "label": "after",
+    "total": 2500,
+    "needsRetranslation": 66,
+    "incomplete": 10,
+    "complete": 2490,
+    "missingByLocale": {
+      "it": 6,
+      "en": 9,
+      "de": 4,
+      "fr": 9
+    },
+    "topPending": [
+      {
+        "company": "Air Zermatt AG",
+        "pending": 3
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 2
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      },
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "Banca del Sempione",
         "pending": 1
       },
       {
