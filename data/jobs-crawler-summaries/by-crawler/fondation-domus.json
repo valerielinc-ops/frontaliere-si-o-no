@@ -1,18 +1,19 @@
 {
   "key": "fondation-domus",
   "label": "Fondation Domus",
-  "generatedAt": "2026-04-11T13:28:21.298Z",
+  "generatedAt": "2026-04-11T16:49:08.884Z",
   "total": 2,
-  "newCount": 2,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5909,
-  "avgDurationMs": 5909,
+  "durationMs": 26420,
+  "avgDurationMs": 26420,
   "durationHistory": [
-    5909
+    26420
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "fondation-domus-9d305b074f82",
       "slug": "infirmiers-en-psychiatrie-60-a-80-fondation-domus-ch",
@@ -25,7 +26,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/df57d22b-4724-49ba-9517-f749fec14189/?source=[platform]",
       "source": "Fondation Domus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-11T13:28:19.595Z",
+      "crawledAt": "2026-04-11T16:48:47.243Z",
       "addressLocality": "La Tzoumaz",
       "postalCode": "1918",
       "addressCountry": "CH",
@@ -39,11 +40,12 @@
       "featured": false,
       "postedDate": "2026-04-11",
       "applyUrl": "https://www.jobup.ch/fr/emplois/detail/df57d22b-4724-49ba-9517-f749fec14189/?source=[platform]",
-      "_qualityScore": 49,
+      "needsRetranslation": true,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 3,
-        "translation": 4,
+        "richness": 18,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -59,7 +61,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/7dd44076-1d9c-4db5-b9fd-71cacde14586/?source=[platform]",
       "source": "Fondation Domus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-11T13:28:19.593Z",
+      "crawledAt": "2026-04-11T16:48:46.630Z",
       "addressLocality": "Ardon",
       "postalCode": "1957",
       "addressCountry": "CH",
@@ -73,16 +75,15 @@
       "featured": false,
       "postedDate": "2026-03-17",
       "applyUrl": "https://www.jobup.ch/fr/emplois/detail/7dd44076-1d9c-4db5-b9fd-71cacde14586/?source=[platform]",
-      "_qualityScore": 49,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 3,
-        "translation": 4,
+        "richness": 18,
+        "translation": 25,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
