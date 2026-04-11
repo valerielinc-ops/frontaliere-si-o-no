@@ -2585,6 +2585,67 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
       q: "Comment calculer mon salaire net en tant que nouveau frontalier ?",
       a: "Utilisez le simulateur gratuit sur frontaliereticino.ch : entrez le salaire brut, la situation familiale, les enfants et la commune de résidence. L'outil calcule l'impôt à la source suisse, les cotisations sociales (AVS, AC, LPP), l'IRPEF italienne avec franchise de 10 000 EUR et le crédit d'impôt pour afficher votre salaire net exact."
     }
+  },
+
+  // ── Diesel price article FAQs ──
+  "Quanto costa il diesel in Svizzera nel 2026?": {
+    en: {
+      q: "How much does diesel cost in Switzerland in 2026?",
+      a: "The average diesel price in Switzerland in 2026 is around CHF 2.10 per liter. Prices range from CHF 1.95 to CHF 2.25 depending on the region and fuel station. In Ticino, prices tend to be slightly lower than in German-speaking Switzerland due to proximity to Italian fuel stations."
+    },
+    de: {
+      q: "Was kostet Diesel in der Schweiz im Jahr 2026?",
+      a: "Der durchschnittliche Dieselpreis in der Schweiz liegt 2026 bei rund CHF 2,10 pro Liter. Die Preise schwanken je nach Region und Tankstelle zwischen CHF 1,95 und CHF 2,25. Im Tessin sind die Preise tendenziell etwas niedriger als in der Deutschschweiz, da die italienischen Tankstellen in der Nähe sind."
+    },
+    fr: {
+      q: "Combien coûte le diesel en Suisse en 2026 ?",
+      a: "Le prix moyen du diesel en Suisse en 2026 est d'environ CHF 2,10 par litre. Les prix varient de CHF 1,95 à CHF 2,25 selon la région et la station-service. Au Tessin, les prix sont généralement légèrement inférieurs à ceux de la Suisse alémanique grâce à la proximité des stations-service italiennes."
+    }
+  },
+
+  "Il diesel costa di più in Svizzera o in Italia?": {
+    en: {
+      q: "Is diesel more expensive in Switzerland or Italy?",
+      a: "In 2026, diesel costs around CHF 2.10/liter in Switzerland (approx. EUR 2.20) compared to EUR 1.65-1.75/liter in Italy. However, the gap has narrowed after Italian excise tax cuts. Cross-border workers filling up in Italy can save around EUR 15-20 per 50-liter tank."
+    },
+    de: {
+      q: "Ist Diesel in der Schweiz oder in Italien teurer?",
+      a: "2026 kostet Diesel in der Schweiz rund CHF 2,10/Liter (ca. EUR 2,20) im Vergleich zu EUR 1,65-1,75/Liter in Italien. Der Preisunterschied hat sich jedoch nach der Senkung der italienischen Verbrauchssteuern verringert. Grenzgänger, die in Italien tanken, können bei einer 50-Liter-Tankfüllung rund EUR 15-20 sparen."
+    },
+    fr: {
+      q: "Le diesel est-il plus cher en Suisse ou en Italie ?",
+      a: "En 2026, le diesel coûte environ CHF 2,10/litre en Suisse (environ EUR 2,20) contre EUR 1,65-1,75/litre en Italie. Toutefois, l'écart s'est réduit après la baisse des accises italiennes. Les frontaliers faisant le plein en Italie peuvent économiser environ EUR 15-20 par plein de 50 litres."
+    }
+  },
+
+  "Perché il prezzo del diesel è aumentato in Svizzera?": {
+    en: {
+      q: "Why has the diesel price increased in Switzerland?",
+      a: "The diesel price increase in Switzerland in 2026 is due to several factors: the international oil crisis, rising global demand, the strengthening of the US dollar against the Swiss franc, and the increase in mandatory CO2 emission surcharges introduced by the climate law."
+    },
+    de: {
+      q: "Warum ist der Dieselpreis in der Schweiz gestiegen?",
+      a: "Der Anstieg des Dieselpreises in der Schweiz 2026 ist auf mehrere Faktoren zurückzuführen: die internationale Ölkrise, die steigende globale Nachfrage, die Stärkung des US-Dollars gegenüber dem Schweizer Franken und die Erhöhung der obligatorischen CO₂-Emissionszuschläge durch das Klimagesetz."
+    },
+    fr: {
+      q: "Pourquoi le prix du diesel a-t-il augmenté en Suisse ?",
+      a: "La hausse du prix du diesel en Suisse en 2026 s'explique par plusieurs facteurs : la crise pétrolière internationale, la hausse de la demande mondiale, le renforcement du dollar face au franc suisse et l'augmentation des surtaxes obligatoires sur les émissions de CO₂ introduites par la loi sur le climat."
+    }
+  },
+
+  "Come risparmiare sul diesel facendo il frontaliere?": {
+    en: {
+      q: "How can cross-border workers save on diesel?",
+      a: "Cross-border workers can save on diesel by filling up in Italy before crossing the border, using price comparison apps like Prezzi Benzina, choosing self-service stations, and accumulating loyalty points. Annual savings can exceed EUR 500 for those driving 40+ km per day."
+    },
+    de: {
+      q: "Wie können Grenzgänger beim Diesel sparen?",
+      a: "Grenzgänger können beim Diesel sparen, indem sie in Italien tanken, bevor sie die Grenze überqueren, Preisvergleichs-Apps wie Prezzi Benzina nutzen, Selbstbedienungstankstellen wählen und Treuepunkte sammeln. Die jährliche Ersparnis kann bei über 40 km täglicher Fahrstrecke mehr als EUR 500 betragen."
+    },
+    fr: {
+      q: "Comment les frontaliers peuvent-ils économiser sur le diesel ?",
+      a: "Les frontaliers peuvent économiser sur le diesel en faisant le plein en Italie avant de traverser la frontière, en utilisant des applications de comparaison de prix comme Prezzi Benzina, en choisissant les stations en libre-service et en accumulant des points de fidélité. L'économie annuelle peut dépasser EUR 500 pour ceux qui parcourent plus de 40 km par jour."
+    }
   }
 };
 

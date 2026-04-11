@@ -1987,33 +1987,45 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
   },
 
   'blog-diesel-aumento-prezzi-svizzera-2026': {
-    title: 'Aumento del prezzo del diesel: 2,10 | Frontaliere Ticino',
-    description: 'Scopri l\'andamento dei prezzi del diesel in Svizzera e come incide sui frontalieri. Informati ora!. Dati aggiornati 2026 per frontalieri in Ticino.',
-    keywords: 'frontalieri, ticino, svizzera, italia, aumento, prezzo, diesel, franchi',
-    ogTitle: 'Prezzo del diesel in aumento in Ticino',
-    ogDescription: 'L\'aumento dei prezzi del diesel in Svizzera preoccupa frontalieri e automobilisti. Scopri perché e come affrontarlo.',
+    title: 'Prezzo Diesel Svizzera 2026: Costo al Litro | Frontaliere Ticino',
+    description: 'Prezzo diesel in Svizzera oggi: CHF 2,10/litro. Confronto con Italia, evoluzione dei prezzi e consigli per risparmiare al distributore. Aggiornato 2026.',
+    keywords: 'prezzo diesel svizzera 2026, dieselpreis schweiz, prix diesel suisse, diesel price switzerland, costo diesel litro svizzera, carburante ticino',
+    ogTitle: 'Prezzo Diesel Svizzera 2026: Costo Attuale al Litro',
+    ogDescription: 'Diesel a CHF 2,10/litro in Svizzera: evoluzione dei prezzi, confronto con l\'Italia e consigli per risparmiare al distributore.',
     canonicalPath: '/articoli-frontaliere/diesel-aumento-prezzi-svizzera-2026',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Aumento del prezzo del diesel: 2,10 franchi in Svizzera",
-      "description": "Scopri l'andamento dei prezzi del diesel in Svizzera e come incide sui frontalieri. Informati ora!. Dati aggiornati 2026 per frontalieri in Ticino.",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/diesel-aumento-prezzi-svizzera-2026.webp`,
-        "width": 1344,
-        "height": 756,
-        "caption": "Stazione di servizio in Ticino con prezzi del diesel."
+    structuredData: [
+      {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": "Prezzo diesel Svizzera 2026: costo attuale al litro e tendenze",
+        "description": "Prezzo diesel in Svizzera oggi: CHF 2,10/litro. Confronto con Italia, evoluzione dei prezzi e consigli per risparmiare al distributore. Aggiornato 2026.",
+        "image": {
+          "@type": "ImageObject",
+          "url": `${BASE_URL}/images/blog/diesel-aumento-prezzi-svizzera-2026.webp`,
+          "width": 1344,
+          "height": 756,
+          "caption": "Stazione di servizio in Ticino con prezzi del diesel."
+        },
+        "datePublished": "2026-03-21T10:03:22+00:00",
+        "dateModified": BUILD_DATE_ISO,
+        "inLanguage": "it",
+        "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
+        "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+        "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/diesel-aumento-prezzi-svizzera-2026`,
+        "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+        "isAccessibleForFree": true
       },
-      "datePublished": "2026-03-21T10:03:22+00:00",
-      "dateModified": BUILD_DATE_ISO,
-      "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/diesel-aumento-prezzi-svizzera-2026`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
-      "isAccessibleForFree": true
-    }
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "Quanto costa il diesel in Svizzera nel 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Il prezzo medio del diesel in Svizzera nel 2026 è di circa CHF 2,10 al litro. Il prezzo varia tra CHF 1,95 e CHF 2,25 a seconda della regione e del distributore. In Ticino i prezzi tendono a essere leggermente inferiori rispetto alla Svizzera tedesca grazie alla vicinanza con i distributori italiani." } },
+          { "@type": "Question", "name": "Il diesel costa di più in Svizzera o in Italia?", "acceptedAnswer": { "@type": "Answer", "text": "Nel 2026 il diesel costa circa CHF 2,10/litro in Svizzera (circa €2,20) contro €1,65-1,75/litro in Italia. Tuttavia, il differenziale si è ridotto dopo il taglio delle accise italiane. Per i frontalieri che fanno il pieno in Italia, il risparmio può arrivare a €15-20 per un pieno da 50 litri." } },
+          { "@type": "Question", "name": "Perché il prezzo del diesel è aumentato in Svizzera?", "acceptedAnswer": { "@type": "Answer", "text": "L'aumento del prezzo del diesel in Svizzera nel 2026 è dovuto a diversi fattori: la crisi internazionale del petrolio, l'aumento della domanda globale, il rafforzamento del dollaro rispetto al franco svizzero e l'incremento dei supplementi obbligatori per le emissioni di CO₂ introdotti dalla legge sul clima." } },
+          { "@type": "Question", "name": "Come risparmiare sul diesel facendo il frontaliere?", "acceptedAnswer": { "@type": "Answer", "text": "I frontalieri possono risparmiare sul diesel facendo rifornimento in Italia prima di attraversare il confine, utilizzando app di confronto prezzi come Prezzi Benzina, scegliendo distributori self-service e accumulando punti fedeltà. Il risparmio annuo può superare €500 per chi percorre 40+ km al giorno." } }
+        ]
+      }
+    ]
   },
 
   'blog-sanita-manifesto-varese-2026': {
