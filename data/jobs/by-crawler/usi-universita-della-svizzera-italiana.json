@@ -1,6 +1,6 @@
 {
   "crawlerKey": "usi-universita-della-svizzera-italiana",
-  "assembledAt": "2026-04-10T21:53:48.356Z",
+  "assembledAt": "2026-04-11T09:51:39.664Z",
   "jobs": [
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-associate-full-professor-2025.pdf",
@@ -352,7 +352,7 @@
       "slugByLocale": {
         "it": "invito-a-presentare-candidatura-per-una-posizione-di-docente-a-contratto-in-economia-e-pro",
         "en": "call-for-applications-for-a-contract-lecturer-position-in-economics-and-market-design-usi-",
-        "de": "ausschreibung-fur-eine-lehrauftragsposition-im-bereich-volkswirtschaftslehre-und-marktdesign-usi-universita-della-svizze",
+        "de": "ausschreibung-fur-eine-lehrauftragsposition-im-bereich-volkswirtschaftslehre-und-marktdesi",
         "fr": "appel-a-candidatures-pour-un-poste-de-conferencier-contractuel-en-economie-et-conception-d"
       },
       "department": "Faculty of Economics",
@@ -370,8 +370,7 @@
       "previousSlugs": [
         "call-for-applications-for-a-contract-lecturer-position-in-economics-and-market-design-usi",
         "invito-a-presentare-candidature-per-una-posizione-di-docente-a-contratto-in-economia-e-progettazione-del-mercato-usi-uni",
-        "invito-a-presentare-candidature-per-una-posizione-di-docente-a-contratto-in-economia-e-pro",
-        "ausschreibung-fur-eine-lehrauftragsposition-im-bereich-volkswirtschaftslehre-und-marktdesi"
+        "invito-a-presentare-candidature-per-una-posizione-di-docente-a-contratto-in-economia-e-pro"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -399,9 +398,6 @@
         "it": [
           "invito-a-presentare-candidature-per-una-posizione-di-docente-a-contratto-in-economia-e-progettazione-del-mercato-usi-uni",
           "invito-a-presentare-candidature-per-una-posizione-di-docente-a-contratto-in-economia-e-pro"
-        ],
-        "de": [
-          "ausschreibung-fur-eine-lehrauftragsposition-im-bereich-volkswirtschaftslehre-und-marktdesi"
         ]
       }
     },
@@ -1243,14 +1239,14 @@
       },
       "titleByLocale": {
         "it": "Bibliotecaria/o specializzata/o in risorse elettroniche E-resources librarian",
-        "en": "Librarian specialized in electronic resources E-resources librarian",
+        "en": "Librarian specializing in electronic resources E-resources librarian",
         "de": "Spezialisierte/r Bibliothekar/in für elektronische Ressourcen",
         "fr": "Bibliothécaire (s) spécialisée (s) dans les ressources électroniques E-ressources librarian"
       },
       "slug": "bibliotecaria-o-specializzata-o-in-risorse-elettroniche-e-resources-librarian-usi-lugano",
       "slugByLocale": {
         "it": "bibliotecaria-o-specializzata-o-in-risorse-elettroniche-e-resources-librarian-usi-lugano",
-        "en": "librarian-specialized-in-electronic-resources-e-resources-librarian-usi-lugano",
+        "en": "librarian-specializing-in-electronic-resources-e-resources-librarian-usi-lugano",
         "de": "spezialisierte-r-bibliothekar-in-fur-elektronische-ressourcen-usi-lugano",
         "fr": "bibliothecaire-s-specialisee-s-dans-les-ressources-electroniques-e-ressources-librarian-us"
       },
@@ -1270,8 +1266,7 @@
         "bibliotecaria-o-specializzata-o-in-risorse-elettroniche-e-resources-librarian-usi",
         "bibliotecaria-o-specializzata-o-in-risorse-elettroniche-e-risorse-bibliotecario-usi-universita-della-svizzera-italiana-lugano",
         "bibliotecaria-o-specializzata-o-in-risorse-elettroniche-e-risorse-bibliotecario-usi-universita-della-svizzera-italiana-l",
-        "librarian-specialized-in-electronic-resources-e-resources-librarian-usi-lugano",
-        "librarian-specializing-in-electronic-resources-e-resources-librarian-usi-lugano"
+        "librarian-specialized-in-electronic-resources-e-resources-librarian-usi-lugano"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -1301,7 +1296,7 @@
         ],
         "en": [
           "bibliotecaria-o-specializzata-o-in-risorse-elettroniche-e-resources-librarian-usi",
-          "librarian-specializing-in-electronic-resources-e-resources-librarian-usi-lugano"
+          "librarian-specialized-in-electronic-resources-e-resources-librarian-usi-lugano"
         ],
         "de": [
           "bibliotecaria-o-specializzata-o-in-risorse-elettroniche-e-resources-librarian-usi",
@@ -1750,7 +1745,8 @@
           "tirocinio-in-architettura-e-tecnologia-usi-mendrisio",
           "internship-in-architecture-and-technology-usi-universita-della-svizzera-italiana-mendrisio"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/serv-inf/serv-inf-apprendista-operatore-informtico-2026.pdf",
