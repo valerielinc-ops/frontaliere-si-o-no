@@ -1,18 +1,19 @@
 {
   "key": "hochgebirgsklinik-davos",
   "label": "Hochgebirgsklinik Davos",
-  "generatedAt": "2026-04-11T18:51:25.756Z",
+  "generatedAt": "2026-04-11T21:24:56.215Z",
   "total": 18,
-  "newCount": 18,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 18,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 449678,
-  "avgDurationMs": 449678,
+  "durationMs": 4500,
+  "avgDurationMs": 4500,
   "durationHistory": [
-    449678
+    4500
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "hochgebirgsklinik-davos-c8b4856ddfa9",
       "slug": "mitarbeiter-patientensupport-m-w-80-100-hochgebirgsklinik-davos-ch",
@@ -25,7 +26,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjM4&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T18:43:58.013Z",
+      "crawledAt": "2026-04-11T21:24:53.985Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -46,11 +47,11 @@
       "pensum": "80 - 100%",
       "contactPerson": "Isabelle Künzli",
       "contactPhone": "+41 81 417 30 40",
-      "_qualityScore": 69,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -66,7 +67,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjM3&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T18:43:58.011Z",
+      "crawledAt": "2026-04-11T21:24:53.983Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -87,11 +88,11 @@
       "pensum": "60 - 100%",
       "contactPerson": "Isabelle Künzli",
       "contactPhone": "+41 81 417 30 40",
-      "_qualityScore": 69,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -107,7 +108,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjM1&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T18:43:58.011Z",
+      "crawledAt": "2026-04-11T21:24:53.984Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -128,11 +129,11 @@
       "pensum": "80 - 100%",
       "contactPerson": "Isabelle Künzli",
       "contactPhone": "+41 81 417 30 40",
-      "_qualityScore": 69,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -148,7 +149,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjM2&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T18:43:58.013Z",
+      "crawledAt": "2026-04-11T21:24:53.986Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -169,11 +170,11 @@
       "pensum": "50 - 80%",
       "contactPerson": "Isabelle Künzli",
       "contactPhone": "+41 81 417 30 40",
-      "_qualityScore": 69,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -189,7 +190,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjM0&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T18:43:58.014Z",
+      "crawledAt": "2026-04-11T21:24:53.986Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -208,11 +209,11 @@
       "pensumMin": 20,
       "pensumMax": 40,
       "pensum": "20 - 40%",
-      "_qualityScore": 69,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -228,7 +229,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjMz&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T18:43:58.014Z",
+      "crawledAt": "2026-04-11T21:24:53.987Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -246,11 +247,11 @@
       "streetAddress": "Promenade 117",
       "contactPerson": "Thomas Fischer",
       "contactPhone": "0814173078",
-      "_qualityScore": 69,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -266,7 +267,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjMy&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T18:43:58.013Z",
+      "crawledAt": "2026-04-11T21:24:53.986Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -287,11 +288,11 @@
       "pensum": "60 - 100%",
       "contactPerson": "Thomas Fischer",
       "contactPhone": "0814173078",
-      "_qualityScore": 69,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -307,7 +308,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjMx&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T18:43:58.011Z",
+      "crawledAt": "2026-04-11T21:24:53.984Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -326,11 +327,11 @@
       "pensumMin": 40,
       "pensumMax": 40,
       "pensum": "40%",
-      "_qualityScore": 69,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -346,7 +347,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjE4&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T18:43:58.014Z",
+      "crawledAt": "2026-04-11T21:24:53.987Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -364,11 +365,11 @@
       "streetAddress": "Promenade 117",
       "contactPerson": "Nicole Gartmann-Bebi",
       "contactPhone": "081 417 30 38",
-      "_qualityScore": 69,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -384,7 +385,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjE2&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T18:43:58.012Z",
+      "crawledAt": "2026-04-11T21:24:53.984Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -402,11 +403,11 @@
       "streetAddress": "Promenade 117",
       "contactPerson": "Anic Gloor",
       "contactPhone": "081 417 30 39",
-      "_qualityScore": 69,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -422,7 +423,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjE1&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T18:43:58.012Z",
+      "crawledAt": "2026-04-11T21:24:53.985Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -440,11 +441,11 @@
       "streetAddress": "Promenade 117",
       "contactPerson": "Anic Gloor",
       "contactPhone": "081 417 30 39",
-      "_qualityScore": 69,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -460,7 +461,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjE0&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T18:43:58.014Z",
+      "crawledAt": "2026-04-11T21:24:53.987Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -481,11 +482,11 @@
       "pensum": "80 - 100%",
       "contactPerson": "Isabelle Künzli",
       "contactPhone": "+41 81 417 30 40",
-      "_qualityScore": 69,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -501,7 +502,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjEw&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T18:43:58.012Z",
+      "crawledAt": "2026-04-11T21:24:53.985Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -519,11 +520,11 @@
       "streetAddress": "Promenade 117",
       "contactPerson": "Anic Gloor",
       "contactPhone": "081 417 30 39",
-      "_qualityScore": 69,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -539,7 +540,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjA5&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T18:43:58.012Z",
+      "crawledAt": "2026-04-11T21:24:53.985Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -557,11 +558,11 @@
       "streetAddress": "Promenade 117",
       "contactPerson": "Anic Gloor",
       "contactPhone": "081 417 30 39",
-      "_qualityScore": 69,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -577,7 +578,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NjA4&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T18:43:58.015Z",
+      "crawledAt": "2026-04-11T21:24:53.987Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -598,11 +599,11 @@
       "pensum": "100%",
       "contactPerson": "Isabelle Künzli",
       "contactPhone": "+41 81 417 30 40",
-      "_qualityScore": 69,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -618,7 +619,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NTk1&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T18:43:58.010Z",
+      "crawledAt": "2026-04-11T21:24:53.982Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -639,11 +640,12 @@
       "pensum": "80 - 100%",
       "contactPerson": "Thomas Fischer",
       "contactPhone": "0814173078",
-      "_qualityScore": 69,
+      "needsRetranslation": true,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -659,7 +661,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NTg3&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T18:43:58.015Z",
+      "crawledAt": "2026-04-11T21:24:53.988Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -680,11 +682,11 @@
       "pensum": "80 - 100%",
       "contactPerson": "Thomas Fischer",
       "contactPhone": "0814173078",
-      "_qualityScore": 69,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -700,7 +702,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/offer-redirect/?offerApiId=NTg2&showApplicationForm=false",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T18:43:58.015Z",
+      "crawledAt": "2026-04-11T21:24:53.988Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -721,16 +723,15 @@
       "pensum": "50 - 100%",
       "contactPerson": "Isabelle Künzli",
       "contactPhone": "+41 81 417 30 40",
-      "_qualityScore": 69,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
