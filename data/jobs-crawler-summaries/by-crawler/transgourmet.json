@@ -1,18 +1,19 @@
 {
   "key": "transgourmet",
   "label": "Transgourmet",
-  "generatedAt": "2026-04-11T12:43:14.929Z",
+  "generatedAt": "2026-04-11T22:03:11.072Z",
   "total": 2,
-  "newCount": 2,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 14732,
-  "avgDurationMs": 14732,
+  "durationMs": 2328,
+  "avgDurationMs": 2328,
   "durationHistory": [
-    14732
+    2328
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "transgourmet-d0ffad16-a2a",
       "slug": "abteilungsleiterin-abteilungsleiter-molkerei-transgourmet-gamsen",
@@ -25,7 +26,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/abteilungsleiterin-abteilungsleiter-molkerei/d0ffad16-a2a7-46d5-b32a-a38d1e371dbd",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T12:43:00.863Z",
+      "crawledAt": "2026-04-11T22:03:09.257Z",
       "addressLocality": "Gamsen",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -42,11 +43,11 @@
       "postedDate": "2026-03-17",
       "pensum": "100%",
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=164556",
-      "_qualityScore": 74,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -62,7 +63,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-markt/1c3385a2-832c-49c6-a61a-0308193c5d51",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T12:43:00.864Z",
+      "crawledAt": "2026-04-11T22:03:09.259Z",
       "addressLocality": "Gamsen",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -79,16 +80,15 @@
       "postedDate": "2026-03-12",
       "pensum": "50%",
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=164555",
-      "_qualityScore": 74,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
