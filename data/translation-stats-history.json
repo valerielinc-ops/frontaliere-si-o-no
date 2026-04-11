@@ -9862,5 +9862,89 @@
         "pending": 1
       }
     ]
+  },
+  {
+    "timestamp": "2026-04-11T20:05:30.732Z",
+    "label": "before",
+    "total": 2471,
+    "needsRetranslation": 135,
+    "incomplete": 57,
+    "complete": 2414,
+    "missingByLocale": {
+      "it": 9,
+      "en": 56,
+      "de": 48,
+      "fr": 56
+    },
+    "topPending": [
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 47
+      },
+      {
+        "company": "Hügli Nährmittel AG",
+        "pending": 4
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 2
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      },
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "Ticino Premium Properties SA",
+        "pending": 1
+      },
+      {
+        "company": "Swiss Armed Forces (VTG)",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-11T20:06:58.514Z",
+    "label": "after",
+    "total": 2471,
+    "needsRetranslation": 79,
+    "incomplete": 10,
+    "complete": 2461,
+    "missingByLocale": {
+      "it": 9,
+      "en": 9,
+      "de": 1,
+      "fr": 9
+    },
+    "topPending": [
+      {
+        "company": "Hügli Nährmittel AG",
+        "pending": 4
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 2
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      },
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "Ticino Premium Properties SA",
+        "pending": 1
+      },
+      {
+        "company": "Swiss Armed Forces (VTG)",
+        "pending": 1
+      }
+    ]
   }
 ]
