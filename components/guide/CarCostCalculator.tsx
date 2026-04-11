@@ -265,7 +265,7 @@ export default function CarCostCalculator() {
                 </div>
                 <button
                   onClick={() => { nav.setActiveTab('guida' as any); nav.setGuidaSubTab('car-transfer' as any); }}
-                  className="mt-3 flex items-center gap-1.5 text-sm font-medium text-blue-700 dark:text-blue-400 hover:underline"
+                  className="mt-3 flex items-center gap-1.5 text-sm font-medium text-stripe-700 dark:text-stripe-400 hover:underline"
                   aria-label={t('carTransfer.title')}
                 >
                   <ArrowRight size={14} />

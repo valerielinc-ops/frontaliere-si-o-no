@@ -85,16 +85,16 @@ export default function CalcolatoreTabContent() {
                   <a
                     href="/cerca-lavoro-ticino/"
                     onClick={(e) => { e.preventDefault(); Analytics.trackSelectContent('job_board_cta', 'desktop'); navigateTo('job-board' as any); }}
-                    className="w-full flex items-center gap-3 px-4 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 rounded-xl text-white transition-[color,background-color,border-color,box-shadow] hover:shadow-md text-left cursor-pointer"
+                    className="w-full flex items-center gap-3 px-4 py-3 bg-gradient-to-r from-stripe-600 to-stripe-700 hover:from-stripe-700 hover:to-stripe-800 rounded-xl text-white transition-[color,background-color,border-color,box-shadow] hover:shadow-md text-left cursor-pointer"
                   >
                     <div className="p-1.5 bg-white/20 rounded-lg flex-shrink-0">
                       <Briefcase size={16} className="text-white" />
                     </div>
                     <div className="min-w-0">
                       <div className="text-sm font-bold leading-tight line-clamp-2">{t('jobBoard.homeCta.title', getCantonI18nParams())}</div>
-                      <div className="text-xs text-blue-100 line-clamp-1">{t('jobBoard.homeCta.desc', getCantonI18nParams())}</div>
+                      <div className="text-xs text-stripe-100 line-clamp-1">{t('jobBoard.homeCta.desc', getCantonI18nParams())}</div>
                     </div>
-                    <div className="ml-auto flex-shrink-0 text-xs font-semibold text-blue-100 whitespace-nowrap hidden lg:block">{t('jobBoard.homeCta.button')}</div>
+                    <div className="ml-auto flex-shrink-0 text-xs font-semibold text-stripe-100 whitespace-nowrap hidden lg:block">{t('jobBoard.homeCta.button')}</div>
                   </a>
                 </div>
               </div>
@@ -170,13 +170,13 @@ export default function CalcolatoreTabContent() {
                   <a
                     href="/cerca-lavoro-ticino/"
                     onClick={(e) => { e.preventDefault(); Analytics.trackSelectContent('job_board_cta', 'mobile'); navigateTo('job-board' as any); }}
-                    className="w-full flex items-center justify-between gap-3 px-4 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 rounded-xl text-white transition-[color,background-color,border-color,transform] active:scale-[0.98]"
+                    className="w-full flex items-center justify-between gap-3 px-4 py-3 bg-gradient-to-r from-stripe-600 to-stripe-700 hover:from-stripe-700 hover:to-stripe-800 rounded-xl text-white transition-[color,background-color,border-color,transform] active:scale-[0.98]"
                   >
                     <div className="flex items-center gap-2.5 min-w-0">
                       <Briefcase size={18} className="text-white flex-shrink-0" />
                       <span className="text-sm font-bold line-clamp-1">{t('jobBoard.homeCta.mobile.title', getCantonI18nParams())}</span>
                     </div>
-                    <span className="text-xs font-semibold text-blue-100 flex-shrink-0">{t('jobBoard.homeCta.mobile.button')} →</span>
+                    <span className="text-xs font-semibold text-stripe-100 flex-shrink-0">{t('jobBoard.homeCta.mobile.button')} →</span>
                   </a>
                 </div>
                 <Suspense fallback={<div className="h-[34px]" />}>
@@ -204,7 +204,7 @@ export default function CalcolatoreTabContent() {
             )}
             {/* AI-extractable comparison table + FAQ — in <details> for crawlability without breaking page flow */}
             <details className="mt-6 group">
-              <summary className="cursor-pointer list-none flex items-center gap-2 text-sm font-medium text-blue-700 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors">
+              <summary className="cursor-pointer list-none flex items-center gap-2 text-sm font-medium text-stripe-700 dark:text-stripe-400 hover:text-stripe-800 dark:hover:text-stripe-300 transition-colors">
                 <svg className="w-4 h-4 transition-transform group-open:rotate-90" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
                 {t('calc.table.caption')}
               </summary>

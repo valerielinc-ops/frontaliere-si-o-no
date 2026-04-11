@@ -124,11 +124,11 @@ const CHECKLIST_STEPS: ChecklistStep[] = [
 ];
 
 const CATEGORY_COLORS: Record<string, { bg: string; text: string; border: string }> = {
-  documents: { bg: 'bg-blue-100 dark:bg-blue-900/30', text: 'text-blue-700 dark:text-blue-300', border: 'border-blue-200 dark:border-blue-800' },
+  documents: { bg: 'bg-stripe-100 dark:bg-stripe-900/30', text: 'text-stripe-700 dark:text-stripe-300', border: 'border-stripe-200 dark:border-stripe-800' },
   work: { bg: 'bg-amber-100 dark:bg-amber-900/30', text: 'text-amber-700 dark:text-amber-300', border: 'border-amber-200 dark:border-amber-800' },
   finance: { bg: 'bg-emerald-100 dark:bg-emerald-900/30', text: 'text-emerald-700 dark:text-emerald-300', border: 'border-emerald-200 dark:border-emerald-800' },
   health: { bg: 'bg-rose-100 dark:bg-rose-900/30', text: 'text-rose-700 dark:text-rose-300', border: 'border-rose-200 dark:border-rose-800' },
-  life: { bg: 'bg-violet-100 dark:bg-violet-900/30', text: 'text-violet-700 dark:text-violet-300', border: 'border-violet-200 dark:border-violet-800' },
+  life: { bg: 'bg-stripe-100 dark:bg-stripe-900/30', text: 'text-stripe-700 dark:text-stripe-300', border: 'border-stripe-200 dark:border-stripe-800' },
 };
 
 const STORAGE_KEY = 'frontaliere_firstday_checklist';
@@ -311,9 +311,9 @@ const FirstDayGuide: React.FC = () => {
                 <div className="px-4 pb-4 ml-11 space-y-3 border-t border-slate-100 dark:border-slate-700 pt-3">
                   {/* Profile hint */}
                   {profileHints[step.id] && (
-                    <div className="flex items-start gap-2 p-3 bg-indigo-50 dark:bg-indigo-950/30 rounded-lg border border-indigo-200 dark:border-indigo-800">
-                      <User className="w-4 h-4 text-indigo-500 shrink-0 mt-0.5" />
-                      <p className="text-sm text-indigo-700 dark:text-indigo-300 font-medium">{profileHints[step.id]}</p>
+                    <div className="flex items-start gap-2 p-3 bg-stripe-50 dark:bg-stripe-950/30 rounded-lg border border-stripe-200 dark:border-stripe-800">
+                      <User className="w-4 h-4 text-stripe-500 shrink-0 mt-0.5" />
+                      <p className="text-sm text-stripe-700 dark:text-stripe-300 font-medium">{profileHints[step.id]}</p>
                     </div>
                   )}
 
@@ -340,7 +340,7 @@ const FirstDayGuide: React.FC = () => {
                           nav.navigateTo('job-board');
                           Analytics.trackUIInteraction('first_day_guide', 'job_board_cta', 'click', 'find_job_step');
                         }}
-                        className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 dark:bg-indigo-600 dark:hover:bg-indigo-500 text-white rounded-lg text-xs font-bold transition-colors"
+                        className="inline-flex items-center gap-2 px-4 py-2 bg-stripe-600 hover:bg-stripe-700 dark:bg-stripe-600 dark:hover:bg-stripe-500 text-white rounded-lg text-xs font-bold transition-colors"
                       >
                         <Briefcase className="w-3.5 h-3.5" />
                         {t('firstday.jobBoard.cta')}

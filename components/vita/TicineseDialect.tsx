@@ -165,9 +165,9 @@ const CUSTOM_TERMS: Record<string, Record<Locale, CustomTermContent>> = {
 };
 
 const CATEGORY_COLORS: Record<DialectCategory, { bg: string; text: string; darkBg: string; darkText: string }> = {
-  saluti: { bg: 'bg-blue-100', text: 'text-blue-700', darkBg: 'dark:bg-blue-900/30', darkText: 'dark:text-blue-300' },
+  saluti: { bg: 'bg-stripe-100', text: 'text-stripe-700', darkBg: 'dark:bg-stripe-900/30', darkText: 'dark:text-stripe-300' },
   espressioni: { bg: 'bg-amber-100', text: 'text-amber-700', darkBg: 'dark:bg-amber-900/30', darkText: 'dark:text-amber-300' },
-  proverbi: { bg: 'bg-violet-100', text: 'text-violet-700', darkBg: 'dark:bg-violet-900/30', darkText: 'dark:text-violet-300' },
+  proverbi: { bg: 'bg-stripe-100', text: 'text-stripe-700', darkBg: 'dark:bg-stripe-900/30', darkText: 'dark:text-stripe-300' },
   cibo: { bg: 'bg-emerald-100', text: 'text-emerald-700', darkBg: 'dark:bg-emerald-900/30', darkText: 'dark:text-emerald-300' },
   lavoro: { bg: 'bg-teal-100', text: 'text-teal-700', darkBg: 'dark:bg-teal-900/30', darkText: 'dark:text-teal-300' },
   natura: { bg: 'bg-sky-100', text: 'text-sky-700', darkBg: 'dark:bg-sky-900/30', darkText: 'dark:text-sky-300' },
@@ -354,7 +354,7 @@ const TicineseDialect: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         <div className="lg:col-span-2 bg-surface border border-edge rounded-xl p-4">
           <div className="flex items-center gap-2 mb-2">
-            <Lightbulb size={18} className="text-indigo-500" />
+            <Lightbulb size={18} className="text-stripe-500" />
             <h3 className="font-semibold text-slate-800 dark:text-slate-100">{tt('dialect.historyTitle', 'Storia del dialetto')}</h3>
           </div>
           <p className="text-sm text-slate-600 dark:text-slate-300">{tt('dialect.historyText', 'Il dialetto ticinese appartiene al gruppo lombardo occidentale, con influenze alpine, italiane e svizzere. Nella vita quotidiana convive con l’italiano standard, soprattutto nei contesti di lavoro frontaliero.')}</p>
@@ -362,7 +362,7 @@ const TicineseDialect: React.FC = () => {
 
         <div className="bg-surface border border-edge rounded-xl p-4">
           <div className="flex items-center gap-2 mb-2">
-            <GraduationCap size={18} className="text-violet-500" />
+            <GraduationCap size={18} className="text-stripe-500" />
             <h3 className="font-semibold text-slate-800 dark:text-slate-100">{tt('dialect.quizTitle', 'Quiz')}</h3>
           </div>
           {quizState && (
@@ -398,7 +398,7 @@ const TicineseDialect: React.FC = () => {
                       : `${tt('dialect.quizWrong', 'Non esatto')}: ${termField({ key: quizState.correct, category: 'espressioni' }, 'italian')}`
                     : tt('dialect.quizHint', 'Scegli una risposta')}
                 </span>
-                <button onClick={generateQuiz} className="inline-flex items-center gap-1 text-xs text-indigo-600 dark:text-indigo-300 hover:underline">
+                <button onClick={generateQuiz} className="inline-flex items-center gap-1 text-xs text-stripe-600 dark:text-stripe-300 hover:underline">
                   <RotateCcw size={12} /> {tt('dialect.quizNext', 'Nuova domanda')}
                 </button>
               </div>
@@ -502,8 +502,8 @@ const TicineseDialect: React.FC = () => {
                       </div>
                     )}
                     {!!termField(entry, 'etymology') && (
-                      <div className="bg-indigo-50 dark:bg-indigo-950/30 rounded-lg p-3 text-xs">
-                        <span className="font-semibold text-indigo-700 dark:text-indigo-300">{tt('dialect.etymology', 'Etimologia')}: </span>
+                      <div className="bg-stripe-50 dark:bg-stripe-950/30 rounded-lg p-3 text-xs">
+                        <span className="font-semibold text-stripe-700 dark:text-stripe-300">{tt('dialect.etymology', 'Etimologia')}: </span>
                         <span>{termField(entry, 'etymology')}</span>
                       </div>
                     )}

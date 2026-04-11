@@ -169,7 +169,7 @@ const ParentalLeaveCalculator: React.FC<ParentalLeaveProps> = ({ userProfile }) 
         <button
           onClick={() => setLeaveType('paternity')}
           className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-bold rounded-lg transition-colors ${
-            leaveType === 'paternity' ? 'bg-blue-600 text-white shadow-sm' : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700'
+            leaveType === 'paternity' ? 'bg-stripe-600 text-white shadow-sm' : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700'
           }`}
         >
           <Baby size={16} />
@@ -326,7 +326,7 @@ const ParentalLeaveCalculator: React.FC<ParentalLeaveProps> = ({ userProfile }) 
         <>
           <button
             onClick={() => setShowParental(!showParental)}
-            className="flex items-center gap-2 text-sm font-bold text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 transition-colors"
+            className="flex items-center gap-2 text-sm font-bold text-stripe-600 dark:text-stripe-400 hover:text-stripe-800 transition-colors"
           >
             {showParental ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
             {t('leave.parentalTitle')}
@@ -375,7 +375,7 @@ const ParentalLeaveCalculator: React.FC<ParentalLeaveProps> = ({ userProfile }) 
                 <span className={`text-xs px-2 py-0.5 rounded-full font-bold ${
                   doc.country === 'CH' ? 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400' :
                   doc.country === 'IT' ? 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400' :
-                  'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400'
+                  'bg-stripe-100 text-stripe-700 dark:bg-stripe-900/30 dark:text-stripe-400'
                 }`}>
                   {doc.country === 'both' ? 'CH + IT' : doc.country}
                 </span>
@@ -388,22 +388,22 @@ const ParentalLeaveCalculator: React.FC<ParentalLeaveProps> = ({ userProfile }) 
       {/* LPP Impact */}
       <div className="bg-surface rounded-2xl border border-edge p-5">
         <h4 className="font-bold text-strong mb-3 flex items-center gap-2">
-          <Info className="w-4 h-4 text-blue-600" />
+          <Info className="w-4 h-4 text-stripe-600" />
           {t('leave.lppImpactTitle')}
         </h4>
         <p className="text-sm text-muted mb-3">
           {t('leave.lppImpactDesc')}
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-sm">
-          <div className="bg-blue-50 dark:bg-blue-950/30 rounded-lg p-3">
+          <div className="bg-stripe-50 dark:bg-stripe-950/30 rounded-lg p-3">
             <p className="text-xs text-link font-bold uppercase">AVS/AHV</p>
             <p className="text-body">{t('leave.lppAvs')}</p>
           </div>
-          <div className="bg-blue-50 dark:bg-blue-950/30 rounded-lg p-3">
+          <div className="bg-stripe-50 dark:bg-stripe-950/30 rounded-lg p-3">
             <p className="text-xs text-link font-bold uppercase">LPP/BVG</p>
             <p className="text-body">{t('leave.lppBvg')}</p>
           </div>
-          <div className="bg-blue-50 dark:bg-blue-950/30 rounded-lg p-3">
+          <div className="bg-stripe-50 dark:bg-stripe-950/30 rounded-lg p-3">
             <p className="text-xs text-link font-bold uppercase">INPS</p>
             <p className="text-body">{t('leave.lppInps')}</p>
           </div>

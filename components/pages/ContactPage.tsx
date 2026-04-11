@@ -137,7 +137,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ prefill, onPrefillConsumed })
           </p>
           <button
             onClick={() => setStatus('idle')}
-            className="mt-6 inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-xl transition-colors"
+            className="mt-6 inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-stripe-600 hover:bg-stripe-700 rounded-xl transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
             {t('contact.sendAnother')}
@@ -151,7 +151,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ prefill, onPrefillConsumed })
     <div className="max-w-2xl mx-auto px-4 py-8">
       {/* Header */}
       <div className="text-center mb-8">
-        <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-blue-100 dark:bg-blue-900/30 mb-4">
+        <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-stripe-100 dark:bg-stripe-900/30 mb-4">
           <Mail className="w-7 h-7 text-link" />
         </div>
         <h1 className="text-2xl sm:text-3xl font-bold text-slate-800 dark:text-slate-100 mb-2">
@@ -176,7 +176,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ prefill, onPrefillConsumed })
             value={form.name}
             onChange={e => setForm(prev => ({ ...prev, name: e.target.value }))}
             autoComplete="name"
-            className="w-full px-4 py-2.5 rounded-xl border border-edge bg-surface-alt text-slate-800 dark:text-slate-100 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:border-transparent outline-none transition-[color,background-color,border-color,box-shadow]"
+            className="w-full px-4 py-2.5 rounded-xl border border-edge bg-surface-alt text-slate-800 dark:text-slate-100 focus-visible:ring-2 focus-visible:ring-stripe-500 focus-visible:border-transparent outline-none transition-[color,background-color,border-color,box-shadow]"
             placeholder={t('contact.namePlaceholder')}
           />
         </div>
@@ -191,7 +191,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ prefill, onPrefillConsumed })
             value={form.email}
             onChange={val => setForm(prev => ({ ...prev, email: val }))}
             autoComplete="email"
-            className="w-full px-4 py-2.5 rounded-xl border border-edge bg-surface-alt text-slate-800 dark:text-slate-100 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:border-transparent outline-none transition-[color,background-color,border-color,box-shadow]"
+            className="w-full px-4 py-2.5 rounded-xl border border-edge bg-surface-alt text-slate-800 dark:text-slate-100 focus-visible:ring-2 focus-visible:ring-stripe-500 focus-visible:border-transparent outline-none transition-[color,background-color,border-color,box-shadow]"
             placeholder={t('contact.emailPlaceholder')}
           />
         </div>
@@ -210,7 +210,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ prefill, onPrefillConsumed })
               setForm(prev => ({ ...prev, topic }));
               if (topic) Analytics.trackUIInteraction('contact', 'form', 'topic_select', topic);
             }}
-            className="w-full px-4 py-2.5 rounded-xl border border-edge bg-surface-alt text-slate-800 dark:text-slate-100 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:border-transparent outline-none transition-[color,background-color,border-color,box-shadow]"
+            className="w-full px-4 py-2.5 rounded-xl border border-edge bg-surface-alt text-slate-800 dark:text-slate-100 focus-visible:ring-2 focus-visible:ring-stripe-500 focus-visible:border-transparent outline-none transition-[color,background-color,border-color,box-shadow]"
           >
             <option value="">{t('contact.topicPlaceholder')}</option>
             {TOPICS.map(topicKey => (
@@ -234,7 +234,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ prefill, onPrefillConsumed })
             value={form.message}
             onChange={e => setForm(prev => ({ ...prev, message: e.target.value }))}
             spellCheck={true}
-            className="w-full px-4 py-2.5 rounded-xl border border-edge bg-surface-alt text-slate-800 dark:text-slate-100 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:border-transparent outline-none transition-[color,background-color,border-color,box-shadow] resize-y min-h-[120px]"
+            className="w-full px-4 py-2.5 rounded-xl border border-edge bg-surface-alt text-slate-800 dark:text-slate-100 focus-visible:ring-2 focus-visible:ring-stripe-500 focus-visible:border-transparent outline-none transition-[color,background-color,border-color,box-shadow] resize-y min-h-[120px]"
             placeholder={t('contact.messagePlaceholder')}
           />
           <p className="mt-1 text-xs text-muted">
@@ -256,7 +256,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ prefill, onPrefillConsumed })
         <button
           type="submit"
           disabled={!isValid || status === 'sending'}
-          className="w-full flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 disabled:bg-slate-400 disabled:cursor-not-allowed rounded-xl transition-colors shadow-sm"
+          className="w-full flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold text-white bg-stripe-600 hover:bg-stripe-700 disabled:bg-slate-400 disabled:cursor-not-allowed rounded-xl transition-colors shadow-sm"
         >
           {status === 'sending' ? (
             <>

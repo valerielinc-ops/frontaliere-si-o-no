@@ -224,7 +224,7 @@ const PermitQuiz: React.FC = () => {
               </div>
               <div className="h-4 bg-surface-raised rounded-full overflow-hidden">
                 <div
-                  className="h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-full transition-transform duration-1000 origin-left"
+                  className="h-full bg-gradient-to-r from-stripe-500 to-stripe-600 rounded-full transition-transform duration-1000 origin-left"
                   style={{ transform: `scaleX(${bPercent / 100})` }}
                 />
               </div>
@@ -284,7 +284,7 @@ const PermitQuiz: React.FC = () => {
                       {t(`permitQuiz.q.${a.questionId}.opt.${a.value}`)}
                     </span>
                     <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${
-                      dominant === 'B' ? 'bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300' :
+                      dominant === 'B' ? 'bg-stripe-100 text-stripe-700 dark:bg-stripe-900 dark:text-stripe-300' :
                       dominant === 'G' ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900 dark:text-emerald-300' :
                       'bg-amber-100 text-amber-700 dark:bg-amber-900 dark:text-amber-300'
                     }`}>

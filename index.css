@@ -23,10 +23,10 @@ html.dark { color-scheme: dark; }
   --_heading: #0f172a;       /* slate-900 — headings */
   /* Borders */
   --_edge: #e2e8f0;          /* slate-200 */
-  /* Interactive */
-  --_link: #2563eb;          /* blue-600 */
-  --_accent: #4f46e5;        /* indigo-600 */
-  --_accent-hover: #4338ca;  /* indigo-700 */
+  /* Interactive — Stripe-inspired purple */
+  --_link: #533afd;          /* stripe-purple */
+  --_accent: #533afd;        /* stripe-purple */
+  --_accent-hover: #4529e6;  /* stripe-purple-dark */
   /* Status */
   --_success: #059669;
   --_warning: #d97706;
@@ -42,9 +42,9 @@ html.dark {
   --_strong: #e2e8f0;        /* slate-200 */
   --_heading: #f1f5f9;       /* slate-100 */
   --_edge: #334155;          /* slate-700 */
-  --_link: #60a5fa;          /* blue-400 */
-  --_accent: #818cf8;        /* indigo-400 */
-  --_accent-hover: #6366f1;  /* indigo-500 */
+  --_link: #7a5af8;          /* stripe-purple-light */
+  --_accent: #7a5af8;        /* stripe-purple-light */
+  --_accent-hover: #9b8afb;  /* stripe-purple-lighter */
   --_success: #34d399;
   --_warning: #fbbf24;
   --_danger: #f87171;
@@ -75,10 +75,10 @@ button, a, [role="button"], input, select, textarea, label, summary {
   overscroll-behavior: contain;
 }
 
-/* Global keyboard focus indicator — teal-600 ring on all interactive elements */
+/* Global keyboard focus indicator — Stripe purple ring on all interactive elements */
 button:focus-visible, a:focus-visible, [role="button"]:focus-visible,
 input:focus-visible, select:focus-visible, textarea:focus-visible {
-  outline: 2px solid #0d9488;
+  outline: 2px solid #533afd;
   outline-offset: 2px;
 }
 
@@ -168,7 +168,8 @@ input[type=number] { -moz-appearance: textfield; }
 }
 
 @theme {
-  --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: 'Space Grotesk', ui-sans-serif, system-ui, -apple-system, sans-serif;
 
   --color-slate-850: #1e293b;
   --color-slate-950: #020617;

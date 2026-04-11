@@ -429,7 +429,7 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
   const verdictColors = result.verdict === 'g'
     ? 'bg-green-50 dark:bg-green-900/30 text-green-800 dark:text-green-300'
     : result.verdict === 'b'
-    ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300'
+    ? 'bg-stripe-50 dark:bg-stripe-900/30 text-stripe-800 dark:text-stripe-300'
     : 'bg-slate-50 dark:bg-slate-700 text-slate-800 dark:text-slate-300';
 
   return (
@@ -861,7 +861,7 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
                       href={resource.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-sm text-blue-700 dark:text-blue-300 hover:underline"
+                      className="inline-flex items-center gap-1 text-sm text-stripe-700 dark:text-stripe-300 hover:underline"
                     >
                       {resource.label}
                       <ExternalLink size={12} />

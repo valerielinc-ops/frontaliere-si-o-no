@@ -195,7 +195,7 @@ export default function SalaryCompare() {
     id: InternalTab; label: string; icon: React.ReactNode; cls: string;
   }[] = [
     { id: 'sectors', label: t('salaryCompare.tabSectors'), icon: <BarChart3 size={16} />, cls: 'text-amber-700 dark:text-amber-400' },
-    { id: 'professions', label: t('salaryCompare.tabProfessions'), icon: <Briefcase size={16} />, cls: 'text-blue-700 dark:text-blue-400' },
+    { id: 'professions', label: t('salaryCompare.tabProfessions'), icon: <Briefcase size={16} />, cls: 'text-stripe-700 dark:text-stripe-400' },
     { id: 'survey', label: t('salary.title'), icon: <Users size={16} />, cls: 'text-teal-700 dark:text-teal-400' },
   ];
 
@@ -224,9 +224,9 @@ export default function SalaryCompare() {
               {TOTAL_SECTORS} {t('salaryCompare.totalSectors')}
             </span>
           </div>
-          <div className="flex items-center gap-2 bg-blue-50 dark:bg-blue-900/20 rounded-lg px-3 py-1.5">
-            <Briefcase size={14} className="text-blue-700 dark:text-blue-400" />
-            <span className="text-sm font-bold text-blue-800 dark:text-blue-300">
+          <div className="flex items-center gap-2 bg-stripe-50 dark:bg-stripe-900/20 rounded-lg px-3 py-1.5">
+            <Briefcase size={14} className="text-stripe-700 dark:text-stripe-400" />
+            <span className="text-sm font-bold text-stripe-800 dark:text-stripe-300">
               {TOTAL_PROFESSIONS} {t('salaryCompare.totalProfessions')}
             </span>
           </div>
@@ -419,7 +419,7 @@ export default function SalaryCompare() {
                         {/* Sector metadata badges */}
                         {SECTOR_METADATA[r.id] && (
                           <div className="flex flex-wrap gap-1.5 mb-2.5">
-                            <span className="inline-flex items-center gap-1 text-xs bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-400 rounded-full px-2 py-0.5">
+                            <span className="inline-flex items-center gap-1 text-xs bg-stripe-50 dark:bg-stripe-900/20 text-stripe-700 dark:text-stripe-400 rounded-full px-2 py-0.5">
                               <Users size={10} /> {SECTOR_METADATA[r.id].employeeCount.toLocaleString()} {t('salaryCompare.meta.employees')}
                             </span>
                             {SECTOR_METADATA[r.id].frontialieriRatio < 1.0 && (
@@ -427,7 +427,7 @@ export default function SalaryCompare() {
                                 {t('salaryCompare.meta.frontalieri')} {Math.round((1 - SECTOR_METADATA[r.id].frontialieriRatio) * 100)}%
                               </span>
                             )}
-                            <span className="inline-flex items-center gap-1 text-xs bg-violet-50 dark:bg-violet-900/20 text-violet-700 dark:text-violet-400 rounded-full px-2 py-0.5">
+                            <span className="inline-flex items-center gap-1 text-xs bg-stripe-50 dark:bg-stripe-900/20 text-stripe-700 dark:text-stripe-400 rounded-full px-2 py-0.5">
                               {t('salaryCompare.meta.genderGap')} {SECTOR_METADATA[r.id].genderGapPercent > 0 ? '+' : ''}{SECTOR_METADATA[r.id].genderGapPercent.toFixed(1)}%
                             </span>
                             <span className="inline-flex items-center gap-1 text-xs bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-400 rounded-full px-2 py-0.5">
@@ -556,7 +556,7 @@ export default function SalaryCompare() {
                                 <tr className="bg-slate-50/80 dark:bg-slate-700/40 border-b border-slate-100 dark:border-slate-700/30">
                                   <td colSpan={8} className="py-2 px-4">
                                     <div className="flex flex-wrap gap-2">
-                                      <span className="inline-flex items-center gap-1 text-xs bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-400 rounded-full px-2.5 py-0.5">
+                                      <span className="inline-flex items-center gap-1 text-xs bg-stripe-50 dark:bg-stripe-900/20 text-stripe-700 dark:text-stripe-400 rounded-full px-2.5 py-0.5">
                                         <Users size={11} /> {SECTOR_METADATA[r.id].employeeCount.toLocaleString()} {t('salaryCompare.meta.employees')}
                                       </span>
                                       {SECTOR_METADATA[r.id].frontialieriRatio < 1.0 && (
@@ -564,7 +564,7 @@ export default function SalaryCompare() {
                                           {t('salaryCompare.meta.frontalieri')} −{Math.round((1 - SECTOR_METADATA[r.id].frontialieriRatio) * 100)}%
                                         </span>
                                       )}
-                                      <span className="inline-flex items-center gap-1 text-xs bg-violet-50 dark:bg-violet-900/20 text-violet-700 dark:text-violet-400 rounded-full px-2.5 py-0.5">
+                                      <span className="inline-flex items-center gap-1 text-xs bg-stripe-50 dark:bg-stripe-900/20 text-stripe-700 dark:text-stripe-400 rounded-full px-2.5 py-0.5">
                                         {t('salaryCompare.meta.genderGap')} {SECTOR_METADATA[r.id].genderGapPercent > 0 ? '+' : ''}{SECTOR_METADATA[r.id].genderGapPercent.toFixed(1)}%
                                       </span>
                                       <span className="inline-flex items-center gap-1 text-xs bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-400 rounded-full px-2.5 py-0.5">

@@ -105,10 +105,10 @@ const GLOSSARY_ENTRIES: GlossaryEntry[] = [
 ];
 
 const CATEGORY_COLORS: Record<string, { bg: string; text: string; darkBg: string; darkText: string }> = {
-  tax: { bg: 'bg-blue-100', text: 'text-blue-700', darkBg: 'dark:bg-blue-900/30', darkText: 'dark:text-blue-300' },
+  tax: { bg: 'bg-stripe-100', text: 'text-stripe-700', darkBg: 'dark:bg-stripe-900/30', darkText: 'dark:text-stripe-300' },
   pension: { bg: 'bg-emerald-100', text: 'text-emerald-700', darkBg: 'dark:bg-emerald-900/30', darkText: 'dark:text-emerald-300' },
   insurance: { bg: 'bg-red-100', text: 'text-red-700', darkBg: 'dark:bg-red-900/30', darkText: 'dark:text-red-300' },
-  legal: { bg: 'bg-violet-100', text: 'text-violet-700', darkBg: 'dark:bg-violet-900/30', darkText: 'dark:text-violet-300' },
+  legal: { bg: 'bg-stripe-100', text: 'text-stripe-700', darkBg: 'dark:bg-stripe-900/30', darkText: 'dark:text-stripe-300' },
   finance: { bg: 'bg-amber-100', text: 'text-amber-700', darkBg: 'dark:bg-amber-900/30', darkText: 'dark:text-amber-300' },
   work: { bg: 'bg-teal-100', text: 'text-teal-700', darkBg: 'dark:bg-teal-900/30', darkText: 'dark:text-teal-300' },
 };
@@ -163,7 +163,7 @@ const Glossary: React.FC<GlossaryProps> = ({ initialEntry }) => {
             <h1 className="text-2xl font-bold">{t('glossary.title')}</h1>
           )}
         </div>
-        <p className="text-indigo-100 text-sm">{t('glossary.subtitle')}</p>
+        <p className="text-stripe-100 text-sm">{t('glossary.subtitle')}</p>
         <DataFreshness lastUpdated="2026-04" source={t('freshness.source.redazione')} variant="badge" />
       </div>
 

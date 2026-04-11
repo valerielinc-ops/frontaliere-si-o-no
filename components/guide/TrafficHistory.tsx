@@ -233,7 +233,7 @@ export default function TrafficHistory() {
       {/* Header */}
       <div className="text-center mb-6">
         <h2 className="text-2xl sm:text-3xl font-bold text-slate-800 dark:text-slate-100 mb-2 flex items-center justify-center gap-2">
-          <Clock size={28} className="text-blue-600" />
+          <Clock size={28} className="text-stripe-600" />
           {t('trafficHistory.title')}
         </h2>
         <p className="text-subtle">{t('trafficHistory.subtitle')}</p>
@@ -263,8 +263,8 @@ export default function TrafficHistory() {
             onClick={() => setSelectedCrossing(name)}
             className={`px-4 py-2 rounded-xl text-sm font-medium transition-[color,background-color,border-color,box-shadow] ${
               selectedCrossing === name
-                ? 'bg-blue-600 text-white shadow-lg'
-                : 'bg-surface text-body border border-edge hover:border-blue-400'
+                ? 'bg-stripe-600 text-white shadow-lg'
+                : 'bg-surface text-body border border-edge hover:border-stripe-400'
             }`}
           >
             <MapPin size={14} className="inline mr-1" />
@@ -289,12 +289,12 @@ export default function TrafficHistory() {
           </p>
           <p className="text-sm text-red-600 dark:text-red-400">{analysis.worstWait} min</p>
         </div>
-        <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-4">
+        <div className="bg-stripe-50 dark:bg-stripe-900/20 border border-stripe-200 dark:border-stripe-800 rounded-xl p-4">
           <p className="text-xs text-link font-semibold mb-1">{t('trafficHistory.dailyAvg')}</p>
           <div className="flex gap-1 mt-1">
             {analysis.dayAverages.map(d => (
               <div key={d.day} className="flex-1 text-center">
-                <p className="text-xs text-blue-500 dark:text-blue-400">{d.name}</p>
+                <p className="text-xs text-stripe-500 dark:text-stripe-400">{d.name}</p>
                 <p className={`text-xs font-bold rounded px-1 py-0.5 ${d.avg > 15 ? 'text-red-700 dark:text-red-400' : d.avg > 8 ? 'text-orange-700 dark:text-orange-400' : 'text-emerald-700 dark:text-emerald-400'}`}>
                   {d.avg}'
                 </p>

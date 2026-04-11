@@ -57,7 +57,7 @@ const LanguageSelector: React.FC = () => {
               onClick={() => handleSelect(locale)}
               className={`w-full flex items-center gap-3 px-4 py-2.5 text-sm transition-colors ${
                 current === locale
-                  ? 'bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 font-bold'
+                  ? 'bg-stripe-50 dark:bg-stripe-900/30 text-stripe-600 dark:text-stripe-400 font-bold'
                   : 'text-body hover:bg-slate-50 dark:hover:bg-slate-700'
               }`}
             >

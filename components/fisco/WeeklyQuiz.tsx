@@ -477,10 +477,10 @@ const WeeklyQuiz: React.FC = () => {
 
         {/* Explanation */}
         {showExplanation && (
-          <div className="mt-6 p-4 bg-blue-50 dark:bg-blue-950/20 rounded-xl border border-blue-200 dark:border-blue-800">
+          <div className="mt-6 p-4 bg-stripe-50 dark:bg-stripe-950/20 rounded-xl border border-stripe-200 dark:border-stripe-800">
             <div className="flex items-start gap-2">
-              <Sparkles className="w-5 h-5 text-blue-500 shrink-0 mt-0.5" />
-              <p className="text-sm text-blue-700 dark:text-blue-300">
+              <Sparkles className="w-5 h-5 text-stripe-500 shrink-0 mt-0.5" />
+              <p className="text-sm text-stripe-700 dark:text-stripe-300">
                 {t(currentQuestion.explanationKey)}
               </p>
             </div>

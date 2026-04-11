@@ -69,17 +69,17 @@ function scoreMatch(keywords: string[], targets: string[]): number {
 // Static search index for suggestions (mirrors top-level SiteSearch items)
 function buildSuggestionIndex(t: (key: string, params?: Record<string, string>) => string): Suggestion[] {
   return [
-    { title: t('nav.simulator') || 'Simulatore', description: t('app.subtitle'), tab: 'calculator', icon: Calculator, color: 'text-blue-600', score: 0 },
-    { title: t('comparators.exchange') || 'Cambio Valuta', description: t('notFound.desc.exchange'), tab: 'confronti', subTab: 'exchange', icon: Calculator, color: 'text-violet-600', score: 0 },
+    { title: t('nav.simulator') || 'Simulatore', description: t('app.subtitle'), tab: 'calculator', icon: Calculator, color: 'text-stripe-600', score: 0 },
+    { title: t('comparators.exchange') || 'Cambio Valuta', description: t('notFound.desc.exchange'), tab: 'confronti', subTab: 'exchange', icon: Calculator, color: 'text-stripe-600', score: 0 },
     { title: t('comparators.health') || 'Assicurazione Sanitaria', description: t('notFound.desc.health'), tab: 'confronti', subTab: 'health', icon: Calculator, color: 'text-emerald-600', score: 0 },
     { title: t('comparators.jobs') || 'Offerte Lavoro', description: t('notFound.desc.jobs', getCantonI18nParams()), tab: 'job-board', icon: Briefcase, color: 'text-amber-600', score: 0 },
     { title: t('nav.blog') || 'Articoli', description: t('notFound.desc.articles'), tab: 'blog', icon: FileText, color: 'text-rose-600', score: 0 },
-    { title: t('guide.tabs.firstDay') || 'Primo Giorno', description: t('notFound.desc.guide'), tab: 'guida', subTab: 'first-day', icon: BookOpen, color: 'text-indigo-600', score: 0 },
-    { title: t('guide.tabs.permits') || 'Permessi', description: t('notFound.desc.permits'), tab: 'guida', subTab: 'permits', icon: BookOpen, color: 'text-indigo-600', score: 0 },
+    { title: t('guide.tabs.firstDay') || 'Primo Giorno', description: t('notFound.desc.guide'), tab: 'guida', subTab: 'first-day', icon: BookOpen, color: 'text-stripe-600', score: 0 },
+    { title: t('guide.tabs.permits') || 'Permessi', description: t('notFound.desc.permits'), tab: 'guida', subTab: 'permits', icon: BookOpen, color: 'text-stripe-600', score: 0 },
     { title: t('nav.pension') || 'Pensione', description: t('notFound.desc.pension'), tab: 'fisco', subTab: 'pension', icon: Calculator, color: 'text-emerald-600', score: 0 },
     { title: t('withholdingRates.navLabel') || 'Aliquote alla Fonte', description: t('notFound.desc.withholding'), tab: 'fisco', subTab: 'withholding-rates', icon: Calculator, color: 'text-emerald-600', score: 0 },
-    { title: t('comparators.shopping') || 'Spesa Transfrontaliera', description: t('notFound.desc.shopping'), tab: 'confronti', subTab: 'shopping', icon: Calculator, color: 'text-violet-600', score: 0 },
-    { title: t('comparators.borderMap') || 'Mappa Dogane', description: t('notFound.desc.borderMap'), tab: 'guida', subTab: 'border-map', icon: BookOpen, color: 'text-indigo-600', score: 0 },
+    { title: t('comparators.shopping') || 'Spesa Transfrontaliera', description: t('notFound.desc.shopping'), tab: 'confronti', subTab: 'shopping', icon: Calculator, color: 'text-stripe-600', score: 0 },
+    { title: t('comparators.borderMap') || 'Mappa Dogane', description: t('notFound.desc.borderMap'), tab: 'guida', subTab: 'border-map', icon: BookOpen, color: 'text-stripe-600', score: 0 },
     { title: t('comparators.taxReturn') || 'Dichiarazione Fiscale', description: t('notFound.desc.taxReturn'), tab: 'fisco', subTab: 'tax-return', icon: Calculator, color: 'text-emerald-600', score: 0 },
   ];
 }
@@ -176,7 +176,7 @@ const NotFoundSuggestions: React.FC<NotFoundSuggestionsProps> = ({ path, onNavig
               <button
                 key={`${s.tab}-${s.subTab || i}`}
                 onClick={() => onNavigate(s.tab, s.subTab)}
-                className="w-full flex items-center gap-4 p-4 bg-surface border border-edge rounded-xl hover:border-blue-300 dark:hover:border-blue-600 hover:shadow-sm transition-[color,background-color,border-color,box-shadow] text-left group"
+                className="w-full flex items-center gap-4 p-4 bg-surface border border-edge rounded-xl hover:border-stripe-300 dark:hover:border-stripe-600 hover:shadow-sm transition-[color,background-color,border-color,box-shadow] text-left group"
               >
                 <div className={`shrink-0 w-10 h-10 rounded-lg bg-slate-50 dark:bg-slate-700 flex items-center justify-center ${s.color}`}>
                   <s.icon size={20} />
@@ -191,7 +191,7 @@ const NotFoundSuggestions: React.FC<NotFoundSuggestionsProps> = ({ path, onNavig
                     </p>
                   )}
                 </div>
-                <ArrowRight size={16} className="shrink-0 text-muted group-hover:text-blue-500 transition-colors" />
+                <ArrowRight size={16} className="shrink-0 text-muted group-hover:text-stripe-500 transition-colors" />
               </button>
             ))}
           </div>
@@ -226,7 +226,7 @@ const NotFoundSuggestions: React.FC<NotFoundSuggestionsProps> = ({ path, onNavig
       <div className="text-center">
         <button
           onClick={() => onNavigate('calculator')}
-          className="inline-flex items-center gap-2 text-sm text-link hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+          className="inline-flex items-center gap-2 text-sm text-link hover:text-stripe-700 dark:hover:text-stripe-300 transition-colors"
         >
           <Home size={16} />
           {t('notFound.backHome')}

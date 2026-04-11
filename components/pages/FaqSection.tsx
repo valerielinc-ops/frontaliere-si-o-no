@@ -113,7 +113,7 @@ const FaqSection: React.FC = () => {
           }}
           className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
             selectedCategory === 'all'
-              ? 'bg-blue-600 text-white'
+              ? 'bg-stripe-600 text-white'
               : 'bg-surface text-subtle border border-edge hover:bg-slate-50 dark:hover:bg-slate-700'
           }`}
         >
@@ -128,7 +128,7 @@ const FaqSection: React.FC = () => {
             }}
             className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
               selectedCategory === cat.key
-                ? 'bg-blue-600 text-white'
+                ? 'bg-stripe-600 text-white'
                 : 'bg-surface text-subtle border border-edge hover:bg-slate-50 dark:hover:bg-slate-700'
             }`}
           >

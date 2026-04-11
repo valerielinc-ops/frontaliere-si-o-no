@@ -9,7 +9,7 @@ export const TermsOfService: React.FC = () => {
       {/* Back Button */}
       <button
         onClick={() => nav.navigateTo('calculator')}
-        className="mb-6 inline-flex items-center gap-2 text-sm font-semibold text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 transition-colors"
+        className="mb-6 inline-flex items-center gap-2 text-sm font-semibold text-stripe-600 dark:text-stripe-400 hover:text-stripe-700 dark:hover:text-stripe-300 transition-colors"
       >
         <ArrowLeft size={16} />
         Torna alla Home
@@ -37,7 +37,7 @@ export const TermsOfService: React.FC = () => {
         {/* Section 1: Natura del servizio */}
         <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm">
           <div className="flex items-center gap-3 mb-4">
-            <div className="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-xl">
+            <div className="p-2 bg-stripe-100 dark:bg-stripe-900/30 rounded-xl">
               <Globe className="text-link" size={24} />
             </div>
             <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100">1. Natura del Servizio</h2>
@@ -83,8 +83,8 @@ export const TermsOfService: React.FC = () => {
         {/* Section 3: Proprietà intellettuale */}
         <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm">
           <div className="flex items-center gap-3 mb-4">
-            <div className="p-2 bg-purple-100 dark:bg-purple-900/30 rounded-xl">
-              <Scale className="text-purple-600 dark:text-purple-400" size={24} />
+            <div className="p-2 bg-stripe-100 dark:bg-stripe-900/30 rounded-xl">
+              <Scale className="text-stripe-600 dark:text-stripe-400" size={24} />
             </div>
             <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100">3. Proprietà Intellettuale</h2>
           </div>
@@ -142,8 +142,8 @@ export const TermsOfService: React.FC = () => {
             <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100">6. Contatti</h2>
             <p>
               Per domande o chiarimenti sui presenti termini di servizio, puoi contattarci tramite
-              la <button onClick={() => nav.navigateTo('contact')} className="text-indigo-600 dark:text-indigo-400 hover:underline font-semibold">pagina contatti</button> o
-              la <button onClick={() => nav.navigateTo('privacy')} className="text-indigo-600 dark:text-indigo-400 hover:underline font-semibold">pagina privacy</button>.
+              la <button onClick={() => nav.navigateTo('contact')} className="text-stripe-600 dark:text-stripe-400 hover:underline font-semibold">pagina contatti</button> o
+              la <button onClick={() => nav.navigateTo('privacy')} className="text-stripe-600 dark:text-stripe-400 hover:underline font-semibold">pagina privacy</button>.
             </p>
           </div>
         </div>

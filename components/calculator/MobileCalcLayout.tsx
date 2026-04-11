@@ -230,7 +230,7 @@ const MobileCalcLayout: React.FC<Props> = ({
                 inputMode="numeric"
                 value={formatNumber(inputs.annualIncomeCHF)}
                 onChange={(e) => handleChange('annualIncomeCHF', parseNumber(e.target.value))}
-                className="w-full pl-14 pr-3 py-3.5 bg-surface-alt border-2 border-slate-100 dark:border-slate-700 rounded-xl focus-visible:ring-4 focus-visible:border-blue-500 focus-visible:ring-blue-500/10 outline-none transition-[color,border-color,box-shadow] font-bold text-slate-800 dark:text-slate-100 text-2xl tracking-tight text-center"
+                className="w-full pl-14 pr-3 py-3.5 bg-surface-alt border-2 border-slate-100 dark:border-slate-700 rounded-xl focus-visible:ring-4 focus-visible:border-stripe-500 focus-visible:ring-stripe-500/10 outline-none transition-[color,border-color,box-shadow] font-bold text-slate-800 dark:text-slate-100 text-2xl tracking-tight text-center"
                 placeholder="0"
               />
             </div>
@@ -249,7 +249,7 @@ const MobileCalcLayout: React.FC<Props> = ({
                 onClick={() => handleChange('annualIncomeCHF', s)}
                 className={`shrink-0 px-2.5 py-1 rounded-lg text-xs font-bold transition-colors ${
                   inputs.annualIncomeCHF === s
-                    ? 'bg-blue-600 text-white shadow-sm'
+                    ? 'bg-stripe-600 text-white shadow-sm'
                     : 'bg-surface-raised text-muted hover:bg-slate-200'
                 }`}
               >
@@ -270,14 +270,14 @@ const MobileCalcLayout: React.FC<Props> = ({
               onClick={() => { handleChange('frontierWorkerType', 'NEW'); handleChange('distanceZone', 'WITHIN_20KM'); }}
               className={`relative p-2.5 rounded-xl border-2 transition-[color,background-color,border-color] flex flex-col items-center gap-0.5 ${
                 inputs.frontierWorkerType === 'NEW'
-                  ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/30'
+                  ? 'border-stripe-500 bg-stripe-50 dark:bg-stripe-900/30'
                   : 'border-slate-100 dark:border-slate-700 bg-surface-alt'
               }`}
             >
               {inputs.frontierWorkerType === 'NEW' && (
-                <div className="absolute top-1.5 right-1.5 bg-blue-500 text-white rounded-full p-0.5"><Check size={8} strokeWidth={4} /></div>
+                <div className="absolute top-1.5 right-1.5 bg-stripe-500 text-white rounded-full p-0.5"><Check size={8} strokeWidth={4} /></div>
               )}
-              <span className={`font-bold text-xs ${inputs.frontierWorkerType === 'NEW' ? 'text-blue-700 dark:text-blue-300' : 'text-subtle'}`}>
+              <span className={`font-bold text-xs ${inputs.frontierWorkerType === 'NEW' ? 'text-stripe-700 dark:text-stripe-300' : 'text-subtle'}`}>
                 {t('input.newFrontier')}
               </span>
               <span className="text-sm text-muted font-medium">{t('input.postDate')}</span>
@@ -311,7 +311,7 @@ const MobileCalcLayout: React.FC<Props> = ({
                   onClick={() => handleChange('distanceZone', opt.value)}
                   className={`flex-1 flex items-center justify-center gap-1 text-xs font-bold py-2 rounded-lg transition-[color,background-color,box-shadow] ${
                     inputs.distanceZone === opt.value
-                      ? 'text-blue-700 dark:text-blue-300 bg-white dark:bg-slate-700 shadow-sm'
+                      ? 'text-stripe-700 dark:text-stripe-300 bg-white dark:bg-slate-700 shadow-sm'
                       : 'text-subtle'
                   }`}
                 >
@@ -329,13 +329,13 @@ const MobileCalcLayout: React.FC<Props> = ({
         <div className={`rounded-2xl shadow-lg border overflow-hidden transition-colors duration-300 ${
           isBetterIT
             ? 'bg-gradient-to-br from-emerald-50 to-white dark:from-emerald-950/60 dark:to-slate-900 border-emerald-200 dark:border-emerald-800'
-            : 'bg-gradient-to-br from-blue-50 to-white dark:from-blue-950/60 dark:to-slate-900 border-blue-200 dark:border-blue-800'
+            : 'bg-gradient-to-br from-stripe-50 to-white dark:from-stripe-950/60 dark:to-slate-900 border-stripe-200 dark:border-stripe-800'
         }`}>
           {/* Verdict banner */}
           <div className={`px-4 py-3 flex items-center gap-3 ${
             isBetterIT
               ? 'bg-emerald-600 dark:bg-emerald-700'
-              : 'bg-blue-600 dark:bg-blue-700'
+              : 'bg-stripe-600 dark:bg-stripe-700'
           }`}>
             <div className="p-1.5 bg-white/20 dark:bg-slate-700/50 rounded-lg">
               {isBetterIT
@@ -362,8 +362,8 @@ const MobileCalcLayout: React.FC<Props> = ({
                 onClick={() => openFullAnalysisFocused('CH')}
                 className={`w-full text-left p-3 rounded-xl transition-[color,background-color,transform] active:scale-[0.99] ${
                   !isBetterIT
-                    ? 'bg-blue-100/50 dark:bg-blue-900/30 ring-2 ring-blue-300 dark:ring-blue-700'
-                    : 'bg-surface/60 hover:bg-blue-50/70 dark:hover:bg-blue-900/20'
+                    ? 'bg-stripe-100/50 dark:bg-stripe-900/30 ring-2 ring-stripe-300 dark:ring-stripe-700'
+                    : 'bg-surface/60 hover:bg-stripe-50/70 dark:hover:bg-stripe-900/20'
                 }`}
                 aria-label={`${t('mobileCalc.viewFullAnalysis')} (${t('mobileCalc.liveInCH')})`}
               >
@@ -416,7 +416,7 @@ const MobileCalcLayout: React.FC<Props> = ({
                 className={`flex-1 py-2.5 rounded-xl text-xs font-bold transition-[color,background-color,transform] active:scale-95 ${
                   isBetterIT
                     ? 'bg-emerald-600 hover:bg-emerald-700 text-white shadow-lg shadow-emerald-500/20'
-                    : 'bg-blue-600 hover:bg-blue-700 text-white shadow-lg shadow-blue-500/20'
+                    : 'bg-stripe-600 hover:bg-stripe-700 text-white shadow-lg shadow-stripe-500/20'
                 }`}
               >
                 {showFullResults ? <ChevronUp size={14} className="inline mr-1" /> : <ArrowDown size={14} className="inline mr-1" />}
@@ -488,7 +488,7 @@ const MobileCalcLayout: React.FC<Props> = ({
             <div className="p-5 space-y-3">
               <div className="space-y-2 text-sm text-subtle">
                 <div className="flex items-start gap-2">
-                  <TrendingUp size={14} className="text-blue-600 mt-0.5 shrink-0" />
+                  <TrendingUp size={14} className="text-stripe-600 mt-0.5 shrink-0" />
                   <span>{t('newsletterGate.benefit1')}</span>
                 </div>
                 <div className="flex items-start gap-2">
@@ -513,7 +513,7 @@ const MobileCalcLayout: React.FC<Props> = ({
                       value={gateEmail}
                       onChange={(e) => setGateEmail(e.target.value)}
                       placeholder={t('newsletter.emailPlaceholder')}
-                      className="flex-1 px-3 py-2.5 rounded-lg border border-edge bg-slate-50 dark:bg-slate-700 text-sm text-slate-800 dark:text-slate-100 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:border-transparent outline-none"
+                      className="flex-1 px-3 py-2.5 rounded-lg border border-edge bg-slate-50 dark:bg-slate-700 text-sm text-slate-800 dark:text-slate-100 focus-visible:ring-2 focus-visible:ring-stripe-500 focus-visible:border-transparent outline-none"
                       aria-label={t('newsletter.emailPlaceholder')}
                       onKeyDown={(e) => e.key === 'Enter' && handleGateSubscribe()}
                     />
@@ -521,7 +521,7 @@ const MobileCalcLayout: React.FC<Props> = ({
                   <button
                     onClick={handleGateSubscribe}
                     disabled={gateStatus === 'loading' || !gateEmail.includes('@')}
-                    className="w-full py-2.5 rounded-xl text-sm font-bold bg-blue-600 hover:bg-blue-700 text-white transition-[color,background-color,opacity] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                    className="w-full py-2.5 rounded-xl text-sm font-bold bg-stripe-600 hover:bg-stripe-700 text-white transition-[color,background-color,opacity] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                   >
                     {gateStatus === 'loading' ? <Loader2 size={16} className="animate-spin" /> : <Mail size={16} />}
                     {t('newsletterGate.subscribe')}

@@ -40,16 +40,16 @@ function getWeatherMiniIcon(code: number, size = 16): React.ReactNode {
   if (code === 2) return <Cloud style={{ width: size, height: size }} className="text-muted" />;
   if (code === 3) return <Cloud style={{ width: size, height: size }} className="text-muted" />;
   if (code >= 45 && code <= 48) return <CloudFog style={{ width: size, height: size }} className="text-muted" />;
-  if (code >= 51 && code <= 57) return <CloudDrizzle style={{ width: size, height: size }} className="text-blue-400 dark:text-blue-300" />;
-  if (code >= 61 && code <= 67) return <CloudRain style={{ width: size, height: size }} className="text-blue-500 dark:text-blue-400" />;
-  if (code >= 71 && code <= 77) return <CloudSnow style={{ width: size, height: size }} className="text-blue-300 dark:text-blue-200" />;
+  if (code >= 51 && code <= 57) return <CloudDrizzle style={{ width: size, height: size }} className="text-stripe-400 dark:text-stripe-300" />;
+  if (code >= 61 && code <= 67) return <CloudRain style={{ width: size, height: size }} className="text-stripe-500 dark:text-stripe-400" />;
+  if (code >= 71 && code <= 77) return <CloudSnow style={{ width: size, height: size }} className="text-stripe-300 dark:text-stripe-200" />;
   if (code >= 80 && code <= 86) return <CloudRain style={{ width: size, height: size }} className="text-link" />;
   if (code >= 95 && code <= 99) return <CloudLightning style={{ width: size, height: size }} className="text-amber-400 dark:text-amber-300" />;
   return <Sun style={{ width: size, height: size }} className="text-amber-500 dark:text-amber-400" />;
 }
 
 function getTempColor(temp: number): string {
-  if (temp <= -5) return 'text-blue-700 dark:text-blue-400';
+  if (temp <= -5) return 'text-stripe-700 dark:text-stripe-400';
   if (temp <= 0) return 'text-cyan-700 dark:text-cyan-400';
   if (temp <= 10) return 'text-sky-700 dark:text-sky-400';
   if (temp <= 20) return 'text-emerald-700 dark:text-emerald-400';
@@ -58,7 +58,7 @@ function getTempColor(temp: number): string {
 }
 
 function getTempBg(temp: number): string {
-  if (temp <= 0) return 'bg-blue-50 dark:bg-blue-950/30 border-blue-200/50 dark:border-blue-800/50';
+  if (temp <= 0) return 'bg-stripe-50 dark:bg-stripe-950/30 border-stripe-200/50 dark:border-stripe-800/50';
   if (temp <= 10) return 'bg-sky-50 dark:bg-sky-950/30 border-sky-200/50 dark:border-sky-800/50';
   if (temp <= 20) return 'bg-emerald-50 dark:bg-emerald-950/30 border-emerald-200/50 dark:border-emerald-800/50';
   if (temp <= 30) return 'bg-amber-50 dark:bg-amber-950/30 border-amber-200/50 dark:border-amber-800/50';
@@ -133,7 +133,7 @@ const WeatherPill: React.FC<{ weather: MiniWeather; label: string; flag?: string
       className={`inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-full border text-xs font-medium transition-[color,background-color,border-color,box-shadow,transform] cursor-pointer hover:scale-105 hover:shadow-md ${tempBg}`}
     >
       {isUser ? (
-        <Navigation className="w-3 h-3 text-violet-500" aria-hidden="true" />
+        <Navigation className="w-3 h-3 text-stripe-500" aria-hidden="true" />
       ) : flag ? (
         <span className="text-xs" aria-hidden="true">{flag}</span>
       ) : (

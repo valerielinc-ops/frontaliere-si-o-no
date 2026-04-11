@@ -20,15 +20,15 @@ interface Props {
 const CHART_COLORS = {
   // Pie / breakdown categories
   default: '#cbd5e1',       // slate-300
-  social: '#8b5cf6',        // violet-500
-  pension: '#a78bfa',       // violet-400
+  social: '#8b5cf6',        // stripe-500
+  pension: '#a78bfa',       // stripe-400
   tax: '#64748b',           // slate-500
   health: '#f43f5e',        // rose-500
   expense: '#f59e0b',       // amber-500
   netResidual: '#10b981',   // emerald-500
   // Line chart series
-  residentCH: '#3b82f6',    // blue-500
-  newLess20km: '#6366f1',   // indigo-500
+  residentCH: '#3b82f6',    // stripe-500
+  newLess20km: '#6366f1',   // stripe-500
   newMore20km: '#f97316',   // orange-500
   oldFrontier: '#10b981',   // emerald-500
   // Area chart
@@ -236,7 +236,7 @@ const ComparisonChartBase: React.FC<Props> = ({ result, inputs, isDarkMode, isFo
             value={`${(Math.abs(savingsCHF) * 5 / 1000).toFixed(1)}k`} 
             subtext={t('chart.potential_savings')}
             icon={Wallet} 
-            colorClass="text-indigo-600 dark:text-indigo-400"
+            colorClass="text-stripe-600 dark:text-stripe-400"
          />
       </div>
 
@@ -254,7 +254,7 @@ const ComparisonChartBase: React.FC<Props> = ({ result, inputs, isDarkMode, isFo
                 onClick={() => handleTabChange(tab.id as any)}
                 className={`flex flex-col sm:flex-row items-center justify-center gap-1.5 py-3 px-1 rounded-xl text-xs font-bold uppercase tracking-wide transition-[color,background-color,border-color,box-shadow,transform] ${
                   activeTab === tab.id 
-                  ? 'bg-surface text-indigo-600 dark:text-indigo-400 shadow-sm scale-[0.98]' 
+                  ? 'bg-surface text-stripe-600 dark:text-stripe-400 shadow-sm scale-[0.98]' 
                   : 'text-muted hover:text-slate-600 dark:hover:text-slate-300'
                 }`}
               >
@@ -267,9 +267,9 @@ const ComparisonChartBase: React.FC<Props> = ({ result, inputs, isDarkMode, isFo
          {/* Chart Area */}
          <div className="p-4 sm:p-6 min-h-[320px] bg-surface rounded-b-3xl relative">
             {activeTab === 'projection' && (
-                <div className="mb-6 bg-indigo-50/50 dark:bg-indigo-900/20 p-4 rounded-xl border border-indigo-100 dark:border-indigo-800/50 flex gap-3 animate-fade-in">
-                    <Info size={18} className="text-indigo-500 shrink-0 mt-0.5" />
-                    <div className="text-xs text-indigo-900 dark:text-indigo-300 leading-relaxed">
+                <div className="mb-6 bg-stripe-50/50 dark:bg-stripe-900/20 p-4 rounded-xl border border-stripe-100 dark:border-stripe-800/50 flex gap-3 animate-fade-in">
+                    <Info size={18} className="text-stripe-500 shrink-0 mt-0.5" />
+                    <div className="text-xs text-stripe-900 dark:text-stripe-300 leading-relaxed">
                         <strong className="block mb-1 font-bold">{t('chart.projection_title')}</strong>
                         {t('chart.projection_description')}
                     </div>

@@ -2265,7 +2265,7 @@ const App: React.FC = () => {
                   : 'Accesso con LinkedIn in corso…'}
               </p>
               {linkedInCallbackError && (
-                <a href="/" className="mt-2 text-sm text-indigo-600 dark:text-indigo-400 underline">
+                <a href="/" className="mt-2 text-sm text-stripe-600 dark:text-stripe-400 underline">
                   Torna alla home
                 </a>
               )}
@@ -2283,8 +2283,8 @@ const App: React.FC = () => {
               <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">{t('newsletter.welcome.title')}</h2>
               <p className="text-slate-600 dark:text-slate-400 mb-6">{t('newsletter.welcome.description')}</p>
               <div className="space-y-3 text-left mb-6">
-                <div className="flex items-start gap-3 p-3 rounded-lg bg-blue-50 dark:bg-blue-900/20">
-                  <span className="text-blue-600 dark:text-blue-400 mt-0.5">💱</span>
+                <div className="flex items-start gap-3 p-3 rounded-lg bg-stripe-50 dark:bg-stripe-900/20">
+                  <span className="text-stripe-600 dark:text-stripe-400 mt-0.5">💱</span>
                   <div>
                     <p className="text-sm font-medium text-slate-800 dark:text-slate-200">{t('newsletter.exchangeRate')}</p>
                     <p className="text-xs text-slate-600 dark:text-slate-400">{t('newsletter.weeklyRate')}</p>
@@ -2307,7 +2307,7 @@ const App: React.FC = () => {
               </div>
               <button
                 onClick={() => setShowNewsletterWelcome(false)}
-                className="w-full px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-xl transition-colors"
+                className="w-full px-6 py-3 bg-stripe-600 hover:bg-stripe-700 text-white font-medium rounded-xl transition-colors"
               >
                 {t('newsletter.welcome.cta')}
               </button>
@@ -2322,12 +2322,12 @@ const App: React.FC = () => {
             {newsletterActionType === 'unsubscribe' && newsletterActionEmail && (
               <a
                 href={`/?action=resubscribe&email=${encodeURIComponent(newsletterActionEmail)}`}
-                className="inline-block mt-2 text-xs text-blue-600 dark:text-blue-400 hover:underline"
+                className="inline-block mt-2 text-xs text-stripe-600 dark:text-stripe-400 hover:underline"
               >
                 Re-iscriviti alla newsletter
               </a>
             )}
-            <button onClick={() => setUnsubscribeMsg(null)} className="mt-2 text-xs text-blue-600 dark:text-blue-400 hover:underline">{t('common.close')}</button>
+            <button onClick={() => setUnsubscribeMsg(null)} className="mt-2 text-xs text-stripe-600 dark:text-stripe-400 hover:underline">{t('common.close')}</button>
           </div>
         )}
 
@@ -2338,8 +2338,8 @@ const App: React.FC = () => {
               {/* Logo Section */}
               <a href={buildPath({ activeTab: 'calculator' })} onClick={(e) => { e.preventDefault(); handleLogoClick(); handleTabChange('calculator'); }} className="flex items-center gap-3 cursor-pointer no-underline" aria-label="Frontaliere Ticino — Analisi Fiscale 2026">
                 <div className="relative group">
-                  <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl blur opacity-25 group-hover:opacity-50 transition duration-200"></div>
-                  <div className="relative bg-white dark:bg-slate-900 p-2 rounded-xl text-blue-600 dark:text-blue-500 ring-1 ring-slate-200 dark:ring-slate-800">
+                  <div className="absolute -inset-1 bg-gradient-to-r from-stripe-600 to-stripe-500 rounded-xl blur opacity-25 group-hover:opacity-50 transition duration-200"></div>
+                  <div className="relative bg-white dark:bg-slate-900 p-2 rounded-xl text-stripe-600 dark:text-stripe-500 ring-1 ring-slate-200 dark:ring-slate-800">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" className="w-[22px] h-[22px] transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform">
                       <rect x="10" y="10" width="80" height="80" rx="16" fill="#1e293b" />
                       <rect x="22" y="22" width="56" height="20" rx="4" fill="#94a3b8" />
@@ -2373,12 +2373,12 @@ const App: React.FC = () => {
                   onClick={(e) => { e.preventDefault(); handleTabChange('calculator'); }}
                   onMouseEnter={() => prefetchTab('calculator')}
                   aria-label={t('nav.simulator')}
-                  className={`relative flex-1 min-w-0 px-1.5 lg:px-2 py-3 text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 group no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 ${activeTab === 'calculator' ? 'text-blue-600 dark:text-blue-400' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'}`}
+                  className={`relative flex-1 min-w-0 px-1.5 lg:px-2 py-3 text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 group no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stripe-400 focus-visible:ring-offset-2 ${activeTab === 'calculator' ? 'text-stripe-600 dark:text-stripe-400' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'}`}
                 >
                   <Calculator size={16} aria-hidden="true" />
                   <span className="hidden xl:inline whitespace-nowrap">{t('nav.simulator')}</span>
                   {activeTab === 'calculator' && (
-                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 dark:bg-blue-400 rounded-full animate-fade-in" />
+                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-stripe-600 dark:bg-stripe-400 rounded-full animate-fade-in" />
                   )}
                 </a>
 
@@ -2387,12 +2387,12 @@ const App: React.FC = () => {
                   onClick={(e) => { e.preventDefault(); handleTabChange('confronti'); }}
                   onMouseEnter={() => prefetchTab('confronti')}
                   aria-label={t('nav.confronti')}
-                  className={`relative flex-1 min-w-0 px-1.5 lg:px-2 py-3 text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 group no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 ${activeTab === 'confronti' ? 'text-violet-600 dark:text-violet-400' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'}`}
+                  className={`relative flex-1 min-w-0 px-1.5 lg:px-2 py-3 text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 group no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stripe-400 focus-visible:ring-offset-2 ${activeTab === 'confronti' ? 'text-stripe-600 dark:text-stripe-400' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'}`}
                 >
                   <Layers size={16} aria-hidden="true" />
                   <span className="hidden xl:inline whitespace-nowrap">{t('nav.confronti')}</span>
                   {activeTab === 'confronti' && (
-                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-violet-600 dark:bg-violet-400 rounded-full animate-fade-in" />
+                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-stripe-600 dark:bg-stripe-400 rounded-full animate-fade-in" />
                   )}
                 </a>
 
@@ -2401,12 +2401,12 @@ const App: React.FC = () => {
                   onClick={(e) => { e.preventDefault(); handleTabChange('fisco'); }}
                   onMouseEnter={() => prefetchTab('fisco')}
                   aria-label={t('nav.fisco')}
-                  className={`relative flex-1 min-w-0 px-1.5 lg:px-2 py-3 text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 group no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 ${activeTab === 'fisco' ? 'text-emerald-700 dark:text-emerald-400' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'}`}
+                  className={`relative flex-1 min-w-0 px-1.5 lg:px-2 py-3 text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 group no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stripe-400 focus-visible:ring-offset-2 ${activeTab === 'fisco' ? 'text-stripe-600 dark:text-stripe-400' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'}`}
                 >
                   <PiggyBank size={16} aria-hidden="true" />
                   <span className="hidden xl:inline whitespace-nowrap">{t('nav.fisco')}</span>
                   {activeTab === 'fisco' && (
-                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-emerald-700 dark:bg-emerald-400 rounded-full animate-fade-in" />
+                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-stripe-600 dark:bg-stripe-400 rounded-full animate-fade-in" />
                   )}
                 </a>
 
@@ -2415,12 +2415,12 @@ const App: React.FC = () => {
                   onClick={(e) => { e.preventDefault(); handleTabChange('guida'); }}
                   onMouseEnter={() => prefetchTab('guida')}
                   aria-label={t('nav.guida')}
-                  className={`relative flex-1 min-w-0 px-1.5 lg:px-2 py-3 text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 group no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 ${activeTab === 'guida' ? 'text-indigo-600 dark:text-indigo-400' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'}`}
+                  className={`relative flex-1 min-w-0 px-1.5 lg:px-2 py-3 text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 group no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stripe-400 focus-visible:ring-offset-2 ${activeTab === 'guida' ? 'text-stripe-600 dark:text-stripe-400' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'}`}
                 >
                   <BookOpen size={16} aria-hidden="true" />
                   <span className="hidden xl:inline whitespace-nowrap">{t('nav.guida')}</span>
                   {activeTab === 'guida' && (
-                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-indigo-600 dark:bg-indigo-400 rounded-full animate-fade-in" />
+                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-stripe-600 dark:bg-stripe-400 rounded-full animate-fade-in" />
                   )}
                 </a>
 
@@ -2429,12 +2429,12 @@ const App: React.FC = () => {
                   onClick={(e) => { e.preventDefault(); handleTabChange('vita'); }}
                   onMouseEnter={() => prefetchTab('vita')}
                   aria-label={t('nav.vita')}
-                  className={`relative flex-1 min-w-0 px-1.5 lg:px-2 py-3 text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 group no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 ${activeTab === 'vita' ? 'text-amber-700 dark:text-amber-400' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'}`}
+                  className={`relative flex-1 min-w-0 px-1.5 lg:px-2 py-3 text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 group no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stripe-400 focus-visible:ring-offset-2 ${activeTab === 'vita' ? 'text-stripe-600 dark:text-stripe-400' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'}`}
                 >
                   <Home size={16} aria-hidden="true" />
                   <span className="hidden xl:inline whitespace-nowrap">{t('nav.vita')}</span>
                   {activeTab === 'vita' && (
-                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-amber-600 dark:bg-amber-400 rounded-full animate-fade-in" />
+                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-stripe-600 dark:bg-stripe-400 rounded-full animate-fade-in" />
                   )}
                 </a>
 
@@ -2443,12 +2443,12 @@ const App: React.FC = () => {
                   onClick={(e) => { e.preventDefault(); handleTabChange('stats'); }}
                   onMouseEnter={() => prefetchTab('stats')}
                   aria-label={t('nav.stats')}
-                  className={`relative flex-1 min-w-0 px-1.5 lg:px-2 py-3 text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 group no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 ${activeTab === 'stats' ? 'text-purple-600 dark:text-purple-400' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'}`}
+                  className={`relative flex-1 min-w-0 px-1.5 lg:px-2 py-3 text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 group no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stripe-400 focus-visible:ring-offset-2 ${activeTab === 'stats' ? 'text-stripe-600 dark:text-stripe-400' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'}`}
                 >
                   <BarChart2 size={16} aria-hidden="true" />
                   <span className="hidden xl:inline whitespace-nowrap">{t('nav.stats')}</span>
                   {activeTab === 'stats' && (
-                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-purple-600 dark:bg-purple-400 rounded-full animate-fade-in" />
+                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-stripe-600 dark:bg-stripe-400 rounded-full animate-fade-in" />
                   )}
                 </a>
               </div>
@@ -2478,7 +2478,7 @@ const App: React.FC = () => {
                 {authUser ? (
                   <button
                     onClick={() => handleTabChange('profile')}
-                    className={`p-1 rounded-xl transition-[color,background-color,border-color,box-shadow] shrink-0 ${activeTab === 'profile' ? 'ring-2 ring-indigo-400' : 'hover:ring-2 hover:ring-slate-300 dark:hover:ring-slate-600'}`}
+                    className={`p-1 rounded-xl transition-[color,background-color,border-color,box-shadow] shrink-0 ${activeTab === 'profile' ? 'ring-2 ring-stripe-400' : 'hover:ring-2 hover:ring-slate-300 dark:hover:ring-slate-600'}`}
                     aria-label={t('profile.title')}
                     title={getUserDisplayName(authUser)}
                   >
@@ -2492,8 +2492,8 @@ const App: React.FC = () => {
                         referrerPolicy="no-referrer"
                       />
                     ) : (
-                      <div className="w-[30px] h-[30px] rounded-lg bg-indigo-100 dark:bg-indigo-900 flex items-center justify-center">
-                        <UserIcon size={16} className="text-indigo-600 dark:text-indigo-400" />
+                      <div className="w-[30px] h-[30px] rounded-lg bg-stripe-100 dark:bg-stripe-900 flex items-center justify-center">
+                        <UserIcon size={16} className="text-stripe-600 dark:text-stripe-400" />
                       </div>
                     )}
                   </button>
@@ -2550,9 +2550,9 @@ const App: React.FC = () => {
                       setCalcolatoreSubTab(key);
                       Analytics.trackUIInteraction('calcolatore', 'navigazione', 'tab_sezione', 'cambio', key);
                     }}
-                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-[color,background-color,border-color,box-shadow] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 ${
+                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-[color,background-color,border-color,box-shadow] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stripe-400 focus-visible:ring-offset-2 ${
                       calcolatoreSubTab === key
-                        ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 ring-1 ring-blue-300 dark:ring-blue-700'
+                        ? 'bg-stripe-100 dark:bg-stripe-900/30 text-stripe-700 dark:text-stripe-300 ring-1 ring-stripe-300 dark:ring-stripe-700'
                         : 'text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
                     }`}
                   >
@@ -2586,9 +2586,9 @@ const App: React.FC = () => {
                       setConfrontiSubTab(key);
                       Analytics.trackComparatorView(key as any);
                     }}
-                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-[color,background-color,border-color,box-shadow] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 ${
+                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-[color,background-color,border-color,box-shadow] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stripe-400 focus-visible:ring-offset-2 ${
                       confrontiSubTab === key
-                        ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 ring-1 ring-violet-300 dark:ring-violet-700'
+                        ? 'bg-stripe-100 dark:bg-stripe-900/30 text-stripe-700 dark:text-stripe-300 ring-1 ring-stripe-300 dark:ring-stripe-700'
                         : 'text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
                     }`}
                   >
@@ -2622,9 +2622,9 @@ const App: React.FC = () => {
                       setFiscoSubTab(key);
                       Analytics.trackUIInteraction('fisco', 'navigazione', 'tab_sezione', 'cambio', key);
                     }}
-                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-[color,background-color,border-color,box-shadow] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 ${
+                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-[color,background-color,border-color,box-shadow] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stripe-400 focus-visible:ring-offset-2 ${
                       fiscoSubTab === key
-                        ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 ring-1 ring-emerald-300 dark:ring-emerald-700'
+                        ? 'bg-stripe-100 dark:bg-stripe-900/30 text-stripe-700 dark:text-stripe-300 ring-1 ring-stripe-300 dark:ring-stripe-700'
                         : 'text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
                     }`}
                   >
@@ -2658,9 +2658,9 @@ const App: React.FC = () => {
                       setGuidaSubTab(key);
                       Analytics.trackUIInteraction('guida', 'navigazione', 'tab_sezione', 'cambio', key);
                     }}
-                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-[color,background-color,border-color,box-shadow] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 ${
+                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-[color,background-color,border-color,box-shadow] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stripe-400 focus-visible:ring-offset-2 ${
                       guidaSubTab === key
-                        ? 'bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 ring-1 ring-indigo-300 dark:ring-indigo-700'
+                        ? 'bg-stripe-100 dark:bg-stripe-900/30 text-stripe-700 dark:text-stripe-300 ring-1 ring-stripe-300 dark:ring-stripe-700'
                         : 'text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
                     }`}
                   >
@@ -2694,9 +2694,9 @@ const App: React.FC = () => {
                       setVitaSubTab(key);
                       Analytics.trackUIInteraction('vita', 'navigazione', 'tab_sezione', 'cambio', key);
                     }}
-                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-[color,background-color,border-color,box-shadow] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 ${
+                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-[color,background-color,border-color,box-shadow] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stripe-400 focus-visible:ring-offset-2 ${
                       vitaSubTab === key
-                        ? 'bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 ring-1 ring-amber-300 dark:ring-amber-700'
+                        ? 'bg-stripe-100 dark:bg-stripe-900/30 text-stripe-700 dark:text-stripe-300 ring-1 ring-stripe-300 dark:ring-stripe-700'
                         : 'text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
                     }`}
                   >
@@ -2730,9 +2730,9 @@ const App: React.FC = () => {
                       setStatsSubTab(key);
                       Analytics.trackUIInteraction('statistiche', 'navigazione', 'tab_sezione', 'cambio', key);
                     }}
-                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-[color,background-color,border-color,box-shadow] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 ${
+                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-[color,background-color,border-color,box-shadow] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stripe-400 focus-visible:ring-offset-2 ${
                       statsSubTab === key
-                        ? 'bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 ring-1 ring-purple-300 dark:ring-purple-700'
+                        ? 'bg-stripe-100 dark:bg-stripe-900/30 text-stripe-700 dark:text-stripe-300 ring-1 ring-stripe-300 dark:ring-stripe-700'
                         : 'text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
                     }`}
                   >
@@ -2925,7 +2925,7 @@ const App: React.FC = () => {
                       {!adminGoogleButtonReady && (
                         <button
                           onClick={googleSignIn}
-                          className="w-full px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors"
+                          className="w-full px-6 py-2 bg-stripe-600 hover:bg-stripe-700 text-white rounded-lg font-medium transition-colors"
                         >
                           Accedi con Google
                         </button>
@@ -2945,7 +2945,7 @@ const App: React.FC = () => {
             <div className="mt-8">
               <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-4 sm:p-6">
                 <div className="flex items-center gap-2">
-                  <Sparkles size={18} className="text-violet-600 dark:text-violet-300" />
+                  <Sparkles size={18} className="text-stripe-600 dark:text-stripe-300" />
                   <h2 className="text-lg font-bold text-slate-900 dark:text-white">{t('cta.tryAlso')}</h2>
                 </div>
                 <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -2993,7 +2993,7 @@ const App: React.FC = () => {
                 href={`https://github.com/valerielinc-ops/frontaliere-si-o-no/commit/${typeof __COMMIT_HASH__ !== 'undefined' ? __COMMIT_HASH__ : 'unknown'}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-mono text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 px-1 py-0.5 rounded transition-colors opacity-70 hover:opacity-100"
+                className="text-sm font-mono text-slate-500 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 px-1 py-0.5 rounded transition-colors opacity-70 hover:opacity-100"
                 title="Versione del sito: commit GitHub deploy"
               >
                 <span>v</span>
@@ -3012,7 +3012,7 @@ const App: React.FC = () => {
               <a
                 href={buildPath({ activeTab: 'chi-siamo' as any })}
                 onClick={(e) => { e.preventDefault(); navigateTo('chi-siamo' as any); }}
-                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors no-underline"
+                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 transition-colors no-underline"
               >
                 <Users className="w-3.5 h-3.5" />
                 {t('footer.aboutUs')}
@@ -3021,7 +3021,7 @@ const App: React.FC = () => {
               <a
                 href={buildPath({ activeTab: 'contact' as any })}
                 onClick={(e) => { e.preventDefault(); navigateTo('contact' as any); }}
-                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors no-underline"
+                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 transition-colors no-underline"
               >
                 <Mail className="w-3.5 h-3.5" />
                 {t('footer.contactTitle')}
@@ -3030,7 +3030,7 @@ const App: React.FC = () => {
               <a
                 href={buildPath({ activeTab: 'feedback' })}
                 onClick={(e) => { e.preventDefault(); navigateTo('feedback'); }}
-                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-amber-700 dark:hover:text-amber-400 transition-colors no-underline"
+                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 transition-colors no-underline"
               >
                 <Bug className="w-3.5 h-3.5" />
                 {t('footer.improveTitle')}
@@ -3039,7 +3039,7 @@ const App: React.FC = () => {
               <a
                 href={buildPath({ activeTab: 'privacy' })}
                 onClick={(e) => { e.preventDefault(); navigateTo('privacy' as any); }}
-                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors no-underline"
+                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 transition-colors no-underline"
               >
                 <Shield className="w-3.5 h-3.5" />
                 {t('footer.privacy')}
@@ -3048,7 +3048,7 @@ const App: React.FC = () => {
               <a
                 href={buildPath({ activeTab: 'terms' })}
                 onClick={(e) => { e.preventDefault(); navigateTo('terms' as any); }}
-                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors no-underline"
+                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 transition-colors no-underline"
               >
                 <FileText className="w-3.5 h-3.5" />
                 Termini
@@ -3073,7 +3073,7 @@ const App: React.FC = () => {
               <a
                 href={buildPath({ activeTab: 'consulting' as any })}
                 onClick={(e) => { e.preventDefault(); navigateTo('consulting' as any); }}
-                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors no-underline"
+                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 transition-colors no-underline"
               >
                 {t('consulting.footerLink')}
               </a>
@@ -3081,7 +3081,7 @@ const App: React.FC = () => {
               <a
                 href={buildPath({ activeTab: 'job-board' as any })}
                 onClick={(e) => { e.preventDefault(); setJobSlug(null); navigateTo('job-board' as any); }}
-                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors no-underline"
+                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 transition-colors no-underline"
               >
                 {t('jobBoard.footerLink', getCantonI18nParams())}
               </a>
@@ -3107,7 +3107,7 @@ const App: React.FC = () => {
               <a
                 href={buildPath({ activeTab: 'faq' })}
                 onClick={(e) => { e.preventDefault(); navigateTo('faq' as any); }}
-                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-violet-600 dark:hover:text-violet-400 transition-colors no-underline"
+                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 transition-colors no-underline"
               >
                 <HelpCircle className="w-3.5 h-3.5" />
                 FAQ
@@ -3116,7 +3116,7 @@ const App: React.FC = () => {
               <a
                 href={buildPath({ activeTab: 'blog' })}
                 onClick={(e) => { e.preventDefault(); navigateTo('blog' as any); }}
-                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors no-underline"
+                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 transition-colors no-underline"
               >
                 <Newspaper className="w-3.5 h-3.5" />
                 {t('blog.title')}
@@ -3151,7 +3151,7 @@ const App: React.FC = () => {
               <a
                 href={buildPath({ activeTab: 'contracts' })}
                 onClick={(e) => { e.preventDefault(); navigateTo('contracts' as any); }}
-                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors no-underline"
+                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 transition-colors no-underline"
               >
                 <FileText className="w-3.5 h-3.5" />
                 {t('contracts.footerLink')}
@@ -3160,7 +3160,7 @@ const App: React.FC = () => {
               <a
                 href={buildPath({ activeTab: 'sindacati' as any })}
                 onClick={(e) => { e.preventDefault(); navigateTo('sindacati' as any); }}
-                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors no-underline"
+                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 transition-colors no-underline"
               >
                 <Scale className="w-3.5 h-3.5" />
                 Sindacati
@@ -3187,7 +3187,7 @@ const App: React.FC = () => {
               <a
                 href={buildPath({ activeTab: 'tool-of-week' })}
                 onClick={(e) => { e.preventDefault(); navigateTo('tool-of-week' as any); }}
-                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-violet-600 dark:hover:text-violet-400 transition-colors no-underline"
+                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 transition-colors no-underline"
               >
                 <Sparkles className="w-3.5 h-3.5" />
                 {t('toolOfWeek.title')}
@@ -3197,7 +3197,7 @@ const App: React.FC = () => {
                 href="https://www.facebook.com/profile.php?id=61588174947294"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors no-underline"
+                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 transition-colors no-underline"
                 aria-label={t('footer.followFacebook')}
               >
                 <Facebook className="w-3.5 h-3.5" />
@@ -3210,7 +3210,7 @@ const App: React.FC = () => {
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-4 text-left">
                 {/* Calcolatore */}
                 <div>
-                  <a href={buildPath({ activeTab: 'calculator' })} onClick={(e) => { e.preventDefault(); handleTabChange('calculator'); }} className="text-xs font-bold text-blue-700 dark:text-blue-400 no-underline hover:underline">{t('nav.simulator')}</a>
+                  <a href={buildPath({ activeTab: 'calculator' })} onClick={(e) => { e.preventDefault(); handleTabChange('calculator'); }} className="text-xs font-bold text-stripe-700 dark:text-stripe-400 no-underline hover:underline">{t('nav.simulator')}</a>
                   <ul className="mt-1 space-y-0.5 list-none p-0">
                     {([
                       { sub: 'whatif' as const, label: t('simulator.whatif') },
@@ -3225,7 +3225,7 @@ const App: React.FC = () => {
                         <a
                           href={buildPath({ activeTab: 'calculator', calcolatoreSubTab: sub })}
                           onClick={(e) => { e.preventDefault(); setCalcolatoreSubTab(sub); setActiveTab('calculator'); pushRoute({ activeTab: 'calculator', calcolatoreSubTab: sub }); }}
-                          className="block text-xs text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 no-underline hover:underline leading-relaxed py-1"
+                          className="block text-xs text-slate-500 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 no-underline hover:underline leading-relaxed py-1"
                         >{label}</a>
                       </li>
                     ))}
@@ -3233,7 +3233,7 @@ const App: React.FC = () => {
                 </div>
                 {/* Confronti */}
                 <div>
-                  <a href={buildPath({ activeTab: 'confronti' })} onClick={(e) => { e.preventDefault(); handleTabChange('confronti'); }} className="text-xs font-bold text-violet-700 dark:text-violet-400 no-underline hover:underline">{t('nav.confronti')}</a>
+                  <a href={buildPath({ activeTab: 'confronti' })} onClick={(e) => { e.preventDefault(); handleTabChange('confronti'); }} className="text-xs font-bold text-stripe-700 dark:text-stripe-400 no-underline hover:underline">{t('nav.confronti')}</a>
                   <ul className="mt-1 space-y-0.5 list-none p-0">
                     {([
                       { sub: 'exchange' as const, label: t('comparators.exchange') },
@@ -3249,7 +3249,7 @@ const App: React.FC = () => {
                         <a
                           href={buildPath({ activeTab: 'confronti', confrontiSubTab: sub })}
                           onClick={(e) => { e.preventDefault(); setConfrontiSubTab(sub); setActiveTab('confronti'); pushRoute({ activeTab: 'confronti', confrontiSubTab: sub }); }}
-                          className="block text-xs text-slate-500 dark:text-slate-400 hover:text-violet-600 dark:hover:text-violet-400 no-underline hover:underline leading-relaxed py-1"
+                          className="block text-xs text-slate-500 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 no-underline hover:underline leading-relaxed py-1"
                         >{label}</a>
                       </li>
                     ))}
@@ -3283,7 +3283,7 @@ const App: React.FC = () => {
                 </div>
                 {/* Guida */}
                 <div>
-                  <a href={buildPath({ activeTab: 'guida' })} onClick={(e) => { e.preventDefault(); handleTabChange('guida'); }} className="text-xs font-bold text-indigo-700 dark:text-indigo-400 no-underline hover:underline">{t('nav.guida')}</a>
+                  <a href={buildPath({ activeTab: 'guida' })} onClick={(e) => { e.preventDefault(); handleTabChange('guida'); }} className="text-xs font-bold text-stripe-700 dark:text-stripe-400 no-underline hover:underline">{t('nav.guida')}</a>
                   <ul className="mt-1 space-y-0.5 list-none p-0">
                     {([
                       { sub: 'first-day' as const, label: t('guide.tabs.firstDay') },
@@ -3299,7 +3299,7 @@ const App: React.FC = () => {
                         <a
                           href={buildPath({ activeTab: 'guida', guidaSubTab: sub })}
                           onClick={(e) => { e.preventDefault(); setGuidaSubTab(sub); setActiveTab('guida'); pushRoute({ activeTab: 'guida', guidaSubTab: sub }); }}
-                          className="block text-xs text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 no-underline hover:underline leading-relaxed py-1"
+                          className="block text-xs text-slate-500 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 no-underline hover:underline leading-relaxed py-1"
                         >{label}</a>
                       </li>
                     ))}
@@ -3331,7 +3331,7 @@ const App: React.FC = () => {
                 </div>
                 {/* Statistiche */}
                 <div>
-                  <a href={buildPath({ activeTab: 'stats' })} onClick={(e) => { e.preventDefault(); handleTabChange('stats'); }} className="text-xs font-bold text-purple-700 dark:text-purple-400 no-underline hover:underline">{t('nav.stats')}</a>
+                  <a href={buildPath({ activeTab: 'stats' })} onClick={(e) => { e.preventDefault(); handleTabChange('stats'); }} className="text-xs font-bold text-stripe-700 dark:text-stripe-400 no-underline hover:underline">{t('nav.stats')}</a>
                   <ul className="mt-1 space-y-0.5 list-none p-0">
                     {([
                       { sub: 'jobs-observatory' as const, label: t('stats.tabJobsObservatory') },
@@ -3346,7 +3346,7 @@ const App: React.FC = () => {
                         <a
                           href={buildPath({ activeTab: 'stats', statsSubTab: sub })}
                           onClick={(e) => { e.preventDefault(); setStatsSubTab(sub); setActiveTab('stats'); pushRoute({ activeTab: 'stats', statsSubTab: sub }); }}
-                          className="block text-xs text-slate-500 dark:text-slate-400 hover:text-purple-600 dark:hover:text-purple-400 no-underline hover:underline leading-relaxed py-1"
+                          className="block text-xs text-slate-500 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 no-underline hover:underline leading-relaxed py-1"
                         >{label}</a>
                       </li>
                     ))}
@@ -3380,12 +3380,12 @@ const App: React.FC = () => {
         <nav aria-label="Navigazione mobile" className="fixed bottom-0 inset-x-0 z-50 md:hidden bg-white/95 dark:bg-slate-900/95 border-t border-slate-200/50 dark:border-slate-800/50 pb-[env(safe-area-inset-bottom,0px)]">
           <div className="grid grid-cols-6 h-14">
             {([
-              { tab: 'calculator' as const, icon: Calculator, label: t('nav.simulator'), activeClass: 'text-blue-600 dark:text-blue-400', barClass: 'bg-blue-600 dark:bg-blue-400' },
-              { tab: 'confronti' as const, icon: Layers, label: t('nav.confronti'), activeClass: 'text-violet-600 dark:text-violet-400', barClass: 'bg-violet-600 dark:bg-violet-400' },
-              { tab: 'fisco' as const, icon: PiggyBank, label: t('nav.fisco'), activeClass: 'text-emerald-700 dark:text-emerald-400', barClass: 'bg-emerald-700 dark:bg-emerald-400' },
-              { tab: 'guida' as const, icon: BookOpen, label: t('nav.guida'), activeClass: 'text-indigo-600 dark:text-indigo-400', barClass: 'bg-indigo-600 dark:bg-indigo-400' },
-              { tab: 'vita' as const, icon: Home, label: t('nav.vita'), activeClass: 'text-amber-700 dark:text-amber-400', barClass: 'bg-amber-600 dark:bg-amber-400' },
-              { tab: 'stats' as const, icon: BarChart2, label: t('nav.stats'), activeClass: 'text-purple-600 dark:text-purple-400', barClass: 'bg-purple-600 dark:bg-purple-400' },
+              { tab: 'calculator' as const, icon: Calculator, label: t('nav.simulator'), activeClass: 'text-stripe-600 dark:text-stripe-400', barClass: 'bg-stripe-600 dark:bg-stripe-400' },
+              { tab: 'confronti' as const, icon: Layers, label: t('nav.confronti'), activeClass: 'text-stripe-600 dark:text-stripe-400', barClass: 'bg-stripe-600 dark:bg-stripe-400' },
+              { tab: 'fisco' as const, icon: PiggyBank, label: t('nav.fisco'), activeClass: 'text-stripe-600 dark:text-stripe-400', barClass: 'bg-stripe-600 dark:bg-stripe-400' },
+              { tab: 'guida' as const, icon: BookOpen, label: t('nav.guida'), activeClass: 'text-stripe-600 dark:text-stripe-400', barClass: 'bg-stripe-600 dark:bg-stripe-400' },
+              { tab: 'vita' as const, icon: Home, label: t('nav.vita'), activeClass: 'text-stripe-600 dark:text-stripe-400', barClass: 'bg-stripe-600 dark:bg-stripe-400' },
+              { tab: 'stats' as const, icon: BarChart2, label: t('nav.stats'), activeClass: 'text-stripe-600 dark:text-stripe-400', barClass: 'bg-stripe-600 dark:bg-stripe-400' },
             ] as const).map(({ tab, icon: Icon, label, activeClass, barClass }) => {
               const isActive = activeTab === tab;
               return (
@@ -3393,7 +3393,7 @@ const App: React.FC = () => {
                   key={tab}
                   href={buildPath({ activeTab: tab })}
                   onClick={(e) => { e.preventDefault(); handleTabChange(tab); }}
-                  className={`relative flex flex-col items-center justify-center gap-0.5 transition-colors no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-1 ${
+                  className={`relative flex flex-col items-center justify-center gap-0.5 transition-colors no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stripe-500 focus-visible:ring-offset-1 ${
                     isActive ? activeClass : 'text-slate-500 dark:text-slate-400'
                   }`}
                 >

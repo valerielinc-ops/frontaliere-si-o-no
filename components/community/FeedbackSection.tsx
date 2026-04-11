@@ -211,7 +211,7 @@ export const FeedbackSection: React.FC = () => {
         {/* Form Section */}
         <div className="bg-surface p-4 sm:p-6 rounded-2xl border border-edge shadow-sm">
           <div className="flex items-center gap-3 mb-6">
-            <div className="p-2 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 rounded-xl">
+            <div className="p-2 bg-stripe-100 dark:bg-stripe-900/30 text-stripe-600 dark:text-stripe-400 rounded-xl">
               <MessageSquare size={20} />
             </div>
             <h3 className="font-bold text-slate-800 dark:text-slate-100 uppercase tracking-wider text-xs">{t('feedback.prepareReport')}</h3>
@@ -229,7 +229,7 @@ export const FeedbackSection: React.FC = () => {
               <button 
                 type="button"
                 onClick={() => setFormData(prev => ({...prev, type: 'FEATURE'}))}
-                className={`p-3 rounded-2xl border-2 transition-colors flex items-center gap-2 justify-center font-bold text-xs ${formData.type === 'FEATURE' ? 'border-indigo-500 bg-indigo-50 dark:bg-indigo-900/20 text-indigo-600' : 'border-slate-100 dark:border-slate-800 text-muted'}`}
+                className={`p-3 rounded-2xl border-2 transition-colors flex items-center gap-2 justify-center font-bold text-xs ${formData.type === 'FEATURE' ? 'border-stripe-500 bg-stripe-50 dark:bg-stripe-900/20 text-stripe-600' : 'border-slate-100 dark:border-slate-800 text-muted'}`}
               >
                 <Lightbulb size={16} /> Feature
               </button>
@@ -241,7 +241,7 @@ export const FeedbackSection: React.FC = () => {
                 id="feedback-title"
                 value={formData.title}
                 onChange={e => setFormData(prev => ({...prev, title: e.target.value}))}
-                className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 px-4 py-3 rounded-2xl outline-none focus-visible:ring-4 focus-visible:ring-indigo-50 dark:focus-visible:ring-indigo-900/20 focus-visible:border-indigo-500 transition-[color,background-color,border-color,box-shadow] text-sm"
+                className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 px-4 py-3 rounded-2xl outline-none focus-visible:ring-4 focus-visible:ring-stripe-50 dark:focus-visible:ring-stripe-900/20 focus-visible:border-stripe-500 transition-[color,background-color,border-color,box-shadow] text-sm"
                 placeholder={t('feedback.titlePlaceholder')}
               />
             </div>
@@ -253,14 +253,14 @@ export const FeedbackSection: React.FC = () => {
                 value={formData.description}
                 onChange={e => setFormData(prev => ({...prev, description: e.target.value}))}
                 rows={5}
-                className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 px-4 py-3 rounded-2xl outline-none focus-visible:ring-4 focus-visible:ring-indigo-50 dark:focus-visible:ring-indigo-900/20 focus-visible:border-indigo-500 transition-[color,background-color,border-color,box-shadow] text-sm resize-none"
+                className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 px-4 py-3 rounded-2xl outline-none focus-visible:ring-4 focus-visible:ring-stripe-50 dark:focus-visible:ring-stripe-900/20 focus-visible:border-stripe-500 transition-[color,background-color,border-color,box-shadow] text-sm resize-none"
                 placeholder={t('feedback.detailsPlaceholder')}
               />
               <button 
                 type="button"
                 onClick={handleOptimize}
                 disabled={isOptimizing || !formData.description}
-                className="absolute right-3 bottom-3 p-2 bg-indigo-600 text-white rounded-xl shadow-lg shadow-indigo-500/30 hover:bg-indigo-700 transition-[color,background-color,border-color,opacity] disabled:opacity-50 disabled:shadow-none flex items-center gap-2 text-xs font-bold uppercase"
+                className="absolute right-3 bottom-3 p-2 bg-stripe-600 text-white rounded-xl shadow-lg shadow-stripe-500/30 hover:bg-stripe-700 transition-[color,background-color,border-color,opacity] disabled:opacity-50 disabled:shadow-none flex items-center gap-2 text-xs font-bold uppercase"
               >
                 {isOptimizing ? <Loader2 size={14} className="animate-spin" /> : <Sparkles size={14} />}
                 AI Help
@@ -297,7 +297,7 @@ export const FeedbackSection: React.FC = () => {
             <h3 className="text-xs font-bold text-muted uppercase tracking-widest flex items-center gap-2">
               <Github size={14} /> {t('feedback.recentActivity')}
             </h3>
-            <a href={`https://github.com/${REPO_OWNER}/${REPO_NAME}/issues`} target="_blank" rel="noreferrer" className="text-xs bg-slate-200 dark:bg-slate-800 px-2 py-0.5 rounded-full font-bold text-muted hover:text-indigo-500 flex items-center gap-1 transition-colors">
+            <a href={`https://github.com/${REPO_OWNER}/${REPO_NAME}/issues`} target="_blank" rel="noreferrer" className="text-xs bg-slate-200 dark:bg-slate-800 px-2 py-0.5 rounded-full font-bold text-muted hover:text-stripe-500 flex items-center gap-1 transition-colors">
               {t('feedback.viewAll')} <ExternalLink size={8} />
             </a>
           </div>
@@ -312,16 +312,16 @@ export const FeedbackSection: React.FC = () => {
                   href={item.url}
                   target="_blank"
                   rel="noreferrer"
-                  className="block bg-surface border border-slate-100 dark:border-slate-800 p-4 rounded-2xl shadow-sm hover:shadow-md transition-[color,background-color,border-color,box-shadow] group hover:border-indigo-200 dark:hover:border-indigo-900"
+                  className="block bg-surface border border-slate-100 dark:border-slate-800 p-4 rounded-2xl shadow-sm hover:shadow-md transition-[color,background-color,border-color,box-shadow] group hover:border-stripe-200 dark:hover:border-stripe-900"
                   onClick={() => Analytics.trackSelectContent('issue', String(item.id))}
                 >
                   <div className="flex items-start justify-between gap-3">
                     <div className="flex gap-3">
-                      <div className={`mt-1 shrink-0 ${item.type === 'BUG' ? 'text-red-500' : 'text-indigo-500'}`}>
+                      <div className={`mt-1 shrink-0 ${item.type === 'BUG' ? 'text-red-500' : 'text-stripe-500'}`}>
                         {item.type === 'BUG' ? <Bug size={16} /> : <Lightbulb size={16} />}
                       </div>
                       <div>
-                        <h4 className="text-sm font-bold text-slate-800 dark:text-slate-100 line-clamp-1 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">{item.title}</h4>
+                        <h4 className="text-sm font-bold text-slate-800 dark:text-slate-100 line-clamp-1 group-hover:text-stripe-600 dark:group-hover:text-stripe-400 transition-colors">{item.title}</h4>
                         <p className="text-sm text-subtle line-clamp-2 mt-1 leading-relaxed">
                           {item.description}
                         </p>

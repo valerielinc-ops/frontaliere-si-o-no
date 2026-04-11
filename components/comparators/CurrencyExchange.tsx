@@ -90,7 +90,7 @@ const providers: ExchangeProvider[] = [
     maxAmount: 50000,
     transferTime: 'Istantaneo',
     transferTimeKey: 'instant',
-    color: 'from-blue-500 to-blue-700',
+    color: 'from-stripe-500 to-stripe-700',
     features: ['Cambio gratuito fino a 1000 EUR/mese (Standard)', 'Oltre limite: 1% commissione uso corretto', 'Weekend: markup 1%'],
     featureKeys: ['feature_free_exchange_1000', 'feature_fair_usage_1pct', 'feature_weekend_markup_1pct'],
     type: 'neobank',
@@ -166,7 +166,7 @@ const providers: ExchangeProvider[] = [
     maxAmount: 100000,
     transferTime: '1-3 giorni lavorativi',
     transferTimeKey: '1_3_business_days',
-    color: 'from-sky-500 to-blue-600',
+    color: 'from-sky-500 to-stripe-600',
     features: ['Banca digitale italiana', 'Commissione 0.5%', 'Spread nascosto ~1.8%'],
     featureKeys: ['feature_italian_digital_bank', 'feature_commission_05', 'feature_hidden_spread_18'],
     type: 'traditional',
@@ -182,7 +182,7 @@ const providers: ExchangeProvider[] = [
     maxAmount: 500000,
     transferTime: '2-5 giorni lavorativi',
     transferTimeKey: '2_5_business_days',
-    color: 'from-blue-600 to-blue-800',
+    color: 'from-stripe-600 to-stripe-800',
     features: ['Commissione fissa + 0.25%', 'Spread molto elevato', 'Servizio bancario classico'],
     featureKeys: ['feature_fixed_commission_025', 'feature_very_high_spread', 'feature_classic_banking'],
     type: 'traditional'
@@ -243,7 +243,7 @@ const providers: ExchangeProvider[] = [
     maxAmount: 500000,
     transferTime: '1-2 giorni lavorativi',
     transferTimeKey: '1_2_business_days',
-    color: 'from-teal-500 to-blue-600',
+    color: 'from-teal-500 to-stripe-600',
     features: ['Servizio svizzero specializzato', 'Spread competitivo ~0.35%', 'Bonifico diretto su conto italiano', '🎁 Da frontalieticino.ch: 25€ in regalo con 3000 CHF di ordini nei primi 30 giorni'],
     featureKeys: ['feature_swiss_specialized_service', 'feature_competitive_spread_035', 'feature_direct_transfer_italy', 'feature_cambiavalute_referral_bonus'],
     type: 'service',
@@ -768,13 +768,13 @@ const CurrencyExchange: React.FC = () => {
       {/* Educational Section */}
       <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30 rounded-2xl border border-emerald-200 dark:border-emerald-800 p-6">
         <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100 mb-4 flex items-center gap-2">
-          <Info size={20} className="text-blue-600" />
+          <Info size={20} className="text-stripe-600" />
           {t('currency.how_hidden_spread_works')}
         </h2>
         
         <div className="space-y-4 text-sm text-body">
           <div className="p-4 bg-surface/50 rounded-xl">
-            <p className="font-bold text-blue-600 mb-2">📊 {t('currency.practical_example_title')}:</p>
+            <p className="font-bold text-stripe-600 mb-2">📊 {t('currency.practical_example_title')}:</p>
             <ul className="space-y-2 ml-4">
               <li><strong>{t('currency.example_real_rate')}:</strong> {t('currency.example_real_rate_text')}</li>
               <li><strong>{t('currency.example_traditional_bank')}:</strong> {t('currency.example_traditional_bank_text')}</li>
@@ -798,7 +798,7 @@ const CurrencyExchange: React.FC = () => {
       </div>
       </>
       ) : (
-      <Suspense fallback={<div className="min-h-[400px] flex items-center justify-center" style={{ contain: 'layout' }}><RefreshCw className="animate-spin text-blue-500" size={32} /></div>}>
+      <Suspense fallback={<div className="min-h-[400px] flex items-center justify-center" style={{ contain: 'layout' }}><RefreshCw className="animate-spin text-stripe-500" size={32} /></div>}>
         <LazyCurrencyExchangeStats historyData={historyData} currentRate={realRate} period={historyPeriod} />
       </Suspense>
       )}

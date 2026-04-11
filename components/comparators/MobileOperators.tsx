@@ -117,7 +117,7 @@ const operators: MobileOperator[] = [
     },
     setupCost: 25,
     contractType: 'abbonamento',
-    color: 'from-blue-600 to-blue-800',
+    color: 'from-stripe-600 to-stripe-800',
     features: ['Copertura eccellente', 'Opzione CH 10€/mese', 'Costoso complessivamente'],
     website: 'https://www.tim.it/offerte/mobile'
   },
@@ -196,7 +196,7 @@ const operators: MobileOperator[] = [
     },
     setupCost: 0,
     contractType: 'abbonamento',
-    color: 'from-blue-700 to-blue-900',
+    color: 'from-stripe-700 to-stripe-900',
     features: ['Rete migliore CH', 'Roaming UE illimitato', 'Premium'],
     website: 'https://www.swisscom.ch'
   },
@@ -291,7 +291,7 @@ const operators: MobileOperator[] = [
     },
     setupCost: 0,
     contractType: 'prepagato',
-    color: 'from-teal-600 to-blue-700',
+    color: 'from-teal-600 to-stripe-700',
     features: ['Rete Swisscom', 'Roaming UE incluso', 'Buon prezzo'],
     website: 'https://www.wingo.ch/it'
   },
@@ -678,13 +678,13 @@ const MobileOperators: React.FC = () => {
       {/* Educational Section */}
       <div className="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-orange-950/30 rounded-2xl border border-amber-200 dark:border-amber-800 p-6">
         <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100 mb-4 flex items-center gap-2">
-          <Info size={20} className="text-blue-600" />
+          <Info size={20} className="text-stripe-600" />
           {t('mobile.tipsTitle')}
         </h3>
         
         <div className="space-y-4 text-sm text-body">
           <div className="p-4 bg-surface/50 rounded-xl">
-            <p className="font-bold text-blue-600 mb-2">📱 {t('mobile.whichOperator')}</p>
+            <p className="font-bold text-stripe-600 mb-2">📱 {t('mobile.whichOperator')}</p>
             <ul className="space-y-2 ml-4 list-disc">
               <li>{t('mobile.operatorTip1')}</li>
               <li>{t('mobile.operatorTip2')}</li>
@@ -693,7 +693,7 @@ const MobileOperators: React.FC = () => {
           </div>
 
           <div className="p-4 bg-surface/50 rounded-xl">
-            <p className="font-bold text-blue-600 mb-2">💡 {t('mobile.tricksTitle')}</p>
+            <p className="font-bold text-stripe-600 mb-2">💡 {t('mobile.tricksTitle')}</p>
             <ul className="space-y-2 ml-4 list-disc">
               <li>{t('mobile.trick1')}</li>
               <li>{t('mobile.trick2')}</li>

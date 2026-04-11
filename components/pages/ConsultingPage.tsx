@@ -90,7 +90,7 @@ const ConsultingPage: React.FC = () => {
     <div className="space-y-8">
       {/* Header */}
       <div className="text-center space-y-3">
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-blue-50 dark:bg-blue-950/30 text-blue-700 dark:text-blue-300 rounded-full text-sm font-medium">
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-stripe-50 dark:bg-stripe-950/30 text-stripe-700 dark:text-stripe-300 rounded-full text-sm font-medium">
           <Calendar className="w-4 h-4" />
           {t('consulting.badge')}
         </div>
@@ -132,7 +132,7 @@ const ConsultingPage: React.FC = () => {
                 tier.popular
                   ? 'border-amber-400 dark:border-amber-500 bg-amber-50/30 dark:bg-amber-950/20'
                   : 'border-edge bg-surface/50'
-              } ${isSelected ? 'ring-2 ring-blue-500 ring-offset-2 dark:ring-offset-slate-900 scale-[1.02]' : 'hover:border-slate-300 dark:hover:border-slate-600'}`}
+              } ${isSelected ? 'ring-2 ring-stripe-500 ring-offset-2 dark:ring-offset-slate-900 scale-[1.02]' : 'hover:border-slate-300 dark:hover:border-slate-600'}`}
             >
               {tier.popular && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 bg-amber-400 dark:bg-amber-500 text-amber-900 dark:text-amber-950 text-xs font-bold rounded-full">
@@ -146,7 +146,7 @@ const ConsultingPage: React.FC = () => {
                   <div className={`p-2 rounded-xl ${
                     tier.popular
                       ? 'bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-400'
-                      : 'bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-400'
+                      : 'bg-stripe-100 dark:bg-stripe-900/40 text-stripe-700 dark:text-stripe-400'
                   }`}>
                     {tier.icon}
                   </div>
@@ -192,7 +192,7 @@ const ConsultingPage: React.FC = () => {
                   className={`w-full py-3 px-4 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 transition-colors ${
                     tier.popular
                       ? 'bg-amber-500 hover:bg-amber-600 text-white'
-                      : 'bg-blue-600 hover:bg-blue-700 text-white'
+                      : 'bg-stripe-600 hover:bg-stripe-700 text-white'
                   }`}
                 >
                   <Calendar className="w-4 h-4" />
@@ -217,7 +217,7 @@ const ConsultingPage: React.FC = () => {
             { icon: <FileText className="w-5 h-5" />, step: 3, key: 'step3' },
           ].map(({ icon, step, key }) => (
             <div key={step} className="text-center p-4 rounded-xl bg-surface-alt/50 space-y-2">
-              <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-400 font-bold text-sm">
+              <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-stripe-100 dark:bg-stripe-900/40 text-stripe-700 dark:text-stripe-400 font-bold text-sm">
                 {step}
               </div>
               <div className="flex justify-center text-subtle">

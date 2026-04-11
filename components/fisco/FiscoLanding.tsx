@@ -96,7 +96,7 @@ const FiscoLanding: React.FC = () => {
               {t('fisco.landing.trust.updated')}
             </span>
             <span className="inline-flex items-center gap-1 bg-white/70 dark:bg-slate-800/60 px-2.5 py-1 rounded-full">
-              <Clock className="w-3.5 h-3.5 text-blue-500" />
+              <Clock className="w-3.5 h-3.5 text-stripe-500" />
               {t('fisco.landing.trust.free')}
             </span>
             <span className="inline-flex items-center gap-1 bg-white/70 dark:bg-slate-800/60 px-2.5 py-1 rounded-full">
@@ -129,7 +129,7 @@ const FiscoLanding: React.FC = () => {
               <span className={`absolute top-2.5 right-2.5 text-xs font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ${
                 badge === 'popular'
                   ? 'bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400'
-                  : 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400'
+                  : 'bg-stripe-100 text-stripe-700 dark:bg-stripe-900/30 dark:text-stripe-400'
               }`}>
                 {badge === 'popular' ? '⭐' : '🆕'}
               </span>

@@ -31,13 +31,13 @@ const IRPEF_BRACKETS = [
 const ADDIZIONALE_COMUNALE_RATE = 0.008; // Common average
 
 const EDIT_FIELD_CLASS =
-  'w-full h-12 bg-surface-alt px-4 rounded-xl border border-edge text-sm font-semibold text-slate-800 dark:text-slate-100 outline-none focus-visible:border-indigo-500 focus-visible:ring-4 focus-visible:ring-indigo-500/10 transition-[color,background-color,border-color,box-shadow] placeholder-slate-500';
+  'w-full h-12 bg-surface-alt px-4 rounded-xl border border-edge text-sm font-semibold text-slate-800 dark:text-slate-100 outline-none focus-visible:border-stripe-500 focus-visible:ring-4 focus-visible:ring-stripe-500/10 transition-[color,background-color,border-color,box-shadow] placeholder-slate-500';
 
 const STEPPER_SHELL_CLASS =
-  'flex items-center bg-surface-alt border border-edge rounded-xl overflow-hidden h-12 shadow-sm focus-within:ring-2 focus-within:ring-indigo-500/20 focus-within:border-indigo-500 transition-[color,background-color,border-color,box-shadow,transform]';
+  'flex items-center bg-surface-alt border border-edge rounded-xl overflow-hidden h-12 shadow-sm focus-within:ring-2 focus-within:ring-stripe-500/20 focus-within:border-stripe-500 transition-[color,background-color,border-color,box-shadow,transform]';
 
 const STEP_BTN_CLASS =
-  'w-10 shrink-0 h-full flex items-center justify-center text-muted hover:text-indigo-600 hover:bg-slate-100 dark:hover:bg-slate-800 active:scale-90 transition-[color,background-color,border-color,box-shadow,transform]';
+  'w-10 shrink-0 h-full flex items-center justify-center text-muted hover:text-stripe-600 hover:bg-slate-100 dark:hover:bg-slate-800 active:scale-90 transition-[color,background-color,border-color,box-shadow,transform]';
 
 type NumberStepperProps = {
   id: string;
@@ -72,7 +72,7 @@ const NumberStepper: React.FC<NumberStepperProps> = ({ id, value, min, max, onCh
           next = Math.max(min, Math.min(max, next));
           onChange(next);
         }}
-        className="w-full h-full min-h-[48px] bg-transparent text-center font-bold text-base text-slate-700 dark:text-slate-200 outline-none focus-visible:ring-2 focus-visible:ring-blue-500 appearance-none px-1 py-3"
+        className="w-full h-full min-h-[48px] bg-transparent text-center font-bold text-base text-slate-700 dark:text-slate-200 outline-none focus-visible:ring-2 focus-visible:ring-stripe-500 appearance-none px-1 py-3"
         aria-label={ariaLabel}
       />
     </div>
@@ -219,10 +219,10 @@ const TaxCreditCalculator: React.FC = () => {
         </div>
 
         {/* Info box */}
-        <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-4 mb-6">
+        <div className="bg-stripe-50 dark:bg-stripe-900/20 border border-stripe-200 dark:border-stripe-800 rounded-xl p-4 mb-6">
           <div className="flex gap-2">
-            <Info size={18} className="text-blue-700 dark:text-blue-300 mt-0.5 shrink-0" />
-            <p className="text-sm text-blue-700 dark:text-blue-300">{t('taxCredit.info')}</p>
+            <Info size={18} className="text-stripe-700 dark:text-stripe-300 mt-0.5 shrink-0" />
+            <p className="text-sm text-stripe-700 dark:text-stripe-300">{t('taxCredit.info')}</p>
           </div>
         </div>
 
@@ -322,7 +322,7 @@ const TaxCreditCalculator: React.FC = () => {
                     onChange={(e) => setSpouseWorks(e.target.checked)}
                     className="sr-only peer"
                   />
-                  <div className="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus-visible:ring-2 peer-focus-visible:ring-blue-300 dark:peer-focus-visible:ring-blue-800 rounded-full peer dark:bg-slate-600 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-transform dark:after:border-slate-500 peer-checked:bg-blue-600"></div>
+                  <div className="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus-visible:ring-2 peer-focus-visible:ring-stripe-300 dark:peer-focus-visible:ring-stripe-800 rounded-full peer dark:bg-slate-600 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-transform dark:after:border-slate-500 peer-checked:bg-stripe-600"></div>
                 </div>
                 <span className="text-sm font-medium text-body">{t('taxCredit.spouseWorks')}</span>
               </label>
@@ -395,20 +395,20 @@ const TaxCreditCalculator: React.FC = () => {
             <p className="text-xs font-medium text-emerald-700 dark:text-emerald-300 mb-1">{t('taxCredit.creditAmount')}</p>
             <p className="text-2xl font-bold text-emerald-700 dark:text-emerald-300">€{fmt(result.taxCredit)}</p>
           </div>
-          <div className="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-4 border border-blue-200 dark:border-blue-800">
-            <p className="text-xs font-medium text-blue-700 dark:text-blue-300 mb-1">{t('taxCredit.netItalianTax')}</p>
-            <p className="text-2xl font-bold text-blue-700 dark:text-blue-300">€{fmt(result.netItalianTax)}</p>
+          <div className="bg-stripe-50 dark:bg-stripe-900/20 rounded-xl p-4 border border-stripe-200 dark:border-stripe-800">
+            <p className="text-xs font-medium text-stripe-700 dark:text-stripe-300 mb-1">{t('taxCredit.netItalianTax')}</p>
+            <p className="text-2xl font-bold text-stripe-700 dark:text-stripe-300">€{fmt(result.netItalianTax)}</p>
           </div>
-          <div className="bg-violet-50 dark:bg-violet-900/20 rounded-xl p-4 border border-violet-200 dark:border-violet-800">
-            <p className="text-xs font-medium text-violet-700 dark:text-violet-300 mb-1">{t('taxCredit.effectiveRate')}</p>
-            <p className="text-2xl font-bold text-violet-700 dark:text-violet-300">{result.effectiveRate}%</p>
+          <div className="bg-stripe-50 dark:bg-stripe-900/20 rounded-xl p-4 border border-stripe-200 dark:border-stripe-800">
+            <p className="text-xs font-medium text-stripe-700 dark:text-stripe-300 mb-1">{t('taxCredit.effectiveRate')}</p>
+            <p className="text-2xl font-bold text-stripe-700 dark:text-stripe-300">{result.effectiveRate}%</p>
           </div>
         </div>
 
         {/* Details toggle */}
         <button
           onClick={() => setShowDetails(!showDetails)}
-          className="flex items-center gap-2 text-sm font-medium text-link hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+          className="flex items-center gap-2 text-sm font-medium text-link hover:text-stripe-700 dark:hover:text-stripe-300 transition-colors"
         >
           {showDetails ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
           {t('taxCredit.showDetails')}

@@ -17,7 +17,7 @@ const transportOptions: TransportOption[] = [
   { type: 'car-benzina', name: 'Auto Benzina', icon: <Car size={20} />, color: 'bg-red-600' },
   { type: 'car-diesel', name: 'Auto Diesel', icon: <Car size={20} />, color: 'bg-slate-600' },
   { type: 'car-electric', name: 'Auto Elettrica', icon: <Zap size={20} />, color: 'bg-emerald-600' },
-  { type: 'train', name: 'Treno', icon: <Train size={20} />, color: 'bg-blue-600' },
+  { type: 'train', name: 'Treno', icon: <Train size={20} />, color: 'bg-stripe-600' },
   { type: 'ebike', name: 'eBike', icon: <Bike size={20} />, color: 'bg-rose-600' }
 ];
 
@@ -149,7 +149,7 @@ const TransportCalculator: React.FC = () => {
         costPerMonth: trainCostPerMonth,
         costPerYear: trainCostPerMonth * 12,
         details: null,
-        color: 'bg-blue-600',
+        color: 'bg-stripe-600',
         icon: <Train size={24} />,
         fuelLocation: null
       },
@@ -442,8 +442,8 @@ const TransportCalculator: React.FC = () => {
             )}
 
             {result.type === 'train' && (
-              <div className="mt-4 p-3 bg-blue-50 dark:bg-blue-950/30 rounded-lg">
-                <p className="text-xs text-blue-800 dark:text-blue-300">
+              <div className="mt-4 p-3 bg-stripe-50 dark:bg-stripe-950/30 rounded-lg">
+                <p className="text-xs text-stripe-800 dark:text-stripe-300">
                   💡 {t('transport.trainTip')}
                 </p>
               </div>

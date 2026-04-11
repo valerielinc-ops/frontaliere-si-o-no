@@ -270,7 +270,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
         <button
           type="button"
           onClick={() => setMobileSettingsOpen(v => !v)}
-          className="w-full flex items-center justify-between gap-2 px-4 py-3 rounded-xl bg-indigo-50 dark:bg-indigo-950/30 border border-indigo-200 dark:border-indigo-800 text-sm font-bold text-indigo-700 dark:text-indigo-300"
+          className="w-full flex items-center justify-between gap-2 px-4 py-3 rounded-xl bg-stripe-50 dark:bg-stripe-950/30 border border-stripe-200 dark:border-stripe-800 text-sm font-bold text-stripe-700 dark:text-stripe-300"
           aria-expanded={mobileSettingsOpen}
         >
           <span className="flex items-center gap-2">
@@ -295,7 +295,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
                   step={5000}
                   value={salary}
                   onChange={e => setSalary(Number(e.target.value))}
-                  className="flex-1 h-2 accent-indigo-600"
+                  className="flex-1 h-2 accent-stripe-600"
                   aria-label={t('bordermap.salary')}
                 />
                 <div className="flex items-center gap-1.5">
@@ -319,7 +319,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
             </div>
 
             {/* Comparison */}
-            <div className={`rounded-xl p-4 border ${compareWith && compareTaxResult ? 'bg-indigo-50 dark:bg-indigo-950/30 border-indigo-200 dark:border-indigo-800' : 'bg-surface-alt/50 border-edge'}`}>
+            <div className={`rounded-xl p-4 border ${compareWith && compareTaxResult ? 'bg-stripe-50 dark:bg-stripe-950/30 border-stripe-200 dark:border-stripe-800' : 'bg-surface-alt/50 border-edge'}`}>
               <div className="mb-3">
                 <label htmlFor="compare-select-mobile" className="flex items-center gap-2 text-sm font-bold text-subtle mb-2">
                   <Building2 className="w-4 h-4" />
@@ -340,11 +340,11 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
               {compareWith && compareTaxResult && (
                 <>
                   <div className="flex items-center gap-2 mb-2">
-                    <span className="text-sm font-bold text-indigo-800 dark:text-indigo-200">
+                    <span className="text-sm font-bold text-stripe-800 dark:text-stripe-200">
                       {t('bordermap.comparison', { municipality: compareWith.name })}
                     </span>
                     {userMunicipality?.name === compareWith.name && (
-                      <span className="text-xs px-2 py-0.5 rounded-full bg-indigo-200 dark:bg-indigo-800 text-indigo-700 dark:text-indigo-300 font-bold">
+                      <span className="text-xs px-2 py-0.5 rounded-full bg-stripe-200 dark:bg-stripe-800 text-stripe-700 dark:text-stripe-300 font-bold">
                         {t('bordermap.yourMunicipality')}
                       </span>
                     )}
@@ -352,7 +352,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
                   <div className="grid grid-cols-2 gap-3 text-center">
                     <div className="p-2 bg-surface rounded-lg">
                       <p className="text-sm text-muted">{t('bordermap.annualTax')}</p>
-                      <p className="text-lg font-bold text-indigo-700 dark:text-indigo-300">€{formatEUR(compareTaxResult.finalItalianTaxEUR)}</p>
+                      <p className="text-lg font-bold text-stripe-700 dark:text-stripe-300">€{formatEUR(compareTaxResult.finalItalianTaxEUR)}</p>
                     </div>
                     <div className="p-2 bg-surface rounded-lg">
                       <p className="text-sm text-muted">{t('bordermap.addComunale')}</p>
@@ -484,7 +484,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
                 step={5000}
                 value={salary}
                 onChange={e => setSalary(Number(e.target.value))}
-                className="flex-1 h-2 accent-indigo-600"
+                className="flex-1 h-2 accent-stripe-600"
                 aria-label={t('bordermap.salary')}
               />
               <div className="flex items-center gap-2">
@@ -515,7 +515,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
           </div>
 
           {/* Comparison banner */}
-          <div className={`rounded-xl p-4 border ${compareWith && compareTaxResult ? 'bg-indigo-50 dark:bg-indigo-950/30 border-indigo-200 dark:border-indigo-800' : 'bg-surface-alt/50 border-edge'}`}>
+          <div className={`rounded-xl p-4 border ${compareWith && compareTaxResult ? 'bg-stripe-50 dark:bg-stripe-950/30 border-stripe-200 dark:border-stripe-800' : 'bg-surface-alt/50 border-edge'}`}>
             <div className="mb-3">
               <label htmlFor="compare-select" className="flex items-center gap-2 text-sm font-bold text-subtle mb-2">
                 <Building2 className="w-4 h-4" />
@@ -536,11 +536,11 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
             {compareWith && compareTaxResult && (
               <>
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="text-sm font-bold text-indigo-800 dark:text-indigo-200">
+                  <span className="text-sm font-bold text-stripe-800 dark:text-stripe-200">
                     {t('bordermap.comparison', { municipality: compareWith.name })}
                   </span>
                   {userMunicipality?.name === compareWith.name && (
-                    <span className="text-xs px-2 py-0.5 rounded-full bg-indigo-200 dark:bg-indigo-800 text-indigo-700 dark:text-indigo-300 font-bold">
+                    <span className="text-xs px-2 py-0.5 rounded-full bg-stripe-200 dark:bg-stripe-800 text-stripe-700 dark:text-stripe-300 font-bold">
                       {t('bordermap.yourMunicipality')}
                     </span>
                   )}
@@ -548,7 +548,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
                 <div className="grid grid-cols-2 gap-3 text-center">
                   <div className="p-2 bg-surface rounded-lg">
                     <p className="text-sm text-muted">{t('bordermap.annualTax')}</p>
-                    <p className="text-lg font-bold text-indigo-700 dark:text-indigo-300">€{formatEUR(compareTaxResult.finalItalianTaxEUR)}</p>
+                    <p className="text-lg font-bold text-stripe-700 dark:text-stripe-300">€{formatEUR(compareTaxResult.finalItalianTaxEUR)}</p>
                   </div>
                   <div className="p-2 bg-surface rounded-lg">
                     <p className="text-sm text-muted">{t('bordermap.addComunale')}</p>
@@ -673,7 +673,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
               onClick={() => toggleSort(field)}
               className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors inline-flex items-center gap-1 ${
                 sortField === field
-                  ? 'bg-indigo-600 text-white'
+                  ? 'bg-stripe-600 text-white'
                   : 'bg-surface-raised text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600'
               }`}
             >
@@ -699,7 +699,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
                 isCheapest
                   ? 'border-green-300 dark:border-green-700 ring-1 ring-green-200 dark:ring-green-800'
                   : compareWith?.name === m.name
-                    ? 'border-indigo-300 dark:border-indigo-700 ring-1 ring-indigo-200 dark:ring-indigo-800'
+                    ? 'border-stripe-300 dark:border-stripe-700 ring-1 ring-stripe-200 dark:ring-stripe-800'
                     : 'border-edge'
               }`}
             >
@@ -724,7 +724,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
                   </div>
                 </div>
                 <div className="text-right shrink-0">
-                  <p className="text-2xl font-bold text-indigo-700 dark:text-indigo-300">€{formatEUR(m.taxResult.finalItalianTaxEUR)}</p>
+                  <p className="text-2xl font-bold text-stripe-700 dark:text-stripe-300">€{formatEUR(m.taxResult.finalItalianTaxEUR)}</p>
                   <p className="text-sm text-muted">{t('bordermap.annualTax')}</p>
                 </div>
               </div>
@@ -776,7 +776,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
                 </div>
               )}
               {compareWith?.name === m.name && (
-                <div className="flex items-center gap-1 text-sm font-bold rounded-lg px-3 py-2 bg-indigo-50 dark:bg-indigo-950/30 text-indigo-700 dark:text-indigo-300">
+                <div className="flex items-center gap-1 text-sm font-bold rounded-lg px-3 py-2 bg-stripe-50 dark:bg-stripe-950/30 text-stripe-700 dark:text-stripe-300">
                   <Building2 className="w-4 h-4" /> {t('bordermap.yourMunicipality')}
                 </div>
               )}

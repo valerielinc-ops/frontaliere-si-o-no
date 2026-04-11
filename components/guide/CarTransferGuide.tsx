@@ -35,20 +35,20 @@ const CarTransferGuide: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl p-4 sm:p-6 text-white">
+      <div className="bg-gradient-to-br from-stripe-600 to-stripe-700 rounded-2xl p-4 sm:p-6 text-white">
         <div className="flex items-center gap-3 mb-3">
           <div className="p-3 bg-white/20 rounded-xl">
             <Car size={28} />
           </div>
           <div>
             <h2 className="text-2xl font-bold">{t('carTransfer.title')}</h2>
-            <p className="text-blue-100 text-sm mt-1">{t('carTransfer.subtitle')}</p>
+            <p className="text-stripe-100 text-sm mt-1">{t('carTransfer.subtitle')}</p>
           </div>
         </div>
         <div className="mt-4 bg-white/10 rounded-xl p-4">
           <div className="flex items-start gap-2">
             <AlertCircle size={18} className="mt-0.5 shrink-0" />
-            <p className="text-sm text-blue-100">{t('carTransfer.disclaimer')}</p>
+            <p className="text-sm text-stripe-100">{t('carTransfer.disclaimer')}</p>
           </div>
         </div>
       </div>
@@ -61,7 +61,7 @@ const CarTransferGuide: React.FC = () => {
             onClick={() => setActiveSection(key)}
             className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-colors ${
               activeSection === key
-                ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 ring-1 ring-blue-300 dark:ring-blue-700'
+                ? 'bg-stripe-100 dark:bg-stripe-900/30 text-stripe-700 dark:text-stripe-300 ring-1 ring-stripe-300 dark:ring-stripe-700'
                 : 'bg-surface text-subtle hover:bg-slate-50 dark:hover:bg-slate-700 border border-edge'
             }`}
           >
@@ -90,8 +90,8 @@ const CarTransferGuide: React.FC = () => {
               ].map((item, i) => (
                 <div key={i} className="flex gap-4">
                   <div className="flex flex-col items-center">
-                    <div className="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">{item.step}</div>
-                    {i < 4 && <div className="w-0.5 h-full bg-blue-200 dark:bg-blue-800 mt-1" />}
+                    <div className="w-8 h-8 bg-stripe-600 text-white rounded-full flex items-center justify-center text-sm font-bold">{item.step}</div>
+                    {i < 4 && <div className="w-0.5 h-full bg-stripe-200 dark:bg-stripe-800 mt-1" />}
                   </div>
                   <div className="flex-1 pb-4">
                     <h5 className="font-bold text-strong">{item.title}</h5>
@@ -126,7 +126,7 @@ const CarTransferGuide: React.FC = () => {
         <div className="space-y-4 animate-fade-in">
           <div className="bg-surface rounded-2xl border border-edge p-6">
             <h3 className="text-lg font-bold text-strong mb-4 flex items-center gap-2">
-              <Landmark size={20} className="text-blue-600" />
+              <Landmark size={20} className="text-stripe-600" />
               {t('carTransfer.customs.title')}
             </h3>
             <p className="text-subtle mb-6">{t('carTransfer.customs.intro')}</p>
@@ -144,19 +144,19 @@ const CarTransferGuide: React.FC = () => {
                 </ul>
               </div>
 
-              <div className="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-4">
-                <h4 className="font-bold text-blue-700 dark:text-blue-300 mb-2 flex items-center gap-2">
+              <div className="bg-stripe-50 dark:bg-stripe-900/20 rounded-xl p-4">
+                <h4 className="font-bold text-stripe-700 dark:text-stripe-300 mb-2 flex items-center gap-2">
                   <Info size={16} />
                   {t('carTransfer.customs.taxTitle')}
                 </h4>
                 <p className="text-sm text-link mb-3">{t('carTransfer.customs.taxDesc')}</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <div className="bg-surface rounded-lg p-3 border border-blue-200 dark:border-blue-800">
+                  <div className="bg-surface rounded-lg p-3 border border-stripe-200 dark:border-stripe-800">
                     <div className="text-xs text-link font-semibold">{t('carTransfer.customs.ivaLabel')}</div>
                     <div className="text-xl font-bold text-strong">8.1%</div>
                     <div className="text-sm text-muted">{t('carTransfer.customs.ivaNote')}</div>
                   </div>
-                  <div className="bg-surface rounded-lg p-3 border border-blue-200 dark:border-blue-800">
+                  <div className="bg-surface rounded-lg p-3 border border-stripe-200 dark:border-stripe-800">
                     <div className="text-xs text-link font-semibold">{t('carTransfer.customs.dutyLabel')}</div>
                     <div className="text-xl font-bold text-strong">0 CHF</div>
                     <div className="text-sm text-muted">{t('carTransfer.customs.dutyNote')}</div>
@@ -186,7 +186,7 @@ const CarTransferGuide: React.FC = () => {
         <div className="space-y-4 animate-fade-in">
           <div className="bg-surface rounded-2xl border border-edge p-6">
             <h3 className="text-lg font-bold text-strong mb-4 flex items-center gap-2">
-              <FileText size={20} className="text-blue-600" />
+              <FileText size={20} className="text-stripe-600" />
               {t('carTransfer.registration.title')}
             </h3>
             <p className="text-subtle mb-6">{t('carTransfer.registration.intro')}</p>
@@ -206,12 +206,12 @@ const CarTransferGuide: React.FC = () => {
               <div className="bg-warm-50 dark:bg-warm-950 rounded-xl p-4">
                 <h4 className="font-bold text-body mb-3">{t('carTransfer.registration.docsTitle')}</h4>
                 <ul className="space-y-2 text-sm text-subtle">
-                  <li className="flex items-start gap-2"><FileText size={14} className="mt-1 shrink-0 text-blue-600" />{t('carTransfer.registration.doc1')}</li>
-                  <li className="flex items-start gap-2"><FileText size={14} className="mt-1 shrink-0 text-blue-600" />{t('carTransfer.registration.doc2')}</li>
-                  <li className="flex items-start gap-2"><FileText size={14} className="mt-1 shrink-0 text-blue-600" />{t('carTransfer.registration.doc3')}</li>
-                  <li className="flex items-start gap-2"><FileText size={14} className="mt-1 shrink-0 text-blue-600" />{t('carTransfer.registration.doc4')}</li>
-                  <li className="flex items-start gap-2"><FileText size={14} className="mt-1 shrink-0 text-blue-600" />{t('carTransfer.registration.doc5')}</li>
-                  <li className="flex items-start gap-2"><FileText size={14} className="mt-1 shrink-0 text-blue-600" />{t('carTransfer.registration.doc6')}</li>
+                  <li className="flex items-start gap-2"><FileText size={14} className="mt-1 shrink-0 text-stripe-600" />{t('carTransfer.registration.doc1')}</li>
+                  <li className="flex items-start gap-2"><FileText size={14} className="mt-1 shrink-0 text-stripe-600" />{t('carTransfer.registration.doc2')}</li>
+                  <li className="flex items-start gap-2"><FileText size={14} className="mt-1 shrink-0 text-stripe-600" />{t('carTransfer.registration.doc3')}</li>
+                  <li className="flex items-start gap-2"><FileText size={14} className="mt-1 shrink-0 text-stripe-600" />{t('carTransfer.registration.doc4')}</li>
+                  <li className="flex items-start gap-2"><FileText size={14} className="mt-1 shrink-0 text-stripe-600" />{t('carTransfer.registration.doc5')}</li>
+                  <li className="flex items-start gap-2"><FileText size={14} className="mt-1 shrink-0 text-stripe-600" />{t('carTransfer.registration.doc6')}</li>
                 </ul>
               </div>
 
@@ -241,7 +241,7 @@ const CarTransferGuide: React.FC = () => {
         <div className="space-y-4 animate-fade-in">
           <div className="bg-surface rounded-2xl border border-edge p-6">
             <h3 className="text-lg font-bold text-strong mb-4 flex items-center gap-2">
-              <MapPin size={20} className="text-blue-600" />
+              <MapPin size={20} className="text-stripe-600" />
               {t('carTransfer.plates.title')}
             </h3>
             <p className="text-subtle mb-6">{t('carTransfer.plates.intro')}</p>
@@ -258,7 +258,7 @@ const CarTransferGuide: React.FC = () => {
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
-                    <div className="shrink-0 w-16 h-8 bg-blue-100 border-2 border-blue-300 rounded flex items-center justify-center text-xs font-bold text-blue-700">U ···</div>
+                    <div className="shrink-0 w-16 h-8 bg-stripe-100 border-2 border-stripe-300 rounded flex items-center justify-center text-xs font-bold text-stripe-700">U ···</div>
                     <div>
                       <div className="font-semibold text-body">{t('carTransfer.plates.temp')}</div>
                       <div className="text-muted">{t('carTransfer.plates.tempDesc')}</div>
@@ -297,10 +297,10 @@ const CarTransferGuide: React.FC = () => {
               </div>
             </div>
 
-            <div className="mt-4 bg-blue-50 dark:bg-blue-900/20 rounded-xl p-4">
+            <div className="mt-4 bg-stripe-50 dark:bg-stripe-900/20 rounded-xl p-4">
               <div className="flex items-start gap-2">
-                <Info size={16} className="mt-0.5 shrink-0 text-blue-600" />
-                <p className="text-sm text-blue-700 dark:text-blue-400">{t('carTransfer.plates.italianNote')}</p>
+                <Info size={16} className="mt-0.5 shrink-0 text-stripe-600" />
+                <p className="text-sm text-stripe-700 dark:text-stripe-400">{t('carTransfer.plates.italianNote')}</p>
               </div>
             </div>
           </div>
@@ -312,7 +312,7 @@ const CarTransferGuide: React.FC = () => {
         <div className="space-y-4 animate-fade-in">
           <div className="bg-surface rounded-2xl border border-edge p-6">
             <h3 className="text-lg font-bold text-strong mb-4 flex items-center gap-2">
-              <CreditCard size={20} className="text-blue-600" />
+              <CreditCard size={20} className="text-stripe-600" />
               {t('carTransfer.license.title')}
             </h3>
             <p className="text-subtle mb-6">{t('carTransfer.license.intro')}</p>
@@ -330,19 +330,19 @@ const CarTransferGuide: React.FC = () => {
                 <h4 className="font-bold text-body mb-3">{t('carTransfer.license.processTitle')}</h4>
                 <ol className="space-y-3 text-sm text-subtle">
                   <li className="flex items-start gap-3">
-                    <span className="shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs font-bold">1</span>
+                    <span className="shrink-0 w-6 h-6 bg-stripe-600 text-white rounded-full flex items-center justify-center text-xs font-bold">1</span>
                     <span>{t('carTransfer.license.step1')}</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs font-bold">2</span>
+                    <span className="shrink-0 w-6 h-6 bg-stripe-600 text-white rounded-full flex items-center justify-center text-xs font-bold">2</span>
                     <span>{t('carTransfer.license.step2')}</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs font-bold">3</span>
+                    <span className="shrink-0 w-6 h-6 bg-stripe-600 text-white rounded-full flex items-center justify-center text-xs font-bold">3</span>
                     <span>{t('carTransfer.license.step3')}</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <span className="shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs font-bold">4</span>
+                    <span className="shrink-0 w-6 h-6 bg-stripe-600 text-white rounded-full flex items-center justify-center text-xs font-bold">4</span>
                     <span>{t('carTransfer.license.step4')}</span>
                   </li>
                 </ol>
@@ -376,7 +376,7 @@ const CarTransferGuide: React.FC = () => {
         <div className="space-y-4 animate-fade-in">
           <div className="bg-surface rounded-2xl border border-edge p-6">
             <h3 className="text-lg font-bold text-strong mb-4 flex items-center gap-2">
-              <Shield size={20} className="text-blue-600" />
+              <Shield size={20} className="text-stripe-600" />
               {t('carTransfer.insurance.title')}
             </h3>
             <p className="text-subtle mb-6">{t('carTransfer.insurance.intro')}</p>
@@ -392,8 +392,8 @@ const CarTransferGuide: React.FC = () => {
                   <h4 className="font-bold text-orange-700 dark:text-orange-300 mb-2">{t('carTransfer.insurance.cascoTitle')}</h4>
                   <p className="text-sm text-orange-600 dark:text-orange-400">{t('carTransfer.insurance.cascoDesc')}</p>
                 </div>
-                <div className="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-4 border border-blue-200 dark:border-blue-800">
-                  <h4 className="font-bold text-blue-700 dark:text-blue-300 mb-2">{t('carTransfer.insurance.assistTitle')}</h4>
+                <div className="bg-stripe-50 dark:bg-stripe-900/20 rounded-xl p-4 border border-stripe-200 dark:border-stripe-800">
+                  <h4 className="font-bold text-stripe-700 dark:text-stripe-300 mb-2">{t('carTransfer.insurance.assistTitle')}</h4>
                   <p className="text-sm text-link">{t('carTransfer.insurance.assistDesc')}</p>
                 </div>
               </div>
@@ -403,10 +403,10 @@ const CarTransferGuide: React.FC = () => {
                 <p className="text-sm text-subtle">{t('carTransfer.insurance.bonusDesc')}</p>
               </div>
 
-              <div className="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-4">
+              <div className="bg-stripe-50 dark:bg-stripe-900/20 rounded-xl p-4">
                 <div className="flex items-start gap-2">
-                  <Info size={16} className="mt-0.5 shrink-0 text-blue-600" />
-                  <p className="text-sm text-blue-700 dark:text-blue-400">{t('carTransfer.insurance.tip')}</p>
+                  <Info size={16} className="mt-0.5 shrink-0 text-stripe-600" />
+                  <p className="text-sm text-stripe-700 dark:text-stripe-400">{t('carTransfer.insurance.tip')}</p>
                 </div>
               </div>
             </div>
@@ -419,7 +419,7 @@ const CarTransferGuide: React.FC = () => {
         <div className="space-y-4 animate-fade-in">
           <div className="bg-surface rounded-2xl border border-edge p-6">
             <h3 className="text-lg font-bold text-strong mb-4 flex items-center gap-2">
-              <CreditCard size={20} className="text-blue-600" />
+              <CreditCard size={20} className="text-stripe-600" />
               {t('carTransfer.costs.title')}
             </h3>
             <p className="text-subtle mb-6">{t('carTransfer.costs.intro')}</p>
@@ -453,12 +453,12 @@ const CarTransferGuide: React.FC = () => {
               </table>
             </div>
 
-            <div className="mt-4 bg-indigo-50 dark:bg-indigo-900/20 rounded-xl p-4">
+            <div className="mt-4 bg-stripe-50 dark:bg-stripe-900/20 rounded-xl p-4">
               <div className="flex justify-between items-center">
-                <span className="font-bold text-indigo-700 dark:text-indigo-300">{t('carTransfer.costs.total')}</span>
-                <span className="text-xl font-bold text-indigo-700 dark:text-indigo-300">{t('carTransfer.costs.totalAmount')}</span>
+                <span className="font-bold text-stripe-700 dark:text-stripe-300">{t('carTransfer.costs.total')}</span>
+                <span className="text-xl font-bold text-stripe-700 dark:text-stripe-300">{t('carTransfer.costs.totalAmount')}</span>
               </div>
-              <p className="text-xs text-indigo-500 mt-1">{t('carTransfer.costs.totalNote')}</p>
+              <p className="text-xs text-stripe-500 mt-1">{t('carTransfer.costs.totalNote')}</p>
             </div>
           </div>
         </div>
@@ -513,7 +513,7 @@ const CarTransferGuide: React.FC = () => {
                   <div className="space-y-2">
                     {phase.items.map((item, ii) => (
                       <label key={ii} className="flex items-start gap-3 p-3 bg-surface-alt rounded-lg cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                        <input type="checkbox" className="mt-1 h-4 w-4 rounded border-slate-300 dark:border-slate-600 text-blue-600 focus-visible:ring-blue-500" aria-label={item} />
+                        <input type="checkbox" className="mt-1 h-4 w-4 rounded border-slate-300 dark:border-slate-600 text-stripe-600 focus-visible:ring-stripe-500" aria-label={item} />
                         <span className="text-sm text-body">{item}</span>
                       </label>
                     ))}
@@ -563,7 +563,7 @@ const CarTransferGuide: React.FC = () => {
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 p-3 bg-surface rounded-xl border border-edge hover:border-blue-300 dark:hover:border-blue-600 transition-colors text-sm text-blue-700 dark:text-blue-400 font-medium"
+              className="flex items-center gap-2 p-3 bg-surface rounded-xl border border-edge hover:border-stripe-300 dark:hover:border-stripe-600 transition-colors text-sm text-stripe-700 dark:text-stripe-400 font-medium"
             >
               <ExternalLink size={14} />
               {link.label}

@@ -46,7 +46,7 @@ export const DataDeletion: React.FC = () => {
           {/* Explanation */}
           <div className="space-y-4 text-subtle">
             <div className="flex items-start gap-3">
-              <Shield className="text-indigo-500 flex-shrink-0 mt-1" size={20} />
+              <Shield className="text-stripe-500 flex-shrink-0 mt-1" size={20} />
               <div>
                 <h3 className="font-bold text-slate-800 dark:text-slate-100 mb-1">Client-Side Application</h3>
                 <p className="text-sm">
@@ -56,7 +56,7 @@ export const DataDeletion: React.FC = () => {
             </div>
 
             <div className="flex items-start gap-3">
-              <Shield className="text-indigo-500 flex-shrink-0 mt-1" size={20} />
+              <Shield className="text-stripe-500 flex-shrink-0 mt-1" size={20} />
               <div>
                 <h3 className="font-bold text-slate-800 dark:text-slate-100 mb-1">Facebook Login</h3>
                 <p className="text-sm">
@@ -66,11 +66,11 @@ export const DataDeletion: React.FC = () => {
             </div>
 
             <div className="flex items-start gap-3">
-              <Shield className="text-indigo-500 flex-shrink-0 mt-1" size={20} />
+              <Shield className="text-stripe-500 flex-shrink-0 mt-1" size={20} />
               <div>
                 <h3 className="font-bold text-slate-800 dark:text-slate-100 mb-1">How to Delete Your Data</h3>
                 <p className="text-sm">
-                  If you have an account, go to your <a href="/profilo-utente" className="text-indigo-600 dark:text-indigo-400 hover:underline font-semibold">Profile page</a> and use the "Delete Account" button. This will permanently remove your Firebase Auth account, Firestore profile data, newsletter subscription, and all associated data. You can also revoke access from your <a href="https://www.facebook.com/settings?tab=applications" target="_blank" rel="noopener noreferrer" className="text-indigo-600 dark:text-indigo-400 hover:underline font-semibold">Facebook App Settings</a>.
+                  If you have an account, go to your <a href="/profilo-utente" className="text-stripe-600 dark:text-stripe-400 hover:underline font-semibold">Profile page</a> and use the "Delete Account" button. This will permanently remove your Firebase Auth account, Firestore profile data, newsletter subscription, and all associated data. You can also revoke access from your <a href="https://www.facebook.com/settings?tab=applications" target="_blank" rel="noopener noreferrer" className="text-stripe-600 dark:text-stripe-400 hover:underline font-semibold">Facebook App Settings</a>.
                 </p>
               </div>
             </div>
@@ -112,25 +112,25 @@ export const DataDeletion: React.FC = () => {
               To delete all data associated with your account:
             </p>
             <ol className="text-sm text-subtle space-y-2 list-decimal list-inside mb-4">
-              <li>Go to your <a href="/profilo-utente" className="text-indigo-600 dark:text-indigo-400 hover:underline font-semibold">Profile page</a></li>
+              <li>Go to your <a href="/profilo-utente" className="text-stripe-600 dark:text-stripe-400 hover:underline font-semibold">Profile page</a></li>
               <li>Click the <strong>"Delete Account"</strong> button</li>
               <li>Confirm the deletion when prompted</li>
             </ol>
             <p className="text-sm text-subtle">
-              This will permanently remove your Firebase Auth account, Firestore profile, newsletter subscription, and all associated data. You can also revoke app access from your <a href="https://www.facebook.com/settings?tab=applications" target="_blank" rel="noopener noreferrer" className="text-indigo-600 dark:text-indigo-400 hover:underline font-semibold">Facebook App Settings</a>.
+              This will permanently remove your Firebase Auth account, Firestore profile, newsletter subscription, and all associated data. You can also revoke app access from your <a href="https://www.facebook.com/settings?tab=applications" target="_blank" rel="noopener noreferrer" className="text-stripe-600 dark:text-stripe-400 hover:underline font-semibold">Facebook App Settings</a>.
             </p>
             <p className="text-sm text-subtle mt-3">
-              For further questions, refer to our <a href="/privacy" className="text-indigo-600 dark:text-indigo-400 hover:underline font-semibold">Privacy Policy</a> or contact us via our Facebook page.
+              For further questions, refer to our <a href="/privacy" className="text-stripe-600 dark:text-stripe-400 hover:underline font-semibold">Privacy Policy</a> or contact us via our Facebook page.
             </p>
           </div>
 
           {/* Confirmation Code (for Facebook) */}
-          <div className="bg-indigo-50 dark:bg-indigo-950/30 rounded-xl p-4 sm:p-6 border border-indigo-200 dark:border-indigo-800">
-            <h3 className="font-bold text-indigo-800 dark:text-indigo-300 mb-2">Confirmation</h3>
-            <p className="text-sm text-indigo-700 dark:text-indigo-400">
+          <div className="bg-stripe-50 dark:bg-stripe-950/30 rounded-xl p-4 sm:p-6 border border-stripe-200 dark:border-stripe-800">
+            <h3 className="font-bold text-stripe-800 dark:text-stripe-300 mb-2">Confirmation</h3>
+            <p className="text-sm text-stripe-700 dark:text-stripe-400">
               For Facebook App Review purposes: This page serves as the Data Deletion Callback URL as required by Facebook's Platform Policy.
             </p>
-            <div className="mt-4 p-3 bg-surface rounded-lg border border-indigo-200 dark:border-indigo-700">
+            <div className="mt-4 p-3 bg-surface rounded-lg border border-stripe-200 dark:border-stripe-700">
               <code className="text-xs text-body font-mono">
                 Status: DATA_DELETABLE<br/>
                 Method: Self-service via Profile page "Delete Account" button<br/>
@@ -149,7 +149,7 @@ export const DataDeletion: React.FC = () => {
               href="https://www.facebook.com/profile.php?id=61588174947294" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-indigo-600 dark:text-indigo-400 hover:underline font-semibold"
+              className="text-stripe-600 dark:text-stripe-400 hover:underline font-semibold"
             >
               Facebook
             </a>

@@ -884,7 +884,7 @@ export default function AdminPanel() {
       )}
       <details className="group rounded-xl border border-edge bg-surface">
         <summary className="flex items-center gap-2 px-4 py-3 cursor-pointer select-none">
-          <Shield size={14} className="text-violet-600 dark:text-violet-400" />
+          <Shield size={14} className="text-stripe-600 dark:text-stripe-400" />
           <span className="text-sm font-semibold text-slate-800 dark:text-slate-100">Configurazione crawler</span>
           <span className="ml-auto text-[10px] text-muted group-open:hidden">▸</span>
           <span className="ml-auto text-[10px] text-muted hidden group-open:inline">▾</span>
@@ -946,7 +946,7 @@ export default function AdminPanel() {
               <button
                 onClick={runGenerateParserNow}
                 disabled={parserDispatchLoading}
-                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-700 disabled:opacity-60 text-white text-xs font-semibold transition-colors"
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-stripe-600 hover:bg-stripe-700 disabled:opacity-60 text-white text-xs font-semibold transition-colors"
               >
                 <Terminal size={13} className={parserDispatchLoading ? 'animate-pulse' : ''} />
                 {parserDispatchLoading ? 'Generazione…' : 'Genera parser AI'}
@@ -984,7 +984,7 @@ export default function AdminPanel() {
           {/* ── Section 2: AI Localization ── */}
           <details className="group rounded-lg border border-edge bg-surface/50">
             <summary className="flex items-center gap-2 px-4 py-3 cursor-pointer select-none">
-              <Activity size={14} className="text-violet-600 dark:text-violet-400" />
+              <Activity size={14} className="text-stripe-600 dark:text-stripe-400" />
               <span className="text-sm font-semibold text-slate-800 dark:text-slate-100">Traduzione AI</span>
               <span className={`ml-2 px-1.5 py-0.5 rounded text-[10px] font-bold ${aiLocalizationEnabledInput ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300' : 'bg-surface-raised text-muted'}`}>
                 {aiLocalizationEnabledInput ? 'ON' : 'OFF'}
@@ -1154,7 +1154,7 @@ export default function AdminPanel() {
                 sourceSeedsByNameText,
               )}
               disabled={jobsCrawlerConfigSaving || jobsCrawlerConfigLoading}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-violet-600 hover:bg-violet-700 disabled:opacity-60 text-white text-sm font-semibold transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-stripe-600 hover:bg-stripe-700 disabled:opacity-60 text-white text-sm font-semibold transition-colors"
             >
               {jobsCrawlerConfigSaving ? <RefreshCw size={14} className="animate-spin" /> : <Database size={14} />}
               Salva configurazione
@@ -1332,7 +1332,7 @@ export default function AdminPanel() {
     <div className="space-y-4">
       <div className="flex items-center justify-between">
         <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
-          <ListChecks size={20} className="text-violet-600 dark:text-violet-400" />
+          <ListChecks size={20} className="text-stripe-600 dark:text-stripe-400" />
           {meta.label}
         </h2>
         <div className="flex items-center gap-2">
@@ -1348,7 +1348,7 @@ export default function AdminPanel() {
           )}
           <button
             onClick={refreshWorkflowSnapshots}
-            className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium transition-colors"
+            className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-stripe-600 hover:bg-stripe-700 text-white text-sm font-medium transition-colors"
           >
             <ListChecks size={14} />
             Aggiorna stati workflow
@@ -1512,7 +1512,7 @@ export default function AdminPanel() {
                 if (jobs.length === 0) return <div className="text-[11px] text-muted py-1">Nessun elemento.</div>;
                 const styleMap = {
                   new: 'border-emerald-200 dark:border-emerald-800 bg-emerald-50/50 dark:bg-emerald-900/20',
-                  updated: 'border-blue-200 dark:border-blue-800 bg-blue-50/50 dark:bg-blue-900/20',
+                  updated: 'border-stripe-200 dark:border-stripe-800 bg-stripe-50/50 dark:bg-stripe-900/20',
                   removed: 'border-red-200 dark:border-red-800 bg-red-50/50 dark:bg-red-900/20',
                   unchanged: 'border-amber-200 dark:border-amber-800 bg-amber-50/50 dark:bg-amber-900/20',
                   active: 'border-edge bg-surface',
@@ -1523,7 +1523,7 @@ export default function AdminPanel() {
                     {(jobs as (CrawlerSummaryLinkRow & { _status?: 'new' | 'updated' | 'unchanged' })[]).map((job, idx) => {
                       const rowStyle = type === 'active' && job._status ? styleMap[job._status] : styleMap[type];
                       const borderColor = type === 'active' && job._status
-                        ? (job._status === 'new' ? 'border-l-emerald-500' : job._status === 'updated' ? 'border-l-blue-500' : 'border-l-amber-400')
+                        ? (job._status === 'new' ? 'border-l-emerald-500' : job._status === 'updated' ? 'border-l-stripe-500' : 'border-l-amber-400')
                         : '';
                       const siteUrl = jobSiteUrl(job.slug);
                       const qs = job._qualityScore;
@@ -1557,7 +1557,7 @@ export default function AdminPanel() {
                             {siteUrl && (type === 'removed' ? (
                               <a href={siteUrl} target="_blank" rel="noreferrer" className="text-[10px] text-muted hover:underline">🏚 Sito (archiviato)</a>
                             ) : (
-                              <a href={siteUrl} target="_blank" rel="noreferrer" className="text-[10px] text-indigo-600 dark:text-indigo-400 hover:underline">🏠 Sito</a>
+                              <a href={siteUrl} target="_blank" rel="noreferrer" className="text-[10px] text-stripe-600 dark:text-stripe-400 hover:underline">🏠 Sito</a>
                             ))}
                           </div>
                         </div>
@@ -1635,7 +1635,7 @@ export default function AdminPanel() {
                       <span className="text-slate-500 dark:text-slate-600">|</span>
                       <span className="font-semibold text-subtle">{totals.active} annunci attivi</span>
                       {totals.newCount > 0 && <span className="text-emerald-700 dark:text-emerald-400 font-bold" title="Totale aggiunti nelle ultime run (Δ run, ≠ delta giornaliero)">+{totals.newCount} nuove</span>}
-                      {totals.updated > 0 && <span className="text-blue-700 dark:text-blue-400 font-bold" title="Totale aggiornati nelle ultime run (Δ run, ≠ delta giornaliero)">~{totals.updated} agg.</span>}
+                      {totals.updated > 0 && <span className="text-stripe-700 dark:text-stripe-400 font-bold" title="Totale aggiornati nelle ultime run (Δ run, ≠ delta giornaliero)">~{totals.updated} agg.</span>}
                       {totals.removed > 0 && <span className="text-red-700 dark:text-red-400 font-bold" title="Totale rimossi nelle ultime run (Δ run, ≠ delta giornaliero)">-{totals.removed} rim.</span>}
                       {totals.unchanged > 0 && <span className="text-muted" title="Totale invariati nelle ultime run (Δ run, ≠ delta giornaliero)">={totals.unchanged} inv.</span>}
                       {failedCrawlers.length > 0 && (
@@ -1666,7 +1666,7 @@ export default function AdminPanel() {
                           <button
                             onClick={() => void runWorkflowAction('orchestrate-crawlers.yml', { group: 'all', delay_seconds: '20', dry_run: 'false' })}
                             disabled={orchRunning}
-                            className={`inline-flex items-center gap-1.5 ${failedCrawlers.length === 0 ? 'ml-auto' : ''} px-3 py-1.5 rounded-md bg-violet-600 hover:bg-violet-700 disabled:opacity-60 text-white text-[11px] font-semibold transition-colors`}
+                            className={`inline-flex items-center gap-1.5 ${failedCrawlers.length === 0 ? 'ml-auto' : ''} px-3 py-1.5 rounded-md bg-stripe-600 hover:bg-stripe-700 disabled:opacity-60 text-white text-[11px] font-semibold transition-colors`}
                             aria-label="Avvia orchestratore crawler"
                           >
                             {orchRunning ? (
@@ -1693,14 +1693,14 @@ export default function AdminPanel() {
                           value={crawlerNameFilter}
                           onChange={e => setCrawlerNameFilter(e.target.value)}
                           placeholder="Filtra crawler…"
-                          className="pl-7 pr-2 py-1.5 rounded-md border border-slate-300 dark:border-slate-600 bg-surface text-xs text-strong w-44 focus:outline-none focus-visible:ring-1 focus-visible:ring-blue-500"
+                          className="pl-7 pr-2 py-1.5 rounded-md border border-slate-300 dark:border-slate-600 bg-surface text-xs text-strong w-44 focus:outline-none focus-visible:ring-1 focus-visible:ring-stripe-500"
                           aria-label="Filtra per nome crawler"
                         />
                       </div>
                       <select
                         value={crawlerChangeFilter}
                         onChange={e => setCrawlerChangeFilter(e.target.value as typeof crawlerChangeFilter)}
-                        className="px-2 py-1.5 rounded-md border border-slate-300 dark:border-slate-600 bg-surface text-xs text-strong focus:outline-none focus-visible:ring-1 focus-visible:ring-blue-500"
+                        className="px-2 py-1.5 rounded-md border border-slate-300 dark:border-slate-600 bg-surface text-xs text-strong focus:outline-none focus-visible:ring-1 focus-visible:ring-stripe-500"
                         aria-label="Filtra per tipo variazione"
                       >
                         <option value="all">Tutte le variazioni</option>
@@ -1729,10 +1729,10 @@ export default function AdminPanel() {
                           <th className="text-center py-2 px-2 font-semibold whitespace-nowrap">{renderCrawlerSortHeader('schedule', '⏰ Pianif.', { align: 'center' })}</th>
                           <th className="text-center py-2 px-2 font-semibold">{renderCrawlerSortHeader('lastRun', 'Ultimo', { align: 'center' })}</th>
                           <th className="text-center py-2 px-1.5 font-semibold text-emerald-700 dark:text-emerald-400 whitespace-nowrap" title="Nuove offerte aggiunte nell'ultima esecuzione del crawler (Δ run — distinto dal delta giornaliero del job board)">{renderCrawlerSortHeader('newCount', 'Aggiunti', { align: 'center', className: 'text-emerald-700 dark:text-emerald-400' })}</th>
-                          <th className="text-center py-2 px-1.5 font-semibold text-blue-700 dark:text-blue-400 whitespace-nowrap" title="Offerte aggiornate nell'ultima esecuzione del crawler (Δ run — distinto dal delta giornaliero del job board)">{renderCrawlerSortHeader('updatedCount', 'Aggiornati', { align: 'center', className: 'text-blue-700 dark:text-blue-400' })}</th>
+                          <th className="text-center py-2 px-1.5 font-semibold text-stripe-700 dark:text-stripe-400 whitespace-nowrap" title="Offerte aggiornate nell'ultima esecuzione del crawler (Δ run — distinto dal delta giornaliero del job board)">{renderCrawlerSortHeader('updatedCount', 'Aggiornati', { align: 'center', className: 'text-stripe-700 dark:text-stripe-400' })}</th>
                           <th className="text-center py-2 px-1.5 font-semibold text-red-700 dark:text-red-400 whitespace-nowrap" title="Offerte rimosse nell'ultima esecuzione del crawler (Δ run — distinto dal delta giornaliero del job board)">{renderCrawlerSortHeader('removedCount', 'Rimossi', { align: 'center', className: 'text-red-700 dark:text-red-400' })}</th>
                           <th className="text-center py-2 px-1.5 font-semibold text-muted whitespace-nowrap" title="Offerte non cambiate nell'ultima esecuzione del crawler (Δ run — distinto dal delta giornaliero del job board)">{renderCrawlerSortHeader('unchangedCount', 'Invariati', { align: 'center', className: 'text-muted' })}</th>
-                          <th className="text-center py-2 px-1.5 font-semibold text-violet-700 dark:text-violet-400 whitespace-nowrap" title="Totale offerte attive nella slice del crawler (dal job slice, non dal delta dell'ultima run)">{renderCrawlerSortHeader('total', 'Attivi', { align: 'center', className: 'text-violet-700 dark:text-violet-400' })}</th>
+                          <th className="text-center py-2 px-1.5 font-semibold text-stripe-700 dark:text-stripe-400 whitespace-nowrap" title="Totale offerte attive nella slice del crawler (dal job slice, non dal delta dell'ultima run)">{renderCrawlerSortHeader('total', 'Attivi', { align: 'center', className: 'text-stripe-700 dark:text-stripe-400' })}</th>
                           <th className="text-center py-2 px-1.5 font-semibold text-muted whitespace-nowrap">{renderCrawlerSortHeader('duration', '⏱️ Durata', { align: 'center', className: 'text-muted' })}</th>
                           <th className="text-center py-2 px-1.5 font-semibold whitespace-nowrap" title="Quality score: media ponderata su pulizia testo, ricchezza contenuto, qualità traduzione, completezza dati (0–100)">{renderCrawlerSortHeader('quality', '📊 Qualità', { align: 'center' })}</th>
                           <th className="text-center py-2 px-2 font-semibold">{renderCrawlerSortHeader('status', 'Stato', { align: 'center' })}</th>
@@ -1754,12 +1754,12 @@ export default function AdminPanel() {
                           return (
                             <Fragment key={row.key}>
                               <tr className={`border-b border-edge hover:bg-slate-50/70 dark:hover:bg-slate-800/40 ${
-                                row.wf?.id === 'orchestrate-crawlers.yml' ? 'bg-violet-50/50 dark:bg-violet-900/10'
+                                row.wf?.id === 'orchestrate-crawlers.yml' ? 'bg-stripe-50/50 dark:bg-stripe-900/10'
                                 : isFailure ? 'bg-red-50/30 dark:bg-red-900/10' : ''
                               }`}>
                                 {/* Crawler name */}
                                 <td className="py-2 px-3" title={row.description}>
-                                  <span className={`font-semibold ${row.wf?.id === 'orchestrate-crawlers.yml' ? 'text-violet-700 dark:text-violet-300' : 'text-slate-800 dark:text-slate-100'}`}>{row.title}</span>
+                                  <span className={`font-semibold ${row.wf?.id === 'orchestrate-crawlers.yml' ? 'text-stripe-700 dark:text-stripe-300' : 'text-slate-800 dark:text-slate-100'}`}>{row.title}</span>
                                 </td>
                                 {/* Schedule */}
                                 <td className="text-center py-2 px-2 font-mono text-[11px] text-subtle whitespace-nowrap">
@@ -1785,7 +1785,7 @@ export default function AdminPanel() {
                                 <td className="text-center py-2 px-1.5">
                                   {s && s.updatedCount > 0 ? (
                                     <button onClick={() => toggleExpand(row.key, 'updated')}
-                                      className={`inline-flex items-center gap-0.5 text-blue-700 dark:text-blue-400 font-bold hover:underline cursor-pointer ${expanded === 'updated' ? 'underline' : ''}`}>
+                                      className={`inline-flex items-center gap-0.5 text-stripe-700 dark:text-stripe-400 font-bold hover:underline cursor-pointer ${expanded === 'updated' ? 'underline' : ''}`}>
                                       {expanded === 'updated' ? <ChevronDown size={10} /> : <ChevronRight size={10} />}
                                       ~{s.updatedCount}
                                     </button>
@@ -1821,7 +1821,7 @@ export default function AdminPanel() {
                                 <td className="text-center py-2 px-1.5">
                                   {s && s.activeJobCount > 0 ? (
                                     <button onClick={() => toggleExpand(row.key, 'active')}
-                                      className={`inline-flex items-center gap-0.5 text-violet-700 dark:text-violet-400 font-bold hover:underline cursor-pointer ${expanded === 'active' ? 'underline' : ''}`}>
+                                      className={`inline-flex items-center gap-0.5 text-stripe-700 dark:text-stripe-400 font-bold hover:underline cursor-pointer ${expanded === 'active' ? 'underline' : ''}`}>
                                       {expanded === 'active' ? <ChevronDown size={10} /> : <ChevronRight size={10} />}
                                       {s.activeJobCount}
                                     </button>
@@ -1877,7 +1877,7 @@ export default function AdminPanel() {
                                     <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wide ${
                                       isSuccess ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300'
                                         : isFailure ? 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300'
-                                        : isRunning ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300'
+                                        : isRunning ? 'bg-stripe-100 dark:bg-stripe-900/30 text-stripe-700 dark:text-stripe-300'
                                         : 'bg-surface-raised text-subtle'
                                     }`}>
                                       {isRunning ? (<><Loader2 size={10} className="animate-spin" /> Run</>)
@@ -1896,7 +1896,7 @@ export default function AdminPanel() {
                                       <button
                                         onClick={() => void runWorkflowAction(row.wf!.id)}
                                         disabled={!!isRunning}
-                                        className="inline-flex items-center gap-1 px-2 py-1 rounded-md bg-blue-600 hover:bg-blue-700 disabled:opacity-60 text-white text-[10px] font-semibold transition-colors"
+                                        className="inline-flex items-center gap-1 px-2 py-1 rounded-md bg-stripe-600 hover:bg-stripe-700 disabled:opacity-60 text-white text-[10px] font-semibold transition-colors"
                                         aria-label={`Avvia ${row.title}`}
                                       >
                                         <Play size={10} />
@@ -1923,16 +1923,16 @@ export default function AdminPanel() {
                                 <tr>
                                   <td colSpan={10} className={`px-3 py-2 border-b border-edge ${
                                     expanded === 'new' ? 'bg-emerald-50/50 dark:bg-emerald-900/10'
-                                      : expanded === 'updated' ? 'bg-blue-50/50 dark:bg-blue-900/10'
+                                      : expanded === 'updated' ? 'bg-stripe-50/50 dark:bg-stripe-900/10'
                                       : expanded === 'unchanged' ? 'bg-amber-50/50 dark:bg-amber-900/10'
-                                      : expanded === 'active' ? 'bg-violet-50/50 dark:bg-violet-900/10'
+                                      : expanded === 'active' ? 'bg-stripe-50/50 dark:bg-stripe-900/10'
                                       : 'bg-red-50/50 dark:bg-red-900/10'
                                   }`}>
                                     <div className="text-[11px] font-semibold text-body mb-1.5">
                                       {expanded === 'new' ? `Aggiunti (${s.newCount})`
                                         : expanded === 'updated' ? `Aggiornati (${s.updatedCount})`
                                         : expanded === 'unchanged' ? `Invariati (${s.unchangedCount}${s.unchangedCount > s.unchangedJobs.length ? ` — mostrati ${s.unchangedJobs.length}` : ''})`
-                                        : expanded === 'active' ? <>Annunci attivi ({s.total - s.removedCount}) — <span className="text-emerald-600">{s.newCount} nuovi</span> / <span className="text-blue-600">{s.updatedCount} aggiornati</span> / <span className="text-amber-600">{s.unchangedCount} invariati</span></>
+                                        : expanded === 'active' ? <>Annunci attivi ({s.total - s.removedCount}) — <span className="text-emerald-600">{s.newCount} nuovi</span> / <span className="text-stripe-600">{s.updatedCount} aggiornati</span> / <span className="text-amber-600">{s.unchangedCount} invariati</span></>
                                         : `Rimossi (${s.removedCount})`}
                                     </div>
                                     {renderExpandedJobs(
@@ -2452,7 +2452,7 @@ export default function AdminPanel() {
       : isSuccess
         ? 'border-l-emerald-500 dark:border-l-emerald-400'
         : isRunning
-          ? 'border-l-blue-500 dark:border-l-blue-400'
+          ? 'border-l-stripe-500 dark:border-l-stripe-400'
           : 'border-l-slate-300 dark:border-l-slate-600';
 
     return (
@@ -2476,7 +2476,7 @@ export default function AdminPanel() {
               : isFailure
                 ? 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300'
                 : isRunning
-                  ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300'
+                  ? 'bg-stripe-100 dark:bg-stripe-900/30 text-stripe-700 dark:text-stripe-300'
                   : 'bg-surface-raised text-subtle'
           }`}>
             {isRunning ? (
@@ -2512,7 +2512,7 @@ export default function AdminPanel() {
 
         {/* ── Status message (non-error) ── */}
         {!isFailure && wfState.message && (
-          <div className="rounded-lg px-3 py-2 text-[11px] bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-200 dark:border-indigo-800 text-indigo-700 dark:text-indigo-300">
+          <div className="rounded-lg px-3 py-2 text-[11px] bg-stripe-50 dark:bg-stripe-900/20 border border-stripe-200 dark:border-stripe-800 text-stripe-700 dark:text-stripe-300">
             {wfState.message}
           </div>
         )}
@@ -2522,7 +2522,7 @@ export default function AdminPanel() {
           <button
             onClick={() => void runWorkflowAction(wf.id)}
             disabled={isRunning}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 disabled:opacity-60 text-white text-xs font-semibold transition-colors"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-stripe-600 hover:bg-stripe-700 disabled:opacity-60 text-white text-xs font-semibold transition-colors"
           >
             <Play size={11} />
             {isRunning ? 'In corso…' : 'Avvia'}
@@ -2703,12 +2703,12 @@ export default function AdminPanel() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="bg-gradient-to-br from-violet-600 to-purple-700 rounded-2xl p-6 text-white shadow-lg">
+      <div className="bg-gradient-to-br from-stripe-600 to-stripe-700 rounded-2xl p-6 text-white shadow-lg">
         <div className="flex items-center gap-3 mb-2">
           <Shield size={28} />
           <h1 className="text-2xl font-bold">Pannello Amministrazione</h1>
         </div>
-        <p className="text-violet-200 text-sm">
+        <p className="text-stripe-200 text-sm">
           Dashboard operativa owner (crawler jobs, segnali SEO runtime e newsletter).
           Questo pannello è accessibile solo tramite URL diretto.
         </p>
@@ -2733,7 +2733,7 @@ export default function AdminPanel() {
               onClick={() => setActiveSection(tab.id as typeof activeSection)}
               className={`flex items-center gap-1.5 px-3 py-2 text-sm font-medium rounded-t-lg transition-colors ${
                 activeSection === tab.id
-                  ? 'bg-surface text-violet-700 dark:text-violet-400 border border-b-0 border-edge'
+                  ? 'bg-surface text-stripe-700 dark:text-stripe-400 border border-b-0 border-edge'
                   : 'text-muted hover:text-slate-700 dark:hover:text-slate-300'
               }`}
               aria-label={tab.label}
@@ -2767,12 +2767,12 @@ export default function AdminPanel() {
         <div className="space-y-4">
           <div className="flex items-center justify-between">
             <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
-              <Database size={20} className="text-violet-600 dark:text-violet-400" />
+              <Database size={20} className="text-stripe-600 dark:text-stripe-400" />
               Owner Tools
             </h2>
             <button
               onClick={refreshOwnerStats}
-              className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-violet-600 hover:bg-violet-700 text-white text-sm font-medium transition-colors"
+              className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-stripe-600 hover:bg-stripe-700 text-white text-sm font-medium transition-colors"
             >
               <RefreshCw size={14} />
               Aggiorna
@@ -2859,7 +2859,7 @@ export default function AdminPanel() {
                     href="/sitemap.xml"
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-1 px-2 py-0.5 text-xs rounded bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 hover:bg-blue-200 dark:hover:bg-blue-900/50 transition-colors"
+                    className="inline-flex items-center gap-1 px-2 py-0.5 text-xs rounded bg-stripe-100 dark:bg-stripe-900/30 text-stripe-700 dark:text-stripe-300 hover:bg-stripe-200 dark:hover:bg-stripe-900/50 transition-colors"
                   >
                     <ExternalLink size={12} />
                     Apri sitemap.xml
@@ -2868,7 +2868,7 @@ export default function AdminPanel() {
                     href="/robots.txt"
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-1 px-2 py-0.5 text-xs rounded bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 hover:bg-blue-200 dark:hover:bg-blue-900/50 transition-colors"
+                    className="inline-flex items-center gap-1 px-2 py-0.5 text-xs rounded bg-stripe-100 dark:bg-stripe-900/30 text-stripe-700 dark:text-stripe-300 hover:bg-stripe-200 dark:hover:bg-stripe-900/50 transition-colors"
                   >
                     <ExternalLink size={12} />
                     Apri robots.txt
@@ -3011,7 +3011,7 @@ export default function AdminPanel() {
           {/* Content toggles + subject */}
           <div className="bg-surface rounded-xl border border-edge p-6 space-y-4">
             <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
-              <Mail size={20} className="text-violet-600 dark:text-violet-400" />
+              <Mail size={20} className="text-stripe-600 dark:text-stripe-400" />
               Configura Newsletter
             </h2>
 
@@ -3022,7 +3022,7 @@ export default function AdminPanel() {
                 type="text"
                 value={nlSubject}
                 onChange={e => setNlSubject(e.target.value)}
-                className="w-full px-3 py-2 rounded-lg border border-edge bg-surface text-slate-800 dark:text-slate-100 text-sm focus-visible:ring-2 focus-visible:ring-violet-500"
+                className="w-full px-3 py-2 rounded-lg border border-edge bg-surface text-slate-800 dark:text-slate-100 text-sm focus-visible:ring-2 focus-visible:ring-stripe-500"
                 aria-label="Oggetto email newsletter"
               />
             </div>
@@ -3040,7 +3040,7 @@ export default function AdminPanel() {
               <button
                 onClick={generatePreview}
                 disabled={nlPreviewLoading}
-                className="flex items-center gap-2 px-4 py-2 rounded-lg bg-violet-600 hover:bg-violet-700 text-white text-sm font-medium transition-colors"
+                className="flex items-center gap-2 px-4 py-2 rounded-lg bg-stripe-600 hover:bg-stripe-700 text-white text-sm font-medium transition-colors"
                 aria-label="Genera anteprima newsletter"
               >
                 <RefreshCw size={16} />
@@ -3049,7 +3049,7 @@ export default function AdminPanel() {
               <button
                 onClick={sendTestNewsletter}
                 disabled={nlSending || !nlPreviewHtml || !user?.email}
-                className="flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed text-white text-sm font-medium transition-colors"
+                className="flex items-center gap-2 px-4 py-2 rounded-lg bg-stripe-600 hover:bg-stripe-700 disabled:opacity-50 disabled:cursor-not-allowed text-white text-sm font-medium transition-colors"
                 aria-label="Invia test newsletter all'admin loggato"
               >
                 <Send size={16} />
@@ -3072,7 +3072,7 @@ export default function AdminPanel() {
           {nlPreviewHtml && (
             <div className="bg-surface rounded-xl border border-edge overflow-hidden">
               <div className="px-4 py-3 border-b border-edge flex items-center gap-2">
-                <Eye size={16} className="text-violet-600 dark:text-violet-400" />
+                <Eye size={16} className="text-stripe-600 dark:text-stripe-400" />
                 <span className="text-sm font-semibold text-slate-800 dark:text-slate-100">Anteprima Newsletter</span>
               </div>
               <iframe
@@ -3184,7 +3184,7 @@ export default function AdminPanel() {
           {/* CLI Commands */}
           <div className="bg-surface rounded-xl border border-edge p-6 space-y-3">
             <h3 className="text-sm font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
-              <Terminal size={16} className="text-violet-600 dark:text-violet-400" />
+              <Terminal size={16} className="text-stripe-600 dark:text-stripe-400" />
               Comandi Newsletter
             </h3>
             {[

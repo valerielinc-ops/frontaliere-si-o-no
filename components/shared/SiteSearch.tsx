@@ -57,7 +57,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       section: t('nav.simulator') || 'Simulatore',
       tab: 'calculator',
       icon: Calculator,
-      color: 'text-blue-600',
+      color: 'text-stripe-600',
       keywords: ['simulatore', 'calcolo', 'stipendio', 'netto', 'lordo', 'salario', 'ral', 'simulator', 'calculator', 'salary', 'net', 'gross', 'gehalt', 'simulateur', 'salaire'],
     },
     {
@@ -68,7 +68,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       tab: 'calculator',
       subTab: 'whatif',
       icon: Sparkles,
-      color: 'text-blue-500',
+      color: 'text-stripe-500',
       keywords: ['cosa cambia', 'what if', 'scenario', 'simulazione', 'figli', 'stipendio', 'residenza', 'bambini', 'kinder', 'enfants', 'children'],
     },
     // ─── Comparators ───
@@ -80,7 +80,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       tab: 'confronti',
       subTab: 'exchange',
       icon: ArrowRightLeft,
-      color: 'text-violet-600',
+      color: 'text-stripe-600',
       keywords: ['cambio', 'valuta', 'euro', 'franco', 'chf', 'eur', 'exchange', 'currency', 'tasso', 'rate', 'convertitore', 'wise', 'revolut', 'wechselkurs', 'devise'],
     },
     {
@@ -146,7 +146,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       tab: 'confronti',
       subTab: 'jobs',
       icon: Briefcase,
-      color: 'text-indigo-600',
+      color: 'text-stripe-600',
       keywords: ['lavoro', 'job', 'offerta', 'stipendio', 'impiego', 'ccnl', 'contratto', 'arbeit', 'emploi', 'salary', 'gehalt', 'salaire'],
     },
     {
@@ -212,7 +212,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       tab: 'calculator',
       subTab: 'residency',
       icon: Home,
-      color: 'text-blue-600',
+      color: 'text-stripe-600',
       keywords: ['residenza', 'residency', 'trasferimento', 'svizzera', 'switzerland', 'costo vita', 'affitto', 'wohnsitz', 'résidence', 'permesso B', 'vivere'],
     },
     {
@@ -223,7 +223,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       tab: 'fisco',
       subTab: 'tax-return',
       icon: FileText,
-      color: 'text-indigo-600',
+      color: 'text-stripe-600',
       keywords: ['dichiarazione', 'redditi', 'tax return', 'modello', '730', 'unico', 'steuererklärung', 'déclaration', 'deduzioni', 'detrazioni', 'scadenze', 'documenti', 'IRPEF'],
     },
     {
@@ -267,7 +267,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       tab: 'guida',
       subTab: 'first-day',
       icon: BookA,
-      color: 'text-indigo-600',
+      color: 'text-stripe-600',
       keywords: ['glossario', 'glossary', 'termini', 'definizioni', 'AVS', 'LPP', 'LAMal', 'IRPEF', 'Glossar', 'glossaire', 'franchigia', 'imposta alla fonte'],
     },
     {
@@ -278,7 +278,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       tab: 'guida',
       subTab: 'first-day',
       icon: HelpCircle,
-      color: 'text-blue-600',
+      color: 'text-stripe-600',
       keywords: ['FAQ', 'domande', 'frequenti', 'questions', 'häufige Fragen', 'foire aux questions', 'aiuto', 'help', 'risposte'],
     },
     {
@@ -333,7 +333,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       section: t('nav.guida') || 'Guida',
       tab: 'guida',
       icon: BookOpen,
-      color: 'text-indigo-600',
+      color: 'text-stripe-600',
       keywords: ['guida', 'guide', 'frontaliere', 'cross-border', 'grenzgänger', 'frontalier', 'informazioni', 'info'],
     },
     {
@@ -344,7 +344,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       tab: 'vita',
       subTab: 'municipalities',
       icon: MapPin,
-      color: 'text-indigo-500',
+      color: 'text-stripe-500',
       keywords: ['comuni', 'municipalities', 'confine', 'ristorni', 'gemeinden', 'communes', 'frontiera', 'border towns', 'fascia', '20km'],
     },
     {
@@ -388,7 +388,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       tab: 'fisco',
       subTab: 'calendar',
       icon: Calendar,
-      color: 'text-blue-600',
+      color: 'text-stripe-600',
       keywords: ['scadenze', 'fiscali', 'calendario', 'calendar', 'dichiarazione', 'redditi', 'tax deadline', 'steuer', 'impôts', 'unico', '730', 'acconto', 'saldo'],
     },
     {
@@ -443,7 +443,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       tab: 'vita',
       subTab: 'schools',
       icon: GraduationCap,
-      color: 'text-purple-500',
+      color: 'text-stripe-500',
       keywords: ['scuola', 'school', 'scuole', 'asilo', 'kindergarten', 'schule', 'école', 'istruzione', 'education'],
     },
     {
@@ -476,7 +476,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       tab: 'guida',
       subTab: 'car-transfer',
       icon: Car,
-      color: 'text-blue-600',
+      color: 'text-stripe-600',
       keywords: ['auto', 'macchina', 'targa', 'patente', 'dogana', 'immatricolazione', 'car', 'vehicle', 'plates', 'license', 'Fahrzeug', 'Kennzeichen', 'Führerschein', 'voiture', 'plaque', 'permis', 'MFK', 'collaudo', 'assicurazione'],
     },
     {
@@ -487,7 +487,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       tab: 'fisco',
       subTab: 'quiz',
       icon: BookOpen,
-      color: 'text-purple-600',
+      color: 'text-stripe-600',
       keywords: ['quiz', 'domande', 'fiscale', 'tasse', 'test', 'conoscenze', 'questions', 'fiscal', 'tax', 'Steuer', 'Fragen', 'impôts'],
     },
     {
@@ -543,7 +543,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       tab: 'calculator',
       subTab: 'payslip',
       icon: FileText,
-      color: 'text-blue-600',
+      color: 'text-stripe-600',
       keywords: ['busta paga', 'payslip', 'lohnabrechnung', 'fiche de paie', 'stipendio', 'netto', 'trattenute', 'avs', 'lpp', 'imposta fonte', 'salary', 'net', 'deductions'],
     },
     {
@@ -576,7 +576,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       tab: 'stats',
       subTab: 'livability',
       icon: MapPin,
-      color: 'text-purple-600',
+      color: 'text-stripe-600',
       keywords: ['vivibilità', 'livability', 'lebensqualität', 'habitabilité', 'comuni', 'classifica', 'ranking', 'municipalities', 'affitto', 'distanza', 'rent', 'distance'],
     },
     {
@@ -631,7 +631,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       tab: 'stats',
       subTab: 'mortgage',
       icon: Home,
-      color: 'text-purple-600',
+      color: 'text-stripe-600',
       keywords: ['mutuo', 'mortgage', 'hypothek', 'hypothèque', 'ipoteca', 'mutuo frontaliere', 'mutuo svizzera', 'rata', 'tasso', 'interessi', 'Tragbarkeit', 'LTV', 'equity', 'anticipo', 'SARON', 'Euribor', 'casa', 'immobile', 'house', 'Haus', 'maison', 'confronto mutui'],
     },
     {
@@ -664,7 +664,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       tab: 'stats',
       subTab: 'jobs-observatory',
       icon: Briefcase,
-      color: 'text-blue-600',
+      color: 'text-stripe-600',
       keywords: ['lavoro', 'jobs', 'osservatorio', 'observatory', 'mercato', 'market', 'Arbeitsmarkt', 'marché travail', 'tendenze', 'trends', 'settore', 'sector', 'offerte', 'offers', 'Ticino', 'frontaliere'],
     },
     {
@@ -674,7 +674,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       section: t('nav.blog') || 'Articoli',
       tab: 'blog',
       icon: Newspaper,
-      color: 'text-indigo-600',
+      color: 'text-stripe-600',
       keywords: ['articoli', 'articles', 'blog', 'guida', 'guide', 'stipendio netto', 'lamal', 'tredicesima', 'pilastro 3a', 'comuni', 'costo vita', 'primo giorno', 'artikel', 'ratgeber', 'seo'],
     },
     {
@@ -728,7 +728,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       section: t('contracts.badge') || 'Contratti di Lavoro',
       tab: 'contracts',
       icon: FileText,
-      color: 'text-indigo-600',
+      color: 'text-stripe-600',
       keywords: ['contratto', 'CCNL', 'GAV', 'CCL', 'lavoro', 'ore settimanali', 'ferie', 'tredicesima', 'preavviso', 'periodo di prova', 'edilizia', 'metalmeccanica', 'commercio', 'ristorazione', 'sanità', 'diritti lavoratore', 'employment contracts', 'Arbeitsverträge', 'contrats de travail', 'salario minimo'],
     },
     // ─── TFR / Liquidazione Calculator ───
@@ -750,7 +750,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       section: t('permitQuiz.title') || 'Quiz Permesso',
       tab: 'permit-quiz',
       icon: HelpCircle,
-      color: 'text-violet-600',
+      color: 'text-stripe-600',
       keywords: ['permesso B', 'permesso G', 'quiz', 'permit', 'Bewilligung', 'permis', 'frontaliere', 'residenza', 'grenzgänger', 'cross-border', 'quale permesso', 'meglio B o G'],
     },
     // ─── Calcolatore Tredicesima ───
@@ -772,7 +772,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       section: t('weeklyDigest.title') || 'Digest Settimanale',
       tab: 'weekly-digest',
       icon: Mail,
-      color: 'text-blue-600',
+      color: 'text-stripe-600',
       keywords: ['digest', 'settimanale', 'newsletter', 'weekly', 'email', 'tasso cambio', 'weekly digest', 'wöchentlich', 'hebdomadaire', 'aggiornamenti'],
     },
     // ─── Tool of the Week ───
@@ -795,7 +795,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       tab: 'stats',
       subTab: 'overview',
       icon: BarChart2,
-      color: 'text-purple-600',
+      color: 'text-stripe-600',
       keywords: ['statistiche', 'dati', 'numeri', 'statistics', 'data', 'numbers', 'statistik', 'statistiques', 'grafico', 'chart'],
     },
     // ─── Feedback ───
@@ -817,7 +817,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       section: t('contact.title') || 'Contattaci',
       tab: 'contact',
       icon: Mail,
-      color: 'text-blue-600',
+      color: 'text-stripe-600',
       keywords: ['contattaci', 'contact', 'email', 'scrivici', 'domanda', 'question', 'kontakt', 'contactez', 'messaggio', 'message', 'nachricht'],
     },
     // ─── Email Confirmed / Welcome ───
@@ -839,7 +839,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       section: t('forum.title') || 'Community',
       tab: 'forum',
       icon: MessageSquare,
-      color: 'text-violet-600',
+      color: 'text-stripe-600',
       keywords: ['forum', 'community', 'domande', 'risposte', 'questions', 'answers', 'fragen', 'antworten', 'communauté', 'aiuto', 'help'],
     },
     // ─── Gamification ───
@@ -872,7 +872,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       section: t('consulting.badge') || 'Consulenza',
       tab: 'consulting',
       icon: Video,
-      color: 'text-blue-600',
+      color: 'text-stripe-600',
       keywords: ['consulenza', 'consulting', 'beratung', 'consultation', 'fiscale', 'personalizzata', 'video', 'calendly', 'prenota', 'book', 'esperto', 'expert'],
     },
     // ─── Job Board ───
@@ -883,7 +883,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       section: t('jobBoard.badge') || 'Lavoro',
       tab: 'job-board',
       icon: BriefcaseBusiness,
-      color: 'text-indigo-600',
+      color: 'text-stripe-600',
       keywords: ['lavoro', 'jobs', 'offerte', 'offers', 'ticino', 'aziende', 'companies', 'emploi', 'stelle', 'candidati', 'apply', 'impiego', 'carriera'],
     },
     {
@@ -893,7 +893,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       section: t('jobBoard.badge') || 'Lavoro',
       tab: 'job-board',
       icon: BriefcaseBusiness,
-      color: 'text-indigo-600',
+      color: 'text-stripe-600',
       keywords: ['part-time', 'tempo parziale', 'teilzeit', 'temps partiel', 'flessibile', 'flexible', 'percentuale', 'percentage', 'parziale', 'ridotto'],
     },
     // ─── Profile ───
@@ -904,7 +904,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       section: t('profile.title') || 'Profilo',
       tab: 'profile',
       icon: UserIcon,
-      color: 'text-blue-600',
+      color: 'text-stripe-600',
       keywords: ['profilo', 'profile', 'profil', 'login', 'accedi', 'google', 'account', 'signin', 'anmelden', 'connexion', 'frontaliere', 'dati', 'data', 'impostazioni', 'settings', 'dashboard', 'personale', 'personal', 'salvate', 'saved', 'simulazioni', 'cloud', 'sync'],
     },
   ];
@@ -949,7 +949,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
           tab: 'blog',
           subTab: articleId,
           icon: Newspaper,
-          color: 'text-indigo-600',
+          color: 'text-stripe-600',
           keywords: articleId.split('-').filter(w => w.length > 2),
         });
       }
@@ -990,7 +990,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
         section: t('nav.simulator') || 'Calcolatore',
         tab: 'calculator',
         icon: Calculator,
-        color: 'text-blue-600',
+        color: 'text-stripe-600',
         keywords: [...lp.keywords, 'simulazione', 'salary', 'landing', 'calcolo'],
       });
     }
@@ -1053,12 +1053,12 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
 
   // Category quick-links for guided browsing
   const categoryLinks = useMemo(() => [
-    { label: t('nav.simulator') || 'Calcolatore', tab: 'calculator', icon: Calculator, color: 'text-blue-600' },
-    { label: t('nav.confronti') || 'Confronti', tab: 'confronti', icon: Layers, color: 'text-violet-600' },
+    { label: t('nav.simulator') || 'Calcolatore', tab: 'calculator', icon: Calculator, color: 'text-stripe-600' },
+    { label: t('nav.confronti') || 'Confronti', tab: 'confronti', icon: Layers, color: 'text-stripe-600' },
     { label: t('nav.fisco') || 'Fisco', tab: 'fisco', icon: PiggyBank, color: 'text-emerald-700' },
-    { label: t('nav.guida') || 'Guida', tab: 'guida', icon: BookOpen, color: 'text-indigo-600' },
+    { label: t('nav.guida') || 'Guida', tab: 'guida', icon: BookOpen, color: 'text-stripe-600' },
     { label: t('nav.vita') || 'Vita', tab: 'vita', subTab: 'transport' as string | undefined, icon: Home, color: 'text-teal-600' },
-    { label: t('nav.stats') || 'Statistiche', tab: 'stats', subTab: 'overview' as string | undefined, icon: BarChart2, color: 'text-purple-600' },
+    { label: t('nav.stats') || 'Statistiche', tab: 'stats', subTab: 'overview' as string | undefined, icon: BarChart2, color: 'text-stripe-600' },
   ], [t]);
 
   // Keyboard shortcut: Cmd+K / Ctrl+K to open
@@ -1136,7 +1136,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       {/* Search trigger — compact icon button */}
       <button
         onClick={() => setIsOpen(true)}
-        className="p-2 rounded-xl text-muted hover:text-slate-600 dark:hover:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+        className="p-2 rounded-xl text-muted hover:text-slate-600 dark:hover:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors focus-visible:ring-2 focus-visible:ring-stripe-500 focus-visible:ring-offset-2"
         title={`${t('search.placeholder') || 'Cerca...'} (⌘K)`}
         aria-label={t('search.placeholder') || 'Cerca'}
       >
@@ -1162,7 +1162,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
                 spellCheck={false}
                 placeholder={t('search.placeholder') || 'Cerca sezioni, strumenti, funzionalità...'}
                 aria-label={t('search.placeholder') || 'Cerca sezioni, strumenti, funzionalità'}
-                className="flex-1 bg-transparent text-slate-800 dark:text-slate-100 placeholder-slate-500 outline-none focus-visible:ring-2 focus-visible:ring-blue-500 text-base sm:text-sm"
+                className="flex-1 bg-transparent text-slate-800 dark:text-slate-100 placeholder-slate-500 outline-none focus-visible:ring-2 focus-visible:ring-stripe-500 text-base sm:text-sm"
               />
               {query && (
                 <button
@@ -1282,7 +1282,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
                         onClick={() => handleSelect(result)}
                         className={`w-full flex items-center gap-3 px-4 py-2.5 text-left transition-colors ${
                           index === selectedIndex
-                            ? 'bg-blue-50 dark:bg-blue-950/30'
+                            ? 'bg-stripe-50 dark:bg-stripe-950/30'
                             : 'hover:bg-slate-50 dark:hover:bg-slate-800/50'
                         }`}
                       >

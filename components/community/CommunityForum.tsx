@@ -38,11 +38,11 @@ const CATEGORY_ICONS: Record<string, string> = {
 
 const CATEGORY_COLORS: Record<string, string> = {
   fiscalita: 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400',
-  permessi: 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400',
+  permessi: 'bg-stripe-100 text-stripe-700 dark:bg-stripe-900/30 dark:text-stripe-400',
   assicurazioni: 'bg-rose-100 text-rose-700 dark:bg-rose-900/30 dark:text-rose-400',
   pensione: 'bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400',
   trasporti: 'bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-400',
-  residenza: 'bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-400',
+  residenza: 'bg-stripe-100 text-stripe-700 dark:bg-stripe-900/30 dark:text-stripe-400',
   lavoro: 'bg-cyan-100 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-400',
   famiglia: 'bg-pink-100 text-pink-700 dark:bg-pink-900/30 dark:text-pink-400',
   generale: 'bg-surface-raised text-body',
@@ -433,7 +433,7 @@ const CommunityForum: React.FC = () => {
           <button
             onClick={() => setSortBy('recent')}
             className={`flex items-center gap-1 px-3 py-1.5 rounded-md text-xs font-bold transition-colors ${
-              sortBy === 'recent' ? 'bg-violet-100 text-violet-700 dark:bg-violet-900/30 dark:text-violet-400' : 'text-muted'
+              sortBy === 'recent' ? 'bg-stripe-100 text-stripe-700 dark:bg-stripe-900/30 dark:text-stripe-400' : 'text-muted'
             }`}
           >
             <Clock className="w-3 h-3" /> {t('forum.recent') || 'Recenti'}
@@ -441,7 +441,7 @@ const CommunityForum: React.FC = () => {
           <button
             onClick={() => setSortBy('popular')}
             className={`flex items-center gap-1 px-3 py-1.5 rounded-md text-xs font-bold transition-colors ${
-              sortBy === 'popular' ? 'bg-violet-100 text-violet-700 dark:bg-violet-900/30 dark:text-violet-400' : 'text-muted'
+              sortBy === 'popular' ? 'bg-stripe-100 text-stripe-700 dark:bg-stripe-900/30 dark:text-stripe-400' : 'text-muted'
             }`}
           >
             <TrendingUp className="w-3 h-3" /> {t('forum.popular') || 'Popolari'}
@@ -452,7 +452,7 @@ const CommunityForum: React.FC = () => {
         {user ? (
           <button
             onClick={() => setShowNewForm(!showNewForm)}
-            className="flex items-center gap-2 px-4 py-2.5 bg-violet-600 text-white rounded-xl text-sm font-bold hover:bg-violet-700 transition-colors"
+            className="flex items-center gap-2 px-4 py-2.5 bg-stripe-600 text-white rounded-xl text-sm font-bold hover:bg-stripe-700 transition-colors"
           >
             <Plus className="w-4 h-4" />
             {t('forum.askQuestion') || 'Fai una domanda'}
@@ -470,7 +470,7 @@ const CommunityForum: React.FC = () => {
 
       {/* New question form */}
       {showNewForm && user && (
-        <div className="bg-surface rounded-xl border border-violet-200 dark:border-violet-800 p-5 space-y-3">
+        <div className="bg-surface rounded-xl border border-stripe-200 dark:border-stripe-800 p-5 space-y-3">
           <input
             type="text"
             value={newTitle}
@@ -524,7 +524,7 @@ const CommunityForum: React.FC = () => {
             <button
               onClick={handleCreateQuestion}
               disabled={submitting || !newTitle.trim() || !newBody.trim()}
-              className="flex items-center gap-1.5 px-4 py-2 bg-violet-600 text-white rounded-lg text-sm font-bold hover:bg-violet-700 disabled:opacity-50 transition-colors"
+              className="flex items-center gap-1.5 px-4 py-2 bg-stripe-600 text-white rounded-lg text-sm font-bold hover:bg-stripe-700 disabled:opacity-50 transition-colors"
             >
               {submitting ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Send className="w-3.5 h-3.5" />}
               {t('forum.submit') || 'Pubblica'}
@@ -543,7 +543,7 @@ const CommunityForum: React.FC = () => {
         <div className="text-center py-12">
           <AlertCircle className="w-8 h-8 text-amber-500 mx-auto mb-2" />
           <p className="text-sm text-amber-600">{error}</p>
-          <button onClick={loadQuestions} className="mt-3 text-sm font-bold text-violet-600 hover:text-violet-700">
+          <button onClick={loadQuestions} className="mt-3 text-sm font-bold text-stripe-600 hover:text-stripe-700">
             {t('forum.retry') || 'Riprova'}
           </button>
         </div>
@@ -559,7 +559,7 @@ const CommunityForum: React.FC = () => {
             <button
               key={q.id}
               onClick={() => openQuestion(q)}
-              className="w-full text-left bg-surface rounded-xl border border-edge p-4 hover:border-violet-300 dark:hover:border-violet-700 transition-colors"
+              className="w-full text-left bg-surface rounded-xl border border-edge p-4 hover:border-stripe-300 dark:hover:border-stripe-700 transition-colors"
             >
               <div className="flex items-start gap-3">
                 {/* Upvotes */}

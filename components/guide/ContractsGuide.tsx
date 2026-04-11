@@ -218,7 +218,7 @@ const ContractsGuide = () => {
     <div className="space-y-6">
       {/* Header */}
       <div className="text-center space-y-2">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 text-xs font-semibold">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-stripe-50 dark:bg-stripe-900/30 text-stripe-700 dark:text-stripe-300 text-xs font-semibold">
           <Scale size={14} />
           {t('contracts.badge')}
         </div>
@@ -244,7 +244,7 @@ const ContractsGuide = () => {
       {/* Sectors */}
       <div className="space-y-3">
         <h2 className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
-          <FileText size={20} className="text-indigo-600 dark:text-indigo-400" />
+          <FileText size={20} className="text-stripe-600 dark:text-stripe-400" />
           {t('contracts.sectorsTitle')}
         </h2>
 
@@ -262,8 +262,8 @@ const ContractsGuide = () => {
                 aria-label={t(`${sector.keyPrefix}.name`)}
               >
                 <div className="flex items-center gap-3">
-                  <div className="p-2 rounded-lg bg-indigo-50 dark:bg-indigo-900/30">
-                    <Icon size={20} className="text-indigo-600 dark:text-indigo-400" />
+                  <div className="p-2 rounded-lg bg-stripe-50 dark:bg-stripe-900/30">
+                    <Icon size={20} className="text-stripe-600 dark:text-stripe-400" />
                   </div>
                   <div>
                     <h3 className="font-bold text-slate-900 dark:text-white">
@@ -494,7 +494,7 @@ const ContractsGuide = () => {
               {/* Maternity / Paternity */}
               <div className="bg-warm-50 dark:bg-warm-950 rounded-lg p-3 border border-warm-200 dark:border-warm-800">
                 <h4 className="text-sm font-semibold text-slate-900 dark:text-white mb-2 flex items-center gap-1.5">
-                  <Gift size={14} className="text-violet-500" />
+                  <Gift size={14} className="text-stripe-500" />
                   {t('contracts.rights.parentalLeave')}
                 </h4>
                 <ul className="space-y-1 text-xs text-body">
@@ -523,7 +523,7 @@ const ContractsGuide = () => {
               {/* Overtime */}
               <div className="bg-slate-50 dark:bg-slate-700/50 rounded-lg p-3">
                 <h4 className="text-sm font-semibold text-slate-900 dark:text-white mb-2 flex items-center gap-1.5">
-                  <Clock size={14} className="text-blue-500" />
+                  <Clock size={14} className="text-stripe-500" />
                   {t('contracts.rights.overtime')}
                 </h4>
                 <p className="text-xs text-body">
@@ -547,12 +547,12 @@ const ContractsGuide = () => {
             </div>
 
             {/* Frontaliere-specific rights */}
-            <div className="bg-indigo-50 dark:bg-indigo-900/10 border border-indigo-200 dark:border-indigo-800/50 rounded-lg p-3">
-              <h4 className="text-sm font-semibold text-indigo-800 dark:text-indigo-300 mb-1.5 flex items-center gap-1.5">
+            <div className="bg-stripe-50 dark:bg-stripe-900/10 border border-stripe-200 dark:border-stripe-800/50 rounded-lg p-3">
+              <h4 className="text-sm font-semibold text-stripe-800 dark:text-stripe-300 mb-1.5 flex items-center gap-1.5">
                 <AlertTriangle size={14} />
                 {t('contracts.rights.frontaliereTitle')}
               </h4>
-              <ul className="space-y-1.5 text-sm text-indigo-700 dark:text-indigo-300/80">
+              <ul className="space-y-1.5 text-sm text-stripe-700 dark:text-stripe-300/80">
                 <li>• {t('contracts.rights.frontaliere1')}</li>
                 <li>• {t('contracts.rights.frontaliere2')}</li>
                 <li>• {t('contracts.rights.frontaliere3')}</li>

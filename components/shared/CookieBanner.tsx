@@ -80,7 +80,7 @@ const CookieBanner: React.FC = () => {
               {t('consent.description')}{' '}
               <a
                 href={privacyHref}
-                className="text-link underline hover:text-blue-700 dark:hover:text-blue-300"
+                className="text-link underline hover:text-stripe-700 dark:hover:text-stripe-300"
               >
                 {t('consent.privacyLink')}
               </a>
@@ -113,7 +113,7 @@ const CookieBanner: React.FC = () => {
                 aria-label={t('consent.analytics')}
                 onClick={() => setAnalyticsOn(!analyticsOn)}
                 className={`relative inline-flex h-5 w-9 flex-shrink-0 rounded-full transition-colors ${
-                  analyticsOn ? 'bg-blue-600' : 'bg-slate-300 dark:bg-slate-600'
+                  analyticsOn ? 'bg-stripe-600' : 'bg-slate-300 dark:bg-slate-600'
                 }`}
               >
                 <span
@@ -136,7 +136,7 @@ const CookieBanner: React.FC = () => {
                 aria-label={t('consent.advertising')}
                 onClick={() => setAdvertisingOn(!advertisingOn)}
                 className={`relative inline-flex h-5 w-9 flex-shrink-0 rounded-full transition-colors ${
-                  advertisingOn ? 'bg-blue-600' : 'bg-slate-300 dark:bg-slate-600'
+                  advertisingOn ? 'bg-stripe-600' : 'bg-slate-300 dark:bg-slate-600'
                 }`}
               >
                 <span
@@ -149,7 +149,7 @@ const CookieBanner: React.FC = () => {
 
             <button
               onClick={handleSaveCustom}
-              className="w-full text-xs font-medium py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white transition-colors"
+              className="w-full text-xs font-medium py-2 rounded-lg bg-stripe-600 hover:bg-stripe-700 text-white transition-colors"
             >
               {t('consent.savePreferences')}
             </button>
@@ -160,7 +160,7 @@ const CookieBanner: React.FC = () => {
         <div className="flex flex-col sm:flex-row gap-2">
           <button
             onClick={handleAcceptAll}
-            className="flex-1 text-xs font-medium py-2.5 px-4 rounded-lg bg-blue-600 hover:bg-blue-700 text-white transition-colors"
+            className="flex-1 text-xs font-medium py-2.5 px-4 rounded-lg bg-stripe-600 hover:bg-stripe-700 text-white transition-colors"
           >
             {t('consent.acceptAll')}
           </button>

@@ -446,7 +446,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
       <div className="bg-surface rounded-2xl border border-edge overflow-hidden">
         <button onClick={() => toggleSection('info')} className="w-full flex items-center justify-between p-4" aria-expanded={expandedSection === 'info'}>
           <h3 className="font-bold text-strong flex items-center gap-2">
-            <Info size={18} className="text-blue-600" /> {t('bonus.typesInfo')}
+            <Info size={18} className="text-stripe-600" /> {t('bonus.typesInfo')}
           </h3>
           {expandedSection === 'info' ? <ChevronUp size={18} className="text-muted" /> : <ChevronDown size={18} className="text-muted" />}
         </button>
@@ -457,7 +457,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
                 <div className="flex items-center gap-2 mb-1">
                   <h4 className="font-semibold text-sm text-strong">{t(`bonus.types.${bt.key}`)}</h4>
                   {bt.inKind && (
-                    <span className="text-xs font-bold bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 px-1.5 py-0.5 rounded-full">
+                    <span className="text-xs font-bold bg-stripe-100 dark:bg-stripe-900/30 text-stripe-700 dark:text-stripe-300 px-1.5 py-0.5 rounded-full">
                       {t('bonus.inKind')}
                     </span>
                   )}

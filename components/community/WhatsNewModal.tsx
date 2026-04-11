@@ -1656,13 +1656,13 @@ export const STORAGE_KEY = 'frontaliere_whats_new_last_seen';
 const TYPE_CONFIG: Record<ReleaseItemType, { icon: typeof Sparkles; color: string; bg: string }> = {
   feature: {
     icon: Sparkles,
-    color: 'text-violet-700 dark:text-violet-400',
-    bg: 'bg-violet-100 dark:bg-violet-900/40',
+    color: 'text-stripe-700 dark:text-stripe-400',
+    bg: 'bg-stripe-100 dark:bg-stripe-900/40',
   },
   improvement: {
     icon: Zap,
-    color: 'text-blue-700 dark:text-blue-400',
-    bg: 'bg-blue-100 dark:bg-blue-900/40',
+    color: 'text-stripe-700 dark:text-stripe-400',
+    bg: 'bg-stripe-100 dark:bg-stripe-900/40',
   },
   fix: {
     icon: Bug,
@@ -1843,7 +1843,7 @@ export default function WhatsNewModal({ open, onClose }: WhatsNewModalProps) {
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-edge">
           <div className="flex items-center gap-2">
-            <PartyPopper size={22} className="text-violet-600 dark:text-violet-400" />
+            <PartyPopper size={22} className="text-stripe-600 dark:text-stripe-400" />
             <h2 className="text-lg font-bold text-slate-800 dark:text-white">
               {t('whatsNew.title')}
             </h2>
@@ -1868,7 +1868,7 @@ export default function WhatsNewModal({ open, onClose }: WhatsNewModalProps) {
               <div key={release.version}>
                 {/* Version Header */}
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="text-xs font-mono font-semibold text-violet-600 dark:text-violet-400 bg-violet-100 dark:bg-violet-900/40 px-2 py-0.5 rounded-full">
+                  <span className="text-xs font-mono font-semibold text-stripe-600 dark:text-stripe-400 bg-stripe-100 dark:bg-stripe-900/40 px-2 py-0.5 rounded-full">
                     v{release.version}
                   </span>
                   <span className="text-sm text-muted">
@@ -1901,7 +1901,7 @@ export default function WhatsNewModal({ open, onClose }: WhatsNewModalProps) {
                           </p>
                         </div>
                         {isClickable && (
-                          <ChevronRight size={16} className="mt-1 shrink-0 text-blue-500 dark:text-blue-400 transition-transform group-hover:translate-x-0.5" />
+                          <ChevronRight size={16} className="mt-1 shrink-0 text-stripe-500 dark:text-stripe-400 transition-transform group-hover:translate-x-0.5" />
                         )}
                       </>
                     );

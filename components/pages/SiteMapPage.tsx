@@ -21,7 +21,7 @@ export default function SiteMapPage() {
 
   const sections: Section[] = [
     {
-      icon: <Calculator className="w-5 h-5 text-blue-600" />,
+      icon: <Calculator className="w-5 h-5 text-stripe-600" />,
       title: t('sitemap.section.calculators'),
       links: [
         { label: t('sitemap.link.calculator'), route: { activeTab: 'calculator' } },
@@ -49,7 +49,7 @@ export default function SiteMapPage() {
       ],
     },
     {
-      icon: <FileText className="w-5 h-5 text-violet-600" />,
+      icon: <FileText className="w-5 h-5 text-stripe-600" />,
       title: t('sitemap.section.fiscal'),
       links: [
         { label: t('sitemap.link.taxReturn'), route: { activeTab: 'fisco', fiscoSubTab: 'tax-return' } },
@@ -118,7 +118,7 @@ export default function SiteMapPage() {
   return (
     <div className="space-y-6">
       <div className="text-center">
-        <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-50 dark:bg-blue-900/30 rounded-full text-sm text-blue-700 dark:text-blue-300 font-medium mb-3">
+        <div className="inline-flex items-center gap-2 px-3 py-1 bg-stripe-50 dark:bg-stripe-900/30 rounded-full text-sm text-stripe-700 dark:text-stripe-300 font-medium mb-3">
           <Map className="w-4 h-4" />
           {t('sitemap.badge')}
         </div>
@@ -141,7 +141,7 @@ export default function SiteMapPage() {
                     <a
                       href={href}
                       onClick={nav(link.route)}
-                      className="text-sm text-blue-700 dark:text-blue-400 hover:text-blue-900 dark:hover:text-blue-300 hover:underline"
+                      className="text-sm text-stripe-700 dark:text-stripe-400 hover:text-stripe-900 dark:hover:text-stripe-300 hover:underline"
                     >
                       {link.label}
                     </a>

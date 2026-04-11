@@ -178,9 +178,9 @@ const NurseryComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({
                 <p className="text-xs text-warm-700 dark:text-warm-400 font-semibold">{t('nursery.itDeduction')}</p>
                 <p className="text-lg font-bold text-warm-700 dark:text-warm-300">€{IT_NURSERY_DEDUCTION_MAX}/anno</p>
               </div>
-              <div className="bg-violet-50 dark:bg-violet-900/20 rounded-xl p-3 text-center">
-                <p className="text-xs text-violet-600 dark:text-violet-400 font-semibold">{t('nursery.bonusNido')}</p>
-                <p className="text-lg font-bold text-violet-700 dark:text-violet-300">€{IT_BONUS_NIDO_MAX.toLocaleString()}/anno</p>
+              <div className="bg-stripe-50 dark:bg-stripe-900/20 rounded-xl p-3 text-center">
+                <p className="text-xs text-stripe-600 dark:text-stripe-400 font-semibold">{t('nursery.bonusNido')}</p>
+                <p className="text-lg font-bold text-stripe-700 dark:text-stripe-300">€{IT_BONUS_NIDO_MAX.toLocaleString()}/anno</p>
               </div>
             </div>
           </div>
@@ -243,9 +243,9 @@ const NurseryComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({
                       <h4 className="font-bold text-sm text-strong">{nursery.name}</h4>
                       <span className={`text-xs font-bold px-1.5 py-0.5 rounded-full ${
                         nursery.type === 'public'
-                          ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300'
+                          ? 'bg-stripe-100 dark:bg-stripe-900/30 text-stripe-700 dark:text-stripe-300'
                           : nursery.type === 'aziendali'
-                          ? 'bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300'
+                          ? 'bg-stripe-100 dark:bg-stripe-900/30 text-stripe-700 dark:text-stripe-300'
                           : 'bg-surface-raised text-subtle'
                       }`}>
                         {t(`nursery.type${nursery.type.charAt(0).toUpperCase() + nursery.type.slice(1)}`)}
@@ -290,7 +290,7 @@ const NurseryComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({
       {nav && (
         <button
           onClick={() => { nav.setActiveTab('vita' as any); nav.setVitaSubTab('schools' as any); }}
-          className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl text-sm font-medium text-blue-700 dark:text-blue-400 hover:bg-blue-100 dark:hover:bg-blue-900/40 transition"
+          className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-stripe-50 dark:bg-stripe-900/20 border border-stripe-200 dark:border-stripe-800 rounded-xl text-sm font-medium text-stripe-700 dark:text-stripe-400 hover:bg-stripe-100 dark:hover:bg-stripe-900/40 transition"
           aria-label={t('guide.schools.title')}
         >
           <ArrowRight size={16} />

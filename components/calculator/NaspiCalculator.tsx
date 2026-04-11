@@ -113,9 +113,9 @@ export default function NaspiCalculator() {
       </div>
 
       {/* Info banner */}
-      <div className="flex items-start gap-2.5 bg-blue-50 dark:bg-blue-950/30 rounded-xl p-3 border border-blue-200 dark:border-blue-800">
-        <Info size={16} className="text-blue-500 mt-0.5 shrink-0" />
-        <p className="text-sm text-blue-700 dark:text-blue-300">
+      <div className="flex items-start gap-2.5 bg-stripe-50 dark:bg-stripe-950/30 rounded-xl p-3 border border-stripe-200 dark:border-stripe-800">
+        <Info size={16} className="text-stripe-500 mt-0.5 shrink-0" />
+        <p className="text-sm text-stripe-700 dark:text-stripe-300">
           {t('naspi.calc.disclaimer')}
         </p>
       </div>
@@ -212,7 +212,7 @@ export default function NaspiCalculator() {
           <div className="text-xs text-subtle">{t('naspi.calc.monthlyAmount')}</div>
         </div>
         <div className="bg-surface rounded-xl p-3 border border-edge text-center">
-          <Clock size={18} className="text-blue-500 mx-auto mb-1" />
+          <Clock size={18} className="text-stripe-500 mx-auto mb-1" />
           <div className="text-lg font-bold text-link">{result.duration} {t('naspi.calc.months')}</div>
           <div className="text-xs text-subtle">{t('naspi.calc.duration')}</div>
         </div>
@@ -224,8 +224,8 @@ export default function NaspiCalculator() {
           <div className="text-xs text-subtle">{t('naspi.calc.lastMonth')}</div>
         </div>
         <div className="bg-surface rounded-xl p-3 border border-edge text-center">
-          <Calculator size={18} className="text-violet-500 mx-auto mb-1" />
-          <div className="text-lg font-bold text-violet-600 dark:text-violet-400">{formatEUR(result.totalGross)}</div>
+          <Calculator size={18} className="text-stripe-500 mx-auto mb-1" />
+          <div className="text-lg font-bold text-stripe-600 dark:text-stripe-400">{formatEUR(result.totalGross)}</div>
           <div className="text-xs text-subtle">{t('naspi.calc.totalGross')}</div>
         </div>
       </div>

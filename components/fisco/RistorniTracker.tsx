@@ -145,9 +145,9 @@ const RistorniTracker: React.FC = () => {
               </div>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              <div className="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-3 text-center">
+              <div className="bg-stripe-50 dark:bg-stripe-900/20 rounded-xl p-3 text-center">
                 <p className="text-xs text-link font-semibold">{t('ristorni.annualSwissTax')}</p>
-                <p className="text-lg font-bold text-blue-700 dark:text-blue-300">CHF {estimate.annualSwissTax.toLocaleString()}</p>
+                <p className="text-lg font-bold text-stripe-700 dark:text-stripe-300">CHF {estimate.annualSwissTax.toLocaleString()}</p>
               </div>
               <div className="bg-teal-50 dark:bg-teal-900/20 rounded-xl p-3 text-center">
                 <p className="text-xs text-teal-600 dark:text-teal-400 font-semibold">{t('ristorni.ristorniToMunicipality')}</p>
@@ -214,7 +214,7 @@ const RistorniTracker: React.FC = () => {
       <div className="bg-surface rounded-2xl border border-edge overflow-hidden">
         <button onClick={() => toggleSection('history')} className="w-full flex items-center justify-between p-4" aria-expanded={expandedSection === 'history'}>
           <h3 className="font-bold text-strong flex items-center gap-2">
-            <TrendingUp size={18} className="text-blue-600" /> {t('ristorni.historicalTrend')}
+            <TrendingUp size={18} className="text-stripe-600" /> {t('ristorni.historicalTrend')}
           </h3>
           {expandedSection === 'history' ? <ChevronUp size={18} className="text-muted" /> : <ChevronDown size={18} className="text-muted" />}
         </button>

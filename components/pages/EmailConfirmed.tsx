@@ -10,7 +10,7 @@ export const EmailConfirmed: React.FC = () => {
     {
       id: 'calculator',
       icon: Calculator,
-      colorClass: 'from-blue-500 to-blue-600',
+      colorClass: 'from-stripe-500 to-stripe-600',
       titleKey: 'emailConfirmed.cta.calculator.title',
       descKey: 'emailConfirmed.cta.calculator.desc',
       href: buildPath({ activeTab: 'calculator' }),
@@ -71,7 +71,7 @@ export const EmailConfirmed: React.FC = () => {
               <a
                 key={feature.id}
                 href={feature.href}
-                className="flex items-center gap-4 rounded-xl border border-edge p-4 hover:border-blue-300 dark:hover:border-blue-600 hover:shadow-md transition-[color,background-color,border-color,box-shadow] group"
+                className="flex items-center gap-4 rounded-xl border border-edge p-4 hover:border-stripe-300 dark:hover:border-stripe-600 hover:shadow-md transition-[color,background-color,border-color,box-shadow] group"
               >
                 <div className={`p-2.5 bg-gradient-to-br ${feature.colorClass} rounded-xl shadow-md flex-shrink-0`}>
                   <feature.icon className="text-white" size={22} />
@@ -84,7 +84,7 @@ export const EmailConfirmed: React.FC = () => {
                     {t(feature.descKey, getCantonI18nParams())}
                   </div>
                 </div>
-                <ArrowRight className="text-slate-500 dark:text-slate-600 group-hover:text-blue-500 dark:group-hover:text-blue-400 transition-colors flex-shrink-0" size={18} />
+                <ArrowRight className="text-slate-500 dark:text-slate-600 group-hover:text-stripe-500 dark:group-hover:text-stripe-400 transition-colors flex-shrink-0" size={18} />
               </a>
             ))}
           </div>
@@ -94,7 +94,7 @@ export const EmailConfirmed: React.FC = () => {
         <div className="text-center">
           <a
             href="/"
-            className="text-sm text-subtle hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+            className="text-sm text-subtle hover:text-stripe-600 dark:hover:text-stripe-400 transition-colors"
           >
             {t('emailConfirmed.backHome')}
           </a>

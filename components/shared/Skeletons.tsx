@@ -73,7 +73,7 @@ export const SkeletonTable: React.FC<{ rows?: number; cols?: number }> = ({ rows
 export const SkeletonComparator: React.FC = () => (
   <div className="min-h-[80vh] space-y-6">
     {/* Real heading for early LCP */}
-    <div className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-slate-800 dark:to-slate-900 rounded-2xl p-6">
+    <div className="bg-gradient-to-br from-stripe-50 to-stripe-100 dark:from-slate-800 dark:to-slate-900 rounded-2xl p-6">
       <h2 className="text-2xl font-bold text-heading">Confronta Servizi per Frontalieri</h2>
       <p className="text-sm text-subtle mt-1">Assicurazioni, banche, cambio valuta e trasporti a confronto</p>
     </div>
@@ -334,7 +334,7 @@ export const SkeletonJobDetail: React.FC = () => (
 export const SkeletonJobBoard: React.FC = () => (
   <div className="space-y-4 min-h-[80vh]">
     {/* Header */}
-    <div className="bg-gradient-to-br from-teal-50 to-blue-50 dark:from-slate-800 dark:to-slate-900 rounded-2xl p-6">
+    <div className="bg-gradient-to-br from-teal-50 to-stripe-50 dark:from-slate-800 dark:to-slate-900 rounded-2xl p-6">
       <h2 className="text-2xl font-bold text-heading">Offerte di Lavoro Ticino</h2>
       <p className="text-sm text-subtle mt-1">Trova lavoro in Svizzera come frontaliere</p>
     </div>

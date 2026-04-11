@@ -284,15 +284,15 @@ const TfrCalculator: React.FC = () => {
           </div>
 
           {/* LPP side */}
-          <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-4 space-y-2">
-            <h3 className="font-semibold text-blue-700 dark:text-blue-300 text-sm flex items-center gap-2">
+          <div className="bg-stripe-50 dark:bg-stripe-900/20 border border-stripe-200 dark:border-stripe-800 rounded-xl p-4 space-y-2">
+            <h3 className="font-semibold text-stripe-700 dark:text-stripe-300 text-sm flex items-center gap-2">
               🇨🇭 {t('tfr.lppLabel')}
             </h3>
             <ul className="text-xs text-body space-y-1.5">
-              <li className="flex items-start gap-1.5"><span className="text-blue-500">•</span> {t('tfr.lppPoint1')}</li>
-              <li className="flex items-start gap-1.5"><span className="text-blue-500">•</span> {t('tfr.lppPoint2')}</li>
-              <li className="flex items-start gap-1.5"><span className="text-blue-500">•</span> {t('tfr.lppPoint3')}</li>
-              <li className="flex items-start gap-1.5"><span className="text-blue-500">•</span> {t('tfr.lppPoint4')}</li>
+              <li className="flex items-start gap-1.5"><span className="text-stripe-500">•</span> {t('tfr.lppPoint1')}</li>
+              <li className="flex items-start gap-1.5"><span className="text-stripe-500">•</span> {t('tfr.lppPoint2')}</li>
+              <li className="flex items-start gap-1.5"><span className="text-stripe-500">•</span> {t('tfr.lppPoint3')}</li>
+              <li className="flex items-start gap-1.5"><span className="text-stripe-500">•</span> {t('tfr.lppPoint4')}</li>
             </ul>
           </div>
         </div>
@@ -321,7 +321,7 @@ const TfrCalculator: React.FC = () => {
                 inputMode="numeric"
                 value={inputs.grossSalaryCHF}
                 onChange={(e) => handleChange('grossSalaryCHF', Number(e.target.value))}
-                className="w-full pl-12 pr-3 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white text-sm focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:border-blue-500"
+                className="w-full pl-12 pr-3 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white text-sm focus-visible:ring-2 focus-visible:ring-stripe-500 focus-visible:border-stripe-500"
                 min={20000}
                 max={300000}
                 step={5000}
@@ -343,7 +343,7 @@ const TfrCalculator: React.FC = () => {
                 inputMode="numeric"
                 value={inputs.grossSalaryEUR}
                 onChange={(e) => handleChange('grossSalaryEUR', Number(e.target.value))}
-                className="w-full pl-8 pr-3 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white text-sm focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:border-blue-500"
+                className="w-full pl-8 pr-3 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white text-sm focus-visible:ring-2 focus-visible:ring-stripe-500 focus-visible:border-stripe-500"
                 min={15000}
                 max={280000}
                 step={5000}
@@ -362,7 +362,7 @@ const TfrCalculator: React.FC = () => {
               inputMode="numeric"
               value={inputs.currentAge}
               onChange={(e) => handleChange('currentAge', Number(e.target.value))}
-              className="w-full px-3 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white text-sm focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:border-blue-500"
+              className="w-full px-3 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white text-sm focus-visible:ring-2 focus-visible:ring-stripe-500 focus-visible:border-stripe-500"
               min={18}
               max={60}
             />
@@ -380,7 +380,7 @@ const TfrCalculator: React.FC = () => {
               inputMode="numeric"
               value={inputs.yearsToSimulate}
               onChange={(e) => handleChange('yearsToSimulate', Math.min(45, Math.max(1, Number(e.target.value))))}
-              className="w-full px-3 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white text-sm focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:border-blue-500"
+              className="w-full px-3 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white text-sm focus-visible:ring-2 focus-visible:ring-stripe-500 focus-visible:border-stripe-500"
               min={1}
               max={45}
             />
@@ -399,7 +399,7 @@ const TfrCalculator: React.FC = () => {
                 inputMode="decimal"
                 value={inputs.inflationRate}
                 onChange={(e) => handleChange('inflationRate', Number(e.target.value))}
-                className="w-full px-3 py-2 pr-8 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white text-sm focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:border-blue-500"
+                className="w-full px-3 py-2 pr-8 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white text-sm focus-visible:ring-2 focus-visible:ring-stripe-500 focus-visible:border-stripe-500"
                 min={0}
                 max={10}
                 step={0.1}
@@ -421,7 +421,7 @@ const TfrCalculator: React.FC = () => {
                 inputMode="decimal"
                 value={inputs.lppInterestRate}
                 onChange={(e) => handleChange('lppInterestRate', Number(e.target.value))}
-                className="w-full px-3 py-2 pr-8 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white text-sm focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:border-blue-500"
+                className="w-full px-3 py-2 pr-8 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white text-sm focus-visible:ring-2 focus-visible:ring-stripe-500 focus-visible:border-stripe-500"
                 min={0}
                 max={5}
                 step={0.25}
@@ -435,7 +435,7 @@ const TfrCalculator: React.FC = () => {
       {/* ── Results ── */}
       <div className="bg-surface border border-edge rounded-2xl p-5 space-y-5">
         <h2 className="font-bold text-slate-900 dark:text-white text-lg flex items-center gap-2">
-          <Scale className="w-5 h-5 text-violet-600 dark:text-violet-400" />
+          <Scale className="w-5 h-5 text-stripe-600 dark:text-stripe-400" />
           {t('tfr.resultsTitle')}
           <span className="text-xs font-normal text-muted">
             ({inputs.yearsToSimulate} {t('tfr.years')})
@@ -453,9 +453,9 @@ const TfrCalculator: React.FC = () => {
           </div>
 
           {/* LPP Total (in EUR) */}
-          <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-4 text-center space-y-1">
+          <div className="bg-stripe-50 dark:bg-stripe-900/20 border border-stripe-200 dark:border-stripe-800 rounded-xl p-4 text-center space-y-1">
             <p className="text-xs font-medium text-link">🇨🇭 {t('tfr.lppAccumulated')}</p>
-            <p className="text-xl font-bold text-blue-700 dark:text-blue-300">{fmtEur(result.lppTotal)}</p>
+            <p className="text-xl font-bold text-stripe-700 dark:text-stripe-300">{fmtEur(result.lppTotal)}</p>
             <p className="text-xs text-muted">
               {t('tfr.lppPension')}: {fmtChf(result.lppMonthlyPension)}/mese
             </p>
@@ -512,7 +512,7 @@ const TfrCalculator: React.FC = () => {
                   <th className="px-2 py-2 text-right font-semibold text-red-700 dark:text-red-300">{t('tfr.tableTfrTotal')}</th>
                   <th className="px-2 py-2 text-right font-semibold text-link">{t('tfr.tableLppContrib')}</th>
                   <th className="px-2 py-2 text-right font-semibold text-link">{t('tfr.tableLppInterest')}</th>
-                  <th className="px-2 py-2 text-right font-semibold text-blue-700 dark:text-blue-300">{t('tfr.tableLppTotal')}</th>
+                  <th className="px-2 py-2 text-right font-semibold text-stripe-700 dark:text-stripe-300">{t('tfr.tableLppTotal')}</th>
                 </tr>
               </thead>
               <tbody>
@@ -525,7 +525,7 @@ const TfrCalculator: React.FC = () => {
                     <td className="px-2 py-1.5 text-right font-semibold text-red-700 dark:text-red-300">{fmtEur(row.tfrCumulative)}</td>
                     <td className="px-2 py-1.5 text-right text-link">{fmtChf(row.lppContribution)}</td>
                     <td className="px-2 py-1.5 text-right text-link">{fmtChf(row.lppInterest)}</td>
-                    <td className="px-2 py-1.5 text-right font-semibold text-blue-700 dark:text-blue-300">{fmtChf(row.lppCumulative)}</td>
+                    <td className="px-2 py-1.5 text-right font-semibold text-stripe-700 dark:text-stripe-300">{fmtChf(row.lppCumulative)}</td>
                   </tr>
                 ))}
               </tbody>
@@ -537,7 +537,7 @@ const TfrCalculator: React.FC = () => {
       {/* ── Key differences explained ── */}
       <div className="bg-surface border border-edge rounded-2xl p-5 space-y-4">
         <h2 className="font-bold text-slate-900 dark:text-white text-lg flex items-center gap-2">
-          <HelpCircle className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+          <HelpCircle className="w-5 h-5 text-stripe-600 dark:text-stripe-400" />
           {t('tfr.keyDifferencesTitle')}
         </h2>
 
@@ -567,7 +567,7 @@ const TfrCalculator: React.FC = () => {
           {/* Revaluation / returns */}
           <div className="bg-slate-50 dark:bg-slate-700/30 rounded-xl p-4 space-y-2">
             <h3 className="font-semibold text-sm text-slate-900 dark:text-white flex items-center gap-2">
-              <TrendingUp size={16} className="text-violet-600" /> {t('tfr.diffReturnTitle')}
+              <TrendingUp size={16} className="text-stripe-600" /> {t('tfr.diffReturnTitle')}
             </h3>
             <div className="space-y-1">
               <p className="text-xs text-body"><span className="font-medium text-red-600 dark:text-red-400">🇮🇹 TFR:</span> {t('tfr.diffReturnTfr')}</p>
@@ -578,7 +578,7 @@ const TfrCalculator: React.FC = () => {
           {/* Frontaliere specifics */}
           <div className="bg-slate-50 dark:bg-slate-700/30 rounded-xl p-4 space-y-2">
             <h3 className="font-semibold text-sm text-slate-900 dark:text-white flex items-center gap-2">
-              <ArrowRight size={16} className="text-blue-600" /> {t('tfr.diffFrontaliereTitle')}
+              <ArrowRight size={16} className="text-stripe-600" /> {t('tfr.diffFrontaliereTitle')}
             </h3>
             <div className="space-y-1.5">
               <p className="text-xs text-body">{t('tfr.diffFrontaliereText1')}</p>
@@ -611,18 +611,18 @@ const TfrCalculator: React.FC = () => {
       </div>
 
       {/* ── Related tools CTA ── */}
-      <div className="bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 border border-blue-200 dark:border-blue-800 rounded-2xl p-5 space-y-3">
+      <div className="bg-gradient-to-r from-stripe-50 to-stripe-100 dark:from-stripe-900/20 dark:to-stripe-800/20 border border-stripe-200 dark:border-stripe-800 rounded-2xl p-5 space-y-3">
         <h3 className="font-bold text-sm text-slate-900 dark:text-white">{t('tfr.relatedTitle')}</h3>
         <div className="flex flex-wrap gap-2">
           <a
             href={buildPath({ activeTab: 'fisco', fiscoSubTab: 'pension' })}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors no-underline"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium bg-stripe-600 hover:bg-stripe-700 text-white rounded-lg transition-colors no-underline"
           >
             <PiggyBank size={14} /> {t('tfr.linkPension')}
           </a>
           <a
             href={buildPath({ activeTab: 'fisco', fiscoSubTab: 'pillar3' })}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg transition-colors no-underline"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium bg-stripe-600 hover:bg-stripe-700 text-white rounded-lg transition-colors no-underline"
           >
             <TrendingUp size={14} /> {t('tfr.linkPillar3')}
           </a>

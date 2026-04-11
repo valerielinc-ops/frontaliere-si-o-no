@@ -126,7 +126,7 @@ export class ErrorBoundary extends Component<Props, State> {
               });
               window.location.reload();
             }}
-            className="flex items-center gap-2 px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-bold transition-colors"
+            className="flex items-center gap-2 px-6 py-3 bg-stripe-600 hover:bg-stripe-700 text-white rounded-xl font-bold transition-colors"
           >
             <RefreshCw size={18} /> {t('error.reload')}
           </button>

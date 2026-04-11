@@ -71,10 +71,10 @@ const VARIANT_COLORS: Record<LeadMagnetVariant, { gradient: string; iconBg: stri
     border: 'border-emerald-200 dark:border-emerald-800',
   },
   salary_guide: {
-    gradient: 'from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20',
-    iconBg: 'bg-blue-100 dark:bg-blue-800',
-    iconText: 'text-blue-600 dark:text-blue-300',
-    border: 'border-blue-200 dark:border-blue-800',
+    gradient: 'from-stripe-50 to-stripe-100 dark:from-stripe-900/20 dark:to-stripe-800/20',
+    iconBg: 'bg-stripe-100 dark:bg-stripe-800',
+    iconText: 'text-stripe-600 dark:text-stripe-300',
+    border: 'border-stripe-200 dark:border-stripe-800',
   },
   relocation: {
     gradient: 'from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20',
@@ -89,7 +89,7 @@ const VARIANT_COLORS: Record<LeadMagnetVariant, { gradient: string; iconBg: stri
     border: 'border-teal-200 dark:border-teal-800',
   },
   pension: {
-    gradient: 'from-teal-50 to-blue-50 dark:from-teal-900/20 dark:to-blue-900/20',
+    gradient: 'from-teal-50 to-stripe-50 dark:from-teal-900/20 dark:to-stripe-900/20',
     iconBg: 'bg-teal-100 dark:bg-teal-800',
     iconText: 'text-teal-600 dark:text-teal-300',
     border: 'border-teal-200 dark:border-teal-800',
@@ -555,7 +555,7 @@ async function generateChecklistPDF(variant: LeadMagnetVariant): Promise<void> {
   // ── Header ──
   doc.setFillColor(30, 41, 59); // slate-800
   doc.rect(0, 0, pageWidth, 48, 'F');
-  doc.setFillColor(79, 70, 229); // indigo-600
+  doc.setFillColor(79, 70, 229); // stripe-600
   doc.rect(0, 48, pageWidth, 3, 'F');
 
   doc.setTextColor(255, 255, 255);
@@ -648,15 +648,15 @@ async function generateChecklistPDF(variant: LeadMagnetVariant): Promise<void> {
     ensureSpace(30);
 
     // Divider line
-    doc.setDrawColor(79, 70, 229); // indigo-600
+    doc.setDrawColor(79, 70, 229); // stripe-600
     doc.setLineWidth(0.5);
     doc.line(margin, y - 2, pageWidth - margin, y - 2);
     y += 6;
 
     // Heading
-    doc.setFillColor(238, 242, 255); // indigo-50
+    doc.setFillColor(238, 242, 255); // stripe-50
     doc.roundedRect(margin - 2, y - 5, contentWidth + 4, 10, 2, 2, 'F');
-    doc.setTextColor(67, 56, 202); // indigo-700
+    doc.setTextColor(67, 56, 202); // stripe-700
     doc.setFontSize(12);
     doc.setFont('helvetica', 'bold');
     doc.text('Prossimi Passi', margin, y + 2);
@@ -668,7 +668,7 @@ async function generateChecklistPDF(variant: LeadMagnetVariant): Promise<void> {
       ensureSpace(12);
 
       // Numbered circle
-      doc.setFillColor(79, 70, 229); // indigo-600
+      doc.setFillColor(79, 70, 229); // stripe-600
       doc.circle(margin + 2, y - 1, 3, 'F');
       doc.setTextColor(255, 255, 255);
       doc.setFontSize(8);
@@ -686,7 +686,7 @@ async function generateChecklistPDF(variant: LeadMagnetVariant): Promise<void> {
   // ── CTA at the end ──
   ensureSpace(25);
   y += 5;
-  doc.setFillColor(238, 242, 255); // indigo-50
+  doc.setFillColor(238, 242, 255); // stripe-50
   doc.roundedRect(margin - 2, y - 5, contentWidth + 4, 18, 3, 3, 'F');
   doc.setDrawColor(79, 70, 229);
   doc.setLineWidth(0.5);
@@ -1005,7 +1005,7 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
         {/* Footer: social proof + privacy */}
         <div className="flex items-center justify-between mt-3">
           <div className="flex items-center gap-1.5 text-xs text-muted">
-            <Users className="w-3.5 h-3.5 text-indigo-500" />
+            <Users className="w-3.5 h-3.5 text-stripe-500" />
             <span>{t('leadMagnet.socialProof')}</span>
           </div>
           <div className="flex items-center gap-1.5 text-sm text-emerald-700 dark:text-emerald-400">

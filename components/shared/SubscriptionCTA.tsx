@@ -254,7 +254,7 @@ const SubscriptionCTA: React.FC = () => {
           </p>
           <div className="space-y-1.5">
             <div className="flex items-center gap-2 text-xs text-body">
-              <TrendingUp className="w-3 h-3 text-blue-500 shrink-0" />
+              <TrendingUp className="w-3 h-3 text-stripe-500 shrink-0" />
               <span>{t('newsletter.cta.preview1')}</span>
             </div>
             <div className="flex items-center gap-2 text-xs text-body">
@@ -308,7 +308,7 @@ const SubscriptionCTA: React.FC = () => {
         {/* Footer: social proof + privacy */}
         <div className="flex items-center justify-between mt-3">
           <div className="flex items-center gap-1.5 text-xs text-muted">
-            <Users className="w-3.5 h-3.5 text-indigo-500" />
+            <Users className="w-3.5 h-3.5 text-stripe-500" />
             <span>{t('newsletter.cta.subscriberCount')}</span>
           </div>
           <div className="flex items-center gap-1.5 text-sm text-emerald-700 dark:text-emerald-400">

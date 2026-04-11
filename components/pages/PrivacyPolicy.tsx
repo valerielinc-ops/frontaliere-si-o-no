@@ -9,7 +9,7 @@ export const PrivacyPolicy: React.FC = () => {
       {/* Back Button */}
       <button 
         onClick={() => nav.navigateTo('calculator')}
-        className="mb-6 inline-flex items-center gap-2 text-sm font-semibold text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 transition-colors"
+        className="mb-6 inline-flex items-center gap-2 text-sm font-semibold text-stripe-600 dark:text-stripe-400 hover:text-stripe-700 dark:hover:text-stripe-300 transition-colors"
       >
         <ArrowLeft size={16} />
         Torna alla Home
@@ -65,8 +65,8 @@ export const PrivacyPolicy: React.FC = () => {
         {/* Section 2: Newsletter & Communications */}
         <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm">
           <div className="flex items-center gap-3 mb-4">
-            <div className="p-2 bg-indigo-100 dark:bg-indigo-900/30 rounded-xl">
-              <Database className="text-indigo-600 dark:text-indigo-400" size={24} />
+            <div className="p-2 bg-stripe-100 dark:bg-stripe-900/30 rounded-xl">
+              <Database className="text-stripe-600 dark:text-stripe-400" size={24} />
             </div>
             <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100">Newsletter e Comunicazioni</h2>
           </div>
@@ -106,7 +106,7 @@ export const PrivacyPolicy: React.FC = () => {
                 all'indirizzo e-mail e al nome visualizzato associati all'account Google dell'utente, nel limite 
                 strettamente necessario all'espletamento delle funzionalità richieste (iscrizione newsletter, 
                 accesso alla community e alla dashboard personale). Tali dati sono trattati conformemente alla 
-                presente informativa e alla policy di Google (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-indigo-600 dark:text-indigo-400 underline">policies.google.com/privacy</a>).
+                presente informativa e alla policy di Google (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-stripe-600 dark:text-stripe-400 underline">policies.google.com/privacy</a>).
               </p>
             </div>
           </div>
@@ -115,7 +115,7 @@ export const PrivacyPolicy: React.FC = () => {
         {/* Section 3: Client-Side Processing */}
         <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm">
           <div className="flex items-center gap-3 mb-4">
-            <div className="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-xl">
+            <div className="p-2 bg-stripe-100 dark:bg-stripe-900/30 rounded-xl">
               <Lock className="text-link" size={24} />
             </div>
             <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100">Elaborazione Lato Client</h2>
@@ -136,8 +136,8 @@ export const PrivacyPolicy: React.FC = () => {
         {/* Section 3: Analytics */}
         <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm">
           <div className="flex items-center gap-3 mb-4">
-            <div className="p-2 bg-purple-100 dark:bg-purple-900/30 rounded-xl">
-              <Eye className="text-purple-600 dark:text-purple-400" size={24} />
+            <div className="p-2 bg-stripe-100 dark:bg-stripe-900/30 rounded-xl">
+              <Eye className="text-stripe-600 dark:text-stripe-400" size={24} />
             </div>
             <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100">Analytics e Statistiche</h2>
           </div>
@@ -193,8 +193,8 @@ export const PrivacyPolicy: React.FC = () => {
         {/* Section 5: Third-Party Services */}
         <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm">
           <div className="flex items-center gap-3 mb-4">
-            <div className="p-2 bg-indigo-100 dark:bg-indigo-900/30 rounded-xl">
-              <Shield className="text-indigo-600 dark:text-indigo-400" size={24} />
+            <div className="p-2 bg-stripe-100 dark:bg-stripe-900/30 rounded-xl">
+              <Shield className="text-stripe-600 dark:text-stripe-400" size={24} />
             </div>
             <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100">Servizi di Terze Parti</h2>
           </div>
@@ -315,7 +315,7 @@ export const PrivacyPolicy: React.FC = () => {
                 href="https://www.facebook.com/profile.php?id=61588174947294" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition-colors shadow-sm"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-stripe-600 hover:bg-stripe-700 text-white font-semibold rounded-xl transition-colors shadow-sm"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
@@ -332,7 +332,7 @@ export const PrivacyPolicy: React.FC = () => {
       <div className="mt-8 text-center">
         <button 
           onClick={() => nav.navigateTo('calculator')}
-          className="inline-flex items-center gap-2 px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition-[color,background-color,border-color,box-shadow] shadow-lg hover:shadow-xl"
+          className="inline-flex items-center gap-2 px-6 py-3 bg-stripe-600 hover:bg-stripe-700 text-white font-bold rounded-xl transition-[color,background-color,border-color,box-shadow] shadow-lg hover:shadow-xl"
         >
           <ArrowLeft size={18} />
           Torna al Simulatore

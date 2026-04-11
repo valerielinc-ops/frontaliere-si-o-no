@@ -155,7 +155,7 @@ const getScenarios = (t: (key: string) => string, profile?: UserProfileData | nu
 const colorMap: Record<string, { bg: string; text: string; border: string; light: string }> = {
   pink: { bg: 'bg-pink-500', text: 'text-pink-600 dark:text-pink-400', border: 'border-pink-200 dark:border-pink-800', light: 'bg-pink-50 dark:bg-pink-950/30' },
   emerald: { bg: 'bg-emerald-700', text: 'text-emerald-700 dark:text-emerald-400', border: 'border-emerald-200 dark:border-emerald-800', light: 'bg-emerald-50 dark:bg-emerald-950/30' },
-  blue: { bg: 'bg-blue-500', text: 'text-link', border: 'border-blue-200 dark:border-blue-800', light: 'bg-blue-50 dark:bg-blue-950/30' },
+  blue: { bg: 'bg-stripe-500', text: 'text-link', border: 'border-stripe-200 dark:border-stripe-800', light: 'bg-stripe-50 dark:bg-stripe-950/30' },
   rose: { bg: 'bg-rose-500', text: 'text-rose-600 dark:text-rose-400', border: 'border-rose-200 dark:border-rose-800', light: 'bg-rose-50 dark:bg-rose-950/30' },
   amber: { bg: 'bg-amber-500', text: 'text-amber-600 dark:text-amber-400', border: 'border-amber-200 dark:border-amber-800', light: 'bg-amber-50 dark:bg-amber-950/30' },
   teal: { bg: 'bg-teal-500', text: 'text-teal-600 dark:text-teal-400', border: 'border-teal-200 dark:border-teal-800', light: 'bg-teal-50 dark:bg-teal-950/30' },
@@ -468,16 +468,16 @@ const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({ baseInputs, baseResul
               )}
             </div>
 
-            <div className={`rounded-2xl border-2 p-5 shadow-sm ${bestOptionNow === 'IT' ? 'bg-emerald-50 dark:bg-emerald-950/30 border-emerald-200 dark:border-emerald-800' : 'bg-blue-50 dark:bg-blue-950/30 border-blue-200 dark:border-blue-800'}`}>
+            <div className={`rounded-2xl border-2 p-5 shadow-sm ${bestOptionNow === 'IT' ? 'bg-emerald-50 dark:bg-emerald-950/30 border-emerald-200 dark:border-emerald-800' : 'bg-stripe-50 dark:bg-stripe-950/30 border-stripe-200 dark:border-stripe-800'}`}>
               <div className="text-xs font-bold text-muted uppercase mb-1 flex items-center gap-1">
                 <ArrowLeftRight size={12} />
                 {t('whatif.bestOption')}
               </div>
-              <div className={`text-lg font-bold ${bestOptionNow === 'IT' ? 'text-emerald-700' : 'text-blue-600'}`}>
+              <div className={`text-lg font-bold ${bestOptionNow === 'IT' ? 'text-emerald-700' : 'text-stripe-600'}`}>
                 {bestOptionNow === 'IT' ? '🇮🇹 ' + t('whatif.liveInItaly') : '🇨🇭 ' + t('whatif.liveInSwiss')}
               </div>
               <div className="text-xs text-muted mt-1">
-                {t('whatif.diffPerYear')}: <span className={`font-bold ${newDifferential >= 0 ? 'text-emerald-700' : 'text-blue-600'}`}>
+                {t('whatif.diffPerYear')}: <span className={`font-bold ${newDifferential >= 0 ? 'text-emerald-700' : 'text-stripe-600'}`}>
                   € {Math.abs(Math.round(newDifferential)).toLocaleString('it-IT')}
                 </span>
               </div>
@@ -538,9 +538,9 @@ const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({ baseInputs, baseResul
                         CHF {Math.round(whatIfResult.chResident.taxes).toLocaleString('it-IT')}
                       </div>
                     </div>
-                    <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                    <div className="p-3 bg-stripe-50 dark:bg-stripe-900/20 rounded-lg">
                       <div className="text-xs text-muted">{t('whatif.netMonthly')}</div>
-                      <div className="font-bold text-blue-700 dark:text-blue-400">
+                      <div className="font-bold text-stripe-700 dark:text-stripe-400">
                         CHF {Math.round(newNetCH).toLocaleString('it-IT')}
                       </div>
                       {diffCH !== 0 && (
@@ -554,7 +554,7 @@ const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({ baseInputs, baseResul
 
                 {/* Summary — clearer explanation */}
                 <div className="border-t border-edge pt-3">
-                  <div className={`p-4 rounded-xl ${bestOptionNow === 'IT' ? 'bg-emerald-50 dark:bg-emerald-900/20' : 'bg-blue-50 dark:bg-blue-900/20'}`}>
+                  <div className={`p-4 rounded-xl ${bestOptionNow === 'IT' ? 'bg-emerald-50 dark:bg-emerald-900/20' : 'bg-stripe-50 dark:bg-stripe-900/20'}`}>
                     <div className="text-sm font-bold text-body mb-2">
                       📊 {t('whatif.scenarioSummary')}
                     </div>
@@ -589,7 +589,7 @@ const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({ baseInputs, baseResul
                         <ArrowLeftRight size={14} className="text-amber-600" />
                         <span className="text-subtle">{t('whatif.comparisonLabel')}:</span>
                       </div>
-                      <div className={`text-lg font-bold mt-1 ${newDifferential >= 0 ? 'text-emerald-700' : 'text-blue-600'}`}>
+                      <div className={`text-lg font-bold mt-1 ${newDifferential >= 0 ? 'text-emerald-700' : 'text-stripe-600'}`}>
                         {newDifferential >= 0 
                           ? `🇮🇹 ${t('whatif.italyBetterBy')} € ${Math.abs(Math.round(newDifferential)).toLocaleString('it-IT')}/${t('whatif.perYear')}`
                           : `🇨🇭 ${t('whatif.swissBetterBy')} € ${Math.abs(Math.round(newDifferential)).toLocaleString('it-IT')}/${t('whatif.perYear')}`

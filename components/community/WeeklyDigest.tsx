@@ -133,7 +133,7 @@ const WeeklyDigest: React.FC = () => {
       {/* Header */}
       <div className="text-center mb-6">
         <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-100 flex items-center justify-center gap-3">
-          <Newspaper size={24} className="text-indigo-500" />
+          <Newspaper size={24} className="text-stripe-500" />
           {t('weeklyDigest.title')}
         </h2>
         <p className="text-subtle mt-2 text-sm max-w-md mx-auto">
@@ -144,14 +144,14 @@ const WeeklyDigest: React.FC = () => {
       {/* Digest Preview Toggle */}
       <button
         onClick={() => setShowPreview(!showPreview)}
-        className="w-full flex items-center justify-between px-4 py-3 bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-200 dark:border-indigo-800 rounded-xl mb-4 text-sm transition-colors"
+        className="w-full flex items-center justify-between px-4 py-3 bg-stripe-50 dark:bg-stripe-900/20 border border-stripe-200 dark:border-stripe-800 rounded-xl mb-4 text-sm transition-colors"
         aria-label={t('weeklyDigest.showPreview')}
       >
-        <span className="flex items-center gap-2 font-medium text-indigo-700 dark:text-indigo-300">
+        <span className="flex items-center gap-2 font-medium text-stripe-700 dark:text-stripe-300">
           <Mail size={16} />
           {t('weeklyDigest.showPreview')}
         </span>
-        {showPreview ? <ChevronUp size={16} className="text-indigo-500" /> : <ChevronDown size={16} className="text-indigo-500" />}
+        {showPreview ? <ChevronUp size={16} className="text-stripe-500" /> : <ChevronDown size={16} className="text-stripe-500" />}
       </button>
 
       {/* Digest Preview */}
@@ -172,15 +172,15 @@ const WeeklyDigest: React.FC = () => {
           {/* 1. Exchange Rate */}
           <div className="px-6 py-4 border-b border-slate-100 dark:border-slate-700">
             <div className="flex items-center gap-2 mb-2">
-              <TrendingUp size={16} className="text-blue-600" />
+              <TrendingUp size={16} className="text-stripe-600" />
               <h4 className="font-semibold text-slate-800 dark:text-slate-100 text-sm">
                 {t('weeklyDigest.preview.exchangeTitle')}
               </h4>
             </div>
-            <div className="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-3">
+            <div className="bg-stripe-50 dark:bg-stripe-900/20 rounded-xl p-3">
               <div className="flex items-center justify-between">
                 <span className="text-sm text-subtle">CHF/EUR</span>
-                <span className="font-bold text-blue-700 dark:text-blue-300">0.9421</span>
+                <span className="font-bold text-stripe-700 dark:text-stripe-300">0.9421</span>
               </div>
               <p className="text-sm text-muted mt-1">
                 {t('weeklyDigest.preview.exchangeNote')}
@@ -191,7 +191,7 @@ const WeeklyDigest: React.FC = () => {
           {/* 2. Featured Articles */}
           <div className="px-6 py-4 border-b border-slate-100 dark:border-slate-700">
             <div className="flex items-center gap-2 mb-3">
-              <BookOpen size={16} className="text-violet-600" />
+              <BookOpen size={16} className="text-stripe-600" />
               <h4 className="font-semibold text-slate-800 dark:text-slate-100 text-sm">
                 {t('weeklyDigest.preview.articlesTitle')}
               </h4>
@@ -207,7 +207,7 @@ const WeeklyDigest: React.FC = () => {
                 </div>
               </div>
               <div className="flex items-start gap-3 bg-slate-50 dark:bg-slate-700/50 rounded-xl p-3">
-                <BookOpen size={14} className="text-indigo-500 mt-0.5 shrink-0" />
+                <BookOpen size={14} className="text-stripe-500 mt-0.5 shrink-0" />
                 <div>
                   <p className="text-sm font-medium text-slate-700 dark:text-slate-200">
                     {t('weeklyDigest.preview.article2')}
@@ -226,16 +226,16 @@ const WeeklyDigest: React.FC = () => {
                 {t('weeklyDigest.preview.toolTitle')}
               </h4>
             </div>
-            <div className="bg-violet-50 dark:bg-violet-900/20 rounded-xl p-3 flex items-center justify-between">
+            <div className="bg-stripe-50 dark:bg-stripe-900/20 rounded-xl p-3 flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-violet-700 dark:text-violet-300">
+                <p className="text-sm font-medium text-stripe-700 dark:text-stripe-300">
                   {t(`weeklyDigest.tool.${featuredTool.key}`)}
                 </p>
-                <p className="text-xs text-violet-600 dark:text-violet-400 mt-0.5">
+                <p className="text-xs text-stripe-600 dark:text-stripe-400 mt-0.5">
                   {t(`weeklyDigest.toolDesc.${featuredTool.key}`)}
                 </p>
               </div>
-              <ArrowRight size={16} className="text-violet-500 shrink-0" />
+              <ArrowRight size={16} className="text-stripe-500 shrink-0" />
             </div>
           </div>
 
@@ -257,7 +257,7 @@ const WeeklyDigest: React.FC = () => {
       {/* Subscribe Form */}
       <div className="bg-surface rounded-2xl border border-edge p-6">
         <h3 className="font-bold text-slate-800 dark:text-slate-100 mb-1 flex items-center gap-2">
-          <Mail size={18} className="text-indigo-500" />
+          <Mail size={18} className="text-stripe-500" />
           {t('weeklyDigest.subscribe')}
         </h3>
         <p className="text-sm text-subtle mb-4">
@@ -275,7 +275,7 @@ const WeeklyDigest: React.FC = () => {
           <button
             onClick={handleSubscribe}
             disabled={!validateEmailStrict(email) || status === 'loading'}
-            className="px-5 py-2 bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white font-semibold rounded-xl transition-colors flex items-center gap-2"
+            className="px-5 py-2 bg-stripe-600 hover:bg-stripe-700 disabled:opacity-50 text-white font-semibold rounded-xl transition-colors flex items-center gap-2"
             aria-label={t('weeklyDigest.subscribeBtn')}
           >
             {status === 'loading' ? <Loader2 size={16} className="animate-spin" /> : <Send size={16} />}

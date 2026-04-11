@@ -58,11 +58,11 @@ function useNetDelta(value: number): { delta: number; key: number } {
 const getBreakdownColor = (label: string): string => {
   const l = label.toLowerCase();
   if (l.includes('netannual') || l.includes('net_annual') || l === 'calc.netannualincome') return 'bg-emerald-500'; 
-  if (l.includes('social') || l.includes('pension') || l.includes('contribut')) return 'bg-violet-500'; 
+  if (l.includes('social') || l.includes('pension') || l.includes('contribut')) return 'bg-stripe-500'; 
   if (l.includes('health')) return 'bg-amber-500'; 
   if (l.includes('tax') || l.includes('source') || l.includes('irpef') || l.includes('ssn')) return 'bg-slate-500'; 
   if (l.includes('expense')) return 'bg-orange-400';
-  if (l.includes('income') || l.includes('allowance')) return 'bg-blue-500'; 
+  if (l.includes('income') || l.includes('allowance')) return 'bg-stripe-500'; 
   return 'bg-slate-200 dark:bg-slate-700';
 };
 
@@ -123,7 +123,7 @@ const BreakdownTable: React.FC<{ data: TaxBreakdownItem[]; currency: string; sho
               
               {!isTotal && item.description && (
                 <div className="group/tooltip relative inline-flex items-center flex-shrink-0">
-                  <Info size={12} className="text-muted cursor-help group-hover/tooltip:text-indigo-500 transition-colors" />
+                  <Info size={12} className="text-muted cursor-help group-hover/tooltip:text-stripe-500 transition-colors" />
                   <div className={`absolute bottom-full left-0 mb-2 ${showMobileTooltip ? 'block' : 'hidden'} group-hover/tooltip:block w-56 p-3 bg-slate-900 dark:bg-slate-800 text-white text-xs font-medium rounded-xl shadow-2xl z-50 animate-fade-in border border-slate-700`}>
                     {translateKey(item.description)}
                     <div className="absolute top-full left-2 -translate-x-1/2 border-8 border-transparent border-t-slate-900 dark:border-t-slate-800"></div>
@@ -234,7 +234,7 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
     }> = [];
 
     // Tag 1: Age
-    tags.push({ label: `${inputs.age} ${t('common.years')}`, icon: User, color: 'text-blue-700 dark:text-blue-400', bg: 'bg-blue-50 dark:bg-blue-900/20', field: 'age' });
+    tags.push({ label: `${inputs.age} ${t('common.years')}`, icon: User, color: 'text-stripe-700 dark:text-stripe-400', bg: 'bg-stripe-50 dark:bg-stripe-900/20', field: 'age' });
 
     // Tag 2: Marital Status & Spouse
     let statusLabel = '';
@@ -426,7 +426,7 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
                <div className="flex items-center bg-surface-raised rounded-xl p-0.5 gap-0.5">
                  <button
                    onClick={() => setShowEUR(false)}
-                   className={`px-2.5 py-1.5 rounded-lg text-xs font-bold transition-[color,background-color,box-shadow] ${!showEUR ? 'bg-white dark:bg-slate-700 text-blue-700 dark:text-blue-300 shadow-sm' : 'text-subtle hover:text-slate-700 dark:hover:text-slate-300'}`}
+                   className={`px-2.5 py-1.5 rounded-lg text-xs font-bold transition-[color,background-color,box-shadow] ${!showEUR ? 'bg-white dark:bg-slate-700 text-stripe-700 dark:text-stripe-300 shadow-sm' : 'text-subtle hover:text-slate-700 dark:hover:text-slate-300'}`}
                    aria-label={t('results.showCHF')}
                  >
                    CHF
@@ -442,7 +442,7 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
                {nav && (
                  <button
                    onClick={() => { const newFocus = !isFocusMode; nav.setIsFocusMode(newFocus); Analytics.trackFocusMode(newFocus); }}
-                   className={`p-2 rounded-xl transition-colors ${isFocusMode ? 'bg-blue-50 dark:bg-blue-900/20 text-link' : 'text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
+                   className={`p-2 rounded-xl transition-colors ${isFocusMode ? 'bg-stripe-50 dark:bg-stripe-900/20 text-link' : 'text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
                    title={isFocusMode ? t('results.detailedView') : t('results.conciseView')}
                    aria-label={isFocusMode ? t('results.detailedView') : t('results.conciseView')}
                  >
@@ -451,7 +451,7 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
                )}
                <button 
                  onClick={exportPDF} 
-                 className="p-2 rounded-xl text-slate-500 hover:text-blue-600 hover:bg-slate-100 dark:hover:bg-slate-800 transition-[color,background-color,box-shadow] flex-shrink-0 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                 className="p-2 rounded-xl text-slate-500 hover:text-stripe-600 hover:bg-slate-100 dark:hover:bg-slate-800 transition-[color,background-color,box-shadow] flex-shrink-0 focus-visible:ring-2 focus-visible:ring-stripe-500 focus-visible:ring-offset-2"
                  title={t('results.downloadPDF')}
                  aria-label={t('results.downloadPDF')}
                >
@@ -459,7 +459,7 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
                </button>
                <button
                  onClick={handleShare}
-                 className={`p-2 rounded-xl transition-colors flex-shrink-0 ${shareState === 'copied' ? 'text-emerald-700 bg-emerald-50 dark:bg-emerald-900/20' : 'text-slate-500 hover:text-blue-600 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
+                 className={`p-2 rounded-xl transition-colors flex-shrink-0 ${shareState === 'copied' ? 'text-emerald-700 bg-emerald-50 dark:bg-emerald-900/20' : 'text-slate-500 hover:text-stripe-600 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
                  title={shareState === 'copied' ? t('results.share.copied') : t('results.share.button')}
                  aria-label={t('results.share.button')}
                >
@@ -498,13 +498,13 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
         <div className={`p-4 sm:p-6 rounded-3xl text-white shadow-lg mb-8 relative overflow-hidden transition-colors duration-500 group ${
             isBetterFrontaliere 
             ? 'bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-600' 
-            : 'bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700'
+            : 'bg-gradient-to-r from-stripe-600 via-stripe-600 to-stripe-700'
         }`}>
 
            
            <div className="flex items-center gap-4 sm:gap-6 relative z-10">
               <div className="bg-white/10 p-3 sm:p-4 rounded-2xl shrink-0 transition-transform group-hover:scale-110 duration-300">
-                {isBetterFrontaliere ? <Trophy size={28} className="text-yellow-300" /> : <Armchair size={28} className="text-indigo-200" />}
+                {isBetterFrontaliere ? <Trophy size={28} className="text-yellow-300" /> : <Armchair size={28} className="text-stripe-200" />}
               </div>
               <div className="min-w-0">
                 <div className="flex items-center gap-2 mb-1">
@@ -543,36 +543,36 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
             ref={chSectionRef}
             className={`bg-surface rounded-3xl p-4 sm:p-6 shadow-sm border relative group transition-[box-shadow,border-color] hover:shadow-md ${
               focusArea === 'CH'
-                ? 'border-blue-400 dark:border-blue-500 ring-2 ring-blue-200/80 dark:ring-blue-900/60'
+                ? 'border-stripe-400 dark:border-stripe-500 ring-2 ring-stripe-200/80 dark:ring-stripe-900/60'
                 : 'border-slate-100 dark:border-slate-700'
             }`}
           >
-            <div className="absolute top-0 left-0 w-1 h-full bg-blue-500"></div>
+            <div className="absolute top-0 left-0 w-1 h-full bg-stripe-500"></div>
             <div className="flex justify-between items-start mb-6">
                <div>
-                 <div className="text-xs font-bold text-blue-700 dark:text-blue-400 uppercase tracking-widest mb-1 bg-blue-50 dark:bg-blue-900/20 px-2 py-0.5 rounded-full inline-block">{t('results.liveInTicino')}</div>
+                 <div className="text-xs font-bold text-stripe-700 dark:text-stripe-400 uppercase tracking-widest mb-1 bg-stripe-50 dark:bg-stripe-900/20 px-2 py-0.5 rounded-full inline-block">{t('results.liveInTicino')}</div>
                  <div className="text-xl font-bold text-slate-800 dark:text-slate-100">{t('results.switzerland')}</div>
                </div>
                <img src="https://flagcdn.com/w80/ch.png" className="w-8 rounded opacity-90" alt="CH" width={32} height={21} loading="lazy" />
             </div>
 
             <div className="space-y-4">
-              <div className="bg-blue-50/50 dark:bg-blue-900/20 p-4 rounded-2xl border border-blue-100 dark:border-blue-800/50">
-                <div className="text-sm text-blue-700 dark:text-blue-400 font-bold uppercase mb-1">{t('results.netMonthlyResidual')}</div>
+              <div className="bg-stripe-50/50 dark:bg-stripe-900/20 p-4 rounded-2xl border border-stripe-100 dark:border-stripe-800/50">
+                <div className="text-sm text-stripe-700 dark:text-stripe-400 font-bold uppercase mb-1">{t('results.netMonthlyResidual')}</div>
                 <div className="flex items-center gap-2 flex-wrap">
                   {showEUR ? (
-                    <div className="text-2xl font-bold text-blue-700 dark:text-blue-300">
+                    <div className="text-2xl font-bold text-stripe-700 dark:text-stripe-300">
                       <CurrencyValue value={Math.round(chResident.netIncomeMonthly * exchangeRate)} currency="EUR" />
                     </div>
                   ) : (
-                    <div className="text-2xl font-bold text-blue-700 dark:text-blue-300">
+                    <div className="text-2xl font-bold text-stripe-700 dark:text-stripe-300">
                       <CurrencyValue value={chResident.netIncomeMonthly} currency="CHF" />
                     </div>
                   )}
                   {chDelta.key > 0 && <InlineNetDeltaBadge key={chDelta.key} delta={chDelta.delta} />}
                 </div>
                 {showEUR && (
-                  <div className="text-sm font-mono text-blue-600/70 dark:text-blue-400/70 mt-0.5 tabular-nums">
+                  <div className="text-sm font-mono text-stripe-600/70 dark:text-stripe-400/70 mt-0.5 tabular-nums">
                     ≈ CHF {formatCurrency(chResident.netIncomeMonthly)}
                   </div>
                 )}
@@ -601,7 +601,7 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
               focusArea === 'IT'
                 ? 'border-emerald-400 dark:border-emerald-500 ring-2 ring-emerald-200/80 dark:ring-emerald-900/60'
                 : 'border-slate-100 dark:border-slate-700'
-            }`} > <div className="absolute top-0 left-0 w-1 h-full bg-red-500"></div> <div className="flex justify-between items-start mb-6"> <div> <div className="text-xs font-bold text-red-700 dark:text-red-400 uppercase tracking-widest mb-1 bg-red-50 dark:bg-red-900/20 px-2 py-0.5 rounded-full inline-block">{t('results.liveInItaly')}</div> <div className="text-xl font-bold text-strong dark:text-slate-100">{t('results.italy')}</div> </div> <img src="https://flagcdn.com/w80/it.png" className="w-8 rounded opacity-90" alt="IT" width={32} height={21} loading="lazy" /> </div> <div className="space-y-4"> <div className="bg-red-50/50 dark:bg-red-900/20 p-4 rounded-2xl border border-red-100 dark:border-red-800/50"> <div className="text-xs text-red-700 dark:text-red-400 font-bold uppercase mb-1">{t('results.netMonthlyResidual')}</div> <div className="flex items-center gap-2 flex-wrap"> {showEUR ? ( <div className="text-2xl font-bold text-red-700 dark:text-red-300"> <CurrencyValue value={Math.round(itResident.netIncomeMonthly * exchangeRate)} currency="EUR" /> </div> ) : ( <div className="text-2xl font-bold text-red-700 dark:text-red-300"> <CurrencyValue value={itResident.netIncomeMonthly} currency="CHF" /> </div> )} {itDelta.key > 0 && <InlineNetDeltaBadge key={itDelta.key} delta={itDelta.delta} />} </div> {showEUR && ( <div className="text-sm font-mono text-red-600/70 dark:text-red-400/70 mt-0.5 tabular-nums"> ≈ CHF {formatCurrency(itResident.netIncomeMonthly)} </div> )} </div> {!isFocusMode && ( <> <BreakdownTable data={itResident.breakdown} currency="CHF" showEUR exchangeRate={exchangeRate} /> {/* MOVED BLOCK: Swiss Net Salary (Pre-Italian Tax) */} {itResident.swissNetIncomeMonthlyCHF && ( <div className="bg-surface-alt/50 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 mt-2 relative overflow-hidden"> <div className="text-xs text-muted font-bold uppercase mb-1 relative z-10"> {t('results.swissPayslipNet')} </div> <div className="text-xl font-bold text-slate-700 relative z-10"> <CurrencyValue value={itResident.swissNetIncomeMonthlyCHF} currency="CHF" /> </div> <ul className="mt-3 space-y-1.5 relative z-10"> {itResident.details.regime === "calc.regime.newFrontier" ? ( <> <li className="text-xs text-muted font-medium flex items-center gap-1.5"><div className="w-1.5 h-1.5 rounded-full bg-indigo-500"></div> {t('results.concurrentTax')}</li> {itResident.details.franchigiaEUR ? ( <li className="text-xs text-muted font-medium flex items-center gap-1.5"><div className="w-1.5 h-1.5 rounded-full bg-emerald-500"></div> {t('results.franchiseApplied', { amount: formatCurrency(itResident.details.franchigiaEUR) })}</li> ) : null} </> ) : ( <li className="text-xs text-muted font-medium flex items-center gap-1.5"><div className="w-1.5 h-1.5 rounded-full bg-emerald-500"></div> {t('results.exclusiveSwissTax')}</li> )} </ul> </div> )} {itResident.details.notes.length > 0 && ( <div className="mt-4 p-3 bg-surface-alt/50 rounded-xl border border-dashed border-slate-200 dark:border-slate-800"> <p className="text-xs font-bold uppercase text-muted mb-1">{t('results.notes')}</p> <ul className="text-xs text-muted list-disc list-inside"> {itResident.details.notes.map((note, i) => <li key={i}>{t(note.split('|')[0])}</li>)} </ul> </div> )} </> )} </div> </div> </div> {!isFocusMode && ( <> {/* WHY CHOOSE ONE OR THE OTHER? */} <div className="mb-8"> <h3 className="text-xs font-bold text-muted uppercase tracking-widest mb-6 flex items-center gap-2"> <Heart size={14} className="text-rose-500" /> {t('results.whyConvenient')} </h3> <div className="grid grid-cols-1 lg:grid-cols-2 gap-6"> {/* Pros Svizzera */} <div className="bg-gradient-to-br from-blue-50 to-white dark:from-blue-900/10 dark:to-slate-900 p-4 sm:p-6 rounded-3xl border border-blue-100 dark:border-blue-800 shadow-sm"> <h4 className="flex items-center gap-2 text-blue-700 dark:text-blue-400 font-bold mb-4"> <ShieldCheck size={18} className="text-blue-500" /> {t('results.chooseSwissIf')} </h4> <ul className="space-y-3 text-xs text-subtle font-medium"> <li className="flex gap-3"><ChevronRight size={14} className="text-blue-500 shrink-0" /> <span><b>{t('results.ch.quality.title')}</b> {t('results.ch.quality')}</span></li> <li className="flex gap-3"><ChevronRight size={14} className="text-blue-500 shrink-0" /> <span><b>{t('results.ch.career.title')}</b> {t('results.ch.career')}</span></li> <li className="flex gap-3"><ChevronRight size={14} className="text-blue-500 shrink-0" /> <span><b>{t('results.ch.time.title')}</b> {t('results.ch.time')}</span></li> <li className="flex gap-3"><ChevronRight size={14} className="text-blue-500 shrink-0" /> <span><b>{t('results.ch.purchasing.title')}</b> {t('results.ch.purchasing')}</span></li> </ul> </div> {/* Pros Italia */} <div className="bg-gradient-to-br from-emerald-50 to-white dark:from-emerald-900/10 dark:to-slate-900 p-4 sm:p-6 rounded-3xl border border-emerald-100 dark:border-emerald-800 shadow-sm"> <h4 className="flex items-center gap-2 text-emerald-700 dark:text-emerald-400 font-bold mb-4"> <ShoppingBag size={18} className="text-emerald-500" /> {t('results.chooseItalyIf')} </h4> <ul className="space-y-3 text-xs text-subtle font-medium"> <li className="flex gap-3"><ChevronRight size={14} className="text-emerald-500 shrink-0" /> <span><b>{t('results.it.cost.title')}</b> {t('results.it.cost')}</span></li> <li className="flex gap-3"><ChevronRight size={14} className="text-emerald-500 shrink-0" /> <span><b>{t('results.it.property.title')}</b> {t('results.it.property')}</span></li> <li className="flex gap-3"><ChevronRight size={14} className="text-emerald-500 shrink-0" /> <span><b>{t('results.it.social.title')}</b> {t('results.it.social')}</span></li> <li className="flex gap-3"><ChevronRight size={14} className="text-emerald-500 shrink-0" /> <span><b>{t('results.it.tax.title')}</b> {t('results.it.tax')}</span></li> </ul> </div> </div> {/* Critical Warning */} <div className="mt-6 p-4 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-2xl flex gap-3"> <AlertCircle size={20} className="text-amber-500 shrink-0" /> <div className="text-sm text-amber-700 dark:text-amber-400 leading-relaxed font-medium"> <b>{t('results.notaBene')}</b> {t('results.disclaimer.housing')} </div> </div> </div> </> )} <div className="mb-8"> <h3 className="text-xs font-bold text-muted uppercase tracking-widest mb-4 flex items-center gap-2"> <Calculator size={14} className="text-indigo-500" /> {t('results.monthlyReservesChart')} </h3> <Suspense fallback={<div className="h-64 bg-surface-raised rounded-xl animate-pulse" />}> <ComparisonChart result={result} inputs={inputs} isDarkMode={isDarkMode} isFocusMode={isFocusMode} /> </Suspense> </div> {/* Shareable result card */} <Suspense fallback={null}> <ShareableResultCard title={t('results.shareTitle') || 'Simulazione Stipendio Netto'} subtitle={`${inputs.annualIncomeCHF?.toLocaleString('it-IT') || '0'} CHF/anno`}
+            }`} > <div className="absolute top-0 left-0 w-1 h-full bg-red-500"></div> <div className="flex justify-between items-start mb-6"> <div> <div className="text-xs font-bold text-red-700 dark:text-red-400 uppercase tracking-widest mb-1 bg-red-50 dark:bg-red-900/20 px-2 py-0.5 rounded-full inline-block">{t('results.liveInItaly')}</div> <div className="text-xl font-bold text-strong dark:text-slate-100">{t('results.italy')}</div> </div> <img src="https://flagcdn.com/w80/it.png" className="w-8 rounded opacity-90" alt="IT" width={32} height={21} loading="lazy" /> </div> <div className="space-y-4"> <div className="bg-red-50/50 dark:bg-red-900/20 p-4 rounded-2xl border border-red-100 dark:border-red-800/50"> <div className="text-xs text-red-700 dark:text-red-400 font-bold uppercase mb-1">{t('results.netMonthlyResidual')}</div> <div className="flex items-center gap-2 flex-wrap"> {showEUR ? ( <div className="text-2xl font-bold text-red-700 dark:text-red-300"> <CurrencyValue value={Math.round(itResident.netIncomeMonthly * exchangeRate)} currency="EUR" /> </div> ) : ( <div className="text-2xl font-bold text-red-700 dark:text-red-300"> <CurrencyValue value={itResident.netIncomeMonthly} currency="CHF" /> </div> )} {itDelta.key > 0 && <InlineNetDeltaBadge key={itDelta.key} delta={itDelta.delta} />} </div> {showEUR && ( <div className="text-sm font-mono text-red-600/70 dark:text-red-400/70 mt-0.5 tabular-nums"> ≈ CHF {formatCurrency(itResident.netIncomeMonthly)} </div> )} </div> {!isFocusMode && ( <> <BreakdownTable data={itResident.breakdown} currency="CHF" showEUR exchangeRate={exchangeRate} /> {/* MOVED BLOCK: Swiss Net Salary (Pre-Italian Tax) */} {itResident.swissNetIncomeMonthlyCHF && ( <div className="bg-surface-alt/50 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 mt-2 relative overflow-hidden"> <div className="text-xs text-muted font-bold uppercase mb-1 relative z-10"> {t('results.swissPayslipNet')} </div> <div className="text-xl font-bold text-slate-700 relative z-10"> <CurrencyValue value={itResident.swissNetIncomeMonthlyCHF} currency="CHF" /> </div> <ul className="mt-3 space-y-1.5 relative z-10"> {itResident.details.regime === "calc.regime.newFrontier" ? ( <> <li className="text-xs text-muted font-medium flex items-center gap-1.5"><div className="w-1.5 h-1.5 rounded-full bg-stripe-500"></div> {t('results.concurrentTax')}</li> {itResident.details.franchigiaEUR ? ( <li className="text-xs text-muted font-medium flex items-center gap-1.5"><div className="w-1.5 h-1.5 rounded-full bg-emerald-500"></div> {t('results.franchiseApplied', { amount: formatCurrency(itResident.details.franchigiaEUR) })}</li> ) : null} </> ) : ( <li className="text-xs text-muted font-medium flex items-center gap-1.5"><div className="w-1.5 h-1.5 rounded-full bg-emerald-500"></div> {t('results.exclusiveSwissTax')}</li> )} </ul> </div> )} {itResident.details.notes.length > 0 && ( <div className="mt-4 p-3 bg-surface-alt/50 rounded-xl border border-dashed border-slate-200 dark:border-slate-800"> <p className="text-xs font-bold uppercase text-muted mb-1">{t('results.notes')}</p> <ul className="text-xs text-muted list-disc list-inside"> {itResident.details.notes.map((note, i) => <li key={i}>{t(note.split('|')[0])}</li>)} </ul> </div> )} </> )} </div> </div> </div> {!isFocusMode && ( <> {/* WHY CHOOSE ONE OR THE OTHER? */} <div className="mb-8"> <h3 className="text-xs font-bold text-muted uppercase tracking-widest mb-6 flex items-center gap-2"> <Heart size={14} className="text-rose-500" /> {t('results.whyConvenient')} </h3> <div className="grid grid-cols-1 lg:grid-cols-2 gap-6"> {/* Pros Svizzera */} <div className="bg-gradient-to-br from-stripe-50 to-white dark:from-stripe-900/10 dark:to-slate-900 p-4 sm:p-6 rounded-3xl border border-stripe-100 dark:border-stripe-800 shadow-sm"> <h4 className="flex items-center gap-2 text-stripe-700 dark:text-stripe-400 font-bold mb-4"> <ShieldCheck size={18} className="text-stripe-500" /> {t('results.chooseSwissIf')} </h4> <ul className="space-y-3 text-xs text-subtle font-medium"> <li className="flex gap-3"><ChevronRight size={14} className="text-stripe-500 shrink-0" /> <span><b>{t('results.ch.quality.title')}</b> {t('results.ch.quality')}</span></li> <li className="flex gap-3"><ChevronRight size={14} className="text-stripe-500 shrink-0" /> <span><b>{t('results.ch.career.title')}</b> {t('results.ch.career')}</span></li> <li className="flex gap-3"><ChevronRight size={14} className="text-stripe-500 shrink-0" /> <span><b>{t('results.ch.time.title')}</b> {t('results.ch.time')}</span></li> <li className="flex gap-3"><ChevronRight size={14} className="text-stripe-500 shrink-0" /> <span><b>{t('results.ch.purchasing.title')}</b> {t('results.ch.purchasing')}</span></li> </ul> </div> {/* Pros Italia */} <div className="bg-gradient-to-br from-emerald-50 to-white dark:from-emerald-900/10 dark:to-slate-900 p-4 sm:p-6 rounded-3xl border border-emerald-100 dark:border-emerald-800 shadow-sm"> <h4 className="flex items-center gap-2 text-emerald-700 dark:text-emerald-400 font-bold mb-4"> <ShoppingBag size={18} className="text-emerald-500" /> {t('results.chooseItalyIf')} </h4> <ul className="space-y-3 text-xs text-subtle font-medium"> <li className="flex gap-3"><ChevronRight size={14} className="text-emerald-500 shrink-0" /> <span><b>{t('results.it.cost.title')}</b> {t('results.it.cost')}</span></li> <li className="flex gap-3"><ChevronRight size={14} className="text-emerald-500 shrink-0" /> <span><b>{t('results.it.property.title')}</b> {t('results.it.property')}</span></li> <li className="flex gap-3"><ChevronRight size={14} className="text-emerald-500 shrink-0" /> <span><b>{t('results.it.social.title')}</b> {t('results.it.social')}</span></li> <li className="flex gap-3"><ChevronRight size={14} className="text-emerald-500 shrink-0" /> <span><b>{t('results.it.tax.title')}</b> {t('results.it.tax')}</span></li> </ul> </div> </div> {/* Critical Warning */} <div className="mt-6 p-4 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-2xl flex gap-3"> <AlertCircle size={20} className="text-amber-500 shrink-0" /> <div className="text-sm text-amber-700 dark:text-amber-400 leading-relaxed font-medium"> <b>{t('results.notaBene')}</b> {t('results.disclaimer.housing')} </div> </div> </div> </> )} <div className="mb-8"> <h3 className="text-xs font-bold text-muted uppercase tracking-widest mb-4 flex items-center gap-2"> <Calculator size={14} className="text-stripe-500" /> {t('results.monthlyReservesChart')} </h3> <Suspense fallback={<div className="h-64 bg-surface-raised rounded-xl animate-pulse" />}> <ComparisonChart result={result} inputs={inputs} isDarkMode={isDarkMode} isFocusMode={isFocusMode} /> </Suspense> </div> {/* Shareable result card */} <Suspense fallback={null}> <ShareableResultCard title={t('results.shareTitle') || 'Simulazione Stipendio Netto'} subtitle={`${inputs.annualIncomeCHF?.toLocaleString('it-IT') || '0'} CHF/anno`}
             rows={[
               { label: t('results.net.chf') || 'Netto CH (CHF)', value: `CHF ${formatCurrency(chResident.netIncomeAnnual)}`, highlight: true, color: 'blue' },
               { label: t('results.net.eur') || 'Netto IT (EUR)', value: `€ ${formatCurrency(Math.round(itResident.netIncomeAnnual * exchangeRate))}`, highlight: true, color: 'emerald' },
@@ -641,7 +641,7 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
                   </div>
                 </div>
               </div>
-              <p className="mt-3 text-xs text-subtle border-t border-indigo-100 dark:border-indigo-900/40 pt-2.5">
+              <p className="mt-3 text-xs text-subtle border-t border-stripe-100 dark:border-stripe-900/40 pt-2.5">
                 {t('results.compareCta.hint')}
               </p>
             </button>

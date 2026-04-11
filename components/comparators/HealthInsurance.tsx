@@ -310,8 +310,8 @@ const HealthInsurance: React.FC = () => {
             <p className="text-2xl font-bold text-slate-800 dark:text-slate-100">{cheapest.premium.toFixed(2)} CHF</p>
             <p className="text-sm text-muted">{cheapest.insurer.name} /mese</p>
           </div>
-          <div className="bg-blue-50 dark:bg-blue-950/30 rounded-xl p-5 border border-blue-200 dark:border-blue-800">
-            <div className="flex items-center gap-2 text-blue-700 dark:text-blue-400 mb-1">
+          <div className="bg-stripe-50 dark:bg-stripe-950/30 rounded-xl p-5 border border-stripe-200 dark:border-stripe-800">
+            <div className="flex items-center gap-2 text-stripe-700 dark:text-stripe-400 mb-1">
               <Award size={16} />
               <span className="text-xs font-bold uppercase tracking-wider">Miglior rapporto</span>
             </div>
@@ -350,13 +350,13 @@ const HealthInsurance: React.FC = () => {
             <div key={result.insurer.id}
               className={`bg-surface rounded-xl border-2 transition-[color,background-color,border-color,box-shadow] ${
                 result.isBestPrice ? 'border-emerald-400 dark:border-emerald-600 shadow-lg'
-                : result.isBestValue ? 'border-blue-400 dark:border-blue-600 shadow-md'
+                : result.isBestValue ? 'border-stripe-400 dark:border-stripe-600 shadow-md'
                 : 'border-edge hover:border-slate-300 dark:hover:border-slate-600'}`}>
               <div className="p-4 cursor-pointer" role="button" tabIndex={0} onClick={() => { setExpandedCard(isExpanded ? null : result.insurer.id); if (!isExpanded) Analytics.trackHealthInsurance('view_provider', result.insurer.id); }} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setExpandedCard(isExpanded ? null : result.insurer.id); if (!isExpanded) Analytics.trackHealthInsurance('view_provider', result.insurer.id); } }} aria-expanded={isExpanded} aria-label={`${result.insurer.name} — ${isExpanded ? 'chiudi' : 'apri'} dettagli`}>
                 <div className="flex items-center gap-4">
                   <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm ${
                     result.rank === 1 ? 'bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300'
-                    : result.rank <= 3 ? 'bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300'
+                    : result.rank <= 3 ? 'bg-stripe-100 dark:bg-stripe-900/50 text-stripe-700 dark:text-stripe-300'
                     : 'bg-surface-raised text-muted'}`}>
                     {result.rank}
                   </div>
@@ -366,7 +366,7 @@ const HealthInsurance: React.FC = () => {
                       {result.isBestPrice && (
                         <span className="px-2 py-0.5 bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300 text-xs font-bold uppercase rounded-full">Migliore prezzo</span>)}
                       {result.isBestValue && !result.isBestPrice && (
-                        <span className="px-2 py-0.5 bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 text-xs font-bold uppercase rounded-full">Miglior rapporto</span>)}
+                        <span className="px-2 py-0.5 bg-stripe-100 dark:bg-stripe-900/50 text-stripe-700 dark:text-stripe-300 text-xs font-bold uppercase rounded-full">Miglior rapporto</span>)}
                     </div>
                     <div className="flex items-center gap-3 mt-0.5">
                       <span className="text-sm text-muted">{result.insurer.models.length} modelli disponibili</span>
@@ -548,12 +548,12 @@ const HealthInsurance: React.FC = () => {
 
       <div className="bg-gradient-to-br from-rose-50 to-amber-50 dark:from-rose-950/30 dark:to-amber-950/30 rounded-2xl border border-rose-200 dark:border-rose-800 p-6">
         <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-4 flex items-center gap-2">
-          <Info size={20} className="text-blue-600" />
+          <Info size={20} className="text-stripe-600" />
           LAMal svizzera vs SSN italiano
         </h3>
         <div className="grid md:grid-cols-2 gap-4 mb-4">
           <div className="p-4 bg-white/60 dark:bg-slate-900/50 rounded-xl">
-            <p className="font-bold text-blue-600 mb-2">Scegli LAMal se:</p>
+            <p className="font-bold text-stripe-600 mb-2">Scegli LAMal se:</p>
             <ul className="space-y-1 text-sm text-body list-disc ml-4">
               <li>Hai bisogno di cure mediche frequenti in Svizzera</li>
               <li>Vuoi tempi di attesa brevi per specialisti</li>
@@ -561,7 +561,7 @@ const HealthInsurance: React.FC = () => {
             </ul>
           </div>
           <div className="p-4 bg-white/60 dark:bg-slate-900/50 rounded-xl">
-            <p className="font-bold text-blue-600 mb-2">Scegli SSN se:</p>
+            <p className="font-bold text-stripe-600 mb-2">Scegli SSN se:</p>
             <ul className="space-y-1 text-sm text-body list-disc ml-4">
               <li>Vuoi risparmiare sul costo sanitario (SSN gratuito)</li>
               <li>Le tue cure mediche sono principalmente in Italia</li>

@@ -163,7 +163,7 @@ const JobComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
                 aria-label="Nome azienda"
               />
               {offers.length > 2 && (
-                <button onClick={() => removeOffer(offer.id)} className="p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center text-red-400 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-950/30 rounded-lg transition-colors focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2" aria-label={t('jobs.removeOffer')}>
+                <button onClick={() => removeOffer(offer.id)} className="p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center text-red-400 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-950/30 rounded-lg transition-colors focus-visible:ring-2 focus-visible:ring-stripe-500 focus-visible:ring-offset-2" aria-label={t('jobs.removeOffer')}>
                   <Trash2 size={16} />
                 </button>
               )}
@@ -348,7 +348,7 @@ const JobComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
       {/* Info */}
       <div className="bg-warm-50 dark:bg-warm-950 rounded-2xl border border-warm-200 dark:border-warm-800 p-5">
         <div className="flex items-start gap-3">
-          <Info size={20} className="text-blue-600 flex-shrink-0 mt-0.5" />
+          <Info size={20} className="text-stripe-600 flex-shrink-0 mt-0.5" />
           <div className="text-sm text-body">
             <p className="font-bold mb-1">{t('jobs.howItWorks')}</p>
             <ul className="space-y-1 text-xs list-disc ml-4">

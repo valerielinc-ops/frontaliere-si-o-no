@@ -83,8 +83,8 @@ const PartnerServices: React.FC = () => {
     <div className="max-w-4xl mx-auto px-4 py-8 space-y-8">
       {/* Header */}
       <div className="text-center">
-        <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-violet-100 dark:bg-violet-900/30 mb-4">
-          <Sparkles className="w-7 h-7 text-violet-600 dark:text-violet-400" />
+        <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-stripe-100 dark:bg-stripe-900/30 mb-4">
+          <Sparkles className="w-7 h-7 text-stripe-600 dark:text-stripe-400" />
         </div>
         <h1 className="text-2xl sm:text-3xl font-bold text-slate-800 dark:text-slate-100 mb-2">
           {t('partners.title')}

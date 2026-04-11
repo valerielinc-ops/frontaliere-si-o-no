@@ -392,7 +392,7 @@ const WorkPermitsGuide: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">
             {permit.documents.map((doc, i) => (
               <div key={i} className="flex items-center gap-2 p-2.5 bg-surface-alt rounded-lg text-sm text-body">
-                <FileText size={14} className="text-blue-500 flex-shrink-0" />
+                <FileText size={14} className="text-stripe-500 flex-shrink-0" />
                 {doc}
               </div>
             ))}
@@ -437,8 +437,8 @@ const WorkPermitsGuide: React.FC = () => {
               <p className="text-sm text-body">{t('permits.g.statusIntro')}</p>
 
               {/* Vecchio definition */}
-              <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-5">
-                <h5 className="font-bold text-blue-700 dark:text-blue-400 text-sm flex items-center gap-2 mb-2">
+              <div className="bg-stripe-50 dark:bg-stripe-900/20 border border-stripe-200 dark:border-stripe-800 rounded-xl p-5">
+                <h5 className="font-bold text-stripe-700 dark:text-stripe-400 text-sm flex items-center gap-2 mb-2">
                   <Shield size={16} />
                   {t('permits.g.oldLabel')}
                 </h5>
@@ -461,8 +461,8 @@ const WorkPermitsGuide: React.FC = () => {
               </div>
 
               {/* G → B → G scenario */}
-              <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-5">
-                <h5 className="font-bold text-blue-700 dark:text-blue-400 text-sm flex items-center gap-2 mb-2">
+              <div className="bg-stripe-50 dark:bg-stripe-900/20 border border-stripe-200 dark:border-stripe-800 rounded-xl p-5">
+                <h5 className="font-bold text-stripe-700 dark:text-stripe-400 text-sm flex items-center gap-2 mb-2">
                   <Scale size={16} />
                   {t('permits.g.switchTitle')}
                 </h5>
@@ -505,7 +505,7 @@ const WorkPermitsGuide: React.FC = () => {
       {/* Comparison table */}
       <div className="bg-surface rounded-2xl border border-edge p-5 sm:p-6">
         <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-4 flex items-center gap-2">
-          <Globe size={20} className="text-blue-600" />
+          <Globe size={20} className="text-stripe-600" />
           {t('permits.comparisonTitle')}
         </h3>
         <div className="relative overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0">

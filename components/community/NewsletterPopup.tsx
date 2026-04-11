@@ -487,7 +487,7 @@ const NewsletterPopup: React.FC = () => {
               {/* Value propositions */}
               <div className="space-y-1.5">
                 <div className="flex items-center gap-2 text-xs text-body">
-                  <TrendingUp className="w-3.5 h-3.5 text-blue-500 shrink-0" />
+                  <TrendingUp className="w-3.5 h-3.5 text-stripe-500 shrink-0" />
                   <span>{t('newsletter.valueProp.1')}</span>
                 </div>
                 <div className="flex items-center gap-2 text-xs text-body">

@@ -87,7 +87,7 @@ const NewsFeed: React.FC<NewsFeedProps> = ({ onNavigate }) => {
                 Analytics.trackSelectContent('news_article', art.id);
                 Analytics.trackUIInteraction('newsfeed', 'ticker', 'headline', 'open_article', art.id);
               }}
-              className="absolute inset-0 flex items-center font-medium text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300 ease-out"
+              className="absolute inset-0 flex items-center font-medium text-slate-700 dark:text-slate-200 hover:text-stripe-600 dark:hover:text-stripe-400 transition-colors duration-300 ease-out"
               style={{
                 transform: `translateX(${(i - idx) * 100}%)`,
                 opacity: i === idx ? 1 : 0,

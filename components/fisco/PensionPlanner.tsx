@@ -183,7 +183,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
         <div className="flex rounded-full h-3 overflow-hidden bg-surface-raised">
           {result.totalMonthlyPensionCHF > 0 && (
             <>
-              <div className="bg-blue-500 h-full transition-transform duration-500" style={{ width: '100%', transform: `scaleX(${result.lppMonthlyPension / result.totalMonthlyPensionCHF})`, transformOrigin: 'left' }} title="LPP" />
+              <div className="bg-stripe-500 h-full transition-transform duration-500" style={{ width: '100%', transform: `scaleX(${result.lppMonthlyPension / result.totalMonthlyPensionCHF})`, transformOrigin: 'left' }} title="LPP" />
               <div className="bg-red-500 h-full transition-transform duration-500" style={{ width: '100%', transform: `scaleX(${result.avsPensionCHF / result.totalMonthlyPensionCHF})`, transformOrigin: 'left' }} title="AVS" />
               {inputs.hasItalianContributions && (
                 <div className="bg-green-500 h-full transition-transform duration-500" style={{ width: '100%', transform: `scaleX(${(result.italianPensionEUR / 1.06) / result.totalMonthlyPensionCHF})`, transformOrigin: 'left' }} title="INPS" />
@@ -192,7 +192,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
           )}
         </div>
         <div className="flex gap-4 mt-2 text-xs text-muted">
-          <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-blue-500 inline-block" /> LPP</span>
+          <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-stripe-500 inline-block" /> LPP</span>
           <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-red-500 inline-block" /> AVS</span>
           {inputs.hasItalianContributions && (
             <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-green-500 inline-block" /> INPS</span>
@@ -259,7 +259,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
           {/* Work History */}
           <div className="bg-surface rounded-2xl border border-edge p-5 sm:p-6 shadow-sm">
             <div className="flex items-center gap-3 mb-4">
-              <Calendar className="text-blue-600" size={20} />
+              <Calendar className="text-stripe-600" size={20} />
               <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100">{t('pension.workHistory')}</h2>
             </div>
 
@@ -275,7 +275,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
                   inputMode="numeric"
                   value={inputs.yearsWorkedCH}
                   onChange={(e) => handleChange('yearsWorkedCH', parseInt(e.target.value) || 0)}
-                  className="w-full px-4 py-2.5 bg-surface-alt border border-edge rounded-lg text-strong font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                  className="w-full px-4 py-2.5 bg-surface-alt border border-edge rounded-lg text-strong font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-stripe-500"
                   min="0"
                   max="50"
                 />
@@ -292,7 +292,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
                   inputMode="numeric"
                   value={inputs.plannedYearsCH}
                   onChange={(e) => handleChange('plannedYearsCH', parseInt(e.target.value) || 0)}
-                  className="w-full px-4 py-2.5 bg-surface-alt border border-edge rounded-lg text-strong font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                  className="w-full px-4 py-2.5 bg-surface-alt border border-edge rounded-lg text-strong font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-stripe-500"
                   min="0"
                   max="50"
                 />
@@ -304,7 +304,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
                     type="checkbox"
                     checked={inputs.hasItalianContributions}
                     onChange={(e) => handleChange('hasItalianContributions', e.target.checked)}
-                    className="mr-2 w-4 h-4 text-blue-600 rounded focus-visible:ring-2 focus-visible:ring-blue-500"
+                    className="mr-2 w-4 h-4 text-stripe-600 rounded focus-visible:ring-2 focus-visible:ring-stripe-500"
                     aria-label={t('pension.hasItalianContributions') || 'Contributi italiani'}
                   />
                   {t('pension.hasItalianContributions')}
@@ -324,7 +324,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
                     inputMode="numeric"
                     value={inputs.yearsWorkedIT}
                     onChange={(e) => handleChange('yearsWorkedIT', parseInt(e.target.value) || 0)}
-                    className="w-full px-4 py-2.5 bg-surface-alt border border-edge rounded-lg text-strong font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                    className="w-full px-4 py-2.5 bg-surface-alt border border-edge rounded-lg text-strong font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-stripe-500"
                     min="0"
                     max="50"
                   />
@@ -336,7 +336,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
           {/* Financial Info */}
           <div className="bg-surface rounded-2xl border border-edge p-5 sm:p-6 shadow-sm">
             <div className="flex items-center gap-3 mb-4">
-              <Banknote className="text-purple-600" size={20} />
+              <Banknote className="text-stripe-600" size={20} />
               <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100">{t('pension.financialData')}</h2>
             </div>
 
@@ -352,7 +352,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
                   inputMode="numeric"
                   value={inputs.currentSalaryCHF}
                   onChange={(e) => handleChange('currentSalaryCHF', parseInt(e.target.value) || 0)}
-                  className="w-full px-4 py-2.5 bg-surface-alt border border-edge rounded-lg text-strong font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500"
+                  className="w-full px-4 py-2.5 bg-surface-alt border border-edge rounded-lg text-strong font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-stripe-500"
                   min="0"
                   step="1000"
                 />
@@ -369,7 +369,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
                   inputMode="numeric"
                   value={inputs.currentLPPCapital}
                   onChange={(e) => handleChange('currentLPPCapital', parseInt(e.target.value) || 0)}
-                  className="w-full px-4 py-2.5 bg-surface-alt border border-edge rounded-lg text-strong font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500"
+                  className="w-full px-4 py-2.5 bg-surface-alt border border-edge rounded-lg text-strong font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-stripe-500"
                   min="0"
                   step="5000"
                 />
@@ -386,7 +386,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
                   inputMode="decimal"
                   value={inputs.expectedReturnRate}
                   onChange={(e) => handleChange('expectedReturnRate', parseFloat(e.target.value) || 0)}
-                  className="w-full px-4 py-2.5 bg-surface-alt border border-edge rounded-lg text-strong font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500"
+                  className="w-full px-4 py-2.5 bg-surface-alt border border-edge rounded-lg text-strong font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-stripe-500"
                   min="0"
                   max="5"
                   step="0.1"
@@ -471,8 +471,8 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
             {/* LPP Capital */}
             <div className="bg-surface rounded-2xl border border-edge p-5 sm:p-6 shadow-sm">
               <div className="flex items-center gap-3 mb-3">
-                <div className="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
-                  <PiggyBank className="text-blue-600" size={20} />
+                <div className="p-2 bg-stripe-100 dark:bg-stripe-900/30 rounded-lg">
+                  <PiggyBank className="text-stripe-600" size={20} />
                 </div>
                 <div>
                   <div className="text-xs text-muted font-semibold uppercase tracking-wide">
@@ -485,7 +485,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
               </div>
               <div className="flex items-center justify-between pt-3 border-t border-slate-100 dark:border-slate-700">
                 <span className="text-sm text-subtle">{t('pension.monthlyAnnuity')}:</span>
-                <span className="text-lg font-bold text-blue-600">
+                <span className="text-lg font-bold text-stripe-600">
                   CHF {Math.round(result.lppMonthlyPension).toLocaleString('it-IT')}
                 </span>
               </div>
@@ -563,7 +563,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
             <div className="space-y-3">
               <div className="flex items-center justify-between p-3 bg-warm-50 dark:bg-warm-950 rounded-lg border border-warm-200 dark:border-warm-800">
                 <span className="text-sm font-semibold text-body">{t('pension.lppAnnuity')}</span>
-                <span className="text-lg font-bold text-blue-600">
+                <span className="text-lg font-bold text-stripe-600">
                   CHF {Math.round(result.lppMonthlyPension).toLocaleString('it-IT')}
                 </span>
               </div>
@@ -599,13 +599,13 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
           {inputs.repatriationPlan !== 'undecided' && (
             <div className={`rounded-2xl border-2 p-5 sm:p-6 ${
               inputs.repatriationPlan === 'stay_ch'
-                ? 'bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800'
+                ? 'bg-stripe-50 dark:bg-stripe-900/20 border-stripe-200 dark:border-stripe-800'
                 : 'bg-orange-50 dark:bg-orange-900/20 border-orange-200 dark:border-orange-800'
             }`}>
               <div className="flex items-start gap-3 mb-3">
                 <AlertCircle 
                   size={24} 
-                  className={inputs.repatriationPlan === 'stay_ch' ? 'text-blue-600' : 'text-orange-600'} 
+                  className={inputs.repatriationPlan === 'stay_ch' ? 'text-stripe-600' : 'text-orange-600'} 
                 />
                 <div>
                   <h3 className="font-bold text-slate-800 dark:text-slate-100 mb-2">

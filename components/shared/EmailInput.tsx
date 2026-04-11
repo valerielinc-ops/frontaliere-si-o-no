@@ -374,7 +374,7 @@ const EmailInput: React.FC<EmailInputProps> = ({
           role="listbox"
           className={`absolute z-50 left-0 right-0 mt-1 rounded-xl shadow-lg border overflow-hidden ${
             darkVariant
-              ? 'bg-indigo-800 border-indigo-600'
+              ? 'bg-stripe-800 border-stripe-600'
               : 'bg-surface border-edge'
           }`}
         >
@@ -393,16 +393,16 @@ const EmailInput: React.FC<EmailInputProps> = ({
                 className={`px-4 py-2.5 text-sm cursor-pointer transition-colors ${
                   i === selectedIndex
                     ? darkVariant
-                      ? 'bg-indigo-700 text-white'
-                      : 'bg-indigo-50 dark:bg-indigo-950/30 text-indigo-700 dark:text-indigo-300'
+                      ? 'bg-stripe-700 text-white'
+                      : 'bg-stripe-50 dark:bg-stripe-950/30 text-stripe-700 dark:text-stripe-300'
                     : darkVariant
-                      ? 'text-indigo-100 hover:bg-indigo-700'
+                      ? 'text-stripe-100 hover:bg-stripe-700'
                       : 'text-body hover:bg-slate-50 dark:hover:bg-slate-700'
                 }`}
               >
                 <span>{localDisplay}</span>
                 <span className={`font-medium ${
-                  darkVariant ? 'text-white' : 'text-indigo-600 dark:text-indigo-400'
+                  darkVariant ? 'text-white' : 'text-stripe-600 dark:text-stripe-400'
                 }`}>{domainHighlight}</span>
               </li>
             );

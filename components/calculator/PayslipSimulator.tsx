@@ -134,10 +134,10 @@ const InfoTooltip = ({ text }: { text: string }) => {
 const StepperInput = ({ value, onChange, min = 0, max, label, icon: Icon, iconColor = "text-muted", tooltip, inputId, ariaLabel }: any) => (
   <div className="space-y-2">
     {label && <label htmlFor={inputId} className="text-xs font-bold text-subtle uppercase tracking-wide flex items-center gap-1.5 h-4">{Icon && <Icon size={12} className={iconColor}/>} {label} {tooltip && <InfoTooltip text={tooltip} />}</label>}
-    <div className="flex items-center bg-surface-alt border border-edge rounded-xl overflow-hidden h-12 shadow-sm focus-within:ring-2 focus-within:ring-indigo-500/20 focus-within:border-indigo-500 transition-[color,background-color,border-color,box-shadow,transform]">
+    <div className="flex items-center bg-surface-alt border border-edge rounded-xl overflow-hidden h-12 shadow-sm focus-within:ring-2 focus-within:ring-stripe-500/20 focus-within:border-stripe-500 transition-[color,background-color,border-color,box-shadow,transform]">
       <button
         onClick={() => onChange(Math.max(min, value - 1))}
-        className="min-w-[48px] w-12 h-full flex items-center justify-center text-muted hover:text-indigo-600 hover:bg-slate-100 dark:hover:bg-slate-800 active:scale-90 transition-[color,background-color,border-color,box-shadow,transform] border-r border-slate-100 dark:border-slate-800"
+        className="min-w-[48px] w-12 h-full flex items-center justify-center text-muted hover:text-stripe-600 hover:bg-slate-100 dark:hover:bg-slate-800 active:scale-90 transition-[color,background-color,border-color,box-shadow,transform] border-r border-slate-100 dark:border-slate-800"
         aria-label={`${ariaLabel || label || 'Valore'}: diminuisci`}
         type="button"
       >
@@ -158,13 +158,13 @@ const StepperInput = ({ value, onChange, min = 0, max, label, icon: Icon, iconCo
           }}
           min={min}
           max={max}
-          className="w-full h-full min-h-[48px] min-w-[48px] bg-transparent text-center font-bold text-base text-slate-700 dark:text-slate-200 outline-none focus-visible:ring-2 focus-visible:ring-blue-500 appearance-none px-2 py-3"
+          className="w-full h-full min-h-[48px] min-w-[48px] bg-transparent text-center font-bold text-base text-slate-700 dark:text-slate-200 outline-none focus-visible:ring-2 focus-visible:ring-stripe-500 appearance-none px-2 py-3"
           aria-label={ariaLabel || label || 'Valore numerico'}
         />
       </div>
       <button
         onClick={() => onChange(max ? Math.min(max, value + 1) : value + 1)}
-        className="min-w-[48px] w-12 h-full flex items-center justify-center text-muted hover:text-indigo-600 hover:bg-slate-100 dark:hover:bg-slate-800 active:scale-90 transition-[color,background-color,border-color,transform] border-l border-slate-100 dark:border-slate-800"
+        className="min-w-[48px] w-12 h-full flex items-center justify-center text-muted hover:text-stripe-600 hover:bg-slate-100 dark:hover:bg-slate-800 active:scale-90 transition-[color,background-color,border-color,transform] border-l border-slate-100 dark:border-slate-800"
         aria-label={`${ariaLabel || label || 'Valore'}: aumenta`}
         type="button"
       >
@@ -252,7 +252,7 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
             {t('payslip.lppAgeRates')}
           </span>
         </div>
-        <div className={`transition-transform duration-300 ${showInfo ? 'rotate-180 text-indigo-500' : 'text-muted'}`}>
+        <div className={`transition-transform duration-300 ${showInfo ? 'rotate-180 text-stripe-500' : 'text-muted'}`}>
           <ChevronDown size={18} />
         </div>
       </button>
@@ -331,7 +331,7 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
                     const val = parseNumber(e.target.value);
                     handleSalaryChange(Math.max(SALARY_MIN, Math.min(SALARY_MAX, val)));
                   }}
-                  className={`w-full pl-14 pr-4 py-4 bg-surface-alt border-2 rounded-2xl focus-visible:ring-4 outline-none transition-[color,background-color,border-color,box-shadow] font-bold text-slate-800 dark:text-slate-100 text-2xl tracking-tight ${salaryError ? 'border-red-400 focus-visible:border-red-500 focus-visible:ring-red-500/10' : 'border-slate-100 dark:border-slate-700 focus-visible:border-indigo-500 focus-visible:ring-indigo-500/10'}`}
+                  className={`w-full pl-14 pr-4 py-4 bg-surface-alt border-2 rounded-2xl focus-visible:ring-4 outline-none transition-[color,background-color,border-color,box-shadow] font-bold text-slate-800 dark:text-slate-100 text-2xl tracking-tight ${salaryError ? 'border-red-400 focus-visible:border-red-500 focus-visible:ring-red-500/10' : 'border-slate-100 dark:border-slate-700 focus-visible:border-stripe-500 focus-visible:ring-stripe-500/10'}`}
                   placeholder="0"
                   aria-label="Stipendio lordo annuale in CHF"
                 />
@@ -345,7 +345,7 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
 
             {/* Demographics Grid */}
             <div className="grid grid-cols-[2fr_3fr] sm:grid-cols-2 gap-3 sm:gap-4">
-              <StepperInput inputId="payslip-age" label={t('payslip.age')} value={age} onChange={setAge} min={18} max={65} icon={User} iconColor="text-blue-500" tooltip={t('payslip.lppAgeRates')} />
+              <StepperInput inputId="payslip-age" label={t('payslip.age')} value={age} onChange={setAge} min={18} max={65} icon={User} iconColor="text-stripe-500" tooltip={t('payslip.lppAgeRates')} />
               {/* Marital Status */}
               <div className="space-y-1.5">
                 <label htmlFor="payslip-status" className="text-xs font-bold text-subtle uppercase tracking-wide flex items-center gap-1.5 h-4">
@@ -356,7 +356,7 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
                     id="payslip-status"
                     value={maritalStatus}
                     onChange={e => setMaritalStatus(e.target.value as 'single' | 'married')}
-                    className="w-full h-11 pl-2.5 sm:pl-3 pr-8 bg-surface-alt border border-edge rounded-xl text-xs font-semibold sm:font-bold appearance-none outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-indigo-500/10 transition-[color,background-color,border-color,box-shadow] cursor-pointer text-slate-700 dark:text-slate-200"
+                    className="w-full h-11 pl-2.5 sm:pl-3 pr-8 bg-surface-alt border border-edge rounded-xl text-xs font-semibold sm:font-bold appearance-none outline-none focus-visible:border-stripe-500 focus-visible:ring-2 focus-visible:ring-stripe-500/10 transition-[color,background-color,border-color,box-shadow] cursor-pointer text-slate-700 dark:text-slate-200"
                   >
                     <option value="single">{t('payslip.single')}</option>
                     <option value="married">{t('payslip.married')}</option>

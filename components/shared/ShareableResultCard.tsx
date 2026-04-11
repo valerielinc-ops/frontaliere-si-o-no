@@ -44,7 +44,7 @@ export interface ShareableCardProps {
 
 /** Tailwind classes for the visible card preview */
 const ACCENT_GRADIENTS: Record<string, string> = {
-  blue: 'from-blue-600 to-blue-700',
+  blue: 'from-stripe-600 to-stripe-700',
   violet: 'from-teal-600 to-teal-700',
   emerald: 'from-emerald-600 to-teal-700',
   amber: 'from-amber-500 to-orange-600',
@@ -52,7 +52,7 @@ const ACCENT_GRADIENTS: Record<string, string> = {
 
 /** Hex pairs for Canvas 2D gradient drawing */
 const ACCENT_HEX: Record<string, [string, string]> = {
-  blue: ['#2563eb', '#4338ca'],
+  blue: ['#533afd', '#4529e6'],
   violet: ['#7c3aed', '#7e22ce'],
   emerald: ['#059669', '#0f766e'],
   amber: ['#f59e0b', '#ea580c'],
@@ -60,10 +60,10 @@ const ACCENT_HEX: Record<string, [string, string]> = {
 
 const ROW_COLORS: Record<string, string> = {
   emerald: 'text-emerald-700 dark:text-emerald-400',
-  blue: 'text-blue-700 dark:text-blue-400',
+  blue: 'text-stripe-700 dark:text-stripe-400',
   amber: 'text-amber-700 dark:text-amber-400',
   red: 'text-red-700 dark:text-red-400',
-  violet: 'text-violet-700 dark:text-violet-400',
+  violet: 'text-stripe-700 dark:text-stripe-400',
 };
 
 /** Hex values for Canvas row value colors */
@@ -381,7 +381,7 @@ const ShareableResultCard: React.FC<ShareableCardProps> = ({
           className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-surface border border-edge rounded-xl text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 disabled:opacity-50 transition-colors"
           aria-label={t('shareCard.createCard')}
         >
-          {isGenerating ? <Loader2 size={16} className="animate-spin text-violet-500" /> : <Camera size={16} className="text-violet-500" />}
+          {isGenerating ? <Loader2 size={16} className="animate-spin text-stripe-500" /> : <Camera size={16} className="text-stripe-500" />}
           {t('shareCard.createCard')}
         </button>
       )}

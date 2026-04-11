@@ -470,7 +470,7 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
       {showDetails && (
         <div className="bg-surface rounded-2xl border border-edge p-5 space-y-4">
           <div className="flex items-center gap-2 mb-3">
-            <Info className="w-5 h-5 text-blue-500" />
+            <Info className="w-5 h-5 text-stripe-500" />
             <h4 className="font-bold text-strong">{t('ral.detailsTitle')}</h4>
           </div>
           

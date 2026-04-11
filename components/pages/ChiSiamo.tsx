@@ -16,7 +16,7 @@ export const ChiSiamo: React.FC = () => {
       {/* Back Button */}
       <button
         onClick={() => nav.navigateTo('calculator')}
-        className="mb-6 inline-flex items-center gap-2 text-sm font-semibold text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 transition-colors"
+        className="mb-6 inline-flex items-center gap-2 text-sm font-semibold text-stripe-600 dark:text-stripe-400 hover:text-stripe-700 dark:hover:text-stripe-300 transition-colors"
       >
         <ArrowLeft size={16} />
         Torna alla Home
@@ -149,7 +149,7 @@ export const ChiSiamo: React.FC = () => {
             Per maggiori dettagli, consulta la nostra{' '}
             <button
               onClick={() => nav.navigateTo('privacy')}
-              className="text-indigo-600 dark:text-indigo-400 hover:underline font-medium"
+              className="text-stripe-600 dark:text-stripe-400 hover:underline font-medium"
             >
               Privacy Policy
             </button>.
@@ -162,7 +162,7 @@ export const ChiSiamo: React.FC = () => {
           <p className="text-sm text-subtle">
             Per segnalazioni, correzioni o collaborazioni editoriali:
           </p>
-          <p className="mt-2 text-sm font-medium text-indigo-600 dark:text-indigo-400">
+          <p className="mt-2 text-sm font-medium text-stripe-600 dark:text-stripe-400">
             redazione@frontaliereticino.ch
           </p>
           <p className="mt-1 text-xs text-muted">
@@ -180,7 +180,7 @@ function Section({ icon: Icon, title, children }: { icon: React.FC<{ size?: numb
   return (
     <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm">
       <div className="flex items-center gap-3 mb-4">
-        <Icon size={20} className="text-indigo-600 dark:text-indigo-400" />
+        <Icon size={20} className="text-stripe-600 dark:text-stripe-400" />
         <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100">{title}</h2>
       </div>
       <div className="text-sm text-subtle leading-relaxed">

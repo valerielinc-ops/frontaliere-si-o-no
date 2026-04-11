@@ -67,13 +67,13 @@ function getWeatherIcon(code: number, isDay: boolean): React.ReactNode {
   if (code === 2) return <Cloud className="w-full h-full text-muted" />;
   if (code === 3) return <Cloud className="w-full h-full text-muted" />;
   if (code >= 45 && code <= 48) return <CloudFog className="w-full h-full text-muted" />;
-  if (code >= 51 && code <= 55) return <CloudDrizzle className="w-full h-full text-blue-400" />;
-  if (code >= 56 && code <= 57) return <CloudDrizzle className="w-full h-full text-blue-300" />;
-  if (code >= 61 && code <= 65) return <CloudRain className="w-full h-full text-blue-500" />;
-  if (code >= 66 && code <= 67) return <CloudRain className="w-full h-full text-blue-300" />;
-  if (code >= 71 && code <= 77) return <CloudSnow className="w-full h-full text-blue-200" />;
-  if (code >= 80 && code <= 82) return <CloudRain className="w-full h-full text-blue-600" />;
-  if (code >= 85 && code <= 86) return <CloudSnow className="w-full h-full text-blue-300" />;
+  if (code >= 51 && code <= 55) return <CloudDrizzle className="w-full h-full text-stripe-400" />;
+  if (code >= 56 && code <= 57) return <CloudDrizzle className="w-full h-full text-stripe-300" />;
+  if (code >= 61 && code <= 65) return <CloudRain className="w-full h-full text-stripe-500" />;
+  if (code >= 66 && code <= 67) return <CloudRain className="w-full h-full text-stripe-300" />;
+  if (code >= 71 && code <= 77) return <CloudSnow className="w-full h-full text-stripe-200" />;
+  if (code >= 80 && code <= 82) return <CloudRain className="w-full h-full text-stripe-600" />;
+  if (code >= 85 && code <= 86) return <CloudSnow className="w-full h-full text-stripe-300" />;
   if (code >= 95 && code <= 99) return <CloudLightning className="w-full h-full text-amber-400" />;
   return <Sun className="w-full h-full text-amber-500" />;
 }
@@ -293,7 +293,7 @@ const MorningDashboard: React.FC = () => {
     <div className="space-y-6">
       {/* Welcome Back Banner for signed-in users */}
       {user && (
-        <div className="bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 border border-blue-200 dark:border-blue-800 rounded-2xl p-4 sm:p-6">
+        <div className="bg-gradient-to-r from-stripe-50 to-stripe-100 dark:from-stripe-900/20 dark:to-stripe-800/20 border border-stripe-200 dark:border-stripe-800 rounded-2xl p-4 sm:p-6">
           <div className="flex items-center gap-3">
             <div className="text-2xl">👋</div>
             <div>
@@ -366,7 +366,7 @@ const MorningDashboard: React.FC = () => {
           </div>
           {rateLoading ? (
             <div className="h-16 flex items-center justify-center">
-              <div className="w-6 h-6 border-2 border-blue-500 border-t-transparent rounded-full animate-spin" />
+              <div className="w-6 h-6 border-2 border-stripe-500 border-t-transparent rounded-full animate-spin" />
             </div>
           ) : (
             <div className="space-y-2">
@@ -400,7 +400,7 @@ const MorningDashboard: React.FC = () => {
       <div className="bg-surface/60 rounded-2xl border border-edge p-3 sm:p-5 space-y-3 sm:space-y-4">
         <div className="flex items-center justify-between">
           <h3 className="font-bold text-slate-900 dark:text-white flex items-center gap-2 text-sm sm:text-base">
-            <Navigation className="w-4 h-4 text-violet-600 dark:text-violet-400" />
+            <Navigation className="w-4 h-4 text-stripe-600 dark:text-stripe-400" />
             {t('morning.traffic.title')}
           </h3>
           <span className="text-sm text-muted">
@@ -410,7 +410,7 @@ const MorningDashboard: React.FC = () => {
 
         {trafficLoading ? (
           <div className="h-20 flex items-center justify-center">
-            <div className="w-6 h-6 border-2 border-violet-500 border-t-transparent rounded-full animate-spin" />
+            <div className="w-6 h-6 border-2 border-stripe-500 border-t-transparent rounded-full animate-spin" />
           </div>
         ) : (
           <div className="space-y-2">
@@ -611,7 +611,7 @@ interface TipCardProps {
 
 const TipCard: React.FC<TipCardProps> = ({ emoji, title, value, subtitle }) => (
   <div className="bg-white/60 dark:bg-slate-800/40 rounded-xl p-3 space-y-1">
-    <div className="text-xs font-semibold text-indigo-700 dark:text-indigo-300 flex items-center gap-1.5">
+    <div className="text-xs font-semibold text-stripe-700 dark:text-stripe-300 flex items-center gap-1.5">
       <span>{emoji}</span> {title}
     </div>
     <div className="font-bold text-slate-900 dark:text-white text-sm">{value}</div>

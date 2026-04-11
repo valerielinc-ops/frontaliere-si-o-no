@@ -222,7 +222,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
                 onClick={() => setViewMode('map')}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${
                   viewMode === 'map'
-                    ? 'bg-indigo-600 text-white shadow-sm'
+                    ? 'bg-stripe-600 text-white shadow-sm'
                     : 'text-slate-600 dark:text-slate-300 hover:text-slate-800 dark:hover:text-white'
                 }`}
               >
@@ -232,7 +232,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
                 onClick={() => setViewMode('list')}
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${
                   viewMode === 'list'
-                    ? 'bg-indigo-600 text-white shadow-sm'
+                    ? 'bg-stripe-600 text-white shadow-sm'
                     : 'text-slate-600 dark:text-slate-300 hover:text-slate-800 dark:hover:text-white'
                 }`}
               >
@@ -255,7 +255,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
             <button
               onClick={loadTrafficData}
               disabled={loading}
-              className="flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 disabled:opacity-50 transition-colors"
+              className="flex items-center gap-2 px-4 py-2 bg-stripe-600 text-white rounded-lg hover:bg-stripe-700 disabled:opacity-50 transition-colors"
             >
               <RefreshCw size={16} className={loading ? 'animate-spin' : ''} />
               {t('traffic.refresh')}
@@ -268,15 +268,15 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
       <div className={`border-l-4 p-3 rounded-lg ${
         liveTrafficAvailable
           ? 'bg-emerald-50 dark:bg-emerald-950/30 border-emerald-500'
-          : 'bg-blue-50 dark:bg-blue-950/30 border-blue-500'
+          : 'bg-stripe-50 dark:bg-stripe-950/30 border-stripe-500'
       }`}>
         <div className="flex items-center gap-2 text-sm">
           {liveTrafficAvailable ? (
             <CheckCircle2 className="text-emerald-700 flex-shrink-0" size={16} />
           ) : (
-            <AlertTriangle className="text-blue-600 flex-shrink-0" size={16} />
+            <AlertTriangle className="text-stripe-600 flex-shrink-0" size={16} />
           )}
-          <span className={liveTrafficAvailable ? 'text-emerald-800 dark:text-emerald-200' : 'text-blue-800 dark:text-blue-200'}>
+          <span className={liveTrafficAvailable ? 'text-emerald-800 dark:text-emerald-200' : 'text-stripe-800 dark:text-stripe-200'}>
             {liveTrafficAvailable
               ? t('traffic.dataReal')
               : t('traffic.dataSimulated')}
@@ -472,7 +472,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
                       href={`https://www.google.com/maps/dir/?api=1&destination=${crossing.coordinates[0]},${crossing.coordinates[1]}&travelmode=driving`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="mt-2 flex items-center justify-center gap-1.5 w-full py-2 bg-indigo-600 text-white rounded-lg text-xs font-bold hover:bg-indigo-700 transition-colors no-underline"
+                      className="mt-2 flex items-center justify-center gap-1.5 w-full py-2 bg-stripe-600 text-white rounded-lg text-xs font-bold hover:bg-stripe-700 transition-colors no-underline"
                       onClick={(e) => e.stopPropagation()}
                     >
                       <Navigation size={12} />
@@ -487,15 +487,15 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
       )}
 
       {/* Tips */}
-      <div className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-950/30 dark:to-blue-900/30 rounded-2xl border border-blue-200 dark:border-blue-800 p-6">
+      <div className="bg-gradient-to-br from-stripe-50 to-stripe-100 dark:from-stripe-950/30 dark:to-stripe-900/30 rounded-2xl border border-stripe-200 dark:border-stripe-800 p-6">
         <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100 mb-4 flex items-center gap-2">
-          <Navigation size={24} className="text-blue-600" />
+          <Navigation size={24} className="text-stripe-600" />
           {t('traffic.tipsTitle')}
         </h3>
 
         <div className="grid md:grid-cols-2 gap-4">
           <div className="p-4 bg-surface/50 rounded-xl">
-            <p className="font-bold text-blue-600 mb-2">{t('traffic.tipsBestTimesTitle')}</p>
+            <p className="font-bold text-stripe-600 mb-2">{t('traffic.tipsBestTimesTitle')}</p>
             <ul className="space-y-1 text-sm text-body list-disc ml-4">
               <li>{t('traffic.tipsMorning')}</li>
               <li>{t('traffic.tipsEvening')}</li>
@@ -504,7 +504,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
           </div>
 
           <div className="p-4 bg-surface/50 rounded-xl">
-            <p className="font-bold text-blue-600 mb-2">{t('traffic.tipsAltRoutesTitle')}</p>
+            <p className="font-bold text-stripe-600 mb-2">{t('traffic.tipsAltRoutesTitle')}</p>
             <ul className="space-y-1 text-sm text-body list-disc ml-4">
               <li>{t('traffic.tipsAvoidChiasso')}</li>
               <li>{t('traffic.tipsTryAlternatives')}</li>

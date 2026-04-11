@@ -58,7 +58,7 @@ function getBanks(t: (key: string) => string): Bank[] {
       cardType: 'Maestro + Visa',
       pros: [t('banks.creditSuisse.pro1'), t('banks.creditSuisse.pro2')],
       cons: [t('banks.creditSuisse.con1'), t('banks.creditSuisse.con2'), t('banks.creditSuisse.con3')],
-      color: 'from-blue-600 to-blue-800',
+      color: 'from-stripe-600 to-stripe-800',
       website: 'https://www.credit-suisse.com',
       acceptsFrontalieri: false
     },
@@ -110,7 +110,7 @@ function getBanks(t: (key: string) => string): Bank[] {
       cardType: t('banks.intesa.cardType'),
       pros: [t('banks.intesa.pro1'), t('banks.intesa.pro2'), t('banks.intesa.pro3')],
       cons: [t('banks.intesa.con1'), t('banks.intesa.con2'), t('banks.intesa.con3')],
-      color: 'from-blue-500 to-blue-700',
+      color: 'from-stripe-500 to-stripe-700',
       website: 'https://www.intesasanpaolo.com',
       acceptsFrontalieri: true
     },
@@ -123,7 +123,7 @@ function getBanks(t: (key: string) => string): Bank[] {
       cardType: t('banks.fineco.cardType'),
       pros: [t('banks.fineco.pro1'), t('banks.fineco.pro2'), t('banks.fineco.pro3'), t('banks.fineco.pro4')],
       cons: [t('banks.fineco.con1'), t('banks.fineco.con2'), t('banks.fineco.con3')],
-      color: 'from-teal-500 to-blue-600',
+      color: 'from-teal-500 to-stripe-600',
       website: 'https://fineco.mobi/passaparola',
       acceptsFrontalieri: true
     },

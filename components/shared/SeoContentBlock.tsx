@@ -54,9 +54,9 @@ const CONTEXT_CONFIG: Record<SeoContext, {
 }> = {
   calculator: {
     Icon: Calculator,
-    gradient: 'from-blue-50 to-blue-100 dark:from-blue-950/30 dark:to-blue-900/30',
-    collapsedBg: 'bg-blue-50/60 dark:bg-blue-950/20',
-    iconBg: 'bg-blue-100 dark:bg-blue-900/40',
+    gradient: 'from-stripe-50 to-stripe-100 dark:from-stripe-950/30 dark:to-stripe-900/30',
+    collapsedBg: 'bg-stripe-50/60 dark:bg-stripe-950/20',
+    iconBg: 'bg-stripe-100 dark:bg-stripe-900/40',
     iconText: 'text-link',
     features: 4,
     checklist: 5,
@@ -99,7 +99,7 @@ const CONTEXT_CONFIG: Record<SeoContext, {
   },
   stats: {
     Icon: Target,
-    gradient: 'from-teal-50 to-blue-50 dark:from-teal-950/30 dark:to-blue-950/30',
+    gradient: 'from-teal-50 to-stripe-50 dark:from-teal-950/30 dark:to-stripe-950/30',
     collapsedBg: 'bg-teal-50/60 dark:bg-teal-950/20',
     iconBg: 'bg-teal-100 dark:bg-teal-900/40',
     iconText: 'text-teal-600 dark:text-teal-400',
@@ -237,9 +237,9 @@ const SeoContentBlock: React.FC<SeoContentBlockProps> = ({ context }) => {
 
           {/* Expert quote — authority signal for AI citation (+30% visibility) */}
           {t(`seoContent.${context}.expertQuote`) !== `seoContent.${context}.expertQuote` && (
-            <blockquote className="border-l-3 border-blue-400 dark:border-blue-500 pl-3 mb-3 py-1.5" data-speakable="true">
+            <blockquote className="border-l-3 border-stripe-400 dark:border-stripe-500 pl-3 mb-3 py-1.5" data-speakable="true">
               <p className="text-sm italic text-subtle">
-                <Quote className="inline w-3.5 h-3.5 mr-1 text-blue-400 dark:text-blue-500 -mt-0.5" aria-hidden="true" />
+                <Quote className="inline w-3.5 h-3.5 mr-1 text-stripe-400 dark:text-stripe-500 -mt-0.5" aria-hidden="true" />
                 {t(`seoContent.${context}.expertQuote`)}
               </p>
               <cite className="text-xs text-muted not-italic font-medium">
@@ -255,7 +255,7 @@ const SeoContentBlock: React.FC<SeoContentBlockProps> = ({ context }) => {
               <span>{t('seoContent.trust.accuracy')}</span>
             </div>
             <div className="flex items-center gap-1.5 text-xs text-subtle">
-              <Clock className="w-3.5 h-3.5 text-blue-500" aria-hidden="true" />
+              <Clock className="w-3.5 h-3.5 text-stripe-500" aria-hidden="true" />
               <span>{t('seoContent.trust.updated')}</span>
             </div>
             <div className="flex items-center gap-1.5 text-xs text-subtle">
@@ -278,7 +278,7 @@ const SeoContentBlock: React.FC<SeoContentBlockProps> = ({ context }) => {
               >
                 <ArrowRight className={`w-3.5 h-3.5 shrink-0 ${config.iconText} group-hover/card:translate-x-0.5 transition-transform`} aria-hidden="true" />
                 <div className="min-w-0">
-                  <p className="text-sm font-medium text-slate-700 dark:text-slate-200 group-hover/card:text-blue-600 dark:group-hover/card:text-blue-400 transition-colors">
+                  <p className="text-sm font-medium text-slate-700 dark:text-slate-200 group-hover/card:text-stripe-600 dark:group-hover/card:text-stripe-400 transition-colors">
                     {t(`${feature.i18nKey}.title`)}
                   </p>
                   <p className="text-sm text-muted mt-0.5 line-clamp-1">

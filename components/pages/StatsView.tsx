@@ -78,7 +78,7 @@ const StatsViewInner: React.FC = () => {
        <div className="p-6 border-b border-slate-100 dark:border-slate-800 flex justify-between items-center sticky top-0 z-10 bg-surface rounded-t-2xl">
           <div>
             <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100 tracking-tight flex items-center gap-2">
-              <Database size={20} className="text-indigo-600"/> {t('stats.title')}
+              <Database size={20} className="text-stripe-600"/> {t('stats.title')}
             </h2>
             <p className="text-muted text-xs mt-1">
               {t('stats.source')}
@@ -92,7 +92,7 @@ const StatsViewInner: React.FC = () => {
                   fetchBFSData(true);
                 }}
                 disabled={loading}
-                className="p-2 bg-surface rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 text-slate-500 hover:text-indigo-600 transition-[color,background-color,border-color,opacity,transform] hover:rotate-180 disabled:opacity-50"
+                className="p-2 bg-surface rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 text-slate-500 hover:text-stripe-600 transition-[color,background-color,border-color,opacity,transform] hover:rotate-180 disabled:opacity-50"
                 title={t('stats.refreshData')}
             >
                 <RefreshCw size={18} className={loading ? "animate-spin" : ""} />
@@ -103,9 +103,9 @@ const StatsViewInner: React.FC = () => {
       <div className="p-3 sm:p-6 space-y-6 sm:space-y-8">
         {/* BFS SEO intro — always visible on desktop, collapsible on mobile */}
         <div className="hidden sm:block">
-          <div className="bg-indigo-50/40 dark:bg-indigo-900/20 p-5 rounded-2xl border border-indigo-100 dark:border-indigo-800">
-            <h3 className="text-sm font-bold text-indigo-700 dark:text-indigo-300 mb-2 flex items-center gap-2">
-              <Database size={16} className="text-indigo-600 dark:text-indigo-400" /> {t('stats.bfsSectionTitle')}
+          <div className="bg-stripe-50/40 dark:bg-stripe-900/20 p-5 rounded-2xl border border-stripe-100 dark:border-stripe-800">
+            <h3 className="text-sm font-bold text-stripe-700 dark:text-stripe-300 mb-2 flex items-center gap-2">
+              <Database size={16} className="text-stripe-600 dark:text-stripe-400" /> {t('stats.bfsSectionTitle')}
             </h3>
             <p className="text-sm text-subtle leading-relaxed">{t('stats.bfsIntro')}</p>
           </div>
@@ -113,15 +113,15 @@ const StatsViewInner: React.FC = () => {
         <div className="sm:hidden">
           <button
             onClick={() => setShowBfsIntro(!showBfsIntro)}
-            className="w-full flex items-center justify-between bg-indigo-50/40 dark:bg-indigo-900/20 px-4 py-3 rounded-2xl border border-indigo-100 dark:border-indigo-800 text-left"
+            className="w-full flex items-center justify-between bg-stripe-50/40 dark:bg-stripe-900/20 px-4 py-3 rounded-2xl border border-stripe-100 dark:border-stripe-800 text-left"
           >
-            <span className="text-sm font-bold text-indigo-700 dark:text-indigo-300 flex items-center gap-2">
-              <Database size={16} className="text-indigo-600 dark:text-indigo-400" /> {t('stats.bfsSectionTitle')}
+            <span className="text-sm font-bold text-stripe-700 dark:text-stripe-300 flex items-center gap-2">
+              <Database size={16} className="text-stripe-600 dark:text-stripe-400" /> {t('stats.bfsSectionTitle')}
             </span>
-            {showBfsIntro ? <ChevronUp size={16} className="text-indigo-500" /> : <ChevronDown size={16} className="text-indigo-500" />}
+            {showBfsIntro ? <ChevronUp size={16} className="text-stripe-500" /> : <ChevronDown size={16} className="text-stripe-500" />}
           </button>
           {showBfsIntro && (
-            <div className="bg-indigo-50/40 dark:bg-indigo-900/20 px-4 pb-4 -mt-2 pt-2 rounded-b-2xl border border-t-0 border-indigo-100 dark:border-indigo-800">
+            <div className="bg-stripe-50/40 dark:bg-stripe-900/20 px-4 pb-4 -mt-2 pt-2 rounded-b-2xl border border-t-0 border-stripe-100 dark:border-stripe-800">
               <p className="text-sm text-subtle leading-relaxed">{t('stats.bfsIntro')}</p>
             </div>
           )}
@@ -129,7 +129,7 @@ const StatsViewInner: React.FC = () => {
 
         {/* KPI Strip */}
         <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-body">
-          <span><span className="font-semibold text-blue-700 dark:text-blue-400">{loading ? '…' : (latestValue / 1000).toFixed(1) + 'k'}</span> {t('stats.totalFrontierWorkers')}</span>
+          <span><span className="font-semibold text-stripe-700 dark:text-stripe-400">{loading ? '…' : (latestValue / 1000).toFixed(1) + 'k'}</span> {t('stats.totalFrontierWorkers')}</span>
           <span className="text-slate-300 dark:text-slate-600">·</span>
           <span>{t('stats.quarterlyTrend')}: <span className={`font-semibold ${Number(qoqPercent) >= 0 ? 'text-emerald-700 dark:text-emerald-400' : 'text-red-700 dark:text-red-400'}`}>{qoqPercent}%</span> {Number(qoqPercent) >= 0 ? <TrendingUp size={14} className="inline text-emerald-600"/> : <TrendingUp size={14} className="inline text-red-500 rotate-180"/>}</span>
           <span className="text-slate-300 dark:text-slate-600">·</span>
@@ -143,7 +143,7 @@ const StatsViewInner: React.FC = () => {
             {/* Chart 1: Historical Trend */}
             <div className="bg-surface p-5 rounded-3xl border border-slate-100 dark:border-slate-700 shadow-sm col-span-1 lg:col-span-2">
                <h3 className="text-sm font-bold text-slate-700 dark:text-slate-200 mb-6 flex items-center gap-2">
-                 <TrendingUp size={16} className="text-blue-500"/> {t('stats.historicalTrend')}
+                 <TrendingUp size={16} className="text-stripe-500"/> {t('stats.historicalTrend')}
                </h3>
                <div className="h-[300px] w-full">
                  <ResponsiveContainer width="100%" height="100%">
@@ -202,7 +202,7 @@ const StatsViewInner: React.FC = () => {
             {/* Chart 3: Gender Trend (Replacing Broken Sectors) */}
             <div className="bg-surface p-5 rounded-3xl border border-slate-100 dark:border-slate-700 shadow-sm">
                <h3 className="text-sm font-bold text-slate-700 dark:text-slate-200 mb-6 flex items-center gap-2">
-                 <PersonStanding size={16} className="text-indigo-600"/> {t('stats.genderTrend')}
+                 <PersonStanding size={16} className="text-stripe-600"/> {t('stats.genderTrend')}
                </h3>
                <div className="h-[250px] w-full">
                  {genderTrendData.length > 0 ? (
@@ -239,7 +239,7 @@ const StatsViewInner: React.FC = () => {
       <div className="px-6">
         <div className="bg-surface-alt/50 p-4 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4 border border-slate-100 dark:border-slate-700">
             <div className="flex items-center gap-3">
-                <div className="bg-white dark:bg-slate-700 p-2 rounded-xl text-indigo-600 shadow-sm hidden sm:block">
+                <div className="bg-white dark:bg-slate-700 p-2 rounded-xl text-stripe-600 shadow-sm hidden sm:block">
                     <Info size={20} />
                 </div>
                 <div className="text-xs text-muted leading-relaxed text-center sm:text-left">
@@ -259,7 +259,7 @@ const StatsViewInner: React.FC = () => {
                 target="_blank"
                 rel="noreferrer"
                 onClick={() => Analytics.trackExternalLink(SOURCE_LINK, 'stats_source_bfs')}
-                className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-slate-700 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300 text-xs font-bold rounded-xl transition-colors border border-edge shadow-sm"
+                className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-slate-700 hover:bg-stripe-50 dark:hover:bg-stripe-900/30 text-stripe-600 dark:text-stripe-300 text-xs font-bold rounded-xl transition-colors border border-edge shadow-sm"
               >
                 {t('stats.sourceBFS')} <ExternalLink size={12} />
               </a>

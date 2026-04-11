@@ -178,7 +178,7 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
             onClick={() => setActiveStep(key)}
             className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-colors ${
               activeStep === key
-                ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 ring-1 ring-blue-300 dark:ring-blue-700'
+                ? 'bg-stripe-100 dark:bg-stripe-900/30 text-stripe-700 dark:text-stripe-300 ring-1 ring-stripe-300 dark:ring-stripe-700'
                 : 'bg-surface text-subtle hover:bg-slate-50 dark:hover:bg-slate-700 border border-edge'
             }`}
           >
@@ -325,7 +325,7 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
                       <div className={`relative z-10 w-7 h-7 rounded-full flex items-center justify-center shrink-0 ${
                         isPast
                           ? 'bg-emerald-700 text-white'
-                          : 'bg-white dark:bg-slate-700 border-2 border-blue-500 text-blue-500'
+                          : 'bg-white dark:bg-slate-700 border-2 border-stripe-500 text-stripe-500'
                       }`}>
                         {isPast ? <CheckCircle2 size={14} /> : <Clock size={14} />}
                       </div>

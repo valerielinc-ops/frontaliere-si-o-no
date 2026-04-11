@@ -284,29 +284,29 @@ const Pillar3Simulator: React.FC = () => {
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="border-b border-blue-200 dark:border-blue-700">
+                  <tr className="border-b border-stripe-200 dark:border-stripe-700">
                     <th className="text-left py-2 text-subtle">{t('pillar3.feature')}</th>
                     <th className="text-center py-2 text-teal-600 font-bold">{t('pillar3.type3aShort')}</th>
                     <th className="text-center py-2 text-rose-600 font-bold">{t('pillar3.type3bShort')}</th>
                   </tr>
                 </thead>
                 <tbody className="text-body">
-                  <tr className="border-b border-blue-100 dark:border-blue-800">
+                  <tr className="border-b border-stripe-100 dark:border-stripe-800">
                     <td className="py-2">{t('pillar3.taxDeductibility')}</td>
                     <td className="text-center py-2 font-bold text-emerald-700">100%</td>
                     <td className="text-center py-2">{t('pillar3.partialCanton')}</td>
                   </tr>
-                  <tr className="border-b border-blue-100 dark:border-blue-800">
+                  <tr className="border-b border-stripe-100 dark:border-stripe-800">
                     <td className="py-2">{t('pillar3.maxAnnualAmount')}</td>
                     <td className="text-center py-2 font-bold">CHF {MAX_3A_2026.toLocaleString('it-IT')}</td>
                     <td className="text-center py-2">{t('pillar3.unlimited')}</td>
                   </tr>
-                  <tr className="border-b border-blue-100 dark:border-blue-800">
+                  <tr className="border-b border-stripe-100 dark:border-stripe-800">
                     <td className="py-2">{t('pillar3.withdrawal')}</td>
                     <td className="text-center py-2">{t('pillar3.fiveYearsBefore')}</td>
                     <td className="text-center py-2 font-bold text-emerald-700">{t('pillar3.free')}</td>
                   </tr>
-                  <tr className="border-b border-blue-100 dark:border-blue-800">
+                  <tr className="border-b border-stripe-100 dark:border-stripe-800">
                     <td className="py-2">{t('pillar3.withdrawalTaxation')}</td>
                     <td className="text-center py-2">{t('pillar3.separateTax')}</td>
                     <td className="text-center py-2">{t('pillar3.ordinaryIncome')}</td>
@@ -335,12 +335,12 @@ const Pillar3Simulator: React.FC = () => {
               {/* Bank Account */}
               <div className="border-2 border-edge rounded-xl p-5 space-y-3">
                 <div className="flex items-center gap-2">
-                  <div className="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
-                    <Banknote size={20} className="text-blue-600" />
+                  <div className="p-2 bg-stripe-100 dark:bg-stripe-900/30 rounded-lg">
+                    <Banknote size={20} className="text-stripe-600" />
                   </div>
                   <div>
                     <h4 className="font-bold text-slate-800 dark:text-slate-100">Conto Bancario</h4>
-                    <span className="text-xs px-2 py-0.5 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full font-bold">{t('pillar3.lowRisk')}</span>
+                    <span className="text-xs px-2 py-0.5 bg-stripe-100 dark:bg-stripe-900/30 text-stripe-700 dark:text-stripe-300 rounded-full font-bold">{t('pillar3.lowRisk')}</span>
                   </div>
                 </div>
                 <div className="text-sm text-subtle">

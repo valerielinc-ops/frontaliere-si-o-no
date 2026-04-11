@@ -145,7 +145,7 @@ const HealthPremiumStats: React.FC = () => {
               <div className="flex-1 h-6 bg-surface-raised rounded-full overflow-hidden">
                 <div
                   className={`h-full rounded-full transition-transform origin-left ${
-                    i < 5 ? 'bg-emerald-500' : i >= cantonAverages.length - 5 ? 'bg-red-500' : 'bg-blue-500'
+                    i < 5 ? 'bg-emerald-500' : i >= cantonAverages.length - 5 ? 'bg-red-500' : 'bg-stripe-500'
                   }`}
                   style={{ transform: `scaleX(${Math.max(10, (c.avg / maxAvg) * 100) / 100})` }}
                 />

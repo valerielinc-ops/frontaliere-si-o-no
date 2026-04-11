@@ -30,13 +30,13 @@ interface ToolDef {
 }
 
 const ALL_TOOLS: ToolDef[] = [
-  { id: 'calculator', icon: '🧮', slug: '/calcola-stipendio', tab: 'calculator', subTab: 'salary', titleKey: 'toolOfWeek.tools.calculator', descKey: 'toolOfWeek.tools.calculatorDesc', color: 'from-blue-500 to-blue-600' },
+  { id: 'calculator', icon: '🧮', slug: '/calcola-stipendio', tab: 'calculator', subTab: 'salary', titleKey: 'toolOfWeek.tools.calculator', descKey: 'toolOfWeek.tools.calculatorDesc', color: 'from-stripe-500 to-stripe-600' },
   { id: 'exchange', icon: '💱', slug: '/comparatori/cambio-valuta', tab: 'confronti', subTab: 'exchange', titleKey: 'toolOfWeek.tools.exchange', descKey: 'toolOfWeek.tools.exchangeDesc', color: 'from-emerald-500 to-teal-600' },
   { id: 'health', icon: '🏥', slug: '/comparatori/casse-malati', tab: 'confronti', subTab: 'health', titleKey: 'toolOfWeek.tools.health', descKey: 'toolOfWeek.tools.healthDesc', color: 'from-red-500 to-pink-600' },
   { id: 'pension', icon: '🏦', slug: '/fisco/pensione', tab: 'fisco', subTab: 'pension', titleKey: 'toolOfWeek.tools.pension', descKey: 'toolOfWeek.tools.pensionDesc', color: 'from-teal-500 to-teal-600' },
   { id: 'permit-quiz', icon: '❓', slug: '/quiz-permesso-b-o-g', tab: 'guida', subTab: 'permit-quiz', titleKey: 'toolOfWeek.tools.permitQuiz', descKey: 'toolOfWeek.tools.permitQuizDesc', color: 'from-teal-500 to-teal-600' },
   { id: 'tredicesima', icon: '🎁', slug: '/calcolo-tredicesima-frontaliere', tab: 'calculator', subTab: 'tredicesima', titleKey: 'toolOfWeek.tools.tredicesima', descKey: 'toolOfWeek.tools.tredicesimalDesc', color: 'from-amber-500 to-orange-600' },
-  { id: 'cost-of-living', icon: '🏠', slug: '/comparatori/costo-vita', tab: 'confronti', subTab: 'cost-of-living', titleKey: 'toolOfWeek.tools.costOfLiving', descKey: 'toolOfWeek.tools.costOfLivingDesc', color: 'from-sky-500 to-blue-600' },
+  { id: 'cost-of-living', icon: '🏠', slug: '/comparatori/costo-vita', tab: 'confronti', subTab: 'cost-of-living', titleKey: 'toolOfWeek.tools.costOfLiving', descKey: 'toolOfWeek.tools.costOfLivingDesc', color: 'from-sky-500 to-stripe-600' },
   { id: 'tax-return', icon: '📋', slug: '/fisco/dichiarazione', tab: 'fisco', subTab: 'tax-return', titleKey: 'toolOfWeek.tools.taxReturn', descKey: 'toolOfWeek.tools.taxReturnDesc', color: 'from-slate-500 to-slate-700' },
   { id: 'banks', icon: '🏧', slug: '/comparatori/banche', tab: 'confronti', subTab: 'banks', titleKey: 'toolOfWeek.tools.banks', descKey: 'toolOfWeek.tools.banksDesc', color: 'from-teal-500 to-emerald-600' },
   { id: 'payslip', icon: '💰', slug: '/calcola-stipendio/busta-paga', tab: 'calculator', subTab: 'payslip', titleKey: 'toolOfWeek.tools.payslip', descKey: 'toolOfWeek.tools.payslipDesc', color: 'from-green-500 to-emerald-600' },
@@ -147,7 +147,7 @@ const ToolOfTheWeek: React.FC<ToolOfTheWeekProps> = ({ compact = false, onNaviga
         <div className="flex items-center gap-2">
             <button
               onClick={handleNavigate}
-              className="flex-1 flex items-center justify-center gap-1 text-xs font-medium px-3 py-1.5 bg-violet-600 hover:bg-violet-700 text-white rounded-lg transition-colors"
+              className="flex-1 flex items-center justify-center gap-1 text-xs font-medium px-3 py-1.5 bg-stripe-600 hover:bg-stripe-700 text-white rounded-lg transition-colors"
               aria-label={t('toolOfWeek.tryIt')}
             >
               {t('toolOfWeek.tryIt')}
@@ -218,7 +218,7 @@ const ToolOfTheWeek: React.FC<ToolOfTheWeekProps> = ({ compact = false, onNaviga
           {/* CTA */}
             <button
               onClick={handleNavigate}
-              className="mt-4 w-full flex items-center justify-center gap-2 px-4 py-3 bg-violet-600 hover:bg-violet-700 text-white font-semibold rounded-xl transition-colors"
+              className="mt-4 w-full flex items-center justify-center gap-2 px-4 py-3 bg-stripe-600 hover:bg-stripe-700 text-white font-semibold rounded-xl transition-colors"
               aria-label={t('toolOfWeek.tryIt')}
             >
               {t('toolOfWeek.tryIt')}
@@ -235,7 +235,7 @@ const ToolOfTheWeek: React.FC<ToolOfTheWeekProps> = ({ compact = false, onNaviga
           aria-label={t('toolOfWeek.shareTitle')}
         >
           <h3 className="font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
-            <Share2 size={18} className="text-violet-500" />
+            <Share2 size={18} className="text-stripe-500" />
             {t('toolOfWeek.shareTitle')}
           </h3>
           {showShareOptions ? <ChevronUp size={16} className="text-muted" /> : <ChevronDown size={16} className="text-muted" />}
@@ -270,7 +270,7 @@ const ToolOfTheWeek: React.FC<ToolOfTheWeekProps> = ({ compact = false, onNaviga
               </button>
               <button
                 onClick={shareFacebook}
-                className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-xl transition-colors"
+                className="flex items-center gap-2 px-4 py-2 bg-stripe-600 hover:bg-stripe-700 text-white text-sm font-medium rounded-xl transition-colors"
                 aria-label="Facebook"
               >
                 <Facebook size={16} />

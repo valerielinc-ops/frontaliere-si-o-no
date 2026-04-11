@@ -292,7 +292,7 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp }
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="flex items-center gap-3 rounded-xl border border-edge bg-surface px-4 py-3 hover:border-indigo-300 dark:hover:border-indigo-600 hover:shadow-sm transition-[color,background-color,border-color,box-shadow]"
+                  className="flex items-center gap-3 rounded-xl border border-edge bg-surface px-4 py-3 hover:border-stripe-300 dark:hover:border-stripe-600 hover:shadow-sm transition-[color,background-color,border-color,box-shadow]"
                 >
                   <span className="flex-1 min-w-0">
                     <span className="block font-medium text-sm text-slate-800 dark:text-slate-100 truncate">{link.title}</span>
@@ -345,12 +345,12 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp }
             value={emailInput}
             onChange={setEmailInput}
             placeholder={EMAIL_PLACEHOLDER_COPY[locale] ?? EMAIL_PLACEHOLDER_COPY.it}
-            className="w-full px-3 py-2.5 rounded-xl border border-slate-300 dark:border-slate-600 bg-surface text-sm text-slate-900 dark:text-white placeholder-slate-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+            className="w-full px-3 py-2.5 rounded-xl border border-slate-300 dark:border-slate-600 bg-surface text-sm text-slate-900 dark:text-white placeholder-slate-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-stripe-500"
           />
           <button
             type="submit"
             disabled={emailBusy || !emailInput.trim()}
-            className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 disabled:opacity-60 text-white text-sm font-semibold transition-colors"
+            className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-stripe-600 hover:bg-stripe-700 disabled:opacity-60 text-white text-sm font-semibold transition-colors"
           >
             {emailBusy ? <Loader2 className="w-4 h-4 animate-spin" /> : <Mail className="w-4 h-4" />}
             {EMAIL_CTA_COPY[locale] ?? EMAIL_CTA_COPY.it}
@@ -372,7 +372,7 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp }
             <ArrowRight size={12} className="ml-auto text-muted transition-transform group-open:rotate-90" />
           </summary>
           <div
-            className="px-5 pb-4 prose prose-sm dark:prose-invert max-w-none text-subtle [&_h1]:hidden [&_h2]:text-sm [&_h2]:font-semibold [&_h2]:text-slate-700 [&_h2]:dark:text-slate-300 [&_h2]:mt-4 [&_h2]:mb-1.5 [&_section]:border-t [&_section]:border-slate-100 [&_section]:dark:border-slate-800 [&_section]:pt-3 [&_section:first-of-type]:border-0 [&_a]:text-indigo-600 [&_a]:dark:text-indigo-400 [&_ul]:pl-0 [&_ul]:list-none [&_li]:pl-0"
+            className="px-5 pb-4 prose prose-sm dark:prose-invert max-w-none text-subtle [&_h1]:hidden [&_h2]:text-sm [&_h2]:font-semibold [&_h2]:text-slate-700 [&_h2]:dark:text-slate-300 [&_h2]:mt-4 [&_h2]:mb-1.5 [&_section]:border-t [&_section]:border-slate-100 [&_section]:dark:border-slate-800 [&_section]:pt-3 [&_section:first-of-type]:border-0 [&_a]:text-stripe-600 [&_a]:dark:text-stripe-400 [&_ul]:pl-0 [&_ul]:list-none [&_li]:pl-0"
             dangerouslySetInnerHTML={{ __html: staticBodyHtml }}
           />
         </details>
@@ -381,7 +381,7 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp }
       {/* CTA button */}
       <a
         href={listingPath}
-        className="flex items-center justify-center gap-2 w-full py-3 px-5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold transition-colors"
+        className="flex items-center justify-center gap-2 w-full py-3 px-5 rounded-xl bg-stripe-600 hover:bg-stripe-700 text-white text-sm font-semibold transition-colors"
       >
         <Search size={16} />
         {CTA_COPY[locale] ?? CTA_COPY.it}

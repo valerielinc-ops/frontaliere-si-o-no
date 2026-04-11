@@ -267,7 +267,7 @@ const ShoppingCalculator: React.FC = () => {
                   <input type="checkbox" checked={showOnlySavings} onChange={e => setShowOnlySavings(e.target.checked)} className="w-4 h-4" aria-label={t('shopping.onlySavings')} />
                   <span className="font-bold text-body">{t('shopping.onlySavings')}</span>
                 </label>
-                <button onClick={selectAll} className="px-3 py-1.5 rounded-lg text-xs font-bold bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 hover:bg-blue-200 dark:hover:bg-blue-800" aria-label={t('shopping.selectAll')}>
+                <button onClick={selectAll} className="px-3 py-1.5 rounded-lg text-xs font-bold bg-stripe-100 dark:bg-stripe-900 text-stripe-700 dark:text-stripe-300 hover:bg-stripe-200 dark:hover:bg-stripe-800" aria-label={t('shopping.selectAll')}>
                   {t('shopping.selectAll')}
                 </button>
                 <button onClick={clearAll} className="px-3 py-1.5 rounded-lg text-xs font-bold bg-surface-raised text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600" aria-label={t('shopping.clearAll')}>
