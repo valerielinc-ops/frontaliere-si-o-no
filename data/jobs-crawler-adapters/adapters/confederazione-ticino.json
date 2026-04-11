@@ -12,7 +12,7 @@
     "https://ohws.prospective.ch/public/v1/medium/1000624/jobs?lang=it&f=region:1083334"
   ],
   "notes": "Confederazione Svizzera — federal jobs in Ticino (region 1083341) + Graubünden (filtered from Ostschweiz region 1083334). Uses Prospective.ch API (medium 1000624 — Stellenportal Bund / jobs.admin.ch). Covers departments not handled by VTG or Agroscope crawlers: DATEC, DEFR/SECO, DFGP, TPF, etc. Includes apprenticeship and internship positions.",
-  "updatedAt": "2026-04-10T21:02:19.573Z",
+  "updatedAt": "2026-04-11T08:57:56.536Z",
   "seedMetaByUrl": {
     "https://jobs.admin.ch/posti-vacanti/inspektor-in/2f67b3a7-98a7-4fc9-adc5-4f840b4fc1aa": {
       "location": "Sie arbeiten im Homeoffice und führen Inspektionen in einem der folgenden Kantone aus: ZH, SH, Zentralschweiz, AG, SO, BE, VS",
@@ -55,12 +55,6 @@
       "canton": "TI",
       "company": "Confederazione Svizzera",
       "postedDate": "2026-03-24"
-    },
-    "https://jobs.admin.ch/posti-vacanti/leiter-in-fuehrungs-und-informationssysteme/8e05ede4-8d17-4d04-8a23-3a532d91866e": {
-      "location": "Rivera",
-      "canton": "TI",
-      "company": "Confederazione Svizzera",
-      "postedDate": "2026-03-11"
     },
     "https://jobs.admin.ch/posti-vacanti/logistiker-in-lager-ambri-andermatt/594ecbbc-6903-4279-a26a-4d3c352f4c2d": {
       "location": "Ambrì",
