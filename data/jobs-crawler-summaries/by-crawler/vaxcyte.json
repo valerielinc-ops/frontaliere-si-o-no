@@ -1,18 +1,19 @@
 {
   "key": "vaxcyte",
   "label": "Vaxcyte",
-  "generatedAt": "2026-04-11T13:04:55.409Z",
+  "generatedAt": "2026-04-11T22:06:00.278Z",
   "total": 5,
-  "newCount": 5,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1351901,
-  "avgDurationMs": 1351901,
+  "durationMs": 2289,
+  "avgDurationMs": 2289,
   "durationHistory": [
-    1351901
+    2289
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "vaxcyte-c453629da206",
       "slug": "manager-supply-chain-management-vaxcyte-ch",
@@ -25,7 +26,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5154146008?gh_jid=5154146008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-11T12:42:23.711Z",
+      "crawledAt": "2026-04-11T22:05:58.134Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -45,11 +46,11 @@
         "canton": "VS",
         "location": "Visp"
       },
-      "_qualityScore": 53,
+      "_qualityScore": 74,
       "_qualityBreakdown": {
         "cleanliness": 12,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -65,7 +66,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5154144008?gh_jid=5154144008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-11T12:42:23.702Z",
+      "crawledAt": "2026-04-11T22:05:58.122Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -85,11 +86,11 @@
         "canton": "VS",
         "location": "Visp"
       },
-      "_qualityScore": 58,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -105,7 +106,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5154087008?gh_jid=5154087008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-11T12:42:23.717Z",
+      "crawledAt": "2026-04-11T22:05:58.143Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -125,11 +126,11 @@
         "canton": "VS",
         "location": "Visp"
       },
-      "_qualityScore": 53,
+      "_qualityScore": 74,
       "_qualityBreakdown": {
         "cleanliness": 12,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -145,7 +146,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5026185008?gh_jid=5026185008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-11T12:42:23.705Z",
+      "crawledAt": "2026-04-11T22:05:58.126Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -165,11 +166,11 @@
         "canton": "VS",
         "location": "Visp"
       },
-      "_qualityScore": 53,
+      "_qualityScore": 74,
       "_qualityBreakdown": {
         "cleanliness": 12,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -185,7 +186,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5062469008?gh_jid=5062469008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-11T12:42:23.709Z",
+      "crawledAt": "2026-04-11T22:05:58.132Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -205,16 +206,15 @@
         "canton": "VS",
         "location": "Visp"
       },
-      "_qualityScore": 58,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
