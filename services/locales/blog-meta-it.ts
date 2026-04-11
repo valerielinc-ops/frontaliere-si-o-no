@@ -2082,6 +2082,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-lombardia-minacce-ticino.title': 'Tassa salute frontalieri: Lombardia sotto attacco, Ticino minaccia i ristorni',
     'blog.article.tassa-salute-frontalieri-lombardia-minacce-ticino.excerpt': 'La Lombardia insiste sulla tassa salute per i frontalieri (3%-6% del reddito, min 30€, max 200€/mese). Ticino e Piemonte la considerano violazione degli accordi. Cgil: «Rischio terremoto sui ristorni».',
     'blog.article.tassa-salute-frontalieri-lombardia-minacce-ticino.imageAlt': 'Coda di auto al confine italo-svizzero di Lugano con cartelli bilingui.',
+    'blog.article.lavoro-frontalieri-ticino-scarse-incastri.title': 'Frontalieri Ticino: manca il lavoro, ma non quello che serve',
+    'blog.article.lavoro-frontalieri-ticino-scarse-incastri.excerpt': 'Mancano infermieri in Lombardia, ma i corsi dell’Insubria restano semivuoti. E tra robot che imparano e dottorandi respinti all’estero, il mercato del lavoro fatica a incastrare domanda e offerta.',
+    'blog.article.lavoro-frontalieri-ticino-scarse-incastri.imageAlt': 'Infermieri in un reparto ospedaliero ticinese durante un turno di lavoro',
 };
 
 export default blogMetaIt;

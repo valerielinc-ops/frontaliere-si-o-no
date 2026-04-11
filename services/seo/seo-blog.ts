@@ -6995,6 +6995,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lavoro-frontalieri-ticino-scarse-incastri': {
+    title: 'Frontalieri Ticino: manca il lavoro, ma | Frontaliere Ticino',
+    description: 'Mancano infermieri in Lombardia, ma i corsi dell’Insubria restano semivuoti. E tra robot che imparano e dottorandi respinti all’estero, il mercato del lavoro fa',
+    keywords: 'frontalieri, ticino, svizzera, italia, manca, lavoro, quello, serve',
+    ogTitle: 'Frontalieri Ticino: manca il lavoro, ma non quello che se',
+    ogDescription: 'Mancano infermieri in Lombardia, ma i corsi dell’Insubria restano semivuoti. E tra robot che imparano e dottorandi respinti all’estero, il mercato del lavoro fa',
+    canonicalPath: '/articoli-frontaliere/lavoro-frontalieri-ticino-scarse-incastri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri Ticino: manca il lavoro, ma non quello che se",
+      "description": "Mancano infermieri in Lombardia, ma i corsi dell’Insubria restano semivuoti. E tra robot che imparano e dottorandi respinti all’estero, il mercato del lavoro fa",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lavoro-frontalieri-ticino-scarse-incastri.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Infermieri in un reparto ospedaliero ticinese durante un turno di lavoro"
+      },
+      "datePublished": "2026-04-11T17:00:31+00:00",
+      "dateModified": "2026-04-11T17:00:31+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavoro-frontalieri-ticino-scarse-incastri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

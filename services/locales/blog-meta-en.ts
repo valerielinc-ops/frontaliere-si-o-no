@@ -2082,6 +2082,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-lombardia-minacce-ticino.title': 'Cross-border workers\' health tax: Lombardy under fire, Ticino threatens reimbursement cuts',
     'blog.article.tassa-salute-frontalieri-lombardia-minacce-ticino.excerpt': 'Lombardy is pushing ahead with the health tax for cross-border workers (3%-6% of income, minimum €30, maximum €200/month). Ticino and Piedmont consider it a breach of existing agreements. CGIL: >\'Risk of a major earthquake over reimbursement cuts\'.',
     'blog.article.tassa-salute-frontalieri-lombardia-minacce-ticino.imageAlt': 'Cars queue at the Lugano Swiss-Italian border with bilingual signs.',
+    'blog.article.lavoro-frontalieri-ticino-scarse-incastri.title': 'Cross-border workers from Ticino: jobs are scarce, but not the right ones',
+    'blog.article.lavoro-frontalieri-ticino-scarse-incastri.excerpt': 'Lombardy is short of nurses, yet the Insubria University courses remain half-empty. And with robots learning on the job and PhD candidates rejected abroad, the labour market struggles to match supply and demand.',
+    'blog.article.lavoro-frontalieri-ticino-scarse-incastri.imageAlt': 'Nurses in a Ticino hospital ward during a shift',
 };
 
 export default blogMetaEn;

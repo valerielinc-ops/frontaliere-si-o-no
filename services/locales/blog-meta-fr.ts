@@ -2082,6 +2082,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-lombardia-minacce-ticino.title': 'Taxe santé pour les frontaliers : la Lombardie sous le feu des critiques, le Tessin menace de suspendre les ristournes',
     'blog.article.tassa-salute-frontalieri-lombardia-minacce-ticino.excerpt': 'La Lombardie maintient sa volonté d’instaurer une taxe santé pour les frontaliers (3 % à 6 % du revenu, avec un minimum de 30 € et un maximum de 200 € par mois). Le Tessin et le Piémont y voient une violation des accords en vigueur. La CGIL met en garde : « Risque de séisme sur les ristournes ».',
     'blog.article.tassa-salute-frontalieri-lombardia-minacce-ticino.imageAlt': 'Files de voitures à la frontière italo-suisse de Lugano avec panneaux bilingues.',
+    'blog.article.lavoro-frontalieri-ticino-scarse-incastri.title': 'Frontaliers du Tessin : le travail manque, mais pas celui dont on a besoin',
+    'blog.article.lavoro-frontalieri-ticino-scarse-incastri.excerpt': 'Les infirmiers manquent en Lombardie, mais les formations de l’Université de l’Insubrie restent à moitié vides. Et entre robots qui apprennent et doctorants rejetés à l’étranger, le marché du travail peine à faire correspondre l’offre et la demande.',
+    'blog.article.lavoro-frontalieri-ticino-scarse-incastri.imageAlt': 'Infirmières dans un service hospitalier tessinois pendant un quart de travail',
 };
 
 export default blogMetaFr;

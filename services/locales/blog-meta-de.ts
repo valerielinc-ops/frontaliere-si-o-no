@@ -2082,6 +2082,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-lombardia-minacce-ticino.title': 'Gesundheitsabgabe für Grenzgänger: Lombardei unter Beschuss, Tessin droht mit Rückerstattungen',
     'blog.article.tassa-salute-frontalieri-lombardia-minacce-ticino.excerpt': 'Die Lombardei beharrt auf der Einführung einer Gesundheitsabgabe für Grenzgänger (3 %–6 % des Einkommens, mindestens 30 €, maximal 200 € pro Monat). Tessin und Piemont betrachten dies als Verstoß gegen bestehende Abkommen. Cgil: »Risiko eines Erdbebens bei den Rückerstattungen«.',
     'blog.article.tassa-salute-frontalieri-lombardia-minacce-ticino.imageAlt': 'Autokolonne an der Luganer Schweizer-Italienischen Grenze mit zweisprachigen Schildern.',
+    'blog.article.lavoro-frontalieri-ticino-scarse-incastri.title': 'Grenzpendler Tessin: Es fehlt an Arbeit – aber an der richtigen',
+    'blog.article.lavoro-frontalieri-ticino-scarse-incastri.excerpt': 'In der Lombardei fehlen Pflegekräfte, doch die Kurse der Universität Insubria sind nur halb voll. Und während Roboter dazulernen und Doktoranden im Ausland abgelehnt werden, fällt es dem Arbeitsmarkt schwer, Angebot und Nachfrage in Einklang zu bringen.',
+    'blog.article.lavoro-frontalieri-ticino-scarse-incastri.imageAlt': 'Krankenschwestern auf einer Krankenhausstation im Tessin während einer Schicht',
 };
 
 export default blogMetaDe;

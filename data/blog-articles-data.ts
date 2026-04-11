@@ -5843,4 +5843,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/tassa-salute-frontalieri-lombardia-minacce-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'lavoro-frontalieri-ticino-scarse-incastri',
+    category: 'novita',
+    date: '2026-04-11T17:00:31.428Z',
+    image: '/images/blog/lavoro-frontalieri-ticino-scarse-incastri.jpg',
+    hasCalculator: true,
+  },
 ];
