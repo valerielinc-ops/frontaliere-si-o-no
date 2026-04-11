@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "fondation-domus-9d305b074f82",
-      "slug": "infirmiers-en-psychiatrie-60-a-80-fondation-domus-ch",
+      "slug": "infermieri-psichiatrici-60-80-fondation-domus-la-tzoumaz",
       "slugByLocale": {
         "fr": "infirmiers-en-psychiatrie-60-a-80-fondation-domus-ch",
-        "it": "infirmiers-en-psychiatrie-60-a-80-fondation-domus-ch",
+        "it": "infermieri-psichiatrici-60-80-fondation-domus-la-tzoumaz",
         "en": "infirmiers-en-psychiatrie-60-a-80-fondation-domus-ch",
-        "de": "infirmiers-en-psychiatrie-60-a-80-fondation-domus-ch"
+        "de": "krankenschwestern-und-krankenpfleger-in-der-psychiatrie-60-80-fondation-domus-la-tzoumaz"
       },
       "company": "Fondation Domus",
       "companyKey": "fondation-domus",
@@ -63,16 +63,27 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmiers-en-psychiatrie-60-a-80-fondation-domus-ch"
+        ],
+        "de": [
+          "infirmiers-en-psychiatrie-60-a-80-fondation-domus-ch"
+        ]
+      },
+      "previousSlugs": [
+        "infirmiers-en-psychiatrie-60-a-80-fondation-domus-ch"
+      ]
     },
     {
       "id": "fondation-domus-3f48b967c067",
-      "slug": "employe-polyvalent-100-fondation-domus-ch",
+      "slug": "impiegato-polivalente-100-fondation-domus-ardon",
       "slugByLocale": {
         "fr": "employe-polyvalent-100-fondation-domus-ch",
-        "it": "employe-polyvalent-100-fondation-domus-ch",
-        "en": "employe-polyvalent-100-fondation-domus-ch",
-        "de": "employe-polyvalent-100-fondation-domus-ch"
+        "it": "impiegato-polivalente-100-fondation-domus-ardon",
+        "en": "versatile-employee-100-fondation-domus-ardon",
+        "de": "vielseitiger-mitarbeiter-100-fondation-domus-ardon"
       },
       "company": "Fondation Domus",
       "companyKey": "fondation-domus",
@@ -125,7 +136,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "employe-polyvalent-100-fondation-domus-ch"
+        ],
+        "en": [
+          "employe-polyvalent-100-fondation-domus-ch"
+        ],
+        "de": [
+          "employe-polyvalent-100-fondation-domus-ch"
+        ]
+      },
+      "previousSlugs": [
+        "employe-polyvalent-100-fondation-domus-ch"
+      ]
     }
   ]
 }
