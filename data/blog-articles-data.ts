@@ -5787,4 +5787,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/reclutamento-infermieri-lombardia.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'autostrada-a9-chiude-de-notti-2026',
+    category: 'pratico',
+    date: '2026-04-11T00:09:11.184Z',
+    image: '/images/blog/autostrada-a9-chiude-de-notti-2026.jpg',
+    hasCalculator: true,
+  },
 ];

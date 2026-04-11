@@ -2058,6 +2058,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.reclutamento-infermieri-lombardia.title': 'Ticino recruiters hunting for future nurses in Lombardy universities',
     'blog.article.reclutamento-infermieri-lombardia.excerpt': 'The Italian nursing union NurSind reports that Ticino recruiters are offering pre-employment contracts to young nursing students in Lombardy.',
     'blog.article.reclutamento-infermieri-lombardia.imageAlt': 'Ticino recruiters in Lombard universities for future nurses',
+    'blog.article.autostrada-a9-chiude-de-notti-2026.title': 'A9 motorway towards Chiasso closed at night: here’s when and why',
+    'blog.article.autostrada-a9-chiude-de-notti-2026.excerpt': 'Como Centro-Chiasso section of the A9 motorway will be blocked from 10 PM to 5 AM due to road resurfacing, high-voltage cable replacement, and the transit of special vehicles from April 13 to 15, 2026',
+    'blog.article.autostrada-a9-chiude-de-notti-2026.imageAlt': 'A9 highway to Chiasso closed at night for roadworks: barriers and signs on ordinary roads with commuters queuing',
 };
 
 export default blogMetaEn;

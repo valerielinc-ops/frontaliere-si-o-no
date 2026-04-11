@@ -2058,6 +2058,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.reclutamento-infermieri-lombardia.title': 'Reclutatori ticinesi a caccia di futuri infermieri nelle università lombarde',
     'blog.article.reclutamento-infermieri-lombardia.excerpt': 'Il sindacato infermieristico italiano NurSind segnala che reclutatori ticinesi stanno offrendo preassunzioni a giovani studenti di infermieristica in Lombardia.',
     'blog.article.reclutamento-infermieri-lombardia.imageAlt': 'Reclutatori ticinesi in università lombarde per futuri infermieri',
+    'blog.article.autostrada-a9-chiude-de-notti-2026.title': 'Autostrada A9 verso Chiasso chiusa di notte: ecco quando e perché',
+    'blog.article.autostrada-a9-chiude-de-notti-2026.excerpt': 'Tratto Como Centro-Chiasso dell\'A9 bloccato dalle 22 alle 5 per pavimentazione, sostituzione cavo alta tensione e transito mezzi speciali dal 13 al 15 aprile 2026',
+    'blog.article.autostrada-a9-chiude-de-notti-2026.imageAlt': 'Autostrada A9 verso Chiasso chiusa di notte per lavori: transenne e cartelli sulla viabilità ordinaria con pendolari in coda',
 };
 
 export default blogMetaIt;

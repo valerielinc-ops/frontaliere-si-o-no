@@ -6763,6 +6763,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-autostrada-a9-chiude-de-notti-2026': {
+    title: 'Autostrada A9 verso Chiasso chiusa di | Frontaliere Ticino',
+    description: 'Tratto Como Centro-Chiasso dell\'A9 bloccato dalle 22 alle 5 per pavimentazione, sostituzione cavo alta tensione e transito mezzi speciali dal 13 al 15 aprile 20',
+    keywords: 'frontalieri, ticino, svizzera, italia, autostrada, verso, chiasso, chiusa',
+    ogTitle: 'Autostrada A9 verso Chiasso chiusa di notte: ecco quando',
+    ogDescription: 'Tratto Como Centro-Chiasso dell\'A9 bloccato dalle 22 alle 5 per pavimentazione, sostituzione cavo alta tensione e transito mezzi speciali dal 13 al 15 aprile 20',
+    canonicalPath: '/articoli-frontaliere/autostrada-a9-chiude-de-notti-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Autostrada A9 verso Chiasso chiusa di notte: ecco quando",
+      "description": "Tratto Como Centro-Chiasso dell'A9 bloccato dalle 22 alle 5 per pavimentazione, sostituzione cavo alta tensione e transito mezzi speciali dal 13 al 15 aprile 20",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/autostrada-a9-chiude-de-notti-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Autostrada A9 verso Chiasso chiusa di notte per lavori: transenne e cartelli sulla viabilità ordinaria con pendolari in coda"
+      },
+      "datePublished": "2026-04-11T00:09:11+00:00",
+      "dateModified": "2026-04-11T00:09:11+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/autostrada-a9-chiude-de-notti-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

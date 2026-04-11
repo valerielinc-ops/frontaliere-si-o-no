@@ -2058,6 +2058,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.reclutamento-infermieri-lombardia.title': 'Tessinische Personalvermittler auf der Suche nach zukünftigen Pflegekräften an lombardischen Universitäten',
     'blog.article.reclutamento-infermieri-lombardia.excerpt': 'Die italienische Pflegegewerkschaft NurSind meldet, dass tessinische Personalvermittler jungen Pflegestudierenden in der Lombardei Vorverträge anbieten.',
     'blog.article.reclutamento-infermieri-lombardia.imageAlt': 'Tessinische Rekrutierer in lombardischen Universitäten für zukünftige Pflegekräfte',
+    'blog.article.autostrada-a9-chiude-de-notti-2026.title': 'Autobahn A9 Richtung Chiasso nachts gesperrt: Wann und warum',
+    'blog.article.autostrada-a9-chiude-de-notti-2026.excerpt': 'Abschnitt Como Centro–Chiasso der A9 vom 13. bis 15. April 2026 von 22 bis 5 Uhr gesperrt wegen Asphaltarbeiten, Ersatz eines Hochspannungskabels sowie Durchfahrt von Sonderfahrzeugen',
+    'blog.article.autostrada-a9-chiude-de-notti-2026.imageAlt': 'Autobahn A9 nach Chiasso nachts wegen Straßenarbeiten gesperrt: Absperrungen und Schilder auf der Hauptstraße mit Pendlerstau',
 };
 
 export default blogMetaDe;
