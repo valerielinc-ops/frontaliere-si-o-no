@@ -9734,5 +9734,93 @@
         "pending": 1
       }
     ]
+  },
+  {
+    "timestamp": "2026-04-11T19:31:53.851Z",
+    "label": "before",
+    "total": 2471,
+    "needsRetranslation": 110,
+    "incomplete": 19,
+    "complete": 2452,
+    "missingByLocale": {
+      "it": 17,
+      "en": 17,
+      "de": 3,
+      "fr": 16
+    },
+    "topPending": [
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 9
+      },
+      {
+        "company": "Hügli Nährmittel AG",
+        "pending": 4
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 2
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      },
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "Ticino Premium Properties SA",
+        "pending": 1
+      },
+      {
+        "company": "Swiss Armed Forces (VTG)",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-11T19:33:03.213Z",
+    "label": "after",
+    "total": 2471,
+    "needsRetranslation": 88,
+    "incomplete": 19,
+    "complete": 2452,
+    "missingByLocale": {
+      "it": 17,
+      "en": 17,
+      "de": 3,
+      "fr": 16
+    },
+    "topPending": [
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 9
+      },
+      {
+        "company": "Hügli Nährmittel AG",
+        "pending": 4
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 2
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      },
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "Ticino Premium Properties SA",
+        "pending": 1
+      },
+      {
+        "company": "Swiss Armed Forces (VTG)",
+        "pending": 1
+      }
+    ]
   }
 ]
