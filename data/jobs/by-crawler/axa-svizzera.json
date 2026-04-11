@@ -1,6 +1,6 @@
 {
   "crawlerKey": "axa-svizzera",
-  "assembledAt": "2026-04-11T08:44:00.770Z",
+  "assembledAt": "2026-04-11T20:45:26.740Z",
   "jobs": [
     {
       "title": "Agente Principale",
@@ -202,7 +202,8 @@
       },
       "streetAddress": "Via della Posta 2",
       "postalCode": "6901",
-      "id": "axa-svizzera-1c7816dfff3c"
+      "id": "axa-svizzera-1c7816dfff3c",
+      "needsRetranslation": true
     },
     {
       "title": "Collaboratore/Collaboratrice Servizio Interno",
@@ -432,7 +433,8 @@
         "en": [
           "senior-underwriter-responsabilita-civile-axa-svizzera-axa-assicurazioni"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Consulente Assicurativo",
@@ -676,7 +678,8 @@
         "it": [
           "consulente-assicurativo-per-il-mendrisiotto-axa-svizzera-agenzia-generale-andrea-tarello"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Senior Specialist Fullstack Engineering (all genders)",
@@ -974,7 +977,8 @@
       },
       "previousSlugs": [
         "senior-sales-relationship-manager-institutional-clients-asset-management-all-gender-z3ly18"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Leiter:in Innendienst für die Generalagentur Vorsorge & Vermögen Chur",
