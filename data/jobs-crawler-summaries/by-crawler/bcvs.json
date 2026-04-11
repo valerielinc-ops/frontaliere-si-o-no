@@ -1,18 +1,19 @@
 {
   "key": "bcvs",
   "label": "Banque Cantonale du Valais",
-  "generatedAt": "2026-04-11T12:45:09.941Z",
+  "generatedAt": "2026-04-11T20:49:20.861Z",
   "total": 6,
-  "newCount": 6,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 120303,
-  "avgDurationMs": 120303,
+  "durationMs": 5037,
+  "avgDurationMs": 5037,
   "durationHistory": [
-    120303
+    5037
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "bcvs-9837019630b9",
       "slug": "conseiller-ere-clientele-individuelle-des-prives-bcvs-sion",
@@ -25,7 +26,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/conseiller-ere-clientele-individuelle-des-prives-2492",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-11T12:43:10.417Z",
+      "crawledAt": "2026-04-11T20:49:16.631Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -40,11 +41,11 @@
       "featured": false,
       "postedDate": "2026-04-11",
       "applyUrl": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/conseiller-ere-clientele-individuelle-des-prives-2492",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -60,7 +61,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/expert-e-en-finances-controlling-2470",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-11T12:43:10.851Z",
+      "crawledAt": "2026-04-11T20:49:17.058Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -75,11 +76,11 @@
       "featured": false,
       "postedDate": "2026-04-11",
       "applyUrl": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/expert-e-en-finances-controlling-2470",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -95,7 +96,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/mitarbeiter-in-stabstelle-region-oberwallis-und-support-firmenkunden-2464",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T12:43:11.289Z",
+      "crawledAt": "2026-04-11T20:49:17.482Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -110,11 +111,11 @@
       "featured": false,
       "postedDate": "2026-04-11",
       "applyUrl": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/mitarbeiter-in-stabstelle-region-oberwallis-und-support-firmenkunden-2464",
-      "_qualityScore": 61,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -130,7 +131,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/conseiller-ere-clientele-valorisation-2448",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-11T12:43:11.721Z",
+      "crawledAt": "2026-04-11T20:49:17.902Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -145,11 +146,11 @@
       "featured": false,
       "postedDate": "2026-04-11",
       "applyUrl": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/conseiller-ere-clientele-valorisation-2448",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -165,7 +166,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/investment-specialist-2442",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-11T12:43:12.155Z",
+      "crawledAt": "2026-04-11T20:49:18.324Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -180,11 +181,11 @@
       "featured": false,
       "postedDate": "2026-04-11",
       "applyUrl": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/investment-specialist-2442",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -200,7 +201,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/teamleiter-in-privatkunden-2341",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T12:43:12.585Z",
+      "crawledAt": "2026-04-11T20:49:18.747Z",
       "addressLocality": "Zermatt",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -215,16 +216,15 @@
       "featured": false,
       "postedDate": "2026-04-11",
       "applyUrl": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/teamleiter-in-privatkunden-2341",
-      "_qualityScore": 61,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
