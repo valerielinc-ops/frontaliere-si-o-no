@@ -1,7 +1,99 @@
 {
   "crawlerKey": "corner-banca",
-  "assembledAt": "2026-04-10T21:06:44.653Z",
+  "assembledAt": "2026-04-11T09:02:15.952Z",
   "jobs": [
+    {
+      "id": "corner-banca-422277a6cd4c",
+      "slug": "it-card-management-analyst-specialist-corner-banca-lugano",
+      "slugByLocale": {
+        "it": "it-card-management-analyst-specialist-corner-banca-lugano",
+        "en": "it-card-management-analyst-specialist-corner-banca-lugano",
+        "de": "it-kartenmanagement-analyst-spezialist-corner-banca-lugano",
+        "fr": "it-card-management-analyst-specialist-corner-banca-lugano"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "IT Card Management Analyst / Specialist",
+      "titleByLocale": {
+        "it": "IT Card Management Analista / Specialista",
+        "en": "IT Card Management Analyst / Specialist",
+        "de": "IT Card Management Analyst / Spezialist",
+        "fr": "IT Card Management Analyste / Spécialiste"
+      },
+      "description": "The candidate will join the IT Card Management Centre of Excellence, with cross-functional responsibilities for credit and debit card management systems.\n\nThe systems operate on cloud-native architectures in Google Cloud Platform (GCP) and support key payment processes in a highly regulated banking environment.\n\nThe role involves actively contributing to functional and technical analysis activities, supporting the evolution of application solutions and integration with core banking, payment circuits and external platforms.\n\n \n\nKey Responsibilities\n\nFunctional and Process Analysis\n\n•    Analyse and understand Card Management processes: card issuance, lifecycle management, authorisations, clearing & settlement, fraud and chargebacks.\n\n•    Collect, analyse and formalise business requirements, translating them into functional and technical specifications.\n\n•    Support the business in defining IT solutions consistent with the bank's operational, regulatory and compliance models.\n\n•    Collaborate with internal stakeholders (Operations, Compliance, Risk, Security).\n\nTechnical and IT Analysis\n\n•    Draft functional and technical documentation (application specifications, integration flows, data mapping).\n\n•    Support the design and evolution of microservice architectures in a cloud environment.\n\n•    Collaborate with internal and external development teams during the development, testing and release phases.\n\n•    Support the analysis and management of application incidents and production issues.\n\nDevOps and Technologies\n\n•    Operate in a DevOps environment, actively collaborating with development teams.\n\n•    Support and understand continuous integration and continuous delivery (CI/CD) pipelines, using automation tools (e.g. Jenkins).\n\n•    Use code versioning systems (Git, Bitbucket) for application configuration management.\n\n•    Provide support in application and infrastructure troubleshooting in cloud-native and distributed environments.\n\n•    Contribute to the stability, quality and scalability of solutions, collaborating on monitoring, logging and performance issues.\n\n•    Have a basic knowledge of Java and event-driven microservice architectures.\n\nMust Have\n\n•    Experience in functional and technical analysis in IT.\n\n•    Knowledge of credit and debit card payment systems.\n\n•    Ability to understand and analyse complex and distributed application architectures.\n\n•    Experience, even non-specialist, in cloud environments, preferably Google Cloud Platform (GCP).\n\n•   Resident in Ticino or willing to relocate.\n\nBasic knowledge of:\n\n•   DevOps models and CI/CD pipelines\n\n•   Git / GitHub\n\n•   Microservice architectures\n\n•   Kafka or messaging / event streaming systems\n\n•   Change Data Capture\n\n•    PostgreSQL (PGSQL)\n\n•    Java\n\n•   Monitoring and logging tools (e.g. Splunk, Dynatrace)\n\nNice to Have\n\n•    Experience in banking or financial contexts.\n\n•    Knowledge of major payment circuits (e.g. Visa, Mastercard).\n\n•    Familiarity with GCP services supporting cloud-native architectures (containers, logging, monitoring).\n\n•    Knowledge of application security and compliance issues (e.g. PCI DSS, data protection).\n\n•    Basic knowledge of Kubernetes and oauth2 application authorisation standards\n\n________________________________________\n\nSoft Skills\n\n•    Strong analytical approach and solution orientation.\n\n•    Ability to operate in complex and regulated environments.\n\n•    Aptitude for working in multidisciplinary teams.\n\n•    Ability to communicate effectively with technical and business stakeholders.\n\n•    Proactivity and focus on continuous improvement.",
+      "descriptionByLocale": {
+        "it": "Il candidato entrerà a far parte del Centro di eccellenza per la gestione delle carte IT, con responsabilità interfunzionali per i sistemi di gestione delle carte di credito e di debito. I sistemi operano su architetture native per il cloud in Google Cloud Platform (GCP) e supportano i processi di pagamento chiave in un ambiente bancario altamente regolamentato. Il ruolo prevede di contribuire attivamente alle attività di analisi funzionale e tecnica, supportando l'evoluzione delle soluzioni applicative e l'integrazione con il core banking, i circuiti di pagamento e le piattaforme esterne. Responsabilità principali Analisi funzionale e di processo • Analizzare e comprendere i processi di gestione delle carte: emissione delle carte, gestione del ciclo di vita, autorizzazioni, compensazione e regolamento, frodi e chargeback. • Raccogliere, analizzare e formalizzare i requisiti aziendali, traducendoli in specifiche funzionali e tecniche. • Supportare il business nella definizione di soluzioni informatiche coerenti con i modelli operativi, normativi e di compliance della banca. • Collaborare con gli stakeholder interni (Operations, Compliance, Risk, Security). Analisi Tecnica e Informatica • Redigere documentazione funzionale e tecnica (specifiche applicative, flussi di integrazione, mappatura dati). • Supportare la progettazione e l'evoluzione delle architetture di microservizi in ambiente cloud. • Collaborare con i team di sviluppo interni ed esterni durante le fasi di sviluppo, test e rilascio. • Supportare l'analisi e la gestione degli incidenti applicativi e dei problemi di produzione. DevOps",
+        "en": "The candidate will join the IT Card Management Centre of Excellence, with cross-functional responsibilities for credit and debit card management systems. The systems operate on cloud-native architectures in Google Cloud Platform (GCP) and support key payment processes in a highly regulated banking environment. The role involves actively contributing to functional and technical analysis activities, supporting the evolution of application solutions and integration with core banking, payment circuits and external platforms. Key Responsibilities Functional and Process Analysis • Analyse and understand Card Management processes: card issuance, lifecycle management, authorisations, clearing & settlement, fraud and chargebacks. • Collect, analyse and formalise business requirements, translating them into functional and technical specifications. • Support the business in defining IT solutions consistent with the bank's operational, regulatory and compliance models. • Collaborate with internal stakeholders (Operations, Compliance, Risk, Security). Technical and IT Analysis • Draft functional and technical documentation (application specifications, integration flows, data mapping). • Support the design and evolution of microservice architectures in a cloud environment. • Collaborate with internal and external development teams during the development, testing and release phases. • Support the analysis and management of application incidents and production issues. DevOps and Technologies • Operate in a DevOps environment, actively collaborating with development teams. • Support and understand continuous integration and continuous delivery (CI/CD) pipelines, using automation tools (e.g. Jenkins). • Use code versioning systems (Git, Bitbucket) for application configuration management. • Provide support in application and infrastructure troubleshooting in cloud-native and distributed environments. • Contribute to the stability, quality and scalability of solutions, collaborating on monitoring, logging and performance issues. • Have a basic knowledge of Java and event-driven microservice architectures. Must Have • Experience in functional and technical analysis in IT. • Knowledge of credit and debit card payment systems. • Ability to understand and analyse complex and distributed application architectures. • Experience, even non-specialist, in cloud environments, preferably Google Cloud Platform (GCP). • Resident in Ticino or willing to relocate. Basic knowledge of: • DevOps models and CI/CD pipelines • Git / GitHub • Microservice architectures • Kafka or messaging / event streaming systems • Change Data Capture • PostgreSQL (PGSQL) • Java • Monitoring and logging tools (e.g. Splunk, Dynatrace) Nice to Have • Experience in banking or financial contexts. • Knowledge of major payment circuits (e.g. Visa, Mastercard). • Familiarity with GCP services supporting cloud-native architectures (containers, logging, monitoring). • Knowledge of application security and compliance issues (e.g. PCI DSS, data protection). • Basic knowledge of Kubernetes and oauth2 application authorisation standards ________________________________________ Soft Skills • Strong analytical approach and solution orientation. • Ability to operate in complex and regulated environments. • Aptitude for working in multidisciplinary teams. • Ability to communicate effectively with technical and business stakeholders. • Proactivity and focus on continuous improvement.",
+        "de": "Der Kandidat wird sich dem IT Card Management Centre of Excellence anschließen, mit funktionsübergreifenden Aufgaben für Kredit- und Debitkartenmanagementsysteme. Die Systeme arbeiten auf Cloud-native Architekturen in der Google Cloud Platform (GCP) und unterstützen wichtige Zahlungsprozesse in einem hochregulierten Bankenumfeld. Die Rolle beinhaltet aktiv einen Beitrag zu funktionellen und technischen Analyseaktivitäten, die die Entwicklung von Anwendungslösungen und die Integration mit Kernbanken, Zahlungsschaltungen und externen Plattformen unterstützen. Funktionelle und Prozessanalyse • Analyse und Verständnis von Kartenmanagement-Prozessen: Kartenausgabe, Lebenszyklusmanagement, Zulassungen, Clearing & Abwicklung, Betrug und Rückmeldungen. • Sammeln, Analysieren und Formalisieren von Geschäftsanforderungen, Übersetzen in funktionale und technische Spezifikationen. • Unterstützung des Unternehmens bei der Definition von IT-Lösungen im Einklang mit den operativen, regulatorischen und Compliance-Modellen der Bank. • Zusammenarbeit mit internen Akteuren (Operationen, Compliance, Risk, Security). Technische und IT-Analyse • Entwurf funktionaler und technischer Dokumentation (Anwendungsspezifikationen, Integrationsflüsse, Datenkartierung). • Unterstützung der Gestaltung und Entwicklung von Mikroservice-Architekturen in einer Cloud-Umgebung. • Zusammenarbeit mit internen und externen Entwicklungsteams während der Entwicklungs-, Test- und Releasephasen. • Unterstützung der Analyse und Verwaltung von Anwendungsfällen und Produktionsfragen. DevOps and Technologies • Operate in einer DevOps-Umgebung, aktiv mit Entwicklungsteams zusammenarbeiten. • Unterstützung und Verständnis der kontinuierlichen Integration und kontinuierlichen Lieferung (CI/CD) Pipelines mittels Automatisierungstools (z.B. Jenkins). • Verwenden Sie Codeversionssysteme (Git, Bitbucket) für die Anwendungskonfigurationsverwaltung. • Unterstützung bei der Problembehebung von Anwendungen und Infrastrukturen in Cloud-nativer und verteilter Umgebung. • Tragen Sie auf die Stabilität, Qualität und Skalierbarkeit von Lösungen bei, die sich auf Überwachungs-, Protokollierungs- und Leistungsfragen stützen. • Haben Sie ein Grundwissen über Java und ereignisgesteuerte Mikroservice-Architekturen. Must Have • Erfahrung in der funktionalen und technischen Analyse in der IT. • Kenntnis von Kredit- und Debitkarten-Zahlungssystemen. • Fähigkeit, komplexe und verteilte Anwendungsarchitekturen zu verstehen und zu analysieren. • Erfahrung, auch nicht-spezialist, in Cloud-Umgebungen, vorzugsweise Google Cloud Platform (GCP). • Wohnsitz in Tessin oder bereit, sich zu verlagern. Grundkenntnisse von: • DevOps-Modelle und CI/CD-Pipelines • Git / GitHub • Microservice-Architekturen • Kafka oder Messaging / Event-Streaming-Systeme • Change Data Capture • PostgreSQL (PGSQL) • Java • Monitoring und Protokollierung von Werkzeugen (z.B. Splunk, Dynatrace) Schön, • Erfahrungen im Bank- oder Finanzkontext zu haben. • Kenntnis der wichtigsten Zahlungsströme (z.B. Visa, Mastercard). • Vertrautheit mit GCP-Diensten, die Cloud-Native Architekturen (Container, Protokollierung, Überwachung) unterstützen. • Kenntnisse der Anwendungssicherheit und Compliance-Probleme (z.B. PCI DSS, Datenschutz). • Grundkenntnisse von Kubernetes und oauth2-Anwendungsberechtigungsstandards Soft Skills • Starker analytischer Ansatz und Lösungsorientierung. • Fähigkeit, in komplexen und geregelten Umgebungen zu arbeiten. • Eignung für die Arbeit in multidisziplinären Teams. • Fähigkeit, effektiv mit technischen und Geschäftspartnern zu kommunizieren. • Proaktivität und Fokus auf kontinuierliche Verbesserung.",
+        "fr": "Le candidat se joindra au Centre d'excellence en gestion des cartes de TI, avec des responsabilités interfonctionnelles pour les systèmes de gestion des cartes de crédit et de débit. Les systèmes fonctionnent sur des architectures cloud-native dans Google Cloud Platform (GCP) et prennent en charge des processus de paiement clés dans un environnement bancaire hautement réglementé. Le rôle consiste à contribuer activement aux activités d'analyse fonctionnelle et technique, à soutenir l'évolution des solutions d'application et l'intégration avec les principales banques, circuits de paiement et plateformes externes. Principales responsabilités Fonctionnalité et analyse des processus • Analyser et comprendre les processus de gestion des cartes : délivrance de cartes, gestion du cycle de vie, autorisations, compensation et règlement, fraude et recouvrement. • Recueillir, analyser et formaliser les exigences opérationnelles, les traduire en spécifications fonctionnelles et techniques. • Aider l'entreprise à définir des solutions informatiques conformes aux modèles opérationnels, réglementaires et de conformité de la banque. • Collaborer avec les acteurs internes (Opérations, Conformité, Risque, Sécurité). Analyse technique et informatique • Projet de documentation fonctionnelle et technique (spécifications d'application, flux d'intégration, cartographie des données). • Soutenir la conception et l'évolution des architectures de microservices dans un environnement nuageux. • Collaborer avec des équipes de développement internes et externes pendant les phases de développement, de test et de libération. • Soutenir l'analyse et la gestion des incidents d'application et des problèmes de production. DevOps et Technologies • Exploiter dans un environnement DevOps, en collaborant activement avec des équipes de développement. • Soutenir et comprendre l'intégration continue et les pipelines de distribution continue (CI/CD), en utilisant des outils d'automatisation (par exemple Jenkins). • Utilisez des systèmes de version de code (Git, Bitbucket) pour la gestion de la configuration des applications. • Fournir un support pour le dépannage des applications et des infrastructures dans les environnements cloud-natifs et distribués. • Contribuer à la stabilité, à la qualité et à l'évolutivité des solutions, en collaborant sur les questions de surveillance, d'exploitation forestière et de performance. • Avoir une connaissance de base des architectures de microservice Java et d'événements. • Expérience en analyse fonctionnelle et technique en TI. • Connaissance des systèmes de paiement par carte de crédit et de débit. • Capacité de comprendre et d'analyser des architectures d'application complexes et distribuées. • Expérience, même non spécialisée, dans les environnements cloud, de préférence Google Cloud Platform (GCP). • Résident au Tessin ou disposé à déménager. Connaissances de base de: • Modèles DevOps et pipelines CI/CD • Git / GitHub • Architectures microservice • Kafka ou messagerie / systèmes de streaming d'événements • Changer la capture de données • PostgreSQL (PGSQL) • Java • Outils de surveillance et d'enregistrement (par exemple Spunk, Dynatrace) Nice to Have • Expérience dans les contextes bancaires ou financiers. • Connaissance des principaux circuits de paiement (par exemple Visa, Mastercard). • Familiarité avec les services GCP supportant les architectures cloud-native (conteneurs, log, monitoring). • Connaissance des questions de sécurité et de conformité des applications (p. ex. PCI DSS, protection des données). • Connaissances de base des normes d'autorisation de la demande de Kubernetes et de l'auth2 Compétences souples • Approche analytique solide et orientation de la solution. • Capacité d'opérer dans des environnements complexes et réglementés. • Aptitude à travailler en équipe multidisciplinaire. • Capacité de communiquer efficacement avec les acteurs techniques et commerciaux. • Proactivité et attention à l'amélioration continue."
+      },
+      "requirements": [],
+      "requirementsByLocale": {},
+      "location": "Lugano",
+      "canton": "TI",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "category": "tech",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-02-03",
+      "url": "https://jobs.corner.ch/o/it-card-management-analyst-specialist",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-04-11T09:02:13.875Z",
+      "previousSlugs": [
+        "analista-specialista-gestione-carte-it-corner-banca-lugano",
+        "it-card-management-analista-specialista-corner-banca-lugano",
+        "it-card-management-analyst-spezialist-corner-banca-lugano-331bdu",
+        "it-card-management-analyste-specialiste-corner-banca-lugano-331bdu",
+        "it-card-management-analyste-specialiste-corner-banca-lugano",
+        "it-card-management-analyst-specialist-corner-banca-lugano-331bdu"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "analista-specialista-gestione-carte-it-corner-banca-lugano",
+          "it-card-management-analista-specialista-corner-banca-lugano",
+          "it-card-management-analyst-spezialist-corner-banca-lugano-331bdu",
+          "it-card-management-analyste-specialiste-corner-banca-lugano-331bdu",
+          "it-card-management-analyste-specialiste-corner-banca-lugano"
+        ],
+        "en": [
+          "it-card-management-analyst-specialist-corner-banca-lugano-331bdu",
+          "it-card-management-analyst-spezialist-corner-banca-lugano-331bdu",
+          "it-card-management-analyste-specialiste-corner-banca-lugano-331bdu",
+          "it-card-management-analyste-specialiste-corner-banca-lugano"
+        ],
+        "de": [
+          "it-card-management-analyst-spezialist-corner-banca-lugano-331bdu",
+          "it-card-management-analyste-specialiste-corner-banca-lugano-331bdu",
+          "it-card-management-analyste-specialiste-corner-banca-lugano"
+        ],
+        "fr": [
+          "it-card-management-analyst-spezialist-corner-banca-lugano-331bdu",
+          "it-card-management-analyste-specialiste-corner-banca-lugano-331bdu",
+          "it-card-management-analyste-specialiste-corner-banca-lugano"
+        ]
+      },
+      "needsRetranslation": true,
+      "salaryMin": 51500,
+      "salaryMax": 88000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 51500,
+          "maxValue": 88000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Canova 16",
+      "postalCode": "6901",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME"
+    },
     {
       "id": "corner-banca-f803e5cc9fe2",
       "slug": "candidatura-spontanea-apprendistato-corner-banca-switzerland",
@@ -55,7 +147,7 @@
       "url": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-04-10T21:06:42.573Z",
+      "crawledAt": "2026-04-11T09:02:13.875Z",
       "previousSlugs": [
         "initiativbewerbung-lehre-corner-banca-switzerland"
       ],
@@ -73,6 +165,7 @@
           "initiativbewerbung-lehre-corner-banca-switzerland"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 59500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -82,98 +175,6 @@
           "@type": "QuantitativeValue",
           "minValue": 59500,
           "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Canova 16",
-      "postalCode": "6901",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
-    },
-    {
-      "id": "corner-banca-422277a6cd4c",
-      "slug": "it-card-management-analyst-specialist-corner-banca-lugano",
-      "slugByLocale": {
-        "it": "it-card-management-analyst-specialist-corner-banca-lugano",
-        "en": "it-card-management-analyst-specialist-corner-banca-lugano",
-        "de": "it-kartenmanagement-analyst-spezialist-corner-banca-lugano",
-        "fr": "it-card-management-analyst-specialist-corner-banca-lugano"
-      },
-      "company": "Cornèr Banca",
-      "companyKey": "corner-banca",
-      "companyDomain": "corner.ch",
-      "title": "IT Card Management Analyst / Specialist",
-      "titleByLocale": {
-        "it": "IT Card Management Analista / Specialista",
-        "en": "IT Card Management Analyst / Specialist",
-        "de": "IT Card Management Analyst / Spezialist",
-        "fr": "IT Card Management Analyste / Spécialiste"
-      },
-      "description": "The candidate will join the IT Card Management Centre of Excellence, with cross-functional responsibilities for credit and debit card management systems.\n\nThe systems operate on cloud-native architectures in Google Cloud Platform (GCP) and support key payment processes in a highly regulated banking environment.\n\nThe role involves actively contributing to functional and technical analysis activities, supporting the evolution of application solutions and integration with core banking, payment circuits and external platforms.\n\n \n\nKey Responsibilities\n\nFunctional and Process Analysis\n\n•    Analyse and understand Card Management processes: card issuance, lifecycle management, authorisations, clearing & settlement, fraud and chargebacks.\n\n•    Collect, analyse and formalise business requirements, translating them into functional and technical specifications.\n\n•    Support the business in defining IT solutions consistent with the bank's operational, regulatory and compliance models.\n\n•    Collaborate with internal stakeholders (Operations, Compliance, Risk, Security).\n\nTechnical and IT Analysis\n\n•    Draft functional and technical documentation (application specifications, integration flows, data mapping).\n\n•    Support the design and evolution of microservice architectures in a cloud environment.\n\n•    Collaborate with internal and external development teams during the development, testing and release phases.\n\n•    Support the analysis and management of application incidents and production issues.\n\nDevOps and Technologies\n\n•    Operate in a DevOps environment, actively collaborating with development teams.\n\n•    Support and understand continuous integration and continuous delivery (CI/CD) pipelines, using automation tools (e.g. Jenkins).\n\n•    Use code versioning systems (Git, Bitbucket) for application configuration management.\n\n•    Provide support in application and infrastructure troubleshooting in cloud-native and distributed environments.\n\n•    Contribute to the stability, quality and scalability of solutions, collaborating on monitoring, logging and performance issues.\n\n•    Have a basic knowledge of Java and event-driven microservice architectures.\n\nMust Have\n\n•    Experience in functional and technical analysis in IT.\n\n•    Knowledge of credit and debit card payment systems.\n\n•    Ability to understand and analyse complex and distributed application architectures.\n\n•    Experience, even non-specialist, in cloud environments, preferably Google Cloud Platform (GCP).\n\n•   Resident in Ticino or willing to relocate.\n\nBasic knowledge of:\n\n•   DevOps models and CI/CD pipelines\n\n•   Git / GitHub\n\n•   Microservice architectures\n\n•   Kafka or messaging / event streaming systems\n\n•   Change Data Capture\n\n•    PostgreSQL (PGSQL)\n\n•    Java\n\n•   Monitoring and logging tools (e.g. Splunk, Dynatrace)\n\nNice to Have\n\n•    Experience in banking or financial contexts.\n\n•    Knowledge of major payment circuits (e.g. Visa, Mastercard).\n\n•    Familiarity with GCP services supporting cloud-native architectures (containers, logging, monitoring).\n\n•    Knowledge of application security and compliance issues (e.g. PCI DSS, data protection).\n\n•    Basic knowledge of Kubernetes and oauth2 application authorisation standards\n\n________________________________________\n\nSoft Skills\n\n•    Strong analytical approach and solution orientation.\n\n•    Ability to operate in complex and regulated environments.\n\n•    Aptitude for working in multidisciplinary teams.\n\n•    Ability to communicate effectively with technical and business stakeholders.\n\n•    Proactivity and focus on continuous improvement.",
-      "descriptionByLocale": {
-        "it": "Il candidato entrerà a far parte del Centro di eccellenza per la gestione delle carte IT, con responsabilità interfunzionali per i sistemi di gestione delle carte di credito e di debito. I sistemi operano su architetture native per il cloud in Google Cloud Platform (GCP) e supportano i processi di pagamento chiave in un ambiente bancario altamente regolamentato. Il ruolo prevede di contribuire attivamente alle attività di analisi funzionale e tecnica, supportando l'evoluzione delle soluzioni applicative e l'integrazione con il core banking, i circuiti di pagamento e le piattaforme esterne. Responsabilità principali Analisi funzionale e di processo • Analizzare e comprendere i processi di gestione delle carte: emissione delle carte, gestione del ciclo di vita, autorizzazioni, compensazione e regolamento, frodi e chargeback. • Raccogliere, analizzare e formalizzare i requisiti aziendali, traducendoli in specifiche funzionali e tecniche. • Supportare il business nella definizione di soluzioni informatiche coerenti con i modelli operativi, normativi e di compliance della banca. • Collaborare con gli stakeholder interni (Operations, Compliance, Risk, Security). Analisi Tecnica e Informatica • Redigere documentazione funzionale e tecnica (specifiche applicative, flussi di integrazione, mappatura dati). • Supportare la progettazione e l'evoluzione delle architetture di microservizi in ambiente cloud. • Collaborare con i team di sviluppo interni ed esterni durante le fasi di sviluppo, test e rilascio. • Supportare l'analisi e la gestione degli incidenti applicativi e dei problemi di produzione. DevOps",
-        "en": "The candidate will join the IT Card Management Centre of Excellence, with cross-functional responsibilities for credit and debit card management systems. The systems operate on cloud-native architectures in Google Cloud Platform (GCP) and support key payment processes in a highly regulated banking environment. The role involves actively contributing to functional and technical analysis activities, supporting the evolution of application solutions and integration with core banking, payment circuits and external platforms. Key Responsibilities Functional and Process Analysis • Analyse and understand Card Management processes: card issuance, lifecycle management, authorisations, clearing & settlement, fraud and chargebacks. • Collect, analyse and formalise business requirements, translating them into functional and technical specifications. • Support the business in defining IT solutions consistent with the bank's operational, regulatory and compliance models. • Collaborate with internal stakeholders (Operations, Compliance, Risk, Security). Technical and IT Analysis • Draft functional and technical documentation (application specifications, integration flows, data mapping). • Support the design and evolution of microservice architectures in a cloud environment. • Collaborate with internal and external development teams during the development, testing and release phases. • Support the analysis and management of application incidents and production issues. DevOps and Technologies • Operate in a DevOps environment, actively collaborating with development teams. • Support and understand continuous integration and continuous delivery (CI/CD) pipelines, using automation tools (e.g. Jenkins). • Use code versioning systems (Git, Bitbucket) for application configuration management. • Provide support in application and infrastructure troubleshooting in cloud-native and distributed environments. • Contribute to the stability, quality and scalability of solutions, collaborating on monitoring, logging and performance issues. • Have a basic knowledge of Java and event-driven microservice architectures. Must Have • Experience in functional and technical analysis in IT. • Knowledge of credit and debit card payment systems. • Ability to understand and analyse complex and distributed application architectures. • Experience, even non-specialist, in cloud environments, preferably Google Cloud Platform (GCP). • Resident in Ticino or willing to relocate. Basic knowledge of: • DevOps models and CI/CD pipelines • Git / GitHub • Microservice architectures • Kafka or messaging / event streaming systems • Change Data Capture • PostgreSQL (PGSQL) • Java • Monitoring and logging tools (e.g. Splunk, Dynatrace) Nice to Have • Experience in banking or financial contexts. • Knowledge of major payment circuits (e.g. Visa, Mastercard). • Familiarity with GCP services supporting cloud-native architectures (containers, logging, monitoring). • Knowledge of application security and compliance issues (e.g. PCI DSS, data protection). • Basic knowledge of Kubernetes and oauth2 application authorisation standards ________________________________________ Soft Skills • Strong analytical approach and solution orientation. • Ability to operate in complex and regulated environments. • Aptitude for working in multidisciplinary teams. • Ability to communicate effectively with technical and business stakeholders. • Proactivity and focus on continuous improvement.",
-        "de": "Der Kandidat wird sich dem IT Card Management Centre of Excellence anschließen, mit funktionsübergreifenden Aufgaben für Kredit- und Debitkartenmanagementsysteme. Die Systeme arbeiten auf Cloud-native Architekturen in der Google Cloud Platform (GCP) und unterstützen wichtige Zahlungsprozesse in einem hochregulierten Bankenumfeld. Die Rolle beinhaltet aktiv einen Beitrag zu funktionellen und technischen Analyseaktivitäten, die die Entwicklung von Anwendungslösungen und die Integration mit Kernbanken, Zahlungsschaltungen und externen Plattformen unterstützen. Funktionelle und Prozessanalyse • Analyse und Verständnis von Kartenmanagement-Prozessen: Kartenausgabe, Lebenszyklusmanagement, Zulassungen, Clearing & Abwicklung, Betrug und Rückmeldungen. • Sammeln, Analysieren und Formalisieren von Geschäftsanforderungen, Übersetzen in funktionale und technische Spezifikationen. • Unterstützung des Unternehmens bei der Definition von IT-Lösungen im Einklang mit den operativen, regulatorischen und Compliance-Modellen der Bank. • Zusammenarbeit mit internen Akteuren (Operationen, Compliance, Risk, Security). Technische und IT-Analyse • Entwurf funktionaler und technischer Dokumentation (Anwendungsspezifikationen, Integrationsflüsse, Datenkartierung). • Unterstützung der Gestaltung und Entwicklung von Mikroservice-Architekturen in einer Cloud-Umgebung. • Zusammenarbeit mit internen und externen Entwicklungsteams während der Entwicklungs-, Test- und Releasephasen. • Unterstützung der Analyse und Verwaltung von Anwendungsfällen und Produktionsfragen. DevOps and Technologies • Operate in einer DevOps-Umgebung, aktiv mit Entwicklungsteams zusammenarbeiten. • Unterstützung und Verständnis der kontinuierlichen Integration und kontinuierlichen Lieferung (CI/CD) Pipelines mittels Automatisierungstools (z.B. Jenkins). • Verwenden Sie Codeversionssysteme (Git, Bitbucket) für die Anwendungskonfigurationsverwaltung. • Unterstützung bei der Problembehebung von Anwendungen und Infrastrukturen in Cloud-nativer und verteilter Umgebung. • Tragen Sie auf die Stabilität, Qualität und Skalierbarkeit von Lösungen bei, die sich auf Überwachungs-, Protokollierungs- und Leistungsfragen stützen. • Haben Sie ein Grundwissen über Java und ereignisgesteuerte Mikroservice-Architekturen. Must Have • Erfahrung in der funktionalen und technischen Analyse in der IT. • Kenntnis von Kredit- und Debitkarten-Zahlungssystemen. • Fähigkeit, komplexe und verteilte Anwendungsarchitekturen zu verstehen und zu analysieren. • Erfahrung, auch nicht-spezialist, in Cloud-Umgebungen, vorzugsweise Google Cloud Platform (GCP). • Wohnsitz in Tessin oder bereit, sich zu verlagern. Grundkenntnisse von: • DevOps-Modelle und CI/CD-Pipelines • Git / GitHub • Microservice-Architekturen • Kafka oder Messaging / Event-Streaming-Systeme • Change Data Capture • PostgreSQL (PGSQL) • Java • Monitoring und Protokollierung von Werkzeugen (z.B. Splunk, Dynatrace) Schön, • Erfahrungen im Bank- oder Finanzkontext zu haben. • Kenntnis der wichtigsten Zahlungsströme (z.B. Visa, Mastercard). • Vertrautheit mit GCP-Diensten, die Cloud-Native Architekturen (Container, Protokollierung, Überwachung) unterstützen. • Kenntnisse der Anwendungssicherheit und Compliance-Probleme (z.B. PCI DSS, Datenschutz). • Grundkenntnisse von Kubernetes und oauth2-Anwendungsberechtigungsstandards Soft Skills • Starker analytischer Ansatz und Lösungsorientierung. • Fähigkeit, in komplexen und geregelten Umgebungen zu arbeiten. • Eignung für die Arbeit in multidisziplinären Teams. • Fähigkeit, effektiv mit technischen und Geschäftspartnern zu kommunizieren. • Proaktivität und Fokus auf kontinuierliche Verbesserung.",
-        "fr": "Le candidat se joindra au Centre d'excellence en gestion des cartes de TI, avec des responsabilités interfonctionnelles pour les systèmes de gestion des cartes de crédit et de débit. Les systèmes fonctionnent sur des architectures cloud-native dans Google Cloud Platform (GCP) et prennent en charge des processus de paiement clés dans un environnement bancaire hautement réglementé. Le rôle consiste à contribuer activement aux activités d'analyse fonctionnelle et technique, à soutenir l'évolution des solutions d'application et l'intégration avec les principales banques, circuits de paiement et plateformes externes. Principales responsabilités Fonctionnalité et analyse des processus • Analyser et comprendre les processus de gestion des cartes : délivrance de cartes, gestion du cycle de vie, autorisations, compensation et règlement, fraude et recouvrement. • Recueillir, analyser et formaliser les exigences opérationnelles, les traduire en spécifications fonctionnelles et techniques. • Aider l'entreprise à définir des solutions informatiques conformes aux modèles opérationnels, réglementaires et de conformité de la banque. • Collaborer avec les acteurs internes (Opérations, Conformité, Risque, Sécurité). Analyse technique et informatique • Projet de documentation fonctionnelle et technique (spécifications d'application, flux d'intégration, cartographie des données). • Soutenir la conception et l'évolution des architectures de microservices dans un environnement nuageux. • Collaborer avec des équipes de développement internes et externes pendant les phases de développement, de test et de libération. • Soutenir l'analyse et la gestion des incidents d'application et des problèmes de production. DevOps et Technologies • Exploiter dans un environnement DevOps, en collaborant activement avec des équipes de développement. • Soutenir et comprendre l'intégration continue et les pipelines de distribution continue (CI/CD), en utilisant des outils d'automatisation (par exemple Jenkins). • Utilisez des systèmes de version de code (Git, Bitbucket) pour la gestion de la configuration des applications. • Fournir un support pour le dépannage des applications et des infrastructures dans les environnements cloud-natifs et distribués. • Contribuer à la stabilité, à la qualité et à l'évolutivité des solutions, en collaborant sur les questions de surveillance, d'exploitation forestière et de performance. • Avoir une connaissance de base des architectures de microservice Java et d'événements. • Expérience en analyse fonctionnelle et technique en TI. • Connaissance des systèmes de paiement par carte de crédit et de débit. • Capacité de comprendre et d'analyser des architectures d'application complexes et distribuées. • Expérience, même non spécialisée, dans les environnements cloud, de préférence Google Cloud Platform (GCP). • Résident au Tessin ou disposé à déménager. Connaissances de base de: • Modèles DevOps et pipelines CI/CD • Git / GitHub • Architectures microservice • Kafka ou messagerie / systèmes de streaming d'événements • Changer la capture de données • PostgreSQL (PGSQL) • Java • Outils de surveillance et d'enregistrement (par exemple Spunk, Dynatrace) Nice to Have • Expérience dans les contextes bancaires ou financiers. • Connaissance des principaux circuits de paiement (par exemple Visa, Mastercard). • Familiarité avec les services GCP supportant les architectures cloud-native (conteneurs, log, monitoring). • Connaissance des questions de sécurité et de conformité des applications (p. ex. PCI DSS, protection des données). • Connaissances de base des normes d'autorisation de la demande de Kubernetes et de l'auth2 Compétences souples • Approche analytique solide et orientation de la solution. • Capacité d'opérer dans des environnements complexes et réglementés. • Aptitude à travailler en équipe multidisciplinaire. • Capacité de communiquer efficacement avec les acteurs techniques et commerciaux. • Proactivité et attention à l'amélioration continue."
-      },
-      "requirements": [],
-      "requirementsByLocale": {},
-      "location": "Lugano",
-      "canton": "TI",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "category": "tech",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-02-03",
-      "url": "https://jobs.corner.ch/o/it-card-management-analyst-specialist",
-      "source": "Corner Dedicated Parser (Recruitee API)",
-      "sourceLang": "en",
-      "crawledAt": "2026-04-10T21:06:42.572Z",
-      "previousSlugs": [
-        "analista-specialista-gestione-carte-it-corner-banca-lugano",
-        "it-card-management-analista-specialista-corner-banca-lugano",
-        "it-card-management-analyst-spezialist-corner-banca-lugano-331bdu",
-        "it-card-management-analyste-specialiste-corner-banca-lugano-331bdu",
-        "it-card-management-analyste-specialiste-corner-banca-lugano",
-        "it-card-management-analyst-specialist-corner-banca-lugano-331bdu"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "analista-specialista-gestione-carte-it-corner-banca-lugano",
-          "it-card-management-analista-specialista-corner-banca-lugano",
-          "it-card-management-analyst-spezialist-corner-banca-lugano-331bdu",
-          "it-card-management-analyste-specialiste-corner-banca-lugano-331bdu",
-          "it-card-management-analyste-specialiste-corner-banca-lugano"
-        ],
-        "en": [
-          "it-card-management-analyst-specialist-corner-banca-lugano-331bdu",
-          "it-card-management-analyst-spezialist-corner-banca-lugano-331bdu",
-          "it-card-management-analyste-specialiste-corner-banca-lugano-331bdu",
-          "it-card-management-analyste-specialiste-corner-banca-lugano"
-        ],
-        "de": [
-          "it-card-management-analyst-spezialist-corner-banca-lugano-331bdu",
-          "it-card-management-analyste-specialiste-corner-banca-lugano-331bdu",
-          "it-card-management-analyste-specialiste-corner-banca-lugano"
-        ],
-        "fr": [
-          "it-card-management-analyst-spezialist-corner-banca-lugano-331bdu",
-          "it-card-management-analyste-specialiste-corner-banca-lugano-331bdu",
-          "it-card-management-analyste-specialiste-corner-banca-lugano"
-        ]
-      },
-      "needsRetranslation": true,
-      "salaryMin": 51500,
-      "salaryMax": 88000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 51500,
-          "maxValue": 88000,
           "unitText": "YEAR"
         }
       },
@@ -246,7 +247,7 @@
       "url": "https://jobs.corner.ch/o/employee-card-onboarding",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-10T21:06:42.571Z",
+      "crawledAt": "2026-04-11T09:02:13.874Z",
       "previousSlugs": [
         "addetto-all-emission-carte-cliente-corner-banca-lugano",
         "onboarding-de-la-carte-de-paiement-corner-banca-lugano"
@@ -265,6 +266,7 @@
           "addetto-all-emission-carte-cliente-corner-banca-lugano"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -350,7 +352,7 @@
       "url": "https://jobs.corner.ch/o/collaboratore-servizi-logistici-ufficio-tecnico-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-04-10T21:06:42.570Z",
+      "crawledAt": "2026-04-11T09:02:13.873Z",
       "previousSlugs": [
         "collaboratore-servizi-logistici-ufficio-technician-corner-banca-lugano",
         "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano-h1bnmt",
@@ -374,6 +376,7 @@
           "collaboratore-servizi-logistici-ufficio-technicien-corner-banca-lugano"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -450,7 +453,7 @@
       "url": "https://jobs.corner.ch/o/risk-manager-asset-liability-management-alm-and-liquidity-risk-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-10T21:06:42.569Z",
+      "crawledAt": "2026-04-11T09:02:13.872Z",
       "previousSlugs": [
         "risk-manager-asset-liability-management-alm-e-rischio-di-liquidita-corner-banca-lugano",
         "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano-jzwq45",
@@ -470,6 +473,7 @@
           "responsable-des-risques-gestion-des-actifs-et-passifs-alm-et-risque-de-liquidite-corner-banca-lugano"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 142000,
       "salaryMax": 249500,
       "baseSalary": {
@@ -556,7 +560,7 @@
       "url": "https://jobs.corner.ch/o/compliance-officer-senior",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-10T21:06:42.568Z",
+      "crawledAt": "2026-04-11T09:02:13.871Z",
       "previousSlugs": [
         "responsabile-compliance-senior-corner-banca-lugano",
         "leitender-compliance-beauftragter-corner-banca-lugano-nnfx9o",
@@ -581,6 +585,7 @@
           "leitender-compliance-beauftragter-corner-banca-lugano-nnfx9o"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 142000,
       "salaryMax": 249500,
       "baseSalary": {
@@ -670,7 +675,7 @@
       "url": "https://jobs.corner.ch/o/employee-collection-team-zurich",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-10T21:06:42.566Z",
+      "crawledAt": "2026-04-11T09:02:13.870Z",
       "previousSlugs": [
         "employee-collection-team-zurich-corner-banca-wallisellen"
       ],
@@ -679,6 +684,7 @@
           "employee-collection-team-zurich-corner-banca-wallisellen"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -765,7 +771,8 @@
       "url": "https://jobs.corner.ch/o/employee-front-office",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-10T21:06:42.565Z",
+      "crawledAt": "2026-04-11T09:02:13.868Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000,
       "baseSalary": {
@@ -856,7 +863,7 @@
       "url": "https://jobs.corner.ch/o/credit-client-advisor-mf-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-10T21:06:42.563Z",
+      "crawledAt": "2026-04-11T09:02:13.867Z",
       "previousSlugs": [
         "credit-e-client-advisor-m-f-corner-banca-lugano"
       ],
@@ -868,6 +875,7 @@
           "credit-e-client-advisor-m-f-corner-banca-lugano"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
