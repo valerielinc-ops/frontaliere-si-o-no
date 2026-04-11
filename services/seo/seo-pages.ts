@@ -4087,7 +4087,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 419, "name": "Il Luganese punta sulla formazione per migliora...", "url": `${BASE_URL}/articoli-frontaliere/turismo-luganese-formazione` },
           { "@type": "ListItem", "position": 420, "name": "La nevicata record a Bosco Gurin: piste aperte ...", "url": `${BASE_URL}/articoli-frontaliere/nevicata-record-bosco-gurin` },
           { "@type": "ListItem", "position": 421, "name": "Walter Bonatti 'In capo al mondo': il Teatro So...", "url": `${BASE_URL}/articoli-frontaliere/walter-bonatti-in-capo-al-mondo` },
-          { "@type": "ListItem", "position": 422, "name": "Titolo JSON-LD", "url": `${BASE_URL}/articoli-frontaliere/sargans-teenage-robbery-catch` },
+          { "@type": "ListItem", "position": 422, "name": "Teenager arrestati a Sargans: caso di furto e sicurezza", "url": `${BASE_URL}/articoli-frontaliere/sargans-teenage-robbery-catch` },
           { "@type": "ListItem", "position": 423, "name": "Headline JSON-LD", "url": `${BASE_URL}/articoli-frontaliere/separazione-carriere-giudici` },
           { "@type": "ListItem", "position": 424, "name": "Opportunità di lavoro Como", "url": `${BASE_URL}/articoli-frontaliere/com-aziende-lavoro-como` },
           { "@type": "ListItem", "position": 425, "name": "Cabinovia precipita a Engelberg: almeno un feri...", "url": `${BASE_URL}/articoli-frontaliere/cabov-precipita-forte-vento` },

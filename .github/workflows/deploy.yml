@@ -123,6 +123,9 @@ jobs:
           key: clarity-assets-${{ github.run_number }}
           restore-keys: clarity-assets-
 
+      - name: Cleanup stale news sitemap entries
+        run: node scripts/cleanup-news-sitemap.mjs
+
       - name: Build
         env:
           NODE_OPTIONS: '--max-old-space-size=7168'

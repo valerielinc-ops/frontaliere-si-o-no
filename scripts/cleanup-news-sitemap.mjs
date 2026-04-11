@@ -42,8 +42,14 @@ const freshBlocks = urlBlocks.filter(block => {
   }
 });
 
-if (removed === 0) {
-  console.log(`ℹ️  sitemap-news.xml: all ${kept} articles are fresh (< ${MAX_AGE_HOURS}h) — no cleanup needed`);
+// Strip deprecated <news:keywords> tags (removed from Google spec in 2023)
+const hasKeywords = freshBlocks.some(b => b.includes('<news:keywords>'));
+const strippedBlocks = freshBlocks.map(block =>
+  block.replace(/\s*<news:keywords>[^<]*<\/news:keywords>/g, '')
+);
+
+if (removed === 0 && !hasKeywords) {
+  console.log(`ℹ️  sitemap-news.xml: all ${kept} articles are fresh (< ${MAX_AGE_HOURS}h), no deprecated tags — no cleanup needed`);
   process.exit(0);
 }
 
@@ -56,7 +62,10 @@ const header = nsMatch?.[0] || `<?xml version="1.0" encoding="UTF-8"?>
         xmlns:xhtml="http://www.w3.org/1999/xhtml">`;
 
 const xmlDecl = src.includes('<?xml') ? '<?xml version="1.0" encoding="UTF-8"?>\n' : '';
-const output = xmlDecl + header + '\n\n' + freshBlocks.map(b => '  ' + b.replace(/^  /gm, '  ')).join('\n\n') + '\n\n</urlset>\n';
+const output = xmlDecl + header + '\n\n' + strippedBlocks.map(b => '  ' + b.replace(/^  /gm, '  ')).join('\n\n') + '\n\n</urlset>\n';
 
 writeFileSync(SITEMAP_PATH, output, 'utf-8');
-console.log(`✅ sitemap-news.xml: kept ${kept}, removed ${removed} articles older than ${MAX_AGE_HOURS}h`);
+const parts = [];
+if (removed > 0) parts.push(`removed ${removed} articles older than ${MAX_AGE_HOURS}h`);
+if (hasKeywords) parts.push('stripped deprecated <news:keywords> tags');
+console.log(`✅ sitemap-news.xml: kept ${kept}${parts.length ? ', ' + parts.join(', ') : ''}`);

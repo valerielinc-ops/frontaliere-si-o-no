@@ -75,7 +75,7 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Titolo JSON-LD",
+      "headline": "Teenager arrestati a Sargans: caso di furto e sicurezza",
       "description": "Due giovani serbi di 18 e 16 anni sono stati arrestati a Sargans dopo un tentato furto in autogarages. Scopri di più sulle procedure e la sicurezza di",
       "image": {
         "@type": "ImageObject",

@@ -1578,9 +1578,9 @@ ${jobLd ? `    <script type="application/ld+json">${jobLd}</script>\n` : ''}    
         const dePrep = germanCantonPrep(cantonDisplay);
         return {
           it: {
-            title: (companyName: string) => truncTitle(`${companyName} - Offerte di Lavoro in ${cantonDisplay} | Frontaliere Ticino`, 65),
+            title: (companyName: string) => truncTitle(`Lavora con ${companyName} in ${cantonDisplay} — Posizioni Aperte | Frontaliere Ticino`, 65),
             description: (companyName: string, count: number) => `Scopri ${count} posizioni aperte presso ${companyName} in ${cantonDisplay}. Consulta gli annunci attivi, sedi e link ufficiali di candidatura.`,
-            heading: (companyName: string) => `${companyName} - offerte di lavoro in ${cantonDisplay}`,
+            heading: (companyName: string) => `${companyName} — posizioni aperte in ${cantonDisplay}`,
             viewAll: 'Vedi tutte le offerte',
             sectionName: `Cerca lavoro in ${cantonDisplay}`,
             editorial: `Questa pagina raccoglie le posizioni aperte pubblicate direttamente sul sito aziendale. Gli annunci vengono aggiornati quotidianamente dal nostro crawler automatico e collegano alla pagina di candidatura ufficiale. Se non trovi posizioni attive, l'azienda potrebbe non avere ruoli aperti in ${cantonDisplay} al momento — salva la pagina per ricevere aggiornamenti.`,
@@ -1602,9 +1602,9 @@ ${jobLd ? `    <script type="application/ld+json">${jobLd}</script>\n` : ''}    
             editorial: `Auf dieser Seite finden Sie Stellen, die direkt auf der Karriereseite des Unternehmens veröffentlicht wurden. Die Angebote werden täglich von unserem automatischen Crawler aktualisiert und verlinken zur offiziellen Bewerbungsseite. Wenn keine Stellen angezeigt werden, gibt es derzeit möglicherweise keine offenen Positionen ${dePrep}.`,
           },
           fr: {
-            title: (companyName: string) => truncTitle(`${companyName} - Offres d'emploi ${frPrep} | Frontaliere Ticino`, 65),
+            title: (companyName: string) => truncTitle(`Travailler chez ${companyName} ${frPrep} — Postes Ouverts | Frontaliere Ticino`, 65),
             description: (companyName: string, count: number) => `Consultez ${count} postes ouverts chez ${companyName} ${frPrep}. Retrouvez les annonces actives, lieux et liens officiels de candidature.`,
-            heading: (companyName: string) => `${companyName} - offres d'emploi ${frPrep}`,
+            heading: (companyName: string) => `${companyName} — postes ouverts ${frPrep}`,
             viewAll: 'Voir toutes les offres',
             sectionName: `Trouver un emploi ${frPrep}`,
             editorial: `Cette page rassemble les postes publiés directement sur le portail carrière de l'entreprise. Les annonces sont actualisées quotidiennement par notre robot et renvoient à la page de candidature officielle. Si aucun poste n'est affiché, l'entreprise n'a peut-être pas de postes ouverts ${frPrep} actuellement.`,

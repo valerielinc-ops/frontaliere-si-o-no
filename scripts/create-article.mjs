@@ -4543,7 +4543,6 @@ function modifySitemapNews(data) {
       </news:publication>
       <news:publication_date>${now}</news:publication_date>
       <news:title>${String(data.content.it.title || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</news:title>
-      <news:keywords>${String(data.seo.keywords || 'frontalieri, ticino, svizzera').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</news:keywords>
     </news:news>
     <image:image>
       <image:loc>${BASE_URL}/${imagePath}</image:loc>
