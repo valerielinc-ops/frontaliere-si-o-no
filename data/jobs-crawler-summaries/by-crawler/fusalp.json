@@ -1,18 +1,19 @@
 {
   "key": "fusalp",
   "label": "Fusalp",
-  "generatedAt": "2026-04-11T11:55:36.347Z",
+  "generatedAt": "2026-04-11T12:44:20.856Z",
   "total": 9,
-  "newCount": 9,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 9,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 164093,
-  "avgDurationMs": 164093,
+  "durationMs": 98015,
+  "avgDurationMs": 98015,
   "durationHistory": [
-    164093
+    98015
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "fusalp-a9bdeb411ab8",
       "slug": "assistant-developpement-tissus-h-f-stage-fusalp-annecy",
@@ -25,7 +26,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/assistant-developpement-tissus-h-f-stage_annecy_FUSAL_wJOd8Po",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-11T11:52:53.305Z",
+      "crawledAt": "2026-04-11T12:42:43.814Z",
       "addressLocality": "Annecy",
       "addressCountry": "FR",
       "country": "FR",
@@ -39,11 +40,11 @@
       "featured": false,
       "postedDate": "2026-04-10",
       "applyUrl": "https://fusalp.welcomekit.co/jobs/assistant-developpement-tissus-h-f-stage_annecy_FUSAL_wJOd8Po",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -59,7 +60,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/conseiller-de-vente-h-f_nice_FUSAL_2e7q88z",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-11T11:52:54.122Z",
+      "crawledAt": "2026-04-11T12:42:44.664Z",
       "addressLocality": "Nice",
       "addressCountry": "FR",
       "country": "FR",
@@ -73,11 +74,11 @@
       "featured": false,
       "postedDate": "2026-04-08",
       "applyUrl": "https://fusalp.welcomekit.co/jobs/conseiller-de-vente-h-f_nice_FUSAL_2e7q88z",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -93,7 +94,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/responsable-de-boutique-h-f-store-manager-m-w_crans-montana",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-11T11:52:55.051Z",
+      "crawledAt": "2026-04-11T12:42:46.019Z",
       "addressLocality": "Crans-Montana",
       "addressCountry": "CH",
       "country": "CH",
@@ -107,11 +108,11 @@
       "featured": false,
       "postedDate": "2026-03-31",
       "applyUrl": "https://fusalp.welcomekit.co/jobs/responsable-de-boutique-h-f-store-manager-m-w_crans-montana",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -127,7 +128,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/conseiller-de-vente-sales-consultant-h-f_crans-montana",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-11T11:52:55.885Z",
+      "crawledAt": "2026-04-11T12:42:46.892Z",
       "addressLocality": "Crans-Montana",
       "addressCountry": "CH",
       "country": "CH",
@@ -141,11 +142,11 @@
       "featured": false,
       "postedDate": "2026-03-31",
       "applyUrl": "https://fusalp.welcomekit.co/jobs/conseiller-de-vente-sales-consultant-h-f_crans-montana",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -161,7 +162,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/conseiller-de-vente-h-f_marseille_FUSAL_qDRbjwg",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-11T11:52:56.718Z",
+      "crawledAt": "2026-04-11T12:42:47.914Z",
       "addressLocality": "Marseille",
       "addressCountry": "FR",
       "country": "FR",
@@ -175,11 +176,11 @@
       "featured": false,
       "postedDate": "2026-03-27",
       "applyUrl": "https://fusalp.welcomekit.co/jobs/conseiller-de-vente-h-f_marseille_FUSAL_qDRbjwg",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -195,7 +196,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/conseiller-de-vente-sales-consultant-h-f_luxembourg",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-11T11:52:57.533Z",
+      "crawledAt": "2026-04-11T12:42:48.821Z",
       "addressLocality": "Luxembourg",
       "addressCountry": "LU",
       "country": "LU",
@@ -209,11 +210,11 @@
       "featured": false,
       "postedDate": "2026-03-27",
       "applyUrl": "https://fusalp.welcomekit.co/jobs/conseiller-de-vente-sales-consultant-h-f_luxembourg",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -229,7 +230,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/conseiller-de-vente-h-f-saint-germain-de-pres_paris",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-11T11:52:58.363Z",
+      "crawledAt": "2026-04-11T12:42:49.759Z",
       "addressLocality": "Paris",
       "addressCountry": "FR",
       "country": "FR",
@@ -243,11 +244,11 @@
       "featured": false,
       "postedDate": "2026-03-13",
       "applyUrl": "https://fusalp.welcomekit.co/jobs/conseiller-de-vente-h-f-saint-germain-de-pres_paris",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -263,7 +264,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/responsable-de-boutique-h-f-39h_lyon",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-11T11:52:59.208Z",
+      "crawledAt": "2026-04-11T12:42:50.663Z",
       "addressLocality": "Lyon",
       "addressCountry": "FR",
       "country": "FR",
@@ -277,11 +278,11 @@
       "featured": false,
       "postedDate": "2026-02-28",
       "applyUrl": "https://fusalp.welcomekit.co/jobs/responsable-de-boutique-h-f-39h_lyon",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -297,7 +298,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/conseiller-de-vente-h-f_villefontaine_FUSAL_WMG3xON",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-11T11:53:00.021Z",
+      "crawledAt": "2026-04-11T12:42:51.558Z",
       "addressLocality": "Villefontaine",
       "addressCountry": "FR",
       "country": "FR",
@@ -311,16 +312,15 @@
       "featured": false,
       "postedDate": "2026-02-27",
       "applyUrl": "https://fusalp.welcomekit.co/jobs/conseiller-de-vente-h-f_villefontaine_FUSAL_WMG3xON",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
