@@ -48,6 +48,10 @@ if (!Array.isArray(jobs) || jobs.length === 0) {
 const issues = []; // { slug, locale, reason }
 
 for (const job of jobs) {
+  // Skip jobs queued for retranslation — they're in the pipeline, not bugs.
+  // See CLAUDE.md: "Tests MUST exclude needsRetranslation: true jobs"
+  if (job.needsRetranslation) continue;
+
   const slug = job.slug || '(unknown)';
   const sourceLang = job.sourceLang || 'it';
 
