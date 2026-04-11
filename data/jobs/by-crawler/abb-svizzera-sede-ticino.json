@@ -1,6 +1,6 @@
 {
   "crawlerKey": "abb-svizzera-sede-ticino",
-  "assembledAt": "2026-04-11T08:36:32.603Z",
+  "assembledAt": "2026-04-11T20:37:31.303Z",
   "jobs": [
     {
       "id": "company-l7apjs",
@@ -187,7 +187,8 @@
           "80-100-warehouse-internal-logistik-vorgesetzter-abb-svizzera-sede-ticino-quartino-ticino-qkvhc4",
           "80-100-warehouse-internal-logistique-superviseur-abb-svizzera-sede-ticino-quartino-ticino-qkvhc4"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-2jc587",
@@ -261,7 +262,8 @@
           "capo-turno-collaudo-ipu-modular-80-100-abb-svizzera-sede-ticino-quartino",
           "shift-leader-collaudo-ipu-modular-80-100-abb-svizzera-sede-ticino-quartino-ticino-2jc587"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-n0py3i",
@@ -472,7 +474,8 @@
           "vertragsmanager-abb-svizzera-sede-ticino-ticino-xulm96",
           "vertragsmanager-abb-svizzera-sede-ticino-ticino"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-vs8x2l",
@@ -560,7 +563,8 @@
           "shift-leader-assemblaggio-imballo-80-100-abb-svizzera-sede-ticino-quartino-ticino-vs8x2l",
           "shift-leader-assemblage-emballage-80-100-abb-svizzera-sede-ticino-quartino-ticino-vs8x2l"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-qt8s1o",
@@ -1408,7 +1412,7 @@
       },
       "titleByLocale": {
         "en": "Process Quality Specialist (80-100%)",
-        "it": "Specialista Qualità Processo (80-100%)",
+        "it": "Process Quality Specialista (80-100%)",
         "de": "Process Qualität Spezialist (80-100%)",
         "fr": "Process Qualité Spécialiste (80-100%)"
       },
