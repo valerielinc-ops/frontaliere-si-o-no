@@ -1,6 +1,6 @@
 {
   "crawlerKey": "citta-di-locarno",
-  "assembledAt": "2026-04-10T20:58:59.363Z",
+  "assembledAt": "2026-04-11T08:54:32.535Z",
   "jobs": [
     {
       "id": "citta-di-locarno-maestro-a-della-musica-cittadina-e-responsabile-delle-formazioni-giovanili-15-locarno",
@@ -130,7 +130,8 @@
           "maxValue": 97000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     }
   ]
 }
