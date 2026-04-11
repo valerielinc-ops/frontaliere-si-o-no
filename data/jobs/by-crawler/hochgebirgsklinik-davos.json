@@ -714,7 +714,7 @@
         "de": "mitarbeiter-patientensupport-m-w-80-100-hochgebirgsklinik-davos-ch",
         "it": "addetto-al-supporto-ai-pazienti-m-f-80-100-hochgebirgsklinik-davos-davos",
         "en": "patient-support-staff-m-f-80-100-hochgebirgsklinik-davos-davos",
-        "fr": "agent-d-assistance-aux-patients-m-f-80-100-hochgebirgsklinik-davos-davos"
+        "fr": "collaborateur-au-soutien-des-patients-m-f-80-100-hochgebirgsklinik-davos-davos"
       },
       "company": "Hochgebirgsklinik Davos",
       "companyKey": "hochgebirgsklinik-davos",
@@ -796,10 +796,14 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-patientensupport-m-w-80-100-hochgebirgsklinik-davos-ch"
+        ],
+        "fr": [
+          "agent-d-assistance-aux-patients-m-f-80-100-hochgebirgsklinik-davos-davos"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-patientensupport-m-w-80-100-hochgebirgsklinik-davos-ch"
+        "mitarbeiter-patientensupport-m-w-80-100-hochgebirgsklinik-davos-ch",
+        "agent-d-assistance-aux-patients-m-f-80-100-hochgebirgsklinik-davos-davos"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
