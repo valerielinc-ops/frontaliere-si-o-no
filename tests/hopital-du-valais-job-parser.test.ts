@@ -20,10 +20,12 @@ import {
   detectCategory,
   isHvsJob,
   isTrustedDomain,
+  parseDate,
   HVS_KEY,
   HVS_COMPANY_NAME,
   HVS_COMPANY_DOMAIN,
 } from '../scripts/lib/hopital-du-valais-job-parser.mjs';
+import { slugify } from '../scripts/lib/crawler-template.mjs';
 
 // ─── Constants ──────────────────────────────────────────────────────────────────
 
@@ -310,17 +312,6 @@ describe('ServiceNow detail API response', () => {
 // ─── Slug generation ────────────────────────────────────────────────────────────
 
 describe('slug generation', () => {
-  // Using a local slugify for testing (same logic as parser)
-  function slugify(text = '', maxLength = 90) {
-    return String(text || '')
-      .toLowerCase()
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g, '')
-      .replace(/[^a-z0-9]+/g, '-')
-      .replace(/^-+|-+$/g, '')
-      .slice(0, maxLength);
-  }
-
   it('generates slug for French job title', () => {
     const slug = slugify('Infirmier-ère à 100% pour le service de gynécologie Hôpital du Valais Sion');
     expect(slug).toBe('infirmier-ere-a-100-pour-le-service-de-gynecologie-hopital-du-valais-sion');
@@ -346,13 +337,6 @@ describe('slug generation', () => {
 // ─── Date parsing ───────────────────────────────────────────────────────────────
 
 describe('date parsing (DD.MM.YYYY → YYYY-MM-DD)', () => {
-  // Local helper matching parser logic
-  function parseDate(raw = '') {
-    const m = String(raw || '').trim().match(/^(\d{2})\.(\d{2})\.(\d{4})$/);
-    if (!m) return '';
-    return `${m[3]}-${m[2]}-${m[1]}`;
-  }
-
   it('parses standard date', () => {
     expect(parseDate('10.04.2026')).toBe('2026-04-10');
   });

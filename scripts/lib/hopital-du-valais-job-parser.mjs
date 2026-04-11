@@ -14,6 +14,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
+import { slugify, stripHtml } from './crawler-template.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -56,39 +57,10 @@ function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
 }
 
-function stripHtml(html = '') {
-  return String(html || '')
-    .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
-    .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
-    .replace(/<br\s*\/?>/gi, '\n')
-    .replace(/<\/(?:p|div|li|tr|h[1-6])>/gi, '\n')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'")
-    .replace(/&nbsp;/g, ' ')
-    .replace(/\u00a0/g, ' ')
-    .replace(/\n{3,}/g, '\n\n')
-    .replace(/ {2,}/g, ' ')
-    .trim();
-}
-
-function slugify(text = '', maxLength = 90) {
-  return String(text || '')
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
-    .slice(0, maxLength);
-}
-
 /**
  * Parse DD.MM.YYYY → YYYY-MM-DD. Returns '' on failure.
  */
-function parseDate(raw = '') {
+export function parseDate(raw = '') {
   const m = String(raw || '').trim().match(/^(\d{2})\.(\d{2})\.(\d{4})$/);
   if (!m) return '';
   return `${m[3]}-${m[2]}-${m[1]}`;

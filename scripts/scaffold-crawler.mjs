@@ -13,7 +13,7 @@
  *   --name      Company display name (default: Title Case of key)
  *   --domain    Company website domain (default: {key}.ch)
  *   --lang      Source language: it, en, de, fr (default: it)
- *   --source    Career page type: generic, workday, successfactors, greenhouse (default: generic)
+ *   --source    Career page type: generic, api, workday, successfactors, greenhouse (default: generic)
  *   --url       Career page URL (used in parser template)
  *   --force     Overwrite existing files
  *
@@ -41,7 +41,7 @@ Options:
   --name <name>       Company display name (e.g. "Lonza AG")
   --domain <domain>   Company domain (e.g. "lonza.com")
   --lang <code>       Source language: it, en, de, fr (default: it)
-  --source <type>     Career page type: generic, workday, successfactors, greenhouse
+  --source <type>     Career page type: generic, api, workday, successfactors, greenhouse
   --url <url>         Career page URL
   --force             Overwrite existing files
 
@@ -105,10 +105,11 @@ const parserContent = `#!/usr/bin/env node
  *   - fetchAll${pascalKey}Jobs()  — Fetch and parse all jobs
  *   - is${pascalKey}Job()         — Match jobs belonging to this company
  *   - isTrustedDomain()           — Validate URLs belong to this company
- *   - slugify()                   — Build URL-safe slugs
+ *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
+import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -127,36 +128,6 @@ function normalize(value = '') {
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\\s+/g, ' ').trim();
-}
-
-export function slugify(text = '', suffix = '') {
-  let s = text
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\\u0300-\\u036f]/g, '')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '');
-  if (suffix) s = \`\${s}-\${suffix}\`.replace(/--+/g, '-');
-  return s.slice(0, 90);
-}
-
-function stripHtml(html = '') {
-  return String(html || '')
-    .replace(/<script[^>]*>[\\s\\S]*?<\\/script>/gi, '')
-    .replace(/<style[^>]*>[\\s\\S]*?<\\/style>/gi, '')
-    .replace(/<br\\s*\\/?>/gi, '\\n')
-    .replace(/<\\/(?:p|div|li|tr|h[1-6])>/gi, '\\n')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'")
-    .replace(/&nbsp;/g, ' ')
-    .replace(/\\u00a0/g, ' ')
-    .replace(/\\n{3,}/g, '\\n\\n')
-    .replace(/ {2,}/g, ' ')
-    .trim();
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -228,15 +199,81 @@ function detectEmploymentType(text = '') {
   return 'OTHER';
 }
 
-/* ── Fetch + Parse ─────────────────────────────────────────── */
+${sourceType === 'api' ? `/* ── API Client ────────────────────────────────────────────── */
+
+const PAGE_SIZE = 20; // TODO: Adjust to match the API's page size
+
+/**
+ * Call the JSON API with timeout handling.
+ */
+async function callApi(url, body = null) {
+  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+
+  try {
+    const opts = {
+      method: body ? 'POST' : 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+        'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT ||
+          'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
+      },
+      signal: controller.signal,
+    };
+    if (body) opts.body = JSON.stringify(body);
+    const res = await fetch(url, opts);
+    clearTimeout(timer);
+    if (!res.ok) throw new Error(\`HTTP \${res.status} from API\`);
+    return await res.json();
+  } catch (err) {
+    clearTimeout(timer);
+    throw err;
+  }
+}
+
+/**
+ * Fetch paginated job listings from the API.
+ * TODO: Adapt pagination to match the actual API (offset, cursor, page number, etc.)
+ */
+async function fetchJobListings() {
+  const allListings = [];
+  let offset = 0;
+
+  while (true) {
+    console.log(\`  📄 Fetching page at offset \${offset}...\`);
+    // TODO: Adjust URL/body to match the actual API pagination
+    const data = await callApi(\`\${CAREER_URL}?offset=\${offset}&limit=\${PAGE_SIZE}\`);
+    const items = data?.results || data?.jobs || data || [];
+    if (!Array.isArray(items) || items.length === 0) break;
+    allListings.push(...items);
+    if (items.length < PAGE_SIZE) break;
+    offset += PAGE_SIZE;
+    await new Promise((r) => setTimeout(r, 300)); // Rate limiting
+  }
+
+  return allListings;
+}
+
+/**
+ * Fetch detail for a single job (richer description).
+ * TODO: Implement if the API provides a separate detail endpoint.
+ */
+async function fetchJobDetail(jobId) {
+  // const data = await callApi(\`\${CAREER_URL}/\${jobId}\`);
+  // return data;
+  return null;
+}` : `/* ── Fetch + Parse ─────────────────────────────────────────── */
 
 // TODO: Implement the actual fetching logic for ${companyName}'s career page.
 // This is a placeholder. Replace with the actual API/scraping logic.
 //
 // Common patterns:
-//   - Workday API: POST to /wday/cxs/{tenant}/{site}/jobs with JSON body
+//   - JSON API:     use --source api for a ready-made paginated API template
+//   - Workday API:  POST to /wday/cxs/{tenant}/{site}/jobs with JSON body
 //   - SuccessFactors: GET /go/{category}/{id}/
-//   - Greenhouse: GET https://boards-api.greenhouse.io/v1/boards/{board}/jobs
+//   - Greenhouse:   GET https://boards-api.greenhouse.io/v1/boards/{board}/jobs
 //   - Generic HTML: fetch + parse with regex or cheerio
 
 async function fetchJobListings() {
@@ -251,7 +288,7 @@ async function fetchJobListings() {
   // return await res.json();
 
   return [];
-}
+}`}
 
 /**
  * Fetch all ${companyName} jobs.
@@ -483,8 +520,8 @@ import {
   ${CONST_PREFIX}_COMPANY_NAME,
   is${pascalKey}Job,
   isTrustedDomain,
-  slugify,
-} from '@/scripts/lib/${companyKey}-job-parser.mjs';
+} from '../scripts/lib/${companyKey}-job-parser.mjs';
+import { slugify } from '../scripts/lib/crawler-template.mjs';
 
 describe('${companyName} crawler parser', () => {
   // ── Constants ──
@@ -538,7 +575,7 @@ describe('${companyName} crawler parser', () => {
     });
   });
 
-  // ── slugify ──
+  // ── slugify (imported from crawler-template) ──
   describe('slugify', () => {
     it('converts title to URL-safe slug', () => {
       const slug = slugify('Software Engineer (m/f/d)');
@@ -549,8 +586,8 @@ describe('${companyName} crawler parser', () => {
       expect(slugify('Ingénieur qualité')).toBe('ingenieur-qualite');
     });
 
-    it('handles suffix', () => {
-      expect(slugify('Developer', '${companyKey}-ch')).toBe('developer-${companyKey}-ch');
+    it('builds slug with company suffix inline', () => {
+      expect(slugify('Developer ${companyKey} ch')).toBe('developer-${companyKey}-ch');
     });
 
     it('respects max length', () => {
@@ -641,15 +678,19 @@ console.log(`
   3. TEST LOCALLY
      node scripts/update-${companyKey}-jobs.mjs
 
-  4. REGISTER IN ORCHESTRATOR
+  4. REGISTER LOCATION
+     Add to COMPANY_HQ in scripts/lib/crawler-location-config.mjs:
+       '${companyKey}': { city: 'TODO', canton: 'TODO', postalCode: 'TODO', addressRegion: 'TODO' },
+
+  5. REGISTER IN ORCHESTRATOR
      Add '${companyKey}' to data/jobs-crawler-config.json
 
-  5. PUSH & TRIGGER
+  7. PUSH & TRIGGER
      git add -A && git commit -m "feat(crawler): add ${companyName} dedicated crawler"
      git push
      gh workflow run update-jobs-${companyKey}.yml
 
-  6. AFTER CRAWLER SUCCEEDS
+  8. AFTER CRAWLER SUCCEEDS
      gh workflow run translate-pending.yml
      # Then verify: zero overlaps, all 4 locales populated
 `);

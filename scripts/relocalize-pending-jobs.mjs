@@ -690,6 +690,56 @@ async function main() {
     }
   }
 
+  // ── Retry pass: re-attempt companies that had partial success ──────────
+  // Rate limits often clear partway through a run. Companies processed early
+  // may have had failures that would succeed now. Only retry if we have time.
+  const retryElapsedMs = Date.now() - startTime;
+  if (totalFixed > 0 && retryElapsedMs < TIME_BUDGET_MS * 0.85) {
+    const retryJobs = readJson(DATA_JOBS_PATH);
+    const retryPending = Array.isArray(retryJobs)
+      ? retryJobs.filter(j => j.needsRetranslation && needsTranslation(j))
+      : [];
+
+    // Only retry companies that had at least one success (partial failure)
+    const retryCompanies = new Map();
+    for (const j of retryPending) {
+      const k = normalizeCompanyKey(j.companyKey || j.company || '');
+      if (k && companyJobCounts.has(k)) {
+        retryCompanies.set(k, (retryCompanies.get(k) || 0) + 1);
+      }
+    }
+
+    if (retryCompanies.size > 0) {
+      const retryTotal = [...retryCompanies.values()].reduce((a, b) => a + b, 0);
+      console.log(`\n🔁 Retry pass: ${retryTotal} jobs across ${retryCompanies.size} companies still pending...`);
+
+      for (const [key, count] of retryCompanies) {
+        const retryNow = Date.now() - startTime;
+        if (retryNow > TIME_BUDGET_MS * 0.95) {
+          console.log(`   ⏰ Time budget reached during retry — stopping`);
+          break;
+        }
+
+        console.log(`   🔁 Retrying ${key} (${count} jobs)...`);
+        try {
+          await runSharedCrawler([key], count);
+          const afterRetry = readJson(DATA_JOBS_PATH);
+          if (Array.isArray(afterRetry)) {
+            const cleared = clearRetranslationFlags(afterRetry);
+            if (cleared > 0) {
+              fs.writeFileSync(DATA_JOBS_PATH, JSON.stringify(afterRetry, null, 2) + '\n', 'utf-8');
+              totalFixed += cleared;
+              console.log(`   ✅ ${key} retry: ${cleared} more jobs translated`);
+              syncTranslationsToCrawlerFile(key, afterRetry);
+            }
+          }
+        } catch {
+          console.log(`   ⚠️  ${key} retry failed — will be picked up by next scheduled run`);
+        }
+      }
+    }
+  }
+
   // Final summary — use saved slug set instead of re-reading data/jobs.json
   // (data/jobs.json is gitignored and gets rewritten by the shared crawler with
   // stripCopyPasteLocales, causing a measurement drift that doesn't reflect reality)
