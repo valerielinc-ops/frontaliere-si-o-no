@@ -120,6 +120,20 @@ const TRAKSTAR_BASE = 'https://tallyweijl.hire.trakstar.com';
  * Fetch and parse the Trakstar Hire HTML listing page.
  * Filters to Switzerland only (both "Switzerland" and "Schweiz" filters).
  * Returns raw extracted listings with title, location, url, etc.
+ *
+ * Trakstar HTML structure per job card:
+ *   <div class="js-card list-item..." data-href="/jobs/{id}/">
+ *     <a href="/jobs/{id}/">
+ *       <h3 class="...js-job-list-opening-name..." title="TITLE">TITLE</h3>
+ *       <div class="...js-job-list-opening-loc..." title="City, State, Country">
+ *         <span class="meta-job-location-city">City</span>,
+ *         <span class="meta-job-location-state">State</span>,
+ *         <span class="meta-job-location-country">Country</span>
+ *       </div>
+ *       <span data-time="...">Date</span>
+ *       <span class="...meta-job-type...">Full-time</span>
+ *     </a>
+ *   </div>
  */
 async function fetchJobListings() {
   const allListings = [];
@@ -148,40 +162,38 @@ async function fetchJobListings() {
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const html = await res.text();
 
-        // Parse job cards from the HTML.
-        // Each job is an <a> tag with href="/jobs/{id}/" containing title, location, date.
-        const jobPattern = /<a\s+href="(\/jobs\/[^"]+\/)"[^>]*>([\s\S]*?)<\/a>/gi;
+        // Parse job cards: each card is a <div class="js-card..." data-href="/jobs/{id}/">
+        const cardPattern = /<div\s+class="js-card\s+list-item[^"]*"[^>]*data-href="(\/jobs\/[^"]+\/)"[^>]*>([\s\S]*?)(?=<div\s+class="js-card\s+list-item|<nav\b|<footer\b)/gi;
         let match;
         let foundOnPage = 0;
 
-        while ((match = jobPattern.exec(html)) !== null) {
+        while ((match = cardPattern.exec(html)) !== null) {
           const jobPath = match[1];
           const cardHtml = match[2];
 
-          // Extract title: typically inside an h-tag or strong text
-          const titleMatch = cardHtml.match(/<h\d[^>]*>(.*?)<\/h\d>/i) ||
-            cardHtml.match(/<strong[^>]*>(.*?)<\/strong>/i);
-          const rawTitle = titleMatch ? stripHtml(titleMatch[1]).trim() : '';
+          // Extract title from <h3 title="..."> attribute
+          const titleAttrMatch = cardHtml.match(/<h3[^>]+title="([^"]+)"/i);
+          const rawTitle = titleAttrMatch
+            ? normalizeSpace(titleAttrMatch[1])
+            : '';
           if (!rawTitle || rawTitle.length < 3) continue;
 
-          // Extract location text: "City, State, Country" pattern
-          const locationText = stripHtml(cardHtml)
-            .replace(rawTitle, '')
-            .trim();
+          // Extract location from <div class="...js-job-list-opening-loc..." title="City, State, Country">
+          const locAttrMatch = cardHtml.match(/js-job-list-opening-loc[^"]*"[^>]*title="([^"]+)"/i);
+          const locString = locAttrMatch ? locAttrMatch[1].trim() : '';
+          const locParts = locString.split(',').map(s => s.trim());
+          const city = locParts[0] || '';
+          const state = locParts[1] || '';
 
-          // Parse location components
-          const locParts = locationText.split(/[,\n]/).map(s => s.trim()).filter(Boolean);
-          // Filter out date-like strings, recruiter names, and employment type
-          const locationParts = locParts.filter(
-            p => !/^\w+\.\s*\d+,\s*\d{4}$/.test(p) && !/full.?time|part.?time|contract/i.test(p) && p.length > 1
-          );
+          // Extract date from data-time span or visible text
+          const dateAttrMatch = cardHtml.match(/title="Apply by:\s*([^"]+)"/i) ||
+            cardHtml.match(/data-time="[^"]*"[^>]*>\s*(\w+\.\s*\d+,\s*\d{4})/i);
+          const postedDateRaw = dateAttrMatch ? dateAttrMatch[1].trim() : '';
 
-          const city = locationParts[0] || '';
-          const state = locationParts[1] || '';
-
-          // Extract posted date
-          const dateMatch = locationText.match(/(\w+\.\s*\d+,\s*\d{4})/);
-          const postedDateRaw = dateMatch ? dateMatch[1] : '';
+          // Extract employment type
+          const typeMatch = cardHtml.match(/meta-job-type[^"]*"[^>]*>([^<]+)/i) ||
+            cardHtml.match(/(full.?time|part.?time|contract)/i);
+          const empType = typeMatch ? typeMatch[1].trim() : 'Full-time';
 
           allListings.push({
             title: rawTitle,
@@ -190,7 +202,7 @@ async function fetchJobListings() {
             country,
             url: `${TRAKSTAR_BASE}${jobPath}`,
             postedDate: postedDateRaw,
-            employmentType: /part.?time/i.test(locationText) ? 'PART_TIME' : 'FULL_TIME',
+            employmentType: /part.?time/i.test(empType) ? 'PART_TIME' : 'FULL_TIME',
           });
           foundOnPage++;
         }
