@@ -5794,4 +5794,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/autostrada-a9-chiude-de-notti-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'multa-vignetta-pasqua-chiasso-2024',
+    category: 'pratico',
+    date: '2026-04-11T03:08:49.850Z',
+    image: '/images/blog/multa-vignetta-pasqua-chiasso-2024.jpg',
+    hasCalculator: true,
+  },
 ];

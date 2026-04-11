@@ -1942,6 +1942,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-tassa-salute-frontalieri-lombardia-isola-2026': { name: 'Tassa salute frontalieri', path: '/articoli-frontaliere/tassa-salute-frontalieri-lombardia-isola-2026', parent: 'blog' },
     'blog-reclutamento-infermieri-lombardia': { name: 'Reclutamento Infermieri', path: '/articoli-frontaliere/reclutamento-infermieri-lombardia', parent: 'blog' },
     'blog-autostrada-a9-chiude-de-notti-2026': { name: 'Autostrada A9 verso Chiasso chiusa di no', path: '/articoli-frontaliere/autostrada-a9-chiude-de-notti-2026', parent: 'blog' },
+    'blog-multa-vignetta-pasqua-chiasso-2024': { name: 'Vignetta Svizzera', path: '/articoli-frontaliere/multa-vignetta-pasqua-chiasso-2024', parent: 'blog' },
   };
 
   const info = sectionNames[section];

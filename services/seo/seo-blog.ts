@@ -6792,6 +6792,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-multa-vignetta-pasqua-chiasso-2024': {
+    title: '190 multati in una notte a Chiasso | Frontaliere Ticino',
+    description: 'Durante Pasqua 2024, 190 veicoli su 1\'620 sono stati multati alla dogana di Chiasso per mancanza della vignetta autostradale. Scopri come evitare la multa da',
+    keywords: 'frontalieri, ticino, svizzera, italia, multati, notte, chiasso, ecco',
+    ogTitle: '190 multe a Chiasso per mancanza vignetta: la guida per',
+    ogDescription: 'Scopri perché 190 automobilisti sono stati multati alla dogana di Chiasso durante Pasqua 2024 e come evitare la multa da 200 CHF con semplici passaggi.',
+    canonicalPath: '/articoli-frontaliere/multa-vignetta-pasqua-chiasso-2024',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontaliere Ticino - 190 multe a Chiasso per vignetta mancante durante Pasqua 2024: procedura e",
+      "description": "Durante Pasqua 2024, 190 veicoli su 1'620 sono stati multati alla dogana di Chiasso per mancanza della vignetta autostradale. Scopri come evitare la multa da",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/multa-vignetta-pasqua-chiasso-2024.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Dogana di Chiasso: agenti dell'UDSC controllano la vignetta autostradale su 1'620 veicoli durante il weekend di Pasqua 2024"
+      },
+      "datePublished": "2026-04-11T03:08:49+00:00",
+      "dateModified": "2026-04-11T03:08:49+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/multa-vignetta-pasqua-chiasso-2024`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

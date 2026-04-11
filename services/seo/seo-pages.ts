@@ -3670,7 +3670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 738,
+        "numberOfItems": 739,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -4386,7 +4386,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 735, "name": "Fertilizzanti +40% in Ticino: la crisi di Hormu...", "url": `${BASE_URL}/articoli-frontaliere/fertilizzanti-crisi-hormuz-rincari-ticino-40` },
           { "@type": "ListItem", "position": 736, "name": "Tassa salute frontalieri: Lombardia sola a insi...", "url": `${BASE_URL}/articoli-frontaliere/tassa-salute-frontalieri-lombardia-isola-2026` },
           { "@type": "ListItem", "position": 737, "name": "Reclutatori ticinesi a caccia di futuri infermi...", "url": `${BASE_URL}/articoli-frontaliere/reclutamento-infermieri-lombardia` },
-          { "@type": "ListItem", "position": 738, "name": "Autostrada A9 verso Chiasso chiusa di notte: ec...", "url": `${BASE_URL}/articoli-frontaliere/autostrada-a9-chiude-de-notti-2026` }
+          { "@type": "ListItem", "position": 738, "name": "Autostrada A9 verso Chiasso chiusa di notte: ec...", "url": `${BASE_URL}/articoli-frontaliere/autostrada-a9-chiude-de-notti-2026` },
+          { "@type": "ListItem", "position": 739, "name": "Frontaliere Ticino - 190 multe a Chiasso per vi...", "url": `${BASE_URL}/articoli-frontaliere/multa-vignetta-pasqua-chiasso-2024` }
         ]
       }
     ]

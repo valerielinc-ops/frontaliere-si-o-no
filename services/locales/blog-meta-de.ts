@@ -2061,6 +2061,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.autostrada-a9-chiude-de-notti-2026.title': 'Autobahn A9 Richtung Chiasso nachts gesperrt: Wann und warum',
     'blog.article.autostrada-a9-chiude-de-notti-2026.excerpt': 'Abschnitt Como Centro–Chiasso der A9 vom 13. bis 15. April 2026 von 22 bis 5 Uhr gesperrt wegen Asphaltarbeiten, Ersatz eines Hochspannungskabels sowie Durchfahrt von Sonderfahrzeugen',
     'blog.article.autostrada-a9-chiude-de-notti-2026.imageAlt': 'Autobahn A9 nach Chiasso nachts wegen Straßenarbeiten gesperrt: Absperrungen und Schilder auf der Hauptstraße mit Pendlerstau',
+    'blog.article.multa-vignetta-pasqua-chiasso-2024.title': '190 Bussgelder in einer Nacht in Chiasso: So vermeiden Sie die Strafe von 200 CHF',
+    'blog.article.multa-vignetta-pasqua-chiasso-2024.excerpt': 'Während des Osterwochenendes 2024 wurden an der Zollstation Chiasso 190 von 1\'620 Autofahrern wegen fehlender Autobahnvignette mit einer Strafe belegt. Die Busse beträgt 200 Franken.',
+    'blog.article.multa-vignetta-pasqua-chiasso-2024.imageAlt': 'Chiasso Grenze: Schweizer Zollbeamte überprüfen Autobahnvignetten an 1\'620 Fahrzeugen über Ostern 2024',
 };
 
 export default blogMetaDe;

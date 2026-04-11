@@ -2061,6 +2061,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.autostrada-a9-chiude-de-notti-2026.title': 'A9 motorway towards Chiasso closed at night: here’s when and why',
     'blog.article.autostrada-a9-chiude-de-notti-2026.excerpt': 'Como Centro-Chiasso section of the A9 motorway will be blocked from 10 PM to 5 AM due to road resurfacing, high-voltage cable replacement, and the transit of special vehicles from April 13 to 15, 2026',
     'blog.article.autostrada-a9-chiude-de-notti-2026.imageAlt': 'A9 highway to Chiasso closed at night for roadworks: barriers and signs on ordinary roads with commuters queuing',
+    'blog.article.multa-vignetta-pasqua-chiasso-2024.title': '190 drivers fined in one night in Chiasso: here’s how to avoid the 200 CHF penalty',
+    'blog.article.multa-vignetta-pasqua-chiasso-2024.excerpt': 'During the Easter weekend of 2024, 190 out of 1,620 drivers were fined at the Chiasso border for failing to display a valid Swiss motorway vignette. The penalty amounts to 200 francs.',
+    'blog.article.multa-vignetta-pasqua-chiasso-2024.imageAlt': 'Chiasso border: Swiss customs agents check motorway vignettes on 1,620 vehicles during Easter 2024 weekend',
 };
 
 export default blogMetaEn;

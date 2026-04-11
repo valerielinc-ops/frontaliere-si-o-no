@@ -2061,6 +2061,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.autostrada-a9-chiude-de-notti-2026.title': 'Autostrada A9 verso Chiasso chiusa di notte: ecco quando e perché',
     'blog.article.autostrada-a9-chiude-de-notti-2026.excerpt': 'Tratto Como Centro-Chiasso dell\'A9 bloccato dalle 22 alle 5 per pavimentazione, sostituzione cavo alta tensione e transito mezzi speciali dal 13 al 15 aprile 2026',
     'blog.article.autostrada-a9-chiude-de-notti-2026.imageAlt': 'Autostrada A9 verso Chiasso chiusa di notte per lavori: transenne e cartelli sulla viabilità ordinaria con pendolari in coda',
+    'blog.article.multa-vignetta-pasqua-chiasso-2024.title': '190 multati in una notte a Chiasso: ecco come evitare la sanzione da 200 CHF',
+    'blog.article.multa-vignetta-pasqua-chiasso-2024.excerpt': 'Durante il weekend di Pasqua 2024, 190 automobilisti su 1\'620 sono stati multati alla dogana di Chiasso per mancanza della vignetta autostradale. La multa è di 200 franchi.',
+    'blog.article.multa-vignetta-pasqua-chiasso-2024.imageAlt': 'Dogana di Chiasso: agenti dell\'UDSC controllano la vignetta autostradale su 1\'620 veicoli durante il weekend di Pasqua 2024',
 };
 
 export default blogMetaIt;
