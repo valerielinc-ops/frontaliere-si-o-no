@@ -37,6 +37,7 @@ const ATS_HOST_MARKERS = [
   'icims.com',
   'workable.com',
   'jobvite.com',
+  'service-now.com',
 ];
 
 function gFavicon(domain: string): string {
@@ -97,6 +98,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
   'goline': gFavicon('goline.ch'),
   'guess-europe': gFavicon('guess.eu'),
   'has-healthcare': cLogo('has-pharma.com'),
+  'hopital-du-valais': gFavicon('valaishospital.ch'),
   'ibsa-institut-biochimique': 'https://rmkcdn.successfactors.com/0628fab4/f37d25aa-93c8-4480-bb16-3.png',
   'julius-baer': cLogo('juliusbaer.com'),
   'kantonsspital-graubuenden-ksgr': gFavicon('ksgr.ch'),
