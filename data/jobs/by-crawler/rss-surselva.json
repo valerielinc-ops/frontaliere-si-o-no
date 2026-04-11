@@ -165,7 +165,7 @@
       "slug": "personale-sanitario-efz-40-60-per-la-nostra-lips-unita-di-terapia-intensiva-regionalspital-surselva-ilanz",
       "slugByLocale": {
         "it": "personale-sanitario-efz-40-60-per-la-nostra-lips-unita-di-terapia-intensiva-regionalspital-surselva-ilanz",
-        "en": "specialist-health-efz-40-60-for-our-lips-high-performance-nursing-ward-regionalspital-surselva-ilanz",
+        "en": "healthcare-professional-efz-40-60-for-our-lips-intensive-care-unit-regionalspital-surselva-ilanz",
         "de": "fachperson-gesundheit-efz-40-60-fur-unsere-lips-leistungsintensive-pflegestation-regionalspital-surselva-ilanz",
         "fr": "specialiste-de-la-sante-cfc-40-60-pour-nos-lips-unite-de-soins-intensifs-regionalspital-surselva-ilanz"
       },
@@ -221,7 +221,8 @@
           "fachperson-gesundheit-cfc-40-60-per-unsere-lips-leistungsintensive-pflegestation-regionalspital-surselva-ilanz"
         ],
         "en": [
-          "fachperson-gesundheit-efz-40-60-fur-unsere-lips-leistungsintensive-pflegestation-regionalspital-surselva-ilanz"
+          "fachperson-gesundheit-efz-40-60-fur-unsere-lips-leistungsintensive-pflegestation-regionalspital-surselva-ilanz",
+          "specialist-health-efz-40-60-for-our-lips-high-performance-nursing-ward-regionalspital-surselva-ilanz"
         ],
         "fr": [
           "fachperson-gesundheit-efz-40-60-fur-unsere-lips-leistungsintensive-pflegestation-regionalspital-surselva-ilanz"
@@ -229,8 +230,9 @@
       },
       "previousSlugs": [
         "fachperson-gesundheit-efz-40-60-fur-unsere-lips-leistungsintensive-pflegestation-rss-surse",
+        "fachperson-gesundheit-cfc-40-60-per-unsere-lips-leistungsintensive-pflegestation-regionalspital-surselva-ilanz",
         "fachperson-gesundheit-efz-40-60-fur-unsere-lips-leistungsintensive-pflegestation-regionalspital-surselva-ilanz",
-        "fachperson-gesundheit-cfc-40-60-per-unsere-lips-leistungsintensive-pflegestation-regionalspital-surselva-ilanz"
+        "specialist-health-efz-40-60-for-our-lips-high-performance-nursing-ward-regionalspital-surselva-ilanz"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -416,7 +418,7 @@
         "it": "esperto-a-nds-hf-emergenza-100-regionalspital-surselva-ilanz",
         "en": "dipl-experten-expertin-nds-hf-notfallpflege-100-regionalspital-surselva-ilanz",
         "de": "dipl-ing-experten-expertin-nds-hf-notfallpflege-100-regionalspital-surselva-ilanz",
-        "fr": "expert-e-diplome-e-epd-es-soins-d-urgence-100-regionalspital-surselva-ilanz"
+        "fr": "expert-e-nds-hf-urgences-100-regionalspital-surselva-ilanz"
       },
       "company": "Regionalspital Surselva",
       "companyKey": "rss-surselva",
@@ -467,10 +469,14 @@
         ],
         "de": [
           "dipl-experten-expertin-nds-hf-notfallpflege-100-rss-surselva-ch"
+        ],
+        "fr": [
+          "expert-e-diplome-e-epd-es-soins-d-urgence-100-regionalspital-surselva-ilanz"
         ]
       },
       "previousSlugs": [
-        "dipl-experten-expertin-nds-hf-notfallpflege-100-rss-surselva-ch"
+        "dipl-experten-expertin-nds-hf-notfallpflege-100-rss-surselva-ch",
+        "expert-e-diplome-e-epd-es-soins-d-urgence-100-regionalspital-surselva-ilanz"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -820,7 +826,7 @@
         "it": "assistente-di-endoscopia-30-o-su-accordo-hf-mpa-fage-regionalspital-surselva-ilanz",
         "en": "endoscopy-assistant-30-or-as-agreed-hf-mpa-fage-regionalspital-surselva-ilanz",
         "de": "endoskopie-assistent-in-30-oder-nach-vereinbarung-hf-mpa-fage-regionalspital-surselva-ilanz",
-        "fr": "assistant-endoscopique-a-30-ou-sur-rendez-vous-hf-mpa-assc-regionalspital-surselva-ilanz"
+        "fr": "assistant-d-endoscopie-30-ou-selon-accord-hf-mpa-fage-regionalspital-surselva-ilanz"
       },
       "company": "Regionalspital Surselva",
       "companyKey": "rss-surselva",
@@ -878,13 +884,15 @@
           "endoscopyassistant-30-or-by-appointment-hf-mpa-fage-regionalspital-surselva-ilanz"
         ],
         "fr": [
-          "endoskopie-assistent-in-30-oder-nach-vereinbarung-hf-mpa-fage-rss-surselva-ch"
+          "endoskopie-assistent-in-30-oder-nach-vereinbarung-hf-mpa-fage-rss-surselva-ch",
+          "assistant-endoscopique-a-30-ou-sur-rendez-vous-hf-mpa-assc-regionalspital-surselva-ilanz"
         ]
       },
       "previousSlugs": [
         "endoskopie-assistent-in-30-oder-nach-vereinbarung-hf-mpa-fage-rss-surselva-ch",
         "endoskopie-assistent-in-30-o-nach-vereinbarung-hf-mpa-fage-regionalspital-surselva-ilanz",
-        "endoscopyassistant-30-or-by-appointment-hf-mpa-fage-regionalspital-surselva-ilanz"
+        "endoscopyassistant-30-or-by-appointment-hf-mpa-fage-regionalspital-surselva-ilanz",
+        "assistant-endoscopique-a-30-ou-sur-rendez-vous-hf-mpa-assc-regionalspital-surselva-ilanz"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -986,9 +994,9 @@
       "slug": "medico-pediatra-dirigente-regionalspital-surselva-ilanz",
       "slugByLocale": {
         "it": "medico-pediatra-dirigente-regionalspital-surselva-ilanz",
-        "en": "senior-physician-pediatrics-can-be-combined-with-practical-work-regionalspital-surselva-ilanz",
+        "en": "lead-pediatrician-regionalspital-surselva-ilanz",
         "de": "leitende-arztin-leitender-arzt-padiatrie-kombinierbar-mit-praxistatigkeit-regionalspital-surselva-ilanz",
-        "fr": "medecin-chef-medecin-chef-en-pediatrie-peut-etre-combine-avec-une-activite-au-cabinet-regionalspital-surselva-ilanz"
+        "fr": "medecin-pediatre-chef-regionalspital-surselva-ilanz"
       },
       "company": "Regionalspital Surselva",
       "companyKey": "rss-surselva",
@@ -1037,11 +1045,19 @@
         "it": [
           "leitende-arztin-leitender-arzt-padiatrie-kombinierbar-mit-praxistatigkeit-rss-surselva-ch",
           "leitende-arztin-leitender-arzt-padiatrie-kombinierbar-mit-praxistatigkeit-regionalspital-surselva-ilanz"
+        ],
+        "en": [
+          "senior-physician-pediatrics-can-be-combined-with-practical-work-regionalspital-surselva-ilanz"
+        ],
+        "fr": [
+          "medecin-chef-medecin-chef-en-pediatrie-peut-etre-combine-avec-une-activite-au-cabinet-regionalspital-surselva-ilanz"
         ]
       },
       "previousSlugs": [
         "leitende-arztin-leitender-arzt-padiatrie-kombinierbar-mit-praxistatigkeit-rss-surselva-ch",
-        "leitende-arztin-leitender-arzt-padiatrie-kombinierbar-mit-praxistatigkeit-regionalspital-surselva-ilanz"
+        "leitende-arztin-leitender-arzt-padiatrie-kombinierbar-mit-praxistatigkeit-regionalspital-surselva-ilanz",
+        "senior-physician-pediatrics-can-be-combined-with-practical-work-regionalspital-surselva-ilanz",
+        "medecin-chef-medecin-chef-en-pediatrie-peut-etre-combine-avec-une-activite-au-cabinet-regionalspital-surselva-ilanz"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,
