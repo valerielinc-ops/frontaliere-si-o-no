@@ -217,19 +217,38 @@ async function fetchTypesenseApiKey() {
 
     const nuxtArr = JSON.parse(nuxtMatch[1]);
 
-    // The data structure has the key at the index stored in the top-level data object
-    // under the property "typesenseApiKey-{jobShopId}"
-    const dataObjIdx = nuxtArr[1]?.data;
-    if (dataObjIdx === undefined) throw new Error('NUXT_DATA: data index not found');
-
-    const dataObj = nuxtArr[dataObjIdx];
+    // Strategy 1: Search all objects in the NUXT_DATA array for the typesenseApiKey property
     const keyProp = `typesenseApiKey-${JOB_SHOP_ID}`;
-    const keyIdx = dataObj?.[keyProp];
-    if (keyIdx === undefined) throw new Error(`NUXT_DATA: ${keyProp} index not found`);
+    let apiKey = null;
 
-    const apiKey = nuxtArr[keyIdx];
-    if (!apiKey || typeof apiKey !== 'string' || apiKey.length < 20) {
-      throw new Error('NUXT_DATA: invalid Typesense API key');
+    for (const entry of nuxtArr) {
+      if (entry && typeof entry === 'object' && !Array.isArray(entry) && keyProp in entry) {
+        const keyIdx = entry[keyProp];
+        const candidate = typeof keyIdx === 'number' ? nuxtArr[keyIdx] : keyIdx;
+        if (candidate && typeof candidate === 'string' && candidate.length >= 20) {
+          apiKey = candidate;
+          break;
+        }
+      }
+    }
+
+    // Strategy 2: Search for any long base64-looking string that could be a scoped Typesense key
+    if (!apiKey) {
+      for (const entry of nuxtArr) {
+        if (typeof entry === 'string' && entry.length > 100 && /^[A-Za-z0-9+/=]+$/.test(entry)) {
+          try {
+            const decoded = Buffer.from(entry, 'base64').toString('utf8');
+            if (decoded.includes('filter_by') && decoded.includes(JOB_SHOP_ID.split('-')[0])) {
+              apiKey = entry;
+              break;
+            }
+          } catch { /* not valid base64 */ }
+        }
+      }
+    }
+
+    if (!apiKey) {
+      throw new Error(`NUXT_DATA: ${keyProp} not found in any object (array has ${nuxtArr.length} entries)`);
     }
 
     console.log(`  🔑 Extracted Typesense API key (${apiKey.length} chars)`);
