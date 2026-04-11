@@ -173,6 +173,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
         canton: string;
         contract: string;
         relatedJobs: string;
+        allJobsLink: string;
         practicalNotes: string[];
         requirementsLabel: string;
         summaryLabel: string;
@@ -193,6 +194,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
           canton: 'Cantone',
           contract: 'Contratto',
           relatedJobs: 'Annunci correlati',
+          allJobsLink: 'Tutte le offerte di lavoro in Ticino',
           practicalNotes: [
             'Questa scheda aggrega i dettagli principali dell\'annuncio e li struttura in modo leggibile per frontalieri che cercano lavoro in Ticino.',
             'Verifica sempre lingua richiesta, sede effettiva e modalità di candidatura prima di inviare il CV: alcuni ruoli prevedono step internazionali e assessment tecnici.',
@@ -217,6 +219,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
           canton: 'Canton',
           contract: 'Contract',
           relatedJobs: 'Related jobs',
+          allJobsLink: 'All job offers in Ticino',
           practicalNotes: [
             'This page consolidates the key details of the listing and presents them in a structured format for cross-border candidates targeting Ticino.',
             'Always verify required language, actual office location and application flow before submitting: some positions include international interview steps.',
@@ -241,6 +244,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
           canton: 'Kanton',
           contract: 'Vertrag',
           relatedJobs: 'Ähnliche Stellen',
+          allJobsLink: 'Alle Stellenangebote im Tessin',
           practicalNotes: [
             'Diese Seite bündelt die wichtigsten Informationen der Stelle in einer klaren Struktur für Grenzgängerinnen und Grenzgänger im Tessin.',
             'Prüfen Sie vor der Bewerbung Sprache, effektiven Arbeitsort und Bewerbungsablauf genau, da manche Rollen internationale Prozessschritte enthalten.',
@@ -265,6 +269,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
           canton: 'Canton',
           contract: 'Contrat',
           relatedJobs: 'Offres liées',
+          allJobsLink: 'Toutes les offres d\'emploi au Tessin',
           practicalNotes: [
             'Cette fiche regroupe les informations essentielles de l\'offre et les présente de manière structurée pour les frontaliers visant le Tessin.',
             'Avant de postuler, vérifiez la langue requise, le lieu réel du poste et le processus de sélection: certaines offres incluent des étapes internationales.',
@@ -1456,6 +1461,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
     </style>
 ${hreflangHtml}
 ${jobLd ? `    <script type="application/ld+json">${jobLd}</script>\n` : ''}    <script type="application/ld+json">${breadcrumbLd}</script>
+    <script type="application/ld+json">${JSON.stringify({'@context':'https://schema.org','@type':'WebPage',url:canonicalUrl,isPartOf:{'@type':'CollectionPage','@id':`${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g,'/'))}`,name:cantonSectionName(locale,dc)}})}</script>
     <script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"SpeakableSpecification","cssSelector":["h1",".hero-sub",".section"]})}</script>${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
     ${SPA_ACTION_REDIRECT_SCRIPT}
     ${GTAG_SNIPPET}
@@ -1463,6 +1469,7 @@ ${jobLd ? `    <script type="application/ld+json">${jobLd}</script>\n` : ''}    
   <body>
     <div id="root">
     <main class="static-job-page">
+      <nav style="margin:0 0 16px;font-size:14px"><a href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}" style="color:#4f46e5;text-decoration:none;font-weight:600">&larr; ${esc(localeCopy[locale].allJobsLink)}</a></nav>
       <article class="proposal">
         <section class="hero">
           <h1 class="hero-title">${esc(localizedTitle)}</h1>
@@ -1570,6 +1577,7 @@ ${jobLd ? `    <script type="application/ld+json">${jobLd}</script>\n` : ''}    
         description: (companyName: string, count: number) => string;
         heading: (companyName: string) => string;
         viewAll: string;
+        allJobsLink: string;
         sectionName: string;
         editorial: string;
       };
@@ -1582,6 +1590,7 @@ ${jobLd ? `    <script type="application/ld+json">${jobLd}</script>\n` : ''}    
             description: (companyName: string, count: number) => `Scopri ${count} posizioni aperte presso ${companyName} in ${cantonDisplay}. Consulta gli annunci attivi, sedi e link ufficiali di candidatura.`,
             heading: (companyName: string) => `${companyName} — posizioni aperte in ${cantonDisplay}`,
             viewAll: 'Vedi tutte le offerte',
+            allJobsLink: `Tutte le offerte di lavoro in ${cantonDisplay}`,
             sectionName: `Cerca lavoro in ${cantonDisplay}`,
             editorial: `Questa pagina raccoglie le posizioni aperte pubblicate direttamente sul sito aziendale. Gli annunci vengono aggiornati quotidianamente dal nostro crawler automatico e collegano alla pagina di candidatura ufficiale. Se non trovi posizioni attive, l'azienda potrebbe non avere ruoli aperti in ${cantonDisplay} al momento — salva la pagina per ricevere aggiornamenti.`,
           },
@@ -1590,6 +1599,7 @@ ${jobLd ? `    <script type="application/ld+json">${jobLd}</script>\n` : ''}    
             description: (companyName: string, count: number) => `Browse ${count} open roles at ${companyName} in ${cantonDisplay}. Review active listings, locations and official application links.`,
             heading: (companyName: string) => `${companyName} jobs in ${cantonDisplay}`,
             viewAll: 'View all jobs',
+            allJobsLink: `All job offers in ${cantonDisplay}`,
             sectionName: `Find jobs in ${cantonDisplay}`,
             editorial: `This page lists positions published directly on the company's career portal. Listings are refreshed daily by our automated crawler and link to the official application page. If no roles are shown, the company may not have open positions in ${cantonDisplay} right now — bookmark this page to stay updated.`,
           },
@@ -1598,6 +1608,7 @@ ${jobLd ? `    <script type="application/ld+json">${jobLd}</script>\n` : ''}    
             description: (companyName: string, count: number) => `Entdecke ${count} offene Stellen bei ${companyName} ${dePrep}. Sieh aktive Jobs, Standorte und offizielle Bewerbungslinks.`,
             heading: (companyName: string) => `${companyName} Jobs ${dePrep}`,
             viewAll: 'Alle Stellen ansehen',
+            allJobsLink: `Alle Stellenangebote ${dePrep}`,
             sectionName: `Jobs ${dePrep}`,
             editorial: `Auf dieser Seite finden Sie Stellen, die direkt auf der Karriereseite des Unternehmens veröffentlicht wurden. Die Angebote werden täglich von unserem automatischen Crawler aktualisiert und verlinken zur offiziellen Bewerbungsseite. Wenn keine Stellen angezeigt werden, gibt es derzeit möglicherweise keine offenen Positionen ${dePrep}.`,
           },
@@ -1606,6 +1617,7 @@ ${jobLd ? `    <script type="application/ld+json">${jobLd}</script>\n` : ''}    
             description: (companyName: string, count: number) => `Consultez ${count} postes ouverts chez ${companyName} ${frPrep}. Retrouvez les annonces actives, lieux et liens officiels de candidature.`,
             heading: (companyName: string) => `${companyName} — postes ouverts ${frPrep}`,
             viewAll: 'Voir toutes les offres',
+            allJobsLink: `Toutes les offres d'emploi ${frPrep}`,
             sectionName: `Trouver un emploi ${frPrep}`,
             editorial: `Cette page rassemble les postes publiés directement sur le portail carrière de l'entreprise. Les annonces sont actualisées quotidiennement par notre robot et renvoient à la page de candidature officielle. Si aucun poste n'est affiché, l'entreprise n'a peut-être pas de postes ouverts ${frPrep} actuellement.`,
           },
@@ -1718,12 +1730,14 @@ ${jobLd ? `    <script type="application/ld+json">${jobLd}</script>\n` : ''}    
     <link rel="canonical" href="${canonicalUrl}">
 ${hreflangHtml}
     <script type="application/ld+json">${breadcrumbLd}</script>
-    <script type="application/ld+json">${organizationLd}</script>${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
+    <script type="application/ld+json">${organizationLd}</script>
+    <script type="application/ld+json">${JSON.stringify({'@context':'https://schema.org','@type':'WebPage',url:canonicalUrl,isPartOf:{'@type':'CollectionPage','@id':`${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}`.replace(/\/+/g,'/'))}`,name:copy.sectionName}})}</script>${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
     ${GTAG_SNIPPET}
   </head>
   <body>
     <div id="root">
     <main class="static-job-page">
+      <nav style="margin:0 0 16px;font-size:14px"><a href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}`.replace(/\/+/g, '/'))}" style="color:#4f46e5;text-decoration:none;font-weight:600">&larr; ${esc(copy.allJobsLink)}</a></nav>
       <h1>${esc(copy.heading(companyName))}</h1>
       <p>${esc(description)}</p>
 ${(() => {
