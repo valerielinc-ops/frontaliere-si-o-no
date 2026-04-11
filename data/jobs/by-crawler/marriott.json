@@ -513,10 +513,10 @@
     },
     {
       "id": "marriott-81b9677d7efe",
-      "slug": "internship-universitario-europa-marriott-international-zurich",
+      "slug": "university-tirocinante-europe-marriott-international-zurich",
       "slugByLocale": {
         "en": "university-intern-europe-marriott-zurich",
-        "it": "internship-universitario-europa-marriott-international-zurich",
+        "it": "university-tirocinante-europe-marriott-international-zurich",
         "de": "universitatsinternship-europa-marriott-international-zurich",
         "fr": "stage-universitaire-europe-marriott-international-zurich"
       },
@@ -584,11 +584,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "university-intern-europe-marriott-zurich"
+          "university-intern-europe-marriott-zurich",
+          "internship-universitario-europa-marriott-international-zurich"
         ]
       },
       "previousSlugs": [
-        "university-intern-europe-marriott-zurich"
+        "university-intern-europe-marriott-zurich",
+        "internship-universitario-europa-marriott-international-zurich"
       ],
       "salaryMin": 47658,
       "salaryMax": 57200,

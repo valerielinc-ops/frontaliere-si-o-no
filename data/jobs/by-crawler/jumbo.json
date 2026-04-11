@@ -445,11 +445,11 @@
     },
     {
       "id": "jumbo-84e0e074-6ca",
-      "slug": "cassiera-cassiere-f-m-jumbo-martigny",
+      "slug": "venditrice-venditore-caisse-f-m-d-jumbo-martigny",
       "slugByLocale": {
         "fr": "vendeuse-vendeur-caisse-f-h-d-jumbo-martigny",
-        "it": "cassiera-cassiere-f-m-jumbo-martigny",
-        "en": "cashier-f-m-jumbo-martigny",
+        "it": "venditrice-venditore-caisse-f-m-d-jumbo-martigny",
+        "en": "salesperson-caisse-f-h-d-jumbo-martigny",
         "de": "kassierer-in-m-w-d-jumbo-martigny"
       },
       "company": "JUMBO",
@@ -529,11 +529,17 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "vendeuse-vendeur-caisse-f-h-d-jumbo-martigny"
+          "vendeuse-vendeur-caisse-f-h-d-jumbo-martigny",
+          "cassiera-cassiere-f-m-jumbo-martigny"
+        ],
+        "en": [
+          "cashier-f-m-jumbo-martigny"
         ]
       },
       "previousSlugs": [
-        "vendeuse-vendeur-caisse-f-h-d-jumbo-martigny"
+        "vendeuse-vendeur-caisse-f-h-d-jumbo-martigny",
+        "cassiera-cassiere-f-m-jumbo-martigny",
+        "cashier-f-m-jumbo-martigny"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

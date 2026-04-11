@@ -209,12 +209,12 @@
     },
     {
       "id": "swiss-life-a8186e2c72af",
-      "slug": "consulente-previdenziale-e-finanziario-f-m-d-benvenuti-i-profili-trasversali-agenzia-generale-visp-oberwallis-swiss-life",
+      "slug": "previdenza-e-finanzberatende-w-m-d-quereinsteigende-willkommen-agenzia-generale-visp-oberwallis-swiss-life-visp",
       "slugByLocale": {
-        "it": "consulente-previdenziale-e-finanziario-f-m-d-benvenuti-i-profili-trasversali-agenzia-generale-visp-oberwallis-swiss-life",
+        "it": "previdenza-e-finanzberatende-w-m-d-quereinsteigende-willkommen-agenzia-generale-visp-oberwallis-swiss-life-visp",
         "en": "pension-and-financial-advisers-f-m-d-welcome-lateral-entrants-general-agency-visp-oberwallis-swiss-life-visp",
         "de": "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-visp-oberwallis-swiss-life-visp",
-        "fr": "conseiller-en-prevoyance-et-finance-h-f-d-profils-en-reconversion-bienvenus-agence-generale-visp-oberwallis-swiss-life-v"
+        "fr": "conseiller-en-prevoyance-et-en-finances-w-m-d-accueil-des-professionnels-en-transition-agence-generale-visp-oberwallis-s"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -292,12 +292,18 @@
           "w-m-d-transboundary-welcome-generalagentur-visp-oberwallis-swiss-life-visp"
         ],
         "it": [
-          "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-visp-oberwal"
+          "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-visp-oberwal",
+          "consulente-previdenziale-e-finanziario-f-m-d-benvenuti-i-profili-trasversali-agenzia-generale-visp-oberwallis-swiss-life"
+        ],
+        "fr": [
+          "conseiller-en-prevoyance-et-finance-h-f-d-profils-en-reconversion-bienvenus-agence-generale-visp-oberwallis-swiss-life-v"
         ]
       },
       "previousSlugs": [
         "vorsorge-und-finanzberatende-w-m-d-quereinsteigende-willkommen-generalagentur-visp-oberwal",
-        "w-m-d-transboundary-welcome-generalagentur-visp-oberwallis-swiss-life-visp"
+        "w-m-d-transboundary-welcome-generalagentur-visp-oberwallis-swiss-life-visp",
+        "consulente-previdenziale-e-finanziario-f-m-d-benvenuti-i-profili-trasversali-agenzia-generale-visp-oberwallis-swiss-life",
+        "conseiller-en-prevoyance-et-finance-h-f-d-profils-en-reconversion-bienvenus-agence-generale-visp-oberwallis-swiss-life-v"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -425,7 +431,7 @@
       "slugByLocale": {
         "it": "consulente-previdenziale-e-finanziario-f-m-d-per-pensionamento-agenzia-generale-sion-vallese-romando-regione-val-de-bagn",
         "en": "pension-and-financial-advisor-f-m-d-as-part-of-a-retirement-agence-generale-sion-valais-romand-val-de-bagnes-region-swis",
-        "de": "vorsorge-und-finanzberater-w-m-d-im-rahmen-einer-pensionierung-generalagentur-sitten-wallis-region-val-de-bagnes-swiss-l",
+        "de": "berater-in-im-bereich-vorsorge-und-finanzen-f-h-d-im-rahmen-einer-pensionierung-generalagentur-sion-valais-romand-region",
         "fr": "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-dans-le-cadre-d-un-depart-a-la-re"
       },
       "company": "Swiss Life",
@@ -502,11 +508,15 @@
         ],
         "it": [
           "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-dans-le-cadre-d-un-depart-a-la-re"
+        ],
+        "de": [
+          "vorsorge-und-finanzberater-w-m-d-im-rahmen-einer-pensionierung-generalagentur-sitten-wallis-region-val-de-bagnes-swiss-l"
         ]
       },
       "previousSlugs": [
         "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-dans-le-cadre-d-un-depart-a-la-re",
-        "provident-and-financial-advisor-f-h-d-for-retirement-general-agency-sion-valais-romand-val-de-bagnes-region-swiss-life-s"
+        "provident-and-financial-advisor-f-h-d-for-retirement-general-agency-sion-valais-romand-val-de-bagnes-region-swiss-life-s",
+        "vorsorge-und-finanzberater-w-m-d-im-rahmen-einer-pensionierung-generalagentur-sitten-wallis-region-val-de-bagnes-swiss-l"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -524,11 +534,11 @@
     },
     {
       "id": "swiss-life-4f6fc0ebcee0",
-      "slug": "consulente-e-consulente-finanziario-f-h-d-per-la-pensione-agenzia-generale-sion-valais-romand-regione-val-d-anniviers-sw",
+      "slug": "consulente-consulente-in-previdenza-e-finanza-f-m-d-in-occasione-di-un-pensionamento-agenzia-generale-sion-valais-romand",
       "slugByLocale": {
-        "it": "consulente-e-consulente-finanziario-f-h-d-per-la-pensione-agenzia-generale-sion-valais-romand-regione-val-d-anniviers-sw",
+        "it": "consulente-consulente-in-previdenza-e-finanza-f-m-d-in-occasione-di-un-pensionamento-agenzia-generale-sion-valais-romand",
         "en": "provident-and-financial-advisor-f-h-d-for-retirement-general-agency-sion-valais-romand-val-d-anniviers-region-swiss-life",
-        "de": "vor-und-finanzberater-f-h-d-fur-den-ruhestand-allgemeine-agentur-sion-valais-romand-region-val-d-anniviers-swiss-life-si",
+        "de": "finanz-und-pensionsberater-in-f-m-d-im-zusammenhang-mit-einer-pensionierung-generalagentur-sion-valais-romand-region-val",
         "fr": "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-dans-le-cadre-d-un-depart-a-la-re"
       },
       "company": "Swiss Life",
@@ -599,11 +609,17 @@
       "jobReqId": "R09486",
       "hiringOrganization": "Swiss Life AG Sion-Valais romand",
       "previousSlugs": [
-        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-dans-le-cadre-d-un-depart-a-la-re-2"
+        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-dans-le-cadre-d-un-depart-a-la-re-2",
+        "consulente-e-consulente-finanziario-f-h-d-per-la-pensione-agenzia-generale-sion-valais-romand-regione-val-d-anniviers-sw",
+        "vor-und-finanzberater-f-h-d-fur-den-ruhestand-allgemeine-agentur-sion-valais-romand-region-val-d-anniviers-swiss-life-si"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-dans-le-cadre-d-un-depart-a-la-re-2"
+          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-dans-le-cadre-d-un-depart-a-la-re-2",
+          "consulente-e-consulente-finanziario-f-h-d-per-la-pensione-agenzia-generale-sion-valais-romand-regione-val-d-anniviers-sw"
+        ],
+        "de": [
+          "vor-und-finanzberater-f-h-d-fur-den-ruhestand-allgemeine-agentur-sion-valais-romand-region-val-d-anniviers-swiss-life-si"
         ]
       },
       "salaryMin": 49500,
@@ -622,11 +638,11 @@
     },
     {
       "id": "swiss-life-a86fd26bef3f",
-      "slug": "consulente-previdenziale-e-finanziario-f-m-d-con-esperienza-professionale-agenzia-generale-sion-vallese-romando-swiss-li",
+      "slug": "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-avec-experience-professionnelle-agence-generale-sion-valais-rom",
       "slugByLocale": {
-        "it": "consulente-previdenziale-e-finanziario-f-m-d-con-esperienza-professionale-agenzia-generale-sion-vallese-romando-swiss-li",
+        "it": "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-avec-experience-professionnelle-agence-generale-sion-valais-rom",
         "en": "pension-and-financial-advisor-f-h-d-with-professional-experience-agence-generale-sion-valais-romand-swiss-life-sion",
-        "de": "vorsorge-und-finanzberater-w-m-d-mit-berufserfahrung-generalagentur-sitten-wallis-swiss-life-sion",
+        "de": "berater-in-fur-vorsorge-und-finanzen-f-h-d-mit-berufserfahrung-swiss-life-sion",
         "fr": "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle-a"
       },
       "company": "Swiss Life",
@@ -705,12 +721,18 @@
           "provident-and-finance-advisor-f-h-d-with-professional-experience-sion-valais-romand-general-agency-swiss-life-sion"
         ],
         "it": [
-          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle-a"
+          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle-a",
+          "consulente-previdenziale-e-finanziario-f-m-d-con-esperienza-professionale-agenzia-generale-sion-vallese-romando-swiss-li"
+        ],
+        "de": [
+          "vorsorge-und-finanzberater-w-m-d-mit-berufserfahrung-generalagentur-sitten-wallis-swiss-life-sion"
         ]
       },
       "previousSlugs": [
         "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle-a",
-        "provident-and-finance-advisor-f-h-d-with-professional-experience-sion-valais-romand-general-agency-swiss-life-sion"
+        "provident-and-finance-advisor-f-h-d-with-professional-experience-sion-valais-romand-general-agency-swiss-life-sion",
+        "consulente-previdenziale-e-finanziario-f-m-d-con-esperienza-professionale-agenzia-generale-sion-vallese-romando-swiss-li",
+        "vorsorge-und-finanzberater-w-m-d-mit-berufserfahrung-generalagentur-sitten-wallis-swiss-life-sion"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

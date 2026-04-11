@@ -8,7 +8,7 @@
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-verkauf-markt-transgourmet-gamsen",
         "it": "addetta-addetto-alle-vendite-nel-reparto-mercato-transgourmet-gamsen",
-        "en": "sales-assistant-in-market-department-transgourmet-gamsen",
+        "en": "mitarbeiterin-sales-associate-markt-transgourmet-gamsen",
         "fr": "employee-employe-de-vente-en-marche-transgourmet-gamsen"
       },
       "company": "Transgourmet",
@@ -93,10 +93,14 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-mitarbeiter-verkauf-markt-transgourmet-gamsen"
+        ],
+        "en": [
+          "sales-assistant-in-market-department-transgourmet-gamsen"
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-verkauf-markt-transgourmet-gamsen"
+        "mitarbeiterin-mitarbeiter-verkauf-markt-transgourmet-gamsen",
+        "sales-assistant-in-market-department-transgourmet-gamsen"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

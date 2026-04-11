@@ -1360,7 +1360,7 @@
         "de": "technischer-verwaltungsspezialist-80-100-arxada-visp",
         "it": "specialista-amministrativo-tecnico-80-100-arxada-visp",
         "en": "technical-administrative-specialist-80-100-arxada-ch",
-        "fr": "technical-administrative-specialist-80-100-arxada-ch"
+        "fr": "specialiste-administratif-technique-80-100-arxada-visp"
       },
       "company": "Arxada",
       "companyKey": "arxada",
@@ -1407,6 +1407,9 @@
           "technical-administrative-specialist-80-100-arxada-ch"
         ],
         "de": [
+          "technical-administrative-specialist-80-100-arxada-ch"
+        ],
+        "fr": [
           "technical-administrative-specialist-80-100-arxada-ch"
         ]
       },
@@ -1684,8 +1687,7 @@
         ]
       },
       "previousSlugs": [
-        "operator-in-2-schicht-arxada-ch-2",
-        "operator-in-2-schicht-arxada-ch"
+        "operator-in-2-schicht-arxada-ch-2"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1782,7 +1784,7 @@
         "de": "supervisor-shift-schichtfuhrer-in-arxada-ch",
         "it": "supervisore-shift-capoturno-arxada-visp",
         "en": "supervisor-shift-arxada-visp",
-        "fr": "superviseur-maj-chef-d-equipe-arxada-visp"
+        "fr": "chef-de-quart-arxada-visp"
       },
       "company": "Arxada",
       "companyKey": "arxada",
@@ -1827,10 +1829,14 @@
       "previousSlugsByLocale": {
         "it": [
           "supervisor-shift-schichtfuhrer-in-arxada-ch-2"
+        ],
+        "fr": [
+          "superviseur-maj-chef-d-equipe-arxada-visp"
         ]
       },
       "previousSlugs": [
-        "supervisor-shift-schichtfuhrer-in-arxada-ch-2"
+        "supervisor-shift-schichtfuhrer-in-arxada-ch-2",
+        "superviseur-maj-chef-d-equipe-arxada-visp"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

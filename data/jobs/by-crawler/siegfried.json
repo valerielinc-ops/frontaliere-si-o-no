@@ -288,7 +288,7 @@
         "fr": "changement-de-technicien-3-8-siegfried-evionnaz",
         "it": "tecnico-di-cambio-3-8-siegfried-evionnaz",
         "en": "change-over-technician-3-8-siegfried-ch",
-        "de": "wechseltechniker-3-8-siegfried-evionnaz"
+        "de": "change-over-techniker-3-8-siegfried-evionnaz"
       },
       "company": "Siegfried",
       "companyKey": "siegfried",
@@ -364,10 +364,14 @@
         ],
         "fr": [
           "change-over-technician-3-8-siegfried-ch"
+        ],
+        "de": [
+          "wechseltechniker-3-8-siegfried-evionnaz"
         ]
       },
       "previousSlugs": [
-        "change-over-technician-3-8-siegfried-ch"
+        "change-over-technician-3-8-siegfried-ch",
+        "wechseltechniker-3-8-siegfried-evionnaz"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1128,7 +1132,7 @@
         "fr": "assistant-au-traitement-des-dossiers-des-officiers-50-siegfried-evionnaz",
         "it": "assistente-di-processo-50-siegfried-evionnaz",
         "en": "officer-process-assistant-50-siegfried-ch",
-        "de": "prozessassistentin-50-siegfried-evionnaz"
+        "de": "officer-process-assistent-50-siegfried-evionnaz"
       },
       "company": "Siegfried",
       "companyKey": "siegfried",
@@ -1204,10 +1208,14 @@
         ],
         "fr": [
           "officer-process-assistant-50-siegfried-ch"
+        ],
+        "de": [
+          "prozessassistentin-50-siegfried-evionnaz"
         ]
       },
       "previousSlugs": [
-        "officer-process-assistant-50-siegfried-ch"
+        "officer-process-assistant-50-siegfried-ch",
+        "prozessassistentin-50-siegfried-evionnaz"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1305,7 +1313,7 @@
         "fr": "technicien-de-laboratoire-ad-siegfried-evionnaz",
         "it": "tecnico-di-laboratorio-ad-siegfried-evionnaz",
         "en": "lab-technician-ad-siegfried-evionnaz",
-        "de": "labotechniker-ad-siegfried-evionnaz"
+        "de": "lab-techniker-ad-siegfried-evionnaz"
       },
       "company": "Siegfried",
       "companyKey": "siegfried",
@@ -1372,10 +1380,14 @@
         ],
         "fr": [
           "lab-technician-ad-siegfried-ch"
+        ],
+        "de": [
+          "labotechniker-ad-siegfried-evionnaz"
         ]
       },
       "previousSlugs": [
-        "lab-technician-ad-siegfried-ch"
+        "lab-technician-ad-siegfried-ch",
+        "labotechniker-ad-siegfried-evionnaz"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

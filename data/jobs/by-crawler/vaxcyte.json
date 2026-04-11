@@ -296,7 +296,7 @@
       "slugByLocale": {
         "en": "director-business-operations-global-quality-control-vaxcyte-ch",
         "it": "direttore-business-operations-controllo-qualita-globale-vaxcyte-visp",
-        "de": "direktor-geschftsoperationen-globaler-qualittskontrolle-vaxcyte-visp",
+        "de": "direktor-business-operations-global-qualitat-control-vaxcyte-visp",
         "fr": "directeur-oprations-commerciales-contrle-qualit-global-vaxcyte-visp"
       },
       "company": "Vaxcyte",
@@ -377,10 +377,14 @@
       "previousSlugsByLocale": {
         "it": [
           "director-business-operations-global-quality-control-vaxcyte-ch"
+        ],
+        "de": [
+          "direktor-geschftsoperationen-globaler-qualittskontrolle-vaxcyte-visp"
         ]
       },
       "previousSlugs": [
-        "director-business-operations-global-quality-control-vaxcyte-ch"
+        "director-business-operations-global-quality-control-vaxcyte-ch",
+        "direktor-geschftsoperationen-globaler-qualittskontrolle-vaxcyte-visp"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -401,8 +405,8 @@
       "slugByLocale": {
         "en": "buyer-supply-chain-vaxcyte-ch",
         "it": "acquirente-catena-di-approvvigionamento-vaxcyte-visp",
-        "de": "einkufer-supply-chain-vaxcyte-visp",
-        "fr": "acheteur-supply-chain-vaxcyte-visp"
+        "de": "buyer-lieferkette-vaxcyte-visp",
+        "fr": "buyer-chaine-d-approvisionnement-vaxcyte-visp"
       },
       "company": "Vaxcyte",
       "companyKey": "vaxcyte",
@@ -483,10 +487,18 @@
       "previousSlugsByLocale": {
         "it": [
           "buyer-supply-chain-vaxcyte-ch"
+        ],
+        "de": [
+          "einkufer-supply-chain-vaxcyte-visp"
+        ],
+        "fr": [
+          "acheteur-supply-chain-vaxcyte-visp"
         ]
       },
       "previousSlugs": [
-        "buyer-supply-chain-vaxcyte-ch"
+        "buyer-supply-chain-vaxcyte-ch",
+        "einkufer-supply-chain-vaxcyte-visp",
+        "acheteur-supply-chain-vaxcyte-visp"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

@@ -477,11 +477,11 @@
     },
     {
       "id": "ubs-7df7e3a90559",
-      "slug": "consulente-clientela-privata-affluent-martigny-80-100-ubs-martigny",
+      "slug": "consulente-ore-clienti-privati-ricchi-martigny-80-100-ubs-martigny",
       "slugByLocale": {
-        "it": "consulente-clientela-privata-affluent-martigny-80-100-ubs-martigny",
+        "it": "consulente-ore-clienti-privati-ricchi-martigny-80-100-ubs-martigny",
         "en": "private-client-advisor-affluent-martigny-80-100-ubs-martigny",
-        "de": "kundenberaterin-privatkunden-affluent-martigny-80-100-ubs-martigny",
+        "de": "berater-in-fur-private-vermogensverwaltung-martigny-80-100-ubs-martigny",
         "fr": "conseiller-ere-clientele-privee-affluent-martigny-80-100-ubs-martigny"
       },
       "company": "UBS",
@@ -562,11 +562,17 @@
         "jobType": ""
       },
       "previousSlugs": [
-        "conseiller-ere-clientele-privee-affluent-martigny-80-100-ubs-martigny"
+        "conseiller-ere-clientele-privee-affluent-martigny-80-100-ubs-martigny",
+        "consulente-clientela-privata-affluent-martigny-80-100-ubs-martigny",
+        "kundenberaterin-privatkunden-affluent-martigny-80-100-ubs-martigny"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-ere-clientele-privee-affluent-martigny-80-100-ubs-martigny"
+          "conseiller-ere-clientele-privee-affluent-martigny-80-100-ubs-martigny",
+          "consulente-clientela-privata-affluent-martigny-80-100-ubs-martigny"
+        ],
+        "de": [
+          "kundenberaterin-privatkunden-affluent-martigny-80-100-ubs-martigny"
         ]
       },
       "salaryMin": 49500,

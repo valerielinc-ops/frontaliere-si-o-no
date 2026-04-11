@@ -3173,7 +3173,7 @@
         "de": "rechnungsfuhrer-w-m-d-100-localsearch-zurich",
         "it": "responsabile-contabilit-localsearch-zurich",
         "en": "head-of-accounting-w-m-d-100-localsearch-ch",
-        "fr": "chef-fe-de-comptabilit-w-m-d-100-localsearch-zurich"
+        "fr": "responsable-accounting-w-m-d-100-localsearch-zurich"
       },
       "company": "localsearch",
       "companyKey": "localsearch",
@@ -3250,10 +3250,14 @@
         ],
         "de": [
           "head-of-accounting-w-m-d-100-localsearch-ch"
+        ],
+        "fr": [
+          "chef-fe-de-comptabilit-w-m-d-100-localsearch-zurich"
         ]
       },
       "previousSlugs": [
-        "head-of-accounting-w-m-d-100-localsearch-ch"
+        "head-of-accounting-w-m-d-100-localsearch-ch",
+        "chef-fe-de-comptabilit-w-m-d-100-localsearch-zurich"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,

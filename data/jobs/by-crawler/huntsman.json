@@ -378,7 +378,7 @@
       "slugByLocale": {
         "it": "operatore-di-confezionamento-in-equipe-diurna-huntsman-corporation-monthey",
         "en": "packaging-operator-day-shift-huntsman-corporation-monthey",
-        "de": "verpackungsmitarbeiter-tagschicht-huntsman-corporation-monthey",
+        "de": "verpackungsbediener-tagesschicht-team-huntsman-corporation-monthey",
         "fr": "operateur-de-conditionnement-en-equipe-de-jour-huntsman-ch"
       },
       "company": "Huntsman Corporation",
@@ -452,12 +452,16 @@
       "jobReqId": "J-019425",
       "previousSlugs": [
         "operateur-de-conditionnement-en-equipe-de-jour-huntsman-ch",
-        "operatore-di-confezionamento-turno-diurno-huntsman-corporation-monthey"
+        "operatore-di-confezionamento-turno-diurno-huntsman-corporation-monthey",
+        "verpackungsmitarbeiter-tagschicht-huntsman-corporation-monthey"
       ],
       "previousSlugsByLocale": {
         "it": [
           "operateur-de-conditionnement-en-equipe-de-jour-huntsman-ch",
           "operatore-di-confezionamento-turno-diurno-huntsman-corporation-monthey"
+        ],
+        "de": [
+          "verpackungsmitarbeiter-tagschicht-huntsman-corporation-monthey"
         ]
       },
       "salaryMin": 49500,
@@ -583,7 +587,7 @@
       "slugByLocale": {
         "it": "operatore-di-turno-rpl-retirement-o-250117-huntsman-corporation-monthey",
         "en": "shift-operator-rpl-withdrawal-o-250117-huntsman-corporation-monthey",
-        "de": "schichtoperator-rpl-retirement-o-250117-huntsman-corporation-monthey",
+        "de": "schichtbetreuer-rpl-rente-huntsman-corporation-monthey",
         "fr": "shift-operator-rpl-retirement-o-250117-huntsman-ch"
       },
       "company": "Huntsman Corporation",
@@ -656,11 +660,15 @@
       "crawledAt": "2026-04-11T12:42:39.481Z",
       "jobReqId": "J-019426",
       "previousSlugs": [
-        "shift-operator-rpl-retirement-o-250117-huntsman-ch"
+        "shift-operator-rpl-retirement-o-250117-huntsman-ch",
+        "schichtoperator-rpl-retirement-o-250117-huntsman-corporation-monthey"
       ],
       "previousSlugsByLocale": {
         "it": [
           "shift-operator-rpl-retirement-o-250117-huntsman-ch"
+        ],
+        "de": [
+          "schichtoperator-rpl-retirement-o-250117-huntsman-corporation-monthey"
         ]
       },
       "salaryMin": 49500,
