@@ -1,18 +1,19 @@
 {
   "key": "coopers",
   "label": "Coopers Group AG",
-  "generatedAt": "2026-04-11T12:45:07.258Z",
+  "generatedAt": "2026-04-11T21:05:39.740Z",
   "total": 4,
-  "newCount": 4,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 121321,
-  "avgDurationMs": 121321,
+  "durationMs": 9863,
+  "avgDurationMs": 9863,
   "durationHistory": [
-    121321
+    9863
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "coopers-775622e91e4e",
       "slug": "project-engineer-m-w-d-coopers-wallis",
@@ -25,7 +26,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=FL86B0",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T12:43:07.772Z",
+      "crawledAt": "2026-04-11T21:05:33.439Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -39,11 +40,11 @@
       "featured": false,
       "postedDate": "2026-04-09",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=FL86B0",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -59,7 +60,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=979PJR",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-11T12:43:09.028Z",
+      "crawledAt": "2026-04-11T21:05:34.852Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -73,11 +74,11 @@
       "featured": false,
       "postedDate": "2026-04-08",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=979PJR",
-      "_qualityScore": 59,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 21,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -93,7 +94,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=210UII",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T12:43:10.323Z",
+      "crawledAt": "2026-04-11T21:05:36.299Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -107,11 +108,11 @@
       "featured": false,
       "postedDate": "2026-04-02",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=210UII",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -127,7 +128,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5S1KZ8",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-11T12:43:11.603Z",
+      "crawledAt": "2026-04-11T21:05:37.699Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -141,16 +142,15 @@
       "featured": false,
       "postedDate": "2026-03-19",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=5S1KZ8",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
