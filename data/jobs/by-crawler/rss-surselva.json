@@ -87,36 +87,36 @@
     },
     {
       "id": "rss-surselva-134aee4e6203",
-      "slug": "esperta-in-assistenza-sanitaria-40-regionalspital-surselva-ilanz",
+      "slug": "pflegeexpertin-pflegeexperte-40-rss-surselva-ch",
       "slugByLocale": {
-        "it": "esperta-in-assistenza-sanitaria-40-regionalspital-surselva-ilanz",
-        "en": "pflegeexpertin-pflegeexperte-40-regionalspital-surselva-ilanz",
         "de": "pflegeexpertin-pflegeexperte-40-rss-surselva-ch",
-        "fr": "expert-en-soins-40-regionalspital-surselva-ilanz"
+        "it": "pflegeexpertin-pflegeexperte-40-rss-surselva-ch",
+        "en": "pflegeexpertin-pflegeexperte-40-regionalspital-surselva-ilanz",
+        "fr": "pflegeexpertin-pflegeexperte-40-rss-surselva-ch"
       },
       "company": "Regionalspital Surselva",
       "companyKey": "rss-surselva",
       "companyDomain": "rss.ch",
       "title": "Pflegeexpertin / Pflegeexperte 40 %",
       "titleByLocale": {
-        "it": "Esperta in Assistenza Sanitaria 40%",
-        "en": "Pflegeexpertin / Pflegeexperte 40 %",
         "de": "Pflegeexpertin / Pflegeexperte 40 %",
-        "fr": "Expert en Soins 40%"
+        "en": "Pflegeexpertin / Pflegeexperte 40 %",
+        "it": "Pflegeexpertin /Pflegeexperte 40%",
+        "fr": "Pflegeexpertin / Pflegeexperte 40 %"
       },
-      "description": "## Descrizione\n\nPflegeexpertin / Pflegeexperte 40 % — Regionalspital Surselva (RSS). \n\n## Dettagli\n\n- Abteilung: Pflege. \n- Arbeitsort: Ilanz (GR). \n\n## Informazioni sull'azienda\n\n- Die Regionalspital Surselva AG ist ein regional verankertes Spital in Ilanz und stellt die erweiterte Grund- und Notfallversorgung für rund 22'000 Einwohner und saisonal 20'000 Feriengäste der Region Surselva sicher",
+      "description": "Pflegeexpertin / Pflegeexperte 40 % — Regionalspital Surselva (RSS). Abteilung: Pflege. Arbeitsort: Ilanz (GR)",
       "descriptionByLocale": {
-        "it": "Descrizione Esperta in Assistenza Sanitaria 40% — Regionalspital Surselva (RSS). ## Dettagli - Dipartimento: Assistenza Sanitaria. - Luogo di lavoro: Ilanz (GR). ## Informazioni sull'azienda - La Regionalspital Surselva AG è un ospedale regionale a Ilanz e garantisce la copertura della cura di base e di emergenza per circa 22'000 abitanti e 20'000 ospiti stagionali della regione Surselva.",
-        "en": "Description Nursing Expert 40% — Regionalspital Surselva (RSS). ## Details - Department: Nursing. - Work location: Ilanz (GR). ## Company Information - The Regionalspital Surselva AG is a regional hospital in Ilanz and provides extended basic and emergency care for around 22,000 inhabitants and 20,000 seasonal guests in the Surselva region.",
-        "de": "Descrizione Pflegeexpertin / Pflegeexperte 40 % — Regionalspital Surselva (RSS). ## Dettagli - Abteilung: Pflege. - Arbeitsort: Ilanz (GR). ## Informazioni sull'azienda - Die Regionalspital Surselva AG ist ein regional verankertes Spital in Ilanz und stellt die erweiterte Grund- und Notfallversorgung für rund 22'000 Einwohner und saisonal 20'000 Feriengäste der Region Surselva sicher",
-        "fr": "Description Expert en Soins 40% — Regionalspital Surselva (RSS). ## Détails - Service: Soins. - Lieu de travail: Ilanz (GR). ## Informations sur l'entreprise - La Regionalspital Surselva AG est un hôpital régional à Ilanz et assure la couverture des soins de base et d'urgence pour environ 22 000 habitants et 20 000 invités saisonniers de la région Surselva."
+        "de": "Pflegeexpertin / Pflegeexperte 40 % — Regionalspital Surselva (RSS). Abteilung: Pflege. Arbeitsort: Ilanz (GR)",
+        "en": "## Descrizione\n- Pflegeexpertin / Pflegeexperte 40 % — Regionalspital Surselva (RSS)\n- Abteilung: Pflege\n- Arbeitsort: Ilanz (GR)",
+        "it": "Descrizione - Pflegeexpertin / Pflegeexperte 40% — Regionalspital Surselva (RSS) - Abteilung: Pflege - Arbeitsort: Ilanz (GR)",
+        "fr": "Descrizione - Pflegeexpertin / Pflegeexperte 40 % — Regionalspital Surselva (RSS) - Abteilung : Pflege - Arbeitsort : Ilanz (GR)"
       },
       "location": "Ilanz",
       "canton": "GR",
       "url": "https://link.ostendis.com/publication/pflegeexpertin-pflegeexperte/joy2fh6lj1yv0q0ls4st61savmt7z64msaewzxgdf8lu6va8jgo883ck1pw0en0y",
       "source": "Regionalspital Surselva Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-04-11T19:42:41.547Z",
+      "sourceLang": "en",
+      "crawledAt": "2026-04-11T18:50:41.916Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
@@ -132,23 +132,14 @@
       "postedDate": "2026-04-11",
       "applyUrl": "https://link.ostendis.com/cvdropper/eec835aa6bf34e5ea0768d12c9361c7c/DE?src=joy2fh6lj1yv0q0ls4st61savmt7z64msaewzxgdf8lu6va8jgo883ck1pw0en0y",
       "requirements": [],
-      "requirementsByLocale": {},
+      "requirementsByLocale": {
+        "de": []
+      },
       "department": "Pflege",
       "pensum": "40%",
       "pensumMin": 40,
       "pensumMax": 40,
       "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "it": [
-          "pflegeexpertin-pflegeexperte-40-rss-surselva-ch"
-        ],
-        "fr": [
-          "pflegeexpertin-pflegeexperte-40-rss-surselva-ch"
-        ]
-      },
-      "previousSlugs": [
-        "pflegeexpertin-pflegeexperte-40-rss-surselva-ch"
-      ],
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
