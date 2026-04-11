@@ -1946,6 +1946,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-salva-venti-anni-monito-infarti': { name: 'SALVA compie 20 anni', path: '/articoli-frontaliere/salva-venti-anni-monito-infarti', parent: 'blog' },
     'blog-marchi-migros-riduzione-frontalieri-ticino': { name: 'Migros rebranding', path: '/articoli-frontaliere/marchi-migros-riduzione-frontalieri-ticino', parent: 'blog' },
     'blog-disagi-tilo-mendrisio-malpensa-2026': { name: 'Disagi Tilo', path: '/articoli-frontaliere/disagi-tilo-mendrisio-malpensa-2026', parent: 'blog' },
+    'blog-cpb-forfettario-semplificato-soglia-150mila': { name: 'CPB', path: '/articoli-frontaliere/cpb-forfettario-semplificato-soglia-150mila', parent: 'blog' },
   };
 
   const info = sectionNames[section];

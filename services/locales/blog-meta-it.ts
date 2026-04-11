@@ -2073,6 +2073,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.disagi-tilo-mendrisio-malpensa-2026.title': 'Disagi alla linea Tilo tra Mendrisio e Malpensa: cosa cambia',
     'blog.article.disagi-tilo-mendrisio-malpensa-2026.excerpt': 'Sabato 11 e domenica 12 aprile 2026, modifiche alla circolazione dei treni Tilo S50 tra Mendrisio e Malpensa per lavori infrastrutturali. Previsti bus sostitutivi e tempi di percorrenza più lunghi.',
     'blog.article.disagi-tilo-mendrisio-malpensa-2026.imageAlt': 'Stazione di Mendrisio con treni Tilo e passeggeri in attesa, tabellone con modifiche agli orari',
+    'blog.article.cpb-forfettario-semplificato-soglia-150mila.title': 'CPB: la soglia dei 150mila euro vale anche se si passa dal forfettario al semplificato',
+    'blog.article.cpb-forfettario-semplificato-soglia-150mila.excerpt': 'L’Agenzia delle Entrate conferma: chi ha aderito al Concordato Preventivo Biennale come forfettario deve rispettare la soglia di 150mila euro di ricavi, anche dopo il passaggio al regime semplificato. Cosa cambia per i frontalieri ticinesi che lavorano in Lombardia.',
+    'blog.article.cpb-forfettario-semplificato-soglia-150mila.imageAlt': 'Ufficio delle Entrate a Lugano con insegne trilingui, esempio di regolarità fiscale per frontalieri',
 };
 
 export default blogMetaIt;

@@ -5822,4 +5822,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/disagi-tilo-mendrisio-malpensa-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'cpb-forfettario-semplificato-soglia-150mila',
+    category: 'fiscale',
+    date: '2026-04-11T09:19:45.186Z',
+    image: '/images/blog/cpb-forfettario-semplificato-soglia-150mila.jpg',
+    hasCalculator: true,
+  },
 ];

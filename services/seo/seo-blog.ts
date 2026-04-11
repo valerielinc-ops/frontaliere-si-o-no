@@ -6908,6 +6908,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cpb-forfettario-semplificato-soglia-150mila': {
+    title: 'CPB: la soglia dei 150mila euro vale | Frontaliere Ticino',
+    description: 'L’Agenzia delle Entrate conferma: chi ha aderito al Concordato Preventivo Biennale come forfettario deve rispettare la soglia di 150mila euro di ricavi, anche d',
+    keywords: 'frontalieri, ticino, svizzera, italia, soglia, 150mila, euro, vale',
+    ogTitle: 'CPB: la soglia dei 150mila euro vale anche se si passa da',
+    ogDescription: 'L’Agenzia delle Entrate conferma: chi ha aderito al Concordato Preventivo Biennale come forfettario deve rispettare la soglia di 150mila euro di ricavi, anche d',
+    canonicalPath: '/articoli-frontaliere/cpb-forfettario-semplificato-soglia-150mila',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "CPB: la soglia dei 150mila euro vale anche se si passa da",
+      "description": "L’Agenzia delle Entrate conferma: chi ha aderito al Concordato Preventivo Biennale come forfettario deve rispettare la soglia di 150mila euro di ricavi, anche d",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/cpb-forfettario-semplificato-soglia-150mila.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio delle Entrate a Lugano con insegne trilingui, esempio di regolarità fiscale per frontalieri"
+      },
+      "datePublished": "2026-04-11T09:19:45+00:00",
+      "dateModified": "2026-04-11T09:19:45+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cpb-forfettario-semplificato-soglia-150mila`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

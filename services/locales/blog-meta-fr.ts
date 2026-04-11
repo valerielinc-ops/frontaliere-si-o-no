@@ -2073,6 +2073,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.disagi-tilo-mendrisio-malpensa-2026.title': 'Perturbations sur la ligne Tilo entre Mendrisio et Malpensa : ce qui change',
     'blog.article.disagi-tilo-mendrisio-malpensa-2026.excerpt': 'Samedi 11 et dimanche 12 avril 2026, des modifications sont prévues pour la circulation des trains Tilo S50 entre Mendrisio et Malpensa en raison de travaux d\'infrastructure. Des bus de remplacement seront mis en place et les temps de trajet seront plus longs.',
     'blog.article.disagi-tilo-mendrisio-malpensa-2026.imageAlt': 'Gare de Mendrisio avec trains Tilo et passagers en attente, tableau d\'horaires modifié',
+    'blog.article.cpb-forfettario-semplificato-soglia-150mila.title': 'CPB : le seuil de 150 000 euros s’applique même en passant du régime forfaitaire au régime simplifié',
+    'blog.article.cpb-forfettario-semplificato-soglia-150mila.excerpt': 'L’Agence des Entrées confirme : ceux qui ont opté pour le Concordat Préalable Bénéal (CPB) en tant que contribuables au régime forfaitaire doivent respecter le seuil de 150 000 euros de recettes, même après leur passage au régime simplifié. Quelles conséquences pour les frontaliers tessinois travaillant en Lombardie ?',
+    'blog.article.cpb-forfettario-semplificato-soglia-150mila.imageAlt': 'Bureau des impôts à Lugano avec panneaux trilingues, illustration de la conformité fiscale pour les frontaliers',
 };
 
 export default blogMetaFr;

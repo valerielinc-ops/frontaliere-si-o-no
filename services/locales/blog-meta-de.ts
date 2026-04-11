@@ -2073,6 +2073,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.disagi-tilo-mendrisio-malpensa-2026.title': 'Störungen auf der Tilo-Linie zwischen Mendrisio und Malpensa: Was ändert sich',
     'blog.article.disagi-tilo-mendrisio-malpensa-2026.excerpt': 'Am Samstag, dem 11. und Sonntag, dem 12. April 2026, kommt es aufgrund von Infrastrukturarbeiten zu Änderungen im Zugverkehr der Tilo S50 zwischen Mendrisio und Malpensa. Es werden Ersatzbusse eingesetzt und längere Reisezeiten sind zu erwarten.',
     'blog.article.disagi-tilo-mendrisio-malpensa-2026.imageAlt': 'Bahnhof Mendrisio mit Tilo-Zügen und wartenden Passagieren, Fahrplan mit Änderungen',
+    'blog.article.cpb-forfettario-semplificato-soglia-150mila.title': 'CPB: Die 150.000-Euro-Marke gilt auch bei Wechsel vom Pauschal- zum vereinfachten Besteuerungsverfahren',
+    'blog.article.cpb-forfettario-semplificato-soglia-150mila.excerpt': 'Die italienische Steuerbehörde bestätigt: Wer das Zweijahresvorauszahlungsabkommen (Concordato Preventivo Biennale) als Pauschalbesteuerter abgeschlossen hat, muss die 150.000-Euro-Umsatzgrenze auch nach dem Wechsel in das vereinfachte Besteuerungsverfahren einhalten. Was sich für die Tessiner Grenzgänger ändert, die in der Lombardei arbeiten.',
+    'blog.article.cpb-forfettario-semplificato-soglia-150mila.imageAlt': 'Steueramt in Lugano mit mehrsprachigen Schildern, Symbol für steuerliche Regelungen von Grenzgängern',
 };
 
 export default blogMetaDe;

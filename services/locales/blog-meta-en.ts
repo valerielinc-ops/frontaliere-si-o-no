@@ -2073,6 +2073,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.disagi-tilo-mendrisio-malpensa-2026.title': 'Disruptions on the Tilo line between Mendrisio and Malpensa: what changes',
     'blog.article.disagi-tilo-mendrisio-malpensa-2026.excerpt': 'On Saturday 11 and Sunday 12 April 2026, changes to the circulation of Tilo S50 trains between Mendrisio and Malpensa due to infrastructure works. Substitute buses and longer travel times are expected.',
     'blog.article.disagi-tilo-mendrisio-malpensa-2026.imageAlt': 'Mendrisio train station with Tilo trains and waiting passengers, schedule board showing changes',
+    'blog.article.cpb-forfettario-semplificato-soglia-150mila.title': 'CPB: the 150,000 euro threshold also applies when switching from flat-rate to simplified tax regime',
+    'blog.article.cpb-forfettario-semplificato-soglia-150mila.excerpt': 'The Italian Revenue Agency has confirmed: those who joined the Biennial Preventive Agreement as a flat-rate taxpayer must respect the 150,000 euro revenue threshold, even after switching to the simplified tax regime. What changes for Ticino cross-border workers employed in Lombardy.',
+    'blog.article.cpb-forfettario-semplificato-soglia-150mila.imageAlt': 'Tax office in Lugano with trilingual signs, symbolizing fiscal compliance for cross-border workers',
 };
 
 export default blogMetaEn;
