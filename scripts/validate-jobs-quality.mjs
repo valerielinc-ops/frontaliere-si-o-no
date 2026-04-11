@@ -82,9 +82,6 @@ function run() {
   const warnings = [];
 
   for (const job of jobs) {
-    // Skip jobs queued for retranslation — they're in the pipeline, not bugs.
-    if (job.needsRetranslation) continue;
-
     const itDesc = String(job.descriptionByLocale?.it || job.description || '');
     const itSlug = String(job.slugByLocale?.it || job.slug || '');
     const id = job.slug || job.id || 'unknown';
