@@ -216,24 +216,26 @@ describe('urlStateService', () => {
   // ── buildShareURL ───────────────────────────────────────────────────
 
   describe('buildShareURL', () => {
-    it('builds a full URL with origin and path', () => {
+    const CANONICAL_ORIGIN = 'https://frontaliereticino.ch';
+
+    it('builds a full URL with canonical origin and path', () => {
       const inputs = { ...DEFAULT_INPUTS, annualIncomeCHF: 90000 } as SimulationInputs;
       const url = buildShareURL(inputs, '/calcola-stipendio');
-      expect(url).toContain(window.location.origin);
+      expect(url).toContain(CANONICAL_ORIGIN);
       expect(url).toContain('/calcola-stipendio');
       expect(url).toContain('reddito=90000');
     });
 
-    it('uses current pathname when no basePath provided', () => {
+    it('uses canonical origin regardless of window.location', () => {
       const inputs = { ...DEFAULT_INPUTS, children: 2 } as SimulationInputs;
       const url = buildShareURL(inputs);
-      expect(url).toContain(window.location.origin);
+      expect(url).toContain(CANONICAL_ORIGIN);
       expect(url).toContain('figli=2');
     });
 
     it('returns URL without query params for default inputs', () => {
       const url = buildShareURL(DEFAULT_INPUTS as SimulationInputs, '/calcola-stipendio');
-      expect(url).toBe(`${window.location.origin}/calcola-stipendio`);
+      expect(url).toBe(`${CANONICAL_ORIGIN}/calcola-stipendio`);
     });
   });
 

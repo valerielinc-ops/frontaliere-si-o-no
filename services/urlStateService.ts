@@ -98,14 +98,17 @@ export function encodeSimulationParams(inputs: SimulationInputs): string {
   return search ? `?${search}` : '';
 }
 
+/** Canonical site origin — always non-www. */
+const CANONICAL_ORIGIN = 'https://frontaliereticino.ch';
+
 /**
  * Build a full shareable URL with simulation params.
- * Uses the current page path (or a provided one).
+ * Always uses the canonical non-www domain, regardless of the current window.location.
  */
 export function buildShareURL(inputs: SimulationInputs, basePath?: string): string {
   const path = basePath || window.location.pathname;
   const search = encodeSimulationParams(inputs);
-  return `${window.location.origin}${path}${search}`;
+  return `${CANONICAL_ORIGIN}${path}${search}`;
 }
 
 // ── Decoding ────────────────────────────────────────────────────────────────
