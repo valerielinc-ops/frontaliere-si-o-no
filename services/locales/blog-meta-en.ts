@@ -2088,6 +2088,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.visione-politica-fuga-giovani-ticino.title': 'Youth exodus from Ticino: Claudio Isabella calls for clear political vision',
     'blog.article.visione-politica-fuga-giovani-ticino.excerpt': 'Ticino Centre Party deputy Claudio Isabella is urging the cantonal government to abandon its wait-and-see stance on the phenomenon of young people leaving the canton.',
     'blog.article.visione-politica-fuga-giovani-ticino.imageAlt': 'Castelgrande in Bellinzona at sunset with young professionals silhouetted, symbolizing the youth exodus from Ticino',
+    'blog.article.cure-a-domicilio-atlas-protesta-18-aprile.title': 'Home care: ATLaS takes to the streets in Bellinzona on 18 April',
+    'blog.article.cure-a-domicilio-atlas-protesta-18-aprile.excerpt': 'The Canton of Ticino plans to transfer up to 450 francs per year to patients. ATLaS calls the measure \'unacceptable\' and is calling for a protest in Piazza Collegiata.',
+    'blog.article.cure-a-domicilio-atlas-protesta-18-aprile.imageAlt': 'Collegiata square in Bellinzona during the April 18 protest against increased home care costs',
 };
 
 export default blogMetaEn;

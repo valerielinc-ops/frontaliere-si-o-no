@@ -5857,4 +5857,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/visione-politica-fuga-giovani-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'cure-a-domicilio-atlas-protesta-18-aprile',
+    category: 'pratico',
+    date: '2026-04-11T20:00:44.003Z',
+    image: '/images/blog/cure-a-domicilio-atlas-protesta-18-aprile.jpg',
+    hasCalculator: true,
+  },
 ];

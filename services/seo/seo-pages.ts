@@ -3688,7 +3688,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 747,
+        "numberOfItems": 748,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -4413,7 +4413,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 744, "name": "Verbano: accordo su livello massimo d’acqua, +2...", "url": `${BASE_URL}/articoli-frontaliere/verbano-livello-max-accordo-ticino-2026` },
           { "@type": "ListItem", "position": 745, "name": "Tassa salute frontalieri: analisi della disputa...", "url": `${BASE_URL}/articoli-frontaliere/tassa-salute-frontalieri-lombardia-minacce-ticino` },
           { "@type": "ListItem", "position": 746, "name": "Frontalieri Ticino: manca il lavoro, ma non que...", "url": `${BASE_URL}/articoli-frontaliere/lavoro-frontalieri-ticino-scarse-incastri` },
-          { "@type": "ListItem", "position": 747, "name": "Fuga dei giovani dal Ticino: Claudio Isabella c...", "url": `${BASE_URL}/articoli-frontaliere/visione-politica-fuga-giovani-ticino` }
+          { "@type": "ListItem", "position": 747, "name": "Fuga dei giovani dal Ticino: Claudio Isabella c...", "url": `${BASE_URL}/articoli-frontaliere/visione-politica-fuga-giovani-ticino` },
+          { "@type": "ListItem", "position": 748, "name": "Cure a domicilio in Ticino: ATLaS scende in pia...", "url": `${BASE_URL}/articoli-frontaliere/cure-a-domicilio-atlas-protesta-18-aprile` }
         ]
       }
     ]
