@@ -135,6 +135,12 @@
       }
     </script>
     <script>
+      // Enforce non-www canonical domain — redirect www visitors to apex domain
+      if (location.hostname === 'www.frontaliereticino.ch') {
+        location.replace('https://frontaliereticino.ch' + location.pathname + location.search + location.hash);
+      }
+    </script>
+    <script>
       // GitHub Pages SPA redirect handler + dark mode (merged for fewer parser-blocking scripts)
       (function() {
         var r = sessionStorage.redirect;
