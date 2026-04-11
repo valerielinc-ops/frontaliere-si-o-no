@@ -1,117 +1,5 @@
 [
   {
-    "timestamp": "2026-04-02T03:28:41.725Z",
-    "label": "before",
-    "total": 1326,
-    "needsRetranslation": 221,
-    "incomplete": 219,
-    "complete": 1107,
-    "missingByLocale": {
-      "it": 90,
-      "en": 119,
-      "de": 126,
-      "fr": 163
-    },
-    "topPending": [
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 46
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 36
-      },
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 19
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 19
-      },
-      {
-        "company": "LIS – Lugano Istituti Sociali",
-        "pending": 13
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 10
-      },
-      {
-        "company": "ABB Svizzera (sede Ticino)",
-        "pending": 9
-      },
-      {
-        "company": "Cornèr Banca",
-        "pending": 9
-      },
-      {
-        "company": "Denner",
-        "pending": 9
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 5
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-02T03:32:18.865Z",
-    "label": "after",
-    "total": 1326,
-    "needsRetranslation": 193,
-    "incomplete": 191,
-    "complete": 1135,
-    "missingByLocale": {
-      "it": 86,
-      "en": 111,
-      "de": 117,
-      "fr": 153
-    },
-    "topPending": [
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 46
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 36
-      },
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 19
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 19
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 10
-      },
-      {
-        "company": "ABB Svizzera (sede Ticino)",
-        "pending": 9
-      },
-      {
-        "company": "Denner",
-        "pending": 8
-      },
-      {
-        "company": "Cornèr Banca",
-        "pending": 6
-      },
-      {
-        "company": "EFG International AG",
-        "pending": 4
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 4
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-02T05:15:03.356Z",
     "label": "before",
     "total": 1326,
@@ -9806,6 +9694,78 @@
     "needsRetranslation": 57,
     "incomplete": 8,
     "complete": 1687,
+    "missingByLocale": {
+      "it": 7,
+      "en": 7,
+      "de": 1,
+      "fr": 7
+    },
+    "topPending": [
+      {
+        "company": "Hügli Nährmittel AG",
+        "pending": 4
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      },
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "Ticino Premium Properties SA",
+        "pending": 1
+      },
+      {
+        "company": "Swiss Armed Forces (VTG)",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-11T07:21:22.680Z",
+    "label": "before",
+    "total": 1631,
+    "needsRetranslation": 56,
+    "incomplete": 8,
+    "complete": 1623,
+    "missingByLocale": {
+      "it": 7,
+      "en": 7,
+      "de": 1,
+      "fr": 7
+    },
+    "topPending": [
+      {
+        "company": "Hügli Nährmittel AG",
+        "pending": 4
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      },
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "Ticino Premium Properties SA",
+        "pending": 1
+      },
+      {
+        "company": "Swiss Armed Forces (VTG)",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-11T07:22:11.813Z",
+    "label": "after",
+    "total": 1631,
+    "needsRetranslation": 56,
+    "incomplete": 8,
+    "complete": 1623,
     "missingByLocale": {
       "it": 7,
       "en": 7,
