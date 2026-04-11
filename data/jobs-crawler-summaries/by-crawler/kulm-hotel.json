@@ -1,18 +1,19 @@
 {
   "key": "kulm-hotel",
   "label": "Kulm Hotel St. Moritz",
-  "generatedAt": "2026-04-11T18:48:59.329Z",
+  "generatedAt": "2026-04-11T21:32:43.458Z",
   "total": 25,
-  "newCount": 25,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 25,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 599465,
-  "avgDurationMs": 599465,
+  "durationMs": 27822,
+  "avgDurationMs": 27822,
   "durationHistory": [
-    599465
+    27822
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "kulm-hotel-6dd397cdebf9",
       "slug": "assistant-reservations-manager-m-w-d-kulm-hotel-st-moritz",
@@ -25,7 +26,7 @@
       "url": "https://careers.kulm.com/en/vacancies/665",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-11T18:39:04.001Z",
+      "crawledAt": "2026-04-11T21:32:20.192Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -43,11 +44,11 @@
       "applyUrl": "https://careers.kulm.com/en/vacancies/665",
       "department": "Grand Hotel Kronenhof",
       "pensum": "100%",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -63,7 +64,7 @@
       "url": "https://careers.kulm.com/en/vacancies/650",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-11T18:39:07.779Z",
+      "crawledAt": "2026-04-11T21:32:24.135Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -81,11 +82,11 @@
       "applyUrl": "https://careers.kulm.com/en/vacancies/650",
       "department": "Grand Hotel Kronenhof",
       "pensum": "100%",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -101,7 +102,7 @@
       "url": "https://careers.kulm.com/en/vacancies/638",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T18:39:14.359Z",
+      "crawledAt": "2026-04-11T21:32:31.055Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -119,11 +120,11 @@
       "applyUrl": "https://careers.kulm.com/en/vacancies/638",
       "department": "Grand Hotel Kronenhof",
       "pensum": "100%",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -139,7 +140,7 @@
       "url": "https://careers.kulm.com/en/vacancies/648",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-11T18:39:18.124Z",
+      "crawledAt": "2026-04-11T21:32:35.008Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -157,11 +158,11 @@
       "applyUrl": "https://careers.kulm.com/en/vacancies/648",
       "department": "Grand Hotel Kronenhof",
       "pensum": "50%",
-      "_qualityScore": 66,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -177,7 +178,7 @@
       "url": "https://careers.kulm.com/en/vacancies/658",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-11T18:39:09.658Z",
+      "crawledAt": "2026-04-11T21:32:26.111Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -195,11 +196,11 @@
       "applyUrl": "https://careers.kulm.com/en/vacancies/658",
       "department": "Grand Hotel Kronenhof",
       "pensum": "100%",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -215,7 +216,7 @@
       "url": "https://careers.kulm.com/en/vacancies/620",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-11T18:39:03.056Z",
+      "crawledAt": "2026-04-11T21:32:19.207Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -233,11 +234,11 @@
       "applyUrl": "https://careers.kulm.com/en/vacancies/620",
       "department": "Kulm Hotel",
       "pensum": "100%",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -253,7 +254,7 @@
       "url": "https://careers.kulm.com/en/vacancies/612",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-11T18:39:04.936Z",
+      "crawledAt": "2026-04-11T21:32:21.171Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -271,11 +272,11 @@
       "applyUrl": "https://careers.kulm.com/en/vacancies/612",
       "department": "Kulm Hotel",
       "pensum": "100%",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -291,7 +292,7 @@
       "url": "https://careers.kulm.com/en/vacancies/618",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-11T18:39:05.880Z",
+      "crawledAt": "2026-04-11T21:32:22.159Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -309,11 +310,11 @@
       "applyUrl": "https://careers.kulm.com/en/vacancies/618",
       "department": "Kulm Hotel",
       "pensum": "100%",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -329,7 +330,7 @@
       "url": "https://careers.kulm.com/en/vacancies/623",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T18:39:06.841Z",
+      "crawledAt": "2026-04-11T21:32:23.155Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -347,11 +348,11 @@
       "applyUrl": "https://careers.kulm.com/en/vacancies/623",
       "department": "Kulm Hotel",
       "pensum": "100%",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -367,7 +368,7 @@
       "url": "https://careers.kulm.com/en/vacancies/624",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-11T18:39:08.723Z",
+      "crawledAt": "2026-04-11T21:32:25.111Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -385,11 +386,11 @@
       "applyUrl": "https://careers.kulm.com/en/vacancies/624",
       "department": "Kulm Hotel",
       "pensum": "100%",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -405,7 +406,7 @@
       "url": "https://careers.kulm.com/en/vacancies/651",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-11T18:39:10.598Z",
+      "crawledAt": "2026-04-11T21:32:27.092Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -423,11 +424,11 @@
       "applyUrl": "https://careers.kulm.com/en/vacancies/651",
       "department": "Grand Hotel Kronenhof",
       "pensum": "100%",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -443,7 +444,7 @@
       "url": "https://careers.kulm.com/en/vacancies/553",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-11T18:39:11.532Z",
+      "crawledAt": "2026-04-11T21:32:28.077Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -461,11 +462,11 @@
       "applyUrl": "https://careers.kulm.com/en/vacancies/553",
       "department": "Grand Hotel Kronenhof",
       "pensum": "100%",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -481,7 +482,7 @@
       "url": "https://careers.kulm.com/en/vacancies/661",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-11T18:39:12.476Z",
+      "crawledAt": "2026-04-11T21:32:29.095Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -499,11 +500,11 @@
       "applyUrl": "https://careers.kulm.com/en/vacancies/661",
       "department": "Grand Hotel Kronenhof",
       "pensum": "100%",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -519,7 +520,7 @@
       "url": "https://careers.kulm.com/en/vacancies/633",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-11T18:39:13.421Z",
+      "crawledAt": "2026-04-11T21:32:30.071Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -537,11 +538,11 @@
       "applyUrl": "https://careers.kulm.com/en/vacancies/633",
       "department": "Kulm Hotel",
       "pensum": "100%",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -557,7 +558,7 @@
       "url": "https://careers.kulm.com/en/vacancies/615",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-04-11T18:39:15.298Z",
+      "crawledAt": "2026-04-11T21:32:32.050Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -575,11 +576,11 @@
       "applyUrl": "https://careers.kulm.com/en/vacancies/615",
       "department": "Grand Hotel Kronenhof",
       "pensum": "100%",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -595,7 +596,7 @@
       "url": "https://careers.kulm.com/en/vacancies/610",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T18:39:17.179Z",
+      "crawledAt": "2026-04-11T21:32:34.017Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -613,11 +614,11 @@
       "applyUrl": "https://careers.kulm.com/en/vacancies/610",
       "department": "Kulm Hotel",
       "pensum": "100%",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -633,7 +634,7 @@
       "url": "https://careers.kulm.com/en/vacancies/663",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-11T18:39:21.892Z",
+      "crawledAt": "2026-04-11T21:32:38.951Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -651,11 +652,11 @@
       "applyUrl": "https://careers.kulm.com/en/vacancies/663",
       "department": "Grand Hotel Kronenhof",
       "pensum": "100%",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -671,7 +672,7 @@
       "url": "https://careers.kulm.com/en/vacancies/578",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-11T18:39:23.767Z",
+      "crawledAt": "2026-04-11T21:32:40.962Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -689,11 +690,11 @@
       "applyUrl": "https://careers.kulm.com/en/vacancies/578",
       "department": "Grand Hotel Kronenhof",
       "pensum": "100%",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -709,7 +710,7 @@
       "url": "https://careers.kulm.com/en/vacancies/653",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-11T18:39:23.914Z",
+      "crawledAt": "2026-04-11T21:32:41.149Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -727,11 +728,11 @@
       "applyUrl": "https://careers.kulm.com/en/vacancies/653",
       "department": "Kulm Hotel",
       "pensum": "100%",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -747,7 +748,7 @@
       "url": "https://careers.kulm.com/en/vacancies/602",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-11T18:39:22.831Z",
+      "crawledAt": "2026-04-11T21:32:39.930Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -765,11 +766,11 @@
       "applyUrl": "https://careers.kulm.com/en/vacancies/602",
       "department": "Kulm Hotel",
       "pensum": "100%",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -785,7 +786,7 @@
       "url": "https://careers.kulm.com/en/vacancies/629",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T18:39:20.012Z",
+      "crawledAt": "2026-04-11T21:32:36.974Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -803,11 +804,11 @@
       "applyUrl": "https://careers.kulm.com/en/vacancies/629",
       "department": "Grand Hotel Kronenhof",
       "pensum": "100%",
-      "_qualityScore": 66,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -823,7 +824,7 @@
       "url": "https://careers.kulm.com/en/vacancies/664",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-11T18:39:20.956Z",
+      "crawledAt": "2026-04-11T21:32:37.961Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -841,11 +842,11 @@
       "applyUrl": "https://careers.kulm.com/en/vacancies/664",
       "department": "Grand Hotel Kronenhof",
       "pensum": "100%",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -861,7 +862,7 @@
       "url": "https://careers.kulm.com/en/vacancies/609",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-11T18:39:16.241Z",
+      "crawledAt": "2026-04-11T21:32:33.037Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -879,11 +880,11 @@
       "applyUrl": "https://careers.kulm.com/en/vacancies/609",
       "department": "Grand Hotel Kronenhof",
       "pensum": "100%",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -899,7 +900,7 @@
       "url": "https://careers.kulm.com/en/vacancies/588",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-11T18:39:02.100Z",
+      "crawledAt": "2026-04-11T21:32:18.221Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -917,11 +918,11 @@
       "applyUrl": "https://careers.kulm.com/en/vacancies/588",
       "department": "Kulm Hotel",
       "pensum": "100%",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -937,7 +938,7 @@
       "url": "https://careers.kulm.com/en/vacancies/652",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-11T18:39:19.076Z",
+      "crawledAt": "2026-04-11T21:32:35.990Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -955,16 +956,16 @@
       "applyUrl": "https://careers.kulm.com/en/vacancies/652",
       "department": "Grand Hotel Kronenhof",
       "pensum": "100%",
-      "_qualityScore": 64,
+      "needsRetranslation": true,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
