@@ -43,9 +43,10 @@
  * ═══════════════════════════════════════════════════════════════════════════════
  *
  * 1. PARSER — scripts/lib/{company-key}-job-parser.mjs
- *    Must export: COMPANY_KEY, COMPANY_NAME, fetchAllJobs(), isCompanyJob(),
- *    isTrustedDomain(). Optional: COMPANY_DOMAIN, matchKey().
- *    See scripts/lib/lonza-job-parser.mjs as reference.
+ *    Must export: COMPANY_KEY, COMPANY_NAME, fetchAll{PascalKey}Jobs(),
+ *    is{PascalKey}Job(), isTrustedDomain(). Optional: COMPANY_DOMAIN, matchKey().
+ *    Import slugify, stripHtml, normalizeSpace from this template — don't duplicate.
+ *    See scripts/lib/hopital-du-valais-job-parser.mjs as reference (first template user).
  *
  * 2. RUNNER — scripts/update-{company-key}-jobs.mjs
  *    ~30 lines: imports parser + this template, calls runStandardCrawlerPipeline().
@@ -85,6 +86,8 @@
  *   RECOMMENDED:
  *     companyDomain  — Company domain (e.g. 'lonza.com')
  *     addressLocality — Same as location
+ *     postalCode     — Swiss postal code (e.g. '6900'). Fallback: '6900' (Lugano)
+ *     addressRegion  — Canton code (same as canton, e.g. 'TI')
  *     addressCountry — 'CH'
  *     country        — 'CH'
  *     category       — Job category (e.g. 'Ingegneria', 'Amministrazione')
@@ -157,10 +160,18 @@ export function slugify(text = '', maxLength = 90) {
 
 /**
  * Build a standard job slug: title-company-location.
- * Convention: all slugs end with '-{companyKey}-ch' for uniqueness.
+ * The result is a clean kebab-case string — no mandatory suffix convention.
  */
 export function buildJobSlug(title, companySuffix, maxLength = 90) {
   return slugify(`${title} ${companySuffix}`, maxLength);
+}
+
+/**
+ * Collapse whitespace runs into single spaces and trim.
+ * 87 parsers duplicate this — import from here instead.
+ */
+export function normalizeSpace(s = '') {
+  return String(s || '').replace(/\s+/g, ' ').trim();
 }
 
 /**
@@ -185,8 +196,13 @@ export function stripHtml(html = '') {
     .trim();
 }
 
+const DEFAULT_UA = process.env.JOBS_CRAWLER_USER_AGENT ||
+  'Mozilla/5.0 (compatible; FrontaliereTicinoBot/2.0; +https://frontaliereticino.ch/)';
+
 /**
  * Fetch JSON with timeout and error handling.
+ * When `body` is a plain object/array, it is auto-serialised and Content-Type
+ * is set to application/json — no need to stringify or set headers manually.
  * @param {string} url
  * @param {Object} [options] — { method, headers, body, timeoutMs }
  */
@@ -194,11 +210,19 @@ export async function fetchJson(url, options = {}) {
   const timeoutMs = options.timeoutMs || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
+
+  const headers = { 'User-Agent': DEFAULT_UA, Accept: 'application/json', ...options.headers };
+  let { body } = options;
+  if (body != null && typeof body === 'object' && !(body instanceof ArrayBuffer) && !(body instanceof ReadableStream)) {
+    body = JSON.stringify(body);
+    headers['Content-Type'] = headers['Content-Type'] || 'application/json';
+  }
+
   try {
     const res = await fetch(url, {
-      method: options.method || 'GET',
-      headers: { 'User-Agent': 'FrontaliereTicino-JobCrawler/2.0', ...options.headers },
-      body: options.body,
+      method: options.method || (body ? 'POST' : 'GET'),
+      headers,
+      body,
       signal: controller.signal,
     });
     if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
@@ -218,7 +242,7 @@ export async function fetchHtml(url, options = {}) {
   try {
     const res = await fetch(url, {
       method: 'GET',
-      headers: { 'User-Agent': 'FrontaliereTicino-JobCrawler/2.0', ...options.headers },
+      headers: { 'User-Agent': DEFAULT_UA, ...options.headers },
       signal: controller.signal,
     });
     if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);

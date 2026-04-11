@@ -14,7 +14,7 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -52,10 +52,6 @@ const VS_POSTAL_CODES = {
 };
 
 /* ── Helpers ───────────────────────────────────────────────── */
-
-function normalizeSpace(s = '') {
-  return String(s || '').replace(/\s+/g, ' ').trim();
-}
 
 /**
  * Parse DD.MM.YYYY → YYYY-MM-DD. Returns '' on failure.
