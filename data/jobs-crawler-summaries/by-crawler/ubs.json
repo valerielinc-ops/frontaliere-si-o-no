@@ -1,18 +1,19 @@
 {
   "key": "ubs",
   "label": "UBS",
-  "generatedAt": "2026-04-11T11:15:49.510Z",
+  "generatedAt": "2026-04-11T12:42:27.276Z",
   "total": 6,
-  "newCount": 6,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 26807,
-  "avgDurationMs": 26807,
+  "durationMs": 23052,
+  "avgDurationMs": 23052,
   "durationHistory": [
-    26807
+    23052
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "ubs-7df7e3a90559",
       "slug": "conseiller-ere-clientele-privee-affluent-martigny-80-100-ubs-martigny",
@@ -25,7 +26,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=343139&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-11T11:15:24.117Z",
+      "crawledAt": "2026-04-11T12:42:06.453Z",
       "addressLocality": "Martigny",
       "addressCountry": "CH",
       "country": "CH",
@@ -37,7 +38,7 @@
       "sector": "Finanza / Banca",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-07",
+      "postedDate": "2026-04-08",
       "applyUrl": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=343139&PageType=jobdetails",
       "_ubsMeta": {
         "reqId": "343139",
@@ -47,11 +48,11 @@
         "categoryRaw": "Conseil clientèle / Relationship management, Gestion portefeuille et fonds",
         "jobType": ""
       },
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -67,7 +68,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=341680&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-11T11:15:24.118Z",
+      "crawledAt": "2026-04-11T12:42:06.454Z",
       "addressLocality": "Crans",
       "addressCountry": "CH",
       "country": "CH",
@@ -79,7 +80,7 @@
       "sector": "Finanza / Banca",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-03-05",
+      "postedDate": "2026-03-06",
       "applyUrl": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=341680&PageType=jobdetails",
       "_ubsMeta": {
         "reqId": "341680",
@@ -89,11 +90,11 @@
         "categoryRaw": "Conseil clientèle / Relationship management",
         "jobType": ""
       },
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -109,7 +110,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=340734&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T11:15:24.118Z",
+      "crawledAt": "2026-04-11T12:42:06.454Z",
       "addressLocality": "Brig",
       "addressCountry": "CH",
       "country": "CH",
@@ -121,7 +122,7 @@
       "sector": "Finanza / Banca",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-02-18",
+      "postedDate": "2026-02-19",
       "applyUrl": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=340734&PageType=jobdetails",
       "_ubsMeta": {
         "reqId": "340734",
@@ -131,11 +132,11 @@
         "categoryRaw": "Kundenberatung / Relationship Management",
         "jobType": ""
       },
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -151,7 +152,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=341103&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T11:15:24.118Z",
+      "crawledAt": "2026-04-11T12:42:06.454Z",
       "addressLocality": "Gstaad",
       "addressCountry": "CH",
       "country": "CH",
@@ -163,7 +164,7 @@
       "sector": "Finanza / Banca",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-02-12",
+      "postedDate": "2026-02-13",
       "applyUrl": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=341103&PageType=jobdetails",
       "_ubsMeta": {
         "reqId": "341103",
@@ -173,11 +174,11 @@
         "categoryRaw": "Kundenberatung / Relationship Management",
         "jobType": ""
       },
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -193,7 +194,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=338320&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T11:15:24.118Z",
+      "crawledAt": "2026-04-11T12:42:06.454Z",
       "addressLocality": "Gstaad",
       "addressCountry": "CH",
       "country": "CH",
@@ -205,7 +206,7 @@
       "sector": "Finanza / Banca",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-01-13",
+      "postedDate": "2026-01-14",
       "applyUrl": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=338320&PageType=jobdetails",
       "_ubsMeta": {
         "reqId": "338320",
@@ -215,11 +216,11 @@
         "categoryRaw": "Kundenberatung / Relationship Management",
         "jobType": ""
       },
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -235,7 +236,7 @@
       "url": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=334400&PageType=jobdetails",
       "source": "UBS Dedicated Parser (Taleo API)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T11:15:24.118Z",
+      "crawledAt": "2026-04-11T12:42:06.454Z",
       "addressLocality": "Brig",
       "addressCountry": "CH",
       "country": "CH",
@@ -247,7 +248,7 @@
       "sector": "Finanza / Banca",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-01-05",
+      "postedDate": "2026-01-06",
       "applyUrl": "https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=334400&PageType=jobdetails",
       "_ubsMeta": {
         "reqId": "334400",
@@ -257,16 +258,15 @@
         "categoryRaw": "Kundenberatung / Relationship Management",
         "jobType": ""
       },
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
