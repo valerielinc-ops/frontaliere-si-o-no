@@ -1,117 +1,5 @@
 [
   {
-    "timestamp": "2026-04-02T07:48:48.884Z",
-    "label": "before",
-    "total": 1309,
-    "needsRetranslation": 161,
-    "incomplete": 132,
-    "complete": 1177,
-    "missingByLocale": {
-      "it": 60,
-      "en": 105,
-      "de": 95,
-      "fr": 128
-    },
-    "topPending": [
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 46
-      },
-      {
-        "company": "Interdiscount",
-        "pending": 36
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 9
-      },
-      {
-        "company": "ABB Svizzera (sede Ticino)",
-        "pending": 5
-      },
-      {
-        "company": "Denner",
-        "pending": 5
-      },
-      {
-        "company": "Cornèr Banca",
-        "pending": 4
-      },
-      {
-        "company": "EFG International AG",
-        "pending": 4
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 4
-      },
-      {
-        "company": "Kulm Hotel St. Moritz",
-        "pending": 3
-      },
-      {
-        "company": "Swiss Armed Forces (VTG)",
-        "pending": 3
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-02T07:49:47.197Z",
-    "label": "after",
-    "total": 1309,
-    "needsRetranslation": 121,
-    "incomplete": 119,
-    "complete": 1190,
-    "missingByLocale": {
-      "it": 53,
-      "en": 93,
-      "de": 87,
-      "fr": 114
-    },
-    "topPending": [
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 46
-      },
-      {
-        "company": "Interdiscount",
-        "pending": 35
-      },
-      {
-        "company": "Denner",
-        "pending": 5
-      },
-      {
-        "company": "Cornèr Banca",
-        "pending": 4
-      },
-      {
-        "company": "EFG International AG",
-        "pending": 4
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 4
-      },
-      {
-        "company": "ABB Svizzera (sede Ticino)",
-        "pending": 3
-      },
-      {
-        "company": "Kulm Hotel St. Moritz",
-        "pending": 3
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 3
-      },
-      {
-        "company": "Scuola Club Migros",
-        "pending": 2
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-02T08:00:39.575Z",
     "label": "before",
     "total": 1309,
@@ -9779,6 +9667,118 @@
       },
       {
         "company": "Ticino Premium Properties SA",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-11T13:07:40.385Z",
+    "label": "before",
+    "total": 2175,
+    "needsRetranslation": 231,
+    "incomplete": 129,
+    "complete": 2046,
+    "missingByLocale": {
+      "it": 90,
+      "en": 122,
+      "de": 15,
+      "fr": 94
+    },
+    "topPending": [
+      {
+        "company": "Kantonsspital Graubünden",
+        "pending": 73
+      },
+      {
+        "company": "TALLY WEiJL",
+        "pending": 24
+      },
+      {
+        "company": "Hôpital du Valais",
+        "pending": 7
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 7
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 5
+      },
+      {
+        "company": "Hügli Nährmittel AG",
+        "pending": 4
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 2
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      },
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "Banca del Sempione",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-11T13:26:30.921Z",
+    "label": "after",
+    "total": 2175,
+    "needsRetranslation": 98,
+    "incomplete": 44,
+    "complete": 2131,
+    "missingByLocale": {
+      "it": 10,
+      "en": 42,
+      "de": 10,
+      "fr": 19
+    },
+    "topPending": [
+      {
+        "company": "TALLY WEiJL",
+        "pending": 24
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 7
+      },
+      {
+        "company": "Hügli Nährmittel AG",
+        "pending": 4
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 2
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      },
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "Banca del Sempione",
+        "pending": 1
+      },
+      {
+        "company": "Ticino Premium Properties SA",
+        "pending": 1
+      },
+      {
+        "company": "FNZ (Switzerland) AG",
+        "pending": 1
+      },
+      {
+        "company": "Otis SA",
         "pending": 1
       }
     ]
