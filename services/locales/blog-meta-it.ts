@@ -2088,6 +2088,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.visione-politica-fuga-giovani-ticino.title': 'Fuga dei giovani dal Ticino: Claudio Isabella chiede una visione politica chiara',
     'blog.article.visione-politica-fuga-giovani-ticino.excerpt': 'Il deputato del Centro Claudio Isabella chiede al Consiglio di Stato ticinese di abbandonare la posizione attendista sul fenomeno della fuga dei giovani dal Cantone.',
     'blog.article.visione-politica-fuga-giovani-ticino.imageAlt': 'Castelgrande a Bellinzona al tramonto con giovani professionisti in silhouette, simboleggiante la fuga dei giovani dal Ticino',
+    'blog.article.cure-a-domicilio-atlas-protesta-18-aprile.title': 'Cure a domicilio: ATLaS scende in piazza Bellinzona il 18 aprile',
+    'blog.article.cure-a-domicilio-atlas-protesta-18-aprile.excerpt': 'Il Cantone Ticino vuole trasferire fino a 450 franchi l’anno sui pazienti. ATLaS definisce la misura «inaccettabile» e chiama alla protesta in piazza Collegiata',
+    'blog.article.cure-a-domicilio-atlas-protesta-18-aprile.imageAlt': 'Piazza Collegiata a Bellinzona durante la protesta del 18 aprile contro i nuovi costi delle cure a domicilio',
 };
 
 export default blogMetaIt;

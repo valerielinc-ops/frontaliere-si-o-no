@@ -7053,6 +7053,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cure-a-domicilio-atlas-protesta-18-aprile': {
+    title: 'Cure a domicilio: ATLaS scende in | Frontaliere Ticino',
+    description: 'Il Cantone Ticino vuole trasferire fino a 450 franchi l’anno sui pazienti per le cure a domicilio. ATLaS definisce la misura «inaccettabile» e chiama alla',
+    keywords: 'frontalieri, ticino, svizzera, italia, cure, domicilio, atlas, scende',
+    ogTitle: 'Cure a domicilio: ATLaS protesta Bellinzona 18 aprile',
+    ogDescription: 'Il Cantone Ticino vuole aumentare i costi delle cure a domicilio di 450 franchi l’anno. ATLaS organizza una protesta a Bellinzona per il 18 aprile. Scopri come',
+    canonicalPath: '/articoli-frontaliere/cure-a-domicilio-atlas-protesta-18-aprile',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cure a domicilio in Ticino: ATLaS scende in piazza Bellinzona il 18 aprile per contestare i nuovi",
+      "description": "Il Cantone Ticino vuole trasferire fino a 450 franchi l’anno sui pazienti per le cure a domicilio. ATLaS definisce la misura «inaccettabile» e chiama alla",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/cure-a-domicilio-atlas-protesta-18-aprile.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Piazza Collegiata a Bellinzona durante la protesta del 18 aprile contro i nuovi costi delle cure a domicilio"
+      },
+      "datePublished": "2026-04-11T20:00:44+00:00",
+      "dateModified": "2026-04-11T20:00:44+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cure-a-domicilio-atlas-protesta-18-aprile`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

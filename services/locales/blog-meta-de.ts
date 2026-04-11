@@ -2088,6 +2088,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.visione-politica-fuga-giovani-ticino.title': 'Jugendflucht aus dem Tessin: Claudio Isabella fordert klare politische Vision',
     'blog.article.visione-politica-fuga-giovani-ticino.excerpt': 'Der Mitte-Abgeordnete Claudio Isabella fordert den Tessiner Staatsrat auf, seine abwartende Haltung gegenüber dem Phänomen der Jugendflucht aus dem Kanton aufzugeben.',
     'blog.article.visione-politica-fuga-giovani-ticino.imageAlt': 'Castelgrande in Bellinzona bei Sonnenuntergang mit jungen Berufstätigen als Silhouetten, Symbol für die Abwanderung der Jugend aus dem Tessin',
+    'blog.article.cure-a-domicilio-atlas-protesta-18-aprile.title': 'Hausbesuche: ATLaS demonstriert am 18. April in Bellinzona',
+    'blog.article.cure-a-domicilio-atlas-protesta-18-aprile.excerpt': 'Der Kanton Tessin will bis zu 450 Franken pro Jahr von den Patientinnen und Patienten übernehmen. ATLaS bezeichnet die Massnahme als «inakzeptabel» und ruft zur Protestkundgebung auf dem Collegiata-Platz auf',
+    'blog.article.cure-a-domicilio-atlas-protesta-18-aprile.imageAlt': 'Collegiata-Platz in Bellinzona während der Protestaktion vom 18. April gegen höhere Kosten für die häusliche Pflege',
 };
 
 export default blogMetaDe;
