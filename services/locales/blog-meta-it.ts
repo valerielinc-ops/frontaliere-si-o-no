@@ -2070,6 +2070,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.marchi-migros-riduzione-frontalieri-ticino.title': 'Migros Ticino: meno marchi, più ‘Migros’ dal 2025',
     'blog.article.marchi-migros-riduzione-frontalieri-ticino.excerpt': 'La linea ‘American Favorites’ cambia nome e aspetto. Migros riduce i marchi propri da 250 a 80 entro il 2030 per semplificare l’assortimento. Nessun legame politico, ma solo una strategia commerciale.',
     'blog.article.marchi-migros-riduzione-frontalieri-ticino.imageAlt': 'Scaffale Migros Ticino con prodotti American Favorites in confezioni rinnovate senza riferimenti agli USA',
+    'blog.article.disagi-tilo-mendrisio-malpensa-2026.title': 'Disagi alla linea Tilo tra Mendrisio e Malpensa: cosa cambia',
+    'blog.article.disagi-tilo-mendrisio-malpensa-2026.excerpt': 'Sabato 11 e domenica 12 aprile 2026, modifiche alla circolazione dei treni Tilo S50 tra Mendrisio e Malpensa per lavori infrastrutturali. Previsti bus sostitutivi e tempi di percorrenza più lunghi.',
+    'blog.article.disagi-tilo-mendrisio-malpensa-2026.imageAlt': 'Stazione di Mendrisio con treni Tilo e passeggeri in attesa, tabellone con modifiche agli orari',
 };
 
 export default blogMetaIt;

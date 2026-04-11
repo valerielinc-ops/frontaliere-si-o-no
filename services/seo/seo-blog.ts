@@ -6879,6 +6879,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-disagi-tilo-mendrisio-malpensa-2026': {
+    title: 'Disagi alla linea Tilo tra Mendrisio e | Frontaliere Ticino',
+    description: 'Modifiche alla linea Tilo S50 tra Mendrisio e Malpensa l\'11 e 12 aprile 2026. Bus sostitutivi, tempi più lunghi e limitazioni per le biciclette. Guida pratica',
+    keywords: 'frontalieri, ticino, svizzera, italia, disagi, alla, linea, tilo',
+    ogTitle: 'Disagi Tilo Mendrisio-Malpensa: Cosa Cambia ad Aprile 2026',
+    ogDescription: 'Tutto quello che devi sapere sui disagi alla linea Tilo S50 tra Mendrisio e Malpensa l\'11 e 12 aprile 2026. Orari, bus sostitutivi e consigli pratici.',
+    canonicalPath: '/articoli-frontaliere/disagi-tilo-mendrisio-malpensa-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Disagi alla linea Tilo tra Mendrisio e Malpensa: bus sostitutivi e tempi più lunghi",
+      "description": "Modifiche alla linea Tilo S50 tra Mendrisio e Malpensa l'11 e 12 aprile 2026. Bus sostitutivi, tempi più lunghi e limitazioni per le biciclette. Guida pratica",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/disagi-tilo-mendrisio-malpensa-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stazione di Mendrisio con treni Tilo e passeggeri in attesa, tabellone con modifiche agli orari"
+      },
+      "datePublished": "2026-04-11T08:27:54+00:00",
+      "dateModified": "2026-04-11T08:27:54+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/disagi-tilo-mendrisio-malpensa-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

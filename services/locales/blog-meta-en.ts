@@ -2070,6 +2070,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.marchi-migros-riduzione-frontalieri-ticino.title': 'Migros Ticino: fewer brands, more \'Migros\' from 2025',
     'blog.article.marchi-migros-riduzione-frontalieri-ticino.excerpt': 'The \'American Favorites\' line is changing its name and appearance. By 2030, Migros will reduce its own brands from 250 to 80 to streamline its product range. There is no political connection, just a commercial strategy.',
     'blog.article.marchi-migros-riduzione-frontalieri-ticino.imageAlt': 'Migros Ticino shelf with American Favorites products in updated packaging without USA references',
+    'blog.article.disagi-tilo-mendrisio-malpensa-2026.title': 'Disruptions on the Tilo line between Mendrisio and Malpensa: what changes',
+    'blog.article.disagi-tilo-mendrisio-malpensa-2026.excerpt': 'On Saturday 11 and Sunday 12 April 2026, changes to the circulation of Tilo S50 trains between Mendrisio and Malpensa due to infrastructure works. Substitute buses and longer travel times are expected.',
+    'blog.article.disagi-tilo-mendrisio-malpensa-2026.imageAlt': 'Mendrisio train station with Tilo trains and waiting passengers, schedule board showing changes',
 };
 
 export default blogMetaEn;

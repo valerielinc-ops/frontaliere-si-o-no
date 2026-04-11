@@ -3670,7 +3670,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 741,
+        "numberOfItems": 742,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -4389,7 +4389,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 738, "name": "Autostrada A9 verso Chiasso chiusa di notte: ec...", "url": `${BASE_URL}/articoli-frontaliere/autostrada-a9-chiude-de-notti-2026` },
           { "@type": "ListItem", "position": 739, "name": "Frontaliere Ticino - 190 multe a Chiasso per vi...", "url": `${BASE_URL}/articoli-frontaliere/multa-vignetta-pasqua-chiasso-2024` },
           { "@type": "ListItem", "position": 740, "name": "SALVA compie 20 anni: meno della metà chiama l’...", "url": `${BASE_URL}/articoli-frontaliere/salva-venti-anni-monito-infarti` },
-          { "@type": "ListItem", "position": 741, "name": "Migros Ticino attiva un piano di rebranding com...", "url": `${BASE_URL}/articoli-frontaliere/marchi-migros-riduzione-frontalieri-ticino` }
+          { "@type": "ListItem", "position": 741, "name": "Migros Ticino attiva un piano di rebranding com...", "url": `${BASE_URL}/articoli-frontaliere/marchi-migros-riduzione-frontalieri-ticino` },
+          { "@type": "ListItem", "position": 742, "name": "Disagi alla linea Tilo tra Mendrisio e Malpensa...", "url": `${BASE_URL}/articoli-frontaliere/disagi-tilo-mendrisio-malpensa-2026` }
         ]
       }
     ]

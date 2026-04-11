@@ -5815,4 +5815,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/marchi-migros-riduzione-frontalieri-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'disagi-tilo-mendrisio-malpensa-2026',
+    category: 'pratico',
+    date: '2026-04-11T08:27:54.581Z',
+    image: '/images/blog/disagi-tilo-mendrisio-malpensa-2026.jpg',
+    hasCalculator: true,
+  },
 ];
