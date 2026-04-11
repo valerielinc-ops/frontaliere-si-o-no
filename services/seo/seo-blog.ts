@@ -6850,6 +6850,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-marchi-migros-riduzione-frontalieri-ticino': {
+    title: 'Migros Ticino: meno marchi, più | Frontaliere Ticino',
+    description: 'Migros riduce i marchi propri da 250 a 80 entro il 2030. La linea ‘American Favorites’ cambia nome e aspetto senza riferimenti agli USA. Scopri come cambia la',
+    keywords: 'frontalieri, ticino, svizzera, italia, migros, meno, marchi, 2025',
+    ogTitle: 'Migros Ticino: meno marchi, più ‘Migros’ dal 2025',
+    ogDescription: 'Migros riduce i marchi propri da 250 a 80 entro il 2030. La linea ‘American Favorites’ cambia nome e aspetto senza riferimenti agli USA. Scopri come cambia la',
+    canonicalPath: '/articoli-frontaliere/marchi-migros-riduzione-frontalieri-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Migros Ticino attiva un piano di rebranding commerciale per semplificare l’assortimento e unificare",
+      "description": "Migros riduce i marchi propri da 250 a 80 entro il 2030. La linea ‘American Favorites’ cambia nome e aspetto senza riferimenti agli USA. Scopri come cambia la",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/marchi-migros-riduzione-frontalieri-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scaffale Migros Ticino con prodotti American Favorites in confezioni rinnovate senza riferimenti agli USA"
+      },
+      "datePublished": "2026-04-11T07:48:10+00:00",
+      "dateModified": "2026-04-11T07:48:10+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/marchi-migros-riduzione-frontalieri-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

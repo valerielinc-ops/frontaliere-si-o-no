@@ -2067,6 +2067,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.salva-venti-anni-monito-infarti.title': 'SALVA compie 20 anni: meno della metà chiama l’ambulanza in caso di infarto',
     'blog.article.salva-venti-anni-monito-infarti.excerpt': 'Il Servizio Ambulanza Locarnese e Valli (SALVA) celebra 20 anni con un monito: solo il 40% degli infartuati chiama il 144. Punti salienti della giornata porte aperte a Locarno il 3 ottobre.',
     'blog.article.salva-venti-anni-monito-infarti.imageAlt': 'Soccorritori del SALVA in azione a Locarno con ambulanze e attrezzature mediche moderne',
+    'blog.article.marchi-migros-riduzione-frontalieri-ticino.title': 'Migros Ticino: meno marchi, più ‘Migros’ dal 2025',
+    'blog.article.marchi-migros-riduzione-frontalieri-ticino.excerpt': 'La linea ‘American Favorites’ cambia nome e aspetto. Migros riduce i marchi propri da 250 a 80 entro il 2030 per semplificare l’assortimento. Nessun legame politico, ma solo una strategia commerciale.',
+    'blog.article.marchi-migros-riduzione-frontalieri-ticino.imageAlt': 'Scaffale Migros Ticino con prodotti American Favorites in confezioni rinnovate senza riferimenti agli USA',
 };
 
 export default blogMetaIt;

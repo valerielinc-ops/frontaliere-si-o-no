@@ -2067,6 +2067,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.salva-venti-anni-monito-infarti.title': 'SALVA turns 20: fewer than half call an ambulance in case of a heart attack',
     'blog.article.salva-venti-anni-monito-infarti.excerpt': 'The Locarno and Valleys Ambulance Service (SALVA) is celebrating 20 years with a warning: only 40% of heart attack victims call 144. Highlights of the open day in Locarno on October 3.',
     'blog.article.salva-venti-anni-monito-infarti.imageAlt': 'SALVA emergency responders in Locarno, Ticino, handling professional ambulance and medical equipment',
+    'blog.article.marchi-migros-riduzione-frontalieri-ticino.title': 'Migros Ticino: fewer brands, more \'Migros\' from 2025',
+    'blog.article.marchi-migros-riduzione-frontalieri-ticino.excerpt': 'The \'American Favorites\' line is changing its name and appearance. By 2030, Migros will reduce its own brands from 250 to 80 to streamline its product range. There is no political connection, just a commercial strategy.',
+    'blog.article.marchi-migros-riduzione-frontalieri-ticino.imageAlt': 'Migros Ticino shelf with American Favorites products in updated packaging without USA references',
 };
 
 export default blogMetaEn;

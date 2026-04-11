@@ -1944,6 +1944,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-autostrada-a9-chiude-de-notti-2026': { name: 'Autostrada A9 verso Chiasso chiusa di no', path: '/articoli-frontaliere/autostrada-a9-chiude-de-notti-2026', parent: 'blog' },
     'blog-multa-vignetta-pasqua-chiasso-2024': { name: 'Vignetta Svizzera', path: '/articoli-frontaliere/multa-vignetta-pasqua-chiasso-2024', parent: 'blog' },
     'blog-salva-venti-anni-monito-infarti': { name: 'SALVA compie 20 anni', path: '/articoli-frontaliere/salva-venti-anni-monito-infarti', parent: 'blog' },
+    'blog-marchi-migros-riduzione-frontalieri-ticino': { name: 'Migros rebranding', path: '/articoli-frontaliere/marchi-migros-riduzione-frontalieri-ticino', parent: 'blog' },
   };
 
   const info = sectionNames[section];

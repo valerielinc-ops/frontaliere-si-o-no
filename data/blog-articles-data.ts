@@ -5808,4 +5808,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/salva-venti-anni-monito-infarti.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'marchi-migros-riduzione-frontalieri-ticino',
+    category: 'novita',
+    date: '2026-04-11T07:48:10.238Z',
+    image: '/images/blog/marchi-migros-riduzione-frontalieri-ticino.jpg',
+    hasCalculator: true,
+  },
 ];
