@@ -2072,6 +2072,9 @@ export async function aiTranslateJobTitleDCC({ title, locale, sourceLang = 'en' 
 }
 
 export async function aiLocalizeJobContentDCC({ title, company, location, description, requirements, sourceLang, maxLocales = 4, minChars = 120 }, ctx = {}) {
+  if (!aiLocalizeJobContentDCC._cacheStats) {
+    aiLocalizeJobContentDCC._cacheStats = { busted: 0 };
+  }
   const {
     cleanDescription: clean, buildAiCacheKey, getCachedAiResponse, setCachedAiResponse,
     AI_CACHE_RAW_SENTINEL, callLLM, isAnyModelAvailable, stripCodeFenceJson: scfj,
