@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "rss-surselva-5ad16cceb389",
-      "slug": "hebamme-fh-hf-60-rss-surselva-ch",
+      "slug": "ostetrica-fh-hf-60-regionalspital-surselva-ilanz",
       "slugByLocale": {
         "de": "hebamme-fh-hf-60-regionalspital-surselva-ilanz",
-        "it": "hebamme-fh-hf-60-rss-surselva-ch",
-        "en": "hebamme-fh-hf-60-rss-surselva-ch",
-        "fr": "hebamme-fh-hf-60-rss-surselva-ch"
+        "it": "ostetrica-fh-hf-60-regionalspital-surselva-ilanz",
+        "en": "midwife-fh-hf-60-regionalspital-surselva-ilanz",
+        "fr": "sage-femme-fh-hf-60-regionalspital-surselva-ilanz"
       },
       "company": "Regionalspital Surselva",
       "companyKey": "rss-surselva",
@@ -68,7 +68,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "hebamme-fh-hf-60-rss-surselva-ch"
+        ],
+        "en": [
+          "hebamme-fh-hf-60-rss-surselva-ch"
+        ],
+        "fr": [
+          "hebamme-fh-hf-60-rss-surselva-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hebamme-fh-hf-60-rss-surselva-ch"
+      ]
     },
     {
       "id": "rss-surselva-134aee4e6203",
@@ -144,8 +158,8 @@
       "slugByLocale": {
         "de": "fachperson-gesundheit-efz-40-60-fur-unsere-lips-leistungsintensive-pflegestation-regionalspital-surselva-ilanz",
         "it": "fachperson-gesundheit-cfc-40-60-per-unsere-lips-leistungsintensive-pflegestation-regionalspital-surselva-ilanz",
-        "en": "fachperson-gesundheit-efz-40-60-fur-unsere-lips-leistungsintensive-pflegestation-regionalspital-surselva-ilanz",
-        "fr": "fachperson-gesundheit-efz-40-60-fur-unsere-lips-leistungsintensive-pflegestation-regionalspital-surselva-ilanz"
+        "en": "specialist-health-efz-40-60-for-our-lips-high-performance-nursing-ward-regionalspital-surselva-ilanz",
+        "fr": "specialiste-de-la-sante-cfc-40-60-pour-nos-lips-unite-de-soins-intensifs-regionalspital-surselva-ilanz"
       },
       "company": "Regionalspital Surselva",
       "companyKey": "rss-surselva",
@@ -199,10 +213,17 @@
         ],
         "de": [
           "fachperson-gesundheit-efz-40-60-fur-unsere-lips-leistungsintensive-pflegestation-rss-surse"
+        ],
+        "en": [
+          "fachperson-gesundheit-efz-40-60-fur-unsere-lips-leistungsintensive-pflegestation-regionalspital-surselva-ilanz"
+        ],
+        "fr": [
+          "fachperson-gesundheit-efz-40-60-fur-unsere-lips-leistungsintensive-pflegestation-regionalspital-surselva-ilanz"
         ]
       },
       "previousSlugs": [
-        "fachperson-gesundheit-efz-40-60-fur-unsere-lips-leistungsintensive-pflegestation-rss-surse"
+        "fachperson-gesundheit-efz-40-60-fur-unsere-lips-leistungsintensive-pflegestation-rss-surse",
+        "fachperson-gesundheit-efz-40-60-fur-unsere-lips-leistungsintensive-pflegestation-regionalspital-surselva-ilanz"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -223,8 +244,8 @@
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-fur-unsere-interdisziplinare-abteilung-40-100-regionalspital-surselva-ilanz",
         "it": "dipl-pflegefachperson-hf-fh-per-unsere-interdisziplinare-abteilung-40-100-regionalspital-surselva-ilanz",
-        "en": "dipl-pflegefachperson-hf-fh-fur-unsere-interdisziplinare-abteilung-40-100-regionalspital-surselva-ilanz",
-        "fr": "dipl-pflegefachperson-hf-fh-fur-unsere-interdisziplinare-abteilung-40-100-regionalspital-surselva-ilanz"
+        "en": "qualified-nurse-hf-fh-for-our-interdisciplinary-department-40-100-regionalspital-surselva-ilanz",
+        "fr": "infirmier-diplome-es-hes-pour-notre-departement-interdisciplinaire-40-100-regionalspital-surselva-ilanz"
       },
       "company": "Regionalspital Surselva",
       "companyKey": "rss-surselva",
@@ -278,10 +299,17 @@
         ],
         "de": [
           "dipl-pflegefachperson-hf-fh-fur-unsere-interdisziplinare-abteilung-40-100-rss-surselva-ch"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-fur-unsere-interdisziplinare-abteilung-40-100-regionalspital-surselva-ilanz"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-fur-unsere-interdisziplinare-abteilung-40-100-regionalspital-surselva-ilanz"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-fur-unsere-interdisziplinare-abteilung-40-100-rss-surselva-ch"
+        "dipl-pflegefachperson-hf-fh-fur-unsere-interdisziplinare-abteilung-40-100-rss-surselva-ch",
+        "dipl-pflegefachperson-hf-fh-fur-unsere-interdisziplinare-abteilung-40-100-regionalspital-surselva-ilanz"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -378,7 +406,7 @@
         "de": "dipl-experten-expertin-nds-hf-notfallpflege-100-rss-surselva-ch",
         "it": "dipl-experten-expertin-nds-hf-notfallpflege-100-rss-surselva-ch",
         "en": "dipl-experten-expertin-nds-hf-notfallpflege-100-regionalspital-surselva-ilanz",
-        "fr": "dipl-experten-expertin-nds-hf-notfallpflege-100-rss-surselva-ch"
+        "fr": "expert-e-diplome-e-epd-es-soins-d-urgence-100-regionalspital-surselva-ilanz"
       },
       "company": "Regionalspital Surselva",
       "companyKey": "rss-surselva",
@@ -509,12 +537,12 @@
     },
     {
       "id": "rss-surselva-603a52cbba5a",
-      "slug": "leiter-in-notfall-lips-tagesklinik-funktionslabor-80-100-regionalspital-surselva-ilanz",
+      "slug": "responsabile-emergenza-lips-day-hospital-laboratorio-funzionale-80-100-regionalspital-surselva-ilanz",
       "slugByLocale": {
         "de": "leiter-in-notfall-lips-tagesklinik-funktionslabor-80-100-regionalspital-surselva-ilanz",
-        "it": "leiter-in-notfall-lips-tagesklinik-funktionslabor-80-100-regionalspital-surselva-ilanz",
-        "en": "leiter-in-notfall-lips-tagesklinik-funktionslabor-80-100-rss-surselva-ch",
-        "fr": "leiter-in-notfall-lips-tagesklinik-funktionslabor-80-100-rss-surselva-ch"
+        "it": "responsabile-emergenza-lips-day-hospital-laboratorio-funzionale-80-100-regionalspital-surselva-ilanz",
+        "en": "head-of-emergency-lips-day-clinic-functional-laboratory-80-100-regionalspital-surselva-ilanz",
+        "fr": "responsable-des-urgences-lips-clinique-de-jour-laboratoire-fonctionnel-80-100-regionalspital-surselva-ilanz"
       },
       "company": "Regionalspital Surselva",
       "companyKey": "rss-surselva",
@@ -563,14 +591,22 @@
       "pensumMax": 100,
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-notfall-lips-tagesklinik-funktionslabor-80-100-rss-surselva-ch"
+          "leiter-in-notfall-lips-tagesklinik-funktionslabor-80-100-rss-surselva-ch",
+          "leiter-in-notfall-lips-tagesklinik-funktionslabor-80-100-regionalspital-surselva-ilanz"
         ],
         "de": [
+          "leiter-in-notfall-lips-tagesklinik-funktionslabor-80-100-rss-surselva-ch"
+        ],
+        "en": [
+          "leiter-in-notfall-lips-tagesklinik-funktionslabor-80-100-rss-surselva-ch"
+        ],
+        "fr": [
           "leiter-in-notfall-lips-tagesklinik-funktionslabor-80-100-rss-surselva-ch"
         ]
       },
       "previousSlugs": [
-        "leiter-in-notfall-lips-tagesklinik-funktionslabor-80-100-rss-surselva-ch"
+        "leiter-in-notfall-lips-tagesklinik-funktionslabor-80-100-rss-surselva-ch",
+        "leiter-in-notfall-lips-tagesklinik-funktionslabor-80-100-regionalspital-surselva-ilanz"
       ],
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -591,8 +627,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-gastronomie-40-90-regionalspital-surselva-ilanz",
         "it": "collaboratore-trice-in-gastronomie-40-90-regionalspital-surselva-ilanz",
-        "en": "mitarbeiter-in-gastronomie-40-90-regionalspital-surselva-ilanz",
-        "fr": "mitarbeiter-in-gastronomie-40-90-regionalspital-surselva-ilanz"
+        "en": "catering-staff-40-90-regionalspital-surselva-ilanz",
+        "fr": "employe-e-de-la-restauration-40-90-regionalspital-surselva-ilanz"
       },
       "company": "Regionalspital Surselva",
       "companyKey": "rss-surselva",
@@ -645,10 +681,17 @@
         ],
         "de": [
           "mitarbeiter-in-gastronomie-40-90-rss-surselva-ch"
+        ],
+        "en": [
+          "mitarbeiter-in-gastronomie-40-90-regionalspital-surselva-ilanz"
+        ],
+        "fr": [
+          "mitarbeiter-in-gastronomie-40-90-regionalspital-surselva-ilanz"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-gastronomie-40-90-rss-surselva-ch"
+        "mitarbeiter-in-gastronomie-40-90-rss-surselva-ch",
+        "mitarbeiter-in-gastronomie-40-90-regionalspital-surselva-ilanz"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -665,12 +708,12 @@
     },
     {
       "id": "rss-surselva-34399b6afaca",
-      "slug": "kochin-koch-80-100-rss-surselva-ch",
+      "slug": "cuoco-80-100-regionalspital-surselva-ilanz",
       "slugByLocale": {
         "de": "kochin-koch-80-100-regionalspital-surselva-ilanz",
-        "it": "kochin-koch-80-100-rss-surselva-ch",
-        "en": "kochin-koch-80-100-rss-surselva-ch",
-        "fr": "kochin-koch-80-100-rss-surselva-ch"
+        "it": "cuoco-80-100-regionalspital-surselva-ilanz",
+        "en": "cook-80-100-regionalspital-surselva-ilanz",
+        "fr": "cuisiniere-cuisinier-80-100-regionalspital-surselva-ilanz"
       },
       "company": "Regionalspital Surselva",
       "companyKey": "rss-surselva",
@@ -729,7 +772,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kochin-koch-80-100-rss-surselva-ch"
+        ],
+        "en": [
+          "kochin-koch-80-100-rss-surselva-ch"
+        ],
+        "fr": [
+          "kochin-koch-80-100-rss-surselva-ch"
+        ]
+      },
+      "previousSlugs": [
+        "kochin-koch-80-100-rss-surselva-ch"
+      ]
     },
     {
       "id": "rss-surselva-7c8b9ff5a7a6",
@@ -737,8 +794,8 @@
       "slugByLocale": {
         "de": "endoskopie-assistent-in-30-oder-nach-vereinbarung-hf-mpa-fage-regionalspital-surselva-ilanz",
         "it": "endoskopie-assistent-in-30-o-nach-vereinbarung-hf-mpa-fage-regionalspital-surselva-ilanz",
-        "en": "endoskopie-assistent-in-30-oder-nach-vereinbarung-hf-mpa-fage-rss-surselva-ch",
-        "fr": "endoskopie-assistent-in-30-oder-nach-vereinbarung-hf-mpa-fage-rss-surselva-ch"
+        "en": "endoscopyassistant-30-or-by-appointment-hf-mpa-fage-regionalspital-surselva-ilanz",
+        "fr": "assistant-endoscopique-a-30-ou-sur-rendez-vous-hf-mpa-assc-regionalspital-surselva-ilanz"
       },
       "company": "Regionalspital Surselva",
       "companyKey": "rss-surselva",
@@ -792,6 +849,12 @@
         ],
         "de": [
           "endoskopie-assistent-in-30-oder-nach-vereinbarung-hf-mpa-fage-rss-surselva-ch"
+        ],
+        "en": [
+          "endoskopie-assistent-in-30-oder-nach-vereinbarung-hf-mpa-fage-rss-surselva-ch"
+        ],
+        "fr": [
+          "endoskopie-assistent-in-30-oder-nach-vereinbarung-hf-mpa-fage-rss-surselva-ch"
         ]
       },
       "previousSlugs": [
@@ -812,12 +875,12 @@
     },
     {
       "id": "rss-surselva-e33900dff8d7",
-      "slug": "arztsekretar-in-80-100-rss-surselva-ch",
+      "slug": "segretario-a-medico-a-80-100-regionalspital-surselva-ilanz",
       "slugByLocale": {
         "de": "arztsekretar-in-80-100-regionalspital-surselva-ilanz",
-        "it": "arztsekretar-in-80-100-rss-surselva-ch",
-        "en": "arztsekretar-in-80-100-rss-surselva-ch",
-        "fr": "arztsekretar-in-80-100-rss-surselva-ch"
+        "it": "segretario-a-medico-a-80-100-regionalspital-surselva-ilanz",
+        "en": "medicalsecretary-80-100-regionalspital-surselva-ilanz",
+        "fr": "secretaire-medical-a-80-100-regionalspital-surselva-ilanz"
       },
       "company": "Regionalspital Surselva",
       "companyKey": "rss-surselva",
@@ -875,7 +938,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretar-in-80-100-rss-surselva-ch"
+        ],
+        "en": [
+          "arztsekretar-in-80-100-rss-surselva-ch"
+        ],
+        "fr": [
+          "arztsekretar-in-80-100-rss-surselva-ch"
+        ]
+      },
+      "previousSlugs": [
+        "arztsekretar-in-80-100-rss-surselva-ch"
+      ]
     },
     {
       "id": "rss-surselva-23abde2079d7",
@@ -883,8 +960,8 @@
       "slugByLocale": {
         "de": "leitende-arztin-leitender-arzt-padiatrie-kombinierbar-mit-praxistatigkeit-regionalspital-surselva-ilanz",
         "it": "leitende-arztin-leitender-arzt-padiatrie-kombinierbar-mit-praxistatigkeit-regionalspital-surselva-ilanz",
-        "en": "leitende-arztin-leitender-arzt-padiatrie-kombinierbar-mit-praxistatigkeit-regionalspital-surselva-ilanz",
-        "fr": "leitende-arztin-leitender-arzt-padiatrie-kombinierbar-mit-praxistatigkeit-regionalspital-surselva-ilanz"
+        "en": "senior-physician-pediatrics-can-be-combined-with-practical-work-regionalspital-surselva-ilanz",
+        "fr": "medecin-chef-medecin-chef-en-pediatrie-peut-etre-combine-avec-une-activite-au-cabinet-regionalspital-surselva-ilanz"
       },
       "company": "Regionalspital Surselva",
       "companyKey": "rss-surselva",
@@ -955,12 +1032,12 @@
     },
     {
       "id": "rss-surselva-bfb4df327092",
-      "slug": "hausarztin-hausarzt-50-100-rss-surselva-ch",
+      "slug": "medico-di-famiglia-50-100-regionalspital-surselva-ilanz",
       "slugByLocale": {
         "de": "hausarztin-hausarzt-50-100-regionalspital-surselva-ilanz",
-        "it": "hausarztin-hausarzt-50-100-rss-surselva-ch",
-        "en": "hausarztin-hausarzt-50-100-rss-surselva-ch",
-        "fr": "hausarztin-hausarzt-50-100-rss-surselva-ch"
+        "it": "medico-di-famiglia-50-100-regionalspital-surselva-ilanz",
+        "en": "general-practitioner-50-100-regionalspital-surselva-ilanz",
+        "fr": "medecin-de-famille-50-100-regionalspital-surselva-ilanz"
       },
       "company": "Regionalspital Surselva",
       "companyKey": "rss-surselva",
@@ -1018,7 +1095,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "hausarztin-hausarzt-50-100-rss-surselva-ch"
+        ],
+        "en": [
+          "hausarztin-hausarzt-50-100-rss-surselva-ch"
+        ],
+        "fr": [
+          "hausarztin-hausarzt-50-100-rss-surselva-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hausarztin-hausarzt-50-100-rss-surselva-ch"
+      ]
     }
   ]
 }
