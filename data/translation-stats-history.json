@@ -1,565 +1,5 @@
 [
   {
-    "timestamp": "2026-04-02T10:37:35.592Z",
-    "label": "before",
-    "total": 1313,
-    "needsRetranslation": 207,
-    "incomplete": 138,
-    "complete": 1175,
-    "missingByLocale": {
-      "it": 60,
-      "en": 108,
-      "de": 91,
-      "fr": 127
-    },
-    "topPending": [
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 46
-      },
-      {
-        "company": "Interdiscount",
-        "pending": 35
-      },
-      {
-        "company": "Denner",
-        "pending": 13
-      },
-      {
-        "company": "Cornèr Banca",
-        "pending": 8
-      },
-      {
-        "company": "Allianz Suisse",
-        "pending": 5
-      },
-      {
-        "company": "BPS (Banca Popolare di Sondrio) SUISSE",
-        "pending": 4
-      },
-      {
-        "company": "EFG International AG",
-        "pending": 4
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 4
-      },
-      {
-        "company": "ALDI SUISSE",
-        "pending": 3
-      },
-      {
-        "company": "Scuola Club Migros",
-        "pending": 2
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-02T10:38:14.272Z",
-    "label": "after",
-    "total": 1313,
-    "needsRetranslation": 136,
-    "incomplete": 111,
-    "complete": 1202,
-    "missingByLocale": {
-      "it": 43,
-      "en": 89,
-      "de": 86,
-      "fr": 108
-    },
-    "topPending": [
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 46
-      },
-      {
-        "company": "Interdiscount",
-        "pending": 35
-      },
-      {
-        "company": "Cornèr Banca",
-        "pending": 8
-      },
-      {
-        "company": "EFG International AG",
-        "pending": 4
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 4
-      },
-      {
-        "company": "Denner",
-        "pending": 2
-      },
-      {
-        "company": "Scuola Club Migros",
-        "pending": 2
-      },
-      {
-        "company": "ABB Svizzera (sede Ticino)",
-        "pending": 1
-      },
-      {
-        "company": "AMAG Group",
-        "pending": 1
-      },
-      {
-        "company": "AXA Svizzera",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-02T11:10:11.859Z",
-    "label": "before",
-    "total": 1316,
-    "needsRetranslation": 380,
-    "incomplete": 193,
-    "complete": 1123,
-    "missingByLocale": {
-      "it": 88,
-      "en": 152,
-      "de": 113,
-      "fr": 169
-    },
-    "topPending": [
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 46
-      },
-      {
-        "company": "VOLG",
-        "pending": 44
-      },
-      {
-        "company": "Interdiscount",
-        "pending": 35
-      },
-      {
-        "company": "Lombardi Group",
-        "pending": 9
-      },
-      {
-        "company": "Cornèr Banca",
-        "pending": 8
-      },
-      {
-        "company": "Rapelli - ORIOR Food AG",
-        "pending": 8
-      },
-      {
-        "company": "LWP Ledermann Wieting & Partners",
-        "pending": 7
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 5
-      },
-      {
-        "company": "EFG International AG",
-        "pending": 4
-      },
-      {
-        "company": "Schindler",
-        "pending": 4
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-02T11:10:23.316Z",
-    "label": "after",
-    "total": 1316,
-    "needsRetranslation": 166,
-    "incomplete": 125,
-    "complete": 1191,
-    "missingByLocale": {
-      "it": 44,
-      "en": 92,
-      "de": 90,
-      "fr": 112
-    },
-    "topPending": [
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 46
-      },
-      {
-        "company": "Interdiscount",
-        "pending": 35
-      },
-      {
-        "company": "Cornèr Banca",
-        "pending": 8
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 5
-      },
-      {
-        "company": "EFG International AG",
-        "pending": 4
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 4
-      },
-      {
-        "company": "Manor AG",
-        "pending": 3
-      },
-      {
-        "company": "Schindler",
-        "pending": 3
-      },
-      {
-        "company": "Denner",
-        "pending": 2
-      },
-      {
-        "company": "Scuola Club Migros",
-        "pending": 2
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-02T11:15:08.096Z",
-    "label": "before",
-    "total": 1320,
-    "needsRetranslation": 155,
-    "incomplete": 125,
-    "complete": 1195,
-    "missingByLocale": {
-      "it": 44,
-      "en": 92,
-      "de": 90,
-      "fr": 112
-    },
-    "topPending": [
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 46
-      },
-      {
-        "company": "Interdiscount",
-        "pending": 35
-      },
-      {
-        "company": "Cornèr Banca",
-        "pending": 8
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 5
-      },
-      {
-        "company": "EFG International AG",
-        "pending": 4
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 4
-      },
-      {
-        "company": "Manor AG",
-        "pending": 3
-      },
-      {
-        "company": "Schindler",
-        "pending": 3
-      },
-      {
-        "company": "Denner",
-        "pending": 2
-      },
-      {
-        "company": "Scuola Club Migros",
-        "pending": 2
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-02T11:16:02.189Z",
-    "label": "after",
-    "total": 1320,
-    "needsRetranslation": 137,
-    "incomplete": 108,
-    "complete": 1212,
-    "missingByLocale": {
-      "it": 39,
-      "en": 87,
-      "de": 82,
-      "fr": 103
-    },
-    "topPending": [
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 46
-      },
-      {
-        "company": "Interdiscount",
-        "pending": 35
-      },
-      {
-        "company": "Cornèr Banca",
-        "pending": 5
-      },
-      {
-        "company": "EFG International AG",
-        "pending": 4
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 4
-      },
-      {
-        "company": "Denner",
-        "pending": 2
-      },
-      {
-        "company": "Scuola Club Migros",
-        "pending": 2
-      },
-      {
-        "company": "ABB Svizzera (sede Ticino)",
-        "pending": 1
-      },
-      {
-        "company": "Banca Raiffeisen Vedeggio Cassarate",
-        "pending": 1
-      },
-      {
-        "company": "FFS Officine (Ferrovie Federali)",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-02T12:25:39.642Z",
-    "label": "before",
-    "total": 1337,
-    "needsRetranslation": 374,
-    "incomplete": 211,
-    "complete": 1126,
-    "missingByLocale": {
-      "it": 77,
-      "en": 172,
-      "de": 155,
-      "fr": 200
-    },
-    "topPending": [
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 78
-      },
-      {
-        "company": "Interdiscount",
-        "pending": 35
-      },
-      {
-        "company": "Avaloq",
-        "pending": 13
-      },
-      {
-        "company": "Denner",
-        "pending": 13
-      },
-      {
-        "company": "Città di Lugano",
-        "pending": 11
-      },
-      {
-        "company": "EMS-Chemie AG",
-        "pending": 10
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 10
-      },
-      {
-        "company": "Cornèr Banca",
-        "pending": 8
-      },
-      {
-        "company": "Allianz Suisse",
-        "pending": 6
-      },
-      {
-        "company": "EFG International AG",
-        "pending": 6
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-02T12:27:01.915Z",
-    "label": "after",
-    "total": 1337,
-    "needsRetranslation": 154,
-    "incomplete": 114,
-    "complete": 1223,
-    "missingByLocale": {
-      "it": 39,
-      "en": 89,
-      "de": 83,
-      "fr": 105
-    },
-    "topPending": [
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 46
-      },
-      {
-        "company": "Interdiscount",
-        "pending": 35
-      },
-      {
-        "company": "Cornèr Banca",
-        "pending": 8
-      },
-      {
-        "company": "EFG International AG",
-        "pending": 6
-      },
-      {
-        "company": "Avaloq",
-        "pending": 4
-      },
-      {
-        "company": "Denner",
-        "pending": 2
-      },
-      {
-        "company": "Scuola Club Migros",
-        "pending": 2
-      },
-      {
-        "company": "ABB Svizzera (sede Ticino)",
-        "pending": 1
-      },
-      {
-        "company": "AMAG Group",
-        "pending": 1
-      },
-      {
-        "company": "Banca Cler",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-02T12:31:47.832Z",
-    "label": "before",
-    "total": 1338,
-    "needsRetranslation": 217,
-    "incomplete": 149,
-    "complete": 1189,
-    "missingByLocale": {
-      "it": 40,
-      "en": 101,
-      "de": 96,
-      "fr": 119
-    },
-    "topPending": [
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 46
-      },
-      {
-        "company": "Interdiscount",
-        "pending": 35
-      },
-      {
-        "company": "LIS – Lugano Istituti Sociali",
-        "pending": 13
-      },
-      {
-        "company": "Lombardi Group",
-        "pending": 9
-      },
-      {
-        "company": "Cornèr Banca",
-        "pending": 8
-      },
-      {
-        "company": "LWP Ledermann Wieting & Partners",
-        "pending": 7
-      },
-      {
-        "company": "EFG International AG",
-        "pending": 6
-      },
-      {
-        "company": "Avaloq",
-        "pending": 4
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 4
-      },
-      {
-        "company": "Manor AG",
-        "pending": 3
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-02T12:33:17.410Z",
-    "label": "after",
-    "total": 1338,
-    "needsRetranslation": 158,
-    "incomplete": 115,
-    "complete": 1223,
-    "missingByLocale": {
-      "it": 29,
-      "en": 89,
-      "de": 78,
-      "fr": 98
-    },
-    "topPending": [
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 46
-      },
-      {
-        "company": "Interdiscount",
-        "pending": 35
-      },
-      {
-        "company": "LIS – Lugano Istituti Sociali",
-        "pending": 13
-      },
-      {
-        "company": "EFG International AG",
-        "pending": 5
-      },
-      {
-        "company": "Città di Mendrisio",
-        "pending": 4
-      },
-      {
-        "company": "Avaloq",
-        "pending": 2
-      },
-      {
-        "company": "Denner",
-        "pending": 2
-      },
-      {
-        "company": "Scuola Club Migros",
-        "pending": 2
-      },
-      {
-        "company": "ABB Svizzera (sede Ticino)",
-        "pending": 1
-      },
-      {
-        "company": "Banca Raiffeisen Vedeggio Cassarate",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-02T12:49:15.322Z",
     "label": "before",
     "total": 1341,
@@ -10061,6 +9501,90 @@
         "company": "Regionalspital Surselva",
         "pending": 9
       },
+      {
+        "company": "Hügli Nährmittel AG",
+        "pending": 4
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 2
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      },
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "Ticino Premium Properties SA",
+        "pending": 1
+      },
+      {
+        "company": "Swiss Armed Forces (VTG)",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-11T19:47:36.284Z",
+    "label": "before",
+    "total": 2471,
+    "needsRetranslation": 135,
+    "incomplete": 57,
+    "complete": 2414,
+    "missingByLocale": {
+      "it": 9,
+      "en": 56,
+      "de": 48,
+      "fr": 56
+    },
+    "topPending": [
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 47
+      },
+      {
+        "company": "Hügli Nährmittel AG",
+        "pending": 4
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 2
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      },
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "Ticino Premium Properties SA",
+        "pending": 1
+      },
+      {
+        "company": "Swiss Armed Forces (VTG)",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-11T19:49:04.998Z",
+    "label": "after",
+    "total": 2471,
+    "needsRetranslation": 79,
+    "incomplete": 10,
+    "complete": 2461,
+    "missingByLocale": {
+      "it": 9,
+      "en": 9,
+      "de": 1,
+      "fr": 9
+    },
+    "topPending": [
       {
         "company": "Hügli Nährmittel AG",
         "pending": 4
