@@ -299,8 +299,16 @@ async function main() {
   const listings = await fetchBoardListings();
   const jobs = [];
   for (const listing of listings) {
-    jobs.push(await buildBoardJob(listing));
+    try {
+      jobs.push(await buildBoardJob(listing));
+    } catch (err) {
+      console.warn(`⚠️ Skipping "${listing.title}" — detail fetch failed: ${err?.message || err}`);
+    }
   }
+  if (jobs.length === 0) {
+    throw new Error(`All ${listings.length} Board job detail fetches failed — no jobs to process.`);
+  }
+  console.log(`✅ Built ${jobs.length}/${listings.length} Board job objects from detail pages.`);
 
   const result = mergeJobs(jobs);
   const diff = result.diff || { newJobs: [], updatedJobs: [], removedJobs: [], unchangedJobs: [], unchangedCount: 0 };
