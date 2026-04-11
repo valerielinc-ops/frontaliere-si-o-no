@@ -5836,4 +5836,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/verbano-livello-max-accordo-ticino-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'tassa-salute-frontalieri-lombardia-minacce-ticino',
+    category: 'fiscale',
+    date: '2026-04-11T14:10:36.678Z',
+    image: '/images/blog/tassa-salute-frontalieri-lombardia-minacce-ticino.jpg',
+    hasCalculator: true,
+  },
 ];

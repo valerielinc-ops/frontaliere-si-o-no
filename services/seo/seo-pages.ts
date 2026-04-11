@@ -3673,7 +3673,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 744,
+        "numberOfItems": 745,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -4395,7 +4395,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 741, "name": "Migros Ticino attiva un piano di rebranding com...", "url": `${BASE_URL}/articoli-frontaliere/marchi-migros-riduzione-frontalieri-ticino` },
           { "@type": "ListItem", "position": 742, "name": "Disagi alla linea Tilo tra Mendrisio e Malpensa...", "url": `${BASE_URL}/articoli-frontaliere/disagi-tilo-mendrisio-malpensa-2026` },
           { "@type": "ListItem", "position": 743, "name": "CPB: la soglia dei 150mila euro vale anche se s...", "url": `${BASE_URL}/articoli-frontaliere/cpb-forfettario-semplificato-soglia-150mila` },
-          { "@type": "ListItem", "position": 744, "name": "Verbano: accordo su livello massimo d’acqua, +2...", "url": `${BASE_URL}/articoli-frontaliere/verbano-livello-max-accordo-ticino-2026` }
+          { "@type": "ListItem", "position": 744, "name": "Verbano: accordo su livello massimo d’acqua, +2...", "url": `${BASE_URL}/articoli-frontaliere/verbano-livello-max-accordo-ticino-2026` },
+          { "@type": "ListItem", "position": 745, "name": "Tassa salute frontalieri: analisi della disputa...", "url": `${BASE_URL}/articoli-frontaliere/tassa-salute-frontalieri-lombardia-minacce-ticino` }
         ]
       }
     ]

@@ -2079,6 +2079,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.verbano-livello-max-accordo-ticino-2026.title': 'Verbano: accordo su livello massimo d’acqua, +20 milioni di m³ per l’agricoltura lombarda',
     'blog.article.verbano-livello-max-accordo-ticino-2026.excerpt': 'Da metà aprile a fine luglio il Verbano sarà innalzato di 135 cm per garantire 20 milioni di metri cubi d’acqua ai campi lombardi. Sperimento fino al 2027 con deroga di 10 cm rispetto al normale.',
     'blog.article.verbano-livello-max-accordo-ticino-2026.imageAlt': 'Veduta del Verbano con il livello dell\'acqua controllato dal Ticino, viste le montagne ticinesi sullo sfondo',
+    'blog.article.tassa-salute-frontalieri-lombardia-minacce-ticino.title': 'Tassa salute frontalieri: Lombardia sotto attacco, Ticino minaccia i ristorni',
+    'blog.article.tassa-salute-frontalieri-lombardia-minacce-ticino.excerpt': 'La Lombardia insiste sulla tassa salute per i frontalieri (3%-6% del reddito, min 30€, max 200€/mese). Ticino e Piemonte la considerano violazione degli accordi. Cgil: «Rischio terremoto sui ristorni».',
+    'blog.article.tassa-salute-frontalieri-lombardia-minacce-ticino.imageAlt': 'Coda di auto al confine italo-svizzero di Lugano con cartelli bilingui.',
 };
 
 export default blogMetaIt;

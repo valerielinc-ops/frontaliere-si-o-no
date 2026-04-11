@@ -2079,6 +2079,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.verbano-livello-max-accordo-ticino-2026.title': 'Lake Maggiore: agreement on maximum water level, +20 million m³ for Lombardy agriculture',
     'blog.article.verbano-livello-max-accordo-ticino-2026.excerpt': 'From mid-April to the end of July, Lake Maggiore will be raised by 135 cm to ensure 20 million cubic metres of water for Lombardy’s fields. The experiment, which includes a 10 cm derogation from the usual levels, will run until 2027.',
     'blog.article.verbano-livello-max-accordo-ticino-2026.imageAlt': 'View of Lago Maggiore with water level controlled by Ticino, Swiss-Italian Alps in the background',
+    'blog.article.tassa-salute-frontalieri-lombardia-minacce-ticino.title': 'Cross-border workers\' health tax: Lombardy under fire, Ticino threatens reimbursement cuts',
+    'blog.article.tassa-salute-frontalieri-lombardia-minacce-ticino.excerpt': 'Lombardy is pushing ahead with the health tax for cross-border workers (3%-6% of income, minimum €30, maximum €200/month). Ticino and Piedmont consider it a breach of existing agreements. CGIL: >\'Risk of a major earthquake over reimbursement cuts\'.',
+    'blog.article.tassa-salute-frontalieri-lombardia-minacce-ticino.imageAlt': 'Cars queue at the Lugano Swiss-Italian border with bilingual signs.',
 };
 
 export default blogMetaEn;

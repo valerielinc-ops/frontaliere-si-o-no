@@ -2079,6 +2079,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.verbano-livello-max-accordo-ticino-2026.title': 'Verbano: Vereinbarung über maximalen Wasserspiegel – 20 Millionen Kubikmeter Wasser für die lombardische Landwirtschaft',
     'blog.article.verbano-livello-max-accordo-ticino-2026.excerpt': 'Von Mitte April bis Ende Juli wird der Wasserspiegel des Verbano um 135 cm angehoben, um 20 Millionen Kubikmeter Wasser für die lombardischen Felder zu sichern. Bis 2027 läuft ein Pilotprojekt mit einer Ausnahmegenehmigung von 10 cm über dem normalen Niveau.',
     'blog.article.verbano-livello-max-accordo-ticino-2026.imageAlt': 'Blick auf den Lago Maggiore mit vom Tessin kontrolliertem Wasserstand, Tessiner Berge im Hintergrund',
+    'blog.article.tassa-salute-frontalieri-lombardia-minacce-ticino.title': 'Gesundheitsabgabe für Grenzgänger: Lombardei unter Beschuss, Tessin droht mit Rückerstattungen',
+    'blog.article.tassa-salute-frontalieri-lombardia-minacce-ticino.excerpt': 'Die Lombardei beharrt auf der Einführung einer Gesundheitsabgabe für Grenzgänger (3 %–6 % des Einkommens, mindestens 30 €, maximal 200 € pro Monat). Tessin und Piemont betrachten dies als Verstoß gegen bestehende Abkommen. Cgil: »Risiko eines Erdbebens bei den Rückerstattungen«.',
+    'blog.article.tassa-salute-frontalieri-lombardia-minacce-ticino.imageAlt': 'Autokolonne an der Luganer Schweizer-Italienischen Grenze mit zweisprachigen Schildern.',
 };
 
 export default blogMetaDe;

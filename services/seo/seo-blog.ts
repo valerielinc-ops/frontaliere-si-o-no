@@ -6966,6 +6966,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tassa-salute-frontalieri-lombardia-minacce-ticino': {
+    title: 'Tassa salute frontalieri: Lombardia | Frontaliere Ticino',
+    description: 'La Lombardia insiste sulla tassa salute per i frontalieri (3%-6% reddito, min 30€ max 200€/mese). Ticino minaccia ritorsioni sui ristorni. Cgil: «Rischio',
+    keywords: 'frontalieri, ticino, svizzera, italia, tassa, salute, lombardia, sotto',
+    ogTitle: 'Tassa salute frontalieri: Lombardia e Ticino allo scontro',
+    ogDescription: 'La Lombardia insiste sulla tassa salute per i frontalieri. Ticino minaccia ritorsioni sui ristorni. Analisi, scenari e procedure per i lavoratori tr',
+    canonicalPath: '/articoli-frontaliere/tassa-salute-frontalieri-lombardia-minacce-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tassa salute frontalieri: analisi della disputa tra Lombardia e Ticino e procedure per i lavoratori",
+      "description": "La Lombardia insiste sulla tassa salute per i frontalieri (3%-6% reddito, min 30€ max 200€/mese). Ticino minaccia ritorsioni sui ristorni. Cgil: «Rischio",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tassa-salute-frontalieri-lombardia-minacce-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Coda di auto al confine italo-svizzero di Lugano con cartelli bilingui."
+      },
+      "datePublished": "2026-04-11T14:10:36+00:00",
+      "dateModified": "2026-04-11T14:10:36+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-salute-frontalieri-lombardia-minacce-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

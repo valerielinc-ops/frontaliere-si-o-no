@@ -2079,6 +2079,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.verbano-livello-max-accordo-ticino-2026.title': 'Verbano : accord sur le niveau maximal d’eau, +20 millions de m³ pour l’agriculture lombarde',
     'blog.article.verbano-livello-max-accordo-ticino-2026.excerpt': 'Du milieu du mois d’avril à la fin du mois de juillet, le niveau du lac Majeur sera relevé de 135 cm pour garantir 20 millions de mètres cubes d’eau aux champs lombards. Essai jusqu’en 2027 avec une dérogation de 10 cm par rapport au niveau normal.',
     'blog.article.verbano-livello-max-accordo-ticino-2026.imageAlt': 'Vue du lac Majeur avec niveau d\'eau contrôlé par le Tessin, montagnes tessinoises en arrière-plan',
+    'blog.article.tassa-salute-frontalieri-lombardia-minacce-ticino.title': 'Taxe santé pour les frontaliers : la Lombardie sous le feu des critiques, le Tessin menace de suspendre les ristournes',
+    'blog.article.tassa-salute-frontalieri-lombardia-minacce-ticino.excerpt': 'La Lombardie maintient sa volonté d’instaurer une taxe santé pour les frontaliers (3 % à 6 % du revenu, avec un minimum de 30 € et un maximum de 200 € par mois). Le Tessin et le Piémont y voient une violation des accords en vigueur. La CGIL met en garde : « Risque de séisme sur les ristournes ».',
+    'blog.article.tassa-salute-frontalieri-lombardia-minacce-ticino.imageAlt': 'Files de voitures à la frontière italo-suisse de Lugano avec panneaux bilingues.',
 };
 
 export default blogMetaFr;

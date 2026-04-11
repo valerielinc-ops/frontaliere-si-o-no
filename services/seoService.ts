@@ -1948,6 +1948,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-disagi-tilo-mendrisio-malpensa-2026': { name: 'Disagi Tilo', path: '/articoli-frontaliere/disagi-tilo-mendrisio-malpensa-2026', parent: 'blog' },
     'blog-cpb-forfettario-semplificato-soglia-150mila': { name: 'CPB', path: '/articoli-frontaliere/cpb-forfettario-semplificato-soglia-150mila', parent: 'blog' },
     'blog-verbano-livello-max-accordo-ticino-2026': { name: 'Verbano', path: '/articoli-frontaliere/verbano-livello-max-accordo-ticino-2026', parent: 'blog' },
+    'blog-tassa-salute-frontalieri-lombardia-minacce-ticino': { name: 'Tassa salute frontalieri', path: '/articoli-frontaliere/tassa-salute-frontalieri-lombardia-minacce-ticino', parent: 'blog' },
   };
 
   const info = sectionNames[section];
