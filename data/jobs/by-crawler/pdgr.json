@@ -56,7 +56,6 @@
       "pensumMin": 0,
       "pensumMax": 100,
       "pensum": "0 - 100%",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "fabbrica-tessile-arbes-roveredo-pdgr-ch"
@@ -2958,8 +2957,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "pdgr-bd41ecd12289",
