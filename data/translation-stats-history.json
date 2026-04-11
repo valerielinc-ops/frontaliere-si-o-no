@@ -1,117 +1,5 @@
 [
   {
-    "timestamp": "2026-04-02T02:25:04.913Z",
-    "label": "before",
-    "total": 1326,
-    "needsRetranslation": 264,
-    "incomplete": 258,
-    "complete": 1068,
-    "missingByLocale": {
-      "it": 106,
-      "en": 145,
-      "de": 140,
-      "fr": 191
-    },
-    "topPending": [
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 46
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 36
-      },
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 19
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 19
-      },
-      {
-        "company": "LIS – Lugano Istituti Sociali",
-        "pending": 13
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 10
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 10
-      },
-      {
-        "company": "ABB Svizzera (sede Ticino)",
-        "pending": 9
-      },
-      {
-        "company": "Cornèr Banca",
-        "pending": 9
-      },
-      {
-        "company": "Denner",
-        "pending": 9
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-02T02:27:52.028Z",
-    "label": "after",
-    "total": 1326,
-    "needsRetranslation": 221,
-    "incomplete": 219,
-    "complete": 1107,
-    "missingByLocale": {
-      "it": 90,
-      "en": 119,
-      "de": 126,
-      "fr": 163
-    },
-    "topPending": [
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 46
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 36
-      },
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 19
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 19
-      },
-      {
-        "company": "LIS – Lugano Istituti Sociali",
-        "pending": 13
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 10
-      },
-      {
-        "company": "ABB Svizzera (sede Ticino)",
-        "pending": 9
-      },
-      {
-        "company": "Cornèr Banca",
-        "pending": 9
-      },
-      {
-        "company": "Denner",
-        "pending": 9
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 5
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-02T03:28:41.725Z",
     "label": "before",
     "total": 1326,
@@ -9841,6 +9729,78 @@
   },
   {
     "timestamp": "2026-04-11T03:23:40.900Z",
+    "label": "after",
+    "total": 1695,
+    "needsRetranslation": 57,
+    "incomplete": 8,
+    "complete": 1687,
+    "missingByLocale": {
+      "it": 7,
+      "en": 7,
+      "de": 1,
+      "fr": 7
+    },
+    "topPending": [
+      {
+        "company": "Hügli Nährmittel AG",
+        "pending": 4
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      },
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "Ticino Premium Properties SA",
+        "pending": 1
+      },
+      {
+        "company": "Swiss Armed Forces (VTG)",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-11T05:06:05.869Z",
+    "label": "before",
+    "total": 1695,
+    "needsRetranslation": 57,
+    "incomplete": 8,
+    "complete": 1687,
+    "missingByLocale": {
+      "it": 7,
+      "en": 7,
+      "de": 1,
+      "fr": 7
+    },
+    "topPending": [
+      {
+        "company": "Hügli Nährmittel AG",
+        "pending": 4
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      },
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "Ticino Premium Properties SA",
+        "pending": 1
+      },
+      {
+        "company": "Swiss Armed Forces (VTG)",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-11T05:06:55.873Z",
     "label": "after",
     "total": 1695,
     "needsRetranslation": 57,
