@@ -9,7 +9,7 @@
         "de": "schnupperlehre-als-zeichner-in-efz-ingenieurbau-kantonale-verwaltung-graubunden-chur",
         "it": "tirocinio-come-disegnatore-ice-efz-costruzioni-ingegneristiche-kantonale-verwaltung-graubunden-chur",
         "en": "trainee-as-drafter-efz-civil-engineering-kantonale-verwaltung-graubunden-chur",
-        "fr": "stagiaire-comme-dessinateur-ice-efz-batiment-civil-kantonale-verwaltung-graubunden-chur"
+        "fr": "apprentissage-comme-dessinateur-trice-cfc-construction-d-ingenierie-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
@@ -89,10 +89,14 @@
         ],
         "de": [
           "schnupperlehre-als-zeichner-in-efz-ingenieurbau-kanton-gr-ch"
+        ],
+        "fr": [
+          "stagiaire-comme-dessinateur-ice-efz-batiment-civil-kantonale-verwaltung-graubunden-chur"
         ]
       },
       "previousSlugs": [
-        "schnupperlehre-als-zeichner-in-efz-ingenieurbau-kanton-gr-ch"
+        "schnupperlehre-als-zeichner-in-efz-ingenieurbau-kanton-gr-ch",
+        "stagiaire-comme-dessinateur-ice-efz-batiment-civil-kantonale-verwaltung-graubunden-chur"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -109,10 +113,10 @@
     },
     {
       "id": "kanton-gr-4dff8558133b",
-      "slug": "tirocinio-di-orientamento-varie-professioni-eba-e-efz-kantonale-verwaltung-graubunden-chur",
+      "slug": "schnupperlehre-diverse-berufe-afp-e-cfc-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
         "de": "schnupperlehre-diverse-berufe-eba-und-efz-kantonale-verwaltung-graubunden-chur",
-        "it": "tirocinio-di-orientamento-varie-professioni-eba-e-efz-kantonale-verwaltung-graubunden-chur",
+        "it": "schnupperlehre-diverse-berufe-afp-e-cfc-kantonale-verwaltung-graubunden-chur",
         "en": "trial-internship-various-eba-and-efz-professions-kantonale-verwaltung-graubunden-chur",
         "fr": "stage-d-orientation-divers-metiers-cfc-et-afp-kantonale-verwaltung-graubunden-chur"
       },
@@ -160,14 +164,16 @@
       "applicationDeadline": "2026-05-31",
       "previousSlugsByLocale": {
         "it": [
-          "schnupperlehre-diverse-berufe-eba-und-efz-kanton-gr-ch"
+          "schnupperlehre-diverse-berufe-eba-und-efz-kanton-gr-ch",
+          "tirocinio-di-orientamento-varie-professioni-eba-e-efz-kantonale-verwaltung-graubunden-chur"
         ],
         "de": [
           "schnupperlehre-diverse-berufe-eba-und-efz-kanton-gr-ch"
         ]
       },
       "previousSlugs": [
-        "schnupperlehre-diverse-berufe-eba-und-efz-kanton-gr-ch"
+        "schnupperlehre-diverse-berufe-eba-und-efz-kanton-gr-ch",
+        "tirocinio-di-orientamento-varie-professioni-eba-e-efz-kantonale-verwaltung-graubunden-chur"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

@@ -592,8 +592,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-spulkuche-weisse-arena-ch",
         "it": "addetto-a-alla-pulizia-cucina-weisse-arena-gruppe-laax",
-        "en": "kitchen-cleaning-staff-weisse-arena-gruppe-laax",
-        "fr": "agent-de-nettoyage-de-cuisine-weisse-arena-gruppe-laax"
+        "en": "associate-spulkuche-weisse-arena-gruppe-laax",
+        "fr": "collaborateur-trice-spulkuche-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
       "companyKey": "weisse-arena",
@@ -666,10 +666,18 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-spulkuche-weisse-arena-ch"
+        ],
+        "en": [
+          "kitchen-cleaning-staff-weisse-arena-gruppe-laax"
+        ],
+        "fr": [
+          "agent-de-nettoyage-de-cuisine-weisse-arena-gruppe-laax"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-spulkuche-weisse-arena-ch"
+        "mitarbeiter-in-spulkuche-weisse-arena-ch",
+        "kitchen-cleaning-staff-weisse-arena-gruppe-laax",
+        "agent-de-nettoyage-de-cuisine-weisse-arena-gruppe-laax"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
