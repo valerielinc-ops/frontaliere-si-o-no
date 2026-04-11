@@ -17,14 +17,14 @@
       "title": "Infirmiers en psychiatrie (60% à 80%)",
       "titleByLocale": {
         "fr": "Infirmiers en psychiatrie (60% à 80%)",
-        "en": "Infirmiers en psychiatrie (60% à 80%)",
-        "it": "Infirmiers en psychiatrie (60% à 80%)",
-        "de": "Infirmiers en psychiatrie (60% à 80%)"
+        "en": "Psychiatric nurses (60% to 80%)",
+        "it": "Infermieri psichiatrici (60% -80%)",
+        "de": "Krankenschwestern und Krankenpfleger in der Psychiatrie (60-80%)"
       },
       "description": "Infirmiers en psychiatrie (60% à 80%) — Fondation Domus. Lieu: La Tzoumaz (VS). Taux d'activité: 60 - 80%. Contrat: Permanent",
       "descriptionByLocale": {
         "fr": "Infirmiers en psychiatrie (60% à 80%) — Fondation Domus. Lieu: La Tzoumaz (VS). Taux d'activité: 60 - 80%. Contrat: Permanent",
-        "en": "Infirmiers en psychiatrie (60% à 80%) — Fondation Domus. Lieu: La Tzoumaz (VS). Taux d'activité: 60 - 80%. Contrat: Permanent",
+        "en": "## Descrizione\n- Infirmiers en psychiatrie (60% à 80%)\n- Fondation Domus\n- Lieu: La Tzoumaz (VS)\n- Taux d'activité: 60 - 80%\n- Contrat: Permanent",
         "it": "Infirmiers en psychiatrie (60% à 80%) — Fondation Domus. Lieu: La Tzoumaz (VS). Taux d'activité: 60 - 80%. Contrat: Permanent",
         "de": "Infirmiers en psychiatrie (60% à 80%) — Fondation Domus. Lieu: La Tzoumaz (VS). Taux d'activité: 60 - 80%. Contrat: Permanent"
       },
@@ -80,13 +80,16 @@
       "title": "Employé polyvalent (100%)",
       "titleByLocale": {
         "fr": "Employé polyvalent (100%)",
-        "it": "Employé polyvalent (100%)",
-        "en": "Employé polyvalent (100%)",
-        "de": "Employé polyvalent (100%)"
+        "it": "Impiegato polivalente (100%)",
+        "en": "Versatile employee (100%)",
+        "de": "Vielseitiger Mitarbeiter (100 %)"
       },
       "description": "Employé polyvalent (100%) — Fondation Domus. Lieu: Ardon (VS). Taux d'activité: 100%. Contrat: Permanent",
       "descriptionByLocale": {
-        "fr": "Employé polyvalent (100%) — Fondation Domus. Lieu: Ardon (VS). Taux d'activité: 100%. Contrat: Permanent"
+        "fr": "## Descrizione\n- Employé polyvalent (100%)\n- Fondation Domus\n- Lieu: Ardon (VS)\n- Taux d'activité: 100%\n- Contrat: Permanent",
+        "it": "Descrizione - Impiegato polivalente (100%) - Fondazione Domus - Luogo: Ardon (VS) - Tasso di attività: 100% - Contratto: Permanente",
+        "en": "Descrizione - Versatile employee (100%) - Domus Foundation - Location: Ardon (VS) - Activity rate: 100% - Contract: Permanent",
+        "de": "Beschreibung - Vielseitiger Mitarbeiter (100 %) - Domus-Stiftung - Ort: Ardon (VS) - Beschäftigungsgrad: 100 % - Vertrag: Permanent"
       },
       "location": "Ardon",
       "canton": "VS",
@@ -111,7 +114,6 @@
       "requirementsByLocale": {
         "fr": []
       },
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
