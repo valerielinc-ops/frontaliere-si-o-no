@@ -2320,9 +2320,10 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
   const localeDescFloor = crawlerConfig?.minDescriptionChars || 120;
   // Count locale coverage: a locale is "covered" if it has an adequate description
   // that is NOT an untranslated copy of the source. Italian copies in EN/DE/FR slots
-  // should NOT count as translated content.
+  // should NOT count as translated content. Thin translations (AI stubs) also don't count.
   const cleanSourceDesc = cleanFn(out.description || '');
   const sourceDescLower = cleanSourceDesc.toLowerCase();
+  const srcDescForThinCheck = nsFn(currentByLocale[sourceLang] || out.description || '');
   const coverage = locales.filter((l) => {
     const text = nsFn(currentByLocale[l] || '');
     if (text.length < localeDescFloor) return false;
@@ -2331,6 +2332,9 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
     // Check if the locale description is just a copy of the source (untranslated)
     const cleanLocale = cleanFn(currentByLocale[l] || '');
     if (cleanLocale.toLowerCase() === sourceDescLower) return false;
+    // Thin translation check: if translation is < 45% of source length, it's likely
+    // a boilerplate stub ("Company X is hiring for Y role..."), not a real translation.
+    if (srcDescForThinCheck.length >= 500 && text.length < srcDescForThinCheck.length * 0.45) return false;
     return true;
   }).length;
   const hasBudget = (ctx.getAiLocalizationCalls ? ctx.getAiLocalizationCalls() : 0) < (crawlerConfig?.aiLocalizationMaxJobsPerRun || 0) || forceLocalization;
@@ -2461,16 +2465,19 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
 
   // Strict fallback for forced companies — parallelize per-locale
   if (forceLocalization) {
-    const sourceDesc = cleanFn(out.description || '');
+    const sourceDesc = cleanFn(currentByLocale[sourceLang] || out.description || '');
     const forceJobs = locales
       .filter((locale) => locale !== sourceLang)
       .map(async (locale) => {
         const curDesc = cleanFn(currentByLocale[locale] || '');
-        const needsDesc = !curDesc || curDesc.length < localeDescFloor || curDesc.toLowerCase() === sourceDesc.toLowerCase();
+        // Also retranslate thin stubs (< 45% of source) — these are AI boilerplate, not real translations
+        const isThinStub = sourceDesc.length >= 500 && curDesc.length > 0 && curDesc.length < sourceDesc.length * 0.45;
+        const needsDesc = !curDesc || curDesc.length < localeDescFloor || curDesc.toLowerCase() === sourceDesc.toLowerCase() || isThinStub;
         let desc = null;
         if (needsDesc) {
+          // Use source locale description as translation input (clean text)
           desc = await aiTranslateJobDescriptionDCC({
-            description: out.description || '', locale, sourceLang, minChars: localeDescFloor,
+            description: currentByLocale[sourceLang] || out.description || '', locale, sourceLang, minChars: localeDescFloor,
           }, ctx);
         }
         const currentTitle = nsFn(titleByLocale[locale] || '');
@@ -2497,17 +2504,19 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
     }
   }
 
-  // Inline truncation detection
+  // Inline truncation detection — use source LOCALE description (not raw base description)
+  // because base description can contain unparsed HTML boilerplate (e.g. SuccessFactors nav)
   const TRUNCATION_RATIO = 0.40;
-  const sourceDescLen = cleanFn(out.description || '').length;
-  if (sourceDescLen >= 200) {
+  const sourceDescForTrunc = cleanFn(currentByLocale[sourceLang] || out.description || '');
+  const sourceDescLenForTrunc = sourceDescForTrunc.length;
+  if (sourceDescLenForTrunc >= 200) {
     for (const locale of locales) {
       if (locale === sourceLang) continue;
       const localized = cleanFn(currentByLocale[locale] || '');
-      if (localized.length > 0 && localized.length < sourceDescLen * TRUNCATION_RATIO) {
+      if (localized.length > 0 && localized.length < sourceDescLenForTrunc * TRUNCATION_RATIO) {
         // eslint-disable-next-line no-await-in-loop
         const retranslated = await aiTranslateJobDescriptionDCC({
-          description: out.description || '', locale, sourceLang, minChars: localeDescFloor,
+          description: currentByLocale[sourceLang] || out.description || '', locale, sourceLang, minChars: localeDescFloor,
         }, ctx);
         if (retranslated && cleanFn(retranslated).length > localized.length) {
           currentByLocale[locale] = retranslated;

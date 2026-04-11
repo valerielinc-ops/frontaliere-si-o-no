@@ -169,15 +169,17 @@ export function isIncomplete(job) {
     }
 
     // Thin translation: locale description is suspiciously short compared to the source.
-    // A faithful translation should be ≥70% of source length (normalized whitespace).
-    // Below that, the AI likely truncated, summarized, or produced boilerplate.
+    // Language-pair aware: FR/DE→IT naturally compresses ~25-30%.
+    // FR/DE source uses 0.50 threshold, others use 0.60 (was 0.70, caused false positives).
     if (locale !== (job.sourceLang || 'it') && desc.length > 0) {
-      const srcLang = job.sourceLang || 'it';
-      const srcDesc = (dbl[srcLang] || job.description || '').trim();
+      const srcLangThin = job.sourceLang || 'it';
+      const srcDesc = (dbl[srcLangThin] || job.description || '').trim();
       if (srcDesc.length >= 500) {
         const normDesc = normalizeForLengthComparison(desc);
         const normSrc = normalizeForLengthComparison(srcDesc);
-        if (normSrc.length >= 500 && normDesc.length < normSrc.length * 0.7) return true;
+        const compressingPair = (srcLangThin === 'fr' || srcLangThin === 'de');
+        const thinRatio = compressingPair ? 0.50 : 0.60;
+        if (normSrc.length >= 500 && normDesc.length < normSrc.length * thinRatio) return true;
       }
     }
 
@@ -648,16 +650,8 @@ async function main() {
           fs.writeFileSync(DATA_JOBS_PATH, JSON.stringify(currentJobs, null, 2) + '\n', 'utf-8');
           totalFixed += cleared;
           console.log(`   ✅ ${key}: ${cleared} jobs translated, progress saved`);
-
-          // Only sync to per-crawler files when translations were actually completed.
-          // If no flags were cleared, the shared crawler didn't improve anything —
-          // syncing would overwrite good per-crawler data with unimproved assembled data.
-          const synced = syncTranslationsToCrawlerFile(key, currentJobs);
-          if (synced > 0) {
-            console.log(`   📁 ${key}: ${synced} jobs synced to per-crawler file`);
-          }
         } else {
-          console.log(`   ℹ️  ${key}: no new translations completed`);
+          console.log(`   ℹ️  ${key}: no flags cleared this pass`);
           // Diagnose: how many jobs for this company are still incomplete after crawler ran?
           const companyJobs = currentJobs.filter(j =>
             normalizeCompanyKey(j.companyKey || j.company || '') === normalizeCompanyKey(key));
@@ -676,6 +670,15 @@ async function main() {
               console.log(`      "${j.title?.slice(0, 50)}" titles:[${info}] flag:${!!j.needsRetranslation}`);
             }
           }
+        }
+
+        // ALWAYS sync improvements to per-crawler files, even when not all flags cleared.
+        // Previously, sync was gated on cleared > 0, creating a loop: shared crawler
+        // improved translations in jobs.json, but improvements never reached per-crawler
+        // slices (source of truth). Next assemble started from stale data.
+        const synced = syncTranslationsToCrawlerFile(key, currentJobs);
+        if (synced > 0) {
+          console.log(`   📁 ${key}: ${synced} jobs synced to per-crawler file`);
         }
       }
 
