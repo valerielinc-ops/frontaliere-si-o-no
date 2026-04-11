@@ -257,11 +257,13 @@ async function fetchJobDetail(jobUrl) {
     if (!res.ok) return null;
     const html = await res.text();
 
-    // Extract the job description from the detail page
-    // Trakstar uses a div with class containing "description" or main content area
-    const descMatch = html.match(/<div[^>]*class="[^"]*description[^"]*"[^>]*>([\s\S]*?)<\/div>/i) ||
-      html.match(/<div[^>]*class="[^"]*job[_-]?detail[^"]*"[^>]*>([\s\S]*?)<\/div>/i) ||
-      html.match(/<div[^>]*class="[^"]*content[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
+    // Extract the job description from the detail page.
+    // Trakstar uses class="jobdesciption" (note the typo — missing 'r').
+    // The div contains <p> tags with the full job posting (responsibilities,
+    // requirements, benefits). Use a greedy match to capture the entire block.
+    const descMatch = html.match(/<div[^>]*class="jobdesciption"[^>]*>([\s\S]*?)<\/div>\s*<section/i) ||
+      html.match(/<div[^>]*class="jobdesciption"[^>]*>([\s\S]*?)<\/div>/i) ||
+      html.match(/<div[^>]*class="[^"]*description[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
 
     return descMatch ? stripHtml(descMatch[1]).trim() : null;
   } catch {
