@@ -2076,6 +2076,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cpb-forfettario-semplificato-soglia-150mila.title': 'CPB: la soglia dei 150mila euro vale anche se si passa dal forfettario al semplificato',
     'blog.article.cpb-forfettario-semplificato-soglia-150mila.excerpt': 'L’Agenzia delle Entrate conferma: chi ha aderito al Concordato Preventivo Biennale come forfettario deve rispettare la soglia di 150mila euro di ricavi, anche dopo il passaggio al regime semplificato. Cosa cambia per i frontalieri ticinesi che lavorano in Lombardia.',
     'blog.article.cpb-forfettario-semplificato-soglia-150mila.imageAlt': 'Ufficio delle Entrate a Lugano con insegne trilingui, esempio di regolarità fiscale per frontalieri',
+    'blog.article.verbano-livello-max-accordo-ticino-2026.title': 'Verbano: accordo su livello massimo d’acqua, +20 milioni di m³ per l’agricoltura lombarda',
+    'blog.article.verbano-livello-max-accordo-ticino-2026.excerpt': 'Da metà aprile a fine luglio il Verbano sarà innalzato di 135 cm per garantire 20 milioni di metri cubi d’acqua ai campi lombardi. Sperimento fino al 2027 con deroga di 10 cm rispetto al normale.',
+    'blog.article.verbano-livello-max-accordo-ticino-2026.imageAlt': 'Veduta del Verbano con il livello dell\'acqua controllato dal Ticino, viste le montagne ticinesi sullo sfondo',
 };
 
 export default blogMetaIt;

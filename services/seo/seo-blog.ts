@@ -6937,6 +6937,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-verbano-livello-max-accordo-ticino-2026': {
+    title: 'Verbano: accordo su livello massimo | Frontaliere Ticino',
+    description: 'Da metà aprile a fine luglio il Verbano sarà innalzato di 135 cm per garantire 20 milioni di metri cubi d’acqua ai campi lombardi. Sperimento fino al 2027 con d',
+    keywords: 'frontalieri, ticino, svizzera, italia, verbano, accordo, livello, massimo',
+    ogTitle: 'Verbano: accordo su livello massimo d’acqua, +20 milioni',
+    ogDescription: 'Da metà aprile a fine luglio il Verbano sarà innalzato di 135 cm per garantire 20 milioni di metri cubi d’acqua ai campi lombardi. Sperimento fino al 2027 con d',
+    canonicalPath: '/articoli-frontaliere/verbano-livello-max-accordo-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Verbano: accordo su livello massimo d’acqua, +20 milioni",
+      "description": "Da metà aprile a fine luglio il Verbano sarà innalzato di 135 cm per garantire 20 milioni di metri cubi d’acqua ai campi lombardi. Sperimento fino al 2027 con d",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/verbano-livello-max-accordo-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta del Verbano con il livello dell'acqua controllato dal Ticino, viste le montagne ticinesi sullo sfondo"
+      },
+      "datePublished": "2026-04-11T13:26:32+00:00",
+      "dateModified": "2026-04-11T13:26:32+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/verbano-livello-max-accordo-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -5829,4 +5829,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/cpb-forfettario-semplificato-soglia-150mila.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'verbano-livello-max-accordo-ticino-2026',
+    category: 'novita',
+    date: '2026-04-11T13:26:32.759Z',
+    image: '/images/blog/verbano-livello-max-accordo-ticino-2026.jpg',
+    hasCalculator: true,
+  },
 ];

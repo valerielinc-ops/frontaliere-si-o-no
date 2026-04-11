@@ -2076,6 +2076,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cpb-forfettario-semplificato-soglia-150mila.title': 'CPB: Die 150.000-Euro-Marke gilt auch bei Wechsel vom Pauschal- zum vereinfachten Besteuerungsverfahren',
     'blog.article.cpb-forfettario-semplificato-soglia-150mila.excerpt': 'Die italienische Steuerbehörde bestätigt: Wer das Zweijahresvorauszahlungsabkommen (Concordato Preventivo Biennale) als Pauschalbesteuerter abgeschlossen hat, muss die 150.000-Euro-Umsatzgrenze auch nach dem Wechsel in das vereinfachte Besteuerungsverfahren einhalten. Was sich für die Tessiner Grenzgänger ändert, die in der Lombardei arbeiten.',
     'blog.article.cpb-forfettario-semplificato-soglia-150mila.imageAlt': 'Steueramt in Lugano mit mehrsprachigen Schildern, Symbol für steuerliche Regelungen von Grenzgängern',
+    'blog.article.verbano-livello-max-accordo-ticino-2026.title': 'Verbano: Vereinbarung über maximalen Wasserspiegel – 20 Millionen Kubikmeter Wasser für die lombardische Landwirtschaft',
+    'blog.article.verbano-livello-max-accordo-ticino-2026.excerpt': 'Von Mitte April bis Ende Juli wird der Wasserspiegel des Verbano um 135 cm angehoben, um 20 Millionen Kubikmeter Wasser für die lombardischen Felder zu sichern. Bis 2027 läuft ein Pilotprojekt mit einer Ausnahmegenehmigung von 10 cm über dem normalen Niveau.',
+    'blog.article.verbano-livello-max-accordo-ticino-2026.imageAlt': 'Blick auf den Lago Maggiore mit vom Tessin kontrolliertem Wasserstand, Tessiner Berge im Hintergrund',
 };
 
 export default blogMetaDe;

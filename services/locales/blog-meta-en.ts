@@ -2076,6 +2076,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cpb-forfettario-semplificato-soglia-150mila.title': 'CPB: the 150,000 euro threshold also applies when switching from flat-rate to simplified tax regime',
     'blog.article.cpb-forfettario-semplificato-soglia-150mila.excerpt': 'The Italian Revenue Agency has confirmed: those who joined the Biennial Preventive Agreement as a flat-rate taxpayer must respect the 150,000 euro revenue threshold, even after switching to the simplified tax regime. What changes for Ticino cross-border workers employed in Lombardy.',
     'blog.article.cpb-forfettario-semplificato-soglia-150mila.imageAlt': 'Tax office in Lugano with trilingual signs, symbolizing fiscal compliance for cross-border workers',
+    'blog.article.verbano-livello-max-accordo-ticino-2026.title': 'Lake Maggiore: agreement on maximum water level, +20 million m³ for Lombardy agriculture',
+    'blog.article.verbano-livello-max-accordo-ticino-2026.excerpt': 'From mid-April to the end of July, Lake Maggiore will be raised by 135 cm to ensure 20 million cubic metres of water for Lombardy’s fields. The experiment, which includes a 10 cm derogation from the usual levels, will run until 2027.',
+    'blog.article.verbano-livello-max-accordo-ticino-2026.imageAlt': 'View of Lago Maggiore with water level controlled by Ticino, Swiss-Italian Alps in the background',
 };
 
 export default blogMetaEn;

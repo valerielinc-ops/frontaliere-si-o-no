@@ -2076,6 +2076,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cpb-forfettario-semplificato-soglia-150mila.title': 'CPB : le seuil de 150 000 euros s’applique même en passant du régime forfaitaire au régime simplifié',
     'blog.article.cpb-forfettario-semplificato-soglia-150mila.excerpt': 'L’Agence des Entrées confirme : ceux qui ont opté pour le Concordat Préalable Bénéal (CPB) en tant que contribuables au régime forfaitaire doivent respecter le seuil de 150 000 euros de recettes, même après leur passage au régime simplifié. Quelles conséquences pour les frontaliers tessinois travaillant en Lombardie ?',
     'blog.article.cpb-forfettario-semplificato-soglia-150mila.imageAlt': 'Bureau des impôts à Lugano avec panneaux trilingues, illustration de la conformité fiscale pour les frontaliers',
+    'blog.article.verbano-livello-max-accordo-ticino-2026.title': 'Verbano : accord sur le niveau maximal d’eau, +20 millions de m³ pour l’agriculture lombarde',
+    'blog.article.verbano-livello-max-accordo-ticino-2026.excerpt': 'Du milieu du mois d’avril à la fin du mois de juillet, le niveau du lac Majeur sera relevé de 135 cm pour garantir 20 millions de mètres cubes d’eau aux champs lombards. Essai jusqu’en 2027 avec une dérogation de 10 cm par rapport au niveau normal.',
+    'blog.article.verbano-livello-max-accordo-ticino-2026.imageAlt': 'Vue du lac Majeur avec niveau d\'eau contrôlé par le Tessin, montagnes tessinoises en arrière-plan',
 };
 
 export default blogMetaFr;
