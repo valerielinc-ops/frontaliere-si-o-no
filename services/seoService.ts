@@ -747,21 +747,21 @@ function buildBorderCrossingSeoMetadata(): Record<string, SEOMetadata> {
       const route = { activeTab: 'guida' as const, guidaSubTab: 'border' as const, borderCrossing: crossingId as any };
       const canonicalPath = buildPath(route, 'it');
       const label = titleizeBorderCrossingId(crossingId);
-      const title = `Traffico valico ${label} | Tempi attesa dogana`;
-      const description = `Tempi di attesa e informazioni utili per il valico ${label}: orari, livello traffico tipico e consigli pratici per frontalieri.`;
+      const title = `Traffico dogana ${label} | Tempi attesa valico`;
+      const description = `Traffico dogana ${label} in tempo reale: tempi di attesa, orari apertura e consigli pratici per frontalieri al valico.`;
       return [
         `valico-${crossingId}`,
         {
           title,
           description,
-          keywords: `traffico valico ${label}, tempi attesa dogana ${label}, frontaliere ticino, valichi svizzera italia`,
+          keywords: `traffico dogana ${label}, tempi attesa dogana ${label}, valico ${label}, frontaliere ticino, valichi svizzera italia`,
           ogTitle: title,
           ogDescription: description,
           canonicalPath,
           structuredData: {
             '@context': 'https://schema.org',
             '@type': 'WebPage',
-            name: `Traffico valico ${label}`,
+            name: `Traffico dogana ${label}`,
             url: `${BASE_URL}${canonicalPath}`,
             description,
           },

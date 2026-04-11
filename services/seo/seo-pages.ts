@@ -1536,8 +1536,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   },
 
   'cost-of-living': {
-    title: 'Costo Vita Svizzera vs Italia 2026 | Frontalieri',
-    description: 'Costo vita Svizzera vs Italia a confronto: affitti, spesa, trasporti e sanità tra Lugano, Mendrisio e Como. Dati aggiornati 2026 per frontalieri.',
+    title: 'Costo Vita Svizzera vs Italia 2026 | Confronto',
+    description: 'Costo vita svizzera vs italia 2026: confronto affitti, spesa, trasporti e sanità tra Lugano, Mendrisio e Como. Dati aggiornati per frontalieri.',
     keywords: 'costo vita svizzera vs italia, costo vita svizzera italia, costo vita lugano, costo vita como, affitto ticino prezzi, costo vita mendrisio chiasso, confronto prezzi svizzera italia, vivere in svizzera costi, costo vita frontiera',
     ogTitle: 'Costo Vita Svizzera vs Italia | Confronto Completo 2026',
     ogDescription: '🏠 Costo vita Svizzera vs Italia: confronta affitti, spesa, trasporti e sanità tra città di frontiera. Dati aggiornati 2026.',
@@ -1600,11 +1600,11 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   },
 
   border: {
-    title: 'Valichi di Frontiera CH-IT | Orari, Traffico e Percorsi',
-    description: 'Guida completa ai valichi doganali Svizzera-Italia: Chiasso, Ponte Tresa, Gaggiolo, Brogeda, Stabio. Orari apertura, tempi di attesa, percorsi alternativi.',
-    keywords: 'valichi frontiera svizzera italia, dogana chiasso, ponte tresa orari, gaggiolo brogeda, stabio valico, orari valichi, percorsi alternativi frontiera, code dogana',
-    ogTitle: 'Valichi di Frontiera CH-IT | Orari e Percorsi Alternativi',
-    ogDescription: '🛃 Guida ai valichi doganali Svizzera-Italia: orari, tempi di attesa e percorsi alternativi per evitare code.',
+    title: 'Traffico Dogana Chiasso, Brogeda e Valichi CH-IT 2026',
+    description: 'Traffico dogana Chiasso, Brogeda, Ponte Tresa, Gaggiolo e Stabio: tempi di attesa, orari apertura e percorsi alternativi per frontalieri.',
+    keywords: 'traffico dogana chiasso brogeda, valichi frontiera svizzera italia, dogana chiasso, tempi attesa dogana, ponte tresa orari, gaggiolo brogeda, stabio valico, percorsi alternativi frontiera',
+    ogTitle: 'Traffico Dogana Chiasso e Valichi CH-IT | Tempi Attesa',
+    ogDescription: '🛃 Traffico dogana Chiasso, Brogeda e tutti i valichi CH-IT: tempi di attesa, orari e percorsi alternativi per frontalieri.',
     canonicalPath: '/guida-frontaliere/tempi-attesa-dogana',
     structuredData: [
       {
@@ -1871,8 +1871,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   },
 
   holidays: {
-    title: 'Festività Ticino 2026: Giorni Festivi Cantonali',
-    description: 'Giorni festivi Ticino 2026: tutti i 15 giorni festivi del Canton Ticino, feste ufficiali, facoltative e ponti per frontalieri.',
+    title: 'Giorni Festivi Ticino 2026 | Festività e Ponti',
+    description: 'Giorni festivi Ticino 2026: calendario completo con tutti i 15 giorni festivi del Canton Ticino, festività ufficiali, facoltative e ponti per frontalieri.',
     keywords: 'festività ticino 2026, giorni festivi ticino 2026, festivi ticino 2026, feste ticino 2026, festività canton ticino, giorni festivi canton ticino, ferie svizzera frontalieri, calendario festivo ticino 2026, ponti svizzera 2026, festività svizzere 2026, giorni festivi svizzera italia confronto',
     ogTitle: 'Festività Ticino 2026 | Tutti i Giorni Festivi Canton Ticino',
     ogDescription: '📅 Giorni festivi Ticino 2026: tutti i 15 giorni festivi del Canton Ticino, feste ufficiali, facoltative, ponti e confronto con festività italiane.',

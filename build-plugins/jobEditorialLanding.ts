@@ -1398,15 +1398,20 @@ export function buildJobCareVariantLandingModel(options: {
   const latestJobs = matches.filter((job) => isInLast3Days(getJobFreshnessDate(job), now));
   const label = careClusterLabel(clusterKey, cantonCode, locale);
   const cd = CANTON_DISPLAY_LOCALE[cantonCode] || CANTON_DISPLAY_LOCALE['TI'];
+  const isEducators = clusterKey === 'educators';
   const title = locale === 'it'
-    ? `${label} | Offerte di lavoro aggiornate in ${cd.it}`
+    ? isEducators
+      ? `Concorso Educatore ${cd.it} | Offerte lavoro educatori`
+      : `${label} | Offerte di lavoro aggiornate in ${cd.it}`
     : locale === 'en'
       ? `${label} | Updated job offers in ${cd.en}`
       : locale === 'de'
         ? `${label} | Aktuelle Jobangebote ${germanCantonPrep(cd.de)}`
         : `${label} | Offres d'emploi a jour ${frenchCantonPrep(cd.fr)}`;
   const description = locale === 'it'
-    ? `Scopri ${matches.length} offerte per ${label.toLowerCase()} con annunci aggiornati, nuovi inserimenti degli ultimi 3 giorni e link diretti alle candidature ufficiali in ${cd.it}.`
+    ? isEducators
+      ? `Concorso educatore ${cd.it}: ${matches.length} offerte di lavoro per educatori dell'infanzia, educatrici e pedagoghi con candidature dirette.`
+      : `Scopri ${matches.length} offerte per ${label.toLowerCase()} con annunci aggiornati, nuovi inserimenti degli ultimi 3 giorni e link diretti alle candidature ufficiali in ${cd.it}.`
     : locale === 'en'
       ? `Browse ${matches.length} ${label.toLowerCase()} job offers in ${cd.en}, with updated listings, jobs from the last 3 days and direct links to official applications.`
       : locale === 'de'

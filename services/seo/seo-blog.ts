@@ -4046,17 +4046,17 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-aprire-conto-bancario-frontaliere': {
-    title: 'Aprire un conto bancario svizzero da | Frontaliere Ticino',
-    description: 'Scopri come aprire un conto bancario svizzero da frontaliere. Scegli la banca migliore in Ticino: costi, carte, online banking, requisiti.',
-    keywords: 'aprire conto bancario svizzero, frontalieri ticino, banche ticino, costi conto svizzero, carte debito credito svizzera',
-    ogTitle: 'Aprire un conto bancario svizzero da frontaliere',
-    ogDescription: 'Quale banca scegliere in Ticino? Costi, carte, online banking e requisiti per frontalieri. Scopri tutto ora!',
+    title: 'Conto bancario svizzero frontalieri: guida 2026 | Frontaliere Ticino',
+    description: 'Come aprire un conto bancario svizzero da frontaliere: migliori banche in Ticino, costi, carte, online banking e documenti richiesti.',
+    keywords: 'conto bancario frontalieri svizzera, aprire conto bancario svizzero, compte bancaire frontaliers suisse, banche ticino, costi conto svizzero, carte debito credito svizzera',
+    ogTitle: 'Conto bancario svizzero per frontalieri: guida completa',
+    ogDescription: 'Quale banca scegliere in Ticino? Costi, carte, online banking e requisiti per frontalieri. Guida aggiornata 2026.',
     canonicalPath: '/articoli-frontaliere/aprire-conto-bancario-frontalieri',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Aprire un conto bancario svizzero",
-      "description": "Scopri come aprire un conto bancario svizzero da frontaliere. Scegli la banca migliore in Ticino: costi, carte, online banking, requisiti.",
+      "headline": "Conto bancario svizzero per frontalieri: guida completa 2026",
+      "description": "Come aprire un conto bancario svizzero da frontaliere: migliori banche in Ticino, costi, carte, online banking e documenti richiesti.",
       "image": {
         "@type": "ImageObject",
         "url": `${BASE_URL}/images/blog/aprire-conto-bancario-frontaliere.webp`,

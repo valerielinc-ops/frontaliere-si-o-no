@@ -211,6 +211,11 @@ export const SECTION_EDITORIAL: SectionEditorialMap = {
     ],
   },
   '/compara-servizi/costo-della-vita': {
+    it: [
+      'Il confronto del costo vita svizzera vs italia e lo strumento piu importante per chi deve scegliere tra permesso G (residenza in Italia, pendolare) e permesso B (residenza in Svizzera). Vivere in Italia puo ridurre le spese fisse del 30-50% rispetto al Ticino, ma bisogna considerare i costi di trasporto e il <a href="https://frontaliereticino.ch/guida-frontaliere/tempi-attesa-dogana/">tempo perso alla dogana</a>.',
+      'Il confronto copre affitti, spesa alimentare, trasporti, sanita e istruzione tra citta di frontiera come Lugano, Mendrisio, Como e Varese. Usa il nostro <a href="https://frontaliereticino.ch/calcola-stipendio/">calcolatore stipendio netto</a> per calcolare il tuo budget mensile effettivo come frontaliere.',
+      'I <a href="https://frontaliereticino.ch/tasse-e-pensione/festivita-ticino/">giorni festivi in Ticino</a> influenzano anche il costo della vita: durante i ponti e le festivita i prezzi di trasporto e ristorazione possono aumentare significativamente nelle zone di frontiera.',
+    ],
     en: [
       'The cost of living index compares major expense categories between Switzerland (Ticino) and Italy (Lombardy/Piedmont): rent, transport, groceries, healthcare, education, and leisure.',
       'The cost-of-living differential is the key factor in choosing between a G permit (residence in Italy) and a B permit (residence in Switzerland): living in Italy can reduce fixed expenses by 30–50% compared to Ticino.',
@@ -544,6 +549,11 @@ export const SECTION_EDITORIAL: SectionEditorialMap = {
     ],
   },
   '/guida-frontaliere/tempi-attesa-dogana': {
+    it: [
+      'I valichi di frontiera tra Ticino e Italia sono il collo di bottiglia quotidiano per oltre 70.000 frontalieri. La <a href="https://frontaliereticino.ch/guida-frontaliere/tempi-attesa-dogana/chiasso-centro/">dogana di Chiasso Centro</a> e il <a href="https://frontaliereticino.ch/guida-frontaliere/tempi-attesa-dogana/chiasso-brogeda/">valico di Brogeda</a> gestiscono il volume maggiore di traffico, con code che nelle ore di punta (7:00-8:30 e 17:00-18:30) possono superare i 30 minuti.',
+      'Per ridurre i tempi di attesa, i frontalieri esperti utilizzano valichi secondari come <a href="https://frontaliereticino.ch/guida-frontaliere/tempi-attesa-dogana/stabio/">Stabio</a>, <a href="https://frontaliereticino.ch/guida-frontaliere/tempi-attesa-dogana/gaggiolo/">Gaggiolo</a> o <a href="https://frontaliereticino.ch/guida-frontaliere/tempi-attesa-dogana/ponte-tresa/">Ponte Tresa</a>, che offrono tempi nettamente inferiori ma con orari di apertura limitati (generalmente 6:00-22:00).',
+      'Le variazioni stagionali sono rilevanti: i venerdi estivi, la stagione sciistica e le <a href="https://frontaliereticino.ch/tasse-e-pensione/festivita-ticino/">festivita ticinesi</a> possono aumentare le code del 30-50%. Consulta la nostra mappa interattiva per verificare il traffico in tempo reale e scegliere il percorso migliore.',
+    ],
     en: [
       'The border crossing map shows all crossings between Ticino and Italy with opening hours, typical traffic levels, and average waiting times by time slot.',
       'Each crossing has different characteristics: some are reserved for local residents, others handle heavy commercial traffic. Knowing the best crossing for your route can save up to 30 minutes a day.',
