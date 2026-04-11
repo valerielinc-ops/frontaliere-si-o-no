@@ -49,6 +49,10 @@ describe('Fondation Domus crawler parser', () => {
       expect(isTrustedDomain('https://careers.fondation-domus.ch/job/456')).toBe(true);
     });
 
+    it('trusts JobUp.ch application domain', () => {
+      expect(isTrustedDomain('https://www.jobup.ch/fr/emploi/detail/12345/')).toBe(true);
+    });
+
     it('rejects other domains', () => {
       expect(isTrustedDomain('https://example.com/jobs')).toBe(false);
     });

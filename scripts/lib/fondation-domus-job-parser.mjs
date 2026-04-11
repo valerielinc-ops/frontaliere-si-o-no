@@ -62,7 +62,12 @@ export function isFondationDomusJob(job) {
 export function isTrustedDomain(rawUrl = '') {
   try {
     const host = new URL(rawUrl).hostname.toLowerCase();
-    return host === 'fondation-domus.ch' || host.endsWith('.fondation-domus.ch');
+    return (
+      host === 'fondation-domus.ch' ||
+      host.endsWith('.fondation-domus.ch') ||
+      host === 'www.jobup.ch' ||
+      host === 'jobup.ch'
+    );
   } catch {
     return false;
   }

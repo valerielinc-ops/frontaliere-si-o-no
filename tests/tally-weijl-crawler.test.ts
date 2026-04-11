@@ -49,6 +49,10 @@ describe('TALLY WEiJL crawler parser', () => {
       expect(isTrustedDomain('https://careers.tally-weijl.com/job/456')).toBe(true);
     });
 
+    it('trusts Trakstar Hire ATS domain', () => {
+      expect(isTrustedDomain('https://tallyweijl.hire.trakstar.com/jobs/123/')).toBe(true);
+    });
+
     it('rejects other domains', () => {
       expect(isTrustedDomain('https://example.com/jobs')).toBe(false);
     });

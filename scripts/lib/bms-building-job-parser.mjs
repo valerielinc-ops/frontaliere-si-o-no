@@ -210,6 +210,7 @@ function isValaisJob(entry) {
 
 /**
  * Parse a BMS detail page to extract the full job description.
+ * Tries multiple extraction strategies since the page structure varies.
  */
 function parseDetailPage(html = '') {
   if (!html) return null;
@@ -218,14 +219,60 @@ function parseDetailPage(html = '') {
   const h1Match = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
   const title = h1Match ? normalizeSpace(stripHtml(h1Match[1])) : '';
 
-  // Extract main content area
-  const mainMatch = html.match(/<main[^>]*>([\s\S]*?)<\/main>/i)
-    || html.match(/<article[^>]*>([\s\S]*?)<\/article>/i)
-    || html.match(/<div[^>]*class="[^"]*content[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
-  const description = mainMatch ? stripHtml(mainMatch[1]) : '';
+  // Try multiple extraction patterns for the job description content
+  let description = '';
 
-  // Extract apply URL (Onlyfy pattern)
-  const applyMatch = html.match(/href="(https:\/\/bmsuisse\.onlyfy\.jobs\/[^"]+)"/i);
+  // Strategy 1: Look for job-specific content sections
+  const jobDescMatch = html.match(/<div[^>]*class="[^"]*(?:job[_-]?desc|job[_-]?content|job[_-]?detail|stellenbeschreibung|beschreibung)[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
+  if (jobDescMatch) description = stripHtml(jobDescMatch[1]).trim();
+
+  // Strategy 2: Extract body content between common landmarks
+  if (!description || description.length < 30) {
+    const bodyMatch = html.match(/<div[^>]*class="[^"]*(?:entry[_-]?content|page[_-]?content|main[_-]?content|post[_-]?content|text[_-]?content)[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
+    if (bodyMatch) {
+      const text = stripHtml(bodyMatch[1]).trim();
+      if (text.length > description.length) description = text;
+    }
+  }
+
+  // Strategy 3: <main> or <article> content
+  if (!description || description.length < 30) {
+    const mainMatch = html.match(/<main[^>]*>([\s\S]*?)<\/main>/i)
+      || html.match(/<article[^>]*>([\s\S]*?)<\/article>/i);
+    if (mainMatch) {
+      const text = stripHtml(mainMatch[1]).trim();
+      if (text.length > description.length) description = text;
+    }
+  }
+
+  // Strategy 4: Collect all paragraphs and list items from the page body
+  if (!description || description.length < 30) {
+    const paragraphs = [...html.matchAll(/<(?:p|li)[^>]*>([\s\S]*?)<\/(?:p|li)>/gi)]
+      .map((m) => stripHtml(m[1]).trim())
+      .filter((s) => s.length > 10);
+    if (paragraphs.length > 0) {
+      const combined = paragraphs.join('\n');
+      if (combined.length > description.length) description = combined;
+    }
+  }
+
+  // Strategy 5: JSON-LD structured data
+  if (!description || description.length < 30) {
+    const ldMatch = html.match(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/i);
+    if (ldMatch) {
+      try {
+        const ld = JSON.parse(ldMatch[1]);
+        const ldDesc = ld?.description || ld?.['@graph']?.[0]?.description || '';
+        if (ldDesc && ldDesc.length > description.length) {
+          description = stripHtml(ldDesc).trim();
+        }
+      } catch { /* ignore JSON parse errors */ }
+    }
+  }
+
+  // Extract apply URL (Onlyfy pattern or generic apply link)
+  const applyMatch = html.match(/href="(https:\/\/bmsuisse\.onlyfy\.jobs\/[^"]+)"/i)
+    || html.match(/href="([^"]*(?:apply|bewerb|onlyfy)[^"]*)"/i);
   const applyUrl = applyMatch ? applyMatch[1] : '';
 
   // Extract requirements (look for list items in requirement sections)
@@ -280,7 +327,11 @@ export async function fetchAllBmsBuildingJobs() {
       const title = detail?.title || entry.title;
       const location = entry.city || 'Naters';
       const canton = inferSwissTargetCanton(location) || 'VS';
-      const descriptionText = detail?.description || `${title} — BMS Building Materials`;
+      // Ensure description has meaningful content (>30 chars) for SEO
+      const rawDesc = detail?.description || '';
+      const descriptionText = rawDesc.length >= 30
+        ? rawDesc
+        : `${title} — BMS Building Materials, ${location} (${canton}). ${rawDesc}`.trim();
 
       const sourceLang = detectLang(descriptionText || title, 'de');
       const jobSlug = slugify(`${title} bms-building ch`);

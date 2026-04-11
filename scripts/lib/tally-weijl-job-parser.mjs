@@ -62,7 +62,12 @@ export function isTallyWeijlJob(job) {
 export function isTrustedDomain(rawUrl = '') {
   try {
     const host = new URL(rawUrl).hostname.toLowerCase();
-    return host === 'tally-weijl.com' || host.endsWith('.tally-weijl.com');
+    return (
+      host === 'tally-weijl.com' ||
+      host.endsWith('.tally-weijl.com') ||
+      host === 'tallyweijl.hire.trakstar.com' ||
+      host.endsWith('.trakstar.com')
+    );
   } catch {
     return false;
   }
