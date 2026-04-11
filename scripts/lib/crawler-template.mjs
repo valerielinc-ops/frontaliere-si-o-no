@@ -60,6 +60,11 @@
  *
  * Use `node scripts/scaffold-crawler.mjs {company-key}` to generate all 4 files.
  *
+ * IMPORTANT: After building the parser, always verify generated URLs by opening
+ * them in a browser. SPA career portals (ServiceNow, Workday, SuccessFactors)
+ * often require extra path segments or tokens beyond the job ID — without them
+ * the URL may silently redirect to the homepage instead of showing the job.
+ *
  * ═══════════════════════════════════════════════════════════════════════════════
  * ParsedJob CONTRACT — What fetchJobs() must return
  * ═══════════════════════════════════════════════════════════════════════════════
@@ -78,7 +83,11 @@
  *     descriptionByLocale — { [sourceLang]: description }
  *     location       — City name (e.g. 'Visp', 'Lugano')
  *     canton         — Swiss canton code ('TI', 'VS', 'GR', etc.)
- *     url            — Canonical job URL on the company's career site
+ *     url            — Canonical job URL on the company's career site.
+ *                      MUST be a URL that actually resolves to the job page when
+ *                      opened in a browser. Always verify by navigating to it —
+ *                      SPA portals (e.g. ServiceNow UXF) may require extra path
+ *                      segments or parameters beyond the job ID.
  *     source         — Parser attribution string
  *     sourceLang     — ISO 639-1 code: 'it', 'en', 'de', 'fr'
  *     crawledAt      — ISO 8601 timestamp
@@ -247,6 +256,33 @@ export async function fetchHtml(url, options = {}) {
     });
     if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
     return await res.text();
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+/**
+ * Verify that a URL resolves without redirecting to a different path.
+ * Useful for validating SPA job detail URLs that may silently redirect
+ * to the homepage when a required path segment is missing.
+ * Returns true if the URL stays on the same path; false if it redirects.
+ */
+export async function verifyUrlNoRedirect(url, options = {}) {
+  const timeoutMs = options.timeoutMs || 10000;
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    const res = await fetch(url, {
+      method: 'GET',
+      headers: { 'User-Agent': DEFAULT_UA, ...options.headers },
+      redirect: 'follow',
+      signal: controller.signal,
+    });
+    const finalUrl = res.url || url;
+    const samePath = new URL(finalUrl).pathname === new URL(url).pathname;
+    return { ok: res.ok, redirected: !samePath, finalUrl };
+  } catch {
+    return { ok: false, redirected: false, finalUrl: url };
   } finally {
     clearTimeout(timer);
   }

@@ -78,20 +78,25 @@ describe('buildEmploymentType', () => {
 // ─── Detail URL construction ────────────────────────────────────────────────────
 
 describe('buildDetailUrl', () => {
-  it('builds URL with sys_id', () => {
-    const url = buildDetailUrl('47fc8463970c87501b87322f2153afb5');
+  it('builds URL with sys_id and ATSANN number as spref', () => {
+    const url = buildDetailUrl('47fc8463970c87501b87322f2153afb5', 'ATSANN0004604');
     expect(url).toBe(
-      'https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/47fc8463970c87501b87322f2153afb5/params/language/fr',
+      'https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/47fc8463970c87501b87322f2153afb5/ATSANN0004604/params/language/fr',
     );
   });
 
-  it('URL contains ServiceNow host', () => {
+  it('falls back to sys_id as spref when number is missing', () => {
     const url = buildDetailUrl('abc123');
+    expect(url).toContain('/abc123/abc123/params/language/fr');
+  });
+
+  it('URL contains ServiceNow host', () => {
+    const url = buildDetailUrl('abc123', 'ATSANN0001');
     expect(url).toContain('vs.service-now.com');
   });
 
   it('URL contains French language parameter', () => {
-    const url = buildDetailUrl('abc123');
+    const url = buildDetailUrl('abc123', 'ATSANN0001');
     expect(url).toContain('/language/fr');
   });
 });

@@ -85,10 +85,14 @@ export function buildEmploymentType(min = '', max = '') {
 }
 
 /**
- * Build the canonical detail page URL from sys_id.
+ * Build the canonical detail page URL from sys_id and ATSANN number.
+ * ServiceNow UXF requires an `spref` path segment after the sys_id —
+ * without it the portal redirects to the landing page instead of
+ * showing the job detail. The ATSANN number alone suffices as spref.
  */
-export function buildDetailUrl(sysId = '') {
-  return `${PORTAL_BASE}/annonce-details-page/x_hdvi2_hvs_applic_annonce/${sysId}/params/language/fr`;
+export function buildDetailUrl(sysId = '', number = '') {
+  const spref = number || sysId;
+  return `${PORTAL_BASE}/annonce-details-page/x_hdvi2_hvs_applic_annonce/${sysId}/${spref}/params/language/fr`;
 }
 
 /**
@@ -264,7 +268,7 @@ function buildJobFromApi(listing, detail) {
   );
 
   const postedDate = parseDate(listing.u_date_published || listing.u_date_debut);
-  const detailUrl = buildDetailUrl(sysId);
+  const detailUrl = buildDetailUrl(sysId, number);
   const urlHash = createHash('sha1').update(detailUrl).digest('hex').slice(0, 12);
   const locationForSlug = site || 'valais';
   const jobSlug = slugify(`${title} ${HVS_COMPANY_NAME} ${locationForSlug}`);
