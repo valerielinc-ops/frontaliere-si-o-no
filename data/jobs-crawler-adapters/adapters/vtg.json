@@ -12,7 +12,6 @@
   "seedUrls": [
     "https://jobs.admin.ch/offene-stellen/netzwerk-spezialist-in-professional/c7d89e03-5b52-465e-a7b4-7f94a0b0c1fd",
     "https://jobs.admin.ch/offene-stellen/operator-in-support/771b16cf-183e-45b2-aaf0-ed8342934e63",
-    "https://jobs.admin.ch/offene-stellen/leiter-in-fuehrungs-und-informationssysteme/8e05ede4-8d17-4d04-8a23-3a532d91866e",
     "https://jobs.admin.ch/offene-stellen/logistiker-in-lager-ambri-andermatt/594ecbbc-6903-4279-a26a-4d3c352f4c2d",
     "https://jobs.admin.ch/offene-stellen/raus-aus-der-routine-werde-berufsoffizier-in/11516aeb-07f4-40d5-8100-2fc3b0452a9c",
     "https://jobs.admin.ch/offene-stellen/dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in/0dcc8a3a-b28d-430b-9824-d69013c2b60a",
@@ -65,12 +64,6 @@
       "canton": "TI",
       "company": "Swiss Armed Forces (VTG)",
       "postedDate": "2026-03-24"
-    },
-    "https://jobs.admin.ch/offene-stellen/leiter-in-fuehrungs-und-informationssysteme/8e05ede4-8d17-4d04-8a23-3a532d91866e": {
-      "location": "Rivera",
-      "canton": "TI",
-      "company": "Swiss Armed Forces (VTG)",
-      "postedDate": "2026-03-11"
     },
     "https://jobs.admin.ch/offene-stellen/logistiker-in-lager-ambri-andermatt/594ecbbc-6903-4279-a26a-4d3c352f4c2d": {
       "location": "Ambrì",
@@ -272,5 +265,5 @@
     }
   },
   "notes": "Swiss Armed Forces (VTG) — Prospective.ch JobBooster (Career Center 1000624, jobs.admin.ch). VTG verwaltungseinheit IDs: 1083433,1132413,1526654,1132414,1083406. Regions: TI (1083341), Ostschweiz (1083334,1083319). Seed URLs auto-discovered from API.",
-  "updatedAt": "2026-04-10T21:54:48.843Z"
+  "updatedAt": "2026-04-11T09:50:22.721Z"
 }

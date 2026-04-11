@@ -1,10 +1,10 @@
 {
   "crawlerKey": "vtg",
-  "assembledAt": "2026-04-11T07:21:08.227Z",
+  "assembledAt": "2026-04-11T09:51:08.085Z",
   "jobs": [
     {
       "id": "company-givy1f",
-      "slug": "apprendista-impiegato-a-in-logistica-cfc-specializzazione-magazzino-swiss-armed-forces-vtg-bern",
+      "slug": "apprendista-impiegato-a-in-logistica-cfc-specializzazione-magazzino-swiss-armed-forces-vtg-bellinzona",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Lernende/-r Logistiker/-in EFZ, Fachrichtung Lager",
       "location": "Bern",
@@ -22,10 +22,10 @@
       "companyDomain": "vtg.admin.ch",
       "crawledAt": "2026-04-10T21:55:22.118Z",
       "slugByLocale": {
-        "it": "apprendista-impiegato-a-in-logistica-cfc-specializzazione-magazzino-swiss-armed-forces-vtg-bern",
-        "en": "apprentice-logistiker-in-efz-fachrichtung-lager-swiss-armed-forces-vtg-bern",
-        "de": "lernende-r-logistiker-in-efz-fachrichtung-lager-swiss-armed-forces-vtg-bern",
-        "fr": "apprenti-e-logistiker-in-efz-fachrichtung-lager-swiss-armed-forces-vtg-bern"
+        "it": "apprendista-impiegato-a-in-logistica-cfc-specializzazione-magazzino-swiss-armed-forces-vtg-bellinzona",
+        "en": "apprentice-logistiker-in-efz-fachrichtung-lager-swiss-armed-forces-vtg-bellinzona",
+        "de": "lernende-r-logistiker-in-efz-fachrichtung-lager-swiss-armed-forces-vtg-bellinzona",
+        "fr": "apprenti-e-logistiker-in-efz-fachrichtung-lager-swiss-armed-forces-vtg-bellinzona"
       },
       "titleByLocale": {
         "de": "Lernende/-r Logistiker/-in EFZ, Fachrichtung Lager",
@@ -43,23 +43,23 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "apprendista-impiegato-a-in-logistica-cfc-specializzazione-magazzino-swiss-armed-forces-vtg-bellinzona"
+          "apprendista-impiegato-a-in-logistica-cfc-specializzazione-magazzino-swiss-armed-forces-vtg-bern"
         ],
         "en": [
-          "apprentice-logistiker-in-efz-fachrichtung-lager-swiss-armed-forces-vtg-bellinzona"
+          "apprentice-logistiker-in-efz-fachrichtung-lager-swiss-armed-forces-vtg-bern"
         ],
         "de": [
-          "lernende-r-logistiker-in-efz-fachrichtung-lager-swiss-armed-forces-vtg-bellinzona"
+          "lernende-r-logistiker-in-efz-fachrichtung-lager-swiss-armed-forces-vtg-bern"
         ],
         "fr": [
-          "apprenti-e-logistiker-in-efz-fachrichtung-lager-swiss-armed-forces-vtg-bellinzona"
+          "apprenti-e-logistiker-in-efz-fachrichtung-lager-swiss-armed-forces-vtg-bern"
         ]
       },
       "previousSlugs": [
-        "apprendista-impiegato-a-in-logistica-cfc-specializzazione-magazzino-swiss-armed-forces-vtg-bellinzona",
-        "apprentice-logistiker-in-efz-fachrichtung-lager-swiss-armed-forces-vtg-bellinzona",
-        "lernende-r-logistiker-in-efz-fachrichtung-lager-swiss-armed-forces-vtg-bellinzona",
-        "apprenti-e-logistiker-in-efz-fachrichtung-lager-swiss-armed-forces-vtg-bellinzona"
+        "apprendista-impiegato-a-in-logistica-cfc-specializzazione-magazzino-swiss-armed-forces-vtg-bern",
+        "apprentice-logistiker-in-efz-fachrichtung-lager-swiss-armed-forces-vtg-bern",
+        "lernende-r-logistiker-in-efz-fachrichtung-lager-swiss-armed-forces-vtg-bern",
+        "apprenti-e-logistiker-in-efz-fachrichtung-lager-swiss-armed-forces-vtg-bern"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -414,7 +414,8 @@
         ]
       },
       "salaryMin": 49500,
-      "salaryMax": 75000
+      "salaryMax": 75000,
+      "needsRetranslation": true
     },
     {
       "id": "company-o6j7b9",
@@ -2056,7 +2057,8 @@
           "netzwerk-spezialist-in-professional-swiss-armed-forces-vtg-locarno",
           "netzwerk-spezialist-in-professional-swiss-armed-forces-vtg-locarno-84ss1r"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-h0fllu",
