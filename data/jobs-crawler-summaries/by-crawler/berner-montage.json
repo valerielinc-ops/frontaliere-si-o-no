@@ -1,18 +1,19 @@
 {
   "key": "berner-montage",
   "label": "Montagetechnik BERNER AG",
-  "generatedAt": "2026-04-11T12:44:17.284Z",
+  "generatedAt": "2026-04-11T20:49:42.314Z",
   "total": 13,
-  "newCount": 13,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 13,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 16918,
-  "avgDurationMs": 16918,
+  "durationMs": 2784,
+  "avgDurationMs": 2784,
   "durationHistory": [
-    16918
+    2784
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "berner-montage-ee3b62c478dc",
       "slug": "aussendienstmitarbeiter-m-w-d-im-bau-handwerk-region-innerschweiz-berner-montage-ch",
@@ -25,7 +26,7 @@
       "url": "https://shop.berner.eu/ch-de/ADM-Bau-Innch",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T12:44:01.152Z",
+      "crawledAt": "2026-04-11T20:49:40.350Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -39,11 +40,11 @@
       "featured": false,
       "postedDate": "2026-04-11",
       "applyUrl": "https://shop.berner.eu/ch-de/ADM-Bau-Innch",
-      "_qualityScore": 53,
+      "_qualityScore": 74,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 7,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -59,7 +60,7 @@
       "url": "https://shop.berner.eu/ch-de/GL-CH-Romande",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-11T12:44:01.155Z",
+      "crawledAt": "2026-04-11T20:49:40.355Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -73,11 +74,11 @@
       "featured": false,
       "postedDate": "2026-04-11",
       "applyUrl": "https://shop.berner.eu/ch-de/GL-CH-Romande",
-      "_qualityScore": 53,
+      "_qualityScore": 74,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 7,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -93,7 +94,7 @@
       "url": "https://shop.berner.eu/ch-de/GL-SR",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-11T12:44:01.156Z",
+      "crawledAt": "2026-04-11T20:49:40.356Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -107,11 +108,11 @@
       "featured": false,
       "postedDate": "2026-04-11",
       "applyUrl": "https://shop.berner.eu/ch-de/GL-SR",
-      "_qualityScore": 53,
+      "_qualityScore": 74,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 7,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -127,7 +128,7 @@
       "url": "https://shop.berner.eu/ch-de/GL-BE-NW",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T12:44:01.156Z",
+      "crawledAt": "2026-04-11T20:49:40.356Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -141,11 +142,11 @@
       "featured": false,
       "postedDate": "2026-04-11",
       "applyUrl": "https://shop.berner.eu/ch-de/GL-BE-NW",
-      "_qualityScore": 53,
+      "_qualityScore": 74,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 7,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -161,7 +162,7 @@
       "url": "https://shop.berner.eu/ch-de/ADM-Bau-BE",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T12:44:01.157Z",
+      "crawledAt": "2026-04-11T20:49:40.357Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -175,11 +176,11 @@
       "featured": false,
       "postedDate": "2026-04-11",
       "applyUrl": "https://shop.berner.eu/ch-de/ADM-Bau-BE",
-      "_qualityScore": 53,
+      "_qualityScore": 74,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 7,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -195,7 +196,7 @@
       "url": "https://shop.berner.eu/ch-de/ADM-Bau-TG/SH",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T12:44:01.157Z",
+      "crawledAt": "2026-04-11T20:49:40.357Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -209,11 +210,11 @@
       "featured": false,
       "postedDate": "2026-04-11",
       "applyUrl": "https://shop.berner.eu/ch-de/ADM-Bau-TG/SH",
-      "_qualityScore": 53,
+      "_qualityScore": 74,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 7,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -229,7 +230,7 @@
       "url": "https://shop.berner.eu/ch-de/ADM-Bau-RH/STG",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T12:44:01.157Z",
+      "crawledAt": "2026-04-11T20:49:40.357Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -243,11 +244,11 @@
       "featured": false,
       "postedDate": "2026-04-11",
       "applyUrl": "https://shop.berner.eu/ch-de/ADM-Bau-RH/STG",
-      "_qualityScore": 53,
+      "_qualityScore": 74,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 7,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -263,7 +264,7 @@
       "url": "https://shop.berner.eu/ch-de/ADM-Bau-Emmental",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T12:44:01.157Z",
+      "crawledAt": "2026-04-11T20:49:40.358Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -277,11 +278,11 @@
       "featured": false,
       "postedDate": "2026-04-11",
       "applyUrl": "https://shop.berner.eu/ch-de/ADM-Bau-Emmental",
-      "_qualityScore": 53,
+      "_qualityScore": 74,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 7,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -297,7 +298,7 @@
       "url": "https://shop.berner.eu/ch-de/ADM-Bau-Basel",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T12:44:01.157Z",
+      "crawledAt": "2026-04-11T20:49:40.358Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -311,11 +312,11 @@
       "featured": false,
       "postedDate": "2026-04-11",
       "applyUrl": "https://shop.berner.eu/ch-de/ADM-Bau-Basel",
-      "_qualityScore": 53,
+      "_qualityScore": 74,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 7,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -331,7 +332,7 @@
       "url": "https://shop.berner.eu/ch-de/ADM-Bau-Mitte",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T12:44:01.158Z",
+      "crawledAt": "2026-04-11T20:49:40.358Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -345,11 +346,11 @@
       "featured": false,
       "postedDate": "2026-04-11",
       "applyUrl": "https://shop.berner.eu/ch-de/ADM-Bau-Mitte",
-      "_qualityScore": 53,
+      "_qualityScore": 74,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 7,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -365,7 +366,7 @@
       "url": "https://shop.berner.eu/ch-de/ADM-Bau-Aargau",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T12:44:01.158Z",
+      "crawledAt": "2026-04-11T20:49:40.359Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -379,11 +380,11 @@
       "featured": false,
       "postedDate": "2026-04-11",
       "applyUrl": "https://shop.berner.eu/ch-de/ADM-Bau-Aargau",
-      "_qualityScore": 53,
+      "_qualityScore": 74,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 7,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -399,7 +400,7 @@
       "url": "https://shop.berner.eu/ch-de/Merchandiser-BE-FR-SO",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T12:44:01.158Z",
+      "crawledAt": "2026-04-11T20:49:40.359Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -413,11 +414,11 @@
       "featured": false,
       "postedDate": "2026-04-11",
       "applyUrl": "https://shop.berner.eu/ch-de/Merchandiser-BE-FR-SO",
-      "_qualityScore": 53,
+      "_qualityScore": 74,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 7,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -433,7 +434,7 @@
       "url": "https://shop.berner.eu/ch-de/ADM-Bau-Solothurn",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T12:44:01.159Z",
+      "crawledAt": "2026-04-11T20:49:40.360Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -447,16 +448,15 @@
       "featured": false,
       "postedDate": "2026-04-11",
       "applyUrl": "https://shop.berner.eu/ch-de/ADM-Bau-Solothurn",
-      "_qualityScore": 53,
+      "_qualityScore": 74,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 7,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
