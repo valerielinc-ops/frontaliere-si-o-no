@@ -1357,17 +1357,17 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
   },
 
   'blog-tassa-transito-svizzera-2023': {
-    title: 'Tassa di transito Svizzera 2026: cosa | Frontaliere Ticino',
-    description: 'Il Parlamento approva una nuova tassa di transito in Svizzera. Regole aggiornate 2026, costi e impatto sui frontalieri in Ticino.',
-    keywords: 'tassa transito svizzera 2026, transit fee switzerland, frontalieri, ticino, svizzera, italia, tariffa, transito',
+    title: 'Tassa di transito Svizzera 2026: costi e regole | Frontaliere Ticino',
+    description: 'Tassa di transito Svizzera 2026 (Switzerland transit fee): nuove regole, costi aggiornati e impatto sui frontalieri in Ticino.',
+    keywords: 'tassa transito svizzera 2026, switzerland transit fee 2026, transit fee switzerland, frontalieri, ticino, tariffa transito, cross-border commuters',
     ogTitle: 'Tassa di transito Svizzera 2026: cosa cambia per i frontalieri?',
-    ogDescription: 'Il Parlamento approva una nuova tassa di transito in Svizzera. Regole aggiornate 2026, costi e impatto sui frontalieri in Ticino.',
+    ogDescription: 'Tassa di transito Svizzera 2026: nuove regole, costi aggiornati e impatto sui frontalieri in Ticino.',
     canonicalPath: '/articoli-frontaliere/tassa-transito-svizzera-2023',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Tassa di transito Svizzera 2026: cosa cambia per i frontalieri?",
-      "description": "Il Parlamento approva una nuova tassa di transito in Svizzera. Regole aggiornate 2026, costi e impatto sui frontalieri in Ticino.",
+      "description": "Tassa di transito Svizzera 2026 (Switzerland transit fee): nuove regole, costi aggiornati e impatto sui frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
         "url": `${BASE_URL}/images/blog/tassa-transito-svizzera-2023.webp`,
@@ -2299,17 +2299,17 @@ const BLOG_SEO_METADATA_4: Record<string, SEOMetadata> = {
   },
 
   'blog-funivia-monteviasco-orari-corsi': {
-    title: 'Funivia di Monteviasco: nuovi orari e | Frontaliere Ticino',
-    description: 'La funivia di Monteviasco amplia il servizio a sei giorni su sette, offrendo un collegamento affidabile tra Ponte di Piero e la frazione montana. Scopri gli',
-    keywords: 'frontalieri, ticino, svizzera, italia, funivia, monteviasco, nuovi, orari',
-    ogTitle: 'Funivia di Monteviasco: nuovi orari e più corse',
-    ogDescription: 'La funivia di Monteviasco amplia il servizio, offrendo un collegamento affidabile tra Ponte di Piero e la frazione montana. Scopri gli orari e i vantaggi per',
+    title: 'Funivia Monteviasco: orari, prezzi e corse 2026 | Frontaliere Ticino',
+    description: 'Funivia di Monteviasco (Seilbahn): orari aggiornati 2026, prezzi e corse ampliate a 6 giorni. Collegamento Ponte di Piero - Val Veddasca.',
+    keywords: 'funivia monteviasco, monteviasco seilbahn, orari funivia monteviasco 2026, funivia val veddasca, ponte di piero, frontalieri, ticino',
+    ogTitle: 'Funivia Monteviasco: orari, prezzi e corse 2026',
+    ogDescription: 'Funivia di Monteviasco: servizio ampliato a 6 giorni, collegamento affidabile Ponte di Piero - Val Veddasca. Orari e prezzi aggiornati.',
     canonicalPath: '/articoli-frontaliere/funivia-monteviasco-orari-corsi',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Funivia di Monteviasco: nuovi orari e più corse per una mobilità potenziata",
-      "description": "La funivia di Monteviasco amplia il servizio a sei giorni su sette, offrendo un collegamento affidabile tra Ponte di Piero e la frazione montana. Scopri gli",
+      "headline": "Funivia Monteviasco: orari, prezzi e corse 2026",
+      "description": "Funivia di Monteviasco (Seilbahn): orari aggiornati 2026, prezzi e corse ampliate a 6 giorni. Collegamento Ponte di Piero - Val Veddasca.",
       "image": {
         "@type": "ImageObject",
         "url": `${BASE_URL}/images/blog/funivia-monteviasco-orari-corsi.webp`,

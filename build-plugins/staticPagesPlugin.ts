@@ -922,10 +922,10 @@ export function staticPagesPlugin(rootDir: string): Plugin {
             if (seoMap.has(cp)) continue;
             const label = crossingId.replace(/-/g, ' ').replace(/\b\w/g, m => m.toUpperCase());
             seoMap.set(cp, {
-              title: `Traffico valico ${label} | Tempi attesa dogana`,
-              desc: `Tempi di attesa e informazioni utili per il valico ${label}: orari, livello traffico tipico e consigli pratici per frontalieri.`,
-              ogT: `Traffico valico ${label} | Tempi attesa dogana`,
-              ogD: `Tempi di attesa e informazioni utili per il valico ${label}: orari e consigli pratici per frontalieri.`,
+              title: `Traffico dogana ${label} | Tempi attesa valico`,
+              desc: `Traffico dogana ${label} in tempo reale: tempi di attesa, orari apertura e consigli pratici per frontalieri al valico.`,
+              ogT: `Traffico dogana ${label} | Tempi attesa valico`,
+              ogD: `Traffico dogana ${label}: tempi di attesa, orari e consigli pratici per frontalieri al valico.`,
             });
           }
         }
