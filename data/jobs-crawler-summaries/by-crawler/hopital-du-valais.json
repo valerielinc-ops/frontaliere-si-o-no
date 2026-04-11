@@ -1,18 +1,19 @@
 {
   "key": "hopital-du-valais",
   "label": "Hôpital du Valais",
-  "generatedAt": "2026-04-11T08:54:10.811Z",
+  "generatedAt": "2026-04-11T21:25:34.342Z",
   "total": 46,
-  "newCount": 46,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 46,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 22983,
-  "avgDurationMs": 22983,
+  "durationMs": 19201,
+  "avgDurationMs": 19201,
   "durationHistory": [
-    22983
+    19201
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "hopital-du-valais-1930cac0fe8f",
       "slug": "medecins-chefs-fes-de-clinique-ou-medecins-hospitalieres-entre-20-et-100-pour-la-permanenc",
@@ -32,11 +33,11 @@
       "employmentType": "20 - 100%",
       "featured": false,
       "postedDate": "2026-04-10",
-      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/47fc8463970c87501b87322f2153afb5/params/language/fr",
-      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/47fc8463970c87501b87322f2153afb5/params/language/fr",
+      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/47fc8463970c87501b87322f2153afb5/ATSANN0004609/params/language/fr",
+      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/47fc8463970c87501b87322f2153afb5/ATSANN0004609/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-11T08:53:51.152Z",
+      "crawledAt": "2026-04-11T21:25:17.628Z",
       "_hvsMeta": {
         "number": "ATSANN0004609",
         "sysId": "47fc8463970c87501b87322f2153afb5",
@@ -44,11 +45,11 @@
         "famille": "Médecins",
         "site": "SIERRE"
       },
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -71,11 +72,11 @@
       "employmentType": "50%",
       "featured": false,
       "postedDate": "2026-04-08",
-      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/7f9f593e970083101b87322f2153af39/params/language/fr",
-      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/7f9f593e970083101b87322f2153af39/params/language/fr",
+      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/7f9f593e970083101b87322f2153af39/ATSANN0004605/params/language/fr",
+      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/7f9f593e970083101b87322f2153af39/ATSANN0004605/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-11T08:53:51.537Z",
+      "crawledAt": "2026-04-11T21:25:17.951Z",
       "_hvsMeta": {
         "number": "ATSANN0004605",
         "sysId": "7f9f593e970083101b87322f2153af39",
@@ -83,11 +84,12 @@
         "famille": "Psychologie, Sciences et Sociale",
         "site": "MARTIGNY"
       },
-      "_qualityScore": 64,
+      "needsRetranslation": true,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -110,11 +112,11 @@
       "employmentType": "50 - 70%",
       "featured": false,
       "postedDate": "2026-04-08",
-      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/d8c1293a978083101b87322f2153afc4/params/language/fr",
-      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/d8c1293a978083101b87322f2153afc4/params/language/fr",
+      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/d8c1293a978083101b87322f2153afc4/ATSANN0004606/params/language/fr",
+      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/d8c1293a978083101b87322f2153afc4/ATSANN0004606/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-11T08:53:51.925Z",
+      "crawledAt": "2026-04-11T21:25:18.279Z",
       "_hvsMeta": {
         "number": "ATSANN0004606",
         "sysId": "d8c1293a978083101b87322f2153afc4",
@@ -122,11 +124,11 @@
         "famille": "Psychologie, Sciences et Sociale",
         "site": "SIERRE"
       },
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -149,11 +151,11 @@
       "employmentType": "100%",
       "featured": false,
       "postedDate": "2026-04-07",
-      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/93a311e29700035012f9322f2153afef/params/language/fr",
-      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/93a311e29700035012f9322f2153afef/params/language/fr",
+      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/93a311e29700035012f9322f2153afef/ATSANN0004604/params/language/fr",
+      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/93a311e29700035012f9322f2153afef/ATSANN0004604/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-11T08:53:52.310Z",
+      "crawledAt": "2026-04-11T21:25:18.601Z",
       "_hvsMeta": {
         "number": "ATSANN0004604",
         "sysId": "93a311e29700035012f9322f2153afef",
@@ -161,11 +163,11 @@
         "famille": "Soins",
         "site": "SION"
       },
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -188,11 +190,11 @@
       "employmentType": "80 - 100%",
       "featured": false,
       "postedDate": "2026-04-03",
-      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/9dfd00d997c047101b87322f2153af63/params/language/fr",
-      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/9dfd00d997c047101b87322f2153af63/params/language/fr",
+      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/9dfd00d997c047101b87322f2153af63/ATSANN0004603/params/language/fr",
+      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/9dfd00d997c047101b87322f2153af63/ATSANN0004603/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T08:53:52.696Z",
+      "crawledAt": "2026-04-11T21:25:18.924Z",
       "_hvsMeta": {
         "number": "ATSANN0004603",
         "sysId": "9dfd00d997c047101b87322f2153af63",
@@ -200,11 +202,11 @@
         "famille": "Soins",
         "site": "BRIG"
       },
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -227,11 +229,11 @@
       "employmentType": "80 - 100%",
       "featured": false,
       "postedDate": "2026-04-02",
-      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/501a033c478c4310ff8065f8736d435f/params/language/fr",
-      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/501a033c478c4310ff8065f8736d435f/params/language/fr",
+      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/501a033c478c4310ff8065f8736d435f/ATSANN0004599/params/language/fr",
+      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/501a033c478c4310ff8065f8736d435f/ATSANN0004599/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-11T08:53:53.082Z",
+      "crawledAt": "2026-04-11T21:25:19.246Z",
       "_hvsMeta": {
         "number": "ATSANN0004599",
         "sysId": "501a033c478c4310ff8065f8736d435f",
@@ -239,11 +241,11 @@
         "famille": "Formation, Médico-technique",
         "site": "SION"
       },
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -266,11 +268,11 @@
       "employmentType": "60%",
       "featured": false,
       "postedDate": "2026-04-02",
-      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/f5e6ba4d4788c310ff8065f8736d431a/params/language/fr",
-      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/f5e6ba4d4788c310ff8065f8736d431a/params/language/fr",
+      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/f5e6ba4d4788c310ff8065f8736d431a/ATSANN0004600/params/language/fr",
+      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/f5e6ba4d4788c310ff8065f8736d431a/ATSANN0004600/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T08:53:53.470Z",
+      "crawledAt": "2026-04-11T21:25:19.566Z",
       "_hvsMeta": {
         "number": "ATSANN0004600",
         "sysId": "f5e6ba4d4788c310ff8065f8736d431a",
@@ -278,11 +280,11 @@
         "famille": "Finances",
         "site": "BRIG"
       },
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -305,11 +307,11 @@
       "employmentType": "80 - 100%",
       "featured": false,
       "postedDate": "2026-04-01",
-      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/0b286d6c97cc43d01b87322f2153af9a/params/language/fr",
-      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/0b286d6c97cc43d01b87322f2153af9a/params/language/fr",
+      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/0b286d6c97cc43d01b87322f2153af9a/ATSANN0004597/params/language/fr",
+      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/0b286d6c97cc43d01b87322f2153af9a/ATSANN0004597/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T08:53:53.853Z",
+      "crawledAt": "2026-04-11T21:25:19.894Z",
       "_hvsMeta": {
         "number": "ATSANN0004597",
         "sysId": "0b286d6c97cc43d01b87322f2153af9a",
@@ -317,11 +319,11 @@
         "famille": "Médecins",
         "site": "BRIG"
       },
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -344,11 +346,11 @@
       "employmentType": "100%",
       "featured": false,
       "postedDate": "2026-04-01",
-      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/07c0eee447c0c754ff8065f8736d4369/params/language/fr",
-      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/07c0eee447c0c754ff8065f8736d4369/params/language/fr",
+      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/07c0eee447c0c754ff8065f8736d4369/ATSANN0004598/params/language/fr",
+      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/07c0eee447c0c754ff8065f8736d4369/ATSANN0004598/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "it",
-      "crawledAt": "2026-04-11T08:53:54.242Z",
+      "crawledAt": "2026-04-11T21:25:20.215Z",
       "_hvsMeta": {
         "number": "ATSANN0004598",
         "sysId": "07c0eee447c0c754ff8065f8736d4369",
@@ -356,11 +358,11 @@
         "famille": "Médecins",
         "site": "SION"
       },
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -383,11 +385,11 @@
       "employmentType": "100%",
       "featured": false,
       "postedDate": "2026-04-01",
-      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/6424f99247aaf210296bd1eb736d43bc/params/language/fr",
-      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/6424f99247aaf210296bd1eb736d43bc/params/language/fr",
+      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/6424f99247aaf210296bd1eb736d43bc/ATSANN0004498/params/language/fr",
+      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/6424f99247aaf210296bd1eb736d43bc/ATSANN0004498/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-11T08:53:54.625Z",
+      "crawledAt": "2026-04-11T21:25:20.538Z",
       "_hvsMeta": {
         "number": "ATSANN0004498",
         "sysId": "6424f99247aaf210296bd1eb736d43bc",
@@ -395,11 +397,11 @@
         "famille": "Formation, Logistique / Technique",
         "site": "SIERRE"
       },
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -422,11 +424,11 @@
       "employmentType": "60 - 100%",
       "featured": false,
       "postedDate": "2026-04-01",
-      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/ac09d094c3044754a043be4c05013161/params/language/fr",
-      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/ac09d094c3044754a043be4c05013161/params/language/fr",
+      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/ac09d094c3044754a043be4c05013161/ATSANN0004596/params/language/fr",
+      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/ac09d094c3044754a043be4c05013161/ATSANN0004596/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T08:53:55.009Z",
+      "crawledAt": "2026-04-11T21:25:20.863Z",
       "_hvsMeta": {
         "number": "ATSANN0004596",
         "sysId": "ac09d094c3044754a043be4c05013161",
@@ -434,11 +436,11 @@
         "famille": "Médecins",
         "site": "BRIG"
       },
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -461,11 +463,11 @@
       "employmentType": "80 - 100%",
       "featured": false,
       "postedDate": "2026-03-31",
-      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/2aca6b0197011a90316bb0b71153af7e/params/language/fr",
-      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/2aca6b0197011a90316bb0b71153af7e/params/language/fr",
+      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/2aca6b0197011a90316bb0b71153af7e/ATSANN0003760/params/language/fr",
+      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/2aca6b0197011a90316bb0b71153af7e/ATSANN0003760/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T08:53:55.393Z",
+      "crawledAt": "2026-04-11T21:25:21.183Z",
       "_hvsMeta": {
         "number": "ATSANN0003760",
         "sysId": "2aca6b0197011a90316bb0b71153af7e",
@@ -473,17 +475,17 @@
         "famille": "Psychologie, Sciences et Sociale",
         "site": "BRIG"
       },
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
     {
       "id": "hopital-du-valais-d32609013fcd",
-      "slug": "fachpsychologe-in-fur-das-mobile-team-60-hopital-du-valais-brig",
+      "slug": "fachpsychologe-in-per-das-mobile-team-60-hopital-du-valais-brig",
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
       "companyDomain": "hopitalvs.ch",
@@ -500,11 +502,11 @@
       "employmentType": "60%",
       "featured": false,
       "postedDate": "2026-03-31",
-      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/32ce638d97411a90316bb0b71153af77/params/language/fr",
-      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/32ce638d97411a90316bb0b71153af77/params/language/fr",
+      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/32ce638d97411a90316bb0b71153af77/ATSANN0003761/params/language/fr",
+      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/32ce638d97411a90316bb0b71153af77/ATSANN0003761/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T08:53:55.776Z",
+      "crawledAt": "2026-04-11T21:25:21.508Z",
       "_hvsMeta": {
         "number": "ATSANN0003761",
         "sysId": "32ce638d97411a90316bb0b71153af77",
@@ -512,11 +514,11 @@
         "famille": "Psychologie, Sciences et Sociale",
         "site": "BRIG"
       },
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -539,11 +541,11 @@
       "employmentType": "80 - 100%",
       "featured": false,
       "postedDate": "2026-03-31",
-      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/bf66751547fc72d0339c9146736d437c/params/language/fr",
-      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/bf66751547fc72d0339c9146736d437c/params/language/fr",
+      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/bf66751547fc72d0339c9146736d437c/ATSANN0004384/params/language/fr",
+      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/bf66751547fc72d0339c9146736d437c/ATSANN0004384/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T08:53:56.160Z",
+      "crawledAt": "2026-04-11T21:25:21.828Z",
       "_hvsMeta": {
         "number": "ATSANN0004384",
         "sysId": "bf66751547fc72d0339c9146736d437c",
@@ -551,11 +553,11 @@
         "famille": "Médecins",
         "site": "BRIG"
       },
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -578,11 +580,11 @@
       "employmentType": "80 - 100%",
       "featured": false,
       "postedDate": "2026-03-31",
-      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/a9a1d5c047253a54339c9146736d43b9/params/language/fr",
-      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/a9a1d5c047253a54339c9146736d43b9/params/language/fr",
+      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/a9a1d5c047253a54339c9146736d43b9/ATSANN0004424/params/language/fr",
+      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/a9a1d5c047253a54339c9146736d43b9/ATSANN0004424/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T08:53:56.541Z",
+      "crawledAt": "2026-04-11T21:25:22.148Z",
       "_hvsMeta": {
         "number": "ATSANN0004424",
         "sysId": "a9a1d5c047253a54339c9146736d43b9",
@@ -590,11 +592,11 @@
         "famille": "Médecins",
         "site": "BRIG"
       },
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -617,11 +619,11 @@
       "employmentType": "50 - 100%",
       "featured": false,
       "postedDate": "2026-03-31",
-      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/d874620f838cb25417a39d20ceaad38a/params/language/fr",
-      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/d874620f838cb25417a39d20ceaad38a/params/language/fr",
+      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/d874620f838cb25417a39d20ceaad38a/ATSANN0004325/params/language/fr",
+      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/d874620f838cb25417a39d20ceaad38a/ATSANN0004325/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T08:53:56.924Z",
+      "crawledAt": "2026-04-11T21:25:22.469Z",
       "_hvsMeta": {
         "number": "ATSANN0004325",
         "sysId": "d874620f838cb25417a39d20ceaad38a",
@@ -629,11 +631,11 @@
         "famille": "Soins",
         "site": "BRIG"
       },
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -656,11 +658,11 @@
       "employmentType": "80%",
       "featured": false,
       "postedDate": "2026-03-31",
-      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/5666185247bb9a10339c9146736d4364/params/language/fr",
-      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/5666185247bb9a10339c9146736d4364/params/language/fr",
+      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/5666185247bb9a10339c9146736d4364/ATSANN0003999/params/language/fr",
+      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/5666185247bb9a10339c9146736d4364/ATSANN0003999/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T08:53:57.306Z",
+      "crawledAt": "2026-04-11T21:25:22.800Z",
       "_hvsMeta": {
         "number": "ATSANN0003999",
         "sysId": "5666185247bb9a10339c9146736d4364",
@@ -668,11 +670,11 @@
         "famille": "Psychologie, Sciences et Sociale",
         "site": "BRIG"
       },
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -695,11 +697,11 @@
       "employmentType": "80 - 100%",
       "featured": false,
       "postedDate": "2026-03-31",
-      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/94b27b0597c11a90316bb0b71153af92/params/language/fr",
-      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/94b27b0597c11a90316bb0b71153af92/params/language/fr",
+      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/94b27b0597c11a90316bb0b71153af92/ATSANN0003762/params/language/fr",
+      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/94b27b0597c11a90316bb0b71153af92/ATSANN0003762/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T08:53:57.693Z",
+      "crawledAt": "2026-04-11T21:25:23.123Z",
       "_hvsMeta": {
         "number": "ATSANN0003762",
         "sysId": "94b27b0597c11a90316bb0b71153af92",
@@ -707,11 +709,11 @@
         "famille": "Médecins",
         "site": "BRIG"
       },
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -734,11 +736,11 @@
       "employmentType": "80 - 100%",
       "featured": false,
       "postedDate": "2026-03-31",
-      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/8931be8b9735b25012f9322f2153af59/params/language/fr",
-      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/8931be8b9735b25012f9322f2153af59/params/language/fr",
+      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/8931be8b9735b25012f9322f2153af59/ATSANN0004456/params/language/fr",
+      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/8931be8b9735b25012f9322f2153af59/ATSANN0004456/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T08:53:58.076Z",
+      "crawledAt": "2026-04-11T21:25:23.446Z",
       "_hvsMeta": {
         "number": "ATSANN0004456",
         "sysId": "8931be8b9735b25012f9322f2153af59",
@@ -746,11 +748,11 @@
         "famille": "Psychologie, Sciences et Sociale",
         "site": "BRIG"
       },
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -773,11 +775,11 @@
       "employmentType": "80 - 100%",
       "featured": false,
       "postedDate": "2026-03-31",
-      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/f4b9150847a53a54339c9146736d43a4/params/language/fr",
-      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/f4b9150847a53a54339c9146736d43a4/params/language/fr",
+      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/f4b9150847a53a54339c9146736d43a4/ATSANN0004425/params/language/fr",
+      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/f4b9150847a53a54339c9146736d43a4/ATSANN0004425/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T08:53:58.462Z",
+      "crawledAt": "2026-04-11T21:25:23.771Z",
       "_hvsMeta": {
         "number": "ATSANN0004425",
         "sysId": "f4b9150847a53a54339c9146736d43a4",
@@ -785,11 +787,11 @@
         "famille": "Psychologie, Sciences et Sociale",
         "site": "BRIG"
       },
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -812,11 +814,11 @@
       "employmentType": "50%",
       "featured": false,
       "postedDate": "2026-03-31",
-      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/c6680bcc8378b69017a39d20ceaad30d/params/language/fr",
-      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/c6680bcc8378b69017a39d20ceaad30d/params/language/fr",
+      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/c6680bcc8378b69017a39d20ceaad30d/ATSANN0004378/params/language/fr",
+      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/c6680bcc8378b69017a39d20ceaad30d/ATSANN0004378/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T08:53:58.845Z",
+      "crawledAt": "2026-04-11T21:25:24.096Z",
       "_hvsMeta": {
         "number": "ATSANN0004378",
         "sysId": "c6680bcc8378b69017a39d20ceaad30d",
@@ -824,11 +826,11 @@
         "famille": "Médecins",
         "site": "VISP"
       },
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -851,11 +853,11 @@
       "employmentType": "OTHER",
       "featured": false,
       "postedDate": "2026-03-31",
-      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/dfdd86de976626501b87322f2153af9d/params/language/fr",
-      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/dfdd86de976626501b87322f2153af9d/params/language/fr",
+      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/dfdd86de976626501b87322f2153af9d/ATSANN0004228/params/language/fr",
+      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/dfdd86de976626501b87322f2153af9d/ATSANN0004228/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T08:53:59.229Z",
+      "crawledAt": "2026-04-11T21:25:24.418Z",
       "_hvsMeta": {
         "number": "ATSANN0004228",
         "sysId": "dfdd86de976626501b87322f2153af9d",
@@ -863,11 +865,11 @@
         "famille": "Formation",
         "site": "BRIG"
       },
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -890,11 +892,11 @@
       "employmentType": "80 - 100%",
       "featured": false,
       "postedDate": "2026-03-31",
-      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/572ee60b97b1b25012f9322f2153af9f/params/language/fr",
-      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/572ee60b97b1b25012f9322f2153af9f/params/language/fr",
+      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/572ee60b97b1b25012f9322f2153af9f/ATSANN0004455/params/language/fr",
+      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/572ee60b97b1b25012f9322f2153af9f/ATSANN0004455/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T08:53:59.613Z",
+      "crawledAt": "2026-04-11T21:25:24.740Z",
       "_hvsMeta": {
         "number": "ATSANN0004455",
         "sysId": "572ee60b97b1b25012f9322f2153af9f",
@@ -902,11 +904,11 @@
         "famille": "Médecins",
         "site": "BRIG"
       },
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -929,11 +931,11 @@
       "employmentType": "50 - 100%",
       "featured": false,
       "postedDate": "2026-03-31",
-      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/c6c4165297e41654316bb0b71153afc3/params/language/fr",
-      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/c6c4165297e41654316bb0b71153afc3/params/language/fr",
+      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/c6c4165297e41654316bb0b71153afc3/ATSANN0003725/params/language/fr",
+      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/c6c4165297e41654316bb0b71153afc3/ATSANN0003725/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T08:53:59.994Z",
+      "crawledAt": "2026-04-11T21:25:25.068Z",
       "_hvsMeta": {
         "number": "ATSANN0003725",
         "sysId": "c6c4165297e41654316bb0b71153afc3",
@@ -941,11 +943,11 @@
         "famille": "Médecins",
         "site": "VISP"
       },
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -968,11 +970,11 @@
       "employmentType": "50 - 100%",
       "featured": false,
       "postedDate": "2026-03-30",
-      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/9a0eb3bbc373b254a043be4c0501316c/params/language/fr",
-      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/9a0eb3bbc373b254a043be4c0501316c/params/language/fr",
+      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/9a0eb3bbc373b254a043be4c0501316c/ATSANN0004593/params/language/fr",
+      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/9a0eb3bbc373b254a043be4c0501316c/ATSANN0004593/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-11T08:54:00.377Z",
+      "crawledAt": "2026-04-11T21:25:25.389Z",
       "_hvsMeta": {
         "number": "ATSANN0004593",
         "sysId": "9a0eb3bbc373b254a043be4c0501316c",
@@ -980,11 +982,11 @@
         "famille": "Soins",
         "site": "SION"
       },
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -1007,11 +1009,11 @@
       "employmentType": "80 - 100%",
       "featured": false,
       "postedDate": "2026-03-30",
-      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/47d5b443973f76901b87322f2153af24/params/language/fr",
-      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/47d5b443973f76901b87322f2153af24/params/language/fr",
+      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/47d5b443973f76901b87322f2153af24/ATSANN0004590/params/language/fr",
+      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/47d5b443973f76901b87322f2153af24/ATSANN0004590/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-11T08:54:00.758Z",
+      "crawledAt": "2026-04-11T21:25:25.709Z",
       "_hvsMeta": {
         "number": "ATSANN0004590",
         "sysId": "47d5b443973f76901b87322f2153af24",
@@ -1019,11 +1021,11 @@
         "famille": "Médico-technique",
         "site": "SION"
       },
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -1046,11 +1048,11 @@
       "employmentType": "70%",
       "featured": false,
       "postedDate": "2026-03-30",
-      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/e7d584c8c3448354a043be4c050131a8/params/language/fr",
-      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/e7d584c8c3448354a043be4c050131a8/params/language/fr",
+      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/e7d584c8c3448354a043be4c050131a8/ATSANN0004594/params/language/fr",
+      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/e7d584c8c3448354a043be4c050131a8/ATSANN0004594/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-11T08:54:01.142Z",
+      "crawledAt": "2026-04-11T21:25:26.030Z",
       "_hvsMeta": {
         "number": "ATSANN0004594",
         "sysId": "e7d584c8c3448354a043be4c050131a8",
@@ -1058,11 +1060,11 @@
         "famille": "Psychologie, Sciences et Sociale, Soins",
         "site": "MONTHEY"
       },
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -1085,11 +1087,11 @@
       "employmentType": "40 - 50%",
       "featured": false,
       "postedDate": "2026-03-30",
-      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/4572abbb97f73ad012f9322f2153af2b/params/language/fr",
-      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/4572abbb97f73ad012f9322f2153af2b/params/language/fr",
+      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/4572abbb97f73ad012f9322f2153af2b/ATSANN0004591/params/language/fr",
+      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/4572abbb97f73ad012f9322f2153af2b/ATSANN0004591/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-11T08:54:01.526Z",
+      "crawledAt": "2026-04-11T21:25:26.351Z",
       "_hvsMeta": {
         "number": "ATSANN0004591",
         "sysId": "4572abbb97f73ad012f9322f2153af2b",
@@ -1097,11 +1099,11 @@
         "famille": "Administratif",
         "site": "SION"
       },
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -1124,11 +1126,11 @@
       "employmentType": "40%",
       "featured": false,
       "postedDate": "2026-03-30",
-      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/8773e73b973b3ad012f9322f2153afa8/params/language/fr",
-      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/8773e73b973b3ad012f9322f2153afa8/params/language/fr",
+      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/8773e73b973b3ad012f9322f2153afa8/ATSANN0004592/params/language/fr",
+      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/8773e73b973b3ad012f9322f2153afa8/ATSANN0004592/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-11T08:54:01.913Z",
+      "crawledAt": "2026-04-11T21:25:26.674Z",
       "_hvsMeta": {
         "number": "ATSANN0004592",
         "sysId": "8773e73b973b3ad012f9322f2153afa8",
@@ -1136,11 +1138,11 @@
         "famille": "Administratif, Soins",
         "site": "SION"
       },
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -1163,11 +1165,11 @@
       "employmentType": "90%",
       "featured": false,
       "postedDate": "2026-03-30",
-      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3e42908cc3488354a043be4c05013198/params/language/fr",
-      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3e42908cc3488354a043be4c05013198/params/language/fr",
+      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3e42908cc3488354a043be4c05013198/ATSANN0004595/params/language/fr",
+      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3e42908cc3488354a043be4c05013198/ATSANN0004595/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-11T08:54:02.296Z",
+      "crawledAt": "2026-04-11T21:25:26.998Z",
       "_hvsMeta": {
         "number": "ATSANN0004595",
         "sysId": "3e42908cc3488354a043be4c05013198",
@@ -1175,16 +1177,15 @@
         "famille": "Administratif, Soins",
         "site": "SION"
       },
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
