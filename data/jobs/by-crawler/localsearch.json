@@ -2093,12 +2093,12 @@
     },
     {
       "id": "localsearch-9f2c08e6b713",
-      "slug": "verkauferin-verkaufer-im-aussendienst-localsearch-ch-18",
+      "slug": "venditore-esterno-localsearch-lyssach",
       "slugByLocale": {
         "de": "verkauferin-verkaufer-im-aussendienst-localsearch-ch",
-        "it": "verkauferin-verkaufer-im-aussendienst-localsearch-ch-18",
-        "en": "verkauferin-verkaufer-im-aussendienst-localsearch-ch-18",
-        "fr": "verkauferin-verkaufer-im-aussendienst-localsearch-ch-18"
+        "it": "venditore-esterno-localsearch-lyssach",
+        "en": "outside-sales-representative-localsearch-lyssach",
+        "fr": "representant-commercial-en-dehors-des-locaux-localsearch-lyssach"
       },
       "company": "localsearch",
       "companyKey": "localsearch",
@@ -2152,7 +2152,21 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkauferin-verkaufer-im-aussendienst-localsearch-ch-18"
+        ],
+        "en": [
+          "verkauferin-verkaufer-im-aussendienst-localsearch-ch-18"
+        ],
+        "fr": [
+          "verkauferin-verkaufer-im-aussendienst-localsearch-ch-18"
+        ]
+      },
+      "previousSlugs": [
+        "verkauferin-verkaufer-im-aussendienst-localsearch-ch-18"
+      ]
     },
     {
       "id": "localsearch-f347ac97ffb9",
