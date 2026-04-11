@@ -1,18 +1,19 @@
 {
   "key": "tschuggen",
   "label": "Tschuggen Collection",
-  "generatedAt": "2026-04-11T18:43:39.851Z",
+  "generatedAt": "2026-04-11T22:04:50.583Z",
   "total": 10,
-  "newCount": 10,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 250614,
-  "avgDurationMs": 250614,
+  "durationMs": 14297,
+  "avgDurationMs": 14297,
   "durationHistory": [
-    250614
+    14297
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "tschuggen-c2dd4723cdb8",
       "slug": "reservation-agent-m-w-d-tschuggen-ch",
@@ -25,7 +26,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1325/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T18:39:31.404Z",
+      "crawledAt": "2026-04-11T22:04:38.615Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressCountry": "CH",
@@ -41,11 +42,11 @@
       "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1325/Description/1",
       "department": "Rooms Division",
       "hotelName": "Hotel Eden Roc",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -61,7 +62,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1308/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T18:39:32.377Z",
+      "crawledAt": "2026-04-11T22:04:39.668Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressCountry": "CH",
@@ -77,11 +78,11 @@
       "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1308/Description/1",
       "department": "Administration",
       "hotelName": "Hotel Eden Roc",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -97,7 +98,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1332/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T18:39:33.054Z",
+      "crawledAt": "2026-04-11T22:04:40.695Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -113,11 +114,11 @@
       "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1332/Description/1",
       "department": "Rooms Division",
       "hotelName": "Tschuggen Grand Hotel",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -133,7 +134,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1331/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T18:39:33.968Z",
+      "crawledAt": "2026-04-11T22:04:41.721Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -149,11 +150,11 @@
       "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1331/Description/1",
       "department": "Food and Beverage",
       "hotelName": "Carlton Hotel St. Moritz",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -169,7 +170,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1320/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T18:39:34.865Z",
+      "crawledAt": "2026-04-11T22:04:42.747Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -185,11 +186,11 @@
       "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1320/Description/1",
       "department": "Küche",
       "hotelName": "Tschuggen Grand Hotel",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -205,7 +206,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1329/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T18:39:35.779Z",
+      "crawledAt": "2026-04-11T22:04:43.748Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -221,11 +222,11 @@
       "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1329/Description/1",
       "department": "Rooms Division",
       "hotelName": "Tschuggen Grand Hotel",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -241,7 +242,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1330/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T18:39:36.667Z",
+      "crawledAt": "2026-04-11T22:04:44.798Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -257,11 +258,11 @@
       "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1330/Description/1",
       "department": "Rooms Division",
       "hotelName": "Tschuggen Grand Hotel",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -277,7 +278,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1328/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T18:39:37.552Z",
+      "crawledAt": "2026-04-11T22:04:45.813Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -293,11 +294,11 @@
       "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1328/Description/1",
       "department": "Rooms Division",
       "hotelName": "Carlton Hotel St. Moritz",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -313,7 +314,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1318/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T18:39:38.480Z",
+      "crawledAt": "2026-04-11T22:04:46.883Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -329,11 +330,11 @@
       "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1318/Description/1",
       "department": "Küche",
       "hotelName": "Tschuggen Grand Hotel",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -349,7 +350,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1326/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T18:39:39.437Z",
+      "crawledAt": "2026-04-11T22:04:47.972Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -365,16 +366,15 @@
       "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1326/Description/1",
       "department": "Küche",
       "hotelName": "Tschuggen Grand Hotel",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
