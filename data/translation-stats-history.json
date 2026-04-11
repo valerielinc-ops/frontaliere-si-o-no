@@ -1,229 +1,5 @@
 [
   {
-    "timestamp": "2026-04-02T09:55:32.900Z",
-    "label": "before",
-    "total": 1309,
-    "needsRetranslation": 122,
-    "incomplete": 105,
-    "complete": 1204,
-    "missingByLocale": {
-      "it": 34,
-      "en": 86,
-      "de": 78,
-      "fr": 98
-    },
-    "topPending": [
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 46
-      },
-      {
-        "company": "Interdiscount",
-        "pending": 35
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 5
-      },
-      {
-        "company": "EFG International AG",
-        "pending": 4
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 4
-      },
-      {
-        "company": "Scuola Club Migros",
-        "pending": 2
-      },
-      {
-        "company": "ABB Svizzera (sede Ticino)",
-        "pending": 1
-      },
-      {
-        "company": "AXA Svizzera",
-        "pending": 1
-      },
-      {
-        "company": "Banca Raiffeisen Vedeggio Cassarate",
-        "pending": 1
-      },
-      {
-        "company": "DOT Life SA",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-02T09:56:33.316Z",
-    "label": "after",
-    "total": 1309,
-    "needsRetranslation": 112,
-    "incomplete": 102,
-    "complete": 1207,
-    "missingByLocale": {
-      "it": 34,
-      "en": 86,
-      "de": 78,
-      "fr": 98
-    },
-    "topPending": [
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 46
-      },
-      {
-        "company": "Interdiscount",
-        "pending": 35
-      },
-      {
-        "company": "EFG International AG",
-        "pending": 4
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 4
-      },
-      {
-        "company": "Scuola Club Migros",
-        "pending": 2
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 2
-      },
-      {
-        "company": "ABB Svizzera (sede Ticino)",
-        "pending": 1
-      },
-      {
-        "company": "AXA Svizzera",
-        "pending": 1
-      },
-      {
-        "company": "Banca Raiffeisen Vedeggio Cassarate",
-        "pending": 1
-      },
-      {
-        "company": "DOT Life SA",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-02T09:59:46.625Z",
-    "label": "before",
-    "total": 1311,
-    "needsRetranslation": 162,
-    "incomplete": 143,
-    "complete": 1168,
-    "missingByLocale": {
-      "it": 75,
-      "en": 127,
-      "de": 83,
-      "fr": 134
-    },
-    "topPending": [
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 46
-      },
-      {
-        "company": "VOLG",
-        "pending": 40
-      },
-      {
-        "company": "Interdiscount",
-        "pending": 35
-      },
-      {
-        "company": "EFG International AG",
-        "pending": 4
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 4
-      },
-      {
-        "company": "Scuola Club Migros",
-        "pending": 2
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 2
-      },
-      {
-        "company": "ABB Svizzera (sede Ticino)",
-        "pending": 1
-      },
-      {
-        "company": "AXA Svizzera",
-        "pending": 1
-      },
-      {
-        "company": "Banca Raiffeisen Vedeggio Cassarate",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-02T10:00:34.924Z",
-    "label": "after",
-    "total": 1311,
-    "needsRetranslation": 112,
-    "incomplete": 102,
-    "complete": 1209,
-    "missingByLocale": {
-      "it": 34,
-      "en": 86,
-      "de": 78,
-      "fr": 98
-    },
-    "topPending": [
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 46
-      },
-      {
-        "company": "Interdiscount",
-        "pending": 35
-      },
-      {
-        "company": "EFG International AG",
-        "pending": 4
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 4
-      },
-      {
-        "company": "Scuola Club Migros",
-        "pending": 2
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 2
-      },
-      {
-        "company": "ABB Svizzera (sede Ticino)",
-        "pending": 1
-      },
-      {
-        "company": "AXA Svizzera",
-        "pending": 1
-      },
-      {
-        "company": "Banca Raiffeisen Vedeggio Cassarate",
-        "pending": 1
-      },
-      {
-        "company": "DOT Life SA",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-02T10:37:35.592Z",
     "label": "before",
     "total": 1313,
@@ -9753,6 +9529,94 @@
         "company": "Flury Stiftung",
         "pending": 22
       },
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 9
+      },
+      {
+        "company": "Hügli Nährmittel AG",
+        "pending": 4
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 2
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      },
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "Ticino Premium Properties SA",
+        "pending": 1
+      },
+      {
+        "company": "Swiss Armed Forces (VTG)",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-11T19:24:33.657Z",
+    "label": "before",
+    "total": 2471,
+    "needsRetranslation": 110,
+    "incomplete": 19,
+    "complete": 2452,
+    "missingByLocale": {
+      "it": 17,
+      "en": 17,
+      "de": 3,
+      "fr": 16
+    },
+    "topPending": [
+      {
+        "company": "Regionalspital Surselva",
+        "pending": 9
+      },
+      {
+        "company": "Hügli Nährmittel AG",
+        "pending": 4
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 2
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      },
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "Ticino Premium Properties SA",
+        "pending": 1
+      },
+      {
+        "company": "Swiss Armed Forces (VTG)",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-11T19:25:46.510Z",
+    "label": "after",
+    "total": 2471,
+    "needsRetranslation": 88,
+    "incomplete": 19,
+    "complete": 2452,
+    "missingByLocale": {
+      "it": 17,
+      "en": 17,
+      "de": 3,
+      "fr": 16
+    },
+    "topPending": [
       {
         "company": "Regionalspital Surselva",
         "pending": 9
