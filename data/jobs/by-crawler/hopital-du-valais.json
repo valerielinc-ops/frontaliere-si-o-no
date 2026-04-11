@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "hopital-du-valais-797cf717f9ca",
-      "slug": "psychologin-psychologe-40-60-schmerzklinik-hopital-du-valais-brig",
+      "slug": "psicologa-psicologo-40-60-clinica-del-dolore-hopital-du-valais-brig",
       "slugByLocale": {
         "de": "psychologin-psychologe-40-60-schmerzklinik-hopital-du-valais-brig",
-        "it": "psychologin-psychologe-40-60-schmerzklinik-hopital-du-valais-brig",
-        "en": "psychologin-psychologe-40-60-schmerzklinik-hopital-du-valais-brig",
-        "fr": "psychologin-psychologe-40-60-schmerzklinik-hopital-du-valais-brig"
+        "it": "psicologa-psicologo-40-60-clinica-del-dolore-hopital-du-valais-brig",
+        "en": "psychologist-40-60-pain-clinic-hopital-du-valais-brig",
+        "fr": "psychologue-40-60-clinique-de-la-douleur-hopital-du-valais-brig"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -64,15 +64,29 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologin-psychologe-40-60-schmerzklinik-hopital-du-valais-brig"
+        ],
+        "en": [
+          "psychologin-psychologe-40-60-schmerzklinik-hopital-du-valais-brig"
+        ],
+        "fr": [
+          "psychologin-psychologe-40-60-schmerzklinik-hopital-du-valais-brig"
+        ]
+      },
+      "previousSlugs": [
+        "psychologin-psychologe-40-60-schmerzklinik-hopital-du-valais-brig"
+      ]
     },
     {
       "id": "hopital-du-valais-3b38c4acb26b",
-      "slug": "oberarztin-arzt-80-100-geriatrie-hopital-du-valais-brig",
+      "slug": "medico-dirigente-in-geriatria-80-100-hopital-du-valais-brig",
       "slugByLocale": {
         "de": "oberarztin-arzt-80-100-geriatrie-hopital-du-valais-brig",
-        "it": "oberarztin-arzt-80-100-geriatrie-hopital-du-valais-brig",
-        "en": "oberarztin-arzt-80-100-geriatrie-hopital-du-valais-brig",
+        "it": "medico-dirigente-in-geriatria-80-100-hopital-du-valais-brig",
+        "en": "senior-physician-in-geriatrics-80-100-hopital-du-valais-brig",
         "fr": "oberarztin-arzt-80-100-geriatrie-hopital-du-valais-brig"
       },
       "company": "Hôpital du Valais",
@@ -128,15 +142,26 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-arzt-80-100-geriatrie-hopital-du-valais-brig"
+        ],
+        "en": [
+          "oberarztin-arzt-80-100-geriatrie-hopital-du-valais-brig"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-arzt-80-100-geriatrie-hopital-du-valais-brig"
+      ]
     },
     {
       "id": "hopital-du-valais-c9a120f6d768",
-      "slug": "rejoins-l-equipe-de-personnel-de-reserve-hopital-du-valais-sion",
+      "slug": "unisciti-al-team-del-personale-di-riserva-hopital-du-valais-sion",
       "slugByLocale": {
-        "en": "rejoins-l-equipe-de-personnel-de-reserve-hopital-du-valais-sion",
-        "it": "rejoins-l-equipe-de-personnel-de-reserve-hopital-du-valais-sion",
-        "de": "rejoins-l-equipe-de-personnel-de-reserve-hopital-du-valais-sion",
+        "en": "join-the-reserve-staff-team-hopital-du-valais-sion",
+        "it": "unisciti-al-team-del-personale-di-riserva-hopital-du-valais-sion",
+        "de": "trete-der-reservepersonal-mitglieder-bei-hopital-du-valais-sion",
         "fr": "rejoins-l-equipe-de-personnel-de-reserve-hopital-du-valais-sion"
       },
       "company": "Hôpital du Valais",
@@ -192,16 +217,30 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "rejoins-l-equipe-de-personnel-de-reserve-hopital-du-valais-sion"
+        ],
+        "en": [
+          "rejoins-l-equipe-de-personnel-de-reserve-hopital-du-valais-sion"
+        ],
+        "de": [
+          "rejoins-l-equipe-de-personnel-de-reserve-hopital-du-valais-sion"
+        ]
+      },
+      "previousSlugs": [
+        "rejoins-l-equipe-de-personnel-de-reserve-hopital-du-valais-sion"
+      ]
     },
     {
       "id": "hopital-du-valais-2972e163c57a",
-      "slug": "pflegefachperson-80-100-interdisziplinare-privatabteilung-lean-bettenstation-6-mitte-visp-",
+      "slug": "infermiere-80-100-reparto-privato-interdisciplinare-stazione-a-letti-lean-6-centro-visp-hopital-du-valais-visp",
       "slugByLocale": {
         "de": "pflegefachperson-80-100-interdisziplinare-privatabteilung-lean-bettenstation-6-mitte-visp-",
-        "it": "pflegefachperson-80-100-interdisziplinare-privatabteilung-lean-bettenstation-6-mitte-visp-",
-        "en": "pflegefachperson-80-100-interdisziplinare-privatabteilung-lean-bettenstation-6-mitte-visp-",
-        "fr": "pflegefachperson-80-100-interdisziplinare-privatabteilung-lean-bettenstation-6-mitte-visp-"
+        "it": "infermiere-80-100-reparto-privato-interdisciplinare-stazione-a-letti-lean-6-centro-visp-hopital-du-valais-visp",
+        "en": "nursing-specialist-80-100-interdisciplinary-private-ward-lean-bed-station-6-centre-visp-hopital-du-valais-visp",
+        "fr": "infirmier-e-80-100-service-prive-interdisciplinaire-station-a-lits-lean-6-centre-visp-hopital-du-valais-visp"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -256,16 +295,30 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachperson-80-100-interdisziplinare-privatabteilung-lean-bettenstation-6-mitte-visp-"
+        ],
+        "en": [
+          "pflegefachperson-80-100-interdisziplinare-privatabteilung-lean-bettenstation-6-mitte-visp-"
+        ],
+        "fr": [
+          "pflegefachperson-80-100-interdisziplinare-privatabteilung-lean-bettenstation-6-mitte-visp-"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachperson-80-100-interdisziplinare-privatabteilung-lean-bettenstation-6-mitte-visp-"
+      ]
     },
     {
       "id": "hopital-du-valais-b666345063b9",
-      "slug": "ausbildungsplatze-hf-pflege-in-betriebsanstellung-hopital-du-valais-brig",
+      "slug": "posti-di-formazione-hf-infermieristica-in-assunzione-operativa-hopital-du-valais-brig",
       "slugByLocale": {
         "de": "ausbildungsplatze-hf-pflege-in-betriebsanstellung-hopital-du-valais-brig",
-        "it": "ausbildungsplatze-hf-pflege-in-betriebsanstellung-hopital-du-valais-brig",
-        "en": "ausbildungsplatze-hf-pflege-in-betriebsanstellung-hopital-du-valais-brig",
-        "fr": "ausbildungsplatze-hf-pflege-in-betriebsanstellung-hopital-du-valais-brig"
+        "it": "posti-di-formazione-hf-infermieristica-in-assunzione-operativa-hopital-du-valais-brig",
+        "en": "hf-nursing-training-places-in-operational-employment-hopital-du-valais-brig",
+        "fr": "postes-de-formation-hf-soins-infirmiers-en-emploi-operationnel-hopital-du-valais-brig"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -320,16 +373,30 @@
           "maxValue": 77500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "ausbildungsplatze-hf-pflege-in-betriebsanstellung-hopital-du-valais-brig"
+        ],
+        "en": [
+          "ausbildungsplatze-hf-pflege-in-betriebsanstellung-hopital-du-valais-brig"
+        ],
+        "fr": [
+          "ausbildungsplatze-hf-pflege-in-betriebsanstellung-hopital-du-valais-brig"
+        ]
+      },
+      "previousSlugs": [
+        "ausbildungsplatze-hf-pflege-in-betriebsanstellung-hopital-du-valais-brig"
+      ]
     },
     {
       "id": "hopital-du-valais-f090fb9f76d2",
-      "slug": "medecin-adjoint-e-pour-le-service-de-gastro-enterologie-a-50-hopital-du-valais-sion",
+      "slug": "medico-associato-a-per-il-servizio-di-gastroenterologia-a-tempo-parziale-hopital-du-valais-sion",
       "slugByLocale": {
         "fr": "medecin-adjoint-e-pour-le-service-de-gastro-enterologie-a-50-hopital-du-valais-sion",
-        "it": "medecin-adjoint-e-pour-le-service-de-gastro-enterologie-a-50-hopital-du-valais-sion",
-        "en": "medecin-adjoint-e-pour-le-service-de-gastro-enterologie-a-50-hopital-du-valais-sion",
-        "de": "medecin-adjoint-e-pour-le-service-de-gastro-enterologie-a-50-hopital-du-valais-sion"
+        "it": "medico-associato-a-per-il-servizio-di-gastroenterologia-a-tempo-parziale-hopital-du-valais-sion",
+        "en": "adjunct-physician-for-gastroenterology-service-at-50-hopital-du-valais-sion",
+        "de": "stellvertretender-arzt-fur-den-gastroenterologie-service-zu-50-hopital-du-valais-sion"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -384,16 +451,30 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-adjoint-e-pour-le-service-de-gastro-enterologie-a-50-hopital-du-valais-sion"
+        ],
+        "en": [
+          "medecin-adjoint-e-pour-le-service-de-gastro-enterologie-a-50-hopital-du-valais-sion"
+        ],
+        "de": [
+          "medecin-adjoint-e-pour-le-service-de-gastro-enterologie-a-50-hopital-du-valais-sion"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-adjoint-e-pour-le-service-de-gastro-enterologie-a-50-hopital-du-valais-sion"
+      ]
     },
     {
       "id": "hopital-du-valais-4ae662a07b4d",
-      "slug": "fachfrau-mann-gesundheit-80-100-traumatologie-5-ost-hopital-du-valais-visp",
+      "slug": "specialista-in-salute-80-100-traumatologia-5-est-hopital-du-valais-visp",
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-80-100-traumatologie-5-ost-hopital-du-valais-visp",
-        "it": "fachfrau-mann-gesundheit-80-100-traumatologie-5-ost-hopital-du-valais-visp",
-        "en": "fachfrau-mann-gesundheit-80-100-traumatologie-5-ost-hopital-du-valais-visp",
-        "fr": "fachfrau-mann-gesundheit-80-100-traumatologie-5-ost-hopital-du-valais-visp"
+        "it": "specialista-in-salute-80-100-traumatologia-5-est-hopital-du-valais-visp",
+        "en": "healthcare-professional-80-100-traumatology-5-east-hopital-du-valais-visp",
+        "fr": "professionnel-de-sante-80-100-traumatologie-5-est-hopital-du-valais-visp"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -448,14 +529,28 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-mann-gesundheit-80-100-traumatologie-5-ost-hopital-du-valais-visp"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-80-100-traumatologie-5-ost-hopital-du-valais-visp"
+        ],
+        "fr": [
+          "fachfrau-mann-gesundheit-80-100-traumatologie-5-ost-hopital-du-valais-visp"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-mann-gesundheit-80-100-traumatologie-5-ost-hopital-du-valais-visp"
+      ]
     },
     {
       "id": "hopital-du-valais-3ed4c11ece1b",
-      "slug": "pflegefachperson-80-100-chirurgie-urologie-5-west-hopital-du-valais-visp",
+      "slug": "infermiere-specializzato-80-100-chirurgia-urologia-5-ovest-hopital-du-valais-visp",
       "slugByLocale": {
         "de": "pflegefachperson-80-100-chirurgie-urologie-5-west-hopital-du-valais-visp",
-        "it": "pflegefachperson-80-100-chirurgie-urologie-5-west-hopital-du-valais-visp",
+        "it": "infermiere-specializzato-80-100-chirurgia-urologia-5-ovest-hopital-du-valais-visp",
         "en": "pflegefachperson-80-100-chirurgie-urologie-5-west-hopital-du-valais-visp",
         "fr": "pflegefachperson-80-100-chirurgie-urologie-5-west-hopital-du-valais-visp"
       },
@@ -512,16 +607,24 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachperson-80-100-chirurgie-urologie-5-west-hopital-du-valais-visp"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachperson-80-100-chirurgie-urologie-5-west-hopital-du-valais-visp"
+      ]
     },
     {
       "id": "hopital-du-valais-096da82e133d",
-      "slug": "physiotherapeute-diplome-e-a-60-80-pour-les-services-de-physiotherapie-de-hopital-de-sierre-hopital-du-valais-sierre",
+      "slug": "fisioterapista-diplomato-al-60-80-per-i-servizi-di-fisioterapia-dell-ospedale-di-sierre-hopital-du-valais-sierre",
       "slugByLocale": {
         "fr": "physiotherapeute-diplome-e-a-60-80-pour-les-services-de-physiotherapie-de-hopital-de-sierre-hopital-du-valais-sierre",
-        "it": "physiotherapeute-diplome-e-a-60-80-pour-les-services-de-physiotherapie-de-hopital-de-sierre-hopital-du-valais-sierre",
-        "en": "physiotherapeute-diplome-e-a-60-80-pour-les-services-de-physiotherapie-de-hopital-de-sierre-hopital-du-valais-sierre",
-        "de": "physiotherapeute-diplome-e-a-60-80-pour-les-services-de-physiotherapie-de-hopital-de-sierr"
+        "it": "fisioterapista-diplomato-al-60-80-per-i-servizi-di-fisioterapia-dell-ospedale-di-sierre-hopital-du-valais-sierre",
+        "en": "graduate-physiotherapist-60-80-for-sierre-hospital-s-physiotherapy-services-hopital-du-valais-sierre",
+        "de": "physiotherapeut-in-mit-60-80-berufserfahrung-fur-die-physiotherapie-dienste-des-spitals-sierre-hopital-du-valais-sierre"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -566,14 +669,22 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "physiotherapeute-diplome-e-a-60-80-pour-les-services-de-physiotherapie-de-hopital-de-sierr"
+          "physiotherapeute-diplome-e-a-60-80-pour-les-services-de-physiotherapie-de-hopital-de-sierr",
+          "physiotherapeute-diplome-e-a-60-80-pour-les-services-de-physiotherapie-de-hopital-de-sierre-hopital-du-valais-sierre"
         ],
         "fr": [
+          "physiotherapeute-diplome-e-a-60-80-pour-les-services-de-physiotherapie-de-hopital-de-sierr"
+        ],
+        "en": [
+          "physiotherapeute-diplome-e-a-60-80-pour-les-services-de-physiotherapie-de-hopital-de-sierre-hopital-du-valais-sierre"
+        ],
+        "de": [
           "physiotherapeute-diplome-e-a-60-80-pour-les-services-de-physiotherapie-de-hopital-de-sierr"
         ]
       },
       "previousSlugs": [
-        "physiotherapeute-diplome-e-a-60-80-pour-les-services-de-physiotherapie-de-hopital-de-sierr"
+        "physiotherapeute-diplome-e-a-60-80-pour-les-services-de-physiotherapie-de-hopital-de-sierr",
+        "physiotherapeute-diplome-e-a-60-80-pour-les-services-de-physiotherapie-de-hopital-de-sierre-hopital-du-valais-sierre"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -591,12 +702,12 @@
     },
     {
       "id": "hopital-du-valais-3d4c910fa6ce",
-      "slug": "medecin-hospitalier-avec-afc-acupuncture-et-pharmacotherapie-chinoise-asa-a-30-pour-son-ce",
+      "slug": "medico-ospedaliero-con-afc-acupuntura-e-farmacoterapia-cinese-asa-al-30-per-il-centro-di-trattamento-del-dolore-hopital-",
       "slugByLocale": {
         "fr": "medecin-hospitalier-avec-afc-acupuncture-et-pharmacotherapie-chinoise-asa-a-30-pour-son-ce",
-        "it": "medecin-hospitalier-avec-afc-acupuncture-et-pharmacotherapie-chinoise-asa-a-30-pour-son-ce",
-        "en": "medecin-hospitalier-avec-afc-acupuncture-et-pharmacotherapie-chinoise-asa-a-30-pour-son-ce",
-        "de": "medecin-hospitalier-avec-afc-acupuncture-et-pharmacotherapie-chinoise-asa-a-30-pour-son-ce"
+        "it": "medico-ospedaliero-con-afc-acupuntura-e-farmacoterapia-cinese-asa-al-30-per-il-centro-di-trattamento-del-dolore-hopital-",
+        "en": "hospital-physician-with-afc-acupuncture-and-chinese-pharmacotherapy-asa-at-30-for-the-pain-treatment-center-hopital-du-v",
+        "de": "krankenhausarzt-mit-afc-akupunktur-und-chinesischer-pharmakotherapie-asa-zu-30-fur-das-schmerzbehandlungszentrum-hopital"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -651,16 +762,30 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-hospitalier-avec-afc-acupuncture-et-pharmacotherapie-chinoise-asa-a-30-pour-son-ce"
+        ],
+        "en": [
+          "medecin-hospitalier-avec-afc-acupuncture-et-pharmacotherapie-chinoise-asa-a-30-pour-son-ce"
+        ],
+        "de": [
+          "medecin-hospitalier-avec-afc-acupuncture-et-pharmacotherapie-chinoise-asa-a-30-pour-son-ce"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-hospitalier-avec-afc-acupuncture-et-pharmacotherapie-chinoise-asa-a-30-pour-son-ce"
+      ]
     },
     {
       "id": "hopital-du-valais-dec4ecd10ff0",
-      "slug": "collaboratore-trice-empfang-40-50-hopital-du-valais-brig",
+      "slug": "impiegato-a-receptionist-40-50-hopital-du-valais-brig",
       "slugByLocale": {
         "de": "mitarbeiter-in-empfang-40-50-hopital-du-valais-brig",
-        "it": "collaboratore-trice-empfang-40-50-hopital-du-valais-brig",
+        "it": "impiegato-a-receptionist-40-50-hopital-du-valais-brig",
         "en": "mitarbeiter-in-empfang-40-50-hopital-du-valais-brig",
-        "fr": "mitarbeiter-in-empfang-40-50-hopital-du-valais-brig"
+        "fr": "employe-e-accueil-40-50-hopital-du-valais-brig"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -705,11 +830,16 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-empfang-40-50-hopital-du-valais-brig",
+          "collaboratore-trice-empfang-40-50-hopital-du-valais-brig"
+        ],
+        "fr": [
           "mitarbeiter-in-empfang-40-50-hopital-du-valais-brig"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-empfang-40-50-hopital-du-valais-brig"
+        "mitarbeiter-in-empfang-40-50-hopital-du-valais-brig",
+        "collaboratore-trice-empfang-40-50-hopital-du-valais-brig"
       ],
       "salaryMin": 85500,
       "salaryMax": 150000,
@@ -727,12 +857,12 @@
     },
     {
       "id": "hopital-du-valais-19f02a54422d",
-      "slug": "candidat-e-a-la-formation-de-perfusionniste-cardiotechnicien-en-circulation-extracorporelle-a-100-hopital-du-valais-sion",
+      "slug": "candidato-a-alla-formazione-di-perfusionista-cardiotecnico-in-circolazione-extracorporea-al-100-hopital-du-valais-sion",
       "slugByLocale": {
         "fr": "candidat-e-a-la-formation-de-perfusionniste-cardiotechnicien-en-circulation-extracorporelle-a-100-hopital-du-valais-sion",
-        "it": "candidat-e-a-la-formation-de-perfusionniste-cardiotechnicien-en-circulation-extracorporelle-a-100-hopital-du-valais-sion",
-        "en": "candidat-e-a-la-formation-de-perfusionniste-cardiotechnicien-en-circulation-extracorporelle-a-100-hopital-du-valais-sion",
-        "de": "candidat-e-a-la-formation-de-perfusionniste-cardiotechnicien-en-circulation-extracorporell"
+        "it": "candidato-a-alla-formazione-di-perfusionista-cardiotecnico-in-circolazione-extracorporea-al-100-hopital-du-valais-sion",
+        "en": "candidate-for-perfusionist-training-cardiotechnician-in-extracorporeal-circulation-100-hopital-du-valais-sion",
+        "de": "kandidat-in-fur-die-ausbildung-zum-perfusionisten-kardiotechniker-fur-extracorporale-zirkulation-100-hopital-du-valais-s"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -777,14 +907,22 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "candidat-e-a-la-formation-de-perfusionniste-cardiotechnicien-en-circulation-extracorporell"
+          "candidat-e-a-la-formation-de-perfusionniste-cardiotechnicien-en-circulation-extracorporell",
+          "candidat-e-a-la-formation-de-perfusionniste-cardiotechnicien-en-circulation-extracorporelle-a-100-hopital-du-valais-sion"
         ],
         "fr": [
+          "candidat-e-a-la-formation-de-perfusionniste-cardiotechnicien-en-circulation-extracorporell"
+        ],
+        "en": [
+          "candidat-e-a-la-formation-de-perfusionniste-cardiotechnicien-en-circulation-extracorporelle-a-100-hopital-du-valais-sion"
+        ],
+        "de": [
           "candidat-e-a-la-formation-de-perfusionniste-cardiotechnicien-en-circulation-extracorporell"
         ]
       },
       "previousSlugs": [
-        "candidat-e-a-la-formation-de-perfusionniste-cardiotechnicien-en-circulation-extracorporell"
+        "candidat-e-a-la-formation-de-perfusionniste-cardiotechnicien-en-circulation-extracorporell",
+        "candidat-e-a-la-formation-de-perfusionniste-cardiotechnicien-en-circulation-extracorporelle-a-100-hopital-du-valais-sion"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -802,12 +940,12 @@
     },
     {
       "id": "hopital-du-valais-8017767c04b9",
-      "slug": "infirmiers-eres-en-cdd-et-cdi-entre-60-et-90-pour-le-pole-de-geriatrie-de-l-hopital-de-mar",
+      "slug": "infermiere-infermiere-in-cdd-e-cdi-tra-il-60-e-il-90-per-il-polo-di-geria-dell-ospedale-di-martigny-hopital-du-valais-ma",
       "slugByLocale": {
         "fr": "infirmiers-eres-en-cdd-et-cdi-entre-60-et-90-pour-le-pole-de-geriatrie-de-l-hopital-de-martigny-hopital-du-valais-martig",
-        "it": "infirmiers-eres-en-cdd-et-cdi-entre-60-et-90-pour-le-pole-de-geriatrie-de-l-hopital-de-mar",
-        "en": "infirmiers-eres-en-cdd-et-cdi-entre-60-et-90-pour-le-pole-de-geriatrie-de-l-hopital-de-mar",
-        "de": "infirmiers-eres-en-cdd-et-cdi-entre-60-et-90-pour-le-pole-de-geriatrie-de-l-hopital-de-mar"
+        "it": "infermiere-infermiere-in-cdd-e-cdi-tra-il-60-e-il-90-per-il-polo-di-geria-dell-ospedale-di-martigny-hopital-du-valais-ma",
+        "en": "nurses-in-cdd-and-cdi-between-60-and-90-for-the-geriatric-pole-of-the-hospital-of-martigny-hopital-du-valais-martigny",
+        "de": "krankenpfleger-krankenpflegerinnen-in-cdd-und-cdi-zwischen-60-und-90-fur-die-geriatrieabteilung-des-krankenhauses-martig"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -862,16 +1000,30 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmiers-eres-en-cdd-et-cdi-entre-60-et-90-pour-le-pole-de-geriatrie-de-l-hopital-de-mar"
+        ],
+        "en": [
+          "infirmiers-eres-en-cdd-et-cdi-entre-60-et-90-pour-le-pole-de-geriatrie-de-l-hopital-de-mar"
+        ],
+        "de": [
+          "infirmiers-eres-en-cdd-et-cdi-entre-60-et-90-pour-le-pole-de-geriatrie-de-l-hopital-de-mar"
+        ]
+      },
+      "previousSlugs": [
+        "infirmiers-eres-en-cdd-et-cdi-entre-60-et-90-pour-le-pole-de-geriatrie-de-l-hopital-de-mar"
+      ]
     },
     {
       "id": "hopital-du-valais-7a459b0f9f3a",
-      "slug": "coordinateur-trice-a-60-pour-le-service-de-l-unite-de-gestion-des-flux-ugf-hopital-du-vala",
+      "slug": "coordinatore-per-l-unita-di-gestione-dei-flussi-ugf-al-60-hopital-du-valais-sion",
       "slugByLocale": {
         "fr": "coordinateur-trice-a-60-pour-le-service-de-l-unite-de-gestion-des-flux-ugf-hopital-du-valais-sion",
-        "it": "coordinateur-trice-a-60-pour-le-service-de-l-unite-de-gestion-des-flux-ugf-hopital-du-vala",
-        "en": "coordinateur-trice-a-60-pour-le-service-de-l-unite-de-gestion-des-flux-ugf-hopital-du-vala",
-        "de": "coordinateur-trice-a-60-pour-le-service-de-l-unite-de-gestion-des-flux-ugf-hopital-du-vala"
+        "it": "coordinatore-per-l-unita-di-gestione-dei-flussi-ugf-al-60-hopital-du-valais-sion",
+        "en": "coordinator-for-the-unit-of-flow-management-ugf-at-60-hopital-du-valais-sion",
+        "de": "koordinator-in-fur-die-einheit-der-flussverwaltung-ugf-zu-60-hopital-du-valais-sion"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -926,16 +1078,30 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "coordinateur-trice-a-60-pour-le-service-de-l-unite-de-gestion-des-flux-ugf-hopital-du-vala"
+        ],
+        "en": [
+          "coordinateur-trice-a-60-pour-le-service-de-l-unite-de-gestion-des-flux-ugf-hopital-du-vala"
+        ],
+        "de": [
+          "coordinateur-trice-a-60-pour-le-service-de-l-unite-de-gestion-des-flux-ugf-hopital-du-vala"
+        ]
+      },
+      "previousSlugs": [
+        "coordinateur-trice-a-60-pour-le-service-de-l-unite-de-gestion-des-flux-ugf-hopital-du-vala"
+      ]
     },
     {
       "id": "hopital-du-valais-703c8949b1dc",
-      "slug": "infirmier-ere-a-80-100-pour-un-cdd-de-6-mois-pour-le-service-de-chirurgie-orthopedique-de-",
+      "slug": "infermiere-a-80-100-per-un-cdd-di-6-mesi-per-il-servizio-di-chirurgia-ortopedica-dell-ospedale-di-martigny-hopital-du-va",
       "slugByLocale": {
         "fr": "infirmier-ere-a-80-100-pour-un-cdd-de-6-mois-pour-le-service-de-chirurgie-orthopedique-de-",
-        "it": "infirmier-ere-a-80-100-pour-un-cdd-de-6-mois-pour-le-service-de-chirurgie-orthopedique-de-",
-        "en": "infirmier-ere-a-80-100-pour-un-cdd-de-6-mois-pour-le-service-de-chirurgie-orthopedique-de-",
-        "de": "infirmier-ere-a-80-100-pour-un-cdd-de-6-mois-pour-le-service-de-chirurgie-orthopedique-de-"
+        "it": "infermiere-a-80-100-per-un-cdd-di-6-mesi-per-il-servizio-di-chirurgia-ortopedica-dell-ospedale-di-martigny-hopital-du-va",
+        "en": "nurse-at-80-100-for-a-6-month-cdd-for-the-orthopedic-surgery-service-of-martigny-hospital-hopital-du-valais-martigny",
+        "de": "krankenpflegerin-zu-80-100-fur-eine-6-monatige-cdd-fur-den-orthopadischen-chirurgie-service-des-martigny-krankenhauses-h"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -990,16 +1156,30 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-a-80-100-pour-un-cdd-de-6-mois-pour-le-service-de-chirurgie-orthopedique-de-"
+        ],
+        "en": [
+          "infirmier-ere-a-80-100-pour-un-cdd-de-6-mois-pour-le-service-de-chirurgie-orthopedique-de-"
+        ],
+        "de": [
+          "infirmier-ere-a-80-100-pour-un-cdd-de-6-mois-pour-le-service-de-chirurgie-orthopedique-de-"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-a-80-100-pour-un-cdd-de-6-mois-pour-le-service-de-chirurgie-orthopedique-de-"
+      ]
     },
     {
       "id": "hopital-du-valais-5fe1cd8e354a",
-      "slug": "responsable-medico-therapeutique-a-100-pour-les-services-de-physiotherapie-et-d-ergotherap",
+      "slug": "responsabile-medico-terapeutica-al-100-per-i-servizi-di-fisioterapia-ed-ergoterapia-dell-ospedale-di-sion-hopital-du-val",
       "slugByLocale": {
         "fr": "responsable-medico-therapeutique-a-100-pour-les-services-de-physiotherapie-et-d-ergotherapie-de-l-hopital-de-sion-hopita",
-        "it": "responsable-medico-therapeutique-a-100-pour-les-services-de-physiotherapie-et-d-ergotherap",
-        "en": "responsable-medico-therapeutique-a-100-pour-les-services-de-physiotherapie-et-d-ergotherap",
-        "de": "responsable-medico-therapeutique-a-100-pour-les-services-de-physiotherapie-et-d-ergotherap"
+        "it": "responsabile-medico-terapeutica-al-100-per-i-servizi-di-fisioterapia-ed-ergoterapia-dell-ospedale-di-sion-hopital-du-val",
+        "en": "100-medical-therapeutic-manager-for-the-physiotherapy-and-ergotherapy-services-of-sion-hospital-hopital-du-valais-sion",
+        "de": "100-medizinisch-therapeutische-managerin-fur-die-physiotherapie-und-ergotherapie-dienste-des-spitals-sion-hopital-du-val"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -1054,16 +1234,30 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-medico-therapeutique-a-100-pour-les-services-de-physiotherapie-et-d-ergotherap"
+        ],
+        "en": [
+          "responsable-medico-therapeutique-a-100-pour-les-services-de-physiotherapie-et-d-ergotherap"
+        ],
+        "de": [
+          "responsable-medico-therapeutique-a-100-pour-les-services-de-physiotherapie-et-d-ergotherap"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-medico-therapeutique-a-100-pour-les-services-de-physiotherapie-et-d-ergotherap"
+      ]
     },
     {
       "id": "hopital-du-valais-3de35625adb3",
-      "slug": "assistant-e-medical-e-responsable-des-secretariats-de-consultations-a-90-pour-les-secretar",
+      "slug": "assistente-medica-responsabile-dei-segretariati-delle-consultazioni-a-90-per-i-segretariati-medici-di-oncologia-e-centro",
       "slugByLocale": {
         "fr": "assistant-e-medical-e-responsable-des-secretariats-de-consultations-a-90-pour-les-secretariats-medicaux-de-l-oncologie-e",
-        "it": "assistant-e-medical-e-responsable-des-secretariats-de-consultations-a-90-pour-les-secretar",
-        "en": "assistant-e-medical-e-responsable-des-secretariats-de-consultations-a-90-pour-les-secretar",
-        "de": "assistant-e-medical-e-responsable-des-secretariats-de-consultations-a-90-pour-les-secretar"
+        "it": "assistente-medica-responsabile-dei-segretariati-delle-consultazioni-a-90-per-i-segretariati-medici-di-oncologia-e-centro",
+        "en": "medical-assistant-responsible-for-consultation-secretariats-at-90-for-oncology-and-breast-center-medical-secretariats-ho",
+        "de": "medizinische-assistentin-fur-die-sekretariate-der-konsultationen-zu-90-fur-die-medizinischen-sekretariate-der-onkologie-"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -1118,16 +1312,30 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-medical-e-responsable-des-secretariats-de-consultations-a-90-pour-les-secretar"
+        ],
+        "en": [
+          "assistant-e-medical-e-responsable-des-secretariats-de-consultations-a-90-pour-les-secretar"
+        ],
+        "de": [
+          "assistant-e-medical-e-responsable-des-secretariats-de-consultations-a-90-pour-les-secretar"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-medical-e-responsable-des-secretariats-de-consultations-a-90-pour-les-secretar"
+      ]
     },
     {
       "id": "hopital-du-valais-e46aed2b2c4a",
-      "slug": "assistant-e-medical-e-a-40-pour-la-reception-de-l-oncologie-hopital-du-valais-sion",
+      "slug": "assistente-medica-a-40-per-la-ricezione-dell-oncologia-hopital-du-valais-sion",
       "slugByLocale": {
         "fr": "assistant-e-medical-e-a-40-pour-la-reception-de-l-oncologie-hopital-du-valais-sion",
-        "it": "assistant-e-medical-e-a-40-pour-la-reception-de-l-oncologie-hopital-du-valais-sion",
+        "it": "assistente-medica-a-40-per-la-ricezione-dell-oncologia-hopital-du-valais-sion",
         "en": "assistant-e-medical-e-a-40-pour-la-reception-de-l-oncologie-hopital-du-valais-sion",
-        "de": "assistant-e-medical-e-a-40-pour-la-reception-de-l-oncologie-hopital-du-valais-sion"
+        "de": "medizinische-assistentin-zu-40-fur-die-rezeption-der-onkologie-hopital-du-valais-sion"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -1182,16 +1390,27 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-medical-e-a-40-pour-la-reception-de-l-oncologie-hopital-du-valais-sion"
+        ],
+        "de": [
+          "assistant-e-medical-e-a-40-pour-la-reception-de-l-oncologie-hopital-du-valais-sion"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-medical-e-a-40-pour-la-reception-de-l-oncologie-hopital-du-valais-sion"
+      ]
     },
     {
       "id": "hopital-du-valais-3d0620743a00",
-      "slug": "secretaire-medical-e-a-40-50-pour-le-secretariat-medical-de-l-oncologie-hopital-du-valais-",
+      "slug": "segretario-a-medico-a-al-40-50-per-il-segretariato-medico-dell-oncologia-hopital-du-valais-sion",
       "slugByLocale": {
         "fr": "secretaire-medical-e-a-40-50-pour-le-secretariat-medical-de-l-oncologie-hopital-du-valais-",
-        "it": "secretaire-medical-e-a-40-50-pour-le-secretariat-medical-de-l-oncologie-hopital-du-valais-",
-        "en": "secretaire-medical-e-a-40-50-pour-le-secretariat-medical-de-l-oncologie-hopital-du-valais-",
-        "de": "secretaire-medical-e-a-40-50-pour-le-secretariat-medical-de-l-oncologie-hopital-du-valais-"
+        "it": "segretario-a-medico-a-al-40-50-per-il-segretariato-medico-dell-oncologia-hopital-du-valais-sion",
+        "en": "medical-secretary-at-40-50-for-oncology-medical-secretariat-hopital-du-valais-sion",
+        "de": "medizinische-sekretarin-seckretar-am-40-50-fur-die-medizinische-sekretariatsstelle-der-onkologie-hopital-du-valais-sion"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -1246,16 +1465,30 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-medical-e-a-40-50-pour-le-secretariat-medical-de-l-oncologie-hopital-du-valais-"
+        ],
+        "en": [
+          "secretaire-medical-e-a-40-50-pour-le-secretariat-medical-de-l-oncologie-hopital-du-valais-"
+        ],
+        "de": [
+          "secretaire-medical-e-a-40-50-pour-le-secretariat-medical-de-l-oncologie-hopital-du-valais-"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-medical-e-a-40-50-pour-le-secretariat-medical-de-l-oncologie-hopital-du-valais-"
+      ]
     },
     {
       "id": "hopital-du-valais-1aeddfc106c1",
-      "slug": "animateur-trice-socio-culturel-a-70-pour-le-service-socio-culturel-du-pole-de-psychiatrie-",
+      "slug": "animatore-socio-culturale-al-70-per-il-servizio-socio-culturale-del-polo-di-psichiatria-psichoterapia-ppp-hopital-du-val",
       "slugByLocale": {
         "fr": "animateur-trice-socio-culturel-a-70-pour-le-service-socio-culturel-du-pole-de-psychiatrie-",
-        "it": "animateur-trice-socio-culturel-a-70-pour-le-service-socio-culturel-du-pole-de-psychiatrie-",
-        "en": "animateur-trice-socio-culturel-a-70-pour-le-service-socio-culturel-du-pole-de-psychiatrie-",
-        "de": "animateur-trice-socio-culturel-a-70-pour-le-service-socio-culturel-du-pole-de-psychiatrie-"
+        "it": "animatore-socio-culturale-al-70-per-il-servizio-socio-culturale-del-polo-di-psichiatria-psichoterapia-ppp-hopital-du-val",
+        "en": "socio-cultural-animator-at-70-for-the-socio-cultural-service-of-the-psychiatry-psychotherapy-ppp-pole-hopital-du-valais-",
+        "de": "sozio-kultureller-animator-zu-70-fur-den-sozio-kulturellen-dienst-des-psychiatrie-psychotherapie-pols-ppp-hopital-du-val"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -1310,16 +1543,30 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "animateur-trice-socio-culturel-a-70-pour-le-service-socio-culturel-du-pole-de-psychiatrie-"
+        ],
+        "en": [
+          "animateur-trice-socio-culturel-a-70-pour-le-service-socio-culturel-du-pole-de-psychiatrie-"
+        ],
+        "de": [
+          "animateur-trice-socio-culturel-a-70-pour-le-service-socio-culturel-du-pole-de-psychiatrie-"
+        ]
+      },
+      "previousSlugs": [
+        "animateur-trice-socio-culturel-a-70-pour-le-service-socio-culturel-du-pole-de-psychiatrie-"
+      ]
     },
     {
       "id": "hopital-du-valais-1b6896e8c601",
-      "slug": "technicien-ne-en-analyses-biomedicales-80-100-hopital-du-valais-sion",
+      "slug": "tecnico-a-in-analisi-biomediche-80-100-hopital-du-valais-sion",
       "slugByLocale": {
         "fr": "technicien-ne-en-analyses-biomedicales-80-100-hopital-du-valais-sion",
-        "it": "technicien-ne-en-analyses-biomedicales-80-100-hopital-du-valais-sion",
-        "en": "technicien-ne-en-analyses-biomedicales-80-100-hopital-du-valais-sion",
-        "de": "technicien-ne-en-analyses-biomedicales-80-100-hopital-du-valais-sion"
+        "it": "tecnico-a-in-analisi-biomediche-80-100-hopital-du-valais-sion",
+        "en": "biomedical-analysis-technician-80-100-hopital-du-valais-sion",
+        "de": "techniker-in-fur-biomedizinische-analysen-80-100-hopital-du-valais-sion"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -1374,16 +1621,30 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-ne-en-analyses-biomedicales-80-100-hopital-du-valais-sion"
+        ],
+        "en": [
+          "technicien-ne-en-analyses-biomedicales-80-100-hopital-du-valais-sion"
+        ],
+        "de": [
+          "technicien-ne-en-analyses-biomedicales-80-100-hopital-du-valais-sion"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-ne-en-analyses-biomedicales-80-100-hopital-du-valais-sion"
+      ]
     },
     {
       "id": "hopital-du-valais-8a1b38f1c1f3",
-      "slug": "infirmiers-eres-a-50-100-en-cdd-et-cdi-pour-les-services-de-chirurgie-de-l-hopital-de-sion",
+      "slug": "infermiere-infermiere-a-50-100-in-cdd-e-cdi-per-i-servizi-di-chirurgia-dell-ospedale-di-sion-hopital-du-valais-sion",
       "slugByLocale": {
         "fr": "infirmiers-eres-a-50-100-en-cdd-et-cdi-pour-les-services-de-chirurgie-de-l-hopital-de-sion",
-        "it": "infirmiers-eres-a-50-100-en-cdd-et-cdi-pour-les-services-de-chirurgie-de-l-hopital-de-sion",
-        "en": "infirmiers-eres-a-50-100-en-cdd-et-cdi-pour-les-services-de-chirurgie-de-l-hopital-de-sion",
-        "de": "infirmiers-eres-a-50-100-en-cdd-et-cdi-pour-les-services-de-chirurgie-de-l-hopital-de-sion"
+        "it": "infermiere-infermiere-a-50-100-in-cdd-e-cdi-per-i-servizi-di-chirurgia-dell-ospedale-di-sion-hopital-du-valais-sion",
+        "en": "nurses-at-50-100-in-cdd-and-cdi-for-the-surgery-services-of-sion-hospital-hopital-du-valais-sion",
+        "de": "krankenpfleger-krankenpflegerin-zu-50-100-in-cdd-und-cdi-fur-die-chirurgieabteilungen-des-spitals-sion-hopital-du-valais"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -1438,16 +1699,30 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmiers-eres-a-50-100-en-cdd-et-cdi-pour-les-services-de-chirurgie-de-l-hopital-de-sion"
+        ],
+        "en": [
+          "infirmiers-eres-a-50-100-en-cdd-et-cdi-pour-les-services-de-chirurgie-de-l-hopital-de-sion"
+        ],
+        "de": [
+          "infirmiers-eres-a-50-100-en-cdd-et-cdi-pour-les-services-de-chirurgie-de-l-hopital-de-sion"
+        ]
+      },
+      "previousSlugs": [
+        "infirmiers-eres-a-50-100-en-cdd-et-cdi-pour-les-services-de-chirurgie-de-l-hopital-de-sion"
+      ]
     },
     {
       "id": "hopital-du-valais-c1f37b1e5a25",
-      "slug": "oberarztin-arzt-50-100-klinik-frau-kind-hopital-du-valais-visp",
+      "slug": "medico-specialista-in-ostetricia-e-ginecologia-50-100-hopital-du-valais-visp",
       "slugByLocale": {
         "de": "oberarztin-arzt-50-100-klinik-frau-kind-hopital-du-valais-visp",
-        "it": "oberarztin-arzt-50-100-klinik-frau-kind-hopital-du-valais-visp",
-        "en": "oberarztin-arzt-50-100-klinik-frau-kind-hopital-du-valais-visp",
-        "fr": "oberarztin-arzt-50-100-klinik-frau-kind-hopital-du-valais-visp"
+        "it": "medico-specialista-in-ostetricia-e-ginecologia-50-100-hopital-du-valais-visp",
+        "en": "obstetrics-and-gynaecology-specialist-50-100-hopital-du-valais-visp",
+        "fr": "medecin-specialiste-en-obstetrique-et-gynecologie-50-100-hopital-du-valais-visp"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -1502,16 +1777,30 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-arzt-50-100-klinik-frau-kind-hopital-du-valais-visp"
+        ],
+        "en": [
+          "oberarztin-arzt-50-100-klinik-frau-kind-hopital-du-valais-visp"
+        ],
+        "fr": [
+          "oberarztin-arzt-50-100-klinik-frau-kind-hopital-du-valais-visp"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-arzt-50-100-klinik-frau-kind-hopital-du-valais-visp"
+      ]
     },
     {
       "id": "hopital-du-valais-926930ebdd22",
-      "slug": "oberarztin-arzt-80-100-hopital-du-valais-brig",
+      "slug": "medico-specialista-in-psichiatria-infantile-e-adolescenziale-hopital-du-valais-brig",
       "slugByLocale": {
         "de": "oberarztin-arzt-80-100-hopital-du-valais-brig",
-        "it": "oberarztin-arzt-80-100-hopital-du-valais-brig",
-        "en": "oberarztin-arzt-80-100-hopital-du-valais-brig",
-        "fr": "oberarztin-arzt-80-100-hopital-du-valais-brig"
+        "it": "medico-specialista-in-psichiatria-infantile-e-adolescenziale-hopital-du-valais-brig",
+        "en": "child-and-adolescent-psychiatrist-hopital-du-valais-brig",
+        "fr": "medecin-specialiste-en-psychiatrie-infantile-et-adolescente-hopital-du-valais-brig"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -1566,16 +1855,30 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-arzt-80-100-hopital-du-valais-brig"
+        ],
+        "en": [
+          "oberarztin-arzt-80-100-hopital-du-valais-brig"
+        ],
+        "fr": [
+          "oberarztin-arzt-80-100-hopital-du-valais-brig"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-arzt-80-100-hopital-du-valais-brig"
+      ]
     },
     {
       "id": "hopital-du-valais-43899c028f79",
-      "slug": "ausbildungsplatz-dipl-radiologiefachmann-frau-hf-hopital-du-valais-brig",
+      "slug": "formazione-dipl-radiologo-a-hf-hopital-du-valais-brig",
       "slugByLocale": {
         "de": "ausbildungsplatz-dipl-radiologiefachmann-frau-hf-hopital-du-valais-brig",
-        "it": "ausbildungsplatz-dipl-radiologiefachmann-frau-hf-hopital-du-valais-brig",
-        "en": "ausbildungsplatz-dipl-radiologiefachmann-frau-hf-hopital-du-valais-brig",
-        "fr": "ausbildungsplatz-dipl-radiologiefachmann-frau-hf-hopital-du-valais-brig"
+        "it": "formazione-dipl-radiologo-a-hf-hopital-du-valais-brig",
+        "en": "training-dipl-radiology-technician-hf-hopital-du-valais-brig",
+        "fr": "formation-dipl-radiologue-hf-hopital-du-valais-brig"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -1630,16 +1933,30 @@
           "maxValue": 77500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "ausbildungsplatz-dipl-radiologiefachmann-frau-hf-hopital-du-valais-brig"
+        ],
+        "en": [
+          "ausbildungsplatz-dipl-radiologiefachmann-frau-hf-hopital-du-valais-brig"
+        ],
+        "fr": [
+          "ausbildungsplatz-dipl-radiologiefachmann-frau-hf-hopital-du-valais-brig"
+        ]
+      },
+      "previousSlugs": [
+        "ausbildungsplatz-dipl-radiologiefachmann-frau-hf-hopital-du-valais-brig"
+      ]
     },
     {
       "id": "hopital-du-valais-d2fa41317d02",
-      "slug": "oberarztin-arzt-o-stv-oberarztin-arzt-notfall-hopital-du-valais-visp",
+      "slug": "medico-di-emergenza-o-vice-capo-medico-hopital-du-valais-visp",
       "slugByLocale": {
         "de": "oberarztin-arzt-oder-stv-oberarztin-arzt-notfall-hopital-du-valais-visp",
-        "it": "oberarztin-arzt-o-stv-oberarztin-arzt-notfall-hopital-du-valais-visp",
-        "en": "oberarztin-arzt-oder-stv-oberarztin-arzt-notfall-hopital-du-valais-visp",
-        "fr": "oberarztin-arzt-oder-stv-oberarztin-arzt-notfall-hopital-du-valais-visp"
+        "it": "medico-di-emergenza-o-vice-capo-medico-hopital-du-valais-visp",
+        "en": "emergency-medicine-physician-or-vice-chief-physician-hopital-du-valais-visp",
+        "fr": "medecin-en-medecine-d-urgence-ou-medecin-chef-adjoint-hopital-du-valais-visp"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -1684,11 +2001,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "oberarztin-arzt-oder-stv-oberarztin-arzt-notfall-hopital-du-valais-visp",
+          "oberarztin-arzt-o-stv-oberarztin-arzt-notfall-hopital-du-valais-visp"
+        ],
+        "en": [
+          "oberarztin-arzt-oder-stv-oberarztin-arzt-notfall-hopital-du-valais-visp"
+        ],
+        "fr": [
           "oberarztin-arzt-oder-stv-oberarztin-arzt-notfall-hopital-du-valais-visp"
         ]
       },
       "previousSlugs": [
-        "oberarztin-arzt-oder-stv-oberarztin-arzt-notfall-hopital-du-valais-visp"
+        "oberarztin-arzt-oder-stv-oberarztin-arzt-notfall-hopital-du-valais-visp",
+        "oberarztin-arzt-o-stv-oberarztin-arzt-notfall-hopital-du-valais-visp"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1706,11 +2031,11 @@
     },
     {
       "id": "hopital-du-valais-a9c9d72a619e",
-      "slug": "assistenzpsychologe-in-80-100-stationare-psychiatrie-hopital-du-valais-brig",
+      "slug": "psicologo-assistente-80-100-psichiatria-stazionaria-hopital-du-valais-brig",
       "slugByLocale": {
         "de": "assistenzpsychologe-in-80-100-stationare-psychiatrie-hopital-du-valais-brig",
-        "it": "assistenzpsychologe-in-80-100-stationare-psychiatrie-hopital-du-valais-brig",
-        "en": "assistenzpsychologe-in-80-100-stationare-psychiatrie-hopital-du-valais-brig",
+        "it": "psicologo-assistente-80-100-psichiatria-stazionaria-hopital-du-valais-brig",
+        "en": "assistant-psychologist-80-100-inpatient-psychiatry-hopital-du-valais-brig",
         "fr": "assistenzpsychologe-in-80-100-stationare-psychiatrie-hopital-du-valais-brig"
       },
       "company": "Hôpital du Valais",
@@ -1766,14 +2091,25 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzpsychologe-in-80-100-stationare-psychiatrie-hopital-du-valais-brig"
+        ],
+        "en": [
+          "assistenzpsychologe-in-80-100-stationare-psychiatrie-hopital-du-valais-brig"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzpsychologe-in-80-100-stationare-psychiatrie-hopital-du-valais-brig"
+      ]
     },
     {
       "id": "hopital-du-valais-e67163bf722c",
-      "slug": "fachpsychologen-fachpsychologin-80-100-hopital-du-valais-brig",
+      "slug": "psicologo-clinico-specializzato-80-100-hopital-du-valais-brig",
       "slugByLocale": {
         "de": "fachpsychologen-fachpsychologin-80-100-hopital-du-valais-brig",
-        "it": "fachpsychologen-fachpsychologin-80-100-hopital-du-valais-brig",
+        "it": "psicologo-clinico-specializzato-80-100-hopital-du-valais-brig",
         "en": "fachpsychologen-fachpsychologin-80-100-hopital-du-valais-brig",
         "fr": "fachpsychologen-fachpsychologin-80-100-hopital-du-valais-brig"
       },
@@ -1830,16 +2166,24 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachpsychologen-fachpsychologin-80-100-hopital-du-valais-brig"
+        ]
+      },
+      "previousSlugs": [
+        "fachpsychologen-fachpsychologin-80-100-hopital-du-valais-brig"
+      ]
     },
     {
       "id": "hopital-du-valais-b24d739581ff",
-      "slug": "oberarztin-arzt-o-spitalarztin-arzt-mobiles-team-80-100-hopital-du-valais-brig",
+      "slug": "medico-specialista-in-psichiatria-e-psichoterapia-o-medico-ospedaliero-del-team-mobile-80-100-hopital-du-valais-brig",
       "slugByLocale": {
         "de": "oberarztin-arzt-oder-spitalarztin-arzt-mobiles-team-80-100-hopital-du-valais-brig",
-        "it": "oberarztin-arzt-o-spitalarztin-arzt-mobiles-team-80-100-hopital-du-valais-brig",
-        "en": "oberarztin-arzt-oder-spitalarztin-arzt-mobiles-team-80-100-hopital-du-valais-brig",
-        "fr": "oberarztin-arzt-oder-spitalarztin-arzt-mobiles-team-80-100-hopital-du-valais-brig"
+        "it": "medico-specialista-in-psichiatria-e-psichoterapia-o-medico-ospedaliero-del-team-mobile-80-100-hopital-du-valais-brig",
+        "en": "consultant-psychiatrist-or-hospital-doctor-mobile-team-80-100-hopital-du-valais-brig",
+        "fr": "medecin-specialiste-en-psychiatrie-et-psychotherapie-ou-medecin-hospitalier-de-l-equipe-mobile-80-100-hopital-du-valais-"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -1884,11 +2228,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "oberarztin-arzt-oder-spitalarztin-arzt-mobiles-team-80-100-hopital-du-valais-brig",
+          "oberarztin-arzt-o-spitalarztin-arzt-mobiles-team-80-100-hopital-du-valais-brig"
+        ],
+        "en": [
+          "oberarztin-arzt-oder-spitalarztin-arzt-mobiles-team-80-100-hopital-du-valais-brig"
+        ],
+        "fr": [
           "oberarztin-arzt-oder-spitalarztin-arzt-mobiles-team-80-100-hopital-du-valais-brig"
         ]
       },
       "previousSlugs": [
-        "oberarztin-arzt-oder-spitalarztin-arzt-mobiles-team-80-100-hopital-du-valais-brig"
+        "oberarztin-arzt-oder-spitalarztin-arzt-mobiles-team-80-100-hopital-du-valais-brig",
+        "oberarztin-arzt-o-spitalarztin-arzt-mobiles-team-80-100-hopital-du-valais-brig"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1906,12 +2258,12 @@
     },
     {
       "id": "hopital-du-valais-bb27d94c93ce",
-      "slug": "assistenz-o-fachpsychologe-in-80-hopital-du-valais-brig",
+      "slug": "assistente-fachpsychologo-80-hopital-du-valais-brig",
       "slugByLocale": {
         "de": "assistenz-oder-fachpsychologe-in-80-hopital-du-valais-brig",
-        "it": "assistenz-o-fachpsychologe-in-80-hopital-du-valais-brig",
-        "en": "assistenz-oder-fachpsychologe-in-80-hopital-du-valais-brig",
-        "fr": "assistenz-oder-fachpsychologe-in-80-hopital-du-valais-brig"
+        "it": "assistente-fachpsychologo-80-hopital-du-valais-brig",
+        "en": "assistant-fachpsychologist-80-hopital-du-valais-brig",
+        "fr": "assistant-fachpsychologue-80-hopital-du-valais-brig"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -1956,11 +2308,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "assistenz-oder-fachpsychologe-in-80-hopital-du-valais-brig",
+          "assistenz-o-fachpsychologe-in-80-hopital-du-valais-brig"
+        ],
+        "en": [
+          "assistenz-oder-fachpsychologe-in-80-hopital-du-valais-brig"
+        ],
+        "fr": [
           "assistenz-oder-fachpsychologe-in-80-hopital-du-valais-brig"
         ]
       },
       "previousSlugs": [
-        "assistenz-oder-fachpsychologe-in-80-hopital-du-valais-brig"
+        "assistenz-oder-fachpsychologe-in-80-hopital-du-valais-brig",
+        "assistenz-o-fachpsychologe-in-80-hopital-du-valais-brig"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1978,10 +2338,10 @@
     },
     {
       "id": "hopital-du-valais-ceafa8ea0914",
-      "slug": "pflegefachperson-50-100-psychogeriatrie-hopital-du-valais-brig",
+      "slug": "assistente-sanitaria-50-100-psichiatria-geriatrica-hopital-du-valais-brig",
       "slugByLocale": {
         "de": "pflegefachperson-50-100-psychogeriatrie-hopital-du-valais-brig",
-        "it": "pflegefachperson-50-100-psychogeriatrie-hopital-du-valais-brig",
+        "it": "assistente-sanitaria-50-100-psichiatria-geriatrica-hopital-du-valais-brig",
         "en": "pflegefachperson-50-100-psychogeriatrie-hopital-du-valais-brig",
         "fr": "pflegefachperson-50-100-psychogeriatrie-hopital-du-valais-brig"
       },
@@ -2038,16 +2398,24 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachperson-50-100-psychogeriatrie-hopital-du-valais-brig"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachperson-50-100-psychogeriatrie-hopital-du-valais-brig"
+      ]
     },
     {
       "id": "hopital-du-valais-7eb39375e15d",
-      "slug": "leitende-r-arztin-arzt-80-100-stationare-psychiatrie-hopital-du-valais-brig",
+      "slug": "medico-capo-80-100-psichiatria-stazionaria-hopital-du-valais-brig",
       "slugByLocale": {
         "de": "leitende-r-arztin-arzt-80-100-stationare-psychiatrie-hopital-du-valais-brig",
-        "it": "leitende-r-arztin-arzt-80-100-stationare-psychiatrie-hopital-du-valais-brig",
-        "en": "leitende-r-arztin-arzt-80-100-stationare-psychiatrie-hopital-du-valais-brig",
-        "fr": "leitende-r-arztin-arzt-80-100-stationare-psychiatrie-hopital-du-valais-brig"
+        "it": "medico-capo-80-100-psichiatria-stazionaria-hopital-du-valais-brig",
+        "en": "head-physician-80-100-stationary-psychiatry-hopital-du-valais-brig",
+        "fr": "medecin-chef-80-100-psychiatrie-stationnaire-hopital-du-valais-brig"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -2102,16 +2470,30 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "leitende-r-arztin-arzt-80-100-stationare-psychiatrie-hopital-du-valais-brig"
+        ],
+        "en": [
+          "leitende-r-arztin-arzt-80-100-stationare-psychiatrie-hopital-du-valais-brig"
+        ],
+        "fr": [
+          "leitende-r-arztin-arzt-80-100-stationare-psychiatrie-hopital-du-valais-brig"
+        ]
+      },
+      "previousSlugs": [
+        "leitende-r-arztin-arzt-80-100-stationare-psychiatrie-hopital-du-valais-brig"
+      ]
     },
     {
       "id": "hopital-du-valais-660b3125102a",
-      "slug": "oberarztin-arzt-80-100-stationare-psychiatrie-hopital-du-valais-brig",
+      "slug": "medico-specialista-in-psichiatria-e-psicoterapia-80-100-hopital-du-valais-brig",
       "slugByLocale": {
         "de": "oberarztin-arzt-80-100-stationare-psychiatrie-hopital-du-valais-brig",
-        "it": "oberarztin-arzt-80-100-stationare-psychiatrie-hopital-du-valais-brig",
-        "en": "oberarztin-arzt-80-100-stationare-psychiatrie-hopital-du-valais-brig",
-        "fr": "oberarztin-arzt-80-100-stationare-psychiatrie-hopital-du-valais-brig"
+        "it": "medico-specialista-in-psichiatria-e-psicoterapia-80-100-hopital-du-valais-brig",
+        "en": "consultant-psychiatrist-80-100-hopital-du-valais-brig",
+        "fr": "medecin-specialiste-en-psychiatrie-et-psychotherapie-80-100-hopital-du-valais-brig"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -2166,7 +2548,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-arzt-80-100-stationare-psychiatrie-hopital-du-valais-brig"
+        ],
+        "en": [
+          "oberarztin-arzt-80-100-stationare-psychiatrie-hopital-du-valais-brig"
+        ],
+        "fr": [
+          "oberarztin-arzt-80-100-stationare-psychiatrie-hopital-du-valais-brig"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-arzt-80-100-stationare-psychiatrie-hopital-du-valais-brig"
+      ]
     },
     {
       "id": "hopital-du-valais-d32609013fcd",
