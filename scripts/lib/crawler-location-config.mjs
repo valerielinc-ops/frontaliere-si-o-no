@@ -223,6 +223,8 @@ export const COMPANY_HQ = {
   'fondation-domus':              { city: 'Sion',               canton: 'VS', postalCode: '1950', addressRegion: 'VS' },
   'jumbo':                        { city: 'Dietlikon',          canton: 'ZH', postalCode: '8305', addressRegion: 'ZH' },
   'omega':                        { city: 'Biel/Bienne',        canton: 'BE', postalCode: '2502', addressRegion: 'BE' },
+  'air-zermatt':                  { city: 'Raron',              canton: 'VS', postalCode: '3942', addressRegion: 'VS' },
+  'engadin-tourismus':            { city: 'St. Moritz',         canton: 'GR', postalCode: '7500', addressRegion: 'GR' },
 };
 
 /**

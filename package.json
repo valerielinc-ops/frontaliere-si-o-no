@@ -33,6 +33,7 @@
     "jobs:update:medacta": "node scripts/update-medacta-jobs.mjs",
     "jobs:update:lidl": "node scripts/update-lidl-jobs.mjs",
     "jobs:update:abb": "node scripts/update-abb-jobs.mjs",
+    "jobs:update:air-zermatt": "node scripts/update-air-zermatt-jobs.mjs",
     "jobs:update:afry": "node scripts/update-afry-jobs.mjs",
     "jobs:update:agie-charmilles": "node scripts/update-agie-charmilles-jobs.mjs",
     "jobs:update:agroscope": "node scripts/update-agroscope-jobs.mjs",
