@@ -1103,11 +1103,10 @@ function BlogArticles({
       datePublished: `${article.date}T00:00:00+01:00`,
       dateModified: `${(article.updatedAt || article.date).slice(0, 10)}T00:00:00+01:00`,
       author: {
-        '@type': 'Person',
-        name: 'Valerie Linc',
-        jobTitle: 'Esperta fiscale frontalieri',
+        '@type': 'Organization',
+        '@id': 'https://frontaliereticino.ch/#organization',
+        name: 'Redazione Frontaliere Ticino',
         url: 'https://frontaliereticino.ch/chi-siamo/',
-        sameAs: ['https://www.linkedin.com/in/valerie-linc/'],
       },
       publisher: {
         '@type': 'Organization',
@@ -1485,7 +1484,8 @@ function BlogArticles({
 
   const formatDate = (dateStr: string): string => {
     const d = new Date(dateStr);
-    return d.toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric' });
+    const localeMap: Record<string, string> = { it: 'it-IT', en: 'en-GB', de: 'de-CH', fr: 'fr-CH' };
+    return d.toLocaleDateString(localeMap[locale] ?? 'it-IT', { day: 'numeric', month: 'long', year: 'numeric' });
   };
 
   // ── Loading blog translations ──────────────────────
@@ -1682,7 +1682,7 @@ function BlogArticles({
           <div className="flex flex-wrap items-center gap-3 px-4 sm:px-6 py-3 bg-surface-alt/50 border-b border-edge text-sm text-subtle">
             <span className="flex items-center gap-1 font-medium text-indigo-700 dark:text-indigo-400">
               <PenLine size={14} />
-              Valerie Linc
+              {t('blog.byline')}
             </span>
             <span className="text-slate-300 dark:text-slate-600">|</span>
             <span className="flex items-center gap-1">
@@ -2041,7 +2041,7 @@ function BlogArticles({
                     articleFeedback[article.id] === 'not-useful'
                       ? 'bg-red-100 dark:bg-red-900/40 text-red-700 dark:text-red-400 ring-1 ring-red-300 dark:ring-red-700'
                       : 'bg-surface-raised text-subtle hover:bg-red-50 dark:hover:bg-red-900/20'
-                  }`} aria-label={t('blog.feedback.notUseful')} > <ThumbsDown size={16} /> {t('blog.feedback.notUseful')} </button> </div> {articleFeedback[article.id] && ( <p className="text-sm text-muted mt-1">{t('blog.feedback.thanks')}</p> )} </div> {/* Author bio for E-E-A-T */} <div className="mt-8 p-4 bg-surface-alt rounded-xl border border-edge"> <div className="flex items-center gap-3"> <div className="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center"> <User size={24} className="text-link" /> </div> <div> <p className="font-bold text-strong dark:text-white">Valerie Linc</p> <p className="text-sm text-subtle">{t('blog.authorBio')}</p> </div> </div> </div> {/* Discuss in forum CTA */} <div className="mt-6 p-4 bg-indigo-50 dark:bg-indigo-900/20 rounded-xl border border-indigo-200 dark:border-indigo-800/40 flex items-center gap-3"> <MessageSquareMore size={20} className="text-indigo-600 dark:text-indigo-400 shrink-0" /> <div className="flex-1"> <p className="text-sm font-semibold text-indigo-800 dark:text-indigo-300">{t('blog.discussInForum')}</p> <p className="text-sm text-indigo-700 dark:text-indigo-400 mt-0.5">{t('blog.discussInForumDesc')}</p> </div> <a href={buildPath({ activeTab: 'forum' })} onClick={(e) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; e.preventDefault(); nav.navigateTo('forum'); }} className="shrink-0 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium rounded-lg transition-colors" > {t('blog.goToForum')} → </a> </div> {/* Prev/Next article navigation */} {(() => { const currentIdx = articles.findIndex(a => a.id === article.id); const prevArticle = currentIdx < articles.length - 1 ? articles[currentIdx + 1] : null; const nextArticle = currentIdx > 0 ? articles[currentIdx - 1] : null; if (!prevArticle && !nextArticle) return null; return ( <div className="border-t border-edge pt-6 mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3"> {prevArticle ? ( <a href={buildPath({ activeTab: 'blog', blogArticle: prevArticle.id })} onClick={(e) => { e.preventDefault(); handleArticleClick(prevArticle.id); }} className="flex items-center gap-3 p-4 bg-surface-alt/50 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-colors group" > <ChevronLeft size={20} className="text-subtle group-hover:text-indigo-500 shrink-0 transition-colors" /> <div className="min-w-0"> <p className="text-sm text-muted mb-1">{t('blog.prevArticle')}</p> <p className="text-sm font-semibold text-slate-700 line-clamp-2">{t(`blog.article.${prevArticle.id}.title`)}</p>
+                  }`} aria-label={t('blog.feedback.notUseful')} > <ThumbsDown size={16} /> {t('blog.feedback.notUseful')} </button> </div> {articleFeedback[article.id] && ( <p className="text-sm text-muted mt-1">{t('blog.feedback.thanks')}</p> )} </div> {/* Author bio for E-E-A-T */} <div className="mt-8 p-4 bg-surface-alt rounded-xl border border-edge"> <div className="flex items-center gap-3"> <div className="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center"> <User size={24} className="text-link" /> </div> <div> <p className="font-bold text-strong dark:text-white">{t('blog.byline')}</p> <p className="text-sm text-subtle">{t('blog.authorBio')}</p> </div> </div> </div> {/* Discuss in forum CTA */} <div className="mt-6 p-4 bg-indigo-50 dark:bg-indigo-900/20 rounded-xl border border-indigo-200 dark:border-indigo-800/40 flex items-center gap-3"> <MessageSquareMore size={20} className="text-indigo-600 dark:text-indigo-400 shrink-0" /> <div className="flex-1"> <p className="text-sm font-semibold text-indigo-800 dark:text-indigo-300">{t('blog.discussInForum')}</p> <p className="text-sm text-indigo-700 dark:text-indigo-400 mt-0.5">{t('blog.discussInForumDesc')}</p> </div> <a href={buildPath({ activeTab: 'forum' })} onClick={(e) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; e.preventDefault(); nav.navigateTo('forum'); }} className="shrink-0 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium rounded-lg transition-colors" > {t('blog.goToForum')} → </a> </div> {/* Prev/Next article navigation */} {(() => { const currentIdx = articles.findIndex(a => a.id === article.id); const prevArticle = currentIdx < articles.length - 1 ? articles[currentIdx + 1] : null; const nextArticle = currentIdx > 0 ? articles[currentIdx - 1] : null; if (!prevArticle && !nextArticle) return null; return ( <div className="border-t border-edge pt-6 mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3"> {prevArticle ? ( <a href={buildPath({ activeTab: 'blog', blogArticle: prevArticle.id })} onClick={(e) => { e.preventDefault(); handleArticleClick(prevArticle.id); }} className="flex items-center gap-3 p-4 bg-surface-alt/50 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-colors group" > <ChevronLeft size={20} className="text-subtle group-hover:text-indigo-500 shrink-0 transition-colors" /> <div className="min-w-0"> <p className="text-sm text-muted mb-1">{t('blog.prevArticle')}</p> <p className="text-sm font-semibold text-slate-700 line-clamp-2">{t(`blog.article.${prevArticle.id}.title`)}</p>
                       </div>
                     </a>
                   ) : <div />}

@@ -5900,10 +5900,10 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   },
 
   'chi-siamo': {
-    title: 'Chi Siamo | Frontaliere Ticino',
+    title: 'Chi Siamo — Frontaliere Ticino: La Guida per i Lavoratori Frontalieri',
     description: 'Scopri chi siamo: Frontaliere Ticino è la piattaforma informativa di riferimento per i lavoratori frontalieri italiani in Svizzera. Tassazione, permessi.',
     keywords: 'frontaliere ticino, chi siamo, piattaforma frontalieri, lavoratori transfrontalieri svizzera italia',
-    ogTitle: 'Chi Siamo — Frontaliere Ticino',
+    ogTitle: 'Chi Siamo — Frontaliere Ticino: La Guida per i Lavoratori Frontalieri',
     ogDescription: 'Piattaforma informativa per frontalieri italiani in Svizzera: tassazione, permessi, lavoro, sanità e aggiornamenti normativi.',
     canonicalPath: '/chi-siamo',
     structuredData: [
@@ -5915,6 +5915,27 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "mainEntity": { "@id": `${BASE_URL}/#organization` },
         "description": "Piattaforma informativa per frontalieri italiani in Svizzera",
         "inLanguage": "it"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "@id": `${BASE_URL}/#organization`,
+        "name": "Frontaliere Ticino",
+        "url": BASE_URL,
+        "description": "Guida completa per i lavoratori frontalieri in Svizzera: simulatore fiscale, pensione, assicurazione sanitaria, cambio valuta e offerte di lavoro.",
+        "foundingDate": "2024",
+        "areaServed": [
+          { "@type": "Country", "name": "Switzerland" },
+          { "@type": "Country", "name": "Italy" }
+        ],
+        "knowsAbout": [
+          "Fiscalità frontalieri Svizzera-Italia",
+          "Nuovo accordo fiscale 2026",
+          "Previdenza sociale AVS/LPP",
+          "Assicurazione malattia LAMal/CMB",
+          "Permesso G e permesso B",
+          "Mercato del lavoro Ticino"
+        ]
       }
     ],
   },
@@ -5923,10 +5944,10 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   // Root-level English paths so SEO crawlers (squirrelscan, Bing) find
   // About / Contact / Privacy pages using English URL heuristics.
   'about': {
-    title: 'About Us | Frontaliere Ticino',
+    title: 'About Us — Frontaliere Ticino: Cross-Border Workers Guide',
     description: 'Frontaliere Ticino is the leading platform for Italian cross-border workers in Switzerland. Tax simulation, permits, health insurance, pension planning.',
     keywords: 'frontaliere ticino, about us, cross-border workers platform, swiss italian workers',
-    ogTitle: 'About Us — Frontaliere Ticino',
+    ogTitle: 'About Us — Frontaliere Ticino: Cross-Border Workers Guide',
     ogDescription: 'The leading platform for Italian cross-border workers in Switzerland: tax simulation, permits, job board, and more.',
     canonicalPath: '/about',
     structuredData: [
@@ -5938,6 +5959,19 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "mainEntity": { "@id": `${BASE_URL}/#organization` },
         "description": "Frontaliere Ticino is the leading platform for Italian cross-border workers in Switzerland",
         "inLanguage": "en"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "@id": `${BASE_URL}/#organization`,
+        "name": "Frontaliere Ticino",
+        "url": BASE_URL,
+        "description": "The comprehensive guide for cross-border workers in Switzerland: tax simulator, pension planning, health insurance, currency exchange, and job board.",
+        "foundingDate": "2024",
+        "areaServed": [
+          { "@type": "Country", "name": "Switzerland" },
+          { "@type": "Country", "name": "Italy" }
+        ]
       }
     ],
   },
