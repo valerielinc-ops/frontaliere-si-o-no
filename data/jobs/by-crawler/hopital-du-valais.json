@@ -3014,12 +3014,12 @@
     },
     {
       "id": "hopital-du-valais-9f9ebd69732c",
-      "slug": "sachbearbeiter-in-leistungsmanagement-fakturierung-60-befristet-bis-31-12-2026-hopital-du-valais-brig",
+      "slug": "addetto-a-gestione-prestazioni-fatturazione-60-tempo-determinato-fino-al-31-12-2026-hopital-du-valais-brig",
       "slugByLocale": {
         "de": "sachbearbeiter-in-leistungsmanagement-fakturierung-60-befristet-bis-31-12-2026-hopital-du-",
-        "it": "sachbearbeiter-in-leistungsmanagement-fakturierung-60-befristet-bis-31-12-2026-hopital-du-valais-brig",
-        "en": "sachbearbeiter-in-leistungsmanagement-fakturierung-60-befristet-bis-31-12-2026-hopital-du-",
-        "fr": "sachbearbeiter-in-leistungsmanagement-fakturierung-60-befristet-bis-31-12-2026-hopital-du-"
+        "it": "addetto-a-gestione-prestazioni-fatturazione-60-tempo-determinato-fino-al-31-12-2026-hopital-du-valais-brig",
+        "en": "administrative-officer-in-performance-management-billing-60-fixed-term-until-31-12-2026-hopital-du-valais-brig",
+        "fr": "agent-e-de-gestion-des-prestations-et-facturation-60-cdd-jusqu-au-31-12-2026-hopital-du-valais-brig"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -3064,11 +3064,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "sachbearbeiter-in-leistungsmanagement-fakturierung-60-befristet-bis-31-12-2026-hopital-du-",
+          "sachbearbeiter-in-leistungsmanagement-fakturierung-60-befristet-bis-31-12-2026-hopital-du-valais-brig"
+        ],
+        "en": [
+          "sachbearbeiter-in-leistungsmanagement-fakturierung-60-befristet-bis-31-12-2026-hopital-du-"
+        ],
+        "fr": [
           "sachbearbeiter-in-leistungsmanagement-fakturierung-60-befristet-bis-31-12-2026-hopital-du-"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-in-leistungsmanagement-fakturierung-60-befristet-bis-31-12-2026-hopital-du-"
+        "sachbearbeiter-in-leistungsmanagement-fakturierung-60-befristet-bis-31-12-2026-hopital-du-",
+        "sachbearbeiter-in-leistungsmanagement-fakturierung-60-befristet-bis-31-12-2026-hopital-du-valais-brig"
       ],
       "salaryMin": 85500,
       "salaryMax": 150000,
@@ -3086,12 +3094,12 @@
     },
     {
       "id": "hopital-du-valais-46a5e71f4400",
-      "slug": "trm-responsable-de-formation-a-80-100-pour-le-service-d-imagerie-diagnostique-et-intervent",
+      "slug": "responsabile-formazione-trm-80-100-per-il-servizio-di-diagnostica-e-radiologia-interventistica-hopital-du-valais-sion",
       "slugByLocale": {
         "fr": "trm-responsable-de-formation-a-80-100-pour-le-service-d-imagerie-diagnostique-et-interventionnelle-hopital-du-valais-sio",
-        "it": "trm-responsable-de-formation-a-80-100-pour-le-service-d-imagerie-diagnostique-et-intervent",
-        "en": "trm-responsable-de-formation-a-80-100-pour-le-service-d-imagerie-diagnostique-et-intervent",
-        "de": "trm-responsable-de-formation-a-80-100-pour-le-service-d-imagerie-diagnostique-et-intervent"
+        "it": "responsabile-formazione-trm-80-100-per-il-servizio-di-diagnostica-e-radiologia-interventistica-hopital-du-valais-sion",
+        "en": "trm-training-manager-80-100-for-diagnostic-and-interventional-imaging-service-hopital-du-valais-sion",
+        "de": "trm-ausbildungsverantwortliche-r-80-100-fur-den-dienst-fur-diagnostische-und-interventionelle-bildgebung-hopital-du-vala"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -3146,16 +3154,30 @@
           "maxValue": 77500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "trm-responsable-de-formation-a-80-100-pour-le-service-d-imagerie-diagnostique-et-intervent"
+        ],
+        "en": [
+          "trm-responsable-de-formation-a-80-100-pour-le-service-d-imagerie-diagnostique-et-intervent"
+        ],
+        "de": [
+          "trm-responsable-de-formation-a-80-100-pour-le-service-d-imagerie-diagnostique-et-intervent"
+        ]
+      },
+      "previousSlugs": [
+        "trm-responsable-de-formation-a-80-100-pour-le-service-d-imagerie-diagnostique-et-intervent"
+      ]
     },
     {
       "id": "hopital-du-valais-7f9eaebf0bff",
-      "slug": "pflegefachperson-80-100-orthopadie-3-west-lean-bettenabteilung-hopital-du-valais-brig",
+      "slug": "infermiere-a-80-100-ortopedia-reparto-lean-3-ovest-hopital-du-valais-brig",
       "slugByLocale": {
         "de": "pflegefachperson-80-100-orthopadie-3-west-lean-bettenabteilung-hopital-du-valais-brig",
-        "it": "pflegefachperson-80-100-orthopadie-3-west-lean-bettenabteilung-hopital-du-valais-brig",
-        "en": "pflegefachperson-80-100-orthopadie-3-west-lean-bettenabteilung-hopital-du-valais-brig",
-        "fr": "pflegefachperson-80-100-orthopadie-3-west-lean-bettenabteilung-hopital-du-valais-brig"
+        "it": "infermiere-a-80-100-ortopedia-reparto-lean-3-ovest-hopital-du-valais-brig",
+        "en": "registered-nurse-80-100-orthopedics-lean-ward-3-west-hopital-du-valais-brig",
+        "fr": "infirmier-ere-80-100-orthopedie-service-lean-3-ouest-hopital-du-valais-brig"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -3210,16 +3232,30 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachperson-80-100-orthopadie-3-west-lean-bettenabteilung-hopital-du-valais-brig"
+        ],
+        "en": [
+          "pflegefachperson-80-100-orthopadie-3-west-lean-bettenabteilung-hopital-du-valais-brig"
+        ],
+        "fr": [
+          "pflegefachperson-80-100-orthopadie-3-west-lean-bettenabteilung-hopital-du-valais-brig"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachperson-80-100-orthopadie-3-west-lean-bettenabteilung-hopital-du-valais-brig"
+      ]
     },
     {
       "id": "hopital-du-valais-f44fec9098e2",
-      "slug": "infirmier-ere-a-100-pour-un-cdd-de-6-mois-pour-le-service-de-gynecologie-hopital-du-valais",
+      "slug": "infermiere-a-tempo-pieno-per-contratto-a-tempo-determinato-di-6-mesi-nel-reparto-di-ginecologia-hopital-du-valais-sion",
       "slugByLocale": {
         "fr": "infirmier-ere-a-100-pour-un-cdd-de-6-mois-pour-le-service-de-gynecologie-hopital-du-valais",
-        "it": "infirmier-ere-a-100-pour-un-cdd-de-6-mois-pour-le-service-de-gynecologie-hopital-du-valais",
-        "en": "infirmier-ere-a-100-pour-un-cdd-de-6-mois-pour-le-service-de-gynecologie-hopital-du-valais",
-        "de": "infirmier-ere-a-100-pour-un-cdd-de-6-mois-pour-le-service-de-gynecologie-hopital-du-valais"
+        "it": "infermiere-a-tempo-pieno-per-contratto-a-tempo-determinato-di-6-mesi-nel-reparto-di-ginecologia-hopital-du-valais-sion",
+        "en": "full-time-nurse-for-6-month-fixed-term-contract-in-the-gynecology-department-hopital-du-valais-sion",
+        "de": "vollzeit-pflegefachperson-fur-6-monatigen-befristeten-vertrag-in-der-gynakologie-hopital-du-valais-sion"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -3274,16 +3310,30 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-a-100-pour-un-cdd-de-6-mois-pour-le-service-de-gynecologie-hopital-du-valais"
+        ],
+        "en": [
+          "infirmier-ere-a-100-pour-un-cdd-de-6-mois-pour-le-service-de-gynecologie-hopital-du-valais"
+        ],
+        "de": [
+          "infirmier-ere-a-100-pour-un-cdd-de-6-mois-pour-le-service-de-gynecologie-hopital-du-valais"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-a-100-pour-un-cdd-de-6-mois-pour-le-service-de-gynecologie-hopital-du-valais"
+      ]
     },
     {
       "id": "hopital-du-valais-b8fed0809d69",
-      "slug": "psychologue-a-50-70-pour-les-equipes-mobiles-du-psychiatrie-et-psychotherapie-adulte-du-va",
+      "slug": "psicologo-a-al-50-70-per-le-equipe-mobili-di-psichiatria-e-psicoterapia-adulti-del-vallese-centrale-hopital-du-valais-si",
       "slugByLocale": {
         "fr": "psychologue-a-50-70-pour-les-equipes-mobiles-du-psychiatrie-et-psychotherapie-adulte-du-va",
-        "it": "psychologue-a-50-70-pour-les-equipes-mobiles-du-psychiatrie-et-psychotherapie-adulte-du-va",
-        "en": "psychologue-a-50-70-pour-les-equipes-mobiles-du-psychiatrie-et-psychotherapie-adulte-du-va",
-        "de": "psychologue-a-50-70-pour-les-equipes-mobiles-du-psychiatrie-et-psychotherapie-adulte-du-va"
+        "it": "psicologo-a-al-50-70-per-le-equipe-mobili-di-psichiatria-e-psicoterapia-adulti-del-vallese-centrale-hopital-du-valais-si",
+        "en": "psychologist-at-50-70-for-mobile-teams-in-adult-psychiatry-and-psychotherapy-in-central-valais-hopital-du-valais-sierre",
+        "de": "psychologe-in-50-70-fur-mobile-teams-in-der-erwachsenenpsychiatrie-und-psychotherapie-im-zentralwallis-hopital-du-valais"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -3338,15 +3388,29 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologue-a-50-70-pour-les-equipes-mobiles-du-psychiatrie-et-psychotherapie-adulte-du-va"
+        ],
+        "en": [
+          "psychologue-a-50-70-pour-les-equipes-mobiles-du-psychiatrie-et-psychotherapie-adulte-du-va"
+        ],
+        "de": [
+          "psychologue-a-50-70-pour-les-equipes-mobiles-du-psychiatrie-et-psychotherapie-adulte-du-va"
+        ]
+      },
+      "previousSlugs": [
+        "psychologue-a-50-70-pour-les-equipes-mobiles-du-psychiatrie-et-psychotherapie-adulte-du-va"
+      ]
     },
     {
       "id": "hopital-du-valais-4e7a040aeaef",
-      "slug": "psychologue-psychotherapeute-a-50-pour-le-service-de-psychiatrie-et-psychotherapie-adulte-",
+      "slug": "psicologo-psicoterapeuta-al-50-per-il-servizio-di-psichiatria-e-psicoterapia-adulti-del-vallese-centrale-hopital-du-vala",
       "slugByLocale": {
-        "en": "psychologue-psychotherapeute-a-50-pour-le-service-de-psychiatrie-et-psychotherapie-adulte-",
-        "it": "psychologue-psychotherapeute-a-50-pour-le-service-de-psychiatrie-et-psychotherapie-adulte-",
-        "de": "psychologue-psychotherapeute-a-50-pour-le-service-de-psychiatrie-et-psychotherapie-adulte-",
+        "en": "50-psychologist-psychotherapist-for-adult-psychiatry-and-psychotherapy-service-in-central-valais-hopital-du-valais-marti",
+        "it": "psicologo-psicoterapeuta-al-50-per-il-servizio-di-psichiatria-e-psicoterapia-adulti-del-vallese-centrale-hopital-du-vala",
+        "de": "50-stelle-als-psychologe-psychotherapeut-in-fur-den-dienst-fur-erwachsenenpsychiatrie-und-psychotherapie-im-zentralwalli",
         "fr": "psychologue-psychotherapeute-a-50-pour-le-service-de-psychiatrie-et-psychotherapie-adulte-"
       },
       "company": "Hôpital du Valais",
@@ -3403,16 +3467,30 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologue-psychotherapeute-a-50-pour-le-service-de-psychiatrie-et-psychotherapie-adulte-"
+        ],
+        "en": [
+          "psychologue-psychotherapeute-a-50-pour-le-service-de-psychiatrie-et-psychotherapie-adulte-"
+        ],
+        "de": [
+          "psychologue-psychotherapeute-a-50-pour-le-service-de-psychiatrie-et-psychotherapie-adulte-"
+        ]
+      },
+      "previousSlugs": [
+        "psychologue-psychotherapeute-a-50-pour-le-service-de-psychiatrie-et-psychotherapie-adulte-"
+      ]
     },
     {
       "id": "hopital-du-valais-1930cac0fe8f",
-      "slug": "medecins-chefs-fes-de-clinique-ou-medecins-hospitalieres-entre-20-et-100-pour-la-permanenc",
+      "slug": "medici-capoclinica-o-medici-ospedalieri-per-la-reperibilita-medica-all-ospedale-di-sierre-hopital-du-valais-sierre",
       "slugByLocale": {
         "fr": "medecins-chefs-fes-de-clinique-ou-medecins-hospitalieres-entre-20-et-100-pour-la-permanence-medicale-de-l-hopital-de-sie",
-        "it": "medecins-chefs-fes-de-clinique-ou-medecins-hospitalieres-entre-20-et-100-pour-la-permanenc",
-        "en": "medecins-chefs-fes-de-clinique-ou-medecins-hospitalieres-entre-20-et-100-pour-la-permanenc",
-        "de": "medecins-chefs-fes-de-clinique-ou-medecins-hospitalieres-entre-20-et-100-pour-la-permanenc"
+        "it": "medici-capoclinica-o-medici-ospedalieri-per-la-reperibilita-medica-all-ospedale-di-sierre-hopital-du-valais-sierre",
+        "en": "chief-physicians-or-hospital-physicians-for-medical-on-call-duty-at-sierre-hospital-hopital-du-valais-sierre",
+        "de": "chefarzte-oder-spitalarzte-fur-den-medizinischen-bereitschaftsdienst-am-spital-sierre-hopital-du-valais-sierre"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -3467,7 +3545,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "medecins-chefs-fes-de-clinique-ou-medecins-hospitalieres-entre-20-et-100-pour-la-permanenc"
+        ],
+        "en": [
+          "medecins-chefs-fes-de-clinique-ou-medecins-hospitalieres-entre-20-et-100-pour-la-permanenc"
+        ],
+        "de": [
+          "medecins-chefs-fes-de-clinique-ou-medecins-hospitalieres-entre-20-et-100-pour-la-permanenc"
+        ]
+      },
+      "previousSlugs": [
+        "medecins-chefs-fes-de-clinique-ou-medecins-hospitalieres-entre-20-et-100-pour-la-permanenc"
+      ]
     }
   ]
 }

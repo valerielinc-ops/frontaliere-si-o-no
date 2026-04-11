@@ -1357,10 +1357,10 @@
       "id": "arxada-a86cc9489881",
       "slug": "specialista-amministrativo-tecnico-80-100-arxada-visp",
       "slugByLocale": {
-        "de": "technischer-verwaltungsspezialist-80-100-arxada-visp",
+        "de": "technische-r-sachbearbeiter-in-80-100-arxada-visp",
         "it": "specialista-amministrativo-tecnico-80-100-arxada-visp",
         "en": "technical-administrative-specialist-80-100-arxada-ch",
-        "fr": "technical-administrative-specialist-80-100-arxada-ch"
+        "fr": "specialiste-administratif-technique-80-100-arxada-visp"
       },
       "company": "Arxada",
       "companyKey": "arxada",
@@ -1407,11 +1407,16 @@
           "technical-administrative-specialist-80-100-arxada-ch"
         ],
         "de": [
+          "technical-administrative-specialist-80-100-arxada-ch",
+          "technischer-verwaltungsspezialist-80-100-arxada-visp"
+        ],
+        "fr": [
           "technical-administrative-specialist-80-100-arxada-ch"
         ]
       },
       "previousSlugs": [
-        "technical-administrative-specialist-80-100-arxada-ch"
+        "technical-administrative-specialist-80-100-arxada-ch",
+        "technischer-verwaltungsspezialist-80-100-arxada-visp"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1684,8 +1689,7 @@
         ]
       },
       "previousSlugs": [
-        "operator-in-2-schicht-arxada-ch-2",
-        "operator-in-2-schicht-arxada-ch"
+        "operator-in-2-schicht-arxada-ch-2"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1705,7 +1709,7 @@
       "id": "arxada-34b183223f1f",
       "slug": "operatore-trice-centro-di-scarico-e-carico-site-support-arxada-visp",
       "slugByLocale": {
-        "de": "betreiber-in-ab-und-beladecenter-baustellenbetreuung-arxada-visp",
+        "de": "operator-in-im-ab-und-beladezentrum-site-support-arxada-visp",
         "it": "operatore-trice-centro-di-scarico-e-carico-site-support-arxada-visp",
         "en": "operator-in-ab-und-beladecenter-site-support-arxada-ch",
         "fr": "operateur-trice-centre-de-dechargement-et-de-chargement-support-de-site-arxada-visp"
@@ -1755,11 +1759,13 @@
           "operator-in-ab-und-beladecenter-site-support-arxada-ch"
         ],
         "de": [
-          "operator-in-ab-und-beladecenter-site-support-arxada-ch"
+          "operator-in-ab-und-beladecenter-site-support-arxada-ch",
+          "betreiber-in-ab-und-beladecenter-baustellenbetreuung-arxada-visp"
         ]
       },
       "previousSlugs": [
-        "operator-in-ab-und-beladecenter-site-support-arxada-ch"
+        "operator-in-ab-und-beladecenter-site-support-arxada-ch",
+        "betreiber-in-ab-und-beladecenter-baustellenbetreuung-arxada-visp"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -1782,7 +1788,7 @@
         "de": "supervisor-shift-schichtfuhrer-in-arxada-ch",
         "it": "supervisore-shift-capoturno-arxada-visp",
         "en": "supervisor-shift-arxada-visp",
-        "fr": "superviseur-maj-chef-d-equipe-arxada-visp"
+        "fr": "responsable-d-equipe-en-poste-decale-arxada-visp"
       },
       "company": "Arxada",
       "companyKey": "arxada",
@@ -1827,10 +1833,14 @@
       "previousSlugsByLocale": {
         "it": [
           "supervisor-shift-schichtfuhrer-in-arxada-ch-2"
+        ],
+        "fr": [
+          "superviseur-maj-chef-d-equipe-arxada-visp"
         ]
       },
       "previousSlugs": [
-        "supervisor-shift-schichtfuhrer-in-arxada-ch-2"
+        "supervisor-shift-schichtfuhrer-in-arxada-ch-2",
+        "superviseur-maj-chef-d-equipe-arxada-visp"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
