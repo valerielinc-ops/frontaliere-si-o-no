@@ -2091,6 +2091,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cure-a-domicilio-atlas-protesta-18-aprile.title': 'Home care: ATLaS takes to the streets in Bellinzona on 18 April',
     'blog.article.cure-a-domicilio-atlas-protesta-18-aprile.excerpt': 'The Canton of Ticino plans to transfer up to 450 francs per year to patients. ATLaS calls the measure \'unacceptable\' and is calling for a protest in Piazza Collegiata.',
     'blog.article.cure-a-domicilio-atlas-protesta-18-aprile.imageAlt': 'Collegiata square in Bellinzona during the April 18 protest against increased home care costs',
+    'blog.article.frontalieri-salari-perequazione-ricchezza-2026.title': 'Cross-border workers in Ticino: wages and fiscal equalization, the numbers don\'t add up',
+    'blog.article.frontalieri-salari-perequazione-ricchezza-2026.excerpt': 'Ticino is the sixth richest canton in Switzerland, but wealth distribution and the federal equalization mechanisms fail to convince analysts. Here\'s why.',
+    'blog.article.frontalieri-salari-perequazione-ricchezza-2026.imageAlt': 'Gaggiolo border crossing between Mendrisio and Varese with cross-border workers returning home',
 };
 
 export default blogMetaEn;

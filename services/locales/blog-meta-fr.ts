@@ -2091,6 +2091,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cure-a-domicilio-atlas-protesta-18-aprile.title': 'Soins à domicile : ATLaS descend dans la rue à Bellinzone le 18 avril',
     'blog.article.cure-a-domicilio-atlas-protesta-18-aprile.excerpt': 'Le Canton du Tessin souhaite transférer jusqu’à 450 francs par an sur le compte des patients. ATLaS juge cette mesure inacceptable et appelle à une mobilisation place Collegiata.',
     'blog.article.cure-a-domicilio-atlas-protesta-18-aprile.imageAlt': 'Place Collegiata à Bellinzone lors de la manifestation du 18 avril contre l\'augmentation des coûts des soins à domicile',
+    'blog.article.frontalieri-salari-perequazione-ricchezza-2026.title': 'Frontaliers au Tessin: salaires et péréquation fiscale, les comptes ne collent pas',
+    'blog.article.frontalieri-salari-perequazione-ricchezza-2026.excerpt': 'Le Tessin est le sixième canton le plus riche de Suisse, mais la répartition de la richesse et les mécanismes de péréquation fiscale fédérale ne convainquent pas les analystes. Voici pourquoi.',
+    'blog.article.frontalieri-salari-perequazione-ricchezza-2026.imageAlt': 'Poste-frontière de Gaggiolo entre Mendrisio et Varese avec des frontaliers rentrant chez eux',
 };
 
 export default blogMetaFr;

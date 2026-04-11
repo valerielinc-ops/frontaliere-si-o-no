@@ -5864,4 +5864,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/cure-a-domicilio-atlas-protesta-18-aprile.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'frontalieri-salari-perequazione-ricchezza-2026',
+    category: 'fiscale',
+    date: '2026-04-11T20:53:46.091Z',
+    image: '/images/blog/frontalieri-salari-perequazione-ricchezza-2026.jpg',
+    hasCalculator: true,
+  },
 ];

@@ -2091,6 +2091,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cure-a-domicilio-atlas-protesta-18-aprile.title': 'Cure a domicilio: ATLaS scende in piazza Bellinzona il 18 aprile',
     'blog.article.cure-a-domicilio-atlas-protesta-18-aprile.excerpt': 'Il Cantone Ticino vuole trasferire fino a 450 franchi l’anno sui pazienti. ATLaS definisce la misura «inaccettabile» e chiama alla protesta in piazza Collegiata',
     'blog.article.cure-a-domicilio-atlas-protesta-18-aprile.imageAlt': 'Piazza Collegiata a Bellinzona durante la protesta del 18 aprile contro i nuovi costi delle cure a domicilio',
+    'blog.article.frontalieri-salari-perequazione-ricchezza-2026.title': 'Frontalieri in Ticino: salari e perequazione fiscale, i conti non tornano',
+    'blog.article.frontalieri-salari-perequazione-ricchezza-2026.excerpt': 'Il Ticino è il sesto cantone più ricco della Svizzera, ma la distribuzione della ricchezza e i meccanismi di perequazione federale non convincono gli analisti. Ecco perché.',
+    'blog.article.frontalieri-salari-perequazione-ricchezza-2026.imageAlt': 'Valico di Gaggiolo tra Mendrisio e Varese con frontalieri che tornano a casa',
 };
 
 export default blogMetaIt;

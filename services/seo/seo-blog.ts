@@ -7082,6 +7082,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-salari-perequazione-ricchezza-2026': {
+    title: 'Frontalieri in Ticino: salari e | Frontaliere Ticino',
+    description: 'Il Ticino è il sesto cantone più ricco della Svizzera, ma la distribuzione della ricchezza e i meccanismi di perequazione federale non convincono gli analisti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, salari, perequazione, fiscale, conti',
+    ogTitle: 'Frontalieri in Ticino: salari e perequazione fiscale, i c',
+    ogDescription: 'Il Ticino è il sesto cantone più ricco della Svizzera, ma la distribuzione della ricchezza e i meccanismi di perequazione federale non convincono gli analisti.',
+    canonicalPath: '/articoli-frontaliere/frontalieri-salari-perequazione-ricchezza-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri in Ticino: salari e perequazione fiscale, i c",
+      "description": "Il Ticino è il sesto cantone più ricco della Svizzera, ma la distribuzione della ricchezza e i meccanismi di perequazione federale non convincono gli analisti.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/frontalieri-salari-perequazione-ricchezza-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Valico di Gaggiolo tra Mendrisio e Varese con frontalieri che tornano a casa"
+      },
+      "datePublished": "2026-04-11T20:53:46+00:00",
+      "dateModified": "2026-04-11T20:53:46+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-salari-perequazione-ricchezza-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

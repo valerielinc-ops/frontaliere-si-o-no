@@ -2091,6 +2091,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cure-a-domicilio-atlas-protesta-18-aprile.title': 'Hausbesuche: ATLaS demonstriert am 18. April in Bellinzona',
     'blog.article.cure-a-domicilio-atlas-protesta-18-aprile.excerpt': 'Der Kanton Tessin will bis zu 450 Franken pro Jahr von den Patientinnen und Patienten übernehmen. ATLaS bezeichnet die Massnahme als «inakzeptabel» und ruft zur Protestkundgebung auf dem Collegiata-Platz auf',
     'blog.article.cure-a-domicilio-atlas-protesta-18-aprile.imageAlt': 'Collegiata-Platz in Bellinzona während der Protestaktion vom 18. April gegen höhere Kosten für die häusliche Pflege',
+    'blog.article.frontalieri-salari-perequazione-ricchezza-2026.title': 'Grenzpendler im Tessin: Löhne und Steuerausgleich – die Rechnung geht nicht auf',
+    'blog.article.frontalieri-salari-perequazione-ricchezza-2026.excerpt': 'Das Tessin ist der sechstreichste Kanton der Schweiz, doch die Verteilung des Wohlstands und die Mechanismen des bundesweiten Finanzausgleichs überzeugen die Analysten nicht. Hier ist der Grund.',
+    'blog.article.frontalieri-salari-perequazione-ricchezza-2026.imageAlt': 'Grenzübergang Gaggiolo zwischen Mendrisio und Varese mit Grenzgängern auf dem Heimweg',
 };
 
 export default blogMetaDe;

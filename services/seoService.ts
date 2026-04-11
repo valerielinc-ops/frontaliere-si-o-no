@@ -1952,6 +1952,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lavoro-frontalieri-ticino-scarse-incastri': { name: 'Frontalieri Ticino', path: '/articoli-frontaliere/lavoro-frontalieri-ticino-scarse-incastri', parent: 'blog' },
     'blog-visione-politica-fuga-giovani-ticino': { name: 'Fuga dei giovani dal Ticino', path: '/articoli-frontaliere/visione-politica-fuga-giovani-ticino', parent: 'blog' },
     'blog-cure-a-domicilio-atlas-protesta-18-aprile': { name: 'Cure a domicilio', path: '/articoli-frontaliere/cure-a-domicilio-atlas-protesta-18-aprile', parent: 'blog' },
+    'blog-frontalieri-salari-perequazione-ricchezza-2026': { name: 'Frontalieri in Ticino', path: '/articoli-frontaliere/frontalieri-salari-perequazione-ricchezza-2026', parent: 'blog' },
   };
 
   const info = sectionNames[section];
