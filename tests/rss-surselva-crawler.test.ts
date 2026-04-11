@@ -326,7 +326,7 @@ describe('parseOstendisJob', () => {
   };
 
   const sampleDetail = {
-    description: 'Selbständige Patientenversorgung in einer modernen Gruppenpraxis.',
+    description: 'Selbständige Patientenversorgung in einer modernen Gruppenpraxis. Wir bieten ein motiviertes Team, flexible Arbeitszeiten und die Möglichkeit zur fachlichen Weiterentwicklung in einem angenehmen Arbeitsumfeld.',
     datePosted: '2024-06-25',
     employmentType: 'FULL_TIME',
     streetAddress: 'Spitalstrasse 6',
@@ -352,14 +352,16 @@ describe('parseOstendisJob', () => {
 
   it('uses detail page description when available', () => {
     const job = parseOstendisJob(sampleEntry, sampleDetail);
-    expect(job.description).toBe('Selbständige Patientenversorgung in einer modernen Gruppenpraxis.');
+    expect(job.description).toBe('Selbständige Patientenversorgung in einer modernen Gruppenpraxis. Wir bieten ein motiviertes Team, flexible Arbeitszeiten und die Möglichkeit zur fachlichen Weiterentwicklung in einem angenehmen Arbeitsumfeld.');
   });
 
-  it('falls back to title-based description when detail is short', () => {
+  it('falls back to title-based description with boilerplate when detail is short', () => {
     const job = parseOstendisJob(sampleEntry, { description: 'Short' });
     expect(job.description).toContain('Hausärztin / Hausarzt');
     expect(job.description).toContain('Regionalspital Surselva');
     expect(job.description).toContain('Ärzte');
+    expect(job.description).toContain('Grund- und Notfallversorgung');
+    expect(job.description.length).toBeGreaterThanOrEqual(150);
   });
 
   it('uses detail page datePosted', () => {

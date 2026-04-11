@@ -312,7 +312,8 @@ export function parseOstendisJob(entry, detailData = {}) {
 
   // Build description: prefer detail page JSON-LD, fall back to title-based + company boilerplate
   let descriptionText = detailData.description || '';
-  if (!descriptionText || descriptionText.length < 30) {
+  if (!descriptionText || descriptionText.length < 150) {
+    // Detail page description too short or missing — build from metadata + company boilerplate
     const parts = [`${title} — Regionalspital Surselva (RSS)`];
     if (entry.department) parts.push(`Abteilung: ${entry.department}`);
     parts.push(`Arbeitsort: ${location} (${canton})`);
