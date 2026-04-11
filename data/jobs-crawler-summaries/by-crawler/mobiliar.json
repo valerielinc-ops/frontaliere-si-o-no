@@ -1,18 +1,19 @@
 {
   "key": "mobiliar",
   "label": "die Mobiliar",
-  "generatedAt": "2026-04-11T12:43:46.096Z",
+  "generatedAt": "2026-04-11T21:42:47.179Z",
   "total": 2,
-  "newCount": 2,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 25453,
-  "avgDurationMs": 25453,
+  "durationMs": 5623,
+  "avgDurationMs": 5623,
   "durationHistory": [
-    25453
+    5623
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "mobiliar-d8b124a7383e",
       "slug": "kv-lehrstelle-efz-2027-generalagentur-oberwallis-mobiliar-ch",
@@ -25,7 +26,7 @@
       "url": "https://jobs.mobiliar.ch/job/Wallis-KV-Lehrstelle-EFZ-2027-Generalagentur-Oberwallis/1164099655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T12:43:22.933Z",
+      "crawledAt": "2026-04-11T21:42:43.625Z",
       "addressLocality": "Generalagentur Oberwallis",
       "addressCountry": "CH",
       "country": "CH",
@@ -41,11 +42,11 @@
       "applyUrl": "https://jobs.mobiliar.ch/job/Wallis-KV-Lehrstelle-EFZ-2027-Generalagentur-Oberwallis/1164099655/",
       "pensum": "100%",
       "sfJobId": "1164099655",
-      "_qualityScore": 67,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -61,7 +62,7 @@
       "url": "https://jobs.mobiliar.ch/job/Sion-Collaborateur-support-vente-%28fmd%29-Agence-g%C3%A9n%C3%A9rale-de-Sion/1164356655/",
       "source": "die Mobiliar Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-11T12:43:23.962Z",
+      "crawledAt": "2026-04-11T21:42:44.586Z",
       "addressLocality": "Sion",
       "addressCountry": "CH",
       "country": "CH",
@@ -76,16 +77,15 @@
       "applyUrl": "https://jobs.mobiliar.ch/job/Sion-Collaborateur-support-vente-%28fmd%29-Agence-g%C3%A9n%C3%A9rale-de-Sion/1164356655/",
       "pensum": "3%",
       "sfJobId": "1164356655",
-      "_qualityScore": 61,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
