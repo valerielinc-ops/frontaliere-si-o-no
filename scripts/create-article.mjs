@@ -1961,7 +1961,7 @@ COME RAGGIUNGERE IL MINIMO DI PAROLE SENZA INVENTARE:
 - Descrivi PROCEDURE concrete (cosa fare, dove andare, quali documenti servono)
 - Aggiungi SCENARI "cosa succede se" basati sui fatti della fonte
 - Confronta con la situazione precedente (prima vs dopo il cambiamento descritto nella fonte)
-- Includi una sezione FAQ con domande pratiche e risposte basate sulla fonte
+- NON includere sezioni FAQ nel body — le FAQ vengono generate nel campo "faq" separato e mostrate come accordion
 - Usa tabelle comparative per rendere i dati della fonte più leggibili
 - Collega agli strumenti del sito (calcolatore, comparatore, guide) per approfondire
 
@@ -1974,7 +1974,7 @@ ANTI-AI (CRITICO): Il testo NON deve sembrare generato da AI. Regole:
 - MAI aprire body1 con una frase generica tipo "Il tema dei frontalieri...". Inizia con un FATTO concreto DALLA FONTE (data, numero, nome, luogo).
 - MAI elenchi puntati di >5 elementi (spezzali in paragrafi narrativi)
 - MAX 2 emoji callout (📊/💡/⚠️) per INTERO articolo (body1+body2+body3 combinati). Zero è meglio.
-- Varia la struttura: non TUTTI i body devono avere un elenco puntato. Alterna prosa, tabelle, FAQ, citazioni.
+- Varia la struttura: non TUTTI i body devono avere un elenco puntato. Alterna prosa, tabelle, citazioni.
 - NON usare parallelismi strutturali tra body1/body2/body3 (se body1 ha ## + elenco, body2 deve avere ## + prosa + tabella).
 
 TICINO: L'articolo DEVE riguardare Canton Ticino, confine italo-svizzero, o frontalieri. Riferimenti locali: Canton Ticino, SUPSI, USI, EOC, Lugano, Bellinzona, Locarno, Mendrisio, DFE, SECO.
@@ -2063,7 +2063,7 @@ Genera JSON (no markdown, no code fences):
 
 REGOLE FINALI:
 - Contenuto IT primario, MINIMO 350 parole per body (body1/body2/body3). EN/DE/FR verranno generati separatamente.
-- Per raggiungere il minimo: espandi con implicazioni pratiche, procedure, scenari, FAQ — NON con fatti inventati.
+- Per raggiungere il minimo: espandi con implicazioni pratiche, procedure, scenari — NON con fatti inventati. NON inserire FAQ nel body (vanno nel campo "faq" separato).
 - Slug: lowercase, trattini, no accenti, max 50 chars
 - hasCalculator: true sempre
 - Apostrofi diritti ('), normative 2026
@@ -2073,9 +2073,9 @@ REGOLE FINALI:
   const minWordsInstruction = `\n\nMINIMUM LENGTH (CRITICAL — STRICTLY ENFORCED):
 - body1+body2+body3 MUST total ≥${minItalianWords} words. This is HARD-enforced: content below this threshold will be REJECTED.
 - EACH body field (body1, body2, body3) MUST be at least 300 words individually. Target 350-400 words each.
-- Use detailed examples, step-by-step procedures, concrete numbers/dates, comparison tables, checklists, and FAQ sections to reach the target.
+- Use detailed examples, step-by-step procedures, concrete numbers/dates, comparison tables, and checklists to reach the target. Do NOT put FAQ in body text — FAQs go in the separate "faq" field.
 - Count your words before finalizing. If the total is <${minItalianWords}, ADD more content.
-${generationAttempt > 1 ? `- ⚠️ RETRY ${generationAttempt}/${generationAttemptMax}: previous attempt was REJECTED because it was only ~${sourceContext?._previousWordCount || '???'} words (minimum: ${minItalianWords}). You MUST write SIGNIFICANTLY MORE this time. Each body: 350-450 words.${generationAttempt >= 4 ? ' Include: detailed FAQ (5+ questions), comparison tables, step-by-step guides with numbered steps, specific examples with real numbers.' : ''}` : ''}`;
+${generationAttempt > 1 ? `- ⚠️ RETRY ${generationAttempt}/${generationAttemptMax}: previous attempt was REJECTED because it was only ~${sourceContext?._previousWordCount || '???'} words (minimum: ${minItalianWords}). You MUST write SIGNIFICANTLY MORE this time. Each body: 350-450 words.${generationAttempt >= 4 ? ' Include: comparison tables, step-by-step guides with numbered steps, specific examples with real numbers. Do NOT put FAQ in body text.' : ''}` : ''}`;
 
   // ── Multi-call generation with automatic model fallback ──
   // Supports model override via sourceContext._forceModel and temperature via sourceContext._temperature

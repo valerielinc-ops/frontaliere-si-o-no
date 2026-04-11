@@ -89,50 +89,29 @@ jobs:
         if: ${{ inputs.dry_run != true }}
         run: node scripts/mine-all-job-slugs.mjs
 
-      - name: Check for changes
-        id: changes
-        run: |
-          for f in data/orphan-enriched-data.json data/orphan-indexed-job-slugs.json \
-                   data/gsc-orphan-queries.json data/url-inspection-results.json \
-                   data/all-known-job-slugs.json data/seo-404-compat-paths.json; do
-            [ -f "$f" ] && git add "$f"
-          done
-          for d in data/jobs/by-crawler data/jobs/expired/by-crawler; do
-            [ -d "$d" ] && git add "$d"
-          done
-          if git diff --cached --quiet; then
-            echo "changed=false" >> "$GITHUB_OUTPUT"
-            echo "📭 No changes to commit"
-          else
-            echo "changed=true" >> "$GITHUB_OUTPUT"
-            echo "📬 Changes detected — will commit"
-            git diff --cached --stat
-          fi
-
       - name: Commit and push
-        if: steps.changes.outputs.changed == 'true' && inputs.dry_run != true
+        if: ${{ inputs.dry_run != true }}
+        id: commit
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          
-          # Count what changed
-          ORPHAN_COUNT=$(node -e "try{console.log(JSON.parse(require('fs').readFileSync('data/orphan-enriched-data.json','utf8')).length)}catch{console.log(0)}")
-          
-          git commit -m "chore: sync GSC orphan slugs and reconcile job data
-
-          Orphan slugs: ${ORPHAN_COUNT}
-          Automated by sync-gsc-orphans workflow"
-          
-          git push
+          SKIP_AI_TRANSLATION=1 bash scripts/lib/git-commit-data.sh --slice-only \
+            "chore: sync GSC orphan slugs and reconcile job data" \
+            data/orphan-enriched-data.json \
+            data/orphan-indexed-job-slugs.json \
+            data/gsc-orphan-queries.json \
+            data/url-inspection-results.json \
+            data/all-known-job-slugs.json \
+            data/seo-404-compat-paths.json
+        env:
+          SKIP_AI_TRANSLATION: '1'
 
       - name: Trigger deploy if data changed
-        if: steps.changes.outputs.changed == 'true' && inputs.dry_run != true
+        if: steps.commit.outputs.has_changes == 'true' && inputs.dry_run != true
         run: |
           # Check if tracking or compat data changed (new soft-landing pages needed)
           TRACKING_CHANGES=$(git diff HEAD~1 --name-only -- data/all-known-job-slugs.json data/seo-404-compat-paths.json | wc -l)
           CRAWLER_CHANGES=$(git diff HEAD~1 --name-only -- data/jobs/by-crawler/ | wc -l)
           ORPHAN_CHANGES=$(git diff HEAD~1 --name-only -- data/orphan-enriched-data.json | wc -l)
-          
+
           if [ "$CRAWLER_CHANGES" -gt 0 ] || [ "$TRACKING_CHANGES" -gt 0 ]; then
             echo "🚀 Job data changed (crawler: $CRAWLER_CHANGES, tracking: $TRACKING_CHANGES) — triggering deploy"
             bash scripts/lib/trigger-deploy.sh
