@@ -2475,33 +2475,48 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   },
 
   jobboard: {
-    title: 'Offerte di Lavoro Ticino Oggi — 1500+ Posti da 100 Aziende',
-    description: 'Lavoro in Svizzera per italiani: 1500+ offerte aggiornate in Ticino da Lugano, Mendrisio e Bellinzona. Banche, IT, pharma, sanità. Candidati gratis.',
-    keywords: 'offerte di lavoro ticino, lavoro ticino, lavoro in svizzera per italiani, offerte lavoro ticino, cerco lavoro ticino, posti vacanti ticino, offerte di lavoro frontalieri svizzera, lavoro frontaliere ticino 2026, impiego ticino, lavoro lugano, lavoro mendrisio, offerte lavoro ticino oggi, posti di lavoro ticino, lavoro ticino offerte, offerte di lavoro lugano, lavoro in ticino, offerte di lavoro ticino negli ultimi 3 giorni, lavoro ticino da ieri, lavoro ticino negli ultimi 3 giorni',
-    ogTitle: 'Offerte Lavoro Ticino | 1500+ Posti per Frontalieri Italiani',
-    ogDescription: 'Lavoro in Svizzera per italiani: 1500+ offerte in Ticino da Lugano, Mendrisio e Bellinzona. Candidatura diretta — gratis!',
+    title: 'Offerte di Lavoro Ticino — Cerca Lavoro in Svizzera Italiana',
+    description: 'Cerchi lavoro in Ticino? Oltre 1500 offerte aggiornate ogni giorno da 100+ aziende a Lugano, Mendrisio e Bellinzona. Banche, IT, pharma, sanit\u00e0. Candidati gratis.',
+    keywords: 'offerte di lavoro ticino, lavoro ticino, offerte lavoro ticino, cerco lavoro ticino, lavoro in svizzera per italiani, posti vacanti ticino, offerte di lavoro frontalieri svizzera, lavoro frontaliere ticino 2026, impiego ticino, lavoro lugano, lavoro mendrisio, offerte lavoro ticino oggi, posti di lavoro ticino, lavoro ticino offerte, offerte di lavoro lugano, lavoro in ticino, offerte di lavoro ticino negli ultimi 3 giorni, lavoro ticino da ieri, lavoro ticino negli ultimi 3 giorni',
+    ogTitle: 'Offerte di Lavoro Ticino | Cerca tra 1500+ Posizioni Aperte',
+    ogDescription: 'Cerchi lavoro in Ticino? 1500+ offerte aggiornate da Lugano, Mendrisio e Bellinzona. Banche, IT, pharma, sanit\u00e0. Candidatura diretta \u2014 gratis!',
     canonicalPath: '/cerca-lavoro-ticino',
     structuredData: [
       {
         "@context": "https://schema.org",
         "@type": "CollectionPage",
-        "name": "Offerte di Lavoro Ticino per Frontalieri",
+        "name": "Offerte di Lavoro in Ticino",
         "url": `${BASE_URL}/cerca-lavoro-ticino`,
-        "description": "Bacheca lavoro con offerte aggiornate per frontalieri in Ticino. Posizioni in diversi settori: tecnologia, finanza, farmaceutica, sanità, industria.",
+        "description": "Bacheca lavoro con oltre 1500 offerte aggiornate per frontalieri in Ticino. Posizioni in diversi settori: tecnologia, finanza, farmaceutica, sanit\u00e0, industria.",
         "inLanguage": "it",
         "about": {
           "@type": "Thing",
-          "name": "Lavoro Frontalieri Ticino"
+          "name": "Offerte di Lavoro Ticino"
         },
         "provider": {
           "@type": "Organization",
-          "name": "Frontaliere Ticino"
+          "name": "Frontaliere Ticino",
+          "url": BASE_URL
+        },
+        "mainEntity": {
+          "@type": "ItemList",
+          "name": "Offerte di Lavoro in Canton Ticino",
+          "description": "Elenco aggiornato di offerte di lavoro in Canton Ticino per frontalieri italiani",
+          "numberOfItems": 1500,
+          "itemListOrder": "https://schema.org/ItemListOrderDescending",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Lavoro Lugano", "url": `${BASE_URL}/cerca-lavoro-ticino/ricerca-lugano/` },
+            { "@type": "ListItem", "position": 2, "name": "Lavoro Mendrisio", "url": `${BASE_URL}/cerca-lavoro-ticino/ricerca-mendrisio/` },
+            { "@type": "ListItem", "position": 3, "name": "Lavoro Bellinzona", "url": `${BASE_URL}/cerca-lavoro-ticino/ricerca-bellinzona/` },
+            { "@type": "ListItem", "position": 4, "name": "Lavoro Locarno", "url": `${BASE_URL}/cerca-lavoro-ticino/ricerca-locarno/` },
+            { "@type": "ListItem", "position": 5, "name": "Lavoro Chiasso", "url": `${BASE_URL}/cerca-lavoro-ticino/ricerca-chiasso/` }
+          ]
         }
       },
       {
         "@context": "https://schema.org",
         "@type": "WebSite",
-        "name": "Offerte di Lavoro Ticino — Frontaliere Ticino",
+        "name": "Offerte di Lavoro Ticino \u2014 Frontaliere Ticino",
         "url": `${BASE_URL}/cerca-lavoro-ticino`,
         "potentialAction": {
           "@type": "SearchAction",
