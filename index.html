@@ -129,10 +129,18 @@
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=optional">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=optional" media="print" onload="this.media='all'">
     <script>
+      // Enforce non-www canonical domain — redirect www visitors to apex domain
+      if (location.hostname === 'www.frontaliereticino.ch') {
+        location.replace('https://frontaliereticino.ch' + location.pathname + location.search + location.hash);
+      }
+    </script>
+    <script>
       // GitHub Pages SPA redirect handler + dark mode (merged for fewer parser-blocking scripts)
       (function() {
         var r = sessionStorage.redirect;
         delete sessionStorage.redirect;
+        // Strip www from saved redirect URL to enforce canonical domain
+        if (r) r = r.replace('://www.frontaliereticino.ch', '://frontaliereticino.ch');
         if (r && r !== location.href) history.replaceState(null, null, r);
         var p = new URLSearchParams(location.search), s = p.get('p');
         if (s) { var q = p.get('q'); history.replaceState(null, null, '/' + s.replace(/~and~/g, '&') + (q ? '?' + q.replace(/~and~/g, '&') : '') + location.hash); }
