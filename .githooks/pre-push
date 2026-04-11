@@ -82,6 +82,41 @@ if [ -f "$PENDING_RELEASES" ]; then
   fi
 fi
 
+# ── Conventional Commits validation (unpushed commits) ──
+REMOTE="$1"
+REMOTE_URL="$2"
+
+while read local_ref local_oid remote_ref remote_oid; do
+  if [ "$remote_oid" = "0000000000000000000000000000000000000000" ]; then
+    RANGE="$local_oid"
+  else
+    RANGE="$remote_oid..$local_oid"
+  fi
+
+  BAD_COMMITS=""
+  while IFS= read -r line; do
+    SHA=$(echo "$line" | cut -d' ' -f1)
+    MSG=$(echo "$line" | cut -d' ' -f2-)
+    # Skip merge commits
+    echo "$MSG" | grep -qE "^Merge " && continue
+    # Validate conventional commit format
+    if ! echo "$MSG" | grep -qE "^(feat|fix|docs|style|refactor|perf|test|build|ci|chore)(\(.+\))?: .+"; then
+      BAD_COMMITS="$BAD_COMMITS\n  $SHA $MSG"
+    fi
+  done <<EOF
+$(git log --oneline "$RANGE" 2>/dev/null)
+EOF
+
+  if [ -n "$BAD_COMMITS" ]; then
+    echo ""
+    echo "⚠️  Non-conventional commit messages found (not blocking, just a warning):"
+    printf "$BAD_COMMITS\n"
+    echo "   Format: <type>(<scope>): <subject>"
+    echo "   Types: feat, fix, docs, style, refactor, perf, test, build, ci, chore"
+    echo ""
+  fi
+done
+
 # ── Core deploy pipeline (assemble → build → all validations) ──
 echo ""
 echo "🚀 Running deploy pipeline locally (npm run prepush)..."
