@@ -5850,4 +5850,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/lavoro-frontalieri-ticino-scarse-incastri.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'visione-politica-fuga-giovani-ticino',
+    category: 'pratico',
+    date: '2026-04-11T19:27:59.339Z',
+    image: '/images/blog/visione-politica-fuga-giovani-ticino.jpg',
+    hasCalculator: true,
+  },
 ];

@@ -1950,6 +1950,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-verbano-livello-max-accordo-ticino-2026': { name: 'Verbano', path: '/articoli-frontaliere/verbano-livello-max-accordo-ticino-2026', parent: 'blog' },
     'blog-tassa-salute-frontalieri-lombardia-minacce-ticino': { name: 'Tassa salute frontalieri', path: '/articoli-frontaliere/tassa-salute-frontalieri-lombardia-minacce-ticino', parent: 'blog' },
     'blog-lavoro-frontalieri-ticino-scarse-incastri': { name: 'Frontalieri Ticino', path: '/articoli-frontaliere/lavoro-frontalieri-ticino-scarse-incastri', parent: 'blog' },
+    'blog-visione-politica-fuga-giovani-ticino': { name: 'Fuga dei giovani dal Ticino', path: '/articoli-frontaliere/visione-politica-fuga-giovani-ticino', parent: 'blog' },
   };
 
   const info = sectionNames[section];

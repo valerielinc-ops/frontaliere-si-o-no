@@ -2085,6 +2085,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lavoro-frontalieri-ticino-scarse-incastri.title': 'Grenzpendler Tessin: Es fehlt an Arbeit – aber an der richtigen',
     'blog.article.lavoro-frontalieri-ticino-scarse-incastri.excerpt': 'In der Lombardei fehlen Pflegekräfte, doch die Kurse der Universität Insubria sind nur halb voll. Und während Roboter dazulernen und Doktoranden im Ausland abgelehnt werden, fällt es dem Arbeitsmarkt schwer, Angebot und Nachfrage in Einklang zu bringen.',
     'blog.article.lavoro-frontalieri-ticino-scarse-incastri.imageAlt': 'Krankenschwestern auf einer Krankenhausstation im Tessin während einer Schicht',
+    'blog.article.visione-politica-fuga-giovani-ticino.title': 'Jugendflucht aus dem Tessin: Claudio Isabella fordert klare politische Vision',
+    'blog.article.visione-politica-fuga-giovani-ticino.excerpt': 'Der Mitte-Abgeordnete Claudio Isabella fordert den Tessiner Staatsrat auf, seine abwartende Haltung gegenüber dem Phänomen der Jugendflucht aus dem Kanton aufzugeben.',
+    'blog.article.visione-politica-fuga-giovani-ticino.imageAlt': 'Castelgrande in Bellinzona bei Sonnenuntergang mit jungen Berufstätigen als Silhouetten, Symbol für die Abwanderung der Jugend aus dem Tessin',
 };
 
 export default blogMetaDe;

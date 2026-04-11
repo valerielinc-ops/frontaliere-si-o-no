@@ -7024,6 +7024,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-visione-politica-fuga-giovani-ticino': {
+    title: 'Fuga dei giovani dal Ticino: Claudio | Frontaliere Ticino',
+    description: 'Il deputato del Centro Claudio Isabella chiede al Consiglio di Stato ticinese di abbandonare la posizione attendista sul fenomeno della fuga dei giovani dal Can',
+    keywords: 'frontalieri, ticino, svizzera, italia, fuga, giovani, claudio, isabella',
+    ogTitle: 'Fuga dei giovani dal Ticino: Claudio Isabella chiede una',
+    ogDescription: 'Il deputato del Centro Claudio Isabella chiede al Consiglio di Stato ticinese di abbandonare la posizione attendista sul fenomeno della fuga dei giovani dal Can',
+    canonicalPath: '/articoli-frontaliere/visione-politica-fuga-giovani-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Fuga dei giovani dal Ticino: Claudio Isabella chiede una",
+      "description": "Il deputato del Centro Claudio Isabella chiede al Consiglio di Stato ticinese di abbandonare la posizione attendista sul fenomeno della fuga dei giovani dal Can",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/visione-politica-fuga-giovani-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Castelgrande a Bellinzona al tramonto con giovani professionisti in silhouette, simboleggiante la fuga dei giovani dal Ticino"
+      },
+      "datePublished": "2026-04-11T19:27:59+00:00",
+      "dateModified": "2026-04-11T19:27:59+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/visione-politica-fuga-giovani-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

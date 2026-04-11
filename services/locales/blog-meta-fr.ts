@@ -2085,6 +2085,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lavoro-frontalieri-ticino-scarse-incastri.title': 'Frontaliers du Tessin : le travail manque, mais pas celui dont on a besoin',
     'blog.article.lavoro-frontalieri-ticino-scarse-incastri.excerpt': 'Les infirmiers manquent en Lombardie, mais les formations de l’Université de l’Insubrie restent à moitié vides. Et entre robots qui apprennent et doctorants rejetés à l’étranger, le marché du travail peine à faire correspondre l’offre et la demande.',
     'blog.article.lavoro-frontalieri-ticino-scarse-incastri.imageAlt': 'Infirmières dans un service hospitalier tessinois pendant un quart de travail',
+    'blog.article.visione-politica-fuga-giovani-ticino.title': 'Exode des jeunes du Tessin : Claudio Isabella demande une vision politique claire',
+    'blog.article.visione-politica-fuga-giovani-ticino.excerpt': 'Le député du Centre Claudio Isabella demande au Conseil d\'État tessinois d\'abandonner sa position attentiste face au phénomène d\'exode des jeunes du canton.',
+    'blog.article.visione-politica-fuga-giovani-ticino.imageAlt': 'Castelgrande à Bellinzone au coucher du soleil avec des jeunes professionnels en silhouette, symbolisant l\'exode des jeunes du Tessin',
 };
 
 export default blogMetaFr;

@@ -2085,6 +2085,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lavoro-frontalieri-ticino-scarse-incastri.title': 'Frontalieri Ticino: manca il lavoro, ma non quello che serve',
     'blog.article.lavoro-frontalieri-ticino-scarse-incastri.excerpt': 'Mancano infermieri in Lombardia, ma i corsi dell’Insubria restano semivuoti. E tra robot che imparano e dottorandi respinti all’estero, il mercato del lavoro fatica a incastrare domanda e offerta.',
     'blog.article.lavoro-frontalieri-ticino-scarse-incastri.imageAlt': 'Infermieri in un reparto ospedaliero ticinese durante un turno di lavoro',
+    'blog.article.visione-politica-fuga-giovani-ticino.title': 'Fuga dei giovani dal Ticino: Claudio Isabella chiede una visione politica chiara',
+    'blog.article.visione-politica-fuga-giovani-ticino.excerpt': 'Il deputato del Centro Claudio Isabella chiede al Consiglio di Stato ticinese di abbandonare la posizione attendista sul fenomeno della fuga dei giovani dal Cantone.',
+    'blog.article.visione-politica-fuga-giovani-ticino.imageAlt': 'Castelgrande a Bellinzona al tramonto con giovani professionisti in silhouette, simboleggiante la fuga dei giovani dal Ticino',
 };
 
 export default blogMetaIt;

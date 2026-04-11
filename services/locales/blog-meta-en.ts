@@ -2085,6 +2085,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lavoro-frontalieri-ticino-scarse-incastri.title': 'Cross-border workers from Ticino: jobs are scarce, but not the right ones',
     'blog.article.lavoro-frontalieri-ticino-scarse-incastri.excerpt': 'Lombardy is short of nurses, yet the Insubria University courses remain half-empty. And with robots learning on the job and PhD candidates rejected abroad, the labour market struggles to match supply and demand.',
     'blog.article.lavoro-frontalieri-ticino-scarse-incastri.imageAlt': 'Nurses in a Ticino hospital ward during a shift',
+    'blog.article.visione-politica-fuga-giovani-ticino.title': 'Youth exodus from Ticino: Claudio Isabella calls for clear political vision',
+    'blog.article.visione-politica-fuga-giovani-ticino.excerpt': 'Ticino Centre Party deputy Claudio Isabella is urging the cantonal government to abandon its wait-and-see stance on the phenomenon of young people leaving the canton.',
+    'blog.article.visione-politica-fuga-giovani-ticino.imageAlt': 'Castelgrande in Bellinzona at sunset with young professionals silhouetted, symbolizing the youth exodus from Ticino',
 };
 
 export default blogMetaEn;
