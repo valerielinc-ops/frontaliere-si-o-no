@@ -293,13 +293,65 @@ function parseJobsFromHtml(html = '') {
 }
 
 /**
+ * Fetch the JobUp.ch detail page and extract the description from
+ * JSON-LD JobPosting schema or HTML fallback.
+ */
+async function fetchJobUpDescription(jobUpUrl) {
+  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20_000;
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+
+  try {
+    const res = await fetch(jobUpUrl, {
+      signal: controller.signal,
+      headers: {
+        Accept: 'text/html,application/xhtml+xml',
+        'User-Agent': USER_AGENT,
+        'Accept-Language': 'fr-CH,fr;q=0.9',
+      },
+    });
+    clearTimeout(timer);
+    if (!res.ok) return null;
+    const html = await res.text();
+
+    // Try JSON-LD JobPosting first (most reliable).
+    // JobUp wraps JSON-LD in an array: [{...}]
+    const ldMatch = html.match(/<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi);
+    if (ldMatch) {
+      for (const block of ldMatch) {
+        const jsonStr = block.replace(/<\/?script[^>]*>/gi, '').trim();
+        try {
+          const raw = JSON.parse(jsonStr);
+          const items = Array.isArray(raw) ? raw : [raw];
+          for (const ld of items) {
+            if (ld['@type'] === 'JobPosting' && ld.description) {
+              return stripHtml(ld.description).trim();
+            }
+          }
+        } catch { /* not valid JSON-LD, skip */ }
+      }
+    }
+
+    // HTML fallback: C_PBODYHTML container
+    const bodyMatch = html.match(/<div[^>]*class="[^"]*C_PBODYHTML[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
+    if (bodyMatch) return stripHtml(bodyMatch[1]).trim();
+
+    return null;
+  } catch {
+    clearTimeout(timer);
+    return null;
+  }
+}
+
+/**
  * Fetch all Fondation Domus jobs.
  * Returns an array of ParsedJob objects (source-locale only).
  *
  * Flow:
  *   1. Fetch career page HTML
  *   2. Parse job listings from HTML structure
- *   3. Build ParsedJob objects for each listing
+ *   3. For each listing with a JobUp URL, fetch the detail description
+ *   4. Build ParsedJob objects
  */
 export async function fetchAllFondationDomusJobs() {
   console.log(`🔍 Fetching Fondation Domus jobs`);
@@ -330,14 +382,24 @@ export async function fetchAllFondationDomusJobs() {
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const jobSlug = slugify(`${title} fondation-domus ch`);
 
-    const descParts = [`${title} — Fondation Domus`];
-    if (city) descParts.push(`Lieu: ${city} (VS)`);
-    if (pct.formatted) descParts.push(`Taux d'activité: ${pct.formatted}`);
-    if (listing.contractType) descParts.push(`Contrat: ${listing.contractType}`);
-    const descriptionText = descParts.join('. ');
+    // Fetch rich description from JobUp detail page
+    let descriptionText = '';
+    if (listing.applyUrl && listing.applyUrl.includes('jobup.ch')) {
+      console.log(`  📄 Fetching detail from JobUp: ${listing.applyUrl.substring(0, 60)}...`);
+      descriptionText = await fetchJobUpDescription(listing.applyUrl) || '';
+      await new Promise((r) => setTimeout(r, 300));
+    }
+
+    // Fallback to metadata-based description if detail fetch failed
+    if (!descriptionText || descriptionText.length < 50) {
+      const descParts = [`${title} — Fondation Domus`];
+      if (city) descParts.push(`Lieu: ${city} (VS)`);
+      if (pct.formatted) descParts.push(`Taux d'activité: ${pct.formatted}`);
+      if (listing.contractType) descParts.push(`Contrat: ${listing.contractType}`);
+      descriptionText = descParts.join('. ');
+    }
 
     const sourceLang = 'fr';
-
     const empType = pct.max < 80 ? 'PART_TIME' : 'FULL_TIME';
 
     const job = {
@@ -378,7 +440,7 @@ export async function fetchAllFondationDomusJobs() {
     };
 
     jobs.push(job);
-    console.log(`  ✅ ${title.substring(0, 60)} — ${city}`);
+    console.log(`  ✅ ${title.substring(0, 60)} — ${city} (${descriptionText.length} chars)`);
   }
 
   console.log(`\n📋 Total Fondation Domus jobs discovered: ${jobs.length}`);
