@@ -524,7 +524,22 @@ async function main() {
 
     console.log('⛽ Fuel dataset generated: ' + payload.summary.municipalityCount + ' municipalities, ' + payload.summary.municipalitiesWithItalyPrices + ' with Italian prices, ' + payload.summary.municipalitiesWithSwissComparison + ' with IT/CH comparison.');
   } catch (error) {
-    console.error('⚠️ Fuel dataset refresh failed. ' + (error instanceof Error ? error.message : String(error)));
+    const msg = error instanceof Error ? error.message : String(error);
+    const cause = error instanceof Error ? error.cause : undefined;
+    const isTransientFetch =
+      msg.includes('fetch failed') ||
+      msg.includes('TIMEOUT') ||
+      msg.includes('ECONNREFUSED') ||
+      msg.includes('ENOTFOUND') ||
+      (cause && String(cause).includes('ConnectTimeoutError'));
+
+    if (isTransientFetch) {
+      console.warn('⚠️ Fuel dataset refresh skipped — external API unreachable: ' + msg);
+      console.warn('ℹ️ Existing data in Firestore remains valid. Exiting gracefully.');
+      process.exit(0);
+    }
+
+    console.error('⚠️ Fuel dataset refresh failed. ' + msg);
     throw error;
   }
 }

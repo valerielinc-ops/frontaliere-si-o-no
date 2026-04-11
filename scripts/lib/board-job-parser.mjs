@@ -88,6 +88,24 @@ function extractTextAfterIcon(container, selector) {
 
 export function parseBoardListings(html = '') {
   const document = new JSDOM(html).window.document;
+
+  // Primary: ApplyToJob ATS listing structure (li.list-group-item)
+  const atsItems = [...document.querySelectorAll('li.list-group-item')];
+  if (atsItems.length) {
+    return atsItems
+      .map((li) => {
+        const anchor = li.querySelector('h3.list-group-item-heading a');
+        if (!anchor) return null;
+        const title = normalizeSpace(anchor.textContent || '');
+        const href = String(anchor.getAttribute('href') || '').trim();
+        const locationLi = li.querySelector('ul.list-group-item-text li');
+        const location = normalizeSpace(locationLi?.textContent || '');
+        return { title, location, href };
+      })
+      .filter((row) => row && row.title && row.location && row.href);
+  }
+
+  // Fallback: board.com card layout (legacy)
   return [...document.querySelectorAll('article.card--career')]
     .map((article) => ({
       title: normalizeSpace(article.querySelector('.card-title')?.textContent || ''),
@@ -109,12 +127,15 @@ export function parseBoardJobDetail(html = '') {
   const document = new JSDOM(html).window.document;
   const jobPosting = readJsonLd(document);
   const header = document.querySelector('.job-header');
-  const descriptionNode = document.querySelector('#job-description');
+  const descriptionNode =
+    document.querySelector('#job-description') ||
+    document.querySelector('.job-description');
   const canonicalUrl = String(document.querySelector('link[rel="canonical"]')?.getAttribute('href') || '').trim();
 
   return {
     title:
       normalizeSpace(header?.querySelector('h2')?.textContent || '') ||
+      normalizeSpace(document.querySelector('h2')?.textContent || '') ||
       normalizeSpace(jobPosting?.title || ''),
     location:
       extractTextAfterIcon(header, '.job-attributes-container div[title="Location"]') ||

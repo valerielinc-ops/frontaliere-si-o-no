@@ -72,6 +72,12 @@ describe('ksgr-job-parser', () => {
         canton: 'GR',
         postedDate: '2026-03-06',
         employmentType: '80 - 100%',
+        description: '',
+        industry: '',
+        streetAddress: '',
+        postalCode: '',
+        region: 'Graubünden',
+        country: 'Schweiz',
       },
       {
         id: '9949521',
@@ -82,6 +88,12 @@ describe('ksgr-job-parser', () => {
         canton: 'GR',
         postedDate: '2026-03-05',
         employmentType: '',
+        description: '',
+        industry: '',
+        streetAddress: '',
+        postalCode: '',
+        region: 'Graubünden',
+        country: 'Schweiz',
       },
     ]);
   });

@@ -45,7 +45,7 @@ const COMPANY_KEY = 'board-international';
 const COMPANY_NAME = 'Board International';
 const COMPANY_HOST = 'www.board.com';
 const COMPANY_DOMAIN = 'board.com';
-const CAREERS_URL = 'https://www.board.com/open-positions?locations%5B%5D=56';
+const CAREERS_URL = 'https://boardinternationalsa.applytojob.com/apply';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
 function readJson(filePath, fallback) {
@@ -112,7 +112,7 @@ function isTargetJob(job = {}) {
 function isTrustedDomain(rawUrl = '') {
   try {
     const host = new URL(rawUrl).hostname.toLowerCase();
-    return host === 'www.board.com' || host === 'board.com' || host === 'boardinternationalsa.applytojob.com';
+    return host === 'www.board.com' || host === 'board.com' || host.endsWith('.applytojob.com');
   } catch {
     return false;
   }

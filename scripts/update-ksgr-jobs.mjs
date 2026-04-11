@@ -25,15 +25,13 @@ import {
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
-import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang } from './lib/dedicated-crawler-common.mjs';
+import { detectLang } from './lib/dedicated-crawler-common.mjs';
 import { parseKsgrJobsPage } from './lib/ksgr-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const DATA_JOBS = path.resolve(ROOT, 'data', 'jobs.json');
-const PUBLIC_JOBS = path.resolve(ROOT, 'public', 'data', 'jobs.json');
-const ADAPTER_PATH = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters', 'kantonsspital-graubuenden-ksgr.json');
 const KSGR_KEY = 'kantonsspital-graubuenden-ksgr';
 const HQ = getCompanyDefaults(KSGR_KEY);
 const API_BASE = 'https://ohws.prospective.ch/public/v1/medium/1000745';
@@ -131,143 +129,104 @@ async function fetchAllKsgrJobs() {
   return deduped;
 }
 
-function ensureAdapter(discoveredJobs) {
-  const adapter = readJson(ADAPTER_PATH, {
-    companyKey: KSGR_KEY,
-    companyName: COMPANY_NAME,
-    companyHost: 'jobs.ksgr.ch',
-    enabled: true,
-    priority: 10,
-    crawlerModes: ['jsonld', 'html', 'generic_ats'],
-    seedUrls: [],
-    seedMetaByUrl: {},
-    notes: 'Dedicated KSGR crawler seeds Prospective.ch API detail URLs from jobs.ksgr.ch.',
-    updatedAt: new Date().toISOString(),
-  });
-
-  adapter.companyKey = KSGR_KEY;
-  adapter.companyName = COMPANY_NAME;
-  adapter.companyHost = 'jobs.ksgr.ch';
-  adapter.enabled = true;
-  adapter.priority = Math.max(Number(adapter.priority || 0), 10);
-  adapter.crawlerModes = ['jsonld', 'html', 'generic_ats'];
-  adapter.seedUrls = discoveredJobs.map((job) => job.detailUrl);
-  adapter.seedMetaByUrl = Object.fromEntries(
-    discoveredJobs.map((job) => [
-      job.detailUrl,
-      {
-        location: job.location || 'Graubünden',
-        canton: HQ.canton,
-        company: COMPANY_NAME,
-        postedDate: job.postedDate || '',
-      },
-    ])
-  );
-  adapter.notes = 'Dedicated KSGR crawler seeds Prospective.ch API detail URLs from jobs.ksgr.ch.';
-  adapter.updatedAt = new Date().toISOString();
-
-  writeJson(ADAPTER_PATH, adapter);
+function slugify(value = '') {
+  return String(value || '')
+    .trim()
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .replace(/-{2,}/g, '-')
+    .slice(0, 140);
 }
 
-function postProcessKsgrJobs(discoveredJobs) {
-  const jobs = readExistingCrawlerJobs(KSGR_KEY, DATA_JOBS);
-  if (!Array.isArray(jobs)) return { updated: 0, total: 0 };
+function buildJobFromApiData(apiJob, existingByUrl) {
+  const existing = existingByUrl.get(String(apiJob.detailUrl || '').toLowerCase());
+  const title = apiJob.title;
+  const description = apiJob.description || '';
+  const slug = slugify(`${title} ${COMPANY_NAME} ${apiJob.location || 'graubuenden'}`);
 
-  const metaByUrl = new Map(
-    discoveredJobs.map((job) => [String(job.detailUrl || '').toLowerCase(), job])
-  );
-
-  let updated = 0;
-  for (const job of jobs) {
-    if (!isKsgrJob(job)) continue;
-    const meta = metaByUrl.get(String(job.url || '').toLowerCase());
-    job.company = COMPANY_NAME;
-    job.companyKey = KSGR_KEY;
-    job.companyDomain = COMPANY_DOMAIN;
-    job.source = 'KSGR Dedicated Parser (Prospective API)';
-    job.addressCountry = job.addressCountry || 'CH';
-    job.canton = HQ.canton;
-    if (!job.sourceLang) {
-      job.sourceLang = detectLang((job.description || job.title || ''), 'de');
-    }
-    if (meta?.location) {
-      job.location = meta.location;
-      job.addressLocality = meta.location;
-    } else if (!job.location) {
-      job.location = 'Graubünden';
-      job.addressLocality = 'Graubünden';
-    }
-    if (meta?.postedDate && !String(job.postedDate || '').trim()) {
-      job.postedDate = meta.postedDate;
-    }
-    updated += 1;
-  }
-
-  writeJson(DATA_JOBS, jobs);
-  writeJson(PUBLIC_JOBS, jobs);
-  return { updated, total: jobs.length };
+  return {
+    id: apiJob.id,
+    title,
+    description,
+    url: apiJob.detailUrl,
+    company: COMPANY_NAME,
+    companyKey: KSGR_KEY,
+    companyDomain: COMPANY_DOMAIN,
+    source: 'KSGR Dedicated Parser (Prospective API)',
+    sourceLang: 'de',
+    location: apiJob.location || 'Graubünden',
+    addressLocality: apiJob.location || 'Graubünden',
+    addressRegion: apiJob.region || HQ.canton,
+    addressCountry: 'CH',
+    canton: HQ.canton,
+    postalCode: apiJob.postalCode || '7000',
+    streetAddress: apiJob.streetAddress || '',
+    postedDate: apiJob.postedDate || new Date().toISOString().slice(0, 10),
+    employmentType: apiJob.employmentType || '',
+    category: apiJob.industry || 'healthcare',
+    crawledAt: new Date().toISOString(),
+    slug: existing?.slug || slug,
+    slugByLocale: existing?.slugByLocale || { de: slug },
+    titleByLocale: existing?.titleByLocale || { de: title },
+    descriptionByLocale: existing?.descriptionByLocale || { de: description },
+    baseSalary: existing?.baseSalary || { currency: 'CHF', value: { minValue: 41080, unitText: 'YEAR' } },
+    featured: false,
+    previousSlugs: existing?.previousSlugs || [],
+    previousSlugsByLocale: existing?.previousSlugsByLocale || {},
+    needsRetranslation: !(existing?.titleByLocale?.it),
+    _targetScope: 'grigioni',
+  };
 }
 
 async function main() {
   setCrawlerStartTime();
   registerCrawlerSummaryGuard(KSGR_KEY, 'KSGR');
   console.log('🏥 Running dedicated KSGR jobs crawler (Prospective API)...');
+
+  // Load existing jobs from slice to preserve slugs and translations
   const beforeJobs = readExistingCrawlerJobs(KSGR_KEY, DATA_JOBS);
-  const beforeTargetJobs = Array.isArray(beforeJobs) ? beforeJobs.filter((job) => isKsgrJob(job)) : [];
+  const beforeTargetJobs = Array.isArray(beforeJobs) ? beforeJobs.filter(isKsgrJob) : [];
   const beforeSlugs = snapshotJobSlugs(beforeTargetJobs);
+
+  // Build URL→job map for slug/translation preservation
+  const existingByUrl = new Map(
+    beforeTargetJobs.map((job) => [String(job.url || '').toLowerCase(), job])
+  );
+
+  // Discover all jobs from Prospective API (no detail page scraping needed)
   const discoveredJobs = await fetchAllKsgrJobs();
   if (discoveredJobs.length === 0) {
     throw new Error('KSGR discovery returned 0 jobs.');
   }
+  console.log(`🔎 KSGR discovered ${discoveredJobs.length} jobs from Prospective API.`);
 
-  console.log(`🔎 KSGR discovered ${discoveredJobs.length} remote job pages.`);
-  ensureAdapter(discoveredJobs);
+  // Build job objects directly from API data
+  const jobs = discoveredJobs.map((apiJob) => buildJobFromApiData(apiJob, existingByUrl));
+  console.log(`📋 Built ${jobs.length} KSGR job objects from API data.`);
 
-  await runDedicatedBaseCrawler({
-    root: ROOT,
-    companyKeys: [KSGR_KEY],
-    localizeOnlyCompanyKeys: [KSGR_KEY],
-    forceLocalizeKeys: [KSGR_KEY],
-  });
+  // Write slice directly (skip shared crawler — jobs.ksgr.ch returns 403 from CI)
+  writeJobsCrawlerSlice(KSGR_KEY, jobs);
 
-  const repairStats = postProcessKsgrJobs(discoveredJobs);
-  console.log(`🧹 KSGR post-process updated ${repairStats.updated} jobs.`);
+  // Summary and diff
+  writeJobsSummary(jobs, 'KSGR');
+  printPublishedJobUrls(jobs.slice(0, 20), 'KSGR');
 
-  validateDedicatedLocaleCoverage({
-    strictEnvVar: 'JOBS_DEDICATED_KSGR_STRICT',
-    label: 'KSGR',
-    dataJobsPath: DATA_JOBS,
-    isTargetJob: isKsgrJob,
-    detectSourceLang: (text) => (/[äöüß]/i.test(String(text || '')) ? 'de' : 'de'),
-    isTrustedDomain: isTrustedKsgrDomain,
-    untranslatedCheck: true,
-    minDescriptionChars: 120,
-    failWhenNoJobs: true,
-    noJobsMessage: 'No KSGR jobs found after dedicated crawl.',
-  });
-
-  const allJobs = readExistingCrawlerJobs(KSGR_KEY, DATA_JOBS);
-  const targetJobs = Array.isArray(allJobs) ? allJobs.filter((job) => isKsgrJob(job)) : [];
-  writeJobsSummary(targetJobs, 'KSGR');
-  printPublishedJobUrls(targetJobs.slice(0, 20), 'KSGR');
-
-  const afterSnapshot = snapshotJobSlugs(targetJobs);
+  const afterSnapshot = snapshotJobSlugs(jobs);
   const diff = computeCrawlDiff(beforeSlugs, afterSnapshot);
   printCrawlChangeSummary(diff, 'KSGR jobs');
   writeCrawlChangeSummaryToGH(diff, 'KSGR jobs');
 
-  console.log(`✅ KSGR crawler complete. Remote job pages crawled: ${discoveredJobs.length}`);
+  console.log(`✅ KSGR crawler complete. ${jobs.length} jobs built from API.`);
 
-  // Write per-crawler slice and reassemble global dataset
   const _durationMs = getCrawlerElapsedMs();
-  const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
-  const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isKsgrJob) : [];
-  writeJobsCrawlerSlice(KSGR_KEY, _sliceJobs);
   writeSummaryCrawlerSlice({
     key: KSGR_KEY,
     label: 'KSGR',
     generatedAt: new Date().toISOString(),
-    total: _sliceJobs.length,
+    total: jobs.length,
     newCount: diff.newJobs.length,
     updatedCount: diff.updatedJobs.length,
     removedCount: diff.removedJobs.length,

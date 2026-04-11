@@ -51,19 +51,66 @@ function pickPensum(job = {}) {
   return '';
 }
 
+function stripHtml(html = '') {
+  return String(html || '')
+    .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<\/li>/gi, '\n')
+    .replace(/<li[^>]*>/gi, '- ')
+    .replace(/<\/p>/gi, '\n\n')
+    .replace(/<[^>]+>/g, '')
+    .replace(/&amp;/g, '&')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+}
+
+function buildDescription(job = {}) {
+  const szas = job?.szas || {};
+  const parts = [];
+  const intro = normalizeSpace(szas.sza_introduction || '');
+  if (intro) parts.push(intro);
+  const tasks = stripHtml(szas.sza_tasks || '');
+  if (tasks) parts.push('Aufgaben:\n' + tasks);
+  const reqs = stripHtml(szas.sza_requirements || '');
+  if (reqs) parts.push('Anforderungen:\n' + reqs);
+  const profile = stripHtml(szas.sza_company_profil || '');
+  if (profile) parts.push(profile);
+  return parts.join('\n\n');
+}
+
+function parseWorkplace(raw = '') {
+  const lines = String(raw || '').split('\n').map((l) => l.trim()).filter(Boolean);
+  const postalLine = lines.find((l) => /CH-\d{4}/.test(l));
+  const postalMatch = postalLine?.match(/CH-(\d{4})\s+(.*)/);
+  return {
+    streetAddress: lines.find((l) => /strasse|weg|gasse|platz/i.test(l)) || '',
+    postalCode: postalMatch ? postalMatch[1] : '',
+    city: postalMatch ? postalMatch[2] : '',
+  };
+}
+
 export function parseKsgrApiJob(job = {}) {
   const detailUrl = normalizeSpace(job?.links?.directlink || '');
   if (!detailUrl) return null;
 
+  const szas = job?.szas || {};
+  const workplace = parseWorkplace(szas.sza_workplace || '');
+
   return {
     id: normalizeSpace(job?.id || job?.viewkey || ''),
-    title: decodeHtml(normalizeSpace(job?.szas?.sza_title || job?.title || '')),
+    title: decodeHtml(normalizeSpace(szas.sza_title || job?.title || '')),
     detailUrl,
-    applyUrl: normalizeSpace(job?.szas?.sza_apply_link || ''),
+    applyUrl: normalizeSpace(szas.sza_apply_link || ''),
     location: pickLocation(job),
     canton: HQ.canton,
     postedDate: normalizeDate(job?.start_date || job?.last_modification_timestamp || ''),
     employmentType: pickPensum(job),
+    description: buildDescription(job),
+    industry: normalizeSpace(szas.sza_industry || ''),
+    streetAddress: workplace.streetAddress,
+    postalCode: workplace.postalCode,
+    region: normalizeSpace(szas['sza_location.region'] || ''),
+    country: normalizeSpace(szas['sza_location.country'] || 'Schweiz'),
   };
 }
 

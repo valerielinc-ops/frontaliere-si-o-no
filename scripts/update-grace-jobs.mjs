@@ -681,6 +681,12 @@ async function main() {
 }
 
 main().catch((err) => {
+  const msg = err instanceof Error ? err.message : String(err);
+  if (msg.includes('challenge did not resolve') || msg.includes('still blocked')) {
+    console.warn(`⚠️ Hotelcareer.com anti-bot challenge blocked crawl: ${msg}`);
+    console.warn('ℹ️ Existing job data in slice preserved. Will retry next run.');
+    process.exit(0);
+  }
   console.error('❌ Fatal crawler error:', err);
   process.exit(1);
 });
