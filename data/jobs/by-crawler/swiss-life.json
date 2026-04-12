@@ -1,6 +1,6 @@
 {
   "crawlerKey": "swiss-life",
-  "assembledAt": "2026-04-11T22:00:28.220Z",
+  "assembledAt": "2026-04-12T10:12:21.378Z",
   "jobs": [
     {
       "id": "swiss-life-d704bb7df9ab",
@@ -33,7 +33,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Visp/Immobilienberater--w-m-d----Generalagentur-Visp-Oberwallis_R11690",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-11T22:00:26.110Z",
+      "crawledAt": "2026-04-12T10:12:19.105Z",
       "addressLocality": "Visp",
       "addressCountry": "CH",
       "country": "CH",
@@ -81,18 +81,19 @@
       },
       "jobReqId": "R11690",
       "hiringOrganization": "Swiss Life GA Visp-Oberwallis",
-      "previousSlugsByLocale": {
-        "en": [
-          "real-estate-consultant-f-m-d-general-agency-visp-oberwallis-swiss-life-visp"
-        ],
-        "it": [
-          "immobilienberater-w-m-d-generalagentur-visp-oberwallis-swiss-life-ch"
-        ]
-      },
       "previousSlugs": [
         "immobilienberater-w-m-d-generalagentur-visp-oberwallis-swiss-life-ch",
         "real-estate-consultant-f-m-d-general-agency-visp-oberwallis-swiss-life-visp"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "immobilienberater-w-m-d-generalagentur-visp-oberwallis-swiss-life-ch"
+        ],
+        "en": [
+          "real-estate-consultant-f-m-d-general-agency-visp-oberwallis-swiss-life-visp"
+        ]
+      },
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -138,7 +139,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Visp/Vorsorge--und-Finanzberatende--w-m-d----im-Rahmen-einer-Nachfolgeregelung---Generalagentur-Visp-Oberwallis_R09488",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T22:00:25.532Z",
+      "crawledAt": "2026-04-12T10:12:18.526Z",
       "addressLocality": "Visp",
       "addressCountry": "CH",
       "country": "CH",
@@ -194,6 +195,7 @@
           "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-visp-o"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -239,7 +241,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Visp/Vorsorge--und-Finanzberatende--w-m-d----Quereinsteigende-willkommen--Generalagentur-Visp-Oberwallis_R08506-1",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-11T22:00:24.900Z",
+      "crawledAt": "2026-04-12T10:12:17.958Z",
       "addressLocality": "Visp",
       "addressCountry": "CH",
       "country": "CH",
@@ -308,6 +310,7 @@
         "consulente-previdenziale-e-finanziario-f-m-d-benvenuti-i-profili-trasversali-agenzia-generale-visp-oberwallis-swiss-life",
         "conseiller-en-prevoyance-et-finance-h-f-d-profils-en-reconversion-bienvenus-agence-generale-visp-oberwallis-swiss-life-v"
       ],
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -353,7 +356,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Sion/Conseiller-en-immobilier--f-h-d-----Agence-gnrale-Sion-Valais-romand--Rgion-Sion---Sierre-_R11696",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-11T22:00:24.158Z",
+      "crawledAt": "2026-04-12T10:12:17.357Z",
       "addressLocality": "Sion",
       "addressCountry": "CH",
       "country": "CH",
@@ -401,20 +404,21 @@
       },
       "jobReqId": "R11696",
       "hiringOrganization": "Swiss Life AG Sion-Valais romand",
-      "previousSlugsByLocale": {
-        "en": [
-          "real-estate-advisor-f-h-d-sion-valais-french-general-agency-swiss-life-sion",
-          "real-estate-advisor-f-m-d-agence-generale-sion-valais-romand-swiss-life-sion"
-        ],
-        "it": [
-          "conseiller-en-immobilier-f-h-d-agence-generale-sion-valais-romand-swiss-life-ch"
-        ]
-      },
       "previousSlugs": [
         "conseiller-en-immobilier-f-h-d-agence-generale-sion-valais-romand-swiss-life-ch",
         "real-estate-advisor-f-h-d-sion-valais-french-general-agency-swiss-life-sion",
         "real-estate-advisor-f-m-d-agence-generale-sion-valais-romand-swiss-life-sion"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-en-immobilier-f-h-d-agence-generale-sion-valais-romand-swiss-life-ch"
+        ],
+        "en": [
+          "real-estate-advisor-f-h-d-sion-valais-french-general-agency-swiss-life-sion",
+          "real-estate-advisor-f-m-d-agence-generale-sion-valais-romand-swiss-life-sion"
+        ]
+      },
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -460,7 +464,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Sion/Conseiller-conseillre-en-prvoyance-et-en-finance--f-h-d--dans-le-cadre-du-rglement-de-la-succession---Agence-gnrale-Sion-Valais-romand---rgion-Val-de-Bagnes_R09487",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-11T22:00:23.539Z",
+      "crawledAt": "2026-04-12T10:12:16.698Z",
       "addressLocality": "Sion",
       "addressCountry": "CH",
       "country": "CH",
@@ -505,26 +509,27 @@
       },
       "jobReqId": "R09487",
       "hiringOrganization": "Swiss Life AG Sion-Valais romand",
+      "previousSlugs": [
+        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-dans-le-cadre-d-un-depart-a-la-re",
+        "consulente-previdenziale-e-finanziario-f-m-d-per-pensionamento-agenzia-generale-sion-vallese-romando-regione-val-de-bagn",
+        "provident-and-financial-advisor-f-h-d-for-retirement-general-agency-sion-valais-romand-val-de-bagnes-region-swiss-life-s",
+        "pension-and-financial-advisor-f-m-d-as-part-of-a-retirement-agence-generale-sion-valais-romand-val-de-bagnes-region-swis",
+        "vorsorge-und-finanzberater-w-m-d-im-rahmen-einer-pensionierung-generalagentur-sitten-wallis-region-val-de-bagnes-swiss-l"
+      ],
       "previousSlugsByLocale": {
-        "en": [
-          "provident-and-financial-advisor-f-h-d-for-retirement-general-agency-sion-valais-romand-val-de-bagnes-region-swiss-life-s",
-          "pension-and-financial-advisor-f-m-d-as-part-of-a-retirement-agence-generale-sion-valais-romand-val-de-bagnes-region-swis"
-        ],
         "it": [
           "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-dans-le-cadre-d-un-depart-a-la-re",
           "consulente-previdenziale-e-finanziario-f-m-d-per-pensionamento-agenzia-generale-sion-vallese-romando-regione-val-de-bagn"
+        ],
+        "en": [
+          "provident-and-financial-advisor-f-h-d-for-retirement-general-agency-sion-valais-romand-val-de-bagnes-region-swiss-life-s",
+          "pension-and-financial-advisor-f-m-d-as-part-of-a-retirement-agence-generale-sion-valais-romand-val-de-bagnes-region-swis"
         ],
         "de": [
           "vorsorge-und-finanzberater-w-m-d-im-rahmen-einer-pensionierung-generalagentur-sitten-wallis-region-val-de-bagnes-swiss-l"
         ]
       },
-      "previousSlugs": [
-        "provident-and-financial-advisor-f-h-d-for-retirement-general-agency-sion-valais-romand-val-de-bagnes-region-swiss-life-s",
-        "pension-and-financial-advisor-f-m-d-as-part-of-a-retirement-agence-generale-sion-valais-romand-val-de-bagnes-region-swis",
-        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-dans-le-cadre-d-un-depart-a-la-re",
-        "consulente-previdenziale-e-finanziario-f-m-d-per-pensionamento-agenzia-generale-sion-vallese-romando-regione-val-de-bagn",
-        "vorsorge-und-finanzberater-w-m-d-im-rahmen-einer-pensionierung-generalagentur-sitten-wallis-region-val-de-bagnes-swiss-l"
-      ],
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -570,7 +575,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Sion/Conseiller-conseillre-en-prvoyance-et-en-finance--f-h-d--dans-le-cadre-du-rglement-de-la-succession---Agence-gnrale-Sion-Valais-romand---rgion-Val-d-Anniviers_R09486",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-11T22:00:22.771Z",
+      "crawledAt": "2026-04-12T10:12:16.095Z",
       "addressLocality": "Sion",
       "addressCountry": "CH",
       "country": "CH",
@@ -629,6 +634,7 @@
           "vor-und-finanzberater-f-h-d-fur-den-ruhestand-allgemeine-agentur-sion-valais-romand-region-val-d-anniviers-swiss-life-si"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -674,7 +680,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Sion/Conseiller-conseillre-en-prvoyance-et-en-finance--f-h-d--avec-exprience-professionnelle---Agence-gnrale-Sion-Valais-romand_R09485",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-11T22:00:22.099Z",
+      "crawledAt": "2026-04-12T10:12:15.466Z",
       "addressLocality": "Sion",
       "addressCountry": "CH",
       "country": "CH",
@@ -722,26 +728,27 @@
       },
       "jobReqId": "R09485",
       "hiringOrganization": "Swiss Life AG Sion-Valais romand",
+      "previousSlugs": [
+        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle-a",
+        "consulente-previdenziale-e-finanziario-f-m-d-con-esperienza-professionale-agenzia-generale-sion-vallese-romando-swiss-li",
+        "provident-and-finance-advisor-f-h-d-with-professional-experience-sion-valais-romand-general-agency-swiss-life-sion",
+        "pension-and-financial-advisor-f-h-d-with-professional-experience-agence-generale-sion-valais-romand-swiss-life-sion",
+        "vorsorge-und-finanzberater-w-m-d-mit-berufserfahrung-generalagentur-sitten-wallis-swiss-life-sion"
+      ],
       "previousSlugsByLocale": {
-        "en": [
-          "provident-and-finance-advisor-f-h-d-with-professional-experience-sion-valais-romand-general-agency-swiss-life-sion",
-          "pension-and-financial-advisor-f-h-d-with-professional-experience-agence-generale-sion-valais-romand-swiss-life-sion"
-        ],
         "it": [
           "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle-a",
           "consulente-previdenziale-e-finanziario-f-m-d-con-esperienza-professionale-agenzia-generale-sion-vallese-romando-swiss-li"
+        ],
+        "en": [
+          "provident-and-finance-advisor-f-h-d-with-professional-experience-sion-valais-romand-general-agency-swiss-life-sion",
+          "pension-and-financial-advisor-f-h-d-with-professional-experience-agence-generale-sion-valais-romand-swiss-life-sion"
         ],
         "de": [
           "vorsorge-und-finanzberater-w-m-d-mit-berufserfahrung-generalagentur-sitten-wallis-swiss-life-sion"
         ]
       },
-      "previousSlugs": [
-        "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-experience-professionnelle-a",
-        "provident-and-finance-advisor-f-h-d-with-professional-experience-sion-valais-romand-general-agency-swiss-life-sion",
-        "pension-and-financial-advisor-f-h-d-with-professional-experience-agence-generale-sion-valais-romand-swiss-life-sion",
-        "consulente-previdenziale-e-finanziario-f-m-d-con-esperienza-professionale-agenzia-generale-sion-vallese-romando-swiss-li",
-        "vorsorge-und-finanzberater-w-m-d-mit-berufserfahrung-generalagentur-sitten-wallis-swiss-life-sion"
-      ],
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -787,7 +794,7 @@
       "url": "https://swisslife.wd3.myworkdayjobs.com/en-US/Swiss_Life_Career_Site/job/Lausanne/Conseiller-conseillre-en-prvoyance-et-en-finance--f-h-d----Romandie_R08713",
       "source": "Swiss Life Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-11T22:00:21.481Z",
+      "crawledAt": "2026-04-12T10:12:14.875Z",
       "addressLocality": "Sion",
       "addressCountry": "CH",
       "country": "CH",
@@ -834,20 +841,21 @@
       },
       "jobReqId": "R08713",
       "hiringOrganization": "Swiss Life AG",
-      "previousSlugsByLocale": {
-        "en": [
-          "provident-and-finance-advisor-e-h-d-romandie-swiss-life-sion",
-          "welfare-and-finance-advisor-f-h-d-romandie-swiss-life-sion"
-        ],
-        "it": [
-          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-romandie-swiss-life-ch"
-        ]
-      },
       "previousSlugs": [
         "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-romandie-swiss-life-ch",
         "provident-and-finance-advisor-e-h-d-romandie-swiss-life-sion",
         "welfare-and-finance-advisor-f-h-d-romandie-swiss-life-sion"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-romandie-swiss-life-ch"
+        ],
+        "en": [
+          "provident-and-finance-advisor-e-h-d-romandie-swiss-life-sion",
+          "welfare-and-finance-advisor-f-h-d-romandie-swiss-life-sion"
+        ]
+      },
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
