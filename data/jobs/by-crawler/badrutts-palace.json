@@ -1,6 +1,6 @@
 {
   "crawlerKey": "badrutts-palace",
-  "assembledAt": "2026-04-11T20:47:14.379Z",
+  "assembledAt": "2026-04-12T08:52:32.211Z",
   "jobs": [
     {
       "id": "badrutts-palace-6040a72347b5",
@@ -33,7 +33,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/3724328-beauty-therapist-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-11T20:47:12.419Z",
+      "crawledAt": "2026-04-12T08:52:29.965Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -90,6 +90,111 @@
       "previousSlugs": [
         "beauty-therapist-m-w-d-badrutts-palace-ch"
       ],
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "badrutts-palace-35d05ee7f4e5",
+      "slug": "pasticciere-m-w-d-badrutt-s-palace-hotel-st-moritz",
+      "slugByLocale": {
+        "it": "pasticciere-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "en": "pastry-chef-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "de": "patissier-m-w-d-badrutts-palace-ch",
+        "fr": "patissier-m-w-d-badrutt-s-palace-hotel-st-moritz"
+      },
+      "company": "Badrutt's Palace Hotel",
+      "companyKey": "badrutts-palace",
+      "companyDomain": "badruttscareers.com",
+      "title": "Pâtissier (m/w/d)",
+      "titleByLocale": {
+        "it": "Pasticciere (m/w/d)",
+        "en": "Pastry Chef (m/w/d)",
+        "de": "Pâtissier (m/w/d)",
+        "fr": "Pâtissier (m/w/d)"
+      },
+      "description": "<p><strong>Was Sie bei uns bewirken</strong></p><p>Als Pâtissier sind Sie ein wichtiger Bestandteil unseres Küchenteams und unterstützen aktiv die Pâtisserie bei der Herstellung hochwertiger Desserts und Backwaren. Ihre Hauptaufgaben umfassen:</p><ul><li><p>Aktive Mitarbeit bei der Herstellung, Präsentation und Dekoration von Desserts, Torten, Gebäck und anderen Pâtisserie-Spezialitäten.</p></li><li><p>Unterstützung des Chef Pâtissiers und des Teams bei der täglichen Produktion sowie bei der Vorbereitung für den Service.</p></li><li><p>Sorgfältiger Umgang mit hochwertigen Zutaten sowie Einhaltung der vorgegebenen Rezepturen und Qualitätsstandards.</p></li><li><p>Sicherstellung der Einhaltung von Qualitäts-, Hygiene- und Sicherheitsstandards gemäss HACCP-Richtlinien.</p></li><li><p>Unterstützung bei der Lagerung, Kontrolle und Vorbereitung von Zutaten für die tägliche Produktion.</p></li></ul><p><strong><br>Ihr Profil</strong></p><p>Für diese spannende Rolle suchen wir nach einer engagierten Person, die folgende Qualifikationen mitbringt:</p><ul><li><p>Abgeschlossene Ausbildung als Konditor/in, Bäcker/in oder Pâtissier/in.</p></li><li><p>Mindestens 2 Jahre Berufserfahrung in der gehobenen Hotellerie oder Gastronomie.</p></li><li><p>Leidenschaft und Kreativität im Bereich der Pâtisserie und Dessertproduktion.</p></li><li><p>Ausgeprägte organisatorische Fähigkeiten und Aufmerksamkeit fürs Detail.</p></li><li><p>Gute Deutsch- und Englischkenntnisse; zusätzliche Sprachkenntnisse sind von Vorteil.</p></li></ul><p><strong><br>Unser Angebot</strong></p><ul><li><p>Befristeter Arbeitsvertrag von Ende Mai 2026 bis Anfang September 2026</p></li><li><p>5-Tage Woche im Schnitt bei 43.5 Stunden.</p></li><li><p>5 Wochen Ferien und 6 Feiertage pro Jahr.</p></li><li><p>13. Gehalt ab Eintritt (pro rata temporis).</p></li><li><p>Auf Wunsch Unterkunft in einem unserer attraktiven Mitarbeiterhäuser.</p></li><li><p>Verpflegung in unserem modernen Mitarbeiterrestaurant.</p></li><li><p>Arbeit in einem ansprechenden Umfeld mit vielfältigen Entwicklungsmöglichkeiten.</p></li></ul><p>Wenn Sie eine anspruchsvolle und vielseitige Tätigkeit in einem kreativen Umfeld schätzen und gerne Verantwortung übernehmen, dann freuen wir uns auf Ihre vollständige Online Bewerbung.</p><p></p><p><strong><em>Warnhinweis vor Recruiting-Betrug</em></strong></p><p><em>Das Badrutt’s Palace Hotel wird im Rahmen des Rekrutierungsprozesses niemals Zahlungen oder finanzielle Informationen verlangen. Die gesamte offizielle Kommunikation erfolgt ausschliesslich über E-Mail-Adressen mit der Endung </em><strong><em>@</em></strong><a target=\"_blank\" href=\"http://badruttspalace.com\"><strong><em>badruttspalace.com</em></strong></a><em>.</em><br><em>Sollten Sie eine Zahlungsaufforderung oder eine verdächtige Nachricht erhalten, ignorieren Sie diese bitte und kontaktieren Sie uns direkt über unsere offizielle Website.</em></p>",
+      "descriptionByLocale": {
+        "it": "Cosa realizzerai con noi Come pasticciere, sarai una parte importante del nostro team di cucina e supporterai attivamente la pasticceria nella preparazione di dessert e prodotti da forno di alta qualità. Le tue principali responsabilità includono: - Collaborazione attiva nella preparazione, presentazione e decorazione di dessert, torte, pasticcini e altre specialità di pasticceria. - Supporto al Chef Pasticciere e al team nella produzione giornaliera e nella preparazione per il servizio. - Gestione accurata degli ingredienti di alta qualità e rispetto delle ricette e degli standard di qualità stabiliti. - Garanzia del rispetto degli standard di qualità, igiene e sicurezza secondo le linee guida HACCP. - Supporto nella conservazione, controllo e preparazione degli ingredienti per la produzione giornaliera. ## Il tuo profilo Per questo ruolo entusiasmante cerchiamo una persona impegnata che possieda le seguenti qualifiche: - Formazione completata come pasticciere, panettiere o pasticcere. - Almeno 2 anni di esperienza professionale nell'alta hotellerie o gastronomia. - Passione e creatività nel campo della pasticceria e produzione di dessert. - Spiccate capacità organizzative e attenzione ai dettagli. - Buona conoscenza del tedesco e dell'inglese; ulteriori conoscenze linguistiche sono un vantaggio. ## La nostra offerta - Contratto a tempo determinato da fine maggio 2026 a inizio settembre 2026. - Settimana lavorativa di 5 giorni con una media di 43,5 ore. - 5 settimane di ferie e 6 giorni festivi all'anno. - 13ª mensilità dal momento dell'ingresso (pro rata temporis). - Alloggio disponibile su richiesta in una delle nostre attraenti case per dipendenti. - Pasti nel nostro moderno ristorante per dipendenti. - Lavoro in un ambiente stimolante con molteplici opportunità di sviluppo. Se apprezzi un'attività impegnativa e variegata in un ambiente creativo e ti piace assumerti responsabilità, attendiamo con piacere la tua candidatura online completa. ## Avviso contro le frodi di reclutamento Il Badrutt’s Palace Hotel non richiederà mai pagamenti o informazioni finanziarie durante il processo di reclutamento. Tutta la comunicazione ufficiale avviene esclusivamente tramite indirizzi e-mail con il dominio @badruttspalace.com. Se ricevi una richiesta di pagamento o un messaggio sospetto, ignoralo e contattaci direttamente tramite il nostro sito web ufficiale.",
+        "en": "What you will achieve with us As a pastry chef, you will be an essential part of our kitchen team and actively support the patisserie in creating high-quality desserts and baked goods. Your main responsibilities include: - Active participation in the preparation, presentation, and decoration of desserts, cakes, pastries, and other patisserie specialties. - Supporting the Head Pastry Chef and the team in daily production and service preparation. - Careful handling of high-quality ingredients and adherence to prescribed recipes and quality standards. - Ensuring compliance with quality, hygiene, and safety standards according to HACCP guidelines. - Assisting in the storage, inspection, and preparation of ingredients for daily production. ## Your profile For this exciting role, we are looking for a committed individual with the following qualifications: - Completed training as a pastry chef, baker, or confectioner. - At least 2 years of professional experience in upscale hospitality or gastronomy. - Passion and creativity in the field of patisserie and dessert production. - Strong organizational skills and attention to detail. - Good knowledge of German and English; additional language skills are an advantage. ## Our offer - Fixed-term employment contract from the end of May 2026 to the beginning of September 2026. - 5-day workweek averaging 43.5 hours. - 5 weeks of vacation and 6 public holidays per year. - 13th-month salary upon entry (pro rata temporis). - Accommodation available upon request in one of our attractive staff houses. - Meals provided in our modern staff restaurant. - Work in an appealing environment with diverse development opportunities. If you value a challenging and varied role in a creative environment and enjoy taking on responsibility, we look forward to receiving your complete online application. ## Recruitment Fraud Warning Badrutt’s Palace Hotel will never request payments or financial information during the recruitment process. All official communication will only occur via email addresses ending in @badruttspalace.com. If you receive a payment request or suspicious message, please ignore it and contact us directly through our official website.",
+        "de": "<p><strong>Was Sie bei uns bewirken</strong></p><p>Als Pâtissier sind Sie ein wichtiger Bestandteil unseres Küchenteams und unterstützen aktiv die Pâtisserie bei der Herstellung hochwertiger Desserts und Backwaren. Ihre Hauptaufgaben umfassen:</p><ul><li><p>Aktive Mitarbeit bei der Herstellung, Präsentation und Dekoration von Desserts, Torten, Gebäck und anderen Pâtisserie-Spezialitäten.</p></li><li><p>Unterstützung des Chef Pâtissiers und des Teams bei der täglichen Produktion sowie bei der Vorbereitung für den Service.</p></li><li><p>Sorgfältiger Umgang mit hochwertigen Zutaten sowie Einhaltung der vorgegebenen Rezepturen und Qualitätsstandards.</p></li><li><p>Sicherstellung der Einhaltung von Qualitäts-, Hygiene- und Sicherheitsstandards gemäss HACCP-Richtlinien.</p></li><li><p>Unterstützung bei der Lagerung, Kontrolle und Vorbereitung von Zutaten für die tägliche Produktion.</p></li></ul><p><strong><br>Ihr Profil</strong></p><p>Für diese spannende Rolle suchen wir nach einer engagierten Person, die folgende Qualifikationen mitbringt:</p><ul><li><p>Abgeschlossene Ausbildung als Konditor/in, Bäcker/in oder Pâtissier/in.</p></li><li><p>Mindestens 2 Jahre Berufserfahrung in der gehobenen Hotellerie oder Gastronomie.</p></li><li><p>Leidenschaft und Kreativität im Bereich der Pâtisserie und Dessertproduktion.</p></li><li><p>Ausgeprägte organisatorische Fähigkeiten und Aufmerksamkeit fürs Detail.</p></li><li><p>Gute Deutsch- und Englischkenntnisse; zusätzliche Sprachkenntnisse sind von Vorteil.</p></li></ul><p><strong><br>Unser Angebot</strong></p><ul><li><p>Befristeter Arbeitsvertrag von Ende Mai 2026 bis Anfang September 2026</p></li><li><p>5-Tage Woche im Schnitt bei 43.5 Stunden.</p></li><li><p>5 Wochen Ferien und 6 Feiertage pro Jahr.</p></li><li><p>13. Gehalt ab Eintritt (pro rata temporis).</p></li><li><p>Auf Wunsch Unterkunft in einem unserer attraktiven Mitarbeiterhäuser.</p></li><li><p>Verpflegung in unserem modernen Mitarbeiterrestaurant.</p></li><li><p>Arbeit in einem ansprechenden Umfeld mit vielfältigen Entwicklungsmöglichkeiten.</p></li></ul><p>Wenn Sie eine anspruchsvolle und vielseitige Tätigkeit in einem kreativen Umfeld schätzen und gerne Verantwortung übernehmen, dann freuen wir uns auf Ihre vollständige Online Bewerbung.</p><p></p><p><strong><em>Warnhinweis vor Recruiting-Betrug</em></strong></p><p><em>Das Badrutt’s Palace Hotel wird im Rahmen des Rekrutierungsprozesses niemals Zahlungen oder finanzielle Informationen verlangen. Die gesamte offizielle Kommunikation erfolgt ausschliesslich über E-Mail-Adressen mit der Endung </em><strong><em>@</em></strong><a target=\"_blank\" href=\"http://badruttspalace.com\"><strong><em>badruttspalace.com</em></strong></a><em>.</em><br><em>Sollten Sie eine Zahlungsaufforderung oder eine verdächtige Nachricht erhalten, ignorieren Sie diese bitte und kontaktieren Sie uns direkt über unsere offizielle Website.</em></p>",
+        "fr": "Ce que vous accomplirez avec nous En tant que pâtissier, vous serez un élément essentiel de notre équipe de cuisine et soutiendrez activement la pâtisserie dans la préparation de desserts et de produits de boulangerie de haute qualité. Vos principales responsabilités incluent : - Participation active à la préparation, présentation et décoration de desserts, gâteaux, pâtisseries et autres spécialités de pâtisserie. - Soutien au Chef Pâtissier et à l'équipe dans la production quotidienne ainsi que dans la préparation du service. - Manipulation soigneuse des ingrédients de haute qualité et respect des recettes et des normes de qualité établies. - Garantie du respect des normes de qualité, d'hygiène et de sécurité conformément aux directives HACCP. - Assistance au stockage, au contrôle et à la préparation des ingrédients pour la production quotidienne. ## Votre profil Pour ce rôle passionnant, nous recherchons une personne engagée possédant les qualifications suivantes : - Formation achevée en tant que pâtissier, boulanger ou confiseur. - Au moins 2 ans d'expérience professionnelle dans l'hôtellerie ou la gastronomie haut de gamme. - Passion et créativité dans le domaine de la pâtisserie et de la production de desserts. - Compétences organisationnelles développées et attention aux détails. - Bonne maîtrise de l'allemand et de l'anglais ; des connaissances linguistiques supplémentaires sont un atout. ## Notre offre - Contrat de travail à durée déterminée de fin mai 2026 à début septembre 2026. - Semaine de travail de 5 jours avec une moyenne de 43,5 heures. - 5 semaines de congés et 6 jours fériés par an. - 13ème salaire dès l'entrée (pro rata temporis). - Hébergement disponible sur demande dans l'une de nos résidences attractives pour le personnel. - Repas fournis dans notre restaurant moderne pour le personnel. - Travail dans un environnement agréable avec de nombreuses opportunités de développement. Si vous appréciez un poste exigeant et varié dans un environnement créatif et que vous aimez prendre des responsabilités, nous nous réjouissons de recevoir votre candidature en ligne complète. ## Avertissement contre les fraudes au recrutement Le Badrutt’s Palace Hotel ne demandera jamais de paiements ou d'informations financières dans le cadre du processus de recrutement. Toute communication officielle se fait exclusivement via des adresses e-mail se terminant par @badruttspalace.com. Si vous recevez une demande de paiement ou un message suspect, veuillez l'ignorer et nous contacter directement via notre site web officiel."
+      },
+      "location": "St. Moritz",
+      "canton": "GR",
+      "url": "https://jobs.badruttscareers.com/en-GB/jobs/6269086-patissier-m-w-d",
+      "source": "Badrutt's Palace Hotel Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-04-12T08:52:29.964Z",
+      "addressLocality": "St. Moritz",
+      "postalCode": "7500",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ristorazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Ospitalità / Hotellerie",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2025-08-05",
+      "applyUrl": "https://jobs.badruttscareers.com/en-GB/jobs/6269086-patissier-m-w-d",
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": [
+          "Formazione completata come pasticciere, panettiere o pasticcere",
+          "Almeno 2 anni di esperienza nell'alta hotellerie o gastronomia",
+          "Passione e creatività per la pasticceria e i dessert",
+          "Capacità organizzative e attenzione ai dettagli",
+          "Buona conoscenza del tedesco e dell'inglese",
+          "Ulteriori competenze linguistiche sono un vantaggio",
+          "Rispetto degli standard HACCP",
+          "Disponibilità per contratto a tempo determinato"
+        ],
+        "en": [
+          "Completed training as pastry chef, baker, or confectioner",
+          "At least 2 years of experience in upscale hospitality or gastronomy",
+          "Passion and creativity for patisserie and desserts",
+          "Strong organizational skills and attention to detail",
+          "Good knowledge of German and English",
+          "Additional language skills are advantageous",
+          "Compliance with HACCP standards",
+          "Availability for fixed-term contract"
+        ],
+        "fr": [
+          "Formation achevée en tant que pâtissier, boulanger ou confiseur",
+          "Au moins 2 ans d'expérience dans l'hôtellerie ou gastronomie haut de gamme",
+          "Passion et créativité pour la pâtisserie et les desserts",
+          "Compétences organisationnelles et attention aux détails",
+          "Bonne maîtrise de l'allemand et de l'anglais",
+          "Connaissances linguistiques supplémentaires sont un atout",
+          "Respect des normes HACCP",
+          "Disponibilité pour contrat à durée déterminée"
+        ]
+      },
+      "previousSlugs": [
+        "patissier-m-w-d-badrutts-palace-ch",
+        "konditor-m-w-d-badrutt-s-palace-hotel-st-moritz"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "patissier-m-w-d-badrutts-palace-ch"
+        ],
+        "de": [
+          "konditor-m-w-d-badrutt-s-palace-hotel-st-moritz"
+        ]
+      },
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -134,7 +239,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/6229812-fitness-trainer-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-11T20:47:12.418Z",
+      "crawledAt": "2026-04-12T08:52:29.964Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -192,109 +297,7 @@
       "previousSlugs": [
         "fitness-trainer-m-w-d-badrutts-palace-ch"
       ],
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "badrutts-palace-35d05ee7f4e5",
-      "slug": "pasticciere-m-w-d-badrutt-s-palace-hotel-st-moritz",
-      "slugByLocale": {
-        "it": "pasticciere-m-w-d-badrutt-s-palace-hotel-st-moritz",
-        "en": "pastry-chef-m-w-d-badrutt-s-palace-hotel-st-moritz",
-        "de": "patissier-m-w-d-badrutts-palace-ch",
-        "fr": "patissier-m-w-d-badrutt-s-palace-hotel-st-moritz"
-      },
-      "company": "Badrutt's Palace Hotel",
-      "companyKey": "badrutts-palace",
-      "companyDomain": "badruttscareers.com",
-      "title": "Pâtissier (m/w/d)",
-      "titleByLocale": {
-        "it": "Pasticciere (m/w/d)",
-        "en": "Pastry Chef (m/w/d)",
-        "de": "Pâtissier (m/w/d)",
-        "fr": "Pâtissier (m/w/d)"
-      },
-      "description": "<p><strong>Was Sie bei uns bewirken</strong></p><p>Als Pâtissier sind Sie ein wichtiger Bestandteil unseres Küchenteams und unterstützen aktiv die Pâtisserie bei der Herstellung hochwertiger Desserts und Backwaren. Ihre Hauptaufgaben umfassen:</p><ul><li><p>Aktive Mitarbeit bei der Herstellung, Präsentation und Dekoration von Desserts, Torten, Gebäck und anderen Pâtisserie-Spezialitäten.</p></li><li><p>Unterstützung des Chef Pâtissiers und des Teams bei der täglichen Produktion sowie bei der Vorbereitung für den Service.</p></li><li><p>Sorgfältiger Umgang mit hochwertigen Zutaten sowie Einhaltung der vorgegebenen Rezepturen und Qualitätsstandards.</p></li><li><p>Sicherstellung der Einhaltung von Qualitäts-, Hygiene- und Sicherheitsstandards gemäss HACCP-Richtlinien.</p></li><li><p>Unterstützung bei der Lagerung, Kontrolle und Vorbereitung von Zutaten für die tägliche Produktion.</p></li></ul><p><strong><br>Ihr Profil</strong></p><p>Für diese spannende Rolle suchen wir nach einer engagierten Person, die folgende Qualifikationen mitbringt:</p><ul><li><p>Abgeschlossene Ausbildung als Konditor/in, Bäcker/in oder Pâtissier/in.</p></li><li><p>Mindestens 2 Jahre Berufserfahrung in der gehobenen Hotellerie oder Gastronomie.</p></li><li><p>Leidenschaft und Kreativität im Bereich der Pâtisserie und Dessertproduktion.</p></li><li><p>Ausgeprägte organisatorische Fähigkeiten und Aufmerksamkeit fürs Detail.</p></li><li><p>Gute Deutsch- und Englischkenntnisse; zusätzliche Sprachkenntnisse sind von Vorteil.</p></li></ul><p><strong><br>Unser Angebot</strong></p><ul><li><p>Befristeter Arbeitsvertrag von Ende Mai 2026 bis Anfang September 2026</p></li><li><p>5-Tage Woche im Schnitt bei 43.5 Stunden.</p></li><li><p>5 Wochen Ferien und 6 Feiertage pro Jahr.</p></li><li><p>13. Gehalt ab Eintritt (pro rata temporis).</p></li><li><p>Auf Wunsch Unterkunft in einem unserer attraktiven Mitarbeiterhäuser.</p></li><li><p>Verpflegung in unserem modernen Mitarbeiterrestaurant.</p></li><li><p>Arbeit in einem ansprechenden Umfeld mit vielfältigen Entwicklungsmöglichkeiten.</p></li></ul><p>Wenn Sie eine anspruchsvolle und vielseitige Tätigkeit in einem kreativen Umfeld schätzen und gerne Verantwortung übernehmen, dann freuen wir uns auf Ihre vollständige Online Bewerbung.</p><p></p><p><strong><em>Warnhinweis vor Recruiting-Betrug</em></strong></p><p><em>Das Badrutt’s Palace Hotel wird im Rahmen des Rekrutierungsprozesses niemals Zahlungen oder finanzielle Informationen verlangen. Die gesamte offizielle Kommunikation erfolgt ausschliesslich über E-Mail-Adressen mit der Endung </em><strong><em>@</em></strong><a target=\"_blank\" href=\"http://badruttspalace.com\"><strong><em>badruttspalace.com</em></strong></a><em>.</em><br><em>Sollten Sie eine Zahlungsaufforderung oder eine verdächtige Nachricht erhalten, ignorieren Sie diese bitte und kontaktieren Sie uns direkt über unsere offizielle Website.</em></p>",
-      "descriptionByLocale": {
-        "it": "Cosa realizzerai con noi Come pasticciere, sarai una parte importante del nostro team di cucina e supporterai attivamente la pasticceria nella preparazione di dessert e prodotti da forno di alta qualità. Le tue principali responsabilità includono: - Collaborazione attiva nella preparazione, presentazione e decorazione di dessert, torte, pasticcini e altre specialità di pasticceria. - Supporto al Chef Pasticciere e al team nella produzione giornaliera e nella preparazione per il servizio. - Gestione accurata degli ingredienti di alta qualità e rispetto delle ricette e degli standard di qualità stabiliti. - Garanzia del rispetto degli standard di qualità, igiene e sicurezza secondo le linee guida HACCP. - Supporto nella conservazione, controllo e preparazione degli ingredienti per la produzione giornaliera. ## Il tuo profilo Per questo ruolo entusiasmante cerchiamo una persona impegnata che possieda le seguenti qualifiche: - Formazione completata come pasticciere, panettiere o pasticcere. - Almeno 2 anni di esperienza professionale nell'alta hotellerie o gastronomia. - Passione e creatività nel campo della pasticceria e produzione di dessert. - Spiccate capacità organizzative e attenzione ai dettagli. - Buona conoscenza del tedesco e dell'inglese; ulteriori conoscenze linguistiche sono un vantaggio. ## La nostra offerta - Contratto a tempo determinato da fine maggio 2026 a inizio settembre 2026. - Settimana lavorativa di 5 giorni con una media di 43,5 ore. - 5 settimane di ferie e 6 giorni festivi all'anno. - 13ª mensilità dal momento dell'ingresso (pro rata temporis). - Alloggio disponibile su richiesta in una delle nostre attraenti case per dipendenti. - Pasti nel nostro moderno ristorante per dipendenti. - Lavoro in un ambiente stimolante con molteplici opportunità di sviluppo. Se apprezzi un'attività impegnativa e variegata in un ambiente creativo e ti piace assumerti responsabilità, attendiamo con piacere la tua candidatura online completa. ## Avviso contro le frodi di reclutamento Il Badrutt’s Palace Hotel non richiederà mai pagamenti o informazioni finanziarie durante il processo di reclutamento. Tutta la comunicazione ufficiale avviene esclusivamente tramite indirizzi e-mail con il dominio @badruttspalace.com. Se ricevi una richiesta di pagamento o un messaggio sospetto, ignoralo e contattaci direttamente tramite il nostro sito web ufficiale.",
-        "en": "What you will achieve with us As a pastry chef, you will be an essential part of our kitchen team and actively support the patisserie in creating high-quality desserts and baked goods. Your main responsibilities include: - Active participation in the preparation, presentation, and decoration of desserts, cakes, pastries, and other patisserie specialties. - Supporting the Head Pastry Chef and the team in daily production and service preparation. - Careful handling of high-quality ingredients and adherence to prescribed recipes and quality standards. - Ensuring compliance with quality, hygiene, and safety standards according to HACCP guidelines. - Assisting in the storage, inspection, and preparation of ingredients for daily production. ## Your profile For this exciting role, we are looking for a committed individual with the following qualifications: - Completed training as a pastry chef, baker, or confectioner. - At least 2 years of professional experience in upscale hospitality or gastronomy. - Passion and creativity in the field of patisserie and dessert production. - Strong organizational skills and attention to detail. - Good knowledge of German and English; additional language skills are an advantage. ## Our offer - Fixed-term employment contract from the end of May 2026 to the beginning of September 2026. - 5-day workweek averaging 43.5 hours. - 5 weeks of vacation and 6 public holidays per year. - 13th-month salary upon entry (pro rata temporis). - Accommodation available upon request in one of our attractive staff houses. - Meals provided in our modern staff restaurant. - Work in an appealing environment with diverse development opportunities. If you value a challenging and varied role in a creative environment and enjoy taking on responsibility, we look forward to receiving your complete online application. ## Recruitment Fraud Warning Badrutt’s Palace Hotel will never request payments or financial information during the recruitment process. All official communication will only occur via email addresses ending in @badruttspalace.com. If you receive a payment request or suspicious message, please ignore it and contact us directly through our official website.",
-        "de": "<p><strong>Was Sie bei uns bewirken</strong></p><p>Als Pâtissier sind Sie ein wichtiger Bestandteil unseres Küchenteams und unterstützen aktiv die Pâtisserie bei der Herstellung hochwertiger Desserts und Backwaren. Ihre Hauptaufgaben umfassen:</p><ul><li><p>Aktive Mitarbeit bei der Herstellung, Präsentation und Dekoration von Desserts, Torten, Gebäck und anderen Pâtisserie-Spezialitäten.</p></li><li><p>Unterstützung des Chef Pâtissiers und des Teams bei der täglichen Produktion sowie bei der Vorbereitung für den Service.</p></li><li><p>Sorgfältiger Umgang mit hochwertigen Zutaten sowie Einhaltung der vorgegebenen Rezepturen und Qualitätsstandards.</p></li><li><p>Sicherstellung der Einhaltung von Qualitäts-, Hygiene- und Sicherheitsstandards gemäss HACCP-Richtlinien.</p></li><li><p>Unterstützung bei der Lagerung, Kontrolle und Vorbereitung von Zutaten für die tägliche Produktion.</p></li></ul><p><strong><br>Ihr Profil</strong></p><p>Für diese spannende Rolle suchen wir nach einer engagierten Person, die folgende Qualifikationen mitbringt:</p><ul><li><p>Abgeschlossene Ausbildung als Konditor/in, Bäcker/in oder Pâtissier/in.</p></li><li><p>Mindestens 2 Jahre Berufserfahrung in der gehobenen Hotellerie oder Gastronomie.</p></li><li><p>Leidenschaft und Kreativität im Bereich der Pâtisserie und Dessertproduktion.</p></li><li><p>Ausgeprägte organisatorische Fähigkeiten und Aufmerksamkeit fürs Detail.</p></li><li><p>Gute Deutsch- und Englischkenntnisse; zusätzliche Sprachkenntnisse sind von Vorteil.</p></li></ul><p><strong><br>Unser Angebot</strong></p><ul><li><p>Befristeter Arbeitsvertrag von Ende Mai 2026 bis Anfang September 2026</p></li><li><p>5-Tage Woche im Schnitt bei 43.5 Stunden.</p></li><li><p>5 Wochen Ferien und 6 Feiertage pro Jahr.</p></li><li><p>13. Gehalt ab Eintritt (pro rata temporis).</p></li><li><p>Auf Wunsch Unterkunft in einem unserer attraktiven Mitarbeiterhäuser.</p></li><li><p>Verpflegung in unserem modernen Mitarbeiterrestaurant.</p></li><li><p>Arbeit in einem ansprechenden Umfeld mit vielfältigen Entwicklungsmöglichkeiten.</p></li></ul><p>Wenn Sie eine anspruchsvolle und vielseitige Tätigkeit in einem kreativen Umfeld schätzen und gerne Verantwortung übernehmen, dann freuen wir uns auf Ihre vollständige Online Bewerbung.</p><p></p><p><strong><em>Warnhinweis vor Recruiting-Betrug</em></strong></p><p><em>Das Badrutt’s Palace Hotel wird im Rahmen des Rekrutierungsprozesses niemals Zahlungen oder finanzielle Informationen verlangen. Die gesamte offizielle Kommunikation erfolgt ausschliesslich über E-Mail-Adressen mit der Endung </em><strong><em>@</em></strong><a target=\"_blank\" href=\"http://badruttspalace.com\"><strong><em>badruttspalace.com</em></strong></a><em>.</em><br><em>Sollten Sie eine Zahlungsaufforderung oder eine verdächtige Nachricht erhalten, ignorieren Sie diese bitte und kontaktieren Sie uns direkt über unsere offizielle Website.</em></p>",
-        "fr": "Ce que vous accomplirez avec nous En tant que pâtissier, vous serez un élément essentiel de notre équipe de cuisine et soutiendrez activement la pâtisserie dans la préparation de desserts et de produits de boulangerie de haute qualité. Vos principales responsabilités incluent : - Participation active à la préparation, présentation et décoration de desserts, gâteaux, pâtisseries et autres spécialités de pâtisserie. - Soutien au Chef Pâtissier et à l'équipe dans la production quotidienne ainsi que dans la préparation du service. - Manipulation soigneuse des ingrédients de haute qualité et respect des recettes et des normes de qualité établies. - Garantie du respect des normes de qualité, d'hygiène et de sécurité conformément aux directives HACCP. - Assistance au stockage, au contrôle et à la préparation des ingrédients pour la production quotidienne. ## Votre profil Pour ce rôle passionnant, nous recherchons une personne engagée possédant les qualifications suivantes : - Formation achevée en tant que pâtissier, boulanger ou confiseur. - Au moins 2 ans d'expérience professionnelle dans l'hôtellerie ou la gastronomie haut de gamme. - Passion et créativité dans le domaine de la pâtisserie et de la production de desserts. - Compétences organisationnelles développées et attention aux détails. - Bonne maîtrise de l'allemand et de l'anglais ; des connaissances linguistiques supplémentaires sont un atout. ## Notre offre - Contrat de travail à durée déterminée de fin mai 2026 à début septembre 2026. - Semaine de travail de 5 jours avec une moyenne de 43,5 heures. - 5 semaines de congés et 6 jours fériés par an. - 13ème salaire dès l'entrée (pro rata temporis). - Hébergement disponible sur demande dans l'une de nos résidences attractives pour le personnel. - Repas fournis dans notre restaurant moderne pour le personnel. - Travail dans un environnement agréable avec de nombreuses opportunités de développement. Si vous appréciez un poste exigeant et varié dans un environnement créatif et que vous aimez prendre des responsabilités, nous nous réjouissons de recevoir votre candidature en ligne complète. ## Avertissement contre les fraudes au recrutement Le Badrutt’s Palace Hotel ne demandera jamais de paiements ou d'informations financières dans le cadre du processus de recrutement. Toute communication officielle se fait exclusivement via des adresses e-mail se terminant par @badruttspalace.com. Si vous recevez une demande de paiement ou un message suspect, veuillez l'ignorer et nous contacter directement via notre site web officiel."
-      },
-      "location": "St. Moritz",
-      "canton": "GR",
-      "url": "https://jobs.badruttscareers.com/en-GB/jobs/6269086-patissier-m-w-d",
-      "source": "Badrutt's Palace Hotel Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-04-11T20:47:12.417Z",
-      "addressLocality": "St. Moritz",
-      "postalCode": "7500",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ristorazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Ospitalità / Hotellerie",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-08-05",
-      "applyUrl": "https://jobs.badruttscareers.com/en-GB/jobs/6269086-patissier-m-w-d",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Formazione completata come pasticciere, panettiere o pasticcere",
-          "Almeno 2 anni di esperienza nell'alta hotellerie o gastronomia",
-          "Passione e creatività per la pasticceria e i dessert",
-          "Capacità organizzative e attenzione ai dettagli",
-          "Buona conoscenza del tedesco e dell'inglese",
-          "Ulteriori competenze linguistiche sono un vantaggio",
-          "Rispetto degli standard HACCP",
-          "Disponibilità per contratto a tempo determinato"
-        ],
-        "en": [
-          "Completed training as pastry chef, baker, or confectioner",
-          "At least 2 years of experience in upscale hospitality or gastronomy",
-          "Passion and creativity for patisserie and desserts",
-          "Strong organizational skills and attention to detail",
-          "Good knowledge of German and English",
-          "Additional language skills are advantageous",
-          "Compliance with HACCP standards",
-          "Availability for fixed-term contract"
-        ],
-        "fr": [
-          "Formation achevée en tant que pâtissier, boulanger ou confiseur",
-          "Au moins 2 ans d'expérience dans l'hôtellerie ou gastronomie haut de gamme",
-          "Passion et créativité pour la pâtisserie et les desserts",
-          "Compétences organisationnelles et attention aux détails",
-          "Bonne maîtrise de l'allemand et de l'anglais",
-          "Connaissances linguistiques supplémentaires sont un atout",
-          "Respect des normes HACCP",
-          "Disponibilité pour contrat à durée déterminée"
-        ]
-      },
-      "previousSlugsByLocale": {
-        "de": [
-          "konditor-m-w-d-badrutt-s-palace-hotel-st-moritz"
-        ],
-        "it": [
-          "patissier-m-w-d-badrutts-palace-ch"
-        ]
-      },
-      "previousSlugs": [
-        "patissier-m-w-d-badrutts-palace-ch",
-        "konditor-m-w-d-badrutt-s-palace-hotel-st-moritz"
-      ],
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -339,7 +342,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/6279780-sous-chef-for-chesa-veglia-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-11T20:47:12.416Z",
+      "crawledAt": "2026-04-12T08:52:29.963Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -386,18 +389,19 @@
           "Nationalité suisse ou ressortissant de l’UE"
         ]
       },
-      "previousSlugsByLocale": {
-        "en": [
-          "sous-chef-for-chesa-vigil-m-w-d-badrutt-s-palace-hotel-st-moritz"
-        ],
-        "it": [
-          "sous-chef-for-chesa-veglia-m-w-d-badrutts-palace-ch"
-        ]
-      },
       "previousSlugs": [
         "sous-chef-for-chesa-veglia-m-w-d-badrutts-palace-ch",
         "sous-chef-for-chesa-vigil-m-w-d-badrutt-s-palace-hotel-st-moritz"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sous-chef-for-chesa-veglia-m-w-d-badrutts-palace-ch"
+        ],
+        "en": [
+          "sous-chef-for-chesa-vigil-m-w-d-badrutt-s-palace-hotel-st-moritz"
+        ]
+      },
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -442,7 +446,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/6955753-it-manager-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T20:47:12.415Z",
+      "crawledAt": "2026-04-12T08:52:29.962Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -487,18 +491,19 @@
           "Très bonnes connaissances en allemand et en anglais"
         ]
       },
-      "previousSlugsByLocale": {
-        "de": [
-          "hr-payroll-administrator-lohn-und-gehaltsabrechner-dach-w-m-dienstsitz-ist-dortmund-badrutt-s-palace-hotel-st-moritz"
-        ],
-        "it": [
-          "it-manager-m-w-d-badrutts-palace-ch"
-        ]
-      },
       "previousSlugs": [
         "it-manager-m-w-d-badrutts-palace-ch",
         "hr-payroll-administrator-lohn-und-gehaltsabrechner-dach-w-m-dienstsitz-ist-dortmund-badrutt-s-palace-hotel-st-moritz"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "it-manager-m-w-d-badrutts-palace-ch"
+        ],
+        "de": [
+          "hr-payroll-administrator-lohn-und-gehaltsabrechner-dach-w-m-dienstsitz-ist-dortmund-badrutt-s-palace-hotel-st-moritz"
+        ]
+      },
+      "needsRetranslation": true,
       "salaryMin": 79500,
       "salaryMax": 135000,
       "baseSalary": {
@@ -543,7 +548,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/7000611-director-of-brand-marketing-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T20:47:12.414Z",
+      "crawledAt": "2026-04-12T08:52:29.961Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -590,121 +595,19 @@
           "Expérience avérée en leadership au niveau de la direction ou du comité exécutif"
         ]
       },
-      "previousSlugsByLocale": {
-        "de": [
-          "leiter-brand-marketing-m-w-d-badrutt-s-palace-hotel-st-moritz"
-        ],
-        "it": [
-          "director-of-brand-amp-marketing-m-w-d-badrutts-palace-ch"
-        ]
-      },
       "previousSlugs": [
         "director-of-brand-amp-marketing-m-w-d-badrutts-palace-ch",
         "leiter-brand-marketing-m-w-d-badrutt-s-palace-hotel-st-moritz"
       ],
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "badrutts-palace-d36f86df616d",
-      "slug": "responsabile-esperienza-ospiti-m-f-d-badrutt-s-palace-hotel-st-moritz",
-      "slugByLocale": {
-        "it": "responsabile-esperienza-ospiti-m-f-d-badrutt-s-palace-hotel-st-moritz",
-        "en": "guest-experience-executive-m-w-d-badrutt-s-palace-hotel-st-moritz",
-        "de": "guest-experience-executive-m-w-d-badrutts-palace-ch",
-        "fr": "responsable-experience-client-m-f-d-badrutt-s-palace-hotel-st-moritz"
-      },
-      "company": "Badrutt's Palace Hotel",
-      "companyKey": "badrutts-palace",
-      "companyDomain": "badruttscareers.com",
-      "title": "Guest Experience Executive (m/w/d)",
-      "titleByLocale": {
-        "it": "Responsabile Esperienza Ospiti (m/f/d)",
-        "en": "Guest Experience Executive (m/w/d)",
-        "de": "Guest Experience Executive (m/w/d)",
-        "fr": "Responsable Expérience Client (m/f/d)"
-      },
-      "description": "<p><strong>Was Sie bei uns bewirken</strong></p><p><span>Als Guest Experience Executive sind Sie ein wichtiger Bestandteil unseren Gästen aussergewöhnliche und unvergessliche Momente zu bereiten. Mit einem feinen Gespür für individuelle Wünsche, einem hohen Qualitätsanspruch und echter Leidenschaft für erstklassigen Service gestalten Sie jeden Aufenthalt zu einem besonderen Erlebnis.</span></p><ul><li><p><span>Sie stehen bereits vor der Anreise sowie während des gesamten Aufenthalts in engem Kontakt mit unseren Gästen, um ein erstklassiges Gästeerlebnis und individuell abgestimmte Services sicherzustellen.</span></p></li><li><p><span>Sie arbeiten eng mit verschiedenen Abteilungen zusammen und gewährleisten so eine reibungslose und effektive Kommunikation.</span></p></li><li><p><span>Über unser Messaging System betreuen Sie Gästeanfragen schnell, diskret und professionell und sorgen dafür, dass sich unsere Gäste jederzeit bestens umsorgt fühlen. <br>Dabei zeichnen Sie sich durch ein ausgeprägtes Gespür für Menschen sowie eine starke Team- und Lösungsorientierung aus.</span></p></li><li><p><span>Auch in anspruchsvollen oder stressigen Situationen bewahren Sie einen kühlen Kopf und stellen sicher, dass alle Aufgaben effizient, strukturiert und professionell erledigt werden.</span></p></li></ul><p></p><p><span><strong>Das bringen Sie mit</strong></span></p><p><span>Für diese vielseitige Position bringen Sie idealerweise folgendes Profil mit:</span></p><ul><li class=\"MsoListParagraph\"><p><span>Sie verfügen über eine Berufsausbildung in der Hotellerie oder abgeschlossene Hotelfachschule.</span></p></li><li class=\"MsoNormal\"><p><span>Mindestens 2 Jahre Erfahrung am Front Office und/oder in der Reservierung und/oder in der Conciergerie in der Luxushotellerie.</span></p></li><li class=\"MsoNormal\"><p><span>Sehr gute Sprachkenntnisse in Deutsch und Englisch; Italienisch und weitere Sprachen sind von Vorteil.</span></p></li><li class=\"MsoListParagraph\"><p><span>Idealerweise verfügen Sie über Erfahrung im Umgang mit Systemen wie Concierge Organizer, Protel und Aleno oder vergleichbaren Tools und sind versiert in der professionellen E-Mail- und Telefonkorrespondenz mit internationalen Gästen auf 5-Sterne-Niveau.</span></p></li><li class=\"MsoNormal\"><p><span>Sehr gute EDV-Anwenderkenntnisse.</span></p></li><li class=\"MsoNormal\"><p><span>Proaktiver Arbeitsstil sowie ein hohes Mass an Engagement und Verantwortungsbewusstsein.</span></p></li><li class=\"MsoNormal\"><p><span>Ein ausgeprägtes Gespür für Menschen, Teamfähigkeit und Lösungsorientierung.</span></p></li><li class=\"MsoNormal\"><p><span>Souveränes Auftreten sowie gepflegte Umgangsformen.</span><br><br></p></li></ul><p><strong>Unser Angebot</strong></p><ul><li class=\"MsoNormal\"><p><span>Eine unbefristete Position</span></p></li><li class=\"MsoNormal\"><p><span>5-Tage Woche im Schnitt bei 43,5 Stunden</span></p></li><li class=\"MsoNormal\"><p><span>5 Wochen Ferien und 6 Feiertage pro Jahr</span></p></li><li class=\"MsoNormal\"><p><span>13. Gehalt ab Eintritt (pro rata temporis)</span></p></li><li class=\"MsoNormal\"><p><span>Auf Wunsch zu Beginn Unterkunft in einem unserer schönen Mitarbeiterhäuser</span></p></li><li class=\"MsoNormal\"><p><span>Verpflegungsmöglichkeit im neuen, modernen Mitarbeiter Restaurant</span></p></li><li class=\"MsoNormal\"><p><span>Arbeit in einem attraktiven Umfeld mit Entwicklungsmöglichkeiten</span><br></p></li></ul><p>Wenn Sie eine vielseitige, verantwortungsvolle Tätigkeit in einem dynamischen Team schätzen und sich mit Ihrer Erfahrung und Motivation einbringen möchten, freuen wir uns auf Ihre vollständige Online-Bewerbung.</p><p></p><p><strong><em>Warnhinweis vor Recruiting-Betrug</em></strong></p><p><em>Das Badrutt’s Palace Hotel wird im Rahmen des Rekrutierungsprozesses niemals Zahlungen oder finanzielle Informationen verlangen. Die gesamte offizielle Kommunikation erfolgt ausschliesslich über E-Mail-Adressen mit der Endung </em><strong><em>@</em></strong><a target=\"_blank\" href=\"http://badruttspalace.com\"><strong><em>badruttspalace.com</em></strong></a><em>.</em><br><em>Sollten Sie eine Zahlungsaufforderung oder eine verdächtige Nachricht erhalten, ignorieren Sie diese bitte und kontaktieren Sie uns direkt über unsere offizielle Website.</em></p>",
-      "descriptionByLocale": {
-        "it": "Cosa potrai realizzare presso di noi In qualità di Responsabile Esperienza Ospiti, rivestirete un ruolo fondamentale nel creare momenti straordinari e indimenticabili per i nostri ospiti. Con una spiccata sensibilità per le esigenze individuali, un elevato standard qualitativo e una vera passione per un servizio di prima classe, trasformerete ogni soggiorno in un’esperienza unica. - Vi occupate già prima dell’arrivo e durante l’intero soggiorno di mantenere un contatto stretto con i nostri ospiti, garantendo un’esperienza di alto livello e servizi personalizzati. - Lavorate a stretto contatto con diversi reparti per assicurare una comunicazione fluida ed efficace. - Tramite il nostro sistema di messaggistica, gestite le richieste degli ospiti in modo rapido, discreto e professionale, assicurando che si sentano sempre ben curati. A questo scopo, dimostrate una spiccata sensibilità verso le persone, una forte attitudine al lavoro di squadra e una mentalità orientata alla risoluzione dei problemi. - Anche in situazioni complesse o stressanti, mantenete la calma e assicurate che tutti i compiti vengano svolti in modo efficiente, strutturato e professionale. Cosa porti con te Per questa posizione versatile, possedete idealmente il seguente profilo: - Avete una formazione professionale nel settore alberghiero o una scuola alberghiera completata. - Almeno 2 anni di esperienza presso il Front Office e/o nella reception e/o nella conciergerie in un hotel di lusso. - Ottima conoscenza della lingua tedesca e inglese; l’italiano e altre lingue sono un vantaggio. - Idealmente, avete esperienza nell’utilizzo di sistemi come Concierge Organizer, Protel e Aleno o strumenti simili e siete abili nella corrispondenza professionale via e-mail e telefono con ospiti internazionali di livello 5 stelle. - Ottime competenze informatiche. - Stile di lavoro proattivo, alto impegno e senso di responsabilità. - Spiccata sensibilità verso le persone, capacità di lavorare in team e orientamento alla risoluzione dei problemi. - Portamento sicuro e modi raffinati. La nostra offerta - Posizione a tempo indeterminato - Settimana lavorativa di 5 giorni con una media di 43,5 ore - 5 settimane di ferie e 6 festività all’anno - 13° stipendio a partire dall’assunzione (pro rata temporis) - Possibilità di alloggio in una delle nostre bellissime case per dipendenti, su richiesta all’inizio - Opzione di ristorazione nel nuovo ristorante moderno per dipendenti - Lavoro in un ambiente attraente con possibilità di sviluppo Se apprezzate un’attività versatile, responsabile in un team dinamico e volete contribuire con la vostra esperienza e motivazione, saremo lieti di ricevere la vostra candidatura completa online. Avvertenza contro le truffe nel reclutamento Il Badrutt’s Palace Hotel non richiede mai pagamenti o informazioni finanziarie durante il processo di reclutamento. Tutta la comunicazione ufficiale avviene esclusivamente tramite indirizzi e-mail con dominio @badruttspalace.com. Se ricevete una richiesta di pagamento o un messaggio sospetto, ignoratelo e contattateci direttamente tramite il nostro sito ufficiale.",
-        "en": "What you will achieve with us As a Guest Experience Executive, you are a key part of creating extraordinary and unforgettable moments for our guests. With a keen sense for individual wishes, a high quality standard, and genuine passion for first-class service, you will turn every stay into a special experience. - You maintain close contact with our guests both before arrival and throughout their stay to ensure a top-class guest experience and individually tailored services. - You work closely with various departments to ensure smooth and effective communication. - Using our messaging system, you handle guest requests quickly, discreetly, and professionally, ensuring that our guests always feel well taken care of. You demonstrate a strong sense of empathy, teamwork, and a solution-oriented approach. - Even in challenging or stressful situations, you remain calm and ensure that all tasks are completed efficiently, structured, and professionally. What you bring For this versatile position, you ideally have the following profile: - You hold a professional qualification in hospitality or have completed a hotel management school. - At least 2 years of experience at the Front Office and/or in reservations and/or concierge services in luxury hospitality. - Excellent proficiency in German and English; Italian and additional languages are an advantage. - Ideally, you have experience with systems such as Concierge Organizer, Protel, and Aleno or similar tools, and are skilled in professional email and telephone correspondence with international guests at a 5-star level. - Very good IT user skills. - Proactive work style, high level of commitment, and sense of responsibility. - Strong empathy, teamwork skills, and a solution-oriented mindset. - Confident demeanor and impeccable manners. Our offer - Permanent position - 5-day work week averaging 43.5 hours - 5 weeks of vacation and 6 public holidays per year - 13th salary from the start (pro rata temporis) - Option for accommodation in one of our beautiful employee houses at the beginning, if desired - Meal options in the new, modern employee restaurant - Work in an attractive environment with development opportunities If you value a versatile, responsible role in a dynamic team and wish to contribute with your experience and motivation, we look forward to receiving your complete online application. Warning about recruitment fraud Badrutt’s Palace Hotel will never request payments or financial information during the recruitment process. All official communication is conducted exclusively via email addresses ending in @badruttspalace.com. If you receive a payment request or suspicious message, please ignore it and contact us directly through our official website.",
-        "de": "<p><strong>Was Sie bei uns bewirken</strong></p><p><span>Als Guest Experience Executive sind Sie ein wichtiger Bestandteil unseren Gästen aussergewöhnliche und unvergessliche Momente zu bereiten. Mit einem feinen Gespür für individuelle Wünsche, einem hohen Qualitätsanspruch und echter Leidenschaft für erstklassigen Service gestalten Sie jeden Aufenthalt zu einem besonderen Erlebnis.</span></p><ul><li><p><span>Sie stehen bereits vor der Anreise sowie während des gesamten Aufenthalts in engem Kontakt mit unseren Gästen, um ein erstklassiges Gästeerlebnis und individuell abgestimmte Services sicherzustellen.</span></p></li><li><p><span>Sie arbeiten eng mit verschiedenen Abteilungen zusammen und gewährleisten so eine reibungslose und effektive Kommunikation.</span></p></li><li><p><span>Über unser Messaging System betreuen Sie Gästeanfragen schnell, diskret und professionell und sorgen dafür, dass sich unsere Gäste jederzeit bestens umsorgt fühlen. <br>Dabei zeichnen Sie sich durch ein ausgeprägtes Gespür für Menschen sowie eine starke Team- und Lösungsorientierung aus.</span></p></li><li><p><span>Auch in anspruchsvollen oder stressigen Situationen bewahren Sie einen kühlen Kopf und stellen sicher, dass alle Aufgaben effizient, strukturiert und professionell erledigt werden.</span></p></li></ul><p></p><p><span><strong>Das bringen Sie mit</strong></span></p><p><span>Für diese vielseitige Position bringen Sie idealerweise folgendes Profil mit:</span></p><ul><li class=\"MsoListParagraph\"><p><span>Sie verfügen über eine Berufsausbildung in der Hotellerie oder abgeschlossene Hotelfachschule.</span></p></li><li class=\"MsoNormal\"><p><span>Mindestens 2 Jahre Erfahrung am Front Office und/oder in der Reservierung und/oder in der Conciergerie in der Luxushotellerie.</span></p></li><li class=\"MsoNormal\"><p><span>Sehr gute Sprachkenntnisse in Deutsch und Englisch; Italienisch und weitere Sprachen sind von Vorteil.</span></p></li><li class=\"MsoListParagraph\"><p><span>Idealerweise verfügen Sie über Erfahrung im Umgang mit Systemen wie Concierge Organizer, Protel und Aleno oder vergleichbaren Tools und sind versiert in der professionellen E-Mail- und Telefonkorrespondenz mit internationalen Gästen auf 5-Sterne-Niveau.</span></p></li><li class=\"MsoNormal\"><p><span>Sehr gute EDV-Anwenderkenntnisse.</span></p></li><li class=\"MsoNormal\"><p><span>Proaktiver Arbeitsstil sowie ein hohes Mass an Engagement und Verantwortungsbewusstsein.</span></p></li><li class=\"MsoNormal\"><p><span>Ein ausgeprägtes Gespür für Menschen, Teamfähigkeit und Lösungsorientierung.</span></p></li><li class=\"MsoNormal\"><p><span>Souveränes Auftreten sowie gepflegte Umgangsformen.</span><br><br></p></li></ul><p><strong>Unser Angebot</strong></p><ul><li class=\"MsoNormal\"><p><span>Eine unbefristete Position</span></p></li><li class=\"MsoNormal\"><p><span>5-Tage Woche im Schnitt bei 43,5 Stunden</span></p></li><li class=\"MsoNormal\"><p><span>5 Wochen Ferien und 6 Feiertage pro Jahr</span></p></li><li class=\"MsoNormal\"><p><span>13. Gehalt ab Eintritt (pro rata temporis)</span></p></li><li class=\"MsoNormal\"><p><span>Auf Wunsch zu Beginn Unterkunft in einem unserer schönen Mitarbeiterhäuser</span></p></li><li class=\"MsoNormal\"><p><span>Verpflegungsmöglichkeit im neuen, modernen Mitarbeiter Restaurant</span></p></li><li class=\"MsoNormal\"><p><span>Arbeit in einem attraktiven Umfeld mit Entwicklungsmöglichkeiten</span><br></p></li></ul><p>Wenn Sie eine vielseitige, verantwortungsvolle Tätigkeit in einem dynamischen Team schätzen und sich mit Ihrer Erfahrung und Motivation einbringen möchten, freuen wir uns auf Ihre vollständige Online-Bewerbung.</p><p></p><p><strong><em>Warnhinweis vor Recruiting-Betrug</em></strong></p><p><em>Das Badrutt’s Palace Hotel wird im Rahmen des Rekrutierungsprozesses niemals Zahlungen oder finanzielle Informationen verlangen. Die gesamte offizielle Kommunikation erfolgt ausschliesslich über E-Mail-Adressen mit der Endung </em><strong><em>@</em></strong><a target=\"_blank\" href=\"http://badruttspalace.com\"><strong><em>badruttspalace.com</em></strong></a><em>.</em><br><em>Sollten Sie eine Zahlungsaufforderung oder eine verdächtige Nachricht erhalten, ignorieren Sie diese bitte und kontaktieren Sie uns direkt über unsere offizielle Website.</em></p>",
-        "fr": "Ce que vous accomplirez chez nous En tant que Responsable Expérience Client, vous jouez un rôle clé dans la création de moments extraordinaires et inoubliables pour nos clients. Doté d’un sens aigu des attentes individuelles, d’un haut niveau d’exigence et d’une passion sincère pour un service de première classe, vous transformez chaque séjour en une expérience exceptionnelle. - Vous entretenez un contact étroit avec nos clients dès avant leur arrivée et tout au long de leur séjour, afin d’assurer une expérience client de haut niveau et des services personnalisés. - Vous collaborez étroitement avec différents services pour garantir une communication fluide et efficace. - Grâce à notre système de messagerie, vous gérez les demandes des clients de manière rapide, discrète et professionnelle, en veillant à ce qu’ils se sentent toujours bien pris en charge. Vous faites preuve d’un sens aigu des relations humaines, d’un esprit d’équipe et d’une approche orientée solutions. - Même dans des situations exigeantes ou stressantes, vous gardez votre sang-froid et veillez à ce que toutes les tâches soient accomplies de manière efficace, structurée et professionnelle. Ce que vous apportez Pour ce poste polyvalent, vous possédez idéalement le profil suivant : - Vous êtes titulaire d’une formation professionnelle en hôtellerie ou d’un diplôme d’école hôtelière. - Vous avez au moins 2 ans d’expérience au Front Office et/ou en réservation et/ou en conciergerie dans l’hôtellerie de luxe. - Vous maîtrisez parfaitement l’allemand et l’anglais ; l’italien et d’autres langues sont un atout. - Idéalement, vous avez de l’expérience avec des systèmes tels que Concierge Organizer, Protel et Aleno ou des outils similaires, et vous savez gérer une correspondance professionnelle par e-mail et téléphone avec des clients internationaux de niveau 5 étoiles. - Vous avez de très bonnes connaissances en informatique. - Vous faites preuve d’une approche proactive, d’un fort engagement et d’un sens aigu des responsabilités. - Vous avez un sens aigu des relations humaines, un esprit d’équipe et une approche orientée solutions. - Vous avez une attitude confiante et des manières irréprochables. Notre offre - Un poste à durée indéterminée - Semaine de 5 jours avec une moyenne de 43,5 heures - 5 semaines de congés et 6 jours fériés par an - 13e mois dès l’embauche (prorata temporis) - Possibilité d’hébergement dans l’une de nos belles maisons pour employés, sur demande au début - Option de restauration dans le nouveau restaurant moderne pour employés - Travail dans un environnement attrayant avec des perspectives d’évolution Si vous appréciez un poste polyvalent et responsable au sein d’une équipe dynamique et souhaitez contribuer avec votre expérience et votre motivation, nous serions ravis de recevoir votre candidature complète en ligne. Avertissement contre les fraudes de recrutement Le Badrutt’s Palace Hotel ne demande jamais de paiements ou d’informations financières dans le cadre du processus de recrutement. Toute communication officielle se fait exclusivement par e-mail avec une adresse se terminant par @badruttspalace.com. Si vous recevez une demande de paiement ou un message suspect, veuillez l’ignorer et nous contacter directement via notre site officiel."
-      },
-      "location": "St. Moritz",
-      "canton": "GR",
-      "url": "https://jobs.badruttscareers.com/en-GB/jobs/7377432-guest-experience-executive-m-w-d",
-      "source": "Badrutt's Palace Hotel Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-04-11T20:47:12.413Z",
-      "addressLocality": "St. Moritz",
-      "postalCode": "7500",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ospitalità",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Ospitalità / Hotellerie",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-12",
-      "applyUrl": "https://jobs.badruttscareers.com/en-GB/jobs/7377432-guest-experience-executive-m-w-d",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Formazione professionale nel settore alberghiero o scuola alberghiera completata",
-          "Almeno 2 anni di esperienza in Front Office, reception o conciergerie in hotel di lusso",
-          "Ottima conoscenza di tedesco e inglese; italiano e altre lingue sono un vantaggio",
-          "Esperienza con sistemi come Concierge Organizer, Protel e Aleno o strumenti simili",
-          "Competenze informatiche avanzate",
-          "Stile di lavoro proattivo e alto senso di responsabilità",
-          "Sensibilità verso le persone, capacità di lavorare in team e orientamento alla risoluzione dei problemi",
-          "Portamento sicuro e modi raffinati"
-        ],
-        "en": [
-          "Professional qualification in hospitality or completed hotel management school",
-          "At least 2 years of experience in Front Office, reservations, or concierge services in luxury hospitality",
-          "Excellent proficiency in German and English; Italian and additional languages are an advantage",
-          "Experience with systems such as Concierge Organizer, Protel, and Aleno or similar tools",
-          "Very good IT user skills",
-          "Proactive work style, high level of commitment, and sense of responsibility",
-          "Strong empathy, teamwork skills, and a solution-oriented mindset",
-          "Confident demeanor and impeccable manners"
-        ],
-        "fr": [
-          "Formation professionnelle en hôtellerie ou diplôme d’école hôtelière",
-          "Au moins 2 ans d’expérience en Front Office, réservation ou conciergerie dans l’hôtellerie de luxe",
-          "Maîtrise parfaite de l’allemand et de l’anglais ; l’italien et d’autres langues sont un atout",
-          "Expérience avec des systèmes comme Concierge Organizer, Protel et Aleno ou outils similaires",
-          "Très bonnes connaissances en informatique",
-          "Approche proactive, fort engagement et sens des responsabilités",
-          "Sens aigu des relations humaines, esprit d’équipe et approche orientée solutions",
-          "Attitude confiante et manières irréprochables"
-        ]
-      },
       "previousSlugsByLocale": {
-        "de": [
-          "manager-m-w-d-badrutt-s-palace-hotel-st-moritz"
-        ],
         "it": [
-          "guest-experience-executive-m-w-d-badrutts-palace-ch"
+          "director-of-brand-amp-marketing-m-w-d-badrutts-palace-ch"
+        ],
+        "de": [
+          "leiter-brand-marketing-m-w-d-badrutt-s-palace-hotel-st-moritz"
         ]
       },
-      "previousSlugs": [
-        "guest-experience-executive-m-w-d-badrutts-palace-ch",
-        "manager-m-w-d-badrutt-s-palace-hotel-st-moritz"
-      ],
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -749,7 +652,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/7317185-f-b-gouvernante-chesa-veglia-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-11T20:47:12.413Z",
+      "crawledAt": "2026-04-12T08:52:29.960Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -796,14 +699,15 @@
           "Capacité à travailler dans des équipes dynamiques et internationales"
         ]
       },
+      "previousSlugs": [
+        "f-amp-b-gouvernante-chesa-veglia-m-w-d-badrutts-palace-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "f-amp-b-gouvernante-chesa-veglia-m-w-d-badrutts-palace-ch"
         ]
       },
-      "previousSlugs": [
-        "f-amp-b-gouvernante-chesa-veglia-m-w-d-badrutts-palace-ch"
-      ],
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -813,6 +717,110 @@
           "@type": "QuantitativeValue",
           "minValue": 49500,
           "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "badrutts-palace-d36f86df616d",
+      "slug": "responsabile-esperienza-ospiti-m-f-d-badrutt-s-palace-hotel-st-moritz",
+      "slugByLocale": {
+        "it": "responsabile-esperienza-ospiti-m-f-d-badrutt-s-palace-hotel-st-moritz",
+        "en": "guest-experience-executive-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "de": "guest-experience-executive-m-w-d-badrutts-palace-ch",
+        "fr": "responsable-experience-client-m-f-d-badrutt-s-palace-hotel-st-moritz"
+      },
+      "company": "Badrutt's Palace Hotel",
+      "companyKey": "badrutts-palace",
+      "companyDomain": "badruttscareers.com",
+      "title": "Guest Experience Executive (m/w/d)",
+      "titleByLocale": {
+        "it": "Responsabile Esperienza Ospiti (m/f/d)",
+        "en": "Guest Experience Executive (m/w/d)",
+        "de": "Guest Experience Executive (m/w/d)",
+        "fr": "Responsable Expérience Client (m/f/d)"
+      },
+      "description": "<p><strong>Was Sie bei uns bewirken</strong></p><p><span>Als Guest Experience Executive sind Sie ein wichtiger Bestandteil unseren Gästen aussergewöhnliche und unvergessliche Momente zu bereiten. Mit einem feinen Gespür für individuelle Wünsche, einem hohen Qualitätsanspruch und echter Leidenschaft für erstklassigen Service gestalten Sie jeden Aufenthalt zu einem besonderen Erlebnis.</span></p><ul><li><p><span>Sie stehen bereits vor der Anreise sowie während des gesamten Aufenthalts in engem Kontakt mit unseren Gästen, um ein erstklassiges Gästeerlebnis und individuell abgestimmte Services sicherzustellen.</span></p></li><li><p><span>Sie arbeiten eng mit verschiedenen Abteilungen zusammen und gewährleisten so eine reibungslose und effektive Kommunikation.</span></p></li><li><p><span>Über unser Messaging System betreuen Sie Gästeanfragen schnell, diskret und professionell und sorgen dafür, dass sich unsere Gäste jederzeit bestens umsorgt fühlen. <br>Dabei zeichnen Sie sich durch ein ausgeprägtes Gespür für Menschen sowie eine starke Team- und Lösungsorientierung aus.</span></p></li><li><p><span>Auch in anspruchsvollen oder stressigen Situationen bewahren Sie einen kühlen Kopf und stellen sicher, dass alle Aufgaben effizient, strukturiert und professionell erledigt werden.</span></p></li></ul><p></p><p><span><strong>Das bringen Sie mit</strong></span></p><p><span>Für diese vielseitige Position bringen Sie idealerweise folgendes Profil mit:</span></p><ul><li class=\"MsoListParagraph\"><p><span>Sie verfügen über eine Berufsausbildung in der Hotellerie oder abgeschlossene Hotelfachschule.</span></p></li><li class=\"MsoNormal\"><p><span>Mindestens 2 Jahre Erfahrung am Front Office und/oder in der Reservierung und/oder in der Conciergerie in der Luxushotellerie.</span></p></li><li class=\"MsoNormal\"><p><span>Sehr gute Sprachkenntnisse in Deutsch und Englisch; Italienisch und weitere Sprachen sind von Vorteil.</span></p></li><li class=\"MsoListParagraph\"><p><span>Idealerweise verfügen Sie über Erfahrung im Umgang mit Systemen wie Concierge Organizer, Protel und Aleno oder vergleichbaren Tools und sind versiert in der professionellen E-Mail- und Telefonkorrespondenz mit internationalen Gästen auf 5-Sterne-Niveau.</span></p></li><li class=\"MsoNormal\"><p><span>Sehr gute EDV-Anwenderkenntnisse.</span></p></li><li class=\"MsoNormal\"><p><span>Proaktiver Arbeitsstil sowie ein hohes Mass an Engagement und Verantwortungsbewusstsein.</span></p></li><li class=\"MsoNormal\"><p><span>Ein ausgeprägtes Gespür für Menschen, Teamfähigkeit und Lösungsorientierung.</span></p></li><li class=\"MsoNormal\"><p><span>Souveränes Auftreten sowie gepflegte Umgangsformen.</span><br><br></p></li></ul><p><strong>Unser Angebot</strong></p><ul><li class=\"MsoNormal\"><p><span>Eine unbefristete Position</span></p></li><li class=\"MsoNormal\"><p><span>5-Tage Woche im Schnitt bei 43,5 Stunden</span></p></li><li class=\"MsoNormal\"><p><span>5 Wochen Ferien und 6 Feiertage pro Jahr</span></p></li><li class=\"MsoNormal\"><p><span>13. Gehalt ab Eintritt (pro rata temporis)</span></p></li><li class=\"MsoNormal\"><p><span>Auf Wunsch zu Beginn Unterkunft in einem unserer schönen Mitarbeiterhäuser</span></p></li><li class=\"MsoNormal\"><p><span>Verpflegungsmöglichkeit im neuen, modernen Mitarbeiter Restaurant</span></p></li><li class=\"MsoNormal\"><p><span>Arbeit in einem attraktiven Umfeld mit Entwicklungsmöglichkeiten</span><br></p></li></ul><p>Wenn Sie eine vielseitige, verantwortungsvolle Tätigkeit in einem dynamischen Team schätzen und sich mit Ihrer Erfahrung und Motivation einbringen möchten, freuen wir uns auf Ihre vollständige Online-Bewerbung.</p><p></p><p><strong><em>Warnhinweis vor Recruiting-Betrug</em></strong></p><p><em>Das Badrutt’s Palace Hotel wird im Rahmen des Rekrutierungsprozesses niemals Zahlungen oder finanzielle Informationen verlangen. Die gesamte offizielle Kommunikation erfolgt ausschliesslich über E-Mail-Adressen mit der Endung </em><strong><em>@</em></strong><a target=\"_blank\" href=\"http://badruttspalace.com\"><strong><em>badruttspalace.com</em></strong></a><em>.</em><br><em>Sollten Sie eine Zahlungsaufforderung oder eine verdächtige Nachricht erhalten, ignorieren Sie diese bitte und kontaktieren Sie uns direkt über unsere offizielle Website.</em></p>",
+      "descriptionByLocale": {
+        "it": "Cosa potrai realizzare presso di noi In qualità di Responsabile Esperienza Ospiti, rivestirete un ruolo fondamentale nel creare momenti straordinari e indimenticabili per i nostri ospiti. Con una spiccata sensibilità per le esigenze individuali, un elevato standard qualitativo e una vera passione per un servizio di prima classe, trasformerete ogni soggiorno in un’esperienza unica. - Vi occupate già prima dell’arrivo e durante l’intero soggiorno di mantenere un contatto stretto con i nostri ospiti, garantendo un’esperienza di alto livello e servizi personalizzati. - Lavorate a stretto contatto con diversi reparti per assicurare una comunicazione fluida ed efficace. - Tramite il nostro sistema di messaggistica, gestite le richieste degli ospiti in modo rapido, discreto e professionale, assicurando che si sentano sempre ben curati. A questo scopo, dimostrate una spiccata sensibilità verso le persone, una forte attitudine al lavoro di squadra e una mentalità orientata alla risoluzione dei problemi. - Anche in situazioni complesse o stressanti, mantenete la calma e assicurate che tutti i compiti vengano svolti in modo efficiente, strutturato e professionale. Cosa porti con te Per questa posizione versatile, possedete idealmente il seguente profilo: - Avete una formazione professionale nel settore alberghiero o una scuola alberghiera completata. - Almeno 2 anni di esperienza presso il Front Office e/o nella reception e/o nella conciergerie in un hotel di lusso. - Ottima conoscenza della lingua tedesca e inglese; l’italiano e altre lingue sono un vantaggio. - Idealmente, avete esperienza nell’utilizzo di sistemi come Concierge Organizer, Protel e Aleno o strumenti simili e siete abili nella corrispondenza professionale via e-mail e telefono con ospiti internazionali di livello 5 stelle. - Ottime competenze informatiche. - Stile di lavoro proattivo, alto impegno e senso di responsabilità. - Spiccata sensibilità verso le persone, capacità di lavorare in team e orientamento alla risoluzione dei problemi. - Portamento sicuro e modi raffinati. La nostra offerta - Posizione a tempo indeterminato - Settimana lavorativa di 5 giorni con una media di 43,5 ore - 5 settimane di ferie e 6 festività all’anno - 13° stipendio a partire dall’assunzione (pro rata temporis) - Possibilità di alloggio in una delle nostre bellissime case per dipendenti, su richiesta all’inizio - Opzione di ristorazione nel nuovo ristorante moderno per dipendenti - Lavoro in un ambiente attraente con possibilità di sviluppo Se apprezzate un’attività versatile, responsabile in un team dinamico e volete contribuire con la vostra esperienza e motivazione, saremo lieti di ricevere la vostra candidatura completa online. Avvertenza contro le truffe nel reclutamento Il Badrutt’s Palace Hotel non richiede mai pagamenti o informazioni finanziarie durante il processo di reclutamento. Tutta la comunicazione ufficiale avviene esclusivamente tramite indirizzi e-mail con dominio @badruttspalace.com. Se ricevete una richiesta di pagamento o un messaggio sospetto, ignoratelo e contattateci direttamente tramite il nostro sito ufficiale.",
+        "en": "What you will achieve with us As a Guest Experience Executive, you are a key part of creating extraordinary and unforgettable moments for our guests. With a keen sense for individual wishes, a high quality standard, and genuine passion for first-class service, you will turn every stay into a special experience. - You maintain close contact with our guests both before arrival and throughout their stay to ensure a top-class guest experience and individually tailored services. - You work closely with various departments to ensure smooth and effective communication. - Using our messaging system, you handle guest requests quickly, discreetly, and professionally, ensuring that our guests always feel well taken care of. You demonstrate a strong sense of empathy, teamwork, and a solution-oriented approach. - Even in challenging or stressful situations, you remain calm and ensure that all tasks are completed efficiently, structured, and professionally. What you bring For this versatile position, you ideally have the following profile: - You hold a professional qualification in hospitality or have completed a hotel management school. - At least 2 years of experience at the Front Office and/or in reservations and/or concierge services in luxury hospitality. - Excellent proficiency in German and English; Italian and additional languages are an advantage. - Ideally, you have experience with systems such as Concierge Organizer, Protel, and Aleno or similar tools, and are skilled in professional email and telephone correspondence with international guests at a 5-star level. - Very good IT user skills. - Proactive work style, high level of commitment, and sense of responsibility. - Strong empathy, teamwork skills, and a solution-oriented mindset. - Confident demeanor and impeccable manners. Our offer - Permanent position - 5-day work week averaging 43.5 hours - 5 weeks of vacation and 6 public holidays per year - 13th salary from the start (pro rata temporis) - Option for accommodation in one of our beautiful employee houses at the beginning, if desired - Meal options in the new, modern employee restaurant - Work in an attractive environment with development opportunities If you value a versatile, responsible role in a dynamic team and wish to contribute with your experience and motivation, we look forward to receiving your complete online application. Warning about recruitment fraud Badrutt’s Palace Hotel will never request payments or financial information during the recruitment process. All official communication is conducted exclusively via email addresses ending in @badruttspalace.com. If you receive a payment request or suspicious message, please ignore it and contact us directly through our official website.",
+        "de": "<p><strong>Was Sie bei uns bewirken</strong></p><p><span>Als Guest Experience Executive sind Sie ein wichtiger Bestandteil unseren Gästen aussergewöhnliche und unvergessliche Momente zu bereiten. Mit einem feinen Gespür für individuelle Wünsche, einem hohen Qualitätsanspruch und echter Leidenschaft für erstklassigen Service gestalten Sie jeden Aufenthalt zu einem besonderen Erlebnis.</span></p><ul><li><p><span>Sie stehen bereits vor der Anreise sowie während des gesamten Aufenthalts in engem Kontakt mit unseren Gästen, um ein erstklassiges Gästeerlebnis und individuell abgestimmte Services sicherzustellen.</span></p></li><li><p><span>Sie arbeiten eng mit verschiedenen Abteilungen zusammen und gewährleisten so eine reibungslose und effektive Kommunikation.</span></p></li><li><p><span>Über unser Messaging System betreuen Sie Gästeanfragen schnell, diskret und professionell und sorgen dafür, dass sich unsere Gäste jederzeit bestens umsorgt fühlen. <br>Dabei zeichnen Sie sich durch ein ausgeprägtes Gespür für Menschen sowie eine starke Team- und Lösungsorientierung aus.</span></p></li><li><p><span>Auch in anspruchsvollen oder stressigen Situationen bewahren Sie einen kühlen Kopf und stellen sicher, dass alle Aufgaben effizient, strukturiert und professionell erledigt werden.</span></p></li></ul><p></p><p><span><strong>Das bringen Sie mit</strong></span></p><p><span>Für diese vielseitige Position bringen Sie idealerweise folgendes Profil mit:</span></p><ul><li class=\"MsoListParagraph\"><p><span>Sie verfügen über eine Berufsausbildung in der Hotellerie oder abgeschlossene Hotelfachschule.</span></p></li><li class=\"MsoNormal\"><p><span>Mindestens 2 Jahre Erfahrung am Front Office und/oder in der Reservierung und/oder in der Conciergerie in der Luxushotellerie.</span></p></li><li class=\"MsoNormal\"><p><span>Sehr gute Sprachkenntnisse in Deutsch und Englisch; Italienisch und weitere Sprachen sind von Vorteil.</span></p></li><li class=\"MsoListParagraph\"><p><span>Idealerweise verfügen Sie über Erfahrung im Umgang mit Systemen wie Concierge Organizer, Protel und Aleno oder vergleichbaren Tools und sind versiert in der professionellen E-Mail- und Telefonkorrespondenz mit internationalen Gästen auf 5-Sterne-Niveau.</span></p></li><li class=\"MsoNormal\"><p><span>Sehr gute EDV-Anwenderkenntnisse.</span></p></li><li class=\"MsoNormal\"><p><span>Proaktiver Arbeitsstil sowie ein hohes Mass an Engagement und Verantwortungsbewusstsein.</span></p></li><li class=\"MsoNormal\"><p><span>Ein ausgeprägtes Gespür für Menschen, Teamfähigkeit und Lösungsorientierung.</span></p></li><li class=\"MsoNormal\"><p><span>Souveränes Auftreten sowie gepflegte Umgangsformen.</span><br><br></p></li></ul><p><strong>Unser Angebot</strong></p><ul><li class=\"MsoNormal\"><p><span>Eine unbefristete Position</span></p></li><li class=\"MsoNormal\"><p><span>5-Tage Woche im Schnitt bei 43,5 Stunden</span></p></li><li class=\"MsoNormal\"><p><span>5 Wochen Ferien und 6 Feiertage pro Jahr</span></p></li><li class=\"MsoNormal\"><p><span>13. Gehalt ab Eintritt (pro rata temporis)</span></p></li><li class=\"MsoNormal\"><p><span>Auf Wunsch zu Beginn Unterkunft in einem unserer schönen Mitarbeiterhäuser</span></p></li><li class=\"MsoNormal\"><p><span>Verpflegungsmöglichkeit im neuen, modernen Mitarbeiter Restaurant</span></p></li><li class=\"MsoNormal\"><p><span>Arbeit in einem attraktiven Umfeld mit Entwicklungsmöglichkeiten</span><br></p></li></ul><p>Wenn Sie eine vielseitige, verantwortungsvolle Tätigkeit in einem dynamischen Team schätzen und sich mit Ihrer Erfahrung und Motivation einbringen möchten, freuen wir uns auf Ihre vollständige Online-Bewerbung.</p><p></p><p><strong><em>Warnhinweis vor Recruiting-Betrug</em></strong></p><p><em>Das Badrutt’s Palace Hotel wird im Rahmen des Rekrutierungsprozesses niemals Zahlungen oder finanzielle Informationen verlangen. Die gesamte offizielle Kommunikation erfolgt ausschliesslich über E-Mail-Adressen mit der Endung </em><strong><em>@</em></strong><a target=\"_blank\" href=\"http://badruttspalace.com\"><strong><em>badruttspalace.com</em></strong></a><em>.</em><br><em>Sollten Sie eine Zahlungsaufforderung oder eine verdächtige Nachricht erhalten, ignorieren Sie diese bitte und kontaktieren Sie uns direkt über unsere offizielle Website.</em></p>",
+        "fr": "Ce que vous accomplirez chez nous En tant que Responsable Expérience Client, vous jouez un rôle clé dans la création de moments extraordinaires et inoubliables pour nos clients. Doté d’un sens aigu des attentes individuelles, d’un haut niveau d’exigence et d’une passion sincère pour un service de première classe, vous transformez chaque séjour en une expérience exceptionnelle. - Vous entretenez un contact étroit avec nos clients dès avant leur arrivée et tout au long de leur séjour, afin d’assurer une expérience client de haut niveau et des services personnalisés. - Vous collaborez étroitement avec différents services pour garantir une communication fluide et efficace. - Grâce à notre système de messagerie, vous gérez les demandes des clients de manière rapide, discrète et professionnelle, en veillant à ce qu’ils se sentent toujours bien pris en charge. Vous faites preuve d’un sens aigu des relations humaines, d’un esprit d’équipe et d’une approche orientée solutions. - Même dans des situations exigeantes ou stressantes, vous gardez votre sang-froid et veillez à ce que toutes les tâches soient accomplies de manière efficace, structurée et professionnelle. Ce que vous apportez Pour ce poste polyvalent, vous possédez idéalement le profil suivant : - Vous êtes titulaire d’une formation professionnelle en hôtellerie ou d’un diplôme d’école hôtelière. - Vous avez au moins 2 ans d’expérience au Front Office et/ou en réservation et/ou en conciergerie dans l’hôtellerie de luxe. - Vous maîtrisez parfaitement l’allemand et l’anglais ; l’italien et d’autres langues sont un atout. - Idéalement, vous avez de l’expérience avec des systèmes tels que Concierge Organizer, Protel et Aleno ou des outils similaires, et vous savez gérer une correspondance professionnelle par e-mail et téléphone avec des clients internationaux de niveau 5 étoiles. - Vous avez de très bonnes connaissances en informatique. - Vous faites preuve d’une approche proactive, d’un fort engagement et d’un sens aigu des responsabilités. - Vous avez un sens aigu des relations humaines, un esprit d’équipe et une approche orientée solutions. - Vous avez une attitude confiante et des manières irréprochables. Notre offre - Un poste à durée indéterminée - Semaine de 5 jours avec une moyenne de 43,5 heures - 5 semaines de congés et 6 jours fériés par an - 13e mois dès l’embauche (prorata temporis) - Possibilité d’hébergement dans l’une de nos belles maisons pour employés, sur demande au début - Option de restauration dans le nouveau restaurant moderne pour employés - Travail dans un environnement attrayant avec des perspectives d’évolution Si vous appréciez un poste polyvalent et responsable au sein d’une équipe dynamique et souhaitez contribuer avec votre expérience et votre motivation, nous serions ravis de recevoir votre candidature complète en ligne. Avertissement contre les fraudes de recrutement Le Badrutt’s Palace Hotel ne demande jamais de paiements ou d’informations financières dans le cadre du processus de recrutement. Toute communication officielle se fait exclusivement par e-mail avec une adresse se terminant par @badruttspalace.com. Si vous recevez une demande de paiement ou un message suspect, veuillez l’ignorer et nous contacter directement via notre site officiel."
+      },
+      "location": "St. Moritz",
+      "canton": "GR",
+      "url": "https://jobs.badruttscareers.com/en-GB/jobs/7377432-guest-experience-executive-m-w-d",
+      "source": "Badrutt's Palace Hotel Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-04-12T08:52:29.959Z",
+      "addressLocality": "St. Moritz",
+      "postalCode": "7500",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ospitalità",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Ospitalità / Hotellerie",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-12",
+      "applyUrl": "https://jobs.badruttscareers.com/en-GB/jobs/7377432-guest-experience-executive-m-w-d",
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": [
+          "Formazione professionale nel settore alberghiero o scuola alberghiera completata",
+          "Almeno 2 anni di esperienza in Front Office, reception o conciergerie in hotel di lusso",
+          "Ottima conoscenza di tedesco e inglese; italiano e altre lingue sono un vantaggio",
+          "Esperienza con sistemi come Concierge Organizer, Protel e Aleno o strumenti simili",
+          "Competenze informatiche avanzate",
+          "Stile di lavoro proattivo e alto senso di responsabilità",
+          "Sensibilità verso le persone, capacità di lavorare in team e orientamento alla risoluzione dei problemi",
+          "Portamento sicuro e modi raffinati"
+        ],
+        "en": [
+          "Professional qualification in hospitality or completed hotel management school",
+          "At least 2 years of experience in Front Office, reservations, or concierge services in luxury hospitality",
+          "Excellent proficiency in German and English; Italian and additional languages are an advantage",
+          "Experience with systems such as Concierge Organizer, Protel, and Aleno or similar tools",
+          "Very good IT user skills",
+          "Proactive work style, high level of commitment, and sense of responsibility",
+          "Strong empathy, teamwork skills, and a solution-oriented mindset",
+          "Confident demeanor and impeccable manners"
+        ],
+        "fr": [
+          "Formation professionnelle en hôtellerie ou diplôme d’école hôtelière",
+          "Au moins 2 ans d’expérience en Front Office, réservation ou conciergerie dans l’hôtellerie de luxe",
+          "Maîtrise parfaite de l’allemand et de l’anglais ; l’italien et d’autres langues sont un atout",
+          "Expérience avec des systèmes comme Concierge Organizer, Protel et Aleno ou outils similaires",
+          "Très bonnes connaissances en informatique",
+          "Approche proactive, fort engagement et sens des responsabilités",
+          "Sens aigu des relations humaines, esprit d’équipe et approche orientée solutions",
+          "Attitude confiante et manières irréprochables"
+        ]
+      },
+      "previousSlugs": [
+        "guest-experience-executive-m-w-d-badrutts-palace-ch",
+        "manager-m-w-d-badrutt-s-palace-hotel-st-moritz"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "guest-experience-executive-m-w-d-badrutts-palace-ch"
+        ],
+        "de": [
+          "manager-m-w-d-badrutt-s-palace-hotel-st-moritz"
+        ]
+      },
+      "needsRetranslation": true,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 103000,
           "unitText": "YEAR"
         }
       }
@@ -848,7 +856,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/7386839-assistant-room-service-manager-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T20:47:12.412Z",
+      "crawledAt": "2026-04-12T08:52:29.957Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -895,18 +903,19 @@
           "Esprit d’équipe capable de travailler sous pression"
         ]
       },
-      "previousSlugsByLocale": {
-        "de": [
-          "assistent-zimmerservice-m-w-d-badrutt-s-palace-hotel-st-moritz"
-        ],
-        "it": [
-          "assistant-room-service-manager-m-w-d-badrutts-palace-ch"
-        ]
-      },
       "previousSlugs": [
         "assistant-room-service-manager-m-w-d-badrutts-palace-ch",
         "assistent-zimmerservice-m-w-d-badrutt-s-palace-hotel-st-moritz"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-room-service-manager-m-w-d-badrutts-palace-ch"
+        ],
+        "de": [
+          "assistent-zimmerservice-m-w-d-badrutt-s-palace-hotel-st-moritz"
+        ]
+      },
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -951,7 +960,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/7482296-assistant-stewarding-manager-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-11T20:47:12.411Z",
+      "crawledAt": "2026-04-12T08:52:29.956Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -1009,6 +1018,7 @@
       "previousSlugs": [
         "assistant-stewarding-manager-m-w-d-badrutts-palace-ch"
       ],
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1053,7 +1063,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/7494650-accountant-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T20:47:12.408Z",
+      "crawledAt": "2026-04-12T08:52:29.953Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -1100,18 +1110,19 @@
           "Orientation service, bonnes manières et apparence soignée"
         ]
       },
-      "previousSlugsByLocale": {
-        "de": [
-          "kontoinhaber-m-w-d-badrutt-s-palace-hotel-st-moritz"
-        ],
-        "it": [
-          "accountant-m-w-d-badrutts-palace-ch"
-        ]
-      },
       "previousSlugs": [
         "accountant-m-w-d-badrutts-palace-ch",
         "kontoinhaber-m-w-d-badrutt-s-palace-hotel-st-moritz"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "accountant-m-w-d-badrutts-palace-ch"
+        ],
+        "de": [
+          "kontoinhaber-m-w-d-badrutt-s-palace-hotel-st-moritz"
+        ]
+      },
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1156,7 +1167,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/7506059-leiter-technischer-dienst-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T20:47:12.406Z",
+      "crawledAt": "2026-04-12T08:52:29.951Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -1214,6 +1225,7 @@
       "previousSlugs": [
         "leiter-technischer-dienst-m-w-d-badrutts-palace-ch"
       ],
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1258,7 +1270,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/5605527-executive-chef-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-11T20:47:12.404Z",
+      "crawledAt": "2026-04-12T08:52:29.949Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -1316,6 +1328,7 @@
       "previousSlugs": [
         "executive-chef-m-w-d-badrutts-palace-ch"
       ],
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
