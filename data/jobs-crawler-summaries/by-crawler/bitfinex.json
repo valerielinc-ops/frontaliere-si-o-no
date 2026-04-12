@@ -1,18 +1,19 @@
 {
   "key": "bitfinex",
   "label": "Bitfinex",
-  "generatedAt": "2026-04-12T08:09:09.592Z",
+  "generatedAt": "2026-04-12T08:55:55.514Z",
   "total": 45,
-  "newCount": 45,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 45,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1069232,
-  "avgDurationMs": 1069232,
+  "durationMs": 3527,
+  "avgDurationMs": 3527,
   "durationHistory": [
-    1069232
+    3527
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "bitfinex-502a4dc4fcbf",
       "slug": "hr-people-operations-specialist-fully-remote-worldwide-bitfinex-ch",
@@ -25,7 +26,7 @@
       "url": "https://bitfinex.recruitee.com/o/hr-people-operations-specialist-fully-remote-worldwide-18",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:20.725Z",
+      "crawledAt": "2026-04-12T08:55:52.439Z",
       "addressLocality": "Milan",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -43,11 +44,12 @@
       "postedDate": "2026-04-10",
       "applyUrl": "https://careers.bitfinex.com/o/hr-people-operations-specialist-fully-remote-worldwide-18/c/new",
       "department": "HR",
-      "_qualityScore": 64,
+      "needsRetranslation": true,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -63,7 +65,7 @@
       "url": "https://bitfinex.recruitee.com/o/hr-people-operations-specialist-fully-remote-worldwide-19",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:20.729Z",
+      "crawledAt": "2026-04-12T08:55:52.442Z",
       "addressLocality": "London",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -81,11 +83,12 @@
       "postedDate": "2026-04-10",
       "applyUrl": "https://careers.bitfinex.com/o/hr-people-operations-specialist-fully-remote-worldwide-19/c/new",
       "department": "HR",
-      "_qualityScore": 64,
+      "needsRetranslation": true,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -101,7 +104,7 @@
       "url": "https://bitfinex.recruitee.com/o/hr-people-operations-specialist-fully-remote-worldwide-17",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:20.732Z",
+      "crawledAt": "2026-04-12T08:55:52.444Z",
       "addressLocality": "Amsterdam",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -119,11 +122,12 @@
       "postedDate": "2026-04-10",
       "applyUrl": "https://careers.bitfinex.com/o/hr-people-operations-specialist-fully-remote-worldwide-17/c/new",
       "department": "HR",
-      "_qualityScore": 64,
+      "needsRetranslation": true,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -139,7 +143,7 @@
       "url": "https://bitfinex.recruitee.com/o/hr-people-operations-specialist-fully-remote-worldwide-16",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:20.734Z",
+      "crawledAt": "2026-04-12T08:55:52.446Z",
       "addressLocality": "Warsaw",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -157,11 +161,12 @@
       "postedDate": "2026-04-10",
       "applyUrl": "https://careers.bitfinex.com/o/hr-people-operations-specialist-fully-remote-worldwide-16/c/new",
       "department": "HR",
-      "_qualityScore": 64,
+      "needsRetranslation": true,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -177,7 +182,7 @@
       "url": "https://bitfinex.recruitee.com/o/junior-risk-monitoring-analyst-100-remote-worldwide-5",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:20.736Z",
+      "crawledAt": "2026-04-12T08:55:52.448Z",
       "addressLocality": "São Paulo",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -195,11 +200,12 @@
       "postedDate": "2026-04-02",
       "applyUrl": "https://careers.bitfinex.com/o/junior-risk-monitoring-analyst-100-remote-worldwide-5/c/new",
       "department": "Risk Management",
-      "_qualityScore": 64,
+      "needsRetranslation": true,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -215,7 +221,7 @@
       "url": "https://bitfinex.recruitee.com/o/junior-risk-monitoring-analyst-100-remote-worldwide",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:20.786Z",
+      "crawledAt": "2026-04-12T08:55:52.495Z",
       "addressLocality": "London",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -233,11 +239,12 @@
       "postedDate": "2026-04-01",
       "applyUrl": "https://careers.bitfinex.com/o/junior-risk-monitoring-analyst-100-remote-worldwide/c/new",
       "department": "Risk Management",
-      "_qualityScore": 64,
+      "needsRetranslation": true,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -253,7 +260,7 @@
       "url": "https://bitfinex.recruitee.com/o/mobile-developer-react-native-100-remote-worldwide-12",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:20.738Z",
+      "crawledAt": "2026-04-12T08:55:52.450Z",
       "addressLocality": "Budapest",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -271,11 +278,12 @@
       "postedDate": "2026-03-20",
       "applyUrl": "https://careers.bitfinex.com/o/mobile-developer-react-native-100-remote-worldwide-12/c/new",
       "department": "Engineering",
-      "_qualityScore": 64,
+      "needsRetranslation": true,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -291,7 +299,7 @@
       "url": "https://bitfinex.recruitee.com/o/mobile-developer-react-native-100-remote-worldwide-11",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:20.742Z",
+      "crawledAt": "2026-04-12T08:55:52.452Z",
       "addressLocality": "Bangalore",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -309,11 +317,12 @@
       "postedDate": "2026-03-20",
       "applyUrl": "https://careers.bitfinex.com/o/mobile-developer-react-native-100-remote-worldwide-11/c/new",
       "department": "Engineering",
-      "_qualityScore": 64,
+      "needsRetranslation": true,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -329,7 +338,7 @@
       "url": "https://bitfinex.recruitee.com/o/mobile-developer-react-native-100-remote-worldwide-10",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:20.743Z",
+      "crawledAt": "2026-04-12T08:55:52.454Z",
       "addressLocality": "Bangkok",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -347,11 +356,12 @@
       "postedDate": "2026-03-20",
       "applyUrl": "https://careers.bitfinex.com/o/mobile-developer-react-native-100-remote-worldwide-10/c/new",
       "department": "Engineering",
-      "_qualityScore": 64,
+      "needsRetranslation": true,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -367,7 +377,7 @@
       "url": "https://bitfinex.recruitee.com/o/mobile-developer-react-native-100-remote-worldwide-9",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:20.745Z",
+      "crawledAt": "2026-04-12T08:55:52.456Z",
       "addressLocality": "Mexico City",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -385,11 +395,12 @@
       "postedDate": "2026-03-20",
       "applyUrl": "https://careers.bitfinex.com/o/mobile-developer-react-native-100-remote-worldwide-9/c/new",
       "department": "Engineering",
-      "_qualityScore": 64,
+      "needsRetranslation": true,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -405,7 +416,7 @@
       "url": "https://bitfinex.recruitee.com/o/mobile-developer-react-native-100-remote-worldwide-5",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:20.747Z",
+      "crawledAt": "2026-04-12T08:55:52.457Z",
       "addressLocality": "Ho Chi Min City",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -423,11 +434,12 @@
       "postedDate": "2026-03-20",
       "applyUrl": "https://careers.bitfinex.com/o/mobile-developer-react-native-100-remote-worldwide-5/c/new",
       "department": "Engineering",
-      "_qualityScore": 64,
+      "needsRetranslation": true,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -443,7 +455,7 @@
       "url": "https://bitfinex.recruitee.com/o/mobile-developer-react-native-100-remote-worldwide-6",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:20.748Z",
+      "crawledAt": "2026-04-12T08:55:52.458Z",
       "addressLocality": "Warsaw",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -461,11 +473,12 @@
       "postedDate": "2026-03-20",
       "applyUrl": "https://careers.bitfinex.com/o/mobile-developer-react-native-100-remote-worldwide-6/c/new",
       "department": "Engineering",
-      "_qualityScore": 64,
+      "needsRetranslation": true,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -481,7 +494,7 @@
       "url": "https://bitfinex.recruitee.com/o/mobile-developer-react-native-100-remote-worldwide-8",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:20.750Z",
+      "crawledAt": "2026-04-12T08:55:52.459Z",
       "addressLocality": "Ankara",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -499,11 +512,12 @@
       "postedDate": "2026-03-20",
       "applyUrl": "https://careers.bitfinex.com/o/mobile-developer-react-native-100-remote-worldwide-8/c/new",
       "department": "Engineering",
-      "_qualityScore": 64,
+      "needsRetranslation": true,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -519,7 +533,7 @@
       "url": "https://bitfinex.recruitee.com/o/mobile-developer-react-native-100-remote-worldwide-7",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:20.751Z",
+      "crawledAt": "2026-04-12T08:55:52.460Z",
       "addressLocality": "Spain",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -537,11 +551,12 @@
       "postedDate": "2026-03-20",
       "applyUrl": "https://careers.bitfinex.com/o/mobile-developer-react-native-100-remote-worldwide-7/c/new",
       "department": "Engineering",
-      "_qualityScore": 64,
+      "needsRetranslation": true,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -557,7 +572,7 @@
       "url": "https://bitfinex.recruitee.com/o/mobile-developer-react-native-100-remote-worldwide",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:20.753Z",
+      "crawledAt": "2026-04-12T08:55:52.462Z",
       "addressLocality": "London",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -575,11 +590,12 @@
       "postedDate": "2026-03-20",
       "applyUrl": "https://careers.bitfinex.com/o/mobile-developer-react-native-100-remote-worldwide/c/new",
       "department": "Engineering",
-      "_qualityScore": 64,
+      "needsRetranslation": true,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -595,7 +611,7 @@
       "url": "https://bitfinex.recruitee.com/o/senior-nodejs-backend-developer-100-remote-worldwide",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:20.755Z",
+      "crawledAt": "2026-04-12T08:55:52.463Z",
       "addressLocality": "London",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -613,11 +629,11 @@
       "postedDate": "2026-03-16",
       "applyUrl": "https://careers.bitfinex.com/o/senior-nodejs-backend-developer-100-remote-worldwide/c/new",
       "department": "Engineering",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -633,7 +649,7 @@
       "url": "https://bitfinex.recruitee.com/o/project-manager-content-manager-100-worldwide-remote-6-months-contract-with-potential-extension-8",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:20.757Z",
+      "crawledAt": "2026-04-12T08:55:52.464Z",
       "addressLocality": "Ha Noi",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -651,11 +667,12 @@
       "postedDate": "2026-03-11",
       "applyUrl": "https://careers.bitfinex.com/o/project-manager-content-manager-100-worldwide-remote-6-months-contract-with-potential-extension-8/c/new",
       "department": "Marketing",
-      "_qualityScore": 64,
+      "needsRetranslation": true,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -671,7 +688,7 @@
       "url": "https://bitfinex.recruitee.com/o/project-manager-content-manager-100-worldwide-remote-6-months-contract-with-potential-extension-7",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:20.759Z",
+      "crawledAt": "2026-04-12T08:55:52.468Z",
       "addressLocality": "Caracas",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -689,11 +706,12 @@
       "postedDate": "2026-03-11",
       "applyUrl": "https://careers.bitfinex.com/o/project-manager-content-manager-100-worldwide-remote-6-months-contract-with-potential-extension-7/c/new",
       "department": "Marketing",
-      "_qualityScore": 64,
+      "needsRetranslation": true,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -709,7 +727,7 @@
       "url": "https://bitfinex.recruitee.com/o/project-manager-content-manager-100-worldwide-remote-6-months-contract-with-potential-extension-6",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:20.761Z",
+      "crawledAt": "2026-04-12T08:55:52.469Z",
       "addressLocality": "Mexico City",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -727,11 +745,12 @@
       "postedDate": "2026-03-11",
       "applyUrl": "https://careers.bitfinex.com/o/project-manager-content-manager-100-worldwide-remote-6-months-contract-with-potential-extension-6/c/new",
       "department": "Marketing",
-      "_qualityScore": 64,
+      "needsRetranslation": true,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -747,7 +766,7 @@
       "url": "https://bitfinex.recruitee.com/o/project-manager-content-manager-100-worldwide-remote-6-months-contract-with-potential-extension-5",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:20.763Z",
+      "crawledAt": "2026-04-12T08:55:52.471Z",
       "addressLocality": "Singapore",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -765,11 +784,12 @@
       "postedDate": "2026-03-11",
       "applyUrl": "https://careers.bitfinex.com/o/project-manager-content-manager-100-worldwide-remote-6-months-contract-with-potential-extension-5/c/new",
       "department": "Marketing",
-      "_qualityScore": 64,
+      "needsRetranslation": true,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -785,7 +805,7 @@
       "url": "https://bitfinex.recruitee.com/o/project-manager-content-manager-100-worldwide-remote-6-months-contract-with-potential-extension-3",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:20.764Z",
+      "crawledAt": "2026-04-12T08:55:52.472Z",
       "addressLocality": "Dublin",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -803,11 +823,12 @@
       "postedDate": "2026-03-11",
       "applyUrl": "https://careers.bitfinex.com/o/project-manager-content-manager-100-worldwide-remote-6-months-contract-with-potential-extension-3/c/new",
       "department": "Marketing",
-      "_qualityScore": 64,
+      "needsRetranslation": true,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -823,7 +844,7 @@
       "url": "https://bitfinex.recruitee.com/o/project-manager-content-manager-100-worldwide-remote-6-months-contract-with-potential-extension-1",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:20.765Z",
+      "crawledAt": "2026-04-12T08:55:52.473Z",
       "addressLocality": "Spain",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -841,11 +862,12 @@
       "postedDate": "2026-03-11",
       "applyUrl": "https://careers.bitfinex.com/o/project-manager-content-manager-100-worldwide-remote-6-months-contract-with-potential-extension-1/c/new",
       "department": "Marketing",
-      "_qualityScore": 64,
+      "needsRetranslation": true,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -861,7 +883,7 @@
       "url": "https://bitfinex.recruitee.com/o/project-manager-content-manager-100-worldwide-remote-6-months-contract-with-potential-extension",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:20.766Z",
+      "crawledAt": "2026-04-12T08:55:52.473Z",
       "addressLocality": "London",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -879,11 +901,12 @@
       "postedDate": "2026-03-11",
       "applyUrl": "https://careers.bitfinex.com/o/project-manager-content-manager-100-worldwide-remote-6-months-contract-with-potential-extension/c/new",
       "department": "Marketing",
-      "_qualityScore": 64,
+      "needsRetranslation": true,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -899,7 +922,7 @@
       "url": "https://bitfinex.recruitee.com/o/content-marketing-manager-remote-100-worldwide-cet-timezone-7",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:20.767Z",
+      "crawledAt": "2026-04-12T08:55:52.474Z",
       "addressLocality": "Sydney",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -917,11 +940,11 @@
       "postedDate": "2026-03-09",
       "applyUrl": "https://careers.bitfinex.com/o/content-marketing-manager-remote-100-worldwide-cet-timezone-7/c/new",
       "department": "Marketing",
-      "_qualityScore": 66,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -937,7 +960,7 @@
       "url": "https://bitfinex.recruitee.com/o/content-marketing-manager-remote-100-worldwide-cet-timezone-6",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:20.768Z",
+      "crawledAt": "2026-04-12T08:55:52.475Z",
       "addressLocality": "Spain",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -955,11 +978,11 @@
       "postedDate": "2026-03-09",
       "applyUrl": "https://careers.bitfinex.com/o/content-marketing-manager-remote-100-worldwide-cet-timezone-6/c/new",
       "department": "Marketing",
-      "_qualityScore": 66,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -975,7 +998,7 @@
       "url": "https://bitfinex.recruitee.com/o/content-marketing-manager-remote-100-worldwide-cet-timezone-5",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:20.769Z",
+      "crawledAt": "2026-04-12T08:55:52.476Z",
       "addressLocality": "Bangkok",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -993,11 +1016,11 @@
       "postedDate": "2026-03-09",
       "applyUrl": "https://careers.bitfinex.com/o/content-marketing-manager-remote-100-worldwide-cet-timezone-5/c/new",
       "department": "Marketing",
-      "_qualityScore": 66,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -1013,7 +1036,7 @@
       "url": "https://bitfinex.recruitee.com/o/content-marketing-manager-remote-100-worldwide-cet-timezone-4",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:20.771Z",
+      "crawledAt": "2026-04-12T08:55:52.477Z",
       "addressLocality": "Hong Kong SAR",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -1031,11 +1054,11 @@
       "postedDate": "2026-03-09",
       "applyUrl": "https://careers.bitfinex.com/o/content-marketing-manager-remote-100-worldwide-cet-timezone-4/c/new",
       "department": "Marketing",
-      "_qualityScore": 66,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -1051,7 +1074,7 @@
       "url": "https://bitfinex.recruitee.com/o/content-marketing-manager-remote-100-worldwide-cet-timezone-3",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:20.772Z",
+      "crawledAt": "2026-04-12T08:55:52.478Z",
       "addressLocality": "Singapore",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -1069,11 +1092,11 @@
       "postedDate": "2026-03-09",
       "applyUrl": "https://careers.bitfinex.com/o/content-marketing-manager-remote-100-worldwide-cet-timezone-3/c/new",
       "department": "Marketing",
-      "_qualityScore": 66,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -1089,7 +1112,7 @@
       "url": "https://bitfinex.recruitee.com/o/content-marketing-manager-remote-100-worldwide-cet-timezone-2",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:20.773Z",
+      "crawledAt": "2026-04-12T08:55:52.479Z",
       "addressLocality": "Toronto",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -1107,11 +1130,11 @@
       "postedDate": "2026-03-09",
       "applyUrl": "https://careers.bitfinex.com/o/content-marketing-manager-remote-100-worldwide-cet-timezone-2/c/new",
       "department": "Marketing",
-      "_qualityScore": 66,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -1127,7 +1150,7 @@
       "url": "https://bitfinex.recruitee.com/o/content-marketing-manager-remote-100-worldwide-cet-timezone-1",
       "source": "bitfinex-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:20.774Z",
+      "crawledAt": "2026-04-12T08:55:52.481Z",
       "addressLocality": "London",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -1145,16 +1168,15 @@
       "postedDate": "2026-03-09",
       "applyUrl": "https://careers.bitfinex.com/o/content-marketing-manager-remote-100-worldwide-cet-timezone-1/c/new",
       "department": "Marketing",
-      "_qualityScore": 66,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
