@@ -28,6 +28,7 @@ concurrency:
 
 permissions:
   contents: write
+  issues: write
 
 env:
   NODE_OPTIONS: '--disable-warning=DEP0040 --disable-warning=DEP0169'

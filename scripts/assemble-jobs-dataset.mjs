@@ -33,6 +33,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import {
   createEmptyCrawlerSummaryStore,
@@ -182,6 +183,173 @@ export function readExistingCrawlerJobs(crawlerKey, dataJobsPath) {
   return [];
 }
 
+/* ── Boilerplate Guard ─────────────────────────────────────────────────
+ *
+ * Detects when a crawler's detail-page parser silently fails, causing
+ * buildXxxLocalizedContent to emit generic boilerplate instead of real
+ * job descriptions. Runs inside writeJobsCrawlerSlice before the slice
+ * is persisted.
+ *
+ * Detection: marker phrases (Condition A) OR low unique word count (Condition B).
+ * Threshold: 50% of jobs per crawler.
+ * ──────────────────────────────────────────────────────────────────── */
+
+const BOILERPLATE_MARKER_PHRASES = [
+  "è un'azienda internazionale leader",
+  'collaboratori in tutto il mondo',
+  'Candidati online su',
+  'transizione energetica e industriale',
+  'offre servizi di ingegneria',
+];
+
+const BOILERPLATE_MARKER_REGEX = /cerca .+ con sede a/i;
+
+const CONTENT_HEADINGS_RE = /\b(COMPITI|PROFILO|Responsabilit[aà]|Requisiti|Qualifiche|Tasks|Requirements|Aufgaben|Anforderungen)\b/i;
+
+const BOILERPLATE_THRESHOLD = 0.5; // 50%
+const MIN_UNIQUE_WORDS = 30;
+
+/**
+ * Detect boilerplate descriptions in a set of jobs.
+ *
+ * @param {object[]} jobs       - Array of job objects
+ * @param {string}   crawlerKey - Company key for logging
+ * @returns {{ boilerplateJobs: Array<{slug:string, title:string, reason:string, totalWords:number, uniqueWords:number}>, totalJobs:number, boilerplateCount:number, ratio:number }}
+ */
+export function detectBoilerplateDescriptions(jobs, crawlerKey) {
+  const boilerplateJobs = [];
+  let eligibleCount = 0;
+
+  for (const job of jobs) {
+    if (job.needsRetranslation) continue;
+    eligibleCount++;
+
+    const desc = String(job.descriptionByLocale?.it || '').trim();
+    if (!desc) {
+      boilerplateJobs.push({
+        slug: job.slug || job.title || 'unknown',
+        title: job.title || '',
+        reason: 'empty_description',
+        totalWords: 0,
+        uniqueWords: 0,
+      });
+      continue;
+    }
+
+    const totalWords = desc.split(/\s+/).filter(Boolean).length;
+
+    // Condition A: >=2 marker phrases AND no content headings
+    let markerCount = 0;
+    for (const phrase of BOILERPLATE_MARKER_PHRASES) {
+      if (desc.includes(phrase)) markerCount++;
+    }
+    if (BOILERPLATE_MARKER_REGEX.test(desc)) markerCount++;
+
+    const hasContentHeadings = CONTENT_HEADINGS_RE.test(desc);
+
+    if (markerCount >= 2 && !hasContentHeadings) {
+      boilerplateJobs.push({
+        slug: job.slug || job.title || 'unknown',
+        title: job.title || '',
+        reason: 'marker_phrases',
+        totalWords,
+        uniqueWords: totalWords, // not computed for marker match
+      });
+      continue;
+    }
+
+    // Condition B: low unique content after removing marker substrings
+    let cleaned = desc;
+    for (const phrase of BOILERPLATE_MARKER_PHRASES) {
+      cleaned = cleaned.replaceAll(phrase, '');
+    }
+    cleaned = cleaned.replace(BOILERPLATE_MARKER_REGEX, '');
+    const uniqueWords = cleaned.split(/\s+/).filter(w => w.length > 0).length;
+
+    if (uniqueWords < MIN_UNIQUE_WORDS) {
+      boilerplateJobs.push({
+        slug: job.slug || job.title || 'unknown',
+        title: job.title || '',
+        reason: 'low_unique_words',
+        totalWords,
+        uniqueWords,
+      });
+    }
+  }
+
+  const ratio = eligibleCount > 0 ? boilerplateJobs.length / eligibleCount : 0;
+
+  return {
+    boilerplateJobs,
+    totalJobs: eligibleCount,
+    boilerplateCount: boilerplateJobs.length,
+    ratio,
+  };
+}
+
+/**
+ * Create or update a GitHub Issue for a boilerplate guard failure.
+ * Best-effort: failures are logged but do not suppress the guard error.
+ */
+function _createBoilerplateGuardIssue(crawlerKey, report) {
+  try {
+    // Check for existing open issue
+    const searchResult = execSync(
+      `gh issue list --label parser-broken --state open --search "${crawlerKey}" --json number,title --limit 5`,
+      { encoding: 'utf8', timeout: 15000 },
+    ).trim();
+
+    const existing = JSON.parse(searchResult || '[]');
+    const existingIssue = existing.find(i => i.title?.includes(`[parser-health] ${crawlerKey}`));
+
+    const dateStr = new Date().toISOString();
+    const ratioPercent = Math.round(report.ratio * 100);
+
+    if (existingIssue) {
+      // Add comment to existing issue
+      execSync(
+        `gh issue comment ${existingIssue.number} --body "Updated: ${dateStr} — still detecting ${report.boilerplateCount}/${report.totalJobs} boilerplate jobs."`,
+        { encoding: 'utf8', timeout: 15000 },
+      );
+      console.log(`📋 Updated existing issue #${existingIssue.number}`);
+    } else {
+      // Create new issue
+      const jobsTable = report.boilerplateJobs
+        .slice(0, 20)
+        .map((j, i) => `| ${i + 1} | ${j.title} | ${j.slug} | ${j.uniqueWords} | ${j.reason} |`)
+        .join('\n');
+
+      const body = `## Parser Health Alert
+
+**Crawler:** ${crawlerKey}
+**Boilerplate ratio:** ${ratioPercent}% (${report.boilerplateCount}/${report.totalJobs} jobs)
+**Threshold:** 50%
+**Run:** ${dateStr}
+
+### Affected jobs
+
+| # | Job title | Slug | Unique words | Reason |
+|---|-----------|------|-------------|--------|
+${jobsTable}
+
+### Investigation checklist
+
+- [ ] Check if the source site changed its HTML structure
+- [ ] Review the parser at \`scripts/lib/${crawlerKey}-job-parser.mjs\`
+- [ ] Compare parser selectors with current page structure
+- [ ] Fix the parser and re-run: \`node scripts/update-${crawlerKey}-jobs.mjs\``;
+
+      execSync(
+        `gh issue create --title "[parser-health] ${crawlerKey}: ${report.boilerplateCount}/${report.totalJobs} jobs have boilerplate-only descriptions" --label parser-broken --label automated --body ${JSON.stringify(body)}`,
+        { encoding: 'utf8', timeout: 15000 },
+      );
+      console.log(`📋 Created new GitHub Issue for ${crawlerKey}`);
+    }
+  } catch (err) {
+    console.warn(`⚠️  [boilerplate-guard] GitHub Issue creation failed: ${err.message}`);
+  }
+}
+
 /**
  * Write a per-crawler jobs slice.
  *
@@ -237,6 +405,26 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs) {
     if (needsFlag) { job.needsRetranslation = true; flagged++; }
   }
   if (flagged > 0) console.log(`🔍 Quality gate: flagged ${flagged} jobs with wrong-language content`);
+
+  // Boilerplate guard: detect parsers that silently fell back to generic descriptions.
+  if (!process.env.SKIP_BOILERPLATE_GUARD) {
+    const bpReport = detectBoilerplateDescriptions(jobs, crawlerKey);
+    if (bpReport.boilerplateCount > 0 && bpReport.ratio < BOILERPLATE_THRESHOLD) {
+      for (const bj of bpReport.boilerplateJobs) {
+        console.log(`[boilerplate-guard] ${bj.slug}: ${bj.reason} (${bj.uniqueWords} unique words)`);
+      }
+    }
+    if (bpReport.ratio >= BOILERPLATE_THRESHOLD) {
+      console.error(`\n🚨 Boilerplate guard FAILED for ${crawlerKey}`);
+      console.error(`   ${bpReport.boilerplateCount}/${bpReport.totalJobs} jobs (${(bpReport.ratio * 100).toFixed(0)}%) have boilerplate-only descriptions\n`);
+      console.error('   Affected jobs:');
+      for (const bj of bpReport.boilerplateJobs) {
+        console.error(`   - ${bj.title} [${bj.reason}, ${bj.uniqueWords} unique words]`);
+      }
+      _createBoilerplateGuardIssue(crawlerKey, bpReport);
+      throw new Error(`[boilerplate-guard] ${crawlerKey}: ${bpReport.boilerplateCount}/${bpReport.totalJobs} jobs (${(bpReport.ratio * 100).toFixed(0)}%) have boilerplate-only descriptions — threshold is ${(BOILERPLATE_THRESHOLD * 100).toFixed(0)}%`);
+    }
+  }
 
   const hardened = hardenJobsWithStructuredSalary(jobs);
 
