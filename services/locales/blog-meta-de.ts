@@ -2103,6 +2103,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.svizzera-alleanza-porti-europei-anti-droga.title': 'Die Schweiz in der Allianz der europäischen Häfen gegen Drogenhandel',
     'blog.article.svizzera-alleanza-porti-europei-anti-droga.excerpt': 'Der Bundesrat prüft eine Teilnahme, um die Datenteilung und gemeinsame Standards gegen Kartelle zu stärken. Häfen im Tessin sind über die Kantone Basel einbezogen.',
     'blog.article.svizzera-alleanza-porti-europei-anti-droga.imageAlt': 'Güterumschlag im Hafen Chiasso bei Sonnenuntergang mit Alpen im Hintergrund',
+    'blog.article.glarona-domeniche-senzauto-ticino-frontalieri.title': 'Glarus verbietet sonntags Autos: Wird das Tessin es versuchen?',
+    'blog.article.glarona-domeniche-senzauto-ticino-frontalieri.excerpt': 'Der Kanton Glarus führt sonntags wieder autofreie Tage ein, um den touristischen Andrang einzudämmen. Im Tessin wird diskutiert, ob ähnliche Massnahmen ergriffen werden sollen: Val Verzasca, Bellinzona und Lugano prüfen Vor- und Nachteile.',
+    'blog.article.glarona-domeniche-senzauto-ticino-frontalieri.imageAlt': 'Verzasca-Tal an einem autofreien Sonntag: Familien und Touristen spazieren am Fluss entlang unter einem klaren Himmel',
 };
 
 export default blogMetaDe;

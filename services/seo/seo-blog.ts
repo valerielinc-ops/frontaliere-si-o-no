@@ -7198,6 +7198,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-glarona-domeniche-senzauto-ticino-frontalieri': {
+    title: 'Glarona vieta le auto la domenica: il | Frontaliere Ticino',
+    description: 'Il Canton Glarona vieta le auto per tre domeniche all’anno al lago di Klöntal. In Ticino si discute se adottare misure simili: Val Verzasca, Bellinzona e Lugano',
+    keywords: 'frontalieri, ticino, svizzera, italia, glarona, vieta, auto, domenica',
+    ogTitle: 'Domeniche senza auto in Ticino: Glarona fa da apripista',
+    ogDescription: 'Il Canton Glarona vieta le auto per tre domeniche all’anno al lago di Klöntal. In Ticino si discute se adottare misure simili: Val Verzasca, Bellinzona e Lugano',
+    canonicalPath: '/articoli-frontaliere/glarona-domeniche-senzauto-ticino-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Domeniche senza auto in Ticino: Glarona fa da apripista",
+      "description": "Il Canton Glarona vieta le auto per tre domeniche all’anno al lago di Klöntal. In Ticino si discute se adottare misure simili: Val Verzasca, Bellinzona e Lugano",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/glarona-domeniche-senzauto-ticino-frontalieri.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Valle Verzasca in una domenica senza auto: famiglie e turisti camminano lungo il fiume sotto un cielo limpido"
+      },
+      "datePublished": "2026-04-12T09:55:21+00:00",
+      "dateModified": "2026-04-12T09:55:21+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/glarona-domeniche-senzauto-ticino-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -2103,6 +2103,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.svizzera-alleanza-porti-europei-anti-droga.title': 'Switzerland joins European ports alliance against drug trafficking',
     'blog.article.svizzera-alleanza-porti-europei-anti-droga.excerpt': 'The Federal Council is evaluating participation to enhance data sharing and common standards against drug cartels. Ports in Ticino are involved through the cantons of Basel.',
     'blog.article.svizzera-alleanza-porti-europei-anti-droga.imageAlt': 'Cargo handling at Chiasso port at sunset with Alps in the background',
+    'blog.article.glarona-domeniche-senzauto-ticino-frontalieri.title': 'Glarus bans cars on Sundays: will Ticino give it a try?',
+    'blog.article.glarona-domeniche-senzauto-ticino-frontalieri.excerpt': 'The Canton of Glarus reintroduces car-free Sundays to reduce tourist overcrowding. In Ticino, discussions are underway on whether to implement similar measures: Val Verzasca, Bellinzona, and Lugano are weighing the pros and cons.',
+    'blog.article.glarona-domeniche-senzauto-ticino-frontalieri.imageAlt': 'Verzasca Valley on a car-free Sunday: families and tourists walking along the river under a clear sky',
 };
 
 export default blogMetaEn;

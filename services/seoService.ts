@@ -1956,6 +1956,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-acqua-potabile-lavizzara-piano-peccia-monti-rima': { name: 'Acqua di nuovo potabile a Lavizzara', path: '/articoli-frontaliere/acqua-potabile-lavizzara-piano-peccia-monti-rima', parent: 'blog' },
     'blog-giovani-fuga-ticino': { name: 'Giovani Ticino', path: '/articoli-frontaliere/giovani-fuga-ticino', parent: 'blog' },
     'blog-svizzera-alleanza-porti-europei-anti-droga': { name: 'Svizzera nell’Alleanza dei porti europei', path: '/articoli-frontaliere/svizzera-alleanza-porti-europei-anti-droga', parent: 'blog' },
+    'blog-glarona-domeniche-senzauto-ticino-frontalieri': { name: 'Mobilità', path: '/articoli-frontaliere/glarona-domeniche-senzauto-ticino-frontalieri', parent: 'blog' },
   };
 
   const info = sectionNames[section];

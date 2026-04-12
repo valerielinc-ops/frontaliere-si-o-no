@@ -5892,4 +5892,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/svizzera-alleanza-porti-europei-anti-droga.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'glarona-domeniche-senzauto-ticino-frontalieri',
+    category: 'pratico',
+    date: '2026-04-12T09:55:21.267Z',
+    image: '/images/blog/glarona-domeniche-senzauto-ticino-frontalieri.jpg',
+    hasCalculator: true,
+  },
 ];

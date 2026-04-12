@@ -2103,6 +2103,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.svizzera-alleanza-porti-europei-anti-droga.title': 'Svizzera nell’Alleanza dei porti europei contro il traffico di droga',
     'blog.article.svizzera-alleanza-porti-europei-anti-droga.excerpt': 'Il Consiglio federale valuta la partecipazione per potenziare la condivisione dati e norme comuni contro i cartelli. Porti del Ticino coinvolti tramite i Cantoni di Basilea.',
     'blog.article.svizzera-alleanza-porti-europei-anti-droga.imageAlt': 'Cargo in movimentazione nel porto di Chiasso al tramonto con le Alpi sullo sfondo',
+    'blog.article.glarona-domeniche-senzauto-ticino-frontalieri.title': 'Glarona vieta le auto la domenica: il Ticino ci proverà?',
+    'blog.article.glarona-domeniche-senzauto-ticino-frontalieri.excerpt': 'Il Canton Glarona reintroduce le domeniche senza auto per limitare il sovraffollamento turistico. In Ticino si discute se adottare misure simili: Val Verzasca, Bellinzona e Lugano analizzano pro e contro.',
+    'blog.article.glarona-domeniche-senzauto-ticino-frontalieri.imageAlt': 'Valle Verzasca in una domenica senza auto: famiglie e turisti camminano lungo il fiume sotto un cielo limpido',
 };
 
 export default blogMetaIt;

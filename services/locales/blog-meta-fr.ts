@@ -2103,6 +2103,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.svizzera-alleanza-porti-europei-anti-droga.title': 'La Suisse dans l’Alliance des ports européens contre le trafic de drogue',
     'blog.article.svizzera-alleanza-porti-europei-anti-droga.excerpt': 'Le Conseil fédéral examine la participation à cette initiative afin de renforcer le partage de données et l’harmonisation des normes contre les cartels. Les ports du Tessin sont concernés via les cantons de Bâle.',
     'blog.article.svizzera-alleanza-porti-europei-anti-droga.imageAlt': 'Manutention de marchandises au port de Chiasso au coucher du soleil avec les Alpes en arrière-plan',
+    'blog.article.glarona-domeniche-senzauto-ticino-frontalieri.title': 'Glaris interdit les voitures le dimanche : le Tessin va-t-il s’y mettre ?',
+    'blog.article.glarona-domeniche-senzauto-ticino-frontalieri.excerpt': 'Le canton de Glaris réintroduit les dimanches sans voiture pour limiter l’afflux touristique. Au Tessin, on débat de l’adoption de mesures similaires : Val Verzasca, Bellinzone et Lugano analysent les avantages et les inconvénients.',
+    'blog.article.glarona-domeniche-senzauto-ticino-frontalieri.imageAlt': 'Vallée de la Verzasca un dimanche sans voiture : familles et touristes se promènent le long de la rivière sous un ciel dégagé',
 };
 
 export default blogMetaFr;
