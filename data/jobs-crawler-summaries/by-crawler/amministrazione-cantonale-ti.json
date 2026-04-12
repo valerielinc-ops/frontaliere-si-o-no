@@ -1,16 +1,16 @@
 {
   "key": "amministrazione-cantonale-ti",
   "label": "Ti.CH",
-  "generatedAt": "2026-04-12T10:14:45.529Z",
+  "generatedAt": "2026-04-12T22:13:24.725Z",
   "total": 19,
   "newCount": 0,
   "updatedCount": 15,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 22939,
-  "avgDurationMs": 22939,
+  "durationMs": 17909,
+  "avgDurationMs": 17909,
   "durationHistory": [
-    22939
+    17909
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -65,7 +65,6 @@
       "companyKey": "amministrazione-cantonale-ti",
       "companyDomain": "concorsi.ti.ch",
       "crawledAt": "2026-04-03T09:51:20.366Z",
-      "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 46500,
       "salaryMax": 62500,
@@ -75,11 +74,11 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 85,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 15,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -383,7 +382,6 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,

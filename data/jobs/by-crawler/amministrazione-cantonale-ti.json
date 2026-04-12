@@ -1,6 +1,6 @@
 {
   "crawlerKey": "amministrazione-cantonale-ti",
-  "assembledAt": "2026-04-12T10:14:45.527Z",
+  "assembledAt": "2026-04-12T22:13:24.723Z",
   "jobs": [
     {
       "id": "company-213ie3",
@@ -75,7 +75,8 @@
         "it": [
           "candidature-spontanee-per-lavoro-estivo-presso-l-amministrazione-cantonale-per-studenti-domiciliati-nel-cantone-ticino-o-nel-grigioni-italia"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-213j0l",
@@ -306,7 +307,7 @@
     },
     {
       "id": "company-213ie6",
-      "slug": "1-apprendista-operatore-trice-di-edifici-e-infrastrutture-afc-per-il-periodo-dal-17-agosto-2026-al-16-agosto-2029-presso",
+      "slug": "requisitos-amministrazione-cantonale-ticino-bellinzona",
       "company": "Amministrazione Cantonale Ticino",
       "title": "Requisiti:",
       "location": "Lugano",
@@ -337,10 +338,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "1-apprendista-operatore-trice-di-edifici-e-infrastrutture-afc-per-il-periodo-dal-17-agosto-2026-al-16-agosto-2029-presso",
+        "it": "requisitos-amministrazione-cantonale-ticino-bellinzona",
         "en": "requisiti-amministrazione-cantonale-ticino-bellinzona",
         "de": "gebaudetechnikpraktikant-in-efz-amministrazione-cantonale-ticino-lugano",
-        "fr": "apprenti-e-operateur-trice-de-batiments-et-d-infrastructures-cfc-amministrazione-cantonale-ticino-lugano"
+        "fr": "apprenti-e-operateur-trice-de-batiments-et-d-infrastructures-cfc-amministrazione-cantonale-ticino-bellinzona"
       },
       "sourceLang": "it",
       "previousSlugs": [
@@ -349,9 +350,10 @@
         "1-apprendista-operatore-trice-di-edifici-e-infrastrutture-afc-per-il-periodo-dal-17-agosto-2026-al-16-agosto-2029-presso-il-liceo-cantonale--213ie6",
         "requisiti-amministrazione-cantonale-ticino-lugano",
         "requisiti-amministrazione-cantonale-ticino-lugano-213ie6",
+        "1-apprendista-operatore-trice-di-edifici-e-infrastrutture-afc-per-il-periodo-dal-17-agosto-2026-al-16-agosto-2029-presso",
         "1-lernende-r-operatore-trice-di-edifici-e-infrastrutture-afc-per-il-periodo-dal-17-agosto-2026-al-16-agosto-2029-presso-il-liceo-cantonale-d-213ie6",
         "1-apprenti-e-operatore-trice-di-edifici-e-infrastrutture-afc-per-il-periodo-dal-17-agosto-2026-al-16-agosto-2029-presso-il-liceo-cantonale-d-213ie6",
-        "apprenti-e-operateur-trice-de-batiments-et-d-infrastructures-cfc-amministrazione-cantonale-ticino-bellinzona"
+        "apprenti-e-operateur-trice-de-batiments-et-d-infrastructures-cfc-amministrazione-cantonale-ticino-lugano"
       ],
       "salaryMin": 46500,
       "salaryMax": 62500,
@@ -377,7 +379,8 @@
           "1-apprentice-operatore-trice-di-edifici-e-infrastrutture-afc-per-il-periodo-dal-17-agosto-2026-al-16-agosto-2029-presso-il-liceo-cantonale-d-213ie6",
           "1-apprendista-operatore-trice-di-edifici-e-infrastrutture-afc-per-il-periodo-dal-17-agosto-2026-al-16-agosto-2029-presso-il-liceo-cantonale--213ie6",
           "requisiti-amministrazione-cantonale-ticino-lugano",
-          "requisiti-amministrazione-cantonale-ticino-lugano-213ie6"
+          "requisiti-amministrazione-cantonale-ticino-lugano-213ie6",
+          "1-apprendista-operatore-trice-di-edifici-e-infrastrutture-afc-per-il-periodo-dal-17-agosto-2026-al-16-agosto-2029-presso"
         ],
         "en": [
           "requisiti-amministrazione-cantonale-ticino-lugano",
@@ -391,7 +394,8 @@
         "fr": [
           "requisiti-amministrazione-cantonale-ticino-lugano",
           "requisiti-amministrazione-cantonale-ticino-lugano-213ie6",
-          "1-apprenti-e-operatore-trice-di-edifici-e-infrastrutture-afc-per-il-periodo-dal-17-agosto-2026-al-16-agosto-2029-presso-il-liceo-cantonale-d-213ie6"
+          "1-apprenti-e-operatore-trice-di-edifici-e-infrastrutture-afc-per-il-periodo-dal-17-agosto-2026-al-16-agosto-2029-presso-il-liceo-cantonale-d-213ie6",
+          "apprenti-e-operateur-trice-de-batiments-et-d-infrastructures-cfc-amministrazione-cantonale-ticino-lugano"
         ]
       }
     },
@@ -755,7 +759,8 @@
         "fr": [
           "concorso-generale-2026-collaboratori-trici-amministrativi-e-addetti-e-al-servizio-accoglienza-addetti-e-agli-assicurati-iii-consulenti-telef-213zbv"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-213j0o",
@@ -894,7 +899,8 @@
         "fr": [
           "concorso-generale-2026-infermieri-e-con-specialita-salute-mentale-e-infermieri-e-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-men-213j0m"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-213j0g",
