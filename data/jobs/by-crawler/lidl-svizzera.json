@@ -29,8 +29,8 @@
       "slugByLocale": {
         "it": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-minusio-tyv50x",
         "en": "apprenticeship-in-retail-cfp-or-afc-start-2026-lidl-svizzera-minusio",
-        "de": "lehre-im-einzelhandel-cfp-oder-afc-beginn-2026-lidl-svizzera-minusio",
-        "fr": "apprentissage-en-commerce-de-detail-cfp-ou-afc-debut-2026-lidl-svizzera-minusio"
+        "de": "verkaufslehre-beginn-2026-lidl-svizzera-minusio",
+        "fr": "stage-de-vente-debut-2026-lidl-svizzera-minusio"
       },
       "titleByLocale": {
         "it": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026",
@@ -65,7 +65,19 @@
       "addressLocality": "Cadenazzo",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "de": [
+          "lehre-im-einzelhandel-cfp-oder-afc-beginn-2026-lidl-svizzera-minusio"
+        ],
+        "fr": [
+          "apprentissage-en-commerce-de-detail-cfp-ou-afc-debut-2026-lidl-svizzera-minusio"
+        ]
+      },
+      "previousSlugs": [
+        "lehre-im-einzelhandel-cfp-oder-afc-beginn-2026-lidl-svizzera-minusio",
+        "apprentissage-en-commerce-de-detail-cfp-ou-afc-debut-2026-lidl-svizzera-minusio"
+      ]
     },
     {
       "id": "company-3t5gz5",
@@ -158,9 +170,9 @@
       "crawledAt": "2026-04-12T09:43:42.513Z",
       "slugByLocale": {
         "it": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-locarno-kscbfg",
-        "en": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-locarno-kscbfg",
+        "en": "retail-apprenticeship-cfp-or-afc-start-2026-lidl-svizzera-locarno",
         "de": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-locarno-kscbfg",
-        "fr": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-locarno-kscbfg"
+        "fr": "apprentissage-dans-le-commerce-de-detail-cfp-ou-afc-debut-2026-lidl-svizzera-locarno"
       },
       "titleByLocale": {
         "it": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026",

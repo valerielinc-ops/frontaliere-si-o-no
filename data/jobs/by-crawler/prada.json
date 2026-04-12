@@ -286,12 +286,12 @@
     },
     {
       "id": "prada-e37854f0849e",
-      "slug": "it-ecommerce-digital-solution-architect-prada-group-mendrisio",
+      "slug": "architetto-di-soluzioni-ecommerce-prada-group-mendrisio",
       "slugByLocale": {
         "en": "it-ecommerce-digital-solution-architect-prada-group-mendrisio",
-        "it": "it-ecommerce-digital-solution-architect-prada-group-mendrisio",
-        "de": "it-ecommerce-digital-solution-architect-prada-group-mendrisio",
-        "fr": "it-ecommerce-digital-solution-architect-prada-group-mendrisio"
+        "it": "architetto-di-soluzioni-ecommerce-prada-group-mendrisio",
+        "de": "ecommerce-losung-architekt-prada-group-mendrisio",
+        "fr": "architecte-de-solutions-ecommerce-prada-group-mendrisio"
       },
       "company": "Prada Group",
       "companyKey": "prada",
@@ -340,7 +340,21 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6850"
+      "postalCode": "6850",
+      "previousSlugsByLocale": {
+        "it": [
+          "it-ecommerce-digital-solution-architect-prada-group-mendrisio"
+        ],
+        "de": [
+          "it-ecommerce-digital-solution-architect-prada-group-mendrisio"
+        ],
+        "fr": [
+          "it-ecommerce-digital-solution-architect-prada-group-mendrisio"
+        ]
+      },
+      "previousSlugs": [
+        "it-ecommerce-digital-solution-architect-prada-group-mendrisio"
+      ]
     },
     {
       "id": "prada-332f237b0ca4",
