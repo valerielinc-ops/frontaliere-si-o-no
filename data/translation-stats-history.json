@@ -1,229 +1,5 @@
 [
   {
-    "timestamp": "2026-04-03T03:30:16.549Z",
-    "label": "before",
-    "total": 1544,
-    "needsRetranslation": 237,
-    "incomplete": 208,
-    "complete": 1336,
-    "missingByLocale": {
-      "it": 121,
-      "en": 143,
-      "de": 79,
-      "fr": 164
-    },
-    "topPending": [
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 65
-      },
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 14
-      },
-      {
-        "company": "LIS – Lugano Istituti Sociali",
-        "pending": 13
-      },
-      {
-        "company": "Città di Lugano",
-        "pending": 10
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 10
-      },
-      {
-        "company": "Davos Klosters Bergbahnen AG",
-        "pending": 9
-      },
-      {
-        "company": "Lombardi Group",
-        "pending": 9
-      },
-      {
-        "company": "Prada Group",
-        "pending": 8
-      },
-      {
-        "company": "Denner",
-        "pending": 7
-      },
-      {
-        "company": "LWP Ledermann Wieting & Partners",
-        "pending": 7
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-03T03:33:55.891Z",
-    "label": "after",
-    "total": 1544,
-    "needsRetranslation": 157,
-    "incomplete": 125,
-    "complete": 1419,
-    "missingByLocale": {
-      "it": 56,
-      "en": 85,
-      "de": 60,
-      "fr": 96
-    },
-    "topPending": [
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 14
-      },
-      {
-        "company": "Città di Lugano",
-        "pending": 10
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 10
-      },
-      {
-        "company": "Davos Klosters Bergbahnen AG",
-        "pending": 9
-      },
-      {
-        "company": "Lombardi Group",
-        "pending": 9
-      },
-      {
-        "company": "Prada Group",
-        "pending": 8
-      },
-      {
-        "company": "LWP Ledermann Wieting & Partners",
-        "pending": 7
-      },
-      {
-        "company": "Allianz Suisse",
-        "pending": 6
-      },
-      {
-        "company": "Cornèr Banca",
-        "pending": 6
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 6
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-03T04:50:58.016Z",
-    "label": "before",
-    "total": 1544,
-    "needsRetranslation": 157,
-    "incomplete": 125,
-    "complete": 1419,
-    "missingByLocale": {
-      "it": 56,
-      "en": 85,
-      "de": 57,
-      "fr": 95
-    },
-    "topPending": [
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 14
-      },
-      {
-        "company": "Città di Lugano",
-        "pending": 10
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 10
-      },
-      {
-        "company": "Davos Klosters Bergbahnen AG",
-        "pending": 9
-      },
-      {
-        "company": "Lombardi Group",
-        "pending": 9
-      },
-      {
-        "company": "Prada Group",
-        "pending": 8
-      },
-      {
-        "company": "LWP Ledermann Wieting & Partners",
-        "pending": 7
-      },
-      {
-        "company": "Allianz Suisse",
-        "pending": 6
-      },
-      {
-        "company": "Cornèr Banca",
-        "pending": 6
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 6
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-03T04:50:58.930Z",
-    "label": "after",
-    "total": 1544,
-    "needsRetranslation": 157,
-    "incomplete": 125,
-    "complete": 1419,
-    "missingByLocale": {
-      "it": 56,
-      "en": 85,
-      "de": 57,
-      "fr": 95
-    },
-    "topPending": [
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 14
-      },
-      {
-        "company": "Città di Lugano",
-        "pending": 10
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 10
-      },
-      {
-        "company": "Davos Klosters Bergbahnen AG",
-        "pending": 9
-      },
-      {
-        "company": "Lombardi Group",
-        "pending": 9
-      },
-      {
-        "company": "Prada Group",
-        "pending": 8
-      },
-      {
-        "company": "LWP Ledermann Wieting & Partners",
-        "pending": 7
-      },
-      {
-        "company": "Allianz Suisse",
-        "pending": 6
-      },
-      {
-        "company": "Cornèr Banca",
-        "pending": 6
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 6
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-03T05:10:56.013Z",
     "label": "before",
     "total": 1543,
@@ -8959,6 +8735,86 @@
     "topPending": [
       {
         "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-12T09:35:43.858Z",
+    "label": "before",
+    "total": 2535,
+    "needsRetranslation": 515,
+    "incomplete": 56,
+    "complete": 2479,
+    "missingByLocale": {
+      "it": 3,
+      "en": 55,
+      "de": 52,
+      "fr": 55
+    },
+    "topPending": [
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 47
+      },
+      {
+        "company": "Heineken Switzerland",
+        "pending": 3
+      },
+      {
+        "company": "Aziende Industriali di Lugano (AIL) SA",
+        "pending": 1
+      },
+      {
+        "company": "ALDI SUISSE",
+        "pending": 1
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      },
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "EFG International AG",
+        "pending": 1
+      },
+      {
+        "company": "Union Bancaire Privée",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-12T09:53:31.315Z",
+    "label": "after",
+    "total": 2535,
+    "needsRetranslation": 33,
+    "incomplete": 4,
+    "complete": 2531,
+    "missingByLocale": {
+      "it": 1,
+      "en": 4,
+      "de": 3,
+      "fr": 4
+    },
+    "topPending": [
+      {
+        "company": "Aziende Industriali di Lugano (AIL) SA",
+        "pending": 1
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      },
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "Gruppo Ospedaliero Moncucco",
         "pending": 1
       }
     ]
