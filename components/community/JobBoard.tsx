@@ -5199,9 +5199,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
             </div>
             {/* Blurred description teaser — compact on mobile so auth gate stays visible */}
             {descriptionPreview && (
-              <div className="relative mt-4 w-full min-h-[80px] overflow-hidden rounded-lg sm:min-h-[148px]">
+              <div className="relative mt-3 w-full min-h-[48px] overflow-hidden rounded-lg sm:min-h-[148px]">
                 <p
-                  className="min-h-[80px] px-3 py-4 text-sm text-subtle leading-relaxed select-none blur-[6px] sm:min-h-[148px]"
+                  className="min-h-[48px] px-3 py-2 text-sm text-subtle leading-relaxed select-none blur-[6px] sm:min-h-[148px] sm:py-4"
                   aria-hidden="true"
                 >
                   {descriptionPreview}...
@@ -5247,6 +5247,16 @@ const JobBoard: React.FC<JobBoardProps> = ({
                     </button>
                   )}
                 </div>
+                {linkedInAvailable && (
+                  <button
+                    type="button"
+                    onClick={() => { const job = selectedJob; if (job) { saveAuthJobContext({ slug: job.slug, company: job.company, location: job.location, category: job.category }); const jobSlug = job.slugByLocale?.[locale] ?? job.slug; const section = getJobBoardSectionSlug(locale); const prefix = locale === 'it' ? '' : `/${locale}`; signInWithLinkedIn(`${prefix}/${section}/${jobSlug}/`.replace(/\/+/g, '/')); } else { signInWithLinkedIn(); } }}
+                    className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-[#0A66C2] hover:bg-[#004182] text-white text-sm font-semibold transition-colors"
+                  >
+                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    {locale === 'it' ? 'Continua con LinkedIn' : locale === 'de' ? 'Mit LinkedIn fortfahren' : locale === 'fr' ? 'Continuer avec LinkedIn' : 'Continue with LinkedIn'}
+                  </button>
+                )}
                 <div className="flex items-center gap-3">
                   <div className="flex-1 h-px bg-slate-300/50 dark:bg-slate-600/50" />
                   <span className="text-sm text-muted">{t('jobBoard.authGateOrEmail')}</span>
