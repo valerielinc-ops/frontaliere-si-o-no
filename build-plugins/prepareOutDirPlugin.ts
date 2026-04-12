@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { execSync } from 'node:child_process';
 import type { Plugin } from 'vite';
+import { initManifest, saveManifest } from './contentHash';
 
 let hasPreparedOutDir = false;
 
@@ -28,9 +29,30 @@ export function prepareOutDirPlugin(rootDir: string): Plugin {
     buildStart() {
       if (hasPreparedOutDir) return;
       hasPreparedOutDir = true;
+      // Load content hash manifest BEFORE wiping dist/ (manifest is stored in .build-cache/)
+      const manifest = initManifest(rootDir);
       const distDir = path.resolve(rootDir, 'dist');
-      removeDir(distDir);
-      fs.mkdirSync(distDir, { recursive: true });
+      const hasManifest = manifest.previousSize > 0;
+      if (hasManifest) {
+        // Incremental build: only wipe Vite's assets/ (JS/CSS bundles change each build)
+        // but preserve generated HTML so content-hash skips actually work.
+        const assetsDir = path.resolve(distDir, 'assets');
+        removeDir(assetsDir);
+        fs.mkdirSync(assetsDir, { recursive: true });
+        console.log(`[prepare-out-dir] Incremental build: wiped assets/ only (${manifest.previousSize} manifest entries)`);
+      } else {
+        // First build (no manifest): full wipe
+        removeDir(distDir);
+        fs.mkdirSync(distDir, { recursive: true });
+      }
+    },
+    closeBundle: {
+      sequential: true,
+      order: 'post' as const,
+      handler() {
+        // Save manifest after ALL plugins have finished writing files
+        saveManifest();
+      },
     },
   };
 }

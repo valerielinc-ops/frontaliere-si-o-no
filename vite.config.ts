@@ -16,7 +16,7 @@ import { jobsSeoPagesPlugin } from './build-plugins/jobsSeoPagesPlugin';
 import { staticPagesPlugin } from './build-plugins/staticPagesPlugin';
 import { sitemapAliasPlugin } from './build-plugins/sitemapAliasPlugin';
 import { legacyRedirectsPlugin } from './build-plugins/legacyRedirectsPlugin';
-import { flatContentPlugin } from './build-plugins/flatContentPlugin';
+// flatContentPlugin removed — all plugins now write real content to both index.html and flat .html directly
 import { llmsTxtPlugin } from './build-plugins/llmsTxtPlugin';
 import { adminDataPlugin } from './build-plugins/adminDataPlugin';
 import { crawlerRegistryPlugin } from './build-plugins/crawlerRegistryPlugin';
@@ -62,11 +62,8 @@ export default defineConfig(({ mode }) => {
         localeJobsSplitPlugin(__dirname),
         webpPlugin(__dirname),
         pdfWhitepapersPlugin(__dirname),
-        // flatContentPlugin MUST be last — it replaces noindex flat .html redirect
-        // stubs with copies of the real index.html content. It must run after ALL
-        // other plugins (especially jobsSeoPagesPlugin and staticPagesPlugin) have
-        // flushed their batch writes to disk.
-        flatContentPlugin(),
+        // flatContentPlugin removed — all plugins now write real content to flat .html
+        // files directly, eliminating the need for a post-build walk of 55k+ files.
       ],
       define: {
         // No secrets injected at build time — all sensitive keys come from Firebase Remote Config at runtime

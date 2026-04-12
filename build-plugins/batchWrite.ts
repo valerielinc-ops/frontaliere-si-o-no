@@ -2,9 +2,13 @@
  * Batch file writer for build plugins.
  * Collects file writes in memory and flushes them in parallel batches,
  * dramatically faster than sequential writeFileSync for 1000+ files.
+ *
+ * Supports optional content-hash manifest: when enabled, files whose
+ * content hasn't changed since the last build are skipped entirely.
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { getManifest } from './contentHash';
 
 export interface PendingWrite {
   filePath: string;
@@ -47,18 +51,33 @@ export async function flushWrites(writes: PendingWrite[], concurrency = 200): Pr
 /**
  * Collector class for building up writes and flushing at once.
  * Plugins can push writes as they generate HTML, then flush at the end.
+ *
+ * When a ContentHashManifest is active (initialized via initManifest()),
+ * files whose content hash matches the previous build are automatically skipped.
  */
 export class WriteCollector {
   private writes: PendingWrite[] = [];
   private skipExisting: boolean;
+  private _skippedByHash = 0;
+  private _distDir: string;
 
-  constructor(opts?: { skipExisting?: boolean }) {
+  constructor(opts?: { skipExisting?: boolean; distDir?: string }) {
     this.skipExisting = opts?.skipExisting ?? false;
+    this._distDir = opts?.distDir ?? '';
   }
 
-  /** Queue a file write. If skipExisting is true, skips files that already exist on disk. */
+  /** Queue a file write. Skips files unchanged since last build (via content hash manifest). */
   add(filePath: string, content: string) {
     if (this.skipExisting && fs.existsSync(filePath)) return;
+    // Check content hash manifest — skip writing if content is identical to last build
+    const manifest = getManifest();
+    if (manifest && this._distDir) {
+      const rel = path.relative(this._distDir, filePath);
+      if (!manifest.shouldWrite(rel, content)) {
+        this._skippedByHash++;
+        return;
+      }
+    }
     this.writes.push({ filePath, content });
   }
 
@@ -73,6 +92,7 @@ export class WriteCollector {
   }
 
   get count() { return this.writes.length; }
+  get skippedByHash() { return this._skippedByHash; }
 
   /** Flush all queued writes in parallel batches */
   async flush(concurrency = 200): Promise<number> {

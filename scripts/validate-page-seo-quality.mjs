@@ -124,13 +124,15 @@ function collectHtmlFiles(dir, basePath = '') {
   return results;
 }
 
-// Extract H1 tags, ignoring those inside <noscript>
+// Extract H1 tags, ignoring those inside <noscript> or <script>
 function extractH1Tags(html) {
-  // Remove <noscript> blocks first
-  const withoutNoscript = html.replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '');
-  // Remove elements with hidden/display:none style
+  // Remove <script> blocks first (H1s inside JSON strings like __STATIC_BODY_HTML__ are not real DOM elements)
+  const withoutScript = html.replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '');
+  // Remove <noscript> blocks
+  const withoutNoscript = withoutScript.replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '');
+  // Remove elements with aria-hidden="true" or display:none style
   const withoutHidden = withoutNoscript.replace(
-    /<[^>]+(?:style\s*=\s*["'][^"']*display\s*:\s*none[^"']*["']|hidden)[^>]*>[\s\S]*?<\/[^>]+>/gi,
+    /<[^>]+(?:style\s*=\s*["'][^"']*display\s*:\s*none[^"']*["']|aria-hidden\s*=\s*["']true["'])[^>]*>[\s\S]*?<\/[^>]+>/gi,
     ''
   );
   const h1Matches = [...withoutHidden.matchAll(/<h1[^>]*>([\s\S]*?)<\/h1>/gi)];
