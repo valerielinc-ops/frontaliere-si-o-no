@@ -1,117 +1,5 @@
 [
   {
-    "timestamp": "2026-04-03T13:22:24.405Z",
-    "label": "before",
-    "total": 1531,
-    "needsRetranslation": 333,
-    "incomplete": 297,
-    "complete": 1234,
-    "missingByLocale": {
-      "it": 183,
-      "en": 217,
-      "de": 107,
-      "fr": 238
-    },
-    "topPending": [
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 65
-      },
-      {
-        "company": "VOLG",
-        "pending": 44
-      },
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 26
-      },
-      {
-        "company": "Hilcona AG",
-        "pending": 25
-      },
-      {
-        "company": "LIS – Lugano Istituti Sociali",
-        "pending": 13
-      },
-      {
-        "company": "Città di Lugano",
-        "pending": 11
-      },
-      {
-        "company": "Denner",
-        "pending": 11
-      },
-      {
-        "company": "EMS-Chemie AG",
-        "pending": 10
-      },
-      {
-        "company": "Davos Klosters Bergbahnen AG",
-        "pending": 9
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 8
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-03T13:23:17.024Z",
-    "label": "after",
-    "total": 1531,
-    "needsRetranslation": 241,
-    "incomplete": 210,
-    "complete": 1321,
-    "missingByLocale": {
-      "it": 117,
-      "en": 131,
-      "de": 80,
-      "fr": 156
-    },
-    "topPending": [
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 65
-      },
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 26
-      },
-      {
-        "company": "LIS – Lugano Istituti Sociali",
-        "pending": 13
-      },
-      {
-        "company": "Denner",
-        "pending": 11
-      },
-      {
-        "company": "Città di Lugano",
-        "pending": 10
-      },
-      {
-        "company": "Davos Klosters Bergbahnen AG",
-        "pending": 9
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 8
-      },
-      {
-        "company": "LWP Ledermann Wieting & Partners",
-        "pending": 7
-      },
-      {
-        "company": "Prada Group",
-        "pending": 7
-      },
-      {
-        "company": "Allianz Suisse",
-        "pending": 6
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-03T21:52:54.874Z",
     "label": "before",
     "total": 1536,
@@ -8721,6 +8609,78 @@
   },
   {
     "timestamp": "2026-04-12T11:31:34.086Z",
+    "label": "after",
+    "total": 2927,
+    "needsRetranslation": 19,
+    "incomplete": 20,
+    "complete": 2907,
+    "missingByLocale": {
+      "it": 9,
+      "en": 18,
+      "de": 17,
+      "fr": 19
+    },
+    "topPending": [
+      {
+        "company": "Convit Holding GmbH",
+        "pending": 10
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 7
+      },
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "Kulm Hotel St. Moritz",
+        "pending": 1
+      },
+      {
+        "company": "TSMG",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-12T11:40:56.296Z",
+    "label": "before",
+    "total": 2927,
+    "needsRetranslation": 19,
+    "incomplete": 20,
+    "complete": 2907,
+    "missingByLocale": {
+      "it": 9,
+      "en": 18,
+      "de": 17,
+      "fr": 19
+    },
+    "topPending": [
+      {
+        "company": "Convit Holding GmbH",
+        "pending": 10
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 7
+      },
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "Kulm Hotel St. Moritz",
+        "pending": 1
+      },
+      {
+        "company": "TSMG",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-12T11:50:33.052Z",
     "label": "after",
     "total": 2927,
     "needsRetranslation": 19,
