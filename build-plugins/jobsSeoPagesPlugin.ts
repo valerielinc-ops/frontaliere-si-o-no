@@ -10,6 +10,7 @@
 import path from 'path';
 import type { Plugin } from 'vite';
 import { BASE_URL, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, robotsMetaForContent, countHtmlBodyWords, MIN_INDEXABLE_WORDS, GTAG_SNIPPET, FAVICON_LINKS } from './constants';
+import { buildSimplePage } from './htmlTemplate';
 import { CRAWLED_COMPANY_LOGOS } from '../services/jobDataNormalization';
 import { deriveJobPostalCode } from '../services/jobLocationSnapshot';
 import {
@@ -3195,7 +3196,20 @@ ${alternates}
             if (np2 === pageNum) { pgNav.push(`<strong>${np2}</strong>`); continue; }
             pgNav.push(`<a href="${BASE_URL}${withSlash(`${pgSectionPath}/${paginationSlugs[locale]}-${np2}`.replace(/\/+/g, '/'))}" style="display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;padding:8px 12px">${np2}</a>`);
           }
-          const pgHtml = `<!doctype html>\n<html lang="${locale}">\n  <head>\n    <meta charset="utf-8">\n    <meta name="viewport" content="width=device-width,initial-scale=1">\n    ${FAVICON_LINKS}\n    <title>${esc(pgTitle)}</title>\n    <meta name="description" content="${esc(pgDesc)}">\n    <meta name="robots" content="index,follow">\n    <meta property="og:type" content="website">\n    <meta property="og:locale" content="${localeOg[locale]}">\n    <meta property="og:title" content="${esc(pgTitle)}">\n    <meta property="og:description" content="${esc(pgDesc)}">\n    <meta property="og:url" content="${pgCanonicalUrl}">\n    <link rel="canonical" href="${pgCanonicalUrl}">\n${pgAlternates}\n${pgXDefault}\n${pgPrevLink}${pgNextLink}\n    <script type="application/ld+json">${pgCollLd}</script>\n    <script type="application/ld+json">${pgItemLd}</script>${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all">` : ''}\n    ${GTAG_SNIPPET}\n  </head>\n  <body>\n    <div id="root">\n    <main class="static-job-page">\n      <h1>${esc(pgCopy.heading(pageNum))}</h1>\n      <p>${esc(pgDesc)}</p>\n      <ul style="list-style:none;padding:0;margin:16px 0">${pgListHtml}</ul>\n      <nav style="margin:24px 0;text-align:center;font-size:14px">${pgNav.join(' &middot; ')}</nav>\n      <p><a href="${pgMainUrl}">${locale === 'it' ? 'Torna alla lista completa' : locale === 'en' ? 'Back to full listing' : locale === 'de' ? 'Zur\u00fcck zur Liste' : 'Retour \u00e0 la liste'}</a></p>\n    </main>\n    </div>${hasSpaBundle ? `\n    <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}\n  </body>\n</html>`;
+          const pgBackLabel = locale === 'it' ? 'Torna alla lista completa' : locale === 'en' ? 'Back to full listing' : locale === 'de' ? 'Zur\u00fcck zur Liste' : 'Retour \u00e0 la liste';
+          const pgHtml = buildSimplePage({
+            locale,
+            title: pgTitle,
+            description: pgDesc,
+            canonicalUrl: pgCanonicalUrl,
+            ogLocale: localeOg[locale],
+            hreflangHtml: `${pgAlternates}\n${pgXDefault}`,
+            extraHeadHtml: `${pgPrevLink}${pgNextLink}`,
+            jsonLdScripts: [pgCollLd, pgItemLd],
+            entryJs: hasSpaBundle ? entryJs : undefined,
+            entryCss: hasSpaBundle ? entryCss : undefined,
+            bodyHtml: `<h1>${esc(pgCopy.heading(pageNum))}</h1>\n      <p>${esc(pgDesc)}</p>\n      <ul style="list-style:none;padding:0;margin:16px 0">${pgListHtml}</ul>\n      <nav style="margin:24px 0;text-align:center;font-size:14px">${pgNav.join(' &middot; ')}</nav>\n      <p><a href="${pgMainUrl}">${esc(pgBackLabel)}</a></p>`,
+          });
           const pgOutDir = np.join(distDir, pgCanonicalPath.slice(1));
           activeJobDirs.add(pgCanonicalPath.slice(1).replace(/\/+$/, ''));
           _md(pgOutDir);
@@ -3281,7 +3295,19 @@ ${alternates}
               return `<section style="margin-top:20px"><h2>Travailler dans le secteur ${catLabel.toLowerCase()} au Tessin</h2><p>Le Canton du Tessin est le principal p\u00f4le \u00e9conomique de la Suisse italienne avec plus de 180 000 emplois. Le secteur ${catLabel.toLowerCase()} est l'un des domaines les plus actifs du march\u00e9 tessinois. Pour les frontaliers avec un permis G, le Tessin applique un imp\u00f4t \u00e0 la source sur le revenu brut. Utilisez notre <a href="${BASE_URL}/fr/">simulateur fiscal gratuit</a> pour calculer votre salaire net en tant que frontalier.</p></section>`;
             })();
             const catOpenAllLabel = locale === 'it' ? 'Apri il job board completo' : locale === 'en' ? 'Open the full job board' : locale === 'de' ? 'Komplettes Job Board \u00f6ffnen' : 'Ouvrir le job board complet';
-            const catHtml = `<!doctype html>\n<html lang="${locale}">\n  <head>\n    <meta charset="utf-8">\n    <meta name="viewport" content="width=device-width,initial-scale=1">\n    ${FAVICON_LINKS}\n    <title>${esc(catTitle)}</title>\n    <meta name="description" content="${esc(catDescription)}">\n    <meta name="robots" content="index,follow">\n    <meta property="og:type" content="website">\n    <meta property="og:site_name" content="Frontaliere Ticino">\n    <meta property="og:locale" content="${localeOg[locale]}">\n    <meta property="og:title" content="${esc(catTitle)}">\n    <meta property="og:description" content="${esc(catDescription)}">\n    <meta property="og:url" content="${catCanonicalUrl}">\n    <link rel="canonical" href="${catCanonicalUrl}">\n${catAlternates}\n    <script type="application/ld+json">${catCollLd}</script>\n    <script type="application/ld+json">${catBreadcrumbLd}</script>${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all">` : ''}\n    ${GTAG_SNIPPET}\n  </head>\n  <body>\n    <div id="root">\n    <main class="static-job-page">\n      <h1>${esc(catTitle.replace(' | Frontaliere Ticino', ''))}</h1>\n      <p>${esc(catDescription)}</p>\n      ${catIntro}\n      <ul style="list-style:none;padding:0;margin:16px 0">${catListHtml}</ul>\n      <p><a href="${catSectionUrl}">${esc(catOpenAllLabel)}</a></p>\n      ${catMarketSection}\n      <nav style="margin:20px 0;font-size:14px">${locale === 'it' ? 'Altre categorie' : locale === 'en' ? 'Other categories' : locale === 'de' ? 'Weitere Kategorien' : 'Autres cat\u00e9gories'}: ${catOtherLinks.join(' \u00b7 ')}</nav>\n    </main>\n    </div>${hasSpaBundle ? `\n    <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}\n  </body>\n</html>`;
+            const catNavLabel = locale === 'it' ? 'Altre categorie' : locale === 'en' ? 'Other categories' : locale === 'de' ? 'Weitere Kategorien' : 'Autres cat\u00e9gories';
+            const catHtml = buildSimplePage({
+              locale,
+              title: catTitle,
+              description: catDescription,
+              canonicalUrl: catCanonicalUrl,
+              ogLocale: localeOg[locale],
+              hreflangHtml: catAlternates,
+              jsonLdScripts: [catCollLd, catBreadcrumbLd],
+              entryJs: hasSpaBundle ? entryJs : undefined,
+              entryCss: hasSpaBundle ? entryCss : undefined,
+              bodyHtml: `<h1>${esc(catTitle.replace(' | Frontaliere Ticino', ''))}</h1>\n      <p>${esc(catDescription)}</p>\n      ${catIntro}\n      <ul style="list-style:none;padding:0;margin:16px 0">${catListHtml}</ul>\n      <p><a href="${catSectionUrl}">${esc(catOpenAllLabel)}</a></p>\n      ${catMarketSection}\n      <nav style="margin:20px 0;font-size:14px">${catNavLabel}: ${catOtherLinks.join(' \u00b7 ')}</nav>`,
+            });
             const catOutDir = np.join(distDir, catCanonicalPath.slice(1));
             activeJobDirs.add(catCanonicalPath.slice(1).replace(/\/+$/, ''));
             _md(catOutDir);
@@ -3370,7 +3396,18 @@ ${alternates}
                 return `<section style="margin-top:20px"><h2>Le march\u00e9 de l'emploi au Tessin</h2><p>Le Canton du Tessin est le principal p\u00f4le \u00e9conomique de la Suisse italienne avec plus de 180 000 emplois. Pour les frontaliers avec un permis G, le Tessin applique un imp\u00f4t \u00e0 la source sur le revenu brut. Utilisez notre <a href="${BASE_URL}/fr/">simulateur fiscal gratuit</a> pour calculer votre salaire net en tant que frontalier.</p></section>`;
               })();
               const kwOpenAllLabel = locale === 'it' ? 'Apri il job board completo' : locale === 'en' ? 'Open the full job board' : locale === 'de' ? 'Komplettes Job Board \u00f6ffnen' : 'Ouvrir le job board complet';
-              const kwHtml = `<!doctype html>\n<html lang="${locale}">\n  <head>\n    <meta charset="utf-8">\n    <meta name="viewport" content="width=device-width,initial-scale=1">\n    ${FAVICON_LINKS}\n    <title>${esc(kwTitle)}</title>\n    <meta name="description" content="${esc(kwDesc)}">\n    <meta name="robots" content="index,follow">\n    <meta property="og:type" content="website">\n    <meta property="og:site_name" content="Frontaliere Ticino">\n    <meta property="og:locale" content="${localeOg[locale]}">\n    <meta property="og:title" content="${esc(kwTitle)}">\n    <meta property="og:description" content="${esc(kwDesc)}">\n    <meta property="og:url" content="${kwCanonicalUrl}">\n    <link rel="canonical" href="${kwCanonicalUrl}">\n${kwAlternates}\n    <script type="application/ld+json">${kwCollLd}</script>${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all">` : ''}\n    ${GTAG_SNIPPET}\n  </head>\n  <body>\n    <div id="root">\n    <main class="static-job-page">\n      <h1>${esc(itCopy.heading)}</h1>\n      <p>${esc(kwDesc)}</p>\n      ${kwIntro}\n      <p>${esc(kwCta)}</p>\n      <ul style="list-style:none;padding:0;margin:16px 0">${kwListHtml}</ul>\n      <p><a href="${kwSectionUrl}">${esc(kwOpenAllLabel)}</a></p>\n      ${kwMarketSection}\n    </main>\n    </div>${hasSpaBundle ? `\n    <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}\n  </body>\n</html>`;
+              const kwHtml = buildSimplePage({
+                locale,
+                title: kwTitle,
+                description: kwDesc,
+                canonicalUrl: kwCanonicalUrl,
+                ogLocale: localeOg[locale],
+                hreflangHtml: kwAlternates,
+                jsonLdScripts: [kwCollLd],
+                entryJs: hasSpaBundle ? entryJs : undefined,
+                entryCss: hasSpaBundle ? entryCss : undefined,
+                bodyHtml: `<h1>${esc(itCopy.heading)}</h1>\n      <p>${esc(kwDesc)}</p>\n      ${kwIntro}\n      <p>${esc(kwCta)}</p>\n      <ul style="list-style:none;padding:0;margin:16px 0">${kwListHtml}</ul>\n      <p><a href="${kwSectionUrl}">${esc(kwOpenAllLabel)}</a></p>\n      ${kwMarketSection}`,
+              });
               const kwOutDir = np.join(distDir, kwCanonicalPath.slice(1));
               activeJobDirs.add(kwRelDir);
               _md(kwOutDir);
@@ -3450,69 +3487,47 @@ ${alternates}
               return `<li style="margin:0 0 10px 0"><a href="${href}" style="text-decoration:none;color:#1e3a8a;font-weight:600">${esc(jobTitle)}</a><div style="font-size:13px;color:#64748b">${esc(job.company)} · ${esc(job.location)}</div></li>`;
             }).join('');
 
-            const searchHtml = `<!doctype html>
-<html lang="${locale}">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    ${FAVICON_LINKS}
-    <title>${esc(title)}</title>
-    <meta name="description" content="${esc(description)}">
-    <meta name="robots" content="${matchingJobs.length >= 3 ? 'index,follow' : 'noindex,follow'}">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Frontaliere Ticino">
-    <meta property="og:locale" content="${localeOg[locale]}">
-    <meta property="og:title" content="${esc(title)}">
-    <meta property="og:description" content="${esc(description)}">
-    <meta property="og:url" content="${canonicalUrl}">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="${esc(title)}">
-    <meta name="twitter:description" content="${esc(description)}">
-    <meta name="twitter:site" content="@frontaliereticino">
-    <link rel="canonical" href="${canonicalUrl}">
-${alternates}${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
-    ${GTAG_SNIPPET}
-  </head>
-  <body>
-    <div id="root">
-    <main class="static-job-page">
-      <h1>${esc(copy.heading(name))}</h1>
-      <p>${esc(description)}</p>
-${(() => {
+            const twitterCards = `    <meta name="twitter:card" content="summary_large_image">\n    <meta name="twitter:title" content="${esc(title)}">\n    <meta name="twitter:description" content="${esc(description)}">\n    <meta name="twitter:site" content="@frontaliereticino">`;
+            const searchBodyParts: string[] = [];
+            {
               const listingUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}`;
               const uniqueCompanies = [...new Set(matchingJobs.map((j: any) => String(j.company || '')).filter(Boolean))];
               const uniqueLocations = [...new Set(matchingJobs.map((j: any) => String(j.location || '')).filter(Boolean))];
-              const sp: string[] = [];
-              // Intro paragraph about the search results
               if (locale === 'it') {
-                sp.push(`<p>Sono attualmente disponibili <strong>${matchingJobs.length} offerte di lavoro</strong> per ${esc(name)} in Ticino, pubblicate da ${uniqueCompanies.length} aziende in ${uniqueLocations.length} localit\u00e0. Gli annunci vengono aggiornati quotidianamente dal nostro crawler automatico che raccoglie le offerte direttamente dai portali carriera delle aziende ticinesi.</p>`);
+                searchBodyParts.push(`<p>Sono attualmente disponibili <strong>${matchingJobs.length} offerte di lavoro</strong> per ${esc(name)} in Ticino, pubblicate da ${uniqueCompanies.length} aziende in ${uniqueLocations.length} localit\u00e0. Gli annunci vengono aggiornati quotidianamente dal nostro crawler automatico che raccoglie le offerte direttamente dai portali carriera delle aziende ticinesi.</p>`);
               } else if (locale === 'en') {
-                sp.push(`<p>There are currently <strong>${matchingJobs.length} job openings</strong> for ${esc(name)} in Ticino, published by ${uniqueCompanies.length} companies across ${uniqueLocations.length} locations. Listings are refreshed daily by our automated crawler that collects jobs directly from company career portals in Ticino.</p>`);
+                searchBodyParts.push(`<p>There are currently <strong>${matchingJobs.length} job openings</strong> for ${esc(name)} in Ticino, published by ${uniqueCompanies.length} companies across ${uniqueLocations.length} locations. Listings are refreshed daily by our automated crawler that collects jobs directly from company career portals in Ticino.</p>`);
               } else if (locale === 'de') {
-                sp.push(`<p>Derzeit sind <strong>${matchingJobs.length} Stellenangebote</strong> f\u00fcr ${esc(name)} im Tessin verf\u00fcgbar, ver\u00f6ffentlicht von ${uniqueCompanies.length} Unternehmen an ${uniqueLocations.length} Standorten. Die Anzeigen werden t\u00e4glich von unserem automatischen Crawler aktualisiert, der Stellen direkt von den Karriereportalen der Tessiner Unternehmen sammelt.</p>`);
+                searchBodyParts.push(`<p>Derzeit sind <strong>${matchingJobs.length} Stellenangebote</strong> f\u00fcr ${esc(name)} im Tessin verf\u00fcgbar, ver\u00f6ffentlicht von ${uniqueCompanies.length} Unternehmen an ${uniqueLocations.length} Standorten. Die Anzeigen werden t\u00e4glich von unserem automatischen Crawler aktualisiert, der Stellen direkt von den Karriereportalen der Tessiner Unternehmen sammelt.</p>`);
               } else {
-                sp.push(`<p>${matchingJobs.length} <strong>offres d'emploi</strong> sont actuellement disponibles pour ${esc(name)} au Tessin, publi\u00e9es par ${uniqueCompanies.length} entreprises dans ${uniqueLocations.length} localit\u00e9s. Les annonces sont mises \u00e0 jour quotidiennement par notre robot qui collecte les offres directement depuis les portails carri\u00e8re des entreprises tessinoises.</p>`);
+                searchBodyParts.push(`<p>${matchingJobs.length} <strong>offres d'emploi</strong> sont actuellement disponibles pour ${esc(name)} au Tessin, publi\u00e9es par ${uniqueCompanies.length} entreprises dans ${uniqueLocations.length} localit\u00e9s. Les annonces sont mises \u00e0 jour quotidiennement par notre robot qui collecte les offres directement depuis les portails carri\u00e8re des entreprises tessinoises.</p>`);
               }
-              // Job list
-              sp.push(`<ul style="list-style:none;padding:0;margin:16px 0">${listHtml}</ul>`);
-              sp.push(`<p><a href="${listingUrl}">${esc(copy.openListing)}</a></p>`);
-              // Market info for frontaliers
+              searchBodyParts.push(`<ul style="list-style:none;padding:0;margin:16px 0">${listHtml}</ul>`);
+              searchBodyParts.push(`<p><a href="${listingUrl}">${esc(copy.openListing)}</a></p>`);
               if (locale === 'it') {
-                sp.push(`<section style="margin-top:20px"><h2>Il mercato del lavoro in Ticino</h2><p>Il Canton Ticino \u00e8 il principale polo economico della Svizzera italiana con oltre 180.000 posti di lavoro. I settori pi\u00f9 attivi includono sanit\u00e0, finanza, tecnologia, ingegneria, commercio e amministrazione. Per i lavoratori frontalieri con Permesso G, il Ticino applica l'imposta alla fonte sul reddito lordo. Usa il nostro <a href="${BASE_URL}/">simulatore fiscale gratuito</a> per calcolare il tuo stipendio netto come frontaliere.</p></section>`);
+                searchBodyParts.push(`<section style="margin-top:20px"><h2>Il mercato del lavoro in Ticino</h2><p>Il Canton Ticino \u00e8 il principale polo economico della Svizzera italiana con oltre 180.000 posti di lavoro. I settori pi\u00f9 attivi includono sanit\u00e0, finanza, tecnologia, ingegneria, commercio e amministrazione. Per i lavoratori frontalieri con Permesso G, il Ticino applica l'imposta alla fonte sul reddito lordo. Usa il nostro <a href="${BASE_URL}/">simulatore fiscale gratuito</a> per calcolare il tuo stipendio netto come frontaliere.</p></section>`);
               } else if (locale === 'en') {
-                sp.push(`<section style="margin-top:20px"><h2>The Ticino job market</h2><p>The Canton of Ticino is the main economic hub of Italian-speaking Switzerland with over 180,000 jobs. The most active sectors include healthcare, finance, technology, engineering, retail, and administration. For cross-border workers with a G Permit, Ticino applies withholding tax on gross income. Use our <a href="${BASE_URL}/en/">free tax simulator</a> to calculate your net salary as a cross-border worker.</p></section>`);
+                searchBodyParts.push(`<section style="margin-top:20px"><h2>The Ticino job market</h2><p>The Canton of Ticino is the main economic hub of Italian-speaking Switzerland with over 180,000 jobs. The most active sectors include healthcare, finance, technology, engineering, retail, and administration. For cross-border workers with a G Permit, Ticino applies withholding tax on gross income. Use our <a href="${BASE_URL}/en/">free tax simulator</a> to calculate your net salary as a cross-border worker.</p></section>`);
               } else if (locale === 'de') {
-                sp.push(`<section style="margin-top:20px"><h2>Der Arbeitsmarkt im Tessin</h2><p>Der Kanton Tessin ist das wirtschaftliche Zentrum der italienischen Schweiz mit \u00fcber 180.000 Arbeitspl\u00e4tzen. Die aktivsten Branchen sind Gesundheitswesen, Finanzen, Technologie, Ingenieurwesen, Handel und Verwaltung. F\u00fcr Grenzg\u00e4nger mit G-Bewilligung erhebt das Tessin eine Quellensteuer auf das Bruttoeinkommen. Nutzen Sie unseren <a href="${BASE_URL}/de/">kostenlosen Steuersimulator</a>, um Ihr Nettogehalt als Grenzg\u00e4nger zu berechnen.</p></section>`);
+                searchBodyParts.push(`<section style="margin-top:20px"><h2>Der Arbeitsmarkt im Tessin</h2><p>Der Kanton Tessin ist das wirtschaftliche Zentrum der italienischen Schweiz mit \u00fcber 180.000 Arbeitspl\u00e4tzen. Die aktivsten Branchen sind Gesundheitswesen, Finanzen, Technologie, Ingenieurwesen, Handel und Verwaltung. F\u00fcr Grenzg\u00e4nger mit G-Bewilligung erhebt das Tessin eine Quellensteuer auf das Bruttoeinkommen. Nutzen Sie unseren <a href="${BASE_URL}/de/">kostenlosen Steuersimulator</a>, um Ihr Nettogehalt als Grenzg\u00e4nger zu berechnen.</p></section>`);
               } else {
-                sp.push(`<section style="margin-top:20px"><h2>Le march\u00e9 de l'emploi au Tessin</h2><p>Le Canton du Tessin est le principal p\u00f4le \u00e9conomique de la Suisse italienne avec plus de 180 000 emplois. Les secteurs les plus actifs incluent la sant\u00e9, la finance, la technologie, l'ing\u00e9nierie, le commerce et l'administration. Pour les frontaliers avec un permis G, le Tessin applique un imp\u00f4t \u00e0 la source sur le revenu brut. Utilisez notre <a href="${BASE_URL}/fr/">simulateur fiscal gratuit</a> pour calculer votre salaire net en tant que frontalier.</p></section>`);
+                searchBodyParts.push(`<section style="margin-top:20px"><h2>Le march\u00e9 de l'emploi au Tessin</h2><p>Le Canton du Tessin est le principal p\u00f4le \u00e9conomique de la Suisse italienne avec plus de 180 000 emplois. Les secteurs les plus actifs incluent la sant\u00e9, la finance, la technologie, l'ing\u00e9nierie, le commerce et l'administration. Pour les frontaliers avec un permis G, le Tessin applique un imp\u00f4t \u00e0 la source sur le revenu brut. Utilisez notre <a href="${BASE_URL}/fr/">simulateur fiscal gratuit</a> pour calculer votre salaire net en tant que frontalier.</p></section>`);
               }
-              sp.push(`<p style="margin-top:16px;font-size:14px;color:#475569;line-height:1.6">${esc(copy.editorial)}</p>`);
-              return sp.join('\n');
-            })()}
-    </main>
-    </div>${hasSpaBundle ? `\n    <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
-  </body>
-</html>`;
+              searchBodyParts.push(`<p style="margin-top:16px;font-size:14px;color:#475569;line-height:1.6">${esc(copy.editorial)}</p>`);
+            }
+            const searchHtml = buildSimplePage({
+              locale,
+              title,
+              description,
+              canonicalUrl,
+              robots: matchingJobs.length >= 3 ? 'index,follow' : 'noindex,follow',
+              ogLocale: localeOg[locale],
+              hreflangHtml: alternates,
+              extraHeadHtml: twitterCards,
+              entryJs: hasSpaBundle ? entryJs : undefined,
+              entryCss: hasSpaBundle ? entryCss : undefined,
+              bodyHtml: `<h1>${esc(copy.heading(name))}</h1>\n      <p>${esc(description)}</p>\n${searchBodyParts.join('\n')}`,
+            });
 
             const outDir = np.join(distDir, canonicalPath.slice(1));
             activeJobDirs.add(canonicalPath.slice(1).replace(/\/+$/, ''));
@@ -3574,67 +3589,46 @@ ${(() => {
               return `<li style="margin:0 0 10px 0"><a href="${href}" style="text-decoration:none;color:#1e3a8a;font-weight:600">${esc(jobTitle)}</a><div style="font-size:13px;color:#64748b">${esc(job.company)} · ${esc(job.location)}</div></li>`;
             }).join('');
 
-            const comboHtml = `<!doctype html>
-<html lang="${locale}">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    ${FAVICON_LINKS}
-    <title>${esc(copy.title)}</title>
-    <meta name="description" content="${esc(description)}">
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="${localeOg[locale]}">
-    <meta property="og:title" content="${esc(copy.title)}">
-    <meta property="og:description" content="${esc(description)}">
-    <meta property="og:url" content="${canonicalUrl}">
-    <meta property="og:image" content="${BASE_URL}/og-image.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:image:type" content="image/png">
-    <link rel="canonical" href="${canonicalUrl}">
-${alternates}${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
-    ${GTAG_SNIPPET}
-  </head>
-  <body>
-    <div id="root">
-    <main class="static-job-page">
-      <h1>${esc(copy.heading)}</h1>
-      <p>${esc(description)}</p>
-${(() => {
+            const comboOgImage = `    <meta property="og:image" content="${BASE_URL}/og-image.png">\n    <meta property="og:image:width" content="1200">\n    <meta property="og:image:height" content="630">\n    <meta property="og:image:type" content="image/png">`;
+            const comboBodyParts: string[] = [];
+            {
               const cListingUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}`;
               const cUniqueCompanies = [...new Set(matchingJobs.map((j: any) => String(j.company || '')).filter(Boolean))];
               const cUniqueLocations = [...new Set(matchingJobs.map((j: any) => String(j.location || '')).filter(Boolean))];
-              const cp: string[] = [];
-              // Intro with counts
               if (locale === 'it') {
-                cp.push(`<p>Abbiamo trovato <strong>${matchingJobs.length} offerte di lavoro</strong> corrispondenti a questa ricerca, pubblicate da ${cUniqueCompanies.length} aziende${cUniqueLocations.length > 1 ? ` in ${cUniqueLocations.length} localit\u00e0 del Ticino` : cUniqueLocations.length === 1 ? ` a ${esc(cUniqueLocations[0])}` : ' in Ticino'}. Ogni annuncio rimanda direttamente alla pagina di candidatura ufficiale dell'azienda.</p>`);
+                comboBodyParts.push(`<p>Abbiamo trovato <strong>${matchingJobs.length} offerte di lavoro</strong> corrispondenti a questa ricerca, pubblicate da ${cUniqueCompanies.length} aziende${cUniqueLocations.length > 1 ? ` in ${cUniqueLocations.length} localit\u00e0 del Ticino` : cUniqueLocations.length === 1 ? ` a ${esc(cUniqueLocations[0])}` : ' in Ticino'}. Ogni annuncio rimanda direttamente alla pagina di candidatura ufficiale dell'azienda.</p>`);
               } else if (locale === 'en') {
-                cp.push(`<p>We found <strong>${matchingJobs.length} job openings</strong> matching this search, published by ${cUniqueCompanies.length} companies${cUniqueLocations.length > 1 ? ` across ${cUniqueLocations.length} locations in Ticino` : cUniqueLocations.length === 1 ? ` in ${esc(cUniqueLocations[0])}` : ' in Ticino'}. Each listing links directly to the official company application page.</p>`);
+                comboBodyParts.push(`<p>We found <strong>${matchingJobs.length} job openings</strong> matching this search, published by ${cUniqueCompanies.length} companies${cUniqueLocations.length > 1 ? ` across ${cUniqueLocations.length} locations in Ticino` : cUniqueLocations.length === 1 ? ` in ${esc(cUniqueLocations[0])}` : ' in Ticino'}. Each listing links directly to the official company application page.</p>`);
               } else if (locale === 'de') {
-                cp.push(`<p>Wir haben <strong>${matchingJobs.length} Stellenangebote</strong> f\u00fcr diese Suche gefunden, ver\u00f6ffentlicht von ${cUniqueCompanies.length} Unternehmen${cUniqueLocations.length > 1 ? ` an ${cUniqueLocations.length} Standorten im Tessin` : cUniqueLocations.length === 1 ? ` in ${esc(cUniqueLocations[0])}` : ' im Tessin'}. Jedes Inserat verlinkt direkt zur offiziellen Bewerbungsseite des Unternehmens.</p>`);
+                comboBodyParts.push(`<p>Wir haben <strong>${matchingJobs.length} Stellenangebote</strong> f\u00fcr diese Suche gefunden, ver\u00f6ffentlicht von ${cUniqueCompanies.length} Unternehmen${cUniqueLocations.length > 1 ? ` an ${cUniqueLocations.length} Standorten im Tessin` : cUniqueLocations.length === 1 ? ` in ${esc(cUniqueLocations[0])}` : ' im Tessin'}. Jedes Inserat verlinkt direkt zur offiziellen Bewerbungsseite des Unternehmens.</p>`);
               } else {
-                cp.push(`<p>Nous avons trouv\u00e9 <strong>${matchingJobs.length} offres d'emploi</strong> correspondant \u00e0 cette recherche, publi\u00e9es par ${cUniqueCompanies.length} entreprises${cUniqueLocations.length > 1 ? ` dans ${cUniqueLocations.length} localit\u00e9s au Tessin` : cUniqueLocations.length === 1 ? ` \u00e0 ${esc(cUniqueLocations[0])}` : ' au Tessin'}. Chaque annonce renvoie directement \u00e0 la page de candidature officielle de l'entreprise.</p>`);
+                comboBodyParts.push(`<p>Nous avons trouv\u00e9 <strong>${matchingJobs.length} offres d'emploi</strong> correspondant \u00e0 cette recherche, publi\u00e9es par ${cUniqueCompanies.length} entreprises${cUniqueLocations.length > 1 ? ` dans ${cUniqueLocations.length} localit\u00e9s au Tessin` : cUniqueLocations.length === 1 ? ` \u00e0 ${esc(cUniqueLocations[0])}` : ' au Tessin'}. Chaque annonce renvoie directement \u00e0 la page de candidature officielle de l'entreprise.</p>`);
               }
-              // Job list
-              cp.push(`<ul style="list-style:none;padding:0;margin:16px 0">${listHtml}</ul>`);
-              cp.push(`<p><a href="${cListingUrl}">${esc(searchPageCopy[locale].openListing)}</a></p>`);
-              // Market context
+              comboBodyParts.push(`<ul style="list-style:none;padding:0;margin:16px 0">${listHtml}</ul>`);
+              comboBodyParts.push(`<p><a href="${cListingUrl}">${esc(searchPageCopy[locale].openListing)}</a></p>`);
               if (locale === 'it') {
-                cp.push(`<section style="margin-top:20px"><h2>Lavorare in Ticino come frontaliere</h2><p>Il Canton Ticino \u00e8 la principale area economica della Svizzera italiana. Per i lavoratori frontalieri con Permesso G, il Ticino applica l'imposta alla fonte con aliquote variabili sul reddito lordo. I principali centri economici sono Lugano, Bellinzona, Mendrisio, Locarno e Chiasso. Usa il nostro <a href="${BASE_URL}/">simulatore fiscale gratuito</a> per calcolare il tuo stipendio netto come frontaliere e confrontare vantaggi e svantaggi tra residenza in Svizzera e pendolarismo dall'Italia.</p></section>`);
+                comboBodyParts.push(`<section style="margin-top:20px"><h2>Lavorare in Ticino come frontaliere</h2><p>Il Canton Ticino \u00e8 la principale area economica della Svizzera italiana. Per i lavoratori frontalieri con Permesso G, il Ticino applica l'imposta alla fonte con aliquote variabili sul reddito lordo. I principali centri economici sono Lugano, Bellinzona, Mendrisio, Locarno e Chiasso. Usa il nostro <a href="${BASE_URL}/">simulatore fiscale gratuito</a> per calcolare il tuo stipendio netto come frontaliere e confrontare vantaggi e svantaggi tra residenza in Svizzera e pendolarismo dall'Italia.</p></section>`);
               } else if (locale === 'en') {
-                cp.push(`<section style="margin-top:20px"><h2>Working in Ticino as a cross-border commuter</h2><p>The Canton of Ticino is the main economic area of Italian-speaking Switzerland. For cross-border workers with a G Permit, Ticino applies withholding tax at variable rates on gross income. The main economic centres are Lugano, Bellinzona, Mendrisio, Locarno, and Chiasso. Use our <a href="${BASE_URL}/en/">free tax simulator</a> to calculate your net salary as a cross-border worker and compare the pros and cons of living in Switzerland versus commuting from Italy.</p></section>`);
+                comboBodyParts.push(`<section style="margin-top:20px"><h2>Working in Ticino as a cross-border commuter</h2><p>The Canton of Ticino is the main economic area of Italian-speaking Switzerland. For cross-border workers with a G Permit, Ticino applies withholding tax at variable rates on gross income. The main economic centres are Lugano, Bellinzona, Mendrisio, Locarno, and Chiasso. Use our <a href="${BASE_URL}/en/">free tax simulator</a> to calculate your net salary as a cross-border worker and compare the pros and cons of living in Switzerland versus commuting from Italy.</p></section>`);
               } else if (locale === 'de') {
-                cp.push(`<section style="margin-top:20px"><h2>Arbeiten im Tessin als Grenzg\u00e4nger</h2><p>Der Kanton Tessin ist das wirtschaftliche Zentrum der italienischen Schweiz. F\u00fcr Grenzg\u00e4nger mit G-Bewilligung erhebt das Tessin eine Quellensteuer mit variablen S\u00e4tzen auf das Bruttoeinkommen. Die wichtigsten Wirtschaftszentren sind Lugano, Bellinzona, Mendrisio, Locarno und Chiasso. Nutzen Sie unseren <a href="${BASE_URL}/de/">kostenlosen Steuersimulator</a>, um Ihr Nettogehalt als Grenzg\u00e4nger zu berechnen und die Vor- und Nachteile eines Wohnsitzes in der Schweiz gegen\u00fcber dem Pendeln aus Italien zu vergleichen.</p></section>`);
+                comboBodyParts.push(`<section style="margin-top:20px"><h2>Arbeiten im Tessin als Grenzg\u00e4nger</h2><p>Der Kanton Tessin ist das wirtschaftliche Zentrum der italienischen Schweiz. F\u00fcr Grenzg\u00e4nger mit G-Bewilligung erhebt das Tessin eine Quellensteuer mit variablen S\u00e4tzen auf das Bruttoeinkommen. Die wichtigsten Wirtschaftszentren sind Lugano, Bellinzona, Mendrisio, Locarno und Chiasso. Nutzen Sie unseren <a href="${BASE_URL}/de/">kostenlosen Steuersimulator</a>, um Ihr Nettogehalt als Grenzg\u00e4nger zu berechnen und die Vor- und Nachteile eines Wohnsitzes in der Schweiz gegen\u00fcber dem Pendeln aus Italien zu vergleichen.</p></section>`);
               } else {
-                cp.push(`<section style="margin-top:20px"><h2>Travailler au Tessin en tant que frontalier</h2><p>Le Canton du Tessin est la principale zone \u00e9conomique de la Suisse italienne. Pour les frontaliers avec un permis G, le Tessin applique un imp\u00f4t \u00e0 la source \u00e0 taux variable sur le revenu brut. Les principaux centres \u00e9conomiques sont Lugano, Bellinzona, Mendrisio, Locarno et Chiasso. Utilisez notre <a href="${BASE_URL}/fr/">simulateur fiscal gratuit</a> pour calculer votre salaire net en tant que frontalier et comparer les avantages et inconv\u00e9nients entre r\u00e9sider en Suisse et faire la navette depuis l'Italie.</p></section>`);
+                comboBodyParts.push(`<section style="margin-top:20px"><h2>Travailler au Tessin en tant que frontalier</h2><p>Le Canton du Tessin est la principale zone \u00e9conomique de la Suisse italienne. Pour les frontaliers avec un permis G, le Tessin applique un imp\u00f4t \u00e0 la source \u00e0 taux variable sur le revenu brut. Les principaux centres \u00e9conomiques sont Lugano, Bellinzona, Mendrisio, Locarno et Chiasso. Utilisez notre <a href="${BASE_URL}/fr/">simulateur fiscal gratuit</a> pour calculer votre salaire net en tant que frontalier et comparer les avantages et inconv\u00e9nients entre r\u00e9sider en Suisse et faire la navette depuis l'Italie.</p></section>`);
               }
-              cp.push(`<p style="margin-top:16px;font-size:14px;color:#475569;line-height:1.6">${esc(searchPageCopy[locale].editorial)}</p>`);
-              return cp.join('\n');
-            })()}
-    </main>
-    </div>${hasSpaBundle ? `\n    <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
-  </body>
-</html>`;
+              comboBodyParts.push(`<p style="margin-top:16px;font-size:14px;color:#475569;line-height:1.6">${esc(searchPageCopy[locale].editorial)}</p>`);
+            }
+            const comboHtml = buildSimplePage({
+              locale,
+              title: copy.title,
+              description,
+              canonicalUrl,
+              ogLocale: localeOg[locale],
+              hreflangHtml: alternates,
+              extraHeadHtml: comboOgImage,
+              entryJs: hasSpaBundle ? entryJs : undefined,
+              entryCss: hasSpaBundle ? entryCss : undefined,
+              bodyHtml: `<h1>${esc(copy.heading)}</h1>\n      <p>${esc(description)}</p>\n${comboBodyParts.join('\n')}`,
+            });
 
             const outDir = np.join(distDir, canonicalPath.slice(1));
             activeJobDirs.add(canonicalPath.slice(1).replace(/\/+$/, ''));

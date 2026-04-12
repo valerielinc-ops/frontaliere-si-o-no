@@ -11,6 +11,7 @@ import path from 'path';
 import type { Plugin } from 'vite';
 import { BASE_URL, GTAG_SNIPPET, FAVICON_LINKS } from './constants';
 import { buildArticleSeoSections, cleanupArticleBodySections } from './articleSeoFallback';
+import { WriteCollector } from './batchWrite';
 
 export function ogPagesPlugin(rootDir: string): Plugin {
   return {
@@ -21,6 +22,7 @@ export function ogPagesPlugin(rootDir: string): Plugin {
       const np = await import('node:path');
 
       const distDir  = np.resolve(rootDir, 'dist');
+      const collector = new WriteCollector({ distDir });
       const DEFAULT_IMG = '/og-image.png';
       const blogImageById: Record<string, string> = {};
 
@@ -869,32 +871,26 @@ ${headTags}
         };
 
         // Italian (primary)
-        const d0 = np.join(distDir, en.path);
-        fs.mkdirSync(d0, { recursive: true });
         const itHtml = html('it', en.path);
-        fs.writeFileSync(np.join(d0, 'index.html'), itHtml);
-        // Also write flat .html — real content without redirect script
-        const flatIt = np.join(distDir, en.path + '.html');
-        fs.mkdirSync(np.dirname(flatIt), { recursive: true });
-        fs.writeFileSync(flatIt, itHtml.replace(/\s*<script>location\.replace\([^<]*\)<\/script>/, ''));
+        const flatItHtml = itHtml.replace(/\s*<script>location\.replace\([^<]*\)<\/script>/, '');
+        collector.add(np.join(distDir, en.path, 'index.html'), itHtml);
+        collector.add(np.join(distDir, en.path + '.html'), flatItHtml);
         count++;
 
         // EN / DE / FR
         for (const [loc, lPath] of Object.entries(lp)) {
           if (loc === 'it' || !lPath) continue;
-          const ld = np.join(distDir, lPath);
-          fs.mkdirSync(ld, { recursive: true });
           const locHtml = html(loc, lPath);
-          fs.writeFileSync(np.join(ld, 'index.html'), locHtml);
-          // Also write flat .html — real content without redirect script
-          const flatLoc = np.join(distDir, lPath + '.html');
-          fs.mkdirSync(np.dirname(flatLoc), { recursive: true });
-          fs.writeFileSync(flatLoc, locHtml.replace(/\s*<script>location\.replace\([^<]*\)<\/script>/, ''));
+          const flatLocHtml = locHtml.replace(/\s*<script>location\.replace\([^<]*\)<\/script>/, '');
+          collector.add(np.join(distDir, lPath, 'index.html'), locHtml);
+          collector.add(np.join(distDir, lPath + '.html'), flatLocHtml);
           count++;
         }
       }
 
-      console.log(`\x1b[36m[og-pages]\x1b[0m Generated ${count} OG landing pages for ${entries.length} articles (${faqCount} with FAQPage schema)`);
+      const written = await collector.flush();
+      const skippedHash = collector.skippedByHash;
+      console.log(`\x1b[36m[og-pages]\x1b[0m Generated ${count} OG landing pages for ${entries.length} articles (${faqCount} with FAQPage schema) — wrote ${written}, skipped ${skippedHash} unchanged`);
     },
   };
 }

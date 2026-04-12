@@ -66,7 +66,11 @@ export interface SimplePageOpts {
   canonicalUrl: string;
   robots?: string;
   ogType?: string;
+  /** Override the default OG locale (e.g. 'en_US' instead of 'en_GB'). */
+  ogLocale?: string;
   hreflangHtml?: string;
+  /** Additional <head> HTML (prev/next links, twitter cards, etc.). */
+  extraHeadHtml?: string;
   jsonLdScripts?: string[];
   entryJs?: string;
   entryCss?: string;
@@ -81,14 +85,17 @@ export function buildSimplePage(opts: SimplePageOpts): string {
     canonicalUrl,
     robots = 'index,follow',
     ogType = 'website',
+    ogLocale: ogLocaleOverride,
     hreflangHtml = '',
+    extraHeadHtml = '',
     jsonLdScripts = [],
     entryJs,
     entryCss,
     bodyHtml,
   } = opts;
 
-  const ogLocale = LOCALE_OG[locale] || 'it_IT';
+  const ogLocale = ogLocaleOverride || LOCALE_OG[locale] || 'it_IT';
+  const extraHead = extraHeadHtml ? `\n${extraHeadHtml}` : '';
   const ldTags = jsonLdScripts.map(ld => `    <script type="application/ld+json">${ld}</script>`).join('\n');
   const cssLink = entryCss ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all">` : '';
   const jsScript = entryJs ? `\n    <script type="module" crossorigin src="/assets/${entryJs}"></script>` : '';
@@ -107,7 +114,7 @@ export function buildSimplePage(opts: SimplePageOpts): string {
     <meta property="og:description" content="${esc(description)}">
     <meta property="og:url" content="${canonicalUrl}">
     <link rel="canonical" href="${canonicalUrl}">
-${hreflangHtml}
+${hreflangHtml}${extraHead}
 ${ldTags}${cssLink}
     ${GTAG_SNIPPET}
   </head>
