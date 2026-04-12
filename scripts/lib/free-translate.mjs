@@ -42,8 +42,18 @@ let _azureExhaustedKeys = new Set();
 
 // Google Cloud Translation (official API, free tier: 500K chars/month)
 // Hard-capped at 16K chars/day in code to match GCP quota setting and avoid billing
-// Uses the same GCP API key as Gemini (same project, different API endpoint).
+// Prefers OAuth2 credentials (same as GSC) for higher quotas; falls back to API key.
 const GOOGLE_CLOUD_TRANSLATE_KEY = (process.env.GOOGLE_CLOUD_TRANSLATE_KEY || process.env.GEMINI_API_KEY || '').trim();
+const _gcOAuth = {
+  clientId: (process.env.GSC_CLIENT_ID || '').trim(),
+  clientSecret: (process.env.GSC_CLIENT_SECRET || '').trim(),
+  refreshToken: (process.env.GSC_REFRESH_TOKEN || '').trim(),
+  accessToken: '',
+  expiresAt: 0,
+};
+const _gcOAuthAvailable = !!(
+  _gcOAuth.clientId && _gcOAuth.clientSecret && _gcOAuth.refreshToken
+);
 let _googleCloudDailyChars = 0;
 const GOOGLE_CLOUD_DAILY_LIMIT = 16000;
 
@@ -201,6 +211,8 @@ export function logCascadeSummary() {
     const active = AZURE_TRANSLATOR_KEYS.length - _azureExhaustedKeys.size;
     console.log(`   🔑 Azure: ${active}/${AZURE_TRANSLATOR_KEYS.length} keys active, region=${AZURE_REGION}${_azureExhaustedKeys.size > 0 ? ` (${_azureExhaustedKeys.size} exhausted)` : ''}`);
   }
+  const gcAuth = _gcOAuthAvailable ? 'OAuth2' : (GOOGLE_CLOUD_TRANSLATE_KEY ? 'API key' : 'none');
+  console.log(`   🔑 Google Cloud Translation: auth=${gcAuth}, ${_googleCloudDailyChars}/${GOOGLE_CLOUD_DAILY_LIMIT} daily chars used`);
 }
 
 function normalizeSpace(s) {
@@ -600,17 +612,58 @@ async function translateWithAzure(text, sourceLang, targetLang) {
 }
 
 // ── Google Cloud Translation (official API, 500K free/month) ───────────────
+
+/** Exchange OAuth2 refresh token for a short-lived access token. */
+async function _getGoogleCloudAccessToken() {
+  if (_gcOAuth.accessToken && Date.now() < _gcOAuth.expiresAt - 60_000) {
+    return _gcOAuth.accessToken;
+  }
+  const res = await fetch('https://oauth2.googleapis.com/token', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams({
+      client_id: _gcOAuth.clientId,
+      client_secret: _gcOAuth.clientSecret,
+      refresh_token: _gcOAuth.refreshToken,
+      grant_type: 'refresh_token',
+    }),
+    signal: AbortSignal.timeout(TIMEOUT_MS),
+  });
+  if (!res.ok) return '';
+  const data = await res.json();
+  _gcOAuth.accessToken = data.access_token || '';
+  _gcOAuth.expiresAt = Date.now() + (data.expires_in || 3600) * 1000;
+  return _gcOAuth.accessToken;
+}
+
 async function translateWithGoogleCloud(text, sourceLang, targetLang) {
-  if (!GOOGLE_CLOUD_TRANSLATE_KEY) return '';
+  if (!_gcOAuthAvailable && !GOOGLE_CLOUD_TRANSLATE_KEY) return '';
   const clean = normalizeSpace(text);
   if (!clean || sourceLang === targetLang) return '';
   if (_googleCloudDailyChars + clean.length > GOOGLE_CLOUD_DAILY_LIMIT) return '';
 
   try {
-    const url = `https://translation.googleapis.com/language/translate/v2?key=${GOOGLE_CLOUD_TRANSLATE_KEY}`;
+    // Prefer OAuth2 Bearer auth; fall back to API key
+    let url, headers;
+    if (_gcOAuthAvailable) {
+      const token = await _getGoogleCloudAccessToken();
+      if (!token) {
+        // OAuth2 failed — fall back to API key if available
+        if (!GOOGLE_CLOUD_TRANSLATE_KEY) return '';
+        url = `https://translation.googleapis.com/language/translate/v2?key=${GOOGLE_CLOUD_TRANSLATE_KEY}`;
+        headers = { 'Content-Type': 'application/json' };
+      } else {
+        url = 'https://translation.googleapis.com/language/translate/v2';
+        headers = { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` };
+      }
+    } else {
+      url = `https://translation.googleapis.com/language/translate/v2?key=${GOOGLE_CLOUD_TRANSLATE_KEY}`;
+      headers = { 'Content-Type': 'application/json' };
+    }
+
     const res = await fetch(url, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers,
       body: JSON.stringify({ q: clean, source: sourceLang, target: targetLang, format: 'text' }),
       signal: AbortSignal.timeout(TIMEOUT_MS),
     });
