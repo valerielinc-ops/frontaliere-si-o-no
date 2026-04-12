@@ -54,18 +54,15 @@ interface BoilerplateReport {
 | `"Candidati online su"` | IT |
 | `"transizione energetica e industriale"` | IT |
 | `"offre servizi di ingegneria"` | IT |
-| `"is an international company"` | EN |
-| `"Apply online at"` | EN |
-| `"ist ein internationales Unternehmen"` | DE |
-| `"Bewerben Sie sich online"` | DE |
+| `"cerca .+ con sede a"` (regex) | IT |
 
-This list targets the specific boilerplate patterns used by `buildXxxLocalizedContent` functions. It will be extended as new patterns are discovered.
+This list targets the specific boilerplate patterns used by `buildXxxLocalizedContent` functions across 52 parsers. It will be extended as new patterns are discovered. EN/DE markers were removed after code review confirmed no parser generates boilerplate in those languages (all fallbacks are Italian).
 
-**Condition B — Low unique content:** After removing all marker phrase sentences from the description, the remaining content has <30 words. This catches fallback patterns not covered by the marker list.
+**Condition B — Low unique content:** After removing all marker phrase substrings from the description text, the remaining content has <30 words. This catches fallback patterns not covered by the marker list. Note: substring removal, not sentence-boundary splitting (avoids edge cases with abbreviations like "19.000" and URLs).
 
 **Exclusions:**
 - Jobs with `needsRetranslation: true` are excluded from the count (they are in the translation pipeline)
-- The `description` field is checked (primary locale), not all `descriptionByLocale` variants
+- The `descriptionByLocale.it` field is checked (Italian locale, where buildXxxLocalizedContent writes fallbacks), not the raw `description` field (which may be in the source language, e.g. German for AFRY Brig jobs)
 
 ### 2. Guard Gate in writeJobsCrawlerSlice
 
@@ -138,12 +135,30 @@ Updated: {date} — still detecting {count}/{total} boilerplate jobs.
 ### 5. Testing
 
 **Unit test in `tests/boilerplate-guard.test.ts`:**
-- Test boilerplate detection with known marker phrases
-- Test detection with low unique word count
-- Test that real descriptions (with headings + content) pass
-- Test threshold: 49% passes, 50% fails
-- Test `needsRetranslation` jobs are excluded
-- Test `SKIP_BOILERPLATE_GUARD=1` opt-out
+
+Detection logic tests:
+- Test boilerplate detection with >=2 known marker phrases + no content headings
+- Test that >=2 markers WITH content headings (COMPITI, PROFILO, etc.) is NOT flagged as boilerplate
+- Test that 1 marker phrase (below >=2 threshold) is NOT flagged
+- Test that 0 markers falls through to Condition B
+- Test detection with low unique word count (<30 words after marker removal)
+- Test boundary: exactly 30 unique words after removal → NOT boilerplate
+- Test boundary: 29 unique words → IS boilerplate
+- Test that real descriptions with headings + rich content pass cleanly
+- Test `descriptionByLocale.it` is null/undefined/empty string (graceful handling)
+- Test `needsRetranslation: true` jobs are excluded from count
+
+Guard gate tests:
+- Test 0 jobs in array (no division by zero, ratio = 0)
+- Test 1 boilerplate job out of 1 total (100%, hard fail)
+- Test threshold: 4/10 boilerplate (40%) → warning only, continues
+- Test threshold: 5/10 boilerplate (50%) → hard fail
+- Test `SKIP_BOILERPLATE_GUARD=1` env var skips guard entirely
+- Test `gh` CLI failure does not suppress the guard Error (still throws)
+
+User flow tests:
+- Test all jobs have real descriptions → guard passes silently (no warnings)
+- Test mix of real + boilerplate under 50% → warnings logged, slice written
 
 **Integration verification:**
 - Run Afry crawler with the old broken parser code (revert selector temporarily) and verify the guard catches it
@@ -156,7 +171,9 @@ Updated: {date} — still detecting {count}/{total} boilerplate jobs.
 | File | Change |
 |---|---|
 | `scripts/assemble-jobs-dataset.mjs` | Add `detectBoilerplateDescriptions()` function and guard gate in `writeJobsCrawlerSlice()` |
-| `tests/boilerplate-guard.test.ts` | New test file for the guard |
+| `tests/boilerplate-guard.test.ts` | New test file for the guard (18 test cases) |
+| `.github/workflows/update-jobs-*.yml` (103 files) | Add `issues: write` to permissions block |
+| `scripts/scaffold-crawler.mjs` | Add `issues: write` to workflow template for new crawlers |
 
 ## Not In Scope
 

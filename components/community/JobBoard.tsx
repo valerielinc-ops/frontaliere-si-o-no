@@ -5197,11 +5197,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
                 </div>
               </div>
             </div>
-            {/* Blurred description teaser — compact on mobile so auth gate stays visible */}
+            {/* Blurred description teaser — height scales with viewport so auth buttons stay visible.
+               Uses clamp: 0px below ~600px viewport height, scales up to 148px on tall screens.
+               calc(100dvh - 520px) hits 0 at 520px vh, 80px at 600px, 148px at ~670px. */}
             {descriptionPreview && (
-              <div className="relative mt-3 w-full min-h-[48px] overflow-hidden rounded-lg sm:min-h-[148px]">
+              <div className="relative mt-3 w-full overflow-hidden rounded-lg" style={{ maxHeight: 'clamp(0px, calc(100dvh - 520px), 148px)' }}>
                 <p
-                  className="min-h-[48px] px-3 py-2 text-sm text-subtle leading-relaxed select-none blur-[6px] sm:min-h-[148px] sm:py-4"
+                  className="px-3 py-2 text-sm text-subtle leading-relaxed select-none blur-[6px] sm:py-4"
                   aria-hidden="true"
                 >
                   {descriptionPreview}...

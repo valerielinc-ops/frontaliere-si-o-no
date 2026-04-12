@@ -13,13 +13,19 @@
     "https://careers.aristongroup.com/sitemap_index.xml"
   ],
   "notes": "Dedicated Ariston Group crawler parses the careers RSS feed and SuccessFactors job detail pages, then keeps only Ticino/Grigioni jobs via shared Swiss target-location matching.",
-  "updatedAt": "2026-03-10T19:16:06.134Z",
+  "updatedAt": "2026-04-12T16:58:26.858Z",
   "seedMetaByUrl": {
-    "https://careers.aristongroup.com/job/Maerstetten-COLLABORATORETRICE-SERVICE-CENTER-80-Beda-6930/1367135733/": {
+    "https://careers.aristongroup.com/job/Brig-VERKAUFSBERATERIN-AUSSENDIENST-%28WM%29-REGION-OBERWALLIS-Brig-1070/1187004201/": {
+      "location": "Brig, CH, 1070",
+      "canton": "VS",
+      "company": "Ariston Group",
+      "postedDate": "2026-03-22"
+    },
+    "https://careers.aristongroup.com/job/Maerstetten-IMPIEGATOA-COMMERCIALE-INTERNO-%28SALES-SUPPORT%29-Beda-6930/1377887233/": {
       "location": "Bedano, CH, 6930",
       "canton": "TI",
       "company": "Ariston Group",
-      "postedDate": "2026-02-24"
+      "postedDate": "2026-03-26"
     }
   }
 }

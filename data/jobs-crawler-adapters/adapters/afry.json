@@ -11,73 +11,91 @@
     "https://afry.com/en/api/afp-hr-smartrecruiteres-job-list"
   ],
   "notes": "Dedicated AFRY crawler. Uses Drupal proxy to SmartRecruiters API. Returns all global jobs in one JSON call; filters by country=CH then Ticino/Grigioni cities. ~18000 employees globally, major presence in Swiss engineering/infrastructure. Swiss HQ in Zurich, Ticino offices in Bellinzona/Airolo.",
-  "updatedAt": "2026-03-23T01:23:40.963Z",
+  "updatedAt": "2026-04-12T15:32:14.439Z",
   "seedMetaByUrl": {
+    "https://afry.com/en/join-us/available-jobs/REF14227H-projektingenieurin-im-bereich-strassen-und-bahnbau-80-100-brig": {
+      "location": "Brig",
+      "canton": "TI",
+      "company": "AFRY",
+      "postedDate": "2026-04-12"
+    },
+    "https://afry.com/en/join-us/available-jobs/REF11645J-pianificatore-elettricista-afc-f-m-d-secondo-apprendistato-bellinzona": {
+      "location": "Bellinzona",
+      "canton": "TI",
+      "company": "AFRY",
+      "postedDate": "2026-04-12"
+    },
     "https://afry.com/en/join-us/available-jobs/REF13824E-geologo-junior-f-m-d-80-100-cantiere-n2-secondo-tubo-del-san-gottardo-ad-airolo": {
       "location": "Airolo",
       "canton": "TI",
       "company": "AFRY",
-      "postedDate": "2026-03-23"
+      "postedDate": "2026-04-12"
     },
     "https://afry.com/en/join-us/available-jobs/REF13598P-projektingenieurin-kunstbauten-bruckenbau-80-100-chur": {
       "location": "Chur",
       "canton": "GR",
       "company": "AFRY",
-      "postedDate": "2026-03-23"
+      "postedDate": "2026-04-12"
     },
     "https://afry.com/en/join-us/available-jobs/REF13119R-projektleiterin-bahnbau-80-100-chur": {
       "location": "Chur",
       "canton": "GR",
       "company": "AFRY",
-      "postedDate": "2026-03-23"
+      "postedDate": "2026-04-12"
     },
     "https://afry.com/en/join-us/available-jobs/REF13116C-projektleiterin-kunstbauten-80-100-chur": {
       "location": "Chur",
       "canton": "GR",
       "company": "AFRY",
-      "postedDate": "2026-03-23"
+      "postedDate": "2026-04-12"
     },
     "https://afry.com/en/join-us/available-jobs/REF11391E-zeichnerin-tiefbau-kunstbau-80-100-chur": {
       "location": "Chur",
       "canton": "GR",
       "company": "AFRY",
-      "postedDate": "2026-03-23"
+      "postedDate": "2026-04-12"
     },
     "https://afry.com/en/join-us/available-jobs/REF13049L-lehrstelle-als-elektroplanerin-efz-chur": {
       "location": "Chur",
       "canton": "GR",
       "company": "AFRY",
-      "postedDate": "2026-03-23"
-    },
-    "https://afry.com/en/join-us/available-jobs/REF12509X-lehrstelle-als-zeichnerin-mit-fachrichtung-ingenieurbau-efz-chur": {
-      "location": "Chur",
-      "canton": "GR",
-      "company": "AFRY",
-      "postedDate": "2026-03-23"
+      "postedDate": "2026-04-12"
     },
     "https://afry.com/en/join-us/available-jobs/REF12020C-ingegnere-tecnico-sss-elettrotecnico-80-100-f-m-d-nuova-sede-di-bellinzona": {
       "location": "Bellinzona",
       "canton": "TI",
       "company": "AFRY",
-      "postedDate": "2026-03-23"
+      "postedDate": "2026-04-12"
+    },
+    "https://afry.com/en/join-us/available-jobs/REF10630U-projektingenieurin-bau-und-projektleiterin-bau-mit-potenzial-stv-niederlassungsleiter-80-100-brig": {
+      "location": "Brig",
+      "canton": "TI",
+      "company": "AFRY",
+      "postedDate": "2026-04-12"
     },
     "https://afry.com/en/join-us/available-jobs/REF11389O-ingegnere-elettronico-telecomunicazione-f-m-d-80-100-bellinzona": {
       "location": "Bellinzona",
       "canton": "TI",
       "company": "AFRY",
-      "postedDate": "2026-03-23"
+      "postedDate": "2026-04-12"
     },
     "https://afry.com/en/join-us/available-jobs/REF10433H-senior-projektleiterin-bauherrenunterstutzung-80-100-zurich-oder-chur": {
       "location": "Zürich",
       "canton": "TI",
       "company": "AFRY",
-      "postedDate": "2026-03-23"
+      "postedDate": "2026-04-12"
     },
     "https://afry.com/en/join-us/available-jobs/REF1247R-bauleiterin-tunnelbau-tiefbau-eth-fh-80-100-chur": {
       "location": "Chur",
       "canton": "GR",
       "company": "AFRY",
-      "postedDate": "2026-03-23"
+      "postedDate": "2026-04-12"
+    },
+    "https://afry.com/en/join-us/available-jobs/REF9083H-projektleiterin-tief-strassen-und-bahnbau-80-100-brig": {
+      "location": "Brig",
+      "canton": "TI",
+      "company": "AFRY",
+      "postedDate": "2026-04-12"
     }
   }
 }

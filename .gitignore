@@ -78,3 +78,14 @@ download
 # Clarity asset cache (CI ephemeral)
 .clarity-asset-cache/
 .gitnexus
+
+# IDE / local tool config
+.cursor/
+AGENTS.md
+
+# CRG (Claude Rules Generator) — third-party tool, not project source
+CRG-README.md
+crg-cheatsheet.pdf
+check-crg.sh
+setup-crg.sh
+setup-crg.ps1
