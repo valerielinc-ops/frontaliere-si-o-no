@@ -10,6 +10,14 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const BASE_URL = 'https://frontaliereticino.ch';
+
+/** Mirror the build plugin's canonicalCompanySlug logic (slugify company name, not companyKey) */
+function slugifyCompanyName(name) {
+  return String(name || '').toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').trim();
+}
+
 let __dirname = '';
 try {
   __dirname = path.dirname(new URL(import.meta.url).pathname);
@@ -441,7 +449,8 @@ export function buildBriefingPrompt(ctx) {
       const postedInfo = j.postedDate || j.crawledAt || j.createdAt
         ? ` (posted: ${new Date(j.postedDate || j.crawledAt || j.createdAt).toLocaleDateString('it-CH')})`
         : '';
-      const companyUrl = j.companyKey ? `${BASE_URL}/cerca-lavoro-ticino/azienda-${j.companyKey}` : '';
+      const companySlug = j.company ? slugifyCompanyName(j.company) : '';
+      const companyUrl = companySlug ? `${BASE_URL}/cerca-lavoro-ticino/azienda-${companySlug}` : '';
       return `- ${j.title} at ${j.company} (${j.location})${postedInfo} → JOB_URL: ${url}${companyUrl ? ` | COMPANY_URL: ${companyUrl}` : ''}`;
     })
     .filter(Boolean)

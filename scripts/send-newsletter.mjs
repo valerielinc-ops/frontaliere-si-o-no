@@ -187,6 +187,13 @@ const JOB_FALLBACK_I18N = {
   },
 };
 
+/** Mirror the build plugin's canonicalCompanySlug logic (slugify company name, not companyKey) */
+function slugifyCompanyName(name) {
+  return String(name || '').toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').trim();
+}
+
 function injectJobAndCompanyLinks(html, jobs, locale = 'it') {
   if (!jobs || jobs.length === 0) return html;
   const linkStyle = 'color:#2563eb;text-decoration:underline;';
@@ -197,7 +204,9 @@ function injectJobAndCompanyLinks(html, jobs, locale = 'it') {
 
   for (const j of jobs.slice(0, 3)) {
     const jobUrl = j.url ? `${BASE_URL}${j.url.startsWith('/') ? j.url : '/' + j.url}` : '';
-    const companyUrl = j.companyKey ? `${BASE_URL}/cerca-lavoro-ticino/azienda-${j.companyKey}` : '';
+    // Company page slug is derived from company display name (mirrors build plugin logic)
+    const companySlug = j.company ? slugifyCompanyName(j.company) : '';
+    const companyUrl = companySlug ? `${BASE_URL}/cerca-lavoro-ticino/azienda-${companySlug}` : '';
 
     let foundTitle = false;
 
