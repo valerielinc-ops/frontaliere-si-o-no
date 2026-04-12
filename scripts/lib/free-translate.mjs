@@ -41,9 +41,8 @@ let _azureKeyIndex = 0;
 let _azureExhaustedKeys = new Set();
 
 // Google Cloud Translation (official API, free tier: 500K chars/month)
-// Hard-capped at 16K chars/day in code to match GCP quota setting and avoid billing
-// Prefers OAuth2 credentials (same as GSC) for higher quotas; falls back to API key.
-const GOOGLE_CLOUD_TRANSLATE_KEY = (process.env.GOOGLE_CLOUD_TRANSLATE_KEY || process.env.GEMINI_API_KEY || '').trim();
+// Hard-capped at 16K chars/day in code to match GCP quota setting and avoid billing.
+// Authenticates via OAuth2 using the same GSC credentials (no API key needed).
 const GCP_PROJECT_ID = (process.env.VITE_FIREBASE_PROJECT_ID || process.env.GCP_PROJECT_ID || 'frontaliere-ticino').trim();
 const _gcOAuth = {
   clientId: (process.env.GSC_CLIENT_ID || '').trim(),
@@ -212,7 +211,7 @@ export function logCascadeSummary() {
     const active = AZURE_TRANSLATOR_KEYS.length - _azureExhaustedKeys.size;
     console.log(`   🔑 Azure: ${active}/${AZURE_TRANSLATOR_KEYS.length} keys active, region=${AZURE_REGION}${_azureExhaustedKeys.size > 0 ? ` (${_azureExhaustedKeys.size} exhausted)` : ''}`);
   }
-  const gcAuth = _gcOAuthAvailable ? 'OAuth2' : (GOOGLE_CLOUD_TRANSLATE_KEY ? 'API key' : 'none');
+  const gcAuth = _gcOAuthAvailable ? 'OAuth2' : 'none';
   console.log(`   🔑 Google Cloud Translation: auth=${gcAuth}, ${_googleCloudDailyChars}/${GOOGLE_CLOUD_DAILY_LIMIT} daily chars used`);
 }
 
@@ -638,37 +637,22 @@ async function _getGoogleCloudAccessToken() {
 }
 
 async function translateWithGoogleCloud(text, sourceLang, targetLang) {
-  if (!_gcOAuthAvailable && !GOOGLE_CLOUD_TRANSLATE_KEY) return '';
+  if (!_gcOAuthAvailable) return '';
   const clean = normalizeSpace(text);
   if (!clean || sourceLang === targetLang) return '';
   if (_googleCloudDailyChars + clean.length > GOOGLE_CLOUD_DAILY_LIMIT) return '';
 
   try {
-    // Prefer OAuth2 Bearer auth; fall back to API key
-    let url, headers;
-    if (_gcOAuthAvailable) {
-      const token = await _getGoogleCloudAccessToken();
-      if (!token) {
-        // OAuth2 failed — fall back to API key if available
-        if (!GOOGLE_CLOUD_TRANSLATE_KEY) return '';
-        url = `https://translation.googleapis.com/language/translate/v2?key=${GOOGLE_CLOUD_TRANSLATE_KEY}`;
-        headers = { 'Content-Type': 'application/json' };
-      } else {
-        url = 'https://translation.googleapis.com/language/translate/v2';
-        headers = {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-          'x-goog-user-project': GCP_PROJECT_ID,
-        };
-      }
-    } else {
-      url = `https://translation.googleapis.com/language/translate/v2?key=${GOOGLE_CLOUD_TRANSLATE_KEY}`;
-      headers = { 'Content-Type': 'application/json' };
-    }
+    const token = await _getGoogleCloudAccessToken();
+    if (!token) return '';
 
-    const res = await fetch(url, {
+    const res = await fetch('https://translation.googleapis.com/language/translate/v2', {
       method: 'POST',
-      headers,
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+        'x-goog-user-project': GCP_PROJECT_ID,
+      },
       body: JSON.stringify({ q: clean, source: sourceLang, target: targetLang, format: 'text' }),
       signal: AbortSignal.timeout(TIMEOUT_MS),
     });
