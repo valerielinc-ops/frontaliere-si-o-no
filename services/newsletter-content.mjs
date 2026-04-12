@@ -321,6 +321,7 @@ export function matchJobsForSubscriber(subscriber, jobs, limit = 3) {
         title: job.titleByLocale?.it || job.title,
         url: `/cerca-lavoro-ticino/${itSlug}/`,
         company: job.company,
+        companyKey: job.companyKey || '',
         location: normalizeLocation(job.location),
         contract: normalizeContract(job.contract),
       };
