@@ -9202,5 +9202,61 @@
         "pending": 1
       }
     ]
+  },
+  {
+    "timestamp": "2026-04-12T07:13:43.104Z",
+    "label": "before",
+    "total": 2500,
+    "needsRetranslation": 57,
+    "incomplete": 3,
+    "complete": 2497,
+    "missingByLocale": {
+      "it": 2,
+      "en": 2,
+      "de": 1,
+      "fr": 2
+    },
+    "topPending": [
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      },
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "Ticino Premium Properties SA",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-12T07:14:43.186Z",
+    "label": "after",
+    "total": 2500,
+    "needsRetranslation": 57,
+    "incomplete": 3,
+    "complete": 2497,
+    "missingByLocale": {
+      "it": 2,
+      "en": 2,
+      "de": 1,
+      "fr": 2
+    },
+    "topPending": [
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      },
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "Ticino Premium Properties SA",
+        "pending": 1
+      }
+    ]
   }
 ]
