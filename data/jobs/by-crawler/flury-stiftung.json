@@ -573,9 +573,9 @@
     },
     {
       "id": "flury-stiftung-15399582eab7",
-      "slug": "apprendistato-kaufmann-frau-cfc-ab-sommer-2027-flury-stiftung-schiers",
+      "slug": "apprendistato-impiegato-a-di-commercio-afc-da-estate-2027-flury-stiftung-schiers",
       "slugByLocale": {
-        "it": "apprendistato-kaufmann-frau-cfc-ab-sommer-2027-flury-stiftung-schiers",
+        "it": "apprendistato-impiegato-a-di-commercio-afc-da-estate-2027-flury-stiftung-schiers",
         "en": "apprenticeship-as-a-businessman-woman-efz-from-summer-2027-flury-stiftung-schiers",
         "de": "lehrstelle-kaufmann-frau-efz-ab-sommer-2027-flury-stiftung-ch",
         "fr": "apprentissage-de-commercial-cfc-a-partir-de-l-ete-2027-flury-stiftung-schiers"
@@ -623,11 +623,13 @@
       "pensumMin": 100,
       "pensumMax": 100,
       "previousSlugs": [
-        "lehrstelle-kaufmann-frau-efz-ab-sommer-2027-flury-stiftung-ch"
+        "lehrstelle-kaufmann-frau-efz-ab-sommer-2027-flury-stiftung-ch",
+        "apprendistato-kaufmann-frau-cfc-ab-sommer-2027-flury-stiftung-schiers"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-kaufmann-frau-efz-ab-sommer-2027-flury-stiftung-ch"
+          "lehrstelle-kaufmann-frau-efz-ab-sommer-2027-flury-stiftung-ch",
+          "apprendistato-kaufmann-frau-cfc-ab-sommer-2027-flury-stiftung-schiers"
         ],
         "en": [
           "lehrstelle-kaufmann-frau-efz-ab-sommer-2027-flury-stiftung-ch"
@@ -1737,9 +1739,9 @@
     },
     {
       "id": "flury-stiftung-c480e037d7d4",
-      "slug": "dipl-pflegefachperson-mit-fachverantwortung-60-100-flury-stiftung-ch",
+      "slug": "dipl-infermiere-a-con-responsabilita-specialistica-60-100-flury-stiftung-schiers",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-mit-fachverantwortung-60-100-flury-stiftung-ch",
+        "it": "dipl-infermiere-a-con-responsabilita-specialistica-60-100-flury-stiftung-schiers",
         "en": "qualified-nurse-with-specialist-responsibility-60-100-flury-stiftung-schiers",
         "de": "dipl-pflegefachperson-mit-fachverantwortung-60-100-flury-stiftung-ch",
         "fr": "infirmier-diplome-avec-responsabilite-professionnelle-60-100-flury-stiftung-schiers"
@@ -1797,7 +1799,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-mit-fachverantwortung-60-100-flury-stiftung-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-mit-fachverantwortung-60-100-flury-stiftung-ch"
+      ]
     },
     {
       "id": "flury-stiftung-2920fcbf2378",
