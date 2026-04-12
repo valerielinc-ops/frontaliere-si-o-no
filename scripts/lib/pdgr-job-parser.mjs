@@ -376,9 +376,9 @@ export async function fetchAllPdgrJobs() {
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const jobSlug = slugify(`${title} pdgr ch`);
 
-    // Build description: prefer detail page content, fall back to card metadata
+    // Build description: prefer detail page content, fall back to card metadata + boilerplate
     let descriptionText = detail.description;
-    if (!descriptionText || descriptionText.length < 30) {
+    if (!descriptionText || descriptionText.length < 150) {
       const parts = [`${title} — Psychiatrische Dienste Graubünden (PDGR)`];
       if (card.department) parts.push(`Fachgebiet: ${card.department}`);
       if (card.facility) parts.push(`Bereich: ${card.facility}`);
@@ -388,6 +388,7 @@ export async function fetchAllPdgrJobs() {
       } else {
         parts.push(`Pensum: ${card.pensumFrom} - ${card.pensumTo}%`);
       }
+      parts.push('Die Psychiatrischen Dienste Graubünden (PDGR) sind der führende Anbieter psychiatrischer Versorgung im Kanton Graubünden mit Standorten in Chur, Cazis und weiteren Gemeinden. Als öffentlich-rechtliche Anstalt bieten wir ein breites Spektrum an stationären, ambulanten und tagesklinischen Leistungen in der Erwachsenen-, Kinder- und Jugendpsychiatrie sowie der Forensik. Wir bieten attraktive Anstellungsbedingungen, vielfältige Weiterbildungsmöglichkeiten und ein engagiertes, interdisziplinäres Team');
       descriptionText = parts.join('. ');
     }
 

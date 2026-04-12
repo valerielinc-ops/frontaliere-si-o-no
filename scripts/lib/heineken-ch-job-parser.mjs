@@ -229,7 +229,21 @@ export function parseDetailPage(html) {
     }
   }
 
-  const description = stripHtml(descriptionHtml);
+  let description = normalizeSpace(stripHtml(descriptionHtml));
+
+  // Reject search widget / alert form garbage that SuccessFactors injects
+  // when the detail page renders client-side or in a different locale
+  const GARBAGE_PATTERNS = [
+    /Suche nach Stichwort/i,
+    /Benachrichtigung erstellen/i,
+    /Search by keyword/i,
+    /Create Alert/i,
+    /Select how often/i,
+    /Wählen Sie.*wie oft/i,
+  ];
+  if (GARBAGE_PATTERNS.some((re) => re.test(description))) {
+    description = '';
+  }
 
   // Extract apply URL
   const applyMatch = html.match(/href="([^"]*talentcommunity\/apply\/\d+[^"]*)"/i);

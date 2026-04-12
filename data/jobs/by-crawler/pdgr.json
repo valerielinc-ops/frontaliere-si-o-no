@@ -172,11 +172,11 @@
         "de": "Köchin / Koch EFZ",
         "fr": "Cuisinière / cuisinier CFC"
       },
-      "description": "Köchin / Koch EFZ — Psychiatrische Dienste Graubünden (PDGR). Bereich: Lehrstelle. Arbeitsort: Cazis / Chur / Rothenbrunnen (GR). Pensum: 100%",
+      "description": "Köchin / Koch EFZ — Psychiatrische Dienste Graubünden (PDGR). Arbeitsort: Cazis / Chur / Rothenbrunnen (GR). Die Psychiatrischen Dienste Graubünden (PDGR) sind der führende Anbieter psychiatrischer Versorgung im Kanton Graubünden mit Standorten in Chur, Cazis und weiteren Gemeinden. Als öffentlich-rechtliche Anstalt bieten wir ein breites Spektrum an stationären, ambulanten und tagesklinischen Leistungen in der Erwachsenen-, Kinder- und Jugendpsychiatrie sowie der Forensik. Wir bieten attraktive Anstellungsbedingungen, vielfältige Weiterbildungsmöglichkeiten und ein engagiertes, interdisziplinäres Team",
       "descriptionByLocale": {
         "it": "Descrizione - Cuoco /a AFC — Servizi psichiatrici dei Grigioni (PDGR) - Area: apprendistato - Luogo di lavoro: Cazis / Coira / Rothenbrunnen (GR) - Carico di lavoro: 100%",
         "en": "Descrizione - Chef EFZ — Psychiatric Services Graubünden (PDGR) - Area: Apprenticeship - Place of work: Cazis / Chur / Rothenbrunnen (GR) - Workload: 100%",
-        "de": "Köchin / Koch EFZ — Psychiatrische Dienste Graubünden (PDGR). Bereich: Lehrstelle. Arbeitsort: Cazis / Chur / Rothenbrunnen (GR). Pensum: 100%",
+        "de": "Köchin / Koch EFZ — Psychiatrische Dienste Graubünden (PDGR). Arbeitsort: Cazis / Chur / Rothenbrunnen (GR). Die Psychiatrischen Dienste Graubünden (PDGR) sind der führende Anbieter psychiatrischer Versorgung im Kanton Graubünden mit Standorten in Chur, Cazis und weiteren Gemeinden. Als öffentlich-rechtliche Anstalt bieten wir ein breites Spektrum an stationären, ambulanten und tagesklinischen Leistungen in der Erwachsenen-, Kinder- und Jugendpsychiatrie sowie der Forensik. Wir bieten attraktive Anstellungsbedingungen, vielfältige Weiterbildungsmöglichkeiten und ein engagiertes, interdisziplinäres Team",
         "fr": "Descrizione - Cuisinière / cuisinier CFC — Services psychiatriques des Grisons (PDGR) - Domaine : Apprentissage - Lieu de travail : Cazis / Coire / Rothenbrunnen (GR) - Taux d'occupation : 100%"
       },
       "location": "Cazis / Chur / Rothenbrunnen",
@@ -226,7 +226,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "pdgr-3454de7d1a49",
