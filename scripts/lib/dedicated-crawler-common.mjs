@@ -2472,7 +2472,9 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
         const curDesc = cleanFn(currentByLocale[locale] || '');
         // Also retranslate thin stubs (< 45% of source) — these are AI boilerplate, not real translations
         const isThinStub = sourceDesc.length >= 500 && curDesc.length > 0 && curDesc.length < sourceDesc.length * 0.45;
-        const needsDesc = !curDesc || curDesc.length < localeDescFloor || curDesc.toLowerCase() === sourceDesc.toLowerCase() || isThinStub;
+        // When needsRetranslation is explicitly set, force retranslation of all non-source
+        // locales — the existing content may be in the wrong language (e.g. Italian in EN slot).
+        const needsDesc = !curDesc || curDesc.length < localeDescFloor || curDesc.toLowerCase() === sourceDesc.toLowerCase() || isThinStub || out.needsRetranslation;
         let desc = null;
         if (needsDesc) {
           // Use source locale description as translation input (clean text)
