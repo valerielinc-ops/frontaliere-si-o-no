@@ -1,117 +1,5 @@
 [
   {
-    "timestamp": "2026-04-02T18:53:38.403Z",
-    "label": "before",
-    "total": 1547,
-    "needsRetranslation": 261,
-    "incomplete": 219,
-    "complete": 1328,
-    "missingByLocale": {
-      "it": 146,
-      "en": 191,
-      "de": 101,
-      "fr": 211
-    },
-    "topPending": [
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 65
-      },
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 46
-      },
-      {
-        "company": "Hilcona AG (Bell Food Group)",
-        "pending": 36
-      },
-      {
-        "company": "Interdiscount",
-        "pending": 35
-      },
-      {
-        "company": "Davos Klosters Bergbahnen AG",
-        "pending": 9
-      },
-      {
-        "company": "Prada Group",
-        "pending": 8
-      },
-      {
-        "company": "EFG International AG",
-        "pending": 5
-      },
-      {
-        "company": "Otis SA",
-        "pending": 3
-      },
-      {
-        "company": "CEDES AG",
-        "pending": 2
-      },
-      {
-        "company": "Scuola Club Migros",
-        "pending": 2
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-02T18:53:42.938Z",
-    "label": "after",
-    "total": 1547,
-    "needsRetranslation": 261,
-    "incomplete": 219,
-    "complete": 1328,
-    "missingByLocale": {
-      "it": 146,
-      "en": 191,
-      "de": 101,
-      "fr": 211
-    },
-    "topPending": [
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 65
-      },
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 46
-      },
-      {
-        "company": "Hilcona AG (Bell Food Group)",
-        "pending": 36
-      },
-      {
-        "company": "Interdiscount",
-        "pending": 35
-      },
-      {
-        "company": "Davos Klosters Bergbahnen AG",
-        "pending": 9
-      },
-      {
-        "company": "Prada Group",
-        "pending": 8
-      },
-      {
-        "company": "EFG International AG",
-        "pending": 5
-      },
-      {
-        "company": "Otis SA",
-        "pending": 3
-      },
-      {
-        "company": "CEDES AG",
-        "pending": 2
-      },
-      {
-        "company": "Scuola Club Migros",
-        "pending": 2
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-02T19:00:06.683Z",
     "label": "before",
     "total": 1547,
@@ -9283,6 +9171,82 @@
       },
       {
         "company": "Banca del Sempione",
+        "pending": 1
+      },
+      {
+        "company": "Ticino Premium Properties SA",
+        "pending": 1
+      },
+      {
+        "company": "Swiss Armed Forces (VTG)",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-12T02:38:30.983Z",
+    "label": "before",
+    "total": 2500,
+    "needsRetranslation": 67,
+    "incomplete": 10,
+    "complete": 2490,
+    "missingByLocale": {
+      "it": 6,
+      "en": 9,
+      "de": 4,
+      "fr": 9
+    },
+    "topPending": [
+      {
+        "company": "Air Zermatt AG",
+        "pending": 3
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 2
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      },
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "Banca del Sempione",
+        "pending": 1
+      },
+      {
+        "company": "Ticino Premium Properties SA",
+        "pending": 1
+      },
+      {
+        "company": "Swiss Armed Forces (VTG)",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-12T02:40:10.410Z",
+    "label": "after",
+    "total": 2500,
+    "needsRetranslation": 57,
+    "incomplete": 4,
+    "complete": 2496,
+    "missingByLocale": {
+      "it": 3,
+      "en": 3,
+      "de": 1,
+      "fr": 3
+    },
+    "topPending": [
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      },
+      {
+        "company": "Banca Cler",
         "pending": 1
       },
       {
