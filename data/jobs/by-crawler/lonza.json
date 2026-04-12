@@ -296,9 +296,9 @@
     },
     {
       "id": "lonza-70b113d9e522",
-      "slug": "senior-automation-engineer-80-100-m-w-d-lonza-ch",
+      "slug": "ingegnere-automazione-senior-80-100-lonza-ch",
       "slugByLocale": {
-        "it": "senior-automation-engineer-80-100-m-w-d-lonza-ch",
+        "it": "ingegnere-automazione-senior-80-100-lonza-ch",
         "en": "senior-automation-engineer-80-100-m-w-d-lonza-ch",
         "de": "senior-automation-engineer-80-100-m-w-d-lonza-ch",
         "fr": "senior-automation-engineer-80-100-m-w-d-lonza-ch"
@@ -352,7 +352,15 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-automation-engineer-80-100-m-w-d-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-automation-engineer-80-100-m-w-d-lonza-ch"
+      ]
     },
     {
       "id": "lonza-4cd6df30896c",
@@ -2519,9 +2527,9 @@
     },
     {
       "id": "lonza-25a150730976",
-      "slug": "automatista-efz-80-100-lonza-ch",
+      "slug": "automatiker-cfc-80-100-m-w-d-lonza-ch",
       "slugByLocale": {
-        "it": "automatista-efz-80-100-lonza-ch",
+        "it": "automatiker-cfc-80-100-m-w-d-lonza-ch",
         "en": "automation-technician-efz-80-100-lonza-ch",
         "de": "automatiker-efz-80-100-m-w-d-lonza-ch",
         "fr": "technicien-automatisation-efz-80-100-lonza-ch"
@@ -2566,7 +2574,8 @@
       "jobReqId": "R73970",
       "previousSlugsByLocale": {
         "it": [
-          "automatiker-efz-80-100-m-w-d-lonza-ch-2"
+          "automatiker-efz-80-100-m-w-d-lonza-ch-2",
+          "automatista-efz-80-100-lonza-ch"
         ],
         "en": [
           "automatiker-efz-80-100-m-w-d-lonza-ch-2"
@@ -2576,7 +2585,8 @@
         ]
       },
       "previousSlugs": [
-        "automatiker-efz-80-100-m-w-d-lonza-ch-2"
+        "automatiker-efz-80-100-m-w-d-lonza-ch-2",
+        "automatista-efz-80-100-lonza-ch"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,

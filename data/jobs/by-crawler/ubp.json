@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "ubp-8fb9371247a1",
-      "slug": "our-job-offers-ubp-ch",
+      "slug": "offerte-di-lavoro-union-bancaire-privee-lugano",
       "slugByLocale": {
         "en": "our-job-offers-union-bancaire-privee-lugano",
-        "it": "our-job-offers-ubp-ch",
-        "de": "our-job-offers-ubp-ch",
-        "fr": "our-job-offers-ubp-ch"
+        "it": "offerte-di-lavoro-union-bancaire-privee-lugano",
+        "de": "stellenangebote-union-bancaire-privee-lugano",
+        "fr": "offres-d-emploi-union-bancaire-privee-lugano"
       },
       "company": "Union Bancaire Privée",
       "companyKey": "ubp",
@@ -63,7 +63,21 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "our-job-offers-ubp-ch"
+        ],
+        "de": [
+          "our-job-offers-ubp-ch"
+        ],
+        "fr": [
+          "our-job-offers-ubp-ch"
+        ]
+      },
+      "previousSlugs": [
+        "our-job-offers-ubp-ch"
+      ]
     }
   ]
 }
