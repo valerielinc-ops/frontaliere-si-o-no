@@ -1,18 +1,58 @@
 {
   "key": "tether",
   "label": "Tether Operations",
-  "generatedAt": "2026-04-12T10:09:20.276Z",
+  "generatedAt": "2026-04-12T10:14:06.195Z",
   "total": 391,
-  "newCount": 392,
-  "updatedCount": 0,
+  "newCount": 1,
+  "updatedCount": 391,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 8274562,
-  "avgDurationMs": 8274562,
+  "durationMs": 9197,
+  "avgDurationMs": 9197,
   "durationHistory": [
-    8274562
+    9197
   ],
   "newJobs": [
+    {
+      "id": "tether-8714e4b04ab2",
+      "slug": "senior-fullstack-software-engineer-100-remote-tether-ch",
+      "company": "Tether Operations",
+      "companyKey": "tether",
+      "companyDomain": "tether.io",
+      "title": "Senior Fullstack Software Engineer (100% Remote)",
+      "location": "Milan, Lombardia",
+      "canton": "TI",
+      "url": "https://tether.recruitee.com/o/senior-fullstack-software-engineer-100-remote-11",
+      "source": "tether-careers-crawler",
+      "sourceLang": "en",
+      "crawledAt": "2026-04-12T10:13:58.384Z",
+      "addressLocality": "Milan",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6900",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "remote",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "workModel": "remote",
+      "sector": "Fintech / Blockchain",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-01-16",
+      "postedDate": "2026-01-16",
+      "applyUrl": "https://careers.tether.io/o/senior-fullstack-software-engineer-100-remote-11/c/new",
+      "department": "Data",
+      "_qualityScore": 66,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
+  "updatedJobs": [
     {
       "id": "tether-3aa48d91ad92",
       "slug": "engagement-manager-tether-ch",
@@ -25,7 +65,7 @@
       "url": "https://tether.recruitee.com/o/engagement-manager-1",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:27.150Z",
+      "crawledAt": "2026-04-12T10:13:58.118Z",
       "addressLocality": "Warsaw",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -43,11 +83,11 @@
       "postedDate": "2026-04-09",
       "applyUrl": "https://careers.tether.io/o/engagement-manager-1/c/new",
       "department": "",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -63,7 +103,7 @@
       "url": "https://tether.recruitee.com/o/technical-project-manager-qvac-100-remote-swiss",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:27.154Z",
+      "crawledAt": "2026-04-12T10:13:58.121Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -81,11 +121,11 @@
       "postedDate": "2026-04-08",
       "applyUrl": "https://careers.tether.io/o/technical-project-manager-qvac-100-remote-swiss/c/new",
       "department": "Data",
-      "_qualityScore": 66,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -101,7 +141,7 @@
       "url": "https://tether.recruitee.com/o/ai-optimization-engineer-100-remote-28",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:27.155Z",
+      "crawledAt": "2026-04-12T10:13:58.123Z",
       "addressLocality": "Bangalore",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -119,11 +159,11 @@
       "postedDate": "2026-04-06",
       "applyUrl": "https://careers.tether.io/o/ai-optimization-engineer-100-remote-28/c/new",
       "department": "Power",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -139,7 +179,7 @@
       "url": "https://tether.recruitee.com/o/ai-optimization-engineer-100-remote-27",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:27.157Z",
+      "crawledAt": "2026-04-12T10:13:58.124Z",
       "addressLocality": "Brussels",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -157,11 +197,11 @@
       "postedDate": "2026-04-06",
       "applyUrl": "https://careers.tether.io/o/ai-optimization-engineer-100-remote-27/c/new",
       "department": "Power",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -177,7 +217,7 @@
       "url": "https://tether.recruitee.com/o/ai-optimization-engineer-100-remote-26",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:27.158Z",
+      "crawledAt": "2026-04-12T10:13:58.125Z",
       "addressLocality": "Amsterdam",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -195,11 +235,11 @@
       "postedDate": "2026-04-06",
       "applyUrl": "https://careers.tether.io/o/ai-optimization-engineer-100-remote-26/c/new",
       "department": "Power",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -215,7 +255,7 @@
       "url": "https://tether.recruitee.com/o/ai-optimization-engineer-100-remote-25",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:27.160Z",
+      "crawledAt": "2026-04-12T10:13:58.126Z",
       "addressLocality": "Copenhagen",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -233,11 +273,11 @@
       "postedDate": "2026-04-06",
       "applyUrl": "https://careers.tether.io/o/ai-optimization-engineer-100-remote-25/c/new",
       "department": "Power",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -253,7 +293,7 @@
       "url": "https://tether.recruitee.com/o/ai-optimization-engineer-100-remote-24",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:27.161Z",
+      "crawledAt": "2026-04-12T10:13:58.127Z",
       "addressLocality": "Abu Dhabi",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -271,11 +311,11 @@
       "postedDate": "2026-04-06",
       "applyUrl": "https://careers.tether.io/o/ai-optimization-engineer-100-remote-24/c/new",
       "department": "Power",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -291,7 +331,7 @@
       "url": "https://tether.recruitee.com/o/ai-optimization-engineer-100-remote-23",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:27.166Z",
+      "crawledAt": "2026-04-12T10:13:58.128Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -309,11 +349,11 @@
       "postedDate": "2026-04-06",
       "applyUrl": "https://careers.tether.io/o/ai-optimization-engineer-100-remote-23/c/new",
       "department": "Power",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -329,7 +369,7 @@
       "url": "https://tether.recruitee.com/o/ai-optimization-engineer-100-remote-22",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:27.167Z",
+      "crawledAt": "2026-04-12T10:13:58.133Z",
       "addressLocality": "Buenos Aires",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -347,11 +387,11 @@
       "postedDate": "2026-04-06",
       "applyUrl": "https://careers.tether.io/o/ai-optimization-engineer-100-remote-22/c/new",
       "department": "Power",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -367,7 +407,7 @@
       "url": "https://tether.recruitee.com/o/ai-optimization-engineer-100-remote-21",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:27.168Z",
+      "crawledAt": "2026-04-12T10:13:58.134Z",
       "addressLocality": "London",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -385,11 +425,11 @@
       "postedDate": "2026-04-06",
       "applyUrl": "https://careers.tether.io/o/ai-optimization-engineer-100-remote-21/c/new",
       "department": "Power",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -405,7 +445,7 @@
       "url": "https://tether.recruitee.com/o/ai-optimization-engineer-100-remote-20",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:27.169Z",
+      "crawledAt": "2026-04-12T10:13:58.135Z",
       "addressLocality": "Lisbon",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -423,11 +463,11 @@
       "postedDate": "2026-04-06",
       "applyUrl": "https://careers.tether.io/o/ai-optimization-engineer-100-remote-20/c/new",
       "department": "Power",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -443,7 +483,7 @@
       "url": "https://tether.recruitee.com/o/ai-optimization-engineer-100-remote-19",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:27.170Z",
+      "crawledAt": "2026-04-12T10:13:58.136Z",
       "addressLocality": "Stockholm",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -461,11 +501,11 @@
       "postedDate": "2026-04-06",
       "applyUrl": "https://careers.tether.io/o/ai-optimization-engineer-100-remote-19/c/new",
       "department": "Power",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -481,7 +521,7 @@
       "url": "https://tether.recruitee.com/o/ai-optimization-engineer-100-remote",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:27.172Z",
+      "crawledAt": "2026-04-12T10:13:58.137Z",
       "addressLocality": "Milan",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -499,11 +539,11 @@
       "postedDate": "2026-04-06",
       "applyUrl": "https://careers.tether.io/o/ai-optimization-engineer-100-remote/c/new",
       "department": "Power",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -519,7 +559,7 @@
       "url": "https://tether.recruitee.com/o/ai-optimization-engineer-100-remote-18",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:27.173Z",
+      "crawledAt": "2026-04-12T10:13:58.137Z",
       "addressLocality": "Sao Paulo",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -537,11 +577,11 @@
       "postedDate": "2026-04-06",
       "applyUrl": "https://careers.tether.io/o/ai-optimization-engineer-100-remote-18/c/new",
       "department": "Power",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -557,7 +597,7 @@
       "url": "https://tether.recruitee.com/o/ai-optimization-engineer-100-remote-17",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:27.173Z",
+      "crawledAt": "2026-04-12T10:13:58.138Z",
       "addressLocality": "Warsaw",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -575,11 +615,11 @@
       "postedDate": "2026-04-06",
       "applyUrl": "https://careers.tether.io/o/ai-optimization-engineer-100-remote-17/c/new",
       "department": "Power",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -595,7 +635,7 @@
       "url": "https://tether.recruitee.com/o/ai-optimization-engineer-100-remote-16",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:27.175Z",
+      "crawledAt": "2026-04-12T10:13:58.140Z",
       "addressLocality": "Dublin",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -613,11 +653,11 @@
       "postedDate": "2026-04-06",
       "applyUrl": "https://careers.tether.io/o/ai-optimization-engineer-100-remote-16/c/new",
       "department": "Power",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -633,7 +673,7 @@
       "url": "https://tether.recruitee.com/o/ai-optimization-engineer-100-remote-15",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:27.176Z",
+      "crawledAt": "2026-04-12T10:13:58.141Z",
       "addressLocality": "Madrid",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -651,11 +691,11 @@
       "postedDate": "2026-04-06",
       "applyUrl": "https://careers.tether.io/o/ai-optimization-engineer-100-remote-15/c/new",
       "department": "Power",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -671,7 +711,7 @@
       "url": "https://tether.recruitee.com/o/machine-learning-engineer-intern-100-remote",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:27.174Z",
+      "crawledAt": "2026-04-12T10:13:58.139Z",
       "addressLocality": "London",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -689,11 +729,11 @@
       "postedDate": "2026-04-03",
       "applyUrl": "https://careers.tether.io/o/machine-learning-engineer-intern-100-remote/c/new",
       "department": "Tether Evo",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -709,7 +749,7 @@
       "url": "https://tether.recruitee.com/o/technical-project-manager-qvac-100-remote-turk",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:27.177Z",
+      "crawledAt": "2026-04-12T10:13:58.142Z",
       "addressLocality": "Istambul",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -727,11 +767,11 @@
       "postedDate": "2026-04-03",
       "applyUrl": "https://careers.tether.io/o/technical-project-manager-qvac-100-remote-turk/c/new",
       "department": "Data",
-      "_qualityScore": 66,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -747,7 +787,7 @@
       "url": "https://tether.recruitee.com/o/technical-project-manager-qvac-100-remote-dub",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:27.178Z",
+      "crawledAt": "2026-04-12T10:13:58.143Z",
       "addressLocality": "Dublin",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -765,11 +805,11 @@
       "postedDate": "2026-04-03",
       "applyUrl": "https://careers.tether.io/o/technical-project-manager-qvac-100-remote-dub/c/new",
       "department": "Data",
-      "_qualityScore": 66,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -785,7 +825,7 @@
       "url": "https://tether.recruitee.com/o/engagement-manager",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:27.179Z",
+      "crawledAt": "2026-04-12T10:13:58.144Z",
       "addressLocality": "Milan",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -803,11 +843,11 @@
       "postedDate": "2026-04-03",
       "applyUrl": "https://careers.tether.io/o/engagement-manager/c/new",
       "department": "",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -823,7 +863,7 @@
       "url": "https://tether.recruitee.com/o/technical-project-manager-qvac-100-remote-arg",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:27.181Z",
+      "crawledAt": "2026-04-12T10:13:58.145Z",
       "addressLocality": "Lisbon",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -841,11 +881,11 @@
       "postedDate": "2026-04-02",
       "applyUrl": "https://careers.tether.io/o/technical-project-manager-qvac-100-remote-arg/c/new",
       "department": "Data",
-      "_qualityScore": 66,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -861,7 +901,7 @@
       "url": "https://tether.recruitee.com/o/technical-project-manager-qvac-100-remote-uk",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:27.182Z",
+      "crawledAt": "2026-04-12T10:13:58.146Z",
       "addressLocality": "London",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -879,11 +919,11 @@
       "postedDate": "2026-04-02",
       "applyUrl": "https://careers.tether.io/o/technical-project-manager-qvac-100-remote-uk/c/new",
       "department": "Data",
-      "_qualityScore": 66,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -899,7 +939,7 @@
       "url": "https://tether.recruitee.com/o/technical-project-manager-qvac-100-remote-georg",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:27.183Z",
+      "crawledAt": "2026-04-12T10:13:58.147Z",
       "addressLocality": "Tbilisi",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -917,11 +957,11 @@
       "postedDate": "2026-04-02",
       "applyUrl": "https://careers.tether.io/o/technical-project-manager-qvac-100-remote-georg/c/new",
       "department": "Data",
-      "_qualityScore": 66,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -937,7 +977,7 @@
       "url": "https://tether.recruitee.com/o/technical-project-manager-qvac-100-remote-spain",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:27.184Z",
+      "crawledAt": "2026-04-12T10:13:58.148Z",
       "addressLocality": "Barcelona",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -955,11 +995,11 @@
       "postedDate": "2026-04-02",
       "applyUrl": "https://careers.tether.io/o/technical-project-manager-qvac-100-remote-spain/c/new",
       "department": "Data",
-      "_qualityScore": 66,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -975,7 +1015,7 @@
       "url": "https://tether.recruitee.com/o/technical-project-manager-qvac-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:27.186Z",
+      "crawledAt": "2026-04-12T10:13:58.149Z",
       "addressLocality": "Warsaw",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -993,11 +1033,11 @@
       "postedDate": "2026-04-02",
       "applyUrl": "https://careers.tether.io/o/technical-project-manager-qvac-100-remote-worldwide/c/new",
       "department": "Data",
-      "_qualityScore": 66,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -1013,7 +1053,7 @@
       "url": "https://tether.recruitee.com/o/head-of-regulatory-affairs-japan-1",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:27.187Z",
+      "crawledAt": "2026-04-12T10:13:58.152Z",
       "addressLocality": "Osaka",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -1031,11 +1071,11 @@
       "postedDate": "2026-04-01",
       "applyUrl": "https://careers.tether.io/o/head-of-regulatory-affairs-japan-1/c/new",
       "department": "Regulatory Affairs and Licensing",
-      "_qualityScore": 66,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -1051,7 +1091,7 @@
       "url": "https://tether.recruitee.com/o/machine-learning-engineer-intern",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:27.188Z",
+      "crawledAt": "2026-04-12T10:13:58.152Z",
       "addressLocality": "Rio de Janeiro",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -1069,11 +1109,11 @@
       "postedDate": "2026-03-31",
       "applyUrl": "https://careers.tether.io/o/machine-learning-engineer-intern/c/new",
       "department": "Tether Evo",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -1089,7 +1129,7 @@
       "url": "https://tether.recruitee.com/o/program-manager-associate-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:27.190Z",
+      "crawledAt": "2026-04-12T10:13:58.154Z",
       "addressLocality": "Milan",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -1107,11 +1147,11 @@
       "postedDate": "2026-03-31",
       "applyUrl": "https://careers.tether.io/o/program-manager-associate-100-remote-worldwide/c/new",
       "department": "Data",
-      "_qualityScore": 64,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -1127,7 +1167,7 @@
       "url": "https://tether.recruitee.com/o/investment-manager-fintechdigital-assets-expertise-1",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:51:27.195Z",
+      "crawledAt": "2026-04-12T10:13:58.158Z",
       "addressLocality": "Milano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -1145,16 +1185,15 @@
       "postedDate": "2026-03-29",
       "applyUrl": "https://careers.tether.io/o/investment-manager-fintechdigital-assets-expertise-1/c/new",
       "department": "Investment",
-      "_qualityScore": 66,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
