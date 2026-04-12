@@ -3123,6 +3123,20 @@ const JobBoard: React.FC<JobBoardProps> = ({
     setAdRefreshKey((k) => k + 1);
   }, []);
 
+  // Infinite scroll sentinel for mobile
+  const jobSentinelRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (!isMobile || !hasMoreMobileJobs) return;
+    const el = jobSentinelRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) loadMoreMobile(); },
+      { rootMargin: '200px' },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [isMobile, hasMoreMobileJobs, loadMoreMobile]);
+
   const relatedJobs = useMemo(() => {
     if (!selectedJob) return [];
     const withScore = sortedJobs
@@ -6179,17 +6193,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
         )}
       </div>
 
-      {/* Mobile: Load More button — always reserve space to prevent CLS */}
+      {/* Mobile: infinite scroll sentinel */}
       <div className="min-h-[48px] sm:hidden">
         {hasMoreMobileJobs && (
-          <div className="flex justify-center mt-4">
-            <button
-              type="button"
-              onClick={loadMoreMobile}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-stripe-600 text-white font-medium text-sm hover:bg-stripe-700 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-stripe-500"
-            >
-              {t('jobBoard.loadMore')} ({Math.min(10, filteredJobs.length - mobileJobLimit)} {t('jobBoard.moreJobs')})
-            </button>
+          <div ref={jobSentinelRef} className="flex justify-center items-center py-6">
+            <div className="h-5 w-5 border-2 border-stripe-600 border-t-transparent rounded-full animate-spin" />
+            <span className="ml-2 text-sm text-muted">{t('jobBoard.loadMore')}…</span>
           </div>
         )}
       </div>

@@ -985,6 +985,9 @@ function BlogArticles({
   const isMobile = useMediaQuery('(max-width: 639px)');      // sm breakpoint
   const isDesktopXl = useMediaQuery('(min-width: 1280px)');   // xl breakpoint
 
+  // Mobile infinite scroll: accumulate articles instead of paginating
+  const [mobileArticleLimit, setMobileArticleLimit] = useState(ARTICLES_PER_PAGE);
+
   // FRO-314: Load blog meta translations AND articles data in parallel on mount.
   // Dynamic import of blog-articles-data (122KB) so it doesn't block component parse time.
   useEffect(() => {
@@ -1225,10 +1228,31 @@ function BlogArticles({
   }, [selectedCategory, articles]);
 
   const totalPages = Math.max(1, Math.ceil(filteredArticles.length / ARTICLES_PER_PAGE));
-  const pageArticles = filteredArticles.slice(
+  const desktopPageArticles = filteredArticles.slice(
     (currentPage - 1) * ARTICLES_PER_PAGE,
     currentPage * ARTICLES_PER_PAGE,
   );
+  const mobileArticles = useMemo(() => filteredArticles.slice(0, mobileArticleLimit), [filteredArticles, mobileArticleLimit]);
+  const pageArticles = isMobile ? mobileArticles : desktopPageArticles;
+  const hasMoreMobileArticles = isMobile && mobileArticleLimit < filteredArticles.length;
+
+  const loadMoreArticles = useCallback(() => {
+    setMobileArticleLimit(prev => prev + ARTICLES_PER_PAGE);
+  }, []);
+
+  // Infinite scroll sentinel for mobile
+  const articleSentinelRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (!isMobile || !hasMoreMobileArticles) return;
+    const el = articleSentinelRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) loadMoreArticles(); },
+      { rootMargin: '200px' },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [isMobile, hasMoreMobileArticles, loadMoreArticles]);
 
   useEffect(() => {
     setCurrentPage(prev => Math.min(prev, totalPages));
@@ -1317,6 +1341,7 @@ function BlogArticles({
   const handleCategoryChange = (cat: string) => {
     setSelectedCategory(cat);
     setCurrentPage(1);
+    setMobileArticleLimit(ARTICLES_PER_PAGE);
   };
 
   // Reset progressive reveal when user changes page/category.
@@ -2464,9 +2489,17 @@ function BlogArticles({
         </div>
       )}
 
-      {/* Pagination */}
+      {/* Mobile: infinite scroll sentinel */}
+      {hasMoreMobileArticles && (
+        <div ref={articleSentinelRef} className="flex justify-center items-center py-6 sm:hidden">
+          <div className="h-5 w-5 border-2 border-stripe-600 border-t-transparent rounded-full animate-spin" />
+          <span className="ml-2 text-sm text-muted">{t('blog.pagination.next')}…</span>
+        </div>
+      )}
+
+      {/* Pagination — desktop only (mobile uses infinite scroll) */}
       {totalPages > 1 && (
-        <div className="flex items-center justify-center gap-1 sm:gap-2">
+        <div className="hidden sm:flex items-center justify-center gap-1 sm:gap-2">
           <button
             onClick={() => { setCurrentPage(p => Math.max(1, p - 1)); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
             disabled={currentPage === 1}
