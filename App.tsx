@@ -16,6 +16,7 @@ const unlockAchievement = (id: string) => {
 const GamificationWidget = lazyRetry(() => import('@/components/community/GamificationWidget'));
 
 const NewsletterPopup = lazyRetry(() => import('@/components/community/NewsletterPopup'));
+const NewsletterInline = lazyRetry(() => import('@/components/community/Newsletter'));
 const LanguageSelector = lazyRetry(() => import('@/components/shared/LanguageSelector'));
 const SiteSearch = lazyRetry(() => import('@/components/shared/SiteSearch'));
 const WhatsNewModal = lazyRetry(() => import('@/components/community/WhatsNewModal'));
@@ -3092,6 +3093,11 @@ const App: React.FC = () => {
           <div className="max-w-7xl mx-auto px-4 space-y-6">
             {/* Footer weather widget */}
             <Suspense fallback={<SkeletonFooterSlot height="min-h-[36px]" />}><FooterWeather /></Suspense>
+
+            {/* Newsletter signup — inline in footer for persistent visibility */}
+            <div className="max-w-xl mx-auto">
+              <Suspense fallback={null}><NewsletterInline compact /></Suspense>
+            </div>
 
             {/* Donation banner */}
             <div className="max-w-xl mx-auto">

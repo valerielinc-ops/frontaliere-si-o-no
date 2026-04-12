@@ -211,27 +211,16 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
           description: `Pagina legacy reindirizzata verso ${to}`,
           inLanguage: 'it',
         });
-        const html = `<!doctype html>
-<html lang="it">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Pagina spostata | Frontaliere Ticino</title>
-    <meta name="description" content="Questa URL legacy ha una pagina canonica aggiornata su Frontaliere Ticino.">
-    <meta name="robots" content="noindex,follow">
-    <link rel="canonical" href="${BASE_URL}${to}">${hreflangTags}
-    <script type="application/ld+json">${redirectLd}</script>
-    ${GTAG_SNIPPET}
-    ${SPA_ACTION_REDIRECT_SCRIPT}
-  </head>
-  <body>
-    <main style="font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;max-width:720px;margin:40px auto;padding:0 16px;line-height:1.6;color:#0f172a">
-      <h1 style="font-size:28px;line-height:1.2;margin:0 0 12px">Pagina spostata</h1>
-      <p style="margin:0 0 14px">Questa URL legacy punta a una pagina aggiornata. Apri la destinazione canonica qui sotto.</p>
-      <p style="margin:0 0 14px"><a href="${to}" style="color:#1d4ed8;font-weight:700;text-decoration:none">${to}</a></p>
-    </main>
-  </body>
-</html>`;
+        const html = buildCanonicalBridgePage({
+          canonicalUrl: `${BASE_URL}${to}`,
+          pathLabel: to,
+          title: 'Pagina spostata',
+          description: 'Questa URL legacy ha una pagina canonica aggiornata su Frontaliere Ticino.',
+          body: 'Questa URL legacy punta a una pagina aggiornata. Apri la destinazione canonica qui sotto.',
+          ctaLabel: 'Apri la pagina corretta',
+          noindex: true,
+          hreflangEntries: hreflangMap.get(`${BASE_URL}${to}`),
+        }).replace('</head>', `<script type="application/ld+json">${redirectLd}</script>\n  </head>`);
 
         fs.writeFileSync(path.join(outDir, 'index.html'), html, 'utf-8');
         // Also write flat .html to avoid GitHub Pages 301 redirect
