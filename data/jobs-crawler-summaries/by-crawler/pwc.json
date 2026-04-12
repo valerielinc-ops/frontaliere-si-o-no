@@ -1,16 +1,16 @@
 {
   "key": "pwc",
   "label": "PwC Switzerland",
-  "generatedAt": "2026-04-12T09:57:44.583Z",
+  "generatedAt": "2026-04-12T21:56:35.974Z",
   "total": 104,
   "newCount": 1,
   "updatedCount": 103,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1888,
-  "avgDurationMs": 1888,
+  "durationMs": 1701,
+  "avgDurationMs": 1701,
   "durationHistory": [
-    1888
+    1701
   ],
   "newJobs": [
     {
@@ -589,6 +589,7 @@
       "currency": "CHF",
       "id": "pwc-8b34f0fa0d98",
       "needsRetranslation": true,
+      "retranslationAttempts": 2,
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
