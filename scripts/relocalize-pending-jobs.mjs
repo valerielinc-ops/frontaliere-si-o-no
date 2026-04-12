@@ -361,11 +361,15 @@ function syncTranslationsToCrawlerFile(companyKey, assembledJobs) {
   }
 
   let updated = 0;
+  const handledSlugs = new Set();
   for (const crawlerJob of crawlerData.jobs) {
     const assembled = assembledByKey.get(crawlerJob.slug)
       || (crawlerJob.url && assembledByKey.get(String(crawlerJob.url).trim().toLowerCase()))
       || null;
     if (!assembled) continue;
+
+    // Track that this job was matched — used to avoid double retry-counting
+    if (crawlerJob.slug) handledSlugs.add(crawlerJob.slug);
 
     let changed = false;
 
@@ -512,7 +516,45 @@ function syncTranslationsToCrawlerFile(companyKey, assembledJobs) {
     fs.writeFileSync(crawlerFilePath, JSON.stringify(crawlerData, null, 2) + '\n', 'utf-8');
   }
 
-  return updated;
+  return { updated, handledSlugs };
+}
+
+/**
+ * Increment retry counter directly on per-crawler file for stuck jobs.
+ * This catches jobs that don't appear in the assembled dataset (e.g. companies
+ * not in the shared crawler's census) where syncTranslationsToCrawlerFile can't
+ * match them. After 3 failed attempts, clear the flag to break the loop.
+ */
+function incrementRetryCounterOnCrawlerFile(companyKey, handledSlugs) {
+  const crawlerFilePath = path.join(BY_CRAWLER_DIR, `${companyKey}.json`);
+
+  if (!fs.existsSync(crawlerFilePath)) return;
+
+  const crawlerData = readJson(crawlerFilePath);
+  if (!crawlerData || !Array.isArray(crawlerData.jobs)) return;
+
+  let changed = false;
+  for (const job of crawlerData.jobs) {
+    if (!job.needsRetranslation) continue;
+    if (!isIncomplete(job)) continue;
+    // Skip jobs already handled by syncTranslationsToCrawlerFile to avoid
+    // double-incrementing the retry counter in the same pipeline run.
+    if (handledSlugs && handledSlugs.has(job.slug)) continue;
+
+    const attempts = (job.retranslationAttempts || 0) + 1;
+    job.retranslationAttempts = attempts;
+    changed = true;
+
+    if (attempts >= 3) {
+      console.log(`     ⚠️  Giving up after ${attempts} direct attempts: ${String(job.slug || '').slice(0, 60)}`);
+      delete job.needsRetranslation;
+      delete job.retranslationAttempts;
+    }
+  }
+
+  if (changed) {
+    fs.writeFileSync(crawlerFilePath, JSON.stringify(crawlerData, null, 2) + '\n', 'utf-8');
+  }
 }
 
 async function main() {
@@ -702,10 +744,16 @@ async function main() {
         // Previously, sync was gated on cleared > 0, creating a loop: shared crawler
         // improved translations in jobs.json, but improvements never reached per-crawler
         // slices (source of truth). Next assemble started from stale data.
-        const synced = syncTranslationsToCrawlerFile(key, currentJobs);
-        if (synced > 0) {
-          console.log(`   📁 ${key}: ${synced} jobs synced to per-crawler file`);
+        const syncResult = syncTranslationsToCrawlerFile(key, currentJobs);
+        if (syncResult.updated > 0) {
+          console.log(`   📁 ${key}: ${syncResult.updated} jobs synced to per-crawler file`);
         }
+
+        // Increment retry counter directly on per-crawler file for stuck jobs.
+        // This catches jobs that don't appear in the assembled dataset (e.g. companies
+        // not in the shared crawler's census) where syncTranslationsToCrawlerFile can't
+        // match them. After 3 failed attempts, clear the flag to break the loop.
+        incrementRetryCounterOnCrawlerFile(key, syncResult.handledSlugs);
       }
 
       totalProcessed += companyJobCount;
