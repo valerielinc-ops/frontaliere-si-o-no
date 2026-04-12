@@ -4516,30 +4516,53 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   'blog-mutuo-casa-frontalieri-italia': {
     title: 'Mutuo Casa con Stipendio Svizzero: Guida Frontalieri 2026',
     description: 'Comprare casa in Italia con stipendio svizzero: banche che accettano frontalieri, requisiti, documenti e tassi mutuo aggiornati 2026. Casi pratici.',
-    keywords: 'mutuo frontaliere, mutuo casa stipendio svizzero, comprare casa frontaliere, banche frontalieri italia, mutuo italia stipendio svizzera, acquisto casa frontaliere',
+    keywords: 'mutuo frontaliere, mutuo casa stipendio svizzero, comprare casa frontaliere, banche frontalieri italia, mutuo italia stipendio svizzera, acquisto casa frontaliere, mutuo svizzera per casa italia',
     ogTitle: 'Mutuo Casa con Stipendio Svizzero: Guida Frontalieri',
     ogDescription: 'Quali banche accettano frontalieri? Requisiti, documenti e tassi mutuo per comprare casa in Italia con stipendio svizzero.',
     canonicalPath: '/articoli-frontaliere/mutuo-casa-frontalieri-italia',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Mutuo Casa con Stipendio Svizzero: Guida Frontalieri 2026",
-      "description": "Comprare casa in Italia con stipendio svizzero: banche che accettano frontalieri, requisiti, documenti e tassi mutuo aggiornati 2026.",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/mutuo-casa-frontalieri-italia.webp`,
-        "width": 1344,
-        "height": 756,
-        "caption": "Vista di un tipico borgo italiano vicino al confine svizzero, con tetti in terracotta e colline sullo sfondo al tramonto"
+    structuredData: [
+      {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "headline": "Mutuo Casa con Stipendio Svizzero: Guida Frontalieri 2026",
+        "description": "Comprare casa in Italia con stipendio svizzero: banche che accettano frontalieri, requisiti, documenti e tassi mutuo aggiornati 2026.",
+        "image": {
+          "@type": "ImageObject",
+          "url": `${BASE_URL}/images/blog/mutuo-casa-frontalieri-italia.webp`,
+          "width": 1344,
+          "height": 756,
+          "caption": "Vista di un tipico borgo italiano vicino al confine svizzero, con tetti in terracotta e colline sullo sfondo al tramonto"
+        },
+        "datePublished": "2026-02-25T00:00:00+01:00",
+        "dateModified": BUILD_DATE_ISO,
+        "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
+        "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+        "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mutuo-casa-frontalieri-italia`,
+        "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+        "isAccessibleForFree": true
       },
-      "datePublished": "2026-02-25T00:00:00+01:00",
-      "dateModified": BUILD_DATE_ISO,
-      "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mutuo-casa-frontalieri-italia`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
-      "isAccessibleForFree": true
-    }
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Posso ottenere un mutuo in Italia con stipendio svizzero?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Sì, diverse banche italiane accettano redditi svizzeri per l'erogazione di mutui. Tra le più attive: Intesa Sanpaolo, Crédit Agricole Italia e BancaStato (per immobili in zona di frontiera). Serve documentazione aggiuntiva come il certificato di salario e l'attestazione del datore di lavoro svizzero." }
+          },
+          {
+            "@type": "Question",
+            "name": "Quali documenti servono per un mutuo da frontaliere?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Oltre ai documenti standard (carta d'identità, codice fiscale, visura catastale), i frontalieri devono presentare: certificato di salario svizzero, permesso di lavoro (G o B), ultimi 3 cedolini paga, estratto AVS e dichiarazione dei redditi italiana." }
+          },
+          {
+            "@type": "Question",
+            "name": "Conviene fare il mutuo in CHF o in EUR?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Dipende dalla valuta del reddito. Se guadagni in CHF, un mutuo in CHF elimina il rischio cambio ma le banche italiane erogano quasi esclusivamente in EUR. Alcune banche svizzere (es. BancaStato) offrono mutui in CHF per immobili in zona di frontiera italiana." }
+          }
+        ]
+      }
+    ]
   },
 
   'blog-piscina-chiasso-investimento': {

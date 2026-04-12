@@ -11,7 +11,7 @@
  */
 
 const POSTHOG_KEY = 'phc_u8jsgXxFQNB6WcQt9JBcdj9tJrR4NsMws3nQoKdigjbT';
-const POSTHOG_HOST = 'https://eu.i.posthog.com';
+const POSTHOG_HOST = 'https://t.frontaliereticino.ch';
 
 let _posthog: any = null;
 let _loading: Promise<void> | null = null;

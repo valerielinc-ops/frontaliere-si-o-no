@@ -1542,21 +1542,44 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
     ogTitle: 'Costo Vita Svizzera vs Italia | Confronto Completo 2026',
     ogDescription: '🏠 Costo vita Svizzera vs Italia: confronta affitti, spesa, trasporti e sanità tra città di frontiera. Dati aggiornati 2026.',
     canonicalPath: '/compara-servizi/costo-della-vita',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Confronto Costo della Vita Svizzera-Italia",
-      "url": `${BASE_URL}/compara-servizi/costo-della-vita`,
-      "description": "Confronto interattivo del costo della vita tra città di frontiera svizzere e italiane",
-      "applicationCategory": "FinanceApplication",
-      "operatingSystem": "Web Browser",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "CHF"
+    structuredData: [
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Confronto Costo della Vita Svizzera-Italia",
+        "url": `${BASE_URL}/compara-servizi/costo-della-vita`,
+        "description": "Confronto interattivo del costo della vita tra città di frontiera svizzere e italiane",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "CHF"
+        },
+        "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
       },
-      "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
-    }
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Quanto costa vivere in Svizzera rispetto all'Italia?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Il costo della vita in Svizzera è mediamente 40-60% più alto rispetto all'Italia. Affitti, spesa alimentare e assicurazione sanitaria (LAMal) sono le voci con le differenze maggiori. Un bilocale a Lugano costa circa CHF 1.400-1.800/mese contro i 500-800€ a Como." }
+          },
+          {
+            "@type": "Question",
+            "name": "Conviene vivere in Italia e lavorare in Svizzera?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Per molti frontalieri sì: lo stipendio svizzero combinato con il costo della vita italiano permette un risparmio netto maggiore, specialmente su affitto e spesa. Tuttavia, vanno considerati i costi di trasporto, i tempi di viaggio e la tassazione applicabile." }
+          },
+          {
+            "@type": "Question",
+            "name": "Quali sono le città più economiche vicino al confine svizzero?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Tra le città italiane di frontiera, Varese e le aree della provincia di Como offrono costi contenuti con buoni collegamenti verso il Ticino. Lato svizzero, Mendrisio e Chiasso hanno costi leggermente inferiori a Lugano." }
+          }
+        ]
+      }
+    ]
   },
 
   livingCH: {
