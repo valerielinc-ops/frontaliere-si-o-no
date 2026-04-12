@@ -1,117 +1,5 @@
 [
   {
-    "timestamp": "2026-04-03T02:26:39.341Z",
-    "label": "before",
-    "total": 1544,
-    "needsRetranslation": 329,
-    "incomplete": 298,
-    "complete": 1246,
-    "missingByLocale": {
-      "it": 192,
-      "en": 231,
-      "de": 106,
-      "fr": 248
-    },
-    "topPending": [
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 65
-      },
-      {
-        "company": "VOLG",
-        "pending": 44
-      },
-      {
-        "company": "Eisberg AG",
-        "pending": 24
-      },
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 14
-      },
-      {
-        "company": "LIS – Lugano Istituti Sociali",
-        "pending": 13
-      },
-      {
-        "company": "Città di Lugano",
-        "pending": 11
-      },
-      {
-        "company": "Denner",
-        "pending": 11
-      },
-      {
-        "company": "EMS-Chemie AG",
-        "pending": 10
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 10
-      },
-      {
-        "company": "Davos Klosters Bergbahnen AG",
-        "pending": 9
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-03T02:27:59.430Z",
-    "label": "after",
-    "total": 1544,
-    "needsRetranslation": 237,
-    "incomplete": 208,
-    "complete": 1336,
-    "missingByLocale": {
-      "it": 121,
-      "en": 143,
-      "de": 79,
-      "fr": 164
-    },
-    "topPending": [
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 65
-      },
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 14
-      },
-      {
-        "company": "LIS – Lugano Istituti Sociali",
-        "pending": 13
-      },
-      {
-        "company": "Città di Lugano",
-        "pending": 10
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 10
-      },
-      {
-        "company": "Davos Klosters Bergbahnen AG",
-        "pending": 9
-      },
-      {
-        "company": "Lombardi Group",
-        "pending": 9
-      },
-      {
-        "company": "Prada Group",
-        "pending": 8
-      },
-      {
-        "company": "Denner",
-        "pending": 7
-      },
-      {
-        "company": "LWP Ledermann Wieting & Partners",
-        "pending": 7
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-03T03:30:16.549Z",
     "label": "before",
     "total": 1544,
@@ -8982,6 +8870,46 @@
     "needsRetranslation": 43,
     "incomplete": 1,
     "complete": 2430,
+    "missingByLocale": {
+      "it": 0,
+      "en": 1,
+      "de": 1,
+      "fr": 1
+    },
+    "topPending": [
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-12T07:59:42.978Z",
+    "label": "before",
+    "total": 2441,
+    "needsRetranslation": 44,
+    "incomplete": 1,
+    "complete": 2440,
+    "missingByLocale": {
+      "it": 0,
+      "en": 1,
+      "de": 1,
+      "fr": 1
+    },
+    "topPending": [
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-12T08:01:19.924Z",
+    "label": "after",
+    "total": 2441,
+    "needsRetranslation": 44,
+    "incomplete": 1,
+    "complete": 2440,
     "missingByLocale": {
       "it": 0,
       "en": 1,
