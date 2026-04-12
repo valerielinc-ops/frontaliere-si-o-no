@@ -44,6 +44,7 @@ let _azureExhaustedKeys = new Set();
 // Hard-capped at 16K chars/day in code to match GCP quota setting and avoid billing
 // Prefers OAuth2 credentials (same as GSC) for higher quotas; falls back to API key.
 const GOOGLE_CLOUD_TRANSLATE_KEY = (process.env.GOOGLE_CLOUD_TRANSLATE_KEY || process.env.GEMINI_API_KEY || '').trim();
+const GCP_PROJECT_ID = (process.env.VITE_FIREBASE_PROJECT_ID || process.env.GCP_PROJECT_ID || 'frontaliere-ticino').trim();
 const _gcOAuth = {
   clientId: (process.env.GSC_CLIENT_ID || '').trim(),
   clientSecret: (process.env.GSC_CLIENT_SECRET || '').trim(),
@@ -654,7 +655,11 @@ async function translateWithGoogleCloud(text, sourceLang, targetLang) {
         headers = { 'Content-Type': 'application/json' };
       } else {
         url = 'https://translation.googleapis.com/language/translate/v2';
-        headers = { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` };
+        headers = {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+          'x-goog-user-project': GCP_PROJECT_ID,
+        };
       }
     } else {
       url = `https://translation.googleapis.com/language/translate/v2?key=${GOOGLE_CLOUD_TRANSLATE_KEY}`;
