@@ -147,7 +147,6 @@ async function generateAIBriefing(ctx) {
       { role: 'user', content: user },
     ], { temperature: 0.7, maxTokens: 800 });
     let html = sanitizeAIBriefingHtml(result);
-    if (html) html = injectJobAndCompanyLinks(html, ctx.matchedJobs || [], ctx.subscriber?.locale || 'it');
     return html;
   } catch (e) {
     console.warn('\u26a0\ufe0f AI briefing failed:', e.message?.slice(0, 200));
@@ -1261,12 +1260,14 @@ async function main() {
       matchJobsForSubscriber({ locationInterest: null, sectorInterest: null }, jobs, 4),
       jobs,
     );
-    const briefing = noAI
+    let briefing = noAI
       ? getFallbackBriefing(locale, exchangeRate)
       : (await generateAIBriefing({
           subscriber: { locale, preferences: { jobs: true, taxUpdates: true } },
           exchangeRate, exchangeInsight, matchedJobs: previewJobs, weeklyFact, featuredTool,
         })) || getFallbackBriefing(locale, exchangeRate);
+    // Always inject job links — applies to both AI and fallback briefings
+    briefing = injectJobAndCompanyLinks(briefing, previewJobs, locale);
 
     const featuredArticle = db ? await pickFeaturedArticle() : {
       title: 'I 10 migliori comuni per frontalieri',
@@ -1374,13 +1375,17 @@ async function main() {
   const briefingMap = new Map();
   for (const [key, briefing] of briefingResults) {
     const cohort = cohorts.get(key);
+    let finalBriefing;
     if (briefing) {
-      briefingMap.set(key, briefing);
+      finalBriefing = briefing;
       aiSuccessCount++;
     } else {
-      briefingMap.set(key, getFallbackBriefing(cohort.locale, exchangeRate));
+      finalBriefing = getFallbackBriefing(cohort.locale, exchangeRate);
       aiFallbackCount++;
     }
+    // Always inject job links — applies to both AI and fallback briefings
+    finalBriefing = injectJobAndCompanyLinks(finalBriefing, cohort.matchedJobs, cohort.locale);
+    briefingMap.set(key, finalBriefing);
   }
   console.log(`  ✓ ${aiSuccessCount} AI briefings, ${aiFallbackCount} fallbacks`);
 
