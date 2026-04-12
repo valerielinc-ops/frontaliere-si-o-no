@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fondation-domus",
-  "assembledAt": "2026-04-12T09:24:33.397Z",
+  "assembledAt": "2026-04-12T21:23:18.886Z",
   "jobs": [
     {
       "id": "fondation-domus-9d305b074f82",
@@ -33,7 +33,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/df57d22b-4724-49ba-9517-f749fec14189/?source=[platform]",
       "source": "Fondation Domus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-12T09:24:31.339Z",
+      "crawledAt": "2026-04-12T21:23:17.042Z",
       "addressLocality": "La Tzoumaz",
       "postalCode": "1918",
       "addressCountry": "CH",
@@ -93,6 +93,7 @@
           "infirmiers-en-psychiatrie-60-a-80-fondation-domus-ch"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -137,7 +138,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/7dd44076-1d9c-4db5-b9fd-71cacde14586/?source=[platform]",
       "source": "Fondation Domus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-12T09:24:30.339Z",
+      "crawledAt": "2026-04-12T21:23:16.723Z",
       "addressLocality": "Ardon",
       "postalCode": "1957",
       "addressCountry": "CH",
@@ -198,6 +199,7 @@
           "employe-polyvalent-100-fondation-domus-ch"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
