@@ -9,6 +9,7 @@ import { buildPath } from '@/services/router';
 import { resolveCompanyWebsiteHost } from '@/services/jobDataNormalization';
 import { reportCaughtError } from '@/services/errorReporter';
 import extraCompaniesData from '@/data/ticino-companies-extra.json';
+import crawlerCompaniesData from '@/data/crawler-companies-auto.json';
 
 
 interface Company {
@@ -303,8 +304,15 @@ const externalCompaniesRaw: ExternalCompanyRaw[] = [
 ];
 const externalCompanies = externalCompaniesRaw.map(toCompany).filter(Boolean) as Company[];
 
+const crawlerCompaniesRaw: ExternalCompanyRaw[] = [
+  ...((crawlerCompaniesData as ExternalCompanyRaw[]) || []),
+];
+const crawlerCompanies = crawlerCompaniesRaw.map(toCompany).filter(Boolean) as Company[];
+
 const allCompanies: Company[] = (() => {
-  const merged = [...companies, ...externalCompanies];
+  // Order matters: hardcoded first (richest data), then manual extra, then auto-generated.
+  // Deduplication keeps the first occurrence, so richer entries win.
+  const merged = [...companies, ...externalCompanies, ...crawlerCompanies];
   const seen = new Set<string>();
   const deduped: Company[] = [];
   for (const company of merged) {
