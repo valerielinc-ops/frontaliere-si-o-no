@@ -1,6 +1,6 @@
 {
   "crawlerKey": "coopers",
-  "assembledAt": "2026-04-11T21:05:39.740Z",
+  "assembledAt": "2026-04-12T09:12:46.094Z",
   "jobs": [
     {
       "id": "coopers-d4715af571eb",
@@ -33,7 +33,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5S1KZ8",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-11T21:05:37.699Z",
+      "crawledAt": "2026-04-12T09:12:43.682Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -132,7 +132,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=210UII",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T21:05:36.299Z",
+      "crawledAt": "2026-04-12T09:12:42.286Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -201,18 +201,19 @@
           "Capacité démontrée de travailler dans un environnement trans-fonctionnel et international"
         ]
       },
-      "previousSlugsByLocale": {
-        "de": [
-          "account-manager-w-m-coopers-group-ag-wallis"
-        ],
-        "it": [
-          "application-manager-m-w-d-coopers-wallis"
-        ]
-      },
       "previousSlugs": [
         "application-manager-m-w-d-coopers-wallis",
         "account-manager-w-m-coopers-group-ag-wallis"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "application-manager-m-w-d-coopers-wallis"
+        ],
+        "de": [
+          "account-manager-w-m-coopers-group-ag-wallis"
+        ]
+      },
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -258,7 +259,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=979PJR",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-11T21:05:34.852Z",
+      "crawledAt": "2026-04-12T09:12:40.914Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -358,7 +359,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=FL86B0",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T21:05:33.439Z",
+      "crawledAt": "2026-04-12T09:12:39.625Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -405,18 +406,19 @@
           "Project Management"
         ]
       },
-      "previousSlugsByLocale": {
-        "de": [
-          "freier-versicherungsmakler-m-w-fur-den-offentlichen-dienst-coopers-group-ag-wallis"
-        ],
-        "it": [
-          "project-engineer-m-w-d-coopers-wallis"
-        ]
-      },
       "previousSlugs": [
         "project-engineer-m-w-d-coopers-wallis",
         "freier-versicherungsmakler-m-w-fur-den-offentlichen-dienst-coopers-group-ag-wallis"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "project-engineer-m-w-d-coopers-wallis"
+        ],
+        "de": [
+          "freier-versicherungsmakler-m-w-fur-den-offentlichen-dienst-coopers-group-ag-wallis"
+        ]
+      },
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
