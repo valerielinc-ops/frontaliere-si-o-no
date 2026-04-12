@@ -1,0 +1,70 @@
+{
+  "crawlerKey": "ubp",
+  "assembledAt": "2026-04-12T07:59:19.843Z",
+  "jobs": [
+    {
+      "id": "ubp-8fb9371247a1",
+      "slug": "our-job-offers-ubp-ch",
+      "slugByLocale": {
+        "en": "our-job-offers-union-bancaire-privee-lugano",
+        "it": "our-job-offers-ubp-ch",
+        "de": "our-job-offers-ubp-ch",
+        "fr": "our-job-offers-ubp-ch"
+      },
+      "company": "Union Bancaire Privée",
+      "companyKey": "ubp",
+      "companyDomain": "ubp.com",
+      "title": "Our job offers",
+      "titleByLocale": {
+        "en": "Our job offers",
+        "it": "Our job offers",
+        "de": "Our job offers",
+        "fr": "Our job offers"
+      },
+      "description": "Our job offers — Position at Union Bancaire Privée (UBP) in Lugano. UBP is one of Switzerland's leading private banks, with offices in Lugano, Geneva, and Zurich, specializing in wealth management and asset management.",
+      "descriptionByLocale": {
+        "en": "Our job offers — Position at Union Bancaire Privée (UBP) in Lugano. UBP is one of Switzerland's leading private banks, with offices in Lugano, Geneva, and Zurich, specializing in wealth management and asset management.",
+        "it": "Our job offers — Position at Union Bancaire Privée (UBP) in Lugano. UBP is one of Switzerland's leading private banks, with offices in Lugano, Geneva, and Zurich, specializing in wealth management and asset management.",
+        "de": "Our job offers — Position at Union Bancaire Privée (UBP) in Lugano. UBP is one of Switzerland's leading private banks, with offices in Lugano, Geneva, and Zurich, specializing in wealth management and asset management.",
+        "fr": "Our job offers — Position at Union Bancaire Privée (UBP) in Lugano. UBP is one of Switzerland's leading private banks, with offices in Lugano, Geneva, and Zurich, specializing in wealth management and asset management."
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/jobs?mode=location",
+      "source": "Union Bancaire Privée Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-04-12T07:59:18.283Z",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6900",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Banca / Gestione patrimoniale",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-12",
+      "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/jobs?mode=location",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    }
+  ]
+}
