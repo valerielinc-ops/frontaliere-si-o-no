@@ -1,78 +1,7 @@
 {
   "crawlerKey": "berner-montage",
-  "assembledAt": "2026-04-11T20:49:42.314Z",
+  "assembledAt": "2026-04-12T08:55:30.076Z",
   "jobs": [
-    {
-      "id": "berner-montage-4936690da784",
-      "slug": "rappresentante-commerciale-nel-settore-edile-per-la-regione-di-solothurn-montagetechnik-berner-ag-visp",
-      "slugByLocale": {
-        "it": "rappresentante-commerciale-nel-settore-edile-per-la-regione-di-solothurn-montagetechnik-berner-ag-visp",
-        "en": "sales-representative-in-construction-for-the-solothurn-region-montagetechnik-berner-ag-visp",
-        "de": "aussendienstmitarbeiter-m-w-im-bau-handwerk-fur-die-region-solothurn-montagetechnik-berner-ag-visp",
-        "fr": "representant-commercial-dans-le-secteur-de-la-construction-pour-la-region-de-soleure-montagetechnik-berner-ag-visp"
-      },
-      "company": "Montagetechnik BERNER AG",
-      "companyKey": "berner-montage",
-      "companyDomain": "berner.eu",
-      "title": "Aussendienstmitarbeiter m/w im Bau-Handwerk für die Region Solothurn",
-      "titleByLocale": {
-        "it": "Rappresentante commerciale nel settore edile per la regione di Solothurn",
-        "en": "Sales Representative in Construction for the Solothurn Region",
-        "de": "Aussendienstmitarbeiter m/w im Bau-Handwerk für die Region Solothurn",
-        "fr": "Représentant commercial dans le secteur de la construction pour la région de Soleure"
-      },
-      "description": "Interessiert? Dann wollen wir dich kennen lernen und freuen uns auf deine aussagekräftige Bewerbung. Montagetechnik BERNER AG Pia-Maria Burkhardt HR-Generalistin Kägenstrasse 8 CH-4153 Reinach BL",
-      "descriptionByLocale": {
-        "it": "Contatto Interessato? Allora vogliamo conoscerti e ci freghiamo della tua candidatura. - Montagetechnik BERNER AG - Pia-Maria Burkhardt HR-Generalista - Kägenstrasse 8 - CH-4153 Reinach BL",
-        "en": "Contact Interested? Then we want to get to know you and look forward to your impressive application. - Montagetechnik BERNER AG - Pia-Maria Burkhardt HR-Generalist - Kägenstrasse 8 - CH-4153 Reinach BL",
-        "de": "Interessiert? Dann wollen wir dich kennen lernen und freuen uns auf deine aussagekräftige Bewerbung. Montagetechnik BERNER AG Pia-Maria Burkhardt HR-Generalistin Kägenstrasse 8 CH-4153 Reinach BL",
-        "fr": "Contact Intéressé(e) ? Alors nous voulons vous connaître et nous réjouissons de votre candidature. - Montagetechnik BERNER AG - Pia-Maria Burkhardt HR-Generaliste - Kägenstrasse 8 - CH-4153 Reinach BL"
-      },
-      "location": "Visp",
-      "canton": "VS",
-      "url": "https://shop.berner.eu/ch-de/ADM-Bau-Solothurn",
-      "source": "Montagetechnik BERNER AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-04-11T20:49:40.360Z",
-      "addressLocality": "Visp",
-      "postalCode": "3930",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Bau / Montage",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-11",
-      "applyUrl": "https://shop.berner.eu/ch-de/ADM-Bau-Solothurn",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "de": [
-          "aussendienstmitarbeiter-m-w-im-bau-handwerk-fur-die-region-solothurn-berner-montage-ch"
-        ],
-        "it": [
-          "aussendienstmitarbeiter-m-w-im-bau-handwerk-fur-die-region-solothurn-berner-montage-ch"
-        ]
-      },
-      "previousSlugs": [
-        "aussendienstmitarbeiter-m-w-im-bau-handwerk-fur-die-region-solothurn-berner-montage-ch"
-      ],
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
     {
       "id": "berner-montage-b1ca84f890b7",
       "slug": "rappresentante-commerciale-m-w-d-nel-settore-edile-regione-argovia-montagetechnik-berner-ag-visp",
@@ -104,7 +33,7 @@
       "url": "https://shop.berner.eu/ch-de/ADM-Bau-Aargau",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T20:49:40.359Z",
+      "crawledAt": "2026-04-12T08:55:28.229Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -116,7 +45,7 @@
       "sector": "Bau / Montage",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-11",
+      "postedDate": "2026-04-12",
       "applyUrl": "https://shop.berner.eu/ch-de/ADM-Bau-Aargau",
       "requirements": [],
       "requirementsByLocale": {},
@@ -175,7 +104,7 @@
       "url": "https://shop.berner.eu/ch-de/Merchandiser-BE-FR-SO",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T20:49:40.359Z",
+      "crawledAt": "2026-04-12T08:55:28.229Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -187,21 +116,93 @@
       "sector": "Bau / Montage",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-11",
+      "postedDate": "2026-04-12",
       "applyUrl": "https://shop.berner.eu/ch-de/Merchandiser-BE-FR-SO",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "merchandiser-m-w-d-im-kfz-handwerk-region-bern-fribourg-solothurn-berner-montage-ch",
+        "merchandiser-m-w-d-im-kfz-handwerk-region-bern-freiburg-solothurn-montagetechnik-berner-ag-visp"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "merchandiser-m-w-d-im-kfz-handwerk-region-bern-fribourg-solothurn-berner-montage-ch"
+        ],
+        "de": [
+          "merchandiser-m-w-d-im-kfz-handwerk-region-bern-freiburg-solothurn-montagetechnik-berner-ag-visp"
+        ]
+      },
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "berner-montage-4936690da784",
+      "slug": "rappresentante-commerciale-nel-settore-edile-per-la-regione-di-solothurn-montagetechnik-berner-ag-visp",
+      "slugByLocale": {
+        "it": "rappresentante-commerciale-nel-settore-edile-per-la-regione-di-solothurn-montagetechnik-berner-ag-visp",
+        "en": "sales-representative-in-construction-for-the-solothurn-region-montagetechnik-berner-ag-visp",
+        "de": "aussendienstmitarbeiter-m-w-im-bau-handwerk-fur-die-region-solothurn-montagetechnik-berner-ag-visp",
+        "fr": "representant-commercial-dans-le-secteur-de-la-construction-pour-la-region-de-soleure-montagetechnik-berner-ag-visp"
+      },
+      "company": "Montagetechnik BERNER AG",
+      "companyKey": "berner-montage",
+      "companyDomain": "berner.eu",
+      "title": "Aussendienstmitarbeiter m/w im Bau-Handwerk für die Region Solothurn",
+      "titleByLocale": {
+        "it": "Rappresentante commerciale nel settore edile per la regione di Solothurn",
+        "en": "Sales Representative in Construction for the Solothurn Region",
+        "de": "Aussendienstmitarbeiter m/w im Bau-Handwerk für die Region Solothurn",
+        "fr": "Représentant commercial dans le secteur de la construction pour la région de Soleure"
+      },
+      "description": "Interessiert? Dann wollen wir dich kennen lernen und freuen uns auf deine aussagekräftige Bewerbung. Montagetechnik BERNER AG Pia-Maria Burkhardt HR-Generalistin Kägenstrasse 8 CH-4153 Reinach BL",
+      "descriptionByLocale": {
+        "it": "Contatto Interessato? Allora vogliamo conoscerti e ci freghiamo della tua candidatura. - Montagetechnik BERNER AG - Pia-Maria Burkhardt HR-Generalista - Kägenstrasse 8 - CH-4153 Reinach BL",
+        "en": "Contact Interested? Then we want to get to know you and look forward to your impressive application. - Montagetechnik BERNER AG - Pia-Maria Burkhardt HR-Generalist - Kägenstrasse 8 - CH-4153 Reinach BL",
+        "de": "Interessiert? Dann wollen wir dich kennen lernen und freuen uns auf deine aussagekräftige Bewerbung. Montagetechnik BERNER AG Pia-Maria Burkhardt HR-Generalistin Kägenstrasse 8 CH-4153 Reinach BL",
+        "fr": "Contact Intéressé(e) ? Alors nous voulons vous connaître et nous réjouissons de votre candidature. - Montagetechnik BERNER AG - Pia-Maria Burkhardt HR-Generaliste - Kägenstrasse 8 - CH-4153 Reinach BL"
+      },
+      "location": "Visp",
+      "canton": "VS",
+      "url": "https://shop.berner.eu/ch-de/ADM-Bau-Solothurn",
+      "source": "Montagetechnik BERNER AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-04-12T08:55:28.229Z",
+      "addressLocality": "Visp",
+      "postalCode": "3930",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Bau / Montage",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-12",
+      "applyUrl": "https://shop.berner.eu/ch-de/ADM-Bau-Solothurn",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "merchandiser-m-w-d-im-kfz-handwerk-region-bern-freiburg-solothurn-montagetechnik-berner-ag-visp"
+          "aussendienstmitarbeiter-m-w-im-bau-handwerk-fur-die-region-solothurn-berner-montage-ch"
         ],
         "it": [
-          "merchandiser-m-w-d-im-kfz-handwerk-region-bern-fribourg-solothurn-berner-montage-ch"
+          "aussendienstmitarbeiter-m-w-im-bau-handwerk-fur-die-region-solothurn-berner-montage-ch"
         ]
       },
       "previousSlugs": [
-        "merchandiser-m-w-d-im-kfz-handwerk-region-bern-fribourg-solothurn-berner-montage-ch",
-        "merchandiser-m-w-d-im-kfz-handwerk-region-bern-freiburg-solothurn-montagetechnik-berner-ag-visp"
+        "aussendienstmitarbeiter-m-w-im-bau-handwerk-fur-die-region-solothurn-berner-montage-ch"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -247,7 +248,7 @@
       "url": "https://shop.berner.eu/ch-de/ADM-Bau-Emmental",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T20:49:40.358Z",
+      "crawledAt": "2026-04-12T08:55:28.228Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -259,7 +260,7 @@
       "sector": "Bau / Montage",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-11",
+      "postedDate": "2026-04-12",
       "applyUrl": "https://shop.berner.eu/ch-de/ADM-Bau-Emmental",
       "requirements": [],
       "requirementsByLocale": {},
@@ -318,7 +319,7 @@
       "url": "https://shop.berner.eu/ch-de/ADM-Bau-Basel",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T20:49:40.358Z",
+      "crawledAt": "2026-04-12T08:55:28.228Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -330,7 +331,7 @@
       "sector": "Bau / Montage",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-11",
+      "postedDate": "2026-04-12",
       "applyUrl": "https://shop.berner.eu/ch-de/ADM-Bau-Basel",
       "requirements": [],
       "requirementsByLocale": {},
@@ -389,7 +390,7 @@
       "url": "https://shop.berner.eu/ch-de/ADM-Bau-Mitte",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T20:49:40.358Z",
+      "crawledAt": "2026-04-12T08:55:28.228Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -401,7 +402,7 @@
       "sector": "Bau / Montage",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-11",
+      "postedDate": "2026-04-12",
       "applyUrl": "https://shop.berner.eu/ch-de/ADM-Bau-Mitte",
       "requirements": [],
       "requirementsByLocale": {},
@@ -457,7 +458,7 @@
       "url": "https://shop.berner.eu/ch-de/ADM-Bau-BE",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T20:49:40.357Z",
+      "crawledAt": "2026-04-12T08:55:28.227Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -469,7 +470,7 @@
       "sector": "Bau / Montage",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-11",
+      "postedDate": "2026-04-12",
       "applyUrl": "https://shop.berner.eu/ch-de/ADM-Bau-BE",
       "requirements": [],
       "requirementsByLocale": {},
@@ -528,7 +529,7 @@
       "url": "https://shop.berner.eu/ch-de/ADM-Bau-TG/SH",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T20:49:40.357Z",
+      "crawledAt": "2026-04-12T08:55:28.227Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -540,7 +541,7 @@
       "sector": "Bau / Montage",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-11",
+      "postedDate": "2026-04-12",
       "applyUrl": "https://shop.berner.eu/ch-de/ADM-Bau-TG/SH",
       "requirements": [],
       "requirementsByLocale": {},
@@ -599,7 +600,7 @@
       "url": "https://shop.berner.eu/ch-de/ADM-Bau-RH/STG",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T20:49:40.357Z",
+      "crawledAt": "2026-04-12T08:55:28.227Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -611,7 +612,7 @@
       "sector": "Bau / Montage",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-11",
+      "postedDate": "2026-04-12",
       "applyUrl": "https://shop.berner.eu/ch-de/ADM-Bau-RH/STG",
       "requirements": [],
       "requirementsByLocale": {},
@@ -670,7 +671,7 @@
       "url": "https://shop.berner.eu/ch-de/GL-SR",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-11T20:49:40.356Z",
+      "crawledAt": "2026-04-12T08:55:28.226Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -682,7 +683,7 @@
       "sector": "Bau / Montage",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-11",
+      "postedDate": "2026-04-12",
       "applyUrl": "https://shop.berner.eu/ch-de/GL-SR",
       "requirements": [],
       "requirementsByLocale": {},
@@ -741,7 +742,7 @@
       "url": "https://shop.berner.eu/ch-de/GL-BE-NW",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T20:49:40.356Z",
+      "crawledAt": "2026-04-12T08:55:28.226Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -753,7 +754,7 @@
       "sector": "Bau / Montage",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-11",
+      "postedDate": "2026-04-12",
       "applyUrl": "https://shop.berner.eu/ch-de/GL-BE-NW",
       "requirements": [],
       "requirementsByLocale": {},
@@ -812,7 +813,7 @@
       "url": "https://shop.berner.eu/ch-de/GL-CH-Romande",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-11T20:49:40.355Z",
+      "crawledAt": "2026-04-12T08:55:28.225Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -824,7 +825,7 @@
       "sector": "Bau / Montage",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-11",
+      "postedDate": "2026-04-12",
       "applyUrl": "https://shop.berner.eu/ch-de/GL-CH-Romande",
       "requirements": [],
       "requirementsByLocale": {},
@@ -883,7 +884,7 @@
       "url": "https://shop.berner.eu/ch-de/ADM-Bau-Innch",
       "source": "Montagetechnik BERNER AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T20:49:40.350Z",
+      "crawledAt": "2026-04-12T08:55:28.222Z",
       "addressLocality": "Visp",
       "postalCode": "3930",
       "addressCountry": "CH",
@@ -895,7 +896,7 @@
       "sector": "Bau / Montage",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-11",
+      "postedDate": "2026-04-12",
       "applyUrl": "https://shop.berner.eu/ch-de/ADM-Bau-Innch",
       "requirements": [],
       "requirementsByLocale": {},
