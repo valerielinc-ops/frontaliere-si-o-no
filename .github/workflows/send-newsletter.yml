@@ -1,9 +1,11 @@
 name: Send Newsletter
 
 on:
-  # schedule disabled — re-enable when newsletter quality is validated
-  # schedule:
-  #   - cron: '0 6 * * 1'
+  schedule:
+    # Monday 7:00 CET (5:00 UTC) — primary weekly send
+    - cron: '0 5 * * 1'
+    # Tue–Thu 7:00 CET (5:00 UTC) — auto-resume if daily cap was hit
+    - cron: '0 5 * * 2-4'
   workflow_dispatch:
     inputs:
       mode:

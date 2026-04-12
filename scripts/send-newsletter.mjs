@@ -1248,10 +1248,17 @@ async function main() {
   const weeklyFact = getWeeklyFact();
   const toolIndex = Math.floor((Date.now() - new Date('2025-01-06').getTime()) / (7 * 24 * 60 * 60 * 1000)) % FEATURED_TOOLS.length;
   const featuredTool = FEATURED_TOOLS[toolIndex];
-  const campaignId = `weekly_${new Date().toISOString().split('T')[0]}`;
+  // Campaign ID anchored to the week's Monday so multi-day sends share the same ID
+  const now = new Date();
+  const monday = new Date(now);
+  monday.setDate(now.getDate() - ((now.getDay() + 6) % 7));
+  const campaignId = `weekly_${monday.toISOString().split('T')[0]}`;
+  const alreadySentForCampaign = mode === 'send' ? await fetchAlreadySent(campaignId) : new Set();
+  const isResume = alreadySentForCampaign.size > 0;
   const featuredArticle = await pickFeaturedArticle();
-  const issueNumber = await getNextIssueNumber();
+  const issueNumber = isResume ? null : await getNextIssueNumber();
   if (issueNumber) console.log(`📰 Issue #${issueNumber}`);
+  if (isResume) console.log(`🔄 Resuming campaign ${campaignId} (${alreadySentForCampaign.size} already sent)`);
 
   // ── Preview mode ──
   if (mode === 'preview') {
@@ -1493,7 +1500,8 @@ async function main() {
   }
 
   // ── Resume tracking: skip already-sent subscribers ──
-  const alreadySent = mode === 'send' ? await fetchAlreadySent(campaignId) : new Set();
+  // alreadySentForCampaign was fetched earlier (before issue number logic)
+  const alreadySent = alreadySentForCampaign;
   let pendingEmails = emails;
   if (alreadySent.size > 0) {
     pendingEmails = emails.filter(e => !alreadySent.has(normalizeEmail(e.recipient.email)));
