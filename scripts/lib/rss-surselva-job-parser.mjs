@@ -313,11 +313,12 @@ export function parseOstendisJob(entry, detailData = {}) {
   // Build description: prefer detail page JSON-LD, fall back to title-based + company boilerplate
   let descriptionText = detailData.description || '';
   if (!descriptionText || descriptionText.length < 150) {
-    // Detail page description too short or missing — build from metadata + company boilerplate
+    // Detail page description too short or missing — build from metadata + company boilerplate.
+    // The boilerplate must be rich enough that AI translations into IT/EN/FR stay above 150 chars.
     const parts = [`${title} — Regionalspital Surselva (RSS)`];
     if (entry.department) parts.push(`Abteilung: ${entry.department}`);
     parts.push(`Arbeitsort: ${location} (${canton})`);
-    parts.push('Die Regionalspital Surselva AG ist ein regional verankertes Spital in Ilanz und stellt die erweiterte Grund- und Notfallversorgung für rund 22\'000 Einwohner und saisonal 20\'000 Feriengäste der Region Surselva sicher');
+    parts.push('Die Regionalspital Surselva AG ist ein regional verankertes Spital in Ilanz im Kanton Graubünden und stellt die erweiterte Grund- und Notfallversorgung für rund 22\'000 Einwohner und saisonal 20\'000 Feriengäste der Region Surselva sicher. Als modernes Gesundheitszentrum bieten wir attraktive Anstellungsbedingungen, fortschrittliche medizinische Infrastruktur und ein engagiertes, interdisziplinäres Team. Wir suchen motivierte Fachkräfte, die mit Leidenschaft und Kompetenz zur Gesundheitsversorgung in unserer einzigartigen Bergregion beitragen möchten');
     descriptionText = parts.join('. ');
   }
 

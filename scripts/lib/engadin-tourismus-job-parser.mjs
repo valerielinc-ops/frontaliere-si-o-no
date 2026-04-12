@@ -1,12 +1,11 @@
 /**
- * Air Zermatt AG — Job listing parser
+ * Engadin Tourismus AG — Job listing parser
  *
- * Career page: https://www.air-zermatt.ch/jobs
- *   (also accessible at /de/service/offene-stellen)
+ * Career page: https://www.engadintourismus.ch/unternehmen/jobs
+ *   (redirects from engadin.ch/en/jobs)
  *
- * The page uses a CMS listing module with MixItUp filtering.
- * Each job is in a `.listing_entry` div inside `div#mixItUp`.
- * Detail pages are at /de/service/offene-stellen/{slug}-{id}
+ * TYPO3-based CMS. Job listings use "Mehr lesen" links to detail pages.
+ * Detail pages at /ueber-uns/jobs/jobs/{slug}
  */
 import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
@@ -16,34 +15,33 @@ import { getCompanyDefaults } from './crawler-location-config.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
-const BASE_URL = 'https://www.air-zermatt.ch';
-const CAREERS_URL = 'https://www.air-zermatt.ch/jobs';
-const HQ = getCompanyDefaults('air-zermatt');
+const BASE_URL = 'https://www.engadintourismus.ch';
+const CAREERS_URL = 'https://www.engadintourismus.ch/unternehmen/jobs';
+const HQ = getCompanyDefaults('engadin-tourismus');
 
-export const AIR_ZERMATT_KEY = 'air-zermatt';
-export const AIR_ZERMATT_COMPANY_NAME = 'Air Zermatt AG';
-export const AIR_ZERMATT_COMPANY_DOMAIN = 'air-zermatt.ch';
+export const ENGADIN_TOURISMUS_KEY = 'engadin-tourismus';
+export const ENGADIN_TOURISMUS_COMPANY_NAME = 'Engadin Tourismus AG';
+export const ENGADIN_TOURISMUS_COMPANY_DOMAIN = 'engadintourismus.ch';
 
 export const MIN_DESC_LENGTH = 100;
 
 /* ── Job identification ───────────────────────────────────── */
 
-export function isAirZermattJob(job = {}) {
+export function isEngadinTourismusJob(job = {}) {
   const key = String(job?.companyKey || '').trim().toLowerCase();
   const company = String(job?.company || '').toLowerCase();
   const url = String(job?.url || '').toLowerCase();
   return (
-    key === AIR_ZERMATT_KEY ||
-    company.includes('air zermatt') ||
-    company.includes('air-zermatt') ||
-    url.includes('air-zermatt.ch')
+    key === ENGADIN_TOURISMUS_KEY ||
+    company.includes('engadin tourismus') ||
+    url.includes('engadintourismus.ch')
   );
 }
 
 export function isTrustedDomain(rawUrl = '') {
   try {
     const host = new URL(rawUrl).hostname.toLowerCase();
-    return host.includes('air-zermatt.ch');
+    return host.includes('engadintourismus.ch') || host.includes('engadin.ch');
   } catch {
     return false;
   }
@@ -52,8 +50,8 @@ export function isTrustedDomain(rawUrl = '') {
 /* ── HTML Parsing ─────────────────────────────────────────── */
 
 /**
- * Parse the Air Zermatt jobs listing page.
- * Returns an array of { id, title, url, snippet, location } objects.
+ * Parse the Engadin Tourismus jobs listing page.
+ * Returns an array of { title, url } objects.
  */
 function parseListingPage(html = '') {
   if (!html) return [];
@@ -61,41 +59,43 @@ function parseListingPage(html = '') {
   const jobs = [];
   const seen = new Set();
 
-  const entries = document.querySelectorAll('.listing_entry');
-  for (const entry of entries) {
-    const entryId = entry.getAttribute('data-entry-id') || '';
-    if (!entryId || seen.has(entryId)) continue;
+  // Strategy 1: Find "Mehr lesen" links to job detail pages
+  const moreLinks = document.querySelectorAll('a.more[href*="ueber-uns/jobs/jobs/"]');
+  for (const link of moreLinks) {
+    const title = (link.getAttribute('title') || '').trim();
+    let href = link.getAttribute('href') || '';
+    href = href.replace(/[?&]print=1/, '').replace(/[?&]cHash=[^&]*/, '').replace(/[?&]$/, '');
+    if (!href || !title) continue;
 
-    const titleEl = entry.querySelector('h2.listing-title a, h2 a, .listing-title a');
-    const title = normalizeSpace(titleEl?.textContent || '');
-    if (!title || title.length < 3) continue;
-
-    const href = titleEl?.getAttribute('href') || '';
     const url = href.startsWith('http') ? href : `${BASE_URL}${href.startsWith('/') ? '' : '/'}${href}`;
+    if (seen.has(url)) continue;
+    seen.add(url);
+    jobs.push({ title, url });
+  }
 
-    const descEl = entry.querySelector('.listing-content-text');
-    const snippet = normalizeSpace(descEl?.textContent || '');
+  // Strategy 2: Fallback — look for any job links
+  if (jobs.length === 0) {
+    const links = document.querySelectorAll('a[href*="/jobs/"]');
+    for (const link of links) {
+      let href = link.getAttribute('href') || '';
+      if (!href.includes('ueber-uns/jobs/jobs/')) continue;
+      href = href.replace(/[?&]print=1/, '').replace(/[?&]cHash=[^&]*/, '').replace(/[?&]$/, '');
 
-    // Extract location from bold text in description
-    let location = 'Raron';
-    const boldEls = descEl?.querySelectorAll('strong, b') || [];
-    for (const b of boldEls) {
-      const text = normalizeSpace(b.textContent || '');
-      if (/raron|zermatt|visp|brig/i.test(text)) {
-        location = text.replace(/[.,;]+$/, '').trim();
-        break;
-      }
+      const title = normalizeSpace(link.textContent || '');
+      if (!title || title.length < 5 || /mehr lesen/i.test(title)) continue;
+
+      const url = href.startsWith('http') ? href : `${BASE_URL}${href.startsWith('/') ? '' : '/'}${href}`;
+      if (seen.has(url)) continue;
+      seen.add(url);
+      jobs.push({ title, url });
     }
-
-    seen.add(entryId);
-    jobs.push({ id: entryId, title, url, snippet, location });
   }
 
   return jobs;
 }
 
 /**
- * Parse a detail page for full job description.
+ * Parse a job detail page for full description.
  */
 function parseDetailPage(html = '') {
   if (!html) return '';
@@ -103,21 +103,22 @@ function parseDetailPage(html = '') {
   const { document } = new JSDOM(html).window;
 
   const BODY_SELECTORS = [
-    '.listing-content-text',
-    '.listing_entry .content',
-    '.detail-content',
-    '#content .content',
+    '.frame-type-text',
+    '.ce-bodytext',
     'article',
+    '.content-main',
+    '#content',
     'main',
   ];
 
   let body = '';
   for (const sel of BODY_SELECTORS) {
-    const el = document.querySelector(sel);
-    if (!el) continue;
-    const candidate = stripHtml(el.innerHTML || '');
-    if (candidate.length > body.length) body = candidate;
-    if (candidate.length >= MIN_DESC_LENGTH) break;
+    const els = document.querySelectorAll(sel);
+    for (const el of els) {
+      const candidate = stripHtml(el.innerHTML || '');
+      if (candidate.length > body.length) body = candidate;
+    }
+    if (body.length >= MIN_DESC_LENGTH) break;
   }
 
   if (body.length < MIN_DESC_LENGTH) {
@@ -139,18 +140,17 @@ function parseDetailPage(html = '') {
 
 function detectCategory(title = '') {
   const t = title.toLowerCase();
-  if (/pilot|flug|luft|heli/i.test(t)) return 'aviation';
-  if (/mechanik|techniker|avionik|wartung/i.test(t)) return 'engineering';
-  if (/rettung|rescue|paramedic|sanitä/i.test(t)) return 'rescue';
-  if (/marketing|kommunikation|media/i.test(t)) return 'marketing';
-  if (/admin|office|sekretär/i.test(t)) return 'admin';
-  if (/lehr|ausbildung|apprent|stipend/i.test(t)) return 'apprenticeship';
-  if (/training|instructor|coach/i.test(t)) return 'training';
+  if (/multimedia|video|foto|media|content|kommunikation/i.test(t)) return 'marketing';
+  if (/kauffrau|kaufmann|commercial|administration/i.test(t)) return 'admin';
+  if (/lehr|ausbildung|apprent|stage/i.test(t)) return 'apprenticeship';
+  if (/tourismus|tourism|reise|hotel|gastro/i.test(t)) return 'tourism';
+  if (/it\b|developer|software|engineer|data/i.test(t)) return 'technology';
+  if (/marketing|sales|vertrieb/i.test(t)) return 'sales';
   return 'general';
 }
 
 function detectExperienceLevel(title = '') {
-  if (/lehr|ausbildung|intern|junior|entry|stage|apprent|stipend/i.test(title)) return 'ENTRY';
+  if (/lehr|ausbildung|intern|junior|entry|stage|apprent|praktik/i.test(title)) return 'ENTRY';
   if (/senior|lead|head|director|manager|chef/i.test(title)) return 'SENIOR';
   return 'MID';
 }
@@ -169,10 +169,10 @@ function inferEmploymentType(title = '', description = '') {
 /* ── Main fetch function ──────────────────────────────────── */
 
 /**
- * Fetch all Air Zermatt jobs. Returns ParsedJob[] (source locale only).
+ * Fetch all Engadin Tourismus jobs. Returns ParsedJob[] (source locale only).
  */
-export async function fetchAllAirZermattJobs() {
-  console.log(`  Fetching Air Zermatt jobs from ${CAREERS_URL}`);
+export async function fetchAllEngadinTourismusJobs() {
+  console.log(`  Fetching Engadin Tourismus jobs from ${CAREERS_URL}`);
 
   const html = await fetchHtml(CAREERS_URL, { timeoutMs: 25000 });
   const listings = parseListingPage(html);
@@ -181,57 +181,54 @@ export async function fetchAllAirZermattJobs() {
 
   const jobs = [];
   for (const listing of listings) {
-    let description = listing.snippet || '';
+    let description = '';
     if (listing.url) {
       try {
         const detailHtml = await fetchHtml(listing.url);
-        const detailBody = parseDetailPage(detailHtml);
-        if (detailBody && detailBody.length > description.length) {
-          description = detailBody;
-        }
+        description = parseDetailPage(detailHtml);
       } catch (err) {
         console.warn(`  Detail fetch failed for ${listing.url}: ${err.message}`);
       }
     }
 
-    const location = listing.location || 'Raron';
     const sourceLang = detectLang(listing.title, 'de');
-    const jobSlug = buildJobSlug(`${listing.title} ${location}`, 'air-zermatt');
+    const jobSlug = buildJobSlug(`${listing.title} St. Moritz`, 'engadin-tourismus');
     const urlHash = createHash('sha1').update(listing.url).digest('hex').slice(0, 12);
+    const empType = inferEmploymentType(listing.title, description);
 
     jobs.push({
-      id: `${AIR_ZERMATT_KEY}-${urlHash}`,
+      id: `${ENGADIN_TOURISMUS_KEY}-${urlHash}`,
       slug: jobSlug,
       slugByLocale: { [sourceLang]: jobSlug },
-      company: AIR_ZERMATT_COMPANY_NAME,
-      companyKey: AIR_ZERMATT_KEY,
-      companyDomain: AIR_ZERMATT_COMPANY_DOMAIN,
+      company: ENGADIN_TOURISMUS_COMPANY_NAME,
+      companyKey: ENGADIN_TOURISMUS_KEY,
+      companyDomain: ENGADIN_TOURISMUS_COMPANY_DOMAIN,
       title: listing.title,
       titleByLocale: { [sourceLang]: listing.title },
       description,
       descriptionByLocale: { [sourceLang]: description },
-      location,
-      canton: /zermatt/i.test(location) ? 'VS' : HQ.canton,
-      addressLocality: location.split('/')[0].trim(),
+      location: 'St. Moritz',
+      canton: HQ.canton,
+      addressLocality: 'St. Moritz',
       addressRegion: HQ.addressRegion,
       addressCountry: 'CH',
       country: 'CH',
       postalCode: HQ.postalCode,
       category: detectCategory(listing.title),
-      sector: 'Aviazione / Servizi di soccorso',
-      contract: inferEmploymentType(listing.title, description) === 'PART_TIME' ? 'part-time' : 'full-time',
-      employmentType: inferEmploymentType(listing.title, description),
+      sector: 'Turismo',
+      contract: empType === 'PART_TIME' ? 'part-time' : 'full-time',
+      employmentType: empType,
       experienceLevel: detectExperienceLevel(listing.title),
       featured: false,
       postedDate: new Date().toISOString().slice(0, 10),
       url: listing.url,
       applyUrl: listing.url,
-      source: 'Air Zermatt Dedicated Parser',
+      source: 'Engadin Tourismus Dedicated Parser',
       sourceLang,
       crawledAt: new Date().toISOString(),
     });
   }
 
-  console.log(`  Total Air Zermatt jobs discovered: ${jobs.length}`);
+  console.log(`  Total Engadin Tourismus jobs discovered: ${jobs.length}`);
   return jobs;
 }

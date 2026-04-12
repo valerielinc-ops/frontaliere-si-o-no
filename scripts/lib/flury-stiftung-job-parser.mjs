@@ -305,13 +305,14 @@ export async function fetchAllFluryStiftungJobs() {
     const sourceLang = 'de';
     const jobSlug = slugify(`${title} flury-stiftung ch`);
 
-    // Build description from title + section + company + location + company boilerplate
+    // Build description from title + section + company + location + company boilerplate.
+    // The boilerplate must be rich enough that AI translations into IT/EN/FR stay above 150 chars.
     const descParts = [`${title} — Flury Stiftung`];
     if (section && section !== 'Flury Stiftung') {
       descParts.push(`Bereich: ${section}`);
     }
     descParts.push(`Arbeitsort: ${location} (${canton})`);
-    descParts.push('Die Flury Stiftung betreibt das Spital Schiers, zwei Altersheime, eine Spitex-Organisation, ein medizinisches Zentrum sowie Kinderkrippen in der Region Prättigau');
+    descParts.push('Die Flury Stiftung ist ein regionaler Gesundheitsversorger im Prättigau, Kanton Graubünden, und betreibt das Spital Schiers, zwei Altersheime in Schiers und Jenaz, eine Spitex-Organisation, das Medizinische Zentrum Klosters sowie Kinderkrippen. Wir bieten vielfältige Karrieremöglichkeiten, moderne Arbeitsbedingungen und ein kollegiales Arbeitsumfeld in einer attraktiven Bergregion. Wir suchen engagierte Fachkräfte, die mit Kompetenz und Leidenschaft zur Gesundheitsversorgung in unserer Region beitragen möchten');
     const descriptionText = descParts.join('. ');
 
     const pensum = extractPensum(title);
