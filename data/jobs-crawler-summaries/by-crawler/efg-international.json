@@ -1,16 +1,16 @@
 {
   "key": "efg-international",
   "label": "EFG",
-  "generatedAt": "2026-04-11T21:11:24.548Z",
+  "generatedAt": "2026-04-12T09:18:46.573Z",
   "total": 29,
   "newCount": 0,
   "updatedCount": 29,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 28663,
-  "avgDurationMs": 28663,
+  "durationMs": 32497,
+  "avgDurationMs": 32497,
   "durationHistory": [
-    28663
+    32497
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -47,7 +47,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-11T21:11:22.461Z",
+      "crawledAt": "2026-04-12T09:18:44.104Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -147,7 +147,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-11T21:11:22.460Z",
+      "crawledAt": "2026-04-12T09:18:44.103Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -262,7 +262,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-11T21:11:22.459Z",
+      "crawledAt": "2026-04-12T09:18:44.102Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-03-06",
@@ -379,7 +379,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-11T21:11:22.459Z",
+      "crawledAt": "2026-04-12T09:18:44.102Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -491,7 +491,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-11T21:11:22.457Z",
+      "crawledAt": "2026-04-12T09:18:44.100Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-03-25",
@@ -598,7 +598,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-11T21:11:22.457Z",
+      "crawledAt": "2026-04-12T09:18:44.100Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -716,7 +716,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-11T21:11:22.455Z",
+      "crawledAt": "2026-04-12T09:18:44.098Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-02-24",
@@ -828,7 +828,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-11T21:11:22.454Z",
+      "crawledAt": "2026-04-12T09:18:44.097Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-02-03",
@@ -844,6 +844,129 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "efg-6066",
+      "slug": "client-services-officer-geneva-talent-pool-efg-geneve",
+      "company": "EFG International AG",
+      "title": "Client Services Officer - Geneva Talent Pool",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "admin",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-01-19",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6066",
+      "source": "Oracle HCM API",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [],
+            "responsibilities": [
+              "Receive, prepare, and process client instructions in line with internal procedures (authorizations, forms, signatures, transmission to relevant departments).",
+              "Manage investment instructions and corporate action events.",
+              "Ensure accuracy and completeness of client files.",
+              "Follow up on pending issues and escalate as needed.",
+              "Serve as a contact for internal departments and as an alternative contact for clients.",
+              "Conduct research and prepare documentation as requested.",
+              "Support the Client Relationship Officer (CRO) in delegated tasks.",
+              "Monitor credit, operations, and risk according to established procedures.",
+              "Comply with the Code of Conduct and all internal regulations (Cross Border, AML, Clear Desk Policy, Absence Management)."
+            ],
+            "requirements": [
+              "Minimum 5 years’ experience in a similar role within private banking or financial services.",
+              "Strong understanding of private banking processes, financial products, and regulatory requirements (KYC, AML, FATCA, CRS).",
+              "Excellent proficiency in English and French; additional languages are an asset.",
+              "Proficient in standard IT systems; adaptable to new software.",
+              "Service-oriented, client-focused mindset; strong team player.",
+              "High level of confidentiality and discretion.",
+              "Proactive, self-motivated, detail-oriented, and reliable.",
+              "Open-minded and eager to learn."
+            ],
+            "benefits": [
+              "<strong>Accountability:</strong> Ownership and continuous improvement.",
+              "<strong>Hands-on:</strong> Proactive delivery of high-quality results.",
+              "<strong>Passionate:</strong> Commitment and pursuit of excellence.",
+              "<strong>Solution-driven:</strong> Focus on client outcomes and fair treatment.",
+              "<strong>Partnership-oriented:</strong> Collaboration and entrepreneurial spirit."
+            ],
+            "process": [],
+            "highlights": [
+              "Receive, prepare, and process client instructions in line with internal procedures (authorizations, forms, signatures, transmission to relevant departments).",
+              "Manage investment instructions and corporate action events.",
+              "Ensure accuracy and completeness of client files.",
+              "Minimum 5 years’ experience in a similar role within private banking or financial services.",
+              "Strong understanding of private banking processes, financial products, and regulatory requirements (KYC, AML, FATCA, CRS).",
+              "Excellent proficiency in English and French; additional languages are an asset.",
+              "<strong>Accountability:</strong> Ownership and continuous improvement.",
+              "<strong>Hands-on:</strong> Proactive delivery of high-quality results."
+            ],
+            "keywords": [
+              "Minimum 5 years’ experience in a similar role within private banking or financial services.",
+              "Strong understanding of private banking processes",
+              "Excellent proficiency in English and French",
+              "Proficient in standard IT systems",
+              "Service-oriented",
+              "Receive",
+              "Manage investment instructions and corporate action events.",
+              "Ensure accuracy and completeness of client files.",
+              "Follow up on pending issues and escalate as needed."
+            ],
+            "sections": [
+              {
+                "id": "details",
+                "heading": "About EFG",
+                "paragraphs": [
+                  "EFG International is a global private banking group, serving clients in over 40 locations worldwide. As EFG continues to grow, we are building a talent pool for future Client Services Officer (CSO) positions in Geneva. Joining our talent pool means you will be among the first considered for upcoming opportunities, contributing to our dynamic and inclusive environment.",
+                  "EFG is committed to equity, inclusion, and mutual respect. We value diversity as a driver of innovation and better decision-making, and we strive to be an employer of choice."
+                ],
+                "bullets": []
+              },
+              {
+                "id": "company",
+                "heading": "Our Purpose and Mission",
+                "paragraphs": [
+                  "Empowering entrepreneurial minds to create value – today and for the future.",
+                  "We offer personalised solutions on a global scale to private and institutional clients. Our sustainable success depends on our people and our partnerships with clients and communities."
+                ],
+                "bullets": []
+              },
+              {
+                "id": "details",
+                "heading": "Candidate Communication: What to Expect",
+                "paragraphs": [
+                  "As part of our talent pool, your profile will be reviewed for a variety of CSO opportunities as they become available. The private banking market is dynamic, and the requirements for each role may shift in response to client needs, regulatory changes, or business priorities. We value candidates who are adaptable and open to evolving responsibilities.",
+                  "If your profile matches the requirements for a specific opening, you may be pre-selected and invited to complete an additional questionnaire. This helps us better understand your experience, skills, and career preferences, ensuring a strong fit for both you and EFG."
+                ],
+                "bullets": []
+              }
+            ],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-04-12T09:18:44.097Z",
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "datePosted": "2026-01-19",
+      "sourceLang": "en",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "_qualityScore": 100,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
         "translation": 25,
         "completeness": 25
       }
@@ -960,7 +1083,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-11T21:11:22.453Z",
+      "crawledAt": "2026-04-12T09:18:44.096Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-02-11",
@@ -975,129 +1098,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "efg-6066",
-      "slug": "client-services-officer-geneva-talent-pool-efg-geneve",
-      "company": "EFG International AG",
-      "title": "Client Services Officer - Geneva Talent Pool",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "admin",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-01-19",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6066",
-      "source": "Oracle HCM API",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [],
-            "responsibilities": [
-              "Receive, prepare, and process client instructions in line with internal procedures (authorizations, forms, signatures, transmission to relevant departments).",
-              "Manage investment instructions and corporate action events.",
-              "Ensure accuracy and completeness of client files.",
-              "Follow up on pending issues and escalate as needed.",
-              "Serve as a contact for internal departments and as an alternative contact for clients.",
-              "Conduct research and prepare documentation as requested.",
-              "Support the Client Relationship Officer (CRO) in delegated tasks.",
-              "Monitor credit, operations, and risk according to established procedures.",
-              "Comply with the Code of Conduct and all internal regulations (Cross Border, AML, Clear Desk Policy, Absence Management)."
-            ],
-            "requirements": [
-              "Minimum 5 years’ experience in a similar role within private banking or financial services.",
-              "Strong understanding of private banking processes, financial products, and regulatory requirements (KYC, AML, FATCA, CRS).",
-              "Excellent proficiency in English and French; additional languages are an asset.",
-              "Proficient in standard IT systems; adaptable to new software.",
-              "Service-oriented, client-focused mindset; strong team player.",
-              "High level of confidentiality and discretion.",
-              "Proactive, self-motivated, detail-oriented, and reliable.",
-              "Open-minded and eager to learn."
-            ],
-            "benefits": [
-              "<strong>Accountability:</strong> Ownership and continuous improvement.",
-              "<strong>Hands-on:</strong> Proactive delivery of high-quality results.",
-              "<strong>Passionate:</strong> Commitment and pursuit of excellence.",
-              "<strong>Solution-driven:</strong> Focus on client outcomes and fair treatment.",
-              "<strong>Partnership-oriented:</strong> Collaboration and entrepreneurial spirit."
-            ],
-            "process": [],
-            "highlights": [
-              "Receive, prepare, and process client instructions in line with internal procedures (authorizations, forms, signatures, transmission to relevant departments).",
-              "Manage investment instructions and corporate action events.",
-              "Ensure accuracy and completeness of client files.",
-              "Minimum 5 years’ experience in a similar role within private banking or financial services.",
-              "Strong understanding of private banking processes, financial products, and regulatory requirements (KYC, AML, FATCA, CRS).",
-              "Excellent proficiency in English and French; additional languages are an asset.",
-              "<strong>Accountability:</strong> Ownership and continuous improvement.",
-              "<strong>Hands-on:</strong> Proactive delivery of high-quality results."
-            ],
-            "keywords": [
-              "Minimum 5 years’ experience in a similar role within private banking or financial services.",
-              "Strong understanding of private banking processes",
-              "Excellent proficiency in English and French",
-              "Proficient in standard IT systems",
-              "Service-oriented",
-              "Receive",
-              "Manage investment instructions and corporate action events.",
-              "Ensure accuracy and completeness of client files.",
-              "Follow up on pending issues and escalate as needed."
-            ],
-            "sections": [
-              {
-                "id": "details",
-                "heading": "About EFG",
-                "paragraphs": [
-                  "EFG International is a global private banking group, serving clients in over 40 locations worldwide. As EFG continues to grow, we are building a talent pool for future Client Services Officer (CSO) positions in Geneva. Joining our talent pool means you will be among the first considered for upcoming opportunities, contributing to our dynamic and inclusive environment.",
-                  "EFG is committed to equity, inclusion, and mutual respect. We value diversity as a driver of innovation and better decision-making, and we strive to be an employer of choice."
-                ],
-                "bullets": []
-              },
-              {
-                "id": "company",
-                "heading": "Our Purpose and Mission",
-                "paragraphs": [
-                  "Empowering entrepreneurial minds to create value – today and for the future.",
-                  "We offer personalised solutions on a global scale to private and institutional clients. Our sustainable success depends on our people and our partnerships with clients and communities."
-                ],
-                "bullets": []
-              },
-              {
-                "id": "details",
-                "heading": "Candidate Communication: What to Expect",
-                "paragraphs": [
-                  "As part of our talent pool, your profile will be reviewed for a variety of CSO opportunities as they become available. The private banking market is dynamic, and the requirements for each role may shift in response to client needs, regulatory changes, or business priorities. We value candidates who are adaptable and open to evolving responsibilities.",
-                  "If your profile matches the requirements for a specific opening, you may be pre-selected and invited to complete an additional questionnaire. This helps us better understand your experience, skills, and career preferences, ensuring a strong fit for both you and EFG."
-                ],
-                "bullets": []
-              }
-            ],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-04-11T21:11:22.453Z",
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "datePosted": "2026-01-19",
-      "sourceLang": "en",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "_qualityScore": 100,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
         "translation": 25,
         "completeness": 25
       }
@@ -1204,7 +1204,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-11T21:11:22.451Z",
+      "crawledAt": "2026-04-12T09:18:44.094Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1331,7 +1331,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-11T21:11:22.450Z",
+      "crawledAt": "2026-04-12T09:18:44.093Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1384,7 +1384,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-11T21:11:22.449Z",
+      "crawledAt": "2026-04-12T09:18:44.092Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2025-12-10",
@@ -1496,7 +1496,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-11T21:11:22.448Z",
+      "crawledAt": "2026-04-12T09:18:44.091Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2025-12-02",
@@ -1642,7 +1642,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-11T21:11:22.447Z",
+      "crawledAt": "2026-04-12T09:18:44.090Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-02-11",
@@ -1758,7 +1758,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-11T21:11:22.446Z",
+      "crawledAt": "2026-04-12T09:18:44.089Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-03-31",
@@ -1811,7 +1811,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-11T21:11:22.445Z",
+      "crawledAt": "2026-04-12T09:18:44.088Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-04-02",
@@ -1864,7 +1864,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-11T21:11:22.444Z",
+      "crawledAt": "2026-04-12T09:18:44.087Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "datePosted": "2026-04-01",
@@ -1992,7 +1992,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-11T21:11:22.442Z",
+      "crawledAt": "2026-04-12T09:18:44.085Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-01",
@@ -2072,7 +2072,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-11T21:11:22.440Z",
+      "crawledAt": "2026-04-12T09:18:44.083Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-02",
@@ -2150,7 +2150,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-11T21:11:22.440Z",
+      "crawledAt": "2026-04-12T09:18:44.083Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-02",
@@ -2202,7 +2202,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-11T21:11:22.439Z",
+      "crawledAt": "2026-04-12T09:18:44.082Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-07",
@@ -2218,6 +2218,163 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "efg-6039",
+      "slug": "epm-onestream-developer-business-data-analyst-efg-lugano",
+      "company": "EFG International AG",
+      "title": "EPM OneStream Developer/Business Data Analyst",
+      "location": "Lugano",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-08",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6039",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p> </p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p> </p><p><span><strong>Job Description</strong></span></p><p><span>The EPM OneStream Developer/Business Data Analyst will be part of the Group Performance Measurement, Budgeting & Reporting Team in Lugano and will contribute to develop and run an integrated planning, reporting and performance review process to facilitate value-driven business decision-making. In his role as EPM OneStream Developer, the resource will oversee running, maintenance and development of our existing OneStream planning platform. In his role as EPM OneStream Developer/Business Data Analyst, the resource will support the performance measurement activities by running granular analysis of financial performance root causes and by providing insights on value creation levers.</span></p><p><span>The resource will play an active role supporting business development and providing value-added decision support using data modelling and forecasting intelligence. </span></p><p> </p><p><span><strong>Main Responsibilities </strong></span></p><ul><li><span>EPM OneStream Developer</span></li><li><span>Business analyst and power user of MI data</span></li><li><span>Design and maintain data models for analysis and forecasting</span></li><li><span>Establish and compile dashboards and presentations to senior management</span></li><li><span>Take active role in the business performance dialogues</span></li><li><span>Active collaboration with Strategy & Corporate Development unit during budgeting and forecasting process</span></li><li><span>Design and develop MI reports and simulations with data from the various MIS systems of the bank to provide insight on value creation levers to the business</span></li><li><span>Develop strong relationship with business management and business controllers to support the Planning & Controlling business partnership</span></li></ul><p> </p><p><span><strong>Skills and experience</strong></span></p><ul><li><span>Professional experience in EPM Business Intelligence in Financial Industry</span></li><li><span>OneStream software: EPM applications maintenance and developments expert</span></li><li><span>Ability to understand large datasets and experience of data modelling, providing accurate data analysis</span></li><li><span>Power user of OneStream, MS-PowerBI, MS-Excel and PowerPoint; Knowledge of Excel Macros, VBA, Python, SAS Enterprise Guide to automate data extraction and reporting</span></li><li><span>Quick learner, accurate and efficient</span></li><li><span>Proactive attitude and willingness to take on new knowledge and skills</span></li><li><span>Ability to work under pressure and adapt to unforeseen work demands</span></li><li><span>Good communication skills to communicate effectively with stakeholders at all levels</span></li><li><span>Fluent in Italian and English</span></li></ul><p> </p><p><span><strong>Our Values</strong></span></p><ul><li><span>Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></li><li><span>Hands-on: Being proactive to rapidly deliver high-quality results</span></li><li><span>Passionate: Being committed and striving for excellence</span></li><li><span>Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></li><li><span>Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li></ul>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-04-12T09:18:44.081Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "datePosted": "2026-04-08",
+      "salaryMin": 82500,
+      "salaryMax": 111500,
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "efg-6040",
+      "slug": "network-proxy-support-team-lead-efg-geneve",
+      "company": "EFG International AG",
+      "title": "Network & Proxy Support Team Lead",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "tech",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-08",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6040",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span><strong>General Information</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span><strong>Department:</strong> Information Technology – Infrastructure</span></li><li style=\"tab-stops:list 36.0pt;\"><span><strong>Work Time Percentage:</strong> 100%</span></li><li style=\"tab-stops:list 36.0pt;\"><span><strong>Location:</strong> Geneva</span></li></ul><p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.</span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span><strong>Empowering entrepreneurial minds to create value – today and for the future.</strong></span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span><strong>Job Description</strong></span></p><p><span><strong>Role and Team</strong></span></p><p><span>Within the Information Technology Department, you will join a team of 12 engineers based in Geneva and collaborate with IT colleagues in more than 30 countries. Under the supervision of the IT Infrastructure Support Manager, you will lead a team of three network engineers.</span></p><p><span>You will combine people management with hands-on engineering, ensuring that EFG’s business-critical systems remain secure, resilient, and always connected in a demanding private banking environment.</span></p><p><span><strong>Main Responsibilities</strong></span></p><p><span><strong>1. Leadership & Management</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>Lead, coach and develop a team of three network engineers, fostering a culture of accountability, collaboration and continuous improvement.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Combine team leadership with hands-on technical work on complex incidents and projects.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Oversee day-to-day network and proxy operations, including incident, problem and change management.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Plan and coordinate network and proxy upgrades, migrations and lifecycle activities in alignment with business and security requirements.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Manage escalations, ensuring timely resolution of major incidents and clear communication with stakeholders.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Manage and review third-party providers and vendor contracts, ensuring service quality, cost effectiveness and adherence to SLAs.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Ensure compliance with internal policies as well as regulatory, security and audit requirements relevant to network and security infrastructure.</span></li></ul><p><span><strong>2. Proxy / Secure Web Gateway (Zscaler)</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>Collaborate closely with security teams to define, implement and maintain security policies, including URL filtering, cloud application and file filtering, DLP and access control.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Configure, operate and maintain Zscaler solutions (ZIA, ZPA) and related components such as SIPA, cloud firewall, PAC files, NSS, ZCC...</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Manage corporate devices using Zscaler Client Connector (ZCC), ensuring secure and reliable connectivity.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Troubleshoot and resolve Zscaler-related issues by analysing logs, performing traces and applying appropriate corrective actions.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Analyse network packet traces (PCAP), Fiddler logs and HTTP/HTTPS headers to identify and resolve complex connectivity and performance issues.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Proactively suggest and implement improvements to network and proxy performance, capacity, scalability and security posture.</span></li></ul><p><span><strong>3. Network Engineering & Operations</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>Provide 2nd and 3rd level technical support for network and related services.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Configure, install and maintain network devices and services (e.g. routers, switches, firewalls, load balancers, VPN, QoS).</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Support and maintain network connectivity for financial market data feeds and other latency-sensitive services.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Implement and maintain a continuous improvement process by defining, documenting and enforcing network and proxy standards, procedures and best practices.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Interface with external suppliers and partners (integrators, telecom providers, market data vendors, etc.) to design, implement and support network solutions.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Participate in 24x7 on-call / on-duty rotation (piquet) to support critical infrastructure.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Monitor network and proxy performance, ensuring system availability, reliability and security.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Monitor system resource utilisation, trends and capacity, and plan upgrades or optimisations accordingly.</span></li></ul><p><span><strong>Skills and Experience</strong></span></p><p><span><strong>Background</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>6–10 years of experience in networking in complex, international environments.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Strong knowledge of enterprise networking architecture and network security.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Professional experience with Cisco technologies and Cisco ACI; financial services experience is a plus.</span></li></ul><p><span><strong>Technical Skills</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>Expert in LAN/WAN/MAN implementation and troubleshooting.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Strong experience with firewalls (Fortinet and/or Check Point), VPN, IPSec and GRE tunnels.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Proven expertise with Zscaler ZIA/ZPA and ZCC on corporate devices.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Solid understanding of network and cloud connectivity design.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Ability to analyse network traces (PCAP), Fiddler logs and HTTP/HTTPS headers.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Knowledge of Python or another scripting language for automation; Zscaler certification is a plus.</span></li></ul><p><span><strong>Soft Skills & Languages</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>Strong communication skills; able to work effectively with technical and non-technical stakeholders.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Experience managing third-party providers and internal support teams.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Rigorous, autonomous, proactive and service-oriented, with strong documentation skills.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Fluent in French and English, written and spoken.</span></li></ul><p><span><strong>Our Values</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span><strong>Accountability:</strong> Taking ownership for tasks and challenges, as well as seeking continuous improvement.</span></li><li style=\"tab-stops:list 36.0pt;\"><span><strong>Hands-on:</strong> Being proactive to rapidly deliver high-quality results.</span></li><li style=\"tab-stops:list 36.0pt;\"><span><strong>Passionate:</strong> Being committed and striving for excellence.</span></li><li style=\"tab-stops:list 36.0pt;\"><span><strong>Solution-driven:</strong> Focusing on client outcomes and treating clients fairly with a risk-aware mindset.</span></li><li style=\"tab-stops:list 36.0pt;\"><span><strong>Partnership-oriented:</strong> Promoting collaboration and teamwork; working together with an entrepreneurial spirit.</span></li></ul><p><span><strong>Application</strong></span></p><ol><li style=\"tab-stops:list 36.0pt;\"><span>Please ensure you attach a cover letter to your CV when submitting your application.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Should you wish to apply for this position, please use the designated application link.</span></li></ol><p> </p>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 5
+          }
+        }
+      },
+      "crawledAt": "2026-04-12T09:18:44.080Z",
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "datePosted": "2026-04-08",
+      "salaryMin": 94000,
+      "salaryMax": 127000,
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "_qualityScore": 99,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "efg-5869",
+      "slug": "strategic-planning-officer-efg-lugano",
+      "company": "EFG International AG",
+      "title": "Strategic Planning Officer",
+      "location": "Lugano",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-08",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5869",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span>Job Description</span></p><p><span>The Strategic Planning Officer will be part of the Strategy & Corporate Development Team in Lugano and</span><a name=\"_Hlk72419592\"><span> </span></a><span>will contribute to run an integrated planning, reporting and performance review process to facilitate value-driven business decision-making. In his role as a business partner and challenger of business performance he will focus on value-added decision support through granular analysis of performance root causes and by providing insights on value creation levers.</span></p><p><span>The Strategic Planning Officer will play an active role in the business performance dialogues, support business development and provide value-added decision support using data modelling and forecasting intelligence. </span></p><p> </p><p><span><strong>Main responsibilities</strong></span></p><ul><li><span>Business analyst and power user of MI data</span></li><li><span>Establish and compile presentations to senior management</span></li><li><span>Take active role in the business performance dialogues</span></li><li><span>Design and maintain data models for analysis and forecasting</span></li><li><span>Active collaboration with Planning & Controlling unit during budgeting and forecasting process </span></li><li><span>Develop strong relationship with business management and business controllers to build a role as business partner</span></li><li><span>Develop recurring benchmarking analysis in collaboration with external advisors</span></li><li><p><span>Key collaboration in corporate development projects and strategic initiatives, including M&A transactions</span></p><p> </p></li></ul><p><span><strong>Skills and experience</strong></span></p><ul><li><span>Have professional experience in Financial Services Industry, in particular in Corporate Finance activities</span></li><li><span>Ability to understand large datasets and experience of data modelling, providing accurate data analysis</span></li><li><span>Power user of MS-Excel and MS-PowerPoint; Knowledge of using Excel Macros, VBA, Python, Power BI as a plus</span></li><li><span>Quick learner, accurate and efficient</span></li><li><span>Proactive attitude and willingness to take on new knowledge and skills</span></li><li><span>Ability to work under pressure and adapt to unforeseen work demands</span></li><li><span>Good communication skills to communicate effectively with internal stakeholders at all levels</span></li><li><p><span>Fluent in English and fluent in Italian</span></p><p> </p></li></ul><p><span><strong>Our Values</strong></span></p><ul><li><span><strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></li><li><span><strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results</span></li><li><span><strong>Passionate</strong>: Being committed and striving for excellence</span></li><li><span><strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></li><li><span><strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li></ul>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-04-12T09:18:44.079Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "datePosted": "2026-04-08",
+      "salaryMin": 82500,
+      "salaryMax": 111500,
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
         "translation": 25,
         "completeness": 25
       }
@@ -2256,7 +2413,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-11T21:11:22.437Z",
+      "crawledAt": "2026-04-12T09:18:44.078Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-10",
@@ -2309,7 +2466,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-11T21:11:22.437Z",
+      "crawledAt": "2026-04-12T09:18:44.077Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-09",
@@ -2402,7 +2559,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-11T21:11:22.436Z",
+      "crawledAt": "2026-04-12T09:18:44.075Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-04-09",
@@ -2532,7 +2689,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-11T21:11:22.435Z",
+      "crawledAt": "2026-04-12T09:18:44.074Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-09",
@@ -2547,163 +2704,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "efg-6039",
-      "slug": "epm-onestream-developer-business-data-analyst-efg-lugano",
-      "company": "EFG International AG",
-      "title": "EPM OneStream Developer/Business Data Analyst",
-      "location": "Lugano",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-08",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6039",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p> </p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p> </p><p><span><strong>Job Description</strong></span></p><p><span>The EPM OneStream Developer/Business Data Analyst will be part of the Group Performance Measurement, Budgeting & Reporting Team in Lugano and will contribute to develop and run an integrated planning, reporting and performance review process to facilitate value-driven business decision-making. In his role as EPM OneStream Developer, the resource will oversee running, maintenance and development of our existing OneStream planning platform. In his role as EPM OneStream Developer/Business Data Analyst, the resource will support the performance measurement activities by running granular analysis of financial performance root causes and by providing insights on value creation levers.</span></p><p><span>The resource will play an active role supporting business development and providing value-added decision support using data modelling and forecasting intelligence. </span></p><p> </p><p><span><strong>Main Responsibilities </strong></span></p><ul><li><span>EPM OneStream Developer</span></li><li><span>Business analyst and power user of MI data</span></li><li><span>Design and maintain data models for analysis and forecasting</span></li><li><span>Establish and compile dashboards and presentations to senior management</span></li><li><span>Take active role in the business performance dialogues</span></li><li><span>Active collaboration with Strategy & Corporate Development unit during budgeting and forecasting process</span></li><li><span>Design and develop MI reports and simulations with data from the various MIS systems of the bank to provide insight on value creation levers to the business</span></li><li><span>Develop strong relationship with business management and business controllers to support the Planning & Controlling business partnership</span></li></ul><p> </p><p><span><strong>Skills and experience</strong></span></p><ul><li><span>Professional experience in EPM Business Intelligence in Financial Industry</span></li><li><span>OneStream software: EPM applications maintenance and developments expert</span></li><li><span>Ability to understand large datasets and experience of data modelling, providing accurate data analysis</span></li><li><span>Power user of OneStream, MS-PowerBI, MS-Excel and PowerPoint; Knowledge of Excel Macros, VBA, Python, SAS Enterprise Guide to automate data extraction and reporting</span></li><li><span>Quick learner, accurate and efficient</span></li><li><span>Proactive attitude and willingness to take on new knowledge and skills</span></li><li><span>Ability to work under pressure and adapt to unforeseen work demands</span></li><li><span>Good communication skills to communicate effectively with stakeholders at all levels</span></li><li><span>Fluent in Italian and English</span></li></ul><p> </p><p><span><strong>Our Values</strong></span></p><ul><li><span>Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></li><li><span>Hands-on: Being proactive to rapidly deliver high-quality results</span></li><li><span>Passionate: Being committed and striving for excellence</span></li><li><span>Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></li><li><span>Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li></ul>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-04-11T21:11:22.432Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "datePosted": "2026-04-08",
-      "salaryMin": 82500,
-      "salaryMax": 111500,
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "efg-6040",
-      "slug": "network-proxy-support-team-lead-efg-geneve",
-      "company": "EFG International AG",
-      "title": "Network & Proxy Support Team Lead",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "tech",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-08",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6040",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span><strong>General Information</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span><strong>Department:</strong> Information Technology – Infrastructure</span></li><li style=\"tab-stops:list 36.0pt;\"><span><strong>Work Time Percentage:</strong> 100%</span></li><li style=\"tab-stops:list 36.0pt;\"><span><strong>Location:</strong> Geneva</span></li></ul><p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.</span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span><strong>Empowering entrepreneurial minds to create value – today and for the future.</strong></span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span><strong>Job Description</strong></span></p><p><span><strong>Role and Team</strong></span></p><p><span>Within the Information Technology Department, you will join a team of 12 engineers based in Geneva and collaborate with IT colleagues in more than 30 countries. Under the supervision of the IT Infrastructure Support Manager, you will lead a team of three network engineers.</span></p><p><span>You will combine people management with hands-on engineering, ensuring that EFG’s business-critical systems remain secure, resilient, and always connected in a demanding private banking environment.</span></p><p><span><strong>Main Responsibilities</strong></span></p><p><span><strong>1. Leadership & Management</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>Lead, coach and develop a team of three network engineers, fostering a culture of accountability, collaboration and continuous improvement.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Combine team leadership with hands-on technical work on complex incidents and projects.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Oversee day-to-day network and proxy operations, including incident, problem and change management.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Plan and coordinate network and proxy upgrades, migrations and lifecycle activities in alignment with business and security requirements.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Manage escalations, ensuring timely resolution of major incidents and clear communication with stakeholders.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Manage and review third-party providers and vendor contracts, ensuring service quality, cost effectiveness and adherence to SLAs.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Ensure compliance with internal policies as well as regulatory, security and audit requirements relevant to network and security infrastructure.</span></li></ul><p><span><strong>2. Proxy / Secure Web Gateway (Zscaler)</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>Collaborate closely with security teams to define, implement and maintain security policies, including URL filtering, cloud application and file filtering, DLP and access control.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Configure, operate and maintain Zscaler solutions (ZIA, ZPA) and related components such as SIPA, cloud firewall, PAC files, NSS, ZCC...</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Manage corporate devices using Zscaler Client Connector (ZCC), ensuring secure and reliable connectivity.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Troubleshoot and resolve Zscaler-related issues by analysing logs, performing traces and applying appropriate corrective actions.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Analyse network packet traces (PCAP), Fiddler logs and HTTP/HTTPS headers to identify and resolve complex connectivity and performance issues.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Proactively suggest and implement improvements to network and proxy performance, capacity, scalability and security posture.</span></li></ul><p><span><strong>3. Network Engineering & Operations</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>Provide 2nd and 3rd level technical support for network and related services.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Configure, install and maintain network devices and services (e.g. routers, switches, firewalls, load balancers, VPN, QoS).</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Support and maintain network connectivity for financial market data feeds and other latency-sensitive services.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Implement and maintain a continuous improvement process by defining, documenting and enforcing network and proxy standards, procedures and best practices.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Interface with external suppliers and partners (integrators, telecom providers, market data vendors, etc.) to design, implement and support network solutions.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Participate in 24x7 on-call / on-duty rotation (piquet) to support critical infrastructure.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Monitor network and proxy performance, ensuring system availability, reliability and security.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Monitor system resource utilisation, trends and capacity, and plan upgrades or optimisations accordingly.</span></li></ul><p><span><strong>Skills and Experience</strong></span></p><p><span><strong>Background</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>6–10 years of experience in networking in complex, international environments.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Strong knowledge of enterprise networking architecture and network security.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Professional experience with Cisco technologies and Cisco ACI; financial services experience is a plus.</span></li></ul><p><span><strong>Technical Skills</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>Expert in LAN/WAN/MAN implementation and troubleshooting.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Strong experience with firewalls (Fortinet and/or Check Point), VPN, IPSec and GRE tunnels.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Proven expertise with Zscaler ZIA/ZPA and ZCC on corporate devices.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Solid understanding of network and cloud connectivity design.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Ability to analyse network traces (PCAP), Fiddler logs and HTTP/HTTPS headers.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Knowledge of Python or another scripting language for automation; Zscaler certification is a plus.</span></li></ul><p><span><strong>Soft Skills & Languages</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span>Strong communication skills; able to work effectively with technical and non-technical stakeholders.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Experience managing third-party providers and internal support teams.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Rigorous, autonomous, proactive and service-oriented, with strong documentation skills.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Fluent in French and English, written and spoken.</span></li></ul><p><span><strong>Our Values</strong></span></p><ul style=\"list-style-type:disc;\"><li style=\"tab-stops:list 36.0pt;\"><span><strong>Accountability:</strong> Taking ownership for tasks and challenges, as well as seeking continuous improvement.</span></li><li style=\"tab-stops:list 36.0pt;\"><span><strong>Hands-on:</strong> Being proactive to rapidly deliver high-quality results.</span></li><li style=\"tab-stops:list 36.0pt;\"><span><strong>Passionate:</strong> Being committed and striving for excellence.</span></li><li style=\"tab-stops:list 36.0pt;\"><span><strong>Solution-driven:</strong> Focusing on client outcomes and treating clients fairly with a risk-aware mindset.</span></li><li style=\"tab-stops:list 36.0pt;\"><span><strong>Partnership-oriented:</strong> Promoting collaboration and teamwork; working together with an entrepreneurial spirit.</span></li></ul><p><span><strong>Application</strong></span></p><ol><li style=\"tab-stops:list 36.0pt;\"><span>Please ensure you attach a cover letter to your CV when submitting your application.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Should you wish to apply for this position, please use the designated application link.</span></li></ol><p> </p>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 5
-          }
-        }
-      },
-      "crawledAt": "2026-04-11T21:11:22.431Z",
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "datePosted": "2026-04-08",
-      "salaryMin": 94000,
-      "salaryMax": 127000,
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "efg-5869",
-      "slug": "strategic-planning-officer-efg-lugano",
-      "company": "EFG International AG",
-      "title": "Strategic Planning Officer",
-      "location": "Lugano",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-08",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5869",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span>Job Description</span></p><p><span>The Strategic Planning Officer will be part of the Strategy & Corporate Development Team in Lugano and</span><a name=\"_Hlk72419592\"><span> </span></a><span>will contribute to run an integrated planning, reporting and performance review process to facilitate value-driven business decision-making. In his role as a business partner and challenger of business performance he will focus on value-added decision support through granular analysis of performance root causes and by providing insights on value creation levers.</span></p><p><span>The Strategic Planning Officer will play an active role in the business performance dialogues, support business development and provide value-added decision support using data modelling and forecasting intelligence. </span></p><p> </p><p><span><strong>Main responsibilities</strong></span></p><ul><li><span>Business analyst and power user of MI data</span></li><li><span>Establish and compile presentations to senior management</span></li><li><span>Take active role in the business performance dialogues</span></li><li><span>Design and maintain data models for analysis and forecasting</span></li><li><span>Active collaboration with Planning & Controlling unit during budgeting and forecasting process </span></li><li><span>Develop strong relationship with business management and business controllers to build a role as business partner</span></li><li><span>Develop recurring benchmarking analysis in collaboration with external advisors</span></li><li><p><span>Key collaboration in corporate development projects and strategic initiatives, including M&A transactions</span></p><p> </p></li></ul><p><span><strong>Skills and experience</strong></span></p><ul><li><span>Have professional experience in Financial Services Industry, in particular in Corporate Finance activities</span></li><li><span>Ability to understand large datasets and experience of data modelling, providing accurate data analysis</span></li><li><span>Power user of MS-Excel and MS-PowerPoint; Knowledge of using Excel Macros, VBA, Python, Power BI as a plus</span></li><li><span>Quick learner, accurate and efficient</span></li><li><span>Proactive attitude and willingness to take on new knowledge and skills</span></li><li><span>Ability to work under pressure and adapt to unforeseen work demands</span></li><li><span>Good communication skills to communicate effectively with internal stakeholders at all levels</span></li><li><p><span>Fluent in English and fluent in Italian</span></p><p> </p></li></ul><p><span><strong>Our Values</strong></span></p><ul><li><span><strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></li><li><span><strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results</span></li><li><span><strong>Passionate</strong>: Being committed and striving for excellence</span></li><li><span><strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></li><li><span><strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li></ul>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-04-11T21:11:22.428Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "datePosted": "2026-04-08",
-      "salaryMin": 82500,
-      "salaryMax": 111500,
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
         "translation": 25,
         "completeness": 25
       }
