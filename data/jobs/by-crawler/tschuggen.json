@@ -1,6 +1,6 @@
 {
   "crawlerKey": "tschuggen",
-  "assembledAt": "2026-04-11T22:04:50.582Z",
+  "assembledAt": "2026-04-12T10:17:01.815Z",
   "jobs": [
     {
       "id": "tschuggen-1f8ba590abcc",
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1326/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T22:04:47.972Z",
+      "crawledAt": "2026-04-12T10:16:59.160Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -45,7 +45,7 @@
       "sector": "Ospitalità / Hotellerie",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-11",
+      "postedDate": "2026-04-12",
       "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1326/Description/1",
       "requirements": [],
       "requirementsByLocale": {
@@ -90,6 +90,7 @@
           "sous-chef-m-w-d-im-10-monatsvertrag-tschuggen-ch"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -134,7 +135,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1318/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T22:04:46.883Z",
+      "crawledAt": "2026-04-12T10:16:58.192Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -146,7 +147,7 @@
       "sector": "Ospitalità / Hotellerie",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-11",
+      "postedDate": "2026-04-12",
       "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1318/Description/1",
       "requirements": [],
       "requirementsByLocale": {
@@ -183,18 +184,19 @@
       },
       "department": "Küche",
       "hotelName": "Tschuggen Grand Hotel",
-      "previousSlugsByLocale": {
-        "de": [
-          "leiter-der-partei-intermetier-m-w-d-tschuggen-collection-arosa"
-        ],
-        "it": [
-          "chef-de-partie-entremetier-m-w-d-sommersaison-2026-tschuggen-ch"
-        ]
-      },
       "previousSlugs": [
         "chef-de-partie-entremetier-m-w-d-sommersaison-2026-tschuggen-ch",
         "leiter-der-partei-intermetier-m-w-d-tschuggen-collection-arosa"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-de-partie-entremetier-m-w-d-sommersaison-2026-tschuggen-ch"
+        ],
+        "de": [
+          "leiter-der-partei-intermetier-m-w-d-tschuggen-collection-arosa"
+        ]
+      },
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -239,7 +241,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1328/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T22:04:45.813Z",
+      "crawledAt": "2026-04-12T10:16:57.204Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -251,7 +253,7 @@
       "sector": "Ospitalità / Hotellerie",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-11",
+      "postedDate": "2026-04-12",
       "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1328/Description/1",
       "requirements": [],
       "requirementsByLocale": {
@@ -288,18 +290,19 @@
       },
       "department": "Rooms Division",
       "hotelName": "Carlton Hotel St. Moritz",
-      "previousSlugsByLocale": {
-        "de": [
-          "reservierungs-und-revenue-manager-m-w-d-in-unbefristeter-anstellung-tschuggen-collection-st-moritz"
-        ],
-        "it": [
-          "reservation-and-revenue-manager-m-w-d-in-unbefristeter-anstellung-tschuggen-ch"
-        ]
-      },
       "previousSlugs": [
         "reservation-and-revenue-manager-m-w-d-in-unbefristeter-anstellung-tschuggen-ch",
         "reservierungs-und-revenue-manager-m-w-d-in-unbefristeter-anstellung-tschuggen-collection-st-moritz"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "reservation-and-revenue-manager-m-w-d-in-unbefristeter-anstellung-tschuggen-ch"
+        ],
+        "de": [
+          "reservierungs-und-revenue-manager-m-w-d-in-unbefristeter-anstellung-tschuggen-collection-st-moritz"
+        ]
+      },
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -344,7 +347,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1330/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T22:04:44.798Z",
+      "crawledAt": "2026-04-12T10:16:56.217Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -356,7 +359,7 @@
       "sector": "Ospitalità / Hotellerie",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-11",
+      "postedDate": "2026-04-12",
       "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1330/Description/1",
       "requirements": [],
       "requirementsByLocale": {
@@ -392,6 +395,7 @@
           "spa-therapeut-in-masseur-w-m-d-sommersaison-2026-tschuggen-ch"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -436,7 +440,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1329/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T22:04:43.748Z",
+      "crawledAt": "2026-04-12T10:16:55.242Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -448,7 +452,7 @@
       "sector": "Ospitalità / Hotellerie",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-11",
+      "postedDate": "2026-04-12",
       "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1329/Description/1",
       "requirements": [],
       "requirementsByLocale": {},
@@ -464,6 +468,7 @@
           "maggiordomo-outdoor-e-yoga-per-le-nostre-attivita-indoor-e-outdoor-m-f-d-stagione-estiva-2026-tschuggen-collection-arosa"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -508,7 +513,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1320/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T22:04:42.747Z",
+      "crawledAt": "2026-04-12T10:16:54.287Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -520,7 +525,7 @@
       "sector": "Ospitalità / Hotellerie",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-11",
+      "postedDate": "2026-04-12",
       "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1320/Description/1",
       "requirements": [],
       "requirementsByLocale": {
@@ -557,18 +562,19 @@
       },
       "department": "Küche",
       "hotelName": "Tschuggen Grand Hotel",
-      "previousSlugsByLocale": {
-        "de": [
-          "chef-de-partie-speisekammer-m-w-d-sommersaison-2026-tschuggen-collection-arosa"
-        ],
-        "it": [
-          "chef-de-partie-garde-manger-m-w-d-sommersaison-2026-tschuggen-ch"
-        ]
-      },
       "previousSlugs": [
         "chef-de-partie-garde-manger-m-w-d-sommersaison-2026-tschuggen-ch",
         "chef-de-partie-speisekammer-m-w-d-sommersaison-2026-tschuggen-collection-arosa"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-de-partie-garde-manger-m-w-d-sommersaison-2026-tschuggen-ch"
+        ],
+        "de": [
+          "chef-de-partie-speisekammer-m-w-d-sommersaison-2026-tschuggen-collection-arosa"
+        ]
+      },
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -613,7 +619,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1331/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T22:04:41.721Z",
+      "crawledAt": "2026-04-12T10:16:53.301Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -625,7 +631,7 @@
       "sector": "Ospitalità / Hotellerie",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-11",
+      "postedDate": "2026-04-12",
       "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1331/Description/1",
       "requirements": [],
       "requirementsByLocale": {
@@ -662,18 +668,19 @@
       },
       "department": "Food and Beverage",
       "hotelName": "Carlton Hotel St. Moritz",
-      "previousSlugsByLocale": {
-        "de": [
-          "lebensmittel-und-getrankemanager-m-w-d-in-unfristeter-anstellung-tschuggen-collection-st-moritz"
-        ],
-        "it": [
-          "food-and-beverage-manager-m-w-d-in-unbefristeter-anstellung-tschuggen-ch"
-        ]
-      },
       "previousSlugs": [
         "food-and-beverage-manager-m-w-d-in-unbefristeter-anstellung-tschuggen-ch",
         "lebensmittel-und-getrankemanager-m-w-d-in-unfristeter-anstellung-tschuggen-collection-st-moritz"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "food-and-beverage-manager-m-w-d-in-unbefristeter-anstellung-tschuggen-ch"
+        ],
+        "de": [
+          "lebensmittel-und-getrankemanager-m-w-d-in-unfristeter-anstellung-tschuggen-collection-st-moritz"
+        ]
+      },
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -718,7 +725,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1332/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T22:04:40.695Z",
+      "crawledAt": "2026-04-12T10:16:52.347Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -730,7 +737,7 @@
       "sector": "Ospitalità / Hotellerie",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-11",
+      "postedDate": "2026-04-12",
       "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1332/Description/1",
       "requirements": [],
       "requirementsByLocale": {
@@ -778,6 +785,7 @@
       "previousSlugs": [
         "hoteltechniker-in-jahresanstellung-tschuggen-ch"
       ],
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -822,7 +830,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1308/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T22:04:39.668Z",
+      "crawledAt": "2026-04-12T10:16:51.391Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressCountry": "CH",
@@ -834,7 +842,7 @@
       "sector": "Ospitalità / Hotellerie",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-11",
+      "postedDate": "2026-04-12",
       "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1308/Description/1",
       "requirements": [],
       "requirementsByLocale": {
@@ -865,18 +873,19 @@
       },
       "department": "Administration",
       "hotelName": "Hotel Eden Roc",
-      "previousSlugsByLocale": {
-        "de": [
-          "leiter-des-gourmetrestaurants-la-brezza-m-w-d-tschuggen-collection-ascona"
-        ],
-        "it": [
-          "chef-de-rang-im-gourmetrestaurant-la-brezza-m-w-d-tschuggen-ch"
-        ]
-      },
       "previousSlugs": [
         "chef-de-rang-im-gourmetrestaurant-la-brezza-m-w-d-tschuggen-ch",
         "leiter-des-gourmetrestaurants-la-brezza-m-w-d-tschuggen-collection-ascona"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-de-rang-im-gourmetrestaurant-la-brezza-m-w-d-tschuggen-ch"
+        ],
+        "de": [
+          "leiter-des-gourmetrestaurants-la-brezza-m-w-d-tschuggen-collection-ascona"
+        ]
+      },
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -921,7 +930,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1325/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T22:04:38.615Z",
+      "crawledAt": "2026-04-12T10:16:50.409Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressCountry": "CH",
@@ -933,7 +942,7 @@
       "sector": "Ospitalità / Hotellerie",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-11",
+      "postedDate": "2026-04-12",
       "applyUrl": "https://recruitingapp-2904.umantis.com/Vacancies/1325/Description/1",
       "requirements": [],
       "requirementsByLocale": {
@@ -981,6 +990,7 @@
       "previousSlugs": [
         "reservation-agent-m-w-d-tschuggen-ch"
       ],
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
