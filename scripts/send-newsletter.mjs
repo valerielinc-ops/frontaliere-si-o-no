@@ -183,26 +183,42 @@ function sanitizeAIBriefingHtml(raw) {
   const fullPlainText = html.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
 
   // Detect truncated text: if overall text doesn't end with punctuation, trim
+  // We trim from the HTML directly to preserve inline tags (links, bold, etc.)
   if (fullPlainText.length > 0 && !/[.!?\u00bb\u201d\u2019')]$/.test(fullPlainText)) {
     const lastSentenceEnd = fullPlainText.search(/[.!?][^.!?]*$/);
     if (lastSentenceEnd > 0) {
-      const trimmedText = fullPlainText.slice(0, lastSentenceEnd + 1);
+      const keepPlain = fullPlainText.slice(0, lastSentenceEnd + 1);
       const droppedText = fullPlainText.slice(lastSentenceEnd + 1).trim();
-      console.warn(`\u26a0\ufe0f AI briefing: trimmed truncated tail (kept ${trimmedText.length}/${fullPlainText.length} chars): dropped "${droppedText.slice(0, 80)}"`);
-      // Rebuild as clean plain-text <p> blocks (drops inline formatting — acceptable tradeoff for tag safety)
-      const sentences = trimmedText.match(/[^.!?]*[.!?]+/g) || [trimmedText];
-      const paragraphs = [];
-      let current = '';
-      for (const s of sentences) {
-        current += s;
-        // Start a new paragraph roughly every 2-3 sentences
-        if (current.split(/[.!?]+/).filter(Boolean).length >= 3) {
-          paragraphs.push(current.trim());
-          current = '';
+      console.warn(`\u26a0\ufe0f AI briefing: trimmed truncated tail (kept ${keepPlain.length}/${fullPlainText.length} chars): dropped "${droppedText.slice(0, 80)}"`);
+      // Walk the HTML character-by-character, mapping plain-text offset to HTML offset
+      // so we can cut at the right place while preserving inline tags
+      let plainIdx = 0;
+      let htmlCutIdx = html.length;
+      let inTag = false;
+      for (let i = 0; i < html.length; i++) {
+        if (html[i] === '<') { inTag = true; continue; }
+        if (html[i] === '>') { inTag = false; continue; }
+        if (!inTag) {
+          if (plainIdx === lastSentenceEnd) {
+            // Include this character (the sentence-ending punctuation)
+            htmlCutIdx = i + 1;
+            break;
+          }
+          plainIdx++;
         }
       }
-      if (current.trim()) paragraphs.push(current.trim());
-      html = paragraphs.map(p => '<p>' + p + '</p>').join('');
+      html = html.slice(0, htmlCutIdx);
+      // Close any tags we may have cut through
+      const openTags = [];
+      const tagRe = /<\/?([a-z]+)[\s>]/gi;
+      let m;
+      while ((m = tagRe.exec(html))) {
+        if (m[0].startsWith('</')) openTags.pop();
+        else openTags.push(m[1]);
+      }
+      while (openTags.length) html += '</' + openTags.pop() + '>';
+      // Ensure wrapped in <p> if the cut removed closing </p>
+      if (!html.endsWith('</p>')) html += '</p>';
     } else {
       console.warn('\u26a0\ufe0f AI briefing: no complete sentence found \u2014 falling back');
       return null;
@@ -558,13 +574,17 @@ async function pickFeaturedArticle() {
     const topArticles = await fetchTopArticles();
     if (topArticles.length === 0) return DEFAULT_ARTICLE;
 
-    // Prefer articles viewed in the last 7 days, sorted by views
+    // Sort by views desc, then lastViewed desc as tiebreaker
+    const byViewsThenRecency = (a, b) =>
+      b.views - a.views || (b.lastViewed || 0) - (a.lastViewed || 0);
+
+    // Prefer articles viewed in the last 7 days
     const weekAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
     const recentTop = topArticles
       .filter((a) => a.lastViewed && a.lastViewed > weekAgo)
-      .sort((a, b) => b.views - a.views);
+      .sort(byViewsThenRecency);
 
-    const best = recentTop[0] || topArticles[0];
+    const best = recentTop[0] || topArticles.sort(byViewsThenRecency)[0];
     const meta = loadBlogMeta(best.id);
     if (!meta) {
       console.warn(`\u26a0\ufe0f No blog meta for top article "${best.id}", using default`);
@@ -1081,11 +1101,10 @@ async function main() {
   if (db) {
     exchangeRate = await fetchExchangeRate();
     const history = await fetchExchangeHistory(120);
-    // If previousRate is missing from Firestore, find exact 7-day-ago rate from history
-    if (exchangeRate && !exchangeRate.previousRate && history.length >= 2) {
-      const today = new Date().toISOString().slice(0, 10);
+    // Always use history for the 7-day-ago rate — Firestore previousRate is just
+    // the last hourly update, not the weekly comparison we need for the newsletter
+    if (exchangeRate && history.length >= 2) {
       const weekAgoDate = new Date(Date.now() - 7 * 24 * 3600 * 1000).toISOString().slice(0, 10);
-      // Find closest entry to 7 days ago (exact match or nearest earlier date)
       const weekAgoEntry = history.find(h => h.date === weekAgoDate)
         || history.filter(h => h.date <= weekAgoDate).pop()
         || history[0];
