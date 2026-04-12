@@ -146,11 +146,52 @@ async function generateAIBriefing(ctx) {
       { role: 'system', content: system },
       { role: 'user', content: user },
     ], { temperature: 0.7, maxTokens: 800 });
-    return sanitizeAIBriefingHtml(result);
+    let html = sanitizeAIBriefingHtml(result);
+    if (html) html = injectJobAndCompanyLinks(html, ctx.matchedJobs || []);
+    return html;
   } catch (e) {
     console.warn('\u26a0\ufe0f AI briefing failed:', e.message?.slice(0, 200));
     return null;
   }
+}
+
+/**
+ * Post-process AI briefing: ensure job titles and company names are linked
+ * with the correct URLs. The AI is unreliable at copying exact URLs, so we
+ * do a deterministic find-and-replace after generation.
+ */
+function injectJobAndCompanyLinks(html, jobs) {
+  if (!jobs || jobs.length === 0) return html;
+  const linkStyle = 'color:#2563eb;text-decoration:underline;';
+
+  for (const j of jobs.slice(0, 3)) {
+    const jobUrl = j.url ? `${BASE_URL}${j.url.startsWith('/') ? j.url : '/' + j.url}` : '';
+    const companyUrl = j.companyKey ? `${BASE_URL}/cerca-lavoro-ticino/azienda-${j.companyKey}` : '';
+
+    // For each name: strip any existing <a> wrapping (AI may have used wrong URLs),
+    // then strip <strong>, then inject correct link.
+    if (j.title) {
+      const titleEsc = j.title.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      // Pass 1: unwrap any <a> around the title (keep text)
+      html = html.replace(new RegExp(`<a[^>]*>\\s*(${titleEsc})\\s*</a>`, 'gi'), '$1');
+      // Pass 2: unwrap <strong> around the title
+      html = html.replace(new RegExp(`<strong>(${titleEsc})</strong>`, 'gi'), '$1');
+      // Pass 3: wrap with correct link
+      if (jobUrl) {
+        html = html.replace(new RegExp(`(${titleEsc})`, 'i'), `<a href="${jobUrl}" style="${linkStyle}">$1</a>`);
+      }
+    }
+
+    if (j.company) {
+      const companyEsc = j.company.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      html = html.replace(new RegExp(`<a[^>]*>\\s*(${companyEsc})\\s*</a>`, 'gi'), '$1');
+      html = html.replace(new RegExp(`<strong>(${companyEsc})</strong>`, 'gi'), '$1');
+      if (companyUrl) {
+        html = html.replace(new RegExp(`(${companyEsc})`, 'i'), `<a href="${companyUrl}" style="${linkStyle}">$1</a>`);
+      }
+    }
+  }
+  return html;
 }
 
 /**
