@@ -2370,6 +2370,32 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
     return out;
   }
 
+  // ── Cache bust for needsRetranslation jobs ──────────────────────────────
+  // When a job is explicitly flagged for retranslation, the existing cached
+  // translations are the ones that failed isIncomplete() checks. Serving them
+  // again creates an infinite loop: cache hit → same bad translations →
+  // isIncomplete() still true → flag stays → next run hits cache again.
+  // Bust the cache entries so fresh AI calls are made.
+  if (out.needsRetranslation && ctx.buildAiCacheKey && ctx.deleteCachedAiResponse) {
+    const { buildAiCacheKey: bck, deleteCachedAiResponse: delCache } = ctx;
+    const targetLocales = locales.filter((l) => l !== sourceLang);
+    // Bust the main multi-locale localization cache
+    const mainKey = bck('localize-job-v2', [
+      nsFn(out.title || ''), nsFn(out.company || ''), nsFn(out.location || ''),
+      sourceLang || 'en', targetLocales.join(','),
+      JSON.stringify((out.requirements || []).map((x) => nsFn(String(x))).filter(Boolean).slice(0, 16)),
+      cleanFn(out.description || ''),
+    ]);
+    delCache(mainKey);
+    // Bust per-locale description + title caches
+    const cleanDesc = cleanFn(out.description || '');
+    const cleanTitle = nsFn(out.title || '').replace(/(\w):in(nen)?\b/gi, '$1/in$2');
+    for (const locale of targetLocales) {
+      delCache(bck('translate-desc-v2', [cleanDesc, locale, sourceLang]));
+      delCache(bck('translate-title-v2', [cleanTitle, locale, titleSourceLang]));
+    }
+  }
+
   // Structure flat descriptions before AI localization
   const rawDesc = out.description || '';
   const hasMarkdownStructure = /^## /m.test(rawDesc) && ((rawDesc.match(/\n/g) || []).length >= 3);
