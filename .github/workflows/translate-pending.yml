@@ -60,13 +60,25 @@ jobs:
           LT_SUGGESTIONS: "false"
           LT_DISABLE_WEB_UI: "true"
         options: >-
-          --health-cmd "curl -sf http://localhost:5000/languages || exit 1"
+          --health-cmd "python -c \"import urllib.request; urllib.request.urlopen('http://localhost:5000/languages')\" || exit 1"
           --health-interval 15s
           --health-timeout 10s
           --health-retries 20
-          --health-start-period 120s
+          --health-start-period 180s
 
     steps:
+      - name: Wait for LibreTranslate service
+        run: |
+          echo "⏳ Waiting for LibreTranslate to load language models..."
+          for i in $(seq 1 40); do
+            if curl -sf http://localhost:5000/languages > /dev/null 2>&1; then
+              echo "✅ LibreTranslate ready (attempt $i)"
+              exit 0
+            fi
+            sleep 5
+          done
+          echo "⚠️  LibreTranslate not ready after 200s — translations will use other providers"
+
       - name: Checkout
         uses: actions/checkout@v5
         with:
