@@ -10,41 +10,9 @@
     "jsonld"
   ],
   "seedUrls": [
-    "https://corporate.lastminute.com/careers/jobs/job?id=744000117597067&jobName=Senior+Frontend+Software+Engineer",
-    "https://corporate.lastminute.com/careers/jobs/job?id=744000116463807&jobName=Client+Affiliation+Partner",
-    "https://corporate.lastminute.com/careers/jobs/job?id=744000113487537&jobName=Global+Payroll",
-    "https://corporate.lastminute.com/careers/jobs/job?id=744000111059566&jobName=Head+of+Data+Platform+Engineering"
+    "https://corporate.lastminute.com/careers/jobs/?search=&department=&location=chiasso&contract="
   ],
   "notes": "Dedicated lastminute.com crawler seeds from Chiasso listing pages and canonicalizes detail URLs under corporate.lastminute.com/careers/jobs/job?id=...",
-  "updatedAt": "2026-04-12T09:42:56.794Z",
-  "seedMetaByUrl": {
-    "https://corporate.lastminute.com/careers/jobs/job?id=744000117597067&jobName=Senior+Frontend+Software+Engineer": {
-      "location": "Chiasso",
-      "canton": "TI",
-      "country": "CH",
-      "company": "lastminute.com",
-      "companyDomain": "lastminute.com"
-    },
-    "https://corporate.lastminute.com/careers/jobs/job?id=744000116463807&jobName=Client+Affiliation+Partner": {
-      "location": "Chiasso",
-      "canton": "TI",
-      "country": "CH",
-      "company": "lastminute.com",
-      "companyDomain": "lastminute.com"
-    },
-    "https://corporate.lastminute.com/careers/jobs/job?id=744000113487537&jobName=Global+Payroll": {
-      "location": "Chiasso",
-      "canton": "TI",
-      "country": "CH",
-      "company": "lastminute.com",
-      "companyDomain": "lastminute.com"
-    },
-    "https://corporate.lastminute.com/careers/jobs/job?id=744000111059566&jobName=Head+of+Data+Platform+Engineering": {
-      "location": "Chiasso",
-      "canton": "TI",
-      "country": "CH",
-      "company": "lastminute.com",
-      "companyDomain": "lastminute.com"
-    }
-  }
+  "updatedAt": "2026-04-12T21:41:37.470Z",
+  "seedMetaByUrl": {}
 }
