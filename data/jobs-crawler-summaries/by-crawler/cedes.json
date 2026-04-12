@@ -1,16 +1,16 @@
 {
   "key": "cedes",
   "label": "CEDES",
-  "generatedAt": "2026-04-12T09:02:51.191Z",
+  "generatedAt": "2026-04-12T21:01:34.637Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3410,
-  "avgDurationMs": 3410,
+  "durationMs": 3672,
+  "avgDurationMs": 3672,
   "durationHistory": [
-    3410
+    3672
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,7 +34,7 @@
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T09:02:49.063Z",
+      "crawledAt": "2026-04-12T21:01:32.494Z",
       "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -63,7 +63,7 @@
       "url": "https://www.cedes.com/en/career/jobs/packaging-line-worker-100-1/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T09:02:49.368Z",
+      "crawledAt": "2026-04-12T21:01:32.800Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -95,7 +95,7 @@
       "url": "https://www.cedes.com/en/career/jobs/packaging-line-worker-100-1/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T09:02:49.368Z",
+      "crawledAt": "2026-04-12T21:01:32.800Z",
       "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -128,7 +128,7 @@
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-12T09:02:49.063Z",
+      "crawledAt": "2026-04-12T21:01:32.494Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "postalCode": "7302",
