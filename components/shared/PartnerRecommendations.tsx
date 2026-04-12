@@ -24,9 +24,7 @@ const PartnerCard: React.FC<{ partner: AffiliatePartner; context: string }> = ({
 
   const handleClick = () => {
     Analytics.trackExternalLink(partner.url, `affiliate_${partner.id}`);
-    // Track as a custom affiliate event for revenue attribution
-    (Analytics as any).trackAffiliateClick?.(partner.id, context) ??
-      Analytics.trackSelectContent('affiliate_click', `${partner.id}_${context}`);
+    Analytics.trackAffiliateClick(partner.id, context);
   };
 
   return (
@@ -35,7 +33,7 @@ const PartnerCard: React.FC<{ partner: AffiliatePartner; context: string }> = ({
       target="_blank"
       rel="noopener noreferrer sponsored"
       onClick={handleClick}
-      className="group flex items-start gap-3 p-4 bg-surface/60 rounded-xl border border-edge/50 hover:border-slate-300 dark:hover:border-slate-600 hover:shadow-sm transition-[color,background-color,border-color,box-shadow] duration-200"
+      className="group flex items-start gap-3 p-4 bg-surface/60 rounded-[6px] border border-edge/50 hover:border-slate-300 dark:hover:border-slate-600 hover:shadow-stripe-sm transition-[color,background-color,border-color,box-shadow] duration-200"
     >
       {/* Emoji icon */}
       <span className="text-2xl flex-shrink-0 mt-0.5">{partner.emoji}</span>
@@ -46,7 +44,7 @@ const PartnerCard: React.FC<{ partner: AffiliatePartner; context: string }> = ({
             {partner.name}
           </span>
           {partner.badgeKey && (
-            <span className={`text-xs font-bold px-1.5 py-0.5 rounded-full bg-gradient-to-r ${partner.color} text-white`}>
+            <span className="text-xs font-bold px-1.5 py-0.5 rounded-full bg-stripe-100 text-stripe-700 dark:bg-stripe-900/30 dark:text-stripe-300">
               {t(partner.badgeKey)}
             </span>
           )}
@@ -56,7 +54,7 @@ const PartnerCard: React.FC<{ partner: AffiliatePartner; context: string }> = ({
         </p>
       </div>
 
-      <ExternalLink className="w-3.5 h-3.5 text-muted group-hover:text-slate-600 dark:group-hover:text-slate-300 flex-shrink-0 mt-1 opacity-0 group-hover:opacity-100 transition-opacity" />
+      <ExternalLink className="w-3.5 h-3.5 text-muted group-hover:text-slate-600 dark:group-hover:text-slate-300 flex-shrink-0 mt-1 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity" />
     </a>
   );
 };

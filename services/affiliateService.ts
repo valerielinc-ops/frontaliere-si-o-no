@@ -172,19 +172,23 @@ export function getPartnersForContext(context: ComparatorContext, maxResults = 2
  * Get all unique partners for the "Servizi Partner" overview page/section.
  */
 export function getAllPartners(): AffiliatePartner[] {
-  return PARTNERS.sort((a, b) => b.priority - a.priority);
+  return PARTNERS.slice().sort((a, b) => b.priority - a.priority);
 }
 
 /**
  * Build the full affiliate URL with optional tracking params.
  */
 export function buildAffiliateUrl(partner: AffiliatePartner, source: string): string {
-  const url = new URL(partner.url);
-  // Add UTM tracking if the URL supports query params
-  if (!partner.url.includes('invite') && !partner.url.includes('referral')) {
-    url.searchParams.set('utm_source', 'frontaliereticino');
-    url.searchParams.set('utm_medium', 'partner');
-    url.searchParams.set('utm_campaign', source);
+  try {
+    const url = new URL(partner.url);
+    // Add UTM tracking only to regular URLs (not invite/referral links that would break)
+    if (!partner.url.includes('invite') && !partner.url.includes('referral')) {
+      url.searchParams.set('utm_source', 'frontaliereticino');
+      url.searchParams.set('utm_medium', 'partner');
+      url.searchParams.set('utm_campaign', source);
+    }
+    return url.toString();
+  } catch {
+    return partner.url;
   }
-  return url.toString();
 }

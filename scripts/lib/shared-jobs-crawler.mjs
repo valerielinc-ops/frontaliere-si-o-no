@@ -5020,11 +5020,16 @@ async function main() {
         hasTitleWork
       );
       const shouldForceLocalization = forceLocalization && (forceRelocalizeAll || needsLocalization);
+      // FRO-327 bypass: jobs explicitly flagged for retranslation must enter the
+      // queue even if coverage checks pass — the flag indicates quality issues
+      // (contamination, source copies) that coverage-based checks miss.
+      const flaggedForRetranslation = !!job.needsRetranslation;
       const sourceDescLength = normalizeSpace(job?.description || '').length;
       return (
         needsLocalization ||
-        shouldForceLocalization
-      ) && (sourceDescLength >= 160 || hasTitleWork);
+        shouldForceLocalization ||
+        flaggedForRetranslation
+      ) && (sourceDescLength >= 160 || hasTitleWork || flaggedForRetranslation);
     });
     if (queue.length > 0) {
       // Prioritize: 1) needsRetranslation jobs (translation pipeline targets),

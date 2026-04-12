@@ -74,7 +74,7 @@ const StatsTabContent = lazyRetry(() => import('@/components/tabs/StatsTabConten
 const lazyCalculate = () => import('@/services/calculationService');
 import { setDefaultConsent, onConsentChange, isAnalyticsGranted } from '@/services/consentService';
 import { prefetchTab } from '@/services/prefetch';
-const CookieBanner = lazyRetry(() => import('@/components/shared/CookieBanner'));
+// CookieBanner removed — consent is silently granted by default (see consentService.ts)
 // Set consent defaults ASAP (before any analytics/ad scripts load)
 setDefaultConsent();
 // SEO service is lazy-loaded to reduce critical path.
@@ -3410,7 +3410,6 @@ const App: React.FC = () => {
 
         <Suspense fallback={null}>
           <NewsletterPopup />
-          <CookieBanner />
           {showWhatsNew && (
             <WhatsNewModal
               open={showWhatsNew}

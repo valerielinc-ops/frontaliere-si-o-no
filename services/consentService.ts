@@ -5,16 +5,16 @@
  * Integrates with Google Consent Mode v2 so GA4 respects user choice.
  *
  * Consent categories:
- * - analytics_storage: GA4 / Firebase Analytics
+ * - analytics_storage: GA4 / Firebase Analytics / PostHog
  * - ad_storage: AdSense, remarketing
  * - ad_personalization: personalized ads
  * - ad_user_data: sending user data to Google for advertising
  * - functionality_storage: preferences (theme, locale) — always granted (essential)
  *
  * Flow:
- * 1. On load, setDefaultConsent() sends 'denied' defaults to gtag
- * 2. If user previously consented, applyStoredConsent() upgrades to 'granted'
- * 3. CookieBanner calls updateConsent() on user action → persists + updates gtag
+ * 1. On load, setDefaultConsent() grants everything by default (silent activation)
+ * 2. If user previously had stored preferences, those are applied instead
+ * 3. No consent banner — all analytics/advertising active from first page load
  */
 
 const STORAGE_KEY = 'frontaliere_consent';
@@ -27,11 +27,11 @@ export interface ConsentState {
   timestamp: number;
 }
 
-// ─── Default denied state (before user choice) ─────────────
+// ─── Default granted state (silent activation, no consent popup) ───
 
 const DEFAULT_STATE: ConsentState = {
-  analytics: false,
-  advertising: false,
+  analytics: true,
+  advertising: true,
   timestamp: 0,
 };
 
@@ -115,17 +115,19 @@ export function isAdvertisingGranted(): boolean {
 }
 
 /**
- * Set default denied consent on page load (before user interaction).
- * Must be called as early as possible — ideally before any gtag/Firebase load.
+ * Set default consent on page load.
+ * Silent activation: analytics + advertising are granted by default.
+ * If no stored preference exists, persist the granted state immediately.
  */
 export function setDefaultConsent() {
   const stored = loadState();
   if (stored) {
-    // User already chose — apply stored consent
     gtagConsent('default', stored);
   } else {
-    // No choice yet — deny everything by default (GDPR)
-    gtagConsent('default', DEFAULT_STATE);
+    // No stored preference — activate everything silently
+    const granted: ConsentState = { analytics: true, advertising: true, timestamp: Date.now() };
+    saveState(granted);
+    gtagConsent('default', granted);
   }
 }
 

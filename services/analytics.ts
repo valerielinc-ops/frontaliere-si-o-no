@@ -744,6 +744,18 @@ export const Analytics = {
   },
 
   /**
+   * Affiliate click — tracks partner clicks with context for revenue attribution
+   */
+  trackAffiliateClick: (partnerId: string, context: string) => {
+    log('affiliate_click', {
+      partner_id: partnerId,
+      context,
+      content_type: 'affiliate',
+      item_id: `${partnerId}_${context}`,
+    });
+  },
+
+  /**
    * select_content — evento raccomandato GA4
    */
   trackSelectContent: (contentType: string, itemId: string) => {
