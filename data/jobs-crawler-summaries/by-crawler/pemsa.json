@@ -1,16 +1,16 @@
 {
   "key": "pemsa",
   "label": "PEMSA",
-  "generatedAt": "2026-04-11T21:46:16.709Z",
-  "total": 35,
+  "generatedAt": "2026-04-12T09:56:58.366Z",
+  "total": 33,
   "newCount": 0,
-  "updatedCount": 7,
-  "removedCount": 0,
-  "unchangedCount": 28,
-  "durationMs": 85794,
-  "avgDurationMs": 85794,
+  "updatedCount": 6,
+  "removedCount": 2,
+  "unchangedCount": 27,
+  "durationMs": 78834,
+  "avgDurationMs": 78834,
   "durationHistory": [
-    85794
+    78834
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -229,9 +229,47 @@
         "translation": 23,
         "completeness": 25
       }
+    }
+  ],
+  "removedJobs": [
+    {
+      "title": "IDRAULICO IMPIANTI SANITARI",
+      "slug": "idraulico-impianti-sanitari-pemsa-lugano",
+      "url": "https://www.pemsa.ch/it/job/idraulico-impianti-sanitari-2667914/",
+      "applyUrl": "https://www.pemsa.ch/it/job/idraulico-impianti-sanitari-2667914/",
+      "company": "PEMSA",
+      "companyKey": "pemsa",
+      "companyDomain": "pemsa.ch",
+      "location": "Lugano",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "impiantistica",
+      "sector": "Edilizia e tecnica",
+      "source": "pemsa-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-03-27",
+      "employmentType": "full-time",
+      "contractType": "temporary",
+      "validThrough": "2026-04-11",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "streetAddress": "Via Industria 20",
+      "postalCode": "6807",
+      "id": "pemsa-43925ddc67d2",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 25
+      }
     },
     {
-      "title": "Muuratore &amp;#8211; carpentiere edile",
+      "title": "Muuratore – carpentiere edile",
       "slug": "muuratore-amp-8211-carpentiere-edile-pemsa-bellinzona",
       "url": "https://www.pemsa.ch/it/job/muuratore-carpentiere-edile-2662376/",
       "applyUrl": "https://www.pemsa.ch/it/job/muuratore-carpentiere-edile-2662376/",
@@ -258,16 +296,15 @@
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
       "id": "pemsa-4497178d9a26",
-      "_qualityScore": 90,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
-        "cleanliness": 20,
+        "cleanliness": 25,
         "richness": 22,
         "translation": 23,
         "completeness": 25
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Macchinista e Autista C",
@@ -801,42 +838,6 @@
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
       "id": "pemsa-b83b91fcb71e",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "IDRAULICO IMPIANTI SANITARI",
-      "slug": "idraulico-impianti-sanitari-pemsa-lugano",
-      "url": "https://www.pemsa.ch/it/job/idraulico-impianti-sanitari-2667914/",
-      "applyUrl": "https://www.pemsa.ch/it/job/idraulico-impianti-sanitari-2667914/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "impiantistica",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-03-27",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-04-11",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
-      "id": "pemsa-43925ddc67d2",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
