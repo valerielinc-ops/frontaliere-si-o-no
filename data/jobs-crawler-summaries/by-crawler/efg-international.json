@@ -1,16 +1,16 @@
 {
   "key": "efg-international",
   "label": "EFG",
-  "generatedAt": "2026-04-12T09:18:46.573Z",
+  "generatedAt": "2026-04-12T21:17:38.576Z",
   "total": 29,
   "newCount": 0,
   "updatedCount": 29,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 32497,
-  "avgDurationMs": 32497,
+  "durationMs": 34236,
+  "avgDurationMs": 34236,
   "durationHistory": [
-    32497
+    34236
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -47,7 +47,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-12T09:18:44.104Z",
+      "crawledAt": "2026-04-12T21:17:36.031Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -147,7 +147,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-12T09:18:44.103Z",
+      "crawledAt": "2026-04-12T21:17:36.031Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -262,7 +262,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-12T09:18:44.102Z",
+      "crawledAt": "2026-04-12T21:17:36.030Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-03-06",
@@ -379,7 +379,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-12T09:18:44.102Z",
+      "crawledAt": "2026-04-12T21:17:36.029Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -390,6 +390,113 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "datePosted": "2026-02-27",
+      "_qualityScore": 100,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "efg-6103",
+      "slug": "temp-contract-business-analista-sviluppatore-efg-international-ag-lugano-n9334f",
+      "company": "EFG International AG",
+      "title": "Temp Contract - IT Business Analyst/Developer",
+      "location": "Lugano",
+      "canton": "TI",
+      "category": "tech",
+      "contract": "temporary",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-10",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6103",
+      "source": "Oracle HCM API",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [],
+            "responsibilities": [
+              "<span>Provide day-to-day support of the various application systems.</span>",
+              "<span>Document new system enhancements, implement and test enhancements, provide training to users </span>",
+              "<span>Liaise with existing users and technical analysts and the relevant application vendors</span>",
+              "<span>Configuration, roll-out, training and application support of Charles River / Aladdin and surrounding applications</span>",
+              "<span>Define and test required solutions to enhance the existing features and functionalities of the IT solutions</span>",
+              "<span>Obtain expertise in using and configuring the Charles River / Aladdin applications</span>",
+              "<span>Progress in timely manner with defining changes and the delivery of required changes in the systems</span>",
+              "<span>Escalate issues in timely manner with all required stakeholders</span>",
+              "<span>Progress work according to agreed priorities (and ensure that priorities are understood if there are any ambiguities)</span>",
+              "<span>Conduct and document and agree gap analysis of any required changes with Vendor and business users</span>",
+              "<span>Prepare, agree and document detailed process flows, test plan, test execution reports and other project documentation</span>"
+            ],
+            "requirements": [
+              "<span>Bachelor or Master degree qualification in a numerate subject (e.g. Engineering, Economics, maths, etc…)</span>",
+              "<span>Strong communication skills (written and oral)</span>",
+              "<span>Excellent analytical and problem-solving skills /ability to think quick on your feet)</span>",
+              "<span>Strong attention to detail </span>",
+              "<span>Ability to be independent and take ownership of tasks</span>",
+              "<span>Goal-oriented</span>",
+              "<span>Excellent knowledge of MS Office</span>",
+              "<span>Software experience: Microsoft SQL, Excel Macros, Visual Basic </span>",
+              "<span>Knowledge of Charles River and / or BlackRock Aladdin (preferable)</span>",
+              "<span>English (French/German/Italian would be beneficial)</span>",
+              "<span>Effective interpersonal skill in negotiation and influencing</span>",
+              "<span>Must be able to travel from time to time if required</span>",
+              "<span>Previous experience in financial industry would be preferable</span>",
+              "<span>Expectation to be office based</span>",
+              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
+              "Hands-on: Being proactive to rapidly deliver high-quality results"
+            ],
+            "benefits": [],
+            "process": [
+              "Should you wish to apply for this position use this link to apply."
+            ],
+            "highlights": [
+              "<span>Provide day-to-day support of the various application systems.</span>",
+              "<span>Document new system enhancements, implement and test enhancements, provide training to users </span>",
+              "<span>Liaise with existing users and technical analysts and the relevant application vendors</span>",
+              "<span>Bachelor or Master degree qualification in a numerate subject (e.g. Engineering, Economics, maths, etc…)</span>",
+              "<span>Strong communication skills (written and oral)</span>",
+              "<span>Excellent analytical and problem-solving skills /ability to think quick on your feet)</span>"
+            ],
+            "keywords": [
+              "<span>Bachelor or Master degree qualification in a numerate subject (e.g. Engineering",
+              "<span>Strong communication skills (written and oral)</span>",
+              "<span>Excellent analytical and problem-solving skills /ability to think quick on your feet)</span>",
+              "<span>Strong attention to detail </span>",
+              "<span>Ability to be independent and take ownership of tasks</span>",
+              "<span>Provide day-to-day support of the various application systems.</span>",
+              "<span>Document new system enhancements",
+              "<span>Liaise with existing users and technical analysts and the relevant application vendors</span>",
+              "<span>Configuration"
+            ],
+            "sections": [
+              {
+                "id": "details",
+                "heading": "Specification of Core Function",
+                "paragraphs": [
+                  "Our team delivers solutions and provides support for internal and third-party systems in place for the Investment Client Solution (ICS) business. Support, business analysis, testing and development is provided for all business lines of the ICS including Advisory, Discretionary and New Capital Funds. The main aspect of this role is Support and Business Analyst functions. The role involves interaction with a wide range of end users from all aspects of the business (e.g. Front office, Middle office, Back office, Risk and Compliance as well as IT). The role involves providing support for Production critical issues, understanding and challenging business change requirements, testing changes, co-ordinating delivery workstreams, devising workable efficient scalable solutions to meet business requirements."
+                ],
+                "bullets": []
+              }
+            ],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-04-12T21:17:36.028Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "sourceLang": "en",
+      "salaryMin": 72500,
+      "salaryMax": 97500,
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "datePosted": "2026-03-10",
       "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -491,7 +598,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-12T09:18:44.100Z",
+      "crawledAt": "2026-04-12T21:17:36.027Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-03-25",
@@ -506,113 +613,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "efg-6103",
-      "slug": "temp-contract-business-analista-sviluppatore-efg-international-ag-lugano-n9334f",
-      "company": "EFG International AG",
-      "title": "Temp Contract - IT Business Analyst/Developer",
-      "location": "Lugano",
-      "canton": "TI",
-      "category": "tech",
-      "contract": "temporary",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-10",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6103",
-      "source": "Oracle HCM API",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [],
-            "responsibilities": [
-              "<span>Provide day-to-day support of the various application systems.</span>",
-              "<span>Document new system enhancements, implement and test enhancements, provide training to users </span>",
-              "<span>Liaise with existing users and technical analysts and the relevant application vendors</span>",
-              "<span>Configuration, roll-out, training and application support of Charles River / Aladdin and surrounding applications</span>",
-              "<span>Define and test required solutions to enhance the existing features and functionalities of the IT solutions</span>",
-              "<span>Obtain expertise in using and configuring the Charles River / Aladdin applications</span>",
-              "<span>Progress in timely manner with defining changes and the delivery of required changes in the systems</span>",
-              "<span>Escalate issues in timely manner with all required stakeholders</span>",
-              "<span>Progress work according to agreed priorities (and ensure that priorities are understood if there are any ambiguities)</span>",
-              "<span>Conduct and document and agree gap analysis of any required changes with Vendor and business users</span>",
-              "<span>Prepare, agree and document detailed process flows, test plan, test execution reports and other project documentation</span>"
-            ],
-            "requirements": [
-              "<span>Bachelor or Master degree qualification in a numerate subject (e.g. Engineering, Economics, maths, etc…)</span>",
-              "<span>Strong communication skills (written and oral)</span>",
-              "<span>Excellent analytical and problem-solving skills /ability to think quick on your feet)</span>",
-              "<span>Strong attention to detail </span>",
-              "<span>Ability to be independent and take ownership of tasks</span>",
-              "<span>Goal-oriented</span>",
-              "<span>Excellent knowledge of MS Office</span>",
-              "<span>Software experience: Microsoft SQL, Excel Macros, Visual Basic </span>",
-              "<span>Knowledge of Charles River and / or BlackRock Aladdin (preferable)</span>",
-              "<span>English (French/German/Italian would be beneficial)</span>",
-              "<span>Effective interpersonal skill in negotiation and influencing</span>",
-              "<span>Must be able to travel from time to time if required</span>",
-              "<span>Previous experience in financial industry would be preferable</span>",
-              "<span>Expectation to be office based</span>",
-              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
-              "Hands-on: Being proactive to rapidly deliver high-quality results"
-            ],
-            "benefits": [],
-            "process": [
-              "Should you wish to apply for this position use this link to apply."
-            ],
-            "highlights": [
-              "<span>Provide day-to-day support of the various application systems.</span>",
-              "<span>Document new system enhancements, implement and test enhancements, provide training to users </span>",
-              "<span>Liaise with existing users and technical analysts and the relevant application vendors</span>",
-              "<span>Bachelor or Master degree qualification in a numerate subject (e.g. Engineering, Economics, maths, etc…)</span>",
-              "<span>Strong communication skills (written and oral)</span>",
-              "<span>Excellent analytical and problem-solving skills /ability to think quick on your feet)</span>"
-            ],
-            "keywords": [
-              "<span>Bachelor or Master degree qualification in a numerate subject (e.g. Engineering",
-              "<span>Strong communication skills (written and oral)</span>",
-              "<span>Excellent analytical and problem-solving skills /ability to think quick on your feet)</span>",
-              "<span>Strong attention to detail </span>",
-              "<span>Ability to be independent and take ownership of tasks</span>",
-              "<span>Provide day-to-day support of the various application systems.</span>",
-              "<span>Document new system enhancements",
-              "<span>Liaise with existing users and technical analysts and the relevant application vendors</span>",
-              "<span>Configuration"
-            ],
-            "sections": [
-              {
-                "id": "details",
-                "heading": "Specification of Core Function",
-                "paragraphs": [
-                  "Our team delivers solutions and provides support for internal and third-party systems in place for the Investment Client Solution (ICS) business. Support, business analysis, testing and development is provided for all business lines of the ICS including Advisory, Discretionary and New Capital Funds. The main aspect of this role is Support and Business Analyst functions. The role involves interaction with a wide range of end users from all aspects of the business (e.g. Front office, Middle office, Back office, Risk and Compliance as well as IT). The role involves providing support for Production critical issues, understanding and challenging business change requirements, testing changes, co-ordinating delivery workstreams, devising workable efficient scalable solutions to meet business requirements."
-                ],
-                "bullets": []
-              }
-            ],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-04-12T09:18:44.100Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "sourceLang": "en",
-      "salaryMin": 72500,
-      "salaryMax": 97500,
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "datePosted": "2026-03-10",
-      "_qualityScore": 100,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
         "translation": 25,
         "completeness": 25
       }
@@ -716,7 +716,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-12T09:18:44.098Z",
+      "crawledAt": "2026-04-12T21:17:36.026Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-02-24",
@@ -828,7 +828,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-12T09:18:44.097Z",
+      "crawledAt": "2026-04-12T21:17:36.025Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-02-03",
@@ -951,7 +951,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-12T09:18:44.097Z",
+      "crawledAt": "2026-04-12T21:17:36.024Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-01-19",
@@ -1083,7 +1083,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-12T09:18:44.096Z",
+      "crawledAt": "2026-04-12T21:17:36.023Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-02-11",
@@ -1204,7 +1204,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-12T09:18:44.094Z",
+      "crawledAt": "2026-04-12T21:17:36.022Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1331,7 +1331,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-12T09:18:44.093Z",
+      "crawledAt": "2026-04-12T21:17:36.020Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1384,7 +1384,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-12T09:18:44.092Z",
+      "crawledAt": "2026-04-12T21:17:36.019Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2025-12-10",
@@ -1496,7 +1496,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-12T09:18:44.091Z",
+      "crawledAt": "2026-04-12T21:17:36.019Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2025-12-02",
@@ -1642,7 +1642,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-12T09:18:44.090Z",
+      "crawledAt": "2026-04-12T21:17:36.018Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-02-11",
@@ -1758,7 +1758,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-12T09:18:44.089Z",
+      "crawledAt": "2026-04-12T21:17:36.016Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-03-31",
@@ -1811,7 +1811,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-12T09:18:44.088Z",
+      "crawledAt": "2026-04-12T21:17:36.015Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-04-02",
@@ -1864,7 +1864,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-12T09:18:44.087Z",
+      "crawledAt": "2026-04-12T21:17:36.014Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "datePosted": "2026-04-01",
@@ -1992,7 +1992,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-12T09:18:44.085Z",
+      "crawledAt": "2026-04-12T21:17:36.012Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-01",
@@ -2072,7 +2072,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-12T09:18:44.083Z",
+      "crawledAt": "2026-04-12T21:17:36.011Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-02",
@@ -2150,7 +2150,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-12T09:18:44.083Z",
+      "crawledAt": "2026-04-12T21:17:36.010Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-02",
@@ -2202,7 +2202,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-12T09:18:44.082Z",
+      "crawledAt": "2026-04-12T21:17:36.009Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-07",
@@ -2256,7 +2256,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-12T09:18:44.081Z",
+      "crawledAt": "2026-04-12T21:17:36.008Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -2308,7 +2308,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-12T09:18:44.080Z",
+      "crawledAt": "2026-04-12T21:17:36.007Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -2361,7 +2361,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-12T09:18:44.079Z",
+      "crawledAt": "2026-04-12T21:17:36.006Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -2413,7 +2413,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-12T09:18:44.078Z",
+      "crawledAt": "2026-04-12T21:17:36.005Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-10",
@@ -2466,7 +2466,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-12T09:18:44.077Z",
+      "crawledAt": "2026-04-12T21:17:36.004Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-09",
@@ -2559,7 +2559,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-12T09:18:44.075Z",
+      "crawledAt": "2026-04-12T21:17:36.003Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-04-09",
@@ -2689,7 +2689,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-12T09:18:44.074Z",
+      "crawledAt": "2026-04-12T21:17:36.002Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-09",
