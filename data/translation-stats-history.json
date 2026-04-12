@@ -1,317 +1,5 @@
 [
   {
-    "timestamp": "2026-04-02T19:18:19.220Z",
-    "label": "before",
-    "total": 1547,
-    "needsRetranslation": 261,
-    "incomplete": 219,
-    "complete": 1328,
-    "missingByLocale": {
-      "it": 146,
-      "en": 191,
-      "de": 101,
-      "fr": 211
-    },
-    "topPending": [
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 65
-      },
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 46
-      },
-      {
-        "company": "Hilcona AG (Bell Food Group)",
-        "pending": 36
-      },
-      {
-        "company": "Interdiscount",
-        "pending": 35
-      },
-      {
-        "company": "Davos Klosters Bergbahnen AG",
-        "pending": 9
-      },
-      {
-        "company": "Prada Group",
-        "pending": 8
-      },
-      {
-        "company": "EFG International AG",
-        "pending": 5
-      },
-      {
-        "company": "Otis SA",
-        "pending": 3
-      },
-      {
-        "company": "CEDES AG",
-        "pending": 2
-      },
-      {
-        "company": "Scuola Club Migros",
-        "pending": 2
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-02T19:21:25.260Z",
-    "label": "after",
-    "total": 1547,
-    "needsRetranslation": 215,
-    "incomplete": 173,
-    "complete": 1374,
-    "missingByLocale": {
-      "it": 144,
-      "en": 147,
-      "de": 55,
-      "fr": 165
-    },
-    "topPending": [
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 65
-      },
-      {
-        "company": "Hilcona AG (Bell Food Group)",
-        "pending": 36
-      },
-      {
-        "company": "Interdiscount",
-        "pending": 35
-      },
-      {
-        "company": "Davos Klosters Bergbahnen AG",
-        "pending": 9
-      },
-      {
-        "company": "Prada Group",
-        "pending": 8
-      },
-      {
-        "company": "EFG International AG",
-        "pending": 5
-      },
-      {
-        "company": "Otis SA",
-        "pending": 3
-      },
-      {
-        "company": "CEDES AG",
-        "pending": 2
-      },
-      {
-        "company": "Scuola Club Migros",
-        "pending": 2
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 2
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-02T19:24:07.150Z",
-    "label": "before",
-    "total": 1547,
-    "needsRetranslation": 215,
-    "incomplete": 173,
-    "complete": 1374,
-    "missingByLocale": {
-      "it": 144,
-      "en": 147,
-      "de": 55,
-      "fr": 165
-    },
-    "topPending": [
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 65
-      },
-      {
-        "company": "Hilcona AG (Bell Food Group)",
-        "pending": 36
-      },
-      {
-        "company": "Interdiscount",
-        "pending": 35
-      },
-      {
-        "company": "Davos Klosters Bergbahnen AG",
-        "pending": 9
-      },
-      {
-        "company": "Prada Group",
-        "pending": 8
-      },
-      {
-        "company": "EFG International AG",
-        "pending": 5
-      },
-      {
-        "company": "Otis SA",
-        "pending": 3
-      },
-      {
-        "company": "CEDES AG",
-        "pending": 2
-      },
-      {
-        "company": "Scuola Club Migros",
-        "pending": 2
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 2
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-02T20:00:51.234Z",
-    "label": "after",
-    "total": 1547,
-    "needsRetranslation": 45,
-    "incomplete": 11,
-    "complete": 1536,
-    "missingByLocale": {
-      "it": 4,
-      "en": 9,
-      "de": 9,
-      "fr": 9
-    },
-    "topPending": [
-      {
-        "company": "Prada Group",
-        "pending": 8
-      },
-      {
-        "company": "Avaloq",
-        "pending": 1
-      },
-      {
-        "company": "Hilcona AG (Bell Food Group)",
-        "pending": 1
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-02T21:53:03.909Z",
-    "label": "before",
-    "total": 1544,
-    "needsRetranslation": 796,
-    "incomplete": 397,
-    "complete": 1147,
-    "missingByLocale": {
-      "it": 289,
-      "en": 332,
-      "de": 111,
-      "fr": 348
-    },
-    "topPending": [
-      {
-        "company": "Eisberg AG",
-        "pending": 121
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 65
-      },
-      {
-        "company": "VOLG",
-        "pending": 44
-      },
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 16
-      },
-      {
-        "company": "LIS – Lugano Istituti Sociali",
-        "pending": 13
-      },
-      {
-        "company": "Città di Lugano",
-        "pending": 11
-      },
-      {
-        "company": "Denner",
-        "pending": 11
-      },
-      {
-        "company": "EMS-Chemie AG",
-        "pending": 10
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 10
-      },
-      {
-        "company": "Davos Klosters Bergbahnen AG",
-        "pending": 9
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-02T22:03:55.286Z",
-    "label": "after",
-    "total": 1544,
-    "needsRetranslation": 328,
-    "incomplete": 300,
-    "complete": 1244,
-    "missingByLocale": {
-      "it": 192,
-      "en": 235,
-      "de": 110,
-      "fr": 252
-    },
-    "topPending": [
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 65
-      },
-      {
-        "company": "VOLG",
-        "pending": 44
-      },
-      {
-        "company": "Eisberg AG",
-        "pending": 24
-      },
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 16
-      },
-      {
-        "company": "LIS – Lugano Istituti Sociali",
-        "pending": 13
-      },
-      {
-        "company": "Città di Lugano",
-        "pending": 11
-      },
-      {
-        "company": "Denner",
-        "pending": 11
-      },
-      {
-        "company": "EMS-Chemie AG",
-        "pending": 10
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 10
-      },
-      {
-        "company": "Davos Klosters Bergbahnen AG",
-        "pending": 9
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-03T02:26:39.341Z",
     "label": "before",
     "total": 1544,
@@ -9255,6 +8943,54 @@
       },
       {
         "company": "Ticino Premium Properties SA",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-12T07:38:22.291Z",
+    "label": "before",
+    "total": 2431,
+    "needsRetranslation": 86,
+    "incomplete": 3,
+    "complete": 2428,
+    "missingByLocale": {
+      "it": 2,
+      "en": 2,
+      "de": 1,
+      "fr": 2
+    },
+    "topPending": [
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      },
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "Ticino Premium Properties SA",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-12T07:47:49.241Z",
+    "label": "after",
+    "total": 2431,
+    "needsRetranslation": 43,
+    "incomplete": 1,
+    "complete": 2430,
+    "missingByLocale": {
+      "it": 0,
+      "en": 1,
+      "de": 1,
+      "fr": 1
+    },
+    "topPending": [
+      {
+        "company": "Amministrazione Cantonale Ticino",
         "pending": 1
       }
     ]
