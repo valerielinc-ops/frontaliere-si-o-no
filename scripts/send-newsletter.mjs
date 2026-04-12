@@ -164,21 +164,24 @@ function injectJobAndCompanyLinks(html, jobs) {
   if (!jobs || jobs.length === 0) return html;
   const linkStyle = 'color:#2563eb;text-decoration:underline;';
 
+  // Build linked job snippets for the fallback paragraph
+  const linkedSnippets = [];
+
   for (const j of jobs.slice(0, 3)) {
     const jobUrl = j.url ? `${BASE_URL}${j.url.startsWith('/') ? j.url : '/' + j.url}` : '';
     const companyUrl = j.companyKey ? `${BASE_URL}/cerca-lavoro-ticino/azienda-${j.companyKey}` : '';
+
+    let foundTitle = false;
 
     // For each name: strip any existing <a> wrapping (AI may have used wrong URLs),
     // then strip <strong>, then inject correct link.
     if (j.title) {
       const titleEsc = j.title.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-      // Pass 1: unwrap any <a> around the title (keep text)
       html = html.replace(new RegExp(`<a[^>]*>\\s*(${titleEsc})\\s*</a>`, 'gi'), '$1');
-      // Pass 2: unwrap <strong> around the title
       html = html.replace(new RegExp(`<strong>(${titleEsc})</strong>`, 'gi'), '$1');
-      // Pass 3: wrap with correct link
-      if (jobUrl) {
+      if (jobUrl && new RegExp(titleEsc, 'i').test(html)) {
         html = html.replace(new RegExp(`(${titleEsc})`, 'i'), `<a href="${jobUrl}" style="${linkStyle}">$1</a>`);
+        foundTitle = true;
       }
     }
 
@@ -186,11 +189,30 @@ function injectJobAndCompanyLinks(html, jobs) {
       const companyEsc = j.company.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
       html = html.replace(new RegExp(`<a[^>]*>\\s*(${companyEsc})\\s*</a>`, 'gi'), '$1');
       html = html.replace(new RegExp(`<strong>(${companyEsc})</strong>`, 'gi'), '$1');
-      if (companyUrl) {
+      if (companyUrl && new RegExp(companyEsc, 'i').test(html)) {
         html = html.replace(new RegExp(`(${companyEsc})`, 'i'), `<a href="${companyUrl}" style="${linkStyle}">$1</a>`);
       }
     }
+
+    // Collect snippet for fallback paragraph if title wasn't found in AI text
+    if (!foundTitle && jobUrl && j.title) {
+      const titleLink = `<a href="${jobUrl}" style="${linkStyle}">${j.title}</a>`;
+      const companyPart = j.company && companyUrl
+        ? ` presso <a href="${companyUrl}" style="${linkStyle}">${j.company}</a>`
+        : j.company ? ` presso ${j.company}` : '';
+      const locationPart = j.location ? ` a ${j.location}` : '';
+      linkedSnippets.push(`${titleLink}${companyPart}${locationPart}`);
+    }
   }
+
+  // If AI didn't mention any jobs, prepend a paragraph with job links
+  if (linkedSnippets.length > 0) {
+    const jobIntro = linkedSnippets.length === 1
+      ? `Se cerchi qualcosa di concreto, dai un'occhiata a ${linkedSnippets[0]}.`
+      : `Se cerchi qualcosa di concreto, questa settimana ci sono ${linkedSnippets.slice(0, -1).join(', ')} e ${linkedSnippets[linkedSnippets.length - 1]}.`;
+    html = `<p style="font-size:14px;color:#334155;line-height:1.65;margin:0 0 14px;">${jobIntro}</p>` + html;
+  }
+
   return html;
 }
 
