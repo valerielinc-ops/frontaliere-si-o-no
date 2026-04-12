@@ -440,7 +440,8 @@ export function buildBriefingPrompt(ctx) {
       const postedInfo = j.postedDate || j.crawledAt || j.createdAt
         ? ` (posted: ${new Date(j.postedDate || j.crawledAt || j.createdAt).toLocaleDateString('it-CH')})`
         : '';
-      return `- ${j.title} at ${j.company} (${j.location})${postedInfo} → URL: ${url}`;
+      const companyUrl = j.companyKey ? `${BASE_URL}/cerca-lavoro-ticino/azienda-${j.companyKey}` : '';
+      return `- ${j.title} at ${j.company} (${j.location})${postedInfo} → JOB_URL: ${url}${companyUrl ? ` | COMPANY_URL: ${companyUrl}` : ''}`;
     })
     .filter(Boolean)
     .join('\n');
@@ -466,7 +467,7 @@ export function buildBriefingPrompt(ctx) {
     `Write in ${langName}. Be warm, conversational, and practical. Like a knowledgeable friend sharing useful updates.`,
     `Output 2-3 short paragraphs. Use simple HTML: <p> tags for paragraphs, <strong> for emphasis, <a href="URL" style="color:#2563eb;text-decoration:underline;"> for links. No greetings, no sign-offs, no subject line.`,
     `STRUCTURE RULE: First paragraph MUST mention 1-2 specific job opportunities with clickable hyperlinks. Second paragraph covers exchange rate context. Keep jobs EARLY — never push them to the end.`,
-    `CRITICAL JOB LINKING RULE: Every job mention MUST be a clickable <a href="EXACT_URL" style="color:#2563eb;text-decoration:underline;">Job Title</a> hyperlink. Copy the URL exactly from the data. NEVER use <strong> for job titles — ALWAYS use <a> with the provided URL. If a job has no URL, do NOT mention it. Example: "dai un'occhiata al ruolo di <a href="https://frontaliereticino.ch/cerca-lavoro-ticino/software-engineer-chiasso/" style="color:#2563eb;text-decoration:underline;">Software Engineer</a> presso Board International a Chiasso".`,
+    `CRITICAL JOB LINKING RULE: Every job mention MUST have TWO hyperlinks: (1) the job title linked to JOB_URL, and (2) the company name linked to COMPANY_URL. Copy URLs exactly from the data. NEVER use <strong> for job titles or company names — ALWAYS use <a>. If a job has no URL, do NOT mention it. Example: "dai un'occhiata al ruolo di <a href="JOB_URL" style="color:#2563eb;text-decoration:underline;">Software Engineer</a> presso <a href="COMPANY_URL" style="color:#2563eb;text-decoration:underline;">Board International</a> a Chiasso".`,
     `CRITICAL EXCHANGE RATE RULE: Use ONLY the weekly change percentage provided in the data below. Do NOT calculate or invent a different percentage.`,
     `Naturally weave in the exchange rate, any relevant job or fiscal context, and the weekly fact if interesting. Do NOT list everything — pick what matters most for this reader.`,
     `CRITICAL: Only mention dates that are explicitly provided in the data below. NEVER invent, guess, or assume dates for events, job postings, or facts. If no date is given for something, do not add one. Today's date is ${todayStr}.`,
