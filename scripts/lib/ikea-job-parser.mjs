@@ -192,7 +192,13 @@ function parseListingPage(html = '') {
  */
 async function fetchDetailDescription(url) {
   try {
-    const html = await fetchHtml(url, { timeoutMs: 15000 });
+    let html = '';
+  try {
+  
+  } catch (err) {
+    console.warn(`  Failed to fetch: ${err.message}`);
+    return [];
+  }
     if (!html) return '';
     const { document } = new JSDOM(html).window;
 

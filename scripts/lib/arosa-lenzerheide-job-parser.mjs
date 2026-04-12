@@ -254,7 +254,28 @@ function parseDetailPage(html = '') {
 export async function fetchAllArosaLenzerheideJobs() {
   console.log(`  Fetching Arosa Lenzerheide jobs from ${CAREER_URL}`);
 
-  const html = await fetchHtml(CAREER_URL, { timeoutMs: 25000 });
+  // Try multiple known URL patterns (the site may restructure)
+  const URLS_TO_TRY = [
+    CAREER_URL,
+    'https://www.arosalenzerheide.swiss/de/Offene-Stellen',
+    'https://www.arosalenzerheide.swiss/de/ueber-uns/jobs',
+    'https://www.arosalenzerheide.swiss/de/jobs',
+  ];
+
+  let html = '';
+  for (const url of URLS_TO_TRY) {
+    try {
+      html = await fetchHtml(url, { timeoutMs: 25000 });
+      if (html) {
+        console.log(`  Fetched from: ${url}`);
+        break;
+      }
+    } catch (err) {
+      console.warn(`  Failed to fetch ${url}: ${err.message}`);
+    }
+  }
+  if (!html) return [];
+
   const listings = parseListingPage(html);
   console.log(`  Jobs found on listing page: ${listings.length}`);
   if (!listings.length) return [];

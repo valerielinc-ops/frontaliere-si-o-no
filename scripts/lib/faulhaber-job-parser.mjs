@@ -261,7 +261,13 @@ function inferEmploymentType(title = '', description = '') {
 export async function fetchAllFaulhaberJobs() {
   console.log(`  Fetching Faulhaber jobs from ${CAREERS_URL}`);
 
-  const html = await fetchHtml(CAREERS_URL, { timeoutMs: 25000 });
+  let html = '';
+  try {
+  
+  } catch (err) {
+    console.warn(`  Failed to fetch: ${err.message}`);
+    return [];
+  }
   let listings = parseListingPage(html);
   console.log(`  Swiss jobs found on listing page: ${listings.length}`);
   if (!listings.length) return [];

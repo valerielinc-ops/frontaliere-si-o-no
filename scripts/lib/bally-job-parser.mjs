@@ -201,7 +201,13 @@ export async function fetchAllBallyJobs() {
   for (const url of CAREER_URLS) {
     try {
       console.log(`   Trying: ${url}`);
-      const html = await fetchHtml(url, { timeoutMs: 20000 });
+      let html = '';
+  try {
+  
+  } catch (err) {
+    console.warn(`  Failed to fetch: ${err.message}`);
+    return [];
+  }
       const found = parseCareerPageHtml(html, url);
       if (found.length > 0) {
         listings = found;

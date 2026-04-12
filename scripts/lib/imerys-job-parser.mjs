@@ -144,7 +144,13 @@ async function trySmartRecruitersHtml() {
   const srUrl = `${SR_API_BASE}?search=&location=Switzerland`;
   try {
     console.log(`   Trying SmartRecruiters HTML: ${srUrl}`);
-    const html = await fetchHtml(srUrl, { timeoutMs: 25000 });
+    let html = '';
+  try {
+  
+  } catch (err) {
+    console.warn(`  Failed to fetch: ${err.message}`);
+    return [];
+  }
     if (!html) return [];
 
     const { document } = new JSDOM(html).window;

@@ -122,7 +122,13 @@ function detectEmploymentType(text = '') {
 async function tryOstendisApi() {
   try {
     console.log(`   Trying Ostendis API: ${OSTENDIS_API_URL}`);
-    const html = await fetchHtml(OSTENDIS_API_URL, { timeoutMs: 15000 });
+    let html = '';
+  try {
+  
+  } catch (err) {
+    console.warn(`  Failed to fetch: ${err.message}`);
+    return [];
+  }
     // Ostendis may return HTML or JSON depending on the endpoint
     if (html.trim().startsWith('[') || html.trim().startsWith('{')) {
       const data = JSON.parse(html);

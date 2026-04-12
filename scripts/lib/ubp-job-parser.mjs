@@ -194,7 +194,13 @@ function parseCareerPageHtml(html = '') {
 async function tryOracleHcmIframe(iframeUrl) {
   try {
     console.log(`   Trying Oracle HCM iframe: ${iframeUrl}`);
-    const html = await fetchHtml(iframeUrl, { timeoutMs: 20000 });
+    let html = '';
+  try {
+  
+  } catch (err) {
+    console.warn(`  Failed to fetch: ${err.message}`);
+    return [];
+  }
     if (!html) return [];
     return parseCareerPageHtml(html);
   } catch (err) {

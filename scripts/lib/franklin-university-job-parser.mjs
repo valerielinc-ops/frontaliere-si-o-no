@@ -277,7 +277,13 @@ function parseDetailPage(html = '') {
 export async function fetchAllFranklinUniversityJobs() {
   console.log(`  Fetching Franklin University Switzerland jobs from ${CAREER_URL}`);
 
-  const html = await fetchHtml(CAREER_URL, { timeoutMs: 25000 });
+  let html = '';
+  try {
+  
+  } catch (err) {
+    console.warn(`  Failed to fetch: ${err.message}`);
+    return [];
+  }
   const listings = parseListingPage(html);
   console.log(`  Jobs found on listing page: ${listings.length}`);
   if (!listings.length) return [];

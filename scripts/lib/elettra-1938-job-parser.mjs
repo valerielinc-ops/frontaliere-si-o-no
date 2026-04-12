@@ -252,7 +252,13 @@ export async function fetchAllElettra1938Jobs() {
   for (const url of JOB_URLS) {
     try {
       console.log(`   Trying: ${url}`);
-      const html = await fetchHtml(url, { timeoutMs: 20000 });
+      let html = '';
+  try {
+  
+  } catch (err) {
+    console.warn(`  Failed to fetch: ${err.message}`);
+    return [];
+  }
       const found = parsePageForJobs(html, url);
 
       if (found.length > 0) {

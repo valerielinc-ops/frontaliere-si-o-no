@@ -235,7 +235,13 @@ export async function fetchAllKudelskiNagraJobs() {
   if (!listings || listings.length === 0) {
     console.log('   Greenhouse API did not return jobs, trying HTML scraping...');
     try {
-      const html = await fetchHtml(CAREER_URL, { timeoutMs: 25000 });
+      let html = '';
+  try {
+  
+  } catch (err) {
+    console.warn(`  Failed to fetch: ${err.message}`);
+    return [];
+  }
       listings = parseNagraCareerPage(html);
       console.log(`   HTML scraping found ${listings?.length || 0} job links`);
     } catch (err) {

@@ -226,9 +226,12 @@ export async function fetchAllZermattBergbahnenJobs() {
   const origTls = process.env.NODE_TLS_REJECT_UNAUTHORIZED;
   process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
-  let html;
+  let html = '';
   try {
     html = await fetchHtml(CAREERS_URL, { timeoutMs: 25000 });
+  } catch (err) {
+    console.warn(`  Failed to fetch ${CAREERS_URL}: ${err.message}`);
+    return [];
   } finally {
     // Restore original TLS setting
     if (origTls === undefined) {

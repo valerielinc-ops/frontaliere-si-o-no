@@ -238,7 +238,13 @@ function inferCanton(city = '') {
 export async function fetchAllStadlerRailJobs() {
   console.log(`  Fetching Stadler Rail jobs from ${CAREERS_URL}`);
 
-  const html = await fetchHtml(CAREERS_URL, { timeoutMs: 30000 });
+  let html = '';
+  try {
+  
+  } catch (err) {
+    console.warn(`  Failed to fetch: ${err.message}`);
+    return [];
+  }
   const listings = parseListingPage(html);
   console.log(`  Swiss jobs found on listing page: ${listings.length}`);
   if (!listings.length) return [];

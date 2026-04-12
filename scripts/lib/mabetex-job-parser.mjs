@@ -211,7 +211,13 @@ function inferEmploymentType(title = '', description = '') {
 export async function fetchAllMabetexJobs() {
   console.log(`  Fetching Mabetex jobs from ${CAREERS_URL}`);
 
-  const html = await fetchHtml(CAREERS_URL, { timeoutMs: 25000 });
+  let html = '';
+  try {
+  
+  } catch (err) {
+    console.warn(`  Failed to fetch: ${err.message}`);
+    return [];
+  }
   const listings = parseCareerPage(html);
   console.log(`  Jobs found on career page: ${listings.length}`);
   if (!listings.length) return [];

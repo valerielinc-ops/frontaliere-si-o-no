@@ -283,7 +283,13 @@ export async function fetchAllChiccoDoroJobs() {
   for (const url of CAREER_ALT_URLS) {
     try {
       console.log(`  Trying: ${url}`);
-      const html = await fetchHtml(url, { timeoutMs: 25000 });
+      let html = '';
+  try {
+  
+  } catch (err) {
+    console.warn(`  Failed to fetch: ${err.message}`);
+    return [];
+  }
       const listings = parseListingPage(html, url);
       if (listings.length > 0) {
         console.log(`  Jobs found on ${url}: ${listings.length}`);
