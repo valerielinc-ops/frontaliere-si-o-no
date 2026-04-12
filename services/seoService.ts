@@ -1953,6 +1953,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-visione-politica-fuga-giovani-ticino': { name: 'Fuga dei giovani dal Ticino', path: '/articoli-frontaliere/visione-politica-fuga-giovani-ticino', parent: 'blog' },
     'blog-cure-a-domicilio-atlas-protesta-18-aprile': { name: 'Cure a domicilio', path: '/articoli-frontaliere/cure-a-domicilio-atlas-protesta-18-aprile', parent: 'blog' },
     'blog-frontalieri-salari-perequazione-ricchezza-2026': { name: 'Frontalieri in Ticino', path: '/articoli-frontaliere/frontalieri-salari-perequazione-ricchezza-2026', parent: 'blog' },
+    'blog-acqua-potabile-lavizzara-piano-peccia-monti-rima': { name: 'Acqua di nuovo potabile a Lavizzara', path: '/articoli-frontaliere/acqua-potabile-lavizzara-piano-peccia-monti-rima', parent: 'blog' },
   };
 
   const info = sectionNames[section];

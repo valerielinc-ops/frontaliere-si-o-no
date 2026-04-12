@@ -2094,6 +2094,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-salari-perequazione-ricchezza-2026.title': 'Frontaliers au Tessin: salaires et péréquation fiscale, les comptes ne collent pas',
     'blog.article.frontalieri-salari-perequazione-ricchezza-2026.excerpt': 'Le Tessin est le sixième canton le plus riche de Suisse, mais la répartition de la richesse et les mécanismes de péréquation fiscale fédérale ne convainquent pas les analystes. Voici pourquoi.',
     'blog.article.frontalieri-salari-perequazione-ricchezza-2026.imageAlt': 'Poste-frontière de Gaggiolo entre Mendrisio et Varese avec des frontaliers rentrant chez eux',
+    'blog.article.acqua-potabile-lavizzara-piano-peccia-monti-rima.title': 'L’eau est de nouveau potable à Lavizzara : les installations de Piano di Peccia et Monti di Rima réouvertes',
+    'blog.article.acqua-potabile-lavizzara-piano-peccia-monti-rima.excerpt': 'Dès le 1er avril 2024, l’eau est à nouveau sûre dans toutes les zones de Lavizzara. Les restrictions ont été levées après les travaux réalisés sur Piano di Peccia et Monti di Rima.',
+    'blog.article.acqua-potabile-lavizzara-piano-peccia-monti-rima.imageAlt': 'Eau potable jaillissant d\'une fontaine dans la vallée de Lavizzara, Tessin, avec les monts Monti di Rima et Piano di Peccia en arrière-plan',
 };
 
 export default blogMetaFr;

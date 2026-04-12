@@ -7111,6 +7111,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-acqua-potabile-lavizzara-piano-peccia-monti-rima': {
+    title: 'Acqua di nuovo potabile a Lavizzara | Frontaliere Ticino',
+    description: 'Dal 1° aprile 2024 l’acqua è di nuovo sicura in tutte le zone di Lavizzara. Revocate le restrizioni dopo interventi su Piano di Peccia e Monti di Rima.',
+    keywords: 'frontalieri, ticino, svizzera, italia, acqua, nuovo, potabile, lavizzara',
+    ogTitle: 'Acqua di nuovo potabile a Lavizzara: Piano di Peccia e Mo',
+    ogDescription: 'Dal 1° aprile 2024 l’acqua è di nuovo sicura in tutte le zone di Lavizzara. Revocate le restrizioni dopo interventi su Piano di Peccia e Monti di Rima.',
+    canonicalPath: '/articoli-frontaliere/acqua-potabile-lavizzara-piano-peccia-monti-rima',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Acqua di nuovo potabile a Lavizzara: Piano di Peccia e Mo",
+      "description": "Dal 1° aprile 2024 l’acqua è di nuovo sicura in tutte le zone di Lavizzara. Revocate le restrizioni dopo interventi su Piano di Peccia e Monti di Rima.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/acqua-potabile-lavizzara-piano-peccia-monti-rima.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Acqua potabile che sgorga da una fontana nella valle di Lavizzara, con i Monti di Rima e il Piano di Peccia sullo sfondo"
+      },
+      "datePublished": "2026-04-12T00:03:37+00:00",
+      "dateModified": "2026-04-12T00:03:37+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/acqua-potabile-lavizzara-piano-peccia-monti-rima`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

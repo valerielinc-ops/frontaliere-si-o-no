@@ -2094,6 +2094,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-salari-perequazione-ricchezza-2026.title': 'Grenzpendler im Tessin: Löhne und Steuerausgleich – die Rechnung geht nicht auf',
     'blog.article.frontalieri-salari-perequazione-ricchezza-2026.excerpt': 'Das Tessin ist der sechstreichste Kanton der Schweiz, doch die Verteilung des Wohlstands und die Mechanismen des bundesweiten Finanzausgleichs überzeugen die Analysten nicht. Hier ist der Grund.',
     'blog.article.frontalieri-salari-perequazione-ricchezza-2026.imageAlt': 'Grenzübergang Gaggiolo zwischen Mendrisio und Varese mit Grenzgängern auf dem Heimweg',
+    'blog.article.acqua-potabile-lavizzara-piano-peccia-monti-rima.title': 'Wieder trinkbares Wasser in Lavizzara: Plane di Peccia und Monti di Rima wieder geöffnet',
+    'blog.article.acqua-potabile-lavizzara-piano-peccia-monti-rima.excerpt': 'Ab dem 1. April 2024 ist das Wasser in allen Zonen von Lavizzara wieder sicher. Die Einschränkungen wurden nach den Arbeiten an Plane di Peccia und Monti di Rima aufgehoben.',
+    'blog.article.acqua-potabile-lavizzara-piano-peccia-monti-rima.imageAlt': 'Trinkwasser aus einem Brunnen im Lavizzara-Tal, Tessin, mit den Bergen Monti di Rima und Piano di Peccia im Hintergrund',
 };
 
 export default blogMetaDe;

@@ -5871,4 +5871,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/frontalieri-salari-perequazione-ricchezza-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'acqua-potabile-lavizzara-piano-peccia-monti-rima',
+    category: 'pratico',
+    date: '2026-04-12T00:03:37.784Z',
+    image: '/images/blog/acqua-potabile-lavizzara-piano-peccia-monti-rima.jpg',
+    hasCalculator: true,
+  },
 ];

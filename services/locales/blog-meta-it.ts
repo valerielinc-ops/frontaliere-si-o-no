@@ -2094,6 +2094,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-salari-perequazione-ricchezza-2026.title': 'Frontalieri in Ticino: salari e perequazione fiscale, i conti non tornano',
     'blog.article.frontalieri-salari-perequazione-ricchezza-2026.excerpt': 'Il Ticino è il sesto cantone più ricco della Svizzera, ma la distribuzione della ricchezza e i meccanismi di perequazione federale non convincono gli analisti. Ecco perché.',
     'blog.article.frontalieri-salari-perequazione-ricchezza-2026.imageAlt': 'Valico di Gaggiolo tra Mendrisio e Varese con frontalieri che tornano a casa',
+    'blog.article.acqua-potabile-lavizzara-piano-peccia-monti-rima.title': 'Acqua di nuovo potabile a Lavizzara: Piano di Peccia e Monti di Rima riaperti',
+    'blog.article.acqua-potabile-lavizzara-piano-peccia-monti-rima.excerpt': 'Dal 1° aprile 2024 l’acqua è di nuovo sicura in tutte le zone di Lavizzara. Revocate le restrizioni dopo interventi su Piano di Peccia e Monti di Rima.',
+    'blog.article.acqua-potabile-lavizzara-piano-peccia-monti-rima.imageAlt': 'Acqua potabile che sgorga da una fontana nella valle di Lavizzara, con i Monti di Rima e il Piano di Peccia sullo sfondo',
 };
 
 export default blogMetaIt;

@@ -2094,6 +2094,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-salari-perequazione-ricchezza-2026.title': 'Cross-border workers in Ticino: wages and fiscal equalization, the numbers don\'t add up',
     'blog.article.frontalieri-salari-perequazione-ricchezza-2026.excerpt': 'Ticino is the sixth richest canton in Switzerland, but wealth distribution and the federal equalization mechanisms fail to convince analysts. Here\'s why.',
     'blog.article.frontalieri-salari-perequazione-ricchezza-2026.imageAlt': 'Gaggiolo border crossing between Mendrisio and Varese with cross-border workers returning home',
+    'blog.article.acqua-potabile-lavizzara-piano-peccia-monti-rima.title': 'Drinking water restored in Lavizzara: Piano di Peccia and Monti di Rima systems reopened',
+    'blog.article.acqua-potabile-lavizzara-piano-peccia-monti-rima.excerpt': 'As of 1 April 2024, drinking water is once again safe throughout all areas of Lavizzara. Restrictions have been lifted following upgrades to the Piano di Peccia and Monti di Rima systems.',
+    'blog.article.acqua-potabile-lavizzara-piano-peccia-monti-rima.imageAlt': 'Drinkable water flowing from a fountain in Lavizzara valley, Ticino, with Monti di Rima and Piano di Peccia mountains in the background',
 };
 
 export default blogMetaEn;
