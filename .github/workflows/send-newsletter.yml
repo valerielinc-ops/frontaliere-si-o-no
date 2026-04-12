@@ -2,10 +2,10 @@ name: Send Newsletter
 
 on:
   schedule:
-    # Monday 7:00 CET (5:00 UTC) — primary weekly send
-    - cron: '0 5 * * 1'
-    # Tue–Thu 7:00 CET (5:00 UTC) — auto-resume if daily cap was hit
-    - cron: '0 5 * * 2-4'
+    # Monday 6:00 CET (4:00 UTC) — primary weekly send
+    - cron: '0 4 * * 1'
+    # Tue–Thu 6:00 CET (4:00 UTC) — auto-resume if daily cap was hit
+    - cron: '0 4 * * 2-4'
   workflow_dispatch:
     inputs:
       mode:
