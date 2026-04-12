@@ -1150,9 +1150,17 @@ function BlogArticles({
     }
     el.textContent = JSON.stringify(jsonLd);
 
-    // FAQ schema for evergreen (non-novita) articles with question-like H2 headings
+    // FAQ schema for evergreen (non-novita) articles with question-like H2 headings.
+    // Skip if a static FAQPage JSON-LD already exists (from ogPagesPlugin) to avoid
+    // Google's "duplicate FAQPage" rich results error.
     const faqScriptId = 'faq-schema';
-    if (EVERGREEN_CATEGORIES.has(article.category)) {
+    const hasStaticFaqPage = Array.from(
+      document.querySelectorAll('script[type="application/ld+json"]:not([data-dynamic-ld])')
+    ).some(el => {
+      if (el.id === faqScriptId) return false;
+      try { return JSON.parse(el.textContent || '')?.['@type'] === 'FAQPage'; } catch { return false; }
+    });
+    if (!hasStaticFaqPage && EVERGREEN_CATEGORIES.has(article.category)) {
       const bodyTexts = collectBodyParts(article.id, t);
       const faqPairs = extractFaqPairs(bodyTexts.join('\n\n'));
       if (faqPairs.length >= 2) {
@@ -1176,7 +1184,7 @@ function BlogArticles({
       } else {
         document.getElementById(faqScriptId)?.remove();
       }
-    } else {
+    } else if (!hasStaticFaqPage) {
       document.getElementById(faqScriptId)?.remove();
     }
 

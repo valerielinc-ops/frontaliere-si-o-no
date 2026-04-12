@@ -42,6 +42,16 @@ const FaqSection: React.FC = () => {
   }, []);
 
   useEffect(() => {
+    // Skip if a static FAQPage JSON-LD already exists (from staticPagesPlugin)
+    // to avoid Google's "duplicate FAQPage" rich results error.
+    const hasStaticFaqPage = Array.from(
+      document.querySelectorAll('script[type="application/ld+json"]:not([data-dynamic-ld])')
+    ).some(el => {
+      if (el.id === 'faq-jsonld') return false;
+      try { return JSON.parse(el.textContent || '')?.['@type'] === 'FAQPage'; } catch { return false; }
+    });
+    if (hasStaticFaqPage) return;
+
     const faqJsonLd = {
       '@context': 'https://schema.org',
       '@type': 'FAQPage',

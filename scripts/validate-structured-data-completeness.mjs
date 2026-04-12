@@ -348,12 +348,28 @@ async function main() {
   for (let batchStart = 0; batchStart < sampledArr.length; batchStart += BATCH_SIZE) {
     const batch = sampledArr.slice(batchStart, batchStart + BATCH_SIZE);
     const results = await Promise.all(batch.map(async (file) => {
-      const html = await readFile(file, 'utf-8');
+      let html;
+      try { html = await readFile(file, 'utf-8'); } catch { return { errors: [], schemas: 0, datasets: 0, jobs: 0, events: 0 }; }
+
       const blocks = extractJsonLd(html);
       const schemas = flattenSchemas(blocks);
       const errors = [];
       let schemas_ = 0, datasets_ = 0, jobs_ = 0, events_ = 0;
       const isBridge = html.includes('__BRIDGE_TARGET_SLUG__');
+
+      // Detect duplicate top-level schema types (e.g. two FAQPage blocks).
+      // Only count top-level blocks (from extractJsonLd), not nested schemas.
+      const topLevelTypeCounts = {};
+      for (const block of blocks) {
+        const t = block?.['@type'];
+        if (t && typeof t === 'string') topLevelTypeCounts[t] = (topLevelTypeCounts[t] || 0) + 1;
+      }
+      const UNIQUE_TYPES = ['FAQPage', 'HowTo', 'Article', 'NewsArticle', 'BlogPosting'];
+      for (const ut of UNIQUE_TYPES) {
+        if ((topLevelTypeCounts[ut] || 0) > 1) {
+          errors.push({ file, type: ut, field: 'duplicate', message: `Duplicate ${ut} schema (${topLevelTypeCounts[ut]} found, max 1)` });
+        }
+      }
 
       for (const schema of schemas) {
         if (!schema || typeof schema !== 'object' || !schema['@type']) continue;
