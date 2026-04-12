@@ -4527,6 +4527,29 @@ ${hreflangLinks}
         _qw(flatFile, html.replace(SPA_ACTION_REDIRECT_SCRIPT, ''));
       };
 
+      // Pre-compute company → active jobs lookup (O(1) instead of O(n) per expired page)
+      const companyActiveJobsMap = new Map<string, any[]>();
+      for (const j of validJobs) {
+        const key = String(j.company || '').toLowerCase();
+        if (!key) continue;
+        const arr = companyActiveJobsMap.get(key);
+        if (arr) { if (arr.length < 5) arr.push(j); }
+        else companyActiveJobsMap.set(key, [j]);
+      }
+      // Pre-compute deterministic "recent jobs" pools: 20 jobs pre-sorted,
+      // then select 5 per expired slug via modular index (avoids O(n log n) sort per page)
+      const recentJobPool = validJobs.slice(0, Math.min(50, validJobs.length));
+      const selectRecentJobs = (seed: string, exclude: string) => {
+        const h = hashCode(seed);
+        const result: any[] = [];
+        for (let i = 0; i < recentJobPool.length && result.length < 5; i++) {
+          const idx = (h + i * 7) % recentJobPool.length;
+          const j = recentJobPool[idx];
+          if (j.slug !== exclude && !result.includes(j)) result.push(j);
+        }
+        return result;
+      };
+
       for (const slug of expiredSlugs) {
         const paths = tracking[slug];
         const ejData = expiredBySlug.get(slug);
@@ -4598,9 +4621,9 @@ ${hreflangLinks}
           const jobExpiredAt = String(ejData?.expiredAt || '');
           const displayCanton = CANTON_DISPLAY[jobCanton] || jobCanton;
 
-          // Find active jobs from the same company for cross-linking
+          // Find active jobs from the same company for cross-linking (O(1) map lookup)
           const sameCompanyActiveJobs = jobCompany
-            ? validJobs.filter((j: any) => String(j.company || '').toLowerCase() === jobCompany.toLowerCase()).slice(0, 5)
+            ? (companyActiveJobsMap.get(jobCompany.toLowerCase()) || [])
             : [];
 
           // --- H1 + expired notice ---
@@ -4686,11 +4709,8 @@ ${hreflangLinks}
           // This ensures even pages without ejData have cross-links to active listings,
           // adding both word count and genuine user value.
           if (sameCompanyActiveJobs.length === 0) {
-            // Pick up to 5 recent active jobs (deterministic by slug hash for stability)
-            const recentJobs = validJobs
-              .filter((j: any) => j.slug !== slug)
-              .sort((a: any, b: any) => hashCode(a.slug + slug) - hashCode(b.slug + slug))
-              .slice(0, 5);
+            // Pick up to 5 recent active jobs (deterministic by slug hash, O(1) via pre-computed pool)
+            const recentJobs = selectRecentJobs(slug, slug);
             if (recentJobs.length > 0) {
               const recentHeading = locale === 'it' ? 'Posizioni attive recenti' : locale === 'en' ? 'Recent active positions' : locale === 'de' ? 'Aktuelle offene Stellen' : 'Postes actifs r\u00e9cents';
               const recentList = recentJobs.map((j: any) => {
