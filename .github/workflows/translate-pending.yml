@@ -46,6 +46,26 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 350
 
+    # Self-hosted LibreTranslate — unlimited free translations with no external API dependency.
+    # Argos Translate models load on first request (~30s), subsequent calls are <500ms.
+    # Known limitation: quality is lower than DeepL/Azure for IT translations (e.g. typos
+    # in compound words). Use as high-priority tier for EN/DE/FR, free cascade handles IT.
+    services:
+      libretranslate:
+        image: libretranslate/libretranslate:latest
+        ports:
+          - 5000:5000
+        env:
+          LT_LOAD_ONLY: it,en,de,fr
+          LT_SUGGESTIONS: "false"
+          LT_DISABLE_WEB_UI: "true"
+        options: >-
+          --health-cmd "curl -sf http://localhost:5000/languages || exit 1"
+          --health-interval 15s
+          --health-timeout 10s
+          --health-retries 20
+          --health-start-period 120s
+
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -125,6 +145,9 @@ jobs:
         if: inputs.skip_translate != true
         env:
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: '1'
+          # Self-hosted LibreTranslate from service container — unlimited, no API key needed
+          JOBS_LIBRETRANSLATE_ENDPOINT: 'http://localhost:5000/translate'
+          LIBRETRANSLATE_SELF_HOSTED_URL: 'http://localhost:5000'
         run: node scripts/relocalize-pending-jobs.mjs --max-jobs ${{ inputs.max_jobs || '100' }} ${{ inputs.company_key && format('--company-key {0}', inputs.company_key) || '' }}
 
       - name: Log translation stats (after)
@@ -144,6 +167,8 @@ jobs:
       # every run. New jobs from crawlers will have source-copy titles that 2b fixes.
       - name: "Phase 2b: Fix untranslated titles (free cascade)"
         if: steps.hk.outputs.run == 'true' && inputs.dry_run != true
+        env:
+          LIBRETRANSLATE_SELF_HOSTED_URL: 'http://localhost:5000'
         run: node scripts/fix-untranslated-titles.mjs
 
       - name: Commit title fixes

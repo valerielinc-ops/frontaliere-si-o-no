@@ -76,7 +76,7 @@ describe('dedicated crawler localization pipeline integration', () => {
     expect(fetchMock).toHaveBeenCalled();
   });
 
-  it('leaves locale empty and sets needsRetranslation when translation providers return nothing', { timeout: 20000 }, async () => {
+  it('leaves locale empty and sets needsRetranslation when translation providers return nothing', { timeout: 45000 }, async () => {
     fs.writeFileSync(jobsPath, `${JSON.stringify([{
       slug: 'job-title-fallback',
       company: 'Demo SA',

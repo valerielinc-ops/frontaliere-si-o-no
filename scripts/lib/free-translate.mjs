@@ -42,6 +42,7 @@ let _azureExhaustedKeys = new Set();
 
 // Google Cloud Translation (official API, free tier: 500K chars/month)
 // Hard-capped at 16K chars/day in code to match GCP quota setting and avoid billing
+// Uses the same GCP API key as Gemini (same project, different API endpoint).
 const GOOGLE_CLOUD_TRANSLATE_KEY = (process.env.GOOGLE_CLOUD_TRANSLATE_KEY || process.env.GEMINI_API_KEY || '').trim();
 let _googleCloudDailyChars = 0;
 const GOOGLE_CLOUD_DAILY_LIMIT = 16000;
@@ -95,6 +96,11 @@ const LIBRETRANSLATE_PUBLIC = [
   'https://translate.fedilab.app',          // ✅ 200ms, 1 req/burst rate limit, verified 2026-03-30
   'https://translate.cutie.dating',         // ✅ 4.7s slower but reliable, verified 2026-03-30
 ];
+
+// Self-hosted LibreTranslate — runs as a service container in CI (translate-pending.yml).
+// Unlimited capacity, no API key, no rate limits. Set via LIBRETRANSLATE_SELF_HOSTED_URL env.
+const LIBRETRANSLATE_SELF_HOSTED = (process.env.LIBRETRANSLATE_SELF_HOSTED_URL || '').trim();
+
 const DEEPL_LANG_MAP = { it: 'IT', en: 'EN', de: 'DE', fr: 'FR' };
 
 // ── Instance Health Tracking ────────────────────────────────────────────────
@@ -133,8 +139,8 @@ const _cascadeStats = {
   calls: 0,
   successes: 0,
   failures: 0,
-  tierHits: { deepl: 0, azure: 0, googleCloud: 0, mozhiDeepL: 0, myMemory: 0, lingva: 0, simplyTranslate: 0, mozhiDdg: 0, libreTranslate: 0, huggingFace: 0, mozhiGoogle: 0, google: 0, mozhiYandex: 0 },
-  tierErrors: { deepl: 0, azure: 0, googleCloud: 0, mozhiDeepL: 0, myMemory: 0, lingva: 0, simplyTranslate: 0, mozhiDdg: 0, libreTranslate: 0, huggingFace: 0, mozhiGoogle: 0, google: 0, mozhiYandex: 0 },
+  tierHits: { deepl: 0, azure: 0, googleCloud: 0, mozhiDeepL: 0, myMemory: 0, libreTranslateSelfHosted: 0, lingva: 0, simplyTranslate: 0, mozhiDdg: 0, libreTranslate: 0, huggingFace: 0, mozhiGoogle: 0, google: 0, mozhiYandex: 0 },
+  tierErrors: { deepl: 0, azure: 0, googleCloud: 0, mozhiDeepL: 0, myMemory: 0, libreTranslateSelfHosted: 0, lingva: 0, simplyTranslate: 0, mozhiDdg: 0, libreTranslate: 0, huggingFace: 0, mozhiGoogle: 0, google: 0, mozhiYandex: 0 },
 };
 
 /**
@@ -463,6 +469,33 @@ async function translateWithSimplyTranslate(text, sourceLang, targetLang) {
   });
 }
 
+// ── LibreTranslate self-hosted (CI service container) ──────────────────────
+async function translateWithLibreTranslateSelfHosted(text, sourceLang, targetLang) {
+  if (!LIBRETRANSLATE_SELF_HOSTED) return '';
+  const q = normalizeSpace(text);
+  if (!q || sourceLang === targetLang) return '';
+
+  try {
+    const res = await fetch(`${LIBRETRANSLATE_SELF_HOSTED}/translate`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ q, source: sourceLang || 'auto', target: targetLang, format: 'text' }),
+      signal: AbortSignal.timeout(30000), // first call loads models (~30s), subsequent <500ms
+    });
+    if (!res.ok) {
+      console.warn(`⚠️  LibreTranslate self-hosted: HTTP ${res.status}`);
+      return '';
+    }
+    const data = await res.json();
+    const translated = normalizeSpace(data?.translatedText || '');
+    if (translated && translated.toLowerCase() !== q.toLowerCase()) return translated;
+    return '';
+  } catch (err) {
+    console.warn(`⚠️  LibreTranslate self-hosted error: ${err?.message || err}`);
+    return '';
+  }
+}
+
 // ── LibreTranslate public instances ─────────────────────────────────────────
 async function translateWithLibreTranslate(text, sourceLang, targetLang) {
   const q = normalizeSpace(text);
@@ -558,6 +591,8 @@ async function translateWithAzure(text, sourceLang, targetLang) {
       return '';
     } catch (err) {
       if (err?.quotaExhausted) continue;
+      // Log non-quota Azure errors so silent failures are visible in CI logs
+      if (err?.message) console.warn(`⚠️  Azure Translator error: ${err.message}`);
       return '';
     }
   }
@@ -764,7 +799,10 @@ export async function freeTranslate({ text, sourceLang, targetLang }) {
   const t2 = await tryTier('myMemory', async () => {
     if (clean.length <= 5000) {
       const mm = await translateWithMyMemory(clean, sourceLang, targetLang);
-      if (mm && normalizeSpace(mm).toLowerCase() !== clean.toLowerCase()) return normalizeSpace(mm);
+      if (!mm) return '';
+      // Check for quota warning in single-call path too (was only checked in chunked path)
+      if (mm.includes('MYMEMORY WARNING') || mm.includes('PLEASE CONTACT')) return '';
+      if (normalizeSpace(mm).toLowerCase() !== clean.toLowerCase()) return normalizeSpace(mm);
       return '';
     }
     // Chunk long text at sentence/paragraph boundaries
@@ -782,7 +820,11 @@ export async function freeTranslate({ text, sourceLang, targetLang }) {
   });
   if (t2) return t2;
 
-  // Tier 4: LibreTranslate (3 instances raced in parallel — reliable from CI)
+  // Tier 4a: LibreTranslate self-hosted (CI service container — unlimited, no rate limits)
+  const t3b = await tryTier('libreTranslateSelfHosted', () => translateWithLibreTranslateSelfHosted(clean, sourceLang, targetLang));
+  if (t3b) return t3b;
+
+  // Tier 4b: LibreTranslate public instances (raced in parallel — reliable from CI)
   const t4 = await tryTier('libreTranslate', () => translateWithLibreTranslate(clean, sourceLang, targetLang));
   if (t4) return t4;
 

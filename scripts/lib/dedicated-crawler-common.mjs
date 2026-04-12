@@ -43,7 +43,7 @@ async function translateJobFieldWithFallback({
     text,
     sourceLang,
     targetLang,
-    maxRetries: kind === 'title' ? 1 : 2,
+    maxRetries: 2,
   });
   if (translated) return translated;
 
