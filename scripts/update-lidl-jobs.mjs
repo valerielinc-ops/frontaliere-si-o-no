@@ -209,6 +209,7 @@ function buildSeedMetaFromHit(hit, sourceCanton) {
   const contract = normalizeLidlContract(hit?.contractType || '');
   return {
     location,
+    addressLocality: location,
     canton: inferredCanton || sourceCanton,
     country: 'CH',
     company: LIDL_COMPANY_NAME,

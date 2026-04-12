@@ -508,8 +508,10 @@ async function main() {
 
     if (jobsArr) {
       for (const job of jobsArr) {
-        const locales = Object.keys(job.descriptionByLocale || {});
-        if (locales.length === 0) locales.push(job.sourceLang || 'de');
+        // Check ALL 4 required locales — the validation gate requires complete
+        // coverage. Only checking existing keys misses locales that were never
+        // populated (e.g. descriptionByLocale is {} after garbage cleanup).
+        const locales = ['it', 'en', 'de', 'fr'];
 
         for (const locale of locales) {
           const desc = (job.descriptionByLocale?.[locale] || '').trim();
