@@ -11,13 +11,37 @@
     "https://jobs.bosch.com/en/?country=ch"
   ],
   "notes": "Dedicated Bosch career crawler for Swiss vacancies, filtered with shared Ticino/Grigioni location matching and parsed from the Bosch job portal HTML.",
-  "updatedAt": "2026-03-10T20:08:59.610Z",
+  "updatedAt": "2026-04-12T16:55:04.441Z",
   "seedMetaByUrl": {
-    "https://jobs.bosch.com/en/job/REF280202G-tecnico-di-servizio-fossile-regione-ticino-m-f-div-ref280202g": {
-      "location": "Rivera",
-      "canton": "TI",
+    "https://jobs.bosch.com/en/job/REF282899E-groupleader-production-100-w-m-div-ref282899e": {
+      "location": "St. Niklaus",
+      "canton": "VS",
       "company": "Bosch Thermotechnik AG",
-      "postedDate": "2026-03-10"
+      "postedDate": "2026-04-08"
+    },
+    "https://jobs.bosch.com/en/job/REF282794R-produktionsmitarbeiter-100-m-w-div-ref282794r": {
+      "location": "St. Niklaus",
+      "canton": "VS",
+      "company": "Bosch Thermotechnik AG",
+      "postedDate": "2026-04-07"
+    },
+    "https://jobs.bosch.com/en/job/REF282482P-logistiker-100-w-m-div-ref282482p": {
+      "location": "Naters",
+      "canton": "VS",
+      "company": "Bosch Thermotechnik AG",
+      "postedDate": "2026-04-01"
+    },
+    "https://jobs.bosch.com/en/job/REF280421X-mechaniker-w-m-div-ref280421x": {
+      "location": "St. Niklaus",
+      "canton": "VS",
+      "company": "Bosch Thermotechnik AG",
+      "postedDate": "2026-03-11"
+    },
+    "https://jobs.bosch.com/en/job/REF279222F-lehrstelle-kauffrau-kaufmann-ref279222f": {
+      "location": "St. Niklaus",
+      "canton": "VS",
+      "company": "Bosch Thermotechnik AG",
+      "postedDate": "2026-03-11"
     }
   }
 }

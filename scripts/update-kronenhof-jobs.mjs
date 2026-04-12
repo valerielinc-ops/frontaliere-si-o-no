@@ -319,7 +319,7 @@ function buildJob(raw, detailDescription = '') {
     title,
     slug,
     url: detailUrl,
-    applyUrl: CAREERS_URL,
+    applyUrl: detailUrl,
     company,
     companyKey: COMPANY_KEY,
     companyDomain: COMPANY_DOMAIN,

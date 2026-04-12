@@ -1,55 +1,16 @@
 {
   "key": "ubp",
   "label": "Union Bancaire Privée",
-  "generatedAt": "2026-04-12T07:59:19.844Z",
-  "total": 1,
-  "newCount": 1,
+  "generatedAt": "2026-04-12T17:02:27.413Z",
+  "total": 0,
+  "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3061,
-  "avgDurationMs": 3061,
-  "durationHistory": [
-    3061
-  ],
-  "newJobs": [
-    {
-      "id": "ubp-8fb9371247a1",
-      "slug": "our-job-offers-ubp-ch",
-      "company": "Union Bancaire Privée",
-      "companyKey": "ubp",
-      "companyDomain": "ubp.com",
-      "title": "Our job offers",
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/jobs?mode=location",
-      "source": "Union Bancaire Privée Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-04-12T07:59:18.283Z",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6900",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Banca / Gestione patrimoniale",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-12",
-      "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/jobs?mode=location",
-      "_qualityScore": 56,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 10,
-        "translation": 4,
-        "completeness": 17
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "earlyExit": true,
+  "exitCode": 0
 }

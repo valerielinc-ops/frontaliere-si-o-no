@@ -103,8 +103,12 @@ export function parseBoschJobDetail(html = '') {
     return normalizeSpace(wrapper?.querySelector('.M-JobKeyFacts__fact')?.textContent || '');
   };
 
+  // The apply button is a div.ApplyButton with a data-apply-button-href attribute,
+  // NOT a regular anchor tag. The only <a> with smartrecruiters.com is the privacy
+  // policy footer link — so we must read the data attribute instead.
   const applyUrl =
-    normalize(document.querySelector('a[href*="smartrecruiters.com"]')?.href || '') ||
+    normalize(document.querySelector('[data-apply-button-href]')?.getAttribute('data-apply-button-href') || '') ||
+    normalize(document.querySelector('a[href*="smartrecruiters.com/BoschGroup"]')?.href || '') ||
     normalize(document.querySelector('a[href*="/apply"]')?.href || '');
 
   const sections = [];

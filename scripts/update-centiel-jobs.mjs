@@ -146,51 +146,61 @@ async function fetchCareersHtml() {
 }
 
 /**
- * Parse accordion items from the Centiel careers page HTML.
+ * Parse job listings from the Centiel careers page HTML.
  *
- * Each accordion-item has:
- *   <h3 class="block-title">Title</h3>
- *   <div class="block-content"> ... description paragraphs ...
- *     <p><strong>Workplace:</strong> Cadro (Lugano) ...
- *     <p><a href="...pdf">Learn more</a></p>
- *   </div>
+ * The page lists jobs under an "Current vacancies" h2.
+ * Each job is an <h3> title followed by paragraphs containing the
+ * description, metadata (<strong> labels), and a "Learn more" PDF link.
+ * There are no wrapper divs or accordion classes — just sequential
+ * h3 + p elements.
  */
 function parseCareersPage(html) {
   const jobs = [];
 
-  // Split by accordion-item blocks
-  const blocks = html.split('<div class="accordion-item">').slice(1);
+  // Isolate the vacancies section: everything after "Current vacancies" h2
+  const vacancyStart = html.search(/<h2[^>]*>[^<]*Current\s+vacancies[^<]*<\/h2>/i);
+  if (vacancyStart === -1) {
+    // Fallback: try to find the first h3 that looks like a job title
+    // (page may restructure again)
+  }
+  const sectionHtml = vacancyStart !== -1 ? html.slice(vacancyStart) : html;
 
-  for (const block of blocks) {
-    // Extract title from <h3 class="block-title">
-    const titleMatch = block.match(/<h3\s+class="block-title">\s*([\s\S]*?)\s*<\/h3>/i);
-    if (!titleMatch) continue;
-    const title = decodeHtmlEntities(titleMatch[1].trim());
+  // Split by <h3> tags to get one block per job.
+  // Each block starts right after the <h3> open tag.
+  const h3Parts = sectionHtml.split(/<h3[^>]*>/i).slice(1);
 
-    // Extract block-content
-    const contentMatch = block.match(/<div\s+class="block-content">([\s\S]*?)<\/div\s*>/i);
-    if (!contentMatch) continue;
-    const contentHtml = contentMatch[1];
+  for (const part of h3Parts) {
+    // Extract title (text before closing </h3>)
+    const closingH3 = part.indexOf('</h3>');
+    if (closingH3 === -1) continue;
+    const rawTitle = part.slice(0, closingH3);
+    const title = decodeHtmlEntities(stripHtml(rawTitle)).trim();
+    if (!title) continue;
 
-    // Extract PDF URL
+    // The content after </h3> until the end of this block
+    const contentHtml = part.slice(closingH3 + 5);
+
+    // Extract PDF URL and resolve to absolute
     const pdfMatch = contentHtml.match(/href="([^"]*\.pdf[^"]*)"/i);
-    const pdfUrl = pdfMatch ? pdfMatch[1] : '';
+    const pdfUrl = pdfMatch
+      ? new URL(pdfMatch[1], CAREERS_URL).href
+      : '';
 
     // Extract workplace/location
-    const workplaceMatch = contentHtml.match(/<strong>Workplace:<?(?:strong|\/strong)?>\s*(.*?)(?:<br|<\/p)/i);
+    const workplaceMatch = contentHtml.match(/<strong>\s*Workplace\s*:?\s*<\/strong>\s*(.*?)(?:<br|<\/p|<strong)/i);
     const workplace = workplaceMatch
       ? stripHtml(workplaceMatch[1]).trim()
       : 'Cadro (Lugano)';
 
     // Extract reporting-to
-    const reportingMatch = contentHtml.match(/<strong>Reporting to:<?(?:strong|\/strong)?>\s*(.*?)(?:<br|<\/p)/i);
+    const reportingMatch = contentHtml.match(/<strong>\s*Reporting\s+to\s*:?\s*<\/strong>\s*(.*?)(?:<br|<\/p|<strong)/i);
     const reportingTo = reportingMatch ? stripHtml(reportingMatch[1]).trim() : '';
 
     // Extract working rate
-    const rateMatch = contentHtml.match(/<strong>Working rate:<\/strong>\s*(.*?)(?:<br|<\/p)/i);
+    const rateMatch = contentHtml.match(/<strong>\s*Working\s+rate\s*:?\s*<\/strong>\s*(.*?)(?:<br|<\/p|<strong)/i);
     const workingRate = rateMatch ? stripHtml(rateMatch[1]).trim() : '';
 
-    // Build clean description from the content paragraphs (exclude the metadata paragraph)
+    // Build clean description from the content paragraphs (exclude the "Learn more" link text)
     const description = stripHtml(contentHtml)
       .replace(/Learn more\s*$/, '')
       .trim();
@@ -246,7 +256,7 @@ function buildJob(row) {
     title: row.title,
     slug,
     url,
-    applyUrl: CAREERS_URL,
+    applyUrl: url,
     company: COMPANY_NAME,
     companyKey: COMPANY_KEY,
     companyDomain: COMPANY_DOMAIN,

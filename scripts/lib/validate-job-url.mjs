@@ -146,6 +146,18 @@ function isGenericLandingPage(originalUrl, finalUrl) {
     for (const pattern of GENERIC_LANDING_PATTERNS) {
       if (pattern.test(fin.pathname + fin.search)) return true;
     }
+    // Redirect to root of a careers/jobs subdomain (e.g., careers.company.com/)
+    if (fin.pathname === '/' && /^(careers|jobs|job|carriere|karriere|recruiting)\./i.test(fin.hostname)) {
+      return true;
+    }
+    // Redirect to an explicit error page (e.g., /errorpage/?errortype=404)
+    if (/errorpage|error-page|page-not-found|not-found/i.test(fin.pathname)) {
+      return true;
+    }
+    // Redirect to a generic portal/listing page (e.g., zohorecruit portal.html)
+    if (/\/portal\.html?$/i.test(fin.pathname)) {
+      return true;
+    }
   } catch {
     return false;
   }

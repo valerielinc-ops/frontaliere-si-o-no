@@ -445,7 +445,7 @@ export async function fetchAllHeinekenChJobs() {
         featured: false,
         postedDate,
         url: listing.url,
-        applyUrl: detail?.applyUrl || `${BASE_URL}/talentcommunity/apply/${listing.jobId}/?locale=de_DE`,
+        applyUrl: detail?.applyUrl || listing.url,
         source: 'Heineken Switzerland Dedicated Parser (SuccessFactors)',
         sourceLang: 'de',
         crawledAt: new Date().toISOString(),

@@ -11,9 +11,8 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
-import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, normalizeSpace as _normalizeSpace, fetchHtml } from './crawler-template.mjs';
+import { slugify, stripHtml } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 
@@ -28,10 +27,23 @@ const BASE_URL = 'https://www.ubp.com';
 const HQ = getCompanyDefaults('ubp');
 
 /**
- * UBP uses Oracle Cloud HCM (formerly Taleo). Their careers page typically
- * either embeds an iframe to Oracle HCM or renders job listings server-side.
- * We try scraping the HTML for job links and titles.
+ * UBP uses Oracle Cloud HCM. Their careers page links to an external Oracle
+ * HCM portal. We query the Oracle HCM REST API directly (same pattern as
+ * the EFG crawler) to discover individual job requisitions with proper URLs.
+ *
+ * Oracle HCM REST API base:
+ *   .eu domain (linked from ubp.com): iaadtu.fa.ocs.oraclecloud.eu — DNS dead
+ *   .com domain (fallback):           iaadtu.fa.ocs.oraclecloud.com — may 503
+ *
+ * When the Oracle portal is unreachable, the crawler returns [] gracefully.
  */
+const ORACLE_BASES = [
+  'https://iaadtu.fa.ocs.oraclecloud.com',
+  'https://iaadtu.fa.ocs.oraclecloud.eu',
+];
+const ORACLE_SITE = 'CX_1';
+const ORACLE_ITEMS_PER_PAGE = 25;
+const ORACLE_MAX_PAGES = 10;
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -68,11 +80,16 @@ export function isUbpJob(job) {
 
 /**
  * Validate that a URL belongs to Union Bancaire Privée's domain.
+ * Includes Oracle HCM domains since UBP job URLs point there.
  */
 export function isTrustedDomain(rawUrl = '') {
   try {
     const host = new URL(rawUrl).hostname.toLowerCase();
-    return host === 'ubp.com' || host.endsWith('.ubp.com');
+    return (
+      host === 'ubp.com' ||
+      host.endsWith('.ubp.com') ||
+      (host.startsWith('iaadtu.') && host.includes('oraclecloud.'))
+    );
   } catch {
     return false;
   }
@@ -112,163 +129,177 @@ function detectEmploymentType(text = '') {
   return 'OTHER';
 }
 
-/* ── Fetch + Parse ─────────────────────────────────────────── */
+/* ── Oracle HCM REST API helpers ──────────────────────────── */
 
 /**
- * Parse the UBP careers page HTML for job listings.
- * UBP may use Oracle Cloud HCM (Taleo), an embedded iframe,
- * or server-rendered job list.
+ * Fetch JSON from a URL with timeout and error handling.
  */
-function parseCareerPageHtml(html = '') {
-  if (!html) return [];
-  const { document } = new JSDOM(html).window;
-  const jobs = [];
-  const seen = new Set();
-
-  // Strategy 1: Look for an embedded Oracle HCM iframe URL
-  const iframes = document.querySelectorAll('iframe[src]');
-  for (const iframe of iframes) {
-    const src = iframe.getAttribute('src') || '';
-    if (/oracle|taleo|hcm|recruit/i.test(src)) {
-      console.log(`   Found Oracle HCM iframe: ${src}`);
-      // Return the iframe URL so we can try to fetch it separately
-      return [{ __iframeUrl: src }];
+async function fetchJson(url, timeoutMs = 15000) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    const res = await globalThis.fetch(url, {
+      signal: controller.signal,
+      headers: {
+        Accept: 'application/json',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/131.0.0.0 Safari/537.36',
+      },
+    });
+    clearTimeout(timer);
+    if (!res.ok) {
+      console.warn(`   ⚠️ HTTP ${res.status} from ${url}`);
+      return null;
     }
+    const text = await res.text();
+    if (!text) return null;
+    return JSON.parse(text);
+  } catch (err) {
+    clearTimeout(timer);
+    console.warn(`   ⚠️ fetchJson failed for ${url}: ${err.message}`);
+    return null;
   }
+}
 
-  // Strategy 2: Look for embedded JSON data
-  const scripts = document.querySelectorAll('script');
-  for (const script of scripts) {
-    const text = script.textContent || '';
-    const jsonMatch = text.match(/"(?:jobs|vacancies|positions|openings)"\s*:\s*(\[[\s\S]*?\])/i);
-    if (jsonMatch) {
-      try {
-        const parsed = JSON.parse(jsonMatch[1]);
-        if (Array.isArray(parsed) && parsed.length > 0) return parsed;
-      } catch { /* not valid JSON */ }
-    }
-  }
+/**
+ * Build the public detail URL for a given Oracle HCM requisition.
+ */
+function buildOracleDetailUrl(oracleBase, requisitionId) {
+  return `${oracleBase}/hcmUI/CandidateExperience/en/sites/${ORACLE_SITE}/job/${requisitionId}`;
+}
 
-  // Strategy 3: Scrape job links from rendered HTML
-  const JOB_SELECTORS = [
-    'a[href*="career"], a[href*="job"], a[href*="vacancy"], a[href*="position"]',
-    'a[href*="emploi"], a[href*="stelle"]',
-    '.job-listing a, .career-listing a, .position-card a, .vacancy-item a',
-    '.job-list a, .openings a',
-    'h2 a, h3 a, h4 a',
-  ];
+/**
+ * Fetch full requisition detail payload from Oracle HCM.
+ * Contains ExternalDescriptionStr with the full HTML description.
+ */
+async function fetchRequisitionDetails(oracleBase, requisitionId) {
+  const id = String(requisitionId || '').trim();
+  if (!id) return null;
+  const url = `${oracleBase}/hcmRestApi/resources/latest/recruitingCEJobRequisitionDetails/${encodeURIComponent(id)}?onlyData=true`;
+  return await fetchJson(url);
+}
 
-  for (const selector of JOB_SELECTORS) {
-    try {
-      const links = document.querySelectorAll(selector);
-      for (const link of links) {
-        const href = link.getAttribute('href') || '';
-        const title = normalizeSpace(link.textContent || '');
+/**
+ * Query the Oracle HCM REST API for UBP job requisitions.
+ * Tries each Oracle base URL in order until one works.
+ * Returns { oracleBase, requisitions } or null if all fail.
+ */
+async function fetchOracleRequisitions() {
+  for (const oracleBase of ORACLE_BASES) {
+    console.log(`   Trying Oracle HCM API at ${oracleBase}...`);
+    const allRequisitions = [];
+    let offset = 0;
+    let totalCount = null;
+    let apiReachable = false;
 
-        if (!title || title.length < 5) continue;
-        if (seen.has(title.toLowerCase())) continue;
-        if (/login|privacy|cookie|about|contact|newsletter/i.test(href)) continue;
-        if (/our offices|about us|contact|disclaimer/i.test(title.toLowerCase())) continue;
+    for (let page = 1; page <= ORACLE_MAX_PAGES; page++) {
+      const apiUrl = `${oracleBase}/hcmRestApi/resources/latest/recruitingCEJobRequisitions?onlyData=true&expand=requisitionList.secondaryLocations&finder=findReqs;siteNumber=${ORACLE_SITE},facetsList=LOCATIONS,limit=${ORACLE_ITEMS_PER_PAGE},offset=${offset},sortBy=POSTING_DATES_DESC`;
 
-        seen.add(title.toLowerCase());
-        const fullUrl = href.startsWith('http') ? href : `${BASE_URL}${href.startsWith('/') ? '' : '/'}${href}`;
-
-        // Try to extract location from context
-        const parent = link.closest('li, tr, div, article, section') || link.parentElement;
-        const parentText = (parent?.textContent || '').toLowerCase();
-        const locMatch = parentText.match(/(?:lugano|geneva|genève|zurich|zürich|london|monaco)/i);
-        const location = locMatch ? locMatch[0] : '';
-
-        jobs.push({ title, url: fullUrl, location, description: '' });
+      const data = await fetchJson(apiUrl);
+      if (!data || !data.items || data.items.length === 0) {
+        if (page === 1) {
+          console.warn(`   ⚠️ Oracle HCM API at ${oracleBase} returned no data.`);
+        }
+        break;
       }
-    } catch { /* selector not found */ }
-    if (jobs.length > 0) break;
+
+      apiReachable = true;
+      const searchItem = data.items[0];
+      if (totalCount === null) {
+        totalCount = searchItem.TotalJobsCount || 0;
+        console.log(`   📊 Total jobs reported by Oracle API: ${totalCount}`);
+      }
+
+      const requisitions = searchItem.requisitionList || [];
+      if (requisitions.length === 0) break;
+
+      for (const req of requisitions) {
+        allRequisitions.push(req);
+      }
+      console.log(`   📄 Page ${page}: ${requisitions.length} requisitions (offset=${offset})`);
+
+      offset += requisitions.length;
+      if (offset >= totalCount) break;
+
+      await new Promise((r) => setTimeout(r, 300));
+    }
+
+    if (apiReachable && allRequisitions.length > 0) {
+      console.log(`   ✅ ${allRequisitions.length} requisitions from ${oracleBase}`);
+      return { oracleBase, requisitions: allRequisitions };
+    }
+
+    if (apiReachable && allRequisitions.length === 0) {
+      console.log(`   Oracle HCM API reachable but returned 0 requisitions.`);
+      return { oracleBase, requisitions: [] };
+    }
   }
 
-  return jobs;
+  return null;
 }
 
-/**
- * Try to fetch job data from an Oracle HCM iframe URL.
- */
-async function tryOracleHcmIframe(iframeUrl) {
-  try {
-    console.log(`   Trying Oracle HCM iframe: ${iframeUrl}`);
-    let html = '';
-  try {
-  
-  } catch (err) {
-    console.warn(`  Failed to fetch: ${err.message}`);
-    return [];
-  }
-    if (!html) return [];
-    return parseCareerPageHtml(html);
-  } catch (err) {
-    console.log(`   Oracle HCM iframe fetch failed: ${err.message}`);
-    return [];
-  }
-}
-
-/**
- * Filter for Lugano/Ticino-related jobs (UBP is based in Geneva
- * with offices in Lugano, Zurich, and globally).
- */
-function isLuganoRelevant(location = '', title = '') {
-  const combined = `${location} ${title}`.toLowerCase();
-  return /lugano|ticino|tessin|locarno|bellinzona/i.test(combined) || !location;
-}
+/* ── Fetch + Parse ─────────────────────────────────────────── */
 
 /**
  * Fetch all Union Bancaire Privée jobs.
  * Returns an array of ParsedJob objects (source-locale only).
  *
  * Strategy:
- *  1. Fetch and parse the careers page HTML
- *  2. If Oracle HCM iframe found, follow it
- *  3. Extract job listings from whatever HTML is available
+ *  1. Query Oracle HCM REST API directly (same pattern as EFG crawler)
+ *  2. For each requisition, build a proper detail URL and fetch description
+ *  3. If Oracle HCM is unreachable, return [] gracefully
+ *
+ * The old approach of scraping ubp.com/en/careers HTML was producing
+ * false-positive jobs from navigation links ("Our job offers") because the
+ * careers page contains no actual job listings — only a link to the
+ * external Oracle HCM portal.
  */
 export async function fetchAllUbpJobs() {
   console.log(`🔍 Fetching Union Bancaire Privée jobs`);
-  console.log(`   Source: ${CAREER_URL}\n`);
+  console.log(`   Oracle HCM site: ${ORACLE_SITE}`);
+  console.log(`   Careers page: ${CAREER_URL}\n`);
 
-  let listings = [];
-
-  try {
-    const html = await fetchHtml(CAREER_URL, { timeoutMs: 25000 });
-    listings = parseCareerPageHtml(html);
-
-    // If we found an Oracle HCM iframe, follow it
-    if (listings.length === 1 && listings[0].__iframeUrl) {
-      const iframeUrl = listings[0].__iframeUrl;
-      listings = await tryOracleHcmIframe(iframeUrl);
-    }
-  } catch (err) {
-    console.warn(`   HTML fetch failed: ${err.message}`);
-  }
-
-  if (!listings || listings.length === 0) {
-    console.warn('⚠️ No UBP job listings found (Oracle HCM may require JS rendering).');
+  const result = await fetchOracleRequisitions();
+  if (!result || result.requisitions.length === 0) {
+    console.warn('⚠️ No UBP job listings found — Oracle HCM portal may be unreachable or have no open positions.');
     return [];
   }
 
-  console.log(`  📋 Listings found: ${listings.length}`);
+  const { oracleBase, requisitions } = result;
+  console.log(`\n📋 Fetching details for ${requisitions.length} requisitions...`);
 
   const jobs = [];
-  for (const listing of listings) {
-    const title = normalizeSpace(listing.title || listing.name || '');
-    if (!title || title.length < 3) continue;
+  for (const req of requisitions) {
+    const reqId = String(req.Id || '');
+    const title = normalizeSpace(req.Title || '');
+    if (!title || title.length < 3 || !reqId) continue;
 
-    const rawLocation = listing.location || listing.city || '';
-    const location = normalizeSpace(rawLocation) || HQ?.city || 'Lugano';
-    const canton = inferSwissTargetCanton(location) || HQ?.canton || 'TI';
-    const descriptionText = stripHtml(listing.description || '');
-    const publicUrl = listing.url || listing.link || CAREER_URL;
+    const publicUrl = buildOracleDetailUrl(oracleBase, reqId);
+
+    // Extract location from Oracle HCM data
+    const primaryLoc = req.PrimaryLocation || '';
+    const rawLocation = normalizeSpace(primaryLoc) || HQ?.city || 'Lugano';
+    const canton = inferSwissTargetCanton(rawLocation) || HQ?.canton || 'TI';
+
+    // Fetch full description from detail API
+    let descriptionText = '';
+    const detailPayload = await fetchRequisitionDetails(oracleBase, reqId);
+    if (detailPayload?.ExternalDescriptionStr) {
+      descriptionText = stripHtml(detailPayload.ExternalDescriptionStr);
+    }
+    if (!descriptionText) {
+      descriptionText = stripHtml(req.ShortDescriptionStr || '');
+    }
 
     const sourceLang = detectLang(descriptionText || title, 'en');
     const jobSlug = slugify(`${title} ubp ch`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
 
-    const desc = descriptionText || `${title} — Position at Union Bancaire Privée (UBP) in ${location}. UBP is one of Switzerland's leading private banks, with offices in Lugano, Geneva, and Zurich, specializing in wealth management and asset management.`;
+    const postedDate = req.PostedDate
+      ? String(req.PostedDate).split('T')[0]
+      : (detailPayload?.ExternalPostedStartDate || '').split('T')[0]
+        || new Date().toISOString().split('T')[0];
+
+    const desc = descriptionText || `${title} — Position at Union Bancaire Privée (UBP) in ${rawLocation}. UBP is one of Switzerland's leading private banks, with offices in Lugano, Geneva, and Zurich, specializing in wealth management and asset management.`;
 
     const job = {
       id: `ubp-${urlHash}`,
@@ -281,25 +312,25 @@ export async function fetchAllUbpJobs() {
       titleByLocale: { [sourceLang]: title },
       description: desc,
       descriptionByLocale: { [sourceLang]: desc },
-      location,
+      location: rawLocation,
       canton,
       url: publicUrl,
-      source: 'Union Bancaire Privée Dedicated Parser',
+      source: 'Union Bancaire Privée Oracle HCM API',
       sourceLang,
       crawledAt: new Date().toISOString(),
-      addressLocality: location,
+      addressLocality: rawLocation,
       addressRegion: HQ?.addressRegion || 'TI',
       addressCountry: 'CH',
       country: 'CH',
       postalCode: HQ?.postalCode || '6900',
       category: detectCategory(title),
-      contract: detectEmploymentType(listing.timeType || title) === 'PART_TIME' ? 'part-time' : 'full-time',
-      employmentType: detectEmploymentType(listing.timeType || title),
+      contract: detectEmploymentType(req.TimeType || title) === 'PART_TIME' ? 'part-time' : 'full-time',
+      employmentType: detectEmploymentType(req.TimeType || title),
       experienceLevel: detectExperienceLevel(title),
       sector: 'Banca / Gestione patrimoniale',
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedDate || new Date().toISOString().split('T')[0],
+      postedDate,
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
