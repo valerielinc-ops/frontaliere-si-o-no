@@ -1,117 +1,5 @@
 [
   {
-    "timestamp": "2026-04-03T05:10:56.013Z",
-    "label": "before",
-    "total": 1543,
-    "needsRetranslation": 156,
-    "incomplete": 124,
-    "complete": 1419,
-    "missingByLocale": {
-      "it": 58,
-      "en": 78,
-      "de": 59,
-      "fr": 95
-    },
-    "topPending": [
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 14
-      },
-      {
-        "company": "Città di Lugano",
-        "pending": 10
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 10
-      },
-      {
-        "company": "Davos Klosters Bergbahnen AG",
-        "pending": 9
-      },
-      {
-        "company": "Lombardi Group",
-        "pending": 9
-      },
-      {
-        "company": "LWP Ledermann Wieting & Partners",
-        "pending": 7
-      },
-      {
-        "company": "Prada Group",
-        "pending": 7
-      },
-      {
-        "company": "Allianz Suisse",
-        "pending": 6
-      },
-      {
-        "company": "Cornèr Banca",
-        "pending": 6
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 6
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-03T05:14:10.040Z",
-    "label": "after",
-    "total": 1543,
-    "needsRetranslation": 118,
-    "incomplete": 85,
-    "complete": 1458,
-    "missingByLocale": {
-      "it": 46,
-      "en": 52,
-      "de": 31,
-      "fr": 61
-    },
-    "topPending": [
-      {
-        "company": "Città di Lugano",
-        "pending": 10
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 10
-      },
-      {
-        "company": "Davos Klosters Bergbahnen AG",
-        "pending": 9
-      },
-      {
-        "company": "LWP Ledermann Wieting & Partners",
-        "pending": 7
-      },
-      {
-        "company": "Cornèr Banca",
-        "pending": 6
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 5
-      },
-      {
-        "company": "BPS (Banca Popolare di Sondrio) SUISSE",
-        "pending": 4
-      },
-      {
-        "company": "Eisberg AG",
-        "pending": 4
-      },
-      {
-        "company": "Schindler",
-        "pending": 4
-      },
-      {
-        "company": "ALDI SUISSE",
-        "pending": 3
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-03T05:17:23.446Z",
     "label": "before",
     "total": 1543,
@@ -8805,6 +8693,90 @@
         "company": "Aziende Industriali di Lugano (AIL) SA",
         "pending": 1
       },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      },
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "Gruppo Ospedaliero Moncucco",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-12T09:58:07.388Z",
+    "label": "before",
+    "total": 2542,
+    "needsRetranslation": 332,
+    "incomplete": 17,
+    "complete": 2525,
+    "missingByLocale": {
+      "it": 6,
+      "en": 16,
+      "de": 10,
+      "fr": 16
+    },
+    "topPending": [
+      {
+        "company": "Lidl Svizzera",
+        "pending": 7
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 2
+      },
+      {
+        "company": "Aziende Industriali di Lugano (AIL) SA",
+        "pending": 1
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      },
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "Kantonsspital Graubünden",
+        "pending": 1
+      },
+      {
+        "company": "Lonza",
+        "pending": 1
+      },
+      {
+        "company": "Manor AG",
+        "pending": 1
+      },
+      {
+        "company": "Gruppo Ospedaliero Moncucco",
+        "pending": 1
+      },
+      {
+        "company": "Otis SA",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-12T10:15:33.004Z",
+    "label": "after",
+    "total": 2542,
+    "needsRetranslation": 29,
+    "incomplete": 3,
+    "complete": 2539,
+    "missingByLocale": {
+      "it": 1,
+      "en": 3,
+      "de": 2,
+      "fr": 3
+    },
+    "topPending": [
       {
         "company": "Amministrazione Cantonale Ticino",
         "pending": 1
