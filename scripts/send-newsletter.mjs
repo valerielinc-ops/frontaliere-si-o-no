@@ -773,6 +773,8 @@ function sanitizeJobUrls(html, validSlugs) {
     (fullMatch, fullUrl, slug) => {
       // Strip query params and trailing slash from slug for comparison
       const cleanSlug = slug.replace(/\/$/, '');
+      // Company pages (azienda-*) are valid — don't strip them
+      if (cleanSlug.startsWith('azienda-')) return fullMatch;
       if (validSlugs.has(cleanSlug)) return fullMatch;
 
       console.warn(`⚠️  Broken job URL removed from newsletter: ${cleanSlug}`);
@@ -1128,7 +1130,7 @@ function inlineQaCheck(sampleHtml, subject) {
 
     // Check for truncated sentences (text ending mid-word before signature)
     const lastSentence = editorialText.trim();
-    if (lastSentence.length > 0 && !/[.!?»"')\u2019]$/.test(lastSentence)) {
+    if (lastSentence.length > 0 && !/[.!?»"')\u2019%]$/.test(lastSentence)) {
       fail('editorial_truncated', `Editorial appears truncated: "...${lastSentence.slice(-60)}"`);
     } else {
       pass('editorial_not_truncated');
