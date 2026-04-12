@@ -444,8 +444,8 @@
       "slugByLocale": {
         "fr": "clinica-santa-chiara-lugano-moncucco",
         "it": "clinica-santa-chiara-lugano-moncucco",
-        "en": "santa-chiara-clinic-gruppo-ospedaliero-moncucco-lugano",
-        "de": "clinica-santa-chiara-lugano-moncucco"
+        "en": "emergency-and-urgent-care-gruppo-ospedaliero-moncucco-lugano",
+        "de": "notfall-und-akutmedizin-gruppo-ospedaliero-moncucco-lugano"
       },
       "company": "Gruppo Ospedaliero Moncucco",
       "companyKey": "moncucco",
@@ -496,7 +496,15 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "en": [
+          "santa-chiara-clinic-gruppo-ospedaliero-moncucco-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "santa-chiara-clinic-gruppo-ospedaliero-moncucco-lugano"
+      ]
     },
     {
       "id": "moncucco-78c051d57934",
