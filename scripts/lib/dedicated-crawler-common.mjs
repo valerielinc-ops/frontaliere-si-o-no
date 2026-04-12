@@ -2,7 +2,7 @@ import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 
-import { detectLanguage } from './detect-language.mjs';
+import { detectLanguage, detectLanguageWithConfidence } from './detect-language.mjs';
 import { freeTranslateWithRetry } from './free-translate.mjs';
 import {
   translateTextWithLocalPipeline,
@@ -2823,10 +2823,19 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = n
           normCurrentDesc.length > 0 &&
           normSourceDesc.length >= 500 &&
           normCurrentDesc.length < normSourceDesc.length * 0.7;
+        // Cross-locale contamination: description detected as wrong language for this slot.
+        // Aligned with isIncomplete() threshold (0.65) to prevent stuck jobs where the
+        // cache serves contaminated translations that isIncomplete() rejects but
+        // descNeedsWork previously accepted because the slot was non-empty.
+        const isDescContaminated = locale !== sourceLang && currentDesc.length >= 80 && (() => {
+          const det = detectLanguageWithConfidence(currentDesc, locale);
+          return det.confidence >= 0.65 && det.lang !== locale && DEFAULT_LOCALES.includes(det.lang);
+        })();
         const descNeedsWork =
           !currentDesc ||
           isGarbageCopy ||
           isThinTranslation ||
+          isDescContaminated ||
           (sourceDescriptionIsRich && currentDesc.length < minDescriptionChars) ||
           (locale !== sourceLang && normalize(currentDesc) === normalize(sourceDesc)) ||
           // When the source description was just restored from a richer base (85% rule),

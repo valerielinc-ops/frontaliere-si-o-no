@@ -41,6 +41,7 @@ const ROOT = path.resolve(__dirname, '..');
 
 const DATA_JOBS_PATH = path.join(ROOT, 'data', 'jobs.json');
 const BY_CRAWLER_DIR = path.join(ROOT, 'data', 'jobs', 'by-crawler');
+const TRANSLATION_CACHE_DIR = path.join(ROOT, 'data', 'translation-cache');
 const LOCALES = ['it', 'en', 'de', 'fr'];
 const MIN_DESC_CHARS = 120;
 const MIN_TITLE_CHARS = 3;
@@ -557,6 +558,34 @@ function incrementRetryCounterOnCrawlerFile(companyKey, handledSlugs) {
   }
 }
 
+/**
+ * Invalidate translation cache entries for jobs that isIncomplete() flags.
+ * This breaks the deadlock where stale cache serves bad translations that
+ * isIncomplete() rejects but the translation loop accepts (non-empty slot).
+ */
+function invalidateCacheForIncompleteJobs(companyKey, incompleteJobs) {
+  if (!incompleteJobs.length) return 0;
+  const cacheFile = path.join(TRANSLATION_CACHE_DIR, `${companyKey}.json`);
+  if (!fs.existsSync(cacheFile)) return 0;
+
+  let cache;
+  try { cache = JSON.parse(fs.readFileSync(cacheFile, 'utf-8')); } catch { return 0; }
+
+  const slugs = new Set(incompleteJobs.map(j => j.slug).filter(Boolean));
+  let invalidated = 0;
+  for (const slug of slugs) {
+    if (cache[slug]) {
+      delete cache[slug];
+      invalidated++;
+    }
+  }
+
+  if (invalidated > 0) {
+    fs.writeFileSync(cacheFile, JSON.stringify(cache, null, 2) + '\n', 'utf-8');
+  }
+  return invalidated;
+}
+
 async function main() {
   console.log('🔍 Scanning for jobs needing translation...\n');
 
@@ -706,6 +735,39 @@ async function main() {
     }
 
     console.log(`\n🔄 [${totalProcessed + companyJobCount}/${effectiveMax}] Translating ${key} (${companyJobCount} jobs) — ${Math.round(elapsedMs / 60_000)}min elapsed...`);
+
+    // Invalidate stale cache entries for incomplete jobs so the shared crawler
+    // actually calls translation APIs instead of serving cached bad translations.
+    const companyIncomplete = cappedPending.filter(j =>
+      normalizeCompanyKey(j.companyKey || j.company || '') === normalizeCompanyKey(key));
+    const invalidated = invalidateCacheForIncompleteJobs(key, companyIncomplete);
+    if (invalidated > 0) {
+      console.log(`   🗑️  Invalidated ${invalidated} stale cache entries for incomplete jobs`);
+    }
+
+    // Re-set needsRetranslation on per-crawler file for incomplete jobs so the
+    // FRO-327 cache bypass kicks in (even if the circuit breaker previously cleared it).
+    if (companyIncomplete.length > 0) {
+      const crawlerFilePath = path.join(BY_CRAWLER_DIR, `${key}.json`);
+      if (fs.existsSync(crawlerFilePath)) {
+        const crawlerData = readJson(crawlerFilePath);
+        if (crawlerData?.jobs && Array.isArray(crawlerData.jobs)) {
+          const incompleteSlugs = new Set(companyIncomplete.map(j => j.slug).filter(Boolean));
+          let flagged = 0;
+          for (const cj of crawlerData.jobs) {
+            if (incompleteSlugs.has(cj.slug) && !cj.needsRetranslation && isIncomplete(cj)) {
+              cj.needsRetranslation = true;
+              cj.retranslationAttempts = 0;
+              flagged++;
+            }
+          }
+          if (flagged > 0) {
+            fs.writeFileSync(crawlerFilePath, JSON.stringify(crawlerData, null, 2) + '\n', 'utf-8');
+            console.log(`   🔁 Re-flagged ${flagged} stuck jobs for retranslation`);
+          }
+        }
+      }
+    }
 
     try {
       await runSharedCrawler([key], companyJobCount);
