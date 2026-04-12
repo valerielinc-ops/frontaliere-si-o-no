@@ -8,7 +8,7 @@
  */
 
 import type { Plugin } from 'vite';
-import { BASE_URL, buildFlatRedirect, GTAG_SNIPPET } from './constants';
+import { BASE_URL, GTAG_SNIPPET } from './constants';
 import { buildArticleSeoSections, cleanupArticleBodySections } from './articleSeoFallback';
 import { SECTION_EDITORIAL, SECTION_EDITORIAL_KEYS } from './editorialContent';
 import { translateFaqPage } from '../services/seo/faq-translations';
@@ -2310,14 +2310,10 @@ ${hrefTags}
           /* dir created by _qw */
           const pageHtml = buildPage('it', url.path, seo, url.hreflangs);
           _qw(filePath, pageHtml);
-          // Also write flat .html so /slug serves 200 (avoids GitHub Pages 301 redirect)
-          // Uses minimal noindex redirect instead of content duplicate to avoid
-          // Google's "alternative page with proper canonical" status
+          // Also write flat .html — real content without redirect script
           if (url.path !== '/') {
             const flatFile = np.join(distDir, url.path + '.html');
-            const canonUrl = `${BASE_URL}/${url.path.replace(/^\/+/, '')}/`.replace(/\/+$/, '/');
-            /* dir created by _qw */
-            _qw(flatFile, buildFlatRedirect(canonUrl, `/${url.path.replace(/^\/+/, '')}/`));
+            _qw(flatFile, pageHtml.replace(/\s*<script>location\.replace\([^<]*\)<\/script>/, ''));
           }
           count++;
         } else {
@@ -2347,9 +2343,8 @@ ${hrefTags}
           if (url.path !== '/') {
             const flatFile = np.join(distDir, url.path + '.html');
             if (!fs.existsSync(flatFile)) {
-              const canonUrl = `${BASE_URL}/${url.path.replace(/^\/+/, '')}/`.replace(/\/+$/, '/');
-              /* dir created by _qw */
-              _qw(flatFile, buildFlatRedirect(canonUrl, `/${url.path.replace(/^\/+/, '')}/`));
+              const existingIndexHtml = fs.readFileSync(np.join(distDir, url.path, 'index.html'), 'utf-8');
+              _qw(flatFile, existingIndexHtml.replace(/\s*<script>location\.replace\([^<]*\)<\/script>/, ''));
             }
           }
           skipped++;
@@ -2368,8 +2363,8 @@ ${hrefTags}
             // Ensure flat .html exists even if directory index.html was created by another plugin
             const flatLoc = np.join(distDir, locPath + '.html');
             if (!fs.existsSync(flatLoc)) {
-              const canonLocUrl = `${BASE_URL}/${locPath.replace(/^\/+/, '')}/`.replace(/\/+$/, '/');
-              _qw(flatLoc, buildFlatRedirect(canonLocUrl, `/${locPath.replace(/^\/+/, '')}/`));
+              const existingLocHtml = fs.readFileSync(locFile, 'utf-8');
+              _qw(flatLoc, existingLocHtml.replace(/\s*<script>location\.replace\([^<]*\)<\/script>/, ''));
             }
             continue;
           }
@@ -2403,10 +2398,9 @@ ${hrefTags}
           const locDir = np.join(distDir, locPath);
           const locPageHtml = buildPage(hl.lang, locPath, locSeo, url.hreflangs);
           _qw(locFile, locPageHtml);
-          // Also write flat .html for clean URL — noindex redirect to trailing-slash canonical
+          // Also write flat .html — real content without redirect script
           const flatLoc = np.join(distDir, locPath + '.html');
-          const canonLocUrl = `${BASE_URL}/${locPath.replace(/^\/+/, '')}/`.replace(/\/+$/, '/');
-          _qw(flatLoc, buildFlatRedirect(canonLocUrl, `/${locPath.replace(/^\/+/, '')}/`));
+          _qw(flatLoc, locPageHtml.replace(/\s*<script>location\.replace\([^<]*\)<\/script>/, ''));
           count++;
         }
       }

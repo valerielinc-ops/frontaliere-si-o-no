@@ -9,7 +9,7 @@
 
 import path from 'path';
 import type { Plugin } from 'vite';
-import { BASE_URL, buildFlatRedirect, GTAG_SNIPPET, FAVICON_LINKS, type FlatRedirectOgMeta } from './constants';
+import { BASE_URL, GTAG_SNIPPET, FAVICON_LINKS } from './constants';
 import { buildArticleSeoSections, cleanupArticleBodySections } from './articleSeoFallback';
 
 export function ogPagesPlugin(rootDir: string): Plugin {
@@ -873,13 +873,10 @@ ${headTags}
         fs.mkdirSync(d0, { recursive: true });
         const itHtml = html('it', en.path);
         fs.writeFileSync(np.join(d0, 'index.html'), itHtml);
-        // Also write flat .html so /slug serves 200 (avoids GitHub Pages 301 redirect)
-        // Include OG tags so social crawlers (Facebook, etc.) get the correct preview
+        // Also write flat .html — real content without redirect script
         const flatIt = np.join(distDir, en.path + '.html');
-        const canonItUrl = `${BASE_URL}/${en.path.replace(/^\/+/, '')}/`.replace(/\/+$/, '/');
         fs.mkdirSync(np.dirname(flatIt), { recursive: true });
-        const itOg: FlatRedirectOgMeta = { title: en.ogT, description: en.ogD, image: `${BASE_URL}${en.img}`, lang: 'it' };
-        fs.writeFileSync(flatIt, buildFlatRedirect(canonItUrl, `/${en.path.replace(/^\/+/, '')}/`, itOg));
+        fs.writeFileSync(flatIt, itHtml.replace(/\s*<script>location\.replace\([^<]*\)<\/script>/, ''));
         count++;
 
         // EN / DE / FR
@@ -889,20 +886,10 @@ ${headTags}
           fs.mkdirSync(ld, { recursive: true });
           const locHtml = html(loc, lPath);
           fs.writeFileSync(np.join(ld, 'index.html'), locHtml);
-          // Also write flat .html for clean URL — include OG tags for social crawlers
+          // Also write flat .html — real content without redirect script
           const flatLoc = np.join(distDir, lPath + '.html');
-          const canonLocUrl = `${BASE_URL}/${lPath.replace(/^\/+/, '')}/`.replace(/\/+$/, '/');
           fs.mkdirSync(np.dirname(flatLoc), { recursive: true });
-          const locMeta = (loc === 'en' || loc === 'de' || loc === 'fr')
-            ? blogMetaByLocale[loc][en.articleId]
-            : null;
-          const locOg: FlatRedirectOgMeta = {
-            title: locMeta?.title || en.ogT,
-            description: locMeta?.excerpt || en.ogD,
-            image: `${BASE_URL}${en.img}`,
-            lang: loc,
-          };
-          fs.writeFileSync(flatLoc, buildFlatRedirect(canonLocUrl, `/${lPath.replace(/^\/+/, '')}/`, locOg));
+          fs.writeFileSync(flatLoc, locHtml.replace(/\s*<script>location\.replace\([^<]*\)<\/script>/, ''));
           count++;
         }
       }

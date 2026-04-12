@@ -9,7 +9,7 @@
 
 import path from 'path';
 import type { Plugin } from 'vite';
-import { BASE_URL, buildCanonicalBridgePage, buildFlatRedirect, SPA_ACTION_REDIRECT_SCRIPT, robotsMetaForContent, countHtmlBodyWords, MIN_INDEXABLE_WORDS, GTAG_SNIPPET, FAVICON_LINKS } from './constants';
+import { BASE_URL, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, robotsMetaForContent, countHtmlBodyWords, MIN_INDEXABLE_WORDS, GTAG_SNIPPET, FAVICON_LINKS } from './constants';
 import { CRAWLED_COMPANY_LOGOS } from '../services/jobDataNormalization';
 import { deriveJobPostalCode } from '../services/jobLocationSnapshot';
 import {
@@ -1540,7 +1540,7 @@ ${jobLd ? `    <script type="application/ld+json">${jobLd}</script>\n` : ''}    
           if (flatPath) {
             const flatFile = np.join(distDir, flatPath.slice(1) + '.html');
             _md(np.dirname(flatFile));
-            _qw(flatFile, buildFlatRedirect(canonicalUrl, canonicalPath));
+            _qw(flatFile, html.replace(SPA_ACTION_REDIRECT_SCRIPT, ''));
           }
 
           // Legacy redirect: if non-IT locale and Italian slug differs from locale slug,
@@ -1825,12 +1825,12 @@ ${(() => {
           activeJobDirs.add(canonicalPath.slice(1).replace(/\/+$/, ''));
           _md(outDir);
           _qw(np.join(outDir, 'index.html'), companyHtml);
-          // Flat .html variant
+          // Flat .html variant — write real content (no redirect stub)
           const flatPath = canonicalPath.replace(/\/+$/, '');
           if (flatPath) {
             const flatFile = np.join(distDir, flatPath.slice(1) + '.html');
             _md(np.dirname(flatFile));
-            _qw(flatFile, buildFlatRedirect(canonicalUrl, canonicalPath));
+            _qw(flatFile, companyHtml);
           }
           // Redirect pages for raw slugs that differ from canonical (e.g. lidl-svizzera → lidl)
           for (const rawSlug of rawSlugs) {
@@ -2065,7 +2065,7 @@ ${alternates}
           if (flatPath) {
             const flatFile = np.join(distDir, flatPath.slice(1) + '.html');
             _md(np.dirname(flatFile));
-            _qw(flatFile, buildFlatRedirect(canonicalUrl, canonicalPath));
+            _qw(flatFile, editorialHtml);
           }
         }
 
@@ -2212,7 +2212,7 @@ ${alternates}
           if (flatPath) {
             const flatFile = np.join(distDir, flatPath.slice(1) + '.html');
             _md(np.dirname(flatFile));
-            _qw(flatFile, buildFlatRedirect(canonicalUrl, canonicalPath));
+            _qw(flatFile, html.replace(SPA_ACTION_REDIRECT_SCRIPT, ''));
           }
         }
 
@@ -2364,7 +2364,7 @@ ${alternates}
           if (flatPath) {
             const flatFile = np.join(distDir, flatPath.slice(1) + '.html');
             _md(np.dirname(flatFile));
-            _qw(flatFile, buildFlatRedirect(canonicalUrl, canonicalPath));
+            _qw(flatFile, html.replace(SPA_ACTION_REDIRECT_SCRIPT, ''));
           }
         }
 
@@ -2514,7 +2514,7 @@ ${alternates}
           if (flatPath) {
             const flatFile = np.join(distDir, flatPath.slice(1) + '.html');
             _md(np.dirname(flatFile));
-            _qw(flatFile, buildFlatRedirect(canonicalUrl, canonicalPath));
+            _qw(flatFile, html.replace(SPA_ACTION_REDIRECT_SCRIPT, ''));
           }
         }
 
@@ -2665,7 +2665,7 @@ ${alternates}
             if (flatPath) {
               const flatFile = np.join(distDir, flatPath.slice(1) + '.html');
               _md(np.dirname(flatFile));
-              _qw(flatFile, buildFlatRedirect(canonicalUrl, canonicalPath));
+              _qw(flatFile, html.replace(SPA_ACTION_REDIRECT_SCRIPT, ''));
             }
           }
 
@@ -2817,7 +2817,7 @@ ${alternates}
             if (flatPath) {
               const flatFile = np.join(distDir, flatPath.slice(1) + '.html');
               _md(np.dirname(flatFile));
-              _qw(flatFile, buildFlatRedirect(canonicalUrl, canonicalPath));
+              _qw(flatFile, html.replace(SPA_ACTION_REDIRECT_SCRIPT, ''));
             }
           }
 
@@ -2965,7 +2965,7 @@ ${alternates}
               if (flatPath) {
                 const flatFile = np.join(distDir, flatPath.slice(1) + '.html');
                 _md(np.dirname(flatFile));
-                _qw(flatFile, buildFlatRedirect(canonicalUrl, canonicalPath));
+                _qw(flatFile, html.replace(SPA_ACTION_REDIRECT_SCRIPT, ''));
               }
             }
 
@@ -3115,7 +3115,7 @@ ${alternates}
               if (flatPath) {
                 const flatFile = np.join(distDir, flatPath.slice(1) + '.html');
                 _md(np.dirname(flatFile));
-                _qw(flatFile, buildFlatRedirect(canonicalUrl, canonicalPath));
+                _qw(flatFile, html.replace(SPA_ACTION_REDIRECT_SCRIPT, ''));
               }
             }
 
@@ -3201,7 +3201,7 @@ ${alternates}
           _md(pgOutDir);
           _qw(np.join(pgOutDir, 'index.html'), pgHtml);
           const pgFlatPath = pgCanonicalPath.replace(/\/+$/, '');
-          if (pgFlatPath) { const pgFlatFile = np.join(distDir, pgFlatPath.slice(1) + '.html'); _md(np.dirname(pgFlatFile)); _qw(pgFlatFile, buildFlatRedirect(pgCanonicalUrl, pgCanonicalPath)); }
+          if (pgFlatPath) { const pgFlatFile = np.join(distDir, pgFlatPath.slice(1) + '.html'); _md(np.dirname(pgFlatFile)); _qw(pgFlatFile, pgHtml); }
           paginationPageCount++;
         }
         const pgItSlug = `${paginationSlugs.it}-${pageNum}`;
@@ -3287,7 +3287,7 @@ ${alternates}
             _md(catOutDir);
             _qw(np.join(catOutDir, 'index.html'), catHtml);
             const catFlatPath = catCanonicalPath.replace(/\/+$/, '');
-            if (catFlatPath) { const catFlatFile = np.join(distDir, catFlatPath.slice(1) + '.html'); _md(np.dirname(catFlatFile)); _qw(catFlatFile, buildFlatRedirect(catCanonicalUrl, catCanonicalPath)); }
+            if (catFlatPath) { const catFlatFile = np.join(distDir, catFlatPath.slice(1) + '.html'); _md(np.dirname(catFlatFile)); _qw(catFlatFile, catHtml); }
             categoryPageCount++;
           }
           if (catPage === 1) {
@@ -3376,7 +3376,7 @@ ${alternates}
               _md(kwOutDir);
               _qw(np.join(kwOutDir, 'index.html'), kwHtml);
               const kwFlatPath = kwCanonicalPath.replace(/\/+$/, '');
-              if (kwFlatPath) { const kwFlatFile = np.join(distDir, kwFlatPath.slice(1) + '.html'); _md(np.dirname(kwFlatFile)); _qw(kwFlatFile, buildFlatRedirect(kwCanonicalUrl, kwCanonicalPath)); }
+              if (kwFlatPath) { const kwFlatFile = np.join(distDir, kwFlatPath.slice(1) + '.html'); _md(np.dirname(kwFlatFile)); _qw(kwFlatFile, kwHtml); }
               keywordPageCount++;
             }
             // Sitemap entry (Italian canonical)
@@ -3522,7 +3522,7 @@ ${(() => {
             if (flatPath) {
               const flatFile = np.join(distDir, flatPath.slice(1) + '.html');
               _md(np.dirname(flatFile));
-              _qw(flatFile, buildFlatRedirect(canonicalUrl, canonicalPath));
+              _qw(flatFile, searchHtml);
             }
             searchPageCount++;
           }
@@ -3644,7 +3644,7 @@ ${(() => {
             if (flatPath) {
               const flatFile = np.join(distDir, flatPath.slice(1) + '.html');
               _md(np.dirname(flatFile));
-              _qw(flatFile, buildFlatRedirect(canonicalUrl, canonicalPath));
+              _qw(flatFile, comboHtml);
             }
             searchPageCount++;
           }

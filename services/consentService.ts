@@ -173,7 +173,7 @@ export function updateConsent(categories: Partial<Pick<ConsentState, 'analytics'
  * Revoke all consent and clear stored state
  */
 export function revokeConsent() {
-  const state: ConsentState = { ...DEFAULT_STATE, timestamp: Date.now() };
+  const state: ConsentState = { analytics: false, advertising: false, timestamp: Date.now() };
   saveState(state);
   gtagConsent('update', state);
   notifyListeners(state);

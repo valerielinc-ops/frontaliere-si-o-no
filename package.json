@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "predev": "node scripts/assemble-jobs-dataset.mjs --stats",
-    "prebuild": "node scripts/generate-image-thumbnails.mjs && node scripts/assemble-jobs-dataset.mjs --stats",
+    "prebuild": "node scripts/generate-image-thumbnails.mjs && node scripts/prebuild-webp.mjs && node scripts/assemble-jobs-dataset.mjs --stats",
     "build": "FAST_BUILD=1 vite build",
     "build:prod": "vite build",
     "preview": "vite preview",
