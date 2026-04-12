@@ -106,13 +106,16 @@ export function isIncomplete(job) {
   // Source locale 85% guard: if the source locale copy has lost significant content
   // compared to the authoritative base, the job needs reprocessing.
   // Guard: skip if base is unparsed HTML garbage (>10 tags).
+  // Threshold 0.55: crawlers often clean raw descriptions (strip recruitment blurbs,
+  // PDF links, footer text) so dbl[srcLang] is naturally 20-35% shorter than
+  // job.description. Only flag when >45% of content is genuinely missing.
   const srcLang = job.sourceLang || 'it';
   if (baseDesc.length >= 120 && (baseDesc.match(/<[^>]+>/g) || []).length <= 10) {
     const currentSrc = (dbl[srcLang] || '').trim();
     if (currentSrc) {
       const normBase = normalizeForLengthComparison(baseDesc);
       const normSrc = normalizeForLengthComparison(currentSrc);
-      if (normSrc.length / Math.max(1, normBase.length) < 0.75) return true;
+      if (normSrc.length / Math.max(1, normBase.length) < 0.55) return true;
     }
   }
 
@@ -154,13 +157,14 @@ export function isIncomplete(job) {
     //   1. Crawler seed-copies of source text that weren't translated
     //   2. AI translation that wrote to the wrong locale slot
     //   3. Locale slots polluted with a different translation pass
-    // Only flag when detection is confident (>=0.55) and the detected language
+    // Only flag when detection is confident (>=0.65) and the detected language
     // is actually one of our supported locales (avoid false positives on short
-    // or mixed-language text).
+    // or mixed-language text). Aligned with title contamination threshold (0.65)
+    // to reduce false positives from Romance-language cognates (IT/FR share many words).
     if (desc.length >= MIN_DESC_CHARS) {
       const detected = detectLanguageWithConfidence(desc, locale);
       if (
-        detected.confidence >= 0.55 &&
+        detected.confidence >= 0.65 &&
         detected.lang !== locale &&
         LOCALES.includes(detected.lang)
       ) {
@@ -169,16 +173,21 @@ export function isIncomplete(job) {
     }
 
     // Thin translation: locale description is suspiciously short compared to the source.
-    // Language-pair aware: FR/DE→IT naturally compresses ~25-30%.
-    // FR/DE source uses 0.50 threshold, others use 0.60 (was 0.70, caused false positives).
+    // Language-pair aware thresholds — Italian is the most verbose Romance language,
+    // so IT→DE/FR translations naturally compress 40-50%. FR/DE sources also compress.
+    // Only EN source uses the stricter 0.55 threshold (EN→other compression is minimal).
     if (locale !== (job.sourceLang || 'it') && desc.length > 0) {
       const srcLangThin = job.sourceLang || 'it';
       const srcDesc = (dbl[srcLangThin] || job.description || '').trim();
       if (srcDesc.length >= 500) {
         const normDesc = normalizeForLengthComparison(desc);
         const normSrc = normalizeForLengthComparison(srcDesc);
-        const compressingPair = (srcLangThin === 'fr' || srcLangThin === 'de');
-        const thinRatio = compressingPair ? 0.50 : 0.60;
+        // IT source compresses heavily to DE/FR (40-50% normal) → 0.45
+        // FR/DE source compresses to other languages → 0.50
+        // EN source has minimal compression → 0.55
+        const thinRatio = srcLangThin === 'it' ? 0.45
+          : (srcLangThin === 'fr' || srcLangThin === 'de') ? 0.50
+          : 0.55;
         if (normSrc.length >= 500 && normDesc.length < normSrc.length * thinRatio) return true;
       }
     }
