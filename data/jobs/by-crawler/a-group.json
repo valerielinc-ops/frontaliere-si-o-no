@@ -1,7 +1,66 @@
 {
   "crawlerKey": "a-group",
-  "assembledAt": "2026-04-12T08:40:24.144Z",
+  "assembledAt": "2026-04-12T20:39:11.827Z",
   "jobs": [
+    {
+      "title": "Consulente Legal Jr.",
+      "slug": "consulente-legal-jr-a-plus-plus-group-massagno",
+      "url": "https://inrecruiting.intervieweb.it/a2plus/jobs/consulente-legal-jr-698911/en/",
+      "applyUrl": "https://inrecruiting.intervieweb.it/a2plus/jobs/consulente-legal-jr-698911/en/",
+      "company": "A++ Group",
+      "companyKey": "a-group",
+      "companyDomain": "a2plus.green",
+      "location": "Massagno",
+      "addressLocality": "Massagno",
+      "postalCode": "6900",
+      "streetAddress": "Via Molinazzo 4",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "architecture",
+      "sector": "Architettura & Design",
+      "source": "a-plus-plus-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-04-12",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "description": "Siamo alla ricerca di un/una Consulente Legal Junior, anche alla prima esperienza, da inserire all’interno del nostro team.\n\nLa risorsa supporterà l’azienda nella gestione delle attività legali di base e fungerà da punto di collegamento con il team legale esterno.",
+      "titleByLocale": {
+        "it": "Consulente Legal Jr.",
+        "en": "Consulente Legal Jr.",
+        "de": "Consulente Legal Jr.",
+        "fr": "Consulente Legal Jr."
+      },
+      "descriptionByLocale": {
+        "it": "## Consulente Legal Jr.\n\n**A++ Group** — Massagno (TI)\n\nSiamo alla ricerca di un/una Consulente Legal Junior, anche alla prima esperienza, da inserire all’interno del nostro team.\n\nLa risorsa supporterà l’azienda nella gestione delle attività legali di base e fungerà da punto di collegamento con il team legale esterno.\n\nA++ Group è uno studio di architettura, design e sostenibilità con sede a Massagno (Ticino), specializzato in progettazione architettonica, pianificazione urbana, consulenza immobiliare e soluzioni sostenibili. Lo studio opera su progetti residenziali, commerciali e di riqualificazione nel contesto svizzero e internazionale.\n\nOffriamo un ambiente creativo e multidisciplinare, progetti di design innovativi, collaborazione con professionisti qualificati e concrete opportunità di crescita professionale nel settore dell'architettura e della sostenibilità.",
+        "en": "Siamo alla ricerca di un/una Consulente Legal Junior, anche alla prima esperienza, da inserire all’interno del nostro team.\n\nLa risorsa supporterà l’azienda nella gestione delle attività legali di base e fungerà da punto di collegamento con il team legale esterno.",
+        "de": "Siamo alla ricerca di un/una Consulente Legal Junior, anche alla prima esperienza, da inserire all’interno del nostro team.\n\nLa risorsa supporterà l’azienda nella gestione delle attività legali di base e fungerà da punto di collegamento con il team legale esterno.",
+        "fr": "Siamo alla ricerca di un/una Consulente Legal Junior, anche alla prima esperienza, da inserire all’interno del nostro team.\n\nLa risorsa supporterà l’azienda nella gestione delle attività legali di base e fungerà da punto di collegamento con il team legale esterno."
+      },
+      "slugByLocale": {
+        "it": "consulente-legal-jr-a-plus-plus-group-massagno",
+        "en": "consulente-legal-jr-a-plus-plus-group-massagno",
+        "de": "consulente-legal-jr-a-plus-plus-group-massagno",
+        "fr": "consulente-legal-jr-a-plus-plus-group-massagno"
+      },
+      "id": "a-group-6cbebae3da1d",
+      "needsRetranslation": true,
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 41600,
+          "maxValue": 63000,
+          "unitText": "YEAR"
+        }
+      }
+    },
     {
       "title": "Ingegnere edile Jr.",
       "slug": "ingegnere-edile-jr-a-plus-plus-group-massagno",
@@ -84,10 +143,10 @@
       }
     },
     {
-      "title": "Receptionist",
-      "slug": "receptionist-a-group-massagno",
-      "url": "https://inrecruiting.intervieweb.it/a2plus/jobs/receptionist-696956/en/",
-      "applyUrl": "https://inrecruiting.intervieweb.it/a2plus/jobs/receptionist-696956/en/",
+      "title": "Real Estate Project Manager",
+      "slug": "real-estate-project-manager-a-plus-plus-group-massagno",
+      "url": "https://inrecruiting.intervieweb.it/a2plus/jobs/real-estate-project-manager-689356/en/",
+      "applyUrl": "https://inrecruiting.intervieweb.it/a2plus/jobs/real-estate-project-manager-689356/en/",
       "company": "A++ Group",
       "companyKey": "a-group",
       "companyDomain": "a2plus.green",
@@ -99,7 +158,7 @@
       "addressCountry": "CH",
       "canton": "TI",
       "country": "CH",
-      "category": "admin",
+      "category": "real-estate",
       "sector": "Architettura & Design",
       "source": "a-plus-plus-dedicated-crawler",
       "sourceLang": "it",
@@ -107,57 +166,39 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "description": "Principali mansioni e responsabilità :\n\n- Accoglienza degli ospiti.\n- Supervisione degli ambienti di lavoro, monitorando quotidianamente l’ordine e la pulizia.\n- Supporto al team Real Estate nelle attività quotidiane di front e back office.\n- Creazione di materiali visivi e presentazioni con Canva.\n- Primo contatto telefonico con i clienti.",
+      "description": "Compiti e responsabilità :\n\nSelezioniamo una risorsa a supporto dell'Head of Real Estate per gestione di progetti immobiliari:\n\n- Stesura business plan e rendicontazione costi immobiliari\n- Preparazione brochure\n- Predisposizione annunci/inserzioni immobiliari\n- Studi di mercato - analisi di settore\n- attività di back office",
       "titleByLocale": {
-        "it": "Receptionist",
-        "en": "Receptionist",
-        "de": "Rezeptionistin",
-        "fr": "Réceptionniste"
+        "it": "Real Estate Project Manager",
+        "en": "Real Estate Project Manager",
+        "de": "Real Estate Project Manager",
+        "fr": "Real Estate Project Manager"
       },
       "descriptionByLocale": {
-        "it": "Principali mansioni e responsabilità : - Accoglienza degli ospiti. - Supervisione degli ambienti di lavoro, monitorando quotidianamente l’ordine e la pulizia. - Supporto al team Real Estate nelle attività quotidiane di front e back office. - Creazione di materiali visivi e presentazioni con Canva. - Primo contatto telefonico con i clienti.",
-        "en": "Main tasks and responsibilities: - Welcoming guests. - Supervision of work areas, monitoring daily order and cleanliness. - Support to the Real Estate team in daily front and back office activities. - Creation of visual materials and presentations with Canva. - First telephone contact with clients.",
-        "de": "Hauptaufgaben und Verantwortlichkeiten: - Empfang von Gästen. - Überwachung der Arbeitsbereiche, tägliche Kontrolle von Ordnung und Sauberkeit. - Unterstützung des Real Estate-Teams bei täglichen Front- und Backoffice-Aktivitäten. - Erstellung von visuellen Materialien und Präsentationen mit Canva. - Erster telefonischer Kontakt mit Kunden.",
-        "fr": "Tâches et responsabilités principales : - Accueil des invités. - Supervision des espaces de travail, contrôle quotidien de l'ordre et de la propreté. - Soutien à l'équipe Immobilier dans les activités quotidiennes de front et de back-office. - Création de supports visuels et de présentations avec Canva. - Premier contact téléphonique avec les clients."
+        "it": "Compiti e responsabilità :\n\nSelezioniamo una risorsa a supporto dell'Head of Real Estate per gestione di progetti immobiliari:\n\n- Stesura business plan e rendicontazione costi immobiliari\n- Preparazione brochure\n- Predisposizione annunci/inserzioni immobiliari\n- Studi di mercato - analisi di settore\n- attività di back office",
+        "en": "Compiti e responsabilità :\n\nSelezioniamo una risorsa a supporto dell'Head of Real Estate per gestione di progetti immobiliari:\n\n- Stesura business plan e rendicontazione costi immobiliari\n- Preparazione brochure\n- Predisposizione annunci/inserzioni immobiliari\n- Studi di mercato - analisi di settore\n- attività di back office",
+        "de": "Compiti e responsabilità :\n\nSelezioniamo una risorsa a supporto dell'Head of Real Estate per gestione di progetti immobiliari:\n\n- Stesura business plan e rendicontazione costi immobiliari\n- Preparazione brochure\n- Predisposizione annunci/inserzioni immobiliari\n- Studi di mercato - analisi di settore\n- attività di back office",
+        "fr": "Compiti e responsabilità :\n\nSelezioniamo una risorsa a supporto dell'Head of Real Estate per gestione di progetti immobiliari:\n\n- Stesura business plan e rendicontazione costi immobiliari\n- Preparazione brochure\n- Predisposizione annunci/inserzioni immobiliari\n- Studi di mercato - analisi di settore\n- attività di back office"
       },
       "slugByLocale": {
-        "it": "receptionist-a-group-massagno",
-        "en": "receptionist-a-plus-plus-group-massagno",
-        "de": "rezeptionistin-a-group-massagno",
-        "fr": "receptionniste-a-group-massagno"
+        "it": "real-estate-project-manager-a-plus-plus-group-massagno",
+        "en": "real-estate-project-manager-a-plus-plus-group-massagno",
+        "de": "real-estate-project-manager-a-plus-plus-group-massagno",
+        "fr": "real-estate-project-manager-a-plus-plus-group-massagno"
       },
-      "previousSlugs": [
-        "receptionist-100-a-plus-plus-group-massagno",
-        "receptionist-a-plus-plus-group-massagno"
-      ],
-      "salaryMin": 58000,
-      "salaryMax": 78000,
+      "id": "a-group-cf1b4e6d7133",
+      "needsRetranslation": true,
+      "salaryMin": 73000,
+      "salaryMax": 121500,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 58000,
-          "maxValue": 78000,
+          "minValue": 73000,
+          "maxValue": 121500,
           "unitText": "YEAR"
         }
-      },
-      "id": "a-group-a6dac446b24d",
-      "previousSlugsByLocale": {
-        "it": [
-          "receptionist-100-a-plus-plus-group-massagno",
-          "receptionist-a-plus-plus-group-massagno"
-        ],
-        "en": [
-          "receptionist-100-a-plus-plus-group-massagno"
-        ],
-        "de": [
-          "receptionist-100-a-plus-plus-group-massagno"
-        ],
-        "fr": [
-          "receptionist-100-a-plus-plus-group-massagno"
-        ]
       }
     }
   ]
