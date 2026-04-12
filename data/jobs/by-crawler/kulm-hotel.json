@@ -490,9 +490,9 @@
     },
     {
       "id": "kulm-hotel-5dd1503b85e5",
-      "slug": "impiegato-di-ufficio-cameriere-inizio-immediato-m-w-d-kulm-hotel-st-moritz-pontresina",
+      "slug": "ufficio-dipendente-steward-avviare-immediatamente-m-w-d-kulm-hotel-st-moritz-pontresina",
       "slugByLocale": {
-        "it": "impiegato-di-ufficio-cameriere-inizio-immediato-m-w-d-kulm-hotel-st-moritz-pontresina",
+        "it": "ufficio-dipendente-steward-avviare-immediatamente-m-w-d-kulm-hotel-st-moritz-pontresina",
         "en": "office-employee-steward-start-immediately-m-w-d-kulm-hotel-st-moritz",
         "de": "office-employee-steward-start-immediately-m-w-d-kulm-hotel-st-moritz",
         "fr": "employe-de-bureau-serveur-debut-immediat-m-w-d-kulm-hotel-st-moritz-pontresina"
@@ -553,11 +553,13 @@
       "department": "Grand Hotel Kronenhof",
       "pensum": "100%",
       "previousSlugs": [
-        "office-employee-steward-start-immediately-m-w-d-kulm-hotel-st-moritz"
+        "office-employee-steward-start-immediately-m-w-d-kulm-hotel-st-moritz",
+        "impiegato-di-ufficio-cameriere-inizio-immediato-m-w-d-kulm-hotel-st-moritz-pontresina"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "office-employee-steward-start-immediately-m-w-d-kulm-hotel-st-moritz"
+          "office-employee-steward-start-immediately-m-w-d-kulm-hotel-st-moritz",
+          "impiegato-di-ufficio-cameriere-inizio-immediato-m-w-d-kulm-hotel-st-moritz-pontresina"
         ]
       },
       "salaryMin": 49500,
@@ -675,9 +677,9 @@
     },
     {
       "id": "kulm-hotel-3b40cab3c22b",
-      "slug": "addetto-alla-biancheria-part-time-50-m-f-d-kulm-hotel-st-moritz-pontresina",
+      "slug": "dipendente-in-lino-tempo-parziale-50-m-w-d-kulm-hotel-st-moritz-pontresina",
       "slugByLocale": {
-        "it": "addetto-alla-biancheria-part-time-50-m-f-d-kulm-hotel-st-moritz-pontresina",
+        "it": "dipendente-in-lino-tempo-parziale-50-m-w-d-kulm-hotel-st-moritz-pontresina",
         "en": "linen-employee-part-time-50-m-w-d-kulm-hotel-st-moritz",
         "de": "wsche-mitarbeiter-teilzeit-50-m-w-d-kulm-hotel-st-moritz-pontresina",
         "fr": "linen-employee-part-time-50-m-w-d-kulm-hotel-st-moritz"
@@ -756,11 +758,13 @@
       "department": "Grand Hotel Kronenhof",
       "pensum": "50%",
       "previousSlugs": [
-        "linen-employee-part-time-50-m-w-d-kulm-hotel-st-moritz"
+        "linen-employee-part-time-50-m-w-d-kulm-hotel-st-moritz",
+        "addetto-alla-biancheria-part-time-50-m-f-d-kulm-hotel-st-moritz-pontresina"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "linen-employee-part-time-50-m-w-d-kulm-hotel-st-moritz"
+          "linen-employee-part-time-50-m-w-d-kulm-hotel-st-moritz",
+          "addetto-alla-biancheria-part-time-50-m-f-d-kulm-hotel-st-moritz-pontresina"
         ]
       },
       "salaryMin": 49500,
@@ -778,9 +782,9 @@
     },
     {
       "id": "kulm-hotel-29e174ade70f",
-      "slug": "front-office-agent-m-w-d-kulm-hotel-st-moritz",
+      "slug": "agente-di-ufficio-anteriore-m-w-d-kulm-hotel-st-moritz-st-moritz",
       "slugByLocale": {
-        "it": "front-office-agent-m-w-d-kulm-hotel-st-moritz",
+        "it": "agente-di-ufficio-anteriore-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "en": "front-office-agent-m-w-d-kulm-hotel-st-moritz",
         "de": "front-office-agent-m-w-d-kulm-hotel-st-moritz",
         "fr": "front-office-agent-m-w-d-kulm-hotel-st-moritz"
@@ -853,7 +857,15 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "front-office-agent-m-w-d-kulm-hotel-st-moritz"
+        ]
+      },
+      "previousSlugs": [
+        "front-office-agent-m-w-d-kulm-hotel-st-moritz"
+      ]
     },
     {
       "id": "kulm-hotel-cd38c708fca6",
@@ -2081,7 +2093,7 @@
         "it": "assistente-alla-gestione-delle-prenotazioni-m-w-d-kulm-hotel-st-moritz-pontresina",
         "en": "assistant-reservations-manager-m-w-d-kulm-hotel-st-moritz",
         "de": "assistent-reservations-manager-m-w-d-kulm-hotel-st-moritz-pontresina",
-        "fr": "assistant-reservations-manager-m-w-d-kulm-hotel-st-moritz"
+        "fr": "gestionnaire-adjoint-des-reservations-m-w-d-kulm-hotel-st-moritz-pontresina"
       },
       "company": "Kulm Hotel St. Moritz",
       "companyKey": "kulm-hotel",
@@ -2148,6 +2160,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "assistant-reservations-manager-m-w-d-kulm-hotel-st-moritz"
+        ],
+        "fr": [
           "assistant-reservations-manager-m-w-d-kulm-hotel-st-moritz"
         ]
       },

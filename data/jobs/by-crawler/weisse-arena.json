@@ -789,12 +789,12 @@
     },
     {
       "id": "weisse-arena-74b76946abd8",
-      "slug": "collaboratore-trice-spulkuche-weisse-arena-gruppe-laax",
+      "slug": "personale-in-cucina-weisse-arena-gruppe-laax",
       "slugByLocale": {
         "de": "mitarbeiter-in-spulkuche-weisse-arena-ch",
-        "it": "collaboratore-trice-spulkuche-weisse-arena-gruppe-laax",
-        "en": "mitarbeiter-in-spulkuche-weisse-arena-ch",
-        "fr": "mitarbeiter-in-spulkuche-weisse-arena-ch"
+        "it": "personale-in-cucina-weisse-arena-gruppe-laax",
+        "en": "staff-in-kitchen-weisse-arena-gruppe-laax",
+        "fr": "personnel-dans-la-cuisine-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
       "companyKey": "weisse-arena",
@@ -842,11 +842,19 @@
       "contractLabel": "Saisonanstellung",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-spulkuche-weisse-arena-ch",
+          "collaboratore-trice-spulkuche-weisse-arena-gruppe-laax"
+        ],
+        "en": [
+          "mitarbeiter-in-spulkuche-weisse-arena-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-spulkuche-weisse-arena-ch"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-spulkuche-weisse-arena-ch"
+        "mitarbeiter-in-spulkuche-weisse-arena-ch",
+        "collaboratore-trice-spulkuche-weisse-arena-gruppe-laax"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
