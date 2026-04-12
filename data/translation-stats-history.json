@@ -8922,5 +8922,45 @@
         "pending": 1
       }
     ]
+  },
+  {
+    "timestamp": "2026-04-12T09:06:45.719Z",
+    "label": "before",
+    "total": 2441,
+    "needsRetranslation": 44,
+    "incomplete": 1,
+    "complete": 2440,
+    "missingByLocale": {
+      "it": 0,
+      "en": 1,
+      "de": 1,
+      "fr": 1
+    },
+    "topPending": [
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-12T09:08:34.037Z",
+    "label": "after",
+    "total": 2441,
+    "needsRetranslation": 44,
+    "incomplete": 1,
+    "complete": 2440,
+    "missingByLocale": {
+      "it": 0,
+      "en": 1,
+      "de": 1,
+      "fr": 1
+    },
+    "topPending": [
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      }
+    ]
   }
 ]
