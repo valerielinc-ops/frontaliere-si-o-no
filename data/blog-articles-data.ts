@@ -5885,4 +5885,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/giovani-fuga-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'svizzera-alleanza-porti-europei-anti-droga',
+    category: 'novita',
+    date: '2026-04-12T08:51:20.036Z',
+    image: '/images/blog/svizzera-alleanza-porti-europei-anti-droga.jpg',
+    hasCalculator: true,
+  },
 ];

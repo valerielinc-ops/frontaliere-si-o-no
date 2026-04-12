@@ -2100,6 +2100,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.giovani-fuga-ticino.title': 'Jugendliche im Tessin: Abwanderung und ausbleibende Rückkehr – die politische Position',
     'blog.article.giovani-fuga-ticino.excerpt': 'Claudio Isabella stellt die Position des Staatsrats zur Abwanderung von Jugendlichen aus dem Tessin infrage.',
     'blog.article.giovani-fuga-ticino.imageAlt': 'Sonnenuntergang über dem Comer See in Locarno, Tessin',
+    'blog.article.svizzera-alleanza-porti-europei-anti-droga.title': 'Die Schweiz in der Allianz der europäischen Häfen gegen Drogenhandel',
+    'blog.article.svizzera-alleanza-porti-europei-anti-droga.excerpt': 'Der Bundesrat prüft eine Teilnahme, um die Datenteilung und gemeinsame Standards gegen Kartelle zu stärken. Häfen im Tessin sind über die Kantone Basel einbezogen.',
+    'blog.article.svizzera-alleanza-porti-europei-anti-droga.imageAlt': 'Güterumschlag im Hafen Chiasso bei Sonnenuntergang mit Alpen im Hintergrund',
 };
 
 export default blogMetaDe;

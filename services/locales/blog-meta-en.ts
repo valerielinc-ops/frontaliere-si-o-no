@@ -2100,6 +2100,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.giovani-fuga-ticino.title': 'Giovani nel Ticino: fuga e mancato rientro, la posizione politica',
     'blog.article.giovani-fuga-ticino.excerpt': 'Claudio Isabella solleva dubbi sulla posizione del Consiglio di Stato riguardo alla fuga dei giovani nel Ticino.',
     'blog.article.giovani-fuga-ticino.imageAlt': 'Sundown over Lake Maggiore in Locarno, Ticino',
+    'blog.article.svizzera-alleanza-porti-europei-anti-droga.title': 'Switzerland joins European ports alliance against drug trafficking',
+    'blog.article.svizzera-alleanza-porti-europei-anti-droga.excerpt': 'The Federal Council is evaluating participation to enhance data sharing and common standards against drug cartels. Ports in Ticino are involved through the cantons of Basel.',
+    'blog.article.svizzera-alleanza-porti-europei-anti-droga.imageAlt': 'Cargo handling at Chiasso port at sunset with Alps in the background',
 };
 
 export default blogMetaEn;

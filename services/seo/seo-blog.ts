@@ -7169,6 +7169,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-svizzera-alleanza-porti-europei-anti-droga': {
+    title: 'Svizzera nell’Alleanza dei porti | Frontaliere Ticino',
+    description: 'Il Consiglio federale valuta la partecipazione per potenziare la condivisione dati e norme comuni contro i cartelli. Porti del Ticino coinvolti tramite i Canton',
+    keywords: 'frontalieri, ticino, svizzera, italia, nell, alleanza, porti, europei',
+    ogTitle: 'Svizzera nell’Alleanza dei porti europei contro il traffi',
+    ogDescription: 'Il Consiglio federale valuta la partecipazione per potenziare la condivisione dati e norme comuni contro i cartelli. Porti del Ticino coinvolti tramite i Canton',
+    canonicalPath: '/articoli-frontaliere/svizzera-alleanza-porti-europei-anti-droga',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svizzera nell’Alleanza dei porti europei contro il traffi",
+      "description": "Il Consiglio federale valuta la partecipazione per potenziare la condivisione dati e norme comuni contro i cartelli. Porti del Ticino coinvolti tramite i Canton",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/svizzera-alleanza-porti-europei-anti-droga.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cargo in movimentazione nel porto di Chiasso al tramonto con le Alpi sullo sfondo"
+      },
+      "datePublished": "2026-04-12T08:51:20+00:00",
+      "dateModified": "2026-04-12T08:51:20+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/svizzera-alleanza-porti-europei-anti-droga`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
