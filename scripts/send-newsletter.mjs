@@ -187,6 +187,23 @@ function sanitizeAIBriefingHtml(raw) {
   if (fullPlainText.length > 0 && !/[.!?\u00bb\u201d\u2019')]$/.test(fullPlainText)) {
     const lastSentenceEnd = fullPlainText.search(/[.!?][^.!?]*$/);
     if (lastSentenceEnd > 0) {
+      // Check if truncation would drop any <a> links — if so, skip truncation
+      // to preserve job hyperlinks which are the most valuable part of the briefing
+      const droppedHtmlRegion = html.slice(html.length - (fullPlainText.length - lastSentenceEnd) * 2); // rough estimate
+      if (/<a\s+href/i.test(html) && !/<a\s+href/i.test(html.slice(0, html.length / 2 | 0)) && /<a\s+href/i.test(html.slice(html.length / 2 | 0))) {
+        // Links are concentrated in the second half — truncation would likely kill them
+        // Just close any open tags and keep the full text
+        console.warn('\u26a0\ufe0f AI briefing: skipping truncation to preserve job links');
+        const openTags = [];
+        const tagRe = /<\/?([a-z]+)[\s>]/gi;
+        let m;
+        while ((m = tagRe.exec(html))) {
+          if (m[0].startsWith('</')) openTags.pop();
+          else openTags.push(m[1]);
+        }
+        while (openTags.length) html += '</' + openTags.pop() + '>';
+        if (!html.endsWith('</p>')) html += '</p>';
+      } else {
       const keepPlain = fullPlainText.slice(0, lastSentenceEnd + 1);
       const droppedText = fullPlainText.slice(lastSentenceEnd + 1).trim();
       console.warn(`\u26a0\ufe0f AI briefing: trimmed truncated tail (kept ${keepPlain.length}/${fullPlainText.length} chars): dropped "${droppedText.slice(0, 80)}"`);
@@ -219,6 +236,7 @@ function sanitizeAIBriefingHtml(raw) {
       while (openTags.length) html += '</' + openTags.pop() + '>';
       // Ensure wrapped in <p> if the cut removed closing </p>
       if (!html.endsWith('</p>')) html += '</p>';
+      } // end else (no links to preserve)
     } else {
       console.warn('\u26a0\ufe0f AI briefing: no complete sentence found \u2014 falling back');
       return null;
