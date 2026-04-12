@@ -63,6 +63,7 @@ const RC_TO_ENV = {
   DEEPL_API_KEY_2:                ['DEEPL_API_KEY_2'],
   AZURE_TRANSLATOR_KEY:           ['AZURE_TRANSLATOR_KEY'],
   AZURE_TRANSLATOR_KEY_2:         ['AZURE_TRANSLATOR_KEY_2'],
+  AZURE_TRANSLATOR_REGION:        ['AZURE_TRANSLATOR_REGION'],
   SERVER_PIXABAY_API_KEY:         ['PIXABAY_API_KEY'],
 
   // Microsoft Clarity (UX analytics)

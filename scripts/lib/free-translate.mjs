@@ -36,7 +36,7 @@ const AZURE_TRANSLATOR_KEYS = [
   (process.env.AZURE_TRANSLATOR_KEY || '').trim(),
   (process.env.AZURE_TRANSLATOR_KEY_2 || '').trim(),
 ].filter(Boolean);
-const AZURE_REGION = 'westeurope';
+const AZURE_REGION = (process.env.AZURE_TRANSLATOR_REGION || 'westeurope').trim();
 let _azureKeyIndex = 0;
 let _azureExhaustedKeys = new Set();
 
@@ -199,7 +199,7 @@ export function logCascadeSummary() {
   }
   if (AZURE_TRANSLATOR_KEYS.length > 0) {
     const active = AZURE_TRANSLATOR_KEYS.length - _azureExhaustedKeys.size;
-    console.log(`   🔑 Azure: ${active}/${AZURE_TRANSLATOR_KEYS.length} keys active${_azureExhaustedKeys.size > 0 ? ` (${_azureExhaustedKeys.size} exhausted)` : ''}`);
+    console.log(`   🔑 Azure: ${active}/${AZURE_TRANSLATOR_KEYS.length} keys active, region=${AZURE_REGION}${_azureExhaustedKeys.size > 0 ? ` (${_azureExhaustedKeys.size} exhausted)` : ''}`);
   }
 }
 

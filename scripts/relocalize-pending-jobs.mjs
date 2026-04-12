@@ -33,6 +33,7 @@ import { fileURLToPath } from 'node:url';
 import { detectJobTitleLocaleDetails } from './lib/job-locale-utils.mjs';
 import { captureLostSlugs, normalizeForLengthComparison } from './lib/dedicated-crawler-common.mjs';
 import { detectLanguageWithConfidence } from './lib/detect-language.mjs';
+import { logCascadeSummary } from './lib/free-translate.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -811,6 +812,7 @@ async function main() {
   console.log(`   📋 ${categories.sourceCopyDesc} description source copies`);
   console.log(`   🔍 ${categories.contaminated} contamination-detected\n`);
 
+  logCascadeSummary();
   console.log('✅ Re-localization complete.');
 }
 
