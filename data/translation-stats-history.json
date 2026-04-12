@@ -1,117 +1,5 @@
 [
   {
-    "timestamp": "2026-04-04T05:03:31.886Z",
-    "label": "before",
-    "total": 1536,
-    "needsRetranslation": 157,
-    "incomplete": 125,
-    "complete": 1411,
-    "missingByLocale": {
-      "it": 54,
-      "en": 53,
-      "de": 47,
-      "fr": 72
-    },
-    "topPending": [
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 23
-      },
-      {
-        "company": "Denner",
-        "pending": 11
-      },
-      {
-        "company": "Davos Klosters Bergbahnen AG",
-        "pending": 9
-      },
-      {
-        "company": "Città di Lugano",
-        "pending": 8
-      },
-      {
-        "company": "Ferrovia Retica (RhB)",
-        "pending": 8
-      },
-      {
-        "company": "LWP Ledermann Wieting & Partners",
-        "pending": 7
-      },
-      {
-        "company": "Allianz Suisse",
-        "pending": 6
-      },
-      {
-        "company": "Cornèr Banca",
-        "pending": 6
-      },
-      {
-        "company": "Prada Group",
-        "pending": 6
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 5
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-04T05:09:47.614Z",
-    "label": "after",
-    "total": 1536,
-    "needsRetranslation": 75,
-    "incomplete": 44,
-    "complete": 1492,
-    "missingByLocale": {
-      "it": 26,
-      "en": 18,
-      "de": 22,
-      "fr": 30
-    },
-    "topPending": [
-      {
-        "company": "Cornèr Banca",
-        "pending": 6
-      },
-      {
-        "company": "Prada Group",
-        "pending": 6
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 5
-      },
-      {
-        "company": "Denner",
-        "pending": 4
-      },
-      {
-        "company": "Hilcona AG",
-        "pending": 4
-      },
-      {
-        "company": "Schindler",
-        "pending": 4
-      },
-      {
-        "company": "FFS Officine (Ferrovie Federali)",
-        "pending": 3
-      },
-      {
-        "company": "Manor AG",
-        "pending": 3
-      },
-      {
-        "company": "Otis SA",
-        "pending": 3
-      },
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 2
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-04T07:20:10.983Z",
     "label": "before",
     "total": 1509,
@@ -8656,6 +8544,74 @@
       {
         "company": "Banca Cler",
         "pending": 1
+      },
+      {
+        "company": "Kulm Hotel St. Moritz",
+        "pending": 1
+      },
+      {
+        "company": "TSMG",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-12T13:39:44.855Z",
+    "label": "before",
+    "total": 2927,
+    "needsRetranslation": 35,
+    "incomplete": 20,
+    "complete": 2907,
+    "missingByLocale": {
+      "it": 8,
+      "en": 17,
+      "de": 17,
+      "fr": 19
+    },
+    "topPending": [
+      {
+        "company": "Convit Holding GmbH",
+        "pending": 10
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 7
+      },
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "Kulm Hotel St. Moritz",
+        "pending": 1
+      },
+      {
+        "company": "TSMG",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-12T13:58:41.492Z",
+    "label": "after",
+    "total": 2927,
+    "needsRetranslation": 29,
+    "incomplete": 19,
+    "complete": 2908,
+    "missingByLocale": {
+      "it": 8,
+      "en": 17,
+      "de": 17,
+      "fr": 18
+    },
+    "topPending": [
+      {
+        "company": "Convit Holding GmbH",
+        "pending": 10
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 7
       },
       {
         "company": "Kulm Hotel St. Moritz",
