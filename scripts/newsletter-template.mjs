@@ -50,6 +50,8 @@ const NL_TRANSLATIONS = {
     footerUnsub: 'Disiscriviti',
     footerResub: 'Riattiva iscrizione',
     footerPrivacy: 'Privacy',
+    affiliateLabel: 'Risorse utili per frontalieri',
+    affiliateDisclosure: 'Link sponsorizzati — potremmo ricevere una commissione',
     preheaderDefault: 'Cambio, lavoro e guide utili per frontalieri',
     preheaderRate: 'Cambio, guida utile e offerte di oggi',
     schemaDesc: 'Cambio CHF/EUR, offerte di lavoro e una guida utile per frontalieri.',
@@ -85,6 +87,8 @@ const NL_TRANSLATIONS = {
     footerUnsub: 'Unsubscribe',
     footerResub: 'Resubscribe',
     footerPrivacy: 'Privacy',
+    affiliateLabel: 'Useful resources for cross-border workers',
+    affiliateDisclosure: 'Sponsored links — we may earn a commission',
     preheaderDefault: 'Rates, jobs and useful guides for cross-border workers',
     preheaderRate: 'Rates, guide and today\'s offers',
     schemaDesc: 'CHF/EUR rate, job offers and a useful guide for cross-border workers.',
@@ -120,6 +124,8 @@ const NL_TRANSLATIONS = {
     footerUnsub: 'Abmelden',
     footerResub: 'Erneut anmelden',
     footerPrivacy: 'Datenschutz',
+    affiliateLabel: 'Nützliche Ressourcen für Grenzgänger',
+    affiliateDisclosure: 'Gesponserte Links — wir erhalten möglicherweise eine Provision',
     preheaderDefault: 'Kurse, Stellen und nützliche Ratgeber für Grenzgänger',
     preheaderRate: 'Kurs, Ratgeber und aktuelle Angebote',
     schemaDesc: 'CHF/EUR-Kurs, Stellenangebote und ein nützlicher Ratgeber für Grenzgänger.',
@@ -155,6 +161,8 @@ const NL_TRANSLATIONS = {
     footerUnsub: 'Se désinscrire',
     footerResub: 'Se réinscrire',
     footerPrivacy: 'Confidentialité',
+    affiliateLabel: 'Ressources utiles pour frontaliers',
+    affiliateDisclosure: 'Liens sponsorisés — nous pouvons recevoir une commission',
     preheaderDefault: 'Taux, emplois et guides utiles pour frontaliers',
     preheaderRate: 'Taux, guide et offres du jour',
     schemaDesc: 'Taux CHF/EUR, offres d\'emploi et un guide utile pour frontaliers.',
@@ -482,6 +490,40 @@ function renderJobSection({ jobs, campaign, locale }) {
     </table>`;
 }
 
+// ─── Affiliate partners section ─────────────────────────────
+
+const AFFILIATE_PARTNERS_NL = [
+  { emoji: '💸', name: 'Wise', desc: { it: 'Carta gratuita o zero commissioni fino a CHF 600', en: 'Free card or zero fees up to CHF 600', de: 'Kostenlose Karte oder keine Gebühren bis CHF 600', fr: 'Carte gratuite ou zéro frais jusqu\'à CHF 600' }, goUrl: '/go/wise/' },
+  { emoji: '🇮🇹', name: 'Fineco Bank', desc: { it: 'Codice AA8381747 — bonus 50€', en: 'Code AA8381747 — €50 bonus', de: 'Code AA8381747 — 50€ Bonus', fr: 'Code AA8381747 — bonus 50€' }, goUrl: '/go/fineco/' },
+  { emoji: '🏦', name: 'Crédit Agricole', desc: { it: 'Buono Amazon 50€ con invito', en: '€50 Amazon voucher with invite', de: '50€ Amazon-Gutschein mit Einladung', fr: 'Bon Amazon 50€ avec invitation' }, goUrl: '/go/creditagricole/' },
+];
+
+function renderAffiliatePartners({ campaign, locale }) {
+  const rows = AFFILIATE_PARTNERS_NL.map(p => {
+    const desc = p.desc[locale] || p.desc.it;
+    return `
+      <tr>
+        <td style="padding:10px 0;border-bottom:1px solid ${BORDER_COLOR};">
+          <a href="${utmUrl(p.goUrl, campaign)}" style="text-decoration:none;">
+            <div style="font-size:14px;font-weight:700;color:${BRAND_DARK};line-height:1.3;">${p.emoji} ${escapeHtml(p.name)}</div>
+            <div style="font-size:12px;color:${TEXT_COLOR};margin-top:2px;">${escapeHtml(desc)}</div>
+          </a>
+        </td>
+      </tr>`;
+  }).join('');
+
+  return `
+    <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:18px;">
+      <tr><td style="background:${CARD_BG};border:1px solid ${BORDER_COLOR};border-radius:16px;padding:20px;">
+        <div style="font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:${MUTED_COLOR};padding-bottom:10px;font-weight:700;">${nlT(locale, 'affiliateLabel')}</div>
+        <table width="100%" cellpadding="0" cellspacing="0">
+          ${rows}
+        </table>
+        <div style="font-size:10px;color:${MUTED_COLOR};margin-top:10px;font-style:italic;">${nlT(locale, 'affiliateDisclosure')}</div>
+      </td></tr>
+    </table>`;
+}
+
 // ─── Main layout builder ─────────────────────────────────────
 
 // Legacy export for backward compatibility
@@ -527,6 +569,7 @@ export function buildNewsletter(data) {
   if (sections.latest && data.latestArticle) body += renderLatestArticle({ ...data.latestArticle, campaign, locale });
   if (data.matchedJobs?.length) body += renderJobSection({ jobs: data.matchedJobs, campaign, locale });
   if (sections.tool && featuredTool) body += renderFeaturedTool({ ...featuredTool, campaign, locale });
+  body += renderAffiliatePartners({ campaign, locale });
 
   return `<!DOCTYPE html>
 <html lang="${locale}" xmlns:v="urn:schemas-microsoft-com:vml">

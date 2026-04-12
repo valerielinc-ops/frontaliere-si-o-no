@@ -23,6 +23,7 @@ import { crawlerRegistryPlugin } from './build-plugins/crawlerRegistryPlugin';
 import { localeJobsSplitPlugin } from './build-plugins/localeJobsSplitPlugin';
 import { webpPlugin } from './build-plugins/webpPlugin';
 import { pdfWhitepapersPlugin } from './build-plugins/pdfWhitepapersPlugin';
+import { affiliateRedirectPlugin } from './build-plugins/affiliateRedirectPlugin';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -62,6 +63,7 @@ export default defineConfig(({ mode }) => {
         localeJobsSplitPlugin(__dirname),
         webpPlugin(__dirname),
         pdfWhitepapersPlugin(__dirname),
+        affiliateRedirectPlugin(__dirname),
         // flatContentPlugin removed — all plugins now write real content to flat .html
         // files directly, eliminating the need for a post-build walk of 55k+ files.
       ],

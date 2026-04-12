@@ -95,6 +95,7 @@
  */
 
 import { deriveAnalyticsPageContext } from './analyticsPageContext';
+import { captureEvent as posthogCapture, capturePageView as posthogPageView } from './posthog';
 
 // ─── Clarity Bridge ────────────────────────────────────────────
 // Tag Clarity sessions with custom events for cross-tool analysis.
@@ -240,6 +241,13 @@ function _doSetProps(properties: Record<string, string>) {
 }
 
 const log = (eventName: string, params?: Record<string, any>) => {
+  // Mirror to PostHog (fire-and-forget, independent of Firebase)
+  if (eventName === 'page_view') {
+    posthogPageView(params?.page_path || window.location.pathname, params?.page_title);
+  } else {
+    posthogCapture(eventName, params);
+  }
+
   if (_firebaseReady) {
     _doLog(eventName, params);
   } else {

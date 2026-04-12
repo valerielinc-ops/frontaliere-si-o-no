@@ -74,9 +74,12 @@ const StatsTabContent = lazyRetry(() => import('@/components/tabs/StatsTabConten
 const lazyCalculate = () => import('@/services/calculationService');
 import { setDefaultConsent, onConsentChange, isAnalyticsGranted } from '@/services/consentService';
 import { prefetchTab } from '@/services/prefetch';
+import { initPostHog } from '@/services/posthog';
 // CookieBanner removed — consent is silently granted by default (see consentService.ts)
 // Set consent defaults ASAP (before any analytics/ad scripts load)
 setDefaultConsent();
+// Initialize PostHog EU Cloud analytics (async, non-blocking)
+initPostHog();
 // SEO service is lazy-loaded to reduce critical path.
 // Runtime SEO updates are enabled only after first interaction/navigation.
 let runtimeSeoEnabled = false;

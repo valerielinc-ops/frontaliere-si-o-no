@@ -142,6 +142,14 @@ vi.mock('@/services/consentService', () => ({
   onConsentChange: vi.fn(() => () => {}),
 }));
 
+// Mock PostHog
+vi.mock('@/services/posthog', () => ({
+  initPostHog: vi.fn(),
+  captureEvent: vi.fn(),
+  capturePageView: vi.fn(),
+  identifyUser: vi.fn(),
+}));
+
 // Mock Web Vitals
 vi.mock('@/services/webVitals', () => ({
   initWebVitals: vi.fn(),
