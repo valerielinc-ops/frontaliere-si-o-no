@@ -187,10 +187,22 @@ async function fetchDetailPage(url) {
       } catch { /* ignore */ }
     }
 
-    // Fallback: extract text from main content area
+    // Fallback: extract all text-media-combo blocks (detail pages use these
+    // for "Was dich erwartet", "Was dich auszeichnet", "Was wir bieten", etc.)
+    const comboRegex = /<div[^>]*class="text-media-combo-container[^"]*"[^>]*>([\s\S]*?)(?=<div[^>]*class="text-media-combo-container|<\/main|$)/gi;
+    const comboParts = [];
+    let cm;
+    while ((cm = comboRegex.exec(html)) !== null) {
+      const text = stripHtml(cm[1]).trim();
+      if (text.length > 20) comboParts.push(text);
+    }
+    if (comboParts.length > 0) {
+      return { description: comboParts.join('\n\n').substring(0, 4000), location: '', datePosted: '', employmentType: '' };
+    }
+
+    // Last resort: main/article
     const mainMatch = html.match(/<main[^>]*>([\s\S]*?)<\/main>/i)
-      || html.match(/<article[^>]*>([\s\S]*?)<\/article>/i)
-      || html.match(/<div[^>]*class="[^"]*content[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
+      || html.match(/<article[^>]*>([\s\S]*?)<\/article>/i);
     if (mainMatch) {
       return { description: stripHtml(mainMatch[1]).substring(0, 2000), location: '', datePosted: '', employmentType: '' };
     }
@@ -326,12 +338,13 @@ export async function fetchAllBernerMontageJobs() {
     const title = listing.title;
     if (!title || title.length < 3) continue;
 
-    // Fetch detail page if we have a URL and no description yet
+    // Fetch detail page if we have a URL and no/thin description
+    const listingWordCount = (listing.description || '').split(/\s+/).filter(Boolean).length;
     let detail = null;
-    if (listing.url && listing.url !== CAREER_URL && !listing.description) {
+    if (listing.url && listing.url !== CAREER_URL && listingWordCount < 50) {
       try {
         detail = await fetchDetailPage(listing.url);
-        console.log(`  ✅ ${title.substring(0, 60)}`);
+        console.log(`  ✅ ${title.substring(0, 60)}${detail?.description ? '' : ' (no detail content)'}`);
       } catch (err) {
         console.warn(`  ⚠️ Detail fetch failed for ${title}: ${err?.message}`);
       }
@@ -340,7 +353,10 @@ export async function fetchAllBernerMontageJobs() {
 
     const city = listing.location || detail?.location || 'Visp';
     const canton = inferSwissTargetCanton(city) || 'VS';
-    const description = listing.description || detail?.description
+    // Prefer detail page description when it's richer than the listing excerpt
+    const detailWords = (detail?.description || '').split(/\s+/).filter(Boolean).length;
+    const listingWords = (listing.description || '').split(/\s+/).filter(Boolean).length;
+    const description = (detailWords > listingWords ? detail.description : listing.description)
       || `${title} — Montagetechnik BERNER AG, ${city}`;
     const publicUrl = listing.url || CAREER_URL;
 
