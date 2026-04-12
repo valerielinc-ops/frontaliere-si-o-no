@@ -1,18 +1,19 @@
 {
   "key": "lidl-svizzera",
   "label": "Lidl",
-  "generatedAt": "2026-04-12T09:43:44.259Z",
+  "generatedAt": "2026-04-12T21:42:34.497Z",
   "total": 11,
-  "newCount": 7,
-  "updatedCount": 4,
+  "newCount": 0,
+  "updatedCount": 11,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 27645,
-  "avgDurationMs": 27645,
+  "durationMs": 30473,
+  "avgDurationMs": 30473,
   "durationHistory": [
-    27645
+    30473
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-tyv50x",
       "slug": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-minusio-tyv50x",
@@ -35,15 +36,22 @@
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
       "crawledAt": "2026-04-12T09:43:42.513Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
-      "_qualityScore": 65,
+      "streetAddress": "Via Industria 7",
+      "postalCode": "6593",
+      "addressLocality": "Minusio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "retranslationAttempts": 2,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 4,
-        "completeness": 14
+        "translation": 15,
+        "completeness": 25
       }
     },
     {
@@ -68,15 +76,22 @@
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
       "crawledAt": "2026-04-12T09:43:42.513Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "de",
-      "_qualityScore": 63,
+      "streetAddress": "Via Industria 7",
+      "postalCode": "6593",
+      "addressLocality": "Biasca",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "retranslationAttempts": 2,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 2,
-        "completeness": 14
+        "translation": 15,
+        "completeness": 25
       }
     },
     {
@@ -101,15 +116,22 @@
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
       "crawledAt": "2026-04-12T09:43:42.513Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "de",
-      "_qualityScore": 63,
+      "streetAddress": "Via Industria 7",
+      "postalCode": "6593",
+      "addressLocality": "Locarno",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "retranslationAttempts": 2,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 2,
-        "completeness": 14
+        "translation": 15,
+        "completeness": 25
       }
     },
     {
@@ -134,15 +156,22 @@
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
       "crawledAt": "2026-04-12T09:43:42.513Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
-      "_qualityScore": 65,
+      "streetAddress": "Via Industria 7",
+      "postalCode": "6593",
+      "addressLocality": "Arbedo-Castione",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "retranslationAttempts": 2,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 4,
-        "completeness": 14
+        "translation": 15,
+        "completeness": 25
       }
     },
     {
@@ -167,15 +196,22 @@
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
       "crawledAt": "2026-04-12T09:43:42.513Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
-      "_qualityScore": 65,
+      "streetAddress": "Via Industria 7",
+      "postalCode": "6593",
+      "addressLocality": "Gravesano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "retranslationAttempts": 2,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 4,
-        "completeness": 14
+        "translation": 23,
+        "completeness": 25
       }
     },
     {
@@ -200,15 +236,22 @@
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
       "crawledAt": "2026-04-12T09:43:42.513Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
-      "_qualityScore": 65,
+      "streetAddress": "Via Industria 7",
+      "postalCode": "6593",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "retranslationAttempts": 2,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 4,
-        "completeness": 14
+        "translation": 15,
+        "completeness": 25
       }
     },
     {
@@ -233,19 +276,24 @@
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
       "crawledAt": "2026-04-12T09:43:42.513Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
-      "_qualityScore": 65,
+      "streetAddress": "Via Industria 7",
+      "postalCode": "6593",
+      "addressLocality": "Sant'Antonino",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "retranslationAttempts": 2,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 4,
-        "completeness": 14
+        "translation": 15,
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "company-7p9uz6",
       "slug": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-locarno-7p9uz6",
@@ -274,7 +322,7 @@
       "salaryMax": 63000,
       "streetAddress": "Via Industria 7",
       "postalCode": "6593",
-      "addressLocality": "Cadenazzo",
+      "addressLocality": "Locarno",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
@@ -314,7 +362,7 @@
       "salaryMax": 78000,
       "streetAddress": "Via Industria 7",
       "postalCode": "6593",
-      "addressLocality": "Cadenazzo",
+      "addressLocality": "St. Moritz",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
@@ -354,7 +402,7 @@
       "salaryMax": 78000,
       "streetAddress": "Via Industria 7",
       "postalCode": "6593",
-      "addressLocality": "Cadenazzo",
+      "addressLocality": "St. Moritz",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
@@ -394,7 +442,7 @@
       "salaryMax": 78000,
       "streetAddress": "Via Industria 7",
       "postalCode": "6593",
-      "addressLocality": "Cadenazzo",
+      "addressLocality": "St. Moritz",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
