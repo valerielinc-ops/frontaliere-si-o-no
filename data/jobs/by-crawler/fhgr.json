@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fhgr",
-  "assembledAt": "2026-04-11T21:14:32.517Z",
+  "assembledAt": "2026-04-12T09:22:55.244Z",
   "jobs": [
     {
       "id": "fhgr-7309b549f3fa",
@@ -33,7 +33,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/739/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T21:14:30.339Z",
+      "crawledAt": "2026-04-12T09:22:52.680Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -45,7 +45,7 @@
       "sector": "Formazione / Ricerca",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-11",
+      "postedDate": "2026-04-12",
       "applyUrl": "https://jobs.fhgr.ch/Vacancies/739/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {
@@ -93,6 +93,7 @@
       "previousSlugs": [
         "lehrstelle-architekturmodellbauer-in-efz-fhgr-ch"
       ],
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -137,7 +138,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/772/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T21:14:29.363Z",
+      "crawledAt": "2026-04-12T09:22:51.508Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -149,7 +150,7 @@
       "sector": "Formazione / Ricerca",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-11",
+      "postedDate": "2026-04-12",
       "applyUrl": "https://jobs.fhgr.ch/Vacancies/772/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {
@@ -194,6 +195,7 @@
           "architekt-in-oder-bauingenieur-in-fur-die-leitung-des-instituts-fur-bauen-im-alpinen-raum-"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -238,7 +240,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/749/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T21:14:28.393Z",
+      "crawledAt": "2026-04-12T09:22:50.344Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -250,7 +252,7 @@
       "sector": "Formazione / Ricerca",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-11",
+      "postedDate": "2026-04-12",
       "applyUrl": "https://jobs.fhgr.ch/Vacancies/749/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {
@@ -295,6 +297,7 @@
       "previousSlugs": [
         "bauingenieur-in-fhgr-ch"
       ],
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -339,7 +342,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/735/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T21:14:27.460Z",
+      "crawledAt": "2026-04-12T09:22:49.171Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -351,7 +354,7 @@
       "sector": "Formazione / Ricerca",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-11",
+      "postedDate": "2026-04-12",
       "applyUrl": "https://jobs.fhgr.ch/Vacancies/735/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {
@@ -390,18 +393,19 @@
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
-      "previousSlugsByLocale": {
-        "de": [
-          "sachbearbeiter-instandhaltung-100-fachhochschule-graubunden-chur"
-        ],
-        "it": [
-          "instandhaltungsfachperson-100-fhgr-ch"
-        ]
-      },
       "previousSlugs": [
         "instandhaltungsfachperson-100-fhgr-ch",
         "sachbearbeiter-instandhaltung-100-fachhochschule-graubunden-chur"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "instandhaltungsfachperson-100-fhgr-ch"
+        ],
+        "de": [
+          "sachbearbeiter-instandhaltung-100-fachhochschule-graubunden-chur"
+        ]
+      },
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -446,7 +450,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/774/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T21:14:26.471Z",
+      "crawledAt": "2026-04-12T09:22:48.016Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -458,7 +462,7 @@
       "sector": "Formazione / Ricerca",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-11",
+      "postedDate": "2026-04-12",
       "applyUrl": "https://jobs.fhgr.ch/Vacancies/774/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {
@@ -506,6 +510,7 @@
       "previousSlugs": [
         "studienleiter-in-business-administration-studienrichtung-new-business-fhgr-ch"
       ],
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
