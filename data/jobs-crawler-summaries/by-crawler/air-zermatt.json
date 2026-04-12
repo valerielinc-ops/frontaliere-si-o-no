@@ -1,16 +1,16 @@
 {
   "key": "air-zermatt",
   "label": "Air Zermatt AG",
-  "generatedAt": "2026-04-12T07:05:11.972Z",
+  "generatedAt": "2026-04-12T07:07:35.854Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1439,
-  "avgDurationMs": 1439,
+  "durationMs": 25422,
+  "avgDurationMs": 25422,
   "durationHistory": [
-    1439
+    25422
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -39,7 +39,7 @@
       "applyUrl": "https://www.air-zermatt.ch/de/service/offene-stellen/helikoptermechanikerin-b13-und-oder-avionikerin-b2--100-549",
       "source": "Air Zermatt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-12T07:05:11.376Z",
+      "crawledAt": "2026-04-12T07:07:12.263Z",
       "needsRetranslation": true,
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -74,7 +74,7 @@
       "applyUrl": "https://www.air-zermatt.ch/de/service/offene-stellen/luftfahrzeugtechnikerin-mechanik-in-ausbildung--100-545",
       "source": "Air Zermatt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-12T07:05:11.476Z",
+      "crawledAt": "2026-04-12T07:07:12.491Z",
       "needsRetranslation": true,
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -86,7 +86,7 @@
     },
     {
       "id": "air-zermatt-dfbbe85d1afb",
-      "slug": "stipendium-atc-swiss-sherpa-foundation-air-zermatt",
+      "slug": "stipendium-atc-swiss-sherpa-foundation-raron-air-zermatt",
       "company": "Air Zermatt AG",
       "companyKey": "air-zermatt",
       "companyDomain": "air-zermatt.ch",
@@ -109,7 +109,7 @@
       "applyUrl": "https://www.air-zermatt.ch/de/service/offene-stellen/stipendium-atc-amp-swiss-sherpa-foundation-442",
       "source": "Air Zermatt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-12T07:05:11.582Z",
+      "crawledAt": "2026-04-12T07:07:12.694Z",
       "needsRetranslation": true,
       "_qualityScore": 85,
       "_qualityBreakdown": {
