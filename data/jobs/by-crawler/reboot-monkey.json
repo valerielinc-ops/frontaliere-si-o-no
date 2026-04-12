@@ -867,7 +867,7 @@
         "it": "data-center-technician-switzerland-buchs-sg-on-site-reboot-monkey-buchs-sg",
         "en": "data-center-technician-switzerland-buchs-sg-on-site-reboot-monkey-buchs-sg",
         "de": "rechenzentrumstechniker-schweiz-buchs-sg-vor-ort-reboot-monkey-buchs-sg",
-        "fr": "technicien-data-center-suisse-buchs-sg-sur-site-reboot-monkey-buchs-sg"
+        "fr": "technicien-en-centre-de-donnees-suisse-buchs-sg-sur-place-reboot-monkey-buchs-sg"
       },
       "company": "Reboot Monkey",
       "companyKey": "reboot-monkey",
@@ -943,7 +943,15 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "9000"
+      "postalCode": "9000",
+      "previousSlugsByLocale": {
+        "fr": [
+          "technicien-data-center-suisse-buchs-sg-sur-site-reboot-monkey-buchs-sg"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-data-center-suisse-buchs-sg-sur-site-reboot-monkey-buchs-sg"
+      ]
     },
     {
       "id": "reboot-monkey-6ded135fe1ce",
