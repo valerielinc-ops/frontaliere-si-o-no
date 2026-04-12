@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bcvs",
-  "assembledAt": "2026-04-12T08:54:50.938Z",
+  "assembledAt": "2026-04-12T20:53:36.713Z",
   "jobs": [
     {
       "id": "bcvs-4511f0d0d08c",
@@ -33,7 +33,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/teamleiter-in-privatkunden-2341",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-12T08:54:48.497Z",
+      "crawledAt": "2026-04-12T20:53:34.515Z",
       "addressLocality": "Zermatt",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -83,6 +83,7 @@
       "previousSlugs": [
         "teamleiter-in-privatkunden-bcvs-zermatt"
       ],
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -128,7 +129,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/investment-specialist-2442",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-12T08:54:48.037Z",
+      "crawledAt": "2026-04-12T20:53:34.085Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -187,6 +188,7 @@
           "specialiste-en-investissement-banque-cantonale-du-valais-sion"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -232,7 +234,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/conseiller-ere-clientele-valorisation-2448",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-12T08:54:47.575Z",
+      "crawledAt": "2026-04-12T20:53:33.667Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -335,7 +337,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/mitarbeiter-in-stabstelle-region-oberwallis-und-support-firmenkunden-2464",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-12T08:54:46.964Z",
+      "crawledAt": "2026-04-12T20:53:33.240Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -385,6 +387,7 @@
       "previousSlugs": [
         "mitarbeiter-in-stabsstelle-region-oberwallis-und-support-firmenkunden-bcvs-visp"
       ],
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -430,7 +433,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/expert-e-en-finances-controlling-2470",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-12T08:54:46.499Z",
+      "crawledAt": "2026-04-12T20:53:32.817Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -478,6 +481,7 @@
           "expert-e-en-finances-et-controle-banque-cantonale-du-valais-sion"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -523,7 +527,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/conseiller-ere-clientele-individuelle-des-prives-2492",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-12T08:54:46.034Z",
+      "crawledAt": "2026-04-12T20:53:32.404Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -575,6 +579,7 @@
       "previousSlugs": [
         "conseiller-ere-clientele-individuelle-des-prives-bcvs-sion"
       ],
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
