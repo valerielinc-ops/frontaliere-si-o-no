@@ -153,7 +153,7 @@ import {
   Home, Timer, Users, Calendar, Shield, Mountain, GraduationCap,
   LifeBuoy, Rocket, Mail, Bug, Sunrise, User as UserIcon, LogIn,
   FileText, Gift, Hammer, BookA, School, Database, Clock, Receipt, Languages, BarChart3,
-  Banknote, Fuel, Scale, Loader2
+  Banknote, Fuel, Scale, Loader2, Menu, X
 } from 'lucide-react';
 
 import SkeletonFallback, { SkeletonPageShell, SkeletonComparator, SkeletonGuide, SkeletonDashboard, SkeletonFisco, SkeletonStats, SkeletonBlog, SkeletonVita, SkeletonNewsTicker, SkeletonWeeklyFact, SkeletonInputCard, SkeletonFooterSlot } from '@/components/shared/Skeletons';
@@ -1280,6 +1280,7 @@ const App: React.FC = () => {
 
   const handleTabChange = useCallback((tab: ActiveTab) => {
     enableRuntimeSeo();
+    setMobileMenuOpen(false);
     setActiveTab(prevTab => {
       Analytics.trackTabNavigation(prevTab, tab);
       if (tab === 'confronti') Analytics.trackFunnelStep('compare', { from_tab: prevTab });
@@ -2118,6 +2119,15 @@ const App: React.FC = () => {
   const logoClickCountRef = useRef(0);
   const logoClickTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [showWhatsNew, setShowWhatsNew] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  // Close mobile menu on Escape key or route change
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+    const close = (e: KeyboardEvent) => { if (e.key === 'Escape') setMobileMenuOpen(false); };
+    window.addEventListener('keydown', close);
+    return () => window.removeEventListener('keydown', close);
+  }, [mobileMenuOpen]);
 
   const handleLogoClick = useCallback(() => {
     logoClickCountRef.current += 1;
@@ -2337,7 +2347,7 @@ const App: React.FC = () => {
         {/* Navbar */}
         <nav aria-label="Navigazione principale" className="sticky top-0 z-50 bg-white/95 dark:bg-slate-900/95 border-b border-slate-200/50 dark:border-slate-800/50 shadow-sm transition-colors duration-300">
           <div className="max-w-[2400px] w-[95%] mx-auto px-4 sm:px-6">
-            <div className="flex justify-between h-20 items-center">
+            <div className="flex justify-between h-14 md:h-20 items-center">
               {/* Logo Section */}
               <a href={buildPath({ activeTab: 'calculator' })} onClick={(e) => { e.preventDefault(); handleLogoClick(); handleTabChange('calculator'); }} className="flex items-center gap-3 cursor-pointer no-underline" aria-label="Frontaliere Ticino — Analisi Fiscale 2026">
                 <div className="relative group">
@@ -2456,67 +2466,82 @@ const App: React.FC = () => {
                 </a>
               </div>
 
-              {/* Actions */}
+              {/* Actions — slim on mobile (search + locale + hamburger), full on md+ */}
               <div className="flex items-center gap-0.5 sm:gap-1.5 pl-2 sm:pl-4 border-l border-slate-200 dark:border-slate-800 shrink-0 min-w-fit">
+                {/* Search — always visible */}
                 {showDeferredHomeWidgets ? (
-                  <>
-                    <Suspense fallback={<div className="w-9 h-9" />}><SiteSearch onNavigate={handleSearchNavigate} /></Suspense>
-                    <Suspense fallback={<div className="w-9 h-9" />}><GamificationWidget /></Suspense>
-                  </>
+                  <Suspense fallback={<div className="w-9 h-9" />}><SiteSearch onNavigate={handleSearchNavigate} /></Suspense>
                 ) : (
-                  <div className="w-[76px] h-9" aria-hidden="true" />
+                  <div className="w-9 h-9" aria-hidden="true" />
                 )}
-                <Suspense fallback={null}><LanguageSelector /></Suspense>
-                <Suspense fallback={null}><WhatsNewBellLazy onClick={() => setShowWhatsNew(true)} /></Suspense>
 
-                <button 
+                {/* Gamification — desktop only */}
+                {showDeferredHomeWidgets && (
+                  <div className="hidden md:block">
+                    <Suspense fallback={<div className="w-9 h-9" />}><GamificationWidget /></Suspense>
+                  </div>
+                )}
+
+                {/* Language selector — always visible */}
+                <Suspense fallback={null}><LanguageSelector /></Suspense>
+
+                {/* WhatsNew bell — desktop only */}
+                <div className="hidden md:block">
+                  <Suspense fallback={null}><WhatsNewBellLazy onClick={() => setShowWhatsNew(true)} /></Suspense>
+                </div>
+
+                {/* Dark mode toggle — desktop only */}
+                <button
                   onClick={toggleTheme}
-                  className="p-2 rounded-xl text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors shrink-0 min-w-[44px] min-h-[44px] flex items-center justify-center"
+                  className="hidden md:flex p-2 rounded-xl text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors shrink-0 min-w-[44px] min-h-[44px] items-center justify-center"
                   aria-label={isDarkMode ? t('app.lightMode') : t('app.darkMode')}
                 >
                   {isDarkMode ? <Sun size={18} className="text-amber-400" /> : <Moon size={18} className="text-slate-600" />}
                 </button>
 
-                {/* Profile / Login button */}
-                {authUser ? (
-                  <button
-                    onClick={() => handleTabChange('profile')}
-                    className={`p-1 rounded-xl transition-[color,background-color,border-color,box-shadow] shrink-0 ${activeTab === 'profile' ? 'ring-2 ring-stripe-400' : 'hover:ring-2 hover:ring-slate-300 dark:hover:ring-slate-600'}`}
-                    aria-label={t('profile.title')}
-                    title={getUserDisplayName(authUser)}
-                  >
-                    {getUserPhotoURL(authUser, authUser?.uid) ? (
-                      <img
-                        src={getUserPhotoURL(authUser, authUser?.uid)!}
-                        alt={getUserDisplayName(authUser)}
-                        width={30}
-                        height={30}
-                        className="w-[30px] h-[30px] rounded-lg object-cover"
-                        referrerPolicy="no-referrer"
-                      />
-                    ) : (
-                      <div className="w-[30px] h-[30px] rounded-lg bg-stripe-100 dark:bg-stripe-900 flex items-center justify-center">
-                        <UserIcon size={16} className="text-stripe-600 dark:text-stripe-400" />
-                      </div>
-                    )}
-                  </button>
-                ) : authLoading ? (
-                  <div className="w-[30px] h-[30px] rounded-lg bg-slate-200 dark:bg-slate-700 animate-pulse shrink-0" aria-hidden="true" />
-                ) : (
-                  <button
-                    onClick={() => handleTabChange('profile')}
-                    className="p-2 rounded-xl text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors shrink-0 min-w-[44px] min-h-[44px] flex items-center justify-center"
-                    aria-label={t('profile.signIn')}
-                    title={t('profile.signIn')}
-                  >
-                    <LogIn size={18} />
-                  </button>
-                )}
+                {/* Profile / Login — desktop only */}
+                <div className="hidden md:block">
+                  {authUser ? (
+                    <button
+                      onClick={() => handleTabChange('profile')}
+                      className={`p-1 rounded-xl transition-[color,background-color,border-color,box-shadow] shrink-0 ${activeTab === 'profile' ? 'ring-2 ring-stripe-400' : 'hover:ring-2 hover:ring-slate-300 dark:hover:ring-slate-600'}`}
+                      aria-label={t('profile.title')}
+                      title={getUserDisplayName(authUser)}
+                    >
+                      {getUserPhotoURL(authUser, authUser?.uid) ? (
+                        <img
+                          src={getUserPhotoURL(authUser, authUser?.uid)!}
+                          alt={getUserDisplayName(authUser)}
+                          width={30}
+                          height={30}
+                          className="w-[30px] h-[30px] rounded-lg object-cover"
+                          referrerPolicy="no-referrer"
+                        />
+                      ) : (
+                        <div className="w-[30px] h-[30px] rounded-lg bg-stripe-100 dark:bg-stripe-900 flex items-center justify-center">
+                          <UserIcon size={16} className="text-stripe-600 dark:text-stripe-400" />
+                        </div>
+                      )}
+                    </button>
+                  ) : authLoading ? (
+                    <div className="w-[30px] h-[30px] rounded-lg bg-slate-200 dark:bg-slate-700 animate-pulse shrink-0" aria-hidden="true" />
+                  ) : (
+                    <button
+                      onClick={() => handleTabChange('profile')}
+                      className="p-2 rounded-xl text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors shrink-0 min-w-[44px] min-h-[44px] flex items-center justify-center"
+                      aria-label={t('profile.signIn')}
+                      title={t('profile.signIn')}
+                    >
+                      <LogIn size={18} />
+                    </button>
+                  )}
+                </div>
 
+                {/* Admin — desktop only */}
                 {isPrivilegedAdmin && (
                   <button
                     onClick={() => handleTabChange('admin')}
-                    className={`p-2 rounded-xl transition-colors shrink-0 ${
+                    className={`hidden md:flex p-2 rounded-xl transition-colors shrink-0 items-center justify-center ${
                       activeTab === 'admin'
                         ? 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300'
                         : 'text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800'
@@ -2527,16 +2552,99 @@ const App: React.FC = () => {
                     <Shield size={18} />
                   </button>
                 )}
+
+                {/* Hamburger — mobile only */}
+                <button
+                  onClick={() => setMobileMenuOpen(prev => !prev)}
+                  className="md:hidden p-2 rounded-xl text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors shrink-0 min-w-[44px] min-h-[44px] flex items-center justify-center"
+                  aria-label={mobileMenuOpen ? 'Chiudi menu' : 'Apri menu'}
+                  aria-expanded={mobileMenuOpen}
+                >
+                  {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+                </button>
               </div>
             </div>
+
+            {/* Mobile slide-down drawer */}
+            {mobileMenuOpen && (
+              <div className="md:hidden border-t border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-4 py-3 animate-slide-down">
+                <div className="flex flex-col gap-1">
+                  {/* Dark mode toggle */}
+                  <button
+                    onClick={() => { toggleTheme(); setMobileMenuOpen(false); }}
+                    className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors w-full text-left"
+                  >
+                    {isDarkMode ? <Sun size={18} className="text-amber-400" /> : <Moon size={18} className="text-slate-600" />}
+                    <span className="text-sm font-medium">{isDarkMode ? t('app.lightMode') : t('app.darkMode')}</span>
+                  </button>
+
+                  {/* What's New */}
+                  <button
+                    onClick={() => { setShowWhatsNew(true); setMobileMenuOpen(false); }}
+                    className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors w-full text-left"
+                  >
+                    <Newspaper size={18} />
+                    <span className="text-sm font-medium">What&apos;s New</span>
+                  </button>
+
+                  {/* Gamification */}
+                  {showDeferredHomeWidgets && (
+                    <div className="px-3 py-1">
+                      <Suspense fallback={null}><GamificationWidget /></Suspense>
+                    </div>
+                  )}
+
+                  {/* Profile / Login */}
+                  {authUser ? (
+                    <button
+                      onClick={() => handleTabChange('profile')}
+                      className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors w-full text-left"
+                    >
+                      {getUserPhotoURL(authUser, authUser?.uid) ? (
+                        <img
+                          src={getUserPhotoURL(authUser, authUser?.uid)!}
+                          alt={getUserDisplayName(authUser)}
+                          width={24}
+                          height={24}
+                          className="w-6 h-6 rounded-md object-cover"
+                          referrerPolicy="no-referrer"
+                        />
+                      ) : (
+                        <UserIcon size={18} className="text-stripe-600 dark:text-stripe-400" />
+                      )}
+                      <span className="text-sm font-medium">{t('profile.title')}</span>
+                    </button>
+                  ) : !authLoading && (
+                    <button
+                      onClick={() => handleTabChange('profile')}
+                      className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors w-full text-left"
+                    >
+                      <LogIn size={18} />
+                      <span className="text-sm font-medium">{t('profile.signIn')}</span>
+                    </button>
+                  )}
+
+                  {/* Admin */}
+                  {isPrivilegedAdmin && (
+                    <button
+                      onClick={() => handleTabChange('admin')}
+                      className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors w-full text-left"
+                    >
+                      <Shield size={18} />
+                      <span className="text-sm font-medium">Pannello amministrazione</span>
+                    </button>
+                  )}
+                </div>
+              </div>
+            )}
           </div>
         </nav>
 
         {/* Sub-navigation for Calcolatore */}
         {activeTab === 'calculator' && (
           <div className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 overflow-x-auto">
-              <div className="grid grid-cols-4 sm:grid-cols-4 md:grid-cols-8 gap-1">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5">
+              <div className="flex md:grid md:grid-cols-8 gap-1.5 overflow-x-auto md:overflow-x-visible scrollbar-hide">
                 {([
                   { key: 'calculator' as const, icon: Calculator, label: t('simulator.calculator') },
                   { key: 'whatif' as const, icon: Sparkles, label: t('simulator.whatif') },
@@ -2553,14 +2661,14 @@ const App: React.FC = () => {
                       setCalcolatoreSubTab(key);
                       Analytics.trackUIInteraction('calcolatore', 'navigazione', 'tab_sezione', 'cambio', key);
                     }}
-                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-[color,background-color,border-color,box-shadow] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stripe-400 focus-visible:ring-offset-2 ${
+                    className={`flex items-center md:flex-col gap-1.5 md:gap-0.5 px-3 md:px-1 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-[color,background-color,border-color,box-shadow] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stripe-400 focus-visible:ring-offset-2 shrink-0 md:shrink ${
                       calcolatoreSubTab === key
                         ? 'bg-stripe-100 dark:bg-stripe-900/30 text-stripe-700 dark:text-stripe-300 ring-1 ring-stripe-300 dark:ring-stripe-700'
                         : 'text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
                     }`}
                   >
-                    <Icon size={18} />
-                    <span className="leading-tight text-center w-full line-clamp-2">{label}</span>
+                    <Icon size={18} className="hidden md:block" aria-hidden="true" />
+                    <span className="leading-tight text-center whitespace-nowrap md:whitespace-normal md:w-full md:line-clamp-2">{label}</span>
                   </button>
                 ))}
               </div>
@@ -2571,8 +2679,8 @@ const App: React.FC = () => {
         {/* Sub-navigation for Confronti */}
         {activeTab === 'confronti' && (
           <div className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 overflow-x-auto">
-              <div className="grid grid-cols-4 sm:grid-cols-4 md:grid-cols-8 gap-1">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5">
+              <div className="flex md:grid md:grid-cols-8 gap-1.5 overflow-x-auto md:overflow-x-visible scrollbar-hide">
                 {([
                   { key: 'exchange' as const, icon: ArrowRightLeft, label: t('comparators.exchange') },
                   { key: 'banks' as const, icon: Building2, label: t('comparators.banks') },
@@ -2589,14 +2697,14 @@ const App: React.FC = () => {
                       setConfrontiSubTab(key);
                       Analytics.trackComparatorView(key as any);
                     }}
-                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-[color,background-color,border-color,box-shadow] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stripe-400 focus-visible:ring-offset-2 ${
+                    className={`flex items-center md:flex-col gap-1.5 md:gap-0.5 px-3 md:px-1 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-[color,background-color,border-color,box-shadow] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stripe-400 focus-visible:ring-offset-2 shrink-0 md:shrink ${
                       confrontiSubTab === key
                         ? 'bg-stripe-100 dark:bg-stripe-900/30 text-stripe-700 dark:text-stripe-300 ring-1 ring-stripe-300 dark:ring-stripe-700'
                         : 'text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
                     }`}
                   >
-                    <Icon size={18} />
-                    <span className="leading-tight text-center w-full line-clamp-2">{label}</span>
+                    <Icon size={18} className="hidden md:block" aria-hidden="true" />
+                    <span className="leading-tight text-center whitespace-nowrap md:whitespace-normal md:w-full md:line-clamp-2">{label}</span>
                   </button>
                 ))}
               </div>
@@ -2607,8 +2715,8 @@ const App: React.FC = () => {
         {/* Sub-navigation for Fisco & Previdenza */}
         {activeTab === 'fisco' && (
           <div className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 overflow-x-auto">
-              <div className="grid grid-cols-4 sm:grid-cols-4 md:grid-cols-8 gap-1">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5">
+              <div className="flex md:grid md:grid-cols-8 gap-1.5 overflow-x-auto md:overflow-x-visible scrollbar-hide">
                 {([
                   { key: 'tax-return' as const, icon: FileText, label: t('comparators.taxReturn') },
                   { key: 'withholding-rates' as const, icon: Banknote, label: t('withholdingRates.navLabel') },
@@ -2625,14 +2733,14 @@ const App: React.FC = () => {
                       setFiscoSubTab(key);
                       Analytics.trackUIInteraction('fisco', 'navigazione', 'tab_sezione', 'cambio', key);
                     }}
-                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-[color,background-color,border-color,box-shadow] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stripe-400 focus-visible:ring-offset-2 ${
+                    className={`flex items-center md:flex-col gap-1.5 md:gap-0.5 px-3 md:px-1 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-[color,background-color,border-color,box-shadow] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stripe-400 focus-visible:ring-offset-2 shrink-0 md:shrink ${
                       fiscoSubTab === key
                         ? 'bg-stripe-100 dark:bg-stripe-900/30 text-stripe-700 dark:text-stripe-300 ring-1 ring-stripe-300 dark:ring-stripe-700'
                         : 'text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
                     }`}
                   >
-                    <Icon size={18} />
-                    <span className="leading-tight text-center w-full line-clamp-2">{label}</span>
+                    <Icon size={18} className="hidden md:block" aria-hidden="true" />
+                    <span className="leading-tight text-center whitespace-nowrap md:whitespace-normal md:w-full md:line-clamp-2">{label}</span>
                   </button>
                 ))}
               </div>
@@ -2643,8 +2751,8 @@ const App: React.FC = () => {
         {/* Sub-navigation for Guida Pratica */}
         {activeTab === 'guida' && (
           <div className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 overflow-x-auto">
-              <div className="grid grid-cols-4 sm:grid-cols-4 md:grid-cols-8 gap-1">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5">
+              <div className="flex md:grid md:grid-cols-8 gap-1.5 overflow-x-auto md:overflow-x-visible scrollbar-hide">
                 {([
                   { key: 'first-day' as const, icon: Rocket, label: t('guide.tabs.firstDay') },
                   { key: 'permits' as const, icon: Shield, label: t('guide.tabs.permits') },
@@ -2661,14 +2769,14 @@ const App: React.FC = () => {
                       setGuidaSubTab(key);
                       Analytics.trackUIInteraction('guida', 'navigazione', 'tab_sezione', 'cambio', key);
                     }}
-                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-[color,background-color,border-color,box-shadow] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stripe-400 focus-visible:ring-offset-2 ${
+                    className={`flex items-center md:flex-col gap-1.5 md:gap-0.5 px-3 md:px-1 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-[color,background-color,border-color,box-shadow] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stripe-400 focus-visible:ring-offset-2 shrink-0 md:shrink ${
                       guidaSubTab === key
                         ? 'bg-stripe-100 dark:bg-stripe-900/30 text-stripe-700 dark:text-stripe-300 ring-1 ring-stripe-300 dark:ring-stripe-700'
                         : 'text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
                     }`}
                   >
-                    <Icon size={18} />
-                    <span className="leading-tight text-center w-full line-clamp-2">{label}</span>
+                    <Icon size={18} className="hidden md:block" aria-hidden="true" />
+                    <span className="leading-tight text-center whitespace-nowrap md:whitespace-normal md:w-full md:line-clamp-2">{label}</span>
                   </button>
                 ))}
               </div>
@@ -2679,8 +2787,8 @@ const App: React.FC = () => {
         {/* Sub-navigation for Vita in Ticino */}
         {activeTab === 'vita' && (
           <div className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 overflow-x-auto">
-              <div className="grid grid-cols-4 sm:grid-cols-4 md:grid-cols-8 gap-1">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5">
+              <div className="flex md:grid md:grid-cols-8 gap-1.5 overflow-x-auto md:overflow-x-visible scrollbar-hide">
                 {([
                   { key: 'living-ch' as const, icon: Home, label: t('guide.tabs.livingCH') },
                   { key: 'living-it' as const, icon: Users, label: t('guide.tabs.livingIT') },
@@ -2697,14 +2805,14 @@ const App: React.FC = () => {
                       setVitaSubTab(key);
                       Analytics.trackUIInteraction('vita', 'navigazione', 'tab_sezione', 'cambio', key);
                     }}
-                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-[color,background-color,border-color,box-shadow] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stripe-400 focus-visible:ring-offset-2 ${
+                    className={`flex items-center md:flex-col gap-1.5 md:gap-0.5 px-3 md:px-1 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-[color,background-color,border-color,box-shadow] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stripe-400 focus-visible:ring-offset-2 shrink-0 md:shrink ${
                       vitaSubTab === key
                         ? 'bg-stripe-100 dark:bg-stripe-900/30 text-stripe-700 dark:text-stripe-300 ring-1 ring-stripe-300 dark:ring-stripe-700'
                         : 'text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
                     }`}
                   >
-                    <Icon size={18} />
-                    <span className="leading-tight text-center w-full line-clamp-2">{label}</span>
+                    <Icon size={18} className="hidden md:block" aria-hidden="true" />
+                    <span className="leading-tight text-center whitespace-nowrap md:whitespace-normal md:w-full md:line-clamp-2">{label}</span>
                   </button>
                 ))}
               </div>
@@ -2715,8 +2823,8 @@ const App: React.FC = () => {
         {/* Sub-navigation for Stats */}
         {activeTab === 'stats' && (
           <div className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 overflow-x-auto">
-              <div className="grid grid-cols-4 sm:grid-cols-4 md:grid-cols-8 gap-1.5 max-w-6xl mx-auto">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5">
+              <div className="flex md:grid md:grid-cols-8 gap-1.5 overflow-x-auto md:overflow-x-visible scrollbar-hide max-w-6xl mx-auto">
                 {([
                   { key: 'overview' as const, icon: Database, label: t('stats.tabOverview') },
                   { key: 'livability' as const, icon: MapPin, label: t('strumenti.livability') },
@@ -2733,14 +2841,14 @@ const App: React.FC = () => {
                       setStatsSubTab(key);
                       Analytics.trackUIInteraction('statistiche', 'navigazione', 'tab_sezione', 'cambio', key);
                     }}
-                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-[color,background-color,border-color,box-shadow] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stripe-400 focus-visible:ring-offset-2 ${
+                    className={`flex items-center md:flex-col gap-1.5 md:gap-0.5 px-3 md:px-1 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-[color,background-color,border-color,box-shadow] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stripe-400 focus-visible:ring-offset-2 shrink-0 md:shrink ${
                       statsSubTab === key
                         ? 'bg-stripe-100 dark:bg-stripe-900/30 text-stripe-700 dark:text-stripe-300 ring-1 ring-stripe-300 dark:ring-stripe-700'
                         : 'text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
                     }`}
                   >
-                    <Icon size={18} />
-                    <span className="leading-tight text-center w-full line-clamp-2">{label}</span>
+                    <Icon size={18} className="hidden md:block" aria-hidden="true" />
+                    <span className="leading-tight text-center whitespace-nowrap md:whitespace-normal md:w-full md:line-clamp-2">{label}</span>
                   </button>
                 ))}
               </div>
@@ -3383,12 +3491,12 @@ const App: React.FC = () => {
         <nav aria-label="Navigazione mobile" className="fixed bottom-0 inset-x-0 z-50 md:hidden bg-white/95 dark:bg-slate-900/95 border-t border-slate-200/50 dark:border-slate-800/50 pb-[env(safe-area-inset-bottom,0px)]">
           <div className="grid grid-cols-6 h-14">
             {([
-              { tab: 'calculator' as const, icon: Calculator, label: t('nav.simulator'), activeClass: 'text-stripe-600 dark:text-stripe-400', barClass: 'bg-stripe-600 dark:bg-stripe-400' },
-              { tab: 'confronti' as const, icon: Layers, label: t('nav.confronti'), activeClass: 'text-stripe-600 dark:text-stripe-400', barClass: 'bg-stripe-600 dark:bg-stripe-400' },
-              { tab: 'fisco' as const, icon: PiggyBank, label: t('nav.fisco'), activeClass: 'text-stripe-600 dark:text-stripe-400', barClass: 'bg-stripe-600 dark:bg-stripe-400' },
-              { tab: 'guida' as const, icon: BookOpen, label: t('nav.guida'), activeClass: 'text-stripe-600 dark:text-stripe-400', barClass: 'bg-stripe-600 dark:bg-stripe-400' },
-              { tab: 'vita' as const, icon: Home, label: t('nav.vita'), activeClass: 'text-stripe-600 dark:text-stripe-400', barClass: 'bg-stripe-600 dark:bg-stripe-400' },
-              { tab: 'stats' as const, icon: BarChart2, label: t('nav.stats'), activeClass: 'text-stripe-600 dark:text-stripe-400', barClass: 'bg-stripe-600 dark:bg-stripe-400' },
+              { tab: 'calculator' as const, icon: Calculator, label: t('nav.simulator.mobile'), activeClass: 'text-stripe-600 dark:text-stripe-400', barClass: 'bg-stripe-600 dark:bg-stripe-400' },
+              { tab: 'confronti' as const, icon: Layers, label: t('nav.confronti.mobile'), activeClass: 'text-stripe-600 dark:text-stripe-400', barClass: 'bg-stripe-600 dark:bg-stripe-400' },
+              { tab: 'fisco' as const, icon: PiggyBank, label: t('nav.fisco.mobile'), activeClass: 'text-stripe-600 dark:text-stripe-400', barClass: 'bg-stripe-600 dark:bg-stripe-400' },
+              { tab: 'guida' as const, icon: BookOpen, label: t('nav.guida.mobile'), activeClass: 'text-stripe-600 dark:text-stripe-400', barClass: 'bg-stripe-600 dark:bg-stripe-400' },
+              { tab: 'vita' as const, icon: Home, label: t('nav.vita.mobile'), activeClass: 'text-stripe-600 dark:text-stripe-400', barClass: 'bg-stripe-600 dark:bg-stripe-400' },
+              { tab: 'stats' as const, icon: BarChart2, label: t('nav.stats.mobile'), activeClass: 'text-stripe-600 dark:text-stripe-400', barClass: 'bg-stripe-600 dark:bg-stripe-400' },
             ] as const).map(({ tab, icon: Icon, label, activeClass, barClass }) => {
               const isActive = activeTab === tab;
               return (

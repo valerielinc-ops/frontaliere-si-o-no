@@ -125,6 +125,25 @@ body.modal-open div[id^="div-gpt-ad"] {
   pointer-events: none !important;
 }
 
+/* ===== Mobile Auto-Ad Controls ═════════════════════════════════════════
+   Google Auto Ads inject .google-auto-placed divs anywhere on the page.
+   On mobile these consume the entire above-the-fold viewport, pushing real
+   content below the fold. Cap their height and ensure they collapse when
+   empty so content is always visible first. */
+@media (max-width: 767px) {
+  .google-auto-placed {
+    max-height: 250px;
+    overflow: hidden;
+  }
+  /* Collapse auto-ad containers that fail to fill */
+  .google-auto-placed:empty,
+  .google-auto-placed:has(ins[data-ad-status="unfilled"]) {
+    max-height: 0;
+    margin: 0;
+    padding: 0;
+  }
+}
+
 /* ===== Non-critical CSS moved from inline <style> to reduce render-blocking ===== */
 
 /* Entrance animations — only needed after React mounts */
@@ -149,6 +168,10 @@ body.modal-open div[id^="div-gpt-ad"] {
 ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
 .dark ::-webkit-scrollbar-thumb { background: #475569; }
 .dark ::-webkit-scrollbar-thumb:hover { background: #64748b; }
+
+/* Hide scrollbar for horizontal scroll strips (sub-tabs on mobile) */
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+.scrollbar-hide::-webkit-scrollbar { display: none; }
 
 /* Content-visibility for off-screen content — performance, non-critical */
 .content-auto { content-visibility: auto; contain-intrinsic-size: auto 850px; }

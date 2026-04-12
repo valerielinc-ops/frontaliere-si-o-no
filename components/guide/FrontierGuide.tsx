@@ -647,6 +647,32 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
 
   return (
     <div className="space-y-8 pb-12">
+      {/* Welcome card — inline, dismissible, shown once */}
+      {showBanner && bannerQueueActive && bannerVisible && (
+        <div className="bg-gradient-to-br from-teal-600 to-emerald-700 text-white rounded-2xl shadow-stripe-md p-4 sm:p-5 border border-teal-400/30 relative animate-fade-in">
+          <button
+            onClick={dismissBanner}
+            className="absolute top-2 right-2 p-2 text-white/70 hover:text-white hover:bg-white/20 rounded-full transition-colors"
+            aria-label={t('guide.closeBanner')}
+          >
+            <X size={16} />
+          </button>
+          <div className="flex items-start gap-3 pr-6">
+            <div className="shrink-0 p-2 bg-white/20 rounded-xl">
+              <MapPin size={24} className="text-white" />
+            </div>
+            <div className="space-y-1">
+              <h3 className="text-sm sm:text-base font-bold leading-tight">
+                {t('guide.title')}
+              </h3>
+              <p className="text-xs sm:text-sm text-teal-100 leading-relaxed">
+                {t('guide.subtitle')}
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Content Sections */}
       {activeSection === 'municipalities' && (
         <div className="space-y-6 animate-fade-in">
@@ -2544,41 +2570,6 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
 
 
 
-      {/* Welcome banner — shown once, auto-dismisses after 15s */}
-      {showBanner && bannerQueueActive && (
-        <div
-          className={`fixed bottom-20 md:bottom-4 left-4 right-4 sm:left-auto sm:right-6 sm:max-w-md z-[55] transition-[opacity,transform] duration-500 ${
-            bannerVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-          }`}
-        >
-          <div className="bg-gradient-to-br from-teal-600 to-emerald-700 text-white rounded-2xl shadow-2xl p-4 sm:p-5 border border-teal-400/30">
-            <button
-              onClick={dismissBanner}
-              className="absolute top-2 right-2 p-2 text-white/70 hover:text-white hover:bg-white/20 rounded-full transition-colors"
-              aria-label={t('guide.closeBanner')}
-            >
-              <X size={16} />
-            </button>
-            <div className="flex items-start gap-3 pr-6">
-              <div className="shrink-0 p-2 bg-white/20 rounded-xl">
-                <MapPin size={24} className="text-white" />
-              </div>
-              <div className="space-y-1">
-                <h3 className="text-sm sm:text-base font-bold leading-tight">
-                  {t('guide.title')}
-                </h3>
-                <p className="text-xs sm:text-sm text-teal-100 leading-relaxed">
-                  {t('guide.subtitle')}
-                </p>
-              </div>
-            </div>
-            {/* 15s countdown progress bar — duration is intentional */}
-            <div className="mt-3 h-1 bg-white/20 rounded-full overflow-hidden">
-              <div className="h-full bg-white/60 rounded-full animate-[shrink_15s_linear_0.5s_forwards]" />
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };
