@@ -89,14 +89,26 @@ export function parseAfryApiResponse(data = {}) {
 export function parseAfryDetailPage(html = '') {
   let description = '';
 
-  // Description is in div.advert--description or in the main content paragraph
-  const descMatch = html.match(
-    /<div[^>]*class="[^"]*advert--description[^"]*"[^>]*>([\s\S]*?)<\/div>\s*<div[^>]*class="[^"]*advert--apply/i,
+  // Primary: job description in div.advert--body (contains h3 sections + paragraphs)
+  const bodyMatch = html.match(
+    /<div[^>]*class="[^"]*advert--body[^"]*"[^>]*>([\s\S]*?)<\/div>\s*<div[^>]*class="[^"]*additional--info/i,
   );
-  if (descMatch) {
-    description = stripHtml(descMatch[1]);
-  } else {
-    // Fallback: extract from field--name-field-description or meta description
+  if (bodyMatch) {
+    description = stripHtml(bodyMatch[1]);
+  }
+
+  // Fallback: older layout used advert--description
+  if (!description) {
+    const descMatch = html.match(
+      /<div[^>]*class="[^"]*advert--description[^"]*"[^>]*>([\s\S]*?)<\/div>\s*<div[^>]*class="[^"]*advert--apply/i,
+    );
+    if (descMatch) {
+      description = stripHtml(descMatch[1]);
+    }
+  }
+
+  // Fallback: field--name-field-description or meta description
+  if (!description) {
     const fieldMatch = html.match(
       /<div[^>]*class="[^"]*field--name-field-description[^"]*"[^>]*>([\s\S]*?)<\/div>/i,
     );
