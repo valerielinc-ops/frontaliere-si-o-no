@@ -8766,5 +8766,77 @@
         "pending": 1
       }
     ]
+  },
+  {
+    "timestamp": "2026-04-12T10:36:30.509Z",
+    "label": "before",
+    "total": 2927,
+    "needsRetranslation": 449,
+    "incomplete": 21,
+    "complete": 2906,
+    "missingByLocale": {
+      "it": 14,
+      "en": 2,
+      "de": 15,
+      "fr": 15
+    },
+    "topPending": [
+      {
+        "company": "Reboot Monkey",
+        "pending": 10
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 5
+      },
+      {
+        "company": "Prada Group",
+        "pending": 2
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      },
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "Gruppo Ospedaliero Moncucco",
+        "pending": 1
+      },
+      {
+        "company": "Tether Operations",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-12T10:49:38.173Z",
+    "label": "after",
+    "total": 2927,
+    "needsRetranslation": 26,
+    "incomplete": 3,
+    "complete": 2924,
+    "missingByLocale": {
+      "it": 1,
+      "en": 3,
+      "de": 2,
+      "fr": 3
+    },
+    "topPending": [
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      },
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "Gruppo Ospedaliero Moncucco",
+        "pending": 1
+      }
+    ]
   }
 ]
