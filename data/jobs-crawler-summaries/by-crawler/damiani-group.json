@@ -1,16 +1,16 @@
 {
   "key": "damiani-group",
   "label": "Damiani Group",
-  "generatedAt": "2026-04-12T09:14:34.705Z",
+  "generatedAt": "2026-04-12T21:13:19.538Z",
   "total": 5,
   "newCount": 0,
-  "updatedCount": 3,
+  "updatedCount": 5,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 4923,
-  "avgDurationMs": 4923,
+  "unchangedCount": 0,
+  "durationMs": 4313,
+  "avgDurationMs": 4313,
   "durationHistory": [
-    4923
+    4313
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -46,6 +46,42 @@
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 24,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "title": "Specialista Tesoreria",
+      "slug": "specialista-tesoreria-damiani-group-mendrisio",
+      "url": "https://careers.damianigroup.com/job/Mendrisio-Treasury-Specialist/1327326955/",
+      "applyUrl": "https://careers.damianigroup.com/talentcommunity/apply/1327326955/?locale=en_US",
+      "company": "Damiani Group",
+      "companyKey": "damiani-group",
+      "companyDomain": "damianigroup.com",
+      "location": "Mendrisio",
+      "addressLocality": "Mendrisio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "finance",
+      "sector": "Lusso & Gioielleria",
+      "source": "damiani-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-04-07",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "2026-06-30",
+      "salaryMin": 82500,
+      "salaryMax": 111500,
+      "currency": "CHF",
+      "streetAddress": "Via Penate 12",
+      "postalCode": "6850",
+      "id": "damiani-group-90e45aa75e37",
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
         "translation": 25,
         "completeness": 25
       }
@@ -121,45 +157,6 @@
         "translation": 25,
         "completeness": 25
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "title": "Specialista Tesoreria",
-      "slug": "specialista-tesoreria-damiani-group-mendrisio",
-      "url": "https://careers.damianigroup.com/job/Mendrisio-Treasury-Specialist/1327326955/",
-      "applyUrl": "https://careers.damianigroup.com/talentcommunity/apply/1327326955/?locale=en_US",
-      "company": "Damiani Group",
-      "companyKey": "damiani-group",
-      "companyDomain": "damianigroup.com",
-      "location": "Mendrisio",
-      "addressLocality": "Mendrisio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "finance",
-      "sector": "Lusso & Gioielleria",
-      "source": "damiani-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-04-07",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "2026-06-30",
-      "salaryMin": 82500,
-      "salaryMax": 111500,
-      "currency": "CHF",
-      "streetAddress": "Via Penate 12",
-      "postalCode": "6850",
-      "id": "damiani-group-90e45aa75e37",
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 25
-      }
     },
     {
       "title": "Sales Assistant",
@@ -197,5 +194,7 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
