@@ -298,9 +298,9 @@
       },
       "descriptionByLocale": {
         "de": "Starte am 1. Juni 2026 oder nach Vereinbarung als\n\nAufgaben:\n- Du stellst patientenadaptierte Zytostatikalösungen für ambulante und stationäre Patientinnen und Patienten her\n- Du produzierst Rezepturen und Defekturen, sowohl steril als auch nicht steril\n- Du übernimmst vielfältige Aufgaben rund um die Arzneimittellogistik\n- Du bewirtschaftest das Arzneimittellager, pflegst Stammdaten im SAP\n- Du bist verantwortlich für die Bewirtschaftung der Stationsapotheken\n\nAnforderungen:\n- Du hast eine Ausbildung als Pharmazeutisch‑technische:r Assistent:in oder eine gleichwertige Ausbildung im Labor‑ oder Gesundheitsbereich\n- Du bringst idealerweise Erfahrung in der Arzneimittelherstellung nach GMP‑Richtlinien mit\n- Du arbeitest exakt, selbstständig und hältst Qualitätsrichtlinien ein\n- Du überzeugst durch Verantwortungsbewusstsein, Zuverlässigkeit und Teamfähigkeit\n- Du bist flexibel, offen für Neues und fühlst dich in einem sich entwickelnden Umfeld wohl\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!",
-        "it": "Iniziare su 1. - Crea soluzioni citostatiche adattate ai pazienti per pazienti affetti da ampatia e pazienti inpatici - è possibile produrre ricette e difetti, sia sterili che non sterili - è possibile svolgere una varietà di compiti intorno alla logistica del farmaco - è possibile gestire il negozio di droga, comportare i dati master in SAP - si è responsabili per la gestione degli ospedali di stazione Fai la differenza? Allora appartieni a noi!",
-        "en": "Start on 1. - Do you create patient-adapted cytostatic solutions for outpatient and inpatient patients - you can produce recipes and defects, both sterile and non-sterile - you can carry out a variety of tasks around the drug logistics - you can manage the drug store, behave master data in the SAP - you are responsible for the management of the station hospitals You make the difference? Then you belong to us!",
-        "fr": "Commencez par 1. - Créez-vous des solutions cytostatiques adaptées aux patients pour les patients ambulatoires et hospitalisés - vous pouvez produire des recettes et des défauts, à la fois stériles et non stériles - vous pouvez effectuer une variété de tâches autour de la logistique des médicaments - vous pouvez gérer le magasin de médicaments, de comportement des données master dans le SAP - vous êtes responsable de la gestion des hôpitaux de station Tu fais la différence ? Alors tu nous appartiens !"
+        "it": "Iniziare su 1. Giugno 2026 o d'accordo\n\nCompiti:\n- Si creano soluzioni citostatiche adattate ai pazienti per pazienti affetti da epatite e pazienti affetti da malattia\n- Produci ricette e difetti, sterili e non sterili\n- Si assume una serie di compiti relativi alla logistica farmaceutica\n- Gestisci il negozio di droga, mantieni i dati master in SAP\n- Lei è responsabile della gestione delle farmacie di stazione\n\nRequisiti:\n- Ha una formazione come assistente tecnico farmaceutico: in o formazione equivalente nel settore del laboratorio o della salute\n- Idealmente, avete esperienza nella produzione farmaceutica secondo le linee guida GMP\n- Lavori esattamente, indipendentemente e mantieni linee guida di qualità\n- Convinci con responsabilità, affidabilità e abilità di squadra\n- Sei flessibile, aperto a nuove cose e ti senti a tuo agio in un ambiente in via di sviluppo\n\nPuoi fare qualcosa che gli altri non possono fare?\nFai la differenza?\nAllora appartieni a noi!",
+        "en": "Start on 1. June 2026 or by agreement as\n\nTasks:\n- You create patient-adapted cytostatic solutions for outpatient and inpatient patients\n- You produce recipes and defects, both sterile and non-sterile\n- You take on a variety of tasks related to pharmaceutical logistics\n- You manage the drug store, maintain master data in SAP\n- You are responsible for the management of station pharmacies\n\nRequirements:\n- You have a training as a pharmaceutical technical assistant:in or equivalent training in the laboratory or health sector\n- Ideally, you have experience in pharmaceutical production according to GMP guidelines\n- You work exactly, independently and maintain quality guidelines\n- You convince with responsibility, reliability and team skills\n- You are flexible, open to new things and feel comfortable in a developing environment\n\nYou can do something that others can't?\nYou make the difference?\nThen you belong to us!",
+        "fr": "Commencez par 1. juin 2026 ou par accord\n\nTâches :\n- Vous créez des solutions cytostatiques adaptées au patient pour les patients ambulatoires et hospitalisés\n- Vous produisez des recettes et des défauts, stériles et non stériles\n- Vous assumez diverses tâches liées à la logistique pharmaceutique\n- Vous gérez la pharmacie, conservez les données dans SAP\n- Vous êtes responsable de la gestion des pharmacies de gare\n\nExigences:\n- Vous avez une formation en tant qu'assistant technique pharmaceutique: en ou formation équivalente dans le laboratoire ou le secteur de la santé\n- Idéalement, vous avez de l'expérience dans la production pharmaceutique selon les lignes directrices des BPF\n- Vous travaillez exactement, indépendamment et maintenez des directives de qualité\n- Vous convainquez avec responsabilité, fiabilité et compétences en équipe\n- Vous êtes flexible, ouvert aux nouvelles choses et vous sentez à l'aise dans un environnement en développement\n\nTu peux faire quelque chose que les autres ne peuvent pas faire ?\nTu fais la différence ?\nAlors tu nous appartiens !"
       },
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -321,7 +321,6 @@
           "fachfrau-fachmann-apotheke-kantonsspital-graubunden-chur"
         ]
       },
-      "needsRetranslation": false,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -1678,7 +1677,6 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -1995,7 +1993,6 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -3620,7 +3617,6 @@
           "pflegefachfrau-pflegefachmann-neurologie-stroke-unit-kantonsspital-graubunden-chur"
         ]
       },
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -4721,7 +4717,10 @@
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
-      "currency": "CHF"
+      "currency": "CHF",
+      "previousSlugs": [
+        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "9732321",
@@ -4782,7 +4781,6 @@
           "pflegefachfrau-pflegefachmann-viszeralchirurgie-kantonsspital-graubunden-chur"
         ]
       },
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -5099,7 +5097,6 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -5481,7 +5478,6 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -6058,7 +6054,6 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
