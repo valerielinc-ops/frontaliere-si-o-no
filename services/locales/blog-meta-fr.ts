@@ -2106,6 +2106,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.glarona-domeniche-senzauto-ticino-frontalieri.title': 'Glaris interdit les voitures le dimanche : le Tessin va-t-il s’y mettre ?',
     'blog.article.glarona-domeniche-senzauto-ticino-frontalieri.excerpt': 'Le canton de Glaris réintroduit les dimanches sans voiture pour limiter l’afflux touristique. Au Tessin, on débat de l’adoption de mesures similaires : Val Verzasca, Bellinzone et Lugano analysent les avantages et les inconvénients.',
     'blog.article.glarona-domeniche-senzauto-ticino-frontalieri.imageAlt': 'Vallée de la Verzasca un dimanche sans voiture : familles et touristes se promènent le long de la rivière sous un ciel dégagé',
+    'blog.article.controlli-frontalieri-ponte-chiasso-2025.title': 'Police aux frontières : plus de 2 000 contrôles en 2025, 42 arrestations',
+    'blog.article.controlli-frontalieri-ponte-chiasso-2025.excerpt': 'La police aux frontières de Côme a contrôlé 6 212 véhicules entre Chiasso et Ponte Chiasso en 2025, entraînant 42 arrestations et 34 expulsions. Une augmentation de 47 % par rapport à 2023.',
+    'blog.article.controlli-frontalieri-ponte-chiasso-2025.imageAlt': 'Poste-frontière de Ponte Chiasso entre la Lombardie et le Tessin avec panneaux douaniers suisses et italiens',
 };
 
 export default blogMetaFr;

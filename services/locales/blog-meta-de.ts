@@ -2106,6 +2106,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.glarona-domeniche-senzauto-ticino-frontalieri.title': 'Glarus verbietet sonntags Autos: Wird das Tessin es versuchen?',
     'blog.article.glarona-domeniche-senzauto-ticino-frontalieri.excerpt': 'Der Kanton Glarus führt sonntags wieder autofreie Tage ein, um den touristischen Andrang einzudämmen. Im Tessin wird diskutiert, ob ähnliche Massnahmen ergriffen werden sollen: Val Verzasca, Bellinzona und Lugano prüfen Vor- und Nachteile.',
     'blog.article.glarona-domeniche-senzauto-ticino-frontalieri.imageAlt': 'Verzasca-Tal an einem autofreien Sonntag: Familien und Touristen spazieren am Fluss entlang unter einem klaren Himmel',
+    'blog.article.controlli-frontalieri-ponte-chiasso-2025.title': 'Polizei an der Grenze: Über 2\'000 Kontrollen im Jahr 2025, 42 Festnahmen',
+    'blog.article.controlli-frontalieri-ponte-chiasso-2025.excerpt': 'Die Grenzpolizei von Como hat im Jahr 2025 zwischen Chiasso und Ponte Chiasso 6\'212 Fahrzeuge kontrolliert. Dabei wurden 42 Festnahmen und 34 Abschiebungen verzeichnet. Dies entspricht einem Anstieg von 47 Prozent im Vergleich zu 2023.',
+    'blog.article.controlli-frontalieri-ponte-chiasso-2025.imageAlt': 'Grenzübergang Ponte Chiasso zwischen der Lombardei und dem Tessin mit Schweizer und italienischen Zollschildern',
 };
 
 export default blogMetaDe;

@@ -5899,4 +5899,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/glarona-domeniche-senzauto-ticino-frontalieri.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'controlli-frontalieri-ponte-chiasso-2025',
+    category: 'pratico',
+    date: '2026-04-12T22:03:31.630Z',
+    image: '/images/blog/controlli-frontalieri-ponte-chiasso-2025.jpg',
+    hasCalculator: true,
+  },
 ];

@@ -1957,6 +1957,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-giovani-fuga-ticino': { name: 'Giovani Ticino', path: '/articoli-frontaliere/giovani-fuga-ticino', parent: 'blog' },
     'blog-svizzera-alleanza-porti-europei-anti-droga': { name: 'Svizzera nell’Alleanza dei porti europei', path: '/articoli-frontaliere/svizzera-alleanza-porti-europei-anti-droga', parent: 'blog' },
     'blog-glarona-domeniche-senzauto-ticino-frontalieri': { name: 'Mobilità', path: '/articoli-frontaliere/glarona-domeniche-senzauto-ticino-frontalieri', parent: 'blog' },
+    'blog-controlli-frontalieri-ponte-chiasso-2025': { name: 'Frontiera e documenti', path: '/articoli-frontaliere/controlli-frontalieri-ponte-chiasso-2025', parent: 'blog' },
   };
 
   const info = sectionNames[section];

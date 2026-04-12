@@ -3711,7 +3711,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 753,
+        "numberOfItems": 754,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -4442,7 +4442,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 750, "name": "Acqua di nuovo potabile a Lavizzara: Piano di P...", "url": `${BASE_URL}/articoli-frontaliere/acqua-potabile-lavizzara-piano-peccia-monti-rima` },
           { "@type": "ListItem", "position": 751, "name": "Giovani Ticino: Situazione politica e demografia", "url": `${BASE_URL}/articoli-frontaliere/giovani-fuga-ticino` },
           { "@type": "ListItem", "position": 752, "name": "Svizzera nell’Alleanza dei porti europei contro...", "url": `${BASE_URL}/articoli-frontaliere/svizzera-alleanza-porti-europei-anti-droga` },
-          { "@type": "ListItem", "position": 753, "name": "Domeniche senza auto in Ticino: Glarona fa da a...", "url": `${BASE_URL}/articoli-frontaliere/glarona-domeniche-senzauto-ticino-frontalieri` }
+          { "@type": "ListItem", "position": 753, "name": "Domeniche senza auto in Ticino: Glarona fa da a...", "url": `${BASE_URL}/articoli-frontaliere/glarona-domeniche-senzauto-ticino-frontalieri` },
+          { "@type": "ListItem", "position": 754, "name": "Controlli polizia al confine Ticino: +2mila vei...", "url": `${BASE_URL}/articoli-frontaliere/controlli-frontalieri-ponte-chiasso-2025` }
         ]
       }
     ]

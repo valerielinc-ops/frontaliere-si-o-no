@@ -2106,6 +2106,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.glarona-domeniche-senzauto-ticino-frontalieri.title': 'Glarona vieta le auto la domenica: il Ticino ci proverà?',
     'blog.article.glarona-domeniche-senzauto-ticino-frontalieri.excerpt': 'Il Canton Glarona reintroduce le domeniche senza auto per limitare il sovraffollamento turistico. In Ticino si discute se adottare misure simili: Val Verzasca, Bellinzona e Lugano analizzano pro e contro.',
     'blog.article.glarona-domeniche-senzauto-ticino-frontalieri.imageAlt': 'Valle Verzasca in una domenica senza auto: famiglie e turisti camminano lungo il fiume sotto un cielo limpido',
+    'blog.article.controlli-frontalieri-ponte-chiasso-2025.title': 'Polizia al confine: +2mila controlli nel 2025, 42 arresti',
+    'blog.article.controlli-frontalieri-ponte-chiasso-2025.excerpt': 'La polizia di frontiera di Como ha controllato 6\'212 veicoli tra Chiasso e Ponte Chiasso nel 2025, con 42 arresti e 34 espulsioni. Incremento del 47% rispetto al 2023.',
+    'blog.article.controlli-frontalieri-ponte-chiasso-2025.imageAlt': 'Ponte Chiasso, valico di frontiera tra Italia e Ticino con cartelli doganali svizzeri e italiani',
 };
 
 export default blogMetaIt;

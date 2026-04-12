@@ -7250,6 +7250,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-controlli-frontalieri-ponte-chiasso-2025': {
+    title: 'Polizia al confine: +2mila controlli | Frontaliere Ticino',
+    description: 'Polizia di frontiera lariana controlla 6\'212 veicoli nel 2025, +47% rispetto al 2023. 42 arresti, 405 espulsioni e 315 denunce a piede libero. Impatto sui',
+    keywords: 'frontalieri, ticino, svizzera, italia, polizia, confine, 2mila, controlli',
+    ogTitle: 'Controlli al confine Ticino: cosa cambia per i frontalieri',
+    ogDescription: 'La polizia di frontiera di Ponte Chiasso ha controllato 6\'212 veicoli nel 2025 (+47% vs 2023). Ecco cosa devono sapere i frontalieri ticinesi sui documenti, i',
+    canonicalPath: '/articoli-frontaliere/controlli-frontalieri-ponte-chiasso-2025',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Controlli polizia al confine Ticino: +2mila veicoli nel 2025",
+      "description": "Polizia di frontiera lariana controlla 6'212 veicoli nel 2025, +47% rispetto al 2023. 42 arresti, 405 espulsioni e 315 denunce a piede libero. Impatto sui",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/controlli-frontalieri-ponte-chiasso-2025.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ponte Chiasso, valico di frontiera tra Italia e Ticino con cartelli doganali svizzeri e italiani"
+      },
+      "datePublished": "2026-04-12T22:03:31+00:00",
+      "dateModified": "2026-04-12T22:03:31+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/controlli-frontalieri-ponte-chiasso-2025`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

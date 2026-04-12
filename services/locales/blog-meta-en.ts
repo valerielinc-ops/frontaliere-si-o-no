@@ -2106,6 +2106,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.glarona-domeniche-senzauto-ticino-frontalieri.title': 'Glarus bans cars on Sundays: will Ticino give it a try?',
     'blog.article.glarona-domeniche-senzauto-ticino-frontalieri.excerpt': 'The Canton of Glarus reintroduces car-free Sundays to reduce tourist overcrowding. In Ticino, discussions are underway on whether to implement similar measures: Val Verzasca, Bellinzona, and Lugano are weighing the pros and cons.',
     'blog.article.glarona-domeniche-senzauto-ticino-frontalieri.imageAlt': 'Verzasca Valley on a car-free Sunday: families and tourists walking along the river under a clear sky',
+    'blog.article.controlli-frontalieri-ponte-chiasso-2025.title': 'Border Police: Over 2,000 Checks in 2025, 42 Arrests',
+    'blog.article.controlli-frontalieri-ponte-chiasso-2025.excerpt': 'Como\'s border police conducted 6,212 vehicle checks between Chiasso and Ponte Chiasso in 2025, resulting in 42 arrests and 34 deportations. This represents a 47% increase compared to 2023.',
+    'blog.article.controlli-frontalieri-ponte-chiasso-2025.imageAlt': 'Ponte Chiasso border crossing between Lombardy and Ticino with Swiss and Italian customs signs',
 };
 
 export default blogMetaEn;
