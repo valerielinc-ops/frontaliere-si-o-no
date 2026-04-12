@@ -1,6 +1,6 @@
 {
   "crawlerKey": "air-zermatt",
-  "assembledAt": "2026-04-12T08:43:10.715Z",
+  "assembledAt": "2026-04-12T20:42:02.064Z",
   "jobs": [
     {
       "id": "air-zermatt-dfbbe85d1afb",
@@ -46,7 +46,7 @@
       "applyUrl": "https://www.air-zermatt.ch/de/service/offene-stellen/stipendium-atc-amp-swiss-sherpa-foundation-442",
       "source": "Air Zermatt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-12T08:43:09.386Z",
+      "crawledAt": "2026-04-12T20:42:00.519Z",
       "requirementsByLocale": {
         "it": [
           "Esperienza professionale comprovata nel settore del soccorso",
@@ -87,6 +87,7 @@
           "stipendium-atc-swiss-sherpa-foundation-air-zermatt"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -145,7 +146,7 @@
       "applyUrl": "https://www.air-zermatt.ch/de/service/offene-stellen/luftfahrzeugtechnikerin-mechanik-in-ausbildung--100-545",
       "source": "Air Zermatt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-12T08:43:09.191Z",
+      "crawledAt": "2026-04-12T20:42:00.300Z",
       "requirementsByLocale": {
         "it": [
           "Formazione tecnica professionale completata",
@@ -189,6 +190,7 @@
           "luftfahrzeugtechniker-in-mechanik-in-ausbildung-100-air-zermatt"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -247,7 +249,7 @@
       "applyUrl": "https://www.air-zermatt.ch/de/service/offene-stellen/helikoptermechanikerin-b13-und-oder-avionikerin-b2--100-549",
       "source": "Air Zermatt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-12T08:43:08.977Z",
+      "crawledAt": "2026-04-12T20:42:00.060Z",
       "requirementsByLocale": {
         "it": [
           "Licenza EASA Part-66 valida di categoria B1.3 e/o B2",
@@ -296,6 +298,7 @@
           "helikoptermechaniker-in-b1-3-und-oder-avioniker-in-b2-100-air-zermatt"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
