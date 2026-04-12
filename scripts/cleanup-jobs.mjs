@@ -131,6 +131,12 @@ function buildExpiredEntry(job) {
     previousSlugs: Array.isArray(job.previousSlugs) && job.previousSlugs.length > 0
       ? [...job.previousSlugs]
       : undefined,
+    // Locale-aware slug history so expired soft-landing pages are generated
+    // under the correct locale prefix (e.g. /fr/trouver-emploi-tessin/old-slug).
+    previousSlugsByLocale: job.previousSlugsByLocale && typeof job.previousSlugsByLocale === 'object'
+        && Object.keys(job.previousSlugsByLocale).length > 0
+      ? JSON.parse(JSON.stringify(job.previousSlugsByLocale))
+      : undefined,
     // FRO-343: preserve address + salary data for rich soft-landing pages
     postalCode: job.postalCode || '',
     streetAddress: job.streetAddress || '',
