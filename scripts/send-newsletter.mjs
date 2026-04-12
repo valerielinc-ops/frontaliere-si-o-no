@@ -147,7 +147,7 @@ async function generateAIBriefing(ctx) {
       { role: 'user', content: user },
     ], { temperature: 0.7, maxTokens: 800 });
     let html = sanitizeAIBriefingHtml(result);
-    if (html) html = injectJobAndCompanyLinks(html, ctx.matchedJobs || []);
+    if (html) html = injectJobAndCompanyLinks(html, ctx.matchedJobs || [], ctx.subscriber?.locale || 'it');
     return html;
   } catch (e) {
     console.warn('\u26a0\ufe0f AI briefing failed:', e.message?.slice(0, 200));
@@ -160,9 +160,37 @@ async function generateAIBriefing(ctx) {
  * with the correct URLs. The AI is unreliable at copying exact URLs, so we
  * do a deterministic find-and-replace after generation.
  */
-function injectJobAndCompanyLinks(html, jobs) {
+const JOB_FALLBACK_I18N = {
+  it: {
+    introSingle: (s) => `Se cerchi qualcosa di concreto, dai un'occhiata a ${s}.`,
+    introMulti: (list, last) => `Se cerchi qualcosa di concreto, questa settimana ci sono ${list}, e ${last}.`,
+    at: 'presso',
+    in: 'a',
+  },
+  en: {
+    introSingle: (s) => `Looking for something concrete? Check out ${s}.`,
+    introMulti: (list, last) => `Looking for something concrete? This week there's ${list}, and ${last}.`,
+    at: 'at',
+    in: 'in',
+  },
+  de: {
+    introSingle: (s) => `Auf der Suche nach etwas Konkretem? Schau dir ${s} an.`,
+    introMulti: (list, last) => `Auf der Suche nach etwas Konkretem? Diese Woche gibt es ${list} und ${last}.`,
+    at: 'bei',
+    in: 'in',
+  },
+  fr: {
+    introSingle: (s) => `Vous cherchez quelque chose de concret\u00a0? Jetez un œil à ${s}.`,
+    introMulti: (list, last) => `Vous cherchez quelque chose de concret\u00a0? Cette semaine il y a ${list} et ${last}.`,
+    at: 'chez',
+    in: 'à',
+  },
+};
+
+function injectJobAndCompanyLinks(html, jobs, locale = 'it') {
   if (!jobs || jobs.length === 0) return html;
   const linkStyle = 'color:#2563eb;text-decoration:underline;';
+  const i18n = JOB_FALLBACK_I18N[locale] || JOB_FALLBACK_I18N.it;
 
   // Build linked job snippets for the fallback paragraph
   const linkedSnippets = [];
@@ -198,9 +226,9 @@ function injectJobAndCompanyLinks(html, jobs) {
     if (!foundTitle && jobUrl && j.title) {
       const titleLink = `<a href="${jobUrl}" style="${linkStyle}">${j.title}</a>`;
       const companyPart = j.company && companyUrl
-        ? ` presso <a href="${companyUrl}" style="${linkStyle}">${j.company}</a>`
-        : j.company ? ` presso ${j.company}` : '';
-      const locationPart = j.location ? ` a ${j.location}` : '';
+        ? ` ${i18n.at} <a href="${companyUrl}" style="${linkStyle}">${j.company}</a>`
+        : j.company ? ` ${i18n.at} ${j.company}` : '';
+      const locationPart = j.location ? ` ${i18n.in} ${j.location}` : '';
       linkedSnippets.push(`${titleLink}${companyPart}${locationPart}`);
     }
   }
@@ -208,8 +236,8 @@ function injectJobAndCompanyLinks(html, jobs) {
   // If AI didn't mention any jobs, prepend a paragraph with job links
   if (linkedSnippets.length > 0) {
     const jobIntro = linkedSnippets.length === 1
-      ? `Se cerchi qualcosa di concreto, dai un'occhiata a ${linkedSnippets[0]}.`
-      : `Se cerchi qualcosa di concreto, questa settimana ci sono ${linkedSnippets.slice(0, -1).join(', ')} e ${linkedSnippets[linkedSnippets.length - 1]}.`;
+      ? i18n.introSingle(linkedSnippets[0])
+      : i18n.introMulti(linkedSnippets.slice(0, -1).join(', '), linkedSnippets[linkedSnippets.length - 1]);
     html = `<p style="font-size:14px;color:#334155;line-height:1.65;margin:0 0 14px;">${jobIntro}</p>` + html;
   }
 
