@@ -26,14 +26,25 @@
     "sector": "",
     "salaryMin": 0,
     "salaryCurrency": "CHF",
-    "slugByLocale": {},
-    "localePaths": {},
+    "slugByLocale": {
+      "it": "apprenti-e-operateur-trice-de-batiments-et-d-infrastructures-cfc-amministrazione-cantonale-ticino-bellinzona",
+      "en": "apprenti-e-operateur-trice-de-batiments-et-d-infrastructures-cfc-amministrazione-cantonale-ticino-bellinzona",
+      "de": "apprenti-e-operateur-trice-de-batiments-et-d-infrastructures-cfc-amministrazione-cantonale-ticino-bellinzona",
+      "fr": "apprenti-e-operateur-trice-de-batiments-et-d-infrastructures-cfc-amministrazione-cantonale-ticino-bellinzona"
+    },
+    "localePaths": {
+      "it": "/cerca-lavoro-ticino/apprenti-e-operateur-trice-de-batiments-et-d-infrastructures-cfc-amministrazione-cantonale-ticino-bellinzona",
+      "en": "/en/find-jobs-ticino/apprenti-e-operateur-trice-de-batiments-et-d-infrastructures-cfc-amministrazione-cantonale-ticino-bellinzona",
+      "de": "/de/jobs-im-tessin/apprenti-e-operateur-trice-de-batiments-et-d-infrastructures-cfc-amministrazione-cantonale-ticino-bellinzona",
+      "fr": "/fr/trouver-emploi-tessin/apprenti-e-operateur-trice-de-batiments-et-d-infrastructures-cfc-amministrazione-cantonale-ticino-bellinzona"
+    },
     "sourceUrl": "",
     "googleStatus": "unknown",
     "googleCanonical": "",
     "lastCrawlTime": "",
     "source": [
       "gsc",
+      "all-known-slugs",
       "slug-parsing"
     ]
   },
