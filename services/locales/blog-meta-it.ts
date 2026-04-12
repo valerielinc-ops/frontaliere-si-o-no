@@ -2097,6 +2097,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.acqua-potabile-lavizzara-piano-peccia-monti-rima.title': 'Acqua di nuovo potabile a Lavizzara: Piano di Peccia e Monti di Rima riaperti',
     'blog.article.acqua-potabile-lavizzara-piano-peccia-monti-rima.excerpt': 'Dal 1° aprile 2024 l’acqua è di nuovo sicura in tutte le zone di Lavizzara. Revocate le restrizioni dopo interventi su Piano di Peccia e Monti di Rima.',
     'blog.article.acqua-potabile-lavizzara-piano-peccia-monti-rima.imageAlt': 'Acqua potabile che sgorga da una fontana nella valle di Lavizzara, con i Monti di Rima e il Piano di Peccia sullo sfondo',
+    'blog.article.giovani-fuga-ticino.title': 'Giovani nel Ticino: fuga e mancato rientro, la posizione politica',
+    'blog.article.giovani-fuga-ticino.excerpt': 'Claudio Isabella solleva dubbi sulla posizione del Consiglio di Stato riguardo alla fuga dei giovani nel Ticino.',
+    'blog.article.giovani-fuga-ticino.imageAlt': 'Tramonto sul Lago Maggiore a Locarno, Ticino',
 };
 
 export default blogMetaIt;

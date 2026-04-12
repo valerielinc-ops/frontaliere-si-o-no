@@ -5878,4 +5878,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/acqua-potabile-lavizzara-piano-peccia-monti-rima.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'giovani-fuga-ticino',
+    category: 'novita',
+    date: '2026-04-12T04:05:57.452Z',
+    image: '/images/blog/giovani-fuga-ticino.jpg',
+    hasCalculator: true,
+  },
 ];

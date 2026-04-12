@@ -1954,6 +1954,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-cure-a-domicilio-atlas-protesta-18-aprile': { name: 'Cure a domicilio', path: '/articoli-frontaliere/cure-a-domicilio-atlas-protesta-18-aprile', parent: 'blog' },
     'blog-frontalieri-salari-perequazione-ricchezza-2026': { name: 'Frontalieri in Ticino', path: '/articoli-frontaliere/frontalieri-salari-perequazione-ricchezza-2026', parent: 'blog' },
     'blog-acqua-potabile-lavizzara-piano-peccia-monti-rima': { name: 'Acqua di nuovo potabile a Lavizzara', path: '/articoli-frontaliere/acqua-potabile-lavizzara-piano-peccia-monti-rima', parent: 'blog' },
+    'blog-giovani-fuga-ticino': { name: 'Giovani Ticino', path: '/articoli-frontaliere/giovani-fuga-ticino', parent: 'blog' },
   };
 
   const info = sectionNames[section];

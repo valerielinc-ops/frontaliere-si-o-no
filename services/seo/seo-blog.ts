@@ -7140,6 +7140,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-giovani-fuga-ticino': {
+    title: 'Giovani nel Ticino: fuga e mancato | Frontaliere Ticino',
+    description: 'Claudio Isabella solleva dubbi sulla posizione del Consiglio di Stato rispetto alla situazione dei giovani che non rientrano nel Ticino. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, giovani, fuga, mancato, rientro',
+    ogTitle: 'Ticino: giovani e politica del rientro',
+    ogDescription: 'Esplora la posizione politica sul fenomeno della fuga dei giovani dal Ticino.',
+    canonicalPath: '/articoli-frontaliere/giovani-fuga-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Giovani Ticino: Situazione politica e demografia",
+      "description": "Claudio Isabella solleva dubbi sulla posizione del Consiglio di Stato rispetto alla situazione dei giovani che non rientrano nel Ticino. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/giovani-fuga-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Tramonto sul Lago Maggiore a Locarno, Ticino"
+      },
+      "datePublished": "2026-04-12T04:05:57+00:00",
+      "dateModified": "2026-04-12T04:05:57+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/giovani-fuga-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

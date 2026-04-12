@@ -2097,6 +2097,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.acqua-potabile-lavizzara-piano-peccia-monti-rima.title': 'L’eau est de nouveau potable à Lavizzara : les installations de Piano di Peccia et Monti di Rima réouvertes',
     'blog.article.acqua-potabile-lavizzara-piano-peccia-monti-rima.excerpt': 'Dès le 1er avril 2024, l’eau est à nouveau sûre dans toutes les zones de Lavizzara. Les restrictions ont été levées après les travaux réalisés sur Piano di Peccia et Monti di Rima.',
     'blog.article.acqua-potabile-lavizzara-piano-peccia-monti-rima.imageAlt': 'Eau potable jaillissant d\'une fontaine dans la vallée de Lavizzara, Tessin, avec les monts Monti di Rima et Piano di Peccia en arrière-plan',
+    'blog.article.giovani-fuga-ticino.title': 'Giovani nel Ticino: fuga e mancato rientro, la posizione politica',
+    'blog.article.giovani-fuga-ticino.excerpt': 'Claudio Isabella solleva dubbi sulla posizione del Consiglio di Stato riguardo alla fuga dei giovani nel Ticino.',
+    'blog.article.giovani-fuga-ticino.imageAlt': 'Coucher de soleil sur le lac Majeur à Locarno, Tessin',
 };
 
 export default blogMetaFr;
