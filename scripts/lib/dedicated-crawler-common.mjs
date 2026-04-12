@@ -2806,8 +2806,21 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = n
       for (const locale of DEFAULT_LOCALES) {
         const currentTitle = String(job.titleByLocale[locale] || '').trim();
         const currentDesc = String(job.descriptionByLocale[locale] || '').trim();
+        // Title contamination: detect source-language text in non-source locale slots.
+        // Mirrors isIncomplete() logic: only flag when no other locale was translated
+        // (avoids false positives on international/corporate titles).
+        const isTitleContaminated = locale !== titleSourceLang && currentTitle.length >= 8 && (() => {
+          const otherLocalesTranslated = DEFAULT_LOCALES.some(
+            (l) => l !== locale && l !== titleSourceLang &&
+              (job.titleByLocale[l] || '').trim().toLowerCase() !== sourceTitle.toLowerCase(),
+          );
+          if (otherLocalesTranslated) return false;
+          const det = detectJobTitleLocaleDetails(currentTitle, locale);
+          return det.confidence >= 0.65 && det.lang === titleSourceLang;
+        })();
         const titleNeedsWork =
           !currentTitle ||
+          isTitleContaminated ||
           (locale !== titleSourceLang && normalize(currentTitle) === normalize(sourceTitle));
         const sourceDescriptionIsRich = sourceDesc.length >= minDescriptionChars;
         const isGarbageCopy = currentDesc && normalize(currentDesc) === normalize(baseDesc) &&
