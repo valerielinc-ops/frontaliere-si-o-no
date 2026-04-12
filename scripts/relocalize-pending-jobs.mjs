@@ -303,6 +303,7 @@ function clearRetranslationFlags(jobs) {
   for (const job of jobs) {
     if (job.needsRetranslation && !isIncomplete(job)) {
       delete job.needsRetranslation;
+      delete job.retranslationAttempts;
       cleared += 1;
     }
   }
@@ -485,7 +486,22 @@ function syncTranslationsToCrawlerFile(companyKey, assembledJobs) {
     if (crawlerJob.needsRetranslation && !isIncomplete(crawlerJob)) {
       console.log(`     ✅ Cleared needsRetranslation for: ${crawlerJob.slug?.slice(0, 60)}`);
       delete crawlerJob.needsRetranslation;
+      delete crawlerJob.retranslationAttempts;
       changed = true;
+    }
+
+    // Break infinite retry loop: if the pipeline has tried 3+ times and still can't
+    // produce translations that pass isIncomplete(), clear the flag. The job will
+    // be picked up again on its next crawl cycle with fresh source data.
+    if (crawlerJob.needsRetranslation && isIncomplete(crawlerJob)) {
+      const attempts = (crawlerJob.retranslationAttempts || 0) + 1;
+      crawlerJob.retranslationAttempts = attempts;
+      changed = true;
+      if (attempts >= 3) {
+        console.log(`     ⚠️  Giving up after ${attempts} attempts: ${crawlerJob.slug?.slice(0, 60)}`);
+        delete crawlerJob.needsRetranslation;
+        delete crawlerJob.retranslationAttempts;
+      }
     }
 
     if (changed) updated += 1;
