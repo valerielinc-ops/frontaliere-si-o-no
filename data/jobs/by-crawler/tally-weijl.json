@@ -1,6 +1,6 @@
 {
   "crawlerKey": "tally-weijl",
-  "assembledAt": "2026-04-11T22:01:52.541Z",
+  "assembledAt": "2026-04-12T10:13:29.720Z",
   "jobs": [
     {
       "id": "tally-weijl-fd86e03560b7",
@@ -33,7 +33,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0pnuq/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T22:01:49.934Z",
+      "crawledAt": "2026-04-12T10:13:27.324Z",
       "addressLocality": "Frauenfeld",
       "addressCountry": "CH",
       "country": "CH",
@@ -44,7 +44,7 @@
       "sector": "Moda / Abbigliamento",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-11",
+      "postedDate": "2026-04-12",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0pnuq/",
       "requirements": [],
       "requirementsByLocale": {
@@ -90,6 +90,7 @@
           "teilzeit-modeberaterin-20-40-m-w-d-tally-weijl-frauenfeld"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -135,7 +136,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zh5o/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T22:01:49.305Z",
+      "crawledAt": "2026-04-12T10:13:26.698Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -146,7 +147,7 @@
       "sector": "Moda / Abbigliamento",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-11",
+      "postedDate": "2026-04-12",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0zh5o/",
       "requirements": [],
       "requirementsByLocale": {
@@ -192,6 +193,7 @@
           "teilzeit-modeberaterin-m-w-d-tally-weijl-bern"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -237,7 +239,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0p815/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T22:01:48.609Z",
+      "crawledAt": "2026-04-12T10:13:26.075Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -248,7 +250,7 @@
       "sector": "Moda / Abbigliamento",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-11",
+      "postedDate": "2026-04-12",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0p815/",
       "requirements": [],
       "requirementsByLocale": {
@@ -294,6 +296,7 @@
           "teilzeit-modeberaterin-m-w-d-tally-weijl-basel"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -339,7 +342,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0pqvj/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T22:01:47.985Z",
+      "crawledAt": "2026-04-12T10:13:25.445Z",
       "addressLocality": "Solothurn",
       "addressCountry": "CH",
       "country": "CH",
@@ -350,7 +353,7 @@
       "sector": "Moda / Abbigliamento",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-11",
+      "postedDate": "2026-04-12",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0pqvj/",
       "requirements": [],
       "requirementsByLocale": {
@@ -396,6 +399,7 @@
           "teilzeit-modeberaterin-m-w-d-tally-weijl-solothurn"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -441,7 +445,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0p9hl/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T22:01:47.340Z",
+      "crawledAt": "2026-04-12T10:13:24.804Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -452,7 +456,7 @@
       "sector": "Moda / Abbigliamento",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-11",
+      "postedDate": "2026-04-12",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0p9hl/",
       "requirements": [],
       "requirementsByLocale": {
@@ -487,18 +491,19 @@
           "Dans un environnement dynamique, vous restez calme et flexible"
         ]
       },
-      "previousSlugsByLocale": {
-        "de": [
-          "filialleiter-80-100-m-w-d-tally-weijl-chur"
-        ],
-        "it": [
-          "store-manager-80-100-m-w-d-tally-weijl-chur"
-        ]
-      },
       "previousSlugs": [
         "store-manager-80-100-m-w-d-tally-weijl-chur",
         "filialleiter-80-100-m-w-d-tally-weijl-chur"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "store-manager-80-100-m-w-d-tally-weijl-chur"
+        ],
+        "de": [
+          "filialleiter-80-100-m-w-d-tally-weijl-chur"
+        ]
+      },
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -544,7 +549,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zwu7/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T22:01:46.658Z",
+      "crawledAt": "2026-04-12T10:13:24.228Z",
       "addressLocality": "Frauenfeld",
       "addressCountry": "CH",
       "country": "CH",
@@ -555,7 +560,7 @@
       "sector": "Moda / Abbigliamento",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-11",
+      "postedDate": "2026-04-12",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0zwu7/",
       "requirements": [],
       "requirementsByLocale": {
@@ -590,18 +595,19 @@
           "Dans un environnement dynamique, vous restez calme et flexible"
         ]
       },
-      "previousSlugsByLocale": {
-        "de": [
-          "filialleiter-100-m-w-d-tally-weijl-frauenfeld"
-        ],
-        "it": [
-          "store-manager-100-m-w-d-tally-weijl-frauenfeld"
-        ]
-      },
       "previousSlugs": [
         "store-manager-100-m-w-d-tally-weijl-frauenfeld",
         "filialleiter-100-m-w-d-tally-weijl-frauenfeld"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "store-manager-100-m-w-d-tally-weijl-frauenfeld"
+        ],
+        "de": [
+          "filialleiter-100-m-w-d-tally-weijl-frauenfeld"
+        ]
+      },
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -647,7 +653,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zhvv/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T22:01:45.976Z",
+      "crawledAt": "2026-04-12T10:13:23.596Z",
       "addressLocality": "Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -658,7 +664,7 @@
       "sector": "Moda / Abbigliamento",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-11",
+      "postedDate": "2026-04-12",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0zhvv/",
       "requirements": [],
       "requirementsByLocale": {
@@ -700,6 +706,7 @@
           "flexible-aushilfe-m-w-d-tally-weijl-luzern"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -745,7 +752,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0pc25/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T22:01:45.142Z",
+      "crawledAt": "2026-04-12T10:13:22.973Z",
       "addressLocality": "Olten",
       "addressCountry": "CH",
       "country": "CH",
@@ -756,7 +763,7 @@
       "sector": "Moda / Abbigliamento",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-11",
+      "postedDate": "2026-04-12",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0pc25/",
       "requirements": [],
       "requirementsByLocale": {
@@ -798,6 +805,7 @@
           "flexible-aushilfe-m-w-d-tally-weijl-olten"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -843,7 +851,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0ptvi/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T22:01:44.451Z",
+      "crawledAt": "2026-04-12T10:13:22.362Z",
       "addressLocality": "Biel",
       "addressCountry": "CH",
       "country": "CH",
@@ -854,7 +862,7 @@
       "sector": "Moda / Abbigliamento",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-11",
+      "postedDate": "2026-04-12",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0ptvi/",
       "requirements": [],
       "requirementsByLocale": {
@@ -896,6 +904,7 @@
           "flexible-aushilfe-m-w-d-tally-weijl-biel"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -941,7 +950,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0ptv7/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T22:01:43.825Z",
+      "crawledAt": "2026-04-12T10:13:21.740Z",
       "addressLocality": "Aarau",
       "addressCountry": "CH",
       "country": "CH",
@@ -952,7 +961,7 @@
       "sector": "Moda / Abbigliamento",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-11",
+      "postedDate": "2026-04-12",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0ptv7/",
       "requirements": [],
       "requirementsByLocale": {
@@ -994,6 +1003,7 @@
           "flexible-aushilfe-m-w-d-tally-weijl-aarau"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1039,7 +1049,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zs9i/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T22:01:43.044Z",
+      "crawledAt": "2026-04-12T10:13:21.145Z",
       "addressLocality": "Winterthur",
       "addressCountry": "CH",
       "country": "CH",
@@ -1050,7 +1060,7 @@
       "sector": "Moda / Abbigliamento",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-11",
+      "postedDate": "2026-04-12",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0zs9i/",
       "requirements": [],
       "requirementsByLocale": {
@@ -1082,21 +1092,22 @@
           "Vous avez au moins 18 ans"
         ]
       },
+      "previousSlugs": [
+        "flexible-aushilfe-tally-weijl-winterthur",
+        "aushilfe-fur-die-zukunft-tally-weijl-winterthur"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "aushilfe-fur-die-zukunft-tally-weijl-winterthur"
-        ],
         "it": [
           "flexible-aushilfe-tally-weijl-winterthur"
+        ],
+        "de": [
+          "aushilfe-fur-die-zukunft-tally-weijl-winterthur"
         ],
         "fr": [
           "flexible-aushilfe-tally-weijl-winterthur"
         ]
       },
-      "previousSlugs": [
-        "flexible-aushilfe-tally-weijl-winterthur",
-        "aushilfe-fur-die-zukunft-tally-weijl-winterthur"
-      ],
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1142,7 +1153,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zs9r/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T22:01:42.353Z",
+      "crawledAt": "2026-04-12T10:13:20.610Z",
       "addressLocality": "Aarau",
       "addressCountry": "CH",
       "country": "CH",
@@ -1153,7 +1164,7 @@
       "sector": "Moda / Abbigliamento",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-11",
+      "postedDate": "2026-04-12",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0zs9r/",
       "requirements": [],
       "requirementsByLocale": {
@@ -1185,21 +1196,22 @@
           "Vous avez au moins 18 ans"
         ]
       },
+      "previousSlugs": [
+        "flexible-aushilfe-tally-weijl-aarau",
+        "aushilfe-fur-die-zukunft-tally-weijl-aarau"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "aushilfe-fur-die-zukunft-tally-weijl-aarau"
-        ],
         "it": [
           "flexible-aushilfe-tally-weijl-aarau"
+        ],
+        "de": [
+          "aushilfe-fur-die-zukunft-tally-weijl-aarau"
         ],
         "fr": [
           "flexible-aushilfe-tally-weijl-aarau"
         ]
       },
-      "previousSlugs": [
-        "flexible-aushilfe-tally-weijl-aarau",
-        "aushilfe-fur-die-zukunft-tally-weijl-aarau"
-      ],
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1245,7 +1257,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0pi2p/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T22:01:41.710Z",
+      "crawledAt": "2026-04-12T10:13:20.016Z",
       "addressLocality": "Thun",
       "addressCountry": "CH",
       "country": "CH",
@@ -1256,7 +1268,7 @@
       "sector": "Moda / Abbigliamento",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-11",
+      "postedDate": "2026-04-12",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0pi2p/",
       "requirements": [],
       "requirementsByLocale": {
@@ -1303,6 +1315,7 @@
           "filialleiter-gestionnaire-de-magasins-w-m-d-tw-thun-tally-weijl-thun"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1348,7 +1361,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0z2qx/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T22:01:41.025Z",
+      "crawledAt": "2026-04-12T10:13:19.416Z",
       "addressLocality": "Emmen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1359,7 +1372,7 @@
       "sector": "Moda / Abbigliamento",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-11",
+      "postedDate": "2026-04-12",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0z2qx/",
       "requirements": [],
       "requirementsByLocale": {
@@ -1406,6 +1419,7 @@
           "filialleiter-gestionnaire-de-magasins-w-m-d-tally-weijl-emmen"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1451,7 +1465,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0pr2w/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-11T22:01:40.429Z",
+      "crawledAt": "2026-04-12T10:13:18.816Z",
       "addressLocality": "Sion",
       "addressCountry": "CH",
       "country": "CH",
@@ -1508,6 +1522,7 @@
           "auxiliaire-h-f-tw-sion-tally-weijl-sion"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1553,7 +1568,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zmal/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-11T22:01:39.142Z",
+      "crawledAt": "2026-04-12T10:13:17.601Z",
       "addressLocality": "Conthey",
       "addressCountry": "CH",
       "country": "CH",
@@ -1564,7 +1579,7 @@
       "sector": "Moda / Abbigliamento",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-11",
+      "postedDate": "2026-04-12",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0zmal/",
       "requirements": [],
       "requirementsByLocale": {
@@ -1599,21 +1614,22 @@
           "Vorzugsweise Erfahrung im Bereich der Jugendmode"
         ]
       },
+      "previousSlugs": [
+        "store-manager-h-f-tally-weijl-conthey",
+        "directeur-de-magasin-h-f-tally-weijl-conthey"
+      ],
       "previousSlugsByLocale": {
-        "fr": [
-          "directeur-de-magasin-h-f-tally-weijl-conthey"
-        ],
         "it": [
           "store-manager-h-f-tally-weijl-conthey"
         ],
         "de": [
           "store-manager-h-f-tally-weijl-conthey"
+        ],
+        "fr": [
+          "directeur-de-magasin-h-f-tally-weijl-conthey"
         ]
       },
-      "previousSlugs": [
-        "store-manager-h-f-tally-weijl-conthey",
-        "directeur-de-magasin-h-f-tally-weijl-conthey"
-      ],
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1659,7 +1675,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zs9d/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-11T22:01:38.367Z",
+      "crawledAt": "2026-04-12T10:13:16.982Z",
       "addressLocality": "Sion",
       "addressCountry": "CH",
       "country": "CH",
@@ -1705,18 +1721,19 @@
           "Internationale Erfahrung"
         ]
       },
-      "previousSlugsByLocale": {
-        "fr": [
-          "directeur-de-magasin-tally-weijl-sion"
-        ],
-        "it": [
-          "store-manager-tally-weijl-sion"
-        ]
-      },
       "previousSlugs": [
         "store-manager-tally-weijl-sion",
         "directeur-de-magasin-tally-weijl-sion"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "store-manager-tally-weijl-sion"
+        ],
+        "fr": [
+          "directeur-de-magasin-tally-weijl-sion"
+        ]
+      },
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1762,7 +1779,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zuk9/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-11T22:01:37.720Z",
+      "crawledAt": "2026-04-12T10:13:16.436Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1805,18 +1822,19 @@
           "Ruhig und flexibel in einer schnell wechselnden Umgebung"
         ]
       },
-      "previousSlugsByLocale": {
-        "fr": [
-          "responsable-tally-weijl-geneva"
-        ],
-        "it": [
-          "store-manager-tally-weijl-geneva"
-        ]
-      },
       "previousSlugs": [
         "store-manager-tally-weijl-geneva",
         "responsable-tally-weijl-geneva"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "store-manager-tally-weijl-geneva"
+        ],
+        "fr": [
+          "responsable-tally-weijl-geneva"
+        ]
+      },
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1862,7 +1880,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zm2s/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T22:01:37.101Z",
+      "crawledAt": "2026-04-12T10:13:15.853Z",
       "addressLocality": "Frauenfeld",
       "addressCountry": "CH",
       "country": "CH",
@@ -1873,7 +1891,7 @@
       "sector": "Moda / Abbigliamento",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-11",
+      "postedDate": "2026-04-12",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0zm2s/",
       "requirements": [],
       "requirementsByLocale": {
@@ -1916,6 +1934,7 @@
           "modeberaterin-in-teilzeit-50-m-w-d-in-frauenfeld-tally-weijl-frauenfeld"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1961,7 +1980,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0z1af/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-11T22:01:36.469Z",
+      "crawledAt": "2026-04-12T10:13:15.272Z",
       "addressLocality": "Schaffhausen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1972,7 +1991,7 @@
       "sector": "Moda / Abbigliamento",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-11",
+      "postedDate": "2026-04-12",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0z1af/",
       "requirements": [],
       "requirementsByLocale": {
@@ -2015,6 +2034,7 @@
           "flexible-aushilfe-m-w-d-tally-weijl-schaffhausen"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2060,7 +2080,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0pftv/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-11T22:01:35.868Z",
+      "crawledAt": "2026-04-12T10:13:14.658Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -2071,7 +2091,7 @@
       "sector": "Moda / Abbigliamento",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-11",
+      "postedDate": "2026-04-12",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0pftv/",
       "requirements": [],
       "requirementsByLocale": {
@@ -2114,6 +2134,7 @@
           "modeles-d-ajustement-tally-weijl-basel"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2159,7 +2180,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zh58/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-11T22:01:35.262Z",
+      "crawledAt": "2026-04-12T10:13:14.048Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -2170,7 +2191,7 @@
       "sector": "Moda / Abbigliamento",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-11",
+      "postedDate": "2026-04-12",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0zh58/",
       "requirements": [],
       "requirementsByLocale": {
@@ -2212,6 +2233,7 @@
           "categoria-team-leader-denim-outerwear-accessori-pantaloni-woven-tally-weijl-basel"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2257,7 +2279,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zh5c/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-11T22:01:34.594Z",
+      "crawledAt": "2026-04-12T10:13:13.475Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -2268,7 +2290,7 @@
       "sector": "Moda / Abbigliamento",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-11",
+      "postedDate": "2026-04-12",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0zh5c/",
       "requirements": [],
       "requirementsByLocale": {
@@ -2311,6 +2333,7 @@
           "kauferkleider-trend-tops-tally-weijl-basel"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2356,7 +2379,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zs9o/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-11T22:01:33.992Z",
+      "crawledAt": "2026-04-12T10:13:12.916Z",
       "addressLocality": "Sion",
       "addressCountry": "CH",
       "country": "CH",
@@ -2414,6 +2437,7 @@
           "assistant-tally-weijl-sion"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
