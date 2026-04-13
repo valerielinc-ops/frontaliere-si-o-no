@@ -5920,4 +5920,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/bibo-app-mezzi-pubblici-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'varese-frontalieri-7000-postivacanti-2026',
+    category: 'pratico',
+    date: '2026-04-13T17:21:00.462Z',
+    image: '/images/blog/varese-frontalieri-7000-postivacanti-2026.jpg',
+    hasCalculator: true,
+  },
 ];

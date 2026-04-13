@@ -2115,6 +2115,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bibo-app-mezzi-pubblici-2026.title': 'Bibo: the app that automatically calculates Swiss public transport fares without lifting a finger',
     'blog.article.bibo-app-mezzi-pubblici-2026.excerpt': 'From 2026, Bibo will debut: it automatically detects bus, train or tram trips and charges only the actual route taken. Testing with 3,000 cross-border workers starts on 30 April.',
     'blog.article.bibo-app-mezzi-pubblici-2026.imageAlt': 'Swiss train arriving at Lugano station with Monte Brè in the background during sunset',
+    'blog.article.varese-frontalieri-7000-postivacanti-2026.title': 'Varese: 7,000 job vacancies by 2026. Here’s what changes for Ticino cross-border workers',
+    'blog.article.varese-frontalieri-7000-postivacanti-2026.excerpt': 'In the first quarter of 2026, the Varese area records 7,772 unfilled job openings. Critical sectors include mechanical engineering, construction, and ICT. The cost of this mismatch ranges between €42 and €105 million.',
+    'blog.article.varese-frontalieri-7000-postivacanti-2026.imageAlt': 'Metalworker in a Ticino workshop reviewing blueprints with ICT job vacancy notice in the background',
 };
 
 export default blogMetaEn;

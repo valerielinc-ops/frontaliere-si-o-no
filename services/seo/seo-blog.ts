@@ -7337,6 +7337,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-varese-frontalieri-7000-postivacanti-2026': {
+    title: 'Varese: 7mila posti vacanti nel 2026 | Frontaliere Ticino',
+    description: 'Nel primo trimestre 2026 il Varesotto registra 7.772 assunzioni impossibili. Settori critici: metalmeccanica, costruzioni e ICT. Costo del mismatch tra 42 e 105',
+    keywords: 'frontalieri, ticino, svizzera, italia, varese, 7mila, posti, vacanti',
+    ogTitle: 'Varese: 7mila posti vacanti nel 2026. Ecco cosa cambia pe',
+    ogDescription: 'Nel primo trimestre 2026 il Varesotto registra 7.772 assunzioni impossibili. Settori critici: metalmeccanica, costruzioni e ICT. Costo del mismatch tra 42 e 105',
+    canonicalPath: '/articoli-frontaliere/varese-frontalieri-7000-postivacanti-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Varese: 7mila posti vacanti nel 2026. Ecco cosa cambia pe",
+      "description": "Nel primo trimestre 2026 il Varesotto registra 7.772 assunzioni impossibili. Settori critici: metalmeccanica, costruzioni e ICT. Costo del mismatch tra 42 e 105",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/varese-frontalieri-7000-postivacanti-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Operario metalmeccanico in una officina ticinese studia piani di lavoro mentre un avviso di ricerca di personale ICT è appeso al muro"
+      },
+      "datePublished": "2026-04-13T17:21:00+00:00",
+      "dateModified": "2026-04-13T17:21:00+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/varese-frontalieri-7000-postivacanti-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

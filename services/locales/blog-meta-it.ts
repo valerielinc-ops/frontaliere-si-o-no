@@ -2115,6 +2115,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bibo-app-mezzi-pubblici-2026.title': 'Bibo: l’app che calcola le tariffe dei mezzi pubblici in Svizzera senza fare nulla',
     'blog.article.bibo-app-mezzi-pubblici-2026.excerpt': 'Dal 2026 debutta Bibo: rileva automaticamente i viaggi in bus, treno o tram e addebita solo il percorso effettivo. Test con 3.000 frontalieri dal 30 aprile.',
     'blog.article.bibo-app-mezzi-pubblici-2026.imageAlt': 'Treno svizzero in arrivo alla stazione di Lugano con sfondo del Monte Brè al tramonto',
+    'blog.article.varese-frontalieri-7000-postivacanti-2026.title': 'Varese: 7mila posti vacanti nel 2026. Ecco cosa cambia per i frontalieri ticinesi',
+    'blog.article.varese-frontalieri-7000-postivacanti-2026.excerpt': 'Nel primo trimestre 2026 il Varesotto registra 7.772 assunzioni impossibili. Settori critici: metalmeccanica, costruzioni e ICT. Costo del mismatch tra 42 e 105 milioni di euro.',
+    'blog.article.varese-frontalieri-7000-postivacanti-2026.imageAlt': 'Operario metalmeccanico in una officina ticinese studia piani di lavoro mentre un avviso di ricerca di personale ICT è appeso al muro',
 };
 
 export default blogMetaIt;

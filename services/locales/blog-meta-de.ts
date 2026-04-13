@@ -2115,6 +2115,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bibo-app-mezzi-pubblici-2026.title': 'Bibo: Die App, die die Tarife der öffentlichen Verkehrsmittel in der Schweiz automatisch berechnet',
     'blog.article.bibo-app-mezzi-pubblici-2026.excerpt': 'Ab 2026 startet Bibo: Die App erfasst Fahrten mit Bus, Bahn oder Tram automatisch und berechnet nur die tatsächlich zurückgelegte Strecke. Der Test mit 3.000 Grenzgängern beginnt am 30. April.',
     'blog.article.bibo-app-mezzi-pubblici-2026.imageAlt': 'Schweizer Zug bei der Ankunft im Bahnhof Lugano mit Monte Brè im Hintergrund bei Sonnenuntergang',
+    'blog.article.varese-frontalieri-7000-postivacanti-2026.title': 'Varese: 7.000 offene Stellen im Jahr 2026. So wirkt sich das auf die Grenzgänger aus dem Tessin aus',
+    'blog.article.varese-frontalieri-7000-postivacanti-2026.excerpt': 'Im ersten Quartal 2026 verzeichnet die Provinz Varese 7.772 unbesetzte Stellen. Besonders betroffen sind die Branchen Metallverarbeitung, Baugewerbe und IKT. Die Kosten der Diskrepanz zwischen Angebot und Nachfrage belaufen sich auf 42 bis 105 Millionen Euro.',
+    'blog.article.varese-frontalieri-7000-postivacanti-2026.imageAlt': 'Metallarbeiter in einer Tessiner Werkstatt studiert Baupläne, während ein ICT-Stellenangebot an der Wand hängt',
 };
 
 export default blogMetaDe;

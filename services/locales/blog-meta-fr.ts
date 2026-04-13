@@ -2115,6 +2115,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bibo-app-mezzi-pubblici-2026.title': 'Bibo : l’appli qui calcule les tarifs des transports publics en Suisse sans rien faire',
     'blog.article.bibo-app-mezzi-pubblici-2026.excerpt': 'À partir de 2026, Bibo fait son entrée : l’application détecte automatiquement les trajets en bus, train ou tramway et ne facture que le parcours réellement effectué. Un test avec 3 000 frontaliers est prévu à partir du 30 avril.',
     'blog.article.bibo-app-mezzi-pubblici-2026.imageAlt': 'Train suisse arrivant en gare de Lugano avec le Monte Brè en arrière-plan au coucher du soleil',
+    'blog.article.varese-frontalieri-7000-postivacanti-2026.title': 'Varèse : 7 000 postes vacants en 2026. Voici ce qui change pour les frontaliers tessinois',
+    'blog.article.varese-frontalieri-7000-postivacanti-2026.excerpt': 'Au premier trimestre 2026, la province de Varèse enregistre 7 772 embauches impossibles à pourvoir. Secteurs critiques : la métallurgie, le BTP et les TIC. Le coût du déséquilibre entre l\'offre et la demande s\'élève entre 42 et 105 millions d\'euros.',
+    'blog.article.varese-frontalieri-7000-postivacanti-2026.imageAlt': 'Ouvrier métallurgiste dans un atelier tessinois examinant des plans, avec une offre d\'emploi ICT affichée au mur',
 };
 
 export default blogMetaFr;
