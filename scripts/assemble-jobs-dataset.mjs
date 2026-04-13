@@ -434,8 +434,26 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs) {
     cleanPreviousSlugsPerLocale(job);
   }
 
+  // ── firstSeenAt backfill ──────────────────────────────────────────────
+  // Carry forward firstSeenAt from existing slice; set to now for genuinely new jobs.
   fs.mkdirSync(JOBS_SLICES_DIR, { recursive: true });
   const slicePath = path.join(JOBS_SLICES_DIR, `${crawlerKey}.json`);
+  const existingSlice = fs.existsSync(slicePath) ? readJson(slicePath) : null;
+  const existingFirstSeen = new Map();
+  for (const ej of (existingSlice?.jobs || [])) {
+    if (ej.firstSeenAt) {
+      const identity = buildStableJobIdentity(ej);
+      if (identity) existingFirstSeen.set(identity, ej.firstSeenAt);
+    }
+  }
+  const now = new Date().toISOString();
+  for (const job of hardened.jobs) {
+    if (!job.firstSeenAt) {
+      const identity = buildStableJobIdentity(job);
+      job.firstSeenAt = existingFirstSeen.get(identity) || now;
+    }
+  }
+
   const payload = {
     crawlerKey,
     assembledAt: new Date().toISOString(),

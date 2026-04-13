@@ -4618,6 +4618,11 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
       fresh.slugDisambiguator = old.slugDisambiguator;
     }
 
+    // Preserve firstSeenAt — set once when job first discovered, never overwritten
+    if (old.firstSeenAt && !fresh.firstSeenAt) {
+      fresh.firstSeenAt = old.firstSeenAt;
+    }
+
     return fresh;
   });
 }
