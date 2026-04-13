@@ -453,13 +453,20 @@ function generateAutologinCode(email) {
     .digest('hex');
 }
 
-function makeAuthenticatedUrl(targetUrl, email, autologinCode) {
+function makeAuthenticatedUrl(targetUrl, email, autologinCode, campaignId) {
   const url = new URL(targetUrl, BASE_URL);
   // Short param names keep total URL < 1000 chars — Mailgun silently
   // skips click-tracking for href values ≥ 1000 characters.
   url.searchParams.set('ne', email.toLowerCase());
   // 'ac' = autologin code (64-char HMAC hex, never expires)
   if (autologinCode) url.searchParams.set('ac', autologinCode);
+  // Compact UTM for GA4 Email channel attribution:
+  // utm_medium=email triggers GA4 "Email" channel grouping
+  // utm_source=nl identifies newsletter vs transactional email
+  // utm_campaign=weekly_YYYY-MM-DD links to the specific issue
+  url.searchParams.set('utm_source', 'nl');
+  url.searchParams.set('utm_medium', 'email');
+  if (campaignId) url.searchParams.set('utm_campaign', campaignId);
   return url.toString();
 }
 
@@ -474,7 +481,7 @@ function shouldWrapNewsletterHref(rawHref) {
   return true;
 }
 
-async function personalizeHtmlForRecipient(email, html) {
+async function personalizeHtmlForRecipient(email, html, campaignId) {
   const hrefMatches = [...html.matchAll(/href="([^"]+)"/g)];
   if (!hrefMatches.length) return html;
 
@@ -484,7 +491,7 @@ async function personalizeHtmlForRecipient(email, html) {
   const replacements = new Map();
   const uniqueHrefs = [...new Set(hrefMatches.map((m) => m[1]).filter(shouldWrapNewsletterHref))];
   for (const href of uniqueHrefs) {
-    const wrapped = makeAuthenticatedUrl(href, email, autologinCode);
+    const wrapped = makeAuthenticatedUrl(href, email, autologinCode, campaignId);
     replacements.set(href, wrapped);
   }
 
@@ -499,14 +506,14 @@ async function personalizeHtmlForRecipient(email, html) {
  * Synchronous HTML personalization using a pre-generated autologin code.
  * Used by the optimized pipeline where codes are generated in bulk beforehand.
  */
-function personalizeHtmlWithToken(email, html, autologinCode) {
+function personalizeHtmlWithToken(email, html, autologinCode, campaignId) {
   const hrefMatches = [...html.matchAll(/href="([^"]+)"/g)];
   if (!hrefMatches.length) return html;
 
   const replacements = new Map();
   const uniqueHrefs = [...new Set(hrefMatches.map((m) => m[1]).filter(shouldWrapNewsletterHref))];
   for (const href of uniqueHrefs) {
-    const wrapped = makeAuthenticatedUrl(href, email, autologinCode);
+    const wrapped = makeAuthenticatedUrl(href, email, autologinCode, campaignId);
     replacements.set(href, wrapped);
   }
 
@@ -1492,7 +1499,7 @@ async function main() {
 
     // Personalize links with pre-generated HMAC autologin code (never expires)
     const autologinCode = codeMap.get(subscriber.email);
-    const personalizedHtml = personalizeHtmlWithToken(subscriber.email, html, autologinCode);
+    const personalizedHtml = personalizeHtmlWithToken(subscriber.email, html, autologinCode, campaignId);
     const sanitizedHtml = sanitizeJobUrls(personalizedHtml, validJobSlugs);
 
     emails.push({
