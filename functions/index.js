@@ -357,6 +357,7 @@ export const jobAlertUnsubscribe = onRequest(
     const alertId = String(params.alertId || '').trim();
     const email = String(params.email || '').trim();
     const token = String(params.token || '').trim();
+    const action = String(params.action || '').trim();
 
     try {
       const { newsletterSecret } = await getNewsletterSecrets();
@@ -365,6 +366,7 @@ export const jobAlertUnsubscribe = onRequest(
         email,
         token,
         secret: newsletterSecret,
+        action,
       });
 
       // RFC 8058 POST returns 200 with no body

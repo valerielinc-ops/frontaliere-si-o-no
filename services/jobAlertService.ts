@@ -16,6 +16,7 @@ export interface JobAlertConfig {
   contractTypes: string[];
   sectors: string[];
   frequency: 'daily' | 'weekly';
+  locale: 'it' | 'en' | 'de' | 'fr';
 }
 
 export interface JobAlert extends JobAlertConfig {
@@ -86,6 +87,7 @@ export async function createAlert(
     contractTypes: config.contractTypes,
     sectors: config.sectors,
     frequency: config.frequency,
+    locale: config.locale || 'it',
     active: true,
     createdAt: serverTimestamp(),
     lastMatchedAt: null,
@@ -132,6 +134,7 @@ export async function getUserAlerts(userId: string): Promise<JobAlert[]> {
       contractTypes: d.contractTypes || [],
       sectors: d.sectors || [],
       frequency: d.frequency || 'daily',
+      locale: d.locale || 'it',
       active: d.active,
       createdAt: d.createdAt?.toDate?.() || new Date(d.createdAt),
       lastMatchedAt: d.lastMatchedAt?.toDate?.() || null,
@@ -166,6 +169,7 @@ export async function updateAlert(
   if (changes.contractTypes) updateData.contractTypes = changes.contractTypes;
   if (changes.sectors) updateData.sectors = changes.sectors;
   if (changes.frequency) updateData.frequency = changes.frequency;
+  if (changes.locale) updateData.locale = changes.locale;
 
   if (Object.keys(updateData).length > 0) {
     await updateDoc(doc(db, COLLECTION, alertId), updateData);

@@ -41,6 +41,110 @@ const ALLOWED_EMAILS = null;
 // Cloud Function URL for one-click unsubscribe (RFC 8058)
 const UNSUB_FUNCTION_URL = 'https://europe-west6-frontaliere-ticino.cloudfunctions.net/jobAlertUnsubscribe';
 
+// Locale-aware job board URL paths (must match router.ts slug tables)
+const JOB_BOARD_PATHS = {
+  it: 'cerca-lavoro-ticino',
+  en: 'find-jobs-ticino',
+  de: 'jobs-im-tessin',
+  fr: 'trouver-emploi-tessin',
+};
+
+// ── i18n strings for email template ─────────────────────────
+const EMAIL_STRINGS = {
+  it: {
+    subjectNew: (n) => `\ud83d\udd14 ${n} nuov${n === 1 ? 'a offerta' : 'e offerte'}`,
+    subjectFor: 'per',
+    subjectDefault: 'le tue offerte',
+    preheader: (n, label) => `${n} nuove offerte: ${label}`,
+    heroTitle: (n) => `\ud83d\udd14 ${n} nuov${n === 1 ? 'a offerta' : 'e offerte'} per te`,
+    filters: 'Filtri',
+    sectionLabel: '\ud83d\udcbc Lavoro',
+    sectionTitle: 'Le offerte che fanno per te',
+    sectionDesc: 'Selezionate in base ai tuoi filtri, aggiornate ogni giorno.',
+    viewAll: 'Vedi tutte le offerte \u2192',
+    closer: 'Conosci qualcuno che cerca lavoro in Ticino? Inoltra questa email.',
+    closerSign: 'Alla prossima. \u2615',
+    manageAlerts: 'Gestisci le tue alert',
+    unsubThis: (filters) => `Non vuoi pi\u00f9 ricevere alert per <strong>${filters}</strong>?`,
+    unsubThisLink: 'Disiscriviti da questa alert',
+    unsubAll: 'Disiscriviti da tutte le alert',
+    unsubJoke: '\u2014 giuro che non piangeremo. (Forse un po\'.)',
+    newBadge: '\u2728 NUOVA',
+    fallbackTitle: 'Offerta di lavoro',
+    allOffers: 'tutte le offerte',
+  },
+  en: {
+    subjectNew: (n) => `\ud83d\udd14 ${n} new job${n === 1 ? '' : 's'}`,
+    subjectFor: 'for',
+    subjectDefault: 'your alerts',
+    preheader: (n, label) => `${n} new jobs: ${label}`,
+    heroTitle: (n) => `\ud83d\udd14 ${n} new job${n === 1 ? '' : 's'} for you`,
+    filters: 'Filters',
+    sectionLabel: '\ud83d\udcbc Jobs',
+    sectionTitle: 'Jobs that match your criteria',
+    sectionDesc: 'Selected based on your filters, updated every day.',
+    viewAll: 'View all jobs \u2192',
+    closer: 'Know someone looking for a job in Ticino? Forward this email.',
+    closerSign: 'See you next time. \u2615',
+    manageAlerts: 'Manage your alerts',
+    unsubThis: (filters) => `Don't want alerts for <strong>${filters}</strong> anymore?`,
+    unsubThisLink: 'Unsubscribe from this alert',
+    unsubAll: 'Unsubscribe from all alerts',
+    unsubJoke: '\u2014 we promise we won\'t cry. (Maybe a little.)',
+    newBadge: '\u2728 NEW',
+    fallbackTitle: 'Job offer',
+    allOffers: 'all offers',
+  },
+  de: {
+    subjectNew: (n) => `\ud83d\udd14 ${n} neue Stelle${n === 1 ? '' : 'n'}`,
+    subjectFor: 'f\u00fcr',
+    subjectDefault: 'Ihre Alerts',
+    preheader: (n, label) => `${n} neue Stellen: ${label}`,
+    heroTitle: (n) => `\ud83d\udd14 ${n} neue Stelle${n === 1 ? '' : 'n'} f\u00fcr Sie`,
+    filters: 'Filter',
+    sectionLabel: '\ud83d\udcbc Stellen',
+    sectionTitle: 'Passende Stellenangebote',
+    sectionDesc: 'Ausgew\u00e4hlt nach Ihren Filtern, t\u00e4glich aktualisiert.',
+    viewAll: 'Alle Stellen ansehen \u2192',
+    closer: 'Kennen Sie jemanden, der im Tessin arbeiten m\u00f6chte? Leiten Sie diese E-Mail weiter.',
+    closerSign: 'Bis zum n\u00e4chsten Mal. \u2615',
+    manageAlerts: 'Alerts verwalten',
+    unsubThis: (filters) => `Keine Alerts mehr f\u00fcr <strong>${filters}</strong>?`,
+    unsubThisLink: 'Von diesem Alert abmelden',
+    unsubAll: 'Von allen Alerts abmelden',
+    unsubJoke: '\u2014 wir weinen bestimmt nicht. (Vielleicht ein bisschen.)',
+    newBadge: '\u2728 NEU',
+    fallbackTitle: 'Stellenangebot',
+    allOffers: 'alle Angebote',
+  },
+  fr: {
+    subjectNew: (n) => `\ud83d\udd14 ${n} nouvelle${n === 1 ? '' : 's'} offre${n === 1 ? '' : 's'}`,
+    subjectFor: 'pour',
+    subjectDefault: 'vos alertes',
+    preheader: (n, label) => `${n} nouvelles offres: ${label}`,
+    heroTitle: (n) => `\ud83d\udd14 ${n} nouvelle${n === 1 ? '' : 's'} offre${n === 1 ? '' : 's'} pour vous`,
+    filters: 'Filtres',
+    sectionLabel: '\ud83d\udcbc Emploi',
+    sectionTitle: 'Les offres qui vous correspondent',
+    sectionDesc: 'S\u00e9lectionn\u00e9es selon vos filtres, mises \u00e0 jour chaque jour.',
+    viewAll: 'Voir toutes les offres \u2192',
+    closer: 'Vous connaissez quelqu\'un qui cherche un emploi au Tessin? Transf\u00e9rez cet email.',
+    closerSign: '\u00c0 bient\u00f4t. \u2615',
+    manageAlerts: 'G\u00e9rer vos alertes',
+    unsubThis: (filters) => `Vous ne souhaitez plus recevoir d\'alertes pour <strong>${filters}</strong>?`,
+    unsubThisLink: 'Se d\u00e9sabonner de cette alerte',
+    unsubAll: 'Se d\u00e9sabonner de toutes les alertes',
+    unsubJoke: '\u2014 promis, on ne pleurera pas. (Peut-\u00eatre un peu.)',
+    newBadge: '\u2728 NOUVELLE',
+    fallbackTitle: 'Offre d\'emploi',
+    allOffers: 'toutes les offres',
+  },
+};
+
+function getStrings(locale) {
+  return EMAIL_STRINGS[locale] || EMAIL_STRINGS.it;
+}
+
 function makeAlertUnsubscribeUrl(alertId, email) {
   const secret = process.env.NEWSLETTER_SECRET;
   if (!secret) return `${BASE_URL}/cerca-lavoro-ticino/`;
@@ -48,6 +152,33 @@ function makeAlertUnsubscribeUrl(alertId, email) {
     .update(`job_alert_unsub:${alertId}:${email.toLowerCase().trim()}`)
     .digest('hex');
   return `${UNSUB_FUNCTION_URL}?alertId=${encodeURIComponent(alertId)}&email=${encodeURIComponent(email)}&token=${token}`;
+}
+
+function makeAllAlertsUnsubscribeUrl(email) {
+  const secret = process.env.NEWSLETTER_SECRET;
+  if (!secret) return `${BASE_URL}/cerca-lavoro-ticino/`;
+  const token = createHmac('sha256', secret)
+    .update(`job_alert_unsub_all:${email.toLowerCase().trim()}`)
+    .digest('hex');
+  return `${UNSUB_FUNCTION_URL}?email=${encodeURIComponent(email)}&token=${token}&action=unsubscribe_all`;
+}
+
+// ── Autologin (reuse newsletter pattern) ────────────────────
+
+function generateAutologinCode(email) {
+  const secret = process.env.NEWSLETTER_SECRET;
+  if (!secret) return null;
+  return createHmac('sha256', secret)
+    .update('autologin:' + email.toLowerCase().trim())
+    .digest('hex');
+}
+
+function makeAuthenticatedUrl(targetUrl, email, autologinCode, utmMedium = 'job_alert') {
+  const url = new URL(targetUrl, BASE_URL);
+  url.searchParams.set('ne', email.toLowerCase());
+  if (autologinCode) url.searchParams.set('ac', autologinCode);
+  url.searchParams.set('utm_medium', utmMedium);
+  return url.toString();
 }
 
 // ── Firebase Admin SDK (lazy init) ───────────────────────────
@@ -134,10 +265,15 @@ function matchJobToAlert(job, alert) {
 // ── Email template ───────────────────────────────────────────
 
 function buildAlertEmail(alert, matchedJobs) {
+  const locale = alert.locale || 'it';
+  const s = getStrings(locale);
+  const jobBoardPath = JOB_BOARD_PATHS[locale] || JOB_BOARD_PATHS.it;
+  const autologinCode = generateAutologinCode(alert.email);
+
   const keyword = alert.keywords?.join(', ') || '';
   const locationLabel = alert.locations?.length > 0 ? alert.locations.join(', ') : '';
-  const subjectLabel = keyword || locationLabel || 'le tue offerte';
-  const subject = `🔔 ${matchedJobs.length} nuov${matchedJobs.length === 1 ? 'a offerta' : 'e offerte'} per: ${subjectLabel}`;
+  const subjectLabel = keyword || locationLabel || s.subjectDefault;
+  const subject = `${s.subjectNew(matchedJobs.length)} ${s.subjectFor}: ${subjectLabel}`;
 
   // Brand colors (aligned with newsletter-template.mjs)
   const BRAND_ORANGE = '#f97316';
@@ -146,27 +282,31 @@ function buildAlertEmail(alert, matchedJobs) {
   const LIGHT_BG = '#f1f5f9';
   const WHITE = '#ffffff';
   const MUTED = '#64748b';
-  const BORDER = '#e2e8f0';
   const CARD_BG = '#f8fafc';
 
   const utmBase = `utm_source=job_alert&utm_medium=email&utm_campaign=alert_${alert.id}`;
   const unsubscribeUrl = makeAlertUnsubscribeUrl(alert.id, alert.email);
-  const manageUrl = `${BASE_URL}/cerca-lavoro-ticino/?${utmBase}`;
-  const allJobsUrl = `${BASE_URL}/cerca-lavoro-ticino/?${utmBase}`;
+  const unsubAllUrl = makeAllAlertsUnsubscribeUrl(alert.email);
+
+  // Build locale-aware URLs with autologin
+  const wrapUrl = (rawUrl) => makeAuthenticatedUrl(rawUrl, alert.email, autologinCode);
+  const manageUrl = wrapUrl(`${BASE_URL}/${jobBoardPath}/?${utmBase}`);
+  const allJobsUrl = wrapUrl(`${BASE_URL}/${jobBoardPath}/?${utmBase}`);
 
   const jobCards = matchedJobs.slice(0, 10).map((job) => {
-    const title = job.titleByLocale?.it || job.title || 'Offerta di lavoro';
+    const title = job.titleByLocale?.[locale] || job.titleByLocale?.it || job.title || s.fallbackTitle;
     const company = job.company || '';
     const rawLocation = job.location || job.addressLocality || '';
     const location = rawLocation.replace(/^[-\u2013\u2014\s]+/, '').trim();
-    const slug = job.slugByLocale?.it || job.slug || '';
-    const url = slug ? `${BASE_URL}/cerca-lavoro-ticino/${slug}?${utmBase}` : BASE_URL;
+    const slug = job.slugByLocale?.[locale] || job.slugByLocale?.it || job.slug || '';
+    const rawJobUrl = slug ? `${BASE_URL}/${jobBoardPath}/${slug}?${utmBase}` : BASE_URL;
+    const url = wrapUrl(rawJobUrl);
     const initial = (company || '?')[0].toUpperCase();
     const tags = [];
     // "NEW" badge for jobs first seen within 48 hours
     const firstSeen = job.firstSeenAt ? new Date(job.firstSeenAt).getTime() : 0;
     const isNew = firstSeen > 0 && (Date.now() - firstSeen) < 48 * 60 * 60 * 1000;
-    if (isNew) tags.push(`<span style="font-size:10px;background:rgba(34,197,94,0.2);color:#86efac;padding:2px 8px;border-radius:6px;text-transform:uppercase;letter-spacing:0.5px;font-weight:600;">\u2728 NUOVA</span>`);
+    if (isNew) tags.push(`<span style="font-size:10px;background:rgba(34,197,94,0.2);color:#86efac;padding:2px 8px;border-radius:6px;text-transform:uppercase;letter-spacing:0.5px;font-weight:600;">${s.newBadge}</span>`);
     if (job.contract) tags.push(`<span style="font-size:10px;background:rgba(249,115,22,0.15);color:#fdba74;padding:2px 8px;border-radius:6px;text-transform:uppercase;letter-spacing:0.5px;font-weight:600;">${escHtml(job.contract)}</span>`);
     if (location) tags.push(`<span style="font-size:10px;background:rgba(249,115,22,0.15);color:#fdba74;padding:2px 8px;border-radius:6px;text-transform:uppercase;letter-spacing:0.5px;font-weight:600;">${escHtml(location)}</span>`);
 
@@ -193,10 +333,11 @@ function buildAlertEmail(alert, matchedJobs) {
   if (keyword) filterParts.push(keyword);
   if (alert.locations?.length > 0) filterParts.push(alert.locations.join(', '));
   if (alert.sectors?.length > 0) filterParts.push(alert.sectors.join(', '));
-  const filterSummary = escHtml(filterParts.length > 0 ? filterParts.join(' \u00b7 ') : 'tutte le offerte');
+  const filterLabel = filterParts.length > 0 ? filterParts.join(' \u00b7 ') : s.allOffers;
+  const filterSummary = escHtml(filterLabel);
 
   const html = `<!DOCTYPE html>
-<html lang="it">
+<html lang="${locale}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -212,7 +353,7 @@ function buildAlertEmail(alert, matchedJobs) {
   </style>
 </head>
 <body>
-  <div style="display:none!important;font-size:1px;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;">${matchedJobs.length} nuove offerte: ${subjectLabel}&nbsp;\u200c\u200c\u200c\u200c</div>
+  <div style="display:none!important;font-size:1px;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;">${s.preheader(matchedJobs.length, subjectLabel)}&nbsp;\u200c\u200c\u200c\u200c</div>
   <table width="100%" cellpadding="0" cellspacing="0" style="background:${LIGHT_BG};">
     <tr><td align="center" style="padding:0;">
       <table class="outer-table" width="620" cellpadding="0" cellspacing="0" style="width:100%;max-width:620px;">
@@ -233,15 +374,15 @@ function buildAlertEmail(alert, matchedJobs) {
 
         <!-- Hero -->
         <tr><td style="background:${BRAND_DARK};padding:20px 28px 28px;" class="section-pad">
-          <div style="font-size:22px;font-weight:800;color:${WHITE};margin:0;">\ud83d\udd14 ${matchedJobs.length} nuov${matchedJobs.length === 1 ? 'a offerta' : 'e offerte'} per te</div>
-          <div style="font-size:13px;color:#94a3b8;margin-top:6px;">Filtri: ${filterSummary}</div>
+          <div style="font-size:22px;font-weight:800;color:${WHITE};margin:0;">${s.heroTitle(matchedJobs.length)}</div>
+          <div style="font-size:13px;color:#94a3b8;margin-top:6px;">${s.filters}: ${filterSummary}</div>
         </td></tr>
 
         <!-- Section header -->
         <tr><td class="section-pad" style="background:${WHITE};padding:24px 28px 8px;">
-          <div style="font-size:11px;text-transform:uppercase;letter-spacing:2px;color:${BRAND_ORANGE};font-weight:700;margin:0 0 2px;">\ud83d\udcbc Lavoro</div>
-          <div style="font-size:18px;font-weight:800;color:${BRAND_DARK};margin:0;">Le offerte che fanno per te</div>
-          <div style="font-size:13px;color:${MUTED};margin:4px 0 0;">Selezionate in base ai tuoi filtri, aggiornate ogni giorno.</div>
+          <div style="font-size:11px;text-transform:uppercase;letter-spacing:2px;color:${BRAND_ORANGE};font-weight:700;margin:0 0 2px;">${s.sectionLabel}</div>
+          <div style="font-size:18px;font-weight:800;color:${BRAND_DARK};margin:0;">${s.sectionTitle}</div>
+          <div style="font-size:13px;color:${MUTED};margin:4px 0 0;">${s.sectionDesc}</div>
         </td></tr>
 
         <!-- Job cards -->
@@ -249,7 +390,7 @@ function buildAlertEmail(alert, matchedJobs) {
           <table width="100%" cellpadding="0" cellspacing="0">
             ${jobCards}
             <tr><td style="text-align:center;padding-top:14px;">
-              <a href="${allJobsUrl}" style="display:inline-block;background:transparent;border:2px solid ${BRAND_ORANGE};color:${BRAND_ORANGE};font-weight:700;font-size:13px;text-decoration:none;padding:11px 28px;border-radius:8px;">Vedi tutte le offerte \u2192</a>
+              <a href="${allJobsUrl}" style="display:inline-block;background:transparent;border:2px solid ${BRAND_ORANGE};color:${BRAND_ORANGE};font-weight:700;font-size:13px;text-decoration:none;padding:11px 28px;border-radius:8px;">${s.viewAll}</a>
             </td></tr>
           </table>
         </td></tr>
@@ -257,8 +398,8 @@ function buildAlertEmail(alert, matchedJobs) {
         <!-- Closer (aligned with newsletter) -->
         <tr><td class="section-pad" style="background:${WHITE};padding:0 28px 20px;">
           <div style="background:${CARD_BG};border-radius:12px;padding:18px 20px;text-align:center;">
-            <div style="font-size:14px;color:#334155;line-height:1.5;margin:0 0 8px;">Conosci qualcuno che cerca lavoro in Ticino? Inoltra questa email.</div>
-            <div style="font-size:12px;color:${BRAND_ORANGE};font-weight:700;">Alla prossima. \u2615</div>
+            <div style="font-size:14px;color:#334155;line-height:1.5;margin:0 0 8px;">${s.closer}</div>
+            <div style="font-size:12px;color:${BRAND_ORANGE};font-weight:700;">${s.closerSign}</div>
           </div>
         </td></tr>
 
@@ -270,10 +411,13 @@ function buildAlertEmail(alert, matchedJobs) {
             <a href="${BASE_URL}" style="display:inline-block;margin:0 6px;font-size:18px;text-decoration:none;">\ud83c\udf10</a>
           </div>
           <div style="font-size:12px;color:${MUTED};margin:4px 0;">
-            <a href="${manageUrl}" style="color:${BRAND_ORANGE};text-decoration:underline;font-weight:600;">Gestisci le tue alert</a>
+            <a href="${manageUrl}" style="color:${BRAND_ORANGE};text-decoration:underline;font-weight:600;">${s.manageAlerts}</a>
           </div>
           <div style="font-size:12px;color:${MUTED};margin:4px 0;">
-            Non vuoi pi\u00f9 ricevere queste email? <a href="${unsubscribeUrl}" style="color:${BRAND_ORANGE};text-decoration:underline;">Disiscriviti</a> \u2014 giuro che non piangeremo. (Forse un po'.)
+            ${s.unsubThis(filterLabel)} <a href="${unsubscribeUrl}" style="color:${BRAND_ORANGE};text-decoration:underline;">${s.unsubThisLink}</a>
+          </div>
+          <div style="font-size:12px;color:${MUTED};margin:4px 0;">
+            <a href="${unsubAllUrl}" style="color:#94a3b8;text-decoration:underline;">${s.unsubAll}</a> ${s.unsubJoke}
           </div>
           <div style="font-size:12px;color:#475569;margin-top:12px;">\u00a9 ${new Date().getFullYear()} Frontaliere Ticino \u00b7 0% spam, 100% frontaliere</div>
         </td></tr>

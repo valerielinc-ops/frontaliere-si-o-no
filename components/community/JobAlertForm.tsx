@@ -55,7 +55,7 @@ const SECTORS = [
 // ── Component ────────────────────────────────────────────────
 
 export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword = '' }: JobAlertFormProps) {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
   const [expanded, setExpanded] = useState(false);
   const [keyword, setKeyword] = useState(initialKeyword);
   const [selectedLocations, setSelectedLocations] = useState<string[]>([]);
@@ -112,6 +112,7 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
         contractTypes: selectedContracts,
         sectors: selectedSectors,
         frequency,
+        locale: locale as 'it' | 'en' | 'de' | 'fr',
       };
       const alert = await createAlert(authUser.uid, authUser.email || '', config);
       setAlerts((prev) => [alert, ...prev]);

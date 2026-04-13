@@ -27,7 +27,7 @@ const MUTED_COLOR = '#64748b';
 const BORDER_COLOR = '#e2e8f0';
 
 /**
- * Generate HMAC token for job alert unsubscribe.
+ * Generate HMAC token for job alert unsubscribe (single alert).
  * Uses a distinct prefix to avoid collision with newsletter tokens.
  */
 export function generateAlertUnsubToken(alertId, email, secret) {
@@ -36,9 +36,28 @@ export function generateAlertUnsubToken(alertId, email, secret) {
     .digest('hex');
 }
 
+/**
+ * Generate HMAC token for unsubscribing from ALL job alerts.
+ */
+export function generateAllAlertsUnsubToken(email, secret) {
+  return createHmac('sha256', secret)
+    .update(`job_alert_unsub_all:${email.toLowerCase().trim()}`)
+    .digest('hex');
+}
+
 function verifyAlertToken(alertId, email, token, secret) {
   if (!secret || !alertId || !email || !token) return false;
   const expected = generateAlertUnsubToken(alertId, email, secret);
+  try {
+    return timingSafeEqual(Buffer.from(token, 'hex'), Buffer.from(expected, 'hex'));
+  } catch {
+    return false;
+  }
+}
+
+function verifyAllAlertsToken(email, token, secret) {
+  if (!secret || !email || !token) return false;
+  const expected = generateAllAlertsUnsubToken(email, secret);
   try {
     return timingSafeEqual(Buffer.from(token, 'hex'), Buffer.from(expected, 'hex'));
   } catch {
@@ -83,15 +102,78 @@ function buildConfirmationHtml({ title, message, success }) {
 </html>`;
 }
 
-export async function handleJobAlertUnsubscribe({ alertId, email, token, secret, db: injectedDb }) {
+export async function handleJobAlertUnsubscribe({ alertId, email, token, secret, action, db: injectedDb }) {
   const db = injectedDb || getAdminDb();
 
+  // ── Unsubscribe from ALL alerts ───────────────────────────
+  if (action === 'unsubscribe_all') {
+    if (!email || !email.includes('@')) {
+      return {
+        status: 400,
+        html: buildConfirmationHtml({
+          title: 'Parametri mancanti',
+          message: 'Il link di disiscrizione non è valido. Prova a cliccare di nuovo dall\'email.',
+          success: false,
+        }),
+      };
+    }
+
+    if (!verifyAllAlertsToken(email, token, secret)) {
+      return {
+        status: 403,
+        html: buildConfirmationHtml({
+          title: 'Link non valido',
+          message: 'Il link di disiscrizione è scaduto o non valido. Puoi disattivare le alert dalla pagina del tuo profilo.',
+          success: false,
+        }),
+      };
+    }
+
+    // Find all active alerts for this email
+    const alertsSnap = await db.collection('job_alerts')
+      .where('email', '==', email.toLowerCase().trim())
+      .where('active', '==', true)
+      .get();
+
+    if (alertsSnap.empty) {
+      return {
+        status: 200,
+        html: buildConfirmationHtml({
+          title: 'Nessuna alert attiva',
+          message: `Non ci sono alert attive per <strong>${email}</strong>. Non riceverai email.`,
+          success: true,
+        }),
+      };
+    }
+
+    // Deactivate all alerts in batch
+    const batch = db.batch();
+    for (const doc of alertsSnap.docs) {
+      batch.update(doc.ref, {
+        active: false,
+        unsubscribed_at: admin.firestore.FieldValue.serverTimestamp(),
+        unsubscribe_source: 'email_link_all',
+      });
+    }
+    await batch.commit();
+
+    return {
+      status: 200,
+      html: buildConfirmationHtml({
+        title: 'Tutte le alert disattivate',
+        message: `Abbiamo disattivato <strong>${alertsSnap.size}</strong> alert per <strong>${email}</strong>.<br><br>Non riceverai più notifiche di lavoro. Puoi sempre crearne di nuove dalla pagina offerte di lavoro.`,
+        success: true,
+      }),
+    };
+  }
+
+  // ── Unsubscribe from a single alert ───────────────────────
   if (!alertId || !email || !email.includes('@')) {
     return {
       status: 400,
       html: buildConfirmationHtml({
         title: 'Parametri mancanti',
-        message: 'Il link di disiscrizione non è valido. Prova a cliccare di nuovo dal\'email.',
+        message: 'Il link di disiscrizione non è valido. Prova a cliccare di nuovo dall\'email.',
         success: false,
       }),
     };
