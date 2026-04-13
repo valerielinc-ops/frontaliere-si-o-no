@@ -19,7 +19,6 @@ const AdSenseBanner = lazy(() => import('@/components/shared/AdSenseBanner'));
 import { AD_SLOTS } from '@/services/adsenseSlots';
 import { resolveCompanyLogoUrl, resolveCompanyWebsiteHost } from '@/services/jobDataNormalization';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
-const CreatorProducts = lazy(() => import('@/components/pages/CreatorProducts'));
 const LeadMagnetCTA = lazy(() => import('@/components/shared/LeadMagnetCTA'));
 
 /* ─── Article view counter (Firestore) ─── */
@@ -1583,7 +1582,6 @@ function BlogArticles({
       );
     }
 
-    const creatorContextText = `${article.category} ${t(`blog.article.${article.id}.title`)} ${t(`blog.article.${article.id}.excerpt`)}`;
     const bodySegments = collectBodyParts(article.id, t);
     const presentSegments = bodySegments;
     const combinedBody = presentSegments.join(' ');
@@ -1683,8 +1681,14 @@ function BlogArticles({
                 </Suspense>
               )}
 
-              <Suspense fallback={null}>
-                <CreatorProducts contextText={creatorContextText} className="mt-2" maxCards={2} />
+              <Suspense fallback={adEligible ? <div style={{ minHeight: AD_SLOTS.ARTICLE_RAIL_LEFT_2.placeholderMinHeight, contain: 'content' }} className="mt-2" /> : null}>
+                <AdSenseBanner
+                  adSlot={AD_SLOTS.ARTICLE_RAIL_LEFT_2.slot}
+                  adFormat={AD_SLOTS.ARTICLE_RAIL_LEFT_2.format}
+                  label={t('adsense.label')}
+                  enabled={adEligible}
+                  className="mt-2"
+                />
               </Suspense>
             </div>
           </aside>
@@ -1927,10 +1931,16 @@ function BlogArticles({
                         </Suspense>
                       )}
 
-                      {/* Amazon product picks — mobile/tablet inline (replaces affiliate card) */}
+                      {/* AdSense — mobile/tablet inline (replaces Amazon products) */}
                       <div className="xl:hidden my-5">
-                        <Suspense fallback={null}>
-                          <CreatorProducts contextText={creatorContextText} maxCards={2} />
+                        <Suspense fallback={adEligibleInline ? <div style={{ minHeight: AD_SLOTS.ARTICLE_INLINE_MOBILE_2.placeholderMinHeight, contain: 'content' }} /> : null}>
+                          <AdSenseBanner
+                            adSlot={AD_SLOTS.ARTICLE_INLINE_MOBILE_2.slot}
+                            adFormat={AD_SLOTS.ARTICLE_INLINE_MOBILE_2.format}
+                            adLayout={AD_SLOTS.ARTICLE_INLINE_MOBILE_2.layout}
+                            fullWidthResponsive={false}
+                            enabled={adEligibleInline}
+                          />
                         </Suspense>
                       </div>
                     </>
@@ -2241,8 +2251,14 @@ function BlogArticles({
                   />
                 </Suspense>
               )}
-              <Suspense fallback={null}>
-                <CreatorProducts contextText={creatorContextText} className="mt-2" maxCards={2} offset={2} />
+              <Suspense fallback={adEligible ? <div style={{ minHeight: AD_SLOTS.ARTICLE_RAIL_RIGHT_2.placeholderMinHeight, contain: 'content' }} className="mt-2" /> : null}>
+                <AdSenseBanner
+                  adSlot={AD_SLOTS.ARTICLE_RAIL_RIGHT_2.slot}
+                  adFormat={AD_SLOTS.ARTICLE_RAIL_RIGHT_2.format}
+                  label={t('adsense.label')}
+                  enabled={adEligible}
+                  className="mt-2"
+                />
               </Suspense>
 
               {/* Donation mini-card */}
