@@ -38,28 +38,35 @@ export function lazyRetry<T extends React.ComponentType<any>>(
 
       sessionStorage.setItem(retryKey, '1');
 
-      const clearAndRetry = async (): Promise<{ default: T }> => {
+      const clearCaches = async () => {
         if ('caches' in window) {
           const names = await caches.keys();
           await Promise.all(names.map(n => caches.delete(n)));
         }
-        const result = await factory();
-        import('@/services/analytics').then(m => m.Analytics.trackChunkRetry({
-          outcome: 'success',
-          errorMessage: err?.message || '',
-          pagePath: window.location.pathname + window.location.search,
-        })).catch(() => {});
-        return result;
       };
 
-      return clearAndRetry().catch(() => {
+      const trackRetry = (outcome: 'success' | 'failure', msg: string) => {
         import('@/services/analytics').then(m => m.Analytics.trackChunkRetry({
-          outcome: 'failure',
-          errorMessage: err?.message || 'unknown',
+          outcome,
+          errorMessage: msg,
           pagePath: window.location.pathname + window.location.search,
         })).catch(() => {});
-        throw err;
-      });
+      };
+
+      // Retry 1: clear caches and retry immediately
+      return clearCaches()
+        .then(() => factory())
+        .then(result => { trackRetry('success', err?.message || ''); return result; })
+        .catch(() =>
+          // Retry 2: wait 2s for CDN propagation, then retry
+          new Promise<{ default: T }>((resolve, reject) => {
+            setTimeout(() => {
+              factory()
+                .then(result => { trackRetry('success', err?.message || ''); resolve(result); })
+                .catch(() => { trackRetry('failure', err?.message || 'unknown'); reject(err); });
+            }, 2000);
+          })
+        );
     })
   );
 }

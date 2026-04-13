@@ -194,10 +194,12 @@ interface JobListing {
   featured: boolean;
   postedDate: string;
   crawledAt?: string;
+  firstSeenAt?: string;
   url?: string;
   applyUrl?: string;
   source?: string;
   companyDomain?: string;
+  sector?: string;
   previousSlugs?: string[];
   previousSlugsByLocale?: Partial<Record<string, string[]>>;
   canonicalContent?: {
@@ -424,6 +426,7 @@ function normalizeIncomingJob(raw: any): JobListing {
     featured: Boolean(raw?.featured),
     postedDate: String(raw?.postedDate || '').trim() || new Date().toISOString().slice(0, 10),
     companyDomain: canonicalHost || String(raw?.companyDomain || '').trim() || undefined,
+    sector: String(raw?.sector || '').trim() || undefined,
   };
 }
 
@@ -2433,6 +2436,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
   const [selectedContract, setSelectedContract] = useState<ContractType | 'all'>('all');
   const [selectedCompany, setSelectedCompany] = useState<string>('all');
   const [selectedDateRange, setSelectedDateRange] = useState<DateRange>('all');
+  const [selectedLocation, setSelectedLocation] = useState<string>('all');
+  const [selectedSector, setSelectedSector] = useState<string>('all');
   const [showNewOnly, setShowNewOnly] = useState(false);
   const [filtersExpanded, setFiltersExpanded] = useState(false);
   const searchInputRef = useRef<HTMLInputElement>(null);
@@ -2483,9 +2488,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
     if (selectedContract !== 'all') count++;
     if (selectedCompany !== 'all') count++;
     if (selectedDateRange !== 'all') count++;
+    if (selectedLocation !== 'all') count++;
+    if (selectedSector !== 'all') count++;
     if (showNewOnly) count++;
     return count;
-  }, [searchQuery, selectedCategory, selectedContract, selectedCompany, selectedDateRange, showNewOnly]);
+  }, [searchQuery, selectedCategory, selectedContract, selectedCompany, selectedDateRange, selectedLocation, selectedSector, showNewOnly]);
 
   const resetAllFilters = useCallback(() => {
     setSearchQuery('');
@@ -2493,6 +2500,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
     setSelectedContract('all');
     setSelectedCompany('all');
     setSelectedDateRange('all');
+    setSelectedLocation('all');
+    setSelectedSector('all');
     setShowNewOnly(false);
   }, []);
   const [page, setPage] = useState(() => readPageFromUrl());
@@ -2614,6 +2623,42 @@ const JobBoard: React.FC<JobBoardProps> = ({
       if (!map.has(key)) map.set(key, job.company);
     }
     return Array.from(map.values()).sort((a, b) => a.localeCompare(b));
+  }, [jobs]);
+
+  const uniqueLocalities = useMemo(() => {
+    const counts = new Map<string, number>();
+    for (const job of jobs) {
+      const loc = (job.addressLocality || '').trim();
+      if (loc && loc.length > 2) {
+        const key = loc.toLowerCase();
+        counts.set(key, (counts.get(key) || 0) + 1);
+      }
+    }
+    // Sort by frequency descending so the most common cities appear first
+    return Array.from(counts.entries())
+      .sort((a, b) => b[1] - a[1])
+      .map(([key]) => {
+        // Find original casing from any job
+        const job = jobs.find(j => (j.addressLocality || '').toLowerCase() === key);
+        return job?.addressLocality || key;
+      });
+  }, [jobs]);
+
+  const uniqueSectors = useMemo(() => {
+    const counts = new Map<string, number>();
+    for (const job of jobs) {
+      const sec = (job.sector || '').trim();
+      if (sec) {
+        const key = sec.toLowerCase();
+        counts.set(key, (counts.get(key) || 0) + 1);
+      }
+    }
+    return Array.from(counts.entries())
+      .sort((a, b) => b[1] - a[1])
+      .map(([key]) => {
+        const job = jobs.find(j => (j.sector || '').toLowerCase() === key);
+        return job?.sector || key;
+      });
   }, [jobs]);
 
   const editorialLandingDescriptor = useMemo(
@@ -2881,6 +2926,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
       if (selectedCategory !== 'all' && job.category !== selectedCategory) return false;
       if (selectedContract !== 'all' && job.contract !== selectedContract) return false;
       if (selectedCompany !== 'all' && job.company.toLowerCase() !== selectedCompany) return false;
+      if (selectedLocation !== 'all' && (job.addressLocality || '').toLowerCase() !== selectedLocation) return false;
+      if (selectedSector !== 'all' && (job.sector || '').toLowerCase() !== selectedSector) return false;
       if (cutoff > 0) {
         const jobDate = new Date(job.crawledAt || job.postedDate).getTime();
         if (jobDate < cutoff) return false;
@@ -2894,7 +2941,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
       }
       return true;
     });
-  }, [sortedJobs, selectedCategory, selectedContract, selectedCompany, selectedDateRange, showNewOnly, deferredSearchQuery, indexedQueryMatch, companySlugFilter]);
+  }, [sortedJobs, selectedCategory, selectedContract, selectedCompany, selectedDateRange, selectedLocation, selectedSector, showNewOnly, deferredSearchQuery, indexedQueryMatch, companySlugFilter]);
 
   // Resolve the display name of the company when a company slug filter is active
   const companyDisplayName = useMemo(() => {
@@ -3482,7 +3529,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
   const NEW_JOB_MS = 72 * 60 * 60 * 1000; // 72 hours
   const isNewJob = (job: JobListing) => {
-    const ts = new Date(job.crawledAt || job.postedDate).getTime();
+    const ts = new Date(job.firstSeenAt || job.postedDate).getTime();
     return Date.now() - ts < NEW_JOB_MS;
   };
 
@@ -6001,7 +6048,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
           {([
             { id: 'today', label: t('jobBoard.quickFilters.today'), active: selectedDateRange === '24h', action: () => setSelectedDateRange(selectedDateRange === '24h' ? 'all' : '24h') },
             { id: '3days', label: t('jobBoard.quickFilters.3days'), active: selectedDateRange === '3d', action: () => setSelectedDateRange(selectedDateRange === '3d' ? 'all' : '3d') },
-            { id: 'lugano', label: 'Lugano', active: searchQuery.toLowerCase() === 'lugano', action: () => setSearchQuery(searchQuery.toLowerCase() === 'lugano' ? '' : 'Lugano') },
+            { id: '7days', label: t('jobBoard.quickFilters.7days'), active: selectedDateRange === '7d', action: () => setSelectedDateRange(selectedDateRange === '7d' ? 'all' : '7d') },
+            { id: 'lugano', label: 'Lugano', active: selectedLocation === 'lugano', action: () => setSelectedLocation(selectedLocation === 'lugano' ? 'all' : 'lugano') },
+            { id: 'bellinzona', label: 'Bellinzona', active: selectedLocation === 'bellinzona', action: () => setSelectedLocation(selectedLocation === 'bellinzona' ? 'all' : 'bellinzona') },
             { id: 'health', label: t('jobBoard.quickFilters.health'), active: selectedCategory === 'health', action: () => setSelectedCategory(selectedCategory === 'health' ? 'all' : 'health') },
             { id: 'parttime', label: 'Part-time', active: selectedContract === 'part-time', action: () => setSelectedContract(selectedContract === 'part-time' ? 'all' : 'part-time') },
             { id: 'apprentice', label: t('jobBoard.quickFilters.apprenticeship'), active: searchQuery.toLowerCase() === 'apprendistato', action: () => setSearchQuery(searchQuery.toLowerCase() === 'apprendistato' ? '' : 'apprendistato') },
@@ -6088,7 +6137,49 @@ const JobBoard: React.FC<JobBoardProps> = ({
         {/* Expandable filter panel — uses max-h transition to prevent CLS */}
         <div className={`transition-[max-height,opacity] duration-200 ease-in-out overflow-hidden ${filtersExpanded ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}>
           <div className="bg-surface/50 p-3 sm:p-4 rounded-xl border border-edge">
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3">
+              <div className="relative">
+                <select
+                  value={selectedLocation}
+                  onChange={(e) => setSelectedLocation(e.target.value)}
+                  className={`w-full appearance-none pl-3 pr-8 py-2.5 min-h-[44px] text-sm rounded-xl border transition-colors focus-visible:ring-2 focus-visible:ring-stripe-500 focus-visible:border-transparent truncate ${
+                    selectedLocation !== 'all'
+                      ? 'border-stripe-300 dark:border-stripe-600 bg-stripe-50 dark:bg-stripe-950/20 text-stripe-700 dark:text-stripe-300'
+                      : 'border-edge bg-surface text-slate-900 dark:text-white'
+                  }`}
+                  aria-label={t('jobBoard.filter.location')}
+                >
+                  <option value="all">{t('jobBoard.filter.allLocations')}</option>
+                  {uniqueLocalities.map((loc) => (
+                    <option key={loc} value={loc.toLowerCase()}>
+                      {loc}
+                    </option>
+                  ))}
+                </select>
+                <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 text-muted pointer-events-none" />
+              </div>
+
+              <div className="relative">
+                <select
+                  value={selectedSector}
+                  onChange={(e) => setSelectedSector(e.target.value)}
+                  className={`w-full appearance-none pl-3 pr-8 py-2.5 min-h-[44px] text-sm rounded-xl border transition-colors focus-visible:ring-2 focus-visible:ring-stripe-500 focus-visible:border-transparent truncate ${
+                    selectedSector !== 'all'
+                      ? 'border-stripe-300 dark:border-stripe-600 bg-stripe-50 dark:bg-stripe-950/20 text-stripe-700 dark:text-stripe-300'
+                      : 'border-edge bg-surface text-slate-900 dark:text-white'
+                  }`}
+                  aria-label={t('jobBoard.filter.sector')}
+                >
+                  <option value="all">{t('jobBoard.filter.allSectors')}</option>
+                  {uniqueSectors.map((sec) => (
+                    <option key={sec} value={sec.toLowerCase()}>
+                      {sec}
+                    </option>
+                  ))}
+                </select>
+                <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 text-muted pointer-events-none" />
+              </div>
+
               <div className="relative">
                 <select
                   value={selectedCategory}

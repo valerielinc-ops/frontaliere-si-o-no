@@ -26,6 +26,9 @@ interface AdSenseBannerProps {
   adLayout?: string;
   label?: string;
   enabled?: boolean;
+  /** When true, always render the placeholder wrapper (even when disabled) to prevent CLS.
+   *  Use on pages where ads appear after an async action (e.g., calculator results). */
+  reserveSpace?: boolean;
 }
 
 const CLIENT_ID = 'ca-pub-8628054934855353';
@@ -62,6 +65,7 @@ export default function AdSenseBanner({
   adLayout,
   label,
   enabled = true,
+  reserveSpace = false,
 }: AdSenseBannerProps) {
   const adRef = useRef<HTMLModElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -247,8 +251,14 @@ export default function AdSenseBanner({
     cleanupAsyncWatchers();
   }, [cleanupAsyncWatchers]);
 
-  // ── Render nothing in dev or disabled ─────────────────────
-  if (!IS_PROD || !enabled || !adSlot) {
+  // ── Render nothing in dev or when slot is missing ─────────
+  if (!IS_PROD || !adSlot) {
+    return null;
+  }
+
+  // When disabled but reserveSpace is true, render the placeholder wrapper
+  // so the layout doesn't shift when the ad eventually loads (CLS fix).
+  if (!enabled && !reserveSpace) {
     return null;
   }
 

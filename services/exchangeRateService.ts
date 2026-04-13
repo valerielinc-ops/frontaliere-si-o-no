@@ -83,7 +83,13 @@ async function getFirestoreRate(): Promise<CacheEntry | null> {
       }
     }
   } catch (e) {
-    reportCaughtError(e, 'exchangeRate.firestoreRead', { apiEndpoint: 'config/exchange_rate' });
+    // Permission errors are expected for anonymous users — don't inflate error metrics
+    const msg = e instanceof Error ? e.message : String(e);
+    if (msg.includes('permission') || msg.includes('Permission') || msg.includes('PERMISSION_DENIED')) {
+      console.warn('[ExchangeRate] Firestore read blocked: insufficient permissions');
+    } else {
+      reportCaughtError(e, 'exchangeRate.firestoreRead', { apiEndpoint: 'config/exchange_rate' });
+    }
   }
   return null;
 }
@@ -339,7 +345,12 @@ async function getHistoryFromFirestore(period: HistoryPeriod): Promise<{ points:
       }
     }
   } catch (e) {
-    reportCaughtError(e, 'exchangeRate.firestoreHistoryRead', { apiEndpoint: `exchangeHistory/chf-eur-${period}` });
+    const msg = e instanceof Error ? e.message : String(e);
+    if (msg.includes('permission') || msg.includes('Permission') || msg.includes('PERMISSION_DENIED')) {
+      console.warn('[ExchangeRate] Firestore history read blocked: insufficient permissions');
+    } else {
+      reportCaughtError(e, 'exchangeRate.firestoreHistoryRead', { apiEndpoint: `exchangeHistory/chf-eur-${period}` });
+    }
   }
   return null;
 }

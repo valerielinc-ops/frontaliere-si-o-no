@@ -203,17 +203,17 @@ export default function CalcolatoreTabContent() {
                 <Suspense fallback={<SkeletonWeeklyFact />}><WeeklyFact /></Suspense>
               </div>
             )}
-            {/* AdSense — homepage mid-content display */}
-            {result && (
-              <Suspense fallback={null}>
-                <AdSenseBanner
-                  adSlot={AD_SLOTS.HOMEPAGE_MID_DISPLAY.slot}
-                  adFormat={AD_SLOTS.HOMEPAGE_MID_DISPLAY.format}
-                  fullWidthResponsive={AD_SLOTS.HOMEPAGE_MID_DISPLAY.fullWidthResponsive}
-                  className="mt-6 mb-4"
-                />
-              </Suspense>
-            )}
+            {/* AdSense — homepage mid-content display (reserveSpace prevents CLS when result appears) */}
+            <Suspense fallback={null}>
+              <AdSenseBanner
+                adSlot={AD_SLOTS.HOMEPAGE_MID_DISPLAY.slot}
+                adFormat={AD_SLOTS.HOMEPAGE_MID_DISPLAY.format}
+                fullWidthResponsive={AD_SLOTS.HOMEPAGE_MID_DISPLAY.fullWidthResponsive}
+                className="mt-6 mb-4"
+                enabled={!!result}
+                reserveSpace
+              />
+            </Suspense>
 
             {/* AI-extractable comparison table + FAQ — in <details> for crawlability without breaking page flow */}
             <details className="mt-6 group">

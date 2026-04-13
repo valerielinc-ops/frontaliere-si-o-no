@@ -25,9 +25,9 @@ const FROM_EMAIL = 'Frontaliere Ticino <alerts@frontaliereticino.ch>';
 const DRY_RUN = process.argv.includes('--dry-run');
 const MATCH_WINDOW_MS = 24 * 60 * 60 * 1000; // 24 hours
 
-// Testing allowlist: only send alerts to these emails.
-// Set to null to enable for all users once testing is complete.
-const ALLOWED_EMAILS = new Set(['valerielinc@gmail.com']);
+// Testing allowlist: set to a Set of emails for admin-only testing,
+// or null to enable for all users.
+const ALLOWED_EMAILS = null;
 
 // ── Firebase Admin SDK (lazy init) ───────────────────────────
 
@@ -218,6 +218,19 @@ async function main() {
     console.log('   No active alerts — skipping.');
     return;
   }
+
+  // 2b. Skip weekly alerts if last sent within 7 days
+  const now = Date.now();
+  const WEEKLY_INTERVAL_MS = 7 * 24 * 60 * 60 * 1000;
+  alerts = alerts.filter((alert) => {
+    if (alert.frequency === 'weekly' && alert.lastMatchedAt) {
+      const lastSent = typeof alert.lastMatchedAt.toMillis === 'function'
+        ? alert.lastMatchedAt.toMillis()
+        : new Date(alert.lastMatchedAt).getTime();
+      if (now - lastSent < WEEKLY_INTERVAL_MS) return false;
+    }
+    return true;
+  });
 
   // 3. Match alerts to jobs
   const emailsToSend = [];
