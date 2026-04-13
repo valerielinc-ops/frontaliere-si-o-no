@@ -263,7 +263,7 @@
       "companyKey": "ferrovia-retica",
       "url": "https://www.rhb.ch/it/job/leiter-in-betrieb-and-kundeninfo-bernina-sud-50-100_2026-2178/",
       "location": "Bernina",
-      "canton": "GR",
+      "canton": "BE",
       "country": "CH",
       "postalCode": "7000",
       "streetAddress": "Bahnhofstrasse 25, 7001 Chur",
@@ -306,7 +306,8 @@
           "maxValue": 97000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressRegion": "BE"
     },
     {
       "title": "Standortleiter/in Zugvorbereitung & Reinigung / Nord- & Mittelbünden (50-100%)",

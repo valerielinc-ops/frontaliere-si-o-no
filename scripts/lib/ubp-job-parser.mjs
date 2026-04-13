@@ -11,10 +11,10 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
-import { detectLang } from './dedicated-crawler-common.mjs';
+import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { inferSwissTargetCanton, inferAnyCanton } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -275,10 +275,12 @@ export async function fetchAllUbpJobs() {
 
     const publicUrl = buildOracleDetailUrl(oracleBase, reqId);
 
-    // Extract location from Oracle HCM data
+    // Extract location from Oracle HCM data — infer actual canton, don't default
+    // to HQ canton for foreign cities (e.g. London, Geneva)
     const primaryLoc = req.PrimaryLocation || '';
     const rawLocation = normalizeSpace(primaryLoc) || HQ?.city || 'Lugano';
-    const canton = inferSwissTargetCanton(rawLocation) || HQ?.canton || 'TI';
+    const isForeignLoc = isLocationExplicitlyForeign(rawLocation);
+    const canton = inferAnyCanton(rawLocation) || (isForeignLoc ? '' : (HQ?.canton || 'TI'));
 
     // Fetch full description from detail API
     let descriptionText = '';
@@ -319,10 +321,10 @@ export async function fetchAllUbpJobs() {
       sourceLang,
       crawledAt: new Date().toISOString(),
       addressLocality: rawLocation,
-      addressRegion: HQ?.addressRegion || 'TI',
-      addressCountry: 'CH',
-      country: 'CH',
-      postalCode: HQ?.postalCode || '6900',
+      addressRegion: canton || (HQ?.addressRegion || 'TI'),
+      addressCountry: isForeignLoc ? '' : 'CH',
+      country: isForeignLoc ? '' : 'CH',
+      postalCode: canton ? (HQ?.postalCode || '6900') : '',
       category: detectCategory(title),
       contract: detectEmploymentType(req.TimeType || title) === 'PART_TIME' ? 'part-time' : 'full-time',
       employmentType: detectEmploymentType(req.TimeType || title),

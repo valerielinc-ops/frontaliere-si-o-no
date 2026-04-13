@@ -15,9 +15,10 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
-import { detectLang } from './dedicated-crawler-common.mjs';
+import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
+import { inferAnyCanton } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -209,6 +210,12 @@ export async function fetchAllTetherJobs() {
     const state = normalizeSpace(firstLoc.state || 'Ticino');
     const location = `${city}, ${state}`;
 
+    // Infer actual canton from job city — don't hardcode HQ canton for foreign locations
+    const inferredCanton = inferAnyCanton(city) || inferAnyCanton(location);
+    const isForeignCity = isLocationExplicitlyForeign(city) || isLocationExplicitlyForeign(location);
+    const jobCanton = inferredCanton || (isForeignCity ? '' : HQ.canton);
+    const jobRegion = inferredCanton || (isForeignCity ? state : HQ.addressRegion);
+
     // Work model — Tether is remote-first
     let workModel = 'remote';
     if (offer.on_site) workModel = 'on-site';
@@ -245,7 +252,7 @@ export async function fetchAllTetherJobs() {
       description: descriptionText || fallbackDesc,
       descriptionByLocale: { [sourceLang]: descriptionText || fallbackDesc },
       location,
-      canton: HQ.canton,
+      canton: jobCanton,
       url: detailUrl,
       source: 'tether-careers-crawler',
       sourceLang,
@@ -253,10 +260,10 @@ export async function fetchAllTetherJobs() {
 
       // ── Recommended fields ──
       addressLocality: city,
-      addressRegion: HQ.addressRegion,
-      addressCountry: 'CH',
-      postalCode: HQ.postalCode,
-      country: 'CH',
+      addressRegion: jobRegion,
+      addressCountry: isForeignCity ? '' : 'CH',
+      postalCode: inferredCanton ? HQ.postalCode : '',
+      country: isForeignCity ? '' : 'CH',
       category: detectCategory(title),
       contract: workModel === 'remote' ? 'remote' : 'full-time',
       employmentType,

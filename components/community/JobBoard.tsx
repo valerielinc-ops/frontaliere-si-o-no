@@ -91,6 +91,26 @@ const DEFAULT_CANTON_DISPLAY = 'Ticino';
 const DEFAULT_POSTAL_CODE = '6900';
 const TARGET_CANTONS_ORDERED = ['TI', 'GR', 'VS'] as const;
 
+// Cities that indicate a job is NOT in a target canton, regardless of the canton
+// field value. Fixes incorrect canton assignments from crawlers that hardcode
+// HQ canton (e.g. Tether/Bitfinex set canton=TI for London/Bangkok jobs).
+const NON_TARGET_CITY_KEYWORDS = [
+  'london', 'paris', 'milan', 'milano', 'berlin', 'munich', 'münchen',
+  'frankfurt', 'hamburg', 'vienna', 'wien', 'madrid', 'barcelona',
+  'amsterdam', 'brussels', 'bruxelles', 'stockholm', 'oslo', 'copenhagen',
+  'tokyo', 'beijing', 'shanghai', 'singapore', 'bangkok', 'mumbai',
+  'dubai', 'new york', 'los angeles', 'toronto', 'sydney', 'melbourne',
+  'rome', 'roma', 'napoli', 'torino', 'bologna', 'genova', 'palermo',
+  'venezia', 'florence', 'firenze', 'kuala lumpur', 'luxembourg',
+  'zurich', 'zürich', 'geneva', 'genève', 'geneve', 'bern', 'berne',
+  'basel', 'lausanne', 'winterthur', 'luzern', 'lucerne', 'st. gallen',
+  'schaffhausen', 'solothurn', 'aarau', 'cheseaux',
+];
+const isNonTargetCity = (locality: string) => {
+  const lower = locality.toLowerCase();
+  return NON_TARGET_CITY_KEYWORDS.some(kw => lower.includes(kw));
+};
+
 const CANTON_DISPLAY: Record<string, string> = {
   'TI': 'Ticino', 'GR': 'Graubünden', 'ZH': 'Zürich', 'BE': 'Bern',
   'LU': 'Luzern', 'BS': 'Basel', 'GE': 'Genève', 'VD': 'Vaud',
@@ -2740,11 +2760,16 @@ const JobBoard: React.FC<JobBoardProps> = ({
   }, [selectedJob, authLoading]);
 
   const sortedJobs = useMemo(() => {
-    // Canton priority: TARGET_CANTONS_ORDERED first (TI, GR), everything else after.
+    // Canton priority: TARGET_CANTONS_ORDERED first (TI, GR, VS), everything else after.
     // Within each canton group, sort by day (not hour/minute — avoids crawler-time bias),
     // then by qualityScore descending so higher-quality listings surface first.
-    const cantonRank = (canton: string) => {
-      const idx = TARGET_CANTONS_ORDERED.indexOf(canton as typeof TARGET_CANTONS_ORDERED[number]);
+    // addressLocality check overrides canton field — catches crawlers that hardcode
+    // HQ canton for remote/foreign-city jobs (e.g. Tether London → canton=TI).
+    const cantonRank = (job: JobListing) => {
+      if (job.addressLocality && isNonTargetCity(job.addressLocality)) {
+        return TARGET_CANTONS_ORDERED.length;
+      }
+      const idx = TARGET_CANTONS_ORDERED.indexOf(job.canton as typeof TARGET_CANTONS_ORDERED[number]);
       return idx >= 0 ? idx : TARGET_CANTONS_ORDERED.length;
     };
     const dayTs = (d: string | undefined) => {
@@ -2753,11 +2778,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
     };
     const withMeta = jobs.map(j => ({
       job: j,
+      rank: cantonRank(j),
       day: dayTs(j.crawledAt || j.postedDate),
       qs: j.qualityScore ?? 0,
     }));
     withMeta.sort((a, b) =>
-      (cantonRank(a.job.canton) - cantonRank(b.job.canton))
+      (a.rank - b.rank)
       || (b.day - a.day)
       || (b.qs - a.qs)
     );
