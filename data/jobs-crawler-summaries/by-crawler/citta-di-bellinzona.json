@@ -1,16 +1,16 @@
 {
   "key": "citta-di-bellinzona",
   "label": "Bellinzona",
-  "generatedAt": "2026-04-13T10:13:46.328Z",
+  "generatedAt": "2026-04-13T21:22:09.006Z",
   "total": 1,
   "newCount": 1,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3422,
-  "avgDurationMs": 3422,
+  "durationMs": 2710,
+  "avgDurationMs": 2710,
   "durationHistory": [
-    3422
+    2710
   ],
   "newJobs": [
     {
@@ -38,7 +38,7 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=68509370-a964-427f-8d65-025e7108b5e3,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-04-13T10:13:43.997Z",
+      "crawledAt": "2026-04-13T21:22:07.133Z",
       "_qualityScore": 69,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -74,7 +74,8 @@
       "applyUrl": null,
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-04-13T10:13:43.996Z",
+      "crawledAt": "2026-04-13T21:22:07.131Z",
+      "firstSeenAt": "2026-03-30T20:10:23.185Z",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -114,6 +115,7 @@
       "sourceLang": "it",
       "salaryMin": 58000,
       "salaryMax": 78000,
+      "firstSeenAt": "2026-03-30T20:10:23.185Z",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
