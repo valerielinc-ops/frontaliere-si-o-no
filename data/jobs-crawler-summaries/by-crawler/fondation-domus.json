@@ -1,16 +1,16 @@
 {
   "key": "fondation-domus",
   "label": "Fondation Domus",
-  "generatedAt": "2026-04-12T21:23:18.886Z",
+  "generatedAt": "2026-04-13T21:42:33.369Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7614,
-  "avgDurationMs": 7614,
+  "durationMs": 4344,
+  "avgDurationMs": 4344,
   "durationHistory": [
-    7614
+    4344
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/df57d22b-4724-49ba-9517-f749fec14189/?source=[platform]",
       "source": "Fondation Domus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-12T21:23:17.042Z",
+      "crawledAt": "2026-04-13T21:42:31.470Z",
       "addressLocality": "La Tzoumaz",
       "postalCode": "1918",
       "addressCountry": "CH",
@@ -40,6 +40,7 @@
       "featured": false,
       "postedDate": "2026-04-11",
       "applyUrl": "https://www.jobup.ch/fr/emplois/detail/df57d22b-4724-49ba-9517-f749fec14189/?source=[platform]",
+      "firstSeenAt": "2026-04-12T21:23:17.042Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -60,7 +61,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/7dd44076-1d9c-4db5-b9fd-71cacde14586/?source=[platform]",
       "source": "Fondation Domus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-12T21:23:16.723Z",
+      "crawledAt": "2026-04-13T21:42:31.147Z",
       "addressLocality": "Ardon",
       "postalCode": "1957",
       "addressCountry": "CH",
@@ -74,6 +75,7 @@
       "featured": false,
       "postedDate": "2026-03-17",
       "applyUrl": "https://www.jobup.ch/fr/emplois/detail/7dd44076-1d9c-4db5-b9fd-71cacde14586/?source=[platform]",
+      "firstSeenAt": "2026-04-12T21:23:16.723Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
