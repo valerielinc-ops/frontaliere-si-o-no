@@ -173,8 +173,8 @@ describe('App smoke test', () => {
   it('renders footer with privacy and API status links', () => {
     render(<App />);
 
-    expect(screen.getByText('footer.privacy')).toBeDefined();
-    expect(screen.getByText('footer.apiStatus')).toBeDefined();
+    expect(screen.getAllByText('footer.privacy').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('footer.apiStatus').length).toBeGreaterThan(0);
     // footer.copyright is inside a <p> with other text nodes, so use substring match
     expect(screen.getByText((content) => content.includes('footer.copyright'))).toBeDefined();
 

@@ -197,6 +197,27 @@ const App: React.FC = () => {
   const [statsSubTab, setStatsSubTab] = useState<StatsSubTab>(initialRoute.route.statsSubTab || 'overview');
   const [blogArticle, setBlogArticle] = useState<BlogArticleId | null>(initialRoute.route.blogArticle || null);
 
+  // Auto-scroll active sub-tab chip into view on mobile (YouTube/Spotify peek pattern)
+  const activeSubTab = activeTab === 'calcolatore' ? calcolatoreSubTab
+    : activeTab === 'confronti' ? confrontiSubTab
+    : activeTab === 'fisco' ? fiscoSubTab
+    : activeTab === 'guida' ? guidaSubTab
+    : activeTab === 'vita' ? vitaSubTab
+    : activeTab === 'stats' ? statsSubTab
+    : null;
+
+  useEffect(() => {
+    if (!activeSubTab) return;
+    // Small delay to ensure DOM is rendered after tab switch
+    const timer = setTimeout(() => {
+      const activeBtn = document.querySelector<HTMLElement>('[data-subtab-active="true"]');
+      if (activeBtn?.scrollIntoView) {
+        activeBtn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      }
+    }, 50);
+    return () => clearTimeout(timer);
+  }, [activeSubTab]);
+
   // Preload blog slug data and resolve any deferred blog slug from initial URL
   useEffect(() => {
     preloadBlogData().then(() => {
@@ -2639,7 +2660,7 @@ const App: React.FC = () => {
         {activeTab === 'calculator' && (
           <div className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5">
-              <div className="flex md:grid md:grid-cols-8 gap-1.5 overflow-x-auto md:overflow-x-visible scrollbar-hide">
+              <div className="flex md:grid md:grid-cols-8 gap-1.5 overflow-x-auto md:overflow-x-visible scrollbar-hide pr-6 md:pr-0">
                 {([
                   { key: 'calculator' as const, icon: Calculator, label: t('simulator.calculator') },
                   { key: 'whatif' as const, icon: Sparkles, label: t('simulator.whatif') },
@@ -2652,11 +2673,12 @@ const App: React.FC = () => {
                 ] as const).map(({ key, icon: Icon, label }) => (
                   <button
                     key={key}
+                    data-subtab-active={calcolatoreSubTab === key ? "true" : undefined}
                     onClick={() => {
                       setCalcolatoreSubTab(key);
                       Analytics.trackUIInteraction('calcolatore', 'navigazione', 'tab_sezione', 'cambio', key);
                     }}
-                    className={`flex items-center md:flex-col gap-1.5 md:gap-0.5 px-3 md:px-1 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-[color,background-color,border-color,box-shadow] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stripe-400 focus-visible:ring-offset-2 shrink-0 md:shrink ${
+                    className={`flex items-center md:flex-col gap-1.5 md:gap-0.5 px-3 md:px-1 py-2.5 md:py-1.5 min-h-[44px] md:min-h-0 rounded-xl text-xs sm:text-sm font-semibold transition-[color,background-color,border-color,box-shadow] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stripe-400 focus-visible:ring-offset-2 shrink-0 md:shrink ${
                       calcolatoreSubTab === key
                         ? 'bg-stripe-100 dark:bg-stripe-900/30 text-stripe-700 dark:text-stripe-300 ring-1 ring-stripe-300 dark:ring-stripe-700'
                         : 'text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
@@ -2675,7 +2697,7 @@ const App: React.FC = () => {
         {activeTab === 'confronti' && (
           <div className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5">
-              <div className="flex md:grid md:grid-cols-8 gap-1.5 overflow-x-auto md:overflow-x-visible scrollbar-hide">
+              <div className="flex md:grid md:grid-cols-8 gap-1.5 overflow-x-auto md:overflow-x-visible scrollbar-hide pr-6 md:pr-0">
                 {([
                   { key: 'exchange' as const, icon: ArrowRightLeft, label: t('comparators.exchange') },
                   { key: 'banks' as const, icon: Building2, label: t('comparators.banks') },
@@ -2688,11 +2710,12 @@ const App: React.FC = () => {
                 ] as const).map(({ key, icon: Icon, label }) => (
                   <button
                     key={key}
+                    data-subtab-active={confrontiSubTab === key ? "true" : undefined}
                     onClick={() => {
                       setConfrontiSubTab(key);
                       Analytics.trackComparatorView(key as any);
                     }}
-                    className={`flex items-center md:flex-col gap-1.5 md:gap-0.5 px-3 md:px-1 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-[color,background-color,border-color,box-shadow] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stripe-400 focus-visible:ring-offset-2 shrink-0 md:shrink ${
+                    className={`flex items-center md:flex-col gap-1.5 md:gap-0.5 px-3 md:px-1 py-2.5 md:py-1.5 min-h-[44px] md:min-h-0 rounded-xl text-xs sm:text-sm font-semibold transition-[color,background-color,border-color,box-shadow] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stripe-400 focus-visible:ring-offset-2 shrink-0 md:shrink ${
                       confrontiSubTab === key
                         ? 'bg-stripe-100 dark:bg-stripe-900/30 text-stripe-700 dark:text-stripe-300 ring-1 ring-stripe-300 dark:ring-stripe-700'
                         : 'text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
@@ -2711,7 +2734,7 @@ const App: React.FC = () => {
         {activeTab === 'fisco' && (
           <div className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5">
-              <div className="flex md:grid md:grid-cols-8 gap-1.5 overflow-x-auto md:overflow-x-visible scrollbar-hide">
+              <div className="flex md:grid md:grid-cols-8 gap-1.5 overflow-x-auto md:overflow-x-visible scrollbar-hide pr-6 md:pr-0">
                 {([
                   { key: 'tax-return' as const, icon: FileText, label: t('comparators.taxReturn') },
                   { key: 'withholding-rates' as const, icon: Banknote, label: t('withholdingRates.navLabel') },
@@ -2724,11 +2747,12 @@ const App: React.FC = () => {
                 ] as const).map(({ key, icon: Icon, label }) => (
                   <button
                     key={key}
+                    data-subtab-active={fiscoSubTab === key ? "true" : undefined}
                     onClick={() => {
                       setFiscoSubTab(key);
                       Analytics.trackUIInteraction('fisco', 'navigazione', 'tab_sezione', 'cambio', key);
                     }}
-                    className={`flex items-center md:flex-col gap-1.5 md:gap-0.5 px-3 md:px-1 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-[color,background-color,border-color,box-shadow] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stripe-400 focus-visible:ring-offset-2 shrink-0 md:shrink ${
+                    className={`flex items-center md:flex-col gap-1.5 md:gap-0.5 px-3 md:px-1 py-2.5 md:py-1.5 min-h-[44px] md:min-h-0 rounded-xl text-xs sm:text-sm font-semibold transition-[color,background-color,border-color,box-shadow] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stripe-400 focus-visible:ring-offset-2 shrink-0 md:shrink ${
                       fiscoSubTab === key
                         ? 'bg-stripe-100 dark:bg-stripe-900/30 text-stripe-700 dark:text-stripe-300 ring-1 ring-stripe-300 dark:ring-stripe-700'
                         : 'text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
@@ -2747,7 +2771,7 @@ const App: React.FC = () => {
         {activeTab === 'guida' && (
           <div className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5">
-              <div className="flex md:grid md:grid-cols-8 gap-1.5 overflow-x-auto md:overflow-x-visible scrollbar-hide">
+              <div className="flex md:grid md:grid-cols-8 gap-1.5 overflow-x-auto md:overflow-x-visible scrollbar-hide pr-6 md:pr-0">
                 {([
                   { key: 'first-day' as const, icon: Rocket, label: t('guide.tabs.firstDay') },
                   { key: 'permits' as const, icon: Shield, label: t('guide.tabs.permits') },
@@ -2760,11 +2784,12 @@ const App: React.FC = () => {
                 ] as const).map(({ key, icon: Icon, label }) => (
                   <button
                     key={key}
+                    data-subtab-active={guidaSubTab === key ? "true" : undefined}
                     onClick={() => {
                       setGuidaSubTab(key);
                       Analytics.trackUIInteraction('guida', 'navigazione', 'tab_sezione', 'cambio', key);
                     }}
-                    className={`flex items-center md:flex-col gap-1.5 md:gap-0.5 px-3 md:px-1 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-[color,background-color,border-color,box-shadow] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stripe-400 focus-visible:ring-offset-2 shrink-0 md:shrink ${
+                    className={`flex items-center md:flex-col gap-1.5 md:gap-0.5 px-3 md:px-1 py-2.5 md:py-1.5 min-h-[44px] md:min-h-0 rounded-xl text-xs sm:text-sm font-semibold transition-[color,background-color,border-color,box-shadow] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stripe-400 focus-visible:ring-offset-2 shrink-0 md:shrink ${
                       guidaSubTab === key
                         ? 'bg-stripe-100 dark:bg-stripe-900/30 text-stripe-700 dark:text-stripe-300 ring-1 ring-stripe-300 dark:ring-stripe-700'
                         : 'text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
@@ -2783,7 +2808,7 @@ const App: React.FC = () => {
         {activeTab === 'vita' && (
           <div className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5">
-              <div className="flex md:grid md:grid-cols-8 gap-1.5 overflow-x-auto md:overflow-x-visible scrollbar-hide">
+              <div className="flex md:grid md:grid-cols-8 gap-1.5 overflow-x-auto md:overflow-x-visible scrollbar-hide pr-6 md:pr-0">
                 {([
                   { key: 'living-ch' as const, icon: Home, label: t('guide.tabs.livingCH') },
                   { key: 'living-it' as const, icon: Users, label: t('guide.tabs.livingIT') },
@@ -2796,11 +2821,12 @@ const App: React.FC = () => {
                 ] as const).map(({ key, icon: Icon, label }) => (
                   <button
                     key={key}
+                    data-subtab-active={vitaSubTab === key ? "true" : undefined}
                     onClick={() => {
                       setVitaSubTab(key);
                       Analytics.trackUIInteraction('vita', 'navigazione', 'tab_sezione', 'cambio', key);
                     }}
-                    className={`flex items-center md:flex-col gap-1.5 md:gap-0.5 px-3 md:px-1 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-[color,background-color,border-color,box-shadow] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stripe-400 focus-visible:ring-offset-2 shrink-0 md:shrink ${
+                    className={`flex items-center md:flex-col gap-1.5 md:gap-0.5 px-3 md:px-1 py-2.5 md:py-1.5 min-h-[44px] md:min-h-0 rounded-xl text-xs sm:text-sm font-semibold transition-[color,background-color,border-color,box-shadow] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stripe-400 focus-visible:ring-offset-2 shrink-0 md:shrink ${
                       vitaSubTab === key
                         ? 'bg-stripe-100 dark:bg-stripe-900/30 text-stripe-700 dark:text-stripe-300 ring-1 ring-stripe-300 dark:ring-stripe-700'
                         : 'text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
@@ -2819,7 +2845,7 @@ const App: React.FC = () => {
         {activeTab === 'stats' && (
           <div className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5">
-              <div className="flex md:grid md:grid-cols-8 gap-1.5 overflow-x-auto md:overflow-x-visible scrollbar-hide max-w-6xl mx-auto">
+              <div className="flex md:grid md:grid-cols-8 gap-1.5 overflow-x-auto md:overflow-x-visible scrollbar-hide pr-6 md:pr-0 max-w-6xl mx-auto">
                 {([
                   { key: 'overview' as const, icon: Database, label: t('stats.tabOverview') },
                   { key: 'livability' as const, icon: MapPin, label: t('strumenti.livability') },
@@ -2832,11 +2858,12 @@ const App: React.FC = () => {
                 ] as const).map(({ key, icon: Icon, label }) => (
                   <button
                     key={key}
+                    data-subtab-active={statsSubTab === key ? "true" : undefined}
                     onClick={() => {
                       setStatsSubTab(key);
                       Analytics.trackUIInteraction('statistiche', 'navigazione', 'tab_sezione', 'cambio', key);
                     }}
-                    className={`flex items-center md:flex-col gap-1.5 md:gap-0.5 px-3 md:px-1 py-1.5 rounded-xl text-xs sm:text-sm font-semibold transition-[color,background-color,border-color,box-shadow] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stripe-400 focus-visible:ring-offset-2 shrink-0 md:shrink ${
+                    className={`flex items-center md:flex-col gap-1.5 md:gap-0.5 px-3 md:px-1 py-2.5 md:py-1.5 min-h-[44px] md:min-h-0 rounded-xl text-xs sm:text-sm font-semibold transition-[color,background-color,border-color,box-shadow] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stripe-400 focus-visible:ring-offset-2 shrink-0 md:shrink ${
                       statsSubTab === key
                         ? 'bg-stripe-100 dark:bg-stripe-900/30 text-stripe-700 dark:text-stripe-300 ring-1 ring-stripe-300 dark:ring-stripe-700'
                         : 'text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
@@ -2853,7 +2880,7 @@ const App: React.FC = () => {
 
         {/* Main Content */}
         <main id="main-content" className={`flex-grow mx-auto py-4 lg:py-8 transition-[max-width,padding] duration-300 ease-out relative z-10 ${
-          activeTab === 'admin' ? 'w-full px-3 sm:px-6' : '!max-w-[2400px] !w-[95%] px-2 sm:px-4'
+          activeTab === 'admin' ? 'w-full px-3 sm:px-6' : '!max-w-[2400px] !w-[95%] px-3 sm:px-4'
         }`}>
          <Suspense fallback={<LazyFallback />}>
           {notFoundPath ? (
@@ -3118,8 +3145,8 @@ const App: React.FC = () => {
               <span className="text-slate-300 dark:text-slate-600 mx-2">|</span> 
               {t('footer.disclaimer')}
             </p>
-            {/* Footer links */}
-            <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
+            {/* Footer links — desktop: flat flex-wrap, mobile: accordion */}
+            <div className="hidden md:flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
               <a
                 href={buildPath({ activeTab: 'chi-siamo' as any })}
                 onClick={(e) => { e.preventDefault(); navigateTo('chi-siamo' as any); }}
@@ -3316,8 +3343,132 @@ const App: React.FC = () => {
               </a>
             </div>
 
-            {/* SEO Sitemap — crawlable <a href> links to every page */}
-            <nav aria-label="Mappa del sito" className="mt-6 pt-4 border-t border-slate-200/50 dark:border-slate-800/50">
+            {/* Mobile footer accordion — grouped links for scanability */}
+            <div className="md:hidden space-y-1 mt-2">
+              {/* Info & Legal */}
+              <details className="group border-b border-slate-200/50 dark:border-slate-700/50">
+                <summary className="flex items-center justify-between py-3 text-sm font-semibold text-slate-700 dark:text-slate-300 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+                  <span>Informazioni</span>
+                  <span className="text-slate-400 text-xs group-open:rotate-180 transition-transform">▼</span>
+                </summary>
+                <div className="pb-3 grid grid-cols-2 gap-x-4 gap-y-1">
+                  <a href={buildPath({ activeTab: 'chi-siamo' as any })} onClick={(e) => { e.preventDefault(); navigateTo('chi-siamo' as any); }} className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 py-1.5 no-underline"><Users className="w-3.5 h-3.5 shrink-0" />{t('footer.aboutUs')}</a>
+                  <a href={buildPath({ activeTab: 'contact' as any })} onClick={(e) => { e.preventDefault(); navigateTo('contact' as any); }} className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 py-1.5 no-underline"><Mail className="w-3.5 h-3.5 shrink-0" />{t('footer.contactTitle')}</a>
+                  <a href={buildPath({ activeTab: 'feedback' })} onClick={(e) => { e.preventDefault(); navigateTo('feedback'); }} className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 py-1.5 no-underline"><Bug className="w-3.5 h-3.5 shrink-0" />{t('footer.improveTitle')}</a>
+                  <a href={buildPath({ activeTab: 'privacy' })} onClick={(e) => { e.preventDefault(); navigateTo('privacy' as any); }} className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 py-1.5 no-underline"><Shield className="w-3.5 h-3.5 shrink-0" />{t('footer.privacy')}</a>
+                  <a href={buildPath({ activeTab: 'terms' })} onClick={(e) => { e.preventDefault(); navigateTo('terms' as any); }} className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 py-1.5 no-underline"><FileText className="w-3.5 h-3.5 shrink-0" />Termini</a>
+                  <a href={buildPath({ activeTab: 'api-status' })} onClick={(e) => { e.preventDefault(); navigateTo('api-status' as any); Analytics.trackApiDiagnostics('view'); }} className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 py-1.5 no-underline">{t('footer.apiStatus')}</a>
+                  <a href={buildPath({ activeTab: 'partners' as any })} onClick={(e) => { e.preventDefault(); navigateTo('partners' as any); }} className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-emerald-700 dark:hover:text-emerald-400 py-1.5 no-underline">{t('partners.footerLink')}</a>
+                </div>
+              </details>
+              {/* Strumenti */}
+              <details className="group border-b border-slate-200/50 dark:border-slate-700/50">
+                <summary className="flex items-center justify-between py-3 text-sm font-semibold text-slate-700 dark:text-slate-300 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+                  <span>Strumenti</span>
+                  <span className="text-slate-400 text-xs group-open:rotate-180 transition-transform">▼</span>
+                </summary>
+                <div className="pb-3 grid grid-cols-2 gap-x-4 gap-y-1">
+                  <a href={buildPath({ activeTab: 'job-board' as any })} onClick={(e) => { e.preventDefault(); setJobSlug(null); navigateTo('job-board' as any); }} className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 py-1.5 no-underline"><Briefcase className="w-3.5 h-3.5 shrink-0" />{t('jobBoard.footerLink', getCantonI18nParams())}</a>
+                  <a href={buildPath({ activeTab: 'stats', statsSubTab: 'fuel-prices' })} onClick={(e) => { e.preventDefault(); setStatsSubTab('fuel-prices'); navigateTo('stats', 'fuel-prices'); }} className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-400 py-1.5 no-underline"><Fuel className="w-3.5 h-3.5 shrink-0" />{t('footer.fuelPrices')}</a>
+                  <a href={buildPath({ activeTab: 'morning' as any })} onClick={(e) => { e.preventDefault(); navigateTo('morning' as any); }} className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-400 py-1.5 no-underline"><Sunrise className="w-3.5 h-3.5 shrink-0" />{t('footer.morningDashboard')}</a>
+                  <a href={buildPath({ activeTab: 'tfr-calculator' })} onClick={(e) => { e.preventDefault(); navigateTo('tfr-calculator' as any); }} className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-amber-600 dark:hover:text-amber-400 py-1.5 no-underline"><Banknote className="w-3.5 h-3.5 shrink-0" />{t('tfr.footerLink')}</a>
+                  <a href={buildPath({ activeTab: 'tredicesima' })} onClick={(e) => { e.preventDefault(); navigateTo('tredicesima' as any); }} className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-amber-600 dark:hover:text-amber-400 py-1.5 no-underline"><Gift className="w-3.5 h-3.5 shrink-0" />{t('tredicesima.footerLink')}</a>
+                  <a href={buildPath({ activeTab: 'contracts' })} onClick={(e) => { e.preventDefault(); navigateTo('contracts' as any); }} className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 py-1.5 no-underline"><FileText className="w-3.5 h-3.5 shrink-0" />{t('contracts.footerLink')}</a>
+                  <a href={buildPath({ activeTab: 'sindacati' as any })} onClick={(e) => { e.preventDefault(); navigateTo('sindacati' as any); }} className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 py-1.5 no-underline"><Scale className="w-3.5 h-3.5 shrink-0" />Sindacati</a>
+                  <a href={buildPath({ activeTab: 'consulting' as any })} onClick={(e) => { e.preventDefault(); navigateTo('consulting' as any); }} className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 py-1.5 no-underline">{t('consulting.footerLink')}</a>
+                  <a href={buildPath({ activeTab: 'tool-of-week' })} onClick={(e) => { e.preventDefault(); navigateTo('tool-of-week' as any); }} className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 py-1.5 no-underline"><Sparkles className="w-3.5 h-3.5 shrink-0" />{t('toolOfWeek.title')}</a>
+                </div>
+              </details>
+              {/* Contenuti */}
+              <details className="group border-b border-slate-200/50 dark:border-slate-700/50">
+                <summary className="flex items-center justify-between py-3 text-sm font-semibold text-slate-700 dark:text-slate-300 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+                  <span>Contenuti</span>
+                  <span className="text-slate-400 text-xs group-open:rotate-180 transition-transform">▼</span>
+                </summary>
+                <div className="pb-3 grid grid-cols-2 gap-x-4 gap-y-1">
+                  <a href={buildPath({ activeTab: 'blog' })} onClick={(e) => { e.preventDefault(); navigateTo('blog' as any); }} className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 py-1.5 no-underline"><Newspaper className="w-3.5 h-3.5 shrink-0" />{t('blog.title')}</a>
+                  <a href={buildPath({ activeTab: 'faq' })} onClick={(e) => { e.preventDefault(); navigateTo('faq' as any); }} className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 py-1.5 no-underline"><HelpCircle className="w-3.5 h-3.5 shrink-0" />FAQ</a>
+                  <a href={buildPath({ activeTab: 'glossario' })} onClick={(e) => { e.preventDefault(); navigateTo('glossario' as any); }} className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 py-1.5 no-underline"><BookA className="w-3.5 h-3.5 shrink-0" />{t('glossary.title')}</a>
+                  <a href={buildPath({ activeTab: 'dialetto' as any })} onClick={(e) => { e.preventDefault(); navigateTo('dialetto' as any); }} className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-400 py-1.5 no-underline"><Languages className="w-3.5 h-3.5 shrink-0" />{t('dialect.title')}</a>
+                  <a href={buildPath({ activeTab: 'sitemap' as any })} onClick={(e) => { e.preventDefault(); navigateTo('sitemap' as any); }} className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300 py-1.5 no-underline">{t('sitemap.title')}</a>
+                </div>
+              </details>
+              {/* Social */}
+              <div className="py-3">
+                <a
+                  href="https://www.facebook.com/profile.php?id=61588174947294"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 no-underline"
+                  aria-label={t('footer.followFacebook')}
+                >
+                  <Facebook className="w-3.5 h-3.5" />
+                  Facebook
+                </a>
+              </div>
+              {/* Mobile sitemap accordion */}
+              <details className="group border-t border-slate-200/50 dark:border-slate-700/50">
+                <summary className="flex items-center justify-between py-3 text-sm font-semibold text-slate-700 dark:text-slate-300 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+                  <span>Mappa del sito</span>
+                  <span className="text-slate-400 text-xs group-open:rotate-180 transition-transform">▼</span>
+                </summary>
+                <nav aria-label="Mappa del sito mobile" className="pb-4">
+                  <div className="grid grid-cols-2 gap-4 text-left">
+                    <div>
+                      <a href={buildPath({ activeTab: 'calculator' })} onClick={(e) => { e.preventDefault(); handleTabChange('calculator'); }} className="text-xs font-bold text-stripe-700 dark:text-stripe-400 no-underline hover:underline">{t('nav.simulator')}</a>
+                      <ul className="mt-1 space-y-0.5 list-none p-0">
+                        {(['whatif', 'payslip', 'ral', 'bonus', 'parental-leave', 'residency', 'salary-quiz'] as const).map((sub) => (
+                          <li key={sub}><a href={buildPath({ activeTab: 'calculator', calcolatoreSubTab: sub })} onClick={(e) => { e.preventDefault(); setCalcolatoreSubTab(sub); setActiveTab('calculator'); pushRoute({ activeTab: 'calculator', calcolatoreSubTab: sub }); }} className="block text-xs text-slate-500 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 no-underline hover:underline leading-relaxed py-1">{t(sub === 'whatif' ? 'simulator.whatif' : sub === 'payslip' ? 'strumenti.payslip' : sub === 'ral' ? 'comparators.ral' : sub === 'bonus' ? 'comparators.bonus' : sub === 'parental-leave' ? 'comparators.parentalLeave' : sub === 'residency' ? 'comparators.residency' : 'salaryQuiz.navLabel')}</a></li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <a href={buildPath({ activeTab: 'confronti' })} onClick={(e) => { e.preventDefault(); handleTabChange('confronti'); }} className="text-xs font-bold text-stripe-700 dark:text-stripe-400 no-underline hover:underline">{t('nav.confronti')}</a>
+                      <ul className="mt-1 space-y-0.5 list-none p-0">
+                        {(['exchange', 'banks', 'health', 'mobile', 'shopping', 'cost-of-living', 'jobs', 'renovation'] as const).map((sub) => (
+                          <li key={sub}><a href={buildPath({ activeTab: 'confronti', confrontiSubTab: sub })} onClick={(e) => { e.preventDefault(); setConfrontiSubTab(sub); setActiveTab('confronti'); pushRoute({ activeTab: 'confronti', confrontiSubTab: sub }); }} className="block text-xs text-slate-500 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 no-underline hover:underline leading-relaxed py-1">{t(`comparators.${sub === 'cost-of-living' ? 'costOfLiving' : sub}`)}</a></li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <a href={buildPath({ activeTab: 'fisco' })} onClick={(e) => { e.preventDefault(); handleTabChange('fisco'); }} className="text-xs font-bold text-emerald-700 dark:text-emerald-400 no-underline hover:underline">{t('nav.fisco')}</a>
+                      <ul className="mt-1 space-y-0.5 list-none p-0">
+                        {(['tax-return', 'withholding-rates', 'calendar', 'holidays', 'ristorni', 'pension', 'pillar3', 'tax-credit'] as const).map((sub) => (
+                          <li key={sub}><a href={buildPath({ activeTab: 'fisco', fiscoSubTab: sub })} onClick={(e) => { e.preventDefault(); setFiscoSubTab(sub); setActiveTab('fisco'); pushRoute({ activeTab: 'fisco', fiscoSubTab: sub }); }} className="block text-xs text-slate-500 dark:text-slate-400 hover:text-emerald-700 dark:hover:text-emerald-400 no-underline hover:underline leading-relaxed py-1">{t(sub === 'tax-return' ? 'comparators.taxReturn' : sub === 'withholding-rates' ? 'withholdingRates.navLabel' : sub === 'calendar' ? 'guide.tabs.calendar' : sub === 'holidays' ? 'guide.tabs.holidays' : sub === 'ristorni' ? 'guide.tabs.ristorni' : sub === 'pension' ? 'nav.pension' : sub === 'pillar3' ? 'pension.pillar3' : 'taxCredit.navLabel')}</a></li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <a href={buildPath({ activeTab: 'guida' })} onClick={(e) => { e.preventDefault(); handleTabChange('guida'); }} className="text-xs font-bold text-stripe-700 dark:text-stripe-400 no-underline hover:underline">{t('nav.guida')}</a>
+                      <ul className="mt-1 space-y-0.5 list-none p-0">
+                        {(['first-day', 'permits', 'border', 'unemployment', 'car-transfer', 'car-cost', 'permit-compare', 'border-map'] as const).map((sub) => (
+                          <li key={sub}><a href={buildPath({ activeTab: 'guida', guidaSubTab: sub })} onClick={(e) => { e.preventDefault(); setGuidaSubTab(sub); setActiveTab('guida'); pushRoute({ activeTab: 'guida', guidaSubTab: sub }); }} className="block text-xs text-slate-500 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 no-underline hover:underline leading-relaxed py-1">{t(sub === 'first-day' ? 'guide.tabs.firstDay' : sub === 'permits' ? 'guide.tabs.permits' : sub === 'border' ? 'guide.tabs.border' : sub === 'unemployment' ? 'guide.tabs.unemployment' : sub === 'car-transfer' ? 'guide.tabs.carTransfer' : sub === 'car-cost' ? 'strumenti.carCost' : sub === 'permit-compare' ? 'strumenti.permitCompare' : 'comparators.borderMap')}</a></li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <a href={buildPath({ activeTab: 'vita' })} onClick={(e) => { e.preventDefault(); handleTabChange('vita'); }} className="text-xs font-bold text-amber-700 dark:text-amber-400 no-underline hover:underline">{t('nav.vita')}</a>
+                      <ul className="mt-1 space-y-0.5 list-none p-0">
+                        {(['living-ch', 'living-it', 'companies', 'schools', 'nursery', 'places', 'transport', 'municipalities'] as const).map((sub) => (
+                          <li key={sub}><a href={buildPath({ activeTab: 'vita', vitaSubTab: sub })} onClick={(e) => { e.preventDefault(); setVitaSubTab(sub); setActiveTab('vita'); pushRoute({ activeTab: 'vita', vitaSubTab: sub }); }} className="block text-xs text-slate-500 dark:text-slate-400 hover:text-amber-700 dark:hover:text-amber-400 no-underline hover:underline leading-relaxed py-1">{sub === 'companies' ? t('guide.tabs.companies', getCantonI18nParams()) : t(sub === 'living-ch' ? 'guide.tabs.livingCH' : sub === 'living-it' ? 'guide.tabs.livingIT' : sub === 'schools' ? 'guide.tabs.schools' : sub === 'nursery' ? 'comparators.nursery' : sub === 'places' ? 'guide.tabs.places' : sub === 'transport' ? 'comparators.transport' : 'guide.tabs.municipalities')}</a></li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <a href={buildPath({ activeTab: 'stats' })} onClick={(e) => { e.preventDefault(); handleTabChange('stats'); }} className="text-xs font-bold text-stripe-700 dark:text-stripe-400 no-underline hover:underline">{t('nav.stats')}</a>
+                      <ul className="mt-1 space-y-0.5 list-none p-0">
+                        {(['jobs-observatory', 'livability', 'salary-compare', 'traffic-history', 'unemployment', 'mortgage', 'fuel-prices'] as const).map((sub) => (
+                          <li key={sub}><a href={buildPath({ activeTab: 'stats', statsSubTab: sub })} onClick={(e) => { e.preventDefault(); setStatsSubTab(sub); setActiveTab('stats'); pushRoute({ activeTab: 'stats', statsSubTab: sub }); }} className="block text-xs text-slate-500 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 no-underline hover:underline leading-relaxed py-1">{t(sub === 'jobs-observatory' ? 'stats.tabJobsObservatory' : sub === 'livability' ? 'strumenti.livability' : sub === 'salary-compare' ? 'strumenti.salaryCompare' : sub === 'traffic-history' ? 'stats.trafficHistory' : sub === 'unemployment' ? 'stats.tabUnemployment' : sub === 'mortgage' ? 'stats.tabMortgage' : 'stats.tabFuelPrices')}</a></li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </nav>
+              </details>
+            </div>
+
+            {/* SEO Sitemap — desktop: full grid, mobile: collapsed accordion */}
+            <nav aria-label="Mappa del sito" className="hidden md:block mt-6 pt-4 border-t border-slate-200/50 dark:border-slate-800/50">
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-4 text-left">
                 {/* Calcolatore */}
                 <div>
