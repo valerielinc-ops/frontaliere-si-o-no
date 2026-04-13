@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fusalp",
-  "assembledAt": "2026-04-13T10:34:58.880Z",
+  "assembledAt": "2026-04-13T21:43:20.002Z",
   "jobs": [
     {
       "id": "fusalp-8862bf7a9eee",
@@ -33,7 +33,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/conseiller-de-vente-h-f_villefontaine_FUSAL_WMG3xON",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-13T10:34:56.425Z",
+      "crawledAt": "2026-04-13T21:43:17.470Z",
       "addressLocality": "Villefontaine",
       "addressCountry": "FR",
       "country": "FR",
@@ -90,6 +90,8 @@
           "addetto-alle-vendite-m-f-fusalp-villefontaine"
         ]
       },
+      "firstSeenAt": "2026-04-13T10:34:56.425Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -101,8 +103,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:34:56.425Z"
+      }
     },
     {
       "id": "fusalp-693de83aa264",
@@ -135,7 +136,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/responsable-de-boutique-h-f-39h_lyon",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-13T10:34:55.464Z",
+      "crawledAt": "2026-04-13T21:43:16.603Z",
       "addressLocality": "Lyon",
       "addressCountry": "FR",
       "country": "FR",
@@ -190,6 +191,8 @@
           "responsable-de-boutique-h-f-39h-fusalp-lyon"
         ]
       },
+      "firstSeenAt": "2026-04-13T10:34:55.464Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -201,8 +204,7 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:34:55.464Z"
+      }
     },
     {
       "id": "fusalp-e906ae37d0cd",
@@ -235,7 +237,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/conseiller-de-vente-h-f-saint-germain-de-pres_paris",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-13T10:34:54.263Z",
+      "crawledAt": "2026-04-13T21:43:15.728Z",
       "addressLocality": "Paris",
       "addressCountry": "FR",
       "country": "FR",
@@ -290,6 +292,8 @@
           "conseiller-de-vente-h-f-saint-germain-de-pres-fusalp-paris"
         ]
       },
+      "firstSeenAt": "2026-04-13T10:34:54.263Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -301,8 +305,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:34:54.263Z"
+      }
     },
     {
       "id": "fusalp-da5a97d3a7b6",
@@ -335,7 +338,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/conseiller-de-vente-sales-consultant-h-f_luxembourg",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-13T10:34:53.391Z",
+      "crawledAt": "2026-04-13T21:43:14.448Z",
       "addressLocality": "Luxembourg",
       "addressCountry": "LU",
       "country": "LU",
@@ -392,6 +395,8 @@
           "consulente-di-vendita-h-f-fusalp-luxembourg"
         ]
       },
+      "firstSeenAt": "2026-04-13T10:34:53.391Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -403,8 +408,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:34:53.391Z"
+      }
     },
     {
       "id": "fusalp-be02e71c753c",
@@ -437,7 +441,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/conseiller-de-vente-h-f_marseille_FUSAL_qDRbjwg",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-13T10:34:51.933Z",
+      "crawledAt": "2026-04-13T21:43:13.400Z",
       "addressLocality": "Marseille",
       "addressCountry": "FR",
       "country": "FR",
@@ -461,6 +465,7 @@
           "conseiller-de-vente-h-f-fusalp-marseille"
         ]
       },
+      "firstSeenAt": "2026-04-13T10:34:51.933Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -472,8 +477,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:34:51.933Z"
+      }
     },
     {
       "id": "fusalp-6d79b758876b",
@@ -506,7 +510,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/conseiller-de-vente-sales-consultant-h-f_crans-montana",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-13T10:34:51.057Z",
+      "crawledAt": "2026-04-13T21:43:12.530Z",
       "addressLocality": "Crans-Montana",
       "addressCountry": "CH",
       "country": "CH",
@@ -561,6 +565,8 @@
           "conseiller-de-vente-sales-consultant-h-f-fusalp-crans-montana"
         ]
       },
+      "firstSeenAt": "2026-04-13T10:34:51.057Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -572,8 +578,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:34:51.057Z"
+      }
     },
     {
       "id": "fusalp-d7bea2b46c42",
@@ -606,7 +611,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/responsable-de-boutique-h-f-store-manager-m-w_crans-montana",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-13T10:34:50.149Z",
+      "crawledAt": "2026-04-13T21:43:11.627Z",
       "addressLocality": "Crans-Montana",
       "addressCountry": "CH",
       "country": "CH",
@@ -665,6 +670,8 @@
           "shop-manager-h-f-store-manager-m-w-fusalp-crans-montana"
         ]
       },
+      "firstSeenAt": "2026-04-13T10:34:50.149Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -676,8 +683,7 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:34:50.149Z"
+      }
     },
     {
       "id": "fusalp-60f227977fc8",
@@ -710,7 +716,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/conseiller-de-vente-h-f_nice_FUSAL_2e7q88z",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-13T10:34:49.275Z",
+      "crawledAt": "2026-04-13T21:43:10.674Z",
       "addressLocality": "Nice",
       "addressCountry": "FR",
       "country": "FR",
@@ -767,6 +773,8 @@
           "addetto-alle-vendite-m-f-fusalp-nice"
         ]
       },
+      "firstSeenAt": "2026-04-13T10:34:49.275Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -778,8 +786,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:34:49.275Z"
+      }
     },
     {
       "id": "fusalp-a9bdeb411ab8",
@@ -812,7 +819,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/assistant-developpement-tissus-h-f-stage_annecy_FUSAL_wJOd8Po",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-13T10:34:48.120Z",
+      "crawledAt": "2026-04-13T21:43:09.800Z",
       "addressLocality": "Annecy",
       "addressCountry": "FR",
       "country": "FR",
@@ -867,6 +874,8 @@
           "assistant-developpement-tissus-h-f-stage-fusalp-annecy"
         ]
       },
+      "firstSeenAt": "2026-04-13T10:34:48.120Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -878,8 +887,7 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:34:48.120Z"
+      }
     }
   ]
 }
