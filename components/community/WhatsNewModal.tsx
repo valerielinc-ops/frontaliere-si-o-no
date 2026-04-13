@@ -1,8 +1,14 @@
-import { useState, useEffect, useCallback, type MouseEvent } from 'react';
-import { Bell, X, Sparkles, Zap, Bug, ChevronRight, PartyPopper } from 'lucide-react';
+import { useState, useEffect, useCallback, useMemo, type MouseEvent } from 'react';
+import { Bell, X, Sparkles, Zap, Bug, ChevronRight, PartyPopper, Trophy, Flame, CheckCircle2 } from 'lucide-react';
 import { useTranslation, useLocale } from '@/services/i18n';
 import { useNavigationOptional } from '@/services/NavigationContext';
 import { buildPath, type AppRoute } from '@/services/router';
+import {
+  ACHIEVEMENTS,
+  LEVEL_TITLES,
+  loadState,
+  getLevel,
+} from '@/services/gamificationService';
 
 // ─── Types ───────────────────────────────────────────────────────────────
 
@@ -1775,6 +1781,66 @@ export function WhatsNewBell({ onClick }: BellButtonProps) {
   );
 }
 
+// ─── Gamification Footer ──────────────────────────────────────────────────
+
+function GamificationFooter({ onClose }: { onClose: () => void }) {
+  const { t } = useTranslation();
+  const nav = useNavigationOptional();
+  const state = useMemo(() => loadState(), []);
+  const levelInfo = useMemo(() => getLevel(state.xp), [state.xp]);
+  const unlockedCount = Object.keys(state.unlockedAchievements).length;
+  const totalCount = ACHIEVEMENTS.length;
+  const levelTitle = LEVEL_TITLES[Math.min(levelInfo.level, LEVEL_TITLES.length - 1)] || `Level ${levelInfo.level}`;
+  const xpProgressPct = Math.min(100, (levelInfo.currentXp / levelInfo.nextLevelXp) * 100);
+
+  return (
+    <div className="border-t border-edge bg-surface-alt/50">
+      <button
+        onClick={() => { onClose(); nav?.navigateTo('gamification'); }}
+        className="w-full px-6 py-3 flex items-center gap-3 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors text-left group"
+        aria-label={`${levelTitle} — ${state.xp} XP`}
+      >
+        {/* Trophy badge */}
+        <div className="relative flex-shrink-0">
+          <div className="w-9 h-9 rounded-xl bg-amber-500 flex items-center justify-center shadow-sm">
+            <Trophy size={16} className="text-white" />
+          </div>
+          <span className="absolute -top-1 -right-1 bg-slate-800 dark:bg-slate-200 text-white dark:text-slate-800 text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow-sm">
+            {levelInfo.level}
+          </span>
+        </div>
+        {/* Level + XP info */}
+        <div className="flex-1 min-w-0">
+          <div className="flex items-center gap-2">
+            <span className="text-sm font-bold text-slate-800 dark:text-slate-100 truncate">{levelTitle}</span>
+            {state.streak > 0 && (
+              <span className="flex items-center gap-0.5 text-xs text-muted">
+                <Flame size={12} className="text-orange-400" />
+                <span className="font-bold">{state.streak}</span>
+              </span>
+            )}
+            <span className="flex items-center gap-0.5 text-xs text-muted">
+              <CheckCircle2 size={12} className="text-emerald-500" />
+              <span className="font-bold">{unlockedCount}/{totalCount}</span>
+            </span>
+          </div>
+          {/* XP progress bar */}
+          <div className="flex items-center gap-2 mt-0.5">
+            <div className="flex-1 bg-slate-200 dark:bg-slate-700 rounded-full h-1.5 overflow-hidden">
+              <div
+                className="bg-amber-500 rounded-full h-1.5 transition-transform duration-500 origin-left"
+                style={{ transform: `scaleX(${xpProgressPct / 100})` }}
+              />
+            </div>
+            <span className="text-[10px] text-muted font-medium whitespace-nowrap">{state.xp} XP</span>
+          </div>
+        </div>
+        <ChevronRight size={16} className="shrink-0 text-muted group-hover:translate-x-0.5 transition-transform" />
+      </button>
+    </div>
+  );
+}
+
 // ─── Modal ───────────────────────────────────────────────────────────────
 
 interface WhatsNewModalProps {
@@ -1931,12 +1997,8 @@ export default function WhatsNewModal({ open, onClose }: WhatsNewModalProps) {
           )}
         </div>
 
-        {/* Footer */}
-        <div className="px-6 py-3 border-t border-edge bg-surface-alt/50">
-          <p className="text-sm text-muted text-center">
-            {t('whatsNew.footer')}
-          </p>
-        </div>
+        {/* Footer — gamification summary + tagline */}
+        <GamificationFooter onClose={onClose} />
       </div>
     </div>
   );

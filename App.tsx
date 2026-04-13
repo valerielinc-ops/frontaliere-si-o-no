@@ -13,8 +13,9 @@ import { reportCaughtError } from '@/services/errorReporter';
 const unlockAchievement = (id: string) => {
   import('@/services/gamificationService').then(m => m.unlockAchievement(id)).catch(() => {});
 };
-const GamificationWidget = lazyRetry(() => import('@/components/community/GamificationWidget'));
 
+
+const GamificationWidget = lazyRetry(() => import('@/components/community/GamificationWidget'));
 const NewsletterPopup = lazyRetry(() => import('@/components/community/NewsletterPopup'));
 const NewsletterInline = lazyRetry(() => import('@/components/community/Newsletter'));
 const LanguageSelector = lazyRetry(() => import('@/components/shared/LanguageSelector'));
@@ -2476,10 +2477,10 @@ const App: React.FC = () => {
                   <div className="w-9 h-9" aria-hidden="true" />
                 )}
 
-                {/* Gamification — desktop only */}
+                {/* Gamification — headless (toasts + streak tracking via portal) */}
                 {showDeferredHomeWidgets && (
-                  <div className="hidden md:block">
-                    <Suspense fallback={<div className="w-9 h-9" />}><GamificationWidget /></Suspense>
+                  <div className="hidden">
+                    <Suspense fallback={null}><GamificationWidget /></Suspense>
                   </div>
                 )}
 
@@ -2587,13 +2588,6 @@ const App: React.FC = () => {
                     <Newspaper size={18} />
                     <span className="text-sm font-medium">What&apos;s New</span>
                   </button>
-
-                  {/* Gamification */}
-                  {showDeferredHomeWidgets && (
-                    <div className="px-3 py-1">
-                      <Suspense fallback={null}><GamificationWidget /></Suspense>
-                    </div>
-                  )}
 
                   {/* Profile / Login */}
                   {authUser ? (
