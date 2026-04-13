@@ -157,4 +157,32 @@ export const AD_SLOTS = {
     fullWidthResponsive: false,
     placeholderMinHeight: 220,
   },
+  /** Blog: after related jobs, before footer (borrowed from JOBLIST_INFEED_DESKTOP) */
+  ARTICLE_AFTER_JOBS: {
+    slot: '9770600968',
+    format: 'auto',
+    fullWidthResponsive: true,
+    placeholderMinHeight: 280,
+  },
+  /** Blog listing: display ad after featured hero (borrowed from ARTICLE_RAIL_LEFT — list/detail never coexist) */
+  BLOG_LIST_TOP: {
+    slot: '2663155183',
+    format: 'auto',
+    fullWidthResponsive: true,
+    placeholderMinHeight: 280,
+  },
+  /** Blog listing: in-feed ad between card rows #1 (borrowed from ARTICLE_RAIL_RIGHT) */
+  BLOG_LIST_INFEED_1: {
+    slot: '9739778973',
+    format: 'auto',
+    fullWidthResponsive: true,
+    placeholderMinHeight: 280,
+  },
+  /** Blog listing: in-feed ad between card rows #2 (borrowed from ARTICLE_INLINE_MOBILE) */
+  BLOG_LIST_INFEED_2: {
+    slot: '1982411173',
+    format: 'auto',
+    fullWidthResponsive: true,
+    placeholderMinHeight: 280,
+  },
 } as const;

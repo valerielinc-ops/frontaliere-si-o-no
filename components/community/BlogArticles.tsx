@@ -1924,25 +1924,23 @@ function BlogArticles({
             <div className="space-y-4">
               {bodySegments.map((segment, idx) => (
                 <Fragment key={idx}>
-                  {/* Interstitials after body1 (index 0) */}
+                  {/* Interstitials after body1 (index 0) — all viewports */}
                   {idx === 1 && (
                     <>
-                      {/* In-article ad — mobile/tablet only, placed between body1 and body2 for higher viewability */}
-                      {!isDesktopXl && (
-                        <Suspense fallback={adEligibleInline ? <div style={{ minHeight: AD_SLOTS.ARTICLE_INLINE_MOBILE.placeholderMinHeight, contain: 'content' }} className="my-4" /> : null}>
-                          <AdSenseBanner
-                            adSlot={AD_SLOTS.ARTICLE_INLINE_MOBILE.slot}
-                            adFormat={AD_SLOTS.ARTICLE_INLINE_MOBILE.format}
-                            adLayout={AD_SLOTS.ARTICLE_INLINE_MOBILE.layout}
-                            fullWidthResponsive={false}
-                            enabled={adEligibleInline}
-                            className="my-4"
-                          />
-                        </Suspense>
-                      )}
+                      {/* In-article ad #1 — between body1 and body2 */}
+                      <Suspense fallback={adEligibleInline ? <div style={{ minHeight: AD_SLOTS.ARTICLE_INLINE_MOBILE.placeholderMinHeight, contain: 'content' }} className="my-4" /> : null}>
+                        <AdSenseBanner
+                          adSlot={AD_SLOTS.ARTICLE_INLINE_MOBILE.slot}
+                          adFormat={AD_SLOTS.ARTICLE_INLINE_MOBILE.format}
+                          adLayout={AD_SLOTS.ARTICLE_INLINE_MOBILE.layout}
+                          fullWidthResponsive={false}
+                          enabled={adEligibleInline}
+                          className="my-4"
+                        />
+                      </Suspense>
 
-                      {/* AdSense — mobile/tablet inline (replaces Amazon products) */}
-                      <div className="xl:hidden my-5">
+                      {/* In-article ad #2 */}
+                      <div className="my-5">
                         <Suspense fallback={adEligibleInline ? <div style={{ minHeight: AD_SLOTS.ARTICLE_INLINE_MOBILE_2.placeholderMinHeight, contain: 'content' }} /> : null}>
                           <AdSenseBanner
                             adSlot={AD_SLOTS.ARTICLE_INLINE_MOBILE_2.slot}
@@ -1956,9 +1954,9 @@ function BlogArticles({
                     </>
                   )}
 
-                  {/* Mobile in-article ad #3 — after body3 */}
-                  {idx === 3 && !isDesktopXl && (
-                    <div className="xl:hidden my-5">
+                  {/* In-article ad #3 — after body3 */}
+                  {idx === 3 && (
+                    <div className="my-5">
                       <Suspense fallback={adEligibleInline ? <div style={{ minHeight: AD_SLOTS.ARTICLE_INLINE_MOBILE_3.placeholderMinHeight, contain: 'content' }} /> : null}>
                         <AdSenseBanner
                           adSlot={AD_SLOTS.ARTICLE_INLINE_MOBILE_3.slot}
@@ -1971,9 +1969,9 @@ function BlogArticles({
                     </div>
                   )}
 
-                  {/* Mobile in-article ad #4 — after body5 */}
-                  {idx === 5 && !isDesktopXl && (
-                    <div className="xl:hidden my-5">
+                  {/* In-article ad #4 — after body5 */}
+                  {idx === 5 && (
+                    <div className="my-5">
                       <Suspense fallback={adEligibleInline ? <div style={{ minHeight: AD_SLOTS.ARTICLE_INLINE_MOBILE_4.placeholderMinHeight, contain: 'content' }} /> : null}>
                         <AdSenseBanner
                           adSlot={AD_SLOTS.ARTICLE_INLINE_MOBILE_4.slot}
@@ -1986,9 +1984,9 @@ function BlogArticles({
                     </div>
                   )}
 
-                  {/* Mobile in-article ad #5 — after body7 */}
-                  {idx === 7 && !isDesktopXl && (
-                    <div className="xl:hidden my-5">
+                  {/* In-article ad #5 — after body7 */}
+                  {idx === 7 && (
+                    <div className="my-5">
                       <Suspense fallback={adEligibleInline ? <div style={{ minHeight: AD_SLOTS.ARTICLE_INLINE_MOBILE_5.placeholderMinHeight, contain: 'content' }} /> : null}>
                         <AdSenseBanner
                           adSlot={AD_SLOTS.ARTICLE_INLINE_MOBILE_5.slot}
@@ -2256,6 +2254,18 @@ function BlogArticles({
               </div>
             )}
           </div>
+
+            {/* AdSense — after related jobs, before article close */}
+            <div className="mt-6 mb-2">
+              <Suspense fallback={adEligible ? <div style={{ minHeight: AD_SLOTS.ARTICLE_AFTER_JOBS.placeholderMinHeight, contain: 'content' }} /> : null}>
+                <AdSenseBanner
+                  adSlot={AD_SLOTS.ARTICLE_AFTER_JOBS.slot}
+                  adFormat={AD_SLOTS.ARTICLE_AFTER_JOBS.format}
+                  fullWidthResponsive={AD_SLOTS.ARTICLE_AFTER_JOBS.fullWidthResponsive}
+                  enabled={adEligible}
+                />
+              </Suspense>
+            </div>
         </article>
 
           {/* ── Right Rail (desktop only) ── */}
@@ -2505,12 +2515,36 @@ function BlogArticles({
         </a>
       )}
 
+      {/* AdSense — after featured hero, before article grid */}
+      {pageArticles.length > 0 && (
+        <Suspense fallback={<div style={{ minHeight: AD_SLOTS.BLOG_LIST_TOP.placeholderMinHeight, contain: 'content' }} className="my-4" />}>
+          <AdSenseBanner
+            adSlot={AD_SLOTS.BLOG_LIST_TOP.slot}
+            adFormat={AD_SLOTS.BLOG_LIST_TOP.format}
+            fullWidthResponsive={AD_SLOTS.BLOG_LIST_TOP.fullWidthResponsive}
+            className="my-4"
+          />
+        </Suspense>
+      )}
+
       {/* Article grid — newspaper 3-column layout */}
       {pageArticles.length > 1 && (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5" aria-live="polite" style={{ contentVisibility: 'auto', containIntrinsicSize: 'auto 600px' }}>
           {pageArticles.slice(1, 1 + gridRevealCount).map((article, idx) => (
+            <Fragment key={article.id}>
+            {/* In-feed ad after every 6 cards (2 rows of 3) */}
+            {idx > 0 && idx % 6 === 0 && (
+              <div className="col-span-1 sm:col-span-2 lg:col-span-3 my-2">
+                <Suspense fallback={<div style={{ minHeight: (idx % 12 === 0 ? AD_SLOTS.BLOG_LIST_INFEED_1 : AD_SLOTS.BLOG_LIST_INFEED_2).placeholderMinHeight, contain: 'content' }} />}>
+                  <AdSenseBanner
+                    adSlot={idx % 12 === 0 ? AD_SLOTS.BLOG_LIST_INFEED_1.slot : AD_SLOTS.BLOG_LIST_INFEED_2.slot}
+                    adFormat={idx % 12 === 0 ? AD_SLOTS.BLOG_LIST_INFEED_1.format : AD_SLOTS.BLOG_LIST_INFEED_2.format}
+                    fullWidthResponsive
+                  />
+                </Suspense>
+              </div>
+            )}
             <a
-              key={article.id}
               href={buildPath({ activeTab: 'blog', blogArticle: article.id })}
               className={`block text-left bg-surface rounded-xl border border-edge overflow-hidden hover:shadow-lg hover:border-stripe-300 dark:hover:border-stripe-600 transition-[border-color,box-shadow] group${idx >= 3 ? ' content-auto' : ''}`}
               onClick={(e) => { e.preventDefault(); handleArticleClick(article.id); }}
@@ -2578,6 +2612,7 @@ function BlogArticles({
                 </span>
               </div>
             </a>
+            </Fragment>
           ))}
         </div>
       )}
