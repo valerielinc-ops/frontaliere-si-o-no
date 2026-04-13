@@ -4182,8 +4182,8 @@
       "slugByLocale": {
         "it": "audit-manager-temporary-6-months-efg-geneve",
         "en": "audit-manager-temporary-6-months-efg-geneve",
-        "de": "audit-manager-temporary-6-months-efg-geneve",
-        "fr": "audit-manager-temporary-6-months-efg-geneve"
+        "de": "audit-manager-vorubergehende-6-monate-efg-international-ag-geneve",
+        "fr": "gestionnaire-de-la-verification-temporaire-6-mois-efg-international-ag-geneve"
       },
       "addressLocality": "Geneve",
       "addressCountry": "CH",
@@ -4258,7 +4258,7 @@
       "slugByLocale": {
         "it": "apprendistato-impiegato-a-di-commercio-afc-banca-efg-lugano",
         "en": "commercial-apprentice-afc-bank-efg-international-ag-lugano",
-        "de": "kaufmannischer-auszubildender-afc-bank-efg-international-ag-lugano",
+        "de": "bankkaufmann-frau-efz-efg-international-ag-efg-international-ag-lugano",
         "fr": "apprenti-e-en-commerce-afc-banque-efg-international-ag-lugano"
       },
       "addressLocality": "Lugano",
@@ -4279,7 +4279,15 @@
       "streetAddress": "Via Pretorio 22",
       "postalCode": "6900",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "de": [
+          "kaufmannischer-auszubildender-afc-bank-efg-international-ag-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "kaufmannischer-auszubildender-afc-bank-efg-international-ag-lugano"
+      ]
     },
     {
       "id": "efg-6068",

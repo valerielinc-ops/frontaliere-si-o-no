@@ -2383,12 +2383,12 @@
     },
     {
       "id": "laderach-2dadd35b501f",
-      "slug": "technical-product-owner-windows-client-desktop-environment-laderach-porto",
+      "slug": "responsabile-tecnico-senior-ambiente-client-e-desktop-windows-laderach-schweiz-ag-matosinhos",
       "slugByLocale": {
         "de": "senior-technical-lead-windows-client-desktop-environment-laderach-matosinhos",
-        "it": "technical-product-owner-windows-client-desktop-environment-laderach-porto",
+        "it": "responsabile-tecnico-senior-ambiente-client-e-desktop-windows-laderach-schweiz-ag-matosinhos",
         "en": "senior-technical-lead-windows-client-desktop-environment-laderach-schweiz-ag-matosinhos",
-        "fr": "technical-product-owner-windows-client-desktop-environment-laderach-porto"
+        "fr": "responsable-technique-principal-environnement-windows-client-et-bureautique-laderach-schweiz-ag-matosinhos"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -2438,16 +2438,27 @@
         }
       },
       "postalCode": "7000",
-      "firstSeenAt": "2026-04-13T10:52:11.636Z"
+      "firstSeenAt": "2026-04-13T10:52:11.636Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technical-product-owner-windows-client-desktop-environment-laderach-porto"
+        ],
+        "fr": [
+          "technical-product-owner-windows-client-desktop-environment-laderach-porto"
+        ]
+      },
+      "previousSlugs": [
+        "technical-product-owner-windows-client-desktop-environment-laderach-porto"
+      ]
     },
     {
       "id": "laderach-52d5c6e25076",
-      "slug": "technical-product-owner-jira-confluence-m365-laderach-porto",
+      "slug": "responsabile-tecnico-senior-jira-confluence-m365-laderach-schweiz-ag-matosinhos",
       "slugByLocale": {
         "de": "senior-technical-lead-jira-confluence-m365-laderach-matosinhos",
-        "it": "technical-product-owner-jira-confluence-m365-laderach-porto",
+        "it": "responsabile-tecnico-senior-jira-confluence-m365-laderach-schweiz-ag-matosinhos",
         "en": "senior-technical-lead-jira-confluence-m365-laderach-schweiz-ag-matosinhos",
-        "fr": "technical-product-owner-jira-confluence-m365-laderach-porto"
+        "fr": "responsable-technique-principal-jira-confluence-m365-laderach-schweiz-ag-matosinhos"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -2497,7 +2508,18 @@
         }
       },
       "postalCode": "7000",
-      "firstSeenAt": "2026-04-13T10:52:11.434Z"
+      "firstSeenAt": "2026-04-13T10:52:11.434Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technical-product-owner-jira-confluence-m365-laderach-porto"
+        ],
+        "fr": [
+          "technical-product-owner-jira-confluence-m365-laderach-porto"
+        ]
+      },
+      "previousSlugs": [
+        "technical-product-owner-jira-confluence-m365-laderach-porto"
+      ]
     },
     {
       "id": "laderach-777780e04e73",

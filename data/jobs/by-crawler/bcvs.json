@@ -687,12 +687,12 @@
     },
     {
       "id": "bcvs-ce3dbeb41048",
-      "slug": "conseiller-conseillere-bancaire-bcvs-saint-maurice",
+      "slug": "consulente-bancario-banque-cantonale-du-valais-saint-maurice",
       "slugByLocale": {
         "fr": "conseiller-conseillere-bancaire-banque-cantonale-du-valais-saint-maurice",
-        "it": "conseiller-conseillere-bancaire-bcvs-saint-maurice",
-        "en": "conseiller-conseillere-bancaire-bcvs-saint-maurice",
-        "de": "conseiller-conseillere-bancaire-bcvs-saint-maurice"
+        "it": "consulente-bancario-banque-cantonale-du-valais-saint-maurice",
+        "en": "banking-consultant-banque-cantonale-du-valais-saint-maurice",
+        "de": "bankberater-banque-cantonale-du-valais-saint-maurice"
       },
       "company": "Banque Cantonale du Valais",
       "companyKey": "bcvs",
@@ -760,7 +760,21 @@
         }
       },
       "postalCode": "1950",
-      "firstSeenAt": "2026-04-13T10:04:10.428Z"
+      "firstSeenAt": "2026-04-13T10:04:10.428Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-conseillere-bancaire-bcvs-saint-maurice"
+        ],
+        "en": [
+          "conseiller-conseillere-bancaire-bcvs-saint-maurice"
+        ],
+        "de": [
+          "conseiller-conseillere-bancaire-bcvs-saint-maurice"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-conseillere-bancaire-bcvs-saint-maurice"
+      ]
     }
   ]
 }

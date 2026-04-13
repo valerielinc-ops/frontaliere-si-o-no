@@ -1490,11 +1490,11 @@
     },
     {
       "id": "lonza-bdbc94cac089",
-      "slug": "operatore-utilities-collaboratore-trice-technischer-unterhalt-80-100-m-w-d-lonza-ch",
+      "slug": "operatore-utilita-personale-contenuto-tecnico-80-100-m-w-d-lonza-ch",
       "slugByLocale": {
         "de": "operator-utilities-mitarbeiter-technischer-unterhalt-80-100-m-w-d-lonza-ch",
-        "it": "operatore-utilities-collaboratore-trice-technischer-unterhalt-80-100-m-w-d-lonza-ch",
-        "en": "operator-utilities-mitarbeiter-technischer-unterhalt-80-100-m-w-d-lonza-ch",
+        "it": "operatore-utilita-personale-contenuto-tecnico-80-100-m-w-d-lonza-ch",
+        "en": "operator-utilities-staff-technical-content-80-100-m-w-d-lonza-ch",
         "fr": "operator-utilities-mitarbeiter-technischer-unterhalt-80-100-m-w-d-lonza-ch"
       },
       "company": "Lonza",
@@ -1555,19 +1555,19 @@
           "utilities-operator-technical-maintenance-80-100-lonza-ch"
         ],
         "fr": [
-          "operator-utilities-mitarbeiter-technischer-unterhalt-80-100-m-w-d-lonza-ch",
           "operateur-utilities-technicien-maintenance-80-100-lonza-ch"
         ],
         "it": [
-          "operatore-utilities-tecnico-manutenzione-80-100-lonza-ch"
+          "operatore-utilities-tecnico-manutenzione-80-100-lonza-ch",
+          "operatore-utilities-collaboratore-trice-technischer-unterhalt-80-100-m-w-d-lonza-ch"
         ]
       },
       "previousSlugs": [
         "operator-utilities-mitarbeiter-technischer-unterhalt-80-100-m-w-d-lonza-ch",
-        "operatore-utilities-collaboratore-trice-technischer-unterhalt-80-100-m-w-d-lonza-ch",
         "utilities-operator-technical-maintenance-80-100-lonza-ch",
         "operateur-utilities-technicien-maintenance-80-100-lonza-ch",
-        "operatore-utilities-tecnico-manutenzione-80-100-lonza-ch"
+        "operatore-utilities-tecnico-manutenzione-80-100-lonza-ch",
+        "operatore-utilities-collaboratore-trice-technischer-unterhalt-80-100-m-w-d-lonza-ch"
       ]
     },
     {
@@ -2919,12 +2919,12 @@
     },
     {
       "id": "lonza-e44b146e44a0",
-      "slug": "trainee-mintworld-a-partire-dal-50-lonza-ch",
+      "slug": "stage-tecnico-dal-50-m-w-d-lonza-ch",
       "slugByLocale": {
         "de": "technisches-praktikum-ab-50-m-w-d-lonza-ch",
-        "it": "trainee-mintworld-a-partire-dal-50-lonza-ch",
-        "en": "trainee-mintworld-from-50-lonza-ch",
-        "fr": "stagiaire-mintworld-a-partir-de-50-lonza-ch"
+        "it": "stage-tecnico-dal-50-m-w-d-lonza-ch",
+        "en": "technical-internship-from-50-m-w-d-lonza-ch",
+        "fr": "stage-technique-a-partir-de-50-m-m-j-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -2977,7 +2977,23 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "trainee-mintworld-a-partire-dal-50-lonza-ch"
+        ],
+        "en": [
+          "trainee-mintworld-from-50-lonza-ch"
+        ],
+        "fr": [
+          "stagiaire-mintworld-a-partir-de-50-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "trainee-mintworld-a-partire-dal-50-lonza-ch",
+        "trainee-mintworld-from-50-lonza-ch",
+        "stagiaire-mintworld-a-partir-de-50-lonza-ch"
+      ]
     }
   ]
 }

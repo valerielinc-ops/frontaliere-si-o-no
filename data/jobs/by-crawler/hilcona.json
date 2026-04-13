@@ -7771,7 +7771,7 @@
       "slugByLocale": {
         "de": "lager-kommissionierung-m-w-d-hilcona-marchtrenk",
         "it": "magazzino-kommissionierung-m-w-d-eisberg-osterreich-gmbh-marchtrenk",
-        "en": "lager-kommissionierung-m-w-d-eisberg-osterreich-gmbh-marchtrenk",
+        "en": "warehouse-order-picking-m-w-d-eisberg-osterreich-gmbh-marchtrenk",
         "fr": "lager-kommissionierung-m-w-d-eisberg-osterreich-gmbh-marchtrenk"
       },
       "company": "Eisberg Österreich GmbH",
@@ -7812,10 +7812,14 @@
       "previousSlugsByLocale": {
         "it": [
           "lager-kommissionierung-m-w-d-hilcona-marchtrenk"
+        ],
+        "en": [
+          "lager-kommissionierung-m-w-d-eisberg-osterreich-gmbh-marchtrenk"
         ]
       },
       "previousSlugs": [
-        "lager-kommissionierung-m-w-d-hilcona-marchtrenk"
+        "lager-kommissionierung-m-w-d-hilcona-marchtrenk",
+        "lager-kommissionierung-m-w-d-eisberg-osterreich-gmbh-marchtrenk"
       ],
       "salaryMin": 55500,
       "salaryMax": 75000,
