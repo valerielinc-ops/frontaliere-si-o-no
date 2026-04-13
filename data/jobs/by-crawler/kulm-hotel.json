@@ -280,7 +280,6 @@
           "agente-di-prenotazioni-m-w-d-kulm-hotel-st-moritz-st-moritz"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -292,8 +291,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 2
+      }
     },
     {
       "id": "kulm-hotel-b94b20f04f54",
@@ -2088,7 +2086,6 @@
           "chef-de-partie-gardemanger-m-w-d-kulm-hotel-st-moritz"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
