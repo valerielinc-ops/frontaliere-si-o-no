@@ -78,21 +78,21 @@ export const AD_SLOTS = {
   },
   /** Blog: desktop left rail — secondary (replaces Amazon products) */
   ARTICLE_RAIL_LEFT_2: {
-    slot: '2663155183',
+    slot: '9850785535',
     format: 'auto',
     fullWidthResponsive: true,
     placeholderMinHeight: 280,
   },
   /** Blog: desktop right rail — secondary (replaces Amazon products) */
   ARTICLE_RAIL_RIGHT_2: {
-    slot: '9739778973',
+    slot: '8537703867',
     format: 'auto',
     fullWidthResponsive: true,
     placeholderMinHeight: 280,
   },
   /** Blog: mobile in-article — secondary (replaces Amazon products) */
   ARTICLE_INLINE_MOBILE_2: {
-    slot: '1982411173',
+    slot: '6483829128',
     format: 'fluid',
     layout: 'in-article',
     fullWidthResponsive: false,
