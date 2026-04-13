@@ -89,11 +89,11 @@
         "en": "Professor HES / Professor HES (80%) *** Professor FH /",
         "de": "Professor HES / Professor HES (80%) ** Professor FH /"
       },
-      "slug": "professeure-hes-professeur-hes-80-professor-fh-hes-so-valais",
+      "slug": "professor-hes-professor-hes-80-professore-fh-hes-so-valais-wallis-sion",
       "slugByLocale": {
         "fr": "professeure-hes-professeur-hes-80-professor-fh-hes-so-valais",
-        "it": "professeure-hes-professeur-hes-80-professor-fh-hes-so-valais",
-        "en": "professeure-hes-professeur-hes-80-professor-fh-hes-so-valais",
+        "it": "professor-hes-professor-hes-80-professore-fh-hes-so-valais-wallis-sion",
+        "en": "professor-hes-professor-hes-80-professor-fh-hes-so-valais-wallis-sion",
         "de": "professeure-hes-professeur-hes-80-professor-fh-hes-so-valais"
       },
       "category": "education",
@@ -127,7 +127,18 @@
           "maxValue": 77500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "professeure-hes-professeur-hes-80-professor-fh-hes-so-valais"
+        ],
+        "en": [
+          "professeure-hes-professeur-hes-80-professor-fh-hes-so-valais"
+        ]
+      },
+      "previousSlugs": [
+        "professeure-hes-professeur-hes-80-professor-fh-hes-so-valais"
+      ]
     }
   ]
 }
