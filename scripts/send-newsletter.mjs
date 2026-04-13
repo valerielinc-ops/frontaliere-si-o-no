@@ -281,6 +281,17 @@ function sanitizeAIBriefingHtml(raw) {
   // Strip markdown code fences if model wrapped output
   html = html.replace(/^```html?\s*/i, '').replace(/\s*```$/, '').trim();
 
+  // Strip ALL <a> tags from AI output (keep inner text).
+  // injectJobAndCompanyLinks() re-adds links with correct, validated URLs.
+  // AI models frequently generate malformed hrefs (nested URLs, broken quotes)
+  // that corrupt the final HTML — e.g. <a href="url1"url2" style="...">
+  html = html.replace(/<a\b[^>]*>/gi, '').replace(/<\/a>/gi, '');
+  // Clean orphaned HTML attribute fragments left from malformed tags
+  // e.g. -bellinzona/" style="color:#2563eb;text-decoration:underline;">
+  html = html.replace(/[a-z0-9\-/]*"\s*style="[^"]*"\s*>/gi, '');
+  // Remove bare URL fragments leaked into text from broken href attributes
+  html = html.replace(/https?:\/\/[^\s<"]+/g, '');
+
   // If no <p> tags, wrap in <p>
   if (!html.includes('<p>') && !html.includes('<p ')) {
     html = '<p>' + html.replace(/\n\n+/g, '</p><p>') + '</p>';
