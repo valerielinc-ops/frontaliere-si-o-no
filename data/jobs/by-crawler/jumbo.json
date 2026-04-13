@@ -1,6 +1,6 @@
 {
   "crawlerKey": "jumbo",
-  "assembledAt": "2026-04-13T10:47:56.721Z",
+  "assembledAt": "2026-04-13T21:56:12.330Z",
   "jobs": [
     {
       "id": "jumbo-1c670883-34c",
@@ -33,7 +33,7 @@
       "url": "https://jobs.coopjobs.ch/postes-vacantes/apprentissage-de-gestionnaire-du-commerce-de-detail-conception-et-realisation-d-experiences-d-achat/1c670883-34ce-4a84-b01a-e1726167bc5c",
       "source": "JUMBO Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-13T10:47:54.715Z",
+      "crawledAt": "2026-04-13T21:56:10.230Z",
       "addressLocality": "Conthey",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -101,6 +101,7 @@
       "previousSlugs": [
         "apprentissage-de-gestionnaire-du-commerce-de-detail-conception-et-realisation-d-39-experie"
       ],
+      "firstSeenAt": "2026-04-13T10:47:54.715Z",
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -113,8 +114,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1950",
-      "firstSeenAt": "2026-04-13T10:47:54.715Z"
+      "postalCode": "1950"
     },
     {
       "id": "jumbo-890c5910-af3",
@@ -147,7 +147,7 @@
       "url": "https://jobs.coopjobs.ch/postes-vacantes/apprentissage-de-gestionnaire-du-commerce-de-detail-conception-et-realisation-d-experiences-d-achat/890c5910-af33-4f69-8100-307051dff257",
       "source": "JUMBO Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-13T10:47:54.715Z",
+      "crawledAt": "2026-04-13T21:56:10.229Z",
       "addressLocality": "Sierre",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -216,6 +216,7 @@
         "apprentissage-de-gestionnaire-du-commerce-de-detail-conception-et-realisation-d-39-experie",
         "apprentissage-de-gestionnaire-du-commerce-de-detail-conception-et-realisation-d-39-experie-2"
       ],
+      "firstSeenAt": "2026-04-13T10:47:54.715Z",
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -228,8 +229,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3960",
-      "firstSeenAt": "2026-04-13T10:47:54.715Z"
+      "postalCode": "3960"
     },
     {
       "id": "jumbo-cb72777c-d77",
@@ -262,7 +262,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/cb72777c-d77c-4e8b-bf4a-23f23f88709a",
       "source": "JUMBO Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:47:54.713Z",
+      "crawledAt": "2026-04-13T21:56:10.228Z",
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -327,6 +327,7 @@
           "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-jumbo-brig"
         ]
       },
+      "firstSeenAt": "2026-04-13T10:47:54.713Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -339,8 +340,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3900",
-      "firstSeenAt": "2026-04-13T10:47:54.713Z"
+      "postalCode": "3900"
     },
     {
       "id": "jumbo-97c0be67-937",
@@ -373,7 +373,7 @@
       "url": "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in-garten/97c0be67-9372-4f3c-bc4f-5834bb7784c5",
       "source": "JUMBO Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:47:54.711Z",
+      "crawledAt": "2026-04-13T21:56:10.227Z",
       "addressLocality": "Eyholz",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -433,6 +433,7 @@
           "verkaufsberater-in-garten-jumbo-eyholz"
         ]
       },
+      "firstSeenAt": "2026-04-13T10:47:54.711Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -444,8 +445,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:47:54.711Z"
+      }
     }
   ]
 }
