@@ -4,6 +4,7 @@ import { useNavigation } from '@/services/NavigationContext';
 import { useTabContent } from '@/services/TabContentContext';
 
 const AdSenseBanner = lazyRetry(() => import('@/components/shared/AdSenseBanner'));
+import { AD_SLOTS } from '@/services/adsenseSlots';
 const SeoContentBlock = lazyRetry(() => import('@/components/shared/SeoContentBlock'));
 const CurrencyExchange = lazyRetry(() => import('@/components/comparators/CurrencyExchange'));
 const BankComparison = lazyRetry(() => import('@/components/comparators/BankComparison'));
@@ -43,7 +44,7 @@ export default function ConfrontiTabContent() {
 
       {/* AdSense — bottom multiplex */}
       <Suspense fallback={null}>
-        <AdSenseBanner adSlot="5196931137" adFormat="autorelaxed" className="mt-8 mb-4" />
+        <AdSenseBanner adSlot={AD_SLOTS.ARTICLE_END_MULTIPLEX.slot} adFormat={AD_SLOTS.ARTICLE_END_MULTIPLEX.format} className="mt-8 mb-4" />
       </Suspense>
     </div>
   );

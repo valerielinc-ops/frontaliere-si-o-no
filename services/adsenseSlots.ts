@@ -98,4 +98,25 @@ export const AD_SLOTS = {
     fullWidthResponsive: false,
     placeholderMinHeight: 220,
   },
+  /** Homepage: mid-content display ad (between results and widgets) */
+  HOMEPAGE_MID_DISPLAY: {
+    slot: '2663155183', // TODO: create dedicated unit — borrowing ARTICLE_RAIL_LEFT (never on homepage)
+    format: 'auto',
+    fullWidthResponsive: true,
+    placeholderMinHeight: 280,
+  },
+  /** Job detail: between related jobs and related articles sections */
+  JOBDETAIL_BETWEEN_SECTIONS: {
+    slot: '5196931137', // TODO: create dedicated unit — borrowing ARTICLE_END_MULTIPLEX (never on job detail)
+    format: 'autorelaxed',
+    fullWidthResponsive: false,
+    placeholderMinHeight: 400,
+  },
+  /** Job detail: second sidebar ad (desktop, below first sidebar ad) */
+  JOBDETAIL_SIDEBAR_2: {
+    slot: '9739778973', // TODO: create dedicated unit — borrowing ARTICLE_RAIL_RIGHT (never on job detail)
+    format: 'auto',
+    fullWidthResponsive: true,
+    placeholderMinHeight: 280,
+  },
 } as const;

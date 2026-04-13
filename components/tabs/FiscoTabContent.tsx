@@ -9,6 +9,7 @@ import FaqAccordion from '@/components/shared/FaqAccordion';
 import DataFreshness from '@/components/shared/DataFreshness';
 
 const AdSenseBanner = lazyRetry(() => import('@/components/shared/AdSenseBanner'));
+import { AD_SLOTS } from '@/services/adsenseSlots';
 const SeoContentBlock = lazyRetry(() => import('@/components/shared/SeoContentBlock'));
 const FrontierGuide = lazyRetry(() => import('@/components/guide/FrontierGuide'));
 const TaxReturnGuide = lazyRetry(() => import('@/components/fisco/TaxReturnGuide'));
@@ -96,7 +97,7 @@ export default function FiscoTabContent() {
 
       {/* AdSense — bottom multiplex */}
       <Suspense fallback={null}>
-        <AdSenseBanner adSlot="5196931137" adFormat="autorelaxed" className="mt-8 mb-4" />
+        <AdSenseBanner adSlot={AD_SLOTS.ARTICLE_END_MULTIPLEX.slot} adFormat={AD_SLOTS.ARTICLE_END_MULTIPLEX.format} className="mt-8 mb-4" />
       </Suspense>
     </div>
   );

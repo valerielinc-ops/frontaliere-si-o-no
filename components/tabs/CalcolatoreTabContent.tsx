@@ -33,6 +33,7 @@ const WeeklyFact = lazyRetry(() => import('@/components/vita/WeeklyFact'));
 const DailyDialectPhrase = lazyRetry(() => import('@/components/vita/DailyDialectPhrase'));
 const SocialProofBadge = lazyRetry(() => import('@/components/shared/SocialProofBadge'));
 const AdSenseBanner = lazyRetry(() => import('@/components/shared/AdSenseBanner'));
+import { AD_SLOTS } from '@/services/adsenseSlots';
 
 
 const LazyFallback = () => <SkeletonWeeklyFact />;
@@ -202,6 +203,18 @@ export default function CalcolatoreTabContent() {
                 <Suspense fallback={<SkeletonWeeklyFact />}><WeeklyFact /></Suspense>
               </div>
             )}
+            {/* AdSense — homepage mid-content display */}
+            {result && (
+              <Suspense fallback={null}>
+                <AdSenseBanner
+                  adSlot={AD_SLOTS.HOMEPAGE_MID_DISPLAY.slot}
+                  adFormat={AD_SLOTS.HOMEPAGE_MID_DISPLAY.format}
+                  fullWidthResponsive={AD_SLOTS.HOMEPAGE_MID_DISPLAY.fullWidthResponsive}
+                  className="mt-6 mb-4"
+                />
+              </Suspense>
+            )}
+
             {/* AI-extractable comparison table + FAQ — in <details> for crawlability without breaking page flow */}
             <details className="mt-6 group">
               <summary className="cursor-pointer list-none flex items-center gap-2 text-sm font-medium text-stripe-700 dark:text-stripe-400 hover:text-stripe-800 dark:hover:text-stripe-300 transition-colors">
@@ -245,7 +258,7 @@ export default function CalcolatoreTabContent() {
   // ── Sub-calculator views — each gets a bottom AdSense multiplex ──
   const adBottom = (
     <Suspense fallback={null}>
-      <AdSenseBanner adSlot="5196931137" adFormat="autorelaxed" className="mt-8 mb-4" />
+      <AdSenseBanner adSlot={AD_SLOTS.ARTICLE_END_MULTIPLEX.slot} adFormat={AD_SLOTS.ARTICLE_END_MULTIPLEX.format} className="mt-8 mb-4" />
     </Suspense>
   );
 
