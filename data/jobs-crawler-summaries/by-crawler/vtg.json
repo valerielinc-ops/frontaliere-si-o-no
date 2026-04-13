@@ -1,16 +1,16 @@
 {
   "key": "vtg",
   "label": "VTG",
-  "generatedAt": "2026-04-13T11:31:41.947Z",
-  "total": 26,
+  "generatedAt": "2026-04-13T22:39:41.821Z",
+  "total": 24,
   "newCount": 0,
   "updatedCount": 8,
   "removedCount": 0,
-  "unchangedCount": 18,
-  "durationMs": 35841,
-  "avgDurationMs": 35841,
+  "unchangedCount": 16,
+  "durationMs": 33109,
+  "avgDurationMs": 33109,
   "durationHistory": [
-    35841
+    33109
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -40,6 +40,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-12T22:20:02.828Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -72,6 +73,7 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-09T10:16:25.950Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -104,6 +106,7 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T22:39:41.479Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -136,6 +139,7 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-09T10:16:25.950Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -168,6 +172,7 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-09T10:16:25.950Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -200,6 +205,7 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-09T10:16:25.950Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -232,6 +238,7 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-09T10:16:25.950Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -269,6 +276,7 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-03-31T21:53:35.437Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -306,6 +314,7 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-10T21:55:22.118Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -340,6 +349,7 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-09T22:09:45.835Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -374,6 +384,7 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-09T10:16:25.950Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -408,6 +419,7 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-09T10:16:25.950Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -442,6 +454,7 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-09T10:16:25.950Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -476,40 +489,7 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "company-61hco",
-      "slug": "automobilmechatroniker-in-swiss-armed-forces-vtg-bellinzona",
-      "company": "Swiss Armed Forces (VTG)",
-      "title": "Automobilmechatroniker/-in",
-      "location": "Bern",
-      "canton": "BE",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-18",
-      "url": "https://jobs.admin.ch/offene-stellen/automobilmechatroniker-in/4f5cd31e-4b70-49b9-a356-cb4678aea9ca",
-      "source": "Company Careers Crawler",
-      "companyKey": "vtg",
-      "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-04-09T10:16:25.950Z",
-      "sourceLang": "de",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "streetAddress": "Via Stazione 31",
-      "postalCode": "6500",
-      "addressLocality": "Bellinzona",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-09T10:16:25.950Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -544,6 +524,7 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-09T10:16:25.950Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -578,6 +559,7 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-09T10:16:25.950Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -612,6 +594,7 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-09T10:16:25.950Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -646,6 +629,7 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-09T10:16:25.950Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -680,6 +664,7 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-09T10:16:25.950Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -714,6 +699,7 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-09T10:16:25.950Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -748,6 +734,7 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-09T10:16:25.950Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -865,45 +852,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "company-pm28ek",
-      "slug": "apprendista-specialista-in-trasporti-stradali-cfc-swiss-armed-forces-vtg-bellinzona",
-      "company": "Swiss Armed Forces (VTG)",
-      "title": "Lernende/-r Strassentransportfachmann/-frau EFZ",
-      "location": "Bern",
-      "canton": "BE",
-      "category": "admin",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-10-14",
-      "url": "https://jobs.admin.ch/offene-stellen/lernende-r-strassentransportfachmann-frau-efz/bfa3b444-a567-4bd0-81f6-3b2334dc20f1",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Claro (TI)",
-        "canton": "TI"
-      },
-      "companyKey": "vtg",
-      "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-03-31T21:53:35.437Z",
-      "sourceLang": "de",
-      "streetAddress": "Via Stazione 31",
-      "postalCode": "6500",
-      "addressLocality": "Bellinzona",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "salaryMin": 46500,
-      "salaryMax": 62500,
+      "firstSeenAt": "2026-03-31T21:53:35.437Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
