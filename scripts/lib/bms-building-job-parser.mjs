@@ -13,7 +13,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -326,7 +326,7 @@ export async function fetchAllBmsBuildingJobs() {
 
       const title = detail?.title || entry.title;
       const location = entry.city || 'Naters';
-      const canton = inferSwissTargetCanton(location) || 'VS';
+      const canton = inferAnyCanton(location) || 'VS';
       // Ensure description has meaningful content (>30 chars) for SEO
       const rawDesc = detail?.description || '';
       const descriptionText = rawDesc.length >= 30

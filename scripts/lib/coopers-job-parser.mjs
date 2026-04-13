@@ -13,7 +13,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -309,7 +309,7 @@ export async function fetchAllCoopersJobs() {
     if (!title || title.length < 3) continue;
 
     const city = normalizeCoopersLocation(listing.location);
-    const canton = inferSwissTargetCanton(city) || 'VS';
+    const canton = inferAnyCanton(city) || 'VS';
 
     // Fetch detail for description
     console.log(`  📥 Fetching detail: ${title.substring(0, 50)}...`);

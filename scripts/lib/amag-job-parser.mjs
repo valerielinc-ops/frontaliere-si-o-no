@@ -15,7 +15,7 @@
  */
 
 import { JSDOM } from 'jsdom';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 const BASE_URL = 'https://jobs.amag-group.ch';
 
@@ -185,7 +185,7 @@ export function parseAmagDetailPage(html = '', fallbackTitle = '') {
  */
 export function inferAmagCanton(location = '', region = '') {
   const signal = `${location} ${region}`;
-  return inferSwissTargetCanton(signal);
+  return inferAnyCanton(signal);
 }
 
 /**

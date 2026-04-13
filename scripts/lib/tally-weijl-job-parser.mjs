@@ -13,7 +13,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -313,7 +313,7 @@ export async function fetchAllTallyWeijlJobs() {
     if (!title || title.length < 3) continue;
 
     const city = normalizeSpace(listing.city) || 'Sion';
-    const canton = inferSwissTargetCanton(city) || inferSwissTargetCanton(listing.state || '') || 'VS';
+    const canton = inferAnyCanton(city) || inferAnyCanton(listing.state || '') || 'VS';
     const publicUrl = listing.url;
 
     // Fetch detail page for description

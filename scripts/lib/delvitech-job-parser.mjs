@@ -1,5 +1,5 @@
 import { JSDOM } from 'jsdom';
-import { isTargetSwissLocation, inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import {  isTargetSwissLocation, inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 
 const HQ = getCompanyDefaults('delvitech');
@@ -168,5 +168,5 @@ export function buildDelvitechLocalizedContent(detail = {}) {
 /** Infer canton (TI or GR) from location/detail text. Falls back to HQ canton. */
 export function inferDelvitechCanton(detail = {}) {
   const combined = `${detail.title || ''} ${detail.location || ''} ${detail.description || ''}`;
-  return inferSwissTargetCanton(combined) || HQ.canton;
+  return inferAnyCanton(combined) || HQ.canton;
 }

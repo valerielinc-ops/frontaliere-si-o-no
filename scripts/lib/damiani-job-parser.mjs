@@ -1,5 +1,5 @@
 import { JSDOM } from 'jsdom';
-import { isTargetSwissLocation, inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import {  isTargetSwissLocation, inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 
 const HQ = getCompanyDefaults('damiani');
@@ -40,7 +40,7 @@ export function isDamianiTicinoLocation(rawLocation = '') {
 
 /** Infer canton (TI or GR) from location text. Falls back to HQ canton. */
 export function inferDamianiCanton(rawLocation = '') {
-  return inferSwissTargetCanton(rawLocation) || HQ.canton;
+  return inferAnyCanton(rawLocation) || HQ.canton;
 }
 
 export function localizeDamianiTitle(rawTitle = '', locale = 'it') {

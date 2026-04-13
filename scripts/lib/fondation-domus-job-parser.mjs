@@ -13,7 +13,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -373,7 +373,7 @@ export async function fetchAllFondationDomusJobs() {
     if (!title || title.length < 3) continue;
 
     const city = inferCity(listing.location);
-    const canton = inferSwissTargetCanton(city) || 'VS';
+    const canton = inferAnyCanton(city) || 'VS';
     const pct = parseEmploymentPct(listing.percentage || title);
     const postedDate = parseFrenchDate(listing.dateStr);
 

@@ -14,7 +14,7 @@
  * Invalid pages have: <title>Career Opportunities </title>
  */
 import { JSDOM } from 'jsdom';
-import { isTargetSwissLocation, inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import {  isTargetSwissLocation, inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
@@ -106,7 +106,7 @@ export function inferGiorgioArmaniCanton(title = '', location = '') {
   if (/lucerna|luzern|lucerne/.test(text)) return 'LU';
   if (/lugano|mendrisio|chiasso|bellinzona|locarno|stabio/.test(text)) return 'TI';
   if (/davos|st\.?\s*moritz|saint-moritz|engadin/.test(text)) return 'GR';
-  return inferSwissTargetCanton(text) || '';
+  return inferAnyCanton(text) || '';
 }
 
 /**

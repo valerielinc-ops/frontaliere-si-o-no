@@ -13,7 +13,7 @@
  */
 
 import { JSDOM } from 'jsdom';
-import { isTargetSwissLocation, isTicinoRelevant, isGrigioniRelevant, inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import {  isTargetSwissLocation, isTicinoRelevant, isGrigioniRelevant, inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 
 const HQ = getCompanyDefaults('engelvoelkers');
@@ -288,5 +288,5 @@ export function isEngelvoelkersTicinoRelevant(location = '', company = '') {
 /** Infer canton (TI or GR) from location text. Falls back to HQ canton. */
 export function inferEngelvoelkersCanton(location = '', company = '') {
   const combined = `${location} ${company}`;
-  return inferSwissTargetCanton(combined) || HQ.canton;
+  return inferAnyCanton(combined) || HQ.canton;
 }

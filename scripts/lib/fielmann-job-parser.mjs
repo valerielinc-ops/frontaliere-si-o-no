@@ -14,7 +14,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -273,7 +273,7 @@ export async function fetchAllFielmannJobs() {
     const city = locInfo.city || 'Sion';
     const postalCode = locInfo.postalCode || '';
     const streetAddress = locInfo.streetAddress || '';
-    const canton = inferSwissTargetCanton(city) || 'VS';
+    const canton = inferAnyCanton(city) || 'VS';
 
     // Description
     const descriptionHtml = info.jobDescription || '';

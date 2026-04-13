@@ -15,7 +15,7 @@ import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace as _normalizeSpace, fetchHtml } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -274,7 +274,7 @@ export async function fetchAllCantonValaisJobs() {
     // Extract location from listing data or default to Sion
     const rawLocation = listing.location || listing.city || listing.work_location || '';
     const location = normalizeSpace(rawLocation) || HQ?.city || 'Sion';
-    const canton = inferSwissTargetCanton(location) || HQ?.canton || 'VS';
+    const canton = inferAnyCanton(location) || HQ?.canton || 'VS';
     const descriptionHtml = listing.description || listing.job_description || listing.content || '';
     const descriptionText = stripHtml(descriptionHtml);
     const publicUrl = listing.url || listing.link || listing.apply_url || CAREER_URL;

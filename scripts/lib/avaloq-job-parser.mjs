@@ -1,5 +1,5 @@
 import { JSDOM } from 'jsdom';
-import { inferSwissTargetCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton, isTargetSwissLocation  } from './target-swiss-locations.mjs';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim();
@@ -195,7 +195,7 @@ export function isAvaloqTargetLocation(raw = '') {
 }
 
 export function inferAvaloqCanton(raw = '') {
-  return inferSwissTargetCanton(raw) || 'TI';
+  return inferAnyCanton(raw) || 'TI';
 }
 
 export function buildAvaloqLocalizedContent(detail = {}, companyName = 'Avaloq') {

@@ -15,7 +15,7 @@ import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace as _normalizeSpace, fetchHtml } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -234,7 +234,7 @@ export async function fetchAllBallyJobs() {
 
     const rawLocation = listing.location || '';
     const location = normalizeSpace(rawLocation) || HQ?.city || 'Caslano';
-    const canton = inferSwissTargetCanton(location) || HQ?.canton || 'TI';
+    const canton = inferAnyCanton(location) || HQ?.canton || 'TI';
     const descriptionText = stripHtml(listing.description || '');
     const publicUrl = listing.url || CAREER_URL;
 

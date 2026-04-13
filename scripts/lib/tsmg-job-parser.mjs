@@ -1,5 +1,5 @@
 import { JSDOM } from 'jsdom';
-import { inferSwissTargetCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton, isTargetSwissLocation  } from './target-swiss-locations.mjs';
 
 function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
@@ -59,7 +59,7 @@ export function isTsmgTargetLocation(rawLocation = '') {
 }
 
 export function inferTsmgRegion(rawLocation = '') {
-  const canton = inferSwissTargetCanton(rawLocation);
+  const canton = inferAnyCanton(rawLocation);
   if (canton) return { canton, country: 'CH' };
   return { canton: 'CH', country: 'CH' };
 }

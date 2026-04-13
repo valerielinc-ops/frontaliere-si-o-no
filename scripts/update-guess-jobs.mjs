@@ -49,6 +49,7 @@ import {
   parseGuessJobDetailPayload,
 } from './lib/guess-job-parser.mjs';
 import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
+import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -224,9 +225,9 @@ function buildGuessJob(listing, detail) {
     companyDomain: COMPANY_DOMAIN,
     location: city,
     addressLocality: city,
-    addressRegion: 'TI',
+    addressRegion: inferAnyCanton(city) || TARGET_CANTONS[0],
     addressCountry: 'CH',
-    canton: TARGET_CANTONS[0],
+    canton: inferAnyCanton(city) || TARGET_CANTONS[0],
     country: 'CH',
     employmentType: parsed.employmentType,
     contractType: parsed.employmentType,
@@ -317,7 +318,7 @@ function updateAdapterConfig(discoveredJobs) {
       job.url,
       {
         location: job.location,
-        canton: TARGET_CANTONS[0],
+        canton: inferAnyCanton(job.location) || TARGET_CANTONS[0],
         company: COMPANY_NAME,
         postedDate: job.postedDate || '',
       },
@@ -347,10 +348,10 @@ function postProcessJobs() {
       job.companyDomain = COMPANY_DOMAIN;
       fixed += 1;
     }
-    job.canton = TARGET_CANTONS[0];
+    job.canton = inferAnyCanton(job.location || job.addressLocality || '') || TARGET_CANTONS[0];
     job.country = 'CH';
     job.addressCountry = 'CH';
-    job.addressRegion = 'TI';
+    job.addressRegion = job.canton;
     if (!job.location) {
       job.location = 'Bioggio';
       fixed += 1;

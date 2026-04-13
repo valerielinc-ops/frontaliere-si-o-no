@@ -12,7 +12,7 @@
  */
 
 import { JSDOM } from 'jsdom';
-import { isTargetSwissLocation, isTicinoRelevant, isGrigioniRelevant, inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import {  isTargetSwissLocation, isTicinoRelevant, isGrigioniRelevant, inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 
 const HQ = getCompanyDefaults('convit');
@@ -221,5 +221,5 @@ export function isConvitTicinoRelevant(location = '') {
  * Infer canton (TI or GR) from location text. Falls back to HQ canton for Convit's home base.
  */
 export function inferConvitCanton(location = '') {
-  return inferSwissTargetCanton(location) || HQ.canton;
+  return inferAnyCanton(location) || HQ.canton;
 }

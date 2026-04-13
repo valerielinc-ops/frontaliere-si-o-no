@@ -16,7 +16,7 @@
  */
 
 import { JSDOM } from 'jsdom';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 import { titleOverlap, MIN_TITLE_OVERLAP } from './title-utils.mjs';
 
 const BASE_URL = 'https://recruitingapp-2872.umantis.com';
@@ -261,7 +261,7 @@ export function parseAllianzDetailPage(html = '', fallbackTitle = '', fallbackLo
  */
 export function inferAllianzCanton(agency = '', location = '') {
   const signal = `${agency} ${location}`;
-  const canton = inferSwissTargetCanton(signal);
+  const canton = inferAnyCanton(signal);
   if (canton) return canton;
 
   // Extra agency-level checks for Allianz-specific naming

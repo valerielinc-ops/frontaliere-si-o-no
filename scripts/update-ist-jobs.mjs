@@ -38,7 +38,7 @@ import {
   mergeLocaleTextMap,
   detectLang,
 } from './lib/dedicated-crawler-common.mjs';
-import { inferSwissTargetCanton } from './lib/target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton  } from './lib/target-swiss-locations.mjs';
 import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -271,7 +271,7 @@ async function fetchJobDetail(url) {
 /* ── Location & canton mapping ─────────────────────────────── */
 
 function inferCanton(location = '') {
-  return inferSwissTargetCanton(location) || 'TI';
+  return inferAnyCanton(location) || 'TI';
 }
 
 function parseLocation(locText = '') {

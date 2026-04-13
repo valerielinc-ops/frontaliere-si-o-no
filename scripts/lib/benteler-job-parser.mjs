@@ -15,7 +15,7 @@ import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace as _normalizeSpace, fetchHtml, fetchJson } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -267,7 +267,7 @@ export async function fetchAllBentelerJobs() {
 
     const rawLocation = listing.location || listing.city || '';
     const location = normalizeSpace(rawLocation) || HQ?.city || 'Manno';
-    const canton = inferSwissTargetCanton(location) || HQ?.canton || 'TI';
+    const canton = inferAnyCanton(location) || HQ?.canton || 'TI';
     const descriptionHtml = listing.description || listing.jobDescription || '';
     const descriptionText = stripHtml(descriptionHtml);
     const publicUrl = listing.url || listing.link || CAREER_URL;

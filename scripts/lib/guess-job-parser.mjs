@@ -1,5 +1,5 @@
 import { JSDOM } from 'jsdom';
-import { inferSwissTargetCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton, isTargetSwissLocation  } from './target-swiss-locations.mjs';
 
 export const GUESS_WORKABLE_ACCOUNT_ID = '452934';
 export const GUESS_WORKABLE_ACCOUNT_SLUG = 'guess-europe-sagl';

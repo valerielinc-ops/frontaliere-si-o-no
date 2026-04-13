@@ -24,7 +24,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -409,7 +409,7 @@ export async function fetchAllHochgebirgsklinikDavosJobs() {
     // Location: from location array or location_objects
     const locationArr = doc.location || [];
     const location = locationArr[0] || 'Davos';
-    const canton = inferSwissTargetCanton(location) || 'GR';
+    const canton = inferAnyCanton(location) || 'GR';
 
     // Build full description
     const descriptionText = buildDescription(doc);

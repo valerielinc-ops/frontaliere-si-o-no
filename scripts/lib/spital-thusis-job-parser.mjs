@@ -23,7 +23,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -385,7 +385,7 @@ export async function fetchAllSpitalThusisJobs() {
     }
 
     const location = 'Thusis';
-    const canton = inferSwissTargetCanton(location) || 'GR';
+    const canton = inferAnyCanton(location) || 'GR';
     const publicUrl = listing.detailUrl;
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const jobSlug = slugify(`${title} spital-thusis ch`);

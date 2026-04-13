@@ -50,7 +50,7 @@ import {
 } from './assemble-jobs-dataset.mjs';
 import { translateMissingJobLocales, validateDedicatedLocaleCoverage, mergePreserveLocaleData } from './lib/dedicated-crawler-common.mjs';
 import { freeTranslateWithRetry } from './lib/free-translate.mjs';
-import { GRIGIONI_CITIES, TICINO_CITIES, inferSwissTargetCanton, isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
+import {  GRIGIONI_CITIES, TICINO_CITIES, inferSwissTargetCanton, inferAnyCanton, isTargetSwissLocation  } from './lib/target-swiss-locations.mjs';
 import { parseSbbDetailPage, MIN_SBB_DESC_LENGTH } from './lib/sbb-job-parser.mjs';
 import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
 import { detectLanguage } from './lib/detect-language.mjs';
@@ -847,7 +847,7 @@ async function parseSbbJobFromDetailUrl(detailUrl, apiMetaByUrl, apiMetaByTitle 
     resolvedDetailLocation ||
     sbbParsed?.location
   ).trim();
-  const canton = inferSwissTargetCanton(`${location} ${apiMeta?.region || ''}`) || TARGET_CANTONS[0];
+  const canton = inferAnyCanton(`${location} ${apiMeta?.region || ''}`) || TARGET_CANTONS[0];
   const slugBase = slugify(`${title}-${SBB_KEY}-${location}`) || createHash('sha1').update(normalizeDetailUrl(detailUrl)).digest('hex').slice(0, 16);
   const id = `sbb-${createHash('sha1').update(normalizeDetailUrl(detailUrl)).digest('hex').slice(0, 12)}`;
   const postedDate = toIsoDate(apiMeta?.datePosted || jobPosting?.datePosted);

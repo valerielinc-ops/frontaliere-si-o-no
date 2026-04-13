@@ -48,7 +48,7 @@ import {
   mergeLocaleTextMap,
   detectLang,
 } from './lib/dedicated-crawler-common.mjs';
-import { inferSwissTargetCanton } from './lib/target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton  } from './lib/target-swiss-locations.mjs';
 import { isTargetCanton, TARGET_CANTONS, COMPANY_HQ } from './lib/crawler-location-config.mjs';
 import { isSlugStable } from './lib/dedicated-crawler-common.mjs';
 

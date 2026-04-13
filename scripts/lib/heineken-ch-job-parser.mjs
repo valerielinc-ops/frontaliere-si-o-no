@@ -21,7 +21,7 @@
 import { createHash } from 'node:crypto';
 import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -402,7 +402,7 @@ export async function fetchAllHeinekenChJobs() {
       const title = detail?.title || listing.title;
       const { city, postalCode: parsedPostal } = parseLocation(listing.location);
       const location = detail?.location || city;
-      const canton = inferSwissTargetCanton(location) || HQ.canton;
+      const canton = inferAnyCanton(location) || HQ.canton;
       const postalCode = parsedPostal || HQ.postalCode;
 
       // Build description

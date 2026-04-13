@@ -45,6 +45,7 @@ import {
   MIN_BOGGI_DESC_LENGTH,
 } from './lib/boggi-job-parser.mjs';
 import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
+import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -154,9 +155,9 @@ function buildBoggiJob(offer) {
     companyDomain: COMPANY_DOMAIN,
     location: parsed.location,
     addressLocality: parsed.city,
-    addressRegion: 'TI',
+    addressRegion: inferAnyCanton(parsed.city || parsed.location) || TARGET_CANTONS[0],
     addressCountry: 'CH',
-    canton: TARGET_CANTONS[0],
+    canton: inferAnyCanton(parsed.city || parsed.location) || TARGET_CANTONS[0],
     country: 'CH',
     category: inferBoggiCategory(parsed.title, parsed.department),
     sector: 'Moda & Retail',
@@ -220,7 +221,7 @@ function updateAdapterConfig(jobs) {
   for (const job of jobs) {
     seedMetaByUrl[job.url] = {
       location: job.location,
-      canton: TARGET_CANTONS[0],
+      canton: inferAnyCanton(job.location) || TARGET_CANTONS[0],
       company: COMPANY_NAME,
       postedDate: job.postedDate,
     };

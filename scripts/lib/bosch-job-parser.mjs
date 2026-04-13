@@ -1,5 +1,5 @@
 import { JSDOM } from 'jsdom';
-import { inferSwissTargetCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton, isTargetSwissLocation  } from './target-swiss-locations.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 
 const HQ = getCompanyDefaults('bosch');
@@ -135,7 +135,7 @@ export function parseBoschJobDetail(html = '') {
     field,
     applyUrl,
     description: sections.join('\n\n').trim(),
-    canton: inferSwissTargetCanton(`${title} ${location}`) || HQ.canton,
+    canton: inferAnyCanton(`${title} ${location}`) || HQ.canton,
   };
 }
 

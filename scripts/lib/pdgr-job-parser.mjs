@@ -18,7 +18,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -371,7 +371,7 @@ export async function fetchAllPdgrJobs() {
     }
 
     const location = card.location || 'Chur';
-    const canton = inferSwissTargetCanton(location) || 'GR';
+    const canton = inferAnyCanton(location) || 'GR';
     const publicUrl = card.detailUrl || CAREER_URL;
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const jobSlug = slugify(`${title} pdgr ch`);

@@ -23,7 +23,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -257,7 +257,7 @@ export function parseCsebPublication(pub) {
 
   // Location from API
   const location = normalizeSpace(pub.PlaceOfWorkCity || pub.CompanyCity || 'Scuol');
-  const canton = inferSwissTargetCanton(location) || pub.CompanyState || 'GR';
+  const canton = inferAnyCanton(location) || pub.CompanyState || 'GR';
 
   // Build full description from sections
   const descriptionText = buildDescription(pub);

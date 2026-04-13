@@ -38,7 +38,7 @@ import {
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
-import { isTargetSwissLocation, inferSwissTargetCanton } from './lib/target-swiss-locations.mjs';
+import {  isTargetSwissLocation, inferSwissTargetCanton, inferAnyCanton  } from './lib/target-swiss-locations.mjs';
 import { isTargetCanton } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -276,7 +276,7 @@ function detectCity(location = '') {
 }
 
 function detectCanton(city = '') {
-  return inferSwissTargetCanton(city) || 'TI';
+  return inferAnyCanton(city) || 'TI';
 }
 
 function isZegnaTicinoLocation(detail) {

@@ -13,7 +13,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -336,7 +336,7 @@ export async function fetchAllBlsJobs() {
 
       const loc = extractLocation(jsonLd);
       const location = loc.locality || entry.locationRaw || 'Brig';
-      const canton = inferSwissTargetCanton(location) || 'VS';
+      const canton = inferAnyCanton(location) || 'VS';
       const descriptionText = buildDescription(jsonLd);
       const requirements = extractRequirements(jsonLd);
 

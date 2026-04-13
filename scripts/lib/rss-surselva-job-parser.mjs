@@ -32,7 +32,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -300,7 +300,7 @@ export function parseOstendisJob(entry, detailData = {}) {
   if (!title || title.length < 3) return null;
 
   const location = normalizeSpace(entry.city || detailData.addressLocality || 'Ilanz');
-  const canton = inferSwissTargetCanton(location) || detailData.addressRegion || 'GR';
+  const canton = inferAnyCanton(location) || detailData.addressRegion || 'GR';
 
   // Use detail page URL as the public URL (human-readable job page)
   const publicUrl = entry.detail || CAREER_URL;

@@ -13,7 +13,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -319,7 +319,7 @@ export async function fetchAllCsdEngineersJobs() {
 
     // Use RSS city/location data, fall back to detail page or defaults
     const city = item.city || detail?.city || 'Sion';
-    const canton = inferSwissTargetCanton(city) || 'VS';
+    const canton = inferAnyCanton(city) || 'VS';
     const descriptionText = detail?.description || `${title} — CSD ENGINEERS, ${city}`;
     const publicUrl = item.link || CAREER_URL;
 

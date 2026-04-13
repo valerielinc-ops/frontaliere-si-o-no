@@ -1,6 +1,6 @@
 import { XMLParser } from 'fast-xml-parser';
 import { JSDOM } from 'jsdom';
-import { inferSwissTargetCanton, isTargetSwissLocation, TARGET_CANTONS } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton, isTargetSwissLocation, TARGET_CANTONS  } from './target-swiss-locations.mjs';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
@@ -47,7 +47,7 @@ export function isAristonTargetLocation(rawLocation = '') {
 }
 
 export function inferAristonRegion(rawLocation = '') {
-  const canton = inferSwissTargetCanton(rawLocation);
+  const canton = inferAnyCanton(rawLocation);
   return {
     canton: canton || TARGET_CANTONS[0],
     country: 'CH',

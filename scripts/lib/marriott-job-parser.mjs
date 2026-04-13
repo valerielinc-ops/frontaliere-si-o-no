@@ -23,7 +23,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -316,7 +316,7 @@ function buildJobFromApi(listing) {
   const apiZipCode = String(loc.zipCode || loc.postalCode || '').trim();
 
   // Use the state abbreviation if available (e.g., "VS" for Valais)
-  const canton = stateAbbr || inferSwissTargetCanton(city + ' ' + state) || 'VS';
+  const canton = stateAbbr || inferAnyCanton(city + ' ' + state) || 'VS';
   const postalCode = inferPostalCode(city, apiZipCode);
   const location = city || state || 'Verbier';
 

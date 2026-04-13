@@ -24,7 +24,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -166,7 +166,7 @@ function normalizeCantonCode(regionName = '') {
   if (['tessin', 'ticino'].some((n) => lower.includes(n))) return 'TI';
   if (['graubünden', 'graubunden', 'grigioni', 'grisons'].some((n) => lower.includes(n))) return 'GR';
   // Fallback: use inferSwissTargetCanton for other regions
-  return inferSwissTargetCanton(regionName) || '';
+  return inferAnyCanton(regionName) || '';
 }
 
 /* ── API Client ────────────────────────────────────────────── */

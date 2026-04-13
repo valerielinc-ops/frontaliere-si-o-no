@@ -54,12 +54,12 @@ import {
   detectLang,
   mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
-import {
+import { 
   isTicinoRelevant,
   isGrigioniRelevant,
   isTargetSwissLocation,
-  inferSwissTargetCanton,
-} from './lib/target-swiss-locations.mjs';
+  inferSwissTargetCanton, inferAnyCanton,
+ } from './lib/target-swiss-locations.mjs';
 import { normalizeFederalJobLocation } from './lib/federal-job-normalization.mjs';
 import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
 
@@ -210,7 +210,7 @@ function parseApiJob(j = {}) {
   const cantonMatch = regionRaw.match(/\(([A-Z]{2})\)$/);
   const cantonFromRegion = cantonMatch ? cantonMatch[1] : '';
   // For composite regions (Ostschweiz), infer canton from location text
-  const canton = normalizedLocation.canton || cantonFromRegion || inferSwissTargetCanton(`${locationRaw} ${regionRaw}`) || TARGET_CANTONS[0];
+  const canton = normalizedLocation.canton || cantonFromRegion || inferAnyCanton(`${locationRaw} ${regionRaw}`) || TARGET_CANTONS[0];
 
   // Department info
   const department = (attrs.verwaltungseinheit || [])[0] || '';
@@ -375,7 +375,7 @@ async function fetchAllListings() {
   const grJobs = ostschweizJobs.filter((job) => {
     // Only use location/city for canton inference — not region label (it always contains "GR")
     const locationText = `${job.location} ${job.city}`;
-    const canton = inferSwissTargetCanton(locationText);
+    const canton = inferAnyCanton(locationText);
     if (canton === 'GR') {
       job.canton = 'GR';
       return true;

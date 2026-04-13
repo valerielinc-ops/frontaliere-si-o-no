@@ -19,7 +19,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { isTargetSwissLocation, inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import {  isTargetSwissLocation, inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -215,7 +215,7 @@ function buildJob(ghJob, swissLocation) {
   const publicUrl = ghJob.absolute_url || '';
 
   const city = parseCity(swissLocation);
-  const canton = inferSwissTargetCanton(swissLocation) || HQ.canton;
+  const canton = inferAnyCanton(swissLocation) || HQ.canton;
   const departments = (ghJob.departments || []).map((d) => d.name || '').filter(Boolean);
 
   const datePosted = ghJob.first_published

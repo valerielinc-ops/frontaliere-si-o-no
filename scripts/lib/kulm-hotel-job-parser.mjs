@@ -21,7 +21,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -364,7 +364,7 @@ export async function fetchAllKulmHotelJobs() {
     const locationLabel = vac.location || 'Kulm Hotel';
     const city = mapLocationToCity(locationLabel);
     const postalCode = mapLocationToPostalCode(locationLabel);
-    const canton = inferSwissTargetCanton(city) || 'GR';
+    const canton = inferAnyCanton(city) || 'GR';
 
     // Build URL hash for stable ID
     const urlHash = createHash('sha1').update(detailUrl).digest('hex').slice(0, 12);

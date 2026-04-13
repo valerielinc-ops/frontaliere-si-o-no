@@ -234,7 +234,7 @@ export function parseOtisWorkdayDetail(detail, externalPath = '') {
     description: descriptionText,
     url: publicUrl,
     city: city || 'Ticino',
-    canton: HQ.canton,
+    canton: inferAnyCanton(city) || HQ.canton,
     employmentType: inferEmploymentType(title, descriptionText, timeType),
     datePosted: startDate,
     jobReqId,

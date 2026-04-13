@@ -24,7 +24,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -140,7 +140,7 @@ function inferCanton(city = '', region = '') {
   // Gstaad is in Berne (BE) but UBS classifies it under Mittelland
   if (lower.includes('gstaad')) return 'BE';
   // Try the shared inference function
-  return inferSwissTargetCanton(city) || inferSwissTargetCanton(region) || 'VS';
+  return inferAnyCanton(city) || inferAnyCanton(region) || 'VS';
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */

@@ -26,7 +26,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -430,7 +430,7 @@ export async function fetchAllTschuggenJobs() {
 
     const title = detailTitle;
     const location = listing.location || 'Arosa';
-    const canton = inferSwissTargetCanton(location) || 'GR';
+    const canton = inferAnyCanton(location) || 'GR';
     const postalCode = lookupPostalCode(location);
 
     const fallbackDesc = `${title} — Tschuggen Collection, ${location}`;

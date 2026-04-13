@@ -13,7 +13,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -328,7 +328,7 @@ export async function fetchAllSiemensHealthineersJobs() {
     }
 
     const city = listing.city || 'Zurich';
-    const canton = inferSwissTargetCanton(city) || 'ZH';
+    const canton = inferAnyCanton(city) || 'ZH';
     const description = detailInfo.description
       || listing.descriptionTeaser
       || `${title} — Siemens Healthineers, ${city}`;

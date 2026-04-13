@@ -20,7 +20,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -354,7 +354,7 @@ export async function fetchAllSrgSsrJobs() {
       const infoLineParts = (listing.infoLine || '').split(',').map(s => s.trim());
       const locationFromInfo = infoLineParts.length > 1 ? infoLineParts.slice(1).join(', ') : '';
       const location = addressLocality || locationFromInfo || 'Valais';
-      const canton = inferSwissTargetCanton(location) || 'VS';
+      const canton = inferAnyCanton(location) || 'VS';
       const postalCode = String(jlAddress.postalCode || '').trim() || '';
       const streetAddress = normalizeSpace(jlAddress.streetAddress || '');
 

@@ -39,7 +39,7 @@ import {
   detectLang,
 } from './lib/dedicated-crawler-common.mjs';
 import { parseSwisscomJobDescription } from './lib/swisscom-job-parser.mjs';
-import { inferSwissTargetCanton, isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton, isTargetSwissLocation  } from './lib/target-swiss-locations.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -230,7 +230,7 @@ function parseWorkdayLocation(locText = '') {
 }
 
 function inferCanton(location = '') {
-  const inferred = inferSwissTargetCanton(location);
+  const inferred = inferAnyCanton(location);
   if (inferred) return inferred;
   const loc = normalize(location);
   // Non-Ticino fallbacks

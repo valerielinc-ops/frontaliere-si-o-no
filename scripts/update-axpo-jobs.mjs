@@ -30,7 +30,7 @@ import {
   decodeEntities,
   validateAxpoDescription,
 } from './lib/axpo-job-parser.mjs';
-import { isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
+import { isTargetSwissLocation, inferAnyCanton } from './lib/target-swiss-locations.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -259,9 +259,9 @@ function buildJob(item) {
     companyDomain: COMPANY_DOMAIN,
     location: city,
     addressLocality: city,
-    addressRegion: 'Graubünden',
+    addressRegion: inferAnyCanton(city) || 'GR',
     addressCountry: 'CH',
-    canton: 'GR',
+    canton: inferAnyCanton(city) || 'GR',
     country: 'CH',
     category,
     sector: 'Energia & Utilities',

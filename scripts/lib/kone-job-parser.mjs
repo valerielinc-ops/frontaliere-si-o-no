@@ -13,7 +13,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -252,7 +252,7 @@ export async function fetchAllKoneJobs() {
     const city = normalizeSpace(loc.city || '');
     const region = normalizeSpace(loc.region || '');
     const location = city || region || 'Switzerland';
-    const canton = inferSwissTargetCanton(location) || 'VS';
+    const canton = inferAnyCanton(location) || 'VS';
 
     // Description
     const descriptionText = buildDescription(sections);

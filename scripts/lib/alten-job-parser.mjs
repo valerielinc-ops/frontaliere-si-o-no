@@ -1,5 +1,5 @@
 import { JSDOM } from 'jsdom';
-import { isTargetSwissLocation, inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import {  isTargetSwissLocation, inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 function compact(text = '') {
   return String(text || '').replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim();

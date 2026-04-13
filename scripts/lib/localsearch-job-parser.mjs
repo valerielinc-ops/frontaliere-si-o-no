@@ -13,7 +13,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -229,7 +229,7 @@ export async function fetchAllLocalsearchJobs() {
     }
 
     const city = (listing.locations || [])[0] || listing.locations_text || 'Zürich';
-    const canton = inferSwissTargetCanton(city) || 'ZH';
+    const canton = inferAnyCanton(city) || 'ZH';
     const sourceLang = mapJobylonLang(listing.language);
     const jobSlug = slugify(`${title} localsearch ch`);
     const publicUrl = detailUrl;

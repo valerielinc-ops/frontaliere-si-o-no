@@ -29,7 +29,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -416,7 +416,7 @@ export async function fetchAllFhgrJobs() {
 
     const title = detailTitle;
     const location = listing.location || 'Chur';
-    const canton = inferSwissTargetCanton(location) || 'GR';
+    const canton = inferAnyCanton(location) || 'GR';
 
     const fallbackDesc = `${title} — Fachhochschule Graubünden, ${location}`;
 

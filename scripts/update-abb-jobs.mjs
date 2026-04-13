@@ -40,7 +40,7 @@ import {
   deriveLocalizedSlug,
   normalize,
 } from './lib/dedicated-crawler-common.mjs';
-import { inferSwissTargetCanton } from './lib/target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton  } from './lib/target-swiss-locations.mjs';
 import { isTargetCanton, TARGET_CANTONS } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -161,7 +161,7 @@ function inferCantonFromJob(job) {
   ]
     .filter(Boolean)
     .join(' ');
-  return inferSwissTargetCanton(bucket);
+  return inferAnyCanton(bucket);
 }
 
 function normalizeAbbContract(raw = '') {
@@ -466,7 +466,7 @@ function postProcessAbbJobs() {
       fixed += 1;
     }
 
-    const inferredCanton = inferSwissTargetCanton(
+    const inferredCanton = inferAnyCanton(
       [job?.canton, job?.location, job?.region, job?.title].filter(Boolean).join(' ')
     );
     if (inferredCanton && inferredCanton !== job.canton) {

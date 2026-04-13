@@ -35,7 +35,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -470,7 +470,7 @@ export async function fetchAllOmegaJobs() {
     const locationStr = detailData.detailLocation || listing.locationStr;
     const address = parseAddress(locationStr);
     const city = address.city || 'Zermatt';
-    const canton = normalizeCantonCode(address.region) || inferSwissTargetCanton(city) || 'VS';
+    const canton = normalizeCantonCode(address.region) || inferAnyCanton(city) || 'VS';
 
     // Tags from detail or list
     const tags = detailData.tags.length > 0 ? detailData.tags : listing.tags;
@@ -561,5 +561,5 @@ function normalizeCantonCode(regionName = '') {
   if (['graubünden', 'graubunden', 'grigioni', 'grisons'].some((n) => lower.includes(n))) return 'GR';
   if (['bern', 'berne', 'berna'].some((n) => lower.includes(n))) return 'BE';
   if (['zürich', 'zurich', 'zurigo'].some((n) => lower.includes(n))) return 'ZH';
-  return inferSwissTargetCanton(regionName) || '';
+  return inferAnyCanton(regionName) || '';
 }

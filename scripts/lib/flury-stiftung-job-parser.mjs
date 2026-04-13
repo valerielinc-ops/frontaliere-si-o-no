@@ -21,7 +21,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -298,7 +298,7 @@ export async function fetchAllFluryStiftungJobs() {
 
     const locationInfo = inferLocation(section, title);
     const location = locationInfo.city;
-    const canton = inferSwissTargetCanton(location) || 'GR';
+    const canton = inferAnyCanton(location) || 'GR';
     const postalCode = locationInfo.postalCode;
 
     const urlHash = createHash('sha1').update(pdfUrl).digest('hex').slice(0, 12);

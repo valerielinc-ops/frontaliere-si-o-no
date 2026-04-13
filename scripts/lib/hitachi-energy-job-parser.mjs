@@ -13,7 +13,7 @@
  * ATS: Workday (apply URLs → hitachi.wd1.myworkdayjobs.com)
  */
 
-import { isTargetSwissLocation, inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import {  isTargetSwissLocation, inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 const PAGE_SIZE = 20;
 
@@ -189,7 +189,7 @@ export function isHitachiEnergyTicinoRelevant(location = '') {
  * Infer canton from location text.
  */
 export function inferHitachiEnergyCanton(location = '') {
-  const canton = inferSwissTargetCanton(location);
+  const canton = inferAnyCanton(location);
   return canton || 'CH';
 }
 

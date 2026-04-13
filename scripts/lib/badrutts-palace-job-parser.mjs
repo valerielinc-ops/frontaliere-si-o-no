@@ -19,7 +19,7 @@ import { createHash } from 'node:crypto';
 import { XMLParser } from 'fast-xml-parser';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -238,7 +238,7 @@ export async function fetchAllBadruttsPalaceJobs() {
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
 
     const location = DEFAULT_LOCATION;
-    const canton = inferSwissTargetCanton(location) || DEFAULT_CANTON;
+    const canton = inferAnyCanton(location) || DEFAULT_CANTON;
     const postedDate = parseRssDate(item.pubDate) || new Date().toISOString().split('T')[0];
 
     const job = {

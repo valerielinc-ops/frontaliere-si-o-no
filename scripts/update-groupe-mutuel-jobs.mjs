@@ -47,7 +47,7 @@ import {
   mergeLocaleTextMap,
   detectLang,
 } from './lib/dedicated-crawler-common.mjs';
-import { inferSwissTargetCanton } from './lib/target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton  } from './lib/target-swiss-locations.mjs';
 import { isTargetCanton, TARGET_CANTONS, COMPANY_HQ } from './lib/crawler-location-config.mjs';
 import { isSlugStable } from './lib/dedicated-crawler-common.mjs';
 
@@ -364,7 +364,7 @@ function parseCsodLocation(rawLocation = '') {
 
 function inferCanton(location = '') {
   // First try the shared utility
-  const canton = inferSwissTargetCanton(location);
+  const canton = inferAnyCanton(location);
   if (canton) return canton;
 
   const loc = normalize(location);

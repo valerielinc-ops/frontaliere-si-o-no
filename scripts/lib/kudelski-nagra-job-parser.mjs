@@ -15,7 +15,7 @@ import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace as _normalizeSpace, fetchHtml, fetchJson } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -271,7 +271,7 @@ export async function fetchAllKudelskiNagraJobs() {
     // Greenhouse returns location as { name: "..." } or a string
     const rawLoc = listing.location?.name || listing.location || listing.city || '';
     const location = normalizeSpace(typeof rawLoc === 'string' ? rawLoc : rawLoc?.name || '') || HQ?.city || 'Lugano';
-    const canton = inferSwissTargetCanton(location) || HQ?.canton || 'TI';
+    const canton = inferAnyCanton(location) || HQ?.canton || 'TI';
 
     // Greenhouse provides job content as HTML
     const descriptionHtml = listing.content || listing.description || '';

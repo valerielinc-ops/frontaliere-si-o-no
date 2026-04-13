@@ -12,7 +12,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -221,7 +221,7 @@ export async function fetchAllFusalpJobs() {
           normalize(addressCountry).includes('luxem') ? 'LU' :
             addressCountry === 'CH' ? 'CH' : '';
 
-      const canton = country === 'CH' ? (inferSwissTargetCanton(city) || 'VS') : '';
+      const canton = country === 'CH' ? (inferAnyCanton(city) || 'VS') : '';
 
       // Description from JSON-LD
       const rawDescription = jsonLd?.description || '';

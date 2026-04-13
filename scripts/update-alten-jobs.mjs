@@ -31,7 +31,7 @@ import {
   parseAltenDetailHtml,
   inferAltenCategory,
 } from './lib/alten-job-parser.mjs';
-import { inferSwissTargetCanton } from './lib/target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton  } from './lib/target-swiss-locations.mjs';
 import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -197,7 +197,7 @@ async function buildJobs(listings) {
           continue;
         }
         const parsed = parseAltenDetailHtml(await page.content(), listing.href);
-        const canton = inferSwissTargetCanton(parsed.location) || TARGET_CANTONS[0];
+        const canton = inferAnyCanton(parsed.location) || TARGET_CANTONS[0];
         jobs.push({
           title: parsed.title,
           slug: parsed.slug,

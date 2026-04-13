@@ -44,6 +44,7 @@ import {
 } from './lib/dedicated-crawler-common.mjs';
 import { inferEmploymentType } from './lib/aldi-suisse-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 
 /* -- Constants --------------------------------------------------------- */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -263,9 +264,9 @@ async function fetchAndParseDetailPages(urls) {
         requirementsByLocale: { it: requirements.slice(0, 20) },
         location,
         postalCode: TICINO_PLZ[location.toLowerCase()] || '6928',
-        canton: HQ.canton,
+        canton: inferAnyCanton(location) || HQ.canton,
         addressLocality: location || 'Manno',
-        addressRegion: HQ.addressRegion,
+        addressRegion: inferAnyCanton(location) || HQ.addressRegion,
         addressCountry: 'CH',
         streetAddress: 'Centro Monda 8',
         employmentType: inferEmploymentType(rawTitle, description, workPct || ''),

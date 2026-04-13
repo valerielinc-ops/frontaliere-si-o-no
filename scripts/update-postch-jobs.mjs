@@ -35,7 +35,7 @@ import {
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
 import { parsePostJobDetail } from './lib/postch-job-parser.mjs';
-import { inferSwissTargetCanton, isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton, isTargetSwissLocation  } from './lib/target-swiss-locations.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -197,7 +197,7 @@ function detectCity(detail) {
 }
 
 function detectCanton(city = '') {
-  return inferSwissTargetCanton(city) || 'TI';
+  return inferAnyCanton(city) || 'TI';
 }
 
 function detectEmploymentType(detail) {

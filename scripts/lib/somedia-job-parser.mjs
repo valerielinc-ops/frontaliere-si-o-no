@@ -19,7 +19,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace, fetchHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -255,7 +255,7 @@ function extractLocation(jsonLd = {}) {
 
   // Infer canton from locality
   let canton = HQ.canton;
-  const inferred = inferSwissTargetCanton(locality);
+  const inferred = inferAnyCanton(locality);
   if (inferred) canton = inferred;
 
   // Build combined location string for multi-location jobs

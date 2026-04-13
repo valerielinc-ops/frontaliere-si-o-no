@@ -1,5 +1,5 @@
 import { JSDOM } from 'jsdom';
-import { inferSwissTargetCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton, isTargetSwissLocation  } from './target-swiss-locations.mjs';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim();
@@ -154,7 +154,7 @@ export function parseRuagJobDetail(html = '', url = '') {
     applyUrl,
     company,
     location,
-    canton: inferSwissTargetCanton(location),
+    canton: inferAnyCanton(location),
     description: sections.join('\n\n').trim(),
     postedDate: normalizeSpace(jobPosting?.datePosted || ''),
     validThrough: normalizeSpace(jobPosting?.validThrough || ''),
@@ -168,7 +168,7 @@ export function isRuagTargetLocation(raw = '') {
 }
 
 export function inferRuagCanton(raw = '') {
-  return inferSwissTargetCanton(raw) || 'TI';
+  return inferAnyCanton(raw) || 'TI';
 }
 
 export function buildRuagLocalizedContent(detail = {}, companyName = 'RUAG AG', locale = 'it') {

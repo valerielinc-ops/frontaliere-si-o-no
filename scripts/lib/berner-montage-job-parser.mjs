@@ -13,7 +13,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -352,7 +352,7 @@ export async function fetchAllBernerMontageJobs() {
     }
 
     const city = listing.location || detail?.location || 'Visp';
-    const canton = inferSwissTargetCanton(city) || 'VS';
+    const canton = inferAnyCanton(city) || 'VS';
     // Prefer detail page description when it's richer than the listing excerpt
     const detailWords = (detail?.description || '').split(/\s+/).filter(Boolean).length;
     const listingWords = (listing.description || '').split(/\s+/).filter(Boolean).length;

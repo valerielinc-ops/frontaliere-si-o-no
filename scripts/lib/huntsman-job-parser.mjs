@@ -13,7 +13,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -205,7 +205,7 @@ function parseWorkdayLocation(locText = '') {
 }
 
 function inferCanton(location = '') {
-  const canton = inferSwissTargetCanton(location);
+  const canton = inferAnyCanton(location);
   if (canton) return canton;
   const loc = normalize(location);
   if (loc.includes('monthey')) return 'VS';

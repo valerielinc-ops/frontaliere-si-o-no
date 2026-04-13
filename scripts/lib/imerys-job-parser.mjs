@@ -15,7 +15,7 @@ import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace as _normalizeSpace, fetchHtml, fetchJson } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -287,7 +287,7 @@ export async function fetchAllImerysJobs() {
 
     const rawLocation = listing.location || listing.city || '';
     const location = (typeof rawLocation === 'object' ? rawLocation.city || rawLocation.name : normalizeSpace(rawLocation)) || HQ?.city || 'Bodio';
-    const canton = inferSwissTargetCanton(location) || HQ?.canton || 'TI';
+    const canton = inferAnyCanton(location) || HQ?.canton || 'TI';
     const descriptionHtml = listing.description || listing.jobAd?.sections?.jobDescription?.text || '';
     const descriptionText = stripHtml(descriptionHtml);
     const publicUrl = listing.url || listing.ref || listing.applyUrl || CAREER_URL;
