@@ -4998,7 +4998,7 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
     };
     const prev = map.get(fp);
     if (!prev) {
-      map.set(fp, next);
+      map.set(fp, { ...next, firstSeenAt: next.firstSeenAt || nowIsoTs });
       inserted += 1;
       insertedByCompany[next.company] = (insertedByCompany[next.company] || 0) + 1;
       continue;
@@ -5009,6 +5009,7 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
       id: prev.id || next.id,
       postedDate: next.postedDate || prev.postedDate || nowIsoDate,
       crawledAt: prev.crawledAt || next.crawledAt || nowIsoTs,
+      firstSeenAt: prev.firstSeenAt || next.firstSeenAt || nowIsoTs,
       description: (next.description?.length || 0) >= (prev.description?.length || 0) ? next.description : prev.description,
       requirements: (next.requirements?.length || 0) >= (prev.requirements?.length || 0) ? next.requirements : prev.requirements,
       source: (next.source === 'Company Careers Crawler' || prev.source !== 'Company Careers Crawler')

@@ -113,8 +113,10 @@ function matchJobToAlert(job, alert) {
 // ── Email template ───────────────────────────────────────────
 
 function buildAlertEmail(alert, matchedJobs) {
-  const keyword = alert.keywords?.join(', ') || 'tutte le offerte';
-  const subject = `🔔 ${matchedJobs.length} nuov${matchedJobs.length === 1 ? 'a offerta' : 'e offerte'} per: ${keyword}`;
+  const keyword = alert.keywords?.join(', ') || '';
+  const locationLabel = alert.locations?.length > 0 ? alert.locations.join(', ') : '';
+  const subjectLabel = keyword || locationLabel || 'le tue offerte';
+  const subject = `🔔 ${matchedJobs.length} nuov${matchedJobs.length === 1 ? 'a offerta' : 'e offerte'} per: ${subjectLabel}`;
 
   // Brand colors (aligned with newsletter-template.mjs)
   const BRAND_ORANGE = '#f97316';
@@ -130,7 +132,8 @@ function buildAlertEmail(alert, matchedJobs) {
   const jobCards = matchedJobs.slice(0, 10).map((job) => {
     const title = job.titleByLocale?.it || job.title || 'Offerta di lavoro';
     const company = job.company || '';
-    const location = job.location || job.addressLocality || '';
+    const rawLocation = job.location || job.addressLocality || '';
+    const location = rawLocation.replace(/^[-–—\s]+/, '').trim();
     const slug = job.slugByLocale?.it || job.slug || '';
     const url = slug ? `${BASE_URL}/cerca-lavoro-ticino/${slug}?${utmBase}` : BASE_URL;
     const initial = (company || '?')[0].toUpperCase();
@@ -161,12 +164,14 @@ function buildAlertEmail(alert, matchedJobs) {
         </td></tr>`;
   }).join('');
 
-  const manageUrl = `${BASE_URL}/?tab=lavoro&${utmBase}`;
+  const manageUrl = `${BASE_URL}/cerca-lavoro-ticino/?${utmBase}`;
   const allJobsUrl = `${BASE_URL}/cerca-lavoro-ticino/?${utmBase}`;
 
-  const locationInfo = alert.locations?.length > 0 ? ` \u00b7 ${alert.locations.join(', ')}` : '';
-  const sectorInfo = alert.sectors?.length > 0 ? ` \u00b7 ${alert.sectors.join(', ')}` : '';
-  const filterSummary = `${escHtml(keyword)}${escHtml(locationInfo)}${escHtml(sectorInfo)}`;
+  const filterParts = [];
+  if (keyword) filterParts.push(keyword);
+  if (alert.locations?.length > 0) filterParts.push(alert.locations.join(', '));
+  if (alert.sectors?.length > 0) filterParts.push(alert.sectors.join(', '));
+  const filterSummary = escHtml(filterParts.length > 0 ? filterParts.join(' \u00b7 ') : 'tutte le offerte');
 
   const html = `<!DOCTYPE html>
 <html lang="it">
@@ -185,7 +190,7 @@ function buildAlertEmail(alert, matchedJobs) {
   </style>
 </head>
 <body>
-  <div style="display:none!important;font-size:1px;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;">${matchedJobs.length} nuove offerte: ${keyword}&nbsp;\u200c\u200c\u200c\u200c</div>
+  <div style="display:none!important;font-size:1px;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;">${matchedJobs.length} nuove offerte: ${subjectLabel}&nbsp;\u200c\u200c\u200c\u200c</div>
   <table width="100%" cellpadding="0" cellspacing="0" style="background:${LIGHT_BG};">
     <tr><td align="center" style="padding:0;">
       <table class="outer-table" width="620" cellpadding="0" cellspacing="0" style="width:100%;max-width:620px;">
