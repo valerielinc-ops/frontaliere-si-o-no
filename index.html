@@ -496,6 +496,17 @@
           registrations.forEach(function(r) { r.unregister(); });
         });
       }
+      // Suppress Firebase SDK internal IndexedDB DOMExceptions (race condition
+      // when IDB connection closes during page suspend/resume on iOS Safari).
+      // Must be registered here (before module JS) to catch errors that fire
+      // before React mounts and Analytics.initGlobalErrorTracking() runs.
+      window.addEventListener('unhandledrejection', function(e) {
+        var r = e.reason;
+        var m = r instanceof Error ? r.message : String(r || '');
+        if (m.indexOf('IDBDatabase') !== -1 || m.indexOf('IndexedDB') !== -1 || m.indexOf('Indexed Database') !== -1) {
+          e.preventDefault();
+        }
+      });
       // TRACKING: Every resource error is stored in sessionStorage._resourceErrors
       // (JSON array). Force reloads are stored in _forceReloadInfo. Both are
       // read and reported by Analytics.initGlobalErrorTracking() once React boots.
