@@ -1690,6 +1690,16 @@ function BlogArticles({
                   className="mt-2"
                 />
               </Suspense>
+
+              <Suspense fallback={adEligible ? <div style={{ minHeight: AD_SLOTS.ARTICLE_RAIL_LEFT_3.placeholderMinHeight, contain: 'content' }} className="mt-2" /> : null}>
+                <AdSenseBanner
+                  adSlot={AD_SLOTS.ARTICLE_RAIL_LEFT_3.slot}
+                  adFormat={AD_SLOTS.ARTICLE_RAIL_LEFT_3.format}
+                  label={t('adsense.label')}
+                  enabled={adEligible}
+                  className="mt-2"
+                />
+              </Suspense>
             </div>
           </aside>
 
@@ -1944,6 +1954,51 @@ function BlogArticles({
                         </Suspense>
                       </div>
                     </>
+                  )}
+
+                  {/* Mobile in-article ad #3 — after body3 */}
+                  {idx === 3 && !isDesktopXl && (
+                    <div className="xl:hidden my-5">
+                      <Suspense fallback={adEligibleInline ? <div style={{ minHeight: AD_SLOTS.ARTICLE_INLINE_MOBILE_3.placeholderMinHeight, contain: 'content' }} /> : null}>
+                        <AdSenseBanner
+                          adSlot={AD_SLOTS.ARTICLE_INLINE_MOBILE_3.slot}
+                          adFormat={AD_SLOTS.ARTICLE_INLINE_MOBILE_3.format}
+                          adLayout={AD_SLOTS.ARTICLE_INLINE_MOBILE_3.layout}
+                          fullWidthResponsive={false}
+                          enabled={adEligibleInline}
+                        />
+                      </Suspense>
+                    </div>
+                  )}
+
+                  {/* Mobile in-article ad #4 — after body5 */}
+                  {idx === 5 && !isDesktopXl && (
+                    <div className="xl:hidden my-5">
+                      <Suspense fallback={adEligibleInline ? <div style={{ minHeight: AD_SLOTS.ARTICLE_INLINE_MOBILE_4.placeholderMinHeight, contain: 'content' }} /> : null}>
+                        <AdSenseBanner
+                          adSlot={AD_SLOTS.ARTICLE_INLINE_MOBILE_4.slot}
+                          adFormat={AD_SLOTS.ARTICLE_INLINE_MOBILE_4.format}
+                          adLayout={AD_SLOTS.ARTICLE_INLINE_MOBILE_4.layout}
+                          fullWidthResponsive={false}
+                          enabled={adEligibleInline}
+                        />
+                      </Suspense>
+                    </div>
+                  )}
+
+                  {/* Mobile in-article ad #5 — after body7 */}
+                  {idx === 7 && !isDesktopXl && (
+                    <div className="xl:hidden my-5">
+                      <Suspense fallback={adEligibleInline ? <div style={{ minHeight: AD_SLOTS.ARTICLE_INLINE_MOBILE_5.placeholderMinHeight, contain: 'content' }} /> : null}>
+                        <AdSenseBanner
+                          adSlot={AD_SLOTS.ARTICLE_INLINE_MOBILE_5.slot}
+                          adFormat={AD_SLOTS.ARTICLE_INLINE_MOBILE_5.format}
+                          adLayout={AD_SLOTS.ARTICLE_INLINE_MOBILE_5.layout}
+                          fullWidthResponsive={false}
+                          enabled={adEligibleInline}
+                        />
+                      </Suspense>
+                    </div>
                   )}
 
                   {/* Interstitials after body2 (index 1) */}
@@ -2255,6 +2310,16 @@ function BlogArticles({
                 <AdSenseBanner
                   adSlot={AD_SLOTS.ARTICLE_RAIL_RIGHT_2.slot}
                   adFormat={AD_SLOTS.ARTICLE_RAIL_RIGHT_2.format}
+                  label={t('adsense.label')}
+                  enabled={adEligible}
+                  className="mt-2"
+                />
+              </Suspense>
+
+              <Suspense fallback={adEligible ? <div style={{ minHeight: AD_SLOTS.ARTICLE_RAIL_RIGHT_3.placeholderMinHeight, contain: 'content' }} className="mt-2" /> : null}>
+                <AdSenseBanner
+                  adSlot={AD_SLOTS.ARTICLE_RAIL_RIGHT_3.slot}
+                  adFormat={AD_SLOTS.ARTICLE_RAIL_RIGHT_3.format}
                   label={t('adsense.label')}
                   enabled={adEligible}
                   className="mt-2"

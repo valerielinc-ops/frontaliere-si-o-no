@@ -5802,11 +5802,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
         )}
 
         {/* AdSense — between related jobs and articles */}
-        <AdSenseBanner
-          adSlot={AD_SLOTS.JOBDETAIL_BETWEEN_SECTIONS.slot}
-          adFormat={AD_SLOTS.JOBDETAIL_BETWEEN_SECTIONS.format}
-          className="my-4"
-        />
+        {AD_SLOTS.JOBDETAIL_BETWEEN_SECTIONS && (
+          <AdSenseBanner
+            adSlot={AD_SLOTS.JOBDETAIL_BETWEEN_SECTIONS.slot}
+            adFormat={AD_SLOTS.JOBDETAIL_BETWEEN_SECTIONS.format}
+            className="my-4"
+          />
+        )}
 
         {relatedArticles.length > 0 && (
           <section className="rounded-2xl border border-edge bg-surface p-5">
