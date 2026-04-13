@@ -1,16 +1,16 @@
 {
   "key": "lidl-svizzera",
   "label": "Lidl",
-  "generatedAt": "2026-04-13T10:53:31.536Z",
+  "generatedAt": "2026-04-13T22:01:46.938Z",
   "total": 11,
   "newCount": 0,
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 23172,
-  "avgDurationMs": 23172,
+  "durationMs": 14955,
+  "avgDurationMs": 14955,
   "durationHistory": [
-    23172
+    14955
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -46,6 +46,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-11T09:23:31.511Z",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -86,6 +87,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-02T12:28:08.796Z",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -166,6 +168,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-03-31T21:28:15.779Z",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -210,6 +213,8 @@
       "salaryMin": 41600,
       "salaryMax": 63000,
       "needsRetranslation": true,
+      "firstSeenAt": "2026-04-12T09:43:42.513Z",
+      "retranslationAttempts": 1,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -251,6 +256,8 @@
       "salaryMin": 41600,
       "salaryMax": 63000,
       "needsRetranslation": true,
+      "firstSeenAt": "2026-04-12T09:43:42.513Z",
+      "retranslationAttempts": 1,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -292,6 +299,8 @@
       "salaryMin": 41600,
       "salaryMax": 63000,
       "needsRetranslation": true,
+      "firstSeenAt": "2026-04-12T09:43:42.513Z",
+      "retranslationAttempts": 1,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -333,6 +342,8 @@
       "salaryMin": 41600,
       "salaryMax": 63000,
       "needsRetranslation": true,
+      "firstSeenAt": "2026-04-12T09:43:42.513Z",
+      "retranslationAttempts": 1,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -374,6 +385,8 @@
       "salaryMin": 41600,
       "salaryMax": 63000,
       "needsRetranslation": true,
+      "firstSeenAt": "2026-04-12T09:43:42.513Z",
+      "retranslationAttempts": 1,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -415,6 +428,8 @@
       "salaryMin": 41600,
       "salaryMax": 63000,
       "needsRetranslation": true,
+      "firstSeenAt": "2026-04-12T09:43:42.513Z",
+      "retranslationAttempts": 1,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -456,6 +471,8 @@
       "salaryMin": 41600,
       "salaryMax": 63000,
       "needsRetranslation": true,
+      "firstSeenAt": "2026-04-12T09:43:42.513Z",
+      "retranslationAttempts": 1,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
