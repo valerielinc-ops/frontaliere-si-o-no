@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fhgr",
-  "assembledAt": "2026-04-13T10:32:30.315Z",
+  "assembledAt": "2026-04-13T21:40:54.032Z",
   "jobs": [
     {
       "id": "fhgr-7309b549f3fa",
@@ -33,7 +33,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/739/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:32:28.055Z",
+      "crawledAt": "2026-04-13T21:40:51.632Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -93,6 +93,8 @@
       "previousSlugs": [
         "lehrstelle-architekturmodellbauer-in-efz-fhgr-ch"
       ],
+      "firstSeenAt": "2026-04-13T10:32:28.055Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -104,8 +106,7 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:32:28.055Z"
+      }
     },
     {
       "id": "fhgr-711c55ac5c15",
@@ -138,7 +139,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/772/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:32:27.193Z",
+      "crawledAt": "2026-04-13T21:40:50.572Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -195,6 +196,8 @@
           "architekt-in-oder-bauingenieur-in-fur-die-leitung-des-instituts-fur-bauen-im-alpinen-raum-"
         ]
       },
+      "firstSeenAt": "2026-04-13T10:32:27.193Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -206,8 +209,7 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:32:27.193Z"
+      }
     },
     {
       "id": "fhgr-b96495651fa4",
@@ -240,7 +242,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/749/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:32:26.327Z",
+      "crawledAt": "2026-04-13T21:40:49.526Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -297,6 +299,8 @@
       "previousSlugs": [
         "bauingenieur-in-fhgr-ch"
       ],
+      "firstSeenAt": "2026-04-13T10:32:26.327Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -308,8 +312,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:32:26.327Z"
+      }
     },
     {
       "id": "fhgr-7fe23a73a01d",
@@ -342,7 +345,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/735/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:32:25.667Z",
+      "crawledAt": "2026-04-13T21:40:48.508Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -405,6 +408,8 @@
           "sachbearbeiter-instandhaltung-100-fachhochschule-graubunden-chur"
         ]
       },
+      "firstSeenAt": "2026-04-13T10:32:25.667Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -416,8 +421,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:32:25.667Z"
+      }
     },
     {
       "id": "fhgr-7a278385e941",
@@ -450,7 +454,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/774/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:32:24.670Z",
+      "crawledAt": "2026-04-13T21:40:47.449Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -510,6 +514,8 @@
       "previousSlugs": [
         "studienleiter-in-business-administration-studienrichtung-new-business-fhgr-ch"
       ],
+      "firstSeenAt": "2026-04-13T10:32:24.670Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -521,8 +527,7 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:32:24.670Z"
+      }
     }
   ]
 }
