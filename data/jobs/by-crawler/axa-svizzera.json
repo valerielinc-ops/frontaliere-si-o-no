@@ -1,6 +1,6 @@
 {
   "crawlerKey": "axa-svizzera",
-  "assembledAt": "2026-04-13T09:59:53.193Z",
+  "assembledAt": "2026-04-13T21:08:31.464Z",
   "jobs": [
     {
       "title": "Agente Principale",
@@ -76,7 +76,8 @@
         "fr": [
           "agente-principale-axa-varie-sedi-nel-sottoceneri-344f0h"
         ]
-      }
+      },
+      "firstSeenAt": "2026-04-13T21:08:31.463Z"
     },
     {
       "title": "Responsabile Vendita",
@@ -143,7 +144,8 @@
         "it": [
           "responsabile-vendita-axa-agenzia-generale-andrea-tarello-gv894t"
         ]
-      }
+      },
+      "firstSeenAt": "2026-04-13T21:08:31.463Z"
     },
     {
       "title": "Consulente Assicurativo per il Luganese",
@@ -202,7 +204,9 @@
       },
       "streetAddress": "Via della Posta 2",
       "postalCode": "6901",
-      "id": "axa-svizzera-1c7816dfff3c"
+      "id": "axa-svizzera-1c7816dfff3c",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-04-13T21:08:31.463Z"
     },
     {
       "title": "Collaboratore/Collaboratrice Servizio Interno",
@@ -283,7 +287,8 @@
           "collaboratore-collaboratrice-servizio-interno",
           "collaboratore-collaboratrice-servizio-interno-axa-agenzia-generale-lugano-eisl17"
         ]
-      }
+      },
+      "firstSeenAt": "2026-04-13T21:08:31.463Z"
     },
     {
       "title": "Responsabile Servizio Trasporti (Underwriting e Sinistri)",
@@ -365,7 +370,8 @@
           "verantwortlicher-servizio-trasporti-underwriting-e-sinistri-axa-svizzera-axa-assicurazioni",
           "responsable-servizio-trasporti-underwriting-e-sinistri-axa-svizzera-axa-assicurazioni"
         ]
-      }
+      },
+      "firstSeenAt": "2026-04-13T21:08:31.463Z"
     },
     {
       "title": "Senior Underwriter Responsabilità Civile",
@@ -432,7 +438,9 @@
         "en": [
           "senior-underwriter-responsabilita-civile-axa-svizzera-axa-assicurazioni"
         ]
-      }
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-04-13T21:08:31.463Z"
     },
     {
       "title": "Consulente Assicurativo",
@@ -513,7 +521,8 @@
           "consulente-assicurativo",
           "consulente-assicurativo-axa-agenzia-principale-igor-scheggia-biasca-xhxjxo"
         ]
-      }
+      },
+      "firstSeenAt": "2026-04-13T21:08:31.463Z"
     },
     {
       "title": "Consulente Assicurativo",
@@ -609,7 +618,8 @@
           "consulente-assicurativo-axa-agenzia-principale-nicola-locarnini-manno-nfod8k",
           "consulente-assicurativo-axa-svizzera-agenzia-principale-igor-scheggia-biasca"
         ]
-      }
+      },
+      "firstSeenAt": "2026-04-13T21:08:31.463Z"
     },
     {
       "title": "Consulente Assicurativo per il Mendrisiotto",
@@ -676,11 +686,13 @@
         "it": [
           "consulente-assicurativo-per-il-mendrisiotto-axa-svizzera-agenzia-generale-andrea-tarello"
         ]
-      }
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-04-13T21:08:31.463Z"
     },
     {
       "title": "Senior AI Engineer - Business Automation & Information Management (all genders)",
-      "slug": "senior-ai-engineer-business-automation-information-management-all-genders-axa-winte-o2zv0c",
+      "slug": "senior-ai-engineer-business-automation-information-management-tutti-i-generi-axa-svizzera-winterthur-smart-working",
       "url": "https://jobs.axa.ch/posizioni-aperte/senior-ai-engineer-business-automation-information-management-all-genders/1a3b2892-f519-443c-a603-5fc00722d67a",
       "applyUrl": "https://jobs.axa.ch/apply/ats/1a3b2892-f519-443c-a603-5fc00722d67a",
       "company": "AXA Svizzera",
@@ -703,21 +715,21 @@
       "validThrough": "",
       "description": "Komm zur AXA, der führenden Versicherung der Schweiz - als\n\nDu möchtest Teil von etwas Grossem sein? Dann bist du bei uns goldrichtig!Wir sind dabei unsere bestehende «Business Automation & Information Management Platform» mit neuen AI-Fähigkeiten zu ergänzen und diese in die Versicherungsprozesse zu skalieren.Als Senior AI Expert gestaltest du unsere Lösungen zur agentischen Automatisierung unserer Geschäftsprozesse und bist als Teil unseres Teams für den Aufbau und die Realisierung einer übergreifenden Document-Understanding-Lösung zuständig. Zudem unterstützt du deine Kolleginnen und Kollegen im Umgang mit AI-Technologien.Wir bieten dir ein Arbeitsumfeld, in dem Mitdenken und aktives Einbringen ausdrücklich erwünscht sind. Wenn du neugierig bist und mit uns gemeinsam den nächsten Schritt machen willst, freuen wir uns auf dich!\n\nAXA ist nicht nur eine Versicherung. Rund 600 Software- und System-Entwickler arbeiten auf dem Platz Schweiz und entwickeln inhouse die Technologie von morgen. Dabei kollaborieren wir auch in globalen Teams und Netzwerken.Wir prägen und integrieren neueste Tools, veranstalten Hackathons und unsere agilen Produktteams laufen selbstorganisiert und sind von A bis Z eigenverantwortlich.Um den digitalen Wandel aktiv zu gestalten, bauen wir auf smarte und neugierige Talente sowie technologieaffine Mitarbeitende, die danach streben, den Unterschied zu machen.\n\n## Dein Beitrag\n- Innovation: Du explorierst neugierig neue Themen und Technologien, von der Idee bis zur Umsetzung, und entwickelst Lösungsideen mit klarem Fokus auf Kundennutzen, Machbarkeit und Business Value.\n- Analyse & Design: Du analysierst die fachlichen und technischen Problemstellungen in unseren Geschäftsprozessen und Workflows\n- Technische Gestaltung: Du setzt Anforderungen nicht nur um, sondern denkst technisch mit, strukturierst diese und gestaltest aktiv nachhaltige Lösungen\n- Ownership: Du übernimmst Verantwortung für den Betrieb, die Stabilität und die kontinuierliche Weiterentwicklung bestehender Lösungen\n\n## Deine Fähigkeiten und Talente\n- Du hast Erfahrung darin, eine geschäftliche Herausforderung zu verstehen, Lösungsansätze zu entwerfen und diese gemeinsam mit einem Team in greifbaren, messbaren Mehrwert zu verwandeln\n- Höherer Abschluss in Computer Science, Data Science, Machine-Learning oder einem ähnlichen Anwendungsgebiet und adäquate Berufserfahrung (mindestens die letzten 3 Jahre mit Fokus auf AI-/Machine-Learning-Lösungen)\n- Erfahrungen mit Agentic Workflows und RAG-Lösungen\n- Erfahrungen mit Agentic Coding Tools (z.B. Github Copilot, Codex, Claude Code)\n- Sehr gute Python-Kenntnisse und Java-Kenntnisse wünschenswert\n- Erfahrung mit Cloud-Plattformen (z. B. GCP, Azure oder OpenShift)\n- Sehr gute Deutschkenntnisse\n\n## Unser Bewerbungsprozess\nLerne unseren Bewerbungsprozess kennen und erhalte Antworten auf Fragen, die Bewerbende uns häufig stellen. Solltest du während des Bewerbungsprozesses Unterstützung benötigen, melde dich einfach. Die Kolleginnen und Kollegen vom Recruiting helfen dir gerne weiter.\n\n## Smart Working\nBei der AXA setzen wir auf Vertrauen, Flexibilität und Teamarbeit. Im Zentrum unseres neuen Arbeitsmodells \"Smart Working\" steht dein Beitrag zu den Unternehmenszielen und nicht der Ort, an dem du arbeitest.\n\n## Diversity & Inclusion\nVielfalt, Chancengerechtigkeit und Inklusion liegen uns bei der AXA am Herzen. Unsere Unternehmenskultur fördert Respekt und Offenheit, damit jede Person bei uns ihr volles Potential entfalten kann.",
       "titleByLocale": {
-        "de": "Senior AI Engineer - Business Automation & Information Management (alle Geschlechter)",
+        "it": "Senior AI Ingegnere - Business Automation & Information Management (all genders)",
         "en": "Senior AI Engineer - Business Automation & Information Management (all genders)",
-        "it": "Senior AI Engineer - Business Automation & Information Management (tutti i generi)",
+        "de": "Senior AI Ingenieur - Business Automation & Information Management (all genders)",
         "fr": "Ingénieur principal de l'IA - Automatisation des affaires et gestion de l'information (tous genres)"
       },
       "descriptionByLocale": {
-        "de": "Komm zur AXA, der führenden Versicherung der Schweiz - als\n\nDu möchtest Teil von etwas Grossem sein? Dann bist du bei uns goldrichtig!Wir sind dabei unsere bestehende «Business Automation & Information Management Platform» mit neuen AI-Fähigkeiten zu ergänzen und diese in die Versicherungsprozesse zu skalieren.Als Senior AI Expert gestaltest du unsere Lösungen zur agentischen Automatisierung unserer Geschäftsprozesse und bist als Teil unseres Teams für den Aufbau und die Realisierung einer übergreifenden Document-Understanding-Lösung zuständig. Zudem unterstützt du deine Kolleginnen und Kollegen im Umgang mit AI-Technologien.Wir bieten dir ein Arbeitsumfeld, in dem Mitdenken und aktives Einbringen ausdrücklich erwünscht sind. Wenn du neugierig bist und mit uns gemeinsam den nächsten Schritt machen willst, freuen wir uns auf dich!\n\nAXA ist nicht nur eine Versicherung. Rund 600 Software- und System-Entwickler arbeiten auf dem Platz Schweiz und entwickeln inhouse die Technologie von morgen. Dabei kollaborieren wir auch in globalen Teams und Netzwerken.Wir prägen und integrieren neueste Tools, veranstalten Hackathons und unsere agilen Produktteams laufen selbstorganisiert und sind von A bis Z eigenverantwortlich.Um den digitalen Wandel aktiv zu gestalten, bauen wir auf smarte und neugierige Talente sowie technologieaffine Mitarbeitende, die danach streben, den Unterschied zu machen.\n\n## Dein Beitrag\n- Innovation: Du explorierst neugierig neue Themen und Technologien, von der Idee bis zur Umsetzung, und entwickelst Lösungsideen mit klarem Fokus auf Kundennutzen, Machbarkeit und Business Value.\n- Analyse & Design: Du analysierst die fachlichen und technischen Problemstellungen in unseren Geschäftsprozessen und Workflows\n- Technische Gestaltung: Du setzt Anforderungen nicht nur um, sondern denkst technisch mit, strukturierst diese und gestaltest aktiv nachhaltige Lösungen\n- Ownership: Du übernimmst Verantwortung für den Betrieb, die Stabilität und die kontinuierliche Weiterentwicklung bestehender Lösungen\n\n## Deine Fähigkeiten und Talente\n- Du hast Erfahrung darin, eine geschäftliche Herausforderung zu verstehen, Lösungsansätze zu entwerfen und diese gemeinsam mit einem Team in greifbaren, messbaren Mehrwert zu verwandeln\n- Höherer Abschluss in Computer Science, Data Science, Machine-Learning oder einem ähnlichen Anwendungsgebiet und adäquate Berufserfahrung (mindestens die letzten 3 Jahre mit Fokus auf AI-/Machine-Learning-Lösungen)\n- Erfahrungen mit Agentic Workflows und RAG-Lösungen\n- Erfahrungen mit Agentic Coding Tools (z.B. Github Copilot, Codex, Claude Code)\n- Sehr gute Python-Kenntnisse und Java-Kenntnisse wünschenswert\n- Erfahrung mit Cloud-Plattformen (z. B. GCP, Azure oder OpenShift)\n- Sehr gute Deutschkenntnisse\n\n## Unser Bewerbungsprozess\nLerne unseren Bewerbungsprozess kennen und erhalte Antworten auf Fragen, die Bewerbende uns häufig stellen. Solltest du während des Bewerbungsprozesses Unterstützung benötigen, melde dich einfach. Die Kolleginnen und Kollegen vom Recruiting helfen dir gerne weiter.\n\n## Smart Working\nBei der AXA setzen wir auf Vertrauen, Flexibilität und Teamarbeit. Im Zentrum unseres neuen Arbeitsmodells \"Smart Working\" steht dein Beitrag zu den Unternehmenszielen und nicht der Ort, an dem du arbeitest.\n\n## Diversity & Inclusion\nVielfalt, Chancengerechtigkeit und Inklusion liegen uns bei der AXA am Herzen. Unsere Unternehmenskultur fördert Respekt und Offenheit, damit jede Person bei uns ihr volles Potential entfalten kann.",
         "it": "Vieni ad AXA, la compagnia di assicurazioni leader in Svizzera - come vuoi far parte di qualcosa di grosso? Allora sei oro con noi! Stiamo aggiungendo alla nostra piattaforma di Business Automation & Information Management esistente con nuove capacità AI e li scalano nei processi di assicurazione. In qualità di esperto AI senior, progetta le nostre soluzioni per l'automazione agentica dei nostri processi aziendali e fa parte del nostro team responsabile per la costruzione e la realizzazione di una soluzione document-understanding completa. Inoltre, supporta i tuoi colleghi nel trattare le tecnologie AI. Vi offriamo un ambiente di lavoro in cui la commemorazione e il coinvolgimento attivo sono esplicitamente desiderati. Se siete curiosi e volete fare il prossimo passo insieme, non vediamo l'ora di voi! AXA non è solo un'assicurazione. Circa 600 sviluppatori di software e sistemi lavorano in Svizzera e sviluppano in-house la tecnologia di domani. Collaboriamo anche in team e reti globali. Formiamo e integramo gli ultimi strumenti, organizziamo hackathons e i nostri team di prodotti agili sono auto-organizzati e indipendenti da A a Z. Per modellare attivamente il cambiamento digitale, costruiamo su talenti intelligenti e curiosi, così come i dipendenti di tecnologia-affine che si sforzano di fare la differenza. ## Your post - Innovazione: Esplora nuovi argomenti e tecnologie, dall'idea all'implementazione, e sviluppa idee di soluzione con una chiara attenzione al valore del cliente, alla fattibilità e al valore aziendale. - Analizzando & Design - Technical Design: non solo implementare i requisiti, ma anche pensare tecnicamente con, strutturare queste e modellare attivamente soluzioni sostenibili - ProprietÃ: Si assume la responsabilitÃ per il funzionamento, la stabilitÃ e lo sviluppo continuo delle soluzioni esistenti - si ha esperienza nella comprensione di una sfida aziendale Se hai bisogno di supporto durante il processo di applicazione, accedi semplicemente. I colleghi di reclutamento saranno felici di aiutarvi. # Smart Working A AXA ci affidiamo alla fiducia, alla flessibilità e al lavoro di squadra. Al centro del nostro nuovo modello di lavoro \"Smart Working\" è il tuo contributo agli obiettivi dell'azienda e non al luogo in cui lavori. ## Diversity & Inclusion Diversity, Opportunity and Inclusion sono i nostri cuori ad AXA. La nostra cultura aziendale promuove rispetto e apertura in modo che ogni persona possa sviluppare il loro pieno potenziale con noi.",
         "en": "Come to AXA, the leading insurance company in Switzerland - as you want to be part of something big? Then you are gold right with us!We are adding to our existing Business Automation & Information Management Platform with new AI capabilities and scaling them into the insurance processes.As a senior AI expert, you design our solutions for the agentic automation of our business processes and are part of our team responsible for building and realising a comprehensive document-understanding solution. In addition, you support your colleagues in dealing with AI technologies.We offer you a working environment where commemoration and active involvement are explicitly desired. If you are curious and want to take the next step together, we look forward to you! AXA is not just an insurance company. Around 600 software and system developers work in Switzerland and develop in-house the technology of tomorrow. We also collaborate in global teams and networks.We shape and integrate the latest tools, organize hackathons and our agile product teams are self-organized and independent from A to Z.To actively shape digital change, we build on smart and curious talents as well as technology-affine employees who strive to make the difference. ## Your post - Innovation: You explore new topics and technologies, from idea to implementation, and develop solution ideas with a clear focus on customer value, feasibility and business value. - Analyzing & Design - Technical Design: You not only implement requirements, but also think technically with, structure these and actively shape sustainable solutions - Ownership: You take responsibility for the operation, stability and continuous development of existing solutions - you have experience in understanding a business challenge If you need support during the application process, simply log in. Recruiting colleagues will be happy to help you. ## Smart Working At AXA we rely on trust, flexibility and teamwork. At the heart of our new working model \"Smart Working\" is your contribution to the company's goals and not the place where you work. ## Diversity & Inclusion Diversity, Opportunity and Inclusion are our hearts at AXA. Our corporate culture promotes respect and openness so that each person can develop their full potential with us.",
+        "de": "Komm zur AXA, der führenden Versicherung der Schweiz - als Du möchtest Teil von etwas Grossem sein? Dann bist du bei uns goldrichtig!Wir sind dabei unsere bestehende «Business Automation & Information Management Platform» mit neuen AI-Fähigkeiten zu ergänzen und diese in die Versicherungsprozesse zu skalieren.Als Senior AI Expert gestaltest du unsere Lösungen zur agentischen Automatisierung unserer Geschäftsprozesse und bist als Teil unseres Teams für den Aufbau und die Realisierung einer übergreifenden Document-Understanding-Lösung zuständig. Zudem unterstützt du deine Kolleginnen und Kollegen im Umgang mit AI-Technologien.Wir bieten dir ein Arbeitsumfeld, in dem Mitdenken und aktives Einbringen ausdrücklich erwünscht sind. Wenn du neugierig bist und mit uns gemeinsam den nächsten Schritt machen willst, freuen wir uns auf dich! AXA ist nicht nur eine Versicherung. Rund 600 Software- und System-Entwickler arbeiten auf dem Platz Schweiz und entwickeln inhouse die Technologie von morgen. Dabei kollaborieren wir auch in globalen Teams und Netzwerken.Wir prägen und integrieren neueste Tools, veranstalten Hackathons und unsere agilen Produktteams laufen selbstorganisiert und sind von A bis Z eigenverantwortlich.Um den digitalen Wandel aktiv zu gestalten, bauen wir auf smarte und neugierige Talente sowie technologieaffine Mitarbeitende, die danach streben, den Unterschied zu machen. ## Dein Beitrag - Innovation: Du explorierst neugierig neue Themen und Technologien, von der Idee bis zur Umsetzung, und entwickelst Lösungsideen mit klarem Fokus auf Kundennutzen, Machbarkeit und Business Value. - Analyse & Design: Du analysierst die fachlichen und technischen Problemstellungen in unseren Geschäftsprozessen und Workflows - Technische Gestaltung: Du setzt Anforderungen nicht nur um, sondern denkst technisch mit, strukturierst diese und gestaltest aktiv nachhaltige Lösungen - Ownership: Du übernimmst Verantwortung für den Betrieb, die Stabilität und die kontinuierliche Weiterentwicklung bestehender Lösungen ## Deine Fähigkeiten und Talente - Du hast Erfahrung darin, eine geschäftliche Herausforderung zu verstehen, Lösungsansätze zu entwerfen und diese gemeinsam mit einem Team in greifbaren, messbaren Mehrwert zu verwandeln - Höherer Abschluss in Computer Science, Data Science, Machine-Learning oder einem ähnlichen Anwendungsgebiet und adäquate Berufserfahrung (mindestens die letzten 3 Jahre mit Fokus auf AI-/Machine-Learning-Lösungen) - Erfahrungen mit Agentic Workflows und RAG-Lösungen - Erfahrungen mit Agentic Coding Tools (z.B. Github Copilot, Codex, Claude Code) - Sehr gute Python-Kenntnisse und Java-Kenntnisse wünschenswert - Erfahrung mit Cloud-Plattformen (z. B. GCP, Azure oder OpenShift) - Sehr gute Deutschkenntnisse ## Unser Bewerbungsprozess Lerne unseren Bewerbungsprozess kennen und erhalte Antworten auf Fragen, die Bewerbende uns häufig stellen. Solltest du während des Bewerbungsprozesses Unterstützung benötigen, melde dich einfach. Die Kolleginnen und Kollegen vom Recruiting helfen dir gerne weiter. ## Smart Working Bei der AXA setzen wir auf Vertrauen, Flexibilität und Teamarbeit. Im Zentrum unseres neuen Arbeitsmodells \"Smart Working\" steht dein Beitrag zu den Unternehmenszielen und nicht der Ort, an dem du arbeitest. ## Diversity & Inclusion Vielfalt, Chancengerechtigkeit und Inklusion liegen uns bei der AXA am Herzen. Unsere Unternehmenskultur fördert Respekt und Offenheit, damit jede Person bei uns ihr volles Potential entfalten kann.",
         "fr": "Venez à AXA, la première compagnie d'assurance en Suisse - comme vous voulez faire partie de quelque chose de grand? Alors tu es en or avec nous ! Nous ajoutons à notre plateforme d'automatisation d'entreprise et de gestion de l'information existante de nouvelles capacités d'IA et les appliquons aux processus d'assurance. En tant qu'expert en AI senior, vous concevez nos solutions pour l'automatisation agentique de nos processus métier et faites partie de notre équipe responsable de la construction et de la réalisation d'une solution globale de documentation. De plus, vous aidez vos collègues à gérer les technologies de l'IA. Nous vous offrons un environnement de travail où la commémoration et la participation active sont explicitement souhaitées. Si vous êtes curieux et que vous voulez faire le prochain pas ensemble, nous vous attendons avec impatience! AXA n'est pas seulement une compagnie d'assurance. Environ 600 développeurs de logiciels et de systèmes travaillent en Suisse et développent en interne la technologie de demain. Nous collaborons également dans des équipes et des réseaux mondiaux. Nous formons et intégrons les derniers outils, organisons des hackathons et nos équipes de produits agiles sont auto-organisées et indépendantes de A à Z. Pour façonner activement le changement numérique, nous nous appuyons sur des talents intelligents et curieux ainsi que sur des employés de la technologie qui s'efforcent de faire la différence. ## Votre article - Innovation: Vous explorez de nouveaux sujets et technologies, de l'idée à la mise en œuvre, et développez des idées de solutions en mettant clairement l'accent sur la valeur client, la faisabilité et la valeur commerciale. - Analyser & Conception - Conception technique: Vous non seulement appliquez les exigences, mais aussi pensez techniquement avec, structurer ces solutions et façonner activement des solutions durables - Propriété: Vous assumez la responsabilité de l'exploitation, la stabilité et le développement continu des solutions existantes - vous avez l'expérience de comprendre un défi d'affaires Si vous avez besoin d'aide pendant le processus de demande, connectez-vous simplement. Le recrutement de collègues sera heureux de vous aider. Travail intelligent Chez AXA, nous comptons sur la confiance, la flexibilité et le travail d'équipe. Au cœur de notre nouveau modèle de travail \"Smart Working\" est votre contribution aux objectifs de l'entreprise et non l'endroit où vous travaillez. ## Diversité et inclusion La diversité, les possibilités et l'inclusion sont nos cœurs chez AXA. Notre culture d'entreprise favorise le respect et l'ouverture afin que chaque personne puisse développer son plein potentiel avec nous."
       },
       "slugByLocale": {
-        "de": "senior-ai-engineer-business-automation-information-management-all-genders-axa-winte-o2zv0c",
-        "it": "senior-ai-engineer-business-automation-information-management-all-genders-axa-winte-o2zv0c",
+        "it": "senior-ai-engineer-business-automation-information-management-tutti-i-generi-axa-svizzera-winterthur-smart-working",
         "en": "senior-ai-engineer-business-automation-information-management-all-genders-axa-svizzera-winterthur-smart-working",
+        "de": "senior-ai-engineer-business-automation-information-management-alle-geschlechter-axa-svizzera-winterthur-smart-working",
         "fr": "ingenieur-principal-de-l-ia-automatisation-des-affaires-et-gestion-de-l-information-tous-genres-axa-svizzera-winterthur-"
       },
       "id": "axa-svizzera-ba7ac12a0d73",
@@ -735,7 +747,19 @@
         }
       },
       "streetAddress": "Via della Posta 2",
-      "postalCode": "6901"
+      "postalCode": "6901",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-ai-engineer-business-automation-information-management-all-genders-axa-winte-o2zv0c"
+        ],
+        "de": [
+          "senior-ai-engineer-business-automation-information-management-all-genders-axa-winte-o2zv0c"
+        ]
+      },
+      "previousSlugs": [
+        "senior-ai-engineer-business-automation-information-management-all-genders-axa-winte-o2zv0c"
+      ],
+      "firstSeenAt": "2026-04-13T21:08:31.463Z"
     },
     {
       "title": "Senior Specialist Fullstack Engineering (all genders)",
@@ -808,7 +832,8 @@
       },
       "previousSlugs": [
         "senior-specialist-fullstack-engineering-all-genders-axa-winterthur-smart-working-q132qi"
-      ]
+      ],
+      "firstSeenAt": "2026-04-13T21:08:31.463Z"
     },
     {
       "title": "Sachbearbeiter:in im Kundenservice der Gesundheitsvorsorge",
@@ -887,7 +912,8 @@
         "fr": [
           "sachbearbeiter-in-im-kundenservice-der-gesundheitsvorsorge-axa-svizzera-80-100-befristet-von-august-2026-bis-januar-2027"
         ]
-      }
+      },
+      "firstSeenAt": "2026-04-13T21:08:31.463Z"
     },
     {
       "title": "Kundenbetreuer:in Leistungen Berufliche Vorsorge",
@@ -963,13 +989,14 @@
         "fr": [
           "kundenbetreuer-in-leistungen-berufliche-vorsorge-axa-80-winterthur-smart-working-2fwt97"
         ]
-      }
+      },
+      "firstSeenAt": "2026-04-13T21:08:31.463Z"
     },
     {
       "title": "Leiter:in Innendienst für die Generalagentur Vorsorge & Vermögen Chur",
-      "slug": "responsabile-servizio-interno-per-la-agenzia-generale-previdenza-patrimonio-chur-axa-svizzera-axa",
-      "url": "https://jobs.axa.ch/posizioni-aperte/leiter-in-innendienst-fuer-die-generalagentur-vorsorge-vermoegen-chur/a34a92f0-26f1-4eaf-bdf1-6188b5dd1a80",
-      "applyUrl": "https://jobs.axa.ch/apply/ats/a34a92f0-26f1-4eaf-bdf1-6188b5dd1a80",
+      "slug": "responsabile-servizio-interno-per-la-agenzia-generale-previdenza-patrimonio-chur-axa-svizzera-arbeitsort-chur",
+      "url": "https://jobs.axa.ch/posizioni-aperte/leiter-in-innendienst-fuer-die-generalagentur-vorsorge-vermoegen-chur/b74c900d-9ee7-47d5-b983-74830dfcae58",
+      "applyUrl": "https://jobs.axa.ch/apply/ats/b74c900d-9ee7-47d5-b983-74830dfcae58",
       "company": "AXA Svizzera",
       "companyKey": "axa-svizzera",
       "companyDomain": "axa.ch",
@@ -990,54 +1017,52 @@
       "validThrough": "",
       "description": "Komm zur AXA, der führenden Versicherung der Schweiz - als\n\nAls AXA sehen wir uns als Partnerin, die an deiner Seite steht und an dich glaubt. Deshalb fördern und fordern wir dich und zeigen dir proaktiv Möglichkeiten für deine Zukunft auf. Wir ermutigen dich und bieten dir Freiräume, damit du die Dinge, welche dir wichtig sind, miteinander verbinden kannst. Gemeinsam mit deinem Engagement und deinem individuellen Beitrag wird daraus eine zukunftsweisende Partnerschaft. Für dich, für uns und für unsere Kundinnen und Kunden. Und das nicht nur für den Moment, sondern auf lange Sicht.\n\nAls führender Schweizer Versicherer bieten wir ambitionierten Menschen attraktive Karrieremöglichkeiten und unternehmerischen Gestaltungsspielraum.\n\n- Personelle und fachliche Führung sowie Ausbildung des Innendienst-Teams im Fachbereich Leben\n- Sicherstellung der Arbeitsabläufe der Generalagentur und Umsetzung der Prozesse im Omnikanal-Vertriebsmodell\n- Unterstützung der Generalagentin/des Generalagenten bei der Lohn- und Finanzbuchhaltung sowie in der HR-Administration\n- Unterstützung der Generalagentin/des Generalagenten und der Vorsorgeberater:innen in versicherungstechnischen Belangen\n- Verantwortung der Umsetzung einer lösungsorientierten Bearbeitung von Kundenanliegen\n- Unterstützung, Planung und Organisation bei Marketing-Massnahmen\n\n- Kaufmännische Ausbildung, vorzugsweise in der Versicherungsbranche\n- Mehrjährige Berufserfahrung bei einer Versicherung im Fachbereich Leben zwingend\n- Fachausweis und/oder höhere Fachschule im Bereich Assekuranz\n- Erfahrung in der Personalführung von Vorteil\n- Bereitschaft für erforderliche Weiterbildungen\n- Offene, flexible und agile Persönlichkeit mit Verkaufsaffinität\n- Selbstständige, zielorientierte und exakte Arbeitsweise sowie hohes Engagement werden vorausgesetzt\n- Stilsichere Deutschkenntnisse in Wort und Schrift, weitere Sprachen von Vorteil\n- Hohes Verantwortungsbewusstsein, organisatorisches Geschick und hohe Belastbarkeit\n- Freude an modernen und zeitgemässen digitalen Tools\n\n## Unser Bewerbungsprozess\nLerne unseren Bewerbungsprozess kennen und erhalte Antworten auf Fragen, die Bewerbende uns häufig stellen. Solltest du während des Bewerbungsprozesses Unterstützung benötigen, melde dich einfach. Die Kolleginnen und Kollegen vom Recruiting helfen dir gerne weiter.\n\n## Diversity & Inclusion\nVielfalt, Chancengerechtigkeit und Inklusion liegen uns bei der AXA am Herzen. Unsere Unternehmenskultur fördert Respekt und Offenheit, damit jede Person bei uns ihr volles Potential entfalten kann.\n\nFür diese Stelle können wir keine Bewerbungen über Personalvermittlungen berücksichtigen.",
       "titleByLocale": {
-        "it": "Responsabile servizio interno per la agenzia generale previdenza & patrimonio Chur",
-        "en": "Internal Manager for General Agency Pensions and Wealth Chur",
         "de": "Leiter:in Innendienst für die Generalagentur Vorsorge & Vermögen Chur",
-        "fr": "Responsable Intérieur pour l'Agence Générale Prévoyance et Patrimoine Chur"
+        "it": "Responsabile servizio interno per la agenzia generale previdenza & patrimonio Chur",
+        "en": "Leiter:in Innendienst für die Generalagentur Vorsorge & Vermögen Chur",
+        "fr": "Leiter:in Innendienst für die Generalagentur Vorsorge & Vermögen Chur"
       },
       "descriptionByLocale": {
-        "it": "Vieni con AXA, la principale assicurazione della Svizzera - come Come AXA, ci vediamo come partner che ti sostiene e ti crede. Per questo, ti incoraggiamo e ti sfidiamo e ti mostriamo proattivamente le possibilità per il tuo futuro. Ti incoraggiamo e ti offriamo spazi di libertà, in modo che tu possa collegare le cose che ti sono importanti. Insieme al tuo impegno e al tuo contributo individuale, ne deriva una partnership visionaria per il futuro. Per te, per noi e per le nostre clienti. Come principale assicurazione svizzera, offriamo a persone ambiziose opportunità di carriera attraenti e uno spazio di gestione imprenditoriale. - Fornire una guida personale e professionale e formare l'equipaggio interno del settore Vita - Assicurare i processi di lavoro della Generalagentura e mettere in atto i processi nel modello di vendita Omnikanal - Sostenere la Generalagentessa/Generalagente nella gestione dei salari e della contabilità finanziaria e nell'amministrazione HR - Sostenere la Generalagentessa/Generalagente e i consulenti di previdenza in questioni assicurative - Responsabile dell'attuazione di un trattamento di risoluzione dei problemi dei clienti orientato alle soluzioni - Sostenere, pianificare e organizzare le azioni di marketing - Formazione commerciale, preferibilmente nel settore assicurativo - Esperienza lavorativa di almeno tre anni presso un'assicurazione nel settore Vita - Diploma professionale e/o scuola superiore superiore nel campo dell'assicurazione - Esperienza nella gestione di personale di vantaggio - Disponibilità per le formazioni richieste - Personalità aperta, flessibile e agile con affinità per la vendita - Modalità di lavoro indipendente, orientata ai risultati e precisa, con un alto impegno - Conoscenze di tedesco sicure e precise, in parola e in scrittura, altre lingue utili - Alto senso di responsabilità, abilità organizzativa e alta resistenza - Gioia per strumenti digitali moderni e contemporanei ## Il nostro processo di candidatura Conosci il nostro processo di candidatura e ottieni risposte alle domande che i candidati ci pongono spesso. Se hai bisogno di aiuto durante il processo di candidatura, non esitare a contattarci. Le colleghe e i colleghi del Recruiting ti aiuteranno con piacere. ## Diversità e inclusione La diversità, la giustizia di opportunità e l'inclusione sono per noi alla AXA. La nostra cultura aziendale promuove il rispetto e l'apertura, in modo che ogni persona possa sviluppare il suo pieno potenziale. Per questa posizione, non possiamo considerare le candidature tramite agenzie di collocamento.",
-        "en": "Join AXA, the leading insurance company in Switzerland - as As AXA, we see ourselves as a partner who stands by your side and believes in you. That's why we encourage and challenge you and show you proactively opportunities for your future. We encourage you and offer you free spaces, so that you can connect the things that are important to you. Together with your commitment and your individual contribution, this results in a visionary partnership for the future. For you, for us and for our customers. As the leading Swiss insurance company, we offer ambitious people attractive career opportunities and entrepreneurial design freedom. - Provide personal and professional leadership and training of the internal team in the Life sector - Ensure the workflow of the General Agency and implement processes in the Omnikanal Sales Model - Support the General Agent in salary and financial accounting and HR administration - Support the General Agent and the Pension Advisors in insurance-related matters - Responsible for the implementation of a solution-oriented handling of customer complaints - Support, plan and organize marketing measures - Commercial education, preferably in the insurance industry - At least three years of work experience at an insurance company in the Life sector - Professional diploma and/or higher school diploma in the field of insurance - Experience in personnel management is an advantage - Willingness to undergo required further training - Open, flexible and agile personality with sales affinity - Independent, result-oriented and precise working method with high commitment - Secure German language skills in word and writing, other languages are an advantage - High sense of responsibility, organizational skill and high resilience - Joy in modern and contemporary digital tools ## Our Application Process Get to know our application process and get answers to questions that applicants often ask us. If you need help during the application process, please don't hesitate to contact us. The colleagues from Recruiting will help you gladly. ## Diversity & Inclusion Diversity, equal opportunities and inclusion are at the heart of AXA. Our corporate culture promotes respect and openness, so that every person can develop their full potential. For this position, we cannot consider applications through recruitment agencies.",
-        "de": "Komm zur AXA, der führenden Versicherung der Schweiz - als Als AXA sehen wir uns als Partnerin, die an deiner Seite steht und an dich glaubt. Deshalb fördern und fordern wir dich und zeigen dir proaktiv Möglichkeiten für deine Zukunft auf. Wir ermutigen dich und bieten dir Freiräume, damit du die Dinge, welche dir wichtig sind, miteinander verbinden kannst. Gemeinsam mit deinem Engagement und deinem individuellen Beitrag wird daraus eine zukunftsweisende Partnerschaft. Für dich, für uns und für unsere Kundinnen und Kunden. Und das nicht nur für den Moment, sondern auf lange Sicht. Als führender Schweizer Versicherer bieten wir ambitionierten Menschen attraktive Karrieremöglichkeiten und unternehmerischen Gestaltungsspielraum. - Personelle und fachliche Führung sowie Ausbildung des Innendienst-Teams im Fachbereich Leben - Sicherstellung der Arbeitsabläufe der Generalagentur und Umsetzung der Prozesse im Omnikanal-Vertriebsmodell - Unterstützung der Generalagentin/des Generalagenten bei der Lohn- und Finanzbuchhaltung sowie in der HR-Administration - Unterstützung der Generalagentin/des Generalagenten und der Vorsorgeberater:innen in versicherungstechnischen Belangen - Verantwortung der Umsetzung einer lösungsorientierten Bearbeitung von Kundenanliegen - Unterstützung, Planung und Organisation bei Marketing-Massnahmen - Kaufmännische Ausbildung, vorzugsweise in der Versicherungsbranche - Mehrjährige Berufserfahrung bei einer Versicherung im Fachbereich Leben zwingend - Fachausweis und/oder höhere Fachschule im Bereich Assekuranz - Erfahrung in der Personalführung von Vorteil - Bereitschaft für erforderliche Weiterbildungen - Offene, flexible und agile Persönlichkeit mit Verkaufsaffinität - Selbstständige, zielorientierte und exakte Arbeitsweise sowie hohes Engagement werden vorausgesetzt - Stilsichere Deutschkenntnisse in Wort und Schrift, weitere Sprachen von Vorteil - Hohes Verantwortungsbewusstsein, organisatorisches Geschick und hohe Belastbarkeit - Freude an modernen und zeitgemässen digitalen Tools ## Unser Bewerbungsprozess Lerne unseren Bewerbungsprozess kennen und erhalte Antworten auf Fragen, die Bewerbende uns häufig stellen. Solltest du während des Bewerbungsprozesses Unterstützung benötigen, melde dich einfach. Die Kolleginnen und Kollegen vom Recruiting helfen dir gerne weiter. ## Diversity & Inclusion Vielfalt, Chancengerechtigkeit und Inklusion liegen uns bei der AXA am Herzen. Unsere Unternehmenskultur fördert Respekt und Offenheit, damit jede Person bei uns ihr volles Potential entfalten kann. Für diese Stelle können wir keine Bewerbungen über Personalvermittlungen berücksichtigen.",
-        "fr": "Rejoignez AXA, la principale assurance de Suisse - comme Comme AXA, nous nous voyons comme un partenaire qui vous soutient et vous croit. C'est pourquoi nous vous encourageons et vous défissons et vous montrons proactivement des opportunités pour votre avenir. Nous vous encourageons et vous offrons des espaces libres, afin que vous puissiez relier les choses qui vous sont importantes. Ensemble avec votre engagement et votre contribution individuelle, cela donne une partenariat visionnaire pour l'avenir. Pour vous, pour nous et pour nos clients. Comme principale assurance suisse, nous offrons à des personnes ambitieuses des opportunités de carrière attractives et une liberté d'action entrepreneuriale. - Fournir une direction personnelle et professionnelle et former l'équipe interne du secteur Vie - Assurer les processus de travail de l'Agence Générale et mettre en œuvre les processus dans le modèle de vente Omnikanal - Soutenir l'agent général dans la gestion des salaires et de la comptabilité financière et l'administration RH - Soutenir l'agent général et les conseillers en prévoyance en matière d'assurance - Responsable de la mise en œuvre d'un traitement des réclamations des clients orienté vers les solutions - Soutenir, planifier et organiser les mesures de marketing - Éducation commerciale, préférablement dans l'industrie de l'assurance - Au moins trois ans d'expérience professionnelle dans une assurance dans le secteur Vie - Diplôme professionnel et/ou diplôme d'études supérieures dans le domaine de l'assurance - Expérience dans la gestion des personnels est un avantage - Disponibilité pour les formations requises - Personnalité ouverte, flexible et agile avec affinité pour la vente - Méthode de travail indépendante, orientée vers les résultats et précise, avec un engagement élevé - Connaissances du langage allemand sûres et précises, en parole et en écriture, autres langues utiles - Sens de la responsabilité élevé, compétence organisationnelle et résilience élevée - Joie pour les outils numériques modernes et contemporains ## Notre processus de candidature Faites connaissance avec notre processus de candidature et obtenez des réponses aux questions que les candidats nous posent souvent. Si vous avez besoin d'aide pendant le processus de candidature, n'hésitez pas à nous contacter. Les collègues du Recrutement vous aideront avec plaisir. ## Diversité & Inclusion La diversité, l'égalité des chances et l'inclusion sont au cœur d'AXA. Notre culture d'entreprise promeut le respect et l'ouverture, afin que chaque personne puisse développer son potentiel complet. Pour cette position, nous ne pouvons pas considérer les candidatures par l'intermédiaire d'agences de recrutement."
+        "de": "Komm zur AXA, der führenden Versicherung der Schweiz - als\n\nAls AXA sehen wir uns als Partnerin, die an deiner Seite steht und an dich glaubt. Deshalb fördern und fordern wir dich und zeigen dir proaktiv Möglichkeiten für deine Zukunft auf. Wir ermutigen dich und bieten dir Freiräume, damit du die Dinge, welche dir wichtig sind, miteinander verbinden kannst. Gemeinsam mit deinem Engagement und deinem individuellen Beitrag wird daraus eine zukunftsweisende Partnerschaft. Für dich, für uns und für unsere Kundinnen und Kunden. Und das nicht nur für den Moment, sondern auf lange Sicht.\n\nAls führender Schweizer Versicherer bieten wir ambitionierten Menschen attraktive Karrieremöglichkeiten und unternehmerischen Gestaltungsspielraum.\n\n- Personelle und fachliche Führung sowie Ausbildung des Innendienst-Teams im Fachbereich Leben\n- Sicherstellung der Arbeitsabläufe der Generalagentur und Umsetzung der Prozesse im Omnikanal-Vertriebsmodell\n- Unterstützung der Generalagentin/des Generalagenten bei der Lohn- und Finanzbuchhaltung sowie in der HR-Administration\n- Unterstützung der Generalagentin/des Generalagenten und der Vorsorgeberater:innen in versicherungstechnischen Belangen\n- Verantwortung der Umsetzung einer lösungsorientierten Bearbeitung von Kundenanliegen\n- Unterstützung, Planung und Organisation bei Marketing-Massnahmen\n\n- Kaufmännische Ausbildung, vorzugsweise in der Versicherungsbranche\n- Mehrjährige Berufserfahrung bei einer Versicherung im Fachbereich Leben zwingend\n- Fachausweis und/oder höhere Fachschule im Bereich Assekuranz\n- Erfahrung in der Personalführung von Vorteil\n- Bereitschaft für erforderliche Weiterbildungen\n- Offene, flexible und agile Persönlichkeit mit Verkaufsaffinität\n- Selbstständige, zielorientierte und exakte Arbeitsweise sowie hohes Engagement werden vorausgesetzt\n- Stilsichere Deutschkenntnisse in Wort und Schrift, weitere Sprachen von Vorteil\n- Hohes Verantwortungsbewusstsein, organisatorisches Geschick und hohe Belastbarkeit\n- Freude an modernen und zeitgemässen digitalen Tools\n\n## Unser Bewerbungsprozess\nLerne unseren Bewerbungsprozess kennen und erhalte Antworten auf Fragen, die Bewerbende uns häufig stellen. Solltest du während des Bewerbungsprozesses Unterstützung benötigen, melde dich einfach. Die Kolleginnen und Kollegen vom Recruiting helfen dir gerne weiter.\n\n## Diversity & Inclusion\nVielfalt, Chancengerechtigkeit und Inklusion liegen uns bei der AXA am Herzen. Unsere Unternehmenskultur fördert Respekt und Offenheit, damit jede Person bei uns ihr volles Potential entfalten kann.\n\nFür diese Stelle können wir keine Bewerbungen über Personalvermittlungen berücksichtigen.",
+        "it": "Komm zur AXA, der führenden Versicherung der Schweiz - als\n\nAls AXA sehen wir uns als Partnerin, die an deiner Seite steht und an dich glaubt. Deshalb fördern und fordern wir dich und zeigen dir proaktiv Möglichkeiten für deine Zukunft auf. Wir ermutigen dich und bieten dir Freiräume, damit du die Dinge, welche dir wichtig sind, miteinander verbinden kannst. Gemeinsam mit deinem Engagement und deinem individuellen Beitrag wird daraus eine zukunftsweisende Partnerschaft. Für dich, für uns und für unsere Kundinnen und Kunden. Und das nicht nur für den Moment, sondern auf lange Sicht.\n\nAls führender Schweizer Versicherer bieten wir ambitionierten Menschen attraktive Karrieremöglichkeiten und unternehmerischen Gestaltungsspielraum.\n\n- Personelle und fachliche Führung sowie Ausbildung des Innendienst-Teams im Fachbereich Leben\n- Sicherstellung der Arbeitsabläufe der Generalagentur und Umsetzung der Prozesse im Omnikanal-Vertriebsmodell\n- Unterstützung der Generalagentin/des Generalagenten bei der Lohn- und Finanzbuchhaltung sowie in der HR-Administration\n- Unterstützung der Generalagentin/des Generalagenten und der Vorsorgeberater:innen in versicherungstechnischen Belangen\n- Verantwortung der Umsetzung einer lösungsorientierten Bearbeitung von Kundenanliegen\n- Unterstützung, Planung und Organisation bei Marketing-Massnahmen\n\n- Kaufmännische Ausbildung, vorzugsweise in der Versicherungsbranche\n- Mehrjährige Berufserfahrung bei einer Versicherung im Fachbereich Leben zwingend\n- Fachausweis und/oder höhere Fachschule im Bereich Assekuranz\n- Erfahrung in der Personalführung von Vorteil\n- Bereitschaft für erforderliche Weiterbildungen\n- Offene, flexible und agile Persönlichkeit mit Verkaufsaffinität\n- Selbstständige, zielorientierte und exakte Arbeitsweise sowie hohes Engagement werden vorausgesetzt\n- Stilsichere Deutschkenntnisse in Wort und Schrift, weitere Sprachen von Vorteil\n- Hohes Verantwortungsbewusstsein, organisatorisches Geschick und hohe Belastbarkeit\n- Freude an modernen und zeitgemässen digitalen Tools\n\n## Unser Bewerbungsprozess\nLerne unseren Bewerbungsprozess kennen und erhalte Antworten auf Fragen, die Bewerbende uns häufig stellen. Solltest du während des Bewerbungsprozesses Unterstützung benötigen, melde dich einfach. Die Kolleginnen und Kollegen vom Recruiting helfen dir gerne weiter.\n\n## Diversity & Inclusion\nVielfalt, Chancengerechtigkeit und Inklusion liegen uns bei der AXA am Herzen. Unsere Unternehmenskultur fördert Respekt und Offenheit, damit jede Person bei uns ihr volles Potential entfalten kann.\n\nFür diese Stelle können wir keine Bewerbungen über Personalvermittlungen berücksichtigen.",
+        "en": "Komm zur AXA, der führenden Versicherung der Schweiz - als\n\nAls AXA sehen wir uns als Partnerin, die an deiner Seite steht und an dich glaubt. Deshalb fördern und fordern wir dich und zeigen dir proaktiv Möglichkeiten für deine Zukunft auf. Wir ermutigen dich und bieten dir Freiräume, damit du die Dinge, welche dir wichtig sind, miteinander verbinden kannst. Gemeinsam mit deinem Engagement und deinem individuellen Beitrag wird daraus eine zukunftsweisende Partnerschaft. Für dich, für uns und für unsere Kundinnen und Kunden. Und das nicht nur für den Moment, sondern auf lange Sicht.\n\nAls führender Schweizer Versicherer bieten wir ambitionierten Menschen attraktive Karrieremöglichkeiten und unternehmerischen Gestaltungsspielraum.\n\n- Personelle und fachliche Führung sowie Ausbildung des Innendienst-Teams im Fachbereich Leben\n- Sicherstellung der Arbeitsabläufe der Generalagentur und Umsetzung der Prozesse im Omnikanal-Vertriebsmodell\n- Unterstützung der Generalagentin/des Generalagenten bei der Lohn- und Finanzbuchhaltung sowie in der HR-Administration\n- Unterstützung der Generalagentin/des Generalagenten und der Vorsorgeberater:innen in versicherungstechnischen Belangen\n- Verantwortung der Umsetzung einer lösungsorientierten Bearbeitung von Kundenanliegen\n- Unterstützung, Planung und Organisation bei Marketing-Massnahmen\n\n- Kaufmännische Ausbildung, vorzugsweise in der Versicherungsbranche\n- Mehrjährige Berufserfahrung bei einer Versicherung im Fachbereich Leben zwingend\n- Fachausweis und/oder höhere Fachschule im Bereich Assekuranz\n- Erfahrung in der Personalführung von Vorteil\n- Bereitschaft für erforderliche Weiterbildungen\n- Offene, flexible und agile Persönlichkeit mit Verkaufsaffinität\n- Selbstständige, zielorientierte und exakte Arbeitsweise sowie hohes Engagement werden vorausgesetzt\n- Stilsichere Deutschkenntnisse in Wort und Schrift, weitere Sprachen von Vorteil\n- Hohes Verantwortungsbewusstsein, organisatorisches Geschick und hohe Belastbarkeit\n- Freude an modernen und zeitgemässen digitalen Tools\n\n## Unser Bewerbungsprozess\nLerne unseren Bewerbungsprozess kennen und erhalte Antworten auf Fragen, die Bewerbende uns häufig stellen. Solltest du während des Bewerbungsprozesses Unterstützung benötigen, melde dich einfach. Die Kolleginnen und Kollegen vom Recruiting helfen dir gerne weiter.\n\n## Diversity & Inclusion\nVielfalt, Chancengerechtigkeit und Inklusion liegen uns bei der AXA am Herzen. Unsere Unternehmenskultur fördert Respekt und Offenheit, damit jede Person bei uns ihr volles Potential entfalten kann.\n\nFür diese Stelle können wir keine Bewerbungen über Personalvermittlungen berücksichtigen.",
+        "fr": "Komm zur AXA, der führenden Versicherung der Schweiz - als\n\nAls AXA sehen wir uns als Partnerin, die an deiner Seite steht und an dich glaubt. Deshalb fördern und fordern wir dich und zeigen dir proaktiv Möglichkeiten für deine Zukunft auf. Wir ermutigen dich und bieten dir Freiräume, damit du die Dinge, welche dir wichtig sind, miteinander verbinden kannst. Gemeinsam mit deinem Engagement und deinem individuellen Beitrag wird daraus eine zukunftsweisende Partnerschaft. Für dich, für uns und für unsere Kundinnen und Kunden. Und das nicht nur für den Moment, sondern auf lange Sicht.\n\nAls führender Schweizer Versicherer bieten wir ambitionierten Menschen attraktive Karrieremöglichkeiten und unternehmerischen Gestaltungsspielraum.\n\n- Personelle und fachliche Führung sowie Ausbildung des Innendienst-Teams im Fachbereich Leben\n- Sicherstellung der Arbeitsabläufe der Generalagentur und Umsetzung der Prozesse im Omnikanal-Vertriebsmodell\n- Unterstützung der Generalagentin/des Generalagenten bei der Lohn- und Finanzbuchhaltung sowie in der HR-Administration\n- Unterstützung der Generalagentin/des Generalagenten und der Vorsorgeberater:innen in versicherungstechnischen Belangen\n- Verantwortung der Umsetzung einer lösungsorientierten Bearbeitung von Kundenanliegen\n- Unterstützung, Planung und Organisation bei Marketing-Massnahmen\n\n- Kaufmännische Ausbildung, vorzugsweise in der Versicherungsbranche\n- Mehrjährige Berufserfahrung bei einer Versicherung im Fachbereich Leben zwingend\n- Fachausweis und/oder höhere Fachschule im Bereich Assekuranz\n- Erfahrung in der Personalführung von Vorteil\n- Bereitschaft für erforderliche Weiterbildungen\n- Offene, flexible und agile Persönlichkeit mit Verkaufsaffinität\n- Selbstständige, zielorientierte und exakte Arbeitsweise sowie hohes Engagement werden vorausgesetzt\n- Stilsichere Deutschkenntnisse in Wort und Schrift, weitere Sprachen von Vorteil\n- Hohes Verantwortungsbewusstsein, organisatorisches Geschick und hohe Belastbarkeit\n- Freude an modernen und zeitgemässen digitalen Tools\n\n## Unser Bewerbungsprozess\nLerne unseren Bewerbungsprozess kennen und erhalte Antworten auf Fragen, die Bewerbende uns häufig stellen. Solltest du während des Bewerbungsprozesses Unterstützung benötigen, melde dich einfach. Die Kolleginnen und Kollegen vom Recruiting helfen dir gerne weiter.\n\n## Diversity & Inclusion\nVielfalt, Chancengerechtigkeit und Inklusion liegen uns bei der AXA am Herzen. Unsere Unternehmenskultur fördert Respekt und Offenheit, damit jede Person bei uns ihr volles Potential entfalten kann.\n\nFür diese Stelle können wir keine Bewerbungen über Personalvermittlungen berücksichtigen."
       },
       "slugByLocale": {
-        "it": "responsabile-servizio-interno-per-la-agenzia-generale-previdenza-patrimonio-chur-axa-svizzera-axa",
-        "en": "internal-manager-for-general-agency-pensions-and-wealth-chur-axa-svizzera-arbeitsort-chur",
         "de": "leiter-in-innendienst-fur-die-generalagentur-vorsorge-vermogen-chur-axa-svizzera-arbeitsort-chur",
-        "fr": "responsable-interieur-pour-l-agence-generale-prevoyance-et-patrimoine-chur-axa-svizzera-arbeitsort-chur"
+        "it": "responsabile-servizio-interno-per-la-agenzia-generale-previdenza-patrimonio-chur-axa-svizzera-arbeitsort-chur",
+        "en": "leiter-in-innendienst-fur-die-generalagentur-vorsorge-vermogen-chur-axa-arbeitsort-xmj84f",
+        "fr": "leiter-in-innendienst-fur-die-generalagentur-vorsorge-vermogen-chur-axa-arbeitsort-xmj84f"
       },
-      "salaryMin": 72000,
-      "salaryMax": 97000,
+      "id": "axa-svizzera-90dadca4f97c",
+      "previousSlugsByLocale": {
+        "it": [
+          "leiter-in-innendienst-fur-die-generalagentur-vorsorge-vermogen-chur-axa-arbeitsort-xmj84f"
+        ],
+        "de": [
+          "leiter-in-innendienst-fur-die-generalagentur-vorsorge-vermogen-chur-axa-arbeitsort-xmj84f"
+        ]
+      },
+      "previousSlugs": [
+        "leiter-in-innendienst-fur-die-generalagentur-vorsorge-vermogen-chur-axa-arbeitsort-xmj84f"
+      ],
+      "salaryMin": 68000,
+      "salaryMax": 103000,
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 72000,
-          "maxValue": 97000,
+          "minValue": 68000,
+          "maxValue": 103000,
           "unitText": "YEAR"
         }
       },
       "streetAddress": "Via della Posta 2",
       "postalCode": "6901",
-      "previousSlugs": [
-        "leiter-in-innendienst-fur-die-generalagentur-vorsorge-vermogen-chur",
-        "leiter-in-innendienst-fur-die-generalagentur-vorsorge-vermogen-chur-axa-svizzera-ticino",
-        "leiter-in-innendienst-fur-die-generalagentur-vorsorge-vermogen-chur-axa-arbeitsort-5yb4fm"
-      ],
-      "id": "axa-svizzera-2648c416c62b",
-      "previousSlugsByLocale": {
-        "de": [
-          "leiter-in-innendienst-fur-die-generalagentur-vorsorge-vermogen-chur",
-          "leiter-in-innendienst-fur-die-generalagentur-vorsorge-vermogen-chur-axa-svizzera-ticino",
-          "leiter-in-innendienst-fur-die-generalagentur-vorsorge-vermogen-chur-axa-arbeitsort-5yb4fm"
-        ],
-        "it": [
-          "leiter-in-innendienst-fur-die-generalagentur-vorsorge-vermogen-chur-axa-arbeitsort-5yb4fm"
-        ]
-      }
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-04-13T21:08:31.463Z"
     }
   ]
 }
