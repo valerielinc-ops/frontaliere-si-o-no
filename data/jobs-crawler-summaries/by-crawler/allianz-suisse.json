@@ -1,19 +1,21 @@
 {
   "key": "allianz-suisse",
   "label": "Tessin",
-  "generatedAt": "2026-04-13T09:53:16.122Z",
+  "generatedAt": "2026-04-13T21:01:46.150Z",
   "total": 7,
   "newCount": 0,
-  "updatedCount": 7,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 14738,
-  "avgDurationMs": 14738,
+  "unchangedCount": 7,
+  "durationMs": 13515,
+  "avgDurationMs": 13515,
   "durationHistory": [
-    14738
+    13515
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Responsabile vendite nel servizio esterno (f/m/d), 100%, Bellinzona",
       "slug": "responsabile-vendite-nel-servizio-esterno-f-m-d-100-bellinzona",
@@ -266,7 +268,5 @@
         "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
