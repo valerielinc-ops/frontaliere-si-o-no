@@ -7,7 +7,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { useTranslation } from '@/services/i18n';
-import { Bell, BellRing, Trash2, ChevronDown, ChevronUp, Loader2 } from 'lucide-react';
+import { Bell, BellRing, Trash2, ChevronDown, ChevronUp, Loader2, Pencil } from 'lucide-react';
 import type { JobAlert, JobAlertConfig } from '@/services/jobAlertService';
 
 // ── Types ────────────────────────────────────────────────────
@@ -39,6 +39,19 @@ const CONTRACT_TYPES = [
   { value: 'internship', labelKey: 'jobBoard.filter.internship' },
 ];
 
+const SECTORS = [
+  { value: 'Fintech / Blockchain', label: 'Fintech' },
+  { value: 'Tecnologia / Data Center', label: 'Tecnologia' },
+  { value: 'Consulenza', label: 'Consulenza' },
+  { value: 'Sanità / Assistenza', label: 'Sanità' },
+  { value: 'Farmaceutica / Biotecnologia', label: 'Farmaceutica' },
+  { value: 'Ospitalità / Hotellerie', label: 'Ospitalità' },
+  { value: 'Banca / Gestione patrimoniale', label: 'Banca' },
+  { value: 'Amministrazione Pubblica', label: 'Amm. Pubblica' },
+  { value: 'Edilizia e tecnica', label: 'Edilizia' },
+  { value: 'Istruzione e ricerca', label: 'Istruzione' },
+];
+
 // ── Component ────────────────────────────────────────────────
 
 export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword = '' }: JobAlertFormProps) {
@@ -47,10 +60,12 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
   const [keyword, setKeyword] = useState(initialKeyword);
   const [selectedLocations, setSelectedLocations] = useState<string[]>([]);
   const [selectedContracts, setSelectedContracts] = useState<string[]>([]);
+  const [selectedSectors, setSelectedSectors] = useState<string[]>([]);
   const [frequency, setFrequency] = useState<'daily' | 'weekly'>('daily');
   const [saving, setSaving] = useState(false);
   const [alerts, setAlerts] = useState<JobAlert[]>([]);
   const [loadingAlerts, setLoadingAlerts] = useState(false);
+  const [editingAlertId, setEditingAlertId] = useState<string | null>(null);
   const [toast, setToast] = useState<string | null>(null);
 
   // Update keyword when search changes
@@ -95,7 +110,7 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
         keywords: keyword.trim() ? keyword.trim().split(/[,;]+/).map((k) => k.trim()).filter(Boolean) : [],
         locations: selectedLocations,
         contractTypes: selectedContracts,
-        sectors: [],
+        sectors: selectedSectors,
         frequency,
       };
       const alert = await createAlert(authUser.uid, authUser.email || '', config);
@@ -113,6 +128,7 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
       setKeyword('');
       setSelectedLocations([]);
       setSelectedContracts([]);
+      setSelectedSectors([]);
       setExpanded(false);
     } catch (err: any) {
       showToast(err?.message || 'Errore durante la creazione dell\'alert.');
@@ -134,6 +150,20 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
     }
   };
 
+  const handleUpdateFrequency = async (alertId: string, newFrequency: 'daily' | 'weekly') => {
+    try {
+      const { updateAlert } = await import('@/services/jobAlertService');
+      await updateAlert(alertId, { frequency: newFrequency });
+      setAlerts((prev) =>
+        prev.map((a) => (a.id === alertId ? { ...a, frequency: newFrequency } : a)),
+      );
+      setEditingAlertId(null);
+      showToast(t('jobAlert.updated') || 'Alert aggiornata.');
+    } catch {
+      showToast('Errore durante l\'aggiornamento.');
+    }
+  };
+
   const toggleLocation = (loc: string) => {
     setSelectedLocations((prev) =>
       prev.includes(loc) ? prev.filter((l) => l !== loc) : [...prev, loc],
@@ -143,6 +173,12 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
   const toggleContract = (ct: string) => {
     setSelectedContracts((prev) =>
       prev.includes(ct) ? prev.filter((c) => c !== ct) : [...prev, ct],
+    );
+  };
+
+  const toggleSector = (s: string) => {
+    setSelectedSectors((prev) =>
+      prev.includes(s) ? prev.filter((x) => x !== s) : [...prev, s],
     );
   };
 
@@ -225,6 +261,28 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
             </div>
           </div>
 
+          {/* Sectors */}
+          <div>
+            <label className="block text-sm font-medium text-subtle mb-1">
+              {t('jobAlert.sector') || 'Settore'}
+            </label>
+            <div className="flex flex-wrap gap-2">
+              {SECTORS.map((s) => (
+                <button
+                  key={s.value}
+                  onClick={() => toggleSector(s.value)}
+                  className={`px-3 py-1 text-xs rounded-full border transition-colors ${
+                    selectedSectors.includes(s.value)
+                      ? 'bg-stripe-600 text-white border-stripe-600'
+                      : 'bg-surface text-subtle border-slate-300 dark:border-slate-600 hover:border-stripe-400'
+                  }`}
+                >
+                  {s.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
           {/* Frequency */}
           <div className="flex items-center gap-3">
             <label className="text-xs font-medium text-subtle">
@@ -267,24 +325,52 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
                 {alerts.map((alert) => (
                   <div
                     key={alert.id}
-                    className="flex items-center justify-between p-2 bg-surface rounded-lg border border-edge"
+                    className="p-2 bg-surface rounded-lg border border-edge"
                   >
-                    <div className="text-xs text-subtle">
-                      <span className="font-medium text-strong">
-                        {alert.keywords.join(', ') || 'Tutte le offerte'}
-                      </span>
-                      {alert.locations.length > 0 && (
-                        <span> — {alert.locations.join(', ')}</span>
-                      )}
-                      <span className="ml-2 text-muted">({alert.frequency})</span>
+                    <div className="flex items-center justify-between">
+                      <div className="text-xs text-subtle min-w-0">
+                        <span className="font-medium text-strong">
+                          {alert.keywords.join(', ') || 'Tutte le offerte'}
+                        </span>
+                        {alert.locations.length > 0 && (
+                          <span> — {alert.locations.join(', ')}</span>
+                        )}
+                        {alert.sectors.length > 0 && (
+                          <span> · {alert.sectors.map(s => SECTORS.find(x => x.value === s)?.label || s).join(', ')}</span>
+                        )}
+                      </div>
+                      <div className="flex items-center gap-1 flex-shrink-0 ml-2">
+                        <button
+                          onClick={() => setEditingAlertId(editingAlertId === alert.id ? null : alert.id)}
+                          className="p-1 text-muted hover:text-stripe-600 transition-colors"
+                          title={t('jobAlert.edit') || 'Modifica'}
+                        >
+                          <Pencil className="w-3.5 h-3.5" />
+                        </button>
+                        <button
+                          onClick={() => handleDelete(alert.id)}
+                          className="p-1 text-muted hover:text-red-500 transition-colors"
+                          title={t('jobAlert.delete') || 'Elimina'}
+                        >
+                          <Trash2 className="w-3.5 h-3.5" />
+                        </button>
+                      </div>
                     </div>
-                    <button
-                      onClick={() => handleDelete(alert.id)}
-                      className="p-1 text-muted hover:text-red-500 transition-colors"
-                      title={t('jobAlert.delete') || 'Elimina'}
-                    >
-                      <Trash2 className="w-3.5 h-3.5" />
-                    </button>
+                    {editingAlertId === alert.id ? (
+                      <div className="flex items-center gap-2 mt-2 pt-2 border-t border-edge">
+                        <span className="text-xs text-muted">{t('jobAlert.frequency') || 'Frequenza'}:</span>
+                        <select
+                          value={alert.frequency}
+                          onChange={(e) => handleUpdateFrequency(alert.id, e.target.value as 'daily' | 'weekly')}
+                          className="px-2 py-0.5 text-xs rounded border border-slate-300 dark:border-slate-600 bg-surface"
+                        >
+                          <option value="daily">{t('jobAlert.daily') || 'Giornaliera'}</option>
+                          <option value="weekly">{t('jobAlert.weekly') || 'Settimanale'}</option>
+                        </select>
+                      </div>
+                    ) : (
+                      <div className="text-xs text-muted mt-0.5">{alert.frequency === 'daily' ? (t('jobAlert.daily') || 'Giornaliera') : (t('jobAlert.weekly') || 'Settimanale')}</div>
+                    )}
                   </div>
                 ))}
               </div>

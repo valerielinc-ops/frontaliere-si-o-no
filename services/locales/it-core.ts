@@ -754,6 +754,9 @@ const translations: Record<string, string> = {
     'jobAlert.yourAlerts': 'Le tue alert',
     'jobAlert.loading': 'Caricamento alert...',
     'jobAlert.error.emptyFields': 'Inserisci almeno una keyword o una zona.',
+    'jobAlert.sector': 'Settore',
+    'jobAlert.edit': 'Modifica',
+    'jobAlert.updated': 'Alert aggiornata.',
 
     // Search
     'search.placeholder': 'Cerca sezioni, strumenti, funzionalità...',

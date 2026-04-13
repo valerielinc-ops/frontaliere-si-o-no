@@ -715,6 +715,9 @@ const deCore: Record<string, string> = {
     'jobAlert.yourAlerts': 'Ihre Alerts',
     'jobAlert.loading': 'Alerts werden geladen...',
     'jobAlert.error.emptyFields': 'Geben Sie mindestens ein Stichwort oder ein Gebiet ein.',
+    'jobAlert.sector': 'Branche',
+    'jobAlert.edit': 'Bearbeiten',
+    'jobAlert.updated': 'Alert aktualisiert.',
 
     'search.placeholder': 'Bereiche, Tools, Funktionen suchen...',
     'search.hint': 'Tippen Sie, um alle Bereiche der Website zu durchsuchen',

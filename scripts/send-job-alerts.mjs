@@ -90,6 +90,13 @@ function matchJobToAlert(job, alert) {
     if (contractMatch) score += 1;
   }
 
+  // Sector matching
+  if (alert.sectors?.length > 0) {
+    const jobSector = (job.sector || '').toLowerCase();
+    const sectorMatch = alert.sectors.some((s) => jobSector.includes(s.toLowerCase()));
+    if (sectorMatch) score += 2;
+  }
+
   // If no keywords required, location is sufficient
   if (alert.keywords?.length === 0 && score === 0) return 0;
 
@@ -102,49 +109,133 @@ function buildAlertEmail(alert, matchedJobs) {
   const keyword = alert.keywords?.join(', ') || 'tutte le offerte';
   const subject = `🔔 ${matchedJobs.length} nuov${matchedJobs.length === 1 ? 'a offerta' : 'e offerte'} per: ${keyword}`;
 
+  // Brand colors (aligned with newsletter-template.mjs)
+  const BRAND_ORANGE = '#f97316';
+  const BRAND_DARK = '#0f172a';
+  const DARK_CARD = '#1e293b';
+  const LIGHT_BG = '#f1f5f9';
+  const WHITE = '#ffffff';
+  const MUTED = '#64748b';
+  const BORDER = '#e2e8f0';
+
+  const utmBase = `utm_source=job_alert&utm_medium=email&utm_campaign=alert_${alert.id}`;
+
   const jobCards = matchedJobs.slice(0, 10).map((job) => {
     const title = job.titleByLocale?.it || job.title || 'Offerta di lavoro';
     const company = job.company || '';
     const location = job.location || job.addressLocality || '';
     const slug = job.slugByLocale?.it || job.slug || '';
-    const url = slug ? `${BASE_URL}/cerca-lavoro-ticino/${slug}?utm_source=job_alert&utm_medium=email&utm_campaign=alert_${alert.id}` : BASE_URL;
+    const url = slug ? `${BASE_URL}/cerca-lavoro-ticino/${slug}?${utmBase}` : BASE_URL;
+    const initial = (company || '?')[0].toUpperCase();
+    const tags = [];
+    if (job.contract) tags.push(`<span style="font-size:10px;background:rgba(249,115,22,0.15);color:#fdba74;padding:2px 8px;border-radius:6px;text-transform:uppercase;letter-spacing:0.5px;font-weight:600;">${escHtml(job.contract)}</span>`);
+    if (location) tags.push(`<span style="font-size:10px;background:rgba(249,115,22,0.15);color:#fdba74;padding:2px 8px;border-radius:6px;text-transform:uppercase;letter-spacing:0.5px;font-weight:600;">${escHtml(location)}</span>`);
 
     return `
-      <tr>
-        <td style="padding:12px 16px;border-bottom:1px solid #e2e8f0;">
-          <a href="${url}" style="color:#4f46e5;text-decoration:none;font-weight:600;font-size:15px;">${escHtml(title)}</a>
-          <div style="color:#64748b;font-size:13px;margin-top:4px;">
-            ${company ? `${escHtml(company)}` : ''}${company && location ? ' — ' : ''}${location ? escHtml(location) : ''}
-          </div>
-        </td>
-      </tr>`;
+        <tr><td style="padding:0 0 10px;">
+          <a href="${url}" style="text-decoration:none;display:block;">
+            <table width="100%" cellpadding="0" cellspacing="0" style="background:${DARK_CARD};border-radius:12px;">
+              <tr>
+                <td width="58" style="padding:16px 0 16px 18px;vertical-align:middle;">
+                  <div style="width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,${BRAND_DARK},#334155);text-align:center;line-height:44px;font-size:18px;font-weight:800;color:${BRAND_ORANGE};">${initial}</div>
+                </td>
+                <td style="padding:16px 18px 16px 14px;vertical-align:middle;">
+                  <div style="font-size:14px;font-weight:700;color:#f1f5f9;margin:0;overflow:hidden;text-overflow:ellipsis;">${escHtml(title)}</div>
+                  <div style="font-size:12px;color:#94a3b8;margin-top:2px;">${escHtml(company)}${location ? ' \u00b7 ' + escHtml(location) : ''}</div>
+                  ${tags.length > 0 ? `<div style="margin-top:4px;">${tags.join(' ')}</div>` : ''}
+                </td>
+              </tr>
+            </table>
+          </a>
+        </td></tr>`;
   }).join('');
 
-  const manageUrl = `${BASE_URL}/?tab=lavoro&utm_source=job_alert&utm_medium=email&utm_campaign=manage`;
+  const manageUrl = `${BASE_URL}/?tab=lavoro&${utmBase}`;
+  const allJobsUrl = `${BASE_URL}/cerca-lavoro-ticino/?${utmBase}`;
+
+  const locationInfo = alert.locations?.length > 0 ? ` \u00b7 ${alert.locations.join(', ')}` : '';
+  const sectorInfo = alert.sectors?.length > 0 ? ` \u00b7 ${alert.sectors.join(', ')}` : '';
+  const filterSummary = `${escHtml(keyword)}${escHtml(locationInfo)}${escHtml(sectorInfo)}`;
 
   const html = `<!DOCTYPE html>
 <html lang="it">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
-<body style="margin:0;padding:0;background:#f8fafc;font-family:system-ui,-apple-system,sans-serif;">
-  <div style="max-width:600px;margin:0 auto;padding:24px 16px;">
-    <div style="text-align:center;margin-bottom:24px;">
-      <h1 style="font-size:20px;color:#1e293b;margin:0;">🔔 Nuove offerte per te</h1>
-      <p style="color:#64748b;font-size:14px;margin:8px 0 0;">Ricerca: <strong>${escHtml(keyword)}</strong></p>
-    </div>
-    <table style="width:100%;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.1);">
-      ${jobCards}
-    </table>
-    <div style="text-align:center;margin-top:24px;">
-      <a href="${BASE_URL}/cerca-lavoro-ticino/?utm_source=job_alert&utm_medium=email" style="display:inline-block;padding:12px 24px;background:#4f46e5;color:#fff;text-decoration:none;border-radius:8px;font-weight:600;font-size:14px;">Vedi tutte le offerte →</a>
-    </div>
-    <div style="text-align:center;margin-top:32px;padding-top:16px;border-top:1px solid #e2e8f0;">
-      <p style="color:#94a3b8;font-size:12px;margin:0;">
-        <a href="${manageUrl}" style="color:#94a3b8;">Gestisci le tue alert</a> ·
-        <a href="${manageUrl}" style="color:#94a3b8;">Disiscriviti</a>
-      </p>
-      <p style="color:#cbd5e1;font-size:11px;margin:8px 0 0;">Frontaliere Ticino — frontaliereticino.ch</p>
-    </div>
-  </div>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Job Alert \u2014 Frontaliere Ticino</title>
+  <style>
+    body{margin:0;padding:0;background:${LIGHT_BG};font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;-webkit-text-size-adjust:100%;}
+    table{border-collapse:collapse;}
+    @media only screen and (max-width:620px){
+      .outer-table{width:100%!important;}
+      .section-pad{padding-left:16px!important;padding-right:16px!important;}
+    }
+  </style>
+</head>
+<body>
+  <div style="display:none!important;font-size:1px;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;">${matchedJobs.length} nuove offerte: ${keyword}&nbsp;\u200c\u200c\u200c\u200c</div>
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:${LIGHT_BG};">
+    <tr><td align="center" style="padding:0;">
+      <table class="outer-table" width="620" cellpadding="0" cellspacing="0" style="width:100%;max-width:620px;">
+
+        <!-- Top bar -->
+        <tr><td style="background:${BRAND_DARK};padding:14px 28px;">
+          <table width="100%" cellpadding="0" cellspacing="0">
+            <tr>
+              <td style="font-size:15px;font-weight:800;color:${WHITE};letter-spacing:-0.3px;">
+                <span style="color:${BRAND_ORANGE};">\u25cf</span> Frontaliere Ticino
+              </td>
+              <td align="right" style="font-size:11px;color:#94a3b8;text-transform:uppercase;letter-spacing:1px;">
+                Job Alert
+              </td>
+            </tr>
+          </table>
+        </td></tr>
+
+        <!-- Hero -->
+        <tr><td style="background:${BRAND_DARK};padding:20px 28px 28px;" class="section-pad">
+          <div style="font-size:22px;font-weight:800;color:${WHITE};margin:0;">\ud83d\udd14 ${matchedJobs.length} nuov${matchedJobs.length === 1 ? 'a offerta' : 'e offerte'} per te</div>
+          <div style="font-size:13px;color:#94a3b8;margin-top:6px;">Filtri: ${filterSummary}</div>
+        </td></tr>
+
+        <!-- Section header -->
+        <tr><td class="section-pad" style="background:${WHITE};padding:24px 28px 8px;">
+          <div style="font-size:11px;text-transform:uppercase;letter-spacing:2px;color:${BRAND_ORANGE};font-weight:700;margin:0 0 2px;">\ud83d\udcbc Lavoro</div>
+          <div style="font-size:18px;font-weight:800;color:${BRAND_DARK};margin:0;">Le offerte che fanno per te</div>
+          <div style="font-size:13px;color:${MUTED};margin:4px 0 0;">Selezionate in base ai tuoi filtri, aggiornate ogni giorno.</div>
+        </td></tr>
+
+        <!-- Job cards -->
+        <tr><td class="section-pad" style="background:${WHITE};padding:8px 28px 20px;">
+          <table width="100%" cellpadding="0" cellspacing="0">
+            ${jobCards}
+            <tr><td style="text-align:center;padding-top:14px;">
+              <a href="${allJobsUrl}" style="display:inline-block;background:transparent;border:2px solid ${BRAND_ORANGE};color:${BRAND_ORANGE};font-weight:700;font-size:13px;text-decoration:none;padding:11px 28px;border-radius:8px;">Vedi tutte le offerte \u2192</a>
+            </td></tr>
+          </table>
+        </td></tr>
+
+        <!-- Divider -->
+        <tr><td style="padding:0 28px;background:${WHITE};"><div style="border-top:1px solid ${BORDER};"></div></td></tr>
+
+        <!-- Footer -->
+        <tr><td style="background:${WHITE};padding:20px 28px 24px;text-align:center;">
+          <p style="color:${MUTED};font-size:12px;margin:0 0 8px;">
+            <a href="${manageUrl}" style="color:${BRAND_ORANGE};text-decoration:none;font-weight:600;">Gestisci le tue alert</a>
+            <span style="color:#cbd5e1;"> \u00b7 </span>
+            <a href="${manageUrl}" style="color:${MUTED};text-decoration:none;">Disiscriviti</a>
+          </p>
+          <p style="color:#cbd5e1;font-size:11px;margin:0;">
+            Ricevi questa email perch\u00e9 hai attivato un alert su
+            <a href="${BASE_URL}" style="color:#cbd5e1;">frontaliereticino.ch</a>
+          </p>
+          <p style="color:#cbd5e1;font-size:10px;margin:8px 0 0;">\u00a9 ${new Date().getFullYear()} Frontaliere Ticino \u2014 0% spam, 100% frontaliere</p>
+        </td></tr>
+
+      </table>
+    </td></tr>
+  </table>
 </body>
 </html>`;
 

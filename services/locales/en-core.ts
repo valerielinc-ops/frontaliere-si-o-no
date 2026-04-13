@@ -715,6 +715,9 @@ const enCore: Record<string, string> = {
     'jobAlert.yourAlerts': 'Your alerts',
     'jobAlert.loading': 'Loading alerts...',
     'jobAlert.error.emptyFields': 'Enter at least one keyword or area.',
+    'jobAlert.sector': 'Sector',
+    'jobAlert.edit': 'Edit',
+    'jobAlert.updated': 'Alert updated.',
 
     'search.placeholder': 'Search sections, tools, features...',
     'search.hint': 'Type to search across all site sections',

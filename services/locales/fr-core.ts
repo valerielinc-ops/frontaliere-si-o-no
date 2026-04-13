@@ -715,6 +715,9 @@ const frCore: Record<string, string> = {
     'jobAlert.yourAlerts': 'Vos alertes',
     'jobAlert.loading': 'Chargement des alertes...',
     'jobAlert.error.emptyFields': 'Saisissez au moins un mot-clé ou une zone.',
+    'jobAlert.sector': 'Secteur',
+    'jobAlert.edit': 'Modifier',
+    'jobAlert.updated': 'Alerte mise à jour.',
 
     'search.placeholder': 'Rechercher sections, outils, fonctionnalités...',
     'search.hint': 'Tapez pour rechercher dans toutes les sections du site',
