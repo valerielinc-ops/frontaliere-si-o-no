@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bcvs",
-  "assembledAt": "2026-04-13T10:04:16.398Z",
+  "assembledAt": "2026-04-13T21:12:52.073Z",
   "jobs": [
     {
       "id": "bcvs-4511f0d0d08c",
@@ -33,7 +33,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/teamleiter-in-privatkunden-2341",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:04:13.767Z",
+      "crawledAt": "2026-04-13T21:12:49.475Z",
       "addressLocality": "Zermatt",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -83,6 +83,8 @@
       "previousSlugs": [
         "teamleiter-in-privatkunden-bcvs-zermatt"
       ],
+      "firstSeenAt": "2026-04-13T10:04:13.767Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -95,8 +97,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3920",
-      "firstSeenAt": "2026-04-13T10:04:13.767Z"
+      "postalCode": "3920"
     },
     {
       "id": "bcvs-d70b5b41751d",
@@ -129,7 +130,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/investment-specialist-2442",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-13T10:04:13.282Z",
+      "crawledAt": "2026-04-13T21:12:48.842Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -188,6 +189,8 @@
           "specialiste-en-investissement-banque-cantonale-du-valais-sion"
         ]
       },
+      "firstSeenAt": "2026-04-13T10:04:13.282Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -200,8 +203,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1950",
-      "firstSeenAt": "2026-04-13T10:04:13.282Z"
+      "postalCode": "1950"
     },
     {
       "id": "bcvs-6444de21fad8",
@@ -234,7 +236,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/conseiller-ere-clientele-valorisation-2448",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-13T10:04:12.805Z",
+      "crawledAt": "2026-04-13T21:12:48.211Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -292,6 +294,7 @@
       "previousSlugs": [
         "conseiller-ere-clientele-valorisation-bcvs-sion"
       ],
+      "firstSeenAt": "2026-04-13T10:04:12.805Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -304,8 +307,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1950",
-      "firstSeenAt": "2026-04-13T10:04:12.805Z"
+      "postalCode": "1950"
     },
     {
       "id": "bcvs-705daaf4571c",
@@ -338,7 +340,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/mitarbeiter-in-stabstelle-region-oberwallis-und-support-firmenkunden-2464",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:04:12.333Z",
+      "crawledAt": "2026-04-13T21:12:47.577Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -388,6 +390,8 @@
       "previousSlugs": [
         "mitarbeiter-in-stabsstelle-region-oberwallis-und-support-firmenkunden-bcvs-visp"
       ],
+      "firstSeenAt": "2026-04-13T10:04:12.333Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -400,8 +404,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3930",
-      "firstSeenAt": "2026-04-13T10:04:12.333Z"
+      "postalCode": "3930"
     },
     {
       "id": "bcvs-c7a975c1fa18",
@@ -434,7 +437,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/expert-e-en-finances-controlling-2470",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-13T10:04:11.856Z",
+      "crawledAt": "2026-04-13T21:12:46.943Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -482,6 +485,8 @@
           "expert-e-en-finances-et-controle-banque-cantonale-du-valais-sion"
         ]
       },
+      "firstSeenAt": "2026-04-13T10:04:11.856Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -494,8 +499,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1950",
-      "firstSeenAt": "2026-04-13T10:04:11.856Z"
+      "postalCode": "1950"
     },
     {
       "id": "bcvs-9837019630b9",
@@ -528,7 +532,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/conseiller-ere-clientele-individuelle-des-prives-2492",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-13T10:04:11.381Z",
+      "crawledAt": "2026-04-13T21:12:46.301Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -580,6 +584,8 @@
       "previousSlugs": [
         "conseiller-ere-clientele-individuelle-des-prives-bcvs-sion"
       ],
+      "firstSeenAt": "2026-04-13T10:04:11.381Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -592,41 +598,40 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1950",
-      "firstSeenAt": "2026-04-13T10:04:11.381Z"
+      "postalCode": "1950"
     },
     {
       "id": "bcvs-9887e8d5b2a3",
-      "slug": "gestionnaire-back-office-credits-banque-cantonale-du-valais-sion",
+      "slug": "back-office-manager-credits-banque-cantonale-du-valais-sion",
       "slugByLocale": {
-        "fr": "gestionnaire-back-office-credits-banque-cantonale-du-valais-sion",
-        "it": "gestionnaire-back-office-credits-banque-cantonale-du-valais-sion",
+        "it": "back-office-manager-credits-banque-cantonale-du-valais-sion",
         "en": "gestionnaire-back-office-credits-bcvs-sion",
-        "de": "gestionnaire-back-office-credits-bcvs-sion"
+        "de": "gestionnaire-back-office-credits-bcvs-sion",
+        "fr": "gestionnaire-back-office-credits-banque-cantonale-du-valais-sion"
       },
       "company": "Banque Cantonale du Valais",
       "companyKey": "bcvs",
       "companyDomain": "bcvs.ch",
       "title": "Gestionnaire Back-office Crédits",
       "titleByLocale": {
-        "fr": "Gestionnaire Back-office Crédits",
         "it": "Back-office Manager Credits",
         "en": "Back-office Manager Credits",
-        "de": "Back-office Manager Credits"
+        "de": "Back-office Manager Credits",
+        "fr": "Gestionnaire Back-office Crédits"
       },
       "description": "Pas de résultats\n \n \n Pas de résultats\n \n \n \n\n \n \n \n \n \n\n \n\n \n \n \n \n \n\n \n \n\n Contacter un conseiller Contacter un conseiller \n \n \n \n \n\n \n\n \n Chat \n \n \n \n \n\n \n\n \n\n \n \n Gestionnaire Back-office Crédits \n Sion\n 80-100%\n \n\n \n\n \n Vous êtes formé-e aux sciences commerciales et savez conjuguer la rigueur technique à la souplesse relationnelle afin d’optimiser le traitement des dossiers crédits ? Rejoignez l’équipe Back-office Crédits qui soutient la gestion interne des crédits octroyés aux clients. \n\nEn tant que Gestionnaire Back-office Crédits, vous déploierez vos compétences d’analyse et de contrôle tout en garantissant une parfaite coordination avec les différents services de la BCVS. Votre curiosité pertinente dans la lecture des dossiers vous permettra d’améliorer la gestion globale des dossiers crédits. \n \n Concrètement ?\n Vos responsabilités vous mèneront à traiter, contrôler et gérer les demandes de crédits pour la clientèle des particuliers et des entreprises. \n Vous contribuerez activement à la bonne tenue des dossiers client (d’un point de vue délai-qualité-respect des réglementations) par un traitement irréprochable des données et prendrez les mesures adéquates en cas de risques potentiels ou avérés. \n Vous collaborerez aux tâches de SCI (systèmes de contrôles internes) et contribuerez au respect de la politique de crédits. \n Enfin vous soutiendrez les conseillers à la clientèle et favoriserez des échanges constructifs pour atteindre des résultats win-win. \n \n Le défi vous tente ?\n Ce poste est fait pour vous si… \n Vous disposez d’une formation commerciale (CFC, Maturité ou équivalent), et disposez de plusieurs années d'expérience similaire dans un secteur back office de crédits bancaires. \n Vous avez un sens aigu des priorités et du respect des délais. \n Ayant une parfaite maîtrise du français, vous possédez également de bonnes connaissances orales et écrites de l’allemand, votre bilinguisme serait un fort atout. \n Vous maîtrisez les outils informatiques et avez de bonnes aptitudes d’analyses. \n Vos belles compétences sociales se complètent par votre esprit positif. \n Personne rigoureuse, vous travaillez de manière autonome. \n \n Vous souhaitez nous rejoindre ?\n Rencontrons-nous ! \n Nous nous réjouissons de découvrir votre candidature. \nPour ce faire, envoyez votre dossier complet à Marisa Berclaz, notre HR Business Partner, à l’adresse : recrutement@bcvs.ch .",
       "descriptionByLocale": {
-        "fr": "Pas de résultats\n\n Pas de résultats\n\n Contacter un conseiller Contacter un conseiller\n\n Chat\n\n Gestionnaire Back-office Crédits\n Sion\n 80-100%\n\n Vous êtes formé-e aux sciences commerciales et savez conjuguer la rigueur technique à la souplesse relationnelle afin d’optimiser le traitement des dossiers crédits ? Rejoignez l’équipe Back-office Crédits qui soutient la gestion interne des crédits octroyés aux clients.\n\nEn tant que Gestionnaire Back-office Crédits, vous déploierez vos compétences d’analyse et de contrôle tout en garantissant une parfaite coordination avec les différents services de la BCVS. Votre curiosité pertinente dans la lecture des dossiers vous permettra d’améliorer la gestion globale des dossiers crédits.\n\n Concrètement ?\n Vos responsabilités vous mèneront à traiter, contrôler et gérer les demandes de crédits pour la clientèle des particuliers et des entreprises.\n Vous contribuerez activement à la bonne tenue des dossiers client (d’un point de vue délai-qualité-respect des réglementations) par un traitement irréprochable des données et prendrez les mesures adéquates en cas de risques potentiels ou avérés.\n Vous collaborerez aux tâches de SCI (systèmes de contrôles internes) et contribuerez au respect de la politique de crédits.\n Enfin vous soutiendrez les conseillers à la clientèle et favoriserez des échanges constructifs pour atteindre des résultats win-win.\n\n Le défi vous tente ?\n Ce poste est fait pour vous si…\n Vous disposez d’une formation commerciale (CFC, Maturité ou équivalent), et disposez de plusieurs années d'expérience similaire dans un secteur back office de crédits bancaires.\n Vous avez un sens aigu des priorités et du respect des délais.\n Ayant une parfaite maîtrise du français, vous possédez également de bonnes connaissances orales et écrites de l’allemand, votre bilinguisme serait un fort atout.\n Vous maîtrisez les outils informatiques et avez de bonnes aptitudes d’analyses.\n Vos belles compétences sociales se complètent par votre esprit positif.\n Personne rigoureuse, vous travaillez de manière autonome.\n\n Vous souhaitez nous rejoindre ?\n Rencontrons-nous !\n Nous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à Marisa Berclaz, notre HR Business Partner, à l’adresse : recrutement@bcvs.ch .",
         "it": "Contatta un consulente Chat Manager Back-office Credits Sion 80-100% Sei addestrato in scienze commerciali e sai come combinare rigore tecnico con flessibilità relazionale al fine di ottimizzare il trattamento dei file di credito? Unisciti al team Back-office Credits che supporta la gestione interna del credito ai clienti. Come Back-office Credit Manager, distribuirai le tue abilità analitiche e di controllo, garantendo un perfetto coordinamento con i vari servizi BCVS. La vostra curiosità rilevante nella lettura dei file vi permetterà di migliorare la gestione complessiva dei file di credito. In particolare? Le tue responsabilità ti condurranno a elaborare, monitorare e gestire richieste di credito per i clienti di individui e aziende. Contribuirai attivamente alla corretta manutenzione dei record dei clienti (da un punto di vista di qualità- conformità con le normative) attraverso l'irreprensibile elaborazione dei dati e agire in caso di potenziali o comprovati rischi. Collaborerai sui compiti di ICS (sistemi di controlli interni) e contribuirai al rispetto della politica di credito. Infine, supporterete i consulenti dei clienti e incoraggerete gli scambi costruttivi per ottenere risultati win-win. La sfida ti sta tentando? Questo post è per voi se... Hai una formazione commerciale (CFC, Maturity o equivalente), e hanno diversi anni di esperienza simile in un settore di credito bancario back office. Hai un forte senso di priorità e tempestività. Avendo un perfetto comando del francese, hai anche una buona conoscenza orale e scritta del tedesco, il tuo bilinguismo sarebbe una grande risorsa. Si padroneggiano gli strumenti informatici e hanno buone capacità analitiche. Le tue belle abilità sociali si integrano a vicenda con il tuo spirito positivo. Una persona rigorosa, tu lavori in modo indipendente. Vuoi unirti a noi? Incontriamoci! Non vediamo l'ora di scoprire la tua applicazione. Per fare questo, invia il tuo file completo a Marisa Berclaz, il nostro HR Business Partner, a recruit@bcvs.ch .",
         "en": "No results No results Contact an advisor Contact an advisor Chat Manager Back-office Credits Sion 80-100% You are trained in commercial sciences and know how to combine technical rigour with relational flexibility in order to optimize the processing of credit files? Join the Back-office Credits team that supports the internal management of credit to clients. As Back-office Credit Manager, you will deploy your analytical and control skills while ensuring perfect coordination with the various BCVS services. Your relevant curiosity in reading files will allow you to improve the overall management of credit files. Specifically? Your responsibilities will lead you to process, monitor and manage credit requests for the clients of individuals and businesses. You will actively contribute to the proper maintenance of client records (from a time-scale point of view-quality-compliance with regulations) through the irreproachable processing of data and take appropriate action in case of potential or proven risks. You will collaborate on the tasks of ICS (systems of internal controls) and contribute to compliance with the credit policy. Finally, you will support customer advisors and encourage constructive exchanges to achieve win-win results. The challenge is tempting you? This post is for you if... You have commercial training (CFC, Maturity or equivalent), and have several years of similar experience in a back office banking credit sector. You have a strong sense of priority and timeliness. Having a perfect command of French, you also have good oral and written knowledge of German, your bilingualism would be a great asset. You master computer tools and have good analytical skills. Your beautiful social skills complement each other with your positive spirit. A rigorous person, you work independently. Would you like to join us? Let's meet! We look forward to discovering your application. To do this, send your complete file to Marisa Berclaz, our HR Business Partner, at recruitment@bcvs.ch .",
-        "de": "Keine Ergebnisse Keine Ergebnisse Kontaktieren Sie einen Berater Kontaktieren Sie einen Berater Chat Manager Back-office Credits Sion 80-100% Sie sind in kommerziellen Wissenschaften ausgebildet und wissen, wie man technische Rigour mit relationaler Flexibilität kombiniert, um die Verarbeitung von Kreditdateien zu optimieren? Begleiten Sie das Back-office Credits Team, das die interne Verwaltung von Kredit an Kunden unterstützt. Als Back-office Credit Manager setzen Sie Ihre analytischen und steuernden Fähigkeiten ein und gewährleisten eine perfekte Abstimmung mit den verschiedenen BCVS-Diensten. Ihre relevante Neugier beim Lesen von Dateien ermöglicht es Ihnen, das Gesamtmanagement von Kreditdateien zu verbessern. Konkret? Ihre Verantwortung führt Sie dazu, Kreditanfragen für die Kunden von Einzelpersonen und Unternehmen zu bearbeiten, zu überwachen und zu verwalten. Sie werden aktiv zur ordnungsgemäßen Wartung von Kundendaten (aus zeitlicher Sicht-Qualitätsanforderungen) durch die unvorhersehbare Verarbeitung von Daten beitragen und bei potenziellen oder nachgewiesenen Risiken angemessene Maßnahmen ergreifen. Sie werden an den Aufgaben der ICS (Systeme der internen Kontrollen) zusammenarbeiten und zur Einhaltung der Kreditpolitik beitragen. Schließlich unterstützen Sie Kundenberater und fördern konstruktiven Austausch, um Win-Win-Ergebnisse zu erzielen. Die Herausforderung verlockt dich? Dieser Beitrag ist für Sie, wenn... Sie haben eine kommerzielle Ausbildung (CFC, Maturity oder Äquivalent), und haben mehrere Jahre ähnliche Erfahrung in einem Back-Office-Banking-Kreditsektor. Sie haben ein starkes Gefühl von Priorität und Zeitlichkeit. Mit einem perfekten Befehl von Französisch, Sie haben auch gute mündliche und schriftliche Kenntnis von Deutsch, Ihre Zweisprachigkeit wäre ein großer Vorteil. Sie meistern Computer-Tools und haben gute analytische Fähigkeiten. Ihre schönen sozialen Fähigkeiten ergänzen sich mit Ihrem positiven Geist. Eine strenge Person, Sie arbeiten unabhängig. Möchten Sie mitkommen? Treffen wir uns! Wir freuen uns auf Ihre Anwendung zu entdecken. Senden Sie Ihre vollständige Datei an Marisa Berclaz, unseren HR Business Partner, unter rekrutierungs@bcvs.ch ."
+        "de": "Keine Ergebnisse Keine Ergebnisse Kontaktieren Sie einen Berater Kontaktieren Sie einen Berater Chat Manager Back-office Credits Sion 80-100% Sie sind in kommerziellen Wissenschaften ausgebildet und wissen, wie man technische Rigour mit relationaler Flexibilität kombiniert, um die Verarbeitung von Kreditdateien zu optimieren? Begleiten Sie das Back-office Credits Team, das die interne Verwaltung von Kredit an Kunden unterstützt. Als Back-office Credit Manager setzen Sie Ihre analytischen und steuernden Fähigkeiten ein und gewährleisten eine perfekte Abstimmung mit den verschiedenen BCVS-Diensten. Ihre relevante Neugier beim Lesen von Dateien ermöglicht es Ihnen, das Gesamtmanagement von Kreditdateien zu verbessern. Konkret? Ihre Verantwortung führt Sie dazu, Kreditanfragen für die Kunden von Einzelpersonen und Unternehmen zu bearbeiten, zu überwachen und zu verwalten. Sie werden aktiv zur ordnungsgemäßen Wartung von Kundendaten (aus zeitlicher Sicht-Qualitätsanforderungen) durch die unvorhersehbare Verarbeitung von Daten beitragen und bei potenziellen oder nachgewiesenen Risiken angemessene Maßnahmen ergreifen. Sie werden an den Aufgaben der ICS (Systeme der internen Kontrollen) zusammenarbeiten und zur Einhaltung der Kreditpolitik beitragen. Schließlich unterstützen Sie Kundenberater und fördern konstruktiven Austausch, um Win-Win-Ergebnisse zu erzielen. Die Herausforderung verlockt dich? Dieser Beitrag ist für Sie, wenn... Sie haben eine kommerzielle Ausbildung (CFC, Maturity oder Äquivalent), und haben mehrere Jahre ähnliche Erfahrung in einem Back-Office-Banking-Kreditsektor. Sie haben ein starkes Gefühl von Priorität und Zeitlichkeit. Mit einem perfekten Befehl von Französisch, Sie haben auch gute mündliche und schriftliche Kenntnis von Deutsch, Ihre Zweisprachigkeit wäre ein großer Vorteil. Sie meistern Computer-Tools und haben gute analytische Fähigkeiten. Ihre schönen sozialen Fähigkeiten ergänzen sich mit Ihrem positiven Geist. Eine strenge Person, Sie arbeiten unabhängig. Möchten Sie mitkommen? Treffen wir uns! Wir freuen uns auf Ihre Anwendung zu entdecken. Senden Sie Ihre vollständige Datei an Marisa Berclaz, unseren HR Business Partner, unter rekrutierungs@bcvs.ch .",
+        "fr": "Pas de résultats Pas de résultats Contacter un conseiller Contacter un conseiller Chat Gestionnaire Back-office Crédits Sion 80-100% Vous êtes formé-e aux sciences commerciales et savez conjuguer la rigueur technique à la souplesse relationnelle afin d’optimiser le traitement des dossiers crédits ? Rejoignez l’équipe Back-office Crédits qui soutient la gestion interne des crédits octroyés aux clients. En tant que Gestionnaire Back-office Crédits, vous déploierez vos compétences d’analyse et de contrôle tout en garantissant une parfaite coordination avec les différents services de la BCVS. Votre curiosité pertinente dans la lecture des dossiers vous permettra d’améliorer la gestion globale des dossiers crédits. Concrètement ? Vos responsabilités vous mèneront à traiter, contrôler et gérer les demandes de crédits pour la clientèle des particuliers et des entreprises. Vous contribuerez activement à la bonne tenue des dossiers client (d’un point de vue délai-qualité-respect des réglementations) par un traitement irréprochable des données et prendrez les mesures adéquates en cas de risques potentiels ou avérés. Vous collaborerez aux tâches de SCI (systèmes de contrôles internes) et contribuerez au respect de la politique de crédits. Enfin vous soutiendrez les conseillers à la clientèle et favoriserez des échanges constructifs pour atteindre des résultats win-win. Le défi vous tente ? Ce poste est fait pour vous si… Vous disposez d’une formation commerciale (CFC, Maturité ou équivalent), et disposez de plusieurs années d'expérience similaire dans un secteur back office de crédits bancaires. Vous avez un sens aigu des priorités et du respect des délais. Ayant une parfaite maîtrise du français, vous possédez également de bonnes connaissances orales et écrites de l’allemand, votre bilinguisme serait un fort atout. Vous maîtrisez les outils informatiques et avez de bonnes aptitudes d’analyses. Vos belles compétences sociales se complètent par votre esprit positif. Personne rigoureuse, vous travaillez de manière autonome. Vous souhaitez nous rejoindre ? Rencontrons-nous ! Nous nous réjouissons de découvrir votre candidature. Pour ce faire, envoyez votre dossier complet à Marisa Berclaz, notre HR Business Partner, à l’adresse : recrutement@bcvs.ch ."
       },
       "location": "Sion",
       "canton": "VS",
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/gestionnaire-back-office-credits-2513",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-13T10:04:10.904Z",
+      "crawledAt": "2026-04-13T21:12:45.827Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -651,72 +656,73 @@
       ],
       "requirementsByLocale": {
         "fr": [
-          "Vous disposez d’une formation commerciale (CFC, Maturité ou équivalent), et disposez de plusieurs années d'expérience similaire dans un secteur back office de crédits bancaires.",
           "Vous avez un sens aigu des priorités et du respect des délais.",
-          "Ayant une parfaite maîtrise du français, vous possédez également de bonnes connaissances orales et écrites de l’allemand, votre bilinguisme serait un fort atout.",
           "Vous maîtrisez les outils informatiques et avez de bonnes aptitudes d’analyses.",
           "Vos belles compétences sociales se complètent par votre esprit positif.",
           "Personne rigoureuse, vous travaillez de manière autonome."
         ]
       },
       "previousSlugsByLocale": {
-        "it": [
-          "gestionnaire-back-office-credits-bcvs-sion"
-        ],
         "fr": [
           "gestionnaire-back-office-credits-bcvs-sion"
+        ],
+        "it": [
+          "gestionnaire-back-office-credits-bcvs-sion",
+          "gestionnaire-back-office-credits-banque-cantonale-du-valais-sion"
         ]
       },
       "previousSlugs": [
-        "gestionnaire-back-office-credits-bcvs-sion"
+        "gestionnaire-back-office-credits-bcvs-sion",
+        "gestionnaire-back-office-credits-banque-cantonale-du-valais-sion"
       ],
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "firstSeenAt": "2026-04-13T10:04:10.904Z",
+      "needsRetranslation": true,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 68000,
+          "maxValue": 103000,
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1950",
-      "firstSeenAt": "2026-04-13T10:04:10.904Z"
+      "postalCode": "1950"
     },
     {
       "id": "bcvs-ce3dbeb41048",
       "slug": "consulente-bancario-banque-cantonale-du-valais-saint-maurice",
       "slugByLocale": {
-        "fr": "conseiller-conseillere-bancaire-banque-cantonale-du-valais-saint-maurice",
         "it": "consulente-bancario-banque-cantonale-du-valais-saint-maurice",
         "en": "banking-consultant-banque-cantonale-du-valais-saint-maurice",
-        "de": "bankberater-banque-cantonale-du-valais-saint-maurice"
+        "de": "bankberater-banque-cantonale-du-valais-saint-maurice",
+        "fr": "conseiller-conseillere-bancaire-banque-cantonale-du-valais-saint-maurice"
       },
       "company": "Banque Cantonale du Valais",
       "companyKey": "bcvs",
       "companyDomain": "bcvs.ch",
       "title": "Conseiller-conseillère bancaire",
       "titleByLocale": {
-        "fr": "Conseiller-conseillère bancaire",
         "it": "Consulente bancario",
         "en": "Banking consultant",
-        "de": "Bankberater"
+        "de": "Bankberater",
+        "fr": "Conseiller-conseillère bancaire"
       },
       "description": "Pas de résultats\n \n \n Pas de résultats\n \n \n \n\n \n \n \n \n \n\n \n\n \n \n \n \n \n\n \n \n\n Contacter un conseiller Contacter un conseiller \n \n \n \n \n\n \n\n \n Chat \n \n \n \n \n\n \n\n \n\n \n \n Conseiller-conseillère bancaire\n Saint-Maurice\n 80-100%\n \n\n \n\n \n Vous êtes au bénéfice d’une formation commerciale et disposez d’une expérience du monde bancaire ? Si vous recherchez une opportunité où valoriser vos compétences, ce poste est votre chance. \n \n Concrètement ?\n Vous assurerez la gestion et le développement d’un portefeuille de clients privés. \n Vous conseillerez les clients en matière de prestations de base, de prévoyance, de placements et de petits crédits. \n Vous participerez à des actions marketing ciblées en vue de vendre nos prestations et d’acquérir de nouveaux clients. \n Vous animerez notre zone d’accueil de manière proactive afin d’accompagner nos clients et de déceler leurs besoins.\n \n Le défi vous tente ?\n Ce poste est fait pour vous si… \n Vous disposez d’une formation commerciale avec une expérience dans l’accueil et le conseil ainsi que dans la gestion de portefeuilles clients. \n Vous bénéficiez d’excellentes capacités de vente, vous aimez le contact et faites preuve d’aisance relationnelle. \n Vous êtes dynamique, pragmatique et appréciez le travail en équipe. \n Vous êtes capable de gérer vos priorités et de travailler de manière autonome. \n Vos connaissances linguistiques sont un atout. \n \n Vous souhaitez nous rejoindre ?\n Rencontrons-nous ! \n Nous nous réjouissons de découvrir votre candidature. \nPour ce faire, envoyez votre dossier complet à Marisa Berclaz, notre HR Business Partner, à l’adresse : recrutement@bcvs.ch .",
       "descriptionByLocale": {
-        "fr": "Pas de résultats\n\n Pas de résultats\n\n Contacter un conseiller Contacter un conseiller\n\n Chat\n\n Conseiller-conseillère bancaire\n Saint-Maurice\n 80-100%\n\n Vous êtes au bénéfice d’une formation commerciale et disposez d’une expérience du monde bancaire ? Si vous recherchez une opportunité où valoriser vos compétences, ce poste est votre chance.\n\n Concrètement ?\n Vous assurerez la gestion et le développement d’un portefeuille de clients privés.\n Vous conseillerez les clients en matière de prestations de base, de prévoyance, de placements et de petits crédits.\n Vous participerez à des actions marketing ciblées en vue de vendre nos prestations et d’acquérir de nouveaux clients.\n Vous animerez notre zone d’accueil de manière proactive afin d’accompagner nos clients et de déceler leurs besoins.\n\n Le défi vous tente ?\n Ce poste est fait pour vous si…\n Vous disposez d’une formation commerciale avec une expérience dans l’accueil et le conseil ainsi que dans la gestion de portefeuilles clients.\n Vous bénéficiez d’excellentes capacités de vente, vous aimez le contact et faites preuve d’aisance relationnelle.\n Vous êtes dynamique, pragmatique et appréciez le travail en équipe.\n Vous êtes capable de gérer vos priorités et de travailler de manière autonome.\n Vos connaissances linguistiques sont un atout.\n\n Vous souhaitez nous rejoindre ?\n Rencontrons-nous !\n Nous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à Marisa Berclaz, notre HR Business Partner, à l’adresse : recrutement@bcvs.ch .",
         "it": "Contatta un consulente Chat Banking consigliere Saint-Maurice 80-100% Stai beneficiando della formazione commerciale e hai un'esperienza nel mondo bancario? Se stai cercando un'opportunità per valutare le tue abilità, questa posizione è la tua occasione. In particolare? Potrai gestire e sviluppare un portafoglio di clienti privati. Si consiglia ai clienti di benefici di base, previsione, investimenti e piccoli crediti. Potrai partecipare a azioni di marketing mirate per vendere i nostri servizi e acquisire nuovi clienti. Potrai guidare proattivamente la nostra area di ricezione per supportare i nostri clienti e identificare le loro esigenze. La sfida ti sta tentando? Questo post è per voi se... Hai una formazione aziendale con esperienza nell'hosting e nella consulenza e nella gestione dei portafogli dei clienti. Hai eccellenti capacità di vendita, ti piace il contatto e mostrare la facilità relazionale. Sei dinamico, pragmatico e apprezzi il lavoro di squadra. Siete in grado di gestire le vostre priorità e lavorare in modo indipendente. Le tue competenze linguistiche sono un bene. Vuoi unirti a noi? Incontriamoci! Non vediamo l'ora di scoprire la tua applicazione. Per fare questo, invia il tuo file completo a Marisa Berclaz, il nostro HR Business Partner, a recruit@bcvs.ch .",
         "en": "No results No results Contact an advisor Contact an advisor Chat Banking advisor Saint-Maurice 80-100% Are you benefiting from commercial training and have an experience in the banking world? If you are looking for an opportunity to value your skills, this position is your chance. Specifically? You will manage and develop a portfolio of private clients. You will advise clients on basic benefits, foresight, investments and small credits. You will participate in targeted marketing actions to sell our services and acquire new customers. You will proactively lead our reception area to support our clients and identify their needs. The challenge is tempting you? This post is for you if... You have business training with experience in hosting and consulting as well as managing customer portfolios. You have excellent sales capabilities, you like contact and show relational ease. You are dynamic, pragmatic and appreciate teamwork. You are able to manage your priorities and work independently. Your language skills are an asset. Would you like to join us? Let's meet! We look forward to discovering your application. To do this, send your complete file to Marisa Berclaz, our HR Business Partner, at recruitment@bcvs.ch .",
-        "de": "Keine Ergebnisse Keine Ergebnisse Kontaktieren Sie einen Berater Kontaktieren Sie einen Berater Chat Banking Berater Saint-Maurice 80-100% Sind Sie von der kommerziellen Ausbildung profitieren und haben eine Erfahrung in der Bankenwelt? Wenn Sie nach einer Möglichkeit suchen, Ihre Fähigkeiten zu schätzen, ist diese Position Ihre Chance. Konkret? Sie werden ein Portfolio von Privatkunden verwalten und entwickeln. Sie beraten Kunden über Grundvorteile, Voraussicht, Investitionen und kleine Kredite. Sie werden an gezielten Marketingaktionen teilnehmen, um unsere Dienstleistungen zu verkaufen und neue Kunden zu erwerben. Sie leiten unseren Empfangsbereich proaktiv, um unsere Kunden zu unterstützen und ihre Bedürfnisse zu identifizieren. Die Herausforderung verlockt dich? Dieser Beitrag ist für Sie, wenn... Sie haben Business-Training mit Erfahrung in Hosting und Beratung sowie das Management von Kundenportfolios. Sie haben hervorragende Absatzmöglichkeiten, Sie mögen Kontakt und zeigen relationale Leichtigkeit. Sie sind dynamisch, pragmatisch und schätzen Teamwork. Sie können Ihre Prioritäten verwalten und selbständig arbeiten. Ihre Sprachkenntnisse sind ein Vorteil. Möchten Sie mitkommen? Treffen wir uns! Wir freuen uns auf Ihre Anwendung zu entdecken. Senden Sie Ihre vollständige Datei an Marisa Berclaz, unseren HR Business Partner, unter rekrutierungs@bcvs.ch ."
+        "de": "Keine Ergebnisse Keine Ergebnisse Kontaktieren Sie einen Berater Kontaktieren Sie einen Berater Chat Banking Berater Saint-Maurice 80-100% Sind Sie von der kommerziellen Ausbildung profitieren und haben eine Erfahrung in der Bankenwelt? Wenn Sie nach einer Möglichkeit suchen, Ihre Fähigkeiten zu schätzen, ist diese Position Ihre Chance. Konkret? Sie werden ein Portfolio von Privatkunden verwalten und entwickeln. Sie beraten Kunden über Grundvorteile, Voraussicht, Investitionen und kleine Kredite. Sie werden an gezielten Marketingaktionen teilnehmen, um unsere Dienstleistungen zu verkaufen und neue Kunden zu erwerben. Sie leiten unseren Empfangsbereich proaktiv, um unsere Kunden zu unterstützen und ihre Bedürfnisse zu identifizieren. Die Herausforderung verlockt dich? Dieser Beitrag ist für Sie, wenn... Sie haben Business-Training mit Erfahrung in Hosting und Beratung sowie das Management von Kundenportfolios. Sie haben hervorragende Absatzmöglichkeiten, Sie mögen Kontakt und zeigen relationale Leichtigkeit. Sie sind dynamisch, pragmatisch und schätzen Teamwork. Sie können Ihre Prioritäten verwalten und selbständig arbeiten. Ihre Sprachkenntnisse sind ein Vorteil. Möchten Sie mitkommen? Treffen wir uns! Wir freuen uns auf Ihre Anwendung zu entdecken. Senden Sie Ihre vollständige Datei an Marisa Berclaz, unseren HR Business Partner, unter rekrutierungs@bcvs.ch .",
+        "fr": "Pas de résultats Pas de résultats Contacter un conseiller Contacter un conseiller Chat Conseiller-conseillère bancaire Saint-Maurice 80-100% Vous êtes au bénéfice d’une formation commerciale et disposez d’une expérience du monde bancaire ? Si vous recherchez une opportunité où valoriser vos compétences, ce poste est votre chance. Concrètement ? Vous assurerez la gestion et le développement d’un portefeuille de clients privés. Vous conseillerez les clients en matière de prestations de base, de prévoyance, de placements et de petits crédits. Vous participerez à des actions marketing ciblées en vue de vendre nos prestations et d’acquérir de nouveaux clients. Vous animerez notre zone d’accueil de manière proactive afin d’accompagner nos clients et de déceler leurs besoins. Le défi vous tente ? Ce poste est fait pour vous si… Vous disposez d’une formation commerciale avec une expérience dans l’accueil et le conseil ainsi que dans la gestion de portefeuilles clients. Vous bénéficiez d’excellentes capacités de vente, vous aimez le contact et faites preuve d’aisance relationnelle. Vous êtes dynamique, pragmatique et appréciez le travail en équipe. Vous êtes capable de gérer vos priorités et de travailler de manière autonome. Vos connaissances linguistiques sont un atout. Vous souhaitez nous rejoindre ? Rencontrons-nous ! Nous nous réjouissons de découvrir votre candidature. Pour ce faire, envoyez votre dossier complet à Marisa Berclaz, notre HR Business Partner, à l’adresse : recrutement@bcvs.ch ."
       },
       "location": "Saint-Maurice",
       "canton": "VS",
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/conseiller-conseillere-bancaire-2515",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-13T10:04:10.428Z",
+      "crawledAt": "2026-04-13T21:12:45.353Z",
       "addressLocality": "Saint-Maurice",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -740,13 +746,110 @@
       ],
       "requirementsByLocale": {
         "fr": [
-          "Vous disposez d’une formation commerciale avec une expérience dans l’accueil et le conseil ainsi que dans la gestion de portefeuilles clients.",
           "Vous bénéficiez d’excellentes capacités de vente, vous aimez le contact et faites preuve d’aisance relationnelle.",
           "Vous êtes dynamique, pragmatique et appréciez le travail en équipe.",
           "Vous êtes capable de gérer vos priorités et de travailler de manière autonome.",
           "Vos connaissances linguistiques sont un atout."
         ]
       },
+      "previousSlugsByLocale": {
+        "fr": [
+          "conseiller-conseillere-bancaire-bcvs-saint-maurice"
+        ],
+        "it": [
+          "conseiller-conseillere-bancaire-bcvs-saint-maurice"
+        ],
+        "en": [
+          "conseiller-conseillere-bancaire-bcvs-saint-maurice"
+        ],
+        "de": [
+          "conseiller-conseillere-bancaire-bcvs-saint-maurice"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-conseillere-bancaire-bcvs-saint-maurice"
+      ],
+      "firstSeenAt": "2026-04-13T10:04:10.428Z",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1950"
+    },
+    {
+      "id": "bcvs-29be69cb0f80",
+      "slug": "conseiller-ere-clientele-des-prives-individuelle-bcvs-conthey",
+      "slugByLocale": {
+        "fr": "conseiller-ere-clientele-des-prives-individuelle-banque-cantonale-du-valais-conthey",
+        "it": "conseiller-ere-clientele-des-prives-individuelle-bcvs-conthey",
+        "en": "conseiller-ere-clientele-des-prives-individuelle-bcvs-conthey",
+        "de": "conseiller-ere-clientele-des-prives-individuelle-bcvs-conthey"
+      },
+      "company": "Banque Cantonale du Valais",
+      "companyKey": "bcvs",
+      "companyDomain": "bcvs.ch",
+      "title": "Conseiller-ère clientèle des privés/individuelle",
+      "titleByLocale": {
+        "fr": "Conseiller-ère clientèle des privés/individuelle",
+        "it": "Conseiller-ère clientèle des privés/individuelle",
+        "en": "Conseiller-ère clientèle des privés/individuelle",
+        "de": "Conseiller-ère clientèle des privés/individuelle"
+      },
+      "description": "Pas de résultats\n \n \n Pas de résultats\n \n \n \n\n \n \n \n \n \n\n \n\n \n \n \n \n \n\n \n \n\n Contacter un conseiller Contacter un conseiller \n \n \n \n \n\n \n\n \n Chat \n \n \n \n \n\n \n\n \n\n \n \n Conseiller-ère clientèle des privés/individuelle \n Conthey\n 80-100%\n \n\n \n\n \n Vous êtes au bénéfice d’une formation commerciale et disposez d’une expérience du monde bancaire ? \nSi vous recherchez une opportunité où valoriser vos compétences, ce poste est fait pour vous.\n \n Concrètement ?\n Vous accompagnerez les clients dans leurs demandes en matière de financements, placements et planification patrimoniale. \n Vous acquerrez dans un esprit entrepreneurial de nouveaux clients. \n Vous établirez et maintiendrez une relation de confiance avec la clientèle. \n Vous assurerez un suivi proactif des clients suite à une demande d'offre/d'information ou suite à un contact personnel. \n Vous vous formerez de manière permanente sur les modifications de directives internes et externes. \n Vous veillerez à la maîtrise des risques et au respect des dispositions légales.\n \n Le défi vous tente ?\n Ce poste est fait pour vous si… \n Vous disposez d’une formation commerciale et/ou financière. \n Vous avez de bonnes capacités de vente et de conseil sur l’ensemble des produits et services de placement, de financement et de conseil patrimonial. \n Dynamique et pragmatique, vous bénéficiez d’un fort sens de l’initiative et contribuez au succès de votre équipe. \n Vous avez de bonnes capacités analytiques et êtes capable d’agir rapidement dans les situations imprévues. \n Vos connaissances de l’anglais et/ou de l’allemand sont de réels atouts. \n \n \n Vous souhaitez nous rejoindre ?\n Rencontrons-nous ! \n Nous nous réjouissons de découvrir votre candidature. \nPour ce faire, envoyez votre dossier complet à Marisa Berclaz, notre HR Business Partner, à l’adresse : recrutement@bcvs.ch .",
+      "descriptionByLocale": {
+        "fr": "Pas de résultats\n \n \n Pas de résultats\n \n \n \n\n \n \n \n \n \n\n \n\n \n \n \n \n \n\n \n \n\n Contacter un conseiller Contacter un conseiller \n \n \n \n \n\n \n\n \n Chat \n \n \n \n \n\n \n\n \n\n \n \n Conseiller-ère clientèle des privés/individuelle \n Conthey\n 80-100%\n \n\n \n\n \n Vous êtes au bénéfice d’une formation commerciale et disposez d’une expérience du monde bancaire ? \nSi vous recherchez une opportunité où valoriser vos compétences, ce poste est fait pour vous.\n \n Concrètement ?\n Vous accompagnerez les clients dans leurs demandes en matière de financements, placements et planification patrimoniale. \n Vous acquerrez dans un esprit entrepreneurial de nouveaux clients. \n Vous établirez et maintiendrez une relation de confiance avec la clientèle. \n Vous assurerez un suivi proactif des clients suite à une demande d'offre/d'information ou suite à un contact personnel. \n Vous vous formerez de manière permanente sur les modifications de directives internes et externes. \n Vous veillerez à la maîtrise des risques et au respect des dispositions légales.\n \n Le défi vous tente ?\n Ce poste est fait pour vous si… \n Vous disposez d’une formation commerciale et/ou financière. \n Vous avez de bonnes capacités de vente et de conseil sur l’ensemble des produits et services de placement, de financement et de conseil patrimonial. \n Dynamique et pragmatique, vous bénéficiez d’un fort sens de l’initiative et contribuez au succès de votre équipe. \n Vous avez de bonnes capacités analytiques et êtes capable d’agir rapidement dans les situations imprévues. \n Vos connaissances de l’anglais et/ou de l’allemand sont de réels atouts. \n \n \n Vous souhaitez nous rejoindre ?\n Rencontrons-nous ! \n Nous nous réjouissons de découvrir votre candidature. \nPour ce faire, envoyez votre dossier complet à Marisa Berclaz, notre HR Business Partner, à l’adresse : recrutement@bcvs.ch .",
+        "it": "Pas de résultats\n \n \n Pas de résultats\n \n \n \n\n \n \n \n \n \n\n \n\n \n \n \n \n \n\n \n \n\n Contacter un conseiller Contacter un conseiller \n \n \n \n \n\n \n\n \n Chat \n \n \n \n \n\n \n\n \n\n \n \n Conseiller-ère clientèle des privés/individuelle \n Conthey\n 80-100%\n \n\n \n\n \n Vous êtes au bénéfice d’une formation commerciale et disposez d’une expérience du monde bancaire ? \nSi vous recherchez une opportunité où valoriser vos compétences, ce poste est fait pour vous.\n \n Concrètement ?\n Vous accompagnerez les clients dans leurs demandes en matière de financements, placements et planification patrimoniale. \n Vous acquerrez dans un esprit entrepreneurial de nouveaux clients. \n Vous établirez et maintiendrez une relation de confiance avec la clientèle. \n Vous assurerez un suivi proactif des clients suite à une demande d'offre/d'information ou suite à un contact personnel. \n Vous vous formerez de manière permanente sur les modifications de directives internes et externes. \n Vous veillerez à la maîtrise des risques et au respect des dispositions légales.\n \n Le défi vous tente ?\n Ce poste est fait pour vous si… \n Vous disposez d’une formation commerciale et/ou financière. \n Vous avez de bonnes capacités de vente et de conseil sur l’ensemble des produits et services de placement, de financement et de conseil patrimonial. \n Dynamique et pragmatique, vous bénéficiez d’un fort sens de l’initiative et contribuez au succès de votre équipe. \n Vous avez de bonnes capacités analytiques et êtes capable d’agir rapidement dans les situations imprévues. \n Vos connaissances de l’anglais et/ou de l’allemand sont de réels atouts. \n \n \n Vous souhaitez nous rejoindre ?\n Rencontrons-nous ! \n Nous nous réjouissons de découvrir votre candidature. \nPour ce faire, envoyez votre dossier complet à Marisa Berclaz, notre HR Business Partner, à l’adresse : recrutement@bcvs.ch .",
+        "en": "Pas de résultats\n \n \n Pas de résultats\n \n \n \n\n \n \n \n \n \n\n \n\n \n \n \n \n \n\n \n \n\n Contacter un conseiller Contacter un conseiller \n \n \n \n \n\n \n\n \n Chat \n \n \n \n \n\n \n\n \n\n \n \n Conseiller-ère clientèle des privés/individuelle \n Conthey\n 80-100%\n \n\n \n\n \n Vous êtes au bénéfice d’une formation commerciale et disposez d’une expérience du monde bancaire ? \nSi vous recherchez une opportunité où valoriser vos compétences, ce poste est fait pour vous.\n \n Concrètement ?\n Vous accompagnerez les clients dans leurs demandes en matière de financements, placements et planification patrimoniale. \n Vous acquerrez dans un esprit entrepreneurial de nouveaux clients. \n Vous établirez et maintiendrez une relation de confiance avec la clientèle. \n Vous assurerez un suivi proactif des clients suite à une demande d'offre/d'information ou suite à un contact personnel. \n Vous vous formerez de manière permanente sur les modifications de directives internes et externes. \n Vous veillerez à la maîtrise des risques et au respect des dispositions légales.\n \n Le défi vous tente ?\n Ce poste est fait pour vous si… \n Vous disposez d’une formation commerciale et/ou financière. \n Vous avez de bonnes capacités de vente et de conseil sur l’ensemble des produits et services de placement, de financement et de conseil patrimonial. \n Dynamique et pragmatique, vous bénéficiez d’un fort sens de l’initiative et contribuez au succès de votre équipe. \n Vous avez de bonnes capacités analytiques et êtes capable d’agir rapidement dans les situations imprévues. \n Vos connaissances de l’anglais et/ou de l’allemand sont de réels atouts. \n \n \n Vous souhaitez nous rejoindre ?\n Rencontrons-nous ! \n Nous nous réjouissons de découvrir votre candidature. \nPour ce faire, envoyez votre dossier complet à Marisa Berclaz, notre HR Business Partner, à l’adresse : recrutement@bcvs.ch .",
+        "de": "Pas de résultats\n \n \n Pas de résultats\n \n \n \n\n \n \n \n \n \n\n \n\n \n \n \n \n \n\n \n \n\n Contacter un conseiller Contacter un conseiller \n \n \n \n \n\n \n\n \n Chat \n \n \n \n \n\n \n\n \n\n \n \n Conseiller-ère clientèle des privés/individuelle \n Conthey\n 80-100%\n \n\n \n\n \n Vous êtes au bénéfice d’une formation commerciale et disposez d’une expérience du monde bancaire ? \nSi vous recherchez une opportunité où valoriser vos compétences, ce poste est fait pour vous.\n \n Concrètement ?\n Vous accompagnerez les clients dans leurs demandes en matière de financements, placements et planification patrimoniale. \n Vous acquerrez dans un esprit entrepreneurial de nouveaux clients. \n Vous établirez et maintiendrez une relation de confiance avec la clientèle. \n Vous assurerez un suivi proactif des clients suite à une demande d'offre/d'information ou suite à un contact personnel. \n Vous vous formerez de manière permanente sur les modifications de directives internes et externes. \n Vous veillerez à la maîtrise des risques et au respect des dispositions légales.\n \n Le défi vous tente ?\n Ce poste est fait pour vous si… \n Vous disposez d’une formation commerciale et/ou financière. \n Vous avez de bonnes capacités de vente et de conseil sur l’ensemble des produits et services de placement, de financement et de conseil patrimonial. \n Dynamique et pragmatique, vous bénéficiez d’un fort sens de l’initiative et contribuez au succès de votre équipe. \n Vous avez de bonnes capacités analytiques et êtes capable d’agir rapidement dans les situations imprévues. \n Vos connaissances de l’anglais et/ou de l’allemand sont de réels atouts. \n \n \n Vous souhaitez nous rejoindre ?\n Rencontrons-nous ! \n Nous nous réjouissons de découvrir votre candidature. \nPour ce faire, envoyez votre dossier complet à Marisa Berclaz, notre HR Business Partner, à l’adresse : recrutement@bcvs.ch ."
+      },
+      "location": "Conthey",
+      "canton": "VS",
+      "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/conseiller-ere-clientele-des-prives-individuelle-2521",
+      "source": "Banque Cantonale du Valais Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-04-13T21:12:44.878Z",
+      "addressLocality": "Conthey",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "pensum": "80-100%",
+      "sector": "Banca / Finanza",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-13",
+      "applyUrl": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/conseiller-ere-clientele-des-prives-individuelle-2521",
+      "requirements": [
+        "Vous accompagnerez les clients dans leurs demandes en matière de financements, placements et planification patrimoniale.",
+        "Vous acquerrez dans un esprit entrepreneurial de nouveaux clients.",
+        "Vous établirez et maintiendrez une relation de confiance avec la clientèle.",
+        "Vous assurerez un suivi proactif des clients suite à une demande d'offre/d'information ou suite à un contact personnel.",
+        "Vous vous formerez de manière permanente sur les modifications de directives internes et externes.",
+        "Vous veillerez à la maîtrise des risques et au respect des dispositions légales."
+      ],
+      "requirementsByLocale": {
+        "fr": [
+          "Vous accompagnerez les clients dans leurs demandes en matière de financements, placements et planification patrimoniale.",
+          "Vous acquerrez dans un esprit entrepreneurial de nouveaux clients.",
+          "Vous établirez et maintiendrez une relation de confiance avec la clientèle.",
+          "Vous assurerez un suivi proactif des clients suite à une demande d'offre/d'information ou suite à un contact personnel.",
+          "Vous vous formerez de manière permanente sur les modifications de directives internes et externes.",
+          "Vous veillerez à la maîtrise des risques et au respect des dispositions légales."
+        ]
+      },
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -760,21 +863,7 @@
         }
       },
       "postalCode": "1950",
-      "firstSeenAt": "2026-04-13T10:04:10.428Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "conseiller-conseillere-bancaire-bcvs-saint-maurice"
-        ],
-        "en": [
-          "conseiller-conseillere-bancaire-bcvs-saint-maurice"
-        ],
-        "de": [
-          "conseiller-conseillere-bancaire-bcvs-saint-maurice"
-        ]
-      },
-      "previousSlugs": [
-        "conseiller-conseillere-bancaire-bcvs-saint-maurice"
-      ]
+      "firstSeenAt": "2026-04-13T21:12:52.073Z"
     }
   ]
 }
