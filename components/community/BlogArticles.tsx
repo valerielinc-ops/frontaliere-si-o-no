@@ -2532,13 +2532,13 @@ function BlogArticles({
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5" aria-live="polite" style={{ contentVisibility: 'auto', containIntrinsicSize: 'auto 600px' }}>
           {pageArticles.slice(1, 1 + gridRevealCount).map((article, idx) => (
             <Fragment key={article.id}>
-            {/* In-feed ad after every 6 cards (2 rows of 3) */}
-            {idx > 0 && idx % 6 === 0 && (
+            {/* In-feed ad after every 3 cards (1 row of 3 on desktop) — max 2 ads */}
+            {idx > 0 && idx % 3 === 0 && idx <= 6 && (
               <div className="col-span-1 sm:col-span-2 lg:col-span-3 my-2">
-                <Suspense fallback={<div style={{ minHeight: (idx % 12 === 0 ? AD_SLOTS.BLOG_LIST_INFEED_1 : AD_SLOTS.BLOG_LIST_INFEED_2).placeholderMinHeight, contain: 'content' }} />}>
+                <Suspense fallback={<div style={{ minHeight: (idx === 3 ? AD_SLOTS.BLOG_LIST_INFEED_1 : AD_SLOTS.BLOG_LIST_INFEED_2).placeholderMinHeight, contain: 'content' }} />}>
                   <AdSenseBanner
-                    adSlot={idx % 12 === 0 ? AD_SLOTS.BLOG_LIST_INFEED_1.slot : AD_SLOTS.BLOG_LIST_INFEED_2.slot}
-                    adFormat={idx % 12 === 0 ? AD_SLOTS.BLOG_LIST_INFEED_1.format : AD_SLOTS.BLOG_LIST_INFEED_2.format}
+                    adSlot={idx === 3 ? AD_SLOTS.BLOG_LIST_INFEED_1.slot : AD_SLOTS.BLOG_LIST_INFEED_2.slot}
+                    adFormat={idx === 3 ? AD_SLOTS.BLOG_LIST_INFEED_1.format : AD_SLOTS.BLOG_LIST_INFEED_2.format}
                     fullWidthResponsive
                   />
                 </Suspense>
