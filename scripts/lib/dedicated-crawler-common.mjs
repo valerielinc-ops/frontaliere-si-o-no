@@ -4289,6 +4289,7 @@ export function isLocationExplicitlyForeign(locationField) {
     'amsterdam', 'brussels', 'bruxelles', 'stockholm', 'oslo', 'copenhagen',
     'tokyo', 'beijing', 'shanghai', 'singapore', 'bangkok', 'mumbai',
     'dubai', 'new york', 'los angeles', 'toronto', 'sydney', 'melbourne',
+    'ruggell', 'barberà del vallès', 'barbera del valles',
   ];
   return foreignCountries.some((k) => lower.includes(k)) || foreignCities.some((k) => lower.includes(k));
 }

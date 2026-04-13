@@ -19,7 +19,7 @@
  *   - slugify() / stripHtml()  — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
-import { detectLang } from './dedicated-crawler-common.mjs';
+import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
@@ -279,6 +279,12 @@ export async function fetchAllSiegfriedJobs() {
       }
     }
     if (!city) city = 'Evionnaz'; // Default — main manufacturing site in VS
+
+    // Skip foreign locations that slipped through Workday's country filter
+    if (isLocationExplicitlyForeign(city)) {
+      console.log(`  ⏭️  Skipped foreign location: ${city} — ${title}`);
+      continue;
+    }
 
     const canton = inferCanton(city);
     const descriptionHtml = info.jobDescription || '';

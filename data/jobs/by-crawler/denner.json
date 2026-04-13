@@ -885,7 +885,7 @@
       },
       "location": "Neuhausen",
       "postalCode": "8212",
-      "canton": "",
+      "canton": "SH",
       "addressLocality": "Neuhausen",
       "addressRegion": "",
       "addressCountry": "CH",
@@ -932,7 +932,8 @@
           "maxValue": 127000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "country": "CH"
     },
     {
       "id": "denner-d1df27d4f8ab",

@@ -57,7 +57,7 @@ export const AD_SLOTS = {
   },
   /** Job listing: end-of-list multiplex */
   JOBLIST_END_MULTIPLEX: {
-    slot: '5196931137',
+    slot: '8414202909',
     format: 'autorelaxed',
     fullWidthResponsive: false,
     placeholderMinHeight: 400,
@@ -119,68 +119,68 @@ export const AD_SLOTS = {
     fullWidthResponsive: true,
     placeholderMinHeight: 280,
   },
-  /** Blog: desktop left rail — tertiary (borrowed from JOBDETAIL_SIDEBAR) */
+  /** Blog: desktop left rail — tertiary */
   ARTICLE_RAIL_LEFT_3: {
-    slot: '8164676143',
+    slot: '2040366243',
     format: 'auto',
     fullWidthResponsive: true,
     placeholderMinHeight: 280,
   },
-  /** Blog: desktop right rail — tertiary (borrowed from JOBDETAIL_END_MULTIPLEX) */
+  /** Blog: desktop right rail — tertiary */
   ARTICLE_RAIL_RIGHT_3: {
-    slot: '3205192616',
+    slot: '3590906628',
     format: 'auto',
     fullWidthResponsive: true,
     placeholderMinHeight: 280,
   },
-  /** Blog: mobile in-article — tertiary (borrowed from JOBDETAIL_BETWEEN_SECTIONS) */
+  /** Blog: in-article — tertiary (after body3) */
   ARTICLE_INLINE_MOBILE_3: {
-    slot: '7767335647',
+    slot: '7011276883',
     format: 'fluid',
     layout: 'in-article',
     fullWidthResponsive: false,
     placeholderMinHeight: 220,
   },
-  /** Blog: mobile in-article — quaternary (borrowed from HOMEPAGE_MID_DISPLAY) */
+  /** Blog: in-article — quaternary (after body5) */
   ARTICLE_INLINE_MOBILE_4: {
-    slot: '2093992129',
+    slot: '6037106565',
     format: 'fluid',
     layout: 'in-article',
     fullWidthResponsive: false,
     placeholderMinHeight: 220,
   },
-  /** Blog: mobile in-article — quinary (borrowed from JOBDETAIL_SIDEBAR_2) */
+  /** Blog: in-article — quinary (after body7) */
   ARTICLE_INLINE_MOBILE_5: {
-    slot: '6065026724',
+    slot: '7389107873',
     format: 'fluid',
     layout: 'in-article',
     fullWidthResponsive: false,
     placeholderMinHeight: 220,
   },
-  /** Blog: after related jobs, before footer (borrowed from JOBLIST_INFEED_DESKTOP) */
+  /** Blog: after related jobs, before footer */
   ARTICLE_AFTER_JOBS: {
-    slot: '9770600968',
+    slot: '4385113543',
     format: 'auto',
     fullWidthResponsive: true,
     placeholderMinHeight: 280,
   },
-  /** Blog listing: display ad after featured hero (borrowed from ARTICLE_RAIL_LEFT — list/detail never coexist) */
+  /** Blog listing: display ad after featured hero */
   BLOG_LIST_TOP: {
-    slot: '2663155183',
+    slot: '6759995448',
     format: 'auto',
     fullWidthResponsive: true,
     placeholderMinHeight: 280,
   },
-  /** Blog listing: in-feed ad between card rows #1 (borrowed from ARTICLE_RAIL_RIGHT) */
+  /** Blog listing: in-feed ad between card rows #1 */
   BLOG_LIST_INFEED_1: {
-    slot: '9739778973',
+    slot: '9727284578',
     format: 'auto',
     fullWidthResponsive: true,
     placeholderMinHeight: 280,
   },
-  /** Blog listing: in-feed ad between card rows #2 (borrowed from ARTICLE_INLINE_MOBILE) */
+  /** Blog listing: in-feed ad between card rows #2 */
   BLOG_LIST_INFEED_2: {
-    slot: '1982411173',
+    slot: '4724024898',
     format: 'auto',
     fullWidthResponsive: true,
     placeholderMinHeight: 280,

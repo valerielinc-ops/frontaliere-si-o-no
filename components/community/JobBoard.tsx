@@ -111,6 +111,7 @@ const FOREIGN_LOCATION_KEYWORDS = [
   'united states', 'mexico', 'brazil', 'argentina', 'chile',
   'south africa', 'nigeria', 'kenya', 'egypt', 'israel', 'qatar',
   'saudi arabia', 'bahrain', 'liechtenstein',
+  'ruggell', 'barberà del vallès', 'barbera del valles',
 ];
 // Swiss cities that contain substrings of foreign city names (e.g. Münchenstein contains München)
 const SWISS_FALSE_POSITIVE_GUARD = ['münchenstein', 'münchenbuchsee', 'münchenwiler', 'romanshorn', 'romandie'];

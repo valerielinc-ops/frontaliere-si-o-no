@@ -9,7 +9,7 @@
  * Source: https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers
  */
 import { createHash } from 'node:crypto';
-import { detectLang } from './dedicated-crawler-common.mjs';
+import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -170,6 +170,8 @@ async function fetchJobDetail(externalPath) {
 function parseWorkdayLocation(locText = '') {
   const cleaned = String(locText || '').trim();
   if (/\d+\s+location/i.test(cleaned)) return '';
+  // Workday sometimes returns just the country code (e.g. "CH", "UK") — not useful as a city
+  if (/^[A-Z]{2}$/.test(cleaned)) return '';
   const parts = cleaned.split(/\s*-\s*/);
   return parts.length > 0 ? parts[0].trim() : cleaned;
 }
@@ -272,6 +274,12 @@ export async function fetchAllLonzaJobs() {
       }
     }
     if (!city) city = 'Visp';
+
+    // Skip foreign locations that slipped through Workday's country filter
+    if (isLocationExplicitlyForeign(city)) {
+      console.log(`  ⏭️  Skipped foreign location: ${city} — ${title}`);
+      continue;
+    }
 
     const canton = inferCanton(city);
     const descriptionHtml = info.jobDescription || '';
