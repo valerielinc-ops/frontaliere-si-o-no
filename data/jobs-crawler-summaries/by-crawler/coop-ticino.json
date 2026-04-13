@@ -1,18 +1,19 @@
 {
   "key": "coop-ticino",
   "label": "Coop",
-  "generatedAt": "2026-04-13T10:23:11.573Z",
+  "generatedAt": "2026-04-13T21:31:42.389Z",
   "total": 167,
-  "newCount": 5,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 162,
-  "durationMs": 183917,
-  "avgDurationMs": 183917,
+  "durationMs": 180942,
+  "avgDurationMs": 180942,
   "durationHistory": [
-    183917
+    180942
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-3br90q",
       "slug": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden",
@@ -35,15 +36,17 @@
       "companyKey": "coop-ticino",
       "companyDomain": "coop.ch",
       "crawledAt": "2026-04-13T10:21:33.226Z",
-      "needsRetranslation": true,
       "addressLocality": "Chur",
       "sourceLang": "de",
-      "_qualityScore": 68,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -68,15 +71,17 @@
       "companyKey": "coop-ticino",
       "companyDomain": "coop.ch",
       "crawledAt": "2026-04-13T10:21:33.226Z",
-      "needsRetranslation": true,
       "addressLocality": "Chur",
       "sourceLang": "de",
-      "_qualityScore": 68,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -101,15 +106,17 @@
       "companyKey": "coop-ticino",
       "companyDomain": "coop.ch",
       "crawledAt": "2026-04-13T10:21:33.226Z",
-      "needsRetranslation": true,
       "addressLocality": "Küblis",
       "sourceLang": "de",
-      "_qualityScore": 73,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 9,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -134,15 +141,17 @@
       "companyKey": "coop-ticino",
       "companyDomain": "coop.ch",
       "crawledAt": "2026-04-13T10:21:33.226Z",
-      "needsRetranslation": true,
       "addressLocality": "Arosa",
       "sourceLang": "de",
-      "_qualityScore": 68,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -167,19 +176,20 @@
       "companyKey": "coop-ticino",
       "companyDomain": "coop.ch",
       "crawledAt": "2026-04-13T10:21:33.226Z",
-      "needsRetranslation": true,
       "addressLocality": "Klosters-Serneus",
       "sourceLang": "de",
-      "_qualityScore": 68,
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -208,6 +218,7 @@
       "sourceLang": "de",
       "salaryMin": 49500,
       "salaryMax": 75000,
+      "firstSeenAt": "2026-04-10T09:28:39.368Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -242,6 +253,7 @@
       "sourceLang": "de",
       "salaryMin": 49500,
       "salaryMax": 75000,
+      "firstSeenAt": "2026-04-09T21:20:49.553Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -379,6 +391,7 @@
       "addressLocality": "Tenero-Contra",
       "salaryMin": 46500,
       "salaryMax": 62500,
+      "firstSeenAt": "2026-04-07T09:22:44.527Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -448,6 +461,7 @@
       "sourceLang": "de",
       "salaryMin": 58000,
       "salaryMax": 78000,
+      "firstSeenAt": "2026-04-07T09:22:44.527Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -517,6 +531,7 @@
       "sourceLang": "de",
       "salaryMin": 58000,
       "salaryMax": 78000,
+      "firstSeenAt": "2026-04-07T09:22:44.527Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -691,6 +706,7 @@
       "sourceLang": "de",
       "salaryMin": 58000,
       "salaryMax": 78000,
+      "firstSeenAt": "2026-04-02T07:16:01.587Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -830,6 +846,7 @@
       "addressLocality": "Castione",
       "salaryMin": 94000,
       "salaryMax": 127000,
+      "firstSeenAt": "2026-03-31T07:18:28.826Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -863,6 +880,7 @@
       "addressLocality": "Bellinzona",
       "salaryMin": 80000,
       "salaryMax": 108000,
+      "firstSeenAt": "2026-03-31T07:18:28.826Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -897,6 +915,7 @@
       "sourceLang": "de",
       "salaryMin": 58000,
       "salaryMax": 78000,
+      "firstSeenAt": "2026-03-31T07:18:28.826Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1140,6 +1159,7 @@
       "addressLocality": "Castione",
       "salaryMin": 58000,
       "salaryMax": 78000,
+      "firstSeenAt": "2026-03-31T07:18:28.826Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1174,6 +1194,7 @@
       "sourceLang": "de",
       "salaryMin": 58000,
       "salaryMax": 78000,
+      "firstSeenAt": "2026-03-31T07:18:28.826Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1207,6 +1228,7 @@
       "addressLocality": "Riazzino",
       "salaryMin": 58000,
       "salaryMax": 78000,
+      "firstSeenAt": "2026-03-31T07:18:28.826Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
