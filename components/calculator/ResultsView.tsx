@@ -471,12 +471,12 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
                )}
                <button
                  onClick={exportPDF}
-                 className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-stripe-50 dark:bg-stripe-900/20 text-stripe-700 dark:text-stripe-300 hover:bg-stripe-100 dark:hover:bg-stripe-900/40 transition-[color,background-color,box-shadow] flex-shrink-0 focus-visible:ring-2 focus-visible:ring-stripe-500 focus-visible:ring-offset-2 text-xs font-bold"
+                 className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-orange-500 text-white hover:bg-orange-600 shadow-sm hover:shadow-md transition-[color,background-color,box-shadow] flex-shrink-0 focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-2 text-xs font-bold"
                  title={t('results.downloadPDF')}
                  aria-label={t('results.downloadPDF')}
                >
                  <ScrollText size={14} />
-                 <span className="hidden sm:inline">PDF</span>
+                 <span>Scarica PDF</span>
                </button>
                <button
                  onClick={handleShare}

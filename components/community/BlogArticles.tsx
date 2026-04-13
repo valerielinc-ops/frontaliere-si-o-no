@@ -2485,7 +2485,7 @@ function BlogArticles({
             })()}
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
             <div className="absolute bottom-5 left-5 right-5">
-              <div className="flex items-center gap-2 mb-2">
+              <div className="flex flex-wrap items-center gap-2 mb-2">
                 <span className={`px-3 py-1 rounded-full text-xs font-bold ${getCategoryColor(pageArticles[0].category)}`}>
                   {t(`blog.category.${pageArticles[0].category}`)}
                 </span>
@@ -2498,16 +2498,28 @@ function BlogArticles({
                     ? t('blog.contentType.news')
                     : t('blog.contentType.guide')}
                 </span>
+                {pageArticles[0].hasCalculator && (
+                  <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-violet-500/80 text-white">
+                    <Calculator size={11} />
+                    {t('blog.hasCalculator')}
+                  </span>
+                )}
                 <span className="flex items-center gap-1 text-xs text-white/90">
                   <Clock size={12} />
                   {estimateReadingMinutes(pageArticles[0].id, t)} min
                 </span>
                 <span className="text-xs text-white/80">{formatDate(pageArticles[0].date)}</span>
+                {pageArticles[0].updatedAt && pageArticles[0].updatedAt !== pageArticles[0].date.slice(0, 10) && (
+                  <span className="inline-flex items-center gap-1 text-xs text-white/80">
+                    <RefreshCw size={10} />
+                    {t('blog.updatedOn')} {formatDate(pageArticles[0].updatedAt)}
+                  </span>
+                )}
               </div>
               <h2 className="text-xl sm:text-2xl font-bold text-white mb-2 leading-tight">
                 {t(`blog.article.${pageArticles[0].id}.title`)}
               </h2>
-              <p className="text-white/90 text-sm line-clamp-2 max-w-2xl">
+              <p className="text-white/90 text-sm line-clamp-2 max-w-2xl leading-relaxed">
                 {t(`blog.article.${pageArticles[0].id}.excerpt`)}
               </p>
             </div>
@@ -2546,7 +2558,7 @@ function BlogArticles({
             )}
             <a
               href={buildPath({ activeTab: 'blog', blogArticle: article.id })}
-              className={`block text-left bg-surface rounded-xl border border-edge overflow-hidden hover:shadow-lg hover:border-stripe-300 dark:hover:border-stripe-600 transition-[border-color,box-shadow] group${idx >= 3 ? ' content-auto' : ''}`}
+              className={`flex flex-col text-left bg-surface rounded-xl border border-edge overflow-hidden hover:shadow-lg hover:border-stripe-300 dark:hover:border-stripe-600 transition-[border-color,box-shadow] group${idx >= 3 ? ' content-auto' : ''}`}
               onClick={(e) => { e.preventDefault(); handleArticleClick(article.id); }}
             >
               {/* Card image */}
@@ -2590,26 +2602,43 @@ function BlogArticles({
               </div>
 
               {/* Card content */}
-              <div className="p-4">
-                <div className="flex items-center gap-2 mb-2 text-xs text-muted">
-                  <span className="flex items-center gap-1">
-                    <Calendar size={10} />
-                    {formatDate(article.date)}
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <Clock size={10} />
-                    {estimateReadingMinutes(article.id, t)} min
-                  </span>
-                </div>
-                <h3 className="text-sm font-bold text-slate-700 dark:text-slate-200 group-hover:text-stripe-600 dark:group-hover:text-stripe-400 transition-colors line-clamp-2 mb-2">
+              <div className="p-4 flex flex-col flex-1">
+                <h3 className="text-base font-bold text-slate-800 dark:text-slate-100 group-hover:text-stripe-600 dark:group-hover:text-stripe-400 transition-colors line-clamp-2 mb-1.5 leading-snug">
                   {t(`blog.article.${article.id}.title`)}
                 </h3>
-                <p className="text-sm text-muted line-clamp-3 mb-3">
+                <p className="text-sm text-slate-600 dark:text-slate-400 line-clamp-2 mb-3 leading-relaxed">
                   {t(`blog.article.${article.id}.excerpt`)}
                 </p>
-                <span className="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-semibold text-white bg-stripe-600 dark:bg-stripe-500 rounded-lg group-hover:bg-stripe-700 dark:group-hover:bg-stripe-600 transition-colors">
-                  {t('blog.readMore')} <ChevronRight size={12} />
-                </span>
+                <div className="flex flex-wrap items-center gap-1.5 mb-3">
+                  {article.hasCalculator && (
+                    <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300">
+                      <Calculator size={10} />
+                      {t('blog.hasCalculator')}
+                    </span>
+                  )}
+                  {article.updatedAt && article.updatedAt !== article.date.slice(0, 10) && (
+                    <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300">
+                      <RefreshCw size={9} />
+                      {t('blog.updatedOn')} {formatDate(article.updatedAt)}
+                    </span>
+                  )}
+                </div>
+                <div className="mt-auto flex items-center justify-between">
+                  <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+                    <span className="flex items-center gap-1">
+                      <Calendar size={11} />
+                      {formatDate(article.date)}
+                    </span>
+                    <span className="text-slate-300 dark:text-slate-600">·</span>
+                    <span className="flex items-center gap-1">
+                      <Clock size={11} />
+                      {estimateReadingMinutes(article.id, t)} min
+                    </span>
+                  </div>
+                  <span className="inline-flex items-center gap-1 text-xs font-semibold text-stripe-600 dark:text-stripe-400 group-hover:text-stripe-700 dark:group-hover:text-stripe-300 transition-colors">
+                    {t('blog.readMore')} <ArrowRight size={12} />
+                  </span>
+                </div>
               </div>
             </a>
             </Fragment>

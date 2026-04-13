@@ -189,7 +189,7 @@ const SALARY_MAX = 1_000_000;
 const DESKTOP_EXPANDED_KEY = 'calc_desktop_expanded';
 
 const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusField = null, focusRequestId = 0, result = null }) => {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
   const nav = useNavigationOptional();
   const isFocusMode = nav?.isFocusMode;
   const [loadingRate, setLoadingRate] = useState(false);
@@ -266,6 +266,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
       setSalaryError(null);
     }
     setInputs(prev => ({ ...prev, [field]: value }));
+    setActivePreset(null);
     // Track funnel: first input interaction
     if (!inputStartTracked.current) {
       inputStartTracked.current = true;
@@ -284,6 +285,33 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
   
   const handleResetTech = () => {
     setInputs(prev => ({...prev, ...DEFAULT_TECH_PARAMS}));
+  };
+
+  const PRESET_SCENARIOS = [
+    {
+      id: 'como',
+      labels: { it: 'Frontaliere da Como', en: 'Commuter from Como', de: 'Grenzgänger aus Como', fr: 'Frontalier de Côme' } as Record<string, string>,
+      fields: { frontierWorkerType: 'NEW' as const, distanceZone: 'WITHIN_20KM' as const, annualIncomeCHF: 75000, age: 35, maritalStatus: 'SINGLE' as const },
+    },
+    {
+      id: 'varese',
+      labels: { it: 'Frontaliere da Varese', en: 'Commuter from Varese', de: 'Grenzgänger aus Varese', fr: 'Frontalier de Varèse' } as Record<string, string>,
+      fields: { frontierWorkerType: 'NEW' as const, distanceZone: 'OVER_20KM' as const, annualIncomeCHF: 75000, age: 35, maritalStatus: 'SINGLE' as const },
+    },
+    {
+      id: 'lugano',
+      labels: { it: 'Famiglia a Lugano', en: 'Family in Lugano', de: 'Familie in Lugano', fr: 'Famille à Lugano' } as Record<string, string>,
+      fields: { frontierWorkerType: 'OLD' as const, annualIncomeCHF: 85000, age: 40, maritalStatus: 'MARRIED' as const, spouseWorks: false, children: 2, familyMembers: 4 },
+    },
+  ];
+
+  const [activePreset, setActivePreset] = useState<string | null>(null);
+
+  const applyPreset = (preset: typeof PRESET_SCENARIOS[number]) => {
+    setInputs(prev => ({ ...prev, ...preset.fields }));
+    setActivePreset(preset.id);
+    setSalaryError(null);
+    Analytics.trackUIInteraction('simulatore', 'input', `preset_${preset.id}`, 'click');
   };
 
   const fetchRate = async () => {
@@ -576,6 +604,25 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
       ) : (
 
       <div className="flex-grow overflow-y-auto custom-scrollbar p-3 space-y-3 pb-20">
+
+        {/* PRESET SCENARIO CHIPS */}
+        <div className="flex gap-2 overflow-x-auto scrollbar-none pb-1">
+          {PRESET_SCENARIOS.map((preset) => (
+            <button
+              key={preset.id}
+              type="button"
+              onClick={() => applyPreset(preset)}
+              className={`shrink-0 flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold border transition-[color,background-color,border-color,box-shadow] ${
+                activePreset === preset.id
+                  ? 'bg-orange-500 text-white border-orange-500 shadow-sm'
+                  : 'bg-surface border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-orange-400 hover:text-orange-600 dark:hover:text-orange-400'
+              }`}
+            >
+              <Zap size={12} />
+              {preset.labels[locale] || preset.labels.it}
+            </button>
+          ))}
+        </div>
 
         {/* SECTION 1: MAIN INPUTS */}
         <div className="bg-surface rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm">

@@ -6320,6 +6320,64 @@ const JobBoard: React.FC<JobBoardProps> = ({
         </div>
       </div>
 
+      {/* City & profession quick-filter chips */}
+      <div className="space-y-2">
+        <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
+          {([
+            { value: 'lugano', label: 'Lugano' },
+            { value: 'mendrisio', label: 'Mendrisio' },
+            { value: 'bellinzona', label: 'Bellinzona' },
+            { value: 'locarno', label: 'Locarno' },
+            { value: 'chiasso', label: 'Chiasso' },
+          ] as const).map(chip => {
+            const isActive = selectedLocation === chip.value;
+            return (
+              <button
+                key={chip.value}
+                type="button"
+                onClick={() => setSelectedLocation(isActive ? 'all' : chip.value)}
+                className={`flex-shrink-0 px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${
+                  isActive
+                    ? 'bg-orange-500 text-white'
+                    : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-orange-100 dark:hover:bg-slate-700'
+                }`}
+                aria-pressed={isActive}
+              >
+                <MapPin className="inline-block w-3.5 h-3.5 mr-1 -mt-0.5" />
+                {chip.label}
+              </button>
+            );
+          })}
+        </div>
+        <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
+          {([
+            { value: 'infermiere', label: 'Infermiere' },
+            { value: 'ingegnere', label: 'Ingegnere' },
+            { value: 'autista', label: 'Autista' },
+            { value: 'educatore', label: 'Educatore' },
+            { value: 'informatico', label: 'Informatico' },
+          ] as const).map(chip => {
+            const isActive = searchQuery.toLowerCase() === chip.value;
+            return (
+              <button
+                key={chip.value}
+                type="button"
+                onClick={() => setSearchQuery(isActive ? '' : chip.value)}
+                className={`flex-shrink-0 px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${
+                  isActive
+                    ? 'bg-orange-500 text-white'
+                    : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-orange-100 dark:hover:bg-slate-700'
+                }`}
+                aria-pressed={isActive}
+              >
+                <Briefcase className="inline-block w-3.5 h-3.5 mr-1 -mt-0.5" />
+                {chip.label}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-3 min-h-[28px]">
         <p className="text-xs sm:text-sm text-muted">
           {isMobile && filteredJobs.length > 0
