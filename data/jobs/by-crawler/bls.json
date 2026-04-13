@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bls",
-  "assembledAt": "2026-04-13T10:05:39.238Z",
+  "assembledAt": "2026-04-13T21:14:13.123Z",
   "jobs": [
     {
       "id": "bls-098f3cf6e57e",
@@ -33,7 +33,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/zweiwegebaggerfuehrer-in-gleisbauer-in/72b0b85e-10cd-4035-a93d-2989038948a2",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:05:36.483Z",
+      "crawledAt": "2026-04-13T21:14:10.253Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -108,6 +108,7 @@
       "previousSlugs": [
         "zweiwegebaggerfuhrer-in-gleisbauer-in-bls-ch"
       ],
+      "firstSeenAt": "2026-04-13T10:05:36.483Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -119,8 +120,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:05:36.483Z"
+      }
     },
     {
       "id": "bls-debd47a208cc",
@@ -153,7 +153,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/kassier-in-autoverlad/a128c721-beee-4b1c-b427-496c87ee0540",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:05:35.614Z",
+      "crawledAt": "2026-04-13T21:14:09.368Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -216,6 +216,7 @@
       "previousSlugs": [
         "kassier-in-autoverlad-bls-ch"
       ],
+      "firstSeenAt": "2026-04-13T10:05:35.614Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -227,8 +228,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:05:35.614Z"
+      }
     }
   ]
 }
