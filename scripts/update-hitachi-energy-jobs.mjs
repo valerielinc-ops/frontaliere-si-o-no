@@ -35,6 +35,7 @@ import {
   validateDedicatedLocaleCoverage,
   detectLang,
   mergeLocaleTextMap,
+  isLocationExplicitlyForeign,
 } from './lib/dedicated-crawler-common.mjs';
 import {
   parseHitachiEnergyListingJson,
@@ -417,7 +418,18 @@ async function main() {
     console.log(`🔄 Deduplicated: ${enrichedListings.length} → ${deduplicated.length} unique jobs`);
   }
 
-  const jobs = deduplicated.map(buildHitachiJob);
+  const allBuilt = deduplicated.map(buildHitachiJob);
+  const jobs = allBuilt.filter((job) => {
+    const loc = String(job.addressLocality || job.location || '');
+    if (isLocationExplicitlyForeign(loc)) {
+      console.log(`  ⏭️  Skipped foreign location: ${loc} — ${job.title}`);
+      return false;
+    }
+    return true;
+  });
+  if (jobs.length < allBuilt.length) {
+    console.log(`🌍 Foreign location filter: ${allBuilt.length} → ${jobs.length} Swiss jobs`);
+  }
 
   const { total, added, updated, diff} = mergeJobs(jobs);
   updateAdapterConfig(jobs);

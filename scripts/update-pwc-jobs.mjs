@@ -36,12 +36,14 @@ import {
   validateDedicatedLocaleCoverage,
   detectLang,
   mergeLocaleTextMap,
+  isLocationExplicitlyForeign,
 } from './lib/dedicated-crawler-common.mjs';
 import {
   parsePwcJobs,
   inferPwcCategory,
   buildPwcLocalizedContent,
 } from './lib/pwc-job-parser.mjs';
+import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -143,6 +145,8 @@ function buildPwcJob(row) {
   const localized = buildPwcLocalizedContent(row);
   const detailUrl = row.directLink || CAREERS_URL;
   const applyUrl = row.applyUrl || row.directLink || CAREERS_URL;
+  const city = row.city || row.location || 'Switzerland';
+  const canton = inferAnyCanton(city) || '';
 
   return {
     title: localized.titleByLocale.it,
@@ -152,11 +156,11 @@ function buildPwcJob(row) {
     company: COMPANY_NAME,
     companyKey: COMPANY_KEY,
     companyDomain: COMPANY_DOMAIN,
-    location: row.location || row.city || 'Switzerland',
-    addressLocality: row.city || row.location || 'Switzerland',
-    addressRegion: 'CH',
+    location: row.location || city,
+    addressLocality: city,
+    addressRegion: canton,
     addressCountry: 'CH',
-    canton: '',
+    canton,
     country: 'CH',
     category: inferPwcCategory(row.title, row.description),
     sector: 'Consulenza',
@@ -269,7 +273,18 @@ async function main() {
     return;
   }
 
-  const jobs = listings.map(buildPwcJob);
+  const allBuilt = listings.map(buildPwcJob);
+  const jobs = allBuilt.filter((job) => {
+    const loc = String(job.addressLocality || job.location || '');
+    if (isLocationExplicitlyForeign(loc)) {
+      console.log(`  ⏭️  Skipped foreign location: ${loc} — ${job.title}`);
+      return false;
+    }
+    return true;
+  });
+  if (jobs.length < allBuilt.length) {
+    console.log(`🌍 Foreign location filter: ${allBuilt.length} → ${jobs.length} Swiss jobs`);
+  }
 
   const { total, added, updated, diff} = mergeJobs(jobs);
   updateAdapterConfig(jobs);

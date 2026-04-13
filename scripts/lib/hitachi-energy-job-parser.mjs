@@ -190,7 +190,7 @@ export function isHitachiEnergyTicinoRelevant(location = '') {
  */
 export function inferHitachiEnergyCanton(location = '') {
   const canton = inferAnyCanton(location);
-  return canton || 'CH';
+  return canton || '';
 }
 
 export { PAGE_SIZE, slugify };
