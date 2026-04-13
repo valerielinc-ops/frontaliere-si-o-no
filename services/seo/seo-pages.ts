@@ -3711,7 +3711,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 755,
+        "numberOfItems": 756,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -4444,7 +4444,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 752, "name": "Svizzera nell’Alleanza dei porti europei contro...", "url": `${BASE_URL}/articoli-frontaliere/svizzera-alleanza-porti-europei-anti-droga` },
           { "@type": "ListItem", "position": 753, "name": "Domeniche senza auto in Ticino: Glarona fa da a...", "url": `${BASE_URL}/articoli-frontaliere/glarona-domeniche-senzauto-ticino-frontalieri` },
           { "@type": "ListItem", "position": 754, "name": "Controlli polizia al confine Ticino: +2mila vei...", "url": `${BASE_URL}/articoli-frontaliere/controlli-frontalieri-ponte-chiasso-2025` },
-          { "@type": "ListItem", "position": 755, "name": "Frontalieri Ticino 2025: Como e Varese dominano...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-dati-ust-2025` }
+          { "@type": "ListItem", "position": 755, "name": "Frontalieri Ticino 2025: Como e Varese dominano...", "url": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-dati-ust-2025` },
+          { "@type": "ListItem", "position": 756, "name": "Bibo: l’app che calcola le tariffe dei mezzi pu...", "url": `${BASE_URL}/articoli-frontaliere/bibo-app-mezzi-pubblici-2026` }
         ]
       }
     ]

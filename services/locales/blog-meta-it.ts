@@ -2112,6 +2112,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-ticino-dati-ust-2025.title': 'Como e Varese dominano: 64.700 frontalieri in Ticino nel 2025',
     'blog.article.frontalieri-ticino-dati-ust-2025.excerpt': 'Nel 2025 il Canton Ticino ospita 64.700 frontalieri lombardi su 75.000 totali. Como guida con 32.200 unità, Varese a 31.400. Monza e Brianza cresce del 77,7% in un decennio.',
     'blog.article.frontalieri-ticino-dati-ust-2025.imageAlt': 'Vista del Lago di Como dal confine ticinese vicino a Chiasso con pendolari diretti in Svizzera',
+    'blog.article.bibo-app-mezzi-pubblici-2026.title': 'Bibo: l’app che calcola le tariffe dei mezzi pubblici in Svizzera senza fare nulla',
+    'blog.article.bibo-app-mezzi-pubblici-2026.excerpt': 'Dal 2026 debutta Bibo: rileva automaticamente i viaggi in bus, treno o tram e addebita solo il percorso effettivo. Test con 3.000 frontalieri dal 30 aprile.',
+    'blog.article.bibo-app-mezzi-pubblici-2026.imageAlt': 'Treno svizzero in arrivo alla stazione di Lugano con sfondo del Monte Brè al tramonto',
 };
 
 export default blogMetaIt;

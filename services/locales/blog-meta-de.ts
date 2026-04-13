@@ -2112,6 +2112,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontalieri-ticino-dati-ust-2025.title': 'Como und Varese dominieren: 64.700 Grenzpendler im Tessin 2025',
     'blog.article.frontalieri-ticino-dati-ust-2025.excerpt': 'Im Jahr 2025 beherbergt das Tessin 64.700 lombardische Grenzpendler von insgesamt 75.000. Como führt mit 32.200 Personen, Varese folgt mit 31.400. Die Provinz Monza und Brianza verzeichnet in einem Jahrzehnt ein Wachstum von 77,7 %.',
     'blog.article.frontalieri-ticino-dati-ust-2025.imageAlt': 'Blick auf den Comersee von der Tessiner Grenze bei Chiasso mit Grenzgängern auf dem Weg in die Schweiz',
+    'blog.article.bibo-app-mezzi-pubblici-2026.title': 'Bibo: Die App, die die Tarife der öffentlichen Verkehrsmittel in der Schweiz automatisch berechnet',
+    'blog.article.bibo-app-mezzi-pubblici-2026.excerpt': 'Ab 2026 startet Bibo: Die App erfasst Fahrten mit Bus, Bahn oder Tram automatisch und berechnet nur die tatsächlich zurückgelegte Strecke. Der Test mit 3.000 Grenzgängern beginnt am 30. April.',
+    'blog.article.bibo-app-mezzi-pubblici-2026.imageAlt': 'Schweizer Zug bei der Ankunft im Bahnhof Lugano mit Monte Brè im Hintergrund bei Sonnenuntergang',
 };
 
 export default blogMetaDe;

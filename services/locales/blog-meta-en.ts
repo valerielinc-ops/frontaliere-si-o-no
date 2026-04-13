@@ -2112,6 +2112,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontalieri-ticino-dati-ust-2025.title': 'Como and Varese dominate: 64,700 cross-border workers in Ticino in 2025',
     'blog.article.frontalieri-ticino-dati-ust-2025.excerpt': 'In 2025, the Canton of Ticino is home to 64,700 cross-border workers from Lombardy out of a total of 75,000. Como leads with 32,200 workers, while Varese follows closely with 31,400. Monza and Brianza has seen a 77.7% increase over the past decade.',
     'blog.article.frontalieri-ticino-dati-ust-2025.imageAlt': 'View of Lake Como from the Ticino border near Chiasso with cross-border commuters heading to Switzerland',
+    'blog.article.bibo-app-mezzi-pubblici-2026.title': 'Bibo: the app that automatically calculates Swiss public transport fares without lifting a finger',
+    'blog.article.bibo-app-mezzi-pubblici-2026.excerpt': 'From 2026, Bibo will debut: it automatically detects bus, train or tram trips and charges only the actual route taken. Testing with 3,000 cross-border workers starts on 30 April.',
+    'blog.article.bibo-app-mezzi-pubblici-2026.imageAlt': 'Swiss train arriving at Lugano station with Monte Brè in the background during sunset',
 };
 
 export default blogMetaEn;

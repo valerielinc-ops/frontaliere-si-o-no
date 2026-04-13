@@ -5913,4 +5913,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/frontalieri-ticino-dati-ust-2025.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'bibo-app-mezzi-pubblici-2026',
+    category: 'pratico',
+    date: '2026-04-13T15:57:02.666Z',
+    image: '/images/blog/bibo-app-mezzi-pubblici-2026.jpg',
+    hasCalculator: true,
+  },
 ];

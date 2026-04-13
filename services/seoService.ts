@@ -1959,6 +1959,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-glarona-domeniche-senzauto-ticino-frontalieri': { name: 'Mobilità', path: '/articoli-frontaliere/glarona-domeniche-senzauto-ticino-frontalieri', parent: 'blog' },
     'blog-controlli-frontalieri-ponte-chiasso-2025': { name: 'Frontiera e documenti', path: '/articoli-frontaliere/controlli-frontalieri-ponte-chiasso-2025', parent: 'blog' },
     'blog-frontalieri-ticino-dati-ust-2025': { name: 'Dati UST 2025', path: '/articoli-frontaliere/frontalieri-ticino-dati-ust-2025', parent: 'blog' },
+    'blog-bibo-app-mezzi-pubblici-2026': { name: 'Bibo', path: '/articoli-frontaliere/bibo-app-mezzi-pubblici-2026', parent: 'blog' },
   };
 
   const info = sectionNames[section];

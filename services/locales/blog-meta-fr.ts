@@ -2112,6 +2112,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-ticino-dati-ust-2025.title': 'Côme et Varèse dominent : 64 700 frontaliers en Ticino en 2025',
     'blog.article.frontalieri-ticino-dati-ust-2025.excerpt': 'En 2025, le Canton du Tessin accueille 64 700 frontaliers lombards sur un total de 75 000. Côme arrive en tête avec 32 200 unités, suivi de Varèse avec 31 400. La province de Monza et Brianza enregistre une hausse de 77,7 % en dix ans.',
     'blog.article.frontalieri-ticino-dati-ust-2025.imageAlt': 'Vue du Lac de Côme depuis la frontière tessinoise près de Chiasso avec des frontaliers se rendant en Suisse',
+    'blog.article.bibo-app-mezzi-pubblici-2026.title': 'Bibo : l’appli qui calcule les tarifs des transports publics en Suisse sans rien faire',
+    'blog.article.bibo-app-mezzi-pubblici-2026.excerpt': 'À partir de 2026, Bibo fait son entrée : l’application détecte automatiquement les trajets en bus, train ou tramway et ne facture que le parcours réellement effectué. Un test avec 3 000 frontaliers est prévu à partir du 30 avril.',
+    'blog.article.bibo-app-mezzi-pubblici-2026.imageAlt': 'Train suisse arrivant en gare de Lugano avec le Monte Brè en arrière-plan au coucher du soleil',
 };
 
 export default blogMetaFr;

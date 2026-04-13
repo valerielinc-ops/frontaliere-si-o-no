@@ -7308,6 +7308,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bibo-app-mezzi-pubblici-2026': {
+    title: 'Bibo: l’app che calcola le tariffe dei | Frontaliere Ticino',
+    description: 'Dal 2026 debutta Bibo: rileva automaticamente i viaggi in bus, treno o tram e addebita solo il percorso effettivo. Test con 3.000 frontalieri dal 30 aprile.',
+    keywords: 'frontalieri, ticino, svizzera, italia, bibo, calcola, tariffe, mezzi',
+    ogTitle: 'Bibo: l’app che calcola le tariffe dei mezzi pubblici in',
+    ogDescription: 'Dal 2026 debutta Bibo: rileva automaticamente i viaggi in bus, treno o tram e addebita solo il percorso effettivo. Test con 3.000 frontalieri dal 30 aprile.',
+    canonicalPath: '/articoli-frontaliere/bibo-app-mezzi-pubblici-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bibo: l’app che calcola le tariffe dei mezzi pubblici in",
+      "description": "Dal 2026 debutta Bibo: rileva automaticamente i viaggi in bus, treno o tram e addebita solo il percorso effettivo. Test con 3.000 frontalieri dal 30 aprile.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/bibo-app-mezzi-pubblici-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Treno svizzero in arrivo alla stazione di Lugano con sfondo del Monte Brè al tramonto"
+      },
+      "datePublished": "2026-04-13T15:57:02+00:00",
+      "dateModified": "2026-04-13T15:57:02+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bibo-app-mezzi-pubblici-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
