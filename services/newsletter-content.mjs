@@ -306,13 +306,14 @@ export function matchJobsForSubscriber(subscriber, jobs, limit = 3, locale = 'it
   }
 
   // Further filter by sector only if it's not the generic "other"
+  // Only apply if enough results remain to fill the requested limit
   if (usableSector) {
     const sectorFiltered = candidates.filter((j) =>
       String(j.title || '').toLowerCase().includes(sector) ||
       String(j.category || '').toLowerCase().includes(sector) ||
       String(j.sector || '').toLowerCase().includes(sector)
     );
-    if (sectorFiltered.length >= 1) candidates = sectorFiltered;
+    if (sectorFiltered.length >= limit) candidates = sectorFiltered;
   }
 
   // Sort: keyword relevance first, then popularity, then recency
