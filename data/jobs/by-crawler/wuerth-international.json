@@ -1,6 +1,6 @@
 {
   "crawlerKey": "wuerth-international",
-  "assembledAt": "2026-04-12T22:20:05.511Z",
+  "assembledAt": "2026-04-13T11:31:51.215Z",
   "jobs": [
     {
       "id": "wuerth-international-c6a8efa5a3f3",
@@ -47,7 +47,7 @@
       "applyUrl": "https://www.wurth-international.com/CH-WINT/Karriere/Job-Portal/Bewerbungsformular_Steuerexperte.php",
       "source": "Wuerth International Dedicated Parser (HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-12T22:20:03.045Z",
+      "crawledAt": "2026-04-13T11:31:48.734Z",
       "requirementsByLocale": {
         "it": [
           "Laurea triennale o magistrale in diritto tributario (nazionale/internazionale)",
@@ -88,6 +88,7 @@
           "steuerexperte-w-m-d-oder-sehr-erfahrener-steuerspezialist-wuerth-international-chur"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 142000,
       "salaryMax": 249500,
       "currency": "CHF",
@@ -147,7 +148,7 @@
       "applyUrl": "https://www.wurth-international.com/CH-WINT/Karriere/Job-Portal/Bewerbungsformular-Praktikum-Empfang.php",
       "source": "Wuerth International Dedicated Parser (HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-12T22:20:02.608Z",
+      "crawledAt": "2026-04-13T11:31:48.270Z",
       "previousSlugsByLocale": {
         "de": [
           "berufspraktikum-empfang-a-wuerth-international-chur"
@@ -190,6 +191,7 @@
           "Prestations sociales supérieures à la moyenne et offres de repas et activités sportives à prix réduits"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "currency": "CHF",
