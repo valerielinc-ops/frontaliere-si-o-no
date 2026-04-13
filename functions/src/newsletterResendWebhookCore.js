@@ -207,14 +207,25 @@ export async function applyResendWebhookEvent(rawEvent, options = {}) {
     return { handled: false, reason: 'missing_recipient' };
   }
 
+  const emailType = sanitizeString(tags.type) || 'newsletter';
+  const messageId = sanitizeString(data.email_id || data.id || data.message_id);
+  const linkUrl = sanitizeString(data.click?.link || data.link || data.url);
+  const linkLabel = sanitizeString(data.link_label || data.click?.link_label);
+  const sectionId = sanitizeString(data.section_id || data.click?.section_id);
+  const occurredAt = sanitizeString(data.created_at) || new Date().toISOString();
+
+  // ── Route job-alert emails to job_alert_subscribers/{email} ──
+  if (emailType === 'job-alert' || emailType === 'job-alert-retry') {
+    const alertId = sanitizeString(tags.alert_id) || 'unknown';
+    await applyJobAlertEvent(db, { email, type, alertId, messageId, linkUrl, linkLabel, occurredAt, rawEvent });
+    return { handled: true, email, type, collection: 'job_alert_subscribers', alertId };
+  }
+
+  // ── Newsletter events (existing behavior) ────────────────────
   const campaignId = sanitizeString(tags.campaign_id || data.campaign_id) || 'unknown';
   const variant = sanitizeString(tags.variant || data.variant) || 'general';
   const locale = sanitizeString(tags.subscriber_locale || data.locale) || 'it-IT';
   const sourceChannel = sanitizeString(tags.source_channel || data.source_channel);
-  const messageId = sanitizeString(data.email_id || data.id || data.message_id);
-  const linkUrl = sanitizeString(data.click?.link || data.link || data.url);
-  const sectionId = sanitizeString(data.section_id || data.click?.section_id);
-  const linkLabel = sanitizeString(data.link_label || data.click?.link_label);
 
   // Read current subscriber status to avoid promoting pending users
   let currentStatus = null;
@@ -295,10 +306,112 @@ export async function applyResendWebhookEvent(rawEvent, options = {}) {
     target_url: linkUrl,
     metadata: rawEvent,
     timestamp: admin.firestore.FieldValue.serverTimestamp(),
-    occurred_at: sanitizeString(data.created_at) || new Date().toISOString(),
+    occurred_at: occurredAt,
   });
 
   return { handled: true, email, type, campaignId };
+}
+
+/**
+ * Apply a delivery event to job_alert_subscribers/{email}.
+ * Mirrors newsletter_subscribers pattern: top-level doc with counters,
+ * alert_deliveries/{alertId} subcollection, events/{auto-id} subcollection.
+ */
+async function applyJobAlertEvent(db, { email, type, alertId, messageId, linkUrl, linkLabel, occurredAt, rawEvent }) {
+  const FieldValue = admin.firestore.FieldValue;
+  const subscriberRef = db.collection('job_alert_subscribers').doc(email);
+
+  // ── Top-level subscriber document (aggregate counters) ──────
+  const topUpdate = {
+    email,
+    updated_at: FieldValue.serverTimestamp(),
+  };
+  if (type === 'send') {
+    topUpdate.last_sent_at = FieldValue.serverTimestamp();
+    topUpdate.send_count = FieldValue.increment(1);
+  }
+  if (type === 'delivered') {
+    topUpdate.last_delivered_at = FieldValue.serverTimestamp();
+    topUpdate.delivered_count = FieldValue.increment(1);
+  }
+  if (type === 'open') {
+    topUpdate.last_open_at = FieldValue.serverTimestamp();
+    topUpdate.open_count = FieldValue.increment(1);
+  }
+  if (type === 'click') {
+    topUpdate.last_click_at = FieldValue.serverTimestamp();
+    topUpdate.click_count = FieldValue.increment(1);
+    topUpdate.last_clicked_url = linkUrl;
+  }
+  if (type === 'bounce') {
+    topUpdate.last_bounced_at = FieldValue.serverTimestamp();
+    topUpdate.bounce_count = FieldValue.increment(1);
+    topUpdate.status = 'bounced';
+  }
+  if (type === 'complaint') {
+    topUpdate.last_complained_at = FieldValue.serverTimestamp();
+    topUpdate.status = 'complained';
+  }
+  if (type === 'failed') {
+    topUpdate.last_failed_at = FieldValue.serverTimestamp();
+    topUpdate.fail_count = FieldValue.increment(1);
+  }
+  // Healthy delivery events → mark as active
+  if (type === 'delivered' || type === 'open' || type === 'click') {
+    topUpdate.status = 'active';
+  }
+
+  await subscriberRef.set(topUpdate, { merge: true });
+
+  // ── Engagement score ────────────────────────────────────────
+  if (type === 'open' || type === 'click' || type === 'send') {
+    try {
+      const doc = await subscriberRef.get();
+      if (doc.exists) {
+        const { score, level } = calculateEngagementScore(doc.data());
+        await subscriberRef.set({
+          engagement_score: score,
+          engagement_level: level,
+          engagement_updated_at: FieldValue.serverTimestamp(),
+        }, { merge: true });
+      }
+    } catch {
+      // Non-critical
+    }
+  }
+
+  // ── Per-alert delivery record (subcollection) ───────────────
+  await subscriberRef.collection('alert_deliveries').doc(alertId).set({
+    alert_id: alertId,
+    message_id: messageId,
+    updated_at: FieldValue.serverTimestamp(),
+    ...(type === 'send' ? { sent_at: FieldValue.serverTimestamp() } : {}),
+    ...(type === 'delivered' ? { delivered_at: FieldValue.serverTimestamp() } : {}),
+    ...(type === 'open' ? { opened_at: FieldValue.serverTimestamp() } : {}),
+    ...(type === 'click'
+      ? {
+          clicked_at: FieldValue.serverTimestamp(),
+          last_clicked_url: linkUrl,
+          last_clicked_label: linkLabel,
+          clicked_links: FieldValue.increment(1),
+        }
+      : {}),
+    ...(type === 'bounce' ? { bounced_at: FieldValue.serverTimestamp() } : {}),
+    ...(type === 'failed' ? { failed_at: FieldValue.serverTimestamp() } : {}),
+  }, { merge: true });
+
+  // ── Raw event log (subcollection) ───────────────────────────
+  await subscriberRef.collection('events').add({
+    email,
+    event_type: type,
+    alert_id: alertId,
+    message_id: messageId,
+    link_url: linkUrl,
+    link_label: linkLabel,
+    metadata: rawEvent,
+    timestamp: FieldValue.serverTimestamp(),
+    occurred_at: occurredAt,
+  });
 }
 
 export async function handleResendWebhookRequest({ payload, headers, webhookSecret }) {

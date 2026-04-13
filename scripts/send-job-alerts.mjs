@@ -447,7 +447,10 @@ async function sendBatch(emails) {
       to: [e.to],
       subject: e.subject,
       html: e.html,
-      tags: [{ name: 'type', value: 'job-alert' }],
+      tags: [
+        { name: 'type', value: 'job-alert' },
+        { name: 'alert_id', value: e.alertId },
+      ],
       // RFC 8058: List-Unsubscribe + List-Unsubscribe-Post for one-click unsubscribe
       headers: e.unsubscribeUrl ? {
         'List-Unsubscribe': `<${e.unsubscribeUrl}>`,

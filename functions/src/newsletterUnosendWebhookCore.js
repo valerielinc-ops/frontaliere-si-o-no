@@ -107,6 +107,15 @@ async function persistUnosendEvent(db, eventType, eventData) {
   const messageId = eventData.email_id || '';
   const timestamp = eventData.created_at || new Date().toISOString();
 
+  // Route job-alert events to job_alert_subscribers/{email}
+  const tagsObj = eventData.tags || {};
+  const tagsArr = Array.isArray(tagsObj) ? tagsObj : [];
+  const isJobAlert = tagsArr.some(t => t?.value === 'job-alert' || t?.value === 'job-alert-retry')
+    || tagsObj.type === 'job-alert' || tagsObj.type === 'job-alert-retry';
+  if (isJobAlert) {
+    return persistJobAlertUnosendEvent(db, { email, type, eventType, messageId, timestamp, eventData });
+  }
+
   const subscriberRef = db.collection('newsletter_subscribers').doc(email);
 
   // Update subscriber-level fields for all event types (aligned with Resend handler)
@@ -182,6 +191,39 @@ async function persistUnosendEvent(db, eventType, eventData) {
   });
 
   return { processed: true, type, email, campaignId };
+}
+
+// ── Job alert event handler (mirrors newsletter pattern) ────
+
+async function persistJobAlertUnosendEvent(db, { email, type, eventType, messageId, timestamp, eventData }) {
+  const FieldValue = admin.firestore.FieldValue;
+  const subscriberRef = db.collection('job_alert_subscribers').doc(email);
+
+  const topUpdate = { email, updated_at: FieldValue.serverTimestamp() };
+  if (type === 'delivered') { topUpdate.last_delivered_at = FieldValue.serverTimestamp(); topUpdate.delivered_count = FieldValue.increment(1); }
+  if (type === 'open') { topUpdate.last_open_at = FieldValue.serverTimestamp(); topUpdate.open_count = FieldValue.increment(1); }
+  if (type === 'click') { topUpdate.last_click_at = FieldValue.serverTimestamp(); topUpdate.click_count = FieldValue.increment(1); topUpdate.last_clicked_url = eventData.link || eventData.url || ''; }
+  if (type === 'bounce') { topUpdate.status = 'bounced'; topUpdate.last_bounced_at = FieldValue.serverTimestamp(); topUpdate.bounce_count = FieldValue.increment(1); }
+  if (type === 'complaint') { topUpdate.status = 'complained'; topUpdate.last_complained_at = FieldValue.serverTimestamp(); }
+  if (type === 'delivered' || type === 'open' || type === 'click') topUpdate.status = 'active';
+
+  await subscriberRef.set(topUpdate, { merge: true });
+
+  await subscriberRef.collection('events').add({
+    email,
+    event_type: type,
+    unosend_event: eventType,
+    message_id: messageId,
+    provider: 'unosend',
+    metadata: {
+      link: eventData.link || null,
+      tags: eventData.tags || null,
+    },
+    timestamp: FieldValue.serverTimestamp(),
+    occurred_at: timestamp,
+  });
+
+  return { processed: true, type, email, collection: 'job_alert_subscribers' };
 }
 
 // ── Request handler ──────────────────────────────────────────

@@ -70,6 +70,12 @@ export async function persistMailjetEvent(db, eventData) {
     ? new Date(eventData.time * 1000).toISOString()
     : new Date().toISOString();
 
+  // Route job-alert events to job_alert_subscribers/{email}
+  const customId = eventData.CustomID || eventData.custom_id || '';
+  if (customId === 'job-alert' || customId === 'job-alert-retry') {
+    return persistJobAlertMailjetEvent(db, { email, type, mjEvent, messageId, timestamp, eventData });
+  }
+
   const subscriberRef = db.collection('newsletter_subscribers').doc(email);
 
   // Update subscriber-level status for critical events
@@ -147,6 +153,39 @@ export async function persistMailjetEvent(db, eventData) {
   });
 
   return { processed: true, type, email, campaignId };
+}
+
+// ── Job alert event handler (mirrors newsletter pattern) ────
+
+async function persistJobAlertMailjetEvent(db, { email, type, mjEvent, messageId, timestamp, eventData }) {
+  const FieldValue = admin.firestore.FieldValue;
+  const subscriberRef = db.collection('job_alert_subscribers').doc(email);
+
+  const topUpdate = { email, updated_at: FieldValue.serverTimestamp() };
+  if (type === 'delivered') { topUpdate.last_delivered_at = FieldValue.serverTimestamp(); topUpdate.delivered_count = FieldValue.increment(1); }
+  if (type === 'open') { topUpdate.last_open_at = FieldValue.serverTimestamp(); topUpdate.open_count = FieldValue.increment(1); }
+  if (type === 'click') { topUpdate.last_click_at = FieldValue.serverTimestamp(); topUpdate.click_count = FieldValue.increment(1); topUpdate.last_clicked_url = eventData.url || ''; }
+  if (type === 'bounce') { topUpdate.status = 'bounced'; topUpdate.last_bounced_at = FieldValue.serverTimestamp(); topUpdate.bounce_count = FieldValue.increment(1); }
+  if (type === 'complaint') { topUpdate.status = 'complained'; topUpdate.last_complained_at = FieldValue.serverTimestamp(); }
+  if (type === 'delivered' || type === 'open' || type === 'click') topUpdate.status = 'active';
+
+  await subscriberRef.set(topUpdate, { merge: true });
+
+  await subscriberRef.collection('events').add({
+    email,
+    event_type: type,
+    mailjet_event: mjEvent,
+    message_id: messageId,
+    provider: 'mailjet',
+    metadata: {
+      custom_id: eventData.CustomID || null,
+      url: eventData.url || null,
+    },
+    timestamp: FieldValue.serverTimestamp(),
+    occurred_at: timestamp,
+  });
+
+  return { processed: true, type, email, collection: 'job_alert_subscribers' };
 }
 
 // ── Request handler ──────────────────────────────────────────
