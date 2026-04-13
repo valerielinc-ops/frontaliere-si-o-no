@@ -735,7 +735,9 @@
         }
       },
       "streetAddress": "Via della Posta 2",
-      "postalCode": "6901"
+      "postalCode": "6901",
+      "needsRetranslation": true,
+      "retranslationAttempts": 1
     },
     {
       "title": "Senior Specialist Fullstack Engineering (all genders)",
