@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bms-building",
-  "assembledAt": "2026-04-13T10:06:04.774Z",
+  "assembledAt": "2026-04-13T21:14:31.435Z",
   "jobs": [
     {
       "id": "bms-building-5f607004df2b",
@@ -33,7 +33,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/139-representant-agencement-de-cuisines-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-13T10:06:02.195Z",
+      "crawledAt": "2026-04-13T21:14:28.605Z",
       "addressLocality": "Conthey",
       "addressCountry": "CH",
       "country": "CH",
@@ -113,6 +113,7 @@
           "representant-agencement-de-cuisines-100-f-h-d-bms-building-ch"
         ]
       },
+      "firstSeenAt": "2026-04-13T10:06:02.195Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -124,8 +125,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:06:02.195Z"
+      }
     },
     {
       "id": "bms-building-0a087c6a807c",
@@ -158,7 +158,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/137-conseiller-de-vente-expo-cuisines-a-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-13T10:06:00.404Z",
+      "crawledAt": "2026-04-13T21:14:27.340Z",
       "addressLocality": "Conthey",
       "addressCountry": "CH",
       "country": "CH",
@@ -243,6 +243,7 @@
           "conseiller-de-vente-expo-cuisines-a-100-f-h-d-bms-building-ch"
         ]
       },
+      "firstSeenAt": "2026-04-13T10:06:00.404Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -254,8 +255,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:06:00.404Z"
+      }
     }
   ]
 }

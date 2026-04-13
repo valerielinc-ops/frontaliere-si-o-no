@@ -1,16 +1,16 @@
 {
   "key": "bms-building",
   "label": "BMS Building Materials",
-  "generatedAt": "2026-04-13T10:06:04.774Z",
+  "generatedAt": "2026-04-13T21:14:31.435Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6500,
-  "avgDurationMs": 6500,
+  "durationMs": 6364,
+  "avgDurationMs": 6364,
   "durationHistory": [
-    6500
+    6364
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/137-conseiller-de-vente-expo-cuisines-a-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-13T10:06:00.404Z",
+      "crawledAt": "2026-04-13T21:14:27.340Z",
       "addressLocality": "Conthey",
       "addressCountry": "CH",
       "country": "CH",
@@ -40,6 +40,7 @@
       "featured": false,
       "postedDate": "2026-04-13",
       "applyUrl": "https://bmsuisse.onlyfy.jobs/application/apply/4nmapntq0rwfa43d1moklgv8tzm1jm",
+      "firstSeenAt": "2026-04-13T10:06:00.404Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -60,7 +61,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/139-representant-agencement-de-cuisines-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-13T10:06:02.195Z",
+      "crawledAt": "2026-04-13T21:14:28.605Z",
       "addressLocality": "Conthey",
       "addressCountry": "CH",
       "country": "CH",
@@ -74,6 +75,7 @@
       "featured": false,
       "postedDate": "2026-04-13",
       "applyUrl": "https://bmsuisse.onlyfy.jobs/application/apply/4smvlyohsozzm2agokm46csvwhbcp4",
+      "firstSeenAt": "2026-04-13T10:06:02.195Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
