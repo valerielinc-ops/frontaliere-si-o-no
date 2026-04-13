@@ -1,16 +1,16 @@
 {
   "key": "heineken-ch",
   "label": "Heineken Switzerland",
-  "generatedAt": "2026-04-12T21:30:48.792Z",
+  "generatedAt": "2026-04-13T10:41:40.513Z",
   "total": 14,
   "newCount": 1,
   "updatedCount": 13,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 13421,
-  "avgDurationMs": 13421,
+  "durationMs": 11347,
+  "avgDurationMs": 11347,
   "durationHistory": [
-    13421
+    11347
   ],
   "newJobs": [
     {
@@ -39,7 +39,7 @@
       "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1382246633/?locale=en_GB",
       "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-12T21:30:39.896Z",
+      "crawledAt": "2026-04-13T10:41:32.779Z",
       "_qualityScore": 67,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -76,7 +76,7 @@
       "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1292599001/?locale=de_DE",
       "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-12T21:30:37.847Z",
+      "crawledAt": "2026-04-13T10:41:31.077Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -111,7 +111,7 @@
       "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1382487733/?locale=fr_FR",
       "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-12T21:30:38.626Z",
+      "crawledAt": "2026-04-13T10:41:31.685Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -146,7 +146,7 @@
       "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1382085733/?locale=de_DE",
       "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-12T21:30:39.254Z",
+      "crawledAt": "2026-04-13T10:41:32.242Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -181,7 +181,7 @@
       "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1371560033/?locale=en_GB",
       "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-12T21:30:40.550Z",
+      "crawledAt": "2026-04-13T10:41:33.336Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -216,42 +216,7 @@
       "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1283406601/?locale=en_GB",
       "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-12T21:30:41.191Z",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "id": "heineken-ch-b5c2b456a0c6",
-      "slug": "bezeichnung-chauffeur-c-e-heineken-ch-content-width-device-width",
-      "company": "Heineken Switzerland",
-      "companyKey": "heineken-ch",
-      "companyDomain": "theheinekencompany.com",
-      "title": "Bezeichnung: Chauffeur C/E",
-      "location": "\" content=\"width=device-width",
-      "canton": "GR",
-      "addressLocality": "\" content=\"width=device-width",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7000",
-      "streetAddress": "\" content=\"width=device-width, Graubünden",
-      "category": "Logistica",
-      "sector": "Industria / Alimentare",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "featured": false,
-      "postedDate": "2026-03-29",
-      "url": "https://careers.theheinekencompany.com/Switzerland/job/Fahrweid-Chauffeur-CE/1276312701/",
-      "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1276312701/?locale=de_DE",
-      "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
-      "sourceLang": "de",
-      "crawledAt": "2026-04-12T21:30:41.816Z",
+      "crawledAt": "2026-04-13T10:41:33.910Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -286,7 +251,42 @@
       "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1277563801/?locale=de_DE",
       "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-12T21:30:42.498Z",
+      "crawledAt": "2026-04-13T10:41:34.458Z",
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 20
+      }
+    },
+    {
+      "id": "heineken-ch-b5c2b456a0c6",
+      "slug": "bezeichnung-chauffeur-c-e-heineken-ch-content-width-device-width",
+      "company": "Heineken Switzerland",
+      "companyKey": "heineken-ch",
+      "companyDomain": "theheinekencompany.com",
+      "title": "Bezeichnung: Chauffeur C/E",
+      "location": "\" content=\"width=device-width",
+      "canton": "GR",
+      "addressLocality": "\" content=\"width=device-width",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7000",
+      "streetAddress": "\" content=\"width=device-width, Graubünden",
+      "category": "Logistica",
+      "sector": "Industria / Alimentare",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "featured": false,
+      "postedDate": "2026-03-29",
+      "url": "https://careers.theheinekencompany.com/Switzerland/job/Fahrweid-Chauffeur-CE/1276312701/",
+      "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1276312701/?locale=de_DE",
+      "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
+      "sourceLang": "de",
+      "crawledAt": "2026-04-13T10:41:34.996Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -321,7 +321,7 @@
       "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1378113133/?locale=en_GB",
       "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-12T21:30:43.140Z",
+      "crawledAt": "2026-04-13T10:41:35.541Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -356,7 +356,7 @@
       "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1366711633/?locale=de_DE",
       "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-12T21:30:43.763Z",
+      "crawledAt": "2026-04-13T10:41:36.095Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -391,7 +391,7 @@
       "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1376584133/?locale=de_DE",
       "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-12T21:30:44.264Z",
+      "crawledAt": "2026-04-13T10:41:36.650Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -426,7 +426,7 @@
       "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1366146033/?locale=de_DE",
       "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-12T21:30:44.889Z",
+      "crawledAt": "2026-04-13T10:41:37.180Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -461,7 +461,7 @@
       "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1366138833/?locale=de_DE",
       "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-12T21:30:45.515Z",
+      "crawledAt": "2026-04-13T10:41:37.700Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -496,7 +496,7 @@
       "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1375618733/?locale=de_DE",
       "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-12T21:30:46.160Z",
+      "crawledAt": "2026-04-13T10:41:38.239Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,

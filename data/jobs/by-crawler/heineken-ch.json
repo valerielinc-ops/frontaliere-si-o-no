@@ -1,6 +1,6 @@
 {
   "crawlerKey": "heineken-ch",
-  "assembledAt": "2026-04-13T08:24:54.156Z",
+  "assembledAt": "2026-04-13T10:41:40.511Z",
   "jobs": [
     {
       "id": "heineken-ch-1d69e587614a",
@@ -47,7 +47,7 @@
       "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1375618733/?locale=de_DE",
       "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-12T21:30:46.160Z",
+      "crawledAt": "2026-04-13T10:41:38.239Z",
       "requirementsByLocale": {
         "it": [
           "Formazione professionale come elettricista o automatista (NIV 15 13 è un vantaggio)",
@@ -85,6 +85,7 @@
           "bezeichnung-betriebselektriker-in-automatiker-in-m-w-d-heineken-ch-content-width-device-wi"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -144,7 +145,7 @@
       "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1366138833/?locale=de_DE",
       "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-12T21:30:45.515Z",
+      "crawledAt": "2026-04-13T10:41:37.700Z",
       "requirementsByLocale": {
         "it": [
           "Formazione professionale completata, preferibilmente come Logisticista/Logisticista",
@@ -185,6 +186,7 @@
           "bezeichnung-logistiker-in-getrankelager-100-heineken-ch-content-width-device-width"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -244,7 +246,7 @@
       "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1366146033/?locale=de_DE",
       "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-12T21:30:44.889Z",
+      "crawledAt": "2026-04-13T10:41:37.180Z",
       "requirementsByLocale": {
         "it": [
           "Patente di guida Cat. C ed E",
@@ -282,6 +284,7 @@
           "bezeichnung-chauffeur-kat-c-e-heineken-ch-content-width-device-width"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -341,7 +344,7 @@
       "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1376584133/?locale=de_DE",
       "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-12T21:30:44.264Z",
+      "crawledAt": "2026-04-13T10:41:36.650Z",
       "requirementsByLocale": {
         "it": [
           "Esperienza professionale come autista e licenza di guida categoria C, (eventualmente E)",
@@ -376,6 +379,7 @@
           "bezeichnung-chauffeur-in-c-evtl-e-samedan-gr-heineken-ch-content-width-device-width"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -435,7 +439,7 @@
       "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1366711633/?locale=de_DE",
       "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-12T21:30:43.763Z",
+      "crawledAt": "2026-04-13T10:41:36.095Z",
       "requirementsByLocale": {
         "it": [
           "Piacere nel trattare con le persone",
@@ -470,6 +474,7 @@
           "bezeichnung-mitarbeiterin-brauereifuhrungen-10-auf-abruf-heineken-ch-content-width-device-"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -529,7 +534,7 @@
       "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1378113133/?locale=en_GB",
       "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-12T21:30:43.140Z",
+      "crawledAt": "2026-04-13T10:41:35.541Z",
       "requirementsByLocale": {
         "it": [
           "Formazione professionale completata con successo come logistician",
@@ -570,109 +575,7 @@
           "logistiker-heineken-switzerland-content-width-device-width"
         ]
       },
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "heineken-ch-5f25b33f1289",
-      "slug": "elettricista-automatizzatore-chur-m-f-heineken-switzerland-content-width-device-width",
-      "slugByLocale": {
-        "it": "elettricista-automatizzatore-chur-m-f-heineken-switzerland-content-width-device-width",
-        "en": "electrical-installer-automation-technician-chur-m-f-heineken-switzerland-content-width-device-width",
-        "de": "bezeichnung-elektroinstallateur-automatiker-chur-m-w-heineken-switzerland-content-width-device-width",
-        "fr": "electricien-automatiseur-chur-m-f-heineken-switzerland-content-width-device-width"
-      },
-      "company": "Heineken Switzerland",
-      "companyKey": "heineken-ch",
-      "companyDomain": "theheinekencompany.com",
-      "title": "Bezeichnung: Elektroinstallateur/Automatiker Chur (m/w)",
-      "titleByLocale": {
-        "it": "Elettricista/Automatizzatore Chur (m/f)",
-        "en": "Electrical Installer/Automation Technician Chur (m/f)",
-        "de": "Bezeichnung: Elektroinstallateur/Automatiker Chur (m/w)",
-        "fr": "Électricien/Automatiseur Chur (m/f)"
-      },
-      "description": "Bezeichnung: Elektroinstallateur/Automatiker Chur (m/w) im Bereich Supply Chain bei Heineken Switzerland (Calanda Brauerei) in \" content=\"width=device-width, Kanton Graubünden, Schweiz.\n\nHEINEKEN Switzerland betreibt die Calanda Brauerei in Chur, Graubünden — eine der traditionsreichsten Brauereien der Schweiz, gegründet 1780. Als Teil der HEINEKEN-Gruppe, dem weltweit zweitgrössten Brauereikonzern, beschäftigt HEINEKEN Switzerland rund 800 Mitarbeitende an mehreren Standorten in der Schweiz. Das Unternehmen braut und vertreibt bekannte Marken wie Calanda, Eichhof, Heineken und Birra Moretti. HEINEKEN Switzerland bietet ein internationales Arbeitsumfeld, moderne Anstellungsbedingungen und vielfältige Entwicklungsmöglichkeiten in den Bereichen Produktion, Logistik, Vertrieb und Administration.",
-      "descriptionByLocale": {
-        "it": "Per il settore Servizio Tecnico presso il nostro sito di Chur, stiamo cercando una persona motivata e collaborativa a partire dal 1° marzo 2026 o su accordo. Lavorerai all'interno del Servizio Tecnico in un giovane, dinamico e collettivo team. La priorità sarà la manutenzione delle macchine di produzione e degli impianti di riempimento, nonché l'approvvigionamento energetico nella nostra birreria. Compiti: Manutenzione, risoluzione dei guasti e lavori di manutenzione sulle macchine di produzione e l'impiantistica. Sviluppo di soluzioni per problemi di controllo e automazione. Implementazione di miglioramenti (processi, automazioni). Creazione e applicazione di documentazione tecnica. Esecuzione di analisi delle cause radice. Collaborazione in progetti (messa in servizio di macchine di produzione nel settore elettrico). Programmazione di controlli programmabili (PLC). Requisiti: Formazione come elettricista (NIV15 e superiore) o automatizzatore. 3-4 anni di esperienza nella manutenzione. Disponibilità a lavorare in turni (turnazione a tre turni con turni di guardia). Competenza nei settori di segnali, controllo e regolazione. Buone conoscenze di MS-Office (SAP preferibile). Esperienza con PLC di preferenza (S7 e TIA). Ottime conoscenze di tedesco e, se possibile, di inglese. Esperienza e disponibilità per lo sviluppo continuo. Sei interessato a un ruolo versatile come parte di un team dinamico? Allora Claudia Tschuor Magnin, HR Business Partner, si fregherà di ricevere la tua candidatura. Rispetto, piacere e qualità dalla passione sono i nostri valori fondamentali. Come produttore di birra con siti di produzione a Chur e Lucerna, nonché un proprio commercio di bevande con 17 punti vendita in tutta la Svizzera, siamo un'azienda di importanza nazionale. Ci impegniamo in un mix di tradizione, innovazione e vicinanza al cliente. Con le nostre marche di birra contribuiamo alla ricca cultura birraria svizzera. Creiamo la gioia del vero stare insieme per ispirare un mondo migliore. Un giorno, una birra, un brindisi dopo l'altro.",
-        "en": "For the Technical Service department at our site in Chur, we are looking for a motivated and team-oriented person starting from 1st March 2026 or upon agreement. You will work within the Technical Service in a young, dynamic, and collegial team. The focus will be on the maintenance of production and filling plants, as well as energy supply in our brewery. Tasks: Maintenance, troubleshooting, and maintenance work on production machines and building services. Development of solutions for control and automation issues. Implementation of improvements (processes, automations). Creation and application of technical documentation. Conducting root cause analyses. Collaboration in projects (commissioning of production machines in the electrical engineering sector). Programming of programmable controllers (PLC). Requirements: Completed apprenticeship as an electrical installer (NIV15 and above) or automation technician. 3-4 years of experience in maintenance. Willingness to work in shifts (three-shift operation with night shifts). Expertise in signal, control, and regulation areas. Good knowledge of MS-Office (SAP preferred). Experience with PLCs preferred (S7 and TIA). Very good German language skills and possibly English. Experience and willingness for continuous development. Are you interested in a versatile role as part of a dynamic team? Then Claudia Tschuor Magnin, HR Business Partner, looks forward to receiving your application. Respect, enjoyment, and quality from passion are our core values. As a beer producer with brewery sites in Chur and Lucerne, as well as our own beverage trade with 17 locations across Switzerland, we are a company of national significance. We strive for a mix of tradition, innovation, and customer proximity. With our beer brands, we contribute to the diverse Swiss beer culture. We brew the joy of true togetherness to inspire a better world. One day, one beer, one toast after another.",
-        "de": "Bezeichnung: Elektroinstallateur/Automatiker Chur (m/w) im Bereich Supply Chain bei Heineken Switzerland (Calanda Brauerei) in \" content=\"width=device-width, Kanton Graubünden, Schweiz. HEINEKEN Switzerland betreibt die Calanda Brauerei in Chur, Graubünden — eine der traditionsreichsten Brauereien der Schweiz, gegründet 1780. Als Teil der HEINEKEN-Gruppe, dem weltweit zweitgrössten Brauereikonzern, beschäftigt HEINEKEN Switzerland rund 800 Mitarbeitende an mehreren Standorten in der Schweiz. Das Unternehmen braut und vertreibt bekannte Marken wie Calanda, Eichhof, Heineken und Birra Moretti. HEINEKEN Switzerland bietet ein internationales Arbeitsumfeld, moderne Anstellungsbedingungen und vielfältige Entwicklungsmöglichkeiten in den Bereichen Produktion, Logistik, Vertrieb und Administration.",
-        "fr": "Pour le service technique de notre site à Chur, nous recherchons une personne motivée et d'esprit d'équipe à partir du 1er mars 2026 ou selon accord. Vous travaillerez au sein du service technique dans une jeune, dynamique et collégiale équipe. L'accent sera mis sur l'entretien des installations de production et de remplissage, ainsi que sur l'approvisionnement en énergie dans notre brasserie. Tâches: Entretien, dépannage et travaux de maintenance sur les machines de production et l'installation. Développement de solutions pour les problèmes de contrôle et d'automatisation. Mise en œuvre d'améliorations (processus, automatisations). Création et application de documentation technique. Conduite d'analyses des causes racines. Collaboration dans des projets (mise en service de machines de production dans le secteur de l'électrotechnique). Programmation de contrôleurs programmables (PLC). Exigences: Formation d'électricien (NIV15 et plus) ou d'automatiseur. 3-4 ans d'expérience en maintenance. Disponibilité à travailler en équipes (travail à trois équipes avec équipes de nuit). Expertise dans les domaines des signaux, du contrôle et de la régulation. Bonne connaissance de MS-Office (SAP préférable). Expérience avec les PLC préférable (S7 et TIA). Très bonnes connaissances en allemand et éventuellement en anglais. Expérience et volonté de développement continu. Êtes-vous intéressé par un rôle varié au sein d'une équipe dynamique? Alors Claudia Tschuor Magnin, partenaire d'affaires RH, se réjouit de recevoir votre candidature. Le respect, le plaisir et la qualité de la passion sont nos valeurs fondamentales. En tant que producteur de bière avec des sites de brasserie à Chur et Lucerne, ainsi que notre propre commerce de boissons avec 17 points de vente en Suisse, nous sommes une entreprise de grande importance nationale. Nous visons un mélange de tradition, d'innovation et de proximité client. Avec nos marques de bière, nous contribuons à la riche culture de la bière suisse. Nous brassons la joie du vrai ensemble pour inspirer un monde meilleur. Un jour, une bière, un toast après l'autre."
-      },
-      "location": "\" content=\"width=device-width",
-      "canton": "GR",
-      "addressLocality": "\" content=\"width=device-width",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7000",
-      "streetAddress": "\" content=\"width=device-width, Graubünden",
-      "category": "Tecnica",
-      "sector": "Industria / Alimentare",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "featured": false,
-      "postedDate": "2026-03-29",
-      "url": "https://careers.theheinekencompany.com/Switzerland/job/Chur-ElektroinstallateurAutomatiker-Chur-%28mw%29-7000/1277563801/",
-      "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1277563801/?locale=de_DE",
-      "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
-      "sourceLang": "de",
-      "crawledAt": "2026-04-12T21:30:42.498Z",
-      "previousSlugsByLocale": {
-        "de": [
-          "bezeichnung-elektroinstallateur-automatiker-chur-m-w-heineken-ch-content-width-device-widt"
-        ],
-        "it": [
-          "bezeichnung-elektroinstallateur-automatiker-chur-m-w-heineken-ch-content-width-device-widt"
-        ]
-      },
-      "previousSlugs": [
-        "bezeichnung-elektroinstallateur-automatiker-chur-m-w-heineken-ch-content-width-device-widt"
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Formazione come elettricista (NIV15 e superiore) o automatizzatore",
-          "3-4 anni di esperienza nella manutenzione",
-          "Disponibilità a lavorare in turni (turnazione a tre turni con turni di guardia)",
-          "Competenza nei settori di segnali, controllo e regolazione",
-          "Buone conoscenze di MS-Office (SAP preferibile)",
-          "Esperienza con PLC di preferenza (S7 e TIA)",
-          "Ottime conoscenze di tedesco e, se possibile, di inglese",
-          "Esperienza e disponibilità per lo sviluppo continuo"
-        ],
-        "en": [
-          "Completed apprenticeship as an electrical installer (NIV15 and above) or automation technician",
-          "3-4 years of experience in maintenance",
-          "Willingness to work in shifts (three-shift operation with night shifts)",
-          "Expertise in signal, control, and regulation areas",
-          "Good knowledge of MS-Office (SAP preferred)",
-          "Experience with PLCs preferred (S7 and TIA)",
-          "Very good German language skills and possibly English",
-          "Experience and willingness for continuous development"
-        ],
-        "fr": [
-          "Formation d'électricien (NIV15 et plus) ou d'automatiseur",
-          "3-4 ans d'expérience en maintenance",
-          "Disponibilité à travailler en équipes (travail à trois équipes avec équipes de nuit)",
-          "Expertise dans les domaines des signaux, du contrôle et de la régulation",
-          "Bonne connaissance de MS-Office (SAP préférable)",
-          "Expérience avec les PLC préférable (S7 et TIA)",
-          "Très bonnes connaissances en allemand et éventuellement en anglais",
-          "Expérience et volonté de développement continu"
-        ]
-      },
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -732,7 +635,7 @@
       "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1276312701/?locale=de_DE",
       "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-12T21:30:41.816Z",
+      "crawledAt": "2026-04-13T10:41:34.996Z",
       "requirementsByLocale": {
         "it": [
           "Patente di guida valida della categoria C (obbligatoria), preferibilmente completata dalla categoria E",
@@ -770,6 +673,111 @@
           "bezeichnung-chauffeur-c-e-heineken-ch-content-width-device-width"
         ]
       },
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "heineken-ch-5f25b33f1289",
+      "slug": "elettricista-automatizzatore-chur-m-f-heineken-switzerland-content-width-device-width",
+      "slugByLocale": {
+        "it": "elettricista-automatizzatore-chur-m-f-heineken-switzerland-content-width-device-width",
+        "en": "electrical-installer-automation-technician-chur-m-f-heineken-switzerland-content-width-device-width",
+        "de": "bezeichnung-elektroinstallateur-automatiker-chur-m-w-heineken-switzerland-content-width-device-width",
+        "fr": "electricien-automatiseur-chur-m-f-heineken-switzerland-content-width-device-width"
+      },
+      "company": "Heineken Switzerland",
+      "companyKey": "heineken-ch",
+      "companyDomain": "theheinekencompany.com",
+      "title": "Bezeichnung: Elektroinstallateur/Automatiker Chur (m/w)",
+      "titleByLocale": {
+        "it": "Elettricista/Automatizzatore Chur (m/f)",
+        "en": "Electrical Installer/Automation Technician Chur (m/f)",
+        "de": "Bezeichnung: Elektroinstallateur/Automatiker Chur (m/w)",
+        "fr": "Électricien/Automatiseur Chur (m/f)"
+      },
+      "description": "Bezeichnung: Elektroinstallateur/Automatiker Chur (m/w) im Bereich Supply Chain bei Heineken Switzerland (Calanda Brauerei) in \" content=\"width=device-width, Kanton Graubünden, Schweiz.\n\nHEINEKEN Switzerland betreibt die Calanda Brauerei in Chur, Graubünden — eine der traditionsreichsten Brauereien der Schweiz, gegründet 1780. Als Teil der HEINEKEN-Gruppe, dem weltweit zweitgrössten Brauereikonzern, beschäftigt HEINEKEN Switzerland rund 800 Mitarbeitende an mehreren Standorten in der Schweiz. Das Unternehmen braut und vertreibt bekannte Marken wie Calanda, Eichhof, Heineken und Birra Moretti. HEINEKEN Switzerland bietet ein internationales Arbeitsumfeld, moderne Anstellungsbedingungen und vielfältige Entwicklungsmöglichkeiten in den Bereichen Produktion, Logistik, Vertrieb und Administration.",
+      "descriptionByLocale": {
+        "it": "Per il settore Servizio Tecnico presso il nostro sito di Chur, stiamo cercando una persona motivata e collaborativa a partire dal 1° marzo 2026 o su accordo. Lavorerai all'interno del Servizio Tecnico in un giovane, dinamico e collettivo team. La priorità sarà la manutenzione delle macchine di produzione e degli impianti di riempimento, nonché l'approvvigionamento energetico nella nostra birreria. Compiti: Manutenzione, risoluzione dei guasti e lavori di manutenzione sulle macchine di produzione e l'impiantistica. Sviluppo di soluzioni per problemi di controllo e automazione. Implementazione di miglioramenti (processi, automazioni). Creazione e applicazione di documentazione tecnica. Esecuzione di analisi delle cause radice. Collaborazione in progetti (messa in servizio di macchine di produzione nel settore elettrico). Programmazione di controlli programmabili (PLC). Requisiti: Formazione come elettricista (NIV15 e superiore) o automatizzatore. 3-4 anni di esperienza nella manutenzione. Disponibilità a lavorare in turni (turnazione a tre turni con turni di guardia). Competenza nei settori di segnali, controllo e regolazione. Buone conoscenze di MS-Office (SAP preferibile). Esperienza con PLC di preferenza (S7 e TIA). Ottime conoscenze di tedesco e, se possibile, di inglese. Esperienza e disponibilità per lo sviluppo continuo. Sei interessato a un ruolo versatile come parte di un team dinamico? Allora Claudia Tschuor Magnin, HR Business Partner, si fregherà di ricevere la tua candidatura. Rispetto, piacere e qualità dalla passione sono i nostri valori fondamentali. Come produttore di birra con siti di produzione a Chur e Lucerna, nonché un proprio commercio di bevande con 17 punti vendita in tutta la Svizzera, siamo un'azienda di importanza nazionale. Ci impegniamo in un mix di tradizione, innovazione e vicinanza al cliente. Con le nostre marche di birra contribuiamo alla ricca cultura birraria svizzera. Creiamo la gioia del vero stare insieme per ispirare un mondo migliore. Un giorno, una birra, un brindisi dopo l'altro.",
+        "en": "For the Technical Service department at our site in Chur, we are looking for a motivated and team-oriented person starting from 1st March 2026 or upon agreement. You will work within the Technical Service in a young, dynamic, and collegial team. The focus will be on the maintenance of production and filling plants, as well as energy supply in our brewery. Tasks: Maintenance, troubleshooting, and maintenance work on production machines and building services. Development of solutions for control and automation issues. Implementation of improvements (processes, automations). Creation and application of technical documentation. Conducting root cause analyses. Collaboration in projects (commissioning of production machines in the electrical engineering sector). Programming of programmable controllers (PLC). Requirements: Completed apprenticeship as an electrical installer (NIV15 and above) or automation technician. 3-4 years of experience in maintenance. Willingness to work in shifts (three-shift operation with night shifts). Expertise in signal, control, and regulation areas. Good knowledge of MS-Office (SAP preferred). Experience with PLCs preferred (S7 and TIA). Very good German language skills and possibly English. Experience and willingness for continuous development. Are you interested in a versatile role as part of a dynamic team? Then Claudia Tschuor Magnin, HR Business Partner, looks forward to receiving your application. Respect, enjoyment, and quality from passion are our core values. As a beer producer with brewery sites in Chur and Lucerne, as well as our own beverage trade with 17 locations across Switzerland, we are a company of national significance. We strive for a mix of tradition, innovation, and customer proximity. With our beer brands, we contribute to the diverse Swiss beer culture. We brew the joy of true togetherness to inspire a better world. One day, one beer, one toast after another.",
+        "de": "Bezeichnung: Elektroinstallateur/Automatiker Chur (m/w) im Bereich Supply Chain bei Heineken Switzerland (Calanda Brauerei) in \" content=\"width=device-width, Kanton Graubünden, Schweiz. HEINEKEN Switzerland betreibt die Calanda Brauerei in Chur, Graubünden — eine der traditionsreichsten Brauereien der Schweiz, gegründet 1780. Als Teil der HEINEKEN-Gruppe, dem weltweit zweitgrössten Brauereikonzern, beschäftigt HEINEKEN Switzerland rund 800 Mitarbeitende an mehreren Standorten in der Schweiz. Das Unternehmen braut und vertreibt bekannte Marken wie Calanda, Eichhof, Heineken und Birra Moretti. HEINEKEN Switzerland bietet ein internationales Arbeitsumfeld, moderne Anstellungsbedingungen und vielfältige Entwicklungsmöglichkeiten in den Bereichen Produktion, Logistik, Vertrieb und Administration.",
+        "fr": "Pour le service technique de notre site à Chur, nous recherchons une personne motivée et d'esprit d'équipe à partir du 1er mars 2026 ou selon accord. Vous travaillerez au sein du service technique dans une jeune, dynamique et collégiale équipe. L'accent sera mis sur l'entretien des installations de production et de remplissage, ainsi que sur l'approvisionnement en énergie dans notre brasserie. Tâches: Entretien, dépannage et travaux de maintenance sur les machines de production et l'installation. Développement de solutions pour les problèmes de contrôle et d'automatisation. Mise en œuvre d'améliorations (processus, automatisations). Création et application de documentation technique. Conduite d'analyses des causes racines. Collaboration dans des projets (mise en service de machines de production dans le secteur de l'électrotechnique). Programmation de contrôleurs programmables (PLC). Exigences: Formation d'électricien (NIV15 et plus) ou d'automatiseur. 3-4 ans d'expérience en maintenance. Disponibilité à travailler en équipes (travail à trois équipes avec équipes de nuit). Expertise dans les domaines des signaux, du contrôle et de la régulation. Bonne connaissance de MS-Office (SAP préférable). Expérience avec les PLC préférable (S7 et TIA). Très bonnes connaissances en allemand et éventuellement en anglais. Expérience et volonté de développement continu. Êtes-vous intéressé par un rôle varié au sein d'une équipe dynamique? Alors Claudia Tschuor Magnin, partenaire d'affaires RH, se réjouit de recevoir votre candidature. Le respect, le plaisir et la qualité de la passion sont nos valeurs fondamentales. En tant que producteur de bière avec des sites de brasserie à Chur et Lucerne, ainsi que notre propre commerce de boissons avec 17 points de vente en Suisse, nous sommes une entreprise de grande importance nationale. Nous visons un mélange de tradition, d'innovation et de proximité client. Avec nos marques de bière, nous contribuons à la riche culture de la bière suisse. Nous brassons la joie du vrai ensemble pour inspirer un monde meilleur. Un jour, une bière, un toast après l'autre."
+      },
+      "location": "\" content=\"width=device-width",
+      "canton": "GR",
+      "addressLocality": "\" content=\"width=device-width",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7000",
+      "streetAddress": "\" content=\"width=device-width, Graubünden",
+      "category": "Tecnica",
+      "sector": "Industria / Alimentare",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "featured": false,
+      "postedDate": "2026-03-29",
+      "url": "https://careers.theheinekencompany.com/Switzerland/job/Chur-ElektroinstallateurAutomatiker-Chur-%28mw%29-7000/1277563801/",
+      "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1277563801/?locale=de_DE",
+      "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
+      "sourceLang": "de",
+      "crawledAt": "2026-04-13T10:41:34.458Z",
+      "previousSlugsByLocale": {
+        "de": [
+          "bezeichnung-elektroinstallateur-automatiker-chur-m-w-heineken-ch-content-width-device-widt"
+        ],
+        "it": [
+          "bezeichnung-elektroinstallateur-automatiker-chur-m-w-heineken-ch-content-width-device-widt"
+        ]
+      },
+      "previousSlugs": [
+        "bezeichnung-elektroinstallateur-automatiker-chur-m-w-heineken-ch-content-width-device-widt"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Formazione come elettricista (NIV15 e superiore) o automatizzatore",
+          "3-4 anni di esperienza nella manutenzione",
+          "Disponibilità a lavorare in turni (turnazione a tre turni con turni di guardia)",
+          "Competenza nei settori di segnali, controllo e regolazione",
+          "Buone conoscenze di MS-Office (SAP preferibile)",
+          "Esperienza con PLC di preferenza (S7 e TIA)",
+          "Ottime conoscenze di tedesco e, se possibile, di inglese",
+          "Esperienza e disponibilità per lo sviluppo continuo"
+        ],
+        "en": [
+          "Completed apprenticeship as an electrical installer (NIV15 and above) or automation technician",
+          "3-4 years of experience in maintenance",
+          "Willingness to work in shifts (three-shift operation with night shifts)",
+          "Expertise in signal, control, and regulation areas",
+          "Good knowledge of MS-Office (SAP preferred)",
+          "Experience with PLCs preferred (S7 and TIA)",
+          "Very good German language skills and possibly English",
+          "Experience and willingness for continuous development"
+        ],
+        "fr": [
+          "Formation d'électricien (NIV15 et plus) ou d'automatiseur",
+          "3-4 ans d'expérience en maintenance",
+          "Disponibilité à travailler en équipes (travail à trois équipes avec équipes de nuit)",
+          "Expertise dans les domaines des signaux, du contrôle et de la régulation",
+          "Bonne connaissance de MS-Office (SAP préférable)",
+          "Expérience avec les PLC préférable (S7 et TIA)",
+          "Très bonnes connaissances en allemand et éventuellement en anglais",
+          "Expérience et volonté de développement continu"
+        ]
+      },
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -829,7 +837,7 @@
       "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1283406601/?locale=en_GB",
       "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-12T21:30:41.191Z",
+      "crawledAt": "2026-04-13T10:41:33.910Z",
       "requirementsByLocale": {
         "it": [
           "Formazione come brauer o tecnologo alimentare specializzato in birrificio",
@@ -853,6 +861,7 @@
           "Expérience avec des systèmes de contrôle modernes et bonnes compétences en informatique"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -890,7 +899,7 @@
       "descriptionByLocale": {
         "it": "Descrizione Titolo: Camion Driver in Supply Chain a Heineken Svizzera (Calanda Brewery) in Canton Graubünden, Svizzera. HEINEKEN Svizzera gestisce la birreria Calanda a Chur, Grigioni, una delle birrerie più tradizionali della Svizzera, fondata nel 1780. Nell'ambito del gruppo HEINEKEN, il secondo gruppo mondiale di birrerie, HEINEKEN Svizzera impiega circa 800 dipendenti in diverse località della Svizzera. L'azienda produce e vende marchi noti come Calanda, Eichhof, Heineken e Birra Moretti. HEINEKEN La Svizzera offre un ambiente di lavoro internazionale, condizioni di lavoro moderne e diverse opportunità di sviluppo nei settori della produzione, della logistica, delle vendite e dell'amministrazione.",
         "en": "Descrizione Title: Truck Driver in Supply Chain at Heineken Switzerland (Calanda Brewery) in Canton Graubünden, Switzerland. HEINEKEN Switzerland operates the Calanda brewery in Chur, Graubünden — one of the most traditional breweries in Switzerland, founded in 1780. As part of the HEINEKEN Group, the world's second largest brewery group, HEINEKEN Switzerland employs around 800 employees at several locations in Switzerland. The company brews and sells well-known brands like Calanda, Eichhof, Heineken and Birra Moretti. HEINEKEN Switzerland offers an international working environment, modern employment conditions and diverse development opportunities in the fields of production, logistics, sales and administration.",
-        "de": "Descrizione Title: Truck Driver im Bereich Supply Chain bei Heineken Switzerland (Calanda Brauerei) in Kanton Graubünden, Schweiz. HEINEKEN Switzerland betreibt die Calanda Brauerei in Chur, Graubünden — eine der traditionsreichsten Brauereien der Schweiz, gegründet 1780. Als Teil der HEINEKEN-Gruppe, dem weltweit zweitgrössten Brauereikonzern, beschäftigt HEINEKEN Switzerland rund 800 Mitarbeitende an mehreren Standorten in der Schweiz. Das Unternehmen braut und vertreibt bekannte Marken wie Calanda, Eichhof, Heineken und Birra Moretti. HEINEKEN Switzerland bietet ein internationales Arbeitsumfeld, moderne Anstellungsbedingungen und vielfältige Entwicklungsmöglichkeiten in den Bereichen Produktion, Logistik, Vertrieb und Administration.",
+        "de": "Title: Truck Driver im Bereich Supply Chain bei Heineken Switzerland (Calanda Brauerei) in \" content=\"width=device-width, Kanton Graubünden, Schweiz. HEINEKEN Switzerland betreibt die Calanda Brauerei in Chur, Graubünden — eine der traditionsreichsten Brauereien der Schweiz, gegründet 1780. Als Teil der HEINEKEN-Gruppe, dem weltweit zweitgrössten Brauereikonzern, beschäftigt HEINEKEN Switzerland rund 800 Mitarbeitende an mehreren Standorten in der Schweiz. Das Unternehmen braut und vertreibt bekannte Marken wie Calanda, Eichhof, Heineken und Birra Moretti. HEINEKEN Switzerland bietet ein internationales Arbeitsumfeld, moderne Anstellungsbedingungen und vielfältige Entwicklungsmöglichkeiten in den Bereichen Produktion, Logistik, Vertrieb und Administration.",
         "fr": "Descrizione Titre: Chauffeur de camion dans la chaîne d'approvisionnement à Heineken Suisse (Calanda Brewery) à Canton Graubünden, Suisse. HEINEKEN Suisse exploite la brasserie Calanda à Chur, Graubünden, l'une des brasseries les plus traditionnelles de Suisse, fondée en 1780. Dans le cadre du groupe HEINEKEN, le deuxième groupe de brasserie au monde, HEINEKEN Suisse emploie environ 800 collaborateurs dans plusieurs sites en Suisse. La société brasse et vend des marques bien connues comme Calanda, Eichhof, Heineken et Birra Moretti. HEINEKEN La Suisse offre un environnement de travail international, des conditions d'emploi modernes et diverses possibilités de développement dans les domaines de la production, de la logistique, des ventes et de l'administration."
       },
       "location": "\" content=\"width=device-width",
@@ -912,7 +921,7 @@
       "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1371560033/?locale=en_GB",
       "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-12T21:30:40.550Z",
+      "crawledAt": "2026-04-13T10:41:33.336Z",
       "requirementsByLocale": {
         "it": [
           "Patente di guida C, idealmente anche cat. E",
@@ -958,6 +967,68 @@
           "titre-truck-driver-heineken-switzerland-content-width-device-width"
         ]
       },
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "heineken-ch-4f6eb0ce9007",
+      "slug": "title-truck-driver-heineken-ch-content-width-device-width",
+      "slugByLocale": {
+        "de": "title-truck-driver-heineken-ch-content-width-device-width",
+        "it": "title-truck-driver-heineken-ch-content-width-device-width",
+        "en": "title-truck-driver-heineken-ch-content-width-device-width",
+        "fr": "title-truck-driver-heineken-ch-content-width-device-width"
+      },
+      "company": "Heineken Switzerland",
+      "companyKey": "heineken-ch",
+      "companyDomain": "theheinekencompany.com",
+      "title": "Title: Truck Driver",
+      "titleByLocale": {
+        "de": "Title: Truck Driver",
+        "it": "Title: Truck Driver",
+        "en": "Title: Truck Driver",
+        "fr": "Title: Truck Driver"
+      },
+      "description": "Title: Truck Driver im Bereich Supply Chain bei Heineken Switzerland (Calanda Brauerei) in \" content=\"width=device-width, Kanton Graubünden, Schweiz.\n\nHEINEKEN Switzerland betreibt die Calanda Brauerei in Chur, Graubünden — eine der traditionsreichsten Brauereien der Schweiz, gegründet 1780. Als Teil der HEINEKEN-Gruppe, dem weltweit zweitgrössten Brauereikonzern, beschäftigt HEINEKEN Switzerland rund 800 Mitarbeitende an mehreren Standorten in der Schweiz. Das Unternehmen braut und vertreibt bekannte Marken wie Calanda, Eichhof, Heineken und Birra Moretti. HEINEKEN Switzerland bietet ein internationales Arbeitsumfeld, moderne Anstellungsbedingungen und vielfältige Entwicklungsmöglichkeiten in den Bereichen Produktion, Logistik, Vertrieb und Administration.",
+      "descriptionByLocale": {
+        "de": "Title: Truck Driver im Bereich Supply Chain bei Heineken Switzerland (Calanda Brauerei) in \" content=\"width=device-width, Kanton Graubünden, Schweiz.\n\nHEINEKEN Switzerland betreibt die Calanda Brauerei in Chur, Graubünden — eine der traditionsreichsten Brauereien der Schweiz, gegründet 1780. Als Teil der HEINEKEN-Gruppe, dem weltweit zweitgrössten Brauereikonzern, beschäftigt HEINEKEN Switzerland rund 800 Mitarbeitende an mehreren Standorten in der Schweiz. Das Unternehmen braut und vertreibt bekannte Marken wie Calanda, Eichhof, Heineken und Birra Moretti. HEINEKEN Switzerland bietet ein internationales Arbeitsumfeld, moderne Anstellungsbedingungen und vielfältige Entwicklungsmöglichkeiten in den Bereichen Produktion, Logistik, Vertrieb und Administration.",
+        "it": "Title: Truck Driver im Bereich Supply Chain bei Heineken Switzerland (Calanda Brauerei) in \" content=\"width=device-width, Kanton Graubünden, Schweiz.\n\nHEINEKEN Switzerland betreibt die Calanda Brauerei in Chur, Graubünden — eine der traditionsreichsten Brauereien der Schweiz, gegründet 1780. Als Teil der HEINEKEN-Gruppe, dem weltweit zweitgrössten Brauereikonzern, beschäftigt HEINEKEN Switzerland rund 800 Mitarbeitende an mehreren Standorten in der Schweiz. Das Unternehmen braut und vertreibt bekannte Marken wie Calanda, Eichhof, Heineken und Birra Moretti. HEINEKEN Switzerland bietet ein internationales Arbeitsumfeld, moderne Anstellungsbedingungen und vielfältige Entwicklungsmöglichkeiten in den Bereichen Produktion, Logistik, Vertrieb und Administration.",
+        "en": "Title: Truck Driver im Bereich Supply Chain bei Heineken Switzerland (Calanda Brauerei) in \" content=\"width=device-width, Kanton Graubünden, Schweiz.\n\nHEINEKEN Switzerland betreibt die Calanda Brauerei in Chur, Graubünden — eine der traditionsreichsten Brauereien der Schweiz, gegründet 1780. Als Teil der HEINEKEN-Gruppe, dem weltweit zweitgrössten Brauereikonzern, beschäftigt HEINEKEN Switzerland rund 800 Mitarbeitende an mehreren Standorten in der Schweiz. Das Unternehmen braut und vertreibt bekannte Marken wie Calanda, Eichhof, Heineken und Birra Moretti. HEINEKEN Switzerland bietet ein internationales Arbeitsumfeld, moderne Anstellungsbedingungen und vielfältige Entwicklungsmöglichkeiten in den Bereichen Produktion, Logistik, Vertrieb und Administration.",
+        "fr": "Title: Truck Driver im Bereich Supply Chain bei Heineken Switzerland (Calanda Brauerei) in \" content=\"width=device-width, Kanton Graubünden, Schweiz.\n\nHEINEKEN Switzerland betreibt die Calanda Brauerei in Chur, Graubünden — eine der traditionsreichsten Brauereien der Schweiz, gegründet 1780. Als Teil der HEINEKEN-Gruppe, dem weltweit zweitgrössten Brauereikonzern, beschäftigt HEINEKEN Switzerland rund 800 Mitarbeitende an mehreren Standorten in der Schweiz. Das Unternehmen braut und vertreibt bekannte Marken wie Calanda, Eichhof, Heineken und Birra Moretti. HEINEKEN Switzerland bietet ein internationales Arbeitsumfeld, moderne Anstellungsbedingungen und vielfältige Entwicklungsmöglichkeiten in den Bereichen Produktion, Logistik, Vertrieb und Administration."
+      },
+      "location": "\" content=\"width=device-width",
+      "canton": "GR",
+      "addressLocality": "\" content=\"width=device-width",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3937",
+      "streetAddress": "\" content=\"width=device-width, Graubünden",
+      "category": "Logistica",
+      "sector": "Industria / Alimentare",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "featured": false,
+      "postedDate": "2026-04-09",
+      "url": "https://careers.theheinekencompany.com/Switzerland/job/Baltschieder-Truck-Driver-3937/1382246633/",
+      "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1382246633/?locale=en_GB",
+      "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
+      "sourceLang": "de",
+      "crawledAt": "2026-04-13T10:41:32.779Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -1017,7 +1088,7 @@
       "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1382085733/?locale=de_DE",
       "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-12T21:30:39.254Z",
+      "crawledAt": "2026-04-13T10:41:32.242Z",
       "requirementsByLocale": {
         "it": [
           "Apprendistato come operatore di impianti o formazione tecnica",
@@ -1051,6 +1122,7 @@
           "operatore-di-impianti-temporaneo-a-chur-heineken-switzerland-content-width-device-width"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
@@ -1067,11 +1139,11 @@
     },
     {
       "id": "heineken-ch-ccfb570d30ed",
-      "slug": "consulente-ore-f-m-d-di-vendita-riviera-chablais-heineken-switzerland-content-width-device-width",
+      "slug": "titolo-consulente-commerciale-f-m-d-riviera-chablais-heineken-switzerland-content-width-device-width",
       "slugByLocale": {
-        "it": "consulente-ore-f-m-d-di-vendita-riviera-chablais-heineken-switzerland-content-width-device-width",
+        "it": "titolo-consulente-commerciale-f-m-d-riviera-chablais-heineken-switzerland-content-width-device-width",
         "en": "sales-advisor-f-m-d-riviera-chablais-heineken-switzerland-content-width-device-width",
-        "de": "titel-vertriebsberater-f-m-d-riviera-chablais-heineken-switzerland-content-width-device-width",
+        "de": "titre-conseiller-ere-f-m-d-de-vente-riviera-chablais-heineken-ch-content-width-device-widt",
         "fr": "titre-conseiller-ere-f-m-d-de-vente-riviera-chablais-heineken-switzerland-content-width-device-width"
       },
       "company": "Heineken Switzerland",
@@ -1081,15 +1153,15 @@
       "titleByLocale": {
         "it": "Titolo: Consulente commerciale (f/m/d) Riviera/Chablais",
         "en": "Sales Advisor (f/m/d) Riviera/Chablais",
-        "de": "Titel: Vertriebsberater (f/m/d) Riviera/Chablais",
+        "de": "Titre: Conseiller/ère (f/m/d) de vente Riviera/Chablais",
         "fr": "Titre: Conseiller/ère (f/m/d) de vente Riviera/Chablais"
       },
       "description": "Rechercher par mot-clé Rechercher par ville Sélectionnez la fréquence (en jours) de réception d’une alerte : Créer une alerte × Sélectionnez la fréquence (en jours) de réception d’une alerte : Postuler » Postuler Commencer à postuler via LinkedIn Postulez maintenant Commencer Veuillez patienter... Titre: Conseiller/ère (f/m/d) de vente Riviera/Chablais We Go Places! How about you? Localisation: Denges Fonction: Commerce Sous-Fonction: Commerce - Sales - CHD Type de contrat: CDI Êtes-vous un véritable partenaire pour vos clients et une garantie de succès dans le monde de la gastronomie? Vous voulez être la figure de proue de notre entreprise et révolutionner le secteur de la restauration ? Alors ce défi pourrait être votre prochaine chance ! Dans cette fonction variée, fascinante et stimulante, les points forts suivants marqueront votre quotidien: Acquisition de nouveaux clients, suivi du partenariat et développement de nos clients existants - cafés, restaurants, bars, night-club et autres lieux de débits de boissons Négociations de vente dans le cadre d'une collaboration partenariale avec une forte responsabilité entrepreneuriale Collaboration active avec les départements internes (Marketing; Service clients; Logistique; Débiteurs; Evénementiel) Développement de la distribution de nos marques phares et garantie de la visibilité de nos produits Vente et développement du portefeuille de distribution des autres produits commerciaux (boissons non alcoolisées, spiritueux, vins) Pour cette activité passionnante, vous disposez des qualités suivantes pour réussir : Expérience de vente dans le service externe et dans l'industrie des biens de consommation est un atout Orienté performance notamment dans l'acquisition de nouveaux clients Grande motivation personnelle à apprendre et dans son travail quotidien Fait preuve d’autonomie Orienté vers le succès et capacité à conclure des affaires Personnalité gagnante et positive avec une bonne dose d'obstination combinée à un engagement supérieur à la moyenne (personnalité pro-active) Bonnes connaissances informatiques des applications MS-Office et idéalement CRM Connaissances approfondies de la gastronomie locale Domicile dans la région de vente avec un très bon réseau de contacts Le respect, le plaisir et la qualité font partie de nos valeurs fondamentales. En tant que producteur de bière avec des brasseries à Coire et à Lucerne et notre propre commerce de boissons avec 17 sites dans toute la Suisse, nous sommes une entreprise d'importance nationale. Nous misons sur un mix de tradition, d'innovation et de proximité avec le client. Avec nos marques de bière, nous contribuons à la diversité de la culture de la bière suisse. Postuler » Postuler Commencer à postuler via LinkedIn Postulez maintenant Commencer Veuillez patienter... Rechercher des offres d’emploi similaires: Sales Switzerland (French), Marketing and Sales, Digital and Technology Cambodia, Belgium Supply Chain FR",
       "descriptionByLocale": {
         "it": "Descrizione - Cerca per parola chiave - Cerca per città - Seleziona la frequenza (in giorni) di ricezione di un avviso: Creare un avviso × - Seleziona la frequenza (in giorni) di ricezione di un avviso: Applicare » - Applicare Avvio tramite LinkedIn - Applicare Now Start - Attendere prego... - Titolo: Consigliere di vendita Riviera/Chablais - We Go Places! E tu? - Ubicazione: Denges - Funzione: Commercio - Sub-funzione: Commercio - Vendite. - HDC - Tipo di contratto: CDI - Sei un vero partner per i tuoi clienti e una garanzia di successo nel mondo della gastronomia? Vuoi essere la figura principale della nostra azienda e rivoluzionare il settore della ristorazione? Allora questa sfida potrebbe essere la tua prossima occasione! In questa funzione diversificata, affascinante e stimolante, i seguenti punti di forza segnerà la tua vita quotidiana: - Acquisizione di nuovi clienti, monitoraggio di partnership e sviluppo dei nostri clienti esistenti - caffè, ristoranti, bar, nightclub e altri luoghi per bere - Negozi di vendite nell'ambito di una collaborazione con una forte responsabilità imprenditoriale - Collaborazione attiva con i dipartimenti interni (Marketing); Servizio clienti; Logistica; Account ricevibili; Eventi) - No. Come produttore di birra con birrerie a Coire e Lucerna e il nostro business di bevande con 17 siti in tutta la Svizzera, siamo una società di importanza nazionale. - No. Ci affidiamo a un mix di tradizione, innovazione e vicinanza al cliente. - Con i nostri marchi di birra, contribuiamo alla diversità della cultura della birra svizzera. - Applicare » - Applicare Avvio tramite LinkedIn - Apply Now Start - Please wait... - Cerca lavori simili: Vendite Svizzera (francese), Marketing e Vendite, Digital and Technology Cambogia, Belgio Supply Chain FR",
         "en": "Descrizione - Search by keyword - Search by city - Select the frequency (in days) of receiving an alert: Create an alert × - Select the frequency (in days) of receiving an alert : Apply » - Apply Start applying via LinkedIn - Apply Now Start - Please wait... - Title: Sales advisor Riviera/Chablais - We Go Places! How about you? - Location: Denges - Function: Trade - Sub-function: Trade - Sales. - HDC - Type of contract: CDI - Are you a true partner for your customers and a guarantee of success in the world of gastronomy? You want to be the leading figure of our company and revolutionize the catering sector? Then this challenge could be your next chance! - In this varied, fascinating and stimulating function, the following strengths will mark your daily life: - Acquisition of new customers, partnership monitoring and development of our existing customers - cafes, restaurants, bars, nightclubs and other places for drinking - Sales negotiations within the framework of a partnership collaboration with a strong entrepreneurial responsibility - Active collaboration with internal departments (Marketing); Customer service; Logistics; Accounts receivable; Events) - Development of the distribution of our flagship brands and guarantee the visibility of our products - Sale and development of the distribution portfolio of other commercial products (non-alcoholic beverages, spirits, wines) - For this exciting activity, you have the following qualities to succeed: - Sales experience in the external service and consumer goods industry is an asset - Oriented performance in particular in the acquisition of new customers - Great personal motivation to learn and in his daily work - Demonstrates autonomy - Oriented towards success and ability to conclude business - Winning and positive personality with a good dose of obstinacy combined with a higher than average commitment (pro-active personality) - Good computer knowledge of MS-Office applications and ideally CRM - In-depth knowledge of local gastronomy - Home in the sales area with a very good network of contacts - Respect, pleasure and quality are part of our core values. - As a beer producer with breweries in Coire and Lucerne and our own beverage business with 17 sites throughout Switzerland, we are a company of national importance. - We rely on a mix of tradition, innovation and proximity to the customer. - With our beer brands, we contribute to the diversity of Swiss beer culture. - Apply » - Apply Start applying via LinkedIn - Apply Now Start - Please wait... - Search similar jobs: Sales Switzerland (French), Marketing and Sales, Digital and Technology Cambodia, Belgium Supply Chain FR",
-        "de": "Beschreibung - Suche nach Schlüsselwort - Suche nach Stadt - Wählen Sie die Häufigkeit (in Tagen) des Erhaltens einer Warnung: Alarmieren Sie eine Warnung × - Wählen Sie die Häufigkeit (in Tagen) des Erhaltens einer Warnung: Bewerben Sie » - Bewerben Sie Start über LinkedIn - Bewerben Sie jetzt Start - Bitte warten Sie... - Titel: Verkaufsberater Riviera/Chablais - Wir gehen Plätze! Wie wäre es mit dir? - Standort: Denges - Funktion: Handel - Subfunktion: Handel - Vertrieb. - HDC - Vertragsart: CDI - Sind Sie ein echter Partner für Ihre Kunden und eine Garantie für Erfolg in der Welt der Gastronomie? Sie wollen die führende Figur unseres Unternehmens sein und den Gastronomiesektor revolutionieren? Dann könnte diese Herausforderung deine nächste Chance sein! In dieser abwechslungsreichen, faszinierenden und anregenden Funktion werden die folgenden Stärken Ihr tägliches Leben markieren: - Akquisition von neuen Kunden, partnerschaftliche Überwachung und Entwicklung unserer bestehenden Kunden - Cafés, Restaurants, Bars, Nachtclubs und andere Orte zum Trinken - Vertriebsverhandlungen im Rahmen einer partnerschaftlichen Zusammenarbeit mit einer starken unternehmerischen Verantwortung - Aktive Zusammenarbeit mit internen Abteilungen (Marketing) - Ja. Als Bierproduzent mit Brauereien in Coire und Luzern und unserem eigenen Getränkegeschäft mit 17 Standorten in der ganzen Schweiz sind wir ein Unternehmen von nationaler Bedeutung. - Ja. Wir verlassen uns auf eine Mischung aus Tradition, Innovation und Nähe zum Kunden. - Mit unseren Biermarken tragen wir zur Vielfalt der Schweizer Bierkultur bei. - Apply » - Apply Start Anwendung über LinkedIn - Jetzt anwenden Start - Bitte warten... - Ähnliche Jobs suchen Schweiz (Französisch), Marketing und Vertrieb, Digital und Technologie Kambodscha, Belgien Supply Chain FR",
-        "fr": "## Descrizione\n\n- Rechercher par mot-clé\n- Rechercher par ville\n- Sélectionnez la fréquence (en jours) de réception d’une alerte : Créer une alerte ×\n- Sélectionnez la fréquence (en jours) de réception d’une alerte : Postuler »\n- Postuler Commencer à postuler via LinkedIn\n- Postulez maintenant Commencer\n- Veuillez patienter...\n\n- Titre: Conseiller/ère (f/m/d) de vente Riviera/Chablais\n- We Go Places! How about you?\n- Localisation: Denges\n- Fonction: Commerce\n- Sous-Fonction: Commerce - Sales - CHD\n- Type de contrat: CDI\n\n- Êtes-vous un véritable partenaire pour vos clients et une garantie de succès dans le monde de la gastronomie? Vous voulez être la figure de proue de notre entreprise et révolutionner le secteur de la restauration ? Alors ce défi pourrait être votre prochaine chance !\n\n- Dans cette fonction variée, fascinante et stimulante, les points forts suivants marqueront votre quotidien:\n  - Acquisition de nouveaux clients, suivi du partenariat et développement de nos clients existants - cafés, restaurants, bars, night-club et autres lieux de débits de boissons\n  - Négociations de vente dans le cadre d'une collaboration partenariale avec une forte responsabilité entrepreneuriale\n  - Collaboration active avec les départements internes (Marketing; Service clients; Logistique; Débiteurs; Evénementiel)\n  - Développement de la distribution de nos marques phares et garantie de la visibilité de nos produits\n  - Vente et développement du portefeuille de distribution des autres produits commerciaux (boissons non alcoolisées, spiritueux, vins)\n\n- Pour cette activité passionnante, vous disposez des qualités suivantes pour réussir :\n  - Expérience de vente dans le service externe et dans l'industrie des biens de consommation est un atout\n  - Orienté performance notamment dans l'acquisition de nouveaux clients\n  - Grande motivation personnelle à apprendre et dans son travail quotidien\n  - Fait preuve d’autonomie\n  - Orienté vers le succès et capacité à conclure des affaires\n  - Personnalité gagnante et positive avec une bonne dose d'obstination combinée à un engagement supérieur à la moyenne (personnalité pro-active)\n  - Bonnes connaissances informatiques des applications MS-Office et idéalement CRM\n  - Connaissances approfondies de la gastronomie locale\n  - Domicile dans la région de vente avec un très bon réseau de contacts\n\n- Le respect, le plaisir et la qualité font partie de nos valeurs fondamentales.\n- En tant que producteur de bière avec des brasseries à Coire et à Lucerne et notre propre commerce de boissons avec 17 sites dans toute la Suisse, nous sommes une entreprise d'importance nationale.\n- Nous misons sur un mix de tradition, d'innovation et de proximité avec le client.\n- Avec nos marques de bière, nous contribuons à la diversité de la culture de la bière suisse.\n\n- Postuler »\n- Postuler Commencer à postuler via LinkedIn\n- Postulez maintenant Commencer\n- Veuillez patienter...\n\n- Rechercher des offres d’emploi similaires: Sales Switzerland (French), Marketing and Sales, Digital and Technology Cambodia, Belgium Supply Chain FR"
+        "de": "Rechercher par mot-clé Rechercher par ville Sélectionnez la fréquence (en jours) de réception d’une alerte : Créer une alerte × Sélectionnez la fréquence (en jours) de réception d’une alerte : Postuler » Postuler Commencer à postuler via LinkedIn Postulez maintenant Commencer Veuillez patienter... Titre: Conseiller/ère (f/m/d) de vente Riviera/Chablais We Go Places! How about you? Localisation: Denges Fonction: Commerce Sous-Fonction: Commerce - Sales - CHD Type de contrat: CDI Êtes-vous un véritable partenaire pour vos clients et une garantie de succès dans le monde de la gastronomie? Vous voulez être la figure de proue de notre entreprise et révolutionner le secteur de la restauration ? Alors ce défi pourrait être votre prochaine chance ! Dans cette fonction variée, fascinante et stimulante, les points forts suivants marqueront votre quotidien: Acquisition de nouveaux clients, suivi du partenariat et développement de nos clients existants - cafés, restaurants, bars, night-club et autres lieux de débits de boissons Négociations de vente dans le cadre d'une collaboration partenariale avec une forte responsabilité entrepreneuriale Collaboration active avec les départements internes (Marketing; Service clients; Logistique; Débiteurs; Evénementiel) Développement de la distribution de nos marques phares et garantie de la visibilité de nos produits Vente et développement du portefeuille de distribution des autres produits commerciaux (boissons non alcoolisées, spiritueux, vins) Pour cette activité passionnante, vous disposez des qualités suivantes pour réussir : Expérience de vente dans le service externe et dans l'industrie des biens de consommation est un atout Orienté performance notamment dans l'acquisition de nouveaux clients Grande motivation personnelle à apprendre et dans son travail quotidien Fait preuve d’autonomie Orienté vers le succès et capacité à conclure des affaires Personnalité gagnante et positive avec une bonne dose d'obstination combinée à un engagement supérieur à la moyenne (personnalité pro-active) Bonnes connaissances informatiques des applications MS-Office et idéalement CRM Connaissances approfondies de la gastronomie locale Domicile dans la région de vente avec un très bon réseau de contacts Le respect, le plaisir et la qualité font partie de nos valeurs fondamentales. En tant que producteur de bière avec des brasseries à Coire et à Lucerne et notre propre commerce de boissons avec 17 sites dans toute la Suisse, nous sommes une entreprise d'importance nationale. Nous misons sur un mix de tradition, d'innovation et de proximité avec le client. Avec nos marques de bière, nous contribuons à la diversité de la culture de la bière suisse. Postuler » Postuler Commencer à postuler via LinkedIn Postulez maintenant Commencer Veuillez patienter... Rechercher des offres d’emploi similaires: Sales Switzerland (French), Marketing and Sales, Digital and Technology Cambodia, Belgium Supply Chain FR",
+        "fr": "## Descrizione - Rechercher par mot-clé - Rechercher par ville - Sélectionnez la fréquence (en jours) de réception d’une alerte : Créer une alerte × - Sélectionnez la fréquence (en jours) de réception d’une alerte : Postuler » - Postuler Commencer à postuler via LinkedIn - Postulez maintenant Commencer - Veuillez patienter... - Titre: Conseiller/ère (f/m/d) de vente Riviera/Chablais - We Go Places! How about you? - Localisation: Denges - Fonction: Commerce - Sous-Fonction: Commerce - Sales - CHD - Type de contrat: CDI - Êtes-vous un véritable partenaire pour vos clients et une garantie de succès dans le monde de la gastronomie? Vous voulez être la figure de proue de notre entreprise et révolutionner le secteur de la restauration ? Alors ce défi pourrait être votre prochaine chance ! - Dans cette fonction variée, fascinante et stimulante, les points forts suivants marqueront votre quotidien: - Acquisition de nouveaux clients, suivi du partenariat et développement de nos clients existants - cafés, restaurants, bars, night-club et autres lieux de débits de boissons - Négociations de vente dans le cadre d'une collaboration partenariale avec une forte responsabilité entrepreneuriale - Collaboration active avec les départements internes (Marketing; Service clients; Logistique; Débiteurs; Evénementiel) - Développement de la distribution de nos marques phares et garantie de la visibilité de nos produits - Vente et développement du portefeuille de distribution des autres produits commerciaux (boissons non alcoolisées, spiritueux, vins) - Pour cette activité passionnante, vous disposez des qualités suivantes pour réussir : - Expérience de vente dans le service externe et dans l'industrie des biens de consommation est un atout - Orienté performance notamment dans l'acquisition de nouveaux clients - Grande motivation personnelle à apprendre et dans son travail quotidien - Fait preuve d’autonomie - Orienté vers le succès et capacité à conclure des affaires - Personnalité gagnante et positive avec une bonne dose d'obstination combinée à un engagement supérieur à la moyenne (personnalité pro-active) - Bonnes connaissances informatiques des applications MS-Office et idéalement CRM - Connaissances approfondies de la gastronomie locale - Domicile dans la région de vente avec un très bon réseau de contacts - Le respect, le plaisir et la qualité font partie de nos valeurs fondamentales. - En tant que producteur de bière avec des brasseries à Coire et à Lucerne et notre propre commerce de boissons avec 17 sites dans toute la Suisse, nous sommes une entreprise d'importance nationale. - Nous misons sur un mix de tradition, d'innovation et de proximité avec le client. - Avec nos marques de bière, nous contribuons à la diversité de la culture de la bière suisse. - Postuler » - Postuler Commencer à postuler via LinkedIn - Postulez maintenant Commencer - Veuillez patienter... - Rechercher des offres d’emploi similaires: Sales Switzerland (French), Marketing and Sales, Digital and Technology Cambodia, Belgium Supply Chain FR"
       },
       "location": "\" content=\"width=device-width",
       "canton": "GR",
@@ -1110,19 +1182,22 @@
       "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1382487733/?locale=fr_FR",
       "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-12T21:30:38.626Z",
+      "crawledAt": "2026-04-13T10:41:31.685Z",
       "previousSlugsByLocale": {
         "de": [
           "verkaufsberater-f-m-d-riviera-chablais-heineken-switzerland-content-width-device-width",
-          "titre-conseiller-ere-f-m-d-de-vente-riviera-chablais-heineken-ch-content-width-device-widt"
+          "titel-vertriebsberater-f-m-d-riviera-chablais-heineken-switzerland-content-width-device-width"
         ],
         "it": [
-          "titre-conseiller-ere-f-m-d-de-vente-riviera-chablais-heineken-ch-content-width-device-widt"
+          "titre-conseiller-ere-f-m-d-de-vente-riviera-chablais-heineken-ch-content-width-device-widt",
+          "consulente-ore-f-m-d-di-vendita-riviera-chablais-heineken-switzerland-content-width-device-width"
         ]
       },
       "previousSlugs": [
         "verkaufsberater-f-m-d-riviera-chablais-heineken-switzerland-content-width-device-width",
-        "titre-conseiller-ere-f-m-d-de-vente-riviera-chablais-heineken-ch-content-width-device-widt"
+        "titre-conseiller-ere-f-m-d-de-vente-riviera-chablais-heineken-ch-content-width-device-widt",
+        "titel-vertriebsberater-f-m-d-riviera-chablais-heineken-switzerland-content-width-device-width",
+        "consulente-ore-f-m-d-di-vendita-riviera-chablais-heineken-switzerland-content-width-device-width"
       ],
       "requirementsByLocale": {
         "it": [
@@ -1156,6 +1231,7 @@
           "Tiefes Wissen über die lokale Gastronomie"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -1215,7 +1291,7 @@
       "applyUrl": "https://careers.theheinekencompany.com/talentcommunity/apply/1292599001/?locale=de_DE",
       "source": "Heineken Switzerland Dedicated Parser (SuccessFactors)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-12T21:30:37.847Z",
+      "crawledAt": "2026-04-13T10:41:31.077Z",
       "requirementsByLocale": {
         "it": [
           "Formazione completata WSET Level 2 o 3 corso (Vini e Spiriti) desiderabile",
@@ -1245,6 +1321,7 @@
           "beschreibung-category-manager-in-weine-kellerei-st-georg-60-80-pensum-heineken-switzerland-content-width-device-width"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
