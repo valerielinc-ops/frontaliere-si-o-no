@@ -1,16 +1,16 @@
 {
   "key": "matterhorn-gotthard-bahn",
   "label": "Matterhorn Gotthard Bahn",
-  "generatedAt": "2026-04-13T10:57:59.560Z",
+  "generatedAt": "2026-04-13T22:06:18.390Z",
   "total": 10,
   "newCount": 0,
   "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 11233,
-  "avgDurationMs": 11233,
+  "durationMs": 13445,
+  "avgDurationMs": 13445,
   "durationHistory": [
-    11233
+    13445
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://jobs.bvzholding.ch/Einsatzleiter-Intervention-Furka-Basistunnel-mwd-50-100-de-j667.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:57:49.447Z",
+      "crawledAt": "2026-04-13T22:06:06.493Z",
       "addressLocality": "Oberwald",
       "addressCountry": "CH",
       "country": "CH",
@@ -47,6 +47,7 @@
         "identifier": "PERS-603",
         "hiringOrganization": "Matterhorn Gotthard Bahn"
       },
+      "firstSeenAt": "2026-04-13T10:57:49.447Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -67,7 +68,7 @@
       "url": "https://jobs.bvzholding.ch/Mitarbeiter-Intervention-Furka-Basistunnel-mwd-50-100-de-j686.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:57:55.419Z",
+      "crawledAt": "2026-04-13T22:06:13.517Z",
       "addressLocality": "Oberwald",
       "addressCountry": "CH",
       "country": "CH",
@@ -88,6 +89,7 @@
         "identifier": "PERS-?",
         "hiringOrganization": "Matterhorn Gotthard Bahn"
       },
+      "firstSeenAt": "2026-04-13T10:57:55.419Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -108,7 +110,7 @@
       "url": "https://jobs.bvzholding.ch/Teamleiter-Intervention-Furka-Basistunnel-mwd-de-j685.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:57:57.151Z",
+      "crawledAt": "2026-04-13T22:06:15.584Z",
       "addressLocality": "Oberwald",
       "addressCountry": "CH",
       "country": "CH",
@@ -129,6 +131,7 @@
         "identifier": "",
         "hiringOrganization": "Matterhorn Gotthard Bahn"
       },
+      "firstSeenAt": "2026-04-13T10:57:57.151Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -149,7 +152,7 @@
       "url": "https://jobs.bvzholding.ch/Elektroinstallateur-Fachspezialist-Elektro-und-Sicherungsa-de-j624.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:57:50.368Z",
+      "crawledAt": "2026-04-13T22:06:07.616Z",
       "addressLocality": "Zermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -170,6 +173,7 @@
         "identifier": "PERS-471 / 500",
         "hiringOrganization": "Matterhorn Gotthard Bahn"
       },
+      "firstSeenAt": "2026-04-13T10:57:50.368Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -190,7 +194,7 @@
       "url": "https://jobs.bvzholding.ch/Fachspezialist-Fahrbahn-mwd-de-j623.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:57:51.202Z",
+      "crawledAt": "2026-04-13T22:06:08.577Z",
       "addressLocality": "Ulrichen, Fiesch",
       "addressCountry": "CH",
       "country": "CH",
@@ -211,6 +215,7 @@
         "identifier": "PERS-469 / 473",
         "hiringOrganization": "Matterhorn Gotthard Bahn"
       },
+      "firstSeenAt": "2026-04-13T10:57:51.202Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -231,7 +236,7 @@
       "url": "https://jobs.bvzholding.ch/IT-Support-Technikerin-Second-Level-mwd-de-j692.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:57:52.944Z",
+      "crawledAt": "2026-04-13T22:06:10.650Z",
       "addressLocality": "Brig",
       "addressCountry": "CH",
       "country": "CH",
@@ -252,6 +257,7 @@
         "identifier": "",
         "hiringOrganization": "Matterhorn Gotthard Bahn"
       },
+      "firstSeenAt": "2026-04-13T10:57:52.944Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -272,7 +278,7 @@
       "url": "https://jobs.bvzholding.ch/Hochschulpraktikum-Marketing-80-100-befristet-fuer-1-Jahr--de-j691.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:57:52.022Z",
+      "crawledAt": "2026-04-13T22:06:09.532Z",
       "addressLocality": "Brig",
       "addressCountry": "CH",
       "country": "CH",
@@ -293,6 +299,7 @@
         "identifier": "PERS-?",
         "hiringOrganization": "Matterhorn Gotthard Bahn"
       },
+      "firstSeenAt": "2026-04-13T10:57:52.022Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -313,7 +320,7 @@
       "url": "https://jobs.bvzholding.ch/Mitarbeiter-Fahrzeuginstandhaltung-mwd-de-j581.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:57:54.593Z",
+      "crawledAt": "2026-04-13T22:06:12.558Z",
       "addressLocality": "Andermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -334,6 +341,7 @@
         "identifier": "PERS-369",
         "hiringOrganization": "Matterhorn Gotthard Bahn"
       },
+      "firstSeenAt": "2026-04-13T10:57:54.593Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -354,7 +362,7 @@
       "url": "https://jobs.bvzholding.ch/Quereinsteiger-Rangierer-Rangierlokfuehrer-mwd-80-100-de-j622.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:57:56.328Z",
+      "crawledAt": "2026-04-13T22:06:14.631Z",
       "addressLocality": "Andermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -375,6 +383,7 @@
         "identifier": "PERS-468",
         "hiringOrganization": "Matterhorn Gotthard Bahn"
       },
+      "firstSeenAt": "2026-04-13T10:57:56.328Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -395,7 +404,7 @@
       "url": "https://jobs.bvzholding.ch/Lokfuehrerin-MGBahn-mwd-de-j677.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:57:53.762Z",
+      "crawledAt": "2026-04-13T22:06:11.604Z",
       "addressLocality": "Zermatt, Oberwald, Andermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -416,6 +425,7 @@
         "identifier": "PERS-632",
         "hiringOrganization": "Matterhorn Gotthard Bahn"
       },
+      "firstSeenAt": "2026-04-13T10:57:53.762Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
