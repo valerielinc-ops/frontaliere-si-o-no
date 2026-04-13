@@ -1,6 +1,6 @@
 {
   "crawlerKey": "tsmg",
-  "assembledAt": "2026-04-13T11:27:49.173Z",
+  "assembledAt": "2026-04-13T22:36:04.537Z",
   "jobs": [
     {
       "title": "Tester conversazioni vocali AI (Italian native speaker - Switzerland regional variant)",
@@ -100,7 +100,8 @@
           "ki-sprachtester-italian-native-speaker-switzerland-regional-variant-tsmg-bellinzona-2df1b780"
         ]
       },
-      "slugDisambiguator": "2df1b780"
+      "slugDisambiguator": "2df1b780",
+      "firstSeenAt": "2026-04-13T22:36:04.537Z"
     },
     {
       "title": "Tester conversazioni vocali AI (Italian native speaker - Switzerland regional variant)",
@@ -195,7 +196,8 @@
           "testeur-de-l-intelligence-artificielle-francais-natif-variante-regionale-suisse-tsmg-lugano"
         ]
       },
-      "slugDisambiguator": "741da2fa"
+      "slugDisambiguator": "741da2fa",
+      "firstSeenAt": "2026-04-13T22:36:04.537Z"
     },
     {
       "title": "Autista / Addetto raccolta dati in Chalais, Switzerland",
@@ -276,7 +278,9 @@
           "fahrer-datenerfasser-in-chalais-switzerland-tsmg-chalais-c23075ac"
         ]
       },
-      "slugDisambiguator": "c23075ac"
+      "slugDisambiguator": "c23075ac",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-04-13T22:36:04.537Z"
     },
     {
       "title": "Autista / Addetto raccolta dati in Chur, Switzerland",
@@ -382,7 +386,9 @@
           "autista-prepose-raccolta-dati-in-chur-switzerland-tsmg-chur-9fa4vp"
         ]
       },
-      "slugDisambiguator": "dfa1adf1"
+      "slugDisambiguator": "dfa1adf1",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-04-13T22:36:04.537Z"
     },
     {
       "title": "Autista / Addetto raccolta dati in Landquart, Switzerland (for Chur area)",
@@ -468,7 +474,9 @@
           "chauffeur-collecteur-de-donnees-in-landquart-switzerland-for-chur-area-tsmg-landquart-061cc5b5"
         ]
       },
-      "slugDisambiguator": "061cc5b5"
+      "slugDisambiguator": "061cc5b5",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-04-13T22:36:04.537Z"
     },
     {
       "title": "Autista / Addetto raccolta dati in Obervaz, Switzerland (for Chur area)",
@@ -552,7 +560,9 @@
           "autista-addetto-raccolta-dati-in-obervaz-switzerland-for-chur-area-tsmg-obervaz-661cb622"
         ]
       },
-      "slugDisambiguator": "661cb622"
+      "slugDisambiguator": "661cb622",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-04-13T22:36:04.537Z"
     },
     {
       "title": "Autista / Addetto raccolta dati in Bellinzona, Switzerland",
@@ -643,7 +653,9 @@
           "fahrer-datenerfasser-in-bellinzona-switzerland-tsmg-bellinzona-677ef911"
         ]
       },
-      "slugDisambiguator": "677ef911"
+      "slugDisambiguator": "677ef911",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-04-13T22:36:04.537Z"
     },
     {
       "title": "Autista / Addetto raccolta dati in Chur, Switzerland",
@@ -724,7 +736,9 @@
           "autista-mitarbeiter-raccolta-dati-in-chur-switzerland-tsmg-chur"
         ]
       },
-      "slugDisambiguator": "e483453a"
+      "slugDisambiguator": "e483453a",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-04-13T22:36:04.537Z"
     }
   ]
 }
