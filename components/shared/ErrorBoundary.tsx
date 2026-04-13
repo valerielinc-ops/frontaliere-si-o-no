@@ -38,7 +38,7 @@ export class ErrorBoundary extends Component<Props, State> {
     // Decode React minified errors for human-readable hints
     const decoded = decodeReactError(msg);
     const isDecoded = decoded !== msg;
-    const hint = msg.includes('dynamically imported module') || msg.includes('Loading chunk') || error?.name === 'ChunkLoadError'
+    const hint = msg.includes('dynamically imported module') || msg.includes('Importing a module script') || msg.includes('Loading chunk') || error?.name === 'ChunkLoadError'
       ? 'chunk'
       : msg.includes('fetch') || msg.includes('Network')
         ? 'network'
@@ -66,6 +66,7 @@ export class ErrorBoundary extends Component<Props, State> {
     const msg = error?.message || '';
     const isChunkError =
       msg.includes('dynamically imported module') ||
+      msg.includes('Importing a module script') ||
       msg.includes('Loading chunk') ||
       msg.includes('Loading CSS chunk') ||
       error?.name === 'ChunkLoadError';

@@ -13,6 +13,46 @@ import { useState, useEffect, useCallback } from 'react';
 import { hasActiveSlot } from '@/services/popupQueue';
 import { reportCaughtError } from '@/services/errorReporter';
 
+// ─── Resilient Dynamic Import ────────────────────────────────
+// After a deploy, old chunk hashes no longer exist on the CDN.
+// When the user clicks a button that triggers a dynamic import (e.g.
+// LinkedIn sign-in → import firebase), the import fails with
+// "TypeError: Importing a module script failed".
+// This helper clears caches and retries once before giving up.
+
+function isChunkLoadError(err: unknown): boolean {
+  const msg = (err as Error)?.message || '';
+  return msg.includes('Importing a module script failed') ||
+    msg.includes('Failed to fetch dynamically imported module') ||
+    msg.includes('error loading dynamically imported module') ||
+    (err as Error)?.name === 'ChunkLoadError';
+}
+
+async function resilientImport<T>(factory: () => Promise<T>): Promise<T> {
+  try {
+    return await factory();
+  } catch (err) {
+    if (!isChunkLoadError(err)) throw err;
+    // Clear all caches so the browser fetches fresh chunks
+    if ('caches' in window) {
+      const names = await caches.keys();
+      await Promise.all(names.map(n => caches.delete(n)));
+    }
+    // Retry once after cache clear
+    try {
+      return await factory();
+    } catch {
+      // Chunk truly gone — reload page to get fresh HTML with new hashes
+      const reloadKey = '_authChunkReload';
+      if (!sessionStorage.getItem(reloadKey)) {
+        sessionStorage.setItem(reloadKey, '1');
+        window.location.reload();
+      }
+      throw err;
+    }
+  }
+}
+
 // ─── Lazy Firebase Auth Loading ────────────────────────────────
 
 let _auth: any = null;
@@ -869,8 +909,8 @@ export function consumeAuthJobContext(): AuthJobContext | null {
  */
 export async function signInWithLinkedIn(redirectPath?: string): Promise<void> {
   try {
-    const { getConfigValue } = await import('@/services/firebase');
-    const { Analytics } = await import('@/services/analytics');
+    const { getConfigValue } = await resilientImport(() => import('@/services/firebase'));
+    const { Analytics } = await resilientImport(() => import('@/services/analytics'));
 
     const clientId = await getConfigValue('LINKEDIN_SIGNIN_CLIENT_ID');
     if (!clientId) {
