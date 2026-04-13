@@ -117,7 +117,8 @@ async function fetchPage(url, timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOU
           const browser = await chromium.launch({ headless: true });
           try {
             const page = await browser.newPage({ userAgent: USER_AGENTS[0] });
-            await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 30000 });
+            await page.goto(url, { waitUntil: 'networkidle', timeout: 45000 });
+            await page.waitForSelector('h2.wp-block-heading', { timeout: 10000 }).catch(() => {});
             return await page.content();
           } finally {
             await browser.close();

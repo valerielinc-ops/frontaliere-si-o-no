@@ -63,9 +63,11 @@ const CAREERS_URL = 'https://www.colin-cie.com/de/karriere';
 const BASE_URL = 'https://www.colin-cie.com/';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
-const UA =
-  process.env.JOBS_CRAWLER_USER_AGENT ||
-  'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
+const USER_AGENTS = [
+  'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+  'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+  'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+];
 
 /* city tag → { location, canton, country } */
 const CITY_MAP = {
@@ -147,21 +149,48 @@ function isTrustedDomain(rawUrl = '') {
 
 /* ── Fetch ─────────────────────────────────────────────────── */
 async function fetchPage(url) {
-  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  try {
-    const res = await fetch(url, {
-      signal: controller.signal,
-      headers: { Accept: 'text/html', 'User-Agent': UA },
-      redirect: 'follow',
-    });
-    clearTimeout(timer);
-    if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
-    return await res.text();
-  } catch (err) {
-    clearTimeout(timer);
-    throw err;
+  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 30000;
+
+  for (let attempt = 0; attempt < 3; attempt++) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    try {
+      const res = await fetch(url, {
+        signal: controller.signal,
+        headers: {
+          Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+          'Accept-Language': 'de-CH,de;q=0.9,en;q=0.8',
+          'User-Agent': USER_AGENTS[attempt],
+          Referer: 'https://www.google.com/',
+        },
+        redirect: 'follow',
+      });
+      clearTimeout(timer);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      return await res.text();
+    } catch (err) {
+      clearTimeout(timer);
+      if (attempt < 2) {
+        const delay = 3000 * (attempt + 1);
+        console.log(`  ⚠️  fetch attempt ${attempt + 1} failed (${err.message}), retrying in ${delay / 1000}s...`);
+        await new Promise((r) => setTimeout(r, delay));
+      } else {
+        console.log(`  ⚠️  all fetch attempts failed (${err.message}), trying Playwright fallback...`);
+        try {
+          const { chromium } = await import('playwright');
+          const browser = await chromium.launch({ headless: true });
+          try {
+            const page = await browser.newPage({ userAgent: USER_AGENTS[0] });
+            await page.goto(url, { waitUntil: 'networkidle', timeout: 30000 });
+            return await page.content();
+          } finally {
+            await browser.close();
+          }
+        } catch (pwErr) {
+          throw new Error(`All fetch methods failed. Last fetch: ${err.message}. Playwright: ${pwErr.message}`);
+        }
+      }
+    }
   }
 }
 
