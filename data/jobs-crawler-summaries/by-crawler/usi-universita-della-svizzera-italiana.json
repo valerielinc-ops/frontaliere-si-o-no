@@ -1,16 +1,16 @@
 {
   "key": "usi-universita-della-svizzera-italiana",
   "label": "USI",
-  "generatedAt": "2026-04-13T11:29:40.295Z",
-  "total": 23,
+  "generatedAt": "2026-04-13T22:38:02.114Z",
+  "total": 22,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 1,
-  "unchangedCount": 22,
-  "durationMs": 62420,
-  "avgDurationMs": 62420,
+  "unchangedCount": 21,
+  "durationMs": 75036,
+  "avgDurationMs": 75036,
   "durationHistory": [
-    62420
+    75036
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -56,20 +56,20 @@
   ],
   "removedJobs": [
     {
-      "url": "https://content.usi.ch/sites/default/files/storage/attachments/press/press-multimedia-content-creator-2026.pdf",
-      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/press/press-multimedia-content-creator-2026.pdf",
-      "title": "Multimedia Content Creator - Junior",
+      "url": "https://content.usi.ch/sites/default/files/storage/attachments/serv-inf/serv-inf-apprendista-operatore-informtico-2026.pdf",
+      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/serv-inf/serv-inf-apprendista-operatore-informtico-2026.pdf",
+      "title": "Apprendista Informatico/a (Operatore Informatico) AFC",
       "company": "USI – Università della Svizzera italiana",
       "companyKey": "usi-universita-della-svizzera-italiana",
       "location": "Lugano",
       "canton": "TI",
       "country": "CH",
-      "slug": "multimedia-content-creator-junior-usi-lugano",
-      "department": "Servizio comunicazione istituzionale",
-      "category": "staff",
+      "slug": "apprendista-informatico-a-operatore-informatico-afc-usi-lugano",
+      "department": "Servizio informatico",
+      "category": "apprentice",
       "datePosted": "2026-03-29",
       "source": "usi-drupal-crawler",
-      "employmentType": "FULL_TIME",
+      "employmentType": "APPRENTICESHIP",
       "experienceLevel": "",
       "sector": "Istruzione e ricerca",
       "_targetScope": {
@@ -85,7 +85,7 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "id": "usi-universita-della-svizzera-italiana-91cd8b1db0c3",
+      "id": "usi-universita-della-svizzera-italiana-09c4fed2d6b3",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -833,45 +833,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "url": "https://content.usi.ch/sites/default/files/storage/attachments/serv-inf/serv-inf-apprendista-operatore-informtico-2026.pdf",
-      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/serv-inf/serv-inf-apprendista-operatore-informtico-2026.pdf",
-      "title": "Apprendista Informatico/a (Operatore Informatico) AFC",
-      "company": "USI – Università della Svizzera italiana",
-      "companyKey": "usi-universita-della-svizzera-italiana",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "slug": "apprendista-informatico-a-operatore-informatico-afc-usi-lugano",
-      "department": "Servizio informatico",
-      "category": "apprentice",
-      "datePosted": "2026-03-29",
-      "source": "usi-drupal-crawler",
-      "employmentType": "APPRENTICESHIP",
-      "experienceLevel": "",
-      "sector": "Istruzione e ricerca",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "sourceLang": "it",
-      "salaryMin": 46500,
-      "salaryMax": 62500,
-      "currency": "CHF",
-      "streetAddress": "Via Giuseppe Buffi 13",
-      "postalCode": "6900",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "id": "usi-universita-della-svizzera-italiana-09c4fed2d6b3",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
         "translation": 25,
         "completeness": 20
       }
