@@ -242,6 +242,8 @@ const App: React.FC = () => {
   const [glossaryTerm, setGlossaryTerm] = useState<GlossaryTermId | null>(initialRoute.route.glossaryTerm || null);
   const [borderCrossing, setBorderCrossing] = useState<BorderCrossingId | null>(initialRoute.route.borderCrossing || null);
   const [jobSlug, setJobSlug] = useState<string | null>(initialRoute.route.jobSlug || null);
+  /** Filter params passed from SiteSearch to JobBoard (location, search query) */
+  const [jobBoardFilterParams, setJobBoardFilterParams] = useState<{ location?: string; query?: string } | null>(null);
   const [taxReturnCountry, setTaxReturnCountry] = useState<'italia' | 'svizzera' | undefined>(initialRoute.route.taxReturnCountry);
   const [showApiStatus, setShowApiStatus] = useState(false);
   const [userProfile, setUserProfile] = useState<UserProfileData | null>(null);
@@ -1562,7 +1564,7 @@ const App: React.FC = () => {
   }, [activeTab, guidaSubTab, vitaSubTab, fiscoSubTab]);
 
   // Handle search navigation
-  const handleSearchNavigate = useCallback((tab: string, subTab?: string) => {
+  const handleSearchNavigate = useCallback((tab: string, subTab?: string, filterParams?: { location?: string; query?: string }) => {
     enableRuntimeSeo();
     // We'll push the target route explicitly below.
     suppressNextRouteSyncForTabRef.current = tab as ActiveTab;
@@ -1570,6 +1572,13 @@ const App: React.FC = () => {
     if (tab !== 'calculator') setSeoLanding(null);
     if (tab !== 'glossario') setGlossaryTerm(null);
     if (tab !== 'blog') setBlogArticle(null);
+
+    // Forward filter params to JobBoard when navigating to job-board
+    if (tab === 'job-board' && filterParams) {
+      setJobBoardFilterParams(filterParams);
+    } else if (tab !== 'job-board') {
+      setJobBoardFilterParams(null);
+    }
 
     if (tab === 'calculator' && subTab) {
       setCalcolatoreSubTab(subTab as CalcolatoreSubTab);
@@ -2961,6 +2970,8 @@ const App: React.FC = () => {
             <div className="max-w-7xl mx-auto">
               <JobBoard
                 initialJobSlug={jobSlug || undefined}
+                initialFilterParams={jobBoardFilterParams}
+                onFilterParamsConsumed={() => setJobBoardFilterParams(null)}
                 isLoggedIn={!!authUser}
                 authUser={authUser}
                 authLoading={authLoading}

@@ -312,9 +312,19 @@ function getRelatedArticlesForJob(
   return scored.slice(0, count).map(x => x.article);
 }
 
+/** Filter params that can be passed from SiteSearch to pre-apply filters on mount */
+interface JobBoardFilterParams {
+  location?: string;
+  query?: string;
+}
+
 interface JobBoardProps {
   onPostJob?: () => void;
   initialJobSlug?: string;
+  /** Pre-applied filters from SiteSearch navigation (location, search query) */
+  initialFilterParams?: JobBoardFilterParams | null;
+  /** Called after filter params have been consumed so they aren't re-applied */
+  onFilterParamsConsumed?: () => void;
   onJobRouteChange?: (slug?: string) => void;
   isLoggedIn?: boolean;
   authUser?: any | null;
@@ -2405,6 +2415,8 @@ JobCard.displayName = 'JobCard';
 const JobBoard: React.FC<JobBoardProps> = ({
   onPostJob,
   initialJobSlug,
+  initialFilterParams,
+  onFilterParamsConsumed,
   onJobRouteChange,
   isLoggedIn = false,
   authUser = null,
@@ -2446,6 +2458,19 @@ const JobBoard: React.FC<JobBoardProps> = ({
   const inlineGoogleButtonRef = useRef<HTMLDivElement | null>(null);
   const authUnlockCandidateRef = useRef<string | null>(null);
   const wasLoggedInRef = useRef(isLoggedIn);
+
+  // Apply filter params from SiteSearch navigation (location, search query)
+  useEffect(() => {
+    if (!initialFilterParams) return;
+    if (initialFilterParams.location) {
+      setSelectedLocation(initialFilterParams.location);
+    }
+    if (initialFilterParams.query) {
+      setSearchQuery(initialFilterParams.query);
+    }
+    // Signal to parent that params have been consumed so they aren't re-applied
+    onFilterParamsConsumed?.();
+  }, [initialFilterParams, onFilterParamsConsumed]);
 
   // Device breakpoints for conditional ad rendering (prevents CSS-hidden width=0 bug)
   const isMobile = useMediaQuery('(max-width: 767px)');      // md breakpoint

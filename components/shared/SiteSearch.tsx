@@ -16,10 +16,18 @@ interface SearchResult {
   icon: React.ElementType;
   color: string;
   keywords: string[];
+  /** Optional filter params to pass when navigating to job-board */
+  _filterParams?: JobBoardFilterParams;
+}
+
+/** Filter params that SiteSearch can pass to the job board when navigating */
+export interface JobBoardFilterParams {
+  location?: string;
+  query?: string;
 }
 
 interface SiteSearchProps {
-  onNavigate: (tab: string, subTab?: string) => void;
+  onNavigate: (tab: string, subTab?: string, jobBoardFilterParams?: JobBoardFilterParams) => void;
 }
 
 const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
@@ -896,6 +904,140 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       color: 'text-stripe-600',
       keywords: ['part-time', 'tempo parziale', 'teilzeit', 'temps partiel', 'flessibile', 'flexible', 'percentuale', 'percentage', 'parziale', 'ridotto'],
     },
+    // ─── Job Board — Location-specific entries ───
+    {
+      id: 'job-board-lugano',
+      title: 'Lavoro a Lugano',
+      description: 'Offerte di lavoro a Lugano per frontalieri',
+      section: t('jobBoard.badge') || 'Lavoro',
+      tab: 'job-board',
+      icon: BriefcaseBusiness,
+      color: 'text-stripe-600',
+      keywords: ['lugano', 'lavoro lugano', 'jobs lugano', 'offerte lugano'],
+      _filterParams: { location: 'lugano' },
+    },
+    {
+      id: 'job-board-bellinzona',
+      title: 'Lavoro a Bellinzona',
+      description: 'Offerte di lavoro a Bellinzona per frontalieri',
+      section: t('jobBoard.badge') || 'Lavoro',
+      tab: 'job-board',
+      icon: BriefcaseBusiness,
+      color: 'text-stripe-600',
+      keywords: ['bellinzona', 'lavoro bellinzona', 'jobs bellinzona', 'offerte bellinzona'],
+      _filterParams: { location: 'bellinzona' },
+    },
+    {
+      id: 'job-board-mendrisio',
+      title: 'Lavoro a Mendrisio',
+      description: 'Offerte di lavoro a Mendrisio per frontalieri',
+      section: t('jobBoard.badge') || 'Lavoro',
+      tab: 'job-board',
+      icon: BriefcaseBusiness,
+      color: 'text-stripe-600',
+      keywords: ['mendrisio', 'lavoro mendrisio', 'jobs mendrisio', 'offerte mendrisio'],
+      _filterParams: { location: 'mendrisio' },
+    },
+    {
+      id: 'job-board-locarno',
+      title: 'Lavoro a Locarno',
+      description: 'Offerte di lavoro a Locarno per frontalieri',
+      section: t('jobBoard.badge') || 'Lavoro',
+      tab: 'job-board',
+      icon: BriefcaseBusiness,
+      color: 'text-stripe-600',
+      keywords: ['locarno', 'lavoro locarno', 'jobs locarno', 'offerte locarno'],
+      _filterParams: { location: 'locarno' },
+    },
+    {
+      id: 'job-board-chiasso',
+      title: 'Lavoro a Chiasso',
+      description: 'Offerte di lavoro a Chiasso per frontalieri',
+      section: t('jobBoard.badge') || 'Lavoro',
+      tab: 'job-board',
+      icon: BriefcaseBusiness,
+      color: 'text-stripe-600',
+      keywords: ['chiasso', 'lavoro chiasso', 'jobs chiasso', 'offerte chiasso'],
+      _filterParams: { location: 'chiasso' },
+    },
+    {
+      id: 'job-board-coira',
+      title: 'Lavoro a Coira',
+      description: 'Offerte di lavoro a Coira / Chur per frontalieri',
+      section: t('jobBoard.badge') || 'Lavoro',
+      tab: 'job-board',
+      icon: BriefcaseBusiness,
+      color: 'text-stripe-600',
+      keywords: ['coira', 'chur', 'lavoro coira', 'jobs chur', 'offerte coira'],
+      _filterParams: { location: 'coira' },
+    },
+    // ─── Job Board — Profession-specific entries ───
+    {
+      id: 'job-board-infermiere',
+      title: 'Lavoro infermiere in Ticino',
+      description: 'Offerte di lavoro per infermieri e infermiere in Ticino',
+      section: t('jobBoard.badge') || 'Lavoro',
+      tab: 'job-board',
+      icon: BriefcaseBusiness,
+      color: 'text-stripe-600',
+      keywords: ['infermiere', 'infermiera', 'nurse', 'nursing', 'sanità', 'health', 'ospedale', 'hospital', 'Krankenpfleger', 'infirmier'],
+      _filterParams: { query: 'infermiere' },
+    },
+    {
+      id: 'job-board-ingegnere',
+      title: 'Lavoro ingegnere in Ticino',
+      description: 'Offerte di lavoro per ingegneri in Ticino',
+      section: t('jobBoard.badge') || 'Lavoro',
+      tab: 'job-board',
+      icon: BriefcaseBusiness,
+      color: 'text-stripe-600',
+      keywords: ['ingegnere', 'engineer', 'engineering', 'Ingenieur', 'ingénieur', 'tecnico', 'progettista'],
+      _filterParams: { query: 'ingegnere' },
+    },
+    {
+      id: 'job-board-autista',
+      title: 'Lavoro autista in Ticino',
+      description: 'Offerte di lavoro per autisti in Ticino',
+      section: t('jobBoard.badge') || 'Lavoro',
+      tab: 'job-board',
+      icon: BriefcaseBusiness,
+      color: 'text-stripe-600',
+      keywords: ['autista', 'driver', 'chauffeur', 'Fahrer', 'trasporto', 'guida', 'camionista', 'bus'],
+      _filterParams: { query: 'autista' },
+    },
+    {
+      id: 'job-board-educatore',
+      title: 'Lavoro educatore in Ticino',
+      description: 'Offerte di lavoro per educatori in Ticino',
+      section: t('jobBoard.badge') || 'Lavoro',
+      tab: 'job-board',
+      icon: BriefcaseBusiness,
+      color: 'text-stripe-600',
+      keywords: ['educatore', 'educatrice', 'educator', 'Erzieher', 'éducateur', 'pedagogista', 'insegnante', 'docente'],
+      _filterParams: { query: 'educatore' },
+    },
+    {
+      id: 'job-board-medico',
+      title: 'Lavoro medico in Ticino',
+      description: 'Offerte di lavoro per medici in Ticino',
+      section: t('jobBoard.badge') || 'Lavoro',
+      tab: 'job-board',
+      icon: BriefcaseBusiness,
+      color: 'text-stripe-600',
+      keywords: ['medico', 'dottore', 'doctor', 'physician', 'Arzt', 'médecin', 'specialista', 'chirurgo'],
+      _filterParams: { query: 'medico' },
+    },
+    {
+      id: 'job-board-contabile',
+      title: 'Lavoro contabile in Ticino',
+      description: 'Offerte di lavoro per contabili in Ticino',
+      section: t('jobBoard.badge') || 'Lavoro',
+      tab: 'job-board',
+      icon: BriefcaseBusiness,
+      color: 'text-stripe-600',
+      keywords: ['contabile', 'accountant', 'Buchhalter', 'comptable', 'contabilità', 'ragioniere', 'fiduciario'],
+      _filterParams: { query: 'contabile' },
+    },
     // ─── Profile ───
     {
       id: 'profile',
@@ -1108,7 +1250,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
     setIsOpen(false);
     Analytics.trackSearch(query);
     setQuery('');
-    onNavigate(result.tab, result.subTab);
+    onNavigate(result.tab, result.subTab, result._filterParams);
   }, [onNavigate, query]);
 
   // Handle keyboard navigation
