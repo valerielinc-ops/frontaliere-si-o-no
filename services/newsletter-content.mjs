@@ -41,14 +41,22 @@ function normalizeLocation(location) {
   return raw;
 }
 
-function normalizeContract(contract) {
+const CONTRACT_LABELS = {
+  it: { part: 'Part-time', intern: 'Stage', appr: 'Apprendistato', temp: 'Tempo determinato', full: 'Tempo pieno', default: 'Annuncio attivo' },
+  en: { part: 'Part-time', intern: 'Internship', appr: 'Apprenticeship', temp: 'Fixed-term', full: 'Full-time', default: 'Active listing' },
+  de: { part: 'Teilzeit', intern: 'Praktikum', appr: 'Lehrstelle', temp: 'Befristet', full: 'Vollzeit', default: 'Aktive Stelle' },
+  fr: { part: 'Temps partiel', intern: 'Stage', appr: 'Apprentissage', temp: 'Durée déterminée', full: 'Temps plein', default: 'Annonce active' },
+};
+
+function normalizeContract(contract, locale = 'it') {
+  const labels = CONTRACT_LABELS[locale] || CONTRACT_LABELS.it;
   const value = String(contract || '').toLowerCase();
-  if (value.includes('part')) return 'Part-time';
-  if (value.includes('intern')) return 'Stage';
-  if (value.includes('appr')) return 'Apprendistato';
-  if (value.includes('temp')) return 'Tempo determinato';
-  if (value.includes('full')) return 'Tempo pieno';
-  return 'Annuncio attivo';
+  if (value.includes('part')) return labels.part;
+  if (value.includes('intern')) return labels.intern;
+  if (value.includes('appr')) return labels.appr;
+  if (value.includes('temp')) return labels.temp;
+  if (value.includes('full')) return labels.full;
+  return labels.default;
 }
 
 function dedupeBy(items, keyFn) {
@@ -243,7 +251,15 @@ function keywordRelevanceScore(job, subscriberKeywords, subscriberCompany) {
  * @param {number} limit — Max jobs to return (default 3)
  * @returns {object[]} — Matched jobs with title, url, company, location, contract
  */
-export function matchJobsForSubscriber(subscriber, jobs, limit = 3) {
+/** Locale-specific job board URL path prefix */
+const JOB_BOARD_PATH = {
+  it: 'cerca-lavoro-ticino',
+  en: 'en/find-jobs-ticino',
+  de: 'de/jobs-im-tessin',
+  fr: 'fr/trouver-emploi-tessin',
+};
+
+export function matchJobsForSubscriber(subscriber, jobs, limit = 3, locale = 'it') {
   if (!jobs || jobs.length === 0) return [];
 
   const popularity = loadPopularity();
@@ -321,17 +337,19 @@ export function matchJobsForSubscriber(subscriber, jobs, limit = 3) {
     (j) => (j.companyKey || j.company || '').toLowerCase(),
   );
 
+  const boardPath = JOB_BOARD_PATH[locale] || JOB_BOARD_PATH.it;
+
   return companyDiverse
     .slice(0, limit)
     .map((job) => {
-      const itSlug = job.slugByLocale?.it || job.slug;
+      const slug = job.slugByLocale?.[locale] || job.slugByLocale?.it || job.slug;
       return {
-        title: job.titleByLocale?.it || job.title,
-        url: `/cerca-lavoro-ticino/${itSlug}/`,
+        title: job.titleByLocale?.[locale] || job.titleByLocale?.it || job.title,
+        url: `/${boardPath}/${slug}/`,
         company: job.company,
         companyKey: job.companyKey || '',
         location: normalizeLocation(job.location),
-        contract: normalizeContract(job.contract),
+        contract: normalizeContract(job.contract, locale),
       };
     });
 }
@@ -378,7 +396,7 @@ export function validateJobUrls(matchedJobs, allJobs) {
   const valid = [];
   const invalid = [];
   for (const job of matchedJobs) {
-    const slug = job.url.replace(/^\/cerca-lavoro-ticino\//, '').replace(/\/$/, '');
+    const slug = job.url.replace(/^\/(cerca-lavoro-ticino|en\/find-jobs-ticino|de\/jobs-im-tessin|fr\/trouver-emploi-tessin)\//, '').replace(/\/$/, '');
     if (validSlugs.has(slug)) {
       valid.push(job);
     } else {

@@ -1359,7 +1359,7 @@ async function main() {
   const subscriberData = subscribers.map((subscriber) => {
     const locale = nlNormLocale(subscriber.locale);
     const matchedJobs = validateJobUrls(
-      matchJobsForSubscriber(subscriber, jobs, 4),
+      matchJobsForSubscriber(subscriber, jobs, 4, locale),
       jobs,
     );
     const cohortKey = `${locale}:${jobSetHash(matchedJobs)}`;

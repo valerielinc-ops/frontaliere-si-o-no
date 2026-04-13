@@ -77,7 +77,7 @@ describe('newsletter job selection defaults', () => {
     const calls = content.match(/matchJobsForSubscriber\([^)]+\)/g) || [];
     expect(calls.length).toBeGreaterThan(0);
     for (const call of calls) {
-      expect(call).toContain(', 4)');
+      expect(call).toContain(', 4');
     }
   });
 

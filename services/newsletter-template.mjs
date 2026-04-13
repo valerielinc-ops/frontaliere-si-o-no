@@ -40,6 +40,17 @@ const NL_I18N = {
     unsubText: 'Non la vuoi pi\u00f9? {link} \u2014 giuro che non piangeremo. (Forse un po\u2019.)',
     unsubLink: 'Cancellati',
     copyright: 'Newsletter artigianale, 0% spam, 100% frontaliere',
+    jobsLabel: 'Lavoro',
+    toolsLabel: 'Strumenti',
+    topClicked: '\ud83d\udd25 Più cliccata',
+    toolCalc: 'Calcola Stipendio',
+    toolCalcDesc: 'Dal lordo al netto in 5 secondi. Con AVS, LPP, imposta alla fonte e conversione CHF/EUR.',
+    toolLamal: 'Confronto LAMal',
+    toolLamalDesc: '14 assicuratori, tutti i modelli, tutte le franchigie. Trova il premio più basso per il tuo profilo.',
+    tool730: 'Guida 730',
+    tool730Desc: 'Step by step per la dichiarazione dei redditi italiana. Franchigia, quadro RC, deduzioni \u2014 tutto spiegato senza legalese.',
+    toolFx: 'Cambio Valuta',
+    toolFxDesc: 'Tasso aggiornato ogni ora + confronto tra banche e servizi. Perché 0.2% di differenza su 60k sono 120\u20ac.',
   },
   en: {
     greeting: 'Good morning, frontaliere.',
@@ -60,6 +71,17 @@ const NL_I18N = {
     unsubText: 'Had enough? {link} \u2014 no hard feelings. (Maybe a little.)',
     unsubLink: 'Unsubscribe',
     copyright: 'Handcrafted newsletter, 0% spam, 100% frontaliere',
+    jobsLabel: 'Jobs',
+    toolsLabel: 'Tools',
+    topClicked: '\ud83d\udd25 Most clicked',
+    toolCalc: 'Salary Calculator',
+    toolCalcDesc: 'From gross to net in 5 seconds. With AVS, LPP, withholding tax, and CHF/EUR conversion.',
+    toolLamal: 'LAMal Comparison',
+    toolLamalDesc: '14 insurers, all models, all deductibles. Find the lowest premium for your profile.',
+    tool730: 'Tax Return Guide',
+    tool730Desc: 'Step by step for your Italian tax return. Allowances, income section, deductions \u2014 explained without legalese.',
+    toolFx: 'Currency Exchange',
+    toolFxDesc: 'Rate updated hourly + comparison across banks and services. Because 0.2% on 60k is \u20ac120.',
   },
   de: {
     greeting: 'Guten Morgen, Grenzg\u00e4nger.',
@@ -80,6 +102,17 @@ const NL_I18N = {
     unsubText: 'Genug? {link} \u2014 wir weinen nicht. (Vielleicht ein bisschen.)',
     unsubLink: 'Abmelden',
     copyright: 'Handgemachter Newsletter, 0% Spam, 100% Grenzg\u00e4nger',
+    jobsLabel: 'Stellen',
+    toolsLabel: 'Tools',
+    topClicked: '\ud83d\udd25 Meistgeklickt',
+    toolCalc: 'Gehaltsrechner',
+    toolCalcDesc: 'Vom Brutto zum Netto in 5 Sekunden. Mit AHV, BVG, Quellensteuer und CHF/EUR-Umrechnung.',
+    toolLamal: 'KVG-Vergleich',
+    toolLamalDesc: '14 Versicherer, alle Modelle, alle Franchisen. Finde die g\u00fcnstigste Pr\u00e4mie f\u00fcr dein Profil.',
+    tool730: 'Steuererkl\u00e4rung',
+    tool730Desc: 'Schritt f\u00fcr Schritt zur italienischen Steuererkl\u00e4rung. Freibetr\u00e4ge, Einkommensteil, Abz\u00fcge \u2014 ohne Juristendeutsch.',
+    toolFx: 'W\u00e4hrungsrechner',
+    toolFxDesc: 'St\u00fcndlich aktualisierter Kurs + Vergleich zwischen Banken. 0,2% bei 60k sind 120\u20ac.',
   },
   fr: {
     greeting: 'Bonjour, frontalier.',
@@ -100,6 +133,17 @@ const NL_I18N = {
     unsubText: 'Tu n\u2019en veux plus ? {link} \u2014 on ne pleurera pas. (Un peu peut-\u00eatre.)',
     unsubLink: 'Se d\u00e9sinscrire',
     copyright: 'Newsletter artisanale, 0% spam, 100% frontalier',
+    jobsLabel: 'Emplois',
+    toolsLabel: 'Outils',
+    topClicked: '\ud83d\udd25 Plus cliqu\u00e9e',
+    toolCalc: 'Calcul de salaire',
+    toolCalcDesc: 'Du brut au net en 5 secondes. Avec AVS, LPP, imp\u00f4t \u00e0 la source et conversion CHF/EUR.',
+    toolLamal: 'Comparaison LAMal',
+    toolLamalDesc: '14 assureurs, tous les mod\u00e8les, toutes les franchises. Trouve la prime la plus basse pour ton profil.',
+    tool730: 'Guide fiscal',
+    tool730Desc: '\u00c9tape par \u00e9tape pour ta d\u00e9claration italienne. Abattement, revenus, d\u00e9ductions \u2014 sans jargon.',
+    toolFx: 'Change de devises',
+    toolFxDesc: 'Taux mis \u00e0 jour toutes les heures + comparaison entre banques. 0,2% sur 60k font 120\u20ac.',
   },
 };
 
@@ -149,28 +193,22 @@ function getIssueNumberFallback() {
   return Math.max(1, weeksSinceBase + 1);
 }
 
+/** @deprecated Use getFeaturedTools(locale) instead */
 export const FEATURED_TOOLS = [
-  {
-    icon: '\ud83d\udcb0', title: 'Calcola Stipendio', popular: true,
-    description: 'Dal lordo al netto in 5 secondi. Con AVS, LPP, imposta alla fonte e conversione CHF/EUR.',
-    toolUrl: '/calcola-stipendio',
-  },
-  {
-    icon: '\ud83c\udfe5', title: 'Confronto LAMal',
-    description: '14 assicuratori, tutti i modelli, tutte le franchigie. Trova il premio pi\u00f9 basso per il tuo profilo.',
-    toolUrl: '/compara-servizi/confronta-casse-malati',
-  },
-  {
-    icon: '\ud83d\udccb', title: 'Guida 730',
-    description: 'Step by step per la dichiarazione dei redditi italiana. Franchigia, quadro RC, deduzioni \u2014 tutto spiegato senza legalese.',
-    toolUrl: '/tasse-e-pensione/dichiarazione-redditi',
-  },
-  {
-    icon: '\ud83d\udcb1', title: 'Cambio Valuta',
-    description: 'Tasso aggiornato ogni ora + confronto tra banche e servizi. Perch\u00e9 0.2% di differenza su 60k sono 120\u20ac.',
-    toolUrl: '/compara-servizi/cambio-franco-euro',
-  },
+  { icon: '\ud83d\udcb0', title: 'Calcola Stipendio', popular: true, description: 'Dal lordo al netto in 5 secondi. Con AVS, LPP, imposta alla fonte e conversione CHF/EUR.', toolUrl: '/calcola-stipendio' },
+  { icon: '\ud83c\udfe5', title: 'Confronto LAMal', description: '14 assicuratori, tutti i modelli, tutte le franchigie. Trova il premio pi\u00f9 basso per il tuo profilo.', toolUrl: '/compara-servizi/confronta-casse-malati' },
+  { icon: '\ud83d\udccb', title: 'Guida 730', description: 'Step by step per la dichiarazione dei redditi italiana. Franchigia, quadro RC, deduzioni \u2014 tutto spiegato senza legalese.', toolUrl: '/tasse-e-pensione/dichiarazione-redditi' },
+  { icon: '\ud83d\udcb1', title: 'Cambio Valuta', description: 'Tasso aggiornato ogni ora + confronto tra banche e servizi. Perch\u00e9 0.2% di differenza su 60k sono 120\u20ac.', toolUrl: '/compara-servizi/cambio-franco-euro' },
 ];
+
+function getFeaturedTools(locale) {
+  return [
+    { icon: '\ud83d\udcb0', title: nlT(locale, 'toolCalc'), popular: true, description: nlT(locale, 'toolCalcDesc'), toolUrl: '/calcola-stipendio' },
+    { icon: '\ud83c\udfe5', title: nlT(locale, 'toolLamal'), description: nlT(locale, 'toolLamalDesc'), toolUrl: '/compara-servizi/confronta-casse-malati' },
+    { icon: '\ud83d\udccb', title: nlT(locale, 'tool730'), description: nlT(locale, 'tool730Desc'), toolUrl: '/tasse-e-pensione/dichiarazione-redditi' },
+    { icon: '\ud83d\udcb1', title: nlT(locale, 'toolFx'), description: nlT(locale, 'toolFxDesc'), toolUrl: '/compara-servizi/cambio-franco-euro' },
+  ];
+}
 
 // ── Section renderers ─────────────────────────────────────────
 
@@ -310,7 +348,7 @@ function renderJobs(matchedJobs, locale, totalJobs) {
   const jobCards = matchedJobs.slice(0, 4).map((job, i) => {
     const initial = (job.company || '?')[0].toUpperCase();
     const tags = [];
-    if (i === 0) tags.push(`<span style="font-size:10px;background:rgba(239,68,68,0.2);color:#fca5a5;padding:2px 8px;border-radius:6px;text-transform:uppercase;letter-spacing:0.5px;font-weight:600;">\ud83d\udd25 Pi\u00f9 cliccata</span>`);
+    if (i === 0) tags.push(`<span style="font-size:10px;background:rgba(239,68,68,0.2);color:#fca5a5;padding:2px 8px;border-radius:6px;text-transform:uppercase;letter-spacing:0.5px;font-weight:600;">${nlT(locale, 'topClicked')}</span>`);
     if (job.contract) tags.push(`<span style="font-size:10px;background:rgba(249,115,22,0.15);color:#fdba74;padding:2px 8px;border-radius:6px;text-transform:uppercase;letter-spacing:0.5px;font-weight:600;">${escapeHtml(job.contract)}</span>`);
     if (job.location) tags.push(`<span style="font-size:10px;background:rgba(249,115,22,0.15);color:#fdba74;padding:2px 8px;border-radius:6px;text-transform:uppercase;letter-spacing:0.5px;font-weight:600;">${escapeHtml(job.location)}</span>`);
 
@@ -414,7 +452,7 @@ function renderArticle(article, locale) {
 }
 
 function renderTools(locale) {
-  const tools = FEATURED_TOOLS;
+  const tools = getFeaturedTools(locale);
   const toolCards = tools.map((tool, i) => {
     const isFeatured = tool.popular;
     const bg = isFeatured ? '#fff7ed' : CARD_BG;
@@ -517,7 +555,7 @@ export function buildNewsletter(data) {
   // 6. Section header: Jobs (only if there are matched jobs)
   if (data.matchedJobs && data.matchedJobs.length > 0) {
     html += `<tr><td class="section-pad" style="background:${WHITE};padding:24px 28px 8px;">
-      <div style="font-size:11px;text-transform:uppercase;letter-spacing:2px;color:${BRAND_ORANGE};font-weight:700;margin:0 0 2px;">\ud83d\udcbc Lavoro</div>
+      <div style="font-size:11px;text-transform:uppercase;letter-spacing:2px;color:${BRAND_ORANGE};font-weight:700;margin:0 0 2px;">\ud83d\udcbc ${nlT(locale, 'jobsLabel')}</div>
       <div style="font-size:18px;font-weight:800;color:${BRAND_DARK};margin:0;">${nlT(locale, 'jobsTitle')}</div>
       <div style="font-size:13px;color:${MUTED_COLOR};margin:4px 0 0;">${nlT(locale, 'jobsSub')}</div>
     </td></tr>`;
@@ -543,7 +581,7 @@ export function buildNewsletter(data) {
 
   // 11. Section header: Tools
   html += `<tr><td class="section-pad" style="background:${WHITE};padding:24px 28px 8px;">
-    <div style="font-size:11px;text-transform:uppercase;letter-spacing:2px;color:${BRAND_ORANGE};font-weight:700;margin:0 0 2px;">\ud83e\uddf0 Strumenti</div>
+    <div style="font-size:11px;text-transform:uppercase;letter-spacing:2px;color:${BRAND_ORANGE};font-weight:700;margin:0 0 2px;">\ud83e\uddf0 ${nlT(locale, 'toolsLabel')}</div>
     <div style="font-size:18px;font-weight:800;color:${BRAND_DARK};margin:0;">${nlT(locale, 'toolsTitle')}</div>
     <div style="font-size:13px;color:${MUTED_COLOR};margin:4px 0 0;">${nlT(locale, 'toolsSub')}</div>
   </td></tr>`;
