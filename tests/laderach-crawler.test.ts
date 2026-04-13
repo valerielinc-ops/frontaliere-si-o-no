@@ -98,7 +98,7 @@ describe('Läderach job parser', () => {
       expect(jobs[0].location).toBe('Zug');
       expect(jobs[0].jobId).toBe('58614665');
       expect(jobs[0].url).toContain('58614665');
-      expect(jobs[0].canton).toBe('GL');
+      expect(jobs[0].canton).toBe('ZG');
       expect(jobs[0].id).toBe(slugify(jobs[0].title));
     });
 

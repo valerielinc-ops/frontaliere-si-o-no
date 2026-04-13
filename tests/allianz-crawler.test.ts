@@ -301,7 +301,7 @@ describe('inferAllianzCanton', () => {
     expect(inferAllianzCanton('', 'Chur')).toBe('GR');
   });
 
-  it('returns empty string for non-TI/GR locations', () => {
-    expect(inferAllianzCanton('Agenzia Berna', 'Bern')).toBe('');
+  it('returns correct canton for non-TI/GR Swiss locations', () => {
+    expect(inferAllianzCanton('Agenzia Berna', 'Bern')).toBe('BE');
   });
 });
