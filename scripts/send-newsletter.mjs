@@ -19,6 +19,7 @@
  *   node scripts/send-newsletter.mjs --test        # Send to admin email (with AI)
  *   node scripts/send-newsletter.mjs --send        # Send to all subscribers
  *   node scripts/send-newsletter.mjs --no-ai       # Skip AI generation (use fallbacks)
+ *   node scripts/send-newsletter.mjs --digest-only # Only send to type='weekly_digest' subscribers
  *
  * Env vars (for --test/--send):
  *   RESEND_API_KEY, NEWSLETTER_SECRET, GEMINI_API_KEY or GH_MODELS_PAT,
@@ -846,6 +847,7 @@ async function fetchSubscribers() {
         job_company: row.job_company || null,
         source: row.source || null,
         preferences: row.preferences || {},
+        type: row.type || null,
       });
     });
   } catch (e) {
@@ -1222,10 +1224,11 @@ async function main() {
     : args.includes('--test') ? 'test'
     : 'preview';
   const noAI = args.includes('--no-ai');
+  const digestOnly = args.includes('--digest-only');
   const targetEmail = readArgValue('--target-email');
   const subjectOverride = readArgValue('--subject');
 
-  console.log(`\ud83d\udce7 Newsletter v2 | mode: ${mode} | AI: ${!noAI}`);
+  console.log(`\ud83d\udce7 Newsletter v2 | mode: ${mode} | AI: ${!noAI} | digestOnly: ${digestOnly}`);
 
   const wouldSend = mode === 'send' || mode === 'test';
   if (wouldSend && (EXPERIMENTAL_MODE || !SEND_ENABLED)) {
@@ -1346,6 +1349,24 @@ async function main() {
   } else {
     subscribers = await fetchSubscribers();
     console.log(`\ud83d\udce8 Send mode: ${subscribers.length} active subscribers`);
+
+    // ── Digest targeting ──
+    // Design decision: By default, ALL subscribers receive the weekly Monday digest.
+    // The subscriber `type` field (e.g., 'weekly_digest', 'general') is informational
+    // and preserved for analytics/segmentation, but does NOT gate delivery.
+    //
+    // When --digest-only is passed, only subscribers with type='weekly_digest' receive
+    // the email. This is intended for future use if we add separate campaign types
+    // (e.g., breaking news, tax alerts) where only digest subscribers should get
+    // the Monday automated email while other subscribers get targeted campaigns.
+    //
+    // Current behavior: all subscribers get the Monday digest (safest default).
+    if (digestOnly) {
+      const beforeCount = subscribers.length;
+      subscribers = subscribers.filter(s => s.type === 'weekly_digest');
+      console.log(`\ud83c\udfaf Digest-only filter: ${beforeCount} -> ${subscribers.length} subscribers (type='weekly_digest' only)`);
+    }
+
     if (subscribers.length === 0) {
       console.warn('\u26a0\ufe0f No subscribers found. Aborting.');
       return;
