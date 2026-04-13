@@ -1,16 +1,16 @@
 {
   "key": "axpo-group",
   "label": "axpo",
-  "generatedAt": "2026-04-13T10:00:39.932Z",
+  "generatedAt": "2026-04-13T21:09:30.623Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1396,
-  "avgDurationMs": 1396,
+  "durationMs": 349,
+  "avgDurationMs": 349,
   "durationHistory": [
-    1396
+    349
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -37,13 +37,14 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-04-13T10:00:39.876Z",
+      "crawledAt": "2026-04-13T21:09:30.598Z",
       "id": "axpo-group-8fe260efb3ca",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
       "streetAddress": "Viale Stazione 31",
       "postalCode": "6500",
+      "firstSeenAt": "2026-04-13T10:00:39.876Z",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
