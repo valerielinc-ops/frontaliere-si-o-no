@@ -974,9 +974,9 @@ function BlogArticles({
   const [gridRevealCount, setGridRevealCount] = useState(() => {
     if (typeof window === 'undefined') return 2;
     const w = window.innerWidth;
-    if (w < 640) return 2;
-    if (w < 1024) return 4;
-    return 6;
+    if (w < 640) return 4;
+    if (w < 1024) return 8;
+    return 9;
   });
   const [imageFallbackMap, setImageFallbackMap] = useState<Record<string, true>>({});
 
