@@ -1,16 +1,16 @@
 {
   "key": "transgourmet",
   "label": "Transgourmet",
-  "generatedAt": "2026-04-13T11:25:50.903Z",
+  "generatedAt": "2026-04-13T22:33:57.214Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2982,
-  "avgDurationMs": 2982,
+  "durationMs": 3089,
+  "avgDurationMs": 3089,
   "durationHistory": [
-    2982
+    3089
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/abteilungsleiterin-abteilungsleiter-molkerei/d0ffad16-a2a7-46d5-b32a-a38d1e371dbd",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T11:25:48.620Z",
+      "crawledAt": "2026-04-13T22:33:54.845Z",
       "addressLocality": "Gamsen",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -43,6 +43,7 @@
       "postedDate": "2026-03-17",
       "pensum": "100%",
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=164556",
+      "firstSeenAt": "2026-04-13T11:25:48.620Z",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -63,7 +64,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-markt/1c3385a2-832c-49c6-a61a-0308193c5d51",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T11:25:48.621Z",
+      "crawledAt": "2026-04-13T22:33:54.846Z",
       "addressLocality": "Gamsen",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -80,6 +81,7 @@
       "postedDate": "2026-03-12",
       "pensum": "50%",
       "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=164555",
+      "firstSeenAt": "2026-04-13T11:25:48.621Z",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
