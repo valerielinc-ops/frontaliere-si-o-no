@@ -21,6 +21,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { createHmac } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -36,6 +37,18 @@ const RETRY_COLLECTION = 'job_alert_retry_queue';
 // Testing allowlist: set to a Set of emails for admin-only testing,
 // or null to enable for all users.
 const ALLOWED_EMAILS = null;
+
+// Cloud Function URL for one-click unsubscribe (RFC 8058)
+const UNSUB_FUNCTION_URL = 'https://europe-west6-frontaliere-ticino.cloudfunctions.net/jobAlertUnsubscribe';
+
+function makeAlertUnsubscribeUrl(alertId, email) {
+  const secret = process.env.NEWSLETTER_SECRET;
+  if (!secret) return `${BASE_URL}/cerca-lavoro-ticino/`;
+  const token = createHmac('sha256', secret)
+    .update(`job_alert_unsub:${alertId}:${email.toLowerCase().trim()}`)
+    .digest('hex');
+  return `${UNSUB_FUNCTION_URL}?alertId=${encodeURIComponent(alertId)}&email=${encodeURIComponent(email)}&token=${token}`;
+}
 
 // ── Firebase Admin SDK (lazy init) ───────────────────────────
 
@@ -134,14 +147,18 @@ function buildAlertEmail(alert, matchedJobs) {
   const WHITE = '#ffffff';
   const MUTED = '#64748b';
   const BORDER = '#e2e8f0';
+  const CARD_BG = '#f8fafc';
 
   const utmBase = `utm_source=job_alert&utm_medium=email&utm_campaign=alert_${alert.id}`;
+  const unsubscribeUrl = makeAlertUnsubscribeUrl(alert.id, alert.email);
+  const manageUrl = `${BASE_URL}/cerca-lavoro-ticino/?${utmBase}`;
+  const allJobsUrl = `${BASE_URL}/cerca-lavoro-ticino/?${utmBase}`;
 
   const jobCards = matchedJobs.slice(0, 10).map((job) => {
     const title = job.titleByLocale?.it || job.title || 'Offerta di lavoro';
     const company = job.company || '';
     const rawLocation = job.location || job.addressLocality || '';
-    const location = rawLocation.replace(/^[-–—\s]+/, '').trim();
+    const location = rawLocation.replace(/^[-\u2013\u2014\s]+/, '').trim();
     const slug = job.slugByLocale?.it || job.slug || '';
     const url = slug ? `${BASE_URL}/cerca-lavoro-ticino/${slug}?${utmBase}` : BASE_URL;
     const initial = (company || '?')[0].toUpperCase();
@@ -171,9 +188,6 @@ function buildAlertEmail(alert, matchedJobs) {
           </a>
         </td></tr>`;
   }).join('');
-
-  const manageUrl = `${BASE_URL}/cerca-lavoro-ticino/?${utmBase}`;
-  const allJobsUrl = `${BASE_URL}/cerca-lavoro-ticino/?${utmBase}`;
 
   const filterParts = [];
   if (keyword) filterParts.push(keyword);
@@ -240,21 +254,28 @@ function buildAlertEmail(alert, matchedJobs) {
           </table>
         </td></tr>
 
-        <!-- Divider -->
-        <tr><td style="padding:0 28px;background:${WHITE};"><div style="border-top:1px solid ${BORDER};"></div></td></tr>
+        <!-- Closer (aligned with newsletter) -->
+        <tr><td class="section-pad" style="background:${WHITE};padding:0 28px 20px;">
+          <div style="background:${CARD_BG};border-radius:12px;padding:18px 20px;text-align:center;">
+            <div style="font-size:14px;color:#334155;line-height:1.5;margin:0 0 8px;">Conosci qualcuno che cerca lavoro in Ticino? Inoltra questa email.</div>
+            <div style="font-size:12px;color:${BRAND_ORANGE};font-weight:700;">Alla prossima. \u2615</div>
+          </div>
+        </td></tr>
 
-        <!-- Footer -->
-        <tr><td style="background:${WHITE};padding:20px 28px 24px;text-align:center;">
-          <p style="color:${MUTED};font-size:12px;margin:0 0 8px;">
-            <a href="${manageUrl}" style="color:${BRAND_ORANGE};text-decoration:none;font-weight:600;">Gestisci le tue alert</a>
-            <span style="color:#cbd5e1;"> \u00b7 </span>
-            <a href="${manageUrl}" style="color:${MUTED};text-decoration:none;">Disiscriviti</a>
-          </p>
-          <p style="color:#cbd5e1;font-size:11px;margin:0;">
-            Ricevi questa email perch\u00e9 hai attivato un alert su
-            <a href="${BASE_URL}" style="color:#cbd5e1;">frontaliereticino.ch</a>
-          </p>
-          <p style="color:#cbd5e1;font-size:10px;margin:8px 0 0;">\u00a9 ${new Date().getFullYear()} Frontaliere Ticino \u2014 0% spam, 100% frontaliere</p>
+        <!-- Footer (dark, aligned with newsletter) -->
+        <tr><td style="background:${BRAND_DARK};padding:28px;text-align:center;">
+          <div style="margin-bottom:12px;">
+            <a href="https://www.facebook.com/profile.php?id=61588174947294" style="display:inline-block;margin:0 6px;font-size:18px;text-decoration:none;">\ud83d\udcd8</a>
+            <a href="https://www.linkedin.com/company/frontaliere-ticino" style="display:inline-block;margin:0 6px;font-size:18px;text-decoration:none;">\ud83d\udcbc</a>
+            <a href="${BASE_URL}" style="display:inline-block;margin:0 6px;font-size:18px;text-decoration:none;">\ud83c\udf10</a>
+          </div>
+          <div style="font-size:12px;color:${MUTED};margin:4px 0;">
+            <a href="${manageUrl}" style="color:${BRAND_ORANGE};text-decoration:underline;font-weight:600;">Gestisci le tue alert</a>
+          </div>
+          <div style="font-size:12px;color:${MUTED};margin:4px 0;">
+            Non vuoi pi\u00f9 ricevere queste email? <a href="${unsubscribeUrl}" style="color:${BRAND_ORANGE};text-decoration:underline;">Disiscriviti</a> \u2014 giuro che non piangeremo. (Forse un po'.)
+          </div>
+          <div style="font-size:12px;color:#475569;margin-top:12px;">\u00a9 ${new Date().getFullYear()} Frontaliere Ticino \u00b7 0% spam, 100% frontaliere</div>
         </td></tr>
 
       </table>
@@ -263,7 +284,7 @@ function buildAlertEmail(alert, matchedJobs) {
 </body>
 </html>`;
 
-  return { subject, html };
+  return { subject, html, unsubscribeUrl };
 }
 
 function escHtml(s) {
@@ -283,6 +304,11 @@ async function sendBatch(emails) {
       subject: e.subject,
       html: e.html,
       tags: [{ name: 'type', value: 'job-alert' }],
+      // RFC 8058: List-Unsubscribe + List-Unsubscribe-Post for one-click unsubscribe
+      headers: e.unsubscribeUrl ? {
+        'List-Unsubscribe': `<${e.unsubscribeUrl}>`,
+        'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click',
+      } : undefined,
     },
     recipient: { email: e.to },
     meta: { type: 'job-alert', alertId: e.alertId },
@@ -512,7 +538,7 @@ async function main() {
     if (matched.length === 0) continue;
 
     totalMatches += matched.length;
-    const { subject, html } = buildAlertEmail(alert, matched);
+    const { subject, html, unsubscribeUrl } = buildAlertEmail(alert, matched);
 
     emailsToSend.push({
       to: alert.email,
@@ -520,6 +546,7 @@ async function main() {
       html,
       alertId: alert.id,
       matchCount: matched.length,
+      unsubscribeUrl,
     });
 
     console.log(`   📬 Alert ${alert.id}: ${matched.length} matches → ${alert.email}`);

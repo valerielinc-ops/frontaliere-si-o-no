@@ -11,6 +11,7 @@ import { sendNewsletterConfirmationEmail } from './src/newsletterConfirmationEma
 import { getNewsletterSecrets, getRemoteConfigValue } from './src/remoteConfigSecrets.js';
 import { handleChatbotInference } from './src/chatbotInference.js';
 import { handleLinkedInCallback } from './src/linkedinAuthCallback.js';
+import { handleJobAlertUnsubscribe } from './src/jobAlertUnsubscribe.js';
 
 ensureAdminApp();
 
@@ -334,6 +335,47 @@ export const linkedinAuthCallback = onRequest(
       const message = err.message || 'linkedin_callback_error';
       console.warn(`[linkedinAuthCallback] error status=${status}: ${message}`);
       res.status(status).json({ ok: false, error: message });
+    }
+  },
+);
+
+// Job Alert one-click unsubscribe (RFC 8058 + browser GET)
+export const jobAlertUnsubscribe = onRequest(
+  {
+    region: 'europe-west6',
+    memory: '256MiB',
+    timeoutSeconds: 30,
+    cors: true,
+  },
+  async (req, res) => {
+    if (req.method !== 'GET' && req.method !== 'POST') {
+      res.status(405).send('Method not allowed');
+      return;
+    }
+
+    const params = req.method === 'GET' ? req.query : req.body;
+    const alertId = String(params.alertId || '').trim();
+    const email = String(params.email || '').trim();
+    const token = String(params.token || '').trim();
+
+    try {
+      const { newsletterSecret } = await getNewsletterSecrets();
+      const result = await handleJobAlertUnsubscribe({
+        alertId,
+        email,
+        token,
+        secret: newsletterSecret,
+      });
+
+      // RFC 8058 POST returns 200 with no body
+      if (req.method === 'POST') {
+        res.status(result.status).type('text').send(result.status === 200 ? 'OK' : 'Error');
+      } else {
+        res.status(result.status).type('html').send(result.html);
+      }
+    } catch (error) {
+      console.error('[jobAlertUnsubscribe] Error:', error);
+      res.status(500).type('html').send('<h1>Errore interno</h1><p>Riprova più tardi.</p>');
     }
   },
 );
