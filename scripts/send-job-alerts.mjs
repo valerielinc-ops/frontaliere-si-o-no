@@ -461,7 +461,8 @@ async function main() {
   }
 
   // 2b. Newsletter cooldown: skip users who received a newsletter in the last 36 hours
-  const NEWSLETTER_COOLDOWN_MS = 36 * 60 * 60 * 1000;
+  // SKIP_NEWSLETTER_COOLDOWN=1 bypasses this check (for manual test sends)
+  const NEWSLETTER_COOLDOWN_MS = process.env.SKIP_NEWSLETTER_COOLDOWN === '1' ? 0 : 36 * 60 * 60 * 1000;
   const now = Date.now();
   const alertEmails = [...new Set(alerts.map((a) => a.email.toLowerCase()))];
   const newsletterCooldownSet = new Set();
