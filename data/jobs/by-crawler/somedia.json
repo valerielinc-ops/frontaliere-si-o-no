@@ -1,6 +1,6 @@
 {
   "crawlerKey": "somedia",
-  "assembledAt": "2026-04-13T11:17:15.178Z",
+  "assembledAt": "2026-04-13T22:25:22.335Z",
   "jobs": [
     {
       "id": "somedia-50d06ad469ba",
@@ -33,7 +33,7 @@
       "url": "https://jobs.somedia.ch/Gebietsleiterin-Glarus-Gaster-100-de-j372.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T11:17:12.451Z",
+      "crawledAt": "2026-04-13T22:25:19.465Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -114,6 +114,7 @@
           "gebietsleiter-in-glarus-gaster-100-somedia-ch"
         ]
       },
+      "firstSeenAt": "2026-04-13T11:17:12.451Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -125,8 +126,7 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T11:17:12.451Z"
+      }
     },
     {
       "id": "somedia-59e3a927a7d6",
@@ -159,7 +159,7 @@
       "url": "https://jobs.somedia.ch/Lehrstelle-als-Informatikerin-EFZ-Plattformentwicklung-202-de-j368.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T11:17:11.482Z",
+      "crawledAt": "2026-04-13T22:25:18.481Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -225,6 +225,7 @@
           "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-somedia-ch"
         ]
       },
+      "firstSeenAt": "2026-04-13T11:17:11.482Z",
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -236,8 +237,7 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T11:17:11.482Z"
+      }
     },
     {
       "id": "somedia-5c3e50f72341",
@@ -270,7 +270,7 @@
       "url": "https://jobs.somedia.ch/Leiterin-Leiter-People-Culture-100-de-j371.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T11:17:10.518Z",
+      "crawledAt": "2026-04-13T22:25:17.497Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -337,6 +337,8 @@
           "leiterin-leiter-people-culture-100-somedia-ch"
         ]
       },
+      "firstSeenAt": "2026-04-13T11:17:10.518Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -348,8 +350,7 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T11:17:10.518Z"
+      }
     },
     {
       "id": "somedia-298e7ef0d0c6",
@@ -382,7 +383,7 @@
       "url": "https://jobs.somedia.ch/Projektleiterin-Kommunikation-und-Strategieberatung-80-100-de-j373.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T11:17:09.408Z",
+      "crawledAt": "2026-04-13T22:25:16.357Z",
       "addressLocality": "Ilanz",
       "addressCountry": "CH",
       "country": "CH",
@@ -453,6 +454,7 @@
           "projektleiter-in-kommunikation-und-strategieberatung-80-100-somedia-ch"
         ]
       },
+      "firstSeenAt": "2026-04-13T11:17:09.408Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -464,8 +466,7 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T11:17:09.408Z"
+      }
     },
     {
       "id": "somedia-1f7b0801a77f",
@@ -498,7 +499,7 @@
       "url": "https://jobs.somedia.ch/Redaktorin-80-100-de-j380.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T11:17:08.292Z",
+      "crawledAt": "2026-04-13T22:25:15.208Z",
       "addressLocality": "Uznach",
       "addressCountry": "CH",
       "country": "CH",
@@ -573,6 +574,8 @@
           "redaktor-in-80-100-somedia-ag-uznach"
         ]
       },
+      "firstSeenAt": "2026-04-13T11:17:08.292Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -584,98 +587,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T11:17:08.292Z"
-    },
-    {
-      "id": "somedia-6d547e17d7ee",
-      "slug": "seo-redattore-content-growth-manager-90-100-somedia-ag-chur",
-      "slugByLocale": {
-        "it": "seo-redattore-content-growth-manager-90-100-somedia-ag-chur",
-        "en": "seo-redaktor-content-growth-manager-90-100-somedia-ch",
-        "de": "seo-redaktor-content-growth-manager-90-100-somedia-ch",
-        "fr": "redacteur-seo-responsable-de-la-croissance-du-contenu-90-100-somedia-ag-chur"
-      },
-      "company": "Somedia AG",
-      "companyKey": "somedia",
-      "companyDomain": "somedia.ch",
-      "title": "SEO-Redaktor / Content Growth Manager (90-100%)",
-      "titleByLocale": {
-        "it": "SEO Redattore / Content Growth Manager (90-100%)",
-        "en": "SEO-Redaktor / Content Growth Manager (90-100%)",
-        "de": "SEO-Redaktor / Content Growth Manager (90-100%)",
-        "fr": "Rédacteur SEO / Responsable de la croissance du contenu (90-100%)"
-      },
-      "description": "SOMEDIA - MEDIEN DER SÜDOSTSCHWEIZ\nSomedia ist eines der fünf grossen Schweizer Medienunternehmen. Zur Somedia zählen über 20 führende Medienmarken, digitale Plattformen, innovative Marketing- und Kommunikationsagenturen, E-Learning-Dienstleister und aufstrebende Startups. Wir sind ein Familienunternehmen mit flachen Hierarchien und pflegen eine Du-Kultur. Unsere Unternehmenskultur ist geprägt von den Werten \"mutig, ambitioniert, respektvoll und verantwortungsvoll\" und wir handeln nach den Prinzipien \"klar, einfach und selbstbewusst.\" Kannst du dich damit identifizieren?\nFür die Somedia Press AG in Chur suchen wir per sofort oder nach Vereinbarung ein analytisches Sprachtalent als SEO-Redaktor / Content Growth Manager (90-100%) . Deine Mission\nDeine Mission ist es, neue Themenfelder für Somedia zu erschliessen, die unsere Leserinnen und Leser wirklich suchen – oder in ihrem Google Discover Feed finden. Du identifizierst Nischen, experimentierst mit neuen Content-Formaten und baust eigenverantwortlich Reichweite auf. Dabei verlässt du dich nicht auf das Bauchgefühl, sondern auf Daten. Du arbeitest an der Schnittstelle zwischen Redaktion, SEO und Produkt und sorgst dafür, dass unsere Inhalte gefunden, gelesen und geschätzt werden. Deine Aufgaben im Detail: Content-Strategie & Aufbau neuer Themen : Du identifizierst proaktiv neue, reichweitenstarke Themenfelder (z. B. Evergreen-Content, Ratgeber, Special Interest) und baust diese redaktionell auf. Du hast Lust am Experimentieren: Was heute als Hypothese startet, kann morgen unser stärkster Traffic-Lieferant sein.\n Datenbasierte Redaktionsarbeit : Du schreibst und optimierst Artikel nicht ins Blaue hinein. Mit Tools wie Google Trends, Search Console und SEO-Suites analysierst du das Google Discover Potenzial, Suchvolumen und den User Intent, um Inhalte zu erstellen, die genau die Fragen unserer Nutzerschaft beantworten.\n SEO-Optimierung & Monitoring : Du überwachst die Performance deiner Inhalte (Impressionen, Clickrate, Verweildauer). Du erkennst Muster, warum Artikel ranken oder nicht, und leitest daraus Handlungsempfehlungen für dich und das gesamte Team ab.\n Verbindung von Inhalt und Vertrieb : Du denkst über den Klick hinaus. Wie konvertieren wir Suchmaschinen-Traffic in treue Leser oder Abonnenten? Du arbeitest eng mit dem Marketing zusammen, um den Funnel zu optimieren.\n Dein Profil\n Erfahrung : Du bringst fundierte Erfahrung im digitalen Journalismus, Content Marketing oder im SEO-Umfeld mit. Du weisst, wie man Texte schreibt, die sowohl Menschen als auch Algorithmen begeistern.\n Analytisches Denken : Begriffe wie Search Intent, SERP-Features oder Click-Through-Rate sind für dich keine Fremdwörter. Du triffst Entscheidungen basierend auf Zahlen und Fakten oder semantischen Analysen.\n Experimentierfreude : Du hast einen grossen Antrieb, Dinge auszuprobieren. Du wartest nicht auf Aufträge, sondern erkennst Chancen eigenständig. &bdquo;Fail fast, learn faster“ ist für dich kein Buzzword, sondern Arbeitsweise.\n Sprachgefühl : Du bist stilsicher im Deutschen, kannst komplexe Sachverhalte einfach erklären und findest immer die passende Headline.\n Tech-Affinität : Du gehst sicher mit gängigen CMS-Systemen um und hast idealerweise Erfahrung mit SEO-Tools (z. B. Sistrix, Ahrefs oder Google Search Console).\n Was wir dir bieten\n Spielwiese für Wachstum : Die Chance, einen völlig neuen Themenbereich bei einem führenden Schweizer Medienhaus aufzubauen und massgeblich zu prägen.\n Ein starkes Team : Ein Umfeld aus Expertinnen und Experten in Redaktion, Produkt und Data, das Innovation lebt, Wissen teilt und die Zukunft aktiv gestaltet.\n Agiles Arbeiten : Viel Gestaltungsspielraum, Eigenverantwortung und kurze Entscheidungswege.\n Flexible Arbeitsmodelle : Moderner Arbeitsplatz in Chur und die Möglichkeit für Homeoffice nach Vereinbarung.\n UNSER KONTAKT\nWir freuen uns über deine Bewerbung! Bitte sende uns deine Bewerbungsunterlagen über den Bewerbungsbutton .\n\nWeitere Auskünfte erteilt dir gerne:",
-      "descriptionByLocale": {
-        "it": "Descrizione SOMEDIA - MEDIEN DER SÜDOSTSCHWEIZ Somedia è uno dei cinque grandi gruppi mediatici svizzeri. Alla Somedia appartengono più di 20 marchi mediatici leader, piattaforme digitali, agenzie di marketing e comunicazione innovative, fornitori di servizi di e-learning e startup in ascesa. Siamo un'azienda familiare con gerarchie piatte e una cultura basata sul 'tu'. La nostra cultura aziendale è caratterizzata dai valori 'coraggioso, ambizioso, rispettoso e responsabile' e agiamo in base ai principi 'chiaro, semplice e sicuro di sé'. Ti riconosci in questo? Stiamo cercando un talento linguistico analitico come SEO Redattore / Content Growth Manager (90-100%) per la Somedia Press AG a Coira, da subito o su accordo. La tua missione La tua missione è quella di esplorare nuovi campi tematici per Somedia che i nostri lettori cercano realmente - o nel loro feed Google Discover. Identifichi nicchie, sperimenti con nuovi formati di contenuti e costruisci autonomamente la portata. Non ti basi sull'istinto, ma sui dati. Lavorando all'interfaccia tra redazione, SEO e prodotto, ti assicuri che i nostri contenuti siano trovati, letti e apprezzati. ## Compiti nel dettaglio - Strategia dei contenuti e sviluppo di nuovi temi: Identifichi proattivamente nuovi campi tematici ad alto rendimento (ad esempio contenuti evergreen, guide, interessi speciali) e li sviluppi a livello redazionale. Ti piace sperimentare: ciò che oggi è un'ipotesi, domani potrebbe essere la nostra fonte di traffico principale. - Lavoro redazionale basato sui dati: Non scrivi e ottimizzi gli articoli a caso. Con strumenti come Google Trends, Search Console e suite SEO, analizzi il potenziale di Google Discover, il volume di ricerca e l'intent dell'utente per creare contenuti che rispondano esattamente alle domande del nostro pubblico. - Ottimizzazione SEO e monitoraggio: Monitori la performance dei tuoi contenuti (impressioni, tasso di clic, durata della visita). Riconosci schemi, motivi per cui gli articoli si classificano o meno e ne deduci raccomandazioni per te e per l'intero team. - Collegamento tra contenuti e vendite: Pensi oltre il clic. Come convertiamo il traffico delle ricerche in lettori fedeli o abbonati? Lavorando strettamente con il marketing, ottimizzi il funnel. ## Il tuo profilo - Esperienza: Hai una solida esperienza nel giornalismo digitale, nel marketing dei contenuti o nell'ambito SEO. Sai come scrivere testi che affascinano sia le persone che gli algoritmi. - Pensiero analitico: Concetti come l'intent di ricerca, le funzionalità SERP o il tasso di clic non sono per te parole straniere. Prendi decisioni basate sui numeri e sui fatti o sulle analisi semantiche. - Curiosità: Hai un grande desiderio di sperimentare. Non aspetti ordini, ma riconosci le opportunità in modo autonomo. 'Fail fast, learn faster' non è per te un buzzword, ma un modo di lavorare. - Senso del linguaggio: Sei sicuro di te nel tedesco, puoi spiegare in modo semplice i concetti complessi e trovi sempre il titolo giusto. - Affinità per la tecnologia: Vai sicuro con i sistemi CMS comuni e hai idealmente esperienza con gli strumenti SEO (ad esempio Sistrix, Ahrefs o Google Search Console). ## Cosa ti offriamo - Spazio per la crescita: L'opportunità di costruire e plasmare completamente un nuovo campo tematico in un importante gruppo mediatico svizzero. - Un team forte: Un ambiente di esperti in redazione, prodotto e dati che vivono l'innovazione, condividono le conoscenze e plasmano attivamente il futuro. - Lavoro agile: Molta libertà di progettazione, responsabilità personale e brevi processi decisionali. - Modelli di lavoro flessibili: Posto di lavoro moderno a Coira e la possibilità di lavorare da casa su accordo. ## Contatto Ci piacerebbe ricevere la tua candidatura! Invia i tuoi documenti di candidatura tramite il pulsante ' Candidatura'. Ulteriori informazioni sono disponibili presso:",
-        "en": "Description SOMEDIA - MEDIA OF THE SOUTH-EAST SWITZERLAND Somedia is one of the five major Swiss media companies. Somedia includes over 20 leading media brands, digital platforms, innovative marketing and communication agencies, e-learning service providers, and emerging startups. We are a family-owned company with flat hierarchies and a 'you' culture. Our corporate culture is characterized by the values 'courageous, ambitious, respectful, and responsible' and we act according to the principles 'clear, simple, and self-assured'. Can you identify with this? We are looking for an analytical language talent as SEO Editor / Content Growth Manager (90-100%) for Somedia Press AG in Chur, immediately or by arrangement. Your mission Your mission is to open up new thematic fields for Somedia that our readers are really looking for - or in their Google Discover feed. You identify niches, experiment with new content formats, and build reach autonomously. You don't rely on gut feeling, but on data. Working at the interface between editorial, SEO, and product, you ensure that our content is found, read, and appreciated. ## Tasks in detail - Content strategy & building new topics: You proactively identify new, high-traffic thematic fields (e.g. evergreen content, guides, special interests) and build them up editorially. You enjoy experimenting: what starts today as a hypothesis can be our strongest traffic driver tomorrow. - Data-based editorial work: You don't write and optimize articles into the blue. With tools like Google Trends, Search Console, and SEO suites, you analyze the Google Discover potential, search volume, and user intent to create content that exactly answers the questions of our audience. - SEO optimization & monitoring: You monitor the performance of your content (impressions, click rate, dwell time). You recognize patterns, why articles rank or not, and derive recommendations for yourself and the entire team from this. - Connection of content and sales: You think beyond the click. How do we convert search engine traffic into loyal readers or subscribers? You work closely with marketing to optimize the funnel. ## Your profile - Experience: You have solid experience in digital journalism, content marketing, or the SEO field. You know how to write texts that captivate both people and algorithms. - Analytical thinking: Terms like search intent, SERP features, or click-through rate are not foreign words to you. You make decisions based on numbers and facts or semantic analyses. - Curiosity: You have a great desire to experiment. You don't wait for orders, but recognize opportunities independently. 'Fail fast, learn faster' is not a buzzword for you, but a way of working. - Language feeling: You are confident in German, can explain complex matters simply, and always find the right headline. - Tech affinity: You handle common CMS systems securely and ideally have experience with SEO tools (e.g. Sistrix, Ahrefs, or Google Search Console). ## What we offer you - Growth playground: The chance to build and significantly shape a completely new thematic area at a leading Swiss media house. - A strong team: An environment of experts in editorial, product, and data that lives innovation, shares knowledge, and actively shapes the future. - Agile working: A lot of design freedom, personal responsibility, and short decision-making processes. - Flexible working models: Modern workplace in Chur and the possibility of home office by arrangement. ## Contact We would be happy to receive your application! Please send your application documents via the application button. Further information is available from:",
-        "de": "SOMEDIA - MEDIEN DER SÜDOSTSCHWEIZ Somedia ist eines der fünf grossen Schweizer Medienunternehmen. Zur Somedia zählen über 20 führende Medienmarken, digitale Plattformen, innovative Marketing- und Kommunikationsagenturen, E-Learning-Dienstleister und aufstrebende Startups. Wir sind ein Familienunternehmen mit flachen Hierarchien und pflegen eine Du-Kultur. Unsere Unternehmenskultur ist geprägt von den Werten \"mutig, ambitioniert, respektvoll und verantwortungsvoll\" und wir handeln nach den Prinzipien \"klar, einfach und selbstbewusst.\" Kannst du dich damit identifizieren? Für die Somedia Press AG in Chur suchen wir per sofort oder nach Vereinbarung ein analytisches Sprachtalent als SEO-Redaktor / Content Growth Manager (90-100%) . Deine Mission Deine Mission ist es, neue Themenfelder für Somedia zu erschliessen, die unsere Leserinnen und Leser wirklich suchen – oder in ihrem Google Discover Feed finden. Du identifizierst Nischen, experimentierst mit neuen Content-Formaten und baust eigenverantwortlich Reichweite auf. Dabei verlässt du dich nicht auf das Bauchgefühl, sondern auf Daten. Du arbeitest an der Schnittstelle zwischen Redaktion, SEO und Produkt und sorgst dafür, dass unsere Inhalte gefunden, gelesen und geschätzt werden. Deine Aufgaben im Detail: Content-Strategie & Aufbau neuer Themen : Du identifizierst proaktiv neue, reichweitenstarke Themenfelder (z. B. Evergreen-Content, Ratgeber, Special Interest) und baust diese redaktionell auf. Du hast Lust am Experimentieren: Was heute als Hypothese startet, kann morgen unser stärkster Traffic-Lieferant sein. Datenbasierte Redaktionsarbeit : Du schreibst und optimierst Artikel nicht ins Blaue hinein. Mit Tools wie Google Trends, Search Console und SEO-Suites analysierst du das Google Discover Potenzial, Suchvolumen und den User Intent, um Inhalte zu erstellen, die genau die Fragen unserer Nutzerschaft beantworten. SEO-Optimierung & Monitoring : Du überwachst die Performance deiner Inhalte (Impressionen, Clickrate, Verweildauer). Du erkennst Muster, warum Artikel ranken oder nicht, und leitest daraus Handlungsempfehlungen für dich und das gesamte Team ab. Verbindung von Inhalt und Vertrieb : Du denkst über den Klick hinaus. Wie konvertieren wir Suchmaschinen-Traffic in treue Leser oder Abonnenten? Du arbeitest eng mit dem Marketing zusammen, um den Funnel zu optimieren. Dein Profil Erfahrung : Du bringst fundierte Erfahrung im digitalen Journalismus, Content Marketing oder im SEO-Umfeld mit. Du weisst, wie man Texte schreibt, die sowohl Menschen als auch Algorithmen begeistern. Analytisches Denken : Begriffe wie Search Intent, SERP-Features oder Click-Through-Rate sind für dich keine Fremdwörter. Du triffst Entscheidungen basierend auf Zahlen und Fakten oder semantischen Analysen. Experimentierfreude : Du hast einen grossen Antrieb, Dinge auszuprobieren. Du wartest nicht auf Aufträge, sondern erkennst Chancen eigenständig. &bdquo;Fail fast, learn faster“ ist für dich kein Buzzword, sondern Arbeitsweise. Sprachgefühl : Du bist stilsicher im Deutschen, kannst komplexe Sachverhalte einfach erklären und findest immer die passende Headline. Tech-Affinität : Du gehst sicher mit gängigen CMS-Systemen um und hast idealerweise Erfahrung mit SEO-Tools (z. B. Sistrix, Ahrefs oder Google Search Console). Was wir dir bieten Spielwiese für Wachstum : Die Chance, einen völlig neuen Themenbereich bei einem führenden Schweizer Medienhaus aufzubauen und massgeblich zu prägen. Ein starkes Team : Ein Umfeld aus Expertinnen und Experten in Redaktion, Produkt und Data, das Innovation lebt, Wissen teilt und die Zukunft aktiv gestaltet. Agiles Arbeiten : Viel Gestaltungsspielraum, Eigenverantwortung und kurze Entscheidungswege. Flexible Arbeitsmodelle : Moderner Arbeitsplatz in Chur und die Möglichkeit für Homeoffice nach Vereinbarung. UNSER KONTAKT Wir freuen uns über deine Bewerbung! Bitte sende uns deine Bewerbungsunterlagen über den Bewerbungsbutton . Weitere Auskünfte erteilt dir gerne:",
-        "fr": "Description SOMEDIA - MÉDIAS DE LA SUISSE ORIENTALE Somedia est l'un des cinq grands groupes médiatiques suisses. Somedia comprend plus de 20 marques médiatiques leaders, des plateformes numériques, des agences de marketing et de communication innovantes, des prestataires de services d'apprentissage en ligne et des startups en croissance. Nous sommes une entreprise familiale avec des hiérarchies plates et une culture basée sur le 'tu'. Notre culture d'entreprise est caractérisée par les valeurs 'courageux, ambitieux, respectueux et responsable' et nous agissons selon les principes 'clair, simple et sûr de soi'. Vous vous reconnaissez dans cela ? Nous recherchons un talent linguistique analytique en tant que rédacteur SEO / responsable de la croissance du contenu (90-100%) pour Somedia Press AG à Coire, dès que possible ou sur accord. Votre mission Votre mission consiste à ouvrir de nouveaux domaines thématiques pour Somedia que nos lecteurs recherchent réellement - ou dans leur fil Google Discover. Vous identifiez des niches, expérimenterez avec de nouveaux formats de contenu et construirez l'audience de manière autonome. Vous ne vous fiez pas à l'instinct, mais aux données. En travaillant à l'interface entre la rédaction, le SEO et le produit, vous vous assurez que nos contenus sont trouvés, lus et appréciés. ## Tâches dans le détail - Stratégie de contenu et construction de nouveaux sujets : Vous identifiez de manière proactive de nouveaux domaines thématiques à fort trafic (par exemple, contenu durable, guides, centres d'intérêt) et les construisez à l'éditorial. Vous aimez expérimenter : ce qui commence aujourd'hui comme une hypothèse peut être notre principal générateur de trafic demain. - Travail éditorial basé sur les données : Vous n'écrivez et n'optimisez pas les articles à l'aveuglette. Avec des outils comme Google Trends, Search Console et les suites SEO, vous analysez le potentiel Google Discover, le volume de recherche et l'intent de l'utilisateur pour créer un contenu qui répond exactly aux questions de notre public. - Optimisation SEO et surveillance : Vous surveillez les performances de votre contenu (impressions, taux de clics, temps passé). Vous reconnaissez les modèles, pourquoi les articles se classent ou non, et en déduisez des recommandations pour vous et pour l'ensemble de l'équipe. - Liaison entre le contenu et les ventes : Vous pensez au-delà du clic. Comment convertissons-nous le trafic des moteurs de recherche en lecteurs fidèles ou abonnés ? Vous travaillez en étroite collaboration avec le marketing pour optimiser le tunnel. ## Votre profil - Expérience : Vous avez une solide expérience dans le journalisme numérique, le marketing de contenu ou le domaine du SEO. Vous savez écrire des textes qui captivent à la fois les gens et les algorithmes. - Pensée analytique : Les termes tels que l'intention de recherche, les fonctionnalités SERP ou le taux de clics ne vous sont pas étrangers. Vous prenez des décisions fondées sur les chiffres et les faits ou les analyses sémantiques. - Curiosité : Vous avez un grand désir d'expérimenter. Vous n'attendez pas les ordres, mais reconnaissez les opportunités de manière autonome. 'Échouer vite, apprendre plus vite' n'est pas un buzzword pour vous, mais une manière de travailler. - Sens du langage : Vous êtes sûr de vous en allemand, pouvez expliquer simplement les sujets complexes et trouvez toujours le bon titre. - Affinité pour la technologie : Vous manipulez en toute sécurité les systèmes CMS courants et avez idéalement de l'expérience avec les outils SEO (par exemple, Sistrix, Ahrefs ou Google Search Console). ## Ce que nous vous offrons - Terrain de jeu pour la croissance : L'opportunité de construire et de façonner considérablement un nouveau domaine thématique chez un grand groupe médiatique suisse. - Une équipe forte : Un environnement d'experts en rédaction, en produit et en données qui vivent l'innovation, partagent leurs connaissances et façonnent activement l'avenir. - Travail agile : Beaucoup de liberté de conception, de responsabilité personnelle et des processus de décision courts. - Modèles de travail flexibles : Poste de travail moderne à Coire et la possibilité de travailler à domicile sur accord. ## Contact Nous serions ravis de recevoir votre candidature ! Veuillez envoyer vos documents de candidature via le bouton de candidature. Plus d'informations sont disponibles chez :"
-      },
-      "location": "Chur",
-      "canton": "GR",
-      "url": "https://jobs.somedia.ch/SEO-Redaktor-Content-Growth-Manager-90-100-de-j354.html",
-      "source": "Somedia AG Dedicated Parser (Rexx Systems)",
-      "sourceLang": "de",
-      "crawledAt": "2026-04-13T11:17:07.314Z",
-      "addressLocality": "Chur",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7007",
-      "streetAddress": "Sommeraustrasse 32",
-      "category": "Media / Giornalismo",
-      "sector": "Media / Editoria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-12-22",
-      "validThrough": "2026-10-01",
-      "applyUrl": "https://jobs.somedia.ch/SEO-Redaktor-Content-Growth-Manager-90-100-de-f354.html",
-      "requirements": [
-        "Erfahrung : Du bringst fundierte Erfahrung im digitalen Journalismus, Content Marketing oder im SEO-Umfeld mit. Du weisst, wie man Texte schreibt, die sowohl Menschen als auch Algorithmen begeistern.",
-        "Analytisches Denken : Begriffe wie Search Intent, SERP-Features oder Click-Through-Rate sind für dich keine Fremdwörter. Du triffst Entscheidungen basierend auf Zahlen und Fakten oder semantischen Analysen.",
-        "Experimentierfreude : Du hast einen grossen Antrieb, Dinge auszuprobieren. Du wartest nicht auf Aufträge, sondern erkennst Chancen eigenständig. &bdquo;Fail fast, learn faster“ ist für dich kein Buzzword, sondern Arbeitsweise.",
-        "Sprachgefühl : Du bist stilsicher im Deutschen, kannst komplexe Sachverhalte einfach erklären und findest immer die passende Headline.",
-        "Tech-Affinität : Du gehst sicher mit gängigen CMS-Systemen um und hast idealerweise Erfahrung mit SEO-Tools (z. B. Sistrix, Ahrefs oder Google Search Console)."
-      ],
-      "requirementsByLocale": {
-        "en": [
-          "Language feeling: You are confident in German, can explain complex matters simply, and always find the right headline."
-        ]
-      },
-      "_somediaMeta": {
-        "rexxId": "354",
-        "identifier": "",
-        "hiringOrganization": "Somedia Press AG"
-      },
-      "previousSlugs": [
-        "seo-redaktor-content-growth-manager-90-100-somedia-ch",
-        "seo-redakteur-content-growth-manager-90-100-somedia-ag-chur"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "seo-redaktor-content-growth-manager-90-100-somedia-ch"
-        ],
-        "de": [
-          "seo-redakteur-content-growth-manager-90-100-somedia-ag-chur"
-        ]
-      },
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-04-13T11:17:07.314Z"
+      }
     }
   ]
 }
