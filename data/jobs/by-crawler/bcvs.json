@@ -780,12 +780,12 @@
     },
     {
       "id": "bcvs-29be69cb0f80",
-      "slug": "conseiller-ere-clientele-des-prives-individuelle-bcvs-conthey",
+      "slug": "consulente-privato-cliente-individuale-banque-cantonale-du-valais-conthey",
       "slugByLocale": {
         "fr": "conseiller-ere-clientele-des-prives-individuelle-banque-cantonale-du-valais-conthey",
-        "it": "conseiller-ere-clientele-des-prives-individuelle-bcvs-conthey",
-        "en": "conseiller-ere-clientele-des-prives-individuelle-bcvs-conthey",
-        "de": "conseiller-ere-clientele-des-prives-individuelle-bcvs-conthey"
+        "it": "consulente-privato-cliente-individuale-banque-cantonale-du-valais-conthey",
+        "en": "private-individual-client-advisor-banque-cantonale-du-valais-conthey",
+        "de": "privater-einzelkundenberater-banque-cantonale-du-valais-conthey"
       },
       "company": "Banque Cantonale du Valais",
       "companyKey": "bcvs",
@@ -855,7 +855,21 @@
         }
       },
       "postalCode": "1950",
-      "firstSeenAt": "2026-04-13T21:12:52.073Z"
+      "firstSeenAt": "2026-04-13T21:12:52.073Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-ere-clientele-des-prives-individuelle-bcvs-conthey"
+        ],
+        "en": [
+          "conseiller-ere-clientele-des-prives-individuelle-bcvs-conthey"
+        ],
+        "de": [
+          "conseiller-ere-clientele-des-prives-individuelle-bcvs-conthey"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-ere-clientele-des-prives-individuelle-bcvs-conthey"
+      ]
     }
   ]
 }

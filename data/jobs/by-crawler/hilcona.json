@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "hilcona-52a2647070d2",
-      "slug": "regionaler-key-account-manager-foodservice-region-zuerich-sued-e-zentralschweiz-hilcona-ag-schaan",
+      "slug": "responsabile-key-account-foodservice-regione-zurigo-sud-e-svizzera-centrale-hilcona-ag-schaan",
       "slugByLocale": {
         "de": "regionaler-key-account-manager-foodservice-region-zuerich-sued-und-zentralschweiz-hilcona-schaan",
-        "it": "regionaler-key-account-manager-foodservice-region-zuerich-sued-e-zentralschweiz-hilcona-ag-schaan",
+        "it": "responsabile-key-account-foodservice-regione-zurigo-sud-e-svizzera-centrale-hilcona-ag-schaan",
         "en": "regionaler-key-account-manager-foodservice-region-zuerich-sued-und-zentralschweiz-hilcona-schaan",
-        "fr": "regionaler-key-account-manager-foodservice-region-zuerich-sued-und-zentralschweiz-hilcona-schaan"
+        "fr": "responsable-key-account-foodservice-region-zurich-sud-et-suisse-centrale-hilcona-ag-schaan"
       },
       "company": "Hilcona AG",
       "companyKey": "hilcona",
@@ -48,11 +48,16 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
+          "regionaler-key-account-manager-foodservice-region-zuerich-sued-und-zentralschweiz-hilcona-schaan",
+          "regionaler-key-account-manager-foodservice-region-zuerich-sued-e-zentralschweiz-hilcona-ag-schaan"
+        ],
+        "fr": [
           "regionaler-key-account-manager-foodservice-region-zuerich-sued-und-zentralschweiz-hilcona-schaan"
         ]
       },
       "previousSlugs": [
-        "regionaler-key-account-manager-foodservice-region-zuerich-sued-und-zentralschweiz-hilcona-schaan"
+        "regionaler-key-account-manager-foodservice-region-zuerich-sued-und-zentralschweiz-hilcona-schaan",
+        "regionaler-key-account-manager-foodservice-region-zuerich-sued-e-zentralschweiz-hilcona-ag-schaan"
       ],
       "salaryMin": 98000,
       "salaryMax": 132000,
@@ -71,12 +76,12 @@
     },
     {
       "id": "hilcona-5852a3674ac2",
-      "slug": "einkaeufer-in-100-hilcona-dallikon",
+      "slug": "in-100-eisberg-ag-dallikon",
       "slugByLocale": {
         "de": "einkaeufer-in-100-eisberg-ag-dallikon",
-        "it": "einkaeufer-in-100-hilcona-dallikon",
+        "it": "in-100-eisberg-ag-dallikon",
         "en": "einkaeufer-in-100-hilcona-dallikon",
-        "fr": "einkaeufer-in-100-hilcona-dallikon"
+        "fr": "dans-100-eisberg-ag-dallikon"
       },
       "company": "Eisberg AG",
       "companyKey": "hilcona",
@@ -126,7 +131,18 @@
         }
       },
       "postalCode": "8001",
-      "firstSeenAt": "2026-04-13T21:51:20.728Z"
+      "firstSeenAt": "2026-04-13T21:51:20.728Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "einkaeufer-in-100-hilcona-dallikon"
+        ],
+        "fr": [
+          "einkaeufer-in-100-hilcona-dallikon"
+        ]
+      },
+      "previousSlugs": [
+        "einkaeufer-in-100-hilcona-dallikon"
+      ]
     },
     {
       "id": "hilcona-ce71e7b27344",

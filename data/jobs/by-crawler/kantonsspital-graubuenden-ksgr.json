@@ -409,9 +409,12 @@
       "employmentType": "60 - 100%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-04-13T21:59:17.573Z",
-      "slug": "oberarztin-oberarzt-oder-oberarztin-mbf-oberarzt-mbf-neurologie-kantonsspital-graubunden-chur",
+      "slug": "senior-medico-senior-medico-mbf-senior-medico-mbf-neurologia-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "de": "oberarztin-oberarzt-oder-oberarztin-mbf-oberarzt-mbf-neurologie-kantonsspital-graubunden-chur"
+        "de": "oberarztin-oberarzt-oder-oberarztin-mbf-oberarzt-mbf-neurologie-kantonsspital-graubunden-chur",
+        "it": "senior-medico-senior-medico-mbf-senior-medico-mbf-neurologia-kantonsspital-graubunden-chur",
+        "en": "senior-physician-senior-physician-mbf-senior-physician-mbf-neurology-kantonsspital-graubunden-chur",
+        "fr": "medecin-principal-medecin-principal-mbf-medecin-principal-mbf-neurologie-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Oberärztin / Oberarzt oder Oberärztin mbF / Oberarzt mbF Neurologie",
@@ -440,7 +443,15 @@
       "salaryMin": 41080,
       "salaryMax": 75000,
       "currency": "CHF",
-      "firstSeenAt": "2026-04-13T21:59:17.590Z"
+      "firstSeenAt": "2026-04-13T21:59:17.590Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-oder-oberarztin-mbf-oberarzt-mbf-neurologie-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-oder-oberarztin-mbf-oberarzt-mbf-neurologie-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "9991472",
@@ -5165,10 +5176,7 @@
       "salaryMin": 41080,
       "salaryMax": 75000,
       "currency": "CHF",
-      "firstSeenAt": "2026-04-13T21:59:17.590Z",
-      "previousSlugs": [
-        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur"
-      ]
+      "firstSeenAt": "2026-04-13T21:59:17.590Z"
     },
     {
       "id": "9732321",

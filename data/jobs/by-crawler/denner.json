@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "denner-491b0418c963",
-      "slug": "assistent-in-filialleitung-denner",
+      "slug": "assistente-nella-gestione-delle-branche-denner-wadenswil",
       "slugByLocale": {
-        "it": "assistent-in-filialleitung-denner",
-        "en": "assistent-in-filialleitung-denner-flims-dorf-gzl76k",
+        "it": "assistente-nella-gestione-delle-branche-denner-wadenswil",
+        "en": "assistant-in-branch-management-denner-wadenswil",
         "de": "assistent-in-filialleitung-denner-wadenswil",
-        "fr": "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
+        "fr": "assistant-dans-la-gestion-de-la-succursale-denner-wadenswil"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -69,10 +69,21 @@
       "previousSlugsByLocale": {
         "de": [
           "assistent-in-filialleitung-denner-flims-dorf"
+        ],
+        "it": [
+          "assistent-in-filialleitung-denner"
+        ],
+        "en": [
+          "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
+        ],
+        "fr": [
+          "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
         ]
       },
       "previousSlugs": [
-        "assistent-in-filialleitung-denner-flims-dorf"
+        "assistent-in-filialleitung-denner-flims-dorf",
+        "assistent-in-filialleitung-denner",
+        "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
       ],
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -573,11 +584,11 @@
     },
     {
       "id": "denner-9d9a72186fa3",
-      "slug": "chef-fe-de-departement-de-l-expedition-des-marchandises-aclens-denner",
+      "slug": "capo-dipartimento-di-spedizioni-denner-aclens",
       "slugByLocale": {
-        "it": "chef-fe-de-departement-de-l-expedition-des-marchandises-aclens-denner",
-        "en": "chef-fe-de-departement-de-l-expedition-des-marchandises-aclens-denner",
-        "de": "chef-fe-de-departement-de-l-expedition-des-marchandises-aclens-denner",
+        "it": "capo-dipartimento-di-spedizioni-denner-aclens",
+        "en": "head-of-department-of-shipping-aclens-denner-aclens",
+        "de": "leiter-der-abteilung-versand-aclens-denner-aclens",
         "fr": "chef-fe-de-departement-de-l-expedition-des-marchandises-aclens-denner"
       },
       "company": "Denner",
@@ -649,15 +660,29 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-13T21:33:59.596Z"
+      "firstSeenAt": "2026-04-13T21:33:59.596Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-fe-de-departement-de-l-expedition-des-marchandises-aclens-denner"
+        ],
+        "en": [
+          "chef-fe-de-departement-de-l-expedition-des-marchandises-aclens-denner"
+        ],
+        "de": [
+          "chef-fe-de-departement-de-l-expedition-des-marchandises-aclens-denner"
+        ]
+      },
+      "previousSlugs": [
+        "chef-fe-de-departement-de-l-expedition-des-marchandises-aclens-denner"
+      ]
     },
     {
       "id": "denner-c0956422bd15",
-      "slug": "chef-fe-de-departement-de-la-preparation-des-commandes-aclens-denner",
+      "slug": "capo-del-dipartimento-di-preparazione-dell-ordine-di-aclens-denner-aclens",
       "slugByLocale": {
-        "it": "chef-fe-de-departement-de-la-preparation-des-commandes-aclens-denner",
-        "en": "chef-fe-de-departement-de-la-preparation-des-commandes-aclens-denner",
-        "de": "chef-fe-de-departement-de-la-preparation-des-commandes-aclens-denner",
+        "it": "capo-del-dipartimento-di-preparazione-dell-ordine-di-aclens-denner-aclens",
+        "en": "head-of-the-aclens-order-preparation-department-denner-aclens",
+        "de": "leiter-der-aclens-auftragsvorbereitungsabteilung-denner-aclens",
         "fr": "chef-fe-de-departement-de-la-preparation-des-commandes-aclens-denner"
       },
       "company": "Denner",
@@ -729,7 +754,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-13T21:33:59.596Z"
+      "firstSeenAt": "2026-04-13T21:33:59.596Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-fe-de-departement-de-la-preparation-des-commandes-aclens-denner"
+        ],
+        "en": [
+          "chef-fe-de-departement-de-la-preparation-des-commandes-aclens-denner"
+        ],
+        "de": [
+          "chef-fe-de-departement-de-la-preparation-des-commandes-aclens-denner"
+        ]
+      },
+      "previousSlugs": [
+        "chef-fe-de-departement-de-la-preparation-des-commandes-aclens-denner"
+      ]
     },
     {
       "id": "denner-add5d94b9d66",

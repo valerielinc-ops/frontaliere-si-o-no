@@ -2582,7 +2582,7 @@
         "en": "team-lead-lonza-training-center-80-100-m-w-d-lonza-ch",
         "it": "team-lead-lonza-training-center-80-100-m-w-d-lonza-ch",
         "de": "team-lead-lonza-training-center-80-100-m-w-d-lonza-ch",
-        "fr": "team-lead-lonza-training-center-80-100-m-w-d-lonza-ch"
+        "fr": "centre-de-formation-lonza-en-chef-d-equipe-80-100-m-m-j-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -2640,12 +2640,12 @@
     },
     {
       "id": "lonza-9ccc171e78f9",
-      "slug": "batch-record-reviewer-betrieb-80-100-m-w-d-lonza-ch",
+      "slug": "recensore-dei-dischi-del-lotto-betrieb-80-100-lunedi-mercoledi-d-lonza-ch",
       "slugByLocale": {
         "de": "batch-record-reviewer-betrieb-80-100-m-w-d-lonza-ch",
-        "it": "batch-record-reviewer-betrieb-80-100-m-w-d-lonza-ch",
+        "it": "recensore-dei-dischi-del-lotto-betrieb-80-100-lunedi-mercoledi-d-lonza-ch",
         "en": "batch-record-reviewer-betrieb-80-100-m-w-d-lonza-ch",
-        "fr": "batch-record-reviewer-betrieb-80-100-m-w-d-lonza-ch"
+        "fr": "evaluateur-de-dossiers-par-lots-betrieb-80-100-m-m-j-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -2699,7 +2699,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-13T22:04:10.626Z"
+      "firstSeenAt": "2026-04-13T22:04:10.626Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "batch-record-reviewer-betrieb-80-100-m-w-d-lonza-ch"
+        ],
+        "fr": [
+          "batch-record-reviewer-betrieb-80-100-m-w-d-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "batch-record-reviewer-betrieb-80-100-m-w-d-lonza-ch"
+      ]
     },
     {
       "id": "lonza-6f3df88a07a4",
@@ -2781,12 +2792,12 @@
     },
     {
       "id": "lonza-3f89e1b403ac",
-      "slug": "praktikant-training-center-80-100-m-w-d-lonza-ch",
+      "slug": "centro-di-formazione-di-stage-80-100-lonza-ch",
       "slugByLocale": {
         "de": "internship-training-center-80-100-lonza-ch",
-        "it": "praktikant-training-center-80-100-m-w-d-lonza-ch",
+        "it": "centro-di-formazione-di-stage-80-100-lonza-ch",
         "en": "internship-training-center-80-100-lonza-ch",
-        "fr": "praktikant-training-center-80-100-m-w-d-lonza-ch"
+        "fr": "centre-de-formation-des-stagiaires-80-100-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -2842,16 +2853,27 @@
         }
       },
       "firstSeenAt": "2026-04-13T22:04:10.626Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-training-center-80-100-m-w-d-lonza-ch"
+        ],
+        "fr": [
+          "praktikant-training-center-80-100-m-w-d-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-training-center-80-100-m-w-d-lonza-ch"
+      ]
     },
     {
       "id": "lonza-4f68833150c8",
-      "slug": "associate-principal-scientist-qc-lonza-ch",
+      "slug": "principale-scienziato-associato-qc-lonza-ch",
       "slugByLocale": {
         "en": "associate-principal-scientist-qc-lonza-ch",
-        "it": "associate-principal-scientist-qc-lonza-ch",
-        "de": "associate-principal-scientist-qc-lonza-ch",
-        "fr": "associate-principal-scientist-qc-lonza-ch"
+        "it": "principale-scienziato-associato-qc-lonza-ch",
+        "de": "wissenschaftlicher-mitarbeiter-qc-lonza-ch",
+        "fr": "chercheur-principal-associe-qc-lonza-ch"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -2905,7 +2927,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-13T22:04:10.626Z"
+      "firstSeenAt": "2026-04-13T22:04:10.626Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "associate-principal-scientist-qc-lonza-ch"
+        ],
+        "de": [
+          "associate-principal-scientist-qc-lonza-ch"
+        ],
+        "fr": [
+          "associate-principal-scientist-qc-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "associate-principal-scientist-qc-lonza-ch"
+      ]
     }
   ]
 }

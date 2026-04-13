@@ -2522,9 +2522,9 @@
     },
     {
       "id": "hopital-du-valais-7e819bc76a04",
-      "slug": "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion",
+      "slug": "100-assistant-x-ray-specialist-hopital-du-valais-sion",
       "slugByLocale": {
-        "it": "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion",
+        "it": "100-assistant-x-ray-specialist-hopital-du-valais-sion",
         "en": "associate-physician-specialist-in-radiology-at-100-hopital-du-valais-sion",
         "de": "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion",
         "fr": "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion"
@@ -2573,12 +2573,12 @@
       "previousSlugsByLocale": {
         "it": [
           "medico-aggiunto-specialista-in-radiologia-al-100-hopital-du-valais-sion",
-          "100-assistant-x-ray-specialist-hopital-du-valais-sion"
+          "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion"
         ]
       },
       "previousSlugs": [
         "medico-aggiunto-specialista-in-radiologia-al-100-hopital-du-valais-sion",
-        "100-assistant-x-ray-specialist-hopital-du-valais-sion"
+        "medecin-adjoint-e-specialiste-en-radiologie-a-100-hopital-du-valais-sion"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -3000,7 +3000,7 @@
       "slug": "psicologo-psicoterapeuta-al-50-per-il-servizio-di-psichiatria-e-psicoterapia-adulti-del-vallese-centrale-hopital-du-vala",
       "slugByLocale": {
         "it": "psicologo-psicoterapeuta-al-50-per-il-servizio-di-psichiatria-e-psicoterapia-adulti-del-vallese-centrale-hopital-du-vala",
-        "en": "psychologue-psychotherapeute-a-50-pour-le-service-de-psychiatrie-et-psychotherapie-adulte-",
+        "en": "psychologist-psychotherapist-50-for-the-service-of-psychiatry-and-adult-psychotherapy-in-central-valais-hopital-du-valai",
         "de": "50-stelle-als-psychologe-psychotherapeut-in-fur-den-dienst-fur-erwachsenenpsychiatrie-und-psychotherapie-im-zentralwalli",
         "fr": "psychologue-psychotherapeute-a-50-pour-le-service-de-psychiatrie-et-psychotherapie-adulte-"
       },
@@ -3048,7 +3048,7 @@
       "previousSlugsByLocale": {
         "en": [
           "50-psychologist-psychotherapist-for-adult-psychiatry-and-psychotherapy-service-in-central-valais-hopital-du-valais-marti",
-          "psychologist-psychotherapist-50-for-the-service-of-psychiatry-and-adult-psychotherapy-in-central-valais-hopital-du-valai"
+          "psychologue-psychotherapeute-a-50-pour-le-service-de-psychiatrie-et-psychotherapie-adulte-"
         ],
         "it": [
           "psychologue-psychotherapeute-a-50-pour-le-service-de-psychiatrie-et-psychotherapie-adulte-"
@@ -3059,8 +3059,7 @@
       },
       "previousSlugs": [
         "50-psychologist-psychotherapist-for-adult-psychiatry-and-psychotherapy-service-in-central-valais-hopital-du-valais-marti",
-        "psychologue-psychotherapeute-a-50-pour-le-service-de-psychiatrie-et-psychotherapie-adulte-",
-        "psychologist-psychotherapist-50-for-the-service-of-psychiatry-and-adult-psychotherapy-in-central-valais-hopital-du-valai"
+        "psychologue-psychotherapeute-a-50-pour-le-service-de-psychiatrie-et-psychotherapie-adulte-"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -3239,12 +3238,12 @@
     },
     {
       "id": "hopital-du-valais-fe6b6ac437da",
-      "slug": "praxisausbildner-in-dreibein-80-100-orthopadische-lean-bettenabteilung-hopital-du-valais-b",
+      "slug": "formatore-pratici-dreibein-80-100-dipartimento-di-letti-ortopedici-lean-hopital-du-valais-brig",
       "slugByLocale": {
         "de": "praxisausbildner-in-dreibein-80-100-orthopadische-lean-bettenabteilung-hopital-du-valais-b",
-        "it": "praxisausbildner-in-dreibein-80-100-orthopadische-lean-bettenabteilung-hopital-du-valais-b",
-        "en": "praxisausbildner-in-dreibein-80-100-orthopadische-lean-bettenabteilung-hopital-du-valais-b",
-        "fr": "praxisausbildner-in-dreibein-80-100-orthopadische-lean-bettenabteilung-hopital-du-valais-b"
+        "it": "formatore-pratici-dreibein-80-100-dipartimento-di-letti-ortopedici-lean-hopital-du-valais-brig",
+        "en": "trainee-trainer-dreibein-80-100-orthopedic-lean-beds-department-hopital-du-valais-brig",
+        "fr": "formateur-formatrice-en-pratique-dreibein-80-100-service-des-lits-orthopediques-lean-hopital-du-valais-brig"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -3302,7 +3301,21 @@
         }
       },
       "firstSeenAt": "2026-04-13T21:52:21.439Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "praxisausbildner-in-dreibein-80-100-orthopadische-lean-bettenabteilung-hopital-du-valais-b"
+        ],
+        "en": [
+          "praxisausbildner-in-dreibein-80-100-orthopadische-lean-bettenabteilung-hopital-du-valais-b"
+        ],
+        "fr": [
+          "praxisausbildner-in-dreibein-80-100-orthopadische-lean-bettenabteilung-hopital-du-valais-b"
+        ]
+      },
+      "previousSlugs": [
+        "praxisausbildner-in-dreibein-80-100-orthopadische-lean-bettenabteilung-hopital-du-valais-b"
+      ]
     }
   ]
 }

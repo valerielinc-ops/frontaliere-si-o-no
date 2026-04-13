@@ -1936,8 +1936,8 @@
       "slugByLocale": {
         "de": "lehrstelle-zur-fachperson-betreuung-efz-bereich-kinderbetreuung-bewerbungsmanagement-spital-davos-spital-davos-davos",
         "it": "apprendistato-zur-fachperson-betreuung-cfc-bereich-kinderbetreuung-bewerbungsmanagement-spital-davos-spital-davos-davos",
-        "en": "lehrstelle-zur-fachperson-betreuung-efz-bereich-kinderbetreuung-bewerbungsmanagement-spital-davos-spital-davos-davos",
-        "fr": "lehrstelle-zur-fachperson-betreuung-efz-bereich-kinderbetreuung-bewerbungsmanagement-spital-davos-spital-davos-davos"
+        "en": "teaching-centre-on-the-subject-care-efz-area-childcare-application-management-spital-davos-spital-davos-davos",
+        "fr": "centre-d-enseignement-sur-le-sujet-care-efz-zone-garde-d-enfants-spital-davos-davos"
       },
       "company": "Spital Davos",
       "companyKey": "spital-davos",
@@ -1988,10 +1988,17 @@
         ],
         "de": [
           "lehrstelle-zur-fachperson-betreuung-efz-bereich-kinderbetreuung-bewerbungsmanagement-spita"
+        ],
+        "en": [
+          "lehrstelle-zur-fachperson-betreuung-efz-bereich-kinderbetreuung-bewerbungsmanagement-spital-davos-spital-davos-davos"
+        ],
+        "fr": [
+          "lehrstelle-zur-fachperson-betreuung-efz-bereich-kinderbetreuung-bewerbungsmanagement-spital-davos-spital-davos-davos"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-zur-fachperson-betreuung-efz-bereich-kinderbetreuung-bewerbungsmanagement-spita"
+        "lehrstelle-zur-fachperson-betreuung-efz-bereich-kinderbetreuung-bewerbungsmanagement-spita",
+        "lehrstelle-zur-fachperson-betreuung-efz-bereich-kinderbetreuung-bewerbungsmanagement-spital-davos-spital-davos-davos"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,

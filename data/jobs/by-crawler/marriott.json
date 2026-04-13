@@ -543,7 +543,7 @@
         "en": "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier",
         "it": "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier",
         "de": "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier",
-        "fr": "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier"
+        "fr": "garcon-chaine-brasserie-u-yama-hiver-26-27-w-verbier-marriott-international-verbier"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -705,12 +705,12 @@
     },
     {
       "id": "marriott-60e874aa2d93",
-      "slug": "responsabile-revenue-management-marriott-international-geneva",
+      "slug": "cameriera-barre-inverno-26-27-w-verbier-marriott-international-verbier",
       "slugByLocale": {
         "en": "waiter-tress-bars-winter-26-27-w-verbier-marriott-verbier",
-        "it": "responsabile-revenue-management-marriott-international-geneva",
+        "it": "cameriera-barre-inverno-26-27-w-verbier-marriott-international-verbier",
         "de": "waiter-tress-bars-winter-26-27-w-verbier-marriott-international-verbier",
-        "fr": "responsable-revenue-management-marriott-international-geneva"
+        "fr": "barres-de-serveur-hiver-26-27-w-verbier-marriott-international-verbier"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -765,10 +765,18 @@
       "previousSlugsByLocale": {
         "de": [
           "umsatzmanager-marriott-international-geneva"
+        ],
+        "it": [
+          "responsabile-revenue-management-marriott-international-geneva"
+        ],
+        "fr": [
+          "responsable-revenue-management-marriott-international-geneva"
         ]
       },
       "previousSlugs": [
-        "umsatzmanager-marriott-international-geneva"
+        "umsatzmanager-marriott-international-geneva",
+        "responsabile-revenue-management-marriott-international-geneva",
+        "responsable-revenue-management-marriott-international-geneva"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2218,7 +2226,7 @@
         "en": "night-ird-chef-de-rang-room-service-winter-26-27-w-verbier-marriott-verbier",
         "it": "night-ird-chef-de-rang-room-service-winter-26-27-w-verbier-marriott-verbier",
         "de": "night-ird-chef-de-rang-room-service-winter-26-27-w-verbier-marriott-verbier",
-        "fr": "night-ird-chef-de-rang-room-service-winter-26-27-w-verbier-marriott-verbier"
+        "fr": "nuit-ird-chef-de-rang-service-en-chambre-hiver-26-27-w-verbier-marriott-international-verbier"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -2607,10 +2615,10 @@
     },
     {
       "id": "marriott-172be35c89c8",
-      "slug": "host-ess-waiter-tress-restaurants-winter-26-27-w-verbier-marriott-verbier",
+      "slug": "ristoranti-inverno-26-27-w-verbier-marriott-international-verbier",
       "slugByLocale": {
         "en": "host-ess-waiter-tress-restaurants-winter-26-27-w-verbier-marriott-verbier",
-        "it": "host-ess-waiter-tress-restaurants-winter-26-27-w-verbier-marriott-verbier",
+        "it": "ristoranti-inverno-26-27-w-verbier-marriott-international-verbier",
         "de": "host-ess-waiter-tress-restaurants-winter-26-27-w-verbier-marriott-verbier",
         "fr": "host-ess-waiter-tress-restaurants-winter-26-27-w-verbier-marriott-verbier"
       },
@@ -2676,7 +2684,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-13T22:05:49.201Z"
+      "firstSeenAt": "2026-04-13T22:05:49.201Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "host-ess-waiter-tress-restaurants-winter-26-27-w-verbier-marriott-verbier"
+        ]
+      },
+      "previousSlugs": [
+        "host-ess-waiter-tress-restaurants-winter-26-27-w-verbier-marriott-verbier"
+      ]
     },
     {
       "id": "marriott-001f72f3038b",
@@ -2790,10 +2806,10 @@
     },
     {
       "id": "marriott-06fd540ea169",
-      "slug": "f-b-service-shiftleader-lenox-bar-marriott-zurich",
+      "slug": "manubrio-lenox-shift-bar-servizio-f-b-marriott-international-zurich",
       "slugByLocale": {
         "en": "f-b-service-shiftleader-lenox-bar-marriott-zurich",
-        "it": "f-b-service-shiftleader-lenox-bar-marriott-zurich",
+        "it": "manubrio-lenox-shift-bar-servizio-f-b-marriott-international-zurich",
         "de": "f-b-service-shiftleader-lenox-bar-marriott-zurich",
         "fr": "f-b-service-shiftleader-lenox-bar-marriott-zurich"
       },
@@ -2859,7 +2875,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-13T22:05:49.201Z"
+      "firstSeenAt": "2026-04-13T22:05:49.201Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "f-b-service-shiftleader-lenox-bar-marriott-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "f-b-service-shiftleader-lenox-bar-marriott-zurich"
+      ]
     },
     {
       "id": "marriott-7f1bfc1278f9",
@@ -3330,12 +3354,12 @@
     },
     {
       "id": "marriott-7a55a7a6f053",
-      "slug": "commis-de-cuisine-winter-26-27-w-verbier-marriott-verbier",
+      "slug": "commissione-della-cucina-inverno-26-27-w-verbier-marriott-international-verbier",
       "slugByLocale": {
         "en": "commis-de-cuisine-winter-26-27-w-verbier-marriott-verbier",
-        "it": "commis-de-cuisine-winter-26-27-w-verbier-marriott-verbier",
+        "it": "commissione-della-cucina-inverno-26-27-w-verbier-marriott-international-verbier",
         "de": "commis-de-cuisine-winter-26-27-w-verbier-marriott-verbier",
-        "fr": "commis-de-cuisine-winter-26-27-w-verbier-marriott-verbier"
+        "fr": "commission-de-cuisine-hiver-26-27-w-verbier-marriott-international-verbier"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -3399,7 +3423,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-13T22:05:49.201Z"
+      "firstSeenAt": "2026-04-13T22:05:49.201Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "commis-de-cuisine-winter-26-27-w-verbier-marriott-verbier"
+        ],
+        "fr": [
+          "commis-de-cuisine-winter-26-27-w-verbier-marriott-verbier"
+        ]
+      },
+      "previousSlugs": [
+        "commis-de-cuisine-winter-26-27-w-verbier-marriott-verbier"
+      ]
     },
     {
       "id": "marriott-973db55a3047",
@@ -3508,12 +3543,12 @@
     },
     {
       "id": "marriott-bd22c6da3886",
-      "slug": "chef-de-rang-ird-evening-room-service-winter-26-27-w-verbier-marriott-verbier",
+      "slug": "chef-de-rang-ird-sera-servizio-in-camera-inverno-26-27-w-verbier-marriott-international-verbier",
       "slugByLocale": {
         "en": "chef-de-rang-ird-evening-room-service-winter-26-27-w-verbier-marriott-verbier",
-        "it": "chef-de-rang-ird-evening-room-service-winter-26-27-w-verbier-marriott-verbier",
+        "it": "chef-de-rang-ird-sera-servizio-in-camera-inverno-26-27-w-verbier-marriott-international-verbier",
         "de": "chef-de-rang-ird-evening-room-service-winter-26-27-w-verbier-marriott-verbier",
-        "fr": "chef-de-rang-ird-evening-room-service-winter-26-27-w-verbier-marriott-verbier"
+        "fr": "chef-de-rang-ird-soir-service-en-chambre-hiver-26-27-w-verbier-marriott-international-verbier"
       },
       "company": "Marriott International",
       "companyKey": "marriott",
@@ -3577,7 +3612,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-13T22:05:49.201Z"
+      "firstSeenAt": "2026-04-13T22:05:49.201Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-de-rang-ird-evening-room-service-winter-26-27-w-verbier-marriott-verbier"
+        ],
+        "fr": [
+          "chef-de-rang-ird-evening-room-service-winter-26-27-w-verbier-marriott-verbier"
+        ]
+      },
+      "previousSlugs": [
+        "chef-de-rang-ird-evening-room-service-winter-26-27-w-verbier-marriott-verbier"
+      ]
     },
     {
       "id": "marriott-da31dc56943e",

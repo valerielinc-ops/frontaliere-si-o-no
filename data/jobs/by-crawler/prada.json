@@ -191,12 +191,12 @@
     },
     {
       "id": "prada-9e5ffbd57834",
-      "slug": "prada-store-manager-prada-group-mendrisio",
+      "slug": "responsabile-del-negozio-prada-prada-group-mendrisio",
       "slugByLocale": {
         "en": "prada-store-manager-prada-group-mendrisio",
-        "it": "prada-store-manager-prada-group-mendrisio",
+        "it": "responsabile-del-negozio-prada-prada-group-mendrisio",
         "de": "prada-store-manager-prada-group-mendrisio",
-        "fr": "prada-store-manager-prada-group-mendrisio"
+        "fr": "gestionnaire-de-magasin-prada-prada-group-mendrisio"
       },
       "company": "Prada Group",
       "companyKey": "prada",
@@ -246,7 +246,18 @@
         }
       },
       "postalCode": "6850",
-      "firstSeenAt": "2026-04-13T22:16:01.993Z"
+      "firstSeenAt": "2026-04-13T22:16:01.993Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "prada-store-manager-prada-group-mendrisio"
+        ],
+        "fr": [
+          "prada-store-manager-prada-group-mendrisio"
+        ]
+      },
+      "previousSlugs": [
+        "prada-store-manager-prada-group-mendrisio"
+      ]
     },
     {
       "id": "prada-31f61df1e109",
