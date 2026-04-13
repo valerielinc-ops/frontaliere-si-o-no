@@ -386,6 +386,19 @@ const deCalculator: Record<string, string> = {
     'results.compareCta.subtitle': 'Passen Sie Gehalt, Kinderzahl oder Familienstand an und sehen Sie sofort, wie sich Ihr Nettoeinkommen verändert.',
     'results.compareCta.button': 'Szenarien vergleichen',
     'results.compareCta.hint': 'Was-wäre-wenn-Simulator — kostenlos',
+
+    // Desktop compact mode (progressive disclosure)
+    'input.compact.preview': 'Ergebnisvorschau',
+    'input.compact.previewHint': 'Passen Sie alle Parameter an, um ein genaues Ergebnis zu erhalten',
+    'input.compact.expandCta': 'Alle Details anzeigen',
+    'input.compact.expandHint': 'Familie, Ausgaben, Wechselkurs, erweiterte Parameter',
+    'common.month': 'Monat',
+
+    // Result sharing & saving
+    'results.share.buttonShort': 'Teilen',
+    'results.save.button': 'Für später speichern',
+    'results.save.buttonShort': 'Speichern',
+    'results.save.saved': 'Gespeichert!',
 };
 
 export default deCalculator;

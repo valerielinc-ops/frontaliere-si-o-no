@@ -386,6 +386,19 @@ const enCalculator: Record<string, string> = {
     'results.compareCta.subtitle': 'Adjust salary, number of children or family status and instantly see how your net income shifts.',
     'results.compareCta.button': 'Compare different scenarios',
     'results.compareCta.hint': 'What-if simulator — free',
+
+    // Desktop compact mode (progressive disclosure)
+    'input.compact.preview': 'Result preview',
+    'input.compact.previewHint': 'Customize all parameters for an accurate result',
+    'input.compact.expandCta': 'See full detail',
+    'input.compact.expandHint': 'Family, expenses, exchange rate, advanced parameters',
+    'common.month': 'month',
+
+    // Result sharing & saving
+    'results.share.buttonShort': 'Share',
+    'results.save.button': 'Save for later',
+    'results.save.buttonShort': 'Save',
+    'results.save.saved': 'Saved!',
 };
 
 export default enCalculator;

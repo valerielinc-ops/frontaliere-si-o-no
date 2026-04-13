@@ -143,7 +143,7 @@ export default function CalcolatoreTabContent() {
             <div className="hidden md:grid grid-cols-12 gap-6 h-full">
               <div className="md:col-span-4 lg:col-span-4 xl:col-span-3 h-full">
                 <Suspense fallback={<SkeletonInputCard />}>
-                  <InputCard inputs={inputs} setInputs={setInputs} onCalculate={handleCalculate} />
+                  <InputCard inputs={inputs} setInputs={setInputs} onCalculate={handleCalculate} result={result} />
                 </Suspense>
               </div>
               <div className="md:col-span-8 lg:col-span-8 xl:col-span-9 h-full">

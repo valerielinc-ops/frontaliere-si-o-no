@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import { requestSlot, releaseSlot, isActive, subscribe, POPUP_PRIORITY } from '@/services/popupQueue';
-import { Wand2, Castle, Bandage, PiggyBank, CalendarClock, Joystick, Plus, Minus, ChevronDown, ChevronUp, Check, TrainFront, Coins, Receipt, Car, Home, User, Heart, Briefcase, Ruler, Baby, Users, Sliders, Calculator, RotateCcw, Settings2, RefreshCw, X, Zap, Wifi, ShoppingBasket, Bus, Fuel, Info, Smartphone, Droplet, Tv, Shield, Landmark, AlertTriangle } from 'lucide-react';
+import { Wand2, Castle, Bandage, PiggyBank, CalendarClock, Joystick, Plus, Minus, ChevronDown, ChevronUp, Check, TrainFront, Coins, Receipt, Car, Home, User, Heart, Briefcase, Ruler, Baby, Users, Sliders, Calculator, RotateCcw, Settings2, RefreshCw, X, Zap, Wifi, ShoppingBasket, Bus, Fuel, Info, Smartphone, Droplet, Tv, Shield, Landmark, AlertTriangle, ChevronRight } from 'lucide-react';
 import { SimulationInputs, ExpenseItem } from '../../types';
 import { DEFAULT_INPUTS, DEFAULT_TECH_PARAMS, PRESET_EXPENSES_CH, PRESET_EXPENSES_IT, calculateDynamicExpenses } from '../../constants';
 import { Analytics } from '../../services/analytics';
@@ -13,9 +13,11 @@ import { reportCaughtError } from '@/services/errorReporter';
 interface Props {
   inputs: SimulationInputs;
   setInputs: React.Dispatch<React.SetStateAction<SimulationInputs>>;
-  onCalculate: () => void; 
+  onCalculate: () => void;
   focusField?: 'age' | 'maritalStatus' | 'children' | null;
   focusRequestId?: number;
+  /** Optional result for desktop compact mode teaser preview */
+  result?: import('../../types').SimulationResult | null;
 }
 
 // --- Icons Map for Dynamic Rendering ---
@@ -184,7 +186,9 @@ const TechInput: React.FC<{
 const SALARY_MIN = 0;
 const SALARY_MAX = 1_000_000;
 
-const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusField = null, focusRequestId = 0 }) => {
+const DESKTOP_EXPANDED_KEY = 'calc_desktop_expanded';
+
+const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusField = null, focusRequestId = 0, result = null }) => {
   const { t } = useTranslation();
   const nav = useNavigationOptional();
   const isFocusMode = nav?.isFocusMode;
@@ -196,6 +200,19 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
   const [easterEggVisible, setEasterEggVisible] = useState(false);
   const easterEggTimer = useRef<ReturnType<typeof setTimeout>>();
   const inputStartTracked = useRef(false);
+
+  // Desktop progressive disclosure: compact mode shows only 3 key fields
+  // Returns true (expanded) if user has previously expanded, else false (compact)
+  const [desktopExpanded, setDesktopExpanded] = useState(() => {
+    if (typeof window === 'undefined') return false;
+    return localStorage.getItem(DESKTOP_EXPANDED_KEY) === '1';
+  });
+
+  const expandDesktop = useCallback(() => {
+    setDesktopExpanded(true);
+    localStorage.setItem(DESKTOP_EXPANDED_KEY, '1');
+    Analytics.trackUIInteraction('simulatore', 'input', 'expand_full_form', 'click');
+  }, []);
 
   // Sync easter egg toast with popup queue so it doesn't overlap gamification
   useEffect(() => {
@@ -405,10 +422,161 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
             </div>
           </div>
         </div>
+      ) : !desktopExpanded ? (
+        /* DESKTOP COMPACT MODE — 3 key fields + teaser + expand CTA */
+        <div className="flex-grow overflow-y-auto custom-scrollbar p-3 space-y-3 pb-20">
+          <div className="bg-surface rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm">
+            <div className="p-5 space-y-6">
+              {/* Income Input - Prominent (same as full form) */}
+              <div className="space-y-2">
+                <label className="text-xs font-bold text-subtle uppercase tracking-wide flex items-center gap-1.5">
+                  <Coins size={14} className="text-amber-500"/> {t('input.grossAnnualIncome')}
+                  <InfoTooltip text={t('input.incomeTooltip')} />
+                </label>
+                <div className="flex items-stretch transition-transform duration-200 focus-within:scale-[1.01]">
+                  <button
+                    type="button"
+                    onClick={() => handleChange('annualIncomeCHF', Math.max(SALARY_MIN, inputs.annualIncomeCHF - 1000))}
+                    className={`shrink-0 w-12 bg-surface-alt border-2 border-r-0 rounded-l-2xl transition-[color,background-color,transform] hover:bg-slate-100 dark:hover:bg-slate-800 active:scale-95 ${salaryError ? 'border-red-400' : 'border-slate-100 dark:border-slate-700'} text-muted hover:text-stripe-600 dark:hover:text-stripe-400 flex items-center justify-center`}
+                    aria-label="Diminuisci reddito di CHF 1000"
+                  >
+                    <Minus size={18} strokeWidth={2.5} />
+                  </button>
+                  <div className="relative flex-1 group">
+                    <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                      <span className="text-muted font-bold text-lg">CHF</span>
+                    </div>
+                    <input
+                      type="text"
+                      inputMode="numeric"
+                      value={formatNumber(inputs.annualIncomeCHF)}
+                      onChange={(e) => {
+                        const val = parseNumber(e.target.value);
+                        const clamped = Math.max(SALARY_MIN, Math.min(SALARY_MAX, val));
+                        handleChange('annualIncomeCHF', clamped);
+                      }}
+                      aria-label={t('input.grossAnnualIncome') || 'Reddito annuo lordo CHF'}
+                      className={`w-full pl-14 pr-4 py-4 bg-surface-alt border-2 border-x-0 focus-visible:ring-4 focus-visible:ring-inset outline-none transition-[color,border-color,box-shadow] font-bold text-slate-800 dark:text-slate-100 text-2xl tracking-tight ${salaryError ? 'border-red-400 focus-visible:border-red-500 focus-visible:ring-red-500/10' : 'border-slate-100 dark:border-slate-700 focus-visible:border-stripe-500 focus-visible:ring-stripe-500/10'}`}
+                      placeholder="0"
+                    />
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => handleChange('annualIncomeCHF', Math.min(SALARY_MAX, inputs.annualIncomeCHF + 1000))}
+                    className={`shrink-0 w-12 bg-surface-alt border-2 border-l-0 rounded-r-2xl transition-[color,background-color,transform] hover:bg-slate-100 dark:hover:bg-slate-800 active:scale-95 ${salaryError ? 'border-red-400' : 'border-slate-100 dark:border-slate-700'} text-muted hover:text-stripe-600 dark:hover:text-stripe-400 flex items-center justify-center`}
+                    aria-label="Aumenta reddito di CHF 1000"
+                  >
+                    <Plus size={18} strokeWidth={2.5} />
+                  </button>
+                </div>
+                {salaryError && (
+                  <p role="alert" aria-live="polite" className="text-sm text-red-600 dark:text-red-400 font-semibold mt-1 flex items-center gap-1">
+                    <AlertTriangle size={12} /> {salaryError}
+                  </p>
+                )}
+                <div className="flex gap-1.5 mt-2 overflow-x-auto scrollbar-none pb-0.5">
+                  {[50000, 75000, 100000, 120000, 150000].map((s) => (
+                    <button
+                      key={s}
+                      type="button"
+                      onClick={() => handleChange('annualIncomeCHF', s)}
+                      className={`shrink-0 px-2.5 py-1 rounded-lg text-xs font-bold transition-colors ${
+                        inputs.annualIncomeCHF === s
+                          ? 'bg-stripe-600 text-white shadow-sm'
+                          : 'bg-surface-raised text-subtle hover:bg-slate-200 dark:hover:bg-slate-700'
+                      }`}
+                    >
+                      {s / 1000}k
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Worker type selector (compact) */}
+              <div className="space-y-2">
+                <h3 className="text-xs font-bold text-slate-600 dark:text-slate-300 uppercase tracking-widest flex items-center gap-2">
+                  <TrainFront size={14} className="text-emerald-500"/> {t('input.frontierType')}
+                </h3>
+                <div className="grid grid-cols-2 gap-3">
+                  <button
+                    onClick={() => { handleChange('frontierWorkerType', 'NEW'); handleChange('distanceZone', 'WITHIN_20KM'); if (inputs.frontierWorkerType !== 'NEW') showFrontierEasterEgg('NEW'); }}
+                    className={`relative p-3 rounded-xl border-2 transition-[color,background-color,border-color] flex flex-col items-center justify-center text-center gap-1 group ${inputs.frontierWorkerType === 'NEW' ? 'border-stripe-500 bg-stripe-50/50 dark:bg-stripe-900/20' : 'border-slate-100 dark:border-slate-700 bg-surface-alt hover:border-slate-300'}`}
+                  >
+                    {inputs.frontierWorkerType === 'NEW' && <div className="absolute top-2 right-2 bg-stripe-500 text-white rounded-full p-0.5"><Check size={10} strokeWidth={4} /></div>}
+                    <span className={`font-bold text-sm ${inputs.frontierWorkerType === 'NEW' ? 'text-stripe-700 dark:text-stripe-300' : 'text-slate-600 dark:text-slate-300'}`}>{t('input.newFrontier')}</span>
+                    <span className="text-sm text-subtle font-medium">{t('input.postDate')}</span>
+                  </button>
+                  <button
+                    onClick={() => { handleChange('frontierWorkerType', 'OLD'); if (inputs.frontierWorkerType !== 'OLD') showFrontierEasterEgg('OLD'); }}
+                    className={`relative p-3 rounded-xl border-2 transition-[color,background-color,border-color] flex flex-col items-center justify-center text-center gap-1 group ${inputs.frontierWorkerType === 'OLD' ? 'border-emerald-500 bg-emerald-50/50 dark:bg-emerald-900/20' : 'border-slate-100 dark:border-slate-700 bg-surface-alt hover:border-slate-300'}`}
+                  >
+                    {inputs.frontierWorkerType === 'OLD' && <div className="absolute top-2 right-2 bg-emerald-700 text-white rounded-full p-0.5"><Check size={10} strokeWidth={4} /></div>}
+                    <span className={`font-bold text-sm ${inputs.frontierWorkerType === 'OLD' ? 'text-emerald-700 dark:text-emerald-300' : 'text-slate-600 dark:text-slate-300'}`}>{t('input.oldFrontier')}</span>
+                    <span className="text-sm text-subtle font-medium">{t('input.preDate')}</span>
+                  </button>
+                </div>
+              </div>
+
+              {/* Age (compact) */}
+              <StepperInput inputId="input-age-compact" label={t('input.age')} value={inputs.age} onChange={(v: number) => handleChange('age', v)} min={18} max={99} icon={User} iconColor="text-stripe-500" tooltip={t('input.ageTooltip')} />
+            </div>
+          </div>
+
+          {/* Teaser preview — shows a quick result summary when result is available */}
+          {result && inputs.annualIncomeCHF > 0 && (
+            <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30 rounded-2xl border border-emerald-200 dark:border-emerald-800 p-4 space-y-3">
+              <div className="text-xs font-bold text-emerald-700 dark:text-emerald-400 uppercase tracking-widest">{t('input.compact.preview')}</div>
+              <div className="grid grid-cols-2 gap-3">
+                <div className="bg-white/70 dark:bg-slate-900/50 rounded-xl p-3 border border-emerald-100 dark:border-emerald-800/50">
+                  <div className="text-xs text-stripe-600 dark:text-stripe-400 font-bold uppercase mb-1">{t('results.switzerland')}</div>
+                  <div className="text-lg font-bold text-stripe-700 dark:text-stripe-300 font-mono tabular-nums">
+                    CHF {Math.round(result.chResident.netIncomeMonthly).toLocaleString('it-IT')}
+                  </div>
+                  <div className="text-xs text-subtle font-medium">/{t('common.month') || 'mese'}</div>
+                </div>
+                <div className="bg-white/70 dark:bg-slate-900/50 rounded-xl p-3 border border-emerald-100 dark:border-emerald-800/50">
+                  <div className="text-xs text-red-600 dark:text-red-400 font-bold uppercase mb-1">{t('results.italy')}</div>
+                  <div className="text-lg font-bold text-red-700 dark:text-red-300 font-mono tabular-nums">
+                    CHF {Math.round(result.itResident.netIncomeMonthly).toLocaleString('it-IT')}
+                  </div>
+                  <div className="text-xs text-subtle font-medium">/{t('common.month') || 'mese'}</div>
+                </div>
+              </div>
+              <div className="text-xs text-emerald-700 dark:text-emerald-400 font-medium text-center">
+                {t('input.compact.previewHint')}
+              </div>
+            </div>
+          )}
+
+          {/* Expand CTA */}
+          <button
+            type="button"
+            onClick={expandDesktop}
+            aria-label={t('input.compact.expandCta')}
+            className="w-full flex items-center justify-between gap-3 p-4 bg-gradient-to-r from-stripe-600 to-stripe-700 hover:from-stripe-700 hover:to-stripe-800 rounded-2xl text-white shadow-md hover:shadow-lg transition-[color,background-color,border-color,box-shadow,opacity,transform] duration-200 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stripe-400 focus-visible:ring-offset-2"
+          >
+            <div className="flex items-center gap-3">
+              <div className="p-2 bg-white/20 rounded-xl">
+                <Sliders size={18} />
+              </div>
+              <div className="text-left">
+                <div className="text-sm font-bold">{t('input.compact.expandCta')}</div>
+                <div className="text-xs text-stripe-100">{t('input.compact.expandHint')}</div>
+              </div>
+            </div>
+            <ChevronRight size={20} className="text-stripe-200 group-hover:translate-x-1 transition-transform" />
+          </button>
+
+          {/* Data privacy disclaimer (compact) */}
+          <div className="flex items-start gap-2.5 mx-2 p-3 bg-emerald-50 dark:bg-emerald-950/30 rounded-xl border border-emerald-100 dark:border-emerald-900/50">
+            <Shield size={14} className="text-emerald-700 dark:text-emerald-400 flex-shrink-0 mt-0.5" />
+            <p className="text-sm text-emerald-700 dark:text-emerald-400 leading-relaxed">{t('input.dataDisclaimer')}</p>
+          </div>
+        </div>
       ) : (
 
       <div className="flex-grow overflow-y-auto custom-scrollbar p-3 space-y-3 pb-20">
-        
+
         {/* SECTION 1: MAIN INPUTS */}
         <div className="bg-surface rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm">
            <div className="p-5 space-y-6">

@@ -1,5 +1,5 @@
 import React, { useState, useCallback, Suspense, useEffect, useRef } from 'react';
-import { ScrollText, Trophy, Armchair, Info, PartyPopper, Calculator, ChevronRight, Home, Briefcase, Heart, AlertCircle, ShoppingBag, ShieldCheck, User, Coins, Baby, TrainFront, Maximize2, Minimize2, Share2, Check, ArrowRight, Sliders } from 'lucide-react';
+import { ScrollText, Trophy, Armchair, Info, PartyPopper, Calculator, ChevronRight, Home, Briefcase, Heart, AlertCircle, ShoppingBag, ShieldCheck, User, Coins, Baby, TrainFront, Maximize2, Minimize2, Share2, Check, ArrowRight, Sliders, Bookmark, BookmarkCheck } from 'lucide-react';
 // jsPDF and autoTable are lazy-imported inside exportPDF() — only needed on user click (~134KB gzip saved from critical path)
 import { SimulationResult, TaxResult, TaxBreakdownItem, SimulationInputs } from '../../types';
 import { lazyRetry } from '@/services/lazyRetry';
@@ -178,6 +178,7 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
   const isFocusMode = nav?.isFocusMode;
   const [showEUR, setShowEUR] = useState(false);
   const [shareState, setShareState] = useState<'idle' | 'copied'>('idle');
+  const [saveState, setSaveState] = useState<'idle' | 'saved'>('idle');
   const chSectionRef = useRef<HTMLDivElement>(null);
   const itSectionRef = useRef<HTMLDivElement>(null);
 
@@ -216,6 +217,25 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
       Analytics.trackShare('link', 'simulation');
     } catch { /* user cancelled share dialog */ }
   }, [inputs, t]);
+
+  // Save simulation to localStorage for later retrieval
+  const handleSaveForLater = useCallback(() => {
+    try {
+      const savedSimulations = JSON.parse(localStorage.getItem('saved_simulations') || '[]') as Array<{ inputs: SimulationInputs; timestamp: number }>;
+      const entry = { inputs: { ...inputs }, timestamp: Date.now() };
+      // Keep max 10 saved simulations, newest first
+      const updated = [entry, ...savedSimulations.filter(
+        (s) => JSON.stringify(s.inputs) !== JSON.stringify(inputs)
+      )].slice(0, 10);
+      localStorage.setItem('saved_simulations', JSON.stringify(updated));
+      setSaveState('saved');
+      setTimeout(() => setSaveState('idle'), 2500);
+      Analytics.trackUIInteraction('simulatore', 'results', 'save_for_later', 'click');
+    } catch {
+      // localStorage might be full — silently fail
+    }
+  }, [inputs]);
+
   const { chResident, itResident, savingsCHF, savingsEUR, exchangeRate, monthsBasis } = result;
   const isBetterFrontaliere = savingsCHF > 0;
 
@@ -449,21 +469,32 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
                    {isFocusMode ? <Maximize2 size={20} /> : <Minimize2 size={20} />}
                  </button>
                )}
-               <button 
-                 onClick={exportPDF} 
-                 className="p-2 rounded-xl text-slate-500 hover:text-stripe-600 hover:bg-slate-100 dark:hover:bg-slate-800 transition-[color,background-color,box-shadow] flex-shrink-0 focus-visible:ring-2 focus-visible:ring-stripe-500 focus-visible:ring-offset-2"
+               <button
+                 onClick={exportPDF}
+                 className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-stripe-50 dark:bg-stripe-900/20 text-stripe-700 dark:text-stripe-300 hover:bg-stripe-100 dark:hover:bg-stripe-900/40 transition-[color,background-color,box-shadow] flex-shrink-0 focus-visible:ring-2 focus-visible:ring-stripe-500 focus-visible:ring-offset-2 text-xs font-bold"
                  title={t('results.downloadPDF')}
                  aria-label={t('results.downloadPDF')}
                >
-                 <ScrollText size={20} />
+                 <ScrollText size={14} />
+                 <span className="hidden sm:inline">PDF</span>
                </button>
                <button
                  onClick={handleShare}
-                 className={`p-2 rounded-xl transition-colors flex-shrink-0 ${shareState === 'copied' ? 'text-emerald-700 bg-emerald-50 dark:bg-emerald-900/20' : 'text-slate-500 hover:text-stripe-600 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
+                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl transition-colors flex-shrink-0 text-xs font-bold ${shareState === 'copied' ? 'text-emerald-700 bg-emerald-50 dark:bg-emerald-900/20' : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
                  title={shareState === 'copied' ? t('results.share.copied') : t('results.share.button')}
                  aria-label={t('results.share.button')}
                >
-                 {shareState === 'copied' ? <Check size={20} /> : <Share2 size={20} />}
+                 {shareState === 'copied' ? <Check size={14} /> : <Share2 size={14} />}
+                 <span className="hidden sm:inline">{shareState === 'copied' ? t('results.share.copied') : t('results.share.buttonShort')}</span>
+               </button>
+               <button
+                 onClick={handleSaveForLater}
+                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl transition-colors flex-shrink-0 text-xs font-bold ${saveState === 'saved' ? 'text-amber-700 bg-amber-50 dark:bg-amber-900/20' : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
+                 title={saveState === 'saved' ? t('results.save.saved') : t('results.save.button')}
+                 aria-label={t('results.save.button')}
+               >
+                 {saveState === 'saved' ? <BookmarkCheck size={14} /> : <Bookmark size={14} />}
+                 <span className="hidden sm:inline">{saveState === 'saved' ? t('results.save.saved') : t('results.save.buttonShort')}</span>
                </button>
              </div>
            </div>

@@ -386,6 +386,19 @@ const frCalculator: Record<string, string> = {
     'results.compareCta.subtitle': 'Ajustez le salaire, le nombre d\u2019enfants ou la situation familiale et voyez instantan\u00e9ment l\u2019impact sur votre revenu net.',
     'results.compareCta.button': 'Comparer diff\u00e9rents sc\u00e9narios',
     'results.compareCta.hint': 'Simulateur \u00ab\u00a0et-si\u00a0\u00bb \u2014 gratuit',
+
+    // Desktop compact mode (progressive disclosure)
+    'input.compact.preview': 'Aper\u00e7u du r\u00e9sultat',
+    'input.compact.previewHint': 'Personnalisez tous les param\u00e8tres pour un r\u00e9sultat pr\u00e9cis',
+    'input.compact.expandCta': 'Voir le d\u00e9tail complet',
+    'input.compact.expandHint': 'Famille, d\u00e9penses, taux de change, param\u00e8tres avanc\u00e9s',
+    'common.month': 'mois',
+
+    // Result sharing & saving
+    'results.share.buttonShort': 'Partager',
+    'results.save.button': 'Enregistrer pour plus tard',
+    'results.save.buttonShort': 'Enregistrer',
+    'results.save.saved': 'Enregistr\u00e9 !',
 };
 
 export default frCalculator;

@@ -398,5 +398,18 @@ const translations: Record<string, string> = {
     'results.compareCta.subtitle': 'Modifica stipendio, figli o situazione familiare e scopri subito come cambiano i tuoi numeri netti.',
     'results.compareCta.button': 'Confronta scenari diversi',
     'results.compareCta.hint': 'Simulatore "Cosa Cambia Se" — gratuito',
+
+    // Desktop compact mode (progressive disclosure)
+    'input.compact.preview': 'Anteprima risultato',
+    'input.compact.previewHint': 'Personalizza tutti i parametri per un risultato preciso',
+    'input.compact.expandCta': 'Vedi dettaglio completo',
+    'input.compact.expandHint': 'Famiglia, spese, tasso cambio, parametri avanzati',
+    'common.month': 'mese',
+
+    // Result sharing & saving
+    'results.share.buttonShort': 'Condividi',
+    'results.save.button': 'Salva per dopo',
+    'results.save.buttonShort': 'Salva',
+    'results.save.saved': 'Salvato!',
 };
 export default translations;
