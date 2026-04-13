@@ -1,6 +1,6 @@
 {
   "crawlerKey": "giardino",
-  "assembledAt": "2026-04-12T21:25:25.301Z",
+  "assembledAt": "2026-04-13T10:36:26.560Z",
   "jobs": [
     {
       "id": "giardino-a4c1442fdca3",
@@ -33,7 +33,7 @@
       "url": "https://giardinohotels.ch/en/jobs/ga-child-care-attendant/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-12T21:25:23.447Z",
+      "crawledAt": "2026-04-13T10:36:24.234Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressRegion": "TI",
@@ -103,105 +103,7 @@
           "child-care-attendant-giardino-group-ascona"
         ]
       },
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "giardino-43818e6901c7",
-      "slug": "amministratore-giardino-group-minusio",
-      "slugByLocale": {
-        "it": "amministratore-giardino-group-minusio",
-        "en": "steward-giardino-group-minusio",
-        "de": "steward-giardino-group-minusio",
-        "fr": "intendant-giardino-group-minusio"
-      },
-      "company": "Giardino Group",
-      "companyKey": "giardino",
-      "companyDomain": "giardinohotels.ch",
-      "title": "Steward",
-      "titleByLocale": {
-        "it": "Amministratore",
-        "en": "Steward",
-        "de": "Steward",
-        "fr": "intendant"
-      },
-      "description": "Giardino Group sucht für das Giardino Lago in Minusio eine/n Steward. Die Giardino Hotels sind eine charaktervolle Schweizer Luxushotelgruppe mit Standorten in St. Moritz, Ascona und Locarno.\n\n## Aufgaben\nIn dieser Funktion bist du verantwortlich für die gesamte Sauberkeit im Backoffice und der Küche. Dazu gehört neben dem Abwasch des Geschirrs, Pfannen und Besteck auch die Sauberkeit nach HACCP im gesamten Küchenbereich sowie die Reinigung von Kühlhäusern und die Abfallentsorgung.\n\n## Anforderungen\n- Erfahrung in einer gleichwertigen Position\n- Belastbarkeit, Flexibilität und Begeisterungsfähigkeit\n- Sie sind auch in hektischen Situationen ein Teamplayer und verlieren nicht die Übersicht\n- Einen respektvollen Umgang mit Kollegen und Vorgesetzten\n\n## Benefits\n- Einen innovativen und gut organisierten Arbeitsplatz\n- Die Möglichkeit, aktiv an der Eröffnung, am Geschäftsalltag und der Unternehmensentwicklung teilzunehmen\n- Eine offene und transparente Kommunikation\n- Regelmässige Schulungen und Weiterbildungen wie auch zahlreiche Mitarbeiterbenefits\n- Teil einer zeitgemässen und charaktervollen Schweizer Hotelgruppe zu sein",
-      "descriptionByLocale": {
-        "it": "Giardino Group cerca uno steward per il Giardino Lago a Minusio. I Giardino Hotel sono un gruppo alberghiero svizzero di lusso e caratteristico con strutture a St. Moritz, Ascona e Locarno. ## Compiti In questa posizione sei responsabile della pulizia completa dell'area backoffice e della cucina. Ciò include il lavaggio di stoviglie, padelle e posate, il rispetto delle norme HACCP in tutta l'area cucina, nonché la pulizia delle celle frigorifere e lo smaltimento dei rifiuti. ## Requisiti - Esperienza in una posizione equivalente - Resistenza allo stress, flessibilità ed entusiasmo - Sei un giocatore di squadra anche nelle situazioni più frenetiche e non perdi la calma - Comportamento rispettoso nei confronti dei colleghi e dei superiori ## Benefit - Un posto di lavoro innovativo e ben organizzato - La possibilità di partecipare attivamente all'apertura, alla vita aziendale e allo sviluppo dell'azienda - Comunicazione aperta e trasparente - Formazioni e aggiornamenti regolari, oltre a numerosi benefit per i dipendenti - Far parte di un gruppo alberghiero svizzero moderno e caratteristico",
-        "en": "Giardino Group is looking for a steward for Giardino Lago in Minusio. The Giardino Hotels are a distinctive Swiss luxury hotel group with locations in St. Moritz, Ascona and Locarno. ## Responsibilities In this role, you are responsible for the complete cleanliness of the back office and kitchen area. This includes washing dishes, pans and cutlery, maintaining HACCP standards throughout the kitchen area, as well as cleaning cold rooms and waste disposal. ## Requirements - Experience in a similar position - Resilience, flexibility and enthusiasm - You are a team player even in hectic situations and remain composed - Respectful conduct towards colleagues and supervisors ## Benefits - An innovative and well-organized workplace - The opportunity to actively contribute to the opening, daily operations and company development - Open and transparent communication - Regular training and professional development, as well as numerous employee benefits - Being part of a contemporary and distinctive Swiss hotel group",
-        "de": "Giardino Group sucht für das Giardino Lago in Minusio eine/n Steward. Die Giardino Hotels sind eine charaktervolle Schweizer Luxushotelgruppe mit Standorten in St. Moritz, Ascona und Locarno. ## Aufgaben In dieser Funktion bist du verantwortlich für die gesamte Sauberkeit im Backoffice und der Küche. Dazu gehört neben dem Abwasch des Geschirrs, Pfannen und Besteck auch die Sauberkeit nach HACCP im gesamten Küchenbereich sowie die Reinigung von Kühlhäusern und die Abfallentsorgung. ## Anforderungen - Erfahrung in einer gleichwertigen Position - Belastbarkeit, Flexibilität und Begeisterungsfähigkeit - Sie sind auch in hektischen Situationen ein Teamplayer und verlieren nicht die Übersicht - Einen respektvollen Umgang mit Kollegen und Vorgesetzten ## Benefits - Einen innovativen und gut organisierten Arbeitsplatz - Die Möglichkeit, aktiv an der Eröffnung, am Geschäftsalltag und der Unternehmensentwicklung teilzunehmen - Eine offene und transparente Kommunikation - Regelmässige Schulungen und Weiterbildungen wie auch zahlreiche Mitarbeiterbenefits - Teil einer zeitgemässen und charaktervollen Schweizer Hotelgruppe zu sein",
-        "fr": "Giardino Group recherche un steward pour le Giardino Lago à Minusio. Les hôtels Giardino forment un groupe hôtelier suisse de luxe et authentique, présent à Saint-Moritz, Ascona et Locarno. ## Tâches Dans ce poste, vous êtes responsable de la propreté complète du back-office et de la cuisine. Cela comprend le lavage de la vaisselle, des poêles et des couverts, le respect des normes HACCP dans tout l'espace cuisine, ainsi que le nettoyage des chambres froides et l'élimination des déchets. ## Exigences - Expérience dans un poste similaire - Résistance au stress, flexibilité et enthousiasme - Vous êtes un joueur d'équipe même dans des situations intenses et vous conservez votre sang-froid - Comportement respectueux envers les collègues et les supérieurs ## Avantages - Un lieu de travail innovant et bien organisé - La possibilité de participer activement à l'ouverture, à la vie quotidienne de l'entreprise et à son développement - Une communication ouverte et transparente - Des formations et perfectionnements réguliers, ainsi que de nombreux avantages pour les collaborateurs - Faire partie d'un groupe hôtelier suisse moderne et authentique"
-      },
-      "location": "Minusio",
-      "canton": "TI",
-      "url": "https://giardinohotels.ch/en/jobs/gl-steward-m-w/",
-      "source": "Giardino Group Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-04-12T21:25:23.447Z",
-      "addressLocality": "Minusio",
-      "postalCode": "6648",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Cucina / Gastronomia",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Ospitalità / Hotellerie",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-02-20",
-      "applyUrl": "https://giardinohotels.ch/en/jobs/gl-steward-m-w/",
-      "requirements": [
-        "Erfahrung in einer gleichwertigen Position",
-        "Belastbarkeit, Flexibilität und Begeisterungsfähigkeit",
-        "Sie sind auch in hektischen Situationen ein Teamplayer und verlieren nicht die Übersicht",
-        "Einen respektvollen Umgang mit Kollegen und Vorgesetzten"
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Esperienza in una posizione equivalente",
-          "Resistenza allo stress, flessibilità ed entusiasmo",
-          "Sei un giocatore di squadra anche nelle situazioni più frenetiche e non perdi la calma",
-          "Comportamento rispettoso nei confronti dei colleghi e dei superiori"
-        ],
-        "en": [
-          "Experience in a similar position",
-          "Resilience, flexibility and enthusiasm",
-          "You are a team player even in hectic situations and remain composed",
-          "Respectful conduct towards colleagues and supervisors"
-        ],
-        "de": [
-          "Erfahrung in einer gleichwertigen Position",
-          "Belastbarkeit, Flexibilität und Begeisterungsfähigkeit",
-          "Sie sind auch in hektischen Situationen ein Teamplayer und verlieren nicht die Übersicht",
-          "Einen respektvollen Umgang mit Kollegen und Vorgesetzten"
-        ],
-        "fr": [
-          "Expérience dans un poste similaire",
-          "Résistance au stress, flexibilité et enthousiasme",
-          "Vous êtes un joueur d'équipe même dans des situations intenses et vous conservez votre sang-froid",
-          "Comportement respectueux envers les collègues et les supérieurs"
-        ]
-      },
-      "previousSlugs": [
-        "steward-giardino-group-minusio"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "steward-giardino-group-minusio"
-        ]
-      },
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -246,7 +148,7 @@
       "url": "https://giardinohotels.ch/en/jobs/gl-chef-de-partie-2/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-12T21:25:23.447Z",
+      "crawledAt": "2026-04-13T10:36:24.234Z",
       "addressLocality": "Minusio",
       "postalCode": "6648",
       "addressRegion": "TI",
@@ -315,6 +217,7 @@
           "partiekoch-giardino-group-minusio"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -324,6 +227,106 @@
           "@type": "QuantitativeValue",
           "minValue": 68000,
           "maxValue": 103000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "giardino-43818e6901c7",
+      "slug": "amministratore-giardino-group-minusio",
+      "slugByLocale": {
+        "it": "amministratore-giardino-group-minusio",
+        "en": "steward-giardino-group-minusio",
+        "de": "steward-giardino-group-minusio",
+        "fr": "intendant-giardino-group-minusio"
+      },
+      "company": "Giardino Group",
+      "companyKey": "giardino",
+      "companyDomain": "giardinohotels.ch",
+      "title": "Steward",
+      "titleByLocale": {
+        "it": "Amministratore",
+        "en": "Steward",
+        "de": "Steward",
+        "fr": "intendant"
+      },
+      "description": "Giardino Group sucht für das Giardino Lago in Minusio eine/n Steward. Die Giardino Hotels sind eine charaktervolle Schweizer Luxushotelgruppe mit Standorten in St. Moritz, Ascona und Locarno.\n\n## Aufgaben\nIn dieser Funktion bist du verantwortlich für die gesamte Sauberkeit im Backoffice und der Küche. Dazu gehört neben dem Abwasch des Geschirrs, Pfannen und Besteck auch die Sauberkeit nach HACCP im gesamten Küchenbereich sowie die Reinigung von Kühlhäusern und die Abfallentsorgung.\n\n## Anforderungen\n- Erfahrung in einer gleichwertigen Position\n- Belastbarkeit, Flexibilität und Begeisterungsfähigkeit\n- Sie sind auch in hektischen Situationen ein Teamplayer und verlieren nicht die Übersicht\n- Einen respektvollen Umgang mit Kollegen und Vorgesetzten\n\n## Benefits\n- Einen innovativen und gut organisierten Arbeitsplatz\n- Die Möglichkeit, aktiv an der Eröffnung, am Geschäftsalltag und der Unternehmensentwicklung teilzunehmen\n- Eine offene und transparente Kommunikation\n- Regelmässige Schulungen und Weiterbildungen wie auch zahlreiche Mitarbeiterbenefits\n- Teil einer zeitgemässen und charaktervollen Schweizer Hotelgruppe zu sein",
+      "descriptionByLocale": {
+        "it": "Giardino Group cerca uno steward per il Giardino Lago a Minusio. I Giardino Hotel sono un gruppo alberghiero svizzero di lusso e caratteristico con strutture a St. Moritz, Ascona e Locarno. ## Compiti In questa posizione sei responsabile della pulizia completa dell'area backoffice e della cucina. Ciò include il lavaggio di stoviglie, padelle e posate, il rispetto delle norme HACCP in tutta l'area cucina, nonché la pulizia delle celle frigorifere e lo smaltimento dei rifiuti. ## Requisiti - Esperienza in una posizione equivalente - Resistenza allo stress, flessibilità ed entusiasmo - Sei un giocatore di squadra anche nelle situazioni più frenetiche e non perdi la calma - Comportamento rispettoso nei confronti dei colleghi e dei superiori ## Benefit - Un posto di lavoro innovativo e ben organizzato - La possibilità di partecipare attivamente all'apertura, alla vita aziendale e allo sviluppo dell'azienda - Comunicazione aperta e trasparente - Formazioni e aggiornamenti regolari, oltre a numerosi benefit per i dipendenti - Far parte di un gruppo alberghiero svizzero moderno e caratteristico",
+        "en": "Giardino Group is looking for a steward for Giardino Lago in Minusio. The Giardino Hotels are a distinctive Swiss luxury hotel group with locations in St. Moritz, Ascona and Locarno. ## Responsibilities In this role, you are responsible for the complete cleanliness of the back office and kitchen area. This includes washing dishes, pans and cutlery, maintaining HACCP standards throughout the kitchen area, as well as cleaning cold rooms and waste disposal. ## Requirements - Experience in a similar position - Resilience, flexibility and enthusiasm - You are a team player even in hectic situations and remain composed - Respectful conduct towards colleagues and supervisors ## Benefits - An innovative and well-organized workplace - The opportunity to actively contribute to the opening, daily operations and company development - Open and transparent communication - Regular training and professional development, as well as numerous employee benefits - Being part of a contemporary and distinctive Swiss hotel group",
+        "de": "Giardino Group sucht für das Giardino Lago in Minusio eine/n Steward. Die Giardino Hotels sind eine charaktervolle Schweizer Luxushotelgruppe mit Standorten in St. Moritz, Ascona und Locarno. ## Aufgaben In dieser Funktion bist du verantwortlich für die gesamte Sauberkeit im Backoffice und der Küche. Dazu gehört neben dem Abwasch des Geschirrs, Pfannen und Besteck auch die Sauberkeit nach HACCP im gesamten Küchenbereich sowie die Reinigung von Kühlhäusern und die Abfallentsorgung. ## Anforderungen - Erfahrung in einer gleichwertigen Position - Belastbarkeit, Flexibilität und Begeisterungsfähigkeit - Sie sind auch in hektischen Situationen ein Teamplayer und verlieren nicht die Übersicht - Einen respektvollen Umgang mit Kollegen und Vorgesetzten ## Benefits - Einen innovativen und gut organisierten Arbeitsplatz - Die Möglichkeit, aktiv an der Eröffnung, am Geschäftsalltag und der Unternehmensentwicklung teilzunehmen - Eine offene und transparente Kommunikation - Regelmässige Schulungen und Weiterbildungen wie auch zahlreiche Mitarbeiterbenefits - Teil einer zeitgemässen und charaktervollen Schweizer Hotelgruppe zu sein",
+        "fr": "Giardino Group recherche un steward pour le Giardino Lago à Minusio. Les hôtels Giardino forment un groupe hôtelier suisse de luxe et authentique, présent à Saint-Moritz, Ascona et Locarno. ## Tâches Dans ce poste, vous êtes responsable de la propreté complète du back-office et de la cuisine. Cela comprend le lavage de la vaisselle, des poêles et des couverts, le respect des normes HACCP dans tout l'espace cuisine, ainsi que le nettoyage des chambres froides et l'élimination des déchets. ## Exigences - Expérience dans un poste similaire - Résistance au stress, flexibilité et enthousiasme - Vous êtes un joueur d'équipe même dans des situations intenses et vous conservez votre sang-froid - Comportement respectueux envers les collègues et les supérieurs ## Avantages - Un lieu de travail innovant et bien organisé - La possibilité de participer activement à l'ouverture, à la vie quotidienne de l'entreprise et à son développement - Une communication ouverte et transparente - Des formations et perfectionnements réguliers, ainsi que de nombreux avantages pour les collaborateurs - Faire partie d'un groupe hôtelier suisse moderne et authentique"
+      },
+      "location": "Minusio",
+      "canton": "TI",
+      "url": "https://giardinohotels.ch/en/jobs/gl-steward-m-w/",
+      "source": "Giardino Group Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-04-13T10:36:24.233Z",
+      "addressLocality": "Minusio",
+      "postalCode": "6648",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Cucina / Gastronomia",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Ospitalità / Hotellerie",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-02-20",
+      "applyUrl": "https://giardinohotels.ch/en/jobs/gl-steward-m-w/",
+      "requirements": [
+        "Erfahrung in einer gleichwertigen Position",
+        "Belastbarkeit, Flexibilität und Begeisterungsfähigkeit",
+        "Sie sind auch in hektischen Situationen ein Teamplayer und verlieren nicht die Übersicht",
+        "Einen respektvollen Umgang mit Kollegen und Vorgesetzten"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Esperienza in una posizione equivalente",
+          "Resistenza allo stress, flessibilità ed entusiasmo",
+          "Sei un giocatore di squadra anche nelle situazioni più frenetiche e non perdi la calma",
+          "Comportamento rispettoso nei confronti dei colleghi e dei superiori"
+        ],
+        "en": [
+          "Experience in a similar position",
+          "Resilience, flexibility and enthusiasm",
+          "You are a team player even in hectic situations and remain composed",
+          "Respectful conduct towards colleagues and supervisors"
+        ],
+        "de": [
+          "Erfahrung in einer gleichwertigen Position",
+          "Belastbarkeit, Flexibilität und Begeisterungsfähigkeit",
+          "Sie sind auch in hektischen Situationen ein Teamplayer und verlieren nicht die Übersicht",
+          "Einen respektvollen Umgang mit Kollegen und Vorgesetzten"
+        ],
+        "fr": [
+          "Expérience dans un poste similaire",
+          "Résistance au stress, flexibilité et enthousiasme",
+          "Vous êtes un joueur d'équipe même dans des situations intenses et vous conservez votre sang-froid",
+          "Comportement respectueux envers les collègues et les supérieurs"
+        ]
+      },
+      "previousSlugs": [
+        "steward-giardino-group-minusio"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "steward-giardino-group-minusio"
+        ]
+      },
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       }
