@@ -1,117 +1,5 @@
 [
   {
-    "timestamp": "2026-04-04T13:15:05.830Z",
-    "label": "before",
-    "total": 1531,
-    "needsRetranslation": 307,
-    "incomplete": 280,
-    "complete": 1251,
-    "missingByLocale": {
-      "it": 182,
-      "en": 208,
-      "de": 98,
-      "fr": 230
-    },
-    "topPending": [
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 65
-      },
-      {
-        "company": "VOLG",
-        "pending": 44
-      },
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 26
-      },
-      {
-        "company": "Hilcona AG",
-        "pending": 25
-      },
-      {
-        "company": "LIS – Lugano Istituti Sociali",
-        "pending": 13
-      },
-      {
-        "company": "Denner",
-        "pending": 11
-      },
-      {
-        "company": "Davos Klosters Bergbahnen AG",
-        "pending": 9
-      },
-      {
-        "company": "Lombardi Group",
-        "pending": 9
-      },
-      {
-        "company": "Prada Group",
-        "pending": 8
-      },
-      {
-        "company": "Rapelli - ORIOR Food AG",
-        "pending": 8
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-04T13:15:54.419Z",
-    "label": "after",
-    "total": 1531,
-    "needsRetranslation": 219,
-    "incomplete": 192,
-    "complete": 1339,
-    "missingByLocale": {
-      "it": 104,
-      "en": 126,
-      "de": 76,
-      "fr": 148
-    },
-    "topPending": [
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 57
-      },
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 26
-      },
-      {
-        "company": "LIS – Lugano Istituti Sociali",
-        "pending": 13
-      },
-      {
-        "company": "Denner",
-        "pending": 11
-      },
-      {
-        "company": "Davos Klosters Bergbahnen AG",
-        "pending": 9
-      },
-      {
-        "company": "Lombardi Group",
-        "pending": 9
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 7
-      },
-      {
-        "company": "LWP Ledermann Wieting & Partners",
-        "pending": 7
-      },
-      {
-        "company": "Allianz Suisse",
-        "pending": 6
-      },
-      {
-        "company": "Cornèr Banca",
-        "pending": 6
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-04T21:48:17.773Z",
     "label": "before",
     "total": 1529,
@@ -8513,6 +8401,62 @@
         "company": "Banca del Sempione",
         "pending": 1
       },
+      {
+        "company": "Swiss Armed Forces (VTG)",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-13T02:44:29.605Z",
+    "label": "before",
+    "total": 2973,
+    "needsRetranslation": 33,
+    "incomplete": 12,
+    "complete": 2961,
+    "missingByLocale": {
+      "it": 3,
+      "en": 10,
+      "de": 7,
+      "fr": 12
+    },
+    "topPending": [
+      {
+        "company": "Lidl Svizzera",
+        "pending": 7
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 2
+      },
+      {
+        "company": "Banca Cler",
+        "pending": 1
+      },
+      {
+        "company": "Banca del Sempione",
+        "pending": 1
+      },
+      {
+        "company": "Swiss Armed Forces (VTG)",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-13T03:21:35.814Z",
+    "label": "after",
+    "total": 2973,
+    "needsRetranslation": 19,
+    "incomplete": 1,
+    "complete": 2972,
+    "missingByLocale": {
+      "it": 1,
+      "en": 0,
+      "de": 0,
+      "fr": 1
+    },
+    "topPending": [
       {
         "company": "Swiss Armed Forces (VTG)",
         "pending": 1

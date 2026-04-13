@@ -278,7 +278,6 @@
           "reservations-agent-m-w-d-kulm-hotel-st-moritz"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -290,8 +289,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 2
+      }
     },
     {
       "id": "kulm-hotel-b94b20f04f54",
@@ -2084,7 +2082,7 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "kulm-hotel-6dd397cdebf9",

@@ -2984,7 +2984,6 @@
           "data-center-technician-switzerland-la-chaux-de-fonds-on-site-reboot-monkey-la-chaux-de-fon"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2997,8 +2996,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "2300",
-      "retranslationAttempts": 2
+      "postalCode": "2300"
     },
     {
       "id": "reboot-monkey-4ffe85d91d2f",
@@ -3190,7 +3188,6 @@
           "data-center-technician-switzerland-lausanne-on-site-reboot-monkey-lausanne"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3203,8 +3200,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1003",
-      "retranslationAttempts": 2
+      "postalCode": "1003"
     },
     {
       "id": "reboot-monkey-cae64717c785",
@@ -7690,20 +7686,20 @@
         }
       },
       "previousSlugs": [
-        "tecnico-data-center-ch-steinhausen-presenza-in-sede-reboot-monkey-steinhausen",
-        "data-center-techniker-ch-steinhausen-vor-ort-reboot-monkey-steinhausen",
         "technicien-data-center-ch-steinhausen-sur-site-reboot-monkey-steinhausen",
-        "data-center-technician-ch-steinhausen-on-site-reboot-monkey-steinhausen-2"
+        "data-center-technician-ch-steinhausen-on-site-reboot-monkey-steinhausen-2",
+        "tecnico-data-center-ch-steinhausen-presenza-in-sede-reboot-monkey-steinhausen",
+        "data-center-techniker-ch-steinhausen-vor-ort-reboot-monkey-steinhausen"
       ],
       "previousSlugsByLocale": {
+        "fr": [
+          "technicien-data-center-ch-steinhausen-sur-site-reboot-monkey-steinhausen"
+        ],
         "it": [
           "tecnico-data-center-ch-steinhausen-presenza-in-sede-reboot-monkey-steinhausen"
         ],
         "de": [
           "data-center-techniker-ch-steinhausen-vor-ort-reboot-monkey-steinhausen"
-        ],
-        "fr": [
-          "technicien-data-center-ch-steinhausen-sur-site-reboot-monkey-steinhausen"
         ]
       }
     },
@@ -8222,20 +8218,20 @@
       },
       "postalCode": "1950",
       "previousSlugs": [
-        "tecnico-data-center-ch-villars-ste-croix-presenza-in-sede-reboot-monkey-villars-ste-croix",
-        "data-center-techniker-ch-villars-ste-croix-vor-ort-reboot-monkey-villars-ste-croix",
         "technicien-data-center-ch-villars-ste-croix-sur-site-reboot-monkey-villars-ste-croix",
-        "data-center-technician-ch-villars-ste-croix-on-site-reboot-monkey-villars-ste-croix-2"
+        "data-center-technician-ch-villars-ste-croix-on-site-reboot-monkey-villars-ste-croix-2",
+        "tecnico-data-center-ch-villars-ste-croix-presenza-in-sede-reboot-monkey-villars-ste-croix",
+        "data-center-techniker-ch-villars-ste-croix-vor-ort-reboot-monkey-villars-ste-croix"
       ],
       "previousSlugsByLocale": {
+        "fr": [
+          "technicien-data-center-ch-villars-ste-croix-sur-site-reboot-monkey-villars-ste-croix"
+        ],
         "it": [
           "tecnico-data-center-ch-villars-ste-croix-presenza-in-sede-reboot-monkey-villars-ste-croix"
         ],
         "de": [
           "data-center-techniker-ch-villars-ste-croix-vor-ort-reboot-monkey-villars-ste-croix"
-        ],
-        "fr": [
-          "technicien-data-center-ch-villars-ste-croix-sur-site-reboot-monkey-villars-ste-croix"
         ]
       }
     },
@@ -8795,20 +8791,20 @@
       },
       "postalCode": "1400",
       "previousSlugs": [
-        "tecnico-data-center-ch-yverdon-les-bains-presenza-in-sede-reboot-monkey-yverdon-les-bains",
-        "data-center-techniker-ch-yverdon-les-bains-vor-ort-reboot-monkey-yverdon-les-bains",
         "technicien-data-center-ch-yverdon-les-bains-presentiel-reboot-monkey-yverdon-les-bains",
-        "data-center-technician-ch-yverdon-les-bains-on-site-reboot-monkey-yverdon-les-bains-2"
+        "data-center-technician-ch-yverdon-les-bains-on-site-reboot-monkey-yverdon-les-bains-2",
+        "tecnico-data-center-ch-yverdon-les-bains-presenza-in-sede-reboot-monkey-yverdon-les-bains",
+        "data-center-techniker-ch-yverdon-les-bains-vor-ort-reboot-monkey-yverdon-les-bains"
       ],
       "previousSlugsByLocale": {
+        "fr": [
+          "technicien-data-center-ch-yverdon-les-bains-presentiel-reboot-monkey-yverdon-les-bains"
+        ],
         "it": [
           "tecnico-data-center-ch-yverdon-les-bains-presenza-in-sede-reboot-monkey-yverdon-les-bains"
         ],
         "de": [
           "data-center-techniker-ch-yverdon-les-bains-vor-ort-reboot-monkey-yverdon-les-bains"
-        ],
-        "fr": [
-          "technicien-data-center-ch-yverdon-les-bains-presentiel-reboot-monkey-yverdon-les-bains"
         ]
       }
     },

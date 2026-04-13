@@ -585,7 +585,6 @@
       "requirementsByLocale": {
         "en": []
       },
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -598,7 +597,6 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 2,
       "previousSlugsByLocale": {
         "it": [
           "investment-advisor-ubp-ch"
@@ -688,7 +686,8 @@
         ]
       },
       "previousSlugs": [
-        "tax-specialist-ubp-ch"
+        "tax-specialist-ubp-ch",
+        "tax-specialist-ubp-ch-3"
       ]
     },
     {
@@ -820,7 +819,8 @@
       },
       "previousSlugs": [
         "tax-specialist-ubp-ch",
-        "tax-specialist-ubp-ch-2"
+        "tax-specialist-ubp-ch-2",
+        "tax-specialist-ubp-ch-3"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -2821,7 +2821,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "junior-hr-assistant-coordinator-5-months-ubp-ch"
@@ -2847,8 +2846,7 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 2
+      }
     },
     {
       "id": "ubp-09f350a4712c",
