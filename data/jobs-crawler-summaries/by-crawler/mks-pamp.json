@@ -1,16 +1,16 @@
 {
   "key": "mks-pamp",
   "label": "MKS PAMP",
-  "generatedAt": "2026-04-12T21:51:18.378Z",
-  "total": 5,
+  "generatedAt": "2026-04-13T11:02:37.498Z",
+  "total": 4,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 0,
-  "unchangedCount": 3,
-  "durationMs": 15809,
-  "avgDurationMs": 15809,
+  "removedCount": 1,
+  "unchangedCount": 2,
+  "durationMs": 24087,
+  "avgDurationMs": 24087,
   "durationHistory": [
-    15809
+    24087
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -87,8 +87,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "title": "Tecnico di laboratorio",
       "slug": "tecnico-di-laboratorio-mks-pamp-castel-san-pietro",
@@ -124,7 +123,9 @@
         "translation": 25,
         "completeness": 25
       }
-    },
+    }
+  ],
+  "unchangedJobs": [
     {
       "title": "Idraulico Manutentore Macchinari Industriali",
       "slug": "idraulico-manutentore-macchinari-industriali-mks-pamp-castel-san-pietro",
