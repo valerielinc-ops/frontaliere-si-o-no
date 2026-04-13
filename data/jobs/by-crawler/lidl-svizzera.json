@@ -110,7 +110,7 @@
       "crawledAt": "2026-04-12T09:43:42.513Z",
       "slugByLocale": {
         "it": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-biasca-3t5gz5",
-        "en": "apprenticeship-in-retail-trade-cfp-or-afc-start-2026-lidl-svizzera-biasca",
+        "en": "retail-apprenticeship-vet-or-federal-vet-diploma-starting-2026-lidl-svizzera-biasca",
         "de": "lernen-im-einzelhandel-cfp-oder-afc-start-2026-lidl-svizzera-biasca-3t5gz5",
         "fr": "apprentissage-en-commerce-de-detail-cfp-ou-afc-debut-2026-lidl-svizzera-biasca"
       },
@@ -148,7 +148,15 @@
       "salaryMin": 41600,
       "salaryMax": 63000,
       "needsRetranslation": true,
-      "retranslationAttempts": 2
+      "retranslationAttempts": 2,
+      "previousSlugsByLocale": {
+        "en": [
+          "apprenticeship-in-retail-trade-cfp-or-afc-start-2026-lidl-svizzera-biasca"
+        ]
+      },
+      "previousSlugs": [
+        "apprenticeship-in-retail-trade-cfp-or-afc-start-2026-lidl-svizzera-biasca"
+      ]
     },
     {
       "id": "company-kscbfg",
