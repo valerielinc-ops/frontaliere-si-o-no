@@ -363,6 +363,34 @@ async function sendSingle(email, forceProvider) {
   throw new Error(`All providers failed: ${errors.join(' | ')}`);
 }
 
+/**
+ * Send a single email with per-provider throttling.
+ * Waits until at least `delayMs` has elapsed since the last send to the same provider,
+ * then delegates to the provider loop in sendSingle.
+ */
+async function sendSingleThrottled(email, forceProvider, lastSendMap, delayMs) {
+  // Determine which provider will be tried first (the one with remaining quota)
+  const providers = forceProvider
+    ? PROVIDERS.filter(p => p.id === forceProvider)
+    : PROVIDERS;
+  const nextProvider = providers.find(p => isProviderConfigured(p.id) && remainingQuota(p.id) > 0);
+
+  if (nextProvider) {
+    const lastTs = lastSendMap[nextProvider.id] || 0;
+    const elapsed = Date.now() - lastTs;
+    if (elapsed < delayMs) {
+      await new Promise(r => setTimeout(r, delayMs - elapsed));
+    }
+  }
+
+  const result = await sendSingle(email, forceProvider);
+  // Track the timestamp of the provider that actually sent
+  if (result?.provider) {
+    lastSendMap[result.provider] = Date.now();
+  }
+  return result;
+}
+
 // ── Batch cascade ────────────────────────────────────────────
 
 /**
@@ -373,13 +401,14 @@ async function sendSingle(email, forceProvider) {
  *
  * @param {Array} emails - Array of { payload, recipient, meta }
  * @param {Object} [opts]
- * @param {number} [opts.concurrency=3] - Max parallel sends
+ * @param {number} [opts.concurrency=1] - Max parallel sends (default 1 to avoid rate limits)
+ * @param {number} [opts.delayMs=1000] - Delay in ms between sends to the same provider
  * @param {string} [opts.forceProvider] - Force a specific provider (skip cascade)
  * @param {Function} [opts.onSent] - Called after each successful send: (item, result) => void
  * @returns {{ sent: Array, failed: Array }}
  */
 export async function sendEmailCascade(emails, opts = {}) {
-  const { concurrency = 3, forceProvider, onSent } = opts;
+  const { concurrency = 1, delayMs = 1000, forceProvider, onSent } = opts;
   const sent = [];
   const failed = [];
 
@@ -396,15 +425,19 @@ export async function sendEmailCascade(emails, opts = {}) {
   const totalQuota = available.reduce((sum, p) => sum + remainingQuota(p.id), 0);
   console.log(`📧 Email cascade: ${emails.length} to send, ${totalQuota} daily quota remaining`);
   console.log(`   Providers: ${available.map(p => `${p.id}(${remainingQuota(p.id)})`).join(' → ')}`);
+  console.log(`   Throttle: concurrency=${concurrency}, delay=${delayMs}ms between sends`);
 
-  // Process with concurrency control
+  // Per-provider last-send timestamps for throttling
+  const _lastSend = {};
+
+  // Process sequentially (concurrency=1) with per-provider delay
   let idx = 0;
   const worker = async () => {
     while (idx < emails.length) {
       const i = idx++;
       const item = emails[i];
       try {
-        const result = await sendSingle(item.payload, forceProvider);
+        const result = await sendSingleThrottled(item.payload, forceProvider, _lastSend, delayMs);
         sent.push({ ...item, ...result });
         if (onSent) await onSent(item, result);
       } catch (err) {

@@ -138,6 +138,21 @@ async function initAI() {
   }
 }
 
+// Focused AI chain for newsletter: top-scoring models across multiple providers.
+// Avoids the 115+ model shotgun that causes cascading 429s and slow fallbacks.
+// ~150 cohort briefings + 4 subjects = ~155 calls — well within free tier limits.
+// Models are still sorted by score at runtime, so the best performer leads.
+const NEWSLETTER_AI_CHAIN = [
+  'gemini-2.5-flash',           // Google — 1500 req/day free, fast
+  'gemini-2.0-flash',           // Google — 1500 req/day free, reliable
+  'gpt-4.1-nano',               // GitHub Models — proven workhorse in past sends
+  'gemini-2.5-flash-lite',      // Google — 3000 req/day free, lightweight
+  'gemma-4-31b-it',             // Google — 14,400 req/day free
+  'gemma-4-26b-it',             // Google — 14,400 req/day free
+  'mistral-small-latest',       // Mistral — 1B tokens/month free
+  'gemini-2.5-pro',             // Google — 500 req/day free, highest quality fallback
+];
+
 async function generateAIBriefing(ctx) {
   if (!callLLM) return null;
   try {
@@ -145,7 +160,7 @@ async function generateAIBriefing(ctx) {
     const result = await callLLM([
       { role: 'system', content: system },
       { role: 'user', content: user },
-    ], { temperature: 0.7, maxTokens: 800 });
+    ], { temperature: 0.7, maxTokens: 800, chain: NEWSLETTER_AI_CHAIN });
     let html = sanitizeAIBriefingHtml(result);
     return html;
   } catch (e) {
@@ -384,7 +399,7 @@ async function generateAISubject(ctx) {
     const result = await callLLM([
       { role: 'system', content: system },
       { role: 'user', content: user },
-    ], { temperature: 0.8, maxTokens: 80 });
+    ], { temperature: 0.8, maxTokens: 80, chain: NEWSLETTER_AI_CHAIN });
     const raw = result.trim().replace(/^["']|["']$/g, '');
     // Ensure subject is a complete sentence — never truncate with ellipsis
     if (raw.length > 55) {
@@ -992,7 +1007,8 @@ async function sendEmailBatch(emails, apiKey) {
     console.log(`📧 Sending via ${EMAIL_PROVIDER} only (${emails.length} emails)`);
     const { sendEmailCascade, logProviderSummary } = await import('./lib/email-cascade.mjs');
     const result = await sendEmailCascade(emails, {
-      concurrency: 3,
+      concurrency: 1,
+      delayMs: 1000,
       forceProvider: EMAIL_PROVIDER,
       onSent: async (item, res) => {
         await persistDelivery(item.recipient, res.messageId, { ...item.meta, provider: res.provider });
@@ -1006,7 +1022,8 @@ async function sendEmailBatch(emails, apiKey) {
     console.log(`📧 Sending via email cascade (${emails.length} emails)`);
     const { sendEmailCascade, logProviderSummary } = await import('./lib/email-cascade.mjs');
     const result = await sendEmailCascade(emails, {
-      concurrency: 3,
+      concurrency: 1,
+      delayMs: 1000,
       onSent: async (item, res) => {
         await persistDelivery(item.recipient, res.messageId, { ...item.meta, provider: res.provider });
       },
