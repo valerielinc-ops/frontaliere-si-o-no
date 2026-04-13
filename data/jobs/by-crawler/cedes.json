@@ -1,6 +1,6 @@
 {
   "crawlerKey": "cedes",
-  "assembledAt": "2026-04-13T10:12:17.169Z",
+  "assembledAt": "2026-04-13T21:20:45.035Z",
   "jobs": [
     {
       "id": "cedes-08f2188aed4b",
@@ -43,7 +43,7 @@
       "url": "https://www.cedes.com/en/career/jobs/packaging-line-worker-100-1/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-13T10:12:15.192Z",
+      "crawledAt": "2026-04-13T21:20:42.987Z",
       "previousSlugs": [
         "packaging-line-worker-100-cedes-landquart"
       ],
@@ -52,6 +52,8 @@
           "packaging-line-worker-100-cedes-landquart"
         ]
       },
+      "firstSeenAt": "2026-04-13T10:12:15.192Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -64,8 +66,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7302",
-      "firstSeenAt": "2026-04-13T10:12:15.192Z"
+      "postalCode": "7302"
     },
     {
       "id": "cedes-3fa516c3ca31",
@@ -108,7 +109,7 @@
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-13T10:12:14.899Z",
+      "crawledAt": "2026-04-13T21:20:42.706Z",
       "previousSlugs": [
         "unsolicited-applications-cedes-ag-landquart",
         "unsolicited-applications-cedes-landquart"
@@ -128,6 +129,7 @@
           "unsolicited-applications-cedes-ag-landquart"
         ]
       },
+      "firstSeenAt": "2026-04-13T10:12:14.899Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -140,8 +142,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7302",
-      "firstSeenAt": "2026-04-13T10:12:14.899Z"
+      "postalCode": "7302"
     }
   ]
 }
