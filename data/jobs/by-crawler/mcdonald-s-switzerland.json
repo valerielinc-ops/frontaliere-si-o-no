@@ -1,6 +1,6 @@
 {
   "crawlerKey": "mcdonald-s-switzerland",
-  "assembledAt": "2026-04-13T10:58:14.255Z",
+  "assembledAt": "2026-04-13T22:06:28.654Z",
   "jobs": [
     {
       "url": "https://jobs.mcdonalds.ch/de/details-offre/8199",
@@ -100,7 +100,8 @@
           "mcdonald-s-citta-di-coira-mcdonald-s-switzerland-chiasso",
           "mcdonald-s-coire-ville-mcdonald-s-switzerland-chur"
         ]
-      }
+      },
+      "firstSeenAt": "2026-04-13T22:06:28.654Z"
     },
     {
       "url": "https://jobs.mcdonalds.ch/de/details-offre/8200",
@@ -190,7 +191,8 @@
           "mcdonald-s-chur-sud-mcdonald-s-switzerland-chur-j6ok4n",
           "mcdonald-s-chur-sud-mcdonald-s-switzerland-chur"
         ]
-      }
+      },
+      "firstSeenAt": "2026-04-13T22:06:28.654Z"
     },
     {
       "url": "https://jobs.mcdonalds.ch/de/details-offre/8137",
@@ -285,7 +287,9 @@
           "mitarbeiter-in-lamone-mcdonald-s-switzerland-lugano",
           "ricerca-collaboratore-trice-lamone-mcdonald-s-switzerland"
         ]
-      }
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-04-13T22:06:28.654Z"
     }
   ]
 }
