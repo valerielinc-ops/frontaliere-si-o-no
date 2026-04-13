@@ -1,6 +1,6 @@
 {
   "crawlerKey": "tally-weijl",
-  "assembledAt": "2026-04-13T11:23:54.578Z",
+  "assembledAt": "2026-04-13T22:32:01.645Z",
   "jobs": [
     {
       "id": "tally-weijl-fd86e03560b7",
@@ -33,7 +33,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0pnuq/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T11:23:52.199Z",
+      "crawledAt": "2026-04-13T22:31:59.317Z",
       "addressLocality": "Frauenfeld",
       "addressCountry": "CH",
       "country": "CH",
@@ -90,6 +90,8 @@
           "teilzeit-modeberaterin-20-40-m-w-d-tally-weijl-frauenfeld"
         ]
       },
+      "firstSeenAt": "2026-04-13T11:23:52.199Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -102,8 +104,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8500",
-      "firstSeenAt": "2026-04-13T11:23:52.199Z"
+      "postalCode": "8500"
     },
     {
       "id": "tally-weijl-acd4bfc45a27",
@@ -136,7 +137,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zh5o/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T11:23:51.502Z",
+      "crawledAt": "2026-04-13T22:31:58.730Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -193,6 +194,8 @@
           "teilzeit-modeberaterin-m-w-d-tally-weijl-bern"
         ]
       },
+      "firstSeenAt": "2026-04-13T11:23:51.502Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -205,8 +208,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3001",
-      "firstSeenAt": "2026-04-13T11:23:51.502Z"
+      "postalCode": "3001"
     },
     {
       "id": "tally-weijl-f4dd9e184bb9",
@@ -239,7 +241,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0p815/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T11:23:50.870Z",
+      "crawledAt": "2026-04-13T22:31:57.824Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -296,6 +298,8 @@
           "teilzeit-modeberaterin-m-w-d-tally-weijl-basel"
         ]
       },
+      "firstSeenAt": "2026-04-13T11:23:50.870Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -308,8 +312,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "4001",
-      "firstSeenAt": "2026-04-13T11:23:50.870Z"
+      "postalCode": "4001"
     },
     {
       "id": "tally-weijl-efa82b0d7d6a",
@@ -342,7 +345,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0pqvj/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T11:23:50.216Z",
+      "crawledAt": "2026-04-13T22:31:57.248Z",
       "addressLocality": "Solothurn",
       "addressCountry": "CH",
       "country": "CH",
@@ -399,6 +402,8 @@
           "teilzeit-modeberaterin-m-w-d-tally-weijl-solothurn"
         ]
       },
+      "firstSeenAt": "2026-04-13T11:23:50.216Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -411,8 +416,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "4500",
-      "firstSeenAt": "2026-04-13T11:23:50.216Z"
+      "postalCode": "4500"
     },
     {
       "id": "tally-weijl-5834252892fd",
@@ -445,7 +449,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0p9hl/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T11:23:49.585Z",
+      "crawledAt": "2026-04-13T22:31:56.660Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -503,6 +507,8 @@
           "filialleiter-80-100-m-w-d-tally-weijl-chur"
         ]
       },
+      "firstSeenAt": "2026-04-13T11:23:49.585Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -515,8 +521,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7000",
-      "firstSeenAt": "2026-04-13T11:23:49.585Z"
+      "postalCode": "7000"
     },
     {
       "id": "tally-weijl-26e4bedb0999",
@@ -549,7 +554,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zwu7/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T11:23:49.002Z",
+      "crawledAt": "2026-04-13T22:31:56.016Z",
       "addressLocality": "Frauenfeld",
       "addressCountry": "CH",
       "country": "CH",
@@ -607,6 +612,8 @@
           "filialleiter-100-m-w-d-tally-weijl-frauenfeld"
         ]
       },
+      "firstSeenAt": "2026-04-13T11:23:49.002Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -619,8 +626,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8500",
-      "firstSeenAt": "2026-04-13T11:23:49.002Z"
+      "postalCode": "8500"
     },
     {
       "id": "tally-weijl-cbb38c20b361",
@@ -653,7 +659,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zhvv/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T11:23:48.369Z",
+      "crawledAt": "2026-04-13T22:31:55.447Z",
       "addressLocality": "Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -706,6 +712,8 @@
           "flexible-aushilfe-m-w-d-tally-weijl-luzern"
         ]
       },
+      "firstSeenAt": "2026-04-13T11:23:48.369Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -718,8 +726,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6003",
-      "firstSeenAt": "2026-04-13T11:23:48.369Z"
+      "postalCode": "6003"
     },
     {
       "id": "tally-weijl-13e4d44ef67f",
@@ -752,7 +759,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0pc25/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T11:23:47.809Z",
+      "crawledAt": "2026-04-13T22:31:54.815Z",
       "addressLocality": "Olten",
       "addressCountry": "CH",
       "country": "CH",
@@ -805,6 +812,8 @@
           "flexible-aushilfe-m-w-d-tally-weijl-olten"
         ]
       },
+      "firstSeenAt": "2026-04-13T11:23:47.809Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -817,8 +826,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "4600",
-      "firstSeenAt": "2026-04-13T11:23:47.809Z"
+      "postalCode": "4600"
     },
     {
       "id": "tally-weijl-a19dcc58f55c",
@@ -851,7 +859,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0ptvi/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T11:23:47.230Z",
+      "crawledAt": "2026-04-13T22:31:54.191Z",
       "addressLocality": "Biel",
       "addressCountry": "CH",
       "country": "CH",
@@ -904,6 +912,8 @@
           "flexible-aushilfe-m-w-d-tally-weijl-biel"
         ]
       },
+      "firstSeenAt": "2026-04-13T11:23:47.230Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -916,8 +926,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "2501",
-      "firstSeenAt": "2026-04-13T11:23:47.230Z"
+      "postalCode": "2501"
     },
     {
       "id": "tally-weijl-89020d9287f4",
@@ -950,7 +959,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0ptv7/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T11:23:46.588Z",
+      "crawledAt": "2026-04-13T22:31:53.621Z",
       "addressLocality": "Aarau",
       "addressCountry": "CH",
       "country": "CH",
@@ -1003,6 +1012,8 @@
           "flexible-aushilfe-m-w-d-tally-weijl-aarau"
         ]
       },
+      "firstSeenAt": "2026-04-13T11:23:46.588Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1015,8 +1026,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "5000",
-      "firstSeenAt": "2026-04-13T11:23:46.588Z"
+      "postalCode": "5000"
     },
     {
       "id": "tally-weijl-1f4bede8f068",
@@ -1049,7 +1059,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zs9i/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T11:23:45.958Z",
+      "crawledAt": "2026-04-13T22:31:53.056Z",
       "addressLocality": "Winterthur",
       "addressCountry": "CH",
       "country": "CH",
@@ -1107,6 +1117,8 @@
           "flexible-aushilfe-tally-weijl-winterthur"
         ]
       },
+      "firstSeenAt": "2026-04-13T11:23:45.958Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1119,8 +1131,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8400",
-      "firstSeenAt": "2026-04-13T11:23:45.958Z"
+      "postalCode": "8400"
     },
     {
       "id": "tally-weijl-59950cdafc4d",
@@ -1153,7 +1164,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zs9r/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T11:23:45.359Z",
+      "crawledAt": "2026-04-13T22:31:52.461Z",
       "addressLocality": "Aarau",
       "addressCountry": "CH",
       "country": "CH",
@@ -1211,6 +1222,8 @@
           "flexible-aushilfe-tally-weijl-aarau"
         ]
       },
+      "firstSeenAt": "2026-04-13T11:23:45.359Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1223,8 +1236,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "5000",
-      "firstSeenAt": "2026-04-13T11:23:45.359Z"
+      "postalCode": "5000"
     },
     {
       "id": "tally-weijl-4b18b5fa4e7e",
@@ -1257,7 +1269,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0pi2p/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T11:23:44.750Z",
+      "crawledAt": "2026-04-13T22:31:51.859Z",
       "addressLocality": "Thun",
       "addressCountry": "CH",
       "country": "CH",
@@ -1315,6 +1327,8 @@
           "filialleiter-gestionnaire-de-magasins-w-m-d-tw-thun-tally-weijl-thun"
         ]
       },
+      "firstSeenAt": "2026-04-13T11:23:44.750Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1327,8 +1341,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3600",
-      "firstSeenAt": "2026-04-13T11:23:44.750Z"
+      "postalCode": "3600"
     },
     {
       "id": "tally-weijl-70705703e3d0",
@@ -1361,7 +1374,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0z2qx/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T11:23:44.122Z",
+      "crawledAt": "2026-04-13T22:31:51.313Z",
       "addressLocality": "Emmen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1419,6 +1432,8 @@
           "filialleiter-gestionnaire-de-magasins-w-m-d-tally-weijl-emmen"
         ]
       },
+      "firstSeenAt": "2026-04-13T11:23:44.122Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1431,8 +1446,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6003",
-      "firstSeenAt": "2026-04-13T11:23:44.122Z"
+      "postalCode": "6003"
     },
     {
       "id": "tally-weijl-5010e3f8aec3",
@@ -1465,7 +1479,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0pr2w/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-13T11:23:43.474Z",
+      "crawledAt": "2026-04-13T22:31:50.710Z",
       "addressLocality": "Sion",
       "addressCountry": "CH",
       "country": "CH",
@@ -1522,6 +1536,8 @@
           "auxiliaire-h-f-tw-sion-tally-weijl-sion"
         ]
       },
+      "firstSeenAt": "2026-04-13T11:23:43.474Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1534,8 +1550,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1950",
-      "firstSeenAt": "2026-04-13T11:23:43.474Z"
+      "postalCode": "1950"
     },
     {
       "id": "tally-weijl-bfa30ecffc38",
@@ -1568,7 +1583,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zmal/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-13T11:23:42.270Z",
+      "crawledAt": "2026-04-13T22:31:49.450Z",
       "addressLocality": "Conthey",
       "addressCountry": "CH",
       "country": "CH",
@@ -1629,6 +1644,8 @@
           "directeur-de-magasin-h-f-tally-weijl-conthey"
         ]
       },
+      "firstSeenAt": "2026-04-13T11:23:42.270Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1641,8 +1658,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1950",
-      "firstSeenAt": "2026-04-13T11:23:42.270Z"
+      "postalCode": "1950"
     },
     {
       "id": "tally-weijl-b85ceed8d4a2",
@@ -1675,7 +1691,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zs9d/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-13T11:23:41.628Z",
+      "crawledAt": "2026-04-13T22:31:48.831Z",
       "addressLocality": "Sion",
       "addressCountry": "CH",
       "country": "CH",
@@ -1733,6 +1749,8 @@
           "directeur-de-magasin-tally-weijl-sion"
         ]
       },
+      "firstSeenAt": "2026-04-13T11:23:41.628Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1745,8 +1763,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1950",
-      "firstSeenAt": "2026-04-13T11:23:41.628Z"
+      "postalCode": "1950"
     },
     {
       "id": "tally-weijl-5c864e1d51d4",
@@ -1779,7 +1796,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zuk9/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-13T11:23:41.026Z",
+      "crawledAt": "2026-04-13T22:31:48.226Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1834,6 +1851,8 @@
           "responsable-tally-weijl-geneva"
         ]
       },
+      "firstSeenAt": "2026-04-13T11:23:41.026Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1845,8 +1864,7 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T11:23:41.026Z"
+      }
     },
     {
       "id": "tally-weijl-efd41ecbd524",
@@ -1879,7 +1897,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zm2s/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T11:23:40.423Z",
+      "crawledAt": "2026-04-13T22:31:47.621Z",
       "addressLocality": "Frauenfeld",
       "addressCountry": "CH",
       "country": "CH",
@@ -1933,6 +1951,8 @@
           "modeberaterin-in-teilzeit-50-m-w-d-in-frauenfeld-tally-weijl-frauenfeld"
         ]
       },
+      "firstSeenAt": "2026-04-13T11:23:40.423Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1945,8 +1965,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8500",
-      "firstSeenAt": "2026-04-13T11:23:40.423Z"
+      "postalCode": "8500"
     },
     {
       "id": "tally-weijl-8e5687719d49",
@@ -1979,7 +1998,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0z1af/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T11:23:39.789Z",
+      "crawledAt": "2026-04-13T22:31:46.869Z",
       "addressLocality": "Schaffhausen",
       "addressCountry": "CH",
       "country": "CH",
@@ -2033,6 +2052,8 @@
           "flexible-aushilfe-m-w-d-tally-weijl-schaffhausen"
         ]
       },
+      "firstSeenAt": "2026-04-13T11:23:39.789Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2045,8 +2066,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8200",
-      "firstSeenAt": "2026-04-13T11:23:39.789Z"
+      "postalCode": "8200"
     },
     {
       "id": "tally-weijl-6dfb4331c1aa",
@@ -2079,7 +2099,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0pftv/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-13T11:23:39.249Z",
+      "crawledAt": "2026-04-13T22:31:46.237Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -2133,6 +2153,8 @@
           "modeles-d-ajustement-tally-weijl-basel"
         ]
       },
+      "firstSeenAt": "2026-04-13T11:23:39.249Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2145,8 +2167,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "4001",
-      "firstSeenAt": "2026-04-13T11:23:39.249Z"
+      "postalCode": "4001"
     },
     {
       "id": "tally-weijl-66088df41b28",
@@ -2179,7 +2200,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zh58/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-13T11:23:38.648Z",
+      "crawledAt": "2026-04-13T22:31:45.623Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -2232,6 +2253,8 @@
           "categoria-team-leader-denim-outerwear-accessori-pantaloni-woven-tally-weijl-basel"
         ]
       },
+      "firstSeenAt": "2026-04-13T11:23:38.648Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2244,8 +2267,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "4001",
-      "firstSeenAt": "2026-04-13T11:23:38.648Z"
+      "postalCode": "4001"
     },
     {
       "id": "tally-weijl-fd3394a95269",
@@ -2278,7 +2300,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zh5c/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-13T11:23:38.047Z",
+      "crawledAt": "2026-04-13T22:31:45.068Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -2332,6 +2354,8 @@
           "kauferkleider-trend-tops-tally-weijl-basel"
         ]
       },
+      "firstSeenAt": "2026-04-13T11:23:38.047Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2344,15 +2368,14 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "4001",
-      "firstSeenAt": "2026-04-13T11:23:38.047Z"
+      "postalCode": "4001"
     },
     {
       "id": "tally-weijl-dc05915ad69f",
-      "slug": "brand-marketing-coordinator-project-manager-tally-weijl-basel",
+      "slug": "marketing-di-marca-coordinatore-project-manager-tally-weijl-basel",
       "slugByLocale": {
+        "it": "marketing-di-marca-coordinatore-project-manager-tally-weijl-basel",
         "en": "brand-marketing-coordinator-project-manager-tally-weijl-basel",
-        "it": "brand-marketing-coordinator-project-manager-tally-weijl-basel",
         "de": "brand-marketing-coordinator-project-manager-tally-weijl-basel",
         "fr": "marketing-de-marque-coordonnateur-gestionnaire-de-projet-tally-weijl-basel"
       },
@@ -2361,15 +2384,15 @@
       "companyDomain": "tally-weijl.com",
       "title": "Brand Marketing (Coordinator / Project Manager)",
       "titleByLocale": {
+        "it": "Brand Marketing (Coordinatore / Project Manager)",
         "en": "Brand Marketing (Coordinator / Project Manager)",
-        "it": "Marketing di marca (Coordinatore / Project Manager)",
         "de": "Brand Marketing (Koordinator / Project Manager)",
-        "fr": "Marketing de marque (Coordonnateur / Gestionnaire de projet)"
+        "fr": "Brand Marketing (Coordinateur / Project Manager)"
       },
       "description": "Brand Marketing (Coordinator / Project Manager) \n\n \n\n We're here to make you feel sexy, empowered & UNSTOPPABLE. \n\n Founded in 1984, TALLY WEiJL has been on a crazy journey to celebrate fashion, independence, fun, love, & community for close to 40 years. \n\n Today we’re present in 7 markets with about 400 stores, online presence, and 3m+ fans across social channels. \n\n About the Role \n\n We are looking for a Brand Marketing profile (Coordinator / Project Manager level to be defined) to lead and coordinate the execution of our brand marketing activities across all channels. \n\n This role is responsible for ensuring consistency between brand identity, commercial objectives, and seasonal storytelling, while managing projects end-to-end in a fast-paced and highly operational environment. \n\n Your Responsibilities \n\n · Lead and coordinate brand marketing campaigns for each collection, ensuring consistency with brand identity, commercial objectives, and seasonal storytelling. \n\n · Negotiate contracts with different partners (model agencies, production teams), including fees and usage rights, while ensuring quality standards and budget alignment. \n\n · Plan and organize all logistical aspects of brand shootings, including team travel, accommodation, schedules, and on-site coordination. \n\n · Oversee the creation and production of in-store marketing and visual merchandising materials (window displays, banners, cash desk visuals, and other retail communication assets). \n\n · Support and coordinate e-commerce content in line with the commercial calendar. \n\n · Manage, monitor, and control the overall marketing budget, ensuring cost efficiency and alignment with strategic priorities. \n\n · Handle financial administration for the marketing department, including invoice verification, allocation, tracking, and timely payments to external partners. \n\n · Contribute to the development and execution of the brand’s marketing and communication strategy. \n\n · Prepare detailed presentations, reports, and creative proposals for internal meetings, management reviews, and cross-functional alignment. \n\n · Coordinate marketing projects, including the development of event props and customer giveaways to drive traffic and enhance brand visibility. \n\n · Oversee video production for campaigns and promotional offers, collaborating with content creators to ensure high-quality output across stores, shopping malls, and digital platforms. \n\n · Plan and coordinate events by defining clear guidelines and ensuring consistent execution across markets. \n\n · Collaborate with Country Managers to organize and implement events at both local and international level. \n\n · Manage sourcing and preparation of materials for events and activations. \n\n Your Profile \n\n · Strong fashion sensitivity and genuine passion for the product. \n\n · Solid commercial mindset with a strong operational approach. \n\n · Strong negotiation skills. \n\n · Experience in Brand Marketing, Campaign Management or similar roles. \n\n · Ability to manage multiple projects simultaneously in a fast-paced environment. \n\n · Strong organizational skills and attention to detail. \n\n · Excellent communication and coordination skills. \n\n · Fluent in English; additional languages are a plus. \n\n What We Offer \n\n · A key role in coordinating and delivering TALLY WEiJL’s brand marketing activities. \n\n · A dynamic, international and fast-paced working environment. \n\n · The opportunity to work across multiple markets and channels. \n\n · Competitive compensation and benefits package. \n\n Would you like to become a part of our fashion story and an enthusiastic member of our TALLY Family? Then share your individual talent with us and send us your application! Or contact directly our Internal Recruiter at c.barone@tally-weijl.com",
       "descriptionByLocale": {
-        "en": "## Brand Marketing (Coordinator / Project Manager)\n\nWe're here to make you feel sexy, empowered & UNSTOPPABLE.\n\nFounded in 1984, TALLY WEiJL has been on a crazy journey to celebrate fashion, independence, fun, love, & community for close to 40 years.\n\nToday we’re present in 7 markets with about 400 stores, online presence, and 3m+ fans across social channels.\n\n## About the Role\n\nWe are looking for a Brand Marketing profile (Coordinator / Project Manager level to be defined) to lead and coordinate the execution of our brand marketing activities across all channels.\n\nThis role is responsible for ensuring consistency between brand identity, commercial objectives, and seasonal storytelling, while managing projects end-to-end in a fast-paced and highly operational environment.\n\n## Your Responsibilities\n\n· Lead and coordinate brand marketing campaigns for each collection, ensuring consistency with brand identity, commercial objectives, and seasonal storytelling.\n\n· Negotiate contracts with different partners (model agencies, production teams), including fees and usage rights, while ensuring quality standards and budget alignment.\n\n· Plan and organize all logistical aspects of brand shootings, including team travel, accommodation, schedules, and on-site coordination.\n\n· Oversee the creation and production of in-store marketing and visual merchandising materials (window displays, banners, cash desk visuals, and other retail communication assets).\n\n· Support and coordinate e-commerce content in line with the commercial calendar.\n\n· Manage, monitor, and control the overall marketing budget, ensuring cost efficiency and alignment with strategic priorities.\n\n· Handle financial administration for the marketing department, including invoice verification, allocation, tracking, and timely payments to external partners.\n\n· Contribute to the development and execution of the brand’s marketing and communication strategy.\n\n· Prepare detailed presentations, reports, and creative proposals for internal meetings, management reviews, and cross-functional alignment.\n\n· Coordinate marketing projects, including the development of event props and customer giveaways to drive traffic and enhance brand visibility.\n\n· Oversee video production for campaigns and promotional offers, collaborating with content creators to ensure high-quality output across stores, shopping malls, and digital platforms.\n\n· Plan and coordinate events by defining clear guidelines and ensuring consistent execution across markets.\n\n· Collaborate with Country Managers to organize and implement events at both local and international level.\n\n· Manage sourcing and preparation of materials for events and activations.\n\n## Your Profile\n\n· Strong fashion sensitivity and genuine passion for the product.\n\n· Solid commercial mindset with a strong operational approach.\n\n· Strong negotiation skills.\n\n· Experience in Brand Marketing, Campaign Management or similar roles.\n\n· Ability to manage multiple projects simultaneously in a fast-paced environment.\n\n· Strong organizational skills and attention to detail.\n\n· Excellent communication and coordination skills.\n\n· Fluent in English; additional languages are a plus.\n\n## What We Offer\n\n· A key role in coordinating and delivering TALLY WEiJL’s brand marketing activities.\n\n· A dynamic, international and fast-paced working environment.\n\n· The opportunity to work across multiple markets and channels.\n\n· Competitive compensation and benefits package.\n\nWould you like to become a part of our fashion story and an enthusiastic member of our TALLY Family? Then share your individual talent with us and send us your application! Or contact directly our Internal Recruiter at c.barone@tally-weijl.com",
         "it": "Marketing di marca (Coordinatore / Project Manager) Siamo qui per farti sentire sexy, potenziato e ONUSTOPPABLE. Fondato nel 1984, TALLY WEiJL è stato in un viaggio folle per celebrare moda, indipendenza, divertimento, amore e comunità per quasi 40 anni. Oggi siamo presenti in 7 mercati con circa 400 negozi, presenza online e 3m+ fan attraverso i canali sociali. ## About the Role Siamo alla ricerca di un profilo di Brand Marketing (livello Coordinatore / Project Manager da definire) per guidare e coordinare l'esecuzione delle nostre attività di marketing di marca in tutti i canali. Questo ruolo è responsabile di garantire la coerenza tra identità di marca, obiettivi commerciali e narrazione stagionale, mentre la gestione di progetti end-to-end in un ambiente veloce e altamente operativo. ## Your Responsibilities · Leader e coordinate campagne di marketing del marchio per ogni collezione, garantendo coerenza con l'identità del marchio, obiettivi commerciali e narrazione stagionale. · Negoziare contratti con partner diversi (agenzie modello, team di produzione), compresi i costi e i diritti di utilizzo, garantendo al contempo standard di qualità e allineamento del budget. · Pianificare e organizzare tutti gli aspetti logistici delle riprese di marca, tra cui viaggi di squadra, alloggi, orari e coordinamento in loco. · Superare la creazione e la produzione di materiali di marketing e di merchandising visivo in-store (esposizione a vetrine, banner, display per bancomat e altri beni di comunicazione al dettaglio). · Supporto e coordinamento del contenuto di e-commerce in linea con il calendario commerciale. · Gestire, monitorare e controllare il bilancio generale di marketing, garantendo efficienza dei costi e allineamento con priorità strategiche. · Gestire l'amministrazione finanziaria per il reparto marketing, compresa la verifica delle fatture, l'allocazione, il monitoraggio e i pagamenti tempestivi per i partner esterni. · Contribuire allo sviluppo e all’esecuzione della strategia di marketing e comunicazione del marchio. · Preparare presentazioni dettagliate, report e proposte creative per riunioni interne, recensioni di gestione e allineamento interfunzionale. · Coordinate progetti di marketing, tra cui lo sviluppo di oggetti di evento e di clienti giveaways per guidare il traffico e migliorare la visibilità del marchio. · Superare la produzione video per campagne e offerte promozionali, collaborando con i creatori di contenuti per garantire l'output di alta qualità tra negozi, centri commerciali e piattaforme digitali. · Pianificare e coordinare gli eventi definendo linee guida chiare e garantendo un'esecuzione coerente sui mercati. · Collabora con Country Manager per organizzare e implementare eventi sia a livello locale che internazionale. · Gestire la sourcing e la preparazione dei materiali per eventi e attivazioni. ## Your Profile · Forte sensibilità alla moda e genuina passione per il prodotto. · Solida mentalità commerciale con un forte approccio operativo. · Forte capacità di negoziazione. · Esperienza nel marketing di marca, gestione della campagna o ruoli simili. · Capacità di gestire più progetti contemporaneamente in un ambiente frenetico. · Forte capacità organizzative e attenzione ai dettagli. · Eccellente capacità di comunicazione e coordinamento. · Fluente in inglese; lingue aggiuntive sono un plus. ## What We Offer · Un ruolo chiave nel coordinamento e nella fornitura delle attività di marketing del marchio TALLY WEiJL. · Un ambiente di lavoro dinamico, internazionale e veloce. · L'opportunità di lavorare su più mercati e canali. · Compensazione competitiva e pacchetto benefici. Vorresti diventare parte della nostra storia di moda e membro entusiasta della nostra famiglia TALLY? Quindi condividere il vostro talento individuale con noi e inviarci la vostra applicazione! Oppure contatta direttamente il nostro Recruiter interno a c.barone@tally-weijl.com",
+        "en": "Brand Marketing (Coordinator / Project Manager) We're here to make you feel sexy, empowered & UNSTOPPABLE. Founded in 1984, TALLY WEiJL has been on a crazy journey to celebrate fashion, independence, fun, love, & community for close to 40 years. Today we’re present in 7 markets with about 400 stores, online presence, and 3m+ fans across social channels. About the Role We are looking for a Brand Marketing profile (Coordinator / Project Manager level to be defined) to lead and coordinate the execution of our brand marketing activities across all channels. This role is responsible for ensuring consistency between brand identity, commercial objectives, and seasonal storytelling, while managing projects end-to-end in a fast-paced and highly operational environment. Your Responsibilities · Lead and coordinate brand marketing campaigns for each collection, ensuring consistency with brand identity, commercial objectives, and seasonal storytelling. · Negotiate contracts with different partners (model agencies, production teams), including fees and usage rights, while ensuring quality standards and budget alignment. · Plan and organize all logistical aspects of brand shootings, including team travel, accommodation, schedules, and on-site coordination. · Oversee the creation and production of in-store marketing and visual merchandising materials (window displays, banners, cash desk visuals, and other retail communication assets). · Support and coordinate e-commerce content in line with the commercial calendar. · Manage, monitor, and control the overall marketing budget, ensuring cost efficiency and alignment with strategic priorities. · Handle financial administration for the marketing department, including invoice verification, allocation, tracking, and timely payments to external partners. · Contribute to the development and execution of the brand’s marketing and communication strategy. · Prepare detailed presentations, reports, and creative proposals for internal meetings, management reviews, and cross-functional alignment. · Coordinate marketing projects, including the development of event props and customer giveaways to drive traffic and enhance brand visibility. · Oversee video production for campaigns and promotional offers, collaborating with content creators to ensure high-quality output across stores, shopping malls, and digital platforms. · Plan and coordinate events by defining clear guidelines and ensuring consistent execution across markets. · Collaborate with Country Managers to organize and implement events at both local and international level. · Manage sourcing and preparation of materials for events and activations. Your Profile · Strong fashion sensitivity and genuine passion for the product. · Solid commercial mindset with a strong operational approach. · Strong negotiation skills. · Experience in Brand Marketing, Campaign Management or similar roles. · Ability to manage multiple projects simultaneously in a fast-paced environment. · Strong organizational skills and attention to detail. · Excellent communication and coordination skills. · Fluent in English; additional languages are a plus. What We Offer · A key role in coordinating and delivering TALLY WEiJL’s brand marketing activities. · A dynamic, international and fast-paced working environment. · The opportunity to work across multiple markets and channels. · Competitive compensation and benefits package. Would you like to become a part of our fashion story and an enthusiastic member of our TALLY Family? Then share your individual talent with us and send us your application! Or contact directly our Internal Recruiter at c.barone@tally-weijl.com",
         "de": "Brand Marketing (Koordinator / Projektmanager) Wir sind hier, um Sie fühlen sich sexy, gestärkt und UNSTOPPABLE. TALLY WEiJL wurde 1984 gegründet und ist seit fast 40 Jahren auf einer verrückten Reise, um Mode, Unabhängigkeit, Spaß, Liebe und Gemeinschaft zu feiern. Heute sind wir in 7 Märkten mit rund 400 Geschäften, Online-Präsenz und 3m+ Fans auf sozialen Kanälen. Über die Rolle Wir suchen ein Brand Marketing-Profil (Coordinator / Project Manager Ebene definiert werden), um die Ausführung unserer Markenmarketing-Aktivitäten auf allen Kanälen zu führen und zu koordinieren. Diese Rolle ist verantwortlich für die Kohärenz zwischen Markenidentität, kommerziellen Zielen und saisonalen Storytelling, während die Verwaltung von Projekten in einem schnelllebigen und hochbetriebenen Umfeld endet. Ihre Aufgaben · Führen und koordinieren Markenmarketing-Kampagnen für jede Sammlung, um die Übereinstimmung mit Markenidentität, kommerziellen Zielen und saisonalen Storytelling zu gewährleisten. · Verhandeln Sie Verträge mit verschiedenen Partnern (Modellagenturen, Produktionsteams), einschließlich Gebühren und Nutzungsrechte, und stellen Sie gleichzeitig Qualitätsstandards und Budgetausrichtung sicher. · Planen und organisieren Sie alle logistischen Aspekte von Markenschießen, einschließlich Team-Reise, Unterkunft, Zeitplan und vor Ort Koordination. · Beaufsichtigen Sie die Erstellung und Produktion von in-store-Marketing- und visuellen Merchandising-Materialien (Fenster-Displays, Banner, Cash-Desk Visuals und andere Einzelhandelskommunikationsanlagen). · Unterstützung und Koordinierung der E-Commerce-Inhalte im Einklang mit dem kommerziellen Kalender. · Verwaltung, Überwachung und Kontrolle des gesamten Marketingbudgets, Gewährleistung der Kosteneffizienz und Ausrichtung auf strategische Prioritäten. · Finanzverwaltung für die Marketingabteilung, einschließlich Rechnungsprüfung, Zuordnung, Tracking und rechtzeitige Zahlungen an externe Partner. · Beitrag zur Entwicklung und Umsetzung der Marketing- und Kommunikationsstrategie der Marke. · Detaillierte Präsentationen, Berichte und kreative Vorschläge für interne Treffen, Management-Reviews und funktionsübergreifende Ausrichtung vorbereiten. · Koordinierte Marketing-Projekte, einschließlich der Entwicklung von Event-Profis und Customer Giveaways, um den Verkehr zu fahren und die Markensicht zu verbessern. · Übersehen Sie die Videoproduktion für Kampagnen und Werbeangebote, die Zusammenarbeit mit Content-Autor, um qualitativ hochwertige Ausgabe in den Läden, Einkaufszentren und digitalen Plattformen zu gewährleisten. · Planen und koordinieren Sie die Ereignisse, indem Sie klare Leitlinien definieren und eine konsequente Umsetzung auf den Märkten sicherstellen. · Mit Country Managern zusammenarbeiten, um Veranstaltungen auf lokaler und internationaler Ebene zu organisieren und umzusetzen. · Beschaffung und Vorbereitung von Materialien für Veranstaltungen und Aktivierungen verwalten. Ihr Profil · Starke Modeempfindlichkeit und echte Leidenschaft für das Produkt. · Solide kommerzielle Denkweise mit einem starken operativen Ansatz. · Starke Verhandlungsfähigkeiten. · Erfahrung in Brand Marketing, Campaign Management oder ähnliche Rollen. · Fähigkeit, mehrere Projekte gleichzeitig in einer schnelllebigen Umgebung zu verwalten. · Starke organisatorische Fähigkeiten und Liebe zum Detail. · Ausgezeichnete Kommunikation und Koordinationsfähigkeiten. · fließend auf Englisch; zusätzliche Sprachen sind ein Plus. Â Was wir anbieten · Eine wichtige Rolle bei der Koordination und Bereitstellung von TALLY WEiJL Markenmarketing-Aktivitäten. · Eine dynamische, internationale und schnelle Arbeitsumgebung. · Die Möglichkeit, über mehrere Märkte und Kanäle zu arbeiten. · Wettbewerbsfähiges Ausgleichs- und Leistungspaket. Möchten Sie ein Teil unserer Modegeschichte und ein begeistertes Mitglied unserer TALLY Familie werden? Dann teilen Sie uns Ihr individuelles Talent und senden Sie uns Ihre Bewerbung! Oder kontaktieren Sie direkt unseren internen Recruiter unter c.barone@tally-weijl.com",
         "fr": "Marketing de marque (Coordonnateur / Gestionnaire de projet) Nous sommes ici pour vous faire sentir sexy, autonomisé et intouchable. Fondée en 1984, TALLY WEIJL est en voyage fou pour célébrer la mode, l'indépendance, le plaisir, l'amour et la communauté depuis près de 40 ans. Aujourd'hui, nous sommes présents sur 7 marchés avec environ 400 magasins, présence en ligne et 3m+ fans sur les canaux sociaux. ## À propos du rôle Nous recherchons un profil marketing de marque (niveau de coordonnateur / gestionnaire de projet à définir) pour diriger et coordonner l'exécution de nos activités marketing de marque dans tous les canaux. Ce rôle est chargé d'assurer la cohérence entre l'identité de la marque, les objectifs commerciaux et la narration saisonnière, tout en gérant les projets de bout en bout dans un environnement rapide et hautement opérationnel. ## Vos responsabilités · Dirigez et coordonnez des campagnes de marketing de marque pour chaque collection, en assurant la cohérence avec l'identité de la marque, les objectifs commerciaux et les récits saisonniers. · Négocier des contrats avec différents partenaires (agences modèles, équipes de production), y compris les droits d'utilisation et d'utilisation, tout en garantissant des normes de qualité et l'alignement budgétaire. · Planifier et organiser tous les aspects logistiques des fusillades de marque, y compris les déplacements en équipe, l'hébergement, les horaires et la coordination sur place. · Superviser la création et la production de matériel de marketing et de merchandising visuel en magasin (écrans de fenêtre, bannières, visuels de caisse et autres actifs de communication au détail). · Soutenir et coordonner le contenu du commerce électronique conformément au calendrier commercial. · Gérer, surveiller et contrôler l'ensemble du budget de commercialisation, en assurant l'efficience et l'alignement sur les priorités stratégiques. · Gérer l'administration financière du service marketing, y compris la vérification des factures, l'attribution, le suivi et les paiements en temps opportun aux partenaires externes. · Contribuer au développement et à l'exécution de la stratégie de marketing et de communication de la marque. · Préparer des présentations détaillées, des rapports et des propositions créatives pour les réunions internes, les examens de gestion et l'harmonisation interfonctionnelle. · Coordonner les projets de marketing, y compris le développement d'accessoires d'événements et de cadeaux aux clients pour stimuler le trafic et améliorer la visibilité de la marque. · Superviser la production vidéo pour les campagnes et les offres promotionnelles, en collaborant avec les créateurs de contenu pour assurer une production de haute qualité dans les magasins, les centres commerciaux et les plateformes numériques. · Planifier et coordonner les événements en définissant des lignes directrices claires et en assurant une exécution cohérente entre les marchés. · Collaborer avec les gestionnaires de pays pour organiser et mettre en oeuvre des événements aux niveaux local et international. · Gérer l'approvisionnement et la préparation du matériel pour les événements et les activations. ## Votre profil · Sensibilité à la mode forte et véritable passion pour le produit. · Un état d'esprit commercial solide avec une forte approche opérationnelle. · Fortes compétences en négociation. · Expérience en marketing de marque, gestion de campagne ou rôles semblables. · Capacité de gérer plusieurs projets simultanément dans un environnement rapide. · Fortes compétences organisationnelles et attention aux détails. · Excellentes compétences en communication et coordination. · Fluent en anglais; les langues supplémentaires sont un plus. ## Ce que nous offrons · Un rôle clé dans la coordination et la prestation des activités de marketing de marque TALLY WeiJL. · Un environnement de travail dynamique, international et rapide. · La possibilité de travailler sur plusieurs marchés et canaux. · Compensation et avantages concurrentiels. Aimeriez-vous devenir une partie de notre histoire de mode et un membre enthousiaste de notre famille TALLY? Alors partagez votre talent individuel avec nous et envoyez-nous votre candidature! Ou contactez directement notre recruteur interne à c.barone@tally-weijl.com"
       },
@@ -2378,7 +2401,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0z27g/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-13T11:23:37.444Z",
+      "crawledAt": "2026-04-13T22:31:44.518Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -2392,9 +2415,16 @@
       "postedDate": "2026-04-13",
       "applyUrl": "https://tallyweijl.hire.trakstar.com/jobs/fk0z27g/",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-04-13T11:23:37.444Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "brand-marketing-coordinator-project-manager-tally-weijl-basel"
+        ]
       },
+      "previousSlugs": [
+        "brand-marketing-coordinator-project-manager-tally-weijl-basel"
+      ],
       "salaryMin": 75500,
       "salaryMax": 133000,
       "baseSalary": {
@@ -2407,8 +2437,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "4001",
-      "firstSeenAt": "2026-04-13T11:23:37.444Z"
+      "postalCode": "4001"
     },
     {
       "id": "tally-weijl-28bbb3f83354",
@@ -2441,7 +2470,7 @@
       "url": "https://tallyweijl.hire.trakstar.com/jobs/fk0zs9o/",
       "source": "TALLY WEiJL Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-13T11:23:36.816Z",
+      "crawledAt": "2026-04-13T22:31:43.887Z",
       "addressLocality": "Sion",
       "addressCountry": "CH",
       "country": "CH",
@@ -2499,6 +2528,8 @@
           "assistant-tally-weijl-sion"
         ]
       },
+      "firstSeenAt": "2026-04-13T11:23:36.816Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2511,8 +2542,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1950",
-      "firstSeenAt": "2026-04-13T11:23:36.816Z"
+      "postalCode": "1950"
     }
   ]
 }
