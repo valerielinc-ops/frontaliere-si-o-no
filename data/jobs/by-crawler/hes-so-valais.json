@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hes-so-valais",
-  "assembledAt": "2026-04-13T08:24:55.756Z",
+  "assembledAt": "2026-04-13T10:42:11.713Z",
   "jobs": [
     {
       "url": "https://www.hevs.ch/fr/recruitee/collaborateur-ou-collaboratrice-scientifique-hes-80-100-***-academic-associate-uas-80-100-214198",
@@ -62,6 +62,71 @@
           "@type": "QuantitativeValue",
           "minValue": 49500,
           "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "needsRetranslation": true
+    },
+    {
+      "url": "https://www.hevs.ch/fr/recruitee/professeure-hes--professeur-hes-80-***-professor-fh--professorin-fh-mind-80-213898",
+      "applyUrl": "https://www.hevs.ch/fr/recruitee/professeure-hes--professeur-hes-80-***-professor-fh--professorin-fh-mind-80-213898",
+      "title": "Professeure HES / Professeur HES (80%) *** Professor FH /",
+      "company": "HES-SO Valais-Wallis",
+      "companyKey": "hes-so-valais",
+      "location": "Sion",
+      "postalCode": "1950",
+      "canton": "VS",
+      "country": "CH",
+      "description": "Pour renforcer la recherche et l’enseignement au sein de la filière Physiothérapie, la Haute Ecole de Santé met au concours le poste de :Professeure HES\n\nLa HES-SO Valais-Wallis est une haute école spécialisée bilingue (français-allemand) du canton du Valais, avec des campus à Sion, Sierre, Visp et Saint-Maurice. Elle forme plus de 2'800 étudiant·e·s dans les domaines de l'ingénierie, la gestion, la santé, le travail social et les arts.",
+      "descriptionByLocale": {
+        "fr": "Pour renforcer la recherche et l’enseignement au sein de la filière Physiothérapie, la Haute Ecole de Santé met au concours le poste de :Professeure HES\n\nLa HES-SO Valais-Wallis est une haute école spécialisée bilingue (français-allemand) du canton du Valais, avec des campus à Sion, Sierre, Visp et Saint-Maurice. Elle forme plus de 2'800 étudiant·e·s dans les domaines de l'ingénierie, la gestion, la santé, le travail social et les arts.",
+        "de": "Offene Stelle an der HES-SO Wallis in Sion.\nPosition: Professeure HES / Professeur HES (80%) *** Professor FH /.\n\nDie HES-SO Wallis ist eine zweisprachige (Französisch-Deutsch) Fachhochschule im Kanton Wallis mit Standorten in Sitten, Siders, Visp und Saint-Maurice. Sie bildet über 2'800 Studierende in den Bereichen Ingenieurwesen, Management, Gesundheit, Soziale Arbeit und Kunst aus.",
+        "en": "Open position at HES-SO Valais-Wallis in Sion.\nPosition: Professeure HES / Professeur HES (80%) *** Professor FH /.\n\nHES-SO Valais-Wallis is a bilingual (French-German) university of applied sciences in Canton Valais, Switzerland, with campuses in Sion, Sierre, Visp and Saint-Maurice. It trains over 2,800 students in engineering, management, health, social work and the arts.",
+        "it": "Pour renforcer la recherche et l’enseignement au sein de la filière Physiothérapie, la Haute Ecole de Santé met au concours le poste de :Professeure HES\n\nLa HES-SO Valais-Wallis est une haute école spécialisée bilingue (français-allemand) du canton du Valais, avec des campus à Sion, Sierre, Visp et Saint-Maurice. Elle forme plus de 2'800 étudiant·e·s dans les domaines de l'ingénierie, la gestion, la santé, le travail social et les arts."
+      },
+      "titleByLocale": {
+        "fr": "Professeure HES / Professeur HES (80%) *** Professor FH /",
+        "it": "Professeure HES / Professeur HES (80%) *** Professor FH /",
+        "en": "Professeure HES / Professeur HES (80%) *** Professor FH /",
+        "de": "Professeure HES / Professeur HES (80%) *** Professor FH /"
+      },
+      "slug": "professeure-hes-professeur-hes-80-professor-fh-hes-so-valais",
+      "slugByLocale": {
+        "fr": "professeure-hes-professeur-hes-80-professor-fh-hes-so-valais",
+        "it": "professeure-hes-professeur-hes-80-professor-fh-hes-so-valais",
+        "en": "professeure-hes-professeur-hes-80-professor-fh-hes-so-valais",
+        "de": "professeure-hes-professeur-hes-80-professor-fh-hes-so-valais"
+      },
+      "category": "education",
+      "datePosted": "2026-04-13",
+      "source": "hes-so-valais-crawler",
+      "sourceLang": "fr",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "SENIOR",
+      "sector": "Istruzione / Ricerca",
+      "_targetScope": {
+        "canton": "VS",
+        "location": "Sion"
+      },
+      "employmentRate": "80%",
+      "urlByLocale": {
+        "fr": "https://www.hevs.ch/fr/recruitee/professeure-hes--professeur-hes-80-***-professor-fh--professorin-fh-mind-80-213898",
+        "de": "https://www.hevs.ch/de/recruitee/professeure-hes--professeur-hes-80-***-professor-fh--professorin-fh-mind-80-213898",
+        "en": "https://www.hevs.ch/en/recruitee/professeure-hes--professeur-hes-80-***-professor-fh--professorin-fh-mind-80-213898"
+      },
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "hes-so-valais-6fc98ff3543e",
+      "salaryMin": 42000,
+      "salaryMax": 77500,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 42000,
+          "maxValue": 77500,
           "unitText": "YEAR"
         }
       }
