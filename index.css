@@ -113,13 +113,15 @@ main { display: block !important; }
 body.modal-open ins.adsbygoogle,
 body.modal-open [id^="google_ads"],
 body.modal-open [id^="aswift_"],
+body.modal-open [id^="aswift_"] ~ *,
 body.modal-open iframe[id^="aswift_"],
 body.modal-open div[data-ad-client],
 body.modal-open div[id^="google_ads_iframe"],
 body.modal-open .adsbygoogle[data-ad-status],
 body.modal-open iframe[src*="doubleclick"],
 body.modal-open iframe[src*="googlesyndication"],
-body.modal-open div[id^="div-gpt-ad"] {
+body.modal-open div[id^="div-gpt-ad"],
+body.modal-open .google-auto-placed {
   display: none !important;
   visibility: hidden !important;
   pointer-events: none !important;
