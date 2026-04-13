@@ -7279,6 +7279,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-ticino-dati-ust-2025': {
+    title: 'Como e Varese dominano: 64.700 | Frontaliere Ticino',
+    description: 'Dati UST 2025: 64.700 frontalieri lombardi in Ticino, Como guida con 32.200 unità. Varese a 31.400. Monza e Brianza cresce del 77,7% in 10 anni. Procedure',
+    keywords: 'frontalieri, ticino, svizzera, italia, como, varese, dominano, 2025',
+    ogTitle: 'Frontalieri Ticino 2025: Como e Varese dominano, Brianza',
+    ogDescription: 'Dati UST 2025: 64.700 frontalieri lombardi in Ticino. Como con 32.200, Varese con 31.400. Monza e Brianza cresce del 77,7%. Scopri procedure, costi e novità.',
+    canonicalPath: '/articoli-frontaliere/frontalieri-ticino-dati-ust-2025',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri Ticino 2025: Como e Varese dominano, Brianza sorprende",
+      "description": "Dati UST 2025: 64.700 frontalieri lombardi in Ticino, Como guida con 32.200 unità. Varese a 31.400. Monza e Brianza cresce del 77,7% in 10 anni. Procedure",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/frontalieri-ticino-dati-ust-2025.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del Lago di Como dal confine ticinese vicino a Chiasso con pendolari diretti in Svizzera"
+      },
+      "datePublished": "2026-04-13T14:07:06+00:00",
+      "dateModified": "2026-04-13T14:07:06+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-dati-ust-2025`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

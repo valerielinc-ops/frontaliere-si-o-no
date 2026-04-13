@@ -2109,6 +2109,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.controlli-frontalieri-ponte-chiasso-2025.title': 'Police aux frontières : plus de 2 000 contrôles en 2025, 42 arrestations',
     'blog.article.controlli-frontalieri-ponte-chiasso-2025.excerpt': 'La police aux frontières de Côme a contrôlé 6 212 véhicules entre Chiasso et Ponte Chiasso en 2025, entraînant 42 arrestations et 34 expulsions. Une augmentation de 47 % par rapport à 2023.',
     'blog.article.controlli-frontalieri-ponte-chiasso-2025.imageAlt': 'Poste-frontière de Ponte Chiasso entre la Lombardie et le Tessin avec panneaux douaniers suisses et italiens',
+    'blog.article.frontalieri-ticino-dati-ust-2025.title': 'Côme et Varèse dominent : 64 700 frontaliers en Ticino en 2025',
+    'blog.article.frontalieri-ticino-dati-ust-2025.excerpt': 'En 2025, le Canton du Tessin accueille 64 700 frontaliers lombards sur un total de 75 000. Côme arrive en tête avec 32 200 unités, suivi de Varèse avec 31 400. La province de Monza et Brianza enregistre une hausse de 77,7 % en dix ans.',
+    'blog.article.frontalieri-ticino-dati-ust-2025.imageAlt': 'Vue du Lac de Côme depuis la frontière tessinoise près de Chiasso avec des frontaliers se rendant en Suisse',
 };
 
 export default blogMetaFr;

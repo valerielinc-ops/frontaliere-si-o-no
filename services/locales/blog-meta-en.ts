@@ -2109,6 +2109,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.controlli-frontalieri-ponte-chiasso-2025.title': 'Border Police: Over 2,000 Checks in 2025, 42 Arrests',
     'blog.article.controlli-frontalieri-ponte-chiasso-2025.excerpt': 'Como\'s border police conducted 6,212 vehicle checks between Chiasso and Ponte Chiasso in 2025, resulting in 42 arrests and 34 deportations. This represents a 47% increase compared to 2023.',
     'blog.article.controlli-frontalieri-ponte-chiasso-2025.imageAlt': 'Ponte Chiasso border crossing between Lombardy and Ticino with Swiss and Italian customs signs',
+    'blog.article.frontalieri-ticino-dati-ust-2025.title': 'Como and Varese dominate: 64,700 cross-border workers in Ticino in 2025',
+    'blog.article.frontalieri-ticino-dati-ust-2025.excerpt': 'In 2025, the Canton of Ticino is home to 64,700 cross-border workers from Lombardy out of a total of 75,000. Como leads with 32,200 workers, while Varese follows closely with 31,400. Monza and Brianza has seen a 77.7% increase over the past decade.',
+    'blog.article.frontalieri-ticino-dati-ust-2025.imageAlt': 'View of Lake Como from the Ticino border near Chiasso with cross-border commuters heading to Switzerland',
 };
 
 export default blogMetaEn;

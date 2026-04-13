@@ -5906,4 +5906,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/controlli-frontalieri-ponte-chiasso-2025.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'frontalieri-ticino-dati-ust-2025',
+    category: 'novita',
+    date: '2026-04-13T14:07:06.853Z',
+    image: '/images/blog/frontalieri-ticino-dati-ust-2025.jpg',
+    hasCalculator: true,
+  },
 ];

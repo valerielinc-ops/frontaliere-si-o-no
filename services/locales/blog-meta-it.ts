@@ -2109,6 +2109,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.controlli-frontalieri-ponte-chiasso-2025.title': 'Polizia al confine: +2mila controlli nel 2025, 42 arresti',
     'blog.article.controlli-frontalieri-ponte-chiasso-2025.excerpt': 'La polizia di frontiera di Como ha controllato 6\'212 veicoli tra Chiasso e Ponte Chiasso nel 2025, con 42 arresti e 34 espulsioni. Incremento del 47% rispetto al 2023.',
     'blog.article.controlli-frontalieri-ponte-chiasso-2025.imageAlt': 'Ponte Chiasso, valico di frontiera tra Italia e Ticino con cartelli doganali svizzeri e italiani',
+    'blog.article.frontalieri-ticino-dati-ust-2025.title': 'Como e Varese dominano: 64.700 frontalieri in Ticino nel 2025',
+    'blog.article.frontalieri-ticino-dati-ust-2025.excerpt': 'Nel 2025 il Canton Ticino ospita 64.700 frontalieri lombardi su 75.000 totali. Como guida con 32.200 unità, Varese a 31.400. Monza e Brianza cresce del 77,7% in un decennio.',
+    'blog.article.frontalieri-ticino-dati-ust-2025.imageAlt': 'Vista del Lago di Como dal confine ticinese vicino a Chiasso con pendolari diretti in Svizzera',
 };
 
 export default blogMetaIt;

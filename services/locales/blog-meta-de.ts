@@ -2109,6 +2109,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.controlli-frontalieri-ponte-chiasso-2025.title': 'Polizei an der Grenze: Über 2\'000 Kontrollen im Jahr 2025, 42 Festnahmen',
     'blog.article.controlli-frontalieri-ponte-chiasso-2025.excerpt': 'Die Grenzpolizei von Como hat im Jahr 2025 zwischen Chiasso und Ponte Chiasso 6\'212 Fahrzeuge kontrolliert. Dabei wurden 42 Festnahmen und 34 Abschiebungen verzeichnet. Dies entspricht einem Anstieg von 47 Prozent im Vergleich zu 2023.',
     'blog.article.controlli-frontalieri-ponte-chiasso-2025.imageAlt': 'Grenzübergang Ponte Chiasso zwischen der Lombardei und dem Tessin mit Schweizer und italienischen Zollschildern',
+    'blog.article.frontalieri-ticino-dati-ust-2025.title': 'Como und Varese dominieren: 64.700 Grenzpendler im Tessin 2025',
+    'blog.article.frontalieri-ticino-dati-ust-2025.excerpt': 'Im Jahr 2025 beherbergt das Tessin 64.700 lombardische Grenzpendler von insgesamt 75.000. Como führt mit 32.200 Personen, Varese folgt mit 31.400. Die Provinz Monza und Brianza verzeichnet in einem Jahrzehnt ein Wachstum von 77,7 %.',
+    'blog.article.frontalieri-ticino-dati-ust-2025.imageAlt': 'Blick auf den Comersee von der Tessiner Grenze bei Chiasso mit Grenzgängern auf dem Weg in die Schweiz',
 };
 
 export default blogMetaDe;
