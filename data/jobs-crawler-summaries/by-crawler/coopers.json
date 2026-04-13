@@ -1,16 +1,16 @@
 {
   "key": "coopers",
   "label": "Coopers Group AG",
-  "generatedAt": "2026-04-13T10:22:25.787Z",
-  "total": 4,
+  "generatedAt": "2026-04-13T21:30:48.931Z",
+  "total": 3,
   "newCount": 0,
-  "updatedCount": 4,
-  "removedCount": 0,
+  "updatedCount": 3,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 8669,
-  "avgDurationMs": 8669,
+  "durationMs": 8244,
+  "avgDurationMs": 8244,
   "durationHistory": [
-    8669
+    8244
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=FL86B0",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:22:19.373Z",
+      "crawledAt": "2026-04-13T21:30:43.781Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -40,6 +40,7 @@
       "featured": false,
       "postedDate": "2026-04-09",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=FL86B0",
+      "firstSeenAt": "2026-04-13T10:22:19.373Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -60,7 +61,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=979PJR",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-13T10:22:20.628Z",
+      "crawledAt": "2026-04-13T21:30:45.111Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -74,6 +75,7 @@
       "featured": false,
       "postedDate": "2026-04-08",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=979PJR",
+      "firstSeenAt": "2026-04-13T10:22:20.628Z",
       "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 20,
@@ -94,7 +96,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=210UII",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:22:21.922Z",
+      "crawledAt": "2026-04-13T21:30:46.401Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -108,6 +110,7 @@
       "featured": false,
       "postedDate": "2026-04-02",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=210UII",
+      "firstSeenAt": "2026-04-13T10:22:21.922Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -115,10 +118,12 @@
         "translation": 25,
         "completeness": 14
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "id": "coopers-d4715af571eb",
-      "slug": "capex-buyer-m-f-d-coopers-wallis",
+      "slug": "acquirente-capex-m-f-d-coopers-group-ag-wallis",
       "company": "Coopers Group AG",
       "companyKey": "coopers",
       "companyDomain": "coopers.ch",
@@ -142,15 +147,18 @@
       "featured": false,
       "postedDate": "2026-03-19",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=5S1KZ8",
-      "_qualityScore": 85,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "postalCode": "1950",
+      "firstSeenAt": "2026-04-13T10:22:23.237Z",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 14
+        "completeness": 22
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
