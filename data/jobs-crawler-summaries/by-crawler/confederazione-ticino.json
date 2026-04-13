@@ -1,16 +1,16 @@
 {
   "key": "confederazione-ticino",
   "label": "Confederazione TI+GR",
-  "generatedAt": "2026-04-13T10:17:27.319Z",
-  "total": 13,
+  "generatedAt": "2026-04-13T21:25:51.213Z",
+  "total": 12,
   "newCount": 0,
-  "updatedCount": 13,
-  "removedCount": 0,
+  "updatedCount": 12,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 1765,
-  "avgDurationMs": 1765,
+  "durationMs": 1332,
+  "avgDurationMs": 1332,
   "durationHistory": [
-    1765
+    1332
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -294,8 +294,8 @@
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
       "id": "confederazione-ticino-85ecb7076ca2",
+      "retranslationAttempts": 1,
       "needsRetranslation": true,
-      "retranslationAttempts": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -413,42 +413,6 @@
       }
     },
     {
-      "title": "Lernende/-r Strassentransportfachmann/-frau EFZ",
-      "slug": "lernende-r-strassentransportfachmann-frau-efz-confederazione-claro",
-      "url": "https://jobs.admin.ch/posti-vacanti/lernende-r-strassentransportfachmann-frau-efz/bfa3b444-a567-4bd0-81f6-3b2334dc20f1",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=16470",
-      "company": "Confederazione Svizzera",
-      "companyKey": "confederazione-ticino",
-      "companyDomain": "admin.ch",
-      "location": "Claro (TI)",
-      "addressLocality": "Claro",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "apprenticeship",
-      "sector": "Pubblica amministrazione",
-      "source": "confederazione-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2025-10-14",
-      "validThrough": "2026-07-31",
-      "employmentType": "apprenticeship",
-      "contractType": "apprenticeship",
-      "salaryMin": 46500,
-      "salaryMax": 62500,
-      "currency": "CHF",
-      "streetAddress": "Piazza Governo",
-      "postalCode": "6501",
-      "id": "confederazione-ticino-d27a9300ec91",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
       "title": "Asyl-Dolmetscher/-in",
       "slug": "asyl-dolmetscher-in-confederazione-alle-standorte-des-sem",
       "url": "https://jobs.admin.ch/posti-vacanti/asyl-dolmetscher-in/0181eed7-a2b2-4b22-b148-139bd72659a4",
@@ -485,6 +449,43 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Lernende/-r Strassentransportfachmann/-frau EFZ",
+      "slug": "apprendista-specialista-in-trasporti-stradali-cfc-confederazione-svizzera-claro",
+      "url": "https://jobs.admin.ch/posti-vacanti/lernende-r-strassentransportfachmann-frau-efz/bfa3b444-a567-4bd0-81f6-3b2334dc20f1",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=16470",
+      "company": "Confederazione Svizzera",
+      "companyKey": "confederazione-ticino",
+      "companyDomain": "admin.ch",
+      "location": "Claro (TI)",
+      "addressLocality": "Claro",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "apprenticeship",
+      "sector": "Pubblica amministrazione",
+      "source": "confederazione-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2025-10-14",
+      "validThrough": "2026-07-31",
+      "employmentType": "apprenticeship",
+      "contractType": "apprenticeship",
+      "salaryMin": 46500,
+      "salaryMax": 62500,
+      "currency": "CHF",
+      "streetAddress": "Piazza Governo",
+      "postalCode": "6501",
+      "id": "confederazione-ticino-d27a9300ec91",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ],
   "unchangedJobs": []
 }

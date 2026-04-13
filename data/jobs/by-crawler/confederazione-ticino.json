@@ -1,6 +1,6 @@
 {
   "crawlerKey": "confederazione-ticino",
-  "assembledAt": "2026-04-13T10:17:27.318Z",
+  "assembledAt": "2026-04-13T21:25:51.212Z",
   "jobs": [
     {
       "title": "Inspektor/in",
@@ -70,7 +70,8 @@
         "it": [
           "inspektor-in-confederazione-sie-arbeiten-im-homeoffice-und-fuhren-inspektionen-in-einem-der-folgenden-kantone-aus-zh-sh-zentralschweiz-ag-so-be-vs"
         ]
-      }
+      },
+      "firstSeenAt": "2026-04-13T21:25:51.212Z"
     },
     {
       "title": "Greffier/greffière de langue française, pour la Cour d'appel",
@@ -136,7 +137,8 @@
       },
       "previousSlugs": [
         "greffier-greffiere-de-langue-francaise-pour-la-cour-d-appel-confederazione-bellinzone"
-      ]
+      ],
+      "firstSeenAt": "2026-04-13T21:25:51.212Z"
     },
     {
       "title": "Hochschulpraktikant/in für die Entwicklung von IT-Tools zur Unterstützung des Prognosedienstes (m/w)",
@@ -212,7 +214,8 @@
         "it": [
           "hochschulpraktikant-in-fur-die-entwicklung-von-it-tools-zur-unterstutzung-des-prognosedienstes-m-w-confederazione-locarno-monti"
         ]
-      }
+      },
+      "firstSeenAt": "2026-04-13T21:25:51.212Z"
     },
     {
       "title": "Lernende Kauffrau EFZ / Lernender Kaufmann EFZ",
@@ -289,7 +292,8 @@
         "fr": [
           "apprendista-kauffrau-cfc-lernender-kaufmann-cfc-confederazione-svizzera-bellinzona"
         ]
-      }
+      },
+      "firstSeenAt": "2026-04-13T21:25:51.212Z"
     },
     {
       "title": "Netzwerk Spezialist/-in Professional",
@@ -355,7 +359,8 @@
       },
       "previousSlugs": [
         "netzwerk-spezialist-in-professional-confederazione-locarno"
-      ]
+      ],
+      "firstSeenAt": "2026-04-13T21:25:51.212Z"
     },
     {
       "title": "GERICHTSSCHREIBERIN / GERICHTSSCHREIBER der Strafkammer",
@@ -425,7 +430,8 @@
         "it": [
           "gerichtsschreiberin-gerichtsschreiber-der-strafkammer-confederazione-bellinzona"
         ]
-      }
+      },
+      "firstSeenAt": "2026-04-13T21:25:51.212Z"
     },
     {
       "title": "Operator/-in Support",
@@ -491,7 +497,9 @@
       },
       "previousSlugs": [
         "operator-in-support-confederazione-rivera"
-      ]
+      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-04-13T21:25:51.212Z"
     },
     {
       "title": "Logistiker/-in (Lager Ambrì/Andermatt)",
@@ -559,7 +567,7 @@
         "logistiker-in-lager-ambri-andermatt-confederazione-ambri"
       ],
       "retranslationAttempts": 1,
-      "needsRetranslation": true
+      "firstSeenAt": "2026-04-13T21:25:51.212Z"
     },
     {
       "title": "Raus aus der Routine? Werde Berufsoffizier/-in",
@@ -629,7 +637,8 @@
         "it": [
           "raus-aus-der-routine-werde-berufsoffizier-in-confederazione-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort"
         ]
-      }
+      },
+      "firstSeenAt": "2026-04-13T21:25:51.212Z"
     },
     {
       "title": "Dein Beruf sollte mehr bieten? Werde Berufsunteroffizier/-in",
@@ -701,7 +710,8 @@
         "it": [
           "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-confederazione-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort"
         ]
-      }
+      },
+      "firstSeenAt": "2026-04-13T21:25:51.212Z"
     },
     {
       "title": "Lernende/-r Automobil-Mechatroniker/-in EFZ, Fachrichtung Personenwagen",
@@ -767,84 +777,8 @@
       },
       "previousSlugs": [
         "lernende-r-automobil-mechatroniker-in-efz-fachrichtung-personenwagen-confederazione-rivera"
-      ]
-    },
-    {
-      "title": "Lernende/-r Strassentransportfachmann/-frau EFZ",
-      "slug": "apprendista-specialista-in-trasporti-stradali-cfc-confederazione-svizzera-claro",
-      "url": "https://jobs.admin.ch/posti-vacanti/lernende-r-strassentransportfachmann-frau-efz/bfa3b444-a567-4bd0-81f6-3b2334dc20f1",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=16470",
-      "company": "Confederazione Svizzera",
-      "companyKey": "confederazione-ticino",
-      "companyDomain": "admin.ch",
-      "location": "Claro (TI)",
-      "addressLocality": "Claro",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "apprenticeship",
-      "sector": "Pubblica amministrazione",
-      "source": "confederazione-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2025-10-14",
-      "validThrough": "2026-07-31",
-      "employmentType": "apprenticeship",
-      "contractType": "apprenticeship",
-      "description": "Transporte planen, vorbereiten und durchführen, so dass sämtliches Armeematerial zur richtigen Zeit am richtigen Ort ist\nKleinere Reparaturen, den Unterhalt und die Reinigung an den Lastwagen und den Anhängern durchführen\nDie Waren mit Hilfe von Palettwagen und Gabelstaplern be- und entladen, ausliefern und zurücknehmen\nTransportdokumente kontrollieren und die Sicherheitsvorschriften kennen und einhalten\nDie Führerausweise der Kategorien B, BE, C, CE, C1, C1E und Stapler erlangen sowie die ADR / SDR Prüfung ablegen\n\nAbgeschlossene Sekundarschule Niveau A oder B (Realschulabschluss) und erreichtes 16. Altersjahr vor dem 1. Dezember des 1. Lehrjahres\nZuverlässigkeit, Verantwortungsbewusstsein und Selbständigkeit\nOrganisationsfähigkeit und gute Auffassungsgabe mit ausgeprägter Lernbereitschaft\nGute Umgangsformen und Freude am Kontakt mit Menschen sowie an einem körperlich aktiven Berufsalltag\nLogisches Denkvermögen mit einer exakten Arbeitsweise",
-      "titleByLocale": {
-        "it": "Apprendista Specialista in trasporti stradali CFC",
-        "en": "Apprentice Strassentransportfachmann/-frau EFZ",
-        "de": "Lernende/-r Strassentransportfachmann/-frau EFZ",
-        "fr": "Apprenti/e Strassentransportfachmann/-frau EFZ"
-      },
-      "descriptionByLocale": {
-        "it": "Pianificare, preparare e realizzare i trasporti in modo che tutto il materiale militare al momento giusto sia al posto giusto Riparazioni più piccole, manutenzione e pulizia su camion e rimorchi effettuino le merci con l'aiuto di camion e carrelli elevatori carichi e scaricati, consegnare e ritirare documenti di trasporto e conoscere le norme di sicurezza e rispettare gli ID del conducente di categorie B, BE, C, CE, C1, C1E Anno di età prima del 1 dicembre del 1 ° anno di insegnamento Affidabilità, senso di responsabilità e di auto-occupazione Capacità organizzativa e buona comprensione con una pronunciata prontezza di imparare Buoni modi di trattare con le persone e una giornata di lavoro fisicamente attiva Pensiero logico con un metodo di lavoro esatto",
-        "en": "Planning, preparing and carrying out transports so that all army material at the right time is at the right place Smaller repairs, maintenance and cleaning on trucks and trailers carry out the goods with the help of pallet trucks and forklift trucks loaded and unloaded, deliver and withdraw transport documents and know the safety regulations and comply with the driver's IDs of categories B, BE, C, CE, C1, C1E Year of age before 1 December of the 1st year of teaching Reliability, sense of responsibility and self-employment Organisational ability and good understanding with a pronounced readiness to learn Good ways of dealing with people and a physically active working day Logical thinking with an exact working method",
-        "de": "Transporte planen, vorbereiten und durchführen, so dass sämtliches Armeematerial zur richtigen Zeit am richtigen Ort ist Kleinere Reparaturen, den Unterhalt und die Reinigung an den Lastwagen und den Anhängern durchführen Die Waren mit Hilfe von Palettwagen und Gabelstaplern be- und entladen, ausliefern und zurücknehmen Transportdokumente kontrollieren und die Sicherheitsvorschriften kennen und einhalten Die Führerausweise der Kategorien B, BE, C, CE, C1, C1E und Stapler erlangen sowie die ADR / SDR Prüfung ablegen Abgeschlossene Sekundarschule Niveau A oder B (Realschulabschluss) und erreichtes 16. Altersjahr vor dem 1. Dezember des 1. Lehrjahres Zuverlässigkeit, Verantwortungsbewusstsein und Selbständigkeit Organisationsfähigkeit und gute Auffassungsgabe mit ausgeprägter Lernbereitschaft Gute Umgangsformen und Freude am Kontakt mit Menschen sowie an einem körperlich aktiven Berufsalltag Logisches Denkvermögen mit einer exakten Arbeitsweise",
-        "fr": "Planification, préparation et réalisation des transports afin que tout le matériel de l'armée au bon moment soit au bon endroit Les petits travaux de réparation, d'entretien et de nettoyage des camions et des remorques effectuent les marchandises à l'aide de transpalettes et de chariots élévateurs chargés et déchargés, délivrent et retirent les documents de transport et connaissent les règles de sécurité et respectent les ID du conducteur des catégories B, BE, C, CE, C1, C1E Année avant le 1er décembre de la 1ère année d'enseignement Fiabilité, sens des responsabilités et travail indépendant Capacité organisationnelle et bonne compréhension avec une volonté prononcée d'apprendre Bonnes manières de traiter avec les personnes et une journée de travail physiquement active Pensée logique avec une méthode de travail exacte"
-      },
-      "slugByLocale": {
-        "it": "apprendista-specialista-in-trasporti-stradali-cfc-confederazione-svizzera-claro",
-        "en": "apprentice-strassentransportfachmann-frau-efz-confederazione-svizzera-claro",
-        "de": "lernende-r-strassentransportfachmann-frau-efz-confederazione-claro",
-        "fr": "apprenti-e-strassentransportfachmann-frau-efz-confederazione-svizzera-claro"
-      },
-      "salaryMin": 46500,
-      "salaryMax": 62500,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 46500,
-          "maxValue": 62500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Piazza Governo",
-      "postalCode": "6501",
-      "previousSlugs": [
-        "lernende-r-strassentransportfachmann-frau-efz-confederazione-svizzera-claro",
-        "lernende-r-strassentransportfachmann-frau-efz-confederazione-claro"
       ],
-      "id": "confederazione-ticino-d27a9300ec91",
-      "previousSlugsByLocale": {
-        "it": [
-          "lernende-r-strassentransportfachmann-frau-efz-confederazione-svizzera-claro",
-          "lernende-r-strassentransportfachmann-frau-efz-confederazione-claro"
-        ],
-        "en": [
-          "lernende-r-strassentransportfachmann-frau-efz-confederazione-svizzera-claro"
-        ],
-        "de": [
-          "lernende-r-strassentransportfachmann-frau-efz-confederazione-svizzera-claro"
-        ],
-        "fr": [
-          "lernende-r-strassentransportfachmann-frau-efz-confederazione-svizzera-claro"
-        ]
-      }
+      "firstSeenAt": "2026-04-13T21:25:51.212Z"
     },
     {
       "title": "Asyl-Dolmetscher/-in",
@@ -918,7 +852,8 @@
         "it": [
           "asyl-dolmetscher-in-confederazione-alle-standorte-des-sem"
         ]
-      }
+      },
+      "firstSeenAt": "2026-04-13T21:25:51.212Z"
     }
   ]
 }
