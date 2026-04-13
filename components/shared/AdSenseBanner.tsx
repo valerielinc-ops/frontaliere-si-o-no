@@ -107,6 +107,8 @@ export default function AdSenseBanner({
     script.async = true;
     script.crossOrigin = 'anonymous';
     script.setAttribute('data-adsense-client', CLIENT_ID);
+    // Force anchor/overlay ads to bottom only — prevents covering navbar on mobile
+    script.setAttribute('data-overlays', 'bottom');
     script.addEventListener('load', () => {
       script.setAttribute('data-loaded', '1');
       setScriptReady(true);
