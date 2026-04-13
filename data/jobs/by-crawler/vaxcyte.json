@@ -1,6 +1,6 @@
 {
   "crawlerKey": "vaxcyte",
-  "assembledAt": "2026-04-13T11:29:05.366Z",
+  "assembledAt": "2026-04-13T22:37:00.346Z",
   "jobs": [
     {
       "id": "vaxcyte-71fa0c16011a",
@@ -33,7 +33,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5154087008?gh_jid=5154087008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-13T11:29:03.150Z",
+      "crawledAt": "2026-04-13T22:36:58.373Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -63,6 +63,7 @@
           "sr-engineer-process-systems-contract-vaxcyte-ch"
         ]
       },
+      "firstSeenAt": "2026-04-13T11:29:03.150Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -74,8 +75,7 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T11:29:03.150Z"
+      }
     },
     {
       "id": "vaxcyte-c453629da206",
@@ -108,7 +108,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5154146008?gh_jid=5154146008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-13T11:29:03.145Z",
+      "crawledAt": "2026-04-13T22:36:58.368Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -169,6 +169,8 @@
           "manager-supply-chain-management-vaxcyte-ch"
         ]
       },
+      "firstSeenAt": "2026-04-13T11:29:03.145Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -180,8 +182,7 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T11:29:03.145Z"
+      }
     },
     {
       "id": "vaxcyte-14efa24936cd",
@@ -214,7 +215,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5062469008?gh_jid=5062469008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-13T11:29:03.143Z",
+      "crawledAt": "2026-04-13T22:36:58.366Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -275,6 +276,8 @@
           "manager-quality-assurance-suppliers-and-audits-vaxcyte-ch"
         ]
       },
+      "firstSeenAt": "2026-04-13T11:29:03.143Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -286,8 +289,7 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T11:29:03.143Z"
+      }
     },
     {
       "id": "vaxcyte-7041ea0fbe48",
@@ -320,7 +322,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5026185008?gh_jid=5026185008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-13T11:29:03.138Z",
+      "crawledAt": "2026-04-13T22:36:58.362Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -384,6 +386,8 @@
           "direktor-geschftsoperationen-globaler-qualittskontrolle-vaxcyte-visp"
         ]
       },
+      "firstSeenAt": "2026-04-13T11:29:03.138Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -395,8 +399,7 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T11:29:03.138Z"
+      }
     },
     {
       "id": "vaxcyte-5db2cacb1fa5",
@@ -429,7 +432,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5154144008?gh_jid=5154144008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-13T11:29:03.135Z",
+      "crawledAt": "2026-04-13T22:36:58.359Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -498,6 +501,8 @@
           "acheteur-supply-chain-vaxcyte-visp"
         ]
       },
+      "firstSeenAt": "2026-04-13T11:29:03.135Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -509,8 +514,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T11:29:03.135Z"
+      }
     }
   ]
 }
