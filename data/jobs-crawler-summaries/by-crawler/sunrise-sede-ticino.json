@@ -1,16 +1,16 @@
 {
   "key": "sunrise-sede-ticino",
   "label": "Sunrise Communications AG",
-  "generatedAt": "2026-04-12T22:08:21.926Z",
-  "total": 2,
+  "generatedAt": "2026-04-13T11:19:52.243Z",
+  "total": 1,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 3306,
-  "avgDurationMs": 3306,
+  "unchangedCount": 0,
+  "durationMs": 2507,
+  "avgDurationMs": 2507,
   "durationHistory": [
-    3306
+    2507
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -52,42 +52,5 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "title": "Apprendista Gestore del commercio al dettaglio AFC - Lugano",
-      "slug": "apprendista-gestore-del-commercio-al-dettaglio-afc-lugano-sunrise-lugano",
-      "url": "https://careers.sunrise.ch/it/it/job/REQ_30036255/apprendista-gestore-del-commercio-al-dettaglio-afc-lugano",
-      "applyUrl": "https://sunrise.wd3.myworkdayjobs.com/Sunrise/job/Ticino/Apprendista-Gestore-del-commercio-al-dettaglio-AFC---Lugano_REQ_30036255/apply",
-      "company": "Sunrise Communications AG",
-      "companyKey": "sunrise-sede-ticino",
-      "companyDomain": "sunrise.ch",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6982",
-      "canton": "TI",
-      "country": "CH",
-      "category": "apprenticeship",
-      "sector": "Tecnologia & IT",
-      "source": "sunrise-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-01-28",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "salaryMin": 46500,
-      "salaryMax": 62500,
-      "currency": "CHF",
-      "streetAddress": "Via Industria 7",
-      "id": "sunrise-sede-ticino-702205ef7562",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ]
+  "unchangedJobs": []
 }
