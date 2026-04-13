@@ -33,10 +33,10 @@ const LOCATIONS = [
 ];
 
 const CONTRACT_TYPES = [
-  { value: 'full-time', labelKey: 'jobBoard.filter.fullTime' },
-  { value: 'part-time', labelKey: 'jobBoard.filter.partTime' },
-  { value: 'temporary', labelKey: 'jobBoard.filter.temporary' },
-  { value: 'internship', labelKey: 'jobBoard.filter.internship' },
+  { value: 'full-time', labelKey: 'jobBoard.contract.fullTime' },
+  { value: 'part-time', labelKey: 'jobBoard.contract.partTime' },
+  { value: 'temporary', labelKey: 'jobBoard.contract.temporary' },
+  { value: 'internship', labelKey: 'jobBoard.contract.internship' },
 ];
 
 const SECTORS = [

@@ -43,7 +43,14 @@ async function getFirestoreAdmin() {
       throw new Error('GOOGLE_APPLICATION_CREDENTIALS not set or file missing');
     }
     const cred = JSON.parse(fs.readFileSync(credPath, 'utf-8'));
-    initializeApp({ credential: cert(cred) });
+    if (cred.project_id) {
+      // Service account JSON (CI/CD)
+      initializeApp({ credential: cert(cred) });
+    } else {
+      // ADC / user credentials (local dev)
+      const { applicationDefault } = await import('firebase-admin/app');
+      initializeApp({ credential: applicationDefault(), projectId: 'frontaliere-ticino' });
+    }
   }
   _db = getFirestore();
   return _db;
@@ -128,6 +135,10 @@ function buildAlertEmail(alert, matchedJobs) {
     const url = slug ? `${BASE_URL}/cerca-lavoro-ticino/${slug}?${utmBase}` : BASE_URL;
     const initial = (company || '?')[0].toUpperCase();
     const tags = [];
+    // "NEW" badge for jobs first seen within 48 hours
+    const firstSeen = job.firstSeenAt ? new Date(job.firstSeenAt).getTime() : 0;
+    const isNew = firstSeen > 0 && (Date.now() - firstSeen) < 48 * 60 * 60 * 1000;
+    if (isNew) tags.push(`<span style="font-size:10px;background:rgba(34,197,94,0.2);color:#86efac;padding:2px 8px;border-radius:6px;text-transform:uppercase;letter-spacing:0.5px;font-weight:600;">\u2728 NUOVA</span>`);
     if (job.contract) tags.push(`<span style="font-size:10px;background:rgba(249,115,22,0.15);color:#fdba74;padding:2px 8px;border-radius:6px;text-transform:uppercase;letter-spacing:0.5px;font-weight:600;">${escHtml(job.contract)}</span>`);
     if (location) tags.push(`<span style="font-size:10px;background:rgba(249,115,22,0.15);color:#fdba74;padding:2px 8px;border-radius:6px;text-transform:uppercase;letter-spacing:0.5px;font-weight:600;">${escHtml(location)}</span>`);
 
@@ -310,8 +321,32 @@ async function main() {
     return;
   }
 
-  // 2b. Skip weekly alerts if last sent within 7 days
+  // 2b. Newsletter cooldown: skip users who received a newsletter in the last 36 hours
+  const NEWSLETTER_COOLDOWN_MS = 36 * 60 * 60 * 1000;
   const now = Date.now();
+  const alertEmails = [...new Set(alerts.map((a) => a.email.toLowerCase()))];
+  const newsletterCooldownSet = new Set();
+  for (const email of alertEmails) {
+    try {
+      const subDoc = await db.collection('newsletter_subscribers').doc(email).get();
+      if (subDoc.exists) {
+        const lastSentAt = subDoc.data()?.last_sent_at;
+        if (lastSentAt) {
+          const ts = typeof lastSentAt.toMillis === 'function' ? lastSentAt.toMillis() : new Date(lastSentAt).getTime();
+          if (now - ts < NEWSLETTER_COOLDOWN_MS) {
+            newsletterCooldownSet.add(email.toLowerCase());
+          }
+        }
+      }
+    } catch {}
+  }
+  if (newsletterCooldownSet.size > 0) {
+    const before = alerts.length;
+    alerts = alerts.filter((a) => !newsletterCooldownSet.has(a.email.toLowerCase()));
+    console.log(`   📬 Newsletter cooldown (36h): ${before - alerts.length} alerts deferred (newsletter sent recently)`);
+  }
+
+  // 2c. Skip weekly alerts if last sent within 7 days
   const WEEKLY_INTERVAL_MS = 7 * 24 * 60 * 60 * 1000;
   alerts = alerts.filter((alert) => {
     if (alert.frequency === 'weekly' && alert.lastMatchedAt) {
