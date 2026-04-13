@@ -1,15 +1,74 @@
 {
   "crawlerKey": "groupe-mutuel",
-  "assembledAt": "2026-04-12T21:27:57.303Z",
+  "assembledAt": "2026-04-13T10:38:42.636Z",
   "jobs": [
+    {
+      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3974?c=groupemutuel&lang=fr-FR",
+      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3974?c=groupemutuel&lang=fr-FR",
+      "title": "Sachbearbeiter Verträge Unternehmen (m/w) 100% - temporär 11 Monate",
+      "company": "Groupe Mutuel",
+      "companyKey": "groupe-mutuel",
+      "location": "Zürich",
+      "canton": "ZH",
+      "country": "CH",
+      "description": "Du unterstützt das bestehende Team in administrativen und logistischen Belangen Zu deinen Aufgaben gehören die Erfassung der Verträge sowie die Erstellung der Schlussrechnungen Listings werden mithilfe von Excel bearbeitet und gepflegt Die Daten werden überprüft, bereinigt und hinsichtlich ihrer Genauigkeit sichergestellt\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+      "descriptionByLocale": {
+        "en": "Du unterstützt das bestehende Team in administrativen und logistischen Belangen Zu deinen Aufgaben gehören die Erfassung der Verträge sowie die Erstellung der Schlussrechnungen Listings werden mithilfe von Excel bearbeitet und gepflegt Die Daten werden überprüft, bereinigt und hinsichtlich ihrer Genauigkeit sichergestellt\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+        "fr": "Poste ouvert chez Groupe Mutuel à Zürich.\nRôle : Sachbearbeiter Verträge Unternehmen (m/w) 100% - temporär 11 Monate.\n\nGroupe Mutuel est l'un des principaux groupes d'assurance en Suisse, dont le siège est à Martigny (Valais). L'entreprise propose une large gamme de produits d'assurance et de prévoyance pour les particuliers et les entreprises dans toute la Suisse.",
+        "de": "Du unterstützt das bestehende Team in administrativen und logistischen Belangen Zu deinen Aufgaben gehören die Erfassung der Verträge sowie die Erstellung der Schlussrechnungen Listings werden mithilfe von Excel bearbeitet und gepflegt Die Daten werden überprüft, bereinigt und hinsichtlich ihrer Genauigkeit sichergestellt\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+        "it": "Du unterstützt das bestehende Team in administrativen und logistischen Belangen Zu deinen Aufgaben gehören die Erfassung der Verträge sowie die Erstellung der Schlussrechnungen Listings werden mithilfe von Excel bearbeitet und gepflegt Die Daten werden überprüft, bereinigt und hinsichtlich ihrer Genauigkeit sichergestellt\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland."
+      },
+      "titleByLocale": {
+        "fr": "Sachbearbeiter Verträge Unternehmen (m/w) 100% - temporär 11 Monate",
+        "de": "Sachbearbeiter Verträge Unternehmen (m/w) 100% - temporär 11 Monate",
+        "it": "Sachbearbeiter Verträge Unternehmen (m/w) 100% - temporär 11 Monate",
+        "en": "Sachbearbeiter Verträge Unternehmen (m/w) 100% - temporär 11 Monate"
+      },
+      "slug": "sachbearbeiter-vertrage-unternehmen-m-w-100-temporar-11-monate-groupe-mutuel",
+      "slugByLocale": {
+        "fr": "sachbearbeiter-vertrage-unternehmen-m-w-100-temporar-11-monate-groupe-mutuel",
+        "en": "sachbearbeiter-vertrage-unternehmen-m-w-100-temporar-11-monate-groupe-mutuel",
+        "it": "sachbearbeiter-vertrage-unternehmen-m-w-100-temporar-11-monate-groupe-mutuel",
+        "de": "sachbearbeiter-vertrage-unternehmen-m-w-100-temporar-11-monate-groupe-mutuel"
+      },
+      "category": "administration",
+      "datePosted": "2026-04-13",
+      "source": "groupe-mutuel-csod-crawler",
+      "sourceLang": "de",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Assicurazioni / Sanità",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zürich"
+      },
+      "jobReqId": "3974",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "groupe-mutuel-c066facf92f2",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "8001"
+    },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3964?c=groupemutuel&lang=fr-FR",
       "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3964?c=groupemutuel&lang=fr-FR",
       "title": "Gestionnaire Santé LAA (h/f) 80-100%",
       "company": "Groupe Mutuel",
       "companyKey": "groupe-mutuel",
-      "location": "Fribourg",
-      "canton": "FR",
+      "location": "Lausanne",
+      "canton": "VD",
       "country": "CH",
       "description": "## Descrizione\n- Tu pilotes les dossiers d’accidents LAA (versement d’indemnités journalières, suivi médical) avec rigueur et proactivité, en utilisant les outils de la Gestion de la Santé en Entreprise\n- En tant que personne de contact directe pour un portefeuille de clients Entreprise, tu places leurs besoins au centre de nos préoccupations\n- Créer et entretenir des relations de confiance avec nos clients et les assurés fait partie de ton quotidien\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
       "descriptionByLocale": {
@@ -98,7 +157,8 @@
         "it": [
           "gestionnaire-sante-laa-h-f-80-100-groupe-mutuel"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3967?c=groupemutuel&lang=fr-FR",
@@ -196,7 +256,8 @@
         "it": [
           "responsable-vente-h-f-80-100-groupe-mutuel"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3957?c=groupemutuel&lang=fr-FR",
@@ -294,7 +355,8 @@
         "it": [
           "sachbearbeiter-unternehmen-uw-m-w-100-temporar-4-monate-groupe-mutuel"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3944?c=groupemutuel&lang=fr-FR",
@@ -384,7 +446,8 @@
         "it": [
           "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3946?c=groupemutuel&lang=fr-FR",
@@ -476,7 +539,8 @@
         "it": [
           "gestionnaire-prevoyance-individuelle-h-f-80-groupe-mutuel"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3927?c=groupemutuel&lang=fr-FR",
@@ -562,7 +626,8 @@
         "it": [
           "conseiller-clientele-contact-center-h-f-100-temporaire-3-mois-prolongeable-groupe-mutuel"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3926?c=groupemutuel&lang=fr-FR",
@@ -657,7 +722,8 @@
         "fr": [
           "conseiller-clientele-contact-center-h-f-100-temporaire-3-mois-prolongeable-groupe-mutuel-2"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3925?c=groupemutuel&lang=fr-FR",
@@ -764,7 +830,8 @@
         "fr": [
           "conseiller-clientele-contact-center-h-f-100-temporaire-3-mois-prolongeable-groupe-mutuel-3"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3916?c=groupemutuel&lang=fr-FR",
@@ -861,7 +928,8 @@
         "it": [
           "versicherungs-und-vorsorgeberater-m-w-80-100-groupe-mutuel-2"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3883?c=groupemutuel&lang=fr-FR",
@@ -929,7 +997,8 @@
         "it": [
           "kundenberater-agenturen-m-w-80-100-groupe-mutuel"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3861?c=groupemutuel&lang=fr-FR",
@@ -1015,7 +1084,8 @@
         "it": [
           "conseiller-en-assurances-et-prevoyance-at-h-f-80-100-groupe-mutuel"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3852?c=groupemutuel&lang=fr-FR",
@@ -1114,7 +1184,8 @@
         "it": [
           "business-analyst-prevoyance-individuelle-h-f-80-100-groupe-mutuel"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3765?c=groupemutuel&lang=fr-FR",
@@ -1212,7 +1283,8 @@
         "it": [
           "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3724?c=groupemutuel&lang=fr-FR",
@@ -1307,7 +1379,8 @@
         "it": [
           "conseiller-en-prevoyance-h-f-80-100-groupe-mutuel"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3722?c=groupemutuel&lang=fr-FR",
@@ -1397,7 +1470,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6900"
+      "postalCode": "6900",
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/3696?c=groupemutuel&lang=fr-FR",
@@ -1496,7 +1570,8 @@
         "fr": [
           "conseiller-en-assurances-et-prevoyance-h-f-80-100-groupe-mutuel-2"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/2796?c=groupemutuel&lang=fr-FR",
