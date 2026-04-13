@@ -1233,9 +1233,9 @@ function BlogArticles({
       rafId = requestAnimationFrame(() => {
         const w = window.innerWidth;
         // Keep initial above-the-fold payload tiny on mobile.
-        if (w < 640) setGridRevealCount(2);
-        else if (w < 1024) setGridRevealCount(4);
-        else setGridRevealCount(6);
+        if (w < 640) setGridRevealCount(4);
+        else if (w < 1024) setGridRevealCount(8);
+        else setGridRevealCount(9);
       });
     };
     updateViewport();
@@ -1370,9 +1370,9 @@ function BlogArticles({
   // Reset progressive reveal when user changes page/category.
   useEffect(() => {
     const w = typeof window !== 'undefined' ? window.innerWidth : 375;
-    if (w < 640) setGridRevealCount(2);
-    else if (w < 1024) setGridRevealCount(4);
-    else setGridRevealCount(6);
+    if (w < 640) setGridRevealCount(4);
+    else if (w < 1024) setGridRevealCount(8);
+    else setGridRevealCount(9);
   }, [currentPage, selectedCategory]);
 
   // Category stats for the list-view header (must be above early returns to maintain stable hook order)
