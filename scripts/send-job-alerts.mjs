@@ -3,7 +3,13 @@
  * FRO-333: Send Job Alert emails to subscribed users.
  *
  * Reads active job alerts from Firestore, matches them against jobs
- * added/updated in the last 24h, and sends email notifications via Resend API.
+ * added/updated in the last 24h, and sends email notifications via the
+ * multi-provider email cascade (Mailgun → Resend → Unosend).
+ *
+ * Retry mechanism: When all providers exhaust their daily quota and emails
+ * fail, they are written to the Firestore `job_alert_retry_queue` collection.
+ * On the next run (daily at 07:00 UTC), retries are processed FIRST to get
+ * priority on fresh provider quota. Max 2 retries per email (3 total attempts).
  *
  * Environment variables:
  *   RESEND_API_KEY            — Resend API key
@@ -24,6 +30,8 @@ const BASE_URL = 'https://frontaliereticino.ch';
 const FROM_EMAIL = 'Frontaliere Ticino <alerts@frontaliereticino.ch>';
 const DRY_RUN = process.argv.includes('--dry-run');
 const MATCH_WINDOW_MS = 24 * 60 * 60 * 1000; // 24 hours
+const MAX_RETRY_COUNT = 2; // Max 2 retries (original + 2 = 3 total attempts)
+const RETRY_COLLECTION = 'job_alert_retry_queue';
 
 // Testing allowlist: set to a Set of emails for admin-only testing,
 // or null to enable for all users.
@@ -277,12 +285,131 @@ async function sendBatch(emails) {
       tags: [{ name: 'type', value: 'job-alert' }],
     },
     recipient: { email: e.to },
-    meta: { type: 'job-alert' },
+    meta: { type: 'job-alert', alertId: e.alertId },
   }));
 
   const result = await sendEmailCascade(cascadeEmails, { concurrency: 3 });
   logProviderSummary();
-  return { sent: result.sent.length, failed: result.failed.length };
+  return {
+    sent: result.sent.length,
+    failed: result.failed.length,
+    failedItems: result.failed,
+  };
+}
+
+// ── Retry queue: enqueue failed emails ──────────────────────
+
+async function enqueueFailedEmails(db, failedItems) {
+  if (failedItems.length === 0) return;
+  const { FieldValue } = await import('firebase-admin/firestore');
+  const batch = db.batch();
+  let enqueued = 0;
+
+  for (const item of failedItems) {
+    const email = item.recipient?.email;
+    const alertId = item.meta?.alertId || '';
+    if (!email) continue;
+
+    const docRef = db.collection(RETRY_COLLECTION).doc();
+    batch.set(docRef, {
+      alertId,
+      email,
+      subject: item.payload?.subject || '',
+      html: item.payload?.html || '',
+      createdAt: FieldValue.serverTimestamp(),
+      retryCount: 0,
+      error: (item.error || '').slice(0, 500),
+    });
+    enqueued++;
+  }
+
+  if (enqueued > 0) {
+    await batch.commit();
+    console.log(`   🔄 Enqueued ${enqueued} failed emails for retry (max ${MAX_RETRY_COUNT} retries)`);
+  }
+}
+
+// ── Retry queue: process pending retries ────────────────────
+
+async function processRetryQueue(db) {
+  const snap = await db.collection(RETRY_COLLECTION).get();
+  if (snap.empty) {
+    console.log('   🔄 Retry queue: empty — nothing to retry');
+    return;
+  }
+
+  console.log(`   🔄 Retry queue: ${snap.size} pending email(s) to retry`);
+  const { sendEmailCascade, logProviderSummary } = await import('./lib/email-cascade.mjs');
+  const { FieldValue } = await import('firebase-admin/firestore');
+
+  const retryEmails = [];
+  const retryDocs = [];
+
+  for (const doc of snap.docs) {
+    const data = doc.data();
+    const retryCount = data.retryCount || 0;
+
+    if (retryCount >= MAX_RETRY_COUNT) {
+      // Max retries exhausted — give up
+      console.warn(`   ⚠️  Giving up on email to ${data.email} (alert ${data.alertId}) after ${retryCount} retries`);
+      await doc.ref.delete();
+      continue;
+    }
+
+    retryEmails.push({
+      payload: {
+        from: FROM_EMAIL,
+        to: [data.email],
+        subject: data.subject,
+        html: data.html,
+        tags: [{ name: 'type', value: 'job-alert-retry' }],
+      },
+      recipient: { email: data.email },
+      meta: { type: 'job-alert-retry', alertId: data.alertId },
+    });
+    retryDocs.push({ ref: doc.ref, data });
+  }
+
+  if (retryEmails.length === 0) {
+    console.log('   🔄 Retry queue: all entries expired (max retries reached)');
+    return;
+  }
+
+  console.log(`   🔄 Retrying ${retryEmails.length} email(s)...`);
+  const result = await sendEmailCascade(retryEmails, { concurrency: 3 });
+  logProviderSummary();
+
+  // Build a set of successfully sent recipient emails for lookup
+  const sentEmails = new Set(result.sent.map(s => s.recipient?.email));
+
+  let successCount = 0;
+  let reEnqueueCount = 0;
+
+  for (const { ref, data } of retryDocs) {
+    if (sentEmails.has(data.email)) {
+      // Successfully retried — remove from queue
+      await ref.delete();
+      successCount++;
+      console.log(`   ✅ Retry succeeded: ${data.email} (alert ${data.alertId})`);
+    } else {
+      // Still failed — increment retryCount
+      const newCount = (data.retryCount || 0) + 1;
+      if (newCount >= MAX_RETRY_COUNT) {
+        console.warn(`   ⚠️  Giving up on email to ${data.email} (alert ${data.alertId}) after ${newCount} retries`);
+        await ref.delete();
+      } else {
+        await ref.update({
+          retryCount: newCount,
+          lastRetryAt: FieldValue.serverTimestamp(),
+          lastError: result.failed.find(f => f.recipient?.email === data.email)?.error?.slice(0, 500) || 'unknown',
+        });
+        reEnqueueCount++;
+        console.log(`   🔄 Retry failed for ${data.email} — attempt ${newCount}/${MAX_RETRY_COUNT}, will retry tomorrow`);
+      }
+    }
+  }
+
+  console.log(`   🔄 Retry summary: ${successCount} succeeded, ${reEnqueueCount} will retry tomorrow`);
 }
 
 // ── Main ─────────────────────────────────────────────────────
@@ -299,6 +426,14 @@ async function main() {
     return;
   }
 
+  // 0. Process retry queue FIRST — retries get priority on fresh daily quota
+  const db = await getFirestoreAdmin();
+  if (!DRY_RUN) {
+    await processRetryQueue(db);
+  } else {
+    console.log('   🔵 DRY RUN — skipping retry queue processing');
+  }
+
   // 1. Load recent jobs
   const recentJobs = loadRecentJobs();
   console.log(`   Recent jobs (last 24h): ${recentJobs.length}`);
@@ -308,7 +443,6 @@ async function main() {
   }
 
   // 2. Load active alerts from Firestore
-  const db = await getFirestoreAdmin();
   const alertsSnap = await db.collection('job_alerts').where('active', '==', true).get();
   let alerts = alertsSnap.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
 
@@ -403,6 +537,12 @@ async function main() {
   } else {
     const result = await sendBatch(emailsToSend);
     console.log(`   ✅ Sent ${result.sent} emails`);
+
+    // 4b. Enqueue failed emails for retry on the next run
+    if (result.failed > 0) {
+      console.log(`   ❌ ${result.failed} email(s) failed — enqueuing for retry`);
+      await enqueueFailedEmails(db, result.failedItems);
+    }
   }
 
   // 5. Update Firestore: lastMatchedAt + matchCount
