@@ -1,117 +1,5 @@
 [
   {
-    "timestamp": "2026-04-05T03:40:33.936Z",
-    "label": "before",
-    "total": 1530,
-    "needsRetranslation": 206,
-    "incomplete": 179,
-    "complete": 1351,
-    "missingByLocale": {
-      "it": 101,
-      "en": 111,
-      "de": 62,
-      "fr": 132
-    },
-    "topPending": [
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 56
-      },
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 22
-      },
-      {
-        "company": "LIS – Lugano Istituti Sociali",
-        "pending": 13
-      },
-      {
-        "company": "Denner",
-        "pending": 11
-      },
-      {
-        "company": "Davos Klosters Bergbahnen AG",
-        "pending": 9
-      },
-      {
-        "company": "Lombardi Group",
-        "pending": 9
-      },
-      {
-        "company": "LWP Ledermann Wieting & Partners",
-        "pending": 7
-      },
-      {
-        "company": "Allianz Suisse",
-        "pending": 6
-      },
-      {
-        "company": "Cornèr Banca",
-        "pending": 6
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 5
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-05T03:41:46.630Z",
-    "label": "after",
-    "total": 1530,
-    "needsRetranslation": 122,
-    "incomplete": 92,
-    "complete": 1438,
-    "missingByLocale": {
-      "it": 45,
-      "en": 49,
-      "de": 34,
-      "fr": 59
-    },
-    "topPending": [
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 18
-      },
-      {
-        "company": "Denner",
-        "pending": 11
-      },
-      {
-        "company": "Davos Klosters Bergbahnen AG",
-        "pending": 9
-      },
-      {
-        "company": "LWP Ledermann Wieting & Partners",
-        "pending": 7
-      },
-      {
-        "company": "Allianz Suisse",
-        "pending": 6
-      },
-      {
-        "company": "Cornèr Banca",
-        "pending": 6
-      },
-      {
-        "company": "SUPSI / DTI",
-        "pending": 5
-      },
-      {
-        "company": "Hilcona AG",
-        "pending": 4
-      },
-      {
-        "company": "Schindler",
-        "pending": 4
-      },
-      {
-        "company": "ALDI SUISSE",
-        "pending": 3
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-05T05:22:42.962Z",
     "label": "before",
     "total": 1530,
@@ -8296,6 +8184,36 @@
     "needsRetranslation": 19,
     "incomplete": 0,
     "complete": 2984,
+    "missingByLocale": {
+      "it": 0,
+      "en": 0,
+      "de": 0,
+      "fr": 0
+    },
+    "topPending": []
+  },
+  {
+    "timestamp": "2026-04-13T08:31:30.742Z",
+    "label": "before",
+    "total": 2922,
+    "needsRetranslation": 19,
+    "incomplete": 0,
+    "complete": 2922,
+    "missingByLocale": {
+      "it": 0,
+      "en": 0,
+      "de": 0,
+      "fr": 0
+    },
+    "topPending": []
+  },
+  {
+    "timestamp": "2026-04-13T08:48:01.259Z",
+    "label": "after",
+    "total": 2922,
+    "needsRetranslation": 17,
+    "incomplete": 0,
+    "complete": 2922,
     "missingByLocale": {
       "it": 0,
       "en": 0,
