@@ -1,10 +1,10 @@
 {
   "crawlerKey": "vtg",
-  "assembledAt": "2026-04-12T22:20:03.984Z",
+  "assembledAt": "2026-04-13T11:31:50.769Z",
   "jobs": [
     {
       "id": "company-knc5rd",
-      "slug": "apprendista-impiegato-a-in-logistica-cfc-specializzazione-magazzino-swiss-armed-forces-vtg-bern-knc5rd",
+      "slug": "apprendista-impiegato-a-in-logistica-cfc-specializzazione-magazzino-swiss-armed-forces-vtg-bellinzona",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Lernende/-r Logistiker/-in EFZ, Fachrichtung Lager",
       "location": "Bern",
@@ -22,15 +22,15 @@
       "companyDomain": "vtg.admin.ch",
       "crawledAt": "2026-04-12T22:20:02.828Z",
       "slugByLocale": {
-        "it": "apprendista-impiegato-a-in-logistica-cfc-specializzazione-magazzino-swiss-armed-forces-vtg-bern-knc5rd",
-        "en": "apprentice-logistiker-in-efz-fachrichtung-lager-swiss-armed-forces-vtg-bern-knc5rd",
-        "de": "lernende-r-logistiker-in-efz-fachrichtung-lager-swiss-armed-forces-vtg-bern-knc5rd",
-        "fr": "apprenti-e-logistiker-in-efz-fachrichtung-lager-swiss-armed-forces-vtg-bern-knc5rd"
+        "it": "apprendista-impiegato-a-in-logistica-cfc-specializzazione-magazzino-swiss-armed-forces-vtg-bellinzona",
+        "en": "learner-r-logistiker-in-efz-department-of-warehouse-swiss-armed-forces-vtg-bellinzona",
+        "de": "lernende-r-logistiker-in-efz-fachrichtung-lager-swiss-armed-forces-vtg-bellinzona",
+        "fr": "apprenti-e-logistiker-in-efz-fachrichtung-lager-swiss-armed-forces-vtg-bellinzona"
       },
       "titleByLocale": {
         "de": "Lernende/-r Logistiker/-in EFZ, Fachrichtung Lager",
         "it": "Apprendista Impiegato/a in logistica CFC, specializzazione magazzino",
-        "en": "Learner/-r Logistiker/-in EFZ, Department of Warehouse",
+        "en": "Apprentice Logistiker/-in EFZ, Fachrichtung Lager",
         "fr": "Apprenti/e Logistiker/-in EFZ, Fachrichtung Lager"
       },
       "descriptionByLocale": {
@@ -58,7 +58,27 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprendista-impiegato-a-in-logistica-cfc-specializzazione-magazzino-swiss-armed-forces-vtg-bern-knc5rd"
+        ],
+        "en": [
+          "apprentice-logistiker-in-efz-fachrichtung-lager-swiss-armed-forces-vtg-bern-knc5rd"
+        ],
+        "de": [
+          "lernende-r-logistiker-in-efz-fachrichtung-lager-swiss-armed-forces-vtg-bern-knc5rd"
+        ],
+        "fr": [
+          "apprenti-e-logistiker-in-efz-fachrichtung-lager-swiss-armed-forces-vtg-bern-knc5rd"
+        ]
+      },
+      "previousSlugs": [
+        "apprendista-impiegato-a-in-logistica-cfc-specializzazione-magazzino-swiss-armed-forces-vtg-bern-knc5rd",
+        "apprentice-logistiker-in-efz-fachrichtung-lager-swiss-armed-forces-vtg-bern-knc5rd",
+        "lernende-r-logistiker-in-efz-fachrichtung-lager-swiss-armed-forces-vtg-bern-knc5rd",
+        "apprenti-e-logistiker-in-efz-fachrichtung-lager-swiss-armed-forces-vtg-bern-knc5rd"
+      ]
     },
     {
       "id": "company-givy1f",
@@ -231,7 +251,7 @@
       "company": "Swiss Armed Forces (VTG)",
       "title": "Mitarbeiter/-in Wäscherei",
       "location": "Bern",
-      "canton": "BE",
+      "canton": "VS",
       "category": "admin",
       "contract": "part-time",
       "currency": "CHF",
@@ -321,7 +341,7 @@
       "company": "Swiss Armed Forces (VTG)",
       "title": "Hochschulpraktikant/-in digitale Transformation",
       "location": "Bern",
-      "canton": "BE",
+      "canton": "VS",
       "category": "admin",
       "contract": "part-time",
       "currency": "CHF",
@@ -395,7 +415,8 @@
         ]
       },
       "salaryMin": 49500,
-      "salaryMax": 75000
+      "salaryMax": 75000,
+      "needsRetranslation": true
     },
     {
       "id": "company-o6j7b9",
@@ -403,7 +424,7 @@
       "company": "Swiss Armed Forces (VTG)",
       "title": "Mitarbeiter/-in Sattlerei (Textilcenter Sursee)",
       "location": "Bern",
-      "canton": "BE",
+      "canton": "VS",
       "category": "admin",
       "contract": "part-time",
       "currency": "CHF",
@@ -499,7 +520,7 @@
       "company": "Swiss Armed Forces (VTG)",
       "title": "Feuerwehrfrau/-mann Schadenwehr Gotthard",
       "location": "Bern",
-      "canton": "BE",
+      "canton": "VS",
       "category": "admin",
       "contract": "part-time",
       "currency": "CHF",
@@ -656,7 +677,7 @@
       "company": "Swiss Armed Forces (VTG)",
       "title": "Spezialist/-in Gebäudebetrieb 1",
       "location": "Bern",
-      "canton": "BE",
+      "canton": "VS",
       "category": "admin",
       "contract": "part-time",
       "currency": "CHF",
@@ -984,7 +1005,7 @@
       "company": "Swiss Armed Forces (VTG)",
       "title": "Spezialist/-in Technik Mechanik (Fachrichtung Kran)",
       "location": "Bern",
-      "canton": "BE",
+      "canton": "VS",
       "category": "admin",
       "contract": "part-time",
       "currency": "CHF",
@@ -1069,86 +1090,6 @@
       },
       "salaryMin": 49500,
       "salaryMax": 75000
-    },
-    {
-      "id": "company-61hco",
-      "slug": "automobilmechatroniker-in-swiss-armed-forces-vtg-bellinzona",
-      "company": "Swiss Armed Forces (VTG)",
-      "title": "Automobilmechatroniker/-in",
-      "location": "Bern",
-      "canton": "BE",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "description": "Diesen Beitrag kannst du leisten Diagnosen, Reparatur- und Einstellarbeiten an Motor, Antriebsgruppen, Bremsen, Lenkungen, Chassis, Unterbaugruppen und Sicherheits-/Komfortelektronik ausführen Mängel und Reparaturen an nicht marschbereiten Fahrzeugen überprüfen und reparieren Revisionen und Austausch einzelner Baugruppen durchführen Fachtechnische Unterstützung bei den Materialübernahmen und Materialrücknahmen bezüglich Fahrsicherheit, Unfallverhütung, Wartung, Reinigung und Fahrzeuginventar im eigenen Bereich leisten Defektmeldungen sowie Ersatzteile im SAP-System erfassen Das macht dich einzigartig Abgeschlossene Berufsausbildung als Automobil-Mechatroniker/in EFZ, Fachrichtung Nutzfahrzeuge oder Personenwagen; oder verwandte Berufe Führerausweis Kat B, C1 oder C/E Selbstständige, speditive Arbeitsweise mit guten Organisationsfähigkeiten Hohe Auffassungsgabe für technische Zusammenhänge Ausgeprägter Dienstleistungsgedanke im Kontakt mit und bei der Beratung von Kunden, z.B. der Truppe Das bieten wir Arbeiten für die Schweiz Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung. Gelebte Vielfalt Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein. Gesund am Arbeitsplatz Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit. Dein Einsatz für Sicherheit und Freiheit Die Logistikbasis der Schweizer Armee (LBA) ist für die Truppe da. Sie erbringt sämtliche logistische Leistungen für die Schweizer Armee und bewirtschaftet mit ihren rund 3'500 Mitarbeitenden und den 12'000 Milizangehörigen das Material, die Systeme und die Infrastrukturen der Schweizer Armee. Ob Automobil-Mechatroniker/in, Spezialist/in Alarmzentrale oder Projektleiter/in Interaktive Medien: Die LBA bietet schweizweit ein breites Spektrum an Arbeitsplätzen. Die Schweizer Armee beschäftigt über 9'000 Mitarbeitende in vier militärischen und rund 200 zivilen Berufen – und dies an 140 Standorten schweizweit. Auch für den Nachwuchs ist gesorgt: Die Schweizer Armee bildet in über 30 Berufen Lernende aus.",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-03-18",
-      "url": "https://jobs.admin.ch/offene-stellen/automobilmechatroniker-in/4f5cd31e-4b70-49b9-a356-cb4678aea9ca",
-      "source": "Company Careers Crawler",
-      "companyKey": "vtg",
-      "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-04-09T10:16:25.950Z",
-      "titleByLocale": {
-        "de": "Automobilmechatroniker/-in",
-        "it": "Automobilmechatroniker/in",
-        "en": "Automotive Mechatronics Engineer",
-        "fr": "Automobilmechatroniker/in"
-      },
-      "descriptionByLocale": {
-        "de": "Descrizione - Diagnosen, Reparatur- und Einstellarbeiten an Motor, Antriebsgruppen, Bremsen, Lenkungen, Chassis, Unterbaugruppen und Sicherheits-/Komfortelektronik ausführen - Mängel und Reparaturen an nicht marschbereiten Fahrzeugen überprüfen und reparieren - Revisionen und Austausch einzelner Baugruppen durchführen - Fachtechnische Unterstützung bei den Materialübernahmen und Materialrücknahmen bezüglich Fahrsicherheit, Unfallverhütung, Wartung, Reinigung und Fahrzeuginventar im eigenen Bereich leisten - Defektmeldungen sowie Ersatzteile im SAP-System erfassen ## Das macht dich einzigartig - Abgeschlossene Berufsausbildung als Automobil-Mechatroniker/in EFZ, Fachrichtung Nutzfahrzeuge oder Personenwagen; oder verwandte Berufe - Führerausweis Kat B, C1 oder C/E - Selbstständige, speditive Arbeitsweise mit guten Organisationsfähigkeiten - Hohe Auffassungsgabe für technische Zusammenhänge - Ausgeprägter Dienstleistungsgedanke im Kontakt mit und bei der Beratung von Kunden, z.B. der Truppe ## Das bieten wir - Arbeiten für die Schweiz - Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung - Gelebte Vielfalt Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein - Gesund am Arbeitsplatz Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit - Dein Einsatz für Sicherheit und Freiheit Die Logistikbasis der Schweizer Armee (LBA) ist für die Truppe da. Sie erbringt sämtliche logistische Leistungen für die Schweizer Armee und bewirtschaftet mit ihren rund 3'500 Mitarbeitenden und den 12'000 Milizangehörigen das Material, die Systeme und die Infrastrukturen der Schweizer Armee - Ob Automobil-Mechatroniker/in, Spezialist/in Alarmzentrale oder Projektleiter/in Interaktive Medien: Die LBA bietet schweizweit ein breites Spektrum an Arbeitsplätzen - Die Schweizer Armee beschäftigt über 9'000 Mitarbeitende in vier militärischen und rund 200 zivilen Berufen – und dies an 140 Standorten schweizweit - Auch für den Nachwuchs ist gesorgt: Die Schweizer Armee bildet in über 30 Berufen Lernende aus",
-        "it": "Descrizione - Eseguire diagnosi, riparazioni e regolazioni su motore, gruppi motori, freni, sterzo, telaio, sottogruppi di base e sistemi di sicurezza/elettronica di comfort - Verificare e riparare guasti e riparazioni su veicoli non operativi - Eseguire revisioni e sostituire singole componenti - Fornire supporto tecnico per le operazioni di ricezione e restituzione di materiali riguardanti sicurezza stradale, prevenzione di incidenti, manutenzione, pulizia e inventario dei veicoli nel proprio settore - Registrare segnalazioni di guasti e pezzi di ricambio nel sistema SAP ## Questo ti rende unico - Formazione professionale come Automobilmechatroniker/in EFZ, specializzazione in veicoli commerciali o passeggeri; o professioni correlate - Patente di guida categoria B, C1 o C/E - Lavoro autonomo e tempestivo con buone capacità organizzative - Alta capacità di comprensione dei collegamenti tecnici - Forte senso di servizio nel contatto con e nella consulenza dei clienti, ad esempio le truppe ## Questo offriamo - Lavoro per la Svizzera - Sosteniamo il modello di successo Svizzera e lavoriamo per il bene della popolazione - Diversità vissuta Grazie all'uguaglianza delle opportunità, sviluppiamo le nostre competenze e introduciamo prospettive diverse - Salute sul posto di lavoro Supportiamo e consigliamo i nostri dipendenti nel settore della salute fisica e mentale - Il tuo impegno per sicurezza e libertà La base logistica dell'esercito svizzero (LBA) è presente per le truppe. Fornisce tutti i servizi logistici per l'esercito svizzero e gestisce con i suoi circa 3.500 dipendenti e i 12.000 membri della milizia i materiali, i sistemi e le infrastrutture dell'esercito svizzero - Sia come Automobilmechatroniker/in, esperto/a del centro di allarme o responsabile di progetto per i media interattivi: la LBA offre in tutta la Svizzera un ampio spettro di posti di lavoro - L'esercito svizzero impiega oltre 9.000 dipendenti in quattro carriere militari e circa 200 carriere civili - e questo in 140 sedi in tutta la Svizzera - Anche per il futuro è previsto: L'esercito svizzero forma in oltre 30 carriere gli studenti",
-        "en": "Description - Perform diagnostics, repairs, and adjustments on engine, drive groups, brakes, steering, chassis, undercarriage groups, and safety/comfort electronics - Check and repair faults and repairs on non-operational vehicles - Carry out revisions and replace individual components - Provide technical support for material receipts and returns regarding road safety, accident prevention, maintenance, cleaning, and vehicle inventory in your own area - Record fault reports and spare parts in the SAP system ## What makes you unique - Completed vocational training as an Automotive Mechatronics Technician EFZ, specialization in commercial vehicles or passenger cars; or related professions - Driver's license category B, C1, or C/E - Independent, prompt work with good organizational skills - High comprehension ability for technical connections - Strong service-oriented mindset in contact with and consulting customers, e.g., the troops ## What we offer - Work for Switzerland - We advocate for Switzerland's success model and work for the well-being of the population - Lived diversity Thanks to equal opportunities, we develop our competencies and bring in different perspectives - Healthy at work We support and advise our employees in the area of physical and mental health - Your commitment to safety and freedom The Logistics Base of the Swiss Army (LBA) is there for the troops. It provides all logistical services for the Swiss Army and manages with its approximately 3,500 employees and the 12,000 militia members the materials, systems, and infrastructures of the Swiss Army - Whether as Automotive Mechatronics Engineer, Alarm Center Specialist, or Interactive Media Project Manager: the LBA offers a wide range of jobs across Switzerland - The Swiss Army employs over 9,000 employees in four military and around 200 civilian professions - and this at 140 locations across Switzerland - The future is also secured: The Swiss Army trains in over 30 professions",
-        "fr": "Description - Effectuer des diagnostics, des réparations et des réglages sur le moteur, les groupes de transmission, les freins, la direction, le châssis, les sous-ensembles de carrosserie et les systèmes d'électronique de sécurité/confort - Vérifier et réparer les défauts et les réparations sur les véhicules non opérationnels - Effectuer des révisions et remplacer des composants individuels - Fournir un soutien technique pour les réceptions et retours de matériel concernant la sécurité routière, la prévention des accidents, l'entretien, le nettoyage et l'inventaire des véhicules dans votre propre secteur - Enregistrer les rapports de défauts et les pièces de rechange dans le système SAP ## Ce qui vous rend unique - Formation professionnelle en tant qu'Automobilmechatroniker/in EFZ, spécialisation en véhicules utilitaires ou particuliers; ou professions apparentées - Permis de conduire catégorie B, C1 ou C/E - Travail autonome et ponctuel avec de bonnes capacités d'organisation - Forte capacité de compréhension des liens techniques - Forte mentalité orientée service dans le contact avec et la consultation des clients, par exemple les troupes ## Ce que nous offrons - Travailler pour la Suisse - Nous défendons le modèle de succès Suisse et travaillons pour le bien-être de la population - Une diversité vécue Grâce à l'égalité des chances, nous développons nos compétences et introduisons des perspectives différentes - En bonne santé au travail Nous soutenons et conseillons nos employés dans le domaine de la santé physique et mentale - Votre engagement pour la sécurité et la liberté La base logistique de l'armée suisse (LBA) est là pour les troupes. Elle fournit tous les services logistiques pour l'armée suisse et gère avec ses environ 3 500 employés et les 12 000 membres de la milice les matériaux, les systèmes et les infrastructures de l'armée suisse - Que ce soit en tant qu'Automobilmechatroniker/in, spécialiste du centre d'alarme ou chef de projet en médias interactifs : la LBA offre une large gamme d'emplois en Suisse - L'armée suisse emploie plus de 9 000 employés dans quatre carrières militaires et environ 200 carrières civiles - et cela à 140 sites en Suisse - Le futur est également assuré : L'armée suisse forme dans plus de 30 professions"
-      },
-      "requirementsByLocale": {},
-      "slugByLocale": {
-        "it": "automobilmechatroniker-in-swiss-armed-forces-vtg-bellinzona",
-        "en": "automotive-mechatronics-engineer-swiss-armed-forces-vtg-bern",
-        "de": "automobilmechatroniker-in-swiss-armed-forces-vtg-bellinzona",
-        "fr": "automobilmechatroniker-in-swiss-armed-forces-vtg-bellinzona"
-      },
-      "sourceLang": "de",
-      "previousSlugs": [
-        "automobilmechatroniker-in-swiss-armed-forces-vtg-bern",
-        "automobilmechatroniker-in-swiss-armed-forces-vtg-bern-061hco"
-      ],
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Stazione 31",
-      "postalCode": "6500",
-      "addressLocality": "Bellinzona",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "previousSlugsByLocale": {
-        "it": [
-          "automobilmechatroniker-in-swiss-armed-forces-vtg-bern",
-          "automobilmechatroniker-in-swiss-armed-forces-vtg-bern-061hco"
-        ],
-        "en": [
-          "automobilmechatroniker-in-swiss-armed-forces-vtg-bern",
-          "automobilmechatroniker-in-swiss-armed-forces-vtg-bern-061hco"
-        ],
-        "de": [
-          "automobilmechatroniker-in-swiss-armed-forces-vtg-bern",
-          "automobilmechatroniker-in-swiss-armed-forces-vtg-bern-061hco"
-        ],
-        "fr": [
-          "automobilmechatroniker-in-swiss-armed-forces-vtg-bern",
-          "automobilmechatroniker-in-swiss-armed-forces-vtg-bern-061hco"
-        ]
-      }
     },
     {
       "id": "company-o89bpu",
@@ -1898,7 +1839,8 @@
           "netzwerk-spezialist-in-professional-swiss-armed-forces-vtg-locarno",
           "netzwerk-spezialist-in-professional-swiss-armed-forces-vtg-locarno-84ss1r"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-h0fllu",
@@ -1998,7 +1940,8 @@
           "support-operateur-swiss-armed-forces-vtg-rivera",
           "supporto-operatore-trice-swiss-armed-forces-vtg-rivera"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-d62hnl",
@@ -2006,7 +1949,7 @@
       "company": "Swiss Armed Forces (VTG)",
       "title": "Logistiker/-in (Lager Ambrì/Andermatt)",
       "location": "Bern",
-      "canton": "BE",
+      "canton": "TI",
       "category": "admin",
       "contract": "part-time",
       "currency": "CHF",
@@ -2189,93 +2132,6 @@
           "lernende-r-automobil-mechatroniker-in-efz-fachrichtung-personenwagen-eidgenossisches-depar"
         ]
       }
-    },
-    {
-      "id": "company-pm28ek",
-      "slug": "apprendista-specialista-in-trasporti-stradali-cfc-swiss-armed-forces-vtg-bellinzona",
-      "company": "Swiss Armed Forces (VTG)",
-      "title": "Lernende/-r Strassentransportfachmann/-frau EFZ",
-      "location": "Bern",
-      "canton": "BE",
-      "category": "admin",
-      "contract": "full-time",
-      "currency": "CHF",
-      "description": "Diesen Beitrag kannst du leisten Transporte planen, vorbereiten und durchführen, so dass sämtliches Armeematerial zur richtigen Zeit am richtigen Ort ist Kleinere Reparaturen, den Unterhalt und die Reinigung an den Lastwagen und den Anhängern durchführen Die Waren mit Hilfe von Palettwagen und Gabelstaplern be- und entladen, ausliefern und zurücknehmen Transportdokumente kontrollieren und die Sicherheitsvorschriften kennen und einhalten Die Führerausweise der Kategorien B, BE, C, CE, C1, C1E und Stapler erlangen sowie die ADR / SDR Prüfung ablegen Das macht dich einzigartig Abgeschlossene Sekundarschule Niveau A oder B (Realschulabschluss) und erreichtes 16. Altersjahr vor dem 1. Dezember des 1. Lehrjahres Zuverlässigkeit, Verantwortungsbewusstsein und Selbständigkeit Organisationsfähigkeit und gute Auffassungsgabe mit ausgeprägter Lernbereitschaft Gute Umgangsformen und Freude am Kontakt mit Menschen sowie an einem körperlich aktiven Berufsalltag Logisches Denkvermögen mit einer exakten Arbeitsweise Das bieten wir Arbeiten für die Schweiz Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung. Gelebte Vielfalt Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein. Gesund am Arbeitsplatz Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit. Fragen zur Bewerbung Paolo Alessandro Foglia HR Berater +41 58 48 91919 Vielfalt, Dynamik, Perspektiven – Lehrberufe der Schweizer Armee Die Logistikbasis der Schweizer Armee (LBA) ist für die Truppe da. Sie erbringt sämtliche logistische Leistungen für die Schweizer Armee und bewirtschaftet mit ihren rund 3'500 Mitarbeitenden und 12'000 Milizangehörigen das Material, die Systeme und die Infrastrukturen der Schweizer Armee. Ob in der Werkstatt oder im Büro, ob drinnen oder draussen: Die LBA bietet schweizweit ein breites Spektrum an Arbeitsplätzen. Bei uns ist für alle etwas dabei. Die Schweizer Armee beschäftigt über 9'000 Mitarbeitende in vier militärischen und rund 200 zivilen Berufen – und dies an 110 Standorten schweizweit. Auch für den Nachwuchs ist gesorgt: Die Schweizer Armee bildet in über 30 Berufen Lernende aus.",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2025-10-14",
-      "url": "https://jobs.admin.ch/offene-stellen/lernende-r-strassentransportfachmann-frau-efz/bfa3b444-a567-4bd0-81f6-3b2334dc20f1",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Claro (TI)",
-        "canton": "TI"
-      },
-      "companyKey": "vtg",
-      "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-03-31T21:53:35.437Z",
-      "slugByLocale": {
-        "it": "apprendista-specialista-in-trasporti-stradali-cfc-swiss-armed-forces-vtg-bellinzona",
-        "en": "street-transport-specialist-efz-swiss-armed-forces-vtg-claro-ti",
-        "de": "lernende-r-strassentransportfachmann-frau-efz-swiss-armed-forces-vtg-bellinzona",
-        "fr": "specialiste-du-transport-de-rue-efz-swiss-armed-forces-vtg-claro-ti"
-      },
-      "titleByLocale": {
-        "it": "Apprendista Specialista in trasporti stradali CFC",
-        "en": "Street Transport Specialist EFZ",
-        "de": "Lernende/-r Strassentransportfachmann/-frau EFZ",
-        "fr": "Spécialiste du transport de rue EFZ"
-      },
-      "descriptionByLocale": {
-        "it": "Descrizione - Progettare, preparare e eseguire il trasporto, in modo che tutti i materiali militari siano al posto giusto al momento giusto - Eseguire piccole riparazioni, il mantenimento e la pulizia dei camion e dei rimorchi - Caricare e scaricare i beni con l'aiuto di carrelli elevatori e gru, consegnare e ritirare - Controllare i documenti di trasporto e conoscere e rispettare le norme di sicurezza - Ottenere i diplomi di guida delle categorie B, BE, C, CE, C1, C1E e gru, nonché sostenere l'esame ADR / SDR ## Requisiti - Diploma di scuola secondaria di secondo grado (Realschulabschluss) - Avere compiuto 16 anni entro il 1° dicembre dell'anno del primo anno di formazione - Affidabilità, senso di responsabilità e autonomia - Capacità di organizzazione e buona capacità di comprensione con una forte predisposizione allo studio - Buone maniere e piacere del contatto con le persone e con un lavoro professionale fisicamente attivo - Capacità di pensiero logico con un metodo di lavoro preciso ## Cosa offriamo - Lavorare per la Svizzera - Ci impegniamo per il modello di successo della Svizzera e lavoriamo per il bene della popolazione - Diversità vissuta Grazie alla parità di opportunità sviluppiamo le nostre competenze e portiamo diverse prospettive - Salute sul luogo di lavoro Sosteniamo e consigliamo i nostri dipendenti nell'ambito della salute fisica e psichica ## Contatto - Domande sulla candidatura: Paolo Alessandro Foglia HR Berater - +41 58 48 91919 ## Informazioni sulla Logistikbasis der Schweizer Armee - La Logistikbasis der Schweizer Armee (LBA) è per la truppa - Esegue tutte le prestazioni logistiche per l'Esercito svizzero e gestisce con i suoi circa 3'500 dipendenti e 12'000 militari di leva i materiali, i sistemi e le infrastrutture dell'Esercito svizzero - La LBA offre in tutta la Svizzera un ampio spettro di posti di lavoro - L'Esercito svizzero occupa oltre 9'000 dipendenti in quattro carriere militari e circa 200 carriere civili - e questo in 110 sedi in tutta la Svizzera - Anche per il giovani è garantita la formazione: L'Esercito svizzero forma in oltre 30 carriere i giovani in formazione",
-        "en": "Description - Plan, prepare and execute transportation, ensuring all military materials are in the right place at the right time - Perform minor repairs, maintenance and cleaning of trucks and trailers - Load and unload goods with the help of pallet trucks and forklifts, deliver and pick up - Check transportation documents and know and follow safety regulations - Obtain driving licenses for categories B, BE, C, CE, C1, C1E and forklifts, as well as pass the ADR / SDR exam ## Requirements - Completed secondary education (Realschulabschluss) - Have turned 16 years old by December 1st of the first year of training - Reliability, sense of responsibility and autonomy - Organizational skills and good understanding with a strong learning aptitude - Good manners and pleasure of contact with people and a physically active professional workday - Logical thinking with a precise working method ## What we offer - Work for Switzerland - We commit to the Swiss success model and work for the benefit of the population - Lived diversity Thanks to equal opportunities, we develop our skills and bring different perspectives - Health at work We support and advise our employees in the field of physical and mental health ## Contact - Questions about the application: Paolo Alessandro Foglia HR Advisor - +41 58 48 91919 ## Information about the Logistics Base of the Swiss Army - The Logistics Base of the Swiss Army (LBA) is for the troops - It performs all logistical services for the Swiss Army and manages with its approximately 3,500 employees and 12,000 militia members the materials, systems and infrastructure of the Swiss Army - The LBA offers a wide range of jobs throughout Switzerland - The Swiss Army employs over 9,000 employees in four military and around 200 civilian careers - and this at 110 locations throughout Switzerland - And for the young, there is also training: The Swiss Army trains in over 30 careers young people in training",
-        "de": "Descrizione - Transporte planen, vorbereiten und durchführen, so dass sämtliches Armeematerial zur richtigen Zeit am richtigen Ort ist - Kleinere Reparaturen, den Unterhalt und die Reinigung an den Lastwagen und den Anhängern durchführen - Die Waren mit Hilfe von Palettwagen und Gabelstaplern be- und entladen, ausliefern und zurücknehmen - Transportdokumente kontrollieren und die Sicherheitsvorschriften kennen und einhalten - Die Führerausweise der Kategorien B, BE, C, CE, C1, C1E und Stapler erlangen sowie die ADR / SDR Prüfung ablegen ## Requisiti - Abgeschlossene Sekundarschule Niveau A oder B (Realschulabschluss) - Erreichtes 16. Altersjahr vor dem 1. Dezember des 1. Lehrjahres - Zuverlässigkeit, Verantwortungsbewusstsein und Selbständigkeit - Organisationsfähigkeit und gute Auffassungsgabe mit ausgeprägter Lernbereitschaft - Gute Umgangsformen und Freude am Kontakt mit Menschen sowie an einem körperlich aktiven Berufsalltag - Logisches Denkvermögen mit einer exakten Arbeitsweise ## Cosa offriamo - Arbeiten für die Schweiz - Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung - Gelebte Vielfalt Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein - Gesund am Arbeitsplatz Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit ## Contatto - Fragen zur Bewerbung: Paolo Alessandro Foglia HR Berater - +41 58 48 91919 ## Informazioni sulla Logistikbasis der Schweizer Armee - Die Logistikbasis der Schweizer Armee (LBA) ist für die Truppe da - Sie erbringt sämtliche logistische Leistungen für die Schweizer Armee und bewirtschaftet mit ihren rund 3'500 Mitarbeitenden und 12'000 Milizangehörigen das Material, die Systeme und die Infrastrukturen der Schweizer Armee - Die LBA bietet schweizweit ein breites Spektrum an Arbeitsplätzen - Die Schweizer Armee beschäftigt über 9'000 Mitarbeitende in vier militärischen und rund 200 zivilen Berufen – und dies an 110 Standorten schweizweit - Auch für den Nachwuchs ist gesorgt: Die Schweizer Armee bildet in über 30 Berufen Lernende aus",
-        "fr": "Description - Planifier, préparer et exécuter le transport, en veillant à ce que tous les matériels militaires soient à la bonne place au bon moment - Effectuer des réparations mineures, entretenir et nettoyer les camions et les remorques - Charger et décharger les marchandises avec l'aide de chariots élévateurs et de manutentionnaires, livrer et récupérer - Vérifier les documents de transport et connaître et respecter les réglementations de sécurité - Obtenir les permis de conduire des catégories B, BE, C, CE, C1, C1E et manutentionnaires, ainsi que passer l'examen ADR / SDR ## Exigences - Diplôme de fin d'études secondaires (Realschulabschluss) - Avoir 16 ans au plus tard le 1er décembre de l'année du premier an de formation - Fiabilité, sens de la responsabilité et autonomie - Capacités d'organisation et bonne compréhension avec une forte aptitude à l'apprentissage - Bonnes manières et plaisir du contact avec les personnes et un travail professionnel physiquement actif - Pensée logique avec une méthode de travail précise ## Ce que nous offrons - Travailler pour la Suisse - Nous nous engageons pour le modèle de succès suisse et travaillons pour le bien de la population - Diversité vécue Grâce à l'égalité des chances, nous développons nos compétences et apportons différentes perspectives - Santé sur le lieu de travail Nous soutenons et conseillons nos employés dans le domaine de la santé physique et psychique ## Contact - Questions sur la candidature : Paolo Alessandro Foglia conseiller RH - +41 58 48 91919 ## Informations sur la Base logistique de l'Armée suisse - La Base logistique de l'Armée suisse (LBA) est pour les troupes - Elle exécute toutes les prestations logistiques pour l'Armée suisse et gère avec ses environ 3 500 employés et 12 000 militaires de leva les matériels, les systèmes et les infrastructures de l'Armée suisse - La LBA offre un large éventail de postes de travail à travers la Suisse - L'Armée suisse emploie plus de 9 000 employés dans quatre carrières militaires et environ 200 carrières civiles - et cela à 110 emplacements à travers la Suisse - Et pour les jeunes, il y a également la formation : L'Armée suisse forme en plus de 30 carrières des jeunes en formation"
-      },
-      "requirementsByLocale": {},
-      "sourceLang": "de",
-      "previousSlugs": [
-        "apprendista-specialista-in-trasporti-stradali-cfc-swiss-armed-forces-vtg-claro-ti",
-        "specialiste-du-transport-routier-efz-swiss-armed-forces-vtg-claro-ti",
-        "lernende-r-strassentransportfachmann-frau-efz-swiss-armed-forces-vtg-claro-ti-pm28ek"
-      ],
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 46500,
-          "maxValue": 62500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Stazione 31",
-      "postalCode": "6500",
-      "addressLocality": "Bellinzona",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "previousSlugsByLocale": {
-        "it": [
-          "apprendista-specialista-in-trasporti-stradali-cfc-swiss-armed-forces-vtg-claro-ti",
-          "specialiste-du-transport-routier-efz-swiss-armed-forces-vtg-claro-ti",
-          "lernende-r-strassentransportfachmann-frau-efz-swiss-armed-forces-vtg-claro-ti-pm28ek"
-        ],
-        "en": [
-          "specialiste-du-transport-routier-efz-swiss-armed-forces-vtg-claro-ti",
-          "lernende-r-strassentransportfachmann-frau-efz-swiss-armed-forces-vtg-claro-ti-pm28ek"
-        ],
-        "de": [
-          "specialiste-du-transport-routier-efz-swiss-armed-forces-vtg-claro-ti",
-          "lernende-r-strassentransportfachmann-frau-efz-swiss-armed-forces-vtg-claro-ti-pm28ek"
-        ],
-        "fr": [
-          "specialiste-du-transport-routier-efz-swiss-armed-forces-vtg-claro-ti",
-          "lernende-r-strassentransportfachmann-frau-efz-swiss-armed-forces-vtg-claro-ti-pm28ek"
-        ]
-      },
-      "salaryMin": 46500,
-      "salaryMax": 62500
     }
   ]
 }
