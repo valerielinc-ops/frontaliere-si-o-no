@@ -46,6 +46,9 @@ jobs:
       - name: Load secrets from Remote Config
         run: node scripts/load-rc-env.mjs
 
+      - name: Assemble jobs dataset
+        run: node scripts/assemble-jobs-dataset.mjs
+
       - name: Send job alert emails
         continue-on-error: true
         id: send-alerts
