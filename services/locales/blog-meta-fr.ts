@@ -2118,6 +2118,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.varese-frontalieri-7000-postivacanti-2026.title': 'Varèse : 7 000 postes vacants en 2026. Voici ce qui change pour les frontaliers tessinois',
     'blog.article.varese-frontalieri-7000-postivacanti-2026.excerpt': 'Au premier trimestre 2026, la province de Varèse enregistre 7 772 embauches impossibles à pourvoir. Secteurs critiques : la métallurgie, le BTP et les TIC. Le coût du déséquilibre entre l\'offre et la demande s\'élève entre 42 et 105 millions d\'euros.',
     'blog.article.varese-frontalieri-7000-postivacanti-2026.imageAlt': 'Ouvrier métallurgiste dans un atelier tessinois examinant des plans, avec une offre d\'emploi ICT affichée au mur',
+    'blog.article.iniziative-cassa-malati-governo-ticinese-insoddisfazione-lega-ps.title': 'Initiatives des caisses-maladie : la Ligue et le PS déçus après l’entretien avec le gouvernement tessinois',
+    'blog.article.iniziative-cassa-malati-governo-ticinese-insoddisfazione-lega-ps.excerpt': 'Les deux initiatives populaires acceptées le 28 septembre 2025 se heurtent à l’opposition du Conseil d’État. Une attente déçue pour les promoteurs : aucune mise en œuvre directe n’a été annoncée par le gouvernement.',
+    'blog.article.iniziative-cassa-malati-governo-ticinese-insoddisfazione-lega-ps.imageAlt': 'Extérieur du Palazzo delle Orsoline à Bellinzone, siège du Conseil d\'État tessinois',
 };
 
 export default blogMetaFr;

@@ -2118,6 +2118,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.varese-frontalieri-7000-postivacanti-2026.title': 'Varese: 7mila posti vacanti nel 2026. Ecco cosa cambia per i frontalieri ticinesi',
     'blog.article.varese-frontalieri-7000-postivacanti-2026.excerpt': 'Nel primo trimestre 2026 il Varesotto registra 7.772 assunzioni impossibili. Settori critici: metalmeccanica, costruzioni e ICT. Costo del mismatch tra 42 e 105 milioni di euro.',
     'blog.article.varese-frontalieri-7000-postivacanti-2026.imageAlt': 'Operario metalmeccanico in una officina ticinese studia piani di lavoro mentre un avviso di ricerca di personale ICT è appeso al muro',
+    'blog.article.iniziative-cassa-malati-governo-ticinese-insoddisfazione-lega-ps.title': 'Iniziative cassa malati: Lega e PS insoddisfatti dopo l’incontro col Governo ticinese',
+    'blog.article.iniziative-cassa-malati-governo-ticinese-insoddisfazione-lega-ps.excerpt': 'Le due iniziative popolari approvate il 28 settembre 2025 incontrano l’opposizione del Consiglio di Stato. Aspettativa delusa per i promotori: nessuna implementazione diretta annunciata dal Governo',
+    'blog.article.iniziative-cassa-malati-governo-ticinese-insoddisfazione-lega-ps.imageAlt': 'Esterno del Palazzo delle Orsoline a Bellinzona, sede del Consiglio di Stato ticinese',
 };
 
 export default blogMetaIt;

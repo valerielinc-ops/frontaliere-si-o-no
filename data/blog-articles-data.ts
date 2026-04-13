@@ -5927,4 +5927,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/varese-frontalieri-7000-postivacanti-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'iniziative-cassa-malati-governo-ticinese-insoddisfazione-lega-ps',
+    category: 'novita',
+    date: '2026-04-13T22:03:17.734Z',
+    image: '/images/blog/iniziative-cassa-malati-governo-ticinese-insoddisfazione-lega-ps.jpg',
+    hasCalculator: true,
+  },
 ];

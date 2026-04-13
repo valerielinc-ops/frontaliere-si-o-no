@@ -2118,6 +2118,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.varese-frontalieri-7000-postivacanti-2026.title': 'Varese: 7.000 offene Stellen im Jahr 2026. So wirkt sich das auf die Grenzgänger aus dem Tessin aus',
     'blog.article.varese-frontalieri-7000-postivacanti-2026.excerpt': 'Im ersten Quartal 2026 verzeichnet die Provinz Varese 7.772 unbesetzte Stellen. Besonders betroffen sind die Branchen Metallverarbeitung, Baugewerbe und IKT. Die Kosten der Diskrepanz zwischen Angebot und Nachfrage belaufen sich auf 42 bis 105 Millionen Euro.',
     'blog.article.varese-frontalieri-7000-postivacanti-2026.imageAlt': 'Metallarbeiter in einer Tessiner Werkstatt studiert Baupläne, während ein ICT-Stellenangebot an der Wand hängt',
+    'blog.article.iniziative-cassa-malati-governo-ticinese-insoddisfazione-lega-ps.title': 'Krankenkassen-Initiativen: Lega und SP enttäuscht nach Treffen mit Tessiner Regierung',
+    'blog.article.iniziative-cassa-malati-governo-ticinese-insoddisfazione-lega-ps.excerpt': 'Die beiden am 28. September 2025 angenommenen Volksinitiativen stoßen auf Widerstand des Staatsrats. Die Initianten zeigen sich enttäuscht: Die Regierung hat keine direkte Umsetzung angekündigt.',
+    'blog.article.iniziative-cassa-malati-governo-ticinese-insoddisfazione-lega-ps.imageAlt': 'Aussenansicht des Palazzo delle Orsoline in Bellinzona, Sitz des Tessiner Staatsrats',
 };
 
 export default blogMetaDe;

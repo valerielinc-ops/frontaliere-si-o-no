@@ -2118,6 +2118,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.varese-frontalieri-7000-postivacanti-2026.title': 'Varese: 7,000 job vacancies by 2026. Here’s what changes for Ticino cross-border workers',
     'blog.article.varese-frontalieri-7000-postivacanti-2026.excerpt': 'In the first quarter of 2026, the Varese area records 7,772 unfilled job openings. Critical sectors include mechanical engineering, construction, and ICT. The cost of this mismatch ranges between €42 and €105 million.',
     'blog.article.varese-frontalieri-7000-postivacanti-2026.imageAlt': 'Metalworker in a Ticino workshop reviewing blueprints with ICT job vacancy notice in the background',
+    'blog.article.iniziative-cassa-malati-governo-ticinese-insoddisfazione-lega-ps.title': 'Health insurance initiatives: Lega and PS disappointed after meeting with Ticino government',
+    'blog.article.iniziative-cassa-malati-governo-ticinese-insoddisfazione-lega-ps.excerpt': 'The two popular initiatives approved on 28 September 2025 face opposition from the State Council. Disappointed expectations for the promoters: no direct implementation announced by the government',
+    'blog.article.iniziative-cassa-malati-governo-ticinese-insoddisfazione-lega-ps.imageAlt': 'Exterior of Palazzo delle Orsoline in Bellinzona, seat of the Ticino Cantonal Government',
 };
 
 export default blogMetaEn;

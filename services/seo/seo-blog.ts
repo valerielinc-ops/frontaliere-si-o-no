@@ -7366,6 +7366,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-iniziative-cassa-malati-governo-ticinese-insoddisfazione-lega-ps': {
+    title: 'Iniziative cassa malati: Lega e PS | Frontaliere Ticino',
+    description: 'Le due iniziative popolari approvate il 28 settembre 2025 incontrano l’opposizione del Consiglio di Stato. Aspettativa delusa per i promotori: nessuna implement',
+    keywords: 'frontalieri, ticino, svizzera, italia, iniziative, cassa, malati, lega',
+    ogTitle: 'Iniziative cassa malati: Lega e PS insoddisfatti dopo l’i',
+    ogDescription: 'Le due iniziative popolari approvate il 28 settembre 2025 incontrano l’opposizione del Consiglio di Stato. Aspettativa delusa per i promotori: nessuna implement',
+    canonicalPath: '/articoli-frontaliere/iniziative-cassa-malati-governo-ticinese-insoddisfazione-lega-ps',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Iniziative cassa malati: Lega e PS insoddisfatti dopo l’i",
+      "description": "Le due iniziative popolari approvate il 28 settembre 2025 incontrano l’opposizione del Consiglio di Stato. Aspettativa delusa per i promotori: nessuna implement",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/iniziative-cassa-malati-governo-ticinese-insoddisfazione-lega-ps.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Esterno del Palazzo delle Orsoline a Bellinzona, sede del Consiglio di Stato ticinese"
+      },
+      "datePublished": "2026-04-13T22:03:17+00:00",
+      "dateModified": "2026-04-13T22:03:17+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/iniziative-cassa-malati-governo-ticinese-insoddisfazione-lega-ps`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
