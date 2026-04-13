@@ -1,99 +1,7 @@
 {
   "crawlerKey": "corner-banca",
-  "assembledAt": "2026-04-13T10:22:40.039Z",
+  "assembledAt": "2026-04-13T21:31:06.824Z",
   "jobs": [
-    {
-      "id": "corner-banca-422277a6cd4c",
-      "slug": "it-card-management-analyst-specialist-corner-banca-lugano",
-      "slugByLocale": {
-        "it": "it-card-management-analyst-specialist-corner-banca-lugano",
-        "en": "it-card-management-analyst-specialist-corner-banca-lugano",
-        "de": "it-kartenmanagement-analyst-spezialist-corner-banca-lugano",
-        "fr": "it-card-management-analyst-specialist-corner-banca-lugano"
-      },
-      "company": "Cornèr Banca",
-      "companyKey": "corner-banca",
-      "companyDomain": "corner.ch",
-      "title": "IT Card Management Analyst / Specialist",
-      "titleByLocale": {
-        "it": "IT Card Management Analista / Specialista",
-        "en": "IT Card Management Analyst / Specialist",
-        "de": "IT Card Management Analyst / Spezialist",
-        "fr": "IT Card Management Analyste / Spécialiste"
-      },
-      "description": "The candidate will join the IT Card Management Centre of Excellence, with cross-functional responsibilities for credit and debit card management systems.\n\nThe systems operate on cloud-native architectures in Google Cloud Platform (GCP) and support key payment processes in a highly regulated banking environment.\n\nThe role involves actively contributing to functional and technical analysis activities, supporting the evolution of application solutions and integration with core banking, payment circuits and external platforms.\n\n \n\nKey Responsibilities\n\nFunctional and Process Analysis\n\n•    Analyse and understand Card Management processes: card issuance, lifecycle management, authorisations, clearing & settlement, fraud and chargebacks.\n\n•    Collect, analyse and formalise business requirements, translating them into functional and technical specifications.\n\n•    Support the business in defining IT solutions consistent with the bank's operational, regulatory and compliance models.\n\n•    Collaborate with internal stakeholders (Operations, Compliance, Risk, Security).\n\nTechnical and IT Analysis\n\n•    Draft functional and technical documentation (application specifications, integration flows, data mapping).\n\n•    Support the design and evolution of microservice architectures in a cloud environment.\n\n•    Collaborate with internal and external development teams during the development, testing and release phases.\n\n•    Support the analysis and management of application incidents and production issues.\n\nDevOps and Technologies\n\n•    Operate in a DevOps environment, actively collaborating with development teams.\n\n•    Support and understand continuous integration and continuous delivery (CI/CD) pipelines, using automation tools (e.g. Jenkins).\n\n•    Use code versioning systems (Git, Bitbucket) for application configuration management.\n\n•    Provide support in application and infrastructure troubleshooting in cloud-native and distributed environments.\n\n•    Contribute to the stability, quality and scalability of solutions, collaborating on monitoring, logging and performance issues.\n\n•    Have a basic knowledge of Java and event-driven microservice architectures.\n\nMust Have\n\n•    Experience in functional and technical analysis in IT.\n\n•    Knowledge of credit and debit card payment systems.\n\n•    Ability to understand and analyse complex and distributed application architectures.\n\n•    Experience, even non-specialist, in cloud environments, preferably Google Cloud Platform (GCP).\n\n•   Resident in Ticino or willing to relocate.\n\nBasic knowledge of:\n\n•   DevOps models and CI/CD pipelines\n\n•   Git / GitHub\n\n•   Microservice architectures\n\n•   Kafka or messaging / event streaming systems\n\n•   Change Data Capture\n\n•    PostgreSQL (PGSQL)\n\n•    Java\n\n•   Monitoring and logging tools (e.g. Splunk, Dynatrace)\n\nNice to Have\n\n•    Experience in banking or financial contexts.\n\n•    Knowledge of major payment circuits (e.g. Visa, Mastercard).\n\n•    Familiarity with GCP services supporting cloud-native architectures (containers, logging, monitoring).\n\n•    Knowledge of application security and compliance issues (e.g. PCI DSS, data protection).\n\n•    Basic knowledge of Kubernetes and oauth2 application authorisation standards\n\n________________________________________\n\nSoft Skills\n\n•    Strong analytical approach and solution orientation.\n\n•    Ability to operate in complex and regulated environments.\n\n•    Aptitude for working in multidisciplinary teams.\n\n•    Ability to communicate effectively with technical and business stakeholders.\n\n•    Proactivity and focus on continuous improvement.",
-      "descriptionByLocale": {
-        "it": "Il candidato si unirà al IT Card Management Centre of Excellence, con responsabilità interfunzionali per i sistemi di gestione delle carte di credito e di debito. I sistemi operano su architetture cloud-native in Google Cloud Platform (GCP) e supportano i processi di pagamento chiave in un ambiente bancario altamente regolamentato. Il ruolo consiste nel contribuire attivamente alle attività di analisi funzionale e tecnica, sostenendo l'evoluzione delle soluzioni applicative e l'integrazione con core banking, circuiti di pagamento e piattaforme esterne. • Analizzare e comprendere i processi di gestione della carta: emissione della carta, gestione del ciclo di vita, autorizzazioni, compensazione e insediamento, frode e chargeback. • Raccogliere, analizzare e formalizzare i requisiti aziendali, traducendoli in specifiche funzionali e tecniche. • Sostenere l'azienda nella definizione di soluzioni IT conformi ai modelli operativi, normativi e di conformità della banca. • Collaborare con gli stakeholder interni (Operazioni, Compliance, Rischio, Sicurezza). Analisi Tecnica e IT • Progetto di documentazione funzionale e tecnica (specifiche applicative, flussi di integrazione, mappatura dati). • Supporta la progettazione e l'evoluzione delle architetture microservice in un ambiente cloud. • Collaborare con i team di sviluppo interni ed esterni durante le fasi di sviluppo, test e rilascio. • Sostenere l'analisi e la gestione di incidenti applicativi e problemi di produzione. DevOps e Tecnologie • Operare in un ambiente DevOps, collaborando attivamente con i team di sviluppo. • Supporto e comprensione dell'integrazione continua e delle condotte di consegna continua (CI/CD), utilizzando strumenti di automazione (ad esempio Jenkins). • Utilizzare sistemi di versione del codice (Git, Bitbucket) per la gestione della configurazione delle applicazioni. • Fornire supporto nella risoluzione dei problemi delle applicazioni e delle infrastrutture in ambienti cloud-nativi e distribuiti. • Contribuire alla stabilità, alla qualità e alla scalabilità delle soluzioni, collaborando ai problemi di monitoraggio, registrazione e performance. Avere una conoscenza di base delle architetture microservice Java e event-driven. Deve avere • Esperienza nell'analisi funzionale e tecnica in IT. • Conoscenza dei sistemi di pagamento della carta di credito e di debito. • Capacità di comprendere e analizzare architetture applicative complesse e distribuite. • Esperienza, anche non specialistica, in ambienti cloud, preferibilmente Google Cloud Platform (GCP). • Residente in Ticino o disposto a trasferirsi. Conoscenza di base di: • Modelli DevOps e pipeline CI/CD • Git / GitHub • Architetture microservice • Kafka o sistemi di streaming di messaggistica / eventi • • Java • Strumenti di monitoraggio e registrazione (ad esempio Splunk, Dynatrace) Nizza per avere • Esperienza in contesti bancari o finanziari. • Conoscenza dei principali circuiti di pagamento (ad esempio Visa, Mastercard). • Familiarità con i servizi GCP che supportano architetture cloud-native (contentori, registrazione, monitoraggio). • Conoscenza dei problemi di sicurezza e conformità delle applicazioni (ad esempio PCI DSS, protezione dei dati). • Conoscenze di base di Kubernetes e standard di autorizzazione all'applicazione oauth2 Traduzione: • Forte approccio analitico e orientamento della soluzione. • Capacità di operare in ambienti complessi e regolamentati. • Aptitude per lavorare in team multidisciplinari. • Capacità di comunicare efficacemente con gli stakeholder tecnici e aziendali. • Proattività e attenzione al miglioramento continuo.",
-        "en": "The candidate will join the IT Card Management Centre of Excellence, with cross-functional responsibilities for credit and debit card management systems. The systems operate on cloud-native architectures in Google Cloud Platform (GCP) and support key payment processes in a highly regulated banking environment. The role involves actively contributing to functional and technical analysis activities, supporting the evolution of application solutions and integration with core banking, payment circuits and external platforms. Key Responsibilities Functional and Process Analysis • Analyse and understand Card Management processes: card issuance, lifecycle management, authorisations, clearing & settlement, fraud and chargebacks. • Collect, analyse and formalise business requirements, translating them into functional and technical specifications. • Support the business in defining IT solutions consistent with the bank's operational, regulatory and compliance models. • Collaborate with internal stakeholders (Operations, Compliance, Risk, Security). Technical and IT Analysis • Draft functional and technical documentation (application specifications, integration flows, data mapping). • Support the design and evolution of microservice architectures in a cloud environment. • Collaborate with internal and external development teams during the development, testing and release phases. • Support the analysis and management of application incidents and production issues. DevOps and Technologies • Operate in a DevOps environment, actively collaborating with development teams. • Support and understand continuous integration and continuous delivery (CI/CD) pipelines, using automation tools (e.g. Jenkins). • Use code versioning systems (Git, Bitbucket) for application configuration management. • Provide support in application and infrastructure troubleshooting in cloud-native and distributed environments. • Contribute to the stability, quality and scalability of solutions, collaborating on monitoring, logging and performance issues. • Have a basic knowledge of Java and event-driven microservice architectures. Must Have • Experience in functional and technical analysis in IT. • Knowledge of credit and debit card payment systems. • Ability to understand and analyse complex and distributed application architectures. • Experience, even non-specialist, in cloud environments, preferably Google Cloud Platform (GCP). • Resident in Ticino or willing to relocate. Basic knowledge of: • DevOps models and CI/CD pipelines • Git / GitHub • Microservice architectures • Kafka or messaging / event streaming systems • Change Data Capture • PostgreSQL (PGSQL) • Java • Monitoring and logging tools (e.g. Splunk, Dynatrace) Nice to Have • Experience in banking or financial contexts. • Knowledge of major payment circuits (e.g. Visa, Mastercard). • Familiarity with GCP services supporting cloud-native architectures (containers, logging, monitoring). • Knowledge of application security and compliance issues (e.g. PCI DSS, data protection). • Basic knowledge of Kubernetes and oauth2 application authorisation standards ________________________________________ Soft Skills • Strong analytical approach and solution orientation. • Ability to operate in complex and regulated environments. • Aptitude for working in multidisciplinary teams. • Ability to communicate effectively with technical and business stakeholders. • Proactivity and focus on continuous improvement.",
-        "de": "Der Kandidat wird sich dem IT Card Management Centre of Excellence anschließen, mit funktionsübergreifenden Aufgaben für Kredit- und Debitkartenmanagementsysteme. Die Systeme arbeiten auf Cloud-native Architekturen in der Google Cloud Platform (GCP) und unterstützen wichtige Zahlungsprozesse in einem hochregulierten Bankenumfeld. Die Rolle beinhaltet einen aktiven Beitrag zu funktionellen und technischen Analyseaktivitäten, die die Entwicklung von Anwendungslösungen und die Integration mit Kernbanken, Zahlungsschaltungen und externen Plattformen unterstützen. Funktionelle und Prozessanalyse • Analyse und Verständnis von Kartenmanagement-Prozessen: Kartenausgabe, Lifecycle Management, Zulassungen, Clearing & Abwicklung, Betrug und Rückmeldungen. • Sammeln, Analysieren und Formalisieren von Geschäftsanforderungen, Übersetzen in funktionale und technische Spezifikationen. • Unterstützung des Unternehmens bei der Definition von IT-Lösungen im Einklang mit den operativen, regulatorischen und Compliance-Modellen der Bank. • Zusammenarbeit mit internen Akteuren (Operationen, Compliance, Risk, Security). Technische und IT-Analyse • Entwurf funktionaler und technischer Dokumentation (Anwendungsspezifikationen, Integrationsflüsse, Datenkartierung). • Unterstützung der Gestaltung und Entwicklung von Mikroservice-Architekturen in einer Cloud-Umgebung. • Zusammenarbeit mit internen und externen Entwicklungsteams während der Entwicklungs-, Test- und Releasephasen. • Unterstützung der Analyse und Verwaltung von Anwendungsfällen und Produktionsfragen. DevOps and Technologies • Operate in einer DevOps-Umgebung, aktiv mit Entwicklungsteams zusammenarbeiten. • Unterstützung und Verständnis der kontinuierlichen Integration und kontinuierlichen Lieferung (CI/CD) Pipelines mittels Automatisierungstools (z.B. Jenkins). • Verwenden Sie Code-Versioning-Systeme (Git, Bitbucket) für die Anwendungskonfigurationsverwaltung. • Unterstützung bei der Problembehebung von Anwendungen und Infrastrukturen in Cloud-nativer und verteilter Umgebung. • Beitrag zur Stabilität, Qualität und Skalierbarkeit von Lösungen, Zusammenarbeit bei der Überwachung, Protokollierung und Performance. • Haben Sie ein Grundwissen über Java und ereignisgesteuerte Mikroservice-Architekturen. • Erfahrung in der funktionellen und technischen Analyse in der IT. • Kenntnis von Kredit- und Debitkarten-Zahlungssystemen. • Fähigkeit, komplexe und verteilte Anwendungsarchitekturen zu verstehen und zu analysieren. • Erleben Sie, auch nicht-spezialist, in Cloud-Umgebungen, vorzugsweise Google Cloud Platform (GCP). • Wohnsitz in Tessin oder bereit, sich zu verlagern. Grundkenntnisse von: • DevOps-Modelle und CI/CD-Pipelines • Git / GitHub • Microservice-Architekturen • Kafka oder Messaging / Event Streaming-Systeme • Ändern Sie die Datenerfassung • PostgreSQL (PGSQL) • Java • Überwachungs- und Protokollierungstools (z.B. Splunk, Dynatrace) Schön zu haben • Erfahrung in Bank- oder Finanzkontexten. • Kenntnis der wichtigsten Zahlungskreise (z.B. Visa, Mastercard). • Vertrautheit mit GCP-Diensten, die Cloud-native Architekturen (Container, Protokollierung, Überwachung) unterstützen. • Kenntnisse der Anwendungssicherheit und Compliance-Probleme (z.B. PCI DSS, Datenschutz). • Grundkenntnisse von Kubernetes und oauth2 Zulassungsnormen _____________ Weiche Fähigkeiten • Starker analytischer Ansatz und Lösungsorientierung. • Fähigkeit, in komplexen und geregelten Umgebungen zu arbeiten. • Eignung für die Arbeit in multidisziplinären Teams. • Fähigkeit, effektiv mit technischen und Geschäftspartnern zu kommunizieren. • Proaktivität und Fokus auf kontinuierliche Verbesserung.",
-        "fr": "Le candidat se joindra au Centre d'excellence en gestion des cartes de TI, avec des responsabilités interfonctionnelles pour les systèmes de gestion des cartes de crédit et de débit. Les systèmes fonctionnent sur des architectures cloud-native dans Google Cloud Platform (GCP) et prennent en charge des processus de paiement clés dans un environnement bancaire hautement réglementé. Le rôle consiste à contribuer activement aux activités d'analyse fonctionnelle et technique, à soutenir l'évolution des solutions d'application et l'intégration avec les principales banques, circuits de paiement et plateformes externes. Principales responsabilités Analyse des fonctions et des processus • Analyser et comprendre les processus de gestion des cartes : délivrance des cartes, gestion du cycle de vie, autorisations, compensation et règlement, fraude et recouvrement. • Recueillir, analyser et formaliser les exigences opérationnelles, les traduire en spécifications fonctionnelles et techniques. • Aider l'entreprise à définir des solutions informatiques conformes aux modèles opérationnels, réglementaires et de conformité de la banque. • Collaborer avec les acteurs internes (Opérations, Conformité, Risque, Sécurité). Analyse technique et informatique • Projet de documentation fonctionnelle et technique (spécifications d'application, flux d'intégration, cartographie des données). • Soutenir la conception et l'évolution des architectures de microservices dans un environnement nuageux. • Collaborer avec des équipes de développement internes et externes pendant les phases de développement, de test et de libération. • Soutenir l'analyse et la gestion des incidents d'application et des problèmes de production. DevOps et Technologies • Exploiter dans un environnement DevOps, en collaborant activement avec des équipes de développement. • Soutenir et comprendre l'intégration continue et les pipelines de distribution continue (CI/CD), en utilisant des outils d'automatisation (par exemple Jenkins). • Utilisez des systèmes de version de code (Git, Bitbucket) pour la gestion de la configuration des applications. • Fournir un support pour le dépannage des applications et des infrastructures dans les environnements natifs et distribués en nuage. • Contribuer à la stabilité, à la qualité et à l'évolutivité des solutions, en collaborant sur des questions de surveillance, d'exploitation forestière et de performance. • Avoir une connaissance de base des architectures de microservices Java et d'événements. • Expérience en analyse fonctionnelle et technique en informatique. • Connaissance des systèmes de paiement par carte de crédit et de débit. • Capacité de comprendre et d'analyser des architectures d'application complexes et distribuées. • Expérience, même non spécialisée, dans les environnements cloud, de préférence Google Cloud Platform (GCP). • Résident au Tessin ou prêt à déménager. Connaissances de base de: • Modèles DevOps et pipelines CI/CD • Git / GitHub • Architectures microservice • Kafka ou systèmes de messagerie / streaming événementiel • Changer de saisie de données • PostgreSQL (PGSQL) • Java • Outils de surveillance et d'enregistrement (par exemple Spunk, Dynatrace) Nice to Have • Expérience dans les contextes bancaires ou financiers. • Connaissance des principaux circuits de paiement (par exemple Visa, Mastercard). • Familiarité avec les services GCP prenant en charge les architectures cloud-native (conteneurs, log, monitoring). • Connaissance des questions de sécurité et de conformité des applications (par exemple PCI DSS, protection des données). • Connaissance de base des normes d'autorisation des demandes de Kubernetes et d'auth2 ______________________________________________ Compétences souples • Une approche analytique solide et l'orientation de la solution. • Capacité d'opérer dans des environnements complexes et réglementés. • Aptitude à travailler dans des équipes multidisciplinaires. • Capacité de communiquer efficacement avec les acteurs techniques et commerciaux. • Proactivité et attention à l'amélioration continue."
-      },
-      "requirements": [],
-      "requirementsByLocale": {},
-      "location": "Lugano",
-      "canton": "TI",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "category": "tech",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-02-03",
-      "url": "https://jobs.corner.ch/o/it-card-management-analyst-specialist",
-      "source": "Corner Dedicated Parser (Recruitee API)",
-      "sourceLang": "en",
-      "crawledAt": "2026-04-13T10:22:37.694Z",
-      "previousSlugs": [
-        "analista-specialista-gestione-carte-it-corner-banca-lugano",
-        "it-card-management-analista-specialista-corner-banca-lugano",
-        "it-card-management-analyst-spezialist-corner-banca-lugano-331bdu",
-        "it-card-management-analyste-specialiste-corner-banca-lugano-331bdu",
-        "it-card-management-analyste-specialiste-corner-banca-lugano",
-        "it-card-management-analyst-specialist-corner-banca-lugano-331bdu"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "analista-specialista-gestione-carte-it-corner-banca-lugano",
-          "it-card-management-analista-specialista-corner-banca-lugano",
-          "it-card-management-analyst-spezialist-corner-banca-lugano-331bdu",
-          "it-card-management-analyste-specialiste-corner-banca-lugano-331bdu",
-          "it-card-management-analyste-specialiste-corner-banca-lugano"
-        ],
-        "en": [
-          "it-card-management-analyst-specialist-corner-banca-lugano-331bdu",
-          "it-card-management-analyst-spezialist-corner-banca-lugano-331bdu",
-          "it-card-management-analyste-specialiste-corner-banca-lugano-331bdu",
-          "it-card-management-analyste-specialiste-corner-banca-lugano"
-        ],
-        "de": [
-          "it-card-management-analyst-spezialist-corner-banca-lugano-331bdu",
-          "it-card-management-analyste-specialiste-corner-banca-lugano-331bdu",
-          "it-card-management-analyste-specialiste-corner-banca-lugano"
-        ],
-        "fr": [
-          "it-card-management-analyst-spezialist-corner-banca-lugano-331bdu",
-          "it-card-management-analyste-specialiste-corner-banca-lugano-331bdu",
-          "it-card-management-analyste-specialiste-corner-banca-lugano"
-        ]
-      },
-      "salaryMin": 51500,
-      "salaryMax": 88000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 51500,
-          "maxValue": 88000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Canova 16",
-      "postalCode": "6901",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T10:22:37.694Z"
-    },
     {
       "id": "corner-banca-f803e5cc9fe2",
       "slug": "candidatura-spontanea-apprendistato-corner-banca-switzerland",
@@ -147,7 +55,7 @@
       "url": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-04-13T10:22:37.694Z",
+      "crawledAt": "2026-04-13T21:31:04.481Z",
       "previousSlugs": [
         "initiativbewerbung-lehre-corner-banca-switzerland"
       ],
@@ -165,6 +73,7 @@
           "initiativbewerbung-lehre-corner-banca-switzerland"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 59500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -180,100 +89,93 @@
       "streetAddress": "Via Canova 16",
       "postalCode": "6901",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:31:06.824Z"
     },
     {
-      "id": "corner-banca-fe61b84a0935",
-      "slug": "employee-card-onboarding-corner-banca-lugano",
+      "id": "corner-banca-422277a6cd4c",
+      "slug": "it-card-management-analyst-specialist-corner-banca-lugano",
       "slugByLocale": {
-        "it": "employee-card-onboarding-corner-banca-lugano",
-        "en": "employee-card-onboarding-corner-banca-lugano",
-        "de": "kartenaufnahme-corner-banca-lugano",
-        "fr": "employee-card-onboarding-corner-banca-lugano"
+        "it": "it-card-management-analyst-specialist-corner-banca-lugano",
+        "en": "it-card-management-analyst-specialist-corner-banca-lugano",
+        "de": "it-kartenmanagement-analyst-spezialist-corner-banca-lugano",
+        "fr": "it-card-management-analyst-specialist-corner-banca-lugano"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
       "companyDomain": "corner.ch",
-      "title": "Employee Card Onboarding",
+      "title": "IT Card Management Analyst / Specialist",
       "titleByLocale": {
-        "it": "Onboarding della Carta di Credito",
-        "en": "Employee Card Onboarding",
-        "de": "Kartenaufnahme",
-        "fr": "Onboarding de la Carte de Paiement"
+        "it": "IT Card Management Analista / Specialista",
+        "en": "IT Card Management Analyst / Specialist",
+        "de": "IT Card Management Analyst / Spezialist",
+        "fr": "IT Card Management Analyste / Spécialiste"
       },
-      "description": "The candidate will be responsible for implementing the payment card issuing process for corporate customers, analysing and evaluating requests, setting spending limits and activating complementary services.\n\nThe role involves direct contact with potential customers, including by telephone, in order to gather information, clarify requirements and support the customer throughout the entire process.\n\nKey responsibilities: \n\nAnswer incoming calls and handling inquiries from customers and business partners in German, French, Italian and English\n\nManage payment card issuance requests for corporate customers\n\nAnalyse and evaluate the validity of the request, verifying the customer's profile and consistency with company policies\n\nRequest and verify the necessary documentation (e.g. corporate, financial and identification documents)\n\nDefine the most appropriate spending limit based on customer analysis and risk level\n\nEnter and configure complementary services associated with the card (e.g. insurance, reporting, digital services, spending controls)\n\nContact potential customers by telephone to discuss their requests in detail, provide clarification and commercial support\n\nCollaborate with internal teams (credit risk, operations) to ensure a smooth and effective process\n\nEnsure compliance with current regulations and internal procedures (KYC, AML, credit policy)\n\nWhat do we offer?\n\nFlexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\nNumerous benefits and incentives\n\nWell-being, motivational and team-building activities\n\nFor the job opening, we are looking for candidates who meet the following requirements:\n\nAdministrative background\n\nPrivious experience in similar position\n\nGood knowledge of Office package/ PC use\n\nLanguages: Italian / German native proficiency / Basic French / Basic English\n\nCustomer orientation and ability to work in team\n\nResident in Ticino or willing to relocate",
+      "description": "The candidate will join the IT Card Management Centre of Excellence, with cross-functional responsibilities for credit and debit card management systems.\n\nThe systems operate on cloud-native architectures in Google Cloud Platform (GCP) and support key payment processes in a highly regulated banking environment.\n\nThe role involves actively contributing to functional and technical analysis activities, supporting the evolution of application solutions and integration with core banking, payment circuits and external platforms.\n\n \n\nKey Responsibilities\n\nFunctional and Process Analysis\n\n•    Analyse and understand Card Management processes: card issuance, lifecycle management, authorisations, clearing & settlement, fraud and chargebacks.\n\n•    Collect, analyse and formalise business requirements, translating them into functional and technical specifications.\n\n•    Support the business in defining IT solutions consistent with the bank's operational, regulatory and compliance models.\n\n•    Collaborate with internal stakeholders (Operations, Compliance, Risk, Security).\n\nTechnical and IT Analysis\n\n•    Draft functional and technical documentation (application specifications, integration flows, data mapping).\n\n•    Support the design and evolution of microservice architectures in a cloud environment.\n\n•    Collaborate with internal and external development teams during the development, testing and release phases.\n\n•    Support the analysis and management of application incidents and production issues.\n\nDevOps and Technologies\n\n•    Operate in a DevOps environment, actively collaborating with development teams.\n\n•    Support and understand continuous integration and continuous delivery (CI/CD) pipelines, using automation tools (e.g. Jenkins).\n\n•    Use code versioning systems (Git, Bitbucket) for application configuration management.\n\n•    Provide support in application and infrastructure troubleshooting in cloud-native and distributed environments.\n\n•    Contribute to the stability, quality and scalability of solutions, collaborating on monitoring, logging and performance issues.\n\n•    Have a basic knowledge of Java and event-driven microservice architectures.\n\nMust Have\n\n•    Experience in functional and technical analysis in IT.\n\n•    Knowledge of credit and debit card payment systems.\n\n•    Ability to understand and analyse complex and distributed application architectures.\n\n•    Experience, even non-specialist, in cloud environments, preferably Google Cloud Platform (GCP).\n\n•   Resident in Ticino or willing to relocate.\n\nBasic knowledge of:\n\n•   DevOps models and CI/CD pipelines\n\n•   Git / GitHub\n\n•   Microservice architectures\n\n•   Kafka or messaging / event streaming systems\n\n•   Change Data Capture\n\n•    PostgreSQL (PGSQL)\n\n•    Java\n\n•   Monitoring and logging tools (e.g. Splunk, Dynatrace)\n\nNice to Have\n\n•    Experience in banking or financial contexts.\n\n•    Knowledge of major payment circuits (e.g. Visa, Mastercard).\n\n•    Familiarity with GCP services supporting cloud-native architectures (containers, logging, monitoring).\n\n•    Knowledge of application security and compliance issues (e.g. PCI DSS, data protection).\n\n•    Basic knowledge of Kubernetes and oauth2 application authorisation standards\n\n________________________________________\n\nSoft Skills\n\n•    Strong analytical approach and solution orientation.\n\n•    Ability to operate in complex and regulated environments.\n\n•    Aptitude for working in multidisciplinary teams.\n\n•    Ability to communicate effectively with technical and business stakeholders.\n\n•    Proactivity and focus on continuous improvement.",
       "descriptionByLocale": {
-        "it": "Il candidato sarà responsabile dell'implementazione del processo di emissione della carta di pagamento per i clienti aziendali, analisi e valutazione delle richieste, impostazione dei limiti di spesa e attivazione dei servizi complementari. Il ruolo prevede un contatto diretto con i potenziali clienti, compreso tramite telefono, al fine di raccogliere informazioni, chiarire le richieste e supportare il cliente durante tutto il processo. Le principali responsabilità sono: Rispondere alle chiamate in arrivo e gestire le richieste di informazione dei clienti e dei partner aziendali in tedesco, francese, italiano e inglese Gestire le richieste di emissione della carta di pagamento per i clienti aziendali Analizzare e valutare la validità della richiesta, verificando il profilo del cliente e la coerenza con le politiche aziendali Richiedere e verificare la documentazione necessaria (ad esempio documenti aziendali, finanziari e di identificazione) Definire il limite di spesa più adatto sulla base dell'analisi del cliente e del livello di rischio Inserire e configurare i servizi complementari associati alla carta (ad esempio assicurazioni, reporting, servizi digitali, controlli di spesa) Contattare i potenziali clienti tramite telefono per discutere le loro richieste in dettaglio, fornire chiarimenti e supporto commerciale Collaborare con le squadre interne (rischio di credito, operazioni) per garantire un processo liscio e efficace Assicurarsi che la conformità con le normative vigenti e le procedure interne (KYC, AML, politica di credito) Cosa offriamo? Flessibilità nel lavoro da remoto e gestione degli orari di lavoro per garantire un equilibrio lavoro-vita sano Numerosi benefici e incentivi Attività di benessere, motivazione e team building Per l'apertura di lavoro, stiamo cercando candidati che soddisfino i seguenti requisiti: Background amministrativo Esperienza precedente in posizione simile Buona conoscenza del pacchetto Office/uso del PC Lingue: italiano / tedesco nativo / francese base / inglese base Orientamento al cliente e capacità di lavorare in team Residente nel Ticino o disposto a trasferirsi",
-        "en": "The candidate will be responsible for implementing the payment card issuing process for corporate customers, analysing and evaluating requests, setting spending limits and activating complementary services. The role involves direct contact with potential customers, including by telephone, in order to gather information, clarify requirements and support the customer throughout the entire process. Key responsibilities: Answer incoming calls and handling inquiries from customers and business partners in German, French, Italian and English Manage payment card issuance requests for corporate customers Analyse and evaluate the validity of the request, verifying the customer's profile and consistency with company policies Request and verify the necessary documentation (e.g. corporate, financial and identification documents) Define the most appropriate spending limit based on customer analysis and risk level Enter and configure complementary services associated with the card (e.g. insurance, reporting, digital services, spending controls) Contact potential customers by telephone to discuss their requests in detail, provide clarification and commercial support Collaborate with internal teams (credit risk, operations) to ensure a smooth and effective process Ensure compliance with current regulations and internal procedures (KYC, AML, credit policy) What do we offer? Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance Numerous benefits and incentives Well-being, motivational and team-building activities For the job opening, we are looking for candidates who meet the following requirements: Administrative background Privious experience in similar position Good knowledge of Office package/ PC use Languages: Italian / German native proficiency / Basic French / Basic English Customer orientation and ability to work in team Resident in Ticino or willing to relocate",
-        "de": "Der Kandidat wird für die Implementierung des Zahlungskarten-Ausgabeprozesses für Unternehmenskunden verantwortlich sein, Anfragen analysieren und bewerten, Ausgabegrenzen setzen und Zusatzdienste aktivieren. Die Rolle beinhaltet direkten Kontakt mit potenziellen Kunden, einschließlich Telefonkontakt, um Informationen zu sammeln, Anforderungen zu klären und den Kunden während des gesamten Prozesses zu unterstützen. Hauptverantwortlichkeiten: Antworten auf eingehende Anrufe und bearbeiten von Anfragen von Kunden und Geschäftspartnern auf Deutsch, Französisch, Italienisch und Englisch Verwalten Sie die Anfragen zur Ausgabe von Zahlungskarten für Unternehmenskunden Analysieren und bewerten Sie die Gültigkeit der Anfrage, überprüfen Sie das Kundenprofil und die Übereinstimmung mit den Unternehmenspolitiken Anfordern und überprüfen Sie die erforderliche Dokumentation (z.B. Unternehmensdokumente, Finanzdokumente und Identifikationsdokumente) Definieren Sie den geeigneten Ausgabegrenzen auf der Grundlage der Kundenanalyse und des Risikostands Einfügen und Konfigurieren Sie die Zusatzdienste, die mit der Karte verbunden sind (z.B. Versicherungen, Berichterstattung, digitale Dienste, Ausgabekontrollen) Kontaktieren Sie potenzielle Kunden per Telefon, um ihre Anfragen im Detail zu diskutieren, Klarstellungen und kommerziellen Unterstützung zu bieten Arbeiten Sie mit den internen Teams (Kreditrisiko, Operations) zusammen, um einen reibungslosen und effektiven Prozess zu gewährleisten Stellen Sie sicher, dass die Einhaltung der aktuellen Vorschriften und internen Verfahren (KYC, AML, Kreditpolitik) gewährleistet ist Was bieten wir? Flexibilität in der Arbeit von zu Hause und die Verwaltung der Arbeitszeiten, um ein gesundes Arbeit-Leben-Gleichgewicht zu gewährleisten Viele Vorteile und Anreize Wohlbefinden, Motivation und Teambuilding-Aktivitäten Für die Stellenanzeige suchen wir Kandidaten, die die folgenden Anforderungen erfüllen: Verwaltungshintergrund Vorherige Erfahrung in einer ähnlichen Position Gute Kenntnisse des Office-Pakets/PC-Verwendung Sprachen: Deutsch / Italienisch Muttersprache / Französisch Grundkenntnisse / Englisch Grundkenntnisse Kundenorientierung und Fähigkeit, in einem Team zu arbeiten Wohnort im Kanton Tessin oder bereit, sich umzuziehen",
-        "fr": "Le candidat sera responsable de l'implémentation du processus d'émission de la carte de paiement pour les clients d'entreprise, d'analyse et d'évaluation des demandes, de définition des limites de dépense et d'activation des services complémentaires. Le rôle implique un contact direct avec les clients potentiels, y compris par téléphone, pour recueillir des informations, clarifier les demandes et soutenir le client tout au long du processus. Les principales responsabilités sont: Répondre aux appels entrants et gérer les demandes d'informations des clients et des partenaires commerciaux en allemand, en français, en italien et en anglais Gérer les demandes d'émission de la carte de paiement pour les clients d'entreprise Analyser et évaluer la validité de la demande, vérifier le profil du client et la cohérence avec les politiques de l'entreprise Demander et vérifier la documentation nécessaire (par exemple, documents d'entreprise, documents financiers et documents d'identité) Définir les limites de dépense les plus appropriées en fonction de l'analyse du client et du niveau de risque Insérer et configurer les services complémentaires associés à la carte (par exemple, assurances, rapports, services numériques, contrôles de dépense) Contacter les clients potentiels par téléphone pour discuter de leurs demandes en détail, fournir des explications et un soutien commercial Collaborer avec les équipes internes (risque de crédit, opérations) pour garantir un processus fluide et efficace Assurer la conformité avec les réglementations actuelles et les procédures internes (KYC, AML, politique de crédit) Qu'est-ce que nous offrons? Flexibilité dans le travail à distance et la gestion des heures de travail pour garantir un équilibre travail-vie sain De nombreux avantages et incitations Activités de bien-être, de motivation et de team building Pour l'ouverture de poste, nous recherchons des candidats qui répondent aux exigences suivantes: Arrière-plan administratif Expérience précédente dans une position similaire Connaissances solides du paquet Office/usage du PC Langues : français / allemand natif / italien / anglais de base Orientement client et capacité de travailler en équipe Résident dans le canton du Tessin ou prêt à se déplacer"
+        "it": "Il candidato si unirà al IT Card Management Centre of Excellence, con responsabilità interfunzionali per i sistemi di gestione delle carte di credito e di debito. I sistemi operano su architetture cloud-native in Google Cloud Platform (GCP) e supportano i processi di pagamento chiave in un ambiente bancario altamente regolamentato. Il ruolo consiste nel contribuire attivamente alle attività di analisi funzionale e tecnica, sostenendo l'evoluzione delle soluzioni applicative e l'integrazione con core banking, circuiti di pagamento e piattaforme esterne. • Analizzare e comprendere i processi di gestione della carta: emissione della carta, gestione del ciclo di vita, autorizzazioni, compensazione e insediamento, frode e chargeback. • Raccogliere, analizzare e formalizzare i requisiti aziendali, traducendoli in specifiche funzionali e tecniche. • Sostenere l'azienda nella definizione di soluzioni IT conformi ai modelli operativi, normativi e di conformità della banca. • Collaborare con gli stakeholder interni (Operazioni, Compliance, Rischio, Sicurezza). Analisi Tecnica e IT • Progetto di documentazione funzionale e tecnica (specifiche applicative, flussi di integrazione, mappatura dati). • Supporta la progettazione e l'evoluzione delle architetture microservice in un ambiente cloud. • Collaborare con i team di sviluppo interni ed esterni durante le fasi di sviluppo, test e rilascio. • Sostenere l'analisi e la gestione di incidenti applicativi e problemi di produzione. DevOps e Tecnologie • Operare in un ambiente DevOps, collaborando attivamente con i team di sviluppo. • Supporto e comprensione dell'integrazione continua e delle condotte di consegna continua (CI/CD), utilizzando strumenti di automazione (ad esempio Jenkins). • Utilizzare sistemi di versione del codice (Git, Bitbucket) per la gestione della configurazione delle applicazioni. • Fornire supporto nella risoluzione dei problemi delle applicazioni e delle infrastrutture in ambienti cloud-nativi e distribuiti. • Contribuire alla stabilità, alla qualità e alla scalabilità delle soluzioni, collaborando ai problemi di monitoraggio, registrazione e performance. Avere una conoscenza di base delle architetture microservice Java e event-driven. Deve avere • Esperienza nell'analisi funzionale e tecnica in IT. • Conoscenza dei sistemi di pagamento della carta di credito e di debito. • Capacità di comprendere e analizzare architetture applicative complesse e distribuite. • Esperienza, anche non specialistica, in ambienti cloud, preferibilmente Google Cloud Platform (GCP). • Residente in Ticino o disposto a trasferirsi. Conoscenza di base di: • Modelli DevOps e pipeline CI/CD • Git / GitHub • Architetture microservice • Kafka o sistemi di streaming di messaggistica / eventi • • Java • Strumenti di monitoraggio e registrazione (ad esempio Splunk, Dynatrace) Nizza per avere • Esperienza in contesti bancari o finanziari. • Conoscenza dei principali circuiti di pagamento (ad esempio Visa, Mastercard). • Familiarità con i servizi GCP che supportano architetture cloud-native (contentori, registrazione, monitoraggio). • Conoscenza dei problemi di sicurezza e conformità delle applicazioni (ad esempio PCI DSS, protezione dei dati). • Conoscenze di base di Kubernetes e standard di autorizzazione all'applicazione oauth2 Traduzione: • Forte approccio analitico e orientamento della soluzione. • Capacità di operare in ambienti complessi e regolamentati. • Aptitude per lavorare in team multidisciplinari. • Capacità di comunicare efficacemente con gli stakeholder tecnici e aziendali. • Proattività e attenzione al miglioramento continuo.",
+        "en": "The candidate will join the IT Card Management Centre of Excellence, with cross-functional responsibilities for credit and debit card management systems. The systems operate on cloud-native architectures in Google Cloud Platform (GCP) and support key payment processes in a highly regulated banking environment. The role involves actively contributing to functional and technical analysis activities, supporting the evolution of application solutions and integration with core banking, payment circuits and external platforms. Key Responsibilities Functional and Process Analysis • Analyse and understand Card Management processes: card issuance, lifecycle management, authorisations, clearing & settlement, fraud and chargebacks. • Collect, analyse and formalise business requirements, translating them into functional and technical specifications. • Support the business in defining IT solutions consistent with the bank's operational, regulatory and compliance models. • Collaborate with internal stakeholders (Operations, Compliance, Risk, Security). Technical and IT Analysis • Draft functional and technical documentation (application specifications, integration flows, data mapping). • Support the design and evolution of microservice architectures in a cloud environment. • Collaborate with internal and external development teams during the development, testing and release phases. • Support the analysis and management of application incidents and production issues. DevOps and Technologies • Operate in a DevOps environment, actively collaborating with development teams. • Support and understand continuous integration and continuous delivery (CI/CD) pipelines, using automation tools (e.g. Jenkins). • Use code versioning systems (Git, Bitbucket) for application configuration management. • Provide support in application and infrastructure troubleshooting in cloud-native and distributed environments. • Contribute to the stability, quality and scalability of solutions, collaborating on monitoring, logging and performance issues. • Have a basic knowledge of Java and event-driven microservice architectures. Must Have • Experience in functional and technical analysis in IT. • Knowledge of credit and debit card payment systems. • Ability to understand and analyse complex and distributed application architectures. • Experience, even non-specialist, in cloud environments, preferably Google Cloud Platform (GCP). • Resident in Ticino or willing to relocate. Basic knowledge of: • DevOps models and CI/CD pipelines • Git / GitHub • Microservice architectures • Kafka or messaging / event streaming systems • Change Data Capture • PostgreSQL (PGSQL) • Java • Monitoring and logging tools (e.g. Splunk, Dynatrace) Nice to Have • Experience in banking or financial contexts. • Knowledge of major payment circuits (e.g. Visa, Mastercard). • Familiarity with GCP services supporting cloud-native architectures (containers, logging, monitoring). • Knowledge of application security and compliance issues (e.g. PCI DSS, data protection). • Basic knowledge of Kubernetes and oauth2 application authorisation standards ________________________________________ Soft Skills • Strong analytical approach and solution orientation. • Ability to operate in complex and regulated environments. • Aptitude for working in multidisciplinary teams. • Ability to communicate effectively with technical and business stakeholders. • Proactivity and focus on continuous improvement.",
+        "de": "Der Kandidat wird sich dem IT Card Management Centre of Excellence anschließen, mit funktionsübergreifenden Aufgaben für Kredit- und Debitkartenmanagementsysteme. Die Systeme arbeiten auf Cloud-native Architekturen in der Google Cloud Platform (GCP) und unterstützen wichtige Zahlungsprozesse in einem hochregulierten Bankenumfeld. Die Rolle beinhaltet einen aktiven Beitrag zu funktionellen und technischen Analyseaktivitäten, die die Entwicklung von Anwendungslösungen und die Integration mit Kernbanken, Zahlungsschaltungen und externen Plattformen unterstützen. Funktionelle und Prozessanalyse • Analyse und Verständnis von Kartenmanagement-Prozessen: Kartenausgabe, Lifecycle Management, Zulassungen, Clearing & Abwicklung, Betrug und Rückmeldungen. • Sammeln, Analysieren und Formalisieren von Geschäftsanforderungen, Übersetzen in funktionale und technische Spezifikationen. • Unterstützung des Unternehmens bei der Definition von IT-Lösungen im Einklang mit den operativen, regulatorischen und Compliance-Modellen der Bank. • Zusammenarbeit mit internen Akteuren (Operationen, Compliance, Risk, Security). Technische und IT-Analyse • Entwurf funktionaler und technischer Dokumentation (Anwendungsspezifikationen, Integrationsflüsse, Datenkartierung). • Unterstützung der Gestaltung und Entwicklung von Mikroservice-Architekturen in einer Cloud-Umgebung. • Zusammenarbeit mit internen und externen Entwicklungsteams während der Entwicklungs-, Test- und Releasephasen. • Unterstützung der Analyse und Verwaltung von Anwendungsfällen und Produktionsfragen. DevOps and Technologies • Operate in einer DevOps-Umgebung, aktiv mit Entwicklungsteams zusammenarbeiten. • Unterstützung und Verständnis der kontinuierlichen Integration und kontinuierlichen Lieferung (CI/CD) Pipelines mittels Automatisierungstools (z.B. Jenkins). • Verwenden Sie Code-Versioning-Systeme (Git, Bitbucket) für die Anwendungskonfigurationsverwaltung. • Unterstützung bei der Problembehebung von Anwendungen und Infrastrukturen in Cloud-nativer und verteilter Umgebung. • Beitrag zur Stabilität, Qualität und Skalierbarkeit von Lösungen, Zusammenarbeit bei der Überwachung, Protokollierung und Performance. • Haben Sie ein Grundwissen über Java und ereignisgesteuerte Mikroservice-Architekturen. • Erfahrung in der funktionellen und technischen Analyse in der IT. • Kenntnis von Kredit- und Debitkarten-Zahlungssystemen. • Fähigkeit, komplexe und verteilte Anwendungsarchitekturen zu verstehen und zu analysieren. • Erleben Sie, auch nicht-spezialist, in Cloud-Umgebungen, vorzugsweise Google Cloud Platform (GCP). • Wohnsitz in Tessin oder bereit, sich zu verlagern. Grundkenntnisse von: • DevOps-Modelle und CI/CD-Pipelines • Git / GitHub • Microservice-Architekturen • Kafka oder Messaging / Event Streaming-Systeme • Ändern Sie die Datenerfassung • PostgreSQL (PGSQL) • Java • Überwachungs- und Protokollierungstools (z.B. Splunk, Dynatrace) Schön zu haben • Erfahrung in Bank- oder Finanzkontexten. • Kenntnis der wichtigsten Zahlungskreise (z.B. Visa, Mastercard). • Vertrautheit mit GCP-Diensten, die Cloud-native Architekturen (Container, Protokollierung, Überwachung) unterstützen. • Kenntnisse der Anwendungssicherheit und Compliance-Probleme (z.B. PCI DSS, Datenschutz). • Grundkenntnisse von Kubernetes und oauth2 Zulassungsnormen _____________ Weiche Fähigkeiten • Starker analytischer Ansatz und Lösungsorientierung. • Fähigkeit, in komplexen und geregelten Umgebungen zu arbeiten. • Eignung für die Arbeit in multidisziplinären Teams. • Fähigkeit, effektiv mit technischen und Geschäftspartnern zu kommunizieren. • Proaktivität und Fokus auf kontinuierliche Verbesserung.",
+        "fr": "Le candidat se joindra au Centre d'excellence en gestion des cartes de TI, avec des responsabilités interfonctionnelles pour les systèmes de gestion des cartes de crédit et de débit. Les systèmes fonctionnent sur des architectures cloud-native dans Google Cloud Platform (GCP) et prennent en charge des processus de paiement clés dans un environnement bancaire hautement réglementé. Le rôle consiste à contribuer activement aux activités d'analyse fonctionnelle et technique, à soutenir l'évolution des solutions d'application et l'intégration avec les principales banques, circuits de paiement et plateformes externes. Principales responsabilités Analyse des fonctions et des processus • Analyser et comprendre les processus de gestion des cartes : délivrance des cartes, gestion du cycle de vie, autorisations, compensation et règlement, fraude et recouvrement. • Recueillir, analyser et formaliser les exigences opérationnelles, les traduire en spécifications fonctionnelles et techniques. • Aider l'entreprise à définir des solutions informatiques conformes aux modèles opérationnels, réglementaires et de conformité de la banque. • Collaborer avec les acteurs internes (Opérations, Conformité, Risque, Sécurité). Analyse technique et informatique • Projet de documentation fonctionnelle et technique (spécifications d'application, flux d'intégration, cartographie des données). • Soutenir la conception et l'évolution des architectures de microservices dans un environnement nuageux. • Collaborer avec des équipes de développement internes et externes pendant les phases de développement, de test et de libération. • Soutenir l'analyse et la gestion des incidents d'application et des problèmes de production. DevOps et Technologies • Exploiter dans un environnement DevOps, en collaborant activement avec des équipes de développement. • Soutenir et comprendre l'intégration continue et les pipelines de distribution continue (CI/CD), en utilisant des outils d'automatisation (par exemple Jenkins). • Utilisez des systèmes de version de code (Git, Bitbucket) pour la gestion de la configuration des applications. • Fournir un support pour le dépannage des applications et des infrastructures dans les environnements natifs et distribués en nuage. • Contribuer à la stabilité, à la qualité et à l'évolutivité des solutions, en collaborant sur des questions de surveillance, d'exploitation forestière et de performance. • Avoir une connaissance de base des architectures de microservices Java et d'événements. • Expérience en analyse fonctionnelle et technique en informatique. • Connaissance des systèmes de paiement par carte de crédit et de débit. • Capacité de comprendre et d'analyser des architectures d'application complexes et distribuées. • Expérience, même non spécialisée, dans les environnements cloud, de préférence Google Cloud Platform (GCP). • Résident au Tessin ou prêt à déménager. Connaissances de base de: • Modèles DevOps et pipelines CI/CD • Git / GitHub • Architectures microservice • Kafka ou systèmes de messagerie / streaming événementiel • Changer de saisie de données • PostgreSQL (PGSQL) • Java • Outils de surveillance et d'enregistrement (par exemple Spunk, Dynatrace) Nice to Have • Expérience dans les contextes bancaires ou financiers. • Connaissance des principaux circuits de paiement (par exemple Visa, Mastercard). • Familiarité avec les services GCP prenant en charge les architectures cloud-native (conteneurs, log, monitoring). • Connaissance des questions de sécurité et de conformité des applications (par exemple PCI DSS, protection des données). • Connaissance de base des normes d'autorisation des demandes de Kubernetes et d'auth2 ______________________________________________ Compétences souples • Une approche analytique solide et l'orientation de la solution. • Capacité d'opérer dans des environnements complexes et réglementés. • Aptitude à travailler dans des équipes multidisciplinaires. • Capacité de communiquer efficacement avec les acteurs techniques et commerciaux. • Proactivité et attention à l'amélioration continue."
       },
-      "requirements": [
-        "Administrative background",
-        "Privious experience in similar position",
-        "Good knowledge of Office package/ PC use",
-        "Languages: Italian / German native proficiency / Basic French / Basic English",
-        "Customer orientation and ability to work in team",
-        "Resident in Ticino or willing to relocate"
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Administrative background",
-          "Privious experience in similar position",
-          "Good knowledge of Office package/ PC use",
-          "Languages: Italian / German native proficiency / Basic French / Basic English",
-          "Customer orientation and ability to work in team",
-          "Resident in Ticino or willing to relocate"
-        ],
-        "en": [
-          "Administrative background",
-          "Privious experience in similar position",
-          "Good knowledge of Office package/ PC use",
-          "Languages: Italian / German native proficiency / Basic French / Basic English",
-          "Customer orientation and ability to work in team",
-          "Resident in Ticino or willing to relocate"
-        ]
-      },
+      "requirements": [],
+      "requirementsByLocale": {},
       "location": "Lugano",
       "canton": "TI",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
-      "category": "admin",
+      "category": "tech",
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-02-26",
-      "url": "https://jobs.corner.ch/o/employee-card-onboarding",
+      "postedDate": "2026-02-03",
+      "url": "https://jobs.corner.ch/o/it-card-management-analyst-specialist",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-13T10:22:37.693Z",
+      "crawledAt": "2026-04-13T21:31:04.480Z",
       "previousSlugs": [
-        "addetto-all-emission-carte-cliente-corner-banca-lugano",
-        "onboarding-de-la-carte-de-paiement-corner-banca-lugano"
+        "analista-specialista-gestione-carte-it-corner-banca-lugano",
+        "it-card-management-analista-specialista-corner-banca-lugano",
+        "it-card-management-analyst-spezialist-corner-banca-lugano-331bdu",
+        "it-card-management-analyste-specialiste-corner-banca-lugano-331bdu",
+        "it-card-management-analyste-specialiste-corner-banca-lugano",
+        "it-card-management-analyst-specialist-corner-banca-lugano-331bdu"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "addetto-all-emission-carte-cliente-corner-banca-lugano"
+          "analista-specialista-gestione-carte-it-corner-banca-lugano",
+          "it-card-management-analista-specialista-corner-banca-lugano",
+          "it-card-management-analyst-spezialist-corner-banca-lugano-331bdu",
+          "it-card-management-analyste-specialiste-corner-banca-lugano-331bdu",
+          "it-card-management-analyste-specialiste-corner-banca-lugano"
         ],
         "en": [
-          "addetto-all-emission-carte-cliente-corner-banca-lugano"
+          "it-card-management-analyst-specialist-corner-banca-lugano-331bdu",
+          "it-card-management-analyst-spezialist-corner-banca-lugano-331bdu",
+          "it-card-management-analyste-specialiste-corner-banca-lugano-331bdu",
+          "it-card-management-analyste-specialiste-corner-banca-lugano"
         ],
         "de": [
-          "addetto-all-emission-carte-cliente-corner-banca-lugano"
+          "it-card-management-analyst-spezialist-corner-banca-lugano-331bdu",
+          "it-card-management-analyste-specialiste-corner-banca-lugano-331bdu",
+          "it-card-management-analyste-specialiste-corner-banca-lugano"
         ],
         "fr": [
-          "addetto-all-emission-carte-cliente-corner-banca-lugano"
+          "it-card-management-analyst-spezialist-corner-banca-lugano-331bdu",
+          "it-card-management-analyste-specialiste-corner-banca-lugano-331bdu",
+          "it-card-management-analyste-specialiste-corner-banca-lugano"
         ]
       },
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "firstSeenAt": "2026-04-13T10:22:37.694Z",
+      "salaryMin": 51500,
+      "salaryMax": 88000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
+          "minValue": 51500,
+          "maxValue": 88000,
           "unitText": "YEAR"
         }
       },
@@ -350,7 +252,7 @@
       "url": "https://jobs.corner.ch/o/collaboratore-servizi-logistici-ufficio-tecnico-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-04-13T10:22:37.692Z",
+      "crawledAt": "2026-04-13T21:31:04.479Z",
       "previousSlugs": [
         "collaboratore-servizi-logistici-ufficio-technician-corner-banca-lugano",
         "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano-h1bnmt",
@@ -374,6 +276,7 @@
           "collaboratore-servizi-logistici-ufficio-technicien-corner-banca-lugano"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -389,7 +292,110 @@
       "streetAddress": "Via Canova 16",
       "postalCode": "6901",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:31:06.824Z"
+    },
+    {
+      "id": "corner-banca-fe61b84a0935",
+      "slug": "employee-card-onboarding-corner-banca-lugano",
+      "slugByLocale": {
+        "it": "employee-card-onboarding-corner-banca-lugano",
+        "en": "employee-card-onboarding-corner-banca-lugano",
+        "de": "kartenaufnahme-corner-banca-lugano",
+        "fr": "employee-card-onboarding-corner-banca-lugano"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Employee Card Onboarding",
+      "titleByLocale": {
+        "it": "Onboarding della Carta di Credito",
+        "en": "Employee Card Onboarding",
+        "de": "Kartenaufnahme",
+        "fr": "Onboarding de la Carte de Paiement"
+      },
+      "description": "The candidate will be responsible for implementing the payment card issuing process for corporate customers, analysing and evaluating requests, setting spending limits and activating complementary services.\n\nThe role involves direct contact with potential customers, including by telephone, in order to gather information, clarify requirements and support the customer throughout the entire process.\n\nKey responsibilities: \n\nAnswer incoming calls and handling inquiries from customers and business partners in German, French, Italian and English\n\nManage payment card issuance requests for corporate customers\n\nAnalyse and evaluate the validity of the request, verifying the customer's profile and consistency with company policies\n\nRequest and verify the necessary documentation (e.g. corporate, financial and identification documents)\n\nDefine the most appropriate spending limit based on customer analysis and risk level\n\nEnter and configure complementary services associated with the card (e.g. insurance, reporting, digital services, spending controls)\n\nContact potential customers by telephone to discuss their requests in detail, provide clarification and commercial support\n\nCollaborate with internal teams (credit risk, operations) to ensure a smooth and effective process\n\nEnsure compliance with current regulations and internal procedures (KYC, AML, credit policy)\n\nWhat do we offer?\n\nFlexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\nNumerous benefits and incentives\n\nWell-being, motivational and team-building activities\n\nFor the job opening, we are looking for candidates who meet the following requirements:\n\nAdministrative background\n\nPrivious experience in similar position\n\nGood knowledge of Office package/ PC use\n\nLanguages: Italian / German native proficiency / Basic French / Basic English\n\nCustomer orientation and ability to work in team\n\nResident in Ticino or willing to relocate",
+      "descriptionByLocale": {
+        "it": "Il candidato sarà responsabile dell'implementazione del processo di emissione della carta di pagamento per i clienti aziendali, analisi e valutazione delle richieste, impostazione dei limiti di spesa e attivazione dei servizi complementari. Il ruolo prevede un contatto diretto con i potenziali clienti, compreso tramite telefono, al fine di raccogliere informazioni, chiarire le richieste e supportare il cliente durante tutto il processo. Le principali responsabilità sono: Rispondere alle chiamate in arrivo e gestire le richieste di informazione dei clienti e dei partner aziendali in tedesco, francese, italiano e inglese Gestire le richieste di emissione della carta di pagamento per i clienti aziendali Analizzare e valutare la validità della richiesta, verificando il profilo del cliente e la coerenza con le politiche aziendali Richiedere e verificare la documentazione necessaria (ad esempio documenti aziendali, finanziari e di identificazione) Definire il limite di spesa più adatto sulla base dell'analisi del cliente e del livello di rischio Inserire e configurare i servizi complementari associati alla carta (ad esempio assicurazioni, reporting, servizi digitali, controlli di spesa) Contattare i potenziali clienti tramite telefono per discutere le loro richieste in dettaglio, fornire chiarimenti e supporto commerciale Collaborare con le squadre interne (rischio di credito, operazioni) per garantire un processo liscio e efficace Assicurarsi che la conformità con le normative vigenti e le procedure interne (KYC, AML, politica di credito) Cosa offriamo? Flessibilità nel lavoro da remoto e gestione degli orari di lavoro per garantire un equilibrio lavoro-vita sano Numerosi benefici e incentivi Attività di benessere, motivazione e team building Per l'apertura di lavoro, stiamo cercando candidati che soddisfino i seguenti requisiti: Background amministrativo Esperienza precedente in posizione simile Buona conoscenza del pacchetto Office/uso del PC Lingue: italiano / tedesco nativo / francese base / inglese base Orientamento al cliente e capacità di lavorare in team Residente nel Ticino o disposto a trasferirsi",
+        "en": "The candidate will be responsible for implementing the payment card issuing process for corporate customers, analysing and evaluating requests, setting spending limits and activating complementary services. The role involves direct contact with potential customers, including by telephone, in order to gather information, clarify requirements and support the customer throughout the entire process. Key responsibilities: Answer incoming calls and handling inquiries from customers and business partners in German, French, Italian and English Manage payment card issuance requests for corporate customers Analyse and evaluate the validity of the request, verifying the customer's profile and consistency with company policies Request and verify the necessary documentation (e.g. corporate, financial and identification documents) Define the most appropriate spending limit based on customer analysis and risk level Enter and configure complementary services associated with the card (e.g. insurance, reporting, digital services, spending controls) Contact potential customers by telephone to discuss their requests in detail, provide clarification and commercial support Collaborate with internal teams (credit risk, operations) to ensure a smooth and effective process Ensure compliance with current regulations and internal procedures (KYC, AML, credit policy) What do we offer? Flexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance Numerous benefits and incentives Well-being, motivational and team-building activities For the job opening, we are looking for candidates who meet the following requirements: Administrative background Privious experience in similar position Good knowledge of Office package/ PC use Languages: Italian / German native proficiency / Basic French / Basic English Customer orientation and ability to work in team Resident in Ticino or willing to relocate",
+        "de": "Der Kandidat wird für die Implementierung des Zahlungskarten-Ausgabeprozesses für Unternehmenskunden verantwortlich sein, Anfragen analysieren und bewerten, Ausgabegrenzen setzen und Zusatzdienste aktivieren. Die Rolle beinhaltet direkten Kontakt mit potenziellen Kunden, einschließlich Telefonkontakt, um Informationen zu sammeln, Anforderungen zu klären und den Kunden während des gesamten Prozesses zu unterstützen. Hauptverantwortlichkeiten: Antworten auf eingehende Anrufe und bearbeiten von Anfragen von Kunden und Geschäftspartnern auf Deutsch, Französisch, Italienisch und Englisch Verwalten Sie die Anfragen zur Ausgabe von Zahlungskarten für Unternehmenskunden Analysieren und bewerten Sie die Gültigkeit der Anfrage, überprüfen Sie das Kundenprofil und die Übereinstimmung mit den Unternehmenspolitiken Anfordern und überprüfen Sie die erforderliche Dokumentation (z.B. Unternehmensdokumente, Finanzdokumente und Identifikationsdokumente) Definieren Sie den geeigneten Ausgabegrenzen auf der Grundlage der Kundenanalyse und des Risikostands Einfügen und Konfigurieren Sie die Zusatzdienste, die mit der Karte verbunden sind (z.B. Versicherungen, Berichterstattung, digitale Dienste, Ausgabekontrollen) Kontaktieren Sie potenzielle Kunden per Telefon, um ihre Anfragen im Detail zu diskutieren, Klarstellungen und kommerziellen Unterstützung zu bieten Arbeiten Sie mit den internen Teams (Kreditrisiko, Operations) zusammen, um einen reibungslosen und effektiven Prozess zu gewährleisten Stellen Sie sicher, dass die Einhaltung der aktuellen Vorschriften und internen Verfahren (KYC, AML, Kreditpolitik) gewährleistet ist Was bieten wir? Flexibilität in der Arbeit von zu Hause und die Verwaltung der Arbeitszeiten, um ein gesundes Arbeit-Leben-Gleichgewicht zu gewährleisten Viele Vorteile und Anreize Wohlbefinden, Motivation und Teambuilding-Aktivitäten Für die Stellenanzeige suchen wir Kandidaten, die die folgenden Anforderungen erfüllen: Verwaltungshintergrund Vorherige Erfahrung in einer ähnlichen Position Gute Kenntnisse des Office-Pakets/PC-Verwendung Sprachen: Deutsch / Italienisch Muttersprache / Französisch Grundkenntnisse / Englisch Grundkenntnisse Kundenorientierung und Fähigkeit, in einem Team zu arbeiten Wohnort im Kanton Tessin oder bereit, sich umzuziehen",
+        "fr": "Le candidat sera responsable de l'implémentation du processus d'émission de la carte de paiement pour les clients d'entreprise, d'analyse et d'évaluation des demandes, de définition des limites de dépense et d'activation des services complémentaires. Le rôle implique un contact direct avec les clients potentiels, y compris par téléphone, pour recueillir des informations, clarifier les demandes et soutenir le client tout au long du processus. Les principales responsabilités sont: Répondre aux appels entrants et gérer les demandes d'informations des clients et des partenaires commerciaux en allemand, en français, en italien et en anglais Gérer les demandes d'émission de la carte de paiement pour les clients d'entreprise Analyser et évaluer la validité de la demande, vérifier le profil du client et la cohérence avec les politiques de l'entreprise Demander et vérifier la documentation nécessaire (par exemple, documents d'entreprise, documents financiers et documents d'identité) Définir les limites de dépense les plus appropriées en fonction de l'analyse du client et du niveau de risque Insérer et configurer les services complémentaires associés à la carte (par exemple, assurances, rapports, services numériques, contrôles de dépense) Contacter les clients potentiels par téléphone pour discuter de leurs demandes en détail, fournir des explications et un soutien commercial Collaborer avec les équipes internes (risque de crédit, opérations) pour garantir un processus fluide et efficace Assurer la conformité avec les réglementations actuelles et les procédures internes (KYC, AML, politique de crédit) Qu'est-ce que nous offrons? Flexibilité dans le travail à distance et la gestion des heures de travail pour garantir un équilibre travail-vie sain De nombreux avantages et incitations Activités de bien-être, de motivation et de team building Pour l'ouverture de poste, nous recherchons des candidats qui répondent aux exigences suivantes: Arrière-plan administratif Expérience précédente dans une position similaire Connaissances solides du paquet Office/usage du PC Langues : français / allemand natif / italien / anglais de base Orientement client et capacité de travailler en équipe Résident dans le canton du Tessin ou prêt à se déplacer"
+      },
+      "requirements": [
+        "Administrative background",
+        "Privious experience in similar position",
+        "Good knowledge of Office package/ PC use",
+        "Languages: Italian / German native proficiency / Basic French / Basic English",
+        "Customer orientation and ability to work in team",
+        "Resident in Ticino or willing to relocate"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Administrative background",
+          "Privious experience in similar position",
+          "Good knowledge of Office package/ PC use",
+          "Languages: Italian / German native proficiency / Basic French / Basic English",
+          "Customer orientation and ability to work in team",
+          "Resident in Ticino or willing to relocate"
+        ],
+        "en": [
+          "Administrative background",
+          "Privious experience in similar position",
+          "Good knowledge of Office package/ PC use",
+          "Languages: Italian / German native proficiency / Basic French / Basic English",
+          "Customer orientation and ability to work in team",
+          "Resident in Ticino or willing to relocate"
+        ]
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "category": "admin",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-02-26",
+      "url": "https://jobs.corner.ch/o/employee-card-onboarding",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-04-13T21:31:04.479Z",
+      "previousSlugs": [
+        "addetto-all-emission-carte-cliente-corner-banca-lugano",
+        "onboarding-de-la-carte-de-paiement-corner-banca-lugano"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "addetto-all-emission-carte-cliente-corner-banca-lugano"
+        ],
+        "en": [
+          "addetto-all-emission-carte-cliente-corner-banca-lugano"
+        ],
+        "de": [
+          "addetto-all-emission-carte-cliente-corner-banca-lugano"
+        ],
+        "fr": [
+          "addetto-all-emission-carte-cliente-corner-banca-lugano"
+        ]
+      },
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Canova 16",
+      "postalCode": "6901",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:31:06.824Z"
     },
     {
       "id": "corner-banca-0454316cb6c7",
@@ -450,7 +456,7 @@
       "url": "https://jobs.corner.ch/o/risk-manager-asset-liability-management-alm-and-liquidity-risk-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-13T10:22:37.691Z",
+      "crawledAt": "2026-04-13T21:31:04.478Z",
       "previousSlugs": [
         "risk-manager-asset-liability-management-alm-e-rischio-di-liquidita-corner-banca-lugano",
         "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano-jzwq45",
@@ -470,6 +476,7 @@
           "responsable-des-risques-gestion-des-actifs-et-passifs-alm-et-risque-de-liquidite-corner-banca-lugano"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 142000,
       "salaryMax": 249500,
       "baseSalary": {
@@ -485,7 +492,8 @@
       "streetAddress": "Via Canova 16",
       "postalCode": "6901",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:31:06.824Z"
     },
     {
       "id": "corner-banca-b9d1611cce63",
@@ -556,7 +564,7 @@
       "url": "https://jobs.corner.ch/o/compliance-officer-senior",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-13T10:22:37.690Z",
+      "crawledAt": "2026-04-13T21:31:04.477Z",
       "previousSlugs": [
         "responsabile-compliance-senior-corner-banca-lugano",
         "leitender-compliance-beauftragter-corner-banca-lugano-nnfx9o",
@@ -581,6 +589,7 @@
           "leitender-compliance-beauftragter-corner-banca-lugano-nnfx9o"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 142000,
       "salaryMax": 249500,
       "baseSalary": {
@@ -596,7 +605,197 @@
       "streetAddress": "Via Canova 16",
       "postalCode": "6901",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:31:06.824Z"
+    },
+    {
+      "id": "corner-banca-9a08d15ac96b",
+      "slug": "impiegato-team-recupero-crediti-zurich-corner-banca-wallisellen",
+      "slugByLocale": {
+        "it": "impiegato-team-recupero-crediti-zurich-corner-banca-wallisellen",
+        "en": "employee-collection-team-zurich-corner-banca-wallisellen",
+        "de": "employee-collection-team-zurich-corner-banca-wallisellen",
+        "fr": "employe-equipe-recouvrement-zurich-corner-banca-wallisellen"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Employee Collection Team Zürich",
+      "titleByLocale": {
+        "it": "Impiegato Team Recupero Crediti Zürich",
+        "en": "Employee Collection Team Zürich",
+        "de": "Employee Collection Team Zürich",
+        "fr": "Employé Équipe Recouvrement Zürich"
+      },
+      "description": "We are looking for a motivated and customer-oriented professional to join our team in a dynamic and growing environment. The ideal candidate is eager to develop their skills in client relationship management and credit recovery, combining strong communication abilities with empathy and a solution-driven approach. This role offers the opportunity to work closely with clients, negotiate sustainable payment solutions, and contribute to maintaining positive and professional relationships even in sensitive situations.\n\nKey Responsibilities:\n\nPhone contact with clients for credit management and debt recovery\n\nActive listening to clients’ situations and identification of sustainable payment solutions\n\nNegotiation of repayment plans and monitoring of agreed arrangements\n\nManagement and updating of cases in internal systems\n\nCollaboration with the team to monitor open positions\n\nMaintaining a professional and empathetic approach even in sensitive situations\n\nCommercial training (commercial apprenticeship or equivalent qualification)\n\nNative German and good knowledge of English\n\nExcellent communication skills and strong customer listening abilities\n\nAptitude for managing customer relationships over the phone\n\nEmpathy, mediation skills, and solution-oriented mindset\n\nAttention to detail and organizational skills\n\nTeam spirit and reliability\n\nIdeal profile\n\nYoung, motivated person eager to grow professionally\n\nAbility to remain calm and professional even in difficult conversations\n\nTeam-oriented attitude and collaborative mindset",
+      "descriptionByLocale": {
+        "it": "Descrizione Siamo alla ricerca di un professionista motivato e orientato al cliente per unirsi al nostro team in un ambiente dinamico e in crescita. Il candidato ideale è desideroso di sviluppare le proprie competenze nella gestione delle relazioni con i clienti e nel recupero crediti, combinando forti capacità comunicative con empatia e un approccio orientato alla soluzione. Questo ruolo offre l'opportunità di lavorare a stretto contatto con i clienti, negoziare soluzioni di pagamento sostenibili e contribuire a mantenere relazioni positive e professionali anche in situazioni delicate. ## Mansioni - Contatto telefonico con i clienti per la gestione dei crediti e il recupero crediti - Ascolto attivo delle situazioni dei clienti e identificazione di soluzioni di pagamento sostenibili - Negoziazione di piani di rimborso e monitoraggio degli accordi presi - Gestione e aggiornamento dei casi nei sistemi interni - Collaborazione con il team per monitorare le posizioni aperte - Mantenere un approccio professionale ed empatico anche in situazioni delicate ## Requisiti - Formazione commerciale (apprendistato commerciale o qualifica equivalente) - Madrelingua tedesca e buona conoscenza dell'inglese - Eccellenti capacità comunicative e forti abilità di ascolto del cliente - Attitudine alla gestione delle relazioni con i clienti al telefono - Empatia, capacità di mediazione e mentalità orientata alla soluzione - Attenzione ai dettagli e capacità organizzative - Spirito di squadra e affidabilità ## Cosa offriamo - Profilo ideale: persona giovane e motivata desiderosa di crescere professionalmente - Capacità di mantenere calma e professionalità anche in conversazioni difficili - Atteggiamento orientato al lavoro di squadra e mentalità collaborativa ## Contatto - Se sei interessato a questa opportunità, ti preghiamo di contattarci.",
+        "en": "We are looking for a motivated and customer-oriented professional to join our team in a dynamic and growing environment. The ideal candidate is eager to develop their skills in client relationship management and credit recovery, combining strong communication abilities with empathy and a solution-driven approach. This role offers the opportunity to work closely with clients, negotiate sustainable payment solutions, and contribute to maintaining positive and professional relationships even in sensitive situations. Key Responsibilities: Phone contact with clients for credit management and debt recovery Active listening to clients’ situations and identification of sustainable payment solutions Negotiation of repayment plans and monitoring of agreed arrangements Management and updating of cases in internal systems Collaboration with the team to monitor open positions Maintaining a professional and empathetic approach even in sensitive situations Commercial training (commercial apprenticeship or equivalent qualification) Native German and good knowledge of English Excellent communication skills and strong customer listening abilities Aptitude for managing customer relationships over the phone Empathy, mediation skills, and solution-oriented mindset Attention to detail and organizational skills Team spirit and reliability Ideal profile Young, motivated person eager to grow professionally Ability to remain calm and professional even in difficult conversations Team-oriented attitude and collaborative mindset",
+        "de": "Beschreibung Wir suchen einen motivierten und kundenorientierten Profi, der unser Team in einem dynamischen und wachsenden Umfeld verstärkt. Der ideale Kandidat ist bestrebt, seine Fähigkeiten im Kundenbeziehungsmanagement und Forderungseinzug weiterzuentwickeln, indem er starke Kommunikationsfähigkeiten mit Empathie und einer lösungsorientierten Herangehensweise kombiniert. Diese Position bietet die Möglichkeit, eng mit Kunden zusammenzuarbeiten, nachhaltige Zahlungslösungen zu verhandeln und auch in sensiblen Situationen positive und professionelle Beziehungen aufrechtzuerhalten. ## Aufgaben - Telefonischer Kontakt mit Kunden zur Kreditverwaltung und Forderungseinziehung - Aktives Zuhören der Kundensituationen und Identifikation nachhaltiger Zahlungslösungen - Verhandlung von Rückzahlungsplänen und Überwachung der vereinbarten Regelungen - Verwaltung und Aktualisierung von Fällen in internen Systemen - Zusammenarbeit mit dem Team zur Überwachung offener Positionen - Professioneller und einfühlsamer Umgang auch in sensiblen Situationen ## Anforderungen - Kaufmännische Ausbildung (kaufmännische Lehre oder gleichwertige Qualifikation) - Deutsch als Muttersprache und gute Englischkenntnisse - Hervorragende Kommunikationsfähigkeiten und starkes Zuhören der Kunden - Fähigkeit, Kundenbeziehungen am Telefon zu managen - Empathie, Vermittlungsfähigkeiten und lösungsorientierte Denkweise - Detailgenauigkeit und organisatorische Fähigkeiten - Teamgeist und Zuverlässigkeit ## Was wir bieten - Ideales Profil: Junge, motivierte Person, die beruflich wachsen möchte - Fähigkeit, auch in schwierigen Gesprächen ruhig und professionell zu bleiben - Teamorientierte Einstellung und kooperative Denkweise ## Kontakt - Wenn Sie an dieser Gelegenheit interessiert sind, kontaktieren Sie uns bitte.",
+        "fr": "Description Nous recherchons un professionnel motivé et orienté client pour rejoindre notre équipe dans un environnement dynamique et en pleine croissance. Le candidat idéal souhaite développer ses compétences en gestion de la relation client et en recouvrement de créances, en combinant de solides capacités de communication avec de l'empathie et une approche axée sur les solutions. Ce poste offre l'opportunité de travailler en étroite collaboration avec les clients, de négocier des solutions de paiement durables et de contribuer à maintenir des relations positives et professionnelles, même dans des situations sensibles. ## Missions - Contact téléphonique avec les clients pour la gestion des crédits et le recouvrement de créances - Écoute active des situations des clients et identification de solutions de paiement durables - Négociation de plans de remboursement et suivi des accords conclus - Gestion et mise à jour des dossiers dans les systèmes internes - Collaboration avec l'équipe pour le suivi des positions ouvertes - Maintenir une approche professionnelle et empathique même dans des situations délicates ## Exigences - Formation commerciale (apprentissage commercial ou qualification équivalente) - Allemand langue maternelle et bonne connaissance de l'anglais - Excellentes compétences en communication et fortes capacités d'écoute client - Aptitude à gérer les relations clients par téléphone - Empathie, compétences en médiation et esprit orienté solution - Attention aux détails et compétences organisationnelles - Esprit d'équipe et fiabilité ## Ce que nous offrons - Profil idéal : personne jeune et motivée, désireuse de se développer professionnellement - Capacité à rester calme et professionnel même lors de conversations difficiles - Attitude orientée vers le travail d'équipe et esprit collaboratif ## Contact - Si cette opportunité vous intéresse, veuillez nous contacter."
+      },
+      "requirements": [
+        "Commercial training (commercial apprenticeship or equivalent qualification)",
+        "Native German and good knowledge of English",
+        "Excellent communication skills and strong customer listening abilities",
+        "Aptitude for managing customer relationships over the phone",
+        "Empathy, mediation skills, and solution-oriented mindset",
+        "Attention to detail and organizational skills",
+        "Team spirit and reliability\n\nIdeal profile",
+        "Young, motivated person eager to grow professionally",
+        "Ability to remain calm and professional even in difficult conversations",
+        "Team-oriented attitude and collaborative mindset"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Commercial training (commercial apprenticeship or equivalent qualification)",
+          "Native German and good knowledge of English",
+          "Excellent communication skills and strong customer listening abilities",
+          "Aptitude for managing customer relationships over the phone",
+          "Empathy, mediation skills, and solution-oriented mindset",
+          "Attention to detail and organizational skills",
+          "Team spirit and reliability Ideal profile",
+          "Young, motivated person eager to grow professionally"
+        ],
+        "en": [
+          "Commercial training (commercial apprenticeship or equivalent qualification)",
+          "Native German and good knowledge of English",
+          "Excellent communication skills and strong customer listening abilities",
+          "Aptitude for managing customer relationships over the phone",
+          "Empathy, mediation skills, and solution-oriented mindset",
+          "Attention to detail and organizational skills",
+          "Team spirit and reliability Ideal profile",
+          "Young, motivated person eager to grow professionally"
+        ]
+      },
+      "location": "Wallisellen",
+      "canton": "ZH",
+      "addressLocality": "Wallisellen",
+      "addressCountry": "CH",
+      "category": "sales",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-24",
+      "url": "https://jobs.corner.ch/o/employee-collection-team-zurich",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-04-13T21:31:04.474Z",
+      "previousSlugs": [
+        "employee-collection-team-zurich-corner-banca-wallisellen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "employee-collection-team-zurich-corner-banca-wallisellen"
+        ]
+      },
+      "needsRetranslation": true,
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 59000,
+          "maxValue": 90500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Canova 16",
+      "postalCode": "6901",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:31:06.824Z"
+    },
+    {
+      "id": "corner-banca-3772e858781f",
+      "slug": "employee-front-office-corner-banca-wallisellen",
+      "slugByLocale": {
+        "it": "employee-front-office-corner-banca-wallisellen",
+        "en": "employee-front-office-corner-banca-wallisellen",
+        "de": "employee-front-office-corner-banca-wallisellen",
+        "fr": "employee-front-office-corner-banca-wallisellen"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Employee Front Office",
+      "titleByLocale": {
+        "it": "Impiegato Front Office",
+        "en": "Employee Front Office",
+        "de": "Mitarbeiter Front Office",
+        "fr": "Employé Front Office"
+      },
+      "description": "As part of our growing operations in Zurich, we are seeking a dedicated and customer-focused professional to join our Front Office Team in the Dunning & Collection area. This role offers the opportunity to contribute to effective credit management while ensuring high-quality customer interactions.\n\nKey Responsibilities:\n\nAnswer incoming calls and conduct outbound calls with customers regarding outstanding balances, payment arrangements, and account-related matters\n\nHandle written correspondence with customers related to dunning and collection cases\n\nIndependently manage dunning and collection cases in accordance with internal guidelines and legal requirements\n\nIdentify and negotiate individual payment solutions with customers while maintaining a professional and solution-oriented communication style\n\nSupport and coordinate with external collection partners regarding collection mandates and individual customer dossiers\n\nEnsure accurate documentation and administration of collection cases and internal processes\n\nPerform administrative and back-office tasks related to case management and collections activities\n\nEscalate complex or sensitive cases to the appropriate department when necessary\n\nCollaborate closely with internal departments such as Underwriting, Operations and Finance\n\nSupport process improvements, projects and operational optimizations within the department\n\nCommercial apprenticeship (KV) or equivalent diploma\n\n1–2 years of professional experience, ideally in dunning, collections, financial services or customer service\n\nExperience in roles requiring regular customer interaction by phone (inbound and outbound communication)\n\nExperience with financial products is considered an advantage\n\nAffinity for numbers, accuracy, and strong attention to detail\n\nGood knowledge of MS Office and the ability to quickly learn and work with different IT systems\n\nStrong communication and negotiation skills, particularly in challenging customer situations\n\nLanguages: German / Swiss German (written and spoken) and French (written and spoken) are mandatory; Italian is an advantage; additional languages are welcomed\n\nAs the first point of contact with customers in sensitive financial matters, the following soft skills are needed: resilience, patience, empathy, strong communication skills, customer orientation, and ability to work in team",
+      "descriptionByLocale": {
+        "it": "Descrizione Come parte delle nostre operazioni in espansione a Zurigo, cerchiamo un professionista dedicato e orientato al cliente per unirsi al nostro Team Front Office nell'area di Dunning & Collection. Questo ruolo offre l'opportunità di contribuire alla gestione del credito mentre si assicura un'interazione di alta qualità con i clienti. ## Mansioni - Rispondere alle chiamate in entrata e condurre chiamate in uscita con i clienti riguardanti saldi in sospeso, accordi di pagamento e questioni relative agli account - Gestire la corrispondenza scritta con i clienti relativa ai casi di dunning e collection - Gestire autonomamente i casi di dunning e collection in conformità con le linee guida interne e i requisiti legali - Identificare e negoziare soluzioni individuali di pagamento con i clienti mantenendo uno stile di comunicazione professionale e orientato alla soluzione - Supportare e coordinare con i partner esterni di collection riguardo ai mandati di collection e i dossier individuali dei clienti - Assicurare una documentazione accurata e l'amministrazione dei casi di collection e dei processi interni - Eseguire compiti amministrativi e di back office relativi alla gestione dei casi e delle attività di collection - Escalare casi complessi o sensibili al dipartimento appropriato quando necessario - Collaborare strettamente con i dipartimenti interni come Underwriting, Operations e Finance - Supportare miglioramenti di processo, progetti e ottimizzazioni operative all'interno del dipartimento ## Requisiti - Diploma di apprendistato commerciale (KV) o equivalente - 1–2 anni di esperienza professionale, idealmente in dunning, collections, servizi finanziari o servizio clienti - Esperienza in ruoli che richiedono un'interazione regolare con i clienti per telefono (comunicazione in entrata e in uscita) - Esperienza con prodotti finanziari è considerata un vantaggio - Affinità per i numeri, accuratezza e forte attenzione ai dettagli - Buona conoscenza di MS Office e capacità di apprendere e lavorare rapidamente con diversi sistemi IT - Forti capacità di comunicazione e negoziazione, particolarmente in situazioni di clienti sfidanti - Lingue: tedesco / svizzero (scritto e parlato) e francese (scritto e parlato) sono obbligatori; italiano è un vantaggio; lingue aggiuntive sono benvenute ## Soft Skills - Come primo punto di contatto con i clienti in questioni finanziarie sensibili, le seguenti soft skills sono necessarie: resilienza, pazienza, empatia, forti capacità di comunicazione, orientamento al cliente e capacità di lavorare in team",
+        "en": "As part of our growing operations in Zurich, we are seeking a dedicated and customer-focused professional to join our Front Office Team in the Dunning & Collection area. This role offers the opportunity to contribute to effective credit management while ensuring high-quality customer interactions. Key Responsibilities: Answer incoming calls and conduct outbound calls with customers regarding outstanding balances, payment arrangements, and account-related matters Handle written correspondence with customers related to dunning and collection cases Independently manage dunning and collection cases in accordance with internal guidelines and legal requirements Identify and negotiate individual payment solutions with customers while maintaining a professional and solution-oriented communication style Support and coordinate with external collection partners regarding collection mandates and individual customer dossiers Ensure accurate documentation and administration of collection cases and internal processes Perform administrative and back-office tasks related to case management and collections activities Escalate complex or sensitive cases to the appropriate department when necessary Collaborate closely with internal departments such as Underwriting, Operations and Finance Support process improvements, projects and operational optimizations within the department Commercial apprenticeship (KV) or equivalent diploma 1–2 years of professional experience, ideally in dunning, collections, financial services or customer service Experience in roles requiring regular customer interaction by phone (inbound and outbound communication) Experience with financial products is considered an advantage Affinity for numbers, accuracy, and strong attention to detail Good knowledge of MS Office and the ability to quickly learn and work with different IT systems Strong communication and negotiation skills, particularly in challenging customer situations Languages: German / Swiss German (written and spoken) and French (written and spoken) are mandatory; Italian is an advantage; additional languages are welcomed As the first point of contact with customers in sensitive financial matters, the following soft skills are needed: resilience, patience, empathy, strong communication skills, customer orientation, and ability to work in team",
+        "de": "Beschreibung Als Teil unserer wachsenden Aktivitäten in Zürich suchen wir einen engagierten und kundenorientierten Profi, der unserem Front Office Team im Bereich Dunning & Collection beitritt. Diese Stelle bietet die Möglichkeit, effektives Kreditmanagement zu unterstützen und gleichzeitig hochwertige Kundeninteraktionen zu gewährleisten. ## Aufgaben - Beantworten von eingehenden Anrufen und Durchführung von ausgehenden Anrufen mit Kunden bezüglich ausstehender Beträge, Zahlungsvereinbarungen und Kontothemen - Bearbeitung von schriftlicher Korrespondenz mit Kunden zu Dunning- und Collection-Fällen - Unabhängige Bearbeitung von Dunning- und Collection-Fällen gemäß internen Richtlinien und gesetzlichen Anforderungen - Identifizierung und Verhandlung individueller Zahlungslösungen mit Kunden unter Beibehaltung eines professionellen und lösungsorientierten Kommunikationsstils - Unterstützung und Koordination mit externen Collection-Partnern bezüglich Collection-Mandate und individueller Kundendossiers - Sicherstellung der akkuraten Dokumentation und Verwaltung von Collection-Fällen und internen Prozessen - Durchführung administrativer und Back-Office-Aufgaben im Zusammenhang mit der Fallbearbeitung und Collection-Aktivitäten - Eskalation komplexer oder sensibler Fälle an das entsprechende Fachgebiet, wenn notwendig - Enge Zusammenarbeit mit internen Abteilungen wie Underwriting, Operations und Finance - Unterstützung von Prozessverbesserungen, Projekten und operativen Optimierungen innerhalb des Fachgebiets ## Anforderungen - Handelslehre (KV) oder gleichwertiger Abschluss - 1–2 Jahre Berufserfahrung, idealerweise in Dunning, Collections, Finanzdienstleistungen oder Kundenservice - Erfahrung in Rollen, die eine regelmäßige Kundeninteraktion per Telefon (eingehende und ausgehende Kommunikation) erfordern - Erfahrung mit Finanzprodukten wird als Vorteil angesehen - Affinität zu Zahlen, Genauigkeit und starke Aufmerksamkeit für Details - Gute Kenntnisse von MS Office und die Fähigkeit, schnell verschiedene IT-Systeme zu erlernen und zu verwenden - Starke Kommunikations- und Verhandlungsfähigkeiten, insbesondere in herausfordernden Kundensituationen - Sprachen: Deutsch / Schweizerdeutsch (schriftlich und gesprochen) und Französisch (schriftlich und gesprochen) sind verpflichtend; Italienisch ist ein Vorteil; zusätzliche Sprachen sind willkommen ## Soft Skills - Als erster Ansprechpartner für Kunden in sensiblen finanziellen Angelegenheiten sind folgende Soft Skills erforderlich: Resilienz, Geduld, Empathie, starke Kommunikationsfähigkeiten, Kundenorientierung und Fähigkeit, im Team zu arbeiten",
+        "fr": "Description Dans le cadre de notre croissance opérationnelle à Zurich, nous recherchons un professionnel dédié et orienté client pour rejoindre notre équipe Front Office dans le domaine du Dunning & Collection. Ce poste offre l'opportunité de contribuer à une gestion efficace du crédit tout en assurant des interactions de haute qualité avec les clients. ## Responsabilités - Répondre aux appels entrants et effectuer des appels sortants avec les clients concernant les soldes impayés, les arrangements de paiement et les questions relatives aux comptes - Gérer la correspondance écrite avec les clients concernant les dossiers de dunning et de collection - Gérer de manière autonome les dossiers de dunning et de collection conformément aux directives internes et aux exigences légales - Identifier et négocier des solutions de paiement individuelles avec les clients tout en maintenant un style de communication professionnel et orienté solution - Soutenir et coordonner avec les partenaires externes de collection concernant les mandats de collection et les dossiers individuels des clients - Assurer une documentation précise et l'administration des dossiers de collection et des processus internes - Effectuer des tâches administratives et de back office liées à la gestion des dossiers et des activités de collection - Escalader les dossiers complexes ou sensibles au département approprié lorsque nécessaire - Collaborer étroitement avec les départements internes tels que Underwriting, Operations et Finance - Soutenir les améliorations de processus, les projets et les optimisations opérationnelles au sein du département ## Exigences - Diplôme d'apprentissage commercial (KV) ou équivalent - 1–2 ans d'expérience professionnelle, idéalement dans le domaine du dunning, de la collection, des services financiers ou du service client - Expérience dans des rôles nécessitant une interaction régulière avec les clients par téléphone (communication entrante et sortante) - Expérience avec les produits financiers est considérée comme un avantage - Affinité pour les chiffres, la précision et une forte attention aux détails - Bonne connaissance de MS Office et la capacité d'apprendre rapidement et de travailler avec différents systèmes informatiques - Forte capacité de communication et de négociation, particulièrement dans des situations client difficiles - Langues : l'allemand / suisse allemand (écrit et parlé) et le français (écrit et parlé) sont obligatoires ; l'italien est un avantage ; les langues supplémentaires sont les bienvenues ## Compétences sociales - En tant que premier point de contact avec les clients dans des questions financières sensibles, les compétences sociales suivantes sont nécessaires : résilience, patience, empathie, fortes capacités de communication, orientation client et capacité à travailler en équipe"
+      },
+      "requirements": [
+        "Commercial apprenticeship (KV) or equivalent diploma",
+        "1–2 years of professional experience, ideally in dunning, collections, financial services or customer service",
+        "Experience in roles requiring regular customer interaction by phone (inbound and outbound communication)",
+        "Experience with financial products is considered an advantage",
+        "Affinity for numbers, accuracy, and strong attention to detail",
+        "Good knowledge of MS Office and the ability to quickly learn and work with different IT systems",
+        "Strong communication and negotiation skills, particularly in challenging customer situations",
+        "Languages: German / Swiss German (written and spoken) and French (written and spoken) are mandatory; Italian is an advantage; additional languages are welcomed",
+        "As the first point of contact with customers in sensitive financial matters, the following soft skills are needed: resilience, patience, empathy, strong communication skills, customer orientation, and ability to work in team"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Commercial apprenticeship (KV) or equivalent diploma",
+          "1–2 years of professional experience, ideally in dunning, collections, financial services or customer service",
+          "Experience in roles requiring regular customer interaction by phone (inbound and outbound communication)",
+          "Experience with financial products is considered an advantage",
+          "Affinity for numbers, accuracy, and strong attention to detail",
+          "Good knowledge of MS Office and the ability to quickly learn and work with different IT systems",
+          "Strong communication and negotiation skills, particularly in challenging customer situations"
+        ],
+        "en": [
+          "Commercial apprenticeship (KV) or equivalent diploma",
+          "1–2 years of professional experience, ideally in dunning, collections, financial services or customer service",
+          "Experience in roles requiring regular customer interaction by phone (inbound and outbound communication)",
+          "Experience with financial products is considered an advantage",
+          "Affinity for numbers, accuracy, and strong attention to detail",
+          "Good knowledge of MS Office and the ability to quickly learn and work with different IT systems",
+          "Strong communication and negotiation skills, particularly in challenging customer situations"
+        ]
+      },
+      "location": "Wallisellen",
+      "canton": "ZH",
+      "addressLocality": "Wallisellen",
+      "addressCountry": "CH",
+      "category": "finance",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-09",
+      "url": "https://jobs.corner.ch/o/employee-front-office",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-04-13T21:31:04.473Z",
+      "needsRetranslation": true,
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85500,
+          "maxValue": 150000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Canova 16",
+      "postalCode": "6901",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:31:06.824Z"
     },
     {
       "id": "corner-banca-7be6f12f5702",
@@ -671,7 +870,7 @@
       "url": "https://jobs.corner.ch/o/credit-client-advisor-mf-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-13T10:22:37.687Z",
+      "crawledAt": "2026-04-13T21:31:04.473Z",
       "previousSlugs": [
         "credit-e-client-advisor-m-f-corner-banca-lugano"
       ],
@@ -683,6 +882,7 @@
           "credit-e-client-advisor-m-f-corner-banca-lugano"
         ]
       },
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -698,192 +898,8 @@
       "streetAddress": "Via Canova 16",
       "postalCode": "6901",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
-    },
-    {
-      "id": "corner-banca-9a08d15ac96b",
-      "slug": "impiegato-team-recupero-crediti-zurich-corner-banca-wallisellen",
-      "slugByLocale": {
-        "it": "impiegato-team-recupero-crediti-zurich-corner-banca-wallisellen",
-        "en": "employee-collection-team-zurich-corner-banca-wallisellen",
-        "de": "employee-collection-team-zurich-corner-banca-wallisellen",
-        "fr": "employe-equipe-recouvrement-zurich-corner-banca-wallisellen"
-      },
-      "company": "Cornèr Banca",
-      "companyKey": "corner-banca",
-      "companyDomain": "corner.ch",
-      "title": "Employee Collection Team Zürich",
-      "titleByLocale": {
-        "it": "Impiegato Team Recupero Crediti Zürich",
-        "en": "Employee Collection Team Zürich",
-        "de": "Employee Collection Team Zürich",
-        "fr": "Employé Équipe Recouvrement Zürich"
-      },
-      "description": "We are looking for a motivated and customer-oriented professional to join our team in a dynamic and growing environment. The ideal candidate is eager to develop their skills in client relationship management and credit recovery, combining strong communication abilities with empathy and a solution-driven approach. This role offers the opportunity to work closely with clients, negotiate sustainable payment solutions, and contribute to maintaining positive and professional relationships even in sensitive situations.\n\nKey Responsibilities:\n\nPhone contact with clients for credit management and debt recovery\n\nActive listening to clients’ situations and identification of sustainable payment solutions\n\nNegotiation of repayment plans and monitoring of agreed arrangements\n\nManagement and updating of cases in internal systems\n\nCollaboration with the team to monitor open positions\n\nMaintaining a professional and empathetic approach even in sensitive situations\n\nCommercial training (commercial apprenticeship or equivalent qualification)\n\nNative German and good knowledge of English\n\nExcellent communication skills and strong customer listening abilities\n\nAptitude for managing customer relationships over the phone\n\nEmpathy, mediation skills, and solution-oriented mindset\n\nAttention to detail and organizational skills\n\nTeam spirit and reliability\n\nIdeal profile\n\nYoung, motivated person eager to grow professionally\n\nAbility to remain calm and professional even in difficult conversations\n\nTeam-oriented attitude and collaborative mindset",
-      "descriptionByLocale": {
-        "it": "Descrizione Siamo alla ricerca di un professionista motivato e orientato al cliente per unirsi al nostro team in un ambiente dinamico e in crescita. Il candidato ideale è desideroso di sviluppare le proprie competenze nella gestione delle relazioni con i clienti e nel recupero crediti, combinando forti capacità comunicative con empatia e un approccio orientato alla soluzione. Questo ruolo offre l'opportunità di lavorare a stretto contatto con i clienti, negoziare soluzioni di pagamento sostenibili e contribuire a mantenere relazioni positive e professionali anche in situazioni delicate. ## Mansioni - Contatto telefonico con i clienti per la gestione dei crediti e il recupero crediti - Ascolto attivo delle situazioni dei clienti e identificazione di soluzioni di pagamento sostenibili - Negoziazione di piani di rimborso e monitoraggio degli accordi presi - Gestione e aggiornamento dei casi nei sistemi interni - Collaborazione con il team per monitorare le posizioni aperte - Mantenere un approccio professionale ed empatico anche in situazioni delicate ## Requisiti - Formazione commerciale (apprendistato commerciale o qualifica equivalente) - Madrelingua tedesca e buona conoscenza dell'inglese - Eccellenti capacità comunicative e forti abilità di ascolto del cliente - Attitudine alla gestione delle relazioni con i clienti al telefono - Empatia, capacità di mediazione e mentalità orientata alla soluzione - Attenzione ai dettagli e capacità organizzative - Spirito di squadra e affidabilità ## Cosa offriamo - Profilo ideale: persona giovane e motivata desiderosa di crescere professionalmente - Capacità di mantenere calma e professionalità anche in conversazioni difficili - Atteggiamento orientato al lavoro di squadra e mentalità collaborativa ## Contatto - Se sei interessato a questa opportunità, ti preghiamo di contattarci.",
-        "en": "We are looking for a motivated and customer-oriented professional to join our team in a dynamic and growing environment. The ideal candidate is eager to develop their skills in client relationship management and credit recovery, combining strong communication abilities with empathy and a solution-driven approach. This role offers the opportunity to work closely with clients, negotiate sustainable payment solutions, and contribute to maintaining positive and professional relationships even in sensitive situations. Key Responsibilities: Phone contact with clients for credit management and debt recovery Active listening to clients’ situations and identification of sustainable payment solutions Negotiation of repayment plans and monitoring of agreed arrangements Management and updating of cases in internal systems Collaboration with the team to monitor open positions Maintaining a professional and empathetic approach even in sensitive situations Commercial training (commercial apprenticeship or equivalent qualification) Native German and good knowledge of English Excellent communication skills and strong customer listening abilities Aptitude for managing customer relationships over the phone Empathy, mediation skills, and solution-oriented mindset Attention to detail and organizational skills Team spirit and reliability Ideal profile Young, motivated person eager to grow professionally Ability to remain calm and professional even in difficult conversations Team-oriented attitude and collaborative mindset",
-        "de": "Beschreibung Wir suchen einen motivierten und kundenorientierten Profi, der unser Team in einem dynamischen und wachsenden Umfeld verstärkt. Der ideale Kandidat ist bestrebt, seine Fähigkeiten im Kundenbeziehungsmanagement und Forderungseinzug weiterzuentwickeln, indem er starke Kommunikationsfähigkeiten mit Empathie und einer lösungsorientierten Herangehensweise kombiniert. Diese Position bietet die Möglichkeit, eng mit Kunden zusammenzuarbeiten, nachhaltige Zahlungslösungen zu verhandeln und auch in sensiblen Situationen positive und professionelle Beziehungen aufrechtzuerhalten. ## Aufgaben - Telefonischer Kontakt mit Kunden zur Kreditverwaltung und Forderungseinziehung - Aktives Zuhören der Kundensituationen und Identifikation nachhaltiger Zahlungslösungen - Verhandlung von Rückzahlungsplänen und Überwachung der vereinbarten Regelungen - Verwaltung und Aktualisierung von Fällen in internen Systemen - Zusammenarbeit mit dem Team zur Überwachung offener Positionen - Professioneller und einfühlsamer Umgang auch in sensiblen Situationen ## Anforderungen - Kaufmännische Ausbildung (kaufmännische Lehre oder gleichwertige Qualifikation) - Deutsch als Muttersprache und gute Englischkenntnisse - Hervorragende Kommunikationsfähigkeiten und starkes Zuhören der Kunden - Fähigkeit, Kundenbeziehungen am Telefon zu managen - Empathie, Vermittlungsfähigkeiten und lösungsorientierte Denkweise - Detailgenauigkeit und organisatorische Fähigkeiten - Teamgeist und Zuverlässigkeit ## Was wir bieten - Ideales Profil: Junge, motivierte Person, die beruflich wachsen möchte - Fähigkeit, auch in schwierigen Gesprächen ruhig und professionell zu bleiben - Teamorientierte Einstellung und kooperative Denkweise ## Kontakt - Wenn Sie an dieser Gelegenheit interessiert sind, kontaktieren Sie uns bitte.",
-        "fr": "Description Nous recherchons un professionnel motivé et orienté client pour rejoindre notre équipe dans un environnement dynamique et en pleine croissance. Le candidat idéal souhaite développer ses compétences en gestion de la relation client et en recouvrement de créances, en combinant de solides capacités de communication avec de l'empathie et une approche axée sur les solutions. Ce poste offre l'opportunité de travailler en étroite collaboration avec les clients, de négocier des solutions de paiement durables et de contribuer à maintenir des relations positives et professionnelles, même dans des situations sensibles. ## Missions - Contact téléphonique avec les clients pour la gestion des crédits et le recouvrement de créances - Écoute active des situations des clients et identification de solutions de paiement durables - Négociation de plans de remboursement et suivi des accords conclus - Gestion et mise à jour des dossiers dans les systèmes internes - Collaboration avec l'équipe pour le suivi des positions ouvertes - Maintenir une approche professionnelle et empathique même dans des situations délicates ## Exigences - Formation commerciale (apprentissage commercial ou qualification équivalente) - Allemand langue maternelle et bonne connaissance de l'anglais - Excellentes compétences en communication et fortes capacités d'écoute client - Aptitude à gérer les relations clients par téléphone - Empathie, compétences en médiation et esprit orienté solution - Attention aux détails et compétences organisationnelles - Esprit d'équipe et fiabilité ## Ce que nous offrons - Profil idéal : personne jeune et motivée, désireuse de se développer professionnellement - Capacité à rester calme et professionnel même lors de conversations difficiles - Attitude orientée vers le travail d'équipe et esprit collaboratif ## Contact - Si cette opportunité vous intéresse, veuillez nous contacter."
-      },
-      "requirements": [
-        "Commercial training (commercial apprenticeship or equivalent qualification)",
-        "Native German and good knowledge of English",
-        "Excellent communication skills and strong customer listening abilities",
-        "Aptitude for managing customer relationships over the phone",
-        "Empathy, mediation skills, and solution-oriented mindset",
-        "Attention to detail and organizational skills",
-        "Team spirit and reliability\n\nIdeal profile",
-        "Young, motivated person eager to grow professionally",
-        "Ability to remain calm and professional even in difficult conversations",
-        "Team-oriented attitude and collaborative mindset"
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Commercial training (commercial apprenticeship or equivalent qualification)",
-          "Native German and good knowledge of English",
-          "Excellent communication skills and strong customer listening abilities",
-          "Aptitude for managing customer relationships over the phone",
-          "Empathy, mediation skills, and solution-oriented mindset",
-          "Attention to detail and organizational skills",
-          "Team spirit and reliability Ideal profile",
-          "Young, motivated person eager to grow professionally"
-        ],
-        "en": [
-          "Commercial training (commercial apprenticeship or equivalent qualification)",
-          "Native German and good knowledge of English",
-          "Excellent communication skills and strong customer listening abilities",
-          "Aptitude for managing customer relationships over the phone",
-          "Empathy, mediation skills, and solution-oriented mindset",
-          "Attention to detail and organizational skills",
-          "Team spirit and reliability Ideal profile",
-          "Young, motivated person eager to grow professionally"
-        ]
-      },
-      "location": "Wallisellen",
-      "canton": "ZH",
-      "addressLocality": "Wallisellen",
-      "addressCountry": "CH",
-      "category": "sales",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-24",
-      "url": "https://jobs.corner.ch/o/employee-collection-team-zurich",
-      "source": "Corner Dedicated Parser (Recruitee API)",
-      "sourceLang": "en",
-      "crawledAt": "2026-04-13T10:22:37.687Z",
-      "previousSlugs": [
-        "employee-collection-team-zurich-corner-banca-wallisellen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "employee-collection-team-zurich-corner-banca-wallisellen"
-        ]
-      },
-      "salaryMin": 59000,
-      "salaryMax": 90500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 59000,
-          "maxValue": 90500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Canova 16",
-      "postalCode": "6901",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
-    },
-    {
-      "id": "corner-banca-3772e858781f",
-      "slug": "employee-front-office-corner-banca-wallisellen",
-      "slugByLocale": {
-        "it": "employee-front-office-corner-banca-wallisellen",
-        "en": "employee-front-office-corner-banca-wallisellen",
-        "de": "employee-front-office-corner-banca-wallisellen",
-        "fr": "employee-front-office-corner-banca-wallisellen"
-      },
-      "company": "Cornèr Banca",
-      "companyKey": "corner-banca",
-      "companyDomain": "corner.ch",
-      "title": "Employee Front Office",
-      "titleByLocale": {
-        "it": "Impiegato Front Office",
-        "en": "Employee Front Office",
-        "de": "Mitarbeiter Front Office",
-        "fr": "Employé Front Office"
-      },
-      "description": "As part of our growing operations in Zurich, we are seeking a dedicated and customer-focused professional to join our Front Office Team in the Dunning & Collection area. This role offers the opportunity to contribute to effective credit management while ensuring high-quality customer interactions.\n\nKey Responsibilities:\n\nAnswer incoming calls and conduct outbound calls with customers regarding outstanding balances, payment arrangements, and account-related matters\n\nHandle written correspondence with customers related to dunning and collection cases\n\nIndependently manage dunning and collection cases in accordance with internal guidelines and legal requirements\n\nIdentify and negotiate individual payment solutions with customers while maintaining a professional and solution-oriented communication style\n\nSupport and coordinate with external collection partners regarding collection mandates and individual customer dossiers\n\nEnsure accurate documentation and administration of collection cases and internal processes\n\nPerform administrative and back-office tasks related to case management and collections activities\n\nEscalate complex or sensitive cases to the appropriate department when necessary\n\nCollaborate closely with internal departments such as Underwriting, Operations and Finance\n\nSupport process improvements, projects and operational optimizations within the department\n\nCommercial apprenticeship (KV) or equivalent diploma\n\n1–2 years of professional experience, ideally in dunning, collections, financial services or customer service\n\nExperience in roles requiring regular customer interaction by phone (inbound and outbound communication)\n\nExperience with financial products is considered an advantage\n\nAffinity for numbers, accuracy, and strong attention to detail\n\nGood knowledge of MS Office and the ability to quickly learn and work with different IT systems\n\nStrong communication and negotiation skills, particularly in challenging customer situations\n\nLanguages: German / Swiss German (written and spoken) and French (written and spoken) are mandatory; Italian is an advantage; additional languages are welcomed\n\nAs the first point of contact with customers in sensitive financial matters, the following soft skills are needed: resilience, patience, empathy, strong communication skills, customer orientation, and ability to work in team",
-      "descriptionByLocale": {
-        "it": "Descrizione Come parte delle nostre operazioni in espansione a Zurigo, cerchiamo un professionista dedicato e orientato al cliente per unirsi al nostro Team Front Office nell'area di Dunning & Collection. Questo ruolo offre l'opportunità di contribuire alla gestione del credito mentre si assicura un'interazione di alta qualità con i clienti. ## Mansioni - Rispondere alle chiamate in entrata e condurre chiamate in uscita con i clienti riguardanti saldi in sospeso, accordi di pagamento e questioni relative agli account - Gestire la corrispondenza scritta con i clienti relativa ai casi di dunning e collection - Gestire autonomamente i casi di dunning e collection in conformità con le linee guida interne e i requisiti legali - Identificare e negoziare soluzioni individuali di pagamento con i clienti mantenendo uno stile di comunicazione professionale e orientato alla soluzione - Supportare e coordinare con i partner esterni di collection riguardo ai mandati di collection e i dossier individuali dei clienti - Assicurare una documentazione accurata e l'amministrazione dei casi di collection e dei processi interni - Eseguire compiti amministrativi e di back office relativi alla gestione dei casi e delle attività di collection - Escalare casi complessi o sensibili al dipartimento appropriato quando necessario - Collaborare strettamente con i dipartimenti interni come Underwriting, Operations e Finance - Supportare miglioramenti di processo, progetti e ottimizzazioni operative all'interno del dipartimento ## Requisiti - Diploma di apprendistato commerciale (KV) o equivalente - 1–2 anni di esperienza professionale, idealmente in dunning, collections, servizi finanziari o servizio clienti - Esperienza in ruoli che richiedono un'interazione regolare con i clienti per telefono (comunicazione in entrata e in uscita) - Esperienza con prodotti finanziari è considerata un vantaggio - Affinità per i numeri, accuratezza e forte attenzione ai dettagli - Buona conoscenza di MS Office e capacità di apprendere e lavorare rapidamente con diversi sistemi IT - Forti capacità di comunicazione e negoziazione, particolarmente in situazioni di clienti sfidanti - Lingue: tedesco / svizzero (scritto e parlato) e francese (scritto e parlato) sono obbligatori; italiano è un vantaggio; lingue aggiuntive sono benvenute ## Soft Skills - Come primo punto di contatto con i clienti in questioni finanziarie sensibili, le seguenti soft skills sono necessarie: resilienza, pazienza, empatia, forti capacità di comunicazione, orientamento al cliente e capacità di lavorare in team",
-        "en": "As part of our growing operations in Zurich, we are seeking a dedicated and customer-focused professional to join our Front Office Team in the Dunning & Collection area. This role offers the opportunity to contribute to effective credit management while ensuring high-quality customer interactions. Key Responsibilities: Answer incoming calls and conduct outbound calls with customers regarding outstanding balances, payment arrangements, and account-related matters Handle written correspondence with customers related to dunning and collection cases Independently manage dunning and collection cases in accordance with internal guidelines and legal requirements Identify and negotiate individual payment solutions with customers while maintaining a professional and solution-oriented communication style Support and coordinate with external collection partners regarding collection mandates and individual customer dossiers Ensure accurate documentation and administration of collection cases and internal processes Perform administrative and back-office tasks related to case management and collections activities Escalate complex or sensitive cases to the appropriate department when necessary Collaborate closely with internal departments such as Underwriting, Operations and Finance Support process improvements, projects and operational optimizations within the department Commercial apprenticeship (KV) or equivalent diploma 1–2 years of professional experience, ideally in dunning, collections, financial services or customer service Experience in roles requiring regular customer interaction by phone (inbound and outbound communication) Experience with financial products is considered an advantage Affinity for numbers, accuracy, and strong attention to detail Good knowledge of MS Office and the ability to quickly learn and work with different IT systems Strong communication and negotiation skills, particularly in challenging customer situations Languages: German / Swiss German (written and spoken) and French (written and spoken) are mandatory; Italian is an advantage; additional languages are welcomed As the first point of contact with customers in sensitive financial matters, the following soft skills are needed: resilience, patience, empathy, strong communication skills, customer orientation, and ability to work in team",
-        "de": "Beschreibung Als Teil unserer wachsenden Aktivitäten in Zürich suchen wir einen engagierten und kundenorientierten Profi, der unserem Front Office Team im Bereich Dunning & Collection beitritt. Diese Stelle bietet die Möglichkeit, effektives Kreditmanagement zu unterstützen und gleichzeitig hochwertige Kundeninteraktionen zu gewährleisten. ## Aufgaben - Beantworten von eingehenden Anrufen und Durchführung von ausgehenden Anrufen mit Kunden bezüglich ausstehender Beträge, Zahlungsvereinbarungen und Kontothemen - Bearbeitung von schriftlicher Korrespondenz mit Kunden zu Dunning- und Collection-Fällen - Unabhängige Bearbeitung von Dunning- und Collection-Fällen gemäß internen Richtlinien und gesetzlichen Anforderungen - Identifizierung und Verhandlung individueller Zahlungslösungen mit Kunden unter Beibehaltung eines professionellen und lösungsorientierten Kommunikationsstils - Unterstützung und Koordination mit externen Collection-Partnern bezüglich Collection-Mandate und individueller Kundendossiers - Sicherstellung der akkuraten Dokumentation und Verwaltung von Collection-Fällen und internen Prozessen - Durchführung administrativer und Back-Office-Aufgaben im Zusammenhang mit der Fallbearbeitung und Collection-Aktivitäten - Eskalation komplexer oder sensibler Fälle an das entsprechende Fachgebiet, wenn notwendig - Enge Zusammenarbeit mit internen Abteilungen wie Underwriting, Operations und Finance - Unterstützung von Prozessverbesserungen, Projekten und operativen Optimierungen innerhalb des Fachgebiets ## Anforderungen - Handelslehre (KV) oder gleichwertiger Abschluss - 1–2 Jahre Berufserfahrung, idealerweise in Dunning, Collections, Finanzdienstleistungen oder Kundenservice - Erfahrung in Rollen, die eine regelmäßige Kundeninteraktion per Telefon (eingehende und ausgehende Kommunikation) erfordern - Erfahrung mit Finanzprodukten wird als Vorteil angesehen - Affinität zu Zahlen, Genauigkeit und starke Aufmerksamkeit für Details - Gute Kenntnisse von MS Office und die Fähigkeit, schnell verschiedene IT-Systeme zu erlernen und zu verwenden - Starke Kommunikations- und Verhandlungsfähigkeiten, insbesondere in herausfordernden Kundensituationen - Sprachen: Deutsch / Schweizerdeutsch (schriftlich und gesprochen) und Französisch (schriftlich und gesprochen) sind verpflichtend; Italienisch ist ein Vorteil; zusätzliche Sprachen sind willkommen ## Soft Skills - Als erster Ansprechpartner für Kunden in sensiblen finanziellen Angelegenheiten sind folgende Soft Skills erforderlich: Resilienz, Geduld, Empathie, starke Kommunikationsfähigkeiten, Kundenorientierung und Fähigkeit, im Team zu arbeiten",
-        "fr": "Description Dans le cadre de notre croissance opérationnelle à Zurich, nous recherchons un professionnel dédié et orienté client pour rejoindre notre équipe Front Office dans le domaine du Dunning & Collection. Ce poste offre l'opportunité de contribuer à une gestion efficace du crédit tout en assurant des interactions de haute qualité avec les clients. ## Responsabilités - Répondre aux appels entrants et effectuer des appels sortants avec les clients concernant les soldes impayés, les arrangements de paiement et les questions relatives aux comptes - Gérer la correspondance écrite avec les clients concernant les dossiers de dunning et de collection - Gérer de manière autonome les dossiers de dunning et de collection conformément aux directives internes et aux exigences légales - Identifier et négocier des solutions de paiement individuelles avec les clients tout en maintenant un style de communication professionnel et orienté solution - Soutenir et coordonner avec les partenaires externes de collection concernant les mandats de collection et les dossiers individuels des clients - Assurer une documentation précise et l'administration des dossiers de collection et des processus internes - Effectuer des tâches administratives et de back office liées à la gestion des dossiers et des activités de collection - Escalader les dossiers complexes ou sensibles au département approprié lorsque nécessaire - Collaborer étroitement avec les départements internes tels que Underwriting, Operations et Finance - Soutenir les améliorations de processus, les projets et les optimisations opérationnelles au sein du département ## Exigences - Diplôme d'apprentissage commercial (KV) ou équivalent - 1–2 ans d'expérience professionnelle, idéalement dans le domaine du dunning, de la collection, des services financiers ou du service client - Expérience dans des rôles nécessitant une interaction régulière avec les clients par téléphone (communication entrante et sortante) - Expérience avec les produits financiers est considérée comme un avantage - Affinité pour les chiffres, la précision et une forte attention aux détails - Bonne connaissance de MS Office et la capacité d'apprendre rapidement et de travailler avec différents systèmes informatiques - Forte capacité de communication et de négociation, particulièrement dans des situations client difficiles - Langues : l'allemand / suisse allemand (écrit et parlé) et le français (écrit et parlé) sont obligatoires ; l'italien est un avantage ; les langues supplémentaires sont les bienvenues ## Compétences sociales - En tant que premier point de contact avec les clients dans des questions financières sensibles, les compétences sociales suivantes sont nécessaires : résilience, patience, empathie, fortes capacités de communication, orientation client et capacité à travailler en équipe"
-      },
-      "requirements": [
-        "Commercial apprenticeship (KV) or equivalent diploma",
-        "1–2 years of professional experience, ideally in dunning, collections, financial services or customer service",
-        "Experience in roles requiring regular customer interaction by phone (inbound and outbound communication)",
-        "Experience with financial products is considered an advantage",
-        "Affinity for numbers, accuracy, and strong attention to detail",
-        "Good knowledge of MS Office and the ability to quickly learn and work with different IT systems",
-        "Strong communication and negotiation skills, particularly in challenging customer situations",
-        "Languages: German / Swiss German (written and spoken) and French (written and spoken) are mandatory; Italian is an advantage; additional languages are welcomed",
-        "As the first point of contact with customers in sensitive financial matters, the following soft skills are needed: resilience, patience, empathy, strong communication skills, customer orientation, and ability to work in team"
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Commercial apprenticeship (KV) or equivalent diploma",
-          "1–2 years of professional experience, ideally in dunning, collections, financial services or customer service",
-          "Experience in roles requiring regular customer interaction by phone (inbound and outbound communication)",
-          "Experience with financial products is considered an advantage",
-          "Affinity for numbers, accuracy, and strong attention to detail",
-          "Good knowledge of MS Office and the ability to quickly learn and work with different IT systems",
-          "Strong communication and negotiation skills, particularly in challenging customer situations"
-        ],
-        "en": [
-          "Commercial apprenticeship (KV) or equivalent diploma",
-          "1–2 years of professional experience, ideally in dunning, collections, financial services or customer service",
-          "Experience in roles requiring regular customer interaction by phone (inbound and outbound communication)",
-          "Experience with financial products is considered an advantage",
-          "Affinity for numbers, accuracy, and strong attention to detail",
-          "Good knowledge of MS Office and the ability to quickly learn and work with different IT systems",
-          "Strong communication and negotiation skills, particularly in challenging customer situations"
-        ]
-      },
-      "location": "Wallisellen",
-      "canton": "ZH",
-      "addressLocality": "Wallisellen",
-      "addressCountry": "CH",
-      "category": "finance",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-09",
-      "url": "https://jobs.corner.ch/o/employee-front-office",
-      "source": "Corner Dedicated Parser (Recruitee API)",
-      "sourceLang": "en",
-      "crawledAt": "2026-04-13T10:22:37.686Z",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85500,
-          "maxValue": 150000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Canova 16",
-      "postalCode": "6901",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:31:06.824Z"
     },
     {
       "id": "corner-banca-97d8d7e51ea2",
@@ -907,7 +923,7 @@
       "description": "The candidate will join the IT “Authorization & Fraud Prevention” Centre of Excellence, with cross-functional responsibilities for credit and debit “card payments processing & fraud prevention” systems.\nThe systems support key payments processes in a highly regulated banking environment.\nThe role involves actively contributing to functional and technical analysis activities, supporting the evolution of application solutions and integration with core banking, payment circuits and external platforms.\n\n Key Responsibilities\n\nFunctional and Process Analysis\n\nAnalyse and understand “card payments processing, payment tokenization and fraud prevention” processes and related \n\n             (e.g. card issuance, lifecycle management, clearing & settlement, fraud and chargebacks) \n\nCollect, analyse and assess the regular requests (i.e. changes, compliance, …) from card schemes (e.g. VISA, MC, …) \n\n             translating them into functional and technical specifications\n\nCollect, analyse and formalise business requirements (where needed), translating them into functional and technical specifications\n\nSupport the business in defining IT solutions consistent with the bank's operational, regulatory and compliance models\n\nCollaborate with the business line and other internal stakeholders (Operations, Compliance, Risk, Security)\n\nTechnical and IT Analysis\n\nDraft functional and technical documentation (application specifications, integration flows, data mapping)\n\nCollaborate with internal and external development teams during the development, testing and release phases, executing directly \n\n             (where needed) testing and release management\n\nSupport the analysis and management of application incidents and production issues\n\nMust Have\n\nResident in Ticino or willing to relocate\n\nExperience in banking or financial contexts\n\nExperience in functional and technical analysis in IT\n\nKnowledge of credit and debit card payment systems, including payment tokenization.\n\nKnowledge of major payment circuits (e.g. Visa, Mastercard)",
       "descriptionByLocale": {
         "it": "Descrizione Il candidato si unirà al Centro di Eccellenza per l’Autorizzazione e la Prevenzione delle Frode, con responsabilità interfunzionali per i sistemi di credito e di addebito “di elaborazione delle carte e prevenzione delle frodi”. I sistemi supportano i processi di pagamento chiave in un ambiente bancario altamente regolamentato. Il ruolo consiste nel contribuire attivamente alle attività di analisi funzionale e tecnica, sostenendo l'evoluzione delle soluzioni applicative e l'integrazione con core banking, circuiti di pagamento e piattaforme esterne. ## Responsabilità chiave ### Analisi funzionale e di processo - Analizzare e comprendere i processi di \"elaborazione dei pagamenti delle carte, tokenizzazione dei pagamenti e prevenzione delle frodi\" e relativi (ad esempio, l'emissione della carta, la gestione del debito, la liquidazione e l'adeguamento, le frodi e i chargeback) - Raccogliere, analizzare e valutare le richieste regolari (ad es. - Conoscenza dei principali circuiti di pagamento (ad esempio Visa, Mastercard)",
-        "en": "## Descrizione\nThe candidate will join the IT “Authorization & Fraud Prevention” Centre of Excellence, with cross-functional responsibilities for credit and debit “card payments processing & fraud prevention” systems.\nThe systems support key payments processes in a highly regulated banking environment.\nThe role involves actively contributing to functional and technical analysis activities, supporting the evolution of application solutions and integration with core banking, payment circuits and external platforms.\n\n## Key Responsibilities\n\n### Functional and Process Analysis\n- Analyse and understand “card payments processing, payment tokenization and fraud prevention” processes and related (e.g. card issuance, lifecycle management, clearing & settlement, fraud and chargebacks)\n- Collect, analyse and assess the regular requests (i.e. changes, compliance, …) from card schemes (e.g. VISA, MC, …) translating them into functional and technical specifications\n- Collect, analyse and formalise business requirements (where needed), translating them into functional and technical specifications\n- Support the business in defining IT solutions consistent with the bank's operational, regulatory and compliance models\n- Collaborate with the business line and other internal stakeholders (Operations, Compliance, Risk, Security)\n\n### Technical and IT Analysis\n- Draft functional and technical documentation (application specifications, integration flows, data mapping)\n- Collaborate with internal and external development teams during the development, testing and release phases, executing directly (where needed) testing and release management\n- Support the analysis and management of application incidents and production issues\n\n## Must Have\n- Resident in Ticino or willing to relocate\n- Experience in banking or financial contexts\n- Experience in functional and technical analysis in IT\n- Knowledge of credit and debit card payment systems, including payment tokenization.\n- Knowledge of major payment circuits (e.g. Visa, Mastercard)",
+        "en": "The candidate will join the IT “Authorization & Fraud Prevention” Centre of Excellence, with cross-functional responsibilities for credit and debit “card payments processing & fraud prevention” systems. The systems support key payments processes in a highly regulated banking environment. The role involves actively contributing to functional and technical analysis activities, supporting the evolution of application solutions and integration with core banking, payment circuits and external platforms. Key Responsibilities Functional and Process Analysis Analyse and understand “card payments processing, payment tokenization and fraud prevention” processes and related (e.g. card issuance, lifecycle management, clearing & settlement, fraud and chargebacks) Collect, analyse and assess the regular requests (i.e. changes, compliance, …) from card schemes (e.g. VISA, MC, …) translating them into functional and technical specifications Collect, analyse and formalise business requirements (where needed), translating them into functional and technical specifications Support the business in defining IT solutions consistent with the bank's operational, regulatory and compliance models Collaborate with the business line and other internal stakeholders (Operations, Compliance, Risk, Security) Technical and IT Analysis Draft functional and technical documentation (application specifications, integration flows, data mapping) Collaborate with internal and external development teams during the development, testing and release phases, executing directly (where needed) testing and release management Support the analysis and management of application incidents and production issues Must Have Resident in Ticino or willing to relocate Experience in banking or financial contexts Experience in functional and technical analysis in IT Knowledge of credit and debit card payment systems, including payment tokenization. Knowledge of major payment circuits (e.g. Visa, Mastercard)",
         "de": "Beschreibung Der Kandidat wird sich dem IT-Zentrum „Authorization & Fraud Prevention“ mit funktionsübergreifender Verantwortung für Kredit- und Debit-Systeme „Card Payments Processing & Betrug Prevention“ anschließen. Die Systeme unterstützen wichtige Zahlungsprozesse in einem hochregulierten Bankenumfeld. Die Rolle beinhaltet einen aktiven Beitrag zu funktionellen und technischen Analysetätigkeiten, die die Entwicklung von Anwendungslösungen und die Integration mit Kernbanken, Zahlungsschaltungen und externen Plattformen unterstützen. Funktionelle und verfahrenstechnische Analyse - Analyse und Verständnis von „Kartenzahlungsverarbeitung, Zahlungsaufzeichnung und Betrugsverhütung“ Prozessen und damit zusammenhängenden (z.B. Kartenausgabe, Lifecycle Management, Clearing & Abwicklung, Betrug und Rückmeldungen) - Kenntnis der wichtigsten Zahlungskreise (z.B. Visa, Mastercard)",
         "fr": "Descrizione Le candidat se joindra au Centre d'excellence sur l'autorisation et la prévention de la fraude des TI, avec des responsabilités interfonctionnelles pour le traitement des paiements et la prévention de la fraude des cartes de crédit et de débit. Les systèmes soutiennent des processus de paiement clés dans un environnement bancaire hautement réglementé. Le rôle consiste à contribuer activement aux activités d'analyse fonctionnelle et technique, à soutenir l'évolution des solutions d'application et l'intégration avec les principales banques, circuits de paiement et plateformes externes. ## Principales responsabilités ### Analyse fonctionnelle et processus - Analyse et compréhension du traitement des paiements par carte, de la tokenisation des paiements et de la prévention de la fraude (processus de délivrance de cartes, de gestion du cycle de vie, de compensation et de règlement, de fraude et de remboursement) - Collecte, analyse et évaluation des demandes régulières (c.-à-d. changements, conformité, ...) provenant de systèmes de cartes (p. ex. VISA, MC, ...) les transformant en spécifications fonctionnelles et techniques - Collecte, analyse et formalisation des exigences opérationnelles (si nécessaire), les transformant en spécifications fonctionnelles et techniques - Aide à l'entreprise pour la définition de solutions informatiques compatibles avec les modèles opérationnels, réglementaires et de conformité de la banque - Collaborer avec le secteur d'activité et d'autres intervenants internes (exploitation, conformité, risque, sécurité) ### Analyse technique et informatique - Ébauche de la documentation fonctionnelle et technique (spécifications d'application, flux d'intégration, cartographie des données) - Collaborer avec les équipes de développement interne et externe pendant les phases de développement, d'essai et de libération, exécuter directement (si nécessaire) la gestion et - Connaissance des principaux circuits de paiement (par exemple Visa, Mastercard)"
       },
@@ -932,9 +948,7 @@
           "Experience in functional and technical analysis in IT",
           "Knowledge of credit and debit card payment systems, including payment tokenization.",
           "Knowledge of major payment circuits (e.g. Visa, Mastercard)"
-        ],
-        "de": [],
-        "fr": []
+        ]
       },
       "location": "Lugano",
       "canton": "TI",
@@ -948,7 +962,7 @@
       "url": "https://jobs.corner.ch/o/it-authorizazion-and-fraud-prevention-officer",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-13T10:22:37.685Z",
+      "crawledAt": "2026-04-13T21:31:04.472Z",
       "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -966,7 +980,7 @@
       "postalCode": "6901",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 2
+      "firstSeenAt": "2026-04-13T21:31:06.824Z"
     }
   ]
 }
