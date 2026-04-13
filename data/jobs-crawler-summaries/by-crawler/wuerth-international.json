@@ -1,16 +1,16 @@
 {
   "key": "wuerth-international",
   "label": "Würth International",
-  "generatedAt": "2026-04-13T11:31:51.215Z",
+  "generatedAt": "2026-04-13T22:39:53.018Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4025,
-  "avgDurationMs": 4025,
+  "durationMs": 3380,
+  "avgDurationMs": 3380,
   "durationHistory": [
-    4025
+    3380
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -40,7 +40,8 @@
       "applyUrl": "https://www.wurth-international.com/CH-WINT/Karriere/Job-Portal/Bewerbungsformular_Steuerexperte.php",
       "source": "Wuerth International Dedicated Parser (HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T11:31:48.734Z",
+      "crawledAt": "2026-04-13T22:39:50.835Z",
+      "firstSeenAt": "2026-04-13T11:31:48.734Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -75,7 +76,8 @@
       "applyUrl": "https://www.wurth-international.com/CH-WINT/Karriere/Job-Portal/Bewerbungsformular-Praktikum-Empfang.php",
       "source": "Wuerth International Dedicated Parser (HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T11:31:48.270Z",
+      "crawledAt": "2026-04-13T22:39:50.427Z",
+      "firstSeenAt": "2026-04-13T11:31:48.270Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
