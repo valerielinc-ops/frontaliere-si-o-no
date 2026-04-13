@@ -1,6 +1,6 @@
 {
   "crawlerKey": "otis",
-  "assembledAt": "2026-04-13T11:05:16.375Z",
+  "assembledAt": "2026-04-13T22:13:33.227Z",
   "jobs": [
     {
       "id": "otis-c01bdb073f38",
@@ -43,7 +43,7 @@
       "postedDate": "2026-04-10",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Bahnhofstrasse-3-Postfach-371-Dietlikon--ZH/Aufzugsmonteur-Modernisierung-und-Ersatzanlagen--m-w-d-_20157241",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-13T11:05:13.851Z",
+      "crawledAt": "2026-04-13T22:13:28.921Z",
       "previousSlugs": [
         "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-postfach-371",
         "aufzugsmonteur-modernisierung-e-ersatzanlagen-m-w-d-otis-sa-postfach-371"
@@ -60,6 +60,7 @@
           "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-postfach-371"
         ]
       },
+      "firstSeenAt": "2026-04-13T11:05:13.851Z",
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -72,8 +73,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6500",
-      "firstSeenAt": "2026-04-13T11:05:13.851Z"
+      "postalCode": "6500"
     },
     {
       "id": "otis-9550373c1639",
@@ -116,7 +116,7 @@
       "postedDate": "2026-04-09",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Kreuzstrasse-34-6010-Kriens/Prodctn-Maint--Field-Svc_20157135",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-13T11:05:13.582Z",
+      "crawledAt": "2026-04-13T22:13:28.653Z",
       "previousSlugs": [
         "servicetechniker-m-w-d-otis-sa-kreuzstrasse-34",
         "tecnico-di-servizio-otis-sa-kreuzstrasse-34-gk0xtm",
@@ -136,6 +136,7 @@
           "servicetechniker-m-w-d-otis-sa-kreuzstrasse-34"
         ]
       },
+      "firstSeenAt": "2026-04-13T11:05:13.582Z",
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -148,8 +149,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6500",
-      "firstSeenAt": "2026-04-13T11:05:13.582Z"
+      "postalCode": "6500"
     },
     {
       "id": "otis-2d7a395a571b",
@@ -192,7 +192,7 @@
       "postedDate": "2026-04-09",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Kreuzstrasse-34-6010-Kriens/Repairman-SVC_20156079",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-13T11:05:13.313Z",
+      "crawledAt": "2026-04-13T22:13:28.385Z",
       "previousSlugs": [
         "repairman-svc-otis-kreuzstrasse-34"
       ],
@@ -210,6 +210,8 @@
           "repairman-svc-otis-kreuzstrasse-34"
         ]
       },
+      "firstSeenAt": "2026-04-13T11:05:13.313Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -222,8 +224,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6500",
-      "firstSeenAt": "2026-04-13T11:05:13.313Z"
+      "postalCode": "6500"
     },
     {
       "id": "otis-994d1f77a972",
@@ -266,7 +267,7 @@
       "postedDate": "2026-03-16",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Chemin-des-Msanges-5-1032-Romanel-sur-Lausanne/Supervisor-MOD-BEX_20155074",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-13T11:05:13.025Z",
+      "crawledAt": "2026-04-13T22:13:28.106Z",
       "previousSlugs": [
         "supervisor-mod-bex-otis-sa-1032",
         "vorgesetzter-mod-bex-otis-sa-1032",
@@ -291,6 +292,8 @@
           "vorgesetzter-mod-bex-otis-sa-1032"
         ]
       },
+      "firstSeenAt": "2026-04-13T11:05:13.025Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -303,8 +306,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1032",
-      "firstSeenAt": "2026-04-13T11:05:13.025Z"
+      "postalCode": "1032"
     },
     {
       "id": "otis-699626bb9054",
@@ -347,7 +349,7 @@
       "postedDate": "2026-04-09",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Rue-des-Sablons-15-1920-Martigny/Servicetechniker_20153524",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-13T11:05:12.782Z",
+      "crawledAt": "2026-04-13T22:13:27.867Z",
       "previousSlugs": [
         "servicetechniker-otis-sa-rue-des-sablons-15"
       ],
@@ -359,6 +361,7 @@
           "servicetechniker-otis-sa-rue-des-sablons-15"
         ]
       },
+      "firstSeenAt": "2026-04-13T11:05:12.782Z",
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -371,8 +374,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6500",
-      "firstSeenAt": "2026-04-13T11:05:12.782Z"
+      "postalCode": "6500"
     },
     {
       "id": "otis-5c352ba739ba",
@@ -415,7 +417,7 @@
       "postedDate": "2026-03-04",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Kreuzstrasse-34-6010-Kriens/Aufzugsmonteur-in--m-w-d-_20154150",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-13T11:05:12.488Z",
+      "crawledAt": "2026-04-13T22:13:27.606Z",
       "previousSlugs": [
         "aufzugsmonteur-in-m-w-d-otis-kreuzstrasse-34"
       ],
@@ -424,6 +426,8 @@
           "aufzugsmonteur-in-m-w-d-otis-kreuzstrasse-34"
         ]
       },
+      "firstSeenAt": "2026-04-13T11:05:12.488Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -436,8 +440,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6500",
-      "firstSeenAt": "2026-04-13T11:05:12.488Z"
+      "postalCode": "6500"
     },
     {
       "id": "otis-e1587a27b927",
@@ -480,7 +483,7 @@
       "postedDate": "2026-03-10",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Huhnerhubelstrasse-64-Postfach-123-3123-Belp/Gruppenleiter-Reparatur-SVC--m-w-d-_20154138",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-13T11:05:12.217Z",
+      "crawledAt": "2026-04-13T22:13:27.063Z",
       "previousSlugs": [
         "gruppenleiter-reparatur-svc-m-w-d-otis-postfach-123"
       ],
@@ -489,6 +492,8 @@
           "gruppenleiter-reparatur-svc-m-w-d-otis-postfach-123"
         ]
       },
+      "firstSeenAt": "2026-04-13T11:05:12.217Z",
+      "needsRetranslation": true,
       "salaryMin": 98000,
       "salaryMax": 132000,
       "baseSalary": {
@@ -501,8 +506,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6500",
-      "firstSeenAt": "2026-04-13T11:05:12.217Z"
+      "postalCode": "6500"
     },
     {
       "id": "otis-c75ef26e7d44",
@@ -545,7 +549,7 @@
       "postedDate": "2026-01-29",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Nenzlingerweg-2-4153-Reinach/Aufzugsmonteur-Modernisierung-und-Ersatzanlagen--m-w-d-_20151682",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-13T11:05:11.919Z",
+      "crawledAt": "2026-04-13T22:13:26.800Z",
       "previousSlugs": [
         "aufzugsmonteur-modernisierung-e-ersatzanlagen-m-w-d-otis-sa-nenzlingerweg-2"
       ],
@@ -563,6 +567,7 @@
           "aufzugsmonteur-modernisierung-e-ersatzanlagen-m-w-d-otis-sa-nenzlingerweg-2"
         ]
       },
+      "firstSeenAt": "2026-04-13T11:05:11.919Z",
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -575,8 +580,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6500",
-      "firstSeenAt": "2026-04-13T11:05:11.919Z"
+      "postalCode": "6500"
     },
     {
       "id": "otis-00f533d5f119",
@@ -619,7 +623,7 @@
       "postedDate": "2026-01-27",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Nenzlingerweg-2-4153-Reinach/Servicetechniker--m-w-d-_20151442",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-13T11:05:11.624Z",
+      "crawledAt": "2026-04-13T22:13:26.556Z",
       "previousSlugs": [
         "servicetechniker-m-w-d-otis-sa-nenzlingerweg-2"
       ],
@@ -637,6 +641,8 @@
           "servicetechniker-m-w-d-otis-sa-nenzlingerweg-2"
         ]
       },
+      "firstSeenAt": "2026-04-13T11:05:11.624Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -649,8 +655,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6500",
-      "firstSeenAt": "2026-04-13T11:05:11.624Z"
+      "postalCode": "6500"
     },
     {
       "id": "otis-65de39533f90",
@@ -693,7 +698,7 @@
       "postedDate": "2026-01-05",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Via-Corti-5-6828-Balerna/Pool-di-Talenti-Tecnico-Otis-Ticino---Installazione--Manutenzione---Modernizzazione_20149777",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-13T11:05:11.357Z",
+      "crawledAt": "2026-04-13T22:13:26.289Z",
       "previousSlugs": [
         "pool-di-talenti-technician-otis-ticino-installazione-maintenance-modernizzazione-otis-sa-via-corti-5",
         "pool-di-talenti-techniker-otis-ticino-installazione-wartung-modernizzazione-otis-sa-via-corti-5",
@@ -710,6 +715,8 @@
           "pool-di-talenti-technicien-otis-ticino-installazione-maintenance-modernizzazione-otis-sa-via-corti-5"
         ]
       },
+      "firstSeenAt": "2026-04-13T11:05:11.357Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -722,8 +729,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6500",
-      "firstSeenAt": "2026-04-13T11:05:11.357Z"
+      "postalCode": "6500"
     },
     {
       "id": "otis-ab73eeb69603",
@@ -766,7 +772,7 @@
       "postedDate": "2026-01-05",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Route-de-Moncor-12-CP-464-1701-Fribourg/Vivier-des-Talents---Service-Technicien-Monteur-Repairman_20149772-1",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-13T11:05:11.125Z",
+      "crawledAt": "2026-04-13T22:13:26.046Z",
       "previousSlugs": [
         "vivier-des-talents-service-technicien-monteur-repairman-otis-cp-464"
       ],
@@ -775,6 +781,8 @@
           "vivier-des-talents-service-technicien-monteur-repairman-otis-cp-464"
         ]
       },
+      "firstSeenAt": "2026-04-13T11:05:11.125Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -787,8 +795,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6500",
-      "firstSeenAt": "2026-04-13T11:05:11.125Z"
+      "postalCode": "6500"
     },
     {
       "id": "otis-bf781d5b803b",
@@ -831,7 +838,7 @@
       "postedDate": "2026-01-05",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Rue-des-Sablons-15-1920-Martigny/Vivier-des-Talents---Service-Technicien-Monteur-Repairman_20149764-1",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-13T11:05:10.880Z",
+      "crawledAt": "2026-04-13T22:13:25.714Z",
       "previousSlugs": [
         "vivier-des-talents-service-technicien-monteur-repairman-otis-rue-des-sablons-15"
       ],
@@ -840,6 +847,8 @@
           "vivier-des-talents-service-technicien-monteur-repairman-otis-rue-des-sablons-15"
         ]
       },
+      "firstSeenAt": "2026-04-13T11:05:10.880Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -852,8 +861,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6500",
-      "firstSeenAt": "2026-04-13T11:05:10.880Z"
+      "postalCode": "6500"
     },
     {
       "id": "otis-2ad7ac1459d1",
@@ -896,7 +904,7 @@
       "postedDate": "2026-02-13",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Chemin-des-Msanges-5-1032-Romanel-sur-Lausanne/Vivier-des-Talents-Vaud---Service-Technicien-Monteur-Repairman_20149775",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-13T11:05:10.576Z",
+      "crawledAt": "2026-04-13T22:13:25.460Z",
       "previousSlugs": [
         "talent-pool-vaud-technician-fitter-repairman-service-otis-sa-1032",
         "vivier-des-talents-vaud-service-technicien-monteur-repairman-otis-1032"
@@ -916,6 +924,8 @@
           "talent-pool-vaud-technician-fitter-repairman-service-otis-sa-1032"
         ]
       },
+      "firstSeenAt": "2026-04-13T11:05:10.576Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -928,8 +938,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1032",
-      "firstSeenAt": "2026-04-13T11:05:10.576Z"
+      "postalCode": "1032"
     },
     {
       "id": "otis-d559bafbc3af",
@@ -972,7 +981,7 @@
       "postedDate": "2026-02-10",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Chemin-de-Mouille-Galand-1214-Vernier/Vivier-des-Talents---Service-Technicien-Monteur-Repairman_20149748",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-13T11:05:10.340Z",
+      "crawledAt": "2026-04-13T22:13:25.226Z",
       "previousSlugs": [
         "vivier-des-talents-service-technicien-monteur-repairman-otis-chemin-de-mouille-galand"
       ],
@@ -981,6 +990,8 @@
           "vivier-des-talents-service-technicien-monteur-repairman-otis-chemin-de-mouille-galand"
         ]
       },
+      "firstSeenAt": "2026-04-13T11:05:10.340Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -993,79 +1004,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6500",
-      "firstSeenAt": "2026-04-13T11:05:10.340Z"
-    },
-    {
-      "id": "otis-aa74ae9b5213",
-      "slug": "servicetechniker-m-w-d-otis-sa-nenzlingerweg-2",
-      "slugByLocale": {
-        "en": "servicetechniker-m-w-d-otis-nenzlingerweg-2",
-        "it": "tecnico-di-servizio-m-f-d-otis-sa-nenzlingerweg-2",
-        "de": "service-techniker-m-w-d-otis-sa-nenzlingerweg-2",
-        "fr": "servicetechniker-m-w-d-otis-nenzlingerweg-2"
-      },
-      "company": "Otis SA",
-      "companyKey": "otis",
-      "companyDomain": "otis.com",
-      "title": "Servicetechniker (m/w/d)",
-      "titleByLocale": {
-        "en": "Servicetechniker (m/w/d)",
-        "fr": "Servicetechniker (m/w/d)",
-        "de": "Service-Techniker (m/w/d)",
-        "it": "Tecnico di Servizio (m/f/d)"
-      },
-      "description": "Date Posted:\n2025-06-25Country: \nSwitzerlandLocation: \nNenzlingerweg 2, 4153 Reinach\nWerde Teil unseres Teams in Basel!\n \nWir suchen talentierte Servicetechniker:innen, um die Innovation und Exzellenz bei Otis Schweiz voranzutreiben.\n\nWas dich bei uns erwartet\n\nDu bist verantwortlich für den reibungslosen Betrieb unserer Anlagen. Dies beinhaltet folgende Aufgaben:\nDu führst regelmässige Wartungs- und Reparaturarbeiten an mechanischen, hydraulischen, elektrischen und elektronischen Komponenten von Aufzügen und Fahrtreppen durch\n\nDu identifizierst selbstständig Reparatur- und Verbesserungsarbeiten an den Anlagen und bestellst die nötigen Ersatzteile\n\nDu führst mit Hilfe moderner Hilfsmittel Fehlersuchen durch und beseitigst die Störungen\n\n \nWas wir von dir erwarten\nDu hast eine abgeschlossene technische Ausbildung wie Elektromonteur:in, Polymechaniker:in, Automobilfachmann:frau oder ähnlich. Wenn du dich mit Liften bereits auskennst ist das ein grosser Vorteil.\n\nDu sprichst fliessend Deutsch\n\nDu planst und koordinierst eigenständig deinen Tag und legst ein freundliches Auftreten an den Tag\n\nEinen Führerschein der Kategorie B setzen wir voraus, ebenso wie einen Wohnort im Einsatzgebiet damit du die Pikettzeiten einhalten kannst\n\n \nWas wir dir bieten\nBei deinem Start bei uns wirst du von einem erfahrenen Kollegen begleitet, welcher dir wertvolles Fachwissen auf deinen Weg mitgibt. Ausserdem wirst du mit einem Mobiltelefon und einem eigenen Firmenfahrzeug ausgestattet, welches du auch privat benutzen darfst.\n\nUns liegt deine persönliche Entwicklung am Herzen. Konkret bedeutet dies, dass wir Weiterbildungen unterstützen und interne Beförderungsmöglichkeiten jedem offenstehen.\n\nGute Pensionskasse\n\n5 Wochen Ferien\n\nVerpflegungszuschuss\n\nUnsere Firmenkultur ist unser wichtigstes Gut und ist tief im Unternehmen verankert und wird von allen Mitarbeitern gelebt und geschätzt. Mehr Informationen über unsere «Otis Absolutes» findest Du hier.\n \nSteige ein – Steige auf!\n\nHaben wir dich überzeugt? Dann wir freuen uns auf deine Bewerbung.\n\nIf you live in a city, chances are we will give you a lift or play a role in keeping you moving every day. \n\nOtis is the world’s leading elevator and escalator manufacturing, installation, and service company. We move 2.4 billion people every day and maintain approximately 2.4 million customer units worldwide, the industry's largest Service portfolio.  \n\nYou may recognize our products in some of the world’s most famous landmarks including the Eiffel Tower, Empire State Building, Burj Khalifa and the Petronas Twin Towers! We are 72,000 people strong, including engineers, digital technology experts, sales, and functional specialists, as well as factory and field technicians, all committed to meeting the diverse needs of our customers and passengers in more than 200 countries and territories worldwide. We are proud to be a diverse, global team with a proven legacy of innovation that continues to be the bedrock of a fast-moving, high-performance company.  \n\nWhen you join Otis, you become part of an innovative global industry leader with a resilient business model. You’ll belong to a diverse, trusted, and caring community where your contributions, and the skills and capabilities you’ll gain working alongside the best and brightest, keep us connected and on the cutting edge.  \n\nWe provide opportunities, training, and resources, that build leadership and capabilities in Sales, Field, Engineering and Major Projects and our Employee Scholar Program is a notable point of pride, through which Otis sponsors colleagues to pursue degrees or certification programs.   \n\nToday, our focus more than ever is on people. As a global, people-powered company, we put people – passengers, customers, and colleagues – at the center of everything we do.  We are guided by our values that we call our Three Absolutes – prioritizing Safety, Ethics, Quality in all that we do. If you would like to learn more about environmental, social and governance (ESG) at Otis click here.  \n\nBecome a part of the Otis team and help us #Buildwhatsnext! \nOtis is An Equal Opportunity Employer. All qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, gender identity, national origin, disability or veteran status, age, or any other protected class according to applicable law. To request an accommodation in completing an employment application due to a special need or a disability, please contact us at careers@otis.com.\n\nPrivacy Policy and Terms:\nClick on this link to read the Policy and Terms",
-      "descriptionByLocale": {
-        "en": "Date Posted: 2026-01-26Country: SwitzerlandLocation: Nenzlingerweg 2, 4153 Reinach Was dich bei uns erwartet Du bist verantwortlich für den reibungslosen Betrieb unserer Anlagen. Dies beinhaltet folgende Aufgaben: Du führst regelmässige Wartungs- und Reparaturarbeiten an mechanischen, hydraulischen, elektrischen und elektronischen Komponenten von Aufzügen und Fahrtreppen durch Du identifizierst selbstständig Reparatur- und Verbesserungsarbeiten an den Anlagen und bestellst die nötigen Ersatzteile Du führst mit Hilfe moderner Hilfsmittel Fehlersuchen durch und beseitigst die Störungen Was wir von dir erwarten Du hast eine abgeschlossene technische Ausbildung wie Elektromonteur:in, Polymechaniker:in, Automobilfachmann:frau oder ähnlich. Wenn du dich mit Liften bereits auskennst ist das ein grosser Vorteil. Du sprichst fliessend Deutsch Du planst und koordinierst eigenständig deinen Tag und legst ein freundliches Auftreten an den Tag Einen Führerschein der Kategorie B setzen wir voraus, ebenso wie einen Wohnort im Einsatzgebiet damit du die Pikettzeiten einhalten kannst Was wir dir bieten Bei deinem Start bei uns wirst du von einem erfahrenen Kollegen begleitet, welcher dir wertvolles Fachwissen auf deinen Weg mitgibt. Du wirst mit einem Mobiltelefon und einem eigenen Firmenfahrzeug ausgestattet, welches du auch privat benutzen darfst. Uns liegt deine persönliche Entwicklung am Herzen. Konkret bedeutet dies, dass wir Weiterbildungen unterstützen und interne Beförderungsmöglichkeiten jedem offenstehen. Gute Pensionskasse 5 Wochen Ferien Verpflegungszuschuss Unsere Firmenkultur ist unser wichtigstes Gut und ist tief im Unternehmen verankert und wird von allen Mitarbeitern gelebt und geschätzt. Mehr Informationen über unsere «Otis Absolutes» findest Du hier. Steige ein – Steige auf! Haben wir dich überzeugt? Dann wir freuen uns auf deine Bewerbung. If you live in a city, chances are we will give you a lift or play a role in keeping you moving every day. Otis is the world’s leading elevator and escalator manufacturing, installation, and service company. We move 2.4 billion people every day and maintain approximately 2.4 million customer units worldwide, the industry's largest Service portfolio. You may recognize our products in some of the world’s most famous landmarks including the Eiffel Tower, Empire State Building, Burj Khalifa and the Petronas Twin Towers! We are 72,000 people strong, including engineers, digital technology experts, sales, and functional specialists, as well as factory and field technicians, all committed to meeting the diverse needs of our customers and passengers in more than 200 countries and territories worldwide. We are proud to be a diverse, global team with a proven legacy of innovation that continues to be the bedrock of a fast-moving, high-performance company. When you join Otis, you become part of an innovative global industry leader with a resilient business model. You’ll belong to a diverse, trusted, and caring community where your contributions, and the skills and capabilities you’ll gain working alongside the best and brightest, keep us connected and on the cutting edge. We provide opportunities, training, and resources, that build leadership and capabilities in Sales, Field, Engineering and Major Projects and our Employee Scholar Program is a notable point of pride, through which Otis sponsors colleagues to pursue degrees or certification programs. Today, our focus more than ever is on people. As a global, people-powered company, we put people – passengers, customers, and colleagues – at the center of everything we do. We are guided by our values that we call our Three Absolutes – prioritizing Safety, Ethics, Quality in all that we do. If you would like to learn more about environmental, social and governance (ESG) at Otis click here. Become a part of the Otis team and help us #Buildwhatsnext! Otis is An Equal Opportunity Employer. All qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, gender identity, national origin, disability or veteran status, age, or any other protected class according to applicable law. To request an accommodation in completing an employment application due to a special need or a disability, please contact us at careers@otis.com. Privacy Policy and Terms: Click on this link to read the Policy and Terms",
-        "de": "Veröffentlicht am: 2026-01-26 Land: Schweiz Ort: Nenzlingerweg 2, 4153 Reinach Was Sie bei uns erwartet Sie sind für den reibungslosen Betrieb unserer Anlagen verantwortlich. Dies beinhaltet folgende Aufgaben: Sie führen regelmäßige Wartungs- und Reparaturarbeiten an mechanischen, hydraulischen, elektrischen und elektronischen Komponenten von Aufzügen und Fahrtreppen durch Sie identifizieren eigenständig Reparatur- und Verbesserungsarbeiten an den Anlagen und bestellen die nötigen Ersatzteile Sie führen mit Hilfe moderner Hilfsmittel Fehlersuchen durch und beseitigen die Störungen Was wir von Ihnen erwarten Sie haben eine abgeschlossene technische Ausbildung wie Elektromonteur, Polymechaniker, Automobil-Fachmann oder ähnlich. Wenn Sie sich bereits mit Aufzügen auskennen, ist das ein großer Vorteil. Sie sprechen fließend Deutsch Sie planen und koordinieren eigenständig Ihren Tag und legen ein freundliches Auftreten an den Tag Wir setzen einen Führerschein der Kategorie B sowie einen Wohnsitz im Einsatzgebiet voraus, damit Sie die Pikettzeiten einhalten können Was wir Ihnen bieten Bei Ihrem Start bei uns werden Sie von einem erfahrenen Kollegen begleitet, der Ihnen wertvolles Fachwissen auf Ihrem Weg mitgibt. Sie werden mit einem Mobiltelefon und einem eigenen Firmenfahrzeug ausgestattet, das Sie auch privat nutzen dürfen. Uns liegt Ihre persönliche Entwicklung am Herzen. Konkret bedeutet dies, dass wir Weiterbildungen unterstützen und interne Beförderungsmöglichkeiten jedem offenstehen. Gute Pensionskasse 5 Wochen Ferien Verpflegungszuschuss Unsere Firmenkultur ist unser wichtigstes Gut und ist tief im Unternehmen verankert und wird von allen Mitarbeitern gelebt und geschätzt. Mehr Informationen über unsere «Otis Absolutes» finden Sie hier. Steigen Sie ein – Steigen Sie auf! Haben wir Sie überzeugt? Dann freuen wir uns auf Ihre Bewerbung. Wenn Sie in einer Stadt leben, besteht eine gute Chance, dass wir Ihnen einen Lift geben oder eine Rolle dabei spielen, Sie jeden Tag in Bewegung zu halten. Otis ist das weltweit führende Unternehmen für die Herstellung, Installation und Wartung von Aufzügen und Fahrtreppen. Wir bewegen 2,4 Milliarden Menschen jeden Tag und warten etwa 2,4 Millionen Kundenanlagen weltweit, das größte Service-Portfolio der Branche. Sie können unsere Produkte in einigen der berühmtesten Sehenswürdigkeiten der Welt erkennen, wie zum Beispiel dem Eiffelturm, dem Empire State Building, dem Burj Khalifa und den Petronas Twin Towers! Wir sind ein Team von 72.000 Menschen, darunter Ingenieure, Experten für digitale Technologie, Verkaufsspezialisten und Funktionsspezialisten sowie Fabrik- und Feldtechniker, die alle darauf ausgerichtet sind, die vielfältigen Bedürfnisse unserer Kunden und Passagiere in mehr als 200 Ländern und Territorien auf der ganzen Welt zu erfüllen. Wir sind stolz darauf, ein vielseitiges, globales Team mit einem bewährten Innovationserbe zu sein, das die Grundlage für ein schnell wachsendes, hochleistungsfähiges Unternehmen bildet. Wenn Sie zu Otis stoßen, werden Sie Teil eines innovativen globalen Branchenführers mit einem resilienten Geschäftsmodell. Wir bieten Ihnen Möglichkeiten, Schulungen und Ressourcen, die die Führung und Fähigkeiten in Vertrieb, Feld, Ingenieurwesen und Großprojekten aufbauen und unser Employee Scholar Program ist ein bemerkenswerter Punkt des Stolzes, durch den Otis Kollegen bei der Verfolgung von Studiengängen oder Zertifizierungsprogrammen unterstützt. Heute mehr denn je liegt unser Fokus auf den Menschen. Als globales, menschengetriebenes Unternehmen stellen wir Menschen - Passagiere, Kunden und Kollegen - in den Mittelpunkt all unserer Aktivitäten. Wir lassen uns von unseren Werten leiten, die wir unsere Three Absolutes nennen - Sicherheit, Ethik, Qualität in allem, was wir tun. Wenn Sie mehr über Umwelt, soziale und governance (ESG) bei Otis erfahren möchten, klicken Sie hier. Werden Sie Teil des Otis-Teams und helfen Sie uns dabei, #Buildwhatsnext! Otis ist ein Arbeitgeber, der die Chancengleichheit fördert. Alle qualifizierten Bewerber werden ohne Unterschied des Geschlechts, der Rasse, der ethnischen Herkunft, der Religion, der sexuellen Orientierung, der Behinderung oder des Alters berücksichtigt. Um eine Unterstützung bei der Beantragung eines Arbeitsplatzes aufgrund einer Behinderung oder eines speziellen Bedarfs zu beantragen, wenden Sie sich bitte an careers@otis.com. Datenschutzrichtlinie und Bedingungen: Klicken Sie hier, um die Richtlinie und die Bedingungen zu lesen.",
-        "it": "Data di pubblicazione: 2026-01-26 Paese: Svizzera Località: Nenzlingerweg 2, 4153 Reinach Cosa ti aspetta da noi Sei responsabile del funzionamento senza interruzioni delle nostre attrezzature. Ciò include le seguenti mansioni: Esegui regolari lavori di manutenzione e riparazione sulle componenti meccaniche, idrauliche, elettriche ed elettroniche degli ascensori e delle scale mobili Identifichi in modo autonomo i lavori di riparazione e miglioramento sulle attrezzature e ordini i pezzi di ricambio necessari Esegui ricerche dei guasti con l'ausilio di strumenti moderni e risolvi le interruzioni Cosa ci aspettiamo da te Hai un titolo di studio tecnico come ad esempio elettricista, polimeccanico, specialista dell'automobile o simile. Se hai già esperienza con gli ascensori è un grande vantaggio. Parli fluentemente tedesco Pianifichi e coordini in modo autonomo la tua giornata e mostri un atteggiamento cordiale nei confronti dei clienti Abbiamo come presupposto un patentino della categoria B, così come un luogo di residenza nell'area di servizio in modo da poter rispettare i turni di servizio Cosa ti offriamo Al tuo inizio con noi, sarai accompagnato da un collega esperto che ti trasmetterà preziose conoscenze tecniche. Sarai equipaggiato con un telefono cellulare e un veicolo aziendale che potrai utilizzare anche a scopo privato. Ci teniamo alla tua crescita personale. Ciò significa che sosteniamo la formazione continua e le possibilità di avanzamento interno sono aperte a tutti. Buon fondo pensione 5 settimane di ferie Contributo per i pasti La nostra cultura aziendale è il nostro bene più prezioso e viene profondamente radicata nell'azienda e apprezzata da tutti i dipendenti. Maggiori informazioni sui nostri «Otis Absolutes» le trovi qui. Entra – sali! Ti abbiamo convinto? Allora siamo felici di ricevere la tua candidatura. Se vivi in una città, è probabile che ti daremo un passaggio o giocheremo un ruolo nel tenerti in movimento ogni giorno. Otis è la principale società di produzione, installazione e assistenza di ascensori e scale mobili a livello mondiale. Spostiamo 2,4 miliardi di persone ogni giorno e manteniamo circa 2,4 milioni di unità dei clienti in tutto il mondo, il più ampio portafoglio di servizi del settore. Puoi riconoscere i nostri prodotti in alcune delle più famose attrazioni del mondo, come la Torre Eiffel, l'Empire State Building, la Burj Khalifa e le Torri Petronas! Siamo un team di 72.000 persone, tra cui ingegneri, esperti di tecnologia digitale, specialisti delle vendite e delle funzioni, nonché tecnici di fabbrica e campo, tutti impegnati a soddisfare le esigenze diversificate dei nostri clienti e dei passeggeri in più di 200 paesi e territori in tutto il mondo. Siamo orgogliosi di essere un team globale, diversificato e affidabile con un solido patrimonio di innovazione che continua ad essere la base di un'azienda in rapida evoluzione e ad alta performance. Quando entri a far parte di Otis, diventi parte di un leader globale del settore innovativo con un modello di business resilient",
-        "fr": "Date de publication : 2026-01-26 Pays : Suisse Emplacement : Nenzlingerweg 2, 4153 Reinach Ce qui vous attend chez nous Vous êtes responsable du fonctionnement sans interruption de nos installations. Cela comprend les tâches suivantes : Vous effectuez des travaux de maintenance et de réparation réguliers sur les composants mécaniques, hydrauliques, électriques et électroniques des ascenseurs et des escaliers roulants Vous identifiez de manière autonome les travaux de réparation et d'amélioration sur les installations et commandez les pièces de rechange nécessaires Vous effectuez des recherches de pannes à l'aide d'outils modernes et éliminer les perturbations Ce que nous attendons de vous Vous avez une formation technique terminée telle que monteur électricien, polymecanicien, spécialiste de l'automobile ou similaire. Si vous avez déjà une expérience avec les ascenseurs, c'est un grand avantage. Vous parlez couramment l'allemand Vous planifiez et coordonnez de manière autonome votre journée et montrez une attitude amicale envers les clients Nous présumons un permis de conduire de la catégorie B ainsi qu'un lieu de résidence dans la zone de service afin que vous puissiez respecter les horaires de service Ce que nous vous offrons Au début de votre collaboration avec nous, vous serez accompagné par un collègue expérimenté qui vous transmettra des connaissances techniques précieuses. Vous serez équipé d'un téléphone mobile et d'un véhicule de la société que vous pourrez également utiliser à des fins privées. Nous nous soucions de votre développement personnel. Cela signifie que nous soutenons la formation continue et que les possibilités de promotion interne sont ouvertes à tous. Bon fonds de pension 5 semaines de vacances Allocation pour les repas Notre culture d'entreprise est notre bien le plus précieux et est profondément ancrée dans l'entreprise et appréciée de tous les employés. Vous trouverez plus d'informations sur nos «Otis Absolutes» ici. Rejoignez-nous – montez! Nous vous avons convaincu ? Alors nous sommes heureux de recevoir votre candidature. Si vous vivez dans une ville, il y a de fortes chances que nous vous donnions un coup de pouce ou que nous jouions un rôle dans le fait de vous déplacer chaque jour. Otis est la principale société de fabrication, d'installation et d'entretien d'ascenseurs et d'escaliers roulants dans le monde. Nous déplaçons 2,4 milliards de personnes chaque jour et entretenons environ 2,4 millions d'unités de clients dans le monde entier, le plus large portefeuille de services du secteur. Vous pouvez reconnaître nos produits dans certaines des attractions les plus célèbres du monde, comme la tour Eiffel, l'Empire State Building, la Burj Khalifa et les tours jumelles Petronas ! Nous sommes une équipe de 72 000 personnes, composée d'ingénieurs, d'experts en technologie numérique, de spécialistes des ventes et des fonctions, ainsi que de techniciens d'usine et de terrain, tous engagés à répondre aux besoins diversifiés de nos clients et des passagers dans plus de 200 pays et territoires dans le monde. Nous sommes fiers d'être une équipe globale, diversifiée et fiable avec un patrimoine d'innovation solide qui continue d'être la base d'une entreprise en rapide croissance et à haute performance. Lorsque vous rejoignez Otis, vous rejoignez un leader mondial du secteur innovant avec un modèle économique résilient. Nous vous offrons des opportunités, des formations et des ressources qui développent les compétences de leadership et les compétences dans les ventes, le terrain, l'ingénierie et les projets importants et notre programme d'employé boursier est un point de fierté notable, grâce auquel Otis soutient les collègues dans la poursuite d'études ou de programmes de certification. Aujourd'hui, notre focus est plus que jamais sur les personnes. En tant qu'entreprise mondiale axée sur les personnes, nous mettons les personnes - passagers, clients et collègues - au centre de tout ce que nous faisons. Nous sommes guidés par nos valeurs que nous appelons nos Three Absolutes - la sécurité, l'éthique, la qualité dans tout ce que nous faisons. Si vous souhaitez en savoir plus sur la gouvernance d'entreprise, sociale et environnementale (ESG) chez Otis, cliquez ici. Rejoignez l'équipe Otis et aidez-nous à #Buildwhatsnext! Otis est un employeur qui favorise l'égalité des chances. Tous les candidats qualifiés seront considérés pour un emploi sans distinction de race, de religion, de sexe, d'orientation sexuelle, de handicap ou d'âge, conformément à la loi. Pour demander une aide à la demande d'emploi en raison d'un besoin spécial ou d'un handicap, veuillez nous contacter à careers@otis.com. Politique de confidentialité et conditions d'utilisation : Cliquez ici pour lire la politique et les conditions d'utilisation."
-      },
-      "sourceLang": "de",
-      "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
-      "location": "Nenzlingerweg 2",
-      "canton": "TI",
-      "addressLocality": "Nenzlingerweg 2",
-      "addressCountry": "CH",
-      "category": "manufacturing",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-01-07",
-      "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Nenzlingerweg-2-4153-Reinach/Servicetechniker--m-w-d-_20135985-1",
-      "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-13T11:05:10.090Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "servicetechniker-m-w-d-otis-sa-nenzlingerweg-2-2"
-        ],
-        "de": [
-          "servicetechniker-m-w-d-otis-nenzlingerweg-2"
-        ]
-      },
-      "previousSlugs": [
-        "servicetechniker-m-w-d-otis-sa-nenzlingerweg-2-2",
-        "servicetechniker-m-w-d-otis-nenzlingerweg-2"
-      ],
-      "salaryMin": 55500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 55500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "6500",
-      "firstSeenAt": "2026-04-13T11:05:10.090Z"
+      "postalCode": "6500"
     },
     {
       "id": "otis-e151ad3e9647",
@@ -1108,7 +1047,7 @@
       "postedDate": "2026-03-26",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Sandackerstrasse-26-9245-Oberburen/Aufzug-Monteur-Reparateur-Servicetechniker--m-w-d-_20122200",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-13T11:05:09.835Z",
+      "crawledAt": "2026-04-13T22:13:24.725Z",
       "previousSlugs": [
         "talent-community-st-gallen-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sandackerstrasse-26",
         "talent-community-st-gallen-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-sandackerstrasse-26"
@@ -1122,6 +1061,7 @@
           "talent-community-st-gallen-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sandackerstrasse-26"
         ]
       },
+      "firstSeenAt": "2026-04-13T11:05:09.835Z",
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1134,8 +1074,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6500",
-      "firstSeenAt": "2026-04-13T11:05:09.835Z"
+      "postalCode": "6500"
     },
     {
       "id": "otis-c5c5633da196",
@@ -1178,7 +1117,7 @@
       "postedDate": "2026-03-05",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Huhnerhubelstrasse-64-Postfach-123-3123-Belp/Aufzug-Monteur-Reparateur-Servicetechniker--m-w-d-_20122199",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-13T11:05:09.581Z",
+      "crawledAt": "2026-04-13T22:13:24.472Z",
       "previousSlugs": [
         "talent-community-bern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-postfach-123",
         "talent-community-bern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-postfach-123"
@@ -1192,6 +1131,8 @@
           "talent-community-bern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-postfach-123"
         ]
       },
+      "firstSeenAt": "2026-04-13T11:05:09.581Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1204,8 +1145,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6500",
-      "firstSeenAt": "2026-04-13T11:05:09.581Z"
+      "postalCode": "6500"
     },
     {
       "id": "otis-f459ef4aa687",
@@ -1248,7 +1188,7 @@
       "postedDate": "2026-04-13",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Bahnhofstrasse-3-Postfach-371-Dietlikon--ZH/Aufzug-Monteur-Reparateur-Servicetechniker--m-w-d-_20122198",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-13T11:05:09.305Z",
+      "crawledAt": "2026-04-13T22:13:24.205Z",
       "previousSlugs": [
         "talent-community-zurich-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-postfach-371",
         "talent-community-zurich-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-postfach-371"
@@ -1265,6 +1205,7 @@
           "talent-community-zurich-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-postfach-371"
         ]
       },
+      "firstSeenAt": "2026-04-13T11:05:09.305Z",
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1277,8 +1218,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6500",
-      "firstSeenAt": "2026-04-13T11:05:09.305Z"
+      "postalCode": "6500"
     },
     {
       "id": "otis-38c4a4ee7c00",
@@ -1321,7 +1261,7 @@
       "postedDate": "2026-02-10",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Triststrasse-8-7000-Chur/Aufzug-Monteur-Reparateur-Servicetechniker--m-w-d-_20122197",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-13T11:05:09.056Z",
+      "crawledAt": "2026-04-13T22:13:23.871Z",
       "previousSlugs": [
         "talent-community-chur-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-triststrasse-8"
       ],
@@ -1339,6 +1279,8 @@
           "talent-community-chur-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-triststrasse-8"
         ]
       },
+      "firstSeenAt": "2026-04-13T11:05:09.056Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1351,8 +1293,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6500",
-      "firstSeenAt": "2026-04-13T11:05:09.056Z"
+      "postalCode": "6500"
     },
     {
       "id": "otis-4759d5ee3c4a",
@@ -1395,7 +1336,7 @@
       "postedDate": "2026-03-18",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Kreuzstrasse-34-6010-Kriens/Aufzug-Monteur-Reparateur-Servicetechniker--m-w-d-_20122196",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-13T11:05:08.604Z",
+      "crawledAt": "2026-04-13T22:13:23.619Z",
       "previousSlugs": [
         "talent-community-luzern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-kreuzstrasse-34"
       ],
@@ -1413,6 +1354,7 @@
           "talent-community-luzern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-kreuzstrasse-34"
         ]
       },
+      "firstSeenAt": "2026-04-13T11:05:08.604Z",
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1425,8 +1367,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6500",
-      "firstSeenAt": "2026-04-13T11:05:08.604Z"
+      "postalCode": "6500"
     },
     {
       "id": "otis-8f950977a58b",
@@ -1469,7 +1410,7 @@
       "postedDate": "2026-03-25",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Nenzlingerweg-2-4153-Reinach/Aufzug-Monteur-Reparateur-Servicetechniker--m-w-d-_20122201",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-13T11:05:08.340Z",
+      "crawledAt": "2026-04-13T22:13:23.280Z",
       "previousSlugs": [
         "talent-community-basel-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-nenzlingerweg-2"
       ],
@@ -1487,6 +1428,7 @@
           "talent-community-basel-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-nenzlingerweg-2"
         ]
       },
+      "firstSeenAt": "2026-04-13T11:05:08.340Z",
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1499,8 +1441,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6500",
-      "firstSeenAt": "2026-04-13T11:05:08.340Z"
+      "postalCode": "6500"
     },
     {
       "id": "otis-1384f837d648",
@@ -1543,7 +1484,7 @@
       "postedDate": "2026-03-31",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Route-de-Moncor-12-CP-1136-1701-Fribourg/O-T-Sales-Lead-OA_20149659",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-13T11:05:08.066Z",
+      "crawledAt": "2026-04-13T22:13:22.930Z",
       "previousSlugs": [
         "o-t-sales-lead-oa-otis-cp-1136"
       ],
@@ -1552,6 +1493,7 @@
           "o-t-sales-lead-oa-otis-cp-1136"
         ]
       },
+      "firstSeenAt": "2026-04-13T11:05:08.066Z",
       "salaryMin": 98000,
       "salaryMax": 132000,
       "baseSalary": {
@@ -1564,8 +1506,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1136",
-      "firstSeenAt": "2026-04-13T11:05:08.066Z"
+      "postalCode": "1136"
     },
     {
       "id": "otis-40bff711697f",
@@ -1608,7 +1549,7 @@
       "postedDate": "2026-02-05",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Walenbchelstrasse-3-9000-St-Gallen-Switzerland/Aufzugsmonteur--m-w-d-_20152293",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-13T11:05:07.832Z",
+      "crawledAt": "2026-04-13T22:13:22.463Z",
       "previousSlugs": [
         "aufzugsmonteur-m-w-d-otis-sa-st-gallen",
         "aufzugsmonteur-m-w-d-otis-st-gallen"
@@ -1628,6 +1569,7 @@
           "aufzugsmonteur-m-w-d-otis-sa-st-gallen"
         ]
       },
+      "firstSeenAt": "2026-04-13T11:05:07.832Z",
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1640,40 +1582,37 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6500",
-      "firstSeenAt": "2026-04-13T11:05:07.832Z"
+      "postalCode": "6500"
     },
     {
       "id": "otis-0e254e01f3a1",
-      "slug": "hr-business-partner-switzerland-m-w-x-otis-cp-1136",
+      "slug": "hr-business-partner-svizzera-m-w-x-otis-sa-cp-1136",
       "slugByLocale": {
+        "it": "hr-business-partner-svizzera-m-w-x-otis-sa-cp-1136",
         "en": "hr-business-partner-switzerland-m-w-x-otis-cp-1136",
-        "it": "hr-business-partner-switzerland-m-w-x-otis-cp-1136",
         "de": "personalberatung-m-w-x-otis-sa-cp-1136",
-        "fr": "hr-business-partner-switzerland-m-w-x-otis-cp-1136"
+        "fr": "hr-business-partner-suisse-m-w-x-otis-sa-cp-1136"
       },
       "company": "Otis SA",
       "companyKey": "otis",
       "companyDomain": "otis.com",
       "title": "HR Business Partner Switzerland (m/w/x)",
       "titleByLocale": {
+        "it": "Risorse Umane Business Partner Switzerland (m/w/x)",
         "en": "HR Business Partner Switzerland (m/w/x)",
-        "it": "HR Business Partner Svizzera (m/w/x)",
         "de": "Personalberatung (m/w/x)",
         "fr": "HR Business Partner Suisse (m/w/x)"
       },
       "description": "Date Posted:\n2026-04-03Country: \nSwitzerlandLocation: \nRoute de Moncor 12, CP 1136, 1701 FribourgHR Business Partner Switzerland \n\nRole Context\nThe HR Business Partner develops and implements both long-term and short-term strategies that align structure, culture, and talent with business goals, providing individual support and coaching for the Swiss area.\nThey offer expertise and guidance in areas such as HR and business strategy alignment, organizational design, workforce planning, employee engagement, and culture and change management. The role fosters a positive and inclusive work environment as a competitive advantage.\n\nAmong the many topics over and above the already mentioned are:\nDevelop a people strategy aligned with global and regional strategies.\nCollaborate with business leadership on talent management, organizational design, strategic workforce planning, and culture development.\nPartner / Broker with HR COEs, functional HRBPs to ensure implementation of appropriate/ aligned strategies, programs & processes.\n\nPartnering with the COEs (Talent Acquisition, Talent Development, Change Management, Total Reward):       \nDevelop and implement strategies to attract, develop, and retain diverse talent.\nPersonal ownership for key HR metrics (recruitment, development, retention, etc.) for their client group, making deep dive to root cause and develop and execute appropriate countermeasures where needed.\nLead talent assessment in the organization, identifying key employee strengths and development needs to select, retain and develop key talent.\nLead succession planning and talent development strategies for the organization, identifying critical roles and preparing potential talent and pipelines.      \nDrive and sustain the key processes around engagement, from analysis, communication, feedback, and action planning.   \nLead client groups through critical HR operating rhythms such as merit & bonus planning, performance management and Talent Review.\nBeing the escalation point for complex case management and provides expert advice to managers on employee issues including discipline and grievance.\nWorks with leaders and managers to professionally execute corporate policies and HR programs ensuring appropriate and agreed levels of quality, delivery and cost.  \nPartner & manage local labor & employee relations ensuring legal compliance. \nServe as a member of the Swiss leadership team, the pension foundation board, and the works council.\n\nProfessional Experience / Qualification\nCo- create, implement, and execute programs to support the business & people strategy\nYou have a degree and / or the 'eidgenössische Fachausweis (FA) im Personalwesen/HR'  , having a strong knowledge of Swiss labor laws, regulations, and HR practices with a proven experience in Employee Relations, conflict resolution, or mediation and knowledge of collective bargaining law\nYou enjoy shaping change processes and feel comfortable in a matrix organization.\nYou can keep several balls in the air at the same time and don't let yourself get rattled.\nYou enjoy working with people and impress with your high level of social skills, team orientation and confident demeanor.\nYou are well-versed in MS Office 365 and have already worked with Workday.\nFluency in French as well as German are a prerequisite\nSince we work in an international environment, fluent written and spoken English is also mandatory\nYou have strong change management expertise and a solid understanding of business and financial topics.\n\nYou are open to travel across our Swiss sites to partner with in-country teams where needed.\n\nColleague Value Proposition\nWhen you join Otis, you become part of a respected team with a proven ability to develop, build and succeed for generations. You belong to a trusted, caring community where your contributions, and the skills and capabilities you’ll gain working alongside the best and brightest, will keep us connected and on the cutting edge. \nIf you live in a city, chances are we will give you a lift or play a role in keeping you moving every day. \n\nOtis is the world’s leading elevator and escalator manufacturing, installation, and service company. We move 2.4 billion people every day and maintain approximately 2.4 million customer units worldwide, the industry's largest Service portfolio.  \n\nYou may recognize our products in some of the world’s most famous landmarks including the Eiffel Tower, Empire State Building, Burj Khalifa and the Petronas Twin Towers! We are 72,000 people strong, including engineers, digital technology experts, sales, and functional specialists, as well as factory and field technicians, all committed to meeting the diverse needs of our customers and passengers in more than 200 countries and territories worldwide. We are proud to be a diverse, global team with a proven legacy of innovation that continues to be the bedrock of a fast-moving, high-performance company.  \n\nWhen you join Otis, you become part of an innovative global industry leader with a resilient business model. You’ll belong to a diverse, trusted, and caring community where your contributions, and the skills and capabilities you’ll gain working alongside the best and brightest, keep us connected and on the cutting edge.  \n\nWe provide opportunities, training, and resources, that build leadership and capabilities in Sales, Field, Engineering and Major Projects and our Employee Scholar Program is a notable point of pride, through which Otis sponsors colleagues to pursue degrees or certification programs.   \n\nToday, our focus more than ever is on people. As a global, people-powered company, we put people – passengers, customers, and colleagues – at the center of everything we do.  We are guided by our values that we call our Three Absolutes – prioritizing Safety, Ethics, Quality in all that we do. If you would like to learn more about environmental, social and governance (ESG) at Otis click here.  \n\nBecome a part of the Otis team and help us #Buildwhatsnext! \nOtis is An Equal Opportunity Employer. All qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, gender identity, national origin, disability or veteran status, age, or any other protected class according to applicable law. To request an accommodation in completing an employment application due to a special need or a disability, please contact us at careers@otis.com.\n\nPrivacy Policy and Terms:\nClick on this link to read the Policy and Terms",
       "descriptionByLocale": {
-        "en": "Date Posted:\n2026-04-03Country:\nSwitzerlandLocation:\nRoute de Moncor 12, CP 1136, 1701 FribourgHR Business Partner Switzerland\n\nRole Context\nThe HR Business Partner develops and implements both long-term and short-term strategies that align structure, culture, and talent with business goals, providing individual support and coaching for the Swiss area.\nThey offer expertise and guidance in areas such as HR and business strategy alignment, organizational design, workforce planning, employee engagement, and culture and change management. The role fosters a positive and inclusive work environment as a competitive advantage.\n\nAmong the many topics over and above the already mentioned are:\nDevelop a people strategy aligned with global and regional strategies.\nCollaborate with business leadership on talent management, organizational design, strategic workforce planning, and culture development.\nPartner / Broker with HR COEs, functional HRBPs to ensure implementation of appropriate/ aligned strategies, programs & processes.\n\nPartnering with the COEs (Talent Acquisition, Talent Development, Change Management, Total Reward):\nDevelop and implement strategies to attract, develop, and retain diverse talent.\nPersonal ownership for key HR metrics (recruitment, development, retention, etc.) for their client group, making deep dive to root cause and develop and execute appropriate countermeasures where needed.\nLead talent assessment in the organization, identifying key employee strengths and development needs to select, retain and develop key talent.\nLead succession planning and talent development strategies for the organization, identifying critical roles and preparing potential talent and pipelines.\nDrive and sustain the key processes around engagement, from analysis, communication, feedback, and action planning.\nLead client groups through critical HR operating rhythms such as merit & bonus planning, performance management and Talent Review.\nBeing the escalation point for complex case management and provides expert advice to managers on employee issues including discipline and grievance.\nWorks with leaders and managers to professionally execute corporate policies and HR programs ensuring appropriate and agreed levels of quality, delivery and cost.\nPartner & manage local labor & employee relations ensuring legal compliance.\nServe as a member of the Swiss leadership team, the pension foundation board, and the works council.\n\nProfessional Experience / Qualification\nCo- create, implement, and execute programs to support the business & people strategy\nYou have a degree and / or the 'eidgenössische Fachausweis (FA) im Personalwesen/HR'  , having a strong knowledge of Swiss labor laws, regulations, and HR practices with a proven experience in Employee Relations, conflict resolution, or mediation and knowledge of collective bargaining law\nYou enjoy shaping change processes and feel comfortable in a matrix organization.\nYou can keep several balls in the air at the same time and don't let yourself get rattled.\nYou enjoy working with people and impress with your high level of social skills, team orientation and confident demeanor.\nYou are well-versed in MS Office 365 and have already worked with Workday.\nFluency in French as well as German are a prerequisite\nSince we work in an international environment, fluent written and spoken English is also mandatory\nYou have strong change management expertise and a solid understanding of business and financial topics.\n\nYou are open to travel across our Swiss sites to partner with in-country teams where needed.\n\nColleague Value Proposition\nWhen you join Otis, you become part of a respected team with a proven ability to develop, build and succeed for generations. You belong to a trusted, caring community where your contributions, and the skills and capabilities you’ll gain working alongside the best and brightest, will keep us connected and on the cutting edge.\nIf you live in a city, chances are we will give you a lift or play a role in keeping you moving every day.\n\nOtis is the world’s leading elevator and escalator manufacturing, installation, and service company. We move 2.4 billion people every day and maintain approximately 2.4 million customer units worldwide, the industry's largest Service portfolio.\n\nYou may recognize our products in some of the world’s most famous landmarks including the Eiffel Tower, Empire State Building, Burj Khalifa and the Petronas Twin Towers! We are 72,000 people strong, including engineers, digital technology experts, sales, and functional specialists, as well as factory and field technicians, all committed to meeting the diverse needs of our customers and passengers in more than 200 countries and territories worldwide. We are proud to be a diverse, global team with a proven legacy of innovation that continues to be the bedrock of a fast-moving, high-performance company.\n\nWhen you join Otis, you become part of an innovative global industry leader with a resilient business model. You’ll belong to a diverse, trusted, and caring community where your contributions, and the skills and capabilities you’ll gain working alongside the best and brightest, keep us connected and on the cutting edge. \n\nWe provide opportunities, training, and resources, that build leadership and capabilities in Sales, Field, Engineering and Major Projects and our Employee Scholar Program is a notable point of pride, through which Otis sponsors colleagues to pursue degrees or certification programs.\n\nToday, our focus more than ever is on people. As a global, people-powered company, we put people – passengers, customers, and colleagues – at the center of everything we do.  We are guided by our values that we call our Three Absolutes – prioritizing Safety, Ethics, Quality in all that we do. If you would like to learn more about environmental, social and governance (ESG) at Otis click here.\n\nBecome a part of the Otis team and help us #Buildwhatsnext!\nOtis is An Equal Opportunity Employer. All qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, gender identity, national origin, disability or veteran status, age, or any other protected class according to applicable law. To request an accommodation in completing an employment application due to a special need or a disability, please contact us at careers@otis.com.\n\nPrivacy Policy and Terms:\nClick on this link to read the Policy and Terms",
         "it": "Data Pubblicato: 2026-04-03 Paese: SvizzeraLocazione: Route de Moncor 12, CP 1136, 1701 FribourgHR Business Partner Svizzera Role Context Il HR Business Partner sviluppa e implementa sia strategie a lungo termine che a breve termine che allineano struttura, cultura e talento con obiettivi aziendali, fornendo supporto individuale e coaching per l'area svizzera. Essi offrono competenze e guida in settori come HR e allineamento strategia aziendale, progettazione organizzativa, pianificazione della forza lavoro, coinvolgimento dei dipendenti, e la cultura e gestione dei cambiamenti. Il ruolo favorisce un ambiente di lavoro positivo e inclusivo come vantaggio competitivo. Tra i molti argomenti sopra e sopra i già citati ci sono: Sviluppare una strategia delle persone allineata alle strategie globali e regionali. Collabora con la leadership aziendale sulla gestione del talento, il design organizzativo, la pianificazione strategica della forza lavoro e lo sviluppo della cultura. Partner / Broker con HR COEs, HRBP funzionali per garantire l'implementazione di strategie, programmi e processi appropriati/allineati. Partner con i COEs (Talent Acquisition, Talent Development, Change Management, Total Reward): Sviluppare e implementare strategie per attrarre, sviluppare e mantenere diversi talenti. Proprietà personale per le metriche chiave delle risorse umane (reclutamento, sviluppo, ritenzione, ecc.) per il loro gruppo cliente, facendo immersioni profonde alla causa radice e sviluppare ed eseguire contromisure appropriate, se necessario. La valutazione del talento di piombo nell'organizzazione, identificare i punti di forza e lo sviluppo dei dipendenti chiave deve selezionare, conservare e sviluppare talento chiave. Guidare la pianificazione di successione e strategie di sviluppo di talenti per l'organizzazione, identificare ruoli critici e preparare potenziali talenti e pipeline. Guidare e sostenere i processi chiave intorno al coinvolgimento, da analisi, comunicazione, feedback e pianificazione dell'azione. Condurre gruppi client attraverso ritmi operativi HR critici come la pianificazione del merito e del bonus, la gestione delle prestazioni e la recensione Talent. Essendo il punto di escalation per la gestione complessa dei casi e fornisce consulenza esperta ai manager sulle questioni dei dipendenti, tra cui disciplina e lutto. Lavora con leader e manager per eseguire professionalmente politiche aziendali e programmi HR garantendo livelli adeguati e concordati di qualità, consegna e costi. Partner & gestire i rapporti tra lavoro e dipendenti locali garantendo la conformità legale. Servire come membro del team di leadership svizzero, il consiglio di fondazione pensione e il consiglio di lavoro. Esperienza professionale / Qualificazione Co- creare, implementare ed eseguire i programmi per sostenere la strategia aziendale & persone Hai una laurea e / o l' 'eidgenössische Fachausweis (FA) im Personalwesen/HR', avendo una forte conoscenza delle leggi, regolamenti e pratiche HR svizzere con una comprovata esperienza in Relazioni con i dipendenti, risoluzione dei conflitti, o la mediazione e la conoscenza della legge di contrattazione collettiva Ti piace modellare processi di cambiamento e sentirsi a proprio agio in un'organizzazione di matrice. Puoi tenere diverse palle nell'aria allo stesso tempo e non farti innervosire. Ti piace lavorare con le persone e impressionare con il tuo alto livello di competenze sociali, orientamento di squadra e demeanor sicuro. Sei ben diversificato in MS Office 365 e hai già lavorato con Workday. La fluenza in francese e in tedesco sono un prerequisito Dal momento che lavoriamo in un ambiente internazionale, fluente scritto e parlato inglese è anche obbligatorio Hai una forte esperienza nella gestione dei cambiamenti e una solida comprensione degli argomenti aziendali e finanziari. Sei aperto a viaggiare attraverso i nostri siti svizzeri per collaborare con i team di paesi dove necessario. Proposizione del valore di Colleague Quando ti unisci a Otis, diventi parte di un team rispettato con una comprovata capacità di sviluppare, costruire e avere successo per generazioni. Appartenete a una comunità di fiducia e cura dove i vostri contributi, e le competenze e le capacità che otterrete lavorare insieme al migliore e più luminoso, ci terranno collegati e sul bordo superiore. Se vivete in una città, è probabile che vi daremo un ascensore o un ruolo nel tenervi in movimento ogni giorno. Otis è l'azienda leader mondiale nella produzione, installazione e servizio di ascensore e scale mobili. Ci muoviamo 2,4 miliardi di persone ogni giorno e manteniamo circa 2,4 milioni di unità clienti in tutto il mondo, il più grande portafoglio di servizi del settore. Potete riconoscere i nostri prodotti in alcuni dei punti di riferimento più famosi del mondo, tra cui la Torre Eiffel, l'Empire State Building, Burj Khalifa e le Petronas Twin Towers! Siamo 72,000 persone forti, tra cui ingegneri, esperti di tecnologia digitale, vendite e specialisti funzionali, nonché tecnici di fabbrica e campo, tutti impegnati a soddisfare le diverse esigenze dei nostri clienti e passeggeri in oltre 200 paesi e territori in tutto il mondo. Siamo orgogliosi di essere un team diversificato e globale con una comprovata eredità di innovazione che continua ad essere la base di una società veloce e performante. Quando ti unisci a Otis, diventi parte di un innovativo leader mondiale nel settore con un modello di business resiliente. Appartenerai a una comunità diversificata, affidabile e premurosa dove i tuoi contributi, e le competenze e le capacità che otterrai lavorare insieme al meglio e più luminoso, ci tengono connessi e all'avanguardia. Forniamo opportunità, formazione e risorse, che costruiscono leadership e capacità in Vendite, Field, Ingegneria e Progetti Maggiori e il nostro programma di studio dei dipendenti è un punto di orgoglio notevole, attraverso il quale Otis sponsorizza i colleghi a perseguire gradi o programmi di certificazione. Oggi, il nostro focus più che mai è sulle persone. Come azienda globale, alimentata da persone, mettiamo persone – passeggeri, clienti e colleghi – al centro di tutto ciò che facciamo. Siamo guidati dai nostri valori che chiamiamo i nostri Tre Assoluti – privilegiando Sicurezza, Etica, Qualità in tutto ciò che facciamo. Se volete saperne di più su ambiente, sociale e governance (ESG) a Otis clicca qui. Diventa parte della squadra Otis e aiutaci #Buildwhatsnext! Otis è un dipendente di pari opportunità. Tutti i candidati qualificati riceveranno considerazione per l'occupazione senza riguardo a razza, colore, religione, sesso, orientamento sessuale, identità di genere, origine nazionale, disabilità o status veterano, età, o qualsiasi altra classe protetta secondo la legge applicabile. Per richiedere un alloggio nel completamento di una domanda di lavoro a causa di una necessità speciale o di una disabilità, si prega di contattarci a careers@otis.com. e Termini: Clicca su questo link per leggere la Politica e i Termini",
+        "en": "Date Posted: 2026-04-03Country: SwitzerlandLocation: Route de Moncor 12, CP 1136, 1701 FribourgHR Business Partner Switzerland Role Context The HR Business Partner develops and implements both long-term and short-term strategies that align structure, culture, and talent with business goals, providing individual support and coaching for the Swiss area. They offer expertise and guidance in areas such as HR and business strategy alignment, organizational design, workforce planning, employee engagement, and culture and change management. The role fosters a positive and inclusive work environment as a competitive advantage. Among the many topics over and above the already mentioned are: Develop a people strategy aligned with global and regional strategies. Collaborate with business leadership on talent management, organizational design, strategic workforce planning, and culture development. Partner / Broker with HR COEs, functional HRBPs to ensure implementation of appropriate/ aligned strategies, programs & processes. Partnering with the COEs (Talent Acquisition, Talent Development, Change Management, Total Reward): Develop and implement strategies to attract, develop, and retain diverse talent. Personal ownership for key HR metrics (recruitment, development, retention, etc.) for their client group, making deep dive to root cause and develop and execute appropriate countermeasures where needed. Lead talent assessment in the organization, identifying key employee strengths and development needs to select, retain and develop key talent. Lead succession planning and talent development strategies for the organization, identifying critical roles and preparing potential talent and pipelines. Drive and sustain the key processes around engagement, from analysis, communication, feedback, and action planning. Lead client groups through critical HR operating rhythms such as merit & bonus planning, performance management and Talent Review. Being the escalation point for complex case management and provides expert advice to managers on employee issues including discipline and grievance. Works with leaders and managers to professionally execute corporate policies and HR programs ensuring appropriate and agreed levels of quality, delivery and cost. Partner & manage local labor & employee relations ensuring legal compliance. Serve as a member of the Swiss leadership team, the pension foundation board, and the works council. Professional Experience / Qualification Co- create, implement, and execute programs to support the business & people strategy You have a degree and / or the 'eidgenössische Fachausweis (FA) im Personalwesen/HR' , having a strong knowledge of Swiss labor laws, regulations, and HR practices with a proven experience in Employee Relations, conflict resolution, or mediation and knowledge of collective bargaining law You enjoy shaping change processes and feel comfortable in a matrix organization. You can keep several balls in the air at the same time and don't let yourself get rattled. You enjoy working with people and impress with your high level of social skills, team orientation and confident demeanor. You are well-versed in MS Office 365 and have already worked with Workday. Fluency in French as well as German are a prerequisite Since we work in an international environment, fluent written and spoken English is also mandatory You have strong change management expertise and a solid understanding of business and financial topics. You are open to travel across our Swiss sites to partner with in-country teams where needed. Colleague Value Proposition When you join Otis, you become part of a respected team with a proven ability to develop, build and succeed for generations. You belong to a trusted, caring community where your contributions, and the skills and capabilities you’ll gain working alongside the best and brightest, will keep us connected and on the cutting edge. If you live in a city, chances are we will give you a lift or play a role in keeping you moving every day. Otis is the world’s leading elevator and escalator manufacturing, installation, and service company. We move 2.4 billion people every day and maintain approximately 2.4 million customer units worldwide, the industry's largest Service portfolio. You may recognize our products in some of the world’s most famous landmarks including the Eiffel Tower, Empire State Building, Burj Khalifa and the Petronas Twin Towers! We are 72,000 people strong, including engineers, digital technology experts, sales, and functional specialists, as well as factory and field technicians, all committed to meeting the diverse needs of our customers and passengers in more than 200 countries and territories worldwide. We are proud to be a diverse, global team with a proven legacy of innovation that continues to be the bedrock of a fast-moving, high-performance company. When you join Otis, you become part of an innovative global industry leader with a resilient business model. You’ll belong to a diverse, trusted, and caring community where your contributions, and the skills and capabilities you’ll gain working alongside the best and brightest, keep us connected and on the cutting edge. We provide opportunities, training, and resources, that build leadership and capabilities in Sales, Field, Engineering and Major Projects and our Employee Scholar Program is a notable point of pride, through which Otis sponsors colleagues to pursue degrees or certification programs. Today, our focus more than ever is on people. As a global, people-powered company, we put people – passengers, customers, and colleagues – at the center of everything we do. We are guided by our values that we call our Three Absolutes – prioritizing Safety, Ethics, Quality in all that we do. If you would like to learn more about environmental, social and governance (ESG) at Otis click here. Become a part of the Otis team and help us #Buildwhatsnext! Otis is An Equal Opportunity Employer. All qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, gender identity, national origin, disability or veteran status, age, or any other protected class according to applicable law. To request an accommodation in completing an employment application due to a special need or a disability, please contact us at careers@otis.com. Privacy Policy and Terms: Click on this link to read the Policy and Terms",
         "de": "Datum Veröffentlicht: 2026-04-03 Land: SchweizLage: Route de Moncor 12, CP 1136, 1701 FribourgHR Business Partner Schweiz Der HR Business Partner entwickelt und implementiert sowohl langfristige als auch kurzfristige Strategien, die Struktur, Kultur und Talent mit Geschäftszielen ausrichten und individuelle Unterstützung und Coaching für den Schweizer Raum bieten. Sie bieten Know-how und Beratung in Bereichen wie HR und Business-Strategie Ausrichtung, Organisationsdesign, Personalplanung, Mitarbeiterengagement und Kultur und Change Management. Die Rolle fördert ein positives und inklusives Arbeitsumfeld als Wettbewerbsvorteil. Unter den vielen Themen über und über den bereits erwähnten sind: Entwickeln Sie eine menschenorientierte Strategie, die mit globalen und regionalen Strategien zusammenhängt. Zusammenarbeit mit der Unternehmensführung über Talentmanagement, Organisationsdesign, strategische Personalplanung und Kulturentwicklung. Partner / Broker mit HR COEs, funktionelle HRBPs, um die Umsetzung angemessener/ ausgerichteter Strategien, Programme & Prozesse zu gewährleisten. Partnerschaft mit den COEs (Talent Acquisition, Talent Development, Change Management, Total Reward): Entwicklung und Umsetzung von Strategien, um vielfältige Talente zu gewinnen, zu entwickeln und zu erhalten. Persönliches Eigentum an Schlüssel-Engagement-Metriken (Rekrutierung, Entwicklung, Retention, etc.) für ihre Kundengruppe, so dass tiefe Tauchgänge zu Wurzel Ursache und Entwicklung und Durchführung angemessener Gegenmaßnahmen bei Bedarf. Führen Sie Talentbewertung in der Organisation, die Identifizierung von Schlüsselkräften und Entwicklung muss Schlüsseltalent auswählen, behalten und entwickeln. Führen Sie nacheinander Planungs- und Talententwicklungsstrategien für die Organisation, identifizieren kritische Rollen und die Vorbereitung potenzieller Talente und Pipelines. Führen und unterstützen Sie die wichtigsten Prozesse rund um das Engagement, von der Analyse, Kommunikation, Feedback und Aktionsplanung. Führen Sie Kundengruppen durch kritische HR-Betriebsrhythmen wie Verdienste & Bonusplanung, Leistungsmanagement und Talent Review. Als Eskalationspunkt für komplexes Fallmanagement und bietet den Managern kompetente Beratung zu Mitarbeiterfragen einschließlich Disziplin und Traurigkeit. Arbeitet mit Führungskräften und Managern, um professionell Corporate Policys und HR-Programme durchzuführen, die ein angemessenes und vereinbartes Maß an Qualität, Lieferung und Kosten gewährleisten. Partner & Management lokaler Arbeits- & Mitarbeiter-Beziehungen für die rechtliche Einhaltung. Servieren Sie als Mitglied des Schweizer Führungsteams, des Pensionsfonds und des Betriebsrates. Professional Experience / Qualification Co- erstellen, implementieren und Programme ausführen, um die Geschäfts- und Personenstrategie zu unterstützen Sie haben einen Abschluss und / oder die 'eidgenössische Fachausweis (FA) im Personalwesen/HR', mit einer starken Kenntnis der schweizerischen Arbeitsgesetze, Regelungen und HR-Praktiken mit einer nachgewiesenen Erfahrung in Arbeitsbeziehungen, Konfliktlösung oder Vermittlung und Kenntnis des kollektiven Verhandlungsrechts Sie genießen die Gestaltung von Wechselprozessen und fühlen sich in einer Matrixorganisation wohl. Sie können mehrere Kugeln in der Luft gleichzeitig halten und lassen Sie sich nicht verraten. Sie genießen die Arbeit mit Menschen und beeindrucken mit Ihrem hohen Niveau an sozialen Fähigkeiten, Teamorientierung und zuversichtlichen Demeanor. Sie sind gut besucht in MS Office 365 und haben bereits mit Workday gearbeitet. Fazit in Französisch und Deutsch sind Voraussetzung Da wir in einem internationalen Umfeld arbeiten, ist fließendes schriftliches und gesprochenes Englisch auch obligatorisch Sie verfügen über ein starkes Change Management-Know-how und ein solides Verständnis von Geschäfts- und Finanzthemen. Sie sind offen, um über unsere Schweizer Standorte zu reisen, um bei Bedarf mit Teams in den Ländern zusammenzuarbeiten. Colleague Value Proposition Wenn Sie Otis beitreten, werden Sie Teil eines angesehenen Teams mit einer bewährten Fähigkeit, für Generationen zu entwickeln, zu bauen und erfolgreich zu sein. Sie gehören zu einer vertrauenswürdigen, pflegenden Gemeinschaft, wo Ihre Beiträge, und die Fähigkeiten und Fähigkeiten, die Sie zusammen mit den besten und hellsten, werden uns verbunden und an der Spitze. Wenn Sie in einer Stadt leben, werden wir Ihnen einen Aufzug geben oder eine Rolle spielen, wenn Sie sich jeden Tag bewegen. Otis ist das weltweit führende Aufzug- und Eskalator-Produktions-, Installations- und Serviceunternehmen. Wir bewegen 2,4 Milliarden Menschen jeden Tag und halten rund 2,4 Millionen Kundeneinheiten weltweit, das größte Service-Portfolio der Branche. Sie können unsere Produkte in einigen der berühmtesten Wahrzeichen der Welt erkennen, darunter der Eiffelturm, Empire State Building, Burj Khalifa und die Petronas Twin Towers! Wir sind 72.000 Menschen stark, darunter Ingenieure, Digitaltechnik-Experten, Vertrieb und funktionelle Spezialisten, sowie Fabrik- und Feldtechniker, alle verpflichtet, die vielfältigen Bedürfnisse unserer Kunden und Passagiere in mehr als 200 Ländern und Gebieten weltweit zu erfüllen. Wir sind stolz darauf, ein vielfältiges, globales Team mit einem bewährten Innovationsvermächtnis zu sein, das weiterhin das Fundament eines schnelllebigen, leistungsstarken Unternehmens ist. Wenn Sie Otis beitreten, werden Sie Teil eines innovativen globalen Branchenführers mit einem elastischen Geschäftsmodell. Sie gehören zu einer vielfältigen, vertrauenswürdigen und pflegenden Gemeinschaft, wo Ihre Beiträge, und die Fähigkeiten und Fähigkeiten, die Sie zusammen mit den besten und hellsten, halten Sie uns verbunden und an der Spitze. Wir bieten Möglichkeiten, Schulungen und Ressourcen, die Führung und Fähigkeiten in Sales, Field, Engineering und Major Projects bauen und unser Employee Scholar Program ist ein bemerkenswerter Punkt des Stolzes, durch den Otis Kollegen fördert Grad oder Zertifizierungsprogramme zu verfolgen. Heute steht unser Fokus mehr denn je auf Menschen. Als globales, menschenbewährtes Unternehmen stellen wir Menschen – Passagiere, Kunden und Kollegen – im Zentrum von allem, was wir tun. Wir werden von unseren Werten geleitet, die wir unsere Drei Absoluten nennen – die Priorisierung von Sicherheit, Ethik, Qualität in allem, was wir tun. Wenn Sie mehr über Umwelt, soziale und Governance (ESG) bei Otis erfahren möchten, klicken Sie bitte hier. Werden Sie Teil des Otis Teams und helfen Sie uns #Buildwhatsnext! Otis ist ein Arbeitgeber der Chancengleichheit. Alle qualifizierten Bewerber erhalten eine Berücksichtigung für die Beschäftigung ohne Bezug auf Rasse, Farbe, Religion, Sex, sexuelle Orientierung, Geschlechtsidentität, nationale Herkunft, Behinderung oder veteranen Status, Alter oder jede andere geschützte Klasse nach geltendem Recht. Um eine Unterkunft bei der Beendigung einer Bewerbung aufgrund eines besonderen Bedarfs oder einer Behinderung anzufordern, kontaktieren Sie uns bitte unter careers@otis.com. und Bedingungen: Klicken Sie auf diesen Link, um die Richtlinien und Bedingungen zu lesen",
         "fr": "Date d'affichage: 2026-04-03 Pays: SuisseEmplacement: Route de Moncor 12, CP 1136, 1701 FribourgHR Business Partner Suisse Rôle Contexte Le partenaire d'affaires RH élabore et met en œuvre des stratégies à long terme et à court terme qui harmonisent la structure, la culture et les talents avec les objectifs d'affaires, fournissant un soutien individuel et un encadrement pour la région suisse. Ils offrent une expertise et des conseils dans des domaines comme l'harmonisation des RH et des stratégies opérationnelles, la conception organisationnelle, la planification de l'effectif, l'engagement des employés et la gestion de la culture et du changement. Ce rôle favorise un environnement de travail positif et inclusif en tant qu'avantage concurrentiel. Parmi les nombreux sujets déjà mentionnés, mentionnons : Élaborer une stratégie en faveur des personnes alignée sur les stratégies mondiales et régionales. Collaborer avec le leadership des entreprises en matière de gestion des talents, de conception organisationnelle, de planification stratégique de la main-d'oeuvre et de développement culturel. Partenaire / courtier avec les PE des RH, les PERH fonctionnelles pour assurer la mise en oeuvre de stratégies, de programmes et de processus appropriés et alignés. Partenariat avec les PE (acquisition de talents, développement de talents, gestion du changement, récompense totale) : Élaborer et mettre en oeuvre des stratégies pour attirer, développer et retenir des talents diversifiés. La propriété personnelle des principales mesures des RH (recrutement, perfectionnement, rétention, etc.) pour leur groupe client, faisant une plongée profonde à la cause profonde et élaborer et exécuter des contre-mesures appropriées au besoin. Diriger l'évaluation des talents au sein de l'organisation, en déterminant les forces clés des employés et les besoins de perfectionnement pour sélectionner, conserver et développer les talents clés. Diriger les stratégies de planification de la relève et de développement des talents pour l'organisation, déterminer les rôles critiques et préparer les talents et les pipelines potentiels. Diriger et soutenir les processus clés entourant l'engagement, depuis l'analyse, la communication, la rétroaction et la planification d'action. Diriger les groupes de clients grâce à des rythmes opérationnels critiques comme la planification du mérite et des bonus, la gestion du rendement et l'examen des talents. Être le point d'escalade de la gestion complexe des cas et fournir des conseils spécialisés aux gestionnaires sur les questions touchant les employés, y compris la discipline et les griefs. Collaborer avec les dirigeants et les gestionnaires à l'exécution professionnelle des politiques ministérielles et des programmes de RH en assurant des niveaux de qualité, de prestation et de coûts appropriés et convenus. Partenaire et gestion des relations de travail et des relations de travail locales assurant la conformité juridique. Servir en tant que membre de l'équipe de direction suisse, du conseil de fondation des pensions et du comité d'entreprise. Expérience professionnelle / Qualification Co-créer, mettre en œuvre et exécuter des programmes pour soutenir la stratégie des entreprises et des personnes Vous avez un diplôme et/ou le 'eidgenössische Fachausweis (FA) im Personalwesen/HR' , ayant une solide connaissance des lois, règlements et pratiques du travail suisses avec une expérience prouvée en relations de travail, résolution de conflits, ou la médiation et la connaissance du droit de négociation collective Vous aimez façonner les processus de changement et vous sentir à l'aise dans une organisation matricielle. Vous pouvez garder plusieurs boules dans l'air en même temps et ne vous laissez pas rater. Vous aimez travailler avec les gens et impressionner avec votre niveau élevé de compétences sociales, d'orientation d'équipe et de comportement confiant. Vous êtes bien placé dans MS Office 365 et avez déjà travaillé avec Workday. La maîtrise du français et de l'allemand est une condition préalable puisque nous travaillons dans un environnement international, l'anglais couramment écrit et parlé est également obligatoire. Vous disposez d'une solide expertise en gestion du changement et d'une solide compréhension des questions commerciales et financières. Vous êtes ouvert à voyager à travers nos sites suisses pour vous associer à des équipes dans le pays au besoin. Proposition de valeur collective Lorsque vous rejoignez Otis, vous devenez membre d'une équipe respectée avec une capacité éprouvée de développer, construire et réussir pendant des générations. Vous appartenez à une communauté de confiance et bienveillante où vos contributions, et les compétences et les capacités que vous gagnerez à travailler avec les meilleurs et les plus brillants, nous garderont connectés et à la fine pointe. Si vous vivez dans une ville, il est probable que nous vous donnerons un ascenseur ou jouerons un rôle en vous faisant bouger chaque jour. Otis est le leader mondial de la fabrication, de l'installation et du service d'ascenseur et d'escalator. Nous déplaçons 2,4 milliards de personnes chaque jour et entretenons environ 2,4 millions d'unités clientes dans le monde, le plus important portefeuille de services de l'industrie. Vous pouvez reconnaître nos produits dans certains des monuments les plus célèbres du monde, dont la Tour Eiffel, l'Empire State Building, Burj Khalifa et les tours jumelles Petronas ! Nous sommes 72.000 personnes fortes, y compris des ingénieurs, des experts en technologie numérique, des vendeurs et des spécialistes fonctionnels, ainsi que des techniciens d'usine et de terrain, tous engagés à répondre aux divers besoins de nos clients et passagers dans plus de 200 pays et territoires dans le monde. Nous sommes fiers d'être une équipe diversifiée et mondiale avec un héritage d'innovation prouvé qui continue d'être le fondement d'une entreprise rapide et performante. Lorsque vous rejoignez Otis, vous devenez membre d'un leader industriel mondial innovant avec un modèle d'affaires résilient. Vous appartenez à une communauté diversifiée, digne de confiance et bienveillante où vos contributions, ainsi que les compétences et les capacités que vous gagnerez à travailler avec les meilleurs et les plus brillants, nous garder connectés et à la fine pointe. Nous offrons des occasions, de la formation et des ressources qui renforcent le leadership et les capacités dans les domaines des ventes, du terrain, de l'ingénierie et des grands projets ainsi que dans le cadre de notre Programme de chercheurs employés est un point de fierté remarquable, grâce auquel Otis parraine des collègues pour poursuivre des programmes de diplômes ou de certification. Aujourd'hui, nous nous concentrons plus que jamais sur les gens. En tant qu'entreprise mondiale à puissance humaine, nous mettons les gens – passagers, clients et collègues – au centre de tout ce que nous faisons. Nous sommes guidés par nos valeurs que nous appelons nos Trois Absolus – prioriser la sécurité, l'éthique, la qualité dans tout ce que nous faisons. Si vous souhaitez en savoir plus sur l'environnement, la société et la gouvernance (ESG) à Otis cliquez ici. Devenez membre de l'équipe Otis et aidez-nous #Construire quois suivant! Otis est un employeur à égalité de chances. Tous les candidats qualifiés seront considérés pour un emploi sans égard à la race, la couleur, la religion, le sexe, l'orientation sexuelle, l'identité de genre, l'origine nationale, le handicap ou le statut d'ancien combattant, l'âge, ou toute autre catégorie protégée selon la loi applicable. Pour demander un logement dans une demande d'emploi en raison d'un besoin spécial ou d'un handicap, veuillez nous contacter à carriers@otis.com. et Termes: Cliquez sur ce lien pour lire la Politique et Termes"
       },
       "sourceLang": "en",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
+      "requirementsByLocale": {},
       "location": "CP 1136",
       "canton": "TI",
       "addressLocality": "CP 1136",
@@ -1686,7 +1625,19 @@
       "postedDate": "2026-04-13",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Route-de-Moncor-12-CP-1136-1701-Fribourg/HR-Business-Partner-Switzerland--m-w-x-_20156900",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-13T11:05:07.469Z",
+      "crawledAt": "2026-04-13T22:13:22.185Z",
+      "firstSeenAt": "2026-04-13T11:05:07.469Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-business-partner-switzerland-m-w-x-otis-cp-1136"
+        ],
+        "fr": [
+          "hr-business-partner-switzerland-m-w-x-otis-cp-1136"
+        ]
+      },
+      "previousSlugs": [
+        "hr-business-partner-switzerland-m-w-x-otis-cp-1136"
+      ],
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1699,8 +1650,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1136",
-      "firstSeenAt": "2026-04-13T11:05:07.469Z"
+      "postalCode": "1136"
     }
   ]
 }
