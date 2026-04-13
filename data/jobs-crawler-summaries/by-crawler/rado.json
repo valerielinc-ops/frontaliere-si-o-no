@@ -1,16 +1,16 @@
 {
   "key": "rado",
   "label": "rado",
-  "generatedAt": "2026-04-13T11:22:46.317Z",
+  "generatedAt": "2026-04-13T22:30:52.918Z",
   "total": 1,
   "newCount": 1,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 31405,
-  "avgDurationMs": 31405,
+  "durationMs": 30084,
+  "avgDurationMs": 30084,
   "durationHistory": [
-    31405
+    30084
   ],
   "newJobs": [
     {
@@ -39,6 +39,7 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-09T10:09:40.501Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
