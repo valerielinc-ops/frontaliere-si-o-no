@@ -9,7 +9,7 @@
  *   Description in HTML, apply link via SmartRecruiters
  */
 
-import { isTicinoRelevant, isGrigioniRelevant, isTargetSwissLocation } from './target-swiss-locations.mjs';
+import { isTicinoRelevant, isGrigioniRelevant, isTargetSwissLocation, inferAnyCanton } from './target-swiss-locations.mjs';
 
 const BASE_URL = 'https://afry.com';
 
@@ -240,7 +240,7 @@ export function inferAfryCanton(job = {}) {
   const combined = `${location} ${cities.join(' ')}`.toLowerCase();
 
   if (/chur|coira|grigioni|graubünden|graubunden|poschiavo|bregaglia|mesolcina|calanca/i.test(combined)) return 'GR';
-  return 'TI';
+  return inferAnyCanton(combined) || 'TI';
 }
 
 /**

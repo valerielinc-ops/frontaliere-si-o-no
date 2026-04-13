@@ -12,6 +12,7 @@ import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawl
 import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, deriveLocalizedSlug, mergePreserveLocaleData } from './lib/dedicated-crawler-common.mjs';
+import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { fetchHilconaJobUrls, fetchHilconaDetailPage, slugify, inferEmploymentType } from './lib/hilcona-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -70,7 +71,7 @@ async function main() {
       title: raw.title, titleByLocale: { de: raw.title },
       description, descriptionByLocale: { de: description },
       requirements: [], requirementsByLocale: { de: [] },
-      location: loc, canton: 'GR',
+      location: loc, canton: inferAnyCanton(loc) || 'GR',
       addressLocality: loc, addressCountry: 'CH',
       category: 'manufacturing', contract: detail.contractType || 'full-time',
       employmentType: inferEmploymentType(raw.title, description, detail.pensum),

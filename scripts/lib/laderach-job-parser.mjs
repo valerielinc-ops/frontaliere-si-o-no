@@ -6,6 +6,8 @@
  * Detail pages also use __NEXT_DATA__ for metadata + JSON-LD for the description.
  */
 
+import { inferAnyCanton } from './target-swiss-locations.mjs';
+
 const CAREERS_URL = 'https://laderach.career.softgarden.de/jobs/';
 const CAREERS_BASE = 'https://laderach.career.softgarden.de';
 const UA = 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
@@ -100,7 +102,7 @@ export function parseLaderachNextDataJobs(jobs) {
       title: String(item.title).trim(),
       url: url.startsWith('http') ? url : `${CAREERS_BASE}${url}`,
       location: String(item.location || 'Ennenda').trim(),
-      canton: 'GL',
+      canton: inferAnyCanton(String(item.location || 'Ennenda')) || 'GL',
       department: '',
     });
   }
@@ -139,7 +141,7 @@ function parseLaderachHtmlFallback(html) {
       title,
       url,
       location,
-      canton: 'GL',
+      canton: inferAnyCanton(location) || 'GL',
       department: '',
     });
   }
