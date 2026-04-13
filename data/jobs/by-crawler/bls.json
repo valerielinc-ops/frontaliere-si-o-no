@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bls",
-  "assembledAt": "2026-04-12T20:55:02.308Z",
+  "assembledAt": "2026-04-13T10:05:39.238Z",
   "jobs": [
     {
       "id": "bls-098f3cf6e57e",
@@ -33,7 +33,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/zweiwegebaggerfuehrer-in-gleisbauer-in/72b0b85e-10cd-4035-a93d-2989038948a2",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-12T20:54:59.890Z",
+      "crawledAt": "2026-04-13T10:05:36.483Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -119,8 +119,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "addressRegion": "BE"
+      }
     },
     {
       "id": "bls-debd47a208cc",
@@ -153,7 +152,7 @@
       "url": "https://jobs.bls.ch/offene-stellen/kassier-in-autoverlad/a128c721-beee-4b1c-b427-496c87ee0540",
       "source": "BLS AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-12T20:54:59.128Z",
+      "crawledAt": "2026-04-13T10:05:35.614Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -227,8 +226,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "addressRegion": "BE"
+      }
     }
   ]
 }
