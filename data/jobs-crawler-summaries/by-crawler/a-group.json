@@ -1,18 +1,19 @@
 {
   "key": "a-group",
   "label": "a-plus-plus-group",
-  "generatedAt": "2026-04-12T20:39:11.827Z",
+  "generatedAt": "2026-04-13T09:49:34.019Z",
   "total": 3,
-  "newCount": 2,
-  "updatedCount": 0,
-  "removedCount": 1,
-  "unchangedCount": 1,
-  "durationMs": 2439,
-  "avgDurationMs": 2439,
+  "newCount": 0,
+  "updatedCount": 3,
+  "removedCount": 0,
+  "unchangedCount": 0,
+  "durationMs": 3642,
+  "avgDurationMs": 3642,
   "durationHistory": [
-    2439
+    3642
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Consulente Legal Jr.",
       "slug": "consulente-legal-jr-a-plus-plus-group-massagno",
@@ -33,16 +34,56 @@
       "sector": "Architettura & Design",
       "source": "a-plus-plus-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-12",
+      "postedDate": "2026-04-13",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "_qualityScore": 59,
+      "id": "a-group-6cbebae3da1d",
+      "salaryMin": 41600,
+      "salaryMax": 63000,
+      "currency": "CHF",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 4,
-        "completeness": 20
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "title": "Ingegnere edile Jr.",
+      "slug": "ingegnere-edile-jr-a-plus-plus-group-massagno",
+      "url": "https://inrecruiting.intervieweb.it/a2plus/jobs/ingegnere-edile-jr-587606/en/",
+      "applyUrl": "https://inrecruiting.intervieweb.it/a2plus/jobs/ingegnere-edile-jr-587606/en/",
+      "company": "A++ Group",
+      "companyKey": "a-group",
+      "companyDomain": "a2plus.green",
+      "location": "Massagno",
+      "addressLocality": "Massagno",
+      "postalCode": "6900",
+      "streetAddress": "Via Molinazzo 4",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Architettura & Design",
+      "source": "a-plus-plus-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-04-13",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "salaryMin": 55500,
+      "salaryMax": 75500,
+      "currency": "CHF",
+      "id": "a-group-95bf228f7209",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
@@ -65,94 +106,23 @@
       "sector": "Architettura & Design",
       "source": "a-plus-plus-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-12",
+      "postedDate": "2026-04-13",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "_qualityScore": 63,
+      "id": "a-group-cf1b4e6d7133",
+      "salaryMin": 73000,
+      "salaryMax": 121500,
+      "currency": "CHF",
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 4,
-        "completeness": 20
-      }
-    }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [
-    {
-      "title": "Receptionist",
-      "slug": "receptionist-a-group-massagno",
-      "url": "https://inrecruiting.intervieweb.it/a2plus/jobs/receptionist-696956/en/",
-      "applyUrl": "https://inrecruiting.intervieweb.it/a2plus/jobs/receptionist-696956/en/",
-      "company": "A++ Group",
-      "companyKey": "a-group",
-      "companyDomain": "a2plus.green",
-      "location": "Massagno",
-      "addressLocality": "Massagno",
-      "postalCode": "6900",
-      "streetAddress": "Via Molinazzo 4",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "admin",
-      "sector": "Architettura & Design",
-      "source": "a-plus-plus-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-04-12",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "id": "a-group-a6dac446b24d",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
         "translation": 25,
         "completeness": 25
       }
     }
   ],
-  "unchangedJobs": [
-    {
-      "title": "Ingegnere edile Jr.",
-      "slug": "ingegnere-edile-jr-a-plus-plus-group-massagno",
-      "url": "https://inrecruiting.intervieweb.it/a2plus/jobs/ingegnere-edile-jr-587606/en/",
-      "applyUrl": "https://inrecruiting.intervieweb.it/a2plus/jobs/ingegnere-edile-jr-587606/en/",
-      "company": "A++ Group",
-      "companyKey": "a-group",
-      "companyDomain": "a2plus.green",
-      "location": "Massagno",
-      "addressLocality": "Massagno",
-      "postalCode": "6900",
-      "streetAddress": "Via Molinazzo 4",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Architettura & Design",
-      "source": "a-plus-plus-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-04-12",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "salaryMin": 55500,
-      "salaryMax": 75500,
-      "currency": "CHF",
-      "id": "a-group-95bf228f7209",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ]
+  "removedJobs": [],
+  "unchangedJobs": []
 }
