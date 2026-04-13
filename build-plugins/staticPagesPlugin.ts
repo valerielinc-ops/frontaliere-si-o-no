@@ -369,6 +369,29 @@ export function staticPagesPlugin(rootDir: string): Plugin {
         }
       }
 
+      /* ── 0pre. Build set of blog article paths owned by ogPagesPlugin ── */
+      // ogPagesPlugin generates full-content pages for these paths. Because closeBundle
+      // hooks run in parallel, we cannot rely on fs.existsSync to detect them — instead
+      // we parse the same seo-blog*.ts source files to build a deterministic skip set.
+      const ogPagesPaths = new Set<string>();
+      try {
+        let seoSrc = fs.readFileSync(np.resolve(rootDir, 'services/seo/seo-blog.ts'), 'utf-8');
+        for (let n = 2; n <= 10; n++) {
+          try {
+            seoSrc += '\n' + fs.readFileSync(np.resolve(rootDir, `services/seo/seo-blog-${n}.ts`), 'utf-8');
+          } catch { break; }
+        }
+        const cpRx = /canonicalPath:\s*'([^']+)'/g;
+        let cpM: RegExpExecArray | null;
+        while ((cpM = cpRx.exec(seoSrc)) !== null) {
+          const p = cpM[1].replace(/\/+$/, '') || '/';
+          ogPagesPaths.add(p);
+        }
+        console.log(`[static-pages] Loaded ${ogPagesPaths.size} ogPagesPlugin-owned article paths`);
+      } catch {
+        console.warn('[static-pages] Could not parse seo-blog.ts — will fall back to fs.existsSync for blog pages');
+      }
+
       /* ── 0. Find entry JS/CSS bundle + Italian locale chunk ────── */
       // IMPORTANT: Extract from Vite-generated index.html to get the correct entry
       // (multiple index-*.js chunks exist; find() would pick the wrong one)
@@ -1205,9 +1228,12 @@ export function staticPagesPlugin(rootDir: string): Plugin {
       });
 
       for (const url of italianUrls) {
-        // Skip if file already exists (e.g., from ogPagesPlugin for blog articles)
+        // Skip pages owned by ogPagesPlugin (blog articles from seo-blog*.ts).
+        // We use the deterministic path set instead of fs.existsSync because
+        // closeBundle hooks run in parallel — ogPagesPlugin may not have flushed yet.
+        const normalizedPath = url.path.replace(/\/+$/, '') || '/';
         const filePath = np.join(distDir, url.path, 'index.html');
-        const italianPageExists = fs.existsSync(filePath);
+        const italianPageExists = ogPagesPaths.has(normalizedPath) || fs.existsSync(filePath);
 
         // Look up SEO data — fall back to URL-derived title if no explicit entry
         let seo = seoMap.get(url.path);
