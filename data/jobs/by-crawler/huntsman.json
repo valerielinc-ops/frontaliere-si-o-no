@@ -1,6 +1,6 @@
 {
   "crawlerKey": "huntsman",
-  "assembledAt": "2026-04-13T10:44:50.006Z",
+  "assembledAt": "2026-04-13T21:53:08.894Z",
   "jobs": [
     {
       "id": "huntsman-24b5023af669",
@@ -47,7 +47,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Measurement-Engineer_J-019405",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-13T10:44:47.716Z",
+      "crawledAt": "2026-04-13T21:53:06.394Z",
       "jobReqId": "J-019405",
       "previousSlugs": [
         "engineer-measurement-technology-electrical-physical-testing-of-plastics-huntsman-ch"
@@ -57,6 +57,7 @@
           "engineer-measurement-technology-electrical-physical-testing-of-plastics-huntsman-ch"
         ]
       },
+      "firstSeenAt": "2026-04-13T10:44:47.716Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -69,8 +70,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "4001",
-      "firstSeenAt": "2026-04-13T10:44:47.716Z"
+      "postalCode": "4001"
     },
     {
       "id": "huntsman-0a5c0d59d5bd",
@@ -148,7 +148,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Electricien-ou-automaticien--Mtrologie-_J-019429",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-13T10:44:47.119Z",
+      "crawledAt": "2026-04-13T21:53:05.827Z",
       "jobReqId": "J-019429",
       "previousSlugs": [
         "electricien-ou-automaticien-metrologie-huntsman-ch"
@@ -158,6 +158,8 @@
           "electricien-ou-automaticien-metrologie-huntsman-ch"
         ]
       },
+      "firstSeenAt": "2026-04-13T10:44:47.119Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -170,8 +172,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1870",
-      "firstSeenAt": "2026-04-13T10:44:47.119Z"
+      "postalCode": "1870"
     },
     {
       "id": "huntsman-c9b97480b222",
@@ -249,7 +250,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Technical-Service-Laboratory-Leader_J-019480",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-13T10:44:46.530Z",
+      "crawledAt": "2026-04-13T21:53:05.297Z",
       "jobReqId": "J-019480",
       "previousSlugs": [
         "technical-service-laboratory-leader-huntsman-ch"
@@ -259,6 +260,8 @@
           "technical-service-laboratory-leader-huntsman-ch"
         ]
       },
+      "firstSeenAt": "2026-04-13T10:44:46.530Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -271,8 +274,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "4001",
-      "firstSeenAt": "2026-04-13T10:44:46.530Z"
+      "postalCode": "4001"
     },
     {
       "id": "huntsman-7f6946c3e88b",
@@ -350,7 +352,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Team-Lead-Logistics_J-019430",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-13T10:44:46.029Z",
+      "crawledAt": "2026-04-13T21:53:04.690Z",
       "jobReqId": "J-019430",
       "previousSlugs": [
         "superviseur-de-la-logistique-et-de-l-entreposage-du-site-huntsman-corporation-monthey",
@@ -362,6 +364,8 @@
           "site-logistics-warehousing-superviseur-huntsman-corporation-monthey"
         ]
       },
+      "firstSeenAt": "2026-04-13T10:44:46.029Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -374,8 +378,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1870",
-      "firstSeenAt": "2026-04-13T10:44:46.029Z"
+      "postalCode": "1870"
     },
     {
       "id": "huntsman-094d90b50133",
@@ -453,7 +456,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Oprateur-de-Conditionnement--en-quipe-de-jour_J-019425",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-13T10:44:45.451Z",
+      "crawledAt": "2026-04-13T21:53:04.121Z",
       "jobReqId": "J-019425",
       "previousSlugs": [
         "operateur-de-conditionnement-en-equipe-de-jour-huntsman-ch",
@@ -469,6 +472,8 @@
           "verpackungsmitarbeiter-tagschicht-huntsman-corporation-monthey"
         ]
       },
+      "firstSeenAt": "2026-04-13T10:44:45.451Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -481,8 +486,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1870",
-      "firstSeenAt": "2026-04-13T10:44:45.451Z"
+      "postalCode": "1870"
     },
     {
       "id": "huntsman-77905485f1ea",
@@ -560,7 +564,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Oprateur-Pilote_J-019602",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-13T10:44:44.868Z",
+      "crawledAt": "2026-04-13T21:53:03.599Z",
       "jobReqId": "J-019602",
       "previousSlugsByLocale": {
         "fr": [
@@ -573,6 +577,8 @@
       "previousSlugs": [
         "operateur-pilote-huntsman-ch"
       ],
+      "firstSeenAt": "2026-04-13T10:44:44.868Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -585,8 +591,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1870",
-      "firstSeenAt": "2026-04-13T10:44:44.868Z"
+      "postalCode": "1870"
     },
     {
       "id": "huntsman-9fd5b194306a",
@@ -664,7 +669,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Shift-Operator--RPL-Retirement---O-250117-_J-019426",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-04-13T10:44:44.329Z",
+      "crawledAt": "2026-04-13T21:53:03.000Z",
       "jobReqId": "J-019426",
       "previousSlugs": [
         "shift-operator-rpl-retirement-o-250117-huntsman-ch",
@@ -678,6 +683,8 @@
           "schichtoperator-rpl-retirement-o-250117-huntsman-corporation-monthey"
         ]
       },
+      "firstSeenAt": "2026-04-13T10:44:44.329Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -690,8 +697,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1870",
-      "firstSeenAt": "2026-04-13T10:44:44.329Z"
+      "postalCode": "1870"
     },
     {
       "id": "huntsman-76dc77a0df36",
@@ -769,7 +775,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Germany---Bad-Sackingen/Junior-Project-Manager---Regional-Innovation--12-month-assignment-_J-019662",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-13T10:44:43.790Z",
+      "crawledAt": "2026-04-13T21:53:02.371Z",
       "jobReqId": "J-019662",
       "previousSlugs": [
         "junior-project-manager-regional-growth-projects-12-month-assignment-huntsman-ch"
@@ -779,6 +785,8 @@
           "junior-project-manager-regional-growth-projects-12-month-assignment-huntsman-ch"
         ]
       },
+      "firstSeenAt": "2026-04-13T10:44:43.790Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -791,8 +799,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1870",
-      "firstSeenAt": "2026-04-13T10:44:43.790Z"
+      "postalCode": "1870"
     }
   ]
 }
