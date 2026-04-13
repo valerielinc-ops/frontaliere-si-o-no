@@ -1,117 +1,5 @@
 [
   {
-    "timestamp": "2026-04-04T21:48:17.773Z",
-    "label": "before",
-    "total": 1529,
-    "needsRetranslation": 790,
-    "incomplete": 373,
-    "complete": 1156,
-    "missingByLocale": {
-      "it": 279,
-      "en": 305,
-      "de": 98,
-      "fr": 325
-    },
-    "topPending": [
-      {
-        "company": "Hilcona AG",
-        "pending": 122
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 65
-      },
-      {
-        "company": "VOLG",
-        "pending": 44
-      },
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 25
-      },
-      {
-        "company": "LIS – Lugano Istituti Sociali",
-        "pending": 13
-      },
-      {
-        "company": "Denner",
-        "pending": 11
-      },
-      {
-        "company": "Davos Klosters Bergbahnen AG",
-        "pending": 9
-      },
-      {
-        "company": "Lombardi Group",
-        "pending": 9
-      },
-      {
-        "company": "Prada Group",
-        "pending": 8
-      },
-      {
-        "company": "Rapelli - ORIOR Food AG",
-        "pending": 8
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-04T21:48:26.635Z",
-    "label": "after",
-    "total": 1529,
-    "needsRetranslation": 303,
-    "incomplete": 276,
-    "complete": 1253,
-    "missingByLocale": {
-      "it": 182,
-      "en": 208,
-      "de": 97,
-      "fr": 229
-    },
-    "topPending": [
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 65
-      },
-      {
-        "company": "VOLG",
-        "pending": 44
-      },
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 25
-      },
-      {
-        "company": "Hilcona AG",
-        "pending": 25
-      },
-      {
-        "company": "LIS – Lugano Istituti Sociali",
-        "pending": 13
-      },
-      {
-        "company": "Denner",
-        "pending": 11
-      },
-      {
-        "company": "Davos Klosters Bergbahnen AG",
-        "pending": 9
-      },
-      {
-        "company": "Lombardi Group",
-        "pending": 9
-      },
-      {
-        "company": "Prada Group",
-        "pending": 8
-      },
-      {
-        "company": "Rapelli - ORIOR Food AG",
-        "pending": 8
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-05T02:33:37.530Z",
     "label": "before",
     "total": 1530,
@@ -8462,5 +8350,40 @@
         "pending": 1
       }
     ]
+  },
+  {
+    "timestamp": "2026-04-13T03:56:02.628Z",
+    "label": "before",
+    "total": 2973,
+    "needsRetranslation": 19,
+    "incomplete": 1,
+    "complete": 2972,
+    "missingByLocale": {
+      "it": 1,
+      "en": 0,
+      "de": 0,
+      "fr": 1
+    },
+    "topPending": [
+      {
+        "company": "Swiss Armed Forces (VTG)",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-13T04:13:37.991Z",
+    "label": "after",
+    "total": 2973,
+    "needsRetranslation": 24,
+    "incomplete": 0,
+    "complete": 2973,
+    "missingByLocale": {
+      "it": 0,
+      "en": 0,
+      "de": 0,
+      "fr": 0
+    },
+    "topPending": []
   }
 ]
