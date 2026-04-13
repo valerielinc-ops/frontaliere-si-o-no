@@ -49,6 +49,8 @@ jobs:
       - name: Send job alert emails
         continue-on-error: true
         id: send-alerts
+        env:
+          ENABLE_JOB_ALERTS: 'true'
         run: node scripts/send-job-alerts.mjs
 
       - name: Report failure to Linear

@@ -111,6 +111,9 @@ const RC_TO_ENV = {
 
   // Resend webhook (newsletter delivery tracking)
   RESEND_WEBHOOK_SECRET:          ['RESEND_WEBHOOK_SECRET'],
+
+  // Feature flags
+  ENABLE_JOB_ALERTS:              ['ENABLE_JOB_ALERTS'],
 };
 
 // ─── Helpers ─────────────────────────────────────────────────────────────
