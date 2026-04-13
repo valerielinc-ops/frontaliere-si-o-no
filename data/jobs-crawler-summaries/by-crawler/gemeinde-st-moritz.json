@@ -1,16 +1,16 @@
 {
   "key": "gemeinde-st-moritz",
   "label": "Gemeinde St. Moritz",
-  "generatedAt": "2026-04-13T10:36:01.548Z",
+  "generatedAt": "2026-04-13T21:44:22.410Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7103,
-  "avgDurationMs": 7103,
+  "durationMs": 7634,
+  "avgDurationMs": 7634,
   "durationHistory": [
-    7103
+    7634
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://www.gemeinde-stmoritz.ch/aktuelles/aktuelles/offene-stellen/detail/mitarbeiter-wasserversorgung-100-m-w-1",
       "source": "Gemeinde St. Moritz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:35:57.708Z",
+      "crawledAt": "2026-04-13T21:44:18.206Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "country": "CH",
@@ -40,6 +40,7 @@
       "featured": false,
       "postedDate": "2026-04-07",
       "applyUrl": "https://www.gemeinde-stmoritz.ch/aktuelles/aktuelles/offene-stellen/detail/mitarbeiter-wasserversorgung-100-m-w-1",
+      "firstSeenAt": "2026-04-13T10:35:57.708Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -60,7 +61,7 @@
       "url": "https://www.gemeinde-stmoritz.ch/aktuelles/aktuelles/offene-stellen/detail/gemeindepolizist-100-m-w-1",
       "source": "Gemeinde St. Moritz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:35:59.141Z",
+      "crawledAt": "2026-04-13T21:44:19.976Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "country": "CH",
@@ -74,6 +75,7 @@
       "featured": false,
       "postedDate": "2025-10-31",
       "applyUrl": "https://www.gemeinde-stmoritz.ch/aktuelles/aktuelles/offene-stellen/detail/gemeindepolizist-100-m-w-1",
+      "firstSeenAt": "2026-04-13T10:35:59.141Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,

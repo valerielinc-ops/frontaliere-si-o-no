@@ -1,6 +1,6 @@
 {
   "crawlerKey": "gemeinde-st-moritz",
-  "assembledAt": "2026-04-13T10:36:01.547Z",
+  "assembledAt": "2026-04-13T21:44:22.410Z",
   "jobs": [
     {
       "id": "gemeinde-st-moritz-26220aaafb72",
@@ -33,7 +33,7 @@
       "url": "https://www.gemeinde-stmoritz.ch/aktuelles/aktuelles/offene-stellen/detail/gemeindepolizist-100-m-w-1",
       "source": "Gemeinde St. Moritz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:35:59.141Z",
+      "crawledAt": "2026-04-13T21:44:19.976Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "country": "CH",
@@ -57,6 +57,7 @@
           "wichtige-kontakte-gemeinde-st-moritz-ch"
         ]
       },
+      "firstSeenAt": "2026-04-13T10:35:59.141Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -68,8 +69,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:35:59.141Z"
+      }
     },
     {
       "id": "gemeinde-st-moritz-ff46f1a48f26",
@@ -102,7 +102,7 @@
       "url": "https://www.gemeinde-stmoritz.ch/aktuelles/aktuelles/offene-stellen/detail/mitarbeiter-wasserversorgung-100-m-w-1",
       "source": "Gemeinde St. Moritz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:35:57.708Z",
+      "crawledAt": "2026-04-13T21:44:18.206Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "country": "CH",
@@ -126,6 +126,7 @@
           "wichtige-kontakte-gemeinde-st-moritz-ch-2"
         ]
       },
+      "firstSeenAt": "2026-04-13T10:35:57.708Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -137,8 +138,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:35:57.708Z"
+      }
     }
   ]
 }
