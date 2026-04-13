@@ -29,8 +29,8 @@
       "slugByLocale": {
         "it": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-minusio-tyv50x",
         "en": "apprenticeship-in-retail-cfp-or-afc-start-2026-lidl-svizzera-minusio",
-        "de": "verkaufslehre-beginn-2026-lidl-svizzera-minusio",
-        "fr": "stage-de-vente-debut-2026-lidl-svizzera-minusio"
+        "de": "lehre-detailhandel-eba-oder-efz-start-2026-lidl-svizzera-minusio",
+        "fr": "apprentissage-commerce-de-detail-afp-ou-cfc-debut-2026-lidl-svizzera-minusio"
       },
       "titleByLocale": {
         "it": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026",
@@ -65,15 +65,19 @@
       "employmentType": "FULL_TIME",
       "previousSlugsByLocale": {
         "de": [
-          "lehre-im-einzelhandel-cfp-oder-afc-beginn-2026-lidl-svizzera-minusio"
+          "lehre-im-einzelhandel-cfp-oder-afc-beginn-2026-lidl-svizzera-minusio",
+          "verkaufslehre-beginn-2026-lidl-svizzera-minusio"
         ],
         "fr": [
-          "apprentissage-en-commerce-de-detail-cfp-ou-afc-debut-2026-lidl-svizzera-minusio"
+          "apprentissage-en-commerce-de-detail-cfp-ou-afc-debut-2026-lidl-svizzera-minusio",
+          "stage-de-vente-debut-2026-lidl-svizzera-minusio"
         ]
       },
       "previousSlugs": [
         "lehre-im-einzelhandel-cfp-oder-afc-beginn-2026-lidl-svizzera-minusio",
-        "apprentissage-en-commerce-de-detail-cfp-ou-afc-debut-2026-lidl-svizzera-minusio"
+        "verkaufslehre-beginn-2026-lidl-svizzera-minusio",
+        "apprentissage-en-commerce-de-detail-cfp-ou-afc-debut-2026-lidl-svizzera-minusio",
+        "stage-de-vente-debut-2026-lidl-svizzera-minusio"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000
@@ -297,7 +301,7 @@
       "slugByLocale": {
         "it": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-gravesano-1zdp8x",
         "en": "apprenticeship-in-retail-cfp-or-afc-start-2026-lidl-svizzera-gravesano",
-        "de": "lehre-im-einzelhandel-cfp-oder-afc-beginn-2026-lidl-svizzera-gravesano",
+        "de": "detailhandelslehre-eba-oder-efz-start-2026-lidl-svizzera-gravesano",
         "fr": "apprentissage-en-commerce-de-detail-cfp-ou-afc-debut-2026-lidl-svizzera-gravesano"
       },
       "titleByLocale": {
@@ -332,7 +336,15 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 41600,
-      "salaryMax": 63000
+      "salaryMax": 63000,
+      "previousSlugsByLocale": {
+        "de": [
+          "lehre-im-einzelhandel-cfp-oder-afc-beginn-2026-lidl-svizzera-gravesano"
+        ]
+      },
+      "previousSlugs": [
+        "lehre-im-einzelhandel-cfp-oder-afc-beginn-2026-lidl-svizzera-gravesano"
+      ]
     },
     {
       "id": "company-ethzl9",
@@ -361,7 +373,7 @@
       "slugByLocale": {
         "it": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-lugano-ethzl9",
         "en": "retail-apprenticeship-cfp-or-afc-start-2026-lidl-svizzera-lugano",
-        "de": "lehre-im-einzelhandel-cfp-oder-efz-beginn-2026-lidl-svizzera-lugano",
+        "de": "detailhandelslehre-eba-oder-efz-start-2026-lidl-svizzera-lugano",
         "fr": "apprentissage-dans-le-commerce-de-detail-cfc-ou-afp-debut-2026-lidl-svizzera-lugano"
       },
       "titleByLocale": {
@@ -396,7 +408,15 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 41600,
-      "salaryMax": 63000
+      "salaryMax": 63000,
+      "previousSlugsByLocale": {
+        "de": [
+          "lehre-im-einzelhandel-cfp-oder-efz-beginn-2026-lidl-svizzera-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "lehre-im-einzelhandel-cfp-oder-efz-beginn-2026-lidl-svizzera-lugano"
+      ]
     },
     {
       "id": "company-kp8dxh",
@@ -425,7 +445,7 @@
       "slugByLocale": {
         "it": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-sant-antonino-kp8dxh",
         "en": "apprenticeship-in-retail-cfp-or-afc-start-2026-lidl-svizzera-sant-antonino",
-        "de": "ausbildung-im-einzelhandel-cfp-oder-afc-start-2026-lidl-svizzera-sant-antonino",
+        "de": "berufslehre-detailhandel-eba-oder-efz-start-2026-lidl-svizzera-sant-antonino",
         "fr": "stage-dans-le-commerce-de-detail-cfp-ou-afc-debut-2026-lidl-svizzera-sant-antonino"
       },
       "titleByLocale": {
@@ -460,7 +480,15 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salaryMin": 41600,
-      "salaryMax": 63000
+      "salaryMax": 63000,
+      "previousSlugsByLocale": {
+        "de": [
+          "ausbildung-im-einzelhandel-cfp-oder-afc-start-2026-lidl-svizzera-sant-antonino"
+        ]
+      },
+      "previousSlugs": [
+        "ausbildung-im-einzelhandel-cfp-oder-afc-start-2026-lidl-svizzera-sant-antonino"
+      ]
     },
     {
       "id": "company-7p9uz6",
