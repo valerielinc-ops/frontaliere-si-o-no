@@ -260,7 +260,7 @@ async function loadJobsBySlug(): Promise<Map<string, any>> {
   jobsBySlugPromise = (async () => {
     const out = new Map<string, any>();
     try {
-      const res = await fetch('/data/jobs.json', { cache: 'no-store' });
+      const res = await fetch('/data/jobs.json');
       if (!res.ok) return out;
       const list = await res.json();
       if (!Array.isArray(list)) return out;

@@ -155,43 +155,45 @@ export default function CalcolatoreTabContent() {
               </div>
             </div>
 
-            {/* Mobile: widgets below results */}
-            {showDeferredHomeWidgets ? (
-              <div className="md:hidden space-y-2 mt-2">
-                <Suspense fallback={<SkeletonNewsTicker />}>
-                  <NewsFeed onNavigate={(tab, article) => {
-                    setActiveTab(tab as ActiveTab);
-                    if (article) setBlogArticle(article as BlogArticleId);
-                    pushRoute({ activeTab: tab as ActiveTab, blogArticle: article as BlogArticleId });
-                    window.scrollTo({ top: 0, behavior: 'instant' });
-                  }} />
-                </Suspense>
-                <div className="space-y-2">
-                  <Suspense fallback={<SkeletonWeeklyFact />}><WeeklyFact /></Suspense>
-                  <a
-                    href="/cerca-lavoro-ticino/"
-                    onClick={(e) => { e.preventDefault(); Analytics.trackSelectContent('job_board_cta', 'mobile'); navigateTo('job-board' as any); }}
-                    className="w-full flex items-center justify-between gap-3 px-4 py-3 bg-gradient-to-r from-stripe-600 to-stripe-700 hover:from-stripe-700 hover:to-stripe-800 rounded-xl text-white transition-[color,background-color,border-color,transform] active:scale-[0.98]"
-                  >
-                    <div className="flex items-center gap-2.5 min-w-0">
-                      <Briefcase size={18} className="text-white flex-shrink-0" />
-                      <span className="text-sm font-bold line-clamp-1">{t('jobBoard.homeCta.mobile.title', getCantonI18nParams())}</span>
-                    </div>
-                    <span className="text-xs font-semibold text-stripe-100 flex-shrink-0">{t('jobBoard.homeCta.mobile.button')} →</span>
-                  </a>
+            {/* Mobile: widgets below results — stable outer div prevents CLS during skeleton→real swap */}
+            <div className="md:hidden space-y-2 mt-2 min-h-[160px]">
+              {showDeferredHomeWidgets ? (
+                <>
+                  <Suspense fallback={<SkeletonNewsTicker />}>
+                    <NewsFeed onNavigate={(tab, article) => {
+                      setActiveTab(tab as ActiveTab);
+                      if (article) setBlogArticle(article as BlogArticleId);
+                      pushRoute({ activeTab: tab as ActiveTab, blogArticle: article as BlogArticleId });
+                      window.scrollTo({ top: 0, behavior: 'instant' });
+                    }} />
+                  </Suspense>
+                  <div className="space-y-2">
+                    <Suspense fallback={<SkeletonWeeklyFact />}><WeeklyFact /></Suspense>
+                    <a
+                      href="/cerca-lavoro-ticino/"
+                      onClick={(e) => { e.preventDefault(); Analytics.trackSelectContent('job_board_cta', 'mobile'); navigateTo('job-board' as any); }}
+                      className="w-full flex items-center justify-between gap-3 px-4 py-3 bg-gradient-to-r from-stripe-600 to-stripe-700 hover:from-stripe-700 hover:to-stripe-800 rounded-xl text-white transition-[color,background-color,border-color,transform] active:scale-[0.98]"
+                    >
+                      <div className="flex items-center gap-2.5 min-w-0">
+                        <Briefcase size={18} className="text-white flex-shrink-0" />
+                        <span className="text-sm font-bold line-clamp-1">{t('jobBoard.homeCta.mobile.title', getCantonI18nParams())}</span>
+                      </div>
+                      <span className="text-xs font-semibold text-stripe-100 flex-shrink-0">{t('jobBoard.homeCta.mobile.button')} →</span>
+                    </a>
+                  </div>
+                  <Suspense fallback={<div className="h-[34px]" />}>
+                    <DailyDialectPhrase />
+                  </Suspense>
+                </>
+              ) : (
+                <div aria-hidden="true" className="space-y-2">
+                  <SkeletonNewsTicker />
+                  <SkeletonWeeklyFact />
+                  <div className="h-[34px] rounded-xl bg-slate-200 dark:bg-slate-700 animate-pulse" />
+                  <div className="h-[34px] rounded-xl bg-slate-200 dark:bg-slate-700 animate-pulse" />
                 </div>
-                <Suspense fallback={<div className="h-[34px]" />}>
-                  <DailyDialectPhrase />
-                </Suspense>
-              </div>
-            ) : (
-              <div className="md:hidden space-y-2 mt-2" aria-hidden="true">
-                <SkeletonNewsTicker />
-                <SkeletonWeeklyFact />
-                <div className="h-[34px] rounded-xl bg-slate-200 dark:bg-slate-700 animate-pulse" />
-                <div className="h-[34px] rounded-xl bg-slate-200 dark:bg-slate-700 animate-pulse" />
-              </div>
-            )}
+              )}
+            </div>
 
             {result && (
               <div className="mt-3">

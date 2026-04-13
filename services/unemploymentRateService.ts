@@ -15,7 +15,7 @@ const DATA_URL = '/data/switzerland-unemployment-rate.json';
 
 export async function fetchSwitzerlandUnemploymentRate(): Promise<SwitzerlandUnemploymentRateData | null> {
   try {
-    const res = await fetch(DATA_URL, { cache: 'no-store' });
+    const res = await fetch(DATA_URL);
     if (!res.ok) return null;
     const data = (await res.json()) as SwitzerlandUnemploymentRateData;
     if (!data || typeof data.rate !== 'number' || !data.period) return null;

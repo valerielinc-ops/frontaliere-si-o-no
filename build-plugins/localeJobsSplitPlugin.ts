@@ -103,6 +103,22 @@ export function localeJobsSplitPlugin(rootDir: string): Plugin {
         'utf-8',
       );
     }
+
+    // Slug map: minimal file for router.ts slug translation (~2MB vs 44MB full)
+    const slugMap = jobs.map((j) => {
+      const entry: Record<string, unknown> = {};
+      if (j.slug) entry.slug = j.slug;
+      if (j.slugByLocale) entry.slugByLocale = j.slugByLocale;
+      if (Array.isArray(j.previousSlugs) && j.previousSlugs.length) entry.previousSlugs = j.previousSlugs;
+      if (j.previousSlugsByLocale) entry.previousSlugsByLocale = j.previousSlugsByLocale;
+      return entry;
+    }).filter((e) => Object.keys(e).length > 0);
+    fs.writeFileSync(
+      path.resolve(dataDir, 'jobs-slug-map.json'),
+      JSON.stringify(slugMap),
+      'utf-8',
+    );
+
     return jobs.length;
   }
 
@@ -113,7 +129,7 @@ export function localeJobsSplitPlugin(rootDir: string): Plugin {
       const distDir = path.resolve(rootDir, 'dist');
       const count = generateFiles(distDir);
       if (count > 0) {
-        console.log(`[locale-jobs-split] Generated 4 locale job files + 4 slim index files (${count} jobs each)`);
+        console.log(`[locale-jobs-split] Generated 4 locale files + 4 slim index files + slug map (${count} jobs)`);
       }
     },
     configureServer(server) {

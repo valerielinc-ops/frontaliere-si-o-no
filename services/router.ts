@@ -1132,7 +1132,7 @@ export function getLocalizedJobSlug(slug: string, targetLocale: string): string 
 export async function ensureJobSlugMapLoaded(): Promise<void> {
   if (_jobSlugMap) return;
   if (!_jobSlugMapPromise) {
-    _jobSlugMapPromise = fetch('/data/jobs.json')
+    _jobSlugMapPromise = fetch('/data/jobs-slug-map.json')
       .then(r => r.ok ? r.json() : Promise.reject(r.status))
       .then((data: Array<{ slug?: string; slugByLocale?: Partial<Record<string, string>>; previousSlugs?: string[]; previousSlugsByLocale?: Partial<Record<string, string[]>> }>) => {
         registerJobSlugMap(data);
