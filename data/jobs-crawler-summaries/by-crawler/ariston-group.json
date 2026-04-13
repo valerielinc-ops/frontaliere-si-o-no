@@ -1,16 +1,16 @@
 {
   "key": "ariston-group",
   "label": "Ariston Group",
-  "generatedAt": "2026-04-12T20:47:14.212Z",
+  "generatedAt": "2026-04-13T09:57:33.238Z",
   "total": 2,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 3598,
-  "avgDurationMs": 3598,
+  "unchangedCount": 1,
+  "durationMs": 3666,
+  "avgDurationMs": 3666,
   "durationHistory": [
-    3598
+    3666
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "postedDate": "2026-03-22",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-05-12",
+      "validThrough": "2026-05-13",
       "id": "ariston-group-8f87aad08aa9",
       "salaryMin": 58000,
       "salaryMax": 88000,
@@ -48,7 +48,10 @@
         "translation": 25,
         "completeness": 22
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "IMPIEGATO/A COMMERCIALE INTERNO (SALES SUPPORT)",
       "slug": "impiegato-a-commerciale-interno-sales-support-ariston-group-bedano-ch-6930",
@@ -70,7 +73,7 @@
       "postedDate": "2026-03-26",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-05-12",
+      "validThrough": "2026-05-13",
       "id": "ariston-group-aa9bfd740eb8",
       "salaryMin": 58000,
       "salaryMax": 88000,
@@ -84,7 +87,5 @@
         "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
