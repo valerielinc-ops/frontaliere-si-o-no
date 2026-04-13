@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kanton-gr",
-  "assembledAt": "2026-04-13T10:49:05.629Z",
+  "assembledAt": "2026-04-13T21:57:24.491Z",
   "jobs": [
     {
       "id": "kanton-gr-4efe5d255057",
@@ -33,7 +33,7 @@
       "url": "https://apply.refline.ch/514915/2620/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:49:03.502Z",
+      "crawledAt": "2026-04-13T21:57:22.424Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -99,6 +99,8 @@
         "tirocinio-come-disegnatore-ice-efz-costruzioni-ingegneristiche-kantonale-verwaltung-graubunden-chur",
         "stagiaire-comme-dessinateur-ice-efz-batiment-civil-kantonale-verwaltung-graubunden-chur"
       ],
+      "firstSeenAt": "2026-04-13T10:49:03.502Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -110,8 +112,7 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:49:03.502Z"
+      }
     },
     {
       "id": "kanton-gr-4dff8558133b",
@@ -144,7 +145,7 @@
       "url": "https://apply.refline.ch/514915/2595/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:49:02.883Z",
+      "crawledAt": "2026-04-13T21:57:21.798Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -175,6 +176,7 @@
         "schnupperlehre-diverse-berufe-eba-und-efz-kanton-gr-ch",
         "tirocinio-di-orientamento-varie-professioni-eba-e-efz-kantonale-verwaltung-graubunden-chur"
       ],
+      "firstSeenAt": "2026-04-13T10:49:02.883Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -186,8 +188,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:49:02.883Z"
+      }
     },
     {
       "id": "kanton-gr-75a8cb2014c1",
@@ -220,7 +221,7 @@
       "url": "https://apply.refline.ch/514915/2386/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:49:02.264Z",
+      "crawledAt": "2026-04-13T21:57:21.176Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -264,6 +265,8 @@
         "schnupperlehre-als-kauffrau-mann-efz-kanton-gr-ch",
         "tirocinio-come-commessa-commesso-efz-kantonale-verwaltung-graubunden-chur"
       ],
+      "firstSeenAt": "2026-04-13T10:49:02.264Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -275,8 +278,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:49:02.264Z"
+      }
     },
     {
       "id": "kanton-gr-33b083258479",
@@ -309,7 +311,7 @@
       "url": "https://apply.refline.ch/514915/2643/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:49:01.647Z",
+      "crawledAt": "2026-04-13T21:57:20.553Z",
       "addressLocality": "Landquart",
       "postalCode": "7302",
       "addressCountry": "CH",
@@ -368,6 +370,8 @@
       "previousSlugs": [
         "fachmann-frau-hotellerie-hauswirtschaft-efz-kanton-gr-ch"
       ],
+      "firstSeenAt": "2026-04-13T10:49:01.647Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -379,8 +383,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:49:01.647Z"
+      }
     },
     {
       "id": "kanton-gr-a215814b5a3b",
@@ -413,7 +416,7 @@
       "url": "https://apply.refline.ch/514915/2491/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:49:01.030Z",
+      "crawledAt": "2026-04-13T21:57:19.931Z",
       "addressLocality": "Landquart",
       "postalCode": "7302",
       "addressCountry": "CH",
@@ -457,6 +460,8 @@
         "lehrstelle-als-koch-kochin-efz-kanton-gr-ch",
         "apprendista-di-cucina-efz-kantonale-verwaltung-graubunden-landquart"
       ],
+      "firstSeenAt": "2026-04-13T10:49:01.030Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -468,8 +473,7 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:49:01.030Z"
+      }
     },
     {
       "id": "kanton-gr-d1fbb2b55c2e",
@@ -502,7 +506,7 @@
       "url": "https://apply.refline.ch/514915/2438/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:49:00.412Z",
+      "crawledAt": "2026-04-13T21:57:19.309Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -544,6 +548,8 @@
       "previousSlugs": [
         "lehrstelle-als-automobilmechatroniker-in-efz-personenwagen-kanton-gr-ch"
       ],
+      "firstSeenAt": "2026-04-13T10:49:00.412Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -555,8 +561,7 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:49:00.412Z"
+      }
     },
     {
       "id": "kanton-gr-dc05c757b2a9",
@@ -589,7 +594,7 @@
       "url": "https://apply.refline.ch/514915/2437/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:48:59.793Z",
+      "crawledAt": "2026-04-13T21:57:18.688Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -631,6 +636,8 @@
       "previousSlugs": [
         "lehrstelle-als-automobilfachmann-frau-efz-personenwagen-kanton-gr-ch"
       ],
+      "firstSeenAt": "2026-04-13T10:48:59.793Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -642,8 +649,7 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:48:59.793Z"
+      }
     },
     {
       "id": "kanton-gr-af969d00bac9",
@@ -676,7 +682,7 @@
       "url": "https://apply.refline.ch/514915/2319/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:48:58.993Z",
+      "crawledAt": "2026-04-13T21:57:18.066Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -715,6 +721,8 @@
       "previousSlugs": [
         "lehrstelle-als-fachmann-frau-betriebsunterhalt-efz-werkdienst-scuol-kanton-gr-ch"
       ],
+      "firstSeenAt": "2026-04-13T10:48:58.993Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 63000,
       "baseSalary": {
@@ -726,8 +734,7 @@
           "maxValue": 63000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:48:58.993Z"
+      }
     },
     {
       "id": "kanton-gr-99a05bbd34b0",
@@ -760,7 +767,7 @@
       "url": "https://apply.refline.ch/514915/2651/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:48:58.185Z",
+      "crawledAt": "2026-04-13T21:57:17.445Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -823,6 +830,8 @@
       "previousSlugs": [
         "messtechniker-in-emissionen-luft-kanton-gr-ch"
       ],
+      "firstSeenAt": "2026-04-13T10:48:58.185Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -834,8 +843,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:48:58.185Z"
+      }
     },
     {
       "id": "kanton-gr-75ba44483c2b",
@@ -868,7 +876,7 @@
       "url": "https://apply.refline.ch/514915/2652/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:48:57.342Z",
+      "crawledAt": "2026-04-13T21:57:16.825Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -930,6 +938,8 @@
       "previousSlugs": [
         "assistentin-assistent-der-amtsleitung-kanton-gr-ch"
       ],
+      "firstSeenAt": "2026-04-13T10:48:57.342Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -941,8 +951,7 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:48:57.342Z"
+      }
     },
     {
       "id": "kanton-gr-8c1cff3f2682",
@@ -975,7 +984,7 @@
       "url": "https://apply.refline.ch/514915/2634/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:48:56.702Z",
+      "crawledAt": "2026-04-13T21:57:16.204Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "addressCountry": "CH",
@@ -1026,6 +1035,8 @@
           "strassenwart-in-kanton-gr-ch"
         ]
       },
+      "firstSeenAt": "2026-04-13T10:48:56.702Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1037,8 +1048,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:48:56.702Z"
+      }
     },
     {
       "id": "kanton-gr-3fe9a1d8b174",
@@ -1071,7 +1081,7 @@
       "url": "https://apply.refline.ch/514915/2633/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:48:56.085Z",
+      "crawledAt": "2026-04-13T21:57:15.581Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "addressCountry": "CH",
@@ -1128,6 +1138,8 @@
       "previousSlugs": [
         "bauleiter-in-kanton-gr-ch"
       ],
+      "firstSeenAt": "2026-04-13T10:48:56.085Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1139,8 +1151,7 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:48:56.085Z"
+      }
     },
     {
       "id": "kanton-gr-24d9bacec32d",
@@ -1173,7 +1184,7 @@
       "url": "https://apply.refline.ch/514915/2646/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:48:55.467Z",
+      "crawledAt": "2026-04-13T21:57:14.957Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1230,6 +1241,8 @@
       "previousSlugs": [
         "2-staatsanwaltinnen-staatsanwalte-kanton-gr-ch"
       ],
+      "firstSeenAt": "2026-04-13T10:48:55.467Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1241,8 +1254,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:48:55.467Z"
+      }
     },
     {
       "id": "kanton-gr-d1e27dc2cb3c",
@@ -1275,7 +1287,7 @@
       "url": "https://apply.refline.ch/514915/2645/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:48:54.849Z",
+      "crawledAt": "2026-04-13T21:57:14.336Z",
       "addressLocality": "Samedan",
       "postalCode": "7503",
       "addressCountry": "CH",
@@ -1329,6 +1341,8 @@
       "previousSlugs": [
         "sachbearbeiter-in-kanton-gr-ch"
       ],
+      "firstSeenAt": "2026-04-13T10:48:54.849Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1340,8 +1354,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:48:54.849Z"
+      }
     },
     {
       "id": "kanton-gr-4164cfd85092",
@@ -1374,7 +1387,7 @@
       "url": "https://apply.refline.ch/514915/2644/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:48:54.227Z",
+      "crawledAt": "2026-04-13T21:57:13.715Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1425,6 +1438,8 @@
           "hr-controller-in-kanton-gr-ch"
         ]
       },
+      "firstSeenAt": "2026-04-13T10:48:54.227Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1436,8 +1451,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:48:54.227Z"
+      }
     },
     {
       "id": "kanton-gr-15783a051458",
@@ -1470,7 +1484,7 @@
       "url": "https://apply.refline.ch/514915/2648/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:48:53.608Z",
+      "crawledAt": "2026-04-13T21:57:13.094Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1530,6 +1544,8 @@
       "previousSlugs": [
         "sachbearbeiter-in-finanzen-und-controlling-kanton-gr-ch"
       ],
+      "firstSeenAt": "2026-04-13T10:48:53.608Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1541,8 +1557,7 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:48:53.608Z"
+      }
     },
     {
       "id": "kanton-gr-76cc45e85b29",
@@ -1575,7 +1590,7 @@
       "url": "https://apply.refline.ch/514915/2649/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:48:52.909Z",
+      "crawledAt": "2026-04-13T21:57:12.473Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1631,6 +1646,8 @@
       "previousSlugs": [
         "assistentin-assistent-der-amtsleitung-und-stellvertretende-personalverantwortliche-persona"
       ],
+      "firstSeenAt": "2026-04-13T10:48:52.909Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1642,8 +1659,7 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:48:52.909Z"
+      }
     },
     {
       "id": "kanton-gr-64f1a22a9a7a",
@@ -1676,7 +1692,7 @@
       "url": "https://apply.refline.ch/514915/2641/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:48:52.291Z",
+      "crawledAt": "2026-04-13T21:57:11.847Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1727,6 +1743,8 @@
       "previousSlugs": [
         "it-sicherheitsspezialist-in-kanton-gr-ch"
       ],
+      "firstSeenAt": "2026-04-13T10:48:52.291Z",
+      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -1738,8 +1756,7 @@
           "maxValue": 88000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:48:52.291Z"
+      }
     },
     {
       "id": "kanton-gr-285d75cf6043",
@@ -1772,7 +1789,7 @@
       "url": "https://apply.refline.ch/514915/2647/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:48:51.673Z",
+      "crawledAt": "2026-04-13T21:57:11.226Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1824,6 +1841,8 @@
       "previousSlugs": [
         "it-oder-juristische-fachperson-als-stv-leiter-in-datenschutzaufsichtsstelle-kanton-gr-ch"
       ],
+      "firstSeenAt": "2026-04-13T10:48:51.673Z",
+      "needsRetranslation": true,
       "salaryMin": 79500,
       "salaryMax": 135000,
       "baseSalary": {
@@ -1835,8 +1854,7 @@
           "maxValue": 135000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:48:51.673Z"
+      }
     },
     {
       "id": "kanton-gr-0ec691038ec8",
@@ -1869,7 +1887,7 @@
       "url": "https://apply.refline.ch/514915/2642/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:48:51.050Z",
+      "crawledAt": "2026-04-13T21:57:10.605Z",
       "addressLocality": "Haldenstein",
       "postalCode": "7023",
       "addressCountry": "CH",
@@ -1932,6 +1950,8 @@
       "previousSlugs": [
         "leiter-in-amt-fur-militar-und-zivilschutz-kanton-gr-ch"
       ],
+      "firstSeenAt": "2026-04-13T10:48:51.050Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1943,8 +1963,7 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:48:51.050Z"
+      }
     },
     {
       "id": "kanton-gr-b095e4afe429",
@@ -1977,7 +1996,7 @@
       "url": "https://apply.refline.ch/514915/2631/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:48:50.431Z",
+      "crawledAt": "2026-04-13T21:57:09.984Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -2031,6 +2050,8 @@
           "strassenwart-in-kanton-gr-ch-2"
         ]
       },
+      "firstSeenAt": "2026-04-13T10:48:50.431Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2042,8 +2063,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:48:50.431Z"
+      }
     },
     {
       "id": "kanton-gr-5d14b44a690e",
@@ -2076,7 +2096,7 @@
       "url": "https://apply.refline.ch/514915/2632/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:48:49.191Z",
+      "crawledAt": "2026-04-13T21:57:08.739Z",
       "addressLocality": "Samedan",
       "postalCode": "7503",
       "addressCountry": "CH",
@@ -2134,6 +2154,8 @@
         "bauleiter-in-kanton-gr-ch",
         "bauleiter-in-kanton-gr-ch-2"
       ],
+      "firstSeenAt": "2026-04-13T10:48:49.191Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2145,8 +2167,7 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:48:49.191Z"
+      }
     },
     {
       "id": "kanton-gr-9f7ea611072b",
@@ -2179,7 +2200,7 @@
       "url": "https://apply.refline.ch/514915/2636/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:48:48.573Z",
+      "crawledAt": "2026-04-13T21:57:08.118Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2231,6 +2252,8 @@
       "previousSlugs": [
         "it-mitarbeiter-in-fachapplikation-kanton-gr-ch"
       ],
+      "firstSeenAt": "2026-04-13T10:48:48.573Z",
+      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -2242,8 +2265,7 @@
           "maxValue": 88000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:48:48.573Z"
+      }
     },
     {
       "id": "kanton-gr-f0c5d94310c9",
@@ -2276,7 +2298,7 @@
       "url": "https://apply.refline.ch/514915/2635/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:48:47.955Z",
+      "crawledAt": "2026-04-13T21:57:07.497Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2334,6 +2356,8 @@
         "sachbearbeiter-in-kanton-gr-ch",
         "sachbearbeiter-in-kanton-gr-ch-2"
       ],
+      "firstSeenAt": "2026-04-13T10:48:47.955Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -2345,8 +2369,7 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:48:47.955Z"
+      }
     },
     {
       "id": "kanton-gr-da4d46fc8fd9",
@@ -2379,7 +2402,7 @@
       "url": "https://apply.refline.ch/514915/2638/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:48:47.335Z",
+      "crawledAt": "2026-04-13T21:57:06.874Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2441,6 +2464,8 @@
       "previousSlugs": [
         "sachbearbeiter-in-rechtsdienst-kanton-gr-ch"
       ],
+      "firstSeenAt": "2026-04-13T10:48:47.335Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2452,8 +2477,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:48:47.335Z"
+      }
     },
     {
       "id": "kanton-gr-970c37b47aad",
@@ -2486,7 +2510,7 @@
       "url": "https://apply.refline.ch/514915/2627/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:48:46.716Z",
+      "crawledAt": "2026-04-13T21:57:06.152Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2525,6 +2549,7 @@
         "juristische-r-mitarbeiter-in-kanton-gr-ch",
         "juristische-r-mitarbeiter-in-kantonale-verwaltung-graubunden-chur"
       ],
+      "firstSeenAt": "2026-04-13T10:48:46.716Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2536,8 +2561,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:48:46.716Z"
+      }
     },
     {
       "id": "kanton-gr-0361adbb7884",
@@ -2570,7 +2594,7 @@
       "url": "https://apply.refline.ch/514915/2628/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:48:46.097Z",
+      "crawledAt": "2026-04-13T21:57:05.530Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "addressCountry": "CH",
@@ -2615,6 +2639,8 @@
       "previousSlugs": [
         "assistenzpsychologin-assistenzpsychologe-kanton-gr-ch"
       ],
+      "firstSeenAt": "2026-04-13T10:48:46.097Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2626,8 +2652,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:48:46.097Z"
+      }
     },
     {
       "id": "kanton-gr-10cee00ff5a2",
@@ -2660,7 +2685,7 @@
       "url": "https://apply.refline.ch/514915/2629/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:48:45.478Z",
+      "crawledAt": "2026-04-13T21:57:04.908Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -2705,6 +2730,8 @@
       "previousSlugs": [
         "schulpsychologin-schulpsychologe-kanton-gr-ch"
       ],
+      "firstSeenAt": "2026-04-13T10:48:45.478Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2716,8 +2743,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:48:45.478Z"
+      }
     },
     {
       "id": "kanton-gr-26aa5917dc5a",
@@ -2750,7 +2776,7 @@
       "url": "https://apply.refline.ch/514915/2639/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:48:44.857Z",
+      "crawledAt": "2026-04-13T21:57:04.280Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2804,6 +2830,8 @@
       "previousSlugs": [
         "chemiker-in-fh-umweltingenieur-in-fh-kanton-gr-ch"
       ],
+      "firstSeenAt": "2026-04-13T10:48:44.857Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2815,8 +2843,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:48:44.857Z"
+      }
     },
     {
       "id": "kanton-gr-53f568aca4ff",
@@ -2849,7 +2876,7 @@
       "url": "https://apply.refline.ch/514915/2626/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:48:44.239Z",
+      "crawledAt": "2026-04-13T21:57:03.647Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2906,6 +2933,8 @@
       "previousSlugs": [
         "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-tertiarbildung-und-forschun"
       ],
+      "firstSeenAt": "2026-04-13T10:48:44.239Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -2917,8 +2946,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:48:44.239Z"
+      }
     },
     {
       "id": "kanton-gr-764107900fbe",
@@ -2939,11 +2967,11 @@
         "de": "Polizeikommandant/-in Kantonspolizei Graubünden",
         "fr": "Commandant de Police Cantonale Grisons"
       },
-      "description": "Sicherheit in Graubünden, für Bewohnerinnen und Bewohner, für Feriengäste, Kongressteilnehmende und Durchreisende, Ruhe und Ordnung für alle. Dafür sorgen die Kantonspolizistinnen und Kantonspolizisten. Tag und Nacht, jahraus jahrein, bei jedem Wetter, auf Passstrassen wie auf Autobahnen, in Stadt und Land, in Berg und Tal. Jederzeit und überall sind sie bereit für Hilfestellungen, Rettungsaktionen, Ermittlungen, Kriminalitätsbekämpfung und Präventionsmassnahmen. Immer steht der Mensch im Zentrum. Im Rahmen der Strategie «Kapo GR 2025+» steht die Förderung und Entwicklung der Mitarbeitenden, eine zukunftsorientierte Organisation sowie die kontinuierliche Optimierung der Kernprozesse im Vordergrund. Als neue/-r Polizeikommandant/-in, welcher aufgrund der bevorstehenden Pensionierung des jetzigen Stelleninhabers per 1. April 2027 oder nach Vereinbarung gesucht wird, übernehmen die Gesamtverantwortung für die Kantonspolizei. Dabei gilt es, zukunftsweisende Wege für aktuelle polizeirelevante Herausforderungen, in der Führung, Prävention sowie in der Digitalisierung anzupacken. In dieser Funktion sind Sie direkt dem Departementsvorsteher unterstellt. | Aufgaben: Personelle, strategische und organisatorische Leitung des Amts Erarbeitung und Umsetzung von strategischen und operativen Zielen des Polizeidienstes Vertretung des Amts gegen aussen (im Zuständigkeitsbereich des Amts umfassende Verfügungs- und Unterschriftsbefugnisse) Enge operative Zusammenarbeit mit Partnern auf internationaler, eidgenössischer, kantonaler und kommunaler Ebene Leitung des Polizeiführungsstabs bei besonderen Ereignissen in ausserordentlichen Lagen Verantwortung für den Vollzug der Bundesgesetzgebung und der kantonalen Gesetzgebung im Zuständigkeitsbereich | Anforderungen: Ausgeprägte kommunikative Fähigkeiten, hohe Sozialkompetenz, Vertrautheit mit modernen Führungs- und Managementmethoden, gute betriebswirtschaftliche Kenntnisse sowie sicheres Auftreten. Hochschulabschluss (Master) oder eine andere höhere Ausbildung sowie eine Weiterbildung im Bereich Leadership Umfangreiche berufliche Erfahrung in leitenden Positionen im Polizeiwesen oder in der öffentlichen Verwaltung Erfahrung in der Leitung von komplexen Projekten Digitale Affinität sowie zukunftsorientiertes Denken Gute Kenntnisse in mehreren Kantonssprachen von Vorteil",
+      "description": "Sicherheit in Graubünden, für Bewohnerinnen und Bewohner, für Feriengäste, Kongressteilnehmende und Durchreisende, Ruhe und Ordnung für alle. Dafür sorgen die Kantonspolizistinnen und Kantonspolizisten. Tag und Nacht, jahraus jahrein, bei jedem Wetter, auf Passstrassen wie auf Autobahnen, in Stadt und Land, in Berg und Tal. Jederzeit und überall sind sie bereit für Hilfestellungen, Rettungsaktionen, Ermittlungen, Kriminalitätsbekämpfung und Präventionsmassnahmen. Immer steht der Mensch im Zentrum. Im Rahmen der Strategie «Kapo GR 2025+» steht die Förderung und Entwicklung der Mitarbeitenden, eine zukunftsorientierte Organisation sowie die kontinuierliche Optimierung der Kernprozesse im Vordergrund. Als neue/-r Polizeikommandant/-in, welcher aufgrund der bevorstehenden Pensionierung des jetzigen Stelleninhabers per 1. April 2027 oder nach Vereinbarung gesucht wird, übernehmen die Gesamtverantwortung für die Kantonspolizei. Dabei gilt es, zukunftsweisende Wege für aktuelle polizeirelevante Herausforderungen, in der Führung, Prävention sowie in der Digitalisierung anzupacken. In dieser Funktion sind Sie direkt dem Departementsvorsteher unterstellt. | Aufgaben: Personelle, strategische und organisatorische Leitung des Amts Erarbeitung und Umsetzung von strategischen und operativen Zielen des Polizeidienstes Vertretung des Amts gegen aussen (im Zuständigkeitsbereich des Amts umfassende Verfügungs- und Unterschriftsbefugnisse) Enge operative Zusammenarbeit mit Partnern auf internationaler, eidgenössischer, kantonaler und kommunaler Ebene Verantwortung für den Vollzug der Bundesgesetzgebung und der kantonalen Gesetzgebung im Zuständigkeitsbereich | Anforderungen: Ausgeprägte kommunikative Fähigkeiten, hohe Sozialkompetenz, Vertrautheit mit modernen Führungs- und Managementmethoden, gute betriebswirtschaftliche Kenntnisse sowie sicheres Auftreten. Hochschulabschluss (Master) oder eine andere höhere Ausbildung sowie eine Weiterbildung im Bereich Leadership Umfangreiche berufliche Erfahrung in leitenden Positionen im Polizeiwesen oder in der öffentlichen Verwaltung Erfahrung in der Leitung von komplexen Projekten Digitale Affinität sowie zukunftsorientiertes Denken Gute Kenntnisse in mehreren Kantonssprachen von Vorteil",
       "descriptionByLocale": {
         "it": "Sicurezza nel Grigioni, per residenti, turisti, partecipanti a convegni e transiti, pace e ordine per tutti. Le poliziotte e i poliziotti cantonali si occupano di questo. Giorno e notte, ogni anno, in ogni condizione meteorologica, su strade di montagna come su autostrade, in città e campagna, in montagna e valle. Sono sempre pronti per supportare, soccorrere, indagare, combattere la criminalità e prevenire. L'uomo è sempre al centro. Nel quadro della strategia «Kapo GR 2025+», la promozione e lo sviluppo dei dipendenti, un'organizzazione orientata al futuro e l'ottimizzazione continua dei processi principali sono al centro. Come nuovo comandante di polizia, che sostituirà il titolare attuale in pensione dal 1° aprile 2027 o su accordo, assumerà la responsabilità completa della polizia cantonale. Dovrà affrontare le sfide poliziesche future, nella leadership, nella prevenzione e nella digitalizzazione. In questa funzione, è direttamente sottoposto al capo del dipartimento. | Compiti: Direzione personale, strategica e organizzativa dell'ufficio Elaborazione e attuazione degli obiettivi strategici e operativi del servizio di polizia Rappresentanza dell'ufficio all'esterno (in ambito di competenza dell'ufficio, competenze di disponibilità e di firma) Collaborazione operativa con partner a livello internazionale, federale, cantonale e comunale Direzione dello staff di comando della polizia in caso di eventi speciali in situazioni straordinarie Responsabilità per l'attuazione della legislazione federale e cantonale nell'ambito di competenza | Requisiti: Eccellenti capacità comunicative, alta competenza sociale, familiarità con moderne metodologie di leadership e management, buone conoscenze di economia aziendale e sicurezza nel comportarsi. Laurea universitaria (Master) o altra formazione superiore e formazione in leadership. Esperienza professionale ampia in posizioni di direzione nel settore della polizia o nell'amministrazione pubblica. Esperienza nella direzione di progetti complessi. Affinità digitale e pensiero orientato al futuro. Buone conoscenze in più lingue cantonali sono un vantaggio.",
         "en": "Safety in Graubünden, for residents, tourists, conference participants and transients, peace and order for all. The cantonal policewomen and police officers take care of this. Day and night, year after year, in every weather condition, on mountain roads as well as on motorways, in town and countryside, in mountain and valley. They are always ready to assist, rescue, investigate, combat crime and prevent. The human being is always at the center. Within the framework of the strategy «Kapo GR 2025+», the promotion and development of employees, a future-oriented organization and the continuous optimization of core processes are at the center. As a new police commander, who will replace the current incumbent due to retirement on 1st April 2027 or by agreement, you will assume the overall responsibility for the cantonal police. It is your task to tackle future police-relevant challenges, in leadership, prevention and digitization. In this function, you are directly subordinate to the head of the department. | Tasks: Personnel, strategic and organizational leadership of the office Development and implementation of strategic and operational goals of the police service Representation of the office to the outside (in the competence area of the office comprehensive availability and signature powers) Close operational cooperation with partners at international, federal, cantonal and municipal level Leadership of the police command staff in case of special events in extraordinary situations Responsibility for the implementation of federal and cantonal legislation in the area of competence | Requirements: Excellent communication skills, high social competence, familiarity with modern leadership and management methods, good business knowledge and confident demeanor. University degree (Master) or another higher education and further training in the field of leadership Extensive professional experience in leading positions in the police or public administration Experience in leading complex projects Digital affinity and future-oriented thinking Good knowledge of several cantonal languages is an advantage.",
-        "de": "Sicherheit in Graubünden, für Bewohnerinnen und Bewohner, für Feriengäste, Kongressteilnehmende und Durchreisende, Ruhe und Ordnung für alle. Dafür sorgen die Kantonspolizistinnen und Kantonspolizisten. Tag und Nacht, jahraus jahrein, bei jedem Wetter, auf Passstrassen wie auf Autobahnen, in Stadt und Land, in Berg und Tal. Jederzeit und überall sind sie bereit für Hilfestellungen, Rettungsaktionen, Ermittlungen, Kriminalitätsbekämpfung und Präventionsmassnahmen. Immer steht der Mensch im Zentrum. Im Rahmen der Strategie «Kapo GR 2025+» steht die Förderung und Entwicklung der Mitarbeitenden, eine zukunftsorientierte Organisation sowie die kontinuierliche Optimierung der Kernprozesse im Vordergrund. Als neue/-r Polizeikommandant/-in, welcher aufgrund der bevorstehenden Pensionierung des jetzigen Stelleninhabers per 1. April 2027 oder nach Vereinbarung gesucht wird, übernehmen die Gesamtverantwortung für die Kantonspolizei. Dabei gilt es, zukunftsweisende Wege für aktuelle polizeirelevante Herausforderungen, in der Führung, Prävention sowie in der Digitalisierung anzupacken. In dieser Funktion sind Sie direkt dem Departementsvorsteher unterstellt. | Aufgaben: Personelle, strategische und organisatorische Leitung des Amts Erarbeitung und Umsetzung von strategischen und operativen Zielen des Polizeidienstes Vertretung des Amts gegen aussen (im Zuständigkeitsbereich des Amts umfassende Verfügungs- und Unterschriftsbefugnisse) Enge operative Zusammenarbeit mit Partnern auf internationaler, eidgenössischer, kantonaler und kommunaler Ebene Leitung des Polizeiführungsstabs bei besonderen Ereignissen in ausserordentlichen Lagen Verantwortung für den Vollzug der Bundesgesetzgebung und der kantonalen Gesetzgebung im Zuständigkeitsbereich | Anforderungen: Ausgeprägte kommunikative Fähigkeiten, hohe Sozialkompetenz, Vertrautheit mit modernen Führungs- und Managementmethoden, gute betriebswirtschaftliche Kenntnisse sowie sicheres Auftreten. Hochschulabschluss (Master) oder eine andere höhere Ausbildung sowie eine Weiterbildung im Bereich Leadership Umfangreiche berufliche Erfahrung in leitenden Positionen im Polizeiwesen oder in der öffentlichen Verwaltung Erfahrung in der Leitung von komplexen Projekten Digitale Affinität sowie zukunftsorientiertes Denken Gute Kenntnisse in mehreren Kantonssprachen von Vorteil",
+        "de": "Sicherheit in Graubünden, für Bewohnerinnen und Bewohner, für Feriengäste, Kongressteilnehmende und Durchreisende, Ruhe und Ordnung für alle. Dafür sorgen die Kantonspolizistinnen und Kantonspolizisten. Tag und Nacht, jahraus jahrein, bei jedem Wetter, auf Passstrassen wie auf Autobahnen, in Stadt und Land, in Berg und Tal. Jederzeit und überall sind sie bereit für Hilfestellungen, Rettungsaktionen, Ermittlungen, Kriminalitätsbekämpfung und Präventionsmassnahmen. Immer steht der Mensch im Zentrum. Im Rahmen der Strategie «Kapo GR 2025+» steht die Förderung und Entwicklung der Mitarbeitenden, eine zukunftsorientierte Organisation sowie die kontinuierliche Optimierung der Kernprozesse im Vordergrund. Als neue/-r Polizeikommandant/-in, welcher aufgrund der bevorstehenden Pensionierung des jetzigen Stelleninhabers per 1. April 2027 oder nach Vereinbarung gesucht wird, übernehmen die Gesamtverantwortung für die Kantonspolizei. Dabei gilt es, zukunftsweisende Wege für aktuelle polizeirelevante Herausforderungen, in der Führung, Prävention sowie in der Digitalisierung anzupacken. In dieser Funktion sind Sie direkt dem Departementsvorsteher unterstellt. | Aufgaben: Personelle, strategische und organisatorische Leitung des Amts Erarbeitung und Umsetzung von strategischen und operativen Zielen des Polizeidienstes Vertretung des Amts gegen aussen (im Zuständigkeitsbereich des Amts umfassende Verfügungs- und Unterschriftsbefugnisse) Enge operative Zusammenarbeit mit Partnern auf internationaler, eidgenössischer, kantonaler und kommunaler Ebene Verantwortung für den Vollzug der Bundesgesetzgebung und der kantonalen Gesetzgebung im Zuständigkeitsbereich | Anforderungen: Ausgeprägte kommunikative Fähigkeiten, hohe Sozialkompetenz, Vertrautheit mit modernen Führungs- und Managementmethoden, gute betriebswirtschaftliche Kenntnisse sowie sicheres Auftreten. Hochschulabschluss (Master) oder eine andere höhere Ausbildung sowie eine Weiterbildung im Bereich Leadership Umfangreiche berufliche Erfahrung in leitenden Positionen im Polizeiwesen oder in der öffentlichen Verwaltung Erfahrung in der Leitung von komplexen Projekten Digitale Affinität sowie zukunftsorientiertes Denken Gute Kenntnisse in mehreren Kantonssprachen von Vorteil",
         "fr": "Sécurité dans les Grisons, pour les résidents, les touristes, les participants aux conférences et les transitants, paix et ordre pour tous. Les policières et policiers cantonaux s'en occupent. Jour et nuit, année après année, dans toutes les conditions météorologiques, sur les routes de montagne comme sur les autoroutes, en ville et en campagne, en montagne et en vallée. Ils sont toujours prêts à assister, secourir, enquêter, combattre la criminalité et prévenir. L'être humain est toujours au centre. Dans le cadre de la stratégie «Kapo GR 2025+», la promotion et le développement des employés, une organisation orientée vers l'avenir et l'optimisation continue des processus clés sont au centre. En tant que nouveau commandant de police, qui remplacera le titulaire actuel à la retraite le 1er avril 2027 ou par accord, vous assumerez la responsabilité globale de la police cantonale. Il vous incombe de relever les défis policiers futurs, en matière de leadership, de prévention et de digitalisation. Dans cette fonction, vous êtes directement subordonné au chef du département. | Tâches: Direction personnelle, stratégique et organisationnelle du bureau Élaboration et mise en œuvre des objectifs stratégiques et opérationnels du service de police Représentation du bureau à l'extérieur (dans le domaine de compétence du bureau, pouvoirs de disponibilité et de signature étendus) Collaboration opérationnelle avec des partenaires à l'échelle internationale, fédérale, cantonale et communale Direction du personnel de commandement de la police en cas d'événements spéciaux dans des situations extraordinaires Responsabilité pour la mise en œuvre de la législation fédérale et cantonale dans le domaine de compétence | Exigences: Excellentes compétences en communication, haute compétence sociale, familiarité avec les méthodes modernes de leadership et de management, bonnes connaissances en économie d'entreprise et assurance de soi. Diplôme universitaire (Master) ou autre formation supérieure et formation continue dans le domaine du leadership Expérience professionnelle étendue dans des postes de direction dans la police ou l'administration publique. Expérience dans la direction de projets complexes. Affinité numérique et pensée orientée vers l'avenir. Bonne connaissance de plusieurs langues cantonales est un avantage."
       },
       "location": "Chur",
@@ -2951,7 +2979,7 @@
       "url": "https://apply.refline.ch/514915/2516/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:48:43.616Z",
+      "crawledAt": "2026-04-13T21:57:03.023Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3014,6 +3042,8 @@
       "previousSlugs": [
         "polizeikommandant-in-kantonspolizei-graubunden-kanton-gr-ch"
       ],
+      "firstSeenAt": "2026-04-13T10:48:43.616Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3025,8 +3055,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:48:43.616Z"
+      }
     },
     {
       "id": "kanton-gr-e85df9548842",
@@ -3059,7 +3088,7 @@
       "url": "https://apply.refline.ch/514915/2625/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:48:42.999Z",
+      "crawledAt": "2026-04-13T21:57:02.394Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -3122,6 +3151,8 @@
       "previousSlugs": [
         "bereichsleiter-in-soziales-gesundheit-kanton-gr-ch"
       ],
+      "firstSeenAt": "2026-04-13T10:48:42.999Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -3133,8 +3164,7 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:48:42.999Z"
+      }
     },
     {
       "id": "kanton-gr-1788dbce9167",
@@ -3167,7 +3197,7 @@
       "url": "https://apply.refline.ch/514915/2621/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:48:42.379Z",
+      "crawledAt": "2026-04-13T21:57:01.770Z",
       "addressLocality": "Samedan",
       "postalCode": "7503",
       "addressCountry": "CH",
@@ -3230,6 +3260,8 @@
       "previousSlugs": [
         "leiter-in-betrieb-sud-kanton-gr-ch"
       ],
+      "firstSeenAt": "2026-04-13T10:48:42.379Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -3241,8 +3273,7 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:48:42.379Z"
+      }
     },
     {
       "id": "kanton-gr-1ffb65569cc8",
@@ -3275,7 +3306,7 @@
       "url": "https://apply.refline.ch/514915/2618/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:48:41.761Z",
+      "crawledAt": "2026-04-13T21:57:01.146Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3326,6 +3357,8 @@
       "previousSlugs": [
         "sachbearbeiter-in-administration-sanitatsnotrufzentrale-144-kanton-gr-ch"
       ],
+      "firstSeenAt": "2026-04-13T10:48:41.761Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3337,8 +3370,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:48:41.761Z"
+      }
     },
     {
       "id": "kanton-gr-d6d6f27a18ff",
@@ -3371,7 +3403,7 @@
       "url": "https://apply.refline.ch/514915/2617/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:48:41.143Z",
+      "crawledAt": "2026-04-13T21:57:00.524Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3431,6 +3463,8 @@
       "previousSlugs": [
         "raumplaner-in-kanton-gr-ch"
       ],
+      "firstSeenAt": "2026-04-13T10:48:41.143Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3442,8 +3476,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:48:41.143Z"
+      }
     },
     {
       "id": "kanton-gr-396895dc3845",
@@ -3476,7 +3509,7 @@
       "url": "https://apply.refline.ch/514915/2624/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:48:40.522Z",
+      "crawledAt": "2026-04-13T21:56:59.901Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3539,6 +3572,8 @@
       "previousSlugs": [
         "leiter-in-zivilschutz-einsatz-ausbildung-kanton-gr-ch"
       ],
+      "firstSeenAt": "2026-04-13T10:48:40.522Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -3550,8 +3585,7 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:48:40.522Z"
+      }
     },
     {
       "id": "kanton-gr-19253afd742c",
@@ -3584,7 +3618,7 @@
       "url": "https://apply.refline.ch/514915/2622/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:48:39.904Z",
+      "crawledAt": "2026-04-13T21:56:59.276Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -3645,6 +3679,8 @@
       "previousSlugs": [
         "mitarbeiter-in-gutsbetrieb-allrounder-in-kanton-gr-ch"
       ],
+      "firstSeenAt": "2026-04-13T10:48:39.904Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3656,8 +3692,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:48:39.904Z"
+      }
     },
     {
       "id": "kanton-gr-8b427e24240c",
@@ -3690,7 +3725,7 @@
       "url": "https://apply.refline.ch/514915/2623/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:48:39.286Z",
+      "crawledAt": "2026-04-13T21:56:58.653Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3756,6 +3791,8 @@
           "systemingenieur-in-windows-anwendungen-kantonale-verwaltung-graubunden-chur"
         ]
       },
+      "firstSeenAt": "2026-04-13T10:48:39.286Z",
+      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "baseSalary": {
@@ -3767,8 +3804,7 @@
           "maxValue": 88000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:48:39.286Z"
+      }
     },
     {
       "id": "kanton-gr-6450495b26dd",
@@ -3801,7 +3837,7 @@
       "url": "https://apply.refline.ch/514915/2619/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:48:38.668Z",
+      "crawledAt": "2026-04-13T21:56:58.029Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3858,6 +3894,8 @@
       "previousSlugs": [
         "projektmitarbeiter-in-kanton-gr-ch"
       ],
+      "firstSeenAt": "2026-04-13T10:48:38.668Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3869,8 +3907,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:48:38.668Z"
+      }
     },
     {
       "id": "kanton-gr-2874eda38fe0",
@@ -3903,7 +3940,7 @@
       "url": "https://apply.refline.ch/514915/2607/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:48:38.046Z",
+      "crawledAt": "2026-04-13T21:56:57.407Z",
       "addressLocality": "Tiefencastel",
       "postalCode": "7450",
       "addressCountry": "CH",
@@ -3957,6 +3994,8 @@
       "previousSlugs": [
         "fachperson-bau-und-planungswesen-als-sachbearbeiter-in-technisches-projektwesen-kanton-gr-"
       ],
+      "firstSeenAt": "2026-04-13T10:48:38.046Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -3968,8 +4007,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:48:38.046Z"
+      }
     },
     {
       "id": "kanton-gr-998166209919",
@@ -4002,7 +4040,7 @@
       "url": "https://apply.refline.ch/514915/2608/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:48:37.418Z",
+      "crawledAt": "2026-04-13T21:56:56.775Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -4065,6 +4103,8 @@
       "previousSlugs": [
         "steuerkommissar-in-kanton-gr-ch"
       ],
+      "firstSeenAt": "2026-04-13T10:48:37.418Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4076,8 +4116,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:48:37.418Z"
+      }
     },
     {
       "id": "kanton-gr-806029ceb89f",
@@ -4110,7 +4149,7 @@
       "url": "https://apply.refline.ch/514915/2602/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:48:36.798Z",
+      "crawledAt": "2026-04-13T21:56:56.153Z",
       "addressLocality": "Samedan",
       "postalCode": "7503",
       "addressCountry": "CH",
@@ -4172,6 +4211,8 @@
       "previousSlugs": [
         "sicherheitsassistent-in-im-raum-oberengadin-bergell-kanton-gr-ch"
       ],
+      "firstSeenAt": "2026-04-13T10:48:36.798Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4183,8 +4224,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:48:36.798Z"
+      }
     },
     {
       "id": "kanton-gr-992062f00158",
@@ -4217,7 +4257,7 @@
       "url": "https://apply.refline.ch/514915/2605/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:48:36.179Z",
+      "crawledAt": "2026-04-13T21:56:55.529Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -4274,6 +4314,8 @@
       "previousSlugs": [
         "kantonszahnarztin-kantonszahnarzt-kanton-gr-ch"
       ],
+      "firstSeenAt": "2026-04-13T10:48:36.179Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4285,8 +4327,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:48:36.179Z"
+      }
     },
     {
       "id": "kanton-gr-cb49e56f702c",
@@ -4319,7 +4360,7 @@
       "url": "https://apply.refline.ch/514915/2565/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:48:35.559Z",
+      "crawledAt": "2026-04-13T21:56:54.906Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -4382,6 +4423,8 @@
           "verkehrsexpertin-kantonale-verwaltung-graubunden-chur"
         ]
       },
+      "firstSeenAt": "2026-04-13T10:48:35.559Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4393,8 +4436,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:48:35.559Z"
+      }
     },
     {
       "id": "kanton-gr-5cc4b885f1fe",
@@ -4427,7 +4469,7 @@
       "url": "https://apply.refline.ch/514915/0912/pub/41/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:48:34.939Z",
+      "crawledAt": "2026-04-13T21:56:54.278Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -4490,6 +4532,8 @@
       "previousSlugs": [
         "werde-polizist-in-bei-der-kapo-gr-kanton-gr-ch"
       ],
+      "firstSeenAt": "2026-04-13T10:48:34.939Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -4501,8 +4545,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-04-13T10:48:34.939Z"
+      }
     }
   ]
 }
