@@ -521,9 +521,9 @@ function replaceFaqInBodyFile(filePath, faqArray) {
     (_match, g1, _g2, g3) => g1 + jsonStr + g3
   );
   if (replaced === content) return false;
-  // Post-write validation: verify the file is still valid TS
+  // Post-write validation: strip TS type annotations before JS syntax check
   try {
-    new Function(replaced);
+    new Function(replaced.replace(/:\s*Record<[^>]+>\s*=/g, ' =').replace(/^export default .+$/m, ''));
   } catch (syntaxErr) {
     console.error(`  ❌ replaceFaqInBodyFile produced invalid TS in ${filePath}: ${syntaxErr.message}`);
     return false;
@@ -577,9 +577,9 @@ function insertFaqIntoBodyFile(filePath, articleId, faqArray) {
     return false;
   }
 
-  // Post-write validation: verify the file is still valid TS
+  // Post-write validation: strip TS type annotations before JS syntax check
   try {
-    new Function(content);
+    new Function(content.replace(/:\s*Record<[^>]+>\s*=/g, ' =').replace(/^export default .+$/m, ''));
   } catch (syntaxErr) {
     console.error(`  ❌ insertFaqIntoBodyFile produced invalid TS in ${filePath}: ${syntaxErr.message}`);
     return false;
