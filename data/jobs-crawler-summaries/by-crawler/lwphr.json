@@ -1,18 +1,19 @@
 {
   "key": "lwphr",
   "label": "LWP Ledermann Wieting & Partners",
-  "generatedAt": "2026-04-13T10:56:28.351Z",
+  "generatedAt": "2026-04-13T22:04:42.090Z",
   "total": 14,
-  "newCount": 1,
-  "updatedCount": 13,
+  "newCount": 0,
+  "updatedCount": 14,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3686,
-  "avgDurationMs": 3686,
+  "durationMs": 4037,
+  "avgDurationMs": 4037,
   "durationHistory": [
-    3686
+    4037
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "DIRETTORE RISORSE UMANE",
       "slug": "direttore-risorse-umane-lwp-ledermann-wieting-partners-ticino",
@@ -35,16 +36,15 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "_qualityScore": 79,
+      "id": "lwphr-6db5ef76ebc1",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 20,
+        "translation": 25,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "BACK OFFICE (AMM.) TITOLI & TESORERIA",
       "slug": "back-office-amm-titoli-tesoreria-lwp-ledermann-wieting-partners-lugano",
