@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bosch-thermotechnik-ag",
-  "assembledAt": "2026-04-13T10:08:11.194Z",
+  "assembledAt": "2026-04-13T21:16:51.371Z",
   "jobs": [
     {
       "title": "Groupleader Production 100% (w/m/div.) - REF282899E",
@@ -68,7 +68,8 @@
       },
       "previousSlugs": [
         "groupleader-production-100-w-m-div-ref282899e-bosch-st-niklaus"
-      ]
+      ],
+      "firstSeenAt": "2026-04-13T21:16:51.371Z"
     },
     {
       "title": "Produktionsmitarbeiter 100% (m/w/div) - REF282794R",
@@ -133,7 +134,8 @@
       },
       "previousSlugs": [
         "produktionsmitarbeiter-100-m-w-div-ref282794r-bosch-st-niklaus"
-      ]
+      ],
+      "firstSeenAt": "2026-04-13T21:16:51.371Z"
     },
     {
       "title": "Logistiker 100% (w/m/div.) - REF282482P",
@@ -204,7 +206,9 @@
         "fr": [
           "logistiker-100-w-m-div-ref282482p-bosch-naters"
         ]
-      }
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-04-13T21:16:51.371Z"
     },
     {
       "title": "Mechaniker (w/m/div.) - REF280421X",
@@ -275,7 +279,8 @@
       },
       "previousSlugs": [
         "mechaniker-w-m-div-ref280421x-bosch-st-niklaus"
-      ]
+      ],
+      "firstSeenAt": "2026-04-13T21:16:51.371Z"
     },
     {
       "title": "Lehrstelle Kauffrau / Kaufmann - REF279222F",
@@ -340,7 +345,8 @@
       },
       "previousSlugs": [
         "lehrstelle-kauffrau-kaufmann-ref279222f-bosch-st-niklaus"
-      ]
+      ],
+      "firstSeenAt": "2026-04-13T21:16:51.371Z"
     }
   ]
 }
