@@ -91,10 +91,9 @@ const DEFAULT_CANTON_DISPLAY = 'Ticino';
 const DEFAULT_POSTAL_CODE = '6900';
 const TARGET_CANTONS_ORDERED = ['TI', 'GR', 'VS'] as const;
 
-// Cities that indicate a job is NOT in a target canton, regardless of the canton
-// field value. Fixes incorrect canton assignments from crawlers that hardcode
-// HQ canton (e.g. Tether/Bitfinex set canton=TI for London/Bangkok jobs).
-const NON_TARGET_CITY_KEYWORDS = [
+// Foreign country/city keywords — jobs matching these are EXCLUDED entirely.
+// These are locations outside Switzerland that should never appear on a Swiss job board.
+const FOREIGN_LOCATION_KEYWORDS = [
   'london', 'paris', 'milan', 'milano', 'berlin', 'munich', 'münchen',
   'frankfurt', 'hamburg', 'vienna', 'wien', 'madrid', 'barcelona',
   'amsterdam', 'brussels', 'bruxelles', 'stockholm', 'oslo', 'copenhagen',
@@ -102,9 +101,7 @@ const NON_TARGET_CITY_KEYWORDS = [
   'dubai', 'new york', 'los angeles', 'toronto', 'sydney', 'melbourne',
   'rome', 'roma', 'napoli', 'torino', 'bologna', 'genova', 'palermo',
   'venezia', 'florence', 'firenze', 'kuala lumpur', 'luxembourg',
-  'zurich', 'zürich', 'geneva', 'genève', 'geneve', 'bern', 'berne',
-  'basel', 'lausanne', 'winterthur', 'luzern', 'lucerne', 'st. gallen',
-  'schaffhausen', 'solothurn', 'aarau', 'cheseaux', 'jersey',
+  'jersey',
   'united kingdom', 'germany', 'france', 'netherlands', 'belgium',
   'austria', 'ireland', 'denmark', 'norway', 'sweden', 'finland',
   'portugal', 'spain', 'poland', 'czech', 'romania', 'hungary',
@@ -115,10 +112,28 @@ const NON_TARGET_CITY_KEYWORDS = [
   'south africa', 'nigeria', 'kenya', 'egypt', 'israel', 'qatar',
   'saudi arabia', 'bahrain', 'liechtenstein',
 ];
-const isNonTargetCity = (locality: string) => {
+// Swiss cities that contain substrings of foreign city names (e.g. Münchenstein contains München)
+const SWISS_FALSE_POSITIVE_GUARD = ['münchenstein', 'münchenbuchsee', 'münchenwiler', 'romanshorn', 'romandie'];
+const isForeignLocation = (locality: string) => {
   const lower = locality.toLowerCase();
-  return NON_TARGET_CITY_KEYWORDS.some(kw => lower.includes(kw));
+  if (SWISS_FALSE_POSITIVE_GUARD.some(s => lower.includes(s))) return false;
+  return FOREIGN_LOCATION_KEYWORDS.some(kw => lower.includes(kw));
 };
+
+// Non-target Swiss cities — jobs in these locations are kept but sorted AFTER target cantons.
+const NON_TARGET_SWISS_CITY_KEYWORDS = [
+  'zurich', 'zürich', 'geneva', 'genève', 'geneve', 'bern', 'berne',
+  'basel', 'lausanne', 'winterthur', 'luzern', 'lucerne', 'st. gallen',
+  'schaffhausen', 'solothurn', 'aarau', 'cheseaux',
+];
+const isNonTargetSwissCity = (locality: string) => {
+  const lower = locality.toLowerCase();
+  return NON_TARGET_SWISS_CITY_KEYWORDS.some(kw => lower.includes(kw));
+};
+
+// Combined check for sorting: non-target = foreign OR non-target Swiss
+const isNonTargetCity = (locality: string) =>
+  isForeignLocation(locality) || isNonTargetSwissCity(locality);
 
 const CANTON_DISPLAY: Record<string, string> = {
   'TI': 'Ticino', 'GR': 'Graubünden', 'ZH': 'Zürich', 'BE': 'Bern',
@@ -2769,13 +2784,17 @@ const JobBoard: React.FC<JobBoardProps> = ({
   }, [selectedJob, authLoading]);
 
   const sortedJobs = useMemo(() => {
-    // Canton priority: TARGET_CANTONS_ORDERED first (TI, GR, VS), everything else after.
-    // Within each canton group, sort by day (not hour/minute — avoids crawler-time bias),
-    // then by qualityScore descending so higher-quality listings surface first.
-    // addressLocality check overrides canton field — catches crawlers that hardcode
-    // HQ canton for remote/foreign-city jobs (e.g. Tether London → canton=TI).
+    // Step 1: EXCLUDE foreign jobs entirely (London, Luxembourg, Singapore, etc.)
+    // These are NOT Swiss positions and should never appear on the job board.
+    const swissJobs = jobs.filter(j => {
+      const loc = j.addressLocality || j.location || '';
+      return !isForeignLocation(loc);
+    });
+
+    // Step 2: Canton priority for remaining Swiss jobs.
+    // TARGET_CANTONS_ORDERED first (TI, GR, VS), non-target Swiss cantons after.
     const cantonRank = (job: JobListing) => {
-      if (job.addressLocality && isNonTargetCity(job.addressLocality)) {
+      if (job.addressLocality && isNonTargetSwissCity(job.addressLocality)) {
         return TARGET_CANTONS_ORDERED.length;
       }
       const idx = TARGET_CANTONS_ORDERED.indexOf(job.canton as typeof TARGET_CANTONS_ORDERED[number]);
@@ -2785,7 +2804,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
       const t = new Date(d || 0);
       return new Date(t.getFullYear(), t.getMonth(), t.getDate()).getTime();
     };
-    const withMeta = jobs.map(j => ({
+    const withMeta = swissJobs.map(j => ({
       job: j,
       rank: cantonRank(j),
       day: dayTs(j.crawledAt || j.postedDate),

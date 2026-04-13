@@ -4265,6 +4265,9 @@ export function isLocationExplicitlyForeign(locationField) {
   if (/\b(ticino|tessin|ti|graubunden|graubünden|grigioni|grisons|gr)\b/i.test(lower)) return false;
   const allTargetCities = [...TICINO_CITIES, ...GRIGIONI_CITIES];
   if (allTargetCities.some((c) => lower.includes(c.toLowerCase()))) return false;
+  // Swiss cities that contain substrings of foreign city names (e.g. Münchenstein contains München)
+  const SWISS_FALSE_POSITIVE_GUARD = ['münchenstein', 'münchenbuchsee', 'münchenwiler', 'romanshorn', 'romandie'];
+  if (SWISS_FALSE_POSITIVE_GUARD.some((s) => lower.includes(s))) return false;
   const foreignCountries = [
     'malaysia', 'italy', 'italia', 'france', 'germany', 'deutschland',
     'austria', 'österreich', 'spain', 'españa', 'portugal',
@@ -4288,6 +4291,76 @@ export function isLocationExplicitlyForeign(locationField) {
     'dubai', 'new york', 'los angeles', 'toronto', 'sydney', 'melbourne',
   ];
   return foreignCountries.some((k) => lower.includes(k)) || foreignCities.some((k) => lower.includes(k));
+}
+
+/**
+ * Geocode a location string using the free OpenStreetMap Nominatim API.
+ * Returns the ISO 3166-1 alpha-2 country code (e.g. 'ch', 'gb', 'lu')
+ * or null if the lookup fails or returns no results.
+ *
+ * Rate limit: max 1 req/s (Nominatim usage policy). Callers should
+ * throttle accordingly. No API key required.
+ */
+export async function geocodeCountry(locationString) {
+  const q = String(locationString || '').trim();
+  if (!q || q.length < 2) return null;
+  const url = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(q)}&format=json&limit=1&addressdetails=1`;
+  try {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 8000);
+    const res = await globalThis.fetch(url, {
+      signal: controller.signal,
+      headers: {
+        'User-Agent': 'FrontaliereTicino-JobCrawler/1.0 (https://frontaliereticino.ch)',
+        Accept: 'application/json',
+      },
+    });
+    clearTimeout(timer);
+    if (!res.ok) return null;
+    const data = await res.json();
+    if (!Array.isArray(data) || data.length === 0) return null;
+    return (data[0].address?.country_code || '').toLowerCase() || null;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Verify whether a location string refers to a Swiss location.
+ * Uses keyword-based detection first (fast, offline), then falls back
+ * to Nominatim geocoding API for uncertain cases.
+ *
+ * Returns: { isSwiss: boolean, country: string|null, method: 'keyword'|'geocode'|'unknown' }
+ */
+export async function verifyLocationIsSwiss(locationString) {
+  const loc = String(locationString || '').trim();
+  if (!loc) return { isSwiss: true, country: 'ch', method: 'unknown' };
+
+  // Fast path: keyword-based detection
+  if (isLocationExplicitlyForeign(loc)) {
+    return { isSwiss: false, country: null, method: 'keyword' };
+  }
+
+  // If location contains explicit Swiss indicators, trust it
+  const lower = loc.toLowerCase();
+  if (/(\bch\b|swiss|svizzera|switzerland|schweiz|suisse)/i.test(lower)) {
+    return { isSwiss: true, country: 'ch', method: 'keyword' };
+  }
+
+  // For ambiguous locations (no explicit foreign or Swiss markers),
+  // fall back to Nominatim geocoding
+  const allTargetCities = [...TICINO_CITIES, ...GRIGIONI_CITIES];
+  if (allTargetCities.some((c) => lower.includes(c.toLowerCase()))) {
+    return { isSwiss: true, country: 'ch', method: 'keyword' };
+  }
+
+  // Geocode uncertain locations
+  const countryCode = await geocodeCountry(loc);
+  if (countryCode) {
+    return { isSwiss: countryCode === 'ch', country: countryCode, method: 'geocode' };
+  }
+
+  return { isSwiss: true, country: null, method: 'unknown' };
 }
 
 export function isExplicitlyOutsideTargetCantons(text) {

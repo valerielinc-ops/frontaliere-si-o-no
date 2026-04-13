@@ -42,7 +42,7 @@ import {
 } from './lib/crawler-summary-store.mjs';
 import { buildStableJobIdentity } from './lib/job-identity.mjs';
 import { hardenJobsWithStructuredSalary } from './lib/structured-salary.mjs';
-import { computeCrawlerQualityAggregate, computeJobQualityScore, buildStableId, cleanPreviousSlugsPerLocale } from './lib/dedicated-crawler-common.mjs';
+import { computeCrawlerQualityAggregate, computeJobQualityScore, buildStableId, cleanPreviousSlugsPerLocale, isLocationExplicitlyForeign } from './lib/dedicated-crawler-common.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -613,12 +613,26 @@ function assembleJobs() {
     console.log(`  🧹 Slug dedup: removed ${slugDupeCount} entries with duplicate slugs (${deduped.length} remaining)`);
   }
 
+  // ── Filter out foreign jobs ─────────────────────────────────────────
+  // Jobs in explicitly foreign locations (London, Luxembourg, Singapore, etc.)
+  // should not appear on the Swiss job board. Filter them out at assembly time
+  // so they never reach the frontend or static page generation.
+  const beforeForeignFilter = deduped.length;
+  const foreignFiltered = deduped.filter((job) => {
+    const loc = String(job.addressLocality || job.location || '');
+    return !isLocationExplicitlyForeign(loc);
+  });
+  const foreignCount = beforeForeignFilter - foreignFiltered.length;
+  if (foreignCount > 0) {
+    console.log(`  🌍 Foreign location filter: excluded ${foreignCount} non-Swiss jobs (${foreignFiltered.length} remaining)`);
+  }
+
   // ── Backfill empty description from descriptionByLocale ────────────
   // Some crawlers (skip_ai_translation=1 mode) write jobs with empty
   // description but populated descriptionByLocale. The build plugin
   // needs description for its validity filter, so backfill from Italian.
   let backfilledDescs = 0;
-  for (const job of deduped) {
+  for (const job of foreignFiltered) {
     if (!job.description && job.descriptionByLocale) {
       const fallback = job.descriptionByLocale.it || job.descriptionByLocale.de || job.descriptionByLocale.en || job.descriptionByLocale.fr || '';
       if (fallback) {
@@ -635,17 +649,17 @@ function assembleJobs() {
   // Some crawlers write slices without job IDs. Assign a stable hash-based
   // ID so cleanup-jobs.mjs and the build system can identify them.
   let backfilledIds = 0;
-  for (const job of deduped) {
+  for (const job of foreignFiltered) {
     if (!job.id) {
       job.id = buildStableId(job);
       backfilledIds++;
     }
   }
   if (backfilledIds > 0) {
-    console.log(`  🆔 Backfilled ${backfilledIds} missing job IDs (of ${deduped.length} total)`);
+    console.log(`  🆔 Backfilled ${backfilledIds} missing job IDs (of ${foreignFiltered.length} total)`);
   }
 
-  return hardenJobsWithStructuredSalary(deduped).jobs;
+  return hardenJobsWithStructuredSalary(foreignFiltered).jobs;
 }
 
 /**
