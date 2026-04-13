@@ -371,8 +371,9 @@ export function staticPagesPlugin(rootDir: string): Plugin {
 
       /* ── 0pre. Build set of blog article paths owned by ogPagesPlugin ── */
       // ogPagesPlugin generates full-content pages for these paths. Because closeBundle
-      // hooks run in parallel, we cannot rely on fs.existsSync to detect them — instead
-      // we parse the same seo-blog*.ts source files to build a deterministic skip set.
+      // hooks run in parallel (Vite 6 hookParallel), we cannot rely on fs.existsSync
+      // to detect them — instead we parse the same source files to build a deterministic
+      // skip set that covers ALL locales (IT + EN/DE/FR variants).
       const ogPagesPaths = new Set<string>();
       try {
         let seoSrc = fs.readFileSync(np.resolve(rootDir, 'services/seo/seo-blog.ts'), 'utf-8');
@@ -387,7 +388,41 @@ export function staticPagesPlugin(rootDir: string): Plugin {
           const p = cpM[1].replace(/\/+$/, '') || '/';
           ogPagesPaths.add(p);
         }
-        console.log(`[static-pages] Loaded ${ogPagesPaths.size} ogPagesPlugin-owned article paths`);
+        // Also derive EN/DE/FR locale paths for the same articles so we can skip
+        // them deterministically without racing on fs.existsSync.
+        // Parse BLOG_SLUGS from routerBlogData.ts (same source ogPagesPlugin uses)
+        const blogListSlugs: Record<string, string> = {
+          it: 'articoli-frontaliere', en: 'cross-border-articles',
+          de: 'grenzgaenger-artikel', fr: 'articles-frontalier',
+        };
+        try {
+          const routerBlogSrc = fs.readFileSync(np.resolve(rootDir, 'services/routerBlogData.ts'), 'utf-8');
+          const bsRx = /'([^']+)':\s*\{\s*it:\s*'([^']+)',\s*en:\s*'([^']+)',\s*de:\s*'([^']+)',\s*fr:\s*'([^']+)'/g;
+          const itSlugToLocales: Record<string, Record<string, string>> = {};
+          let bm: RegExpExecArray | null;
+          while ((bm = bsRx.exec(routerBlogSrc)) !== null) {
+            itSlugToLocales[bm[2]] = { en: bm[3], de: bm[4], fr: bm[5] };
+          }
+          let localePathsAdded = 0;
+          for (const itPath of [...ogPagesPaths]) {
+            // itPath is like /articoli-frontaliere/slug
+            const itSlug = itPath.split('/').filter(Boolean).pop();
+            if (!itSlug) continue;
+            const locSlugs = itSlugToLocales[itSlug];
+            if (!locSlugs) continue;
+            for (const loc of ['en', 'de', 'fr'] as const) {
+              const ls = locSlugs[loc];
+              const bs = blogListSlugs[loc];
+              if (ls && bs) {
+                ogPagesPaths.add(`/${loc}/${bs}/${ls}`);
+                localePathsAdded++;
+              }
+            }
+          }
+          console.log(`[static-pages] Loaded ${ogPagesPaths.size} ogPagesPlugin-owned paths (${localePathsAdded} locale variants)`);
+        } catch {
+          console.log(`[static-pages] Loaded ${ogPagesPaths.size} ogPagesPlugin-owned article paths (IT only, routerBlogData.ts not parsed)`);
+        }
       } catch {
         console.warn('[static-pages] Could not parse seo-blog.ts — will fall back to fs.existsSync for blog pages');
       }
@@ -2366,8 +2401,7 @@ ${hrefTags}
             }
           }
           // Even if the directory index.html exists, ensure flat .html exists too.
-          // Guard: ogPagesPlugin closeBundle runs in parallel — the index.html may not
-          // be flushed yet. Only read if the file actually exists on disk.
+          // ogPagesPlugin closeBundle runs in parallel — flat .html may not exist yet.
           if (url.path !== '/') {
             const flatFile = np.join(distDir, url.path + '.html');
             const indexFile = np.join(distDir, url.path, 'index.html');
@@ -2388,6 +2422,9 @@ ${hrefTags}
           if (locPath === url.path) continue;
 
           const locFile = np.join(distDir, locPath, 'index.html');
+          const locNormalized = locPath.replace(/\/+$/, '') || '/';
+          // Deterministic skip: if ogPagesPlugin owns this path, don't race on fs.existsSync
+          if (ogPagesPaths.has(locNormalized)) continue;
           if (fs.existsSync(locFile)) {
             // Ensure flat .html exists even if directory index.html was created by another plugin
             const flatLoc = np.join(distDir, locPath + '.html');
