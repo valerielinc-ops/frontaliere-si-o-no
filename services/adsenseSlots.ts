@@ -119,4 +119,42 @@ export const AD_SLOTS = {
     fullWidthResponsive: true,
     placeholderMinHeight: 280,
   },
+  /** Blog: desktop left rail — tertiary (borrowed from JOBDETAIL_SIDEBAR) */
+  ARTICLE_RAIL_LEFT_3: {
+    slot: '8164676143',
+    format: 'auto',
+    fullWidthResponsive: true,
+    placeholderMinHeight: 280,
+  },
+  /** Blog: desktop right rail — tertiary (borrowed from JOBDETAIL_END_MULTIPLEX) */
+  ARTICLE_RAIL_RIGHT_3: {
+    slot: '3205192616',
+    format: 'auto',
+    fullWidthResponsive: true,
+    placeholderMinHeight: 280,
+  },
+  /** Blog: mobile in-article — tertiary (borrowed from JOBDETAIL_BETWEEN_SECTIONS) */
+  ARTICLE_INLINE_MOBILE_3: {
+    slot: '7767335647',
+    format: 'fluid',
+    layout: 'in-article',
+    fullWidthResponsive: false,
+    placeholderMinHeight: 220,
+  },
+  /** Blog: mobile in-article — quaternary (borrowed from HOMEPAGE_MID_DISPLAY) */
+  ARTICLE_INLINE_MOBILE_4: {
+    slot: '2093992129',
+    format: 'fluid',
+    layout: 'in-article',
+    fullWidthResponsive: false,
+    placeholderMinHeight: 220,
+  },
+  /** Blog: mobile in-article — quinary (borrowed from JOBDETAIL_SIDEBAR_2) */
+  ARTICLE_INLINE_MOBILE_5: {
+    slot: '6065026724',
+    format: 'fluid',
+    layout: 'in-article',
+    fullWidthResponsive: false,
+    placeholderMinHeight: 220,
+  },
 } as const;

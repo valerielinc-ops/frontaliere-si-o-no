@@ -241,7 +241,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
                         Analytics.trackNewsletter('view_form', 'google');
                         await googleSignIn();
                       }}
-                      className="w-full min-h-[40px] grid grid-cols-[20px_1fr_20px] items-center px-4 py-2 bg-white/10 border border-white/20 rounded-xl text-white/90 text-xs font-semibold hover:bg-white/20 transition-colors"
+                      className="w-full min-h-[44px] grid grid-cols-[20px_1fr_20px] items-center px-4 py-2 bg-white/10 border border-white/20 rounded-xl text-white/90 text-xs font-semibold hover:bg-white/20 transition-colors"
                     >
                       <svg viewBox="0 0 24 24" className="w-4 h-4" aria-hidden="true">
                         <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4" />
