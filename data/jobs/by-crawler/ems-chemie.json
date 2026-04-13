@@ -1,7 +1,63 @@
 {
   "crawlerKey": "ems-chemie",
-  "assembledAt": "2026-04-13T10:28:29.495Z",
+  "assembledAt": "2026-04-13T21:36:53.361Z",
   "jobs": [
+    {
+      "title": "SAP Basis Administrator (m/w/d) 100%",
+      "company": "EMS-Chemie AG",
+      "companyKey": "ems-chemie",
+      "url": "https://jobs.ems-group.com/offene-stellen/sap-basis-administrator-m-w-d/63abb747-4846-4e1b-aded-e0bc13a0b7ae",
+      "location": "Domat/Ems",
+      "canton": "GR",
+      "country": "CH",
+      "postalCode": "7013",
+      "streetAddress": "Via Innovativa 1",
+      "addressLocality": "Domat/Ems",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "category": "science",
+      "description": "SAP Basis Administrator (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+      "postedDate": "2026-04-13",
+      "source": "company-website",
+      "slug": "sap-basis-administrator-m-w-d-100-ems-chemie-domat-ems",
+      "slugByLocale": {
+        "it": "sap-basis-administrator-m-w-d-100-ems-chemie-domat-ems",
+        "en": "sap-basis-administrator-m-w-d-100-ems-chemie-domat-ems",
+        "de": "sap-basis-administrator-m-w-d-100-ems-chemie-domat-ems",
+        "fr": "sap-basis-administrator-m-w-d-100-ems-chemie-domat-ems"
+      },
+      "titleByLocale": {
+        "it": "SAP Basis Administrator (m/w/d) 100%",
+        "en": "SAP Basis Administrator (m/w/d) 100%",
+        "de": "SAP Basis Administrator (m/w/d) 100%",
+        "fr": "SAP Basis Administrator (m/w/d) 100%"
+      },
+      "crawledAt": "",
+      "descriptionByLocale": {
+        "it": "SAP Basis Administrator (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+        "en": "SAP Basis Administrator (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+        "de": "SAP Basis Administrator (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
+        "fr": "SAP Basis Administrator (m/w/d) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems."
+      },
+      "needsRetranslation": true,
+      "id": "ems-chemie-dc1a28e8e6ec",
+      "sourceLang": "it",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-04-13T21:36:53.361Z"
+    },
     {
       "title": "Key Account Manager Deutschland, Segment Industrie und Konsumgüter (m/w/d) 100%",
       "company": "EMS-Chemie AG",
@@ -65,7 +121,9 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-04-13T21:36:53.361Z"
     },
     {
       "title": "Ingenieur / Techniker Automatisierungstechnik (m/w/d) 100%",
@@ -130,7 +188,8 @@
       },
       "previousSlugs": [
         "ingenieur-techniker-automatisierungstechnik-m-w-d-100-ems-chemie-markdorf"
-      ]
+      ],
+      "firstSeenAt": "2026-04-13T21:36:53.361Z"
     },
     {
       "title": "Assistenz der Divisionsleitung (m/w/d) 100%",
@@ -192,7 +251,8 @@
         "it": [
           "assistenz-der-divisionsleitung-m-w-d-100-ems-chemie-domat-ems"
         ]
-      }
+      },
+      "firstSeenAt": "2026-04-13T21:36:53.361Z"
     },
     {
       "title": "Leiter Umweltschutz und Sicherheit (m/w/d) 100%",
@@ -254,7 +314,8 @@
         "it": [
           "leiter-umweltschutz-e-sicherheit-m-w-d-100-ems-chemie-ag-domat-ems"
         ]
-      }
+      },
+      "firstSeenAt": "2026-04-13T21:36:53.361Z"
     },
     {
       "title": "Distribution Manager (m/w/d) 100%",
@@ -316,7 +377,8 @@
       },
       "previousSlugs": [
         "distribution-manager-m-w-d-100-ems-chemie-domat-ems"
-      ]
+      ],
+      "firstSeenAt": "2026-04-13T21:36:53.361Z"
     },
     {
       "title": "Leitung Assistenz Marketing & Verkauf (m/w/d) 100%",
@@ -370,7 +432,8 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-04-13T21:36:53.361Z"
     },
     {
       "title": "Anwendungstechniker Technische Fasern 100%",
@@ -441,7 +504,8 @@
         "fr": [
           "anwendungstechniker-technische-fasern-100-ems-chemie-domat-ems"
         ]
-      }
+      },
+      "firstSeenAt": "2026-04-13T21:36:53.361Z"
     },
     {
       "title": "Laborant Forschung & Entwicklung (m/w/d) 100%",
@@ -505,7 +569,8 @@
           "tecnico-di-laboratorio-ricerca-e-sviluppo-m-f-d-100-ems-chemie-domat-ems",
           "laborant-forschung-entwicklung-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-domat-ems"
         ]
-      }
+      },
+      "firstSeenAt": "2026-04-13T21:36:53.361Z"
     },
     {
       "title": "Transportdisponent / Sachbearbeiter Export 100% (m/w) 100%",
@@ -580,75 +645,8 @@
         "fr": [
           "transportdisponent-sachbearbeiter-export-100-m-w-100-romanshorn-eftec-ag-romanshorn-ems-chemie-ag-domat-ems"
         ]
-      }
-    },
-    {
-      "title": "Key Account Manager (m/w/d) (Homeoffice) 100%",
-      "company": "EMS-Chemie AG",
-      "companyKey": "ems-chemie",
-      "url": "https://jobs.ems-group.com/offene-stellen/key-account-manager-m-w-d-homeoffice/4aa59321-0063-4499-bdf7-53a3dc75ec9c",
-      "location": "Domat/Ems",
-      "canton": "GR",
-      "country": "CH",
-      "postalCode": "7013",
-      "streetAddress": "Via Innovativa 1",
-      "addressLocality": "Domat/Ems",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "science",
-      "description": "Key Account Manager (m/w/d) (Homeoffice) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. Sede di lavoro: Domat/Ems.",
-      "postedDate": "2026-04-13",
-      "source": "company-website",
-      "slug": "responsabile-conto-chiave-lunedi-mercoledi-giorno-homeoffice-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-e",
-      "slugByLocale": {
-        "it": "responsabile-conto-chiave-lunedi-mercoledi-giorno-homeoffice-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-e",
-        "en": "key-account-manager-m-w-d-homeoffice-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-domat-ems",
-        "de": "key-account-manager-m-w-d-homeoffice-100-ems-chemie-ag-domat-ems",
-        "fr": "key-account-manager-m-w-d-homeoffice-100-ems-chemie-ag-domat-ems"
       },
-      "titleByLocale": {
-        "it": "Responsabile Conto Chiave (lunedì/mercoledì/giorno) (Homeoffice) 100% | Domat/Ems | EMS-CHEMIE AG Domat/Ems",
-        "en": "Key Account Manager (m/w/d) (Homeoffice) 100%",
-        "de": "Key Account Manager (Homeoffice) 100%",
-        "fr": "Key Account Manager (Télétravail) 100%"
-      },
-      "crawledAt": "",
-      "descriptionByLocale": {
-        "it": "Descrizione - Key Account Manager (m/w/d) (Homeoffice) 100% presso EMS-Chemie AG, azienda leader nel settore dei polimeri speciali e della chimica fine con sede a Domat/Ems (Grigioni). - EMS-Chemie è il più grande produttore mondiale di poliammidi ad alte prestazioni, con circa 3000 collaboratori in tutto il mondo. - Sede di lavoro: Domat/Ems.",
-        "en": "Key Account Manager (Home Office) 100% at EMS-Chemie AG, a leading company in the field of specialty polymers and fine chemicals based in Domat/Ems (Grisons). EMS-Chemie is the world's largest producer of high-performance polyamides, with around 3,000 employees worldwide. Work location: Domat/Ems.",
-        "de": "Key Account Manager (Homeoffice) 100% bei EMS-Chemie AG, einem führenden Unternehmen im Bereich Spezialpolymere und Feinchemie mit Sitz in Domat/Ems (Graubünden). EMS-Chemie ist der weltweit größte Hersteller von Hochleistungspolyamiden und beschäftigt rund 3.000 Mitarbeitende weltweit. Arbeitsort: Domat/Ems.",
-        "fr": "Key Account Manager (Télétravail) 100% chez EMS-Chemie AG, entreprise leader dans le secteur des polymères spéciaux et de la chimie fine, basée à Domat/Ems (Grisons). EMS-Chemie est le plus grand producteur mondial de polyamides haute performance, avec environ 3 000 collaborateurs dans le monde. Lieu de travail : Domat/Ems."
-      },
-      "sourceLang": "it",
-      "salaryMin": 72000,
-      "salaryMax": 97000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 72000,
-          "maxValue": 97000,
-          "unitText": "YEAR"
-        }
-      },
-      "previousSlugs": [
-        "key-account-manager-m-w-d-homeoffice-100-ems-chemie-domat-ems",
-        "responsabile-conto-chiave-lunedi-mercoledi-giorno-homeoffice-100-ems-chemie-domat-ems",
-        "key-account-manager-m-w-d-homeoffice-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-domat-ems"
-      ],
-      "id": "ems-chemie-67c54bdda271",
-      "previousSlugsByLocale": {
-        "en": [
-          "key-account-manager-m-w-d-homeoffice-100-ems-chemie-domat-ems"
-        ],
-        "it": [
-          "responsabile-conto-chiave-lunedi-mercoledi-giorno-homeoffice-100-ems-chemie-domat-ems",
-          "key-account-manager-m-w-d-homeoffice-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-domat-ems"
-        ]
-      }
+      "firstSeenAt": "2026-04-13T21:36:53.361Z"
     }
   ]
 }

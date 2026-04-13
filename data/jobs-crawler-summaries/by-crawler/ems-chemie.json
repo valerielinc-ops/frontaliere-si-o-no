@@ -1,18 +1,45 @@
 {
   "key": "ems-chemie",
   "label": "EMS-Chemie AG",
-  "generatedAt": "2026-04-13T10:28:29.496Z",
+  "generatedAt": "2026-04-13T21:36:53.361Z",
   "total": 10,
-  "newCount": 0,
-  "updatedCount": 10,
-  "removedCount": 0,
+  "newCount": 1,
+  "updatedCount": 9,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 3259,
-  "avgDurationMs": 3259,
+  "durationMs": 3028,
+  "avgDurationMs": 3028,
   "durationHistory": [
-    3259
+    3028
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "SAP Basis Administrator (m/w/d) 100%",
+      "company": "EMS-Chemie AG",
+      "companyKey": "ems-chemie",
+      "url": "https://jobs.ems-group.com/offene-stellen/sap-basis-administrator-m-w-d/63abb747-4846-4e1b-aded-e0bc13a0b7ae",
+      "location": "Domat/Ems",
+      "canton": "GR",
+      "country": "CH",
+      "postalCode": "7013",
+      "streetAddress": "Via Innovativa 1",
+      "addressLocality": "Domat/Ems",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "category": "science",
+      "postedDate": "2026-04-13",
+      "source": "company-website",
+      "slug": "sap-basis-administrator-m-w-d-100-ems-chemie-domat-ems",
+      "_qualityScore": 60,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 10,
+        "translation": 8,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Key Account Manager Deutschland, Segment Industrie und Konsumgüter (m/w/d) 100%",
@@ -301,7 +328,9 @@
         "translation": 25,
         "completeness": 22
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "title": "Key Account Manager (m/w/d) (Homeoffice) 100%",
       "company": "EMS-Chemie AG",
@@ -319,7 +348,7 @@
       "category": "science",
       "postedDate": "2026-04-13",
       "source": "company-website",
-      "slug": "key-account-manager-m-w-d-homeoffice-100-ems-chemie-domat-ems",
+      "slug": "responsabile-conto-chiave-lunedi-mercoledi-giorno-homeoffice-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-e",
       "crawledAt": "",
       "sourceLang": "it",
       "salaryMin": 72000,
@@ -335,8 +364,40 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": [
+    {
+      "title": "SAP Basis Administrator (m/w/d) 100%",
+      "company": "EMS-Chemie AG",
+      "companyKey": "ems-chemie",
+      "url": "https://jobs.ems-group.com/offene-stellen/sap-basis-administrator-m-w-d/63abb747-4846-4e1b-aded-e0bc13a0b7ae",
+      "location": "Domat/Ems",
+      "canton": "GR",
+      "country": "CH",
+      "postalCode": "7013",
+      "streetAddress": "Via Innovativa 1",
+      "addressLocality": "Domat/Ems",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "category": "science",
+      "postedDate": "2026-04-13",
+      "source": "company-website",
+      "slug": "sap-basis-administrator-m-w-d-100-ems-chemie-domat-ems",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "ems-chemie-dc1a28e8e6ec",
+      "sourceLang": "it",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 10,
+        "translation": 16,
+        "completeness": 22
+      }
+    },
     {
       "title": "Key Account Manager Deutschland, Segment Industrie und Konsumgüter (m/w/d) 100%",
       "company": "EMS-Chemie AG",
@@ -622,38 +683,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "Key Account Manager (m/w/d) (Homeoffice) 100%",
-      "company": "EMS-Chemie AG",
-      "companyKey": "ems-chemie",
-      "url": "https://jobs.ems-group.com/offene-stellen/key-account-manager-m-w-d-homeoffice/4aa59321-0063-4499-bdf7-53a3dc75ec9c",
-      "location": "Domat/Ems",
-      "canton": "GR",
-      "country": "CH",
-      "postalCode": "7013",
-      "streetAddress": "Via Innovativa 1",
-      "addressLocality": "Domat/Ems",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "science",
-      "postedDate": "2026-04-13",
-      "source": "company-website",
-      "slug": "responsabile-conto-chiave-lunedi-mercoledi-giorno-homeoffice-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-e",
-      "crawledAt": "",
-      "sourceLang": "it",
-      "salaryMin": 72000,
-      "salaryMax": 97000,
-      "currency": "CHF",
-      "id": "ems-chemie-67c54bdda271",
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 10,
         "translation": 25,
         "completeness": 22
       }
