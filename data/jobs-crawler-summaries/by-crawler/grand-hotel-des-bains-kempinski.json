@@ -1,16 +1,16 @@
 {
   "key": "grand-hotel-des-bains-kempinski",
   "label": "kempinski",
-  "generatedAt": "2026-04-13T10:49:01.989Z",
-  "total": 11,
+  "generatedAt": "2026-04-13T21:57:20.567Z",
+  "total": 8,
   "newCount": 0,
-  "updatedCount": 11,
-  "removedCount": 0,
+  "updatedCount": 8,
+  "removedCount": 3,
   "unchangedCount": 0,
-  "durationMs": 2300,
-  "avgDurationMs": 2300,
+  "durationMs": 1951,
+  "avgDurationMs": 1951,
   "durationHistory": [
-    2300
+    1951
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -37,13 +37,14 @@
       "validThrough": "",
       "employmentType": "APPRENTICE",
       "contractType": "apprenticeship",
-      "crawledAt": "2026-04-13T10:49:01.892Z",
+      "crawledAt": "2026-04-13T21:57:20.484Z",
       "salaryMin": 46500,
       "salaryMax": 62500,
       "currency": "CHF",
       "streetAddress": "Via Mezdi 27",
       "postalCode": "7500",
       "id": "grand-hotel-des-bains-kempinski-55ab46b46e99",
+      "firstSeenAt": "2026-04-13T10:49:01.892Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -75,13 +76,14 @@
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "permanent",
-      "crawledAt": "2026-04-13T10:49:01.893Z",
+      "crawledAt": "2026-04-13T21:57:20.485Z",
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
       "streetAddress": "Via Mezdi 27",
       "postalCode": "7500",
       "id": "grand-hotel-des-bains-kempinski-646bf27942ce",
+      "firstSeenAt": "2026-04-13T10:49:01.893Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -113,13 +115,14 @@
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
-      "crawledAt": "2026-04-13T10:49:01.894Z",
+      "crawledAt": "2026-04-13T21:57:20.486Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
       "streetAddress": "Via Mezdi 27",
       "postalCode": "7500",
       "id": "grand-hotel-des-bains-kempinski-833754a663d2",
+      "firstSeenAt": "2026-04-13T10:49:01.894Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -151,13 +154,14 @@
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
-      "crawledAt": "2026-04-13T10:49:01.894Z",
+      "crawledAt": "2026-04-13T21:57:20.487Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
       "streetAddress": "Via Mezdi 27",
       "postalCode": "7500",
       "id": "grand-hotel-des-bains-kempinski-1e3d6c1b25df",
+      "firstSeenAt": "2026-04-13T10:49:01.894Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -189,13 +193,14 @@
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
-      "crawledAt": "2026-04-13T10:49:01.895Z",
+      "crawledAt": "2026-04-13T21:57:20.489Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
       "streetAddress": "Via Mezdi 27",
       "postalCode": "7500",
       "id": "grand-hotel-des-bains-kempinski-fa6425b4eace",
+      "firstSeenAt": "2026-04-13T10:49:01.895Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -227,13 +232,14 @@
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
-      "crawledAt": "2026-04-13T10:49:01.896Z",
+      "crawledAt": "2026-04-13T21:57:20.490Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
       "streetAddress": "Via Mezdi 27",
       "postalCode": "7500",
       "id": "grand-hotel-des-bains-kempinski-70c0bf5df99d",
+      "firstSeenAt": "2026-04-13T10:49:01.896Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -265,7 +271,7 @@
       "validThrough": "",
       "employmentType": "INTERN",
       "contractType": "internship",
-      "crawledAt": "2026-04-13T10:49:01.897Z",
+      "crawledAt": "2026-04-13T21:57:20.490Z",
       "salaryMin": 46500,
       "salaryMax": 62500,
       "currency": "CHF",
@@ -303,13 +309,14 @@
       "validThrough": "",
       "employmentType": "FULL_TIME",
       "contractType": "seasonal",
-      "crawledAt": "2026-04-13T10:49:01.897Z",
+      "crawledAt": "2026-04-13T21:57:20.491Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
       "streetAddress": "Via Mezdi 27",
       "postalCode": "7500",
       "id": "grand-hotel-des-bains-kempinski-6f74aa1f5a3e",
+      "firstSeenAt": "2026-04-13T10:49:01.897Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -317,10 +324,12 @@
         "translation": 25,
         "completeness": 25
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "title": "Commis de Rang (f/m/d)",
-      "slug": "commis-de-rang-f-m-d-465776",
+      "slug": "impiegato-di-rango-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
       "url": "https://kempinski.pinpointhq.com/en/postings/71189b55-6b9e-4563-9731-e44cec5bb456",
       "applyUrl": "https://kempinski.pinpointhq.com/en/postings/71189b55-6b9e-4563-9731-e44cec5bb456",
       "company": "Grand Hotel des Bains Kempinski St. Moritz",
@@ -348,6 +357,7 @@
       "streetAddress": "Via Mezdi 27",
       "postalCode": "7500",
       "id": "grand-hotel-des-bains-kempinski-b6acd56071d4",
+      "firstSeenAt": "2026-04-13T10:49:01.898Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -358,7 +368,7 @@
     },
     {
       "title": "Demi Chef de Partie (f/m/d) Patisserie - Neora Restaurant",
-      "slug": "demi-chef-de-partie-f-m-d-patisserie-neora-restaurant-470754",
+      "slug": "demi-chef-de-partita-f-m-d-patisserie-neora-restaurant-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
       "url": "https://kempinski.pinpointhq.com/en/postings/0cf7af71-28a6-48e7-940b-fc0b55c68442",
       "applyUrl": "https://kempinski.pinpointhq.com/en/postings/0cf7af71-28a6-48e7-940b-fc0b55c68442",
       "company": "Grand Hotel des Bains Kempinski St. Moritz",
@@ -386,6 +396,7 @@
       "streetAddress": "Via Mezdi 27",
       "postalCode": "7500",
       "id": "grand-hotel-des-bains-kempinski-2712a136153c",
+      "firstSeenAt": "2026-04-13T10:49:01.899Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -396,7 +407,7 @@
     },
     {
       "title": "Spa Therapist (f/m/d)",
-      "slug": "spa-therapist-f-m-d-480798",
+      "slug": "terapeuta-del-benessere-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
       "url": "https://kempinski.pinpointhq.com/en/postings/36881c7f-31af-4886-9b90-a77dc5afb3c8",
       "applyUrl": "https://kempinski.pinpointhq.com/en/postings/36881c7f-31af-4886-9b90-a77dc5afb3c8",
       "company": "Grand Hotel des Bains Kempinski St. Moritz",
@@ -424,6 +435,7 @@
       "streetAddress": "Via Mezdi 27",
       "postalCode": "7500",
       "id": "grand-hotel-des-bains-kempinski-cc385538fc8f",
+      "firstSeenAt": "2026-04-13T10:49:01.900Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -433,6 +445,5 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "grand-hotel-des-bains-kempinski",
-  "assembledAt": "2026-04-13T10:49:01.988Z",
+  "assembledAt": "2026-04-13T21:57:20.566Z",
   "jobs": [
     {
       "title": "Apprentice \"Koch EFZ\" (f/m/d) from August 2026",
@@ -44,7 +44,7 @@
         "de": "apprentice-koch-efz-f-m-d-from-august-2026-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "apprenti-koch-efz-f-m-j-a-partir-d-aout-2026-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-04-13T10:49:01.892Z",
+      "crawledAt": "2026-04-13T21:57:20.484Z",
       "previousSlugs": [
         "apprentice-koch-cfc-f-m-d-from-august-2026-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "apprentice-koch-efz-f-m-d-from-august-2026-328957",
@@ -126,7 +126,7 @@
         "de": "groups-events-manager-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz-5pombh",
         "fr": "gestionnaire-de-groupes-et-d-evenements-f-h-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-04-13T10:49:01.893Z",
+      "crawledAt": "2026-04-13T21:57:20.485Z",
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
@@ -198,7 +198,7 @@
         "de": "chef-de-rang-f-m-d-crazy-pizza-restaurant-grand-hotel-des-bains-kempinski-st-moritz-st-moritz-ow4rtb",
         "fr": "chef-de-rang-f-m-d-crazy-pizza-restaurant-grand-hotel-des-bains-kempinski-st-moritz-st-moritz-ow4rtb"
       },
-      "crawledAt": "2026-04-13T10:49:01.894Z",
+      "crawledAt": "2026-04-13T21:57:20.486Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -272,7 +272,7 @@
         "de": "pizzabacker-m-w-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "pizzaiolo-m-f-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-04-13T10:49:01.894Z",
+      "crawledAt": "2026-04-13T21:57:20.487Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -346,7 +346,7 @@
         "de": "halber-chef-de-partie-w-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "demi-chef-de-partie-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-04-13T10:49:01.895Z",
+      "crawledAt": "2026-04-13T21:57:20.489Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -418,7 +418,7 @@
         "de": "chef-de-partie-w-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "chef-de-partie-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-04-13T10:49:01.896Z",
+      "crawledAt": "2026-04-13T21:57:20.490Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -490,7 +490,7 @@
         "de": "trainee-culinary-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "apprenti-culinary-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-04-13T10:49:01.897Z",
+      "crawledAt": "2026-04-13T21:57:20.490Z",
       "previousSlugs": [
         "apprendista-culinary-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "trainee-culinary-f-m-d-458553"
@@ -518,7 +518,9 @@
         "it": [
           "trainee-culinary-f-m-d-458553"
         ]
-      }
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-04-13T21:57:20.566Z"
     },
     {
       "title": "In-Room Dining Supervisor (f/m/d)",
@@ -562,7 +564,7 @@
         "de": "zimmerdienstleiter-m-w-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "room-service-superviseur-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
-      "crawledAt": "2026-04-13T10:49:01.897Z",
+      "crawledAt": "2026-04-13T21:57:20.491Z",
       "previousSlugs": [
         "room-service-vorgesetzter-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "azienda-grand-hotel-des-bains-kempinski-st-moritz",
@@ -613,240 +615,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:49:01.897Z"
-    },
-    {
-      "title": "Commis de Rang (f/m/d)",
-      "slug": "impiegato-di-rango-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
-      "url": "https://kempinski.pinpointhq.com/en/postings/71189b55-6b9e-4563-9731-e44cec5bb456",
-      "applyUrl": "https://kempinski.pinpointhq.com/en/postings/71189b55-6b9e-4563-9731-e44cec5bb456",
-      "company": "Grand Hotel des Bains Kempinski St. Moritz",
-      "companyKey": "grand-hotel-des-bains-kempinski",
-      "companyDomain": "kempinski.com",
-      "location": "St. Moritz",
-      "addressLocality": "St. Moritz",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "canton": "GR",
-      "country": "CH",
-      "category": "Turismo & Ospitalità",
-      "sector": "Hotellerie & Gastronomia",
-      "department": "Food & Beverage",
-      "source": "kempinski-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-04-13",
-      "validThrough": "",
-      "employmentType": "FULL_TIME",
-      "contractType": "seasonal",
-      "description": "Under a name steeped in tradition, Kempinski, hoteliers since 1897, has travelled the world in search of fascinating destinations, without ever forgetting its traditions and European heritage. The spacious resorts and stylish city and wellness hotels reflect an individual and unique character, especially for guests who appreciate 5-star service and luxury on their business or private trips. Together with the banquet team, they ensure that our guests enjoy a culinary experience. Our cuisine is light and international with a regional touch, and our wine list offers wines from all growing regions around the world. Since 1897, Kempinski has been travelling the world in search of fascinating destinations, without ever forgetting its traditions and European heritage. The spacious resorts and stylish city and wellness hotels reflect an individual and unique character, especially for guests who appreciate 5-star service and luxury on their business or private trips. | Key Responsibilities: In addition to two restaurants and a hotel bar, our guests also have the option of using one of four event rooms for conferences and private functions. For the upcoming 2026 summer season, we are looking for you as a Commis de Rang in our banquet area or main restaurant Les Saisons. For this challenging role, you will have: Completed training in a comparable hotel and initial professional experience in upscale gastronomy Resilience, tidiness and a very high awareness of quality A structured and organised approach to work A keen interest in team-oriented work Your motto is to be a perfect and amiable host to every guest Very good German and English skills are a prerequisite. Basic knowledge of another foreign language is desirable Experience in kosher service is an advantage | Skills, Knowledge and Expertise: In our banquet area, your tasks will include the following: Assisting with banquet events Participating in weekly training sessions Serving drinks and food to guests Supporting other F B outlets as needed Kosher service In our restaurant Les Saisons, your tasks will include the following: Serving food and announcing it at the table Bread, butter and water service Food running from the kitchen pass to the Neora restaurant Supporting the chef de rang during evening service Daily mise en place work Cleaning work in the restaurant and office | Benefits: Live and work in the heart of the Engadin Alps A wide range of creative opportunities A pleasant working atmosphere in a young and dynamic team International career prospects and development opportunities Outstanding employee benefits in all Kempinski hotels, among others Staff accommodation in the immediate vicinity of the hotel, including laundry facilities, a fitness and common room, a kitchen and a wide range of dishes in our staff restaurant Free use of the in-house daycare centre for employees' children Monthly staff activities such as skiing, snowboarding and cross-country skiing courses, hiking trips, spa evenin",
-      "titleByLocale": {
-        "it": "Impiegato di Rango (f/m/d)",
-        "en": "Rank Clerk (f/m/d)",
-        "de": "Commis de Rang (w/m/d)",
-        "fr": "Commis de Rang (f/m/d)"
-      },
-      "descriptionByLocale": {
-        "it": "Descrizione Sotto un nome che si ispira alla tradizione, Kempinski, hotelieri dal 1897, ha viaggiato nel mondo alla ricerca di destinazioni affascinanti, senza mai dimenticare le sue tradizioni e il suo patrimonio europeo. Le residenze spaziose e gli hotel di città e benessere stile sono un riflesso di un carattere individuale e unico, soprattutto per gli ospiti che apprezzano il servizio di 5 stelle e la lussuosa esperienza sulle loro vacanze o viaggi di lavoro. Insieme al team di banquet, assicurano che i nostri ospiti godano di un'esperienza culinaria. La nostra cucina è leggera e internazionale con un tocco regionale, e la nostra lista dei vini offre vini da tutti i territori vitivinicoli del mondo. Dal 1897, Kempinski ha viaggiato nel mondo alla ricerca di destinazioni affascinanti, senza mai dimenticare le sue tradizioni e il suo patrimonio europeo. Le residenze spaziose e gli hotel di città e benessere stile sono un riflesso di un carattere individuale e unico, soprattutto per gli ospiti che apprezzano il servizio di 5 stelle e la lussuosa esperienza sulle loro vacanze o viaggi di lavoro. ## Mansioni - In aggiunta a due ristoranti e un bar hotel, i nostri ospiti hanno anche l'opzione di utilizzare uno dei quattro locali per eventi per conferenze e funzioni private. - Per la stagione estiva 2026, stiamo cercando te come Commis de Rang nella nostra area di banquet o nel ristorante principale Les Saisons. ## Requisiti - Formazione completata in un hotel comparabile e prima esperienza professionale in gastronomia di lusso - Resilienza, ordine e alta consapevolezza della qualità - Approccio strutturato e organizzato al lavoro - Interesse per il lavoro di squadra - Motto: essere un perfetto e amabile ospite per ogni ospite - Buone conoscenze di tedesco e inglese sono un prerequisito - Conoscenza di base di un'altra lingua straniera è desiderabile - Esperienza in servizio kosher è un vantaggio ## Cosa offriamo - Vivere e lavorare nel cuore delle Alpi Engadine - Ampia gamma di opportunità creative - Atmosfera di lavoro piacevole in un team giovane e dinamico - Prospective di carriera internazionali e opportunità di sviluppo - Benefici per gli impiegati in tutti gli hotel Kempinski, tra cui: - Alloggio per gli impiegati nelle vicinanze dell'hotel, compresi servizi di lavanderia, palestra e sala comune, cucina e ampia gamma di piatti nel nostro ristorante per impiegati - Uso gratuito del centro di cura per bambini degli impiegati - Attività mensili per gli impiegati, come corsi di sci, snowboard e sci di fondo, escursioni a piedi, serate di spa ## Contatto - (inserire informazioni di contatto)",
-        "en": "Under a name steeped in tradition, Kempinski, hoteliers since 1897, has travelled the world in search of fascinating destinations, without ever forgetting its traditions and European heritage. The spacious resorts and stylish city and wellness hotels reflect an individual and unique character, especially for guests who appreciate 5-star service and luxury on their business or private trips. Together with the banquet team, they ensure that our guests enjoy a culinary experience. Our cuisine is light and international with a regional touch, and our wine list offers wines from all growing regions around the world. Since 1897, Kempinski has been travelling the world in search of fascinating destinations, without ever forgetting its traditions and European heritage. The spacious resorts and stylish city and wellness hotels reflect an individual and unique character, especially for guests who appreciate 5-star service and luxury on their business or private trips. | Key Responsibilities: In addition to two restaurants and a hotel bar, our guests also have the option of using one of four event rooms for conferences and private functions. For the upcoming 2026 summer season, we are looking for you as a Commis de Rang in our banquet area or main restaurant Les Saisons. For this challenging role, you will have: Completed training in a comparable hotel and initial professional experience in upscale gastronomy Resilience, tidiness and a very high awareness of quality A structured and organised approach to work A keen interest in team-oriented work Your motto is to be a perfect and amiable host to every guest Very good German and English skills are a prerequisite. Basic knowledge of another foreign language is desirable Experience in kosher service is an advantage | Skills, Knowledge and Expertise: In our banquet area, your tasks will include the following: Assisting with banquet events Participating in weekly training sessions Serving drinks and food to guests Supporting other F B outlets as needed Kosher service In our restaurant Les Saisons, your tasks will include the following: Serving food and announcing it at the table Bread, butter and water service Food running from the kitchen pass to the Neora restaurant Supporting the chef de rang during evening service Daily mise en place work Cleaning work in the restaurant and office | Benefits: Live and work in the heart of the Engadin Alps A wide range of creative opportunities A pleasant working atmosphere in a young and dynamic team International career prospects and development opportunities Outstanding employee benefits in all Kempinski hotels, among others Staff accommodation in the immediate vicinity of the hotel, including laundry facilities, a fitness and common room, a kitchen and a wide range of dishes in our staff restaurant Free use of the in-house daycare centre for employees' children Monthly staff activities such as skiing, snowboarding and cross-country skiing courses, hiking trips, spa evenin",
-        "de": "Beschreibung Unter einem Namen, der Tradition und Geschichte in sich trägt, ist Kempinski seit 1897 ein Hotelier, der die Welt bereist hat, um faszinierende Ziele zu entdecken, ohne jemals seine Traditionen und sein europäisches Erbe zu vergessen. Die großzügigen Resorts und die stilvollen Städte- und Wellnesshotels spiegeln ein individuelles und einzigartiges Charakteristikum wider, insbesondere für Gäste, die sich von einem 5-Sterne-Service und Luxus auf ihren Geschäfts- oder Privatreisen erfreuen. Zusammen mit dem Banquet-Team sorgen sie dafür, dass unsere Gäste eine kulinarische Erfahrung genießen. Unsere Küche ist leicht und international mit einem regionalen Touch, und unsere Weinkarte bietet Weine aus allen Weinbauregionen der Welt. Seit 1897 ist Kempinski auf der Suche nach faszinierenden Zielen, ohne jemals seine Traditionen und sein europäisches Erbe zu vergessen. Die großzügigen Resorts und die stilvollen Städte- und Wellnesshotels spiegeln ein individuelles und einzigartiges Charakteristikum wider, insbesondere für Gäste, die sich von einem 5-Sterne-Service und Luxus auf ihren Geschäfts- oder Privatreisen erfreuen. ## Aufgaben - In addition zu zwei Restaurants und einem Hotelbar haben unsere Gäste auch die Möglichkeit, eines der vier Veranstaltungsräume für Konferenzen und private Veranstaltungen zu nutzen. - Für die Sommer-Saison 2026 suchen wir dich als Commis de Rang in unserem Banquet-Team oder im Hauptrestaurant Les Saisons. ## Anforderungen - Abschluss einer vergleichbaren Hotel-Schule und erste Berufserfahrung in der Luxusgastronomie - Resilienz, Ordnung und hohe Qualitätsbewusstsein - Strukturiertes und organisiertes Arbeitsverhalten - Interesse an Teamarbeit - Motto: perfekter und freundlicher Gast für jeden Gast - Gute Kenntnisse des Deutschen und Englischen sind ein Prärequis - Grundkenntnisse einer anderen Fremdsprache sind wünschenswert - Erfahrung in der kosheren Küche ist ein Vorteil ## Was wir bieten - Leben und Arbeiten inmitten der Engadiner Alpen - Vielfältige kreative Möglichkeiten - Angenehme Arbeitsatmosphäre in einem jungen und dynamischen Team - Internationale Karrieremöglichkeiten und Entwicklungschancen - Mitarbeiterbenefiten in allen Kempinski-Hotels, darunter: - Unterkunft für Mitarbeiter in der Nähe des Hotels, einschließlich Waschküche, Fitnessraum und Gemeinschaftsraum, Küche und vielfältige Mahlzeiten im Mitarbeiter-Restaurant - Kostenlose Nutzung des Kinderbetreuungszentrums für Mitarbeiter - Monatliche Mitarbeiteraktivitäten, wie Skikurse, Snowboard- und Langlaufkurse, Wanderungen, Spa-Abende ## Kontakt - (Bitte geben Sie die Kontaktinformationen ein)",
-        "fr": "Description Sous un nom qui se nourrit de la tradition, Kempinski, hôtelier depuis 1897, a parcouru le monde à la recherche de destinations fascinantes, sans jamais oublier ses traditions et son héritage européen. Les résidences spacieuses et les hôtels de ville et de bien-être à la mode reflètent un caractère individuel et unique, surtout pour les clients qui apprécient un service de 5 étoiles et un luxe sur leurs voyages d'affaires ou privés. Ensemble avec l'équipe de banquet, ils s'assurent que nos clients profitent d'une expérience culinaire. Notre cuisine est légère et internationale avec un touché régional, et notre liste des vins offre des vins de tous les territoires viticoles du monde. Depuis 1897, Kempinski a parcouru le monde à la recherche de destinations fascinantes, sans jamais oublier ses traditions et son héritage européen. Les résidences spacieuses et les hôtels de ville et de bien-être à la mode reflètent un caractère individuel et unique, surtout pour les clients qui apprécient un service de 5 étoiles et un luxe sur leurs voyages d'affaires ou privés. ## Tâches - En plus de deux restaurants et d'un bar hôtel, nos clients ont également la possibilité d'utiliser l'un des quatre locaux pour événements pour conférences et fonctions privées. - Pour la saison estivale 2026, nous recherchons un Commis de Rang dans notre équipe de banquet ou dans le restaurant principal Les Saisons. ## Exigences - Formation complétée dans un hôtel comparable et première expérience professionnelle en gastronomie de luxe - Résilience, ordre et haute conscience de la qualité - Approche structurée et organisée au travail - Intérêt pour le travail d'équipe - Motto: être un hôte parfait et aimable pour chaque client - Bonnes connaissances du français et de l'allemand sont un prérequis - Connaissance de base d'une autre langue étrangère est souhaitable - Expérience dans la cuisine kosher est un avantage ## Ce que nous offrons - Vivre et travailler au cœur des Alpes d'Engadine - Large gamme d'opportunités créatives - Atmosphère de travail agréable dans un équipe jeune et dynamique - Perspectives de carrière internationales et opportunités de développement - Avantages pour les employés dans tous les hôtels Kempinski, notamment: - Logement pour les employés à proximité de l'hôtel, comprenant des services de blanchisserie, d'entraînement physique et de salle commune, cuisine et large gamme de plats dans notre restaurant pour employés - Utilisation gratuite du centre de garde d'enfants pour employés - Activités mensuelles pour les employés, comme cours de ski, snowboard et ski de fond, randonnées, soirees de spa ## Contact - (Veuillez fournir les informations de contact)"
-      },
-      "slugByLocale": {
-        "it": "impiegato-di-rango-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
-        "en": "commis-de-rang-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz-uk7qx1",
-        "de": "commis-de-rang-w-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
-        "fr": "commis-de-rang-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
-      },
-      "crawledAt": "2026-04-13T10:49:01.898Z",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 58000,
-          "maxValue": 78000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Mezdi 27",
-      "postalCode": "7500",
-      "previousSlugs": [
-        "commis-de-rang-f-m-d-465776",
-        "commission-de-rang-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
-      ],
-      "id": "grand-hotel-des-bains-kempinski-b6acd56071d4",
-      "previousSlugsByLocale": {
-        "it": [
-          "commis-de-rang-f-m-d-465776"
-        ],
-        "en": [
-          "commis-de-rang-f-m-d-465776"
-        ],
-        "de": [
-          "commis-de-rang-f-m-d-465776"
-        ],
-        "fr": [
-          "commis-de-rang-f-m-d-465776",
-          "commission-de-rang-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
-        ]
-      },
-      "firstSeenAt": "2026-04-13T10:49:01.898Z"
-    },
-    {
-      "title": "Demi Chef de Partie (f/m/d) Patisserie - Neora Restaurant",
-      "slug": "demi-chef-de-partita-f-m-d-patisserie-neora-restaurant-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
-      "url": "https://kempinski.pinpointhq.com/en/postings/0cf7af71-28a6-48e7-940b-fc0b55c68442",
-      "applyUrl": "https://kempinski.pinpointhq.com/en/postings/0cf7af71-28a6-48e7-940b-fc0b55c68442",
-      "company": "Grand Hotel des Bains Kempinski St. Moritz",
-      "companyKey": "grand-hotel-des-bains-kempinski",
-      "companyDomain": "kempinski.com",
-      "location": "St. Moritz",
-      "addressLocality": "St. Moritz",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "canton": "GR",
-      "country": "CH",
-      "category": "Turismo & Ospitalità",
-      "sector": "Hotellerie & Gastronomia",
-      "department": "Kitchen",
-      "source": "kempinski-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-04-13",
-      "validThrough": "",
-      "employmentType": "FULL_TIME",
-      "contractType": "seasonal",
-      "description": "Under a name steeped in tradition, Kempinski, hoteliers since 1897, has travelled the world in search of fascinating destinations, without ever forgetting its traditions and European heritage. The spacious resorts and stylish city and wellness hotels reflect an individual and unique character, especially for guests who appreciate 5-star service and luxury on their business or private trips. Greek cuisine is one of the oldest and most diverse in the world. With Neora, the Grand Hotel des Bains Kempinski takes this culinary tradition to a new level: modernly interpreted and with cosmopolitan flair. Guests can expect a sensual experience that combines authentic origins with warm hospitality. From hand-shaped pita bread and cold-pressed olive oil to souvla cooked over an open fire – every dish is a tribute to the origins of Greek cuisine and designed to be shared. Would you like to develop your own traditions and strengthen your department's positioning as a sporty, invitingly warm and refreshingly uncomplicated 5-star hotel? Then we are looking for you as Demi Chef de Partie Pâtisserie from the coming summer season 2026! | Key Responsibilities: Together with the pâtisserie brigade, they ensure that our guests enjoy a culinary experience of the highest standard in our Greek restaurant, Neora. | Skills, Knowledge and Expertise: Completed training as a chef or pastry chef and initial professional experience in upscale gastronomy. Knowledge of Greek cuisine is an advantage. Professional competence, creativity and attention to detail. Very high quality awareness. Structured and organised way of working. Keen interest in team-oriented work. Very good knowledge of German and English. | Benefits: Live and work in the heart of the Engadin Alps A wide range of creative opportunities A pleasant working atmosphere in a young and dynamic team International career prospects and development opportunities Outstanding employee benefits in all Kempinski hotels, among others Staff accommodation in the immediate vicinity of the hotel, including laundry facilities, a fitness and common room, a kitchen and a wide range of dishes in our staff restaurant Free use of the in-house daycare centre for employees' children Monthly staff activities such as skiing, snowboarding and cross-country skiing courses, hiking trips, spa evenings and German courses Internal ‘Feel Good Committee’ to help shape all welfare issues",
-      "titleByLocale": {
-        "it": "Demi Chef de Partita (f/m/d) Patisserie - Neora Restaurant",
-        "en": "Half Chef de Partie (f/m/d) Patisserie - Neora Restaurant",
-        "de": "Halber Chef de Partie (w/m/d) Patisserie - Neora Restaurant",
-        "fr": "Demi Chef de Partie (f/m/d) Patisserie - Neora Restaurant"
-      },
-      "descriptionByLocale": {
-        "it": "Descrizione Sotto un nome che si nutre di tradizione, Kempinski, hotelieri dal 1897, ha viaggiato nel mondo alla ricerca di destinazioni affascinanti, senza mai dimenticare le proprie tradizioni e l'eredità europea. Gli spaziosi resort e gli stili hotel di città e benessere riflettono un carattere individuale e unico, soprattutto per gli ospiti che apprezzano il servizio 5 stelle e la lussuosa esperienza in viaggi di lavoro o privati. La cucina greca è una delle più antiche e diverse al mondo. Con Neora, il Grand Hotel des Bains Kempinski porta questa tradizione culinaria a un nuovo livello: interpretata in modo moderno e con un tocco cosmopolita. Gli ospiti possono aspettarsi un'esperienza sensoriale che combina origini autentiche con ospitalità calda. Dai pani di pita modellati a mano e l'olio d'oliva pre-pressato ai souvlaki cotti su un fuoco aperto – ogni piatto è un omaggio alle origini della cucina greca e progettato per essere condiviso. Vuoi sviluppare le tue tradizioni e rafforzare la posizione del tuo dipartimento come hotel 5 stelle sportivo, accogliente e rinfrescante? Allora stiamo cercando te come Demi Chef de Partita Pâtisserie dalla prossima stagione estiva 2026! ## Mansioni - Insieme alla brigata della pasticceria, assicurano che i nostri ospiti godano di un'esperienza culinaria di alta qualità nel nostro ristorante greco, Neora. ## Requisiti - Formazione completata come chef o pasticciere - Esperienza professionale iniziale in gastronomia di lusso - Conoscenza della cucina greca è un vantaggio - Competenza professionale - Creatività - Attenzione ai dettagli - Alta consapevolezza della qualità - Modalità di lavoro strutturata e organizzata - Interesse vivace per il lavoro di squadra - Buona conoscenza del tedesco e dell'inglese ## Cosa offriamo - Vivere e lavorare nel cuore delle Alpi dell'Engadina - Una vasta gamma di opportunità creative - Un ambiente di lavoro piacevole in un team giovane e dinamico - Prospezioni di carriera internazionali e opportunità di sviluppo - Benefici per gli impiegati eccezionali in tutti gli hotel Kempinski, tra cui - Alloggio per il personale nelle immediate vicinanze dell'hotel, compresi servizi di lavanderia, una palestra e una sala comune, una cucina e una vasta gamma di piatti nel nostro ristorante per il personale - Uso gratuito del centro di accoglienza per bambini per i figli degli impiegati - Attività mensili per il personale come corsi di sci, snowboard e sci di fondo, escursioni a piedi, serate di spa e corsi di tedesco - Comitato interno 'Feel Good' per aiutare a definire tutti gli aspetti di benessere",
-        "en": "Descrizione Under a name steeped in tradition, Kempinski, hoteliers since 1897, has travelled the world in search of fascinating destinations, without ever forgetting its traditions and European heritage. The spacious resorts and stylish city and wellness hotels reflect an individual and unique character, especially for guests who appreciate 5-star service and luxury on their business or private trips. Greek cuisine is one of the oldest and most diverse in the world. With Neora, the Grand Hotel des Bains Kempinski takes this culinary tradition to a new level: modernly interpreted and with cosmopolitan flair. Guests can expect a sensual experience that combines authentic origins with warm hospitality. From hand-shaped pita bread and cold-pressed olive oil to souvla cooked over an open fire – every dish is a tribute to the origins of Greek cuisine and designed to be shared. Would you like to develop your own traditions and strengthen your department's positioning as a sporty, invitingly warm and refreshingly uncomplicated 5-star hotel? Then we are looking for you as Demi Chef de Partie Pâtisserie from the coming summer season 2026! ## Mansioni - Together with the pâtisserie brigade, they ensure that our guests enjoy a culinary experience of the highest standard in our Greek restaurant, Neora. ## Requisiti - Completed training as a chef or pastry chef - Initial professional experience in upscale gastronomy - Knowledge of Greek cuisine is an advantage - Professional competence - Creativity - Attention to detail - Very high quality awareness - Structured and organised way of working - Keen interest in team-oriented work - Very good knowledge of German and English ## Cosa offriamo - Live and work in the heart of the Engadin Alps - A wide range of creative opportunities - A pleasant working atmosphere in a young and dynamic team - International career prospects and development opportunities - Outstanding employee benefits in all Kempinski hotels, among others - Staff accommodation in the immediate vicinity of the hotel, including laundry facilities, a fitness and common room, a kitchen and a wide range of dishes in our staff restaurant - Free use of the in-house daycare centre for employees' children - Monthly staff activities such as skiing, snowboarding and cross-country skiing courses, hiking trips, spa evenings and German courses - Internal ‘Feel Good Committee’ to help shape all welfare issues",
-        "de": "Beschreibung Unter einem Namen, der sich in der Tradition bewegt, ist Kempinski seit 1897 Hotelier, der die Welt in der Suche nach faszinierenden Zielen bereist hat, ohne jemals seine Traditionen und das europäische Erbe zu vergessen. Die geräumigen Resorts und die stilvollen Städte- und Wellnesshotels spiegeln einen individuellen und einzigartigen Charakter wider, insbesondere für Gäste, die 5-Sterne-Service und Luxus auf ihren Geschäfts- oder Privatreisen schätzen. Die griechische Küche ist eine der ältesten und vielfältigsten der Welt. Mit Neora bringt das Grand Hotel des Bains Kempinski diese kulinarische Tradition auf ein neues Niveau: modern interpretiert und mit kosmopolitischem Flair. Die Gäste können auf eine sinnliche Erfahrung zählen, die authentische Ursprünge mit warmem Gastfreundlichkeit kombiniert. Von handgeformten Pita-Brot und kaltpressigtem Olivenöl bis zu Souvlaki, die über einem offenen Feuer gebraten werden – jedes Gericht ist ein Tribut an die Ursprünge der griechischen Küche und ist dazu gedacht, geteilt zu werden. Möchten Sie Ihre eigenen Traditionen entwickeln und die Position Ihres Departments als sportlich, einladend und erfrischendes 5-Sterne-Hotel stärken? Dann suchen wir Sie als Demi Chef de Partie Patisserie für die kommende Sommer-Saison 2026! ## Aufgaben - Zusammen mit der Patisserie-Brigade stellen Sie sicher, dass unsere Gäste in unserem griechischen Restaurant Neora eine kulinarische Erfahrung von höchster Qualität genießen. ## Anforderungen - Abschluss einer Ausbildung als Koch oder Patisserie-Koch - Einstieg in die Berufspraxis in der gehobenen Gastronomie - Kenntnisse der griechischen Küche sind ein Vorteil - Berufliche Kompetenz - Kreativität - Aufmerksamkeit auf Details - Hohe Qualitätsbewusstsein - Strukturierte und organisierte Arbeitsweise - Leidenschaft für teamorientiertes Arbeiten - Gute Kenntnisse des Deutschen und Englischen ## Was wir bieten - Leben und Arbeiten inmitten der Engadiner Alpen - Eine breite Palette an kreativen Möglichkeiten - Ein angenehmes Arbeitsklima in einem jungen und dynamischen Team - Internationale Karrierechancen und Entwicklungsmöglichkeiten - Ausgezeichnete Mitarbeiterleistungen in allen Kempinski-Hotels, u. a. - Mitarbeiterunterkunft in unmittelbarer Nähe des Hotels, einschließlich Waschküche, Fitnessraum und Gemeinschaftsraum, Küche und vielfältige Speisen in unserem Mitarbeiterrestaurant - Kostenlose Nutzung des in-House-Kindertagesstätten für die Kinder der Mitarbeiter - Monatliche Mitarbeiteraktivitäten wie Skikurse, Snowboardkurse, Langlaufkurse, Wanderungen, Spa-Abende und Deutschkurse - Internes 'Feel Good Committee' zur Unterstützung aller Wohlfühlthemen",
-        "fr": "Description Sous un nom qui se nourrit de tradition, Kempinski, hôtelier depuis 1897, a parcouru le monde à la recherche de destinations fascinantes, sans jamais oublier ses traditions et son héritage européen. Les grands resorts et les hôtels de ville et de bien-être stylés reflètent un caractère individuel et unique, surtout pour les clients qui apprécient le service 5 étoiles et la luxueuse expérience sur leurs voyages professionnels ou privés. La cuisine grecque est l'une des plus anciennes et des plus diversifiées du monde. Avec Neora, le Grand Hôtel des Bains Kempinski porte cette tradition culinaire à un nouveau niveau : interprétée de manière moderne et avec un certain charme cosmopolite. Les clients peuvent s'attendre à une expérience sensorielle qui combine des origines authentiques avec une hospitalité chaleureuse. Des pains de pita façonnés à la main et de l'huile d'olive pressée fraîche aux souvlaki cuit sur un feu ouvert – chaque plat est un hommage aux origines de la cuisine grecque et conçu pour être partagé. Vous souhaitez développer vos propres traditions et renforcer la position de votre département comme hôtel 5 étoiles sportif, accueillant et rafraîchissant ? Alors nous recherchons vous comme Demi Chef de Partie Pâtisserie pour la prochaine saison estivale 2026 ! ## Tâches - Ensemble avec la brigade de pâtisserie, ils s'assurent que nos clients profitent d'une expérience culinaire de haute qualité dans notre restaurant grec, Neora. ## Exigences - Formation complétée en cuisine ou pâtisserie - Expérience professionnelle initiale en gastronomie de luxe - Connaissances de la cuisine grecque sont un avantage - Compétence professionnelle - Créativité - Attention aux détails - Conscience élevée de la qualité - Travail structuré et organisé - Intérêt vif pour le travail d'équipe - Bonnes connaissances du allemand et de l'anglais ## Ce que nous offrons - Vivre et travailler au cœur des Alpes de l'Engadine - Une large gamme d'opportunités créatives - Un climat de travail agréable dans un équipe jeune et dynamique - Perspectives de carrière internationales et opportunités de développement - Avantages exceptionnels pour les employés dans tous les hôtels Kempinski, notamment - Logement pour les employés à proximité immédiate de l'hôtel, y compris les services de blanchisserie, une salle de sport et une salle commune, une cuisine et une large gamme de plats dans notre restaurant pour les employés - Utilisation gratuite du centre de garde d'enfants pour les enfants des employés - Activités mensuelles pour les employés comme cours de ski, de snowboard, de ski de fond, de randonnée, de soins de spa et de cours de français - Comité interne 'Feel Good' pour aider à définir tous les aspects de bien-être"
-      },
-      "slugByLocale": {
-        "it": "demi-chef-de-partita-f-m-d-patisserie-neora-restaurant-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
-        "en": "demi-chef-de-partie-f-m-d-patisserie-neora-restaurant-grand-hotel-des-bains-kempinski-st-moritz-st-moritz-pu3i2q",
-        "de": "halber-chef-de-partie-w-m-d-patisserie-neora-restaurant-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
-        "fr": "demi-chef-de-partie-f-m-d-patisserie-neora-restaurant-grand-hotel-des-bains-kempinski-st-moritz-st-moritz-pu3i2q"
-      },
-      "crawledAt": "2026-04-13T10:49:01.899Z",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 58000,
-          "maxValue": 78000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Mezdi 27",
-      "postalCode": "7500",
-      "previousSlugs": [
-        "demi-chef-de-partie-f-m-d-patisserie-neora-restaurant-470754",
-        "halber-chef-de-partie-w-m-d-patisserie-neora-restaurant-grand-hotel-des-bains-kempinski-st"
-      ],
-      "id": "grand-hotel-des-bains-kempinski-2712a136153c",
-      "previousSlugsByLocale": {
-        "fr": [
-          "demi-chef-de-partie-f-m-d-patisserie-neora-restaurant-470754",
-          "halber-chef-de-partie-w-m-d-patisserie-neora-restaurant-grand-hotel-des-bains-kempinski-st"
-        ],
-        "it": [
-          "demi-chef-de-partie-f-m-d-patisserie-neora-restaurant-470754"
-        ]
-      },
-      "firstSeenAt": "2026-04-13T10:49:01.899Z"
-    },
-    {
-      "title": "Spa Therapist (f/m/d)",
-      "slug": "terapeuta-del-benessere-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
-      "url": "https://kempinski.pinpointhq.com/en/postings/36881c7f-31af-4886-9b90-a77dc5afb3c8",
-      "applyUrl": "https://kempinski.pinpointhq.com/en/postings/36881c7f-31af-4886-9b90-a77dc5afb3c8",
-      "company": "Grand Hotel des Bains Kempinski St. Moritz",
-      "companyKey": "grand-hotel-des-bains-kempinski",
-      "companyDomain": "kempinski.com",
-      "location": "St. Moritz",
-      "addressLocality": "St. Moritz",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "canton": "GR",
-      "country": "CH",
-      "category": "Turismo & Ospitalità",
-      "sector": "Hotellerie & Gastronomia",
-      "department": "Spa & Recreation",
-      "source": "kempinski-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-04-13",
-      "validThrough": "",
-      "employmentType": "FULL_TIME",
-      "contractType": "seasonal",
-      "description": "Under a name steeped in tradition, Kempinski, hoteliers since 1897, has travelled the world in search of fascinating destinations without ever forgetting its traditions and European heritage. The lavish resorts as well as the stylish city and wellness hotels reflect an individual and unique character, especially for guests who appreciate 5-star service and luxury when travelling for business or pleasure. Do you prefer to measure yourself against high standards? Are you only satisfied when your guests are too? Are you highly motivated and do you appreciate the expertise of a well-coordinated team? We are looking for a motivated and dynamic person to join our innovative spa team for the summerseason 2026. | Key Responsibilities: Advising international guests Cleaning the treatment rooms and the spa area Applying various massage techniques Applying various beauty treatments Selling various products Coordinating spa appointments Supporting the spa reception desk | Skills, Knowledge and Expertise: For this interesting job you have Completed training as a masseur and at least 3 years of professional experience in a comparable position in the luxury hotel industry Technical knowledge of hot stone lymphatic drainage Certified knowledge of deep tissue, as well as reflexology and aromatherapy Pregnancy massage certification desired Knowledge of cosmetic treatments Great interest in team-oriented work Ability to work under pressure, professional competence, tidiness and very high quality awareness Structured and organised way of working Good knowledge of German, English and Russian, any other language is an advantage | Benefits: Live and work in the heart of the Engadine Alps A wide range of creative opportunities Pleasant working atmosphere in a young and dynamic team International career prospects and development opportunities Outstanding employee benefits in all Kempinski Hotels Staff accommodation in the immediate vicinity of the hotel incl. washing facilities, fitness communal room and a wide range of meals in our staff restaurant. Laundry facilities, fitness communal room, kitchen and a wide range of meals in our staff restaurant Free use of the in-house childcare centre for employees' children Monthly employee activities such as skiing, snowboarding and cross-country skiing courses, hiking excursions, spa evenings and German courses Internal ‘Feel Good Committee’ to help shape all welfare issues",
-      "titleByLocale": {
-        "it": "Terapeuta del Benessere (f/m/d)",
-        "en": "Spa Therapist (f/m/d)",
-        "de": "Schönheits- und Wellness-Therapeut (f/m/d)",
-        "fr": "Thérapeute de beauté et de bien-être (f/m/d)"
-      },
-      "descriptionByLocale": {
-        "it": "Descrizione Sotto un nome che si fonda sulla tradizione, Kempinski, hotelieri dal 1897, ha viaggiato nel mondo alla ricerca di destinazioni affascinanti senza mai dimenticare le proprie tradizioni e l'eredità europea. Le lussuose resorte, nonché gli stili città e hotel di benessere riflettono un carattere individuale e unico, specialmente per gli ospiti che apprezzano il servizio 5 stelle e la lussuosità quando viaggiano per lavoro o piacere. Vuoi misurarti con standard alti? Sei soddisfatto solo quando i tuoi ospiti lo sono? Sei molto motivato e apprezzi l'expertise di un team ben coordinato? Cerchiamo una persona motivata e dinamica per unirci all'innovativa squadra di benessere per la stagione estiva 2026. ## Mansioni - Consigliare gli ospiti internazionali - Pulire le sale di trattamento e l'area del benessere - Applicare diverse tecniche di massaggi - Applicare diverse trattamenti di bellezza - Vendere diversi prodotti - Coordinare gli appuntamenti del benessere - Supportare il bancone del benessere ## Requisiti - Per questo interessante lavoro hai completato un corso di formazione come massaggiatore e hai almeno 3 anni di esperienza professionale in una posizione comparabile nell'industria dei hotel di lusso - Conoscenza tecnica di hot stone lymphatic drainage - Conoscenza certificata di deep tissue, come pure di reflexology e aromatherapy - Certificazione di massaggi per donne incinte desiderata - Conoscenza di trattamenti cosmetici - Grande interesse nel lavoro di squadra - Capacità di lavorare sotto pressione, professionalità, ordine e alta consapevolezza della qualità - Modalità di lavoro strutturato e organizzato - Buona conoscenza del tedesco, inglese e russo, qualsiasi altra lingua è un vantaggio ## Cosa offriamo - Vivere e lavorare nel cuore delle Alpi Engadine - Una vasta gamma di opportunità creative - Atmosfera di lavoro piacevole in una giovane e dinamica squadra - Prospective di carriera internazionali e opportunità di sviluppo - Benefici per gli impiegati in tutte le Kempinski Hotels - Alloggio per gli impiegati nelle immediate vicinanze dell'hotel, con servizi di lavanderia, palestra, sala comune e una vasta gamma di pasti nel nostro ristorante per gli impiegati - Servizi di lavanderia, palestra, cucina e una vasta gamma di pasti nel nostro ristorante per gli impiegati - Uso gratuito del centro di cura per bambini per i figli degli impiegati - Attività mensili per gli impiegati come corsi di sci, snowboard e cross-country, escursioni a piedi, serate di spa e corsi di tedesco - Comitato interno \"Feel Good\" per aiutare a definire tutte le questioni di welfare",
-        "en": "Descrizione Under a name steeped in tradition, Kempinski, hoteliers since 1897, has travelled the world in search of fascinating destinations without ever forgetting its traditions and European heritage. The lavish resorts as well as the stylish city and wellness hotels reflect an individual and unique character, especially for guests who appreciate 5-star service and luxury when travelling for business or pleasure. Do you prefer to measure yourself against high standards? Are you only satisfied when your guests are too? Are you highly motivated and do you appreciate the expertise of a well-coordinated team? We are looking for a motivated and dynamic person to join our innovative spa team for the summer season 2026. ## Mansioni - Advising international guests - Cleaning the treatment rooms and the spa area - Applying various massage techniques - Applying various beauty treatments - Selling various products - Coordinating spa appointments - Supporting the spa reception desk ## Requisiti - Per questo interessante lavoro hai completato un corso di formazione come massaggiatore e hai almeno 3 anni di esperienza professionale in una posizione comparabile nell'industria dei hotel di lusso - Conoscenza tecnica di hot stone lymphatic drainage - Conoscenza certificata di deep tissue, come pure di reflexology e aromatherapy - Certificazione di massaggi per donne incinte desiderata - Conoscenza di trattamenti cosmetici - Grande interesse nel lavoro di squadra - Capacità di lavorare sotto pressione, professionalità, ordine e alta consapevolezza della qualità - Modalità di lavoro strutturato e organizzato - Buona conoscenza del tedesco, inglese e russo, qualsiasi altra lingua è un vantaggio ## Cosa offriamo - Vivere e lavorare nel cuore delle Alpi Engadine - Una vasta gamma di opportunità creative - Atmosfera di lavoro piacevole in una giovane e dinamica squadra - Prospective di carriera internazionali e opportunità di sviluppo - Benefici per gli impiegati in tutte le Kempinski Hotels - Alloggio per gli impiegati nelle immediate vicinanze dell'hotel, con servizi di lavanderia, palestra, sala comune e una vasta gamma di pasti nel nostro ristorante per gli impiegati - Servizi di lavanderia, palestra, cucina e una vasta gamma di pasti nel nostro ristorante per gli impiegati - Uso gratuito del centro di cura per bambini per i figli degli impiegati - Attività mensili per gli impiegati come corsi di sci, snowboard e cross-country, escursioni a piedi, serate di spa e corsi di tedesco - Comitato interno \"Feel Good\" per aiutare a definire tutte le questioni di welfare",
-        "de": "Beschreibung Unter einem Namen, der sich auf Tradition zurückzieht, ist Kempinski seit 1897 Hotelier geworden und hat die Welt in der Suche nach faszinierenden Zielen erkundet, ohne seine Traditionen und das europäische Erbe zu vergessen. Die luxuriösen Resorts sowie die stilvollen Stadt- und Wellnesshotels spiegeln einen individuellen und einzigartigen Charakter wider, insbesondere für Gäste, die sich für 5-Sterne-Dienstleistungen und Luxus bei Geschäfts- oder Freizeitreisen interessieren. Müssen Sie sich mit hohen Standards messen? Sind Sie nur zufrieden, wenn Ihre Gäste es sind? Sind Sie sehr motiviert und schätzen Sie die Expertise eines gut koordinierten Teams? Wir suchen eine motivierte und dynamische Person, um unsere innovative Schönheits- und Wellness-Abteilung für die Sommer-Saison 2026 zu verstärken. ## Aufgaben - Beraten internationale Gäste - Reinigen der Behandlungsräume und der Wellnessbereich - Anwenden verschiedener Massage-Techniken - Anwenden verschiedener Schönheitsbehandlungen - Verkaufen verschiedener Produkte - Koordinieren von Wellness-Besprechungen - Unterstützen des Wellness-Rezeptionsbüros ## Anforderungen - Für diese interessante Stelle haben Sie einen Kurs als Massage-Therapeut absolviert und haben mindestens 3 Jahre Berufserfahrung in einer vergleichbaren Position in der Luxus-Hotel-Industrie - Kenntnisse der Technik von Hot Stone Lymphatic Drainage - Zertifizierte Kenntnisse von Deep Tissue, Reflexologie und Aromatherapie - Zertifizierung von Massagen für schwangere Frauen wünschenswert - Kenntnisse von kosmetischen Behandlungen - Großes Interesse an Teamarbeit - Fähigkeit, unter Druck zu arbeiten, Professionalität, Ordnung und hohe Qualitätsbewusstsein - Strukturierte und organisierte Arbeitsweise - Gute Kenntnisse des Deutschen, Englischen und Russischen, jede andere Sprache ist ein Vorteil ## Was wir bieten - Leben und Arbeiten im Herzen der Engadiner Alpen - Eine breite Palette an kreativen Möglichkeiten - Angenehme Arbeitsatmosphäre in einer jungen und dynamischen Mannschaft - Internationale Karrieremöglichkeiten und Entwicklungschancen - Vorteile für Mitarbeiter in allen Kempinski Hotels - Unterkunft für Mitarbeiter in der Nähe des Hotels, mit Waschmaschine, Fitnessraum, Gemeinschaftsraum und einer Vielzahl von Mahlzeiten im Mitarbeiter-Restaurant - Waschmaschine, Fitnessraum, Küche und eine Vielzahl von Mahlzeiten im Mitarbeiter-Restaurant - Kostenlose Nutzung des Kinderbetreuungszentrums für die Kinder der Mitarbeiter - Monatliche Aktivitäten für Mitarbeiter wie Skikurse, Snowboardkurse, Cross-Country-Kurse, Wanderungen, Wellnessabende und Deutschkurse - Internes \"Feel Good\"-Komitee, um alle Fragen des Wohlbefindens zu klären",
-        "fr": "Description Sous un nom qui se fonde sur la tradition, Kempinski, hôteliers depuis 1897, a voyagé dans le monde à la recherche de destinations fascinantes sans jamais oublier ses traditions et son héritage européen. Les résorts luxueux ainsi que les hôtels de ville et de bien-être stylés reflètent un caractère individuel et unique, en particulier pour les clients qui apprécient le service 5 étoiles et la luxueuse lors des voyages pour le travail ou le plaisir. Aimez-vous vous mesurer à des standards élevés ? Êtes-vous satisfait uniquement lorsque vos clients le sont ? Êtes-vous très motivé et appréciez-vous l'expertise d'un équipe bien coordonnée ? Nous recherchons une personne motivée et dynamique pour rejoindre notre équipe de beauté et de bien-être innovante pour la saison estivale 2026. ## Tâches - Conseiller les clients internationaux - Nettoyer les salles de traitement et l'espace de bien-être - Appliquer différentes techniques de massage - Appliquer différentes traitements de beauté - Vendre différents produits - Coordonner les rendez-vous de bien-être - Soutenir le guichet de bien-être ## Exigences - Pour ce poste intéressant, vous avez suivi un cours de formation en tant que thérapeute de massage et avez au moins 3 ans d'expérience professionnelle dans une position comparable dans l'industrie des hôtels de luxe - Connaissances techniques de hot stone lymphatic drainage - Connaissances certifiées de deep tissue, comme bien sûr de reflexologie et d'aromathérapie - Certificat de massage pour femmes enceintes souhaité - Connaissances de traitements cosmétiques - Grand intérêt pour le travail d'équipe - Capacité à travailler sous pression, professionnalisme, ordre et haute conscience de la qualité - Travail structuré et organisé - Bonnes connaissances du français, de l'anglais et du russe, toute autre langue est un avantage ## Ce que nous offrons - Vivre et travailler au cœur des Alpes d'Engadine - Une large gamme d'opportunités créatives - Atmosphère de travail agréable dans une jeune et dynamique équipe - Possibilités de carrière internationales et d'opportunités de développement - Avantages pour les employés dans tous les hôtels Kempinski - Logement pour les employés à proximité de l'hôtel, avec machine à laver, salle de sport, salle commune et une large gamme de repas dans notre restaurant pour les employés - Machine à laver, salle de sport, cuisine et une large gamme de repas dans notre restaurant pour les employés - Utilisation gratuite du centre de soins pour enfants pour les enfants des employés - Activités mensuelles pour les employés comme cours de ski, de snowboard et de cross-country, randonnées, soirees de bien-être et cours de français - Comité interne \"Feel Good\" pour aider à définir toutes les questions de bien-être"
-      },
-      "slugByLocale": {
-        "it": "terapeuta-del-benessere-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
-        "en": "spa-therapist-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
-        "de": "schonheits-und-wellness-therapeut-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
-        "fr": "therapeute-de-beaute-et-de-bien-etre-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
-      },
-      "crawledAt": "2026-04-13T10:49:01.900Z",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 58000,
-          "maxValue": 78000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Mezdi 27",
-      "postalCode": "7500",
-      "previousSlugs": [
-        "spa-therapist-f-m-d-480798",
-        "spa-therapist-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz-c0yrco"
-      ],
-      "id": "grand-hotel-des-bains-kempinski-cc385538fc8f",
-      "previousSlugsByLocale": {
-        "it": [
-          "spa-therapist-f-m-d-480798"
-        ],
-        "en": [
-          "spa-therapist-f-m-d-480798"
-        ],
-        "de": [
-          "spa-therapist-f-m-d-480798"
-        ],
-        "fr": [
-          "spa-therapist-f-m-d-480798",
-          "spa-therapist-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz-c0yrco"
-        ]
-      },
-      "firstSeenAt": "2026-04-13T10:49:01.900Z"
     }
   ]
 }
