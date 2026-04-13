@@ -184,7 +184,6 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -250,12 +249,13 @@
           "physiotherapeut-in-kantonsspital-graubunden-chur"
         ]
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
       "currency": "CHF",
-      "firstSeenAt": "2026-04-13T21:59:17.590Z"
+      "firstSeenAt": "2026-04-13T21:59:17.590Z",
+      "retranslationAttempts": 1
     },
     {
       "id": "9995709",
@@ -293,9 +293,9 @@
       },
       "descriptionByLocale": {
         "de": "Starte nach Vereinbarung als\n\nAufgaben:\n- Du planst pflegerische Interventionen und beurteilst den Verlauf\n- Du führst die angeordneten medizinisch-diagnostischen und therapeutischen Massnahmen fachgerecht aus\n- Du bietest umfassende pflegetherapeutische Beratung und Begleitung für Patienten und Patientinnen sowie deren Angehörige während der Radiotherapie, vom Symptommanagement bis hin zur emotionalen Auseinandersetzung mit dem Krankheitsgeschehen\n\nAnforderungen:\n- Du hast ein Diplom als Pflegefachfrau / Pflegefachmann HF mit mehrjähriger Berufserfahrung und fundierten Fachkenntnissen im Bereich Onkologie oder Radio-Onkologie\n- Wenn du eine Weiterbildung in der Onkologie auf Stufe Nachdiplomstudium (NDS) oder Höhere Fachprüfung (HFP) hast, ist dies ein Pluspunkt\n- Du bist empathisch, kommunikationsstark und zuverlässig\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!",
-        "it": "Se si tratta di un medico o di un medico o di un medico o di un medico o di un medico o di un medico o di un medico o di un medico o di un medico o di un medico o di un medico o di un medico o di un medico o di un medico o di un medico o di un medico o di un medico o di un medico o di un medico o di un medico o di un medico o di un medico o di un medico o di un medico o di un medico o di un medico o di un medico o di un medico o di un medico o di un medico o di un medico o di un medico o di un medico Fai la differenza? Allora appartieni a noi!",
-        "en": "If you are a doctor or a doctor or a doctor or a doctor or a doctor or a doctor or a doctor or a doctor or a doctor or a doctor or a doctor or a doctor or a doctor or a doctor or a doctor or a doctor or a doctor or a doctor or a doctor or a doctor or a doctor or a doctor or a doctor or a doctor or a doctor or a doctor or a doctor or a doctor or a doctor or a doctor or a doctor You make the difference? Then you belong to us!",
-        "fr": "Si vous êtes un médecin, un médecin ou un médecin, ou un médecin, ou un médecin, ou un médecin, ou un médecin, ou un médecin, ou un médecin, ou un médecin, ou un médecin, ou un médecin, ou un médecin, ou un médecin, ou un médecin, ou un médecin, ou un médecin, ou un médecin, ou un médecin, ou un médecin, ou un médecin, ou un médecin, ou un médecin, ou un médecin, ou un médecin, ou un médecin, ou un médecin, ou un médecin, ou un médecin, ou un médecin, ou un médecin, ou un médecin Tu fais la différence ? Alors tu nous appartiens !"
+        "it": "Avvio di accordo\n\nCompiti:\n- Pianifichi interventi di cura e giudichi il corso\n- Lei effettua misure mediche e terapeutiche\n- Offrite consulenza terapeutica e accompagnamento per i pazienti e i loro parenti durante la radioterapia, dalla gestione dei sintomi al confronto emotivo con la malattia\n\nRequisiti:\n- Hai un diploma come professionista di allattamento / infermieristica HF con diversi anni di esperienza professionale e competenze ben fondate in oncologia o radio oncologia\n- Se si dispone di un'ulteriore formazione in oncologia presso studi post-laurea (NDS) o esame di laurea superiore (HFP), questo è un punto più\n- Sei empatico, forte e affidabile\n\nPuoi fare qualcosa che gli altri non possono fare?\nFai la differenza?\nAllora appartieni a noi!",
+        "en": "Start by agreement as\n\nTasks:\n- You plan nursing interventions and judge the course\n- You carry out medical-diagnostic and therapeutic measures\n- You offer comprehensive care therapeutic advice and accompaniment for patients and their relatives during radiotherapy, from symptom management to emotional confrontation with illness\n\nRequirements:\n- You have a diploma as a nursing professional / nursing professional HF with several years of professional experience and well-founded expertise in oncology or radio oncology\n- If you have a further education in oncology at postgraduate studies (NDS) or higher degree examination (HFP), this is a plus point\n- You are empathic, strong and reliable\n\nYou can do something that others can't?\nYou make the difference?\nThen you belong to us!",
+        "fr": "Commencer par un accord\n\nTâches :\n- Vous planifiez des interventions et jugez le cours\n- Vous effectuez des mesures médico-diagnostiques et thérapeutiques\n- Vous offrez des conseils thérapeutiques complets et l'accompagnement pour les patients et leurs proches pendant la radiothérapie, de la gestion des symptômes à la confrontation émotionnelle avec la maladie\n\nExigences:\n- Vous avez un diplôme de professionnel des soins infirmiers / professionnel des soins infirmiers HF avec plusieurs années d'expérience professionnelle et une expertise bien fondée en oncologie ou radio oncologie\n- Si vous avez une formation complémentaire en oncologie lors d'études supérieures (PDN) ou d'un examen supérieur (HFP), c'est un point plus\n- Vous êtes empathique, forte et fiable\n\nTu peux faire quelque chose que les autres ne peuvent pas faire ?\nTu fais la différence ?\nAlors tu nous appartiens !"
       },
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -316,7 +316,6 @@
           "pflegefachfrau-pflegefachmann-radio-onkologie-kantonsspital-graubunden-chur"
         ]
       },
-      "needsRetranslation": false,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -415,10 +414,16 @@
         "de": "oberarztin-oberarzt-oder-oberarztin-mbf-oberarzt-mbf-neurologie-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
-        "de": "Oberärztin / Oberarzt oder Oberärztin mbF / Oberarzt mbF Neurologie"
+        "de": "Oberärztin / Oberarzt oder Oberärztin mbF / Oberarzt mbF Neurologie",
+        "it": "Senior medico / Senior medico mbF / Senior medico mbF neurologia",
+        "en": "Senior physician / Senior physician mbF / Senior physician mbF Neurology",
+        "fr": "Médecin principal / Médecin principal mbF / Médecin principal mbF Neurologie"
       },
       "descriptionByLocale": {
-        "de": "Starte nach Vereinbarung als\n\nAufgaben:\n- Du behandelst Patientinnen und Patienten ambulant und stationär, inklusive Stroke Unit\n- Du arbeitest interdisziplinär mit der Inneren Medizin, Intensivstation, Notfallstation und Ambulatorium zusammen\n- Du wirkst auch in Partnerspitälern mit und unterstützt die regionale Versorgung\n\nAnforderungen:\n- Du bist Fachärztin / Facharzt Neurologie oder kurz vor der Facharztprüfung\n- Du bringst Teamgeist und Integrationsfähigkeit in ein interdisziplinäres Umfeld mit\n- Du hast ein breites klinisches Interesse und idealerweise Fähigkeitsausweise in EEG, ENMG und/oder Neurosonologie\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!"
+        "de": "Starte nach Vereinbarung als\n\nAufgaben:\n- Du behandelst Patientinnen und Patienten ambulant und stationär, inklusive Stroke Unit\n- Du arbeitest interdisziplinär mit der Inneren Medizin, Intensivstation, Notfallstation und Ambulatorium zusammen\n- Du wirkst auch in Partnerspitälern mit und unterstützt die regionale Versorgung\n\nAnforderungen:\n- Du bist Fachärztin / Facharzt Neurologie oder kurz vor der Facharztprüfung\n- Du bringst Teamgeist und Integrationsfähigkeit in ein interdisziplinäres Umfeld mit\n- Du hast ein breites klinisches Interesse und idealerweise Fähigkeitsausweise in EEG, ENMG und/oder Neurosonologie\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!",
+        "it": "Inizia con l'accordo come compiti: - Tratta i pazienti ambulatoriale e pazientemente, tra cui l'unità Stroke - Lavori in modo interdisciplinare con la medicina interna, la cura intensiva, l'assistenza di emergenza e l'assistenza ospedaliera - Puoi anche trovare qualcosa negli ospedali partner e sostenere i requisiti di assistenza regionale: - Sei uno specialista in neurologia o poco prima dell'esame specialistico - Non è possibile portare uno spirito di squadra e l'integrazione in un ambiente ampio Fai la differenza? Allora appartieni a noi!",
+        "en": "Start by agreement as tasks: - You treat patients outpatiently and inpatiently, including Stroke Unit - You work in an interdisciplinary manner with internal medicine, intensive care, emergency care and outpatient care - You can also find something in partner hospitals and support the regional care requirements: - You are a specialist in neurology or just before the specialist examination - You can not bring a team spirit and integration into a broad environment You make the difference? Then you belong to us!",
+        "fr": "Commencez par un accord comme tâches : - Vous traitez les patients en consultation externe et en hospitalisation, y compris l'Unité des accidents cérébrovasculaires - Vous travaillez de manière interdisciplinaire avec la médecine interne, les soins intensifs, les soins d'urgence et les soins ambulatoires - Vous pouvez également trouver quelque chose dans les hôpitaux partenaires et soutenir les exigences régionales de soins: - Vous êtes un spécialiste en neurologie ou juste avant l'examen de spécialiste - Vous ne pouvez pas apporter un esprit d'équipe et d'intégration dans un environnement large Tu fais la différence ? Alors tu nous appartiens !"
       },
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -431,7 +436,6 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -2139,7 +2143,6 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -2461,7 +2464,6 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -4111,7 +4113,6 @@
           "pflegefachfrau-pflegefachmann-neurologie-stroke-unit-kantonsspital-graubunden-chur"
         ]
       },
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -5164,7 +5165,10 @@
       "salaryMin": 41080,
       "salaryMax": 75000,
       "currency": "CHF",
-      "firstSeenAt": "2026-04-13T21:59:17.590Z"
+      "firstSeenAt": "2026-04-13T21:59:17.590Z",
+      "previousSlugs": [
+        "fachfrau-fachmann-operationstechnik-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "9732321",
@@ -5225,7 +5229,6 @@
           "pflegefachfrau-pflegefachmann-viszeralchirurgie-kantonsspital-graubunden-chur"
         ]
       },
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -5547,7 +5550,6 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -5935,7 +5937,6 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -6521,7 +6522,6 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
