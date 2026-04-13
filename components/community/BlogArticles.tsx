@@ -2542,7 +2542,7 @@ function BlogArticles({
       {/* Article grid — newspaper 3-column layout */}
       {pageArticles.length > 1 && (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5" aria-live="polite" style={{ contentVisibility: 'auto', containIntrinsicSize: 'auto 600px' }}>
-          {pageArticles.slice(1, 1 + gridRevealCount).map((article, idx) => (
+          {pageArticles.slice(1, isMobile ? undefined : 1 + gridRevealCount).map((article, idx) => (
             <Fragment key={article.id}>
             {/* In-feed ad after every 3 cards (1 row of 3 on desktop) — max 2 ads */}
             {idx > 0 && idx % 3 === 0 && idx <= 6 && (
@@ -2646,8 +2646,8 @@ function BlogArticles({
         </div>
       )}
 
-      {/* Progressive reveal under the fold (mobile-first LCP optimization) */}
-      {pageArticles.length > 1 && gridRevealCount < (pageArticles.length - 1) && (
+      {/* Progressive reveal under the fold (desktop only — mobile uses infinite scroll) */}
+      {!isMobile && pageArticles.length > 1 && gridRevealCount < (pageArticles.length - 1) && (
         <div className="flex justify-center mt-2">
           <button
             onClick={() => setGridRevealCount(pageArticles.length - 1)}
