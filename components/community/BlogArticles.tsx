@@ -328,7 +328,29 @@ function renderFormattedContent(text: string, navigators?: NavigatorMap): ReactE
   for (let idx = 0; idx < blocks.length; idx += 1) {
     const trimmed = blocks[idx].trim();
 
-    // Heading: ### (H4 visual — smaller sub-heading)
+    // Heading: #### (H4 — sub-sub-heading)
+    if (trimmed.startsWith('#### ')) {
+      const lines = trimmed.split('\n');
+      const heading = lines[0].replace(/^####\s+/, '').trim();
+      const inlineBody = lines.slice(1).join('\n').trim();
+      const headingId = generateHeadingSlug(heading);
+      const tableEl = inlineBody ? tryRenderMdTable(inlineBody, `h4tbl-${idx}`, navigators) : null;
+      renderedBlocks.push(
+        <div key={`h4-${idx}`} className="space-y-1.5">
+          <h4 id={headingId} className="text-base font-semibold text-strong mt-3 mb-1 scroll-mt-20">
+            {renderInlineFormatting(heading, navigators)}
+          </h4>
+          {tableEl || (inlineBody && (
+            <p className="text-body leading-relaxed">
+              {renderInlineFormatting(inlineBody, navigators)}
+            </p>
+          ))}
+        </div>
+      );
+      continue;
+    }
+
+    // Heading: ### (H3 — smaller sub-heading)
     if (trimmed.startsWith('### ')) {
       const lines = trimmed.split('\n');
       const heading = lines[0].replace(/^###\s+/, '').trim();
@@ -537,7 +559,9 @@ function extractHeadings(bodySegments: string[]): TocHeading[] {
       const trimmed = block.trim();
       let level: 2 | 3 | null = null;
       let raw = '';
-      if (trimmed.startsWith('### ')) {
+      if (trimmed.startsWith('#### ')) {
+        // H4 sub-sub-headings: skip from TOC (too granular)
+      } else if (trimmed.startsWith('### ')) {
         level = 3;
         raw = trimmed.split('\n')[0].replace(/^###\s+/, '').trim();
       } else if (trimmed.startsWith('## ')) {
