@@ -2365,11 +2365,14 @@ ${hrefTags}
               console.warn('[static-pages] Could not inject into homepage:', (e as Error).message);
             }
           }
-          // Even if the directory index.html exists, ensure flat .html exists too
+          // Even if the directory index.html exists, ensure flat .html exists too.
+          // Guard: ogPagesPlugin closeBundle runs in parallel — the index.html may not
+          // be flushed yet. Only read if the file actually exists on disk.
           if (url.path !== '/') {
             const flatFile = np.join(distDir, url.path + '.html');
-            if (!fs.existsSync(flatFile)) {
-              const existingIndexHtml = fs.readFileSync(np.join(distDir, url.path, 'index.html'), 'utf-8');
+            const indexFile = np.join(distDir, url.path, 'index.html');
+            if (!fs.existsSync(flatFile) && fs.existsSync(indexFile)) {
+              const existingIndexHtml = fs.readFileSync(indexFile, 'utf-8');
               _qw(flatFile, existingIndexHtml.replace(/\s*<script>location\.replace\([^<]*\)<\/script>/, ''));
             }
           }
