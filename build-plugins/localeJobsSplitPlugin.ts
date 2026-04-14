@@ -18,7 +18,26 @@ const SLIM_INDEX_FIELDS = new Set([
   'featured', 'source',
 ]);
 
+/** Fields included in per-job detail files (fetched on-demand when a job detail is opened).
+ *  This avoids fetching the full 11MB locale file just to show one job's details. */
+const DETAIL_FIELDS = new Set([
+  'description', 'descriptionByLocale',
+  'requirements', 'requirementsByLocale',
+  'canonicalContent',
+  'baseSalary', 'streetAddress', 'postalCode', 'applyUrl',
+  'addressLocality', 'addressRegion', 'addressCountry',
+  'employmentType', 'hiringOrganization',
+  'titleByLocale', 'slugByLocale',
+  'sector', 'experienceLevel',
+  'validThrough', 'benefits',
+  'contactPerson', 'contactPhone',
+  'pensum', 'pensumMin', 'pensumMax',
+  'workModel', 'remote',
+  'applicationDeadline',
+]);
+
 interface JobEntry {
+  id?: string;
   title?: string;
   description?: string;
   requirements?: string[];
@@ -119,6 +138,25 @@ export function localeJobsSplitPlugin(rootDir: string): Plugin {
       'utf-8',
     );
 
+    // Per-job detail files: ~15KB each vs 11MB full locale file (FRO-detail-split)
+    const detailDir = path.resolve(dataDir, 'job-detail');
+    if (!fs.existsSync(detailDir)) fs.mkdirSync(detailDir, { recursive: true });
+    for (const job of jobs) {
+      const detail: Record<string, unknown> = {};
+      for (const key of DETAIL_FIELDS) {
+        if (key in job && (job as Record<string, unknown>)[key] !== undefined) {
+          detail[key] = (job as Record<string, unknown>)[key];
+        }
+      }
+      if (Object.keys(detail).length > 0) {
+        fs.writeFileSync(
+          path.resolve(detailDir, `${job.id || job.slug || 'unknown'}.json`),
+          JSON.stringify(detail),
+          'utf-8',
+        );
+      }
+    }
+
     return jobs.length;
   }
 
@@ -129,7 +167,7 @@ export function localeJobsSplitPlugin(rootDir: string): Plugin {
       const distDir = path.resolve(rootDir, 'dist');
       const count = generateFiles(distDir);
       if (count > 0) {
-        console.log(`[locale-jobs-split] Generated 4 locale files + 4 slim index files + slug map (${count} jobs)`);
+        console.log(`[locale-jobs-split] Generated 4 locale files + 4 slim index files + slug map + ${count} detail files (${count} jobs)`);
       }
     },
     configureServer(server) {

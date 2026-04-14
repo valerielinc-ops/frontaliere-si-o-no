@@ -227,22 +227,22 @@ interface JobListing {
 const JOB_EMAIL_ACCESS_KEY = 'frontaliere_job_email_access';
 const JOB_AUTH_REDIRECT_SLUG_KEY = 'frontaliere_job_auth_redirect_slug';
 
-/** Module-level cache for full locale job lists (fetched lazily on first detail view). */
-const fullJobsLocaleCache = new Map<string, Promise<JobListing[]>>();
+/** Module-level cache for per-job detail data (fetched on-demand when detail view opens). */
+const jobDetailCache = new Map<string, Promise<Partial<JobListing>>>();
 
 /**
- * Lazily load the full jobs-{locale}.json (with description/requirements/canonicalContent).
- * Cached per locale so the fetch happens at most once per session. (FRO-386)
+ * Fetch a single job's detail data (~15KB) instead of the full locale file (~11MB).
+ * Per-job detail files are generated at build time by localeJobsSplitPlugin. (FRO-detail-split)
  */
-function fetchFullJobsLocale(locale: string): Promise<JobListing[]> {
-  if (!fullJobsLocaleCache.has(locale)) {
-    const promise = fetch(`/data/jobs-${locale}.json`)
+function fetchJobDetail(jobId: string): Promise<Partial<JobListing>> {
+  if (!jobDetailCache.has(jobId)) {
+    const promise = fetch(`/data/job-detail/${jobId}.json`)
       .then((res) => { if (!res.ok) throw new Error(`${res.status}`); return res.json(); })
-      .catch(() => fetch('/data/jobs.json').then((res) => res.json()))
-      .then((data: unknown) => Array.isArray(data) ? data.map((j) => normalizeIncomingJob(j)) : []);
-    fullJobsLocaleCache.set(locale, promise);
+      .then((data: unknown) => (data && typeof data === 'object' ? data : {}) as Partial<JobListing>)
+      .catch(() => ({} as Partial<JobListing>));
+    jobDetailCache.set(jobId, promise);
   }
-  return fullJobsLocaleCache.get(locale)!;
+  return jobDetailCache.get(jobId)!;
 }
 
 const ARTICLE_STOP_WORDS = new Set(['2025', '2026', '2027', 'del', 'dei', 'per', 'con', 'sul', 'fra', 'tra', 'una', 'non', 'che', 'come', 'cosa', 'dal', 'the', 'and', 'for', 'with', 'von', 'und', 'les', 'des', 'pour', 'dans']);
@@ -2432,6 +2432,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
   const [jobs, setJobs] = useState<JobListing[]>([]);
   const [jobsLoading, setJobsLoading] = useState(true);
+  const [enrichmentLoading, setEnrichmentLoading] = useState(false);
   // FRO-353: Feature flag for Job Alerts (controlled via Firebase Remote Config)
   const [enableJobAlerts, setEnableJobAlerts] = useState(false);
   useEffect(() => {
@@ -2699,20 +2700,22 @@ const JobBoard: React.FC<JobBoardProps> = ({
     return jobs.find((j) => matchesRouteSlug(j, lookupSlug)) || null;
   }, [jobs, initialJobSlug, bridgeTargetSlug, companySlugFilter, searchSlugFilter, editorialLandingDescriptor]);
 
-  // FRO-386: Lazily enrich slim job with full data (description, requirements, canonicalContent)
-  // when the detail view opens. Merges full fields into the jobs state so selectedJob
-  // recomputes automatically with complete data — no separate detailJob variable needed.
+  // FRO-detail-split: Lazily enrich slim job with per-job detail data (~15KB)
+  // instead of fetching the full locale file (~11MB). Merges detail fields into
+  // the jobs state so selectedJob recomputes with complete data automatically.
   const selectedJobId = selectedJob?.id ?? null;
   useEffect(() => {
     if (!selectedJobId) return;
-    fetchFullJobsLocale(locale).then((fullJobs) => {
-      const full = fullJobs.find((j) => j.id === selectedJobId);
-      if (!full) return;
-      setJobs((prev) => prev.map((j) => (j.id === selectedJobId ? { ...j, ...full } : j)));
+    setEnrichmentLoading(true);
+    fetchJobDetail(selectedJobId).then((detail) => {
+      if (Object.keys(detail).length === 0) return;
+      setJobs((prev) => prev.map((j) => (j.id === selectedJobId ? { ...j, ...detail } : j)));
     }).catch(() => {
-      // Silently ignore — slim data already shown, full enrichment is best-effort
+      // Silently ignore — slim data already shown, detail enrichment is best-effort
+    }).finally(() => {
+      setEnrichmentLoading(false);
     });
-  }, [selectedJobId, locale]);
+  }, [selectedJobId]);
 
   const editorialJobTodayLanding = useMemo(() => {
     if (editorialLandingDescriptor?.kind !== 'today') return null;
@@ -5760,7 +5763,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
             <section className="section rounded-2xl border border-edge bg-surface p-4 sm:p-5 space-y-3">
               <h4 className="text-base font-bold text-slate-900 dark:text-white">{canonicalCopy.summary}</h4>
-              {canonicalSummary.length > 0 ? (
+              {enrichmentLoading && canonicalSummary.length === 0 && !detailDescription ? (
+                <div className="space-y-2">
+                  <div className="animate-pulse bg-slate-200 dark:bg-slate-700 rounded h-4 w-full" />
+                  <div className="animate-pulse bg-slate-200 dark:bg-slate-700 rounded h-4 w-full" />
+                  <div className="animate-pulse bg-slate-200 dark:bg-slate-700 rounded h-4 w-11/12" />
+                  <div className="animate-pulse bg-slate-200 dark:bg-slate-700 rounded h-4 w-4/5" />
+                </div>
+              ) : canonicalSummary.length > 0 ? (
                 <div className="space-y-2">
                   {canonicalSummary.map((line, i) => (
                     <p key={i} className="text-sm leading-relaxed text-body">{line}</p>
@@ -5788,7 +5798,26 @@ const JobBoard: React.FC<JobBoardProps> = ({
               )}
             </section>
 
-            {timelineSections.length > 0 ? (
+            {enrichmentLoading && timelineSections.length === 0 && !detailDescription ? (
+              <>
+                <section className="section rounded-2xl border border-edge bg-surface p-4 sm:p-5 space-y-2">
+                  <h4 className="text-base font-bold text-slate-900 dark:text-white">{canonicalCopy.details}</h4>
+                  <div className="space-y-2">
+                    <div className="animate-pulse bg-slate-200 dark:bg-slate-700 rounded h-4 w-full" />
+                    <div className="animate-pulse bg-slate-200 dark:bg-slate-700 rounded h-4 w-full" />
+                    <div className="animate-pulse bg-slate-200 dark:bg-slate-700 rounded h-4 w-5/6" />
+                  </div>
+                </section>
+                <section className="section rounded-2xl border border-edge bg-surface p-4 sm:p-5 space-y-2">
+                  <div className="animate-pulse bg-slate-200 dark:bg-slate-700 rounded h-5 w-40" />
+                  <div className="space-y-1.5 pl-4">
+                    <div className="animate-pulse bg-slate-200 dark:bg-slate-700 rounded h-4 w-3/4" />
+                    <div className="animate-pulse bg-slate-200 dark:bg-slate-700 rounded h-4 w-2/3" />
+                    <div className="animate-pulse bg-slate-200 dark:bg-slate-700 rounded h-4 w-4/5" />
+                  </div>
+                </section>
+              </>
+            ) : timelineSections.length > 0 ? (
               <div className="timeline relative pl-6 space-y-3">
                 <div className="absolute left-[9px] top-1 bottom-1 border-l-2 border-dashed border-stripe-300 dark:border-stripe-700" />
                 {timelineSections.map((section, index) => (
