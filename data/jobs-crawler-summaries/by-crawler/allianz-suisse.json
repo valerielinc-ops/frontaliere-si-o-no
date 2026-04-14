@@ -1,19 +1,21 @@
 {
   "key": "allianz-suisse",
   "label": "Tessin",
-  "generatedAt": "2026-04-14T09:15:30.231Z",
+  "generatedAt": "2026-04-14T21:00:44.722Z",
   "total": 7,
   "newCount": 0,
-  "updatedCount": 7,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 15092,
-  "avgDurationMs": 15092,
+  "unchangedCount": 7,
+  "durationMs": 13778,
+  "avgDurationMs": 13778,
   "durationHistory": [
-    15092
+    13778
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Responsabile vendite nel servizio esterno (f/m/d), 100%, Bellinzona",
       "slug": "responsabile-vendite-nel-servizio-esterno-f-m-d-100-bellinzona",
@@ -164,7 +166,7 @@
     },
     {
       "title": "Consulente per l’agenzia generale Chur 100%",
-      "slug": "consulente-per-l-agenzia-generale-chur-100",
+      "slug": "consulente-per-l-agenzia-generale-chur-100-allianz-suisse-sargans",
       "url": "https://recruitingapp-2872.umantis.com/Vacancies/677/Description/4",
       "applyUrl": "https://recruitingapp-2872.umantis.com/Vacancies/677/Application/CheckLogin/4",
       "company": "Allianz Suisse",
@@ -273,7 +275,5 @@
         "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
