@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import {
+  CRAWLED_COMPANY_LOGOS,
   isMultiLocation,
   normalizeJobCategory,
   normalizeJobContract,
@@ -111,5 +112,42 @@ describe('jobDataNormalization', () => {
     });
 
     expect(logo).toBe('https://convit.ch/images/convit-logo.png');
+  });
+
+  it('no CRAWLED_COMPANY_LOGOS entry uses gFavicon on a known ATS domain', () => {
+    const atsDomains = [
+      'myworkdayjobs.com', 'umantis.com', 'zohorecruit.com', 'ncoreplat.com',
+      'successfactors.com', 'recruitee.com', 'careers-page.com', 'joblink.allibo.com',
+      'service-now.com', 'greenhouse.io', 'lever.co', 'smartrecruiters.com',
+      'icims.com', 'jobs.sbb.ch',
+    ];
+    const gFaviconPrefix = 'https://www.google.com/s2/favicons?domain=';
+
+    for (const [key, url] of Object.entries(CRAWLED_COMPANY_LOGOS)) {
+      if (!url.startsWith(gFaviconPrefix)) continue;
+      const domain = decodeURIComponent(url.replace(gFaviconPrefix, '').replace('&sz=128', ''));
+      for (const ats of atsDomains) {
+        expect(domain, `${key} uses gFavicon on ATS domain ${ats}`).not.toContain(ats);
+      }
+    }
+  });
+
+  it('every CRAWLED_COMPANY_LOGOS entry has a non-empty URL', () => {
+    for (const [key, url] of Object.entries(CRAWLED_COMPANY_LOGOS)) {
+      expect(url, `${key} has empty logo URL`).toBeTruthy();
+      expect(typeof url, `${key} logo URL is not a string`).toBe('string');
+    }
+  });
+
+  it('returns Hôpital du Valais direct logo instead of grey globe', () => {
+    const logo = resolveCompanyLogoUrl({
+      company: 'Hôpital du Valais',
+      companyKey: 'hopital-du-valais',
+      companyDomain: 'hopitalvs.ch',
+      url: 'https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page',
+    });
+
+    expect(logo).not.toContain('google.com/s2/favicons');
+    expect(logo).toBeTruthy();
   });
 });
