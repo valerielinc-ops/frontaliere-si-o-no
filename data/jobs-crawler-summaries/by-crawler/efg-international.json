@@ -1,135 +1,18 @@
 {
   "key": "efg-international",
   "label": "EFG",
-  "generatedAt": "2026-04-14T09:50:30.822Z",
+  "generatedAt": "2026-04-14T21:35:40.423Z",
   "total": 31,
-  "newCount": 1,
-  "updatedCount": 30,
+  "newCount": 0,
+  "updatedCount": 31,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 35147,
-  "avgDurationMs": 35147,
+  "durationMs": 29189,
+  "avgDurationMs": 29189,
   "durationHistory": [
-    35147
+    29189
   ],
-  "newJobs": [
-    {
-      "id": "efg-5799",
-      "slug": "business-analyst-legal-compliance-efg-geneve",
-      "company": "EFG International AG",
-      "title": "Business Analyst Legal & Compliance",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-14",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5799",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [],
-            "responsibilities": [
-              "Global Business & Functional Analysis: <ul> <li>Lead the collection and documentation of global requirements for system and process changes across Compliance & Legal functions.",
-              "Assists in identifying, evaluating and business specification development for systems and procedures that are cost effective and meet requirements.",
-              "Serve as a key interface between global and local teams, ensuring alignment across business units and jurisdictions",
-              "Map end-to-end processes and highlight regional variations for harmonization",
-              "Systems Oversight & Operational Support: <ul> <li>Serve as a key interface between the Legal & Compliance and COO Functions and coordinate enhancements, upgrades, and issue resolution across SAS AML, GT Exchange, FircoContinuity, and Pythagoras",
-              "Support global change initiatives, including tool implementation, data quality initiatives, and regulatory adaptations",
-              "Support UAT processes, system documentation, and global roll-out coordination",
-              "Governance: <ul> <li>Contribute to governance forums by preparing consistent, global-level reporting and status updates"
-            ],
-            "requirements": [
-              "Solid understanding of compliance environments and internal control frameworks in banking or financial services.",
-              "Strong analytical, documentation, and stakeholder management capabilities",
-              "Autonomy, reliability, and high ownership mindset; able to deliver in fast-paced and high-responsibility contexts.",
-              "Global mindset with excellent cross-cultural communication skills.",
-              "Fluency in English",
-              "Experience with project governance tools and data visualisation (e.g. JIRA, SharePoint, Power BI, Excel dashboards).",
-              "Technically fluent in compliance tool functionality, system workflows, and data flows",
-              "University degree in Law, Economics, Business Administration, or related field.",
-              "5+ years of experience in the Banking Industry in Compliance, Risk, Audit, or Transformation roles, ideally within banking groups or international financial institutions"
-            ],
-            "benefits": [
-              "<strong>Accountability</strong>: Taking ownership for tasks and challenges as well as seeking continuous improvement",
-              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results",
-              "<strong>Passionate</strong>: Being committed and striving for excellence",
-              "<strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset",
-              "<strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit."
-            ],
-            "process": [],
-            "highlights": [
-              "Global Business & Functional Analysis: <ul> <li>Lead the collection and documentation of global requirements for system and process changes across Compliance & Legal functions.",
-              "Assists in identifying, evaluating and business specification development for systems and procedures that are cost effective and meet requirements.",
-              "Serve as a key interface between global and local teams, ensuring alignment across business units and jurisdictions",
-              "Solid understanding of compliance environments and internal control frameworks in banking or financial services.",
-              "Strong analytical, documentation, and stakeholder management capabilities",
-              "Autonomy, reliability, and high ownership mindset; able to deliver in fast-paced and high-responsibility contexts.",
-              "<strong>Accountability</strong>: Taking ownership for tasks and challenges as well as seeking continuous improvement",
-              "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results"
-            ],
-            "keywords": [
-              "Solid understanding of compliance environments and internal control frameworks in banking or financial services.",
-              "Strong analytical",
-              "Autonomy",
-              "Global mindset with excellent cross-cultural communication skills.",
-              "Fluency in English",
-              "Global Business & Functional Analysis",
-              "Assists in identifying",
-              "Serve as a key interface between global and local teams",
-              "Map end-to-end processes and highlight regional variations for harmonization"
-            ],
-            "sections": [
-              {
-                "id": "company",
-                "heading": "Our Company",
-                "paragraphs": [
-                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice.",
-                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation."
-                ],
-                "bullets": []
-              },
-              {
-                "id": "company",
-                "heading": "Our Purpose and Mission",
-                "paragraphs": [
-                  "Empowering entrepreneurial minds to create value – today and for the future.",
-                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value."
-                ],
-                "bullets": []
-              },
-              {
-                "id": "details",
-                "heading": "Role",
-                "paragraphs": [
-                  "As part of the Global Legal & Compliance Transformation team in the Global COO Legal & Compliance Unit, the role focuses on evaluating business problems and relevant solutions, improving data consistency, and reporting capabilities across jurisdictions, with a particular focus on SAS AML, GTExchange, Firco Continuity, and Pythagoras."
-                ],
-                "bullets": []
-              }
-            ],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-04-14T09:50:28.272Z",
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "needsRetranslation": true,
-      "datePosted": "2026-04-14",
-      "_qualityScore": 68,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 4,
-        "completeness": 14
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "id": "efg-6203",
@@ -164,7 +47,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-14T09:50:28.305Z",
+      "crawledAt": "2026-04-14T21:35:38.126Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -265,7 +148,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-14T09:50:28.304Z",
+      "crawledAt": "2026-04-14T21:35:38.126Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -381,7 +264,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-14T09:50:28.303Z",
+      "crawledAt": "2026-04-14T21:35:38.125Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-03-06",
@@ -499,7 +382,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-14T09:50:28.303Z",
+      "crawledAt": "2026-04-14T21:35:38.124Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -511,6 +394,114 @@
       "employmentType": "FULL_TIME",
       "datePosted": "2026-02-27",
       "firstSeenAt": "2026-04-13T10:28:21.957Z",
+      "_qualityScore": 100,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "efg-6103",
+      "slug": "temp-contract-business-analista-sviluppatore-efg-international-ag-lugano-n9334f",
+      "company": "EFG International AG",
+      "title": "Temp Contract - IT Business Analyst/Developer",
+      "location": "Lugano",
+      "canton": "TI",
+      "category": "tech",
+      "contract": "temporary",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-10",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6103",
+      "source": "Oracle HCM API",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [],
+            "responsibilities": [
+              "<span>Provide day-to-day support of the various application systems.</span>",
+              "<span>Document new system enhancements, implement and test enhancements, provide training to users </span>",
+              "<span>Liaise with existing users and technical analysts and the relevant application vendors</span>",
+              "<span>Configuration, roll-out, training and application support of Charles River / Aladdin and surrounding applications</span>",
+              "<span>Define and test required solutions to enhance the existing features and functionalities of the IT solutions</span>",
+              "<span>Obtain expertise in using and configuring the Charles River / Aladdin applications</span>",
+              "<span>Progress in timely manner with defining changes and the delivery of required changes in the systems</span>",
+              "<span>Escalate issues in timely manner with all required stakeholders</span>",
+              "<span>Progress work according to agreed priorities (and ensure that priorities are understood if there are any ambiguities)</span>",
+              "<span>Conduct and document and agree gap analysis of any required changes with Vendor and business users</span>",
+              "<span>Prepare, agree and document detailed process flows, test plan, test execution reports and other project documentation</span>"
+            ],
+            "requirements": [
+              "<span>Bachelor or Master degree qualification in a numerate subject (e.g. Engineering, Economics, maths, etc…)</span>",
+              "<span>Strong communication skills (written and oral)</span>",
+              "<span>Excellent analytical and problem-solving skills /ability to think quick on your feet)</span>",
+              "<span>Strong attention to detail </span>",
+              "<span>Ability to be independent and take ownership of tasks</span>",
+              "<span>Goal-oriented</span>",
+              "<span>Excellent knowledge of MS Office</span>",
+              "<span>Software experience: Microsoft SQL, Excel Macros, Visual Basic </span>",
+              "<span>Knowledge of Charles River and / or BlackRock Aladdin (preferable)</span>",
+              "<span>English (French/German/Italian would be beneficial)</span>",
+              "<span>Effective interpersonal skill in negotiation and influencing</span>",
+              "<span>Must be able to travel from time to time if required</span>",
+              "<span>Previous experience in financial industry would be preferable</span>",
+              "<span>Expectation to be office based</span>",
+              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
+              "Hands-on: Being proactive to rapidly deliver high-quality results"
+            ],
+            "benefits": [],
+            "process": [
+              "Should you wish to apply for this position use this link to apply."
+            ],
+            "highlights": [
+              "<span>Provide day-to-day support of the various application systems.</span>",
+              "<span>Document new system enhancements, implement and test enhancements, provide training to users </span>",
+              "<span>Liaise with existing users and technical analysts and the relevant application vendors</span>",
+              "<span>Bachelor or Master degree qualification in a numerate subject (e.g. Engineering, Economics, maths, etc…)</span>",
+              "<span>Strong communication skills (written and oral)</span>",
+              "<span>Excellent analytical and problem-solving skills /ability to think quick on your feet)</span>"
+            ],
+            "keywords": [
+              "<span>Bachelor or Master degree qualification in a numerate subject (e.g. Engineering",
+              "<span>Strong communication skills (written and oral)</span>",
+              "<span>Excellent analytical and problem-solving skills /ability to think quick on your feet)</span>",
+              "<span>Strong attention to detail </span>",
+              "<span>Ability to be independent and take ownership of tasks</span>",
+              "<span>Provide day-to-day support of the various application systems.</span>",
+              "<span>Document new system enhancements",
+              "<span>Liaise with existing users and technical analysts and the relevant application vendors</span>",
+              "<span>Configuration"
+            ],
+            "sections": [
+              {
+                "id": "details",
+                "heading": "Specification of Core Function",
+                "paragraphs": [
+                  "Our team delivers solutions and provides support for internal and third-party systems in place for the Investment Client Solution (ICS) business. Support, business analysis, testing and development is provided for all business lines of the ICS including Advisory, Discretionary and New Capital Funds. The main aspect of this role is Support and Business Analyst functions. The role involves interaction with a wide range of end users from all aspects of the business (e.g. Front office, Middle office, Back office, Risk and Compliance as well as IT). The role involves providing support for Production critical issues, understanding and challenging business change requirements, testing changes, co-ordinating delivery workstreams, devising workable efficient scalable solutions to meet business requirements."
+                ],
+                "bullets": []
+              }
+            ],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-04-14T21:35:38.123Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "sourceLang": "en",
+      "salaryMin": 72500,
+      "salaryMax": 97500,
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "datePosted": "2026-03-10",
+      "firstSeenAt": "2026-04-13T10:28:21.956Z",
       "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -612,7 +603,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-14T09:50:28.301Z",
+      "crawledAt": "2026-04-14T21:35:38.122Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-03-25",
@@ -628,114 +619,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "efg-6103",
-      "slug": "temp-contract-business-analista-sviluppatore-efg-international-ag-lugano-n9334f",
-      "company": "EFG International AG",
-      "title": "Temp Contract - IT Business Analyst/Developer",
-      "location": "Lugano",
-      "canton": "TI",
-      "category": "tech",
-      "contract": "temporary",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-10",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6103",
-      "source": "Oracle HCM API",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [],
-            "responsibilities": [
-              "<span>Provide day-to-day support of the various application systems.</span>",
-              "<span>Document new system enhancements, implement and test enhancements, provide training to users </span>",
-              "<span>Liaise with existing users and technical analysts and the relevant application vendors</span>",
-              "<span>Configuration, roll-out, training and application support of Charles River / Aladdin and surrounding applications</span>",
-              "<span>Define and test required solutions to enhance the existing features and functionalities of the IT solutions</span>",
-              "<span>Obtain expertise in using and configuring the Charles River / Aladdin applications</span>",
-              "<span>Progress in timely manner with defining changes and the delivery of required changes in the systems</span>",
-              "<span>Escalate issues in timely manner with all required stakeholders</span>",
-              "<span>Progress work according to agreed priorities (and ensure that priorities are understood if there are any ambiguities)</span>",
-              "<span>Conduct and document and agree gap analysis of any required changes with Vendor and business users</span>",
-              "<span>Prepare, agree and document detailed process flows, test plan, test execution reports and other project documentation</span>"
-            ],
-            "requirements": [
-              "<span>Bachelor or Master degree qualification in a numerate subject (e.g. Engineering, Economics, maths, etc…)</span>",
-              "<span>Strong communication skills (written and oral)</span>",
-              "<span>Excellent analytical and problem-solving skills /ability to think quick on your feet)</span>",
-              "<span>Strong attention to detail </span>",
-              "<span>Ability to be independent and take ownership of tasks</span>",
-              "<span>Goal-oriented</span>",
-              "<span>Excellent knowledge of MS Office</span>",
-              "<span>Software experience: Microsoft SQL, Excel Macros, Visual Basic </span>",
-              "<span>Knowledge of Charles River and / or BlackRock Aladdin (preferable)</span>",
-              "<span>English (French/German/Italian would be beneficial)</span>",
-              "<span>Effective interpersonal skill in negotiation and influencing</span>",
-              "<span>Must be able to travel from time to time if required</span>",
-              "<span>Previous experience in financial industry would be preferable</span>",
-              "<span>Expectation to be office based</span>",
-              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
-              "Hands-on: Being proactive to rapidly deliver high-quality results"
-            ],
-            "benefits": [],
-            "process": [
-              "Should you wish to apply for this position use this link to apply."
-            ],
-            "highlights": [
-              "<span>Provide day-to-day support of the various application systems.</span>",
-              "<span>Document new system enhancements, implement and test enhancements, provide training to users </span>",
-              "<span>Liaise with existing users and technical analysts and the relevant application vendors</span>",
-              "<span>Bachelor or Master degree qualification in a numerate subject (e.g. Engineering, Economics, maths, etc…)</span>",
-              "<span>Strong communication skills (written and oral)</span>",
-              "<span>Excellent analytical and problem-solving skills /ability to think quick on your feet)</span>"
-            ],
-            "keywords": [
-              "<span>Bachelor or Master degree qualification in a numerate subject (e.g. Engineering",
-              "<span>Strong communication skills (written and oral)</span>",
-              "<span>Excellent analytical and problem-solving skills /ability to think quick on your feet)</span>",
-              "<span>Strong attention to detail </span>",
-              "<span>Ability to be independent and take ownership of tasks</span>",
-              "<span>Provide day-to-day support of the various application systems.</span>",
-              "<span>Document new system enhancements",
-              "<span>Liaise with existing users and technical analysts and the relevant application vendors</span>",
-              "<span>Configuration"
-            ],
-            "sections": [
-              {
-                "id": "details",
-                "heading": "Specification of Core Function",
-                "paragraphs": [
-                  "Our team delivers solutions and provides support for internal and third-party systems in place for the Investment Client Solution (ICS) business. Support, business analysis, testing and development is provided for all business lines of the ICS including Advisory, Discretionary and New Capital Funds. The main aspect of this role is Support and Business Analyst functions. The role involves interaction with a wide range of end users from all aspects of the business (e.g. Front office, Middle office, Back office, Risk and Compliance as well as IT). The role involves providing support for Production critical issues, understanding and challenging business change requirements, testing changes, co-ordinating delivery workstreams, devising workable efficient scalable solutions to meet business requirements."
-                ],
-                "bullets": []
-              }
-            ],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-04-14T09:50:28.301Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "sourceLang": "en",
-      "salaryMin": 72500,
-      "salaryMax": 97500,
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "datePosted": "2026-03-10",
-      "firstSeenAt": "2026-04-13T10:28:21.956Z",
-      "_qualityScore": 100,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
         "translation": 25,
         "completeness": 25
       }
@@ -839,7 +722,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-14T09:50:28.299Z",
+      "crawledAt": "2026-04-14T21:35:38.121Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-02-24",
@@ -963,7 +846,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-14T09:50:28.298Z",
+      "crawledAt": "2026-04-14T21:35:38.120Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-01-19",
@@ -1096,7 +979,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-14T09:50:28.297Z",
+      "crawledAt": "2026-04-14T21:35:38.119Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-02-11",
@@ -1218,7 +1101,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-14T09:50:28.296Z",
+      "crawledAt": "2026-04-14T21:35:38.118Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1346,7 +1229,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-14T09:50:28.295Z",
+      "crawledAt": "2026-04-14T21:35:38.117Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1400,7 +1283,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-14T09:50:28.294Z",
+      "crawledAt": "2026-04-14T21:35:38.116Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2025-12-10",
@@ -1513,7 +1396,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-14T09:50:28.293Z",
+      "crawledAt": "2026-04-14T21:35:38.115Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2025-12-02",
@@ -1660,7 +1543,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-14T09:50:28.292Z",
+      "crawledAt": "2026-04-14T21:35:38.114Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-02-11",
@@ -1777,7 +1660,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-14T09:50:28.291Z",
+      "crawledAt": "2026-04-14T21:35:38.113Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-03-31",
@@ -1831,7 +1714,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-14T09:50:28.290Z",
+      "crawledAt": "2026-04-14T21:35:38.112Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-04-02",
@@ -1885,7 +1768,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-14T09:50:28.289Z",
+      "crawledAt": "2026-04-14T21:35:38.112Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "datePosted": "2026-04-01",
@@ -2014,7 +1897,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-14T09:50:28.287Z",
+      "crawledAt": "2026-04-14T21:35:38.110Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-01",
@@ -2095,7 +1978,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-14T09:50:28.286Z",
+      "crawledAt": "2026-04-14T21:35:38.109Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-02",
@@ -2174,7 +2057,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-14T09:50:28.285Z",
+      "crawledAt": "2026-04-14T21:35:38.108Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-02",
@@ -2228,7 +2111,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-14T09:50:28.284Z",
+      "crawledAt": "2026-04-14T21:35:38.107Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-10",
@@ -2282,7 +2165,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-14T09:50:28.284Z",
+      "crawledAt": "2026-04-14T21:35:38.107Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-09",
@@ -2376,7 +2259,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-14T09:50:28.283Z",
+      "crawledAt": "2026-04-14T21:35:38.106Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-04-09",
@@ -2507,7 +2390,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-14T09:50:28.282Z",
+      "crawledAt": "2026-04-14T21:35:38.106Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-09",
@@ -2560,7 +2443,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-14T09:50:28.281Z",
+      "crawledAt": "2026-04-14T21:35:38.104Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-07",
@@ -2615,7 +2498,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-14T09:50:28.280Z",
+      "crawledAt": "2026-04-14T21:35:38.103Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -2668,7 +2551,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-14T09:50:28.279Z",
+      "crawledAt": "2026-04-14T21:35:38.102Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -2722,7 +2605,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-14T09:50:28.277Z",
+      "crawledAt": "2026-04-14T21:35:38.101Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -2895,7 +2778,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-14T09:50:28.275Z",
+      "crawledAt": "2026-04-14T21:35:38.099Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-13",
@@ -2916,19 +2799,20 @@
       }
     },
     {
-      "id": "efg-6068",
-      "slug": "group-insurance-expert-efg-zurich",
+      "id": "efg-5799",
+      "slug": "business-analyst-legal-compliance-efg-geneve",
       "company": "EFG International AG",
-      "title": "Group Insurance Expert",
-      "location": "Zurich",
-      "canton": "ZH",
+      "title": "Business Analyst Legal & Compliance",
+      "location": "Geneve",
+      "canton": "GE",
       "category": "finance",
       "contract": "permanent",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-02-03",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6068",
+      "postedDate": "2026-04-14",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5799",
       "source": "Oracle HCM API",
+      "sourceLang": "en",
       "companyKey": "efg-international",
       "companyDomain": "efginternational.com",
       "canonicalContent": {
@@ -2936,26 +2820,28 @@
           "en": {
             "summary": [],
             "responsibilities": [
-              "Product Expertise, Due Diligence & Governance <ul> <li>Be responsible for the product offering, oversee the insurance referral activity and respective revenue generated",
-              "Design the insurance offering strategy in line with group Wealth Planning and business strategy",
-              "Maintain the approved insurance product shelf aligned with client segment, regions, regulatory environment & risk appetite (whole life, private placement life insurance etc).",
-              "Evaluate insurance brokers and product lines for strength, competitiveness, and suitability.",
-              "Act as the central point for insurance broker selection, onboarding/offboarding, periodic due diligence and maintain governance standards.",
-              "Act as the central point for Insurance referral framework (procedures, guidelines etc)",
-              "Ensure proper documentation, disclosures and reporting of insurance referral activity",
-              "Monitor regulatory developments affecting insurance - based planning (e.g. cross-border rules, regulatory framework and insurance regulation). Identify and mitigate various risks related to insurance solutions (mis-selling, reputational risks etc).",
-              "Collaborate with 2nd line functions (compliance, legal and risk functions) in reviews and audits.",
-              "Internal advisory support and education <ul> <li>Develop and deliver: <ul> <li>Internal training sessions",
-              "Technical notes and planning guidelines",
-              "Case studies and best-practice examples",
-              "Provide technical guidance to RMs and Wealth Planners for client discussions.",
-              "Advisor Support & Enablement <ul> <li>Provide guidance on regulatory and suitability requirements.",
-              "Support wealth planners with best practices in client conversations",
-              "Innovation & Thought Leadership <ul> <li>Identify emerging insurance industry trends, product innovations, and planning opportunities."
+              "Global Business & Functional Analysis: <ul> <li>Lead the collection and documentation of global requirements for system and process changes across Compliance & Legal functions.",
+              "Assists in identifying, evaluating and business specification development for systems and procedures that are cost effective and meet requirements.",
+              "Serve as a key interface between global and local teams, ensuring alignment across business units and jurisdictions",
+              "Map end-to-end processes and highlight regional variations for harmonization",
+              "Systems Oversight & Operational Support: <ul> <li>Serve as a key interface between the Legal & Compliance and COO Functions and coordinate enhancements, upgrades, and issue resolution across SAS AML, GT Exchange, FircoContinuity, and Pythagoras",
+              "Support global change initiatives, including tool implementation, data quality initiatives, and regulatory adaptations",
+              "Support UAT processes, system documentation, and global roll-out coordination",
+              "Governance: <ul> <li>Contribute to governance forums by preparing consistent, global-level reporting and status updates"
             ],
-            "requirements": [],
+            "requirements": [
+              "Solid understanding of compliance environments and internal control frameworks in banking or financial services.",
+              "Strong analytical, documentation, and stakeholder management capabilities",
+              "Autonomy, reliability, and high ownership mindset; able to deliver in fast-paced and high-responsibility contexts.",
+              "Global mindset with excellent cross-cultural communication skills.",
+              "Fluency in English",
+              "Experience with project governance tools and data visualisation (e.g. JIRA, SharePoint, Power BI, Excel dashboards).",
+              "Technically fluent in compliance tool functionality, system workflows, and data flows",
+              "University degree in Law, Economics, Business Administration, or related field.",
+              "5+ years of experience in the Banking Industry in Compliance, Risk, Audit, or Transformation roles, ideally within banking groups or international financial institutions"
+            ],
             "benefits": [
-              "<strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
+              "<strong>Accountability</strong>: Taking ownership for tasks and challenges as well as seeking continuous improvement",
               "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results",
               "<strong>Passionate</strong>: Being committed and striving for excellence",
               "<strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset",
@@ -2963,17 +2849,25 @@
             ],
             "process": [],
             "highlights": [
-              "Product Expertise, Due Diligence & Governance <ul> <li>Be responsible for the product offering, oversee the insurance referral activity and respective revenue generated",
-              "Design the insurance offering strategy in line with group Wealth Planning and business strategy",
-              "Maintain the approved insurance product shelf aligned with client segment, regions, regulatory environment & risk appetite (whole life, private placement life insurance etc).",
-              "<strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
+              "Global Business & Functional Analysis: <ul> <li>Lead the collection and documentation of global requirements for system and process changes across Compliance & Legal functions.",
+              "Assists in identifying, evaluating and business specification development for systems and procedures that are cost effective and meet requirements.",
+              "Serve as a key interface between global and local teams, ensuring alignment across business units and jurisdictions",
+              "Solid understanding of compliance environments and internal control frameworks in banking or financial services.",
+              "Strong analytical, documentation, and stakeholder management capabilities",
+              "Autonomy, reliability, and high ownership mindset; able to deliver in fast-paced and high-responsibility contexts.",
+              "<strong>Accountability</strong>: Taking ownership for tasks and challenges as well as seeking continuous improvement",
               "<strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results"
             ],
             "keywords": [
-              "Product Expertise",
-              "Design the insurance offering strategy in line with group Wealth Planning and business strategy",
-              "Maintain the approved insurance product shelf aligned with client segment",
-              "Evaluate insurance brokers and product lines for strength"
+              "Solid understanding of compliance environments and internal control frameworks in banking or financial services.",
+              "Strong analytical",
+              "Autonomy",
+              "Global mindset with excellent cross-cultural communication skills.",
+              "Fluency in English",
+              "Global Business & Functional Analysis",
+              "Assists in identifying",
+              "Serve as a key interface between global and local teams",
+              "Map end-to-end processes and highlight regional variations for harmonization"
             ],
             "sections": [
               {
@@ -2998,7 +2892,7 @@
                 "id": "details",
                 "heading": "Role",
                 "paragraphs": [
-                  "The Insurance Center of Excellence (CoE) serves as the group centre of competence on the insurance offering of Wealth Planning team. The CoE on insurance manages the insurance broker network, provides expertise, governance, training and oversight to ensure insurance offering is rolled out consistently at group and regional level. It supports wealth planners and CROs and other internal units with technical knowledge, product evaluation and compliance rigor. The CoE ensures that insurance offering and referral framework of EFG is technically sound, client-appropriate, compliant with regulatory and tax requirements, and aligned with the bank’s overall wealth planning framework."
+                  "As part of the Global Legal & Compliance Transformation team in the Global COO Legal & Compliance Unit, the role focuses on evaluating business problems and relevant solutions, improving data consistency, and reporting capabilities across jurisdictions, with a particular focus on SAS AML, GTExchange, Firco Continuity, and Pythagoras."
                 ],
                 "bullets": []
               }
@@ -3007,22 +2901,22 @@
           }
         }
       },
-      "crawledAt": "2026-04-12T21:17:36.025Z",
-      "addressLocality": "Zurich",
+      "crawledAt": "2026-04-14T21:35:38.095Z",
+      "addressLocality": "Geneve",
       "addressCountry": "CH",
-      "datePosted": "2026-02-03",
-      "sourceLang": "en",
-      "salaryMin": 82500,
-      "salaryMax": 111500,
+      "datePosted": "2026-04-14",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
       "streetAddress": "Via Pretorio 22",
       "postalCode": "6900",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-12T21:17:36.025Z",
-      "_qualityScore": 99,
+      "firstSeenAt": "2026-04-14T09:50:30.818Z",
+      "needsRetranslation": true,
+      "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 25,
         "translation": 25,
         "completeness": 25
       }

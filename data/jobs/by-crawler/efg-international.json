@@ -1,6 +1,6 @@
 {
   "crawlerKey": "efg-international",
-  "assembledAt": "2026-04-14T09:50:30.818Z",
+  "assembledAt": "2026-04-14T21:35:40.419Z",
   "jobs": [
     {
       "id": "efg-6203",
@@ -50,7 +50,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-14T09:50:28.305Z",
+      "crawledAt": "2026-04-14T21:35:38.126Z",
       "slugByLocale": {
         "it": "programma-di-laurea-efg-2026-funzioni-corporate-risorse-umane-lugano-efg-international-ag-lugano",
         "en": "efg-graduate-programme-2026-corporate-functions-human-resources-lugano-efg-international-ag-lugano-n932dq",
@@ -109,7 +109,8 @@
           "efg-graduate-programme-2026-corporate-functions-risorse-umane-lugano-efg-international-ag-lugano"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:36:50.620Z"
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6163",
@@ -262,7 +263,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-14T09:50:28.304Z",
+      "crawledAt": "2026-04-14T21:35:38.126Z",
       "slugByLocale": {
         "it": "specialista-sviluppo-e-formazione-efg-international-ag-lugano",
         "en": "learning-development-specialist-efg-international-ag-lugano",
@@ -454,7 +455,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-14T09:50:28.303Z",
+      "crawledAt": "2026-04-14T21:35:38.125Z",
       "slugByLocale": {
         "it": "sviluppatore-commerciale-del-gruppo-di-pianificazione-patrimoniale-efg-international-ag-zurich",
         "en": "wealth-planning-group-business-developer-efg-zurich",
@@ -489,7 +490,8 @@
       "previousSlugs": [
         "wealth-planning-group-business-developer-efg-zurich"
       ],
-      "firstSeenAt": "2026-04-13T21:36:50.620Z"
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6137",
@@ -643,7 +645,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-14T09:50:28.303Z",
+      "crawledAt": "2026-04-14T21:35:38.124Z",
       "slugByLocale": {
         "it": "specialista-internazionale-della-retribuzione-efg-international-ag-lugano",
         "en": "international-payroll-specialist-efg-international-ag-lugano",
@@ -694,154 +696,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:28:21.957Z"
-    },
-    {
-      "id": "efg-6101",
-      "slug": "senior-cloud-ingegnere-efg-international-ag-geneve",
-      "company": "EFG International AG",
-      "title": "Senior Cloud Engineer",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "tech",
-      "contract": "permanent",
-      "currency": "CHF",
-      "description": "## Key Responsibilities\n\n- Cloud & Infrastructure Design and Implementation\n\n-   Design, build and deploy cloud, hybrid and on    ‑    premises solutions in line with the bank  ’  s IT strategy and architecture standards.\n\n- Participate in the design and implementation of IT infrastructure projects related to systems (servers, storage, virtualization, desktops).\n\n- Contribute to the definition and implementation of the technology direction, vision and strategy to enable and accelerate cloud technology adoption.\n\n- M365 & Azure Engineering\n\n- Act as a subject-matter expert for M365 (Exchange Online, Teams, SharePoint, OneDrive, security & compliance features, etc.) and contribute to Azure-based solutions.\n\n- Lead or support application readiness assessments, environment design and configuration for M365 and Azure workloads.\n\n- Perform prototyping of new environments, server builds and configuration to validate solutions before production rollout.\n\n- Cloud Adoption & Optimization\n\n- Drive and support cloud adoption initiatives, including:\n\n- Application and infrastructure readiness assessments\n\n- Data and workload migration to M365/Azure\n\n- Performance tuning and optimization of cloud environments\n\n- Ensure solutions are secure, resilient, scalable and compliant with banking and regulatory requirements.\n\n- Automation & Operational Excellence\n\n- Develop, enhance and maintain automation for infrastructure components (e.g. provisioning, configuration, monitoring, patching, lifecycle management).\n\n- Contribute to the standardization and industrialization of infrastructure services and processes.\n\n- Support continuous improvement of operational procedures, documentation and runbooks.\n\n- Collaboration & Support\n\n- Provide technical expertise and guidance to other IT support teams on all cloud topics (SaaS, PaaS, IaaS).\n\n- Act as an escalation point for complex incidents and problems related to M365, Azure and hybrid infrastructure.\n\n-   Collaborate closely with security, network, workplace and application teams to ensure end    ‑    to    ‑    end solution quality.\n\n## Skills & Experience Required\n\n- Senior experience in infrastructure / cloud engineering, with strong focus on M365 and good knowledge of Azure.\n\n- Solid background with Windows Server, virtualization, networking and hybrid environments.\n\n-   Hands    ‑    on experience with cloud migrations and optimization.\n\n- Used to working in complex, regulated environments; financial services / banking experience is a plus.\n\n-   Comfortable in a small, high    ‑    expertise team, with a proactive and collaborative mindset.\n\n- English fluent (must); French is a plus.\n\n-   Strong analytical and problem    ‑    solving skills, with a pragmatic and solution    ‑    oriented mindset.\n\n-   Ability to communicate clearly with both technical and non    ‑    technical stakeholders.\n\n- High level of ownership, reliability and integrity, aligned with the standards of a private banking environment.\n\n- Entrepreneurial mindset: comfortable challenging the status quo, proposing improvements and driving change.\n\nOur Values\n\n-   Accountability    : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n-   Hands-on    : Being proactive to rapidly deliver high-quality results\n\n-   Passionate    : Being committed and striving for excellence\n\n-   Solution-driven    : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n-   Partnership-oriented    : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n\n## Please ensure to attach a cover letter to your CV when filling the application.\n\n## Application\n\nShould you wish to apply for this position use this link to apply.",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-03-25",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6101",
-      "source": "Oracle HCM API",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "titleByLocale": {
-        "en": "Senior Cloud Engineer",
-        "it": "Senior Cloud Ingegnere",
-        "de": "Senior Cloud Ingenieur",
-        "fr": "Senior Cloud Ingénieur"
-      },
-      "descriptionByLocale": {
-        "en": "## Key Responsibilities\n\n- Cloud & Infrastructure Design and Implementation\n\n-   Design, build and deploy cloud, hybrid and on    ‑    premises solutions in line with the bank  ’  s IT strategy and architecture standards.\n\n- Participate in the design and implementation of IT infrastructure projects related to systems (servers, storage, virtualization, desktops).\n\n- Contribute to the definition and implementation of the technology direction, vision and strategy to enable and accelerate cloud technology adoption.\n\n- M365 & Azure Engineering\n\n- Act as a subject-matter expert for M365 (Exchange Online, Teams, SharePoint, OneDrive, security & compliance features, etc.) and contribute to Azure-based solutions.\n\n- Lead or support application readiness assessments, environment design and configuration for M365 and Azure workloads.\n\n- Perform prototyping of new environments, server builds and configuration to validate solutions before production rollout.\n\n- Cloud Adoption & Optimization\n\n- Drive and support cloud adoption initiatives, including:\n\n- Application and infrastructure readiness assessments\n\n- Data and workload migration to M365/Azure\n\n- Performance tuning and optimization of cloud environments\n\n- Ensure solutions are secure, resilient, scalable and compliant with banking and regulatory requirements.\n\n- Automation & Operational Excellence\n\n- Develop, enhance and maintain automation for infrastructure components (e.g. provisioning, configuration, monitoring, patching, lifecycle management).\n\n- Contribute to the standardization and industrialization of infrastructure services and processes.\n\n- Support continuous improvement of operational procedures, documentation and runbooks.\n\n- Collaboration & Support\n\n- Provide technical expertise and guidance to other IT support teams on all cloud topics (SaaS, PaaS, IaaS).\n\n- Act as an escalation point for complex incidents and problems related to M365, Azure and hybrid infrastructure.\n\n-   Collaborate closely with security, network, workplace and application teams to ensure end    ‑    to    ‑    end solution quality.\n\n## Skills & Experience Required\n\n- Senior experience in infrastructure / cloud engineering, with strong focus on M365 and good knowledge of Azure.\n\n- Solid background with Windows Server, virtualization, networking and hybrid environments.\n\n-   Hands    ‑    on experience with cloud migrations and optimization.\n\n- Used to working in complex, regulated environments; financial services / banking experience is a plus.\n\n-   Comfortable in a small, high    ‑    expertise team, with a proactive and collaborative mindset.\n\n- English fluent (must); French is a plus.\n\n-   Strong analytical and problem    ‑    solving skills, with a pragmatic and solution    ‑    oriented mindset.\n\n-   Ability to communicate clearly with both technical and non    ‑    technical stakeholders.\n\n- High level of ownership, reliability and integrity, aligned with the standards of a private banking environment.\n\n- Entrepreneurial mindset: comfortable challenging the status quo, proposing improvements and driving change.\n\nOur Values\n\n-   Accountability    : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n-   Hands-on    : Being proactive to rapidly deliver high-quality results\n\n-   Passionate    : Being committed and striving for excellence\n\n-   Solution-driven    : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n-   Partnership-oriented    : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n\n## Please ensure to attach a cover letter to your CV when filling the application.\n\n## Application\n\nShould you wish to apply for this position use this link to apply.",
-        "it": "Responsabilità Principali\n- Progettazione e Implementazione di Cloud e Infrastrutture\n- Progettare, costruire e distribuire soluzioni cloud, ibride e on-premises in linea con la strategia IT e gli standard di architettura della banca.\n- Partecipare alla progettazione e implementazione di progetti di infrastrutture IT relativi a sistemi (server, storage, virtualizzazione, desktop).\n- Contribuire alla definizione e implementazione della direzione tecnologica, visione e strategia per abilitare e accelerare l'adozione della tecnologia cloud.\n- Ingegneria M365 e Azure\n- Agire come esperto di materia per M365 (Exchange Online, Teams, SharePoint, OneDrive, sicurezza e funzionalità di conformità, ecc.) e contribuire a soluzioni basate su Azure.\n- Guidare o supportare valutazioni di prontezza delle applicazioni, progettazione e configurazione dell'ambiente per carichi di lavoro M365 e Azure.\n- Eseguire la prototipazione di nuovi ambienti, build di server e configurazione per convalidare soluzioni prima della distribuzione in produzione.\n- Adozione e Ottimizzazione Cloud\n- Guidare e supportare iniziative di adozione cloud, tra cui:\n- Valutazioni di prontezza di applicazioni e infrastrutture\n- Migrazione di dati e carichi di lavoro su M365/Azure\n- Ottimizzazione delle prestazioni e ottimizzazione degli ambienti cloud\n- Assicurare che le soluzioni siano sicure, resilienti, scalabili e conformi ai requisiti bancari e normativi.\n- Automazione e Eccellenza Operativa\n- Sviluppare, migliorare e mantenere l'automazione per componenti di infrastrutture (ad esempio provisioning, configurazione, monitoraggio, patching, gestione del ciclo di vita).\n- Contribuire alla standardizzazione e industrializzazione dei servizi e processi di infrastrutture.\n- Supportare il miglioramento continuo delle procedure operative, della documentazione e delle guide operative.\n- Collaborazione e Supporto\n- Fornire competenze tecniche e guida ad altri team di supporto IT su tutti gli argomenti cloud (SaaS, PaaS, IaaS).\n- Agire come punto di escalation per incidenti e problemi complessi relativi a M365, Azure e infrastrutture ibride.\n- Collaborare strettamente con team di sicurezza, rete, postazione di lavoro e applicazione per assicurare la qualità della soluzione end-to-end.\n\n## Competenze ed Esperienza Richieste\n- Esperienza senior in ingegneria di infrastrutture/cloud, con forte focus su M365 e buona conoscenza di Azure.\n- Solid background con Windows Server, virtualizzazione, networking e ambienti ibridi.\n- Esperienza pratica con migrazioni cloud e ottimizzazione.\n- Abituati a lavorare in ambienti complessi e regolamentati; esperienza nel settore finanziario/bancario è un vantaggio.\n- A proprio agio in un piccolo team di alta expertise, con un atteggiamento proattivo e collaborativo.\n- Fluente in inglese (necessario); francese è un vantaggio.\n- Forti capacità analitiche e di risoluzione dei problemi, con un atteggiamento pragmatico e orientato alle soluzioni.\n- Capacità di comunicare chiaramente con stakeholder sia tecnici che non tecnici.\n- Alto livello di proprietà, affidabilità e integrità, allineato con gli standard di un ambiente di private banking.\n- Mentalità imprenditoriale: a proprio agio nel sfidare lo status quo, proporre miglioramenti e guidare il cambiamento.\n\n## I Nostri Valori\n- Accountability: prendere proprietà dei compiti e delle sfide, nonché cercare il miglioramento continuo\n- Hands-on: essere proattivi per fornire risultati di alta qualità rapidamente\n- Passionate: essere impegnati e sforzarsi per l'eccellenza\n- Solution-driven: focalizzarsi sugli esiti dei clienti e trattare i clienti in modo equo con un atteggiamento consapevole del rischio\n- Partnership-oriented: promuovere la collaborazione e il lavoro di squadra. Lavorare insieme con un spirito imprenditoriale.\n\n## Si prega di allegare una lettera di presentazione al CV quando si invia la domanda.\n\n## Domanda Se si desidera inviare la domanda per questa posizione, utilizzare questo link per applicare.",
-        "de": "Hauptverantwortlichkeiten\n- Cloud- und Infrastrukturdesign und -implementierung\n- Entwerfen, bauen und deployen Sie Cloud-, Hybrid- und On-Premises-Lösungen, die mit der IT-Strategie und den Architekturstandards der Bank übereinstimmen.\n- Teilnahme an der Gestaltung und Implementierung von IT-Infrastrukturprojekten im Zusammenhang mit Systemen (Server, Speicher, Virtualisierung, Desktops).\n- Beitrag zur Definition und Implementierung der technologischen Richtung, Vision und Strategie zur Ermöglichung und Beschleunigung der Cloud-Technologieadoption.\n- M365- und Azure-Engineering\n- Als Fachexperte für M365 (Exchange Online, Teams, SharePoint, OneDrive, Sicherheits- und Compliance-Funktionen usw.) fungieren und zu Azure-basierten Lösungen beitragen.\n- Leitende oder unterstützende Anwendungsbereitschaftsbewertungen, Umgebungsdesign und -konfiguration für M365- und Azure-Workloads.\n- Prototyping neuer Umgebungen, Server-Builds und Konfigurationen zur Validierung von Lösungen vor der Produktionsbereitstellung.\n- Cloud-Adoption und -Optimierung\n- Cloud-Adoptionsinitiativen vorantreiben und unterstützen, einschließlich:\n- Anwendungs- und Infrastrukturbereitschaftsbewertungen\n- Daten- und Workload-Migration auf M365/Azure\n- Leistungsoptimierung und Optimierung von Cloud-Umgebungen\n- Sicherstellen, dass Lösungen sicher, widerstandsfähig, skalierbar und compliant mit Banken- und regulatorischen Anforderungen sind.\n- Automatisierung und operative Exzellenz\n- Automatisierung für Infrastrukturkomponenten entwickeln, verbessern und aufrechterhalten (z. B. Provisionierung, Konfiguration, Überwachung, Patching, Lebenszyklusmanagement).\n- Beitrag zur Standardisierung und Industrialisierung von Infrastrukturdiensten und -prozessen.\n- Kontinuierliche Verbesserung von Betriebsverfahren, Dokumentation und Runbooks unterstützen.\n- Zusammenarbeit und Support\n- Technische Expertise und Beratung für andere IT-Support-Teams zu allen Cloud-Themen (SaaS, PaaS, IaaS) bereitstellen.\n- Als Eskalationspunkt für komplexe Vorfälle und Probleme im Zusammenhang mit M365, Azure und Hybrid-Infrastruktur fungieren.\n- Eng mit Sicherheit-, Netzwerk-, Arbeitsplatz- und Anwendungsteams zusammenarbeiten, um die End-to-End-Lösungsqualität sicherzustellen.\n\n## Fähigkeiten und Erfahrungen erforderlich\n- Senior-Erfahrung in Infrastruktur-/Cloud-Engineering mit starkem Fokus auf M365 und guten Kenntnissen von Azure.\n- Solide Erfahrung mit Windows Server, Virtualisierung, Netzwerk und Hybridumgebungen.\n- Praktische Erfahrung mit Cloud-Migrationen und -Optimierung.\n- Erfahrung in komplexen, regulierten Umgebungen; Erfahrung im Finanzdienstleistungs-/Bankbereich ist von Vorteil.\n- Wohlbefinden in einem kleinen, hochqualifizierten Team mit proaktivem und kollaborativem Mindset.\n- Englisch fließend (Muss); Französisch ist von Vorteil.\n- Starke analytische und problemlösende Fähigkeiten mit pragmatischem und lösungsorientiertem Mindset.\n- Fähigkeit, klar mit technischen und nicht-technischen Stakeholdern zu kommunizieren.\n- Hoher Grad an Ownership, Zuverlässigkeit und Integrität, der den Standards einer Private-Banking-Umgebung entspricht.\n- Unternehmerisches Mindset: wohlbefinden, den Status quo herauszufordern, Verbesserungen vorzuschlagen und Veränderungen voranzutreiben.\n\n## Unsere Werte\n- Verantwortung: Übernahme von Verantwortung für Aufgaben und Herausforderungen sowie kontinuierliche Verbesserung\n- Hands-on: proaktiv sein, um Ergebnisse von hoher Qualität schnell zu liefern\n- Leidenschaftlich: engagiert sein und nach Exzellenz streben\n- Lösungsorientiert: sich auf Kundenergebnisse konzentrieren und Kunden fair behandeln mit einem risikobewussten Mindset\n- Partnerschaftlich: Zusammenarbeit und Teamarbeit fördern. Zusammenarbeiten mit einem unternehmerischen Geist.\n\n## Bitte fügen Sie einen Lebenslauf und ein kurzes Anschreiben bei, wenn Sie sich bewerben.\n\n## Bewerbung Wenn Sie sich für diese Position bewerben möchten, verwenden Sie bitte diesen Link.",
-        "fr": "Responsabilités Principales\n- Conception et mise en œuvre de Cloud et d'infrastructures\n- Concevoir, construire et déployer des solutions Cloud, hybrides et sur site conformément à la stratégie informatique et aux normes d'architecture de la banque.\n- Participer à la conception et à la mise en œuvre de projets d'infrastructure informatique liés aux systèmes (serveurs, stockage, virtualisation, postes de travail).\n- Contribuer à la définition et à la mise en œuvre de l'orientation technologique, de la vision et de la stratégie pour permettre et accélérer l'adoption de la technologie Cloud.\n- Ingénierie M365 et Azure\n- Agir en tant qu'expert en M365 (Exchange Online, Teams, SharePoint, OneDrive, fonctionnalités de sécurité et de conformité, etc.) et contribuer à des solutions basées sur Azure.\n- Diriger ou soutenir les évaluations de préparation des applications, la conception et la configuration de l'environnement pour les charges de travail M365 et Azure.\n- Réaliser des prototypes de nouveaux environnements, des constructions de serveurs et des configurations pour valider les solutions avant leur déploiement en production.\n- Adoption et optimisation du Cloud\n- Piloter et soutenir les initiatives d'adoption du Cloud, y compris :\n- Évaluations de préparation des applications et des infrastructures\n- Migration de données et de charges de travail vers M365/Azure\n- Optimisation des performances et optimisation des environnements Cloud\n- Assurer que les solutions sont sécurisées, résilientes, évolutives et conformes aux exigences bancaires et réglementaires.\n- Automatisation et excellence opérationnelle\n- Développer, améliorer et maintenir l'automatisation des composants d'infrastructure (par exemple, provisionnement, configuration, surveillance, correctifs, gestion du cycle de vie).\n- Contribuer à la standardisation et à l'industrialisation des services et des processus d'infrastructure.\n- Soutenir l'amélioration continue des procédures opérationnelles, de la documentation et des guides de fonctionnement.\n- Collaboration et support\n- Fournir une expertise technique et des conseils à d'autres équipes de support informatique sur tous les sujets Cloud (SaaS, PaaS, IaaS).\n- Agir en tant que point d'escalade pour les incidents et les problèmes complexes liés à M365, Azure et à l'infrastructure hybride.\n- Collaborer étroitement avec les équipes de sécurité, de réseau, de poste de travail et d'application pour assurer la qualité de la solution de bout en bout.\n\n## Compétences et expérience requises\n- Expérience senior en ingénierie d'infrastructures/Cloud avec un fort accent sur M365 et de bonnes connaissances d'Azure.\n- Solide expérience avec Windows Server, virtualisation, réseau et environnements hybrides.\n- Expérience pratique avec les migrations Cloud et l'optimisation.\n- Expérience dans des environnements complexes et réglementés; l'expérience dans le secteur financier/bancaire est un plus.\n- À l'aise dans un petit équipe de haute expertise, avec un esprit proactif et collaboratif.\n- Anglais courant (obligatoire); français est un plus.\n- Fortes capacités analytiques et de résolution de problèmes, avec un esprit pragmatique et orienté vers les solutions.\n- Capacité à communiquer clairement avec les parties prenantes techniques et non techniques.\n- Niveau élevé de propriété, de fiabilité et d'intégrité, conforme aux normes d'un environnement de banque privée.\n- Esprit entrepreneurial: à l'aise pour remettre en question le statu quo, proposer des améliorations et piloter le changement.\n\n## Nos valeurs\n- Responsabilité: prendre en charge les tâches et les défis, ainsi que rechercher l'amélioration continue\n- Pratique: être proactif pour fournir des résultats de haute qualité rapidement\n- Passionné: être engagé et s'efforcer d'excellence\n- Axé sur les solutions: se concentrer sur les résultats des clients et traiter les clients de manière équitable avec un esprit de risque\n- Orienté vers le partenariat: promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit entrepreneurial.\n\n## Veuillez joindre une lettre de motivation à votre CV lors de la candidature.\n\n## Candidature Si vous souhaitez postuler à ce poste, utilisez ce lien pour postuler."
-      },
-      "requirementsByLocale": {},
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "Cloud & Infrastructure Design and Implementation"
-            ],
-            "responsibilities": [
-              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Cloud & Infrastructure Design and Implementation</p><ul><li><p style=\"color:#333C40;font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\"><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">Design, build and deploy cloud, hybrid and on</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"en-US\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">premises solutions in line with the bank</span><span lang=\"en-US\">’</span><span lang=\"en-GB\">s IT strategy and architecture standards.</span></span></p>",
-              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Participate in the design and implementation of IT infrastructure projects related to systems (servers, storage, virtualization, desktops).</p>",
-              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Contribute to the definition and implementation of the technology direction, vision and strategy to enable and accelerate cloud technology adoption.</p>",
-              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">M365 & Azure Engineering</p><ul><li><p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Act as a subject-matter expert for M365 (Exchange Online, Teams, SharePoint, OneDrive, security & compliance features, etc.) and contribute to Azure-based solutions.</p>",
-              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Lead or support application readiness assessments, environment design and configuration for M365 and Azure workloads.</p>",
-              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Perform prototyping of new environments, server builds and configuration to validate solutions before production rollout.</p>",
-              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Cloud Adoption & Optimization</p><ul><li><p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Drive and support cloud adoption initiatives, including: </p>",
-              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Application and infrastructure readiness assessments</p>",
-              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Data and workload migration to M365/Azure</p>",
-              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Performance tuning and optimization of cloud environments</p>",
-              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Ensure solutions are secure, resilient, scalable and compliant with banking and regulatory requirements.</p>",
-              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Automation & Operational Excellence</p><ul><li><p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Develop, enhance and maintain automation for infrastructure components (e.g. provisioning, configuration, monitoring, patching, lifecycle management).</p>",
-              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Contribute to the standardization and industrialization of infrastructure services and processes.</p>",
-              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Support continuous improvement of operational procedures, documentation and runbooks.</p>",
-              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Collaboration & Support</p><ul><li><p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Provide technical expertise and guidance to other IT support teams on all cloud topics (SaaS, PaaS, IaaS).</p>",
-              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Act as an escalation point for complex incidents and problems related to M365, Azure and hybrid infrastructure.</p>"
-            ],
-            "requirements": [],
-            "benefits": [],
-            "process": [
-              "Should you wish to apply for this position use this link to apply."
-            ],
-            "highlights": [
-              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Cloud & Infrastructure Design and Implementation</p><ul><li><p style=\"color:#333C40;font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\"><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">Design, build and deploy cloud, hybrid and on</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"en-US\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">premises solutions in line with the bank</span><span lang=\"en-US\">’</span><span lang=\"en-GB\">s IT strategy and architecture standards.</span></span></p>",
-              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Participate in the design and implementation of IT infrastructure projects related to systems (servers, storage, virtualization, desktops).</p>",
-              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Contribute to the definition and implementation of the technology direction, vision and strategy to enable and accelerate cloud technology adoption.</p>"
-            ],
-            "keywords": [
-              "<p style=\"color"
-            ],
-            "sections": [
-              {
-                "id": "details",
-                "heading": "Skills & Experience Required",
-                "paragraphs": [
-                  "Senior experience in infrastructure / cloud engineering, with strong focus on M365 and good knowledge of Azure.",
-                  "Solid background with Windows Server, virtualization, networking and hybrid environments.",
-                  "<span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">Hands</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"en-US\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">on experience with cloud migrations and optimization.</span></span>",
-                  "Used to working in complex, regulated environments; financial services / banking experience is a plus.",
-                  "<span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">Comfortable in a small, high</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"fr-CH\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">expertise team, with a proactive and collaborative mindset.</span></span>",
-                  "English fluent (must); French is a plus.",
-                  "<span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">Strong analytical and problem</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"en-US\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">solving skills, with a pragmatic and solution</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"en-US\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">oriented mindset.</span></span>",
-                  "<span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">Ability to communicate clearly with both technical and non</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"en-US\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">technical stakeholders.</span></span>",
-                  "High level of ownership, reliability and integrity, aligned with the standards of a private banking environment.",
-                  "Entrepreneurial mindset: comfortable challenging the status quo, proposing improvements and driving change.",
-                  "Our Values"
-                ],
-                "bullets": [
-                  "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Senior experience in infrastructure / cloud engineering, with strong focus on M365 and good knowledge of Azure.</p>",
-                  "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Solid background with Windows Server, virtualization, networking and hybrid environments.</p>",
-                  "<p style=\"color:#333C40;font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\"><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">Hands</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"en-US\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">on experience with cloud migrations and optimization.</span></span></p>",
-                  "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Used to working in complex, regulated environments; financial services / banking experience is a plus.</p>",
-                  "<p style=\"color:#333C40;font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\"><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">Comfortable in a small, high</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"fr-CH\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">expertise team, with a proactive and collaborative mindset.</span></span></p>",
-                  "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">English fluent (must); French is a plus.</p>",
-                  "<p style=\"color:#333C40;font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\"><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">Strong analytical and problem</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"en-US\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">solving skills, with a pragmatic and solution</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"en-US\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">oriented mindset.</span></span></p>",
-                  "<p style=\"color:#333C40;font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\"><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">Ability to communicate clearly with both technical and non</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"en-US\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">technical stakeholders.</span></span></p>",
-                  "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">High level of ownership, reliability and integrity, aligned with the standards of a private banking environment.</p>",
-                  "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Entrepreneurial mindset: comfortable challenging the status quo, proposing improvements and driving change.</p>",
-                  "<span style=\"color:#333C40;font-family:\"Fira Sans\";\"><span style=\"font-size:9.0pt;\">Accountability</span></span><span style=\"color:#333C40;font-family:\"Fira Sans Light\";\"><span style=\"font-size:9.0pt;\">: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></span>",
-                  "<span style=\"color:#333C40;font-family:\"Fira Sans\";\"><span style=\"font-size:9.0pt;\">Hands-on</span></span><span style=\"color:#333C40;font-family:\"Fira Sans Light\";\"><span style=\"font-size:9.0pt;\">: Being proactive to rapidly deliver high-quality results</span></span>",
-                  "<span style=\"color:#333C40;font-family:\"Fira Sans\";\"><span style=\"font-size:9.0pt;\">Passionate</span></span><span style=\"color:#333C40;font-family:\"Fira Sans Light\";\"><span style=\"font-size:9.0pt;\">: Being committed and striving for excellence</span></span>",
-                  "<span style=\"color:#333C40;font-family:\"Fira Sans\";\"><span style=\"font-size:9.0pt;\">Solution-driven</span></span><span style=\"color:#333C40;font-family:\"Fira Sans Light\";\"><span style=\"font-size:9.0pt;\">: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></span>",
-                  "<span style=\"color:#333C40;font-family:\"Fira Sans\";\"><span style=\"font-size:9.0pt;\">Partnership-oriented</span></span><span style=\"color:#333C40;font-family:\"Fira Sans Light\";\"><span style=\"font-size:9.0pt;\">: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></span>"
-                ]
-              }
-            ],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-04-14T09:50:28.301Z",
-      "slugByLocale": {
-        "it": "senior-cloud-ingegnere-efg-international-ag-geneve",
-        "en": "senior-cloud-engineer-efg-international-ag-geneve",
-        "de": "senior-cloud-ingenieur-efg-international-ag-geneve",
-        "fr": "senior-cloud-ingenieur-efg-international-ag-geneve"
-      },
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "datePosted": "2026-03-25",
-      "sourceLang": "en",
-      "salaryMin": 94000,
-      "salaryMax": 127000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 94000,
-          "maxValue": 127000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "previousSlugs": [
-        "senior-cloud-engineer-efg-geneve"
-      ],
-      "previousSlugsByLocale": {
-        "en": [
-          "senior-cloud-engineer-efg-geneve"
-        ],
-        "it": [
-          "senior-cloud-engineer-efg-geneve"
-        ]
-      },
-      "firstSeenAt": "2026-04-13T10:28:21.955Z"
     },
     {
       "id": "efg-6103",
@@ -1012,7 +866,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-14T09:50:28.301Z",
+      "crawledAt": "2026-04-14T21:35:38.123Z",
       "slugByLocale": {
         "it": "contratto-temporaneo-analista-aziendale-sviluppatore-efg-international-ag-lugano",
         "en": "temp-contract-business-analyst-developer-efg-international-ag-lugano-n9334f",
@@ -1067,6 +921,154 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:28:21.956Z"
+    },
+    {
+      "id": "efg-6101",
+      "slug": "senior-cloud-ingegnere-efg-international-ag-geneve",
+      "company": "EFG International AG",
+      "title": "Senior Cloud Engineer",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "tech",
+      "contract": "permanent",
+      "currency": "CHF",
+      "description": "## Key Responsibilities\n\n- Cloud & Infrastructure Design and Implementation\n\n-   Design, build and deploy cloud, hybrid and on    ‑    premises solutions in line with the bank  ’  s IT strategy and architecture standards.\n\n- Participate in the design and implementation of IT infrastructure projects related to systems (servers, storage, virtualization, desktops).\n\n- Contribute to the definition and implementation of the technology direction, vision and strategy to enable and accelerate cloud technology adoption.\n\n- M365 & Azure Engineering\n\n- Act as a subject-matter expert for M365 (Exchange Online, Teams, SharePoint, OneDrive, security & compliance features, etc.) and contribute to Azure-based solutions.\n\n- Lead or support application readiness assessments, environment design and configuration for M365 and Azure workloads.\n\n- Perform prototyping of new environments, server builds and configuration to validate solutions before production rollout.\n\n- Cloud Adoption & Optimization\n\n- Drive and support cloud adoption initiatives, including:\n\n- Application and infrastructure readiness assessments\n\n- Data and workload migration to M365/Azure\n\n- Performance tuning and optimization of cloud environments\n\n- Ensure solutions are secure, resilient, scalable and compliant with banking and regulatory requirements.\n\n- Automation & Operational Excellence\n\n- Develop, enhance and maintain automation for infrastructure components (e.g. provisioning, configuration, monitoring, patching, lifecycle management).\n\n- Contribute to the standardization and industrialization of infrastructure services and processes.\n\n- Support continuous improvement of operational procedures, documentation and runbooks.\n\n- Collaboration & Support\n\n- Provide technical expertise and guidance to other IT support teams on all cloud topics (SaaS, PaaS, IaaS).\n\n- Act as an escalation point for complex incidents and problems related to M365, Azure and hybrid infrastructure.\n\n-   Collaborate closely with security, network, workplace and application teams to ensure end    ‑    to    ‑    end solution quality.\n\n## Skills & Experience Required\n\n- Senior experience in infrastructure / cloud engineering, with strong focus on M365 and good knowledge of Azure.\n\n- Solid background with Windows Server, virtualization, networking and hybrid environments.\n\n-   Hands    ‑    on experience with cloud migrations and optimization.\n\n- Used to working in complex, regulated environments; financial services / banking experience is a plus.\n\n-   Comfortable in a small, high    ‑    expertise team, with a proactive and collaborative mindset.\n\n- English fluent (must); French is a plus.\n\n-   Strong analytical and problem    ‑    solving skills, with a pragmatic and solution    ‑    oriented mindset.\n\n-   Ability to communicate clearly with both technical and non    ‑    technical stakeholders.\n\n- High level of ownership, reliability and integrity, aligned with the standards of a private banking environment.\n\n- Entrepreneurial mindset: comfortable challenging the status quo, proposing improvements and driving change.\n\nOur Values\n\n-   Accountability    : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n-   Hands-on    : Being proactive to rapidly deliver high-quality results\n\n-   Passionate    : Being committed and striving for excellence\n\n-   Solution-driven    : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n-   Partnership-oriented    : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n\n## Please ensure to attach a cover letter to your CV when filling the application.\n\n## Application\n\nShould you wish to apply for this position use this link to apply.",
+      "requirements": [],
+      "featured": false,
+      "postedDate": "2026-03-25",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6101",
+      "source": "Oracle HCM API",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "titleByLocale": {
+        "en": "Senior Cloud Engineer",
+        "it": "Senior Cloud Ingegnere",
+        "de": "Senior Cloud Ingenieur",
+        "fr": "Senior Cloud Ingénieur"
+      },
+      "descriptionByLocale": {
+        "en": "## Key Responsibilities\n\n- Cloud & Infrastructure Design and Implementation\n\n-   Design, build and deploy cloud, hybrid and on    ‑    premises solutions in line with the bank  ’  s IT strategy and architecture standards.\n\n- Participate in the design and implementation of IT infrastructure projects related to systems (servers, storage, virtualization, desktops).\n\n- Contribute to the definition and implementation of the technology direction, vision and strategy to enable and accelerate cloud technology adoption.\n\n- M365 & Azure Engineering\n\n- Act as a subject-matter expert for M365 (Exchange Online, Teams, SharePoint, OneDrive, security & compliance features, etc.) and contribute to Azure-based solutions.\n\n- Lead or support application readiness assessments, environment design and configuration for M365 and Azure workloads.\n\n- Perform prototyping of new environments, server builds and configuration to validate solutions before production rollout.\n\n- Cloud Adoption & Optimization\n\n- Drive and support cloud adoption initiatives, including:\n\n- Application and infrastructure readiness assessments\n\n- Data and workload migration to M365/Azure\n\n- Performance tuning and optimization of cloud environments\n\n- Ensure solutions are secure, resilient, scalable and compliant with banking and regulatory requirements.\n\n- Automation & Operational Excellence\n\n- Develop, enhance and maintain automation for infrastructure components (e.g. provisioning, configuration, monitoring, patching, lifecycle management).\n\n- Contribute to the standardization and industrialization of infrastructure services and processes.\n\n- Support continuous improvement of operational procedures, documentation and runbooks.\n\n- Collaboration & Support\n\n- Provide technical expertise and guidance to other IT support teams on all cloud topics (SaaS, PaaS, IaaS).\n\n- Act as an escalation point for complex incidents and problems related to M365, Azure and hybrid infrastructure.\n\n-   Collaborate closely with security, network, workplace and application teams to ensure end    ‑    to    ‑    end solution quality.\n\n## Skills & Experience Required\n\n- Senior experience in infrastructure / cloud engineering, with strong focus on M365 and good knowledge of Azure.\n\n- Solid background with Windows Server, virtualization, networking and hybrid environments.\n\n-   Hands    ‑    on experience with cloud migrations and optimization.\n\n- Used to working in complex, regulated environments; financial services / banking experience is a plus.\n\n-   Comfortable in a small, high    ‑    expertise team, with a proactive and collaborative mindset.\n\n- English fluent (must); French is a plus.\n\n-   Strong analytical and problem    ‑    solving skills, with a pragmatic and solution    ‑    oriented mindset.\n\n-   Ability to communicate clearly with both technical and non    ‑    technical stakeholders.\n\n- High level of ownership, reliability and integrity, aligned with the standards of a private banking environment.\n\n- Entrepreneurial mindset: comfortable challenging the status quo, proposing improvements and driving change.\n\nOur Values\n\n-   Accountability    : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n-   Hands-on    : Being proactive to rapidly deliver high-quality results\n\n-   Passionate    : Being committed and striving for excellence\n\n-   Solution-driven    : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n-   Partnership-oriented    : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n\n## Please ensure to attach a cover letter to your CV when filling the application.\n\n## Application\n\nShould you wish to apply for this position use this link to apply.",
+        "it": "Responsabilità Principali\n- Progettazione e Implementazione di Cloud e Infrastrutture\n- Progettare, costruire e distribuire soluzioni cloud, ibride e on-premises in linea con la strategia IT e gli standard di architettura della banca.\n- Partecipare alla progettazione e implementazione di progetti di infrastrutture IT relativi a sistemi (server, storage, virtualizzazione, desktop).\n- Contribuire alla definizione e implementazione della direzione tecnologica, visione e strategia per abilitare e accelerare l'adozione della tecnologia cloud.\n- Ingegneria M365 e Azure\n- Agire come esperto di materia per M365 (Exchange Online, Teams, SharePoint, OneDrive, sicurezza e funzionalità di conformità, ecc.) e contribuire a soluzioni basate su Azure.\n- Guidare o supportare valutazioni di prontezza delle applicazioni, progettazione e configurazione dell'ambiente per carichi di lavoro M365 e Azure.\n- Eseguire la prototipazione di nuovi ambienti, build di server e configurazione per convalidare soluzioni prima della distribuzione in produzione.\n- Adozione e Ottimizzazione Cloud\n- Guidare e supportare iniziative di adozione cloud, tra cui:\n- Valutazioni di prontezza di applicazioni e infrastrutture\n- Migrazione di dati e carichi di lavoro su M365/Azure\n- Ottimizzazione delle prestazioni e ottimizzazione degli ambienti cloud\n- Assicurare che le soluzioni siano sicure, resilienti, scalabili e conformi ai requisiti bancari e normativi.\n- Automazione e Eccellenza Operativa\n- Sviluppare, migliorare e mantenere l'automazione per componenti di infrastrutture (ad esempio provisioning, configurazione, monitoraggio, patching, gestione del ciclo di vita).\n- Contribuire alla standardizzazione e industrializzazione dei servizi e processi di infrastrutture.\n- Supportare il miglioramento continuo delle procedure operative, della documentazione e delle guide operative.\n- Collaborazione e Supporto\n- Fornire competenze tecniche e guida ad altri team di supporto IT su tutti gli argomenti cloud (SaaS, PaaS, IaaS).\n- Agire come punto di escalation per incidenti e problemi complessi relativi a M365, Azure e infrastrutture ibride.\n- Collaborare strettamente con team di sicurezza, rete, postazione di lavoro e applicazione per assicurare la qualità della soluzione end-to-end.\n\n## Competenze ed Esperienza Richieste\n- Esperienza senior in ingegneria di infrastrutture/cloud, con forte focus su M365 e buona conoscenza di Azure.\n- Solid background con Windows Server, virtualizzazione, networking e ambienti ibridi.\n- Esperienza pratica con migrazioni cloud e ottimizzazione.\n- Abituati a lavorare in ambienti complessi e regolamentati; esperienza nel settore finanziario/bancario è un vantaggio.\n- A proprio agio in un piccolo team di alta expertise, con un atteggiamento proattivo e collaborativo.\n- Fluente in inglese (necessario); francese è un vantaggio.\n- Forti capacità analitiche e di risoluzione dei problemi, con un atteggiamento pragmatico e orientato alle soluzioni.\n- Capacità di comunicare chiaramente con stakeholder sia tecnici che non tecnici.\n- Alto livello di proprietà, affidabilità e integrità, allineato con gli standard di un ambiente di private banking.\n- Mentalità imprenditoriale: a proprio agio nel sfidare lo status quo, proporre miglioramenti e guidare il cambiamento.\n\n## I Nostri Valori\n- Accountability: prendere proprietà dei compiti e delle sfide, nonché cercare il miglioramento continuo\n- Hands-on: essere proattivi per fornire risultati di alta qualità rapidamente\n- Passionate: essere impegnati e sforzarsi per l'eccellenza\n- Solution-driven: focalizzarsi sugli esiti dei clienti e trattare i clienti in modo equo con un atteggiamento consapevole del rischio\n- Partnership-oriented: promuovere la collaborazione e il lavoro di squadra. Lavorare insieme con un spirito imprenditoriale.\n\n## Si prega di allegare una lettera di presentazione al CV quando si invia la domanda.\n\n## Domanda Se si desidera inviare la domanda per questa posizione, utilizzare questo link per applicare.",
+        "de": "Hauptverantwortlichkeiten\n- Cloud- und Infrastrukturdesign und -implementierung\n- Entwerfen, bauen und deployen Sie Cloud-, Hybrid- und On-Premises-Lösungen, die mit der IT-Strategie und den Architekturstandards der Bank übereinstimmen.\n- Teilnahme an der Gestaltung und Implementierung von IT-Infrastrukturprojekten im Zusammenhang mit Systemen (Server, Speicher, Virtualisierung, Desktops).\n- Beitrag zur Definition und Implementierung der technologischen Richtung, Vision und Strategie zur Ermöglichung und Beschleunigung der Cloud-Technologieadoption.\n- M365- und Azure-Engineering\n- Als Fachexperte für M365 (Exchange Online, Teams, SharePoint, OneDrive, Sicherheits- und Compliance-Funktionen usw.) fungieren und zu Azure-basierten Lösungen beitragen.\n- Leitende oder unterstützende Anwendungsbereitschaftsbewertungen, Umgebungsdesign und -konfiguration für M365- und Azure-Workloads.\n- Prototyping neuer Umgebungen, Server-Builds und Konfigurationen zur Validierung von Lösungen vor der Produktionsbereitstellung.\n- Cloud-Adoption und -Optimierung\n- Cloud-Adoptionsinitiativen vorantreiben und unterstützen, einschließlich:\n- Anwendungs- und Infrastrukturbereitschaftsbewertungen\n- Daten- und Workload-Migration auf M365/Azure\n- Leistungsoptimierung und Optimierung von Cloud-Umgebungen\n- Sicherstellen, dass Lösungen sicher, widerstandsfähig, skalierbar und compliant mit Banken- und regulatorischen Anforderungen sind.\n- Automatisierung und operative Exzellenz\n- Automatisierung für Infrastrukturkomponenten entwickeln, verbessern und aufrechterhalten (z. B. Provisionierung, Konfiguration, Überwachung, Patching, Lebenszyklusmanagement).\n- Beitrag zur Standardisierung und Industrialisierung von Infrastrukturdiensten und -prozessen.\n- Kontinuierliche Verbesserung von Betriebsverfahren, Dokumentation und Runbooks unterstützen.\n- Zusammenarbeit und Support\n- Technische Expertise und Beratung für andere IT-Support-Teams zu allen Cloud-Themen (SaaS, PaaS, IaaS) bereitstellen.\n- Als Eskalationspunkt für komplexe Vorfälle und Probleme im Zusammenhang mit M365, Azure und Hybrid-Infrastruktur fungieren.\n- Eng mit Sicherheit-, Netzwerk-, Arbeitsplatz- und Anwendungsteams zusammenarbeiten, um die End-to-End-Lösungsqualität sicherzustellen.\n\n## Fähigkeiten und Erfahrungen erforderlich\n- Senior-Erfahrung in Infrastruktur-/Cloud-Engineering mit starkem Fokus auf M365 und guten Kenntnissen von Azure.\n- Solide Erfahrung mit Windows Server, Virtualisierung, Netzwerk und Hybridumgebungen.\n- Praktische Erfahrung mit Cloud-Migrationen und -Optimierung.\n- Erfahrung in komplexen, regulierten Umgebungen; Erfahrung im Finanzdienstleistungs-/Bankbereich ist von Vorteil.\n- Wohlbefinden in einem kleinen, hochqualifizierten Team mit proaktivem und kollaborativem Mindset.\n- Englisch fließend (Muss); Französisch ist von Vorteil.\n- Starke analytische und problemlösende Fähigkeiten mit pragmatischem und lösungsorientiertem Mindset.\n- Fähigkeit, klar mit technischen und nicht-technischen Stakeholdern zu kommunizieren.\n- Hoher Grad an Ownership, Zuverlässigkeit und Integrität, der den Standards einer Private-Banking-Umgebung entspricht.\n- Unternehmerisches Mindset: wohlbefinden, den Status quo herauszufordern, Verbesserungen vorzuschlagen und Veränderungen voranzutreiben.\n\n## Unsere Werte\n- Verantwortung: Übernahme von Verantwortung für Aufgaben und Herausforderungen sowie kontinuierliche Verbesserung\n- Hands-on: proaktiv sein, um Ergebnisse von hoher Qualität schnell zu liefern\n- Leidenschaftlich: engagiert sein und nach Exzellenz streben\n- Lösungsorientiert: sich auf Kundenergebnisse konzentrieren und Kunden fair behandeln mit einem risikobewussten Mindset\n- Partnerschaftlich: Zusammenarbeit und Teamarbeit fördern. Zusammenarbeiten mit einem unternehmerischen Geist.\n\n## Bitte fügen Sie einen Lebenslauf und ein kurzes Anschreiben bei, wenn Sie sich bewerben.\n\n## Bewerbung Wenn Sie sich für diese Position bewerben möchten, verwenden Sie bitte diesen Link.",
+        "fr": "Responsabilités Principales\n- Conception et mise en œuvre de Cloud et d'infrastructures\n- Concevoir, construire et déployer des solutions Cloud, hybrides et sur site conformément à la stratégie informatique et aux normes d'architecture de la banque.\n- Participer à la conception et à la mise en œuvre de projets d'infrastructure informatique liés aux systèmes (serveurs, stockage, virtualisation, postes de travail).\n- Contribuer à la définition et à la mise en œuvre de l'orientation technologique, de la vision et de la stratégie pour permettre et accélérer l'adoption de la technologie Cloud.\n- Ingénierie M365 et Azure\n- Agir en tant qu'expert en M365 (Exchange Online, Teams, SharePoint, OneDrive, fonctionnalités de sécurité et de conformité, etc.) et contribuer à des solutions basées sur Azure.\n- Diriger ou soutenir les évaluations de préparation des applications, la conception et la configuration de l'environnement pour les charges de travail M365 et Azure.\n- Réaliser des prototypes de nouveaux environnements, des constructions de serveurs et des configurations pour valider les solutions avant leur déploiement en production.\n- Adoption et optimisation du Cloud\n- Piloter et soutenir les initiatives d'adoption du Cloud, y compris :\n- Évaluations de préparation des applications et des infrastructures\n- Migration de données et de charges de travail vers M365/Azure\n- Optimisation des performances et optimisation des environnements Cloud\n- Assurer que les solutions sont sécurisées, résilientes, évolutives et conformes aux exigences bancaires et réglementaires.\n- Automatisation et excellence opérationnelle\n- Développer, améliorer et maintenir l'automatisation des composants d'infrastructure (par exemple, provisionnement, configuration, surveillance, correctifs, gestion du cycle de vie).\n- Contribuer à la standardisation et à l'industrialisation des services et des processus d'infrastructure.\n- Soutenir l'amélioration continue des procédures opérationnelles, de la documentation et des guides de fonctionnement.\n- Collaboration et support\n- Fournir une expertise technique et des conseils à d'autres équipes de support informatique sur tous les sujets Cloud (SaaS, PaaS, IaaS).\n- Agir en tant que point d'escalade pour les incidents et les problèmes complexes liés à M365, Azure et à l'infrastructure hybride.\n- Collaborer étroitement avec les équipes de sécurité, de réseau, de poste de travail et d'application pour assurer la qualité de la solution de bout en bout.\n\n## Compétences et expérience requises\n- Expérience senior en ingénierie d'infrastructures/Cloud avec un fort accent sur M365 et de bonnes connaissances d'Azure.\n- Solide expérience avec Windows Server, virtualisation, réseau et environnements hybrides.\n- Expérience pratique avec les migrations Cloud et l'optimisation.\n- Expérience dans des environnements complexes et réglementés; l'expérience dans le secteur financier/bancaire est un plus.\n- À l'aise dans un petit équipe de haute expertise, avec un esprit proactif et collaboratif.\n- Anglais courant (obligatoire); français est un plus.\n- Fortes capacités analytiques et de résolution de problèmes, avec un esprit pragmatique et orienté vers les solutions.\n- Capacité à communiquer clairement avec les parties prenantes techniques et non techniques.\n- Niveau élevé de propriété, de fiabilité et d'intégrité, conforme aux normes d'un environnement de banque privée.\n- Esprit entrepreneurial: à l'aise pour remettre en question le statu quo, proposer des améliorations et piloter le changement.\n\n## Nos valeurs\n- Responsabilité: prendre en charge les tâches et les défis, ainsi que rechercher l'amélioration continue\n- Pratique: être proactif pour fournir des résultats de haute qualité rapidement\n- Passionné: être engagé et s'efforcer d'excellence\n- Axé sur les solutions: se concentrer sur les résultats des clients et traiter les clients de manière équitable avec un esprit de risque\n- Orienté vers le partenariat: promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit entrepreneurial.\n\n## Veuillez joindre une lettre de motivation à votre CV lors de la candidature.\n\n## Candidature Si vous souhaitez postuler à ce poste, utilisez ce lien pour postuler."
+      },
+      "requirementsByLocale": {},
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "Cloud & Infrastructure Design and Implementation"
+            ],
+            "responsibilities": [
+              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Cloud & Infrastructure Design and Implementation</p><ul><li><p style=\"color:#333C40;font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\"><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">Design, build and deploy cloud, hybrid and on</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"en-US\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">premises solutions in line with the bank</span><span lang=\"en-US\">’</span><span lang=\"en-GB\">s IT strategy and architecture standards.</span></span></p>",
+              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Participate in the design and implementation of IT infrastructure projects related to systems (servers, storage, virtualization, desktops).</p>",
+              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Contribute to the definition and implementation of the technology direction, vision and strategy to enable and accelerate cloud technology adoption.</p>",
+              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">M365 & Azure Engineering</p><ul><li><p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Act as a subject-matter expert for M365 (Exchange Online, Teams, SharePoint, OneDrive, security & compliance features, etc.) and contribute to Azure-based solutions.</p>",
+              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Lead or support application readiness assessments, environment design and configuration for M365 and Azure workloads.</p>",
+              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Perform prototyping of new environments, server builds and configuration to validate solutions before production rollout.</p>",
+              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Cloud Adoption & Optimization</p><ul><li><p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Drive and support cloud adoption initiatives, including: </p>",
+              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Application and infrastructure readiness assessments</p>",
+              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Data and workload migration to M365/Azure</p>",
+              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Performance tuning and optimization of cloud environments</p>",
+              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Ensure solutions are secure, resilient, scalable and compliant with banking and regulatory requirements.</p>",
+              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Automation & Operational Excellence</p><ul><li><p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Develop, enhance and maintain automation for infrastructure components (e.g. provisioning, configuration, monitoring, patching, lifecycle management).</p>",
+              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Contribute to the standardization and industrialization of infrastructure services and processes.</p>",
+              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Support continuous improvement of operational procedures, documentation and runbooks.</p>",
+              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Collaboration & Support</p><ul><li><p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Provide technical expertise and guidance to other IT support teams on all cloud topics (SaaS, PaaS, IaaS).</p>",
+              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Act as an escalation point for complex incidents and problems related to M365, Azure and hybrid infrastructure.</p>"
+            ],
+            "requirements": [],
+            "benefits": [],
+            "process": [
+              "Should you wish to apply for this position use this link to apply."
+            ],
+            "highlights": [
+              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Cloud & Infrastructure Design and Implementation</p><ul><li><p style=\"color:#333C40;font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\"><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">Design, build and deploy cloud, hybrid and on</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"en-US\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">premises solutions in line with the bank</span><span lang=\"en-US\">’</span><span lang=\"en-GB\">s IT strategy and architecture standards.</span></span></p>",
+              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Participate in the design and implementation of IT infrastructure projects related to systems (servers, storage, virtualization, desktops).</p>",
+              "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Contribute to the definition and implementation of the technology direction, vision and strategy to enable and accelerate cloud technology adoption.</p>"
+            ],
+            "keywords": [
+              "<p style=\"color"
+            ],
+            "sections": [
+              {
+                "id": "details",
+                "heading": "Skills & Experience Required",
+                "paragraphs": [
+                  "Senior experience in infrastructure / cloud engineering, with strong focus on M365 and good knowledge of Azure.",
+                  "Solid background with Windows Server, virtualization, networking and hybrid environments.",
+                  "<span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">Hands</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"en-US\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">on experience with cloud migrations and optimization.</span></span>",
+                  "Used to working in complex, regulated environments; financial services / banking experience is a plus.",
+                  "<span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">Comfortable in a small, high</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"fr-CH\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">expertise team, with a proactive and collaborative mindset.</span></span>",
+                  "English fluent (must); French is a plus.",
+                  "<span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">Strong analytical and problem</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"en-US\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">solving skills, with a pragmatic and solution</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"en-US\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">oriented mindset.</span></span>",
+                  "<span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">Ability to communicate clearly with both technical and non</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"en-US\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">technical stakeholders.</span></span>",
+                  "High level of ownership, reliability and integrity, aligned with the standards of a private banking environment.",
+                  "Entrepreneurial mindset: comfortable challenging the status quo, proposing improvements and driving change.",
+                  "Our Values"
+                ],
+                "bullets": [
+                  "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Senior experience in infrastructure / cloud engineering, with strong focus on M365 and good knowledge of Azure.</p>",
+                  "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Solid background with Windows Server, virtualization, networking and hybrid environments.</p>",
+                  "<p style=\"color:#333C40;font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\"><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">Hands</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"en-US\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">on experience with cloud migrations and optimization.</span></span></p>",
+                  "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Used to working in complex, regulated environments; financial services / banking experience is a plus.</p>",
+                  "<p style=\"color:#333C40;font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\"><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">Comfortable in a small, high</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"fr-CH\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">expertise team, with a proactive and collaborative mindset.</span></span></p>",
+                  "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">English fluent (must); French is a plus.</p>",
+                  "<p style=\"color:#333C40;font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\"><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">Strong analytical and problem</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"en-US\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">solving skills, with a pragmatic and solution</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"en-US\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">oriented mindset.</span></span></p>",
+                  "<p style=\"color:#333C40;font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\"><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">Ability to communicate clearly with both technical and non</span></span><span style=\"font-family:\"Cambria Math\";\"><span lang=\"en-US\">‑</span></span><span style=\"font-family:\"Fira Sans Light\";\"><span lang=\"en-GB\">technical stakeholders.</span></span></p>",
+                  "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">High level of ownership, reliability and integrity, aligned with the standards of a private banking environment.</p>",
+                  "<p style=\"color:#333C40;font-family:\"Fira Sans Light\";font-size:9.0pt;margin-bottom:0in;margin-right:0in;margin-top:0in;\" lang=\"en-GB\">Entrepreneurial mindset: comfortable challenging the status quo, proposing improvements and driving change.</p>",
+                  "<span style=\"color:#333C40;font-family:\"Fira Sans\";\"><span style=\"font-size:9.0pt;\">Accountability</span></span><span style=\"color:#333C40;font-family:\"Fira Sans Light\";\"><span style=\"font-size:9.0pt;\">: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></span>",
+                  "<span style=\"color:#333C40;font-family:\"Fira Sans\";\"><span style=\"font-size:9.0pt;\">Hands-on</span></span><span style=\"color:#333C40;font-family:\"Fira Sans Light\";\"><span style=\"font-size:9.0pt;\">: Being proactive to rapidly deliver high-quality results</span></span>",
+                  "<span style=\"color:#333C40;font-family:\"Fira Sans\";\"><span style=\"font-size:9.0pt;\">Passionate</span></span><span style=\"color:#333C40;font-family:\"Fira Sans Light\";\"><span style=\"font-size:9.0pt;\">: Being committed and striving for excellence</span></span>",
+                  "<span style=\"color:#333C40;font-family:\"Fira Sans\";\"><span style=\"font-size:9.0pt;\">Solution-driven</span></span><span style=\"color:#333C40;font-family:\"Fira Sans Light\";\"><span style=\"font-size:9.0pt;\">: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></span>",
+                  "<span style=\"color:#333C40;font-family:\"Fira Sans\";\"><span style=\"font-size:9.0pt;\">Partnership-oriented</span></span><span style=\"color:#333C40;font-family:\"Fira Sans Light\";\"><span style=\"font-size:9.0pt;\">: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></span>"
+                ]
+              }
+            ],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-04-14T21:35:38.122Z",
+      "slugByLocale": {
+        "it": "senior-cloud-ingegnere-efg-international-ag-geneve",
+        "en": "senior-cloud-engineer-efg-international-ag-geneve",
+        "de": "senior-cloud-ingenieur-efg-international-ag-geneve",
+        "fr": "senior-cloud-ingenieur-efg-international-ag-geneve"
+      },
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "datePosted": "2026-03-25",
+      "sourceLang": "en",
+      "salaryMin": 94000,
+      "salaryMax": 127000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 94000,
+          "maxValue": 127000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "senior-cloud-engineer-efg-geneve"
+      ],
+      "previousSlugsByLocale": {
+        "en": [
+          "senior-cloud-engineer-efg-geneve"
+        ],
+        "it": [
+          "senior-cloud-engineer-efg-geneve"
+        ]
+      },
+      "firstSeenAt": "2026-04-13T10:28:21.955Z"
     },
     {
       "id": "efg-6095",
@@ -1198,7 +1200,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-14T09:50:28.299Z",
+      "crawledAt": "2026-04-14T21:35:38.121Z",
       "slugByLocale": {
         "it": "senior-fx-specialista-consulente-efg-international-ag-zurich",
         "en": "senior-fx-specialist-advisor-efg-international-ag-zurich",
@@ -1245,7 +1247,8 @@
           "senior-specialista-fx-consulente-efg-international-ag-zurich"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:36:50.620Z"
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6066",
@@ -1385,7 +1388,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-14T09:50:28.298Z",
+      "crawledAt": "2026-04-14T21:35:38.120Z",
       "slugByLocale": {
         "it": "ufficiale-servizi-clienti-geneva-talent-pool-efg-international-ag-geneve",
         "en": "client-services-officer-geneva-talent-pool-efg-geneve",
@@ -1420,7 +1423,8 @@
       "previousSlugs": [
         "client-services-officer-geneva-talent-pool-efg-geneve"
       ],
-      "firstSeenAt": "2026-04-13T21:36:50.620Z"
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6061",
@@ -1549,7 +1553,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-14T09:50:28.297Z",
+      "crawledAt": "2026-04-14T21:35:38.119Z",
       "slugByLocale": {
         "it": "ingegnere-ai-efg-international-ag-geneve",
         "en": "ai-engineer-efg-international-ag-geneve",
@@ -1761,7 +1765,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-14T09:50:28.296Z",
+      "crawledAt": "2026-04-14T21:35:38.118Z",
       "slugByLocale": {
         "it": "specialista-in-soluzioni-it-di-trading-e-tesoreria-efg-international-ag-lugano",
         "en": "it-trading-treasury-solutions-specialist-efg-international-ag-lugano-n93k12",
@@ -1822,7 +1826,8 @@
           "it-trading-treasury-solutions-specialiste-efg-international-ag-lugano-n93k12"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:36:50.620Z"
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5967",
@@ -1969,7 +1974,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-14T09:50:28.295Z",
+      "crawledAt": "2026-04-14T21:35:38.117Z",
       "slugByLocale": {
         "it": "responsabile-della-fondazione-efg-international-ag-lugano",
         "en": "foundation-manager-efg-international-ag-lugano",
@@ -2017,7 +2022,8 @@
           "foundation-manager-efg-international-ag-lugano-n93k14"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:36:50.620Z"
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5877",
@@ -2067,7 +2073,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-14T09:50:28.294Z",
+      "crawledAt": "2026-04-14T21:35:38.116Z",
       "slugByLocale": {
         "it": "specialista-in-riconciliazione-contabile-back-office-efg-international-ag-geneve",
         "en": "back-office-cash-reconciliation-specialist-efg-geneve",
@@ -2212,7 +2218,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-14T09:50:28.293Z",
+      "crawledAt": "2026-04-14T21:35:38.115Z",
       "slugByLocale": {
         "it": "proprietario-tecnico-dell-applicazione-risk-compliance-efg-international-ag-geneve",
         "en": "risk-compliance-technical-application-owner-efg-geneve",
@@ -2413,7 +2419,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-14T09:50:28.292Z",
+      "crawledAt": "2026-04-14T21:35:38.114Z",
       "slugByLocale": {
         "it": "controllore-finanziario-di-gruppo-efg-international-ag-geneve",
         "en": "group-financial-controller-efg-geneve",
@@ -2448,7 +2454,8 @@
       "previousSlugs": [
         "group-financial-controller-efg-geneve"
       ],
-      "firstSeenAt": "2026-04-13T21:36:50.620Z"
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6209",
@@ -2581,7 +2588,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-14T09:50:28.291Z",
+      "crawledAt": "2026-04-14T21:35:38.113Z",
       "slugByLocale": {
         "it": "operational-risk-and-advisory-it-and-information-security-specialista-efg-international-ag-zurich",
         "en": "operational-risk-and-advisory-it-and-information-security-specialist-efg-zurich",
@@ -2616,7 +2623,8 @@
       "previousSlugs": [
         "operational-risk-and-advisory-it-and-information-security-specialist-efg-zurich"
       ],
-      "firstSeenAt": "2026-04-13T21:36:50.620Z"
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6194",
@@ -2666,7 +2674,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-14T09:50:28.290Z",
+      "crawledAt": "2026-04-14T21:35:38.112Z",
       "slugByLocale": {
         "it": "stage-business-management-global-markets-treasury-efg-international-ag-zurich",
         "en": "internship-business-management-global-markets-treasury-efg-zurich",
@@ -2701,7 +2709,8 @@
       "previousSlugs": [
         "internship-business-management-global-markets-treasury-efg-zurich"
       ],
-      "firstSeenAt": "2026-04-13T21:36:50.620Z"
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6177",
@@ -2751,7 +2760,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-14T09:50:28.289Z",
+      "crawledAt": "2026-04-14T21:35:38.112Z",
       "slugByLocale": {
         "it": "addetto-all-assistenza-clienti-efg-international-ag-st-moritz",
         "en": "client-support-officer-efg-international-ag-st-moritz",
@@ -2795,7 +2804,8 @@
           "client-support-officer-efg-st-moritz"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:36:50.620Z"
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6175",
@@ -2920,7 +2930,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-14T09:50:28.287Z",
+      "crawledAt": "2026-04-14T21:35:38.110Z",
       "slugByLocale": {
         "it": "specialista-di-supporto-pb-medio-oriente-ch-efg-international-ag-geneve",
         "en": "pb-support-specialist-middle-east-ch-efg-geneve",
@@ -2968,7 +2978,8 @@
           "pb-support-spezialist-middle-east-ch-efg-international-ag-geneve"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:36:50.620Z"
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6150",
@@ -3061,7 +3072,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-14T09:50:28.286Z",
+      "crawledAt": "2026-04-14T21:35:38.109Z",
       "slugByLocale": {
         "it": "specialista-soluzioni-bi-efg-international-ag-geneve",
         "en": "bi-solution-specialist-efg-international-ag-geneve",
@@ -3115,7 +3126,8 @@
           "bi-solution-specialiste-efg-international-ag-geneve"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:36:50.620Z"
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6056",
@@ -3190,7 +3202,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-14T09:50:28.285Z",
+      "crawledAt": "2026-04-14T21:35:38.108Z",
       "slugByLocale": {
         "it": "analista-del-rischio-efg-international-ag-lugano",
         "en": "operational-risk-analyst-efg-international-ag-lugano",
@@ -3271,16 +3283,16 @@
       "companyKey": "efg-international",
       "companyDomain": "efginternational.com",
       "titleByLocale": {
-        "en": "Commercial Apprentice AFC Bank",
+        "en": "Apprendistato Employee di commercio AFC Banca",
         "it": "Apprendistato Impiegato/a di commercio AFC Banca",
         "de": "Kaufmännischer Auszubildender AFC Bank",
         "fr": "Apprenti(e) en commerce AFC Banque"
       },
       "descriptionByLocale": {
-        "en": "Are you finishing middle school and interested in becoming a professional in the bank? If this is your wish the AFC Trade Apprentice Bank of EFG Bank is what it does for you. You will be working at the main Swiss offices of EFG Bank in central Lugano from August 2026 until August 2029 when you get the Federal Certificate of Capacity. During the three years you will experience different working teams working at national and international level, for example Private Banking, Compliance, Credit Cards, Central Filing, Credit, Business Risk Management, Asset Management, etc. In addition to the training in the company, in which you will be followed by a tutor dedicated to you in each team, you will attend the commercial professional school (CPC) of your interest and courses at the banking center (CYPprendi) together EFG Bank supports and encourages the development of integrated vocational training to ensure training as complete as possible at the end of the apprenticeship. During the course you can develop different professional skills, including: - analysis of the financial market and credit - knowledge of banking products - processing and verification of documents - schedule of deadlines and management of priorities - use of financial IT systems ## Requirements - Passion for the economy and the banking world - Media school license with excellent results - Explained relational skills and ease to adapt to different business scenarios - Good computer motivation knowledge.",
-        "it": "Stai finendo la scuole media e sei interessato a diventare un professionista in banca? Se questo è il tuo desiderio l'Apprendistato di Commercio AFC ramo Banca di EFG Bank è quello che fa per te. Lavorerai in delle sedi principali svizzere di EFG Bank in centro a Lugano da agosto 2026 fino a agosto 2029 quando avrai ottenuto l'Attestato Federale di Capacità. Durante i tre anni farai esperienze in team di lavoro diversi che operano a livello nazionale e internazionale e si occupano ad esempio di Private Banking, Compliance, Credit Cards, Central Filing, Credit, Business Risk Management, Asset Management, etc. Oltre alla formazione in azienda, in cui sarai seguito da un tutor a te dedicato in ogni team, frequenterai la scuola professionale commerciale (CPC) di tuo interesse e i corsi presso il centro competenze bancarie (CYP) assieme a tutti gli apprendisti di commercio ramo banca del Cantone. EFG Bank supporta e incoraggia lo svolgimento della maturità professionale integrata per garantire una formazione il più possible completa al termine dell'apprendistato. Durante il percorso potrai sviluppare diverse competenze professionali, tra le quali: - analisi del mercato finanziario e del credito - conoscenza dei prodotti bancari - elaborazione e verifica di documenti - pianificazione delle scadenze e gestione delle priorità - utilizzo dei sistemi informatici finanziari ## Requisiti - Passione per l’economia e il mondo bancario - Licenza di scuola media con ottimi risultati - Spiccate capacità relazionali e facilità ad adattarsi a diversi scenari lavorativi - Buone conoscenze informatiche - Conoscenza della lingua inglese Se sei motivato, grazie per allegare alla candidatura online: una lettera di motivazione, il CV, le tre più recenti pagelle scolastiche e la licenza di scuola media.",
-        "de": "Sind Sie mit der Mittelschule fertig und daran interessiert, Profi in der Bank zu werden? Wenn dies Ihr Wunsch ist, ist die AFC Trade Apprentice Bank of EFG Bank das, was sie für Sie tut. Sie werden von August 2026 bis August 2029 an den Hauptbüros der EFG Bank im Zentrum von Lugano arbeiten, wenn Sie das Bundeszertifikat für Kapazität erhalten. Während der drei Jahre werden Sie verschiedene Arbeitsgruppen auf nationaler und internationaler Ebene erleben, zum Beispiel Private Banking, Compliance, Credit Cards, Central Filing, Credit, Business Risk Management, Asset Management, etc. Neben der Ausbildung in der Firma, in der Sie von einem Tutor, der Ihnen in jedem Team gewidmet wird, werden Sie an der kaufmännischen Schule (CPC) Ihres Interesses und Kurses im Bankenzentrum (CYPprendi) gemeinsam EFG Bank unterstützt und fördert die Entwicklung der integrierten Berufsbildung, um eine möglichst vollständige Ausbildung am Ende der Ausbildung zu gewährleisten. Im Laufe des Kurses können Sie verschiedene berufliche Fähigkeiten entwickeln, einschließlich: - Analyse des Finanzmarktes und Kredit - Wissen über Bankprodukte - Verarbeitung und Verifizierung von Dokumenten - Zeitplan der Fristen und Verwaltung von Prioritäten - Nutzung von Finanz-IT-Systemen Anforderungen - Leidenschaft für die Wirtschaft und die Bankenwelt - Medienschule Lizenz mit ausgezeichneten Ergebnissen - Erklärte relationale Fähigkeiten und Leichtigkeit, um sich an verschiedene Geschäftsszenarien anzupassen - Gute Computermotivationskenntnisse.",
-        "fr": "Est-ce que vous terminez le collège et que vous voulez devenir un professionnel à la banque? Si c'est votre souhait, l'AFC Trade Apprentice Bank of EFG Bank est ce qu'elle fait pour vous. Vous travaillerez dans les principaux bureaux suisses de la Banque EFG au centre de Lugano à partir d'août 2026 jusqu'à août 2029 lorsque vous obtiendrez le certificat fédéral de capacité. Au cours des trois années, vous vivrez différentes équipes de travail travaillant aux niveaux national et international, par exemple banque privée, conformité, cartes de crédit, dépôt central, crédit, gestion des risques d'entreprise, gestion d'actifs, etc. En plus de la formation dans l'entreprise, dans laquelle vous serez suivi par un tuteur dédié à vous dans chaque équipe, vous assisterez à l'école professionnelle commerciale (CPC) de votre intérêt et des cours au centre bancaire (CYPprendi) ensemble EFG Bank soutient et encourage le développement de la formation professionnelle intégrée pour assurer la formation la plus complète possible à la fin de l'apprentissage. Pendant le cours, vous pouvez développer différentes compétences professionnelles, y compris: - analyse du marché financier et du crédit - connaissance des produits bancaires - traitement et vérification des documents - calendrier des échéances et gestion des priorités - utilisation des systèmes financiers informatiques ## Exigences - Passion pour l'économie et le monde bancaire - Licence de l'école des médias avec d'excellents résultats - Expliquer les compétences relationnelles et la facilité à s'adapter à différents scénarios d'affaires - Bonne connaissance de la motivation informatique."
+        "en": "Stai finendo la scuole media e sei interessato a diventare un professionista in banca?\n\nSe questo è il tuo desiderio l'Apprendistato di Commercio AFC ramo Banca di EFG Bank è quello che fa per te.\n\nLavorerai in delle sedi principali svizzere di EFG Bank in centro a Lugano da agosto 2026 fino a agosto 2029 quando avrai ottenuto l'Attestato Federale di Capacità.\n\nDurante i tre anni farai esperienze in team di lavoro diversi che operano a livello nazionale e internazionale e si occupano ad esempio di Private Banking, Compliance, Credit Cards, Central Filing, Credit, Business Risk Management, Asset Management, etc.\n\nOltre alla formazione in azienda, in cui sarai seguito da un tutor a te dedicato in ogni team, frequenterai la scuola professionale commerciale (CPC) di tuo interesse e i corsi presso il centro competenze bancarie (CYP) assieme a tutti gli apprendisti di commercio ramo banca del Cantone.\n\nEFG Bank supporta e incoraggia lo svolgimento della maturità professionale integrata per garantire una formazione il più possible completa al termine dell'apprendistato.\n\nDurante il percorso potrai sviluppare diverse competenze professionali, tra le quali:\n\n- analisi del mercato finanziario e del credito\n\n- conoscenza dei prodotti bancari\n\n- elaborazione e verifica di documenti\n\n- pianificazione delle scadenze e gestione delle priorità\n\n- utilizzo dei sistemi informatici finanziari\n\n## Requisiti\n\n- Passione per l’economia e il mondo bancario\n\n- Licenza di scuola media con ottimi risultati\n\n- Spiccate capacità relazionali e facilità ad adattarsi a diversi scenari lavorativi\n\n- Buone conoscenze informatiche\n\n- Conoscenza della lingua inglese\n\nSe sei motivato, grazie per allegare alla candidatura online: una lettera di motivazione, il CV, le tre più recenti pagelle scolastiche e la licenza di scuola media.",
+        "it": "Stai finendo la scuole media e sei interessato a diventare un professionista in banca? Se questo è il tuo desiderio l'Apprendistato di Commercio AFC ramo Banca di EFG Bank è quello che fa per te. Lavorerai in delle sedi principali svizzere di EFG Bank in centro a Lugano da agosto 2026 fino a agosto 2029 quando avrai ottenuto l'Attestato Federale di Capacità. Durante i tre anni farai esperienze in team di lavoro diversi che operano a livello nazionale e internazionale e si occupano ad esempio di Private Banking, Compliance, Credit Cards, Central Filing, Credit, Business Risk Management, Asset Management, etc. Oltre alla formazione in azienda, in cui sarai seguito da un tutor a te dedicato in ogni team, frequenterai la scuola professionale commerciale (CPC) di tuo interesse e i corsi presso il centro competenze bancarie (CYP) assieme a tutti gli apprendisti di commercio ramo banca del Cantone. EFG Bank supporta e incoraggia lo svolgimento della maturità professionale integrata per garantire una formazione il più possible completa al termine dell'apprendistato. Durante il percorso potrai sviluppare diverse competenze professionali, tra le quali: - analisi del mercato finanziario e del credito - conoscenza dei prodotti bancari - elaborazione e verifica di documenti - pianificazione delle scadenze e gestione delle priorità - utilizzo dei sistemi informatici finanziari\n\n## Requisiti\n- Passione per l’economia e il mondo bancario\n- Licenza di scuola media con ottimi risultati\n- Spiccate capacità relazionali e facilità ad adattarsi a diversi scenari lavorativi\n- Buone conoscenze informatiche\n- Conoscenza della lingua inglese Se sei motivato, grazie per allegare alla candidatura online: una lettera di motivazione, il CV, le tre più recenti pagelle scolastiche e la licenza di scuola media.",
+        "de": "Sind Sie mit der Mittelschule fertig und daran interessiert, Profi in der Bank zu werden? Wenn dies Ihr Wunsch ist, ist die AFC Trade Apprentice Bank of EFG Bank das, was sie für Sie tut. Sie werden von August 2026 bis August 2029 an den Hauptbüros der EFG Bank im Zentrum von Lugano arbeiten, wenn Sie das Bundeszertifikat für Kapazität erhalten. Während der drei Jahre werden Sie verschiedene Arbeitsgruppen auf nationaler und internationaler Ebene erleben, zum Beispiel Private Banking, Compliance, Credit Cards, Central Filing, Credit, Business Risk Management, Asset Management, etc. Neben der Ausbildung in der Firma, in der Sie von einem Tutor, der Ihnen in jedem Team gewidmet wird, werden Sie an der kaufmännischen Schule (CPC) Ihres Interesses und Kurses im Bankenzentrum (CYPprendi) gemeinsam EFG Bank unterstützt und fördert die Entwicklung der integrierten Berufsbildung, um eine möglichst vollständige Ausbildung am Ende der Ausbildung zu gewährleisten. Im Laufe des Kurses können Sie verschiedene berufliche Fähigkeiten entwickeln, einschließlich:\n- Analyse des Finanzmarktes und Kredit\n- Wissen über Bankprodukte\n- Verarbeitung und Verifizierung von Dokumenten\n- Zeitplan der Fristen und Verwaltung von Prioritäten\n- Nutzung von Finanz-IT-Systemen Anforderungen\n- Leidenschaft für die Wirtschaft und die Bankenwelt\n- Medienschule Lizenz mit ausgezeichneten Ergebnissen\n- Erklärte relationale Fähigkeiten und Leichtigkeit, um sich an verschiedene Geschäftsszenarien anzupassen\n- Gute Computermotivationskenntnisse.",
+        "fr": "Est-ce que vous terminez le collège et que vous voulez devenir un professionnel à la banque? Si c'est votre souhait, l'AFC Trade Apprentice Bank of EFG Bank est ce qu'elle fait pour vous. Vous travaillerez dans les principaux bureaux suisses de la Banque EFG au centre de Lugano à partir d'août 2026 jusqu'à août 2029 lorsque vous obtiendrez le certificat fédéral de capacité. Au cours des trois années, vous vivrez différentes équipes de travail travaillant aux niveaux national et international, par exemple banque privée, conformité, cartes de crédit, dépôt central, crédit, gestion des risques d'entreprise, gestion d'actifs, etc. En plus de la formation dans l'entreprise, dans laquelle vous serez suivi par un tuteur dédié à vous dans chaque équipe, vous assisterez à l'école professionnelle commerciale (CPC) de votre intérêt et des cours au centre bancaire (CYPprendi) ensemble EFG Bank soutient et encourage le développement de la formation professionnelle intégrée pour assurer la formation la plus complète possible à la fin de l'apprentissage. Pendant le cours, vous pouvez développer différentes compétences professionnelles, y compris: - analyse du marché financier et du crédit - connaissance des produits bancaires - traitement et vérification des documents - calendrier des échéances et gestion des priorités - utilisation des systèmes financiers informatiques\n\n## Exigences\n- Passion pour l'économie et le monde bancaire\n- Licence de l'école des médias avec d'excellents résultats\n- Expliquer les compétences relationnelles et la facilité à s'adapter à différents scénarios d'affaires\n- Bonne connaissance de la motivation informatique."
       },
       "requirementsByLocale": {},
       "canonicalContent": {
@@ -3300,7 +3312,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-14T09:50:28.284Z",
+      "crawledAt": "2026-04-14T21:35:38.107Z",
       "slugByLocale": {
         "it": "apprendistato-impiegato-a-di-commercio-afc-banca-efg-lugano",
         "en": "commercial-apprentice-afc-bank-efg-international-ag-lugano",
@@ -3334,7 +3346,8 @@
       "previousSlugs": [
         "bankkaufmann-frau-efz-efg-international-ag-efg-international-ag-lugano"
       ],
-      "firstSeenAt": "2026-04-13T21:36:50.620Z"
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6230",
@@ -3385,7 +3398,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-14T09:50:28.284Z",
+      "crawledAt": "2026-04-14T21:35:38.107Z",
       "slugByLocale": {
         "it": "programma-di-formazione-efg-2026-digitale-e-it-sicurezza-informatica-e-architettura-cloud-efg-international-ag-geneve",
         "en": "efg-graduate-programme-2026-digital-and-it-cyber-security-and-cloud-architecture-efg-international-ag-geneve",
@@ -3514,7 +3527,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-14T09:50:28.283Z",
+      "crawledAt": "2026-04-14T21:35:38.106Z",
       "slugByLocale": {
         "it": "analista-dei-rischi-tecnologici-e-di-sicurezza-informatica-e-cibernetica-temporaneo-efg-international-ag-zurich",
         "en": "technology-cyber-information-security-risk-analyst-temporary-efg-zurich",
@@ -3709,7 +3722,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-14T09:50:28.282Z",
+      "crawledAt": "2026-04-14T21:35:38.106Z",
       "slugByLocale": {
         "it": "stage-in-talent-acquisition-efg-international-ag-lugano",
         "en": "talent-acquisition-internship-efg-lugano",
@@ -3743,7 +3756,8 @@
       "previousSlugs": [
         "talent-acquisition-internship-efg-lugano"
       ],
-      "firstSeenAt": "2026-04-13T21:36:50.620Z"
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6064",
@@ -3793,7 +3807,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-14T09:50:28.281Z",
+      "crawledAt": "2026-04-14T21:35:38.104Z",
       "slugByLocale": {
         "it": "tester-di-penetrazione-interno-per-la-cybersecurity-efg-international-ag-geneve",
         "en": "cybersecurity-internal-penetration-tester-efg-geneve",
@@ -3828,7 +3842,8 @@
       "previousSlugs": [
         "cybersecurity-internal-penetration-tester-efg-geneve"
       ],
-      "firstSeenAt": "2026-04-13T21:36:50.620Z"
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6039",
@@ -3879,7 +3894,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-14T09:50:28.280Z",
+      "crawledAt": "2026-04-14T21:35:38.103Z",
       "slugByLocale": {
         "it": "sviluppatore-epm-onestream-analista-dati-business-efg-international-ag-lugano",
         "en": "epm-onestream-developer-business-data-analyst-efg-lugano",
@@ -3964,7 +3979,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-14T09:50:28.279Z",
+      "crawledAt": "2026-04-14T21:35:38.102Z",
       "slugByLocale": {
         "it": "responsabile-del-team-di-supporto-per-rete-e-proxy-efg-international-ag-geneve",
         "en": "network-proxy-support-team-lead-efg-geneve",
@@ -3998,7 +4013,8 @@
       "previousSlugs": [
         "network-proxy-support-team-lead-efg-geneve"
       ],
-      "firstSeenAt": "2026-04-13T21:36:50.620Z"
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5869",
@@ -4049,7 +4065,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-14T09:50:28.277Z",
+      "crawledAt": "2026-04-14T21:35:38.101Z",
       "slugByLocale": {
         "it": "ufficiale-di-pianificazione-strategica-efg-international-ag-lugano",
         "en": "strategic-planning-officer-efg-lugano",
@@ -4278,7 +4294,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-14T09:50:28.275Z",
+      "crawledAt": "2026-04-14T21:35:38.099Z",
       "slugByLocale": {
         "it": "audit-manager-temporary-6-mesi-efg-international-ag-geneve",
         "en": "audit-manager-temporary-6-months-efg-geneve",
@@ -4312,7 +4328,8 @@
       "previousSlugs": [
         "audit-manager-temporary-6-months-efg-geneve"
       ],
-      "firstSeenAt": "2026-04-13T21:36:50.620Z"
+      "firstSeenAt": "2026-04-13T21:36:50.620Z",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5799",
@@ -4345,15 +4362,15 @@
       "companyDomain": "efginternational.com",
       "titleByLocale": {
         "en": "Business Analyst Legal & Compliance",
-        "it": "Affari Analisti Legali & Compliance",
+        "it": "Business Analista Legal & Compliance",
         "de": "Business Analysten Recht und Compliance",
         "fr": "Business Analyste Legal & Compliance"
       },
       "descriptionByLocale": {
         "en": "## Main responsibilities\n\n- Global Business & Functional Analysis:\n\n- Lead the collection and documentation of global requirements for system and process changes across Compliance & Legal functions.\n\n- Assists in identifying, evaluating and business specification development for systems and procedures that are cost effective and meet requirements.\n\n- Serve as a key interface between global and local teams, ensuring alignment across business units and jurisdictions\n\n- Map end-to-end processes and highlight regional variations for harmonization\n\n- Systems Oversight & Operational Support:\n\n- Serve as a key interface between the Legal & Compliance and COO Functions and coordinate enhancements, upgrades, and issue resolution across SAS AML, GT Exchange, FircoContinuity, and Pythagoras\n\n- Support global change initiatives, including tool implementation, data quality initiatives, and regulatory adaptations\n\n- Support UAT processes, system documentation, and global roll-out coordination\n\n- Governance:\n\n- Contribute to governance forums by preparing consistent, global-level reporting and status updates\n\n## Skills and experience\n\n- Solid understanding of compliance environments and internal control frameworks in banking or financial services.\n\n- Strong analytical, documentation, and stakeholder management capabilities\n\n- Autonomy, reliability, and high ownership mindset; able to deliver in fast-paced and high-responsibility contexts.\n\n- Global mindset with excellent cross-cultural communication skills.\n\n- Fluency in English\n\n- Experience with project governance tools and data visualisation (e.g. JIRA, SharePoint, Power BI, Excel dashboards).\n\n- Technically fluent in compliance tool functionality, system workflows, and data flows\n\n- University degree in Law, Economics, Business Administration, or related field.\n\n- 5+ years of experience in the Banking Industry in Compliance, Risk, Audit, or Transformation roles, ideally within banking groups or international financial institutions\n\n## Our values\n\n-  Accountability : Taking ownership for tasks and challenges as well as seeking continuous improvement\n\n-  Hands-on : Being proactive to rapidly deliver high-quality results\n\n-  Passionate : Being committed and striving for excellence\n\n-  Solution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n-  Partnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.",
-        "it": "Principali responsabilità - Global Business & Functional Analysis: - Condurre la raccolta e la documentazione dei requisiti globali per i cambiamenti di sistema e di processo in Compliance & Legal. - Assist nell'individuazione, nella valutazione e nello sviluppo delle specifiche aziendali per sistemi e procedure che sono efficaci e soddisfano i requisiti. - Servire come interfaccia chiave tra team globali e locali, garantire l'allineamento tra unità aziendali e giurisdizioni - Mappa processi end-to-end e evidenziare le variazioni regionali per l'armonizzazione - Sistemi Oversight & Operational Support: - Servire come interfaccia chiave tra i processi legali & Compliance e COO Funzioni e coordinare miglioramenti, aggiornamenti, e risoluzione dei problemi attraverso SAS AML, GT Exchange, FircoContinuity globale - Forte capacità analitiche, di documentazione e di gestione delle parti interessate - Autonomia, affidabilità e mentalità di alto livello di proprietà; in grado di fornire in contesti di veloce e ad alta responsabilità. - mentalità globale con eccellenti capacità di comunicazione interculturale. - Fluency in English - Esperienza con strumenti di governance del progetto e visualizzazione dei dati (ad esempio JIRA, SharePoint, Power BI, dashboard Excel). - Tecnicamente fluente nella funzionalità degli strumenti di conformità, flussi di lavoro di sistema e flussi di dati - laurea in Diritto, Economia, Business Administration, o campo relativo. - 5+ anni di esperienza nell'industria bancaria nel ruolo Compliance, Risk, Audit o Transformation, idealmente all'interno di gruppi bancari o istituzioni finanziarie internazionali ## I nostri valori - Contabilità: Assumere la proprietà per compiti e sfide, nonché cercare un miglioramento continuo - Hands-on: Essere proattivi a fornire rapidamente risultati di alta qualità - Passionare: Essere impegnati e sforzarsi per l'eccellenza - Solution-driven: Lavorare insieme a uno spirito imprenditoriale.",
-        "de": "Hauptverantwortlichkeiten - Global Business & Functional Analysis: - Führen Sie die Erfassung und Dokumentation globaler Anforderungen an System- und Prozessänderungen über Compliance & Legal Funktionen. - Assists bei der Ermittlung, Bewertung und betriebsspezifischen Entwicklung von Systemen und Verfahren, die kostenwirksam sind und Anforderungen erfüllen. - Führen Sie als zentrale Schnittstelle zwischen globalen und lokalen Teams, Sicherstellung der Ausrichtung über Geschäftsbereiche und Zuständigkeiten - Karte End-to-End-Prozesse und markieren Sie regionale Variationen für Harmonisierung - Systems Oversight & Operational Support: - dienen als zentrale Schnittstelle zwischen den Legal & Compliance und COO Funktionen und Koordinatenerweiterungen, Upgrades und Ausgabeauflösung über SAS AML, GT Exchange, FircoContinuity, und Pythagoras - Starke Analyse-, Dokumentations- und Stakeholder-Management-Fähigkeiten - Autonomy, Zuverlässigkeit und hohe Eigentumsvorteile; in schnelllebigen und hochverantwortlichen Kontexten liefern können. - Globale Denkweise mit exzellenten interkulturellen Kommunikationsfähigkeiten. - Fluency in English - Erfahrung mit Tools zur Projektsteuerung und Datenvisualisierung (z.B. JIRA, SharePoint, Power BI, Excel Dashboards). - Technisch fließend in Compliance-Tool-Funktionalität, System-Workflows und Datenflüsse - Hochschulabschluss in Recht, Wirtschaft, Betriebswirtschaft oder verwandten Bereich. - 5+ Jahre Erfahrung in der Banking Industry in Compliance, Risk, Audit oder Transformation Rollen, ideal innerhalb von Bankengruppen oder internationalen Finanzinstituten Unsere Werte - Rechenschaftspflicht: Eigentum an Aufgaben und Herausforderungen zu nehmen und kontinuierliche Verbesserung zu suchen - Hands-on: Seien Sie proaktiv, um schnell qualitativ hochwertige Ergebnisse zu liefern - Passionate: Engagement und Streben nach Exzellenz - Lösungsorientierte Zusammenarbeit Zusammenarbeit mit einem Unternehmergeist.",
-        "fr": "Principales responsabilités - Global Business & Functional Analysis: - Diriger la collecte et la documentation des exigences mondiales pour les changements de système et de processus dans l'ensemble des fonctions Conformité et juridique. - Aider à identifier, évaluer et élaborer des spécifications opérationnelles pour les systèmes et les procédures qui sont rentables et répondent aux exigences. - Servir d'interface clé entre les équipes mondiales et locales, assurer l'alignement entre les unités opérationnelles et les juridictions - Cartographier les processus de bout en bout et mettre en évidence les variations régionales aux fins de l'harmonisation - Surveillance des systèmes et soutien opérationnel : - Servir d'interface clé entre les fonctions juridiques et de conformité et de COO et coordonner les améliorations, les mises à niveau et la résolution des problèmes dans l'ensemble de SAS AML, GT Exchange, FircoContinuity et Pythagore - Soutenir les initiatives de changement global, y compris la mise en oeuvre d'outils, les initiatives de qualité des données et les adaptations réglementaires - Soutenir les processus de TAU, la documentation du système et la coordination globale du déploiement - Gouvernance : - Contribuer aux forums sur la gouvernance en préparant des rapports et des mises à jour de statut cohérents au niveau mondial ## Compétences et expérience - Compréhension solide des environnements de conformité et des cadres de contrôle interne dans les services bancaires ou financiers. - Fortes capacités d'analyse, de documentation et de gestion des parties prenantes - Autonomie, fiabilité et haute capacité de propriété; capable de fournir dans des contextes rapides et de haute responsabilité. - L'état d'esprit global avec d'excellentes compétences en communication interculturelle. - Connaissance de l'anglais - Expérience avec les outils de gouvernance de projet et la visualisation des données (par exemple JIRA, SharePoint, Power BI, tableaux de bord Excel). - Techniquement parlant la fonctionnalité des outils de conformité, les flux de travail du système et les flux de données - Diplôme universitaire en droit, économie, administration des affaires, ou domaine connexe. - 5 ans d'expérience dans le secteur bancaire en matière de conformité, de risque, d'audit ou de transformation, idéalement au sein de groupes bancaires ou d'institutions financières internationales ## Nos valeurs - Responsabilité : S'approprier les tâches et les défis ainsi que rechercher une amélioration continue - Hands-on : Être proactif pour produire rapidement des résultats de haute qualité - Passionné : S'engager et s'efforcer d'atteindre l'excellence - Inspiré par la solution : Se concentrer sur les résultats des clients et traiter les clients équitablement avec un état d'esprit conscient des risques - Orienté par le partenariat : Promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit d'entreprise."
+        "it": "Principali responsabilità\n- Global Business & Functional Analysis:\n- Condurre la raccolta e la documentazione dei requisiti globali per i cambiamenti di sistema e di processo in Compliance & Legal.\n- Assist nell'individuazione, nella valutazione e nello sviluppo delle specifiche aziendali per sistemi e procedure che sono efficaci e soddisfano i requisiti.\n- Servire come interfaccia chiave tra team globali e locali, garantire l'allineamento tra unità aziendali e giurisdizioni\n- Mappa processi end-to-end e evidenziare le variazioni regionali per l'armonizzazione\n- Sistemi Oversight & Operational Support:\n- Servire come interfaccia chiave tra i processi legali & Compliance e COO Funzioni e coordinare miglioramenti, aggiornamenti, e risoluzione dei problemi attraverso SAS AML, GT Exchange, FircoContinuity globale\n- Forte capacità analitiche, di documentazione e di gestione delle parti interessate\n- Autonomia, affidabilità e mentalità di alto livello di proprietà; in grado di fornire in contesti di veloce e ad alta responsabilità. - mentalità globale con eccellenti capacità di comunicazione interculturale.\n- Fluency in English\n- Esperienza con strumenti di governance del progetto e visualizzazione dei dati (ad esempio JIRA, SharePoint, Power BI, dashboard Excel).\n- Tecnicamente fluente nella funzionalità degli strumenti di conformità, flussi di lavoro di sistema e flussi di dati - laurea in Diritto, Economia, Business Administration, o campo relativo. - 5+ anni di esperienza nell'industria bancaria nel ruolo Compliance, Risk, Audit o Transformation, idealmente all'interno di gruppi bancari o istituzioni finanziarie internazionali\n\n## I nostri valori\n- Contabilità: Assumere la proprietà per compiti e sfide, nonché cercare un miglioramento continuo\n- Hands-on: Essere proattivi a fornire rapidamente risultati di alta qualità\n- Passionare: Essere impegnati e sforzarsi per l'eccellenza\n- Solution-driven: Lavorare insieme a uno spirito imprenditoriale.",
+        "de": "Hauptverantwortlichkeiten\n- Global Business & Functional Analysis:\n- Führen Sie die Erfassung und Dokumentation globaler Anforderungen an System- und Prozessänderungen über Compliance & Legal Funktionen.\n- Assists bei der Ermittlung, Bewertung und betriebsspezifischen Entwicklung von Systemen und Verfahren, die kostenwirksam sind und Anforderungen erfüllen.\n- Führen Sie als zentrale Schnittstelle zwischen globalen und lokalen Teams, Sicherstellung der Ausrichtung über Geschäftsbereiche und Zuständigkeiten\n- Karte End-to-End-Prozesse und markieren Sie regionale Variationen für Harmonisierung\n- Systems Oversight & Operational Support: - dienen als zentrale Schnittstelle zwischen den Legal & Compliance und COO Funktionen und Koordinatenerweiterungen, Upgrades und Ausgabeauflösung über SAS AML, GT Exchange, FircoContinuity, und Pythagoras\n- Starke Analyse-, Dokumentations- und Stakeholder-Management-Fähigkeiten\n- Autonomy, Zuverlässigkeit und hohe Eigentumsvorteile; in schnelllebigen und hochverantwortlichen Kontexten liefern können.\n- Globale Denkweise mit exzellenten interkulturellen Kommunikationsfähigkeiten.\n- Fluency in English\n- Erfahrung mit Tools zur Projektsteuerung und Datenvisualisierung (z.B. JIRA, SharePoint, Power BI, Excel Dashboards).\n- Technisch fließend in Compliance-Tool-Funktionalität, System-Workflows und Datenflüsse\n- Hochschulabschluss in Recht, Wirtschaft, Betriebswirtschaft oder verwandten Bereich. - 5+ Jahre Erfahrung in der Banking Industry in Compliance, Risk, Audit oder Transformation Rollen, ideal innerhalb von Bankengruppen oder internationalen Finanzinstituten Unsere Werte\n- Rechenschaftspflicht: Eigentum an Aufgaben und Herausforderungen zu nehmen und kontinuierliche Verbesserung zu suchen\n- Hands-on: Seien Sie proaktiv, um schnell qualitativ hochwertige Ergebnisse zu liefern\n- Passionate: Engagement und Streben nach Exzellenz\n- Lösungsorientierte Zusammenarbeit Zusammenarbeit mit einem Unternehmergeist.",
+        "fr": "Principales responsabilités\n- Global Business & Functional Analysis:\n- Diriger la collecte et la documentation des exigences mondiales pour les changements de système et de processus dans l'ensemble des fonctions Conformité et juridique.\n- Aider à identifier, évaluer et élaborer des spécifications opérationnelles pour les systèmes et les procédures qui sont rentables et répondent aux exigences.\n- Servir d'interface clé entre les équipes mondiales et locales, assurer l'alignement entre les unités opérationnelles et les juridictions\n- Cartographier les processus de bout en bout et mettre en évidence les variations régionales aux fins de l'harmonisation\n- Surveillance des systèmes et soutien opérationnel :\n- Servir d'interface clé entre les fonctions juridiques et de conformité et de COO et coordonner les améliorations, les mises à niveau et la résolution des problèmes dans l'ensemble de SAS AML, GT Exchange, FircoContinuity et Pythagore\n- Soutenir les initiatives de changement global, y compris la mise en oeuvre d'outils, les initiatives de qualité des données et les adaptations réglementaires\n- Soutenir les processus de TAU, la documentation du système et la coordination globale du déploiement\n- Gouvernance :\n- Contribuer aux forums sur la gouvernance en préparant des rapports et des mises à jour de statut cohérents au niveau mondial\n\n## Compétences et expérience\n- Compréhension solide des environnements de conformité et des cadres de contrôle interne dans les services bancaires ou financiers.\n- Fortes capacités d'analyse, de documentation et de gestion des parties prenantes\n- Autonomie, fiabilité et haute capacité de propriété; capable de fournir dans des contextes rapides et de haute responsabilité.\n- L'état d'esprit global avec d'excellentes compétences en communication interculturelle.\n- Connaissance de l'anglais\n- Expérience avec les outils de gouvernance de projet et la visualisation des données (par exemple JIRA, SharePoint, Power BI, tableaux de bord Excel).\n- Techniquement parlant la fonctionnalité des outils de conformité, les flux de travail du système et les flux de données\n- Diplôme universitaire en droit, économie, administration des affaires, ou domaine connexe. - 5 ans d'expérience dans le secteur bancaire en matière de conformité, de risque, d'audit ou de transformation, idéalement au sein de groupes bancaires ou d'institutions financières internationales\n\n## Nos valeurs\n- Responsabilité : S'approprier les tâches et les défis ainsi que rechercher une amélioration continue\n- Hands-on : Être proactif pour produire rapidement des résultats de haute qualité\n- Passionné : S'engager et s'efforcer d'atteindre l'excellence\n- Inspiré par la solution : Se concentrer sur les résultats des clients et traiter les clients équitablement avec un état d'esprit conscient des risques\n- Orienté par le partenariat : Promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit d'entreprise."
       },
       "requirementsByLocale": {
         "en": [
@@ -4454,12 +4471,12 @@
           }
         }
       },
-      "crawledAt": "2026-04-14T09:50:28.272Z",
+      "crawledAt": "2026-04-14T21:35:38.095Z",
       "slugByLocale": {
         "it": "affari-analisti-legali-compliance-efg-international-ag-geneve",
         "en": "business-analyst-legal-compliance-efg-geneve",
         "de": "business-analysten-recht-und-compliance-efg-international-ag-geneve",
-        "fr": "business-analyst-legal-compliance-efg-geneve"
+        "fr": "business-analyste-legal-compliance-efg-international-ag-geneve"
       },
       "addressLocality": "Geneve",
       "addressCountry": "CH",
@@ -4487,11 +4504,15 @@
         ],
         "de": [
           "business-analyst-legal-compliance-efg-geneve"
+        ],
+        "fr": [
+          "business-analyst-legal-compliance-efg-geneve"
         ]
       },
       "previousSlugs": [
         "business-analyst-legal-compliance-efg-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "efg-6068",
