@@ -1,16 +1,16 @@
 {
   "key": "engadin-tourismus",
   "label": "Engadin Tourismus AG",
-  "generatedAt": "2026-04-13T21:37:17.175Z",
+  "generatedAt": "2026-04-14T09:51:05.363Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3152,
-  "avgDurationMs": 3152,
+  "durationMs": 3429,
+  "avgDurationMs": 3429,
   "durationHistory": [
-    3152
+    3429
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,12 +34,12 @@
       "employmentType": "FULL_TIME",
       "experienceLevel": "ENTRY",
       "featured": false,
-      "postedDate": "2026-04-13",
+      "postedDate": "2026-04-14",
       "url": "https://www.engadintourismus.ch/ueber-uns/jobs/jobs/lehrstelle-kauffrau-kaufmann-efz-hotel-gastro-tourismus-hgt",
       "applyUrl": "https://www.engadintourismus.ch/ueber-uns/jobs/jobs/lehrstelle-kauffrau-kaufmann-efz-hotel-gastro-tourismus-hgt",
       "source": "Engadin Tourismus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T21:37:15.798Z",
+      "crawledAt": "2026-04-14T09:51:03.909Z",
       "firstSeenAt": "2026-04-13T10:28:50.687Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -50,45 +50,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "engadin-tourismus-dde23e167794",
-      "slug": "junior-multimedia-producer-80-100-m-w-d-st-moritz-engadin-tourismus",
-      "company": "Engadin Tourismus AG",
-      "companyKey": "engadin-tourismus",
-      "companyDomain": "engadintourismus.ch",
-      "title": "Junior Multimedia Producer 80 – 100% m/w/d",
-      "location": "St. Moritz",
-      "canton": "GR",
-      "addressLocality": "St. Moritz",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7500",
-      "category": "marketing",
-      "sector": "Turismo",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "ENTRY",
-      "featured": false,
-      "postedDate": "2026-04-13",
-      "url": "https://www.engadintourismus.ch/ueber-uns/jobs/jobs/junior-multimedia-producer-80-100-m-w-d",
-      "applyUrl": "https://www.engadintourismus.ch/ueber-uns/jobs/jobs/junior-multimedia-producer-80-100-m-w-d",
-      "source": "Engadin Tourismus Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-04-13T10:28:50.406Z",
-      "salaryMin": 41600,
-      "salaryMax": 74000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-04-13T10:28:50.406Z",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
