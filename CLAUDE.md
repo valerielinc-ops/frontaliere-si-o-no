@@ -131,7 +131,7 @@ Tests that read `data/jobs.json` (gitignored): MUST exclude `needsRetranslation:
 - **Never use `text-slate-400`** on light backgrounds — use `text-slate-500` or `text-slate-600`
 - **Every button** must have an accessible name (text, `aria-label`, or `title`)
 - **All `<img>` tags** must have `width`, `height`, and `alt` attributes
-- **Dark mode**: EVERY visual element must have a `dark:` variant
+- **Dark mode**: NEVER use `dark:` color prefixes in component code. All colors use semantic tokens from `index.css` that auto-switch between light/dark via CSS custom properties. The only allowed `dark:` usage is `dark:prose-invert` (Tailwind Typography plugin). If you need a new color, add a semantic token to `index.css` — do not hardcode `dark:bg-*`, `dark:text-*`, `dark:border-*`, etc. See `index.css` `:root` / `html.dark` / `@theme` blocks for the full token inventory.
 
 For detailed SEO rules (JobPosting structured data, validation gates, fallback rules): read [docs/SEO-RULES.md](docs/SEO-RULES.md)
 
@@ -153,7 +153,7 @@ For detailed SEO rules (JobPosting structured data, validation gates, fallback r
 - [ ] No secrets in source code
 - [ ] Accessibility rules followed (contrast, aria-labels, image dimensions)
 - [ ] New pages have SEO metadata + sitemap entry + static HTML generated
-- [ ] Dark mode variants included
+- [ ] No `dark:` color prefixes — use semantic tokens from `index.css` (enforced by `no-dark-color-classes.test.ts`)
 - [ ] If user-facing feature, new release entry in `WhatsNewModal.tsx`
 
 ## Auto-push Rule

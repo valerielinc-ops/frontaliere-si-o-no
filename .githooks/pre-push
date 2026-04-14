@@ -117,6 +117,27 @@ EOF
   fi
 done
 
+# ── Semantic token enforcement: no dark: color classes in components ──
+DARK_VIOLATIONS=$(grep -rn --include='*.tsx' --include='*.ts' \
+  -E 'dark:(([a-z-]+:)*)(bg|text|border|ring|from|to|via|shadow|outline|decoration|fill|stroke|accent|caret|divide)-[a-z]+-[0-9]' \
+  App.tsx components/ services/ build-plugins/ 2>/dev/null \
+  | grep -v 'dark:prose-invert' \
+  | grep -v '^\s*//' \
+  | grep -v 'migrate-' \
+  | grep -v 'no-dark-color-classes' || true)
+
+if [ -n "$DARK_VIOLATIONS" ]; then
+  echo ""
+  echo "❌ BLOCKED: Hardcoded dark: color classes found."
+  echo "   Use semantic tokens from index.css instead."
+  echo "   See :root / html.dark / @theme blocks for available tokens."
+  echo ""
+  echo "$DARK_VIOLATIONS" | head -20
+  echo ""
+  echo "   Fix: replace dark:bg-red-500 → bg-danger-subtle, dark:text-slate-300 → text-muted, etc."
+  exit 1
+fi
+
 # ── Core deploy pipeline (assemble → build → all validations) ──
 echo ""
 echo "🚀 Running deploy pipeline locally (npm run prepush)..."
