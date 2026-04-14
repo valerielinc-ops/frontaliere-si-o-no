@@ -1,18 +1,19 @@
 {
   "key": "coop-ticino",
   "label": "Coop",
-  "generatedAt": "2026-04-14T09:45:34.024Z",
+  "generatedAt": "2026-04-14T21:30:43.645Z",
   "total": 167,
-  "newCount": 2,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 4,
   "removedCount": 0,
-  "unchangedCount": 165,
-  "durationMs": 196834,
-  "avgDurationMs": 196834,
+  "unchangedCount": 163,
+  "durationMs": 182688,
+  "avgDurationMs": 182688,
   "durationHistory": [
-    196834
+    182688
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-hy7w7d",
       "slug": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden",
@@ -36,15 +37,17 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-04-14T09:43:57.169Z",
       "firstSeenAt": "2026-04-14T09:43:57.169Z",
-      "needsRetranslation": true,
       "addressLocality": "Chur",
       "sourceLang": "de",
-      "_qualityScore": 68,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -70,21 +73,19 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-04-14T09:43:57.169Z",
       "firstSeenAt": "2026-04-14T09:43:57.169Z",
-      "needsRetranslation": true,
       "addressLocality": "Chur",
       "sourceLang": "de",
-      "_qualityScore": 68,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
-    }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "company-3br90q",
       "slug": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden",
@@ -156,7 +157,10 @@
         "translation": 25,
         "completeness": 19
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "company-qfcqd",
       "slug": "verkaufer-in-frischprodukte-brot-und-kasse-coop-kublis-graubunden",
@@ -1130,6 +1134,78 @@
       "featured": false,
       "postedDate": "2026-03-26",
       "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/58c65601-f796-487f-9cf2-09e367037576",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Grigioni",
+        "canton": "GR"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-03-31T07:18:28.826Z",
+      "addressLocality": "Chur",
+      "sourceLang": "de",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "firstSeenAt": "2026-04-13T21:31:42.381Z",
+      "needsRetranslation": true,
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 19
+      }
+    },
+    {
+      "id": "company-tcv189",
+      "slug": "verkaufer-in-food-brot-frische-coop-churwalden-graubunden",
+      "company": "Coop Genossenschaft",
+      "title": "Verkäufer:in Food (Brot / Frische)",
+      "location": "Churwalden",
+      "canton": "GR",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-26",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food-brot-frische/3cb437ea-9afa-4171-8455-6813dcaf5cf0",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Grigioni",
+        "canton": "GR"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-03-31T07:18:28.826Z",
+      "addressLocality": "Churwalden",
+      "sourceLang": "de",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "firstSeenAt": "2026-04-13T21:31:42.381Z",
+      "needsRetranslation": true,
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 19
+      }
+    },
+    {
+      "id": "company-46pqaj",
+      "slug": "kochin-koch-w-m-d-coop-chur-graubunden",
+      "company": "Coop Genossenschaft",
+      "title": "Köchin / Koch (w/m/d)",
+      "location": "Chur",
+      "canton": "GR",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-26",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/koechin-koch-w-m-d/659d9b1f-595b-40df-8a93-651578a442b3",
       "source": "Company Careers Crawler",
       "_targetScope": {
         "type": "adapter_seed_meta",
