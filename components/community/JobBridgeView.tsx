@@ -10,11 +10,12 @@
  */
 
 import { useEffect, useRef, useState } from 'react';
-import { ArrowLeft, ArrowRight, Building2, CheckCircle2, Loader2, Mail, MapPin, Shield } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Building2, CheckCircle2, Clock, Euro, Loader2, Mail, MapPin, Shield } from 'lucide-react';
 import { useLocale } from '@/services/i18n';
 import { renderGoogleButton, isLinkedInSignInAvailable, signInWithLinkedIn, saveAuthJobContext } from '@/services/authService';
 import { reportCaughtError } from '@/services/errorReporter';
 import { upsertNewsletterSubscriber } from '@/services/newsletterSubscribers';
+import { resolveCompanyLogoUrl } from '@/services/jobDataNormalization';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import AdSenseUnit from '@/components/shared/AdSenseUnit';
 
@@ -23,7 +24,18 @@ interface RelatedJob {
  title?: string;
  titleByLocale?: Record<string, string>;
  company?: string;
+ companyKey?: string;
+ companyDomain?: string;
+ url?: string;
  location?: string;
+ canton?: string;
+ contract?: string;
+ postedDate?: string;
+ crawledAt?: string;
+ salaryMin?: number;
+ salaryMax?: number;
+ currency?: string;
+ featured?: boolean;
 }
 
 interface BridgeJobData {
@@ -49,6 +61,37 @@ const SECTION_BY_LOCALE: Record<string, string> = {
  fr: 'trouver-emploi-tessin',
 };
 const PREFIX_BY_LOCALE: Record<string, string> = { it: '', en: '/en', de: '/de', fr: '/fr' };
+
+const COMPANY_ROUTE_PREFIX: Record<string, string> = { it: 'azienda', en: 'company', de: 'unternehmen', fr: 'entreprise' };
+function slugifyCompanyName(name: string): string {
+ return name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+}
+
+const CONTRACT_COPY: Record<string, Record<string, string>> = {
+ 'full-time': { it: 'Tempo pieno', en: 'Full-time', de: 'Vollzeit', fr: 'Temps plein' },
+ 'part-time': { it: 'Part-time', en: 'Part-time', de: 'Teilzeit', fr: 'Temps partiel' },
+ temporary: { it: 'Temporaneo', en: 'Temporary', de: 'Temporär', fr: 'Temporaire' },
+ internship: { it: 'Stage', en: 'Internship', de: 'Praktikum', fr: 'Stage' },
+ apprenticeship: { it: 'Apprendistato', en: 'Apprenticeship', de: 'Lehrstelle', fr: 'Apprentissage' },
+};
+function formatContractLabel(contract: string | undefined, locale: string): string | null {
+ if (!contract) return null;
+ return CONTRACT_COPY[contract]?.[locale] ?? CONTRACT_COPY[contract]?.it ?? contract;
+}
+function formatDaysAgo(dateStr: string | undefined, locale: string): string | null {
+ if (!dateStr) return null;
+ const diff = Math.floor((Date.now() - new Date(dateStr).getTime()) / 86400000);
+ if (diff < 0) return null;
+ if (diff === 0) return locale === 'it' ? 'Oggi' : locale === 'de' ? 'Heute' : locale === 'fr' ? "Aujourd'hui" : 'Today';
+ if (diff === 1) return locale === 'it' ? 'Ieri' : locale === 'de' ? 'Gestern' : locale === 'fr' ? 'Hier' : 'Yesterday';
+ return locale === 'it' ? `${diff} giorni fa` : locale === 'de' ? `Vor ${diff} Tagen` : locale === 'fr' ? `Il y a ${diff} jours` : `${diff} days ago`;
+}
+function formatRelatedSalary(rj: RelatedJob): string | null {
+ if (!rj.salaryMin) return null;
+ const min = (rj.salaryMin / 1000).toFixed(0);
+ const max = rj.salaryMax ? (rj.salaryMax / 1000).toFixed(0) : null;
+ return max ? `${rj.currency ?? 'CHF'} ${min}k – ${max}k` : `${rj.currency ?? 'CHF'} ${min}k+`;
+}
 
 const BANNER_COPY: Record<string, string> = {
  it: 'Questo annuncio è stato aggiornato — ti portiamo alla versione corrente.',
@@ -293,7 +336,7 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
  value={emailInput}
  onChange={setEmailInput}
  placeholder={EMAIL_PLACEHOLDER_COPY[locale] ?? EMAIL_PLACEHOLDER_COPY.it}
- className="w-full px-3 py-2.5 rounded-stripe border border-edge bg-surface text-sm text-heading dark:text-white placeholder-muted focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+ className="w-full px-3 py-2.5 rounded-stripe border border-edge bg-surface text-sm text-heading placeholder-muted focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
  />
  <button
  type="submit"
@@ -306,21 +349,95 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
  </form>
  {emailError && <p className="text-sm text-danger">{emailError}</p>}
  </div>
- )} {/* AdSense */} <AdSenseUnit slot="5196931137" className="my-2" /> {/* Related active jobs */} {relatedJobs.length > 0 && ( <div className="space-y-2"> <h2 className="text-base font-semibold text-strong">{RELATED_COPY[locale] ?? RELATED_COPY.it}</h2> <ul className="space-y-1.5"> {relatedJobs.slice(0, 6).map((rj) => { const rjSlug = rj.slug; const rjTitle = rj.titleByLocale?.[locale] ?? rj.title ?? rjSlug; const rjPath = `${prefix}/${sectionSlug}/${rjSlug}/`.replace(/\/+/g, '/');
+ )} {/* AdSense */} <AdSenseUnit slot="5196931137" className="my-2" />
+
+ {/* Company banner */}
+ {jobData?.company && (() => {
+ const companySlug = `${COMPANY_ROUTE_PREFIX[locale] || 'azienda'}-${slugifyCompanyName(jobData.company)}`;
+ const companyHref = `${prefix}/${sectionSlug}/${companySlug}/`.replace(/\/+/g, '/');
+ const companyLogo = resolveCompanyLogoUrl({ company: jobData.company });
  return (
- <li key={rjSlug}>
  <a
- href={rjPath}
- className="flex items-center gap-2 rounded-lg border border-edge bg-surface px-3 py-2 text-sm hover:border-stripe-300 dark:hover:border-stripe-600 transition-colors"
+ href={companyHref}
+ className="block rounded-xl border border-edge bg-surface-alt/50 p-4 hover:border-accent-border hover:bg-surface-raised/70 transition-colors"
  >
- <span className="flex-1 font-medium text-strong truncate">{rjTitle}</span>
- {rj.company && <span className="text-muted text-xs shrink-0">{rj.company}</span>}
- <ArrowRight size={12} className="text-muted shrink-0" />
+ <div className="flex items-start gap-3">
+ <div className="w-10 h-10 rounded-lg bg-surface border border-edge flex items-center justify-center overflow-hidden shrink-0">
+ {companyLogo ? (
+ <img src={companyLogo} alt={`Logo ${jobData.company}`} className="w-7 h-7 object-contain" width={28} height={28} loading="lazy" onError={(e) => { const el = e.currentTarget; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.visibility = 'hidden'; } }} />
+ ) : (
+ <Building2 className="w-4 h-4 text-muted" />
+ )}
+ </div>
+ <div className="min-w-0">
+ <h3 className="text-sm font-bold text-heading">{locale === 'it' ? 'Azienda' : locale === 'de' ? 'Unternehmen' : locale === 'fr' ? 'Entreprise' : 'Company'}</h3>
+ <p className="text-sm text-subtle mt-1">{jobData.company}{jobData.location ? ` · ${jobData.location}` : ''}</p>
+ <p className="text-sm text-muted mt-2">
+ {locale === 'it' ? 'Frontaliere Ticino ha scovato questa opportunità nel monitoraggio aziende.' : locale === 'de' ? 'Frontaliere Ticino hat diese Möglichkeit im Unternehmensmonitoring entdeckt.' : locale === 'fr' ? 'Frontaliere Ticino a repéré cette opportunité dans le suivi des entreprises.' : 'Frontaliere Ticino discovered this opportunity through company monitoring.'}
+ </p>
+ </div>
+ </div>
  </a>
- </li>
+ );
+ })()}
+
+ {/* Related active jobs — listing-style cards */}
+ {relatedJobs.length > 0 && (
+ <div className="space-y-2">
+ <h2 className="text-base font-semibold text-strong">{RELATED_COPY[locale] ?? RELATED_COPY.it}</h2>
+ <div className="space-y-2">
+ {relatedJobs.slice(0, 6).map((rj) => {
+ const rjSlug = rj.slug;
+ const rjTitle = rj.titleByLocale?.[locale] ?? rj.title ?? rjSlug;
+ const rjPath = `${prefix}/${sectionSlug}/${rjSlug}/`.replace(/\/+/g, '/');
+ const rjLogo = resolveCompanyLogoUrl({ company: rj.company, companyKey: rj.companyKey, companyDomain: rj.companyDomain, url: rj.url });
+ const rjSalary = formatRelatedSalary(rj);
+ const rjContract = formatContractLabel(rj.contract, locale);
+ const rjPosted = formatDaysAgo(rj.postedDate ?? rj.crawledAt, locale);
+ return (
+ <article
+ key={rjSlug}
+ className={`rounded-xl border p-3 sm:p-4 transition-colors min-h-[72px] ${
+ rj.featured ? 'border-warning-border bg-warning-subtle hover:border-warning' : 'border-edge bg-surface/50 hover:border-accent-border'
+ }`}
+ >
+ <a href={rjPath} className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-lg">
+ <div className="flex items-start gap-3">
+ <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-lg bg-surface-raised flex items-center justify-center overflow-hidden border border-edge shrink-0">
+ {rjLogo ? (
+ <img src={rjLogo} alt={`Logo ${rj.company}`} className="w-7 h-7 sm:w-10 sm:h-10 object-contain" width={40} height={40} loading="lazy" onError={(e) => { const el = e.currentTarget; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.visibility = 'hidden'; } }} />
+ ) : (
+ <Building2 className="w-5 h-5 text-muted" />
+ )}
+ </div>
+ <div className="min-w-0 flex-1">
+ <h3 className="text-sm sm:text-base font-bold text-heading leading-tight">{rjTitle}</h3>
+ <p className="text-xs sm:text-sm text-subtle mt-0.5 line-clamp-2">
+ {rj.company}{rj.location ? ` · ${rj.location}${rj.canton ? ` (${rj.canton})` : ''}` : ''}
+ </p>
+ {rjSalary && (
+ <span className="mt-1 inline-flex items-center gap-1 text-xs sm:text-sm font-semibold text-success">
+ <Euro className="w-3.5 h-3.5" />{rjSalary}
+ </span>
+ )}
+ </div>
+ </div>
+ <div className="mt-2 sm:mt-3 flex flex-wrap items-center gap-2 sm:gap-1.5 text-xs text-muted">
+ {rj.location && (
+ <span className="inline-flex items-center gap-1"><MapPin className="w-3 h-3" />{rj.location}</span>
+ )}
+ {rjContract && (
+ <span className="px-1.5 py-0.5 rounded bg-surface-raised text-subtle">{rjContract}</span>
+ )}
+ {rjPosted && (
+ <span className="inline-flex items-center gap-1"><Clock className="w-3 h-3" />{rjPosted}</span>
+ )}
+ </div>
+ </a>
+ </article>
  );
  })}
- </ul>
+ </div>
  </div>
  )}
 

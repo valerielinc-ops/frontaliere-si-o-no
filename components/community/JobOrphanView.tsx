@@ -32,6 +32,11 @@ const SECTION_BY_LOCALE: Record<string, string> = {
 };
 const PREFIX_BY_LOCALE: Record<string, string> = { it: '', en: '/en', de: '/de', fr: '/fr' };
 
+const COMPANY_ROUTE_PREFIX: Record<string, string> = { it: 'azienda', en: 'company', de: 'unternehmen', fr: 'entreprise' };
+function slugifyCompanyName(name: string): string {
+ return name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+}
+
 const BANNER_COPY: Record<string, string> = {
  it: 'Questo annuncio non è più disponibile o non è stato trovato.',
  en: 'This job listing is no longer available or was not found.',
@@ -282,6 +287,31 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp }
  </div>
  </div>
 
+ {/* Company banner */}
+ {slugParts.company && (() => {
+ const companySlug = `${COMPANY_ROUTE_PREFIX[locale] || 'azienda'}-${slugifyCompanyName(slugParts.company)}`;
+ const companyHref = `${prefix}/${sectionSlug}/${companySlug}/`.replace(/\/+/g, '/');
+ return (
+ <a
+ href={companyHref}
+ className="block rounded-xl border border-edge bg-surface-alt/50 p-4 hover:border-accent-border hover:bg-surface-raised/70 transition-colors"
+ >
+ <div className="flex items-start gap-3">
+ <div className="w-10 h-10 rounded-lg bg-surface border border-edge flex items-center justify-center overflow-hidden shrink-0">
+ <Building2 className="w-4 h-4 text-muted" />
+ </div>
+ <div className="min-w-0">
+ <h3 className="text-sm font-bold text-heading">{locale === 'it' ? 'Azienda' : locale === 'de' ? 'Unternehmen' : locale === 'fr' ? 'Entreprise' : 'Company'}</h3>
+ <p className="text-sm text-subtle mt-1">{slugParts.company}{slugParts.location ? ` · ${slugParts.location}` : ''}</p>
+ <p className="text-sm text-muted mt-2">
+ {locale === 'it' ? 'Frontaliere Ticino ha scovato questa opportunità nel monitoraggio aziende.' : locale === 'de' ? 'Frontaliere Ticino hat diese Möglichkeit im Unternehmensmonitoring entdeckt.' : locale === 'fr' ? 'Frontaliere Ticino a repéré cette opportunité dans le suivi des entreprises.' : 'Frontaliere Ticino discovered this opportunity through company monitoring.'}
+ </p>
+ </div>
+ </div>
+ </a>
+ );
+ })()}
+
  {/* Active jobs cards (extracted from static HTML) */}
  {activeJobLinks.length > 0 && (
  <div className="space-y-3">
@@ -293,7 +323,7 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp }
  <li key={link.href}>
  <a
  href={link.href}
- className="flex items-center gap-3 rounded-xl border border-edge bg-surface px-4 py-3 hover:border-stripe-300 dark:hover:border-stripe-600 hover:shadow-sm transition-[color,background-color,border-color,box-shadow]"
+ className="flex items-center gap-3 rounded-xl border border-edge bg-surface px-4 py-3 hover:border-accent hover:shadow-sm transition-[color,background-color,border-color,box-shadow]"
  >
  <span className="flex-1 min-w-0">
  <span className="block font-medium text-sm text-strong truncate">{link.title}</span>
