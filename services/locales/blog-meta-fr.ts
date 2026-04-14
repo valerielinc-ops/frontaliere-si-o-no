@@ -2133,6 +2133,9 @@ const blogMetaFr: Record<string, string> = {
  'blog.article.tappa-campione-ditalia-2025-commissione.title': 'Tessin et Campione d’Italie : la Commission paritaire fait le point sur les services',
  'blog.article.tappa-campione-ditalia-2025-commissione.excerpt': 'Norman Gobbi préside la rencontre annuelle avec Campione d’Italie. Les services tessinois, les déchets et la santé au cœur des échanges. Élections communales en vue.',
  'blog.article.tappa-campione-ditalia-2025-commissione.imageAlt': 'Vue de Campione d\'Italie depuis la rive tessinoise du lac de Lugano au coucher du soleil',
+    'blog.article.nuova-strategia-zanzara-tigre-chiasso-2026.title': 'Chiasso confie aux privés la lutte contre le moustique tigre : ce qui change pour les frontaliers',
+    'blog.article.nuova-strategia-zanzara-tigre-chiasso-2026.excerpt': 'Dès mai et jusqu’en octobre, la gestion des foyers de moustiques tigres à Chiasso évolue. Les particuliers devront désormais s’occuper des bouches d’égout situées sur leurs terrains, tandis que la Commune interviendra chaque semaine avec des larvicides biologiques gratuits.',
+    'blog.article.nuova-strategia-zanzara-tigre-chiasso-2026.imageAlt': 'Vue de Chiasso au printemps avec bâtiments historiques et espaces verts',
 };
 
 export default blogMetaFr;

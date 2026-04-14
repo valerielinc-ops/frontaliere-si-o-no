@@ -2133,6 +2133,9 @@ const blogMetaIt: Record<string, string> = {
  'blog.article.tappa-campione-ditalia-2025-commissione.title': 'Ticino e Campione d’Italia: la Commissione paritetica fa il punto sui servizi',
  'blog.article.tappa-campione-ditalia-2025-commissione.excerpt': 'Norman Gobbi presiede l’incontro annuale con Campione d’Italia. Servizi ticinesi, rifiuti e sanità al centro del confronto. Elezioni comunali in vista.',
  'blog.article.tappa-campione-ditalia-2025-commissione.imageAlt': 'Vista di Campione d\'Italia dalla riva ticinese del lago di Lugano con luce serale',
+    'blog.article.nuova-strategia-zanzara-tigre-chiasso-2026.title': 'Chiasso affida ai privati la lotta alla zanzara tigre: cosa cambia per i frontalieri',
+    'blog.article.nuova-strategia-zanzara-tigre-chiasso-2026.excerpt': 'Da maggio a ottobre cambia la gestione dei focolai di zanzara tigre a Chiasso. I privati dovranno occuparsi dei tombini sui loro terreni, mentre il Comune interverrà settimanalmente con larvicidi biologici gratuiti.',
+    'blog.article.nuova-strategia-zanzara-tigre-chiasso-2026.imageAlt': 'Vista di Chiasso in primavera con edifici storici e aree verdi, luce naturale',
 };
 
 export default blogMetaIt;

@@ -7511,6 +7511,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
  }
  },
 
+  'blog-nuova-strategia-zanzara-tigre-chiasso-2026': {
+    title: 'Chiasso affida ai privati la lotta alla | Frontaliere Ticino',
+    description: 'Da maggio a ottobre cambia la gestione dei focolai di zanzara tigre a Chiasso. I privati dovranno occuparsi dei tombini sui loro terreni, mentre il Comune inter',
+    keywords: 'frontalieri, ticino, svizzera, italia, chiasso, affida, privati, lotta',
+    ogTitle: 'Chiasso affida ai privati la lotta alla zanzara tigre: co',
+    ogDescription: 'Da maggio a ottobre cambia la gestione dei focolai di zanzara tigre a Chiasso. I privati dovranno occuparsi dei tombini sui loro terreni, mentre il Comune inter',
+    canonicalPath: '/articoli-frontaliere/nuova-strategia-zanzara-tigre-chiasso-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Chiasso affida ai privati la lotta alla zanzara tigre: co",
+      "description": "Da maggio a ottobre cambia la gestione dei focolai di zanzara tigre a Chiasso. I privati dovranno occuparsi dei tombini sui loro terreni, mentre il Comune inter",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/nuova-strategia-zanzara-tigre-chiasso-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di Chiasso in primavera con edifici storici e aree verdi, luce naturale"
+      },
+      "datePublished": "2026-04-14T20:31:36+00:00",
+      "dateModified": "2026-04-14T20:31:36+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nuova-strategia-zanzara-tigre-chiasso-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

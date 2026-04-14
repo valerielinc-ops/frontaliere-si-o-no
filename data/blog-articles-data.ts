@@ -5962,4 +5962,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/tappa-campione-ditalia-2025-commissione.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'nuova-strategia-zanzara-tigre-chiasso-2026',
+ category: 'pratico',
+ date: '2026-04-14T20:31:36.692Z',
+ image: '/images/blog/nuova-strategia-zanzara-tigre-chiasso-2026.jpg',
+ hasCalculator: true,
+ },
 ];

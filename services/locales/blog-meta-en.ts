@@ -2133,6 +2133,9 @@ const blogMetaEn: Record<string, string> = {
  'blog.article.tappa-campione-ditalia-2025-commissione.title': 'Ticino and Campione d’Italia: the Joint Commission reviews services',
  'blog.article.tappa-campione-ditalia-2025-commissione.excerpt': 'Norman Gobbi chairs the annual meeting with Campione d’Italia. Ticino’s services, waste management and healthcare take centre stage in the discussion. Municipal elections on the horizon.',
  'blog.article.tappa-campione-ditalia-2025-commissione.imageAlt': 'View of Campione d\'Italia from the Ticino lakeside at dusk',
+    'blog.article.nuova-strategia-zanzara-tigre-chiasso-2026.title': 'Chiasso shifts tiger mosquito control to private owners: what changes for cross-border workers',
+    'blog.article.nuova-strategia-zanzara-tigre-chiasso-2026.excerpt': 'From May to October, the management of tiger mosquito hotspots in Chiasso will change. Private property owners will now be responsible for treating manholes on their land, while the municipality will provide free weekly biological larvicide treatments.',
+    'blog.article.nuova-strategia-zanzara-tigre-chiasso-2026.imageAlt': 'Street view of Chiasso in spring showing historic buildings and green areas',
 };
 
 export default blogMetaEn;

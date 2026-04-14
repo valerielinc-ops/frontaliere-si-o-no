@@ -2133,6 +2133,9 @@ const blogMetaDe: Record<string, string> = {
  'blog.article.tappa-campione-ditalia-2025-commissione.title': 'Tessin und Campione d’Italia: die paritätische Kommission zieht Zwischenbilanz zu den Dienstleistungen',
  'blog.article.tappa-campione-ditalia-2025-commissione.excerpt': 'Norman Gobbi leitet das jährliche Treffen mit Campione d’Italia. Im Mittelpunkt der Gespräche stehen Tessiner Dienstleistungen, Abfallwirtschaft und Gesundheit. Kommunalwahlen stehen bevor.',
  'blog.article.tappa-campione-ditalia-2025-commissione.imageAlt': 'Blick auf Campione d\'Italia vom Luganersee aus bei Abendlicht',
+    'blog.article.nuova-strategia-zanzara-tigre-chiasso-2026.title': 'Chiasso überträgt die Tigermücken-Bekämpfung an Private: Was sich für Grenzgänger ändert',
+    'blog.article.nuova-strategia-zanzara-tigre-chiasso-2026.excerpt': 'Von Mai bis Oktober ändert sich die Bekämpfung der Tigermücken-Herde in Chiasso. Private müssen sich um die Gullys auf ihrem Grundstück kümmern, während die Gemeinde wöchentlich mit kostenlosen biologischen Larviziden eingreift.',
+    'blog.article.nuova-strategia-zanzara-tigre-chiasso-2026.imageAlt': 'Strassenszene in Chiasso im Frühling mit historischen Gebäuden und Grünflächen',
 };
 
 export default blogMetaDe;
