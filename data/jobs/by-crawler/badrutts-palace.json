@@ -1,6 +1,6 @@
 {
   "crawlerKey": "badrutts-palace",
-  "assembledAt": "2026-04-13T21:10:13.500Z",
+  "assembledAt": "2026-04-14T09:23:51.145Z",
   "jobs": [
     {
       "id": "badrutts-palace-6040a72347b5",
@@ -33,7 +33,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/3724328-beauty-therapist-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-13T21:10:11.034Z",
+      "crawledAt": "2026-04-14T09:23:49.109Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -91,6 +91,7 @@
         "beauty-therapist-m-w-d-badrutts-palace-ch"
       ],
       "firstSeenAt": "2026-04-13T10:01:44.448Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -135,7 +136,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/6229812-fitness-trainer-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-13T21:10:11.033Z",
+      "crawledAt": "2026-04-14T09:23:49.108Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -194,6 +195,7 @@
         "fitness-trainer-m-w-d-badrutts-palace-ch"
       ],
       "firstSeenAt": "2026-04-13T10:01:44.447Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -238,7 +240,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/6269086-patissier-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T21:10:11.032Z",
+      "crawledAt": "2026-04-14T09:23:49.107Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -298,6 +300,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:01:44.447Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -342,7 +345,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/6279780-sous-chef-for-chesa-veglia-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-13T21:10:11.031Z",
+      "crawledAt": "2026-04-14T09:23:49.106Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -402,6 +405,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:01:44.446Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -446,7 +450,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/6955753-it-manager-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T21:10:11.029Z",
+      "crawledAt": "2026-04-14T09:23:49.105Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -504,6 +508,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:01:44.445Z",
+      "needsRetranslation": true,
       "salaryMin": 79500,
       "salaryMax": 135000,
       "baseSalary": {
@@ -548,7 +553,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/7000611-director-of-brand-marketing-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T21:10:11.028Z",
+      "crawledAt": "2026-04-14T09:23:49.104Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -608,6 +613,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:01:44.444Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -652,7 +658,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/7317185-f-b-gouvernante-chesa-veglia-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-13T21:10:11.027Z",
+      "crawledAt": "2026-04-14T09:23:49.103Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -708,6 +714,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:01:44.443Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -722,37 +729,37 @@
       }
     },
     {
-      "id": "badrutts-palace-d36f86df616d",
-      "slug": "responsabile-esperienza-ospiti-m-f-d-badrutt-s-palace-hotel-st-moritz",
+      "id": "badrutts-palace-70d2302fa501",
+      "slug": "guest-experience-executive-m-w-d-teilzeit-50-badrutts-palace-ch",
       "slugByLocale": {
-        "it": "responsabile-esperienza-ospiti-m-f-d-badrutt-s-palace-hotel-st-moritz",
-        "en": "guest-experience-executive-m-w-d-badrutt-s-palace-hotel-st-moritz",
-        "de": "guest-experience-executive-m-w-d-badrutts-palace-ch",
-        "fr": "responsable-experience-client-m-f-d-badrutt-s-palace-hotel-st-moritz"
+        "de": "guest-experience-executive-m-w-d-teilzeit-50-badrutts-palace-ch",
+        "it": "guest-experience-executive-m-w-d-teilzeit-50-badrutts-palace-ch",
+        "en": "guest-experience-executive-m-w-d-teilzeit-50-badrutt-s-palace-hotel-st-moritz",
+        "fr": "guest-experience-executive-m-w-d-teilzeit-50-badrutts-palace-ch"
       },
       "company": "Badrutt's Palace Hotel",
       "companyKey": "badrutts-palace",
       "companyDomain": "badruttscareers.com",
-      "title": "Guest Experience Executive (m/w/d)",
+      "title": "Guest Experience Executive (m/w/d) - Teilzeit 50%",
       "titleByLocale": {
-        "it": "Responsabile Esperienza Ospiti (m/f/d)",
-        "en": "Guest Experience Executive (m/w/d)",
-        "de": "Guest Experience Executive (m/w/d)",
-        "fr": "Responsable Expérience Client (m/f/d)"
+        "de": "Guest Experience Executive (m/w/d) - Teilzeit 50%",
+        "en": "Guest Experience Executive (m/w/d) - Teilzeit 50%",
+        "it": "Guest Experience Executive (m/w/d) - Teilzeit 50%",
+        "fr": "Guest Experience Executive (m/w/d) - Teilzeit 50%"
       },
       "description": "<p><strong>Was Sie bei uns bewirken</strong></p><p><span>Als Guest Experience Executive sind Sie ein wichtiger Bestandteil unseren Gästen aussergewöhnliche und unvergessliche Momente zu bereiten. Mit einem feinen Gespür für individuelle Wünsche, einem hohen Qualitätsanspruch und echter Leidenschaft für erstklassigen Service gestalten Sie jeden Aufenthalt zu einem besonderen Erlebnis.</span></p><ul><li><p><span>Sie stehen bereits vor der Anreise sowie während des gesamten Aufenthalts in engem Kontakt mit unseren Gästen, um ein erstklassiges Gästeerlebnis und individuell abgestimmte Services sicherzustellen.</span></p></li><li><p><span>Sie arbeiten eng mit verschiedenen Abteilungen zusammen und gewährleisten so eine reibungslose und effektive Kommunikation.</span></p></li><li><p><span>Über unser Messaging System betreuen Sie Gästeanfragen schnell, diskret und professionell und sorgen dafür, dass sich unsere Gäste jederzeit bestens umsorgt fühlen. <br>Dabei zeichnen Sie sich durch ein ausgeprägtes Gespür für Menschen sowie eine starke Team- und Lösungsorientierung aus.</span></p></li><li><p><span>Auch in anspruchsvollen oder stressigen Situationen bewahren Sie einen kühlen Kopf und stellen sicher, dass alle Aufgaben effizient, strukturiert und professionell erledigt werden.</span></p></li></ul><p></p><p><span><strong>Das bringen Sie mit</strong></span></p><p><span>Für diese vielseitige Position bringen Sie idealerweise folgendes Profil mit:</span></p><ul><li class=\"MsoListParagraph\"><p><span>Sie verfügen über eine Berufsausbildung in der Hotellerie oder abgeschlossene Hotelfachschule.</span></p></li><li class=\"MsoNormal\"><p><span>Mindestens 2 Jahre Erfahrung am Front Office und/oder in der Reservierung und/oder in der Conciergerie in der Luxushotellerie.</span></p></li><li class=\"MsoNormal\"><p><span>Sehr gute Sprachkenntnisse in Deutsch und Englisch; Italienisch und weitere Sprachen sind von Vorteil.</span></p></li><li class=\"MsoListParagraph\"><p><span>Idealerweise verfügen Sie über Erfahrung im Umgang mit Systemen wie Concierge Organizer, Protel und Aleno oder vergleichbaren Tools und sind versiert in der professionellen E-Mail- und Telefonkorrespondenz mit internationalen Gästen auf 5-Sterne-Niveau.</span></p></li><li class=\"MsoNormal\"><p><span>Sehr gute EDV-Anwenderkenntnisse.</span></p></li><li class=\"MsoNormal\"><p><span>Proaktiver Arbeitsstil sowie ein hohes Mass an Engagement und Verantwortungsbewusstsein.</span></p></li><li class=\"MsoNormal\"><p><span>Ein ausgeprägtes Gespür für Menschen, Teamfähigkeit und Lösungsorientierung.</span></p></li><li class=\"MsoNormal\"><p><span>Souveränes Auftreten sowie gepflegte Umgangsformen.</span><br><br></p></li></ul><p><strong>Unser Angebot</strong></p><ul><li class=\"MsoNormal\"><p><span>Eine unbefristete Position</span></p></li><li class=\"MsoNormal\"><p><span>5-Tage Woche im Schnitt bei 43,5 Stunden</span></p></li><li class=\"MsoNormal\"><p><span>5 Wochen Ferien und 6 Feiertage pro Jahr</span></p></li><li class=\"MsoNormal\"><p><span>13. Gehalt ab Eintritt (pro rata temporis)</span></p></li><li class=\"MsoNormal\"><p><span>Auf Wunsch zu Beginn Unterkunft in einem unserer schönen Mitarbeiterhäuser</span></p></li><li class=\"MsoNormal\"><p><span>Verpflegungsmöglichkeit im neuen, modernen Mitarbeiter Restaurant</span></p></li><li class=\"MsoNormal\"><p><span>Arbeit in einem attraktiven Umfeld mit Entwicklungsmöglichkeiten</span><br></p></li></ul><p>Wenn Sie eine vielseitige, verantwortungsvolle Tätigkeit in einem dynamischen Team schätzen und sich mit Ihrer Erfahrung und Motivation einbringen möchten, freuen wir uns auf Ihre vollständige Online-Bewerbung.</p><p></p><p><strong><em>Warnhinweis vor Recruiting-Betrug</em></strong></p><p><em>Das Badrutt’s Palace Hotel wird im Rahmen des Rekrutierungsprozesses niemals Zahlungen oder finanzielle Informationen verlangen. Die gesamte offizielle Kommunikation erfolgt ausschliesslich über E-Mail-Adressen mit der Endung </em><strong><em>@</em></strong><a target=\"_blank\" href=\"http://badruttspalace.com\"><strong><em>badruttspalace.com</em></strong></a><em>.</em><br><em>Sollten Sie eine Zahlungsaufforderung oder eine verdächtige Nachricht erhalten, ignorieren Sie diese bitte und kontaktieren Sie uns direkt über unsere offizielle Website.</em></p>",
       "descriptionByLocale": {
-        "it": "Cosa potrai realizzare presso di noi In qualità di Responsabile Esperienza Ospiti, rivestirete un ruolo fondamentale nel creare momenti straordinari e indimenticabili per i nostri ospiti. Con una spiccata sensibilità per le esigenze individuali, un elevato standard qualitativo e una vera passione per un servizio di prima classe, trasformerete ogni soggiorno in un’esperienza unica. - Vi occupate già prima dell’arrivo e durante l’intero soggiorno di mantenere un contatto stretto con i nostri ospiti, garantendo un’esperienza di alto livello e servizi personalizzati. - Lavorate a stretto contatto con diversi reparti per assicurare una comunicazione fluida ed efficace. - Tramite il nostro sistema di messaggistica, gestite le richieste degli ospiti in modo rapido, discreto e professionale, assicurando che si sentano sempre ben curati. A questo scopo, dimostrate una spiccata sensibilità verso le persone, una forte attitudine al lavoro di squadra e una mentalità orientata alla risoluzione dei problemi. - Anche in situazioni complesse o stressanti, mantenete la calma e assicurate che tutti i compiti vengano svolti in modo efficiente, strutturato e professionale. Cosa porti con te Per questa posizione versatile, possedete idealmente il seguente profilo: - Avete una formazione professionale nel settore alberghiero o una scuola alberghiera completata. - Almeno 2 anni di esperienza presso il Front Office e/o nella reception e/o nella conciergerie in un hotel di lusso. - Ottima conoscenza della lingua tedesca e inglese; l’italiano e altre lingue sono un vantaggio. - Idealmente, avete esperienza nell’utilizzo di sistemi come Concierge Organizer, Protel e Aleno o strumenti simili e siete abili nella corrispondenza professionale via e-mail e telefono con ospiti internazionali di livello 5 stelle. - Ottime competenze informatiche. - Stile di lavoro proattivo, alto impegno e senso di responsabilità. - Spiccata sensibilità verso le persone, capacità di lavorare in team e orientamento alla risoluzione dei problemi. - Portamento sicuro e modi raffinati. La nostra offerta - Posizione a tempo indeterminato - Settimana lavorativa di 5 giorni con una media di 43,5 ore - 5 settimane di ferie e 6 festività all’anno - 13° stipendio a partire dall’assunzione (pro rata temporis) - Possibilità di alloggio in una delle nostre bellissime case per dipendenti, su richiesta all’inizio - Opzione di ristorazione nel nuovo ristorante moderno per dipendenti - Lavoro in un ambiente attraente con possibilità di sviluppo Se apprezzate un’attività versatile, responsabile in un team dinamico e volete contribuire con la vostra esperienza e motivazione, saremo lieti di ricevere la vostra candidatura completa online. Avvertenza contro le truffe nel reclutamento Il Badrutt’s Palace Hotel non richiede mai pagamenti o informazioni finanziarie durante il processo di reclutamento. Tutta la comunicazione ufficiale avviene esclusivamente tramite indirizzi e-mail con dominio @badruttspalace.com. Se ricevete una richiesta di pagamento o un messaggio sospetto, ignoratelo e contattateci direttamente tramite il nostro sito ufficiale.",
-        "en": "What you will achieve with us As a Guest Experience Executive, you are a key part of creating extraordinary and unforgettable moments for our guests. With a keen sense for individual wishes, a high quality standard, and genuine passion for first-class service, you will turn every stay into a special experience. - You maintain close contact with our guests both before arrival and throughout their stay to ensure a top-class guest experience and individually tailored services. - You work closely with various departments to ensure smooth and effective communication. - Using our messaging system, you handle guest requests quickly, discreetly, and professionally, ensuring that our guests always feel well taken care of. You demonstrate a strong sense of empathy, teamwork, and a solution-oriented approach. - Even in challenging or stressful situations, you remain calm and ensure that all tasks are completed efficiently, structured, and professionally. What you bring For this versatile position, you ideally have the following profile: - You hold a professional qualification in hospitality or have completed a hotel management school. - At least 2 years of experience at the Front Office and/or in reservations and/or concierge services in luxury hospitality. - Excellent proficiency in German and English; Italian and additional languages are an advantage. - Ideally, you have experience with systems such as Concierge Organizer, Protel, and Aleno or similar tools, and are skilled in professional email and telephone correspondence with international guests at a 5-star level. - Very good IT user skills. - Proactive work style, high level of commitment, and sense of responsibility. - Strong empathy, teamwork skills, and a solution-oriented mindset. - Confident demeanor and impeccable manners. Our offer - Permanent position - 5-day work week averaging 43.5 hours - 5 weeks of vacation and 6 public holidays per year - 13th salary from the start (pro rata temporis) - Option for accommodation in one of our beautiful employee houses at the beginning, if desired - Meal options in the new, modern employee restaurant - Work in an attractive environment with development opportunities If you value a versatile, responsible role in a dynamic team and wish to contribute with your experience and motivation, we look forward to receiving your complete online application. Warning about recruitment fraud Badrutt’s Palace Hotel will never request payments or financial information during the recruitment process. All official communication is conducted exclusively via email addresses ending in @badruttspalace.com. If you receive a payment request or suspicious message, please ignore it and contact us directly through our official website.",
         "de": "<p><strong>Was Sie bei uns bewirken</strong></p><p><span>Als Guest Experience Executive sind Sie ein wichtiger Bestandteil unseren Gästen aussergewöhnliche und unvergessliche Momente zu bereiten. Mit einem feinen Gespür für individuelle Wünsche, einem hohen Qualitätsanspruch und echter Leidenschaft für erstklassigen Service gestalten Sie jeden Aufenthalt zu einem besonderen Erlebnis.</span></p><ul><li><p><span>Sie stehen bereits vor der Anreise sowie während des gesamten Aufenthalts in engem Kontakt mit unseren Gästen, um ein erstklassiges Gästeerlebnis und individuell abgestimmte Services sicherzustellen.</span></p></li><li><p><span>Sie arbeiten eng mit verschiedenen Abteilungen zusammen und gewährleisten so eine reibungslose und effektive Kommunikation.</span></p></li><li><p><span>Über unser Messaging System betreuen Sie Gästeanfragen schnell, diskret und professionell und sorgen dafür, dass sich unsere Gäste jederzeit bestens umsorgt fühlen. <br>Dabei zeichnen Sie sich durch ein ausgeprägtes Gespür für Menschen sowie eine starke Team- und Lösungsorientierung aus.</span></p></li><li><p><span>Auch in anspruchsvollen oder stressigen Situationen bewahren Sie einen kühlen Kopf und stellen sicher, dass alle Aufgaben effizient, strukturiert und professionell erledigt werden.</span></p></li></ul><p></p><p><span><strong>Das bringen Sie mit</strong></span></p><p><span>Für diese vielseitige Position bringen Sie idealerweise folgendes Profil mit:</span></p><ul><li class=\"MsoListParagraph\"><p><span>Sie verfügen über eine Berufsausbildung in der Hotellerie oder abgeschlossene Hotelfachschule.</span></p></li><li class=\"MsoNormal\"><p><span>Mindestens 2 Jahre Erfahrung am Front Office und/oder in der Reservierung und/oder in der Conciergerie in der Luxushotellerie.</span></p></li><li class=\"MsoNormal\"><p><span>Sehr gute Sprachkenntnisse in Deutsch und Englisch; Italienisch und weitere Sprachen sind von Vorteil.</span></p></li><li class=\"MsoListParagraph\"><p><span>Idealerweise verfügen Sie über Erfahrung im Umgang mit Systemen wie Concierge Organizer, Protel und Aleno oder vergleichbaren Tools und sind versiert in der professionellen E-Mail- und Telefonkorrespondenz mit internationalen Gästen auf 5-Sterne-Niveau.</span></p></li><li class=\"MsoNormal\"><p><span>Sehr gute EDV-Anwenderkenntnisse.</span></p></li><li class=\"MsoNormal\"><p><span>Proaktiver Arbeitsstil sowie ein hohes Mass an Engagement und Verantwortungsbewusstsein.</span></p></li><li class=\"MsoNormal\"><p><span>Ein ausgeprägtes Gespür für Menschen, Teamfähigkeit und Lösungsorientierung.</span></p></li><li class=\"MsoNormal\"><p><span>Souveränes Auftreten sowie gepflegte Umgangsformen.</span><br><br></p></li></ul><p><strong>Unser Angebot</strong></p><ul><li class=\"MsoNormal\"><p><span>Eine unbefristete Position</span></p></li><li class=\"MsoNormal\"><p><span>5-Tage Woche im Schnitt bei 43,5 Stunden</span></p></li><li class=\"MsoNormal\"><p><span>5 Wochen Ferien und 6 Feiertage pro Jahr</span></p></li><li class=\"MsoNormal\"><p><span>13. Gehalt ab Eintritt (pro rata temporis)</span></p></li><li class=\"MsoNormal\"><p><span>Auf Wunsch zu Beginn Unterkunft in einem unserer schönen Mitarbeiterhäuser</span></p></li><li class=\"MsoNormal\"><p><span>Verpflegungsmöglichkeit im neuen, modernen Mitarbeiter Restaurant</span></p></li><li class=\"MsoNormal\"><p><span>Arbeit in einem attraktiven Umfeld mit Entwicklungsmöglichkeiten</span><br></p></li></ul><p>Wenn Sie eine vielseitige, verantwortungsvolle Tätigkeit in einem dynamischen Team schätzen und sich mit Ihrer Erfahrung und Motivation einbringen möchten, freuen wir uns auf Ihre vollständige Online-Bewerbung.</p><p></p><p><strong><em>Warnhinweis vor Recruiting-Betrug</em></strong></p><p><em>Das Badrutt’s Palace Hotel wird im Rahmen des Rekrutierungsprozesses niemals Zahlungen oder finanzielle Informationen verlangen. Die gesamte offizielle Kommunikation erfolgt ausschliesslich über E-Mail-Adressen mit der Endung </em><strong><em>@</em></strong><a target=\"_blank\" href=\"http://badruttspalace.com\"><strong><em>badruttspalace.com</em></strong></a><em>.</em><br><em>Sollten Sie eine Zahlungsaufforderung oder eine verdächtige Nachricht erhalten, ignorieren Sie diese bitte und kontaktieren Sie uns direkt über unsere offizielle Website.</em></p>",
-        "fr": "Ce que vous accomplirez chez nous En tant que Responsable Expérience Client, vous jouez un rôle clé dans la création de moments extraordinaires et inoubliables pour nos clients. Doté d’un sens aigu des attentes individuelles, d’un haut niveau d’exigence et d’une passion sincère pour un service de première classe, vous transformez chaque séjour en une expérience exceptionnelle. - Vous entretenez un contact étroit avec nos clients dès avant leur arrivée et tout au long de leur séjour, afin d’assurer une expérience client de haut niveau et des services personnalisés. - Vous collaborez étroitement avec différents services pour garantir une communication fluide et efficace. - Grâce à notre système de messagerie, vous gérez les demandes des clients de manière rapide, discrète et professionnelle, en veillant à ce qu’ils se sentent toujours bien pris en charge. Vous faites preuve d’un sens aigu des relations humaines, d’un esprit d’équipe et d’une approche orientée solutions. - Même dans des situations exigeantes ou stressantes, vous gardez votre sang-froid et veillez à ce que toutes les tâches soient accomplies de manière efficace, structurée et professionnelle. Ce que vous apportez Pour ce poste polyvalent, vous possédez idéalement le profil suivant : - Vous êtes titulaire d’une formation professionnelle en hôtellerie ou d’un diplôme d’école hôtelière. - Vous avez au moins 2 ans d’expérience au Front Office et/ou en réservation et/ou en conciergerie dans l’hôtellerie de luxe. - Vous maîtrisez parfaitement l’allemand et l’anglais ; l’italien et d’autres langues sont un atout. - Idéalement, vous avez de l’expérience avec des systèmes tels que Concierge Organizer, Protel et Aleno ou des outils similaires, et vous savez gérer une correspondance professionnelle par e-mail et téléphone avec des clients internationaux de niveau 5 étoiles. - Vous avez de très bonnes connaissances en informatique. - Vous faites preuve d’une approche proactive, d’un fort engagement et d’un sens aigu des responsabilités. - Vous avez un sens aigu des relations humaines, un esprit d’équipe et une approche orientée solutions. - Vous avez une attitude confiante et des manières irréprochables. Notre offre - Un poste à durée indéterminée - Semaine de 5 jours avec une moyenne de 43,5 heures - 5 semaines de congés et 6 jours fériés par an - 13e mois dès l’embauche (prorata temporis) - Possibilité d’hébergement dans l’une de nos belles maisons pour employés, sur demande au début - Option de restauration dans le nouveau restaurant moderne pour employés - Travail dans un environnement attrayant avec des perspectives d’évolution Si vous appréciez un poste polyvalent et responsable au sein d’une équipe dynamique et souhaitez contribuer avec votre expérience et votre motivation, nous serions ravis de recevoir votre candidature complète en ligne. Avertissement contre les fraudes de recrutement Le Badrutt’s Palace Hotel ne demande jamais de paiements ou d’informations financières dans le cadre du processus de recrutement. Toute communication officielle se fait exclusivement par e-mail avec une adresse se terminant par @badruttspalace.com. Si vous recevez une demande de paiement ou un message suspect, veuillez l’ignorer et nous contacter directement via notre site officiel."
+        "it": "<p><strong>Was Sie bei uns bewirken</strong></p><p><span>Als Guest Experience Executive sind Sie ein wichtiger Bestandteil unseren Gästen aussergewöhnliche und unvergessliche Momente zu bereiten. Mit einem feinen Gespür für individuelle Wünsche, einem hohen Qualitätsanspruch und echter Leidenschaft für erstklassigen Service gestalten Sie jeden Aufenthalt zu einem besonderen Erlebnis.</span></p><ul><li><p><span>Sie stehen bereits vor der Anreise sowie während des gesamten Aufenthalts in engem Kontakt mit unseren Gästen, um ein erstklassiges Gästeerlebnis und individuell abgestimmte Services sicherzustellen.</span></p></li><li><p><span>Sie arbeiten eng mit verschiedenen Abteilungen zusammen und gewährleisten so eine reibungslose und effektive Kommunikation.</span></p></li><li><p><span>Über unser Messaging System betreuen Sie Gästeanfragen schnell, diskret und professionell und sorgen dafür, dass sich unsere Gäste jederzeit bestens umsorgt fühlen. <br>Dabei zeichnen Sie sich durch ein ausgeprägtes Gespür für Menschen sowie eine starke Team- und Lösungsorientierung aus.</span></p></li><li><p><span>Auch in anspruchsvollen oder stressigen Situationen bewahren Sie einen kühlen Kopf und stellen sicher, dass alle Aufgaben effizient, strukturiert und professionell erledigt werden.</span></p></li></ul><p></p><p><span><strong>Das bringen Sie mit</strong></span></p><p><span>Für diese vielseitige Position bringen Sie idealerweise folgendes Profil mit:</span></p><ul><li class=\"MsoListParagraph\"><p><span>Sie verfügen über eine Berufsausbildung in der Hotellerie oder abgeschlossene Hotelfachschule.</span></p></li><li class=\"MsoNormal\"><p><span>Mindestens 2 Jahre Erfahrung am Front Office und/oder in der Reservierung und/oder in der Conciergerie in der Luxushotellerie.</span></p></li><li class=\"MsoNormal\"><p><span>Sehr gute Sprachkenntnisse in Deutsch und Englisch; Italienisch und weitere Sprachen sind von Vorteil.</span></p></li><li class=\"MsoListParagraph\"><p><span>Idealerweise verfügen Sie über Erfahrung im Umgang mit Systemen wie Concierge Organizer, Protel und Aleno oder vergleichbaren Tools und sind versiert in der professionellen E-Mail- und Telefonkorrespondenz mit internationalen Gästen auf 5-Sterne-Niveau.</span></p></li><li class=\"MsoNormal\"><p><span>Sehr gute EDV-Anwenderkenntnisse.</span></p></li><li class=\"MsoNormal\"><p><span>Proaktiver Arbeitsstil sowie ein hohes Mass an Engagement und Verantwortungsbewusstsein.</span></p></li><li class=\"MsoNormal\"><p><span>Ein ausgeprägtes Gespür für Menschen, Teamfähigkeit und Lösungsorientierung.</span></p></li><li class=\"MsoNormal\"><p><span>Souveränes Auftreten sowie gepflegte Umgangsformen.</span><br><br></p></li></ul><p><strong>Unser Angebot</strong></p><ul><li class=\"MsoNormal\"><p><span>Eine unbefristete Position</span></p></li><li class=\"MsoNormal\"><p><span>5-Tage Woche im Schnitt bei 43,5 Stunden</span></p></li><li class=\"MsoNormal\"><p><span>5 Wochen Ferien und 6 Feiertage pro Jahr</span></p></li><li class=\"MsoNormal\"><p><span>13. Gehalt ab Eintritt (pro rata temporis)</span></p></li><li class=\"MsoNormal\"><p><span>Auf Wunsch zu Beginn Unterkunft in einem unserer schönen Mitarbeiterhäuser</span></p></li><li class=\"MsoNormal\"><p><span>Verpflegungsmöglichkeit im neuen, modernen Mitarbeiter Restaurant</span></p></li><li class=\"MsoNormal\"><p><span>Arbeit in einem attraktiven Umfeld mit Entwicklungsmöglichkeiten</span><br></p></li></ul><p>Wenn Sie eine vielseitige, verantwortungsvolle Tätigkeit in einem dynamischen Team schätzen und sich mit Ihrer Erfahrung und Motivation einbringen möchten, freuen wir uns auf Ihre vollständige Online-Bewerbung.</p><p></p><p><strong><em>Warnhinweis vor Recruiting-Betrug</em></strong></p><p><em>Das Badrutt’s Palace Hotel wird im Rahmen des Rekrutierungsprozesses niemals Zahlungen oder finanzielle Informationen verlangen. Die gesamte offizielle Kommunikation erfolgt ausschliesslich über E-Mail-Adressen mit der Endung </em><strong><em>@</em></strong><a target=\"_blank\" href=\"http://badruttspalace.com\"><strong><em>badruttspalace.com</em></strong></a><em>.</em><br><em>Sollten Sie eine Zahlungsaufforderung oder eine verdächtige Nachricht erhalten, ignorieren Sie diese bitte und kontaktieren Sie uns direkt über unsere offizielle Website.</em></p>",
+        "en": "<p><strong>Was Sie bei uns bewirken</strong></p><p><span>Als Guest Experience Executive sind Sie ein wichtiger Bestandteil unseren Gästen aussergewöhnliche und unvergessliche Momente zu bereiten. Mit einem feinen Gespür für individuelle Wünsche, einem hohen Qualitätsanspruch und echter Leidenschaft für erstklassigen Service gestalten Sie jeden Aufenthalt zu einem besonderen Erlebnis.</span></p><ul><li><p><span>Sie stehen bereits vor der Anreise sowie während des gesamten Aufenthalts in engem Kontakt mit unseren Gästen, um ein erstklassiges Gästeerlebnis und individuell abgestimmte Services sicherzustellen.</span></p></li><li><p><span>Sie arbeiten eng mit verschiedenen Abteilungen zusammen und gewährleisten so eine reibungslose und effektive Kommunikation.</span></p></li><li><p><span>Über unser Messaging System betreuen Sie Gästeanfragen schnell, diskret und professionell und sorgen dafür, dass sich unsere Gäste jederzeit bestens umsorgt fühlen. <br>Dabei zeichnen Sie sich durch ein ausgeprägtes Gespür für Menschen sowie eine starke Team- und Lösungsorientierung aus.</span></p></li><li><p><span>Auch in anspruchsvollen oder stressigen Situationen bewahren Sie einen kühlen Kopf und stellen sicher, dass alle Aufgaben effizient, strukturiert und professionell erledigt werden.</span></p></li></ul><p></p><p><span><strong>Das bringen Sie mit</strong></span></p><p><span>Für diese vielseitige Position bringen Sie idealerweise folgendes Profil mit:</span></p><ul><li class=\"MsoListParagraph\"><p><span>Sie verfügen über eine Berufsausbildung in der Hotellerie oder abgeschlossene Hotelfachschule.</span></p></li><li class=\"MsoNormal\"><p><span>Mindestens 2 Jahre Erfahrung am Front Office und/oder in der Reservierung und/oder in der Conciergerie in der Luxushotellerie.</span></p></li><li class=\"MsoNormal\"><p><span>Sehr gute Sprachkenntnisse in Deutsch und Englisch; Italienisch und weitere Sprachen sind von Vorteil.</span></p></li><li class=\"MsoListParagraph\"><p><span>Idealerweise verfügen Sie über Erfahrung im Umgang mit Systemen wie Concierge Organizer, Protel und Aleno oder vergleichbaren Tools und sind versiert in der professionellen E-Mail- und Telefonkorrespondenz mit internationalen Gästen auf 5-Sterne-Niveau.</span></p></li><li class=\"MsoNormal\"><p><span>Sehr gute EDV-Anwenderkenntnisse.</span></p></li><li class=\"MsoNormal\"><p><span>Proaktiver Arbeitsstil sowie ein hohes Mass an Engagement und Verantwortungsbewusstsein.</span></p></li><li class=\"MsoNormal\"><p><span>Ein ausgeprägtes Gespür für Menschen, Teamfähigkeit und Lösungsorientierung.</span></p></li><li class=\"MsoNormal\"><p><span>Souveränes Auftreten sowie gepflegte Umgangsformen.</span><br><br></p></li></ul><p><strong>Unser Angebot</strong></p><ul><li class=\"MsoNormal\"><p><span>Eine unbefristete Position</span></p></li><li class=\"MsoNormal\"><p><span>5-Tage Woche im Schnitt bei 43,5 Stunden</span></p></li><li class=\"MsoNormal\"><p><span>5 Wochen Ferien und 6 Feiertage pro Jahr</span></p></li><li class=\"MsoNormal\"><p><span>13. Gehalt ab Eintritt (pro rata temporis)</span></p></li><li class=\"MsoNormal\"><p><span>Auf Wunsch zu Beginn Unterkunft in einem unserer schönen Mitarbeiterhäuser</span></p></li><li class=\"MsoNormal\"><p><span>Verpflegungsmöglichkeit im neuen, modernen Mitarbeiter Restaurant</span></p></li><li class=\"MsoNormal\"><p><span>Arbeit in einem attraktiven Umfeld mit Entwicklungsmöglichkeiten</span><br></p></li></ul><p>Wenn Sie eine vielseitige, verantwortungsvolle Tätigkeit in einem dynamischen Team schätzen und sich mit Ihrer Erfahrung und Motivation einbringen möchten, freuen wir uns auf Ihre vollständige Online-Bewerbung.</p><p></p><p><strong><em>Warnhinweis vor Recruiting-Betrug</em></strong></p><p><em>Das Badrutt’s Palace Hotel wird im Rahmen des Rekrutierungsprozesses niemals Zahlungen oder finanzielle Informationen verlangen. Die gesamte offizielle Kommunikation erfolgt ausschliesslich über E-Mail-Adressen mit der Endung </em><strong><em>@</em></strong><a target=\"_blank\" href=\"http://badruttspalace.com\"><strong><em>badruttspalace.com</em></strong></a><em>.</em><br><em>Sollten Sie eine Zahlungsaufforderung oder eine verdächtige Nachricht erhalten, ignorieren Sie diese bitte und kontaktieren Sie uns direkt über unsere offizielle Website.</em></p>",
+        "fr": "<p><strong>Was Sie bei uns bewirken</strong></p><p><span>Als Guest Experience Executive sind Sie ein wichtiger Bestandteil unseren Gästen aussergewöhnliche und unvergessliche Momente zu bereiten. Mit einem feinen Gespür für individuelle Wünsche, einem hohen Qualitätsanspruch und echter Leidenschaft für erstklassigen Service gestalten Sie jeden Aufenthalt zu einem besonderen Erlebnis.</span></p><ul><li><p><span>Sie stehen bereits vor der Anreise sowie während des gesamten Aufenthalts in engem Kontakt mit unseren Gästen, um ein erstklassiges Gästeerlebnis und individuell abgestimmte Services sicherzustellen.</span></p></li><li><p><span>Sie arbeiten eng mit verschiedenen Abteilungen zusammen und gewährleisten so eine reibungslose und effektive Kommunikation.</span></p></li><li><p><span>Über unser Messaging System betreuen Sie Gästeanfragen schnell, diskret und professionell und sorgen dafür, dass sich unsere Gäste jederzeit bestens umsorgt fühlen. <br>Dabei zeichnen Sie sich durch ein ausgeprägtes Gespür für Menschen sowie eine starke Team- und Lösungsorientierung aus.</span></p></li><li><p><span>Auch in anspruchsvollen oder stressigen Situationen bewahren Sie einen kühlen Kopf und stellen sicher, dass alle Aufgaben effizient, strukturiert und professionell erledigt werden.</span></p></li></ul><p></p><p><span><strong>Das bringen Sie mit</strong></span></p><p><span>Für diese vielseitige Position bringen Sie idealerweise folgendes Profil mit:</span></p><ul><li class=\"MsoListParagraph\"><p><span>Sie verfügen über eine Berufsausbildung in der Hotellerie oder abgeschlossene Hotelfachschule.</span></p></li><li class=\"MsoNormal\"><p><span>Mindestens 2 Jahre Erfahrung am Front Office und/oder in der Reservierung und/oder in der Conciergerie in der Luxushotellerie.</span></p></li><li class=\"MsoNormal\"><p><span>Sehr gute Sprachkenntnisse in Deutsch und Englisch; Italienisch und weitere Sprachen sind von Vorteil.</span></p></li><li class=\"MsoListParagraph\"><p><span>Idealerweise verfügen Sie über Erfahrung im Umgang mit Systemen wie Concierge Organizer, Protel und Aleno oder vergleichbaren Tools und sind versiert in der professionellen E-Mail- und Telefonkorrespondenz mit internationalen Gästen auf 5-Sterne-Niveau.</span></p></li><li class=\"MsoNormal\"><p><span>Sehr gute EDV-Anwenderkenntnisse.</span></p></li><li class=\"MsoNormal\"><p><span>Proaktiver Arbeitsstil sowie ein hohes Mass an Engagement und Verantwortungsbewusstsein.</span></p></li><li class=\"MsoNormal\"><p><span>Ein ausgeprägtes Gespür für Menschen, Teamfähigkeit und Lösungsorientierung.</span></p></li><li class=\"MsoNormal\"><p><span>Souveränes Auftreten sowie gepflegte Umgangsformen.</span><br><br></p></li></ul><p><strong>Unser Angebot</strong></p><ul><li class=\"MsoNormal\"><p><span>Eine unbefristete Position</span></p></li><li class=\"MsoNormal\"><p><span>5-Tage Woche im Schnitt bei 43,5 Stunden</span></p></li><li class=\"MsoNormal\"><p><span>5 Wochen Ferien und 6 Feiertage pro Jahr</span></p></li><li class=\"MsoNormal\"><p><span>13. Gehalt ab Eintritt (pro rata temporis)</span></p></li><li class=\"MsoNormal\"><p><span>Auf Wunsch zu Beginn Unterkunft in einem unserer schönen Mitarbeiterhäuser</span></p></li><li class=\"MsoNormal\"><p><span>Verpflegungsmöglichkeit im neuen, modernen Mitarbeiter Restaurant</span></p></li><li class=\"MsoNormal\"><p><span>Arbeit in einem attraktiven Umfeld mit Entwicklungsmöglichkeiten</span><br></p></li></ul><p>Wenn Sie eine vielseitige, verantwortungsvolle Tätigkeit in einem dynamischen Team schätzen und sich mit Ihrer Erfahrung und Motivation einbringen möchten, freuen wir uns auf Ihre vollständige Online-Bewerbung.</p><p></p><p><strong><em>Warnhinweis vor Recruiting-Betrug</em></strong></p><p><em>Das Badrutt’s Palace Hotel wird im Rahmen des Rekrutierungsprozesses niemals Zahlungen oder finanzielle Informationen verlangen. Die gesamte offizielle Kommunikation erfolgt ausschliesslich über E-Mail-Adressen mit der Endung </em><strong><em>@</em></strong><a target=\"_blank\" href=\"http://badruttspalace.com\"><strong><em>badruttspalace.com</em></strong></a><em>.</em><br><em>Sollten Sie eine Zahlungsaufforderung oder eine verdächtige Nachricht erhalten, ignorieren Sie diese bitte und kontaktieren Sie uns direkt über unsere offizielle Website.</em></p>"
       },
       "location": "St. Moritz",
       "canton": "GR",
-      "url": "https://jobs.badruttscareers.com/en-GB/jobs/7377432-guest-experience-executive-m-w-d",
+      "url": "https://jobs.badruttscareers.com/en-GB/jobs/7377432-guest-experience-executive-m-w-d-teilzeit-50",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T21:10:11.026Z",
+      "crawledAt": "2026-04-14T09:23:49.102Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -765,65 +772,25 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-03-12",
-      "applyUrl": "https://jobs.badruttscareers.com/en-GB/jobs/7377432-guest-experience-executive-m-w-d",
+      "applyUrl": "https://jobs.badruttscareers.com/en-GB/jobs/7377432-guest-experience-executive-m-w-d-teilzeit-50",
       "requirements": [],
       "requirementsByLocale": {
-        "it": [
-          "Formazione professionale nel settore alberghiero o scuola alberghiera completata",
-          "Almeno 2 anni di esperienza in Front Office, reception o conciergerie in hotel di lusso",
-          "Ottima conoscenza di tedesco e inglese; italiano e altre lingue sono un vantaggio",
-          "Esperienza con sistemi come Concierge Organizer, Protel e Aleno o strumenti simili",
-          "Competenze informatiche avanzate",
-          "Stile di lavoro proattivo e alto senso di responsabilità",
-          "Sensibilità verso le persone, capacità di lavorare in team e orientamento alla risoluzione dei problemi",
-          "Portamento sicuro e modi raffinati"
-        ],
-        "en": [
-          "Professional qualification in hospitality or completed hotel management school",
-          "At least 2 years of experience in Front Office, reservations, or concierge services in luxury hospitality",
-          "Excellent proficiency in German and English; Italian and additional languages are an advantage",
-          "Experience with systems such as Concierge Organizer, Protel, and Aleno or similar tools",
-          "Very good IT user skills",
-          "Proactive work style, high level of commitment, and sense of responsibility",
-          "Strong empathy, teamwork skills, and a solution-oriented mindset",
-          "Confident demeanor and impeccable manners"
-        ],
-        "fr": [
-          "Formation professionnelle en hôtellerie ou diplôme d’école hôtelière",
-          "Au moins 2 ans d’expérience en Front Office, réservation ou conciergerie dans l’hôtellerie de luxe",
-          "Maîtrise parfaite de l’allemand et de l’anglais ; l’italien et d’autres langues sont un atout",
-          "Expérience avec des systèmes comme Concierge Organizer, Protel et Aleno ou outils similaires",
-          "Très bonnes connaissances en informatique",
-          "Approche proactive, fort engagement et sens des responsabilités",
-          "Sens aigu des relations humaines, esprit d’équipe et approche orientée solutions",
-          "Attitude confiante et manières irréprochables"
-        ]
+        "de": []
       },
-      "previousSlugs": [
-        "guest-experience-executive-m-w-d-badrutts-palace-ch",
-        "manager-m-w-d-badrutt-s-palace-hotel-st-moritz"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "guest-experience-executive-m-w-d-badrutts-palace-ch"
-        ],
-        "de": [
-          "manager-m-w-d-badrutt-s-palace-hotel-st-moritz"
-        ]
-      },
-      "firstSeenAt": "2026-04-13T10:01:44.442Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-04-14T09:23:51.145Z"
     },
     {
       "id": "badrutts-palace-6ef14f9c9db1",
@@ -856,7 +823,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/7386839-assistant-room-service-manager-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T21:10:11.025Z",
+      "crawledAt": "2026-04-14T09:23:49.101Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -916,6 +883,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:01:44.441Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -960,7 +928,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/7482296-assistant-stewarding-manager-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-13T21:10:11.023Z",
+      "crawledAt": "2026-04-14T09:23:49.100Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -1019,6 +987,7 @@
         "assistant-stewarding-manager-m-w-d-badrutts-palace-ch"
       ],
       "firstSeenAt": "2026-04-13T10:01:44.440Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1063,7 +1032,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/7494650-accountant-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T21:10:11.019Z",
+      "crawledAt": "2026-04-14T09:23:49.097Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -1123,6 +1092,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:01:44.437Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1167,7 +1137,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/7506059-leiter-technischer-dienst-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T21:10:11.015Z",
+      "crawledAt": "2026-04-14T09:23:49.094Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -1226,6 +1196,7 @@
         "leiter-technischer-dienst-m-w-d-badrutts-palace-ch"
       ],
       "firstSeenAt": "2026-04-13T10:01:44.434Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
@@ -1270,7 +1241,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/5605527-executive-chef-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-13T21:10:11.012Z",
+      "crawledAt": "2026-04-14T09:23:49.089Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -1329,6 +1300,7 @@
         "executive-chef-m-w-d-badrutts-palace-ch"
       ],
       "firstSeenAt": "2026-04-13T10:01:44.432Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
