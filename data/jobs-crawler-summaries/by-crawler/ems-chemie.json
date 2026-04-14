@@ -1,18 +1,19 @@
 {
   "key": "ems-chemie",
   "label": "EMS-Chemie AG",
-  "generatedAt": "2026-04-14T09:50:40.182Z",
+  "generatedAt": "2026-04-14T21:36:04.633Z",
   "total": 10,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 9,
-  "removedCount": 1,
-  "unchangedCount": 0,
-  "durationMs": 3687,
-  "avgDurationMs": 3687,
+  "removedCount": 0,
+  "unchangedCount": 1,
+  "durationMs": 3674,
+  "avgDurationMs": 3674,
   "durationHistory": [
-    3687
+    3674
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Projektleiter Kunststoffanwendungen Automobil (m/w/d) 100%",
       "company": "EMS-Chemie AG",
@@ -31,41 +32,13 @@
       "postedDate": "2026-04-14",
       "source": "company-website",
       "slug": "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-domat-ems",
-      "_qualityScore": 60,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 10,
-        "translation": 8,
-        "completeness": 17
-      }
-    }
-  ],
-  "updatedJobs": [
-    {
-      "title": "SAP Basis Administrator (m/w/d) 100%",
-      "company": "EMS-Chemie AG",
-      "companyKey": "ems-chemie",
-      "url": "https://jobs.ems-group.com/offene-stellen/sap-basis-administrator-m-w-d/63abb747-4846-4e1b-aded-e0bc13a0b7ae",
-      "location": "Domat/Ems",
-      "canton": "GR",
-      "country": "CH",
-      "postalCode": "7013",
-      "streetAddress": "Via Innovativa 1",
-      "addressLocality": "Domat/Ems",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "science",
-      "postedDate": "2026-04-14",
-      "source": "company-website",
-      "slug": "sap-basis-administrator-m-w-d-100-ems-chemie-domat-ems",
       "crawledAt": "",
-      "id": "ems-chemie-dc1a28e8e6ec",
+      "id": "ems-chemie-e1ea345113e8",
       "sourceLang": "it",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
-      "firstSeenAt": "2026-04-13T21:36:53.361Z",
+      "firstSeenAt": "2026-04-14T09:50:40.182Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -339,41 +312,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Transportdisponent / Sachbearbeiter Export 100% (m/w) 100%",
-      "company": "EMS-Chemie AG",
-      "companyKey": "ems-chemie",
-      "url": "https://jobs.ems-group.com/offene-stellen/transportdisponent-sachbearbeiter-export-m-w/9cac7ace-f0ef-4158-ad7c-21012cba9db6",
-      "location": "Domat/Ems",
-      "canton": "GR",
-      "country": "CH",
-      "postalCode": "7013",
-      "streetAddress": "Via Innovativa 1",
-      "addressLocality": "Domat/Ems",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "science",
-      "postedDate": "2026-04-13",
-      "source": "company-website",
-      "slug": "dispatcher-dei-trasporti-impiegato-esportazione-100-m-f-100-romanshorn-eftec-ag-romanshorn-ems-chemie-ag-domat-ems",
-      "crawledAt": "",
-      "sourceLang": "it",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "id": "ems-chemie-423a98fac3a2",
-      "firstSeenAt": "2026-04-13T21:36:53.361Z",
-      "_qualityScore": 86,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 14,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Projektleiter Kunststoffanwendungen Automobil (m/w/d) 100%",
@@ -392,19 +331,19 @@
       "category": "science",
       "postedDate": "2026-04-14",
       "source": "company-website",
-      "slug": "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-ag-domat-ems",
+      "slug": "projektleiter-automotive-m-w-d-ems-chemie-ag-domat-ems",
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "ems-chemie-e1ea345113e8",
       "sourceLang": "it",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
-      "_qualityScore": 73,
+      "firstSeenAt": "2026-04-14T09:50:40.182Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     },
