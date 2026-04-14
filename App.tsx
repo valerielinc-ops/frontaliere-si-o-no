@@ -3081,7 +3081,7 @@ const App: React.FC = () => {
  <div className="text-center text-muted text-sm space-y-3">
  <p className="font-medium">
  {t('footer.copyright')}
- <span className="text-edge mx-2">|</span> 
+ <span className="text-subtle mx-2">|</span> 
  {t('footer.disclaimer')}
  </p>
  {/* Footer links — desktop: flat flex-wrap, mobile: accordion */}
