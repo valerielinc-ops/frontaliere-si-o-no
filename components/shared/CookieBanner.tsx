@@ -113,11 +113,11 @@ const CookieBanner: React.FC = () => {
  aria-label={t('consent.analytics')}
  onClick={() => setAnalyticsOn(!analyticsOn)}
  className={`relative inline-flex h-5 w-9 flex-shrink-0 rounded-full transition-colors ${
- analyticsOn ? 'bg-stripe-600' : 'bg-surface-raised'
+ analyticsOn ? 'bg-accent-strong' : 'bg-surface-raised'
  }`}
  >
  <span
- className={`inline-block h-4 w-4 transform rounded-full bg-white shadow transition-transform mt-0.5 ${
+ className={`inline-block h-4 w-4 transform rounded-full bg-surface shadow transition-transform mt-0.5 ${
  analyticsOn ? 'translate-x-4 ml-0.5' : 'translate-x-0.5'
  }`}
  />
@@ -136,11 +136,11 @@ const CookieBanner: React.FC = () => {
  aria-label={t('consent.advertising')}
  onClick={() => setAdvertisingOn(!advertisingOn)}
  className={`relative inline-flex h-5 w-9 flex-shrink-0 rounded-full transition-colors ${
- advertisingOn ? 'bg-stripe-600' : 'bg-surface-raised'
+ advertisingOn ? 'bg-accent-strong' : 'bg-surface-raised'
  }`}
  >
  <span
- className={`inline-block h-4 w-4 transform rounded-full bg-white shadow transition-transform mt-0.5 ${
+ className={`inline-block h-4 w-4 transform rounded-full bg-surface shadow transition-transform mt-0.5 ${
  advertisingOn ? 'translate-x-4 ml-0.5' : 'translate-x-0.5'
  }`}
  />
@@ -149,7 +149,7 @@ const CookieBanner: React.FC = () => {
 
  <button
  onClick={handleSaveCustom}
- className="w-full text-xs font-medium py-2 rounded-lg bg-accent hover:bg-accent-hover text-white transition-colors"
+ className="w-full text-xs font-medium py-2 rounded-lg bg-accent hover:bg-accent-hover text-on-accent transition-colors"
  >
  {t('consent.savePreferences')}
  </button>
@@ -160,7 +160,7 @@ const CookieBanner: React.FC = () => {
  <div className="flex flex-col sm:flex-row gap-2">
  <button
  onClick={handleAcceptAll}
- className="flex-1 text-xs font-medium py-2.5 px-4 rounded-lg bg-accent hover:bg-accent-hover text-white transition-colors"
+ className="flex-1 text-xs font-medium py-2.5 px-4 rounded-lg bg-accent hover:bg-accent-hover text-on-accent transition-colors"
  >
  {t('consent.acceptAll')}
  </button>

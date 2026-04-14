@@ -215,14 +215,14 @@ const FirstDayGuide: React.FC = () => {
  <div className="bg-surface rounded-2xl p-5 border border-edge">
  <div className="flex items-center justify-between mb-3">
  <div className="flex items-center gap-2">
- <Trophy className="w-5 h-5 text-amber-500" />
+ <Trophy className="w-5 h-5 text-warning" />
  <span className="font-bold text-strong">{t('firstday.progress')}</span>
  </div>
  <span className="text-sm font-bold text-muted">{completedCount}/{CHECKLIST_STEPS.length}</span>
  </div>
  <div className="w-full h-3 bg-surface-raised rounded-full overflow-hidden">
  <div
- className="h-full bg-gradient-to-r from-amber-500 to-orange-500 rounded-full transition-transform duration-500 ease-out origin-left"
+ className="h-full bg-gradient-to-r from-warning-strong to-warning-strong rounded-full transition-transform duration-500 ease-out origin-left"
  style={{ transform: `scaleX(${progress / 100})` }}
  />
  </div>
@@ -263,7 +263,7 @@ const FirstDayGuide: React.FC = () => {
  {/* Step number */}
  <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold shrink-0 ${
  isCompleted
- ? 'bg-emerald-700 text-white'
+ ? 'bg-success-strong text-on-accent'
  : 'bg-surface-raised text-body'
  }`}>
  {isCompleted ? '✓' : index + 1}
@@ -275,7 +275,7 @@ const FirstDayGuide: React.FC = () => {
  className="flex items-center gap-3 flex-1 text-left"
  >
  {isCompleted
- ? <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0" />
+ ? <CheckCircle2 className="w-5 h-5 text-success shrink-0" />
  : <Circle className="w-5 h-5 text-edge shrink-0" />
  }
  <div className="flex-1">
@@ -297,7 +297,7 @@ const FirstDayGuide: React.FC = () => {
  </span>
  <button
  onClick={() => setExpandedStep(isExpanded ? null : step.id)}
- className="p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center text-slate-500 hover:text-body"
+ className="p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center text-muted hover:text-body"
  aria-label={isExpanded ? 'Comprimi' : 'Espandi'}
  aria-expanded={isExpanded}
  >
@@ -312,7 +312,7 @@ const FirstDayGuide: React.FC = () => {
  {/* Profile hint */}
  {profileHints[step.id] && (
  <div className="flex items-start gap-2 p-3 bg-accent-subtle rounded-lg border border-accent-border">
- <User className="w-4 h-4 text-stripe-500 shrink-0 mt-0.5" />
+ <User className="w-4 h-4 text-accent shrink-0 mt-0.5" />
  <p className="text-sm text-accent font-medium">{profileHints[step.id]}</p>
  </div>
  )}
@@ -322,7 +322,7 @@ const FirstDayGuide: React.FC = () => {
  <div className="space-y-1.5">
  {step.substeps.map((sub, i) => (
  <div key={i} className="flex items-center gap-2 text-sm text-subtle">
- <AlertCircle className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+ <AlertCircle className="w-3.5 h-3.5 text-warning shrink-0" />
  {t(`firstday.${sub}`)}
  </div>
  ))}
@@ -340,7 +340,7 @@ const FirstDayGuide: React.FC = () => {
  nav.navigateTo('job-board');
  Analytics.trackUIInteraction('first_day_guide', 'job_board_cta', 'click', 'find_job_step');
  }}
- className="inline-flex items-center gap-2 px-4 py-2 bg-accent hover:bg-accent-hover bg-accent hover:bg-accent-hover text-white rounded-lg text-xs font-bold transition-colors"
+ className="inline-flex items-center gap-2 px-4 py-2 bg-accent hover:bg-accent-hover bg-accent hover:bg-accent-hover text-on-accent rounded-lg text-xs font-bold transition-colors"
  >
  <Briefcase className="w-3.5 h-3.5" />
  {t('firstday.jobBoard.cta')}

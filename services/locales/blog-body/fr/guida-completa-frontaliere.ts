@@ -1,5 +1,5 @@
 const bodyGuidaCompletaFrontaliere: Record<string, string> = {
-    'blog.article.guida-completa-frontaliere.body1': `Le **frontalier** (en italien *frontaliere*, en allemand *Grenzgänger*) est un travailleur qui réside dans un État — typiquement l'Italie — et se rend quotidiennement ou hebdomadairement dans le pays voisin — la Suisse — pour exercer son activité professionnelle. Au Tessin, ce phénomène concerne plus de 79 000 personnes et représente un pilier de l'économie régionale, avec des implications fiscales, de prévoyance sociale et logistiques qui nécessitent une planification soignée.
+ 'blog.article.guida-completa-frontaliere.body1': `Le **frontalier** (en italien *frontaliere*, en allemand *Grenzgänger*) est un travailleur qui réside dans un État — typiquement l'Italie — et se rend quotidiennement ou hebdomadairement dans le pays voisin — la Suisse — pour exercer son activité professionnelle. Au Tessin, ce phénomène concerne plus de 79 000 personnes et représente un pilier de l'économie régionale, avec des implications fiscales, de prévoyance sociale et logistiques qui nécessitent une planification soignée.
 
 Ce guide couvre **chaque aspect** du parcours frontalier : de la décision initiale à la vie quotidienne, en passant par les permis, la fiscalité, la prévoyance et l'assurance maladie. Il s'adresse aussi bien à ceux qui envisagent de devenir frontalier qu'à ceux qui le sont déjà et souhaitent optimiser leur situation.
 
@@ -22,7 +22,7 @@ Le phénomène frontalier au Tessin a atteint des dimensions sans précédent. S
 
 La tendance est en hausse constante depuis 2015, portée par l'écart salarial (le ratio salaire CH/IT est d'environ 2,3:1 pour des postes équivalents), la proximité géographique et la qualité de vie dans les provinces frontalières italiennes.`,
 
-    'blog.article.guida-completa-frontaliere.body2': `## Chapitre 1 : La décision — Est-ce avantageux de devenir frontalier ?
+ 'blog.article.guida-completa-frontaliere.body2': `## Chapitre 1 : La décision — Est-ce avantageux de devenir frontalier ?
 
 La question la plus fréquente est aussi la plus complexe : **est-il financièrement avantageux de travailler en Suisse tout en vivant en Italie ?** La réponse dépend d'au moins six variables : salaire brut, état civil, nombre d'enfants, commune de résidence, coûts de déplacement et taux de change CHF/EUR.
 
@@ -65,7 +65,7 @@ Prenons un cas typique : salaire brut CHF 5 500/mois, personne seule sans enfant
 
 Pour calculer votre situation spécifique, utilisez notre [calculateur de salaire net](nav:calculator) qui prend en compte toutes les variables : état civil, enfants, commune de résidence, frais de déplacement et taux de change actuel.`,
 
-    'blog.article.guida-completa-frontaliere.body3': `## Chapitre 2 : Trouver un emploi au Tessin
+ 'blog.article.guida-completa-frontaliere.body3': `## Chapitre 2 : Trouver un emploi au Tessin
 
 Le marché du travail tessinois a ses propres caractéristiques : la langue italienne est un avantage par rapport au reste de la Suisse, mais la concurrence avec d'autres frontaliers est élevée. Voici les secteurs avec la plus forte demande en 2025-2026 :
 
@@ -108,7 +108,7 @@ Le contrat suisse diffère du contrat italien sur plusieurs points :
 
 Pour une compréhension approfondie du bulletin de salaire suisse, utilisez notre [simulateur de fiche de paie](nav:payslip) qui détaille chaque ligne.`,
 
-    'blog.article.guida-completa-frontaliere.body4': `## Chapitre 3 : Permis G — Comment l'obtenir
+ 'blog.article.guida-completa-frontaliere.body4': `## Chapitre 3 : Permis G — Comment l'obtenir
 
 Le **permis G** (permis frontalier) est le document autorisant un citoyen UE/AELE résidant dans un État voisin à travailler en Suisse. Depuis 2002, grâce aux accords bilatéraux CH-UE, la procédure est relativement simple pour les citoyens italiens.
 
@@ -151,7 +151,7 @@ Le permis G se renouvelle automatiquement tous les 5 ans, à condition qu'un rap
 
 Pour en savoir plus sur les protections en cas de chômage, consultez notre [guide du chômage pour frontaliers](nav:unemployment).`,
 
-    'blog.article.guida-completa-frontaliere.body5': `## Chapitre 4 : Fiscalité — Le cœur du sujet
+ 'blog.article.guida-completa-frontaliere.body5': `## Chapitre 4 : Fiscalité — Le cœur du sujet
 
 La fiscalité est l'aspect le plus complexe et le plus important pour un frontalier. Depuis 2023, le régime fiscal a radicalement changé avec l'entrée en vigueur du **Nouvel Accord Italie-Suisse sur l'imposition des frontaliers**.
 
@@ -201,7 +201,7 @@ Pour les nouveaux frontaliers, la déclaration d'impôts devient obligatoire :
 
 Pour simuler votre situation fiscale complète — ancien et nouveau régime — utilisez notre [calculateur fiscal](nav:calculator), qui applique les barèmes 2026 mis à jour et calcule automatiquement IRPEF, crédit d'impôt et net final. Pour la déclaration annuelle, consultez le [guide de la déclaration d'impôts](nav:tax-return) et le [calendrier fiscal](nav:calendar) pour ne manquer aucune échéance.`,
 
-    'blog.article.guida-completa-frontaliere.body6': `## Chapitre 5 : Prévoyance sociale — AVS, LPP et 3e pilier
+ 'blog.article.guida-completa-frontaliere.body6': `## Chapitre 5 : Prévoyance sociale — AVS, LPP et 3e pilier
 
 Le système de prévoyance suisse est structuré en **trois piliers** et offre l'un des filets de sécurité sociale les plus solides au monde. En tant que frontalier, vous cotisez obligatoirement aux deux premiers et pouvez accéder volontairement au troisième.
 
@@ -245,7 +245,7 @@ Le 3e pilier est volontaire et offre des avantages fiscaux significatifs :
 
 Pour planifier votre stratégie de prévoyance, utilisez le [planificateur de retraite](nav:pension) et le [simulateur 3e pilier](nav:pillar3), qui calculent les prestations attendues sur la base de vos cotisations actuelles et futures.`,
 
-    'blog.article.guida-completa-frontaliere.body7': `## Chapitre 6 : Assurance maladie — LAMal ou SSN italien ?
+ 'blog.article.guida-completa-frontaliere.body7': `## Chapitre 6 : Assurance maladie — LAMal ou SSN italien ?
 
 Dans les **3 mois** suivant le début de l'activité professionnelle en Suisse, le frontalier doit faire un choix crucial et (quasi) irréversible : adhérer au système de santé suisse (LAMal) ou exercer le **droit d'option** pour rester au Service National de Santé italien (SSN).
 
@@ -283,7 +283,7 @@ Si vous optez pour la LAMal, vous avez accès à 14 caisses maladie autorisées 
 
 Utilisez notre [comparateur d'assurances maladie](nav:health) pour comparer les primes des 14 caisses, avec des filtres par modèle, franchise et canton.`,
 
-    'blog.article.guida-completa-frontaliere.body8': `## Chapitre 7 : La vie quotidienne du frontalier
+ 'blog.article.guida-completa-frontaliere.body8': `## Chapitre 7 : La vie quotidienne du frontalier
 
 Être frontalier n'est pas seulement une question fiscale : c'est un **mode de vie** qui demande une organisation quotidienne sur plusieurs fronts.
 
@@ -338,7 +338,7 @@ Une stratégie intelligente combine les deux marchés :
 
 Pour une comparaison détaillée des prix, consultez le [comparateur du coût de la vie](nav:cost-of-living) et le [comparateur courses et shopping](nav:shopping).`,
 
-    'blog.article.guida-completa-frontaliere.body9': `## Chapitre 8 : Échéances et calendrier du frontalier
+ 'blog.article.guida-completa-frontaliere.body9': `## Chapitre 8 : Échéances et calendrier du frontalier
 
 L'un des aspects les plus stressants pour le frontalier est la gestion des **échéances multiples** dans deux pays différents. Voici un calendrier complet :
 
@@ -375,7 +375,7 @@ Le renouvellement est généralement automatique, mais les bonnes pratiques incl
 
 Pour ne manquer aucune échéance, utilisez notre [calendrier fiscal interactif](nav:calendar) qui vous rappelle automatiquement les dates importantes et vous permet d'exporter les échéances dans votre agenda personnel.`,
 
-    'blog.article.guida-completa-frontaliere.body10': `## Questions fréquentes (FAQ)
+ 'blog.article.guida-completa-frontaliere.body10': `## Questions fréquentes (FAQ)
 
 ### 1. Puis-je devenir frontalier si j'habite à Milan ?
 
@@ -414,7 +414,7 @@ Pour les frontaliers sous l'**ancien régime**, les ristorni (rétrocession de 4
 
 Avec un contrat de travail signé, le permis G est délivré en **2-4 semaines**. L'employeur se charge généralement de la procédure. À certaines périodes de l'année (septembre, janvier), les délais peuvent s'allonger. Le permis est valable 5 ans et se renouvelle automatiquement.`,
 
-    'blog.article.guida-completa-frontaliere.body11': `## Conclusion : le frontalier comme professionnel binational
+ 'blog.article.guida-completa-frontaliere.body11': `## Conclusion : le frontalier comme professionnel binational
 
 Être frontalier en 2026 ne signifie pas simplement « travailler en Suisse et vivre en Italie ». C'est un choix de vie qui exige des **compétences en planification financière, une connaissance réglementaire et une organisation quotidienne** que peu d'autres travailleurs doivent posséder.
 

@@ -29,9 +29,9 @@ const STATUS_BG_CLASSES: Record<string, string> = {
 };
 
 const STATUS_DOT_CLASSES: Record<string, string> = {
- green: 'bg-emerald-500',
- yellow: 'bg-amber-500',
- red: 'bg-red-500',
+ green: 'bg-success-strong',
+ yellow: 'bg-warning-strong',
+ red: 'bg-danger-strong',
 };
 
 const STATUS_TEXT_CLASSES: Record<string, string> = {
@@ -203,12 +203,12 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
  `}</style>
 
  {/* Header */}
- <div className="bg-gradient-to-br from-orange-600 to-red-700 rounded-2xl p-5 sm:p-8 text-white">
+ <div className="bg-gradient-to-br from-warning-strong to-danger-strong-hover rounded-2xl p-5 sm:p-8 text-on-accent">
  <div className="flex items-center gap-3 mb-4">
  <Car size={32} />
  <h2 className="text-2xl sm:text-3xl font-bold">{t('traffic.title')}</h2>
  </div>
- <p className="text-orange-100 text-lg">
+ <p className="text-on-accent text-lg">
  {t('traffic.subtitle')}
  </p>
  </div>
@@ -222,7 +222,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
  onClick={() => setViewMode('map')}
  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${
  viewMode === 'map'
- ? 'bg-stripe-600 text-white shadow-sm'
+ ? 'bg-accent-strong text-on-accent shadow-sm'
  : 'text-subtle hover:text-strong'
  }`}
  >
@@ -232,7 +232,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
  onClick={() => setViewMode('list')}
  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${
  viewMode === 'list'
- ? 'bg-stripe-600 text-white shadow-sm'
+ ? 'bg-accent-strong text-on-accent shadow-sm'
  : 'text-subtle hover:text-strong'
  }`}
  >
@@ -248,14 +248,14 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
  </div>
  <div className="flex items-center gap-3">
  <div className="hidden sm:flex items-center gap-3 text-xs text-muted">
- <span className="flex items-center gap-1"><span className="w-3 h-3 rounded-full bg-emerald-700 inline-block"></span> {t('traffic.status.green')}</span>
- <span className="flex items-center gap-1"><span className="w-3 h-3 rounded-full bg-yellow-500 inline-block"></span> {t('traffic.status.yellow')}</span>
- <span className="flex items-center gap-1"><span className="w-3 h-3 rounded-full bg-red-500 inline-block"></span> {t('traffic.status.red')}</span>
+ <span className="flex items-center gap-1"><span className="w-3 h-3 rounded-full bg-success-strong inline-block"></span> {t('traffic.status.green')}</span>
+ <span className="flex items-center gap-1"><span className="w-3 h-3 rounded-full bg-warning-strong inline-block"></span> {t('traffic.status.yellow')}</span>
+ <span className="flex items-center gap-1"><span className="w-3 h-3 rounded-full bg-danger-strong inline-block"></span> {t('traffic.status.red')}</span>
  </div>
  <button
  onClick={loadTrafficData}
  disabled={loading}
- className="flex items-center gap-2 px-4 py-2 bg-stripe-600 text-white rounded-lg hover:bg-stripe-700 disabled:opacity-50 transition-colors"
+ className="flex items-center gap-2 px-4 py-2 bg-accent-strong text-on-accent rounded-lg hover:bg-accent-strong-hover disabled:opacity-50 transition-colors"
  >
  <RefreshCw size={16} className={loading ? 'animate-spin' : ''} />
  {t('traffic.refresh')}
@@ -267,14 +267,14 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
  {/* Status */}
  <div className={`border-l-4 p-3 rounded-lg ${
  liveTrafficAvailable
- ? 'bg-success-subtle border-emerald-500'
- : 'bg-accent-subtle border-stripe-500'
+ ? 'bg-success-subtle border-success'
+ : 'bg-accent-subtle border-accent'
  }`}>
  <div className="flex items-center gap-2 text-sm">
  {liveTrafficAvailable ? (
- <CheckCircle2 className="text-emerald-700 flex-shrink-0" size={16} />
+ <CheckCircle2 className="text-success flex-shrink-0" size={16} />
  ) : (
- <AlertTriangle className="text-stripe-600 flex-shrink-0" size={16} />
+ <AlertTriangle className="text-accent flex-shrink-0" size={16} />
  )}
  <span className={liveTrafficAvailable ? 'text-success' : 'text-accent'}>
  {liveTrafficAvailable
@@ -289,19 +289,19 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
  <div className="grid grid-cols-2 gap-4">
  <div className="bg-gradient-to-br from-success-subtle to-success-subtle rounded-xl border border-success-border p-4">
  <div className="flex items-center gap-2 mb-1">
- <TrendingUp size={18} className="text-emerald-700" />
+ <TrendingUp size={18} className="text-success" />
  <span className="text-xs font-bold text-success">{t('traffic.fastest')}</span>
  </div>
  <p className="text-lg font-bold text-strong">{fastest.crossingName}</p>
- <p className="text-2xl font-bold text-emerald-700">{effectiveWait(fastest)} min</p>
+ <p className="text-2xl font-bold text-success">{effectiveWait(fastest)} min</p>
  </div>
  <div className="bg-gradient-to-br from-danger-subtle to-warning-subtle rounded-xl border border-danger-border p-4">
  <div className="flex items-center gap-2 mb-1">
- <AlertTriangle size={18} className="text-red-600" />
+ <AlertTriangle size={18} className="text-danger" />
  <span className="text-xs font-bold text-danger">{t('traffic.slowest')}</span>
  </div>
  <p className="text-lg font-bold text-strong">{slowest.crossingName}</p>
- <p className="text-2xl font-bold text-red-600">{effectiveWait(slowest)} min</p>
+ <p className="text-2xl font-bold text-danger">{effectiveWait(slowest)} min</p>
  </div>
  </div>
  )}
@@ -405,9 +405,9 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
 
  {/* Mobile legend */}
  <div className="sm:hidden flex items-center justify-center gap-4 py-3 bg-surface text-xs text-muted">
- <span className="flex items-center gap-1"><span className="w-3 h-3 rounded-full bg-emerald-700 inline-block"></span> {t('traffic.status.green')}</span>
- <span className="flex items-center gap-1"><span className="w-3 h-3 rounded-full bg-yellow-500 inline-block"></span> {t('traffic.status.yellow')}</span>
- <span className="flex items-center gap-1"><span className="w-3 h-3 rounded-full bg-red-500 inline-block"></span> {t('traffic.status.red')}</span>
+ <span className="flex items-center gap-1"><span className="w-3 h-3 rounded-full bg-success-strong inline-block"></span> {t('traffic.status.green')}</span>
+ <span className="flex items-center gap-1"><span className="w-3 h-3 rounded-full bg-warning-strong inline-block"></span> {t('traffic.status.yellow')}</span>
+ <span className="flex items-center gap-1"><span className="w-3 h-3 rounded-full bg-danger-strong inline-block"></span> {t('traffic.status.red')}</span>
  </div>
  </div>
  )}
@@ -419,9 +419,9 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
  const isSelected = selectedCrossing === crossing.name;
  const crossingId = slugifyCrossingName(crossing.name);
  const status = effectiveStatus(traffic);
- const bgColor = status === 'green' ? 'bg-emerald-700' : status === 'yellow' ? 'bg-yellow-500' : 'bg-red-500';
- const borderColor = status === 'green' ? 'border-emerald-400' : status === 'yellow' ? 'border-yellow-400' : 'border-red-400';
- const textColor = status === 'green' ? 'text-emerald-700' : status === 'yellow' ? 'text-yellow-600' : 'text-red-600';
+ const bgColor = status === 'green' ? 'bg-success-strong' : status === 'yellow' ? 'bg-warning-strong' : 'bg-danger-strong';
+ const borderColor = status === 'green' ? 'border-success' : status === 'yellow' ? 'border-warning' : 'border-danger';
+ const textColor = status === 'green' ? 'text-success' : status === 'yellow' ? 'text-warning' : 'text-danger';
 
  return (
  <div
@@ -436,7 +436,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
  }`}
  >
  <div className="flex items-center gap-3 mb-3">
- <div className={`w-10 h-10 ${bgColor} rounded-full flex items-center justify-center text-white font-bold text-sm shadow-md`}>
+ <div className={`w-10 h-10 ${bgColor} rounded-full flex items-center justify-center text-on-accent font-bold text-sm shadow-md`}>
  {effectiveWait(traffic)}
  </div>
  <div className="flex-1 min-w-0">
@@ -472,7 +472,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
  href={`https://www.google.com/maps/dir/?api=1&destination=${crossing.coordinates[0]},${crossing.coordinates[1]}&travelmode=driving`}
  target="_blank"
  rel="noopener noreferrer"
- className="mt-2 flex items-center justify-center gap-1.5 w-full py-2 bg-stripe-600 text-white rounded-lg text-xs font-bold hover:bg-stripe-700 transition-colors no-underline"
+ className="mt-2 flex items-center justify-center gap-1.5 w-full py-2 bg-accent-strong text-on-accent rounded-lg text-xs font-bold hover:bg-accent-strong-hover transition-colors no-underline"
  onClick={(e) => e.stopPropagation()}
  >
  <Navigation size={12} />
@@ -489,13 +489,13 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
  {/* Tips */}
  <div className="bg-gradient-to-br from-accent-subtle to-accent-subtle rounded-2xl border border-accent-border p-6">
  <h3 className="text-xl font-bold text-strong mb-4 flex items-center gap-2">
- <Navigation size={24} className="text-stripe-600" />
+ <Navigation size={24} className="text-accent" />
  {t('traffic.tipsTitle')}
  </h3>
 
  <div className="grid md:grid-cols-2 gap-4">
  <div className="p-4 bg-surface/50 rounded-xl">
- <p className="font-bold text-stripe-600 mb-2">{t('traffic.tipsBestTimesTitle')}</p>
+ <p className="font-bold text-accent mb-2">{t('traffic.tipsBestTimesTitle')}</p>
  <ul className="space-y-1 text-sm text-body list-disc ml-4">
  <li>{t('traffic.tipsMorning')}</li>
  <li>{t('traffic.tipsEvening')}</li>
@@ -504,7 +504,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
  </div>
 
  <div className="p-4 bg-surface/50 rounded-xl">
- <p className="font-bold text-stripe-600 mb-2">{t('traffic.tipsAltRoutesTitle')}</p>
+ <p className="font-bold text-accent mb-2">{t('traffic.tipsAltRoutesTitle')}</p>
  <ul className="space-y-1 text-sm text-body list-disc ml-4">
  <li>{t('traffic.tipsAvoidChiasso')}</li>
  <li>{t('traffic.tipsTryAlternatives')}</li>

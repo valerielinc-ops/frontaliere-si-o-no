@@ -63,19 +63,19 @@ const LOCATIONS = {
 
 function getWeatherIcon(code: number, isDay: boolean): React.ReactNode {
  // WMO weather codes → icons
- if (code === 0 || code === 1) return <Sun className="w-full h-full text-amber-500" />;
+ if (code === 0 || code === 1) return <Sun className="w-full h-full text-warning" />;
  if (code === 2) return <Cloud className="w-full h-full text-muted" />;
  if (code === 3) return <Cloud className="w-full h-full text-muted" />;
  if (code >= 45 && code <= 48) return <CloudFog className="w-full h-full text-muted" />;
- if (code >= 51 && code <= 55) return <CloudDrizzle className="w-full h-full text-stripe-400" />;
- if (code >= 56 && code <= 57) return <CloudDrizzle className="w-full h-full text-stripe-300" />;
- if (code >= 61 && code <= 65) return <CloudRain className="w-full h-full text-stripe-500" />;
- if (code >= 66 && code <= 67) return <CloudRain className="w-full h-full text-stripe-300" />;
- if (code >= 71 && code <= 77) return <CloudSnow className="w-full h-full text-stripe-200" />;
- if (code >= 80 && code <= 82) return <CloudRain className="w-full h-full text-stripe-600" />;
- if (code >= 85 && code <= 86) return <CloudSnow className="w-full h-full text-stripe-300" />;
- if (code >= 95 && code <= 99) return <CloudLightning className="w-full h-full text-amber-400" />;
- return <Sun className="w-full h-full text-amber-500" />;
+ if (code >= 51 && code <= 55) return <CloudDrizzle className="w-full h-full text-accent" />;
+ if (code >= 56 && code <= 57) return <CloudDrizzle className="w-full h-full text-accent" />;
+ if (code >= 61 && code <= 65) return <CloudRain className="w-full h-full text-accent" />;
+ if (code >= 66 && code <= 67) return <CloudRain className="w-full h-full text-accent" />;
+ if (code >= 71 && code <= 77) return <CloudSnow className="w-full h-full text-accent" />;
+ if (code >= 80 && code <= 82) return <CloudRain className="w-full h-full text-accent" />;
+ if (code >= 85 && code <= 86) return <CloudSnow className="w-full h-full text-accent" />;
+ if (code >= 95 && code <= 99) return <CloudLightning className="w-full h-full text-warning" />;
+ return <Sun className="w-full h-full text-warning" />;
 }
 
 function getWeatherLabel(code: number, t: (key: string) => string): string {
@@ -366,7 +366,7 @@ const MorningDashboard: React.FC = () => {
  </div>
  {rateLoading ? (
  <div className="h-16 flex items-center justify-center">
- <div className="w-6 h-6 border-2 border-stripe-500 border-t-transparent rounded-full animate-spin" />
+ <div className="w-6 h-6 border-2 border-accent border-t-transparent rounded-full animate-spin" />
  </div>
  ) : (
  <div className="space-y-2">
@@ -375,7 +375,7 @@ const MorningDashboard: React.FC = () => {
  {rate.toFixed(4)}
  </span>
  {prevRate && Math.abs(rate - prevRate) > 0.0001 && (
- <span className={`flex items-center gap-0.5 text-xs font-semibold ${rate > prevRate ? 'text-green-600' : 'text-red-600'}`}>
+ <span className={`flex items-center gap-0.5 text-xs font-semibold ${rate > prevRate ? 'text-success' : 'text-danger'}`}>
  {rate > prevRate ? <TrendingUp className="w-3 h-3" /> : <TrendingDown className="w-3 h-3" />}
  {((rate - prevRate) * 100).toFixed(2)}%
  </span>
@@ -410,7 +410,7 @@ const MorningDashboard: React.FC = () => {
 
  {trafficLoading ? (
  <div className="h-20 flex items-center justify-center">
- <div className="w-6 h-6 border-2 border-stripe-500 border-t-transparent rounded-full animate-spin" />
+ <div className="w-6 h-6 border-2 border-accent border-t-transparent rounded-full animate-spin" />
  </div>
  ) : (
  <div className="space-y-2">
@@ -420,9 +420,9 @@ const MorningDashboard: React.FC = () => {
  className="flex items-center gap-3 p-2.5 sm:p-3 rounded-xl bg-surface-alt border border-edge"
  >
  <div className={`w-3 h-3 rounded-full flex-shrink-0 ${
- crossing.status === 'green' ? 'bg-green-500' :
- crossing.status === 'yellow' ? 'bg-amber-500' :
- 'bg-red-500'
+ crossing.status === 'green' ? 'bg-success-strong' :
+ crossing.status === 'yellow' ? 'bg-warning-strong' :
+ 'bg-danger-strong'
  }`} />
  <div className="min-w-0 flex-1">
  <div className="font-semibold text-sm text-heading truncate">
@@ -452,13 +452,13 @@ const MorningDashboard: React.FC = () => {
  <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted">
  <span>{t('morning.traffic.top5')}</span>
  <span className="flex items-center gap-1">
- <span className="w-2 h-2 rounded-full bg-green-500 inline-block" /> {t('morning.traffic.statusGreen')}
+ <span className="w-2 h-2 rounded-full bg-success-strong inline-block" /> {t('morning.traffic.statusGreen')}
  </span>
  <span className="flex items-center gap-1">
- <span className="w-2 h-2 rounded-full bg-amber-500 inline-block" /> {t('morning.traffic.statusYellow')}
+ <span className="w-2 h-2 rounded-full bg-warning-strong inline-block" /> {t('morning.traffic.statusYellow')}
  </span>
  <span className="flex items-center gap-1">
- <span className="w-2 h-2 rounded-full bg-red-500 inline-block" /> {t('morning.traffic.statusRed')}
+ <span className="w-2 h-2 rounded-full bg-danger-strong inline-block" /> {t('morning.traffic.statusRed')}
  </span>
  </div>
  </div>
@@ -532,7 +532,7 @@ const WeatherCard: React.FC<WeatherCardProps> = ({ location, loading, flag, t })
  return (
  <div className="bg-surface/60 rounded-2xl border border-edge p-3 sm:p-5 space-y-3">
  <div className="h-28 flex items-center justify-center">
- <div className="w-6 h-6 border-2 border-sky-500 border-t-transparent rounded-full animate-spin" />
+ <div className="w-6 h-6 border-2 border-info border-t-transparent rounded-full animate-spin" />
  </div>
  </div>
  );
@@ -590,11 +590,11 @@ const WeatherCard: React.FC<WeatherCardProps> = ({ location, loading, flag, t })
  {/* Sunrise / Sunset */}
  <div className="flex items-center justify-between text-xs text-muted pt-1 border-t border-edge">
  <span className="flex items-center gap-1">
- <Sunrise className="w-3 h-3 text-amber-500" />
+ <Sunrise className="w-3 h-3 text-warning" />
  {location.sunrise.split('T')[1]?.slice(0, 5)}
  </span>
  <span className="flex items-center gap-1">
- <Sunset className="w-3 h-3 text-orange-500" />
+ <Sunset className="w-3 h-3 text-warning" />
  {location.sunset.split('T')[1]?.slice(0, 5)}
  </span>
  </div>

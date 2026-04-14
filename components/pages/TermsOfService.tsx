@@ -18,8 +18,8 @@ export const TermsOfService: React.FC = () => {
  {/* Header */}
  <div className="bg-surface rounded-2xl border border-edge p-5 sm:p-8 shadow-lg mb-6">
  <div className="flex items-center gap-4 mb-4">
- <div className="p-3 bg-gradient-to-br from-amber-500 to-orange-600 rounded-2xl shadow-lg">
- <FileText className="text-white" size={32} />
+ <div className="p-3 bg-gradient-to-br from-warning-strong to-warning-strong rounded-2xl shadow-lg">
+ <FileText className="text-on-accent" size={32} />
  </div>
  <div>
  <h1 className="text-2xl sm:text-3xl font-extrabold text-strong">Termini di Servizio</h1>

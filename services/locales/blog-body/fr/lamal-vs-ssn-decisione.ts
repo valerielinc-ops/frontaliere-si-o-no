@@ -1,5 +1,5 @@
 const bodyLamalVsSsnDecisione: Record<string, string> = {
-    'blog.article.lamal-vs-ssn-decisione.body1': `## LAMal vs SSN : le droit d'option du frontalier en matière d'assurance maladie
+ 'blog.article.lamal-vs-ssn-decisione.body1': `## LAMal vs SSN : le droit d'option du frontalier en matière d'assurance maladie
 
 La **LAMal** (Loi fédérale sur l'assurance-maladie) est l'assurance maladie obligatoire suisse, tandis que le **SSN** (Servizio Sanitario Nazionale) est le service de santé publique italien. Les frontaliers qui commencent à travailler en Suisse disposent d'un **droit d'option** : ils peuvent choisir entre s'inscrire à la LAMal suisse ou maintenir la couverture du SSN italien. Ce choix, qui doit être communiqué dans les 3 mois suivant le début de l'activité professionnelle, peut avoir un impact de plusieurs milliers d'euros par an sur les dépenses de santé du ménage.
 
@@ -56,7 +56,7 @@ Avec une franchise de CHF 2 500 et les mêmes frais :
 
 Avec la LAMal, vous avez un accès complet au **système de santé suisse** : hôpitaux publics, médecins spécialistes, urgences, médicaments de la liste des spécialités. En Italie et dans l'UE/AELE, vous avez droit aux **soins urgents et nécessaires** via la carte d'assurance (équivalent de la CEAM). Pour des traitements planifiés en Italie, vous pouvez demander une autorisation préalable à votre caisse-maladie.`,
 
-    'blog.article.lamal-vs-ssn-decisione.body2': `## Comment fonctionne le SSN pour les frontaliers
+ 'blog.article.lamal-vs-ssn-decisione.body2': `## Comment fonctionne le SSN pour les frontaliers
 
 ### Inscription et cotisations
 
@@ -125,7 +125,7 @@ Les **membres de la famille à charge** (conjoint, enfants) sont couverts par le
 
 (Sources : OFSP/BAG, Guide LAMal pour les assurés 2026 ; Ministère italien de la Santé, Niveaux essentiels de soins 2025)`,
 
-    'blog.article.lamal-vs-ssn-decisione.body3': `## Scénarios concrets : le coût réel de chaque option
+ 'blog.article.lamal-vs-ssn-decisione.body3': `## Scénarios concrets : le coût réel de chaque option
 
 Pour rendre la différence tangible, analysons quatre scénarios réels avec des calculs détaillés. Le taux de change utilisé est **1 CHF = 0,93 EUR** (moyenne 2025, Source : BNS).
 
@@ -212,7 +212,7 @@ Pour rendre la différence tangible, analysons quatre scénarios réels avec des
 > « La cotisation SSN est proportionnelle au revenu : plus vous gagnez, plus vous payez. La LAMal en revanche a des primes fixes indépendantes du revenu. Cela crée un point d'équilibre autour de CHF 5 500–6 000/mois pour un célibataire : en dessous de ce seuil le SSN coûte moins, au-dessus la LAMal est plus avantageuse. »
 > — Dr Elena Colombo, Fiscaliste spécialisée en fiscalité internationale`,
 
-    'blog.article.lamal-vs-ssn-decisione.body4': `## Quand choisir la LAMal : 6 raisons concrètes
+ 'blog.article.lamal-vs-ssn-decisione.body4': `## Quand choisir la LAMal : 6 raisons concrètes
 
 La LAMal est le meilleur choix si vous vous reconnaissez dans au moins 3 de ces situations :
 
@@ -276,7 +276,7 @@ La LAMal est l'**assurance de base obligatoire** avec les mêmes prestations que
 ### ❌ Erreur 6 : Ne pas considérer le taux de change CHF/EUR
 La prime LAMal est en CHF, la cotisation SSN est calculée en EUR. Les fluctuations du taux CHF/EUR peuvent déplacer le point d'équilibre de plusieurs centaines d'euros par an. Quand le CHF est fort, la LAMal devient relativement plus chère pour ceux qui dépensent en EUR.`,
 
-    'blog.article.lamal-vs-ssn-decisione.body5': `## Questions fréquentes sur le choix LAMal vs SSN
+ 'blog.article.lamal-vs-ssn-decisione.body5': `## Questions fréquentes sur le choix LAMal vs SSN
 
 ### Puis-je passer du SSN à la LAMal après le choix initial ?
 Le passage du SSN à la LAMal n'est possible que lors d'un **nouveau rapport de travail** en Suisse (changement d'employeur ou interruption/reprise). Vous ne pouvez pas simplement décider de changer en cours d'année. Le nouveau délai de 3 mois court à partir de la date de début du nouveau contrat (Source : art. 2 OAMal ; OFSP, FAQ droit d'option).
@@ -337,7 +337,7 @@ Le choix entre LAMal et SSN est l'une des décisions financières les plus impor
 3. **Respectez le délai de 3 mois** — marquez la date dans votre calendrier et ne procrastinez pas
 
 *Sources principales : OFSP/BAG, Statistiques de l'assurance-maladie 2025 ; Priminfo.admin.ch, Primes LAMal 2026 ; INPS, Circulaire cotisations sanitaires frontaliers 2024 ; art. 2 OAMal (Ordonnance sur l'assurance-maladie) ; Accord sur la libre circulation des personnes UE-CH, annexe II ; OCDE Panorama de la santé 2024.*`,
-    'blog.article.lamal-vs-ssn-decisione.faq': '[{"q":"Comment fonctionne le droit d\'option pour les travailleurs frontaliers travaillant en Suisse?","a":"Les frontières ont le droit de choisir de s\'inscrire au LAMal suisse ou de maintenir la couverture du SSN italien. Le choix doit être communiqué dans les 3 mois suivant le début des travaux en Suisse."},{"q":"Combien de travailleurs frontaliers travaillent en Suisse et quel pourcentage choisit LAMal?","a":"Selon les données de 2025, plus de 78 000 travailleurs frontaliers travaillent dans le seul canton du Tessin. Environ 35% d\'entre eux choisissent la Suisse LAMal, tandis que 65% maintiennent la SSN italienne."},{"q":"Quel traitement en Italie le KVG suisse est couvert pour les navetteurs transfrontaliers?","a":"Le KVG couvre les soins urgents et nécessaires en Italie via la carte CESE (équivalente à la carte santé italienne). Pour un traitement planifié ou spécialisé en Italie, une autorisation préalable doit être obtenue auprès de la compagnie suisse d\'assurance santé. La couverture est valable dans tous les pays de l\'UE/AELEA."},{"q":"Comment les cotisations du SSN sont-elles calculées pour un travailleur transfrontalier travaillant au Tessin mais résidant en Lombardie?","a":"En Lombardie, le taux du NAS est de 7,50 % du revenu total, converti en euros. Par exemple, sur un revenu annuel de 50 000 €, la contribution est de 3 750 €. Le paiement se fait via la déclaration fiscale italienne."},{"q":"Que se passe-t-il si un navetteur transfrontalier avec KVG a un accident en Italie?","a":"En cas d\'accident en Italie, la KVG couvre les soins nécessaires et urgents via la carte CESE. La compagnie suisse d\'assurance santé rembourse les frais selon les tarifs locaux, tandis que tout coût supplémentaire (par exemple une hospitalisation dans une chambre privée) reste à la charge de l\'assuré."}]',
+ 'blog.article.lamal-vs-ssn-decisione.faq': '[{"q":"Comment fonctionne le droit d\'option pour les travailleurs frontaliers travaillant en Suisse?","a":"Les frontières ont le droit de choisir de s\'inscrire au LAMal suisse ou de maintenir la couverture du SSN italien. Le choix doit être communiqué dans les 3 mois suivant le début des travaux en Suisse."},{"q":"Combien de travailleurs frontaliers travaillent en Suisse et quel pourcentage choisit LAMal?","a":"Selon les données de 2025, plus de 78 000 travailleurs frontaliers travaillent dans le seul canton du Tessin. Environ 35% d\'entre eux choisissent la Suisse LAMal, tandis que 65% maintiennent la SSN italienne."},{"q":"Quel traitement en Italie le KVG suisse est couvert pour les navetteurs transfrontaliers?","a":"Le KVG couvre les soins urgents et nécessaires en Italie via la carte CESE (équivalente à la carte santé italienne). Pour un traitement planifié ou spécialisé en Italie, une autorisation préalable doit être obtenue auprès de la compagnie suisse d\'assurance santé. La couverture est valable dans tous les pays de l\'UE/AELEA."},{"q":"Comment les cotisations du SSN sont-elles calculées pour un travailleur transfrontalier travaillant au Tessin mais résidant en Lombardie?","a":"En Lombardie, le taux du NAS est de 7,50 % du revenu total, converti en euros. Par exemple, sur un revenu annuel de 50 000 €, la contribution est de 3 750 €. Le paiement se fait via la déclaration fiscale italienne."},{"q":"Que se passe-t-il si un navetteur transfrontalier avec KVG a un accident en Italie?","a":"En cas d\'accident en Italie, la KVG couvre les soins nécessaires et urgents via la carte CESE. La compagnie suisse d\'assurance santé rembourse les frais selon les tarifs locaux, tandis que tout coût supplémentaire (par exemple une hospitalisation dans une chambre privée) reste à la charge de l\'assuré."}]',
 };
 
 export default bodyLamalVsSsnDecisione;

@@ -21,50 +21,50 @@ let _initialized = false;
  * Loads the Clarity script dynamically — no impact on initial page load.
  */
 export async function initClarity(): Promise<void> {
-  if (_initialized) return;
-  if (!isAnalyticsGranted()) return;
+ if (_initialized) return;
+ if (!isAnalyticsGranted()) return;
 
-  // Only load Clarity on the official production domain — skip everywhere else
-  // (localhost, preview builds, staging, GitHub Pages default domain, etc.)
-  const PRODUCTION_HOSTS = ['frontaliereticino.ch', 'frontaliereticino.ch'];
-  const host = window.location.hostname;
-  if (!PRODUCTION_HOSTS.includes(host)) {
-    if (import.meta.env.DEV) {
-      console.log(`[Clarity] Skipped — not production (host: ${host})`);
-    }
-    return;
-  }
+ // Only load Clarity on the official production domain — skip everywhere else
+ // (localhost, preview builds, staging, GitHub Pages default domain, etc.)
+ const PRODUCTION_HOSTS = ['frontaliereticino.ch', 'frontaliereticino.ch'];
+ const host = window.location.hostname;
+ if (!PRODUCTION_HOSTS.includes(host)) {
+ if (import.meta.env.DEV) {
+ console.log(`[Clarity] Skipped — not production (host: ${host})`);
+ }
+ return;
+ }
 
-  try {
-    const { getConfigValue } = await import('@/services/firebase');
-    const projectId = await getConfigValue('CLARITY_PROJECT_ID');
+ try {
+ const { getConfigValue } = await import('@/services/firebase');
+ const projectId = await getConfigValue('CLARITY_PROJECT_ID');
 
-    if (!projectId) {
-      if (import.meta.env.DEV) {
-        console.log('[Clarity] No project ID configured — skipping');
-      }
-      return;
-    }
+ if (!projectId) {
+ if (import.meta.env.DEV) {
+ console.log('[Clarity] No project ID configured — skipping');
+ }
+ return;
+ }
 
-    _initialized = true;
+ _initialized = true;
 
-    // Inject the Clarity script (standard snippet from https://clarity.microsoft.com)
-    (function (c: any, l: Document, a: string, r: string, i: string) {
-      c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
-      const t = l.createElement(r) as HTMLScriptElement;
-      t.async = true;
-      t.src = 'https://www.clarity.ms/tag/' + i;
-      const s = l.getElementsByTagName(r)[0];
-      s.parentNode?.insertBefore(t, s);
-    })(window, document, 'clarity', 'script', projectId);
+ // Inject the Clarity script (standard snippet from https://clarity.microsoft.com)
+ (function (c: any, l: Document, a: string, r: string, i: string) {
+ c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
+ const t = l.createElement(r) as HTMLScriptElement;
+ t.async = true;
+ t.src = 'https://www.clarity.ms/tag/' + i;
+ const s = l.getElementsByTagName(r)[0];
+ s.parentNode?.insertBefore(t, s);
+ })(window, document, 'clarity', 'script', projectId);
 
-    if (import.meta.env.DEV) {
-      console.log(`[Clarity] Initialized with project ${projectId}`);
-    }
-  } catch (error) {
-    if (import.meta.env.DEV) {
-      console.warn('[Clarity] Failed to initialize:', error);
-    }
-    reportCaughtError(error, 'clarity.init');
-  }
+ if (import.meta.env.DEV) {
+ console.log(`[Clarity] Initialized with project ${projectId}`);
+ }
+ } catch (error) {
+ if (import.meta.env.DEV) {
+ console.warn('[Clarity] Failed to initialize:', error);
+ }
+ reportCaughtError(error, 'clarity.init');
+ }
 }

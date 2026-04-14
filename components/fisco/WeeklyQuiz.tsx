@@ -335,9 +335,9 @@ const WeeklyQuiz: React.FC = () => {
  <div className="w-full max-w-xs mx-auto h-4 bg-surface-raised rounded-full overflow-hidden mb-6">
  <div
  className={`h-full rounded-full transition-transform duration-1000 origin-left ${
- percentage === 100 ? 'bg-gradient-to-r from-amber-400 to-yellow-500' :
- percentage >= 60 ? 'bg-gradient-to-r from-emerald-400 to-green-500' :
- 'bg-gradient-to-r from-red-400 to-orange-500'
+ percentage === 100 ? 'bg-gradient-to-r from-warning to-warning' :
+ percentage >= 60 ? 'bg-gradient-to-r from-success to-success-strong' :
+ 'bg-gradient-to-r from-danger to-warning-strong'
  }`}
  style={{ transform: `scaleX(${percentage / 100})` }}
  />
@@ -355,8 +355,8 @@ const WeeklyQuiz: React.FC = () => {
  : 'bg-danger-subtle border border-danger-border'
  }`}>
  {isCorrect
- ? <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0" />
- : <XCircle className="w-5 h-5 text-red-500 shrink-0" />
+ ? <CheckCircle2 className="w-5 h-5 text-success shrink-0" />
+ : <XCircle className="w-5 h-5 text-danger shrink-0" />
  }
  <span className="text-sm font-medium text-body">
  {i + 1}. {t(q.questionKey)}
@@ -372,7 +372,7 @@ const WeeklyQuiz: React.FC = () => {
 
  <button
  onClick={handleRestart}
- className="inline-flex items-center gap-2 px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-bold transition-colors"
+ className="inline-flex items-center gap-2 px-6 py-3 bg-success-strong hover:bg-success-strong-hover text-on-accent rounded-xl font-bold transition-colors"
  >
  <RotateCcw className="w-4 h-4" />
  {t('quiz.retry')}
@@ -421,7 +421,7 @@ const WeeklyQuiz: React.FC = () => {
  </div>
  <div className="w-full h-2 bg-surface-raised rounded-full overflow-hidden">
  <div
- className="h-full bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full transition-transform duration-300 origin-left"
+ className="h-full bg-gradient-to-r from-success-strong to-info-strong rounded-full transition-transform duration-300 origin-left"
  style={{ transform: `scaleX(${(currentIndex + 1) / questions.length})` }}
  />
  </div>
@@ -442,9 +442,9 @@ const WeeklyQuiz: React.FC = () => {
 
  let optionClass = 'bg-surface-alt border-edge hover:bg-surface-raised cursor-pointer';
  if (showResult && isCorrect) {
- optionClass = 'bg-success-subtle border-success-border ring-2 ring-emerald-400';
+ optionClass = 'bg-success-subtle border-success-border ring-2 ring-success-border';
  } else if (showResult && isSelected && !isCorrect) {
- optionClass = 'bg-danger-subtle border-danger-border ring-2 ring-red-400';
+ optionClass = 'bg-danger-subtle border-danger-border ring-2 ring-danger';
  } else if (showResult) {
  optionClass = 'bg-surface-alt border-edge opacity-60';
  }
@@ -458,8 +458,8 @@ const WeeklyQuiz: React.FC = () => {
  >
  <div className="flex items-center gap-3">
  <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold shrink-0 ${
- showResult && isCorrect ? 'bg-emerald-500 text-white' :
- showResult && isSelected ? 'bg-red-500 text-white' :
+ showResult && isCorrect ? 'bg-success-strong text-on-accent' :
+ showResult && isSelected ? 'bg-danger-strong text-on-accent' :
  'bg-surface-raised text-subtle'
  }`}>
  {showResult && isCorrect ? '✓' :
@@ -479,7 +479,7 @@ const WeeklyQuiz: React.FC = () => {
  {showExplanation && (
  <div className="mt-6 p-4 bg-accent-subtle rounded-xl border border-accent-border">
  <div className="flex items-start gap-2">
- <Sparkles className="w-5 h-5 text-stripe-500 shrink-0 mt-0.5" />
+ <Sparkles className="w-5 h-5 text-accent shrink-0 mt-0.5" />
  <p className="text-sm text-accent">
  {t(currentQuestion.explanationKey)}
  </p>
@@ -492,7 +492,7 @@ const WeeklyQuiz: React.FC = () => {
  <div className="mt-6 flex justify-end">
  <button
  onClick={handleNext}
- className="inline-flex items-center gap-2 px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-bold transition-colors"
+ className="inline-flex items-center gap-2 px-6 py-3 bg-success-strong hover:bg-success-strong-hover text-on-accent rounded-xl font-bold transition-colors"
  >
  {isLastQuestion ? t('quiz.seeResults') : t('quiz.next')}
  <ArrowRight className="w-4 h-4" />

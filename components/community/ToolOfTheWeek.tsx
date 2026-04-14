@@ -30,16 +30,16 @@ interface ToolDef {
 }
 
 const ALL_TOOLS: ToolDef[] = [
- { id: 'calculator', icon: '🧮', slug: '/calcola-stipendio', tab: 'calculator', subTab: 'salary', titleKey: 'toolOfWeek.tools.calculator', descKey: 'toolOfWeek.tools.calculatorDesc', color: 'from-stripe-500 to-stripe-600' },
- { id: 'exchange', icon: '💱', slug: '/comparatori/cambio-valuta', tab: 'confronti', subTab: 'exchange', titleKey: 'toolOfWeek.tools.exchange', descKey: 'toolOfWeek.tools.exchangeDesc', color: 'from-emerald-500 to-teal-600' },
- { id: 'health', icon: '🏥', slug: '/comparatori/casse-malati', tab: 'confronti', subTab: 'health', titleKey: 'toolOfWeek.tools.health', descKey: 'toolOfWeek.tools.healthDesc', color: 'from-red-500 to-pink-600' },
- { id: 'pension', icon: '🏦', slug: '/fisco/pensione', tab: 'fisco', subTab: 'pension', titleKey: 'toolOfWeek.tools.pension', descKey: 'toolOfWeek.tools.pensionDesc', color: 'from-teal-500 to-teal-600' },
- { id: 'permit-quiz', icon: '❓', slug: '/quiz-permesso-b-o-g', tab: 'guida', subTab: 'permit-quiz', titleKey: 'toolOfWeek.tools.permitQuiz', descKey: 'toolOfWeek.tools.permitQuizDesc', color: 'from-teal-500 to-teal-600' },
- { id: 'tredicesima', icon: '🎁', slug: '/calcolo-tredicesima-frontaliere', tab: 'calculator', subTab: 'tredicesima', titleKey: 'toolOfWeek.tools.tredicesima', descKey: 'toolOfWeek.tools.tredicesimalDesc', color: 'from-amber-500 to-orange-600' },
- { id: 'cost-of-living', icon: '🏠', slug: '/comparatori/costo-vita', tab: 'confronti', subTab: 'cost-of-living', titleKey: 'toolOfWeek.tools.costOfLiving', descKey: 'toolOfWeek.tools.costOfLivingDesc', color: 'from-sky-500 to-stripe-600' },
- { id: 'tax-return', icon: '📋', slug: '/fisco/dichiarazione', tab: 'fisco', subTab: 'tax-return', titleKey: 'toolOfWeek.tools.taxReturn', descKey: 'toolOfWeek.tools.taxReturnDesc', color: 'from-slate-500 to-slate-700' },
- { id: 'banks', icon: '🏧', slug: '/comparatori/banche', tab: 'confronti', subTab: 'banks', titleKey: 'toolOfWeek.tools.banks', descKey: 'toolOfWeek.tools.banksDesc', color: 'from-teal-500 to-emerald-600' },
- { id: 'payslip', icon: '💰', slug: '/calcola-stipendio/busta-paga', tab: 'calculator', subTab: 'payslip', titleKey: 'toolOfWeek.tools.payslip', descKey: 'toolOfWeek.tools.payslipDesc', color: 'from-green-500 to-emerald-600' },
+ { id: 'calculator', icon: '🧮', slug: '/calcola-stipendio', tab: 'calculator', subTab: 'salary', titleKey: 'toolOfWeek.tools.calculator', descKey: 'toolOfWeek.tools.calculatorDesc', color: 'from-accent-strong to-accent-strong' },
+ { id: 'exchange', icon: '💱', slug: '/comparatori/cambio-valuta', tab: 'confronti', subTab: 'exchange', titleKey: 'toolOfWeek.tools.exchange', descKey: 'toolOfWeek.tools.exchangeDesc', color: 'from-success-strong to-info-strong' },
+ { id: 'health', icon: '🏥', slug: '/comparatori/casse-malati', tab: 'confronti', subTab: 'health', titleKey: 'toolOfWeek.tools.health', descKey: 'toolOfWeek.tools.healthDesc', color: 'from-danger-strong to-danger-strong' },
+ { id: 'pension', icon: '🏦', slug: '/fisco/pensione', tab: 'fisco', subTab: 'pension', titleKey: 'toolOfWeek.tools.pension', descKey: 'toolOfWeek.tools.pensionDesc', color: 'from-info-strong to-info-strong' },
+ { id: 'permit-quiz', icon: '❓', slug: '/quiz-permesso-b-o-g', tab: 'guida', subTab: 'permit-quiz', titleKey: 'toolOfWeek.tools.permitQuiz', descKey: 'toolOfWeek.tools.permitQuizDesc', color: 'from-info-strong to-info-strong' },
+ { id: 'tredicesima', icon: '🎁', slug: '/calcolo-tredicesima-frontaliere', tab: 'calculator', subTab: 'tredicesima', titleKey: 'toolOfWeek.tools.tredicesima', descKey: 'toolOfWeek.tools.tredicesimalDesc', color: 'from-warning-strong to-warning-strong' },
+ { id: 'cost-of-living', icon: '🏠', slug: '/comparatori/costo-vita', tab: 'confronti', subTab: 'cost-of-living', titleKey: 'toolOfWeek.tools.costOfLiving', descKey: 'toolOfWeek.tools.costOfLivingDesc', color: 'from-info-strong to-accent-strong' },
+ { id: 'tax-return', icon: '📋', slug: '/fisco/dichiarazione', tab: 'fisco', subTab: 'tax-return', titleKey: 'toolOfWeek.tools.taxReturn', descKey: 'toolOfWeek.tools.taxReturnDesc', color: 'from-surface-alt0 to-surface-inverted' },
+ { id: 'banks', icon: '🏧', slug: '/comparatori/banche', tab: 'confronti', subTab: 'banks', titleKey: 'toolOfWeek.tools.banks', descKey: 'toolOfWeek.tools.banksDesc', color: 'from-info-strong to-success-strong' },
+ { id: 'payslip', icon: '💰', slug: '/calcola-stipendio/busta-paga', tab: 'calculator', subTab: 'payslip', titleKey: 'toolOfWeek.tools.payslip', descKey: 'toolOfWeek.tools.payslipDesc', color: 'from-success-strong to-success-strong' },
 ];
 
 function getWeekNumber(): number {
@@ -147,7 +147,7 @@ const ToolOfTheWeek: React.FC<ToolOfTheWeekProps> = ({ compact = false, onNaviga
  <div className="flex items-center gap-2">
  <button
  onClick={handleNavigate}
- className="flex-1 flex items-center justify-center gap-1 text-xs font-medium px-3 py-1.5 bg-accent hover:bg-accent-hover text-white rounded-lg transition-colors"
+ className="flex-1 flex items-center justify-center gap-1 text-xs font-medium px-3 py-1.5 bg-accent hover:bg-accent-hover text-on-accent rounded-lg transition-colors"
  aria-label={t('toolOfWeek.tryIt')}
  >
  {t('toolOfWeek.tryIt')}
@@ -155,14 +155,14 @@ const ToolOfTheWeek: React.FC<ToolOfTheWeekProps> = ({ compact = false, onNaviga
  </button>
  <button
  onClick={shareWhatsApp}
- className="p-1.5 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors"
+ className="p-1.5 bg-success-strong hover:bg-success-strong-hover text-on-accent rounded-lg transition-colors"
  aria-label="WhatsApp"
  >
  <MessageCircle size={14} />
  </button>
  <button
  onClick={copyShareText}
- className="p-1.5 bg-slate-600 hover:bg-slate-700 text-white rounded-lg transition-colors"
+ className="p-1.5 bg-surface-muted hover:bg-surface-muted-hover text-on-accent rounded-lg transition-colors"
  aria-label={copied ? t('toolOfWeek.copied') : t('toolOfWeek.copy')}
  >
  {copied ? <Check size={14} /> : <Copy size={14} />}
@@ -178,8 +178,8 @@ const ToolOfTheWeek: React.FC<ToolOfTheWeekProps> = ({ compact = false, onNaviga
  <div className="max-w-2xl mx-auto">
  {/* Header */}
  <div className="text-center mb-6">
- <div className="w-14 h-14 bg-gradient-to-br from-amber-400 to-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
- <Sparkles size={24} className="text-white" />
+ <div className="w-14 h-14 bg-gradient-to-br from-warning to-warning-strong rounded-2xl flex items-center justify-center mx-auto mb-4">
+ <Sparkles size={24} className="text-on-accent" />
  </div>
  <h2 className="text-2xl font-bold text-strong">
  {t('toolOfWeek.title')}
@@ -199,12 +199,12 @@ const ToolOfTheWeek: React.FC<ToolOfTheWeekProps> = ({ compact = false, onNaviga
  </div>
  <div>
  <div className="flex items-center gap-2 mb-1">
- <Star size={14} className="text-amber-300" />
+ <Star size={14} className="text-warning" />
  <span className="text-white/90 text-xs font-medium uppercase tracking-wide">
  {t('toolOfWeek.badge')}
  </span>
  </div>
- <h3 className="font-bold text-white text-xl">{toolTitle}</h3>
+ <h3 className="font-bold text-on-accent text-xl">{toolTitle}</h3>
  </div>
  </div>
  </div>
@@ -218,7 +218,7 @@ const ToolOfTheWeek: React.FC<ToolOfTheWeekProps> = ({ compact = false, onNaviga
  {/* CTA */}
  <button
  onClick={handleNavigate}
- className="mt-4 w-full flex items-center justify-center gap-2 px-4 py-3 bg-accent hover:bg-accent-hover text-white font-semibold rounded-xl transition-colors"
+ className="mt-4 w-full flex items-center justify-center gap-2 px-4 py-3 bg-accent hover:bg-accent-hover text-on-accent font-semibold rounded-xl transition-colors"
  aria-label={t('toolOfWeek.tryIt')}
  >
  {t('toolOfWeek.tryIt')}
@@ -235,7 +235,7 @@ const ToolOfTheWeek: React.FC<ToolOfTheWeekProps> = ({ compact = false, onNaviga
  aria-label={t('toolOfWeek.shareTitle')}
  >
  <h3 className="font-bold text-strong flex items-center gap-2">
- <Share2 size={18} className="text-stripe-500" />
+ <Share2 size={18} className="text-accent" />
  {t('toolOfWeek.shareTitle')}
  </h3>
  {showShareOptions ? <ChevronUp size={16} className="text-muted" /> : <ChevronDown size={16} className="text-muted" />}
@@ -254,7 +254,7 @@ const ToolOfTheWeek: React.FC<ToolOfTheWeekProps> = ({ compact = false, onNaviga
  <div className="flex flex-wrap gap-2">
  <button
  onClick={shareWhatsApp}
- className="flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-700 text-white text-sm font-medium rounded-xl transition-colors"
+ className="flex items-center gap-2 px-4 py-2 bg-success-strong hover:bg-success-strong-hover text-on-accent text-sm font-medium rounded-xl transition-colors"
  aria-label="WhatsApp"
  >
  <MessageCircle size={16} />
@@ -262,7 +262,7 @@ const ToolOfTheWeek: React.FC<ToolOfTheWeekProps> = ({ compact = false, onNaviga
  </button>
  <button
  onClick={shareTwitter}
- className="flex items-center gap-2 px-4 py-2 bg-sky-500 hover:bg-sky-600 text-white text-sm font-medium rounded-xl transition-colors"
+ className="flex items-center gap-2 px-4 py-2 bg-info-strong hover:bg-info-strong-hover text-on-accent text-sm font-medium rounded-xl transition-colors"
  aria-label="Twitter/X"
  >
  <Twitter size={16} />
@@ -270,7 +270,7 @@ const ToolOfTheWeek: React.FC<ToolOfTheWeekProps> = ({ compact = false, onNaviga
  </button>
  <button
  onClick={shareFacebook}
- className="flex items-center gap-2 px-4 py-2 bg-accent hover:bg-accent-hover text-white text-sm font-medium rounded-xl transition-colors"
+ className="flex items-center gap-2 px-4 py-2 bg-accent hover:bg-accent-hover text-on-accent text-sm font-medium rounded-xl transition-colors"
  aria-label="Facebook"
  >
  <Facebook size={16} />
@@ -278,7 +278,7 @@ const ToolOfTheWeek: React.FC<ToolOfTheWeekProps> = ({ compact = false, onNaviga
  </button>
  <button
  onClick={copyShareText}
- className="flex items-center gap-2 px-4 py-2 bg-slate-600 hover:bg-slate-700 text-white text-sm font-medium rounded-xl transition-colors"
+ className="flex items-center gap-2 px-4 py-2 bg-surface-muted hover:bg-surface-muted-hover text-on-accent text-sm font-medium rounded-xl transition-colors"
  aria-label={copied ? t('toolOfWeek.copied') : t('toolOfWeek.copy')}
  >
  {copied ? <Check size={16} /> : <Copy size={16} />}

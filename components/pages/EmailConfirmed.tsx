@@ -10,7 +10,7 @@ export const EmailConfirmed: React.FC = () => {
  {
  id: 'calculator',
  icon: Calculator,
- colorClass: 'from-stripe-500 to-stripe-600',
+ colorClass: 'from-accent-strong to-accent-strong',
  titleKey: 'emailConfirmed.cta.calculator.title',
  descKey: 'emailConfirmed.cta.calculator.desc',
  href: buildPath({ activeTab: 'calculator' }),
@@ -18,7 +18,7 @@ export const EmailConfirmed: React.FC = () => {
  {
  id: 'jobs',
  icon: Briefcase,
- colorClass: 'from-emerald-500 to-teal-600',
+ colorClass: 'from-success-strong to-info-strong',
  titleKey: 'emailConfirmed.cta.jobs.title',
  descKey: 'emailConfirmed.cta.jobs.desc',
  href: buildPath({ activeTab: 'job-board' }),
@@ -26,7 +26,7 @@ export const EmailConfirmed: React.FC = () => {
  {
  id: 'blog',
  icon: BookOpen,
- colorClass: 'from-teal-500 to-teal-600',
+ colorClass: 'from-info-strong to-info-strong',
  titleKey: 'emailConfirmed.cta.blog.title',
  descKey: 'emailConfirmed.cta.blog.desc',
  href: buildPath({ activeTab: 'blog' }),
@@ -39,8 +39,8 @@ export const EmailConfirmed: React.FC = () => {
  {/* Success Header */}
  <div className="bg-surface rounded-2xl border border-edge p-6 sm:p-8 shadow-xl text-center">
  <div className="flex justify-center mb-5">
- <div className="p-4 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-full shadow-lg">
- <CheckCircle2 className="text-white" size={40} />
+ <div className="p-4 bg-gradient-to-br from-success-strong to-info-strong rounded-full shadow-lg">
+ <CheckCircle2 className="text-on-accent" size={40} />
  </div>
  </div>
  <h1 className="text-2xl sm:text-3xl font-extrabold text-strong mb-2">
@@ -74,7 +74,7 @@ export const EmailConfirmed: React.FC = () => {
  className="flex items-center gap-4 rounded-xl border border-edge p-4 hover:border-accent hover:shadow-md transition-[color,background-color,border-color,box-shadow] group"
  >
  <div className={`p-2.5 bg-gradient-to-br ${feature.colorClass} rounded-xl shadow-md flex-shrink-0`}>
- <feature.icon className="text-white" size={22} />
+ <feature.icon className="text-on-accent" size={22} />
  </div>
  <div className="flex-1 min-w-0">
  <div className="font-semibold text-strong text-sm">

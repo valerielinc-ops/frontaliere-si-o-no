@@ -147,7 +147,7 @@ const WeeklyDigest: React.FC = () => {
  if (alreadySubscribed || status === 'success') {
  return (
  <div className="bg-success-subtle border border-success-border rounded-2xl p-4 sm:p-6 text-center">
- <CheckCircle2 size={32} className="text-emerald-600 mx-auto mb-3" />
+ <CheckCircle2 size={32} className="text-success mx-auto mb-3" />
  <h3 className="font-bold text-success">
  {t('weeklyDigest.subscribed')}
  </h3>
@@ -163,7 +163,7 @@ const WeeklyDigest: React.FC = () => {
  {/* Header */}
  <div className="text-center mb-6">
  <h2 className="text-2xl font-bold text-strong flex items-center justify-center gap-3">
- <Newspaper size={24} className="text-stripe-500" />
+ <Newspaper size={24} className="text-accent" />
  {t('weeklyDigest.title')}
  </h2>
  <p className="text-subtle mt-2 text-sm max-w-md mx-auto">
@@ -181,7 +181,7 @@ const WeeklyDigest: React.FC = () => {
  <Mail size={16} />
  {t('weeklyDigest.showPreview')}
  </span>
- {showPreview ? <ChevronUp size={16} className="text-stripe-500" /> : <ChevronDown size={16} className="text-stripe-500" />}
+ {showPreview ? <ChevronUp size={16} className="text-accent" /> : <ChevronDown size={16} className="text-accent" />}
  </button>
 
  {/* Digest Preview */}
@@ -193,7 +193,7 @@ const WeeklyDigest: React.FC = () => {
  <Bell size={16} className="text-white/90" />
  <span className="text-white/90 text-xs">{t('weeklyDigest.preview.header')}</span>
  </div>
- <h3 className="font-bold text-white text-lg">
+ <h3 className="font-bold text-on-accent text-lg">
  {t('weeklyDigest.preview.title', { week: String(weekNum) })}
  </h3>
  <p className="text-white/70 text-sm">{dateStr}</p>
@@ -202,7 +202,7 @@ const WeeklyDigest: React.FC = () => {
  {/* 1. Exchange Rate */}
  <div className="px-6 py-4 border-b border-edge">
  <div className="flex items-center gap-2 mb-2">
- <TrendingUp size={16} className="text-stripe-600" />
+ <TrendingUp size={16} className="text-accent" />
  <h4 className="font-semibold text-strong text-sm">
  {t('weeklyDigest.preview.exchangeTitle')}
  </h4>
@@ -221,14 +221,14 @@ const WeeklyDigest: React.FC = () => {
  {/* 2. Featured Articles */}
  <div className="px-6 py-4 border-b border-edge">
  <div className="flex items-center gap-2 mb-3">
- <BookOpen size={16} className="text-stripe-600" />
+ <BookOpen size={16} className="text-accent" />
  <h4 className="font-semibold text-strong text-sm">
  {t('weeklyDigest.preview.articlesTitle')}
  </h4>
  </div>
  <div className="space-y-2">
  <div className="flex items-start gap-3 bg-surface-alt rounded-xl p-3">
- <Star size={14} className="text-amber-500 mt-0.5 shrink-0" />
+ <Star size={14} className="text-warning mt-0.5 shrink-0" />
  <div>
  <p className="text-sm font-medium text-body">
  {t('weeklyDigest.preview.article1')}
@@ -237,7 +237,7 @@ const WeeklyDigest: React.FC = () => {
  </div>
  </div>
  <div className="flex items-start gap-3 bg-surface-alt rounded-xl p-3">
- <BookOpen size={14} className="text-stripe-500 mt-0.5 shrink-0" />
+ <BookOpen size={14} className="text-accent mt-0.5 shrink-0" />
  <div>
  <p className="text-sm font-medium text-body">
  {t('weeklyDigest.preview.article2')}
@@ -265,14 +265,14 @@ const WeeklyDigest: React.FC = () => {
  {t(`weeklyDigest.toolDesc.${featuredTool.key}`)}
  </p>
  </div>
- <ArrowRight size={16} className="text-stripe-500 shrink-0" />
+ <ArrowRight size={16} className="text-accent shrink-0" />
  </div>
  </div>
 
  {/* 4. Job Market */}
  <div className="px-6 py-4">
  <div className="flex items-center gap-2 mb-2">
- <Briefcase size={16} className="text-emerald-600" />
+ <Briefcase size={16} className="text-success" />
  <h4 className="font-semibold text-strong text-sm">
  {t('weeklyDigest.preview.jobsTitle')}
  </h4>
@@ -287,7 +287,7 @@ const WeeklyDigest: React.FC = () => {
  {/* Subscribe Form */}
  <div className="bg-surface rounded-2xl border border-edge p-6">
  <h3 className="font-bold text-strong mb-1 flex items-center gap-2">
- <Mail size={18} className="text-stripe-500" />
+ <Mail size={18} className="text-accent" />
  {t('weeklyDigest.subscribe')}
  </h3>
  <p className="text-sm text-subtle mb-4">
@@ -305,7 +305,7 @@ const WeeklyDigest: React.FC = () => {
  <button
  onClick={handleSubscribe}
  disabled={!validateEmailStrict(email) || status === 'loading'}
- className="px-5 py-2 bg-accent hover:bg-accent-hover disabled:opacity-50 text-white font-semibold rounded-xl transition-colors flex items-center gap-2"
+ className="px-5 py-2 bg-accent hover:bg-accent-hover disabled:opacity-50 text-on-accent font-semibold rounded-xl transition-colors flex items-center gap-2"
  aria-label={t('weeklyDigest.subscribeBtn')}
  >
  {status === 'loading' ? <Loader2 size={16} className="animate-spin" /> : <Send size={16} />}
@@ -330,7 +330,7 @@ const WeeklyDigest: React.FC = () => {
  )}
  </div>
  {linkedInAvailable && (
- <button type="button" onClick={() => signInWithLinkedIn()} className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#0A66C2] hover:bg-[#004182] text-white text-sm font-semibold transition-colors">
+ <button type="button" onClick={() => signInWithLinkedIn()} className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#0A66C2] hover:bg-[#004182] text-on-accent text-sm font-semibold transition-colors">
  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
  <span className="hidden sm:inline">{locale === 'it' ? 'Continua con LinkedIn' : locale === 'de' ? 'Mit LinkedIn fortfahren' : locale === 'fr' ? 'Continuer avec LinkedIn' : 'Continue with LinkedIn'}</span>
  <span className="sm:hidden">LinkedIn</span>
@@ -347,7 +347,7 @@ const WeeklyDigest: React.FC = () => {
  <div className="grid grid-cols-2 gap-2 mt-4">
  {['rates', 'articles', 'tools', 'jobs'].map(benefit => (
  <div key={benefit} className="flex items-center gap-2 text-xs text-subtle">
- <CheckCircle2 size={12} className="text-emerald-500 shrink-0" />
+ <CheckCircle2 size={12} className="text-success shrink-0" />
  <span>{t(`weeklyDigest.benefit.${benefit}`)}</span>
  </div>
  ))}

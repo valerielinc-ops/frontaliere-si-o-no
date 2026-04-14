@@ -5,18 +5,18 @@ import './index.css';
 // Auto-reload once when a deploy replaces JS/CSS chunks while user has stale index.html.
 // Vite fires this event before the error reaches React ErrorBoundary.
 window.addEventListener('vite:preloadError', (_event) => {
-  const key = '_deployReload';
-  const last = sessionStorage.getItem(key);
-  // Allow one reload per 5-minute window to prevent infinite loops
-  if (!last || Date.now() - Number(last) > 5 * 60 * 1000) {
-    sessionStorage.setItem(key, String(Date.now()));
-    window.location.reload();
-  }
+ const key = '_deployReload';
+ const last = sessionStorage.getItem(key);
+ // Allow one reload per 5-minute window to prevent infinite loops
+ if (!last || Date.now() - Number(last) > 5 * 60 * 1000) {
+ sessionStorage.setItem(key, String(Date.now()));
+ window.location.reload();
+ }
 });
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {
-  throw new Error("Could not find root element to mount to");
+ throw new Error("Could not find root element to mount to");
 }
 
 const root = ReactDOM.createRoot(rootElement);
@@ -25,35 +25,35 @@ let mounted = false;
 
 /** Paths where i18n must be preloaded before render (avoid flash of untranslated text) */
 const HOME_CRITICAL_PATHS = new Set([
-  '/',
-  '/en/',
-  '/de/',
-  '/fr/',
-  '/calcola-stipendio/',
-  '/calculate-salary/',
-  '/gehalt-berechnen/',
-  '/calculer-salaire/',
+ '/',
+ '/en/',
+ '/de/',
+ '/fr/',
+ '/calcola-stipendio/',
+ '/calculate-salary/',
+ '/gehalt-berechnen/',
+ '/calculer-salaire/',
 ]);
 
 const isHomeCriticalPath = (pathname: string): boolean => HOME_CRITICAL_PATHS.has(pathname);
 
 const waitForFirstPaint = () =>
-  new Promise<void>((resolve) => {
-    requestAnimationFrame(() => requestAnimationFrame(() => resolve()));
-  });
+ new Promise<void>((resolve) => {
+ requestAnimationFrame(() => requestAnimationFrame(() => resolve()));
+ });
 
 const waitForAsyncStylesheet = async () => {
-  const cssLink = document.querySelector<HTMLLinkElement>('link[media="print"][href*="/assets/"]');
-  if (!cssLink) return;
+ const cssLink = document.querySelector<HTMLLinkElement>('link[media="print"][href*="/assets/"]');
+ if (!cssLink) return;
 
-  await new Promise<void>((resolve) => {
-    if (cssLink.media === 'all') {
-      resolve();
-      return;
-    }
-    cssLink.addEventListener('load', () => resolve(), { once: true });
-    setTimeout(resolve, 3000);
-  });
+ await new Promise<void>((resolve) => {
+ if (cssLink.media === 'all') {
+ resolve();
+ return;
+ }
+ cssLink.addEventListener('load', () => resolve(), { once: true });
+ setTimeout(resolve, 3000);
+ });
 };
 
 /**
@@ -63,69 +63,69 @@ const waitForAsyncStylesheet = async () => {
  * causing a visible flash (FOUC). We handle this with a smooth crossfade.
  */
 const hasStaticContent = (): boolean => {
-  const shell = document.getElementById('loading-shell');
-  // If loading-shell exists, it covers #root — no FOUC possible
-  if (shell) return false;
-  // Check if #root has meaningful pre-rendered content (not just whitespace)
-  return !!(rootElement && rootElement.children.length > 0);
+ const shell = document.getElementById('loading-shell');
+ // If loading-shell exists, it covers #root — no FOUC possible
+ if (shell) return false;
+ // Check if #root has meaningful pre-rendered content (not just whitespace)
+ return !!(rootElement && rootElement.children.length > 0);
 };
 
 const mountApp = async () => {
-  if (mounted) return;
-  mounted = true;
+ if (mounted) return;
+ mounted = true;
 
-  const homeCritical = isHomeCriticalPath(window.location.pathname);
-  const staticPage = hasStaticContent();
+ const homeCritical = isHomeCriticalPath(window.location.pathname);
+ const staticPage = hasStaticContent();
 
-  const [{ default: App }, i18n] = await Promise.all([
-    import('./App'),
-    homeCritical ? import('./services/i18n') : Promise.resolve(null),
-  ]);
+ const [{ default: App }, i18n] = await Promise.all([
+ import('./App'),
+ homeCritical ? import('./services/i18n') : Promise.resolve(null),
+ ]);
 
-  if (homeCritical && i18n) {
-    await i18n.itReady;
-  }
+ if (homeCritical && i18n) {
+ await i18n.itReady;
+ }
 
-  if (staticPage) {
-    // FOUC prevention for static pages:
-    // 1. Fade out the static HTML content quickly
-    // 2. Let React render (which replaces the content)
-    // 3. Fade the new React content back in
-    rootElement.style.transition = 'opacity 80ms ease-out';
-    rootElement.style.opacity = '0';
+ if (staticPage) {
+ // FOUC prevention for static pages:
+ // 1. Fade out the static HTML content quickly
+ // 2. Let React render (which replaces the content)
+ // 3. Fade the new React content back in
+ rootElement.style.transition = 'opacity 80ms ease-out';
+ rootElement.style.opacity = '0';
 
-    // Wait for the fade-out to complete before React replaces content
-    await new Promise<void>((resolve) => {
-      rootElement.addEventListener('transitionend', () => resolve(), { once: true });
-      // Safety timeout in case transitionend doesn't fire
-      setTimeout(resolve, 100);
-    });
-  }
+ // Wait for the fade-out to complete before React replaces content
+ await new Promise<void>((resolve) => {
+ rootElement.addEventListener('transitionend', () => resolve(), { once: true });
+ // Safety timeout in case transitionend doesn't fire
+ setTimeout(resolve, 100);
+ });
+ }
 
-  root.render(
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  );
+ root.render(
+ <React.StrictMode>
+ <App />
+ </React.StrictMode>
+ );
 
-  if (!homeCritical) {
-    await waitForAsyncStylesheet();
-  }
+ if (!homeCritical) {
+ await waitForAsyncStylesheet();
+ }
 
-  await waitForFirstPaint();
+ await waitForFirstPaint();
 
-  if (staticPage) {
-    // Fade the React content back in
-    rootElement.style.transition = 'opacity 120ms ease-in';
-    rootElement.style.opacity = '1';
-    // Clean up inline styles after the transition completes
-    rootElement.addEventListener('transitionend', () => {
-      rootElement.style.transition = '';
-      rootElement.style.opacity = '';
-    }, { once: true });
-  }
+ if (staticPage) {
+ // Fade the React content back in
+ rootElement.style.transition = 'opacity 120ms ease-in';
+ rootElement.style.opacity = '1';
+ // Clean up inline styles after the transition completes
+ rootElement.addEventListener('transitionend', () => {
+ rootElement.style.transition = '';
+ rootElement.style.opacity = '';
+ }, { once: true });
+ }
 
-  document.getElementById('loading-shell')?.remove();
+ document.getElementById('loading-shell')?.remove();
 };
 
 // Mount React immediately on all paths for better LCP.

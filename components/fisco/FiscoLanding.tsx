@@ -92,15 +92,15 @@ const FiscoLanding: React.FC = () => {
  {/* Trust signals */}
  <div className="flex flex-wrap items-center gap-3 mt-4 text-xs font-medium text-muted">
  <span className="inline-flex items-center gap-1 bg-surface/70 px-2.5 py-1 rounded-full">
- <Shield className="w-3.5 h-3.5 text-emerald-500" />
+ <Shield className="w-3.5 h-3.5 text-success" />
  {t('fisco.landing.trust.updated')}
  </span>
  <span className="inline-flex items-center gap-1 bg-surface/70 px-2.5 py-1 rounded-full">
- <Clock className="w-3.5 h-3.5 text-stripe-500" />
+ <Clock className="w-3.5 h-3.5 text-accent" />
  {t('fisco.landing.trust.free')}
  </span>
  <span className="inline-flex items-center gap-1 bg-surface/70 px-2.5 py-1 rounded-full">
- <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+ <Sparkles className="w-3.5 h-3.5 text-warning" />
  {t('fisco.landing.trust.tools')}
  </span>
  </div>

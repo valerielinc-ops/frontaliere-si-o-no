@@ -416,7 +416,7 @@ function renderFormattedContent(text: string, navigators?: NavigatorMap): ReactE
  const h2TableEl = inlineBody ? tryRenderMdTable(inlineBody, `h2tbl-${idx}`, navigators) : null;
  renderedBlocks.push(
  <div key={`heading-${idx}`} className="space-y-2">
- <h2 id={generateHeadingSlug(heading)} className="text-xl font-bold text-heading border-l-4 border-stripe-500 pl-3 mt-6 mb-2 scroll-mt-20">
+ <h2 id={generateHeadingSlug(heading)} className="text-xl font-bold text-heading border-l-4 border-accent pl-3 mt-6 mb-2 scroll-mt-20">
  {renderInlineFormatting(heading, navigators)}
  </h2>
  {h2TableEl || (inlineBody && (
@@ -477,7 +477,7 @@ function renderFormattedContent(text: string, navigators?: NavigatorMap): ReactE
  if (blockquoteCount < 2) {
  blockquoteCount += 1;
  renderedBlocks.push(
- <blockquote key={`quote-${idx}`} className="bg-accent-subtle border-l-4 border-stripe-500 p-4 rounded-r-lg italic text-accent">
+ <blockquote key={`quote-${idx}`} className="bg-accent-subtle border-l-4 border-accent p-4 rounded-r-lg italic text-accent">
  {renderInlineFormatting(quote, navigators)}
  </blockquote>
  );
@@ -505,7 +505,7 @@ function renderFormattedContent(text: string, navigators?: NavigatorMap): ReactE
  <ul key={`list-${idx}`} className="space-y-2 pl-1">
  {items.map((item, i) => (
  <li key={i} className="flex items-start gap-2 text-body leading-relaxed">
- <CheckCircle2 size={16} className="text-emerald-500 shrink-0 mt-0.5" />
+ <CheckCircle2 size={16} className="text-success shrink-0 mt-0.5" />
  <span>{renderInlineFormatting(item, navigators)}</span>
  </li>
  ))}
@@ -928,11 +928,11 @@ const CTA_TEXT_COLORS = {
 
 const CTA_BTN_COLORS = {
  indigo: 'bg-accent hover:bg-accent-hover',
- emerald: 'bg-emerald-700 hover:bg-emerald-700',
- amber: 'bg-amber-600 hover:bg-amber-700',
+ emerald: 'bg-success-strong hover:bg-success-strong-hover',
+ amber: 'bg-warning-strong hover:bg-warning-strong-hover',
  blue: 'bg-accent hover:bg-accent-hover',
  violet: 'bg-accent hover:bg-accent-hover',
- rose: 'bg-rose-600 hover:bg-rose-700',
+ rose: 'bg-danger-strong hover:bg-danger-strong-hover',
 };
 
 export const BLOG_LIST_PAGE_STORAGE_KEY = 'blog-list-current-page';
@@ -1621,7 +1621,7 @@ function BlogArticles({
  <span className="text-xl block mb-1">{partner.emoji}</span>
  <span className="text-xs font-semibold text-body block leading-tight">{partner.name}</span>
  {partner.badgeKey && (
- <span className={`mt-1 inline-block text-xs font-bold px-1.5 py-0.5 rounded-full bg-gradient-to-r ${partner.color} text-white`}>
+ <span className={`mt-1 inline-block text-xs font-bold px-1.5 py-0.5 rounded-full bg-gradient-to-r ${partner.color} text-on-accent`}>
  {t(partner.badgeKey)}
  </span>
  )}
@@ -1638,7 +1638,7 @@ function BlogArticles({
  <div className="max-w-3xl xl:max-w-6xl mx-auto">
  {/* Reading progress bar */}
  <div
- className="fixed top-0 left-0 z-50 h-[3px] w-full bg-gradient-to-r from-stripe-500 via-stripe-600 to-stripe-700 transition-transform duration-150 ease-out origin-left"
+ className="fixed top-0 left-0 z-50 h-[3px] w-full bg-gradient-to-r from-accent-strong via-accent-strong to-accent-strong-hover transition-transform duration-150 ease-out origin-left"
  style={{ transform: `scaleX(${readingProgress / 100})` }}
  role="progressbar"
  aria-valuenow={Math.round(readingProgress)}
@@ -1735,15 +1735,15 @@ function BlogArticles({
  </span>
  <span className={`px-2 py-0.5 rounded-full text-xs font-semibold ${
  article.category === 'novita'
- ? 'bg-orange-500/80 text-white'
- : 'bg-white/25 text-white'
+ ? 'bg-warning-strong/80 text-on-accent'
+ : 'bg-white/25 text-on-accent'
  }`}>
  {article.category === 'novita'
  ? t('blog.contentType.news')
  : t('blog.contentType.guide')}
  </span>
  </div>
- <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white leading-tight">
+ <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-on-accent leading-tight">
  {t(`blog.article.${article.id}.title`)}
  </h1>
  </div>
@@ -1777,7 +1777,7 @@ function BlogArticles({
  className="inline-flex items-center gap-1 px-3 py-1 rounded-lg bg-surface-raised hover:bg-surface-raised text-xs font-medium transition-colors"
  aria-label={t('blog.copyLink')}
  >
- {copied ? <Check size={12} className="text-emerald-500" /> : <Copy size={12} />}
+ {copied ? <Check size={12} className="text-success" /> : <Copy size={12} />}
  {copied ? t('blog.copied') : t('blog.copyLink')}
  </button>
  {/* WhatsApp */}
@@ -1884,7 +1884,7 @@ function BlogArticles({
 
  {/* Article body */}
  <div className="px-4 sm:px-6 py-6 space-y-5">
- <p className="text-lg text-subtle italic border-l-4 border-stripe-500 pl-4">
+ <p className="text-lg text-subtle italic border-l-4 border-accent pl-4">
  {t(`blog.article.${article.id}.excerpt`)}
  </p>
 
@@ -1898,7 +1898,7 @@ function BlogArticles({
  aria-controls="mobile-toc"
  >
  <span className="flex items-center gap-2">
- <List size={16} className="text-stripe-500" />
+ <List size={16} className="text-accent" />
  {t('blog.toc.title')} ({tocHeadings.length} {t('blog.toc.sections')})
  </span>
  <ChevronDown size={16} className={`text-muted transition-transform duration-200 ${tocOpen ? 'rotate-180' : ''}`} />
@@ -2007,7 +2007,7 @@ function BlogArticles({
  <div className="my-4 p-4 bg-gradient-to-r from-info-subtle to-accent-subtle border border-info-border rounded-xl">
  <div className="flex items-center justify-between mb-3">
  <p className="text-sm font-bold text-info flex items-center gap-1.5">
- <Briefcase size={15} className="text-teal-500" />
+ <Briefcase size={15} className="text-info" />
  {t('blog.inlineJobs.title', getCantonI18nParams())}
  </p>
  <a
@@ -2128,7 +2128,7 @@ function BlogArticles({
  <a
  href={buildPath(NAV_ACTION_ROUTES[cta.navAction])}
  onClick={(e) => { e.preventDefault(); cta.action(); }}
- className={`mt-3 px-4 py-2 ${CTA_BTN_COLORS[cta.color]} text-white rounded-xl text-sm font-semibold inline-flex items-center gap-1 transition-colors`}
+ className={`mt-3 px-4 py-2 ${CTA_BTN_COLORS[cta.color]} text-on-accent rounded-xl text-sm font-semibold inline-flex items-center gap-1 transition-colors`}
  >
  {t(cta.buttonKey)} <ArrowRight size={14} />
  </a>
@@ -2161,7 +2161,7 @@ function BlogArticles({
  articleFeedback[article.id] === 'not-useful'
  ? 'bg-danger-subtle text-danger ring-1 ring-danger-border'
  : 'bg-surface-raised text-subtle hover:bg-danger-subtle'
- }`} aria-label={t('blog.feedback.notUseful')} > <ThumbsDown size={16} /> {t('blog.feedback.notUseful')} </button> </div> {articleFeedback[article.id] && ( <p className="text-sm text-muted mt-1">{t('blog.feedback.thanks')}</p> )} </div> {/* Author bio for E-E-A-T */} <div className="mt-8 p-4 bg-surface-alt rounded-xl border border-edge"> <div className="flex items-center gap-3"> <div className="w-12 h-12 rounded-full bg-accent-subtle flex items-center justify-center"> <User size={24} className="text-link" /> </div> <div> <p className="font-bold text-heading">{t('blog.byline')}</p> <p className="text-sm text-subtle">{t('blog.authorBio')}</p> </div> </div> </div> {/* Discuss in forum CTA */} <div className="mt-6 p-4 bg-accent-subtle rounded-xl border border-accent-border/40 flex items-center gap-3"> <MessageSquareMore size={20} className="text-accent shrink-0" /> <div className="flex-1"> <p className="text-sm font-semibold text-accent">{t('blog.discussInForum')}</p> <p className="text-sm text-accent mt-0.5">{t('blog.discussInForumDesc')}</p> </div> <a href={buildPath({ activeTab: 'forum' })} onClick={(e) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; e.preventDefault(); nav.navigateTo('forum'); }} className="shrink-0 px-4 py-2 bg-accent hover:bg-accent-hover text-white text-sm font-medium rounded-lg transition-colors" > {t('blog.goToForum')} → </a> </div> {/* Prev/Next article navigation */} {(() => { const currentIdx = articles.findIndex(a => a.id === article.id); const prevArticle = currentIdx < articles.length - 1 ? articles[currentIdx + 1] : null; const nextArticle = currentIdx > 0 ? articles[currentIdx - 1] : null; if (!prevArticle && !nextArticle) return null; return ( <div className="border-t border-edge pt-6 mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3"> {prevArticle ? ( <a href={buildPath({ activeTab: 'blog', blogArticle: prevArticle.id })} onClick={(e) => { e.preventDefault(); handleArticleClick(prevArticle.id); }} className="flex items-center gap-3 p-4 bg-surface-alt/50 rounded-xl hover:bg-surface-raised/50 transition-colors group" > <ChevronLeft size={20} className="text-subtle group-hover:text-stripe-500 shrink-0 transition-colors" /> <div className="min-w-0"> <p className="text-sm text-muted mb-1">{t('blog.prevArticle')}</p> <p className="text-sm font-semibold text-body line-clamp-2">{t(`blog.article.${prevArticle.id}.title`)}</p>
+ }`} aria-label={t('blog.feedback.notUseful')} > <ThumbsDown size={16} /> {t('blog.feedback.notUseful')} </button> </div> {articleFeedback[article.id] && ( <p className="text-sm text-muted mt-1">{t('blog.feedback.thanks')}</p> )} </div> {/* Author bio for E-E-A-T */} <div className="mt-8 p-4 bg-surface-alt rounded-xl border border-edge"> <div className="flex items-center gap-3"> <div className="w-12 h-12 rounded-full bg-accent-subtle flex items-center justify-center"> <User size={24} className="text-link" /> </div> <div> <p className="font-bold text-heading">{t('blog.byline')}</p> <p className="text-sm text-subtle">{t('blog.authorBio')}</p> </div> </div> </div> {/* Discuss in forum CTA */} <div className="mt-6 p-4 bg-accent-subtle rounded-xl border border-accent-border/40 flex items-center gap-3"> <MessageSquareMore size={20} className="text-accent shrink-0" /> <div className="flex-1"> <p className="text-sm font-semibold text-accent">{t('blog.discussInForum')}</p> <p className="text-sm text-accent mt-0.5">{t('blog.discussInForumDesc')}</p> </div> <a href={buildPath({ activeTab: 'forum' })} onClick={(e) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; e.preventDefault(); nav.navigateTo('forum'); }} className="shrink-0 px-4 py-2 bg-accent hover:bg-accent-hover text-on-accent text-sm font-medium rounded-lg transition-colors" > {t('blog.goToForum')} → </a> </div> {/* Prev/Next article navigation */} {(() => { const currentIdx = articles.findIndex(a => a.id === article.id); const prevArticle = currentIdx < articles.length - 1 ? articles[currentIdx + 1] : null; const nextArticle = currentIdx > 0 ? articles[currentIdx - 1] : null; if (!prevArticle && !nextArticle) return null; return ( <div className="border-t border-edge pt-6 mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3"> {prevArticle ? ( <a href={buildPath({ activeTab: 'blog', blogArticle: prevArticle.id })} onClick={(e) => { e.preventDefault(); handleArticleClick(prevArticle.id); }} className="flex items-center gap-3 p-4 bg-surface-alt/50 rounded-xl hover:bg-surface-raised/50 transition-colors group" > <ChevronLeft size={20} className="text-subtle group-hover:text-accent shrink-0 transition-colors" /> <div className="min-w-0"> <p className="text-sm text-muted mb-1">{t('blog.prevArticle')}</p> <p className="text-sm font-semibold text-body line-clamp-2">{t(`blog.article.${prevArticle.id}.title`)}</p>
  </div>
  </a>
  ) : <div />}
@@ -2173,7 +2173,7 @@ function BlogArticles({
  >
  <div className="min-w-0 flex-1">
  <p className="text-sm text-muted mb-1">{t('blog.nextArticle')}</p>
- <p className="text-sm font-semibold text-body line-clamp-2">{t(`blog.article.${nextArticle.id}.title`)}</p> </div> <ChevronRight size={20} className="text-subtle group-hover:text-stripe-500 shrink-0 transition-colors" /> </a> ) : <div />} </div> ); })()} {/* Related articles — FRO-301: moved above ads/trending for engagement */} <div className="border-t border-edge pt-6 mt-8"> <h3 className="text-lg font-bold text-heading mb-4">{t('blog.relatedArticles')}</h3> <div className="grid grid-cols-1 sm:grid-cols-3 gap-3"> {getRelatedArticles(article.id, articles, 3).map(related => ( <a key={related.id} href={buildPath({ activeTab: 'blog', blogArticle: related.id })} onClick={(e) => { e.preventDefault(); handleArticleClick(related.id); }} className="flex items-center gap-3 p-3 bg-surface-alt/50 rounded-xl hover:bg-surface-raised/50 transition-colors text-left" > {(() => { const responsive = imageFallbackMap[related.image] ? null : getResponsiveImageSet(related.image); return ( <picture className="w-16 h-12 shrink-0"> {responsive && <source type="image/avif" srcSet={responsive.avif} />} {responsive && <source type="image/webp" srcSet={responsive.webp} />} <img src={related.image} srcSet={responsive?.jpgSet} sizes="64px" alt={getImageAlt(related.id)} width={60} height={40} className="w-16 h-12 object-cover rounded-lg shrink-0" loading="lazy" onError={() => handleResponsiveImageError(related.image)} /> </picture> ); })()} <div className="min-w-0"> <p className="text-sm font-semibold text-body line-clamp-2"> {t(`blog.article.${related.id}.title`)} </p> <p className="text-sm text-muted mt-1">{estimateReadingMinutes(related.id, t)} min</p> </div> </a> ))} </div> </div> {/* AdSense — end-of-article multiplex */} <div className="mt-8"> <Suspense fallback={adEligible ? <div style={{ minHeight: AD_SLOTS.ARTICLE_END_MULTIPLEX.placeholderMinHeight, contain: 'content' }} className="my-4" /> : null}> <AdSenseBanner adSlot={AD_SLOTS.ARTICLE_END_MULTIPLEX.slot} adFormat={AD_SLOTS.ARTICLE_END_MULTIPLEX.format} enabled={adEligible} className="my-4" /> </Suspense> </div> {/* Explore tools — category-aware grid of evergreen page links */} {/* Trending articles this week */} {(() => { const trendingFiltered = trendingArticles .filter(e => e.id !== article.id) .slice(0, 4); if (trendingFiltered.length === 0) return null; const trendingLookup = new Map(trendingFiltered.map(e => [e.id, e.views])); const trendingCards = trendingFiltered .map(e => articleById.get(e.id)) .filter(Boolean) as Article[]; if (trendingCards.length === 0) return null; return ( <div className="border-t border-edge pt-6 mt-8"> <h3 className="text-lg font-bold text-heading mb-4 flex items-center gap-2"> <TrendingUp size={20} className="text-orange-500" /> {t('blog.trendingThisWeek')} </h3> <div className="grid grid-cols-1 sm:grid-cols-2 gap-3"> {trendingCards.map((tr, idx) => { const views = trendingLookup.get(tr.id) ?? 0; const responsive = imageFallbackMap[tr.image] ? null : getResponsiveImageSet(tr.image); return ( <a key={tr.id} href={buildPath({ activeTab: 'blog', blogArticle: tr.id })} onClick={(e) => { e.preventDefault(); handleArticleClick(tr.id); }} className="flex items-center gap-3 p-3 bg-gradient-to-r from-warning-subtle to-warning-subtle border border-warning-border rounded-xl hover:from-warning-subtle hover:to-warning-subtle transition-colors text-left group" > <div className="relative shrink-0"> <picture className="w-16 h-12 shrink-0"> {responsive && <source type="image/avif" srcSet={responsive.avif} />} {responsive && <source type="image/webp" srcSet={responsive.webp} />} <img src={tr.image} srcSet={responsive?.jpgSet} sizes="64px" alt={getImageAlt(tr.id)} width={60} height={40} className="w-16 h-12 object-cover rounded-lg" loading="lazy" onError={() => handleResponsiveImageError(tr.image)} /> </picture> {idx === 0 && ( <span className="absolute -top-1.5 -left-1.5 bg-orange-500 text-white text-xs font-bold px-1.5 py-0.5 rounded-full leading-none"> 🔥 </span> )} </div> <div className="min-w-0 flex-1"> <p className="text-sm font-semibold text-body line-clamp-2 group-hover:text-warning transition-colors"> {t(`blog.article.${tr.id}.title`)}
+ <p className="text-sm font-semibold text-body line-clamp-2">{t(`blog.article.${nextArticle.id}.title`)}</p> </div> <ChevronRight size={20} className="text-subtle group-hover:text-accent shrink-0 transition-colors" /> </a> ) : <div />} </div> ); })()} {/* Related articles — FRO-301: moved above ads/trending for engagement */} <div className="border-t border-edge pt-6 mt-8"> <h3 className="text-lg font-bold text-heading mb-4">{t('blog.relatedArticles')}</h3> <div className="grid grid-cols-1 sm:grid-cols-3 gap-3"> {getRelatedArticles(article.id, articles, 3).map(related => ( <a key={related.id} href={buildPath({ activeTab: 'blog', blogArticle: related.id })} onClick={(e) => { e.preventDefault(); handleArticleClick(related.id); }} className="flex items-center gap-3 p-3 bg-surface-alt/50 rounded-xl hover:bg-surface-raised/50 transition-colors text-left" > {(() => { const responsive = imageFallbackMap[related.image] ? null : getResponsiveImageSet(related.image); return ( <picture className="w-16 h-12 shrink-0"> {responsive && <source type="image/avif" srcSet={responsive.avif} />} {responsive && <source type="image/webp" srcSet={responsive.webp} />} <img src={related.image} srcSet={responsive?.jpgSet} sizes="64px" alt={getImageAlt(related.id)} width={60} height={40} className="w-16 h-12 object-cover rounded-lg shrink-0" loading="lazy" onError={() => handleResponsiveImageError(related.image)} /> </picture> ); })()} <div className="min-w-0"> <p className="text-sm font-semibold text-body line-clamp-2"> {t(`blog.article.${related.id}.title`)} </p> <p className="text-sm text-muted mt-1">{estimateReadingMinutes(related.id, t)} min</p> </div> </a> ))} </div> </div> {/* AdSense — end-of-article multiplex */} <div className="mt-8"> <Suspense fallback={adEligible ? <div style={{ minHeight: AD_SLOTS.ARTICLE_END_MULTIPLEX.placeholderMinHeight, contain: 'content' }} className="my-4" /> : null}> <AdSenseBanner adSlot={AD_SLOTS.ARTICLE_END_MULTIPLEX.slot} adFormat={AD_SLOTS.ARTICLE_END_MULTIPLEX.format} enabled={adEligible} className="my-4" /> </Suspense> </div> {/* Explore tools — category-aware grid of evergreen page links */} {/* Trending articles this week */} {(() => { const trendingFiltered = trendingArticles .filter(e => e.id !== article.id) .slice(0, 4); if (trendingFiltered.length === 0) return null; const trendingLookup = new Map(trendingFiltered.map(e => [e.id, e.views])); const trendingCards = trendingFiltered .map(e => articleById.get(e.id)) .filter(Boolean) as Article[]; if (trendingCards.length === 0) return null; return ( <div className="border-t border-edge pt-6 mt-8"> <h3 className="text-lg font-bold text-heading mb-4 flex items-center gap-2"> <TrendingUp size={20} className="text-warning" /> {t('blog.trendingThisWeek')} </h3> <div className="grid grid-cols-1 sm:grid-cols-2 gap-3"> {trendingCards.map((tr, idx) => { const views = trendingLookup.get(tr.id) ?? 0; const responsive = imageFallbackMap[tr.image] ? null : getResponsiveImageSet(tr.image); return ( <a key={tr.id} href={buildPath({ activeTab: 'blog', blogArticle: tr.id })} onClick={(e) => { e.preventDefault(); handleArticleClick(tr.id); }} className="flex items-center gap-3 p-3 bg-gradient-to-r from-warning-subtle to-warning-subtle border border-warning-border rounded-xl hover:from-warning-subtle hover:to-warning-subtle transition-colors text-left group" > <div className="relative shrink-0"> <picture className="w-16 h-12 shrink-0"> {responsive && <source type="image/avif" srcSet={responsive.avif} />} {responsive && <source type="image/webp" srcSet={responsive.webp} />} <img src={tr.image} srcSet={responsive?.jpgSet} sizes="64px" alt={getImageAlt(tr.id)} width={60} height={40} className="w-16 h-12 object-cover rounded-lg" loading="lazy" onError={() => handleResponsiveImageError(tr.image)} /> </picture> {idx === 0 && ( <span className="absolute -top-1.5 -left-1.5 bg-warning-strong text-on-accent text-xs font-bold px-1.5 py-0.5 rounded-full leading-none"> 🔥 </span> )} </div> <div className="min-w-0 flex-1"> <p className="text-sm font-semibold text-body line-clamp-2 group-hover:text-warning transition-colors"> {t(`blog.article.${tr.id}.title`)}
  </p>
  <div className="flex items-center gap-2 mt-1">
  <span className="text-xs text-warning font-medium">
@@ -2199,7 +2199,7 @@ function BlogArticles({
  <div className="border-t border-edge pt-6 mt-6">
  <div className="flex items-center justify-between mb-4">
  <h3 className="text-lg font-bold text-strong flex items-center gap-2">
- <Briefcase size={18} className="text-stripe-500" />
+ <Briefcase size={18} className="text-accent" />
  {t('blog.relatedJobs')}
  </h3>
  <a
@@ -2222,7 +2222,7 @@ function BlogArticles({
  className="flex items-start gap-3 p-3 bg-accent-subtle/60 rounded-xl hover:bg-accent-subtle transition-colors text-left border border-accent-border"
  >
  <div className="w-10 h-10 rounded-lg bg-surface flex items-center justify-center border border-edge shrink-0 overflow-hidden">
- {logo ? <img src={logo} alt={`Logo ${job.company}`} width={28} height={28} className="w-7 h-7 object-contain" loading="lazy" onError={handleBlogLogoError} /> : <Briefcase size={16} className="text-stripe-500" />}
+ {logo ? <img src={logo} alt={`Logo ${job.company}`} width={28} height={28} className="w-7 h-7 object-contain" loading="lazy" onError={handleBlogLogoError} /> : <Briefcase size={16} className="text-accent" />}
  </div>
  <div className="min-w-0">
  <p className="text-sm font-semibold text-body line-clamp-2">
@@ -2243,13 +2243,13 @@ function BlogArticles({
  className="flex items-center gap-3 p-4 bg-accent-subtle/60 rounded-xl hover:bg-accent-subtle transition-colors border border-accent-border"
  >
  <div className="w-10 h-10 rounded-lg bg-surface flex items-center justify-center border border-edge shrink-0">
- <Search size={18} className="text-stripe-500" />
+ <Search size={18} className="text-accent" />
  </div>
  <div className="flex-1 min-w-0">
  <p className="text-sm font-semibold text-body">{t('blog.cta.jobBoard.title', getCantonI18nParams())}</p>
  <p className="text-sm text-subtle mt-0.5">{t('blog.cta.jobBoard.desc', getCantonI18nParams())}</p>
  </div>
- <ArrowRight size={16} className="text-stripe-500 shrink-0" />
+ <ArrowRight size={16} className="text-accent shrink-0" />
  </a>
  </div>
  )}
@@ -2287,7 +2287,7 @@ function BlogArticles({
  h.level === 3 ? 'pl-3' : ''
  } ${
  activeHeadingId === h.id
- ? 'text-accent font-medium border-l-2 border-stripe-500 pl-2'
+ ? 'text-accent font-medium border-l-2 border-accent pl-2'
  : `text-subtle hover:text-accent ${h.level === 3 ? 'font-normal' : 'font-medium'}`
  }`}
  >
@@ -2346,7 +2346,7 @@ function BlogArticles({
  href="https://www.buymeacoffee.com/frontaliereticino"
  target="_blank"
  rel="noopener noreferrer"
- className="inline-block w-full text-xs font-semibold text-warning bg-warning-subtle hover:bg-amber-200 rounded-lg py-1.5 transition-colors"
+ className="inline-block w-full text-xs font-semibold text-warning bg-warning-subtle hover:bg-warning-subtle rounded-lg py-1.5 transition-colors"
  >
  ☕ {t('donation.button')}
  </a>
@@ -2392,7 +2392,7 @@ function BlogArticles({
  className="inline-flex items-center justify-center w-11 h-11 rounded-lg bg-surface-raised text-body"
  aria-label={t('blog.copyLink')}
  >
- {copied ? <Check size={20} className="text-emerald-500" /> : <Copy size={20} />}
+ {copied ? <Check size={20} className="text-success" /> : <Copy size={20} />}
  </button>
  )}
  </div>
@@ -2410,7 +2410,7 @@ function BlogArticles({
  {/* Header with stats hook */}
  <div className="text-center mb-2">
  <h1 className="text-2xl sm:text-3xl font-bold text-strong mb-2 flex items-center justify-center gap-2">
- <BookOpen size={28} className="text-stripe-600" />
+ <BookOpen size={28} className="text-accent" />
  {t('blog.title')}
  </h1>
  <p className="text-subtle">{t('blog.subtitle')}</p>
@@ -2444,8 +2444,8 @@ function BlogArticles({
  onClick={() => handleCategoryChange(cat)}
  className={`px-4 py-2 rounded-full text-sm font-medium transition-[color,background-color,border-color,box-shadow] ${
  selectedCategory === cat
- ? 'bg-stripe-600 text-white shadow-md'
- : 'bg-surface text-body border border-edge hover:border-stripe-400'
+ ? 'bg-accent-strong text-on-accent shadow-md'
+ : 'bg-surface text-body border border-edge hover:border-accent-border'
  }`}
  >
  {t(`blog.category.${cat}`)}
@@ -2491,15 +2491,15 @@ function BlogArticles({
  </span>
  <span className={`px-2 py-0.5 rounded-full text-xs font-semibold ${
  pageArticles[0].category === 'novita'
- ? 'bg-orange-500/80 text-white'
- : 'bg-white/25 text-white'
+ ? 'bg-warning-strong/80 text-on-accent'
+ : 'bg-white/25 text-on-accent'
  }`}>
  {pageArticles[0].category === 'novita'
  ? t('blog.contentType.news')
  : t('blog.contentType.guide')}
  </span>
  {pageArticles[0].hasCalculator && (
- <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-violet-500/80 text-white">
+ <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold bg-accent-strong/80 text-on-accent">
  <Calculator size={11} />
  {t('blog.hasCalculator')}
  </span>
@@ -2516,7 +2516,7 @@ function BlogArticles({
  </span>
  )}
  </div>
- <h2 className="text-xl sm:text-2xl font-bold text-white mb-2 leading-tight">
+ <h2 className="text-xl sm:text-2xl font-bold text-on-accent mb-2 leading-tight">
  {t(`blog.article.${pageArticles[0].id}.title`)}
  </h2>
  <p className="text-white/90 text-sm line-clamp-2 max-w-2xl leading-relaxed">
@@ -2591,7 +2591,7 @@ function BlogArticles({
  </span>
  <span className={`px-1.5 py-0.5 rounded-full text-xs font-semibold ${
  article.category === 'novita'
- ? 'bg-orange-500/90 text-white'
+ ? 'bg-warning-strong/90 text-on-accent'
  : 'bg-surface text-subtle'
  }`}>
  {article.category === 'novita'
@@ -2661,7 +2661,7 @@ function BlogArticles({
  {/* Mobile: infinite scroll sentinel */}
  {hasMoreMobileArticles && (
  <div ref={articleSentinelRef} className="flex justify-center items-center py-6 sm:hidden">
- <div className="h-5 w-5 border-2 border-stripe-600 border-t-transparent rounded-full animate-spin" />
+ <div className="h-5 w-5 border-2 border-accent border-t-transparent rounded-full animate-spin" />
  <span className="ml-2 text-sm text-muted">{t('blog.pagination.next')}…</span>
  </div>
  )}
@@ -2702,7 +2702,7 @@ function BlogArticles({
  onClick={() => { setCurrentPage(page); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
  className={`w-11 h-11 rounded-lg text-sm font-medium transition-colors ${
  page === currentPage
- ? 'bg-stripe-600 text-white shadow-md'
+ ? 'bg-accent-strong text-on-accent shadow-md'
  : 'bg-surface border border-edge text-body hover:bg-surface-raised'
  }`}
  aria-label={`${t('blog.pagination.page')} ${page}`}

@@ -1,11 +1,11 @@
 const bodyBestCrossBorderWorkerCalculatorSwitzerland: Record<string, string> = {
-    'blog.article.best-cross-border-worker-calculator-switzerland.body1': `## Qu\'est-ce qu\'un calculateur pour frontaliers ?
+ 'blog.article.best-cross-border-worker-calculator-switzerland.body1': `## Qu\'est-ce qu\'un calculateur pour frontaliers ?
 
 Un calculateur pour frontaliers (calcolatore frontaliere) est un outil spécialisé qui estime le salaire net pour les personnes faisant la navette entre l\'Italie et la Suisse. Contrairement aux calculateurs de salaire génériques, il tient compte des conventions fiscales bilatérales, des doubles cotisations sociales et des choix d\'assurance maladie qui concernent les frontaliers.
 
 Le seul canton du Tessin emploie près de 80 000 travailleurs frontaliers d\'Italie. Cet article compare les principaux outils disponibles en 2026 pour les frontaliers italo-suisses.`,
 
-    'blog.article.best-cross-border-worker-calculator-switzerland.body2': `## Tableau comparatif : Frontaliere Ticino vs alternatives
+ 'blog.article.best-cross-border-worker-calculator-switzerland.body2': `## Tableau comparatif : Frontaliere Ticino vs alternatives
 
 | Fonctionnalité | **Frontaliere Ticino** | **lohncomputer.ch** | **ibani.com** |
 |---|---|---|---|
@@ -20,7 +20,7 @@ Le seul canton du Tessin emploie près de 80 000 travailleurs frontaliers d\'Ita
 | **Langues** | IT, EN, DE, FR | DE, FR, EN | EN, DE |
 | **Gratuit** | Oui, entièrement gratuit | Gratuit avec limites | Gratuit avec limites |`,
 
-    'blog.article.best-cross-border-worker-calculator-switzerland.body3': `## Évaluations détaillées
+ 'blog.article.best-cross-border-worker-calculator-switzerland.body3': `## Évaluations détaillées
 
 ### Frontaliere Ticino — Le spécialiste
 La plateforme gratuite la plus complète pour les frontaliers entre l\'Italie et la Suisse. Modélise les deux côtés de l\'équation.
@@ -39,7 +39,7 @@ Oui. Tous les calculateurs et outils sont entièrement gratuits, sans inscriptio
 ### Quelle est la différence entre l\'ancien et le nouvel accord frontalier ?
 Les travailleurs ayant commencé avant le 17 juillet 2023 relèvent de l\'ancien régime. Ceux ayant commencé après relèvent du nouvel accord avec une franchise de 10 000 EUR et un crédit d\'impôt.`,
 
-    'blog.article.best-cross-border-worker-calculator-switzerland.body4': `## Quel calculateur devriez-vous utiliser ?
+ 'blog.article.best-cross-border-worker-calculator-switzerland.body4': `## Quel calculateur devriez-vous utiliser ?
 
 **Si vous êtes frontalier entre l\'Italie et le Tessin**, Frontaliere Ticino est le choix le plus adapté. C\'est le seul outil qui modélise à la fois le côté suisse et le côté italien de votre fiche de paie.
 

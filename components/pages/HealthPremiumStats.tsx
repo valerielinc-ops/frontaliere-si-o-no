@@ -120,12 +120,12 @@ const HealthPremiumStats: React.FC = () => {
  return (
  <div className="space-y-6 pb-8">
  {/* Header */}
- <div className="bg-gradient-to-br from-rose-600 to-pink-700 rounded-2xl p-4 sm:p-8 text-white">
+ <div className="bg-gradient-to-br from-danger-strong to-danger-strong-hover rounded-2xl p-4 sm:p-8 text-on-accent">
  <div className="flex items-center gap-3 mb-3">
  <Heart size={28} />
  <h2 className="text-2xl sm:text-3xl font-bold">Premi Cassa Malati per Comune</h2>
  </div>
- <p className="text-rose-100 text-base sm:text-lg">
+ <p className="text-on-accent text-base sm:text-lg">
  Classifica completa dei premi LAMal medi per {allCommunes.length} comuni di Ticino e Grigioni. Dati ufficiali UFSP {data.year}.
  </p>
  <div className="mt-3">
@@ -145,7 +145,7 @@ const HealthPremiumStats: React.FC = () => {
  <div className="flex-1 h-6 bg-surface-raised rounded-full overflow-hidden">
  <div
  className={`h-full rounded-full transition-transform origin-left ${
- i < 5 ? 'bg-emerald-500' : i >= cantonAverages.length - 5 ? 'bg-red-500' : 'bg-stripe-500'
+ i < 5 ? 'bg-success-strong' : i >= cantonAverages.length - 5 ? 'bg-danger-strong' : 'bg-accent-strong'
  }`}
  style={{ transform: `scaleX(${Math.max(10, (c.avg / maxAvg) * 100) / 100})` }}
  />
@@ -221,25 +221,25 @@ const HealthPremiumStats: React.FC = () => {
  <tr className="border-b-2 border-edge">
  <th className="text-left py-2 px-2 text-subtle font-bold">#</th>
  <th
- className="text-left py-2 px-2 text-subtle font-bold cursor-pointer hover:text-rose-600"
+ className="text-left py-2 px-2 text-subtle font-bold cursor-pointer hover:text-danger"
  onClick={() => handleSort('name')}
  >
  Comune {sortKey === 'name' && (sortAsc ? <ChevronUp size={12} className="inline" /> : <ChevronDown size={12} className="inline" />)}
  </th>
  <th
- className="text-center py-2 px-2 text-subtle font-bold cursor-pointer hover:text-rose-600"
+ className="text-center py-2 px-2 text-subtle font-bold cursor-pointer hover:text-danger"
  onClick={() => handleSort('canton')}
  >
  Cantone {sortKey === 'canton' && (sortAsc ? <ChevronUp size={12} className="inline" /> : <ChevronDown size={12} className="inline" />)}
  </th>
  <th
- className="text-right py-2 px-2 text-subtle font-bold cursor-pointer hover:text-rose-600"
+ className="text-right py-2 px-2 text-subtle font-bold cursor-pointer hover:text-danger"
  onClick={() => handleSort('avgPremium')}
  >
  Premio medio {sortKey === 'avgPremium' && (sortAsc ? <ChevronUp size={12} className="inline" /> : <ChevronDown size={12} className="inline" />)}
  </th>
  <th
- className="text-right py-2 px-2 text-subtle font-bold cursor-pointer hover:text-rose-600"
+ className="text-right py-2 px-2 text-subtle font-bold cursor-pointer hover:text-danger"
  onClick={() => handleSort('numInsurers')}
  >
  Assicuratori {sortKey === 'numInsurers' && (sortAsc ? <ChevronUp size={12} className="inline" /> : <ChevronDown size={12} className="inline" />)}

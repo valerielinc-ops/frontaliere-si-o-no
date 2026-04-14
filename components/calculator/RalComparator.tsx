@@ -355,7 +355,7 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
  {/* Italy Card */}
  <div className="bg-surface rounded-2xl border border-edge overflow-hidden">
- <div className="bg-gradient-to-r from-green-600 via-white to-red-600 h-1.5" />
+ <div className="bg-gradient-to-r from-success-strong via-surface to-danger-strong h-1.5" />
  <div className="p-5 space-y-4">
  <div className="flex items-center gap-2">
  <span className="text-2xl">🇮🇹</span>
@@ -397,9 +397,9 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
 
  {/* Switzerland Card */}
  <div className="bg-surface rounded-2xl border border-edge overflow-hidden">
- <div className="bg-gradient-to-r from-red-600 via-red-600 to-red-600 h-1.5 relative">
+ <div className="bg-gradient-to-r from-danger-strong via-danger-strong to-danger-strong h-1.5 relative">
  <div className="absolute inset-0 flex items-center justify-center">
- <div className="w-3 h-3 bg-white" style={{ clipPath: 'polygon(35% 0, 65% 0, 65% 35%, 100% 35%, 100% 65%, 65% 65%, 65% 100%, 35% 100%, 35% 65%, 0 65%, 0 35%, 35% 35%)' }} />
+ <div className="w-3 h-3 bg-surface" style={{ clipPath: 'polygon(35% 0, 65% 0, 65% 35%, 100% 35%, 100% 65%, 65% 65%, 65% 100%, 35% 100%, 35% 65%, 0 65%, 0 35%, 35% 35%)' }} />
  </div>
  </div>
  <div className="p-5 space-y-4">
@@ -470,7 +470,7 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
  {showDetails && (
  <div className="bg-surface rounded-2xl border border-edge p-5 space-y-4">
  <div className="flex items-center gap-2 mb-3">
- <Info className="w-5 h-5 text-stripe-500" />
+ <Info className="w-5 h-5 text-accent" />
  <h4 className="font-bold text-strong">{t('ral.detailsTitle')}</h4>
  </div>
  

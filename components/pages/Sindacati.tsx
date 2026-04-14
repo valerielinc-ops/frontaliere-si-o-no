@@ -126,7 +126,7 @@ const UnionCard: FC<{ union: UnionInfo; country: 'ch' | 'it' }> = ({ union, coun
  href={union.website}
  target="_blank"
  rel="noreferrer"
- className="flex-shrink-0 p-1.5 rounded-lg bg-surface-raised text-slate-500 hover:text-accent transition-colors"
+ className="flex-shrink-0 p-1.5 rounded-lg bg-surface-raised text-muted hover:text-accent transition-colors"
  aria-label={`Visita ${union.acronym}`}
  >
  <ExternalLink size={14} />
@@ -135,7 +135,7 @@ const UnionCard: FC<{ union: UnionInfo; country: 'ch' | 'it' }> = ({ union, coun
  <div className="space-y-1.5 mb-3">
  {union.highlights.map((h, i) => (
  <div key={i} className="flex items-start gap-2 text-xs text-subtle">
- <ChevronRight size={12} className="text-stripe-500 flex-shrink-0 mt-0.5" />
+ <ChevronRight size={12} className="text-accent flex-shrink-0 mt-0.5" />
  <span>{h}</span>
  </div>
  ))}
@@ -223,7 +223,7 @@ export default function Sindacati() {
  {/* Frontalier-specific rights */}
  <div className="rounded-2xl border border-edge bg-surface p-6">
  <h2 className="text-lg font-bold text-heading mb-4 flex items-center gap-2">
- <Building2 size={20} className="text-amber-600" />
+ <Building2 size={20} className="text-warning" />
  Diritti specifici del frontaliere
  </h2>
  <div className="space-y-3 text-sm text-body">
@@ -244,7 +244,7 @@ export default function Sindacati() {
 
  {/* CTA links */}
  <div className="flex flex-wrap gap-3 justify-center text-sm">
- <a href="/guida-frontaliere/" className="inline-flex items-center gap-1 px-4 py-2 rounded-xl bg-stripe-600 text-white font-semibold hover:bg-stripe-700 transition-colors">
+ <a href="/guida-frontaliere/" className="inline-flex items-center gap-1 px-4 py-2 rounded-xl bg-accent-strong text-on-accent font-semibold hover:bg-accent-strong-hover transition-colors">
  Guida Frontaliere <ChevronRight size={14} />
  </a>
  <a href="/contratti-lavoro-svizzera/" className="inline-flex items-center gap-1 px-4 py-2 rounded-xl bg-surface-raised text-strong font-semibold hover:bg-surface-raised transition-colors">

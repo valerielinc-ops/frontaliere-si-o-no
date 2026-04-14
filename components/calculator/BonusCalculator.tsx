@@ -201,18 +201,18 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
  return (
  <div className="space-y-6">
  {/* Header */}
- <div className="bg-success rounded-2xl p-4 sm:p-6 text-white">
+ <div className="bg-success rounded-2xl p-4 sm:p-6 text-on-accent">
  <div className="flex items-center gap-3 mb-2">
  <Gift size={28} />
  <h2 className="text-2xl font-bold">{t('bonus.title')}</h2>
  </div>
- <p className="text-emerald-100 text-sm">{t('bonus.subtitle')}</p>
+ <p className="text-success text-sm">{t('bonus.subtitle')}</p>
  </div>
 
  {/* Input section */}
  <div className="bg-surface rounded-2xl p-4 sm:p-6 border border-edge space-y-4">
  <h3 className="font-bold text-strong flex items-center gap-2">
- <Calculator size={18} className="text-emerald-700" /> {t('bonus.inputs')}
+ <Calculator size={18} className="text-success" /> {t('bonus.inputs')}
  </h3>
  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
  <div>
@@ -319,7 +319,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
  <div className="bg-surface rounded-2xl border border-edge overflow-hidden">
  <button onClick={() => toggleSection('result')} className="w-full flex items-center justify-between p-4" aria-expanded={expandedSection === 'result'}>
  <h3 className="font-bold text-strong flex items-center gap-2">
- <Euro size={18} className="text-emerald-700" /> {t('bonus.result')}
+ <Euro size={18} className="text-success" /> {t('bonus.result')}
  </h3>
  {expandedSection === 'result' ? <ChevronUp size={18} className="text-muted" /> : <ChevronDown size={18} className="text-muted" />}
  </button>
@@ -359,7 +359,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
  <div className="bg-surface rounded-2xl border border-edge overflow-hidden">
  <button onClick={() => toggleSection('taxImpact')} className="w-full flex items-center justify-between p-4" aria-expanded={expandedSection === 'taxImpact'}>
  <h3 className="font-bold text-strong flex items-center gap-2">
- <TrendingUp size={18} className="text-orange-600" /> {t('bonus.taxImpact')}
+ <TrendingUp size={18} className="text-warning" /> {t('bonus.taxImpact')}
  </h3>
  {expandedSection === 'taxImpact' ? <ChevronUp size={18} className="text-muted" /> : <ChevronDown size={18} className="text-muted" />}
  </button>
@@ -446,7 +446,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
  <div className="bg-surface rounded-2xl border border-edge overflow-hidden">
  <button onClick={() => toggleSection('info')} className="w-full flex items-center justify-between p-4" aria-expanded={expandedSection === 'info'}>
  <h3 className="font-bold text-strong flex items-center gap-2">
- <Info size={18} className="text-stripe-600" /> {t('bonus.typesInfo')}
+ <Info size={18} className="text-accent" /> {t('bonus.typesInfo')}
  </h3>
  {expandedSection === 'info' ? <ChevronUp size={18} className="text-muted" /> : <ChevronDown size={18} className="text-muted" />}
  </button>

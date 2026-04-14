@@ -23,24 +23,24 @@ export const isRuntimeSeoEnabled = () => runtimeSeoEnabled;
  * are loaded first.
  */
 export const updateMetaTags = (section: string) => {
-  if (!runtimeSeoEnabled) return;
-  const { locale: pathLocale } = parsePath(window.location.pathname);
-  setLocale(pathLocale);
-  const runUpdate = () => import('@/services/seoService').then(m => m.updateMetaTags(section)).catch(err => reportCaughtError(err, 'seo.updateMetaTags'));
-  if (section === 'blog' || section.startsWith('blog-')) {
-    import('@/services/i18n')
-      .then(m => m.loadBlogMeta())
-      .catch(err => reportCaughtError(err, 'seo.loadBlogMeta'))
-      .finally(runUpdate);
-    return;
-  }
-  runUpdate();
+ if (!runtimeSeoEnabled) return;
+ const { locale: pathLocale } = parsePath(window.location.pathname);
+ setLocale(pathLocale);
+ const runUpdate = () => import('@/services/seoService').then(m => m.updateMetaTags(section)).catch(err => reportCaughtError(err, 'seo.updateMetaTags'));
+ if (section === 'blog' || section.startsWith('blog-')) {
+ import('@/services/i18n')
+ .then(m => m.loadBlogMeta())
+ .catch(err => reportCaughtError(err, 'seo.loadBlogMeta'))
+ .finally(runUpdate);
+ return;
+ }
+ runUpdate();
 };
 
 /**
  * Track a section view for analytics purposes (lazy-loaded).
  */
 export const trackSectionView = (section: string) => {
-  if (!runtimeSeoEnabled) return;
-  import('@/services/seoService').then(m => m.trackSectionView(section)).catch(err => reportCaughtError(err, 'seo.trackSectionView'));
+ if (!runtimeSeoEnabled) return;
+ import('@/services/seoService').then(m => m.trackSectionView(section)).catch(err => reportCaughtError(err, 'seo.trackSectionView'));
 };

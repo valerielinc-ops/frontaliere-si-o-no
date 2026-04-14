@@ -159,12 +159,12 @@ function getColorClass(minutes: number): string {
  if (minutes <= 10) return 'bg-warning-subtle text-warning';
  if (minutes <= 18) return 'bg-warning-subtle text-warning';
  if (minutes <= 25) return 'bg-danger-subtle text-danger';
- return 'bg-danger text-white';
+ return 'bg-danger text-on-accent';
 }
 
 function getTrendIcon(current: number, previous: number) {
- if (current > previous + 2) return <TrendingUp size={14} className="text-red-500" />;
- if (current < previous - 2) return <TrendingDown size={14} className="text-emerald-500" />;
+ if (current > previous + 2) return <TrendingUp size={14} className="text-danger" />;
+ if (current < previous - 2) return <TrendingDown size={14} className="text-success" />;
  return <Minus size={14} className="text-muted" />;
 }
 
@@ -233,7 +233,7 @@ export default function TrafficHistory() {
  {/* Header */}
  <div className="text-center mb-6">
  <h2 className="text-2xl sm:text-3xl font-bold text-strong mb-2 flex items-center justify-center gap-2">
- <Clock size={28} className="text-stripe-600" />
+ <Clock size={28} className="text-accent" />
  {t('trafficHistory.title')}
  </h2>
  <p className="text-subtle">{t('trafficHistory.subtitle')}</p>
@@ -263,8 +263,8 @@ export default function TrafficHistory() {
  onClick={() => setSelectedCrossing(name)}
  className={`px-4 py-2 rounded-xl text-sm font-medium transition-[color,background-color,border-color,box-shadow] ${
  selectedCrossing === name
- ? 'bg-stripe-600 text-white shadow-lg'
- : 'bg-surface text-body border border-edge hover:border-stripe-400'
+ ? 'bg-accent-strong text-on-accent shadow-lg'
+ : 'bg-surface text-body border border-edge hover:border-accent-border'
  }`}
  >
  <MapPin size={14} className="inline mr-1" />
@@ -307,7 +307,7 @@ export default function TrafficHistory() {
  {/* Heatmap */}
  <div className="bg-surface rounded-2xl border border-edge p-4">
  <h3 className="text-base font-semibold text-body mb-4 flex items-center gap-2">
- <AlertTriangle size={16} className="text-amber-500" />
+ <AlertTriangle size={16} className="text-warning" />
  {t('trafficHistory.heatmapTitle')}
  </h3>
 
@@ -352,7 +352,7 @@ export default function TrafficHistory() {
  <span className="px-2 py-0.5 rounded bg-warning-subtle text-warning">5-10'</span>
  <span className="px-2 py-0.5 rounded bg-warning-subtle text-warning">10-18'</span>
  <span className="px-2 py-0.5 rounded bg-danger-subtle text-danger">18-25'</span>
- <span className="px-2 py-0.5 rounded bg-danger text-white">25'+</span>
+ <span className="px-2 py-0.5 rounded bg-danger text-on-accent">25'+</span>
  </div>
  </div>
 
@@ -367,7 +367,7 @@ export default function TrafficHistory() {
  <span className="w-10 text-sm font-medium text-subtle">{d.name}</span>
  <div className="flex-1 h-6 bg-surface-raised rounded-full overflow-hidden">
  <div
- className={`h-full w-full rounded-full transition-transform ${d.avg > 18 ? 'bg-red-500' : d.avg > 10 ? 'bg-orange-400' : 'bg-emerald-700'}`}
+ className={`h-full w-full rounded-full transition-transform ${d.avg > 18 ? 'bg-danger-strong' : d.avg > 10 ? 'bg-warning' : 'bg-success-strong'}`}
  style={{ transform: `scaleX(${Math.min(d.avg / 30, 1)})`, transformOrigin: 'left' }}
  />
  </div>

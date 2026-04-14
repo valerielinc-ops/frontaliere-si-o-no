@@ -247,7 +247,7 @@ function CopyButton({ text, label }: { text: string; label?: string }) {
  title={`Copia: ${text}`}
  aria-label={`Copia ${label || text}`}
  >
- {copied ? <Check size={12} className="text-emerald-500" /> : <Copy size={12} className="text-muted" />}
+ {copied ? <Check size={12} className="text-success" /> : <Copy size={12} className="text-muted" />}
  <span className="max-w-[200px] truncate">{text}</span>
  </button>
  );
@@ -946,7 +946,7 @@ export default function AdminPanel() {
  <button
  onClick={runGenerateParserNow}
  disabled={parserDispatchLoading}
- className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-accent hover:bg-accent-hover disabled:opacity-60 text-white text-xs font-semibold transition-colors"
+ className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-accent hover:bg-accent-hover disabled:opacity-60 text-on-accent text-xs font-semibold transition-colors"
  >
  <Terminal size={13} className={parserDispatchLoading ? 'animate-pulse' : ''} />
  {parserDispatchLoading ? 'Generazione…' : 'Genera parser AI'}
@@ -1154,7 +1154,7 @@ export default function AdminPanel() {
  sourceSeedsByNameText,
  )}
  disabled={jobsCrawlerConfigSaving || jobsCrawlerConfigLoading}
- className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-accent hover:bg-accent-hover disabled:opacity-60 text-white text-sm font-semibold transition-colors"
+ className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-accent hover:bg-accent-hover disabled:opacity-60 text-on-accent text-sm font-semibold transition-colors"
  >
  {jobsCrawlerConfigSaving ? <RefreshCw size={14} className="animate-spin" /> : <Database size={14} />}
  Salva configurazione
@@ -1340,7 +1340,7 @@ export default function AdminPanel() {
  <button
  onClick={runCrawlerNow}
  disabled={crawlerDispatchLoading}
- className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 disabled:opacity-60 text-white text-sm font-medium transition-colors"
+ className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-success-strong hover:bg-success-strong-hover disabled:opacity-60 text-on-accent text-sm font-medium transition-colors"
  >
  <Send size={14} className={crawlerDispatchLoading ? 'animate-pulse' : ''} />
  {crawlerDispatchLoading ? 'Avvio…' : 'Run crawler now'}
@@ -1348,7 +1348,7 @@ export default function AdminPanel() {
  )}
  <button
  onClick={refreshWorkflowSnapshots}
- className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-accent hover:bg-accent-hover text-white text-sm font-medium transition-colors"
+ className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-accent hover:bg-accent-hover text-on-accent text-sm font-medium transition-colors"
  >
  <ListChecks size={14} />
  Aggiorna stati workflow
@@ -1585,7 +1585,7 @@ export default function AdminPanel() {
  : { column, direction: column === 'title' ? 'asc' : 'desc' }
  ));
  }}
- className={`inline-flex w-full items-center gap-1 ${justifyClass} ${options?.className || ''} hover:text-slate-900 `}
+ className={`inline-flex w-full items-center gap-1 ${justifyClass} ${options?.className || ''} hover:text-heading `}
  >
  <span>{label}</span>
  <Icon size={11} className={isActive ? 'opacity-100' : 'opacity-25'} />
@@ -1648,7 +1648,7 @@ export default function AdminPanel() {
  <button
  onClick={() => void retryAllFailed()}
  disabled={!!retryFailedProgress?.running}
- className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-red-600 hover:bg-red-700 disabled:opacity-60 text-white text-[11px] font-semibold transition-colors"
+ className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-danger-strong hover:bg-danger-strong-hover disabled:opacity-60 text-on-accent text-[11px] font-semibold transition-colors"
  aria-label={`Rilancia ${failedCrawlers.length} crawler falliti`}
  >
  {retryFailedProgress?.running ? (
@@ -1666,7 +1666,7 @@ export default function AdminPanel() {
  <button
  onClick={() => void runWorkflowAction('orchestrate-crawlers.yml', { group: 'all', delay_seconds: '20', dry_run: 'false' })}
  disabled={orchRunning}
- className={`inline-flex items-center gap-1.5 ${failedCrawlers.length === 0 ? 'ml-auto' : ''} px-3 py-1.5 rounded-md bg-accent hover:bg-accent-hover disabled:opacity-60 text-white text-[11px] font-semibold transition-colors`}
+ className={`inline-flex items-center gap-1.5 ${failedCrawlers.length === 0 ? 'ml-auto' : ''} px-3 py-1.5 rounded-md bg-accent hover:bg-accent-hover disabled:opacity-60 text-on-accent text-[11px] font-semibold transition-colors`}
  aria-label="Avvia orchestratore crawler"
  >
  {orchRunning ? (
@@ -1753,7 +1753,7 @@ export default function AdminPanel() {
 
  return (
  <Fragment key={row.key}>
- <tr className={`border-b border-edge hover:bg-slate-50/70 /40 ${
+ <tr className={`border-b border-edge hover:bg-surface-alt/70 /40 ${
  row.wf?.id === 'orchestrate-crawlers.yml' ? 'bg-accent-subtle/50'
  : isFailure ? 'bg-danger-subtle/50' : ''
  }`}>
@@ -1896,7 +1896,7 @@ export default function AdminPanel() {
  <button
  onClick={() => void runWorkflowAction(row.wf!.id)}
  disabled={!!isRunning}
- className="inline-flex items-center gap-1 px-2 py-1 rounded-md bg-accent hover:bg-accent-hover disabled:opacity-60 text-white text-[10px] font-semibold transition-colors"
+ className="inline-flex items-center gap-1 px-2 py-1 rounded-md bg-accent hover:bg-accent-hover disabled:opacity-60 text-on-accent text-[10px] font-semibold transition-colors"
  aria-label={`Avvia ${row.title}`}
  >
  <Play size={10} />
@@ -1932,7 +1932,7 @@ export default function AdminPanel() {
  {expanded === 'new' ? `Aggiunti (${s.newCount})`
  : expanded === 'updated' ? `Aggiornati (${s.updatedCount})`
  : expanded === 'unchanged' ? `Invariati (${s.unchangedCount}${s.unchangedCount > s.unchangedJobs.length ? ` — mostrati ${s.unchangedJobs.length}` : ''})`
- : expanded === 'active' ? <>Annunci attivi ({s.total - s.removedCount}) — <span className="text-emerald-600">{s.newCount} nuovi</span> / <span className="text-stripe-600">{s.updatedCount} aggiornati</span> / <span className="text-amber-600">{s.unchangedCount} invariati</span></>
+ : expanded === 'active' ? <>Annunci attivi ({s.total - s.removedCount}) — <span className="text-success">{s.newCount} nuovi</span> / <span className="text-accent">{s.updatedCount} aggiornati</span> / <span className="text-warning">{s.unchangedCount} invariati</span></>
  : `Rimossi (${s.removedCount})`}
  </div>
  {renderExpandedJobs(
@@ -1964,11 +1964,11 @@ export default function AdminPanel() {
  {failedSteps.length > 0 && (
  <div className="text-[11px] text-danger pl-5">
  Step falliti: {failedSteps.slice(0, 4).join(' · ')}
- {failedSteps.length > 4 && <span className="text-red-400"> (+{failedSteps.length - 4})</span>}
+ {failedSteps.length > 4 && <span className="text-danger"> (+{failedSteps.length - 4})</span>}
  </div>
  )}
  {wfState.logExcerpt && (
- <pre className="max-h-20 overflow-auto rounded-md bg-slate-900 text-red-200 p-2 text-[10px] font-mono whitespace-pre-wrap break-words leading-relaxed border border-red-800/30">
+ <pre className="max-h-20 overflow-auto rounded-md bg-surface-inverted text-danger p-2 text-[10px] font-mono whitespace-pre-wrap break-words leading-relaxed border border-danger-border">
  {wfState.logExcerpt}
  </pre>
  )}
@@ -2522,7 +2522,7 @@ export default function AdminPanel() {
  <button
  onClick={() => void runWorkflowAction(wf.id)}
  disabled={isRunning}
- className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-accent hover:bg-accent-hover disabled:opacity-60 text-white text-xs font-semibold transition-colors"
+ className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-accent hover:bg-accent-hover disabled:opacity-60 text-on-accent text-xs font-semibold transition-colors"
  >
  <Play size={11} />
  {isRunning ? 'In corso…' : 'Avvia'}
@@ -2552,7 +2552,7 @@ export default function AdminPanel() {
  <div className="mb-1 text-[10px] font-semibold text-muted uppercase tracking-wide">
  Log errore (ultime righe)
  </div>
- <pre className="max-h-32 overflow-auto rounded-md bg-slate-900 text-red-200 p-2 text-[10px] font-mono whitespace-pre-wrap break-words leading-relaxed border border-red-800/30">
+ <pre className="max-h-32 overflow-auto rounded-md bg-surface-inverted text-danger p-2 text-[10px] font-mono whitespace-pre-wrap break-words leading-relaxed border border-danger-border">
  {wfState.logExcerpt}
  </pre>
  </div>
@@ -2602,7 +2602,7 @@ export default function AdminPanel() {
  {!isFailure && wfState.logExcerpt && (
  <div>
  <div className="mb-1 text-[10px] font-semibold text-muted">Output log</div>
- <pre className="max-h-36 overflow-auto rounded-md bg-slate-900 text-slate-100 p-2 text-[10px] whitespace-pre-wrap break-words">
+ <pre className="max-h-36 overflow-auto rounded-md bg-surface-inverted text-heading p-2 text-[10px] whitespace-pre-wrap break-words">
  {wfState.logExcerpt}
  </pre>
  </div>
@@ -2703,12 +2703,12 @@ export default function AdminPanel() {
  return (
  <div className="space-y-6">
  {/* Header */}
- <div className="bg-gradient-to-br from-stripe-600 to-stripe-700 rounded-2xl p-6 text-white shadow-lg">
+ <div className="bg-gradient-to-br from-accent-strong to-accent-strong-hover rounded-2xl p-6 text-on-accent shadow-lg">
  <div className="flex items-center gap-3 mb-2">
  <Shield size={28} />
  <h1 className="text-2xl font-bold">Pannello Amministrazione</h1>
  </div>
- <p className="text-stripe-200 text-sm">
+ <p className="text-accent text-sm">
  Dashboard operativa owner (crawler jobs, segnali SEO runtime e newsletter).
  Questo pannello è accessibile solo tramite URL diretto.
  </p>
@@ -2772,7 +2772,7 @@ export default function AdminPanel() {
  </h2>
  <button
  onClick={refreshOwnerStats}
- className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-accent hover:bg-accent-hover text-white text-sm font-medium transition-colors"
+ className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-accent hover:bg-accent-hover text-on-accent text-sm font-medium transition-colors"
  >
  <RefreshCw size={14} />
  Aggiorna
@@ -3040,7 +3040,7 @@ export default function AdminPanel() {
  <button
  onClick={generatePreview}
  disabled={nlPreviewLoading}
- className="flex items-center gap-2 px-4 py-2 rounded-lg bg-accent hover:bg-accent-hover text-white text-sm font-medium transition-colors"
+ className="flex items-center gap-2 px-4 py-2 rounded-lg bg-accent hover:bg-accent-hover text-on-accent text-sm font-medium transition-colors"
  aria-label="Genera anteprima newsletter"
  >
  <RefreshCw size={16} />
@@ -3049,7 +3049,7 @@ export default function AdminPanel() {
  <button
  onClick={sendTestNewsletter}
  disabled={nlSending || !nlPreviewHtml || !user?.email}
- className="flex items-center gap-2 px-4 py-2 rounded-lg bg-accent hover:bg-accent-hover disabled:opacity-50 disabled:cursor-not-allowed text-white text-sm font-medium transition-colors"
+ className="flex items-center gap-2 px-4 py-2 rounded-lg bg-accent hover:bg-accent-hover disabled:opacity-50 disabled:cursor-not-allowed text-on-accent text-sm font-medium transition-colors"
  aria-label="Invia test newsletter all'admin loggato"
  >
  <Send size={16} />

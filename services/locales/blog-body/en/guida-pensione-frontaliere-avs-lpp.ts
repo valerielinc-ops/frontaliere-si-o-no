@@ -1,5 +1,5 @@
 const bodyGuidaPensioneFrontaliereAvsLpp: Record<string, string> = {
-    'blog.article.guida-pensione-frontaliere-avs-lpp.body1': `## Understanding the Swiss Three-Pillar Pension System
+ 'blog.article.guida-pensione-frontaliere-avs-lpp.body1': `## Understanding the Swiss Three-Pillar Pension System
 
 Switzerland's retirement system is built on three pillars, each serving a distinct purpose. For cross-border workers earning a salary in Swiss francs, understanding how these pillars interact is the foundation of long-term financial security. Too many frontalieri focus exclusively on their monthly net pay and neglect the pension architecture that will sustain them for 20–30 years after they stop working.
 
@@ -13,7 +13,7 @@ The LPP is your employer-sponsored pension fund, and it is where the real retire
 
 Alternatively, you can choose a **capital withdrawal** — taking the entire sum as a lump-sum payment instead of a monthly pension. This option has different tax implications: the lump sum is taxed at a reduced rate (typically 5–10 % depending on the canton), whereas the monthly pension is taxed as regular income. Many frontalieri prefer the lump sum because they plan to retire in Italy, where the taxation of Swiss pension capital can be more favorable under certain conditions. However, this decision requires careful analysis of your personal situation, including Italian IRPEF rates on foreign pension income and the bilateral tax treaty.`,
 
-    'blog.article.guida-pensione-frontaliere-avs-lpp.body2': `## 3rd Pillar — Private Pension Savings (Pillar 3a)
+ 'blog.article.guida-pensione-frontaliere-avs-lpp.body2': `## 3rd Pillar — Private Pension Savings (Pillar 3a)
 
 The third pillar is Switzerland's tax-advantaged voluntary savings vehicle, and it is one of the most powerful financial tools available to cross-border workers. For 2026, employees with a 2nd-pillar plan can deduct up to **7,258 CHF** per year from their taxable income. If your marginal Swiss withholding tax rate is around 15 %, that translates into an immediate tax saving of approximately **1,089 CHF per year** — money that stays in your pocket simply because you made a contribution.
 
@@ -31,7 +31,7 @@ Here is where totalization becomes critical: suppose you worked **15 years in Sw
 
 This bilateral framework ensures that no contribution year is wasted, but you must actively request the totalization calculation from both INPS and the Swiss Compensation Office (Cassa di compensazione). Do not assume it happens automatically.`,
 
-    'blog.article.guida-pensione-frontaliere-avs-lpp.body3': `## Practical Example — Marco's Retirement Projection
+ 'blog.article.guida-pensione-frontaliere-avs-lpp.body3': `## Practical Example — Marco's Retirement Projection
 
 Let us walk through a concrete scenario to show how the three pillars and Italian pension come together. Meet Marco: he is 43 years old, has already worked **22 years** as a frontaliere in Ticino, earns a gross salary of **75,000 CHF**, and plans to continue working in Switzerland until age 65.
 
@@ -59,7 +59,7 @@ Let us walk through a concrete scenario to show how the three pillars and Italia
 - **Do not skip pillar 3a contributions** — even partial contributions generate immediate tax savings and long-term growth
 - **Check your LPP certificate annually** — verify that your employer's contributions match the legal minimums and that no administrative errors reduce your projected capital
 - **Plan the withdrawal timing carefully** — the tax treatment of lump-sum vs. annuity differs significantly between Switzerland and Italy, and the optimal choice depends on your residency at the time of withdrawal`,
-    'blog.article.guida-pensione-frontaliere-avs-lpp.faq': '[{"q":"How does compulsory basic pension provision work in Switzerland?","a":"The contribution is 5.3% to be paid by the worker, plus an equal 5.3% to be paid by the employer. The full AHV pension, with 44 years of contributions, ranges from a minimum of CHF 1,260 to a maximum of CHF 2,520 per month per single person (2026). For couples, the cap is 3,780 CHF combined."},{"q":"What is the tax impact of the BVG capital withdrawal in Switzerland compared to Italy?","a":"The withdrawal of BVG capital is subject to different taxes in the two countries. In Switzerland, the withdrawal is taxed as ordinary income, while in Italy it may be subject to a more advantageous tax regime if the withdrawal occurs after the age of 60."},{"q":"What are the requirements for totaling Swiss and Italian contributions and how do I apply for the pension?","a":"Thanks to the bilateral agreement, the contribution periods paid in Switzerland (AHV) and Italy (INPS) are totalled. It is sufficient to have accumulated at least 12 years in total, but to obtain the pension of both countries you need at least 15 years in each. The application is submitted to the INPS of the place of residence; the entity sends the data to the Swiss AHV, which calculates the proportional share. It is advisable to send the LPP certificate and CUD within 6 months of expiration."}]',
+ 'blog.article.guida-pensione-frontaliere-avs-lpp.faq': '[{"q":"How does compulsory basic pension provision work in Switzerland?","a":"The contribution is 5.3% to be paid by the worker, plus an equal 5.3% to be paid by the employer. The full AHV pension, with 44 years of contributions, ranges from a minimum of CHF 1,260 to a maximum of CHF 2,520 per month per single person (2026). For couples, the cap is 3,780 CHF combined."},{"q":"What is the tax impact of the BVG capital withdrawal in Switzerland compared to Italy?","a":"The withdrawal of BVG capital is subject to different taxes in the two countries. In Switzerland, the withdrawal is taxed as ordinary income, while in Italy it may be subject to a more advantageous tax regime if the withdrawal occurs after the age of 60."},{"q":"What are the requirements for totaling Swiss and Italian contributions and how do I apply for the pension?","a":"Thanks to the bilateral agreement, the contribution periods paid in Switzerland (AHV) and Italy (INPS) are totalled. It is sufficient to have accumulated at least 12 years in total, but to obtain the pension of both countries you need at least 15 years in each. The application is submitted to the INPS of the place of residence; the entity sends the data to the Swiss AHV, which calculates the proportional share. It is advisable to send the LPP certificate and CUD within 6 months of expiration."}]',
 };
 
 export default bodyGuidaPensioneFrontaliereAvsLpp;

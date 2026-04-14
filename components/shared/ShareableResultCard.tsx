@@ -44,10 +44,10 @@ export interface ShareableCardProps {
 
 /** Tailwind classes for the visible card preview */
 const ACCENT_GRADIENTS: Record<string, string> = {
- blue: 'from-stripe-600 to-stripe-700',
- violet: 'from-teal-600 to-teal-700',
- emerald: 'from-emerald-600 to-teal-700',
- amber: 'from-amber-500 to-orange-600',
+ blue: 'from-accent-strong to-accent-strong-hover',
+ violet: 'from-info-strong to-info-strong-hover',
+ emerald: 'from-success-strong to-info-strong-hover',
+ amber: 'from-warning-strong to-warning-strong',
 };
 
 /** Hex pairs for Canvas 2D gradient drawing */
@@ -381,7 +381,7 @@ const ShareableResultCard: React.FC<ShareableCardProps> = ({
  className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-surface border border-edge rounded-xl text-sm font-medium text-body hover:bg-surface-raised disabled:opacity-50 transition-colors"
  aria-label={t('shareCard.createCard')}
  >
- {isGenerating ? <Loader2 size={16} className="animate-spin text-stripe-500" /> : <Camera size={16} className="text-stripe-500" />}
+ {isGenerating ? <Loader2 size={16} className="animate-spin text-accent" /> : <Camera size={16} className="text-accent" />}
  {t('shareCard.createCard')}
  </button>
  )}
@@ -408,10 +408,10 @@ const ShareableResultCard: React.FC<ShareableCardProps> = ({
  <div className={`bg-gradient-to-r ${ACCENT_GRADIENTS[accent]} px-6 py-4`}>
  <div className="flex items-center gap-3">
  <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center">
- <ImageIcon size={20} className="text-white" />
+ <ImageIcon size={20} className="text-on-accent" />
  </div>
  <div>
- <h3 className="font-bold text-white text-lg">{title}</h3>
+ <h3 className="font-bold text-on-accent text-lg">{title}</h3>
  {subtitle && <p className="text-white/90 text-sm">{subtitle}</p>}
  </div>
  </div>
@@ -454,7 +454,7 @@ const ShareableResultCard: React.FC<ShareableCardProps> = ({
  {/* WhatsApp */}
  <button
  onClick={shareWhatsApp}
- className="flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-700 text-white text-sm font-medium rounded-xl transition-colors"
+ className="flex items-center gap-2 px-4 py-2 bg-success-strong hover:bg-success-strong-hover text-on-accent text-sm font-medium rounded-xl transition-colors"
  aria-label={t('shareCard.shareWhatsApp')}
  >
  <MessageCircle size={16} />
@@ -464,7 +464,7 @@ const ShareableResultCard: React.FC<ShareableCardProps> = ({
  {/* Share / Copy */}
  <button
  onClick={generatedImage ? shareNative : copyData}
- className="flex items-center gap-2 px-4 py-2 bg-slate-600 hover:bg-slate-700 text-white text-sm font-medium rounded-xl transition-colors"
+ className="flex items-center gap-2 px-4 py-2 bg-surface-muted hover:bg-surface-muted-hover text-on-accent text-sm font-medium rounded-xl transition-colors"
  aria-label={copied ? t('shareCard.copied') : t('shareCard.share')}
  >
  {copied ? <Check size={16} /> : generatedImage ? <Share2 size={16} /> : <Copy size={16} />}

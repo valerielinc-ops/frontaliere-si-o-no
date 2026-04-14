@@ -283,7 +283,7 @@ export default function CarCostCalculator() {
  <h3 className="text-lg font-bold text-heading">{t('carCost.resultTitle')}</h3>
  <button
  onClick={handleExportPDF}
- className="flex items-center gap-1.5 px-3 py-1.5 bg-amber-600 text-white text-sm rounded-lg hover:bg-amber-700 transition"
+ className="flex items-center gap-1.5 px-3 py-1.5 bg-warning-strong text-on-accent text-sm rounded-lg hover:bg-warning-strong-hover transition"
  aria-label="Export PDF"
  >
  <Download size={14} /> PDF
@@ -333,7 +333,7 @@ export default function CarCostCalculator() {
  <span className="w-6 text-center">🇮🇹</span>
  <div className="flex-1 bg-surface-raised rounded-full h-6 overflow-hidden">
  <div
- className="h-full bg-green-500 rounded-full flex items-center justify-end pr-2 text-xs font-bold text-white"
+ className="h-full bg-success-strong rounded-full flex items-center justify-end pr-2 text-xs font-bold text-on-accent"
  style={{ width: `${Math.min((result.italy.total / Math.max(result.italy.total, result.switzerland.total)) * 100, 100)}%` }}
  >
  € {result.italy.total.toLocaleString()}
@@ -344,7 +344,7 @@ export default function CarCostCalculator() {
  <span className="w-6 text-center">🇨🇭</span>
  <div className="flex-1 bg-surface-raised rounded-full h-6 overflow-hidden">
  <div
- className="h-full bg-red-500 rounded-full flex items-center justify-end pr-2 text-xs font-bold text-white"
+ className="h-full bg-danger-strong rounded-full flex items-center justify-end pr-2 text-xs font-bold text-on-accent"
  style={{ width: `${Math.min((result.switzerland.total / Math.max(result.italy.total, result.switzerland.total)) * 100, 100)}%` }}
  >
  CHF {result.switzerland.total.toLocaleString()}

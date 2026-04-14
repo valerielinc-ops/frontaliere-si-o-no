@@ -21,7 +21,7 @@ export default function SiteMapPage() {
 
  const sections: Section[] = [
  {
- icon: <Calculator className="w-5 h-5 text-stripe-600" />,
+ icon: <Calculator className="w-5 h-5 text-accent" />,
  title: t('sitemap.section.calculators'),
  links: [
  { label: t('sitemap.link.calculator'), route: { activeTab: 'calculator' } },
@@ -35,7 +35,7 @@ export default function SiteMapPage() {
  ],
  },
  {
- icon: <Scale className="w-5 h-5 text-emerald-600" />,
+ icon: <Scale className="w-5 h-5 text-success" />,
  title: t('sitemap.section.comparators'),
  links: [
  { label: t('sitemap.link.exchange'), route: { activeTab: 'confronti', confrontiSubTab: 'exchange' } },
@@ -49,7 +49,7 @@ export default function SiteMapPage() {
  ],
  },
  {
- icon: <FileText className="w-5 h-5 text-stripe-600" />,
+ icon: <FileText className="w-5 h-5 text-accent" />,
  title: t('sitemap.section.fiscal'),
  links: [
  { label: t('sitemap.link.taxReturn'), route: { activeTab: 'fisco', fiscoSubTab: 'tax-return' } },
@@ -63,7 +63,7 @@ export default function SiteMapPage() {
  ],
  },
  {
- icon: <BookOpen className="w-5 h-5 text-amber-600" />,
+ icon: <BookOpen className="w-5 h-5 text-warning" />,
  title: t('sitemap.section.guides'),
  links: [
  { label: t('sitemap.link.firstDay'), route: { activeTab: 'guida', guidaSubTab: 'first-day' } },
@@ -77,7 +77,7 @@ export default function SiteMapPage() {
  ],
  },
  {
- icon: <Heart className="w-5 h-5 text-rose-600" />,
+ icon: <Heart className="w-5 h-5 text-danger" />,
  title: t('sitemap.section.life'),
  links: [
  { label: t('sitemap.link.livingCH'), route: { activeTab: 'vita', vitaSubTab: 'living-ch' } },
@@ -91,7 +91,7 @@ export default function SiteMapPage() {
  ],
  },
  {
- icon: <BarChart3 className="w-5 h-5 text-cyan-600" />,
+ icon: <BarChart3 className="w-5 h-5 text-info" />,
  title: t('sitemap.section.stats'),
  links: [
  { label: t('sitemap.link.overview'), route: { activeTab: 'stats' } },

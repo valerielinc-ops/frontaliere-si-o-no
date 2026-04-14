@@ -205,12 +205,12 @@ const HealthInsurance: React.FC = () => {
 
  return (
  <div className="space-y-6 pb-8">
- <div className="bg-gradient-to-br from-rose-700 to-rose-900 rounded-2xl p-5 sm:p-8 text-white">
+ <div className="bg-gradient-to-br from-danger-strong to-danger-strong-hover rounded-2xl p-5 sm:p-8 text-on-accent">
  <div className="flex items-center gap-3 mb-3">
  <Heart size={28} />
  <h2 className="text-2xl sm:text-3xl font-bold">{t('health.title')}</h2>
  </div>
- <p className="text-rose-100 text-base sm:text-lg">
+ <p className="text-on-accent text-base sm:text-lg">
  {'Confronta i premi di ' + (data?.insurers.length || '...') + ' assicurazioni LAMal svizzere in ' + (data ? Object.keys(data.premiums).length : '...') + ' località. Inserisci i tuoi dati per trovare l\'offerta migliore.'}
  </p>
  <div className="mt-3"><DataFreshness lastUpdated={data?.fetchedAt?.slice(0, 7) || '2026-01'} source="Premi UFSP" sourceUrl="https://www.priminfo.admin.ch" variant="badge" /></div>
@@ -218,7 +218,7 @@ const HealthInsurance: React.FC = () => {
 
  <div className="bg-warning-subtle border-l-4 border-warning p-5 rounded-lg">
  <div className="flex items-start gap-3">
- <AlertCircle className="text-amber-700 flex-shrink-0 mt-0.5" size={20} />
+ <AlertCircle className="text-warning flex-shrink-0 mt-0.5" size={20} />
  <div className="text-sm text-warning">
  <p className="font-bold mb-1">Nota per frontalieri</p>
  <p>
@@ -283,14 +283,14 @@ const HealthInsurance: React.FC = () => {
  <button
  onClick={() => setWithAccident(false)}
  aria-label="Senza copertura infortuni"
- className={`flex-1 px-3 py-2 rounded-lg text-xs font-bold transition-colors ${!withAccident ? 'bg-rose-600 text-white' : 'bg-surface-raised text-subtle'}`}
+ className={`flex-1 px-3 py-2 rounded-lg text-xs font-bold transition-colors ${!withAccident ? 'bg-danger-strong text-on-accent' : 'bg-surface-raised text-subtle'}`}
  >
  Senza
  </button>
  <button
  onClick={() => setWithAccident(true)}
  aria-label="Con copertura infortuni"
- className={`flex-1 px-3 py-2 rounded-lg text-xs font-bold transition-colors ${withAccident ? 'bg-rose-600 text-white' : 'bg-surface-raised text-subtle'}`}
+ className={`flex-1 px-3 py-2 rounded-lg text-xs font-bold transition-colors ${withAccident ? 'bg-danger-strong text-on-accent' : 'bg-surface-raised text-subtle'}`}
  >
  Con
  </button>
@@ -315,7 +315,7 @@ const HealthInsurance: React.FC = () => {
  <Award size={16} />
  <span className="text-xs font-bold uppercase tracking-wider">Miglior rapporto</span>
  </div>
- {(() => { const bv = filtered.find(r => r.isBestValue); return bv ? (<><p className="text-2xl font-bold text-strong">{bv.premium.toFixed(2)} CHF</p><p className="text-sm text-slate-500">{bv.insurer.name}</p></>) : null; })()}
+ {(() => { const bv = filtered.find(r => r.isBestValue); return bv ? (<><p className="text-2xl font-bold text-strong">{bv.premium.toFixed(2)} CHF</p><p className="text-sm text-muted">{bv.insurer.name}</p></>) : null; })()}
  </div>
  <div className="bg-surface-alt/50 rounded-xl p-5 border border-edge">
  <div className="flex items-center gap-2 text-muted mb-1">
@@ -411,7 +411,7 @@ const HealthInsurance: React.FC = () => {
  <div className="flex flex-wrap gap-1.5">
  {result.insurer.models.map(m => (
  <span key={m} className={`px-2 py-1 rounded-md text-xs font-bold ${
- m === model ? 'bg-danger-subtle text-danger ring-1 ring-rose-300'
+ m === model ? 'bg-danger-subtle text-danger ring-1 ring-danger-border'
  : 'bg-surface-raised text-muted'}`}>
  {MODEL_LABELS[m]}</span>
  ))}
@@ -424,7 +424,7 @@ const HealthInsurance: React.FC = () => {
  const p = calculatePremiumFromData(currentPremiums?.[result.insurer.id], model, f, ageGroup, withAccident);
  return p !== null ? (
  <div key={f} className="flex items-center justify-between text-xs">
- <span className={`text-slate-500 ${f === effectiveFranchise ? 'font-bold text-strong' : ''}`}>
+ <span className={`text-muted ${f === effectiveFranchise ? 'font-bold text-strong' : ''}`}>
  {f} CHF</span>
  <span className={`font-mono ${f === effectiveFranchise ? 'font-bold text-strong' : 'text-muted'}`}>
  {p.toFixed(2)} CHF/mese</span>
@@ -436,7 +436,7 @@ const HealthInsurance: React.FC = () => {
  <div className="flex flex-col gap-2 pt-3 border-t border-edge">
  <a href={result.insurer.website} target="_blank" rel="noopener noreferrer"
  onClick={() => Analytics.trackExternalLink(result.insurer.website, `quote_request_${result.insurer.id}`)}
- className="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-rose-600 hover:bg-rose-700 text-white text-sm font-bold rounded-lg transition-colors w-full">
+ className="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-danger-strong hover:bg-danger-strong-hover text-on-accent text-sm font-bold rounded-lg transition-colors w-full">
  <FileText size={16} /> {t('health.requestQuote')}</a>
  <p className="text-sm text-muted text-center">{t('health.requestQuoteDesc')}</p>
  <a href={result.insurer.website} target="_blank" rel="noopener noreferrer"
@@ -491,7 +491,7 @@ const HealthInsurance: React.FC = () => {
  const saving = base300Total - totalMax;
  return (
  <tr key={f} className={`border-b border-edge/50 ${f === effectiveFranchise ? 'bg-danger-subtle font-bold' : ''}`}>
- <td className="py-2 px-2 text-body">{f} CHF {f === effectiveFranchise && <span className="text-rose-600 text-xs">← selezionata</span>}</td>
+ <td className="py-2 px-2 text-body">{f} CHF {f === effectiveFranchise && <span className="text-danger text-xs">← selezionata</span>}</td>
  <td className="py-2 px-2 text-right text-body">{p.toFixed(2)}</td>
  <td className="py-2 px-2 text-right text-body">{annual.toFixed(0)}</td>
  <td className="py-2 px-2 text-right text-body">{totalMax.toFixed(0)}</td>
@@ -513,7 +513,7 @@ const HealthInsurance: React.FC = () => {
  {/* CMU vs LAMal comparison for French border workers */}
  <div className="bg-gradient-to-br from-danger-subtle to-danger-subtle rounded-2xl border border-danger-border p-6">
  <h3 className="text-lg font-bold text-strong mb-4 flex items-center gap-2">
- <Globe size={20} className="text-rose-700" />
+ <Globe size={20} className="text-danger" />
  CMU francese vs LAMal
  </h3>
  <p className="text-sm text-subtle mb-4">
@@ -521,7 +521,7 @@ const HealthInsurance: React.FC = () => {
  </p>
  <div className="grid md:grid-cols-2 gap-4 mb-4">
  <div className="p-4 bg-surface/60 rounded-xl">
- <p className="font-bold text-rose-700 mb-2">CMU (Francia)</p>
+ <p className="font-bold text-danger mb-2">CMU (Francia)</p>
  <ul className="space-y-1 text-sm text-body list-disc ml-4">
  <li>Costo: ~8% del reddito fiscale (RFR)</li>
  <li>Rimborso: ~70% per visite, ~65% farmaci</li>
@@ -530,7 +530,7 @@ const HealthInsurance: React.FC = () => {
  </ul>
  </div>
  <div className="p-4 bg-surface/60 rounded-xl">
- <p className="font-bold text-rose-700 mb-2">LAMal (Svizzera)</p>
+ <p className="font-bold text-danger mb-2">LAMal (Svizzera)</p>
  <ul className="space-y-1 text-sm text-body list-disc ml-4">
  <li>Costo: premio fisso ({cheapest ? cheapest.premium.toFixed(0) + '-' + (mostExpensive?.premium.toFixed(0) ?? '?') : '?'} CHF/mese)</li>
  <li>Franchigia: {availableFranchises[0]}-{availableFranchises[availableFranchises.length - 1]} CHF/anno</li>
@@ -548,12 +548,12 @@ const HealthInsurance: React.FC = () => {
 
  <div className="bg-gradient-to-br from-danger-subtle to-warning-subtle rounded-2xl border border-danger-border p-6">
  <h3 className="text-lg font-bold text-strong mb-4 flex items-center gap-2">
- <Info size={20} className="text-stripe-600" />
+ <Info size={20} className="text-accent" />
  LAMal svizzera vs SSN italiano
  </h3>
  <div className="grid md:grid-cols-2 gap-4 mb-4">
  <div className="p-4 bg-surface/60 rounded-xl">
- <p className="font-bold text-stripe-600 mb-2">Scegli LAMal se:</p>
+ <p className="font-bold text-accent mb-2">Scegli LAMal se:</p>
  <ul className="space-y-1 text-sm text-body list-disc ml-4">
  <li>Hai bisogno di cure mediche frequenti in Svizzera</li>
  <li>Vuoi tempi di attesa brevi per specialisti</li>
@@ -561,7 +561,7 @@ const HealthInsurance: React.FC = () => {
  </ul>
  </div>
  <div className="p-4 bg-surface/60 rounded-xl">
- <p className="font-bold text-stripe-600 mb-2">Scegli SSN se:</p>
+ <p className="font-bold text-accent mb-2">Scegli SSN se:</p>
  <ul className="space-y-1 text-sm text-body list-disc ml-4">
  <li>Vuoi risparmiare sul costo sanitario (SSN gratuito)</li>
  <li>Le tue cure mediche sono principalmente in Italia</li>
@@ -612,7 +612,7 @@ const HealthInsurance: React.FC = () => {
  <div key={c.municipality} className="flex items-center justify-between text-xs py-1.5 px-2 rounded-lg bg-success-subtle/50">
  <span className="flex items-center gap-2">
  <span className="w-5 h-5 rounded-full bg-success-subtle text-success flex items-center justify-center text-xs font-bold">{i + 1}</span>
- <span className="text-body">{c.municipality.replace(/^\d+-/, '')} <span className="text-slate-500">({c.canton})</span></span>
+ <span className="text-body">{c.municipality.replace(/^\d+-/, '')} <span className="text-muted">({c.canton})</span></span>
  </span>
  <span className="font-bold text-success">{c.avgPremium.toFixed(0)} CHF</span>
  </div>
@@ -626,7 +626,7 @@ const HealthInsurance: React.FC = () => {
  <div key={c.municipality} className="flex items-center justify-between text-xs py-1.5 px-2 rounded-lg bg-danger-subtle">
  <span className="flex items-center gap-2">
  <span className="w-5 h-5 rounded-full bg-danger-subtle text-danger flex items-center justify-center text-xs font-bold">{i + 1}</span>
- <span className="text-body">{c.municipality.replace(/^\d+-/, '')} <span className="text-slate-500">({c.canton})</span></span>
+ <span className="text-body">{c.municipality.replace(/^\d+-/, '')} <span className="text-muted">({c.canton})</span></span>
  </span>
  <span className="font-bold text-danger">{c.avgPremium.toFixed(0)} CHF</span>
  </div>

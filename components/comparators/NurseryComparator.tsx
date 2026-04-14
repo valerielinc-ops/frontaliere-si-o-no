@@ -103,12 +103,12 @@ const NurseryComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({
  return (
  <div className="space-y-6">
  {/* Header */}
- <div className="bg-gradient-to-r from-amber-500 to-amber-600 rounded-2xl p-4 sm:p-6 text-white">
+ <div className="bg-gradient-to-r from-warning-strong to-warning-strong rounded-2xl p-4 sm:p-6 text-on-accent">
  <div className="flex items-center gap-3 mb-2">
  <Baby size={28} />
  <h2 className="text-2xl font-bold">{t('nursery.title')}</h2>
  </div>
- <p className="text-amber-100 text-sm">{t('nursery.subtitle')}</p>
+ <p className="text-warning text-sm">{t('nursery.subtitle')}</p>
  </div>
 
  {/* Cost Calculator */}
@@ -118,7 +118,7 @@ const NurseryComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({
  className="w-full flex items-center justify-between p-4"
  >
  <h3 className="font-bold text-strong flex items-center gap-2">
- <Euro size={18} className="text-emerald-700" />
+ <Euro size={18} className="text-success" />
  {t('nursery.calculator')}
  </h3>
  {showCalculator ? <ChevronUp size={18} className="text-muted" /> : <ChevronDown size={18} className="text-muted" />}

@@ -58,7 +58,7 @@ const operators: MobileOperator[] = [
  },
  setupCost: 9.99,
  contractType: 'prepagato',
- color: 'from-red-500 to-orange-600',
+ color: 'from-danger-strong to-warning-strong',
  features: ['200 GB + 5G incluso', 'Prezzo per sempre', 'Opzione CH 5€/mese'],
  website: 'https://www.iliad.it/offerte-iliad-mobile.html'
  },
@@ -78,7 +78,7 @@ const operators: MobileOperator[] = [
  },
  setupCost: 2.99,
  contractType: 'prepagato',
- color: 'from-green-500 to-emerald-600',
+ color: 'from-success-strong to-success-strong',
  features: ['5G incluso', 'Rete Fastweb', 'Da 4.95€ per sempre', 'Roaming CH costoso'],
  website: 'https://www.ho-mobile.it/tutte-le-offerte.html'
  },
@@ -97,7 +97,7 @@ const operators: MobileOperator[] = [
  },
  setupCost: 6.99,
  contractType: 'prepagato',
- color: 'from-red-600 to-rose-700',
+ color: 'from-danger-strong to-danger-strong-hover',
  features: ['Rete capillare', 'Roaming CH molto costoso', '5G disponibile'],
  website: 'https://www.vodafone.it/offerte/mobile'
  },
@@ -117,7 +117,7 @@ const operators: MobileOperator[] = [
  },
  setupCost: 25,
  contractType: 'abbonamento',
- color: 'from-stripe-600 to-stripe-800',
+ color: 'from-accent-strong to-accent-strong-hover',
  features: ['Copertura eccellente', 'Opzione CH 10€/mese', 'Costoso complessivamente'],
  website: 'https://www.tim.it/offerte/mobile'
  },
@@ -136,7 +136,7 @@ const operators: MobileOperator[] = [
  },
  setupCost: 0,
  contractType: 'abbonamento',
- color: 'from-orange-600 to-amber-700',
+ color: 'from-warning-strong to-warning-strong-hover',
  features: ['Giga illimitati in Italia', 'Buona copertura', 'Roaming CH costoso'],
  website: 'https://www.windtre.it/offerte-mobile'
  },
@@ -156,7 +156,7 @@ const operators: MobileOperator[] = [
  },
  setupCost: 0,
  contractType: 'prepagato',
- color: 'from-rose-600 to-pink-700',
+ color: 'from-danger-strong to-danger-strong-hover',
  features: ['200 GB + 5G Full Speed', 'SIM e spedizione gratis', 'Rete WindTre', 'Roaming CH costoso'],
  website: 'https://www.verymobile.it/offerte'
  },
@@ -175,7 +175,7 @@ const operators: MobileOperator[] = [
  },
  setupCost: 10,
  contractType: 'prepagato',
- color: 'from-yellow-600 to-orange-700',
+ color: 'from-warning-strong to-warning-strong-hover',
  features: ['11 GB roaming CH incluso', 'Rete WindTre', 'Ottimo rapporto qualità/prezzo', '🎁 Porta un amico: GRATIS Fastweb Casa per 2 mesi'],
  website: 'https://www.fastweb.it/mobile/offerte-mobile/'
  },
@@ -196,7 +196,7 @@ const operators: MobileOperator[] = [
  },
  setupCost: 0,
  contractType: 'abbonamento',
- color: 'from-stripe-700 to-stripe-900',
+ color: 'from-accent-strong-hover to-accent-strong-hover',
  features: ['Rete migliore CH', 'Roaming UE illimitato', 'Premium'],
  website: 'https://www.swisscom.ch'
  },
@@ -215,7 +215,7 @@ const operators: MobileOperator[] = [
  },
  setupCost: 0,
  contractType: 'abbonamento',
- color: 'from-amber-600 to-amber-700',
+ color: 'from-warning-strong to-warning-strong-hover',
  features: ['Dati illimitati CH+UE', '20 GB high-speed roaming', 'Sconto -65% a vita'],
  website: 'https://www.salt.ch/en/mobile/plans/travel'
  },
@@ -234,7 +234,7 @@ const operators: MobileOperator[] = [
  },
  setupCost: 0,
  contractType: 'abbonamento',
- color: 'from-amber-500 to-amber-600',
+ color: 'from-warning-strong to-warning-strong',
  features: ['Dati illimitati CH', 'Solo 1 GB roaming UE', 'Sconto -63% a vita'],
  website: 'https://www.salt.ch/en/mobile/plans/swiss-max'
  },
@@ -253,7 +253,7 @@ const operators: MobileOperator[] = [
  },
  setupCost: 0,
  contractType: 'abbonamento',
- color: 'from-orange-600 to-red-700',
+ color: 'from-warning-strong to-danger-strong-hover',
  features: ['Dati illimitati', '15 GB roaming', 'USA incluso'],
  website: 'https://www.sunrise.ch'
  },
@@ -272,7 +272,7 @@ const operators: MobileOperator[] = [
  },
  setupCost: 59,
  contractType: 'prepagato',
- color: 'from-yellow-500 to-amber-600',
+ color: 'from-warning to-warning-strong',
  features: ['Roaming UE illimitato', 'Rete Sunrise 5G', '60 min chiamate roaming'],
  website: 'https://www.yallo.ch/en/mobile-products/yallo_europe'
  },
@@ -291,7 +291,7 @@ const operators: MobileOperator[] = [
  },
  setupCost: 0,
  contractType: 'prepagato',
- color: 'from-teal-600 to-stripe-700',
+ color: 'from-info-strong to-accent-strong-hover',
  features: ['Rete Swisscom', 'Roaming UE incluso', 'Buon prezzo'],
  website: 'https://www.wingo.ch/it'
  },
@@ -310,7 +310,7 @@ const operators: MobileOperator[] = [
  },
  setupCost: 0,
  contractType: 'prepagato',
- color: 'from-slate-600 to-gray-700',
+ color: 'from-surface-muted to-surface-muted-hover',
  features: ['Molto economico', 'Rete Swisscom', 'Roaming costoso'],
  website: 'https://www.aldi-mobile.ch'
  }
@@ -397,7 +397,7 @@ const MobileOperators: React.FC = () => {
  {/* Warning Banner */}
  <div className="bg-warning-subtle border-l-4 border-warning p-4 rounded-lg">
  <div className="flex items-start gap-3">
- <AlertCircle className="text-amber-700 flex-shrink-0 mt-0.5" size={20} />
+ <AlertCircle className="text-warning flex-shrink-0 mt-0.5" size={20} />
  <div className="text-sm text-warning">
  <p className="font-bold mb-1">⚠️ {t('mobile.roamingWarningTitle')}</p>
  <p>
@@ -417,8 +417,8 @@ const MobileOperators: React.FC = () => {
  onClick={() => { setFilterCountry('all'); Analytics.trackMobileOperator('filter', undefined, 'all'); }}
  className={`px-4 py-2 rounded-lg text-sm font-bold transition-colors ${
  filterCountry === 'all' 
- ? 'bg-amber-700 text-white'
- : 'bg-surface-raised text-subtle hover:bg-slate-200'
+ ? 'bg-warning-strong-hover text-on-accent'
+ : 'bg-surface-raised text-subtle hover:bg-surface-raised'
  }`}
  >
  {t('mobile.all')}
@@ -427,8 +427,8 @@ const MobileOperators: React.FC = () => {
  onClick={() => { setFilterCountry('IT'); Analytics.trackMobileOperator('filter', undefined, 'IT'); }}
  className={`px-4 py-2 rounded-lg text-sm font-bold transition-colors ${
  filterCountry === 'IT' 
- ? 'bg-green-600 text-white' 
- : 'bg-surface-raised text-subtle hover:bg-slate-200'
+ ? 'bg-success-strong text-on-accent' 
+ : 'bg-surface-raised text-subtle hover:bg-surface-raised'
  }`}
  >
  🇮🇹 {t('mobile.italy')}
@@ -437,8 +437,8 @@ const MobileOperators: React.FC = () => {
  onClick={() => { setFilterCountry('CH'); Analytics.trackMobileOperator('filter', undefined, 'CH'); }}
  className={`px-4 py-2 rounded-lg text-sm font-bold transition-colors ${
  filterCountry === 'CH' 
- ? 'bg-red-600 text-white' 
- : 'bg-surface-raised text-subtle hover:bg-slate-200'
+ ? 'bg-danger-strong text-on-accent' 
+ : 'bg-surface-raised text-subtle hover:bg-surface-raised'
  }`}
  >
  🇨🇭 {t('mobile.switzerland')}
@@ -465,7 +465,7 @@ const MobileOperators: React.FC = () => {
  {/* Best Options Summary */}
  <div className="bg-gradient-to-br from-success-subtle to-success-subtle rounded-2xl border border-success-border p-6">
  <h3 className="text-xl font-bold text-strong mb-4 flex items-center gap-2">
- <CheckCircle2 size={20} className="text-emerald-700" />
+ <CheckCircle2 size={20} className="text-success" />
  {t('mobile.bestOptions')}
  </h3>
  <div className="grid md:grid-cols-2 gap-4">
@@ -508,13 +508,13 @@ const MobileOperators: React.FC = () => {
  onClick: () => Analytics.trackMobileOperator('link_click', operator.name, operator.country),
  className: `block bg-surface rounded-2xl border-2 p-4 sm:p-6 hover:shadow-lg transition-[color,background-color,border-color,box-shadow] cursor-pointer ${
  hasGoodRoaming 
- ? 'border-emerald-500 ring-2 ring-emerald-500/20 hover:ring-emerald-500/40' 
- : 'border-edge hover:border-amber-400'
+ ? 'border-success ring-2 ring-success/20 hover:ring-success/40' 
+ : 'border-edge hover:border-warning'
  }`
  } : {
  className: `bg-surface rounded-2xl border-2 p-4 sm:p-6 hover:shadow-lg transition-[color,background-color,border-color,box-shadow] ${
  hasGoodRoaming 
- ? 'border-emerald-500 ring-2 ring-emerald-500/20' 
+ ? 'border-success ring-2 ring-success/20' 
  : 'border-edge'
  }`
  };
@@ -522,7 +522,7 @@ const MobileOperators: React.FC = () => {
  return (
  <CardWrapper key={operator.name} {...cardProps}>
  {hasGoodRoaming && (
- <div className="mb-3 inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-700 text-white text-xs font-bold rounded-full">
+ <div className="mb-3 inline-flex items-center gap-1.5 px-3 py-1.5 bg-success-strong text-on-accent text-xs font-bold rounded-full">
  <CheckCircle2 size={14} />
  {t('mobile.roamingIncluded')}
  </div>
@@ -595,7 +595,7 @@ const MobileOperators: React.FC = () => {
  {/* Plan Details */}
  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4">
  <div className="p-3 bg-surface-alt rounded-xl text-center">
- <Wifi className="mx-auto mb-1 text-amber-700" size={18} />
+ <Wifi className="mx-auto mb-1 text-warning" size={18} />
  <div className="text-xs text-muted mb-1">{t('mobile.data')}</div>
  <div className="text-sm font-bold text-strong">
  {operator.dataGB === 'illimitati' ? '∞' : `${operator.dataGB} GB`}
@@ -603,7 +603,7 @@ const MobileOperators: React.FC = () => {
  </div>
 
  <div className="p-3 bg-surface-alt rounded-xl text-center">
- <Phone className="mx-auto mb-1 text-emerald-700" size={18} />
+ <Phone className="mx-auto mb-1 text-success" size={18} />
  <div className="text-xs text-muted mb-1">{t('mobile.minutes')}</div>
  <div className="text-sm font-bold text-strong">
  {operator.minutes === 'illimitati' ? '∞' : operator.minutes}
@@ -611,7 +611,7 @@ const MobileOperators: React.FC = () => {
  </div>
 
  <div className="p-3 bg-surface-alt rounded-xl text-center">
- <MessageSquare className="mx-auto mb-1 text-rose-600" size={18} />
+ <MessageSquare className="mx-auto mb-1 text-danger" size={18} />
  <div className="text-xs text-muted mb-1">{t('mobile.sms')}</div>
  <div className="text-sm font-bold text-strong">
  {operator.sms === 'illimitati' ? '∞' : operator.sms}
@@ -626,7 +626,7 @@ const MobileOperators: React.FC = () => {
  : 'bg-danger-subtle border border-danger-border'
  }`}>
  <div className="flex items-start gap-2 mb-2">
- <Globe className={`flex-shrink-0 ${roaming?.included ? 'text-emerald-700' : 'text-red-600'}`} size={18} />
+ <Globe className={`flex-shrink-0 ${roaming?.included ? 'text-success' : 'text-danger'}`} size={18} />
  <div className="flex-1">
  <p className={`font-bold text-sm mb-1 ${roaming?.included ? 'text-success' : 'text-danger'}`}>
  {t('mobile.roamingIn')} {operator.country === 'IT' ? `${t('mobile.switzerland')} 🇨🇭` : `${t('mobile.italy')} 🇮🇹`}
@@ -678,13 +678,13 @@ const MobileOperators: React.FC = () => {
  {/* Educational Section */}
  <div className="bg-gradient-to-br from-warning-subtle to-warning-subtle rounded-2xl border border-warning-border p-6">
  <h3 className="text-xl font-bold text-strong mb-4 flex items-center gap-2">
- <Info size={20} className="text-stripe-600" />
+ <Info size={20} className="text-accent" />
  {t('mobile.tipsTitle')}
  </h3>
  
  <div className="space-y-4 text-sm text-body">
  <div className="p-4 bg-surface/50 rounded-xl">
- <p className="font-bold text-stripe-600 mb-2">📱 {t('mobile.whichOperator')}</p>
+ <p className="font-bold text-accent mb-2">📱 {t('mobile.whichOperator')}</p>
  <ul className="space-y-2 ml-4 list-disc">
  <li>{t('mobile.operatorTip1')}</li>
  <li>{t('mobile.operatorTip2')}</li>
@@ -693,7 +693,7 @@ const MobileOperators: React.FC = () => {
  </div>
 
  <div className="p-4 bg-surface/50 rounded-xl">
- <p className="font-bold text-stripe-600 mb-2">💡 {t('mobile.tricksTitle')}</p>
+ <p className="font-bold text-accent mb-2">💡 {t('mobile.tricksTitle')}</p>
  <ul className="space-y-2 ml-4 list-disc">
  <li>{t('mobile.trick1')}</li>
  <li>{t('mobile.trick2')}</li>

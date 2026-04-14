@@ -185,7 +185,7 @@ const UnemploymentStats: React.FC = () => {
  if (loading) {
  return (
  <div className="bg-surface rounded-2xl shadow-sm border border-edge flex items-center justify-center py-32">
- <Loader2 className="animate-spin h-10 w-10 text-amber-500" />
+ <Loader2 className="animate-spin h-10 w-10 text-warning" />
  </div>
  );
  }
@@ -204,7 +204,7 @@ const UnemploymentStats: React.FC = () => {
  {/* Header */}
  <div className="p-6 border-b border-edge sticky top-0 z-10 bg-surface rounded-t-2xl">
  <h2 className="text-xl font-bold text-strong tracking-tight flex items-center gap-2">
- <BarChart3 size={20} className="text-amber-500" /> {localeLabels.title}
+ <BarChart3 size={20} className="text-warning" /> {localeLabels.title}
  </h2>
  <p className="text-muted text-xs mt-1">
  {localeLabels.subtitle}
@@ -266,7 +266,7 @@ const UnemploymentStats: React.FC = () => {
  {/* 10-year Trend Chart */}
  <div className="bg-surface p-5 rounded-3xl border border-edge shadow-sm">
  <h3 className="text-sm font-bold text-body mb-6 flex items-center gap-2">
- <TrendingUp size={16} className="text-amber-500" /> {localeLabels.trendTitle}
+ <TrendingUp size={16} className="text-warning" /> {localeLabels.trendTitle}
  </h3>
  <div className="h-[320px] w-full">
  {trendData.length > 0 ? (
@@ -316,7 +316,7 @@ const UnemploymentStats: React.FC = () => {
  {yearlyData.length > 1 && (
  <div className="bg-surface p-5 rounded-3xl border border-edge shadow-sm">
  <h3 className="text-sm font-bold text-body mb-6 flex items-center gap-2">
- <Calendar size={16} className="text-amber-500" /> {localeLabels.yearlyTitle}
+ <Calendar size={16} className="text-warning" /> {localeLabels.yearlyTitle}
  </h3>
  <div className="h-[260px] w-full">
  <ResponsiveContainer width="100%" height="100%">
@@ -366,7 +366,7 @@ const UnemploymentStats: React.FC = () => {
  <div className="px-6 mt-2">
  <article className="bg-surface-alt/80 p-5 rounded-2xl border border-edge">
  <h3 className="text-sm font-bold text-body mb-3 flex items-center gap-2">
- <TrendingUp size={14} className="text-amber-500" />
+ <TrendingUp size={14} className="text-warning" />
  {{ it: 'Analisi del mercato del lavoro svizzero', en: 'Swiss labour market analysis', de: 'Analyse des Schweizer Arbeitsmarktes', fr: 'Analyse du marché du travail suisse' }[locale] || 'Analisi del mercato del lavoro svizzero'}
  </h3>
  <p className="text-xs text-subtle leading-relaxed">{seoText}</p>
@@ -378,7 +378,7 @@ const UnemploymentStats: React.FC = () => {
  <div className="px-6">
  <div className="bg-surface-alt/50 p-4 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4 border border-edge">
  <div className="flex items-center gap-3">
- <div className="bg-surface p-2 rounded-xl text-amber-600 shadow-sm hidden sm:block">
+ <div className="bg-surface p-2 rounded-xl text-warning shadow-sm hidden sm:block">
  <Info size={20} />
  </div>
  <p className="text-xs text-muted leading-relaxed text-center sm:text-left">

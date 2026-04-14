@@ -78,7 +78,7 @@ const StatsViewInner: React.FC = () => {
  <div className="p-6 border-b border-edge flex justify-between items-center sticky top-0 z-10 bg-surface rounded-t-2xl">
  <div>
  <h2 className="text-xl font-bold text-strong tracking-tight flex items-center gap-2">
- <Database size={20} className="text-stripe-600"/> {t('stats.title')}
+ <Database size={20} className="text-accent"/> {t('stats.title')}
  </h2>
  <p className="text-muted text-xs mt-1">
  {t('stats.source')}
@@ -92,7 +92,7 @@ const StatsViewInner: React.FC = () => {
  fetchBFSData(true);
  }}
  disabled={loading}
- className="p-2 bg-surface rounded-xl shadow-sm border border-edge text-slate-500 hover:text-stripe-600 transition-[color,background-color,border-color,opacity,transform] hover:rotate-180 disabled:opacity-50"
+ className="p-2 bg-surface rounded-xl shadow-sm border border-edge text-muted hover:text-accent transition-[color,background-color,border-color,opacity,transform] hover:rotate-180 disabled:opacity-50"
  title={t('stats.refreshData')}
  >
  <RefreshCw size={18} className={loading ?"animate-spin" :""} />
@@ -118,7 +118,7 @@ const StatsViewInner: React.FC = () => {
  <span className="text-sm font-bold text-accent flex items-center gap-2">
  <Database size={16} className="text-accent" /> {t('stats.bfsSectionTitle')}
  </span>
- {showBfsIntro ? <ChevronUp size={16} className="text-stripe-500" /> : <ChevronDown size={16} className="text-stripe-500" />}
+ {showBfsIntro ? <ChevronUp size={16} className="text-accent" /> : <ChevronDown size={16} className="text-accent" />}
  </button>
  {showBfsIntro && (
  <div className="bg-accent-subtle/40 px-4 pb-4 -mt-2 pt-2 rounded-b-2xl border border-t-0 border-accent-border">
@@ -131,7 +131,7 @@ const StatsViewInner: React.FC = () => {
  <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-body">
  <span><span className="font-semibold text-accent">{loading ? '…' : (latestValue / 1000).toFixed(1) + 'k'}</span> {t('stats.totalFrontierWorkers')}</span>
  <span className="text-edge">·</span>
- <span>{t('stats.quarterlyTrend')}: <span className={`font-semibold ${Number(qoqPercent) >= 0 ? 'text-success' : 'text-danger'}`}>{qoqPercent}%</span> {Number(qoqPercent) >= 0 ? <TrendingUp size={14} className="inline text-emerald-600"/> : <TrendingUp size={14} className="inline text-red-500 rotate-180"/>}</span>
+ <span>{t('stats.quarterlyTrend')}: <span className={`font-semibold ${Number(qoqPercent) >= 0 ? 'text-success' : 'text-danger'}`}>{qoqPercent}%</span> {Number(qoqPercent) >= 0 ? <TrendingUp size={14} className="inline text-success"/> : <TrendingUp size={14} className="inline text-danger rotate-180"/>}</span>
  <span className="text-edge">·</span>
  <span>{t('stats.permitsEstimated')}: <span className="font-semibold">{t('stats.permitG')}</span></span>
  <span className="text-edge">·</span>
@@ -143,7 +143,7 @@ const StatsViewInner: React.FC = () => {
  {/* Chart 1: Historical Trend */}
  <div className="bg-surface p-5 rounded-3xl border border-edge shadow-sm col-span-1 lg:col-span-2">
  <h3 className="text-sm font-bold text-body mb-6 flex items-center gap-2">
- <TrendingUp size={16} className="text-stripe-500"/> {t('stats.historicalTrend')}
+ <TrendingUp size={16} className="text-accent"/> {t('stats.historicalTrend')}
  </h3>
  <div className="h-[300px] w-full">
  <ResponsiveContainer width="100%" height="100%">
@@ -174,7 +174,7 @@ const StatsViewInner: React.FC = () => {
  {/* Chart 2: Age Distribution */}
  <div className="bg-surface p-5 rounded-3xl border border-edge shadow-sm">
  <h3 className="text-sm font-bold text-body mb-6 flex items-center gap-2">
- <BarChart2 size={16} className="text-emerald-500"/> {t('stats.ageDistribution')}
+ <BarChart2 size={16} className="text-success"/> {t('stats.ageDistribution')}
  </h3>
  <div className="h-[250px] w-full">
  <ResponsiveContainer width="100%" height="100%">
@@ -202,7 +202,7 @@ const StatsViewInner: React.FC = () => {
  {/* Chart 3: Gender Trend (Replacing Broken Sectors) */}
  <div className="bg-surface p-5 rounded-3xl border border-edge shadow-sm">
  <h3 className="text-sm font-bold text-body mb-6 flex items-center gap-2">
- <PersonStanding size={16} className="text-stripe-600"/> {t('stats.genderTrend')}
+ <PersonStanding size={16} className="text-accent"/> {t('stats.genderTrend')}
  </h3>
  <div className="h-[250px] w-full">
  {genderTrendData.length > 0 ? (
@@ -239,7 +239,7 @@ const StatsViewInner: React.FC = () => {
  <div className="px-6">
  <div className="bg-surface-alt/50 p-4 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4 border border-edge">
  <div className="flex items-center gap-3">
- <div className="bg-surface p-2 rounded-xl text-stripe-600 shadow-sm hidden sm:block">
+ <div className="bg-surface p-2 rounded-xl text-accent shadow-sm hidden sm:block">
  <Info size={20} />
  </div>
  <div className="text-xs text-muted leading-relaxed text-center sm:text-left">
@@ -249,7 +249,7 @@ const StatsViewInner: React.FC = () => {
  {t('stats.lastUpdate')}: {lastUpdated?.toLocaleDateString()}
  </span>
  ) : (
- apiError && <span className="text-red-500 ml-1">{apiError}</span>
+ apiError && <span className="text-danger ml-1">{apiError}</span>
  )}
  </div>
  </div>

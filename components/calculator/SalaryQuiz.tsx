@@ -216,7 +216,7 @@ export default function SalaryQuiz() {
  <div className="max-w-2xl mx-auto">
  {/* Header */}
  <div className="text-center mb-8">
- <div className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-4 py-2 rounded-full text-sm font-bold mb-4">
+ <div className="inline-flex items-center gap-2 bg-gradient-to-r from-success-strong to-info-strong text-on-accent px-4 py-2 rounded-full text-sm font-bold mb-4">
  <TrendingUp size={16} />
  {t('salaryQuiz.badge')}
  </div>
@@ -231,7 +231,7 @@ export default function SalaryQuiz() {
  {/* Progress bar */}
  <div className="h-2 bg-surface-raised rounded-full mb-8 overflow-hidden">
  <div
- className="h-full bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full transition-transform duration-500 origin-left"
+ className="h-full bg-gradient-to-r from-success-strong to-info-strong rounded-full transition-transform duration-500 origin-left"
  style={{ transform: `scaleX(${progressWidth === '25%' ? 0.25 : progressWidth === '50%' ? 0.5 : progressWidth === '75%' ? 0.75 : 1})` }}
  />
  </div>
@@ -240,7 +240,7 @@ export default function SalaryQuiz() {
  {step === 'sector' && (
  <div className="animate-fade-in">
  <h3 className="text-lg font-semibold text-body mb-4 flex items-center gap-2">
- <Briefcase size={20} className="text-emerald-700" />
+ <Briefcase size={20} className="text-success" />
  {t('salaryQuiz.step1')}
  </h3>
  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
@@ -264,7 +264,7 @@ export default function SalaryQuiz() {
  {step === 'experience' && (
  <div className="animate-fade-in">
  <h3 className="text-lg font-semibold text-body mb-4 flex items-center gap-2">
- <Award size={20} className="text-emerald-700" />
+ <Award size={20} className="text-success" />
  {t('salaryQuiz.step2')}
  </h3>
  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -277,7 +277,7 @@ export default function SalaryQuiz() {
  <span className="text-sm font-medium text-body group-hover:text-success">
  {t(`salaryQuiz.experience.${level}`)}
  </span>
- <ChevronRight size={18} className="text-muted group-hover:text-emerald-500" />
+ <ChevronRight size={18} className="text-muted group-hover:text-success" />
  </button>
  ))}
  </div>
@@ -288,7 +288,7 @@ export default function SalaryQuiz() {
  {step === 'province' && (
  <div className="animate-fade-in">
  <h3 className="text-lg font-semibold text-body mb-4 flex items-center gap-2">
- <MapPin size={20} className="text-emerald-700" />
+ <MapPin size={20} className="text-success" />
  {t('salaryQuiz.step3')}
  </h3>
  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
@@ -298,7 +298,7 @@ export default function SalaryQuiz() {
  onClick={() => handleProvinceSelect(prov)}
  className="flex items-center gap-2 p-4 rounded-xl border-2 border-edge hover:border-success hover:bg-success-subtle transition-colors group"
  >
- <MapPin size={16} className="text-muted group-hover:text-emerald-500" />
+ <MapPin size={16} className="text-muted group-hover:text-success" />
  <span className="text-sm font-medium text-body group-hover:text-success capitalize">
  {t(`salaryQuiz.province.${prov}`)}
  </span>
@@ -312,13 +312,13 @@ export default function SalaryQuiz() {
  {step === 'result' && result && (
  <div className="animate-fade-in space-y-6">
  {/* Result card */}
- <div className="bg-success rounded-2xl p-4 sm:p-6 text-white shadow-xl">
+ <div className="bg-success rounded-2xl p-4 sm:p-6 text-on-accent shadow-xl">
  <div className="text-center mb-6">
- <p className="text-emerald-100 text-sm mb-1">{t('salaryQuiz.resultSubtitle')}</p>
+ <p className="text-success text-sm mb-1">{t('salaryQuiz.resultSubtitle')}</p>
  <div className="text-4xl sm:text-5xl font-bold mb-1">
  CHF {result.medianGross.toLocaleString()}
  </div>
- <p className="text-emerald-200 text-sm">{t('salaryQuiz.grossPerMonth')}</p>
+ <p className="text-success text-sm">{t('salaryQuiz.grossPerMonth')}</p>
  </div>
 
  <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mb-6">
@@ -328,23 +328,23 @@ export default function SalaryQuiz() {
 
  {/* Salary range bar */}
  <div className="bg-white/15 rounded-xl p-4">
- <p className="text-emerald-100 text-xs mb-3">{t('salaryQuiz.rangeLabel')}</p>
+ <p className="text-success text-xs mb-3">{t('salaryQuiz.rangeLabel')}</p>
  <div className="relative h-3 bg-white/20 rounded-full">
  <div
  className="absolute h-full bg-white/60 rounded-full"
  style={{ left: '0%', width: '100%' }}
  />
  <div
- className="absolute top-1/2 -translate-y-1/2 w-4 h-4 bg-white rounded-full shadow-lg border-2 border-emerald-600"
+ className="absolute top-1/2 -translate-y-1/2 w-4 h-4 bg-surface rounded-full shadow-lg border-2 border-success"
  style={{ left: '50%', transform: 'translate(-50%, -50%)' }}
  />
  </div>
- <div className="flex justify-between mt-2 text-xs text-emerald-200">
+ <div className="flex justify-between mt-2 text-xs text-success">
  <span>CHF {result.p25Gross.toLocaleString()}</span>
- <span className="font-bold text-white">CHF {result.medianGross.toLocaleString()}</span>
+ <span className="font-bold text-on-accent">CHF {result.medianGross.toLocaleString()}</span>
  <span>CHF {result.p75Gross.toLocaleString()}</span>
  </div>
- <div className="flex justify-between text-xs text-emerald-300/70">
+ <div className="flex justify-between text-xs text-success/70">
  <span>25°</span>
  <span>50° {t('salaryQuiz.median')}</span>
  <span>75°</span>
@@ -361,13 +361,13 @@ export default function SalaryQuiz() {
  <div className="flex flex-wrap gap-3">
  <button
  onClick={() => handleShare('whatsapp')}
- className="flex items-center gap-2 px-5 py-3 bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-xl font-semibold text-sm transition-colors"
+ className="flex items-center gap-2 px-5 py-3 bg-[#25D366] hover:bg-[#20bd5a] text-on-accent rounded-xl font-semibold text-sm transition-colors"
  >
  💬 WhatsApp
  </button>
  <button
  onClick={() => handleShare('facebook')}
- className="flex items-center gap-2 px-5 py-3 bg-[#1877F2] hover:bg-[#1565d8] text-white rounded-xl font-semibold text-sm transition-colors"
+ className="flex items-center gap-2 px-5 py-3 bg-[#1877F2] hover:bg-[#1565d8] text-on-accent rounded-xl font-semibold text-sm transition-colors"
  >
  📘 Facebook
  </button>

@@ -45,16 +45,16 @@ const CHART_COLORS = {
 const CustomTooltip = ({ active, payload, label, isDarkMode, currency ="CHF" }: any) => {
  if (active && payload && payload.length) {
  return (
- <div className={`p-4 border rounded-2xl shadow-xl min-w-[180px] z-50 pointer-events-none ${isDarkMode ? 'bg-slate-900 border-slate-700 shadow-slate-950/50' : 'bg-white border-slate-100 shadow-slate-200/50'}`}>
- {label && <p className={`font-bold mb-3 text-xs uppercase tracking-wider border-b pb-2 ${isDarkMode ? 'text-muted border-slate-700' : 'text-muted border-slate-100'}`}>{label}</p>}
+ <div className={`p-4 border rounded-2xl shadow-xl min-w-[180px] z-50 pointer-events-none ${isDarkMode ? 'bg-surface-inverted border-edge shadow-black/50' : 'bg-surface border-edge shadow-black/10'}`}>
+ {label && <p className={`font-bold mb-3 text-xs uppercase tracking-wider border-b pb-2 ${isDarkMode ? 'text-muted border-edge' : 'text-muted border-edge'}`}>{label}</p>}
  <div className="space-y-2">
  {payload.map((entry: any, index: number) => (
  <div key={index} className="flex items-center justify-between gap-4 text-xs">
  <div className="flex items-center gap-2">
  <div className="w-2.5 h-2.5 rounded-full shadow-sm" style={{ backgroundColor: entry.color || entry.fill || entry.stroke }} />
- <span className={`font-bold ${isDarkMode ? 'text-slate-300' : 'text-slate-600'}`}>{entry.name}</span>
+ <span className={`font-bold ${isDarkMode ? 'text-body' : 'text-subtle'}`}>{entry.name}</span>
  </div>
- <span className={`font-mono font-bold ${isDarkMode ? 'text-slate-100' : 'text-slate-800'} tabular-nums`}>
+ <span className={`font-mono font-bold ${isDarkMode ? 'text-heading' : 'text-strong'} tabular-nums`}>
  {currency} {entry.value.toLocaleString('it-IT', {maximumFractionDigits: 0})}
  </span>
  </div>
@@ -259,7 +259,7 @@ const ComparisonChartBase: React.FC<Props> = ({ result, inputs, isDarkMode, isFo
  <div className="p-4 sm:p-6 min-h-[320px] bg-surface rounded-b-3xl relative">
  {activeTab === 'projection' && (
  <div className="mb-6 bg-accent-subtle/50 p-4 rounded-xl border border-accent-border/50 flex gap-3 animate-fade-in">
- <Info size={18} className="text-stripe-500 shrink-0 mt-0.5" />
+ <Info size={18} className="text-accent shrink-0 mt-0.5" />
  <div className="text-xs text-accent leading-relaxed">
  <strong className="block mb-1 font-bold">{t('chart.projection_title')}</strong>
  {t('chart.projection_description')}
@@ -278,13 +278,13 @@ const ComparisonChartBase: React.FC<Props> = ({ result, inputs, isDarkMode, isFo
  <div className="flex bg-surface-raised p-1 rounded-lg">
  <button 
  onClick={() => setAnalysisMode('NET')}
- className={`px-3 py-1.5 rounded-md text-xs font-bold uppercase transition-[color,background-color,border-color,box-shadow] ${analysisMode === 'NET' ? 'bg-surface text-emerald-700 shadow-sm' : 'text-muted hover:text-slate-600'}`}
+ className={`px-3 py-1.5 rounded-md text-xs font-bold uppercase transition-[color,background-color,border-color,box-shadow] ${analysisMode === 'NET' ? 'bg-surface text-success shadow-sm' : 'text-muted hover:text-subtle'}`}
  >
  {t('chart.net')}
  </button>
  <button 
  onClick={() => setAnalysisMode('TAX')}
- className={`px-3 py-1.5 rounded-md text-xs font-bold uppercase transition-[color,background-color,border-color,box-shadow] ${analysisMode === 'TAX' ? 'bg-surface text-red-500 shadow-sm' : 'text-muted hover:text-slate-600'}`}
+ className={`px-3 py-1.5 rounded-md text-xs font-bold uppercase transition-[color,background-color,border-color,box-shadow] ${analysisMode === 'TAX' ? 'bg-surface text-danger shadow-sm' : 'text-muted hover:text-subtle'}`}
  >
  {t('chart.taxes_charges')}
  </button>

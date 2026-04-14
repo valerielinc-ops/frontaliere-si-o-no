@@ -1,5 +1,5 @@
 const bodyMalattiaFrontaliereGuidaAssicurazione: Record<string, string> = {
-    'blog.article.malattia-frontaliere-guida-assicurazione.body1': `## Choosing Your Health Insurance — LAMal vs CMI
+ 'blog.article.malattia-frontaliere-guida-assicurazione.body1': `## Choosing Your Health Insurance — LAMal vs CMI
 
 The health insurance decision is one of the first and most consequential choices a cross-border worker faces upon starting employment in Switzerland. Under bilateral agreements, frontalieri have the right to opt between two systems: **LAMal** (Swiss mandatory health insurance) and **CMI** (coverage under the Italian National Health Service, Servizio Sanitario Nazionale). This choice must be made **within three months of starting your first Swiss employment contract**, and once selected, it is generally **binding** — switching later is only possible in very limited circumstances, such as a change in family status or loss of employment.
 
@@ -13,7 +13,7 @@ The CMI (Copertura Malattia Italia) option allows you to remain within the Itali
 
 This trade-off is critical. For a healthy 28-year-old with no chronic conditions, CMI may be perfectly adequate. For a 50-year-old with hypertension or a family history of cardiac disease, the faster access and broader coverage of LAMal could be medically — and financially — life-saving. Compare premiums across all Swiss insurers and models using the [health insurance comparator](nav:health).`,
 
-    'blog.article.malattia-frontaliere-guida-assicurazione.body2': `## Sick Pay, Dismissal Protection, and Workplace Accidents
+ 'blog.article.malattia-frontaliere-guida-assicurazione.body2': `## Sick Pay, Dismissal Protection, and Workplace Accidents
 
 Understanding your rights when illness strikes is essential, because the Swiss system works differently from the Italian one — and the rules directly affect your income and job security.
 
@@ -54,7 +54,7 @@ If you are injured **at work** or develop an **occupational disease** (malattia 
 
 **Commuting accidents** (infortuni in itinere) are classified as **non-professional accidents (INP)** under Swiss law. You are covered for non-professional accidents as long as your contract specifies **at least 8 hours per week**. This is particularly important for frontalieri with long commutes through border crossings — if you are involved in a car accident on the way to work, LAINF-INP covers your medical expenses and lost income, provided you meet the minimum hours threshold.`,
 
-    'blog.article.malattia-frontaliere-guida-assicurazione.body3': `## Rare and Chronic Diseases, Family Doctor Models, and Parental Leave
+ 'blog.article.malattia-frontaliere-guida-assicurazione.body3': `## Rare and Chronic Diseases, Family Doctor Models, and Parental Leave
 
 ### Accessing Care for Rare or Chronic Conditions
 
@@ -84,7 +84,7 @@ For frontalieri, both maternity and paternity allowances are paid by the Swiss s
 - **If you have a chronic condition**, verify specialist access under your chosen insurance system before you need it
 - **Review your net salary impact** of insurance choices with the [salary calculator](nav:calculator)
 - **Explore career options** on the [job board](nav:job-board) — some employers offer supplementary health benefits beyond the legal minimum`,
-    'blog.article.malattia-frontaliere-guida-assicurazione.faq': '[{"q":"What is the compulsory health coverage for cross-border workers in Switzerland?","a":"Cross-border workers in Switzerland must have health insurance. The options are the Swiss KVG or the CMI (Health Coverage for International Workers), which allows you to remain in the Italian National Health Service through an exemption."},{"q":"What is the process for changing from KVG to CMI or vice versa after the initial choice?","a":"To change from KVG to CMI or vice versa after the initial choice, a specific procedure is required. The worker must justify the reason for the change (e.g., change in family health needs) and submit a formal request to the competent authority within the stipulated timeframe (usually within 3 months of a significant event). The request may require documentation of the new status (e.g., birth of a child) and may be subject to a case-by-case assessment."},{"q":"How does the reimbursement of healthcare costs work in the event of an emergency in Switzerland?","a":"If you choose the KVG, treatment in Switzerland is covered directly by the insurance and you can use Swiss facilities without waiting lists. With the CMI, treatment in Switzerland is covered only for emergencies and accidents at work, and you can use the Italian health system for ordinary care."}]',
+ 'blog.article.malattia-frontaliere-guida-assicurazione.faq': '[{"q":"What is the compulsory health coverage for cross-border workers in Switzerland?","a":"Cross-border workers in Switzerland must have health insurance. The options are the Swiss KVG or the CMI (Health Coverage for International Workers), which allows you to remain in the Italian National Health Service through an exemption."},{"q":"What is the process for changing from KVG to CMI or vice versa after the initial choice?","a":"To change from KVG to CMI or vice versa after the initial choice, a specific procedure is required. The worker must justify the reason for the change (e.g., change in family health needs) and submit a formal request to the competent authority within the stipulated timeframe (usually within 3 months of a significant event). The request may require documentation of the new status (e.g., birth of a child) and may be subject to a case-by-case assessment."},{"q":"How does the reimbursement of healthcare costs work in the event of an emergency in Switzerland?","a":"If you choose the KVG, treatment in Switzerland is covered directly by the insurance and you can use Swiss facilities without waiting lists. With the CMI, treatment in Switzerland is covered only for emergencies and accidents at work, and you can use the Italian health system for ordinary care."}]',
 };
 
 export default bodyMalattiaFrontaliereGuidaAssicurazione;

@@ -41,7 +41,7 @@ const CreatorProducts: React.FC<CreatorProductsProps> = ({
  return (
  <div className={`overflow-visible rounded-xl border border-edge bg-surface/90 p-3 space-y-2.5 ${className}`}>
  <div className="flex items-center gap-1.5 text-xs font-semibold tracking-normal text-subtle">
- <Sparkles size={13} className="text-amber-500" />
+ <Sparkles size={13} className="text-warning" />
  <span>{t('creatorPicks.title')}</span>
  </div>
 
@@ -57,7 +57,7 @@ const CreatorProducts: React.FC<CreatorProductsProps> = ({
  Analytics.trackExternalLink(p.url, `creator_pick_${p.id}`);
  Analytics.trackSelectContent('creator_pick_click', p.id);
  }}
- className="group block rounded-lg border border-edge/70 bg-surface-alt/40 px-2.5 py-2.5 hover:border-stripe-300 hover:border-accent-border hover:scale-[1.01] transition-[color,background-color,border-color,transform]"
+ className="group block rounded-lg border border-edge/70 bg-surface-alt/40 px-2.5 py-2.5 hover:border-accent-border hover:scale-[1.01] transition-[color,background-color,border-color,transform]"
  >
  {showImage && (
  <div className="flex justify-center mb-2">

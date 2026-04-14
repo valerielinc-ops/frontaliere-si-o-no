@@ -340,7 +340,7 @@ const EmailInput: React.FC<EmailInputProps> = ({
  {typoSuggestion && (
  <div className={`mt-1 px-3 py-2 text-sm rounded-lg flex items-center gap-1.5 ${
  darkVariant
- ? 'bg-amber-900/40 text-amber-200'
+ ? 'bg-warning-subtle text-warning'
  : 'bg-warning-subtle text-warning border border-warning-border'
  }`}>
  <span>{t('email.didYouMean')}</span>
@@ -349,7 +349,7 @@ const EmailInput: React.FC<EmailInputProps> = ({
  onClick={acceptTypoSuggestion}
  className={`font-semibold underline underline-offset-2 cursor-pointer ${
  darkVariant
- ? 'text-amber-100 hover:text-white'
+ ? 'text-warning hover:text-on-accent'
  : 'text-warning hover:text-warning'
  }`}
  >
@@ -361,7 +361,7 @@ const EmailInput: React.FC<EmailInputProps> = ({
  onClick={() => setTypoSuggestion(null)}
  aria-label={t('common.close')}
  className={`ml-auto text-xs opacity-60 hover:opacity-100 ${
- darkVariant ? 'text-amber-200' : 'text-warning'
+ darkVariant ? 'text-warning' : 'text-warning'
  }`}
  >
  ✕
@@ -374,7 +374,7 @@ const EmailInput: React.FC<EmailInputProps> = ({
  role="listbox"
  className={`absolute z-50 left-0 right-0 mt-1 rounded-xl shadow-lg border overflow-hidden ${
  darkVariant
- ? 'bg-stripe-800 border-stripe-600'
+ ? 'bg-accent-strong-hover border-accent'
  : 'bg-surface border-edge'
  }`}
  >
@@ -393,16 +393,16 @@ const EmailInput: React.FC<EmailInputProps> = ({
  className={`px-4 py-2.5 text-sm cursor-pointer transition-colors ${
  i === selectedIndex
  ? darkVariant
- ? 'bg-stripe-700 text-white'
+ ? 'bg-accent-strong-hover text-on-accent'
  : 'bg-accent-subtle text-accent'
  : darkVariant
- ? 'text-stripe-100 hover:bg-stripe-700'
+ ? 'text-accent hover:bg-accent-strong-hover'
  : 'text-body hover:bg-surface-raised'
  }`}
  >
  <span>{localDisplay}</span>
  <span className={`font-medium ${
- darkVariant ? 'text-white' : 'text-accent'
+ darkVariant ? 'text-on-accent' : 'text-accent'
  }`}>{domainHighlight}</span>
  </li>
  );

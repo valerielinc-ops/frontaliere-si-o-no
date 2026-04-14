@@ -212,11 +212,11 @@ const SeoContentBlock: React.FC<SeoContentBlockProps> = ({ context }) => {
  </h2>
  <div className="hidden sm:flex items-center gap-2 mr-2">
  <span className="flex items-center gap-1 text-xs text-muted">
- <Star className="w-3 h-3 text-amber-500" aria-hidden="true" />
+ <Star className="w-3 h-3 text-warning" aria-hidden="true" />
  2026
  </span>
  <span className="flex items-center gap-1 text-xs text-muted">
- <Shield className="w-3 h-3 text-emerald-500" aria-hidden="true" />
+ <Shield className="w-3 h-3 text-success" aria-hidden="true" />
  {t('seoContent.trust.free')}
  </span>
  </div>
@@ -251,15 +251,15 @@ const SeoContentBlock: React.FC<SeoContentBlockProps> = ({ context }) => {
  {/* Trust signals */}
  <div className="flex flex-wrap gap-3 mb-3">
  <div className="flex items-center gap-1.5 text-xs text-subtle">
- <Star className="w-3.5 h-3.5 text-amber-500" aria-hidden="true" />
+ <Star className="w-3.5 h-3.5 text-warning" aria-hidden="true" />
  <span>{t('seoContent.trust.accuracy')}</span>
  </div>
  <div className="flex items-center gap-1.5 text-xs text-subtle">
- <Clock className="w-3.5 h-3.5 text-stripe-500" aria-hidden="true" />
+ <Clock className="w-3.5 h-3.5 text-accent" aria-hidden="true" />
  <span>{t('seoContent.trust.updated')}</span>
  </div>
  <div className="flex items-center gap-1.5 text-xs text-subtle">
- <Shield className="w-3.5 h-3.5 text-emerald-500" aria-hidden="true" />
+ <Shield className="w-3.5 h-3.5 text-success" aria-hidden="true" />
  <span>{t('seoContent.trust.free')}</span>
  </div>
  </div>
@@ -293,7 +293,7 @@ const SeoContentBlock: React.FC<SeoContentBlockProps> = ({ context }) => {
  <div className="space-y-1">
  {Array.from({ length: config.checklist }, (_, i) => (
  <div key={i} className="flex items-center gap-2 text-sm text-body">
- <Check className="w-3.5 h-3.5 text-emerald-500 shrink-0" aria-hidden="true" />
+ <Check className="w-3.5 h-3.5 text-success shrink-0" aria-hidden="true" />
  <span>{t(`seoContent.${context}.check${i + 1}`)}</span>
  </div>
  ))}

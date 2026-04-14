@@ -35,20 +35,20 @@ const CarTransferGuide: React.FC = () => {
  return (
  <div className="space-y-6">
  {/* Header */}
- <div className="bg-gradient-to-br from-stripe-600 to-stripe-700 rounded-2xl p-4 sm:p-6 text-white">
+ <div className="bg-gradient-to-br from-accent-strong to-accent-strong-hover rounded-2xl p-4 sm:p-6 text-on-accent">
  <div className="flex items-center gap-3 mb-3">
  <div className="p-3 bg-white/20 rounded-xl">
  <Car size={28} />
  </div>
  <div>
  <h2 className="text-2xl font-bold">{t('carTransfer.title')}</h2>
- <p className="text-stripe-100 text-sm mt-1">{t('carTransfer.subtitle')}</p>
+ <p className="text-accent text-sm mt-1">{t('carTransfer.subtitle')}</p>
  </div>
  </div>
  <div className="mt-4 bg-white/10 rounded-xl p-4">
  <div className="flex items-start gap-2">
  <AlertCircle size={18} className="mt-0.5 shrink-0" />
- <p className="text-sm text-stripe-100">{t('carTransfer.disclaimer')}</p>
+ <p className="text-sm text-accent">{t('carTransfer.disclaimer')}</p>
  </div>
  </div>
  </div>
@@ -90,7 +90,7 @@ const CarTransferGuide: React.FC = () => {
  ].map((item, i) => (
  <div key={i} className="flex gap-4">
  <div className="flex flex-col items-center">
- <div className="w-8 h-8 bg-stripe-600 text-white rounded-full flex items-center justify-center text-sm font-bold">{item.step}</div>
+ <div className="w-8 h-8 bg-accent-strong text-on-accent rounded-full flex items-center justify-center text-sm font-bold">{item.step}</div>
  {i < 4 && <div className="w-0.5 h-full bg-accent-subtle mt-1" />}
  </div>
  <div className="flex-1 pb-4">
@@ -126,7 +126,7 @@ const CarTransferGuide: React.FC = () => {
  <div className="space-y-4 animate-fade-in">
  <div className="bg-surface rounded-2xl border border-edge p-6">
  <h3 className="text-lg font-bold text-strong mb-4 flex items-center gap-2">
- <Landmark size={20} className="text-stripe-600" />
+ <Landmark size={20} className="text-accent" />
  {t('carTransfer.customs.title')}
  </h3>
  <p className="text-subtle mb-6">{t('carTransfer.customs.intro')}</p>
@@ -136,11 +136,11 @@ const CarTransferGuide: React.FC = () => {
  <h4 className="font-bold text-body mb-2">{t('carTransfer.customs.formTitle')}</h4>
  <p className="text-sm text-subtle mb-3">{t('carTransfer.customs.formDesc')}</p>
  <ul className="space-y-2 text-sm text-subtle">
- <li className="flex items-start gap-2"><CheckCircle2 size={14} className="mt-1 shrink-0 text-green-600" />{t('carTransfer.customs.doc1')}</li>
- <li className="flex items-start gap-2"><CheckCircle2 size={14} className="mt-1 shrink-0 text-green-600" />{t('carTransfer.customs.doc2')}</li>
- <li className="flex items-start gap-2"><CheckCircle2 size={14} className="mt-1 shrink-0 text-green-600" />{t('carTransfer.customs.doc3')}</li>
- <li className="flex items-start gap-2"><CheckCircle2 size={14} className="mt-1 shrink-0 text-green-600" />{t('carTransfer.customs.doc4')}</li>
- <li className="flex items-start gap-2"><CheckCircle2 size={14} className="mt-1 shrink-0 text-green-600" />{t('carTransfer.customs.doc5')}</li>
+ <li className="flex items-start gap-2"><CheckCircle2 size={14} className="mt-1 shrink-0 text-success" />{t('carTransfer.customs.doc1')}</li>
+ <li className="flex items-start gap-2"><CheckCircle2 size={14} className="mt-1 shrink-0 text-success" />{t('carTransfer.customs.doc2')}</li>
+ <li className="flex items-start gap-2"><CheckCircle2 size={14} className="mt-1 shrink-0 text-success" />{t('carTransfer.customs.doc3')}</li>
+ <li className="flex items-start gap-2"><CheckCircle2 size={14} className="mt-1 shrink-0 text-success" />{t('carTransfer.customs.doc4')}</li>
+ <li className="flex items-start gap-2"><CheckCircle2 size={14} className="mt-1 shrink-0 text-success" />{t('carTransfer.customs.doc5')}</li>
  </ul>
  </div>
 
@@ -186,7 +186,7 @@ const CarTransferGuide: React.FC = () => {
  <div className="space-y-4 animate-fade-in">
  <div className="bg-surface rounded-2xl border border-edge p-6">
  <h3 className="text-lg font-bold text-strong mb-4 flex items-center gap-2">
- <FileText size={20} className="text-stripe-600" />
+ <FileText size={20} className="text-accent" />
  {t('carTransfer.registration.title')}
  </h3>
  <p className="text-subtle mb-6">{t('carTransfer.registration.intro')}</p>
@@ -196,22 +196,22 @@ const CarTransferGuide: React.FC = () => {
  <h4 className="font-bold text-body mb-3">{t('carTransfer.registration.mfkTitle')}</h4>
  <p className="text-sm text-subtle mb-3">{t('carTransfer.registration.mfkDesc')}</p>
  <ul className="space-y-2 text-sm text-subtle">
- <li className="flex items-start gap-2"><CheckCircle2 size={14} className="mt-1 shrink-0 text-green-600" />{t('carTransfer.registration.mfk1')}</li>
- <li className="flex items-start gap-2"><CheckCircle2 size={14} className="mt-1 shrink-0 text-green-600" />{t('carTransfer.registration.mfk2')}</li>
- <li className="flex items-start gap-2"><CheckCircle2 size={14} className="mt-1 shrink-0 text-green-600" />{t('carTransfer.registration.mfk3')}</li>
- <li className="flex items-start gap-2"><CheckCircle2 size={14} className="mt-1 shrink-0 text-green-600" />{t('carTransfer.registration.mfk4')}</li>
+ <li className="flex items-start gap-2"><CheckCircle2 size={14} className="mt-1 shrink-0 text-success" />{t('carTransfer.registration.mfk1')}</li>
+ <li className="flex items-start gap-2"><CheckCircle2 size={14} className="mt-1 shrink-0 text-success" />{t('carTransfer.registration.mfk2')}</li>
+ <li className="flex items-start gap-2"><CheckCircle2 size={14} className="mt-1 shrink-0 text-success" />{t('carTransfer.registration.mfk3')}</li>
+ <li className="flex items-start gap-2"><CheckCircle2 size={14} className="mt-1 shrink-0 text-success" />{t('carTransfer.registration.mfk4')}</li>
  </ul>
  </div>
 
  <div className="bg-neutral-subtle rounded-xl p-4">
  <h4 className="font-bold text-body mb-3">{t('carTransfer.registration.docsTitle')}</h4>
  <ul className="space-y-2 text-sm text-subtle">
- <li className="flex items-start gap-2"><FileText size={14} className="mt-1 shrink-0 text-stripe-600" />{t('carTransfer.registration.doc1')}</li>
- <li className="flex items-start gap-2"><FileText size={14} className="mt-1 shrink-0 text-stripe-600" />{t('carTransfer.registration.doc2')}</li>
- <li className="flex items-start gap-2"><FileText size={14} className="mt-1 shrink-0 text-stripe-600" />{t('carTransfer.registration.doc3')}</li>
- <li className="flex items-start gap-2"><FileText size={14} className="mt-1 shrink-0 text-stripe-600" />{t('carTransfer.registration.doc4')}</li>
- <li className="flex items-start gap-2"><FileText size={14} className="mt-1 shrink-0 text-stripe-600" />{t('carTransfer.registration.doc5')}</li>
- <li className="flex items-start gap-2"><FileText size={14} className="mt-1 shrink-0 text-stripe-600" />{t('carTransfer.registration.doc6')}</li>
+ <li className="flex items-start gap-2"><FileText size={14} className="mt-1 shrink-0 text-accent" />{t('carTransfer.registration.doc1')}</li>
+ <li className="flex items-start gap-2"><FileText size={14} className="mt-1 shrink-0 text-accent" />{t('carTransfer.registration.doc2')}</li>
+ <li className="flex items-start gap-2"><FileText size={14} className="mt-1 shrink-0 text-accent" />{t('carTransfer.registration.doc3')}</li>
+ <li className="flex items-start gap-2"><FileText size={14} className="mt-1 shrink-0 text-accent" />{t('carTransfer.registration.doc4')}</li>
+ <li className="flex items-start gap-2"><FileText size={14} className="mt-1 shrink-0 text-accent" />{t('carTransfer.registration.doc5')}</li>
+ <li className="flex items-start gap-2"><FileText size={14} className="mt-1 shrink-0 text-accent" />{t('carTransfer.registration.doc6')}</li>
  </ul>
  </div>
 
@@ -241,7 +241,7 @@ const CarTransferGuide: React.FC = () => {
  <div className="space-y-4 animate-fade-in">
  <div className="bg-surface rounded-2xl border border-edge p-6">
  <h3 className="text-lg font-bold text-strong mb-4 flex items-center gap-2">
- <MapPin size={20} className="text-stripe-600" />
+ <MapPin size={20} className="text-accent" />
  {t('carTransfer.plates.title')}
  </h3>
  <p className="text-subtle mb-6">{t('carTransfer.plates.intro')}</p>
@@ -258,14 +258,14 @@ const CarTransferGuide: React.FC = () => {
  </div>
  </li>
  <li className="flex items-start gap-3">
- <div className="shrink-0 w-16 h-8 bg-stripe-100 border-2 border-stripe-300 rounded flex items-center justify-center text-xs font-bold text-stripe-700">U ···</div>
+ <div className="shrink-0 w-16 h-8 bg-accent-subtle border-2 border-accent-border rounded flex items-center justify-center text-xs font-bold text-accent">U ···</div>
  <div>
  <div className="font-semibold text-body">{t('carTransfer.plates.temp')}</div>
  <div className="text-muted">{t('carTransfer.plates.tempDesc')}</div>
  </div>
  </li>
  <li className="flex items-start gap-3">
- <div className="shrink-0 w-16 h-8 bg-yellow-100 border-2 border-yellow-400 rounded flex items-center justify-center text-xs font-bold text-yellow-700">TI ···</div>
+ <div className="shrink-0 w-16 h-8 bg-warning-subtle border-2 border-warning rounded flex items-center justify-center text-xs font-bold text-warning">TI ···</div>
  <div>
  <div className="font-semibold text-body">{t('carTransfer.plates.transfer')}</div>
  <div className="text-muted">{t('carTransfer.plates.transferDesc')}</div>
@@ -299,7 +299,7 @@ const CarTransferGuide: React.FC = () => {
 
  <div className="mt-4 bg-accent-subtle rounded-xl p-4">
  <div className="flex items-start gap-2">
- <Info size={16} className="mt-0.5 shrink-0 text-stripe-600" />
+ <Info size={16} className="mt-0.5 shrink-0 text-accent" />
  <p className="text-sm text-accent">{t('carTransfer.plates.italianNote')}</p>
  </div>
  </div>
@@ -312,7 +312,7 @@ const CarTransferGuide: React.FC = () => {
  <div className="space-y-4 animate-fade-in">
  <div className="bg-surface rounded-2xl border border-edge p-6">
  <h3 className="text-lg font-bold text-strong mb-4 flex items-center gap-2">
- <CreditCard size={20} className="text-stripe-600" />
+ <CreditCard size={20} className="text-accent" />
  {t('carTransfer.license.title')}
  </h3>
  <p className="text-subtle mb-6">{t('carTransfer.license.intro')}</p>
@@ -330,19 +330,19 @@ const CarTransferGuide: React.FC = () => {
  <h4 className="font-bold text-body mb-3">{t('carTransfer.license.processTitle')}</h4>
  <ol className="space-y-3 text-sm text-subtle">
  <li className="flex items-start gap-3">
- <span className="shrink-0 w-6 h-6 bg-stripe-600 text-white rounded-full flex items-center justify-center text-xs font-bold">1</span>
+ <span className="shrink-0 w-6 h-6 bg-accent-strong text-on-accent rounded-full flex items-center justify-center text-xs font-bold">1</span>
  <span>{t('carTransfer.license.step1')}</span>
  </li>
  <li className="flex items-start gap-3">
- <span className="shrink-0 w-6 h-6 bg-stripe-600 text-white rounded-full flex items-center justify-center text-xs font-bold">2</span>
+ <span className="shrink-0 w-6 h-6 bg-accent-strong text-on-accent rounded-full flex items-center justify-center text-xs font-bold">2</span>
  <span>{t('carTransfer.license.step2')}</span>
  </li>
  <li className="flex items-start gap-3">
- <span className="shrink-0 w-6 h-6 bg-stripe-600 text-white rounded-full flex items-center justify-center text-xs font-bold">3</span>
+ <span className="shrink-0 w-6 h-6 bg-accent-strong text-on-accent rounded-full flex items-center justify-center text-xs font-bold">3</span>
  <span>{t('carTransfer.license.step3')}</span>
  </li>
  <li className="flex items-start gap-3">
- <span className="shrink-0 w-6 h-6 bg-stripe-600 text-white rounded-full flex items-center justify-center text-xs font-bold">4</span>
+ <span className="shrink-0 w-6 h-6 bg-accent-strong text-on-accent rounded-full flex items-center justify-center text-xs font-bold">4</span>
  <span>{t('carTransfer.license.step4')}</span>
  </li>
  </ol>
@@ -351,11 +351,11 @@ const CarTransferGuide: React.FC = () => {
  <div className="bg-surface-alt rounded-xl p-4">
  <h4 className="font-bold text-body mb-3">{t('carTransfer.license.docsTitle')}</h4>
  <ul className="space-y-2 text-sm text-subtle">
- <li className="flex items-start gap-2"><CheckCircle2 size={14} className="mt-1 shrink-0 text-green-600" />{t('carTransfer.license.doc1')}</li>
- <li className="flex items-start gap-2"><CheckCircle2 size={14} className="mt-1 shrink-0 text-green-600" />{t('carTransfer.license.doc2')}</li>
- <li className="flex items-start gap-2"><CheckCircle2 size={14} className="mt-1 shrink-0 text-green-600" />{t('carTransfer.license.doc3')}</li>
- <li className="flex items-start gap-2"><CheckCircle2 size={14} className="mt-1 shrink-0 text-green-600" />{t('carTransfer.license.doc4')}</li>
- <li className="flex items-start gap-2"><CheckCircle2 size={14} className="mt-1 shrink-0 text-green-600" />{t('carTransfer.license.doc5')}</li>
+ <li className="flex items-start gap-2"><CheckCircle2 size={14} className="mt-1 shrink-0 text-success" />{t('carTransfer.license.doc1')}</li>
+ <li className="flex items-start gap-2"><CheckCircle2 size={14} className="mt-1 shrink-0 text-success" />{t('carTransfer.license.doc2')}</li>
+ <li className="flex items-start gap-2"><CheckCircle2 size={14} className="mt-1 shrink-0 text-success" />{t('carTransfer.license.doc3')}</li>
+ <li className="flex items-start gap-2"><CheckCircle2 size={14} className="mt-1 shrink-0 text-success" />{t('carTransfer.license.doc4')}</li>
+ <li className="flex items-start gap-2"><CheckCircle2 size={14} className="mt-1 shrink-0 text-success" />{t('carTransfer.license.doc5')}</li>
  </ul>
  </div>
 
@@ -376,7 +376,7 @@ const CarTransferGuide: React.FC = () => {
  <div className="space-y-4 animate-fade-in">
  <div className="bg-surface rounded-2xl border border-edge p-6">
  <h3 className="text-lg font-bold text-strong mb-4 flex items-center gap-2">
- <Shield size={20} className="text-stripe-600" />
+ <Shield size={20} className="text-accent" />
  {t('carTransfer.insurance.title')}
  </h3>
  <p className="text-subtle mb-6">{t('carTransfer.insurance.intro')}</p>
@@ -386,7 +386,7 @@ const CarTransferGuide: React.FC = () => {
  <div className="bg-danger-subtle rounded-xl p-4 border border-danger-border">
  <h4 className="font-bold text-danger mb-2">{t('carTransfer.insurance.rcTitle')}</h4>
  <p className="text-sm text-danger">{t('carTransfer.insurance.rcDesc')}</p>
- <div className="mt-2 text-xs text-red-500">{t('carTransfer.insurance.rcNote')}</div>
+ <div className="mt-2 text-xs text-danger">{t('carTransfer.insurance.rcNote')}</div>
  </div>
  <div className="bg-warning-subtle rounded-xl p-4 border border-warning-border">
  <h4 className="font-bold text-warning mb-2">{t('carTransfer.insurance.cascoTitle')}</h4>
@@ -405,7 +405,7 @@ const CarTransferGuide: React.FC = () => {
 
  <div className="bg-accent-subtle rounded-xl p-4">
  <div className="flex items-start gap-2">
- <Info size={16} className="mt-0.5 shrink-0 text-stripe-600" />
+ <Info size={16} className="mt-0.5 shrink-0 text-accent" />
  <p className="text-sm text-accent">{t('carTransfer.insurance.tip')}</p>
  </div>
  </div>
@@ -419,7 +419,7 @@ const CarTransferGuide: React.FC = () => {
  <div className="space-y-4 animate-fade-in">
  <div className="bg-surface rounded-2xl border border-edge p-6">
  <h3 className="text-lg font-bold text-strong mb-4 flex items-center gap-2">
- <CreditCard size={20} className="text-stripe-600" />
+ <CreditCard size={20} className="text-accent" />
  {t('carTransfer.costs.title')}
  </h3>
  <p className="text-subtle mb-6">{t('carTransfer.costs.intro')}</p>
@@ -458,7 +458,7 @@ const CarTransferGuide: React.FC = () => {
  <span className="font-bold text-accent">{t('carTransfer.costs.total')}</span>
  <span className="text-xl font-bold text-accent">{t('carTransfer.costs.totalAmount')}</span>
  </div>
- <p className="text-xs text-stripe-500 mt-1">{t('carTransfer.costs.totalNote')}</p>
+ <p className="text-xs text-accent mt-1">{t('carTransfer.costs.totalNote')}</p>
  </div>
  </div>
  </div>
@@ -469,7 +469,7 @@ const CarTransferGuide: React.FC = () => {
  <div className="space-y-4 animate-fade-in">
  <div className="bg-surface rounded-2xl border border-edge p-6">
  <h3 className="text-lg font-bold text-strong mb-4 flex items-center gap-2">
- <CheckCircle2 size={20} className="text-green-600" />
+ <CheckCircle2 size={20} className="text-success" />
  {t('carTransfer.checklist.title')}
  </h3>
  <p className="text-subtle mb-6">{t('carTransfer.checklist.intro')}</p>
@@ -513,7 +513,7 @@ const CarTransferGuide: React.FC = () => {
  <div className="space-y-2">
  {phase.items.map((item, ii) => (
  <label key={ii} className="flex items-start gap-3 p-3 bg-surface-alt rounded-lg cursor-pointer hover:bg-surface-raised transition-colors">
- <input type="checkbox" className="mt-1 h-4 w-4 rounded border-edge text-stripe-600 focus-visible:ring-accent" aria-label={item} />
+ <input type="checkbox" className="mt-1 h-4 w-4 rounded border-edge text-accent focus-visible:ring-accent" aria-label={item} />
  <span className="text-sm text-body">{item}</span>
  </label>
  ))}

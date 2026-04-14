@@ -1,5 +1,5 @@
 const bodyGuidaCompletaFrontaliere: Record<string, string> = {
-    'blog.article.guida-completa-frontaliere.body1': `A **cross-border worker** (in Italian *frontaliere*, in German *Grenzgänger*, in French *frontalier*) is a professional who resides in one country — typically Italy — and commutes daily or weekly to a neighbouring country — Switzerland — to carry out their work. In Ticino, this phenomenon involves over 79,000 people and represents a pillar of the regional economy, with fiscal, social security and logistical implications that require careful planning.
+ 'blog.article.guida-completa-frontaliere.body1': `A **cross-border worker** (in Italian *frontaliere*, in German *Grenzgänger*, in French *frontalier*) is a professional who resides in one country — typically Italy — and commutes daily or weekly to a neighbouring country — Switzerland — to carry out their work. In Ticino, this phenomenon involves over 79,000 people and represents a pillar of the regional economy, with fiscal, social security and logistical implications that require careful planning.
 
 This guide covers **every aspect** of the cross-border worker journey: from the initial decision to daily life, including permits, taxation, pensions and health insurance. It is designed both for those evaluating whether to become a cross-border worker and for those who already are and want to optimise their situation.
 
@@ -22,7 +22,7 @@ The cross-border worker phenomenon in Ticino has reached unprecedented dimension
 
 The trend has been steadily rising since 2015, driven by the salary differential (the CH/IT pay ratio is approximately 2.3:1 for equivalent positions), geographic proximity and quality of life in the Italian border provinces.`,
 
-    'blog.article.guida-completa-frontaliere.body2': `## Chapter 1: The decision — Is it worth becoming a cross-border worker?
+ 'blog.article.guida-completa-frontaliere.body2': `## Chapter 1: The decision — Is it worth becoming a cross-border worker?
 
 The most frequently asked question is also the most complex: **is it financially worthwhile to work in Switzerland while living in Italy?** The answer depends on at least six variables: gross salary, marital status, number of children, municipality of residence, commuting costs and the CHF/EUR exchange rate.
 
@@ -65,7 +65,7 @@ Consider a typical case: gross salary CHF 5,500/month, single person with no chi
 
 To calculate your specific situation, use our [net salary calculator](nav:calculator) which accounts for all variables: marital status, children, municipality of residence, commuting costs and current exchange rate.`,
 
-    'blog.article.guida-completa-frontaliere.body3': `## Chapter 2: Finding work in Ticino
+ 'blog.article.guida-completa-frontaliere.body3': `## Chapter 2: Finding work in Ticino
 
 The Ticino labour market has its own characteristics: the Italian language is an advantage compared to the rest of Switzerland, but competition with other cross-border workers is high. Here are the sectors with the highest demand in 2025-2026:
 
@@ -108,7 +108,7 @@ Swiss contracts differ from Italian ones in several key aspects:
 
 For a deeper understanding of the Swiss payslip, use our [payslip simulator](nav:payslip) which details every line item.`,
 
-    'blog.article.guida-completa-frontaliere.body4': `## Chapter 3: G Permit — How to obtain it
+ 'blog.article.guida-completa-frontaliere.body4': `## Chapter 3: G Permit — How to obtain it
 
 The **G Permit** (cross-border worker permit) is the document authorising an EU/EFTA citizen residing in a neighbouring country to work in Switzerland. Since 2002, thanks to the bilateral CH-EU agreements, the procedure is relatively straightforward for Italian citizens.
 
@@ -151,7 +151,7 @@ The G Permit is automatically renewed every 5 years, provided employment continu
 
 For more on unemployment protections, see our [unemployment guide for cross-border workers](nav:unemployment).`,
 
-    'blog.article.guida-completa-frontaliere.body5': `## Chapter 4: Taxation — The heart of the matter
+ 'blog.article.guida-completa-frontaliere.body5': `## Chapter 4: Taxation — The heart of the matter
 
 Taxation is the most complex and most important aspect for a cross-border worker. Since 2023, the tax regime has changed radically with the entry into force of the **New Italy-Switzerland Agreement on cross-border worker taxation**.
 
@@ -201,7 +201,7 @@ For new cross-border workers, the tax return becomes mandatory:
 
 To simulate your complete tax situation — old and new regime — use our [tax calculator](nav:calculator), which applies the updated 2026 tables and automatically calculates IRPEF, tax credit and final net. For the annual return, consult the [tax return guide](nav:tax-return) and the [tax calendar](nav:calendar) to never miss a deadline.`,
 
-    'blog.article.guida-completa-frontaliere.body6': `## Chapter 5: Social security — AVS, LPP and 3rd pillar
+ 'blog.article.guida-completa-frontaliere.body6': `## Chapter 5: Social security — AVS, LPP and 3rd pillar
 
 The Swiss pension system is structured across **three pillars** and offers one of the most robust social safety nets in the world. As a cross-border worker, you contribute compulsorily to the first two and can voluntarily access the third.
 
@@ -245,7 +245,7 @@ The 3rd pillar is voluntary and offers significant tax advantages:
 
 To plan your pension strategy, use the [pension planner](nav:pension) and the [3rd pillar simulator](nav:pillar3), which calculate expected benefits based on your current and future contributions.`,
 
-    'blog.article.guida-completa-frontaliere.body7': `## Chapter 6: Health insurance — LAMal or Italian NHS?
+ 'blog.article.guida-completa-frontaliere.body7': `## Chapter 6: Health insurance — LAMal or Italian NHS?
 
 Within **3 months** of starting employment in Switzerland, the cross-border worker must make a crucial and (almost) irreversible choice: join the Swiss health system (LAMal) or exercise the **right of option** to remain in the Italian National Health Service (SSN).
 
@@ -283,7 +283,7 @@ If you opt for LAMal, you have access to 14 authorised health funds in Ticino. P
 
 Use our [health insurance comparator](nav:health) to compare premiums from all 14 health funds, with filters for model, deductible and canton.`,
 
-    'blog.article.guida-completa-frontaliere.body8': `## Chapter 7: Daily life as a cross-border worker
+ 'blog.article.guida-completa-frontaliere.body8': `## Chapter 7: Daily life as a cross-border worker
 
 Being a cross-border worker isn't just a tax matter: it's a **lifestyle** that requires daily organisation across several fronts.
 
@@ -338,7 +338,7 @@ A smart strategy combines both markets:
 
 For a detailed price comparison, see the [cost of living comparator](nav:cost-of-living) and the [shopping comparator](nav:shopping).`,
 
-    'blog.article.guida-completa-frontaliere.body9': `## Chapter 8: Deadlines and the cross-border worker's calendar
+ 'blog.article.guida-completa-frontaliere.body9': `## Chapter 8: Deadlines and the cross-border worker's calendar
 
 One of the most stressful aspects for cross-border workers is managing **multiple deadlines** across two different countries. Here is a complete calendar:
 
@@ -375,7 +375,7 @@ Renewal is generally automatic, but good practice includes:
 
 To never miss a deadline, use our [interactive tax calendar](nav:calendar) which automatically reminds you of important dates and lets you export deadlines to your personal calendar.`,
 
-    'blog.article.guida-completa-frontaliere.body10': `## Frequently asked questions (FAQ)
+ 'blog.article.guida-completa-frontaliere.body10': `## Frequently asked questions (FAQ)
 
 ### 1. Can I become a cross-border worker if I live in Milan?
 
@@ -414,7 +414,7 @@ For workers under the **old regime**, the ristorni (40% withholding tax transfer
 
 With a signed employment contract, the G Permit is issued in **2-4 weeks**. The employer generally handles the application. At certain times of year (September, January) processing times may be longer. The permit is valid for 5 years and renews automatically.`,
 
-    'blog.article.guida-completa-frontaliere.body11': `## Conclusion: the cross-border worker as a binational professional
+ 'blog.article.guida-completa-frontaliere.body11': `## Conclusion: the cross-border worker as a binational professional
 
 Being a cross-border worker in 2026 is not simply "working in Switzerland and living in Italy." It is a life choice that requires **financial planning skills, regulatory knowledge and daily organisation** that few other workers need to possess.
 

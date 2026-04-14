@@ -1,5 +1,5 @@
 const bodyBestCrossBorderWorkerCalculatorSwitzerland: Record<string, string> = {
-    'blog.article.best-cross-border-worker-calculator-switzerland.body1': `## What Is a Cross-Border Worker Calculator?
+ 'blog.article.best-cross-border-worker-calculator-switzerland.body1': `## What Is a Cross-Border Worker Calculator?
 
 A cross-border worker calculator (calcolatore frontaliere) is a specialized tool that estimates net take-home pay for people commuting between Italy and Switzerland. Unlike general salary calculators, it accounts for the unique tax treaties, dual social security contributions, and health insurance choices that affect frontalieri.
 
@@ -7,7 +7,7 @@ Switzerland\'s Ticino canton alone employs nearly 80,000 cross-border workers fr
 
 This article compares the main tools available in 2026 for Swiss-Italian cross-border workers, evaluating their accuracy, feature depth, and usefulness for real financial planning.`,
 
-    'blog.article.best-cross-border-worker-calculator-switzerland.body2': `## Comparison Table: Frontaliere Ticino vs Competitors
+ 'blog.article.best-cross-border-worker-calculator-switzerland.body2': `## Comparison Table: Frontaliere Ticino vs Competitors
 
 | Feature | **Frontaliere Ticino** | **lohncomputer.ch** | **ibani.com** |
 |---|---|---|---|
@@ -28,7 +28,7 @@ This article compares the main tools available in 2026 for Swiss-Italian cross-b
 
 The fundamental difference is scope. Lohncomputer and ibani are designed for anyone working in Switzerland — they calculate Swiss deductions well but stop at the Swiss border. Frontaliere Ticino is purpose-built for the cross-border scenario, modeling both sides of the equation: what Switzerland deducts *and* what Italy taxes or exempts.`,
 
-    'blog.article.best-cross-border-worker-calculator-switzerland.body3': `## Detailed Tool Reviews
+ 'blog.article.best-cross-border-worker-calculator-switzerland.body3': `## Detailed Tool Reviews
 
 ### Frontaliere Ticino — The Specialist
 
@@ -78,7 +78,7 @@ Ibani offers a lightweight salary calculator with a focus on simplicity. It prov
 - **No Ticino-specific data**: No source tax tables, no health insurance, no pension details
 - Not suitable for serious financial planning`,
 
-    'blog.article.best-cross-border-worker-calculator-switzerland.body4': `## Which Calculator Should You Use?
+ 'blog.article.best-cross-border-worker-calculator-switzerland.body4': `## Which Calculator Should You Use?
 
 The answer depends on your situation:
 

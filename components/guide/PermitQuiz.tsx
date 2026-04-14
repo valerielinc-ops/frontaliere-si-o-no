@@ -203,7 +203,7 @@ const PermitQuiz: React.FC = () => {
  {/* Header */}
  <div className="text-center mb-8">
  <h2 className="text-2xl font-bold text-strong flex items-center justify-center gap-3">
- <Sparkles size={24} className="text-amber-500" />
+ <Sparkles size={24} className="text-warning" />
  {t('permitQuiz.results.title')}
  </h2>
  <p className="text-subtle mt-2">
@@ -224,7 +224,7 @@ const PermitQuiz: React.FC = () => {
  </div>
  <div className="h-4 bg-surface-raised rounded-full overflow-hidden">
  <div
- className="h-full bg-gradient-to-r from-stripe-500 to-stripe-600 rounded-full transition-transform duration-1000 origin-left"
+ className="h-full bg-gradient-to-r from-accent-strong to-accent-strong rounded-full transition-transform duration-1000 origin-left"
  style={{ transform: `scaleX(${bPercent / 100})` }}
  />
  </div>
@@ -240,7 +240,7 @@ const PermitQuiz: React.FC = () => {
  </div>
  <div className="h-4 bg-surface-raised rounded-full overflow-hidden">
  <div
- className="h-full bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-full transition-transform duration-1000 origin-left"
+ className="h-full bg-gradient-to-r from-success-strong to-success-strong rounded-full transition-transform duration-1000 origin-left"
  style={{ transform: `scaleX(${gPercent / 100})` }}
  />
  </div>
@@ -268,7 +268,7 @@ const PermitQuiz: React.FC = () => {
  {/* Key Factors */}
  <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 mb-6">
  <h3 className="font-bold text-strong mb-4 flex items-center gap-2">
- <FileText size={18} className="text-amber-500" />
+ <FileText size={18} className="text-warning" />
  {t('permitQuiz.results.factors')}
  </h3>
  <div className="space-y-3">
@@ -341,8 +341,8 @@ const PermitQuiz: React.FC = () => {
  <div className="max-w-2xl mx-auto">
  {/* Header */}
  <div className="text-center mb-8">
- <div className="w-14 h-14 bg-gradient-to-br from-amber-500 to-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
- <HelpCircle size={24} className="text-white" />
+ <div className="w-14 h-14 bg-gradient-to-br from-warning-strong to-warning-strong rounded-2xl flex items-center justify-center mx-auto mb-4">
+ <HelpCircle size={24} className="text-on-accent" />
  </div>
  <h2 className="text-2xl font-bold text-strong">
  {t('permitQuiz.title')}
@@ -360,7 +360,7 @@ const PermitQuiz: React.FC = () => {
  </div>
  <div className="h-2 bg-surface-raised rounded-full overflow-hidden">
  <div
- className="h-full bg-gradient-to-r from-amber-500 to-orange-500 rounded-full transition-transform duration-500 origin-left"
+ className="h-full bg-gradient-to-r from-warning-strong to-warning-strong rounded-full transition-transform duration-500 origin-left"
  style={{ transform: `scaleX(${progress / 100})` }}
  />
  </div>
@@ -398,9 +398,9 @@ const PermitQuiz: React.FC = () => {
  >
  <div className="flex items-center gap-3">
  <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${
- isSelected ? 'border-warning bg-amber-500' : 'border-edge'
+ isSelected ? 'border-warning bg-warning-strong' : 'border-edge'
  }`}>
- {isSelected && <div className="w-2 h-2 rounded-full bg-white" />}
+ {isSelected && <div className="w-2 h-2 rounded-full bg-surface" />}
  </div>
  <span className={`text-sm ${isSelected ? 'font-semibold text-warning' : 'text-body'}`}>
  {t(`permitQuiz.q.${question.id}.opt.${opt.value}`)}
@@ -427,7 +427,7 @@ const PermitQuiz: React.FC = () => {
  {currentAnswer && currentStep < totalQuestions - 1 && (
  <button
  onClick={() => setCurrentStep(prev => prev + 1)}
- className="flex items-center gap-2 text-sm bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded-xl transition-colors"
+ className="flex items-center gap-2 text-sm bg-warning-strong hover:bg-warning-strong-hover text-on-accent px-4 py-2 rounded-xl transition-colors"
  aria-label={t('permitQuiz.next')}
  >
  {t('permitQuiz.next')}
@@ -438,7 +438,7 @@ const PermitQuiz: React.FC = () => {
  {currentAnswer && currentStep === totalQuestions - 1 && (
  <button
  onClick={() => { setShowResults(true); Analytics.trackUIInteraction('permit_quiz', 'quiz', 'complete', `answers_${answers.length}`); }}
- className="flex items-center gap-2 text-sm bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded-xl transition-colors"
+ className="flex items-center gap-2 text-sm bg-warning-strong hover:bg-warning-strong-hover text-on-accent px-4 py-2 rounded-xl transition-colors"
  aria-label={t('permitQuiz.showResults')}
  >
  {t('permitQuiz.showResults')}

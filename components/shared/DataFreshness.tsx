@@ -34,7 +34,7 @@ const DataFreshness: React.FC<DataFreshnessProps> = ({ lastUpdated, source, sour
  <>
  <span className="text-edge">·</span>
  {sourceUrl ? (
- <a href={sourceUrl} target="_blank" rel="noopener noreferrer" className="text-stripe-600 hover:text-accent flex items-center gap-0.5">
+ <a href={sourceUrl} target="_blank" rel="noopener noreferrer" className="text-accent hover:text-accent flex items-center gap-0.5">
  {source} <ExternalLink size={8} />
  </a>
  ) : (
@@ -54,7 +54,7 @@ const DataFreshness: React.FC<DataFreshnessProps> = ({ lastUpdated, source, sour
  <>
  <span className="text-edge">·</span>
  {sourceUrl ? (
- <a href={sourceUrl} target="_blank" rel="noopener noreferrer" className="text-stripe-600 hover:text-accent flex items-center gap-0.5 hover:underline">
+ <a href={sourceUrl} target="_blank" rel="noopener noreferrer" className="text-accent hover:text-accent flex items-center gap-0.5 hover:underline">
  {t('dataFreshness.source')}: {source} <ExternalLink size={8} />
  </a>
  ) : (

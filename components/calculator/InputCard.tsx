@@ -39,8 +39,8 @@ const InfoTooltip = ({ text }: { text: string }) => {
  }, [open]);
  return (
  <button ref={ref} type="button" onClick={() => setOpen(v => !v)} aria-label="Info" className="group relative inline-flex items-center ml-1.5 cursor-help z-50">
- <Info size={12} className="text-muted hover:text-teal-600 transition-colors" />
- <div className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 p-2.5 bg-surface-raised text-white text-xs font-medium leading-relaxed rounded-xl shadow-xl border border-slate-600 text-center ${open ? 'block' : 'hidden group-hover:block'}`}>
+ <Info size={12} className="text-muted hover:text-info transition-colors" />
+ <div className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 p-2.5 bg-surface-raised text-on-accent text-xs font-medium leading-relaxed rounded-xl shadow-xl border border-edge text-center ${open ? 'block' : 'hidden group-hover:block'}`}>
  {text}
  <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-heading"></div>
  </div>
@@ -49,14 +49,12 @@ const InfoTooltip = ({ text }: { text: string }) => {
 };
 
 const iconBgMap: Record<string, string> = {
- 'text-stripe-600': 'bg-accent-subtle text-stripe-600',
- 'text-stripe-500': 'bg-accent-subtle text-stripe-500',
+ 'text-accent': 'bg-accent-subtle text-accent',
  'text-gray-500': 'bg-surface-raised/30 text-muted',
- 'text-orange-500': 'bg-warning-subtle text-warning',
- 'text-amber-700': 'bg-warning-subtle text-amber-700',
+ 'text-warning': 'bg-warning-subtle text-warning',
 };
 
-const SectionHeader = ({ title, icon: Icon, isOpen, onToggle, subtext, iconColor ="text-stripe-600", action, sectionId }: any) => (
+const SectionHeader = ({ title, icon: Icon, isOpen, onToggle, subtext, iconColor ="text-accent", action, sectionId }: any) => (
  <div
  onClick={onToggle}
  role="button"
@@ -77,7 +75,7 @@ const SectionHeader = ({ title, icon: Icon, isOpen, onToggle, subtext, iconColor
  </div>
  <div className="flex items-center gap-2">
  {action && <div onClick={e => e.stopPropagation()}>{action}</div>}
- <div className={`transition-transform duration-300 ${isOpen ? 'rotate-180 text-stripe-600' : 'text-muted'}`}>
+ <div className={`transition-transform duration-300 ${isOpen ? 'rotate-180 text-accent' : 'text-muted'}`}>
  <ChevronDown size={18} />
  </div>
  </div>
@@ -87,10 +85,10 @@ const SectionHeader = ({ title, icon: Icon, isOpen, onToggle, subtext, iconColor
 const StepperInput = ({ value, onChange, min = 0, max, label, icon: Icon, iconColor ="text-muted", tooltip, inputId }: any) => (
  <div className="space-y-2 min-w-0">
  {label && <label htmlFor={inputId} className="text-xs font-bold text-subtle uppercase tracking-wide flex items-center gap-1.5 h-4 truncate">{Icon && <Icon size={12} className={`${iconColor} shrink-0`}/>} <span className="truncate">{label}</span> {tooltip && <InfoTooltip text={tooltip} />}</label>}
- <div className="flex items-center bg-surface-alt border border-edge rounded-xl overflow-hidden h-12 shadow-sm focus-within:ring-2 focus-within:ring-accent/20 focus-within:border-stripe-500 transition-[color,border-color,box-shadow]">
+ <div className="flex items-center bg-surface-alt border border-edge rounded-xl overflow-hidden h-12 shadow-sm focus-within:ring-2 focus-within:ring-accent/20 focus-within:border-accent transition-[color,border-color,box-shadow]">
  <button 
  onClick={() => onChange(Math.max(min, value - 1))}
- className="w-10 shrink-0 h-full flex items-center justify-center text-muted hover:text-stripe-600 hover:bg-surface-raised active:scale-90 transition-[color,background-color,transform] border-r border-edge"
+ className="w-10 shrink-0 h-full flex items-center justify-center text-muted hover:text-accent hover:bg-surface-raised active:scale-90 transition-[color,background-color,transform] border-r border-edge"
  aria-label={`${label || 'Valore'}: diminuisci`}
  type="button"
  >
@@ -121,7 +119,7 @@ const StepperInput = ({ value, onChange, min = 0, max, label, icon: Icon, iconCo
  </div>
  <button 
  onClick={() => onChange(max ? Math.min(max, value + 1) : value + 1)}
- className="w-10 shrink-0 h-full flex items-center justify-center text-muted hover:text-stripe-600 hover:bg-surface-raised active:scale-90 transition-[color,background-color,transform] border-l border-edge"
+ className="w-10 shrink-0 h-full flex items-center justify-center text-muted hover:text-accent hover:bg-surface-raised active:scale-90 transition-[color,background-color,transform] border-l border-edge"
  aria-label={`${label || 'Valore'}: aumenta`}
  type="button"
  >
@@ -175,7 +173,7 @@ const TechInput: React.FC<{
  onChange(isPercentage ? val / 100 : val);
  }}
  aria-label={label}
- className="w-full h-11 bg-surface px-3 rounded-xl border border-edge text-sm font-bold text-body outline-none focus-visible:border-stripe-500 focus-visible:ring-4 focus-visible:ring-accent/10 transition-[color,border-color,box-shadow]"
+ className="w-full h-11 bg-surface px-3 rounded-xl border border-edge text-sm font-bold text-body outline-none focus-visible:border-accent focus-visible:ring-4 focus-visible:ring-accent/10 transition-[color,border-color,box-shadow]"
  />
  {suffix && <span className="absolute right-3 top-3.5 text-xs font-bold text-subtle pointer-events-none">{suffix}</span>}
  </div>
@@ -413,7 +411,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  {/* Header */}
  <div className="p-5 border-b border-edge flex items-center justify-between bg-surface/50 z-10">
  <div className="flex items-center gap-3">
- <div className="p-2.5 bg-gradient-to-br from-teal-500 to-emerald-600 text-white rounded-xl shadow-lg shadow-teal-500/20">
+ <div className="p-2.5 bg-gradient-to-br from-info-strong to-success-strong text-on-accent rounded-xl shadow-lg shadow-info-strong/20">
  <Wand2 size={20} />
  </div>
  <div>
@@ -422,7 +420,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  </div>
  </div>
  {!isFocusMode && (
- <button onClick={handleReset} className="p-2 text-muted hover:text-red-500 hover:bg-danger-subtle rounded-xl transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2" title={t('input.resetAll')} aria-label={t('input.resetAll')}>
+ <button onClick={handleReset} className="p-2 text-muted hover:text-danger hover:bg-danger-subtle rounded-xl transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2" title={t('input.resetAll')} aria-label={t('input.resetAll')}>
  <RotateCcw size={18} />
  </button>
  )}
@@ -458,14 +456,14 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  {/* Income Input - Prominent (same as full form) */}
  <div className="space-y-2">
  <label className="text-xs font-bold text-subtle uppercase tracking-wide flex items-center gap-1.5">
- <Coins size={14} className="text-amber-500"/> {t('input.grossAnnualIncome')}
+ <Coins size={14} className="text-warning"/> {t('input.grossAnnualIncome')}
  <InfoTooltip text={t('input.incomeTooltip')} />
  </label>
  <div className="flex items-stretch transition-transform duration-200 focus-within:scale-[1.01]">
  <button
  type="button"
  onClick={() => handleChange('annualIncomeCHF', Math.max(SALARY_MIN, inputs.annualIncomeCHF - 1000))}
- className={`shrink-0 w-12 bg-surface-alt border-2 border-r-0 rounded-l-2xl transition-[color,background-color,transform] hover:bg-surface-raised active:scale-95 ${salaryError ? 'border-red-400' : 'border-edge'} text-muted hover:text-accent flex items-center justify-center`}
+ className={`shrink-0 w-12 bg-surface-alt border-2 border-r-0 rounded-l-2xl transition-[color,background-color,transform] hover:bg-surface-raised active:scale-95 ${salaryError ? 'border-danger' : 'border-edge'} text-muted hover:text-accent flex items-center justify-center`}
  aria-label="Diminuisci reddito di CHF 1000"
  >
  <Minus size={18} strokeWidth={2.5} />
@@ -484,14 +482,14 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  handleChange('annualIncomeCHF', clamped);
  }}
  aria-label={t('input.grossAnnualIncome') || 'Reddito annuo lordo CHF'}
- className={`w-full pl-14 pr-4 py-4 bg-surface-alt border-2 border-x-0 focus-visible:ring-4 focus-visible:ring-inset outline-none transition-[color,border-color,box-shadow] font-bold text-strong text-2xl tracking-tight ${salaryError ? 'border-red-400 focus-visible:border-red-500 focus-visible:ring-red-500/10' : 'border-edge focus-visible:border-stripe-500 focus-visible:ring-accent/10'}`}
+ className={`w-full pl-14 pr-4 py-4 bg-surface-alt border-2 border-x-0 focus-visible:ring-4 focus-visible:ring-inset outline-none transition-[color,border-color,box-shadow] font-bold text-strong text-2xl tracking-tight ${salaryError ? 'border-danger focus-visible:border-danger focus-visible:ring-danger/10' : 'border-edge focus-visible:border-accent focus-visible:ring-accent/10'}`}
  placeholder="0"
  />
  </div>
  <button
  type="button"
  onClick={() => handleChange('annualIncomeCHF', Math.min(SALARY_MAX, inputs.annualIncomeCHF + 1000))}
- className={`shrink-0 w-12 bg-surface-alt border-2 border-l-0 rounded-r-2xl transition-[color,background-color,transform] hover:bg-surface-raised active:scale-95 ${salaryError ? 'border-red-400' : 'border-edge'} text-muted hover:text-accent flex items-center justify-center`}
+ className={`shrink-0 w-12 bg-surface-alt border-2 border-l-0 rounded-r-2xl transition-[color,background-color,transform] hover:bg-surface-raised active:scale-95 ${salaryError ? 'border-danger' : 'border-edge'} text-muted hover:text-accent flex items-center justify-center`}
  aria-label="Aumenta reddito di CHF 1000"
  >
  <Plus size={18} strokeWidth={2.5} />
@@ -510,7 +508,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  onClick={() => handleChange('annualIncomeCHF', s)}
  className={`shrink-0 px-2.5 py-1 rounded-lg text-xs font-bold transition-colors ${
  inputs.annualIncomeCHF === s
- ? 'bg-stripe-600 text-white shadow-sm'
+ ? 'bg-accent-strong text-on-accent shadow-sm'
  : 'bg-surface-raised text-subtle hover:bg-surface-raised'
  }`}
  >
@@ -523,22 +521,22 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  {/* Worker type selector (compact) */}
  <div className="space-y-2">
  <h3 className="text-xs font-bold text-subtle uppercase tracking-widest flex items-center gap-2">
- <TrainFront size={14} className="text-emerald-500"/> {t('input.frontierType')}
+ <TrainFront size={14} className="text-success"/> {t('input.frontierType')}
  </h3>
  <div className="grid grid-cols-2 gap-3">
  <button
  onClick={() => { handleChange('frontierWorkerType', 'NEW'); handleChange('distanceZone', 'WITHIN_20KM'); if (inputs.frontierWorkerType !== 'NEW') showFrontierEasterEgg('NEW'); }}
- className={`relative p-3 rounded-xl border-2 transition-[color,background-color,border-color] flex flex-col items-center justify-center text-center gap-1 group ${inputs.frontierWorkerType === 'NEW' ? 'border-stripe-500 bg-accent-subtle/50' : 'border-edge bg-surface-alt hover:border-slate-300'}`}
+ className={`relative p-3 rounded-xl border-2 transition-[color,background-color,border-color] flex flex-col items-center justify-center text-center gap-1 group ${inputs.frontierWorkerType === 'NEW' ? 'border-accent bg-accent-subtle/50' : 'border-edge bg-surface-alt hover:border-edge'}`}
  >
- {inputs.frontierWorkerType === 'NEW' && <div className="absolute top-2 right-2 bg-stripe-500 text-white rounded-full p-0.5"><Check size={10} strokeWidth={4} /></div>}
+ {inputs.frontierWorkerType === 'NEW' && <div className="absolute top-2 right-2 bg-accent-strong text-on-accent rounded-full p-0.5"><Check size={10} strokeWidth={4} /></div>}
  <span className={`font-bold text-sm ${inputs.frontierWorkerType === 'NEW' ? 'text-accent' : 'text-subtle'}`}>{t('input.newFrontier')}</span>
  <span className="text-sm text-subtle font-medium">{t('input.postDate')}</span>
  </button>
  <button
  onClick={() => { handleChange('frontierWorkerType', 'OLD'); if (inputs.frontierWorkerType !== 'OLD') showFrontierEasterEgg('OLD'); }}
- className={`relative p-3 rounded-xl border-2 transition-[color,background-color,border-color] flex flex-col items-center justify-center text-center gap-1 group ${inputs.frontierWorkerType === 'OLD' ? 'border-emerald-500 bg-success-subtle/50' : 'border-edge bg-surface-alt hover:border-slate-300'}`}
+ className={`relative p-3 rounded-xl border-2 transition-[color,background-color,border-color] flex flex-col items-center justify-center text-center gap-1 group ${inputs.frontierWorkerType === 'OLD' ? 'border-success bg-success-subtle/50' : 'border-edge bg-surface-alt hover:border-edge'}`}
  >
- {inputs.frontierWorkerType === 'OLD' && <div className="absolute top-2 right-2 bg-emerald-700 text-white rounded-full p-0.5"><Check size={10} strokeWidth={4} /></div>}
+ {inputs.frontierWorkerType === 'OLD' && <div className="absolute top-2 right-2 bg-success-strong text-on-accent rounded-full p-0.5"><Check size={10} strokeWidth={4} /></div>}
  <span className={`font-bold text-sm ${inputs.frontierWorkerType === 'OLD' ? 'text-success' : 'text-subtle'}`}>{t('input.oldFrontier')}</span>
  <span className="text-sm text-subtle font-medium">{t('input.preDate')}</span>
  </button>
@@ -546,7 +544,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  </div>
 
  {/* Age (compact) */}
- <StepperInput inputId="input-age-compact" label={t('input.age')} value={inputs.age} onChange={(v: number) => handleChange('age', v)} min={18} max={99} icon={User} iconColor="text-stripe-500" tooltip={t('input.ageTooltip')} />
+ <StepperInput inputId="input-age-compact" label={t('input.age')} value={inputs.age} onChange={(v: number) => handleChange('age', v)} min={18} max={99} icon={User} iconColor="text-accent" tooltip={t('input.ageTooltip')} />
  </div>
  </div>
 
@@ -581,7 +579,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  type="button"
  onClick={expandDesktop}
  aria-label={t('input.compact.expandCta')}
- className="w-full flex items-center justify-between gap-3 p-4 bg-gradient-to-r from-stripe-600 to-stripe-700 hover:from-stripe-700 hover:to-stripe-800 rounded-2xl text-white shadow-md hover:shadow-lg transition-[color,background-color,border-color,box-shadow,opacity,transform] duration-200 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+ className="w-full flex items-center justify-between gap-3 p-4 bg-gradient-to-r from-accent-strong to-accent-strong-hover hover:from-accent-strong-hover hover:to-accent-strong-hover rounded-2xl text-on-accent shadow-md hover:shadow-lg transition-[color,background-color,border-color,box-shadow,opacity,transform] duration-200 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
  >
  <div className="flex items-center gap-3">
  <div className="p-2 bg-white/20 rounded-xl">
@@ -589,10 +587,10 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  </div>
  <div className="text-left">
  <div className="text-sm font-bold">{t('input.compact.expandCta')}</div>
- <div className="text-xs text-stripe-100">{t('input.compact.expandHint')}</div>
+ <div className="text-xs text-accent">{t('input.compact.expandHint')}</div>
  </div>
  </div>
- <ChevronRight size={20} className="text-stripe-200 group-hover:translate-x-1 transition-transform" />
+ <ChevronRight size={20} className="text-accent group-hover:translate-x-1 transition-transform" />
  </button>
 
  {/* Data privacy disclaimer (compact) */}
@@ -614,8 +612,8 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  onClick={() => applyPreset(preset)}
  className={`shrink-0 flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold border transition-[color,background-color,border-color,box-shadow] ${
  activePreset === preset.id
- ? 'bg-orange-500 text-white border-orange-500 shadow-sm'
- : 'bg-surface border-edge text-subtle hover:border-orange-400 hover:text-warning'
+ ? 'bg-warning-strong text-on-accent border-warning shadow-sm'
+ : 'bg-surface border-edge text-subtle hover:border-warning hover:text-warning'
  }`}
  >
  <Zap size={12} />
@@ -630,14 +628,14 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  {/* Income Input - Prominent */}
  <div className="space-y-2">
  <label className="text-xs font-bold text-subtle uppercase tracking-wide flex items-center gap-1.5">
- <Coins size={14} className="text-amber-500"/> {t('input.grossAnnualIncome')} 
+ <Coins size={14} className="text-warning"/> {t('input.grossAnnualIncome')} 
  <InfoTooltip text={t('input.incomeTooltip')} />
  </label>
  <div className="flex items-stretch transition-transform duration-200 focus-within:scale-[1.01]">
  <button
  type="button"
  onClick={() => handleChange('annualIncomeCHF', Math.max(SALARY_MIN, inputs.annualIncomeCHF - 1000))}
- className={`shrink-0 w-12 bg-surface-alt border-2 border-r-0 rounded-l-2xl transition-[color,background-color,transform] hover:bg-surface-raised active:scale-95 ${salaryError ? 'border-red-400' : 'border-edge'} text-muted hover:text-accent flex items-center justify-center`}
+ className={`shrink-0 w-12 bg-surface-alt border-2 border-r-0 rounded-l-2xl transition-[color,background-color,transform] hover:bg-surface-raised active:scale-95 ${salaryError ? 'border-danger' : 'border-edge'} text-muted hover:text-accent flex items-center justify-center`}
  aria-label="Diminuisci reddito di CHF 1000"
  >
  <Minus size={18} strokeWidth={2.5} />
@@ -656,14 +654,14 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  handleChange('annualIncomeCHF', clamped);
  }}
  aria-label="Reddito annuo lordo CHF"
- className={`w-full pl-14 pr-4 py-4 bg-surface-alt border-2 border-x-0 focus-visible:ring-4 focus-visible:ring-inset outline-none transition-[color,border-color,box-shadow] font-bold text-strong text-2xl tracking-tight ${salaryError ? 'border-red-400 focus-visible:border-red-500 focus-visible:ring-red-500/10' : 'border-edge focus-visible:border-stripe-500 focus-visible:ring-accent/10'}`}
+ className={`w-full pl-14 pr-4 py-4 bg-surface-alt border-2 border-x-0 focus-visible:ring-4 focus-visible:ring-inset outline-none transition-[color,border-color,box-shadow] font-bold text-strong text-2xl tracking-tight ${salaryError ? 'border-danger focus-visible:border-danger focus-visible:ring-danger/10' : 'border-edge focus-visible:border-accent focus-visible:ring-accent/10'}`}
  placeholder="0"
  />
  </div>
  <button
  type="button"
  onClick={() => handleChange('annualIncomeCHF', Math.min(SALARY_MAX, inputs.annualIncomeCHF + 1000))}
- className={`shrink-0 w-12 bg-surface-alt border-2 border-l-0 rounded-r-2xl transition-[color,background-color,transform] hover:bg-surface-raised active:scale-95 ${salaryError ? 'border-red-400' : 'border-edge'} text-muted hover:text-accent flex items-center justify-center`}
+ className={`shrink-0 w-12 bg-surface-alt border-2 border-l-0 rounded-r-2xl transition-[color,background-color,transform] hover:bg-surface-raised active:scale-95 ${salaryError ? 'border-danger' : 'border-edge'} text-muted hover:text-accent flex items-center justify-center`}
  aria-label="Aumenta reddito di CHF 1000"
  >
  <Plus size={18} strokeWidth={2.5} />
@@ -682,7 +680,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  onClick={() => handleChange('annualIncomeCHF', s)}
  className={`shrink-0 px-2.5 py-1 rounded-lg text-xs font-bold transition-colors ${
  inputs.annualIncomeCHF === s
- ? 'bg-stripe-600 text-white shadow-sm'
+ ? 'bg-accent-strong text-on-accent shadow-sm'
  : 'bg-surface-raised text-subtle hover:bg-surface-raised'
  }`}
  >
@@ -694,11 +692,11 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
 
  {/* Demographics Grid */}
  <div className="grid grid-cols-2 gap-4 items-end">
- <StepperInput inputId="input-age" label={t('input.age')} value={inputs.age} onChange={(v: number) => handleChange('age', v)} min={18} max={99} icon={User} iconColor="text-stripe-500" tooltip={t('input.ageTooltip')} />
+ <StepperInput inputId="input-age" label={t('input.age')} value={inputs.age} onChange={(v: number) => handleChange('age', v)} min={18} max={99} icon={User} iconColor="text-accent" tooltip={t('input.ageTooltip')} />
  {/* Marital Status */}
  <div className="space-y-1.5">
  <label htmlFor="maritalStatus" className="text-xs font-bold text-subtle uppercase tracking-wide flex items-center gap-1.5 h-4">
- <Heart size={12} className="text-rose-500"/> {t('input.maritalStatus')}
+ <Heart size={12} className="text-danger"/> {t('input.maritalStatus')}
  <InfoTooltip text={t('input.maritalStatusTooltip')} />
  </label>
  <div className="relative">
@@ -706,7 +704,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  id="maritalStatus"
  value={inputs.maritalStatus} 
  onChange={(e) => handleChange('maritalStatus', e.target.value)}
- className="w-full h-12 pl-3 pr-8 bg-surface-alt border border-edge rounded-xl text-xs font-bold uppercase appearance-none outline-none focus-visible:border-stripe-500 focus-visible:ring-2 focus-visible:ring-accent/10 transition-[color,border-color,box-shadow] cursor-pointer text-body"
+ className="w-full h-12 pl-3 pr-8 bg-surface-alt border border-edge rounded-xl text-xs font-bold uppercase appearance-none outline-none focus-visible:border-accent focus-visible:ring-2 focus-visible:ring-accent/10 transition-[color,border-color,box-shadow] cursor-pointer text-body"
  >
  <option value="SINGLE">{t('input.single')}</option>
  <option value="MARRIED">{t('input.married')}</option>
@@ -722,7 +720,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  {inputs.maritalStatus === 'MARRIED' && (
  <div className="flex items-center justify-between bg-accent-subtle/50 p-3 rounded-xl border border-accent-border animate-fade-in mt-2">
  <span className="text-xs font-bold text-accent flex items-center gap-1.5">
- <Briefcase size={14} className="text-stripe-600"/> {t('input.spouseWorks')}
+ <Briefcase size={14} className="text-accent"/> {t('input.spouseWorks')}
  <InfoTooltip text={t('input.spouseWorksTooltip')} />
  </span>
  <button 
@@ -730,9 +728,9 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  role="switch"
  aria-checked={inputs.spouseWorks}
  aria-label={t('input.spouseWorks')}
- className={`relative w-11 h-6 rounded-full transition-colors duration-300 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-accent ${inputs.spouseWorks ? 'bg-stripe-500' : 'bg-surface-raised'}`}
+ className={`relative w-11 h-6 rounded-full transition-colors duration-300 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-accent ${inputs.spouseWorks ? 'bg-accent-strong' : 'bg-surface-raised'}`}
  >
- <span className={`block w-4 h-4 bg-white rounded-full shadow-md transform transition-transform duration-200 ease-in-out mt-1 ml-1 ${inputs.spouseWorks ? 'translate-x-5' : 'translate-x-0'}`}/>
+ <span className={`block w-4 h-4 bg-surface rounded-full shadow-md transform transition-transform duration-200 ease-in-out mt-1 ml-1 ${inputs.spouseWorks ? 'translate-x-5' : 'translate-x-0'}`}/>
  </button>
  </div>
  )}
@@ -742,24 +740,24 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  {/* SECTION 2: FRONTIER TYPE */}
  <div className="bg-surface rounded-2xl border border-edge shadow-sm p-5 space-y-5">
  <h3 className="text-xs font-bold text-subtle uppercase tracking-widest flex items-center gap-2">
- <TrainFront size={14} className="text-emerald-500"/> {t('input.frontierType')}
+ <TrainFront size={14} className="text-success"/> {t('input.frontierType')}
  <InfoTooltip text={t('input.frontierTypeTooltip')} />
  </h3>
  
  <div className="grid grid-cols-2 gap-3">
  <button 
  onClick={() => { handleChange('frontierWorkerType', 'NEW'); handleChange('distanceZone', 'WITHIN_20KM'); if (inputs.frontierWorkerType !== 'NEW') showFrontierEasterEgg('NEW'); }} 
- className={`relative p-3 rounded-xl border-2 transition-[color,background-color,border-color] flex flex-col items-center justify-center text-center gap-1 group ${inputs.frontierWorkerType === 'NEW' ? 'border-stripe-500 bg-accent-subtle/50' : 'border-edge bg-surface-alt hover:border-slate-300'}`}
+ className={`relative p-3 rounded-xl border-2 transition-[color,background-color,border-color] flex flex-col items-center justify-center text-center gap-1 group ${inputs.frontierWorkerType === 'NEW' ? 'border-accent bg-accent-subtle/50' : 'border-edge bg-surface-alt hover:border-edge'}`}
  >
- {inputs.frontierWorkerType === 'NEW' && <div className="absolute top-2 right-2 bg-stripe-500 text-white rounded-full p-0.5"><Check size={10} strokeWidth={4} /></div>}
+ {inputs.frontierWorkerType === 'NEW' && <div className="absolute top-2 right-2 bg-accent-strong text-on-accent rounded-full p-0.5"><Check size={10} strokeWidth={4} /></div>}
  <span className={`font-bold text-sm ${inputs.frontierWorkerType === 'NEW' ? 'text-accent' : 'text-subtle'}`}>{t('input.newFrontier')}</span>
  <span className="text-sm text-subtle font-medium">{t('input.postDate')}</span>
  </button>
  <button 
  onClick={() => { handleChange('frontierWorkerType', 'OLD'); if (inputs.frontierWorkerType !== 'OLD') showFrontierEasterEgg('OLD'); }} 
- className={`relative p-3 rounded-xl border-2 transition-[color,background-color,border-color] flex flex-col items-center justify-center text-center gap-1 group ${inputs.frontierWorkerType === 'OLD' ? 'border-emerald-500 bg-success-subtle/50' : 'border-edge bg-surface-alt hover:border-slate-300'}`}
+ className={`relative p-3 rounded-xl border-2 transition-[color,background-color,border-color] flex flex-col items-center justify-center text-center gap-1 group ${inputs.frontierWorkerType === 'OLD' ? 'border-success bg-success-subtle/50' : 'border-edge bg-surface-alt hover:border-edge'}`}
  >
- {inputs.frontierWorkerType === 'OLD' && <div className="absolute top-2 right-2 bg-emerald-700 text-white rounded-full p-0.5"><Check size={10} strokeWidth={4} /></div>}
+ {inputs.frontierWorkerType === 'OLD' && <div className="absolute top-2 right-2 bg-success-strong text-on-accent rounded-full p-0.5"><Check size={10} strokeWidth={4} /></div>}
  <span className={`font-bold text-sm ${inputs.frontierWorkerType === 'OLD' ? 'text-success' : 'text-subtle'}`}>{t('input.oldFrontier')}</span>
  <span className="text-sm text-subtle font-medium">{t('input.preDate')}</span>
  </button>
@@ -770,7 +768,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  <SegmentControl 
  label={t('input.borderZone')} 
  icon={Ruler}
- iconColor="text-orange-500"
+ iconColor="text-warning"
  tooltip={t('input.borderZoneTooltip')}
  options={[{label: t('input.within20km'), value: 'WITHIN_20KM'}, {label: t('input.over20km'), value: 'OVER_20KM'}]} 
  value={inputs.distanceZone} 
@@ -782,17 +780,17 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
 
  {/* SECTION 3: FAMILY & INSURANCE */}
  <div className="bg-surface rounded-2xl border border-edge shadow-sm p-5 space-y-5">
- <h3 className="text-xs font-bold text-subtle uppercase tracking-widest flex items-center gap-2"><Castle size={14} className="text-stripe-500"/> {t('input.familyHealth')}</h3>
+ <h3 className="text-xs font-bold text-subtle uppercase tracking-widest flex items-center gap-2"><Castle size={14} className="text-accent"/> {t('input.familyHealth')}</h3>
  
  <div className="grid grid-cols-2 gap-4">
- <StepperInput inputId="input-familyMembers" label={t('input.familyMembers')} value={inputs.familyMembers} onChange={(v: number) => handleChange('familyMembers', v)} min={1} icon={Users} iconColor="text-cyan-500" />
- <StepperInput inputId="input-children" label={t('input.dependentChildren')} value={inputs.children} onChange={(v: number) => handleChange('children', v)} min={0} icon={Baby} iconColor="text-pink-500" tooltip={t('input.childrenTooltip')} />
+ <StepperInput inputId="input-familyMembers" label={t('input.familyMembers')} value={inputs.familyMembers} onChange={(v: number) => handleChange('familyMembers', v)} min={1} icon={Users} iconColor="text-info" />
+ <StepperInput inputId="input-children" label={t('input.dependentChildren')} value={inputs.children} onChange={(v: number) => handleChange('children', v)} min={0} icon={Baby} iconColor="text-danger" tooltip={t('input.childrenTooltip')} />
  </div>
  </div>
 
  {/* SECTION 4: EXPENSES (COLLAPSIBLE) */}
  <div className="bg-surface rounded-2xl border border-edge overflow-hidden shadow-sm">
- <SectionHeader title={t('input.fixedExpenses')} icon={Receipt} isOpen={openSections.expenses} onToggle={() => toggleSection('expenses')} iconColor="text-teal-500" />
+ <SectionHeader title={t('input.fixedExpenses')} icon={Receipt} isOpen={openSections.expenses} onToggle={() => toggleSection('expenses')} iconColor="text-info" />
  
  {openSections.expenses && (
  <div className="p-5 pt-0 space-y-6 animate-fade-in border-t border-edge mt-2 pt-4">
@@ -800,19 +798,19 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  <div className="space-y-3">
  <div className="flex items-center justify-between gap-2">
  <div className="flex items-center gap-2">
- <div className="text-xs font-bold text-stripe-600 uppercase flex items-center gap-1.5">
+ <div className="text-xs font-bold text-accent uppercase flex items-center gap-1.5">
  <Home size={12}/> {t('input.liveInCH')}
  <InfoTooltip text={t('input.amountsCHF')} />
  </div>
  </div>
  <div className="flex items-center gap-1.5">
- <button onClick={() => resetExpenses('CH')} className="min-w-[44px] min-h-[44px] p-2.5 rounded-lg bg-surface-raised text-subtle hover:bg-danger-subtle hover:text-red-600 transition-colors text-xs font-bold uppercase flex items-center justify-center gap-1" title={t('input.clearAll')} aria-label={t('input.clearAll')}>
+ <button onClick={() => resetExpenses('CH')} className="min-w-[44px] min-h-[44px] p-2.5 rounded-lg bg-surface-raised text-subtle hover:bg-danger-subtle hover:text-danger transition-colors text-xs font-bold uppercase flex items-center justify-center gap-1" title={t('input.clearAll')} aria-label={t('input.clearAll')}>
  <RotateCcw size={12}/>
  </button>
- <button onClick={() => loadAllPresets('CH')} className="min-w-[44px] min-h-[44px] px-2 py-1.5 rounded-lg bg-gradient-to-r from-stripe-600 to-stripe-700 text-white text-xs font-bold uppercase hover:from-stripe-700 hover:to-stripe-800 transition-[color,background-color,box-shadow] shadow-sm hover:shadow-md flex items-center gap-1">
+ <button onClick={() => loadAllPresets('CH')} className="min-w-[44px] min-h-[44px] px-2 py-1.5 rounded-lg bg-gradient-to-r from-accent-strong to-accent-strong-hover text-on-accent text-xs font-bold uppercase hover:from-accent-strong-hover hover:to-accent-strong-hover transition-[color,background-color,box-shadow] shadow-sm hover:shadow-md flex items-center gap-1">
  <Home size={12}/> {t('input.prefill')}
  </button>
- <button onClick={() => setShowPresets(showPresets === 'CH' ? null : 'CH')} className={`min-w-[44px] min-h-[44px] p-2.5 rounded-lg transition-colors flex items-center justify-center gap-1 text-xs font-bold uppercase ${showPresets === 'CH' ? 'bg-stripe-100 text-stripe-700' : 'bg-accent-subtle text-stripe-600 hover:bg-stripe-100'}`} aria-label="Aggiungi spese Svizzera" aria-expanded={showPresets === 'CH'}>
+ <button onClick={() => setShowPresets(showPresets === 'CH' ? null : 'CH')} className={`min-w-[44px] min-h-[44px] p-2.5 rounded-lg transition-colors flex items-center justify-center gap-1 text-xs font-bold uppercase ${showPresets === 'CH' ? 'bg-accent-subtle text-accent' : 'bg-accent-subtle text-accent hover:bg-accent-subtle'}`} aria-label="Aggiungi spese Svizzera" aria-expanded={showPresets === 'CH'}>
  <Plus size={14}/>
  </button>
  </div>
@@ -824,14 +822,14 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  <div className="p-3 bg-surface-alt/50 rounded-xl border border-dashed border-edge mb-2 animate-fade-in">
  <p className="text-xs text-subtle uppercase font-bold mb-2">{t('input.quickSuggestions')}:</p>
  <div className="flex flex-wrap gap-2">
- <button onClick={() => addExpense('CH')} className="px-2 py-1.5 rounded-lg border border-edge bg-surface text-xs font-bold text-subtle hover:border-stripe-400 hover:text-stripe-500 transition-colors">{t('input.empty')}</button>
+ <button onClick={() => addExpense('CH')} className="px-2 py-1.5 rounded-lg border border-edge bg-surface text-xs font-bold text-subtle hover:border-accent-border hover:text-accent transition-colors">{t('input.empty')}</button>
  {PRESET_EXPENSES_CH.map((preset, idx) => {
  const Icon = IconsMap[preset.icon] || Home;
  return (
  <button 
  key={preset.label}
  onClick={() => addExpense('CH', {...preset, frequency: preset.frequency as 'MONTHLY' | 'ANNUAL'})}
- className="px-2 py-1.5 rounded-lg border border-edge bg-surface text-xs font-bold text-subtle hover:border-stripe-400 hover:text-stripe-500 transition-colors flex items-center gap-1.5"
+ className="px-2 py-1.5 rounded-lg border border-edge bg-surface text-xs font-bold text-subtle hover:border-accent-border hover:text-accent transition-colors flex items-center gap-1.5"
  >
  <Icon size={10} />
  {t(preset.label)}
@@ -850,15 +848,15 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  type="text" 
  value={t(exp.label)} 
  onChange={e => updateExpense('CH', exp.id, { label: e.target.value })} 
- className="flex-1 min-w-0 bg-surface-alt border border-edge rounded-lg px-2 py-2 text-xs font-bold outline-none focus-visible:border-stripe-500 focus-visible:ring-2 focus-visible:ring-accent/20 transition-colors truncate"
+ className="flex-1 min-w-0 bg-surface-alt border border-edge rounded-lg px-2 py-2 text-xs font-bold outline-none focus-visible:border-accent focus-visible:ring-2 focus-visible:ring-accent/20 transition-colors truncate"
  title={t(exp.label)}
  aria-label={t('input.expenseName') || 'Nome spesa CH'}
  />
  {exp.tooltip && <InfoTooltip text={t(exp.tooltip)} />}
  </div>
- <input type="number" inputMode="numeric" value={exp.amount || ''} onChange={e => updateExpense('CH', exp.id, { amount: Number(e.target.value) })} placeholder="0" aria-label={t('input.expenseAmount') || 'Importo spesa CH'} className="w-14 sm:w-16 bg-surface-alt border border-edge rounded-lg px-1 sm:px-2 py-2 text-xs font-mono font-bold outline-none focus-visible:border-stripe-500 focus-visible:ring-2 focus-visible:ring-accent/20 text-right transition-colors" />
- <button onClick={() => updateExpense('CH', exp.id, { frequency: exp.frequency === 'MONTHLY' ? 'ANNUAL' : 'MONTHLY' })} className="px-1.5 sm:px-2 py-2 bg-surface-raised rounded-lg text-xs font-bold uppercase text-subtle w-10 sm:w-12 text-center hover:bg-slate-200 transition-colors flex-shrink-0" aria-label={t('input.toggleFrequency') || 'Cambia frequenza mensile/annuale'}>{exp.frequency === 'MONTHLY' ? '/m' : '/a'}</button>
- <button onClick={() => removeExpense('CH', exp.id)} className="p-2 sm:p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center text-muted hover:text-red-500 transition-colors flex-shrink-0" aria-label={t('input.removeExpense')}><X size={14}/></button>
+ <input type="number" inputMode="numeric" value={exp.amount || ''} onChange={e => updateExpense('CH', exp.id, { amount: Number(e.target.value) })} placeholder="0" aria-label={t('input.expenseAmount') || 'Importo spesa CH'} className="w-14 sm:w-16 bg-surface-alt border border-edge rounded-lg px-1 sm:px-2 py-2 text-xs font-mono font-bold outline-none focus-visible:border-accent focus-visible:ring-2 focus-visible:ring-accent/20 text-right transition-colors" />
+ <button onClick={() => updateExpense('CH', exp.id, { frequency: exp.frequency === 'MONTHLY' ? 'ANNUAL' : 'MONTHLY' })} className="px-1.5 sm:px-2 py-2 bg-surface-raised rounded-lg text-xs font-bold uppercase text-subtle w-10 sm:w-12 text-center hover:bg-surface-raised transition-colors flex-shrink-0" aria-label={t('input.toggleFrequency') || 'Cambia frequenza mensile/annuale'}>{exp.frequency === 'MONTHLY' ? '/m' : '/a'}</button>
+ <button onClick={() => removeExpense('CH', exp.id)} className="p-2 sm:p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center text-muted hover:text-danger transition-colors flex-shrink-0" aria-label={t('input.removeExpense')}><X size={14}/></button>
  </div>
  ))}
  {inputs.expensesCH.length === 0 && !showPresets && <div className="text-xs text-subtle italic text-center py-4 bg-surface-alt/50 rounded-xl border border-dashed border-edge">{t('input.noExpenses')}</div>}
@@ -869,19 +867,19 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  <div className="space-y-3">
  <div className="flex items-center justify-between gap-2">
  <div className="flex items-center gap-2">
- <div className="text-xs font-bold text-red-500 uppercase flex items-center gap-1.5">
+ <div className="text-xs font-bold text-danger uppercase flex items-center gap-1.5">
  <Car size={12}/> {t('input.liveInIT')}
  <InfoTooltip text={t('input.amountsEUR')} />
  </div>
  </div>
  <div className="flex items-center gap-1.5">
- <button onClick={() => resetExpenses('IT')} className="min-w-[44px] min-h-[44px] p-2.5 rounded-lg bg-surface-raised text-subtle hover:bg-danger-subtle hover:text-red-600 transition-colors text-xs font-bold uppercase flex items-center justify-center gap-1" title={t('input.clearAll')} aria-label={t('input.clearAll')}>
+ <button onClick={() => resetExpenses('IT')} className="min-w-[44px] min-h-[44px] p-2.5 rounded-lg bg-surface-raised text-subtle hover:bg-danger-subtle hover:text-danger transition-colors text-xs font-bold uppercase flex items-center justify-center gap-1" title={t('input.clearAll')} aria-label={t('input.clearAll')}>
  <RotateCcw size={12}/>
  </button>
- <button onClick={() => loadAllPresets('IT')} className="min-w-[44px] min-h-[44px] px-2 py-1.5 rounded-lg bg-gradient-to-r from-red-600 to-orange-600 text-white text-xs font-bold uppercase hover:from-red-700 hover:to-orange-700 transition-[color,background-color,box-shadow] shadow-sm hover:shadow-md flex items-center gap-1">
+ <button onClick={() => loadAllPresets('IT')} className="min-w-[44px] min-h-[44px] px-2 py-1.5 rounded-lg bg-gradient-to-r from-danger-strong to-warning-strong text-on-accent text-xs font-bold uppercase hover:from-danger-strong-hover hover:to-warning-strong-hover transition-[color,background-color,box-shadow] shadow-sm hover:shadow-md flex items-center gap-1">
  <Home size={12}/> {t('input.prefill')}
  </button>
- <button onClick={() => setShowPresets(showPresets === 'IT' ? null : 'IT')} className={`min-w-[44px] min-h-[44px] p-2.5 rounded-lg transition-colors flex items-center justify-center gap-1 text-xs font-bold uppercase ${showPresets === 'IT' ? 'bg-red-100 text-red-700' : 'bg-danger-subtle text-red-600 hover:bg-red-100'}`} aria-label="Aggiungi spese Italia" aria-expanded={showPresets === 'IT'}>
+ <button onClick={() => setShowPresets(showPresets === 'IT' ? null : 'IT')} className={`min-w-[44px] min-h-[44px] p-2.5 rounded-lg transition-colors flex items-center justify-center gap-1 text-xs font-bold uppercase ${showPresets === 'IT' ? 'bg-danger-subtle text-danger' : 'bg-danger-subtle text-danger hover:bg-danger-subtle'}`} aria-label="Aggiungi spese Italia" aria-expanded={showPresets === 'IT'}>
  <Plus size={14}/>
  </button>
  </div>
@@ -893,14 +891,14 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  <div className="p-3 bg-surface-alt/50 rounded-xl border border-dashed border-edge mb-2 animate-fade-in">
  <p className="text-xs text-subtle uppercase font-bold mb-2">{t('input.quickSuggestions')}:</p>
  <div className="flex flex-wrap gap-2">
- <button onClick={() => addExpense('IT')} className="px-2 py-1.5 rounded-lg border border-edge bg-surface text-xs font-bold text-subtle hover:border-red-400 hover:text-red-500 transition-colors">{t('input.empty')}</button>
+ <button onClick={() => addExpense('IT')} className="px-2 py-1.5 rounded-lg border border-edge bg-surface text-xs font-bold text-subtle hover:border-danger hover:text-danger transition-colors">{t('input.empty')}</button>
  {PRESET_EXPENSES_IT.map((preset, idx) => {
  const Icon = IconsMap[preset.icon] || Home;
  return (
  <button 
  key={preset.label}
  onClick={() => addExpense('IT', {...preset, frequency: preset.frequency as 'MONTHLY' | 'ANNUAL'})}
- className="px-2 py-1.5 rounded-lg border border-edge bg-surface text-xs font-bold text-subtle hover:border-red-400 hover:text-red-500 transition-colors flex items-center gap-1.5"
+ className="px-2 py-1.5 rounded-lg border border-edge bg-surface text-xs font-bold text-subtle hover:border-danger hover:text-danger transition-colors flex items-center gap-1.5"
  >
  <Icon size={10} />
  {t(preset.label)}
@@ -919,15 +917,15 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  type="text" 
  value={t(exp.label)} 
  onChange={e => updateExpense('IT', exp.id, { label: e.target.value })} 
- className="flex-1 min-w-0 bg-surface-alt border border-edge rounded-lg px-2 py-2 text-xs font-bold outline-none focus-visible:border-stripe-500 focus-visible:ring-2 focus-visible:ring-accent/20 transition-colors truncate"
+ className="flex-1 min-w-0 bg-surface-alt border border-edge rounded-lg px-2 py-2 text-xs font-bold outline-none focus-visible:border-accent focus-visible:ring-2 focus-visible:ring-accent/20 transition-colors truncate"
  title={t(exp.label)}
  aria-label={t('input.expenseName') || 'Nome spesa IT'}
  />
  {exp.tooltip && <InfoTooltip text={t(exp.tooltip)} />}
  </div>
- <input type="number" inputMode="numeric" value={exp.amount || ''} onChange={e => updateExpense('IT', exp.id, { amount: Number(e.target.value) })} placeholder="0" aria-label={t('input.expenseAmount') || 'Importo spesa IT'} className="w-14 sm:w-16 bg-surface-alt border border-edge rounded-lg px-1 sm:px-2 py-2 text-xs font-mono font-bold outline-none focus-visible:border-stripe-500 focus-visible:ring-2 focus-visible:ring-accent/20 text-right transition-colors" />
- <button onClick={() => updateExpense('IT', exp.id, { frequency: exp.frequency === 'MONTHLY' ? 'ANNUAL' : 'MONTHLY' })} className="px-1.5 sm:px-2 py-2 bg-surface-raised rounded-lg text-xs font-bold uppercase text-subtle w-10 sm:w-12 text-center hover:bg-slate-200 transition-colors flex-shrink-0" aria-label={t('input.toggleFrequency') || 'Cambia frequenza mensile/annuale'}>{exp.frequency === 'MONTHLY' ? '/m' : '/a'}</button>
- <button onClick={() => removeExpense('IT', exp.id)} className="p-2 sm:p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center text-muted hover:text-red-500 transition-colors flex-shrink-0" aria-label={t('input.removeExpense')}><X size={14}/></button>
+ <input type="number" inputMode="numeric" value={exp.amount || ''} onChange={e => updateExpense('IT', exp.id, { amount: Number(e.target.value) })} placeholder="0" aria-label={t('input.expenseAmount') || 'Importo spesa IT'} className="w-14 sm:w-16 bg-surface-alt border border-edge rounded-lg px-1 sm:px-2 py-2 text-xs font-mono font-bold outline-none focus-visible:border-accent focus-visible:ring-2 focus-visible:ring-accent/20 text-right transition-colors" />
+ <button onClick={() => updateExpense('IT', exp.id, { frequency: exp.frequency === 'MONTHLY' ? 'ANNUAL' : 'MONTHLY' })} className="px-1.5 sm:px-2 py-2 bg-surface-raised rounded-lg text-xs font-bold uppercase text-subtle w-10 sm:w-12 text-center hover:bg-surface-raised transition-colors flex-shrink-0" aria-label={t('input.toggleFrequency') || 'Cambia frequenza mensile/annuale'}>{exp.frequency === 'MONTHLY' ? '/m' : '/a'}</button>
+ <button onClick={() => removeExpense('IT', exp.id)} className="p-2 sm:p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center text-muted hover:text-danger transition-colors flex-shrink-0" aria-label={t('input.removeExpense')}><X size={14}/></button>
  </div>
  ))}
  {inputs.expensesIT.length === 0 && !showPresets && <div className="text-xs text-subtle italic text-center py-4 bg-surface-alt/50 rounded-xl border border-dashed border-edge">{t('input.noExpenses')}</div>}
@@ -947,10 +945,10 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  <div className="space-y-2">
  <div className="flex justify-between items-center h-4">
  <label className="text-xs font-bold text-subtle uppercase flex items-center gap-1">
- <Coins size={10} className="text-yellow-500" /> {t('input.exchangeRate')}
+ <Coins size={10} className="text-warning" /> {t('input.exchangeRate')}
  <InfoTooltip text={t('input.exchangeRateTooltip')} />
  </label>
- <button onClick={fetchRate} disabled={loadingRate} aria-label={t('input.refresh') || 'Aggiorna tasso di cambio'} className={`text-xs flex items-center gap-1 min-w-[44px] min-h-[44px] px-1.5 py-0.5 rounded bg-surface-raised hover:text-stripe-600 font-bold transition-[color,opacity] ${loadingRate ? 'opacity-50' : ''}`}>
+ <button onClick={fetchRate} disabled={loadingRate} aria-label={t('input.refresh') || 'Aggiorna tasso di cambio'} className={`text-xs flex items-center gap-1 min-w-[44px] min-h-[44px] px-1.5 py-0.5 rounded bg-surface-raised hover:text-accent font-bold transition-[color,opacity] ${loadingRate ? 'opacity-50' : ''}`}>
  <RefreshCw size={8} className={loadingRate ? 'animate-spin' : ''} /> {lastRateUpdate ? t('input.live') : t('input.refresh')}
  </button>
  </div>
@@ -961,20 +959,20 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  value={inputs.customExchangeRate} 
  onChange={(e) => handleChange('customExchangeRate', Number(e.target.value))} 
  aria-label={t('input.exchangeRate') || 'Tasso di cambio CHF/EUR'}
- className="w-full h-11 bg-surface-alt px-3 rounded-xl border border-edge outline-none text-base font-bold focus-visible:border-stripe-500 focus-visible:ring-2 focus-visible:ring-accent/20 transition-colors" 
+ className="w-full h-11 bg-surface-alt px-3 rounded-xl border border-edge outline-none text-base font-bold focus-visible:border-accent focus-visible:ring-2 focus-visible:ring-accent/20 transition-colors" 
  />
  </div>
- <StepperInput inputId="input-monthsBasis" label={t('input.monthsBasis')} value={inputs.monthsBasis} onChange={(v: number) => handleChange('monthsBasis', v)} min={12} max={15} icon={CalendarClock} iconColor="text-orange-400" tooltip={t('input.monthsTooltip')} />
+ <StepperInput inputId="input-monthsBasis" label={t('input.monthsBasis')} value={inputs.monthsBasis} onChange={(v: number) => handleChange('monthsBasis', v)} min={12} max={15} icon={CalendarClock} iconColor="text-warning" tooltip={t('input.monthsTooltip')} />
  </div>
  
  {/* Cassa Malati Moved Here */}
  <div className="space-y-2 pt-2">
  <label className="text-xs font-bold text-subtle uppercase tracking-wide flex items-center gap-1.5 h-4">
- <Bandage size={12} className="text-rose-500"/> {t('input.healthInsurance')}
+ <Bandage size={12} className="text-danger"/> {t('input.healthInsurance')}
  <InfoTooltip text={t('input.healthInsuranceTooltip')} />
  </label>
  <div className="relative group">
- <input type="number" inputMode="numeric" value={inputs.healthInsuranceCHF || ''} onChange={(e) => handleChange('healthInsuranceCHF', Number(e.target.value))} aria-label={t('input.healthInsurance') || 'Cassa malati CHF'} className="w-full pl-3 pr-10 py-3 bg-surface-alt border border-edge rounded-xl focus-visible:ring-4 focus-visible:ring-stripe-100 focus-visible:border-stripe-500 outline-none transition-[color,border-color,box-shadow] font-bold text-strong text-base h-11" placeholder="0" />
+ <input type="number" inputMode="numeric" value={inputs.healthInsuranceCHF || ''} onChange={(e) => handleChange('healthInsuranceCHF', Number(e.target.value))} aria-label={t('input.healthInsurance') || 'Cassa malati CHF'} className="w-full pl-3 pr-10 py-3 bg-surface-alt border border-edge rounded-xl focus-visible:ring-4 focus-visible:ring-accent-subtle focus-visible:border-accent outline-none transition-[color,border-color,box-shadow] font-bold text-strong text-base h-11" placeholder="0" />
  <span className="absolute right-3 top-3.5 text-subtle font-bold text-xs">CHF</span>
  </div>
  </div>
@@ -982,11 +980,11 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  {/* Wealth Tax (CH residents only) */}
  <div className="space-y-2 pt-2">
  <label className="text-xs font-bold text-subtle uppercase tracking-wide flex items-center gap-1.5 h-4">
- <Landmark size={12} className="text-emerald-500"/> {t('input.netWealth')}
+ <Landmark size={12} className="text-success"/> {t('input.netWealth')}
  <InfoTooltip text={t('input.netWealthTooltip')} />
  </label>
  <div className="relative group">
- <input type="number" inputMode="numeric" value={inputs.netWealthCHF || ''} onChange={(e) => handleChange('netWealthCHF', Number(e.target.value))} aria-label={t('input.netWealth') || 'Patrimonio netto CHF'} className="w-full pl-3 pr-10 py-3 bg-surface-alt border border-edge rounded-xl focus-visible:ring-4 focus-visible:ring-stripe-100 focus-visible:border-stripe-500 outline-none transition-[color,border-color,box-shadow] font-bold text-strong text-base h-11" placeholder="0" />
+ <input type="number" inputMode="numeric" value={inputs.netWealthCHF || ''} onChange={(e) => handleChange('netWealthCHF', Number(e.target.value))} aria-label={t('input.netWealth') || 'Patrimonio netto CHF'} className="w-full pl-3 pr-10 py-3 bg-surface-alt border border-edge rounded-xl focus-visible:ring-4 focus-visible:ring-accent-subtle focus-visible:border-accent outline-none transition-[color,border-color,box-shadow] font-bold text-strong text-base h-11" placeholder="0" />
  <span className="absolute right-3 top-3.5 text-subtle font-bold text-xs">CHF</span>
  </div>
  <p className="text-xs text-subtle">{t('input.netWealthNote')}</p>
@@ -1004,7 +1002,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  isOpen={openSections.experimental} 
  onToggle={() => toggleSection('experimental')} 
  subtext={t('input.betaTesting')} 
- iconColor="text-amber-700"
+ iconColor="text-warning"
  />
  
  {openSections.experimental && (
@@ -1015,7 +1013,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  <div className="flex items-start justify-between gap-3">
  <div className="flex-1 min-w-0">
  <div className="flex items-center gap-2 mb-1">
- <PiggyBank size={14} className="text-amber-700 flex-shrink-0" />
+ <PiggyBank size={14} className="text-warning flex-shrink-0" />
  <h4 className="text-xs font-bold text-strong">{t('input.ssnHealthTax')}</h4>
  <InfoTooltip text={t('input.ssnHealthTaxTooltip')} />
  </div>
@@ -1030,11 +1028,11 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  aria-label={t('input.ssnHealthTax') || 'Contributo SSN sanitario'}
  role="switch"
  aria-checked={inputs.enableOldFrontierHealthTax}
- className={`relative flex-shrink-0 w-14 h-7 rounded-full transition-colors duration-300 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-amber-500 shadow-inner ${inputs.enableOldFrontierHealthTax ? 'bg-gradient-to-r from-amber-500 to-orange-500' : 'bg-surface-raised'}`}
+ className={`relative flex-shrink-0 w-14 h-7 rounded-full transition-colors duration-300 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-warning shadow-inner ${inputs.enableOldFrontierHealthTax ? 'bg-gradient-to-r from-warning-strong to-warning-strong' : 'bg-surface-raised'}`}
  >
- <span className={`block w-5 h-5 bg-white rounded-full shadow-lg transform transition-transform duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] mt-1 ml-1 ${inputs.enableOldFrontierHealthTax ? 'translate-x-7' : 'translate-x-0'}`}/>
+ <span className={`block w-5 h-5 bg-surface rounded-full shadow-lg transform transition-transform duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] mt-1 ml-1 ${inputs.enableOldFrontierHealthTax ? 'translate-x-7' : 'translate-x-0'}`}/>
  {inputs.enableOldFrontierHealthTax && (
- <span className="absolute inset-0 flex items-center justify-start pl-2 text-white text-xs font-bold pointer-events-none">ON</span>
+ <span className="absolute inset-0 flex items-center justify-start pl-2 text-on-accent text-xs font-bold pointer-events-none">ON</span>
  )}
  </button>
  </div>
@@ -1043,7 +1041,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  {inputs.enableOldFrontierHealthTax && (
  <div className="mt-3 space-y-2">
  <div className="flex items-center gap-2 bg-warning-subtle p-2 rounded-lg">
- <Check size={12} className="text-amber-700" />
+ <Check size={12} className="text-warning" />
  <span className="text-xs font-bold text-warning">{t('input.ssnTaxActive')}</span>
  </div>
  
@@ -1059,7 +1057,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  min="0"
  max="100"
  aria-label={t('input.netIncomePercentage') || 'Percentuale reddito netto per contributo SSN'}
- className="w-14 text-right bg-surface-alt text-strong border border-edge rounded px-2 py-1 text-xs font-bold focus:outline-none focus-visible:ring-1 focus-visible:ring-amber-500" 
+ className="w-14 text-right bg-surface-alt text-strong border border-edge rounded px-2 py-1 text-xs font-bold focus:outline-none focus-visible:ring-1 focus-visible:ring-warning" 
  />
  <span className="text-xs font-bold text-subtle">%</span>
  </div>
@@ -1084,10 +1082,10 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  isOpen={openSections.rates} 
  onToggle={() => toggleSection('rates')} 
  subtext={t('input.ratesAndCoefficients')} 
- iconColor="text-cyan-600"
+ iconColor="text-info"
  action={
  openSections.rates && (
- <button onClick={handleResetTech} className="text-xs font-bold text-subtle hover:text-red-500 bg-surface-raised/50 px-2 py-1 rounded transition-colors" title={t('input.resetDefaults')}>
+ <button onClick={handleResetTech} className="text-xs font-bold text-subtle hover:text-danger bg-surface-raised/50 px-2 py-1 rounded transition-colors" title={t('input.resetDefaults')}>
  Reset
  </button>
  )
@@ -1138,7 +1136,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  {easterEgg && easterEggVisible && createPortal(
  <div className="fixed bottom-28 md:bottom-16 right-4 sm:right-6 z-[70] animate-fade-in cursor-pointer" role="button" tabIndex={0} onClick={dismissEasterEgg} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); dismissEasterEgg(); } }} aria-label="Chiudi notifica">
  <div className="bg-surface-raised rounded-xl shadow-lg px-4 py-2.5 max-w-xs">
- <p className="text-xs font-medium text-white">{easterEgg}</p>
+ <p className="text-xs font-medium text-on-accent">{easterEgg}</p>
  </div>
  </div>,
  document.body

@@ -69,18 +69,18 @@ function scoreMatch(keywords: string[], targets: string[]): number {
 // Static search index for suggestions (mirrors top-level SiteSearch items)
 function buildSuggestionIndex(t: (key: string, params?: Record<string, string>) => string): Suggestion[] {
  return [
- { title: t('nav.simulator') || 'Simulatore', description: t('app.subtitle'), tab: 'calculator', icon: Calculator, color: 'text-stripe-600', score: 0 },
- { title: t('comparators.exchange') || 'Cambio Valuta', description: t('notFound.desc.exchange'), tab: 'confronti', subTab: 'exchange', icon: Calculator, color: 'text-stripe-600', score: 0 },
- { title: t('comparators.health') || 'Assicurazione Sanitaria', description: t('notFound.desc.health'), tab: 'confronti', subTab: 'health', icon: Calculator, color: 'text-emerald-600', score: 0 },
- { title: t('comparators.jobs') || 'Offerte Lavoro', description: t('notFound.desc.jobs', getCantonI18nParams()), tab: 'job-board', icon: Briefcase, color: 'text-amber-600', score: 0 },
- { title: t('nav.blog') || 'Articoli', description: t('notFound.desc.articles'), tab: 'blog', icon: FileText, color: 'text-rose-600', score: 0 },
- { title: t('guide.tabs.firstDay') || 'Primo Giorno', description: t('notFound.desc.guide'), tab: 'guida', subTab: 'first-day', icon: BookOpen, color: 'text-stripe-600', score: 0 },
- { title: t('guide.tabs.permits') || 'Permessi', description: t('notFound.desc.permits'), tab: 'guida', subTab: 'permits', icon: BookOpen, color: 'text-stripe-600', score: 0 },
- { title: t('nav.pension') || 'Pensione', description: t('notFound.desc.pension'), tab: 'fisco', subTab: 'pension', icon: Calculator, color: 'text-emerald-600', score: 0 },
- { title: t('withholdingRates.navLabel') || 'Aliquote alla Fonte', description: t('notFound.desc.withholding'), tab: 'fisco', subTab: 'withholding-rates', icon: Calculator, color: 'text-emerald-600', score: 0 },
- { title: t('comparators.shopping') || 'Spesa Transfrontaliera', description: t('notFound.desc.shopping'), tab: 'confronti', subTab: 'shopping', icon: Calculator, color: 'text-stripe-600', score: 0 },
- { title: t('comparators.borderMap') || 'Mappa Dogane', description: t('notFound.desc.borderMap'), tab: 'guida', subTab: 'border-map', icon: BookOpen, color: 'text-stripe-600', score: 0 },
- { title: t('comparators.taxReturn') || 'Dichiarazione Fiscale', description: t('notFound.desc.taxReturn'), tab: 'fisco', subTab: 'tax-return', icon: Calculator, color: 'text-emerald-600', score: 0 },
+ { title: t('nav.simulator') || 'Simulatore', description: t('app.subtitle'), tab: 'calculator', icon: Calculator, color: 'text-accent', score: 0 },
+ { title: t('comparators.exchange') || 'Cambio Valuta', description: t('notFound.desc.exchange'), tab: 'confronti', subTab: 'exchange', icon: Calculator, color: 'text-accent', score: 0 },
+ { title: t('comparators.health') || 'Assicurazione Sanitaria', description: t('notFound.desc.health'), tab: 'confronti', subTab: 'health', icon: Calculator, color: 'text-success', score: 0 },
+ { title: t('comparators.jobs') || 'Offerte Lavoro', description: t('notFound.desc.jobs', getCantonI18nParams()), tab: 'job-board', icon: Briefcase, color: 'text-warning', score: 0 },
+ { title: t('nav.blog') || 'Articoli', description: t('notFound.desc.articles'), tab: 'blog', icon: FileText, color: 'text-danger', score: 0 },
+ { title: t('guide.tabs.firstDay') || 'Primo Giorno', description: t('notFound.desc.guide'), tab: 'guida', subTab: 'first-day', icon: BookOpen, color: 'text-accent', score: 0 },
+ { title: t('guide.tabs.permits') || 'Permessi', description: t('notFound.desc.permits'), tab: 'guida', subTab: 'permits', icon: BookOpen, color: 'text-accent', score: 0 },
+ { title: t('nav.pension') || 'Pensione', description: t('notFound.desc.pension'), tab: 'fisco', subTab: 'pension', icon: Calculator, color: 'text-success', score: 0 },
+ { title: t('withholdingRates.navLabel') || 'Aliquote alla Fonte', description: t('notFound.desc.withholding'), tab: 'fisco', subTab: 'withholding-rates', icon: Calculator, color: 'text-success', score: 0 },
+ { title: t('comparators.shopping') || 'Spesa Transfrontaliera', description: t('notFound.desc.shopping'), tab: 'confronti', subTab: 'shopping', icon: Calculator, color: 'text-accent', score: 0 },
+ { title: t('comparators.borderMap') || 'Mappa Dogane', description: t('notFound.desc.borderMap'), tab: 'guida', subTab: 'border-map', icon: BookOpen, color: 'text-accent', score: 0 },
+ { title: t('comparators.taxReturn') || 'Dichiarazione Fiscale', description: t('notFound.desc.taxReturn'), tab: 'fisco', subTab: 'tax-return', icon: Calculator, color: 'text-success', score: 0 },
  ];
 }
 
@@ -191,7 +191,7 @@ const NotFoundSuggestions: React.FC<NotFoundSuggestionsProps> = ({ path, onNavig
  </p>
  )}
  </div>
- <ArrowRight size={16} className="shrink-0 text-muted group-hover:text-stripe-500 transition-colors" />
+ <ArrowRight size={16} className="shrink-0 text-muted group-hover:text-accent transition-colors" />
  </button>
  ))}
  </div>

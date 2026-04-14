@@ -486,7 +486,7 @@ export default function NewFrontierTaxSimHub() {
  <a
  key={cta.title}
  href={buildPath(cta.route)}
- className="group rounded-2xl border border-edge p-5 bg-surface hover:border-emerald-400 transition-colors no-underline"
+ className="group rounded-2xl border border-edge p-5 bg-surface hover:border-success transition-colors no-underline"
  >
  <h3 className="font-semibold text-success text-sm flex items-center gap-1.5">
  {cta.title}

@@ -160,7 +160,7 @@ const ParentalLeaveCalculator: React.FC<ParentalLeaveProps> = ({ userProfile }) 
  <button
  onClick={() => setLeaveType('maternity')}
  className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-bold rounded-lg transition-colors ${
- leaveType === 'maternity' ? 'bg-pink-600 text-white shadow-sm' : 'text-subtle hover:bg-surface-raised'
+ leaveType === 'maternity' ? 'bg-danger-strong text-on-accent shadow-sm' : 'text-subtle hover:bg-surface-raised'
  }`}
  >
  <Baby size={16} />
@@ -169,7 +169,7 @@ const ParentalLeaveCalculator: React.FC<ParentalLeaveProps> = ({ userProfile }) 
  <button
  onClick={() => setLeaveType('paternity')}
  className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-bold rounded-lg transition-colors ${
- leaveType === 'paternity' ? 'bg-stripe-600 text-white shadow-sm' : 'text-subtle hover:bg-surface-raised'
+ leaveType === 'paternity' ? 'bg-accent-strong text-on-accent shadow-sm' : 'text-subtle hover:bg-surface-raised'
  }`}
  >
  <Baby size={16} />
@@ -213,7 +213,7 @@ const ParentalLeaveCalculator: React.FC<ParentalLeaveProps> = ({ userProfile }) 
  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
  {/* Swiss IPG */}
  <div className="bg-surface rounded-2xl border border-edge overflow-hidden">
- <div className="bg-red-600 h-1.5" />
+ <div className="bg-danger-strong h-1.5" />
  <div className="p-5 space-y-3">
  <div className="flex items-center gap-2">
  <span className="text-xl">🇨🇭</span>
@@ -261,7 +261,7 @@ const ParentalLeaveCalculator: React.FC<ParentalLeaveProps> = ({ userProfile }) 
 
  {/* Italian INPS */}
  <div className="bg-surface rounded-2xl border border-edge overflow-hidden">
- <div className="bg-gradient-to-r from-green-600 via-white to-red-600 h-1.5" />
+ <div className="bg-gradient-to-r from-success-strong via-surface to-danger-strong h-1.5" />
  <div className="p-5 space-y-3">
  <div className="flex items-center gap-2">
  <span className="text-xl">🇮🇹</span>
@@ -326,7 +326,7 @@ const ParentalLeaveCalculator: React.FC<ParentalLeaveProps> = ({ userProfile }) 
  <>
  <button
  onClick={() => setShowParental(!showParental)}
- className="flex items-center gap-2 text-sm font-bold text-accent hover:text-stripe-800 transition-colors"
+ className="flex items-center gap-2 text-sm font-bold text-accent hover:text-accent-hover transition-colors"
  >
  {showParental ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
  {t('leave.parentalTitle')}
@@ -388,7 +388,7 @@ const ParentalLeaveCalculator: React.FC<ParentalLeaveProps> = ({ userProfile }) 
  {/* LPP Impact */}
  <div className="bg-surface rounded-2xl border border-edge p-5">
  <h4 className="font-bold text-strong mb-3 flex items-center gap-2">
- <Info className="w-4 h-4 text-stripe-600" />
+ <Info className="w-4 h-4 text-accent" />
  {t('leave.lppImpactTitle')}
  </h4>
  <p className="text-sm text-muted mb-3">

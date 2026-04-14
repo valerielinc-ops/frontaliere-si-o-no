@@ -10,8 +10,8 @@
  * Setup:
  * 1. npm install @google-cloud/recaptcha-enterprise
  * 2. Configura le credenziali Google Cloud:
- *    - gcloud auth application-default login
- *    - oppure imposta GOOGLE_APPLICATION_CREDENTIALS
+ * - gcloud auth application-default login
+ * - oppure imposta GOOGLE_APPLICATION_CREDENTIALS
  * 3. Integra questo codice nel tuo backend API
  */
 
@@ -27,58 +27,58 @@ const {RecaptchaEnterpriseServiceClient} = require('@google-cloud/recaptcha-ente
  * @returns {Promise<number|null>} - Il punteggio di rischio (0.0-1.0) o null se non valido
  */
 async function createAssessment({
-  projectID = "frontaliere-ticino",
-  recaptchaKey = process.env.RECAPTCHA_SITE_KEY || '',
-  token,
-  recaptchaAction,
+ projectID = "frontaliere-ticino",
+ recaptchaKey = process.env.RECAPTCHA_SITE_KEY || '',
+ token,
+ recaptchaAction,
 }) {
-  // Crea il client reCAPTCHA.
-  // BEST PRACTICE: memorizza nella cache il client (consigliato) o chiama client.close() prima di uscire
-  const client = new RecaptchaEnterpriseServiceClient();
-  const projectPath = client.projectPath(projectID);
+ // Crea il client reCAPTCHA.
+ // BEST PRACTICE: memorizza nella cache il client (consigliato) o chiama client.close() prima di uscire
+ const client = new RecaptchaEnterpriseServiceClient();
+ const projectPath = client.projectPath(projectID);
 
-  // Crea la richiesta di assessment
-  const request = {
-    assessment: {
-      event: {
-        token: token,
-        siteKey: recaptchaKey,
-      },
-    },
-    parent: projectPath,
-  };
+ // Crea la richiesta di assessment
+ const request = {
+ assessment: {
+ event: {
+ token: token,
+ siteKey: recaptchaKey,
+ },
+ },
+ parent: projectPath,
+ };
 
-  try {
-    const [response] = await client.createAssessment(request);
+ try {
+ const [response] = await client.createAssessment(request);
 
-    // Verifica che il token sia valido
-    if (!response.tokenProperties.valid) {
-      console.log(`❌ Token non valido: ${response.tokenProperties.invalidReason}`);
-      return null;
-    }
+ // Verifica che il token sia valido
+ if (!response.tokenProperties.valid) {
+ console.log(`❌ Token non valido: ${response.tokenProperties.invalidReason}`);
+ return null;
+ }
 
-    // Controlla se è stata eseguita l'azione prevista
-    if (response.tokenProperties.action === recaptchaAction) {
-      // Ottieni il punteggio di rischio e i motivi
-      const score = response.riskAnalysis.score;
-      console.log(`✅ reCAPTCHA score: ${score}`);
-      
-      if (response.riskAnalysis.reasons && response.riskAnalysis.reasons.length > 0) {
-        console.log('Reasons:');
-        response.riskAnalysis.reasons.forEach((reason) => {
-          console.log(`  - ${reason}`);
-        });
-      }
+ // Controlla se è stata eseguita l'azione prevista
+ if (response.tokenProperties.action === recaptchaAction) {
+ // Ottieni il punteggio di rischio e i motivi
+ const score = response.riskAnalysis.score;
+ console.log(`✅ reCAPTCHA score: ${score}`);
+ 
+ if (response.riskAnalysis.reasons && response.riskAnalysis.reasons.length > 0) {
+ console.log('Reasons:');
+ response.riskAnalysis.reasons.forEach((reason) => {
+ console.log(` - ${reason}`);
+ });
+ }
 
-      return score;
-    } else {
-      console.log(`❌ Action mismatch: expected "${recaptchaAction}", got "${response.tokenProperties.action}"`);
-      return null;
-    }
-  } catch (error) {
-    console.error('❌ Errore durante la verifica reCAPTCHA:', error);
-    return null;
-  }
+ return score;
+ } else {
+ console.log(`❌ Action mismatch: expected "${recaptchaAction}", got "${response.tokenProperties.action}"`);
+ return null;
+ }
+ } catch (error) {
+ console.error('❌ Errore durante la verifica reCAPTCHA:', error);
+ return null;
+ }
 }
 
 /**
@@ -86,102 +86,102 @@ async function createAssessment({
  * 
  * Esempio di utilizzo:
  * app.post('/api/protected-endpoint', verifyRecaptcha, async (req, res) => {
- *   // Il token è stato verificato, procedi con la logica
- *   res.json({ success: true });
+ * // Il token è stato verificato, procedi con la logica
+ * res.json({ success: true });
  * });
  */
 async function verifyRecaptcha(req, res, next) {
-  const token = req.body.recaptchaToken || req.headers['x-recaptcha-token'];
-  const expectedAction = req.body.action || 'unknown';
+ const token = req.body.recaptchaToken || req.headers['x-recaptcha-token'];
+ const expectedAction = req.body.action || 'unknown';
 
-  if (!token) {
-    return res.status(400).json({ 
-      error: 'reCAPTCHA token mancante' 
-    });
-  }
+ if (!token) {
+ return res.status(400).json({ 
+ error: 'reCAPTCHA token mancante' 
+ });
+ }
 
-  try {
-    const score = await createAssessment({
-      projectID: process.env.GOOGLE_CLOUD_PROJECT_ID || 'frontaliere-ticino',
-      recaptchaKey: process.env.RECAPTCHA_SITE_KEY || '',
-      token: token,
-      recaptchaAction: expectedAction,
-    });
+ try {
+ const score = await createAssessment({
+ projectID: process.env.GOOGLE_CLOUD_PROJECT_ID || 'frontaliere-ticino',
+ recaptchaKey: process.env.RECAPTCHA_SITE_KEY || '',
+ token: token,
+ recaptchaAction: expectedAction,
+ });
 
-    if (score === null) {
-      return res.status(403).json({ 
-        error: 'Verifica reCAPTCHA fallita' 
-      });
-    }
+ if (score === null) {
+ return res.status(403).json({ 
+ error: 'Verifica reCAPTCHA fallita' 
+ });
+ }
 
-    // Soglia di score: 0.5 è un buon valore di default
-    // Valori più alti = più rigido, meno falsi positivi ma più falsi negativi
-    const SCORE_THRESHOLD = 0.5;
+ // Soglia di score: 0.5 è un buon valore di default
+ // Valori più alti = più rigido, meno falsi positivi ma più falsi negativi
+ const SCORE_THRESHOLD = 0.5;
 
-    if (score < SCORE_THRESHOLD) {
-      console.log(`⚠️ Score troppo basso: ${score} < ${SCORE_THRESHOLD}`);
-      return res.status(403).json({ 
-        error: 'Score reCAPTCHA troppo basso',
-        score: score 
-      });
-    }
+ if (score < SCORE_THRESHOLD) {
+ console.log(`⚠️ Score troppo basso: ${score} < ${SCORE_THRESHOLD}`);
+ return res.status(403).json({ 
+ error: 'Score reCAPTCHA troppo basso',
+ score: score 
+ });
+ }
 
-    // Aggiungi score alla request per uso successivo
-    req.recaptchaScore = score;
-    next();
-  } catch (error) {
-    console.error('Errore verifica reCAPTCHA:', error);
-    return res.status(500).json({ 
-      error: 'Errore interno durante verifica reCAPTCHA' 
-    });
-  }
+ // Aggiungi score alla request per uso successivo
+ req.recaptchaScore = score;
+ next();
+ } catch (error) {
+ console.error('Errore verifica reCAPTCHA:', error);
+ return res.status(500).json({ 
+ error: 'Errore interno durante verifica reCAPTCHA' 
+ });
+ }
 }
 
 /**
  * Esempio di endpoint API protetto
  */
 function exampleExpressApp() {
-  const express = require('express');
-  const app = express();
-  
-  app.use(express.json());
+ const express = require('express');
+ const app = express();
+ 
+ app.use(express.json());
 
-  // Endpoint per dati traffico (protetto da reCAPTCHA)
-  app.post('/api/traffic-data', verifyRecaptcha, async (req, res) => {
-    console.log(`✅ Richiesta traffico verificata con score: ${req.recaptchaScore}`);
-    
-    // Qui puoi chiamare Google Maps API senza preoccuparti di bot
-    // const trafficData = await fetchGoogleMapsTraffic();
-    
-    res.json({ 
-      success: true,
-      message: 'Dati traffico recuperati',
-      score: req.recaptchaScore 
-    });
-  });
+ // Endpoint per dati traffico (protetto da reCAPTCHA)
+ app.post('/api/traffic-data', verifyRecaptcha, async (req, res) => {
+ console.log(`✅ Richiesta traffico verificata con score: ${req.recaptchaScore}`);
+ 
+ // Qui puoi chiamare Google Maps API senza preoccuparti di bot
+ // const trafficData = await fetchGoogleMapsTraffic();
+ 
+ res.json({ 
+ success: true,
+ message: 'Dati traffico recuperati',
+ score: req.recaptchaScore 
+ });
+ });
 
-  // Endpoint per feedback GitHub (protetto da reCAPTCHA)
-  app.post('/api/feedback', verifyRecaptcha, async (req, res) => {
-    console.log(`✅ Feedback verificato con score: ${req.recaptchaScore}`);
-    
-    // Qui puoi creare issue su GitHub senza spam
-    // const issue = await createGitHubIssue(req.body);
-    
-    res.json({ 
-      success: true,
-      message: 'Feedback inviato',
-      score: req.recaptchaScore 
-    });
-  });
+ // Endpoint per feedback GitHub (protetto da reCAPTCHA)
+ app.post('/api/feedback', verifyRecaptcha, async (req, res) => {
+ console.log(`✅ Feedback verificato con score: ${req.recaptchaScore}`);
+ 
+ // Qui puoi creare issue su GitHub senza spam
+ // const issue = await createGitHubIssue(req.body);
+ 
+ res.json({ 
+ success: true,
+ message: 'Feedback inviato',
+ score: req.recaptchaScore 
+ });
+ });
 
-  return app;
+ return app;
 }
 
 // Export per uso in altri moduli
 module.exports = {
-  createAssessment,
-  verifyRecaptcha,
-  exampleExpressApp
+ createAssessment,
+ verifyRecaptcha,
+ exampleExpressApp
 };
 
 /**
@@ -211,10 +211,10 @@ module.exports = {
  * 3. Assegna ruolo: "reCAPTCHA Enterprise Agent"
  * 4. Crea chiave JSON e scarica
  * 5. Imposta variabile d'ambiente:
- *    export GOOGLE_APPLICATION_CREDENTIALS="/path/to/service-account-key.json"
+ * export GOOGLE_APPLICATION_CREDENTIALS="/path/to/service-account-key.json"
  * 
  * Oppure usa gcloud CLI:
- *    gcloud auth application-default login
+ * gcloud auth application-default login
  */
 
 /**

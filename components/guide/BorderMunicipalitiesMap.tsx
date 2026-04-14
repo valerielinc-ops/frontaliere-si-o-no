@@ -162,7 +162,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  onClick={() => setColorMode(mode)}
  className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-colors ${
  colorMode === mode
- ? 'bg-teal-600 text-white'
+ ? 'bg-info-strong text-on-accent'
  : 'bg-surface-raised text-subtle'
  }`}
  >
@@ -184,9 +184,9 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
 
  {/* Compact legend */}
  <div className="flex flex-wrap gap-3 text-xs text-subtle">
- <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 rounded-full bg-green-500 inline-block" /> {colorMode === 'irpef' ? '≤0.5%' : colorMode === 'distance' ? '≤5km' : '≤€500'}</span>
- <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 rounded-full bg-yellow-500 inline-block" /> {colorMode === 'irpef' ? '0.5–0.65%' : colorMode === 'distance' ? '5–15km' : '€500–650'}</span>
- <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 rounded-full bg-red-500 inline-block" /> {colorMode === 'irpef' ? '>0.65%' : colorMode === 'distance' ? '>15km' : '>€650'}</span>
+ <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 rounded-full bg-success-strong inline-block" /> {colorMode === 'irpef' ? '≤0.5%' : colorMode === 'distance' ? '≤5km' : '≤€500'}</span>
+ <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 rounded-full bg-warning-strong inline-block" /> {colorMode === 'irpef' ? '0.5–0.65%' : colorMode === 'distance' ? '5–15km' : '€500–650'}</span>
+ <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 rounded-full bg-danger-strong inline-block" /> {colorMode === 'irpef' ? '>0.65%' : colorMode === 'distance' ? '>15km' : '>€650'}</span>
  </div>
 
  {/* MAP — immediately visible on mobile */}
@@ -373,7 +373,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
 
  {/* Disclaimer */}
  <div className="bg-warning-subtle rounded-xl p-3 border border-warning-border flex items-start gap-2">
- <AlertTriangle className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
+ <AlertTriangle className="w-4 h-4 text-warning shrink-0 mt-0.5" />
  <p className="text-sm text-warning">{t('bordermap.disclaimer')}</p>
  </div>
  </div>
@@ -411,7 +411,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  onClick={() => setColorMode(mode)}
  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${
  colorMode === mode
- ? 'bg-teal-600 text-white'
+ ? 'bg-info-strong text-on-accent'
  : 'bg-surface-raised text-subtle hover:bg-surface-raised'
  }`}
  >
@@ -437,19 +437,19 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  {/* Legend */}
  <div className="flex flex-wrap gap-4 text-xs">
  <div className="flex items-center gap-2">
- <div className="w-3 h-3 rounded-full bg-green-500" />
+ <div className="w-3 h-3 rounded-full bg-success-strong" />
  <span className="text-subtle">
  {colorMode === 'irpef' ? '≤ 0.5%' : colorMode === 'distance' ? '≤ 5 km' : '≤ €500'}
  </span>
  </div>
  <div className="flex items-center gap-2">
- <div className="w-3 h-3 rounded-full bg-yellow-500" />
+ <div className="w-3 h-3 rounded-full bg-warning-strong" />
  <span className="text-subtle">
  {colorMode === 'irpef' ? '0.5–0.65%' : colorMode === 'distance' ? '5–15 km' : '€500–650'}
  </span>
  </div>
  <div className="flex items-center gap-2">
- <div className="w-3 h-3 rounded-full bg-red-500" />
+ <div className="w-3 h-3 rounded-full bg-danger-strong" />
  <span className="text-subtle">
  {colorMode === 'irpef' ? '> 0.65%' : colorMode === 'distance' ? '> 15 km' : '> €650'}
  </span>
@@ -569,7 +569,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
 
  {/* Info box */}
  <div className="bg-warning-subtle rounded-xl p-4 border border-warning-border flex items-start gap-3">
- <AlertTriangle className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
+ <AlertTriangle className="w-5 h-5 text-warning shrink-0 mt-0.5" />
  <p className="text-sm text-warning">{t('bordermap.disclaimer')}</p>
  </div>
  </div>
@@ -673,7 +673,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  onClick={() => toggleSort(field)}
  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors inline-flex items-center gap-1 ${
  sortField === field
- ? 'bg-stripe-600 text-white'
+ ? 'bg-accent-strong text-on-accent'
  : 'bg-surface-raised text-subtle hover:bg-surface-raised'
  }`}
  >

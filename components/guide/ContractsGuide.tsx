@@ -478,7 +478,7 @@ const ContractsGuide = () => {
  {/* Sick leave */}
  <div className="bg-neutral-subtle rounded-lg p-3 border border-neutral-border">
  <h4 className="text-sm font-semibold text-heading mb-2 flex items-center gap-1.5">
- <Heart size={14} className="text-red-500" />
+ <Heart size={14} className="text-danger" />
  {t('contracts.rights.sickLeave')}
  </h4>
  <ul className="space-y-1 text-xs text-body">
@@ -494,7 +494,7 @@ const ContractsGuide = () => {
  {/* Maternity / Paternity */}
  <div className="bg-neutral-subtle rounded-lg p-3 border border-neutral-border">
  <h4 className="text-sm font-semibold text-heading mb-2 flex items-center gap-1.5">
- <Gift size={14} className="text-stripe-500" />
+ <Gift size={14} className="text-accent" />
  {t('contracts.rights.parentalLeave')}
  </h4>
  <ul className="space-y-1 text-xs text-body">
@@ -509,7 +509,7 @@ const ContractsGuide = () => {
  {/* Public holidays */}
  <div className="bg-surface-alt rounded-lg p-3">
  <h4 className="text-sm font-semibold text-heading mb-2 flex items-center gap-1.5">
- <Palmtree size={14} className="text-amber-500" />
+ <Palmtree size={14} className="text-warning" />
  {t('contracts.rights.publicHolidays')}
  </h4>
  <p className="text-xs text-body">
@@ -523,7 +523,7 @@ const ContractsGuide = () => {
  {/* Overtime */}
  <div className="bg-surface-alt rounded-lg p-3">
  <h4 className="text-sm font-semibold text-heading mb-2 flex items-center gap-1.5">
- <Clock size={14} className="text-stripe-500" />
+ <Clock size={14} className="text-accent" />
  {t('contracts.rights.overtime')}
  </h4>
  <p className="text-xs text-body">

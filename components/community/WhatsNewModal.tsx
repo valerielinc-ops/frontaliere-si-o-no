@@ -1772,7 +1772,7 @@ export function WhatsNewBell({ onClick }: BellButtonProps) {
  {hasUnread && (
  <span
  aria-hidden="true"
- className="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold min-w-[18px] h-[18px] rounded-full flex items-center justify-center px-1 shadow-sm"
+ className="absolute -top-1 -right-1 bg-danger-strong text-on-accent text-xs font-bold min-w-[18px] h-[18px] rounded-full flex items-center justify-center px-1 shadow-sm"
  >
  {unread > 9 ? '9+' : unread}
  </span>
@@ -1802,8 +1802,8 @@ function GamificationFooter({ onClose }: { onClose: () => void }) {
  >
  {/* Trophy badge */}
  <div className="relative flex-shrink-0">
- <div className="w-9 h-9 rounded-xl bg-amber-500 flex items-center justify-center shadow-sm">
- <Trophy size={16} className="text-white" />
+ <div className="w-9 h-9 rounded-xl bg-warning-strong flex items-center justify-center shadow-sm">
+ <Trophy size={16} className="text-on-accent" />
  </div>
  <span className="absolute -top-1 -right-1 bg-surface-raised text-heading text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center shadow-sm">
  {levelInfo.level}
@@ -1815,12 +1815,12 @@ function GamificationFooter({ onClose }: { onClose: () => void }) {
  <span className="text-sm font-bold text-strong truncate">{levelTitle}</span>
  {state.streak > 0 && (
  <span className="flex items-center gap-0.5 text-xs text-muted">
- <Flame size={12} className="text-orange-400" />
+ <Flame size={12} className="text-warning" />
  <span className="font-bold">{state.streak}</span>
  </span>
  )}
  <span className="flex items-center gap-0.5 text-xs text-muted">
- <CheckCircle2 size={12} className="text-emerald-500" />
+ <CheckCircle2 size={12} className="text-success" />
  <span className="font-bold">{unlockedCount}/{totalCount}</span>
  </span>
  </div>
@@ -1828,7 +1828,7 @@ function GamificationFooter({ onClose }: { onClose: () => void }) {
  <div className="flex items-center gap-2 mt-0.5">
  <div className="flex-1 bg-surface-raised rounded-full h-1.5 overflow-hidden">
  <div
- className="bg-amber-500 rounded-full h-1.5 transition-transform duration-500 origin-left"
+ className="bg-warning-strong rounded-full h-1.5 transition-transform duration-500 origin-left"
  style={{ transform: `scaleX(${xpProgressPct / 100})` }}
  />
  </div>

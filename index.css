@@ -52,6 +52,21 @@ html.dark { color-scheme: dark; }
   --_neutral-border: #e7e5e4;    /* stone-200 */
   /* Surface inverted — intentionally dark sections (headers, stat boxes) */
   --_surface-inverted: #1e293b;  /* slate-800 */
+  --_surface-muted: #475569;     /* slate-600 — neutral/dismiss buttons */
+  --_surface-muted-hover: #334155; /* slate-700 */
+  /* Text on solid-colored backgrounds (buttons, badges) */
+  --_on-accent: #ffffff;
+  /* Solid button/badge backgrounds (strong = 600-level, strong-hover = 700-level) */
+  --_accent-strong: #533afd;     /* stripe-600 */
+  --_accent-strong-hover: #4529e6; /* stripe-700 */
+  --_success-strong: #059669;    /* emerald-600 */
+  --_success-strong-hover: #047857; /* emerald-700 */
+  --_warning-strong: #d97706;    /* amber-600 */
+  --_warning-strong-hover: #b45309; /* amber-700 */
+  --_danger-strong: #dc2626;     /* red-600 */
+  --_danger-strong-hover: #b91c1c; /* red-700 */
+  --_info-strong: #0d9488;       /* teal-600 */
+  --_info-strong-hover: #0f766e; /* teal-700 */
   /* Navigation — subtab bar */
   --_tab-active-bg: #ede9fe;
   --_tab-active-text: #4529e6;
@@ -103,6 +118,19 @@ html.dark {
   --_neutral-border: #44403c;    /* stone-800 */
   /* Surface inverted */
   --_surface-inverted: #334155;  /* slate-700 */
+  --_surface-muted: #64748b;     /* slate-500 */
+  --_surface-muted-hover: #475569; /* slate-600 */
+  --_on-accent: #ffffff;
+  --_accent-strong: #7a5af8;     /* stripe-500 */
+  --_accent-strong-hover: #9b8afb; /* stripe-400 */
+  --_success-strong: #34d399;    /* emerald-400 */
+  --_success-strong-hover: #6ee7b7; /* emerald-300 */
+  --_warning-strong: #fbbf24;    /* amber-400 */
+  --_warning-strong-hover: #fcd34d; /* amber-300 */
+  --_danger-strong: #f87171;     /* red-400 */
+  --_danger-strong-hover: #fca5a5; /* red-300 */
+  --_info-strong: #2dd4bf;       /* teal-400 */
+  --_info-strong-hover: #5eead4; /* teal-300 */
   /* Navigation — subtab bar */
   --_tab-active-bg: rgba(46, 26, 158, 0.3);
   --_tab-active-text: #c4b5fd;
@@ -336,6 +364,19 @@ input[type=number] { -moz-appearance: textfield; }
   --color-neutral-subtle: var(--_neutral-subtle);
   --color-neutral-border: var(--_neutral-border);
   --color-surface-inverted: var(--_surface-inverted);
+  --color-surface-muted: var(--_surface-muted);
+  --color-surface-muted-hover: var(--_surface-muted-hover);
+  --color-on-accent: var(--_on-accent);
+  --color-accent-strong: var(--_accent-strong);
+  --color-accent-strong-hover: var(--_accent-strong-hover);
+  --color-success-strong: var(--_success-strong);
+  --color-success-strong-hover: var(--_success-strong-hover);
+  --color-warning-strong: var(--_warning-strong);
+  --color-warning-strong-hover: var(--_warning-strong-hover);
+  --color-danger-strong: var(--_danger-strong);
+  --color-danger-strong-hover: var(--_danger-strong-hover);
+  --color-info-strong: var(--_info-strong);
+  --color-info-strong-hover: var(--_info-strong-hover);
 
   /* Navigation — subtab bar */
   --color-tab-active-bg: var(--_tab-active-bg);

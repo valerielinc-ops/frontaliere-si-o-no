@@ -128,12 +128,12 @@ const ApiStatus: React.FC = () => {
  return (
  <div className="space-y-6 pb-8">
  {/* Header */}
- <div className="bg-gradient-to-br from-slate-700 to-slate-900 rounded-2xl p-5 sm:p-8 text-white">
+ <div className="bg-gradient-to-br from-surface-inverted to-surface-inverted rounded-2xl p-5 sm:p-8 text-on-accent">
  <div className="flex items-center gap-3 mb-4">
  <Key size={32} />
  <h2 className="text-2xl sm:text-3xl font-bold">Diagnostica API</h2>
  </div>
- <p className="text-slate-300 text-lg">
+ <p className="text-body text-lg">
  Verifica lo stato di configurazione delle API esterne
  </p>
  </div>
@@ -156,7 +156,7 @@ const ApiStatus: React.FC = () => {
  <button
  onClick={checkApis}
  disabled={loading}
- className="flex items-center gap-2 px-4 py-2 bg-slate-700 hover:bg-slate-800 text-white rounded-lg transition-colors disabled:opacity-50"
+ className="flex items-center gap-2 px-4 py-2 bg-surface-inverted hover:bg-surface-inverted text-on-accent rounded-lg transition-colors disabled:opacity-50"
  >
  <RefreshCw size={16} className={loading ? 'animate-spin' : ''} />
  Ricontrolla

@@ -67,7 +67,7 @@ function TrendingSection({ trendingJobs, popularity, onJobClick }: TrendingSecti
  if (job.slug) onJobClick(job.slug);
  }}
  aria-label={`${job.title} presso ${job.company}`}
- className="flex-shrink-0 w-[260px] sm:w-[280px] rounded-[6px] border border-edge bg-surface/50 p-3 hover:border-stripe-300 hover:border-accent-border transition-colors motion-reduce:transition-none cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-lg"
+ className="flex-shrink-0 w-[260px] sm:w-[280px] rounded-[6px] border border-edge bg-surface/50 p-3 hover:border-accent-border transition-colors motion-reduce:transition-none cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-lg"
  >
  <div className="flex items-start gap-2.5">
  <div className="w-8 h-8 rounded-[4px] bg-surface-raised border border-edge flex items-center justify-center overflow-hidden shrink-0">

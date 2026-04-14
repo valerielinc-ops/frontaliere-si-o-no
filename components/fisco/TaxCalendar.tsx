@@ -791,7 +791,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
  </span>
  ))}
  {!isPast && (
- <span className={`text-xs font-bold ml-auto ${days <= 7 ? 'text-red-600' : days <= 30 ? 'text-amber-600' : 'text-emerald-700'}`}>
+ <span className={`text-xs font-bold ml-auto ${days <= 7 ? 'text-danger' : days <= 30 ? 'text-warning' : 'text-success'}`}>
  {days === 0 ? `⚠️ ${t('calendar.today')}` : `📅 ${days}g`}
  </span>
  )}
@@ -814,7 +814,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
  )}
  {!compact && d.penalty && (
  <div className="flex items-start gap-1.5 p-2 bg-danger-subtle rounded-lg mt-2">
- <AlertTriangle size={12} className="text-red-500 flex-shrink-0 mt-0.5" />
+ <AlertTriangle size={12} className="text-danger flex-shrink-0 mt-0.5" />
  <div className="text-sm text-danger">{d.penalty}</div>
  </div>
  )}
@@ -882,13 +882,13 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
  <div className="flex items-center gap-2">
  <button
  onClick={handleReminderToggle}
- className={`px-3 py-1.5 rounded-lg text-xs font-bold ${reminderEnabled ? 'bg-emerald-600 text-white' : 'bg-surface-raised text-body'}`}
+ className={`px-3 py-1.5 rounded-lg text-xs font-bold ${reminderEnabled ? 'bg-success-strong text-on-accent' : 'bg-surface-raised text-body'}`}
  >
  {reminderEnabled ? 'Reminder ON' : 'Attiva reminder'}
  </button>
  <button
  onClick={exportChecklistPdf}
- className="px-3 py-1.5 rounded-lg text-xs font-bold bg-amber-700 text-white hover:bg-amber-800"
+ className="px-3 py-1.5 rounded-lg text-xs font-bold bg-warning-strong-hover text-on-accent hover:bg-warning-strong-hover"
  >
  Export PDF
  </button>
@@ -908,7 +908,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
  type="button"
  onClick={handleGoogleReminderSignup}
  disabled={reminderSignupLoading}
- className="w-full grid grid-cols-[20px_1fr_20px] items-center py-2 px-3 border border-edge rounded-lg text-xs font-semibold text-strong bg-surface hover:bg-slate-100 transition-colors disabled:opacity-50"
+ className="w-full grid grid-cols-[20px_1fr_20px] items-center py-2 px-3 border border-edge rounded-lg text-xs font-semibold text-strong bg-surface hover:bg-surface-raised transition-colors disabled:opacity-50"
  >
  <svg viewBox="0 0 24 24" className="w-4 h-4" aria-hidden="true">
  <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4" />
@@ -927,7 +927,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
  <button
  type="button"
  onClick={() => signInWithLinkedIn()}
- className="w-full inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-[#0A66C2] hover:bg-[#004182] text-white text-xs font-semibold transition-colors"
+ className="w-full inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-[#0A66C2] hover:bg-[#004182] text-on-accent text-xs font-semibold transition-colors"
  >
  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
  {locale === 'it' ? 'Continua con LinkedIn' : locale === 'de' ? 'Mit LinkedIn fortfahren' : locale === 'fr' ? 'Continuer avec LinkedIn' : 'Continue with LinkedIn'}
@@ -947,7 +947,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
  <button
  type="submit"
  disabled={reminderSignupLoading}
- className="px-3 py-2 rounded-lg bg-amber-700 text-white text-xs font-bold hover:bg-amber-800 disabled:opacity-50"
+ className="px-3 py-2 rounded-lg bg-warning-strong-hover text-on-accent text-xs font-bold hover:bg-warning-strong-hover disabled:opacity-50"
  >
  {reminderSignupLoading ? '...' : 'Iscriviti'}
  </button>
@@ -968,7 +968,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
  <button
  key={profile}
  onClick={() => setChecklistProfile(profile)}
- className={`px-2.5 py-1.5 rounded-lg text-xs font-bold ${checklistProfile === profile ? 'bg-amber-700 text-white' : 'bg-surface-raised text-subtle'}`}
+ className={`px-2.5 py-1.5 rounded-lg text-xs font-bold ${checklistProfile === profile ? 'bg-warning-strong-hover text-on-accent' : 'bg-surface-raised text-subtle'}`}
  >
  {profile === 'tutti' ? t('calendar.filterAll') : profile === 'vecchio' ? t('calendar.filterOld') : t('calendar.filterNew')}
  </button>
@@ -999,7 +999,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
  return (
  <label key={d.id} className="flex items-center gap-2 text-xs p-2 rounded-lg border border-edge bg-surface-alt">
  <input type="checkbox" checked={checked} onChange={() => toggleChecklist(d.id)} aria-label={`Segna completato: ${d.title}`} />
- <span className={`font-medium ${checked ? 'line-through text-slate-500' : 'text-body'}`}>
+ <span className={`font-medium ${checked ? 'line-through text-muted' : 'text-body'}`}>
  {formatDate(d.date)} · {d.title}
  </span>
  </label>
@@ -1013,7 +1013,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
  <div className="flex flex-wrap gap-2 flex-grow">
  <button
  onClick={() => { setFilterCategory('all'); Analytics.trackCalendarEvent('filter', 'all'); }}
- className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${filterCategory === 'all' ? 'bg-amber-700 text-white' : 'bg-surface text-subtle border border-edge'}`}
+ className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${filterCategory === 'all' ? 'bg-warning-strong-hover text-on-accent' : 'bg-surface text-subtle border border-edge'}`}
  >
  {t('calendar.all')}
  </button>
@@ -1021,7 +1021,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
  <button
  key={key}
  onClick={() => { setFilterCategory(key); Analytics.trackCalendarEvent('filter', key); }}
- className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors flex items-center gap-1.5 ${filterCategory === key ? `bg-${cfg.color}-600 text-white` : 'bg-surface text-subtle border border-edge'}`}
+ className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors flex items-center gap-1.5 ${filterCategory === key ? `bg-${cfg.color}-600 text-on-accent` : 'bg-surface text-subtle border border-edge'}`}
  >
  <cfg.icon size={12} />
  {cfg.label}
@@ -1047,14 +1047,14 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
  <div className="flex bg-surface border border-edge rounded-lg p-0.5">
  <button
  onClick={() => setViewMode('calendar')}
- className={`p-1.5 rounded-md transition-colors ${viewMode === 'calendar' ? 'bg-warning-subtle text-amber-700' : 'text-muted hover:text-slate-600'}`}
+ className={`p-1.5 rounded-md transition-colors ${viewMode === 'calendar' ? 'bg-warning-subtle text-warning' : 'text-muted hover:text-subtle'}`}
  title="Calendario"
  >
  <LayoutGrid size={16} />
  </button>
  <button
  onClick={() => setViewMode('list')}
- className={`p-1.5 rounded-md transition-colors ${viewMode === 'list' ? 'bg-warning-subtle text-amber-700' : 'text-muted hover:text-slate-600'}`}
+ className={`p-1.5 rounded-md transition-colors ${viewMode === 'list' ? 'bg-warning-subtle text-warning' : 'text-muted hover:text-subtle'}`}
  title="Lista"
  >
  <List size={16} />
@@ -1085,14 +1085,14 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
  onClick={() => { setCurrentMonth(i); setSelectedDate(null); }}
  className={`relative px-2 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-[color,background-color,box-shadow,transform] ${
  currentMonth === i
- ? 'bg-gradient-to-br from-amber-600 to-amber-700 text-white shadow-lg shadow-amber-500/25 scale-105'
- : 'text-subtle hover:bg-amber-50 hover:text-amber-700 '
+ ? 'bg-gradient-to-br from-warning-strong to-warning-strong-hover text-on-accent shadow-lg shadow-warning-strong/25 scale-105'
+ : 'text-subtle hover:bg-warning-subtle hover:text-warning '
  }`}
  >
  {name.substring(0, 3)}
  {monthEventCounts[i] > 0 && (
  <span className={`absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full text-xs font-bold flex items-center justify-center shadow-sm ${
- currentMonth === i ? 'bg-surface text-warning' : 'bg-amber-600 text-white'
+ currentMonth === i ? 'bg-surface text-warning' : 'bg-warning-strong text-on-accent'
  }`}>
  {monthEventCounts[i]}
  </span>
@@ -1130,7 +1130,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
  onClick={() => setSelectedDate(d.date === selectedDate ? null : d.date)}
  className={`cursor-pointer transition-[color,background-color,box-shadow,transform] rounded-xl ${
  d.date === selectedDate
- ? 'ring-2 ring-amber-500 bg-warning-subtle scale-[1.02] shadow-md'
+ ? 'ring-2 ring-warning bg-warning-subtle scale-[1.02] shadow-md'
  : 'hover:scale-[1.01] hover:shadow-sm'
  }`}
  >
@@ -1183,14 +1183,14 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
  }
  }}
  className={`border-b border-r border-edge/50 p-1.5 min-h-[80px] sm:min-h-[96px] flex flex-col transition-[color,background-color,opacity,box-shadow] relative
- ${hasEvents ? 'cursor-pointer hover:bg-amber-50/80 ' : ''}
- ${isSelected ? 'bg-warning-subtle ring-2 ring-amber-500 ring-inset shadow-inner' : ''}
+ ${hasEvents ? 'cursor-pointer hover:bg-warning-subtle/80 ' : ''}
+ ${isSelected ? 'bg-warning-subtle ring-2 ring-warning ring-inset shadow-inner' : ''}
  ${isPast && !hasEvents ? 'opacity-40' : ''}
  `}
  >
  {/* Day number */}
  <div className={`text-sm font-bold self-end w-7 h-7 flex items-center justify-center rounded-full ${
- isToday ? 'bg-amber-700 text-white shadow-sm' : isSelected ? 'bg-warning-subtle text-warning' : 'text-body'
+ isToday ? 'bg-warning-strong-hover text-on-accent shadow-sm' : isSelected ? 'bg-warning-subtle text-warning' : 'text-body'
  }`}>
  {day}
  </div>
@@ -1276,7 +1276,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
  {/* Disclaimer */}
  <div className="bg-warning-subtle rounded-2xl border border-warning-border p-5">
  <div className="flex items-start gap-3">
- <AlertTriangle size={18} className="text-amber-600 flex-shrink-0 mt-0.5" />
+ <AlertTriangle size={18} className="text-warning flex-shrink-0 mt-0.5" />
  <div className="text-xs text-warning">
  <strong>{t('calendar.disclaimer')}:</strong> {t('calendar.disclaimerText')}
  </div>

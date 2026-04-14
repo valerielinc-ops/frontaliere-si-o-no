@@ -305,7 +305,7 @@ const SalarySurvey: React.FC = () => {
  <button
  onClick={handleSubmit}
  disabled={!sector || !experience || !salary || parseInt(salary) < 1000 || submitting}
- className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-teal-600 hover:bg-teal-700 disabled:opacity-50 disabled:cursor-not-allowed text-white rounded-xl font-bold transition-colors"
+ className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-info-strong hover:bg-info-strong-hover disabled:opacity-50 disabled:cursor-not-allowed text-on-accent rounded-xl font-bold transition-colors"
  >
  <Send className="w-4 h-4" />
  {submitting ? t('salary.submitting') : t('salary.submit')}
@@ -334,7 +334,7 @@ const SalarySurvey: React.FC = () => {
  <div className="space-y-4 animate-fade-in">
  {loadingResults ? (
  <div className="flex items-center justify-center py-12">
- <div className="animate-spin rounded-full h-8 w-8 border-2 border-teal-500 border-t-transparent" />
+ <div className="animate-spin rounded-full h-8 w-8 border-2 border-info border-t-transparent" />
  </div>
  ) : totalResponses === 0 ? (
  <div className="bg-surface rounded-2xl p-5 sm:p-8 border border-edge text-center">
@@ -346,7 +346,7 @@ const SalarySurvey: React.FC = () => {
  {/* Summary */}
  <div className="bg-surface rounded-2xl p-5 border border-edge">
  <div className="flex items-center gap-2 mb-3">
- <Users className="w-5 h-5 text-teal-500" />
+ <Users className="w-5 h-5 text-info" />
  <span className="font-bold text-strong">
  {t('salary.totalResponses', { count: String(totalResponses) })}
  </span>

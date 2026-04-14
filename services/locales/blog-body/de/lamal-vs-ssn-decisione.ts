@@ -1,5 +1,5 @@
 const bodyLamalVsSsnDecisione: Record<string, string> = {
-    'blog.article.lamal-vs-ssn-decisione.body1': `## KVG vs SSN: Das Optionsrecht der Grenzgänger bei der Krankenversicherung
+ 'blog.article.lamal-vs-ssn-decisione.body1': `## KVG vs SSN: Das Optionsrecht der Grenzgänger bei der Krankenversicherung
 
 Das **KVG** (Bundesgesetz über die Krankenversicherung, international als LAMal bekannt) ist die obligatorische Krankenversicherung der Schweiz, während der **SSN** (Servizio Sanitario Nazionale) der öffentliche Gesundheitsdienst Italiens ist. Grenzgänger, die eine Beschäftigung in der Schweiz aufnehmen, haben ein **Optionsrecht**: Sie können zwischen der Schweizer KVG-Versicherung und der Beibehaltung der italienischen SSN-Deckung wählen. Diese Entscheidung, die innerhalb von 3 Monaten nach Arbeitsbeginn mitgeteilt werden muss, kann die jährlichen Gesundheitsausgaben des Haushalts um mehrere tausend Euro beeinflussen.
 
@@ -56,7 +56,7 @@ Mit Franchise CHF 2'500 und denselben Kosten:
 
 Mit der KVG haben Sie vollen Zugang zum **Schweizer Gesundheitssystem**: öffentliche Spitäler, Fachärzte, Notaufnahme, Medikamente der Spezialitätenliste. In Italien und im EU/EFTA-Raum haben Sie Anspruch auf **dringende und notwendige Behandlung** über die Versicherungskarte (Pendant zur EHIC). Für geplante Behandlungen in Italien können Sie eine Vorabgenehmigung bei Ihrer Krankenkasse beantragen.`,
 
-    'blog.article.lamal-vs-ssn-decisione.body2': `## Wie der italienische SSN für Grenzgänger funktioniert
+ 'blog.article.lamal-vs-ssn-decisione.body2': `## Wie der italienische SSN für Grenzgänger funktioniert
 
 ### Anmeldung und Beiträge
 
@@ -125,7 +125,7 @@ Mit dem SSN erhalten Sie die **Europäische Krankenversicherungskarte (EHIC/TEAM
 
 (Quellen: BAG, KVG-Leitfaden für Versicherte 2026; Italienisches Gesundheitsministerium, Wesentliche Versorgungsniveaus 2025)`,
 
-    'blog.article.lamal-vs-ssn-decisione.body3': `## Konkrete Szenarien: Was jede Option wirklich kostet
+ 'blog.article.lamal-vs-ssn-decisione.body3': `## Konkrete Szenarien: Was jede Option wirklich kostet
 
 Um den Unterschied greifbar zu machen, analysieren wir vier reale Szenarien mit detaillierten Berechnungen. Der verwendete Wechselkurs beträgt **1 CHF = 0,93 EUR** (Durchschnitt 2025, Quelle: SNB).
 
@@ -212,7 +212,7 @@ Um den Unterschied greifbar zu machen, analysieren wir vier reale Szenarien mit 
 > «Der SSN-Beitrag ist einkommensproportional: je mehr man verdient, desto mehr zahlt man. Die KVG hingegen hat feste Prämien unabhängig vom Einkommen. Das schafft einen Break-Even-Punkt bei etwa CHF 5'500–6'000/Monat für Alleinstehende: unterhalb dieser Schwelle kostet der SSN weniger, darüber ist die KVG vorteilhafter.»
 > — Dr. Elena Colombo, Steuerberaterin mit Spezialisierung auf internationale Besteuerung`,
 
-    'blog.article.lamal-vs-ssn-decisione.body4': `## Wann die KVG wählen: 6 konkrete Gründe
+ 'blog.article.lamal-vs-ssn-decisione.body4': `## Wann die KVG wählen: 6 konkrete Gründe
 
 Die KVG ist die bessere Wahl, wenn mindestens 3 dieser Situationen auf Sie zutreffen:
 
@@ -276,7 +276,7 @@ Die KVG ist die **obligatorische Grundversicherung** mit gleichen Leistungen bei
 ### ❌ Fehler 6: Den CHF/EUR-Wechselkurs nicht beachten
 Die KVG-Prämie ist in CHF, der SSN-Beitrag in EUR berechnet. Wechselkursschwankungen können den Break-Even-Punkt um mehrere hundert Euro pro Jahr verschieben. Bei starkem CHF wird die KVG für EUR-Ausgaben relativ teurer.`,
 
-    'blog.article.lamal-vs-ssn-decisione.body5': `## Häufig gestellte Fragen zu KVG vs SSN
+ 'blog.article.lamal-vs-ssn-decisione.body5': `## Häufig gestellte Fragen zu KVG vs SSN
 
 ### Kann ich nach der Erstentscheidung vom SSN zur KVG wechseln?
 Der Wechsel vom SSN zur KVG ist nur bei einem **neuen Arbeitsverhältnis** in der Schweiz möglich (Arbeitgeberwechsel oder Unterbrechung/Wiederaufnahme). Ein einfacher Wechsel mitten im Jahr ist nicht möglich. Die neue 3-Monats-Frist beginnt ab dem Startdatum des neuen Vertrags (Quelle: Art. 2 KVV; BAG, FAQ Optionsrecht).
@@ -337,7 +337,7 @@ Die Wahl zwischen KVG und SSN ist eine der wichtigsten finanziellen Entscheidung
 3. **Halten Sie die 3-Monats-Frist ein** — tragen Sie das Datum in den Kalender ein und schieben Sie es nicht auf
 
 *Hauptquellen: BAG, Krankenversicherungsstatistik 2025; Priminfo.admin.ch, KVG-Prämien 2026; INPS, Rundschreiben Gesundheitsbeiträge Grenzgänger 2024; Art. 2 KVV (Verordnung über die Krankenversicherung); Freizügigkeitsabkommen EU-CH, Anhang II; OECD Health at a Glance 2024.*`,
-    'blog.article.lamal-vs-ssn-decisione.faq': '[{"q":"Wie funktioniert die Option für Grenzarbeiter in der Schweiz?","a":"Die Frontiers haben das Recht, sich im Schweizer LAMal einzuschreiben oder die Abdeckung der italienischen SSN beizubehalten. Die Wahl muss innerhalb von 3 Monaten nach Arbeitsbeginn in der Schweiz mitgeteilt werden."},{"q":"Wie viele Grenzpendler arbeiten in der Schweiz und welchen Prozentsatz wählt die KVG?","a":"Laut Daten von 2025 arbeiten allein im Kanton Tessin mehr als 78.000 grenzüberschreitende Pendler. Etwa 35 % von ihnen wählen die Schweizer KVG, während 65 % den italienischen NHS beibehalten."},{"q":"Welche Behandlung wird in Italien von der Schweizer KVG für grenzüberschreitende Pendler abgedeckt?","a":"Die KVG deckt dringende und notwendige Behandlungen in Italien über die EHIC-Karte (vergleichbar mit der italienischen Gesundheitskarte) ab. Für geplante oder spezialisierte Behandlungen in Italien muss eine vorherige Genehmigung von der Schweizer Krankenversicherung eingeholt werden. Der Versicherungsschutz gilt in allen EU-/EFTA-Ländern."},{"q":"Wie werden SSN-Beiträge für eine Grenzarbeit in Tessin berechnet, wohnen aber in der Lombardei?","a":"In der Lombardei beträgt die SSN-Rate 7,50% auf das Gesamteinkommen, umgerechnet in Euro. Beispielsweise beträgt der Beitrag auf einem Jahreseinkommen von 50.000 € 3,750 €. Die Zahlung erfolgt über die italienische Steuererklärung."},{"q":"Was passiert, wenn ein Grenzschutzbeamter mit LAMal einen Unfall in Italien hat?","a":"Bei einem Unfall in Italien deckt LAMal die notwendige und dringende Betreuung über die TEAM-Karte ab. Der Schweizer Krankenkasse erstattet die Kosten nach Ortstarifen, während zusätzliche Kosten (z.B. im Privatzimmer) an der Versicherung verbleiben."}]',
+ 'blog.article.lamal-vs-ssn-decisione.faq': '[{"q":"Wie funktioniert die Option für Grenzarbeiter in der Schweiz?","a":"Die Frontiers haben das Recht, sich im Schweizer LAMal einzuschreiben oder die Abdeckung der italienischen SSN beizubehalten. Die Wahl muss innerhalb von 3 Monaten nach Arbeitsbeginn in der Schweiz mitgeteilt werden."},{"q":"Wie viele Grenzpendler arbeiten in der Schweiz und welchen Prozentsatz wählt die KVG?","a":"Laut Daten von 2025 arbeiten allein im Kanton Tessin mehr als 78.000 grenzüberschreitende Pendler. Etwa 35 % von ihnen wählen die Schweizer KVG, während 65 % den italienischen NHS beibehalten."},{"q":"Welche Behandlung wird in Italien von der Schweizer KVG für grenzüberschreitende Pendler abgedeckt?","a":"Die KVG deckt dringende und notwendige Behandlungen in Italien über die EHIC-Karte (vergleichbar mit der italienischen Gesundheitskarte) ab. Für geplante oder spezialisierte Behandlungen in Italien muss eine vorherige Genehmigung von der Schweizer Krankenversicherung eingeholt werden. Der Versicherungsschutz gilt in allen EU-/EFTA-Ländern."},{"q":"Wie werden SSN-Beiträge für eine Grenzarbeit in Tessin berechnet, wohnen aber in der Lombardei?","a":"In der Lombardei beträgt die SSN-Rate 7,50% auf das Gesamteinkommen, umgerechnet in Euro. Beispielsweise beträgt der Beitrag auf einem Jahreseinkommen von 50.000 € 3,750 €. Die Zahlung erfolgt über die italienische Steuererklärung."},{"q":"Was passiert, wenn ein Grenzschutzbeamter mit LAMal einen Unfall in Italien hat?","a":"Bei einem Unfall in Italien deckt LAMal die notwendige und dringende Betreuung über die TEAM-Karte ab. Der Schweizer Krankenkasse erstattet die Kosten nach Ortstarifen, während zusätzliche Kosten (z.B. im Privatzimmer) an der Versicherung verbleiben."}]',
 };
 
 export default bodyLamalVsSsnDecisione;

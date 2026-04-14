@@ -114,7 +114,7 @@ export default function NaspiCalculator() {
 
  {/* Info banner */}
  <div className="flex items-start gap-2.5 bg-accent-subtle rounded-xl p-3 border border-accent-border">
- <Info size={16} className="text-stripe-500 mt-0.5 shrink-0" />
+ <Info size={16} className="text-accent mt-0.5 shrink-0" />
  <p className="text-sm text-accent">
  {t('naspi.calc.disclaimer')}
  </p>
@@ -137,7 +137,7 @@ export default function NaspiCalculator() {
  step={100}
  value={salary}
  onChange={(e) => setSalary(Number(e.target.value) || 0)}
- className="w-full rounded-lg border border-edge bg-surface px-3 py-2 text-sm text-strong focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:border-emerald-500 outline-none"
+ className="w-full rounded-lg border border-edge bg-surface px-3 py-2 text-sm text-strong focus-visible:ring-2 focus-visible:ring-success focus-visible:border-success outline-none"
  />
  <span className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-muted">CHF</span>
  </div>
@@ -158,7 +158,7 @@ export default function NaspiCalculator() {
  step={1}
  value={monthsWorked}
  onChange={(e) => setMonthsWorked(Math.min(48, Math.max(3, Number(e.target.value) || 3)))}
- className="w-full rounded-lg border border-edge bg-surface px-3 py-2 text-sm text-strong focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:border-emerald-500 outline-none"
+ className="w-full rounded-lg border border-edge bg-surface px-3 py-2 text-sm text-strong focus-visible:ring-2 focus-visible:ring-success focus-visible:border-success outline-none"
  />
  <p className="text-xs text-muted mt-1">{t('naspi.calc.monthsHint')}</p>
  </div>
@@ -177,7 +177,7 @@ export default function NaspiCalculator() {
  step={1}
  value={age}
  onChange={(e) => setAge(Number(e.target.value) || 35)}
- className="w-full rounded-lg border border-edge bg-surface px-3 py-2 text-sm text-strong focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:border-emerald-500 outline-none"
+ className="w-full rounded-lg border border-edge bg-surface px-3 py-2 text-sm text-strong focus-visible:ring-2 focus-visible:ring-success focus-visible:border-success outline-none"
  />
  <p className="text-xs text-muted mt-1">
  {t('naspi.calc.ageHint')}
@@ -198,7 +198,7 @@ export default function NaspiCalculator() {
  step={0.01}
  value={exchangeRate}
  onChange={(e) => setExchangeRate(Number(e.target.value) || FALLBACK_EXCHANGE_RATE)}
- className="w-full rounded-lg border border-edge bg-surface px-3 py-2 text-sm text-strong focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:border-emerald-500 outline-none"
+ className="w-full rounded-lg border border-edge bg-surface px-3 py-2 text-sm text-strong focus-visible:ring-2 focus-visible:ring-success focus-visible:border-success outline-none"
  />
  <p className="text-xs text-muted mt-1">{t('naspi.calc.rateHint')}</p>
  </div>
@@ -207,24 +207,24 @@ export default function NaspiCalculator() {
  {/* Results KPI cards */}
  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
  <div className="bg-surface rounded-xl p-3 border border-edge text-center">
- <Euro size={18} className="text-emerald-500 mx-auto mb-1" />
+ <Euro size={18} className="text-success mx-auto mb-1" />
  <div className="text-lg font-bold text-success">{formatEUR(result.monthlyInitial)}</div>
  <div className="text-xs text-subtle">{t('naspi.calc.monthlyAmount')}</div>
  </div>
  <div className="bg-surface rounded-xl p-3 border border-edge text-center">
- <Clock size={18} className="text-stripe-500 mx-auto mb-1" />
+ <Clock size={18} className="text-accent mx-auto mb-1" />
  <div className="text-lg font-bold text-link">{result.duration} {t('naspi.calc.months')}</div>
  <div className="text-xs text-subtle">{t('naspi.calc.duration')}</div>
  </div>
  <div className="bg-surface rounded-xl p-3 border border-edge text-center">
- <TrendingDown size={18} className="text-orange-500 mx-auto mb-1" />
+ <TrendingDown size={18} className="text-warning mx-auto mb-1" />
  <div className="text-lg font-bold text-warning">
  {result.rows.length > 0 ? formatEUR(result.rows[result.rows.length - 1].gross) : '—'}
  </div>
  <div className="text-xs text-subtle">{t('naspi.calc.lastMonth')}</div>
  </div>
  <div className="bg-surface rounded-xl p-3 border border-edge text-center">
- <Calculator size={18} className="text-stripe-500 mx-auto mb-1" />
+ <Calculator size={18} className="text-accent mx-auto mb-1" />
  <div className="text-lg font-bold text-accent">{formatEUR(result.totalGross)}</div>
  <div className="text-xs text-subtle">{t('naspi.calc.totalGross')}</div>
  </div>

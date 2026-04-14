@@ -230,11 +230,11 @@ export const ProfileLoginCTA: React.FC<{
  if (dismissed) return null;
  return (
  <div className="flex items-center gap-3 p-3 bg-gradient-to-r from-info-subtle to-success-subtle rounded-xl border border-info-border">
- <Sparkles size={18} className="text-teal-500 flex-shrink-0" />
+ <Sparkles size={18} className="text-info flex-shrink-0" />
  <p className="text-xs text-body flex-1">{t('profile.cta.title')}</p>
  <button
  onClick={onLogin}
- className="px-3 py-1 text-xs font-bold text-white bg-teal-600 hover:bg-teal-700 rounded-lg transition-colors"
+ className="px-3 py-1 text-xs font-bold text-on-accent bg-info-strong hover:bg-info-strong-hover rounded-lg transition-colors"
  >
  {t('profile.cta.login')}
  </button>
@@ -395,7 +395,7 @@ const FamilyMemberRow: React.FC<{
  checked={member.dependent}
  onChange={(e) => onUpdate({ ...member, dependent: e.target.checked })}
  disabled={disabled}
- className="rounded border-edge text-stripe-600 focus-visible:ring-accent"
+ className="rounded border-edge text-accent focus-visible:ring-accent"
  />
  {t('profile.family.dependent')}
  </label>
@@ -405,14 +405,14 @@ const FamilyMemberRow: React.FC<{
  checked={member.liveTogether}
  onChange={(e) => onUpdate({ ...member, liveTogether: e.target.checked })}
  disabled={disabled}
- className="rounded border-edge text-stripe-600 focus-visible:ring-accent"
+ className="rounded border-edge text-accent focus-visible:ring-accent"
  />
  {t('profile.family.liveTogether')}
  </label>
  {!disabled && (
  <button
  onClick={onRemove}
- className="p-1 text-red-400 hover:text-red-600 hover:bg-danger-subtle rounded-lg transition-colors"
+ className="p-1 text-danger hover:text-danger hover:bg-danger-subtle rounded-lg transition-colors"
  aria-label={t('profile.family.remove')}
  >
  <Trash2 size={14} />
@@ -792,12 +792,12 @@ const UserProfile: React.FC = () => {
  <div className="max-w-lg mx-auto animate-fade-in">
  <div className="bg-surface rounded-3xl shadow-xl border border-edge overflow-hidden">
  {/* Header */}
- <div className="bg-gradient-to-br from-stripe-600 via-teal-600 to-emerald-600 p-4 sm:p-8 text-center text-white">
+ <div className="bg-gradient-to-br from-accent-strong via-info-strong to-success-strong p-4 sm:p-8 text-center text-on-accent">
  <div className="w-20 h-20 mx-auto bg-white/25 rounded-full flex items-center justify-center mb-4">
  <User size={40} className="text-white/90" />
  </div>
  <h1 className="text-2xl font-extrabold">{t('profile.title')}</h1>
- <p className="text-stripe-100 text-sm mt-2">{t('profile.subtitle')}</p>
+ <p className="text-accent text-sm mt-2">{t('profile.subtitle')}</p>
  </div>
 
  {/* Sign-in card */}
@@ -812,7 +812,7 @@ const UserProfile: React.FC = () => {
  <div className="space-y-2">
  {['personalizedSim', 'cloudSync', 'contextual'].map(key => (
  <div key={key} className="flex items-center gap-2 text-xs text-subtle">
- <CheckCircle2 size={14} className="text-emerald-500 flex-shrink-0" />
+ <CheckCircle2 size={14} className="text-success flex-shrink-0" />
  {t(`profile.benefit.${key}`)}
  </div>
  ))}
@@ -844,7 +844,7 @@ const UserProfile: React.FC = () => {
  <button
  type="button"
  onClick={() => signInWithLinkedIn()}
- className="w-full flex items-center justify-center gap-3 px-6 py-3.5 bg-[#0A66C2] hover:bg-[#004182] border-2 border-[#0A66C2] hover:border-[#004182] rounded-2xl hover:shadow-lg transition-[color,background-color,border-color,box-shadow] text-white font-semibold"
+ className="w-full flex items-center justify-center gap-3 px-6 py-3.5 bg-[#0A66C2] hover:bg-[#004182] border-2 border-[#0A66C2] hover:border-[#004182] rounded-2xl hover:shadow-lg transition-[color,background-color,border-color,box-shadow] text-on-accent font-semibold"
  >
  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
  <span>{locale === 'it' ? 'Continua con LinkedIn' : locale === 'de' ? 'Mit LinkedIn fortfahren' : locale === 'fr' ? 'Continuer avec LinkedIn' : 'Continue with LinkedIn'}</span>
@@ -859,7 +859,7 @@ const UserProfile: React.FC = () => {
  <svg viewBox="0 0 24 24" className="w-5 h-5" fill="white" aria-hidden="true">
  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
  </svg>
- <span className="font-semibold text-white">
+ <span className="font-semibold text-on-accent">
  {t('profile.signInWithFacebook')}
  </span>
  </button>
@@ -880,7 +880,7 @@ const UserProfile: React.FC = () => {
  if (authLoading) {
  return (
  <div className="flex items-center justify-center py-24">
- <div className="animate-spin rounded-full h-8 w-8 border-2 border-stripe-500 border-t-transparent" />
+ <div className="animate-spin rounded-full h-8 w-8 border-2 border-accent border-t-transparent" />
  </div>
  );
  }
@@ -894,7 +894,7 @@ const UserProfile: React.FC = () => {
  <div className="max-w-2xl mx-auto space-y-6 animate-fade-in">
  {/* Profile header card */}
  <div className="bg-surface rounded-3xl shadow-xl border border-edge overflow-hidden">
- <div className="bg-gradient-to-br from-stripe-600 via-teal-600 to-emerald-600 p-4 sm:p-6 text-white">
+ <div className="bg-gradient-to-br from-accent-strong via-info-strong to-success-strong p-4 sm:p-6 text-on-accent">
  <div className="flex items-center gap-5">
  <div className="relative">
  {photoURL ? (
@@ -916,11 +916,11 @@ const UserProfile: React.FC = () => {
  <div className="flex-1 min-w-0">
  <h2 className="text-xl font-bold truncate">{displayName}</h2>
  {getAuthEmail(user) ? (
- <p className="text-stripe-100 text-sm truncate">{getAuthEmail(user)}</p>
+ <p className="text-accent text-sm truncate">{getAuthEmail(user)}</p>
  ) : getLinkedProviders(user).includes('facebook.com') ? (
  <button
  onClick={async () => { await reAuthFacebook(); }}
- className="flex items-center gap-1.5 text-yellow-200 text-xs hover:text-yellow-100 transition-colors mt-0.5"
+ className="flex items-center gap-1.5 text-on-accent text-xs hover:text-on-accent transition-colors mt-0.5"
  title={t('profile.facebookReauth') || 'Riprova per ottenere l\'email'}
  >
  <AlertCircle size={12} />
@@ -941,7 +941,7 @@ const UserProfile: React.FC = () => {
  {/* Profile completeness bar */}
  <div className="mt-4">
  <div className="flex items-center justify-between text-xs mb-1.5">
- <span className="text-stripe-100 font-medium">{t('profile.completeness')}</span>
+ <span className="text-accent font-medium">{t('profile.completeness')}</span>
  <span className="font-bold">{completeness}%</span>
  </div>
  <div className="w-full bg-white/20 rounded-full h-2 overflow-hidden">
@@ -951,7 +951,7 @@ const UserProfile: React.FC = () => {
  />
  </div>
  {completeness < 100 && (
- <p className="text-stripe-200 text-xs mt-1">{t('profile.completeForBetter')}</p>
+ <p className="text-accent text-xs mt-1">{t('profile.completeForBetter')}</p>
  )}
  </div>
  </div>
@@ -1117,7 +1117,7 @@ const UserProfile: React.FC = () => {
  <div className="p-6 space-y-5">
  <div className="flex items-center justify-between">
  <h2 className="text-lg font-bold text-strong flex items-center gap-2">
- <Edit3 size={18} className="text-stripe-500" />
+ <Edit3 size={18} className="text-accent" />
  {t('profile.personalInfo')}
  </h2>
  {saveStatus === 'saved' && (
@@ -1310,7 +1310,7 @@ const UserProfile: React.FC = () => {
  className="flex items-center justify-between w-full text-left"
  >
  <h3 className="text-sm font-bold text-strong flex items-center gap-2">
- <Users size={16} className="text-stripe-500" />
+ <Users size={16} className="text-accent" />
  {t('profile.family.title')}
  {(profile.familyMembersList?.length || 0) > 0 && (
  <span className="text-xs font-bold px-1.5 py-0.5 bg-accent-subtle text-accent rounded-md">
@@ -1393,7 +1393,7 @@ const UserProfile: React.FC = () => {
  {/* ─── Work Info Section ─────────────────────────── */}
  <div className="border-t border-edge pt-5">
  <h2 className="text-lg font-bold text-strong flex items-center gap-2 mb-4">
- <Briefcase size={18} className="text-emerald-500" />
+ <Briefcase size={18} className="text-success" />
  {t('profile.workInfo')}
  </h2>
  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -1554,7 +1554,7 @@ const UserProfile: React.FC = () => {
  </div>
  <button
  onClick={handleExportData}
- className="px-3 py-1.5 bg-accent hover:bg-accent-hover text-white text-xs font-bold uppercase rounded-lg transition-colors flex-shrink-0"
+ className="px-3 py-1.5 bg-accent hover:bg-accent-hover text-on-accent text-xs font-bold uppercase rounded-lg transition-colors flex-shrink-0"
  >
  {t('profile.gdprExport')}
  </button>
@@ -1584,7 +1584,7 @@ const UserProfile: React.FC = () => {
  <button
  onClick={handleDeleteAccount}
  disabled={deleting}
- className="flex items-center gap-1.5 px-3 py-1.5 bg-red-600 hover:bg-red-700 disabled:bg-red-400 text-white text-xs font-bold uppercase rounded-lg transition-colors"
+ className="flex items-center gap-1.5 px-3 py-1.5 bg-danger-strong hover:bg-danger-strong-hover disabled:bg-danger text-on-accent text-xs font-bold uppercase rounded-lg transition-colors"
  >
  {deleting ? <Loader2 size={12} className="animate-spin" /> : <Trash2 size={12} />}
  {t('profile.deleteAccountConfirmBtn')}

@@ -78,18 +78,18 @@ const RistorniTracker: React.FC = () => {
  return (
  <div className="space-y-6">
  {/* Header */}
- <div className="bg-gradient-to-r from-teal-600 to-emerald-700 rounded-2xl p-4 sm:p-6 text-white">
+ <div className="bg-gradient-to-r from-info-strong to-success-strong rounded-2xl p-4 sm:p-6 text-on-accent">
  <div className="flex items-center gap-3 mb-2">
  <Coins size={28} />
  <h2 className="text-2xl font-bold">{t('ristorni.title')}</h2>
  </div>
- <p className="text-teal-100 text-sm">{t('ristorni.subtitle')}</p>
+ <p className="text-info text-sm">{t('ristorni.subtitle')}</p>
  </div>
 
  {/* What are ristorni */}
  <div className="bg-surface rounded-2xl p-4 sm:p-6 border border-edge">
  <h3 className="font-bold text-strong mb-3 flex items-center gap-2">
- <Info size={18} className="text-teal-600" /> {t('ristorni.whatAre')}
+ <Info size={18} className="text-info" /> {t('ristorni.whatAre')}
  </h3>
  <p className="text-sm text-subtle mb-4">{t('ristorni.explanation')}</p>
  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -108,7 +108,7 @@ const RistorniTracker: React.FC = () => {
  <div className="bg-surface rounded-2xl border border-edge overflow-hidden">
  <button onClick={() => toggleSection('calculator')} className="w-full flex items-center justify-between p-4" aria-expanded={expandedSection === 'calculator'}>
  <h3 className="font-bold text-strong flex items-center gap-2">
- <Calculator size={18} className="text-teal-600" /> {t('ristorni.yourContribution')}
+ <Calculator size={18} className="text-info" /> {t('ristorni.yourContribution')}
  </h3>
  {expandedSection === 'calculator' ? <ChevronUp size={18} className="text-muted" /> : <ChevronDown size={18} className="text-muted" />}
  </button>
@@ -170,7 +170,7 @@ const RistorniTracker: React.FC = () => {
  <div className="bg-surface rounded-2xl border border-edge overflow-hidden">
  <button onClick={() => toggleSection('ranking')} className="w-full flex items-center justify-between p-4" aria-expanded={expandedSection === 'ranking'}>
  <h3 className="font-bold text-strong flex items-center gap-2">
- <TrendingUp size={18} className="text-emerald-700" /> {t('ristorni.ranking')}
+ <TrendingUp size={18} className="text-success" /> {t('ristorni.ranking')}
  </h3>
  {expandedSection === 'ranking' ? <ChevronUp size={18} className="text-muted" /> : <ChevronDown size={18} className="text-muted" />}
  </button>
@@ -214,7 +214,7 @@ const RistorniTracker: React.FC = () => {
  <div className="bg-surface rounded-2xl border border-edge overflow-hidden">
  <button onClick={() => toggleSection('history')} className="w-full flex items-center justify-between p-4" aria-expanded={expandedSection === 'history'}>
  <h3 className="font-bold text-strong flex items-center gap-2">
- <TrendingUp size={18} className="text-stripe-600" /> {t('ristorni.historicalTrend')}
+ <TrendingUp size={18} className="text-accent" /> {t('ristorni.historicalTrend')}
  </h3>
  {expandedSection === 'history' ? <ChevronUp size={18} className="text-muted" /> : <ChevronDown size={18} className="text-muted" />}
  </button>
@@ -226,10 +226,10 @@ const RistorniTracker: React.FC = () => {
  <span className="text-sm font-bold text-subtle w-12">{rate.year}</span>
  <div className="flex-1 bg-surface-raised rounded-full h-6 overflow-hidden">
  <div
- className="h-full bg-gradient-to-r from-teal-500 to-emerald-600 rounded-full flex items-center justify-end pr-2"
+ className="h-full bg-gradient-to-r from-info-strong to-success-strong rounded-full flex items-center justify-end pr-2"
  style={{ width: `${Math.min(100, (rate.totalMillions / 120) * 100)}%` }}
  >
- <span className="text-xs font-bold text-white">€{rate.totalMillions}M</span>
+ <span className="text-xs font-bold text-on-accent">€{rate.totalMillions}M</span>
  </div>
  </div>
  </div>

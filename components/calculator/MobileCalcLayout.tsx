@@ -251,7 +251,7 @@ const MobileCalcLayout: React.FC<Props> = ({
  {/* Salary */}
  <div className="p-4 pb-3.5">
  <label htmlFor="mc-salary" className="text-xs font-bold text-muted uppercase tracking-wider flex items-center gap-1.5 mb-2">
- <Coins size={12} className="text-amber-500" />
+ <Coins size={12} className="text-warning" />
  {t('mobileCalc.salary')}
  </label>
  <div className="flex items-stretch gap-2">
@@ -271,7 +271,7 @@ const MobileCalcLayout: React.FC<Props> = ({
  inputMode="numeric"
  value={formatNumber(inputs.annualIncomeCHF)}
  onChange={(e) => handleChange('annualIncomeCHF', parseNumber(e.target.value))}
- className="w-full pl-14 pr-3 py-3.5 bg-surface-alt border-2 border-edge rounded-xl focus-visible:ring-4 focus-visible:border-stripe-500 focus-visible:ring-accent/10 outline-none transition-[color,border-color,box-shadow] font-bold text-strong text-2xl tracking-tight text-center"
+ className="w-full pl-14 pr-3 py-3.5 bg-surface-alt border-2 border-edge rounded-xl focus-visible:ring-4 focus-visible:border-accent focus-visible:ring-accent/10 outline-none transition-[color,border-color,box-shadow] font-bold text-strong text-2xl tracking-tight text-center"
  placeholder="0"
  />
  </div>
@@ -290,8 +290,8 @@ const MobileCalcLayout: React.FC<Props> = ({
  onClick={() => handleChange('annualIncomeCHF', s)}
  className={`shrink-0 px-2.5 py-1 rounded-lg text-xs font-bold transition-colors ${
  inputs.annualIncomeCHF === s
- ? 'bg-stripe-600 text-white shadow-sm'
- : 'bg-surface-raised text-muted hover:bg-slate-200'
+ ? 'bg-accent-strong text-on-accent shadow-sm'
+ : 'bg-surface-raised text-muted hover:bg-surface-raised'
  }`}
  >
  {(s / 1000)}k
@@ -303,7 +303,7 @@ const MobileCalcLayout: React.FC<Props> = ({
  {/* Frontier type toggle */}
  <div className="px-4 pb-4">
  <label className="text-xs font-bold text-muted uppercase tracking-wider flex items-center gap-1.5 mb-2">
- <TrainFront size={12} className="text-emerald-600" />
+ <TrainFront size={12} className="text-success" />
  {t('input.frontierType')}
  </label>
  <div className="grid grid-cols-2 gap-2.5">
@@ -311,12 +311,12 @@ const MobileCalcLayout: React.FC<Props> = ({
  onClick={() => { handleChange('frontierWorkerType', 'NEW'); handleChange('distanceZone', 'WITHIN_20KM'); }}
  className={`relative p-2.5 rounded-xl border-2 transition-[color,background-color,border-color] flex flex-col items-center gap-0.5 ${
  inputs.frontierWorkerType === 'NEW'
- ? 'border-stripe-500 bg-accent-subtle'
+ ? 'border-accent bg-accent-subtle'
  : 'border-edge bg-surface-alt'
  }`}
  >
  {inputs.frontierWorkerType === 'NEW' && (
- <div className="absolute top-1.5 right-1.5 bg-stripe-500 text-white rounded-full p-0.5"><Check size={8} strokeWidth={4} /></div>
+ <div className="absolute top-1.5 right-1.5 bg-accent-strong text-on-accent rounded-full p-0.5"><Check size={8} strokeWidth={4} /></div>
  )}
  <span className={`font-bold text-xs ${inputs.frontierWorkerType === 'NEW' ? 'text-accent' : 'text-subtle'}`}>
  {t('input.newFrontier')}
@@ -327,12 +327,12 @@ const MobileCalcLayout: React.FC<Props> = ({
  onClick={() => handleChange('frontierWorkerType', 'OLD')}
  className={`relative p-2.5 rounded-xl border-2 transition-[color,background-color,border-color] flex flex-col items-center gap-0.5 ${
  inputs.frontierWorkerType === 'OLD'
- ? 'border-emerald-500 bg-success-subtle'
+ ? 'border-success bg-success-subtle'
  : 'border-edge bg-surface-alt'
  }`}
  >
  {inputs.frontierWorkerType === 'OLD' && (
- <div className="absolute top-1.5 right-1.5 bg-emerald-700 text-white rounded-full p-0.5"><Check size={8} strokeWidth={4} /></div>
+ <div className="absolute top-1.5 right-1.5 bg-success-strong text-on-accent rounded-full p-0.5"><Check size={8} strokeWidth={4} /></div>
  )}
  <span className={`font-bold text-xs ${inputs.frontierWorkerType === 'OLD' ? 'text-success' : 'text-subtle'}`}>
  {t('input.oldFrontier')}
@@ -380,12 +380,12 @@ const MobileCalcLayout: React.FC<Props> = ({
  }`}>
  <div className="p-1.5 bg-white/20 rounded-lg">
  {isBetterIT
- ? <TrendingUp size={20} className="text-white" />
- : <TrendingDown size={20} className="text-white" />
+ ? <TrendingUp size={20} className="text-on-accent" />
+ : <TrendingDown size={20} className="text-on-accent" />
  }
  </div>
  <div className="flex-1">
- <div className="text-white font-bold text-sm tracking-tight">
+ <div className="text-on-accent font-bold text-sm tracking-tight">
  {isBetterIT ? t('mobileCalc.betterIT') : t('mobileCalc.betterCH')}
  </div>
  <div className="text-white/80 text-xs font-bold">
@@ -456,8 +456,8 @@ const MobileCalcLayout: React.FC<Props> = ({
  onClick={toggleFullResults}
  className={`flex-1 py-2.5 rounded-xl text-xs font-bold transition-[color,background-color,transform] active:scale-95 ${
  isBetterIT
- ? 'bg-emerald-600 hover:bg-emerald-700 text-white shadow-lg shadow-emerald-500/20'
- : 'bg-accent hover:bg-accent-hover text-white shadow-lg shadow-stripe-500/20'
+ ? 'bg-success-strong hover:bg-success-strong-hover text-on-accent shadow-lg shadow-success-strong/20'
+ : 'bg-accent hover:bg-accent-hover text-on-accent shadow-lg shadow-accent/20'
  }`}
  >
  {showFullResults ? <ChevronUp size={14} className="inline mr-1" /> : <ArrowDown size={14} className="inline mr-1" />}
@@ -479,7 +479,7 @@ const MobileCalcLayout: React.FC<Props> = ({
  {result && !showFullResults && !sheetOpen && (
  <button
  onClick={openSheet}
- className="w-full flex items-center justify-center gap-2 py-2 text-xs font-semibold text-muted hover:text-slate-700 transition-colors"
+ className="w-full flex items-center justify-center gap-2 py-2 text-xs font-semibold text-muted hover:text-body transition-colors"
  >
  <Settings2 size={12} />
  {t('mobileCalc.adjustParams')}
@@ -521,23 +521,23 @@ const MobileCalcLayout: React.FC<Props> = ({
  <>
  <div className="fixed inset-0 bg-black/50 z-[70] animate-fade-in" role="button" tabIndex={0} onClick={dismissGate} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); dismissGate(); } }} aria-label="Chiudi modale" />
  <div role="dialog" aria-modal="true" aria-label={t('newsletterGate.title') || 'Iscriviti alla newsletter'} className="fixed inset-x-4 top-1/2 -translate-y-1/2 z-[71] bg-surface rounded-2xl shadow-2xl max-w-sm mx-auto overflow-hidden animate-fade-in">
- <div className="bg-gradient-to-r from-teal-600 to-emerald-600 px-5 py-4 text-center">
- <Mail size={28} className="text-white mx-auto mb-2" />
- <h3 className="text-white font-bold text-lg">{t('newsletterGate.title')}</h3>
+ <div className="bg-gradient-to-r from-info-strong to-success-strong px-5 py-4 text-center">
+ <Mail size={28} className="text-on-accent mx-auto mb-2" />
+ <h3 className="text-on-accent font-bold text-lg">{t('newsletterGate.title')}</h3>
  <p className="text-white/80 text-xs mt-1">{t('newsletterGate.subtitle')}</p>
  </div>
  <div className="p-5 space-y-3">
  <div className="space-y-2 text-sm text-subtle">
  <div className="flex items-start gap-2">
- <TrendingUp size={14} className="text-stripe-600 mt-0.5 shrink-0" />
+ <TrendingUp size={14} className="text-accent mt-0.5 shrink-0" />
  <span>{t('newsletterGate.benefit1')}</span>
  </div>
  <div className="flex items-start gap-2">
- <Briefcase size={14} className="text-emerald-600 mt-0.5 shrink-0" />
+ <Briefcase size={14} className="text-success mt-0.5 shrink-0" />
  <span>{t('newsletterGate.benefit2', getCantonI18nParams())}</span>
  </div>
  <div className="flex items-start gap-2">
- <Coins size={14} className="text-amber-600 mt-0.5 shrink-0" />
+ <Coins size={14} className="text-warning mt-0.5 shrink-0" />
  <span>{t('newsletterGate.benefit3')}</span>
  </div>
  </div>
@@ -558,7 +558,7 @@ const MobileCalcLayout: React.FC<Props> = ({
  </button>
  )}
  {linkedInAvailable && (
- <button type="button" onClick={() => signInWithLinkedIn()} className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#0A66C2] hover:bg-[#004182] text-white text-sm font-semibold transition-colors">
+ <button type="button" onClick={() => signInWithLinkedIn()} className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#0A66C2] hover:bg-[#004182] text-on-accent text-sm font-semibold transition-colors">
  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
  {locale === 'it' ? 'Continua con LinkedIn' : locale === 'de' ? 'Mit LinkedIn fortfahren' : locale === 'fr' ? 'Continuer avec LinkedIn' : 'Continue with LinkedIn'}
  </button>
@@ -583,13 +583,13 @@ const MobileCalcLayout: React.FC<Props> = ({
  <button
  onClick={handleGateSubscribe}
  disabled={gateStatus === 'loading' || !gateEmail.includes('@')}
- className="w-full py-2.5 rounded-xl text-sm font-bold bg-accent hover:bg-accent-hover text-white transition-[color,background-color,opacity] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+ className="w-full py-2.5 rounded-xl text-sm font-bold bg-accent hover:bg-accent-hover text-on-accent transition-[color,background-color,opacity] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
  >
  {gateStatus === 'loading' ? <Loader2 size={16} className="animate-spin" /> : <Mail size={16} />}
  {t('newsletterGate.subscribe')}
  </button>
  {gateStatus === 'error' && (
- <p className="text-xs text-red-500 text-center">{t('newsletterGate.error')}</p>
+ <p className="text-xs text-danger text-center">{t('newsletterGate.error')}</p>
  )}
  </>
  )}

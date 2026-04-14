@@ -16,33 +16,33 @@ let _dbInit = false;
  * Debounces via sessionStorage so each slug counts once per session.
  */
 export async function trackJobView(slug: string): Promise<void> {
-  if (!slug) return;
+ if (!slug) return;
 
-  // Session debounce — one view per slug per browser session
-  const key = `jv_${slug}`;
-  try {
-    if (sessionStorage.getItem(key)) return;
-    sessionStorage.setItem(key, '1');
-  } catch {
-    // sessionStorage unavailable — proceed anyway (no debounce)
-  }
+ // Session debounce — one view per slug per browser session
+ const key = `jv_${slug}`;
+ try {
+ if (sessionStorage.getItem(key)) return;
+ sessionStorage.setItem(key, '1');
+ } catch {
+ // sessionStorage unavailable — proceed anyway (no debounce)
+ }
 
-  try {
-    if (!_dbInit) {
-      _dbInit = true;
-      const { getFirestore } = await import('firebase/firestore');
-      const { app } = await import('@/services/firebase');
-      _db = getFirestore(app);
-    }
-    if (!_db) return;
+ try {
+ if (!_dbInit) {
+ _dbInit = true;
+ const { getFirestore } = await import('firebase/firestore');
+ const { app } = await import('@/services/firebase');
+ _db = getFirestore(app);
+ }
+ if (!_db) return;
 
-    const { doc, setDoc, increment } = await import('firebase/firestore');
-    await setDoc(
-      doc(_db, 'job_views', slug),
-      { views: increment(1), lastViewed: new Date() },
-      { merge: true },
-    );
-  } catch {
-    // Non-blocking — never break job page loading
-  }
+ const { doc, setDoc, increment } = await import('firebase/firestore');
+ await setDoc(
+ doc(_db, 'job_views', slug),
+ { views: increment(1), lastViewed: new Date() },
+ { merge: true },
+ );
+ } catch {
+ // Non-blocking — never break job page loading
+ }
 }

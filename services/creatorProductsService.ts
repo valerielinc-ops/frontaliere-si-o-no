@@ -4,753 +4,753 @@ import { getLocale, type Locale } from '@/services/i18n';
 import amazonProductsData from '@/data/amazon-products.json';
 
 interface AmazonProductEntry {
-  asin: string;
-  title: string;
-  imageUrl: string;
-  price: string;
-  priceAmount: number;
-  available: boolean;
-  affiliateUrl: string;
+ asin: string;
+ title: string;
+ imageUrl: string;
+ price: string;
+ priceAmount: number;
+ available: boolean;
+ affiliateUrl: string;
 }
 
 // Build lookup by ASIN for fast enrichment
 const _apiProductsByAsin = new Map<string, AmazonProductEntry>();
 if (amazonProductsData?.products && Array.isArray(amazonProductsData.products)) {
-  for (const p of amazonProductsData.products as AmazonProductEntry[]) {
-    if (p.asin) _apiProductsByAsin.set(p.asin, p);
-  }
+ for (const p of amazonProductsData.products as AmazonProductEntry[]) {
+ if (p.asin) _apiProductsByAsin.set(p.asin, p);
+ }
 }
 
 export interface CreatorProduct {
-  id: string;
-  asin: string;
-  title: string;
-  category: string;
-  emoji: string;
-  /** Amazon CDN image ID (from m.media-amazon.com/images/I/{imageId}) */
-  imageId: string;
-  keywordTags: string[];
-  payoutPriority: number; // 1-10 (higher = higher expected payout)
-  searchQuery: string;
+ id: string;
+ asin: string;
+ title: string;
+ category: string;
+ emoji: string;
+ /** Amazon CDN image ID (from m.media-amazon.com/images/I/{imageId}) */
+ imageId: string;
+ keywordTags: string[];
+ payoutPriority: number; // 1-10 (higher = higher expected payout)
+ searchQuery: string;
 }
 
 const DEFAULT_AMAZON_PARTNER_TAG = 'luigi066-21';
 
 const MARKETPLACE_BY_LOCALE: Record<Locale, string> = {
-  it: 'https://www.amazon.it',
-  en: 'https://www.amazon.it',
-  de: 'https://www.amazon.it',
-  fr: 'https://www.amazon.it',
+ it: 'https://www.amazon.it',
+ en: 'https://www.amazon.it',
+ de: 'https://www.amazon.it',
+ fr: 'https://www.amazon.it',
 };
 
 const CREATOR_PRODUCTS: CreatorProduct[] = [
-  // ── Fisco & Finanza (6 prodotti) ──────────────────────────────
-  {
-    id: 'trading-book',
-    asin: '8820396246',
-    title: "L'investitore intelligente (libro)",
-    category: 'finance',
-    emoji: '📈',
-    imageId: '61T4a87qvXL',
-    keywordTags: ['cambio', 'chf', 'eur', 'investimenti', 'risparmio', 'borsa', 'frontalieri'],
-    payoutPriority: 9,
-    searchQuery: 'investimenti finanza personale libro',
-  },
-  {
-    id: 'tax-guide-book',
-    asin: 'B0F7DS11QM',
-    title: 'Guida dichiarazione dei redditi (libro)',
-    category: 'tax',
-    emoji: '🧾',
-    imageId: '71EXhOHXu8L',
-    keywordTags: ['tasse', 'irpef', 'credito', 'imposta', 'dichiarazione', '730', 'frontaliere'],
-    payoutPriority: 8,
-    searchQuery: 'guida fiscale dichiarazione redditi libro',
-  },
-  {
-    id: 'tax-software',
-    asin: 'B06XWTNH8S',
-    title: 'Cartellina portadocumenti A4 espandibile',
-    category: 'tax',
-    emoji: '📂',
-    imageId: '51yU7zDmyzL',
-    keywordTags: ['fiscale', 'documenti', 'scadenze', 'dichiarazione', 'moduli'],
-    payoutPriority: 8,
-    searchQuery: 'cartella organizzazione documenti fiscali',
-  },
-  {
-    id: 'financial-calculator',
-    asin: 'B005D7H39G',
-    title: 'Calcolatrice finanziaria HP 12C',
-    category: 'finance',
-    emoji: '🔢',
-    imageId: '61Mhyvb0TfL',
-    keywordTags: ['calcolo', 'interessi', 'mutuo', 'investimenti', 'finanza', 'cambio'],
-    payoutPriority: 7,
-    searchQuery: 'calcolatrice finanziaria HP 12C',
-  },
-  {
-    id: 'intl-tax-book',
-    asin: 'B0GPRG8139',
-    title: 'Diritto tributario internazionale (libro)',
-    category: 'tax',
-    emoji: '🌍',
-    imageId: '61XBQ8fh7VL',
-    keywordTags: ['tasse', 'frontaliere', 'svizzera', 'italia', 'doppia imposizione', 'accordo'],
-    payoutPriority: 9,
-    searchQuery: 'fiscalità internazionale doppia imposizione libro',
-  },
-  {
-    id: 'document-organizer',
-    asin: 'B07RQWZY34',
-    title: 'Cartella portadocumenti espandibile A4',
-    category: 'tax',
-    emoji: '🗃️',
-    imageId: '61pwfbAqa4L',
-    keywordTags: ['documenti', 'dichiarazione', 'fiscale', 'organizzazione', 'archivio'],
-    payoutPriority: 6,
-    searchQuery: 'organizer documenti fisarmonica cartella',
-  },
+ // ── Fisco & Finanza (6 prodotti) ──────────────────────────────
+ {
+ id: 'trading-book',
+ asin: '8820396246',
+ title: "L'investitore intelligente (libro)",
+ category: 'finance',
+ emoji: '📈',
+ imageId: '61T4a87qvXL',
+ keywordTags: ['cambio', 'chf', 'eur', 'investimenti', 'risparmio', 'borsa', 'frontalieri'],
+ payoutPriority: 9,
+ searchQuery: 'investimenti finanza personale libro',
+ },
+ {
+ id: 'tax-guide-book',
+ asin: 'B0F7DS11QM',
+ title: 'Guida dichiarazione dei redditi (libro)',
+ category: 'tax',
+ emoji: '🧾',
+ imageId: '71EXhOHXu8L',
+ keywordTags: ['tasse', 'irpef', 'credito', 'imposta', 'dichiarazione', '730', 'frontaliere'],
+ payoutPriority: 8,
+ searchQuery: 'guida fiscale dichiarazione redditi libro',
+ },
+ {
+ id: 'tax-software',
+ asin: 'B06XWTNH8S',
+ title: 'Cartellina portadocumenti A4 espandibile',
+ category: 'tax',
+ emoji: '📂',
+ imageId: '51yU7zDmyzL',
+ keywordTags: ['fiscale', 'documenti', 'scadenze', 'dichiarazione', 'moduli'],
+ payoutPriority: 8,
+ searchQuery: 'cartella organizzazione documenti fiscali',
+ },
+ {
+ id: 'financial-calculator',
+ asin: 'B005D7H39G',
+ title: 'Calcolatrice finanziaria HP 12C',
+ category: 'finance',
+ emoji: '🔢',
+ imageId: '61Mhyvb0TfL',
+ keywordTags: ['calcolo', 'interessi', 'mutuo', 'investimenti', 'finanza', 'cambio'],
+ payoutPriority: 7,
+ searchQuery: 'calcolatrice finanziaria HP 12C',
+ },
+ {
+ id: 'intl-tax-book',
+ asin: 'B0GPRG8139',
+ title: 'Diritto tributario internazionale (libro)',
+ category: 'tax',
+ emoji: '🌍',
+ imageId: '61XBQ8fh7VL',
+ keywordTags: ['tasse', 'frontaliere', 'svizzera', 'italia', 'doppia imposizione', 'accordo'],
+ payoutPriority: 9,
+ searchQuery: 'fiscalità internazionale doppia imposizione libro',
+ },
+ {
+ id: 'document-organizer',
+ asin: 'B07RQWZY34',
+ title: 'Cartella portadocumenti espandibile A4',
+ category: 'tax',
+ emoji: '🗃️',
+ imageId: '61pwfbAqa4L',
+ keywordTags: ['documenti', 'dichiarazione', 'fiscale', 'organizzazione', 'archivio'],
+ payoutPriority: 6,
+ searchQuery: 'organizer documenti fisarmonica cartella',
+ },
 
-  // ── Trasporto & Pendolarismo (6 prodotti) ─────────────────────
-  {
-    id: 'dashcam',
-    asin: 'B0CQX4WDLQ',
-    title: 'Dashcam auto 4K con GPS e WiFi',
-    category: 'transport',
-    emoji: '🚗',
-    imageId: '71IS4J1skrL',
-    keywordTags: ['traffico', 'frontiera', 'auto', 'pendolare', 'viaggio', 'trasporto'],
-    payoutPriority: 7,
-    searchQuery: 'dashcam auto 4K WiFi GPS',
-  },
-  {
-    id: 'phone-mount',
-    asin: 'B0CR3P1SVL',
-    title: 'Supporto smartphone magnetico auto',
-    category: 'transport',
-    emoji: '📱',
-    imageId: '71Mav34qzBL',
-    keywordTags: ['auto', 'navigazione', 'pendolare', 'frontiera', 'gps', 'trasporto'],
-    payoutPriority: 6,
-    searchQuery: 'supporto cellulare auto magnetico',
-  },
-  {
-    id: 'car-charger',
-    asin: 'B0BVZFVH7Y',
-    title: 'Caricatore auto USB-C rapido',
-    category: 'transport',
-    emoji: '🔌',
-    imageId: '81-LPKzIPKL',
-    keywordTags: ['auto', 'pendolare', 'ricarica', 'viaggio', 'trasporto'],
-    payoutPriority: 5,
-    searchQuery: 'caricatore auto USB-C ricarica rapida',
-  },
-  {
-    id: 'lumbar-cushion',
-    asin: 'B0DC3VBHLV',
-    title: 'Cuscino lombare ergonomico memory foam',
-    category: 'transport',
-    emoji: '🪑',
-    imageId: '71u09aO9gJL',
-    keywordTags: ['auto', 'pendolare', 'schiena', 'ergonomia', 'viaggio', 'comfort'],
-    payoutPriority: 6,
-    searchQuery: 'cuscino lombare supporto auto ergonomico',
-  },
-  {
-    id: 'commuter-bag',
-    asin: 'B0FF4X2JB9',
-    title: 'Zaino laptop da pendolare',
-    category: 'transport',
-    emoji: '💼',
-    imageId: '61n+148j0uL',
-    keywordTags: ['pendolare', 'lavoro', 'laptop', 'treno', 'viaggio', 'trasporto'],
-    payoutPriority: 6,
-    searchQuery: 'borsa laptop pendolare impermeabile',
-  },
-  {
-    id: 'audiobook-sub',
-    asin: 'B01BNITJOU',
-    title: 'Audible - audiolibri in viaggio',
-    category: 'transport',
-    emoji: '🎧',
-    imageId: '21MjMFj7JAL',
-    keywordTags: ['pendolare', 'viaggio', 'auto', 'treno', 'audiolibri', 'formazione'],
-    payoutPriority: 8,
-    searchQuery: 'audible abbonamento audiolibri',
-  },
+ // ── Trasporto & Pendolarismo (6 prodotti) ─────────────────────
+ {
+ id: 'dashcam',
+ asin: 'B0CQX4WDLQ',
+ title: 'Dashcam auto 4K con GPS e WiFi',
+ category: 'transport',
+ emoji: '🚗',
+ imageId: '71IS4J1skrL',
+ keywordTags: ['traffico', 'frontiera', 'auto', 'pendolare', 'viaggio', 'trasporto'],
+ payoutPriority: 7,
+ searchQuery: 'dashcam auto 4K WiFi GPS',
+ },
+ {
+ id: 'phone-mount',
+ asin: 'B0CR3P1SVL',
+ title: 'Supporto smartphone magnetico auto',
+ category: 'transport',
+ emoji: '📱',
+ imageId: '71Mav34qzBL',
+ keywordTags: ['auto', 'navigazione', 'pendolare', 'frontiera', 'gps', 'trasporto'],
+ payoutPriority: 6,
+ searchQuery: 'supporto cellulare auto magnetico',
+ },
+ {
+ id: 'car-charger',
+ asin: 'B0BVZFVH7Y',
+ title: 'Caricatore auto USB-C rapido',
+ category: 'transport',
+ emoji: '🔌',
+ imageId: '81-LPKzIPKL',
+ keywordTags: ['auto', 'pendolare', 'ricarica', 'viaggio', 'trasporto'],
+ payoutPriority: 5,
+ searchQuery: 'caricatore auto USB-C ricarica rapida',
+ },
+ {
+ id: 'lumbar-cushion',
+ asin: 'B0DC3VBHLV',
+ title: 'Cuscino lombare ergonomico memory foam',
+ category: 'transport',
+ emoji: '🪑',
+ imageId: '71u09aO9gJL',
+ keywordTags: ['auto', 'pendolare', 'schiena', 'ergonomia', 'viaggio', 'comfort'],
+ payoutPriority: 6,
+ searchQuery: 'cuscino lombare supporto auto ergonomico',
+ },
+ {
+ id: 'commuter-bag',
+ asin: 'B0FF4X2JB9',
+ title: 'Zaino laptop da pendolare',
+ category: 'transport',
+ emoji: '💼',
+ imageId: '61n+148j0uL',
+ keywordTags: ['pendolare', 'lavoro', 'laptop', 'treno', 'viaggio', 'trasporto'],
+ payoutPriority: 6,
+ searchQuery: 'borsa laptop pendolare impermeabile',
+ },
+ {
+ id: 'audiobook-sub',
+ asin: 'B01BNITJOU',
+ title: 'Audible - audiolibri in viaggio',
+ category: 'transport',
+ emoji: '🎧',
+ imageId: '21MjMFj7JAL',
+ keywordTags: ['pendolare', 'viaggio', 'auto', 'treno', 'audiolibri', 'formazione'],
+ payoutPriority: 8,
+ searchQuery: 'audible abbonamento audiolibri',
+ },
 
-  // ── Lavoro & Carriera (6 prodotti) ────────────────────────────
-  {
-    id: 'language-course',
-    asin: '8858345258',
-    title: 'Grammatica tedesca con esercizi (libro)',
-    category: 'career',
-    emoji: '🗣️',
-    imageId: '51R75cc+GuL',
-    keywordTags: ['lavoro', 'colloquio', 'cv', 'career', 'job', 'tedesco', 'francese'],
-    payoutPriority: 8,
-    searchQuery: 'corso tedesco lavoro libro',
-  },
-  {
-    id: 'swiss-interview-guide',
-    asin: 'B0C5BCCCVG',
-    title: 'Guida colloquio di lavoro vincente (libro)',
-    category: 'career',
-    emoji: '🤝',
-    imageId: '71PsXIVtmXL',
-    keywordTags: ['colloquio', 'lavoro', 'svizzera', 'cv', 'career', 'job', 'candidatura'],
-    payoutPriority: 8,
-    searchQuery: 'guida colloquio lavoro svizzera preparazione',
-  },
-  {
-    id: 'webcam-hd',
-    asin: 'B09ZKXV1MY',
-    title: 'Webcam 1080P con microfono e altoparlante',
-    category: 'career',
-    emoji: '📹',
-    imageId: '610JhJ3RWuL',
-    keywordTags: ['smart working', 'lavoro', 'remoto', 'videocall', 'ufficio'],
-    payoutPriority: 7,
-    searchQuery: 'webcam full hd smart working',
-  },
-  {
-    id: 'noise-cancelling-headphones',
-    asin: 'B0D41JQTF8',
-    title: 'Cuffie noise cancelling wireless',
-    category: 'career',
-    emoji: '🎧',
-    imageId: '61CYak3FNWL',
-    keywordTags: ['lavoro', 'ufficio', 'concentrazione', 'smart working', 'cuffie', 'rumore'],
-    payoutPriority: 8,
-    searchQuery: 'cuffie bluetooth cancellazione rumore',
-  },
-  {
-    id: 'standing-desk-converter',
-    asin: 'B0FPLVBP1P',
-    title: 'Standing desk converter regolabile',
-    category: 'career',
-    emoji: '🖥️',
-    imageId: '71HFTqvlAjL',
-    keywordTags: ['ergonomia', 'ufficio', 'smart working', 'salute', 'scrivania', 'lavoro'],
-    payoutPriority: 7,
-    searchQuery: 'standing desk converter scrivania regolabile',
-  },
-  {
-    id: 'home-office-kit',
-    asin: 'B0CCNQP9F2',
-    title: 'Supporto laptop ergonomico pieghevole',
-    category: 'productivity',
-    emoji: '💻',
-    imageId: '61lKZJiIyVL',
-    keywordTags: ['smart working', 'lavoro', 'ufficio', 'casa', 'produttività'],
-    payoutPriority: 7,
-    searchQuery: 'supporto laptop ergonomia home office',
-  },
+ // ── Lavoro & Carriera (6 prodotti) ────────────────────────────
+ {
+ id: 'language-course',
+ asin: '8858345258',
+ title: 'Grammatica tedesca con esercizi (libro)',
+ category: 'career',
+ emoji: '🗣️',
+ imageId: '51R75cc+GuL',
+ keywordTags: ['lavoro', 'colloquio', 'cv', 'career', 'job', 'tedesco', 'francese'],
+ payoutPriority: 8,
+ searchQuery: 'corso tedesco lavoro libro',
+ },
+ {
+ id: 'swiss-interview-guide',
+ asin: 'B0C5BCCCVG',
+ title: 'Guida colloquio di lavoro vincente (libro)',
+ category: 'career',
+ emoji: '🤝',
+ imageId: '71PsXIVtmXL',
+ keywordTags: ['colloquio', 'lavoro', 'svizzera', 'cv', 'career', 'job', 'candidatura'],
+ payoutPriority: 8,
+ searchQuery: 'guida colloquio lavoro svizzera preparazione',
+ },
+ {
+ id: 'webcam-hd',
+ asin: 'B09ZKXV1MY',
+ title: 'Webcam 1080P con microfono e altoparlante',
+ category: 'career',
+ emoji: '📹',
+ imageId: '610JhJ3RWuL',
+ keywordTags: ['smart working', 'lavoro', 'remoto', 'videocall', 'ufficio'],
+ payoutPriority: 7,
+ searchQuery: 'webcam full hd smart working',
+ },
+ {
+ id: 'noise-cancelling-headphones',
+ asin: 'B0D41JQTF8',
+ title: 'Cuffie noise cancelling wireless',
+ category: 'career',
+ emoji: '🎧',
+ imageId: '61CYak3FNWL',
+ keywordTags: ['lavoro', 'ufficio', 'concentrazione', 'smart working', 'cuffie', 'rumore'],
+ payoutPriority: 8,
+ searchQuery: 'cuffie bluetooth cancellazione rumore',
+ },
+ {
+ id: 'standing-desk-converter',
+ asin: 'B0FPLVBP1P',
+ title: 'Standing desk converter regolabile',
+ category: 'career',
+ emoji: '🖥️',
+ imageId: '71HFTqvlAjL',
+ keywordTags: ['ergonomia', 'ufficio', 'smart working', 'salute', 'scrivania', 'lavoro'],
+ payoutPriority: 7,
+ searchQuery: 'standing desk converter scrivania regolabile',
+ },
+ {
+ id: 'home-office-kit',
+ asin: 'B0CCNQP9F2',
+ title: 'Supporto laptop ergonomico pieghevole',
+ category: 'productivity',
+ emoji: '💻',
+ imageId: '61lKZJiIyVL',
+ keywordTags: ['smart working', 'lavoro', 'ufficio', 'casa', 'produttività'],
+ payoutPriority: 7,
+ searchQuery: 'supporto laptop ergonomia home office',
+ },
 
-  // ── Casa & Risparmio (5 prodotti) ─────────────────────────────
-  {
-    id: 'budget-planner',
-    asin: 'B072QR1S3T',
-    title: 'Lavagna calendario magnetico per budget',
-    category: 'budget',
-    emoji: '📒',
-    imageId: '71Y2r1pgBkL',
-    keywordTags: ['budget', 'risparmio', 'stipendio', 'spese', 'franchi', 'euro'],
-    payoutPriority: 7,
-    searchQuery: 'planner budget mensile agenda',
-  },
-  {
-    id: 'saving-book',
-    asin: 'B0GG3RXDML',
-    title: 'Il libro del risparmio e budget planner',
-    category: 'budget',
-    emoji: '💰',
-    imageId: '71KneLITCuL',
-    keywordTags: ['risparmio', 'budget', 'denaro', 'spese', 'stipendio', 'finanza'],
-    payoutPriority: 7,
-    searchQuery: 'libro risparmio gestione denaro personale',
-  },
-  {
-    id: 'power-bank',
-    asin: 'B0D63H6KKV',
-    title: 'Power bank 20000mAh USB-C',
-    category: 'travel',
-    emoji: '🔋',
-    imageId: '51SMg0amvSL',
-    keywordTags: ['viaggio', 'pendolare', 'ricarica', 'smartphone', 'lavoro'],
-    payoutPriority: 5,
-    searchQuery: 'power bank 20000mah usb-c ricarica rapida',
-  },
-  {
-    id: 'thermos-coffee',
-    asin: 'B0CH4WGRQQ',
-    title: 'Thermos caffè da viaggio acciaio inox',
-    category: 'travel',
-    emoji: '☕',
-    imageId: '61MFmJpKvuL',
-    keywordTags: ['pendolare', 'viaggio', 'caffè', 'mattina', 'auto', 'treno'],
-    payoutPriority: 5,
-    searchQuery: 'thermos caffè viaggio acciaio inox',
-  },
-  {
-    id: 'travel-backpack',
-    asin: 'B0DFC9HXH4',
-    title: 'Zaino cabina aereo 40x20x25',
-    category: 'travel',
-    emoji: '🎒',
-    imageId: '51Pu+hcSRHL',
-    keywordTags: ['trasporto', 'lavoro', 'frontalieri', 'viaggio', 'treno'],
-    payoutPriority: 6,
-    searchQuery: 'zaino cabina aereo 40x20x25',
-  },
+ // ── Casa & Risparmio (5 prodotti) ─────────────────────────────
+ {
+ id: 'budget-planner',
+ asin: 'B072QR1S3T',
+ title: 'Lavagna calendario magnetico per budget',
+ category: 'budget',
+ emoji: '📒',
+ imageId: '71Y2r1pgBkL',
+ keywordTags: ['budget', 'risparmio', 'stipendio', 'spese', 'franchi', 'euro'],
+ payoutPriority: 7,
+ searchQuery: 'planner budget mensile agenda',
+ },
+ {
+ id: 'saving-book',
+ asin: 'B0GG3RXDML',
+ title: 'Il libro del risparmio e budget planner',
+ category: 'budget',
+ emoji: '💰',
+ imageId: '71KneLITCuL',
+ keywordTags: ['risparmio', 'budget', 'denaro', 'spese', 'stipendio', 'finanza'],
+ payoutPriority: 7,
+ searchQuery: 'libro risparmio gestione denaro personale',
+ },
+ {
+ id: 'power-bank',
+ asin: 'B0D63H6KKV',
+ title: 'Power bank 20000mAh USB-C',
+ category: 'travel',
+ emoji: '🔋',
+ imageId: '51SMg0amvSL',
+ keywordTags: ['viaggio', 'pendolare', 'ricarica', 'smartphone', 'lavoro'],
+ payoutPriority: 5,
+ searchQuery: 'power bank 20000mah usb-c ricarica rapida',
+ },
+ {
+ id: 'thermos-coffee',
+ asin: 'B0CH4WGRQQ',
+ title: 'Thermos caffè da viaggio acciaio inox',
+ category: 'travel',
+ emoji: '☕',
+ imageId: '61MFmJpKvuL',
+ keywordTags: ['pendolare', 'viaggio', 'caffè', 'mattina', 'auto', 'treno'],
+ payoutPriority: 5,
+ searchQuery: 'thermos caffè viaggio acciaio inox',
+ },
+ {
+ id: 'travel-backpack',
+ asin: 'B0DFC9HXH4',
+ title: 'Zaino cabina aereo 40x20x25',
+ category: 'travel',
+ emoji: '🎒',
+ imageId: '51Pu+hcSRHL',
+ keywordTags: ['trasporto', 'lavoro', 'frontalieri', 'viaggio', 'treno'],
+ payoutPriority: 6,
+ searchQuery: 'zaino cabina aereo 40x20x25',
+ },
 
-  // ── Salute & Benessere (4 prodotti) ───────────────────────────
-  {
-    id: 'health-guide-ch',
-    asin: 'B0F6NDGT7W',
-    title: 'Assicurazione malattia: le regole del gioco',
-    category: 'health',
-    emoji: '🏥',
-    imageId: '61FwkENkulL',
-    keywordTags: ['salute', 'assicurazione', 'lamal', 'cassa malati', 'svizzera', 'sanità'],
-    payoutPriority: 8,
-    searchQuery: 'assicurazione sanitaria svizzera guida libro',
-  },
-  {
-    id: 'vitamins-commuter',
-    asin: 'B07NNTD7M8',
-    title: 'Vitamina B12 Vegan 1000mcg integratore',
-    category: 'health',
-    emoji: '💊',
-    imageId: '61CVqgCUmIL',
-    keywordTags: ['salute', 'energia', 'stanchezza', 'pendolare', 'vitamine'],
-    payoutPriority: 5,
-    searchQuery: 'integratore vitamina B12 energia',
-  },
-  {
-    id: 'water-bottle-thermal',
-    asin: 'B0B57DNFH4',
-    title: 'Borraccia termica 1.5L acciaio inox',
-    category: 'health',
-    emoji: '🥤',
-    imageId: '213Y6l0qBML',
-    keywordTags: ['salute', 'idratazione', 'viaggio', 'pendolare', 'borraccia'],
-    payoutPriority: 4,
-    searchQuery: 'borraccia termica acciaio inox',
-  },
-  {
-    id: 'first-aid-kit-car',
-    asin: 'B09S7MCSJL',
-    title: 'Kit primo soccorso auto standard 2026',
-    category: 'health',
-    emoji: '🩹',
-    imageId: '81XLwFLl2nL',
-    keywordTags: ['auto', 'sicurezza', 'emergenza', 'pendolare', 'viaggio', 'primo soccorso'],
-    payoutPriority: 5,
-    searchQuery: 'kit primo soccorso auto',
-  },
+ // ── Salute & Benessere (4 prodotti) ───────────────────────────
+ {
+ id: 'health-guide-ch',
+ asin: 'B0F6NDGT7W',
+ title: 'Assicurazione malattia: le regole del gioco',
+ category: 'health',
+ emoji: '🏥',
+ imageId: '61FwkENkulL',
+ keywordTags: ['salute', 'assicurazione', 'lamal', 'cassa malati', 'svizzera', 'sanità'],
+ payoutPriority: 8,
+ searchQuery: 'assicurazione sanitaria svizzera guida libro',
+ },
+ {
+ id: 'vitamins-commuter',
+ asin: 'B07NNTD7M8',
+ title: 'Vitamina B12 Vegan 1000mcg integratore',
+ category: 'health',
+ emoji: '💊',
+ imageId: '61CVqgCUmIL',
+ keywordTags: ['salute', 'energia', 'stanchezza', 'pendolare', 'vitamine'],
+ payoutPriority: 5,
+ searchQuery: 'integratore vitamina B12 energia',
+ },
+ {
+ id: 'water-bottle-thermal',
+ asin: 'B0B57DNFH4',
+ title: 'Borraccia termica 1.5L acciaio inox',
+ category: 'health',
+ emoji: '🥤',
+ imageId: '213Y6l0qBML',
+ keywordTags: ['salute', 'idratazione', 'viaggio', 'pendolare', 'borraccia'],
+ payoutPriority: 4,
+ searchQuery: 'borraccia termica acciaio inox',
+ },
+ {
+ id: 'first-aid-kit-car',
+ asin: 'B09S7MCSJL',
+ title: 'Kit primo soccorso auto standard 2026',
+ category: 'health',
+ emoji: '🩹',
+ imageId: '81XLwFLl2nL',
+ keywordTags: ['auto', 'sicurezza', 'emergenza', 'pendolare', 'viaggio', 'primo soccorso'],
+ payoutPriority: 5,
+ searchQuery: 'kit primo soccorso auto',
+ },
 
-  // ── Produttività & Smart Working (5 prodotti extra) ───────────
-  {
-    id: 'portable-monitor',
-    asin: 'B0C9LVG5SR',
-    title: 'Monitor portatile 15.6" FHD USB-C',
-    category: 'productivity',
-    emoji: '🖥️',
-    imageId: '71GKppxMfRL',
-    keywordTags: ['smart working', 'lavoro', 'monitor', 'ufficio', 'produttività', 'remoto'],
-    payoutPriority: 8,
-    searchQuery: 'monitor portatile usb-c smart working',
-  },
-  {
-    id: 'ergonomic-mouse',
-    asin: 'B0DBQ8XJLC',
-    title: 'Mouse verticale ergonomico wireless',
-    category: 'productivity',
-    emoji: '🖱️',
-    imageId: '31MeaUYbcRL',
-    keywordTags: ['ergonomia', 'ufficio', 'smart working', 'lavoro', 'mouse', 'polso'],
-    payoutPriority: 6,
-    searchQuery: 'mouse ergonomico verticale wireless',
-  },
-  {
-    id: 'bluetooth-keyboard',
-    asin: 'B0F1CN972G',
-    title: 'Tastiera Bluetooth wireless compatta',
-    category: 'productivity',
-    emoji: '⌨️',
-    imageId: '61DFtmDd6gL',
-    keywordTags: ['smart working', 'lavoro', 'tastiera', 'ufficio', 'produttività'],
-    payoutPriority: 6,
-    searchQuery: 'tastiera bluetooth wireless smart working',
-  },
-  {
-    id: 'mousepad-ergonomic',
-    asin: 'B07VKSVLYC',
-    title: 'Tappetino mouse ergonomico con poggiapolsi',
-    category: 'productivity',
-    emoji: '🖱️',
-    imageId: '61vo7pTdOJL',
-    keywordTags: ['ergonomia', 'ufficio', 'smart working', 'polso', 'mouse'],
-    payoutPriority: 4,
-    searchQuery: 'tappetino mouse poggiapolsi ergonomico',
-  },
-  {
-    id: 'desk-lamp',
-    asin: 'B07ZCYS2LJ',
-    title: 'Lampada LED scrivania pieghevole',
-    category: 'productivity',
-    emoji: '💡',
-    imageId: '51YklVyO9-L',
-    keywordTags: ['ufficio', 'smart working', 'luce', 'scrivania', 'lavoro'],
-    payoutPriority: 5,
-    searchQuery: 'lampada scrivania led ricaricabile',
-  },
+ // ── Produttività & Smart Working (5 prodotti extra) ───────────
+ {
+ id: 'portable-monitor',
+ asin: 'B0C9LVG5SR',
+ title: 'Monitor portatile 15.6" FHD USB-C',
+ category: 'productivity',
+ emoji: '🖥️',
+ imageId: '71GKppxMfRL',
+ keywordTags: ['smart working', 'lavoro', 'monitor', 'ufficio', 'produttività', 'remoto'],
+ payoutPriority: 8,
+ searchQuery: 'monitor portatile usb-c smart working',
+ },
+ {
+ id: 'ergonomic-mouse',
+ asin: 'B0DBQ8XJLC',
+ title: 'Mouse verticale ergonomico wireless',
+ category: 'productivity',
+ emoji: '🖱️',
+ imageId: '31MeaUYbcRL',
+ keywordTags: ['ergonomia', 'ufficio', 'smart working', 'lavoro', 'mouse', 'polso'],
+ payoutPriority: 6,
+ searchQuery: 'mouse ergonomico verticale wireless',
+ },
+ {
+ id: 'bluetooth-keyboard',
+ asin: 'B0F1CN972G',
+ title: 'Tastiera Bluetooth wireless compatta',
+ category: 'productivity',
+ emoji: '⌨️',
+ imageId: '61DFtmDd6gL',
+ keywordTags: ['smart working', 'lavoro', 'tastiera', 'ufficio', 'produttività'],
+ payoutPriority: 6,
+ searchQuery: 'tastiera bluetooth wireless smart working',
+ },
+ {
+ id: 'mousepad-ergonomic',
+ asin: 'B07VKSVLYC',
+ title: 'Tappetino mouse ergonomico con poggiapolsi',
+ category: 'productivity',
+ emoji: '🖱️',
+ imageId: '61vo7pTdOJL',
+ keywordTags: ['ergonomia', 'ufficio', 'smart working', 'polso', 'mouse'],
+ payoutPriority: 4,
+ searchQuery: 'tappetino mouse poggiapolsi ergonomico',
+ },
+ {
+ id: 'desk-lamp',
+ asin: 'B07ZCYS2LJ',
+ title: 'Lampada LED scrivania pieghevole',
+ category: 'productivity',
+ emoji: '💡',
+ imageId: '51YklVyO9-L',
+ keywordTags: ['ufficio', 'smart working', 'luce', 'scrivania', 'lavoro'],
+ payoutPriority: 5,
+ searchQuery: 'lampada scrivania led ricaricabile',
+ },
 
-  // ── Viaggio & Frontiera (4 prodotti extra) ────────────────────
-  {
-    id: 'travel-adapter',
-    asin: 'B0B2DRC76L',
-    title: 'Adattatore presa Svizzera-Italia universale',
-    category: 'travel',
-    emoji: '🔌',
-    imageId: '61fyJNX1vGL',
-    keywordTags: ['viaggio', 'svizzera', 'italia', 'presa', 'adattatore', 'frontiera'],
-    payoutPriority: 7,
-    searchQuery: 'adattatore presa svizzera italia universale',
-  },
-  {
-    id: 'car-organizer',
-    asin: 'B0FMRTXDHH',
-    title: 'Organizer seggiolino auto con vassoio',
-    category: 'transport',
-    emoji: '🚙',
-    imageId: '81FgqqI9EML',
-    keywordTags: ['auto', 'pendolare', 'organizzazione', 'viaggio', 'frontiera'],
-    payoutPriority: 5,
-    searchQuery: 'organizer auto sedile posteriore',
-  },
-  {
-    id: 'travel-document-holder',
-    asin: 'B0DMVVMF2C',
-    title: 'Portadocumenti da viaggio passaporto',
-    category: 'travel',
-    emoji: '📋',
-    imageId: '71INVW4QIRL',
-    keywordTags: ['documenti', 'passaporto', 'viaggio', 'frontiera', 'permesso', 'frontaliere'],
-    payoutPriority: 7,
-    searchQuery: 'portadocumenti da viaggio passaporto',
-  },
-  {
-    id: 'neck-pillow',
-    asin: 'B0BYF4YVZ9',
-    title: 'Cuscino da viaggio memory foam',
-    category: 'travel',
-    emoji: '😴',
-    imageId: '61WEr9b-whL',
-    keywordTags: ['viaggio', 'pendolare', 'treno', 'auto', 'comfort', 'sonno'],
-    payoutPriority: 5,
-    searchQuery: 'cuscino viaggio aereo memory foam',
-  },
+ // ── Viaggio & Frontiera (4 prodotti extra) ────────────────────
+ {
+ id: 'travel-adapter',
+ asin: 'B0B2DRC76L',
+ title: 'Adattatore presa Svizzera-Italia universale',
+ category: 'travel',
+ emoji: '🔌',
+ imageId: '61fyJNX1vGL',
+ keywordTags: ['viaggio', 'svizzera', 'italia', 'presa', 'adattatore', 'frontiera'],
+ payoutPriority: 7,
+ searchQuery: 'adattatore presa svizzera italia universale',
+ },
+ {
+ id: 'car-organizer',
+ asin: 'B0FMRTXDHH',
+ title: 'Organizer seggiolino auto con vassoio',
+ category: 'transport',
+ emoji: '🚙',
+ imageId: '81FgqqI9EML',
+ keywordTags: ['auto', 'pendolare', 'organizzazione', 'viaggio', 'frontiera'],
+ payoutPriority: 5,
+ searchQuery: 'organizer auto sedile posteriore',
+ },
+ {
+ id: 'travel-document-holder',
+ asin: 'B0DMVVMF2C',
+ title: 'Portadocumenti da viaggio passaporto',
+ category: 'travel',
+ emoji: '📋',
+ imageId: '71INVW4QIRL',
+ keywordTags: ['documenti', 'passaporto', 'viaggio', 'frontiera', 'permesso', 'frontaliere'],
+ payoutPriority: 7,
+ searchQuery: 'portadocumenti da viaggio passaporto',
+ },
+ {
+ id: 'neck-pillow',
+ asin: 'B0BYF4YVZ9',
+ title: 'Cuscino da viaggio memory foam',
+ category: 'travel',
+ emoji: '😴',
+ imageId: '61WEr9b-whL',
+ keywordTags: ['viaggio', 'pendolare', 'treno', 'auto', 'comfort', 'sonno'],
+ payoutPriority: 5,
+ searchQuery: 'cuscino viaggio aereo memory foam',
+ },
 
-  // ── Nuovi prodotti (14 aggiunti per raggiungere 50) ──────────
-  {
-    id: 'italian-course',
-    asin: '8896568137',
-    title: 'Facile Facile - Italiano per stranieri A1',
-    category: 'career',
-    emoji: '🇮🇹',
-    imageId: '51GB9JkuuNL',
-    keywordTags: ['italiano', 'lingua', 'stranieri', 'corso', 'lavoro', 'integrazione'],
-    payoutPriority: 7,
-    searchQuery: 'corso italiano per stranieri libro A1',
-  },
-  {
-    id: 'french-course',
-    asin: 'B0CK3NH4ZN',
-    title: 'Imparare il francese in 30 giorni',
-    category: 'career',
-    emoji: '🇫🇷',
-    imageId: '71lVXHAFcvL',
-    keywordTags: ['francese', 'lingua', 'corso', 'lavoro', 'svizzera', 'romanda'],
-    payoutPriority: 7,
-    searchQuery: 'corso francese libro autodidatta',
-  },
-  {
-    id: 'usb-c-hub',
-    asin: 'B0BPSF9NGY',
-    title: 'Hub USB-C multiporta con HDMI 4K',
-    category: 'productivity',
-    emoji: '🔗',
-    imageId: '61lI7Ow6-CL',
-    keywordTags: ['smart working', 'lavoro', 'laptop', 'ufficio', 'produttività', 'hub'],
-    payoutPriority: 7,
-    searchQuery: 'hub USB-C multiporta HDMI',
-  },
-  {
-    id: 'wireless-charger',
-    asin: 'B09GYCC1N7',
-    title: 'Caricatore wireless smartphone 15W',
-    category: 'productivity',
-    emoji: '🔋',
-    imageId: '712m-iqcWVL',
-    keywordTags: ['ricarica', 'smartphone', 'ufficio', 'scrivania', 'wireless'],
-    payoutPriority: 5,
-    searchQuery: 'caricatore wireless smartphone',
-  },
-  {
-    id: 'rfid-blocker',
-    asin: 'B08DDGLWVS',
-    title: 'Custodie protezione RFID per carte e passaporto',
-    category: 'travel',
-    emoji: '🛡️',
-    imageId: '81DEibjuo2L',
-    keywordTags: ['sicurezza', 'carte', 'passaporto', 'viaggio', 'frontiera', 'documenti'],
-    payoutPriority: 5,
-    searchQuery: 'protezione RFID portafoglio passaporto',
-  },
-  {
-    id: 'tablet-mount',
-    asin: 'B0DSFZDPFL',
-    title: 'Supporto tablet auto poggiatesta',
-    category: 'transport',
-    emoji: '📱',
-    imageId: '41yqUaopBSL',
-    keywordTags: ['auto', 'tablet', 'bambini', 'viaggio', 'pendolare', 'intrattenimento'],
-    payoutPriority: 5,
-    searchQuery: 'supporto tablet auto poggiatesta',
-  },
-  {
-    id: 'compact-umbrella',
-    asin: 'B08G1GFZ91',
-    title: 'Ombrello pieghevole antivento compatto',
-    category: 'travel',
-    emoji: '☂️',
-    imageId: '41vyDeUPhoL',
-    keywordTags: ['pioggia', 'pendolare', 'viaggio', 'compatto', 'frontiera'],
-    payoutPriority: 4,
-    searchQuery: 'ombrello pieghevole antivento compatto',
-  },
-  {
-    id: 'weekly-planner-2026',
-    asin: 'B0D83YTLQ3',
-    title: 'Agenda 2026 settimanale',
-    category: 'budget',
-    emoji: '📅',
-    imageId: '811C9BIBt1L',
-    keywordTags: ['organizzazione', 'agenda', 'scadenze', 'fiscale', 'appuntamenti'],
-    payoutPriority: 6,
-    searchQuery: 'agenda 2026 settimanale',
-  },
-  {
-    id: 'scientific-calculator',
-    asin: 'B082FT7L5B',
-    title: 'Casio FX-570ES Plus 2 calcolatrice scientifica',
-    category: 'finance',
-    emoji: '🧮',
-    imageId: '71ryiGtcr5L',
-    keywordTags: ['calcolo', 'matematica', 'finanza', 'studio', 'lavoro'],
-    payoutPriority: 5,
-    searchQuery: 'calcolatrice scientifica Casio',
-  },
-  {
-    id: 'pension-book',
-    asin: '8828844361',
-    title: 'Previdenza complementare (libro)',
-    category: 'finance',
-    emoji: '🏦',
-    imageId: '51tX9pY5T8L',
-    keywordTags: ['pensione', 'previdenza', 'avs', 'lpp', 'risparmio', 'pilastro', 'complementare'],
-    payoutPriority: 8,
-    searchQuery: 'libro pensione previdenza complementare',
-  },
-  {
-    id: 'travel-power-strip',
-    asin: 'B0FNCPT3B5',
-    title: 'Ciabatta multipresa compatta USB da viaggio',
-    category: 'productivity',
-    emoji: '🔌',
-    imageId: '31v5b+opOZL',
-    keywordTags: ['viaggio', 'ricarica', 'ufficio', 'hotel', 'multipresa', 'usb'],
-    payoutPriority: 5,
-    searchQuery: 'ciabatta multipresa USB viaggio',
-  },
-  {
-    id: 'blue-light-glasses',
-    asin: 'B0CBKHKCKK',
-    title: 'Occhiali anti luce blu per computer',
-    category: 'health',
-    emoji: '👓',
-    imageId: '41sfk7YWYYL',
-    keywordTags: ['occhi', 'computer', 'lavoro', 'schermo', 'smart working', 'salute'],
-    payoutPriority: 5,
-    searchQuery: 'occhiali luce blu computer lavoro',
-  },
-  {
-    id: 'headlamp-led',
-    asin: 'B0B82PFNRP',
-    title: 'Lampada frontale LED ricaricabile',
-    category: 'travel',
-    emoji: '🔦',
-    imageId: '71wfOX6wskL',
-    keywordTags: ['outdoor', 'frontiera', 'emergenza', 'auto', 'campeggio', 'luce'],
-    payoutPriority: 4,
-    searchQuery: 'lampada frontale LED ricaricabile',
-  },
-  {
-    id: 'swiss-vignette-holder',
-    asin: 'B0D1PML5CM',
-    title: 'Porta vignetta autostradale Svizzera',
-    category: 'transport',
-    emoji: '🏷️',
-    imageId: '61KZciHSrVL',
-    keywordTags: ['autostrada', 'svizzera', 'vignetta', 'auto', 'frontiera', 'pendolare'],
-    payoutPriority: 6,
-    searchQuery: 'porta vignetta autostradale svizzera',
-  },
+ // ── Nuovi prodotti (14 aggiunti per raggiungere 50) ──────────
+ {
+ id: 'italian-course',
+ asin: '8896568137',
+ title: 'Facile Facile - Italiano per stranieri A1',
+ category: 'career',
+ emoji: '🇮🇹',
+ imageId: '51GB9JkuuNL',
+ keywordTags: ['italiano', 'lingua', 'stranieri', 'corso', 'lavoro', 'integrazione'],
+ payoutPriority: 7,
+ searchQuery: 'corso italiano per stranieri libro A1',
+ },
+ {
+ id: 'french-course',
+ asin: 'B0CK3NH4ZN',
+ title: 'Imparare il francese in 30 giorni',
+ category: 'career',
+ emoji: '🇫🇷',
+ imageId: '71lVXHAFcvL',
+ keywordTags: ['francese', 'lingua', 'corso', 'lavoro', 'svizzera', 'romanda'],
+ payoutPriority: 7,
+ searchQuery: 'corso francese libro autodidatta',
+ },
+ {
+ id: 'usb-c-hub',
+ asin: 'B0BPSF9NGY',
+ title: 'Hub USB-C multiporta con HDMI 4K',
+ category: 'productivity',
+ emoji: '🔗',
+ imageId: '61lI7Ow6-CL',
+ keywordTags: ['smart working', 'lavoro', 'laptop', 'ufficio', 'produttività', 'hub'],
+ payoutPriority: 7,
+ searchQuery: 'hub USB-C multiporta HDMI',
+ },
+ {
+ id: 'wireless-charger',
+ asin: 'B09GYCC1N7',
+ title: 'Caricatore wireless smartphone 15W',
+ category: 'productivity',
+ emoji: '🔋',
+ imageId: '712m-iqcWVL',
+ keywordTags: ['ricarica', 'smartphone', 'ufficio', 'scrivania', 'wireless'],
+ payoutPriority: 5,
+ searchQuery: 'caricatore wireless smartphone',
+ },
+ {
+ id: 'rfid-blocker',
+ asin: 'B08DDGLWVS',
+ title: 'Custodie protezione RFID per carte e passaporto',
+ category: 'travel',
+ emoji: '🛡️',
+ imageId: '81DEibjuo2L',
+ keywordTags: ['sicurezza', 'carte', 'passaporto', 'viaggio', 'frontiera', 'documenti'],
+ payoutPriority: 5,
+ searchQuery: 'protezione RFID portafoglio passaporto',
+ },
+ {
+ id: 'tablet-mount',
+ asin: 'B0DSFZDPFL',
+ title: 'Supporto tablet auto poggiatesta',
+ category: 'transport',
+ emoji: '📱',
+ imageId: '41yqUaopBSL',
+ keywordTags: ['auto', 'tablet', 'bambini', 'viaggio', 'pendolare', 'intrattenimento'],
+ payoutPriority: 5,
+ searchQuery: 'supporto tablet auto poggiatesta',
+ },
+ {
+ id: 'compact-umbrella',
+ asin: 'B08G1GFZ91',
+ title: 'Ombrello pieghevole antivento compatto',
+ category: 'travel',
+ emoji: '☂️',
+ imageId: '41vyDeUPhoL',
+ keywordTags: ['pioggia', 'pendolare', 'viaggio', 'compatto', 'frontiera'],
+ payoutPriority: 4,
+ searchQuery: 'ombrello pieghevole antivento compatto',
+ },
+ {
+ id: 'weekly-planner-2026',
+ asin: 'B0D83YTLQ3',
+ title: 'Agenda 2026 settimanale',
+ category: 'budget',
+ emoji: '📅',
+ imageId: '811C9BIBt1L',
+ keywordTags: ['organizzazione', 'agenda', 'scadenze', 'fiscale', 'appuntamenti'],
+ payoutPriority: 6,
+ searchQuery: 'agenda 2026 settimanale',
+ },
+ {
+ id: 'scientific-calculator',
+ asin: 'B082FT7L5B',
+ title: 'Casio FX-570ES Plus 2 calcolatrice scientifica',
+ category: 'finance',
+ emoji: '🧮',
+ imageId: '71ryiGtcr5L',
+ keywordTags: ['calcolo', 'matematica', 'finanza', 'studio', 'lavoro'],
+ payoutPriority: 5,
+ searchQuery: 'calcolatrice scientifica Casio',
+ },
+ {
+ id: 'pension-book',
+ asin: '8828844361',
+ title: 'Previdenza complementare (libro)',
+ category: 'finance',
+ emoji: '🏦',
+ imageId: '51tX9pY5T8L',
+ keywordTags: ['pensione', 'previdenza', 'avs', 'lpp', 'risparmio', 'pilastro', 'complementare'],
+ payoutPriority: 8,
+ searchQuery: 'libro pensione previdenza complementare',
+ },
+ {
+ id: 'travel-power-strip',
+ asin: 'B0FNCPT3B5',
+ title: 'Ciabatta multipresa compatta USB da viaggio',
+ category: 'productivity',
+ emoji: '🔌',
+ imageId: '31v5b+opOZL',
+ keywordTags: ['viaggio', 'ricarica', 'ufficio', 'hotel', 'multipresa', 'usb'],
+ payoutPriority: 5,
+ searchQuery: 'ciabatta multipresa USB viaggio',
+ },
+ {
+ id: 'blue-light-glasses',
+ asin: 'B0CBKHKCKK',
+ title: 'Occhiali anti luce blu per computer',
+ category: 'health',
+ emoji: '👓',
+ imageId: '41sfk7YWYYL',
+ keywordTags: ['occhi', 'computer', 'lavoro', 'schermo', 'smart working', 'salute'],
+ payoutPriority: 5,
+ searchQuery: 'occhiali luce blu computer lavoro',
+ },
+ {
+ id: 'headlamp-led',
+ asin: 'B0B82PFNRP',
+ title: 'Lampada frontale LED ricaricabile',
+ category: 'travel',
+ emoji: '🔦',
+ imageId: '71wfOX6wskL',
+ keywordTags: ['outdoor', 'frontiera', 'emergenza', 'auto', 'campeggio', 'luce'],
+ payoutPriority: 4,
+ searchQuery: 'lampada frontale LED ricaricabile',
+ },
+ {
+ id: 'swiss-vignette-holder',
+ asin: 'B0D1PML5CM',
+ title: 'Porta vignetta autostradale Svizzera',
+ category: 'transport',
+ emoji: '🏷️',
+ imageId: '61KZciHSrVL',
+ keywordTags: ['autostrada', 'svizzera', 'vignetta', 'auto', 'frontiera', 'pendolare'],
+ payoutPriority: 6,
+ searchQuery: 'porta vignetta autostradale svizzera',
+ },
 ];
 
 
 function buildAmazonAffiliateUrl(asin: string, locale: Locale, partnerTag: string): string {
-  const marketplace = MARKETPLACE_BY_LOCALE[locale] || MARKETPLACE_BY_LOCALE.it;
-  return `${marketplace}/dp/${asin}?tag=${encodeURIComponent(partnerTag)}&linkCode=ll1`;
+ const marketplace = MARKETPLACE_BY_LOCALE[locale] || MARKETPLACE_BY_LOCALE.it;
+ return `${marketplace}/dp/${asin}?tag=${encodeURIComponent(partnerTag)}&linkCode=ll1`;
 }
 
 function buildAmazonSearchAffiliateUrl(query: string, locale: Locale, partnerTag: string): string {
-  const marketplace = MARKETPLACE_BY_LOCALE[locale] || MARKETPLACE_BY_LOCALE.it;
-  const q = query.trim() || 'frontalieri svizzera italia';
-  return `${marketplace}/s?k=${encodeURIComponent(q)}&tag=${encodeURIComponent(partnerTag)}&linkCode=ll2`;
+ const marketplace = MARKETPLACE_BY_LOCALE[locale] || MARKETPLACE_BY_LOCALE.it;
+ const q = query.trim() || 'frontalieri svizzera italia';
+ return `${marketplace}/s?k=${encodeURIComponent(q)}&tag=${encodeURIComponent(partnerTag)}&linkCode=ll2`;
 }
 
 /** Build a reliable Amazon CDN image URL from the product's imageId.
- *  Uses m.media-amazon.com/images/I/ which is the same CDN Amazon uses
- *  for search results — stable, fast, no auth required.
- *  _AC_UL320_ = auto-crop, uniform length 320px (sharp at 72px display = 4x). */
+ * Uses m.media-amazon.com/images/I/ which is the same CDN Amazon uses
+ * for search results — stable, fast, no auth required.
+ * _AC_UL320_ = auto-crop, uniform length 320px (sharp at 72px display = 4x). */
 function buildAmazonImageUrl(imageId: string): string {
-  if (!imageId) return '';
-  return `https://m.media-amazon.com/images/I/${imageId}._AC_UL320_.jpg`;
+ if (!imageId) return '';
+ return `https://m.media-amazon.com/images/I/${imageId}._AC_UL320_.jpg`;
 }
 
 function isValidAmazonAffiliateUrl(url: string): boolean {
-  try {
-    const parsed = new URL(url);
-    const host = parsed.hostname.toLowerCase();
-    const validHost = host.endsWith('amazon.it') || host.endsWith('amazon.fr');
-    const hasTag = Boolean(parsed.searchParams.get('tag'));
-    const isSearch = parsed.pathname === '/s' && Boolean(parsed.searchParams.get('k'));
-    const isDp = /\/dp\/[A-Z0-9]{8,12}/i.test(parsed.pathname);
-    return validHost && hasTag && (isSearch || isDp);
-  } catch {
-    return false;
-  }
+ try {
+ const parsed = new URL(url);
+ const host = parsed.hostname.toLowerCase();
+ const validHost = host.endsWith('amazon.it') || host.endsWith('amazon.fr');
+ const hasTag = Boolean(parsed.searchParams.get('tag'));
+ const isSearch = parsed.pathname === '/s' && Boolean(parsed.searchParams.get('k'));
+ const isDp = /\/dp\/[A-Z0-9]{8,12}/i.test(parsed.pathname);
+ return validHost && hasTag && (isSearch || isDp);
+ } catch {
+ return false;
+ }
 }
 
 export interface CreatorProductSuggestion extends CreatorProduct {
-  score: number;
-  url: string;
-  partnerTag: string;
-  query: string;
-  imageUrl: string;
-  keywordHits: number;
-  /** FRO-336: Display price from Creators API (e.g. "€12,99") */
-  price: string;
-  /** FRO-336: Whether the product is currently available on Amazon */
-  available: boolean;
+ score: number;
+ url: string;
+ partnerTag: string;
+ query: string;
+ imageUrl: string;
+ keywordHits: number;
+ /** FRO-336: Display price from Creators API (e.g. "€12,99") */
+ price: string;
+ /** FRO-336: Whether the product is currently available on Amazon */
+ available: boolean;
 }
 
 interface CreatorProductInput {
-  contextText: string;
-  maxCards?: number;
-  /** Skip the first N products from the ranked pool (for showing different products in multiple slots) */
-  offset?: number;
+ contextText: string;
+ maxCards?: number;
+ /** Skip the first N products from the ranked pool (for showing different products in multiple slots) */
+ offset?: number;
 }
 
 // ── Session-based rotation seed ───────────────────────────────
 const SESSION_SEED_KEY = 'amz_rotation_seed';
 
 function getSessionSeed(): number {
-  if (typeof window === 'undefined' || !window.sessionStorage) {
-    return Math.random() * 0xFFFFFFFF >>> 0;
-  }
-  const stored = sessionStorage.getItem(SESSION_SEED_KEY);
-  if (stored) {
-    const parsed = parseInt(stored, 10);
-    if (!isNaN(parsed)) return parsed;
-  }
-  const seed = Math.random() * 0xFFFFFFFF >>> 0;
-  try {
-    sessionStorage.setItem(SESSION_SEED_KEY, String(seed));
-  } catch {
-    // sessionStorage full or disabled — use ephemeral seed
-  }
-  return seed;
+ if (typeof window === 'undefined' || !window.sessionStorage) {
+ return Math.random() * 0xFFFFFFFF >>> 0;
+ }
+ const stored = sessionStorage.getItem(SESSION_SEED_KEY);
+ if (stored) {
+ const parsed = parseInt(stored, 10);
+ if (!isNaN(parsed)) return parsed;
+ }
+ const seed = Math.random() * 0xFFFFFFFF >>> 0;
+ try {
+ sessionStorage.setItem(SESSION_SEED_KEY, String(seed));
+ } catch {
+ // sessionStorage full or disabled — use ephemeral seed
+ }
+ return seed;
 }
 
 /** Simple deterministic hash combining seed + context for stable per-session rotation */
 function rotationHash(seed: number, context: string): number {
-  let h = seed;
-  for (let i = 0; i < context.length; i += 1) {
-    h = ((h << 5) - h + context.charCodeAt(i)) | 0;
-  }
-  return Math.abs(h);
+ let h = seed;
+ for (let i = 0; i < context.length; i += 1) {
+ h = ((h << 5) - h + context.charCodeAt(i)) | 0;
+ }
+ return Math.abs(h);
 }
 
 export function getCreatorProductsForContext({
-  contextText,
-  maxCards = 2,
-  offset = 0,
+ contextText,
+ maxCards = 2,
+ offset = 0,
 }: CreatorProductInput): CreatorProductSuggestion[] {
-  const locale = getLocale();
-  const normalized = contextText.toLowerCase();
-  const partnerTag = DEFAULT_AMAZON_PARTNER_TAG;
+ const locale = getLocale();
+ const normalized = contextText.toLowerCase();
+ const partnerTag = DEFAULT_AMAZON_PARTNER_TAG;
 
-  const scored = CREATOR_PRODUCTS.map((product) => {
-    const keywordHits = product.keywordTags.reduce((acc, tag) => (normalized.includes(tag) ? acc + 1 : acc), 0);
-    const score = keywordHits * 100 + product.payoutPriority * 3;
-    const contextualQuery =
-      keywordHits > 0
-        ? `${product.searchQuery} ${product.keywordTags.filter((tag) => normalized.includes(tag)).slice(0, 2).join(' ')}`
-        : product.searchQuery;
-    // Always use direct product page URL (/dp/ASIN) — never search URLs.
-    // Search URLs can return empty results (e.g. "porta vignetta") and provide
-    // a worse UX than linking directly to the known product.
-    const dpUrl = buildAmazonAffiliateUrl(product.asin, locale, partnerTag);
-    const apiData = _apiProductsByAsin.get(product.asin);
-    const hasRealApiData = Boolean(apiData?.title && apiData.title.trim() !== '');
-    return {
-      ...product,
-      score,
-      url: hasRealApiData ? (apiData!.affiliateUrl || dpUrl) : dpUrl,
-      partnerTag,
-      query: contextualQuery.trim(),
-      imageUrl: apiData?.imageUrl || buildAmazonImageUrl(product.imageId),
-      keywordHits,
-      price: apiData?.price || '',
-      available: apiData?.available ?? true,
-    };
-  });
+ const scored = CREATOR_PRODUCTS.map((product) => {
+ const keywordHits = product.keywordTags.reduce((acc, tag) => (normalized.includes(tag) ? acc + 1 : acc), 0);
+ const score = keywordHits * 100 + product.payoutPriority * 3;
+ const contextualQuery =
+ keywordHits > 0
+ ? `${product.searchQuery} ${product.keywordTags.filter((tag) => normalized.includes(tag)).slice(0, 2).join(' ')}`
+ : product.searchQuery;
+ // Always use direct product page URL (/dp/ASIN) — never search URLs.
+ // Search URLs can return empty results (e.g. "porta vignetta") and provide
+ // a worse UX than linking directly to the known product.
+ const dpUrl = buildAmazonAffiliateUrl(product.asin, locale, partnerTag);
+ const apiData = _apiProductsByAsin.get(product.asin);
+ const hasRealApiData = Boolean(apiData?.title && apiData.title.trim() !== '');
+ return {
+ ...product,
+ score,
+ url: hasRealApiData ? (apiData!.affiliateUrl || dpUrl) : dpUrl,
+ partnerTag,
+ query: contextualQuery.trim(),
+ imageUrl: apiData?.imageUrl || buildAmazonImageUrl(product.imageId),
+ keywordHits,
+ price: apiData?.price || '',
+ available: apiData?.available ?? true,
+ };
+ });
 
-  // ── Availability guard: exclude products flagged as unavailable by the API ──
-  const available = scored.filter((p) => p.available !== false);
-  const candidates = available.length > 0 ? available : scored; // fallback to all if API data missing
+ // ── Availability guard: exclude products flagged as unavailable by the API ──
+ const available = scored.filter((p) => p.available !== false);
+ const candidates = available.length > 0 ? available : scored; // fallback to all if API data missing
 
-  const maxHits = candidates.reduce((m, p) => Math.max(m, p.keywordHits), 0);
-  const pool = maxHits > 0 ? candidates.filter((p) => p.keywordHits > 0) : candidates;
+ const maxHits = candidates.reduce((m, p) => Math.max(m, p.keywordHits), 0);
+ const pool = maxHits > 0 ? candidates.filter((p) => p.keywordHits > 0) : candidates;
 
-  const sorted = pool.sort((a, b) => b.score - a.score);
-  const pickCount = Math.max(1, Math.min(maxCards, sorted.length));
-  const rotationPoolSize = Math.min(sorted.length, Math.max(pickCount * 3, 6));
-  const rotationPool = sorted.slice(0, rotationPoolSize);
+ const sorted = pool.sort((a, b) => b.score - a.score);
+ const pickCount = Math.max(1, Math.min(maxCards, sorted.length));
+ const rotationPoolSize = Math.min(sorted.length, Math.max(pickCount * 3, 6));
+ const rotationPool = sorted.slice(0, rotationPoolSize);
 
-  // Per-session rotation: each browser session gets a unique seed
-  const sessionSeed = getSessionSeed();
-  const rotationStart = rotationHash(sessionSeed, `${locale}|${normalized}`) % rotationPool.length;
-  const ranked: CreatorProductSuggestion[] = [];
-  const totalPick = pickCount + offset;
-  for (let i = 0; i < totalPick; i += 1) {
-    ranked.push(rotationPool[(rotationStart + i) % rotationPool.length]);
-  }
+ // Per-session rotation: each browser session gets a unique seed
+ const sessionSeed = getSessionSeed();
+ const rotationStart = rotationHash(sessionSeed, `${locale}|${normalized}`) % rotationPool.length;
+ const ranked: CreatorProductSuggestion[] = [];
+ const totalPick = pickCount + offset;
+ for (let i = 0; i < totalPick; i += 1) {
+ ranked.push(rotationPool[(rotationStart + i) % rotationPool.length]);
+ }
 
-  return ranked.slice(offset);
+ return ranked.slice(offset);
 }

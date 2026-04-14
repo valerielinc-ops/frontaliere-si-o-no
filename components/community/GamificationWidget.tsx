@@ -176,7 +176,7 @@ const GamificationWidget: React.FC = () => {
  {/* Portal to document.body so backdrop-blur on header doesn't break fixed positioning */}
  {toast && toastVisible && createPortal(
  <div className="fixed bottom-20 md:bottom-4 right-4 sm:right-6 z-[60] animate-toast-in pointer-events-auto">
- <div className="bg-amber-500 text-white rounded-xl shadow-lg px-4 py-2.5 flex items-center gap-2.5 max-w-xs">
+ <div className="bg-warning-strong text-on-accent rounded-xl shadow-lg px-4 py-2.5 flex items-center gap-2.5 max-w-xs">
  <span className="text-xl flex-shrink-0">{ACHIEVEMENTS.find(a => a.id === toast)?.icon || '🏆'}</span>
  <div className="min-w-0">
  <div className="text-xs font-bold uppercase tracking-wider opacity-80">{t('gamification.achievementUnlocked')}</div>
@@ -200,12 +200,12 @@ const GamificationWidget: React.FC = () => {
  setIsOpen(nextOpen);
  Analytics.trackUIInteraction('gamification', 'widget', 'toggle', isOpen ? 'close' : 'open');
  }}
- className={`relative p-2 rounded-xl transition-colors focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 ${
+ className={`relative p-2 rounded-xl transition-colors focus-visible:ring-2 focus-visible:ring-warning focus-visible:ring-offset-2 ${
  hasUnreadAchievements
  ? 'bg-warning-subtle text-warning'
  : isOpen
  ? 'bg-surface-raised text-body'
- : 'text-slate-500 hover:text-body hover:bg-surface-raised'
+ : 'text-muted hover:text-body hover:bg-surface-raised'
  }`}
  title={`${levelTitle} — ${state.xp} XP`}
  aria-label={`Gamification: ${levelTitle}, ${state.xp} XP`}
@@ -220,8 +220,8 @@ const GamificationWidget: React.FC = () => {
  <div className="px-4 py-3 bg-gradient-to-r from-warning-subtle to-warning-subtle border-b border-edge">
  <div className="flex items-center gap-3">
  <div className="relative flex-shrink-0">
- <div className="w-10 h-10 rounded-xl bg-amber-500 flex items-center justify-center shadow-sm">
- <Trophy size={18} className="text-white" />
+ <div className="w-10 h-10 rounded-xl bg-warning-strong flex items-center justify-center shadow-sm">
+ <Trophy size={18} className="text-on-accent" />
  </div>
  <span className="absolute -top-1 -right-1 bg-surface-raised text-heading text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center shadow-sm">
  {levelInfo.level}
@@ -234,12 +234,12 @@ const GamificationWidget: React.FC = () => {
  <div className="flex items-center gap-2 flex-shrink-0">
  {state.streak > 0 && (
  <div className="flex items-center gap-1 text-xs text-muted">
- <Flame size={14} className="text-orange-400" />
+ <Flame size={14} className="text-warning" />
  <span className="font-bold">{state.streak}</span>
  </div>
  )}
  <div className="flex items-center gap-1 text-xs text-muted">
- <CheckCircle2 size={14} className="text-emerald-500" />
+ <CheckCircle2 size={14} className="text-success" />
  <span className="font-bold">{unlockedCount}/{totalCount}</span>
  </div>
  </div>
@@ -248,7 +248,7 @@ const GamificationWidget: React.FC = () => {
  <div className="mt-2">
  <div className="w-full bg-surface-raised rounded-full h-1.5 overflow-hidden">
  <div
- className="bg-amber-500 rounded-full h-1.5 transition-transform duration-500 origin-left"
+ className="bg-warning-strong rounded-full h-1.5 transition-transform duration-500 origin-left"
  style={{ transform: `scaleX(${xpProgressPct / 100})` }}
  />
  </div>
@@ -281,7 +281,7 @@ const GamificationWidget: React.FC = () => {
  <span className="text-xs font-bold truncate text-warning">
  {t(`gamification.achievement.${achievement.id}`)}
  </span>
- <CheckCircle2 size={10} className="text-emerald-500 flex-shrink-0" />
+ <CheckCircle2 size={10} className="text-success flex-shrink-0" />
  </div>
  </div>
  </div>
@@ -295,7 +295,7 @@ const GamificationWidget: React.FC = () => {
  <div className="px-3 pb-3">
  <button
  onClick={() => { setIsOpen(false); nav.navigateTo('gamification'); }}
- className="w-full py-2.5 text-xs font-bold text-warning bg-warning-subtle hover:bg-amber-100 rounded-xl transition-colors border border-warning-border focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 "
+ className="w-full py-2.5 text-xs font-bold text-warning bg-warning-subtle hover:bg-warning-subtle rounded-xl transition-colors border border-warning-border focus-visible:ring-2 focus-visible:ring-warning focus-visible:ring-offset-2 "
  >
  {t('gamification.viewAll') || 'Vedi tutti gli achievement →'}
  </button>

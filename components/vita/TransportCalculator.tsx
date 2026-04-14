@@ -14,11 +14,11 @@ interface TransportOption {
 }
 
 const transportOptions: TransportOption[] = [
- { type: 'car-benzina', name: 'Auto Benzina', icon: <Car size={20} />, color: 'bg-red-600' },
- { type: 'car-diesel', name: 'Auto Diesel', icon: <Car size={20} />, color: 'bg-slate-600' },
- { type: 'car-electric', name: 'Auto Elettrica', icon: <Zap size={20} />, color: 'bg-emerald-600' },
- { type: 'train', name: 'Treno', icon: <Train size={20} />, color: 'bg-stripe-600' },
- { type: 'ebike', name: 'eBike', icon: <Bike size={20} />, color: 'bg-rose-600' }
+ { type: 'car-benzina', name: 'Auto Benzina', icon: <Car size={20} />, color: 'bg-danger-strong' },
+ { type: 'car-diesel', name: 'Auto Diesel', icon: <Car size={20} />, color: 'bg-surface-muted' },
+ { type: 'car-electric', name: 'Auto Elettrica', icon: <Zap size={20} />, color: 'bg-success-strong' },
+ { type: 'train', name: 'Treno', icon: <Train size={20} />, color: 'bg-accent-strong' },
+ { type: 'ebike', name: 'eBike', icon: <Bike size={20} />, color: 'bg-danger-strong' }
 ];
 
 const TransportCalculator: React.FC = () => {
@@ -99,7 +99,7 @@ const TransportCalculator: React.FC = () => {
  costPerMonth: costsBenzinaIT.total,
  costPerYear: costsBenzinaIT.total * 12,
  details: costsBenzinaIT,
- color: 'bg-red-600',
+ color: 'bg-danger-strong',
  icon: <Car size={24} />,
  fuelLocation: 'IT'
  },
@@ -109,7 +109,7 @@ const TransportCalculator: React.FC = () => {
  costPerMonth: costsBenzinaCH.total,
  costPerYear: costsBenzinaCH.total * 12,
  details: costsBenzinaCH,
- color: 'bg-red-600',
+ color: 'bg-danger-strong',
  icon: <Car size={24} />,
  fuelLocation: 'CH'
  },
@@ -119,7 +119,7 @@ const TransportCalculator: React.FC = () => {
  costPerMonth: costsDieselIT.total,
  costPerYear: costsDieselIT.total * 12,
  details: costsDieselIT,
- color: 'bg-slate-600',
+ color: 'bg-surface-muted',
  icon: <Car size={24} />,
  fuelLocation: 'IT'
  },
@@ -129,7 +129,7 @@ const TransportCalculator: React.FC = () => {
  costPerMonth: costsElectricIT.total,
  costPerYear: costsElectricIT.total * 12,
  details: costsElectricIT,
- color: 'bg-emerald-600',
+ color: 'bg-success-strong',
  icon: <Zap size={24} />,
  fuelLocation: 'IT'
  },
@@ -139,7 +139,7 @@ const TransportCalculator: React.FC = () => {
  costPerMonth: costsElectricCH.total,
  costPerYear: costsElectricCH.total * 12,
  details: costsElectricCH,
- color: 'bg-emerald-600',
+ color: 'bg-success-strong',
  icon: <Zap size={24} />,
  fuelLocation: 'CH'
  },
@@ -149,7 +149,7 @@ const TransportCalculator: React.FC = () => {
  costPerMonth: trainCostPerMonth,
  costPerYear: trainCostPerMonth * 12,
  details: null,
- color: 'bg-stripe-600',
+ color: 'bg-accent-strong',
  icon: <Train size={24} />,
  fuelLocation: null
  },
@@ -159,7 +159,7 @@ const TransportCalculator: React.FC = () => {
  costPerMonth: ebikeCostPerMonth + ebikePurchaseCost,
  costPerYear: (ebikeCostPerMonth + ebikePurchaseCost) * 12,
  details: null,
- color: 'bg-rose-600',
+ color: 'bg-danger-strong',
  icon: <Bike size={24} />,
  fuelLocation: null
  }
@@ -188,12 +188,12 @@ const TransportCalculator: React.FC = () => {
  </div>
 
  {/* Header */}
- <div className="bg-success rounded-2xl p-5 sm:p-8 text-white">
+ <div className="bg-success rounded-2xl p-5 sm:p-8 text-on-accent">
  <div className="flex items-center gap-3 mb-4">
  <Car size={32} />
  <h2 className="text-2xl sm:text-3xl font-bold">{t('transport.title')}</h2>
  </div>
- <p className="text-emerald-100 text-lg">
+ <p className="text-success text-lg">
  {t('transport.subtitle')}
  </p>
  </div>
@@ -331,7 +331,7 @@ const TransportCalculator: React.FC = () => {
  <div className="grid md:grid-cols-2 gap-6">
  <div className="bg-gradient-to-br from-success-subtle to-success-subtle rounded-2xl border border-success-border p-6">
  <div className="flex items-center gap-3 mb-3">
- <div className="p-3 bg-emerald-700 rounded-xl text-white">
+ <div className="p-3 bg-success-strong rounded-xl text-on-accent">
  <TrendingDown size={24} />
  </div>
  <div>
@@ -339,7 +339,7 @@ const TransportCalculator: React.FC = () => {
  <h3 className="text-2xl font-bold text-strong">{cheapest.name}</h3>
  </div>
  </div>
- <div className="text-2xl sm:text-3xl font-bold text-emerald-700 mb-2">
+ <div className="text-2xl sm:text-3xl font-bold text-success mb-2">
  € {cheapest.costPerMonth.toFixed(2)}/mese
  </div>
  <p className="text-sm text-subtle">
@@ -349,7 +349,7 @@ const TransportCalculator: React.FC = () => {
 
  <div className="bg-gradient-to-br from-danger-subtle to-warning-subtle rounded-2xl border border-danger-border p-6">
  <div className="flex items-center gap-3 mb-3">
- <div className="p-3 bg-red-500 rounded-xl text-white">
+ <div className="p-3 bg-danger-strong rounded-xl text-on-accent">
  <TrendingUp size={24} />
  </div>
  <div>
@@ -357,11 +357,11 @@ const TransportCalculator: React.FC = () => {
  <h3 className="text-2xl font-bold text-strong">{mostExpensive.name}</h3>
  </div>
  </div>
- <div className="text-2xl sm:text-3xl font-bold text-red-600 mb-2">
+ <div className="text-2xl sm:text-3xl font-bold text-danger mb-2">
  € {mostExpensive.costPerMonth.toFixed(2)}/mese
  </div>
  <p className="text-sm text-subtle">
- {t('transport.youSave')} <strong className="text-emerald-700">{savings.toFixed(2)} €/{t('transport.month')}</strong> {t('transport.with')} {cheapest.name}
+ {t('transport.youSave')} <strong className="text-success">{savings.toFixed(2)} €/{t('transport.month')}</strong> {t('transport.with')} {cheapest.name}
  </p>
  </div>
  </div>
@@ -373,19 +373,19 @@ const TransportCalculator: React.FC = () => {
  key={result.name}
  className={`bg-surface rounded-2xl border-2 p-4 sm:p-6 hover:shadow-lg transition-[color,background-color,border-color,box-shadow] ${
  result.name === cheapest.name 
- ? 'border-emerald-500 ring-2 ring-emerald-500/20' 
+ ? 'border-success ring-2 ring-success/20' 
  : 'border-edge'
  }`}
  >
  {result.name === cheapest.name && (
- <div className="mb-3 inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-700 text-white text-xs font-bold rounded-full">
+ <div className="mb-3 inline-flex items-center gap-1.5 px-3 py-1.5 bg-success-strong text-on-accent text-xs font-bold rounded-full">
  ✓ {t('transport.cheapest')}
  </div>
  )}
 
  <div className="flex items-start justify-between gap-4 mb-4">
  <div className="flex items-center gap-3">
- <div className={`text-white p-3 ${result.color} rounded-2xl`}>
+ <div className={`text-on-accent p-3 ${result.color} rounded-2xl`}>
  {result.icon}
  </div>
  <div>
@@ -463,7 +463,7 @@ const TransportCalculator: React.FC = () => {
  {/* Tips Section */}
  <div className="bg-gradient-to-br from-warning-subtle to-warning-subtle rounded-2xl border border-warning-border p-6">
  <h3 className="text-xl font-bold text-strong mb-4 flex items-center gap-2">
- <AlertCircle size={20} className="text-amber-700" />
+ <AlertCircle size={20} className="text-warning" />
  {t('transport.savingTips')}
  </h3>
  

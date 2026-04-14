@@ -31,7 +31,7 @@ function getPermits(t: (key: string) => string): PermitType[] {
  id: 'G',
  name: t('permits.g.name'),
  fullName: t('permits.g.fullName'),
- color: 'from-teal-500 to-emerald-600',
+ color: 'from-info-strong to-success-strong',
  icon: '🔵',
  duration: t('permits.g.duration'),
  forWhom: t('permits.g.forWhom'),
@@ -81,7 +81,7 @@ function getPermits(t: (key: string) => string): PermitType[] {
  id: 'B',
  name: t('permits.b.name'),
  fullName: t('permits.b.fullName'),
- color: 'from-emerald-500 to-teal-600',
+ color: 'from-success-strong to-info-strong',
  icon: '🟢',
  duration: t('permits.b.duration'),
  forWhom: t('permits.b.forWhom'),
@@ -132,7 +132,7 @@ function getPermits(t: (key: string) => string): PermitType[] {
  id: 'C',
  name: t('permits.c.name'),
  fullName: t('permits.c.fullName'),
- color: 'from-amber-500 to-orange-600',
+ color: 'from-warning-strong to-warning-strong',
  icon: '🟠',
  duration: t('permits.c.duration'),
  forWhom: t('permits.c.forWhom'),
@@ -183,7 +183,7 @@ function getPermits(t: (key: string) => string): PermitType[] {
  id: 'L',
  name: t('permits.l.name'),
  fullName: t('permits.l.fullName'),
- color: 'from-teal-500 to-teal-600',
+ color: 'from-info-strong to-info-strong',
  icon: '🟣',
  duration: t('permits.l.duration'),
  forWhom: t('permits.l.forWhom'),
@@ -309,14 +309,14 @@ const WorkPermitsGuide: React.FC = () => {
  return (
  <div className="space-y-6 animate-fade-in">
  {/* Header */}
- <div className="bg-gradient-to-br from-teal-600 via-emerald-500 to-warm-600 rounded-3xl p-5 sm:p-8 text-white shadow-2xl">
+ <div className="bg-gradient-to-br from-info-strong via-success-strong to-warm-600 rounded-3xl p-5 sm:p-8 text-on-accent shadow-2xl">
  <div className="flex items-center gap-4 mb-4">
  <div className="p-3 bg-white/15 rounded-2xl">
  <Shield size={32} />
  </div>
  <div>
  <h1 className="text-2xl sm:text-3xl font-extrabold">{t('permits.pageTitle')}</h1>
- <p className="text-teal-100 mt-1">{t('permits.pageSubtitle')}</p>
+ <p className="text-info mt-1">{t('permits.pageSubtitle')}</p>
  </div>
  </div>
  </div>
@@ -333,7 +333,7 @@ const WorkPermitsGuide: React.FC = () => {
  }}
  className={`p-4 rounded-2xl border-2 transition-[color,background-color,border-color,box-shadow] text-left ${
  selectedPermit === p.id
- ? `border-transparent bg-gradient-to-br ${p.color} text-white shadow-lg scale-[1.02]`
+ ? `border-transparent bg-gradient-to-br ${p.color} text-on-accent shadow-lg scale-[1.02]`
  : 'border-edge bg-surface hover:border-edge'
  }`}
  >
@@ -348,7 +348,7 @@ const WorkPermitsGuide: React.FC = () => {
  {/* Selected Permit Details */}
  <div className="space-y-3">
  {/* Overview */}
- <div className={`bg-gradient-to-r ${permit.color} rounded-2xl p-5 sm:p-6 text-white`}>
+ <div className={`bg-gradient-to-r ${permit.color} rounded-2xl p-5 sm:p-6 text-on-accent`}>
  <div className="flex items-center gap-3 mb-3">
  <span className="text-4xl">{permit.icon}</span>
  <div>
@@ -381,7 +381,7 @@ const WorkPermitsGuide: React.FC = () => {
  <ul className="space-y-2 mt-2">
  {permit.requirements.map((req, i) => (
  <li key={i} className="flex items-start gap-2 text-sm text-body">
- <CheckCircle2 size={16} className="text-emerald-500 flex-shrink-0 mt-0.5" />
+ <CheckCircle2 size={16} className="text-success flex-shrink-0 mt-0.5" />
  {req}
  </li>
  ))}
@@ -392,7 +392,7 @@ const WorkPermitsGuide: React.FC = () => {
  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">
  {permit.documents.map((doc, i) => (
  <div key={i} className="flex items-center gap-2 p-2.5 bg-surface-alt rounded-lg text-sm text-body">
- <FileText size={14} className="text-stripe-500 flex-shrink-0" />
+ <FileText size={14} className="text-accent flex-shrink-0" />
  {doc}
  </div>
  ))}
@@ -403,7 +403,7 @@ const WorkPermitsGuide: React.FC = () => {
  <ul className="space-y-2 mt-2">
  {permit.rights.map((r, i) => (
  <li key={i} className="flex items-start gap-2 text-sm text-body">
- <ArrowRight size={14} className="text-emerald-500 flex-shrink-0 mt-1" />
+ <ArrowRight size={14} className="text-success flex-shrink-0 mt-1" />
  {r}
  </li>
  ))}
@@ -414,7 +414,7 @@ const WorkPermitsGuide: React.FC = () => {
  <ul className="space-y-2 mt-2">
  {permit.limitations.map((l, i) => (
  <li key={i} className="flex items-start gap-2 text-sm text-body">
- <AlertCircle size={14} className="text-amber-500 flex-shrink-0 mt-0.5" />
+ <AlertCircle size={14} className="text-warning flex-shrink-0 mt-0.5" />
  {l}
  </li>
  ))}
@@ -505,7 +505,7 @@ const WorkPermitsGuide: React.FC = () => {
  {/* Comparison table */}
  <div className="bg-surface rounded-2xl border border-edge p-5 sm:p-6">
  <h3 className="text-lg font-bold text-strong mb-4 flex items-center gap-2">
- <Globe size={20} className="text-stripe-600" />
+ <Globe size={20} className="text-accent" />
  {t('permits.comparisonTitle')}
  </h3>
  <div className="relative overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0">

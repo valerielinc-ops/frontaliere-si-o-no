@@ -15,8 +15,8 @@ export const DataDeletion: React.FC = () => {
  {/* Header */}
  <div className="bg-surface rounded-2xl border border-edge p-5 sm:p-8 shadow-xl mb-6">
  <div className="flex items-center gap-4 mb-6">
- <div className="p-3 bg-gradient-to-br from-red-500 to-pink-600 rounded-2xl shadow-lg">
- <Trash2 className="text-white" size={32} />
+ <div className="p-3 bg-gradient-to-br from-danger-strong to-danger-strong rounded-2xl shadow-lg">
+ <Trash2 className="text-on-accent" size={32} />
  </div>
  <div>
  <h1 className="text-2xl sm:text-3xl font-extrabold text-strong">Data Deletion</h1>
@@ -46,7 +46,7 @@ export const DataDeletion: React.FC = () => {
  {/* Explanation */}
  <div className="space-y-4 text-subtle">
  <div className="flex items-start gap-3">
- <Shield className="text-stripe-500 flex-shrink-0 mt-1" size={20} />
+ <Shield className="text-accent flex-shrink-0 mt-1" size={20} />
  <div>
  <h3 className="font-bold text-strong mb-1">Client-Side Application</h3>
  <p className="text-sm">
@@ -56,7 +56,7 @@ export const DataDeletion: React.FC = () => {
  </div>
 
  <div className="flex items-start gap-3">
- <Shield className="text-stripe-500 flex-shrink-0 mt-1" size={20} />
+ <Shield className="text-accent flex-shrink-0 mt-1" size={20} />
  <div>
  <h3 className="font-bold text-strong mb-1">Facebook Login</h3>
  <p className="text-sm">
@@ -66,7 +66,7 @@ export const DataDeletion: React.FC = () => {
  </div>
 
  <div className="flex items-start gap-3">
- <Shield className="text-stripe-500 flex-shrink-0 mt-1" size={20} />
+ <Shield className="text-accent flex-shrink-0 mt-1" size={20} />
  <div>
  <h3 className="font-bold text-strong mb-1">How to Delete Your Data</h3>
  <p className="text-sm">

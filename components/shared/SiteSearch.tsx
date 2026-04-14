@@ -65,7 +65,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  section: t('nav.simulator') || 'Simulatore',
  tab: 'calculator',
  icon: Calculator,
- color: 'text-stripe-600',
+ color: 'text-accent',
  keywords: ['simulatore', 'calcolo', 'stipendio', 'netto', 'lordo', 'salario', 'ral', 'simulator', 'calculator', 'salary', 'net', 'gross', 'gehalt', 'simulateur', 'salaire'],
  },
  {
@@ -76,7 +76,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  tab: 'calculator',
  subTab: 'whatif',
  icon: Sparkles,
- color: 'text-stripe-500',
+ color: 'text-accent',
  keywords: ['cosa cambia', 'what if', 'scenario', 'simulazione', 'figli', 'stipendio', 'residenza', 'bambini', 'kinder', 'enfants', 'children'],
  },
  // ─── Comparators ───
@@ -88,7 +88,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  tab: 'confronti',
  subTab: 'exchange',
  icon: ArrowRightLeft,
- color: 'text-stripe-600',
+ color: 'text-accent',
  keywords: ['cambio', 'valuta', 'euro', 'franco', 'chf', 'eur', 'exchange', 'currency', 'tasso', 'rate', 'convertitore', 'wise', 'revolut', 'wechselkurs', 'devise'],
  },
  {
@@ -99,7 +99,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  tab: 'stats',
  subTab: 'traffic-history',
  icon: AlertTriangle,
- color: 'text-amber-600',
+ color: 'text-warning',
  keywords: ['traffico', 'valichi', 'dogana', 'frontiera', 'chiasso', 'como', 'ponte tresa', 'stabio', 'border', 'traffic', 'crossing', 'grenze', 'douane', 'attesa', 'coda'],
  },
  {
@@ -110,7 +110,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  tab: 'confronti',
  subTab: 'mobile',
  icon: Phone,
- color: 'text-green-600',
+ color: 'text-success',
  keywords: ['mobile', 'telefono', 'operatore', 'sim', 'roaming', 'swisscom', 'salt', 'sunrise', 'iliad', 'vodafone', 'tim', 'handy', 'portable'],
  },
  {
@@ -132,7 +132,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  tab: 'confronti',
  subTab: 'health',
  icon: Heart,
- color: 'text-red-500',
+ color: 'text-danger',
  keywords: ['assicurazione', 'sanitaria', 'lamal', 'health', 'insurance', 'cassa malati', 'ssn', 'santé', 'krankenversicherung', 'medical'],
  },
  {
@@ -143,7 +143,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  tab: 'vita',
  subTab: 'transport',
  icon: Car,
- color: 'text-teal-600',
+ color: 'text-info',
  keywords: ['trasporto', 'pendolare', 'treno', 'auto', 'benzina', 'abbonamento', 'arcobaleno', 'tilo', 'transport', 'commute', 'train', 'car', 'pendeln'],
  },
  {
@@ -154,7 +154,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  tab: 'confronti',
  subTab: 'jobs',
  icon: Briefcase,
- color: 'text-stripe-600',
+ color: 'text-accent',
  keywords: ['lavoro', 'job', 'offerta', 'stipendio', 'impiego', 'ccnl', 'contratto', 'arbeit', 'emploi', 'salary', 'gehalt', 'salaire'],
  },
  {
@@ -165,7 +165,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  tab: 'confronti',
  subTab: 'shopping',
  icon: ShoppingCart,
- color: 'text-orange-600',
+ color: 'text-warning',
  keywords: ['spesa', 'shopping', 'prezzi', 'supermercato', 'migros', 'coop', 'lidl', 'aldi', 'denner', 'esselunga', 'carrefour', 'eurospin', 'tigros', 'conad', 'mappa', 'supermercati confine', 'frontiera', 'convenienza', 'zona', 'carrello', 'benzina', 'dogana', 'einkauf', 'Supermarkt', 'Grenze', 'courses', 'supermarché', 'frontière', 'grocery', 'supermarket', 'border', 'prezzi supermercato svizzera vs italia', 'coop svizzera caro', 'migros prezzi'],
  },
  {
@@ -176,7 +176,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  tab: 'confronti',
  subTab: 'cost-of-living',
  icon: Euro,
- color: 'text-emerald-700',
+ color: 'text-success',
  keywords: ['costo vita', 'affitto', 'rent', 'cost of living', 'lebenshaltungskosten', 'coût de la vie', 'bollette', 'utilities'],
  },
  {
@@ -187,7 +187,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  tab: 'calculator',
  subTab: 'ral',
  icon: Scale,
- color: 'text-cyan-600',
+ color: 'text-info',
  keywords: ['ral', 'stipendio', 'confronto', 'salario', 'lordo', 'annuo', 'comparison', 'salary', 'gross', 'vergleich', 'comparaison', 'italia', 'svizzera'],
  },
  {
@@ -198,7 +198,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  tab: 'calculator',
  subTab: 'parental-leave',
  icon: Baby,
- color: 'text-pink-600',
+ color: 'text-danger',
  keywords: ['congedo', 'maternità', 'paternità', 'parentale', 'parental', 'leave', 'maternity', 'paternity', 'indennità', 'mutterschutz', 'congé'],
  },
  {
@@ -209,7 +209,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  tab: 'guida',
  subTab: 'border-map',
  icon: Map,
- color: 'text-teal-600',
+ color: 'text-info',
  keywords: ['mappa', 'map', 'comuni', 'municipalities', 'interattiva', 'interactive', 'irpef', 'affitto', 'rent', 'distanza', 'karte', 'carte', 'confine', 'border', 'addizionale', 'tassa', 'confronto', 'impatto fiscale'],
  },
  {
@@ -220,7 +220,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  tab: 'calculator',
  subTab: 'residency',
  icon: Home,
- color: 'text-stripe-600',
+ color: 'text-accent',
  keywords: ['residenza', 'residency', 'trasferimento', 'svizzera', 'switzerland', 'costo vita', 'affitto', 'wohnsitz', 'résidence', 'permesso B', 'vivere'],
  },
  {
@@ -231,7 +231,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  tab: 'fisco',
  subTab: 'tax-return',
  icon: FileText,
- color: 'text-stripe-600',
+ color: 'text-accent',
  keywords: ['dichiarazione', 'redditi', 'tax return', 'modello', '730', 'unico', 'steuererklärung', 'déclaration', 'deduzioni', 'detrazioni', 'scadenze', 'documenti', 'IRPEF'],
  },
  {
@@ -242,7 +242,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  tab: 'vita',
  subTab: 'nursery',
  icon: Baby,
- color: 'text-pink-600',
+ color: 'text-danger',
  keywords: ['asilo', 'nido', 'nursery', 'bambini', 'children', 'Kinderkrippe', 'crèche', 'costi', 'bonus nido', 'CAF', 'famiglia'],
  },
  {
@@ -253,7 +253,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  tab: 'calculator',
  subTab: 'bonus',
  icon: Gift,
- color: 'text-amber-600',
+ color: 'text-warning',
  keywords: ['bonus', 'gratifica', 'tredicesima', 'premio', 'netto', 'tasse', 'Bonus', 'Prämie', 'prime'],
  },
  {
@@ -264,7 +264,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  tab: 'confronti',
  subTab: 'renovation',
  icon: Hammer,
- color: 'text-orange-600',
+ color: 'text-warning',
  keywords: ['ristrutturazione', 'renovation', 'bonus casa', 'ecobonus', 'superbonus', 'detrazioni', 'Renovierung', 'rénovation', 'lavori', 'capienza fiscale', 'capienza', 'IRPEF', 'tax capacity', 'Steuerkapazität', 'capacité fiscale'],
  },
  {
@@ -275,7 +275,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  tab: 'guida',
  subTab: 'first-day',
  icon: BookA,
- color: 'text-stripe-600',
+ color: 'text-accent',
  keywords: ['glossario', 'glossary', 'termini', 'definizioni', 'AVS', 'LPP', 'LAMal', 'IRPEF', 'Glossar', 'glossaire', 'franchigia', 'imposta alla fonte'],
  },
  {
@@ -286,7 +286,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  tab: 'guida',
  subTab: 'first-day',
  icon: HelpCircle,
- color: 'text-stripe-600',
+ color: 'text-accent',
  keywords: ['FAQ', 'domande', 'frequenti', 'questions', 'häufige Fragen', 'foire aux questions', 'aiuto', 'help', 'risposte'],
  },
  {
@@ -297,7 +297,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  tab: 'fisco',
  subTab: 'ristorni',
  icon: BarChart3,
- color: 'text-emerald-700',
+ color: 'text-success',
  keywords: ['ristorni', 'ristorno', 'fiscali', 'tasse', 'comune', 'rimborso', 'Steuerrückerstattung', 'ristornes', 'accordo', 'municipio'],
  },
  {
@@ -307,7 +307,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  section: t('footer.morningDashboard') || 'Buongiorno',
  tab: 'morning',
  icon: Sunrise,
- color: 'text-orange-500',
+ color: 'text-warning',
  keywords: ['buongiorno', 'mattino', 'meteo', 'weather', 'traffico', 'morning', 'dashboard', 'cambio', 'tempo', 'Morgen', 'Wetter', 'matin', 'météo', 'température', 'valichi'],
  },
  // ─── Pension ───
@@ -319,7 +319,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  tab: 'fisco',
  subTab: 'pension',
  icon: PiggyBank,
- color: 'text-emerald-700',
+ color: 'text-success',
  keywords: ['pensione', 'avs', 'lpp', 'pilastro', 'contributi', 'pension', 'retirement', 'rente', 'retraite', 'ahv', 'bvg'],
  },
  {
@@ -330,7 +330,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  tab: 'fisco',
  subTab: 'pillar3',
  icon: TrendingUp,
- color: 'text-emerald-500',
+ color: 'text-success',
  keywords: ['pilastro', 'pillar', '3a', 'terzo', 'risparmio', 'deduzione', 'fiscale', 'viac', 'frankly', 'säule', 'pilier', 'savings', 'tax deduction'],
  },
  // ─── Guide — all sub-sections ───
@@ -341,7 +341,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  section: t('nav.guida') || 'Guida',
  tab: 'guida',
  icon: BookOpen,
- color: 'text-stripe-600',
+ color: 'text-accent',
  keywords: ['guida', 'guide', 'frontaliere', 'cross-border', 'grenzgänger', 'frontalier', 'informazioni', 'info'],
  },
  {
@@ -352,7 +352,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  tab: 'vita',
  subTab: 'municipalities',
  icon: MapPin,
- color: 'text-stripe-500',
+ color: 'text-accent',
  keywords: ['comuni', 'municipalities', 'confine', 'ristorni', 'gemeinden', 'communes', 'frontiera', 'border towns', 'fascia', '20km'],
  },
  {
@@ -363,7 +363,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  tab: 'guida',
  subTab: 'border',
  icon: AlertTriangle,
- color: 'text-amber-500',
+ color: 'text-warning',
  keywords: ['dogana', 'customs', 'valico', 'border', 'passaporto', 'documenti', 'orari', 'zoll', 'douane', 'checkpoint'],
  },
  {
@@ -374,7 +374,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  tab: 'vita',
  subTab: 'living-ch',
  icon: Building,
- color: 'text-red-500',
+ color: 'text-danger',
  keywords: ['vivere', 'svizzera', 'switzerland', 'trasferirsi', 'residenza', 'affitto', 'schweiz', 'suisse', 'abitare', 'leben'],
  },
  {
@@ -385,7 +385,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  tab: 'vita',
  subTab: 'living-it',
  icon: Building,
- color: 'text-green-600',
+ color: 'text-success',
  keywords: ['vivere', 'italia', 'italy', 'residenza', 'italiana', 'abitare', 'italien', 'italie', 'casa'],
  },
  {
@@ -396,7 +396,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  tab: 'fisco',
  subTab: 'calendar',
  icon: Calendar,
- color: 'text-stripe-600',
+ color: 'text-accent',
  keywords: ['scadenze', 'fiscali', 'calendario', 'calendar', 'dichiarazione', 'redditi', 'tax deadline', 'steuer', 'impôts', 'unico', '730', 'acconto', 'saldo'],
  },
  {
@@ -407,7 +407,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  tab: 'fisco',
  subTab: 'holidays',
  icon: PartyPopper,
- color: 'text-pink-500',
+ color: 'text-danger',
  keywords: ['festività', 'holidays', 'feste', 'feiertage', 'jours fériés', 'vacanze', 'ticino', 'canton', 'natale', 'pasqua', 'ferragosto', 'capodanno'],
  },
  {
@@ -429,7 +429,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  tab: 'vita',
  subTab: 'companies',
  icon: BriefcaseBusiness,
- color: 'text-cyan-600',
+ color: 'text-info',
  keywords: ['aziende', 'companies', 'datore', 'employer', 'ticino', 'unternehmen', 'entreprise', 'lavoro', 'impresa'],
  },
  {
@@ -440,7 +440,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  tab: 'vita',
  subTab: 'places',
  icon: Compass,
- color: 'text-teal-500',
+ color: 'text-info',
  keywords: ['posti', 'visitare', 'places', 'visit', 'turismo', 'tourism', 'escursioni', 'ausflüge', 'excursions', 'lugano', 'locarno', 'bellinzona'],
  },
  {
@@ -451,7 +451,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  tab: 'vita',
  subTab: 'schools',
  icon: GraduationCap,
- color: 'text-stripe-500',
+ color: 'text-accent',
  keywords: ['scuola', 'school', 'scuole', 'asilo', 'kindergarten', 'schule', 'école', 'istruzione', 'education'],
  },
  {
@@ -462,7 +462,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  tab: 'guida',
  subTab: 'unemployment',
  icon: BriefcaseBusiness,
- color: 'text-rose-600',
+ color: 'text-danger',
  keywords: ['disoccupazione', 'unemployment', 'naspi', 'licenziamento', 'arbeitslosigkeit', 'chômage', 'indennità', 'sussidio', 'calcolatore naspi', 'calcolo disoccupazione', 'décalage', 'indennità frontaliere'],
  },
  {
@@ -473,7 +473,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  tab: 'guida',
  subTab: 'first-day',
  icon: Compass,
- color: 'text-orange-600',
+ color: 'text-warning',
  keywords: ['primo giorno', 'first day', 'inizio', 'start', 'erster tag', 'premier jour', 'preparazione', 'documenti', 'cosa portare', 'checklist'],
  },
  {
@@ -484,7 +484,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  tab: 'guida',
  subTab: 'car-transfer',
  icon: Car,
- color: 'text-stripe-600',
+ color: 'text-accent',
  keywords: ['auto', 'macchina', 'targa', 'patente', 'dogana', 'immatricolazione', 'car', 'vehicle', 'plates', 'license', 'Fahrzeug', 'Kennzeichen', 'Führerschein', 'voiture', 'plaque', 'permis', 'MFK', 'collaudo', 'assicurazione'],
  },
  {
@@ -495,7 +495,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  tab: 'fisco',
  subTab: 'quiz',
  icon: BookOpen,
- color: 'text-stripe-600',
+ color: 'text-accent',
  keywords: ['quiz', 'domande', 'fiscale', 'tasse', 'test', 'conoscenze', 'questions', 'fiscal', 'tax', 'Steuer', 'Fragen', 'impôts'],
  },
  {
@@ -506,7 +506,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  tab: 'fisco',
  subTab: 'tax-credit',
  icon: Receipt,
- color: 'text-emerald-700',
+ color: 'text-success',
  keywords: ['credito imposta', 'doppia imposizione', 'tax credit', 'double taxation', 'imposta alla fonte', 'IRPEF', 'Steuergutschrift', 'crédit impôt'],
  },
  {
@@ -517,7 +517,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  tab: 'fisco',
  subTab: 'withholding-rates',
  icon: Coins,
- color: 'text-emerald-700',
+ color: 'text-success',
  keywords: ['imposta alla fonte', 'aliquote', 'tabelle a b c h', 'quellensteuer', 'withholding tax', 'ticino 2026', 'barèmes', 'source tax'],
  },
  {
@@ -528,7 +528,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  tab: 'fisco',
  subTab: 'new-frontier-tax-sim',
  icon: Coins,
- color: 'text-emerald-700',
+ color: 'text-success',
  keywords: ['simulazione tasse nuovi frontalieri', 'nuovo accordo fiscale', 'franchigia 10000', 'doppia imposizione', 'credito imposta', 'new cross-border workers', 'tax simulation', 'neue grenzgaenger steuer'],
  },
  {
@@ -539,7 +539,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  tab: 'fisco',
  subTab: 'ristorni',
  icon: BarChart2,
- color: 'text-emerald-700',
+ color: 'text-success',
  keywords: ['ristorni', 'fiscali', 'rimborso', 'tasse', 'cantone', 'ticino', 'comuni', 'refund', 'tax', 'steuer', 'impôt'],
  },
  // ─── Calcolatore (extra entries) ───
@@ -551,7 +551,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  tab: 'calculator',
  subTab: 'payslip',
  icon: FileText,
- color: 'text-stripe-600',
+ color: 'text-accent',
  keywords: ['busta paga', 'payslip', 'lohnabrechnung', 'fiche de paie', 'stipendio', 'netto', 'trattenute', 'avs', 'lpp', 'imposta fonte', 'salary', 'net', 'deductions'],
  },
  {
@@ -562,7 +562,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  tab: 'guida',
  subTab: 'car-cost',
  icon: Car,
- color: 'text-amber-600',
+ color: 'text-warning',
  keywords: ['costo auto', 'car cost', 'autokosten', 'coût auto', 'assicurazione', 'bollo', 'carburante', 'sdoganamento', 'targhe', 'insurance', 'fuel', 'plates'],
  },
  {
@@ -573,7 +573,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  tab: 'guida',
  subTab: 'permit-compare',
  icon: Users,
- color: 'text-amber-600',
+ color: 'text-warning',
  keywords: ['permesso g', 'permesso b', 'permit', 'bewilligung', 'permis', 'frontaliere', 'residente', 'trasferirsi', 'cross-border', 'resident', 'move'],
  },
  {
@@ -584,7 +584,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  tab: 'stats',
  subTab: 'livability',
  icon: MapPin,
- color: 'text-stripe-600',
+ color: 'text-accent',
  keywords: ['vivibilità', 'livability', 'lebensqualität', 'habitabilité', 'comuni', 'classifica', 'ranking', 'municipalities', 'affitto', 'distanza', 'rent', 'distance'],
  },
  {
@@ -595,7 +595,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  tab: 'stats',
  subTab: 'salary-compare',
  icon: TrendingUp,
- color: 'text-amber-600',
+ color: 'text-warning',
  keywords: ['stipendi', 'salaries', 'gehälter', 'salaires', 'confronto', 'comparison', 'settore', 'sector', 'junior', 'senior', 'branche', 'it', 'finanza', 'sanità', 'sondaggio', 'survey', 'retribuzione', 'guadagno', 'wage', 'income', 'Lohn', 'professione', 'profession', 'beruf', 'range salariale', 'salary range', 'gehaltsspanne', 'fourchette', 'informatica', 'ingegnere', 'engineer', 'medico', 'infermiere', 'avvocato', 'consulente', 'marketing', 'pharma', 'farmaceutico', 'edilizia', 'construction', 'logistica', 'assicurazioni', 'insurance', 'telecomunicazioni', 'legale', 'legal', 'consulenza', 'consulting', 'stipendio medio', 'average salary', 'Durchschnittslohn', 'salaire moyen', 'ticino 2026', 'frontaliere'],
  },
  {
@@ -606,7 +606,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  tab: 'calculator',
  subTab: 'salary-quiz',
  icon: TrendingUp,
- color: 'text-pink-600',
+ color: 'text-danger',
  keywords: ['quiz', 'stipendio', 'salary', 'quanto guadagno', 'guadagnare', 'svizzera', 'stima', 'settore', 'sector', 'quiz', 'viral', 'virale', 'earn', 'verdienen', 'gagner'],
  },
  {
@@ -617,7 +617,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  tab: 'stats',
  subTab: 'traffic-history',
  icon: Clock,
- color: 'text-orange-600',
+ color: 'text-warning',
  keywords: ['traffico', 'traffic', 'dogana', 'border', 'storico', 'history', 'attesa', 'wait', 'coda', 'queue', 'heatmap', 'grenze', 'verkehr', 'frontière', 'trafic'],
  },
  {
@@ -628,7 +628,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  tab: 'stats',
  subTab: 'unemployment',
  icon: BarChart3,
- color: 'text-amber-600',
+ color: 'text-warning',
  keywords: ['disoccupazione', 'unemployment', 'arbeitslosigkeit', 'chômage', 'SECO', 'tasso', 'lavoro', 'arbeitsmarkt', 'marché travail', 'senza lavoro'],
  },
  {
@@ -639,7 +639,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  tab: 'stats',
  subTab: 'mortgage',
  icon: Home,
- color: 'text-stripe-600',
+ color: 'text-accent',
  keywords: ['mutuo', 'mortgage', 'hypothek', 'hypothèque', 'ipoteca', 'mutuo frontaliere', 'mutuo svizzera', 'rata', 'tasso', 'interessi', 'Tragbarkeit', 'LTV', 'equity', 'anticipo', 'SARON', 'Euribor', 'casa', 'immobile', 'house', 'Haus', 'maison', 'confronto mutui'],
  },
  {
@@ -650,7 +650,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  tab: 'stats',
  subTab: 'fuel-prices',
  icon: Car,
- color: 'text-orange-600',
+ color: 'text-warning',
  keywords: ['benzina', 'diesel', 'carburante', 'fuel', 'petrol', 'gasoline', 'Benzin', 'Diesel', 'essence', 'prezzo', 'price', 'Preis', 'prix', 'rifornimento', 'distributore', 'stazione servizio', 'risparmio', 'italia', 'svizzera', 'pieno'],
  },
  {
@@ -661,7 +661,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  tab: 'stats',
  subTab: 'health-premiums',
  icon: Heart,
- color: 'text-red-600',
+ color: 'text-danger',
  keywords: ['premi', 'cassa malati', 'LAMal', 'health insurance', 'Krankenkasse', 'assurance maladie', 'premio', 'premium', 'Prämie', 'prime', 'comune', 'municipality', 'franchigia', 'deductible', 'assicuratore', 'insurer'],
  },
  {
@@ -672,7 +672,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  tab: 'stats',
  subTab: 'jobs-observatory',
  icon: Briefcase,
- color: 'text-stripe-600',
+ color: 'text-accent',
  keywords: ['lavoro', 'jobs', 'osservatorio', 'observatory', 'mercato', 'market', 'Arbeitsmarkt', 'marché travail', 'tendenze', 'trends', 'settore', 'sector', 'offerte', 'offers', 'Ticino', 'frontaliere'],
  },
  {
@@ -682,7 +682,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  section: t('nav.blog') || 'Articoli',
  tab: 'blog',
  icon: Newspaper,
- color: 'text-stripe-600',
+ color: 'text-accent',
  keywords: ['articoli', 'articles', 'blog', 'guida', 'guide', 'stipendio netto', 'lamal', 'tredicesima', 'pilastro 3a', 'comuni', 'costo vita', 'primo giorno', 'artikel', 'ratgeber', 'seo'],
  },
  {
@@ -692,7 +692,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  section: t('glossary.title') || 'Glossario',
  tab: 'glossario',
  icon: Newspaper,
- color: 'text-teal-600',
+ color: 'text-info',
  keywords: ['glossario', 'glossary', 'glossar', 'glossaire', 'termini', 'definizioni', 'avs', 'lpp', 'lamal', 'irpef', 'imposta alla fonte', 'pilastro', 'frontaliere'],
  },
  // ─── Dialetto ───
@@ -703,7 +703,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  section: t('dialect.title') || 'Dialetto',
  tab: 'dialetto',
  icon: Newspaper,
- color: 'text-orange-600',
+ color: 'text-warning',
  keywords: ['dialetto', 'dialect', 'dialekt', 'dialecte', 'ticinese', 'tessinois', 'tessiner', 'espressioni', 'proverbi', 'saluti', 'ciau', 'bundi', 'polenta', 'grotto'],
  },
  // ─── FAQ ───
@@ -714,7 +714,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  section: t('faq.title') || 'FAQ',
  tab: 'faq',
  icon: HelpCircle,
- color: 'text-orange-600',
+ color: 'text-warning',
  keywords: ['faq', 'domande', 'frequenti', 'risposte', 'questions', 'answers', 'aiuto', 'help', 'hilfe', 'aide', 'tasse', 'permesso', 'lamal', 'pensione'],
  },
  // ─── Sitemap ───
@@ -736,7 +736,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  section: t('contracts.badge') || 'Contratti di Lavoro',
  tab: 'contracts',
  icon: FileText,
- color: 'text-stripe-600',
+ color: 'text-accent',
  keywords: ['contratto', 'CCNL', 'GAV', 'CCL', 'lavoro', 'ore settimanali', 'ferie', 'tredicesima', 'preavviso', 'periodo di prova', 'edilizia', 'metalmeccanica', 'commercio', 'ristorazione', 'sanità', 'diritti lavoratore', 'employment contracts', 'Arbeitsverträge', 'contrats de travail', 'salario minimo'],
  },
  // ─── TFR / Liquidazione Calculator ───
@@ -747,7 +747,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  section: t('tfr.badge') || 'TFR / Liquidazione',
  tab: 'tfr-calculator',
  icon: Banknote,
- color: 'text-amber-600',
+ color: 'text-warning',
  keywords: ['TFR', 'liquidazione', 'buonuscita', 'trattamento fine rapporto', 'severance', 'Abfindung', 'indemnité', '2 pilastro', 'LPP', 'BVG', 'cassa pensione', 'previdenza', 'pension fund', 'Pensionskasse', 'caisse de pension'],
  },
  // ─── Quiz Permesso B o G ───
@@ -758,7 +758,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  section: t('permitQuiz.title') || 'Quiz Permesso',
  tab: 'permit-quiz',
  icon: HelpCircle,
- color: 'text-stripe-600',
+ color: 'text-accent',
  keywords: ['permesso B', 'permesso G', 'quiz', 'permit', 'Bewilligung', 'permis', 'frontaliere', 'residenza', 'grenzgänger', 'cross-border', 'quale permesso', 'meglio B o G'],
  },
  // ─── Calcolatore Tredicesima ───
@@ -769,7 +769,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  section: t('tredicesima.title') || 'Tredicesima',
  tab: 'tredicesima',
  icon: Calculator,
- color: 'text-amber-600',
+ color: 'text-warning',
  keywords: ['tredicesima', 'quattordicesima', '13 stipendio', '13th salary', '14th salary', 'Monatslohn', 'mensilità', 'bonus', 'CCNL', 'tredicesima frontaliere', 'dreizehnter', 'treizième'],
  },
  // ─── Weekly Digest ───
@@ -780,7 +780,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  section: t('weeklyDigest.title') || 'Digest Settimanale',
  tab: 'weekly-digest',
  icon: Mail,
- color: 'text-stripe-600',
+ color: 'text-accent',
  keywords: ['digest', 'settimanale', 'newsletter', 'weekly', 'email', 'tasso cambio', 'weekly digest', 'wöchentlich', 'hebdomadaire', 'aggiornamenti'],
  },
  // ─── Tool of the Week ───
@@ -791,7 +791,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  section: t('toolOfWeek.title') || 'Strumento della Settimana',
  tab: 'tool-of-week',
  icon: Star,
- color: 'text-amber-600',
+ color: 'text-warning',
  keywords: ['strumento settimana', 'tool week', 'werkzeug woche', 'outil semaine', 'evidenza', 'condividi', 'share', 'social'],
  },
  // ─── Stats ───
@@ -803,7 +803,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  tab: 'stats',
  subTab: 'overview',
  icon: BarChart2,
- color: 'text-stripe-600',
+ color: 'text-accent',
  keywords: ['statistiche', 'dati', 'numeri', 'statistics', 'data', 'numbers', 'statistik', 'statistiques', 'grafico', 'chart'],
  },
  // ─── Feedback ───
@@ -814,7 +814,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  section: t('footer.improveTitle') || 'Aiutaci a Migliorare',
  tab: 'feedback',
  icon: HelpCircle,
- color: 'text-amber-600',
+ color: 'text-warning',
  keywords: ['feedback', 'supporto', 'bug', 'aiuto', 'help', 'support', 'segnala', 'report', 'hilfe', 'aide'],
  },
  // ─── Contact ───
@@ -825,7 +825,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  section: t('contact.title') || 'Contattaci',
  tab: 'contact',
  icon: Mail,
- color: 'text-stripe-600',
+ color: 'text-accent',
  keywords: ['contattaci', 'contact', 'email', 'scrivici', 'domanda', 'question', 'kontakt', 'contactez', 'messaggio', 'message', 'nachricht'],
  },
  // ─── Email Confirmed / Welcome ───
@@ -836,7 +836,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  section: t('emailConfirmed.title') || 'Benvenuto',
  tab: 'email-confirmed',
  icon: Star,
- color: 'text-emerald-600',
+ color: 'text-success',
  keywords: ['benvenuto', 'welcome', 'conferma email', 'iscritto', 'newsletter', 'willkommen', 'bienvenue'],
  },
  // ─── Forum ───
@@ -847,7 +847,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  section: t('forum.title') || 'Community',
  tab: 'forum',
  icon: MessageSquare,
- color: 'text-stripe-600',
+ color: 'text-accent',
  keywords: ['forum', 'community', 'domande', 'risposte', 'questions', 'answers', 'fragen', 'antworten', 'communauté', 'aiuto', 'help'],
  },
  // ─── Gamification ───
@@ -858,7 +858,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  section: t('gamification.title') || 'Gamification',
  tab: 'gamification',
  icon: Award,
- color: 'text-amber-600',
+ color: 'text-warning',
  keywords: ['obiettivi', 'achievements', 'livelli', 'levels', 'xp', 'gamification', 'badge', 'punti', 'points', 'erfolge', 'récompenses'],
  },
  // ─── Partner Services ───
@@ -869,7 +869,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  section: t('partners.title') || 'Servizi Partner',
  tab: 'partners',
  icon: Handshake,
- color: 'text-emerald-700',
+ color: 'text-success',
  keywords: ['partner', 'servizi', 'services', 'wise', 'revolut', 'affiliati', 'affiliate', 'raccomandati', 'recommended', 'dienste', 'partenaires', 'strumenti', 'tools'],
  },
  // ─── Consulting ───
@@ -880,7 +880,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  section: t('consulting.badge') || 'Consulenza',
  tab: 'consulting',
  icon: Video,
- color: 'text-stripe-600',
+ color: 'text-accent',
  keywords: ['consulenza', 'consulting', 'beratung', 'consultation', 'fiscale', 'personalizzata', 'video', 'calendly', 'prenota', 'book', 'esperto', 'expert'],
  },
  // ─── Job Board ───
@@ -891,7 +891,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  section: t('jobBoard.badge') || 'Lavoro',
  tab: 'job-board',
  icon: BriefcaseBusiness,
- color: 'text-stripe-600',
+ color: 'text-accent',
  keywords: ['lavoro', 'jobs', 'offerte', 'offers', 'ticino', 'aziende', 'companies', 'emploi', 'stelle', 'candidati', 'apply', 'impiego', 'carriera'],
  },
  {
@@ -901,7 +901,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  section: t('jobBoard.badge') || 'Lavoro',
  tab: 'job-board',
  icon: BriefcaseBusiness,
- color: 'text-stripe-600',
+ color: 'text-accent',
  keywords: ['part-time', 'tempo parziale', 'teilzeit', 'temps partiel', 'flessibile', 'flexible', 'percentuale', 'percentage', 'parziale', 'ridotto'],
  },
  // ─── Job Board — Location-specific entries ───
@@ -912,7 +912,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  section: t('jobBoard.badge') || 'Lavoro',
  tab: 'job-board',
  icon: BriefcaseBusiness,
- color: 'text-stripe-600',
+ color: 'text-accent',
  keywords: ['lugano', 'lavoro lugano', 'jobs lugano', 'offerte lugano'],
  _filterParams: { location: 'lugano' },
  },
@@ -923,7 +923,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  section: t('jobBoard.badge') || 'Lavoro',
  tab: 'job-board',
  icon: BriefcaseBusiness,
- color: 'text-stripe-600',
+ color: 'text-accent',
  keywords: ['bellinzona', 'lavoro bellinzona', 'jobs bellinzona', 'offerte bellinzona'],
  _filterParams: { location: 'bellinzona' },
  },
@@ -934,7 +934,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  section: t('jobBoard.badge') || 'Lavoro',
  tab: 'job-board',
  icon: BriefcaseBusiness,
- color: 'text-stripe-600',
+ color: 'text-accent',
  keywords: ['mendrisio', 'lavoro mendrisio', 'jobs mendrisio', 'offerte mendrisio'],
  _filterParams: { location: 'mendrisio' },
  },
@@ -945,7 +945,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  section: t('jobBoard.badge') || 'Lavoro',
  tab: 'job-board',
  icon: BriefcaseBusiness,
- color: 'text-stripe-600',
+ color: 'text-accent',
  keywords: ['locarno', 'lavoro locarno', 'jobs locarno', 'offerte locarno'],
  _filterParams: { location: 'locarno' },
  },
@@ -956,7 +956,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  section: t('jobBoard.badge') || 'Lavoro',
  tab: 'job-board',
  icon: BriefcaseBusiness,
- color: 'text-stripe-600',
+ color: 'text-accent',
  keywords: ['chiasso', 'lavoro chiasso', 'jobs chiasso', 'offerte chiasso'],
  _filterParams: { location: 'chiasso' },
  },
@@ -967,7 +967,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  section: t('jobBoard.badge') || 'Lavoro',
  tab: 'job-board',
  icon: BriefcaseBusiness,
- color: 'text-stripe-600',
+ color: 'text-accent',
  keywords: ['coira', 'chur', 'lavoro coira', 'jobs chur', 'offerte coira'],
  _filterParams: { location: 'coira' },
  },
@@ -979,7 +979,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  section: t('jobBoard.badge') || 'Lavoro',
  tab: 'job-board',
  icon: BriefcaseBusiness,
- color: 'text-stripe-600',
+ color: 'text-accent',
  keywords: ['infermiere', 'infermiera', 'nurse', 'nursing', 'sanità', 'health', 'ospedale', 'hospital', 'Krankenpfleger', 'infirmier'],
  _filterParams: { query: 'infermiere' },
  },
@@ -990,7 +990,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  section: t('jobBoard.badge') || 'Lavoro',
  tab: 'job-board',
  icon: BriefcaseBusiness,
- color: 'text-stripe-600',
+ color: 'text-accent',
  keywords: ['ingegnere', 'engineer', 'engineering', 'Ingenieur', 'ingénieur', 'tecnico', 'progettista'],
  _filterParams: { query: 'ingegnere' },
  },
@@ -1001,7 +1001,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  section: t('jobBoard.badge') || 'Lavoro',
  tab: 'job-board',
  icon: BriefcaseBusiness,
- color: 'text-stripe-600',
+ color: 'text-accent',
  keywords: ['autista', 'driver', 'chauffeur', 'Fahrer', 'trasporto', 'guida', 'camionista', 'bus'],
  _filterParams: { query: 'autista' },
  },
@@ -1012,7 +1012,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  section: t('jobBoard.badge') || 'Lavoro',
  tab: 'job-board',
  icon: BriefcaseBusiness,
- color: 'text-stripe-600',
+ color: 'text-accent',
  keywords: ['educatore', 'educatrice', 'educator', 'Erzieher', 'éducateur', 'pedagogista', 'insegnante', 'docente'],
  _filterParams: { query: 'educatore' },
  },
@@ -1023,7 +1023,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  section: t('jobBoard.badge') || 'Lavoro',
  tab: 'job-board',
  icon: BriefcaseBusiness,
- color: 'text-stripe-600',
+ color: 'text-accent',
  keywords: ['medico', 'dottore', 'doctor', 'physician', 'Arzt', 'médecin', 'specialista', 'chirurgo'],
  _filterParams: { query: 'medico' },
  },
@@ -1034,7 +1034,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  section: t('jobBoard.badge') || 'Lavoro',
  tab: 'job-board',
  icon: BriefcaseBusiness,
- color: 'text-stripe-600',
+ color: 'text-accent',
  keywords: ['contabile', 'accountant', 'Buchhalter', 'comptable', 'contabilità', 'ragioniere', 'fiduciario'],
  _filterParams: { query: 'contabile' },
  },
@@ -1046,7 +1046,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  section: t('profile.title') || 'Profilo',
  tab: 'profile',
  icon: UserIcon,
- color: 'text-stripe-600',
+ color: 'text-accent',
  keywords: ['profilo', 'profile', 'profil', 'login', 'accedi', 'google', 'account', 'signin', 'anmelden', 'connexion', 'frontaliere', 'dati', 'data', 'impostazioni', 'settings', 'dashboard', 'personale', 'personal', 'salvate', 'saved', 'simulazioni', 'cloud', 'sync'],
  },
  ];
@@ -1071,7 +1071,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  tab: 'glossario',
  subTab: termId,
  icon: BookA,
- color: 'text-teal-600',
+ color: 'text-info',
  keywords: [title.toLowerCase(), 'glossario', 'definizione', termId.toLowerCase().replace(/([A-Z])/g, ' $1').trim()],
  });
  }
@@ -1091,7 +1091,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  tab: 'blog',
  subTab: articleId,
  icon: Newspaper,
- color: 'text-stripe-600',
+ color: 'text-accent',
  keywords: articleId.split('-').filter(w => w.length > 2),
  });
  }
@@ -1132,7 +1132,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
  section: t('nav.simulator') || 'Calcolatore',
  tab: 'calculator',
  icon: Calculator,
- color: 'text-stripe-600',
+ color: 'text-accent',
  keywords: [...lp.keywords, 'simulazione', 'salary', 'landing', 'calcolo'],
  });
  }
@@ -1195,12 +1195,12 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
 
  // Category quick-links for guided browsing
  const categoryLinks = useMemo(() => [
- { label: t('nav.simulator') || 'Calcolatore', tab: 'calculator', icon: Calculator, color: 'text-stripe-600' },
- { label: t('nav.confronti') || 'Confronti', tab: 'confronti', icon: Layers, color: 'text-stripe-600' },
- { label: t('nav.fisco') || 'Fisco', tab: 'fisco', icon: PiggyBank, color: 'text-emerald-700' },
- { label: t('nav.guida') || 'Guida', tab: 'guida', icon: BookOpen, color: 'text-stripe-600' },
- { label: t('nav.vita') || 'Vita', tab: 'vita', subTab: 'transport' as string | undefined, icon: Home, color: 'text-teal-600' },
- { label: t('nav.stats') || 'Statistiche', tab: 'stats', subTab: 'overview' as string | undefined, icon: BarChart2, color: 'text-stripe-600' },
+ { label: t('nav.simulator') || 'Calcolatore', tab: 'calculator', icon: Calculator, color: 'text-accent' },
+ { label: t('nav.confronti') || 'Confronti', tab: 'confronti', icon: Layers, color: 'text-accent' },
+ { label: t('nav.fisco') || 'Fisco', tab: 'fisco', icon: PiggyBank, color: 'text-success' },
+ { label: t('nav.guida') || 'Guida', tab: 'guida', icon: BookOpen, color: 'text-accent' },
+ { label: t('nav.vita') || 'Vita', tab: 'vita', subTab: 'transport' as string | undefined, icon: Home, color: 'text-info' },
+ { label: t('nav.stats') || 'Statistiche', tab: 'stats', subTab: 'overview' as string | undefined, icon: BarChart2, color: 'text-accent' },
  ], [t]);
 
  // Keyboard shortcut: Cmd+K / Ctrl+K to open

@@ -191,8 +191,8 @@ const ConsultingPage: React.FC = () => {
  onClick={(e) => { e.stopPropagation(); handleBooking(tier); }}
  className={`w-full py-3 px-4 rounded-xl font-semibold text-sm flex items-center justify-center gap-2 transition-colors ${
  tier.popular
- ? 'bg-amber-500 hover:bg-amber-600 text-white'
- : 'bg-accent hover:bg-accent-hover text-white'
+ ? 'bg-warning-strong hover:bg-warning-strong-hover text-on-accent'
+ : 'bg-accent hover:bg-accent-hover text-on-accent'
  }`}
  >
  <Calendar className="w-4 h-4" />

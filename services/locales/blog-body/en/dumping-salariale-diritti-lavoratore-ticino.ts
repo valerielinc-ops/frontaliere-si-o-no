@@ -1,5 +1,5 @@
 const bodyDumpingSalarialeDirittiLavoratoreTicino: Record<string, string> = {
-    'blog.article.dumping-salariale-diritti-lavoratore-ticino.body1': `## Wage Dumping in the 2026 Ticino Labor Market
+ 'blog.article.dumping-salariale-diritti-lavoratore-ticino.body1': `## Wage Dumping in the 2026 Ticino Labor Market
 
 Wage dumping — the practice of paying workers below the legally or contractually established minimum — remains one of the most persistent problems in the Ticino labor market. Despite strengthened inspections and new cantonal legislation, cross-border workers continue to be disproportionately affected. Understanding the forms it takes, the rights you have, and the concrete steps to protect yourself is not optional: it is essential financial self-defense.
 
@@ -20,7 +20,7 @@ According to the most recent cantonal statistics, the **median gross salary in T
 
 Use the [salary calculator](nav:calculator) to compare your actual pay against Ticino benchmarks for your sector and experience level.`,
 
-    'blog.article.dumping-salariale-diritti-lavoratore-ticino.body2': `## How to Recognize Wage Dumping — Five Red Flags
+ 'blog.article.dumping-salariale-diritti-lavoratore-ticino.body2': `## How to Recognize Wage Dumping — Five Red Flags
 
 Knowing the theory is one thing; recognizing dumping in your own payslip and work conditions is another. Here are the five most common patterns that cross-border workers should watch for:
 
@@ -49,7 +49,7 @@ Swiss law provides **whistleblower protection** for employees who report labor l
 
 Since 2021, Canton Ticino has had a **cantonal minimum wage** law. For 2026, the minimum is set at **19.75 CHF per hour**, which translates to approximately **3,530 CHF per month** for a full-time position (42.5 hours/week). This minimum applies to all workers in Ticino, regardless of nationality or permit type, and it overrides any lower contractual agreements. If your effective hourly rate falls below this threshold, your employer is breaking cantonal law.`,
 
-    'blog.article.dumping-salariale-diritti-lavoratore-ticino.body3': `## What to Do If You Are a Victim of Wage Dumping
+ 'blog.article.dumping-salariale-diritti-lavoratore-ticino.body3': `## What to Do If You Are a Victim of Wage Dumping
 
 Discovering that you are being underpaid is stressful, but Swiss law provides a structured path to remedy the situation. Follow these five phases:
 
@@ -87,7 +87,7 @@ In 2024, the MPS (Movimento per il Socialismo) anti-dumping initiative was rejec
 - **Explore opportunities** on the [job board](nav:job-board) — sometimes the best response to dumping is finding an employer who values fair pay
 
 Wage dumping is not a fact of life. It is a violation of Swiss law, and you have concrete, accessible tools to fight it.`,
-    'blog.article.dumping-salariale-diritti-lavoratore-ticino.faq': '[{"q":"How can I recognize if I\'m under wage dumping?","a":"Wage dumping may occur in the form of correct basic wages but actual hours higher than contract, lower professional framework, fake part-time, illegitimate deductions or no adjustments to relapse. Check your salary with your salary calculator and compare it to the CCL minimums in your industry."},{"q":"What is the minimum wage time guaranteed by the Cantonal minimum wage law in Ticino in 2026?","a":"The minimum wage guaranteed is 19.75 CHF/hour, equivalent to approximately 3.530 CHF/month at 100% employment."},{"q":"What are the penalties for employers violating the Collective Work Contracts in Ticino?","a":"Employers\' sanctions in Ticino may reach CHF 50,000 for repeated violations. This strengthening of sanctions has been introduced to improve compliance with regulations and protect workers from wage dumping practices."},{"q":"How can I correctly record my working hours as a front panel?","a":"To correctly record your working hours, use an Excel app or sheet to track actual hours worked daily. Keep these recordings in digital format along with pay envelopes and contracts, which will help you document any discrepancies between contractual hours and those actually processed."},{"q":"What are the resources available for frontier workers who want to report wage irregularities?","a":"Frontiers may report wage irregularities anonymously to the Cantonal Parthetic Commission (CPC) of construction, the Tripartite Commission for sectors without CCL, trade unions such as UNIA, OCST, SIT, or the Canton Ticino Labour Inspectorate. UNIA also offers free Italian advice at Lugano, Bellinzona and Mendrisio."}]',
+ 'blog.article.dumping-salariale-diritti-lavoratore-ticino.faq': '[{"q":"How can I recognize if I\'m under wage dumping?","a":"Wage dumping may occur in the form of correct basic wages but actual hours higher than contract, lower professional framework, fake part-time, illegitimate deductions or no adjustments to relapse. Check your salary with your salary calculator and compare it to the CCL minimums in your industry."},{"q":"What is the minimum wage time guaranteed by the Cantonal minimum wage law in Ticino in 2026?","a":"The minimum wage guaranteed is 19.75 CHF/hour, equivalent to approximately 3.530 CHF/month at 100% employment."},{"q":"What are the penalties for employers violating the Collective Work Contracts in Ticino?","a":"Employers\' sanctions in Ticino may reach CHF 50,000 for repeated violations. This strengthening of sanctions has been introduced to improve compliance with regulations and protect workers from wage dumping practices."},{"q":"How can I correctly record my working hours as a front panel?","a":"To correctly record your working hours, use an Excel app or sheet to track actual hours worked daily. Keep these recordings in digital format along with pay envelopes and contracts, which will help you document any discrepancies between contractual hours and those actually processed."},{"q":"What are the resources available for frontier workers who want to report wage irregularities?","a":"Frontiers may report wage irregularities anonymously to the Cantonal Parthetic Commission (CPC) of construction, the Tripartite Commission for sectors without CCL, trade unions such as UNIA, OCST, SIT, or the Canton Ticino Labour Inspectorate. UNIA also offers free Italian advice at Lugano, Bellinzona and Mendrisio."}]',
 };
 
 export default bodyDumpingSalarialeDirittiLavoratoreTicino;

@@ -6,14 +6,14 @@ import path from 'path';
  * These tests run AFTER the build in the prepush pipeline.
  */
 export default defineConfig({
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, '.'),
-    },
-  },
-  test: {
-    globals: true,
-    include: ['tests/post-build/**/*.test.{ts,tsx}'],
-    testTimeout: 30000,
-  },
+ resolve: {
+ alias: {
+ '@': path.resolve(__dirname, '.'),
+ },
+ },
+ test: {
+ globals: true,
+ include: ['tests/post-build/**/*.test.{ts,tsx}'],
+ testTimeout: 30000,
+ },
 });

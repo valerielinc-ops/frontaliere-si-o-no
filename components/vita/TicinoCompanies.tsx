@@ -718,17 +718,17 @@ const TicinoCompanies: React.FC = () => {
  `}</style>
 
  {/* Header */}
- <div className="bg-info rounded-2xl sm:rounded-3xl p-4 sm:p-8 text-white shadow-2xl">
+ <div className="bg-info rounded-2xl sm:rounded-3xl p-4 sm:p-8 text-on-accent shadow-2xl">
  <div className="flex items-center gap-3 sm:gap-4 mb-4">
  <div className="p-2 sm:p-3 bg-white/20 rounded-xl sm:rounded-2xl flex-shrink-0">
  <Building2 size={28} className="sm:w-8 sm:h-8" />
  </div>
  <div className="min-w-0">
  <h1 className="text-xl sm:text-3xl font-extrabold">{t('companies.title', getCantonI18nParams()) || 'Aziende in Ticino'}</h1>
- <p className="text-teal-100 mt-1 text-sm sm:text-base">{t('companies.subtitle') || 'Mappa interattiva delle principali società con filtri per settore e dimensione'}</p>
+ <p className="text-info mt-1 text-sm sm:text-base">{t('companies.subtitle') || 'Mappa interattiva delle principali società con filtri per settore e dimensione'}</p>
  </div>
  </div>
- <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-white mt-4">
+ <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-on-accent mt-4">
  <div><span className="text-lg font-semibold">{filtered.length}</span> <span className="text-sm text-white/80">{t('companies.totalCompanies') || 'Aziende'}</span></div>
  <div><span className="text-lg font-semibold">{totalEmployees.toLocaleString('it-IT')}</span> <span className="text-sm text-white/80">{t('companies.totalEmployees') || 'Dipendenti'}</span></div>
  </div>
@@ -797,7 +797,7 @@ const TicinoCompanies: React.FC = () => {
  onChange={(e) => setMinEmployees(Number(e.target.value))}
  aria-label={t('companies.minEmployees') || 'Dipendenti minimi'}
  className="w-full sm:w-32 accent-stripe-600" />
- <span className="font-bold text-stripe-600 w-10">{minEmployees}</span>
+ <span className="font-bold text-accent w-10">{minEmployees}</span>
  </div>
  <div className="flex items-center gap-2 sm:ml-auto">
  <ArrowUpDown size={14} className="text-muted" />
@@ -939,7 +939,7 @@ const TicinoCompanies: React.FC = () => {
  )}
  {company.website && (
  <a href={company.website} target="_blank" rel="noopener noreferrer"
- className="mt-3 flex items-center justify-center gap-1.5 w-full p-2 bg-accent text-white rounded-lg text-[13px] font-bold no-underline hover:bg-accent-hover">
+ className="mt-3 flex items-center justify-center gap-1.5 w-full p-2 bg-accent text-on-accent rounded-lg text-[13px] font-bold no-underline hover:bg-accent-hover">
  {t('companies.visitWebsite')}
  </a>
  )}

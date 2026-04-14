@@ -319,12 +319,12 @@ const TicineseDialect: React.FC = () => {
 
  return (
  <div className="space-y-6">
- <div className="bg-warning rounded-2xl p-4 sm:p-6 text-white">
+ <div className="bg-warning rounded-2xl p-4 sm:p-6 text-on-accent">
  <div className="flex items-center gap-3 mb-2">
  <Languages size={28} />
  <h2 className="text-2xl font-bold">{tt('dialect.title', 'Dialetto Ticinese')}</h2>
  </div>
- <p className="text-orange-100 text-sm">{tt('dialect.subtitle', 'Scopri il dialetto del territorio di frontiera')}</p>
+ <p className="text-on-accent text-sm">{tt('dialect.subtitle', 'Scopri il dialetto del territorio di frontiera')}</p>
  </div>
 
  {!phraseOfDayDismissed && (
@@ -340,12 +340,12 @@ const TicineseDialect: React.FC = () => {
  </div>
  <div className="flex items-center gap-1">
  <button onClick={() => pronounce(phraseOfDay)} className="p-2.5 rounded-lg hover:bg-warning-subtle" aria-label={tt('dialect.playAudio', 'Ascolta')}>
- <Volume2 size={16} className={playingKey === phraseOfDay.key ? 'text-emerald-600 animate-pulse' : 'text-warning'} />
+ <Volume2 size={16} className={playingKey === phraseOfDay.key ? 'text-success animate-pulse' : 'text-warning'} />
  </button>
  <button onClick={() => handleShare(phraseOfDay)} className="p-2.5 rounded-lg hover:bg-warning-subtle" aria-label={tt('dialect.share', 'Condividi')}>
- {copied ? <Check size={16} className="text-emerald-600" /> : <Share2 size={16} className="text-warning" />}
+ {copied ? <Check size={16} className="text-success" /> : <Share2 size={16} className="text-warning" />}
  </button>
- <button onClick={() => setPhraseOfDayDismissed(true)} className="p-2.5 rounded-lg hover:bg-warning-subtle text-amber-500" aria-label={tt('common.close', 'Chiudi')}>×</button>
+ <button onClick={() => setPhraseOfDayDismissed(true)} className="p-2.5 rounded-lg hover:bg-warning-subtle text-warning" aria-label={tt('common.close', 'Chiudi')}>×</button>
  </div>
  </div>
  </div>
@@ -354,7 +354,7 @@ const TicineseDialect: React.FC = () => {
  <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
  <div className="lg:col-span-2 bg-surface border border-edge rounded-xl p-4">
  <div className="flex items-center gap-2 mb-2">
- <Lightbulb size={18} className="text-stripe-500" />
+ <Lightbulb size={18} className="text-accent" />
  <h3 className="font-semibold text-strong">{tt('dialect.historyTitle', 'Storia del dialetto')}</h3>
  </div>
  <p className="text-sm text-subtle">{tt('dialect.historyText', 'Il dialetto ticinese appartiene al gruppo lombardo occidentale, con influenze alpine, italiane e svizzere. Nella vita quotidiana convive con l’italiano standard, soprattutto nei contesti di lavoro frontaliero.')}</p>
@@ -362,7 +362,7 @@ const TicineseDialect: React.FC = () => {
 
  <div className="bg-surface border border-edge rounded-xl p-4">
  <div className="flex items-center gap-2 mb-2">
- <GraduationCap size={18} className="text-stripe-500" />
+ <GraduationCap size={18} className="text-accent" />
  <h3 className="font-semibold text-strong">{tt('dialect.quizTitle', 'Quiz')}</h3>
  </div>
  {quizState && (
@@ -525,7 +525,7 @@ const TicineseDialect: React.FC = () => {
 
  <div className="bg-surface rounded-xl border border-edge p-4">
  <div className="flex items-center gap-2 mb-3">
- <PlayCircle size={18} className="text-fuchsia-500" />
+ <PlayCircle size={18} className="text-accent" />
  <h3 className="font-semibold text-strong">{tt('dialect.userSectionTitle', 'Frasi proposte dagli utenti')}</h3>
  </div>
 
@@ -555,7 +555,7 @@ const TicineseDialect: React.FC = () => {
 
  <button
  onClick={saveUserPhrase}
- className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-fuchsia-600 hover:bg-fuchsia-700 text-white text-xs font-semibold"
+ className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-accent-strong hover:bg-accent-strong-hover text-on-accent text-xs font-semibold"
  >
  {savedUserPhrase ? <Check size={14} /> : <Send size={14} />} {tt('dialect.userSubmit', 'Invia frase')}
  </button>

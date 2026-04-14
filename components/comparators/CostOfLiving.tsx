@@ -170,14 +170,14 @@ const CITIES: CityData[] = [
 type CompareCategory = 'rent1bed' | 'rent3bed' | 'utilities' | 'internet' | 'groceries' | 'restaurant' | 'transport' | 'health';
 
 const CATEGORY_CONFIG: { key: CompareCategory; icon: React.ReactNode; colorIT: string; colorCH: string }[] = [
- { key: 'rent1bed', icon: <Home size={14} />, colorIT: 'bg-emerald-700', colorCH: 'bg-red-500' },
- { key: 'rent3bed', icon: <Home size={14} />, colorIT: 'bg-emerald-700', colorCH: 'bg-red-500' },
- { key: 'utilities', icon: <Zap size={14} />, colorIT: 'bg-emerald-700', colorCH: 'bg-red-500' },
- { key: 'internet', icon: <Wifi size={14} />, colorIT: 'bg-emerald-700', colorCH: 'bg-red-500' },
- { key: 'groceries', icon: <Utensils size={14} />, colorIT: 'bg-emerald-700', colorCH: 'bg-red-500' },
- { key: 'restaurant', icon: <Utensils size={14} />, colorIT: 'bg-emerald-700', colorCH: 'bg-red-500' },
- { key: 'transport', icon: <Train size={14} />, colorIT: 'bg-emerald-700', colorCH: 'bg-red-500' },
- { key: 'health', icon: <Heart size={14} />, colorIT: 'bg-emerald-700', colorCH: 'bg-red-500' },
+ { key: 'rent1bed', icon: <Home size={14} />, colorIT: 'bg-success-strong', colorCH: 'bg-danger-strong' },
+ { key: 'rent3bed', icon: <Home size={14} />, colorIT: 'bg-success-strong', colorCH: 'bg-danger-strong' },
+ { key: 'utilities', icon: <Zap size={14} />, colorIT: 'bg-success-strong', colorCH: 'bg-danger-strong' },
+ { key: 'internet', icon: <Wifi size={14} />, colorIT: 'bg-success-strong', colorCH: 'bg-danger-strong' },
+ { key: 'groceries', icon: <Utensils size={14} />, colorIT: 'bg-success-strong', colorCH: 'bg-danger-strong' },
+ { key: 'restaurant', icon: <Utensils size={14} />, colorIT: 'bg-success-strong', colorCH: 'bg-danger-strong' },
+ { key: 'transport', icon: <Train size={14} />, colorIT: 'bg-success-strong', colorCH: 'bg-danger-strong' },
+ { key: 'health', icon: <Heart size={14} />, colorIT: 'bg-success-strong', colorCH: 'bg-danger-strong' },
 ];
 
 const CostOfLiving: React.FC = () => {
@@ -239,7 +239,7 @@ const CostOfLiving: React.FC = () => {
  <div className="grid md:grid-cols-3 gap-4">
  {/* CH City */}
  <div className="bg-surface rounded-xl p-4 border border-edge">
- <label htmlFor="col-ch-city" className="text-xs font-bold text-red-600 uppercase tracking-wide flex items-center gap-1">
+ <label htmlFor="col-ch-city" className="text-xs font-bold text-danger uppercase tracking-wide flex items-center gap-1">
  🇨🇭 {t('costOfLiving.swissCity')}
  </label>
  <select
@@ -256,7 +256,7 @@ const CostOfLiving: React.FC = () => {
 
  {/* IT City */}
  <div className="bg-surface rounded-xl p-4 border border-edge">
- <label htmlFor="col-it-city" className="text-xs font-bold text-green-700 uppercase tracking-wide flex items-center gap-1">
+ <label htmlFor="col-it-city" className="text-xs font-bold text-success uppercase tracking-wide flex items-center gap-1">
  🇮🇹 {t('costOfLiving.italianCity')}
  </label>
  <select
@@ -275,7 +275,7 @@ const CostOfLiving: React.FC = () => {
  <div className="bg-surface rounded-xl p-4 border border-edge">
  <label htmlFor="col-exchange-rate" className="text-xs font-bold text-muted uppercase tracking-wide flex items-center gap-2">
  {t('costOfLiving.exchangeRate')}
- {rateLoading && <RefreshCw size={12} className="animate-spin text-amber-600" />}
+ {rateLoading && <RefreshCw size={12} className="animate-spin text-warning" />}
  </label>
  <input
  id="col-exchange-rate"
@@ -295,13 +295,13 @@ const CostOfLiving: React.FC = () => {
  <div className="bg-surface rounded-xl border border-edge p-1 inline-flex">
  <button
  onClick={() => setShowAnnual(false)}
- className={`px-4 py-2 rounded-lg text-sm font-bold transition-colors ${!showAnnual ? 'bg-amber-700 text-white' : 'text-muted hover:bg-surface-raised'}`}
+ className={`px-4 py-2 rounded-lg text-sm font-bold transition-colors ${!showAnnual ? 'bg-warning-strong-hover text-on-accent' : 'text-muted hover:bg-surface-raised'}`}
  >
  {t('costOfLiving.monthly')}
  </button>
  <button
  onClick={() => setShowAnnual(true)}
- className={`px-4 py-2 rounded-lg text-sm font-bold transition-colors ${showAnnual ? 'bg-amber-700 text-white' : 'text-muted hover:bg-surface-raised'}`}
+ className={`px-4 py-2 rounded-lg text-sm font-bold transition-colors ${showAnnual ? 'bg-warning-strong-hover text-on-accent' : 'text-muted hover:bg-surface-raised'}`}
  >
  {t('costOfLiving.annual')}
  </button>
@@ -344,7 +344,7 @@ const CostOfLiving: React.FC = () => {
  <div key={cat.key} className="p-4 border-b border-edge/50 last:border-b-0 hover:bg-surface-raised transition-colors">
  <div className="grid grid-cols-2 sm:grid-cols-4 items-center gap-2">
  <div className="flex items-center gap-2 col-span-2 sm:col-span-1">
- <span className="text-amber-600">{cat.icon}</span>
+ <span className="text-warning">{cat.icon}</span>
  <span className="font-bold text-sm text-strong">{cat.label}</span>
  </div>
  <div className="text-center">
@@ -354,7 +354,7 @@ const CostOfLiving: React.FC = () => {
  <div className="text-center">
  <div className="font-bold text-sm">€ {valIT_EUR.toFixed(0)}</div>
  {cat.key === 'health' && valIT === 0 && (
- <div className="text-xs text-emerald-500 font-bold">SSN</div>
+ <div className="text-xs text-success font-bold">SSN</div>
  )}
  </div>
  <div className="text-right">
@@ -377,7 +377,7 @@ const CostOfLiving: React.FC = () => {
  <span className="text-xs w-4 text-center">🇨🇭</span>
  <div className="flex-1 bg-surface-raised rounded-full h-3 overflow-hidden">
  <div
- className="bg-red-500 h-full rounded-full transition-transform duration-500 origin-left"
+ className="bg-danger-strong h-full rounded-full transition-transform duration-500 origin-left"
  style={{ transform: `scaleX(${maxVal > 0 ? (valCH_EUR / maxVal) : 0})` }}
  />
  </div>
@@ -386,7 +386,7 @@ const CostOfLiving: React.FC = () => {
  <span className="text-xs w-4 text-center">🇮🇹</span>
  <div className="flex-1 bg-surface-raised rounded-full h-3 overflow-hidden">
  <div
- className="bg-emerald-700 h-full rounded-full transition-transform duration-500 origin-left"
+ className="bg-success-strong h-full rounded-full transition-transform duration-500 origin-left"
  style={{ transform: `scaleX(${maxVal > 0 ? (valIT_EUR / maxVal) : 0})` }}
  />
  </div>
@@ -400,7 +400,7 @@ const CostOfLiving: React.FC = () => {
  {/* Frontaliere Tip */}
  <div className="bg-warning-subtle border-l-4 border-warning p-4 rounded-lg">
  <div className="flex items-start gap-3">
- <DollarSign className="text-amber-700 flex-shrink-0 mt-0.5" size={20} />
+ <DollarSign className="text-warning flex-shrink-0 mt-0.5" size={20} />
  <div className="text-sm text-warning">
  <p className="font-bold mb-1">{t('costOfLiving.frontaliereTipTitle')}</p>
  <p>{t('costOfLiving.frontaliereTip')}</p>

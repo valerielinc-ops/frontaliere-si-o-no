@@ -154,7 +154,7 @@ const Glossary: React.FC<GlossaryProps> = ({ initialEntry }) => {
  return (
  <div className="space-y-6">
  {/* Header */}
- <div className="bg-info rounded-2xl p-4 sm:p-6 text-white" data-speakable>
+ <div className="bg-info rounded-2xl p-4 sm:p-6 text-on-accent" data-speakable>
  <div className="flex items-center gap-3 mb-2">
  <BookOpen size={28} />
  {initialEntry ? (
@@ -163,7 +163,7 @@ const Glossary: React.FC<GlossaryProps> = ({ initialEntry }) => {
  <h1 className="text-2xl font-bold">{t('glossary.title')}</h1>
  )}
  </div>
- <p className="text-stripe-100 text-sm">{t('glossary.subtitle')}</p>
+ <p className="text-accent text-sm">{t('glossary.subtitle')}</p>
  <DataFreshness lastUpdated="2026-04" source={t('freshness.source.redazione')} variant="badge" />
  </div>
 

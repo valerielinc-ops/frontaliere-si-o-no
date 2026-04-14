@@ -48,7 +48,7 @@ const PartnerServiceCard: React.FC<{ partner: AffiliatePartner }> = ({ partner }
  </div>
  </div>
  {partner.badgeKey && (
- <span className={`text-xs font-bold px-2 py-1 rounded-full bg-gradient-to-r ${partner.color} text-white whitespace-nowrap`}>
+ <span className={`text-xs font-bold px-2 py-1 rounded-full bg-gradient-to-r ${partner.color} text-on-accent whitespace-nowrap`}>
  {t(partner.badgeKey)}
  </span>
  )}

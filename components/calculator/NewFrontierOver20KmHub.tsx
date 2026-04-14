@@ -371,8 +371,8 @@ const NewFrontierOver20KmHub: React.FC = () => {
  {money(comparison.within20.itResident.netIncomeMonthly, locale, 'CHF')}
  </div>
  </div>
- <div className="rounded-2xl bg-sky-600 text-white p-4">
- <div className="text-sm text-sky-100">{copy.compareDelta}</div>
+ <div className="rounded-2xl bg-info-strong text-on-accent p-4">
+ <div className="text-sm text-on-accent">{copy.compareDelta}</div>
  <div className="mt-2 text-xl font-bold">
  {money(comparison.delta, locale, 'CHF')}
  </div>
@@ -394,7 +394,7 @@ const NewFrontierOver20KmHub: React.FC = () => {
  >
  <div className="flex items-center justify-between gap-3">
  <span className="text-sm font-semibold text-heading">{link.label}</span>
- <ArrowRight className="w-4 h-4 text-slate-500 group-hover:text-info transition-colors" />
+ <ArrowRight className="w-4 h-4 text-muted group-hover:text-info transition-colors" />
  </div>
  </a>
  ))}

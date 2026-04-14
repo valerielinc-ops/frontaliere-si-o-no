@@ -1,5 +1,5 @@
 const bodyVivereSvizzeraVsItaliaFrontaliere: Record<string, string> = {
-    'blog.article.vivere-svizzera-vs-italia-frontaliere.body1': `## Housing, Taxes, and Commuting — The Numbers That Matter
+ 'blog.article.vivere-svizzera-vs-italia-frontaliere.body1': `## Housing, Taxes, and Commuting — The Numbers That Matter
 
 The decision between living in Switzerland with a Permit B and commuting from Italy with a Permit G is the most consequential financial choice a cross-border worker faces. It affects your rent, your taxes, your daily schedule, and your long-term wealth. Let us start with the hard numbers.
 
@@ -15,7 +15,7 @@ Under a **Permit B** (Swiss residence), you are subject to ordinary cantonal and
 
 Cross-border commuting is not free. Monthly train passes (TILO Lugano–Como) cost around **250 CHF**, while car commuters face fuel, highway tolls (vignette), parking, and vehicle wear — typically **250–350 EUR per month** total. Add border crossing wait times: during peak hours (7:00–8:30 AM), the Brogeda and Stabio crossings can add 20–60 minutes each way. Use the [cost of living comparator](nav:cost-of-living) to model your specific scenario, and compare [health insurance options](nav:health) — LAMal premiums in Switzerland run **350–450 CHF per month**, while the Italian CMI option costs **200–300 EUR per month** but limits your access to Swiss healthcare facilities.`,
 
-    'blog.article.vivere-svizzera-vs-italia-frontaliere.body2': `## Quality of Life Beyond the Spreadsheet
+ 'blog.article.vivere-svizzera-vs-italia-frontaliere.body2': `## Quality of Life Beyond the Spreadsheet
 
 Financial comparisons are essential, but they do not capture everything. Living in Switzerland versus commuting from Italy involves trade-offs that are deeply personal and family-dependent.
 
@@ -43,7 +43,7 @@ Let us compare the two options for a specific profile. **Luca** is 35, single, e
 
 Run your own numbers with the [salary calculator](nav:calculator) to model both scenarios with your exact salary, family situation, and canton.`,
 
-    'blog.article.vivere-svizzera-vs-italia-frontaliere.body3': `## When Should You Move to Switzerland?
+ 'blog.article.vivere-svizzera-vs-italia-frontaliere.body3': `## When Should You Move to Switzerland?
 
 There is no universal answer, but patterns emerge from thousands of frontalieri who have faced this decision. Moving to Switzerland with a Permit B tends to make financial and lifestyle sense when:
 
@@ -75,7 +75,7 @@ Before deciding, complete these steps:
 6. **Explore the job market** on the [job board](nav:job-board) — a higher-paying position might tip the balance
 
 The right answer depends on your salary, family, commute distance, career stage, and personal priorities. What does not change is the importance of making this decision with data, not assumptions. Run the numbers, stress-test the scenarios, and choose the path that optimizes both your wallet and your well-being.`,
-    'blog.article.vivere-svizzera-vs-italia-frontaliere.faq': '[{"q":"How much more does it cost to stay in Lugano than in Como or Varese?","a":"A two-room apartment in Lugano costs between 1,800-2,200 CHF/month, while in Como it is 700-900 EUR and in Varese it costs between 550-750 EUR, with a minimum difference of around 1,000 EUR per month."},{"q":"What is the main tax advantage of Permit G over Permit B for low salaries?","a":"For salaries under CHF 70,000, the G Permit offers significant tax savings thanks to the IRPEF exemption of EUR 10,000, which compensates for the double taxable amount."}]',
+ 'blog.article.vivere-svizzera-vs-italia-frontaliere.faq': '[{"q":"How much more does it cost to stay in Lugano than in Como or Varese?","a":"A two-room apartment in Lugano costs between 1,800-2,200 CHF/month, while in Como it is 700-900 EUR and in Varese it costs between 550-750 EUR, with a minimum difference of around 1,000 EUR per month."},{"q":"What is the main tax advantage of Permit G over Permit B for low salaries?","a":"For salaries under CHF 70,000, the G Permit offers significant tax savings thanks to the IRPEF exemption of EUR 10,000, which compensates for the double taxable amount."}]',
 };
 
 export default bodyVivereSvizzeraVsItaliaFrontaliere;

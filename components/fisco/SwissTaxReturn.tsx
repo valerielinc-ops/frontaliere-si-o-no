@@ -526,7 +526,7 @@ const SwissTaxReturn: React.FC = () => {
  </div>
  <div className="w-full bg-surface-raised rounded-full h-2 mb-6 overflow-hidden">
  <div
- className="bg-red-700 h-2 rounded-full transition-transform duration-300 origin-left"
+ className="bg-danger-strong-hover h-2 rounded-full transition-transform duration-300 origin-left"
  style={{ transform: `scaleX(${checkedDocs.size / SWISS_DOCUMENTS.length})` }}
  />
  </div>
@@ -544,7 +544,7 @@ const SwissTaxReturn: React.FC = () => {
  type="checkbox"
  checked={checkedDocs.has(doc.key)}
  onChange={() => toggleDoc(doc.key)}
- className="mt-0.5 w-4 h-4 text-red-700 rounded border-edge focus-visible:ring-red-500"
+ className="mt-0.5 w-4 h-4 text-danger rounded border-edge focus-visible:ring-danger"
  aria-label={t(`swissTaxReturn.documents.${doc.key}`)}
  />
  <div className="flex-1">
@@ -584,8 +584,8 @@ const SwissTaxReturn: React.FC = () => {
  <div key={event.key} className="relative flex items-start gap-4 ml-1">
  <div className={`relative z-10 w-7 h-7 rounded-full flex items-center justify-center shrink-0 ${
  isPast
- ? 'bg-red-700 text-white'
- : 'bg-surface border-2 border-red-500 text-red-500'
+ ? 'bg-danger-strong-hover text-on-accent'
+ : 'bg-surface border-2 border-danger text-danger'
  }`}>
  {isPast ? <CheckCircle2 size={14} /> : <Clock size={14} />}
  </div>

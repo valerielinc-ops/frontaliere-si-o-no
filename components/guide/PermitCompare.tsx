@@ -473,7 +473,7 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
  onClick={() => setWizardStep(step)}
  className={`w-7 h-7 rounded-full border font-semibold ${
  wizardStep >= step
- ? 'bg-amber-500 border-warning text-white'
+ ? 'bg-warning-strong border-warning text-on-accent'
  : 'border-edge text-muted'
  }`}
  >
@@ -597,7 +597,7 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
  </div>
  <button
  onClick={handleWizardApply}
- className="w-full rounded-lg bg-amber-600 hover:bg-amber-700 text-white text-sm font-semibold px-3 py-2 transition"
+ className="w-full rounded-lg bg-warning-strong hover:bg-warning-strong-hover text-on-accent text-sm font-semibold px-3 py-2 transition"
  >
  {t('permitCompare.wizard.apply')}
  </button>
@@ -714,7 +714,7 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
  <div className="flex items-center gap-2">
  <div className={`w-3 h-3 rounded-full border-2 flex-shrink-0 ${
  gType === opt.value
- ? 'border-warning bg-amber-500'
+ ? 'border-warning bg-warning-strong'
  : 'border-edge'
  }`} />
  <span className={`text-sm font-semibold ${
@@ -746,7 +746,7 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
  <h3 className="text-lg font-bold text-heading">{t('permitCompare.comparison')}</h3>
  <button
  onClick={handlePDF}
- className="flex items-center gap-1.5 px-3 py-1.5 bg-amber-600 text-white text-sm rounded-lg hover:bg-amber-700 transition"
+ className="flex items-center gap-1.5 px-3 py-1.5 bg-warning-strong text-on-accent text-sm rounded-lg hover:bg-warning-strong-hover transition"
  aria-label="Export PDF"
  >
  <Download size={14} /> PDF

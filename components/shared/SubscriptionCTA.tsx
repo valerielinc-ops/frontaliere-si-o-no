@@ -186,7 +186,7 @@ const SubscriptionCTA: React.FC = () => {
  }`}>
  {status === 'pending' ? (
  <>
- <Mail className="w-10 h-10 text-amber-500 mx-auto mb-2" />
+ <Mail className="w-10 h-10 text-warning mx-auto mb-2" />
  <p className="font-bold text-strong">{t('newsletter.doubleOptIn.title')}</p>
  <p className="text-sm text-subtle mt-1">{t('newsletter.doubleOptIn.description')}</p>
  <p className="text-sm text-muted mt-2">{t('newsletter.doubleOptIn.spamHint')}</p>
@@ -198,7 +198,7 @@ const SubscriptionCTA: React.FC = () => {
  return (
  <button
  onClick={() => openEmailProvider(email)}
- className="mt-3 inline-flex items-center gap-2 px-4 py-2 bg-amber-600 hover:bg-amber-700 text-white text-xs font-semibold rounded-xl transition-colors"
+ className="mt-3 inline-flex items-center gap-2 px-4 py-2 bg-warning-strong hover:bg-warning-strong-hover text-on-accent text-xs font-semibold rounded-xl transition-colors"
  >
  <Mail className="w-3.5 h-3.5" />
  {t('newsletter.openEmailProvider', { provider: provider.name })}
@@ -233,7 +233,7 @@ const SubscriptionCTA: React.FC = () => {
  </>
  ) : (
  <>
- <CheckCircle2 className="w-10 h-10 text-emerald-500 mx-auto mb-2" />
+ <CheckCircle2 className="w-10 h-10 text-success mx-auto mb-2" />
  <p className="font-bold text-strong">{t('newsletter.subscriptionConfirmed')}</p>
  <p className="text-sm text-subtle mt-1">{t('newsletter.subscriptionConfirmedDesc')}</p>
  </>
@@ -247,7 +247,7 @@ const SubscriptionCTA: React.FC = () => {
  {/* Dismiss button */}
  <button
  onClick={handleDismiss}
- className="absolute top-1 right-1 p-3 min-w-[44px] min-h-[44px] flex items-center justify-center text-slate-500 hover:text-body rounded-lg transition-colors z-10"
+ className="absolute top-1 right-1 p-3 min-w-[44px] min-h-[44px] flex items-center justify-center text-muted hover:text-body rounded-lg transition-colors z-10"
  aria-label={t('newsletter.cta.postCalc.dismiss')}
  >
  <X className="w-4 h-4" />
@@ -264,7 +264,7 @@ const SubscriptionCTA: React.FC = () => {
  <div className="flex items-center gap-3 mb-3">
  <div className="relative p-2.5 bg-warning-subtle rounded-xl">
  <Bell className="w-5 h-5 text-warning" />
- <span className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full" />
+ <span className="absolute -top-1 -right-1 w-3 h-3 bg-danger-strong rounded-full" />
  </div>
  <div>
  <h4 className="font-bold text-strong text-sm leading-tight">
@@ -283,15 +283,15 @@ const SubscriptionCTA: React.FC = () => {
  </p>
  <div className="space-y-1.5">
  <div className="flex items-center gap-2 text-xs text-body">
- <TrendingUp className="w-3 h-3 text-stripe-500 shrink-0" />
+ <TrendingUp className="w-3 h-3 text-accent shrink-0" />
  <span>{t('newsletter.cta.preview1')}</span>
  </div>
  <div className="flex items-center gap-2 text-xs text-body">
- <FileText className="w-3 h-3 text-amber-500 shrink-0" />
+ <FileText className="w-3 h-3 text-warning shrink-0" />
  <span>{t('newsletter.cta.preview2')}</span>
  </div>
  <div className="flex items-center gap-2 text-xs text-body">
- <Lightbulb className="w-3 h-3 text-emerald-500 shrink-0" />
+ <Lightbulb className="w-3 h-3 text-success shrink-0" />
  <span>{t('newsletter.cta.preview3')}</span>
  </div>
  </div>
@@ -312,7 +312,7 @@ const SubscriptionCTA: React.FC = () => {
  <button
  type="submit"
  disabled={status === 'loading'}
- className="px-5 py-2.5 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-bold rounded-xl hover:from-amber-600 hover:to-orange-700 transition-[color,background-color,border-color,box-shadow,opacity] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-sm shadow-lg hover:shadow-xl whitespace-nowrap"
+ className="px-5 py-2.5 bg-gradient-to-r from-warning-strong to-warning-strong text-on-accent font-bold rounded-xl hover:from-warning-strong hover:to-warning-strong-hover transition-[color,background-color,border-color,box-shadow,opacity] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-sm shadow-lg hover:shadow-xl whitespace-nowrap"
  >
  {status === 'loading' ? (
  <><Loader2 className="w-4 h-4 animate-spin" /> {t('newsletter.subscribing')}</>
@@ -352,7 +352,7 @@ const SubscriptionCTA: React.FC = () => {
  )}
  </div>
  {linkedInAvailable && (
- <button type="button" onClick={() => signInWithLinkedIn()} className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#0A66C2] hover:bg-[#004182] text-white text-sm font-semibold transition-colors">
+ <button type="button" onClick={() => signInWithLinkedIn()} className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#0A66C2] hover:bg-[#004182] text-on-accent text-sm font-semibold transition-colors">
  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
  <span className="hidden sm:inline">{locale === 'it' ? 'Continua con LinkedIn' : locale === 'de' ? 'Mit LinkedIn fortfahren' : locale === 'fr' ? 'Continuer avec LinkedIn' : 'Continue with LinkedIn'}</span>
  <span className="sm:hidden">LinkedIn</span>
@@ -363,7 +363,7 @@ const SubscriptionCTA: React.FC = () => {
  {/* Footer: social proof + privacy */}
  <div className="flex items-center justify-between mt-3">
  <div className="flex items-center gap-1.5 text-xs text-muted">
- <Users className="w-3.5 h-3.5 text-stripe-500" />
+ <Users className="w-3.5 h-3.5 text-accent" />
  <span>{t('newsletter.cta.subscriberCount')}</span>
  </div>
  <div className="flex items-center gap-1.5 text-sm text-success">

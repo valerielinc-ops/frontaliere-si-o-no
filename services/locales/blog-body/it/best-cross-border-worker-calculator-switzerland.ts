@@ -1,5 +1,5 @@
 const bodyBestCrossBorderWorkerCalculatorSwitzerland: Record<string, string> = {
-    'blog.article.best-cross-border-worker-calculator-switzerland.body1': `## Cos\'è un calcolatore per frontalieri?
+ 'blog.article.best-cross-border-worker-calculator-switzerland.body1': `## Cos\'è un calcolatore per frontalieri?
 
 Un calcolatore per frontalieri (cross-border worker calculator) è uno strumento specializzato che stima lo stipendio netto per chi fa il pendolare tra Italia e Svizzera. A differenza dei calcolatori salariali generici, tiene conto degli accordi fiscali bilaterali, dei contributi previdenziali doppi e delle scelte assicurative sanitarie che riguardano i frontalieri.
 
@@ -7,7 +7,7 @@ Il solo Canton Ticino impiega quasi 80.000 lavoratori frontalieri dall\'Italia, 
 
 Questo articolo confronta i principali strumenti disponibili nel 2026 per i frontalieri italo-svizzeri, valutandone precisione, profondità funzionale e utilità per una pianificazione finanziaria reale.`,
 
-    'blog.article.best-cross-border-worker-calculator-switzerland.body2': `## Tabella comparativa: Frontaliere Ticino vs alternative
+ 'blog.article.best-cross-border-worker-calculator-switzerland.body2': `## Tabella comparativa: Frontaliere Ticino vs alternative
 
 | Funzionalità | **Frontaliere Ticino** | **lohncomputer.ch** | **ibani.com** |
 |---|---|---|---|
@@ -26,7 +26,7 @@ Questo articolo confronta i principali strumenti disponibili nel 2026 per i fron
 
 La differenza fondamentale è l\'ambito. Lohncomputer e ibani sono progettati per chiunque lavori in Svizzera — calcolano bene le deduzioni svizzere ma si fermano al confine. Frontaliere Ticino è costruito appositamente per lo scenario transfrontaliero, modellando entrambi i lati dell\'equazione.`,
 
-    'blog.article.best-cross-border-worker-calculator-switzerland.body3': `## Recensioni dettagliate
+ 'blog.article.best-cross-border-worker-calculator-switzerland.body3': `## Recensioni dettagliate
 
 ### Frontaliere Ticino — Lo specialista
 
@@ -59,7 +59,7 @@ Ibani offre un calcolatore salariale leggero con focus sulla semplicità.
 
 **Limitazioni:** Modello deduzioni estremamente basico, nessuna logica transfrontaliera, non adatto per pianificazione finanziaria seria.`,
 
-    'blog.article.best-cross-border-worker-calculator-switzerland.body4': `## Quale calcolatore dovresti usare?
+ 'blog.article.best-cross-border-worker-calculator-switzerland.body4': `## Quale calcolatore dovresti usare?
 
 **Se sei un frontaliere tra Italia e Ticino**, Frontaliere Ticino è la scelta più indicata. È l\'unico strumento che modella sia il lato svizzero sia quello italiano della tua busta paga.
 

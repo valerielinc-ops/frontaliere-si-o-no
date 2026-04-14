@@ -63,7 +63,7 @@ const WeeklyFact: React.FC = () => {
  )}
  <button
  onClick={handleShare}
- className="flex-shrink-0 p-0.5 rounded hover:bg-amber-100 text-amber-500 hover:text-amber-700 transition-colors"
+ className="flex-shrink-0 p-0.5 rounded hover:bg-warning-subtle text-warning hover:text-warning transition-colors"
  aria-label={t('weeklyFact.share')}
  >
  {copied ? <Check size={13} /> : <Share2 size={13} />}

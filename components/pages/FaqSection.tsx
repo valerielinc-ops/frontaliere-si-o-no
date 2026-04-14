@@ -86,12 +86,12 @@ const FaqSection: React.FC = () => {
  return (
  <div className="space-y-6">
  {/* Header */}
- <div className="bg-gradient-to-r from-teal-600 to-emerald-600 rounded-2xl p-4 sm:p-6 text-white">
+ <div className="bg-gradient-to-r from-info-strong to-success-strong rounded-2xl p-4 sm:p-6 text-on-accent">
  <div className="flex items-center gap-3 mb-2">
  <HelpCircle size={28} />
  <h2 className="text-2xl font-bold">{t('faq.title')}</h2>
  </div>
- <p className="text-cyan-100 text-sm">{t('faq.subtitle')}</p>
+ <p className="text-on-accent text-sm">{t('faq.subtitle')}</p>
  </div>
 
  {/* Search */}
@@ -123,7 +123,7 @@ const FaqSection: React.FC = () => {
  }}
  className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
  selectedCategory === 'all'
- ? 'bg-stripe-600 text-white'
+ ? 'bg-accent-strong text-on-accent'
  : 'bg-surface text-subtle border border-edge hover:bg-surface-raised'
  }`}
  >
@@ -138,7 +138,7 @@ const FaqSection: React.FC = () => {
  }}
  className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
  selectedCategory === cat.key
- ? 'bg-stripe-600 text-white'
+ ? 'bg-accent-strong text-on-accent'
  : 'bg-surface text-subtle border border-edge hover:bg-surface-raised'
  }`}
  >

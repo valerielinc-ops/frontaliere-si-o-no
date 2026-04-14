@@ -106,7 +106,7 @@ export class ErrorBoundary extends Component<Props, State> {
  return (
  <div className="min-h-[50vh] flex flex-col items-center justify-center p-4 sm:p-6 text-center">
  <div className="bg-danger-subtle p-4 rounded-full mb-4">
- <AlertTriangle size={48} className="text-red-500" />
+ <AlertTriangle size={48} className="text-danger" />
  </div>
  <h2 className="text-2xl font-bold text-strong mb-2">{t('error.title')}</h2>
  <p className="text-muted max-w-md mb-6">
@@ -127,7 +127,7 @@ export class ErrorBoundary extends Component<Props, State> {
  });
  window.location.reload();
  }}
- className="flex items-center gap-2 px-6 py-3 bg-accent hover:bg-accent-hover text-white rounded-xl font-bold transition-colors"
+ className="flex items-center gap-2 px-6 py-3 bg-accent hover:bg-accent-hover text-on-accent rounded-xl font-bold transition-colors"
  >
  <RefreshCw size={18} /> {t('error.reload')}
  </button>

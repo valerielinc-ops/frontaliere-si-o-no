@@ -75,7 +75,7 @@ const providers: ExchangeProvider[] = [
  maxAmount: 1000000,
  transferTime: '1-2 giorni lavorativi',
  transferTimeKey: '1_2_business_days',
- color: 'from-emerald-500 to-teal-600',
+ color: 'from-success-strong to-info-strong',
  features: ['Tasso medio di mercato reale', 'Trasparenza totale', 'Commissione scalare Wise aggiornata', 'Iscriviti da qui: bonus referral'],
  featureKeys: ['feature_real_market_rate', 'feature_total_transparency', 'feature_wise_volume_discount', 'feature_wise_referral_bonus'],
  type: 'service',
@@ -91,7 +91,7 @@ const providers: ExchangeProvider[] = [
  maxAmount: 50000,
  transferTime: 'Istantaneo',
  transferTimeKey: 'instant',
- color: 'from-stripe-500 to-stripe-700',
+ color: 'from-accent-strong to-accent-strong-hover',
  features: ['Cambio gratuito fino a 1000 EUR/mese (Standard)', 'Oltre limite: 1% commissione uso corretto', 'Weekend: markup 1%'],
  featureKeys: ['feature_free_exchange_1000', 'feature_fair_usage_1pct', 'feature_weekend_markup_1pct'],
  type: 'neobank',
@@ -107,7 +107,7 @@ const providers: ExchangeProvider[] = [
  maxAmount: 100000,
  transferTime: 'Istantaneo',
  transferTimeKey: 'instant',
- color: 'from-rose-500 to-pink-600',
+ color: 'from-danger-strong to-danger-strong',
  features: ['100% digitale', 'Nessuna commissione dichiarata', 'Spread nascosto ~0.9%'],
  featureKeys: ['feature_100_digital', 'feature_no_declared_commission', 'feature_hidden_spread_09'],
  type: 'neobank'
@@ -122,7 +122,7 @@ const providers: ExchangeProvider[] = [
  maxAmount: 500000,
  transferTime: '1-3 giorni lavorativi',
  transferTimeKey: '1_3_business_days',
- color: 'from-yellow-500 to-orange-600',
+ color: 'from-warning to-warning-strong',
  features: ['Nessuna commissione dichiarata', 'Tasso sfavorevole', 'Spread nascosto ~2-3%'],
  featureKeys: ['feature_no_declared_commission', 'feature_unfavorable_rate', 'feature_hidden_spread_2_3'],
  type: 'traditional'
@@ -137,7 +137,7 @@ const providers: ExchangeProvider[] = [
  maxAmount: 1000000,
  transferTime: '2-4 giorni lavorativi',
  transferTimeKey: '2_4_business_days',
- color: 'from-red-500 to-pink-600',
+ color: 'from-danger-strong to-danger-strong',
  features: ['Commissioni fisse + spread', 'Tasso molto sfavorevole', 'Costi nascosti elevati'],
  featureKeys: ['feature_fixed_commission_spread', 'feature_very_unfavorable_rate', 'feature_high_hidden_costs'],
  type: 'traditional'
@@ -152,7 +152,7 @@ const providers: ExchangeProvider[] = [
  maxAmount: 1000000,
  transferTime: '2-4 giorni lavorativi',
  transferTimeKey: '2_4_business_days',
- color: 'from-slate-500 to-gray-600',
+ color: 'from-surface-muted to-surface-muted-hover',
  features: ['Commissioni + spread', 'Servizio tradizionale', 'Poco trasparente'],
  featureKeys: ['feature_commission_spread', 'feature_traditional_service', 'feature_not_transparent'],
  type: 'traditional'
@@ -167,7 +167,7 @@ const providers: ExchangeProvider[] = [
  maxAmount: 100000,
  transferTime: '1-3 giorni lavorativi',
  transferTimeKey: '1_3_business_days',
- color: 'from-sky-500 to-stripe-600',
+ color: 'from-info-strong to-accent-strong',
  features: ['Banca digitale italiana', 'Commissione 0.5%', 'Spread nascosto ~1.8%'],
  featureKeys: ['feature_italian_digital_bank', 'feature_commission_05', 'feature_hidden_spread_18'],
  type: 'traditional',
@@ -183,7 +183,7 @@ const providers: ExchangeProvider[] = [
  maxAmount: 500000,
  transferTime: '2-5 giorni lavorativi',
  transferTimeKey: '2_5_business_days',
- color: 'from-stripe-600 to-stripe-800',
+ color: 'from-accent-strong to-accent-strong-hover',
  features: ['Commissione fissa + 0.25%', 'Spread molto elevato', 'Servizio bancario classico'],
  featureKeys: ['feature_fixed_commission_025', 'feature_very_high_spread', 'feature_classic_banking'],
  type: 'traditional'
@@ -198,7 +198,7 @@ const providers: ExchangeProvider[] = [
  maxAmount: 500000,
  transferTime: '2-4 giorni lavorativi',
  transferTimeKey: '2_4_business_days',
- color: 'from-green-600 to-teal-700',
+ color: 'from-success-strong to-info-strong-hover',
  features: ['Commissione 4 CHF + 0.3%', 'Spread nascosto ~2.8%', 'Gruppo Crédit Agricole'],
  featureKeys: ['feature_commission_4chf_03', 'feature_hidden_spread_28', 'feature_credit_agricole_group'],
  type: 'traditional',
@@ -214,7 +214,7 @@ const providers: ExchangeProvider[] = [
  maxAmount: 500000,
  transferTime: '2-5 giorni lavorativi',
  transferTimeKey: '2_5_business_days',
- color: 'from-red-600 to-rose-700',
+ color: 'from-danger-strong to-danger-strong-hover',
  features: ['Commissione 5 CHF + 0.2%', 'Spread ~3%', 'Banca europea'],
  featureKeys: ['feature_commission_5chf_02', 'feature_spread_3', 'feature_european_bank'],
  type: 'traditional'
@@ -229,7 +229,7 @@ const providers: ExchangeProvider[] = [
  maxAmount: 300000,
  transferTime: '2-4 giorni lavorativi',
  transferTimeKey: '2_4_business_days',
- color: 'from-orange-600 to-amber-700',
+ color: 'from-warning-strong to-warning-strong-hover',
  features: ['Commissione 4.5 CHF + 0.25%', 'Spread nascosto ~2.9%', 'Gruppo bancario italiano'],
  featureKeys: ['feature_commission_45chf_025', 'feature_hidden_spread_29', 'feature_italian_banking_group'],
  type: 'traditional'
@@ -244,7 +244,7 @@ const providers: ExchangeProvider[] = [
  maxAmount: 500000,
  transferTime: '1-2 giorni lavorativi',
  transferTimeKey: '1_2_business_days',
- color: 'from-teal-500 to-stripe-600',
+ color: 'from-info-strong to-accent-strong',
  features: ['Servizio svizzero specializzato', 'Spread competitivo ~0.35%', 'Bonifico diretto su conto italiano', '🎁 Da frontalieticino.ch: 25€ in regalo con 3000 CHF di ordini nei primi 30 giorni'],
  featureKeys: ['feature_swiss_specialized_service', 'feature_competitive_spread_035', 'feature_direct_transfer_italy', 'feature_cambiavalute_referral_bonus'],
  type: 'service',
@@ -414,12 +414,12 @@ const CurrencyExchange: React.FC = () => {
  return (
  <div className="max-w-7xl mx-auto space-y-6">
  {/* Header */}
- <div className="bg-gradient-to-br from-emerald-700 to-teal-800 rounded-2xl sm:rounded-3xl p-4 sm:p-8 text-white">
+ <div className="bg-gradient-to-br from-success-strong-hover to-info-strong-hover rounded-2xl sm:rounded-3xl p-4 sm:p-8 text-on-accent">
  <div className="flex items-center gap-3 sm:gap-4 mb-4">
  <ArrowRightLeft size={28} className="sm:w-8 sm:h-8" />
  <div>
  <h1 className="text-xl sm:text-3xl font-extrabold">{t('currency.title')}</h1>
- <p className="text-emerald-100 text-sm sm:text-base mt-1">{t('currency.subtitle')}</p>
+ <p className="text-success text-sm sm:text-base mt-1">{t('currency.subtitle')}</p>
  </div>
  </div>
 
@@ -429,7 +429,7 @@ const CurrencyExchange: React.FC = () => {
  <AlertCircle size={24} className="flex-shrink-0 mt-0.5" />
  <div className="text-sm">
  <p className="font-bold mb-2">⚠️ {t('currency.notice_title')}</p>
- <p className="text-emerald-100 leading-relaxed">
+ <p className="text-success leading-relaxed">
  {t('currency.notice_text')}
  </p>
  </div>
@@ -456,7 +456,7 @@ const CurrencyExchange: React.FC = () => {
  <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm">
  <div className="flex items-center justify-between mb-4">
  <h2 className="text-lg font-bold text-strong flex items-center gap-2">
- <Calculator size={20} className="text-emerald-700" />
+ <Calculator size={20} className="text-success" />
  {t('currency.calculate_exchange')}
  </h2>
  <button
@@ -482,7 +482,7 @@ const CurrencyExchange: React.FC = () => {
  inputMode="numeric"
  value={amount}
  onChange={(e) => setAmount(Math.max(0, parseFloat(e.target.value) || 0))}
- className="w-full pl-14 pr-4 py-3 bg-surface-alt border border-edge rounded-xl focus-visible:border-emerald-500 focus-visible:ring-2 focus-visible:ring-emerald-500/10 outline-none transition-[color,background-color,border-color,box-shadow] font-bold text-strong text-lg"
+ className="w-full pl-14 pr-4 py-3 bg-surface-alt border border-edge rounded-xl focus-visible:border-success focus-visible:ring-2 focus-visible:ring-success/10 outline-none transition-[color,background-color,border-color,box-shadow] font-bold text-strong text-lg"
  placeholder="1000"
  />
  </div>
@@ -495,7 +495,7 @@ const CurrencyExchange: React.FC = () => {
  <button type="button" onClick={(e) => { const tip = e.currentTarget.nextElementSibling; if (tip) tip.classList.toggle('hidden'); }} aria-label="Info" className="inline-flex">
  <Info size={12} className="text-muted" />
  </button>
- <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block w-48 p-2.5 bg-slate-800 text-white text-xs font-medium leading-relaxed rounded-xl shadow-xl border border-slate-600 z-50 text-center">
+ <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block w-48 p-2.5 bg-surface-inverted text-on-accent text-xs font-medium leading-relaxed rounded-xl shadow-xl border border-edge z-50 text-center">
  {t('currency.mid_market_tooltip')}
  </div>
  </div>
@@ -524,14 +524,14 @@ const CurrencyExchange: React.FC = () => {
  <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm">
  <div className="flex items-center justify-between mb-4 flex-wrap gap-3">
  <h2 className="text-lg font-bold text-strong flex items-center gap-2">
- <BarChart3 size={20} className="text-emerald-700" />
+ <BarChart3 size={20} className="text-success" />
  {t('currency.history_title')}
  </h2>
  <div className="flex gap-1.5">
  {(['1m', '3m', '6m', '1y', '5y'] as const).map(p => (
  <button key={p}
  onClick={() => setHistoryPeriod(p)}
- className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${historyPeriod === p ? 'bg-emerald-700 text-white shadow' : 'bg-surface-raised text-subtle hover:bg-surface-raised'}`}
+ className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${historyPeriod === p ? 'bg-success-strong text-on-accent shadow' : 'bg-surface-raised text-subtle hover:bg-surface-raised'}`}
  >
  {p === '1m' ? '1M' : p === '3m' ? '3M' : p === '6m' ? '6M' : p === '1y' ? '1A' : '5A'}
  </button>
@@ -571,7 +571,7 @@ const CurrencyExchange: React.FC = () => {
  target="_blank"
  rel="noopener noreferrer"
  onClick={() => Analytics.trackExternalLink(best.provider.referralUrl!, best.provider.name)}
- className="bg-success-subtle rounded-xl sm:rounded-2xl border border-success-border p-3 sm:p-5 hover:shadow-md hover:border-emerald-400 transition-[color,background-color,border-color,box-shadow] cursor-pointer"
+ className="bg-success-subtle rounded-xl sm:rounded-2xl border border-success-border p-3 sm:p-5 hover:shadow-md hover:border-success transition-[color,background-color,border-color,box-shadow] cursor-pointer"
  >
  <div className="flex items-center gap-2 mb-2">
  <TrendingUp className="text-success" size={16} />
@@ -615,9 +615,9 @@ const CurrencyExchange: React.FC = () => {
 
  <div className="bg-gradient-to-r from-warning-subtle to-warning-subtle rounded-2xl border border-warning-border p-4">
  <div className="flex items-start gap-3">
- <DollarSign size={24} className="text-amber-700 flex-shrink-0 mt-0.5" />
+ <DollarSign size={24} className="text-warning flex-shrink-0 mt-0.5" />
  <div className="text-sm text-body">
- <strong>{t('currency.potential_savings')}:</strong> {t('currency.savings_prefix')} <strong>{best.provider.name}</strong> {t('currency.savings_middle')} <strong>{worst.provider.name}</strong> {t('currency.savings_suffix')} <strong className="text-amber-700">CHF {savingsVsWorst.toFixed(2)}</strong> {t('currency.on_this_conversion')}!
+ <strong>{t('currency.potential_savings')}:</strong> {t('currency.savings_prefix')} <strong>{best.provider.name}</strong> {t('currency.savings_middle')} <strong>{worst.provider.name}</strong> {t('currency.savings_suffix')} <strong className="text-warning">CHF {savingsVsWorst.toFixed(2)}</strong> {t('currency.on_this_conversion')}!
  </div>
  </div>
  </div>
@@ -626,11 +626,11 @@ const CurrencyExchange: React.FC = () => {
  <div>
  <div className="flex items-center justify-between mb-4">
  <h2 className="text-lg sm:text-2xl font-bold text-strong flex items-center gap-2">
- <Percent size={20} className="text-emerald-700 sm:w-6 sm:h-6" />
+ <Percent size={20} className="text-success sm:w-6 sm:h-6" />
  {t('currency.detailed_comparison')}
  </h2>
  <button onClick={handleShare} aria-label={t('common.share')} className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-raised hover:bg-surface-raised transition-colors text-sm font-semibold text-subtle">
- {shareState === 'copied' ? <><Check size={16} className="text-emerald-500" /> {t('common.linkCopied')}</> : <><Share2 size={16} /> {t('common.share')}</>}
+ {shareState === 'copied' ? <><Check size={16} className="text-success" /> {t('common.linkCopied')}</> : <><Share2 size={16} /> {t('common.share')}</>}
  </button>
  </div>
  <div className="grid sm:grid-cols-2 gap-3 sm:gap-4 overflow-hidden">
@@ -646,12 +646,12 @@ const CurrencyExchange: React.FC = () => {
  onClick: () => Analytics.trackExternalLink(result.provider.referralUrl!, result.provider.name),
  'aria-label': result.provider.name,
  className: `block min-w-0 bg-surface rounded-xl sm:rounded-2xl border-2 p-3 sm:p-6 hover:shadow-lg transition-[color,background-color,border-color,box-shadow] cursor-pointer ${
- isBest ? 'border-emerald-500 ring-2 ring-emerald-500/20 hover:ring-emerald-500/40' : isWorst ? 'border-red-500 ring-2 ring-red-500/20' : 'border-edge hover:border-emerald-400'
+ isBest ? 'border-success ring-2 ring-success/20 hover:ring-success/40' : isWorst ? 'border-danger ring-2 ring-danger/20' : 'border-edge hover:border-success'
  }`
  } : {
  'aria-label': result.provider.name,
  className: `min-w-0 bg-surface rounded-xl sm:rounded-2xl border-2 p-3 sm:p-6 hover:shadow-lg transition-[color,background-color,border-color,box-shadow] ${
- isBest ? 'border-emerald-500 ring-2 ring-emerald-500/20' : isWorst ? 'border-red-500 ring-2 ring-red-500/20' : 'border-edge'
+ isBest ? 'border-success ring-2 ring-success/20' : isWorst ? 'border-danger ring-2 ring-danger/20' : 'border-edge'
  }`
  };
  
@@ -661,7 +661,7 @@ const CurrencyExchange: React.FC = () => {
  {...cardProps}
  >
  {isBest && (
- <div className="mb-3 inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-700 text-white text-xs font-bold rounded-full">
+ <div className="mb-3 inline-flex items-center gap-1.5 px-3 py-1.5 bg-success-strong text-on-accent text-xs font-bold rounded-full">
  <CheckCircle2 size={14} />
  {t('currency.best_choice')}
  </div>
@@ -686,7 +686,7 @@ const CurrencyExchange: React.FC = () => {
  <div className="text-xs text-muted hidden sm:block">
  {t('currency.net_after_fees')}
  </div>
- <div className={`text-xs sm:text-sm font-bold ${isBest ? 'text-emerald-700' : isWorst ? 'text-red-600' : 'text-subtle'}`}>
+ <div className={`text-xs sm:text-sm font-bold ${isBest ? 'text-success' : isWorst ? 'text-danger' : 'text-subtle'}`}>
  {t('currency.cost')}: {result.costPercent.toFixed(2)}%
  </div>
  </div>
@@ -701,9 +701,9 @@ const CurrencyExchange: React.FC = () => {
  </div>
  <div className="text-xs text-muted">
  {result.appliedMarkup > 0 ? (
- <span className="text-red-600">-{(result.appliedMarkup * 100).toFixed(2)}%</span>
+ <span className="text-danger">-{(result.appliedMarkup * 100).toFixed(2)}%</span>
  ) : (
- <span className="text-emerald-700">✓ {t('currency.real_rate')}</span>
+ <span className="text-success">✓ {t('currency.real_rate')}</span>
  )}
  </div>
  </div>
@@ -754,24 +754,24 @@ const CurrencyExchange: React.FC = () => {
  {/* Educational Section */}
  <div className="bg-gradient-to-br from-success-subtle to-info-subtle rounded-2xl border border-success-border p-6">
  <h2 className="text-xl font-bold text-strong mb-4 flex items-center gap-2">
- <Info size={20} className="text-stripe-600" />
+ <Info size={20} className="text-accent" />
  {t('currency.how_hidden_spread_works')}
  </h2>
  
  <div className="space-y-4 text-sm text-body">
  <div className="p-4 bg-surface/50 rounded-xl">
- <p className="font-bold text-stripe-600 mb-2">📊 {t('currency.practical_example_title')}:</p>
+ <p className="font-bold text-accent mb-2">📊 {t('currency.practical_example_title')}:</p>
  <ul className="space-y-2 ml-4">
  <li><strong>{t('currency.example_real_rate')}:</strong> {t('currency.example_real_rate_text')}</li>
  <li><strong>{t('currency.example_traditional_bank')}:</strong> {t('currency.example_traditional_bank_text')}</li>
  <li><strong>{t('currency.example_hidden_cost')}:</strong> {t('currency.example_hidden_cost_text')}</li>
  <li><strong>{t('currency.example_wise')}:</strong> {t('currency.example_wise_text')}</li>
- <li><strong>{t('currency.example_savings')}:</strong> <strong className="text-emerald-700">{t('currency.example_savings_text')}</strong></li>
+ <li><strong>{t('currency.example_savings')}:</strong> <strong className="text-success">{t('currency.example_savings_text')}</strong></li>
  </ul>
  </div>
 
  <div className="p-4 bg-surface/50 rounded-xl">
- <p className="font-bold text-emerald-700 mb-2">💡 {t('currency.tips_to_save_title')}:</p>
+ <p className="font-bold text-success mb-2">💡 {t('currency.tips_to_save_title')}:</p>
  <ul className="space-y-1 ml-4 list-disc">
  <li>{t('currency.tip_use_wise')}</li>
  <li>{t('currency.tip_revolut_small')}</li>
@@ -784,7 +784,7 @@ const CurrencyExchange: React.FC = () => {
  </div>
  </>
  ) : (
- <Suspense fallback={<div className="min-h-[400px] flex items-center justify-center" style={{ contain: 'layout' }}><RefreshCw className="animate-spin text-stripe-500" size={32} /></div>}>
+ <Suspense fallback={<div className="min-h-[400px] flex items-center justify-center" style={{ contain: 'layout' }}><RefreshCw className="animate-spin text-accent" size={32} /></div>}>
  <LazyCurrencyExchangeStats historyData={historyData} currentRate={realRate} period={historyPeriod} />
  </Suspense>
  )}

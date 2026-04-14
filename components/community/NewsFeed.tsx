@@ -109,7 +109,7 @@ const NewsFeed: React.FC<NewsFeedProps> = ({ onNavigate }) => {
  prev();
  Analytics.trackUIInteraction('newsfeed', 'ticker', 'navigation', 'prev');
  }}
- className="p-0.5 rounded hover:bg-surface-raised text-slate-500 hover:text-body transition-colors"
+ className="p-0.5 rounded hover:bg-surface-raised text-muted hover:text-body transition-colors"
  aria-label="Previous"
  >
  <ChevronLeft size={14} />
@@ -120,7 +120,7 @@ const NewsFeed: React.FC<NewsFeedProps> = ({ onNavigate }) => {
  next();
  Analytics.trackUIInteraction('newsfeed', 'ticker', 'navigation', 'next');
  }}
- className="p-0.5 rounded hover:bg-surface-raised text-slate-500 hover:text-body transition-colors"
+ className="p-0.5 rounded hover:bg-surface-raised text-muted hover:text-body transition-colors"
  aria-label="Next"
  >
  <ChevronRight size={14} />

@@ -522,14 +522,14 @@ export default function WithholdingRatesHub() {
 
  return (
  <div className="space-y-8">
- <section className="rounded-3xl bg-gradient-to-br from-emerald-600 via-emerald-700 to-teal-700 p-6 sm:p-8 text-white shadow-xl shadow-emerald-900/20">
+ <section className="rounded-3xl bg-gradient-to-br from-success-strong via-success-strong-hover to-info-strong p-6 sm:p-8 text-on-accent shadow-xl shadow-success-strong/20">
  <div className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-xs font-bold uppercase tracking-[0.14em]">
  <Coins className="h-4 w-4" />
  {copy.badge}
  </div>
  <h1 className="mt-4 max-w-4xl text-3xl font-bold leading-tight sm:text-4xl">{copy.title}</h1>
- <p className="mt-4 max-w-4xl text-sm leading-7 text-emerald-50 sm:text-base">{copy.intro}</p>
- <div className="mt-6 rounded-2xl border border-white/20 bg-white/10 p-4 text-sm leading-7 text-emerald-50">
+ <p className="mt-4 max-w-4xl text-sm leading-7 text-on-accent sm:text-base">{copy.intro}</p>
+ <div className="mt-6 rounded-2xl border border-white/20 bg-white/10 p-4 text-sm leading-7 text-on-accent">
  {copy.disclaimer}
  </div>
  <div className="mt-6 flex flex-wrap gap-3">
@@ -537,7 +537,7 @@ export default function WithholdingRatesHub() {
  <a
  key={cta.title}
  href={buildPath(cta.route, locale)}
- className="inline-flex items-center gap-2 rounded-2xl bg-surface px-4 py-3 text-sm font-bold text-success no-underline transition hover:-translate-y-0.5 hover:bg-emerald-50 "
+ className="inline-flex items-center gap-2 rounded-2xl bg-surface px-4 py-3 text-sm font-bold text-success no-underline transition hover:-translate-y-0.5 hover:bg-success-subtle "
  >
  {cta.title}
  <ArrowRight className="h-4 w-4" />
@@ -617,7 +617,7 @@ export default function WithholdingRatesHub() {
  href={link.url}
  target="_blank"
  rel="noopener noreferrer"
- className="group rounded-2xl border border-emerald-200 bg-surface p-4 no-underline transition hover:-translate-y-0.5 hover:border-success-border "
+ className="group rounded-2xl border border-success-border bg-surface p-4 no-underline transition hover:-translate-y-0.5 hover:border-success-border "
  >
  <div className="flex items-center gap-2">
  <span className="text-sm font-bold text-success">{link.label}</span>

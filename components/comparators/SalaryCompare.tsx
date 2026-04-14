@@ -249,7 +249,7 @@ export default function SalaryCompare() {
  <Suspense
  fallback={
  <div className="flex justify-center py-8">
- <div className="animate-spin rounded-full h-8 w-8 border-2 border-teal-500 border-t-transparent" />
+ <div className="animate-spin rounded-full h-8 w-8 border-2 border-info border-t-transparent" />
  </div>
  }
  >
@@ -330,7 +330,7 @@ export default function SalaryCompare() {
  {/* PDF export */}
  <button
  onClick={handlePDF}
- className="flex items-center gap-1.5 px-4 py-2 bg-amber-600 text-white text-sm rounded-lg hover:bg-amber-700 transition"
+ className="flex items-center gap-1.5 px-4 py-2 bg-warning-strong text-on-accent text-sm rounded-lg hover:bg-warning-strong-hover transition"
  aria-label="Export PDF"
  >
  <Download size={14} /> PDF
@@ -373,7 +373,7 @@ export default function SalaryCompare() {
  <span className="text-xs flex-shrink-0">{'\uD83C\uDDE8\uD83C\uDDED'}</span>
  <div className="flex-1 h-2 bg-surface-raised rounded-full overflow-hidden">
  <div
- className="h-full bg-red-500 rounded-full"
+ className="h-full bg-danger-strong rounded-full"
  style={{ width: (r.chNetEUR / maxVal) * 100 + '%' }}
  />
  </div>
@@ -382,7 +382,7 @@ export default function SalaryCompare() {
  <span className="text-xs flex-shrink-0">{'\uD83C\uDDEE\uD83C\uDDF9'}</span>
  <div className="flex-1 h-2 bg-surface-raised rounded-full overflow-hidden">
  <div
- className="h-full bg-emerald-500 rounded-full"
+ className="h-full bg-success-strong rounded-full"
  style={{ width: (r.itNet / maxVal) * 100 + '%' }}
  />
  </div>
@@ -661,7 +661,7 @@ export default function SalaryCompare() {
  </span>
  <div className="flex-1 bg-surface-raised rounded-full h-4 overflow-hidden">
  <div
- className="h-full bg-red-500 rounded-full"
+ className="h-full bg-danger-strong rounded-full"
  style={{
  width:
  (r.chNetEUR / maxVal) * 100 + '%',
@@ -678,7 +678,7 @@ export default function SalaryCompare() {
  </span>
  <div className="flex-1 bg-surface-raised rounded-full h-4 overflow-hidden">
  <div
- className="h-full bg-green-500 rounded-full"
+ className="h-full bg-success-strong rounded-full"
  style={{
  width:
  (r.itNet / maxVal) * 100 + '%',

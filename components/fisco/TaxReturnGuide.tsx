@@ -93,26 +93,26 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
  onClick={() => handleCountryChange('italia')}
  className={`relative overflow-hidden rounded-2xl p-5 text-left transition-[color,background-color,border-color,box-shadow,transform] duration-300 ${
  countryTab === 'italia'
- ? 'bg-gradient-to-br from-success to-success text-white shadow-lg shadow-success-border ring-2 ring-success-border scale-[1.02]'
- : 'bg-surface text-subtle hover:bg-emerald-50 border-2 border-edge hover:border-success-border'
+ ? 'bg-gradient-to-br from-success to-success text-on-accent shadow-lg shadow-success-border ring-2 ring-success-border scale-[1.02]'
+ : 'bg-surface text-subtle hover:bg-success-subtle border-2 border-edge hover:border-success-border'
  }`}
  aria-label={t('taxReturn.countryTab.italia')}
  >
  <div className="flex items-center gap-3 mb-2">
  <span className="text-3xl">🇮🇹</span>
  <div>
- <h3 className={`text-lg font-bold ${countryTab === 'italia' ? 'text-white' : 'text-strong'}`}>
+ <h3 className={`text-lg font-bold ${countryTab === 'italia' ? 'text-on-accent' : 'text-strong'}`}>
  {t('taxReturn.countryTab.italia')}
  </h3>
- <p className={`text-xs ${countryTab === 'italia' ? 'text-emerald-100' : 'text-muted'}`}>
+ <p className={`text-xs ${countryTab === 'italia' ? 'text-success' : 'text-muted'}`}>
  {t('taxReturn.countryTab.italiaDesc')}
  </p>
  </div>
  </div>
  {countryTab === 'italia' && (
  <div className="flex items-center gap-1.5 mt-1">
- <CheckCircle2 size={14} className="text-emerald-200" />
- <span className="text-xs font-semibold text-emerald-100">{t('taxReturn.selected')}</span>
+ <CheckCircle2 size={14} className="text-success" />
+ <span className="text-xs font-semibold text-success">{t('taxReturn.selected')}</span>
  </div>
  )}
  </button>
@@ -120,26 +120,26 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
  onClick={() => handleCountryChange('svizzera')}
  className={`relative overflow-hidden rounded-2xl p-5 text-left transition-[color,background-color,border-color,box-shadow,transform] duration-300 ${
  countryTab === 'svizzera'
- ? 'bg-gradient-to-br from-danger to-danger text-white shadow-lg shadow-danger-border ring-2 ring-danger-border scale-[1.02]'
- : 'bg-surface text-subtle hover:bg-red-50 border-2 border-edge hover:border-danger-border'
+ ? 'bg-gradient-to-br from-danger to-danger text-on-accent shadow-lg shadow-danger-border ring-2 ring-danger-border scale-[1.02]'
+ : 'bg-surface text-subtle hover:bg-danger-subtle border-2 border-edge hover:border-danger-border'
  }`}
  aria-label={t('taxReturn.countryTab.svizzera')}
  >
  <div className="flex items-center gap-3 mb-2">
  <span className="text-3xl">🇨🇭</span>
  <div>
- <h3 className={`text-lg font-bold ${countryTab === 'svizzera' ? 'text-white' : 'text-strong'}`}>
+ <h3 className={`text-lg font-bold ${countryTab === 'svizzera' ? 'text-on-accent' : 'text-strong'}`}>
  {t('taxReturn.countryTab.svizzera')}
  </h3>
- <p className={`text-xs ${countryTab === 'svizzera' ? 'text-red-100' : 'text-muted'}`}>
+ <p className={`text-xs ${countryTab === 'svizzera' ? 'text-danger' : 'text-muted'}`}>
  {t('taxReturn.countryTab.svizzeraDesc')}
  </p>
  </div>
  </div>
  {countryTab === 'svizzera' && (
  <div className="flex items-center gap-1.5 mt-1">
- <CheckCircle2 size={14} className="text-red-200" />
- <span className="text-xs font-semibold text-red-100">{t('taxReturn.selected')}</span>
+ <CheckCircle2 size={14} className="text-danger" />
+ <span className="text-xs font-semibold text-danger">{t('taxReturn.selected')}</span>
  </div>
  )}
  </button>
@@ -147,20 +147,20 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
 
  {/* Country-specific header banner */}
  {countryTab === 'italia' ? (
- <div className="bg-gradient-to-r from-success to-success rounded-2xl p-4 sm:p-6 text-white">
+ <div className="bg-gradient-to-r from-success to-success rounded-2xl p-4 sm:p-6 text-on-accent">
  <div className="flex items-center gap-3 mb-2">
  <FileText size={28} />
  <h2 className="text-2xl font-bold">{t('taxReturn.title.italia')}</h2>
  </div>
- <p className="text-emerald-100 text-sm">{t('taxReturn.subtitle.italia')}</p>
+ <p className="text-success text-sm">{t('taxReturn.subtitle.italia')}</p>
  </div>
  ) : (
- <div className="bg-gradient-to-r from-danger to-danger rounded-2xl p-4 sm:p-6 text-white">
+ <div className="bg-gradient-to-r from-danger to-danger rounded-2xl p-4 sm:p-6 text-on-accent">
  <div className="flex items-center gap-3 mb-2">
  <FileText size={28} />
  <h2 className="text-2xl font-bold">{t('taxReturn.title.svizzera')}</h2>
  </div>
- <p className="text-red-100 text-sm">{t('taxReturn.subtitle.svizzera')}</p>
+ <p className="text-danger text-sm">{t('taxReturn.subtitle.svizzera')}</p>
  </div>
  )}
 
@@ -234,7 +234,7 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
  </div>
  <div className="w-full bg-surface-raised rounded-full h-2 mb-6 overflow-hidden">
  <div
- className="bg-emerald-700 h-2 rounded-full transition-transform duration-300 origin-left"
+ className="bg-success-strong h-2 rounded-full transition-transform duration-300 origin-left"
  style={{ transform: `scaleX(${checkedDocs.size / DOCUMENTS_CHECKLIST.length})` }}
  />
  </div>
@@ -252,7 +252,7 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
  type="checkbox"
  checked={checkedDocs.has(doc.key)}
  onChange={() => toggleDoc(doc.key)}
- className="mt-0.5 w-4 h-4 text-emerald-700 rounded border-edge focus-visible:ring-emerald-500"
+ className="mt-0.5 w-4 h-4 text-success rounded border-edge focus-visible:ring-success"
  aria-label={t(`taxReturn.documents.${doc.key}`)}
  />
  <div className="flex-1">
@@ -324,8 +324,8 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
  <div key={event.key} className="relative flex items-start gap-4 ml-1">
  <div className={`relative z-10 w-7 h-7 rounded-full flex items-center justify-center shrink-0 ${
  isPast
- ? 'bg-emerald-700 text-white'
- : 'bg-surface border-2 border-stripe-500 text-stripe-500'
+ ? 'bg-success-strong text-on-accent'
+ : 'bg-surface border-2 border-accent text-accent'
  }`}>
  {isPast ? <CheckCircle2 size={14} /> : <Clock size={14} />}
  </div>

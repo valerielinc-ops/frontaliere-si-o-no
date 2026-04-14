@@ -19,22 +19,22 @@ let cacheTimestamp = 0;
  * Returns empty string if the key doesn't exist.
  */
 export async function getRemoteConfigValue(key) {
-  const now = Date.now();
-  if (!cachedTemplate || now - cacheTimestamp > CACHE_TTL_MS) {
-    const rc = getRemoteConfig();
-    cachedTemplate = await rc.getTemplate();
-    cacheTimestamp = now;
-  }
+ const now = Date.now();
+ if (!cachedTemplate || now - cacheTimestamp > CACHE_TTL_MS) {
+ const rc = getRemoteConfig();
+ cachedTemplate = await rc.getTemplate();
+ cacheTimestamp = now;
+ }
 
-  const param = cachedTemplate.parameters?.[key];
-  if (!param) return '';
+ const param = cachedTemplate.parameters?.[key];
+ if (!param) return '';
 
-  // defaultValue can be { value: 'string' } or { useInAppDefault: true }
-  const defaultVal = param.defaultValue;
-  if (defaultVal && typeof defaultVal === 'object' && 'value' in defaultVal) {
-    return String(defaultVal.value);
-  }
-  return '';
+ // defaultValue can be { value: 'string' } or { useInAppDefault: true }
+ const defaultVal = param.defaultValue;
+ if (defaultVal && typeof defaultVal === 'object' && 'value' in defaultVal) {
+ return String(defaultVal.value);
+ }
+ return '';
 }
 
 /**
@@ -42,10 +42,10 @@ export async function getRemoteConfigValue(key) {
  * Returns { resendApiKey, resendWebhookSecret, newsletterSecret }.
  */
 export async function getNewsletterSecrets() {
-  const [resendApiKey, resendWebhookSecret, newsletterSecret] = await Promise.all([
-    getRemoteConfigValue('RESEND_API_KEY'),
-    getRemoteConfigValue('RESEND_WEBHOOK_SECRET'),
-    getRemoteConfigValue('NEWSLETTER_SECRET'),
-  ]);
-  return { resendApiKey, resendWebhookSecret, newsletterSecret };
+ const [resendApiKey, resendWebhookSecret, newsletterSecret] = await Promise.all([
+ getRemoteConfigValue('RESEND_API_KEY'),
+ getRemoteConfigValue('RESEND_WEBHOOK_SECRET'),
+ getRemoteConfigValue('NEWSLETTER_SECRET'),
+ ]);
+ return { resendApiKey, resendWebhookSecret, newsletterSecret };
 }

@@ -32,7 +32,7 @@ function getBanks(t: (key: string) => string): Bank[] {
  cardType: 'Maestro + Visa Debit',
  pros: [t('banks.postfinance.pro1'), t('banks.postfinance.pro2'), t('banks.postfinance.pro3')],
  cons: [t('banks.postfinance.con1'), t('banks.postfinance.con2'), t('banks.postfinance.con3')],
- color: 'from-yellow-500 to-orange-600',
+ color: 'from-warning to-warning-strong',
  website: 'https://www.postfinance.ch',
  acceptsFrontalieri: true
  },
@@ -45,7 +45,7 @@ function getBanks(t: (key: string) => string): Bank[] {
  cardType: 'Maestro + Visa Debit',
  pros: [t('banks.ubs.pro1'), t('banks.ubs.pro2'), t('banks.ubs.pro3')],
  cons: [t('banks.ubs.con1'), t('banks.ubs.con2'), t('banks.ubs.con3')],
- color: 'from-red-500 to-rose-600',
+ color: 'from-danger-strong to-danger-strong',
  website: 'https://www.ubs.com',
  acceptsFrontalieri: false
  },
@@ -58,7 +58,7 @@ function getBanks(t: (key: string) => string): Bank[] {
  cardType: 'Maestro + Visa',
  pros: [t('banks.creditSuisse.pro1'), t('banks.creditSuisse.pro2')],
  cons: [t('banks.creditSuisse.con1'), t('banks.creditSuisse.con2'), t('banks.creditSuisse.con3')],
- color: 'from-stripe-600 to-stripe-800',
+ color: 'from-accent-strong to-accent-strong-hover',
  website: 'https://www.credit-suisse.com',
  acceptsFrontalieri: false
  },
@@ -71,7 +71,7 @@ function getBanks(t: (key: string) => string): Bank[] {
  cardType: 'Maestro + Mastercard Debit',
  pros: [t('banks.raiffeisen.pro1'), t('banks.raiffeisen.pro2'), t('banks.raiffeisen.pro3')],
  cons: [t('banks.raiffeisen.con1'), t('banks.raiffeisen.con2'), t('banks.raiffeisen.con3')],
- color: 'from-green-600 to-emerald-700',
+ color: 'from-success-strong to-success-strong-hover',
  website: 'https://www.raiffeisen.ch',
  acceptsFrontalieri: true
  },
@@ -84,7 +84,7 @@ function getBanks(t: (key: string) => string): Bank[] {
  cardType: 'Visa Debit (virtuale + fisica)',
  pros: [t('banks.revolut.pro1'), t('banks.revolut.pro2'), t('banks.revolut.pro3'), t('banks.revolut.pro4')],
  cons: [t('banks.revolut.con1'), t('banks.revolut.con2'), t('banks.revolut.con3')],
- color: 'from-rose-500 to-pink-600',
+ color: 'from-danger-strong to-danger-strong',
  website: 'https://www.revolut.com',
  acceptsFrontalieri: true
  },
@@ -97,7 +97,7 @@ function getBanks(t: (key: string) => string): Bank[] {
  cardType: 'Visa Debit',
  pros: [t('banks.wise.pro1'), t('banks.wise.pro2'), t('banks.wise.pro3'), t('banks.wise.pro4')],
  cons: [t('banks.wise.con1'), t('banks.wise.con2'), t('banks.wise.con3')],
- color: 'from-emerald-500 to-teal-600',
+ color: 'from-success-strong to-info-strong',
  website: 'https://wise.com/invite/ihpn/luigis147',
  acceptsFrontalieri: true
  },
@@ -110,7 +110,7 @@ function getBanks(t: (key: string) => string): Bank[] {
  cardType: t('banks.intesa.cardType'),
  pros: [t('banks.intesa.pro1'), t('banks.intesa.pro2'), t('banks.intesa.pro3')],
  cons: [t('banks.intesa.con1'), t('banks.intesa.con2'), t('banks.intesa.con3')],
- color: 'from-stripe-500 to-stripe-700',
+ color: 'from-accent-strong to-accent-strong-hover',
  website: 'https://www.intesasanpaolo.com',
  acceptsFrontalieri: true
  },
@@ -123,7 +123,7 @@ function getBanks(t: (key: string) => string): Bank[] {
  cardType: t('banks.fineco.cardType'),
  pros: [t('banks.fineco.pro1'), t('banks.fineco.pro2'), t('banks.fineco.pro3'), t('banks.fineco.pro4')],
  cons: [t('banks.fineco.con1'), t('banks.fineco.con2'), t('banks.fineco.con3')],
- color: 'from-teal-500 to-stripe-600',
+ color: 'from-info-strong to-accent-strong',
  website: 'https://fineco.mobi/passaparola',
  acceptsFrontalieri: true
  },
@@ -136,7 +136,7 @@ function getBanks(t: (key: string) => string): Bank[] {
  cardType: 'Mastercard Debit',
  pros: [t('banks.yuh.pro1'), t('banks.yuh.pro2'), t('banks.yuh.pro3'), t('banks.yuh.pro4')],
  cons: [t('banks.yuh.con1'), t('banks.yuh.con2'), t('banks.yuh.con3')],
- color: 'from-amber-500 to-amber-700',
+ color: 'from-warning-strong to-warning-strong-hover',
  website: 'https://www.yuh.com',
  acceptsFrontalieri: true
  },
@@ -149,7 +149,7 @@ function getBanks(t: (key: string) => string): Bank[] {
  cardType: 'Mastercard Debit',
  pros: [t('banks.neon.pro1'), t('banks.neon.pro2'), t('banks.neon.pro3')],
  cons: [t('banks.neon.con1'), t('banks.neon.con2'), t('banks.neon.con3')],
- color: 'from-green-400 to-emerald-600',
+ color: 'from-success to-success-strong',
  website: 'https://www.neon-free.ch',
  acceptsFrontalieri: true
  },
@@ -162,7 +162,7 @@ function getBanks(t: (key: string) => string): Bank[] {
  cardType: 'Mastercard Debit (virtuale + fisica)',
  pros: [t('banks.n26.pro1'), t('banks.n26.pro2'), t('banks.n26.pro3')],
  cons: [t('banks.n26.con1'), t('banks.n26.con2'), t('banks.n26.con3')],
- color: 'from-teal-500 to-teal-700',
+ color: 'from-info-strong to-info-strong-hover',
  website: 'https://n26.com',
  acceptsFrontalieri: true
  },
@@ -175,7 +175,7 @@ function getBanks(t: (key: string) => string): Bank[] {
  cardType: 'Visa Debit',
  pros: [t('banks.hype.pro1'), t('banks.hype.pro2'), t('banks.hype.pro3')],
  cons: [t('banks.hype.con1'), t('banks.hype.con2'), t('banks.hype.con3')],
- color: 'from-amber-500 to-amber-700',
+ color: 'from-warning-strong to-warning-strong-hover',
  website: 'https://www.hype.it',
  acceptsFrontalieri: true
  }
@@ -226,7 +226,7 @@ const BankComparison: React.FC = () => {
 
  <div className="bg-warning-subtle border-l-4 border-warning p-4 rounded-lg">
  <div className="flex items-start gap-3">
- <AlertCircle className="text-amber-700 flex-shrink-0 mt-0.5" size={20} />
+ <AlertCircle className="text-warning flex-shrink-0 mt-0.5" size={20} />
  <div className="text-sm text-warning">
  <p className="font-bold mb-1">{t('banks.strategyTitle')}</p>
  <p dangerouslySetInnerHTML={{ __html: t('banks.strategyText') }} />
@@ -243,7 +243,7 @@ const BankComparison: React.FC = () => {
  <button
  key={c}
  onClick={() => { setFilterCountry(c as any); Analytics.trackBankComparison('filter', undefined, c); }}
- className={`px-4 py-2 rounded-lg text-sm font-bold ${filterCountry === c ? 'bg-amber-700 text-white' : 'bg-surface-raised text-subtle'}`}
+ className={`px-4 py-2 rounded-lg text-sm font-bold ${filterCountry === c ? 'bg-warning-strong-hover text-on-accent' : 'bg-surface-raised text-subtle'}`}
  >
  {c === 'all' ? t('banks.all') : c === 'CH' ? '🇨🇭 CH' : '🇮🇹 IT'}
  </button>
@@ -271,22 +271,22 @@ const BankComparison: React.FC = () => {
  target: '_blank',
  rel: 'noopener noreferrer',
  onClick: () => Analytics.trackBankComparison('link_click', bank.name, bank.country),
- className: `block bg-surface rounded-2xl border-2 p-4 sm:p-6 hover:shadow-lg transition-[color,background-color,border-color,box-shadow] cursor-pointer ${bank.acceptsFrontalieri ? 'border-emerald-500 ring-2 ring-emerald-500/20' : 'border-edge'}`
+ className: `block bg-surface rounded-2xl border-2 p-4 sm:p-6 hover:shadow-lg transition-[color,background-color,border-color,box-shadow] cursor-pointer ${bank.acceptsFrontalieri ? 'border-success ring-2 ring-success/20' : 'border-edge'}`
  } : {
- className: `bg-surface rounded-2xl border-2 p-4 sm:p-6 ${bank.acceptsFrontalieri ? 'border-emerald-500 ring-2 ring-emerald-500/20' : 'border-edge'}`
+ className: `bg-surface rounded-2xl border-2 p-4 sm:p-6 ${bank.acceptsFrontalieri ? 'border-success ring-2 ring-success/20' : 'border-edge'}`
  };
 
  return (
  <CardWrapper key={bank.name} {...cardProps}>
  {bank.acceptsFrontalieri && (
- <div className="mb-3 inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-700 text-white text-xs font-bold rounded-full">
+ <div className="mb-3 inline-flex items-center gap-1.5 px-3 py-1.5 bg-success-strong text-on-accent text-xs font-bold rounded-full">
  <CheckCircle2 size={14} /> {t('banks.acceptsFrontalieri')}
  </div>
  )}
 
  <div className="flex items-start justify-between gap-4 mb-4">
  <div className="flex items-center gap-3">
- <div className={`p-3 bg-gradient-to-br ${bank.color} rounded-2xl text-white`}>
+ <div className={`p-3 bg-gradient-to-br ${bank.color} rounded-2xl text-on-accent`}>
  <Building2 size={24} />
  </div>
  <div>

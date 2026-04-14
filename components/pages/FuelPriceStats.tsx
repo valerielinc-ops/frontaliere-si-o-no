@@ -369,7 +369,7 @@ export default function FuelPriceStats() {
  }}
  placeholder={tt('fuelPrices.searchHomeMunicipality', 'Es. Como (CO)')}
  aria-label={tt('fuelPrices.homeMunicipality', 'Comune dove vivi')}
- className="w-full rounded-2xl border border-edge bg-surface-alt/50 px-4 py-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:border-orange-500 text-strong"
+ className="w-full rounded-2xl border border-edge bg-surface-alt/50 px-4 py-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-warning focus-visible:border-warning text-strong"
  />
  <datalist id="fuel-municipalities">
  {municipalityOptions.map((option) => (
@@ -389,7 +389,7 @@ export default function FuelPriceStats() {
  value={tankLiters}
  onChange={(e) => setTankLiters(Math.min(120, Math.max(10, Number(e.target.value) || 50)))}
  aria-label={tt('fuelPrices.tankLiters', 'Litri da fare')}
- className="w-full rounded-2xl border border-edge bg-surface-alt/50 px-4 py-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:border-orange-500 text-strong"
+ className="w-full rounded-2xl border border-edge bg-surface-alt/50 px-4 py-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-warning focus-visible:border-warning text-strong"
  />
  <span className="text-sm text-muted mt-1 block">10 – 120 L</span>
  </label>
@@ -405,7 +405,7 @@ export default function FuelPriceStats() {
  value={costPerKmEur}
  onChange={(e) => setCostPerKmEur(Math.min(1, Math.max(0.05, Number(e.target.value) || 0.18)))}
  aria-label={tt('fuelPrices.costPerKm', 'Costo auto per km')}
- className="w-full rounded-2xl border border-edge bg-surface-alt/50 px-4 py-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:border-orange-500 text-strong"
+ className="w-full rounded-2xl border border-edge bg-surface-alt/50 px-4 py-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-warning focus-visible:border-warning text-strong"
  />
  <span className="text-sm text-muted mt-1 block">0.05 – 1.00 €/km</span>
  </label>
@@ -505,14 +505,14 @@ export default function FuelPriceStats() {
  onChange={(e) => setSearch(e.target.value)}
  placeholder={tt('fuelPrices.searchPlaceholder', 'Cerca comune o provincia')}
  aria-label={tt('fuelPrices.searchPlaceholder', 'Cerca comune o provincia')}
- className="w-full rounded-2xl border border-edge bg-surface-alt/50 py-3 pl-10 pr-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:border-orange-500 text-strong"
+ className="w-full rounded-2xl border border-edge bg-surface-alt/50 py-3 pl-10 pr-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-warning focus-visible:border-warning text-strong"
  />
  </label>
  <select
  value={province}
  onChange={(e) => setProvince(e.target.value)}
  aria-label={tt('fuelPrices.selectProvince', 'Seleziona provincia')}
- className="rounded-2xl border border-edge bg-surface-alt/50 px-4 py-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:border-orange-500 text-strong"
+ className="rounded-2xl border border-edge bg-surface-alt/50 px-4 py-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-warning focus-visible:border-warning text-strong"
  >
  {provinces.map((item) => (
  <option key={item} value={item}>
@@ -524,7 +524,7 @@ export default function FuelPriceStats() {
  value={sortKey}
  onChange={(e) => setSortKey(e.target.value as SortKey)}
  aria-label={tt('fuelPrices.sortBy', 'Ordina per')}
- className="rounded-2xl border border-edge bg-surface-alt/50 px-4 py-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:border-orange-500 text-strong"
+ className="rounded-2xl border border-edge bg-surface-alt/50 px-4 py-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-warning focus-visible:border-warning text-strong"
  >
  <option value="saving">{tt('fuelPrices.sortSaving', 'Ordina per risparmio')}</option>
  <option value="delta">{tt('fuelPrices.sortDelta', 'Ordina per delta')}</option>

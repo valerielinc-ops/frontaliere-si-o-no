@@ -1,5 +1,5 @@
 const bodyGuidaCompletaFrontaliere: Record<string, string> = {
-    'blog.article.guida-completa-frontaliere.body1': `Ein **Grenzgänger** (italienisch *frontaliere*, französisch *frontalier*) ist eine Arbeitskraft, die in einem Staat wohnt — typischerweise Italien — und täglich oder wöchentlich ins Nachbarland — die Schweiz — pendelt, um dort beruflich tätig zu sein. Im Tessin betrifft dieses Phänomen über 79.000 Personen und stellt eine tragende Säule der regionalen Wirtschaft dar, mit steuerlichen, sozialversicherungsrechtlichen und logistischen Auswirkungen, die eine sorgfältige Planung erfordern.
+ 'blog.article.guida-completa-frontaliere.body1': `Ein **Grenzgänger** (italienisch *frontaliere*, französisch *frontalier*) ist eine Arbeitskraft, die in einem Staat wohnt — typischerweise Italien — und täglich oder wöchentlich ins Nachbarland — die Schweiz — pendelt, um dort beruflich tätig zu sein. Im Tessin betrifft dieses Phänomen über 79.000 Personen und stellt eine tragende Säule der regionalen Wirtschaft dar, mit steuerlichen, sozialversicherungsrechtlichen und logistischen Auswirkungen, die eine sorgfältige Planung erfordern.
 
 Dieser Leitfaden behandelt **jeden Aspekt** des Grenzgänger-Wegs: von der anfänglichen Entscheidung über den Alltag bis hin zu Bewilligungen, Besteuerung, Vorsorge und Krankenversicherung. Er richtet sich sowohl an Personen, die erwägen, Grenzgänger zu werden, als auch an solche, die es bereits sind und ihre Situation optimieren möchten.
 
@@ -22,7 +22,7 @@ Das Grenzgänger-Phänomen im Tessin hat beispiellose Dimensionen erreicht. Laut
 
 Der Trend steigt seit 2015 stetig, getrieben durch das Lohngefälle (das Verhältnis CH/IT-Gehalt beträgt etwa 2,3:1 für vergleichbare Positionen), die geografische Nähe und die Lebensqualität in den italienischen Grenzprovinzen.`,
 
-    'blog.article.guida-completa-frontaliere.body2': `## Kapitel 1: Die Entscheidung — Lohnt es sich, Grenzgänger zu werden?
+ 'blog.article.guida-completa-frontaliere.body2': `## Kapitel 1: Die Entscheidung — Lohnt es sich, Grenzgänger zu werden?
 
 Die am häufigsten gestellte Frage ist zugleich die komplexeste: **Lohnt es sich finanziell, in der Schweiz zu arbeiten und in Italien zu leben?** Die Antwort hängt von mindestens sechs Variablen ab: Bruttolohn, Familienstand, Kinderzahl, Wohngemeinde, Pendelkosten und CHF/EUR-Wechselkurs.
 
@@ -65,7 +65,7 @@ Betrachten wir einen typischen Fall: Bruttolohn CHF 5.500/Monat, ledig, ohne Kin
 
 Um Ihre spezifische Situation zu berechnen, nutzen Sie unseren [Nettolohn-Rechner](nav:calculator), der alle Variablen berücksichtigt: Familienstand, Kinder, Wohngemeinde, Pendelkosten und aktuellen Wechselkurs.`,
 
-    'blog.article.guida-completa-frontaliere.body3': `## Kapitel 2: Arbeit im Tessin finden
+ 'blog.article.guida-completa-frontaliere.body3': `## Kapitel 2: Arbeit im Tessin finden
 
 Der Tessiner Arbeitsmarkt hat eigene Merkmale: Die italienische Sprache ist ein Vorteil gegenüber dem Rest der Schweiz, aber der Wettbewerb mit anderen Grenzgängern ist hoch. Hier die Sektoren mit der höchsten Nachfrage 2025-2026:
 
@@ -108,7 +108,7 @@ Der Schweizer Vertrag unterscheidet sich in mehreren Punkten vom italienischen:
 
 Für ein tieferes Verständnis der Schweizer Lohnabrechnung nutzen Sie unseren [Lohnabrechnungs-Simulator](nav:payslip), der jede Position im Detail erklärt.`,
 
-    'blog.article.guida-completa-frontaliere.body4': `## Kapitel 3: G-Bewilligung — Wie man sie erhält
+ 'blog.article.guida-completa-frontaliere.body4': `## Kapitel 3: G-Bewilligung — Wie man sie erhält
 
 Die **G-Bewilligung** (Grenzgängerbewilligung) ist das Dokument, das einen EU/EFTA-Bürger mit Wohnsitz in einem Nachbarstaat zur Arbeit in der Schweiz berechtigt. Seit 2002 ist das Verfahren dank der bilateralen Abkommen CH-EU für italienische Staatsbürger relativ unkompliziert.
 
@@ -151,7 +151,7 @@ Die G-Bewilligung wird alle 5 Jahre automatisch erneuert, sofern ein Arbeitsverh
 
 Für mehr Informationen zu Schutzmaßnahmen bei Arbeitslosigkeit, siehe unseren [Leitfaden zur Arbeitslosigkeit für Grenzgänger](nav:unemployment).`,
 
-    'blog.article.guida-completa-frontaliere.body5': `## Kapitel 4: Besteuerung — Das Herzstück der Frage
+ 'blog.article.guida-completa-frontaliere.body5': `## Kapitel 4: Besteuerung — Das Herzstück der Frage
 
 Die Besteuerung ist der komplexeste und wichtigste Aspekt für einen Grenzgänger. Seit 2023 hat sich das Steuerregime durch das Inkrafttreten des **Neuen Abkommens Italien-Schweiz zur Besteuerung der Grenzgänger** grundlegend verändert.
 
@@ -201,7 +201,7 @@ Für neue Grenzgänger wird die Steuererklärung obligatorisch:
 
 Um Ihre steuerliche Gesamtsituation zu simulieren — altes und neues Regime — nutzen Sie unseren [Steuerrechner](nav:calculator), der die aktualisierten Tabellen 2026 anwendet und IRPEF, Steueranrechnung und Endnetto automatisch berechnet. Für die jährliche Erklärung konsultieren Sie den [Leitfaden zur Steuererklärung](nav:tax-return) und den [Steuerkalender](nav:calendar), um keine Frist zu versäumen.`,
 
-    'blog.article.guida-completa-frontaliere.body6': `## Kapitel 5: Sozialversicherung — AHV, BVG und 3. Säule
+ 'blog.article.guida-completa-frontaliere.body6': `## Kapitel 5: Sozialversicherung — AHV, BVG und 3. Säule
 
 Das Schweizer Vorsorgesystem ist auf **drei Säulen** aufgebaut und bietet eines der solidesten sozialen Sicherungsnetze der Welt. Als Grenzgänger leisten Sie obligatorisch Beiträge an die ersten beiden und können freiwillig an der dritten teilnehmen.
 
@@ -245,7 +245,7 @@ Die 3. Säule ist freiwillig und bietet bedeutende Steuervorteile:
 
 Zur Planung Ihrer Vorsorgestrategie nutzen Sie den [Vorsorge-Planer](nav:pension) und den [Simulator 3. Säule](nav:pillar3), die die erwarteten Leistungen auf Basis Ihrer aktuellen und zukünftigen Beiträge berechnen.`,
 
-    'blog.article.guida-completa-frontaliere.body7': `## Kapitel 6: Krankenversicherung — KVG oder italienischer SSN?
+ 'blog.article.guida-completa-frontaliere.body7': `## Kapitel 6: Krankenversicherung — KVG oder italienischer SSN?
 
 Innerhalb von **3 Monaten** nach Arbeitsbeginn in der Schweiz muss der Grenzgänger eine entscheidende und (fast) unwiderrufliche Wahl treffen: dem Schweizer Gesundheitssystem (KVG) beitreten oder das **Optionsrecht** ausüben, um im italienischen Nationalen Gesundheitsdienst (SSN) zu bleiben.
 
@@ -283,7 +283,7 @@ Entscheiden Sie sich für die KVG, haben Sie Zugang zu 14 zugelassenen Krankenka
 
 Nutzen Sie unseren [Krankenversicherungsvergleich](nav:health), um die Prämien aller 14 Krankenkassen zu vergleichen, mit Filtern nach Modell, Franchise und Kanton.`,
 
-    'blog.article.guida-completa-frontaliere.body8': `## Kapitel 7: Der Alltag als Grenzgänger
+ 'blog.article.guida-completa-frontaliere.body8': `## Kapitel 7: Der Alltag als Grenzgänger
 
 Grenzgänger zu sein ist nicht nur eine Steuerfrage: Es ist ein **Lebensstil**, der tägliche Organisation auf verschiedenen Ebenen erfordert.
 
@@ -338,7 +338,7 @@ Eine kluge Strategie kombiniert beide Märkte:
 
 Für einen detaillierten Preisvergleich, siehe den [Lebenshaltungskostenvergleich](nav:cost-of-living) und den [Einkaufsvergleich](nav:shopping).`,
 
-    'blog.article.guida-completa-frontaliere.body9': `## Kapitel 8: Fristen und der Kalender des Grenzgängers
+ 'blog.article.guida-completa-frontaliere.body9': `## Kapitel 8: Fristen und der Kalender des Grenzgängers
 
 Einer der stressigsten Aspekte für Grenzgänger ist die Verwaltung **mehrerer Fristen** in zwei verschiedenen Ländern. Hier ein vollständiger Kalender:
 
@@ -375,7 +375,7 @@ Die Erneuerung erfolgt in der Regel automatisch, aber bewährte Praxis umfasst:
 
 Um keine Frist zu verpassen, nutzen Sie unseren [interaktiven Steuerkalender](nav:calendar), der Sie automatisch an wichtige Termine erinnert und Ihnen den Export in Ihren persönlichen Kalender ermöglicht.`,
 
-    'blog.article.guida-completa-frontaliere.body10': `## Häufig gestellte Fragen (FAQ)
+ 'blog.article.guida-completa-frontaliere.body10': `## Häufig gestellte Fragen (FAQ)
 
 ### 1. Kann ich Grenzgänger werden, wenn ich in Mailand wohne?
 
@@ -414,7 +414,7 @@ Für Grenzgänger unter dem **alten Regime** sind die Ristorni (Rückerstattung 
 
 Mit einem unterschriebenen Arbeitsvertrag wird die G-Bewilligung in **2-4 Wochen** ausgestellt. Der Arbeitgeber kümmert sich in der Regel um den Antrag. Zu bestimmten Jahreszeiten (September, Januar) können die Bearbeitungszeiten länger sein. Die Bewilligung ist 5 Jahre gültig und wird automatisch verlängert.`,
 
-    'blog.article.guida-completa-frontaliere.body11': `## Fazit: Der Grenzgänger als binationaler Fachmann
+ 'blog.article.guida-completa-frontaliere.body11': `## Fazit: Der Grenzgänger als binationaler Fachmann
 
 Grenzgänger zu sein im Jahr 2026 bedeutet nicht einfach «in der Schweiz arbeiten und in Italien leben». Es ist eine Lebensentscheidung, die **Kompetenzen in Finanzplanung, Kenntnis der Vorschriften und tägliche Organisation** erfordert, die nur wenige andere Arbeitnehmer besitzen müssen.
 

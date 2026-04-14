@@ -877,12 +877,12 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
  if (status === 'success') {
  return (
  <div className={`mt-6 p-5 bg-gradient-to-r from-success-subtle to-info-subtle border border-success-border rounded-2xl text-center`}>
- <CheckCircle2 className="w-10 h-10 text-emerald-500 mx-auto mb-2" />
+ <CheckCircle2 className="w-10 h-10 text-success mx-auto mb-2" />
  <p className="font-bold text-strong">{t('leadMagnet.success.title')}</p>
  <p className="text-sm text-subtle mt-1">{t('leadMagnet.success.desc')}</p>
  <button
  onClick={() => generateChecklistPDF(variant).catch(() => {})}
- className="mt-3 inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold rounded-lg transition-colors"
+ className="mt-3 inline-flex items-center gap-1.5 px-4 py-2 bg-success-strong hover:bg-success-strong-hover text-on-accent text-sm font-semibold rounded-lg transition-colors"
  >
  <Download className="w-4 h-4" />
  {t('leadMagnet.success.download')}
@@ -897,7 +897,7 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
  <div className={`relative mt-4 p-4 bg-gradient-to-r ${colors.gradient} border ${colors.border} rounded-xl`}>
  <button
  onClick={handleDismiss}
- className="absolute top-2 right-2 p-1 text-slate-500 hover:text-body rounded-lg transition-colors"
+ className="absolute top-2 right-2 p-1 text-muted hover:text-body rounded-lg transition-colors"
  aria-label={t('leadMagnet.dismiss')}
  >
  <X className="w-3.5 h-3.5" />
@@ -926,7 +926,7 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
  <button
  type="submit"
  disabled={status === 'loading'}
- className="px-4 py-2 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-bold rounded-lg hover:from-amber-600 hover:to-orange-700 transition-[color,background-color,border-color,opacity] disabled:opacity-50 flex items-center gap-1.5 text-sm shadow-md whitespace-nowrap"
+ className="px-4 py-2 bg-gradient-to-r from-warning-strong to-warning-strong text-on-accent font-bold rounded-lg hover:from-warning-strong hover:to-warning-strong-hover transition-[color,background-color,border-color,opacity] disabled:opacity-50 flex items-center gap-1.5 text-sm shadow-md whitespace-nowrap"
  >
  {status === 'loading' ? (
  <Loader2 className="w-4 h-4 animate-spin" />
@@ -953,7 +953,7 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
  )}
  </div>
  {linkedInAvailable && (
- <button type="button" onClick={() => signInWithLinkedIn()} className="w-full inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#0A66C2] hover:bg-[#004182] text-white text-xs font-semibold transition-colors">
+ <button type="button" onClick={() => signInWithLinkedIn()} className="w-full inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#0A66C2] hover:bg-[#004182] text-on-accent text-xs font-semibold transition-colors">
  <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
  LinkedIn
  </button>
@@ -974,7 +974,7 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
  <div className={`relative mt-6 bg-gradient-to-r ${colors.gradient} border ${colors.border} rounded-2xl overflow-hidden`}>
  <button
  onClick={handleDismiss}
- className="absolute top-3 right-3 p-1 text-slate-500 hover:text-body rounded-lg transition-colors z-10"
+ className="absolute top-3 right-3 p-1 text-muted hover:text-body rounded-lg transition-colors z-10"
  aria-label={t('leadMagnet.dismiss')}
  >
  <X className="w-4 h-4" />
@@ -1005,15 +1005,15 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
  {/* What's included */}
  <div className="space-y-1.5 mb-4">
  <div className="flex items-center gap-2 text-xs text-body">
- <ArrowRight className="w-3 h-3 text-emerald-500 shrink-0" />
+ <ArrowRight className="w-3 h-3 text-success shrink-0" />
  <span>{t(`leadMagnet.${variant}.bullet1`)}</span>
  </div>
  <div className="flex items-center gap-2 text-xs text-body">
- <ArrowRight className="w-3 h-3 text-emerald-500 shrink-0" />
+ <ArrowRight className="w-3 h-3 text-success shrink-0" />
  <span>{t(`leadMagnet.${variant}.bullet2`)}</span>
  </div>
  <div className="flex items-center gap-2 text-xs text-body">
- <ArrowRight className="w-3 h-3 text-emerald-500 shrink-0" />
+ <ArrowRight className="w-3 h-3 text-success shrink-0" />
  <span>{t(`leadMagnet.${variant}.bullet3`)}</span>
  </div>
  </div>
@@ -1033,7 +1033,7 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
  <button
  type="submit"
  disabled={status === 'loading'}
- className="px-5 py-2.5 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-bold rounded-xl hover:from-amber-600 hover:to-orange-700 transition-[color,background-color,border-color,opacity] disabled:opacity-50 flex items-center justify-center gap-2 text-sm shadow-md whitespace-nowrap"
+ className="px-5 py-2.5 bg-gradient-to-r from-warning-strong to-warning-strong text-on-accent font-bold rounded-xl hover:from-warning-strong hover:to-warning-strong-hover transition-[color,background-color,border-color,opacity] disabled:opacity-50 flex items-center justify-center gap-2 text-sm shadow-md whitespace-nowrap"
  >
  {status === 'loading' ? (
  <><Loader2 className="w-4 h-4 animate-spin" /> {t('newsletter.subscribing')}</>
@@ -1061,7 +1061,7 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
  )}
  </div>
  {linkedInAvailable && (
- <button type="button" onClick={() => signInWithLinkedIn()} className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#0A66C2] hover:bg-[#004182] text-white text-sm font-semibold transition-colors">
+ <button type="button" onClick={() => signInWithLinkedIn()} className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[#0A66C2] hover:bg-[#004182] text-on-accent text-sm font-semibold transition-colors">
  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
  <span className="hidden sm:inline">{locale === 'it' ? 'Continua con LinkedIn' : locale === 'de' ? 'Mit LinkedIn fortfahren' : locale === 'fr' ? 'Continuer avec LinkedIn' : 'Continue with LinkedIn'}</span>
  <span className="sm:hidden">LinkedIn</span>
@@ -1084,7 +1084,7 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
  {/* Footer: social proof + privacy */}
  <div className="flex items-center justify-between mt-3">
  <div className="flex items-center gap-1.5 text-xs text-muted">
- <Users className="w-3.5 h-3.5 text-stripe-500" />
+ <Users className="w-3.5 h-3.5 text-accent" />
  <span>{t('leadMagnet.socialProof')}</span>
  </div>
  <div className="flex items-center gap-1.5 text-sm text-success">

@@ -31,13 +31,13 @@ const IRPEF_BRACKETS = [
 const ADDIZIONALE_COMUNALE_RATE = 0.008; // Common average
 
 const EDIT_FIELD_CLASS =
- 'w-full h-12 bg-surface-alt px-4 rounded-xl border border-edge text-sm font-semibold text-strong outline-none focus-visible:border-stripe-500 focus-visible:ring-4 focus-visible:ring-accent/10 transition-[color,background-color,border-color,box-shadow] placeholder-muted';
+ 'w-full h-12 bg-surface-alt px-4 rounded-xl border border-edge text-sm font-semibold text-strong outline-none focus-visible:border-accent focus-visible:ring-4 focus-visible:ring-accent/10 transition-[color,background-color,border-color,box-shadow] placeholder-muted';
 
 const STEPPER_SHELL_CLASS =
- 'flex items-center bg-surface-alt border border-edge rounded-xl overflow-hidden h-12 shadow-sm focus-within:ring-2 focus-within:ring-accent/20 focus-within:border-stripe-500 transition-[color,background-color,border-color,box-shadow,transform]';
+ 'flex items-center bg-surface-alt border border-edge rounded-xl overflow-hidden h-12 shadow-sm focus-within:ring-2 focus-within:ring-accent/20 focus-within:border-accent transition-[color,background-color,border-color,box-shadow,transform]';
 
 const STEP_BTN_CLASS =
- 'w-10 shrink-0 h-full flex items-center justify-center text-muted hover:text-stripe-600 hover:bg-surface-raised active:scale-90 transition-[color,background-color,border-color,box-shadow,transform]';
+ 'w-10 shrink-0 h-full flex items-center justify-center text-muted hover:text-accent hover:bg-surface-raised active:scale-90 transition-[color,background-color,border-color,box-shadow,transform]';
 
 type NumberStepperProps = {
  id: string;
@@ -322,7 +322,7 @@ const TaxCreditCalculator: React.FC = () => {
  onChange={(e) => setSpouseWorks(e.target.checked)}
  className="sr-only peer"
  />
- <div className="w-11 h-6 bg-surface-raised peer-focus:outline-none peer-focus-visible:ring-2 peer-focus-visible:ring-accent rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-edge after:border after:rounded-full after:h-5 after:w-5 after:transition-transform peer-checked:bg-accent"></div>
+ <div className="w-11 h-6 bg-surface-raised peer-focus:outline-none peer-focus-visible:ring-2 peer-focus-visible:ring-accent rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-surface after:border-edge after:border after:rounded-full after:h-5 after:w-5 after:transition-transform peer-checked:bg-accent"></div>
  </div>
  <span className="text-sm font-medium text-body">{t('taxCredit.spouseWorks')}</span>
  </label>

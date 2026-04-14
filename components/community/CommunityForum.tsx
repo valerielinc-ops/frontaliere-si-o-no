@@ -259,7 +259,7 @@ const CommunityForum: React.FC = () => {
  className={`p-1.5 rounded-lg transition-colors ${
  user && selectedQuestion.upvotedBy.includes(user.uid)
  ? 'bg-success-subtle text-success'
- : 'text-slate-500 hover:text-emerald-500 hover:bg-success-subtle'
+ : 'text-muted hover:text-success hover:bg-success-subtle'
  } ${!user ? 'opacity-50 cursor-not-allowed' : ''}`}
  aria-label="Vota positivo"
  >
@@ -329,14 +329,14 @@ const CommunityForum: React.FC = () => {
  className={`p-1 rounded-lg transition-colors ${
  user && answer.upvotedBy.includes(user.uid)
  ? 'bg-success-subtle text-success'
- : 'text-muted hover:text-emerald-500'
+ : 'text-muted hover:text-success'
  } ${!user ? 'opacity-50 cursor-not-allowed' : ''}`}
  aria-label="Vota positivo"
  >
  <ThumbsUp className="w-4 h-4" />
  </button>
  <span className="text-xs font-bold text-muted">{answer.upvotes}</span>
- {answer.accepted && <CheckCircle2 className="w-4 h-4 text-emerald-500" />}
+ {answer.accepted && <CheckCircle2 className="w-4 h-4 text-success" />}
  </div>
  <div className="flex-1 min-w-0">
  <p className="text-sm text-body whitespace-pre-wrap leading-relaxed">
@@ -374,7 +374,7 @@ const CommunityForum: React.FC = () => {
  <button
  onClick={handleCreateAnswer}
  disabled={submittingAnswer || !newAnswer.trim()}
- className="flex items-center gap-1.5 px-4 py-2 bg-sky-600 text-white rounded-lg text-sm font-bold hover:bg-sky-700 disabled:opacity-50 transition-colors"
+ className="flex items-center gap-1.5 px-4 py-2 bg-info-strong text-on-accent rounded-lg text-sm font-bold hover:bg-info-strong-hover disabled:opacity-50 transition-colors"
  >
  {submittingAnswer ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Send className="w-3.5 h-3.5" />}
  {t('forum.submitAnswer') || 'Rispondi'}
@@ -383,7 +383,7 @@ const CommunityForum: React.FC = () => {
  </div>
  ) : (
  <div className="bg-surface-alt/50 rounded-xl p-4 text-center">
- <button onClick={signIn} className="flex items-center gap-2 mx-auto px-4 py-2 bg-sky-600 text-white rounded-lg text-sm font-bold hover:bg-sky-700 transition-colors">
+ <button onClick={signIn} className="flex items-center gap-2 mx-auto px-4 py-2 bg-info-strong text-on-accent rounded-lg text-sm font-bold hover:bg-info-strong-hover transition-colors">
  <LogIn className="w-4 h-4" />
  {t('forum.loginToAnswer') || 'Accedi per rispondere'}
  </button>
@@ -452,7 +452,7 @@ const CommunityForum: React.FC = () => {
  {user ? (
  <button
  onClick={() => setShowNewForm(!showNewForm)}
- className="flex items-center gap-2 px-4 py-2.5 bg-stripe-600 text-white rounded-xl text-sm font-bold hover:bg-stripe-700 transition-colors"
+ className="flex items-center gap-2 px-4 py-2.5 bg-accent-strong text-on-accent rounded-xl text-sm font-bold hover:bg-accent-strong-hover transition-colors"
  >
  <Plus className="w-4 h-4" />
  {t('forum.askQuestion') || 'Fai una domanda'}
@@ -517,14 +517,14 @@ const CommunityForum: React.FC = () => {
  <div className="flex justify-end gap-2">
  <button
  onClick={() => setShowNewForm(false)}
- className="px-4 py-2 text-sm font-bold text-muted hover:text-slate-700 transition-colors"
+ className="px-4 py-2 text-sm font-bold text-muted hover:text-body transition-colors"
  >
  {t('forum.cancel') || 'Annulla'}
  </button>
  <button
  onClick={handleCreateQuestion}
  disabled={submitting || !newTitle.trim() || !newBody.trim()}
- className="flex items-center gap-1.5 px-4 py-2 bg-stripe-600 text-white rounded-lg text-sm font-bold hover:bg-stripe-700 disabled:opacity-50 transition-colors"
+ className="flex items-center gap-1.5 px-4 py-2 bg-accent-strong text-on-accent rounded-lg text-sm font-bold hover:bg-accent-strong-hover disabled:opacity-50 transition-colors"
  >
  {submitting ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Send className="w-3.5 h-3.5" />}
  {t('forum.submit') || 'Pubblica'}
@@ -541,9 +541,9 @@ const CommunityForum: React.FC = () => {
  </div>
  ) : error ? (
  <div className="text-center py-12">
- <AlertCircle className="w-8 h-8 text-amber-500 mx-auto mb-2" />
- <p className="text-sm text-amber-600">{error}</p>
- <button onClick={loadQuestions} className="mt-3 text-sm font-bold text-stripe-600 hover:text-stripe-700">
+ <AlertCircle className="w-8 h-8 text-warning mx-auto mb-2" />
+ <p className="text-sm text-warning">{error}</p>
+ <button onClick={loadQuestions} className="mt-3 text-sm font-bold text-accent hover:text-accent-hover">
  {t('forum.retry') || 'Riprova'}
  </button>
  </div>
@@ -559,12 +559,12 @@ const CommunityForum: React.FC = () => {
  <button
  key={q.id}
  onClick={() => openQuestion(q)}
- className="w-full text-left bg-surface rounded-xl border border-edge p-4 hover:border-stripe-300 hover:border-accent-border transition-colors"
+ className="w-full text-left bg-surface rounded-xl border border-edge p-4 hover:border-accent-border transition-colors"
  >
  <div className="flex items-start gap-3">
  {/* Upvotes */}
  <div className="flex flex-col items-center gap-0.5 pt-0.5">
- <ThumbsUp className={`w-4 h-4 ${user && q.upvotedBy.includes(user.uid) ? 'text-emerald-500' : 'text-muted'}`} />
+ <ThumbsUp className={`w-4 h-4 ${user && q.upvotedBy.includes(user.uid) ? 'text-success' : 'text-muted'}`} />
  <span className="text-xs font-bold text-muted">{q.upvotes}</span>
  </div>
 

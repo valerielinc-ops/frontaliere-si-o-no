@@ -406,7 +406,7 @@ export default function MortgageComparison() {
  id="chRate"
  value={chRateKey}
  onChange={(e) => { setChRateKey(e.target.value as ChRateKey); setChCustomRate(null); }}
- className="w-full rounded-lg border border-edge bg-surface text-strong text-sm py-2 px-3 focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-stripe-500 transition-colors"
+ className="w-full rounded-lg border border-edge bg-surface text-strong text-sm py-2 px-3 focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-accent transition-colors"
  aria-label={t('mortgage.chRate')}
  >
  {Object.entries(CH_RATES).map(([key, { label, rate }]) => (
@@ -425,7 +425,7 @@ export default function MortgageComparison() {
  placeholder={CH_RATES[chRateKey].rate.toString()}
  value={chCustomRate ?? ''}
  onChange={(e) => setChCustomRate(e.target.value ? Number(e.target.value) : null)}
- className="w-20 rounded border border-edge bg-surface text-strong text-sm py-1 px-2 focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-stripe-500"
+ className="w-20 rounded border border-edge bg-surface text-strong text-sm py-1 px-2 focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-accent"
  />
  <span className="text-xs font-medium text-subtle">%</span>
  </div>
@@ -441,7 +441,7 @@ export default function MortgageComparison() {
  id="itRate"
  value={itRateKey}
  onChange={(e) => { setItRateKey(e.target.value as ItRateKey); setItCustomRate(null); }}
- className="w-full rounded-lg border border-edge bg-surface text-strong text-sm py-2 px-3 focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-stripe-500 transition-colors"
+ className="w-full rounded-lg border border-edge bg-surface text-strong text-sm py-2 px-3 focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-accent transition-colors"
  aria-label={t('mortgage.itRate')}
  >
  {Object.entries(IT_RATES).map(([key, { label, rate }]) => (
@@ -460,7 +460,7 @@ export default function MortgageComparison() {
  placeholder={IT_RATES[itRateKey].rate.toString()}
  value={itCustomRate ?? ''}
  onChange={(e) => setItCustomRate(e.target.value ? Number(e.target.value) : null)}
- className="w-20 rounded border border-edge bg-surface text-strong text-sm py-1 px-2 focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-stripe-500"
+ className="w-20 rounded border border-edge bg-surface text-strong text-sm py-1 px-2 focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-accent"
  />
  <span className="text-xs font-medium text-subtle">%</span>
  </div>
@@ -482,7 +482,7 @@ export default function MortgageComparison() {
  max={1.5}
  value={exchangeRate}
  onChange={(e) => setExchangeRate(Number(e.target.value))}
- className="w-20 rounded border border-edge bg-surface text-strong text-sm py-1 px-2 focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-stripe-500"
+ className="w-20 rounded border border-edge bg-surface text-strong text-sm py-1 px-2 focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-accent"
  />
  <button
  onClick={handleReset}
@@ -537,7 +537,7 @@ export default function MortgageComparison() {
  : 'border-warning-border'
  }`}>
  <h3 className="text-sm font-bold text-strong flex items-center gap-2 mb-3">
- <Shield size={16} className="text-red-500" />
+ <Shield size={16} className="text-danger" />
  🇨🇭 {t('mortgage.tragbarkeit')}
  </h3>
  <div className="space-y-2 text-xs">
@@ -561,7 +561,7 @@ export default function MortgageComparison() {
  </div>
  {!chTragbarkeitOk && (
  <div className="flex items-start gap-1.5 bg-warning-subtle rounded-lg p-2 mt-1">
- <AlertTriangle size={14} className="text-amber-500 flex-shrink-0 mt-0.5" />
+ <AlertTriangle size={14} className="text-warning flex-shrink-0 mt-0.5" />
  <span className="text-warning">{t('mortgage.tragbarkeitWarning')}</span>
  </div>
  )}
@@ -575,7 +575,7 @@ export default function MortgageComparison() {
  : 'border-warning-border'
  }`}>
  <h3 className="text-sm font-bold text-strong flex items-center gap-2 mb-3">
- <PiggyBank size={16} className="text-stripe-500" />
+ <PiggyBank size={16} className="text-accent" />
  {t('mortgage.equityCheck')}
  </h3>
  <div className="space-y-2 text-xs">
@@ -601,7 +601,7 @@ export default function MortgageComparison() {
  </div>
  {!chEquityOk && (
  <div className="flex items-start gap-1.5 bg-warning-subtle rounded-lg p-2 mt-1">
- <AlertTriangle size={14} className="text-amber-500 flex-shrink-0 mt-0.5" />
+ <AlertTriangle size={14} className="text-warning flex-shrink-0 mt-0.5" />
  <span className="text-warning">{t('mortgage.equityWarning')}</span>
  </div>
  )}

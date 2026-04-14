@@ -6,26 +6,26 @@
  * GitHub Pages SPA support via 404.html redirect.
  *
  * Navigation structure (Proposal H):
- *   CALCOLATORE (8)  — fiscal simulator, what-if, payslip, RAL, bonus, parental, residency, salary-quiz
- *   CONFRONTI (8)    — exchange, banks, health, mobile, shopping, cost-of-living, jobs, renovation
- *   FISCO (7)        — tax-return, calendar, holidays, ristorni, pension, pillar3, quiz
- *   GUIDA (8)        — first-day, permits, border/traffic, unemployment, car-transfer, car-cost, permit G vs B, border-map
- *   VITA (8)         — living-ch, living-it, companies, schools, nursery, places, transport, municipalities
- *   STATISTICHE (6)  — overview, livability, jobs-observatory, salary-compare, traffic-history
+ * CALCOLATORE (8) — fiscal simulator, what-if, payslip, RAL, bonus, parental, residency, salary-quiz
+ * CONFRONTI (8) — exchange, banks, health, mobile, shopping, cost-of-living, jobs, renovation
+ * FISCO (7) — tax-return, calendar, holidays, ristorni, pension, pillar3, quiz
+ * GUIDA (8) — first-day, permits, border/traffic, unemployment, car-transfer, car-cost, permit G vs B, border-map
+ * VITA (8) — living-ch, living-it, companies, schools, nursery, places, transport, municipalities
+ * STATISTICHE (6) — overview, livability, jobs-observatory, salary-compare, traffic-history
  */
 
 import { getLocale, type Locale } from './i18n';
 import {
-  buildJobCareVariantLandingModel,
-  buildJobLocationLandingModel,
-  buildJobLocationSectorLandingModel,
-  buildJobLocationTypeLandingModel,
-  buildJobNursesHubLandingModel,
-  buildJobOfficialGazetteLandingModel,
-  buildJobPartTimeLandingModel,
-  buildJobSectorRegionLandingModel,
-  buildJobTodayLandingModel,
-  resolveEditorialJobLandingDescriptor,
+ buildJobCareVariantLandingModel,
+ buildJobLocationLandingModel,
+ buildJobLocationSectorLandingModel,
+ buildJobLocationTypeLandingModel,
+ buildJobNursesHubLandingModel,
+ buildJobOfficialGazetteLandingModel,
+ buildJobPartTimeLandingModel,
+ buildJobSectorRegionLandingModel,
+ buildJobTodayLandingModel,
+ resolveEditorialJobLandingDescriptor,
 } from '../build-plugins/jobEditorialLanding';
 
 // ── Route types ──────────────────────────────────────────────
@@ -42,30 +42,30 @@ export type StatsSubTab = 'overview' | 'livability' | 'jobs-observatory' | 'sala
 // ── Border crossing deep links (indexable URLs) ─────────────
 
 export const ALL_BORDER_CROSSING_IDS = [
-  'chiasso-centro',
-  'chiasso-brogeda',
-  'chiasso-strada',
-  'maslianico-pizzamiglio',
-  'maslianico-roggiana',
-  'bizzarone-novazzano',
-  'ronago-novazzano',
-  'crociale-dei-mulini',
-  'drezzo-pedrinate',
-  'lanzo-d-intelvi-arogno',
-  'campione-d-italia-bissone',
-  'oria-gandria',
-  'gaggiolo',
-  'san-pietro',
-  'clivio-ligornetto',
-  'rodero-stabio',
-  'saltrio-arzo',
-  'ponte-tresa',
-  'porto-ceresio-brusino',
-  'cremenaga-ponte-cremenaga',
-  'luino-fornasette',
-  'zenna-dirinella',
-  'biegno-indemini',
-  'dumenza-cassinone',
+ 'chiasso-centro',
+ 'chiasso-brogeda',
+ 'chiasso-strada',
+ 'maslianico-pizzamiglio',
+ 'maslianico-roggiana',
+ 'bizzarone-novazzano',
+ 'ronago-novazzano',
+ 'crociale-dei-mulini',
+ 'drezzo-pedrinate',
+ 'lanzo-d-intelvi-arogno',
+ 'campione-d-italia-bissone',
+ 'oria-gandria',
+ 'gaggiolo',
+ 'san-pietro',
+ 'clivio-ligornetto',
+ 'rodero-stabio',
+ 'saltrio-arzo',
+ 'ponte-tresa',
+ 'porto-ceresio-brusino',
+ 'cremenaga-ponte-cremenaga',
+ 'luino-fornasette',
+ 'zenna-dirinella',
+ 'biegno-indemini',
+ 'dumenza-cassinone',
 ] as const;
 
 export type BorderCrossingId = (typeof ALL_BORDER_CROSSING_IDS)[number];
@@ -75,326 +75,326 @@ const BORDER_CROSSING_ID_SET = new Set<string>(ALL_BORDER_CROSSING_IDS as readon
 // ── SEO landing routes (long-tail) ──────────────────────────
 
 export type SeoLandingId =
-  | 'salary-60000'
-  | 'salary-80000'
-  | 'salary-100000'
-  | 'salary-120000'
-  | 'salary-60000-old'
-  | 'salary-60000-new'
-  | 'salary-80000-old'
-  | 'salary-80000-new'
-  | 'salary-100000-old'
-  | 'salary-100000-new'
-  | 'salary-60000-married-2kids'
-  | 'salary-80000-married-2kids'
-  | 'salary-100000-married-2kids'
-  | 'salary-80000-over20km'
-  | 'salary-80000-within20km'
-  | 'salary-60000-over20km'
-  | 'salary-60000-within20km'
-  | 'salary-100000-over20km'
-  | 'salary-100000-within20km'
-  | 'new-frontier-over20km'
-  | 'net-comparison-2025-2026-within20km'
-  | 'net-comparison-g-vs-b-within20km'
-  | 'net-comparison-2025-2026-over20km'
-  | 'net-comparison-g-vs-b-over20km';
+ | 'salary-60000'
+ | 'salary-80000'
+ | 'salary-100000'
+ | 'salary-120000'
+ | 'salary-60000-old'
+ | 'salary-60000-new'
+ | 'salary-80000-old'
+ | 'salary-80000-new'
+ | 'salary-100000-old'
+ | 'salary-100000-new'
+ | 'salary-60000-married-2kids'
+ | 'salary-80000-married-2kids'
+ | 'salary-100000-married-2kids'
+ | 'salary-80000-over20km'
+ | 'salary-80000-within20km'
+ | 'salary-60000-over20km'
+ | 'salary-60000-within20km'
+ | 'salary-100000-over20km'
+ | 'salary-100000-within20km'
+ | 'new-frontier-over20km'
+ | 'net-comparison-2025-2026-within20km'
+ | 'net-comparison-g-vs-b-within20km'
+ | 'net-comparison-2025-2026-over20km'
+ | 'net-comparison-g-vs-b-over20km';
 
 export const ALL_SEO_LANDING_IDS: SeoLandingId[] = [
-  'salary-60000',
-  'salary-80000',
-  'salary-100000',
-  'salary-120000',
-  'salary-60000-old',
-  'salary-60000-new',
-  'salary-80000-old',
-  'salary-80000-new',
-  'salary-100000-old',
-  'salary-100000-new',
-  'salary-60000-married-2kids',
-  'salary-80000-married-2kids',
-  'salary-100000-married-2kids',
-  'salary-80000-over20km',
-  'salary-80000-within20km',
-  'salary-60000-over20km',
-  'salary-60000-within20km',
-  'salary-100000-over20km',
-  'salary-100000-within20km',
-  'new-frontier-over20km',
-  'net-comparison-2025-2026-within20km',
-  'net-comparison-g-vs-b-within20km',
-  'net-comparison-2025-2026-over20km',
-  'net-comparison-g-vs-b-over20km',
+ 'salary-60000',
+ 'salary-80000',
+ 'salary-100000',
+ 'salary-120000',
+ 'salary-60000-old',
+ 'salary-60000-new',
+ 'salary-80000-old',
+ 'salary-80000-new',
+ 'salary-100000-old',
+ 'salary-100000-new',
+ 'salary-60000-married-2kids',
+ 'salary-80000-married-2kids',
+ 'salary-100000-married-2kids',
+ 'salary-80000-over20km',
+ 'salary-80000-within20km',
+ 'salary-60000-over20km',
+ 'salary-60000-within20km',
+ 'salary-100000-over20km',
+ 'salary-100000-within20km',
+ 'new-frontier-over20km',
+ 'net-comparison-2025-2026-within20km',
+ 'net-comparison-g-vs-b-within20km',
+ 'net-comparison-2025-2026-over20km',
+ 'net-comparison-g-vs-b-over20km',
 ];
 
 const SEO_LANDING_SLUGS: Record<Locale, Record<SeoLandingId, string>> = {
-  it: {
-    'salary-60000': 'stipendio-netto-60000-chf',
-    'salary-80000': 'stipendio-netto-80000-chf',
-    'salary-100000': 'stipendio-netto-100000-chf',
-    'salary-120000': 'stipendio-netto-120000-chf',
-    'salary-60000-old': 'stipendio-netto-60000-chf-vecchio-frontaliere',
-    'salary-60000-new': 'stipendio-netto-60000-chf-nuovo-frontaliere-2026',
-    'salary-80000-old': 'stipendio-netto-80000-chf-vecchio-frontaliere',
-    'salary-80000-new': 'stipendio-netto-80000-chf-nuovo-frontaliere-2026',
-    'salary-100000-old': 'stipendio-netto-100000-chf-vecchio-frontaliere',
-    'salary-100000-new': 'stipendio-netto-100000-chf-nuovo-frontaliere-2026',
-    'salary-60000-married-2kids': 'stipendio-netto-60000-chf-sposato-2-figli',
-    'salary-80000-married-2kids': 'stipendio-netto-80000-chf-sposato-2-figli',
-    'salary-100000-married-2kids': 'stipendio-netto-100000-chf-sposato-2-figli',
-    'salary-80000-over20km': 'stipendio-netto-80000-chf-residenza-oltre-20km',
-    'salary-80000-within20km': 'stipendio-netto-80000-chf-residenza-entro-20km',
-    'salary-60000-over20km': 'stipendio-netto-60000-chf-residenza-oltre-20km',
-    'salary-60000-within20km': 'stipendio-netto-60000-chf-residenza-entro-20km',
-    'salary-100000-over20km': 'stipendio-netto-100000-chf-residenza-oltre-20km',
-    'salary-100000-within20km': 'stipendio-netto-100000-chf-residenza-entro-20km',
-    'new-frontier-over20km': 'nuovi-frontalieri-oltre-20-km',
-    'net-comparison-2025-2026-within20km': 'confronto-netto-2025-2026-entro-20km',
-    'net-comparison-g-vs-b-within20km': 'confronto-permesso-g-vs-b-entro-20km',
-    'net-comparison-2025-2026-over20km': 'confronto-netto-2025-2026-oltre-20km',
-    'net-comparison-g-vs-b-over20km': 'confronto-permesso-g-vs-b-oltre-20km',
-  },
-  en: {
-    'salary-60000': 'net-salary-60000-chf',
-    'salary-80000': 'net-salary-80000-chf',
-    'salary-100000': 'net-salary-100000-chf',
-    'salary-120000': 'net-salary-120000-chf',
-    'salary-60000-old': 'net-salary-60000-chf-old-cross-border-worker',
-    'salary-60000-new': 'net-salary-60000-chf-new-cross-border-worker-2026',
-    'salary-80000-old': 'net-salary-80000-chf-old-cross-border-worker',
-    'salary-80000-new': 'net-salary-80000-chf-new-cross-border-worker-2026',
-    'salary-100000-old': 'net-salary-100000-chf-old-cross-border-worker',
-    'salary-100000-new': 'net-salary-100000-chf-new-cross-border-worker-2026',
-    'salary-60000-married-2kids': 'net-salary-60000-chf-married-2-children',
-    'salary-80000-married-2kids': 'net-salary-80000-chf-married-2-children',
-    'salary-100000-married-2kids': 'net-salary-100000-chf-married-2-children',
-    'salary-80000-over20km': 'net-salary-80000-chf-residence-over-20km',
-    'salary-80000-within20km': 'net-salary-80000-chf-residence-within-20km',
-    'salary-60000-over20km': 'net-salary-60000-chf-residence-over-20km',
-    'salary-60000-within20km': 'net-salary-60000-chf-residence-within-20km',
-    'salary-100000-over20km': 'net-salary-100000-chf-residence-over-20km',
-    'salary-100000-within20km': 'net-salary-100000-chf-residence-within-20km',
-    'new-frontier-over20km': 'new-cross-border-workers-over-20km',
-    'net-comparison-2025-2026-within20km': 'net-comparison-2025-2026-within-20km',
-    'net-comparison-g-vs-b-within20km': 'permit-g-vs-b-comparison-within-20km',
-    'net-comparison-2025-2026-over20km': 'net-comparison-2025-2026-over-20km',
-    'net-comparison-g-vs-b-over20km': 'permit-g-vs-b-comparison-over-20km',
-  },
-  de: {
-    'salary-60000': 'nettogehalt-60000-chf',
-    'salary-80000': 'nettogehalt-80000-chf',
-    'salary-100000': 'nettogehalt-100000-chf',
-    'salary-120000': 'nettogehalt-120000-chf',
-    'salary-60000-old': 'nettogehalt-60000-chf-alter-grenzgaenger',
-    'salary-60000-new': 'nettogehalt-60000-chf-neuer-grenzgaenger-2026',
-    'salary-80000-old': 'nettogehalt-80000-chf-alter-grenzgaenger',
-    'salary-80000-new': 'nettogehalt-80000-chf-neuer-grenzgaenger-2026',
-    'salary-100000-old': 'nettogehalt-100000-chf-alter-grenzgaenger',
-    'salary-100000-new': 'nettogehalt-100000-chf-neuer-grenzgaenger-2026',
-    'salary-60000-married-2kids': 'nettogehalt-60000-chf-verheiratet-2-kinder',
-    'salary-80000-married-2kids': 'nettogehalt-80000-chf-verheiratet-2-kinder',
-    'salary-100000-married-2kids': 'nettogehalt-100000-chf-verheiratet-2-kinder',
-    'salary-80000-over20km': 'nettogehalt-80000-chf-wohnsitz-ueber-20km',
-    'salary-80000-within20km': 'nettogehalt-80000-chf-wohnsitz-bis-20km',
-    'salary-60000-over20km': 'nettogehalt-60000-chf-wohnsitz-ueber-20km',
-    'salary-60000-within20km': 'nettogehalt-60000-chf-wohnsitz-bis-20km',
-    'salary-100000-over20km': 'nettogehalt-100000-chf-wohnsitz-ueber-20km',
-    'salary-100000-within20km': 'nettogehalt-100000-chf-wohnsitz-bis-20km',
-    'new-frontier-over20km': 'neue-grenzgaenger-ueber-20-km',
-    'net-comparison-2025-2026-within20km': 'nettovergleich-2025-2026-bis-20km',
-    'net-comparison-g-vs-b-within20km': 'vergleich-bewilligung-g-vs-b-bis-20km',
-    'net-comparison-2025-2026-over20km': 'nettovergleich-2025-2026-ueber-20km',
-    'net-comparison-g-vs-b-over20km': 'vergleich-bewilligung-g-vs-b-ueber-20km',
-  },
-  fr: {
-    'salary-60000': 'salaire-net-60000-chf',
-    'salary-80000': 'salaire-net-80000-chf',
-    'salary-100000': 'salaire-net-100000-chf',
-    'salary-120000': 'salaire-net-120000-chf',
-    'salary-60000-old': 'salaire-net-60000-chf-ancien-frontalier',
-    'salary-60000-new': 'salaire-net-60000-chf-nouveau-frontalier-2026',
-    'salary-80000-old': 'salaire-net-80000-chf-ancien-frontalier',
-    'salary-80000-new': 'salaire-net-80000-chf-nouveau-frontalier-2026',
-    'salary-100000-old': 'salaire-net-100000-chf-ancien-frontalier',
-    'salary-100000-new': 'salaire-net-100000-chf-nouveau-frontalier-2026',
-    'salary-60000-married-2kids': 'salaire-net-60000-chf-marie-2-enfants',
-    'salary-80000-married-2kids': 'salaire-net-80000-chf-marie-2-enfants',
-    'salary-100000-married-2kids': 'salaire-net-100000-chf-marie-2-enfants',
-    'salary-80000-over20km': 'salaire-net-80000-chf-residence-plus-20km',
-    'salary-80000-within20km': 'salaire-net-80000-chf-residence-moins-20km',
-    'salary-60000-over20km': 'salaire-net-60000-chf-residence-plus-20km',
-    'salary-60000-within20km': 'salaire-net-60000-chf-residence-moins-20km',
-    'salary-100000-over20km': 'salaire-net-100000-chf-residence-plus-20km',
-    'salary-100000-within20km': 'salaire-net-100000-chf-residence-moins-20km',
-    'new-frontier-over20km': 'nouveaux-frontaliers-plus-20-km',
-    'net-comparison-2025-2026-within20km': 'comparaison-net-2025-2026-moins-20km',
-    'net-comparison-g-vs-b-within20km': 'comparaison-permis-g-vs-b-moins-20km',
-    'net-comparison-2025-2026-over20km': 'comparaison-net-2025-2026-plus-20km',
-    'net-comparison-g-vs-b-over20km': 'comparaison-permis-g-vs-b-plus-20km',
-  },
+ it: {
+ 'salary-60000': 'stipendio-netto-60000-chf',
+ 'salary-80000': 'stipendio-netto-80000-chf',
+ 'salary-100000': 'stipendio-netto-100000-chf',
+ 'salary-120000': 'stipendio-netto-120000-chf',
+ 'salary-60000-old': 'stipendio-netto-60000-chf-vecchio-frontaliere',
+ 'salary-60000-new': 'stipendio-netto-60000-chf-nuovo-frontaliere-2026',
+ 'salary-80000-old': 'stipendio-netto-80000-chf-vecchio-frontaliere',
+ 'salary-80000-new': 'stipendio-netto-80000-chf-nuovo-frontaliere-2026',
+ 'salary-100000-old': 'stipendio-netto-100000-chf-vecchio-frontaliere',
+ 'salary-100000-new': 'stipendio-netto-100000-chf-nuovo-frontaliere-2026',
+ 'salary-60000-married-2kids': 'stipendio-netto-60000-chf-sposato-2-figli',
+ 'salary-80000-married-2kids': 'stipendio-netto-80000-chf-sposato-2-figli',
+ 'salary-100000-married-2kids': 'stipendio-netto-100000-chf-sposato-2-figli',
+ 'salary-80000-over20km': 'stipendio-netto-80000-chf-residenza-oltre-20km',
+ 'salary-80000-within20km': 'stipendio-netto-80000-chf-residenza-entro-20km',
+ 'salary-60000-over20km': 'stipendio-netto-60000-chf-residenza-oltre-20km',
+ 'salary-60000-within20km': 'stipendio-netto-60000-chf-residenza-entro-20km',
+ 'salary-100000-over20km': 'stipendio-netto-100000-chf-residenza-oltre-20km',
+ 'salary-100000-within20km': 'stipendio-netto-100000-chf-residenza-entro-20km',
+ 'new-frontier-over20km': 'nuovi-frontalieri-oltre-20-km',
+ 'net-comparison-2025-2026-within20km': 'confronto-netto-2025-2026-entro-20km',
+ 'net-comparison-g-vs-b-within20km': 'confronto-permesso-g-vs-b-entro-20km',
+ 'net-comparison-2025-2026-over20km': 'confronto-netto-2025-2026-oltre-20km',
+ 'net-comparison-g-vs-b-over20km': 'confronto-permesso-g-vs-b-oltre-20km',
+ },
+ en: {
+ 'salary-60000': 'net-salary-60000-chf',
+ 'salary-80000': 'net-salary-80000-chf',
+ 'salary-100000': 'net-salary-100000-chf',
+ 'salary-120000': 'net-salary-120000-chf',
+ 'salary-60000-old': 'net-salary-60000-chf-old-cross-border-worker',
+ 'salary-60000-new': 'net-salary-60000-chf-new-cross-border-worker-2026',
+ 'salary-80000-old': 'net-salary-80000-chf-old-cross-border-worker',
+ 'salary-80000-new': 'net-salary-80000-chf-new-cross-border-worker-2026',
+ 'salary-100000-old': 'net-salary-100000-chf-old-cross-border-worker',
+ 'salary-100000-new': 'net-salary-100000-chf-new-cross-border-worker-2026',
+ 'salary-60000-married-2kids': 'net-salary-60000-chf-married-2-children',
+ 'salary-80000-married-2kids': 'net-salary-80000-chf-married-2-children',
+ 'salary-100000-married-2kids': 'net-salary-100000-chf-married-2-children',
+ 'salary-80000-over20km': 'net-salary-80000-chf-residence-over-20km',
+ 'salary-80000-within20km': 'net-salary-80000-chf-residence-within-20km',
+ 'salary-60000-over20km': 'net-salary-60000-chf-residence-over-20km',
+ 'salary-60000-within20km': 'net-salary-60000-chf-residence-within-20km',
+ 'salary-100000-over20km': 'net-salary-100000-chf-residence-over-20km',
+ 'salary-100000-within20km': 'net-salary-100000-chf-residence-within-20km',
+ 'new-frontier-over20km': 'new-cross-border-workers-over-20km',
+ 'net-comparison-2025-2026-within20km': 'net-comparison-2025-2026-within-20km',
+ 'net-comparison-g-vs-b-within20km': 'permit-g-vs-b-comparison-within-20km',
+ 'net-comparison-2025-2026-over20km': 'net-comparison-2025-2026-over-20km',
+ 'net-comparison-g-vs-b-over20km': 'permit-g-vs-b-comparison-over-20km',
+ },
+ de: {
+ 'salary-60000': 'nettogehalt-60000-chf',
+ 'salary-80000': 'nettogehalt-80000-chf',
+ 'salary-100000': 'nettogehalt-100000-chf',
+ 'salary-120000': 'nettogehalt-120000-chf',
+ 'salary-60000-old': 'nettogehalt-60000-chf-alter-grenzgaenger',
+ 'salary-60000-new': 'nettogehalt-60000-chf-neuer-grenzgaenger-2026',
+ 'salary-80000-old': 'nettogehalt-80000-chf-alter-grenzgaenger',
+ 'salary-80000-new': 'nettogehalt-80000-chf-neuer-grenzgaenger-2026',
+ 'salary-100000-old': 'nettogehalt-100000-chf-alter-grenzgaenger',
+ 'salary-100000-new': 'nettogehalt-100000-chf-neuer-grenzgaenger-2026',
+ 'salary-60000-married-2kids': 'nettogehalt-60000-chf-verheiratet-2-kinder',
+ 'salary-80000-married-2kids': 'nettogehalt-80000-chf-verheiratet-2-kinder',
+ 'salary-100000-married-2kids': 'nettogehalt-100000-chf-verheiratet-2-kinder',
+ 'salary-80000-over20km': 'nettogehalt-80000-chf-wohnsitz-ueber-20km',
+ 'salary-80000-within20km': 'nettogehalt-80000-chf-wohnsitz-bis-20km',
+ 'salary-60000-over20km': 'nettogehalt-60000-chf-wohnsitz-ueber-20km',
+ 'salary-60000-within20km': 'nettogehalt-60000-chf-wohnsitz-bis-20km',
+ 'salary-100000-over20km': 'nettogehalt-100000-chf-wohnsitz-ueber-20km',
+ 'salary-100000-within20km': 'nettogehalt-100000-chf-wohnsitz-bis-20km',
+ 'new-frontier-over20km': 'neue-grenzgaenger-ueber-20-km',
+ 'net-comparison-2025-2026-within20km': 'nettovergleich-2025-2026-bis-20km',
+ 'net-comparison-g-vs-b-within20km': 'vergleich-bewilligung-g-vs-b-bis-20km',
+ 'net-comparison-2025-2026-over20km': 'nettovergleich-2025-2026-ueber-20km',
+ 'net-comparison-g-vs-b-over20km': 'vergleich-bewilligung-g-vs-b-ueber-20km',
+ },
+ fr: {
+ 'salary-60000': 'salaire-net-60000-chf',
+ 'salary-80000': 'salaire-net-80000-chf',
+ 'salary-100000': 'salaire-net-100000-chf',
+ 'salary-120000': 'salaire-net-120000-chf',
+ 'salary-60000-old': 'salaire-net-60000-chf-ancien-frontalier',
+ 'salary-60000-new': 'salaire-net-60000-chf-nouveau-frontalier-2026',
+ 'salary-80000-old': 'salaire-net-80000-chf-ancien-frontalier',
+ 'salary-80000-new': 'salaire-net-80000-chf-nouveau-frontalier-2026',
+ 'salary-100000-old': 'salaire-net-100000-chf-ancien-frontalier',
+ 'salary-100000-new': 'salaire-net-100000-chf-nouveau-frontalier-2026',
+ 'salary-60000-married-2kids': 'salaire-net-60000-chf-marie-2-enfants',
+ 'salary-80000-married-2kids': 'salaire-net-80000-chf-marie-2-enfants',
+ 'salary-100000-married-2kids': 'salaire-net-100000-chf-marie-2-enfants',
+ 'salary-80000-over20km': 'salaire-net-80000-chf-residence-plus-20km',
+ 'salary-80000-within20km': 'salaire-net-80000-chf-residence-moins-20km',
+ 'salary-60000-over20km': 'salaire-net-60000-chf-residence-plus-20km',
+ 'salary-60000-within20km': 'salaire-net-60000-chf-residence-moins-20km',
+ 'salary-100000-over20km': 'salaire-net-100000-chf-residence-plus-20km',
+ 'salary-100000-within20km': 'salaire-net-100000-chf-residence-moins-20km',
+ 'new-frontier-over20km': 'nouveaux-frontaliers-plus-20-km',
+ 'net-comparison-2025-2026-within20km': 'comparaison-net-2025-2026-moins-20km',
+ 'net-comparison-g-vs-b-within20km': 'comparaison-permis-g-vs-b-moins-20km',
+ 'net-comparison-2025-2026-over20km': 'comparaison-net-2025-2026-plus-20km',
+ 'net-comparison-g-vs-b-over20km': 'comparaison-permis-g-vs-b-plus-20km',
+ },
 };
 
 const SEO_LANDING_REVERSE: Record<Locale, Record<string, SeoLandingId>> = {
-  it: Object.fromEntries(Object.entries(SEO_LANDING_SLUGS.it).map(([k, v]) => [v, k as SeoLandingId])) as Record<string, SeoLandingId>,
-  en: Object.fromEntries(Object.entries(SEO_LANDING_SLUGS.en).map(([k, v]) => [v, k as SeoLandingId])) as Record<string, SeoLandingId>,
-  de: Object.fromEntries(Object.entries(SEO_LANDING_SLUGS.de).map(([k, v]) => [v, k as SeoLandingId])) as Record<string, SeoLandingId>,
-  fr: Object.fromEntries(Object.entries(SEO_LANDING_SLUGS.fr).map(([k, v]) => [v, k as SeoLandingId])) as Record<string, SeoLandingId>,
+ it: Object.fromEntries(Object.entries(SEO_LANDING_SLUGS.it).map(([k, v]) => [v, k as SeoLandingId])) as Record<string, SeoLandingId>,
+ en: Object.fromEntries(Object.entries(SEO_LANDING_SLUGS.en).map(([k, v]) => [v, k as SeoLandingId])) as Record<string, SeoLandingId>,
+ de: Object.fromEntries(Object.entries(SEO_LANDING_SLUGS.de).map(([k, v]) => [v, k as SeoLandingId])) as Record<string, SeoLandingId>,
+ fr: Object.fromEntries(Object.entries(SEO_LANDING_SLUGS.fr).map(([k, v]) => [v, k as SeoLandingId])) as Record<string, SeoLandingId>,
 };
 
 // ── Glossary term deep links (indexable URLs) ───────────────
 
 export type GlossaryTermId =
-  | 'impostaAllaFonte'
-  | 'irpef'
-  | 'franchigia'
-  | 'ristorni'
-  | 'doppiaimposizione'
-  | 'addizionaleRegionale'
-  | 'addizionaleComunale'
-  | 'deduzioni'
-  | 'lohnausweis'
-  | 'cu'
-  | 'ral'
-  | 'modello730'
-  | 'redditiPF'
-  | 'avs'
-  | 'lpp'
-  | 'terzoPilastro'
-  | 'rendita'
-  | 'capitaleLPP'
-  | 'prestazioneLiberoPassaggio'
-  | 'lamal'
-  | 'cmu'
-  | 'ssn'
-  | 'franchigia_assicurativa'
-  | 'modelliAssicurativi'
-  | 'ainp'
-  | 'permessoG'
-  | 'permessoB'
-  | 'permessoC'
-  | 'permessoL'
-  | 'accordoFrontalieri'
-  | 'nuovoAccordo2024'
-  | 'tassoCambio'
-  | 'multiValuta'
-  | 'bonifico'
-  | 'sepa'
-  | 'ccnl'
-  | 'ipg'
-  | 'ac'
-  | 'naspi'
-  | 'assegniFamiliari'
-  | 'tredicesima';
+ | 'impostaAllaFonte'
+ | 'irpef'
+ | 'franchigia'
+ | 'ristorni'
+ | 'doppiaimposizione'
+ | 'addizionaleRegionale'
+ | 'addizionaleComunale'
+ | 'deduzioni'
+ | 'lohnausweis'
+ | 'cu'
+ | 'ral'
+ | 'modello730'
+ | 'redditiPF'
+ | 'avs'
+ | 'lpp'
+ | 'terzoPilastro'
+ | 'rendita'
+ | 'capitaleLPP'
+ | 'prestazioneLiberoPassaggio'
+ | 'lamal'
+ | 'cmu'
+ | 'ssn'
+ | 'franchigia_assicurativa'
+ | 'modelliAssicurativi'
+ | 'ainp'
+ | 'permessoG'
+ | 'permessoB'
+ | 'permessoC'
+ | 'permessoL'
+ | 'accordoFrontalieri'
+ | 'nuovoAccordo2024'
+ | 'tassoCambio'
+ | 'multiValuta'
+ | 'bonifico'
+ | 'sepa'
+ | 'ccnl'
+ | 'ipg'
+ | 'ac'
+ | 'naspi'
+ | 'assegniFamiliari'
+ | 'tredicesima';
 
 export const ALL_GLOSSARY_TERM_IDS: GlossaryTermId[] = [
-  'impostaAllaFonte',
-  'irpef',
-  'franchigia',
-  'ristorni',
-  'doppiaimposizione',
-  'addizionaleRegionale',
-  'addizionaleComunale',
-  'deduzioni',
-  'lohnausweis',
-  'cu',
-  'ral',
-  'modello730',
-  'redditiPF',
-  'lamal',
-  'cmu',
-  'ssn',
-  'franchigia_assicurativa',
-  'modelliAssicurativi',
-  'ainp',
-  'permessoG',
-  'permessoB',
-  'permessoC',
-  'permessoL',
-  'accordoFrontalieri',
-  'nuovoAccordo2024',
-  'avs',
-  'lpp',
-  'terzoPilastro',
-  'tassoCambio',
-  'rendita',
-  'capitaleLPP',
-  'prestazioneLiberoPassaggio',
-  'multiValuta',
-  'bonifico',
-  'sepa',
-  'ccnl',
-  'ipg',
-  'ac',
-  'naspi',
-  'assegniFamiliari',
-  'tredicesima',
+ 'impostaAllaFonte',
+ 'irpef',
+ 'franchigia',
+ 'ristorni',
+ 'doppiaimposizione',
+ 'addizionaleRegionale',
+ 'addizionaleComunale',
+ 'deduzioni',
+ 'lohnausweis',
+ 'cu',
+ 'ral',
+ 'modello730',
+ 'redditiPF',
+ 'lamal',
+ 'cmu',
+ 'ssn',
+ 'franchigia_assicurativa',
+ 'modelliAssicurativi',
+ 'ainp',
+ 'permessoG',
+ 'permessoB',
+ 'permessoC',
+ 'permessoL',
+ 'accordoFrontalieri',
+ 'nuovoAccordo2024',
+ 'avs',
+ 'lpp',
+ 'terzoPilastro',
+ 'tassoCambio',
+ 'rendita',
+ 'capitaleLPP',
+ 'prestazioneLiberoPassaggio',
+ 'multiValuta',
+ 'bonifico',
+ 'sepa',
+ 'ccnl',
+ 'ipg',
+ 'ac',
+ 'naspi',
+ 'assegniFamiliari',
+ 'tredicesima',
 ];
 
 function defaultGlossaryTermSlug(termId: GlossaryTermId): string {
-  return termId
-    .replace(/_/g, '-')
-    .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
-    .replace(/([a-zA-Z])(\d)/g, '$1-$2')
-    .replace(/(\d)([a-zA-Z])/g, '$1-$2')
-    .toLowerCase()
-    .replace(/-+/g, '-')
-    .replace(/^-|-$/g, '');
+ return termId
+ .replace(/_/g, '-')
+ .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
+ .replace(/([a-zA-Z])(\d)/g, '$1-$2')
+ .replace(/(\d)([a-zA-Z])/g, '$1-$2')
+ .toLowerCase()
+ .replace(/-+/g, '-')
+ .replace(/^-|-$/g, '');
 }
 
 const GLOSSARY_TERM_SLUG_OVERRIDES: Record<Locale, Partial<Record<GlossaryTermId, string>>> = {
-  it: {
-    impostaAllaFonte: 'imposta-alla-fonte',
-    terzoPilastro: 'terzo-pilastro',
-    tassoCambio: 'tasso-di-cambio',
-    permessoG: 'permesso-g',
-    permessoB: 'permesso-b',
-  },
-  en: {
-    impostaAllaFonte: 'withholding-tax',
-    franchigia: 'tax-allowance',
-    ristorni: 'tax-refunds',
-    permessoG: 'permit-g',
-    permessoB: 'permit-b',
-    terzoPilastro: 'third-pillar',
-    tassoCambio: 'exchange-rate',
-  },
-  de: {
-    impostaAllaFonte: 'quellensteuer',
-    franchigia: 'steuerfreibetrag',
-    ristorni: 'rueckerstattungen',
-    permessoG: 'bewilligung-g',
-    permessoB: 'bewilligung-b',
-    terzoPilastro: 'dritte-saeule',
-    tassoCambio: 'wechselkurs',
-  },
-  fr: {
-    impostaAllaFonte: 'impot-a-la-source',
-    franchigia: 'franchise-fiscale',
-    ristorni: 'ristournes',
-    permessoG: 'permis-g',
-    permessoB: 'permis-b',
-    terzoPilastro: 'troisieme-pilier',
-    tassoCambio: 'taux-de-change',
-  },
+ it: {
+ impostaAllaFonte: 'imposta-alla-fonte',
+ terzoPilastro: 'terzo-pilastro',
+ tassoCambio: 'tasso-di-cambio',
+ permessoG: 'permesso-g',
+ permessoB: 'permesso-b',
+ },
+ en: {
+ impostaAllaFonte: 'withholding-tax',
+ franchigia: 'tax-allowance',
+ ristorni: 'tax-refunds',
+ permessoG: 'permit-g',
+ permessoB: 'permit-b',
+ terzoPilastro: 'third-pillar',
+ tassoCambio: 'exchange-rate',
+ },
+ de: {
+ impostaAllaFonte: 'quellensteuer',
+ franchigia: 'steuerfreibetrag',
+ ristorni: 'rueckerstattungen',
+ permessoG: 'bewilligung-g',
+ permessoB: 'bewilligung-b',
+ terzoPilastro: 'dritte-saeule',
+ tassoCambio: 'wechselkurs',
+ },
+ fr: {
+ impostaAllaFonte: 'impot-a-la-source',
+ franchigia: 'franchise-fiscale',
+ ristorni: 'ristournes',
+ permessoG: 'permis-g',
+ permessoB: 'permis-b',
+ terzoPilastro: 'troisieme-pilier',
+ tassoCambio: 'taux-de-change',
+ },
 };
 
 const GLOSSARY_TERM_SLUGS: Record<Locale, Record<GlossaryTermId, string>> = (['it', 'en', 'de', 'fr'] as const).reduce(
-  (acc, locale) => {
-    const overrides = GLOSSARY_TERM_SLUG_OVERRIDES[locale];
-    const table = Object.fromEntries(
-      ALL_GLOSSARY_TERM_IDS.map((termId) => [termId, overrides?.[termId] || defaultGlossaryTermSlug(termId)])
-    ) as Record<GlossaryTermId, string>;
-    acc[locale] = table;
-    return acc;
-  },
-  {} as Record<Locale, Record<GlossaryTermId, string>>
+ (acc, locale) => {
+ const overrides = GLOSSARY_TERM_SLUG_OVERRIDES[locale];
+ const table = Object.fromEntries(
+ ALL_GLOSSARY_TERM_IDS.map((termId) => [termId, overrides?.[termId] || defaultGlossaryTermSlug(termId)])
+ ) as Record<GlossaryTermId, string>;
+ acc[locale] = table;
+ return acc;
+ },
+ {} as Record<Locale, Record<GlossaryTermId, string>>
 );
 
 const GLOSSARY_TERM_REVERSE: Record<Locale, Record<string, GlossaryTermId>> = {
-  it: Object.fromEntries(Object.entries(GLOSSARY_TERM_SLUGS.it).map(([k, v]) => [v, k as GlossaryTermId])) as Record<string, GlossaryTermId>,
-  en: Object.fromEntries(Object.entries(GLOSSARY_TERM_SLUGS.en).map(([k, v]) => [v, k as GlossaryTermId])) as Record<string, GlossaryTermId>,
-  de: Object.fromEntries(Object.entries(GLOSSARY_TERM_SLUGS.de).map(([k, v]) => [v, k as GlossaryTermId])) as Record<string, GlossaryTermId>,
-  fr: Object.fromEntries(Object.entries(GLOSSARY_TERM_SLUGS.fr).map(([k, v]) => [v, k as GlossaryTermId])) as Record<string, GlossaryTermId>,
+ it: Object.fromEntries(Object.entries(GLOSSARY_TERM_SLUGS.it).map(([k, v]) => [v, k as GlossaryTermId])) as Record<string, GlossaryTermId>,
+ en: Object.fromEntries(Object.entries(GLOSSARY_TERM_SLUGS.en).map(([k, v]) => [v, k as GlossaryTermId])) as Record<string, GlossaryTermId>,
+ de: Object.fromEntries(Object.entries(GLOSSARY_TERM_SLUGS.de).map(([k, v]) => [v, k as GlossaryTermId])) as Record<string, GlossaryTermId>,
+ fr: Object.fromEntries(Object.entries(GLOSSARY_TERM_SLUGS.fr).map(([k, v]) => [v, k as GlossaryTermId])) as Record<string, GlossaryTermId>,
 };
 
 /** All navigable tabs that should appear in SiteSearch */
@@ -417,544 +417,544 @@ export const ALL_STRUMENTI_SUBTABS: string[] = ['car-cost', 'permit-compare'];
 export type BlogArticleId = 'stipendio-netto-2026' | 'lamal-vs-cmi' | 'primo-giorno-frontaliere' | 'tredicesima-frontaliere' | 'pilastro-3a-frontaliere' | 'comuni-migliori-frontalieri' | 'costo-vita-ticino-vs-lombardia' | 'tassa-salute-tensioni-ticino' | 'casa-oltre-confine-ticino' | 'franco-forte-stipendio-frontalieri' | 'cu-2026-novita-frontalieri' | 'telelavoro-italia-svizzera-ratifica' | 'telelavoro-accordo-definitivo-italia' | 'stop-ristorni-tassa-salute' | 'cu-telelavoro-regole-frontalieri' | 'smood-chiusura-impatto-lavoro' | 'disoccupazione-svizzera-ticino-gennaio' | 'riscaldamento-casa-ticino-norme' | 'sostituzione-caldaia-ticino-2026' | 'hic-sunt-leones-confini-ticino' | 'carnevale-bambini-lugano-2026' | 'arte-anima-ticino-frontalieri' | 'arca-russa-chiasso-cultura-frontaliere' | 'rsi-mostra-storia-ticino' | 'carnevale-bambini-lugano-tinguely' | 'daniela-rebuzzi-mostra-caslano' | 'corpi-in-prestito-arte-agno' | 'rsi-storia-svizzera-italiana-mostra' | 'rauschenberg-arte-mendrisiotto' | 'nakba-mostra-giubiasco-ticino' | 'de-andre-anime-salve-locarno' | 'sentimento-osservazione-masi-lugano' | 'rsi-archivio-gottardo-2026' | 'carnevale-blenio-chiescia-bosc' | 'tf-permesso-integrazione-ticino' | 'tassazione-individuale-lavoro-ticino' | 'ristorni-scontro-gobbi-berna' | 'frontalieri-ticino-dati-q4-2025' | 'pendolarismo-affitto-tempo-ticino' | 'centrodestra-stop-ristorni-2026' | 'calo-entrate-irregolari-chiasso' | 'frontalieri-salari-polemica-ticino' | 'ristorni-frontalieri-scontro-ticino-lombardia' | 'tredicesima-avs-iva-contributi' | 'tredicesima-avs-finanziamento-misto' | 'tredicesima-avs-finanziamento-scontro' | 'ristorni-imprese-allarme-ticino' | 'denaro-non-dichiarato-dogana-brogeda' | 'frontalieri-salari-dibattito-ticino' | 'tredicesima-avs-stipendio-iva' | 'stop-ristorni-mozione-partiti' | 'partiti-ticino-stop-ristorni' | 'conti-federali-aumento-iva-ticino' | 'tredicesima-avs-stipendi-iva' | 'ristorni-lombardia-reazione' | 'truffa-falso-bancario-ticino' | 'dazi-usa-impatto-ticino' | 'sanita-ticino-tagli-orselina' | 'dumping-salari-architetti-ticino' | 'tredicesima-avs-finanziamento-contributi' | 'tredicesima-avs-stipendio-trattenute' | 'scambio-dati-polizia-ticino' | 'tredicesima-avs-finanziamento-misto-proposta' | 'frontalieri-ticino-dati-ingannevoli' | 'tredicesima-avs-finanziamento-busta-paga' | 'permesso-s-salari-bassi-ticino' | 'ristorni-reazione-lombardia' | 'tredicesima-avs-busta-paga-frontaliere' | 'acqua-mendrisiotto-prezzi-2026' | 'cooperazione-giudiziaria-svizzera-italia' | 'sanita-locarnese-licenziamenti' | 'legionellosi-ticino-allarme' | 'prezzi-dinamici-ticino-futuro' | 'lugano-manifestazioni-regole-polemica' | 'addizionale-irpef-mappa-comuni' | 'mappa-fiscale-comuni-frontiera' | 'maternita-paternita-frontaliere-guida' | 'guida-contributi-sociali-svizzera' | 'costo-vivere-lugano-trasferirsi' | 'permesso-g-pro-contro-2026' | 'calcolo-pensione-avs-inps' | 'simulazione-fiscale-frontaliere-2026' | 'lamal-cmi-scelta-frontaliere-2026' | 'credito-imposta-doppia-tassazione' | 'costo-reale-auto-frontaliere' | 'congedo-genitori-frontaliere-ticino' | 'costo-pendolare-auto-ticino-2026' | 'guida-dichiarazione-redditi-frontalieri' | 'checklist-documenti-lavoro-svizzera' | 'asilo-nido-frontaliere-ticino' | 'locarno-stop-residenze-secondarie' | 'costo-vita-svizzera-mappa' | 'sicurezza-lavoro-audit-suva' | 'costo-vivere-mappa-comuni' | 'architetti-sottopagati-ticino' | 'calo-frontalieri-non-tassa-salute' | 'maternita-cassazione-diritti-frontalieri' | 'galenica-bichsel-ristrutturazione-lavoro' | 'dazi-trump-export-ticinese' | 'campione-italia-fine-dissesto' | 'gavetta-tossica-architetti-ticino' | 'eurocity-bloccato-caos-pendolari' | 'sicurezza-lavoro-controlli-svizzera' | 'startup-investimenti-boom-ticino' | 'long-covid-malattia-professionale' | 'accordo-ue-svizzera-mercato-interno' | 'fonderie-svizzere-crisi-2025' | 'salario-minimo-ticino-accordo' | 'trasporti-pubblici-crescita-svizzera' | 'cantieri-notturni-lugano-marzo-2026' | 'supsi-nuova-direttrice-formazione' | 'bps-suisse-risultati-bper' | 'aiuti-energia-proroga-taglio' | 'salario-minimo-sociale-ticino-dibattito' | 'bps-suisse-utili-consigli-crisi' | 'accordo-ue-voto-obbligatorio-ticino' | 'accordo-ue-svizzera-impatto-frontalieri' | 'locarno-stop-case-vacanza' | 'bilaterali-ue-svizzera-firma' | 'aumento-iva-esercito-impatto-spesa' | 'maternita-paternita-ticino' | 'valposchiavo-turismo-2025' | 'frontalieri-economia-ticino' | 'inflazione-frontalieri-ticino' | 'aprire-conto-bancario-frontaliere' | 'ristorni-fiscali-ticino' | 'contributi-sociali-busta-paga' | 'strada-incidenti-vezia-cureglia' | 'assicurazione-malattia-famiglia' | 'frontalieri-calo-economia-ticinese' | 'usi-startup-centre-ranking' | 'sciopero-treni-tilo-febbraio-2026' | 'piscina-chiasso-copertura-2026' | 'centrale-elettrica-grono-attiva' | 'naspi-frontaliere-italia-requisiti' | 'prelievo-secondo-pilastro-frontaliere' | 'accordo-ue-frontalieri-ticino' | 'ristorni-congelati-ticino-italia' | 'naspi-ex-frontalieri-2026' | 'mutuo-casa-frontalieri-italia' | 'piscina-chiasso-investimento' | 'ristorni-congelati-gobbi-2026' | 'asilo-nido-ticino-guida-2026' | 'ristorni-salute-2026-ticino' | 'tassa-salute-scontro-ticino-berna' | 'piscina-chiasso-rinnovo-sicurezza' | 'disagi-tilo-sciopero-italia' | 'abbonamenti-sconti-treni-ticino' | 'bonus-famiglia-frontalieri-2026' | 'smart-working-frontalieri-2026' | 'confronto-assicurazioni-auto' | 'permesso-b-vs-g-differenze' | 'spese-sanitarie-frontalieri' | 'naspi-disoccupazione-frontalieri' | 'dichiarazione-redditi-ticino-2026' | 'cantieri-traffico-a9-ticino' | 'migranti-seghezzone-risparmi' | 'cantieri-traffico-frontiera' | 'salario-minimo-ps-compromesso' | 'cocaina-lusso-perquisizioni-ticino' | 'calcolo-tasse-entro-confine' | 'riforma-giustizia-pace-ticino' | 'cantieri-a9-disagi-frontiera' | 'revoca-uso-acqua-magliaso' | 'malattie-rare-ticino-2026' | 'frontaliers-sabotage-varese' | 'ristorni-congelati-scontro-ticino' | 'tassazione-individuale-lavoro-donne' | 'diversita-religiosa-ticino-2026' | 'voto-corrispondenza-ticino-2026' | 'cantiere-viale-geno-como' | 'controlli-velocita-ticino-2026' | 'sanremo-2026-aiello-gassmann' | 'violenza-adolescenti-ticino' | 'comuni-frontalieri-distanza' | 'elezioni-comunali-ticino' | 'eroina-auto-chiasso-brogeda' | 'olio-chimica-produzione' | 'incidente-mortale-frontaliere' | 'svizzera-mediazione-iran-2026' | 'sanremo-frontalieri-impatti' | 'lavorare-germania-educatori' | 'porto-ceresio-lungolago-lavori' | 'casa-hockey-ticino-2026' | 'tassazione-individuale-svizzera' | 'cinema-frontaliers-ticino-varese' | 'minimo-salariale-ticino-accordo-ps' | 'chiasso-fede-adulti-integrazione' | 'sicurezza-confine-ticino-brogeda' | 'stipendi-manager-energia-ticino' | 'lavoro-educatori-germania-alternativa' | 'gandria-lusso-immobiliare-ticino' | 'vandalismo-bus-frontalieri-ticino' | 'ticino-voto-anti-dumping' | 'controlli-stradali-ticino-frontalieri' | 'comuni-confine-nuove-regole' | 'tragedia-stradale-frontaliere' | 'chiasso-como-cantieri-a9-disagi' | 'chiasso-comunita-evoluzione-sociale' | 'tragedia-pendolare-ticino' | 'a9-como-chiasso-disagi-notturni' | 'economia-svizzera-ripresa-2026' | 'confine-fiscale-nuovi-comuni' | 'confine-a9-disagi-marzo' | 'autostrada-a9-disagi-frontalieri' | 'chiusure-a9-trasporti-speciali' | 'iniziativa-salari-ticino' | 'salari-ticino-voto-frontalieri' | 'lutto-porlezza-frontaliere' | 'frontalieri-confine-disparita-fiscale' | 'iniziativa-anti-dumping-voto' | 'nestle-bonus-lombardia-welfare' | 'frontiera-a9-disagi-marzo-2026' | 'mercato-lavoro-ticino-frena-2025' | 'confini-comunali-impatto-fiscale' | 'franco-forte-impatto-frontalieri' | 'incidente-giovane-frontaliere' | 'a9-chiasso-como-cantieri-frontalieri' | 'salario-minimo-compromesso-ticino' | 'compromesso-salario-minimo-condizioni' | 'chiasso-comunita-cambiamento-valori' | 'pendolarismo-fatale-frontaliere-porlezza' | 'salario-minimo-ticino-trattative' | 'trevano-campus-riqualifica' | 'lavena-sagrato-nuovo-investimento' | 'sportello-lavoro-varese-frontalieri-ticino' | 'controlli-stradali-intensivi-frontiera' | 'radar-confine-ticino-marzo' | 'controlli-frontiera-ticino-rafforzati' | 'lavori-risanamento-a13-cadenazzo-2026' | 'salario-minimo-ticino-intesa-storica' | 'sicurezza-stradale-ticino-marzo' | 'a13-cantieri-frontalieri-ticino' | 'bns-utile-calo-2025-impatto-ticino' | 'polizia-cantonale-nuovi-gendarmi' | 'competenze-tecniche-frontalieri-ticino' | 'polizia-cantonale-reclutamento-2026' | 'mercato-auto-febbraio-2026' | 'como-nuovi-poliziotti-2026' | 'sesto-calende-sicurezza-frontalieri' | 'nessun-prelievo-avs-sulle-mance' | 'imposizione-individuale-donne-ticino' | 'tassa-salute-frontalieri-vantaggio-ticino' | 'docenti-frontalieri-permesso-lavoro' | 'iniziativa-anti-dumping-ticino-2026' | 'comuni-confine-fiscalita-disparita' | 'tassa-salute-berna-ticino' | 'ai-lombardia-impatto-ticino' | 'crisi-golfo-carburanti-ticino' | 'rincari-benzina-frontalieri-ticino' | 'crisi-olio-prezzi-benzina-ticino' | 'ai-lombardia-ticino-frontaliere-2026' | 'benzina-ticino-oriente' | 'kuhne-nagel-tagli-posti-ticino-2026' | 'vini-ticinesi-collaborazione' | 'hockey-chiasso-wild-boars-bis' | 'svincolo-a2-biasca-rischi-frontaliere' | 'accordi-svizzera-ue-parmelin-bruxelles' | 'lavori-linea-locarno-cadenazzo-2026' | 'spirit-varesini-valico-tassa-2026' | 'borse-in-rosso-prezzo-petrolio-ticino' | 'frontaliers-sabotage-varese-successo' | 'disoccupazione-svizzera-2026' | 'infermieri-svizzera-frontalieri-ticino' | 'successo-farmaceutica-ticino' | 'utile-bns-2025-ticino' | 'banche-ticino-disoccupazione' | 'medio-vedeggio-gruppo-lavoro-aggregazione' | 'lugano-airport-fondi-salvati-2026' | 'made-in-italy-doganali-ticino-2026' | 'mercato-lavoro-ticino-q4-2025' | 'dichiarazione-imposta-digitale-ticino-26' | 'tilo-25-milioni-passeggeri-2025' | 'tassa-salute-lombardia-rinvio' | 'tilo-record-passeggeri-2025' | 'trasporti-lombardia-ticino-record-tilo' | 'confusione-tassa-salute-frontalieri' | 'carburante-ticino-costo-aumenti' | 'cpi-caso-hospita-rivalutazione-periti' | 'casellario-giudiziale-ue-ticino' | 'salario-minimo-per-il-controprogetto-la-strada-e-in-discesa' | 'tassa-salute-lombardia-frontalieri' | 'franco-forte-problemi-economici' | 'carburante-prezzo-salito-opportunismo' | 'frontalieri-tassa-salute-teatro' | 'disoccupazione-stabile-svizzera-2026' | 'dazi-usa-rimborsi-ritardi' | 'votazioni-8-marzo-iniziativa-ssr-aperto' | 'ticino-spitex-contributo-pressione' | 'stalking-swiss-2026-ticino' | 'pirati-strada-ticino-italiani-2026' | 'comuni-locarno-futuro-aggregazione' | 'costi-cure-domicilio-ticino-2026' | 'lugano-park-ride-bus-sovvenzioni-2026' | 'crisi-turismo-golfo-persico' | 'turisti-ticinesi-bloccati-medio-oriente' | 'svizzeri-bloccati-medio-oriente' | 'ticino-prevenzione-incendi-scuole-2026' | 'varese-india-export-2026' | 'autotrasporto-rincari-confine-2026' | 'carburanti-rincari-confine-ticino' | 'votazioni-imposizione-ticino-2026' | 'imposizione-individuale-ticino-2026' | 'no-iniziativa-antidumping-ticino' | 'dumping-salariale-ticino-no-iniziativa' | 'incidente-viadotto-brogeda-como' | 'iniziativa-contro-dumping-ticino' | 'dumping-salariale-iniziativa-mps' | 'imposizione-individuale-rivoluzione-fiscale' | 'votazioni-federali-tassazione-individuale' | 'universita-ticino-frontalieri' | 'franco-svizzero-frontalieri-ricchi-2026' | 'energia-costi-ticino-rincari-2026' | 'ticino-carburante-alle-stelle-quadri-berna-riduca-tasse' | 'un-test-per-dare-un-nome-al-dolore' | 'aumentare-gia-il-prezzo-della-benzina' | 'furti-supermercati-ponte-tresa' | 'ladri-intercettati-lavena-ponte-tresa' | 'dumping-salariale-ticino-no' | 'sospensione-costi-utenti-ticino' | 'investimento-pedone-bioggio' | 'tir-colonna-disagi-valico-brogeda' | 'iniziative-cassa-malati-costituzionalista-ticino' | 'investimenti-sicurezza-turismo-valsolda-26' | 'premio-la-rondine-2026-ticino' | 'tassi-ipotecari-ticino-medio-oriente-2026' | 'aumento-export-bellico-svizzero-ticino' | 'assicurazione-auto-rincari-2026' | 'ticino-biglietti-senza-contanti' | 'aziende-como-assumono-lavoratori' | 'a2-giornico-cantiere-disagi-frontalieri' | 'tassa-traffico-pesante-camion-elettrici' | 'logistica-sostenibile-a22' | 'problemi-rotaia-bellinzona-lugano' | 'carpooling-aziendale-ticino' | 'energia-ets-von-der-leyen' | 'permesso-g-apprendisti-frontali' | 'assegni-familiari-frontalieri-ticino' | 'dagatra-incontro-migranti-chiasso' | 'ufficio-postale-chiasso-trasloco' | 'confine-tesissimo-assegni-familiari' | 'chiasso-jazz-festival-2026' | 'apprendisti-frontalieri-riforma-permesso-g' | 'chiasso-piano-regolatore-telefonia' | 'pensione-et-ticino-sentiero' | 'paradosso-ticino-lavoro' | 'lavena-ponte-tresa-giro-spaccio' | 'apertura-pesca-ticino' | 'cassa-malati-franchigia-minima-ticino' | 'trin-tunnel-grave-frontalieri' | 'chiasso-verde-sufficiente' | 'comitati-malpensa-cuv-2026' | 'borsa-di-zurigo-sprazzi-qu-c3-a0-l-27umor-grigio-resta' | 'iran-tajani-non-tratta-navi' | 'accordi-bilaterali-3-parlamento' | 'viaggio-delle-batterie-verso-seconda-vita' | 'bilaterali-iii-parlamento-ticino-2026' | 'affitti-rialzo-crisi-ticino-2026' | 'bilaterali-iii-ticino-parlamento-2026' | 'truffa-lavoro-svizzera-anticipo-2026' | 'ticino-carburanti-prezzo-potere-acquisto' | 'aumento-franchigia-minima' | 'ticino-swissminiatur-inaugura-miniera-doro-sessa' | 'lavena-ponte-tresa-addio-antonio-cannavale' | 'gravincidente-stradale-regina-feriti' | 'scende-limite-nevicate-ticino' | 'ticino-no-anti-dumping' | 'chiusa-val-bedretto' | 'un-passaporto-di-fedelt' | 'chiusure-autostrada-confine-ticino-2026' | 'swissminiatur-miniera-doro-sessa' | 'sondaggio-tamedia-iva-esercito-avs' | 'inverno-ticino-nevicate-2026' | 'franchigia-minima-sanitario-ticino' | 'svizzera-recessione-cieslakiewicz' | 'nevicate-strade-bloccate-ticino' | 'bilaterali-terza-fase-parlamento-ticino' | 'cane-morto-binarie-campo-calcio' | 'swissminiatur-miniera-sessa-2026' | 'crescita-misera-libera-circolazione' | 'treni-varese-milano-ceresio-express' | 'caro-carburante-benzina-ticino' | 'guida-cambio-franco-euro-frontaliere' | 'guida-pensione-frontaliere-avs-lpp' | 'vivere-svizzera-vs-italia-frontaliere' | 'dumping-salariale-diritti-lavoratore-ticino' | 'malattia-frontaliere-guida-assicurazione' | 'strumenti-frontaliere-guida-comparatori' | 'bilaterali-iii-cassis-ticino' | 'fermato-brogeda-cocaina' | 'dominicano-auto-svizzera-arresto' | 'salari-bassi-rischio-povert' | 'ticino-svolta-per-apprendisti' | 'bellinzona-crescita-qualita-vita' | 'crisi-spermatozoi-svizzera-ticino' | 'droga-brogeda-sequestro-cocaina' | 'bellinzona-auscultazione-2026' | 'lombardia-affitto-famiglie-varesine' | 'malcantone-fai-di-primavera-2026' | 'sicurezza-privata-chiasso-nebiopoli' | 'sfruttamento-corsieri-ticino-2026' | 'lavoro-economia-2026' | 'sequestro-cocaina-brogeda-2026' | 'infiltrazioni-criminali-ticino-grigioni' | 'turismo-luganese-formazione' | 'walter-bonatti-in-capo-al-mondo' | 'sargans-teenage-robbery-catch' | 'com-aziende-lavoro-como' | 'cabov-precipita-forte-vento' | 'gadda-incalza-governo-frontalieri' | 'centovallina-riapertura-treni' | 'truffe-chiamate-shock-ticino' | 'spazi-verdi-in-citta-rilassamento' | 'camedo-buffet-eventi-ticino' | 'berna-discute-approvvigionamento-economico-e-13esima-avs' | 'visita-ticinese-coira-criminalita-organizzata' | 'annunci-lavoro-dumping-ticino-governo' | 'controlli-cantieri-mendrisio' | 'catastrofi-ticino-prontezza-2026' | 'tredicesima-avs-soluzione-mista-stati' | 'lo-statuto-s-non-deve-trasformarsi-in-permesso-b' | 'consiglio-stati-soluzione-mista-13esima-avs' | 'frode-cassa-compensazione-avs-ticino' | 'deputazione-ticinese-italofoni-2024' | 'kebab-case-turismo-ticino' | 'droga-al-confine-ticino-2025' | 'incidente-stradale-laghi' | 'vivere-piu-lungo-ticino' | 'giustizia-in-bilico-2026' | 'ampliamento-parco-eolico-san-gottardo-digital-2026' | 'eolico-gottardo-ampliamento-2026' | 'contrabbando-ai-confine-aumentano-droga-e-sigarette' | 'salute-prevenzione-burocrazia-svizzera' | 'telefonate-choc-truffa-anziani-ticino' | 'ubs-fusione-credit-suisse-ticino' | 'salari-minimi-ccl-ticino-2026' | 'strutture-dedicate-migranti-ticino' | 'contratti-collettivi-salari-ticino' | 'tutela-sovranita-dati-sanitari' | 'nomine-annullate-sims-tram' | 'tassa-automobilisti-svizzera' | 'lavoro-richiedenti-asilo-ucraini-ticino' | 'riforma-scolastica-ticino-difficolta' | 'tassa-transito-parlamento-ticino' | 'inclusione-migranti-ticino' | 'franco-svizzero-impatti-ticino' | 'tassa-transito-automobilisti-ticino' | 'nubifragio-coira-mesolcina-ristoro' | 'lotta-violenza-di-genere-ticino' | 'tassa-transito-svizzera-2023' | 'controlli-cantieri-mendrisiotto' | 'acinque-lancia-piano-genitorialita' | 'danni-riparati-centovallina' | 'porrentruy-piscina-comunale-divieto' | 'sanita-fontana-fedriga' | 'ampliamento-parco-eolico-san-gottardo' | 'cure-a-domicilio-tassa-ticino' | 'kebab-case-ticino-nubifragio-grigioni' | 'kebab-case-rossi-bruxelles-ticino' | 'rinnovo-concessioni-snl-2026' | 'globalisti-fuga-medio-oriente-ticino' | 'guasto-tra-parabiago-e-rho' | 'tassa-transito-ticino-pedemontana' | 'franco-svizzero-a-valori-record-2026' | 'taglio-alle-accise-mette-sotto-pressione-i-distributori-ticinesi' | 'farmaci-competitiva-europa' | 'controlli-cantieri-mendrisiotto-2026' | 'byd-expansion-ticino-2026' | 'controllo-affitti-nazionale-ticino' | 'cioccolato-meno-ma-pagato-di-piu' | 'diesel-aumento-prezzi-svizzera-2026' | 'sanita-manifesto-varese-2026' | 'iva-bassa-svizzera-immagine-ingannevole' | 'divieto-smartphone-scuola-ticino' | 'la-navigazione-rafforza-offerta-2026' | 'sanita-integrativa-lombardia-ticino' | 'fatture-mediche-gonfiate-ticino' | 'divieto-cellulari-scuola-ticino' | 'violenza-donne-consiglio-europa-ticino' | 'trojani-capo-servizi-esercito-ticino' | 'funivia-monteviasco-orari-corsi' | 'ricchi-fuga-medio-oriente-ticino' | 'divieto-cellulari-scuola-ticino-2024' | 'sindacati-contro-snl-ticino-2026' | 'aumento-iva-costo-ticino-2026' | 'acquarossa-nuovo-polo-filovia-2026' | 'ritardo-sconto-carburante-ticino-2026' | 'lavori-a8-castellanza-notturni-2026' | 'quanto-costa-la-discriminazione' | 'divieto-smartphone-scuola-ticino-2026' | 'carenza-farmaci-ticino' | 'lago-maggiore-accesso-tutto-l-anno' | 'spiagge-libere-sul-lago-maggiore' | 'snl-stagione-green-concessione' | 'smartphone-a-scuola-e-nuove-direttive' | 'infortuni-sul-lavoro-protesi-hi-tech' | 'bellinzona-scomparsa-ricerche-ticino-piemonte' | 'cure-domicilio-ticino-politica' | 'navigazione-lago-lugano-2026' | 'parco-vedeggio-comuni-firman' | 'stop-export-materiale-bellico' | 'gestione-scontri-frontali-ticino' | 'auto-intrusione-frontalieri-ticino' | 'rischio-lugano-young-boys' | 'bossi-morto-ticino-frontalieri' | 'ogm-fallimento-ticino' | 'passaggio-statuto-s-permesso-b' | 'chiusure-notturne-autostrada' | 'morte-bimbo-efamilia-ticino' | 'fondi-hcap-restituiti' | 'bellinzona-paese-dormitorio' | 'ticino-attenti-ai-radar-2026' | 'sequestro-stupefacenti-ecuador' | 'nuovi-radar-ticino-multe' | 'rifugiati-ucraini-assistenza-2027' | 'cannabis-sequestro-ticino' | 'pfaffikon-kanton-schwyz-franzosi-einbrecher' | 'riapertura-casetta-chiosco-davesco' | 'giovani-ticino-comuni-innovazioni' | 'domeniche-senza-auto-ticino-2026' | 'chiusure-notturne-a4-ticino' | 'svizzera-frontalieri-franco-lavoro' | 'svizzera-cern-ricerca-chip' | 'cannabis-sequestro-ticino-2026' | 'svizzeri-dubitano-difesa-paese' | 'controlli-radar-ticino' | 'frontalieri-casa-zurigo' | 'lugano-sicurezza-2025' | 'chiasso-ora-terra-2026' | 'radar-ticino-riduzione' | 'nomine-sims-illegittime' | 'funivia-monte-lema-stagione-2026' | 'crescita-economica-ticino-2026' | 'giustizia-referendum-ticino' | 'ora-legale-permanente-ticino' | 'como-asfaltature-war-costs' | 'apprendisti-frontalieri-permessi-g' | 'crescita-sicurezza-ticino-2025' | 'sesto-calende-centro-sportivo' | 'chiasso-missione-emergenza' | 'ticinesi-e-frontalieri-comprano-case-su-laghi-verbano-e-ceresio' | 'lavena-ponte-tresa-verde' | 'chiasso-missione-emergenza-luci-blu' | 'aggregazione-basso-mendrisiotto-rizza-chiasso-autocritica' | 'carburanti-prezzo-rialzo-ticino' | 'guida-michelin-ticino' | 'eurospin-luino-occhio-al-cambio' | 'lavena-ponte-tresa-territorio-poroso' | 'fusione-valle-calanca-comuni' | 'lavoro-carceri-ticino' | 'lavena-ponte-tresa-annaffiatoi' | 'bossi-commemorazione-bagarrata' | 'corsi-a-b-scuola-media-ticino' | 'ticino-confine-droga' | 'franco-svizzero-minimi-euro' | 'benzina-conveniente' | 'piu-interventi-soccorso-meno-vittime-montagna-ticino-2025' | 'nei-test-neonati-ticinesi' | 'aggregazione-rischio-basso-mendrisiotto' | 'congresso-svizzera-italia-varese-2026' | 'processo-mendrisio-19-capit' | 'prezzi-carburanti-ticino-marzo-2026' | 'via-francisca-cammino' | 'lavoro-sommerso-varesotto' | 'rissa-lavena-ponte-tres' | 'magliaso-zona-educativa-ripresa' | 'cassa-malati-leghista-applicata-subito' | 'ronte-tresa-rissa' | 'a9-chiasso-como-chiusure-frontalieri' | 'code-nord-san-gottardo' | 'trattative-acordo-usa-oltre-31-marzo' | 'occhiali-intelligenti-ticino-innovazione' | 'trattative-dazi-non-valido-31-marzo' | 'trippa-dogana-novazzano' | 'lavori-rete-ferroviaria-tilo' | 'tassa-mensa-asilo-chiasso' | 'sindacati-ticino-leonardo-cascina-costa' | 'chiasso-tassa-refezione-scuola-infanzia' | 'ict-reatto-commissione-tri' | 'furbata-dogana-argento' | 'best-cross-border-worker-calculator-switzerland' | 'ambasciatore-italiano-ritorno-berna' | 'aumento-contingente-uova-svizzera' | 'lavori-notturni-via-lavizzari' | 'limite-popolazione-10-milioni-ticino' | 'settanta-chili-di-mozzarella' | 'contrabbando-ticino-2026' | 'mobilita-infermieri-ticino' | 'san-gottardo-code-giovedi-santo' | 'como-lago-pasqua-boom-prenotazioni' | 'camion-panne-san-gottardo-traffico-bloccato' | 'aumento-inchieste-penali-2025' | 'dogana-chiasso-centro-tecnologico' | 'permessi-dubbi-roveredo-insoddisfatta' | 'permesso-g-vantaggi-svantaggi' | 'lamal-vs-ssn-decisione' | 'trovare-lavoro-ticino' | 'guida-completa-frontaliere' | 'permessi-dimora-diversi-opinioni' | 'chiasso-zanzara-tigre-strategia-2026' | 'trasferimento-ufficio-postale-chiasso' | 'esame-complementare-passerella-aperte-pre-iscrizioni' | 'gasolio-costi-pullman-ticino-lago-como' | 'turismo-pasquale-ticino-2026' | 'mozzarella-clandestina-2026-ricerca' | 'accordi-svizzera-ue-2026' | 'vacanze-di-pasqua-san-gottardo' | 'medici-manca-verbano-ticino-2026' | 'italia-taglia-accise-benzinai-preoccupati' | 'aumento-mezzi-pubblici-ticino' | 'ladri-di-auto-scappano-con-40-chiavi-e-una-skoda' | 'incendi-boschivi-ticino-2026' | 'benzina-ticino-taglio-accise' | 'abolizione-imposta-valore-locativo-2029' | 'contrabbando-pokemon-ticino' | 'sconto-benzina-ticino' | 'anziana-si-difende-da-una-scippatrice-e-la-fa-arrestare' | 'supsi-bachelor-sostenibilita-2027' | 'lavena-ponte-tresa-bicicletta-grave' | 'roveredo-permessi-anticrimine' | 'pasqua-messaggio-di-avvenire' | 'tramonto-a-cadenazzo' | 'traffico-san-gottardo-2026' | 'auto-si-ribalta-sulla-sp1-tra-varese-e-gavirate' | 'nestle-200-posti-lombardia' | 'la-quinta-svizzera-che-ha-un-debole-per-milano' | 'comuni-investono-turismo-ticino' | 'agriscambio' | 'galleria-del-ceneri-chiusa-per-problemi-tecnici' | 'corso-pastori-ticino' | 'diventare-pastore-ticino' | 'trump-intesa-o-inferno' | 'coop-richiama-formaggi-salmonelle' | 'scambio-abiti-bellinzona' | 'protesta-costi-cure-domicilio' | 'acqua-non-potabile-lavizzara' | 'nuova-direttrice-servizi-sociali-bellinzona' | 'riaperta-galleria-monte-ceneri' | 'ucraini-in-ticino-aiuti-incognite' | 'fuga-da-dubai-ticino-alternativa' | 'tax-free-come-cresce' | 'traffico-san-gottardo-pasquetta-2026' | 'controlli-auto-immatricolate-grigioni' | 'locarno-magadino-trasporto' | 'prezzi-benzina-ticino' | 'lavizzara-problemi-alla-rete-idrica-niente-acqua-potabile-in-varie-zone' | 'raffica-chiusure-a9-2026' | 'conflitto-medio-oriente-energia-ticino' | 'lavoro-notte-lincendio-laveno-mombello' | 'prevenzione-maschile-centro-beccaria' | 'controlli-varese-esposto-espulsione' | 'incidente-arogno-31enne-gravi-condizioni' | 'carburanti-ticino-aumento-prezzi' | 'provincia-di-varese-investe-su-manutenzione-delle-strade-e-del-verde-con-i-ristorni-dei-frontalieri-2026' | 'turisti-in-como-ztl' | 'niederlander-droga-ticino' | 'stop-agli-artigiani-per-caso' | 'incendi-nel-luganese-arrestato-un-piromane' | 'front-alieri-soci-sagl-nodi-fiscali-2026' | 'benzina-cara-ticino' | 'incidente-rampa-a9-chiasso-2026' | 'tilo-s50-lavori-mal-pensa-varese-2026' | 'tilo-s50-modifiche-aprile' | 'consiglio-federale-ferma-perequazione-2030' | 'camionisti-furbetti-governo-ticino-2026' | 'multe-vignetta-chiasso-2024' | 'petizione-aromat-svizzera' | 'frontalieri-tassa-salute-scontro' | 'multe-vignetta-chiasso-pasqua-2026' | 'tasse-ticino-frontalieri-perequazione-2026' | 'asili-bellinzona-progetto-pilota-orario-prolungato-2027' | 'multe-vignetta-chiasso-2026' | 'servizio-trasfusionale-locarno-chiusura-24-giugno' | 'ritardi-disoccupazione-ticino' | 'benzina-lombardia-frontalieri-ticinesi-2026' | 'diploma-usa-non-riconosciuto-ticino' | 'discover-eu-2026-frontalieri-ticino' | 'banche-svizzere-pronti-clienti-golfo-2026' | 'fertilizzanti-crisi-hormuz-rincari-ticino-40' | 'tassa-salute-frontalieri-lombardia-isola-2026' | 'reclutamento-infermieri-lombardia' | 'autostrada-a9-chiude-de-notti-2026' | 'multa-vignetta-pasqua-chiasso-2024' | 'salva-venti-anni-monito-infarti' | 'marchi-migros-riduzione-frontalieri-ticino' | 'disagi-tilo-mendrisio-malpensa-2026' | 'cpb-forfettario-semplificato-soglia-150mila' | 'verbano-livello-max-accordo-ticino-2026' | 'tassa-salute-frontalieri-lombardia-minacce-ticino' | 'lavoro-frontalieri-ticino-scarse-incastri' | 'visione-politica-fuga-giovani-ticino' | 'cure-a-domicilio-atlas-protesta-18-aprile' | 'frontalieri-salari-perequazione-ricchezza-2026' | 'acqua-potabile-lavizzara-piano-peccia-monti-rima' | 'giovani-fuga-ticino' | 'svizzera-alleanza-porti-europei-anti-droga' | 'glarona-domeniche-senzauto-ticino-frontalieri' | 'controlli-frontalieri-ponte-chiasso-2025' | 'frontalieri-ticino-dati-ust-2025' | 'bibo-app-mezzi-pubblici-2026' | 'varese-frontalieri-7000-postivacanti-2026' | 'iniziative-cassa-malati-governo-ticinese-insoddisfazione-lega-ps' | 'fermo-treni-gallarate-sesto-aprile-2026' | 'bibo-sistema-biglietti-digitali-mezzi-2026' | 'infermieri-ticinesi-ricerca-lavoro-milano' | 'tappa-campione-ditalia-2025-commissione';
 
 export interface AppRoute {
-  activeTab: ActiveTab;
-  calcolatoreSubTab?: CalcolatoreSubTab;
-  confrontiSubTab?: ConfrontiSubTab;
-  fiscoSubTab?: FiscoSubTab;
-  /** Country section for tax-return guide: Italia (730/IRPEF) or Svizzera (imposta alla fonte/TDR). */
-  taxReturnCountry?: 'italia' | 'svizzera';
-  guidaSubTab?: GuidaSubTab;
-  /** Optional border crossing deep link under guida/border (e.g. /guida/.../border-waiting-times/chiasso-brogeda). */
-  borderCrossing?: BorderCrossingId;
-  vitaSubTab?: VitaSubTab;
-  statsSubTab?: StatsSubTab;
-  blogArticle?: BlogArticleId;
-  /** Unresolved blog slug when blog data hasn't loaded yet (lazy-loaded). */
-  blogSlug?: string;
-  /** SEO landing identifier for long-tail routes (e.g. /calcola-stipendio/stipendio-netto-80000-chf). */
-  seoLanding?: SeoLandingId;
-  /** Glossary term deep-link (e.g. /glossario/imposta-alla-fonte). */
-  glossaryTerm?: GlossaryTermId;
-  // Legacy fields — kept for backward compat during transition
-  comparatoriSubTab?: string;
-  strumentiSubTab?: string;
-  simulatorSubTab?: string;
-  pensionSubTab?: string;
-  guideSection?: string;
-  /** Job detail slug under job-board route (e.g. /cerca-lavoro-ticino/software-engineer-...). */
-  jobSlug?: string;
-  /** URL fragment identifier (without #). Used for anchor-linking to page sections. */
-  hash?: string;
+ activeTab: ActiveTab;
+ calcolatoreSubTab?: CalcolatoreSubTab;
+ confrontiSubTab?: ConfrontiSubTab;
+ fiscoSubTab?: FiscoSubTab;
+ /** Country section for tax-return guide: Italia (730/IRPEF) or Svizzera (imposta alla fonte/TDR). */
+ taxReturnCountry?: 'italia' | 'svizzera';
+ guidaSubTab?: GuidaSubTab;
+ /** Optional border crossing deep link under guida/border (e.g. /guida/.../border-waiting-times/chiasso-brogeda). */
+ borderCrossing?: BorderCrossingId;
+ vitaSubTab?: VitaSubTab;
+ statsSubTab?: StatsSubTab;
+ blogArticle?: BlogArticleId;
+ /** Unresolved blog slug when blog data hasn't loaded yet (lazy-loaded). */
+ blogSlug?: string;
+ /** SEO landing identifier for long-tail routes (e.g. /calcola-stipendio/stipendio-netto-80000-chf). */
+ seoLanding?: SeoLandingId;
+ /** Glossary term deep-link (e.g. /glossario/imposta-alla-fonte). */
+ glossaryTerm?: GlossaryTermId;
+ // Legacy fields — kept for backward compat during transition
+ comparatoriSubTab?: string;
+ strumentiSubTab?: string;
+ simulatorSubTab?: string;
+ pensionSubTab?: string;
+ guideSection?: string;
+ /** Job detail slug under job-board route (e.g. /cerca-lavoro-ticino/software-engineer-...). */
+ jobSlug?: string;
+ /** URL fragment identifier (without #). Used for anchor-linking to page sections. */
+ hash?: string;
 }
 
 // ── Internationalized slug maps ──────────────────────────────
 
 interface SlugTable {
-  // top-level section slugs
-  calcolatore: string;
-  confronti: string;
-  fisco: string;
-  guida: string;
-  vita: string;
-  stats: string;
-  feedback: string;
-  privacy: string;
-  terms: string;
-  dataDeletion: string;
-  apiStatus: string;
-  newsletter: string;
-  gamification: string;
-  morning: string;
-  forum: string;
-  contact: string;
-  partners: string;
-  consulting: string;
-  jobBoard: string;
-  profile: string;
-  dashboard: string;
-  // calcolatore sub-tab slugs
-  whatif: string;
-  payslip: string;
-  ral: string;
-  bonus: string;
-  parentalLeave: string;
-  residency: string;
-  permitCompare: string;
-  // confronti sub-tab slugs
-  exchange: string;
-  banks: string;
-  health: string;
-  mobile: string;
-  shopping: string;
-  costOfLiving: string;
-  jobs: string;
-  renovation: string;
-  // fisco sub-tab slugs
-  taxReturn: string;
-  taxReturnItalia: string;
-  taxReturnSvizzera: string;
-  calendar: string;
-  holidays: string;
-  ristorni: string;
-  pension: string;
-  pillar3: string;
-  quiz: string;
-  taxCredit: string;
-  withholdingRates: string;
-  newFrontierTaxSim: string;
-  // guida sub-tab slugs
-  firstDay: string;
-  permits: string;
-  border: string;
-  unemployment: string;
-  carTransfer: string;
-  carCost: string;
-  municipalities: string;
-  borderMap: string;
-  // vita sub-tab slugs
-  livingCH: string;
-  livingIT: string;
-  companies: string;
-  schools: string;
-  nursery: string;
-  places: string;
-  transport: string;
-  // stats sub-tab slugs
-  livability: string;
-  jobsObservatory: string;
-  salaryCompare: string;
-  trafficHistory: string;
-  unemploymentStats: string;
-  mortgageComparison: string;
-  fuelPrices: string;
-  healthPremiums: string;
-  // calcolatore extra slugs
-  salaryQuiz: string;
-  // top-level extra slugs
-  blog: string;
+ // top-level section slugs
+ calcolatore: string;
+ confronti: string;
+ fisco: string;
+ guida: string;
+ vita: string;
+ stats: string;
+ feedback: string;
+ privacy: string;
+ terms: string;
+ dataDeletion: string;
+ apiStatus: string;
+ newsletter: string;
+ gamification: string;
+ morning: string;
+ forum: string;
+ contact: string;
+ partners: string;
+ consulting: string;
+ jobBoard: string;
+ profile: string;
+ dashboard: string;
+ // calcolatore sub-tab slugs
+ whatif: string;
+ payslip: string;
+ ral: string;
+ bonus: string;
+ parentalLeave: string;
+ residency: string;
+ permitCompare: string;
+ // confronti sub-tab slugs
+ exchange: string;
+ banks: string;
+ health: string;
+ mobile: string;
+ shopping: string;
+ costOfLiving: string;
+ jobs: string;
+ renovation: string;
+ // fisco sub-tab slugs
+ taxReturn: string;
+ taxReturnItalia: string;
+ taxReturnSvizzera: string;
+ calendar: string;
+ holidays: string;
+ ristorni: string;
+ pension: string;
+ pillar3: string;
+ quiz: string;
+ taxCredit: string;
+ withholdingRates: string;
+ newFrontierTaxSim: string;
+ // guida sub-tab slugs
+ firstDay: string;
+ permits: string;
+ border: string;
+ unemployment: string;
+ carTransfer: string;
+ carCost: string;
+ municipalities: string;
+ borderMap: string;
+ // vita sub-tab slugs
+ livingCH: string;
+ livingIT: string;
+ companies: string;
+ schools: string;
+ nursery: string;
+ places: string;
+ transport: string;
+ // stats sub-tab slugs
+ livability: string;
+ jobsObservatory: string;
+ salaryCompare: string;
+ trafficHistory: string;
+ unemploymentStats: string;
+ mortgageComparison: string;
+ fuelPrices: string;
+ healthPremiums: string;
+ // calcolatore extra slugs
+ salaryQuiz: string;
+ // top-level extra slugs
+ blog: string;
 
-  // glossario standalone page
-  glossario: string;
-  // dialetto standalone page
-  dialetto: string;
-  // faq standalone page
-  faq: string;
-  // sitemap standalone page
-  sitemap: string;
-  // contracts / CCNL guide standalone page
-  contracts: string;
-  // TFR / Liquidazione calculator standalone page
-  tfrCalculator: string;
-  // Quiz Permesso B o G standalone page
-  permitQuiz: string;
-  // Tredicesima / Quattordicesima calculator standalone page
-  tredicesima: string;
-  // Weekly digest + Tool of the week
-  weeklyDigest: string;
-  toolOfWeek: string;
-  // Email confirmed welcome page
-  emailConfirmed: string;
-  // hidden admin route
-  admin: string;
-  // About / Chi Siamo page (E-E-A-T)
-  chiSiamo: string;
-  // Trade unions guide
-  sindacati: string;
-  // Definitive guide page (SEO pillar content)
-  guidaCompleta: string;
-  // legacy slugs (for backward compat parsing)
-  costs: string;
-  salarySurvey: string;
-  comparatori: string;
-  strumenti: string;
-  guide: string;
+ // glossario standalone page
+ glossario: string;
+ // dialetto standalone page
+ dialetto: string;
+ // faq standalone page
+ faq: string;
+ // sitemap standalone page
+ sitemap: string;
+ // contracts / CCNL guide standalone page
+ contracts: string;
+ // TFR / Liquidazione calculator standalone page
+ tfrCalculator: string;
+ // Quiz Permesso B o G standalone page
+ permitQuiz: string;
+ // Tredicesima / Quattordicesima calculator standalone page
+ tredicesima: string;
+ // Weekly digest + Tool of the week
+ weeklyDigest: string;
+ toolOfWeek: string;
+ // Email confirmed welcome page
+ emailConfirmed: string;
+ // hidden admin route
+ admin: string;
+ // About / Chi Siamo page (E-E-A-T)
+ chiSiamo: string;
+ // Trade unions guide
+ sindacati: string;
+ // Definitive guide page (SEO pillar content)
+ guidaCompleta: string;
+ // legacy slugs (for backward compat parsing)
+ costs: string;
+ salarySurvey: string;
+ comparatori: string;
+ strumenti: string;
+ guide: string;
 }
 
 const SLUG_TABLES: Record<Locale, SlugTable> = {
-  it: {
-    calcolatore: 'calcola-stipendio',
-    confronti: 'compara-servizi',
-    fisco: 'tasse-e-pensione',
-    guida: 'guida-frontaliere',
-    vita: 'vivere-in-ticino',
-    stats: 'statistiche',
-    feedback: 'supporto',
-    privacy: 'privacy',
-    terms: 'termini-di-servizio',
-    dataDeletion: 'eliminazione-dati',
-    apiStatus: 'stato-api',
-    newsletter: 'newsletter',
-    gamification: 'gamificazione',
-    morning: 'buongiorno-frontaliere',
-    forum: 'community',
-    contact: 'contattaci',
-    partners: 'servizi-partner',
-    consulting: 'consulenza',
-    jobBoard: 'cerca-lavoro-ticino',
-    profile: 'profilo',
-    dashboard: 'dashboard',
-    whatif: 'cosa-cambia-se',
-    payslip: 'simula-busta-paga',
-    ral: 'confronta-retribuzione-ral',
-    bonus: 'stima-bonus-frontaliere',
-    parentalLeave: 'verifica-congedo-parentale',
-    residency: 'simula-cambio-residenza',
-    permitCompare: 'confronta-permesso-g-vs-b',
-    exchange: 'cambio-franco-euro',
-    banks: 'confronta-banche',
-    health: 'confronta-casse-malati',
-    mobile: 'confronta-operatori-mobili',
-    shopping: 'confronta-prezzi-spesa',
-    costOfLiving: 'costo-della-vita',
-    jobs: 'confronta-offerte-lavoro',
-    renovation: 'calcola-bonus-ristrutturazione',
-    taxReturn: 'dichiarazione-redditi',
-    taxReturnItalia: 'dichiarazione-redditi-italia',
-    taxReturnSvizzera: 'dichiarazione-redditi-svizzera',
-    calendar: 'scadenze-fiscali',
-    holidays: 'festivita-ticino',
-    ristorni: 'ristorni-fiscali',
-    pension: 'calcola-previdenza',
-    pillar3: 'simula-terzo-pilastro',
-    quiz: 'quiz-fiscale',
-    taxCredit: 'credito-imposta',
-    withholdingRates: 'aliquote-imposta-alla-fonte-ticino-2026',
-    newFrontierTaxSim: 'simulazione-tasse-nuovi-frontalieri',
-    firstDay: 'primo-giorno-lavoro',
-    permits: 'permessi-di-lavoro',
-    border: 'tempi-attesa-dogana',
-    unemployment: 'disoccupazione-transfrontaliera',
-    carTransfer: 'trasferire-auto-svizzera',
-    carCost: 'costo-auto-pendolare',
-    municipalities: 'comuni-di-frontiera',
-    borderMap: 'mappa-confine',
-    livingCH: 'vivere-in-svizzera',
-    livingIT: 'vivere-in-italia',
-    companies: 'aziende-svizzera-italiana',
-    schools: 'scuole-svizzera-italiana',
-    nursery: 'confronta-asili-nido',
-    places: 'attrazioni-svizzera-italiana',
-    transport: 'trasporti-frontalieri',
-    livability: 'migliori-comuni-frontiera',
-    jobsObservatory: 'osservatorio-stipendi-lavori-ticino',
-    salaryCompare: 'confronta-stipendi',
-    trafficHistory: 'storico-traffico-dogane',
-    unemploymentStats: 'disoccupazione-svizzera',
-    mortgageComparison: 'confronto-mutui',
-    fuelPrices: 'prezzi-benzina-confine',
-    healthPremiums: 'premi-malattia-comuni',
-    salaryQuiz: 'quanto-guadagneresti-in-svizzera',
-    blog: 'articoli-frontaliere',
+ it: {
+ calcolatore: 'calcola-stipendio',
+ confronti: 'compara-servizi',
+ fisco: 'tasse-e-pensione',
+ guida: 'guida-frontaliere',
+ vita: 'vivere-in-ticino',
+ stats: 'statistiche',
+ feedback: 'supporto',
+ privacy: 'privacy',
+ terms: 'termini-di-servizio',
+ dataDeletion: 'eliminazione-dati',
+ apiStatus: 'stato-api',
+ newsletter: 'newsletter',
+ gamification: 'gamificazione',
+ morning: 'buongiorno-frontaliere',
+ forum: 'community',
+ contact: 'contattaci',
+ partners: 'servizi-partner',
+ consulting: 'consulenza',
+ jobBoard: 'cerca-lavoro-ticino',
+ profile: 'profilo',
+ dashboard: 'dashboard',
+ whatif: 'cosa-cambia-se',
+ payslip: 'simula-busta-paga',
+ ral: 'confronta-retribuzione-ral',
+ bonus: 'stima-bonus-frontaliere',
+ parentalLeave: 'verifica-congedo-parentale',
+ residency: 'simula-cambio-residenza',
+ permitCompare: 'confronta-permesso-g-vs-b',
+ exchange: 'cambio-franco-euro',
+ banks: 'confronta-banche',
+ health: 'confronta-casse-malati',
+ mobile: 'confronta-operatori-mobili',
+ shopping: 'confronta-prezzi-spesa',
+ costOfLiving: 'costo-della-vita',
+ jobs: 'confronta-offerte-lavoro',
+ renovation: 'calcola-bonus-ristrutturazione',
+ taxReturn: 'dichiarazione-redditi',
+ taxReturnItalia: 'dichiarazione-redditi-italia',
+ taxReturnSvizzera: 'dichiarazione-redditi-svizzera',
+ calendar: 'scadenze-fiscali',
+ holidays: 'festivita-ticino',
+ ristorni: 'ristorni-fiscali',
+ pension: 'calcola-previdenza',
+ pillar3: 'simula-terzo-pilastro',
+ quiz: 'quiz-fiscale',
+ taxCredit: 'credito-imposta',
+ withholdingRates: 'aliquote-imposta-alla-fonte-ticino-2026',
+ newFrontierTaxSim: 'simulazione-tasse-nuovi-frontalieri',
+ firstDay: 'primo-giorno-lavoro',
+ permits: 'permessi-di-lavoro',
+ border: 'tempi-attesa-dogana',
+ unemployment: 'disoccupazione-transfrontaliera',
+ carTransfer: 'trasferire-auto-svizzera',
+ carCost: 'costo-auto-pendolare',
+ municipalities: 'comuni-di-frontiera',
+ borderMap: 'mappa-confine',
+ livingCH: 'vivere-in-svizzera',
+ livingIT: 'vivere-in-italia',
+ companies: 'aziende-svizzera-italiana',
+ schools: 'scuole-svizzera-italiana',
+ nursery: 'confronta-asili-nido',
+ places: 'attrazioni-svizzera-italiana',
+ transport: 'trasporti-frontalieri',
+ livability: 'migliori-comuni-frontiera',
+ jobsObservatory: 'osservatorio-stipendi-lavori-ticino',
+ salaryCompare: 'confronta-stipendi',
+ trafficHistory: 'storico-traffico-dogane',
+ unemploymentStats: 'disoccupazione-svizzera',
+ mortgageComparison: 'confronto-mutui',
+ fuelPrices: 'prezzi-benzina-confine',
+ healthPremiums: 'premi-malattia-comuni',
+ salaryQuiz: 'quanto-guadagneresti-in-svizzera',
+ blog: 'articoli-frontaliere',
 
-    glossario: 'glossario-frontaliere',
-    dialetto: 'dialetto-ticinese',
-    faq: 'domande-frequenti-frontalieri',
-    sitemap: 'mappa-del-sito',
-    contracts: 'contratti-lavoro-svizzera',
-    sindacati: 'sindacati-frontalieri',
-    guidaCompleta: 'guida-completa-lavoro-frontaliere-svizzera-2026',
-    tfrCalculator: 'tfr-liquidazione-frontaliere',
-    permitQuiz: 'quiz-permesso-b-o-g',
-    tredicesima: 'calcolo-tredicesima-frontaliere',
-    weeklyDigest: 'digest-settimanale',
-    toolOfWeek: 'strumento-della-settimana',
-    emailConfirmed: 'benvenuto-frontaliere',
-    admin: 'gestione-contenuti-xk9mp2q',
-    chiSiamo: 'chi-siamo',
-    costs: 'costi-pendolarismo',
-    salarySurvey: 'sondaggio-stipendi',
-    comparatori: 'comparatori',
-    strumenti: 'strumenti',
-    guide: 'guida-frontalieri',
-  },
-  en: {
-    calcolatore: 'calculate-salary',
-    confronti: 'service-comparison',
-    fisco: 'taxes-and-pension',
-    guida: 'cross-border-guide',
-    vita: 'living-in-ticino',
-    stats: 'statistics',
-    feedback: 'support',
-    privacy: 'privacy',
-    terms: 'terms-of-service',
-    dataDeletion: 'data-deletion',
-    apiStatus: 'api-status',
-    newsletter: 'newsletter',
-    gamification: 'gamification',
-    morning: 'good-morning',
-    forum: 'community',
-    contact: 'contact-us',
-    partners: 'partner-services',
-    consulting: 'consulting',
-    jobBoard: 'find-jobs-ticino',
-    profile: 'profile',
-    dashboard: 'dashboard',
-    whatif: 'what-if-scenarios',
-    payslip: 'estimate-payslip',
-    ral: 'compare-gross-salary',
-    bonus: 'simulate-bonus',
-    parentalLeave: 'estimate-parental-leave',
-    residency: 'simulate-residency-change',
-    permitCompare: 'compare-permit-g-vs-b',
-    exchange: 'chf-eur-exchange-rate',
-    banks: 'compare-banks',
-    health: 'compare-health-insurance',
-    mobile: 'compare-mobile-plans',
-    shopping: 'compare-grocery-prices',
-    costOfLiving: 'cost-of-living',
-    jobs: 'compare-job-offers',
-    renovation: 'calculate-renovation-bonus',
-    taxReturn: 'tax-return-guide',
-    taxReturnItalia: 'tax-return-italy',
-    taxReturnSvizzera: 'tax-return-switzerland',
-    calendar: 'tax-deadlines',
-    holidays: 'ticino-public-holidays',
-    ristorni: 'tax-refunds',
-    pension: 'calculate-retirement',
-    pillar3: 'simulate-third-pillar',
-    quiz: 'tax-quiz',
-    taxCredit: 'tax-credit',
-    withholdingRates: 'ticino-withholding-tax-rates-2026',
-    newFrontierTaxSim: 'tax-simulation-new-cross-border-workers',
-    firstDay: 'first-day-at-work',
-    permits: 'work-permits-guide',
-    border: 'border-waiting-times',
-    unemployment: 'unemployment-benefits',
-    carTransfer: 'transfer-car-to-switzerland',
-    carCost: 'commuting-car-costs',
-    municipalities: 'border-municipalities',
-    borderMap: 'border-map',
-    livingCH: 'living-in-switzerland',
-    livingIT: 'living-in-italy',
-    companies: 'companies-southern-switzerland',
-    schools: 'schools-southern-switzerland',
-    nursery: 'compare-nurseries',
-    places: 'attractions-southern-switzerland',
-    transport: 'cross-border-transport',
-    livability: 'best-border-towns',
-    jobsObservatory: 'ticino-jobs-salary-observatory',
-    salaryCompare: 'compare-salaries',
-    trafficHistory: 'border-traffic-history',
-    unemploymentStats: 'unemployment-switzerland',
-    mortgageComparison: 'mortgage-comparison',
-    fuelPrices: 'border-fuel-prices',
-    healthPremiums: 'health-insurance-premiums-by-commune',
-    salaryQuiz: 'how-much-would-you-earn-in-switzerland',
-    blog: 'cross-border-articles',
+ glossario: 'glossario-frontaliere',
+ dialetto: 'dialetto-ticinese',
+ faq: 'domande-frequenti-frontalieri',
+ sitemap: 'mappa-del-sito',
+ contracts: 'contratti-lavoro-svizzera',
+ sindacati: 'sindacati-frontalieri',
+ guidaCompleta: 'guida-completa-lavoro-frontaliere-svizzera-2026',
+ tfrCalculator: 'tfr-liquidazione-frontaliere',
+ permitQuiz: 'quiz-permesso-b-o-g',
+ tredicesima: 'calcolo-tredicesima-frontaliere',
+ weeklyDigest: 'digest-settimanale',
+ toolOfWeek: 'strumento-della-settimana',
+ emailConfirmed: 'benvenuto-frontaliere',
+ admin: 'gestione-contenuti-xk9mp2q',
+ chiSiamo: 'chi-siamo',
+ costs: 'costi-pendolarismo',
+ salarySurvey: 'sondaggio-stipendi',
+ comparatori: 'comparatori',
+ strumenti: 'strumenti',
+ guide: 'guida-frontalieri',
+ },
+ en: {
+ calcolatore: 'calculate-salary',
+ confronti: 'service-comparison',
+ fisco: 'taxes-and-pension',
+ guida: 'cross-border-guide',
+ vita: 'living-in-ticino',
+ stats: 'statistics',
+ feedback: 'support',
+ privacy: 'privacy',
+ terms: 'terms-of-service',
+ dataDeletion: 'data-deletion',
+ apiStatus: 'api-status',
+ newsletter: 'newsletter',
+ gamification: 'gamification',
+ morning: 'good-morning',
+ forum: 'community',
+ contact: 'contact-us',
+ partners: 'partner-services',
+ consulting: 'consulting',
+ jobBoard: 'find-jobs-ticino',
+ profile: 'profile',
+ dashboard: 'dashboard',
+ whatif: 'what-if-scenarios',
+ payslip: 'estimate-payslip',
+ ral: 'compare-gross-salary',
+ bonus: 'simulate-bonus',
+ parentalLeave: 'estimate-parental-leave',
+ residency: 'simulate-residency-change',
+ permitCompare: 'compare-permit-g-vs-b',
+ exchange: 'chf-eur-exchange-rate',
+ banks: 'compare-banks',
+ health: 'compare-health-insurance',
+ mobile: 'compare-mobile-plans',
+ shopping: 'compare-grocery-prices',
+ costOfLiving: 'cost-of-living',
+ jobs: 'compare-job-offers',
+ renovation: 'calculate-renovation-bonus',
+ taxReturn: 'tax-return-guide',
+ taxReturnItalia: 'tax-return-italy',
+ taxReturnSvizzera: 'tax-return-switzerland',
+ calendar: 'tax-deadlines',
+ holidays: 'ticino-public-holidays',
+ ristorni: 'tax-refunds',
+ pension: 'calculate-retirement',
+ pillar3: 'simulate-third-pillar',
+ quiz: 'tax-quiz',
+ taxCredit: 'tax-credit',
+ withholdingRates: 'ticino-withholding-tax-rates-2026',
+ newFrontierTaxSim: 'tax-simulation-new-cross-border-workers',
+ firstDay: 'first-day-at-work',
+ permits: 'work-permits-guide',
+ border: 'border-waiting-times',
+ unemployment: 'unemployment-benefits',
+ carTransfer: 'transfer-car-to-switzerland',
+ carCost: 'commuting-car-costs',
+ municipalities: 'border-municipalities',
+ borderMap: 'border-map',
+ livingCH: 'living-in-switzerland',
+ livingIT: 'living-in-italy',
+ companies: 'companies-southern-switzerland',
+ schools: 'schools-southern-switzerland',
+ nursery: 'compare-nurseries',
+ places: 'attractions-southern-switzerland',
+ transport: 'cross-border-transport',
+ livability: 'best-border-towns',
+ jobsObservatory: 'ticino-jobs-salary-observatory',
+ salaryCompare: 'compare-salaries',
+ trafficHistory: 'border-traffic-history',
+ unemploymentStats: 'unemployment-switzerland',
+ mortgageComparison: 'mortgage-comparison',
+ fuelPrices: 'border-fuel-prices',
+ healthPremiums: 'health-insurance-premiums-by-commune',
+ salaryQuiz: 'how-much-would-you-earn-in-switzerland',
+ blog: 'cross-border-articles',
 
-    glossario: 'cross-border-glossary',
-    dialetto: 'ticinese-dialect',
-    faq: 'cross-border-faq',
-    sitemap: 'site-map',
-    contracts: 'swiss-employment-contracts',
-    tfrCalculator: 'tfr-severance-pay-calculator',
-    permitQuiz: 'permit-b-or-g-quiz',
-    tredicesima: 'thirteenth-salary-calculator',
-    weeklyDigest: 'weekly-digest',
-    toolOfWeek: 'tool-of-the-week',
-    emailConfirmed: 'welcome',
-    admin: 'gestione-contenuti-xk9mp2q',
-    chiSiamo: 'about-us',
-    sindacati: 'trade-unions-cross-border-workers',
-    guidaCompleta: 'complete-guide-cross-border-work-switzerland-2026',
-    costs: 'commuting-costs',
-    salarySurvey: 'salary-survey',
-    comparatori: 'comparators',
-    strumenti: 'tools',
-    guide: 'frontier-guide',
-  },
-  de: {
-    calcolatore: 'gehalt-berechnen',
-    confronti: 'service-vergleich',
-    fisco: 'steuern-und-vorsorge',
-    guida: 'grenzgaenger-ratgeber',
-    vita: 'leben-im-tessin',
-    stats: 'statistiken',
-    feedback: 'hilfe',
-    privacy: 'datenschutz',
-    terms: 'nutzungsbedingungen',
-    dataDeletion: 'daten-loeschen',
-    apiStatus: 'api-status',
-    newsletter: 'newsletter',
-    gamification: 'gamification',
-    morning: 'guten-morgen',
-    forum: 'gemeinschaft',
-    contact: 'kontakt',
-    partners: 'partner-dienste',
-    consulting: 'beratung',
-    jobBoard: 'jobs-im-tessin',
-    profile: 'profil',
-    dashboard: 'dashboard',
-    whatif: 'was-waere-wenn',
-    payslip: 'lohnabrechnung-simulieren',
-    ral: 'bruttogehalt-vergleichen',
-    bonus: 'bonus-simulieren',
-    parentalLeave: 'elternzeit-simulieren',
-    residency: 'wohnsitzwechsel-simulieren',
-    permitCompare: 'bewilligung-g-vs-b',
-    exchange: 'chf-eur-wechselkurs',
-    banks: 'banken-vergleichen',
-    health: 'krankenkassen-vergleichen',
-    mobile: 'mobilfunk-vergleichen',
-    shopping: 'einkaufspreise-vergleichen',
-    costOfLiving: 'lebenshaltungskosten',
-    jobs: 'stellenangebote-vergleichen',
-    renovation: 'renovierungs-bonus-berechnen',
-    taxReturn: 'steuererklaerung',
-    taxReturnItalia: 'steuererklaerung-italien',
-    taxReturnSvizzera: 'steuererklaerung-schweiz',
-    calendar: 'steuerfristen',
-    holidays: 'tessin-feiertage',
-    ristorni: 'steuerrueckerstattung',
-    pension: 'rente-berechnen',
-    pillar3: 'dritte-saeule-simulieren',
-    quiz: 'steuer-quiz',
-    taxCredit: 'steuergutschrift',
-    withholdingRates: 'quellensteuer-tessin-2026',
-    newFrontierTaxSim: 'steuerberechnung-neue-grenzgaenger',
-    firstDay: 'erster-arbeitstag',
-    permits: 'arbeitsbewilligungen',
-    border: 'wartezeiten-grenze',
-    unemployment: 'arbeitslosengeld',
-    carTransfer: 'auto-in-schweiz-ummelden',
-    carCost: 'pendler-autokosten',
-    municipalities: 'grenzgemeinden',
-    borderMap: 'grenzkarte',
-    livingCH: 'leben-in-der-schweiz',
-    livingIT: 'leben-in-italien',
-    companies: 'unternehmen-suedschweiz',
-    schools: 'schulen-suedschweiz',
-    nursery: 'kinderkrippen-vergleichen',
-    places: 'ausflugsziele-suedschweiz',
-    transport: 'grenzpendler-verkehr',
-    livability: 'beste-grenzgemeinden',
-    jobsObservatory: 'stellen-und-lohn-observatorium-tessin',
-    salaryCompare: 'gehaelter-vergleichen',
-    trafficHistory: 'grenzverkehr-verlauf',
-    unemploymentStats: 'arbeitslosigkeit-schweiz',
-    mortgageComparison: 'hypotheken-vergleich',
-    fuelPrices: 'spritpreise-grenze',
-    healthPremiums: 'krankenkassentraemien-nach-gemeinde',
-    salaryQuiz: 'verdienst-in-der-schweiz',
-    blog: 'grenzgaenger-artikel',
+ glossario: 'cross-border-glossary',
+ dialetto: 'ticinese-dialect',
+ faq: 'cross-border-faq',
+ sitemap: 'site-map',
+ contracts: 'swiss-employment-contracts',
+ tfrCalculator: 'tfr-severance-pay-calculator',
+ permitQuiz: 'permit-b-or-g-quiz',
+ tredicesima: 'thirteenth-salary-calculator',
+ weeklyDigest: 'weekly-digest',
+ toolOfWeek: 'tool-of-the-week',
+ emailConfirmed: 'welcome',
+ admin: 'gestione-contenuti-xk9mp2q',
+ chiSiamo: 'about-us',
+ sindacati: 'trade-unions-cross-border-workers',
+ guidaCompleta: 'complete-guide-cross-border-work-switzerland-2026',
+ costs: 'commuting-costs',
+ salarySurvey: 'salary-survey',
+ comparatori: 'comparators',
+ strumenti: 'tools',
+ guide: 'frontier-guide',
+ },
+ de: {
+ calcolatore: 'gehalt-berechnen',
+ confronti: 'service-vergleich',
+ fisco: 'steuern-und-vorsorge',
+ guida: 'grenzgaenger-ratgeber',
+ vita: 'leben-im-tessin',
+ stats: 'statistiken',
+ feedback: 'hilfe',
+ privacy: 'datenschutz',
+ terms: 'nutzungsbedingungen',
+ dataDeletion: 'daten-loeschen',
+ apiStatus: 'api-status',
+ newsletter: 'newsletter',
+ gamification: 'gamification',
+ morning: 'guten-morgen',
+ forum: 'gemeinschaft',
+ contact: 'kontakt',
+ partners: 'partner-dienste',
+ consulting: 'beratung',
+ jobBoard: 'jobs-im-tessin',
+ profile: 'profil',
+ dashboard: 'dashboard',
+ whatif: 'was-waere-wenn',
+ payslip: 'lohnabrechnung-simulieren',
+ ral: 'bruttogehalt-vergleichen',
+ bonus: 'bonus-simulieren',
+ parentalLeave: 'elternzeit-simulieren',
+ residency: 'wohnsitzwechsel-simulieren',
+ permitCompare: 'bewilligung-g-vs-b',
+ exchange: 'chf-eur-wechselkurs',
+ banks: 'banken-vergleichen',
+ health: 'krankenkassen-vergleichen',
+ mobile: 'mobilfunk-vergleichen',
+ shopping: 'einkaufspreise-vergleichen',
+ costOfLiving: 'lebenshaltungskosten',
+ jobs: 'stellenangebote-vergleichen',
+ renovation: 'renovierungs-bonus-berechnen',
+ taxReturn: 'steuererklaerung',
+ taxReturnItalia: 'steuererklaerung-italien',
+ taxReturnSvizzera: 'steuererklaerung-schweiz',
+ calendar: 'steuerfristen',
+ holidays: 'tessin-feiertage',
+ ristorni: 'steuerrueckerstattung',
+ pension: 'rente-berechnen',
+ pillar3: 'dritte-saeule-simulieren',
+ quiz: 'steuer-quiz',
+ taxCredit: 'steuergutschrift',
+ withholdingRates: 'quellensteuer-tessin-2026',
+ newFrontierTaxSim: 'steuerberechnung-neue-grenzgaenger',
+ firstDay: 'erster-arbeitstag',
+ permits: 'arbeitsbewilligungen',
+ border: 'wartezeiten-grenze',
+ unemployment: 'arbeitslosengeld',
+ carTransfer: 'auto-in-schweiz-ummelden',
+ carCost: 'pendler-autokosten',
+ municipalities: 'grenzgemeinden',
+ borderMap: 'grenzkarte',
+ livingCH: 'leben-in-der-schweiz',
+ livingIT: 'leben-in-italien',
+ companies: 'unternehmen-suedschweiz',
+ schools: 'schulen-suedschweiz',
+ nursery: 'kinderkrippen-vergleichen',
+ places: 'ausflugsziele-suedschweiz',
+ transport: 'grenzpendler-verkehr',
+ livability: 'beste-grenzgemeinden',
+ jobsObservatory: 'stellen-und-lohn-observatorium-tessin',
+ salaryCompare: 'gehaelter-vergleichen',
+ trafficHistory: 'grenzverkehr-verlauf',
+ unemploymentStats: 'arbeitslosigkeit-schweiz',
+ mortgageComparison: 'hypotheken-vergleich',
+ fuelPrices: 'spritpreise-grenze',
+ healthPremiums: 'krankenkassentraemien-nach-gemeinde',
+ salaryQuiz: 'verdienst-in-der-schweiz',
+ blog: 'grenzgaenger-artikel',
 
-    glossario: 'grenzgaenger-glossar',
-    dialetto: 'tessiner-dialekt',
-    faq: 'grenzgaenger-faq',
-    sitemap: 'seitenplan',
-    contracts: 'schweizer-arbeitsvertraege',
-    tfrCalculator: 'tfr-abfindung-grenzgaenger-rechner',
-    permitQuiz: 'quiz-bewilligung-b-oder-g',
-    tredicesima: 'dreizehnter-monatslohn-rechner',
-    weeklyDigest: 'woechentlicher-bericht',
-    toolOfWeek: 'werkzeug-der-woche',
-    emailConfirmed: 'willkommen',
-    admin: 'gestione-contenuti-xk9mp2q',
-    chiSiamo: 'ueber-uns',
-    sindacati: 'gewerkschaften-grenzgaenger',
-    guidaCompleta: 'komplettanleitung-grenzgaenger-arbeit-schweiz-2026',
-    costs: 'pendelkosten',
-    salarySurvey: 'gehaltsumfrage',
-    comparatori: 'vergleiche',
-    strumenti: 'werkzeuge',
-    guide: 'grenzgaenger-guide',
-  },
-  fr: {
-    calcolatore: 'calculer-salaire',
-    confronti: 'comparaison-services',
-    fisco: 'impots-et-retraite',
-    guida: 'guide-frontalier',
-    vita: 'vivre-au-tessin',
-    stats: 'statistiques',
-    feedback: 'assistance',
-    privacy: 'confidentialite',
-    terms: 'conditions-utilisation',
-    dataDeletion: 'suppression-donnees',
-    apiStatus: 'etat-api',
-    newsletter: 'newsletter',
-    gamification: 'gamification',
-    morning: 'bonjour-frontalier',
-    forum: 'communaute',
-    contact: 'contactez-nous',
-    partners: 'services-partenaires',
-    consulting: 'consultation',
-    jobBoard: 'trouver-emploi-tessin',
-    profile: 'profil',
-    dashboard: 'tableau-de-bord',
-    whatif: 'scenarios-hypothetiques',
-    payslip: 'simuler-fiche-de-paie',
-    ral: 'comparer-salaire-brut',
-    bonus: 'estimer-bonus',
-    parentalLeave: 'simuler-conge-parental',
-    residency: 'simuler-changement-residence',
-    permitCompare: 'comparer-permis-g-vs-b',
-    exchange: 'taux-change-chf-eur',
-    banks: 'comparer-banques',
-    health: 'comparer-caisses-maladie',
-    mobile: 'comparer-forfaits-mobiles',
-    shopping: 'comparer-prix-courses',
-    costOfLiving: 'cout-de-la-vie',
-    jobs: 'comparer-offres-emploi',
-    renovation: 'calculer-bonus-renovation',
-    taxReturn: 'declaration-revenus',
-    taxReturnItalia: 'declaration-revenus-italie',
-    taxReturnSvizzera: 'declaration-revenus-suisse',
-    calendar: 'echeances-fiscales',
-    holidays: 'jours-feries-tessin',
-    ristorni: 'ristornes-fiscaux',
-    pension: 'calculer-pension',
-    pillar3: 'simuler-troisieme-pilier',
-    quiz: 'quiz-fiscal',
-    taxCredit: 'credit-impot',
-    withholdingRates: 'baremes-impot-a-la-source-tessin-2026',
-    newFrontierTaxSim: 'simulation-impots-nouveaux-frontaliers',
-    firstDay: 'premier-jour-travail',
-    permits: 'permis-de-travail',
-    border: 'temps-attente-douane',
-    unemployment: 'allocations-chomage',
-    carTransfer: 'transferer-voiture-suisse',
-    carCost: 'cout-voiture-pendulaire',
-    municipalities: 'communes-frontiere',
-    borderMap: 'carte-frontiere',
-    livingCH: 'vivre-en-suisse',
-    livingIT: 'vivre-en-italie',
-    companies: 'entreprises-suisse-italienne',
-    schools: 'ecoles-suisse-italienne',
-    nursery: 'comparer-creches',
-    places: 'decouvrir-suisse-italienne',
-    transport: 'transports-frontaliers',
-    livability: 'meilleures-communes-frontiere',
-    jobsObservatory: 'observatoire-emplois-salaires-tessin',
-    salaryCompare: 'comparer-salaires',
-    trafficHistory: 'historique-trafic-frontiere',
-    unemploymentStats: 'chomage-suisse',
-    mortgageComparison: 'comparaison-hypotheques',
-    fuelPrices: 'prix-essence-frontiere',
-    healthPremiums: 'primes-assurance-maladie-communes',
-    salaryQuiz: 'combien-gagneriez-vous-en-suisse',
-    blog: 'articles-frontalier',
+ glossario: 'grenzgaenger-glossar',
+ dialetto: 'tessiner-dialekt',
+ faq: 'grenzgaenger-faq',
+ sitemap: 'seitenplan',
+ contracts: 'schweizer-arbeitsvertraege',
+ tfrCalculator: 'tfr-abfindung-grenzgaenger-rechner',
+ permitQuiz: 'quiz-bewilligung-b-oder-g',
+ tredicesima: 'dreizehnter-monatslohn-rechner',
+ weeklyDigest: 'woechentlicher-bericht',
+ toolOfWeek: 'werkzeug-der-woche',
+ emailConfirmed: 'willkommen',
+ admin: 'gestione-contenuti-xk9mp2q',
+ chiSiamo: 'ueber-uns',
+ sindacati: 'gewerkschaften-grenzgaenger',
+ guidaCompleta: 'komplettanleitung-grenzgaenger-arbeit-schweiz-2026',
+ costs: 'pendelkosten',
+ salarySurvey: 'gehaltsumfrage',
+ comparatori: 'vergleiche',
+ strumenti: 'werkzeuge',
+ guide: 'grenzgaenger-guide',
+ },
+ fr: {
+ calcolatore: 'calculer-salaire',
+ confronti: 'comparaison-services',
+ fisco: 'impots-et-retraite',
+ guida: 'guide-frontalier',
+ vita: 'vivre-au-tessin',
+ stats: 'statistiques',
+ feedback: 'assistance',
+ privacy: 'confidentialite',
+ terms: 'conditions-utilisation',
+ dataDeletion: 'suppression-donnees',
+ apiStatus: 'etat-api',
+ newsletter: 'newsletter',
+ gamification: 'gamification',
+ morning: 'bonjour-frontalier',
+ forum: 'communaute',
+ contact: 'contactez-nous',
+ partners: 'services-partenaires',
+ consulting: 'consultation',
+ jobBoard: 'trouver-emploi-tessin',
+ profile: 'profil',
+ dashboard: 'tableau-de-bord',
+ whatif: 'scenarios-hypothetiques',
+ payslip: 'simuler-fiche-de-paie',
+ ral: 'comparer-salaire-brut',
+ bonus: 'estimer-bonus',
+ parentalLeave: 'simuler-conge-parental',
+ residency: 'simuler-changement-residence',
+ permitCompare: 'comparer-permis-g-vs-b',
+ exchange: 'taux-change-chf-eur',
+ banks: 'comparer-banques',
+ health: 'comparer-caisses-maladie',
+ mobile: 'comparer-forfaits-mobiles',
+ shopping: 'comparer-prix-courses',
+ costOfLiving: 'cout-de-la-vie',
+ jobs: 'comparer-offres-emploi',
+ renovation: 'calculer-bonus-renovation',
+ taxReturn: 'declaration-revenus',
+ taxReturnItalia: 'declaration-revenus-italie',
+ taxReturnSvizzera: 'declaration-revenus-suisse',
+ calendar: 'echeances-fiscales',
+ holidays: 'jours-feries-tessin',
+ ristorni: 'ristornes-fiscaux',
+ pension: 'calculer-pension',
+ pillar3: 'simuler-troisieme-pilier',
+ quiz: 'quiz-fiscal',
+ taxCredit: 'credit-impot',
+ withholdingRates: 'baremes-impot-a-la-source-tessin-2026',
+ newFrontierTaxSim: 'simulation-impots-nouveaux-frontaliers',
+ firstDay: 'premier-jour-travail',
+ permits: 'permis-de-travail',
+ border: 'temps-attente-douane',
+ unemployment: 'allocations-chomage',
+ carTransfer: 'transferer-voiture-suisse',
+ carCost: 'cout-voiture-pendulaire',
+ municipalities: 'communes-frontiere',
+ borderMap: 'carte-frontiere',
+ livingCH: 'vivre-en-suisse',
+ livingIT: 'vivre-en-italie',
+ companies: 'entreprises-suisse-italienne',
+ schools: 'ecoles-suisse-italienne',
+ nursery: 'comparer-creches',
+ places: 'decouvrir-suisse-italienne',
+ transport: 'transports-frontaliers',
+ livability: 'meilleures-communes-frontiere',
+ jobsObservatory: 'observatoire-emplois-salaires-tessin',
+ salaryCompare: 'comparer-salaires',
+ trafficHistory: 'historique-trafic-frontiere',
+ unemploymentStats: 'chomage-suisse',
+ mortgageComparison: 'comparaison-hypotheques',
+ fuelPrices: 'prix-essence-frontiere',
+ healthPremiums: 'primes-assurance-maladie-communes',
+ salaryQuiz: 'combien-gagneriez-vous-en-suisse',
+ blog: 'articles-frontalier',
 
-    glossario: 'glossaire-frontalier',
-    dialetto: 'dialecte-tessinois',
-    faq: 'faq-frontaliers',
-    sitemap: 'plan-du-site',
-    contracts: 'contrats-travail-suisses',
-    tfrCalculator: 'tfr-indemnite-licenciement-frontalier',
-    permitQuiz: 'quiz-permis-b-ou-g',
-    tredicesima: 'calculateur-treizieme-salaire',
-    weeklyDigest: 'digest-hebdomadaire',
-    toolOfWeek: 'outil-de-la-semaine',
-    emailConfirmed: 'bienvenue',
-    admin: 'gestione-contenuti-xk9mp2q',
-    chiSiamo: 'a-propos',
-    sindacati: 'syndicats-frontaliers',
-    guidaCompleta: 'guide-complet-travail-frontalier-suisse-2026',
-    costs: 'couts-pendulaire',
-    salarySurvey: 'sondage-salaires',
-    comparatori: 'comparateurs',
-    strumenti: 'outils',
-    guide: 'guide-frontaliers',
-  },
+ glossario: 'glossaire-frontalier',
+ dialetto: 'dialecte-tessinois',
+ faq: 'faq-frontaliers',
+ sitemap: 'plan-du-site',
+ contracts: 'contrats-travail-suisses',
+ tfrCalculator: 'tfr-indemnite-licenciement-frontalier',
+ permitQuiz: 'quiz-permis-b-ou-g',
+ tredicesima: 'calculateur-treizieme-salaire',
+ weeklyDigest: 'digest-hebdomadaire',
+ toolOfWeek: 'outil-de-la-semaine',
+ emailConfirmed: 'bienvenue',
+ admin: 'gestione-contenuti-xk9mp2q',
+ chiSiamo: 'a-propos',
+ sindacati: 'syndicats-frontaliers',
+ guidaCompleta: 'guide-complet-travail-frontalier-suisse-2026',
+ costs: 'couts-pendulaire',
+ salarySurvey: 'sondage-salaires',
+ comparatori: 'comparateurs',
+ strumenti: 'outils',
+ guide: 'guide-frontaliers',
+ },
 };
 
 // ── Reverse lookup helpers ───────────────────────────────────
@@ -963,92 +963,92 @@ type SubSlugMap<T extends string> = Record<string, T>;
 type TopLevelSlugMap = Record<string, { tab: ActiveTab; sub?: string }>;
 
 const CALCOLATORE_SUB_TO_SLUG: Record<CalcolatoreSubTab, keyof SlugTable & string> = {
-  calculator: 'calcolatore',
-  whatif: 'whatif',
-  payslip: 'payslip',
-  ral: 'ral',
-  bonus: 'bonus',
-  'parental-leave': 'parentalLeave',
-  residency: 'residency',
-  'salary-quiz': 'salaryQuiz',
+ calculator: 'calcolatore',
+ whatif: 'whatif',
+ payslip: 'payslip',
+ ral: 'ral',
+ bonus: 'bonus',
+ 'parental-leave': 'parentalLeave',
+ residency: 'residency',
+ 'salary-quiz': 'salaryQuiz',
 };
 
 const CONFRONTI_SUB_TO_SLUG: Record<ConfrontiSubTab, keyof SlugTable & string> = {
-  exchange: 'exchange',
-  banks: 'banks',
-  health: 'health',
-  mobile: 'mobile',
-  shopping: 'shopping',
-  'cost-of-living': 'costOfLiving',
-  jobs: 'jobs',
-  renovation: 'renovation',
+ exchange: 'exchange',
+ banks: 'banks',
+ health: 'health',
+ mobile: 'mobile',
+ shopping: 'shopping',
+ 'cost-of-living': 'costOfLiving',
+ jobs: 'jobs',
+ renovation: 'renovation',
 };
 
 const FISCO_SUB_TO_SLUG: Record<FiscoSubTab, keyof SlugTable & string> = {
-  'tax-return': 'taxReturn',
-  calendar: 'calendar',
-  holidays: 'holidays',
-  ristorni: 'ristorni',
-  pension: 'pension',
-  pillar3: 'pillar3',
-  quiz: 'quiz',
-  'tax-credit': 'taxCredit',
-  'withholding-rates': 'withholdingRates',
-  'new-frontier-tax-sim': 'newFrontierTaxSim',
+ 'tax-return': 'taxReturn',
+ calendar: 'calendar',
+ holidays: 'holidays',
+ ristorni: 'ristorni',
+ pension: 'pension',
+ pillar3: 'pillar3',
+ quiz: 'quiz',
+ 'tax-credit': 'taxCredit',
+ 'withholding-rates': 'withholdingRates',
+ 'new-frontier-tax-sim': 'newFrontierTaxSim',
 };
 
 const GUIDA_SUB_TO_SLUG: Record<GuidaSubTab, keyof SlugTable & string> = {
-  'first-day': 'firstDay',
-  permits: 'permits',
-  border: 'border',
-  unemployment: 'unemployment',
-  'car-transfer': 'carTransfer',
-  'car-cost': 'carCost',
-  'permit-compare': 'permitCompare',
-  'border-map': 'borderMap',
+ 'first-day': 'firstDay',
+ permits: 'permits',
+ border: 'border',
+ unemployment: 'unemployment',
+ 'car-transfer': 'carTransfer',
+ 'car-cost': 'carCost',
+ 'permit-compare': 'permitCompare',
+ 'border-map': 'borderMap',
 };
 
 const VITA_SUB_TO_SLUG: Record<VitaSubTab, keyof SlugTable & string> = {
-  'living-ch': 'livingCH',
-  'living-it': 'livingIT',
-  companies: 'companies',
-  schools: 'schools',
-  nursery: 'nursery',
-  places: 'places',
-  transport: 'transport',
-  municipalities: 'municipalities',
+ 'living-ch': 'livingCH',
+ 'living-it': 'livingIT',
+ companies: 'companies',
+ schools: 'schools',
+ nursery: 'nursery',
+ places: 'places',
+ transport: 'transport',
+ municipalities: 'municipalities',
 };
 
 const STATS_KEYS: { key: keyof SlugTable; id: StatsSubTab }[] = [
-  { key: 'stats', id: 'overview' },
-  { key: 'livability', id: 'livability' },
-  { key: 'jobsObservatory', id: 'jobs-observatory' },
-  { key: 'salaryCompare', id: 'salary-compare' },
-  { key: 'trafficHistory', id: 'traffic-history' },
-  { key: 'unemploymentStats', id: 'unemployment' },
-  { key: 'mortgageComparison', id: 'mortgage' },
-  { key: 'fuelPrices', id: 'fuel-prices' },
-  { key: 'healthPremiums', id: 'health-premiums' }
+ { key: 'stats', id: 'overview' },
+ { key: 'livability', id: 'livability' },
+ { key: 'jobsObservatory', id: 'jobs-observatory' },
+ { key: 'salaryCompare', id: 'salary-compare' },
+ { key: 'trafficHistory', id: 'traffic-history' },
+ { key: 'unemploymentStats', id: 'unemployment' },
+ { key: 'mortgageComparison', id: 'mortgage' },
+ { key: 'fuelPrices', id: 'fuel-prices' },
+ { key: 'healthPremiums', id: 'health-premiums' }
 ];
 const LEGACY_STATS_KEYS: { key: keyof SlugTable; id: StatsSubTab }[] = [
-  { key: 'salarySurvey', id: 'salary-compare' }
+ { key: 'salarySurvey', id: 'salary-compare' }
 ];
 
 function buildSubReverse<T extends string>(table: SlugTable, mapping: Record<T, keyof SlugTable & string>): SubSlugMap<T> {
-  const map: SubSlugMap<T> = {};
-  for (const [subTab, slugKey] of Object.entries(mapping) as [T, keyof SlugTable & string][]) {
-    map[table[slugKey]] = subTab;
-  }
-  return map;
+ const map: SubSlugMap<T> = {};
+ for (const [subTab, slugKey] of Object.entries(mapping) as [T, keyof SlugTable & string][]) {
+ map[table[slugKey]] = subTab;
+ }
+ return map;
 }
 
 function buildLocaleReverses<T extends string>(mapping: Record<T, keyof SlugTable & string>): Record<Locale, SubSlugMap<T>> {
-  return {
-    it: buildSubReverse(SLUG_TABLES.it, mapping),
-    en: buildSubReverse(SLUG_TABLES.en, mapping),
-    de: buildSubReverse(SLUG_TABLES.de, mapping),
-    fr: buildSubReverse(SLUG_TABLES.fr, mapping),
-  };
+ return {
+ it: buildSubReverse(SLUG_TABLES.it, mapping),
+ en: buildSubReverse(SLUG_TABLES.en, mapping),
+ de: buildSubReverse(SLUG_TABLES.de, mapping),
+ fr: buildSubReverse(SLUG_TABLES.fr, mapping),
+ };
 }
 
 // ── Job slug cross-locale translation ──
@@ -1058,66 +1058,66 @@ let _jobSlugMapPromise: Promise<void> | null = null;
 
 /** Register the job slug map so the router can translate job slugs across locales. */
 export function registerJobSlugMap(jobs: Array<{ slug?: string; slugByLocale?: Partial<Record<string, string>>; previousSlugs?: string[]; previousSlugsByLocale?: Partial<Record<string, string[]>> }>): void {
-  const map = new Map<string, Record<string, string>>();
-  for (const job of jobs) {
-    const byLocale = job.slugByLocale;
-    if (!byLocale) continue;
-    const record: Record<string, string> = {};
-    for (const [loc, s] of Object.entries(byLocale)) {
-      if (s) record[loc] = s;
-    }
-    // Also include the default slug
-    if (job.slug) record['_default'] = job.slug;
-    // Index by every locale slug + default slug
-    for (const s of Object.values(record)) {
-      if (s) map.set(s, record);
-    }
-    // Index legacy slug aliases so old URLs resolve to current job
-    if (Array.isArray(job.previousSlugs)) {
-      for (const alias of job.previousSlugs) {
-        if (alias && !map.has(alias)) map.set(alias, record);
-      }
-    }
-    // Index locale-aware previous slugs
-    if (job.previousSlugsByLocale && typeof job.previousSlugsByLocale === 'object') {
-      for (const arr of Object.values(job.previousSlugsByLocale)) {
-        if (Array.isArray(arr)) {
-          for (const alias of arr) {
-            if (alias && !map.has(alias)) map.set(alias, record);
-          }
-        }
-      }
-    }
-  }
-  _jobSlugMap = map;
+ const map = new Map<string, Record<string, string>>();
+ for (const job of jobs) {
+ const byLocale = job.slugByLocale;
+ if (!byLocale) continue;
+ const record: Record<string, string> = {};
+ for (const [loc, s] of Object.entries(byLocale)) {
+ if (s) record[loc] = s;
+ }
+ // Also include the default slug
+ if (job.slug) record['_default'] = job.slug;
+ // Index by every locale slug + default slug
+ for (const s of Object.values(record)) {
+ if (s) map.set(s, record);
+ }
+ // Index legacy slug aliases so old URLs resolve to current job
+ if (Array.isArray(job.previousSlugs)) {
+ for (const alias of job.previousSlugs) {
+ if (alias && !map.has(alias)) map.set(alias, record);
+ }
+ }
+ // Index locale-aware previous slugs
+ if (job.previousSlugsByLocale && typeof job.previousSlugsByLocale === 'object') {
+ for (const arr of Object.values(job.previousSlugsByLocale)) {
+ if (Array.isArray(arr)) {
+ for (const alias of arr) {
+ if (alias && !map.has(alias)) map.set(alias, record);
+ }
+ }
+ }
+ }
+ }
+ _jobSlugMap = map;
 
-  // Fix stale URL: if updatePathForLocale ran before the map was ready,
-  // the job slug in the browser URL may not have been translated.
-  // Re-translate it now that the map is available, and update history.state.route
-  // so back/forward navigation restores the correct translated slug.
-  if (typeof window !== 'undefined' && typeof history !== 'undefined') {
-    const currentPath = window.location.pathname;
-    const { route } = parsePath(currentPath);
-    if (route.activeTab === 'job-board' && route.jobSlug) {
-      const locale = getLocale();
-      const translated = translateJobSlug(route.jobSlug, locale);
-      if (translated && translated !== route.jobSlug) {
-        const correctedRoute = { ...route, jobSlug: translated };
-        const newPath = buildPath(correctedRoute, locale);
-        if (currentPath !== newPath) {
-          history.replaceState({ route: correctedRoute }, '', newPath);
-        }
-      }
-    }
-  }
+ // Fix stale URL: if updatePathForLocale ran before the map was ready,
+ // the job slug in the browser URL may not have been translated.
+ // Re-translate it now that the map is available, and update history.state.route
+ // so back/forward navigation restores the correct translated slug.
+ if (typeof window !== 'undefined' && typeof history !== 'undefined') {
+ const currentPath = window.location.pathname;
+ const { route } = parsePath(currentPath);
+ if (route.activeTab === 'job-board' && route.jobSlug) {
+ const locale = getLocale();
+ const translated = translateJobSlug(route.jobSlug, locale);
+ if (translated && translated !== route.jobSlug) {
+ const correctedRoute = { ...route, jobSlug: translated };
+ const newPath = buildPath(correctedRoute, locale);
+ if (currentPath !== newPath) {
+ history.replaceState({ route: correctedRoute }, '', newPath);
+ }
+ }
+ }
+ }
 }
 
 /** Translate a job slug to the given locale (returns undefined if unknown). */
 function translateJobSlug(slug: string, targetLocale: string): string | undefined {
-  if (!_jobSlugMap) return undefined;
-  const record = _jobSlugMap.get(slug);
-  if (!record) return undefined;
-  return record[targetLocale] || record['_default'];
+ if (!_jobSlugMap) return undefined;
+ const record = _jobSlugMap.get(slug);
+ if (!record) return undefined;
+ return record[targetLocale] || record['_default'];
 }
 
 /**
@@ -1126,33 +1126,33 @@ function translateJobSlug(slug: string, targetLocale: string): string | undefine
  * Used by App.tsx to sync jobSlug state when locale switches.
  */
 export function getLocalizedJobSlug(slug: string, targetLocale: string): string | undefined {
-  return translateJobSlug(slug, targetLocale);
+ return translateJobSlug(slug, targetLocale);
 }
 
 export async function ensureJobSlugMapLoaded(): Promise<void> {
-  if (_jobSlugMap) return;
-  if (!_jobSlugMapPromise) {
-    _jobSlugMapPromise = fetch('/data/jobs-slug-map.json')
-      .then(r => r.ok ? r.json() : Promise.reject(r.status))
-      .then((data: Array<{ slug?: string; slugByLocale?: Partial<Record<string, string>>; previousSlugs?: string[]; previousSlugsByLocale?: Partial<Record<string, string[]>> }>) => {
-        registerJobSlugMap(data);
-      })
-      .finally(() => {
-        _jobSlugMapPromise = null;
-      });
-  }
-  await _jobSlugMapPromise;
+ if (_jobSlugMap) return;
+ if (!_jobSlugMapPromise) {
+ _jobSlugMapPromise = fetch('/data/jobs-slug-map.json')
+ .then(r => r.ok ? r.json() : Promise.reject(r.status))
+ .then((data: Array<{ slug?: string; slugByLocale?: Partial<Record<string, string>>; previousSlugs?: string[]; previousSlugsByLocale?: Partial<Record<string, string[]>> }>) => {
+ registerJobSlugMap(data);
+ })
+ .finally(() => {
+ _jobSlugMapPromise = null;
+ });
+ }
+ await _jobSlugMapPromise;
 }
 
 // Defer job slug map loading — only preload when user navigates to job-board tab.
 // The JobBoard component will trigger loading via registerJobSlugMap().
 // This saves ~800ms of main-thread blocking on initial page load.
 if (typeof window !== 'undefined') {
-  // Use requestIdleCallback (or setTimeout fallback) so it doesn't block LCP
-  const deferLoad = typeof requestIdleCallback === 'function' ? requestIdleCallback : (cb: () => void) => setTimeout(cb, 4000);
-  deferLoad(() => {
-    ensureJobSlugMapLoaded().catch(() => { /* non-critical — JobBoard will register later */ });
-  });
+ // Use requestIdleCallback (or setTimeout fallback) so it doesn't block LCP
+ const deferLoad = typeof requestIdleCallback === 'function' ? requestIdleCallback : (cb: () => void) => setTimeout(cb, 4000);
+ deferLoad(() => {
+ ensureJobSlugMapLoaded().catch(() => { /* non-critical — JobBoard will register later */ });
+ });
 }
 
 // ── Lazy-loaded blog data (code-split into routerBlogData.ts) ──
@@ -1162,19 +1162,19 @@ let _blogDataPromise: Promise<void> | null = null;
 
 /** Trigger lazy load of blog slug data. Safe to call multiple times. */
 export function preloadBlogData(): Promise<void> {
-  if (_blogSlugs) return Promise.resolve();
-  if (!_blogDataPromise) {
-    _blogDataPromise = import('./routerBlogData').then(m => {
-      _blogSlugs = m.BLOG_SLUGS;
-      _reverseBlog = m.REVERSE_BLOG;
-    });
-  }
-  return _blogDataPromise;
+ if (_blogSlugs) return Promise.resolve();
+ if (!_blogDataPromise) {
+ _blogDataPromise = import('./routerBlogData').then(m => {
+ _blogSlugs = m.BLOG_SLUGS;
+ _reverseBlog = m.REVERSE_BLOG;
+ });
+ }
+ return _blogDataPromise;
 }
 
 /** Resolve a blog slug to an article ID (returns undefined if data not loaded or slug unknown). */
 export function resolveBlogSlug(slug: string, locale: Locale): BlogArticleId | undefined {
-  return _reverseBlog?.[locale]?.[slug];
+ return _reverseBlog?.[locale]?.[slug];
 }
 
 const REVERSE_CALCOLATORE = buildLocaleReverses(CALCOLATORE_SUB_TO_SLUG);
@@ -1237,959 +1237,959 @@ REVERSE_VITA.fr['ecoles-au-tessin'] = 'schools';
 REVERSE_VITA.fr['que-voir-tessin'] = 'places';
 
 function buildStatsReverse(table: SlugTable): SubSlugMap<StatsSubTab> {
-  const map: SubSlugMap<StatsSubTab> = {};
-  for (const { key, id } of STATS_KEYS) {
-    if (id !== 'overview') map[table[key]] = id;
-  }
-  for (const { key, id } of LEGACY_STATS_KEYS) {
-    map[table[key]] = id;
-  }
-  return map;
+ const map: SubSlugMap<StatsSubTab> = {};
+ for (const { key, id } of STATS_KEYS) {
+ if (id !== 'overview') map[table[key]] = id;
+ }
+ for (const { key, id } of LEGACY_STATS_KEYS) {
+ map[table[key]] = id;
+ }
+ return map;
 }
 
 const REVERSE_STATS: Record<Locale, SubSlugMap<StatsSubTab>> = {
-  it: buildStatsReverse(SLUG_TABLES.it),
-  en: buildStatsReverse(SLUG_TABLES.en),
-  de: buildStatsReverse(SLUG_TABLES.de),
-  fr: buildStatsReverse(SLUG_TABLES.fr),
+ it: buildStatsReverse(SLUG_TABLES.it),
+ en: buildStatsReverse(SLUG_TABLES.en),
+ de: buildStatsReverse(SLUG_TABLES.de),
+ fr: buildStatsReverse(SLUG_TABLES.fr),
 };
 
 // ── Legacy URL resolution ────────────────────────────────────
 
 interface LegacyRedirect {
-  tab: ActiveTab;
-  subField: string;
-  subValue: string;
+ tab: ActiveTab;
+ subField: string;
+ subValue: string;
 }
 
 // ── Legacy slug constants (never change these) ──────────────
 // These are old slugs from before the SEO-friendly slug rewrite.
 // They're used to resolve bookmarked/indexed old URLs.
 const LEGACY_SLUGS: Record<Locale, {
-  comparatori: string;
-  confronti: string;
-  guide: string;
-  pension: string;
-  pillar3: string;
-  strumenti: string;
-  whatif: string;
-  payslip: string;
-  costs: string;
-  carCost: string;
-  permitCompare: string;
-  livability: string;
-  salaryCompare: string;
-  // Old sub-slugs under /comparatori or /guida-frontalieri
-  subSlugs: Record<string, { tab: ActiveTab; subField: string; subValue: string }>;
+ comparatori: string;
+ confronti: string;
+ guide: string;
+ pension: string;
+ pillar3: string;
+ strumenti: string;
+ whatif: string;
+ payslip: string;
+ costs: string;
+ carCost: string;
+ permitCompare: string;
+ livability: string;
+ salaryCompare: string;
+ // Old sub-slugs under /comparatori or /guida-frontalieri
+ subSlugs: Record<string, { tab: ActiveTab; subField: string; subValue: string }>;
 }> = {
-  it: {
-    comparatori: 'comparatori',
-    confronti: 'confronta-servizi',
-    guide: 'guida-frontalieri',
-    pension: 'pianificatore-pensione',
-    pillar3: 'terzo-pilastro',
-    strumenti: 'strumenti',
-    whatif: 'simulatore-what-if',
-    payslip: 'busta-paga',
-    costs: 'costi-pendolarismo',
-    carCost: 'costo-auto',
-    permitCompare: 'permesso-g-vs-b',
-    livability: 'vivibilita-comuni',
-    salaryCompare: 'confronto-stipendi',
-    subSlugs: {
-      'cambio-valuta': { tab: 'confronti', subField: 'confrontiSubTab', subValue: 'exchange' },
-      'operatori-mobili': { tab: 'confronti', subField: 'confrontiSubTab', subValue: 'mobile' },
-      'banche': { tab: 'confronti', subField: 'confrontiSubTab', subValue: 'banks' },
-      'assicurazione-sanitaria': { tab: 'confronti', subField: 'confrontiSubTab', subValue: 'health' },
-      'assicurazioni-sanitarie': { tab: 'confronti', subField: 'confrontiSubTab', subValue: 'health' },
-      'trasporti': { tab: 'guida', subField: 'guidaSubTab', subValue: 'car-cost' },
-      'offerte-lavoro': { tab: 'confronti', subField: 'confrontiSubTab', subValue: 'jobs' },
-      'spesa-transfrontaliera': { tab: 'confronti', subField: 'confrontiSubTab', subValue: 'shopping' },
-      'costo-vita': { tab: 'confronti', subField: 'confrontiSubTab', subValue: 'cost-of-living' },
-      'costo-della-vita': { tab: 'confronti', subField: 'confrontiSubTab', subValue: 'cost-of-living' },
-      'asili-nido': { tab: 'vita', subField: 'vitaSubTab', subValue: 'nursery' },
-      'traffico-dogane': { tab: 'guida', subField: 'guidaSubTab', subValue: 'border' },
-      'traffico-valichi': { tab: 'guida', subField: 'guidaSubTab', subValue: 'border' },
-      'confronto-ral': { tab: 'calculator', subField: 'calcolatoreSubTab', subValue: 'ral' },
-      'congedo-genitoriale': { tab: 'calculator', subField: 'calcolatoreSubTab', subValue: 'parental-leave' },
-      'mappa-comuni': { tab: 'guida', subField: 'guidaSubTab', subValue: 'border-map' },
-      'cambio-residenza': { tab: 'calculator', subField: 'calcolatoreSubTab', subValue: 'residency' },
-      'bonus-ristrutturazione': { tab: 'confronti', subField: 'confrontiSubTab', subValue: 'renovation' },
-      'calcolo-bonus': { tab: 'calculator', subField: 'calcolatoreSubTab', subValue: 'bonus' },
-      'sondaggio-stipendi': { tab: 'stats', subField: 'statsSubTab', subValue: 'salary-compare' },
-      // Old guide sub-slugs
-      'comuni-frontiera': { tab: 'vita', subField: 'vitaSubTab', subValue: 'municipalities' },
-      'valichi-frontiera': { tab: 'guida', subField: 'guidaSubTab', subValue: 'border' },
-      'vivere-in-svizzera': { tab: 'vita', subField: 'vitaSubTab', subValue: 'living-ch' },
-      'vivere-in-italia': { tab: 'vita', subField: 'vitaSubTab', subValue: 'living-it' },
-      'calendario-fiscale': { tab: 'fisco', subField: 'fiscoSubTab', subValue: 'calendar' },
-      'festivita-ticino': { tab: 'fisco', subField: 'fiscoSubTab', subValue: 'holidays' },
-      'permessi-lavoro': { tab: 'guida', subField: 'guidaSubTab', subValue: 'permits' },
-      'aziende-ticino': { tab: 'vita', subField: 'vitaSubTab', subValue: 'companies' },
-      'posti-da-visitare': { tab: 'vita', subField: 'vitaSubTab', subValue: 'places' },
-      'scuole-ticino': { tab: 'vita', subField: 'vitaSubTab', subValue: 'schools' },
-      'disoccupazione': { tab: 'guida', subField: 'guidaSubTab', subValue: 'unemployment' },
-      'primo-giorno': { tab: 'guida', subField: 'guidaSubTab', subValue: 'first-day' },
-      'dichiarazione-redditi': { tab: 'fisco', subField: 'fiscoSubTab', subValue: 'tax-return' },
-      'trasferimento-auto': { tab: 'guida', subField: 'guidaSubTab', subValue: 'car-transfer' },
-      'ristorni-fiscali': { tab: 'fisco', subField: 'fiscoSubTab', subValue: 'ristorni' },
-    },
-  },
-  en: {
-    comparatori: 'comparators',
-    confronti: 'compare-services',
-    guide: 'frontier-guide',
-    pension: 'pension-planner',
-    pillar3: 'third-pillar',
-    strumenti: 'tools',
-    whatif: 'what-if-simulator',
-    payslip: 'payslip-simulator',
-    costs: 'commuting-costs',
-    carCost: 'car-cost',
-    permitCompare: 'permit-g-vs-b',
-    livability: 'livability-index',
-    salaryCompare: 'salary-comparison',
-    subSlugs: {
-      'currency-exchange': { tab: 'confronti', subField: 'confrontiSubTab', subValue: 'exchange' },
-      'mobile-operators': { tab: 'confronti', subField: 'confrontiSubTab', subValue: 'mobile' },
-      'banks': { tab: 'confronti', subField: 'confrontiSubTab', subValue: 'banks' },
-      'health-insurance': { tab: 'confronti', subField: 'confrontiSubTab', subValue: 'health' },
-      'transport': { tab: 'guida', subField: 'guidaSubTab', subValue: 'car-cost' },
-      'job-offers': { tab: 'confronti', subField: 'confrontiSubTab', subValue: 'jobs' },
-      'cross-border-shopping': { tab: 'confronti', subField: 'confrontiSubTab', subValue: 'shopping' },
-      'cost-of-living': { tab: 'confronti', subField: 'confrontiSubTab', subValue: 'cost-of-living' },
-      'border-traffic': { tab: 'guida', subField: 'guidaSubTab', subValue: 'border' },
-    },
-  },
-  de: {
-    comparatori: 'vergleiche',
-    confronti: 'dienste-vergleichen',
-    guide: 'grenzgaenger-ratgeber',
-    pension: 'rentenplaner',
-    pillar3: 'dritte-saeule',
-    strumenti: 'werkzeuge',
-    whatif: 'was-waere-wenn',
-    payslip: 'lohnabrechnung',
-    costs: 'pendelkosten',
-    carCost: 'autokosten',
-    permitCompare: 'bewilligung-g-vs-b',
-    livability: 'lebensqualitaet-index',
-    salaryCompare: 'gehaltsvergleich-branche',
-    subSlugs: {
-      'grenzverkehr': { tab: 'guida', subField: 'guidaSubTab', subValue: 'border' },
-    },
-  },
-  fr: {
-    comparatori: 'comparateurs',
-    confronti: 'comparer-services',
-    guide: 'guide-frontalier',
-    pension: 'planificateur-retraite',
-    pillar3: 'troisieme-pilier',
-    strumenti: 'outils',
-    whatif: 'simulateur-hypothetique',
-    payslip: 'fiche-de-paie',
-    costs: 'couts-pendulaire',
-    carCost: 'cout-voiture',
-    permitCompare: 'permis-g-vs-b',
-    livability: 'indice-habitabilite',
-    salaryCompare: 'comparaison-salaires',
-    subSlugs: {
-      'trafic-frontiere': { tab: 'guida', subField: 'guidaSubTab', subValue: 'border' },
-    },
-  },
+ it: {
+ comparatori: 'comparatori',
+ confronti: 'confronta-servizi',
+ guide: 'guida-frontalieri',
+ pension: 'pianificatore-pensione',
+ pillar3: 'terzo-pilastro',
+ strumenti: 'strumenti',
+ whatif: 'simulatore-what-if',
+ payslip: 'busta-paga',
+ costs: 'costi-pendolarismo',
+ carCost: 'costo-auto',
+ permitCompare: 'permesso-g-vs-b',
+ livability: 'vivibilita-comuni',
+ salaryCompare: 'confronto-stipendi',
+ subSlugs: {
+ 'cambio-valuta': { tab: 'confronti', subField: 'confrontiSubTab', subValue: 'exchange' },
+ 'operatori-mobili': { tab: 'confronti', subField: 'confrontiSubTab', subValue: 'mobile' },
+ 'banche': { tab: 'confronti', subField: 'confrontiSubTab', subValue: 'banks' },
+ 'assicurazione-sanitaria': { tab: 'confronti', subField: 'confrontiSubTab', subValue: 'health' },
+ 'assicurazioni-sanitarie': { tab: 'confronti', subField: 'confrontiSubTab', subValue: 'health' },
+ 'trasporti': { tab: 'guida', subField: 'guidaSubTab', subValue: 'car-cost' },
+ 'offerte-lavoro': { tab: 'confronti', subField: 'confrontiSubTab', subValue: 'jobs' },
+ 'spesa-transfrontaliera': { tab: 'confronti', subField: 'confrontiSubTab', subValue: 'shopping' },
+ 'costo-vita': { tab: 'confronti', subField: 'confrontiSubTab', subValue: 'cost-of-living' },
+ 'costo-della-vita': { tab: 'confronti', subField: 'confrontiSubTab', subValue: 'cost-of-living' },
+ 'asili-nido': { tab: 'vita', subField: 'vitaSubTab', subValue: 'nursery' },
+ 'traffico-dogane': { tab: 'guida', subField: 'guidaSubTab', subValue: 'border' },
+ 'traffico-valichi': { tab: 'guida', subField: 'guidaSubTab', subValue: 'border' },
+ 'confronto-ral': { tab: 'calculator', subField: 'calcolatoreSubTab', subValue: 'ral' },
+ 'congedo-genitoriale': { tab: 'calculator', subField: 'calcolatoreSubTab', subValue: 'parental-leave' },
+ 'mappa-comuni': { tab: 'guida', subField: 'guidaSubTab', subValue: 'border-map' },
+ 'cambio-residenza': { tab: 'calculator', subField: 'calcolatoreSubTab', subValue: 'residency' },
+ 'bonus-ristrutturazione': { tab: 'confronti', subField: 'confrontiSubTab', subValue: 'renovation' },
+ 'calcolo-bonus': { tab: 'calculator', subField: 'calcolatoreSubTab', subValue: 'bonus' },
+ 'sondaggio-stipendi': { tab: 'stats', subField: 'statsSubTab', subValue: 'salary-compare' },
+ // Old guide sub-slugs
+ 'comuni-frontiera': { tab: 'vita', subField: 'vitaSubTab', subValue: 'municipalities' },
+ 'valichi-frontiera': { tab: 'guida', subField: 'guidaSubTab', subValue: 'border' },
+ 'vivere-in-svizzera': { tab: 'vita', subField: 'vitaSubTab', subValue: 'living-ch' },
+ 'vivere-in-italia': { tab: 'vita', subField: 'vitaSubTab', subValue: 'living-it' },
+ 'calendario-fiscale': { tab: 'fisco', subField: 'fiscoSubTab', subValue: 'calendar' },
+ 'festivita-ticino': { tab: 'fisco', subField: 'fiscoSubTab', subValue: 'holidays' },
+ 'permessi-lavoro': { tab: 'guida', subField: 'guidaSubTab', subValue: 'permits' },
+ 'aziende-ticino': { tab: 'vita', subField: 'vitaSubTab', subValue: 'companies' },
+ 'posti-da-visitare': { tab: 'vita', subField: 'vitaSubTab', subValue: 'places' },
+ 'scuole-ticino': { tab: 'vita', subField: 'vitaSubTab', subValue: 'schools' },
+ 'disoccupazione': { tab: 'guida', subField: 'guidaSubTab', subValue: 'unemployment' },
+ 'primo-giorno': { tab: 'guida', subField: 'guidaSubTab', subValue: 'first-day' },
+ 'dichiarazione-redditi': { tab: 'fisco', subField: 'fiscoSubTab', subValue: 'tax-return' },
+ 'trasferimento-auto': { tab: 'guida', subField: 'guidaSubTab', subValue: 'car-transfer' },
+ 'ristorni-fiscali': { tab: 'fisco', subField: 'fiscoSubTab', subValue: 'ristorni' },
+ },
+ },
+ en: {
+ comparatori: 'comparators',
+ confronti: 'compare-services',
+ guide: 'frontier-guide',
+ pension: 'pension-planner',
+ pillar3: 'third-pillar',
+ strumenti: 'tools',
+ whatif: 'what-if-simulator',
+ payslip: 'payslip-simulator',
+ costs: 'commuting-costs',
+ carCost: 'car-cost',
+ permitCompare: 'permit-g-vs-b',
+ livability: 'livability-index',
+ salaryCompare: 'salary-comparison',
+ subSlugs: {
+ 'currency-exchange': { tab: 'confronti', subField: 'confrontiSubTab', subValue: 'exchange' },
+ 'mobile-operators': { tab: 'confronti', subField: 'confrontiSubTab', subValue: 'mobile' },
+ 'banks': { tab: 'confronti', subField: 'confrontiSubTab', subValue: 'banks' },
+ 'health-insurance': { tab: 'confronti', subField: 'confrontiSubTab', subValue: 'health' },
+ 'transport': { tab: 'guida', subField: 'guidaSubTab', subValue: 'car-cost' },
+ 'job-offers': { tab: 'confronti', subField: 'confrontiSubTab', subValue: 'jobs' },
+ 'cross-border-shopping': { tab: 'confronti', subField: 'confrontiSubTab', subValue: 'shopping' },
+ 'cost-of-living': { tab: 'confronti', subField: 'confrontiSubTab', subValue: 'cost-of-living' },
+ 'border-traffic': { tab: 'guida', subField: 'guidaSubTab', subValue: 'border' },
+ },
+ },
+ de: {
+ comparatori: 'vergleiche',
+ confronti: 'dienste-vergleichen',
+ guide: 'grenzgaenger-ratgeber',
+ pension: 'rentenplaner',
+ pillar3: 'dritte-saeule',
+ strumenti: 'werkzeuge',
+ whatif: 'was-waere-wenn',
+ payslip: 'lohnabrechnung',
+ costs: 'pendelkosten',
+ carCost: 'autokosten',
+ permitCompare: 'bewilligung-g-vs-b',
+ livability: 'lebensqualitaet-index',
+ salaryCompare: 'gehaltsvergleich-branche',
+ subSlugs: {
+ 'grenzverkehr': { tab: 'guida', subField: 'guidaSubTab', subValue: 'border' },
+ },
+ },
+ fr: {
+ comparatori: 'comparateurs',
+ confronti: 'comparer-services',
+ guide: 'guide-frontalier',
+ pension: 'planificateur-retraite',
+ pillar3: 'troisieme-pilier',
+ strumenti: 'outils',
+ whatif: 'simulateur-hypothetique',
+ payslip: 'fiche-de-paie',
+ costs: 'couts-pendulaire',
+ carCost: 'cout-voiture',
+ permitCompare: 'permis-g-vs-b',
+ livability: 'indice-habitabilite',
+ salaryCompare: 'comparaison-salaires',
+ subSlugs: {
+ 'trafic-frontiere': { tab: 'guida', subField: 'guidaSubTab', subValue: 'border' },
+ },
+ },
 };
 
 function buildTopLevelReverse(table: SlugTable, locale: Locale): TopLevelSlugMap {
-  const legacy = LEGACY_SLUGS[locale];
-  const map: TopLevelSlugMap = {
-    [table.calcolatore]: { tab: 'calculator' },
-    [table.confronti]: { tab: 'confronti' },
-    [table.fisco]: { tab: 'fisco' },
-    [table.guida]: { tab: 'guida' },
-    [table.vita]: { tab: 'vita' },
-    [table.stats]: { tab: 'stats' },
-    [table.feedback]: { tab: 'feedback' },
-    [table.privacy]: { tab: 'privacy' },
-    [table.terms]: { tab: 'terms' },
-    [table.chiSiamo]: { tab: 'chi-siamo' },
-    [table.dataDeletion]: { tab: 'data-deletion' },
-    [table.apiStatus]: { tab: 'api-status' },
-    [table.newsletter]: { tab: 'feedback' },
-    [table.gamification]: { tab: 'gamification' },
-    [table.dashboard]: { tab: 'profile' },
-    [table.forum]: { tab: 'forum' },
-    [table.contact]: { tab: 'contact' },
-    [table.partners]: { tab: 'partners' },
-    [table.consulting]: { tab: 'consulting' },
-    [table.jobBoard]: { tab: 'job-board' },
-    [table.profile]: { tab: 'profile' },
-    [table.morning]: { tab: 'morning' },
-    [table.blog]: { tab: 'blog' },
-    [table.glossario]: { tab: 'glossario' },
-    [table.dialetto]: { tab: 'dialetto' },
-    [table.faq]: { tab: 'faq' },
-    [table.sitemap]: { tab: 'sitemap' },
-    [table.contracts]: { tab: 'contracts' },
-    [table.tfrCalculator]: { tab: 'tfr-calculator' },
-    [table.permitQuiz]: { tab: 'permit-quiz' },
-    [table.tredicesima]: { tab: 'tredicesima' },
-    [table.weeklyDigest]: { tab: 'weekly-digest' },
-    [table.toolOfWeek]: { tab: 'tool-of-week' },
-    [table.emailConfirmed]: { tab: 'email-confirmed' },
-    [table.admin]: { tab: 'admin' },
-    [table.sindacati]: { tab: 'sindacati' },
-    [table.whatif]: { tab: 'calculator', sub: 'whatif' },
-    [table.payslip]: { tab: 'calculator', sub: 'payslip' },
-  };
-  // Legacy top-level slugs — only add if not already a key
-  if (!map[legacy.comparatori]) map[legacy.comparatori] = { tab: 'confronti' };
-  if (!map[legacy.confronti]) map[legacy.confronti] = { tab: 'confronti' };
-  if (!map[legacy.strumenti]) map[legacy.strumenti] = { tab: 'guida' };
-  if (!map[legacy.guide]) map[legacy.guide] = { tab: 'guida' };
-  if (!map[legacy.pension]) map[legacy.pension] = { tab: 'fisco', sub: 'pension' };
-  if (!map[legacy.whatif]) map[legacy.whatif] = { tab: 'calculator', sub: 'whatif' };
-  if (!map[legacy.payslip]) map[legacy.payslip] = { tab: 'calculator', sub: 'payslip' };
-  // Also add table-level legacy entries if different
-  if (!map[table.comparatori]) map[table.comparatori] = { tab: 'confronti' };
-  if (!map[table.strumenti]) map[table.strumenti] = { tab: 'guida' };
-  if (!map[table.guide]) map[table.guide] = { tab: 'guida' };
-  if (!map[table.pension]) map[table.pension] = { tab: 'fisco', sub: 'pension' };
-  // Hardcoded legacy: IT once used bare 'confronti' as a parent slug
-  if (locale === 'it' && !map['confronti']) map['confronti'] = { tab: 'confronti' };
-  // GA4/bookmark legacy: bare English path names from old routing
-  if (!map['calculator']) map['calculator'] = { tab: 'calculator' };
-  if (!map['stats']) map['stats'] = { tab: 'stats' };
-  if (!map['guide']) map['guide'] = { tab: 'guida' };
-  return map;
+ const legacy = LEGACY_SLUGS[locale];
+ const map: TopLevelSlugMap = {
+ [table.calcolatore]: { tab: 'calculator' },
+ [table.confronti]: { tab: 'confronti' },
+ [table.fisco]: { tab: 'fisco' },
+ [table.guida]: { tab: 'guida' },
+ [table.vita]: { tab: 'vita' },
+ [table.stats]: { tab: 'stats' },
+ [table.feedback]: { tab: 'feedback' },
+ [table.privacy]: { tab: 'privacy' },
+ [table.terms]: { tab: 'terms' },
+ [table.chiSiamo]: { tab: 'chi-siamo' },
+ [table.dataDeletion]: { tab: 'data-deletion' },
+ [table.apiStatus]: { tab: 'api-status' },
+ [table.newsletter]: { tab: 'feedback' },
+ [table.gamification]: { tab: 'gamification' },
+ [table.dashboard]: { tab: 'profile' },
+ [table.forum]: { tab: 'forum' },
+ [table.contact]: { tab: 'contact' },
+ [table.partners]: { tab: 'partners' },
+ [table.consulting]: { tab: 'consulting' },
+ [table.jobBoard]: { tab: 'job-board' },
+ [table.profile]: { tab: 'profile' },
+ [table.morning]: { tab: 'morning' },
+ [table.blog]: { tab: 'blog' },
+ [table.glossario]: { tab: 'glossario' },
+ [table.dialetto]: { tab: 'dialetto' },
+ [table.faq]: { tab: 'faq' },
+ [table.sitemap]: { tab: 'sitemap' },
+ [table.contracts]: { tab: 'contracts' },
+ [table.tfrCalculator]: { tab: 'tfr-calculator' },
+ [table.permitQuiz]: { tab: 'permit-quiz' },
+ [table.tredicesima]: { tab: 'tredicesima' },
+ [table.weeklyDigest]: { tab: 'weekly-digest' },
+ [table.toolOfWeek]: { tab: 'tool-of-week' },
+ [table.emailConfirmed]: { tab: 'email-confirmed' },
+ [table.admin]: { tab: 'admin' },
+ [table.sindacati]: { tab: 'sindacati' },
+ [table.whatif]: { tab: 'calculator', sub: 'whatif' },
+ [table.payslip]: { tab: 'calculator', sub: 'payslip' },
+ };
+ // Legacy top-level slugs — only add if not already a key
+ if (!map[legacy.comparatori]) map[legacy.comparatori] = { tab: 'confronti' };
+ if (!map[legacy.confronti]) map[legacy.confronti] = { tab: 'confronti' };
+ if (!map[legacy.strumenti]) map[legacy.strumenti] = { tab: 'guida' };
+ if (!map[legacy.guide]) map[legacy.guide] = { tab: 'guida' };
+ if (!map[legacy.pension]) map[legacy.pension] = { tab: 'fisco', sub: 'pension' };
+ if (!map[legacy.whatif]) map[legacy.whatif] = { tab: 'calculator', sub: 'whatif' };
+ if (!map[legacy.payslip]) map[legacy.payslip] = { tab: 'calculator', sub: 'payslip' };
+ // Also add table-level legacy entries if different
+ if (!map[table.comparatori]) map[table.comparatori] = { tab: 'confronti' };
+ if (!map[table.strumenti]) map[table.strumenti] = { tab: 'guida' };
+ if (!map[table.guide]) map[table.guide] = { tab: 'guida' };
+ if (!map[table.pension]) map[table.pension] = { tab: 'fisco', sub: 'pension' };
+ // Hardcoded legacy: IT once used bare 'confronti' as a parent slug
+ if (locale === 'it' && !map['confronti']) map['confronti'] = { tab: 'confronti' };
+ // GA4/bookmark legacy: bare English path names from old routing
+ if (!map['calculator']) map['calculator'] = { tab: 'calculator' };
+ if (!map['stats']) map['stats'] = { tab: 'stats' };
+ if (!map['guide']) map['guide'] = { tab: 'guida' };
+ return map;
 }
 
 const REVERSE_TOP: Record<Locale, TopLevelSlugMap> = {
-  it: buildTopLevelReverse(SLUG_TABLES.it, 'it'),
-  en: buildTopLevelReverse(SLUG_TABLES.en, 'en'),
-  de: buildTopLevelReverse(SLUG_TABLES.de, 'de'),
-  fr: buildTopLevelReverse(SLUG_TABLES.fr, 'fr'),
+ it: buildTopLevelReverse(SLUG_TABLES.it, 'it'),
+ en: buildTopLevelReverse(SLUG_TABLES.en, 'en'),
+ de: buildTopLevelReverse(SLUG_TABLES.de, 'de'),
+ fr: buildTopLevelReverse(SLUG_TABLES.fr, 'fr'),
 };
 
 // ── Locale detection from path ───────────────────────────────
 
 function detectLocaleFromPath(parts: string[]): [Locale, string[]] {
-  if (parts.length > 0 && ['en', 'de', 'fr'].includes(parts[0])) {
-    return [parts[0] as Locale, parts.slice(1)];
-  }
-  return ['it', parts];
+ if (parts.length > 0 && ['en', 'de', 'fr'].includes(parts[0])) {
+ return [parts[0] as Locale, parts.slice(1)];
+ }
+ return ['it', parts];
 }
 
 function localePrefix(locale: Locale): string {
-  return locale === 'it' ? '' : `/${locale}`;
+ return locale === 'it' ? '' : `/${locale}`;
 }
 
 function resolveLegacyUrl(first: string, second: string | undefined, table: SlugTable, locale: Locale): LegacyRedirect | null {
-  const legacy = LEGACY_SLUGS[locale];
+ const legacy = LEGACY_SLUGS[locale];
 
-  // Old /comparatori/... or /confronti/... → split across confronti, calcolatore, fisco, guida, vita
-  if (first === legacy.comparatori || first === table.comparatori || (locale === 'it' && first === 'confronti')) {
-    if (!second) return { tab: 'confronti', subField: 'confrontiSubTab', subValue: 'exchange' };
-    // Check hardcoded legacy sub-slugs first
-    const legSub = legacy.subSlugs[second];
-    if (legSub) return legSub;
-    // Then check current reverse tables
-    const revConfronti = REVERSE_CONFRONTI[locale];
-    if (revConfronti[second]) return { tab: 'confronti', subField: 'confrontiSubTab', subValue: revConfronti[second] };
-    const revCalc = REVERSE_CALCOLATORE[locale];
-    if (revCalc[second]) return { tab: 'calculator', subField: 'calcolatoreSubTab', subValue: revCalc[second] };
-    const revFisco = REVERSE_FISCO[locale];
-    if (revFisco[second]) return { tab: 'fisco', subField: 'fiscoSubTab', subValue: revFisco[second] };
-    const revGuida = REVERSE_GUIDA[locale];
-    if (revGuida[second]) return { tab: 'guida', subField: 'guidaSubTab', subValue: revGuida[second] };
-    const revVita = REVERSE_VITA[locale];
-    if (revVita[second]) return { tab: 'vita', subField: 'vitaSubTab', subValue: revVita[second] };
-    if (second === legacy.costs) return { tab: 'confronti', subField: 'confrontiSubTab', subValue: 'cost-of-living' };
-    return { tab: 'confronti', subField: 'confrontiSubTab', subValue: 'exchange' };
-  }
+ // Old /comparatori/... or /confronti/... → split across confronti, calcolatore, fisco, guida, vita
+ if (first === legacy.comparatori || first === table.comparatori || (locale === 'it' && first === 'confronti')) {
+ if (!second) return { tab: 'confronti', subField: 'confrontiSubTab', subValue: 'exchange' };
+ // Check hardcoded legacy sub-slugs first
+ const legSub = legacy.subSlugs[second];
+ if (legSub) return legSub;
+ // Then check current reverse tables
+ const revConfronti = REVERSE_CONFRONTI[locale];
+ if (revConfronti[second]) return { tab: 'confronti', subField: 'confrontiSubTab', subValue: revConfronti[second] };
+ const revCalc = REVERSE_CALCOLATORE[locale];
+ if (revCalc[second]) return { tab: 'calculator', subField: 'calcolatoreSubTab', subValue: revCalc[second] };
+ const revFisco = REVERSE_FISCO[locale];
+ if (revFisco[second]) return { tab: 'fisco', subField: 'fiscoSubTab', subValue: revFisco[second] };
+ const revGuida = REVERSE_GUIDA[locale];
+ if (revGuida[second]) return { tab: 'guida', subField: 'guidaSubTab', subValue: revGuida[second] };
+ const revVita = REVERSE_VITA[locale];
+ if (revVita[second]) return { tab: 'vita', subField: 'vitaSubTab', subValue: revVita[second] };
+ if (second === legacy.costs) return { tab: 'confronti', subField: 'confrontiSubTab', subValue: 'cost-of-living' };
+ return { tab: 'confronti', subField: 'confrontiSubTab', subValue: 'exchange' };
+ }
 
-  // Old /guida-frontalieri/... → split between guida, vita, fisco
-  if (first === legacy.guide || first === table.guide) {
-    if (!second) return { tab: 'guida', subField: 'guidaSubTab', subValue: 'first-day' };
-    const legSub = legacy.subSlugs[second];
-    if (legSub) return legSub;
-    const revGuida = REVERSE_GUIDA[locale];
-    if (revGuida[second]) return { tab: 'guida', subField: 'guidaSubTab', subValue: revGuida[second] };
-    const revVita = REVERSE_VITA[locale];
-    if (revVita[second]) return { tab: 'vita', subField: 'vitaSubTab', subValue: revVita[second] };
-    const revFisco = REVERSE_FISCO[locale];
-    if (revFisco[second]) return { tab: 'fisco', subField: 'fiscoSubTab', subValue: revFisco[second] };
-    return { tab: 'guida', subField: 'guidaSubTab', subValue: 'first-day' };
-  }
+ // Old /guida-frontalieri/... → split between guida, vita, fisco
+ if (first === legacy.guide || first === table.guide) {
+ if (!second) return { tab: 'guida', subField: 'guidaSubTab', subValue: 'first-day' };
+ const legSub = legacy.subSlugs[second];
+ if (legSub) return legSub;
+ const revGuida = REVERSE_GUIDA[locale];
+ if (revGuida[second]) return { tab: 'guida', subField: 'guidaSubTab', subValue: revGuida[second] };
+ const revVita = REVERSE_VITA[locale];
+ if (revVita[second]) return { tab: 'vita', subField: 'vitaSubTab', subValue: revVita[second] };
+ const revFisco = REVERSE_FISCO[locale];
+ if (revFisco[second]) return { tab: 'fisco', subField: 'fiscoSubTab', subValue: revFisco[second] };
+ return { tab: 'guida', subField: 'guidaSubTab', subValue: 'first-day' };
+ }
 
-  // Old /pianificatore-pensione/... → now under fisco
-  if (first === legacy.pension || first === table.pension) {
-    if (second === legacy.pillar3 || second === table.pillar3) return { tab: 'fisco', subField: 'fiscoSubTab', subValue: 'pillar3' };
-    return { tab: 'fisco', subField: 'fiscoSubTab', subValue: 'pension' };
-  }
+ // Old /pianificatore-pensione/... → now under fisco
+ if (first === legacy.pension || first === table.pension) {
+ if (second === legacy.pillar3 || second === table.pillar3) return { tab: 'fisco', subField: 'fiscoSubTab', subValue: 'pillar3' };
+ return { tab: 'fisco', subField: 'fiscoSubTab', subValue: 'pension' };
+ }
 
-  // Old /strumenti/... → split between guida and calcolatore
-  if (first === legacy.strumenti || first === table.strumenti) {
-    if (!second) return { tab: 'guida', subField: 'guidaSubTab', subValue: 'car-cost' };
-    if (second === legacy.carCost || second === table.carCost) return { tab: 'guida', subField: 'guidaSubTab', subValue: 'car-cost' };
-    if (second === legacy.permitCompare || second === table.permitCompare) return { tab: 'guida', subField: 'guidaSubTab', subValue: 'permit-compare' };
-    if (second === legacy.payslip || second === table.payslip) return { tab: 'calculator', subField: 'calcolatoreSubTab', subValue: 'payslip' };
-    if (second === legacy.livability || second === table.livability) return { tab: 'stats', subField: 'statsSubTab', subValue: 'livability' };
-    if (second === legacy.salaryCompare || second === table.salaryCompare) return { tab: 'stats', subField: 'statsSubTab', subValue: 'salary-compare' };
-    return { tab: 'guida', subField: 'guidaSubTab', subValue: 'car-cost' };
-  }
+ // Old /strumenti/... → split between guida and calcolatore
+ if (first === legacy.strumenti || first === table.strumenti) {
+ if (!second) return { tab: 'guida', subField: 'guidaSubTab', subValue: 'car-cost' };
+ if (second === legacy.carCost || second === table.carCost) return { tab: 'guida', subField: 'guidaSubTab', subValue: 'car-cost' };
+ if (second === legacy.permitCompare || second === table.permitCompare) return { tab: 'guida', subField: 'guidaSubTab', subValue: 'permit-compare' };
+ if (second === legacy.payslip || second === table.payslip) return { tab: 'calculator', subField: 'calcolatoreSubTab', subValue: 'payslip' };
+ if (second === legacy.livability || second === table.livability) return { tab: 'stats', subField: 'statsSubTab', subValue: 'livability' };
+ if (second === legacy.salaryCompare || second === table.salaryCompare) return { tab: 'stats', subField: 'statsSubTab', subValue: 'salary-compare' };
+ return { tab: 'guida', subField: 'guidaSubTab', subValue: 'car-cost' };
+ }
 
-  // Old standalone slugs that are now sub-tabs
-  if (first === legacy.whatif) return { tab: 'calculator', subField: 'calcolatoreSubTab', subValue: 'whatif' };
-  if (first === legacy.payslip) return { tab: 'calculator', subField: 'calcolatoreSubTab', subValue: 'payslip' };
+ // Old standalone slugs that are now sub-tabs
+ if (first === legacy.whatif) return { tab: 'calculator', subField: 'calcolatoreSubTab', subValue: 'whatif' };
+ if (first === legacy.payslip) return { tab: 'calculator', subField: 'calcolatoreSubTab', subValue: 'payslip' };
 
-  return null;
+ return null;
 }
 
 // ── Public API ───────────────────────────────────────────────
 
 export interface ParseResult {
-  route: AppRoute;
-  locale: Locale;
-  /** Set when the URL could not be matched to any known route */
-  notFoundPath?: string;
+ route: AppRoute;
+ locale: Locale;
+ /** Set when the URL could not be matched to any known route */
+ notFoundPath?: string;
 }
 
 export function parsePath(pathname: string): ParseResult {
-  const path = pathname.replace(/\/$/, '').toLowerCase() || '/';
-  const allParts = path.split('/').filter(Boolean);
-  const [locale, parts] = detectLocaleFromPath(allParts);
+ const path = pathname.replace(/\/$/, '').toLowerCase() || '/';
+ const allParts = path.split('/').filter(Boolean);
+ const [locale, parts] = detectLocaleFromPath(allParts);
 
-  const table = SLUG_TABLES[locale];
-  const revTop = REVERSE_TOP[locale];
+ const table = SLUG_TABLES[locale];
+ const revTop = REVERSE_TOP[locale];
 
-  if (parts.length === 0) {
-    return { route: { activeTab: 'calculator', calcolatoreSubTab: 'calculator' }, locale };
-  }
+ if (parts.length === 0) {
+ return { route: { activeTab: 'calculator', calcolatoreSubTab: 'calculator' }, locale };
+ }
 
-  const first = parts[0];
-  const second = parts[1];
-  const third = parts[2];
+ const first = parts[0];
+ const second = parts[1];
+ const third = parts[2];
 
-  // Check top-level slug
-  const topMatch = revTop[first];
-  if (topMatch) {
-    if (topMatch.sub === 'whatif') {
-      return { route: { activeTab: 'calculator', calcolatoreSubTab: 'whatif' }, locale };
-    }
-    if (topMatch.sub === 'payslip') {
-      return { route: { activeTab: 'calculator', calcolatoreSubTab: 'payslip' }, locale };
-    }
-    if (topMatch.sub === 'pension') {
-      const sub2 = second === table.pillar3 ? 'pillar3' : 'pension';
-      return { route: { activeTab: 'fisco', fiscoSubTab: sub2 as FiscoSubTab }, locale };
-    }
+ // Check top-level slug
+ const topMatch = revTop[first];
+ if (topMatch) {
+ if (topMatch.sub === 'whatif') {
+ return { route: { activeTab: 'calculator', calcolatoreSubTab: 'whatif' }, locale };
+ }
+ if (topMatch.sub === 'payslip') {
+ return { route: { activeTab: 'calculator', calcolatoreSubTab: 'payslip' }, locale };
+ }
+ if (topMatch.sub === 'pension') {
+ const sub2 = second === table.pillar3 ? 'pillar3' : 'pension';
+ return { route: { activeTab: 'fisco', fiscoSubTab: sub2 as FiscoSubTab }, locale };
+ }
 
-    // For tabs with sub-tabs: resolve sub-tab from slug
-    // Must check both current and legacy top-level slugs
-    if (topMatch.tab === 'calculator') {
-      // If it's the current calcolatore slug, resolve sub-tab normally
-      if (first === table.calcolatore) {
-        const revCalc = REVERSE_CALCOLATORE[locale];
-        const sub = second ? (revCalc[second] || 'calculator') : 'calculator';
-        // Cross-tab redirect: old calcolatore/permit-compare → guida/permit-compare
-        if (sub === 'calculator' && second === table.permitCompare) {
-          return { route: { activeTab: 'guida', guidaSubTab: 'permit-compare' }, locale };
-        }
-        if (sub === 'calculator' && second) {
-          const landing = SEO_LANDING_REVERSE[locale][second];
-          if (landing) {
-            return { route: { activeTab: 'calculator', calcolatoreSubTab: 'calculator', seoLanding: landing }, locale };
-          }
-        }
-        return { route: { activeTab: 'calculator', calcolatoreSubTab: sub as CalcolatoreSubTab }, locale };
-      }
-      // Legacy top-level slug pointing to calculator — delegate to legacy resolver
-    }
+ // For tabs with sub-tabs: resolve sub-tab from slug
+ // Must check both current and legacy top-level slugs
+ if (topMatch.tab === 'calculator') {
+ // If it's the current calcolatore slug, resolve sub-tab normally
+ if (first === table.calcolatore) {
+ const revCalc = REVERSE_CALCOLATORE[locale];
+ const sub = second ? (revCalc[second] || 'calculator') : 'calculator';
+ // Cross-tab redirect: old calcolatore/permit-compare → guida/permit-compare
+ if (sub === 'calculator' && second === table.permitCompare) {
+ return { route: { activeTab: 'guida', guidaSubTab: 'permit-compare' }, locale };
+ }
+ if (sub === 'calculator' && second) {
+ const landing = SEO_LANDING_REVERSE[locale][second];
+ if (landing) {
+ return { route: { activeTab: 'calculator', calcolatoreSubTab: 'calculator', seoLanding: landing }, locale };
+ }
+ }
+ return { route: { activeTab: 'calculator', calcolatoreSubTab: sub as CalcolatoreSubTab }, locale };
+ }
+ // Legacy top-level slug pointing to calculator — delegate to legacy resolver
+ }
 
-    if (topMatch.tab === 'confronti') {
-      if (first === table.confronti || first === LEGACY_SLUGS[locale].confronti || (locale === 'it' && first === 'confronti')) {
-        const revConfronti = REVERSE_CONFRONTI[locale];
-        const sub = second ? (revConfronti[second] || 'exchange') : 'exchange';
-        return { route: { activeTab: 'confronti', confrontiSubTab: sub as ConfrontiSubTab }, locale };
-      }
-    }
+ if (topMatch.tab === 'confronti') {
+ if (first === table.confronti || first === LEGACY_SLUGS[locale].confronti || (locale === 'it' && first === 'confronti')) {
+ const revConfronti = REVERSE_CONFRONTI[locale];
+ const sub = second ? (revConfronti[second] || 'exchange') : 'exchange';
+ return { route: { activeTab: 'confronti', confrontiSubTab: sub as ConfrontiSubTab }, locale };
+ }
+ }
 
-    if (topMatch.tab === 'fisco') {
-      if (first === table.fisco) {
-        const revFisco = REVERSE_FISCO[locale];
-        const sub = second ? (revFisco[second] || 'tax-return') : 'tax-return';
-        // Country variant: tax-return-italia / tax-return-svizzera
-        if (sub === 'tax-return-italia')
-          return { route: { activeTab: 'fisco', fiscoSubTab: 'tax-return', taxReturnCountry: 'italia' }, locale };
-        if (sub === 'tax-return-svizzera')
-          return { route: { activeTab: 'fisco', fiscoSubTab: 'tax-return', taxReturnCountry: 'svizzera' }, locale };
-        return { route: { activeTab: 'fisco', fiscoSubTab: sub as FiscoSubTab }, locale };
-      }
-    }
+ if (topMatch.tab === 'fisco') {
+ if (first === table.fisco) {
+ const revFisco = REVERSE_FISCO[locale];
+ const sub = second ? (revFisco[second] || 'tax-return') : 'tax-return';
+ // Country variant: tax-return-italia / tax-return-svizzera
+ if (sub === 'tax-return-italia')
+ return { route: { activeTab: 'fisco', fiscoSubTab: 'tax-return', taxReturnCountry: 'italia' }, locale };
+ if (sub === 'tax-return-svizzera')
+ return { route: { activeTab: 'fisco', fiscoSubTab: 'tax-return', taxReturnCountry: 'svizzera' }, locale };
+ return { route: { activeTab: 'fisco', fiscoSubTab: sub as FiscoSubTab }, locale };
+ }
+ }
 
-    if (topMatch.tab === 'guida') {
-      if (first === table.guida) {
-        const revGuida = REVERSE_GUIDA[locale];
-        const sub = second ? (revGuida[second] || 'first-day') : 'first-day';
-        // Cross-tab redirect: old guida/municipalities → vita/municipalities
-        if (sub === 'first-day' && second === table.municipalities) {
-          return { route: { activeTab: 'vita', vitaSubTab: 'municipalities' }, locale };
-        }
-        // Border crossing deep link: guida/border/<crossing-id>
-        if (sub === 'border' && third && BORDER_CROSSING_ID_SET.has(third)) {
-          return { route: { activeTab: 'guida', guidaSubTab: 'border', borderCrossing: third as BorderCrossingId }, locale };
-        }
-        return { route: { activeTab: 'guida', guidaSubTab: sub as GuidaSubTab }, locale };
-      }
-    }
+ if (topMatch.tab === 'guida') {
+ if (first === table.guida) {
+ const revGuida = REVERSE_GUIDA[locale];
+ const sub = second ? (revGuida[second] || 'first-day') : 'first-day';
+ // Cross-tab redirect: old guida/municipalities → vita/municipalities
+ if (sub === 'first-day' && second === table.municipalities) {
+ return { route: { activeTab: 'vita', vitaSubTab: 'municipalities' }, locale };
+ }
+ // Border crossing deep link: guida/border/<crossing-id>
+ if (sub === 'border' && third && BORDER_CROSSING_ID_SET.has(third)) {
+ return { route: { activeTab: 'guida', guidaSubTab: 'border', borderCrossing: third as BorderCrossingId }, locale };
+ }
+ return { route: { activeTab: 'guida', guidaSubTab: sub as GuidaSubTab }, locale };
+ }
+ }
 
-    if (topMatch.tab === 'vita') {
-      if (first === table.vita) {
-        const revVita = REVERSE_VITA[locale];
-        const sub = second ? (revVita[second] || 'living-ch') : 'living-ch';
-        return { route: { activeTab: 'vita', vitaSubTab: sub as VitaSubTab }, locale };
-      }
-    }
+ if (topMatch.tab === 'vita') {
+ if (first === table.vita) {
+ const revVita = REVERSE_VITA[locale];
+ const sub = second ? (revVita[second] || 'living-ch') : 'living-ch';
+ return { route: { activeTab: 'vita', vitaSubTab: sub as VitaSubTab }, locale };
+ }
+ }
 
-    if (topMatch.tab === 'stats') {
-      if (first === table.stats) {
-        const revStats = REVERSE_STATS[locale];
-        const sub = second ? (revStats[second] || 'overview') : 'overview';
-        return { route: { activeTab: 'stats', statsSubTab: sub as StatsSubTab }, locale };
-      }
-    }
+ if (topMatch.tab === 'stats') {
+ if (first === table.stats) {
+ const revStats = REVERSE_STATS[locale];
+ const sub = second ? (revStats[second] || 'overview') : 'overview';
+ return { route: { activeTab: 'stats', statsSubTab: sub as StatsSubTab }, locale };
+ }
+ }
 
-    if (topMatch.tab === 'blog') {
-      if (first === table.blog) {
-        if (second) {
-          const articleId = _reverseBlog?.[locale]?.[second] as BlogArticleId | undefined;
-          if (articleId) {
-            return { route: { activeTab: 'blog', blogArticle: articleId }, locale };
-          }
-          // Blog data not loaded yet — store raw slug for deferred resolution
-          return { route: { activeTab: 'blog', blogSlug: second }, locale };
-        }
-        return { route: { activeTab: 'blog' }, locale };
-      }
-    }
+ if (topMatch.tab === 'blog') {
+ if (first === table.blog) {
+ if (second) {
+ const articleId = _reverseBlog?.[locale]?.[second] as BlogArticleId | undefined;
+ if (articleId) {
+ return { route: { activeTab: 'blog', blogArticle: articleId }, locale };
+ }
+ // Blog data not loaded yet — store raw slug for deferred resolution
+ return { route: { activeTab: 'blog', blogSlug: second }, locale };
+ }
+ return { route: { activeTab: 'blog' }, locale };
+ }
+ }
 
-    if (topMatch.tab === 'job-board') {
-      if (first === table.jobBoard) {
-        const jobSlug = second ? second.trim() : undefined;
-        return { route: { activeTab: 'job-board', ...(jobSlug ? { jobSlug } : {}) }, locale };
-      }
-    }
+ if (topMatch.tab === 'job-board') {
+ if (first === table.jobBoard) {
+ const jobSlug = second ? second.trim() : undefined;
+ return { route: { activeTab: 'job-board', ...(jobSlug ? { jobSlug } : {}) }, locale };
+ }
+ }
 
-    if (topMatch.tab === 'glossario') {
-      if (first === table.glossario) {
-        if (second) {
-          const term = GLOSSARY_TERM_REVERSE[locale][second];
-          if (term) return { route: { activeTab: 'glossario', glossaryTerm: term }, locale };
-        }
-        return { route: { activeTab: 'glossario' }, locale };
-      }
-    }
+ if (topMatch.tab === 'glossario') {
+ if (first === table.glossario) {
+ if (second) {
+ const term = GLOSSARY_TERM_REVERSE[locale][second];
+ if (term) return { route: { activeTab: 'glossario', glossaryTerm: term }, locale };
+ }
+ return { route: { activeTab: 'glossario' }, locale };
+ }
+ }
 
-    // For legacy top-level slugs with sub-slugs, delegate to legacy resolver
-    if (second) {
-      const legacy = resolveLegacyUrl(first, second, table, locale);
-      if (legacy) {
-        const route: AppRoute = { activeTab: legacy.tab };
-        (route as unknown as Record<string, unknown>)[legacy.subField] = legacy.subValue;
-        return { route, locale };
-      }
-    }
+ // For legacy top-level slugs with sub-slugs, delegate to legacy resolver
+ if (second) {
+ const legacy = resolveLegacyUrl(first, second, table, locale);
+ if (legacy) {
+ const route: AppRoute = { activeTab: legacy.tab };
+ (route as unknown as Record<string, unknown>)[legacy.subField] = legacy.subValue;
+ return { route, locale };
+ }
+ }
 
-    // Simple tabs (no sub-tabs) or legacy top-level without sub-slug
-    // For legacy tab slugs, return with default sub-tab
-    if (topMatch.tab === 'confronti' && !second) return { route: { activeTab: 'confronti', confrontiSubTab: 'exchange' }, locale };
-    if (topMatch.tab === 'fisco' && !second) return { route: { activeTab: 'fisco', fiscoSubTab: 'tax-return' }, locale };
-    if (topMatch.tab === 'guida' && !second) return { route: { activeTab: 'guida', guidaSubTab: 'first-day' }, locale };
-    if (topMatch.tab === 'vita' && !second) return { route: { activeTab: 'vita', vitaSubTab: 'living-ch' }, locale };
-    if (topMatch.tab === 'stats' && !second) return { route: { activeTab: 'stats', statsSubTab: 'overview' }, locale };
-    if (topMatch.tab === 'calculator' && !second) return { route: { activeTab: 'calculator', calcolatoreSubTab: 'calculator' }, locale };
+ // Simple tabs (no sub-tabs) or legacy top-level without sub-slug
+ // For legacy tab slugs, return with default sub-tab
+ if (topMatch.tab === 'confronti' && !second) return { route: { activeTab: 'confronti', confrontiSubTab: 'exchange' }, locale };
+ if (topMatch.tab === 'fisco' && !second) return { route: { activeTab: 'fisco', fiscoSubTab: 'tax-return' }, locale };
+ if (topMatch.tab === 'guida' && !second) return { route: { activeTab: 'guida', guidaSubTab: 'first-day' }, locale };
+ if (topMatch.tab === 'vita' && !second) return { route: { activeTab: 'vita', vitaSubTab: 'living-ch' }, locale };
+ if (topMatch.tab === 'stats' && !second) return { route: { activeTab: 'stats', statsSubTab: 'overview' }, locale };
+ if (topMatch.tab === 'calculator' && !second) return { route: { activeTab: 'calculator', calcolatoreSubTab: 'calculator' }, locale };
 
-    return { route: { activeTab: topMatch.tab as ActiveTab }, locale };
-  }
+ return { route: { activeTab: topMatch.tab as ActiveTab }, locale };
+ }
 
-  // Legacy URL resolution (for URLs where the top-level slug isn't in REVERSE_TOP at all)
-  const legacy = resolveLegacyUrl(first, second, table, locale);
-  if (legacy) {
-    const route: AppRoute = { activeTab: legacy.tab };
-    (route as unknown as Record<string, unknown>)[legacy.subField] = legacy.subValue;
-    return { route, locale };
-  }
+ // Legacy URL resolution (for URLs where the top-level slug isn't in REVERSE_TOP at all)
+ const legacy = resolveLegacyUrl(first, second, table, locale);
+ if (legacy) {
+ const route: AppRoute = { activeTab: legacy.tab };
+ (route as unknown as Record<string, unknown>)[legacy.subField] = legacy.subValue;
+ return { route, locale };
+ }
 
-  // Fallback: try all locales (for bookmarked URLs in wrong locale)
-  for (const tryLocale of (['it', 'en', 'de', 'fr'] as Locale[])) {
-    if (tryLocale === locale) continue;
-    const tryTop = REVERSE_TOP[tryLocale];
-    const tryMatch = tryTop[first];
-    if (tryMatch) {
-      const rebuilt = `/${tryLocale === 'it' ? '' : tryLocale + '/'}${parts.join('/')}`;
-      return parsePath(rebuilt);
-    }
-  }
+ // Fallback: try all locales (for bookmarked URLs in wrong locale)
+ for (const tryLocale of (['it', 'en', 'de', 'fr'] as Locale[])) {
+ if (tryLocale === locale) continue;
+ const tryTop = REVERSE_TOP[tryLocale];
+ const tryMatch = tryTop[first];
+ if (tryMatch) {
+ const rebuilt = `/${tryLocale === 'it' ? '' : tryLocale + '/'}${parts.join('/')}`;
+ return parsePath(rebuilt);
+ }
+ }
 
-  // OAuth callback routes are handled by App.tsx useEffect — don't flag as 404
-  if (pathname.startsWith('/auth/')) {
-    return { route: { activeTab: 'calculator', calcolatoreSubTab: 'calculator' }, locale };
-  }
+ // OAuth callback routes are handled by App.tsx useEffect — don't flag as 404
+ if (pathname.startsWith('/auth/')) {
+ return { route: { activeTab: 'calculator', calcolatoreSubTab: 'calculator' }, locale };
+ }
 
-  return { route: { activeTab: 'calculator', calcolatoreSubTab: 'calculator' }, locale, notFoundPath: pathname };
+ return { route: { activeTab: 'calculator', calcolatoreSubTab: 'calculator' }, locale, notFoundPath: pathname };
 }
 
 export function parseHashToPath(hash: string): string | null {
-  if (!hash || hash === '#' || hash === '#/') return null;
-  const path = hash.replace(/^#\/?/, '').toLowerCase();
-  const parts = path.split('/').filter(Boolean);
-  if (parts.length === 0) return null;
+ if (!hash || hash === '#' || hash === '#/') return null;
+ const path = hash.replace(/^#\/?/, '').toLowerCase();
+ const parts = path.split('/').filter(Boolean);
+ if (parts.length === 0) return null;
 
-  const locale = getLocale();
-  const table = SLUG_TABLES[locale];
-  const prefix = localePrefix(locale);
+ const locale = getLocale();
+ const table = SLUG_TABLES[locale];
+ const prefix = localePrefix(locale);
 
-  if (parts[0] === 'calculator') {
-    if (parts[1] === 'whatif') return `${prefix}/${table.calcolatore}/${table.whatif}`;
-    return '/';
-  }
-  if (parts[0] === 'comparatori') {
-    const subKey = parts[1];
-    if (subKey) {
-      for (const [sub, slugKey] of Object.entries(CONFRONTI_SUB_TO_SLUG)) {
-        if (sub === subKey) return `${prefix}/${table.confronti}/${table[slugKey]}`;
-      }
-      for (const [sub, slugKey] of Object.entries(CALCOLATORE_SUB_TO_SLUG)) {
-        if (sub === subKey) return `${prefix}/${table.calcolatore}/${table[slugKey]}`;
-      }
-    }
-    return `${prefix}/${table.confronti}`;
-  }
-  if (parts[0] === 'pensione') {
-    return parts[1] === 'pillar3'
-      ? `${prefix}/${table.fisco}/${table.pillar3}`
-      : `${prefix}/${table.fisco}/${table.pension}`;
-  }
-  if (parts[0] === 'guida') {
-    const guida = GUIDA_SUB_TO_SLUG[parts[1] as GuidaSubTab];
-    if (guida) return `${prefix}/${table.guida}/${table[guida]}`;
-    const vita = VITA_SUB_TO_SLUG[parts[1] as VitaSubTab];
-    if (vita) return `${prefix}/${table.vita}/${table[vita]}`;
-    return `${prefix}/${table.guida}`;
-  }
-  if (parts[0] === 'statistiche') {
-    if (parts[1] === 'sondaggio-stipendi') return `${prefix}/${table.stats}/${table.salaryCompare}`;
-    if (parts[1] === 'ristorni-fiscali') return `${prefix}/${table.stats}/${table.ristorni}`;
-    return `${prefix}/${table.stats}`;
-  }
-  if (parts[0] === 'supporto') return `${prefix}/${table.feedback}`;
-  if (parts[0] === 'privacy') return `${prefix}/${table.privacy}`;
-  if (parts[0] === 'data-deletion') return `${prefix}/${table.dataDeletion}`;
-  if (parts[0] === 'api-status') return `${prefix}/${table.apiStatus}`;
+ if (parts[0] === 'calculator') {
+ if (parts[1] === 'whatif') return `${prefix}/${table.calcolatore}/${table.whatif}`;
+ return '/';
+ }
+ if (parts[0] === 'comparatori') {
+ const subKey = parts[1];
+ if (subKey) {
+ for (const [sub, slugKey] of Object.entries(CONFRONTI_SUB_TO_SLUG)) {
+ if (sub === subKey) return `${prefix}/${table.confronti}/${table[slugKey]}`;
+ }
+ for (const [sub, slugKey] of Object.entries(CALCOLATORE_SUB_TO_SLUG)) {
+ if (sub === subKey) return `${prefix}/${table.calcolatore}/${table[slugKey]}`;
+ }
+ }
+ return `${prefix}/${table.confronti}`;
+ }
+ if (parts[0] === 'pensione') {
+ return parts[1] === 'pillar3'
+ ? `${prefix}/${table.fisco}/${table.pillar3}`
+ : `${prefix}/${table.fisco}/${table.pension}`;
+ }
+ if (parts[0] === 'guida') {
+ const guida = GUIDA_SUB_TO_SLUG[parts[1] as GuidaSubTab];
+ if (guida) return `${prefix}/${table.guida}/${table[guida]}`;
+ const vita = VITA_SUB_TO_SLUG[parts[1] as VitaSubTab];
+ if (vita) return `${prefix}/${table.vita}/${table[vita]}`;
+ return `${prefix}/${table.guida}`;
+ }
+ if (parts[0] === 'statistiche') {
+ if (parts[1] === 'sondaggio-stipendi') return `${prefix}/${table.stats}/${table.salaryCompare}`;
+ if (parts[1] === 'ristorni-fiscali') return `${prefix}/${table.stats}/${table.ristorni}`;
+ return `${prefix}/${table.stats}`;
+ }
+ if (parts[0] === 'supporto') return `${prefix}/${table.feedback}`;
+ if (parts[0] === 'privacy') return `${prefix}/${table.privacy}`;
+ if (parts[0] === 'data-deletion') return `${prefix}/${table.dataDeletion}`;
+ if (parts[0] === 'api-status') return `${prefix}/${table.apiStatus}`;
 
-  return null;
+ return null;
 }
 
 export function buildPath(route: AppRoute, locale?: Locale): string {
-  const lang = locale || getLocale();
-  const table = SLUG_TABLES[lang];
-  const prefix = localePrefix(lang);
-  const hashSuffix = route.hash ? `#${route.hash}` : '';
-  const localizeEditorialJobSlug = (jobSlug?: string): string | undefined => {
-    const slug = String(jobSlug || '').trim();
-    if (!slug) return undefined;
-    const descriptor = resolveEditorialJobLandingDescriptor(slug);
-    if (!descriptor) {
-      // Try to translate a regular job detail slug to the target locale
-      return translateJobSlug(slug, lang) || slug;
-    }
-    if (descriptor.kind === 'today') {
-      return buildJobTodayLandingModel({
-        jobs: [],
-        locale: lang,
-        localizedSlug: () => '',
-        baseUrl: '',
-        sectionSlug: table.jobBoard,
-        localePrefix: prefix,
-      }).slug;
-    }
-    if (descriptor.kind === 'official-gazette') {
-      return buildJobOfficialGazetteLandingModel({
-        jobs: [],
-        locale: lang,
-        localizedSlug: () => '',
-        baseUrl: '',
-        sectionSlug: table.jobBoard,
-        localePrefix: prefix,
-      }).slug;
-    }
-    if (descriptor.kind === 'nurses-hub') {
-      return buildJobNursesHubLandingModel({
-        jobs: [],
-        locale: lang,
-        localizedSlug: () => '',
-        baseUrl: '',
-        sectionSlug: table.jobBoard,
-        localePrefix: prefix,
-      }).slug;
-    }
-    if (descriptor.kind === 'part-time') {
-      return buildJobPartTimeLandingModel({
-        jobs: [],
-        locale: lang,
-        localizedSlug: () => '',
-        baseUrl: '',
-        sectionSlug: table.jobBoard,
-        localePrefix: prefix,
-      }).slug;
-    }
-    if (descriptor.kind === 'care-variant') {
-      return buildJobCareVariantLandingModel({
-        jobs: [],
-        locale: lang,
-        clusterKey: descriptor.clusterKey,
-        localizedSlug: () => '',
-        baseUrl: '',
-        sectionSlug: table.jobBoard,
-        localePrefix: prefix,
-      }).slug;
-    }
-    if (descriptor.kind === 'location') {
-      return buildJobLocationLandingModel({
-        jobs: [],
-        locale: lang,
-        location: descriptor.location,
-        localizedSlug: () => '',
-        baseUrl: '',
-        sectionSlug: table.jobBoard,
-        localePrefix: prefix,
-      }).slug;
-    }
-    if (descriptor.kind === 'location-sector') {
-      return buildJobLocationSectorLandingModel({
-        jobs: [],
-        locale: lang,
-        location: descriptor.location,
-        sectorKey: descriptor.sectorKey,
-        localizedSlug: () => '',
-        baseUrl: '',
-        sectionSlug: table.jobBoard,
-        localePrefix: prefix,
-      }).slug;
-    }
-    if (descriptor.kind === 'sector-region') {
-      return buildJobSectorRegionLandingModel({
-        jobs: [],
-        locale: lang,
-        sectorKey: descriptor.sectorKey,
-        localizedSlug: () => '',
-        baseUrl: '',
-        sectionSlug: table.jobBoard,
-        localePrefix: prefix,
-      }).slug;
-    }
-    return buildJobLocationTypeLandingModel({
-      jobs: [],
-      locale: lang,
-      location: descriptor.location,
-      typeKey: descriptor.typeKey,
-      localizedSlug: () => '',
-      baseUrl: '',
-      sectionSlug: table.jobBoard,
-      localePrefix: prefix,
-    }).slug;
-  };
-  const finish = (rawPath: string): string => {
-    const [pathPart, hashPart = ''] = rawPath.split('#');
-    const normalizedPath = pathPart === '/' ? '/' : `${pathPart.replace(/\/+$/, '')}/`;
-    return hashPart ? `${normalizedPath}#${hashPart}` : normalizedPath;
-  };
+ const lang = locale || getLocale();
+ const table = SLUG_TABLES[lang];
+ const prefix = localePrefix(lang);
+ const hashSuffix = route.hash ? `#${route.hash}` : '';
+ const localizeEditorialJobSlug = (jobSlug?: string): string | undefined => {
+ const slug = String(jobSlug || '').trim();
+ if (!slug) return undefined;
+ const descriptor = resolveEditorialJobLandingDescriptor(slug);
+ if (!descriptor) {
+ // Try to translate a regular job detail slug to the target locale
+ return translateJobSlug(slug, lang) || slug;
+ }
+ if (descriptor.kind === 'today') {
+ return buildJobTodayLandingModel({
+ jobs: [],
+ locale: lang,
+ localizedSlug: () => '',
+ baseUrl: '',
+ sectionSlug: table.jobBoard,
+ localePrefix: prefix,
+ }).slug;
+ }
+ if (descriptor.kind === 'official-gazette') {
+ return buildJobOfficialGazetteLandingModel({
+ jobs: [],
+ locale: lang,
+ localizedSlug: () => '',
+ baseUrl: '',
+ sectionSlug: table.jobBoard,
+ localePrefix: prefix,
+ }).slug;
+ }
+ if (descriptor.kind === 'nurses-hub') {
+ return buildJobNursesHubLandingModel({
+ jobs: [],
+ locale: lang,
+ localizedSlug: () => '',
+ baseUrl: '',
+ sectionSlug: table.jobBoard,
+ localePrefix: prefix,
+ }).slug;
+ }
+ if (descriptor.kind === 'part-time') {
+ return buildJobPartTimeLandingModel({
+ jobs: [],
+ locale: lang,
+ localizedSlug: () => '',
+ baseUrl: '',
+ sectionSlug: table.jobBoard,
+ localePrefix: prefix,
+ }).slug;
+ }
+ if (descriptor.kind === 'care-variant') {
+ return buildJobCareVariantLandingModel({
+ jobs: [],
+ locale: lang,
+ clusterKey: descriptor.clusterKey,
+ localizedSlug: () => '',
+ baseUrl: '',
+ sectionSlug: table.jobBoard,
+ localePrefix: prefix,
+ }).slug;
+ }
+ if (descriptor.kind === 'location') {
+ return buildJobLocationLandingModel({
+ jobs: [],
+ locale: lang,
+ location: descriptor.location,
+ localizedSlug: () => '',
+ baseUrl: '',
+ sectionSlug: table.jobBoard,
+ localePrefix: prefix,
+ }).slug;
+ }
+ if (descriptor.kind === 'location-sector') {
+ return buildJobLocationSectorLandingModel({
+ jobs: [],
+ locale: lang,
+ location: descriptor.location,
+ sectorKey: descriptor.sectorKey,
+ localizedSlug: () => '',
+ baseUrl: '',
+ sectionSlug: table.jobBoard,
+ localePrefix: prefix,
+ }).slug;
+ }
+ if (descriptor.kind === 'sector-region') {
+ return buildJobSectorRegionLandingModel({
+ jobs: [],
+ locale: lang,
+ sectorKey: descriptor.sectorKey,
+ localizedSlug: () => '',
+ baseUrl: '',
+ sectionSlug: table.jobBoard,
+ localePrefix: prefix,
+ }).slug;
+ }
+ return buildJobLocationTypeLandingModel({
+ jobs: [],
+ locale: lang,
+ location: descriptor.location,
+ typeKey: descriptor.typeKey,
+ localizedSlug: () => '',
+ baseUrl: '',
+ sectionSlug: table.jobBoard,
+ localePrefix: prefix,
+ }).slug;
+ };
+ const finish = (rawPath: string): string => {
+ const [pathPart, hashPart = ''] = rawPath.split('#');
+ const normalizedPath = pathPart === '/' ? '/' : `${pathPart.replace(/\/+$/, '')}/`;
+ return hashPart ? `${normalizedPath}#${hashPart}` : normalizedPath;
+ };
 
-  switch (route.activeTab) {
-    case 'calculator': {
-      const sub = route.calcolatoreSubTab || 'calculator';
-      if (route.seoLanding) {
-        const landingSlug = SEO_LANDING_SLUGS[lang][route.seoLanding];
-        return finish(`${prefix}/${table.calcolatore}/${landingSlug}${hashSuffix}`);
-      }
-      // Homepage (calculator main tab): use locale root (/ for IT, /en/ for others)
-      // so canonical & hreflang point to the root, not /calcola-stipendio
-      if (sub === 'calculator') return finish((lang === 'it' ? '/' : `/${lang}/`) + hashSuffix);
-      const slugKey = CALCOLATORE_SUB_TO_SLUG[sub];
-      return finish((slugKey ? `${prefix}/${table.calcolatore}/${table[slugKey]}` : `${prefix}/${table.calcolatore}`) + hashSuffix);
-    }
-    case 'confronti': {
-      const sub = route.confrontiSubTab || 'exchange';
-      const slugKey = CONFRONTI_SUB_TO_SLUG[sub];
-      return finish(`${prefix}/${table.confronti}/${table[slugKey]}${hashSuffix}`);
-    }
-    case 'fisco': {
-      const sub = route.fiscoSubTab || 'tax-return';
-      const slugKey = FISCO_SUB_TO_SLUG[sub];
-      if (sub === 'tax-return') {
-        // Country variant: /tasse-e-pensione/dichiarazione-redditi-{italia|svizzera}
-        if (route.taxReturnCountry === 'italia')
-          return finish(`${prefix}/${table.fisco}/${table.taxReturnItalia}${hashSuffix}`);
-        if (route.taxReturnCountry === 'svizzera')
-          return finish(`${prefix}/${table.fisco}/${table.taxReturnSvizzera}${hashSuffix}`);
-        // Default: /tasse-e-pensione (no sub-slug)
-        return finish(`${prefix}/${table.fisco}${hashSuffix}`);
-      }
-      return finish(`${prefix}/${table.fisco}/${table[slugKey]}${hashSuffix}`);
-    }
-    case 'guida': {
-      const sub = route.guidaSubTab || 'first-day';
-      const slugKey = GUIDA_SUB_TO_SLUG[sub];
-      const base = (sub === 'first-day'
-        ? `${prefix}/${table.guida}`
-        : `${prefix}/${table.guida}/${table[slugKey]}`);
-      if (sub === 'border' && route.borderCrossing) {
-        return finish(`${base}/${route.borderCrossing}${hashSuffix}`);
-      }
-      return finish(`${base}${hashSuffix}`);
-    }
-    case 'vita': {
-      const sub = route.vitaSubTab || 'living-ch';
-      const slugKey = VITA_SUB_TO_SLUG[sub];
-      return finish((sub === 'living-ch'
-        ? `${prefix}/${table.vita}`
-        : `${prefix}/${table.vita}/${table[slugKey]}`) + hashSuffix);
-    }
-    case 'stats': {
-      const sub = route.statsSubTab || 'overview';
-      const statsEntry = STATS_KEYS.find(s => s.id === sub);
-      return finish((sub === 'overview'
-        ? `${prefix}/${table.stats}`
-        : `${prefix}/${table.stats}/${table[statsEntry!.key]}`) + hashSuffix);
-    }
-    case 'feedback':
-      return finish(`${prefix}/${table.feedback}${hashSuffix}`);
-    case 'privacy':
-      return finish(`${prefix}/${table.privacy}${hashSuffix}`);
-    case 'terms':
-      return finish(`${prefix}/${table.terms}${hashSuffix}`);
-    case 'chi-siamo':
-      return finish(`${prefix}/${table.chiSiamo}${hashSuffix}`);
-    case 'sindacati':
-      return finish(`${prefix}/${table.sindacati}${hashSuffix}`);
-    case 'data-deletion':
-      return finish(`${prefix}/${table.dataDeletion}${hashSuffix}`);
-    case 'api-status':
-      return finish(`${prefix}/${table.apiStatus}${hashSuffix}`);
-    case 'gamification':
-      return finish(`${prefix}/${table.gamification}${hashSuffix}`);
-    case 'forum':
-      return finish(`${prefix}/${table.forum}${hashSuffix}`);
-    case 'contact':
-      return finish(`${prefix}/${table.contact}${hashSuffix}`);
-    case 'partners':
-      return finish(`${prefix}/${table.partners}${hashSuffix}`);
-    case 'consulting':
-      return finish(`${prefix}/${table.consulting}${hashSuffix}`);
-    case 'job-board':
-      return finish(route.jobSlug
-        ? `${prefix}/${table.jobBoard}/${localizeEditorialJobSlug(route.jobSlug) || route.jobSlug}${hashSuffix}`
-        : `${prefix}/${table.jobBoard}${hashSuffix}`);
-    case 'profile':
-      return finish(`${prefix}/${table.profile}${hashSuffix}`);
-    case 'morning':
-      return finish(`${prefix}/${table.morning}${hashSuffix}`);
-    case 'blog': {
-      const article = route.blogArticle;
-      if (article) {
-        const slug = _blogSlugs?.[article]?.[lang] ?? article;
-        return finish(`${prefix}/${table.blog}/${slug}${hashSuffix}`);
-      }
-      return finish(`${prefix}/${table.blog}${hashSuffix}`);
-    }
-    case 'admin':
-      return finish(`${prefix}/${table.admin}${hashSuffix}`);
-    case 'glossario':
-      if (route.glossaryTerm) {
-        const termSlug = GLOSSARY_TERM_SLUGS[lang][route.glossaryTerm];
-        return finish(`${prefix}/${table.glossario}/${termSlug}${hashSuffix}`);
-      }
-      return finish(`${prefix}/${table.glossario}${hashSuffix}`);
-    case 'faq':
-      return finish(`${prefix}/${table.faq}${hashSuffix}`);
-    case 'dialetto':
-      return finish(`${prefix}/${table.dialetto}${hashSuffix}`);
-    case 'sitemap':
-      return finish(`${prefix}/${table.sitemap}${hashSuffix}`);
-    case 'contracts':
-      return finish(`${prefix}/${table.contracts}${hashSuffix}`);
-    case 'tfr-calculator':
-      return finish(`${prefix}/${table.tfrCalculator}${hashSuffix}`);
-    case 'permit-quiz':
-      return finish(`${prefix}/${table.permitQuiz}${hashSuffix}`);
-    case 'tredicesima':
-      return finish(`${prefix}/${table.tredicesima}${hashSuffix}`);
-    case 'weekly-digest':
-      return finish(`${prefix}/${table.weeklyDigest}${hashSuffix}`);
-    case 'tool-of-week':
-      return finish(`${prefix}/${table.toolOfWeek}${hashSuffix}`);
-    case 'email-confirmed':
-      return finish(`${prefix}/${table.emailConfirmed}${hashSuffix}`);
-    default:
-      return finish((prefix || '/') + hashSuffix);
-  }
+ switch (route.activeTab) {
+ case 'calculator': {
+ const sub = route.calcolatoreSubTab || 'calculator';
+ if (route.seoLanding) {
+ const landingSlug = SEO_LANDING_SLUGS[lang][route.seoLanding];
+ return finish(`${prefix}/${table.calcolatore}/${landingSlug}${hashSuffix}`);
+ }
+ // Homepage (calculator main tab): use locale root (/ for IT, /en/ for others)
+ // so canonical & hreflang point to the root, not /calcola-stipendio
+ if (sub === 'calculator') return finish((lang === 'it' ? '/' : `/${lang}/`) + hashSuffix);
+ const slugKey = CALCOLATORE_SUB_TO_SLUG[sub];
+ return finish((slugKey ? `${prefix}/${table.calcolatore}/${table[slugKey]}` : `${prefix}/${table.calcolatore}`) + hashSuffix);
+ }
+ case 'confronti': {
+ const sub = route.confrontiSubTab || 'exchange';
+ const slugKey = CONFRONTI_SUB_TO_SLUG[sub];
+ return finish(`${prefix}/${table.confronti}/${table[slugKey]}${hashSuffix}`);
+ }
+ case 'fisco': {
+ const sub = route.fiscoSubTab || 'tax-return';
+ const slugKey = FISCO_SUB_TO_SLUG[sub];
+ if (sub === 'tax-return') {
+ // Country variant: /tasse-e-pensione/dichiarazione-redditi-{italia|svizzera}
+ if (route.taxReturnCountry === 'italia')
+ return finish(`${prefix}/${table.fisco}/${table.taxReturnItalia}${hashSuffix}`);
+ if (route.taxReturnCountry === 'svizzera')
+ return finish(`${prefix}/${table.fisco}/${table.taxReturnSvizzera}${hashSuffix}`);
+ // Default: /tasse-e-pensione (no sub-slug)
+ return finish(`${prefix}/${table.fisco}${hashSuffix}`);
+ }
+ return finish(`${prefix}/${table.fisco}/${table[slugKey]}${hashSuffix}`);
+ }
+ case 'guida': {
+ const sub = route.guidaSubTab || 'first-day';
+ const slugKey = GUIDA_SUB_TO_SLUG[sub];
+ const base = (sub === 'first-day'
+ ? `${prefix}/${table.guida}`
+ : `${prefix}/${table.guida}/${table[slugKey]}`);
+ if (sub === 'border' && route.borderCrossing) {
+ return finish(`${base}/${route.borderCrossing}${hashSuffix}`);
+ }
+ return finish(`${base}${hashSuffix}`);
+ }
+ case 'vita': {
+ const sub = route.vitaSubTab || 'living-ch';
+ const slugKey = VITA_SUB_TO_SLUG[sub];
+ return finish((sub === 'living-ch'
+ ? `${prefix}/${table.vita}`
+ : `${prefix}/${table.vita}/${table[slugKey]}`) + hashSuffix);
+ }
+ case 'stats': {
+ const sub = route.statsSubTab || 'overview';
+ const statsEntry = STATS_KEYS.find(s => s.id === sub);
+ return finish((sub === 'overview'
+ ? `${prefix}/${table.stats}`
+ : `${prefix}/${table.stats}/${table[statsEntry!.key]}`) + hashSuffix);
+ }
+ case 'feedback':
+ return finish(`${prefix}/${table.feedback}${hashSuffix}`);
+ case 'privacy':
+ return finish(`${prefix}/${table.privacy}${hashSuffix}`);
+ case 'terms':
+ return finish(`${prefix}/${table.terms}${hashSuffix}`);
+ case 'chi-siamo':
+ return finish(`${prefix}/${table.chiSiamo}${hashSuffix}`);
+ case 'sindacati':
+ return finish(`${prefix}/${table.sindacati}${hashSuffix}`);
+ case 'data-deletion':
+ return finish(`${prefix}/${table.dataDeletion}${hashSuffix}`);
+ case 'api-status':
+ return finish(`${prefix}/${table.apiStatus}${hashSuffix}`);
+ case 'gamification':
+ return finish(`${prefix}/${table.gamification}${hashSuffix}`);
+ case 'forum':
+ return finish(`${prefix}/${table.forum}${hashSuffix}`);
+ case 'contact':
+ return finish(`${prefix}/${table.contact}${hashSuffix}`);
+ case 'partners':
+ return finish(`${prefix}/${table.partners}${hashSuffix}`);
+ case 'consulting':
+ return finish(`${prefix}/${table.consulting}${hashSuffix}`);
+ case 'job-board':
+ return finish(route.jobSlug
+ ? `${prefix}/${table.jobBoard}/${localizeEditorialJobSlug(route.jobSlug) || route.jobSlug}${hashSuffix}`
+ : `${prefix}/${table.jobBoard}${hashSuffix}`);
+ case 'profile':
+ return finish(`${prefix}/${table.profile}${hashSuffix}`);
+ case 'morning':
+ return finish(`${prefix}/${table.morning}${hashSuffix}`);
+ case 'blog': {
+ const article = route.blogArticle;
+ if (article) {
+ const slug = _blogSlugs?.[article]?.[lang] ?? article;
+ return finish(`${prefix}/${table.blog}/${slug}${hashSuffix}`);
+ }
+ return finish(`${prefix}/${table.blog}${hashSuffix}`);
+ }
+ case 'admin':
+ return finish(`${prefix}/${table.admin}${hashSuffix}`);
+ case 'glossario':
+ if (route.glossaryTerm) {
+ const termSlug = GLOSSARY_TERM_SLUGS[lang][route.glossaryTerm];
+ return finish(`${prefix}/${table.glossario}/${termSlug}${hashSuffix}`);
+ }
+ return finish(`${prefix}/${table.glossario}${hashSuffix}`);
+ case 'faq':
+ return finish(`${prefix}/${table.faq}${hashSuffix}`);
+ case 'dialetto':
+ return finish(`${prefix}/${table.dialetto}${hashSuffix}`);
+ case 'sitemap':
+ return finish(`${prefix}/${table.sitemap}${hashSuffix}`);
+ case 'contracts':
+ return finish(`${prefix}/${table.contracts}${hashSuffix}`);
+ case 'tfr-calculator':
+ return finish(`${prefix}/${table.tfrCalculator}${hashSuffix}`);
+ case 'permit-quiz':
+ return finish(`${prefix}/${table.permitQuiz}${hashSuffix}`);
+ case 'tredicesima':
+ return finish(`${prefix}/${table.tredicesima}${hashSuffix}`);
+ case 'weekly-digest':
+ return finish(`${prefix}/${table.weeklyDigest}${hashSuffix}`);
+ case 'tool-of-week':
+ return finish(`${prefix}/${table.toolOfWeek}${hashSuffix}`);
+ case 'email-confirmed':
+ return finish(`${prefix}/${table.emailConfirmed}${hashSuffix}`);
+ default:
+ return finish((prefix || '/') + hashSuffix);
+ }
 }
 
 export function buildAllLocalePaths(route: AppRoute): Record<Locale, string> {
-  return {
-    it: buildPath(route, 'it'),
-    en: buildPath(route, 'en'),
-    de: buildPath(route, 'de'),
-    fr: buildPath(route, 'fr'),
-  };
+ return {
+ it: buildPath(route, 'it'),
+ en: buildPath(route, 'en'),
+ de: buildPath(route, 'de'),
+ fr: buildPath(route, 'fr'),
+ };
 }
 
 export function getSeoSection(route: AppRoute): string {
-  switch (route.activeTab) {
-    case 'calculator': {
-      if (route.seoLanding) return `landing-${route.seoLanding}`;
-      const sub = route.calcolatoreSubTab || 'calculator';
-      const map: Record<string, string> = {
-        calculator: 'calculator', whatif: 'whatif', payslip: 'payslip',
-        ral: 'ral', bonus: 'bonus', 'parental-leave': 'parental-leave',
-        residency: 'residency', 'salary-quiz': 'salaryQuiz',
-      };
-      return map[sub] || 'calculator';
-    }
-    case 'confronti':
-      return route.confrontiSubTab || 'exchange';
-    case 'fisco': {
-      const sub = route.fiscoSubTab || 'tax-return';
-      if (sub === 'tax-return' && route.taxReturnCountry) {
-        return `tax-return-${route.taxReturnCountry}`;
-      }
-      const map: Record<string, string> = {
-        'tax-return': 'tax-return', calendar: 'calendar', holidays: 'holidays',
-        ristorni: 'ristorni', pension: 'pension', pillar3: 'pillar3', quiz: 'quiz', 'tax-credit': 'taxCredit', 'withholding-rates': 'withholdingRates', 'new-frontier-tax-sim': 'newFrontierTaxSim',
-      };
-      return map[sub] || 'fisco';
-    }
-    case 'guida': {
-      const sub = route.guidaSubTab;
-      if (!sub) return 'guide';
-      if (sub === 'border' && route.borderCrossing) {
-        return `valico-${route.borderCrossing}`;
-      }
-      const map: Record<string, string> = {
-        'first-day': 'firstDay', permits: 'permits', border: 'border',
-        unemployment: 'unemployment', 'car-transfer': 'carTransfer',
-        'car-cost': 'car-cost', 'permit-compare': 'permit-compare', 'border-map': 'border-map',
-      };
-      return map[sub] || 'guide';
-    }
-    case 'vita': {
-      const sub = route.vitaSubTab || 'living-ch';
-      const map: Record<string, string> = {
-        'living-ch': 'livingCH', 'living-it': 'livingIT', companies: 'companies',
-        schools: 'schools', nursery: 'nursery', places: 'places', transport: 'transport',
-        municipalities: 'municipalities',
-      };
-      return map[sub] || 'livingCH';
-    }
-    case 'stats': {
-      const ss = route.statsSubTab || 'overview';
-      const map: Record<string, string> = { livability: 'livability', 'jobs-observatory': 'jobsObservatory', traffic: 'traffic', 'salary-compare': 'salaryCompare', 'traffic-history': 'trafficHistory', unemployment: 'unemploymentStats', mortgage: 'mortgageComparison', 'fuel-prices': 'fuelPrices', 'health-premiums': 'healthPremiums' };
-      return map[ss] || 'stats';
-    }
-    case 'job-board':
-      return route.jobSlug ? `jobboard-${route.jobSlug}` : 'jobboard';
-    case 'feedback':
-      return 'feedback';
-    case 'profile':
-      return 'dashboard';
-    case 'blog':
-      return route.blogArticle ? `blog-${route.blogArticle}` : 'blog';
-    case 'glossario':
-      return route.glossaryTerm ? `glossario-${route.glossaryTerm}` : 'glossario';
-    case 'faq':
-      return 'faq';
-    case 'dialetto':
-      return 'dialetto';
-    case 'sitemap':
-      return 'sitemap';
-    case 'contracts':
-      return 'contracts';
-    case 'tfr-calculator':
-      return 'tfr-calculator';
-    case 'permit-quiz':
-      return 'permit-quiz';
-    case 'tredicesima':
-      return 'tredicesima';
-    case 'weekly-digest':
-      return 'weekly-digest';
-    case 'tool-of-week':
-      return 'tool-of-week';
-    case 'email-confirmed':
-      return 'email-confirmed';
-    default:
-      return route.activeTab;
-  }
+ switch (route.activeTab) {
+ case 'calculator': {
+ if (route.seoLanding) return `landing-${route.seoLanding}`;
+ const sub = route.calcolatoreSubTab || 'calculator';
+ const map: Record<string, string> = {
+ calculator: 'calculator', whatif: 'whatif', payslip: 'payslip',
+ ral: 'ral', bonus: 'bonus', 'parental-leave': 'parental-leave',
+ residency: 'residency', 'salary-quiz': 'salaryQuiz',
+ };
+ return map[sub] || 'calculator';
+ }
+ case 'confronti':
+ return route.confrontiSubTab || 'exchange';
+ case 'fisco': {
+ const sub = route.fiscoSubTab || 'tax-return';
+ if (sub === 'tax-return' && route.taxReturnCountry) {
+ return `tax-return-${route.taxReturnCountry}`;
+ }
+ const map: Record<string, string> = {
+ 'tax-return': 'tax-return', calendar: 'calendar', holidays: 'holidays',
+ ristorni: 'ristorni', pension: 'pension', pillar3: 'pillar3', quiz: 'quiz', 'tax-credit': 'taxCredit', 'withholding-rates': 'withholdingRates', 'new-frontier-tax-sim': 'newFrontierTaxSim',
+ };
+ return map[sub] || 'fisco';
+ }
+ case 'guida': {
+ const sub = route.guidaSubTab;
+ if (!sub) return 'guide';
+ if (sub === 'border' && route.borderCrossing) {
+ return `valico-${route.borderCrossing}`;
+ }
+ const map: Record<string, string> = {
+ 'first-day': 'firstDay', permits: 'permits', border: 'border',
+ unemployment: 'unemployment', 'car-transfer': 'carTransfer',
+ 'car-cost': 'car-cost', 'permit-compare': 'permit-compare', 'border-map': 'border-map',
+ };
+ return map[sub] || 'guide';
+ }
+ case 'vita': {
+ const sub = route.vitaSubTab || 'living-ch';
+ const map: Record<string, string> = {
+ 'living-ch': 'livingCH', 'living-it': 'livingIT', companies: 'companies',
+ schools: 'schools', nursery: 'nursery', places: 'places', transport: 'transport',
+ municipalities: 'municipalities',
+ };
+ return map[sub] || 'livingCH';
+ }
+ case 'stats': {
+ const ss = route.statsSubTab || 'overview';
+ const map: Record<string, string> = { livability: 'livability', 'jobs-observatory': 'jobsObservatory', traffic: 'traffic', 'salary-compare': 'salaryCompare', 'traffic-history': 'trafficHistory', unemployment: 'unemploymentStats', mortgage: 'mortgageComparison', 'fuel-prices': 'fuelPrices', 'health-premiums': 'healthPremiums' };
+ return map[ss] || 'stats';
+ }
+ case 'job-board':
+ return route.jobSlug ? `jobboard-${route.jobSlug}` : 'jobboard';
+ case 'feedback':
+ return 'feedback';
+ case 'profile':
+ return 'dashboard';
+ case 'blog':
+ return route.blogArticle ? `blog-${route.blogArticle}` : 'blog';
+ case 'glossario':
+ return route.glossaryTerm ? `glossario-${route.glossaryTerm}` : 'glossario';
+ case 'faq':
+ return 'faq';
+ case 'dialetto':
+ return 'dialetto';
+ case 'sitemap':
+ return 'sitemap';
+ case 'contracts':
+ return 'contracts';
+ case 'tfr-calculator':
+ return 'tfr-calculator';
+ case 'permit-quiz':
+ return 'permit-quiz';
+ case 'tredicesima':
+ return 'tredicesima';
+ case 'weekly-digest':
+ return 'weekly-digest';
+ case 'tool-of-week':
+ return 'tool-of-week';
+ case 'email-confirmed':
+ return 'email-confirmed';
+ default:
+ return route.activeTab;
+ }
 }
 
 /** Check if path is a locale root (/, /en/, /de/, /fr/) — these are canonical homepage URLs */
 function isLocaleRoot(path: string): boolean {
-  return path === '/' || /^\/(?:en|de|fr)\/?$/.test(path);
+ return path === '/' || /^\/(?:en|de|fr)\/?$/.test(path);
 }
 
 /** Check if route is the default homepage (calculator main tab) */
 function isDefaultHome(route: AppRoute): boolean {
-  return route.activeTab === 'calculator' && (!route.calcolatoreSubTab || route.calcolatoreSubTab === 'calculator');
+ return route.activeTab === 'calculator' && (!route.calcolatoreSubTab || route.calcolatoreSubTab === 'calculator');
 }
 
 export function pushRoute(route: AppRoute): void {
-  const newUrl = buildPath(route);
-  const [newPath, newHash] = newUrl.split('#');
-  const currentPath = window.location.pathname;
-  const currentHash = window.location.hash.slice(1); // strip leading #
-  // Root paths (/, /en/, /de/, /fr/) are canonical for the homepage — don't redirect to calculator slug
-  if (isLocaleRoot(currentPath) && isDefaultHome(route) && !newHash) return;
-  if (currentPath !== newPath || (newHash ?? '') !== currentHash) {
-    const hashPart = newHash ? `#${newHash}` : '';
-    history.pushState({ route }, '', newPath + hashPart);
-  }
+ const newUrl = buildPath(route);
+ const [newPath, newHash] = newUrl.split('#');
+ const currentPath = window.location.pathname;
+ const currentHash = window.location.hash.slice(1); // strip leading #
+ // Root paths (/, /en/, /de/, /fr/) are canonical for the homepage — don't redirect to calculator slug
+ if (isLocaleRoot(currentPath) && isDefaultHome(route) && !newHash) return;
+ if (currentPath !== newPath || (newHash ?? '') !== currentHash) {
+ const hashPart = newHash ? `#${newHash}` : '';
+ history.pushState({ route }, '', newPath + hashPart);
+ }
 }
 
 export function replaceRoute(route: AppRoute): void {
-  const newUrl = buildPath(route);
-  const [newPath, newHash] = newUrl.split('#');
-  const currentPath = window.location.pathname;
-  const currentHash = window.location.hash.slice(1);
-  if (isLocaleRoot(currentPath) && isDefaultHome(route) && !newHash) return;
-  if (currentPath !== newPath || (newHash ?? '') !== currentHash) {
-    const hashPart = newHash ? `#${newHash}` : '';
-    history.replaceState({ route }, '', newPath + hashPart);
-  }
+ const newUrl = buildPath(route);
+ const [newPath, newHash] = newUrl.split('#');
+ const currentPath = window.location.pathname;
+ const currentHash = window.location.hash.slice(1);
+ if (isLocaleRoot(currentPath) && isDefaultHome(route) && !newHash) return;
+ if (currentPath !== newPath || (newHash ?? '') !== currentHash) {
+ const hashPart = newHash ? `#${newHash}` : '';
+ history.replaceState({ route }, '', newPath + hashPart);
+ }
 }
 
 export function updatePathForLocale(newLocale: Locale): void {
-  const currentPath = window.location.pathname;
-  const { route } = parsePath(currentPath);
-  let nextRoute = route;
-  // When switching locale from a root path on the homepage, navigate to the new locale's root
-  if (isLocaleRoot(currentPath) && isDefaultHome(route)) {
-    const newRoot = newLocale === 'it' ? '/' : `/${newLocale}/`;
-    if (currentPath !== newRoot) {
-      history.replaceState({ route }, '', newRoot);
-    }
-    return;
-  }
-  if (route.activeTab === 'job-board' && route.jobSlug) {
-    const translatedSlug = translateJobSlug(route.jobSlug, newLocale);
-    if (translatedSlug && translatedSlug !== route.jobSlug) {
-      nextRoute = { ...route, jobSlug: translatedSlug };
-    }
-  }
-  const newPath = buildPath(nextRoute, newLocale);
-  const currentStateRoute = history.state?.route;
-  const stateNeedsSync = JSON.stringify(currentStateRoute || null) !== JSON.stringify(nextRoute);
-  if (currentPath !== newPath || stateNeedsSync) {
-    history.replaceState({ route: nextRoute }, '', newPath);
-  }
+ const currentPath = window.location.pathname;
+ const { route } = parsePath(currentPath);
+ let nextRoute = route;
+ // When switching locale from a root path on the homepage, navigate to the new locale's root
+ if (isLocaleRoot(currentPath) && isDefaultHome(route)) {
+ const newRoot = newLocale === 'it' ? '/' : `/${newLocale}/`;
+ if (currentPath !== newRoot) {
+ history.replaceState({ route }, '', newRoot);
+ }
+ return;
+ }
+ if (route.activeTab === 'job-board' && route.jobSlug) {
+ const translatedSlug = translateJobSlug(route.jobSlug, newLocale);
+ if (translatedSlug && translatedSlug !== route.jobSlug) {
+ nextRoute = { ...route, jobSlug: translatedSlug };
+ }
+ }
+ const newPath = buildPath(nextRoute, newLocale);
+ const currentStateRoute = history.state?.route;
+ const stateNeedsSync = JSON.stringify(currentStateRoute || null) !== JSON.stringify(nextRoute);
+ if (currentPath !== newPath || stateNeedsSync) {
+ history.replaceState({ route: nextRoute }, '', newPath);
+ }
 }
 
 // ── Anchor fragment scrolling ──────────────────────────────
@@ -2200,45 +2200,45 @@ export function updatePathForLocale(newLocale: Locale): void {
  * render the target element, with a hard timeout fallback.
  */
 export function scrollToAnchor(hash?: string): boolean {
-  const id = hash ?? window.location.hash.slice(1);
-  if (!id) return false;
+ const id = hash ?? window.location.hash.slice(1);
+ if (!id) return false;
 
-  const tryScroll = (): boolean => {
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      return true;
-    }
-    return false;
-  };
+ const tryScroll = (): boolean => {
+ const el = document.getElementById(id);
+ if (el) {
+ el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+ return true;
+ }
+ return false;
+ };
 
-  // Immediate attempt — works when component is already rendered
-  if (tryScroll()) return true;
+ // Immediate attempt — works when component is already rendered
+ if (tryScroll()) return true;
 
-  // Watch for DOM mutations (lazy-loaded components rendering)
-  if (typeof MutationObserver !== 'undefined') {
-    let found = false;
-    const observer = new MutationObserver(() => {
-      if (!found && tryScroll()) {
-        found = true;
-        observer.disconnect();
-      }
-    });
-    observer.observe(document.body, { childList: true, subtree: true });
-    // Hard timeout: stop observing after 4s
-    setTimeout(() => {
-      if (!found) {
-        observer.disconnect();
-        tryScroll(); // One last attempt
-      }
-    }, 4000);
-  } else {
-    // Fallback for environments without MutationObserver (e.g. tests)
-    const delays = [100, 300, 800, 2000];
-    delays.forEach((ms) => setTimeout(() => tryScroll(), ms));
-  }
+ // Watch for DOM mutations (lazy-loaded components rendering)
+ if (typeof MutationObserver !== 'undefined') {
+ let found = false;
+ const observer = new MutationObserver(() => {
+ if (!found && tryScroll()) {
+ found = true;
+ observer.disconnect();
+ }
+ });
+ observer.observe(document.body, { childList: true, subtree: true });
+ // Hard timeout: stop observing after 4s
+ setTimeout(() => {
+ if (!found) {
+ observer.disconnect();
+ tryScroll(); // One last attempt
+ }
+ }, 4000);
+ } else {
+ // Fallback for environments without MutationObserver (e.g. tests)
+ const delays = [100, 300, 800, 2000];
+ delays.forEach((ms) => setTimeout(() => tryScroll(), ms));
+ }
 
-  return false;
+ return false;
 }
 
 /**
@@ -2246,49 +2246,49 @@ export function scrollToAnchor(hash?: string): boolean {
  * Returns the matching key or the provided default.
  */
 export function getHashSection<T extends string>(validKeys: readonly T[], fallback: T): T {
-  const hash = window.location.hash.slice(1);
-  return (validKeys as readonly string[]).includes(hash) ? (hash as T) : fallback;
+ const hash = window.location.hash.slice(1);
+ return (validKeys as readonly string[]).includes(hash) ? (hash as T) : fallback;
 }
 
 // ── WorkPermitsGuide section-anchor slugs ──────────────────
 
 /** Internal section keys used by WorkPermitsGuide */
 export type PermitSectionKey =
-  | 'requirements' | 'documents' | 'rights' | 'limitations'
-  | 'family' | 'tax' | 'status-change' | 'renewal' | 'tips';
+ | 'requirements' | 'documents' | 'rights' | 'limitations'
+ | 'family' | 'tax' | 'status-change' | 'renewal' | 'tips';
 
 const PERMIT_SECTION_SLUGS: Record<PermitSectionKey, Record<Locale, string>> = {
-  'requirements':  { it: 'requisiti',         en: 'requirements',    de: 'voraussetzungen',  fr: 'conditions'       },
-  'documents':     { it: 'documenti',         en: 'documents',       de: 'dokumente',        fr: 'documents'        },
-  'rights':        { it: 'diritti',           en: 'rights',          de: 'rechte',           fr: 'droits'           },
-  'limitations':   { it: 'limitazioni',       en: 'limitations',     de: 'einschraenkungen', fr: 'limitations'      },
-  'family':        { it: 'famiglia',          en: 'family',          de: 'familie',          fr: 'famille'          },
-  'tax':           { it: 'fiscalita',         en: 'tax',             de: 'steuern',          fr: 'fiscalite'        },
-  'status-change': { it: 'cambio-stato',      en: 'status-change',   de: 'statuswechsel',    fr: 'changement-statut'},
-  'renewal':       { it: 'rinnovo',           en: 'renewal',         de: 'verlaengerung',    fr: 'renouvellement'   },
-  'tips':          { it: 'consigli',          en: 'tips',            de: 'tipps',            fr: 'conseils'         },
+ 'requirements': { it: 'requisiti', en: 'requirements', de: 'voraussetzungen', fr: 'conditions' },
+ 'documents': { it: 'documenti', en: 'documents', de: 'dokumente', fr: 'documents' },
+ 'rights': { it: 'diritti', en: 'rights', de: 'rechte', fr: 'droits' },
+ 'limitations': { it: 'limitazioni', en: 'limitations', de: 'einschraenkungen', fr: 'limitations' },
+ 'family': { it: 'famiglia', en: 'family', de: 'familie', fr: 'famille' },
+ 'tax': { it: 'fiscalita', en: 'tax', de: 'steuern', fr: 'fiscalite' },
+ 'status-change': { it: 'cambio-stato', en: 'status-change', de: 'statuswechsel', fr: 'changement-statut'},
+ 'renewal': { it: 'rinnovo', en: 'renewal', de: 'verlaengerung', fr: 'renouvellement' },
+ 'tips': { it: 'consigli', en: 'tips', de: 'tipps', fr: 'conseils' },
 };
 
 const ALL_SECTION_KEYS: readonly PermitSectionKey[] = Object.keys(PERMIT_SECTION_SLUGS) as PermitSectionKey[];
 
 /** Reverse map: translated slug → internal section key (for current locale). */
 export function parsePermitSectionHash(hash?: string): PermitSectionKey | null {
-  const raw = hash ?? window.location.hash.slice(1);
-  if (!raw) return null;
-  const locale = getLocale();
-  for (const key of ALL_SECTION_KEYS) {
-    if (PERMIT_SECTION_SLUGS[key][locale] === raw) return key;
-  }
-  // Fallback: accept any locale's slug (shared links across locales)
-  for (const key of ALL_SECTION_KEYS) {
-    for (const loc of ['it', 'en', 'de', 'fr'] as Locale[]) {
-      if (PERMIT_SECTION_SLUGS[key][loc] === raw) return key;
-    }
-  }
-  return null;
+ const raw = hash ?? window.location.hash.slice(1);
+ if (!raw) return null;
+ const locale = getLocale();
+ for (const key of ALL_SECTION_KEYS) {
+ if (PERMIT_SECTION_SLUGS[key][locale] === raw) return key;
+ }
+ // Fallback: accept any locale's slug (shared links across locales)
+ for (const key of ALL_SECTION_KEYS) {
+ for (const loc of ['it', 'en', 'de', 'fr'] as Locale[]) {
+ if (PERMIT_SECTION_SLUGS[key][loc] === raw) return key;
+ }
+ }
+ return null;
 }
 
 /** Get the translated slug for a section key in the current locale. */
 export function getPermitSectionSlug(key: PermitSectionKey): string {
-  return PERMIT_SECTION_SLUGS[key]?.[getLocale()] ?? key;
+ return PERMIT_SECTION_SLUGS[key]?.[getLocale()] ?? key;
 }

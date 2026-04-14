@@ -230,8 +230,8 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  onClick={() => toggleLocation(loc.value)}
  className={`px-3 py-1 text-xs rounded-full border transition-colors ${
  selectedLocations.includes(loc.value)
- ? 'bg-stripe-600 text-white border-stripe-600'
- : 'bg-surface text-subtle border-edge hover:border-stripe-400'
+ ? 'bg-accent-strong text-on-accent border-accent'
+ : 'bg-surface text-subtle border-edge hover:border-accent-border'
  }`}
  >
  {loc.label}
@@ -252,8 +252,8 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  onClick={() => toggleContract(ct.value)}
  className={`px-3 py-1 text-xs rounded-full border transition-colors ${
  selectedContracts.includes(ct.value)
- ? 'bg-stripe-600 text-white border-stripe-600'
- : 'bg-surface text-subtle border-edge hover:border-stripe-400'
+ ? 'bg-accent-strong text-on-accent border-accent'
+ : 'bg-surface text-subtle border-edge hover:border-accent-border'
  }`}
  >
  {t(ct.labelKey) || ct.value}
@@ -274,8 +274,8 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  onClick={() => toggleSector(s.value)}
  className={`px-3 py-1 text-xs rounded-full border transition-colors ${
  selectedSectors.includes(s.value)
- ? 'bg-stripe-600 text-white border-stripe-600'
- : 'bg-surface text-subtle border-edge hover:border-stripe-400'
+ ? 'bg-accent-strong text-on-accent border-accent'
+ : 'bg-surface text-subtle border-edge hover:border-accent-border'
  }`}
  >
  {s.label}
@@ -304,7 +304,7 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  <button
  onClick={handleCreate}
  disabled={saving}
- className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-stripe-600 text-white text-sm font-medium hover:bg-stripe-700 disabled:opacity-50 transition-colors"
+ className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-accent-strong text-on-accent text-sm font-medium hover:bg-accent-strong-hover disabled:opacity-50 transition-colors"
  >
  {saving ? (
  <Loader2 className="w-4 h-4 animate-spin" />
@@ -343,14 +343,14 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  <div className="flex items-center gap-1 flex-shrink-0 ml-2">
  <button
  onClick={() => setEditingAlertId(editingAlertId === alert.id ? null : alert.id)}
- className="p-1 text-muted hover:text-stripe-600 transition-colors"
+ className="p-1 text-muted hover:text-accent transition-colors"
  title={t('jobAlert.edit') || 'Modifica'}
  >
  <Pencil className="w-3.5 h-3.5" />
  </button>
  <button
  onClick={() => handleDelete(alert.id)}
- className="p-1 text-muted hover:text-red-500 transition-colors"
+ className="p-1 text-muted hover:text-danger transition-colors"
  title={t('jobAlert.delete') || 'Elimina'}
  >
  <Trash2 className="w-3.5 h-3.5" />

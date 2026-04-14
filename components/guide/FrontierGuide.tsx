@@ -132,18 +132,18 @@ const createCustomIcon = (L: any, type: 'new' | 'old' | 'both') => {
 
 const InfoCard = ({ icon: Icon, title, children, color ="blue" }: any) => {
  const colorClasses = {
- blue:"from-teal-500 to-emerald-600 border-info-border",
- green:"from-emerald-500 to-teal-600 border-success-border",
- purple:"from-emerald-500 to-amber-600 border-success-border",
- orange:"from-orange-500 to-red-600 border-warning-border",
- teal:"from-teal-500 to-teal-600 border-info-border"
+ blue:"from-info-strong to-success-strong border-info-border",
+ green:"from-success-strong to-info-strong border-success-border",
+ purple:"from-success-strong to-warning-strong border-success-border",
+ orange:"from-warning-strong to-danger-strong border-warning-border",
+ teal:"from-info-strong to-info-strong border-info-border"
  };
 
  return (
  <div className="bg-surface rounded-2xl border border-edge p-5 sm:p-6 shadow-sm hover:shadow-md transition-shadow">
  <div className="flex items-center gap-3 mb-4">
  <div className={`p-2.5 bg-gradient-to-br ${colorClasses[color as keyof typeof colorClasses]} rounded-xl`}>
- <Icon className="text-white" size={20} />
+ <Icon className="text-on-accent" size={20} />
  </div>
  <h3 className="text-lg font-bold text-strong">{title}</h3>
  </div>
@@ -156,8 +156,8 @@ const InfoCard = ({ icon: Icon, title, children, color ="blue" }: any) => {
 
 const SectionHeader = ({ icon: Icon, title, subtitle }: any) => (
  <div className="flex items-center gap-4 mb-6">
- <div className="p-3 bg-gradient-to-br from-teal-500 to-warm-500 rounded-2xl shadow-lg">
- <Icon className="text-white" size={28} />
+ <div className="p-3 bg-gradient-to-br from-info-strong to-warm-500 rounded-2xl shadow-lg">
+ <Icon className="text-on-accent" size={28} />
  </div>
  <div>
  <h2 className="text-2xl sm:text-3xl font-bold text-strong">{title}</h2>
@@ -253,12 +253,12 @@ const SchoolDirectory: React.FC<{ t: (key: string) => string }> = ({ t }) => {
  return (
  <div className="bg-surface rounded-2xl border-2 border-accent-border overflow-hidden">
  {/* Header */}
- <div className="bg-gradient-to-r from-teal-600 via-emerald-500 to-warm-600 p-5 text-white">
+ <div className="bg-gradient-to-r from-info-strong via-success-strong to-warm-600 p-5 text-on-accent">
  <div className="flex items-center gap-3">
  <BookOpen size={24} />
  <div>
  <h3 className="text-lg font-bold">{t('guide.schools.directoryTitle') || 'Elenco Scuole del Ticino'}</h3>
- <p className="text-teal-100 text-xs">{filteredSchools.length} {t('guide.schools.schoolsFound') || 'scuole trovate'}</p>
+ <p className="text-info text-xs">{filteredSchools.length} {t('guide.schools.schoolsFound') || 'scuole trovate'}</p>
  </div>
  </div>
  </div>
@@ -282,7 +282,7 @@ const SchoolDirectory: React.FC<{ t: (key: string) => string }> = ({ t }) => {
  <div className="flex flex-wrap gap-1.5">
  <button
  onClick={() => setSchoolTypeFilter('all')}
- className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${schoolTypeFilter === 'all' ? 'bg-stripe-600 text-white' : 'bg-surface-raised text-subtle'}`}
+ className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${schoolTypeFilter === 'all' ? 'bg-accent-strong text-on-accent' : 'bg-surface-raised text-subtle'}`}
  >
  {t('calendar.all') || 'Tutte'}
  </button>
@@ -290,7 +290,7 @@ const SchoolDirectory: React.FC<{ t: (key: string) => string }> = ({ t }) => {
  <button
  key={key}
  onClick={() => setSchoolTypeFilter(key)}
- className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${schoolTypeFilter === key ? 'bg-stripe-600 text-white' : 'bg-surface-raised text-subtle'}`}
+ className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${schoolTypeFilter === key ? 'bg-accent-strong text-on-accent' : 'bg-surface-raised text-subtle'}`}
  >
  <cfg.Icon size={14} className="shrink-0" /> {cfg.label}
  </button>
@@ -350,7 +350,7 @@ const SchoolDirectory: React.FC<{ t: (key: string) => string }> = ({ t }) => {
  {school.rating && (
  <div className="flex items-center gap-0.5">
  {Array.from({ length: 5 }).map((_, si) => (
- <Star key={si} size={10} className={si < school.rating! ? 'text-amber-400 fill-amber-400' : 'text-edge'} />
+ <Star key={si} size={10} className={si < school.rating! ? 'text-warning fill-warning' : 'text-edge'} />
  ))}
  </div>
  )}
@@ -434,7 +434,7 @@ const MunicipalityDetailPanel: React.FC<MunicipalityDetailPanelProps> = ({ munic
  Analytics.trackUIInteraction('guida', 'municipalities', 'cta_calculator', 'click', municipality.name);
  window.dispatchEvent(new CustomEvent('navigate-tab', { detail: { tab: 'calculator' } }));
  }}
- className="flex-1 flex items-center justify-center gap-2 bg-accent hover:bg-accent-hover text-white font-bold py-3 px-4 rounded-xl transition-colors"
+ className="flex-1 flex items-center justify-center gap-2 bg-accent hover:bg-accent-hover text-on-accent font-bold py-3 px-4 rounded-xl transition-colors"
  >
  <Euro size={16} />
  {t('guide.municipalities.detail.ctaCalculator')}
@@ -444,7 +444,7 @@ const MunicipalityDetailPanel: React.FC<MunicipalityDetailPanelProps> = ({ munic
  Analytics.trackUIInteraction('guida', 'municipalities', 'cta_compare', 'click', municipality.name);
  window.dispatchEvent(new CustomEvent('navigate-tab', { detail: { tab: 'guida', subTab: 'border' } }));
  }}
- className="flex-1 flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-4 rounded-xl transition-colors"
+ className="flex-1 flex items-center justify-center gap-2 bg-info-strong hover:bg-info-strong-hover text-on-accent font-bold py-3 px-4 rounded-xl transition-colors"
  >
  <BarChart3 size={16} />
  {t('guide.municipalities.detail.ctaCompare')}
@@ -454,7 +454,7 @@ const MunicipalityDetailPanel: React.FC<MunicipalityDetailPanelProps> = ({ munic
  Analytics.trackUIInteraction('guida', 'municipalities', 'cta_jobs', 'click', municipality.name);
  window.dispatchEvent(new CustomEvent('navigate-tab', { detail: { tab: 'job-board' } }));
  }}
- className="flex-1 flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-xl transition-colors"
+ className="flex-1 flex items-center justify-center gap-2 bg-success-strong hover:bg-success-strong-hover text-on-accent font-bold py-3 px-4 rounded-xl transition-colors"
  >
  <Briefcase size={16} />
  {t('guide.municipalities.detail.ctaJobs')}
@@ -649,23 +649,23 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <div className="space-y-8 pb-12">
  {/* Welcome card — inline, dismissible, shown once */}
  {showBanner && bannerQueueActive && bannerVisible && (
- <div className="bg-gradient-to-br from-teal-600 to-emerald-700 text-white rounded-2xl shadow-stripe-md p-4 sm:p-5 border border-teal-400/30 relative animate-fade-in">
+ <div className="bg-gradient-to-br from-info-strong to-success-strong text-on-accent rounded-2xl shadow-stripe-md p-4 sm:p-5 border border-info/30 relative animate-fade-in">
  <button
  onClick={dismissBanner}
- className="absolute top-2 right-2 p-2 text-white/70 hover:text-white hover:bg-white/20 rounded-full transition-colors"
+ className="absolute top-2 right-2 p-2 text-white/70 hover:text-on-accent hover:bg-white/20 rounded-full transition-colors"
  aria-label={t('guide.closeBanner')}
  >
  <X size={16} />
  </button>
  <div className="flex items-start gap-3 pr-6">
  <div className="shrink-0 p-2 bg-white/20 rounded-xl">
- <MapPin size={24} className="text-white" />
+ <MapPin size={24} className="text-on-accent" />
  </div>
  <div className="space-y-1">
  <h3 className="text-sm sm:text-base font-bold leading-tight">
  {t('guide.title')}
  </h3>
- <p className="text-xs sm:text-sm text-teal-100 leading-relaxed">
+ <p className="text-xs sm:text-sm text-info leading-relaxed">
  {t('guide.subtitle')}
  </p>
  </div>
@@ -691,7 +691,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  onClick={() => setSortBy('distance')}
  className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
  sortBy === 'distance'
- ? 'bg-stripe-600 text-white shadow-md'
+ ? 'bg-accent-strong text-on-accent shadow-md'
  : 'bg-surface-raised text-subtle hover:bg-surface-raised'
  }`}
  >
@@ -701,7 +701,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  onClick={() => setSortBy('population')}
  className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
  sortBy === 'population'
- ? 'bg-stripe-600 text-white shadow-md'
+ ? 'bg-accent-strong text-on-accent shadow-md'
  : 'bg-surface-raised text-subtle hover:bg-surface-raised'
  }`}
  >
@@ -714,7 +714,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  onClick={() => setFilterType('all')}
  className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
  filterType === 'all'
- ? 'bg-stripe-600 text-white shadow-md'
+ ? 'bg-accent-strong text-on-accent shadow-md'
  : 'bg-surface-raised text-subtle hover:bg-surface-raised'
  }`}
  >
@@ -724,7 +724,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  onClick={() => setFilterType('new')}
  className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
  filterType === 'new'
- ? 'bg-stripe-600 text-white shadow-md'
+ ? 'bg-accent-strong text-on-accent shadow-md'
  : 'bg-surface-raised text-subtle hover:bg-surface-raised'
  }`}
  >
@@ -734,7 +734,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  onClick={() => setFilterType('old')}
  className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
  filterType === 'old'
- ? 'bg-orange-600 text-white shadow-md'
+ ? 'bg-warning-strong text-on-accent shadow-md'
  : 'bg-surface-raised text-subtle hover:bg-surface-raised'
  }`}
  >
@@ -751,7 +751,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  onClick={() => setFilterProvince(p)}
  className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
  filterProvince === p
- ? 'bg-emerald-600 text-white shadow-md'
+ ? 'bg-success-strong text-on-accent shadow-md'
  : 'bg-surface-raised text-subtle hover:bg-surface-raised'
  }`}
  >
@@ -781,15 +781,15 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <h3 className="text-xl font-bold text-strong">{m.name}</h3>
  {m.type === 'both' ? (
  <>
- <span className="px-2.5 py-1 rounded-lg text-xs font-bold bg-stripe-600 text-white">
+ <span className="px-2.5 py-1 rounded-lg text-xs font-bold bg-accent-strong text-on-accent">
  {t('guide.new')}
  </span>
- <span className="px-2.5 py-1 rounded-lg text-xs font-bold bg-orange-600 text-white">
+ <span className="px-2.5 py-1 rounded-lg text-xs font-bold bg-warning-strong text-on-accent">
  {t('guide.old')}
  </span>
  </>
  ) : (
- <span className={`px-2.5 py-1 rounded-lg text-xs font-bold ${m.type === 'new' ? 'bg-stripe-600 text-white' : 'bg-orange-600 text-white'}`}>
+ <span className={`px-2.5 py-1 rounded-lg text-xs font-bold ${m.type === 'new' ? 'bg-accent-strong text-on-accent' : 'bg-warning-strong text-on-accent'}`}>
  {m.type === 'new' ? t('guide.new') : t('guide.old')}
  </span>
  )}
@@ -799,24 +799,24 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  </div>
  <div className="grid sm:grid-cols-2 gap-3 text-sm">
  <div className="flex items-center gap-2 text-body">
- <MapPin size={16} className="text-stripe-600" />
+ <MapPin size={16} className="text-accent" />
  <span><strong>{t('guide.province')}:</strong> {m.province}</span>
  </div>
  <div className="flex items-center gap-2 text-body">
- <Navigation size={16} className="text-emerald-700" />
+ <Navigation size={16} className="text-success" />
  <span><strong>{t('guide.distance')}:</strong> {m.distance} {t('guide.kmFromBorder')}</span>
  </div>
  <div className="flex items-center gap-2 text-body">
- <Car size={16} className="text-orange-600" />
+ <Car size={16} className="text-warning" />
  <span><strong>{t('guide.borderCrossing')}:</strong> {m.borderCrossing}</span>
  </div>
  <div className="flex items-center gap-2 text-body">
- <Users size={16} className="text-stripe-600" />
+ <Users size={16} className="text-accent" />
  <span><strong>{t('guide.population')}:</strong> {m.population.toLocaleString('it-IT')}</span>
  </div>
  </div>
  </div>
- <CheckCircle2 size={24} className={`flex-shrink-0 ${isSelected ? 'text-stripe-600' : m.type === 'new' ? 'text-stripe-600' : 'text-orange-600'}`} />
+ <CheckCircle2 size={24} className={`flex-shrink-0 ${isSelected ? 'text-accent' : m.type === 'new' ? 'text-accent' : 'text-warning'}`} />
  </div>
  </div>
  {isSelected && (
@@ -837,23 +837,23 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  {/* Mappa Interattiva */}
  <div className="bg-surface rounded-2xl border border-edge p-5 sm:p-6 overflow-hidden">
  <div className="flex items-center gap-3 mb-4">
- <div className="p-2 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl">
- <MapPin className="text-white" size={20} />
+ <div className="p-2 bg-gradient-to-br from-success-strong to-info-strong rounded-xl">
+ <MapPin className="text-on-accent" size={20} />
  </div>
  <h3 className="text-xl font-bold text-strong">{t('guide.municipalities.mapTitle')}</h3>
  </div>
  {/* Legenda */}
  <div className="flex gap-4 mb-4 flex-wrap text-sm">
  <div className="flex items-center gap-2">
- <div className="w-4 h-4 rounded-full bg-stripe-600"></div>
+ <div className="w-4 h-4 rounded-full bg-accent-strong"></div>
  <span className="text-body">{t('guide.legendNewOnly')}</span>
  </div>
  <div className="flex items-center gap-2">
- <div className="w-4 h-4 rounded-full bg-orange-600"></div>
+ <div className="w-4 h-4 rounded-full bg-warning-strong"></div>
  <span className="text-body">{t('guide.legendOldOnly')}</span>
  </div>
  <div className="flex items-center gap-2">
- <div className="w-4 h-4 rounded-full bg-stripe-600"></div>
+ <div className="w-4 h-4 rounded-full bg-accent-strong"></div>
  <span className="text-body">{t('guide.legendBoth')}</span>
  </div>
  </div>
@@ -887,11 +887,11 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <div className="flex gap-1 mt-2">
  {m.type === 'both' ? (
  <>
- <span className="px-2 py-0.5 rounded bg-stripe-600 text-white text-xs font-bold">{t('guide.new')}</span>
- <span className="px-2 py-0.5 rounded bg-orange-600 text-white text-xs font-bold">{t('guide.old')}</span>
+ <span className="px-2 py-0.5 rounded bg-accent-strong text-on-accent text-xs font-bold">{t('guide.new')}</span>
+ <span className="px-2 py-0.5 rounded bg-warning-strong text-on-accent text-xs font-bold">{t('guide.old')}</span>
  </>
  ) : (
- <span className={`px-2 py-0.5 rounded ${m.type === 'new' ? 'bg-stripe-600' : 'bg-orange-600'} text-white text-xs font-bold`}>
+ <span className={`px-2 py-0.5 rounded ${m.type === 'new' ? 'bg-accent-strong' : 'bg-warning-strong'} text-on-accent text-xs font-bold`}>
  {m.type === 'new' ? t('guide.new') : t('guide.old')}
  </span>
  )}
@@ -910,7 +910,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
 
  <div className="bg-warning-subtle border-2 border-warning-border rounded-2xl p-6">
  <div className="flex items-start gap-3">
- <AlertCircle size={24} className="text-amber-700 flex-shrink-0" />
+ <AlertCircle size={24} className="text-warning flex-shrink-0" />
  <div className="text-sm text-warning space-y-2">
  <p className="font-bold">⚠️ {t('guide.municipalities.importantNote')}</p>
  <ul className="space-y-1 text-xs">
@@ -937,7 +937,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  {/* Smart Filters */}
  <div className="bg-surface rounded-2xl border border-edge p-5 shadow-sm">
  <h3 className="text-base font-semibold text-body mb-4 flex items-center gap-2">
- <BarChart3 size={16} className="text-stripe-600" />
+ <BarChart3 size={16} className="text-accent" />
  {t('guide.border.smartFilters')}
  </h3>
  
@@ -948,7 +948,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  const count = borderCrossings.filter(b => b.traffic !== 'closed').length;
  Analytics.trackBorderFilter('all', count);
  }}
- className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-colors ${borderFilter === 'all' ? 'bg-stripe-500 text-white shadow-lg' : 'bg-surface-raised text-subtle hover:bg-slate-200 '}`}
+ className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-colors ${borderFilter === 'all' ? 'bg-accent-strong text-on-accent shadow-lg' : 'bg-surface-raised text-subtle hover:bg-surface-raised '}`}
  >
  🔍 {t('guide.all')} ({borderCrossings.filter(b => b.traffic !== 'closed').length})
  </button>
@@ -958,7 +958,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  const count = borderCrossings.filter(b => b.traffic === 'low').length;
  Analytics.trackBorderFilter('low-traffic', count);
  }}
- className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-colors ${borderFilter === 'low-traffic' ? 'bg-emerald-700 text-white shadow-lg' : 'bg-surface-raised text-subtle hover:bg-slate-200 '}`}
+ className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-colors ${borderFilter === 'low-traffic' ? 'bg-success-strong text-on-accent shadow-lg' : 'bg-surface-raised text-subtle hover:bg-surface-raised '}`}
  >
  ✅ {t('guide.border.lowTraffic')} ({borderCrossings.filter(b => b.traffic === 'low').length})
  </button>
@@ -968,7 +968,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  const count = borderCrossings.filter(b => b.hours === '24h').length;
  Analytics.trackBorderFilter('24h', count);
  }}
- className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-colors ${borderFilter === '24h' ? 'bg-stripe-500 text-white shadow-lg' : 'bg-surface-raised text-subtle hover:bg-slate-200 '}`}
+ className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-colors ${borderFilter === '24h' ? 'bg-accent-strong text-on-accent shadow-lg' : 'bg-surface-raised text-subtle hover:bg-surface-raised '}`}
  >
  ⏰ {t('guide.border.open24h')} ({borderCrossings.filter(b => b.hours === '24h').length})
  </button>
@@ -981,7 +981,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  }).length;
  Analytics.trackBorderFilter('morning', count);
  }}
- className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-colors ${borderFilter === 'morning' ? 'bg-orange-500 text-white shadow-lg' : 'bg-surface-raised text-subtle hover:bg-slate-200 '}`}
+ className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-colors ${borderFilter === 'morning' ? 'bg-warning-strong text-on-accent shadow-lg' : 'bg-surface-raised text-subtle hover:bg-surface-raised '}`}
  >
  🌅 {t('guide.border.fastMorning')}
  </button>
@@ -994,7 +994,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  }).length;
  Analytics.trackBorderFilter('evening', count);
  }}
- className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-colors ${borderFilter === 'evening' ? 'bg-stripe-500 text-white shadow-lg' : 'bg-surface-raised text-subtle hover:bg-slate-200 '}`}
+ className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-colors ${borderFilter === 'evening' ? 'bg-accent-strong text-on-accent shadow-lg' : 'bg-surface-raised text-subtle hover:bg-surface-raised '}`}
  >
  🌆 {t('guide.border.fastEvening')}
  </button>
@@ -1015,7 +1015,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  }).length;
  Analytics.trackBorderTimeSelection('morning', count);
  }}
- className={`flex-1 px-3 py-2 rounded-lg text-xs font-bold transition-colors ${selectedTime === 'morning' ? 'bg-orange-500 text-white' : 'bg-surface text-subtle'}`}
+ className={`flex-1 px-3 py-2 rounded-lg text-xs font-bold transition-colors ${selectedTime === 'morning' ? 'bg-warning-strong text-on-accent' : 'bg-surface text-subtle'}`}
  >
  🌅 {t('guide.border.morning')} (7-9)
  </button>
@@ -1028,7 +1028,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  }).length;
  Analytics.trackBorderTimeSelection('evening', count);
  }}
- className={`flex-1 px-3 py-2 rounded-lg text-xs font-bold transition-colors ${selectedTime === 'evening' ? 'bg-stripe-500 text-white' : 'bg-surface text-subtle'}`}
+ className={`flex-1 px-3 py-2 rounded-lg text-xs font-bold transition-colors ${selectedTime === 'evening' ? 'bg-accent-strong text-on-accent' : 'bg-surface text-subtle'}`}
  >
  🌆 {t('guide.border.evening')} (17-19)
  </button>
@@ -1038,7 +1038,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  const count = borderCrossings.filter(b => b.hours === '24h' && b.traffic === 'low').length;
  Analytics.trackBorderTimeSelection('night', count);
  }}
- className={`flex-1 px-3 py-2 rounded-lg text-xs font-bold transition-colors ${selectedTime === 'night' ? 'bg-stripe-500 text-white' : 'bg-surface text-subtle'}`}
+ className={`flex-1 px-3 py-2 rounded-lg text-xs font-bold transition-colors ${selectedTime === 'night' ? 'bg-accent-strong text-on-accent' : 'bg-surface text-subtle'}`}
  >
  🌙 {t('guide.border.night')}
  </button>
@@ -1049,7 +1049,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  {/* Interactive Map */}
  <div className="bg-surface rounded-2xl border border-edge p-5 shadow-sm">
  <h3 className="text-base font-semibold text-body mb-4 flex items-center gap-2">
- <MapPin size={16} className="text-red-500" />
+ <MapPin size={16} className="text-danger" />
  {t('guide.border.interactiveMap')}
  </h3>
  <Suspense fallback={<div className="flex items-center justify-center h-[500px]"><span className="text-muted text-sm">Loading map…</span></div>}>
@@ -1110,15 +1110,15 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  </Suspense>
  <div className="mt-3 flex items-center justify-center gap-6 text-xs">
  <div className="flex items-center gap-2">
- <div className="w-3 h-3 rounded-full bg-red-500 border-2 border-white"></div>
+ <div className="w-3 h-3 rounded-full bg-danger-strong border-2 border-white"></div>
  <span className="text-subtle">{t('guide.border.highTraffic')}</span>
  </div>
  <div className="flex items-center gap-2">
- <div className="w-3 h-3 rounded-full bg-orange-500 border-2 border-white"></div>
+ <div className="w-3 h-3 rounded-full bg-warning-strong border-2 border-white"></div>
  <span className="text-subtle">{t('guide.border.mediumTraffic')}</span>
  </div>
  <div className="flex items-center gap-2">
- <div className="w-3 h-3 rounded-full bg-emerald-700 border-2 border-white"></div>
+ <div className="w-3 h-3 rounded-full bg-success-strong border-2 border-white"></div>
  <span className="text-subtle">{t('guide.border.lowTrafficLabel')}</span>
  </div>
  </div>
@@ -1135,17 +1135,17 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  return (
  <div 
  key={idx} 
- className={`bg-surface rounded-2xl border-2 p-5 hover:shadow-lg transition-[color,background-color,border-color,box-shadow] ${isRecommended ? 'border-emerald-500 ring-2 ring-emerald-500/20' : 'border-edge'}`}
+ className={`bg-surface rounded-2xl border-2 p-5 hover:shadow-lg transition-[color,background-color,border-color,box-shadow] ${isRecommended ? 'border-success ring-2 ring-success/20' : 'border-edge'}`}
  >
  {isRecommended && (
- <div className="mb-3 px-3 py-1.5 bg-emerald-700 text-white text-xs font-bold rounded-full inline-flex items-center gap-1.5">
+ <div className="mb-3 px-3 py-1.5 bg-success-strong text-on-accent text-xs font-bold rounded-full inline-flex items-center gap-1.5">
  ⭐ {t('guide.border.recommendedFor')} {selectedTime === 'morning' ? t('guide.border.morning') : selectedTime === 'evening' ? t('guide.border.evening') : t('guide.border.night')}
  </div>
  )}
  
  <div className="flex items-center gap-3 mb-3">
- <div className={`p-2 rounded-lg ${border.traffic === 'high' ? 'bg-red-500' : border.traffic === 'medium' ? 'bg-orange-500' : 'bg-emerald-700'}`}>
- <Navigation className="text-white" size={18} />
+ <div className={`p-2 rounded-lg ${border.traffic === 'high' ? 'bg-danger-strong' : border.traffic === 'medium' ? 'bg-warning-strong' : 'bg-success-strong'}`}>
+ <Navigation className="text-on-accent" size={18} />
  </div>
  <div className="flex-1">
  <h3 className="text-lg font-bold text-strong">{border.name}</h3>
@@ -1156,15 +1156,15 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <div className="space-y-2">
  <div className="flex items-center justify-between">
  <span className="text-sm text-subtle">{t('guide.border.waitMorning')} (🌅 7-9)</span>
- <span className={`text-sm font-bold ${selectedTime === 'morning' ? 'text-orange-600' : 'text-subtle'}`}>{border.avgWaitMorning}</span>
+ <span className={`text-sm font-bold ${selectedTime === 'morning' ? 'text-warning' : 'text-subtle'}`}>{border.avgWaitMorning}</span>
  </div>
  <div className="flex items-center justify-between">
  <span className="text-sm text-subtle">{t('guide.border.waitEvening')} (🌆 17-19)</span>
- <span className={`text-sm font-bold ${selectedTime === 'evening' ? 'text-stripe-600' : 'text-subtle'}`}>{border.avgWaitEvening}</span>
+ <span className={`text-sm font-bold ${selectedTime === 'evening' ? 'text-accent' : 'text-subtle'}`}>{border.avgWaitEvening}</span>
  </div>
  <div className="pt-2 border-t border-edge">
  <div className="text-sm text-muted mb-1">⏰ {t('guide.border.openingHours')}</div>
- <div className={`text-sm font-semibold ${border.hours === '24h' ? 'text-emerald-700' : 'text-orange-600'}`}>{t(border.hours)}</div>
+ <div className={`text-sm font-semibold ${border.hours === '24h' ? 'text-success' : 'text-warning'}`}>{t(border.hours)}</div>
  </div>
  <div className="pt-2 border-t border-edge">
  <div className="text-sm text-muted mb-1">🔴 {t('guide.border.peakHours')}</div>
@@ -1185,19 +1185,19 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <div className="grid sm:grid-cols-2 gap-3">
  <div className="p-3 bg-surface-alt rounded-lg">
  <div className="text-sm text-muted mb-1">Como → Lugano</div>
- <div className="text-lg font-bold text-stripe-600">25-40 min</div>
+ <div className="text-lg font-bold text-accent">25-40 min</div>
  </div>
  <div className="p-3 bg-surface-alt rounded-lg">
  <div className="text-sm text-muted mb-1">Varese → Mendrisio</div>
- <div className="text-lg font-bold text-stripe-600">20-35 min</div>
+ <div className="text-lg font-bold text-accent">20-35 min</div>
  </div>
  <div className="p-3 bg-surface-alt rounded-lg">
  <div className="text-sm text-muted mb-1">Varese → Lugano</div>
- <div className="text-lg font-bold text-stripe-600">30-45 min</div>
+ <div className="text-lg font-bold text-accent">30-45 min</div>
  </div>
  <div className="p-3 bg-surface-alt rounded-lg">
  <div className="text-sm text-muted mb-1">Milano → Lugano</div>
- <div className="text-lg font-bold text-stripe-600">60-90 min</div>
+ <div className="text-lg font-bold text-accent">60-90 min</div>
  </div>
  </div>
  <p className="text-sm text-muted mt-3">
@@ -1208,23 +1208,23 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <InfoCard icon={Car} title={t('guide.border.commutingTips')} color="purple">
  <ul className="space-y-2">
  <li className="flex items-start gap-2">
- <CheckCircle2 size={16} className="text-stripe-600 flex-shrink-0 mt-0.5" />
+ <CheckCircle2 size={16} className="text-accent flex-shrink-0 mt-0.5" />
  <span><strong>{t('guide.border.tip1Title')}:</strong> {t('guide.border.tip1')}</span>
  </li>
  <li className="flex items-start gap-2">
- <CheckCircle2 size={16} className="text-stripe-600 flex-shrink-0 mt-0.5" />
+ <CheckCircle2 size={16} className="text-accent flex-shrink-0 mt-0.5" />
  <span><strong>{t('guide.border.tip2Title')}:</strong> {t('guide.border.tip2')}</span>
  </li>
  <li className="flex items-start gap-2">
- <CheckCircle2 size={16} className="text-stripe-600 flex-shrink-0 mt-0.5" />
+ <CheckCircle2 size={16} className="text-accent flex-shrink-0 mt-0.5" />
  <span><strong>{t('guide.border.tip3Title')}:</strong> {t('guide.border.tip3')}</span>
  </li>
  <li className="flex items-start gap-2">
- <CheckCircle2 size={16} className="text-stripe-600 flex-shrink-0 mt-0.5" />
+ <CheckCircle2 size={16} className="text-accent flex-shrink-0 mt-0.5" />
  <span><strong>{t('guide.border.tip4Title')}:</strong> {t('guide.border.tip4')}</span>
  </li>
  <li className="flex items-start gap-2">
- <CheckCircle2 size={16} className="text-stripe-600 flex-shrink-0 mt-0.5" />
+ <CheckCircle2 size={16} className="text-accent flex-shrink-0 mt-0.5" />
  <span><strong>{t('guide.border.tip5Title')}:</strong> {t('guide.border.tip5')}</span>
  </li>
  </ul>
@@ -1244,23 +1244,23 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <InfoCard icon={FileText} title={t('guide.livingCH.documentsTitle')} color="blue">
  <ul className="space-y-2">
  <li className="flex items-start gap-2">
- <CheckCircle2 size={16} className="text-stripe-600 flex-shrink-0 mt-0.5" />
+ <CheckCircle2 size={16} className="text-accent flex-shrink-0 mt-0.5" />
  <span><strong>{t('guide.livingCH.doc1Title')}:</strong> {t('guide.livingCH.doc1')}</span>
  </li>
  <li className="flex items-start gap-2">
- <CheckCircle2 size={16} className="text-stripe-600 flex-shrink-0 mt-0.5" />
+ <CheckCircle2 size={16} className="text-accent flex-shrink-0 mt-0.5" />
  <span><strong>{t('guide.livingCH.doc2Title')}:</strong> {t('guide.livingCH.doc2')}</span>
  </li>
  <li className="flex items-start gap-2">
- <CheckCircle2 size={16} className="text-stripe-600 flex-shrink-0 mt-0.5" />
+ <CheckCircle2 size={16} className="text-accent flex-shrink-0 mt-0.5" />
  <span><strong>{t('guide.livingCH.doc3Title')}:</strong> {t('guide.livingCH.doc3')}</span>
  </li>
  <li className="flex items-start gap-2">
- <CheckCircle2 size={16} className="text-stripe-600 flex-shrink-0 mt-0.5" />
+ <CheckCircle2 size={16} className="text-accent flex-shrink-0 mt-0.5" />
  <span><strong>{t('guide.livingCH.doc4Title')}:</strong> {t('guide.livingCH.doc4')}</span>
  </li>
  <li className="flex items-start gap-2">
- <CheckCircle2 size={16} className="text-stripe-600 flex-shrink-0 mt-0.5" />
+ <CheckCircle2 size={16} className="text-accent flex-shrink-0 mt-0.5" />
  <span><strong>{t('guide.livingCH.doc5Title')}:</strong> {t('guide.livingCH.doc5')}</span>
  </li>
  </ul>
@@ -1269,21 +1269,21 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <InfoCard icon={Shield} title={t('guide.livingCH.insuranceTitle')} color="purple">
  <ul className="space-y-2">
  <li className="flex items-start gap-2">
- <AlertCircle size={16} className="text-stripe-600 flex-shrink-0 mt-0.5" />
+ <AlertCircle size={16} className="text-accent flex-shrink-0 mt-0.5" />
  <div>
  <strong>{t('guide.livingCH.ins1Title')}:</strong>
  <div className="text-xs mt-1">{t('guide.livingCH.ins1')}</div>
  </div>
  </li>
  <li className="flex items-start gap-2">
- <AlertCircle size={16} className="text-stripe-600 flex-shrink-0 mt-0.5" />
+ <AlertCircle size={16} className="text-accent flex-shrink-0 mt-0.5" />
  <div>
  <strong>{t('guide.livingCH.ins2Title')}:</strong>
  <div className="text-xs mt-1">{t('guide.livingCH.ins2')}</div>
  </div>
  </li>
  <li className="flex items-start gap-2">
- <AlertCircle size={16} className="text-stripe-600 flex-shrink-0 mt-0.5" />
+ <AlertCircle size={16} className="text-accent flex-shrink-0 mt-0.5" />
  <div>
  <strong>{t('guide.livingCH.ins3Title')}:</strong>
  <div className="text-xs mt-1">{t('guide.livingCH.ins3')}</div>
@@ -1295,31 +1295,31 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <InfoCard icon={Briefcase} title={t('guide.livingCH.prosTitle')} color="green">
  <ul className="space-y-2">
  <li className="flex items-start gap-2">
- <CheckCircle2 size={16} className="text-emerald-700 flex-shrink-0 mt-0.5" />
+ <CheckCircle2 size={16} className="text-success flex-shrink-0 mt-0.5" />
  <span><strong>{t('guide.livingCH.pro1Title')}:</strong> {t('guide.livingCH.pro1')}</span>
  </li>
  <li className="flex items-start gap-2">
- <CheckCircle2 size={16} className="text-emerald-700 flex-shrink-0 mt-0.5" />
+ <CheckCircle2 size={16} className="text-success flex-shrink-0 mt-0.5" />
  <span><strong>{t('guide.livingCH.pro2Title')}:</strong> {t('guide.livingCH.pro2')}</span>
  </li>
  <li className="flex items-start gap-2">
- <CheckCircle2 size={16} className="text-emerald-700 flex-shrink-0 mt-0.5" />
+ <CheckCircle2 size={16} className="text-success flex-shrink-0 mt-0.5" />
  <span><strong>{t('guide.livingCH.pro3Title')}:</strong> {t('guide.livingCH.pro3')}</span>
  </li>
  <li className="flex items-start gap-2">
- <CheckCircle2 size={16} className="text-emerald-700 flex-shrink-0 mt-0.5" />
+ <CheckCircle2 size={16} className="text-success flex-shrink-0 mt-0.5" />
  <span><strong>{t('guide.livingCH.pro4Title')}:</strong> {t('guide.livingCH.pro4')}</span>
  </li>
  <li className="flex items-start gap-2">
- <CheckCircle2 size={16} className="text-emerald-700 flex-shrink-0 mt-0.5" />
+ <CheckCircle2 size={16} className="text-success flex-shrink-0 mt-0.5" />
  <span><strong>{t('guide.livingCH.pro5Title')}:</strong> {t('guide.livingCH.pro5')}</span>
  </li>
  <li className="flex items-start gap-2">
- <CheckCircle2 size={16} className="text-emerald-700 flex-shrink-0 mt-0.5" />
+ <CheckCircle2 size={16} className="text-success flex-shrink-0 mt-0.5" />
  <span><strong>{t('guide.livingCH.pro6Title')}:</strong> {t('guide.livingCH.pro6')}</span>
  </li>
  <li className="flex items-start gap-2">
- <CheckCircle2 size={16} className="text-emerald-700 flex-shrink-0 mt-0.5" />
+ <CheckCircle2 size={16} className="text-success flex-shrink-0 mt-0.5" />
  <span><strong>{t('guide.livingCH.pro7Title')}:</strong> {t('guide.livingCH.pro7')}</span>
  </li>
  </ul>
@@ -1328,27 +1328,27 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <InfoCard icon={AlertCircle} title={t('guide.livingCH.consTitle')} color="orange">
  <ul className="space-y-2">
  <li className="flex items-start gap-2">
- <AlertCircle size={16} className="text-orange-600 flex-shrink-0 mt-0.5" />
+ <AlertCircle size={16} className="text-warning flex-shrink-0 mt-0.5" />
  <span><strong>{t('guide.livingCH.con1Title')}:</strong> {t('guide.livingCH.con1')}</span>
  </li>
  <li className="flex items-start gap-2">
- <AlertCircle size={16} className="text-orange-600 flex-shrink-0 mt-0.5" />
+ <AlertCircle size={16} className="text-warning flex-shrink-0 mt-0.5" />
  <span><strong>{t('guide.livingCH.con2Title')}:</strong> {t('guide.livingCH.con2')}</span>
  </li>
  <li className="flex items-start gap-2">
- <AlertCircle size={16} className="text-orange-600 flex-shrink-0 mt-0.5" />
+ <AlertCircle size={16} className="text-warning flex-shrink-0 mt-0.5" />
  <span><strong>{t('guide.livingCH.con3Title')}:</strong> {t('guide.livingCH.con3')}</span>
  </li>
  <li className="flex items-start gap-2">
- <AlertCircle size={16} className="text-orange-600 flex-shrink-0 mt-0.5" />
+ <AlertCircle size={16} className="text-warning flex-shrink-0 mt-0.5" />
  <span><strong>{t('guide.livingCH.con4Title')}:</strong> {t('guide.livingCH.con4')}</span>
  </li>
  <li className="flex items-start gap-2">
- <AlertCircle size={16} className="text-orange-600 flex-shrink-0 mt-0.5" />
+ <AlertCircle size={16} className="text-warning flex-shrink-0 mt-0.5" />
  <span><strong>{t('guide.livingCH.con5Title')}:</strong> {t('guide.livingCH.con5')}</span>
  </li>
  <li className="flex items-start gap-2">
- <AlertCircle size={16} className="text-orange-600 flex-shrink-0 mt-0.5" />
+ <AlertCircle size={16} className="text-warning flex-shrink-0 mt-0.5" />
  <span><strong>{t('guide.livingCH.con6Title')}:</strong> {t('guide.livingCH.con6')}</span>
  </li>
  </ul>
@@ -1360,7 +1360,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <div className="space-y-4">
  <div className="p-4 bg-success-subtle rounded-xl border-2 border-success-border">
  <div className="flex items-center gap-2 mb-2">
- <CheckCircle2 size={18} className="text-emerald-700" />
+ <CheckCircle2 size={18} className="text-success" />
  <strong className="text-success">✅ {t('guide.livingCH.capitalGainTitle')}</strong>
  </div>
  <p className="text-sm text-body mb-2">
@@ -1373,7 +1373,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
 
  <div className="p-4 bg-warning-subtle rounded-xl border-2 border-warning-border">
  <div className="flex items-center gap-2 mb-2">
- <AlertCircle size={18} className="text-orange-600" />
+ <AlertCircle size={18} className="text-warning" />
  <strong className="text-warning">⚠️ {t('guide.livingCH.wealthTaxTitle')}</strong>
  </div>
  <p className="text-sm text-body mb-2">
@@ -1425,7 +1425,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <div className="space-y-4">
  <div className="p-4 bg-accent-subtle rounded-xl border-2 border-accent-border">
  <div className="flex items-center gap-2 mb-2">
- <CheckCircle2 size={18} className="text-stripe-600" />
+ <CheckCircle2 size={18} className="text-accent" />
  <strong className="text-accent">✨ {t('guide.livingCH.taxFreeRight')}</strong>
  </div>
  <p className="text-sm text-body mb-3">
@@ -1486,7 +1486,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <ul className="space-y-2">
  {(['catholic1', 'catholic2', 'catholic3', 'catholic4', 'catholic5', 'catholic6'] as const).map((k) => (
  <li key={k} className="flex items-start gap-2">
- <CheckCircle2 size={14} className="text-stripe-600 flex-shrink-0 mt-0.5" />
+ <CheckCircle2 size={14} className="text-accent flex-shrink-0 mt-0.5" />
  <span className="text-sm"><strong>{t(`guide.livingCH.${k}Name`)}:</strong> {t(`guide.livingCH.${k}Desc`)}</span>
  </li>
  ))}
@@ -1499,7 +1499,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <ul className="space-y-2">
  {(['protestant1', 'protestant2', 'protestant3'] as const).map((k) => (
  <li key={k} className="flex items-start gap-2">
- <CheckCircle2 size={14} className="text-stripe-600 flex-shrink-0 mt-0.5" />
+ <CheckCircle2 size={14} className="text-accent flex-shrink-0 mt-0.5" />
  <span className="text-sm"><strong>{t(`guide.livingCH.${k}Name`)}:</strong> {t(`guide.livingCH.${k}Desc`)}</span>
  </li>
  ))}
@@ -1512,7 +1512,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <ul className="space-y-2">
  {(['otherRel1', 'otherRel2', 'otherRel3'] as const).map((k) => (
  <li key={k} className="flex items-start gap-2">
- <CheckCircle2 size={14} className="text-emerald-700 flex-shrink-0 mt-0.5" />
+ <CheckCircle2 size={14} className="text-success flex-shrink-0 mt-0.5" />
  <span className="text-sm"><strong>{t(`guide.livingCH.${k}Name`)}:</strong> {t(`guide.livingCH.${k}Desc`)}</span>
  </li>
  ))}
@@ -1542,19 +1542,19 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <InfoCard icon={FileText} title={t('guide.livingIT.documentsTitle')} color="blue">
  <ul className="space-y-2">
  <li className="flex items-start gap-2">
- <CheckCircle2 size={16} className="text-stripe-600 flex-shrink-0 mt-0.5" />
+ <CheckCircle2 size={16} className="text-accent flex-shrink-0 mt-0.5" />
  <span><strong>{t('guide.livingIT.doc1Title')}:</strong> {t('guide.livingIT.doc1')}</span>
  </li>
  <li className="flex items-start gap-2">
- <CheckCircle2 size={16} className="text-stripe-600 flex-shrink-0 mt-0.5" />
+ <CheckCircle2 size={16} className="text-accent flex-shrink-0 mt-0.5" />
  <span><strong>{t('guide.livingIT.doc2Title')}:</strong> {t('guide.livingIT.doc2')}</span>
  </li>
  <li className="flex items-start gap-2">
- <CheckCircle2 size={16} className="text-stripe-600 flex-shrink-0 mt-0.5" />
+ <CheckCircle2 size={16} className="text-accent flex-shrink-0 mt-0.5" />
  <span><strong>{t('guide.livingIT.doc3Title')}:</strong> {t('guide.livingIT.doc3')}</span>
  </li>
  <li className="flex items-start gap-2">
- <CheckCircle2 size={16} className="text-stripe-600 flex-shrink-0 mt-0.5" />
+ <CheckCircle2 size={16} className="text-accent flex-shrink-0 mt-0.5" />
  <span><strong>{t('guide.livingIT.doc4Title')}:</strong> {t('guide.livingIT.doc4')}</span>
  </li>
  </ul>
@@ -1563,11 +1563,11 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <InfoCard icon={Heart} title={t('guide.livingIT.healthTitle')} color="purple">
  <div className="space-y-3">
  <div>
- <strong className="text-stripe-600">{t('guide.livingIT.healthOpt1')}</strong>
+ <strong className="text-accent">{t('guide.livingIT.healthOpt1')}</strong>
  <div className="text-xs mt-1">{t('guide.livingIT.healthOpt1Desc')}</div>
  </div>
  <div>
- <strong className="text-emerald-700">{t('guide.livingIT.healthOpt2')}</strong>
+ <strong className="text-success">{t('guide.livingIT.healthOpt2')}</strong>
  <div className="text-xs mt-1">{t('guide.livingIT.healthOpt2Desc')}</div>
  </div>
  <div className="p-3 bg-accent-subtle rounded-lg text-sm text-accent">
@@ -1579,23 +1579,23 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <InfoCard icon={Briefcase} title={t('guide.livingIT.prosTitle')} color="green">
  <ul className="space-y-2">
  <li className="flex items-start gap-2">
- <CheckCircle2 size={16} className="text-emerald-700 flex-shrink-0 mt-0.5" />
+ <CheckCircle2 size={16} className="text-success flex-shrink-0 mt-0.5" />
  <span><strong>{t('guide.livingIT.pro1Title')}:</strong> {t('guide.livingIT.pro1')}</span>
  </li>
  <li className="flex items-start gap-2">
- <CheckCircle2 size={16} className="text-emerald-700 flex-shrink-0 mt-0.5" />
+ <CheckCircle2 size={16} className="text-success flex-shrink-0 mt-0.5" />
  <span><strong>{t('guide.livingIT.pro2Title')}:</strong> {t('guide.livingIT.pro2')}</span>
  </li>
  <li className="flex items-start gap-2">
- <CheckCircle2 size={16} className="text-emerald-700 flex-shrink-0 mt-0.5" />
+ <CheckCircle2 size={16} className="text-success flex-shrink-0 mt-0.5" />
  <span><strong>{t('guide.livingIT.pro3Title')}:</strong> {t('guide.livingIT.pro3')}</span>
  </li>
  <li className="flex items-start gap-2">
- <CheckCircle2 size={16} className="text-emerald-700 flex-shrink-0 mt-0.5" />
+ <CheckCircle2 size={16} className="text-success flex-shrink-0 mt-0.5" />
  <span><strong>{t('guide.livingIT.pro4Title')}:</strong> {t('guide.livingIT.pro4')}</span>
  </li>
  <li className="flex items-start gap-2">
- <CheckCircle2 size={16} className="text-emerald-700 flex-shrink-0 mt-0.5" />
+ <CheckCircle2 size={16} className="text-success flex-shrink-0 mt-0.5" />
  <span><strong>{t('guide.livingIT.pro5Title')}:</strong> {t('guide.livingIT.pro5')}</span>
  </li>
  </ul>
@@ -1604,23 +1604,23 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <InfoCard icon={AlertCircle} title={t('guide.livingIT.consTitle')} color="orange">
  <ul className="space-y-2">
  <li className="flex items-start gap-2">
- <AlertCircle size={16} className="text-orange-600 flex-shrink-0 mt-0.5" />
+ <AlertCircle size={16} className="text-warning flex-shrink-0 mt-0.5" />
  <span><strong>{t('guide.livingIT.con1Title')}:</strong> {t('guide.livingIT.con1')}</span>
  </li>
  <li className="flex items-start gap-2">
- <AlertCircle size={16} className="text-orange-600 flex-shrink-0 mt-0.5" />
+ <AlertCircle size={16} className="text-warning flex-shrink-0 mt-0.5" />
  <span><strong>{t('guide.livingIT.con2Title')}:</strong> {t('guide.livingIT.con2')}</span>
  </li>
  <li className="flex items-start gap-2">
- <AlertCircle size={16} className="text-orange-600 flex-shrink-0 mt-0.5" />
+ <AlertCircle size={16} className="text-warning flex-shrink-0 mt-0.5" />
  <span><strong>{t('guide.livingIT.con3Title')}:</strong> {t('guide.livingIT.con3')}</span>
  </li>
  <li className="flex items-start gap-2">
- <AlertCircle size={16} className="text-orange-600 flex-shrink-0 mt-0.5" />
+ <AlertCircle size={16} className="text-warning flex-shrink-0 mt-0.5" />
  <span><strong>{t('guide.livingIT.con4Title')}:</strong> {t('guide.livingIT.con4')}</span>
  </li>
  <li className="flex items-start gap-2">
- <AlertCircle size={16} className="text-orange-600 flex-shrink-0 mt-0.5" />
+ <AlertCircle size={16} className="text-warning flex-shrink-0 mt-0.5" />
  <span><strong>{t('guide.livingIT.con5Title')}:</strong> {t('guide.livingIT.con5')}</span>
  </li>
  </ul>
@@ -1629,32 +1629,32 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
 
  <div className="bg-gradient-to-br from-info-subtle to-success-subtle rounded-2xl border-2 border-info-border p-6">
  <div className="flex items-start gap-3">
- <Info size={24} className="text-teal-600 flex-shrink-0" />
+ <Info size={24} className="text-info flex-shrink-0" />
  <div className="space-y-3 text-sm text-info">
  <p className="font-bold">📋 {t('guide.livingIT.checklistTitle')}</p>
  <div className="grid sm:grid-cols-2 gap-2 text-xs">
  <div className="flex items-center gap-2">
- <CheckCircle2 size={14} className="text-teal-600" />
+ <CheckCircle2 size={14} className="text-info" />
  <span>{t('guide.livingIT.check1')}</span>
  </div>
  <div className="flex items-center gap-2">
- <CheckCircle2 size={14} className="text-teal-600" />
+ <CheckCircle2 size={14} className="text-info" />
  <span>{t('guide.livingIT.check2')}</span>
  </div>
  <div className="flex items-center gap-2">
- <CheckCircle2 size={14} className="text-teal-600" />
+ <CheckCircle2 size={14} className="text-info" />
  <span>{t('guide.livingIT.check3')}</span>
  </div>
  <div className="flex items-center gap-2">
- <CheckCircle2 size={14} className="text-teal-600" />
+ <CheckCircle2 size={14} className="text-info" />
  <span>{t('guide.livingIT.check4')}</span>
  </div>
  <div className="flex items-center gap-2">
- <CheckCircle2 size={14} className="text-teal-600" />
+ <CheckCircle2 size={14} className="text-info" />
  <span>{t('guide.livingIT.check5')}</span>
  </div>
  <div className="flex items-center gap-2">
- <CheckCircle2 size={14} className="text-teal-600" />
+ <CheckCircle2 size={14} className="text-info" />
  <span>{t('guide.livingIT.check6')}</span>
  </div>
  </div>
@@ -1673,7 +1673,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <ul className="space-y-2">
  {(['catholic1', 'catholic2', 'catholic3', 'catholic4', 'catholic5', 'catholic6'] as const).map((k) => (
  <li key={k} className="flex items-start gap-2">
- <CheckCircle2 size={14} className="text-stripe-600 flex-shrink-0 mt-0.5" />
+ <CheckCircle2 size={14} className="text-accent flex-shrink-0 mt-0.5" />
  <span className="text-sm"><strong>{t(`guide.livingIT.${k}Name`)}:</strong> {t(`guide.livingIT.${k}Desc`)}</span>
  </li>
  ))}
@@ -1686,7 +1686,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <ul className="space-y-2">
  {(['protestant1', 'protestant2'] as const).map((k) => (
  <li key={k} className="flex items-start gap-2">
- <CheckCircle2 size={14} className="text-stripe-600 flex-shrink-0 mt-0.5" />
+ <CheckCircle2 size={14} className="text-accent flex-shrink-0 mt-0.5" />
  <span className="text-sm"><strong>{t(`guide.livingIT.${k}Name`)}:</strong> {t(`guide.livingIT.${k}Desc`)}</span>
  </li>
  ))}
@@ -1699,7 +1699,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <ul className="space-y-2">
  {(['otherRel1', 'otherRel2', 'otherRel3'] as const).map((k) => (
  <li key={k} className="flex items-start gap-2">
- <CheckCircle2 size={14} className="text-emerald-700 flex-shrink-0 mt-0.5" />
+ <CheckCircle2 size={14} className="text-success flex-shrink-0 mt-0.5" />
  <span className="text-sm"><strong>{t(`guide.livingIT.${k}Name`)}:</strong> {t(`guide.livingIT.${k}Desc`)}</span>
  </li>
  ))}
@@ -1719,7 +1719,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
 
  {activeSection === 'calendar' && (
  <div className="animate-fade-in">
- <Suspense fallback={<div className="flex items-center justify-center min-h-[600px]"><div className="animate-spin rounded-full h-6 w-6 sm:h-8 sm:w-8 border-2 border-stripe-500 border-t-transparent" /></div>}>
+ <Suspense fallback={<div className="flex items-center justify-center min-h-[600px]"><div className="animate-spin rounded-full h-6 w-6 sm:h-8 sm:w-8 border-2 border-accent border-t-transparent" /></div>}>
  <TaxCalendar initialTab="fiscal" />
  </Suspense>
  </div>
@@ -1727,7 +1727,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
 
  {activeSection === 'holidays' && (
  <div className="animate-fade-in">
- <Suspense fallback={<div className="flex items-center justify-center min-h-[600px]"><div className="animate-spin rounded-full h-6 w-6 sm:h-8 sm:w-8 border-2 border-stripe-500 border-t-transparent" /></div>}>
+ <Suspense fallback={<div className="flex items-center justify-center min-h-[600px]"><div className="animate-spin rounded-full h-6 w-6 sm:h-8 sm:w-8 border-2 border-accent border-t-transparent" /></div>}>
  <TaxCalendar initialTab="holidays" />
  </Suspense>
  </div>
@@ -1735,7 +1735,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
 
  {activeSection === 'permits' && (
  <div className="animate-fade-in">
- <Suspense fallback={<div className="flex items-center justify-center min-h-[600px]"><div className="animate-spin rounded-full h-6 w-6 sm:h-8 sm:w-8 border-2 border-stripe-500 border-t-transparent" /></div>}>
+ <Suspense fallback={<div className="flex items-center justify-center min-h-[600px]"><div className="animate-spin rounded-full h-6 w-6 sm:h-8 sm:w-8 border-2 border-accent border-t-transparent" /></div>}>
  <WorkPermitsGuide />
  </Suspense>
  </div>
@@ -1743,7 +1743,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
 
  {activeSection === 'companies' && (
  <div className="animate-fade-in">
- <Suspense fallback={<div className="flex items-center justify-center min-h-[400px]"><div className="animate-spin rounded-full h-6 w-6 sm:h-8 sm:w-8 border-2 border-stripe-500 border-t-transparent" /></div>}>
+ <Suspense fallback={<div className="flex items-center justify-center min-h-[400px]"><div className="animate-spin rounded-full h-6 w-6 sm:h-8 sm:w-8 border-2 border-accent border-t-transparent" /></div>}>
  <TicinoCompanies />
  </Suspense>
  </div>
@@ -1932,7 +1932,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  {/* Consiglio per frontalieri */}
  <div className="bg-gradient-to-br from-success-subtle to-info-subtle rounded-2xl border-2 border-success-border p-6">
  <div className="flex items-start gap-3">
- <Info size={24} className="text-emerald-700 flex-shrink-0" />
+ <Info size={24} className="text-success flex-shrink-0" />
  <div className="space-y-3 text-sm text-success">
  <p className="font-bold">💡 {t('guide.places.tipTitle')}</p>
  <ul className="space-y-1 text-xs">
@@ -1958,7 +1958,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  {/* Panoramica sistema scolastico */}
  <div className="bg-gradient-to-br from-warning-subtle to-warning-subtle rounded-2xl border-2 border-warning-border p-6">
  <div className="flex items-start gap-3">
- <Info size={24} className="text-amber-700 flex-shrink-0" />
+ <Info size={24} className="text-warning flex-shrink-0" />
  <div className="text-sm text-warning">
  <p className="font-bold mb-2">📋 {t('guide.schools.overviewTitle')}</p>
  <p className="text-xs">{t('guide.schools.overviewDesc')}</p>
@@ -1973,15 +1973,15 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <div className="grid sm:grid-cols-3 gap-3 mb-3">
  <div className="text-center p-2 bg-surface rounded-lg">
  <div className="text-sm text-muted">{t('guide.schools.age')}</div>
- <div className="font-bold text-stripe-600">0-3 {t('guide.schools.years')}</div>
+ <div className="font-bold text-accent">0-3 {t('guide.schools.years')}</div>
  </div>
  <div className="text-center p-2 bg-surface rounded-lg">
  <div className="text-sm text-muted">{t('guide.schools.cost')}</div>
- <div className="font-bold text-stripe-600">CHF 1'200-2'500/{t('guide.schools.month')}</div>
+ <div className="font-bold text-accent">CHF 1'200-2'500/{t('guide.schools.month')}</div>
  </div>
  <div className="text-center p-2 bg-surface rounded-lg">
  <div className="text-sm text-muted">{t('guide.schools.hours')}</div>
- <div className="font-bold text-stripe-600">7:00-18:30</div>
+ <div className="font-bold text-accent">7:00-18:30</div>
  </div>
  </div>
  <p className="text-xs">{t('guide.schools.nidoDesc')}</p>
@@ -1990,19 +1990,19 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <p className="font-bold text-body">📍 {t('guide.schools.nearBorderTitle')}:</p>
  <div className="grid sm:grid-cols-2 gap-2">
  <div className="flex items-start gap-2">
- <CheckCircle2 size={14} className="text-stripe-600 flex-shrink-0 mt-0.5" />
+ <CheckCircle2 size={14} className="text-accent flex-shrink-0 mt-0.5" />
  <span><strong>Chiasso/Mendrisio:</strong> {t('guide.schools.nidoChiasso')}</span>
  </div>
  <div className="flex items-start gap-2">
- <CheckCircle2 size={14} className="text-stripe-600 flex-shrink-0 mt-0.5" />
+ <CheckCircle2 size={14} className="text-accent flex-shrink-0 mt-0.5" />
  <span><strong>Stabio/Ligornetto:</strong> {t('guide.schools.nidoStabio')}</span>
  </div>
  <div className="flex items-start gap-2">
- <CheckCircle2 size={14} className="text-stripe-600 flex-shrink-0 mt-0.5" />
+ <CheckCircle2 size={14} className="text-accent flex-shrink-0 mt-0.5" />
  <span><strong>Ponte Tresa/Agno:</strong> {t('guide.schools.nidoPonteTresa')}</span>
  </div>
  <div className="flex items-start gap-2">
- <CheckCircle2 size={14} className="text-stripe-600 flex-shrink-0 mt-0.5" />
+ <CheckCircle2 size={14} className="text-accent flex-shrink-0 mt-0.5" />
  <span><strong>Lugano centro:</strong> {t('guide.schools.nidoLugano')}</span>
  </div>
  </div>
@@ -2017,15 +2017,15 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <div className="grid sm:grid-cols-3 gap-3 mb-3">
  <div className="text-center p-2 bg-surface rounded-lg">
  <div className="text-sm text-muted">{t('guide.schools.age')}</div>
- <div className="font-bold text-emerald-700">3-6 {t('guide.schools.years')}</div>
+ <div className="font-bold text-success">3-6 {t('guide.schools.years')}</div>
  </div>
  <div className="text-center p-2 bg-surface rounded-lg">
  <div className="text-sm text-muted">{t('guide.schools.cost')}</div>
- <div className="font-bold text-emerald-700">{t('guide.schools.free')} (pubblica)</div>
+ <div className="font-bold text-success">{t('guide.schools.free')} (pubblica)</div>
  </div>
  <div className="text-center p-2 bg-surface rounded-lg">
  <div className="text-sm text-muted">{t('guide.schools.hours')}</div>
- <div className="font-bold text-emerald-700">8:30-15:30</div>
+ <div className="font-bold text-success">8:30-15:30</div>
  </div>
  </div>
  <p className="text-xs">{t('guide.schools.kindergartenDesc')}</p>
@@ -2034,19 +2034,19 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <p className="font-bold text-body">📍 {t('guide.schools.nearBorderTitle')}:</p>
  <div className="grid sm:grid-cols-2 gap-2">
  <div className="flex items-start gap-2">
- <CheckCircle2 size={14} className="text-emerald-700 flex-shrink-0 mt-0.5" />
+ <CheckCircle2 size={14} className="text-success flex-shrink-0 mt-0.5" />
  <span><strong>Chiasso:</strong> {t('guide.schools.kindergartenChiasso')}</span>
  </div>
  <div className="flex items-start gap-2">
- <CheckCircle2 size={14} className="text-emerald-700 flex-shrink-0 mt-0.5" />
+ <CheckCircle2 size={14} className="text-success flex-shrink-0 mt-0.5" />
  <span><strong>Mendrisio:</strong> {t('guide.schools.kindergartenMendrisio')}</span>
  </div>
  <div className="flex items-start gap-2">
- <CheckCircle2 size={14} className="text-emerald-700 flex-shrink-0 mt-0.5" />
+ <CheckCircle2 size={14} className="text-success flex-shrink-0 mt-0.5" />
  <span><strong>Stabio:</strong> {t('guide.schools.kindergartenStabio')}</span>
  </div>
  <div className="flex items-start gap-2">
- <CheckCircle2 size={14} className="text-emerald-700 flex-shrink-0 mt-0.5" />
+ <CheckCircle2 size={14} className="text-success flex-shrink-0 mt-0.5" />
  <span><strong>Balerna:</strong> {t('guide.schools.kindergartenBalerna')}</span>
  </div>
  </div>
@@ -2061,15 +2061,15 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <div className="grid sm:grid-cols-3 gap-3 mb-3">
  <div className="text-center p-2 bg-surface rounded-lg">
  <div className="text-sm text-muted">{t('guide.schools.age')}</div>
- <div className="font-bold text-stripe-600">6-11 {t('guide.schools.years')}</div>
+ <div className="font-bold text-accent">6-11 {t('guide.schools.years')}</div>
  </div>
  <div className="text-center p-2 bg-surface rounded-lg">
  <div className="text-sm text-muted">{t('guide.schools.cost')}</div>
- <div className="font-bold text-stripe-600">{t('guide.schools.free')} (pubblica)</div>
+ <div className="font-bold text-accent">{t('guide.schools.free')} (pubblica)</div>
  </div>
  <div className="text-center p-2 bg-surface rounded-lg">
  <div className="text-sm text-muted">{t('guide.schools.hours')}</div>
- <div className="font-bold text-stripe-600">8:15-15:45</div>
+ <div className="font-bold text-accent">8:15-15:45</div>
  </div>
  </div>
  <p className="text-xs">{t('guide.schools.primaryDesc')}</p>
@@ -2078,19 +2078,19 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <p className="font-bold text-body">📍 {t('guide.schools.nearBorderTitle')}:</p>
  <div className="grid sm:grid-cols-2 gap-2">
  <div className="flex items-start gap-2">
- <CheckCircle2 size={14} className="text-stripe-600 flex-shrink-0 mt-0.5" />
+ <CheckCircle2 size={14} className="text-accent flex-shrink-0 mt-0.5" />
  <span><strong>Chiasso:</strong> {t('guide.schools.primaryChiasso')}</span>
  </div>
  <div className="flex items-start gap-2">
- <CheckCircle2 size={14} className="text-stripe-600 flex-shrink-0 mt-0.5" />
+ <CheckCircle2 size={14} className="text-accent flex-shrink-0 mt-0.5" />
  <span><strong>Mendrisio:</strong> {t('guide.schools.primaryMendrisio')}</span>
  </div>
  <div className="flex items-start gap-2">
- <CheckCircle2 size={14} className="text-stripe-600 flex-shrink-0 mt-0.5" />
+ <CheckCircle2 size={14} className="text-accent flex-shrink-0 mt-0.5" />
  <span><strong>Stabio/Ligornetto:</strong> {t('guide.schools.primaryStabio')}</span>
  </div>
  <div className="flex items-start gap-2">
- <CheckCircle2 size={14} className="text-stripe-600 flex-shrink-0 mt-0.5" />
+ <CheckCircle2 size={14} className="text-accent flex-shrink-0 mt-0.5" />
  <span><strong>Balerna/Novazzano:</strong> {t('guide.schools.primaryBalerna')}</span>
  </div>
  </div>
@@ -2105,15 +2105,15 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <div className="grid sm:grid-cols-3 gap-3 mb-3">
  <div className="text-center p-2 bg-surface rounded-lg">
  <div className="text-sm text-muted">{t('guide.schools.age')}</div>
- <div className="font-bold text-orange-600">11-15 {t('guide.schools.years')}</div>
+ <div className="font-bold text-warning">11-15 {t('guide.schools.years')}</div>
  </div>
  <div className="text-center p-2 bg-surface rounded-lg">
  <div className="text-sm text-muted">{t('guide.schools.cost')}</div>
- <div className="font-bold text-orange-600">{t('guide.schools.free')} (pubblica)</div>
+ <div className="font-bold text-warning">{t('guide.schools.free')} (pubblica)</div>
  </div>
  <div className="text-center p-2 bg-surface rounded-lg">
  <div className="text-sm text-muted">{t('guide.schools.hours')}</div>
- <div className="font-bold text-orange-600">8:00-16:00</div>
+ <div className="font-bold text-warning">8:00-16:00</div>
  </div>
  </div>
  <p className="text-xs">{t('guide.schools.middleDesc')}</p>
@@ -2122,19 +2122,19 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <p className="font-bold text-body">📍 {t('guide.schools.nearBorderTitle')}:</p>
  <div className="grid sm:grid-cols-2 gap-2">
  <div className="flex items-start gap-2">
- <CheckCircle2 size={14} className="text-orange-600 flex-shrink-0 mt-0.5" />
+ <CheckCircle2 size={14} className="text-warning flex-shrink-0 mt-0.5" />
  <span><strong>Chiasso:</strong> {t('guide.schools.middleChiasso')}</span>
  </div>
  <div className="flex items-start gap-2">
- <CheckCircle2 size={14} className="text-orange-600 flex-shrink-0 mt-0.5" />
+ <CheckCircle2 size={14} className="text-warning flex-shrink-0 mt-0.5" />
  <span><strong>Mendrisio:</strong> {t('guide.schools.middleMendrisio')}</span>
  </div>
  <div className="flex items-start gap-2">
- <CheckCircle2 size={14} className="text-orange-600 flex-shrink-0 mt-0.5" />
+ <CheckCircle2 size={14} className="text-warning flex-shrink-0 mt-0.5" />
  <span><strong>Stabio:</strong> {t('guide.schools.middleStabio')}</span>
  </div>
  <div className="flex items-start gap-2">
- <CheckCircle2 size={14} className="text-orange-600 flex-shrink-0 mt-0.5" />
+ <CheckCircle2 size={14} className="text-warning flex-shrink-0 mt-0.5" />
  <span><strong>Balerna:</strong> {t('guide.schools.middleBalerna')}</span>
  </div>
  </div>
@@ -2149,15 +2149,15 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <div className="grid sm:grid-cols-3 gap-3 mb-3">
  <div className="text-center p-2 bg-surface rounded-lg">
  <div className="text-sm text-muted">{t('guide.schools.age')}</div>
- <div className="font-bold text-teal-600">15-19 {t('guide.schools.years')}</div>
+ <div className="font-bold text-info">15-19 {t('guide.schools.years')}</div>
  </div>
  <div className="text-center p-2 bg-surface rounded-lg">
  <div className="text-sm text-muted">{t('guide.schools.cost')}</div>
- <div className="font-bold text-teal-600">{t('guide.schools.free')} / CHF 500-1'500</div>
+ <div className="font-bold text-info">{t('guide.schools.free')} / CHF 500-1'500</div>
  </div>
  <div className="text-center p-2 bg-surface rounded-lg">
  <div className="text-sm text-muted">{t('guide.schools.hours')}</div>
- <div className="font-bold text-teal-600">8:00-16:30</div>
+ <div className="font-bold text-info">8:00-16:30</div>
  </div>
  </div>
  <p className="text-xs">{t('guide.schools.highSchoolDesc')}</p>
@@ -2166,19 +2166,19 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <p className="font-bold text-body">🏫 {t('guide.schools.highSchoolTypes')}:</p>
  <div className="grid sm:grid-cols-2 gap-2">
  <div className="flex items-start gap-2">
- <CheckCircle2 size={14} className="text-teal-600 flex-shrink-0 mt-0.5" />
+ <CheckCircle2 size={14} className="text-info flex-shrink-0 mt-0.5" />
  <span><strong>{t('guide.schools.liceoTitle')}:</strong> {t('guide.schools.liceoDesc')}</span>
  </div>
  <div className="flex items-start gap-2">
- <CheckCircle2 size={14} className="text-teal-600 flex-shrink-0 mt-0.5" />
+ <CheckCircle2 size={14} className="text-info flex-shrink-0 mt-0.5" />
  <span><strong>{t('guide.schools.smsTitle')}:</strong> {t('guide.schools.smsDesc')}</span>
  </div>
  <div className="flex items-start gap-2">
- <CheckCircle2 size={14} className="text-teal-600 flex-shrink-0 mt-0.5" />
+ <CheckCircle2 size={14} className="text-info flex-shrink-0 mt-0.5" />
  <span><strong>{t('guide.schools.scTitle')}:</strong> {t('guide.schools.scDesc')}</span>
  </div>
  <div className="flex items-start gap-2">
- <CheckCircle2 size={14} className="text-teal-600 flex-shrink-0 mt-0.5" />
+ <CheckCircle2 size={14} className="text-info flex-shrink-0 mt-0.5" />
  <span><strong>{t('guide.schools.spcTitle')}:</strong> {t('guide.schools.spcDesc')}</span>
  </div>
  </div>
@@ -2187,19 +2187,19 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <p className="font-bold text-body">📍 {t('guide.schools.mainHighSchools')}:</p>
  <div className="grid sm:grid-cols-2 gap-2">
  <div className="flex items-start gap-2">
- <MapPin size={14} className="text-teal-600 flex-shrink-0 mt-0.5" />
+ <MapPin size={14} className="text-info flex-shrink-0 mt-0.5" />
  <span><strong>Mendrisio:</strong> {t('guide.schools.highSchoolMendrisio')}</span>
  </div>
  <div className="flex items-start gap-2">
- <MapPin size={14} className="text-teal-600 flex-shrink-0 mt-0.5" />
+ <MapPin size={14} className="text-info flex-shrink-0 mt-0.5" />
  <span><strong>Lugano:</strong> {t('guide.schools.highSchoolLugano')}</span>
  </div>
  <div className="flex items-start gap-2">
- <MapPin size={14} className="text-teal-600 flex-shrink-0 mt-0.5" />
+ <MapPin size={14} className="text-info flex-shrink-0 mt-0.5" />
  <span><strong>Bellinzona:</strong> {t('guide.schools.highSchoolBellinzona')}</span>
  </div>
  <div className="flex items-start gap-2">
- <MapPin size={14} className="text-teal-600 flex-shrink-0 mt-0.5" />
+ <MapPin size={14} className="text-info flex-shrink-0 mt-0.5" />
  <span><strong>Locarno:</strong> {t('guide.schools.highSchoolLocarno')}</span>
  </div>
  </div>
@@ -2215,21 +2215,21 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <InfoCard icon={Clock} title={t('guide.schools.servicesTitle')} color="blue">
  <div className="space-y-3">
  <div className="flex items-start gap-2">
- <CheckCircle2 size={14} className="text-stripe-600 flex-shrink-0 mt-0.5" />
+ <CheckCircle2 size={14} className="text-accent flex-shrink-0 mt-0.5" />
  <div>
  <strong>{t('guide.schools.mensa')}:</strong>
  <div className="text-xs mt-1">{t('guide.schools.mensaDesc')}</div>
  </div>
  </div>
  <div className="flex items-start gap-2">
- <CheckCircle2 size={14} className="text-stripe-600 flex-shrink-0 mt-0.5" />
+ <CheckCircle2 size={14} className="text-accent flex-shrink-0 mt-0.5" />
  <div>
  <strong>{t('guide.schools.dopoScuola')}:</strong>
  <div className="text-xs mt-1">{t('guide.schools.dopoScuolaDesc')}</div>
  </div>
  </div>
  <div className="flex items-start gap-2">
- <CheckCircle2 size={14} className="text-stripe-600 flex-shrink-0 mt-0.5" />
+ <CheckCircle2 size={14} className="text-accent flex-shrink-0 mt-0.5" />
  <div>
  <strong>{t('guide.schools.trasporto')}:</strong>
  <div className="text-xs mt-1">{t('guide.schools.trasportoDesc')}</div>
@@ -2251,31 +2251,31 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <tbody className="divide-y divide-edge">
  <tr>
  <td className="py-2">{t('guide.schools.nidoShort')}</td>
- <td className="py-2 text-right font-bold text-orange-600">CHF 14'400-30'000</td>
+ <td className="py-2 text-right font-bold text-warning">CHF 14'400-30'000</td>
  </tr>
  <tr>
  <td className="py-2">{t('guide.schools.kindergartenShort')}</td>
- <td className="py-2 text-right font-bold text-emerald-700">{t('guide.schools.free')}</td>
+ <td className="py-2 text-right font-bold text-success">{t('guide.schools.free')}</td>
  </tr>
  <tr>
  <td className="py-2">{t('guide.schools.primaryShort')}</td>
- <td className="py-2 text-right font-bold text-emerald-700">{t('guide.schools.free')}</td>
+ <td className="py-2 text-right font-bold text-success">{t('guide.schools.free')}</td>
  </tr>
  <tr>
  <td className="py-2">{t('guide.schools.middleShort')}</td>
- <td className="py-2 text-right font-bold text-emerald-700">{t('guide.schools.free')}</td>
+ <td className="py-2 text-right font-bold text-success">{t('guide.schools.free')}</td>
  </tr>
  <tr>
  <td className="py-2">{t('guide.schools.highSchoolShort')}</td>
- <td className="py-2 text-right font-bold text-stripe-600">{t('guide.schools.free')} / CHF 500-1'500</td>
+ <td className="py-2 text-right font-bold text-accent">{t('guide.schools.free')} / CHF 500-1'500</td>
  </tr>
  <tr>
  <td className="py-2">{t('guide.schools.mensaShort')}</td>
- <td className="py-2 text-right font-bold text-orange-600">CHF 8-15/{t('guide.schools.perDay')}</td>
+ <td className="py-2 text-right font-bold text-warning">CHF 8-15/{t('guide.schools.perDay')}</td>
  </tr>
  <tr>
  <td className="py-2">{t('guide.schools.dopoScuolaShort')}</td>
- <td className="py-2 text-right font-bold text-orange-600">CHF 15-30/{t('guide.schools.perDay')}</td>
+ <td className="py-2 text-right font-bold text-warning">CHF 15-30/{t('guide.schools.perDay')}</td>
  </tr>
  </tbody>
  </table>
@@ -2287,7 +2287,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  {/* Consigli per frontalieri */}
  <div className="bg-gradient-to-br from-warning-subtle to-warning-subtle rounded-2xl border-2 border-warning-border p-6">
  <div className="flex items-start gap-3">
- <AlertCircle size={24} className="text-amber-700 flex-shrink-0" />
+ <AlertCircle size={24} className="text-warning flex-shrink-0" />
  <div className="space-y-3 text-sm text-warning">
  <p className="font-bold">⚠️ {t('guide.schools.importantTitle')}</p>
  <ul className="space-y-1 text-xs">
@@ -2332,20 +2332,20 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  {/* Who is entitled */}
  <div className="bg-surface rounded-xl p-5 border border-edge">
  <h4 className="font-bold text-strong mb-2 flex items-center gap-2">
- <Users size={16} className="text-red-500" /> {t('guide.unemployment.ch.whoTitle')}
+ <Users size={16} className="text-danger" /> {t('guide.unemployment.ch.whoTitle')}
  </h4>
  <ul className="text-sm text-subtle space-y-1.5">
- <li className="flex items-start gap-2"><CheckCircle2 size={14} className="text-green-500 mt-0.5 shrink-0" /> {t('guide.unemployment.ch.who1')}</li>
- <li className="flex items-start gap-2"><CheckCircle2 size={14} className="text-green-500 mt-0.5 shrink-0" /> {t('guide.unemployment.ch.who2')}</li>
- <li className="flex items-start gap-2"><CheckCircle2 size={14} className="text-green-500 mt-0.5 shrink-0" /> {t('guide.unemployment.ch.who3')}</li>
- <li className="flex items-start gap-2"><CheckCircle2 size={14} className="text-green-500 mt-0.5 shrink-0" /> {t('guide.unemployment.ch.who4')}</li>
+ <li className="flex items-start gap-2"><CheckCircle2 size={14} className="text-success mt-0.5 shrink-0" /> {t('guide.unemployment.ch.who1')}</li>
+ <li className="flex items-start gap-2"><CheckCircle2 size={14} className="text-success mt-0.5 shrink-0" /> {t('guide.unemployment.ch.who2')}</li>
+ <li className="flex items-start gap-2"><CheckCircle2 size={14} className="text-success mt-0.5 shrink-0" /> {t('guide.unemployment.ch.who3')}</li>
+ <li className="flex items-start gap-2"><CheckCircle2 size={14} className="text-success mt-0.5 shrink-0" /> {t('guide.unemployment.ch.who4')}</li>
  </ul>
  </div>
 
  {/* Amounts */}
  <div className="bg-surface rounded-xl p-5 border border-edge">
  <h4 className="font-bold text-strong mb-2 flex items-center gap-2">
- <Euro size={16} className="text-red-500" /> {t('guide.unemployment.ch.amountsTitle')}
+ <Euro size={16} className="text-danger" /> {t('guide.unemployment.ch.amountsTitle')}
  </h4>
  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
  <div className="bg-danger-subtle rounded-lg p-3">
@@ -2363,7 +2363,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  {/* Duration */}
  <div className="bg-surface rounded-xl p-5 border border-edge">
  <h4 className="font-bold text-strong mb-2 flex items-center gap-2">
- <Clock size={16} className="text-red-500" /> {t('guide.unemployment.ch.durationTitle')}
+ <Clock size={16} className="text-danger" /> {t('guide.unemployment.ch.durationTitle')}
  </h4>
  <div className="overflow-x-auto">
  <table className="w-full text-xs">
@@ -2385,7 +2385,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  {/* Procedure */}
  <div className="bg-surface rounded-xl p-5 border border-edge">
  <h4 className="font-bold text-strong mb-2 flex items-center gap-2">
- <FileText size={16} className="text-red-500" /> {t('guide.unemployment.ch.procedureTitle')}
+ <FileText size={16} className="text-danger" /> {t('guide.unemployment.ch.procedureTitle')}
  </h4>
  <ol className="text-sm text-subtle space-y-2">
  <li className="flex items-start gap-2"><span className="bg-danger-subtle text-danger rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold shrink-0">1</span> {t('guide.unemployment.ch.step1')}</li>
@@ -2402,10 +2402,10 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <AlertCircle size={16} /> {t('guide.unemployment.ch.frontalieriTitle')}
  </h4>
  <ul className="text-sm text-subtle space-y-1.5">
- <li className="flex items-start gap-2"><ArrowRight size={14} className="text-amber-500 mt-0.5 shrink-0" /> {t('guide.unemployment.ch.frontalieri1')}</li>
- <li className="flex items-start gap-2"><ArrowRight size={14} className="text-amber-500 mt-0.5 shrink-0" /> {t('guide.unemployment.ch.frontalieri2')}</li>
- <li className="flex items-start gap-2"><ArrowRight size={14} className="text-amber-500 mt-0.5 shrink-0" /> {t('guide.unemployment.ch.frontalieri3')}</li>
- <li className="flex items-start gap-2"><ArrowRight size={14} className="text-amber-500 mt-0.5 shrink-0" /> {t('guide.unemployment.ch.frontalieri4')}</li>
+ <li className="flex items-start gap-2"><ArrowRight size={14} className="text-warning mt-0.5 shrink-0" /> {t('guide.unemployment.ch.frontalieri1')}</li>
+ <li className="flex items-start gap-2"><ArrowRight size={14} className="text-warning mt-0.5 shrink-0" /> {t('guide.unemployment.ch.frontalieri2')}</li>
+ <li className="flex items-start gap-2"><ArrowRight size={14} className="text-warning mt-0.5 shrink-0" /> {t('guide.unemployment.ch.frontalieri3')}</li>
+ <li className="flex items-start gap-2"><ArrowRight size={14} className="text-warning mt-0.5 shrink-0" /> {t('guide.unemployment.ch.frontalieri4')}</li>
  </ul>
  </div>
  </div>
@@ -2417,19 +2417,19 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  {/* Who is entitled */}
  <div className="bg-surface rounded-xl p-5 border border-edge">
  <h4 className="font-bold text-strong mb-2 flex items-center gap-2">
- <Users size={16} className="text-green-600" /> {t('guide.unemployment.it.whoTitle')}
+ <Users size={16} className="text-success" /> {t('guide.unemployment.it.whoTitle')}
  </h4>
  <ul className="text-sm text-subtle space-y-1.5">
- <li className="flex items-start gap-2"><CheckCircle2 size={14} className="text-green-500 mt-0.5 shrink-0" /> {t('guide.unemployment.it.who1')}</li>
- <li className="flex items-start gap-2"><CheckCircle2 size={14} className="text-green-500 mt-0.5 shrink-0" /> {t('guide.unemployment.it.who2')}</li>
- <li className="flex items-start gap-2"><CheckCircle2 size={14} className="text-green-500 mt-0.5 shrink-0" /> {t('guide.unemployment.it.who3')}</li>
+ <li className="flex items-start gap-2"><CheckCircle2 size={14} className="text-success mt-0.5 shrink-0" /> {t('guide.unemployment.it.who1')}</li>
+ <li className="flex items-start gap-2"><CheckCircle2 size={14} className="text-success mt-0.5 shrink-0" /> {t('guide.unemployment.it.who2')}</li>
+ <li className="flex items-start gap-2"><CheckCircle2 size={14} className="text-success mt-0.5 shrink-0" /> {t('guide.unemployment.it.who3')}</li>
  </ul>
  </div>
 
  {/* Amounts */}
  <div className="bg-surface rounded-xl p-5 border border-edge">
  <h4 className="font-bold text-strong mb-2 flex items-center gap-2">
- <Euro size={16} className="text-green-600" /> {t('guide.unemployment.it.amountsTitle')}
+ <Euro size={16} className="text-success" /> {t('guide.unemployment.it.amountsTitle')}
  </h4>
  <div className="text-sm text-subtle space-y-2">
  <p>{t('guide.unemployment.it.amount1')}</p>
@@ -2444,7 +2444,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  {/* Duration */}
  <div className="bg-surface rounded-xl p-5 border border-edge">
  <h4 className="font-bold text-strong mb-2 flex items-center gap-2">
- <Clock size={16} className="text-green-600" /> {t('guide.unemployment.it.durationTitle')}
+ <Clock size={16} className="text-success" /> {t('guide.unemployment.it.durationTitle')}
  </h4>
  <p className="text-sm text-subtle">{t('guide.unemployment.it.duration1')}</p>
  <p className="text-sm text-subtle mt-1">{t('guide.unemployment.it.duration2')}</p>
@@ -2453,7 +2453,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  {/* Procedure */}
  <div className="bg-surface rounded-xl p-5 border border-edge">
  <h4 className="font-bold text-strong mb-2 flex items-center gap-2">
- <FileText size={16} className="text-green-600" /> {t('guide.unemployment.it.procedureTitle')}
+ <FileText size={16} className="text-success" /> {t('guide.unemployment.it.procedureTitle')}
  </h4>
  <ol className="text-sm text-subtle space-y-2">
  <li className="flex items-start gap-2"><span className="bg-success-subtle text-success rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold shrink-0">1</span> {t('guide.unemployment.it.step1')}</li>
@@ -2470,9 +2470,9 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <Info size={16} /> {t('guide.unemployment.it.frontalieriTitle')}
  </h4>
  <ul className="text-sm text-subtle space-y-1.5">
- <li className="flex items-start gap-2"><ArrowRight size={14} className="text-stripe-500 mt-0.5 shrink-0" /> {t('guide.unemployment.it.frontalieri1')}</li>
- <li className="flex items-start gap-2"><ArrowRight size={14} className="text-stripe-500 mt-0.5 shrink-0" /> {t('guide.unemployment.it.frontalieri2')}</li>
- <li className="flex items-start gap-2"><ArrowRight size={14} className="text-stripe-500 mt-0.5 shrink-0" /> {t('guide.unemployment.it.frontalieri3')}</li>
+ <li className="flex items-start gap-2"><ArrowRight size={14} className="text-accent mt-0.5 shrink-0" /> {t('guide.unemployment.it.frontalieri1')}</li>
+ <li className="flex items-start gap-2"><ArrowRight size={14} className="text-accent mt-0.5 shrink-0" /> {t('guide.unemployment.it.frontalieri2')}</li>
+ <li className="flex items-start gap-2"><ArrowRight size={14} className="text-accent mt-0.5 shrink-0" /> {t('guide.unemployment.it.frontalieri3')}</li>
  </ul>
  </div>
  </div>
@@ -2507,20 +2507,20 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  {/* Useful Links */}
  <InfoCard icon={Info} title={t('guide.unemployment.links.title')} color="blue">
  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
- <a href="https://www.arbeit.swiss" target="_blank" rel="noopener noreferrer" className="bg-surface border border-edge rounded-xl p-3 hover:border-red-400 transition-colors group">
- <div className="font-bold text-sm text-strong group-hover:text-red-600">🇨🇭 arbeit.swiss</div>
+ <a href="https://www.arbeit.swiss" target="_blank" rel="noopener noreferrer" className="bg-surface border border-edge rounded-xl p-3 hover:border-danger transition-colors group">
+ <div className="font-bold text-sm text-strong group-hover:text-danger">🇨🇭 arbeit.swiss</div>
  <div className="text-sm text-muted">{t('guide.unemployment.links.arbeit')}</div>
  </a>
- <a href="https://www.seco.admin.ch/seco/it/home/Arbeit/Arbeitslosenversicherung.html" target="_blank" rel="noopener noreferrer" className="bg-surface border border-edge rounded-xl p-3 hover:border-red-400 transition-colors group">
- <div className="font-bold text-sm text-strong group-hover:text-red-600">🇨🇭 SECO</div>
+ <a href="https://www.seco.admin.ch/seco/it/home/Arbeit/Arbeitslosenversicherung.html" target="_blank" rel="noopener noreferrer" className="bg-surface border border-edge rounded-xl p-3 hover:border-danger transition-colors group">
+ <div className="font-bold text-sm text-strong group-hover:text-danger">🇨🇭 SECO</div>
  <div className="text-sm text-muted">{t('guide.unemployment.links.seco')}</div>
  </a>
- <a href="https://www.inps.it/it/it/dettaglio-scheda.schede-servizio-strumento.schede-servizi.naspi-indennita-mensile-di-disoccupazione-51039.naspi-indennita-mensile-di-disoccupazione.html" target="_blank" rel="noopener noreferrer" className="bg-surface border border-edge rounded-xl p-3 hover:border-green-400 transition-colors group">
- <div className="font-bold text-sm text-strong group-hover:text-green-600">🇮🇹 INPS - NASpI</div>
+ <a href="https://www.inps.it/it/it/dettaglio-scheda.schede-servizio-strumento.schede-servizi.naspi-indennita-mensile-di-disoccupazione-51039.naspi-indennita-mensile-di-disoccupazione.html" target="_blank" rel="noopener noreferrer" className="bg-surface border border-edge rounded-xl p-3 hover:border-success transition-colors group">
+ <div className="font-bold text-sm text-strong group-hover:text-success">🇮🇹 INPS - NASpI</div>
  <div className="text-sm text-muted">{t('guide.unemployment.links.inps')}</div>
  </a>
- <a href="https://www.ti.ch/lav" target="_blank" rel="noopener noreferrer" className="bg-surface border border-edge rounded-xl p-3 hover:border-red-400 transition-colors group">
- <div className="font-bold text-sm text-strong group-hover:text-red-600">🇨🇭 URC Ticino</div>
+ <a href="https://www.ti.ch/lav" target="_blank" rel="noopener noreferrer" className="bg-surface border border-edge rounded-xl p-3 hover:border-danger transition-colors group">
+ <div className="font-bold text-sm text-strong group-hover:text-danger">🇨🇭 URC Ticino</div>
  <div className="text-sm text-muted">{t('guide.unemployment.links.urc')}</div>
  </a>
  </div>
@@ -2530,7 +2530,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
 
  {activeSection === 'first-day' && (
  <div className="animate-fade-in">
- <Suspense fallback={<div className="flex items-center justify-center min-h-[600px]"><div className="animate-spin rounded-full h-6 w-6 sm:h-8 sm:w-8 border-2 border-stripe-500 border-t-transparent" /></div>}>
+ <Suspense fallback={<div className="flex items-center justify-center min-h-[600px]"><div className="animate-spin rounded-full h-6 w-6 sm:h-8 sm:w-8 border-2 border-accent border-t-transparent" /></div>}>
  <FirstDayGuide />
  </Suspense>
  </div>
@@ -2538,7 +2538,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
 
  {activeSection === 'car-transfer' && (
  <div className="animate-fade-in">
- <Suspense fallback={<div className="flex items-center justify-center min-h-[600px]"><div className="animate-spin rounded-full h-6 w-6 sm:h-8 sm:w-8 border-2 border-stripe-500 border-t-transparent" /></div>}>
+ <Suspense fallback={<div className="flex items-center justify-center min-h-[600px]"><div className="animate-spin rounded-full h-6 w-6 sm:h-8 sm:w-8 border-2 border-accent border-t-transparent" /></div>}>
  <CarTransferGuide />
  </Suspense>
  </div>
@@ -2546,7 +2546,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
 
  {activeSection === 'quiz' && (
  <div className="animate-fade-in">
- <Suspense fallback={<div className="flex items-center justify-center min-h-[400px]"><div className="animate-spin rounded-full h-6 w-6 sm:h-8 sm:w-8 border-2 border-stripe-500 border-t-transparent" /></div>}>
+ <Suspense fallback={<div className="flex items-center justify-center min-h-[400px]"><div className="animate-spin rounded-full h-6 w-6 sm:h-8 sm:w-8 border-2 border-accent border-t-transparent" /></div>}>
  <WeeklyQuiz />
  </Suspense>
  </div>
@@ -2554,7 +2554,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
 
  {activeSection === 'glossary' && (
  <div className="animate-fade-in">
- <Suspense fallback={<div className="flex items-center justify-center min-h-[400px]"><div className="animate-spin rounded-full h-6 w-6 sm:h-8 sm:w-8 border-2 border-stripe-500 border-t-transparent" /></div>}>
+ <Suspense fallback={<div className="flex items-center justify-center min-h-[400px]"><div className="animate-spin rounded-full h-6 w-6 sm:h-8 sm:w-8 border-2 border-accent border-t-transparent" /></div>}>
  <Glossary />
  </Suspense>
  </div>
@@ -2562,7 +2562,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
 
  {activeSection === 'faq' && (
  <div className="animate-fade-in">
- <Suspense fallback={<div className="flex items-center justify-center min-h-[400px]"><div className="animate-spin rounded-full h-6 w-6 sm:h-8 sm:w-8 border-2 border-stripe-500 border-t-transparent" /></div>}>
+ <Suspense fallback={<div className="flex items-center justify-center min-h-[400px]"><div className="animate-spin rounded-full h-6 w-6 sm:h-8 sm:w-8 border-2 border-accent border-t-transparent" /></div>}>
  <FaqSection />
  </Suspense>
  </div>

@@ -90,16 +90,16 @@ export default function LivabilityIndex() {
  }, [allScored, filterProvince, sortBy]);
 
  const medalColor = (rank: number) => {
- if (rank === 1) return 'text-yellow-500';
+ if (rank === 1) return 'text-warning';
  if (rank === 2) return 'text-muted';
- if (rank === 3) return 'text-amber-700';
+ if (rank === 3) return 'text-warning';
  return 'text-muted';
  };
 
  const scoreBarColor = (score: number) => {
- if (score >= 0.7) return 'bg-emerald-700';
- if (score >= 0.5) return 'bg-amber-500';
- return 'bg-red-500';
+ if (score >= 0.7) return 'bg-success-strong';
+ if (score >= 0.5) return 'bg-warning-strong';
+ return 'bg-danger-strong';
  };
 
  return (
@@ -159,7 +159,7 @@ export default function LivabilityIndex() {
  <div className="flex gap-1 bg-surface-raised rounded-lg p-1">
  <button
  onClick={() => setViewMode('table')}
- className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium transition focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 ${
+ className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium transition focus-visible:ring-2 focus-visible:ring-warning focus-visible:ring-offset-2 ${
  viewMode === 'table'
  ? 'bg-surface text-warning shadow'
  : 'text-subtle hover:text-strong'
@@ -170,7 +170,7 @@ export default function LivabilityIndex() {
  </button>
  <button
  onClick={() => setViewMode('map')}
- className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium transition focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 ${
+ className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium transition focus-visible:ring-2 focus-visible:ring-warning focus-visible:ring-offset-2 ${
  viewMode === 'map'
  ? 'bg-surface text-warning shadow'
  : 'text-subtle hover:text-strong'

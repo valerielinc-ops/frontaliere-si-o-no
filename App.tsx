@@ -2323,7 +2323,7 @@ const App: React.FC = () => {
  <div className="fixed inset-0 z-[200] flex flex-col items-center justify-center bg-surface">
  <div className="flex flex-col items-center gap-4 text-center px-6">
  <div className="w-12 h-12 rounded-xl bg-[#0A66C2] flex items-center justify-center">
- <svg className="w-7 h-7 text-white" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+ <svg className="w-7 h-7 text-on-accent" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
  </div>
  <Loader2 className="w-6 h-6 animate-spin text-[#0A66C2]" />
  <p className="text-body text-sm font-medium">
@@ -2374,7 +2374,7 @@ const App: React.FC = () => {
  </div>
  <button
  onClick={() => setShowNewsletterWelcome(false)}
- className="w-full px-6 py-3 bg-accent hover:bg-accent-hover text-white font-medium rounded-xl transition-colors"
+ className="w-full px-6 py-3 bg-accent hover:bg-accent-hover text-on-accent font-medium rounded-xl transition-colors"
  >
  {t('newsletter.welcome.cta')}
  </button>
@@ -2405,7 +2405,7 @@ const App: React.FC = () => {
  {/* Logo Section */}
  <a href={buildPath({ activeTab: 'calculator' })} onClick={(e) => { e.preventDefault(); handleLogoClick(); handleTabChange('calculator'); }} className="flex items-center gap-3 cursor-pointer no-underline" aria-label="Frontaliere Ticino — Analisi Fiscale 2026">
  <div className="relative group">
- <div className="absolute -inset-1 bg-gradient-to-r from-stripe-600 to-stripe-500 rounded-xl blur opacity-25 group-hover:opacity-50 transition duration-200"></div>
+ <div className="absolute -inset-1 bg-gradient-to-r from-accent-strong to-accent-strong rounded-xl blur opacity-25 group-hover:opacity-50 transition duration-200"></div>
  <div className="relative bg-surface p-2 rounded-xl text-accent ring-1 ring-edge">
  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" className="w-[22px] h-[22px] transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform">
  <rect x="10" y="10" width="80" height="80" rx="16" fill="#1e293b" />
@@ -2547,10 +2547,10 @@ const App: React.FC = () => {
  {/* Dark mode toggle — desktop only */}
  <button
  onClick={toggleTheme}
- className="hidden md:flex p-2 rounded-xl text-slate-500 hover:bg-surface-raised transition-colors shrink-0 min-w-[44px] min-h-[44px] items-center justify-center"
+ className="hidden md:flex p-2 rounded-xl text-muted hover:bg-surface-raised transition-colors shrink-0 min-w-[44px] min-h-[44px] items-center justify-center"
  aria-label={isDarkMode ? t('app.lightMode') : t('app.darkMode')}
  >
- {isDarkMode ? <Sun size={18} className="text-amber-400" /> : <Moon size={18} className="text-slate-600" />}
+ {isDarkMode ? <Sun size={18} className="text-warning" /> : <Moon size={18} className="text-subtle" />}
  </button>
 
  {/* Profile / Login — desktop only */}
@@ -2582,7 +2582,7 @@ const App: React.FC = () => {
  ) : (
  <button
  onClick={() => handleTabChange('profile')}
- className="p-2 rounded-xl text-slate-500 hover:bg-surface-raised transition-colors shrink-0 min-w-[44px] min-h-[44px] flex items-center justify-center"
+ className="p-2 rounded-xl text-muted hover:bg-surface-raised transition-colors shrink-0 min-w-[44px] min-h-[44px] flex items-center justify-center"
  aria-label={t('profile.signIn')}
  title={t('profile.signIn')}
  >
@@ -2598,7 +2598,7 @@ const App: React.FC = () => {
  className={`hidden md:flex p-2 rounded-xl transition-colors shrink-0 items-center justify-center ${
  activeTab === 'admin'
  ? 'bg-danger-subtle text-danger'
- : 'text-slate-500 hover:bg-surface-raised'
+ : 'text-muted hover:bg-surface-raised'
  }`}
  aria-label="Apri pannello amministrazione"
  title="Pannello amministrazione"
@@ -2610,7 +2610,7 @@ const App: React.FC = () => {
  {/* Hamburger — mobile only */}
  <button
  onClick={() => setMobileMenuOpen(prev => !prev)}
- className="md:hidden p-2 rounded-xl text-slate-500 hover:bg-surface-raised transition-colors shrink-0 min-w-[44px] min-h-[44px] flex items-center justify-center"
+ className="md:hidden p-2 rounded-xl text-muted hover:bg-surface-raised transition-colors shrink-0 min-w-[44px] min-h-[44px] flex items-center justify-center"
  aria-label={mobileMenuOpen ? 'Chiudi menu' : 'Apri menu'}
  aria-expanded={mobileMenuOpen}
  >
@@ -2628,7 +2628,7 @@ const App: React.FC = () => {
  onClick={() => { toggleTheme(); setMobileMenuOpen(false); }}
  className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-body hover:bg-surface-raised transition-colors w-full text-left"
  >
- {isDarkMode ? <Sun size={18} className="text-amber-400" /> : <Moon size={18} className="text-slate-600" />}
+ {isDarkMode ? <Sun size={18} className="text-warning" /> : <Moon size={18} className="text-subtle" />}
  <span className="text-sm font-medium">{isDarkMode ? t('app.lightMode') : t('app.darkMode')}</span>
  </button>
 
@@ -2976,7 +2976,7 @@ const App: React.FC = () => {
  <div className="w-full">
  {authLoading ? (
  <div className="flex flex-col items-center justify-center py-20 space-y-4">
- <Shield size={48} className="text-slate-500" />
+ <Shield size={48} className="text-muted" />
  <h2 className="text-xl font-bold text-heading">Verifica sessione amministratore</h2>
  <p className="text-subtle text-center max-w-md">
  Stiamo ripristinando l&apos;accesso. Attendi un istante.
@@ -2986,7 +2986,7 @@ const App: React.FC = () => {
  <AdminPanel />
  ) : (
  <div className="flex flex-col items-center justify-center py-20 space-y-4">
- <Shield size={48} className="text-red-500" />
+ <Shield size={48} className="text-danger" />
  <h2 className="text-xl font-bold text-heading">Accesso riservato</h2>
  <p className="text-subtle text-center max-w-md">
  Questa sezione è riservata all'amministratore del sito.
@@ -2997,7 +2997,7 @@ const App: React.FC = () => {
  {!adminGoogleButtonReady && (
  <button
  onClick={googleSignIn}
- className="w-full px-6 py-2 bg-accent hover:bg-accent-hover text-white rounded-lg font-medium transition-colors"
+ className="w-full px-6 py-2 bg-accent hover:bg-accent-hover text-on-accent rounded-lg font-medium transition-colors"
  >
  Accedi con Google
  </button>
@@ -3288,7 +3288,7 @@ const App: React.FC = () => {
  <details className="group border-b border-edge/50">
  <summary className="flex items-center justify-between py-3 text-sm font-semibold text-body cursor-pointer list-none [&::-webkit-details-marker]:hidden">
  <span>Informazioni</span>
- <span className="text-slate-400 text-xs group-open:rotate-180 transition-transform">▼</span>
+ <span className="text-muted text-xs group-open:rotate-180 transition-transform">▼</span>
  </summary>
  <div className="pb-3 grid grid-cols-2 gap-x-4 gap-y-1">
  <a href={buildPath({ activeTab: 'chi-siamo' as any })} onClick={(e) => { e.preventDefault(); navigateTo('chi-siamo' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 no-underline"><Users className="w-3.5 h-3.5 shrink-0" />{t('footer.aboutUs')}</a>
@@ -3304,7 +3304,7 @@ const App: React.FC = () => {
  <details className="group border-b border-edge/50">
  <summary className="flex items-center justify-between py-3 text-sm font-semibold text-body cursor-pointer list-none [&::-webkit-details-marker]:hidden">
  <span>Strumenti</span>
- <span className="text-slate-400 text-xs group-open:rotate-180 transition-transform">▼</span>
+ <span className="text-muted text-xs group-open:rotate-180 transition-transform">▼</span>
  </summary>
  <div className="pb-3 grid grid-cols-2 gap-x-4 gap-y-1">
  <a href={buildPath({ activeTab: 'job-board' as any })} onClick={(e) => { e.preventDefault(); setJobSlug(null); navigateTo('job-board' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 no-underline"><Briefcase className="w-3.5 h-3.5 shrink-0" />{t('jobBoard.footerLink', getCantonI18nParams())}</a>
@@ -3322,7 +3322,7 @@ const App: React.FC = () => {
  <details className="group border-b border-edge/50">
  <summary className="flex items-center justify-between py-3 text-sm font-semibold text-body cursor-pointer list-none [&::-webkit-details-marker]:hidden">
  <span>Contenuti</span>
- <span className="text-slate-400 text-xs group-open:rotate-180 transition-transform">▼</span>
+ <span className="text-muted text-xs group-open:rotate-180 transition-transform">▼</span>
  </summary>
  <div className="pb-3 grid grid-cols-2 gap-x-4 gap-y-1">
  <a href={buildPath({ activeTab: 'blog' })} onClick={(e) => { e.preventDefault(); navigateTo('blog' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 no-underline"><Newspaper className="w-3.5 h-3.5 shrink-0" />{t('blog.title')}</a>
@@ -3349,7 +3349,7 @@ const App: React.FC = () => {
  <details className="group border-t border-edge/50">
  <summary className="flex items-center justify-between py-3 text-sm font-semibold text-body cursor-pointer list-none [&::-webkit-details-marker]:hidden">
  <span>Mappa del sito</span>
- <span className="text-slate-400 text-xs group-open:rotate-180 transition-transform">▼</span>
+ <span className="text-muted text-xs group-open:rotate-180 transition-transform">▼</span>
  </summary>
  <nav aria-label="Mappa del sito mobile" className="pb-4">
  <div className="grid grid-cols-2 gap-4 text-left">

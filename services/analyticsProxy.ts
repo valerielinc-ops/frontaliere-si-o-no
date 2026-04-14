@@ -7,15 +7,15 @@
  * critical bundle path and reducing TBT.
  *
  * Usage:
- *   import { Analytics } from '@/services/analyticsProxy';
- *   Analytics.trackPageView('/foo');   // safe to call immediately
+ * import { Analytics } from '@/services/analyticsProxy';
+ * Analytics.trackPageView('/foo'); // safe to call immediately
  */
 export const Analytics: Record<string, (...a: unknown[]) => void> = new Proxy(
-  {} as Record<string, (...a: unknown[]) => void>,
-  {
-    get: (_t, method: string) =>
-      (...args: unknown[]) => {
-        import('@/services/analytics').then(m => (m.Analytics as any)[method](...args));
-      },
-  },
+ {} as Record<string, (...a: unknown[]) => void>,
+ {
+ get: (_t, method: string) =>
+ (...args: unknown[]) => {
+ import('@/services/analytics').then(m => (m.Analytics as any)[method](...args));
+ },
+ },
 );

@@ -332,7 +332,7 @@ const JobBoardStatsOverviewInner: React.FC<{ locale: Locale }> = ({ locale }) =>
  if (loading) {
  return (
  <div className="bg-surface p-6 rounded-3xl border border-edge shadow-sm flex items-center justify-center">
- <Loader2 className="h-5 w-5 animate-spin text-stripe-600" />
+ <Loader2 className="h-5 w-5 animate-spin text-accent" />
  </div>
  );
  }
@@ -351,7 +351,7 @@ const JobBoardStatsOverviewInner: React.FC<{ locale: Locale }> = ({ locale }) =>
  <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
  <div className="max-w-4xl">
  <h3 className="text-lg font-bold text-heading flex items-center gap-2">
- <Briefcase className="w-5 h-5 text-stripe-600" />
+ <Briefcase className="w-5 h-5 text-accent" />
  {copy.title}
  </h3>
  <p className="mt-3 text-sm leading-7 text-subtle">
@@ -477,7 +477,7 @@ const JobBoardStatsOverviewInner: React.FC<{ locale: Locale }> = ({ locale }) =>
 
  <div className="bg-surface p-5 rounded-3xl border border-edge shadow-sm">
  <h3 className="text-sm font-bold text-body mb-6 flex items-center gap-2">
- <TrendingUp size={16} className="text-stripe-600" />
+ <TrendingUp size={16} className="text-accent" />
  {copy.chartTitle}
  </h3>
  <div className="h-[320px] w-full">
@@ -503,10 +503,10 @@ const JobBoardStatsOverviewInner: React.FC<{ locale: Locale }> = ({ locale }) =>
  </div>
 
  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
- <LeaderList title={copy.activeCompaniesTitle} icon={<Building2 size={16} className="text-stripe-600" />} items={topCompaniesActive} valueKey="count" emptyText={copy.empty} locale={locale} />
- <LeaderList title={copy.activeLocationsTitle} icon={<MapPin size={16} className="text-emerald-600" />} items={topLocationsActive} valueKey="count" emptyText={copy.empty} locale={locale} />
- <LeaderList title={copy.recentCompaniesTitle} icon={<Link2 size={16} className="text-stripe-600" />} items={topCompaniesRecent} valueKey="added" emptyText={copy.empty} locale={locale} />
- <LeaderList title={copy.recentTitlesTitle} icon={<Briefcase size={16} className="text-stripe-600" />} items={topTitlesRecent} valueKey="added" emptyText={copy.empty} locale={locale} />
+ <LeaderList title={copy.activeCompaniesTitle} icon={<Building2 size={16} className="text-accent" />} items={topCompaniesActive} valueKey="count" emptyText={copy.empty} locale={locale} />
+ <LeaderList title={copy.activeLocationsTitle} icon={<MapPin size={16} className="text-success" />} items={topLocationsActive} valueKey="count" emptyText={copy.empty} locale={locale} />
+ <LeaderList title={copy.recentCompaniesTitle} icon={<Link2 size={16} className="text-accent" />} items={topCompaniesRecent} valueKey="added" emptyText={copy.empty} locale={locale} />
+ <LeaderList title={copy.recentTitlesTitle} icon={<Briefcase size={16} className="text-accent" />} items={topTitlesRecent} valueKey="added" emptyText={copy.empty} locale={locale} />
  </div>
  </div>
  );

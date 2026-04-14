@@ -137,7 +137,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ prefill, onPrefillConsumed })
  </p>
  <button
  onClick={() => setStatus('idle')}
- className="mt-6 inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-accent hover:bg-accent-hover rounded-xl transition-colors"
+ className="mt-6 inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-on-accent bg-accent hover:bg-accent-hover rounded-xl transition-colors"
  >
  <ArrowLeft className="w-4 h-4" />
  {t('contact.sendAnother')}
@@ -256,7 +256,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ prefill, onPrefillConsumed })
  <button
  type="submit"
  disabled={!isValid || status === 'sending'}
- className="w-full flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold text-white bg-accent hover:bg-accent-hover disabled:bg-slate-400 disabled:cursor-not-allowed rounded-xl transition-colors shadow-sm"
+ className="w-full flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold text-on-accent bg-accent hover:bg-accent-hover disabled:bg-surface-muted disabled:cursor-not-allowed rounded-xl transition-colors shadow-sm"
  >
  {status === 'sending' ? (
  <>

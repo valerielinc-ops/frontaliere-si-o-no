@@ -26,7 +26,7 @@ export const ChiSiamo: React.FC = () => {
  <div className="bg-surface rounded-2xl border border-edge p-5 sm:p-8 shadow-lg mb-6">
  <div className="flex items-center gap-4 mb-4">
  <div className="p-3 bg-info rounded-2xl shadow-lg">
- <Users className="text-white" size={32} />
+ <Users className="text-on-accent" size={32} />
  </div>
  <div>
  <h1 className="text-2xl sm:text-3xl font-extrabold text-strong">Chi Siamo</h1>
@@ -135,7 +135,7 @@ export const ChiSiamo: React.FC = () => {
  'Agenzie stampa: RSI, Corriere del Ticino, LaRegione',
  ].map((source) => (
  <div key={source} className="flex items-start gap-2 text-sm text-subtle">
- <CheckCircle2 size={14} className="text-emerald-500 mt-0.5 shrink-0" />
+ <CheckCircle2 size={14} className="text-success mt-0.5 shrink-0" />
  <span>{source}</span>
  </div>
  ))}
@@ -193,7 +193,7 @@ function Section({ icon: Icon, title, children }: { icon: React.FC<{ size?: numb
 function BulletItem({ children }: { children: React.ReactNode }) {
  return (
  <li className="flex items-start gap-2">
- <CheckCircle2 size={14} className="text-emerald-500 mt-0.5 shrink-0" />
+ <CheckCircle2 size={14} className="text-success mt-0.5 shrink-0" />
  <span>{children}</span>
  </li>
  );

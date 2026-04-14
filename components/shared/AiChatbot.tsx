@@ -678,12 +678,12 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
  {!isOpen && !popupBlocked && (
  <button
  onClick={handleToggle}
- className={`fixed right-4 z-[53] w-14 h-14 rounded-full bg-accent hover:bg-accent-hover text-white shadow-lg hover:shadow-xl transition-[color,background-color,border-color,box-shadow,transform] flex items-center justify-center group ${hasBottomOverlay ? 'bottom-52 md:bottom-6' : 'bottom-[7rem] md:bottom-6'}`}
+ className={`fixed right-4 z-[53] w-14 h-14 rounded-full bg-accent hover:bg-accent-hover text-on-accent shadow-lg hover:shadow-xl transition-[color,background-color,border-color,box-shadow,transform] flex items-center justify-center group ${hasBottomOverlay ? 'bottom-52 md:bottom-6' : 'bottom-[7rem] md:bottom-6'}`}
  style={{ marginBottom: 'env(safe-area-inset-bottom, 0px)' }}
  aria-label={t('chatbot.openLabel')}
  >
  <MessageCircle size={24} className="group-hover:scale-110 transition-transform" />
- <span className="absolute -top-1 -right-1 w-3 h-3 bg-emerald-400 rounded-full" />
+ <span className="absolute -top-1 -right-1 w-3 h-3 bg-success rounded-full" />
  </button>
  )}
 
@@ -691,14 +691,14 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
  {isOpen && queueActive && (
  <div className={`fixed right-4 z-[53] w-[360px] max-w-[calc(100vw-2rem)] h-[500px] max-h-[calc(100vh-6rem)] bg-surface rounded-2xl shadow-2xl border border-edge flex flex-col overflow-hidden animate-fade-in ${hasBottomOverlay ? 'bottom-56 md:bottom-4' : 'bottom-[7.5rem] md:bottom-4'}`}>
  {/* Header */}
- <div className="flex items-center justify-between px-4 py-3 bg-stripe-600 text-white rounded-t-2xl shrink-0">
+ <div className="flex items-center justify-between px-4 py-3 bg-accent-strong text-on-accent rounded-t-2xl shrink-0">
  <div className="flex items-center gap-2">
  <Sparkles size={18} />
  <span className="font-semibold text-sm">{t('chatbot.title')}</span>
  </div>
  <button
  onClick={handleToggle}
- className="p-1 hover:bg-stripe-500 rounded-lg transition-colors"
+ className="p-1 hover:bg-accent-subtle0 rounded-lg transition-colors"
  aria-label={t('chatbot.closeLabel')}
  >
  <X size={18} />
@@ -739,7 +739,7 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
  has_pending_question: true,
  });
  }}
- className="block w-full text-left text-xs px-3 py-2 rounded-lg bg-surface-alt text-subtle hover:bg-slate-100 transition-colors"
+ className="block w-full text-left text-xs px-3 py-2 rounded-lg bg-surface-alt text-subtle hover:bg-surface-raised transition-colors"
  >
  {suggestion}
  </button>
@@ -761,7 +761,7 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
  <button
  key={i}
  onClick={() => { setInput(suggestion); }}
- className="block w-full text-left text-xs px-3 py-2 rounded-lg bg-surface-alt text-subtle hover:bg-slate-100 transition-colors"
+ className="block w-full text-left text-xs px-3 py-2 rounded-lg bg-surface-alt text-subtle hover:bg-surface-raised transition-colors"
  >
  {suggestion}
  </button>
@@ -783,7 +783,7 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
  <div
  className={`max-w-[80%] px-3 py-2 rounded-2xl text-sm ${
  msg.role === 'user'
- ? 'bg-stripe-600 text-white rounded-br-md whitespace-pre-wrap'
+ ? 'bg-accent-strong text-on-accent rounded-br-md whitespace-pre-wrap'
  : 'bg-surface-raised text-heading rounded-bl-md'
  }`}
  >
@@ -803,14 +803,14 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
  <Bot size={14} className="text-accent" />
  </div>
  <div className="bg-surface-raised rounded-2xl rounded-bl-md px-4 py-3">
- <Loader2 size={16} className="animate-spin text-stripe-500" />
+ <Loader2 size={16} className="animate-spin text-accent" />
  </div>
  </div>
  )}
 
  {error && (
  <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-danger-subtle border border-danger-border">
- <AlertCircle size={14} className="text-red-500 shrink-0" />
+ <AlertCircle size={14} className="text-danger shrink-0" />
  <p className="text-sm text-danger">{error}</p>
  </div>
  )}
@@ -849,7 +849,7 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
  <button
  onClick={handleSend}
  disabled={loading || !input.trim()}
- className="p-2.5 rounded-xl bg-accent hover:bg-accent-hover disabled:bg-surface-raised text-white transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+ className="p-2.5 rounded-xl bg-accent hover:bg-accent-hover disabled:bg-surface-raised text-on-accent transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
  aria-label={t('chatbot.sendLabel')}
  >
  <Send size={16} />
@@ -868,7 +868,7 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
  <button
  type="button"
  onClick={handleToggle}
- className="p-1.5 rounded-lg text-slate-500 hover:bg-surface-raised hover:text-strong transition-colors"
+ className="p-1.5 rounded-lg text-muted hover:bg-surface-raised hover:text-strong transition-colors"
  aria-label={t('chatbot.closeLabel')}
  >
  <X size={16} />
@@ -908,7 +908,7 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
  }
  }}
  disabled={authBusy}
- className="relative z-30 touch-manipulation w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 mb-2 rounded-xl bg-accent hover:bg-accent-hover text-white font-medium text-sm transition-colors shadow-md disabled:opacity-50"
+ className="relative z-30 touch-manipulation w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 mb-2 rounded-xl bg-accent hover:bg-accent-hover text-on-accent font-medium text-sm transition-colors shadow-md disabled:opacity-50"
  >
  <LogIn size={15} />
  {t('chatbot.loginCta')}
@@ -925,7 +925,7 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
  <button
  type="button"
  onClick={() => signInWithLinkedIn()}
- className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 mb-2 rounded-lg bg-[#0A66C2] hover:bg-[#004182] text-white text-sm font-semibold transition-colors"
+ className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 mb-2 rounded-lg bg-[#0A66C2] hover:bg-[#004182] text-on-accent text-sm font-semibold transition-colors"
  >
  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
  {locale === 'it' ? 'Continua con LinkedIn' : locale === 'de' ? 'Mit LinkedIn fortfahren' : locale === 'fr' ? 'Continuer avec LinkedIn' : 'Continue with LinkedIn'}
@@ -980,7 +980,7 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
  setAuthBusy(false);
  }
  }}
- className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-accent hover:bg-accent-hover text-white font-medium text-sm transition-colors shadow-md disabled:opacity-50"
+ className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-accent hover:bg-accent-hover text-on-accent font-medium text-sm transition-colors shadow-md disabled:opacity-50"
  >
  {authBusy ? <Loader2 size={15} className="animate-spin" /> : <LogIn size={15} />}
  {t('newsletter.subscribeFree')}

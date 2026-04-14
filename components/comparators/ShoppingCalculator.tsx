@@ -162,12 +162,12 @@ const ShoppingCalculator: React.FC = () => {
  return (
  <div className="space-y-6">
  {/* Header */}
- <div className="bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl p-4 sm:p-6 text-white">
+ <div className="bg-gradient-to-br from-warning-strong to-danger-strong rounded-2xl p-4 sm:p-6 text-on-accent">
  <div className="flex items-center gap-3 mb-3">
  <ShoppingCart size={28} />
  <h2 className="text-2xl font-bold">{t('shopping.title')}</h2>
  </div>
- <p className="text-orange-100">{t('shopping.subtitle')}</p>
+ <p className="text-on-accent">{t('shopping.subtitle')}</p>
 
  {/* Stats banner */}
  <div className="flex flex-wrap gap-3 mt-4">
@@ -193,7 +193,7 @@ const ShoppingCalculator: React.FC = () => {
  className={'flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-sm font-bold transition ' +
  (activeTab === tab.id
  ? 'bg-surface text-section-confronti shadow'
- : 'text-white/90 hover:text-white hover:bg-white/10')}
+ : 'text-white/90 hover:text-on-accent hover:bg-white/10')}
  aria-label={tab.label}
  >
  {tab.icon}
@@ -211,7 +211,7 @@ const ShoppingCalculator: React.FC = () => {
  <div className="bg-surface rounded-xl p-4 border border-edge">
  <label htmlFor="shopping-rate" className="text-xs font-bold text-muted uppercase tracking-wide flex items-center gap-2">
  {t('shopping.exchangeRate')}
- {rateLoading && <RefreshCw size={12} className="animate-spin text-orange-500" />}
+ {rateLoading && <RefreshCw size={12} className="animate-spin text-warning" />}
  </label>
  <input
  id="shopping-rate"
@@ -253,7 +253,7 @@ const ShoppingCalculator: React.FC = () => {
  onClick={() => { setSelectedCategory(cat); Analytics.trackUIInteraction('guida', 'spesa', 'filtro_categoria', 'click', cat); }}
  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${
  selectedCategory === cat
- ? 'bg-orange-600 text-white'
+ ? 'bg-warning-strong text-on-accent'
  : 'bg-surface-raised text-subtle hover:bg-surface-raised'
  }`}
  aria-label={t(`shopping.cat.${cat === 'all' ? 'all' : cat === 'alimentari' ? 'food' : cat === 'carne' ? 'meat' : cat === 'bevande' ? 'drinks' : cat === 'casa' ? 'home' : cat === 'bambini' ? 'baby' : cat === 'carburante' ? 'fuel' : 'pharma'}`)}
@@ -291,13 +291,13 @@ const ShoppingCalculator: React.FC = () => {
  onClick={() => !isSelected && toggleProduct(product.id)}
  className={`bg-surface rounded-xl p-4 border-2 transition-[color,background-color,border-color,box-shadow] cursor-pointer ${
  isSelected
- ? 'border-orange-500 ring-2 ring-orange-500/20 shadow-lg'
+ ? 'border-warning ring-2 ring-warning/20 shadow-lg'
  : 'border-edge hover:border-edge'
  }`}
  >
  <div className="flex items-start justify-between gap-2 mb-3">
  <div className="flex items-center gap-2">
- <span className="text-orange-500">{product.icon}</span>
+ <span className="text-warning">{product.icon}</span>
  <div>
  <div className="font-bold text-sm text-strong">{product.name}</div>
  <div className="text-xs text-muted">{product.unit}</div>
@@ -335,7 +335,7 @@ const ShoppingCalculator: React.FC = () => {
 
  {/* Cart Summary */}
  {stats.selectedCount > 0 && (
- <div className="bg-gradient-to-br from-surface-inverted to-surface-inverted rounded-2xl p-4 sm:p-6 text-white">
+ <div className="bg-gradient-to-br from-surface-inverted to-surface-inverted rounded-2xl p-4 sm:p-6 text-on-accent">
  <h4 className="font-bold text-lg mb-4 flex items-center gap-2">
  <ShoppingCart size={20} /> {t('shopping.cartSummary')}
  </h4>
@@ -349,19 +349,19 @@ const ShoppingCalculator: React.FC = () => {
  <div className="text-2xl font-bold">{stats.totalCH.toFixed(2)} CHF</div>
  <div className="text-xs text-white/80">{'\u2248'} {'\u20AC'} {stats.totalCHinEUR.toFixed(2)}</div>
  </div>
- <div className={`rounded-xl p-4 ${stats.savings > 0 ? 'bg-emerald-500/30' : 'bg-red-500/30'}`}>
+ <div className={`rounded-xl p-4 ${stats.savings > 0 ? 'bg-success-strong/30' : 'bg-danger-strong/30'}`}>
  <div className="text-xs uppercase tracking-wider text-white/90">{t('shopping.savings')}</div>
  <div className="text-2xl font-bold">{'\u20AC'} {stats.savings.toFixed(2)}</div>
  <div className="text-xs text-white/90">{stats.savingsPercent.toFixed(0)}% {stats.savings > 0 ? t('shopping.cheaper') : t('shopping.moreExpensive')}</div>
  </div>
- <div className="bg-amber-500/30 rounded-xl p-4">
+ <div className="bg-warning-strong/30 rounded-xl p-4">
  <div className="text-xs uppercase tracking-wider text-white/90">{t('shopping.annualSavings')}</div>
  <div className="text-2xl font-bold">{'\u20AC'} {stats.annualSavings.toFixed(0)}</div>
  <div className="text-xs text-white/90">{t('shopping.weeklyTrips')}</div>
  </div>
  </div>
  {stats.exceedsCustoms && (
- <div className="mt-4 p-3 bg-red-500/30 border border-red-500/50 rounded-xl flex items-start gap-2">
+ <div className="mt-4 p-3 bg-danger-strong/30 border border-danger/50 rounded-xl flex items-start gap-2">
  <AlertCircle size={16} className="mt-0.5 flex-shrink-0" />
  <span className="text-sm">{t('shopping.customsWarning')}</span>
  </div>
@@ -416,7 +416,7 @@ const ShoppingCalculator: React.FC = () => {
  <Suspense
  fallback={
  <div className="flex items-center justify-center h-[480px]">
- <div className="animate-spin rounded-full h-8 w-8 border-2 border-orange-500 border-t-transparent" />
+ <div className="animate-spin rounded-full h-8 w-8 border-2 border-warning border-t-transparent" />
  </div>
  }
  >
@@ -498,7 +498,7 @@ const ShoppingCalculator: React.FC = () => {
  <span className="font-bold text-success">-{zc.savingsPercent}%</span>
  </div>
  <div className="h-3 bg-surface-raised rounded-full overflow-hidden">
- <div className="h-full bg-emerald-500 rounded-full transition-transform duration-300" style={{ width: '100%', transform: `scaleX(${Math.min(barWidth, 100) / 100})`, transformOrigin: 'left' }} />
+ <div className="h-full bg-success-strong rounded-full transition-transform duration-300" style={{ width: '100%', transform: `scaleX(${Math.min(barWidth, 100) / 100})`, transformOrigin: 'left' }} />
  </div>
  </div>
  <div className="grid grid-cols-2 gap-4 text-sm">
@@ -510,7 +510,7 @@ const ShoppingCalculator: React.FC = () => {
  <span className="text-muted text-xs">{t('shopping.netConvenience')}</span>
  <div className="font-bold text-warning">{'\u20AC'} {zc.netConvenience.toFixed(0)}</div>
  <div className="h-2 bg-surface-raised rounded-full overflow-hidden mt-1">
- <div className="h-full bg-orange-500 rounded-full" style={{ width: `${Math.min(netWidth, 100)}%` }} />
+ <div className="h-full bg-warning-strong rounded-full" style={{ width: `${Math.min(netWidth, 100)}%` }} />
  </div>
  </div>
  </div>

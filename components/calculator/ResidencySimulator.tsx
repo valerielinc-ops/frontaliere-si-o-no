@@ -467,7 +467,7 @@ const ResidencySimulator: React.FC = () => {
  ? 'bg-danger-subtle border-danger-border'
  : 'bg-success-subtle border-success-border'
  }`}>
- <TrendingUp className={`w-6 h-6 mb-2 ${result.monthlyDiff > 0 ? 'text-red-500 rotate-0' : 'text-emerald-500 rotate-180'}`} />
+ <TrendingUp className={`w-6 h-6 mb-2 ${result.monthlyDiff > 0 ? 'text-danger rotate-0' : 'text-success rotate-180'}`} />
  <p className={`text-3xl font-bold ${result.monthlyDiff > 0 ? 'text-danger' : 'text-success'}`}>
  {result.monthlyDiff > 0 ? '+' : ''}€{Math.round(result.monthlyDiff).toLocaleString('it-IT')}
  </p>
@@ -484,8 +484,8 @@ const ResidencySimulator: React.FC = () => {
  {/* To card */}
  <div className="bg-surface rounded-xl p-5 border border-edge">
  <div className="flex items-center gap-2 mb-3">
- <MapPin className="w-4 h-4 text-stripe-400" />
- <h3 className="font-bold text-sm text-stripe-500">{toLoc.name} ({t('residency.new')})</h3>
+ <MapPin className="w-4 h-4 text-accent" />
+ <h3 className="font-bold text-sm text-accent">{toLoc.name} ({t('residency.new')})</h3>
  </div>
  <p className="text-2xl font-bold text-strong">€{Math.round(result.toMonthly).toLocaleString('it-IT')}</p>
  <p className="text-xs text-muted">{t('residency.perMonth')}</p>
@@ -505,7 +505,7 @@ const ResidencySimulator: React.FC = () => {
  <div className="bg-surface rounded-xl p-5 border border-edge">
  <button onClick={() => setShowDetails(!showDetails)} className="flex items-center justify-between w-full">
  <div className="flex items-center gap-2">
- <Euro className="w-5 h-5 text-amber-500" />
+ <Euro className="w-5 h-5 text-warning" />
  <h3 className="font-bold text-strong">{t('residency.oneTimeCosts')}</h3>
  </div>
  <div className="flex items-center gap-2">
@@ -531,7 +531,7 @@ const ResidencySimulator: React.FC = () => {
  {/* Tax note */}
  {result.taxNote && (
  <div className="bg-accent-subtle rounded-xl p-4 border border-accent-border flex items-start gap-3">
- <Briefcase className="w-5 h-5 text-stripe-500 shrink-0 mt-0.5" />
+ <Briefcase className="w-5 h-5 text-accent shrink-0 mt-0.5" />
  <p className="text-sm text-accent">{t(result.taxNote)}</p>
  </div>
  )}
@@ -541,7 +541,7 @@ const ResidencySimulator: React.FC = () => {
 
  {/* Disclaimer */}
  <div className="bg-warning-subtle rounded-xl p-4 border border-warning-border flex items-start gap-3">
- <AlertCircle className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
+ <AlertCircle className="w-5 h-5 text-warning shrink-0 mt-0.5" />
  <p className="text-sm text-warning">{t('residency.disclaimer')}</p>
  </div>
  </div>
@@ -631,8 +631,8 @@ function BestMunicipalitySection({ grossMonthlyCHF, chfEurRate }: { grossMonthly
  onClick={() => setPriority(p)}
  className={`px-4 py-2 rounded-lg text-sm font-medium transition-[color,background-color,border-color,box-shadow] ${
  priority === p
- ? 'bg-stripe-600 text-white shadow-md'
- : 'bg-surface text-body border border-edge hover:border-stripe-400'
+ ? 'bg-accent-strong text-on-accent shadow-md'
+ : 'bg-surface text-body border border-edge hover:border-accent-border'
  }`}
  >
  {p === 'balanced' && '\u2696\uFE0F '}{p === 'cost' && '\uD83D\uDCB0 '}{p === 'commute' && '\uD83D\uDE97 '}
@@ -655,7 +655,7 @@ function BestMunicipalitySection({ grossMonthlyCHF, chfEurRate }: { grossMonthly
  aria-label={t('residency.bestMunicipality.searchPlaceholder') || 'Cerca comune'}
  />
  {searchQuery && (
- <button onClick={() => setSearchQuery('')} className="absolute right-2 top-1/2 -translate-y-1/2 min-w-[44px] min-h-[44px] flex items-center justify-center text-muted hover:text-slate-600" aria-label="Pulisci ricerca">
+ <button onClick={() => setSearchQuery('')} className="absolute right-2 top-1/2 -translate-y-1/2 min-w-[44px] min-h-[44px] flex items-center justify-center text-muted hover:text-subtle" aria-label="Pulisci ricerca">
  <X size={14} />
  </button>
  )}
@@ -665,13 +665,13 @@ function BestMunicipalitySection({ grossMonthlyCHF, chfEurRate }: { grossMonthly
  className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium border transition-colors ${
  showFilters || hasActiveFilters
  ? 'bg-accent-subtle border-accent-border text-accent'
- : 'bg-surface border-edge text-subtle hover:border-stripe-400'
+ : 'bg-surface border-edge text-subtle hover:border-accent-border'
  }`}
  aria-label={t('residency.bestMunicipality.filters') || 'Filtri'}
  >
  <SlidersHorizontal size={14} />
  <span className="hidden sm:inline">{t('residency.bestMunicipality.filters') || 'Filtri'}</span>
- {hasActiveFilters && <span className="w-2 h-2 rounded-full bg-stripe-500" />}
+ {hasActiveFilters && <span className="w-2 h-2 rounded-full bg-accent-strong" />}
  </button>
  </div>
 
@@ -763,7 +763,7 @@ function BestMunicipalitySection({ grossMonthlyCHF, chfEurRate }: { grossMonthly
  <div key={loc.id} className={`flex items-center gap-3 p-3 rounded-lg ${
  i === 0 && !hasActiveFilters ? 'bg-surface' : 'bg-surface/50'
  } border border-edge`}>
- <span className={`text-lg font-bold w-7 text-center shrink-0 ${i === 0 ? 'text-stripe-600' : i === 1 ? 'text-muted' : 'text-muted'}`}>
+ <span className={`text-lg font-bold w-7 text-center shrink-0 ${i === 0 ? 'text-accent' : i === 1 ? 'text-muted' : 'text-muted'}`}>
  {i + 1}
  </span>
  <div className="flex-1 min-w-0">

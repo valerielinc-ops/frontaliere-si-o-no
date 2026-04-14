@@ -196,20 +196,20 @@ const EnhancedHistoricalStats: React.FC<{ historyData: Array<{ date: string; rat
  <div className="grid sm:grid-cols-2 gap-4">
  <div className="bg-success-subtle rounded-xl p-4 border border-success-border">
  <div className="flex items-center gap-2 mb-2">
- <TrendingUp size={16} className="text-emerald-700" />
+ <TrendingUp size={16} className="text-success" />
  <span className="text-sm font-bold text-success">{t('currency.historical_high')}</span>
  </div>
- <div className="text-2xl font-bold text-emerald-700">{stats.highestRate.rate.toFixed(4)}</div>
+ <div className="text-2xl font-bold text-success">{stats.highestRate.rate.toFixed(4)}</div>
  <div className="text-xs text-subtle">
  {t('currency.on_date')} {new Date(stats.highestRate.date).toLocaleDateString('it-IT', { day: 'numeric', month: 'short', year: 'numeric' })}
  </div>
  </div>
  <div className="bg-danger-subtle rounded-xl p-4 border border-danger-border">
  <div className="flex items-center gap-2 mb-2">
- <TrendingDown size={16} className="text-red-600" />
+ <TrendingDown size={16} className="text-danger" />
  <span className="text-sm font-bold text-danger">{t('currency.historical_low')}</span>
  </div>
- <div className="text-2xl font-bold text-red-600">{stats.lowestRate.rate.toFixed(4)}</div>
+ <div className="text-2xl font-bold text-danger">{stats.lowestRate.rate.toFixed(4)}</div>
  <div className="text-xs text-subtle">
  {t('currency.on_date')} {new Date(stats.lowestRate.date).toLocaleDateString('it-IT', { day: 'numeric', month: 'short', year: 'numeric' })}
  </div>
@@ -225,7 +225,7 @@ const EnhancedHistoricalStats: React.FC<{ historyData: Array<{ date: string; rat
  <div className="text-center p-3 bg-surface-alt rounded-lg">
  <div className="text-xs font-bold text-muted uppercase">{t('currency.rolling_30d')}</div>
  <div className="text-lg font-bold text-body">{stats.rolling30d.toFixed(4)}</div>
- <div className={`text-xs ${stats.currentRate > stats.rolling30d ? 'text-emerald-700' : 'text-red-600'}`}>
+ <div className={`text-xs ${stats.currentRate > stats.rolling30d ? 'text-success' : 'text-danger'}`}>
  {((stats.currentRate - stats.rolling30d) / stats.rolling30d * 100).toFixed(2)}% {t('currency.vs_current')}
  </div>
  </div>
@@ -234,7 +234,7 @@ const EnhancedHistoricalStats: React.FC<{ historyData: Array<{ date: string; rat
  <div className="text-center p-3 bg-surface-alt rounded-lg">
  <div className="text-xs font-bold text-muted uppercase">{t('currency.rolling_90d')}</div>
  <div className="text-lg font-bold text-body">{stats.rolling90d.toFixed(4)}</div>
- <div className={`text-xs ${stats.currentRate > stats.rolling90d ? 'text-emerald-700' : 'text-red-600'}`}>
+ <div className={`text-xs ${stats.currentRate > stats.rolling90d ? 'text-success' : 'text-danger'}`}>
  {((stats.currentRate - stats.rolling90d) / stats.rolling90d * 100).toFixed(2)}% {t('currency.vs_current')}
  </div>
  </div>
@@ -243,7 +243,7 @@ const EnhancedHistoricalStats: React.FC<{ historyData: Array<{ date: string; rat
  <div className="text-center p-3 bg-surface-alt rounded-lg">
  <div className="text-xs font-bold text-muted uppercase">{t('currency.rolling_180d')}</div>
  <div className="text-lg font-bold text-body">{stats.rolling180d.toFixed(4)}</div>
- <div className={`text-xs ${stats.currentRate > stats.rolling180d ? 'text-emerald-700' : 'text-red-600'}`}>
+ <div className={`text-xs ${stats.currentRate > stats.rolling180d ? 'text-success' : 'text-danger'}`}>
  {((stats.currentRate - stats.rolling180d) / stats.rolling180d * 100).toFixed(2)}% {t('currency.vs_current')}
  </div>
  </div>
@@ -274,7 +274,7 @@ const EnhancedHistoricalStats: React.FC<{ historyData: Array<{ date: string; rat
  <td className="py-2 px-2 text-right text-subtle text-xs">{q.min.toFixed(4)} / {q.max.toFixed(4)}</td>
  <td className="py-2 px-2 text-right">
  {(q as any).trend !== undefined ? (
- <span className={`font-bold ${(q as any).trend >= 0 ? 'text-emerald-700' : 'text-red-600'}`}>
+ <span className={`font-bold ${(q as any).trend >= 0 ? 'text-success' : 'text-danger'}`}>
  {(q as any).trend >= 0 ? '+' : ''}{(q as any).trend.toFixed(2)}%
  </span>
  ) : (
@@ -296,23 +296,23 @@ const EnhancedHistoricalStats: React.FC<{ historyData: Array<{ date: string; rat
  </h3>
  <div className="grid sm:grid-cols-2 gap-4">
  <div>
- <div className="text-xs font-bold text-emerald-700 mb-2">✅ {t('currency.best_months')}</div>
+ <div className="text-xs font-bold text-success mb-2">✅ {t('currency.best_months')}</div>
  <div className="space-y-1">
  {stats.bestMonths.map((m, i) => (
  <div key={m.monthKey} className="flex items-center justify-between bg-surface rounded-lg p-2">
  <span className="font-medium text-body">{i + 1}. {t(`currency.${m.monthKey}`)}</span>
- <span className="font-bold text-emerald-700">{m.avg.toFixed(4)}</span>
+ <span className="font-bold text-success">{m.avg.toFixed(4)}</span>
  </div>
  ))}
  </div>
  </div>
  <div>
- <div className="text-xs font-bold text-red-600 mb-2">⚠️ {t('currency.worst_months')}</div>
+ <div className="text-xs font-bold text-danger mb-2">⚠️ {t('currency.worst_months')}</div>
  <div className="space-y-1">
  {stats.worstMonths.map((m, i) => (
  <div key={m.monthKey} className="flex items-center justify-between bg-surface rounded-lg p-2">
  <span className="font-medium text-body">{i + 1}. {t(`currency.${m.monthKey}`)}</span>
- <span className="font-bold text-red-600">{m.avg.toFixed(4)}</span>
+ <span className="font-bold text-danger">{m.avg.toFixed(4)}</span>
  </div>
  ))}
  </div>
@@ -367,41 +367,41 @@ const ExchangeTimingSection: React.FC<{ historyData: Array<{ date: string; rate:
  <div className="grid md:grid-cols-2 gap-4">
  <div className="bg-surface rounded-xl p-4 border border-success-border">
  <div className="flex items-center gap-2 mb-3">
- <TrendingUp size={18} className="text-emerald-700" />
+ <TrendingUp size={18} className="text-success" />
  <span className="font-bold text-success text-sm">{t('currency.best_time')}</span>
  </div>
  <div className="space-y-2 text-sm">
  <div className="flex justify-between items-center">
  <span className="text-subtle">{t('currency.day_of_week')}</span>
- <span className="font-bold text-emerald-700">{t(`currency.${timing.bestDay}`)}</span>
+ <span className="font-bold text-success">{t(`currency.${timing.bestDay}`)}</span>
  </div>
  <div className="flex justify-between items-center">
  <span className="text-subtle">{t('currency.month_of_year')}</span>
- <span className="font-bold text-emerald-700">{t(`currency.${timing.bestMonth}`)}</span>
+ <span className="font-bold text-success">{t(`currency.${timing.bestMonth}`)}</span>
  </div>
  <div className="flex justify-between items-center">
  <span className="text-subtle">{t('currency.recommended_time')}</span>
- <span className="font-bold text-emerald-700">10:00–12:00</span>
+ <span className="font-bold text-success">10:00–12:00</span>
  </div>
  </div>
  </div>
  <div className="bg-surface rounded-xl p-4 border border-danger-border">
  <div className="flex items-center gap-2 mb-3">
- <TrendingDown size={18} className="text-red-600" />
+ <TrendingDown size={18} className="text-danger" />
  <span className="font-bold text-danger text-sm">{t('currency.avoid')}</span>
  </div>
  <div className="space-y-2 text-sm">
  <div className="flex justify-between items-center">
  <span className="text-subtle">{t('currency.day_of_week')}</span>
- <span className="font-bold text-red-600">{t(`currency.${timing.worstDay}`)}</span>
+ <span className="font-bold text-danger">{t(`currency.${timing.worstDay}`)}</span>
  </div>
  <div className="flex justify-between items-center">
  <span className="text-subtle">{t('currency.month_of_year')}</span>
- <span className="font-bold text-red-600">{t(`currency.${timing.worstMonth}`)}</span>
+ <span className="font-bold text-danger">{t(`currency.${timing.worstMonth}`)}</span>
  </div>
  <div className="flex justify-between items-center">
  <span className="text-subtle">{t('currency.unfavorable_time')}</span>
- <span className="font-bold text-red-600">{t('currency.weekend_17plus')}</span>
+ <span className="font-bold text-danger">{t('currency.weekend_17plus')}</span>
  </div>
  </div>
  </div>
@@ -459,7 +459,7 @@ const ExchangeTimingSection: React.FC<{ historyData: Array<{ date: string; rate:
 
  <div className="bg-warning-subtle rounded-xl p-4 text-sm">
  <div className="flex items-start gap-2">
- <Zap size={16} className="text-amber-700 mt-0.5 flex-shrink-0" />
+ <Zap size={16} className="text-warning mt-0.5 flex-shrink-0" />
  <div className="text-body space-y-1">
  <p className="font-bold text-warning">{t('currency.timing_tips_title')}</p>
  <ul className="list-disc ml-4 space-y-1 text-subtle">
@@ -479,7 +479,7 @@ const ExchangeTimingSection: React.FC<{ historyData: Array<{ date: string; rate:
  </h3>
  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
  <div className="bg-warning-subtle rounded-lg p-3 text-center">
- <div className="text-xs font-bold text-stripe-500 uppercase tracking-wider">{t('currency.current_rate')}</div>
+ <div className="text-xs font-bold text-accent uppercase tracking-wider">{t('currency.current_rate')}</div>
  <div className="text-lg font-bold text-accent">{volatility.current.toFixed(4)}</div>
  <div className="text-xs text-muted">
  {volatility.percentile > 70 ? `🟢 ${t('currency.high_in_range')}` : volatility.percentile < 30 ? `🔴 ${t('currency.low_in_range')}` : `🟡 ${t('currency.in_average')}`}
@@ -511,9 +511,9 @@ const ExchangeTimingSection: React.FC<{ historyData: Array<{ date: string; rate:
  <span>{t('currency.current_position_in_range')}</span>
  <span>Max {volatility.max.toFixed(4)}</span>
  </div>
- <div className="h-3 bg-gradient-to-r from-red-400 via-yellow-400 to-emerald-400 rounded-full relative">
+ <div className="h-3 bg-gradient-to-r from-danger via-warning to-success rounded-full relative">
  <div
- className="absolute top-1/2 -translate-y-1/2 w-4 h-4 bg-white border-2 border-heading rounded-full shadow-lg"
+ className="absolute top-1/2 -translate-y-1/2 w-4 h-4 bg-surface border-2 border-heading rounded-full shadow-lg"
  style={{ left: `calc(${Math.max(2, Math.min(98, volatility.percentile))}% - 8px)` }}
  />
  </div>
@@ -547,12 +547,12 @@ const ExchangeTimingSection: React.FC<{ historyData: Array<{ date: string; rate:
  </div>
 
  {volatility && (
- <div className="bg-gradient-to-r from-teal-600 to-emerald-700 rounded-xl px-5 py-4 text-white space-y-2">
+ <div className="bg-gradient-to-r from-info-strong to-success-strong rounded-xl px-5 py-4 text-on-accent space-y-2">
  <h3 className="font-bold text-sm flex items-center gap-2">🧮 {t('currency.how_much_difference')}</h3>
- <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-white">
+ <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-on-accent">
  <div><span className="text-lg font-semibold">€ {(1000 * volatility.max).toFixed(2)}</span> <span className="text-sm text-white/80">{t('currency.1000chf_best_rate')}</span></div>
  <div><span className="text-lg font-semibold">€ {(1000 * volatility.min).toFixed(2)}</span> <span className="text-sm text-white/80">{t('currency.1000chf_worst_rate')}</span></div>
- <div><span className="text-lg font-semibold text-amber-300">€ {(1000 * volatility.range).toFixed(2)}</span> <span className="text-sm text-white/80">{t('currency.potential_difference')} · {t('currency.on_1000chf_period')}</span></div>
+ <div><span className="text-lg font-semibold text-warning">€ {(1000 * volatility.range).toFixed(2)}</span> <span className="text-sm text-white/80">{t('currency.potential_difference')} · {t('currency.on_1000chf_period')}</span></div>
  </div>
  <p className="text-xs text-white/90 text-center mt-1">
  {t('currency.on_5000chf_annual')} <strong>€ {(5000 * volatility.range * 12).toFixed(0)}</strong>!
@@ -654,8 +654,8 @@ const WeightedAverageStats: React.FC<{
  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
  <div className="bg-surface rounded-xl p-4 text-center border border-edge">
  <div className="text-xs font-bold text-muted uppercase tracking-wider">{t('currency.current_rate')}</div>
- <div className="text-xl font-bold text-stripe-600">{currentRate.toFixed(4)}</div>
- <div className={`text-xs font-bold ${stats.currentVsWeighted >= 0 ? 'text-emerald-700' : 'text-red-600'}`}>
+ <div className="text-xl font-bold text-accent">{currentRate.toFixed(4)}</div>
+ <div className={`text-xs font-bold ${stats.currentVsWeighted >= 0 ? 'text-success' : 'text-danger'}`}>
  {stats.currentVsWeighted >= 0 ? '↑' : '↓'} {Math.abs(stats.currentVsWeighted).toFixed(2)}% vs {t('currency.vs_average')}
  </div>
  </div>
@@ -665,9 +665,9 @@ const WeightedAverageStats: React.FC<{
  <div className="text-xs text-muted">{historyData.length} {t('currency.data_points')}</div>
  </div>
  <div className="bg-accent-subtle rounded-xl p-4 text-center border-2 border-accent-border">
- <div className="text-xs font-bold text-stripe-600 uppercase tracking-wider">{t('currency.weighted_average')}</div>
+ <div className="text-xs font-bold text-accent uppercase tracking-wider">{t('currency.weighted_average')}</div>
  <div className="text-xl font-bold text-accent">{stats.weightedAvg.toFixed(4)}</div>
- <div className="text-xs text-stripe-500">⭐ {t('currency.more_reliable')}</div>
+ <div className="text-xs text-accent">⭐ {t('currency.more_reliable')}</div>
  </div>
  <div className="bg-surface rounded-xl p-4 text-center border border-edge">
  <div className="text-xs font-bold text-muted uppercase tracking-wider">{t('currency.exponential_average')}</div>
@@ -702,13 +702,13 @@ const WeightedAverageStats: React.FC<{
  </div>
  )}
 
- <div className="bg-gradient-to-r from-teal-600 to-emerald-700 rounded-xl px-5 py-4 text-white space-y-3">
+ <div className="bg-gradient-to-r from-info-strong to-success-strong rounded-xl px-5 py-4 text-on-accent space-y-3">
  <h3 className="font-bold text-sm flex items-center gap-2">💰 {t('currency.impact_frontaliere')}</h3>
- <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-white">
+ <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-on-accent">
  <div><span className="text-lg font-semibold">€ {stats.currentMonthly.toFixed(0)}/{t('currency.month_abbr')}</span> <span className="text-sm text-white/80">{t('currency.at_current_rate')}</span></div>
  <div><span className="text-lg font-semibold">€ {stats.avgMonthly.toFixed(0)}/{t('currency.month_abbr')}</span> <span className="text-sm text-white/80">{t('currency.at_weighted_avg')}</span></div>
  <div>
- <span className={`text-lg font-semibold ${stats.annualDiff >= 0 ? 'text-emerald-300' : 'text-amber-300'}`}>
+ <span className={`text-lg font-semibold ${stats.annualDiff >= 0 ? 'text-success' : 'text-warning'}`}>
  {stats.annualDiff >= 0 ? '+' : ''}€ {stats.annualDiff.toFixed(0)}
  </span>
  {' '}<span className="text-sm text-white/80">{t('currency.annual_difference')} · {stats.annualDiff >= 0 ? `✅ ${t('currency.rate_favors_you')}` : `⚠️ ${t('currency.rate_below_average')}`}</span>
@@ -801,13 +801,13 @@ const WeeklyExchangeAlert: React.FC<{ currentRate: number; historyData: Array<{ 
  <div className="bg-surface rounded-2xl border border-edge p-5 space-y-4">
  <div className="flex items-center justify-between gap-2">
  <h3 className="text-sm font-bold text-strong flex items-center gap-2">
- <Bell size={16} className="text-stripe-600" />
+ <Bell size={16} className="text-accent" />
  Alert settimanale cambio CHF→EUR
  </h3>
  <button
  type="button"
  onClick={() => setPrefs(prev => ({ ...prev, enabled: !prev.enabled }))}
- className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${prefs.enabled ? 'bg-emerald-600 text-white' : 'bg-surface-raised text-body'}`}
+ className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${prefs.enabled ? 'bg-success-strong text-on-accent' : 'bg-surface-raised text-body'}`}
  aria-label={prefs.enabled ? 'Disattiva alert' : 'Attiva alert'}
  >
  {prefs.enabled ? 'Attivo' : 'Disattivo'}
@@ -865,7 +865,7 @@ const WeeklyExchangeAlert: React.FC<{ currentRate: number; historyData: Array<{ 
  detail: { tab: 'weekly-digest' },
  }));
  }}
- className="px-2.5 py-1 rounded-lg bg-stripe-600 text-white font-semibold hover:bg-stripe-700 transition-colors flex items-center gap-1"
+ className="px-2.5 py-1 rounded-lg bg-accent-strong text-on-accent font-semibold hover:bg-accent-strong-hover transition-colors flex items-center gap-1"
  >
  <Mail size={12} />
  Ricevi alert via email
