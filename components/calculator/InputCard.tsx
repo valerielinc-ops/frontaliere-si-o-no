@@ -85,7 +85,7 @@ const SectionHeader = ({ title, icon: Icon, isOpen, onToggle, subtext, iconColor
 
 const StepperInput = ({ value, onChange, min = 0, max, label, icon: Icon, iconColor ="text-muted", tooltip, inputId }: any) => (
  <div className="space-y-2 min-w-0">
- {label && <label htmlFor={inputId} className="text-xs font-bold text-subtle uppercase tracking-wide flex items-center gap-1.5 h-4 truncate">{Icon && <Icon size={12} className={`${iconColor} shrink-0`}/>} <span className="truncate">{label}</span> {tooltip && <InfoTooltip text={tooltip} />}</label>}
+ {label && <label htmlFor={inputId} className="text-xs font-bold text-subtle uppercase tracking-wide flex items-center gap-1.5 min-h-4">{Icon && <Icon size={12} className={`${iconColor} shrink-0`}/>} <span className="truncate">{label}</span> {tooltip && <InfoTooltip text={tooltip} />}</label>}
  <div className="flex items-center bg-surface-alt border border-edge rounded-xl overflow-hidden h-12 shadow-sm focus-within:ring-2 focus-within:ring-accent/20 focus-within:border-accent transition-[color,border-color,box-shadow]">
  <button 
  onClick={() => onChange(Math.max(min, value - 1))}
@@ -132,7 +132,7 @@ const StepperInput = ({ value, onChange, min = 0, max, label, icon: Icon, iconCo
 
 const SegmentControl = ({ options, value, onChange, label, icon: Icon, iconColor ="text-muted", tooltip }: any) => (
  <div className="space-y-2">
- {label && <label className="text-xs font-bold text-subtle uppercase tracking-wide flex items-center gap-1.5 h-4">{Icon && <Icon size={12} className={iconColor}/>} {label} {tooltip && <InfoTooltip text={tooltip} />}</label>}
+ {label && <label className="text-xs font-bold text-subtle uppercase tracking-wide flex items-center gap-1.5 min-h-4">{Icon && <Icon size={12} className={iconColor}/>} {label} {tooltip && <InfoTooltip text={tooltip} />}</label>}
  <div className="flex bg-segment-container-bg p-1 rounded-xl relative h-11" role="group">
  {options.map((opt: any) => (
  <button
@@ -531,16 +531,16 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  className={`relative p-3 rounded-xl border-2 transition-[color,background-color,border-color] flex flex-col items-center justify-center text-center gap-1 group ${inputs.frontierWorkerType === 'NEW' ? 'border-accent bg-accent-subtle/50' : 'border-edge bg-surface-alt hover:border-edge'}`}
  >
  {inputs.frontierWorkerType === 'NEW' && <div className="absolute top-2 right-2 bg-accent-strong text-on-accent rounded-full p-0.5"><Check size={10} strokeWidth={4} /></div>}
- <span className={`font-bold text-sm ${inputs.frontierWorkerType === 'NEW' ? 'text-accent' : 'text-subtle'}`}>{t('input.newFrontier')}</span>
- <span className="text-sm text-subtle font-medium">{t('input.postDate')}</span>
+ <span className={`font-bold text-xs ${inputs.frontierWorkerType === 'NEW' ? 'text-accent' : 'text-subtle'}`}>{t('input.newFrontier')}</span>
+ <span className="text-xs text-subtle font-medium">{t('input.postDate')}</span>
  </button>
  <button
  onClick={() => { handleChange('frontierWorkerType', 'OLD'); if (inputs.frontierWorkerType !== 'OLD') showFrontierEasterEgg('OLD'); }}
  className={`relative p-3 rounded-xl border-2 transition-[color,background-color,border-color] flex flex-col items-center justify-center text-center gap-1 group ${inputs.frontierWorkerType === 'OLD' ? 'border-success bg-success-subtle/50' : 'border-edge bg-surface-alt hover:border-edge'}`}
  >
  {inputs.frontierWorkerType === 'OLD' && <div className="absolute top-2 right-2 bg-success-strong text-on-accent rounded-full p-0.5"><Check size={10} strokeWidth={4} /></div>}
- <span className={`font-bold text-sm ${inputs.frontierWorkerType === 'OLD' ? 'text-success' : 'text-subtle'}`}>{t('input.oldFrontier')}</span>
- <span className="text-sm text-subtle font-medium">{t('input.preDate')}</span>
+ <span className={`font-bold text-xs ${inputs.frontierWorkerType === 'OLD' ? 'text-success' : 'text-subtle'}`}>{t('input.oldFrontier')}</span>
+ <span className="text-xs text-subtle font-medium">{t('input.preDate')}</span>
  </button>
  </div>
  </div>
@@ -603,7 +603,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  </div>
  ) : (
 
- <div className="flex-grow overflow-y-auto custom-scrollbar p-3 space-y-3 pb-20">
+ <div className="flex-grow overflow-y-auto custom-scrollbar p-3 space-y-4 pb-20">
 
  {/* PRESET SCENARIO CHIPS */}
  <div className="flex gap-2 overflow-x-auto scrollbar-none pb-1">
@@ -615,7 +615,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  className={`shrink-0 flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold border transition-[color,background-color,border-color,box-shadow] ${
  activePreset === preset.id
  ? 'bg-warning-strong text-on-accent border-warning shadow-sm'
- : 'bg-surface border-edge text-subtle hover:border-warning hover:text-warning'
+ : 'bg-surface border-edge text-body hover:border-warning hover:text-warning'
  }`}
  >
  <Zap size={12} />
@@ -752,19 +752,19 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  className={`relative p-3 rounded-xl border-2 transition-[color,background-color,border-color] flex flex-col items-center justify-center text-center gap-1 group ${inputs.frontierWorkerType === 'NEW' ? 'border-accent bg-accent-subtle/50' : 'border-edge bg-surface-alt hover:border-edge'}`}
  >
  {inputs.frontierWorkerType === 'NEW' && <div className="absolute top-2 right-2 bg-accent-strong text-on-accent rounded-full p-0.5"><Check size={10} strokeWidth={4} /></div>}
- <span className={`font-bold text-sm ${inputs.frontierWorkerType === 'NEW' ? 'text-accent' : 'text-subtle'}`}>{t('input.newFrontier')}</span>
- <span className="text-sm text-subtle font-medium">{t('input.postDate')}</span>
+ <span className={`font-bold text-xs ${inputs.frontierWorkerType === 'NEW' ? 'text-accent' : 'text-subtle'}`}>{t('input.newFrontier')}</span>
+ <span className="text-xs text-subtle font-medium">{t('input.postDate')}</span>
  </button>
- <button 
- onClick={() => { handleChange('frontierWorkerType', 'OLD'); if (inputs.frontierWorkerType !== 'OLD') showFrontierEasterEgg('OLD'); }} 
+ <button
+ onClick={() => { handleChange('frontierWorkerType', 'OLD'); if (inputs.frontierWorkerType !== 'OLD') showFrontierEasterEgg('OLD'); }}
  className={`relative p-3 rounded-xl border-2 transition-[color,background-color,border-color] flex flex-col items-center justify-center text-center gap-1 group ${inputs.frontierWorkerType === 'OLD' ? 'border-success bg-success-subtle/50' : 'border-edge bg-surface-alt hover:border-edge'}`}
  >
  {inputs.frontierWorkerType === 'OLD' && <div className="absolute top-2 right-2 bg-success-strong text-on-accent rounded-full p-0.5"><Check size={10} strokeWidth={4} /></div>}
- <span className={`font-bold text-sm ${inputs.frontierWorkerType === 'OLD' ? 'text-success' : 'text-subtle'}`}>{t('input.oldFrontier')}</span>
- <span className="text-sm text-subtle font-medium">{t('input.preDate')}</span>
+ <span className={`font-bold text-xs ${inputs.frontierWorkerType === 'OLD' ? 'text-success' : 'text-subtle'}`}>{t('input.oldFrontier')}</span>
+ <span className="text-xs text-subtle font-medium">{t('input.preDate')}</span>
  </button>
  </div>
- 
+
  {inputs.frontierWorkerType === 'NEW' && (
  <div className="pt-2 animate-fade-in">
  <SegmentControl 
