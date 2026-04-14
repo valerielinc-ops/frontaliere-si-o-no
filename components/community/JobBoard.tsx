@@ -2078,9 +2078,16 @@ function slugifyJobPart(value: string): string {
 function deriveLocalizedJobSlug(job: JobListing, locale: Locale): string {
   const explicit = String(job.slugByLocale?.[locale] || '').trim();
   if (explicit) return explicit;
+  // When loaded from the slim locale index, slugByLocale is stripped but
+  // the slug field is already flattened to the correct locale value.
+  // Check it BEFORE falling through to the title-company-location derivation,
+  // which can produce a different (wrong) slug when the company name differs
+  // from the companyKey used during crawl-time slug generation.
+  const canonical = String(job.slug || '').trim();
+  if (canonical) return canonical;
   const localizedTitle = String(job.titleByLocale?.[locale] || job.title || '').trim();
   const fallback = slugifyJobPart(`${localizedTitle}-${job.company}-${job.location}`) || slugifyJobPart(localizedTitle);
-  return fallback || String(job.slug || '').trim();
+  return fallback || '';
 }
 
 function matchesRouteSlug(job: JobListing, routeSlug: string): boolean {
