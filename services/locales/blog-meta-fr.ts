@@ -2136,6 +2136,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.nuova-strategia-zanzara-tigre-chiasso-2026.title': 'Chiasso confie aux privés la lutte contre le moustique tigre : ce qui change pour les frontaliers',
     'blog.article.nuova-strategia-zanzara-tigre-chiasso-2026.excerpt': 'Dès mai et jusqu’en octobre, la gestion des foyers de moustiques tigres à Chiasso évolue. Les particuliers devront désormais s’occuper des bouches d’égout situées sur leurs terrains, tandis que la Commune interviendra chaque semaine avec des larvicides biologiques gratuits.',
     'blog.article.nuova-strategia-zanzara-tigre-chiasso-2026.imageAlt': 'Vue de Chiasso au printemps avec bâtiments historiques et espaces verts',
+    'blog.article.lombardia-7mln-talenti-pmi-frontalieri.title': 'La Lombardie alloue 7 millions pour les docteurs en PME : une opportunité pour les frontaliers tessinois',
+    'blog.article.lombardia-7mln-talenti-pmi-frontalieri.excerpt': 'La Région Lombardie investit 7 millions d’euros dans l’appel à projets \'Talenti – Trasferimento delle conoscenze\' pour recruter des docteurs dans les PME. Des subventions pouvant atteindre 56 000 euros par an pendant 24 mois sont prévues pour des embauches en CDI.',
+    'blog.article.lombardia-7mln-talenti-pmi-frontalieri.imageAlt': 'Lugano au coucher du soleil avec une personne en blouse de laboratoire entrant dans un bâtiment moderne, symbole du pont entre recherche et entreprises',
 };
 
 export default blogMetaFr;

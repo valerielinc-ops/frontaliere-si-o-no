@@ -3711,7 +3711,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "@context": "https://schema.org",
  "@type": "ItemList",
  "name": "Articoli Frontaliere",
- "numberOfItems": 763,
+ "numberOfItems": 764,
  "itemListElement": [
  { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
  { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -4452,7 +4452,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  { "@type": "ListItem", "position": 760, "name": "Bibo: il biglietto digitale che si attiva da so...", "url": `${BASE_URL}/articoli-frontaliere/bibo-sistema-biglietti-digitali-mezzi-2026` },
  { "@type": "ListItem", "position": 761, "name": "Infermieri ticinesi: la fuga verso Milano per t...", "url": `${BASE_URL}/articoli-frontaliere/infermieri-ticinesi-ricerca-lavoro-milano` },
  { "@type": "ListItem", "position": 762, "name": "Ticino e Campione d’Italia: la Commissione pari...", "url": `${BASE_URL}/articoli-frontaliere/tappa-campione-ditalia-2025-commissione` },
-          { "@type": "ListItem", "position": 763, "name": "Chiasso affida ai privati la lotta alla zanzara...", "url": `${BASE_URL}/articoli-frontaliere/nuova-strategia-zanzara-tigre-chiasso-2026` }
+          { "@type": "ListItem", "position": 763, "name": "Chiasso affida ai privati la lotta alla zanzara...", "url": `${BASE_URL}/articoli-frontaliere/nuova-strategia-zanzara-tigre-chiasso-2026` },
+          { "@type": "ListItem", "position": 764, "name": "Lombardia stanzia 7 milioni per dottori di rice...", "url": `${BASE_URL}/articoli-frontaliere/lombardia-7mln-talenti-pmi-frontalieri` }
  ]
  }
  ]

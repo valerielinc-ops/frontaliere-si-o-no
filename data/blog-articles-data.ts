@@ -5969,4 +5969,11 @@ export const ARTICLES: Article[] = [
  image: '/images/blog/nuova-strategia-zanzara-tigre-chiasso-2026.jpg',
  hasCalculator: true,
  },
+ {
+ id: 'lombardia-7mln-talenti-pmi-frontalieri',
+ category: 'novita',
+ date: '2026-04-14T21:10:37.559Z',
+ image: '/images/blog/lombardia-7mln-talenti-pmi-frontalieri.jpg',
+ hasCalculator: true,
+ },
 ];

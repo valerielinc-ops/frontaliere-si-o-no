@@ -7540,6 +7540,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lombardia-7mln-talenti-pmi-frontalieri': {
+    title: 'Lombardia stanzia 7 milioni per dottori | Frontaliere Ticino',
+    description: 'La Regione Lombardia investe 7 milioni nel bando \'Talenti – Trasferimento delle conoscenze\' per assumere dottori di ricerca nelle PMI. Contributi fino a 56mila',
+    keywords: 'frontalieri, ticino, svizzera, italia, lombardia, stanzia, milioni, dottori',
+    ogTitle: 'Lombardia stanzia 7 milioni per dottori di ricerca nelle',
+    ogDescription: 'La Regione Lombardia investe 7 milioni nel bando \'Talenti – Trasferimento delle conoscenze\' per assumere dottori di ricerca nelle PMI. Contributi fino a 56mila',
+    canonicalPath: '/articoli-frontaliere/lombardia-7mln-talenti-pmi-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lombardia stanzia 7 milioni per dottori di ricerca nelle",
+      "description": "La Regione Lombardia investe 7 milioni nel bando 'Talenti – Trasferimento delle conoscenze' per assumere dottori di ricerca nelle PMI. Contributi fino a 56mila",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lombardia-7mln-talenti-pmi-frontalieri.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lugano al tramonto con una persona con camice da laboratorio che entra in un edificio moderno, rappresentante il ponte tra ricerca e imprese"
+      },
+      "datePublished": "2026-04-14T21:10:37+00:00",
+      "dateModified": "2026-04-14T21:10:37+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lombardia-7mln-talenti-pmi-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -1967,6 +1967,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
  'blog-infermieri-ticinesi-ricerca-lavoro-milano': { name: 'Infermieri ticinesi', path: '/articoli-frontaliere/infermieri-ticinesi-ricerca-lavoro-milano', parent: 'blog' },
  'blog-tappa-campione-ditalia-2025-commissione': { name: 'Ticino e Campione d’Italia', path: '/articoli-frontaliere/tappa-campione-ditalia-2025-commissione', parent: 'blog' },
     'blog-nuova-strategia-zanzara-tigre-chiasso-2026': { name: 'Chiasso affida ai privati la lotta alla', path: '/articoli-frontaliere/nuova-strategia-zanzara-tigre-chiasso-2026', parent: 'blog' },
+    'blog-lombardia-7mln-talenti-pmi-frontalieri': { name: 'Lombardia stanzia 7 milioni per dottori', path: '/articoli-frontaliere/lombardia-7mln-talenti-pmi-frontalieri', parent: 'blog' },
  };
 
  const info = sectionNames[section];

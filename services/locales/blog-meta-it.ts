@@ -2136,6 +2136,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.nuova-strategia-zanzara-tigre-chiasso-2026.title': 'Chiasso affida ai privati la lotta alla zanzara tigre: cosa cambia per i frontalieri',
     'blog.article.nuova-strategia-zanzara-tigre-chiasso-2026.excerpt': 'Da maggio a ottobre cambia la gestione dei focolai di zanzara tigre a Chiasso. I privati dovranno occuparsi dei tombini sui loro terreni, mentre il Comune interverrà settimanalmente con larvicidi biologici gratuiti.',
     'blog.article.nuova-strategia-zanzara-tigre-chiasso-2026.imageAlt': 'Vista di Chiasso in primavera con edifici storici e aree verdi, luce naturale',
+    'blog.article.lombardia-7mln-talenti-pmi-frontalieri.title': 'Lombardia stanzia 7 milioni per dottori di ricerca nelle PMI: opportunità per i frontalieri ticinesi',
+    'blog.article.lombardia-7mln-talenti-pmi-frontalieri.excerpt': 'La Regione Lombardia investe 7 milioni nel bando \'Talenti – Trasferimento delle conoscenze\' per assumere dottori di ricerca nelle PMI. Contributi fino a 56mila euro annui per 24 mesi per assunzioni a tempo indeterminato.',
+    'blog.article.lombardia-7mln-talenti-pmi-frontalieri.imageAlt': 'Lugano al tramonto con una persona con camice da laboratorio che entra in un edificio moderno, rappresentante il ponte tra ricerca e imprese',
 };
 
 export default blogMetaIt;

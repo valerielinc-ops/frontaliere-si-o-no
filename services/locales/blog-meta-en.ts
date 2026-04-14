@@ -2136,6 +2136,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.nuova-strategia-zanzara-tigre-chiasso-2026.title': 'Chiasso shifts tiger mosquito control to private owners: what changes for cross-border workers',
     'blog.article.nuova-strategia-zanzara-tigre-chiasso-2026.excerpt': 'From May to October, the management of tiger mosquito hotspots in Chiasso will change. Private property owners will now be responsible for treating manholes on their land, while the municipality will provide free weekly biological larvicide treatments.',
     'blog.article.nuova-strategia-zanzara-tigre-chiasso-2026.imageAlt': 'Street view of Chiasso in spring showing historic buildings and green areas',
+    'blog.article.lombardia-7mln-talenti-pmi-frontalieri.title': 'Lombardy allocates 7 million euros for PhD researchers in SMEs: an opportunity for Ticino cross-border workers',
+    'blog.article.lombardia-7mln-talenti-pmi-frontalieri.excerpt': 'The Lombardy Region is investing 7 million euros in the \'Talenti – Knowledge Transfer\' call to hire PhD researchers in SMEs. Grants of up to 56,000 euros per year for 24 months are available for permanent employment contracts.',
+    'blog.article.lombardia-7mln-talenti-pmi-frontalieri.imageAlt': 'Lugano sunset with a person in a lab coat entering a modern building, symbolizing the bridge between research and businesses',
 };
 
 export default blogMetaEn;

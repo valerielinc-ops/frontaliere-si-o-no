@@ -2136,6 +2136,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.nuova-strategia-zanzara-tigre-chiasso-2026.title': 'Chiasso überträgt die Tigermücken-Bekämpfung an Private: Was sich für Grenzgänger ändert',
     'blog.article.nuova-strategia-zanzara-tigre-chiasso-2026.excerpt': 'Von Mai bis Oktober ändert sich die Bekämpfung der Tigermücken-Herde in Chiasso. Private müssen sich um die Gullys auf ihrem Grundstück kümmern, während die Gemeinde wöchentlich mit kostenlosen biologischen Larviziden eingreift.',
     'blog.article.nuova-strategia-zanzara-tigre-chiasso-2026.imageAlt': 'Strassenszene in Chiasso im Frühling mit historischen Gebäuden und Grünflächen',
+    'blog.article.lombardia-7mln-talenti-pmi-frontalieri.title': 'Lombardei stellt 7 Millionen für Promovierte in KMU bereit: Chance für Tessiner Grenzgänger',
+    'blog.article.lombardia-7mln-talenti-pmi-frontalieri.excerpt': 'Die Lombardei investiert 7 Millionen Euro in die Ausschreibung »Talenti – Trasferimento delle conoscenze« für die Einstellung von Promovierten in KMU. Bis zu 56.000 Franken pro Jahr für 24 Monate bei unbefristeten Verträgen.',
+    'blog.article.lombardia-7mln-talenti-pmi-frontalieri.imageAlt': 'Lugano bei Sonnenuntergang mit einer Person im Laborkittel, die ein modernes Gebäude betritt, Symbol für die Brücke zwischen Forschung und Unternehmen',
 };
 
 export default blogMetaDe;
