@@ -49,7 +49,7 @@ export function isAristonTargetLocation(rawLocation = '') {
 export function inferAristonRegion(rawLocation = '') {
   const canton = inferAnyCanton(rawLocation);
   return {
-    canton: canton || TARGET_CANTONS[0],
+    canton: canton || '',
     country: 'CH',
   };
 }

@@ -279,7 +279,7 @@ export async function fetchAllApgSgaJobs() {
 
     const rawLocation = listing.location || listing.ort || listing.city || '';
     const location = normalizeSpace(rawLocation) || HQ?.city || 'Lugano';
-    const canton = inferAnyCanton(location) || HQ?.canton || 'TI';
+    const canton = inferAnyCanton(location) || HQ?.canton || '';
     const descriptionHtml = listing.description || listing.beschreibung || '';
     const descriptionText = stripHtml(descriptionHtml);
     const publicUrl = listing.url || listing.link || CAREER_URL;

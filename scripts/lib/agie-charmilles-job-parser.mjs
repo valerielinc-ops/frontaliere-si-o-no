@@ -157,7 +157,7 @@ export function inferAgieCharmillesCanton(job = {}) {
   const city = (job.city || '').toLowerCase();
   if (/losone|locarno|ascona|muralto|minusio|bellinzona|lugano|mendrisio|chiasso/i.test(city)) return 'TI';
   if (isGrigioniRelevant(city)) return 'GR';
-  return job.canton || TARGET_CANTONS[0];
+  return job.canton || '';
 }
 
 /**

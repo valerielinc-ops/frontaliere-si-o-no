@@ -194,9 +194,9 @@ export function inferAplusCanton(raw = '') {
 
   if (/grigioni|graubunden|grisons|chur|davos/.test(lower)) return 'GR';
   if (/ticino|tessin|massagno|lugano|chiasso|bellinzona|locarno|mendrisio|ascona|muralto/.test(lower)) return 'TI';
-  // Generic CH markers — default to TI (group HQ)
-  if (/svizzera|suisse|schweiz|switzerland|swiss/.test(lower)) return 'TI';
-  return 'TI';
+  // Generic CH markers — not enough to confidently assign TI
+  if (/svizzera|suisse|schweiz|switzerland|swiss/.test(lower)) return '';
+  return '';
 }
 
 /**

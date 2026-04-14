@@ -84,7 +84,7 @@ export function inferSunriseCanton(job = {}) {
     job?.city,
   ].filter(Boolean).join(' '));
   if (haystack.includes('grigioni') || haystack.includes('grisons') || haystack.includes('graub')) return 'GR';
-  return 'TI';
+  return '';
 }
 
 export function parseSunriseSearchPage(html = '') {

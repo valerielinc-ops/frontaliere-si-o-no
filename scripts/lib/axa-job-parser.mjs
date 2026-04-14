@@ -269,7 +269,7 @@ export function inferAxaCanton(location = '', address = '') {
 
   if (tiKeywords.some(k => combined.includes(k))) return 'TI';
   if (grKeywords.some(k => combined.includes(k))) return 'GR';
-  return 'TI'; // Default for Tessin-filtered results
+  return ''; // No confident canton match
 }
 
 /**

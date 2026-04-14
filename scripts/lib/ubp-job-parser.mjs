@@ -280,7 +280,7 @@ export async function fetchAllUbpJobs() {
     const primaryLoc = req.PrimaryLocation || '';
     const rawLocation = normalizeSpace(primaryLoc) || HQ?.city || 'Lugano';
     const isForeignLoc = isLocationExplicitlyForeign(rawLocation);
-    const canton = inferAnyCanton(rawLocation) || (isForeignLoc ? '' : (HQ?.canton || 'TI'));
+    const canton = inferAnyCanton(rawLocation) || (isForeignLoc ? '' : (HQ?.canton || ''));
 
     // Fetch full description from detail API
     let descriptionText = '';
@@ -321,7 +321,7 @@ export async function fetchAllUbpJobs() {
       sourceLang,
       crawledAt: new Date().toISOString(),
       addressLocality: rawLocation,
-      addressRegion: canton || (HQ?.addressRegion || 'TI'),
+      addressRegion: canton || (HQ?.addressRegion || ''),
       addressCountry: isForeignLoc ? '' : 'CH',
       country: isForeignLoc ? '' : 'CH',
       postalCode: canton ? (HQ?.postalCode || '6900') : '',

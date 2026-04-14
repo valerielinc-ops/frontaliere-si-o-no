@@ -236,7 +236,7 @@ export function isArtificialyTicinoRelevant(job = {}) {
 export function inferArtificialyCanton(job = {}) {
   const combined = `${job.location || ''} ${job.region || ''}`.toLowerCase();
   if (/chur|coira|grigioni|graubünden|graubunden|poschiavo|bregaglia|mesolcina|calanca/i.test(combined)) return 'GR';
-  return 'TI';
+  return '';
 }
 
 /**

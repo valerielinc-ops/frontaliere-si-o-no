@@ -234,7 +234,7 @@ export async function fetchAllBallyJobs() {
 
     const rawLocation = listing.location || '';
     const location = normalizeSpace(rawLocation) || HQ?.city || 'Caslano';
-    const canton = inferAnyCanton(location) || HQ?.canton || 'TI';
+    const canton = inferAnyCanton(location) || HQ?.canton || '';
     const descriptionText = stripHtml(listing.description || '');
     const publicUrl = listing.url || CAREER_URL;
 

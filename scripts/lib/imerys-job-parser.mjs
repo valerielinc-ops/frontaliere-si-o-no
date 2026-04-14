@@ -287,7 +287,7 @@ export async function fetchAllImerysJobs() {
 
     const rawLocation = listing.location || listing.city || '';
     const location = (typeof rawLocation === 'object' ? rawLocation.city || rawLocation.name : normalizeSpace(rawLocation)) || HQ?.city || 'Bodio';
-    const canton = inferAnyCanton(location) || HQ?.canton || 'TI';
+    const canton = inferAnyCanton(location) || HQ?.canton || '';
     const descriptionHtml = listing.description || listing.jobAd?.sections?.jobDescription?.text || '';
     const descriptionText = stripHtml(descriptionHtml);
     const publicUrl = listing.url || listing.ref || listing.applyUrl || CAREER_URL;

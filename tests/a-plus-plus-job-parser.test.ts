@@ -177,10 +177,10 @@ describe('inferAplusCanton', () => {
     expect(inferAplusCanton('Davos, Grigioni')).toBe('GR');
   });
 
-  it('defaults to TI for generic Swiss markers', () => {
-    expect(inferAplusCanton('Switzerland')).toBe('TI');
-    expect(inferAplusCanton('Svizzera')).toBe('TI');
-    expect(inferAplusCanton('')).toBe('TI');
+  it('returns empty string for generic/unknown locations (no confident canton)', () => {
+    expect(inferAplusCanton('Switzerland')).toBe('');
+    expect(inferAplusCanton('Svizzera')).toBe('');
+    expect(inferAplusCanton('')).toBe('');
   });
 });
 

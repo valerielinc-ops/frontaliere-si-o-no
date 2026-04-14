@@ -146,7 +146,7 @@ export function inferAgroscopeCanton(job = {}) {
 
   const combined = `${job.city || ''} ${job.location || ''} ${job.region || ''}`.toLowerCase();
   if (/chur|coira|grigioni|graubünden|graubunden|poschiavo|bregaglia|mesolcina|calanca/i.test(combined)) return 'GR';
-  return 'TI';
+  return '';
 }
 
 /**

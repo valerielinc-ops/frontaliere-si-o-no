@@ -267,7 +267,7 @@ export async function fetchAllBentelerJobs() {
 
     const rawLocation = listing.location || listing.city || '';
     const location = normalizeSpace(rawLocation) || HQ?.city || 'Manno';
-    const canton = inferAnyCanton(location) || HQ?.canton || 'TI';
+    const canton = inferAnyCanton(location) || HQ?.canton || '';
     const descriptionHtml = listing.description || listing.jobDescription || '';
     const descriptionText = stripHtml(descriptionHtml);
     const publicUrl = listing.url || listing.link || CAREER_URL;
