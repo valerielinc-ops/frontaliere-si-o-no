@@ -322,9 +322,9 @@
       },
       "slugByLocale": {
         "it": "infermiere-i-diplomato-hf-spital-davos-davos",
-        "en": "dipl-pflegefachperson-hf-pensum-60-100-allianz-suisse-sargans",
+        "en": "dipl-pflegefachperson-hf-pensum-60-100-spital-davos-davos",
         "de": "dipl-pflegefachperson-hf-pensum-60-100-spital-davos-ch",
-        "fr": "infirmier-ere-diplome-e-es-allianz-suisse-sargans"
+        "fr": "infirmier-ere-diplome-e-es-spital-davos-davos"
       },
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -346,14 +346,16 @@
       "previousSlugsByLocale": {
         "en": [
           "external-consultant-for-allianz-general-agency-chur-100-allianz-suisse-sargans",
-          "dipl-pflegefachperson-hf-pensum-60-100-spital-davos-davos"
+          "dipl-pflegefachperson-hf-pensum-60-100-spital-davos-davos",
+          "dipl-pflegefachperson-hf-pensum-60-100-allianz-suisse-sargans"
         ],
         "de": [
           "berater-fur-die-allianz-general-agentur-chur-100-allianz-suisse-sargans"
         ],
         "fr": [
           "conseiller-pour-l-agence-generale-allianz-chur-100-allianz-suisse-sargans",
-          "infirmier-ere-diplome-e-es-spital-davos-davos"
+          "infirmier-ere-diplome-e-es-spital-davos-davos",
+          "infirmier-ere-diplome-e-es-allianz-suisse-sargans"
         ]
       },
       "previousSlugs": [
@@ -361,7 +363,9 @@
         "dipl-pflegefachperson-hf-pensum-60-100-spital-davos-davos",
         "berater-fur-die-allianz-general-agentur-chur-100-allianz-suisse-sargans",
         "conseiller-pour-l-agence-generale-allianz-chur-100-allianz-suisse-sargans",
-        "infirmier-ere-diplome-e-es-spital-davos-davos"
+        "infirmier-ere-diplome-e-es-spital-davos-davos",
+        "dipl-pflegefachperson-hf-pensum-60-100-allianz-suisse-sargans",
+        "infirmier-ere-diplome-e-es-allianz-suisse-sargans"
       ]
     },
     {

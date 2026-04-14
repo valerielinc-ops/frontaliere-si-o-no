@@ -1,117 +1,5 @@
 [
   {
-    "timestamp": "2026-04-05T21:50:06.871Z",
-    "label": "before",
-    "total": 1525,
-    "needsRetranslation": 807,
-    "incomplete": 376,
-    "complete": 1149,
-    "missingByLocale": {
-      "it": 280,
-      "en": 307,
-      "de": 101,
-      "fr": 328
-    },
-    "topPending": [
-      {
-        "company": "Hilcona AG",
-        "pending": 122
-      },
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 65
-      },
-      {
-        "company": "VOLG",
-        "pending": 44
-      },
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 28
-      },
-      {
-        "company": "LIS – Lugano Istituti Sociali",
-        "pending": 13
-      },
-      {
-        "company": "Denner",
-        "pending": 11
-      },
-      {
-        "company": "Davos Klosters Bergbahnen AG",
-        "pending": 9
-      },
-      {
-        "company": "Lombardi Group",
-        "pending": 9
-      },
-      {
-        "company": "Prada Group",
-        "pending": 8
-      },
-      {
-        "company": "Rapelli - ORIOR Food AG",
-        "pending": 8
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-04-05T21:50:16.485Z",
-    "label": "after",
-    "total": 1525,
-    "needsRetranslation": 305,
-    "incomplete": 279,
-    "complete": 1246,
-    "missingByLocale": {
-      "it": 183,
-      "en": 210,
-      "de": 100,
-      "fr": 232
-    },
-    "topPending": [
-      {
-        "company": "Läderach (Schweiz) AG",
-        "pending": 65
-      },
-      {
-        "company": "VOLG",
-        "pending": 44
-      },
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 28
-      },
-      {
-        "company": "Hilcona AG",
-        "pending": 25
-      },
-      {
-        "company": "LIS – Lugano Istituti Sociali",
-        "pending": 13
-      },
-      {
-        "company": "Denner",
-        "pending": 11
-      },
-      {
-        "company": "Davos Klosters Bergbahnen AG",
-        "pending": 9
-      },
-      {
-        "company": "Lombardi Group",
-        "pending": 9
-      },
-      {
-        "company": "Prada Group",
-        "pending": 8
-      },
-      {
-        "company": "Rapelli - ORIOR Food AG",
-        "pending": 8
-      }
-    ]
-  },
-  {
     "timestamp": "2026-04-06T02:34:36.851Z",
     "label": "before",
     "total": 1525,
@@ -8163,6 +8051,54 @@
     "label": "after",
     "total": 2952,
     "needsRetranslation": 37,
+    "incomplete": 6,
+    "complete": 2946,
+    "missingByLocale": {
+      "it": 1,
+      "en": 0,
+      "de": 1,
+      "fr": 2
+    },
+    "topPending": [
+      {
+        "company": "Tether Operations",
+        "pending": 5
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-14T03:46:38.116Z",
+    "label": "before",
+    "total": 2952,
+    "needsRetranslation": 37,
+    "incomplete": 6,
+    "complete": 2946,
+    "missingByLocale": {
+      "it": 1,
+      "en": 0,
+      "de": 1,
+      "fr": 2
+    },
+    "topPending": [
+      {
+        "company": "Tether Operations",
+        "pending": 5
+      },
+      {
+        "company": "Spital Davos",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-14T04:06:32.706Z",
+    "label": "after",
+    "total": 2952,
+    "needsRetranslation": 24,
     "incomplete": 6,
     "complete": 2946,
     "missingByLocale": {
