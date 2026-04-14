@@ -1,0 +1,33 @@
+{
+  "timestamp": "2026-04-14T21:43:05.037Z",
+  "crawlersChecked": 1,
+  "urlChecksEnabled": false,
+  "crawlers": {
+    "lidl-svizzera": {
+      "total": 13,
+      "issues": [
+        {
+          "type": "thin-description",
+          "count": 1,
+          "total": 13,
+          "reasons": {
+            "tag-soup": 1
+          },
+          "message": "1/13 thin descriptions (1 tag-soup)"
+        },
+        {
+          "type": "duplicate-descriptions",
+          "count": 8,
+          "total": 13,
+          "message": "8/13 duplicate descriptions"
+        }
+      ],
+      "severity": "WARNING"
+    }
+  },
+  "summary": {
+    "critical": 0,
+    "warning": 1,
+    "ok": 0
+  }
+}

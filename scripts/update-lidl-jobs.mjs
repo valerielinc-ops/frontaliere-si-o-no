@@ -40,7 +40,7 @@ import {
   deriveLocalizedSlug,
   normalize,
 } from './lib/dedicated-crawler-common.mjs';
-import { parseLidlDetailPage, hasListContent, MIN_LIDL_FULL_DESC } from './lib/lidl-job-parser.mjs';
+import { hasListContent, MIN_LIDL_FULL_DESC } from './lib/lidl-job-parser.mjs';
 import { TARGET_CANTONS } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -198,6 +198,64 @@ function normalizeLidlContract(raw = '') {
   return String(raw || '').trim();
 }
 
+function stripHtmlToPlain(html = '') {
+  return String(html || '')
+    .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<\/p>/gi, '\n')
+    .replace(/<li[^>]*>/gi, '- ')
+    .replace(/<\/li>/gi, '\n')
+    .replace(/<[^>]+>/g, '')
+    .replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&nbsp;/g, ' ')
+    .replace(/&#13;/g, '\n')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+}
+
+function buildJobFromApiHit(hit, detailUrl, sourceCanton) {
+  const title = String(hit?.title || '').trim();
+  if (!title) return null;
+
+  const desc = stripHtmlToPlain(hit?.descResponsibilities || '');
+  const offer = stripHtmlToPlain(hit?.descOffer || '');
+  const body = [desc, offer].filter(Boolean).join('\n\n');
+  if (!body || body.length < 50) return null;
+
+  const meta = buildSeedMetaFromHit(hit, sourceCanton);
+  const lang = inferHitLanguage(hit, detailUrl);
+  const slug = normalizeKey(`${title}-${LIDL_KEY}-${meta.location}`);
+
+  return {
+    id: '',
+    slug,
+    slugByLocale: lang ? { [lang]: slug } : { it: slug },
+    company: LIDL_COMPANY_NAME,
+    companyKey: LIDL_KEY,
+    companyDomain: LIDL_COMPANY_DOMAIN,
+    title,
+    titleByLocale: lang ? { [lang]: title } : { it: title },
+    description: body,
+    descriptionByLocale: lang ? { [lang]: body } : {},
+    location: meta.location,
+    canton: meta.canton,
+    country: 'CH',
+    addressLocality: meta.addressLocality,
+    addressRegion: meta.canton,
+    addressCountry: 'CH',
+    postalCode: String(hit?.location?.postcode || '').trim(),
+    streetAddress: String(hit?.location?.address || '').trim(),
+    category: '',
+    contract: meta.contract || normalizeLidlContract(hit?.contractType || ''),
+    datePosted: new Date().toISOString().split('T')[0],
+    url: detailUrl,
+    applyUrl: hit?.easyApply?.easyApplyUrl || detailUrl,
+    source: 'Lidl team.lidl.ch search_api',
+    sourceLang: lang || 'it',
+    sector: 'Vendita al dettaglio',
+    _targetScope: { canton: meta.canton, location: meta.location },
+  };
+}
+
 function buildSeedMetaFromHit(hit, sourceCanton) {
   const lat = hit?.location?.latitude;
   const lon = hit?.location?.longitude;
@@ -299,14 +357,19 @@ async function fetchLidlJobDetailUrls() {
   }
 
   const detailUrls = [];
+  const jobsFromApi = [];
   for (const item of selectedByKey.values()) {
     detailUrls.push(item.detailUrl);
     seedMetaByUrl[item.detailUrl] = buildSeedMetaFromHit(item.hit, item.sourceCanton);
+    // Build job directly from API hit (rich description available)
+    const apiJob = buildJobFromApiHit(item.hit, item.detailUrl, item.sourceCanton);
+    if (apiJob) jobsFromApi.push(apiJob);
   }
 
   detailUrls.sort((a, b) => a.localeCompare(b));
   console.log(`✅ Total unique Lidl detail URLs discovered: ${detailUrls.length}`);
-  return { urls: detailUrls, seedMetaByUrl };
+  console.log(`✅ Jobs built from API data: ${jobsFromApi.length}`);
+  return { urls: detailUrls, seedMetaByUrl, jobsFromApi };
 }
 
 function ensureAdapterSeedUrls(seedUrls, seedMetaByUrl = {}) {
@@ -400,81 +463,55 @@ function lidlDedupKey(job) {
   return path ? `path:${path}` : `fallback:${normalizeKey(job?.title || '')}`;
 }
 
-async function fetchLidlPage(url, timeoutMs = 15000) {
-  try {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), timeoutMs);
-    const res = await fetch(url, {
-      signal: controller.signal,
-      headers: {
-        Accept: 'text/html,application/xhtml+xml',
-        'Accept-Language': 'de-CH,de;q=0.9,it;q=0.8',
-        'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT ||
-          'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
-      },
-    });
-    clearTimeout(timer);
-    if (!res.ok) {
-      console.warn(`  ⚠️ HTTP ${res.status} for ${url}`);
-      return null;
-    }
-    return await res.text();
-  } catch (err) {
-    console.warn(`  ⚠️ Fetch failed for ${url}: ${err?.message || err}`);
-    return null;
-  }
-}
-
 /**
- * For each Lidl job whose description is missing list content or is too short,
- * fetch the detail page and extract the full structured body using
- * parseLidlDetailPage. Updates data/jobs.json with the enriched descriptions.
- *
- * Guards (both must pass for an update):
- *   1. extracted body length >= MIN_LIDL_FULL_DESC (400 chars)
- *   2. extracted body contains at least one "- " bullet line (hasLists)
+ * Merge rich descriptions from API hits into existing Lidl jobs in data/jobs.json.
+ * The search API returns `descResponsibilities` and `descOffer` with full HTML
+ * content, which buildJobFromApiHit() converts to clean plain text. This replaces
+ * the old enrichLidlJobDescriptions() which fetched detail pages with broken selectors.
  */
-async function enrichLidlJobDescriptions() {
-  if (!fs.existsSync(DATA_JOBS)) return 0;
+function mergeApiDescriptions(jobsFromApi) {
+  if (!jobsFromApi.length || !fs.existsSync(DATA_JOBS)) return 0;
   const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
   const jobs = Array.isArray(raw) ? raw : [];
-  let enriched = 0;
 
+  // Index API jobs by URL path and reqId for fast lookup
+  const apiByPath = new Map();
+  const apiByReqId = new Map();
+  for (const apiJob of jobsFromApi) {
+    const path = normalizeLidlDetailPath(apiJob.url);
+    if (path) apiByPath.set(path, apiJob);
+    const reqId = extractReqId(apiJob.url);
+    if (reqId) apiByReqId.set(reqId, apiJob);
+  }
+
+  let enriched = 0;
+  const MAX_SANE_DESC = 8000; // Descriptions >8k chars are likely full-page HTML garbage
   for (const job of jobs) {
     if (!isLidlJob(job)) continue;
     const currentDesc = String(job.description || '').trim();
-    // Skip jobs that already have a full structured description
-    if (currentDesc.length >= MIN_LIDL_FULL_DESC && hasListContent(currentDesc)) continue;
+    const isSaneLength = currentDesc.length >= MIN_LIDL_FULL_DESC && currentDesc.length <= MAX_SANE_DESC;
+    // Skip jobs that already have a real, well-sized description with structure
+    if (isSaneLength && hasListContent(currentDesc)) continue;
 
-    const detailUrl = String(job.url || '').trim();
-    if (!detailUrl || !isTrustedLidlDomain(detailUrl)) continue;
+    // Match by reqId first, then by URL path
+    const reqId = extractReqId(job.url);
+    const apiJob = (reqId && apiByReqId.get(reqId)) || apiByPath.get(normalizeLidlDetailPath(job.url));
+    if (!apiJob) continue;
 
-    const html = await fetchLidlPage(detailUrl);
-    if (!html) continue;
+    const apiDesc = String(apiJob.description || '').trim();
+    // Only skip if current desc is sane AND longer than API (bloated descs always lose)
+    if (isSaneLength && apiDesc.length <= currentDesc.length) continue;
 
-    const extracted = parseLidlDetailPage(html);
-
-    // Both guards must pass
-    if (!extracted.meetsMinLength || !extracted.hasLists) {
-      console.warn(`  ⚠️ Lidl detail page body too short or lacks lists for "${job.slug || detailUrl}" — skipping.`);
-      continue;
-    }
-
-    // Only update if the new body is richer than what we have
-    if (extracted.body.length <= currentDesc.length && hasListContent(currentDesc)) continue;
-
-    console.log(`  ✨ Enriched "${job.slug || detailUrl}" (${currentDesc.length} → ${extracted.body.length} chars)`);
-    job.description = extracted.body;
+    console.log(`  ✨ Enriched "${job.slug || job.url}" from API (${currentDesc.length} → ${apiDesc.length} chars)`);
+    job.description = apiDesc;
     if (!job.descriptionByLocale) job.descriptionByLocale = {};
-    // Determine locale from URL path (e.g. /de/, /it/)
-    const urlLocale = (() => {
-      try { const m = new URL(detailUrl).pathname.match(/^\/(it|de|fr|en)\//i); return m ? m[1].toLowerCase() : 'de'; }
-      catch { return 'de'; }
-    })();
-    // Store extracted body under the source locale; other locales get re-derived on next localization run
-    if (!job.descriptionByLocale[urlLocale] || extracted.body.length > String(job.descriptionByLocale[urlLocale] || '').length) {
-      job.descriptionByLocale[urlLocale] = extracted.body;
+    const lang = apiJob.sourceLang || 'it';
+    if (!job.descriptionByLocale[lang] || apiDesc.length > String(job.descriptionByLocale[lang] || '').length) {
+      job.descriptionByLocale[lang] = apiDesc;
     }
+    // Backfill location data from API if missing
+    if (!job.postalCode && apiJob.postalCode) job.postalCode = apiJob.postalCode;
+    if (!job.streetAddress && apiJob.streetAddress) job.streetAddress = apiJob.streetAddress;
     enriched++;
   }
 
@@ -483,7 +520,7 @@ async function enrichLidlJobDescriptions() {
     if (fs.existsSync(PUBLIC_DATA_JOBS)) {
       fs.writeFileSync(PUBLIC_DATA_JOBS, JSON.stringify(jobs, null, 2) + '\n');
     }
-    console.log(`✨ Enriched ${enriched} Lidl jobs with full detail-page body.`);
+    console.log(`✨ Enriched ${enriched} Lidl jobs with API descriptions.`);
   }
   return enriched;
 }
@@ -636,9 +673,9 @@ async function main() {
   await runBaseCrawler();
   postProcessLidlJobs();
 
-  // Enrich jobs whose descriptions lack structured list content (full detail body).
-  console.log('\n🔍 Checking Lidl jobs for missing full-body descriptions...');
-  await enrichLidlJobDescriptions();
+  // Merge rich descriptions from API hits into jobs created by base crawler
+  console.log('\n🔍 Merging API descriptions into Lidl jobs...');
+  mergeApiDescriptions(discovery.jobsFromApi);
 
   const stats = logLidlJobStats(beforeSnapshot);
   const crawlDiff = stats.crawlDiff;
