@@ -195,6 +195,10 @@ jobs:
         timeout-minutes: 5
         run: node scripts/validate-spa-render.mjs
 
+      - name: E2E smoke tests — runtime errors, navigation (blocking)
+        timeout-minutes: 3
+        run: npx playwright test
+
       - name: Build size summary
         run: |
           echo "=== Build size summary ==="
