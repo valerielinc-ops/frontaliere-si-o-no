@@ -723,12 +723,12 @@
     },
     {
       "id": "badrutts-palace-70d2302fa501",
-      "slug": "guest-experience-executive-m-w-d-teilzeit-50-badrutts-palace-ch",
+      "slug": "guest-experience-executive-m-w-d-teil-50-badrutt-s-palace-hotel-st-moritz",
       "slugByLocale": {
         "de": "guest-experience-executive-m-w-d-teilzeit-50-badrutts-palace-ch",
-        "it": "guest-experience-executive-m-w-d-teilzeit-50-badrutts-palace-ch",
+        "it": "guest-experience-executive-m-w-d-teil-50-badrutt-s-palace-hotel-st-moritz",
         "en": "guest-experience-executive-m-w-d-teilzeit-50-badrutt-s-palace-hotel-st-moritz",
-        "fr": "guest-experience-executive-m-w-d-teilzeit-50-badrutts-palace-ch"
+        "fr": "experience-des-invites-executive-m-p-p-teil-50-badrutt-s-palace-hotel-st-moritz"
       },
       "company": "Badrutt's Palace Hotel",
       "companyKey": "badrutts-palace",
@@ -782,7 +782,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-14T09:23:51.145Z"
+      "firstSeenAt": "2026-04-14T09:23:51.145Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "guest-experience-executive-m-w-d-teilzeit-50-badrutts-palace-ch"
+        ],
+        "fr": [
+          "guest-experience-executive-m-w-d-teilzeit-50-badrutts-palace-ch"
+        ]
+      },
+      "previousSlugs": [
+        "guest-experience-executive-m-w-d-teilzeit-50-badrutts-palace-ch"
+      ]
     },
     {
       "id": "badrutts-palace-6ef14f9c9db1",

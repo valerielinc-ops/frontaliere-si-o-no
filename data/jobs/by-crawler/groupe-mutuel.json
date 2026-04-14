@@ -24,12 +24,12 @@
         "en": "Medical assistant dental care (h/f) 60%",
         "de": "Medizinischer Assistent Zahnpflege (h/f) 60%"
       },
-      "slug": "auxiliaire-medical-soins-dentaires-h-f-60-groupe-mutuel-sion",
+      "slug": "assistenza-sanitaria-h-f-60-groupe-mutuel-sion",
       "slugByLocale": {
         "fr": "auxiliaire-medical-soins-dentaires-h-f-60-groupe-mutuel",
-        "en": "auxiliaire-medical-soins-dentaires-h-f-60-groupe-mutuel",
-        "it": "auxiliaire-medical-soins-dentaires-h-f-60-groupe-mutuel-sion",
-        "de": "auxiliaire-medical-soins-dentaires-h-f-60-groupe-mutuel"
+        "en": "medical-assistant-dental-care-h-f-60-groupe-mutuel-sion",
+        "it": "assistenza-sanitaria-h-f-60-groupe-mutuel-sion",
+        "de": "medizinischer-assistent-zahnpflege-h-f-60-groupe-mutuel-sion"
       },
       "category": "healthcare",
       "datePosted": "2026-04-14",
@@ -47,11 +47,19 @@
       "id": "groupe-mutuel-1b40fb8601cf",
       "previousSlugsByLocale": {
         "it": [
+          "auxiliaire-medical-soins-dentaires-h-f-60-groupe-mutuel",
+          "auxiliaire-medical-soins-dentaires-h-f-60-groupe-mutuel-sion"
+        ],
+        "en": [
+          "auxiliaire-medical-soins-dentaires-h-f-60-groupe-mutuel"
+        ],
+        "de": [
           "auxiliaire-medical-soins-dentaires-h-f-60-groupe-mutuel"
         ]
       },
       "previousSlugs": [
-        "auxiliaire-medical-soins-dentaires-h-f-60-groupe-mutuel"
+        "auxiliaire-medical-soins-dentaires-h-f-60-groupe-mutuel",
+        "auxiliaire-medical-soins-dentaires-h-f-60-groupe-mutuel-sion"
       ],
       "salaryMin": 70500,
       "salaryMax": 98500,
