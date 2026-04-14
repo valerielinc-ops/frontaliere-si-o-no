@@ -1,16 +1,16 @@
 {
   "key": "confederazione-ticino",
   "label": "Confederazione TI+GR",
-  "generatedAt": "2026-04-13T21:25:51.213Z",
+  "generatedAt": "2026-04-14T09:39:32.924Z",
   "total": 12,
   "newCount": 0,
   "updatedCount": 12,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1332,
-  "avgDurationMs": 1332,
+  "durationMs": 1397,
+  "avgDurationMs": 1397,
   "durationHistory": [
-    1332
+    1397
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -42,6 +42,7 @@
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
       "id": "confederazione-ticino-15d20503ce18",
+      "firstSeenAt": "2026-04-13T21:25:51.212Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -78,6 +79,7 @@
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
       "id": "confederazione-ticino-4b35948f6fae",
+      "firstSeenAt": "2026-04-13T21:25:51.212Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -114,6 +116,7 @@
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
       "id": "confederazione-ticino-ef0f052410bf",
+      "firstSeenAt": "2026-04-13T21:25:51.212Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -150,6 +153,7 @@
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
       "id": "confederazione-ticino-9422c9bad281",
+      "firstSeenAt": "2026-04-13T21:25:51.212Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -186,6 +190,7 @@
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
       "id": "confederazione-ticino-b8b72ac5db06",
+      "firstSeenAt": "2026-04-13T21:25:51.212Z",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -222,6 +227,7 @@
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
       "id": "confederazione-ticino-aa3545729b04",
+      "firstSeenAt": "2026-04-13T21:25:51.212Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -258,6 +264,7 @@
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
       "id": "confederazione-ticino-696917b87fc5",
+      "firstSeenAt": "2026-04-13T21:25:51.212Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -294,8 +301,9 @@
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
       "id": "confederazione-ticino-85ecb7076ca2",
-      "retranslationAttempts": 1,
+      "firstSeenAt": "2026-04-13T21:25:51.212Z",
       "needsRetranslation": true,
+      "retranslationAttempts": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -332,6 +340,7 @@
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
       "id": "confederazione-ticino-4659fa29ce1c",
+      "firstSeenAt": "2026-04-13T21:25:51.212Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -368,6 +377,7 @@
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
       "id": "confederazione-ticino-33ce87da08d2",
+      "firstSeenAt": "2026-04-13T21:25:51.212Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -404,6 +414,7 @@
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
       "id": "confederazione-ticino-3f231045d232",
+      "firstSeenAt": "2026-04-13T21:25:51.212Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -440,6 +451,7 @@
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
       "id": "confederazione-ticino-c6de3b68451e",
+      "firstSeenAt": "2026-04-13T21:25:51.212Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -449,43 +461,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Lernende/-r Strassentransportfachmann/-frau EFZ",
-      "slug": "apprendista-specialista-in-trasporti-stradali-cfc-confederazione-svizzera-claro",
-      "url": "https://jobs.admin.ch/posti-vacanti/lernende-r-strassentransportfachmann-frau-efz/bfa3b444-a567-4bd0-81f6-3b2334dc20f1",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=16470",
-      "company": "Confederazione Svizzera",
-      "companyKey": "confederazione-ticino",
-      "companyDomain": "admin.ch",
-      "location": "Claro (TI)",
-      "addressLocality": "Claro",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "apprenticeship",
-      "sector": "Pubblica amministrazione",
-      "source": "confederazione-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2025-10-14",
-      "validThrough": "2026-07-31",
-      "employmentType": "apprenticeship",
-      "contractType": "apprenticeship",
-      "salaryMin": 46500,
-      "salaryMax": 62500,
-      "currency": "CHF",
-      "streetAddress": "Piazza Governo",
-      "postalCode": "6501",
-      "id": "confederazione-ticino-d27a9300ec91",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
