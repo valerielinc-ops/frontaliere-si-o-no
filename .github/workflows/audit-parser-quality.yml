@@ -1,0 +1,38 @@
+name: Audit Parser Quality
+
+on:
+  # Run daily after crawlers finish (orchestrator runs at 08:00 and 20:00 UTC)
+  schedule:
+    - cron: '30 10 * * *'
+  workflow_dispatch:
+  # Run after orchestrator completes
+  workflow_run:
+    workflows: ['Orchestrate Job Crawlers']
+    types: [completed]
+
+concurrency:
+  group: audit-parser-quality
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  NODE_OPTIONS: '--disable-warning=DEP0040 --disable-warning=DEP0169'
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Run parser quality audit (strict)
+        run: node scripts/audit-parser-quality.mjs --strict

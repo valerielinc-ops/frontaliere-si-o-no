@@ -313,9 +313,15 @@ function printReport(report) {
 
   const total = Object.keys(report).length;
   console.log(`\n${total} crawlers checked, ${critical.length} critical, ${warnings.length} warnings`);
+
+  const strict = process.argv.includes('--strict');
+  if (strict && critical.length > 0) {
+    console.error(`\n❌ --strict: ${critical.length} critical crawler(s) found. Failing.`);
+    process.exit(1);
+  }
 }
 
 main().catch((err) => {
   console.error('Audit failed:', err);
-  process.exit(0); // exit 0 — audit, not gate
+  process.exit(1);
 });
