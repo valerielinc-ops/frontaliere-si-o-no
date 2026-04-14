@@ -1,6 +1,6 @@
 {
   "crawlerKey": "corner-banca",
-  "assembledAt": "2026-04-14T09:44:41.952Z",
+  "assembledAt": "2026-04-14T21:29:55.911Z",
   "jobs": [
     {
       "id": "corner-banca-422277a6cd4c",
@@ -42,7 +42,7 @@
       "url": "https://jobs.corner.ch/o/it-card-management-analyst-specialist",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-14T09:44:39.881Z",
+      "crawledAt": "2026-04-14T21:29:53.890Z",
       "previousSlugs": [
         "analista-specialista-gestione-carte-it-corner-banca-lugano",
         "it-card-management-analista-specialista-corner-banca-lugano",
@@ -147,7 +147,7 @@
       "url": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-04-14T09:44:39.881Z",
+      "crawledAt": "2026-04-14T21:29:53.890Z",
       "previousSlugs": [
         "initiativbewerbung-lehre-corner-banca-switzerland",
         "unsolicited-application-apprenticeship-corner-banca-switzerland",
@@ -172,6 +172,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
+      "needsRetranslation": true,
       "salaryMin": 59500,
       "salaryMax": 104000,
       "baseSalary": {
@@ -253,7 +254,7 @@
       "url": "https://jobs.corner.ch/o/employee-card-onboarding",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-14T09:44:39.880Z",
+      "crawledAt": "2026-04-14T21:29:53.889Z",
       "previousSlugs": [
         "addetto-all-emission-carte-cliente-corner-banca-lugano",
         "onboarding-de-la-carte-de-paiement-corner-banca-lugano"
@@ -273,6 +274,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -358,7 +360,7 @@
       "url": "https://jobs.corner.ch/o/collaboratore-servizi-logistici-ufficio-tecnico-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-04-14T09:44:39.879Z",
+      "crawledAt": "2026-04-14T21:29:53.888Z",
       "previousSlugs": [
         "collaboratore-servizi-logistici-ufficio-technician-corner-banca-lugano",
         "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano-h1bnmt",
@@ -383,6 +385,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -459,7 +462,7 @@
       "url": "https://jobs.corner.ch/o/risk-manager-asset-liability-management-alm-and-liquidity-risk-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-14T09:44:39.878Z",
+      "crawledAt": "2026-04-14T21:29:53.887Z",
       "previousSlugs": [
         "risk-manager-asset-liability-management-alm-e-rischio-di-liquidita-corner-banca-lugano",
         "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano-jzwq45",
@@ -480,6 +483,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
+      "needsRetranslation": true,
       "salaryMin": 142000,
       "salaryMax": 249500,
       "baseSalary": {
@@ -566,7 +570,7 @@
       "url": "https://jobs.corner.ch/o/compliance-officer-senior",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-14T09:44:39.877Z",
+      "crawledAt": "2026-04-14T21:29:53.886Z",
       "previousSlugs": [
         "responsabile-compliance-senior-corner-banca-lugano",
         "leitender-compliance-beauftragter-corner-banca-lugano-nnfx9o",
@@ -592,6 +596,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
+      "needsRetranslation": true,
       "salaryMin": 142000,
       "salaryMax": 249500,
       "baseSalary": {
@@ -681,7 +686,7 @@
       "url": "https://jobs.corner.ch/o/employee-collection-team-zurich",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-14T09:44:39.875Z",
+      "crawledAt": "2026-04-14T21:29:53.884Z",
       "previousSlugs": [
         "employee-collection-team-zurich-corner-banca-wallisellen"
       ],
@@ -691,109 +696,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
-      "salaryMin": 59000,
-      "salaryMax": 90500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 59000,
-          "maxValue": 90500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Canova 16",
-      "postalCode": "6901",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
-    },
-    {
-      "id": "corner-banca-7be6f12f5702",
-      "slug": "consulente-e-cliente-m-f-corner-banca-lugano",
-      "slugByLocale": {
-        "it": "consulente-e-cliente-m-f-corner-banca-lugano",
-        "en": "credit-e-client-advisor-m-f-corner-banca-lugano",
-        "de": "kredit-und-kundenzentrale-m-w-corner-banca-lugano",
-        "fr": "conseiller-et-client-m-f-corner-banca-lugano"
-      },
-      "company": "Cornèr Banca",
-      "companyKey": "corner-banca",
-      "companyDomain": "corner.ch",
-      "title": "Credit & Client Advisor (m/f)",
-      "titleByLocale": {
-        "it": "Credit & Client Consulente (m/f)",
-        "en": "Credit & Client Advisor (m/f)",
-        "de": "Kredit- und Kundenzentrale (m/w)",
-        "fr": "Conseiller et Client (m/f)"
-      },
-      "description": "As part of our growing operations in Zurich, we are seeking a dedicated and customer-focused professional to join our Front Office Team in the Dunning & Collection area. This role offers the opportunity to contribute to effective credit management while ensuring high-quality customer interactions.\n\nKey Responsibilities:\n\nManaging customer interactions via phone and email\n\nActively listening to client needs and supporting the identification of suitable solutions\n\nAnalyzing financial documentation, including salary slips and financial statements\n\nConducting preliminary assessments of credit risk and clients’ financial capacity\n\nCollaborating with the team on case processing and monitoring\n\nMaintaining and updating data in internal systems\n\nExcellent knowledge of at least three of the following languages: Italian, German, French, and English\n\nCommercial training or equivalent qualification\n\nStrong communication skills and active listening abilities\n\nInterest in and ability to analyze financial data (salary slips, financial statements, economic documentation)\n\nAnalytical mindset and accuracy in risk assessment\n\nTeam spirit, reliability, and sense of responsibility\n\nGood IT skills, including proficiency with spreadsheets\n\nResident in Ticino or willing to relocate\n\nIdeal Profile:\n\nYoung, curious individual with a strong willingness to learn\n\nProfessional and customer-oriented approach\n\nAbility to work in a structured and organized manner",
-      "descriptionByLocale": {
-        "it": "Descrizione Come parte delle nostre operazioni in espansione a Zurigo, stiamo cercando un professionista dedicato e orientato al cliente per unirsi al nostro Team Front Office nel settore Dunning & Collection. Questa posizione offre l'opportunità di contribuire alla gestione efficace del credito mentre garantisce interazioni di alta qualità con i clienti. ## Missioni - Gestire le interazioni con i clienti tramite telefono e email - Ascoltare attivamente le esigenze dei clienti e supportare l'identificazione di soluzioni appropriate - Analizzare la documentazione finanziaria, inclusi i pagamenti salariali e le dichiarazioni finanziarie - Eseguire valutazioni preliminari del rischio di credito e della capacità finanziaria dei clienti - Collaborare con l'équipe per il trattamento dei casi e il monitoraggio - Mantenere e aggiornare i dati nei sistemi interni ## Requisiti - Eccezionale conoscenza di almeno tre delle seguenti lingue: italiano, tedesco, francese e inglese - Formazione commerciale o equivalente - Forza di comunicazione e capacità di ascoltare attivamente - Interesse e capacità di analizzare i dati finanziari (pagamenti salariali, dichiarazioni finanziarie, documentazione economica) - Mentalità analitica e precisione nell'analisi del rischio - Spirit di squadra, affidabilità e senso di responsabilità - Buone competenze IT, inclusa la competenza con i fogli di calcolo - Residente in Ticino o disposto a trasferirsi ## Cosa offriamo - Giovane individuo curioso con forte desiderio di apprendere - Approccio professionale e orientato al cliente - Capacità di lavorare in modo strutturato e organizzato",
-        "en": "As part of our growing operations in Zurich, we are seeking a dedicated and customer-focused professional to join our Front Office Team in the Dunning & Collection area. This role offers the opportunity to contribute to effective credit management while ensuring high-quality customer interactions. Key Responsibilities: Managing customer interactions via phone and email Actively listening to client needs and supporting the identification of suitable solutions Analyzing financial documentation, including salary slips and financial statements Conducting preliminary assessments of credit risk and clients’ financial capacity Collaborating with the team on case processing and monitoring Maintaining and updating data in internal systems Excellent knowledge of at least three of the following languages: Italian, German, French, and English Commercial training or equivalent qualification Strong communication skills and active listening abilities Interest in and ability to analyze financial data (salary slips, financial statements, economic documentation) Analytical mindset and accuracy in risk assessment Team spirit, reliability, and sense of responsibility Good IT skills, including proficiency with spreadsheets Resident in Ticino or willing to relocate Ideal Profile: Young, curious individual with a strong willingness to learn Professional and customer-oriented approach Ability to work in a structured and organized manner",
-        "de": "Beschreibung Als Teil unserer wachsenden Geschäftsoperationen in Zürich suchen wir einen engagierten und kundenorientierten Fachmann, um unser Front Office Team im Bereich Dunning & Collection zu beizutragen. Diese Position bietet die Möglichkeit, zur effektiven Kreditverwaltung beizutragen und gleichzeitig eine hohe Qualität der Kundeninteraktion zu gewährleisten. ## Aufgaben - Kundeninteraktionen per Telefon und E-Mail zu verwalten - Die Bedürfnisse der Kunden aktiv zu hören und geeignete Lösungen zu unterstützen - Finanzdokumente zu analysieren, einschließlich Gehaltsabrechnungen und Finanzberichte - Vorläufige Bewertungen des Kreditrisikos und der finanziellen Kapazität der Kunden durchzuführen - Mit dem Team an der Bearbeitung von Fällen und dem Monitoring zu arbeiten - Daten in internen Systemen zu pflegen und zu aktualisieren ## Anforderungen - Ausgezeichnete Kenntnisse von mindestens drei der folgenden Sprachen: Italienisch, Deutsch, Französisch und Englisch - Handelsausbildung oder äquivalent - Starke Kommunikationsfähigkeiten und aktive Zuhörfähigkeit - Interesse und Fähigkeit, finanzielle Daten (Gehaltsabrechnungen, Finanzberichte, wirtschaftliche Dokumentation) zu analysieren - Analytisches Denken und Genauigkeit bei der Risikobewertung - Teamgeist, Zuverlässigkeit und Verantwortungsbewusstsein - Gute IT-Kenntnisse, einschließlich der Fähigkeit, Tabellenkalkulationsprogramme zu bedienen - Wohnen im Kanton Ticino oder bereit, umzuziehen ## Was wir bieten - Ein junges, neugieriges Individuum mit starkem Lernwillen - Ein professioneller und kundenorientierter Ansatz - Fähigkeit, strukturiert und organisiert zu arbeiten",
-        "fr": "Description En tant que partie de nos opérations en croissance à Zurich, nous recherchons un professionnel dédié et orienté client pour rejoindre notre équipe Front Office dans le secteur Dunning & Collection. Cette position offre l'opportunité de contribuer à la gestion efficace du crédit tout en assurant des interactions de haute qualité avec les clients. ## Missions - Gérer les interactions avec les clients par téléphone et e-mail - Écouter activement les besoins des clients et soutenir l'identification de solutions appropriées - Analyser la documentation financière, y compris les relevés de salaire et les états financiers - Effectuer des évaluations préliminaires du risque de crédit et de la capacité financière des clients - Travailler en collaboration avec l'équipe sur le traitement des dossiers et le suivi - Maintenir et mettre à jour les données dans les systèmes internes ## Requisits - Connaissance exceptionnelle de trois des langues suivantes : italien, allemand, français et anglais - Formation commerciale ou équivalent - Compétences de communication solides et capacité d'écoute active - Intérêt et capacité à analyser les données financières (relevés de salaire, états financiers, documentation économique) - Mentalité analytique et précision dans l'évaluation des risques - Esprit d'équipe, fiabilité et sens de la responsabilité - Bonnes compétences IT, y compris la maîtrise des tableurs - Résident en Ticino ou prêt à déménager ## Ce que nous offrons - Un individu jeune et curieux avec un fort désir d'apprendre - Une approche professionnelle et orientée client - Capacité à travailler de manière structurée et organisée"
-      },
-      "requirements": [
-        "Excellent knowledge of at least three of the following languages: Italian, German, French, and English",
-        "Commercial training or equivalent qualification",
-        "Strong communication skills and active listening abilities",
-        "Interest in and ability to analyze financial data (salary slips, financial statements, economic documentation)",
-        "Analytical mindset and accuracy in risk assessment",
-        "Team spirit, reliability, and sense of responsibility",
-        "Good IT skills, including proficiency with spreadsheets",
-        "Resident in Ticino or willing to relocate\n\nIdeal Profile:",
-        "Young, curious individual with a strong willingness to learn",
-        "Professional and customer-oriented approach",
-        "Ability to work in a structured and organized manner"
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Excellent knowledge of at least three of the following languages: Italian, German, French, and English",
-          "Commercial training or equivalent qualification",
-          "Strong communication skills and active listening abilities",
-          "Interest in and ability to analyze financial data (salary slips, financial statements, economic documentation)",
-          "Analytical mindset and accuracy in risk assessment",
-          "Team spirit, reliability, and sense of responsibility",
-          "Good IT skills, including proficiency with spreadsheets",
-          "Resident in Ticino or willing to relocate Ideal Profile:"
-        ],
-        "en": [
-          "Excellent knowledge of at least three of the following languages: Italian, German, French, and English",
-          "Commercial training or equivalent qualification",
-          "Strong communication skills and active listening abilities",
-          "Interest in and ability to analyze financial data (salary slips, financial statements, economic documentation)",
-          "Analytical mindset and accuracy in risk assessment",
-          "Team spirit, reliability, and sense of responsibility",
-          "Good IT skills, including proficiency with spreadsheets",
-          "Resident in Ticino or willing to relocate Ideal Profile:"
-        ]
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "category": "sales",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-09",
-      "url": "https://jobs.corner.ch/o/credit-client-advisor-mf-1",
-      "source": "Corner Dedicated Parser (Recruitee API)",
-      "sourceLang": "en",
-      "crawledAt": "2026-04-14T09:44:39.874Z",
-      "previousSlugs": [
-        "credit-e-client-advisor-m-f-corner-banca-lugano"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "credit-e-client-advisor-m-f-corner-banca-lugano"
-        ],
-        "fr": [
-          "credit-e-client-advisor-m-f-corner-banca-lugano"
-        ]
-      },
-      "firstSeenAt": "2026-04-13T21:31:06.824Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "baseSalary": {
@@ -880,8 +783,9 @@
       "url": "https://jobs.corner.ch/o/employee-front-office",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-14T09:44:39.873Z",
+      "crawledAt": "2026-04-14T21:29:53.883Z",
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000,
       "baseSalary": {
@@ -891,6 +795,110 @@
           "@type": "QuantitativeValue",
           "minValue": 85500,
           "maxValue": 150000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Canova 16",
+      "postalCode": "6901",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME"
+    },
+    {
+      "id": "corner-banca-7be6f12f5702",
+      "slug": "consulente-e-cliente-m-f-corner-banca-lugano",
+      "slugByLocale": {
+        "it": "consulente-e-cliente-m-f-corner-banca-lugano",
+        "en": "credit-e-client-advisor-m-f-corner-banca-lugano",
+        "de": "kredit-und-kundenzentrale-m-w-corner-banca-lugano",
+        "fr": "conseiller-et-client-m-f-corner-banca-lugano"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Credit & Client Advisor (m/f)",
+      "titleByLocale": {
+        "it": "Credit & Client Consulente (m/f)",
+        "en": "Credit & Client Advisor (m/f)",
+        "de": "Kredit- und Kundenzentrale (m/w)",
+        "fr": "Conseiller et Client (m/f)"
+      },
+      "description": "As part of our growing operations in Zurich, we are seeking a dedicated and customer-focused professional to join our Front Office Team in the Dunning & Collection area. This role offers the opportunity to contribute to effective credit management while ensuring high-quality customer interactions.\n\nKey Responsibilities:\n\nManaging customer interactions via phone and email\n\nActively listening to client needs and supporting the identification of suitable solutions\n\nAnalyzing financial documentation, including salary slips and financial statements\n\nConducting preliminary assessments of credit risk and clients’ financial capacity\n\nCollaborating with the team on case processing and monitoring\n\nMaintaining and updating data in internal systems\n\nExcellent knowledge of at least three of the following languages: Italian, German, French, and English\n\nCommercial training or equivalent qualification\n\nStrong communication skills and active listening abilities\n\nInterest in and ability to analyze financial data (salary slips, financial statements, economic documentation)\n\nAnalytical mindset and accuracy in risk assessment\n\nTeam spirit, reliability, and sense of responsibility\n\nGood IT skills, including proficiency with spreadsheets\n\nResident in Ticino or willing to relocate\n\nIdeal Profile:\n\nYoung, curious individual with a strong willingness to learn\n\nProfessional and customer-oriented approach\n\nAbility to work in a structured and organized manner",
+      "descriptionByLocale": {
+        "it": "Descrizione Come parte delle nostre operazioni in espansione a Zurigo, stiamo cercando un professionista dedicato e orientato al cliente per unirsi al nostro Team Front Office nel settore Dunning & Collection. Questa posizione offre l'opportunità di contribuire alla gestione efficace del credito mentre garantisce interazioni di alta qualità con i clienti. ## Missioni - Gestire le interazioni con i clienti tramite telefono e email - Ascoltare attivamente le esigenze dei clienti e supportare l'identificazione di soluzioni appropriate - Analizzare la documentazione finanziaria, inclusi i pagamenti salariali e le dichiarazioni finanziarie - Eseguire valutazioni preliminari del rischio di credito e della capacità finanziaria dei clienti - Collaborare con l'équipe per il trattamento dei casi e il monitoraggio - Mantenere e aggiornare i dati nei sistemi interni ## Requisiti - Eccezionale conoscenza di almeno tre delle seguenti lingue: italiano, tedesco, francese e inglese - Formazione commerciale o equivalente - Forza di comunicazione e capacità di ascoltare attivamente - Interesse e capacità di analizzare i dati finanziari (pagamenti salariali, dichiarazioni finanziarie, documentazione economica) - Mentalità analitica e precisione nell'analisi del rischio - Spirit di squadra, affidabilità e senso di responsabilità - Buone competenze IT, inclusa la competenza con i fogli di calcolo - Residente in Ticino o disposto a trasferirsi ## Cosa offriamo - Giovane individuo curioso con forte desiderio di apprendere - Approccio professionale e orientato al cliente - Capacità di lavorare in modo strutturato e organizzato",
+        "en": "As part of our growing operations in Zurich, we are seeking a dedicated and customer-focused professional to join our Front Office Team in the Dunning & Collection area. This role offers the opportunity to contribute to effective credit management while ensuring high-quality customer interactions. Key Responsibilities: Managing customer interactions via phone and email Actively listening to client needs and supporting the identification of suitable solutions Analyzing financial documentation, including salary slips and financial statements Conducting preliminary assessments of credit risk and clients’ financial capacity Collaborating with the team on case processing and monitoring Maintaining and updating data in internal systems Excellent knowledge of at least three of the following languages: Italian, German, French, and English Commercial training or equivalent qualification Strong communication skills and active listening abilities Interest in and ability to analyze financial data (salary slips, financial statements, economic documentation) Analytical mindset and accuracy in risk assessment Team spirit, reliability, and sense of responsibility Good IT skills, including proficiency with spreadsheets Resident in Ticino or willing to relocate Ideal Profile: Young, curious individual with a strong willingness to learn Professional and customer-oriented approach Ability to work in a structured and organized manner",
+        "de": "Beschreibung Als Teil unserer wachsenden Geschäftsoperationen in Zürich suchen wir einen engagierten und kundenorientierten Fachmann, um unser Front Office Team im Bereich Dunning & Collection zu beizutragen. Diese Position bietet die Möglichkeit, zur effektiven Kreditverwaltung beizutragen und gleichzeitig eine hohe Qualität der Kundeninteraktion zu gewährleisten. ## Aufgaben - Kundeninteraktionen per Telefon und E-Mail zu verwalten - Die Bedürfnisse der Kunden aktiv zu hören und geeignete Lösungen zu unterstützen - Finanzdokumente zu analysieren, einschließlich Gehaltsabrechnungen und Finanzberichte - Vorläufige Bewertungen des Kreditrisikos und der finanziellen Kapazität der Kunden durchzuführen - Mit dem Team an der Bearbeitung von Fällen und dem Monitoring zu arbeiten - Daten in internen Systemen zu pflegen und zu aktualisieren ## Anforderungen - Ausgezeichnete Kenntnisse von mindestens drei der folgenden Sprachen: Italienisch, Deutsch, Französisch und Englisch - Handelsausbildung oder äquivalent - Starke Kommunikationsfähigkeiten und aktive Zuhörfähigkeit - Interesse und Fähigkeit, finanzielle Daten (Gehaltsabrechnungen, Finanzberichte, wirtschaftliche Dokumentation) zu analysieren - Analytisches Denken und Genauigkeit bei der Risikobewertung - Teamgeist, Zuverlässigkeit und Verantwortungsbewusstsein - Gute IT-Kenntnisse, einschließlich der Fähigkeit, Tabellenkalkulationsprogramme zu bedienen - Wohnen im Kanton Ticino oder bereit, umzuziehen ## Was wir bieten - Ein junges, neugieriges Individuum mit starkem Lernwillen - Ein professioneller und kundenorientierter Ansatz - Fähigkeit, strukturiert und organisiert zu arbeiten",
+        "fr": "Description En tant que partie de nos opérations en croissance à Zurich, nous recherchons un professionnel dédié et orienté client pour rejoindre notre équipe Front Office dans le secteur Dunning & Collection. Cette position offre l'opportunité de contribuer à la gestion efficace du crédit tout en assurant des interactions de haute qualité avec les clients. ## Missions - Gérer les interactions avec les clients par téléphone et e-mail - Écouter activement les besoins des clients et soutenir l'identification de solutions appropriées - Analyser la documentation financière, y compris les relevés de salaire et les états financiers - Effectuer des évaluations préliminaires du risque de crédit et de la capacité financière des clients - Travailler en collaboration avec l'équipe sur le traitement des dossiers et le suivi - Maintenir et mettre à jour les données dans les systèmes internes ## Requisits - Connaissance exceptionnelle de trois des langues suivantes : italien, allemand, français et anglais - Formation commerciale ou équivalent - Compétences de communication solides et capacité d'écoute active - Intérêt et capacité à analyser les données financières (relevés de salaire, états financiers, documentation économique) - Mentalité analytique et précision dans l'évaluation des risques - Esprit d'équipe, fiabilité et sens de la responsabilité - Bonnes compétences IT, y compris la maîtrise des tableurs - Résident en Ticino ou prêt à déménager ## Ce que nous offrons - Un individu jeune et curieux avec un fort désir d'apprendre - Une approche professionnelle et orientée client - Capacité à travailler de manière structurée et organisée"
+      },
+      "requirements": [
+        "Excellent knowledge of at least three of the following languages: Italian, German, French, and English",
+        "Commercial training or equivalent qualification",
+        "Strong communication skills and active listening abilities",
+        "Interest in and ability to analyze financial data (salary slips, financial statements, economic documentation)",
+        "Analytical mindset and accuracy in risk assessment",
+        "Team spirit, reliability, and sense of responsibility",
+        "Good IT skills, including proficiency with spreadsheets",
+        "Resident in Ticino or willing to relocate\n\nIdeal Profile:",
+        "Young, curious individual with a strong willingness to learn",
+        "Professional and customer-oriented approach",
+        "Ability to work in a structured and organized manner"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Excellent knowledge of at least three of the following languages: Italian, German, French, and English",
+          "Commercial training or equivalent qualification",
+          "Strong communication skills and active listening abilities",
+          "Interest in and ability to analyze financial data (salary slips, financial statements, economic documentation)",
+          "Analytical mindset and accuracy in risk assessment",
+          "Team spirit, reliability, and sense of responsibility",
+          "Good IT skills, including proficiency with spreadsheets",
+          "Resident in Ticino or willing to relocate Ideal Profile:"
+        ],
+        "en": [
+          "Excellent knowledge of at least three of the following languages: Italian, German, French, and English",
+          "Commercial training or equivalent qualification",
+          "Strong communication skills and active listening abilities",
+          "Interest in and ability to analyze financial data (salary slips, financial statements, economic documentation)",
+          "Analytical mindset and accuracy in risk assessment",
+          "Team spirit, reliability, and sense of responsibility",
+          "Good IT skills, including proficiency with spreadsheets",
+          "Resident in Ticino or willing to relocate Ideal Profile:"
+        ]
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "category": "sales",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-09",
+      "url": "https://jobs.corner.ch/o/credit-client-advisor-mf-1",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-04-14T21:29:53.883Z",
+      "previousSlugs": [
+        "credit-e-client-advisor-m-f-corner-banca-lugano"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "credit-e-client-advisor-m-f-corner-banca-lugano"
+        ],
+        "fr": [
+          "credit-e-client-advisor-m-f-corner-banca-lugano"
+        ]
+      },
+      "firstSeenAt": "2026-04-13T21:31:06.824Z",
+      "needsRetranslation": true,
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 59000,
+          "maxValue": 90500,
           "unitText": "YEAR"
         }
       },
@@ -921,7 +929,7 @@
       "description": "The candidate will join the IT “Authorization & Fraud Prevention” Centre of Excellence, with cross-functional responsibilities for credit and debit “card payments processing & fraud prevention” systems.\nThe systems support key payments processes in a highly regulated banking environment.\nThe role involves actively contributing to functional and technical analysis activities, supporting the evolution of application solutions and integration with core banking, payment circuits and external platforms.\n\n Key Responsibilities\n\nFunctional and Process Analysis\n\nAnalyse and understand “card payments processing, payment tokenization and fraud prevention” processes and related \n\n             (e.g. card issuance, lifecycle management, clearing & settlement, fraud and chargebacks) \n\nCollect, analyse and assess the regular requests (i.e. changes, compliance, …) from card schemes (e.g. VISA, MC, …) \n\n             translating them into functional and technical specifications\n\nCollect, analyse and formalise business requirements (where needed), translating them into functional and technical specifications\n\nSupport the business in defining IT solutions consistent with the bank's operational, regulatory and compliance models\n\nCollaborate with the business line and other internal stakeholders (Operations, Compliance, Risk, Security)\n\nTechnical and IT Analysis\n\nDraft functional and technical documentation (application specifications, integration flows, data mapping)\n\nCollaborate with internal and external development teams during the development, testing and release phases, executing directly \n\n             (where needed) testing and release management\n\nSupport the analysis and management of application incidents and production issues\n\nMust Have\n\nResident in Ticino or willing to relocate\n\nExperience in banking or financial contexts\n\nExperience in functional and technical analysis in IT\n\nKnowledge of credit and debit card payment systems, including payment tokenization.\n\nKnowledge of major payment circuits (e.g. Visa, Mastercard)",
       "descriptionByLocale": {
         "it": "Descrizione Il candidato si unirà al Centro di Eccellenza per l’Autorizzazione e la Prevenzione delle Frode, con responsabilità interfunzionali per i sistemi di credito e di addebito “di elaborazione delle carte e prevenzione delle frodi”. I sistemi supportano i processi di pagamento chiave in un ambiente bancario altamente regolamentato. Il ruolo consiste nel contribuire attivamente alle attività di analisi funzionale e tecnica, sostenendo l'evoluzione delle soluzioni applicative e l'integrazione con core banking, circuiti di pagamento e piattaforme esterne. ## Responsabilità chiave ### Analisi funzionale e di processo - Analizzare e comprendere i processi di \"elaborazione dei pagamenti delle carte, tokenizzazione dei pagamenti e prevenzione delle frodi\" e relativi (ad esempio, l'emissione della carta, la gestione del debito, la liquidazione e l'adeguamento, le frodi e i chargeback) - Raccogliere, analizzare e valutare le richieste regolari (ad es. - Conoscenza dei principali circuiti di pagamento (ad esempio Visa, Mastercard)",
-        "en": "## Descrizione\nThe candidate will join the IT “Authorization & Fraud Prevention” Centre of Excellence, with cross-functional responsibilities for credit and debit “card payments processing & fraud prevention” systems.\nThe systems support key payments processes in a highly regulated banking environment.\nThe role involves actively contributing to functional and technical analysis activities, supporting the evolution of application solutions and integration with core banking, payment circuits and external platforms.\n\n## Key Responsibilities\n\n### Functional and Process Analysis\n- Analyse and understand “card payments processing, payment tokenization and fraud prevention” processes and related (e.g. card issuance, lifecycle management, clearing & settlement, fraud and chargebacks)\n- Collect, analyse and assess the regular requests (i.e. changes, compliance, …) from card schemes (e.g. VISA, MC, …) translating them into functional and technical specifications\n- Collect, analyse and formalise business requirements (where needed), translating them into functional and technical specifications\n- Support the business in defining IT solutions consistent with the bank's operational, regulatory and compliance models\n- Collaborate with the business line and other internal stakeholders (Operations, Compliance, Risk, Security)\n\n### Technical and IT Analysis\n- Draft functional and technical documentation (application specifications, integration flows, data mapping)\n- Collaborate with internal and external development teams during the development, testing and release phases, executing directly (where needed) testing and release management\n- Support the analysis and management of application incidents and production issues\n\n## Must Have\n- Resident in Ticino or willing to relocate\n- Experience in banking or financial contexts\n- Experience in functional and technical analysis in IT\n- Knowledge of credit and debit card payment systems, including payment tokenization.\n- Knowledge of major payment circuits (e.g. Visa, Mastercard)",
+        "en": "The candidate will join the IT “Authorization & Fraud Prevention” Centre of Excellence, with cross-functional responsibilities for credit and debit “card payments processing & fraud prevention” systems. The systems support key payments processes in a highly regulated banking environment. The role involves actively contributing to functional and technical analysis activities, supporting the evolution of application solutions and integration with core banking, payment circuits and external platforms. Key Responsibilities Functional and Process Analysis Analyse and understand “card payments processing, payment tokenization and fraud prevention” processes and related (e.g. card issuance, lifecycle management, clearing & settlement, fraud and chargebacks) Collect, analyse and assess the regular requests (i.e. changes, compliance, …) from card schemes (e.g. VISA, MC, …) translating them into functional and technical specifications Collect, analyse and formalise business requirements (where needed), translating them into functional and technical specifications Support the business in defining IT solutions consistent with the bank's operational, regulatory and compliance models Collaborate with the business line and other internal stakeholders (Operations, Compliance, Risk, Security) Technical and IT Analysis Draft functional and technical documentation (application specifications, integration flows, data mapping) Collaborate with internal and external development teams during the development, testing and release phases, executing directly (where needed) testing and release management Support the analysis and management of application incidents and production issues Must Have Resident in Ticino or willing to relocate Experience in banking or financial contexts Experience in functional and technical analysis in IT Knowledge of credit and debit card payment systems, including payment tokenization. Knowledge of major payment circuits (e.g. Visa, Mastercard)",
         "de": "Beschreibung Der Kandidat wird sich dem IT-Zentrum „Authorization & Fraud Prevention“ mit funktionsübergreifender Verantwortung für Kredit- und Debit-Systeme „Card Payments Processing & Betrug Prevention“ anschließen. Die Systeme unterstützen wichtige Zahlungsprozesse in einem hochregulierten Bankenumfeld. Die Rolle beinhaltet einen aktiven Beitrag zu funktionellen und technischen Analysetätigkeiten, die die Entwicklung von Anwendungslösungen und die Integration mit Kernbanken, Zahlungsschaltungen und externen Plattformen unterstützen. Funktionelle und verfahrenstechnische Analyse - Analyse und Verständnis von „Kartenzahlungsverarbeitung, Zahlungsaufzeichnung und Betrugsverhütung“ Prozessen und damit zusammenhängenden (z.B. Kartenausgabe, Lifecycle Management, Clearing & Abwicklung, Betrug und Rückmeldungen) - Kenntnis der wichtigsten Zahlungskreise (z.B. Visa, Mastercard)",
         "fr": "Descrizione Le candidat se joindra au Centre d'excellence sur l'autorisation et la prévention de la fraude des TI, avec des responsabilités interfonctionnelles pour le traitement des paiements et la prévention de la fraude des cartes de crédit et de débit. Les systèmes soutiennent des processus de paiement clés dans un environnement bancaire hautement réglementé. Le rôle consiste à contribuer activement aux activités d'analyse fonctionnelle et technique, à soutenir l'évolution des solutions d'application et l'intégration avec les principales banques, circuits de paiement et plateformes externes. ## Principales responsabilités ### Analyse fonctionnelle et processus - Analyse et compréhension du traitement des paiements par carte, de la tokenisation des paiements et de la prévention de la fraude (processus de délivrance de cartes, de gestion du cycle de vie, de compensation et de règlement, de fraude et de remboursement) - Collecte, analyse et évaluation des demandes régulières (c.-à-d. changements, conformité, ...) provenant de systèmes de cartes (p. ex. VISA, MC, ...) les transformant en spécifications fonctionnelles et techniques - Collecte, analyse et formalisation des exigences opérationnelles (si nécessaire), les transformant en spécifications fonctionnelles et techniques - Aide à l'entreprise pour la définition de solutions informatiques compatibles avec les modèles opérationnels, réglementaires et de conformité de la banque - Collaborer avec le secteur d'activité et d'autres intervenants internes (exploitation, conformité, risque, sécurité) ### Analyse technique et informatique - Ébauche de la documentation fonctionnelle et technique (spécifications d'application, flux d'intégration, cartographie des données) - Collaborer avec les équipes de développement interne et externe pendant les phases de développement, d'essai et de libération, exécuter directement (si nécessaire) la gestion et - Connaissance des principaux circuits de paiement (par exemple Visa, Mastercard)"
       },
@@ -960,7 +968,7 @@
       "url": "https://jobs.corner.ch/o/it-authorizazion-and-fraud-prevention-officer",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-04-14T09:44:39.872Z",
+      "crawledAt": "2026-04-14T21:29:53.882Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:31:06.824Z",
       "salaryMin": 51500,
@@ -978,8 +986,7 @@
       "streetAddress": "Via Canova 16",
       "postalCode": "6901",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "retranslationAttempts": 2
+      "employmentType": "FULL_TIME"
     }
   ]
 }
