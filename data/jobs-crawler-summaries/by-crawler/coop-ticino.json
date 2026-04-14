@@ -1,19 +1,90 @@
 {
   "key": "coop-ticino",
   "label": "Coop",
-  "generatedAt": "2026-04-13T21:31:42.389Z",
+  "generatedAt": "2026-04-14T09:45:34.024Z",
   "total": 167,
-  "newCount": 0,
-  "updatedCount": 5,
+  "newCount": 2,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 162,
-  "durationMs": 180942,
-  "avgDurationMs": 180942,
+  "unchangedCount": 165,
+  "durationMs": 196834,
+  "avgDurationMs": 196834,
   "durationHistory": [
-    180942
+    196834
   ],
-  "newJobs": [],
-  "updatedJobs": [
+  "newJobs": [
+    {
+      "id": "company-hy7w7d",
+      "slug": "verkaufsberater-in-christ-orologi-gioielli-chur-graubunden",
+      "company": "CHRIST Uhren & Schmuck AG",
+      "title": "Verkaufsberater:in",
+      "location": "Chur",
+      "canton": "GR",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-14",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in/9387ca3f-1857-4cb0-b0a3-a3e72d1b5260",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Grigioni",
+        "canton": "GR"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-04-14T09:43:57.169Z",
+      "firstSeenAt": "2026-04-14T09:43:57.169Z",
+      "needsRetranslation": true,
+      "addressLocality": "Chur",
+      "sourceLang": "de",
+      "_qualityScore": 68,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 4,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-tyijpe",
+      "slug": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden",
+      "company": "CHRIST Uhren & Schmuck AG",
+      "title": "Geschäftsführer:in",
+      "location": "Chur",
+      "canton": "GR",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-14",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/geschaeftsfuehrer-in/a8335acd-f697-4017-b464-402f8be3d85f",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Grigioni",
+        "canton": "GR"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-04-14T09:43:57.169Z",
+      "firstSeenAt": "2026-04-14T09:43:57.169Z",
+      "needsRetranslation": true,
+      "addressLocality": "Chur",
+      "sourceLang": "de",
+      "_qualityScore": 68,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "company-3br90q",
       "slug": "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden",
@@ -40,6 +111,7 @@
       "sourceLang": "de",
       "salaryMin": 49500,
       "salaryMax": 75000,
+      "firstSeenAt": "2026-04-13T21:31:42.381Z",
       "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -75,6 +147,7 @@
       "sourceLang": "de",
       "salaryMin": 49500,
       "salaryMax": 75000,
+      "firstSeenAt": "2026-04-13T21:31:42.381Z",
       "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -110,6 +183,7 @@
       "sourceLang": "de",
       "salaryMin": 49500,
       "salaryMax": 75000,
+      "firstSeenAt": "2026-04-13T21:31:42.381Z",
       "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -145,6 +219,7 @@
       "sourceLang": "de",
       "salaryMin": 49500,
       "salaryMax": 75000,
+      "firstSeenAt": "2026-04-13T21:31:42.381Z",
       "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -180,6 +255,7 @@
       "sourceLang": "de",
       "salaryMin": 85500,
       "salaryMax": 150000,
+      "firstSeenAt": "2026-04-13T21:31:42.381Z",
       "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -188,10 +264,7 @@
         "translation": 25,
         "completeness": 19
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "company-4qr3gx",
       "slug": "filialleiter-in-interdiscount-chur-graubunden",
@@ -288,6 +361,7 @@
       "sourceLang": "de",
       "salaryMin": 49500,
       "salaryMax": 75000,
+      "firstSeenAt": "2026-04-13T21:31:42.381Z",
       "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -323,6 +397,7 @@
       "sourceLang": "de",
       "salaryMin": 49500,
       "salaryMax": 75000,
+      "firstSeenAt": "2026-04-13T21:31:42.381Z",
       "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -357,6 +432,7 @@
       "addressLocality": "Castione",
       "salaryMin": 58000,
       "salaryMax": 78000,
+      "firstSeenAt": "2026-04-13T21:31:42.381Z",
       "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -426,6 +502,7 @@
       "sourceLang": "de",
       "salaryMin": 58000,
       "salaryMax": 78000,
+      "firstSeenAt": "2026-04-13T21:31:42.381Z",
       "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -496,6 +573,7 @@
       "sourceLang": "de",
       "salaryMin": 58000,
       "salaryMax": 78000,
+      "firstSeenAt": "2026-04-13T21:31:42.381Z",
       "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -511,7 +589,7 @@
       "company": "Fust | Swiss Household Services AG",
       "title": "Heimliefermonteur:in von Elektrohaushaltgeräten",
       "location": "Oberbüren",
-      "canton": "GR",
+      "canton": "SG",
       "category": "admin",
       "contract": "part-time",
       "currency": "CHF",
@@ -566,6 +644,7 @@
       "sourceLang": "de",
       "salaryMin": 58000,
       "salaryMax": 78000,
+      "firstSeenAt": "2026-04-13T21:31:42.381Z",
       "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -601,6 +680,7 @@
       "sourceLang": "de",
       "salaryMin": 58000,
       "salaryMax": 78000,
+      "firstSeenAt": "2026-04-13T21:31:42.381Z",
       "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -636,6 +716,7 @@
       "sourceLang": "de",
       "salaryMin": 58000,
       "salaryMax": 78000,
+      "firstSeenAt": "2026-04-13T21:31:42.381Z",
       "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -671,6 +752,7 @@
       "sourceLang": "de",
       "salaryMin": 58000,
       "salaryMax": 78000,
+      "firstSeenAt": "2026-04-13T21:31:42.381Z",
       "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -741,6 +823,7 @@
       "sourceLang": "de",
       "salaryMin": 58000,
       "salaryMax": 78000,
+      "firstSeenAt": "2026-04-13T21:31:42.381Z",
       "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -776,6 +859,7 @@
       "sourceLang": "de",
       "salaryMin": 58000,
       "salaryMax": 78000,
+      "firstSeenAt": "2026-04-13T21:31:42.381Z",
       "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -812,6 +896,7 @@
       "salaryMin": 58000,
       "salaryMax": 78000,
       "addressRegion": "BS",
+      "firstSeenAt": "2026-04-13T21:31:42.381Z",
       "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -950,6 +1035,7 @@
       "sourceLang": "de",
       "salaryMin": 58000,
       "salaryMax": 78000,
+      "firstSeenAt": "2026-04-13T21:31:42.381Z",
       "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -985,6 +1071,7 @@
       "sourceLang": "de",
       "salaryMin": 58000,
       "salaryMax": 78000,
+      "firstSeenAt": "2026-04-13T21:31:42.381Z",
       "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -1020,6 +1107,7 @@
       "sourceLang": "de",
       "salaryMin": 58000,
       "salaryMax": 78000,
+      "firstSeenAt": "2026-04-13T21:31:42.381Z",
       "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -1055,184 +1143,12 @@
       "sourceLang": "de",
       "salaryMin": 58000,
       "salaryMax": 78000,
+      "firstSeenAt": "2026-04-13T21:31:42.381Z",
       "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-tcv189",
-      "slug": "verkaufer-in-food-brot-frische-coop-churwalden-graubunden",
-      "company": "Coop Genossenschaft",
-      "title": "Verkäufer:in Food (Brot / Frische)",
-      "location": "Churwalden",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-26",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food-brot-frische/3cb437ea-9afa-4171-8455-6813dcaf5cf0",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-03-31T07:18:28.826Z",
-      "addressLocality": "Churwalden",
-      "sourceLang": "de",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "needsRetranslation": true,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-46pqaj",
-      "slug": "kochin-koch-w-m-d-coop-chur-graubunden",
-      "company": "Coop Genossenschaft",
-      "title": "Köchin / Koch (w/m/d)",
-      "location": "Chur",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-26",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/koechin-koch-w-m-d/659d9b1f-595b-40df-8a93-651578a442b3",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-03-31T07:18:28.826Z",
-      "addressLocality": "Chur",
-      "sourceLang": "de",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "needsRetranslation": true,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-mm4mox",
-      "slug": "impiegata-impiegato-di-gastronomia-standardizzata-afc-coop-ristorante-castione",
-      "company": "Coop Ristorante",
-      "title": "Impiegata / Impiegato di gastronomia standardizzata AFC",
-      "location": "Castione",
-      "canton": "TI",
-      "category": "other",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-25",
-      "url": "https://jobs.coopjobs.ch/posti-vacanti/impiegata-impiegato-di-gastronomia-standardizzata-afc/3c39c92e-fc67-4902-af13-a79622a06d25",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Ticino",
-        "canton": "TI"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-03-31T07:18:28.826Z",
-      "addressLocality": "Castione",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "firstSeenAt": "2026-03-31T07:18:28.826Z",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-ndjhs",
-      "slug": "macellaio-a-coop-chur-graubunden",
-      "company": "Coop Genossenschaft",
-      "title": "Metzger:in (Fleischfachfrau / Fleischfachmann)",
-      "location": "Chur",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-20",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/metzger-in-fleischfachfrau-fleischfachmann/d246a6b0-41fc-4ec9-b4af-7e460b286e36",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-03-31T07:18:28.826Z",
-      "addressLocality": "Chur",
-      "sourceLang": "de",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "firstSeenAt": "2026-03-31T07:18:28.826Z",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-3c36xg",
-      "slug": "macellaia-macellaio-salumiera-salumiere-f-m-d-coop-riazzino-ticino-3c36xg",
-      "company": "Coop Genossenschaft",
-      "title": "Macellaia / Macellaio - Salumiera / Salumiere (f/m/d)",
-      "location": "Riazzino",
-      "canton": "TI",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-19",
-      "url": "https://jobs.coopjobs.ch/posti-vacanti/macellaia-macellaio-salumiera-salumiere-f-m-d/60f0cf68-fc21-450a-88e3-a03cfc4554e7",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Ticino",
-        "canton": "TI"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-03-31T07:18:28.826Z",
-      "addressLocality": "Riazzino",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "firstSeenAt": "2026-03-31T07:18:28.826Z",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
         "translation": 25,
         "completeness": 19
       }
