@@ -130,10 +130,13 @@ const BORDER_PROXIMITY_BY_CANTON = {
 
 function hasToken(tokens = [], lower = '') {
   return tokens.some((token) => {
-    if (token.length < 6) {
-      return new RegExp(`\\b${token.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i').test(lower);
-    }
-    return lower.includes(token);
+    // Multi-word tokens (e.g. "canton ticino", "svizzera italiana") — substring match
+    // is safe because the multi-word phrase is already specific enough.
+    if (token.includes(' ')) return lower.includes(token);
+    // Single-word tokens — ALWAYS use word boundary to prevent false positives
+    // like "wallis" matching inside "wallisellen" or "bern" inside "bernina".
+    const escaped = token.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    return new RegExp(`\\b${escaped}\\b`, 'i').test(lower);
   });
 }
 
