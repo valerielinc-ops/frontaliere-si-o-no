@@ -1,16 +1,16 @@
 {
   "key": "usi-universita-della-svizzera-italiana",
   "label": "USI",
-  "generatedAt": "2026-04-13T22:38:02.114Z",
-  "total": 22,
+  "generatedAt": "2026-04-14T10:51:27.419Z",
+  "total": 21,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 1,
-  "unchangedCount": 21,
-  "durationMs": 75036,
-  "avgDurationMs": 75036,
+  "unchangedCount": 20,
+  "durationMs": 62834,
+  "avgDurationMs": 62834,
   "durationHistory": [
-    75036
+    62834
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -45,6 +45,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "id": "usi-universita-della-svizzera-italiana-2127129167ca",
+      "firstSeenAt": "2026-04-13T22:38:02.110Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -56,20 +57,20 @@
   ],
   "removedJobs": [
     {
-      "url": "https://content.usi.ch/sites/default/files/storage/attachments/serv-inf/serv-inf-apprendista-operatore-informtico-2026.pdf",
-      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/serv-inf/serv-inf-apprendista-operatore-informtico-2026.pdf",
-      "title": "Apprendista Informatico/a (Operatore Informatico) AFC",
+      "url": "https://content.usi.ch/sites/default/files/storage/attachments/servizio-ricerca/servizio-ricerca-research-manager-snf.pdf",
+      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/servizio-ricerca/servizio-ricerca-research-manager-snf.pdf",
+      "title": "Ricerca Manager con focus sui programmi SNSF",
       "company": "USI – Università della Svizzera italiana",
       "companyKey": "usi-universita-della-svizzera-italiana",
       "location": "Lugano",
       "canton": "TI",
       "country": "CH",
-      "slug": "apprendista-informatico-a-operatore-informatico-afc-usi-lugano",
-      "department": "Servizio informatico",
-      "category": "apprentice",
+      "slug": "ricerca-manager-con-focus-sui-programmi-snsf-usi-lugano",
+      "department": "Servizio ricerca",
+      "category": "staff",
       "datePosted": "2026-03-29",
       "source": "usi-drupal-crawler",
-      "employmentType": "APPRENTICESHIP",
+      "employmentType": "FULL_TIME",
       "experienceLevel": "",
       "sector": "Istruzione e ricerca",
       "_targetScope": {
@@ -77,15 +78,16 @@
         "location": "Lugano"
       },
       "sourceLang": "it",
-      "salaryMin": 46500,
-      "salaryMax": 62500,
+      "salaryMin": 72000,
+      "salaryMax": 97000,
       "currency": "CHF",
       "streetAddress": "Via Giuseppe Buffi 13",
       "postalCode": "6900",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "id": "usi-universita-della-svizzera-italiana-09c4fed2d6b3",
+      "id": "usi-universita-della-svizzera-italiana-e2ceaeed7686",
+      "firstSeenAt": "2026-04-13T22:38:02.110Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -127,6 +129,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "id": "usi-universita-della-svizzera-italiana-2707c787725e",
+      "firstSeenAt": "2026-04-13T22:38:02.110Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -166,6 +169,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "id": "usi-universita-della-svizzera-italiana-9caac50d561c",
+      "firstSeenAt": "2026-04-13T22:38:02.110Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -205,6 +209,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "id": "usi-universita-della-svizzera-italiana-05ea612c193d",
+      "firstSeenAt": "2026-04-13T22:38:02.110Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -244,6 +249,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "id": "usi-universita-della-svizzera-italiana-729fc508e5f2",
+      "firstSeenAt": "2026-04-13T22:38:02.110Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -283,6 +289,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "id": "usi-universita-della-svizzera-italiana-087f833e6951",
+      "firstSeenAt": "2026-04-13T22:38:02.110Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -322,6 +329,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "id": "usi-universita-della-svizzera-italiana-ceb3beaca884",
+      "firstSeenAt": "2026-04-13T22:38:02.110Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -361,6 +369,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "id": "usi-universita-della-svizzera-italiana-adda987d8317",
+      "firstSeenAt": "2026-04-13T22:38:02.110Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -400,6 +409,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "id": "usi-universita-della-svizzera-italiana-dba4b8565001",
+      "firstSeenAt": "2026-04-13T22:38:02.110Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -439,6 +449,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "id": "usi-universita-della-svizzera-italiana-2b3f47cf60be",
+      "firstSeenAt": "2026-04-13T22:38:02.110Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -478,6 +489,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "id": "usi-universita-della-svizzera-italiana-c86503b7b022",
+      "firstSeenAt": "2026-04-13T22:38:02.110Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -517,6 +529,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "id": "usi-universita-della-svizzera-italiana-9177ed8e4482",
+      "firstSeenAt": "2026-04-13T22:38:02.110Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -556,6 +569,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "id": "usi-universita-della-svizzera-italiana-3efec04af10f",
+      "firstSeenAt": "2026-04-13T22:38:02.110Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -595,45 +609,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "id": "usi-universita-della-svizzera-italiana-7e2dfe6422bb",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "url": "https://content.usi.ch/sites/default/files/storage/attachments/servizio-ricerca/servizio-ricerca-research-manager-snf.pdf",
-      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/servizio-ricerca/servizio-ricerca-research-manager-snf.pdf",
-      "title": "Ricerca Manager con focus sui programmi SNSF",
-      "company": "USI – Università della Svizzera italiana",
-      "companyKey": "usi-universita-della-svizzera-italiana",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "slug": "ricerca-manager-con-focus-sui-programmi-snsf-usi-lugano",
-      "department": "Servizio ricerca",
-      "category": "staff",
-      "datePosted": "2026-03-29",
-      "source": "usi-drupal-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Istruzione e ricerca",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "sourceLang": "it",
-      "salaryMin": 72000,
-      "salaryMax": 97000,
-      "currency": "CHF",
-      "streetAddress": "Via Giuseppe Buffi 13",
-      "postalCode": "6900",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "id": "usi-universita-della-svizzera-italiana-e2ceaeed7686",
+      "firstSeenAt": "2026-04-13T22:38:02.110Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -673,6 +649,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "id": "usi-universita-della-svizzera-italiana-e17590d2cde8",
+      "firstSeenAt": "2026-04-13T22:38:02.110Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -712,6 +689,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "id": "usi-universita-della-svizzera-italiana-6f7a448c9640",
+      "firstSeenAt": "2026-04-13T22:38:02.110Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -751,6 +729,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "id": "usi-universita-della-svizzera-italiana-5786c4fb1ec9",
+      "firstSeenAt": "2026-04-13T22:38:02.110Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -790,6 +769,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "id": "usi-universita-della-svizzera-italiana-112665c8e637",
+      "firstSeenAt": "2026-04-13T22:38:02.110Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -829,6 +809,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "id": "usi-universita-della-svizzera-italiana-0513d3b4e1fb",
+      "firstSeenAt": "2026-04-13T22:38:02.110Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -868,6 +849,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "id": "usi-universita-della-svizzera-italiana-51bba80ca662",
+      "firstSeenAt": "2026-04-13T22:38:02.110Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -907,6 +889,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "id": "usi-universita-della-svizzera-italiana-20d4eef1df72",
+      "firstSeenAt": "2026-04-13T22:38:02.110Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
