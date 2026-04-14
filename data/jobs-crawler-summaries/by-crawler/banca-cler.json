@@ -1,16 +1,16 @@
 {
   "key": "banca-cler",
   "label": "Cler",
-  "generatedAt": "2026-04-14T09:38:04.100Z",
-  "total": 6,
+  "generatedAt": "2026-04-14T21:23:17.498Z",
+  "total": 5,
   "newCount": 0,
-  "updatedCount": 6,
-  "removedCount": 0,
+  "updatedCount": 5,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 25071,
-  "avgDurationMs": 25071,
+  "durationMs": 22533,
+  "avgDurationMs": 22533,
   "durationHistory": [
-    25071
+    22533
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -37,7 +37,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-04-14T09:37:41.756Z",
+      "crawledAt": "2026-04-14T21:22:57.144Z",
       "id": "company-ymmgcx",
       "contract": "part-time",
       "currency": "CHF",
@@ -78,7 +78,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-04-14T09:37:42.404Z",
+      "crawledAt": "2026-04-14T21:22:57.742Z",
       "id": "company-crpf0w",
       "contract": "full-time",
       "currency": "CHF",
@@ -119,7 +119,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-04-14T09:37:42.991Z",
+      "crawledAt": "2026-04-14T21:22:58.369Z",
       "id": "company-67xwtt",
       "contract": "full-time",
       "currency": "CHF",
@@ -160,7 +160,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-04-14T09:37:43.686Z",
+      "crawledAt": "2026-04-14T21:22:58.995Z",
       "id": "company-7od0f",
       "contract": "full-time",
       "currency": "CHF",
@@ -170,6 +170,8 @@
       "streetAddress": "Via Pretorio 13",
       "postalCode": "6900",
       "firstSeenAt": "2026-04-13T10:15:25.306Z",
+      "needsRetranslation": true,
+      "retranslationAttempts": 1,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -201,7 +203,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-04-14T09:37:44.407Z",
+      "crawledAt": "2026-04-14T21:22:59.607Z",
       "id": "company-vlfwqx",
       "contract": "full-time",
       "currency": "CHF",
@@ -218,10 +220,12 @@
         "translation": 25,
         "completeness": 25
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "title": "Geschäftsstellenleiterin Schaffhausen (w/m)",
-      "slug": "geschaftsstellenleiterin-schaffhausen-w-m-banca-cler",
+      "slug": "gestione-locale-schaffhausen-w-m-banca-cler-bellinzona",
       "url": "https://www.cler.ch/de/bank-cler/jobs-und-karriere/suchen-und-bewerben/offene-stellen/geschaeftsstellenleiterin-schaffhausen-w-m-2587",
       "applyUrl": "https://www.cler.ch/de/bank-cler/jobs-und-karriere/suchen-und-bewerben/offene-stellen/geschaeftsstellenleiterin-schaffhausen-w-m-2587",
       "company": "Banca Cler",
@@ -236,7 +240,7 @@
       "category": "finance",
       "sector": "Banca / Servizi finanziari",
       "department": "Private Banking und Privatkunden",
-      "source": "cler-dedicated-crawler",
+      "source": "Company Careers Crawler",
       "sourceLang": "de",
       "postedDate": "2026-02-23",
       "validThrough": "",
@@ -261,6 +265,5 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
