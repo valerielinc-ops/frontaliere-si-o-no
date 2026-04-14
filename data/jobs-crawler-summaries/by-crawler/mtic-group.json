@@ -1,16 +1,16 @@
 {
   "key": "mtic-group",
   "label": "MTIC Group",
-  "generatedAt": "2026-04-13T22:12:00.974Z",
+  "generatedAt": "2026-04-14T10:25:44.524Z",
   "total": 5,
   "newCount": 4,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 30901,
-  "avgDurationMs": 30901,
+  "durationMs": 28457,
+  "avgDurationMs": 28457,
   "durationHistory": [
-    30901
+    28457
   ],
   "newJobs": [
     {
@@ -31,7 +31,7 @@
       "sector": "Certificazione e Ispezioni",
       "source": "mtic-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-13",
+      "postedDate": "2026-04-14",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -61,7 +61,7 @@
       "sector": "Certificazione e Ispezioni",
       "source": "mtic-dedicated-crawler",
       "sourceLang": "fr",
-      "postedDate": "2026-04-13",
+      "postedDate": "2026-04-14",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -91,7 +91,7 @@
       "sector": "Certificazione e Ispezioni",
       "source": "mtic-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-13",
+      "postedDate": "2026-04-14",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -121,7 +121,7 @@
       "sector": "Certificazione e Ispezioni",
       "source": "mtic-dedicated-crawler",
       "sourceLang": "fr",
-      "postedDate": "2026-04-13",
+      "postedDate": "2026-04-14",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -153,7 +153,7 @@
       "sector": "Certificazione e Ispezioni",
       "source": "mtic-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-13",
+      "postedDate": "2026-04-14",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -162,6 +162,7 @@
       "salaryMax": 78000,
       "currency": "CHF",
       "postalCode": "6500",
+      "firstSeenAt": "2026-04-13T22:12:00.974Z",
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
