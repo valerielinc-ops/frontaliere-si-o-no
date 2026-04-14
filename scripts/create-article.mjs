@@ -1121,7 +1121,7 @@ VERIFICA SISTEMATICA — controlla OGNI categoria:
 
 5. **DATE E EVENTI**: Confronta con le date verificate: Convenzione 9/12/1976, Nuovo Accordo 23/12/2020, vigenza dal 1/1/2024, Legge 83/2023. ${isEvergreen ? '' : 'Date presenti nell\'articolo ma ASSENTI dalla fonte = altamente sospette.'}
 
-6. **COERENZA CON LA FONTE**: ${isEvergreen ? 'N/A per evergreen.' : "VERIFICA CRITICA: confronta ogni affermazione dell'articolo con la fonte originale. Se l'articolo aggiunge fatti, cifre, date o dichiarazioni NON presenti nella fonte, segnalali come 'critical'. L'articolo doveva RISCRIVERE la fonte, non aggiungere informazioni inventate."}
+6. **COERENZA CON LA FONTE**: ${isEvergreen ? 'N/A per evergreen.' : "Confronta ogni affermazione dell'articolo con la fonte originale. DISTINGUI tra: (a) arricchimento contestuale con fatti di dominio CORRETTI e verificabili (contesto frontaliere, aliquote note, geografia ticinese) = 'minor', (b) fatti specifici inventati (leggi/decreti inesistenti, statistiche precise senza fonte, istituzioni inventate, eventi mai avvenuti) NON presenti nella fonte = 'critical', (c) informazione che CONTRADDICE la fonte o i fatti verificati = 'critical'."}
 
 7. **FATTI INVENTATI**: Cerca eventi, conferenze, referendum, proteste, dichiarazioni che sembrano plausibili ma potrebbero non essere mai avvenuti. SEGNALE D'ALLARME: eventi descritti con molti dettagli specifici (data precisa, luogo, partecipanti) che non appaiono in nessuna fonte nota.
 
@@ -1138,12 +1138,12 @@ VERIFICA SISTEMATICA — controlla OGNI categoria:
    - Ministri o funzionari con nomi plausibili ma non verificabili
    - Accordi/protocolli bilaterali mai firmati (controllare attentamente)
 
-CRITERI DI GIUDIZIO STRETTI:
-- "critical" = fatto verificabilmente FALSO, o CONTRADDICE i fatti verificati di riferimento, o ASSENTE dalla fonte originale (legge inesistente, istituzione inventata, aliquota sbagliata, evento mai avvenuto)
-- "major" = fatto sospetto non verificabile con certezza (percentuale senza fonte, dato plausibile ma non confermabile)
-- "minor" = imprecisione che non fuorvia il lettore (arrotondamento, data approssimata)
-- FAIL = almeno 1 critical O almeno 2 major
-- PASS = nessun fatto verificabilmente falso, al massimo minor
+CRITERI DI GIUDIZIO:
+- "critical" = fatto verificabilmente FALSO, o CONTRADDICE i fatti verificati di riferimento (legge inesistente, istituzione inventata, aliquota sbagliata, evento mai avvenuto, dato che contraddice la fonte)
+- "major" = fatto sospetto non verificabile con certezza (percentuale senza fonte, dato plausibile ma non confermabile, informazione specifica aggiunta non presente nella fonte e non nei fatti verificati)
+- "minor" = imprecisione che non fuorvia il lettore (arrotondamento, data approssimata) O arricchimento contestuale con fatti di dominio noti e corretti (contesto frontaliere, informazioni generali sulla Svizzera/Ticino)
+- FAIL = almeno 1 critical O almeno 3 major
+- PASS = nessun fatto verificabilmente falso, al massimo minor e fino a 2 major
 
 ATTENZIONE: se hai dubbi su un fatto, è MEGLIO segnalarlo come "major" che ignorarlo. Un falso positivo (segnalare un fatto vero come sospetto) è preferibile a un falso negativo (non segnalare un fatto falso).
 
@@ -1229,8 +1229,8 @@ Categorie valide: leggi, istituzioni, aliquote, statistiche, date, coerenza, fat
     return { passed: false, issues: allCritical };
   }
 
-  // BLOCKING: 2+ major issues (lowered from 3 — stricter)
-  if (allMajor.length >= 2) {
+  // BLOCKING: 3+ major issues
+  if (allMajor.length >= 3) {
     console.error(`  🚨 Consensus: ${allMajor.length} major issues — BLOCCATO`);
     return { passed: false, issues: allMajor };
   }
