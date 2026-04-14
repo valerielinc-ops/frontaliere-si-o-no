@@ -1,6 +1,6 @@
 {
   "crawlerKey": "giardino",
-  "assembledAt": "2026-04-13T21:44:46.797Z",
+  "assembledAt": "2026-04-14T09:58:29.445Z",
   "jobs": [
     {
       "id": "giardino-a4c1442fdca3",
@@ -33,7 +33,7 @@
       "url": "https://giardinohotels.ch/en/jobs/ga-child-care-attendant/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T21:44:44.531Z",
+      "crawledAt": "2026-04-14T09:58:27.158Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressRegion": "TI",
@@ -104,6 +104,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:36:24.234Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -148,7 +149,7 @@
       "url": "https://giardinohotels.ch/en/jobs/gl-steward-m-w/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T21:44:44.530Z",
+      "crawledAt": "2026-04-14T09:58:27.157Z",
       "addressLocality": "Minusio",
       "postalCode": "6648",
       "addressRegion": "TI",
@@ -204,6 +205,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:36:24.233Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -248,7 +250,7 @@
       "url": "https://giardinohotels.ch/en/jobs/gl-chef-de-partie-2/",
       "source": "Giardino Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T21:44:44.530Z",
+      "crawledAt": "2026-04-14T09:58:27.157Z",
       "addressLocality": "Minusio",
       "postalCode": "6648",
       "addressRegion": "TI",
@@ -318,6 +320,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:36:24.234Z",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "baseSalary": {
