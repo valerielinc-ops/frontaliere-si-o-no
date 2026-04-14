@@ -1,16 +1,16 @@
 {
   "key": "tinext",
   "label": "tinext",
-  "generatedAt": "2026-04-13T22:33:11.051Z",
+  "generatedAt": "2026-04-14T10:46:54.201Z",
   "total": 2,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 831,
-  "avgDurationMs": 831,
+  "unchangedCount": 0,
+  "durationMs": 858,
+  "avgDurationMs": 858,
   "durationHistory": [
-    831
+    858
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +32,7 @@
       "sector": "IT & Digital Transformation",
       "source": "tinext-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-13",
+      "postedDate": "2026-04-14",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -42,6 +42,7 @@
       "streetAddress": "Via Cantonale 18",
       "postalCode": "6928",
       "id": "tinext-dfd44ec52573",
+      "firstSeenAt": "2026-04-13T22:33:11.051Z",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -49,10 +50,7 @@
         "translation": 25,
         "completeness": 25
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "title": "Executive Assistant",
       "slug": "executive-assistant-tinext-lugano-exass",
@@ -71,7 +69,7 @@
       "sector": "IT & Digital Transformation",
       "source": "tinext-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-13",
+      "postedDate": "2026-04-14",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -81,6 +79,7 @@
       "streetAddress": "Via Cantonale 18",
       "postalCode": "6928",
       "id": "tinext-79bef914fa4b",
+      "firstSeenAt": "2026-04-13T22:33:11.051Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -89,5 +88,7 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
