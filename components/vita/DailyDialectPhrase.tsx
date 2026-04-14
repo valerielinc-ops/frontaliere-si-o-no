@@ -6,38 +6,38 @@ import { buildPath } from '@/services/router';
 import { useNavigationOptional } from '@/services/NavigationContext';
 
 const DailyDialectPhrase: React.FC = () => {
-  const { t } = useTranslation();
-  const nav = useNavigationOptional();
-  const phraseOfDay = useMemo(() => getDialectPhraseOfDay(), []);
+ const { t } = useTranslation();
+ const nav = useNavigationOptional();
+ const phraseOfDay = useMemo(() => getDialectPhraseOfDay(), []);
 
-  const phraseKey = `dialect.terms.${phraseOfDay.key}.phrase`;
-  const dialectHref = buildPath({ activeTab: 'dialetto' });
+ const phraseKey = `dialect.terms.${phraseOfDay.key}.phrase`;
+ const dialectHref = buildPath({ activeTab: 'dialetto' });
 
-  const phrase = t(phraseKey);
+ const phrase = t(phraseKey);
 
-  if (phrase === phraseKey) return <div className="min-h-[34px]" />;
+ if (phrase === phraseKey) return <div className="min-h-[34px]" />;
 
-  return (
-    <a
-      href={dialectHref}
-      onClick={(e) => {
-        if (nav) {
-          e.preventDefault();
-          nav.navigateTo('dialetto');
-        }
-      }}
-      className="flex items-center gap-2 min-h-[34px] bg-warning-subtle rounded-xl border border-orange-200/60 dark:border-orange-800/30 px-3 text-xs hover:border-orange-300/80 dark:hover:border-orange-700/50 transition-colors"
-      aria-label={t('dialect.openPage')}
-    >
-      <Sparkles size={13} className="text-warning flex-shrink-0" />
-      <span className="font-bold text-warning flex-shrink-0">{t('dialect.phraseOfDay')}:</span>
-      <p className="flex-1 min-w-0 truncate font-bold italic text-strong">"{phrase}"</p>
-      <span className="inline-flex items-center gap-1 text-body shrink-0">
-        <BookOpen size={12} />
-        <span>{t('dialect.openPage')}</span>
-      </span>
-    </a>
-  );
+ return (
+ <a
+ href={dialectHref}
+ onClick={(e) => {
+ if (nav) {
+ e.preventDefault();
+ nav.navigateTo('dialetto');
+ }
+ }}
+ className="flex items-center gap-2 min-h-[34px] bg-warning-subtle rounded-xl border border-orange-200/60 dark:border-orange-800/30 px-3 text-xs hover:border-orange-300/80 dark:hover:border-orange-700/50 transition-colors"
+ aria-label={t('dialect.openPage')}
+ >
+ <Sparkles size={13} className="text-warning flex-shrink-0" />
+ <span className="font-bold text-warning flex-shrink-0">{t('dialect.phraseOfDay')}:</span>
+ <p className="flex-1 min-w-0 truncate font-bold italic text-strong">"{phrase}"</p>
+ <span className="inline-flex items-center gap-1 text-body shrink-0">
+ <BookOpen size={12} />
+ <span>{t('dialect.openPage')}</span>
+ </span>
+ </a>
+ );
 };
 
 export default DailyDialectPhrase;

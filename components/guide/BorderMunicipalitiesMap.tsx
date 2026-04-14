@@ -16,776 +16,776 @@ type SortField = 'name' | 'tax' | 'addizionale' | 'distance';
 type SortDir = 'asc' | 'desc';
 
 interface MunicipalityWithTax extends Municipality {
-  taxResult: MunicipalityTaxResult;
+ taxResult: MunicipalityTaxResult;
 }
 
 interface Props {
-  userProfile?: UserProfileData | null;
+ userProfile?: UserProfileData | null;
 }
 
 // ─── Component ───────────────────────────────────────────────
 const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
-  const { t } = useTranslation();
-  const [colorMode, setColorMode] = useState<ColorMode>('irpef');
-  const [selectedMunicipality, setSelectedMunicipality] = useState<Municipality | null>(null);
-  const [filterProvince, setFilterProvince] = useState<string>('all');
-  const [salary, setSalary] = useState<number>(100000);
-  const [sortField, setSortField] = useState<SortField>('tax');
-  const [sortDir, setSortDir] = useState<SortDir>('asc');
-  const [compareMunicipality, setCompareMunicipality] = useState<string>('');
-  const [mobileSettingsOpen, setMobileSettingsOpen] = useState(false);
-  // Prefill salary from user profile
-  useEffect(() => {
-    if (userProfile?.grossSalary) {
-      const s = parseFloat(userProfile.grossSalary);
-      if (!isNaN(s) && s > 0) setSalary(s);
-    }
-  }, [userProfile]);
-  const provinces = useMemo(() => {
-    const set = new Set(MUNICIPALITIES.map(m => m.province));
-    return ['all', ...Array.from(set).sort()];
-  }, []);
+ const { t } = useTranslation();
+ const [colorMode, setColorMode] = useState<ColorMode>('irpef');
+ const [selectedMunicipality, setSelectedMunicipality] = useState<Municipality | null>(null);
+ const [filterProvince, setFilterProvince] = useState<string>('all');
+ const [salary, setSalary] = useState<number>(100000);
+ const [sortField, setSortField] = useState<SortField>('tax');
+ const [sortDir, setSortDir] = useState<SortDir>('asc');
+ const [compareMunicipality, setCompareMunicipality] = useState<string>('');
+ const [mobileSettingsOpen, setMobileSettingsOpen] = useState(false);
+ // Prefill salary from user profile
+ useEffect(() => {
+ if (userProfile?.grossSalary) {
+ const s = parseFloat(userProfile.grossSalary);
+ if (!isNaN(s) && s > 0) setSalary(s);
+ }
+ }, [userProfile]);
+ const provinces = useMemo(() => {
+ const set = new Set(MUNICIPALITIES.map(m => m.province));
+ return ['all', ...Array.from(set).sort()];
+ }, []);
 
-  const { rate: exchangeRate } = useExchangeRate();
+ const { rate: exchangeRate } = useExchangeRate();
 
-  const filtered = useMemo(() => {
-    return filterProvince === 'all' ? MUNICIPALITIES : MUNICIPALITIES.filter(m => m.province === filterProvince);
-  }, [filterProvince]);
+ const filtered = useMemo(() => {
+ return filterProvince === 'all' ? MUNICIPALITIES : MUNICIPALITIES.filter(m => m.province === filterProvince);
+ }, [filterProvince]);
 
-  // Calculate tax for all municipalities
-  const municipalitiesWithTax = useMemo<MunicipalityWithTax[]>(() => {
-    return filtered.map(m => ({
-      ...m,
-      taxResult: calculateMunicipalityTaxImpact(salary, exchangeRate, m.irpefAddizionale, m.fascia),
-    }));
-  }, [filtered, salary, exchangeRate]);
+ // Calculate tax for all municipalities
+ const municipalitiesWithTax = useMemo<MunicipalityWithTax[]>(() => {
+ return filtered.map(m => ({
+ ...m,
+ taxResult: calculateMunicipalityTaxImpact(salary, exchangeRate, m.irpefAddizionale, m.fascia),
+ }));
+ }, [filtered, salary, exchangeRate]);
 
-  // Sort municipalities
-  const sortedMunicipalities = useMemo(() => {
-    return [...municipalitiesWithTax].sort((a, b) => {
-      let cmp = 0;
-      switch (sortField) {
-        case 'name': cmp = a.name.localeCompare(b.name, 'it'); break;
-        case 'tax': cmp = a.taxResult.finalItalianTaxEUR - b.taxResult.finalItalianTaxEUR; break;
-        case 'addizionale': cmp = a.irpefAddizionale - b.irpefAddizionale; break;
-        case 'distance': cmp = a.distanceKm - b.distanceKm; break;
-      }
-      return sortDir === 'asc' ? cmp : -cmp;
-    });
-  }, [municipalitiesWithTax, sortField, sortDir]);
+ // Sort municipalities
+ const sortedMunicipalities = useMemo(() => {
+ return [...municipalitiesWithTax].sort((a, b) => {
+ let cmp = 0;
+ switch (sortField) {
+ case 'name': cmp = a.name.localeCompare(b.name, 'it'); break;
+ case 'tax': cmp = a.taxResult.finalItalianTaxEUR - b.taxResult.finalItalianTaxEUR; break;
+ case 'addizionale': cmp = a.irpefAddizionale - b.irpefAddizionale; break;
+ case 'distance': cmp = a.distanceKm - b.distanceKm; break;
+ }
+ return sortDir === 'asc' ? cmp : -cmp;
+ });
+ }, [municipalitiesWithTax, sortField, sortDir]);
 
-  // User's municipality from profile
-  const userMunicipality = useMemo(() => {
-    if (userProfile?.municipality) return findMunicipality(userProfile.municipality) || null;
-    return null;
-  }, [userProfile]);
+ // User's municipality from profile
+ const userMunicipality = useMemo(() => {
+ if (userProfile?.municipality) return findMunicipality(userProfile.municipality) || null;
+ return null;
+ }, [userProfile]);
 
-  // Compare municipality (either from profile or manual selection)
-  const compareWith = useMemo(() => {
-    if (compareMunicipality) return findMunicipality(compareMunicipality) || null;
-    return userMunicipality;
-  }, [compareMunicipality, userMunicipality]);
+ // Compare municipality (either from profile or manual selection)
+ const compareWith = useMemo(() => {
+ if (compareMunicipality) return findMunicipality(compareMunicipality) || null;
+ return userMunicipality;
+ }, [compareMunicipality, userMunicipality]);
 
-  const compareTaxResult = useMemo(() => {
-    if (!compareWith) return null;
-    return calculateMunicipalityTaxImpact(salary, exchangeRate, compareWith.irpefAddizionale, compareWith.fascia);
-  }, [compareWith, salary, exchangeRate]);
+ const compareTaxResult = useMemo(() => {
+ if (!compareWith) return null;
+ return calculateMunicipalityTaxImpact(salary, exchangeRate, compareWith.irpefAddizionale, compareWith.fascia);
+ }, [compareWith, salary, exchangeRate]);
 
-  // Cheapest municipality
-  const cheapest = useMemo(() => {
-    if (municipalitiesWithTax.length === 0) return null;
-    return municipalitiesWithTax.reduce((min, m) =>
-      m.taxResult.finalItalianTaxEUR < min.taxResult.finalItalianTaxEUR ? m : min
-    );
-  }, [municipalitiesWithTax]);
+ // Cheapest municipality
+ const cheapest = useMemo(() => {
+ if (municipalitiesWithTax.length === 0) return null;
+ return municipalitiesWithTax.reduce((min, m) =>
+ m.taxResult.finalItalianTaxEUR < min.taxResult.finalItalianTaxEUR ? m : min
+ );
+ }, [municipalitiesWithTax]);
 
-  const toggleSort = useCallback((field: SortField) => {
-    if (sortField === field) setSortDir(d => d === 'asc' ? 'desc' : 'asc');
-    else { setSortField(field); setSortDir('asc'); }
-  }, [sortField]);
+ const toggleSort = useCallback((field: SortField) => {
+ if (sortField === field) setSortDir(d => d === 'asc' ? 'desc' : 'asc');
+ else { setSortField(field); setSortDir('asc'); }
+ }, [sortField]);
 
-  // Color functions
-  const getColor = (m: Municipality): string => {
-    switch (colorMode) {
-      case 'irpef': {
-        if (m.irpefAddizionale <= 0.5) return MAP_COLORS.success;
-        if (m.irpefAddizionale <= 0.65) return MAP_COLORS.warning;
-        return MAP_COLORS.danger;
-      }
-      case 'distance': {
-        if (m.distanceKm <= 5) return MAP_COLORS.success;
-        if (m.distanceKm <= 15) return MAP_COLORS.warning;
-        return MAP_COLORS.danger;
-      }
-      case 'rent': {
-        if (m.avgRentMonthly <= 500) return MAP_COLORS.success;
-        if (m.avgRentMonthly <= 650) return MAP_COLORS.warning;
-        return MAP_COLORS.danger;
-      }
-    }
-  };
+ // Color functions
+ const getColor = (m: Municipality): string => {
+ switch (colorMode) {
+ case 'irpef': {
+ if (m.irpefAddizionale <= 0.5) return MAP_COLORS.success;
+ if (m.irpefAddizionale <= 0.65) return MAP_COLORS.warning;
+ return MAP_COLORS.danger;
+ }
+ case 'distance': {
+ if (m.distanceKm <= 5) return MAP_COLORS.success;
+ if (m.distanceKm <= 15) return MAP_COLORS.warning;
+ return MAP_COLORS.danger;
+ }
+ case 'rent': {
+ if (m.avgRentMonthly <= 500) return MAP_COLORS.success;
+ if (m.avgRentMonthly <= 650) return MAP_COLORS.warning;
+ return MAP_COLORS.danger;
+ }
+ }
+ };
 
-  const getRadius = (m: Municipality): number => {
-    const pop = m.population;
-    if (pop > 50000) return 12;
-    if (pop > 20000) return 9;
-    if (pop > 10000) return 7;
-    return 5;
-  };
+ const getRadius = (m: Municipality): number => {
+ const pop = m.population;
+ if (pop > 50000) return 12;
+ if (pop > 20000) return 9;
+ if (pop > 10000) return 7;
+ return 5;
+ };
 
-  const center: [number, number] = [46.05, 9.20];
+ const center: [number, number] = [46.05, 9.20];
 
-  const formatEUR = (n: number) => Math.round(n).toLocaleString('it-IT');
+ const formatEUR = (n: number) => Math.round(n).toLocaleString('it-IT');
 
-  return (
-    <div className="space-y-4 lg:space-y-6">
+ return (
+ <div className="space-y-4 lg:space-y-6">
 
-      {/* ─── Mobile: compact header + inline filters + map first ── */}
-      <div className="lg:hidden space-y-3">
-        {/* Compact header */}
-        <div className="flex items-center gap-2.5">
-          <div className="p-1.5 bg-teal-100 dark:bg-teal-900/50 rounded-lg">
-            <MapPin className="w-5 h-5 text-teal-600 dark:text-teal-400" />
-          </div>
-          <h2 className="text-lg font-bold text-teal-900 dark:text-teal-100">{t('bordermap.title')}</h2>
-        </div>
+ {/* ─── Mobile: compact header + inline filters + map first ── */}
+ <div className="lg:hidden space-y-3">
+ {/* Compact header */}
+ <div className="flex items-center gap-2.5">
+ <div className="p-1.5 bg-info-subtle rounded-lg">
+ <MapPin className="w-5 h-5 text-info" />
+ </div>
+ <h2 className="text-lg font-bold text-info">{t('bordermap.title')}</h2>
+ </div>
 
-        {/* Inline filter pills + province dropdown */}
-        <div className="flex flex-wrap gap-2 items-center">
-          {([
-            { mode: 'irpef' as const, label: t('bordermap.mode.irpef') },
-            { mode: 'distance' as const, label: t('bordermap.mode.distance') },
-            { mode: 'rent' as const, label: t('bordermap.mode.rent') },
-          ]).map(({ mode, label }) => (
-            <button
-              key={mode}
-              onClick={() => setColorMode(mode)}
-              className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-colors ${
-                colorMode === mode
-                  ? 'bg-teal-600 text-white'
-                  : 'bg-surface-raised text-subtle'
-              }`}
-            >
-              {label}
-            </button>
-          ))}
-          <label htmlFor="province-filter-mobile" className="sr-only">{t('bordermap.allProvinces')}</label>
-          <select
-            id="province-filter-mobile"
-            value={filterProvince}
-            onChange={(e) => setFilterProvince(e.target.value)}
-            className="px-2.5 py-1 rounded-lg text-xs font-bold bg-surface-raised text-subtle border-0"
-          >
-            {provinces.map(p => (
-              <option key={p} value={p}>{p === 'all' ? t('bordermap.allProvinces') : p}</option>
-            ))}
-          </select>
-        </div>
+ {/* Inline filter pills + province dropdown */}
+ <div className="flex flex-wrap gap-2 items-center">
+ {([
+ { mode: 'irpef' as const, label: t('bordermap.mode.irpef') },
+ { mode: 'distance' as const, label: t('bordermap.mode.distance') },
+ { mode: 'rent' as const, label: t('bordermap.mode.rent') },
+ ]).map(({ mode, label }) => (
+ <button
+ key={mode}
+ onClick={() => setColorMode(mode)}
+ className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-colors ${
+ colorMode === mode
+ ? 'bg-teal-600 text-white'
+ : 'bg-surface-raised text-subtle'
+ }`}
+ >
+ {label}
+ </button>
+ ))}
+ <label htmlFor="province-filter-mobile" className="sr-only">{t('bordermap.allProvinces')}</label>
+ <select
+ id="province-filter-mobile"
+ value={filterProvince}
+ onChange={(e) => setFilterProvince(e.target.value)}
+ className="px-2.5 py-1 rounded-lg text-xs font-bold bg-surface-raised text-subtle border-0"
+ >
+ {provinces.map(p => (
+ <option key={p} value={p}>{p === 'all' ? t('bordermap.allProvinces') : p}</option>
+ ))}
+ </select>
+ </div>
 
-        {/* Compact legend */}
-        <div className="flex flex-wrap gap-3 text-xs text-subtle">
-          <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 rounded-full bg-green-500 inline-block" /> {colorMode === 'irpef' ? '≤0.5%' : colorMode === 'distance' ? '≤5km' : '≤€500'}</span>
-          <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 rounded-full bg-yellow-500 inline-block" /> {colorMode === 'irpef' ? '0.5–0.65%' : colorMode === 'distance' ? '5–15km' : '€500–650'}</span>
-          <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 rounded-full bg-red-500 inline-block" /> {colorMode === 'irpef' ? '>0.65%' : colorMode === 'distance' ? '>15km' : '>€650'}</span>
-        </div>
+ {/* Compact legend */}
+ <div className="flex flex-wrap gap-3 text-xs text-subtle">
+ <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 rounded-full bg-green-500 inline-block" /> {colorMode === 'irpef' ? '≤0.5%' : colorMode === 'distance' ? '≤5km' : '≤€500'}</span>
+ <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 rounded-full bg-yellow-500 inline-block" /> {colorMode === 'irpef' ? '0.5–0.65%' : colorMode === 'distance' ? '5–15km' : '€500–650'}</span>
+ <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 rounded-full bg-red-500 inline-block" /> {colorMode === 'irpef' ? '>0.65%' : colorMode === 'distance' ? '>15km' : '>€650'}</span>
+ </div>
 
-        {/* MAP — immediately visible on mobile */}
-        <div className="rounded-xl overflow-hidden border border-edge h-[55vh] min-h-[320px]">
-          <MapContainer center={center} zoom={8} style={{ height: '100%', width: '100%' }} scrollWheelZoom={true}>
-            <TileLayer
-              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
-            {borderCrossings.map((bc, i) => (
-              <CircleMarker
-                key={`bc-${i}`}
-                center={[bc.lat, bc.lng]}
-                radius={4}
-                pathOptions={{ color: MAP_COLORS.primaryStroke, fillColor: MAP_COLORS.primary, fillOpacity: 0.9, weight: 2 }}
-              >
-                <Popup>
-                  <div className="text-xs">
-                    <p className="font-bold">{bc.name}</p>
-                    <p>{bc.type} — {bc.hours}</p>
-                    <p>⏱ AM: {bc.avgWaitMorning}</p>
-                  </div>
-                </Popup>
-              </CircleMarker>
-            ))}
-            {filtered.map((m, i) => (
-              <CircleMarker
-                key={`m-${i}`}
-                center={[m.lat, m.lng]}
-                radius={getRadius(m)}
-                pathOptions={{ color: getColor(m), fillColor: getColor(m), fillOpacity: 0.6, weight: 2 }}
-                eventHandlers={{ click: () => setSelectedMunicipality(m) }}
-              >
-                <Popup>
-                  <div className="text-xs space-y-1 min-w-[180px]">
-                    <p className="font-bold text-sm">{m.name}</p>
-                    <p className="text-muted">{m.province} — {t('bordermap.fascia')} {m.fascia}</p>
-                    <hr />
-                    <p>📊 IRPEF add.: <b>{m.irpefAddizionale}%</b></p>
-                    <p>📏 {t('bordermap.distCrossing')}: <b>{m.distanceKm} km</b></p>
-                    <p>🏠 {t('bordermap.avgRent')}: <b>€{m.avgRentMonthly}/mese</b></p>
-                    <p>👥 {t('bordermap.pop')}: <b>{m.population.toLocaleString('it-IT')}</b></p>
-                  </div>
-                </Popup>
-              </CircleMarker>
-            ))}
-          </MapContainer>
-        </div>
+ {/* MAP — immediately visible on mobile */}
+ <div className="rounded-xl overflow-hidden border border-edge h-[55vh] min-h-[320px]">
+ <MapContainer center={center} zoom={8} style={{ height: '100%', width: '100%' }} scrollWheelZoom={true}>
+ <TileLayer
+ attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+ url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+ />
+ {borderCrossings.map((bc, i) => (
+ <CircleMarker
+ key={`bc-${i}`}
+ center={[bc.lat, bc.lng]}
+ radius={4}
+ pathOptions={{ color: MAP_COLORS.primaryStroke, fillColor: MAP_COLORS.primary, fillOpacity: 0.9, weight: 2 }}
+ >
+ <Popup>
+ <div className="text-xs">
+ <p className="font-bold">{bc.name}</p>
+ <p>{bc.type} — {bc.hours}</p>
+ <p>⏱ AM: {bc.avgWaitMorning}</p>
+ </div>
+ </Popup>
+ </CircleMarker>
+ ))}
+ {filtered.map((m, i) => (
+ <CircleMarker
+ key={`m-${i}`}
+ center={[m.lat, m.lng]}
+ radius={getRadius(m)}
+ pathOptions={{ color: getColor(m), fillColor: getColor(m), fillOpacity: 0.6, weight: 2 }}
+ eventHandlers={{ click: () => setSelectedMunicipality(m) }}
+ >
+ <Popup>
+ <div className="text-xs space-y-1 min-w-[180px]">
+ <p className="font-bold text-sm">{m.name}</p>
+ <p className="text-muted">{m.province} — {t('bordermap.fascia')} {m.fascia}</p>
+ <hr />
+ <p>📊 IRPEF add.: <b>{m.irpefAddizionale}%</b></p>
+ <p>📏 {t('bordermap.distCrossing')}: <b>{m.distanceKm} km</b></p>
+ <p>🏠 {t('bordermap.avgRent')}: <b>€{m.avgRentMonthly}/mese</b></p>
+ <p>👥 {t('bordermap.pop')}: <b>{m.population.toLocaleString('it-IT')}</b></p>
+ </div>
+ </Popup>
+ </CircleMarker>
+ ))}
+ </MapContainer>
+ </div>
 
-        {/* Selected municipality card (mobile) */}
-        {selectedMunicipality && (
-          <div className="bg-surface rounded-xl p-4 border border-edge">
-            <div className="flex items-center justify-between mb-2">
-              <h3 className="text-base font-bold text-strong">{selectedMunicipality.name}</h3>
-              <span className="text-xs px-2 py-0.5 rounded-full bg-teal-100 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 font-bold">
-                {t('bordermap.fascia')} {selectedMunicipality.fascia}
-              </span>
-            </div>
-            <div className="grid grid-cols-2 gap-3 text-center">
-              <div className="p-2 bg-surface-alt rounded-lg">
-                <p className="text-sm text-muted">{t('bordermap.mode.irpef')}</p>
-                <p className="text-lg font-bold text-strong">{selectedMunicipality.irpefAddizionale}%</p>
-              </div>
-              <div className="p-2 bg-surface-alt rounded-lg">
-                <p className="text-sm text-muted">{t('bordermap.distCrossing')}</p>
-                <p className="text-lg font-bold text-strong">{selectedMunicipality.distanceKm} km</p>
-              </div>
-              <div className="p-2 bg-surface-alt rounded-lg">
-                <p className="text-sm text-muted">{t('bordermap.avgRent')}</p>
-                <p className="text-lg font-bold text-strong">€{selectedMunicipality.avgRentMonthly}</p>
-              </div>
-              <div className="p-2 bg-surface-alt rounded-lg">
-                <p className="text-sm text-muted">{t('bordermap.pop')}</p>
-                <p className="text-lg font-bold text-strong">{selectedMunicipality.population.toLocaleString('it-IT')}</p>
-              </div>
-            </div>
-          </div>
-        )}
+ {/* Selected municipality card (mobile) */}
+ {selectedMunicipality && (
+ <div className="bg-surface rounded-xl p-4 border border-edge">
+ <div className="flex items-center justify-between mb-2">
+ <h3 className="text-base font-bold text-strong">{selectedMunicipality.name}</h3>
+ <span className="text-xs px-2 py-0.5 rounded-full bg-info-subtle text-info font-bold">
+ {t('bordermap.fascia')} {selectedMunicipality.fascia}
+ </span>
+ </div>
+ <div className="grid grid-cols-2 gap-3 text-center">
+ <div className="p-2 bg-surface-alt rounded-lg">
+ <p className="text-sm text-muted">{t('bordermap.mode.irpef')}</p>
+ <p className="text-lg font-bold text-strong">{selectedMunicipality.irpefAddizionale}%</p>
+ </div>
+ <div className="p-2 bg-surface-alt rounded-lg">
+ <p className="text-sm text-muted">{t('bordermap.distCrossing')}</p>
+ <p className="text-lg font-bold text-strong">{selectedMunicipality.distanceKm} km</p>
+ </div>
+ <div className="p-2 bg-surface-alt rounded-lg">
+ <p className="text-sm text-muted">{t('bordermap.avgRent')}</p>
+ <p className="text-lg font-bold text-strong">€{selectedMunicipality.avgRentMonthly}</p>
+ </div>
+ <div className="p-2 bg-surface-alt rounded-lg">
+ <p className="text-sm text-muted">{t('bordermap.pop')}</p>
+ <p className="text-lg font-bold text-strong">{selectedMunicipality.population.toLocaleString('it-IT')}</p>
+ </div>
+ </div>
+ </div>
+ )}
 
-        {/* Collapsible settings panel */}
-        <button
-          type="button"
-          onClick={() => setMobileSettingsOpen(v => !v)}
-          className="w-full flex items-center justify-between gap-2 px-4 py-3 rounded-xl bg-accent-subtle border border-accent-border text-sm font-bold text-accent"
-          aria-expanded={mobileSettingsOpen}
-        >
-          <span className="flex items-center gap-2">
-            <SlidersHorizontal className="w-4 h-4" />
-            {t('bordermap.taxImpact')} &amp; {t('bordermap.selectCompare')}
-          </span>
-          {mobileSettingsOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-        </button>
+ {/* Collapsible settings panel */}
+ <button
+ type="button"
+ onClick={() => setMobileSettingsOpen(v => !v)}
+ className="w-full flex items-center justify-between gap-2 px-4 py-3 rounded-xl bg-accent-subtle border border-accent-border text-sm font-bold text-accent"
+ aria-expanded={mobileSettingsOpen}
+ >
+ <span className="flex items-center gap-2">
+ <SlidersHorizontal className="w-4 h-4" />
+ {t('bordermap.taxImpact')} &amp; {t('bordermap.selectCompare')}
+ </span>
+ {mobileSettingsOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+ </button>
 
-        {mobileSettingsOpen && (
-          <div className="space-y-3">
-            {/* Salary input */}
-            <div className="bg-surface rounded-xl p-4 border border-edge">
-              <label htmlFor="salary-input-mobile" className="block text-sm font-bold text-body mb-2">
-                {t('bordermap.salary')}
-              </label>
-              <div className="flex items-center gap-3">
-                <input
-                  type="range"
-                  min={30000}
-                  max={250000}
-                  step={5000}
-                  value={salary}
-                  onChange={e => setSalary(Number(e.target.value))}
-                  className="flex-1 h-2 accent-stripe-600"
-                  aria-label={t('bordermap.salary')}
-                />
-                <div className="flex items-center gap-1.5">
-                  <input
-                    type="number"
-                    inputMode="numeric"
-                    id="salary-input-mobile"
-                    value={salary}
-                    onChange={e => {
-                      const v = Number(e.target.value);
-                      if (v >= 0 && v <= 500000) setSalary(v);
-                    }}
-                    className="w-24 px-2 py-1.5 rounded-lg border border-edge bg-surface-alt text-right font-bold text-strong text-sm"
-                    min={0}
-                    max={500000}
-                    step={1000}
-                  />
-                  <span className="text-xs font-bold text-subtle">CHF</span>
-                </div>
-              </div>
-            </div>
+ {mobileSettingsOpen && (
+ <div className="space-y-3">
+ {/* Salary input */}
+ <div className="bg-surface rounded-xl p-4 border border-edge">
+ <label htmlFor="salary-input-mobile" className="block text-sm font-bold text-body mb-2">
+ {t('bordermap.salary')}
+ </label>
+ <div className="flex items-center gap-3">
+ <input
+ type="range"
+ min={30000}
+ max={250000}
+ step={5000}
+ value={salary}
+ onChange={e => setSalary(Number(e.target.value))}
+ className="flex-1 h-2 accent-stripe-600"
+ aria-label={t('bordermap.salary')}
+ />
+ <div className="flex items-center gap-1.5">
+ <input
+ type="number"
+ inputMode="numeric"
+ id="salary-input-mobile"
+ value={salary}
+ onChange={e => {
+ const v = Number(e.target.value);
+ if (v >= 0 && v <= 500000) setSalary(v);
+ }}
+ className="w-24 px-2 py-1.5 rounded-lg border border-edge bg-surface-alt text-right font-bold text-strong text-sm"
+ min={0}
+ max={500000}
+ step={1000}
+ />
+ <span className="text-xs font-bold text-subtle">CHF</span>
+ </div>
+ </div>
+ </div>
 
-            {/* Comparison */}
-            <div className={`rounded-xl p-4 border ${compareWith && compareTaxResult ? 'bg-accent-subtle border-accent-border' : 'bg-surface-alt/50 border-edge'}`}>
-              <div className="mb-3">
-                <label htmlFor="compare-select-mobile" className="flex items-center gap-2 text-sm font-bold text-subtle mb-2">
-                  <Building2 className="w-4 h-4" />
-                  {t('bordermap.selectCompare')}
-                </label>
-                <select
-                  id="compare-select-mobile"
-                  value={compareMunicipality || compareWith?.name || ''}
-                  onChange={e => setCompareMunicipality(e.target.value)}
-                  className="w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-sm text-body"
-                >
-                  <option value="">—</option>
-                  {MUNICIPALITIES.map(m => (
-                    <option key={m.name} value={m.name}>{m.name} ({m.province})</option>
-                  ))}
-                </select>
-              </div>
-              {compareWith && compareTaxResult && (
-                <>
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="text-sm font-bold text-accent">
-                      {t('bordermap.comparison', { municipality: compareWith.name })}
-                    </span>
-                    {userMunicipality?.name === compareWith.name && (
-                      <span className="text-xs px-2 py-0.5 rounded-full bg-accent-subtle text-accent font-bold">
-                        {t('bordermap.yourMunicipality')}
-                      </span>
-                    )}
-                  </div>
-                  <div className="grid grid-cols-2 gap-3 text-center">
-                    <div className="p-2 bg-surface rounded-lg">
-                      <p className="text-sm text-muted">{t('bordermap.annualTax')}</p>
-                      <p className="text-lg font-bold text-accent">€{formatEUR(compareTaxResult.finalItalianTaxEUR)}</p>
-                    </div>
-                    <div className="p-2 bg-surface rounded-lg">
-                      <p className="text-sm text-muted">{t('bordermap.addComunale')}</p>
-                      <p className="text-lg font-bold text-body">{compareWith.irpefAddizionale}%</p>
-                    </div>
-                    <div className="p-2 bg-surface rounded-lg">
-                      <p className="text-sm text-muted">{t('bordermap.addRegionale')}</p>
-                      <p className="text-lg font-bold text-body">€{formatEUR(compareTaxResult.addizionaleRegionale)}</p>
-                    </div>
-                    <div className="p-2 bg-surface rounded-lg">
-                      <p className="text-sm text-muted">{t('bordermap.fascia')}</p>
-                      <p className="text-lg font-bold text-body">{compareWith.fascia}</p>
-                    </div>
-                  </div>
-                </>
-              )}
-            </div>
+ {/* Comparison */}
+ <div className={`rounded-xl p-4 border ${compareWith && compareTaxResult ? 'bg-accent-subtle border-accent-border' : 'bg-surface-alt/50 border-edge'}`}>
+ <div className="mb-3">
+ <label htmlFor="compare-select-mobile" className="flex items-center gap-2 text-sm font-bold text-subtle mb-2">
+ <Building2 className="w-4 h-4" />
+ {t('bordermap.selectCompare')}
+ </label>
+ <select
+ id="compare-select-mobile"
+ value={compareMunicipality || compareWith?.name || ''}
+ onChange={e => setCompareMunicipality(e.target.value)}
+ className="w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-sm text-body"
+ >
+ <option value="">—</option>
+ {MUNICIPALITIES.map(m => (
+ <option key={m.name} value={m.name}>{m.name} ({m.province})</option>
+ ))}
+ </select>
+ </div>
+ {compareWith && compareTaxResult && (
+ <>
+ <div className="flex items-center gap-2 mb-2">
+ <span className="text-sm font-bold text-accent">
+ {t('bordermap.comparison', { municipality: compareWith.name })}
+ </span>
+ {userMunicipality?.name === compareWith.name && (
+ <span className="text-xs px-2 py-0.5 rounded-full bg-accent-subtle text-accent font-bold">
+ {t('bordermap.yourMunicipality')}
+ </span>
+ )}
+ </div>
+ <div className="grid grid-cols-2 gap-3 text-center">
+ <div className="p-2 bg-surface rounded-lg">
+ <p className="text-sm text-muted">{t('bordermap.annualTax')}</p>
+ <p className="text-lg font-bold text-accent">€{formatEUR(compareTaxResult.finalItalianTaxEUR)}</p>
+ </div>
+ <div className="p-2 bg-surface rounded-lg">
+ <p className="text-sm text-muted">{t('bordermap.addComunale')}</p>
+ <p className="text-lg font-bold text-body">{compareWith.irpefAddizionale}%</p>
+ </div>
+ <div className="p-2 bg-surface rounded-lg">
+ <p className="text-sm text-muted">{t('bordermap.addRegionale')}</p>
+ <p className="text-lg font-bold text-body">€{formatEUR(compareTaxResult.addizionaleRegionale)}</p>
+ </div>
+ <div className="p-2 bg-surface rounded-lg">
+ <p className="text-sm text-muted">{t('bordermap.fascia')}</p>
+ <p className="text-lg font-bold text-body">{compareWith.fascia}</p>
+ </div>
+ </div>
+ </>
+ )}
+ </div>
 
-            {/* Disclaimer */}
-            <div className="bg-warning-subtle rounded-xl p-3 border border-warning-border flex items-start gap-2">
-              <AlertTriangle className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
-              <p className="text-sm text-warning">{t('bordermap.disclaimer')}</p>
-            </div>
-          </div>
-        )}
-      </div>
+ {/* Disclaimer */}
+ <div className="bg-warning-subtle rounded-xl p-3 border border-warning-border flex items-start gap-2">
+ <AlertTriangle className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
+ <p className="text-sm text-warning">{t('bordermap.disclaimer')}</p>
+ </div>
+ </div>
+ )}
+ </div>
 
-      {/* ─── Desktop: original 2-column layout ─────────────────── */}
-      <div className="hidden lg:grid grid-cols-2 gap-6">
-        {/* Left column: settings & info */}
-        <div className="space-y-4">
-          {/* Header */}
-          <div className="bg-gradient-to-br from-teal-50 to-cyan-50 dark:from-teal-950/30 dark:to-cyan-950/30 rounded-2xl p-6 border border-teal-200 dark:border-teal-800">
-            <div className="flex items-center gap-3 mb-2">
-              <div className="p-2 bg-teal-100 dark:bg-teal-900/50 rounded-xl">
-                <MapPin className="w-6 h-6 text-teal-600 dark:text-teal-400" />
-              </div>
-              <h2 className="text-2xl font-bold text-teal-900 dark:text-teal-100">{t('bordermap.title')}</h2>
-            </div>
-            <p className="text-teal-700 dark:text-teal-300 text-sm">{t('bordermap.subtitle')}</p>
-          </div>
+ {/* ─── Desktop: original 2-column layout ─────────────────── */}
+ <div className="hidden lg:grid grid-cols-2 gap-6">
+ {/* Left column: settings & info */}
+ <div className="space-y-4">
+ {/* Header */}
+ <div className="bg-gradient-to-br from-teal-50 to-cyan-50 dark:from-teal-950/30 dark:to-cyan-950/30 rounded-2xl p-6 border border-info-border">
+ <div className="flex items-center gap-3 mb-2">
+ <div className="p-2 bg-info-subtle rounded-xl">
+ <MapPin className="w-6 h-6 text-info" />
+ </div>
+ <h2 className="text-2xl font-bold text-info">{t('bordermap.title')}</h2>
+ </div>
+ <p className="text-info text-sm">{t('bordermap.subtitle')}</p>
+ </div>
 
-          {/* Controls */}
-          <div className="bg-surface rounded-xl p-4 border border-edge flex flex-wrap gap-3 items-center">
-            <div className="flex items-center gap-2">
-              <Filter className="w-4 h-4 text-muted" />
-              <span className="text-sm font-bold text-subtle">{t('bordermap.colorBy')}:</span>
-            </div>
-            {([
-              { mode: 'irpef' as const, label: t('bordermap.mode.irpef') },
-              { mode: 'distance' as const, label: t('bordermap.mode.distance') },
-              { mode: 'rent' as const, label: t('bordermap.mode.rent') },
-            ]).map(({ mode, label }) => (
-              <button
-                key={mode}
-                onClick={() => setColorMode(mode)}
-                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${
-                  colorMode === mode
-                    ? 'bg-teal-600 text-white'
-                    : 'bg-surface-raised text-subtle hover:bg-surface-raised'
-                }`}
-              >
-                {label}
-              </button>
-            ))}
+ {/* Controls */}
+ <div className="bg-surface rounded-xl p-4 border border-edge flex flex-wrap gap-3 items-center">
+ <div className="flex items-center gap-2">
+ <Filter className="w-4 h-4 text-muted" />
+ <span className="text-sm font-bold text-subtle">{t('bordermap.colorBy')}:</span>
+ </div>
+ {([
+ { mode: 'irpef' as const, label: t('bordermap.mode.irpef') },
+ { mode: 'distance' as const, label: t('bordermap.mode.distance') },
+ { mode: 'rent' as const, label: t('bordermap.mode.rent') },
+ ]).map(({ mode, label }) => (
+ <button
+ key={mode}
+ onClick={() => setColorMode(mode)}
+ className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${
+ colorMode === mode
+ ? 'bg-teal-600 text-white'
+ : 'bg-surface-raised text-subtle hover:bg-surface-raised'
+ }`}
+ >
+ {label}
+ </button>
+ ))}
 
-            <span className="text-edge">|</span>
+ <span className="text-edge">|</span>
 
-            <label htmlFor="province-filter" className="sr-only">{t('bordermap.allProvinces')}</label>
-            <select
-              id="province-filter"
-              value={filterProvince}
-              onChange={(e) => setFilterProvince(e.target.value)}
-              className="px-3 py-1.5 rounded-lg text-xs font-bold bg-surface-raised text-subtle border-0"
-            >
-              {provinces.map(p => (
-                <option key={p} value={p}>{p === 'all' ? t('bordermap.allProvinces') : p}</option>
-              ))}
-            </select>
-          </div>
+ <label htmlFor="province-filter" className="sr-only">{t('bordermap.allProvinces')}</label>
+ <select
+ id="province-filter"
+ value={filterProvince}
+ onChange={(e) => setFilterProvince(e.target.value)}
+ className="px-3 py-1.5 rounded-lg text-xs font-bold bg-surface-raised text-subtle border-0"
+ >
+ {provinces.map(p => (
+ <option key={p} value={p}>{p === 'all' ? t('bordermap.allProvinces') : p}</option>
+ ))}
+ </select>
+ </div>
 
-          {/* Legend */}
-          <div className="flex flex-wrap gap-4 text-xs">
-            <div className="flex items-center gap-2">
-              <div className="w-3 h-3 rounded-full bg-green-500" />
-              <span className="text-subtle">
-                {colorMode === 'irpef' ? '≤ 0.5%' : colorMode === 'distance' ? '≤ 5 km' : '≤ €500'}
-              </span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-3 h-3 rounded-full bg-yellow-500" />
-              <span className="text-subtle">
-                {colorMode === 'irpef' ? '0.5–0.65%' : colorMode === 'distance' ? '5–15 km' : '€500–650'}
-              </span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-3 h-3 rounded-full bg-red-500" />
-              <span className="text-subtle">
-                {colorMode === 'irpef' ? '> 0.65%' : colorMode === 'distance' ? '> 15 km' : '> €650'}
-              </span>
-            </div>
-            <div className="flex items-center gap-1 text-muted">
-              <Info className="w-3 h-3" />
-              {t('bordermap.sizeByPop')}
-            </div>
-          </div>
+ {/* Legend */}
+ <div className="flex flex-wrap gap-4 text-xs">
+ <div className="flex items-center gap-2">
+ <div className="w-3 h-3 rounded-full bg-green-500" />
+ <span className="text-subtle">
+ {colorMode === 'irpef' ? '≤ 0.5%' : colorMode === 'distance' ? '≤ 5 km' : '≤ €500'}
+ </span>
+ </div>
+ <div className="flex items-center gap-2">
+ <div className="w-3 h-3 rounded-full bg-yellow-500" />
+ <span className="text-subtle">
+ {colorMode === 'irpef' ? '0.5–0.65%' : colorMode === 'distance' ? '5–15 km' : '€500–650'}
+ </span>
+ </div>
+ <div className="flex items-center gap-2">
+ <div className="w-3 h-3 rounded-full bg-red-500" />
+ <span className="text-subtle">
+ {colorMode === 'irpef' ? '> 0.65%' : colorMode === 'distance' ? '> 15 km' : '> €650'}
+ </span>
+ </div>
+ <div className="flex items-center gap-1 text-muted">
+ <Info className="w-3 h-3" />
+ {t('bordermap.sizeByPop')}
+ </div>
+ </div>
 
-          {/* ─── Tax Impact Section ─────────────────────────────── */}
-          <div className="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-orange-950/30 rounded-2xl p-6 border border-warning-border">
-            <div className="flex items-center gap-3 mb-2">
-              <div className="p-2 bg-warning-subtle rounded-xl">
-                <DollarSign className="w-6 h-6 text-warning" />
-              </div>
-              <h2 className="text-2xl font-bold text-warning">{t('bordermap.taxImpact')}</h2>
-            </div>
-            <p className="text-warning text-sm">{t('bordermap.taxImpactDesc')}</p>
-          </div>
+ {/* ─── Tax Impact Section ─────────────────────────────── */}
+ <div className="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-orange-950/30 rounded-2xl p-6 border border-warning-border">
+ <div className="flex items-center gap-3 mb-2">
+ <div className="p-2 bg-warning-subtle rounded-xl">
+ <DollarSign className="w-6 h-6 text-warning" />
+ </div>
+ <h2 className="text-2xl font-bold text-warning">{t('bordermap.taxImpact')}</h2>
+ </div>
+ <p className="text-warning text-sm">{t('bordermap.taxImpactDesc')}</p>
+ </div>
 
-          {/* Salary input */}
-          <div className="bg-surface rounded-xl p-5 border border-edge">
-            <label htmlFor="salary-input" className="block text-sm font-bold text-body mb-3">
-              {t('bordermap.salary')}
-            </label>
-            <div className="flex items-center gap-4">
-              <input
-                type="range"
-                min={30000}
-                max={250000}
-                step={5000}
-                value={salary}
-                onChange={e => setSalary(Number(e.target.value))}
-                className="flex-1 h-2 accent-stripe-600"
-                aria-label={t('bordermap.salary')}
-              />
-              <div className="flex items-center gap-2">
-                <input
-                  type="number"
-                  inputMode="numeric"
-                  id="salary-input"
-                  value={salary}
-                  onChange={e => {
-                    const v = Number(e.target.value);
-                    if (v >= 0 && v <= 500000) setSalary(v);
-                  }}
-                  className="w-32 px-3 py-2 rounded-lg border border-edge bg-surface-alt text-right font-bold text-strong text-sm"
-                  min={0}
-                  max={500000}
-                  step={1000}
-                />
-                <span className="text-sm font-bold text-subtle">CHF</span>
-              </div>
-            </div>
-            <div className="flex justify-between text-xs text-muted mt-1 px-1">
-              <span>30k</span>
-              <span>100k</span>
-              <span>150k</span>
-              <span>200k</span>
-              <span>250k</span>
-            </div>
-          </div>
+ {/* Salary input */}
+ <div className="bg-surface rounded-xl p-5 border border-edge">
+ <label htmlFor="salary-input" className="block text-sm font-bold text-body mb-3">
+ {t('bordermap.salary')}
+ </label>
+ <div className="flex items-center gap-4">
+ <input
+ type="range"
+ min={30000}
+ max={250000}
+ step={5000}
+ value={salary}
+ onChange={e => setSalary(Number(e.target.value))}
+ className="flex-1 h-2 accent-stripe-600"
+ aria-label={t('bordermap.salary')}
+ />
+ <div className="flex items-center gap-2">
+ <input
+ type="number"
+ inputMode="numeric"
+ id="salary-input"
+ value={salary}
+ onChange={e => {
+ const v = Number(e.target.value);
+ if (v >= 0 && v <= 500000) setSalary(v);
+ }}
+ className="w-32 px-3 py-2 rounded-lg border border-edge bg-surface-alt text-right font-bold text-strong text-sm"
+ min={0}
+ max={500000}
+ step={1000}
+ />
+ <span className="text-sm font-bold text-subtle">CHF</span>
+ </div>
+ </div>
+ <div className="flex justify-between text-xs text-muted mt-1 px-1">
+ <span>30k</span>
+ <span>100k</span>
+ <span>150k</span>
+ <span>200k</span>
+ <span>250k</span>
+ </div>
+ </div>
 
-          {/* Comparison banner */}
-          <div className={`rounded-xl p-4 border ${compareWith && compareTaxResult ? 'bg-accent-subtle border-accent-border' : 'bg-surface-alt/50 border-edge'}`}>
-            <div className="mb-3">
-              <label htmlFor="compare-select" className="flex items-center gap-2 text-sm font-bold text-subtle mb-2">
-                <Building2 className="w-4 h-4" />
-                {t('bordermap.selectCompare')}
-              </label>
-              <select
-                id="compare-select"
-                value={compareMunicipality || compareWith?.name || ''}
-                onChange={e => setCompareMunicipality(e.target.value)}
-                className="w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-sm text-body"
-              >
-                <option value="">—</option>
-                {MUNICIPALITIES.map(m => (
-                  <option key={m.name} value={m.name}>{m.name} ({m.province})</option>
-                ))}
-              </select>
-            </div>
-            {compareWith && compareTaxResult && (
-              <>
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="text-sm font-bold text-accent">
-                    {t('bordermap.comparison', { municipality: compareWith.name })}
-                  </span>
-                  {userMunicipality?.name === compareWith.name && (
-                    <span className="text-xs px-2 py-0.5 rounded-full bg-accent-subtle text-accent font-bold">
-                      {t('bordermap.yourMunicipality')}
-                    </span>
-                  )}
-                </div>
-                <div className="grid grid-cols-2 gap-3 text-center">
-                  <div className="p-2 bg-surface rounded-lg">
-                    <p className="text-sm text-muted">{t('bordermap.annualTax')}</p>
-                    <p className="text-lg font-bold text-accent">€{formatEUR(compareTaxResult.finalItalianTaxEUR)}</p>
-                  </div>
-                  <div className="p-2 bg-surface rounded-lg">
-                    <p className="text-sm text-muted">{t('bordermap.addComunale')}</p>
-                    <p className="text-lg font-bold text-body">{compareWith.irpefAddizionale}%</p>
-                  </div>
-                  <div className="p-2 bg-surface rounded-lg">
-                    <p className="text-sm text-muted">{t('bordermap.addRegionale')}</p>
-                    <p className="text-lg font-bold text-body">€{formatEUR(compareTaxResult.addizionaleRegionale)}</p>
-                  </div>
-                  <div className="p-2 bg-surface rounded-lg">
-                    <p className="text-sm text-muted">{t('bordermap.fascia')}</p>
-                    <p className="text-lg font-bold text-body">{compareWith.fascia}</p>
-                  </div>
-                </div>
-              </>
-            )}
-          </div>
+ {/* Comparison banner */}
+ <div className={`rounded-xl p-4 border ${compareWith && compareTaxResult ? 'bg-accent-subtle border-accent-border' : 'bg-surface-alt/50 border-edge'}`}>
+ <div className="mb-3">
+ <label htmlFor="compare-select" className="flex items-center gap-2 text-sm font-bold text-subtle mb-2">
+ <Building2 className="w-4 h-4" />
+ {t('bordermap.selectCompare')}
+ </label>
+ <select
+ id="compare-select"
+ value={compareMunicipality || compareWith?.name || ''}
+ onChange={e => setCompareMunicipality(e.target.value)}
+ className="w-full px-3 py-2 rounded-lg border border-edge bg-surface-alt text-sm text-body"
+ >
+ <option value="">—</option>
+ {MUNICIPALITIES.map(m => (
+ <option key={m.name} value={m.name}>{m.name} ({m.province})</option>
+ ))}
+ </select>
+ </div>
+ {compareWith && compareTaxResult && (
+ <>
+ <div className="flex items-center gap-2 mb-2">
+ <span className="text-sm font-bold text-accent">
+ {t('bordermap.comparison', { municipality: compareWith.name })}
+ </span>
+ {userMunicipality?.name === compareWith.name && (
+ <span className="text-xs px-2 py-0.5 rounded-full bg-accent-subtle text-accent font-bold">
+ {t('bordermap.yourMunicipality')}
+ </span>
+ )}
+ </div>
+ <div className="grid grid-cols-2 gap-3 text-center">
+ <div className="p-2 bg-surface rounded-lg">
+ <p className="text-sm text-muted">{t('bordermap.annualTax')}</p>
+ <p className="text-lg font-bold text-accent">€{formatEUR(compareTaxResult.finalItalianTaxEUR)}</p>
+ </div>
+ <div className="p-2 bg-surface rounded-lg">
+ <p className="text-sm text-muted">{t('bordermap.addComunale')}</p>
+ <p className="text-lg font-bold text-body">{compareWith.irpefAddizionale}%</p>
+ </div>
+ <div className="p-2 bg-surface rounded-lg">
+ <p className="text-sm text-muted">{t('bordermap.addRegionale')}</p>
+ <p className="text-lg font-bold text-body">€{formatEUR(compareTaxResult.addizionaleRegionale)}</p>
+ </div>
+ <div className="p-2 bg-surface rounded-lg">
+ <p className="text-sm text-muted">{t('bordermap.fascia')}</p>
+ <p className="text-lg font-bold text-body">{compareWith.fascia}</p>
+ </div>
+ </div>
+ </>
+ )}
+ </div>
 
-          {/* Info box */}
-          <div className="bg-warning-subtle rounded-xl p-4 border border-warning-border flex items-start gap-3">
-            <AlertTriangle className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
-            <p className="text-sm text-warning">{t('bordermap.disclaimer')}</p>
-          </div>
-        </div>
+ {/* Info box */}
+ <div className="bg-warning-subtle rounded-xl p-4 border border-warning-border flex items-start gap-3">
+ <AlertTriangle className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
+ <p className="text-sm text-warning">{t('bordermap.disclaimer')}</p>
+ </div>
+ </div>
 
-        {/* Right column: map & selected detail */}
-        <div className="space-y-4">
-          {/* Map */}
-          <div className="rounded-xl overflow-hidden border border-edge h-full min-h-[500px]">
-            <MapContainer center={center} zoom={8} style={{ height: '100%', width: '100%' }} scrollWheelZoom={true}>
-              <TileLayer
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-              />
-              {borderCrossings.map((bc, i) => (
-                <CircleMarker
-                  key={`bc-${i}`}
-                  center={[bc.lat, bc.lng]}
-                  radius={4}
-                  pathOptions={{ color: MAP_COLORS.primaryStroke, fillColor: MAP_COLORS.primary, fillOpacity: 0.9, weight: 2 }}
-                >
-                  <Popup>
-                    <div className="text-xs">
-                      <p className="font-bold">{bc.name}</p>
-                      <p>{bc.type} — {bc.hours}</p>
-                      <p>⏱ AM: {bc.avgWaitMorning}</p>
-                    </div>
-                  </Popup>
-                </CircleMarker>
-              ))}
-              {filtered.map((m, i) => (
-                <CircleMarker
-                  key={`m-${i}`}
-                  center={[m.lat, m.lng]}
-                  radius={getRadius(m)}
-                  pathOptions={{ color: getColor(m), fillColor: getColor(m), fillOpacity: 0.6, weight: 2 }}
-                  eventHandlers={{ click: () => setSelectedMunicipality(m) }}
-                >
-                  <Popup>
-                    <div className="text-xs space-y-1 min-w-[180px]">
-                      <p className="font-bold text-sm">{m.name}</p>
-                      <p className="text-muted">{m.province} — {t('bordermap.fascia')} {m.fascia}</p>
-                      <hr />
-                      <p>📊 IRPEF add.: <b>{m.irpefAddizionale}%</b></p>
-                      <p>📏 {t('bordermap.distCrossing')}: <b>{m.distanceKm} km</b></p>
-                      <p>🏠 {t('bordermap.avgRent')}: <b>€{m.avgRentMonthly}/mese</b></p>
-                      <p>👥 {t('bordermap.pop')}: <b>{m.population.toLocaleString('it-IT')}</b></p>
-                    </div>
-                  </Popup>
-                </CircleMarker>
-              ))}
-            </MapContainer>
-          </div>
+ {/* Right column: map & selected detail */}
+ <div className="space-y-4">
+ {/* Map */}
+ <div className="rounded-xl overflow-hidden border border-edge h-full min-h-[500px]">
+ <MapContainer center={center} zoom={8} style={{ height: '100%', width: '100%' }} scrollWheelZoom={true}>
+ <TileLayer
+ attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+ url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+ />
+ {borderCrossings.map((bc, i) => (
+ <CircleMarker
+ key={`bc-${i}`}
+ center={[bc.lat, bc.lng]}
+ radius={4}
+ pathOptions={{ color: MAP_COLORS.primaryStroke, fillColor: MAP_COLORS.primary, fillOpacity: 0.9, weight: 2 }}
+ >
+ <Popup>
+ <div className="text-xs">
+ <p className="font-bold">{bc.name}</p>
+ <p>{bc.type} — {bc.hours}</p>
+ <p>⏱ AM: {bc.avgWaitMorning}</p>
+ </div>
+ </Popup>
+ </CircleMarker>
+ ))}
+ {filtered.map((m, i) => (
+ <CircleMarker
+ key={`m-${i}`}
+ center={[m.lat, m.lng]}
+ radius={getRadius(m)}
+ pathOptions={{ color: getColor(m), fillColor: getColor(m), fillOpacity: 0.6, weight: 2 }}
+ eventHandlers={{ click: () => setSelectedMunicipality(m) }}
+ >
+ <Popup>
+ <div className="text-xs space-y-1 min-w-[180px]">
+ <p className="font-bold text-sm">{m.name}</p>
+ <p className="text-muted">{m.province} — {t('bordermap.fascia')} {m.fascia}</p>
+ <hr />
+ <p>📊 IRPEF add.: <b>{m.irpefAddizionale}%</b></p>
+ <p>📏 {t('bordermap.distCrossing')}: <b>{m.distanceKm} km</b></p>
+ <p>🏠 {t('bordermap.avgRent')}: <b>€{m.avgRentMonthly}/mese</b></p>
+ <p>👥 {t('bordermap.pop')}: <b>{m.population.toLocaleString('it-IT')}</b></p>
+ </div>
+ </Popup>
+ </CircleMarker>
+ ))}
+ </MapContainer>
+ </div>
 
-          {/* Selected municipality detail card */}
-          {selectedMunicipality && (
-            <div className="bg-surface rounded-xl p-5 border border-edge">
-              <div className="flex items-center justify-between mb-3">
-                <h3 className="text-lg font-bold text-strong">{selectedMunicipality.name}</h3>
-                <span className="text-xs px-2 py-1 rounded-full bg-teal-100 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 font-bold">
-                  {t('bordermap.fascia')} {selectedMunicipality.fascia}
-                </span>
-              </div>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-                <div className="p-3 bg-surface-alt rounded-lg">
-                  <p className="text-sm text-muted">{t('bordermap.mode.irpef')}</p>
-                  <p className="text-xl font-bold text-strong">{selectedMunicipality.irpefAddizionale}%</p>
-                </div>
-                <div className="p-3 bg-surface-alt rounded-lg">
-                  <p className="text-sm text-muted">{t('bordermap.distCrossing')}</p>
-                  <p className="text-xl font-bold text-strong">{selectedMunicipality.distanceKm} km</p>
-                </div>
-                <div className="p-3 bg-surface-alt rounded-lg">
-                  <p className="text-sm text-muted">{t('bordermap.avgRent')}</p>
-                  <p className="text-xl font-bold text-strong">€{selectedMunicipality.avgRentMonthly}</p>
-                </div>
-                <div className="p-3 bg-surface-alt rounded-lg">
-                  <p className="text-sm text-muted">{t('bordermap.pop')}</p>
-                  <p className="text-xl font-bold text-strong">{selectedMunicipality.population.toLocaleString('it-IT')}</p>
-                </div>
-              </div>
-            </div>
-          )}
-        </div>
-      </div>
+ {/* Selected municipality detail card */}
+ {selectedMunicipality && (
+ <div className="bg-surface rounded-xl p-5 border border-edge">
+ <div className="flex items-center justify-between mb-3">
+ <h3 className="text-lg font-bold text-strong">{selectedMunicipality.name}</h3>
+ <span className="text-xs px-2 py-1 rounded-full bg-info-subtle text-info font-bold">
+ {t('bordermap.fascia')} {selectedMunicipality.fascia}
+ </span>
+ </div>
+ <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+ <div className="p-3 bg-surface-alt rounded-lg">
+ <p className="text-sm text-muted">{t('bordermap.mode.irpef')}</p>
+ <p className="text-xl font-bold text-strong">{selectedMunicipality.irpefAddizionale}%</p>
+ </div>
+ <div className="p-3 bg-surface-alt rounded-lg">
+ <p className="text-sm text-muted">{t('bordermap.distCrossing')}</p>
+ <p className="text-xl font-bold text-strong">{selectedMunicipality.distanceKm} km</p>
+ </div>
+ <div className="p-3 bg-surface-alt rounded-lg">
+ <p className="text-sm text-muted">{t('bordermap.avgRent')}</p>
+ <p className="text-xl font-bold text-strong">€{selectedMunicipality.avgRentMonthly}</p>
+ </div>
+ <div className="p-3 bg-surface-alt rounded-lg">
+ <p className="text-sm text-muted">{t('bordermap.pop')}</p>
+ <p className="text-xl font-bold text-strong">{selectedMunicipality.population.toLocaleString('it-IT')}</p>
+ </div>
+ </div>
+ </div>
+ )}
+ </div>
+ </div>
 
-      {/* ─── Bottom section: full-width, 3 columns ───────── */}
+ {/* ─── Bottom section: full-width, 3 columns ───────── */}
 
-      {/* Sort controls + count */}
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <div className="flex items-center gap-2 flex-wrap">
-          <ArrowUpDown className="w-4 h-4 text-muted" />
-          <span className="text-sm font-bold text-subtle">{t('bordermap.sortBy')}:</span>
-          {([
-            { field: 'name' as const, label: t('bordermap.sortName') },
-            { field: 'tax' as const, label: t('bordermap.sortTax') },
-            { field: 'addizionale' as const, label: t('bordermap.sortAddizionale') },
-            { field: 'distance' as const, label: t('bordermap.sortDistance') },
-          ]).map(({ field, label }) => (
-            <button
-              key={field}
-              onClick={() => toggleSort(field)}
-              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors inline-flex items-center gap-1 ${
-                sortField === field
-                  ? 'bg-stripe-600 text-white'
-                  : 'bg-surface-raised text-subtle hover:bg-surface-raised'
-              }`}
-            >
-              {label}
-              {sortField === field && (sortDir === 'asc' ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />)}
-            </button>
-          ))}
-        </div>
-        <span className="text-sm text-muted">{t('bordermap.municipalities', { count: String(sortedMunicipalities.length) })}</span>
-      </div>
+ {/* Sort controls + count */}
+ <div className="flex flex-wrap items-center justify-between gap-3">
+ <div className="flex items-center gap-2 flex-wrap">
+ <ArrowUpDown className="w-4 h-4 text-muted" />
+ <span className="text-sm font-bold text-subtle">{t('bordermap.sortBy')}:</span>
+ {([
+ { field: 'name' as const, label: t('bordermap.sortName') },
+ { field: 'tax' as const, label: t('bordermap.sortTax') },
+ { field: 'addizionale' as const, label: t('bordermap.sortAddizionale') },
+ { field: 'distance' as const, label: t('bordermap.sortDistance') },
+ ]).map(({ field, label }) => (
+ <button
+ key={field}
+ onClick={() => toggleSort(field)}
+ className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors inline-flex items-center gap-1 ${
+ sortField === field
+ ? 'bg-stripe-600 text-white'
+ : 'bg-surface-raised text-subtle hover:bg-surface-raised'
+ }`}
+ >
+ {label}
+ {sortField === field && (sortDir === 'asc' ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />)}
+ </button>
+ ))}
+ </div>
+ <span className="text-sm text-muted">{t('bordermap.municipalities', { count: String(sortedMunicipalities.length) })}</span>
+ </div>
 
-      {/* Municipality cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {sortedMunicipalities.map(m => {
-          const delta = compareTaxResult ? m.taxResult.finalItalianTaxEUR - compareTaxResult.finalItalianTaxEUR : null;
-          const isCheapest = cheapest && m.name === cheapest.name;
-          const isCampione = m.name === "Campione d'Italia";
+ {/* Municipality cards */}
+ <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+ {sortedMunicipalities.map(m => {
+ const delta = compareTaxResult ? m.taxResult.finalItalianTaxEUR - compareTaxResult.finalItalianTaxEUR : null;
+ const isCheapest = cheapest && m.name === cheapest.name;
+ const isCampione = m.name ==="Campione d'Italia";
 
-          return (
-            <div
-              key={m.name}
-              className={`bg-surface rounded-xl p-4 border transition-shadow hover:shadow-md ${
-                isCheapest
-                  ? 'border-green-300 dark:border-green-700 ring-1 ring-green-200 dark:ring-green-800'
-                  : compareWith?.name === m.name
-                    ? 'border-accent-border ring-1 ring-stripe-200 dark:ring-stripe-800'
-                    : 'border-edge'
-              }`}
-            >
-              {/* Card header */}
-              <div className="flex items-start justify-between mb-3">
-                <div>
-                  <h4 className="font-bold text-strong">{m.name}</h4>
-                  <div className="flex items-center gap-2 mt-0.5 flex-wrap">
-                    <span className="text-xs px-1.5 py-0.5 rounded bg-surface-raised text-subtle font-bold">{m.province}</span>
-                    <span className={`text-xs px-1.5 py-0.5 rounded font-bold ${
-                      m.fascia === '2'
-                        ? 'bg-orange-100 dark:bg-orange-900/30 text-warning'
-                        : 'bg-teal-100 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300'
-                    }`}>
-                      {t('bordermap.fascia')} {m.fascia}
-                    </span>
-                    {isCheapest && (
-                      <span className="text-xs px-1.5 py-0.5 rounded bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 font-bold inline-flex items-center gap-0.5">
-                        <Award className="w-3 h-3" /> {t('bordermap.cheapest')}
-                      </span>
-                    )}
-                  </div>
-                </div>
-                <div className="text-right shrink-0">
-                  <p className="text-2xl font-bold text-accent">€{formatEUR(m.taxResult.finalItalianTaxEUR)}</p>
-                  <p className="text-sm text-muted">{t('bordermap.annualTax')}</p>
-                </div>
-              </div>
+ return (
+ <div
+ key={m.name}
+ className={`bg-surface rounded-xl p-4 border transition-shadow hover:shadow-md ${
+ isCheapest
+ ? 'border-success-border ring-1 ring-success-border'
+ : compareWith?.name === m.name
+ ? 'border-accent-border ring-1 ring-accent-border'
+ : 'border-edge'
+ }`}
+ >
+ {/* Card header */}
+ <div className="flex items-start justify-between mb-3">
+ <div>
+ <h4 className="font-bold text-strong">{m.name}</h4>
+ <div className="flex items-center gap-2 mt-0.5 flex-wrap">
+ <span className="text-xs px-1.5 py-0.5 rounded bg-surface-raised text-subtle font-bold">{m.province}</span>
+ <span className={`text-xs px-1.5 py-0.5 rounded font-bold ${
+ m.fascia === '2'
+ ? 'bg-orange-100 dark:bg-orange-900/30 text-warning'
+ : 'bg-info-subtle text-info'
+ }`}>
+ {t('bordermap.fascia')} {m.fascia}
+ </span>
+ {isCheapest && (
+ <span className="text-xs px-1.5 py-0.5 rounded bg-success-subtle text-success font-bold inline-flex items-center gap-0.5">
+ <Award className="w-3 h-3" /> {t('bordermap.cheapest')}
+ </span>
+ )}
+ </div>
+ </div>
+ <div className="text-right shrink-0">
+ <p className="text-2xl font-bold text-accent">€{formatEUR(m.taxResult.finalItalianTaxEUR)}</p>
+ <p className="text-sm text-muted">{t('bordermap.annualTax')}</p>
+ </div>
+ </div>
 
-              {/* Tax details */}
-              <div className="grid grid-cols-2 gap-2 mb-3">
-                <div className="p-2 bg-surface-alt rounded-lg">
-                  <p className="text-sm text-muted">{t('bordermap.addComunale')}</p>
-                  <p className="text-sm font-bold text-body">{m.irpefAddizionale}% <span className="text-xs font-normal text-muted">(€{formatEUR(m.taxResult.addizionaleComunale)})</span></p>
-                </div>
-                <div className="p-2 bg-surface-alt rounded-lg">
-                  <p className="text-sm text-muted">{t('bordermap.addRegionale')}</p>
-                  <p className="text-sm font-bold text-body">€{formatEUR(m.taxResult.addizionaleRegionale)}</p>
-                </div>
-              </div>
+ {/* Tax details */}
+ <div className="grid grid-cols-2 gap-2 mb-3">
+ <div className="p-2 bg-surface-alt rounded-lg">
+ <p className="text-sm text-muted">{t('bordermap.addComunale')}</p>
+ <p className="text-sm font-bold text-body">{m.irpefAddizionale}% <span className="text-xs font-normal text-muted">(€{formatEUR(m.taxResult.addizionaleComunale)})</span></p>
+ </div>
+ <div className="p-2 bg-surface-alt rounded-lg">
+ <p className="text-sm text-muted">{t('bordermap.addRegionale')}</p>
+ <p className="text-sm font-bold text-body">€{formatEUR(m.taxResult.addizionaleRegionale)}</p>
+ </div>
+ </div>
 
-              {/* Extra info row */}
-              <div className="flex items-center gap-4 text-xs text-muted mb-3">
-                <span className="inline-flex items-center gap-1"><Navigation className="w-3 h-3" /> {m.distanceKm} km</span>
-                <span>🏠 €{m.avgRentMonthly}/m</span>
-                <span>👥 {m.population.toLocaleString('it-IT')}</span>
-              </div>
+ {/* Extra info row */}
+ <div className="flex items-center gap-4 text-xs text-muted mb-3">
+ <span className="inline-flex items-center gap-1"><Navigation className="w-3 h-3" /> {m.distanceKm} km</span>
+ <span>🏠 €{m.avgRentMonthly}/m</span>
+ <span>👥 {m.population.toLocaleString('it-IT')}</span>
+ </div>
 
-              {/* Fascia note — franchigia applies to all fascia (Art. 1 c.175 L.147/2013) */}
-              <p className="text-xs text-teal-600 dark:text-teal-400 mb-2">✓ {t('bordermap.withFranchigia', { fascia: m.fascia })}</p>
+ {/* Fascia note — franchigia applies to all fascia (Art. 1 c.175 L.147/2013) */}
+ <p className="text-xs text-info mb-2">✓ {t('bordermap.withFranchigia', { fascia: m.fascia })}</p>
 
-              {/* Campione special note */}
-              {isCampione && (
-                <p className="text-xs text-link italic mb-2">ℹ️ {t('bordermap.campione')}</p>
-              )}
+ {/* Campione special note */}
+ {isCampione && (
+ <p className="text-xs text-link italic mb-2">ℹ️ {t('bordermap.campione')}</p>
+ )}
 
-              {/* Delta vs comparison municipality */}
-              {delta !== null && compareWith?.name !== m.name && (
-                <div className={`flex items-center gap-1 text-sm font-bold rounded-lg px-3 py-2 ${
-                  delta < 0
-                    ? 'bg-green-50 dark:bg-green-950/30 text-green-700 dark:text-green-300'
-                    : delta > 0
-                      ? 'bg-danger-subtle text-danger'
-                      : 'bg-surface-alt text-subtle'
-                }`}>
-                  {delta < 0 ? (
-                    <><TrendingDown className="w-4 h-4" /> {t('bordermap.saving')}: €{formatEUR(Math.abs(delta))}{t('bordermap.perYear')}</>
-                  ) : delta > 0 ? (
-                    <><TrendingUp className="w-4 h-4" /> {t('bordermap.extraCost')}: +€{formatEUR(delta)}{t('bordermap.perYear')}</>
-                  ) : (
-                    <span>=</span>
-                  )}
-                  <span className="text-xs font-normal ml-1">{t('bordermap.vsMunicipality', { name: compareWith?.name || '' })}</span>
-                </div>
-              )}
-              {compareWith?.name === m.name && (
-                <div className="flex items-center gap-1 text-sm font-bold rounded-lg px-3 py-2 bg-accent-subtle text-accent">
-                  <Building2 className="w-4 h-4" /> {t('bordermap.yourMunicipality')}
-                </div>
-              )}
-            </div>
-          );
-        })}
-      </div>
-    </div>
-  );
+ {/* Delta vs comparison municipality */}
+ {delta !== null && compareWith?.name !== m.name && (
+ <div className={`flex items-center gap-1 text-sm font-bold rounded-lg px-3 py-2 ${
+ delta < 0
+ ? 'bg-success-subtle text-success'
+ : delta > 0
+ ? 'bg-danger-subtle text-danger'
+ : 'bg-surface-alt text-subtle'
+ }`}>
+ {delta < 0 ? (
+ <><TrendingDown className="w-4 h-4" /> {t('bordermap.saving')}: €{formatEUR(Math.abs(delta))}{t('bordermap.perYear')}</>
+ ) : delta > 0 ? (
+ <><TrendingUp className="w-4 h-4" /> {t('bordermap.extraCost')}: +€{formatEUR(delta)}{t('bordermap.perYear')}</>
+ ) : (
+ <span>=</span>
+ )}
+ <span className="text-xs font-normal ml-1">{t('bordermap.vsMunicipality', { name: compareWith?.name || '' })}</span>
+ </div>
+ )}
+ {compareWith?.name === m.name && (
+ <div className="flex items-center gap-1 text-sm font-bold rounded-lg px-3 py-2 bg-accent-subtle text-accent">
+ <Building2 className="w-4 h-4" /> {t('bordermap.yourMunicipality')}
+ </div>
+ )}
+ </div>
+ );
+ })}
+ </div>
+ </div>
+ );
 };
 
 export default React.memo(BorderMunicipalitiesMap);

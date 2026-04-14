@@ -5,19 +5,19 @@
  * only need slot + format without the full AdSenseBanner configuration surface.
  *
  * Props:
- *   slot      — AdSense ad slot ID (required)
- *   format    — AdSense ad format (default: 'autorelaxed')
- *   className — optional wrapper className
+ * slot — AdSense ad slot ID (required)
+ * format — AdSense ad format (default: 'autorelaxed')
+ * className — optional wrapper className
  */
 
 import AdSenseBanner from './AdSenseBanner';
 
 interface AdSenseUnitProps {
-  slot: string;
-  format?: string;
-  className?: string;
+ slot: string;
+ format?: string;
+ className?: string;
 }
 
 export default function AdSenseUnit({ slot, format = 'autorelaxed', className }: AdSenseUnitProps) {
-  return <AdSenseBanner adSlot={slot} adFormat={format} className={className} />;
+ return <AdSenseBanner adSlot={slot} adFormat={format} className={className} />;
 }

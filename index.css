@@ -42,6 +42,14 @@ html.dark { color-scheme: dark; }
   /* Accent — subtle background & border */
   --_accent-subtle: #f5f3ff;     /* stripe-50 */
   --_accent-border: #ddd6fe;     /* stripe-200 */
+  /* Info — teal (cross-border tips, informational callouts) */
+  --_info: #0d9488;              /* teal-600 */
+  --_info-subtle: #f0fdfa;       /* teal-50 */
+  --_info-border: #99f6e4;       /* teal-200 */
+  /* Neutral — warm/stone (neutral callout boxes) */
+  --_neutral: #57534e;           /* stone-600 */
+  --_neutral-subtle: #fafaf9;    /* stone-50 */
+  --_neutral-border: #e7e5e4;    /* stone-200 */
   /* Navigation — subtab bar */
   --_tab-active-bg: #ede9fe;
   --_tab-active-text: #4529e6;
@@ -83,6 +91,14 @@ html.dark {
   --_danger-border: #991b1b;     /* red-800 */
   --_accent-subtle: rgba(46, 26, 158, 0.15);    /* stripe-900/15 */
   --_accent-border: #3b1fc7;     /* stripe-800 */
+  /* Info — teal */
+  --_info: #2dd4bf;              /* teal-400 */
+  --_info-subtle: rgba(13, 148, 136, 0.15);
+  --_info-border: #115e59;       /* teal-800 */
+  /* Neutral — warm/stone */
+  --_neutral: #a8a29e;           /* stone-400 */
+  --_neutral-subtle: rgba(87, 83, 78, 0.15);
+  --_neutral-border: #44403c;    /* stone-800 */
   /* Navigation — subtab bar */
   --_tab-active-bg: rgba(46, 26, 158, 0.3);
   --_tab-active-text: #c4b5fd;
@@ -302,6 +318,12 @@ input[type=number] { -moz-appearance: textfield; }
   --color-danger-border: var(--_danger-border);
   --color-accent-subtle: var(--_accent-subtle);
   --color-accent-border: var(--_accent-border);
+  --color-info: var(--_info);
+  --color-info-subtle: var(--_info-subtle);
+  --color-info-border: var(--_info-border);
+  --color-neutral: var(--_neutral);
+  --color-neutral-subtle: var(--_neutral-subtle);
+  --color-neutral-border: var(--_neutral-border);
 
   /* Navigation — subtab bar */
   --color-tab-active-bg: var(--_tab-active-bg);

@@ -7,484 +7,484 @@ import { Analytics } from '@/services/analytics';
 import { useTranslation } from '@/services/i18n';
 
 interface Pillar3Inputs {
-  type: '3a' | '3b';
-  annualContribution: number;
-  currentCapital: number;
-  expectedReturn: number;
-  projectionYears: number;
-  marginalTaxRate: number;
-  age: number;
+ type: '3a' | '3b';
+ annualContribution: number;
+ currentCapital: number;
+ expectedReturn: number;
+ projectionYears: number;
+ marginalTaxRate: number;
+ age: number;
 }
 
 const MAX_3A_2026 = 7258; // Max per dipendenti con 2° pilastro
 const MAX_3A_NO_LPP = 36288; // Max per autonomi senza 2° pilastro
 
 const Pillar3Simulator: React.FC = () => {
-  const { t } = useTranslation();
-  const [isDark, setIsDark] = useState(() => document.documentElement.classList.contains('dark'));
-  useEffect(() => {
-    const obs = new MutationObserver(() => setIsDark(document.documentElement.classList.contains('dark')));
-    obs.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
-    return () => obs.disconnect();
-  }, []);
-  const [inputs, setInputs] = useState<Pillar3Inputs>({
-    type: '3a',
-    annualContribution: 7258,
-    currentCapital: 0,
-    expectedReturn: 2.0,
-    projectionYears: 20,
-    marginalTaxRate: 35,
-    age: 35,
-  });
+ const { t } = useTranslation();
+ const [isDark, setIsDark] = useState(() => document.documentElement.classList.contains('dark'));
+ useEffect(() => {
+ const obs = new MutationObserver(() => setIsDark(document.documentElement.classList.contains('dark')));
+ obs.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+ return () => obs.disconnect();
+ }, []);
+ const [inputs, setInputs] = useState<Pillar3Inputs>({
+ type: '3a',
+ annualContribution: 7258,
+ currentCapital: 0,
+ expectedReturn: 2.0,
+ projectionYears: 20,
+ marginalTaxRate: 35,
+ age: 35,
+ });
 
-  const handleChange = (field: keyof Pillar3Inputs, value: any) => {
-    setInputs(prev => ({ ...prev, [field]: value }));
-    Analytics.trackPillar3('change_param', field, value);
-  };
+ const handleChange = (field: keyof Pillar3Inputs, value: any) => {
+ setInputs(prev => ({ ...prev, [field]: value }));
+ Analytics.trackPillar3('change_param', field, value);
+ };
 
-  const results = useMemo(() => {
-    const { annualContribution, currentCapital, expectedReturn, projectionYears, marginalTaxRate } = inputs;
-    const rate = expectedReturn / 100;
-    
-    const projections: Array<{ year: number; withPillar: number; withoutPillar: number; taxSaved: number; age: number }> = [];
-    
-    let capitalWithPillar = currentCapital;
-    let capitalWithoutPillar = currentCapital;
-    let totalTaxSaved = 0;
-    
-    for (let y = 0; y <= projectionYears; y++) {
-      const annualTaxSaving = inputs.type === '3a' ? annualContribution * (marginalTaxRate / 100) : 0;
-      totalTaxSaved += y > 0 ? annualTaxSaving : 0;
-      
-      projections.push({
-        year: y,
-        withPillar: Math.round(capitalWithPillar),
-        withoutPillar: Math.round(capitalWithoutPillar),
-        taxSaved: Math.round(totalTaxSaved),
-        age: inputs.age + y,
-      });
-      
-      capitalWithPillar = (capitalWithPillar + annualContribution) * (1 + rate);
-      capitalWithoutPillar = (capitalWithoutPillar + annualContribution) * (1 + (rate * 0.7)); // Without tax advantage, lower effective return
-    }
+ const results = useMemo(() => {
+ const { annualContribution, currentCapital, expectedReturn, projectionYears, marginalTaxRate } = inputs;
+ const rate = expectedReturn / 100;
+ 
+ const projections: Array<{ year: number; withPillar: number; withoutPillar: number; taxSaved: number; age: number }> = [];
+ 
+ let capitalWithPillar = currentCapital;
+ let capitalWithoutPillar = currentCapital;
+ let totalTaxSaved = 0;
+ 
+ for (let y = 0; y <= projectionYears; y++) {
+ const annualTaxSaving = inputs.type === '3a' ? annualContribution * (marginalTaxRate / 100) : 0;
+ totalTaxSaved += y > 0 ? annualTaxSaving : 0;
+ 
+ projections.push({
+ year: y,
+ withPillar: Math.round(capitalWithPillar),
+ withoutPillar: Math.round(capitalWithoutPillar),
+ taxSaved: Math.round(totalTaxSaved),
+ age: inputs.age + y,
+ });
+ 
+ capitalWithPillar = (capitalWithPillar + annualContribution) * (1 + rate);
+ capitalWithoutPillar = (capitalWithoutPillar + annualContribution) * (1 + (rate * 0.7)); // Without tax advantage, lower effective return
+ }
 
-    const totalContributed = currentCapital + annualContribution * projectionYears;
-    const totalGains = capitalWithPillar - totalContributed;
-    const annualTaxSaving = inputs.type === '3a' ? annualContribution * (marginalTaxRate / 100) : 0;
+ const totalContributed = currentCapital + annualContribution * projectionYears;
+ const totalGains = capitalWithPillar - totalContributed;
+ const annualTaxSaving = inputs.type === '3a' ? annualContribution * (marginalTaxRate / 100) : 0;
 
-    // Withdrawal tax (rough estimate: 5-8% for 3a)
-    const withdrawalTaxRate = inputs.type === '3a' ? 0.06 : 0;
-    const withdrawalTax = capitalWithPillar * withdrawalTaxRate;
-    const netAfterWithdrawal = capitalWithPillar - withdrawalTax;
+ // Withdrawal tax (rough estimate: 5-8% for 3a)
+ const withdrawalTaxRate = inputs.type === '3a' ? 0.06 : 0;
+ const withdrawalTax = capitalWithPillar * withdrawalTaxRate;
+ const netAfterWithdrawal = capitalWithPillar - withdrawalTax;
 
-    return {
-      projections,
-      finalCapital: Math.round(capitalWithPillar),
-      totalContributed: Math.round(totalContributed),
-      totalGains: Math.round(totalGains),
-      annualTaxSaving: Math.round(annualTaxSaving),
-      totalTaxSaved: Math.round(totalTaxSaved),
-      withdrawalTax: Math.round(withdrawalTax),
-      netAfterWithdrawal: Math.round(netAfterWithdrawal),
-    };
-  }, [inputs]);
+ return {
+ projections,
+ finalCapital: Math.round(capitalWithPillar),
+ totalContributed: Math.round(totalContributed),
+ totalGains: Math.round(totalGains),
+ annualTaxSaving: Math.round(annualTaxSaving),
+ totalTaxSaved: Math.round(totalTaxSaved),
+ withdrawalTax: Math.round(withdrawalTax),
+ netAfterWithdrawal: Math.round(netAfterWithdrawal),
+ };
+ }, [inputs]);
 
-  return (
-    <div className="space-y-6 animate-fade-in">
-      {/* Header */}
-      <div className="bg-warning-subtle/80 rounded-2xl p-5 sm:p-8 border border-warning-border">
-        <div className="flex items-center gap-4 mb-4">
-          <Landmark size={32} className="text-success" />
-          <div>
-            <h1 className="text-2xl sm:text-3xl font-extrabold text-stone-800 dark:text-stone-100">{t('pillar3.title')}</h1>
-            <p className="text-stone-500 dark:text-stone-400 mt-1">{t('pillar3.subtitle')}</p>
-          </div>
-        </div>
-      </div>
+ return (
+ <div className="space-y-6 animate-fade-in">
+ {/* Header */}
+ <div className="bg-warning-subtle/80 rounded-2xl p-5 sm:p-8 border border-warning-border">
+ <div className="flex items-center gap-4 mb-4">
+ <Landmark size={32} className="text-success" />
+ <div>
+ <h1 className="text-2xl sm:text-3xl font-extrabold text-stone-800 dark:text-stone-100">{t('pillar3.title')}</h1>
+ <p className="text-stone-500 dark:text-stone-400 mt-1">{t('pillar3.subtitle')}</p>
+ </div>
+ </div>
+ </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Inputs */}
-        <div className="space-y-4">
-          {/* Type Selection */}
-          <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm">
-            <h3 className="text-lg font-bold text-strong mb-4 flex items-center gap-2">
-              <Shield size={20} className="text-teal-600" />
-              {t('pillar3.pillarType')}
-            </h3>
-            
-            <div className="space-y-3">
-              <button
-                onClick={() => { handleChange('type', '3a'); handleChange('annualContribution', MAX_3A_2026); }}
-                className={`w-full p-4 rounded-xl border-2 text-left transition-colors ${
-                  inputs.type === '3a' ? 'border-teal-500 bg-teal-50 dark:bg-teal-900/20' : 'border-edge hover:border-slate-300'
-                }`}
-              >
-                <div className="font-bold text-strong">🏛️ {t('pillar3.type3a')}</div>
-                <div className="text-xs text-muted mt-1">
-                  {t('pillar3.type3aDesc')}
-                </div>
-              </button>
-              
-              <button
-                onClick={() => handleChange('type', '3b')}
-                className={`w-full p-4 rounded-xl border-2 text-left transition-colors ${
-                  inputs.type === '3b' ? 'border-teal-500 bg-teal-50 dark:bg-teal-900/20' : 'border-edge hover:border-slate-300'
-                }`}
-              >
-                <div className="font-bold text-strong">💰 {t('pillar3.type3b')}</div>
-                <div className="text-xs text-muted mt-1">
-                  {t('pillar3.type3bDesc')}
-                </div>
-              </button>
-            </div>
-          </div>
+ <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+ {/* Inputs */}
+ <div className="space-y-4">
+ {/* Type Selection */}
+ <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm">
+ <h3 className="text-lg font-bold text-strong mb-4 flex items-center gap-2">
+ <Shield size={20} className="text-teal-600" />
+ {t('pillar3.pillarType')}
+ </h3>
+ 
+ <div className="space-y-3">
+ <button
+ onClick={() => { handleChange('type', '3a'); handleChange('annualContribution', MAX_3A_2026); }}
+ className={`w-full p-4 rounded-xl border-2 text-left transition-colors ${
+ inputs.type === '3a' ? 'border-teal-500 bg-info-subtle' : 'border-edge hover:border-slate-300'
+ }`}
+ >
+ <div className="font-bold text-strong">🏛️ {t('pillar3.type3a')}</div>
+ <div className="text-xs text-muted mt-1">
+ {t('pillar3.type3aDesc')}
+ </div>
+ </button>
+ 
+ <button
+ onClick={() => handleChange('type', '3b')}
+ className={`w-full p-4 rounded-xl border-2 text-left transition-colors ${
+ inputs.type === '3b' ? 'border-teal-500 bg-info-subtle' : 'border-edge hover:border-slate-300'
+ }`}
+ >
+ <div className="font-bold text-strong">💰 {t('pillar3.type3b')}</div>
+ <div className="text-xs text-muted mt-1">
+ {t('pillar3.type3bDesc')}
+ </div>
+ </button>
+ </div>
+ </div>
 
-          {/* Parameters */}
-          <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm space-y-4">
-            <h3 className="text-lg font-bold text-strong flex items-center gap-2">
-              <Calculator size={20} className="text-teal-600" />
-              {t('pillar3.parameters')}
-            </h3>
+ {/* Parameters */}
+ <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm space-y-4">
+ <h3 className="text-lg font-bold text-strong flex items-center gap-2">
+ <Calculator size={20} className="text-teal-600" />
+ {t('pillar3.parameters')}
+ </h3>
 
-            <div>
-              <label htmlFor="p3-contribution" className="text-xs font-bold text-muted uppercase mb-1 block">{t('pillar3.annualContribution')}</label>
-              <input id="p3-contribution" type="number" inputMode="numeric" value={inputs.annualContribution}
-                onChange={(e) => handleChange('annualContribution', Math.min(Number(e.target.value), inputs.type === '3a' ? MAX_3A_2026 : 100000))}
-                className="w-full px-4 py-2.5 bg-surface-alt border border-edge rounded-lg font-bold focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500"
-                max={inputs.type === '3a' ? MAX_3A_2026 : 100000} min={0} step={100} />
-              {inputs.type === '3a' && <p className="text-xs text-teal-600 mt-1">Max 2026: CHF {MAX_3A_2026.toLocaleString('it-IT')}</p>}
-            </div>
+ <div>
+ <label htmlFor="p3-contribution" className="text-xs font-bold text-muted uppercase mb-1 block">{t('pillar3.annualContribution')}</label>
+ <input id="p3-contribution" type="number" inputMode="numeric" value={inputs.annualContribution}
+ onChange={(e) => handleChange('annualContribution', Math.min(Number(e.target.value), inputs.type === '3a' ? MAX_3A_2026 : 100000))}
+ className="w-full px-4 py-2.5 bg-surface-alt border border-edge rounded-lg font-bold focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500"
+ max={inputs.type === '3a' ? MAX_3A_2026 : 100000} min={0} step={100} />
+ {inputs.type === '3a' && <p className="text-xs text-teal-600 mt-1">Max 2026: CHF {MAX_3A_2026.toLocaleString('it-IT')}</p>}
+ </div>
 
-            <div>
-              <label htmlFor="p3-capital" className="text-xs font-bold text-muted uppercase mb-1 block">{t('pillar3.currentCapital')}</label>
-              <input id="p3-capital" type="number" inputMode="numeric" value={inputs.currentCapital}
-                onChange={(e) => handleChange('currentCapital', Number(e.target.value))}
-                className="w-full px-4 py-2.5 bg-surface-alt border border-edge rounded-lg font-bold focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500"
-                min={0} step={1000} />
-            </div>
+ <div>
+ <label htmlFor="p3-capital" className="text-xs font-bold text-muted uppercase mb-1 block">{t('pillar3.currentCapital')}</label>
+ <input id="p3-capital" type="number" inputMode="numeric" value={inputs.currentCapital}
+ onChange={(e) => handleChange('currentCapital', Number(e.target.value))}
+ className="w-full px-4 py-2.5 bg-surface-alt border border-edge rounded-lg font-bold focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500"
+ min={0} step={1000} />
+ </div>
 
-            <div>
-              <label htmlFor="p3-return" className="text-xs font-bold text-muted uppercase mb-1 flex items-center gap-2">
-                {t('pillar3.expectedReturn')}
-              </label>
-              <input id="p3-return" type="range" min={0} max={6} step={0.25} value={inputs.expectedReturn}
-                onChange={(e) => handleChange('expectedReturn', Number(e.target.value))}
-                className="w-full accent-teal-600" />
-              <div className="text-center font-bold text-teal-600">{inputs.expectedReturn}%</div>
-            </div>
+ <div>
+ <label htmlFor="p3-return" className="text-xs font-bold text-muted uppercase mb-1 flex items-center gap-2">
+ {t('pillar3.expectedReturn')}
+ </label>
+ <input id="p3-return" type="range" min={0} max={6} step={0.25} value={inputs.expectedReturn}
+ onChange={(e) => handleChange('expectedReturn', Number(e.target.value))}
+ className="w-full accent-teal-600" />
+ <div className="text-center font-bold text-teal-600">{inputs.expectedReturn}%</div>
+ </div>
 
-            <div>
-              <label htmlFor="p3-years" className="text-xs font-bold text-muted uppercase mb-1 block">{t('pillar3.projectionYears')}</label>
-              <input id="p3-years" type="range" min={5} max={40} step={5} value={inputs.projectionYears}
-                onChange={(e) => handleChange('projectionYears', Number(e.target.value))}
-                className="w-full accent-teal-600" />
-              <div className="flex justify-between text-xs text-muted">
-                <span>5</span>
-                <span className="font-bold text-teal-600 text-base">{inputs.projectionYears} {t('pillar3.years')}</span>
-                <span>40</span>
-              </div>
-            </div>
+ <div>
+ <label htmlFor="p3-years" className="text-xs font-bold text-muted uppercase mb-1 block">{t('pillar3.projectionYears')}</label>
+ <input id="p3-years" type="range" min={5} max={40} step={5} value={inputs.projectionYears}
+ onChange={(e) => handleChange('projectionYears', Number(e.target.value))}
+ className="w-full accent-teal-600" />
+ <div className="flex justify-between text-xs text-muted">
+ <span>5</span>
+ <span className="font-bold text-teal-600 text-base">{inputs.projectionYears} {t('pillar3.years')}</span>
+ <span>40</span>
+ </div>
+ </div>
 
-            <div>
-              <label htmlFor="p3-tax-rate" className="text-xs font-bold text-muted uppercase mb-1 block">{t('pillar3.marginalRate')}</label>
-              <input id="p3-tax-rate" type="range" min={10} max={50} step={1} value={inputs.marginalTaxRate}
-                onChange={(e) => handleChange('marginalTaxRate', Number(e.target.value))}
-                className="w-full accent-teal-600" />
-              <div className="text-center font-bold text-teal-600">{inputs.marginalTaxRate}%</div>
-            </div>
+ <div>
+ <label htmlFor="p3-tax-rate" className="text-xs font-bold text-muted uppercase mb-1 block">{t('pillar3.marginalRate')}</label>
+ <input id="p3-tax-rate" type="range" min={10} max={50} step={1} value={inputs.marginalTaxRate}
+ onChange={(e) => handleChange('marginalTaxRate', Number(e.target.value))}
+ className="w-full accent-teal-600" />
+ <div className="text-center font-bold text-teal-600">{inputs.marginalTaxRate}%</div>
+ </div>
 
-            <div>
-              <label htmlFor="p3-age" className="text-xs font-bold text-muted uppercase mb-1 block">{t('pillar3.currentAge')}</label>
-              <input id="p3-age" type="number" inputMode="numeric" value={inputs.age}
-                onChange={(e) => handleChange('age', Number(e.target.value))}
-                className="w-full px-4 py-2.5 bg-surface-alt border border-edge rounded-lg font-bold focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500"
-                min={18} max={65} />
-            </div>
-          </div>
-        </div>
+ <div>
+ <label htmlFor="p3-age" className="text-xs font-bold text-muted uppercase mb-1 block">{t('pillar3.currentAge')}</label>
+ <input id="p3-age" type="number" inputMode="numeric" value={inputs.age}
+ onChange={(e) => handleChange('age', Number(e.target.value))}
+ className="w-full px-4 py-2.5 bg-surface-alt border border-edge rounded-lg font-bold focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500"
+ min={18} max={65} />
+ </div>
+ </div>
+ </div>
 
-        {/* Results */}
-        <div className="lg:col-span-2 space-y-4">
-          {/* Summary Cards */}
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
-            <div><span className="text-muted">{t('pillar3.finalCapital')}:</span>{' '}<span className="font-semibold text-teal-700 dark:text-teal-400">CHF {results.finalCapital.toLocaleString('it-IT')}</span>{' '}<span className="text-muted">{t('pillar3.inYears', { years: inputs.projectionYears })}</span></div>
+ {/* Results */}
+ <div className="lg:col-span-2 space-y-4">
+ {/* Summary Cards */}
+ <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
+ <div><span className="text-muted">{t('pillar3.finalCapital')}:</span>{' '}<span className="font-semibold text-info">CHF {results.finalCapital.toLocaleString('it-IT')}</span>{' '}<span className="text-muted">{t('pillar3.inYears', { years: inputs.projectionYears })}</span></div>
 
-            {inputs.type === '3a' && (
-              <div><span className="text-muted">{t('pillar3.annualTaxSaving')}:</span>{' '}<span className="font-semibold text-warning">CHF {results.annualTaxSaving.toLocaleString('it-IT')}</span>{' '}<span className="text-muted">({t('pillar3.total')}: CHF {results.totalTaxSaved.toLocaleString('it-IT')})</span></div>
-            )}
+ {inputs.type === '3a' && (
+ <div><span className="text-muted">{t('pillar3.annualTaxSaving')}:</span>{' '}<span className="font-semibold text-warning">CHF {results.annualTaxSaving.toLocaleString('it-IT')}</span>{' '}<span className="text-muted">({t('pillar3.total')}: CHF {results.totalTaxSaved.toLocaleString('it-IT')})</span></div>
+ )}
 
-            <div><span className="text-muted">{t('pillar3.totalReturn')}:</span>{' '}<span className="font-semibold text-success">CHF {results.totalGains.toLocaleString('it-IT')}</span>{' '}<span className="text-muted">({t('pillar3.invested')}: CHF {results.totalContributed.toLocaleString('it-IT')})</span></div>
-          </div>
+ <div><span className="text-muted">{t('pillar3.totalReturn')}:</span>{' '}<span className="font-semibold text-success">CHF {results.totalGains.toLocaleString('it-IT')}</span>{' '}<span className="text-muted">({t('pillar3.invested')}: CHF {results.totalContributed.toLocaleString('it-IT')})</span></div>
+ </div>
 
-          {/* Chart */}
-          <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm">
-            <h3 className="text-lg font-bold text-strong mb-4 flex items-center gap-2">
-              <TrendingUp size={20} className="text-teal-600" />
-              {t('pillar3.growthProjection')}
-            </h3>
-            <ResponsiveContainer width="100%" height={350}>
-              <AreaChart data={results.projections}>
-                <defs>
-                  <linearGradient id="colorPillar" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#14b8a6" stopOpacity={0.3}/>
-                    <stop offset="95%" stopColor="#14b8a6" stopOpacity={0}/>
-                  </linearGradient>
-                  <linearGradient id="colorTax" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#f59e0b" stopOpacity={0.3}/>
-                    <stop offset="95%" stopColor="#f59e0b" stopOpacity={0}/>
-                  </linearGradient>
-                </defs>
-                <CartesianGrid strokeDasharray="3 3" stroke={isDark ? '#334155' : '#e2e8f0'} opacity={0.3} />
-                <XAxis dataKey="age" tick={{ fontSize: 12, fill: isDark ? '#94a3b8' : '#64748b' }} label={{ value: t('pillar3.age'), position: 'insideBottom', offset: -5, fill: isDark ? '#94a3b8' : '#64748b' }} />
-                <YAxis tick={{ fontSize: 12, fill: isDark ? '#94a3b8' : '#64748b' }} tickFormatter={(v) => `${(v / 1000).toFixed(0)}k`} />
-                <Tooltip formatter={(value: number) => [`CHF ${value.toLocaleString('it-IT')}`, '']} labelFormatter={(label) => `${t('pillar3.age')}: ${label}`} contentStyle={{ borderRadius: '12px', backgroundColor: isDark ? '#1e293b' : '#ffffff', color: isDark ? '#e2e8f0' : '#1e293b', border: 'none' }} />
-                <Legend />
-                <Area type="monotone" dataKey="withPillar" name={t('pillar3.capitalPillar3')} stroke="#14b8a6" fill="url(#colorPillar)" strokeWidth={2} />
-                {inputs.type === '3a' && (
-                  <Area type="monotone" dataKey="taxSaved" name={t('pillar3.cumulativeTaxSaving')} stroke="#f59e0b" fill="url(#colorTax)" strokeWidth={2} />
-                )}
-              </AreaChart>
-            </ResponsiveContainer>
-          </div>
+ {/* Chart */}
+ <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm">
+ <h3 className="text-lg font-bold text-strong mb-4 flex items-center gap-2">
+ <TrendingUp size={20} className="text-teal-600" />
+ {t('pillar3.growthProjection')}
+ </h3>
+ <ResponsiveContainer width="100%" height={350}>
+ <AreaChart data={results.projections}>
+ <defs>
+ <linearGradient id="colorPillar" x1="0" y1="0" x2="0" y2="1">
+ <stop offset="5%" stopColor="#14b8a6" stopOpacity={0.3}/>
+ <stop offset="95%" stopColor="#14b8a6" stopOpacity={0}/>
+ </linearGradient>
+ <linearGradient id="colorTax" x1="0" y1="0" x2="0" y2="1">
+ <stop offset="5%" stopColor="#f59e0b" stopOpacity={0.3}/>
+ <stop offset="95%" stopColor="#f59e0b" stopOpacity={0}/>
+ </linearGradient>
+ </defs>
+ <CartesianGrid strokeDasharray="3 3" stroke={isDark ? '#334155' : '#e2e8f0'} opacity={0.3} />
+ <XAxis dataKey="age" tick={{ fontSize: 12, fill: isDark ? '#94a3b8' : '#64748b' }} label={{ value: t('pillar3.age'), position: 'insideBottom', offset: -5, fill: isDark ? '#94a3b8' : '#64748b' }} />
+ <YAxis tick={{ fontSize: 12, fill: isDark ? '#94a3b8' : '#64748b' }} tickFormatter={(v) => `${(v / 1000).toFixed(0)}k`} />
+ <Tooltip formatter={(value: number) => [`CHF ${value.toLocaleString('it-IT')}`, '']} labelFormatter={(label) => `${t('pillar3.age')}: ${label}`} contentStyle={{ borderRadius: '12px', backgroundColor: isDark ? '#1e293b' : '#ffffff', color: isDark ? '#e2e8f0' : '#1e293b', border: 'none' }} />
+ <Legend />
+ <Area type="monotone" dataKey="withPillar" name={t('pillar3.capitalPillar3')} stroke="#14b8a6" fill="url(#colorPillar)" strokeWidth={2} />
+ {inputs.type === '3a' && (
+ <Area type="monotone" dataKey="taxSaved" name={t('pillar3.cumulativeTaxSaving')} stroke="#f59e0b" fill="url(#colorTax)" strokeWidth={2} />
+ )}
+ </AreaChart>
+ </ResponsiveContainer>
+ </div>
 
-          {/* Withdrawal Info */}
-          {inputs.type === '3a' && (
-            <div className="bg-warning-subtle rounded-2xl border border-warning-border p-6">
-              <div className="flex items-start gap-3">
-                <AlertCircle size={20} className="text-amber-600 flex-shrink-0 mt-0.5" />
-                <div>
-                  <h4 className="font-bold text-strong mb-2">{t('pillar3.withdrawalTitle')}</h4>
-                  <div className="space-y-2 text-sm text-subtle">
-                    <p>{t('pillar3.withdrawalDesc')}</p>
-                    <div className="grid grid-cols-2 gap-3 mt-3">
-                      <div className="p-3 bg-surface rounded-lg">
-                        <div className="text-xs text-muted">{t('pillar3.estimatedWithdrawalTax')}</div>
-                        <div className="font-bold text-red-600">CHF {results.withdrawalTax.toLocaleString('it-IT')}</div>
-                      </div>
-                      <div className="p-3 bg-surface rounded-lg">
-                        <div className="text-xs text-muted">{t('pillar3.netAfterTax')}</div>
-                        <div className="font-bold text-emerald-700">CHF {results.netAfterWithdrawal.toLocaleString('it-IT')}</div>
-                      </div>
-                    </div>
-                    <p className="text-xs mt-2">
-                      <strong>{t('pillar3.withdrawalAdvice')}</strong>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
+ {/* Withdrawal Info */}
+ {inputs.type === '3a' && (
+ <div className="bg-warning-subtle rounded-2xl border border-warning-border p-6">
+ <div className="flex items-start gap-3">
+ <AlertCircle size={20} className="text-amber-600 flex-shrink-0 mt-0.5" />
+ <div>
+ <h4 className="font-bold text-strong mb-2">{t('pillar3.withdrawalTitle')}</h4>
+ <div className="space-y-2 text-sm text-subtle">
+ <p>{t('pillar3.withdrawalDesc')}</p>
+ <div className="grid grid-cols-2 gap-3 mt-3">
+ <div className="p-3 bg-surface rounded-lg">
+ <div className="text-xs text-muted">{t('pillar3.estimatedWithdrawalTax')}</div>
+ <div className="font-bold text-red-600">CHF {results.withdrawalTax.toLocaleString('it-IT')}</div>
+ </div>
+ <div className="p-3 bg-surface rounded-lg">
+ <div className="text-xs text-muted">{t('pillar3.netAfterTax')}</div>
+ <div className="font-bold text-emerald-700">CHF {results.netAfterWithdrawal.toLocaleString('it-IT')}</div>
+ </div>
+ </div>
+ <p className="text-xs mt-2">
+ <strong>{t('pillar3.withdrawalAdvice')}</strong>
+ </p>
+ </div>
+ </div>
+ </div>
+ </div>
+ )}
 
-          {/* 3a vs 3b Comparison */}
-          <div className="bg-warm-50 dark:bg-warm-950 rounded-2xl border border-warm-200 dark:border-warm-800 p-6">
-            <h3 className="font-bold text-strong mb-3 flex items-center gap-2">
-              <Info size={18} className="text-warm-600 dark:text-warm-400" />
-              {t('pillar3.comparison3a3b')}
-            </h3>
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="border-b border-accent-border">
-                    <th className="text-left py-2 text-subtle">{t('pillar3.feature')}</th>
-                    <th className="text-center py-2 text-teal-600 font-bold">{t('pillar3.type3aShort')}</th>
-                    <th className="text-center py-2 text-rose-600 font-bold">{t('pillar3.type3bShort')}</th>
-                  </tr>
-                </thead>
-                <tbody className="text-body">
-                  <tr className="border-b border-accent-border">
-                    <td className="py-2">{t('pillar3.taxDeductibility')}</td>
-                    <td className="text-center py-2 font-bold text-emerald-700">100%</td>
-                    <td className="text-center py-2">{t('pillar3.partialCanton')}</td>
-                  </tr>
-                  <tr className="border-b border-accent-border">
-                    <td className="py-2">{t('pillar3.maxAnnualAmount')}</td>
-                    <td className="text-center py-2 font-bold">CHF {MAX_3A_2026.toLocaleString('it-IT')}</td>
-                    <td className="text-center py-2">{t('pillar3.unlimited')}</td>
-                  </tr>
-                  <tr className="border-b border-accent-border">
-                    <td className="py-2">{t('pillar3.withdrawal')}</td>
-                    <td className="text-center py-2">{t('pillar3.fiveYearsBefore')}</td>
-                    <td className="text-center py-2 font-bold text-emerald-700">{t('pillar3.free')}</td>
-                  </tr>
-                  <tr className="border-b border-accent-border">
-                    <td className="py-2">{t('pillar3.withdrawalTaxation')}</td>
-                    <td className="text-center py-2">{t('pillar3.separateTax')}</td>
-                    <td className="text-center py-2">{t('pillar3.ordinaryIncome')}</td>
-                  </tr>
-                  <tr>
-                    <td className="py-2">{t('pillar3.idealFor')}</td>
-                    <td className="text-center py-2 text-xs">{t('pillar3.maxTaxSaving')}</td>
-                    <td className="text-center py-2 text-xs">{t('pillar3.flexibility')}</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
+ {/* 3a vs 3b Comparison */}
+ <div className="bg-neutral-subtle rounded-2xl border border-neutral-border p-6">
+ <h3 className="font-bold text-strong mb-3 flex items-center gap-2">
+ <Info size={18} className="text-neutral" />
+ {t('pillar3.comparison3a3b')}
+ </h3>
+ <div className="overflow-x-auto">
+ <table className="w-full text-sm">
+ <thead>
+ <tr className="border-b border-accent-border">
+ <th className="text-left py-2 text-subtle">{t('pillar3.feature')}</th>
+ <th className="text-center py-2 text-teal-600 font-bold">{t('pillar3.type3aShort')}</th>
+ <th className="text-center py-2 text-rose-600 font-bold">{t('pillar3.type3bShort')}</th>
+ </tr>
+ </thead>
+ <tbody className="text-body">
+ <tr className="border-b border-accent-border">
+ <td className="py-2">{t('pillar3.taxDeductibility')}</td>
+ <td className="text-center py-2 font-bold text-emerald-700">100%</td>
+ <td className="text-center py-2">{t('pillar3.partialCanton')}</td>
+ </tr>
+ <tr className="border-b border-accent-border">
+ <td className="py-2">{t('pillar3.maxAnnualAmount')}</td>
+ <td className="text-center py-2 font-bold">CHF {MAX_3A_2026.toLocaleString('it-IT')}</td>
+ <td className="text-center py-2">{t('pillar3.unlimited')}</td>
+ </tr>
+ <tr className="border-b border-accent-border">
+ <td className="py-2">{t('pillar3.withdrawal')}</td>
+ <td className="text-center py-2">{t('pillar3.fiveYearsBefore')}</td>
+ <td className="text-center py-2 font-bold text-emerald-700">{t('pillar3.free')}</td>
+ </tr>
+ <tr className="border-b border-accent-border">
+ <td className="py-2">{t('pillar3.withdrawalTaxation')}</td>
+ <td className="text-center py-2">{t('pillar3.separateTax')}</td>
+ <td className="text-center py-2">{t('pillar3.ordinaryIncome')}</td>
+ </tr>
+ <tr>
+ <td className="py-2">{t('pillar3.idealFor')}</td>
+ <td className="text-center py-2 text-xs">{t('pillar3.maxTaxSaving')}</td>
+ <td className="text-center py-2 text-xs">{t('pillar3.flexibility')}</td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
+ </div>
 
-          {/* Investment Options Comparison */}
-          <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm">
-            <h3 className="text-lg font-bold text-strong mb-4 flex items-center gap-2">
-              <BarChart3 size={20} className="text-amber-700" />
-              {t('pillar3.investmentComparison')}
-            </h3>
-            <p className="text-sm text-subtle mb-4">
-              {t('pillar3.investmentDesc')}
-            </p>
+ {/* Investment Options Comparison */}
+ <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm">
+ <h3 className="text-lg font-bold text-strong mb-4 flex items-center gap-2">
+ <BarChart3 size={20} className="text-amber-700" />
+ {t('pillar3.investmentComparison')}
+ </h3>
+ <p className="text-sm text-subtle mb-4">
+ {t('pillar3.investmentDesc')}
+ </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {/* Bank Account */}
-              <div className="border-2 border-edge rounded-xl p-5 space-y-3">
-                <div className="flex items-center gap-2">
-                  <div className="p-2 bg-accent-subtle rounded-lg">
-                    <Banknote size={20} className="text-stripe-600" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-strong">Conto Bancario</h4>
-                    <span className="text-xs px-2 py-0.5 bg-accent-subtle text-accent rounded-full font-bold">{t('pillar3.lowRisk')}</span>
-                  </div>
-                </div>
-                <div className="text-sm text-subtle">
-                  <div className="flex items-center gap-1.5 mb-1"><Percent size={12} className="text-muted" /> {t('pillar3.return')}: <span className="font-bold">0.5-1.5%</span></div>
-                </div>
-                <div className="space-y-1.5 text-xs">
-                  <div className="flex items-center gap-1.5 text-emerald-700"><CheckCircle2 size={12} /> {t('pillar3.guaranteedCapital')}</div>
-                  <div className="flex items-center gap-1.5 text-emerald-700"><CheckCircle2 size={12} /> {t('pillar3.noKnowledgeRequired')}</div>
-                  <div className="flex items-center gap-1.5 text-emerald-700"><CheckCircle2 size={12} /> {t('pillar3.maxSafety')}</div>
-                  <div className="flex items-center gap-1.5 text-red-500"><XCircle size={12} /> {t('pillar3.belowInflation')}</div>
-                  <div className="flex items-center gap-1.5 text-red-500"><XCircle size={12} /> {t('pillar3.noRealGrowth')}</div>
-                </div>
-                <div className="pt-2 border-t border-edge">
-                  <p className="text-sm text-muted italic">{t('pillar3.exampleBanks')}</p>
-                </div>
-              </div>
+ <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+ {/* Bank Account */}
+ <div className="border-2 border-edge rounded-xl p-5 space-y-3">
+ <div className="flex items-center gap-2">
+ <div className="p-2 bg-accent-subtle rounded-lg">
+ <Banknote size={20} className="text-stripe-600" />
+ </div>
+ <div>
+ <h4 className="font-bold text-strong">Conto Bancario</h4>
+ <span className="text-xs px-2 py-0.5 bg-accent-subtle text-accent rounded-full font-bold">{t('pillar3.lowRisk')}</span>
+ </div>
+ </div>
+ <div className="text-sm text-subtle">
+ <div className="flex items-center gap-1.5 mb-1"><Percent size={12} className="text-muted" /> {t('pillar3.return')}: <span className="font-bold">0.5-1.5%</span></div>
+ </div>
+ <div className="space-y-1.5 text-xs">
+ <div className="flex items-center gap-1.5 text-emerald-700"><CheckCircle2 size={12} /> {t('pillar3.guaranteedCapital')}</div>
+ <div className="flex items-center gap-1.5 text-emerald-700"><CheckCircle2 size={12} /> {t('pillar3.noKnowledgeRequired')}</div>
+ <div className="flex items-center gap-1.5 text-emerald-700"><CheckCircle2 size={12} /> {t('pillar3.maxSafety')}</div>
+ <div className="flex items-center gap-1.5 text-red-500"><XCircle size={12} /> {t('pillar3.belowInflation')}</div>
+ <div className="flex items-center gap-1.5 text-red-500"><XCircle size={12} /> {t('pillar3.noRealGrowth')}</div>
+ </div>
+ <div className="pt-2 border-t border-edge">
+ <p className="text-sm text-muted italic">{t('pillar3.exampleBanks')}</p>
+ </div>
+ </div>
 
-              {/* Investment Funds */}
-              <div className="border-2 border-warning-border rounded-xl p-5 space-y-3 ring-2 ring-amber-100 dark:ring-amber-900/30">
-                <div className="flex items-center gap-2">
-                  <div className="p-2 bg-warning-subtle rounded-lg">
-                    <TrendingUp size={20} className="text-amber-700" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-strong">{t('pillar3.investmentFunds')}</h4>
-                    <span className="text-xs px-2 py-0.5 bg-warning-subtle text-warning rounded-full font-bold">{t('pillar3.mediumRisk')}</span>
-                  </div>
-                </div>
-                <div className="text-sm text-subtle">
-                  <div className="flex items-center gap-1.5 mb-1"><Percent size={12} className="text-muted" /> {t('pillar3.return')}: <span className="font-bold">2-5%</span></div>
-                </div>
-                <div className="space-y-1.5 text-xs">
-                  <div className="flex items-center gap-1.5 text-emerald-700"><CheckCircle2 size={12} /> {t('pillar3.goodRiskReturn')}</div>
-                  <div className="flex items-center gap-1.5 text-emerald-700"><CheckCircle2 size={12} /> {t('pillar3.autoDiversification')}</div>
-                  <div className="flex items-center gap-1.5 text-emerald-700"><CheckCircle2 size={12} /> {t('pillar3.professionalManagement')}</div>
-                  <div className="flex items-center gap-1.5 text-red-500"><XCircle size={12} /> {t('pillar3.managementFees')}</div>
-                  <div className="flex items-center gap-1.5 text-red-500"><XCircle size={12} /> {t('pillar3.shortTermLosses')}</div>
-                </div>
-                <div className="pt-2 border-t border-edge">
-                  <p className="text-sm text-muted italic">{t('pillar3.exampleFunds')}</p>
-                </div>
-              </div>
+ {/* Investment Funds */}
+ <div className="border-2 border-warning-border rounded-xl p-5 space-y-3 ring-2 ring-warning-subtle">
+ <div className="flex items-center gap-2">
+ <div className="p-2 bg-warning-subtle rounded-lg">
+ <TrendingUp size={20} className="text-amber-700" />
+ </div>
+ <div>
+ <h4 className="font-bold text-strong">{t('pillar3.investmentFunds')}</h4>
+ <span className="text-xs px-2 py-0.5 bg-warning-subtle text-warning rounded-full font-bold">{t('pillar3.mediumRisk')}</span>
+ </div>
+ </div>
+ <div className="text-sm text-subtle">
+ <div className="flex items-center gap-1.5 mb-1"><Percent size={12} className="text-muted" /> {t('pillar3.return')}: <span className="font-bold">2-5%</span></div>
+ </div>
+ <div className="space-y-1.5 text-xs">
+ <div className="flex items-center gap-1.5 text-emerald-700"><CheckCircle2 size={12} /> {t('pillar3.goodRiskReturn')}</div>
+ <div className="flex items-center gap-1.5 text-emerald-700"><CheckCircle2 size={12} /> {t('pillar3.autoDiversification')}</div>
+ <div className="flex items-center gap-1.5 text-emerald-700"><CheckCircle2 size={12} /> {t('pillar3.professionalManagement')}</div>
+ <div className="flex items-center gap-1.5 text-red-500"><XCircle size={12} /> {t('pillar3.managementFees')}</div>
+ <div className="flex items-center gap-1.5 text-red-500"><XCircle size={12} /> {t('pillar3.shortTermLosses')}</div>
+ </div>
+ <div className="pt-2 border-t border-edge">
+ <p className="text-sm text-muted italic">{t('pillar3.exampleFunds')}</p>
+ </div>
+ </div>
 
-              {/* Insurance */}
-              <div className="border-2 border-edge rounded-xl p-5 space-y-3">
-                <div className="flex items-center gap-2">
-                  <div className="p-2 bg-rose-100 dark:bg-rose-900/30 rounded-lg">
-                    <Shield size={20} className="text-rose-600" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-strong">{t('pillar3.lifeInsurance')}</h4>
-                    <span className="text-xs px-2 py-0.5 bg-rose-100 dark:bg-rose-900/30 text-rose-700 dark:text-rose-300 rounded-full font-bold">{t('pillar3.lowRisk')}</span>
-                  </div>
-                </div>
-                <div className="text-sm text-subtle">
-                  <div className="flex items-center gap-1.5 mb-1"><Percent size={12} className="text-muted" /> {t('pillar3.return')}: <span className="font-bold">0.5-2%</span></div>
-                </div>
-                <div className="space-y-1.5 text-xs">
-                  <div className="flex items-center gap-1.5 text-emerald-700"><CheckCircle2 size={12} /> {t('pillar3.insuranceCoverage')}</div>
-                  <div className="flex items-center gap-1.5 text-emerald-700"><CheckCircle2 size={12} /> {t('pillar3.forcedSaving')}</div>
-                  <div className="flex items-center gap-1.5 text-red-500"><XCircle size={12} /> {t('pillar3.lowNetReturn')}</div>
-                  <div className="flex items-center gap-1.5 text-red-500"><XCircle size={12} /> {t('pillar3.longContract')}</div>
-                  <div className="flex items-center gap-1.5 text-red-500"><XCircle size={12} /> {t('pillar3.hiddenCosts')}</div>
-                  <div className="flex items-center gap-1.5 text-red-500"><XCircle size={12} /> {t('pillar3.earlyPenalties')}</div>
-                </div>
-                <div className="pt-2 border-t border-edge">
-                  <p className="text-sm text-muted italic">{t('pillar3.exampleInsurance')}</p>
-                </div>
-              </div>
-            </div>
+ {/* Insurance */}
+ <div className="border-2 border-edge rounded-xl p-5 space-y-3">
+ <div className="flex items-center gap-2">
+ <div className="p-2 bg-danger-subtle rounded-lg">
+ <Shield size={20} className="text-rose-600" />
+ </div>
+ <div>
+ <h4 className="font-bold text-strong">{t('pillar3.lifeInsurance')}</h4>
+ <span className="text-xs px-2 py-0.5 bg-danger-subtle text-danger rounded-full font-bold">{t('pillar3.lowRisk')}</span>
+ </div>
+ </div>
+ <div className="text-sm text-subtle">
+ <div className="flex items-center gap-1.5 mb-1"><Percent size={12} className="text-muted" /> {t('pillar3.return')}: <span className="font-bold">0.5-2%</span></div>
+ </div>
+ <div className="space-y-1.5 text-xs">
+ <div className="flex items-center gap-1.5 text-emerald-700"><CheckCircle2 size={12} /> {t('pillar3.insuranceCoverage')}</div>
+ <div className="flex items-center gap-1.5 text-emerald-700"><CheckCircle2 size={12} /> {t('pillar3.forcedSaving')}</div>
+ <div className="flex items-center gap-1.5 text-red-500"><XCircle size={12} /> {t('pillar3.lowNetReturn')}</div>
+ <div className="flex items-center gap-1.5 text-red-500"><XCircle size={12} /> {t('pillar3.longContract')}</div>
+ <div className="flex items-center gap-1.5 text-red-500"><XCircle size={12} /> {t('pillar3.hiddenCosts')}</div>
+ <div className="flex items-center gap-1.5 text-red-500"><XCircle size={12} /> {t('pillar3.earlyPenalties')}</div>
+ </div>
+ <div className="pt-2 border-t border-edge">
+ <p className="text-sm text-muted italic">{t('pillar3.exampleInsurance')}</p>
+ </div>
+ </div>
+ </div>
 
-            {/* Provider comparison table */}
-            <div className="mt-6 overflow-x-auto">
-              <h4 className="font-bold text-strong mb-3 flex items-center gap-2">
-                <Star size={16} className="text-amber-500" />
-                {t('pillar3.topProviders')}
-              </h4>
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="border-b-2 border-edge">
-                    <th className="text-left py-2 text-subtle">{t('pillar3.provider')}</th>
-                    <th className="text-center py-2 text-subtle">{t('pillar3.type')}</th>
-                    <th className="text-center py-2 text-subtle">{t('pillar3.costs')}</th>
-                    <th className="text-center py-2 text-subtle">{t('pillar3.historicalReturn')}</th>
-                    <th className="text-center py-2 text-subtle">{t('pillar3.minInvestment')}</th>
-                    <th className="text-center py-2 text-subtle">{t('pillar3.rating')}</th>
-                  </tr>
-                </thead>
-                <tbody className="text-body">
-                  <tr className="border-b border-edge">
-                    <td className="py-2.5 font-bold">VIAC</td>
-                    <td className="text-center py-2.5">{t('pillar3.indexFunds')}</td>
-                    <td className="text-center py-2.5 font-bold text-emerald-700">0.44%</td>
-                    <td className="text-center py-2.5">~4-6%</td>
-                    <td className="text-center py-2.5">CHF 0</td>
-                    <td className="text-center py-2.5">⭐⭐⭐⭐⭐</td>
-                  </tr>
-                  <tr className="border-b border-edge">
-                    <td className="py-2.5 font-bold">finpension</td>
-                    <td className="text-center py-2.5">{t('pillar3.indexFunds')}</td>
-                    <td className="text-center py-2.5 font-bold text-emerald-700">0.39%</td>
-                    <td className="text-center py-2.5">~4-6%</td>
-                    <td className="text-center py-2.5">CHF 0</td>
-                    <td className="text-center py-2.5">⭐⭐⭐⭐⭐</td>
-                  </tr>
-                  <tr className="border-b border-edge">
-                    <td className="py-2.5 font-bold">frankly (ZKB)</td>
-                    <td className="text-center py-2.5">{t('pillar3.mixedFunds')}</td>
-                    <td className="text-center py-2.5">0.45%</td>
-                    <td className="text-center py-2.5">~3-5%</td>
-                    <td className="text-center py-2.5">CHF 0</td>
-                    <td className="text-center py-2.5">⭐⭐⭐⭐</td>
-                  </tr>
-                  <tr className="border-b border-edge">
-                    <td className="py-2.5 font-bold">Selma Finance</td>
-                    <td className="text-center py-2.5">Robo-advisor</td>
-                    <td className="text-center py-2.5">0.68%</td>
-                    <td className="text-center py-2.5">~3-5%</td>
-                    <td className="text-center py-2.5">CHF 2'000</td>
-                    <td className="text-center py-2.5">⭐⭐⭐⭐</td>
-                  </tr>
-                  <tr>
-                    <td className="py-2.5 font-bold">Banca tradizionale</td>
-                    <td className="text-center py-2.5">{t('pillar3.savingsAccount')}</td>
-                    <td className="text-center py-2.5 text-red-500">0.00%</td>
-                    <td className="text-center py-2.5">~0.5-1%</td>
-                    <td className="text-center py-2.5">CHF 0</td>
-                    <td className="text-center py-2.5">⭐⭐</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+ {/* Provider comparison table */}
+ <div className="mt-6 overflow-x-auto">
+ <h4 className="font-bold text-strong mb-3 flex items-center gap-2">
+ <Star size={16} className="text-amber-500" />
+ {t('pillar3.topProviders')}
+ </h4>
+ <table className="w-full text-sm">
+ <thead>
+ <tr className="border-b-2 border-edge">
+ <th className="text-left py-2 text-subtle">{t('pillar3.provider')}</th>
+ <th className="text-center py-2 text-subtle">{t('pillar3.type')}</th>
+ <th className="text-center py-2 text-subtle">{t('pillar3.costs')}</th>
+ <th className="text-center py-2 text-subtle">{t('pillar3.historicalReturn')}</th>
+ <th className="text-center py-2 text-subtle">{t('pillar3.minInvestment')}</th>
+ <th className="text-center py-2 text-subtle">{t('pillar3.rating')}</th>
+ </tr>
+ </thead>
+ <tbody className="text-body">
+ <tr className="border-b border-edge">
+ <td className="py-2.5 font-bold">VIAC</td>
+ <td className="text-center py-2.5">{t('pillar3.indexFunds')}</td>
+ <td className="text-center py-2.5 font-bold text-emerald-700">0.44%</td>
+ <td className="text-center py-2.5">~4-6%</td>
+ <td className="text-center py-2.5">CHF 0</td>
+ <td className="text-center py-2.5">⭐⭐⭐⭐⭐</td>
+ </tr>
+ <tr className="border-b border-edge">
+ <td className="py-2.5 font-bold">finpension</td>
+ <td className="text-center py-2.5">{t('pillar3.indexFunds')}</td>
+ <td className="text-center py-2.5 font-bold text-emerald-700">0.39%</td>
+ <td className="text-center py-2.5">~4-6%</td>
+ <td className="text-center py-2.5">CHF 0</td>
+ <td className="text-center py-2.5">⭐⭐⭐⭐⭐</td>
+ </tr>
+ <tr className="border-b border-edge">
+ <td className="py-2.5 font-bold">frankly (ZKB)</td>
+ <td className="text-center py-2.5">{t('pillar3.mixedFunds')}</td>
+ <td className="text-center py-2.5">0.45%</td>
+ <td className="text-center py-2.5">~3-5%</td>
+ <td className="text-center py-2.5">CHF 0</td>
+ <td className="text-center py-2.5">⭐⭐⭐⭐</td>
+ </tr>
+ <tr className="border-b border-edge">
+ <td className="py-2.5 font-bold">Selma Finance</td>
+ <td className="text-center py-2.5">Robo-advisor</td>
+ <td className="text-center py-2.5">0.68%</td>
+ <td className="text-center py-2.5">~3-5%</td>
+ <td className="text-center py-2.5">CHF 2'000</td>
+ <td className="text-center py-2.5">⭐⭐⭐⭐</td>
+ </tr>
+ <tr>
+ <td className="py-2.5 font-bold">Banca tradizionale</td>
+ <td className="text-center py-2.5">{t('pillar3.savingsAccount')}</td>
+ <td className="text-center py-2.5 text-red-500">0.00%</td>
+ <td className="text-center py-2.5">~0.5-1%</td>
+ <td className="text-center py-2.5">CHF 0</td>
+ <td className="text-center py-2.5">⭐⭐</td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
 
-            <div className="mt-4 p-4 bg-success-subtle rounded-xl border border-success-border">
-              <p className="text-sm text-body">
-                <strong className="text-success">{t('pillar3.investmentAdvice')}</strong>
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <Suspense fallback={null}><RelatedTools context="pension" /></Suspense>
-    </div>
-  );
+ <div className="mt-4 p-4 bg-success-subtle rounded-xl border border-success-border">
+ <p className="text-sm text-body">
+ <strong className="text-success">{t('pillar3.investmentAdvice')}</strong>
+ </p>
+ </div>
+ </div>
+ </div>
+ </div>
+ <Suspense fallback={null}><RelatedTools context="pension" /></Suspense>
+ </div>
+ );
 };
 
 export default Pillar3Simulator;

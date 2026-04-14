@@ -23,441 +23,441 @@ import { DEFAULT_TECH_PARAMS, FRANCHIGIA_NUOVI_FRONTALIERI } from '@/constants';
 
 // 2026 IRPEF brackets
 const IRPEF_BRACKETS = [
-  { upTo: 28000, rate: 0.23 },
-  { upTo: 50000, rate: 0.35 },
-  { upTo: Infinity, rate: 0.43 },
+ { upTo: 28000, rate: 0.23 },
+ { upTo: 50000, rate: 0.35 },
+ { upTo: Infinity, rate: 0.43 },
 ];
 
 const ADDIZIONALE_COMUNALE_RATE = 0.008; // Common average
 
 const EDIT_FIELD_CLASS =
-  'w-full h-12 bg-surface-alt px-4 rounded-xl border border-edge text-sm font-semibold text-strong outline-none focus-visible:border-stripe-500 focus-visible:ring-4 focus-visible:ring-accent/10 transition-[color,background-color,border-color,box-shadow] placeholder-muted';
+ 'w-full h-12 bg-surface-alt px-4 rounded-xl border border-edge text-sm font-semibold text-strong outline-none focus-visible:border-stripe-500 focus-visible:ring-4 focus-visible:ring-accent/10 transition-[color,background-color,border-color,box-shadow] placeholder-muted';
 
 const STEPPER_SHELL_CLASS =
-  'flex items-center bg-surface-alt border border-edge rounded-xl overflow-hidden h-12 shadow-sm focus-within:ring-2 focus-within:ring-accent/20 focus-within:border-stripe-500 transition-[color,background-color,border-color,box-shadow,transform]';
+ 'flex items-center bg-surface-alt border border-edge rounded-xl overflow-hidden h-12 shadow-sm focus-within:ring-2 focus-within:ring-accent/20 focus-within:border-stripe-500 transition-[color,background-color,border-color,box-shadow,transform]';
 
 const STEP_BTN_CLASS =
-  'w-10 shrink-0 h-full flex items-center justify-center text-muted hover:text-stripe-600 hover:bg-surface-raised active:scale-90 transition-[color,background-color,border-color,box-shadow,transform]';
+ 'w-10 shrink-0 h-full flex items-center justify-center text-muted hover:text-stripe-600 hover:bg-surface-raised active:scale-90 transition-[color,background-color,border-color,box-shadow,transform]';
 
 type NumberStepperProps = {
-  id: string;
-  value: number;
-  min: number;
-  max: number;
-  onChange: (next: number) => void;
-  ariaLabel: string;
+ id: string;
+ value: number;
+ min: number;
+ max: number;
+ onChange: (next: number) => void;
+ ariaLabel: string;
 };
 
 const NumberStepper: React.FC<NumberStepperProps> = ({ id, value, min, max, onChange, ariaLabel }) => (
-  <div className={STEPPER_SHELL_CLASS}>
-    <button
-      type="button"
-      className={`${STEP_BTN_CLASS} border-r border-edge`}
-      onClick={() => onChange(Math.max(min, value - 1))}
-      aria-label={`${ariaLabel}: diminuisci`}
-    >
-      <Minus size={16} strokeWidth={2.5} />
-    </button>
-    <div className="flex-1 min-w-[40px] h-full relative flex items-center justify-center bg-surface/50">
-      <input
-        id={id}
-        type="number"
-        inputMode="numeric"
-        value={value}
-        min={min}
-        max={max}
-        onChange={(e) => {
-          let next = parseInt(e.target.value, 10);
-          if (Number.isNaN(next)) next = min;
-          next = Math.max(min, Math.min(max, next));
-          onChange(next);
-        }}
-        className="w-full h-full min-h-[48px] bg-transparent text-center font-bold text-base text-body outline-none focus-visible:ring-2 focus-visible:ring-accent appearance-none px-1 py-3"
-        aria-label={ariaLabel}
-      />
-    </div>
-    <button
-      type="button"
-      className={`${STEP_BTN_CLASS} border-l border-edge`}
-      onClick={() => onChange(Math.min(max, value + 1))}
-      aria-label={`${ariaLabel}: aumenta`}
-    >
-      <Plus size={16} strokeWidth={2.5} />
-    </button>
-  </div>
+ <div className={STEPPER_SHELL_CLASS}>
+ <button
+ type="button"
+ className={`${STEP_BTN_CLASS} border-r border-edge`}
+ onClick={() => onChange(Math.max(min, value - 1))}
+ aria-label={`${ariaLabel}: diminuisci`}
+ >
+ <Minus size={16} strokeWidth={2.5} />
+ </button>
+ <div className="flex-1 min-w-[40px] h-full relative flex items-center justify-center bg-surface/50">
+ <input
+ id={id}
+ type="number"
+ inputMode="numeric"
+ value={value}
+ min={min}
+ max={max}
+ onChange={(e) => {
+ let next = parseInt(e.target.value, 10);
+ if (Number.isNaN(next)) next = min;
+ next = Math.max(min, Math.min(max, next));
+ onChange(next);
+ }}
+ className="w-full h-full min-h-[48px] bg-transparent text-center font-bold text-base text-body outline-none focus-visible:ring-2 focus-visible:ring-accent appearance-none px-1 py-3"
+ aria-label={ariaLabel}
+ />
+ </div>
+ <button
+ type="button"
+ className={`${STEP_BTN_CLASS} border-l border-edge`}
+ onClick={() => onChange(Math.min(max, value + 1))}
+ aria-label={`${ariaLabel}: aumenta`}
+ >
+ <Plus size={16} strokeWidth={2.5} />
+ </button>
+ </div>
 );
 
 const TaxCreditCalculator: React.FC = () => {
-  const { t } = useTranslation();
-  const { rate: liveRate, loading: rateLoading, refresh: refreshRate } = useExchangeRate();
+ const { t } = useTranslation();
+ const { rate: liveRate, loading: rateLoading, refresh: refreshRate } = useExchangeRate();
 
-  // ─── State ───
-  const [grossSalaryCHF, setGrossSalaryCHF] = useState(70000);
-  const [maritalStatus, setMaritalStatus] = useState<'SINGLE' | 'MARRIED'>('SINGLE');
-  const [children, setChildren] = useState(0);
-  const [spouseWorks, setSpouseWorks] = useState(false);
-  const [withinTwentyKm, setWithinTwentyKm] = useState(true);
-  const [otherItalianIncome, setOtherItalianIncome] = useState(0);
-  const [age, setAge] = useState(35);
-  const [showDetails, setShowDetails] = useState(false);
-  const trackedRef = useRef(false);
+ // ─── State ───
+ const [grossSalaryCHF, setGrossSalaryCHF] = useState(70000);
+ const [maritalStatus, setMaritalStatus] = useState<'SINGLE' | 'MARRIED'>('SINGLE');
+ const [children, setChildren] = useState(0);
+ const [spouseWorks, setSpouseWorks] = useState(false);
+ const [withinTwentyKm, setWithinTwentyKm] = useState(true);
+ const [otherItalianIncome, setOtherItalianIncome] = useState(0);
+ const [age, setAge] = useState(35);
+ const [showDetails, setShowDetails] = useState(false);
+ const trackedRef = useRef(false);
 
-  // Track first interaction for gamification
-  useEffect(() => {
-    if (!trackedRef.current) {
-      trackedRef.current = true;
-      unlockAchievement('tax_expert');
-      Analytics.trackUIInteraction('tax_credit', 'calculator', 'view', 'first');
-    }
-  }, []);
+ // Track first interaction for gamification
+ useEffect(() => {
+ if (!trackedRef.current) {
+ trackedRef.current = true;
+ unlockAchievement('tax_expert');
+ Analytics.trackUIInteraction('tax_credit', 'calculator', 'view', 'first');
+ }
+ }, []);
 
-  const exchangeRate = liveRate;
+ const exchangeRate = liveRate;
 
-  // ─── Calculations ───
-  const result = useMemo(() => {
-    // Social deductions (same as main calculator)
-    const { avsRate, acRate, laaRate, ijmRate, lppRate25_34, lppRate35_44, lppRate45_54, lppRate55_plus, itWorkDeduction } = DEFAULT_TECH_PARAMS;
-    const lppRate = age < 25 ? 0 : age <= 34 ? lppRate25_34 : age <= 44 ? lppRate35_44 : age <= 54 ? lppRate45_54 : lppRate55_plus;
-    const totalSocialRate = avsRate + acRate + laaRate + ijmRate + lppRate;
-    const socialDeductionsCHF = grossSalaryCHF * totalSocialRate;
-    const socialDeductionsEUR = socialDeductionsCHF * exchangeRate;
+ // ─── Calculations ───
+ const result = useMemo(() => {
+ // Social deductions (same as main calculator)
+ const { avsRate, acRate, laaRate, ijmRate, lppRate25_34, lppRate35_44, lppRate45_54, lppRate55_plus, itWorkDeduction } = DEFAULT_TECH_PARAMS;
+ const lppRate = age < 25 ? 0 : age <= 34 ? lppRate25_34 : age <= 44 ? lppRate35_44 : age <= 54 ? lppRate45_54 : lppRate55_plus;
+ const totalSocialRate = avsRate + acRate + laaRate + ijmRate + lppRate;
+ const socialDeductionsCHF = grossSalaryCHF * totalSocialRate;
+ const socialDeductionsEUR = socialDeductionsCHF * exchangeRate;
 
-    // Swiss withholding tax (imposta alla fonte) — same tables as main calculator
-    const { rate: baseRate, tableCode } = getTicinoTaxRate(grossSalaryCHF, maritalStatus, children, spouseWorks);
-    const effectiveSwissRate = adjustRateForChildren(baseRate, tableCode, children);
-    const swissTaxCHF = grossSalaryCHF * effectiveSwissRate;
+ // Swiss withholding tax (imposta alla fonte) — same tables as main calculator
+ const { rate: baseRate, tableCode } = getTicinoTaxRate(grossSalaryCHF, maritalStatus, children, spouseWorks);
+ const effectiveSwissRate = adjustRateForChildren(baseRate, tableCode, children);
+ const swissTaxCHF = grossSalaryCHF * effectiveSwissRate;
 
-    // Within 20km: CH retains 80% of source tax; beyond 20km: CH retains 100%
-    const chTaxShare = withinTwentyKm ? 0.8 : 1.0;
-    const paidSourceTaxCHF = swissTaxCHF * chTaxShare;
+ // Within 20km: CH retains 80% of source tax; beyond 20km: CH retains 100%
+ const chTaxShare = withinTwentyKm ? 0.8 : 1.0;
+ const paidSourceTaxCHF = swissTaxCHF * chTaxShare;
 
-    const grossEUR = grossSalaryCHF * exchangeRate;
-    const swissTaxEUR = swissTaxCHF * exchangeRate;
-    const paidSourceTaxEUR = paidSourceTaxCHF * exchangeRate;
+ const grossEUR = grossSalaryCHF * exchangeRate;
+ const swissTaxEUR = swissTaxCHF * exchangeRate;
+ const paidSourceTaxEUR = paidSourceTaxCHF * exchangeRate;
 
-    // Franchigia for new frontalieri (2026 agreement) — always applies
-    const franchigia = FRANCHIGIA_NUOVI_FRONTALIERI;
-    const taxableInItaly = Math.max(0, grossEUR - socialDeductionsEUR - franchigia);
+ // Franchigia for new frontalieri (2026 agreement) — always applies
+ const franchigia = FRANCHIGIA_NUOVI_FRONTALIERI;
+ const taxableInItaly = Math.max(0, grossEUR - socialDeductionsEUR - franchigia);
 
-    // Total Italian income (foreign + other)
-    const totalIncome = taxableInItaly + otherItalianIncome;
+ // Total Italian income (foreign + other)
+ const totalIncome = taxableInItaly + otherItalianIncome;
 
-    // Calculate IRPEF on total income
-    let irpef = 0;
-    let prevLimit = 0;
-    for (const bracket of IRPEF_BRACKETS) {
-      const bracketWidth = bracket.upTo === Infinity ? Infinity : bracket.upTo - prevLimit;
-      const taxableInBracket = Math.min(Math.max(0, totalIncome - prevLimit), bracketWidth);
-      irpef += taxableInBracket * bracket.rate;
-      prevLimit = bracket.upTo === Infinity ? prevLimit : bracket.upTo;
-      if (totalIncome <= bracket.upTo) break;
-    }
+ // Calculate IRPEF on total income
+ let irpef = 0;
+ let prevLimit = 0;
+ for (const bracket of IRPEF_BRACKETS) {
+ const bracketWidth = bracket.upTo === Infinity ? Infinity : bracket.upTo - prevLimit;
+ const taxableInBracket = Math.min(Math.max(0, totalIncome - prevLimit), bracketWidth);
+ irpef += taxableInBracket * bracket.rate;
+ prevLimit = bracket.upTo === Infinity ? prevLimit : bracket.upTo;
+ if (totalIncome <= bracket.upTo) break;
+ }
 
-    // Progressive work deduction per Art. 13 TUIR
-    const progressiveWorkDeduction = calculateProgressiveWorkDeduction(totalIncome);
-    const itDeductions = progressiveWorkDeduction + (maritalStatus === 'MARRIED' && !spouseWorks ? 690 : 0) + (children * 950);
+ // Progressive work deduction per Art. 13 TUIR
+ const progressiveWorkDeduction = calculateProgressiveWorkDeduction(totalIncome);
+ const itDeductions = progressiveWorkDeduction + (maritalStatus === 'MARRIED' && !spouseWorks ? 690 : 0) + (children * 950);
 
-    // Addizionali (use real Lombardia progressive brackets for regional)
-    const addizionaleRegionale = calculateLombardiaRegionale(totalIncome);
-    const addizionaleComunale = totalIncome * ADDIZIONALE_COMUNALE_RATE;
-    const totalItalianTax = Math.max(0, irpef + addizionaleRegionale + addizionaleComunale - itDeductions);
+ // Addizionali (use real Lombardia progressive brackets for regional)
+ const addizionaleRegionale = calculateLombardiaRegionale(totalIncome);
+ const addizionaleComunale = totalIncome * ADDIZIONALE_COMUNALE_RATE;
+ const totalItalianTax = Math.max(0, irpef + addizionaleRegionale + addizionaleComunale - itDeductions);
 
-    // Proportional foreign tax credit per Art. 165 c.10 TUIR + Ris. 38/E/2017
-    // Step 1: Reduce Swiss tax proportionally (taxable base vs gross foreign income)
-    const proportionalSwissTax = calculateProportionalTaxCredit(paidSourceTaxEUR, taxableInItaly, grossEUR);
-    // Step 2: Cap at Italian tax attributable to foreign income
-    const foreignIncomeRatio = totalIncome > 0 ? taxableInItaly / totalIncome : 0;
-    const italianTaxOnForeignIncome = totalItalianTax * foreignIncomeRatio;
-    const taxCredit = Math.min(proportionalSwissTax, italianTaxOnForeignIncome);
+ // Proportional foreign tax credit per Art. 165 c.10 TUIR + Ris. 38/E/2017
+ // Step 1: Reduce Swiss tax proportionally (taxable base vs gross foreign income)
+ const proportionalSwissTax = calculateProportionalTaxCredit(paidSourceTaxEUR, taxableInItaly, grossEUR);
+ // Step 2: Cap at Italian tax attributable to foreign income
+ const foreignIncomeRatio = totalIncome > 0 ? taxableInItaly / totalIncome : 0;
+ const italianTaxOnForeignIncome = totalItalianTax * foreignIncomeRatio;
+ const taxCredit = Math.min(proportionalSwissTax, italianTaxOnForeignIncome);
 
-    // Net Italian tax after credit
-    const netItalianTax = Math.max(0, totalItalianTax - taxCredit);
+ // Net Italian tax after credit
+ const netItalianTax = Math.max(0, totalItalianTax - taxCredit);
 
-    // Total tax burden (Swiss + net Italian)
-    const totalTaxBurden = swissTaxEUR + netItalianTax;
-    const effectiveRate = grossEUR > 0 ? (totalTaxBurden / grossEUR) * 100 : 0;
+ // Total tax burden (Swiss + net Italian)
+ const totalTaxBurden = swissTaxEUR + netItalianTax;
+ const effectiveRate = grossEUR > 0 ? (totalTaxBurden / grossEUR) * 100 : 0;
 
-    return {
-      grossEUR: Math.round(grossEUR),
-      swissTaxCHF: Math.round(swissTaxCHF),
-      swissTaxEUR: Math.round(swissTaxEUR),
-      paidSourceTaxEUR: Math.round(paidSourceTaxEUR),
-      socialDeductionsEUR: Math.round(socialDeductionsEUR),
-      effectiveSwissRate: (effectiveSwissRate * 100).toFixed(1),
-      tableCode,
-      franchigia,
-      itDeductions: Math.round(itDeductions),
-      taxableInItaly: Math.round(taxableInItaly),
-      totalIncome: Math.round(totalIncome),
-      irpef: Math.round(irpef),
-      addizionaleRegionale: Math.round(addizionaleRegionale),
-      addizionaleComunale: Math.round(addizionaleComunale),
-      totalItalianTax: Math.round(totalItalianTax),
-      foreignIncomeRatio: Math.round(foreignIncomeRatio * 100),
-      italianTaxOnForeignIncome: Math.round(italianTaxOnForeignIncome),
-      taxCredit: Math.round(taxCredit),
-      netItalianTax: Math.round(netItalianTax),
-      totalTaxBurden: Math.round(totalTaxBurden),
-      effectiveRate: effectiveRate.toFixed(1),
-    };
-  }, [grossSalaryCHF, exchangeRate, withinTwentyKm, otherItalianIncome, maritalStatus, children, spouseWorks, age]);
+ return {
+ grossEUR: Math.round(grossEUR),
+ swissTaxCHF: Math.round(swissTaxCHF),
+ swissTaxEUR: Math.round(swissTaxEUR),
+ paidSourceTaxEUR: Math.round(paidSourceTaxEUR),
+ socialDeductionsEUR: Math.round(socialDeductionsEUR),
+ effectiveSwissRate: (effectiveSwissRate * 100).toFixed(1),
+ tableCode,
+ franchigia,
+ itDeductions: Math.round(itDeductions),
+ taxableInItaly: Math.round(taxableInItaly),
+ totalIncome: Math.round(totalIncome),
+ irpef: Math.round(irpef),
+ addizionaleRegionale: Math.round(addizionaleRegionale),
+ addizionaleComunale: Math.round(addizionaleComunale),
+ totalItalianTax: Math.round(totalItalianTax),
+ foreignIncomeRatio: Math.round(foreignIncomeRatio * 100),
+ italianTaxOnForeignIncome: Math.round(italianTaxOnForeignIncome),
+ taxCredit: Math.round(taxCredit),
+ netItalianTax: Math.round(netItalianTax),
+ totalTaxBurden: Math.round(totalTaxBurden),
+ effectiveRate: effectiveRate.toFixed(1),
+ };
+ }, [grossSalaryCHF, exchangeRate, withinTwentyKm, otherItalianIncome, maritalStatus, children, spouseWorks, age]);
 
-  const fmt = (n: number) => n.toLocaleString('it-IT');
+ const fmt = (n: number) => n.toLocaleString('it-IT');
 
-  return (
-    <div className="space-y-6">
-      {/* Header */}
-      <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6">
-        <div className="flex items-center gap-3 mb-4">
-          <div className="p-2 rounded-xl bg-success-subtle">
-            <Receipt size={24} className="text-success" />
-          </div>
-          <div>
-            <h2 className="text-lg font-bold text-heading">{t('taxCredit.title')}</h2>
-            <p className="text-sm text-subtle">{t('taxCredit.subtitle')}</p>
-          </div>
-        </div>
+ return (
+ <div className="space-y-6">
+ {/* Header */}
+ <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6">
+ <div className="flex items-center gap-3 mb-4">
+ <div className="p-2 rounded-xl bg-success-subtle">
+ <Receipt size={24} className="text-success" />
+ </div>
+ <div>
+ <h2 className="text-lg font-bold text-heading">{t('taxCredit.title')}</h2>
+ <p className="text-sm text-subtle">{t('taxCredit.subtitle')}</p>
+ </div>
+ </div>
 
-        {/* Info box */}
-        <div className="bg-accent-subtle border border-accent-border rounded-xl p-4 mb-6">
-          <div className="flex gap-2">
-            <Info size={18} className="text-accent mt-0.5 shrink-0" />
-            <p className="text-sm text-accent">{t('taxCredit.info')}</p>
-          </div>
-        </div>
+ {/* Info box */}
+ <div className="bg-accent-subtle border border-accent-border rounded-xl p-4 mb-6">
+ <div className="flex gap-2">
+ <Info size={18} className="text-accent mt-0.5 shrink-0" />
+ <p className="text-sm text-accent">{t('taxCredit.info')}</p>
+ </div>
+ </div>
 
-        {/* Live exchange rate badge */}
-        <div className="flex items-center gap-2 mb-4 bg-surface-alt/50 rounded-lg px-3 py-2">
-          <span className="text-sm text-subtle">{t('taxCredit.exchangeRate')}:</span>
-          <span className="text-sm font-semibold text-heading">
-            1 CHF = {exchangeRate.toFixed(4)} EUR
-          </span>
-          <button
-            onClick={refreshRate}
-            disabled={rateLoading}
-            className="ml-auto p-1 rounded-md hover:bg-surface-raised transition-colors"
-            aria-label={t('taxCredit.refreshRate')}
-          >
-            <RefreshCw size={14} className={`text-muted ${rateLoading ? 'animate-spin' : ''}`} />
-          </button>
-        </div>
+ {/* Live exchange rate badge */}
+ <div className="flex items-center gap-2 mb-4 bg-surface-alt/50 rounded-lg px-3 py-2">
+ <span className="text-sm text-subtle">{t('taxCredit.exchangeRate')}:</span>
+ <span className="text-sm font-semibold text-heading">
+ 1 CHF = {exchangeRate.toFixed(4)} EUR
+ </span>
+ <button
+ onClick={refreshRate}
+ disabled={rateLoading}
+ className="ml-auto p-1 rounded-md hover:bg-surface-raised transition-colors"
+ aria-label={t('taxCredit.refreshRate')}
+ >
+ <RefreshCw size={14} className={`text-muted ${rateLoading ? 'animate-spin' : ''}`} />
+ </button>
+ </div>
 
-        {/* Input fields */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {/* Gross salary */}
-          <div>
-            <label htmlFor="tc-gross" className="block text-xs font-bold text-subtle uppercase tracking-wide mb-1">
-              {t('taxCredit.grossSalary')}
-            </label>
-            <div className="relative">
-              <input
-                id="tc-gross"
-                type="number"
-                inputMode="numeric"
-                value={grossSalaryCHF}
-                onChange={(e) => setGrossSalaryCHF(Number(e.target.value))}
-                className={EDIT_FIELD_CLASS}
-                min={0}
-              />
-              <span className="absolute right-4 top-3.5 text-xs font-bold text-muted">CHF</span>
-            </div>
-          </div>
+ {/* Input fields */}
+ <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+ {/* Gross salary */}
+ <div>
+ <label htmlFor="tc-gross" className="block text-xs font-bold text-subtle uppercase tracking-wide mb-1">
+ {t('taxCredit.grossSalary')}
+ </label>
+ <div className="relative">
+ <input
+ id="tc-gross"
+ type="number"
+ inputMode="numeric"
+ value={grossSalaryCHF}
+ onChange={(e) => setGrossSalaryCHF(Number(e.target.value))}
+ className={EDIT_FIELD_CLASS}
+ min={0}
+ />
+ <span className="absolute right-4 top-3.5 text-xs font-bold text-muted">CHF</span>
+ </div>
+ </div>
 
-          {/* Age */}
-          <div>
-            <label htmlFor="tc-age" className="block text-xs font-bold text-subtle uppercase tracking-wide mb-1">
-              👤 {t('taxCredit.age')}
-            </label>
-            <NumberStepper
-              id="tc-age"
-              value={age}
-              min={18}
-              max={70}
-              onChange={setAge}
-              ariaLabel={t('taxCredit.age')}
-            />
-          </div>
+ {/* Age */}
+ <div>
+ <label htmlFor="tc-age" className="block text-xs font-bold text-subtle uppercase tracking-wide mb-1">
+ 👤 {t('taxCredit.age')}
+ </label>
+ <NumberStepper
+ id="tc-age"
+ value={age}
+ min={18}
+ max={70}
+ onChange={setAge}
+ ariaLabel={t('taxCredit.age')}
+ />
+ </div>
 
-          {/* Marital status */}
-          <div>
-            <label htmlFor="tc-marital" className="block text-xs font-bold text-subtle uppercase tracking-wide mb-1">
-              <Users size={14} className="inline mr-1" />
-              {t('taxCredit.maritalStatus')}
-            </label>
-            <select
-              id="tc-marital"
-              value={maritalStatus}
-              onChange={(e) => setMaritalStatus(e.target.value as 'SINGLE' | 'MARRIED')}
-              className={EDIT_FIELD_CLASS}
-            >
-              <option value="SINGLE">{t('taxCredit.single')}</option>
-              <option value="MARRIED">{t('taxCredit.married')}</option>
-            </select>
-          </div>
+ {/* Marital status */}
+ <div>
+ <label htmlFor="tc-marital" className="block text-xs font-bold text-subtle uppercase tracking-wide mb-1">
+ <Users size={14} className="inline mr-1" />
+ {t('taxCredit.maritalStatus')}
+ </label>
+ <select
+ id="tc-marital"
+ value={maritalStatus}
+ onChange={(e) => setMaritalStatus(e.target.value as 'SINGLE' | 'MARRIED')}
+ className={EDIT_FIELD_CLASS}
+ >
+ <option value="SINGLE">{t('taxCredit.single')}</option>
+ <option value="MARRIED">{t('taxCredit.married')}</option>
+ </select>
+ </div>
 
-          {/* Children */}
-          <div>
-            <label htmlFor="tc-children" className="block text-xs font-bold text-subtle uppercase tracking-wide mb-1">
-              👶 {t('taxCredit.children')}
-            </label>
-            <NumberStepper
-              id="tc-children"
-              value={children}
-              min={0}
-              max={10}
-              onChange={setChildren}
-              ariaLabel={t('taxCredit.children')}
-            />
-          </div>
+ {/* Children */}
+ <div>
+ <label htmlFor="tc-children" className="block text-xs font-bold text-subtle uppercase tracking-wide mb-1">
+ 👶 {t('taxCredit.children')}
+ </label>
+ <NumberStepper
+ id="tc-children"
+ value={children}
+ min={0}
+ max={10}
+ onChange={setChildren}
+ ariaLabel={t('taxCredit.children')}
+ />
+ </div>
 
-          {/* Spouse works (only if married) */}
-          {maritalStatus === 'MARRIED' && (
-            <div className="sm:col-span-2">
-              <label htmlFor="tc-spouse" className="flex items-center gap-3 cursor-pointer">
-                <div className="relative inline-flex items-center">
-                  <input
-                    id="tc-spouse"
-                    type="checkbox"
-                    checked={spouseWorks}
-                    onChange={(e) => setSpouseWorks(e.target.checked)}
-                    className="sr-only peer"
-                  />
-                  <div className="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus-visible:ring-2 peer-focus-visible:ring-accent dark:peer-focus-visible:ring-stripe-800 rounded-full peer dark:bg-slate-600 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-transform dark:after:border-slate-500 peer-checked:bg-stripe-600"></div>
-                </div>
-                <span className="text-sm font-medium text-body">{t('taxCredit.spouseWorks')}</span>
-              </label>
-            </div>
-          )}
+ {/* Spouse works (only if married) */}
+ {maritalStatus === 'MARRIED' && (
+ <div className="sm:col-span-2">
+ <label htmlFor="tc-spouse" className="flex items-center gap-3 cursor-pointer">
+ <div className="relative inline-flex items-center">
+ <input
+ id="tc-spouse"
+ type="checkbox"
+ checked={spouseWorks}
+ onChange={(e) => setSpouseWorks(e.target.checked)}
+ className="sr-only peer"
+ />
+ <div className="w-11 h-6 bg-surface-raised peer-focus:outline-none peer-focus-visible:ring-2 peer-focus-visible:ring-accent rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-edge after:border after:rounded-full after:h-5 after:w-5 after:transition-transform peer-checked:bg-accent"></div>
+ </div>
+ <span className="text-sm font-medium text-body">{t('taxCredit.spouseWorks')}</span>
+ </label>
+ </div>
+ )}
 
-          {/* Other Italian income */}
-          <div className="sm:col-span-2">
-            <label htmlFor="tc-other" className="block text-xs font-bold text-subtle uppercase tracking-wide mb-1">
-              {t('taxCredit.otherIncome')}
-            </label>
-            <div className="relative">
-              <input
-                id="tc-other"
-                type="number"
-                inputMode="numeric"
-                value={otherItalianIncome}
-                onChange={(e) => setOtherItalianIncome(Number(e.target.value))}
-                className={EDIT_FIELD_CLASS}
-                min={0}
-              />
-              <span className="absolute right-4 top-3.5 text-xs font-bold text-muted">EUR</span>
-            </div>
-            <p className="text-sm text-muted mt-1">{t('taxCredit.otherIncomeHelp')}</p>
-          </div>
-        </div>
+ {/* Other Italian income */}
+ <div className="sm:col-span-2">
+ <label htmlFor="tc-other" className="block text-xs font-bold text-subtle uppercase tracking-wide mb-1">
+ {t('taxCredit.otherIncome')}
+ </label>
+ <div className="relative">
+ <input
+ id="tc-other"
+ type="number"
+ inputMode="numeric"
+ value={otherItalianIncome}
+ onChange={(e) => setOtherItalianIncome(Number(e.target.value))}
+ className={EDIT_FIELD_CLASS}
+ min={0}
+ />
+ <span className="absolute right-4 top-3.5 text-xs font-bold text-muted">EUR</span>
+ </div>
+ <p className="text-sm text-muted mt-1">{t('taxCredit.otherIncomeHelp')}</p>
+ </div>
+ </div>
 
-        {/* Distance from border selector */}
-        <div className="mt-4">
-          <label htmlFor="tc-distance" className="block text-xs font-bold text-subtle uppercase tracking-wide mb-1">
-            {t('taxCredit.distanceLabel')}
-          </label>
-          <select
-            id="tc-distance"
-            value={withinTwentyKm ? 'within' : 'beyond'}
-            onChange={(e) => setWithinTwentyKm(e.target.value === 'within')}
-            className={`${EDIT_FIELD_CLASS} sm:w-auto sm:min-w-[320px]`}
-          >
-            <option value="within">{t('taxCredit.within20km')}</option>
-            <option value="beyond">{t('taxCredit.beyond20km')}</option>
-          </select>
-          <div className="flex items-center gap-1 mt-1">
-            <HelpCircle size={14} className="text-muted" />
-            <span className="text-sm text-muted">{t('taxCredit.distanceHelp')}</span>
-          </div>
-        </div>
+ {/* Distance from border selector */}
+ <div className="mt-4">
+ <label htmlFor="tc-distance" className="block text-xs font-bold text-subtle uppercase tracking-wide mb-1">
+ {t('taxCredit.distanceLabel')}
+ </label>
+ <select
+ id="tc-distance"
+ value={withinTwentyKm ? 'within' : 'beyond'}
+ onChange={(e) => setWithinTwentyKm(e.target.value === 'within')}
+ className={`${EDIT_FIELD_CLASS} sm:w-auto sm:min-w-[320px]`}
+ >
+ <option value="within">{t('taxCredit.within20km')}</option>
+ <option value="beyond">{t('taxCredit.beyond20km')}</option>
+ </select>
+ <div className="flex items-center gap-1 mt-1">
+ <HelpCircle size={14} className="text-muted" />
+ <span className="text-sm text-muted">{t('taxCredit.distanceHelp')}</span>
+ </div>
+ </div>
 
-        {/* Computed Swiss tax info */}
-        <div className="mt-4 bg-surface-alt/50 rounded-xl p-3 space-y-1">
-          <p className="text-xs font-medium text-muted">{t('taxCredit.autoCalculated')}</p>
-          <div className="flex flex-wrap gap-x-6 gap-y-1">
-            <span className="text-sm text-body">
-              {t('taxCredit.swissTax')}: <span className="font-semibold">CHF {fmt(result.swissTaxCHF)}</span>
-              <span className="text-sm text-muted ml-1">({t('taxCredit.table')} {result.tableCode}, {result.effectiveSwissRate}%)</span>
-            </span>
-            <span className="text-sm text-body">
-              {t('taxCredit.socialDeductions')}: <span className="font-semibold">€{fmt(result.socialDeductionsEUR)}</span>
-            </span>
-          </div>
-        </div>
-      </div>
+ {/* Computed Swiss tax info */}
+ <div className="mt-4 bg-surface-alt/50 rounded-xl p-3 space-y-1">
+ <p className="text-xs font-medium text-muted">{t('taxCredit.autoCalculated')}</p>
+ <div className="flex flex-wrap gap-x-6 gap-y-1">
+ <span className="text-sm text-body">
+ {t('taxCredit.swissTax')}: <span className="font-semibold">CHF {fmt(result.swissTaxCHF)}</span>
+ <span className="text-sm text-muted ml-1">({t('taxCredit.table')} {result.tableCode}, {result.effectiveSwissRate}%)</span>
+ </span>
+ <span className="text-sm text-body">
+ {t('taxCredit.socialDeductions')}: <span className="font-semibold">€{fmt(result.socialDeductionsEUR)}</span>
+ </span>
+ </div>
+ </div>
+ </div>
 
-      {/* Results — always visible, updates automatically */}
-      <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6">
-        <h3 className="text-lg font-bold text-heading mb-4">{t('taxCredit.results')}</h3>
+ {/* Results — always visible, updates automatically */}
+ <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6">
+ <h3 className="text-lg font-bold text-heading mb-4">{t('taxCredit.results')}</h3>
 
-        {/* Summary cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
-          <div className="bg-success-subtle rounded-xl p-4 border border-success-border">
-            <p className="text-xs font-medium text-success mb-1">{t('taxCredit.creditAmount')}</p>
-            <p className="text-2xl font-bold text-success">€{fmt(result.taxCredit)}</p>
-          </div>
-          <div className="bg-accent-subtle rounded-xl p-4 border border-accent-border">
-            <p className="text-xs font-medium text-accent mb-1">{t('taxCredit.netItalianTax')}</p>
-            <p className="text-2xl font-bold text-accent">€{fmt(result.netItalianTax)}</p>
-          </div>
-          <div className="bg-accent-subtle rounded-xl p-4 border border-accent-border">
-            <p className="text-xs font-medium text-accent mb-1">{t('taxCredit.effectiveRate')}</p>
-            <p className="text-2xl font-bold text-accent">{result.effectiveRate}%</p>
-          </div>
-        </div>
+ {/* Summary cards */}
+ <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+ <div className="bg-success-subtle rounded-xl p-4 border border-success-border">
+ <p className="text-xs font-medium text-success mb-1">{t('taxCredit.creditAmount')}</p>
+ <p className="text-2xl font-bold text-success">€{fmt(result.taxCredit)}</p>
+ </div>
+ <div className="bg-accent-subtle rounded-xl p-4 border border-accent-border">
+ <p className="text-xs font-medium text-accent mb-1">{t('taxCredit.netItalianTax')}</p>
+ <p className="text-2xl font-bold text-accent">€{fmt(result.netItalianTax)}</p>
+ </div>
+ <div className="bg-accent-subtle rounded-xl p-4 border border-accent-border">
+ <p className="text-xs font-medium text-accent mb-1">{t('taxCredit.effectiveRate')}</p>
+ <p className="text-2xl font-bold text-accent">{result.effectiveRate}%</p>
+ </div>
+ </div>
 
-        {/* Details toggle */}
-        <button
-          onClick={() => setShowDetails(!showDetails)}
-          className="flex items-center gap-2 text-sm font-medium text-link hover:text-accent transition-colors"
-        >
-          {showDetails ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
-          {t('taxCredit.showDetails')}
-        </button>
+ {/* Details toggle */}
+ <button
+ onClick={() => setShowDetails(!showDetails)}
+ className="flex items-center gap-2 text-sm font-medium text-link hover:text-accent transition-colors"
+ >
+ {showDetails ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+ {t('taxCredit.showDetails')}
+ </button>
 
-        {showDetails && (
-          <div className="mt-4 space-y-3">
-            <div className="bg-surface-alt/50 rounded-xl p-4 space-y-2">
-              <h4 className="text-sm font-semibold text-body mb-3">{t('taxCredit.breakdown')}</h4>
-              {[
-                [t('taxCredit.grossEUR'), `€${fmt(result.grossEUR)}`],
-                [t('taxCredit.socialDeductions'), `- €${fmt(result.socialDeductionsEUR)}`],
-                [t('taxCredit.swissTaxEUR'), `€${fmt(result.swissTaxEUR)}`],
-                [t('taxCredit.paidSourceTax'), `€${fmt(result.paidSourceTaxEUR)}`],
-                ...(result.franchigia > 0 ? [[t('taxCredit.franchigiaLabel'), `- €${fmt(result.franchigia)}`]] : []),
-                [t('taxCredit.taxableInItaly'), `€${fmt(result.taxableInItaly)}`],
-                [t('taxCredit.irpef'), `€${fmt(result.irpef)}`],
-                [t('taxCredit.addizionaleRegionale'), `€${fmt(result.addizionaleRegionale)}`],
-                [t('taxCredit.addizionaleComunale'), `€${fmt(result.addizionaleComunale)}`],
-                [t('taxCredit.deductions'), `- €${fmt(result.itDeductions)}`],
-                [t('taxCredit.totalItalianTax'), `€${fmt(result.totalItalianTax)}`],
-                [t('taxCredit.foreignIncomeRatio'), `${result.foreignIncomeRatio}%`],
-                [t('taxCredit.italianTaxOnForeign'), `€${fmt(result.italianTaxOnForeignIncome)}`],
-              ].map(([label, value], i) => (
-                <div key={i} className="flex justify-between text-sm">
-                  <span className="text-subtle">{label}</span>
-                  <span className="font-medium text-heading">{value}</span>
-                </div>
-              ))}
-              <div className="border-t border-edge pt-2 mt-2">
-                <div className="flex justify-between text-sm font-bold">
-                  <span className="text-success">{t('taxCredit.creditAmount')}</span>
-                  <span className="text-success">€{fmt(result.taxCredit)}</span>
-                </div>
-              </div>
-            </div>
+ {showDetails && (
+ <div className="mt-4 space-y-3">
+ <div className="bg-surface-alt/50 rounded-xl p-4 space-y-2">
+ <h4 className="text-sm font-semibold text-body mb-3">{t('taxCredit.breakdown')}</h4>
+ {[
+ [t('taxCredit.grossEUR'), `€${fmt(result.grossEUR)}`],
+ [t('taxCredit.socialDeductions'), `- €${fmt(result.socialDeductionsEUR)}`],
+ [t('taxCredit.swissTaxEUR'), `€${fmt(result.swissTaxEUR)}`],
+ [t('taxCredit.paidSourceTax'), `€${fmt(result.paidSourceTaxEUR)}`],
+ ...(result.franchigia > 0 ? [[t('taxCredit.franchigiaLabel'), `- €${fmt(result.franchigia)}`]] : []),
+ [t('taxCredit.taxableInItaly'), `€${fmt(result.taxableInItaly)}`],
+ [t('taxCredit.irpef'), `€${fmt(result.irpef)}`],
+ [t('taxCredit.addizionaleRegionale'), `€${fmt(result.addizionaleRegionale)}`],
+ [t('taxCredit.addizionaleComunale'), `€${fmt(result.addizionaleComunale)}`],
+ [t('taxCredit.deductions'), `- €${fmt(result.itDeductions)}`],
+ [t('taxCredit.totalItalianTax'), `€${fmt(result.totalItalianTax)}`],
+ [t('taxCredit.foreignIncomeRatio'), `${result.foreignIncomeRatio}%`],
+ [t('taxCredit.italianTaxOnForeign'), `€${fmt(result.italianTaxOnForeignIncome)}`],
+ ].map(([label, value], i) => (
+ <div key={i} className="flex justify-between text-sm">
+ <span className="text-subtle">{label}</span>
+ <span className="font-medium text-heading">{value}</span>
+ </div>
+ ))}
+ <div className="border-t border-edge pt-2 mt-2">
+ <div className="flex justify-between text-sm font-bold">
+ <span className="text-success">{t('taxCredit.creditAmount')}</span>
+ <span className="text-success">€{fmt(result.taxCredit)}</span>
+ </div>
+ </div>
+ </div>
 
-            {/* Explanation */}
-            <div className="bg-warning-subtle border border-warning-border rounded-xl p-4">
-              <p className="text-sm text-warning">
-                {t('taxCredit.explanation')}
-              </p>
-            </div>
-          </div>
-        )}
-      </div>
-      <Suspense fallback={null}><RelatedTools context="tax" /></Suspense>
-    </div>
-  );
+ {/* Explanation */}
+ <div className="bg-warning-subtle border border-warning-border rounded-xl p-4">
+ <p className="text-sm text-warning">
+ {t('taxCredit.explanation')}
+ </p>
+ </div>
+ </div>
+ )}
+ </div>
+ <Suspense fallback={null}><RelatedTools context="tax" /></Suspense>
+ </div>
+ );
 };
 
 export default TaxCreditCalculator;

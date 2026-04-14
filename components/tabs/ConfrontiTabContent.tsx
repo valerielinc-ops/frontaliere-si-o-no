@@ -16,36 +16,36 @@ const JobComparator = lazyRetry(() => import('@/components/comparators/JobCompar
 const RenovationCalculator = lazyRetry(() => import('@/components/comparators/RenovationCalculator'));
 
 export default function ConfrontiTabContent() {
-  const { confrontiSubTab } = useNavigation();
-  const { result, inputs, userProfile } = useTabContent();
+ const { confrontiSubTab } = useNavigation();
+ const { result, inputs, userProfile } = useTabContent();
 
-  return (
-    <div className="max-w-7xl mx-auto min-h-[60vh]">
-      <Suspense fallback={<div className="min-h-[44px]" />}>
-        <SeoContentBlock context="confronti" />
-      </Suspense>
-      {confrontiSubTab === 'exchange' ? (
-        <CurrencyExchange />
-      ) : confrontiSubTab === 'banks' ? (
-        <BankComparison />
-      ) : confrontiSubTab === 'health' ? (
-        <HealthInsurance />
-      ) : confrontiSubTab === 'mobile' ? (
-        <MobileOperators />
-      ) : confrontiSubTab === 'shopping' ? (
-        <ShoppingCalculator />
-      ) : confrontiSubTab === 'cost-of-living' ? (
-        <CostOfLiving />
-      ) : confrontiSubTab === 'jobs' ? (
-        <JobComparator userProfile={userProfile} />
-      ) : confrontiSubTab === 'renovation' ? (
-        <RenovationCalculator simulationResult={result ?? undefined} simulationInputs={inputs} />
-      ) : null}
+ return (
+ <div className="max-w-7xl mx-auto min-h-[60vh]">
+ <Suspense fallback={<div className="min-h-[44px]" />}>
+ <SeoContentBlock context="confronti" />
+ </Suspense>
+ {confrontiSubTab === 'exchange' ? (
+ <CurrencyExchange />
+ ) : confrontiSubTab === 'banks' ? (
+ <BankComparison />
+ ) : confrontiSubTab === 'health' ? (
+ <HealthInsurance />
+ ) : confrontiSubTab === 'mobile' ? (
+ <MobileOperators />
+ ) : confrontiSubTab === 'shopping' ? (
+ <ShoppingCalculator />
+ ) : confrontiSubTab === 'cost-of-living' ? (
+ <CostOfLiving />
+ ) : confrontiSubTab === 'jobs' ? (
+ <JobComparator userProfile={userProfile} />
+ ) : confrontiSubTab === 'renovation' ? (
+ <RenovationCalculator simulationResult={result ?? undefined} simulationInputs={inputs} />
+ ) : null}
 
-      {/* AdSense — bottom multiplex */}
-      <Suspense fallback={null}>
-        <AdSenseBanner adSlot={AD_SLOTS.ARTICLE_END_MULTIPLEX.slot} adFormat={AD_SLOTS.ARTICLE_END_MULTIPLEX.format} className="mt-8 mb-4" />
-      </Suspense>
-    </div>
-  );
+ {/* AdSense — bottom multiplex */}
+ <Suspense fallback={null}>
+ <AdSenseBanner adSlot={AD_SLOTS.ARTICLE_END_MULTIPLEX.slot} adFormat={AD_SLOTS.ARTICLE_END_MULTIPLEX.format} className="mt-8 mb-4" />
+ </Suspense>
+ </div>
+ );
 }

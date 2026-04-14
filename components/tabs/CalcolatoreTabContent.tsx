@@ -8,9 +8,9 @@ import { pushRoute } from '@/services/router';
 import type { ActiveTab, CalcolatoreSubTab, BlogArticleId } from '@/services/router';
 import { Briefcase } from 'lucide-react';
 import {
-  SkeletonNewsTicker,
-  SkeletonWeeklyFact,
-  SkeletonInputCard,
+ SkeletonNewsTicker,
+ SkeletonWeeklyFact,
+ SkeletonInputCard,
 } from '@/components/shared/Skeletons';
 import AiExtractableTable from '@/components/shared/AiExtractableTable';
 import FaqAccordion from '@/components/shared/FaqAccordion';
@@ -39,256 +39,256 @@ import { AD_SLOTS } from '@/services/adsenseSlots';
 const LazyFallback = () => <SkeletonWeeklyFact />;
 
 export default function CalcolatoreTabContent() {
-  const { calcolatoreSubTab } = useNavigation();
-  const {
-    inputs, setInputs, result, handleCalculate,
-    showDeferredHomeWidgets, seoLanding, userProfile,
-    setActiveTab, setBlogArticle, navigateTo,
-  } = useTabContent();
-  const { t } = useTranslation();
+ const { calcolatoreSubTab } = useNavigation();
+ const {
+ inputs, setInputs, result, handleCalculate,
+ showDeferredHomeWidgets, seoLanding, userProfile,
+ setActiveTab, setBlogArticle, navigateTo,
+ } = useTabContent();
+ const { t } = useTranslation();
 
-  if (calcolatoreSubTab === 'calculator') {
-    return (
-      <div className="space-y-6">
-        {seoLanding === 'new-frontier-over20km' ? (
-          <Suspense fallback={<div className="h-64 rounded-3xl bg-surface-raised animate-pulse mb-6" />}>
-            <NewFrontierOver20KmHub />
-          </Suspense>
-        ) : (
-          <>
-            <h1 className="text-xl sm:text-2xl font-extrabold text-heading tracking-tight mb-1">
-              {t('seoContent.calculator.title')}
-            </h1>
-            <p className="text-sm text-muted mb-4">
-              {t('seoContent.calculator.subtitle')}
-            </p>
+ if (calcolatoreSubTab === 'calculator') {
+ return (
+ <div className="space-y-6">
+ {seoLanding === 'new-frontier-over20km' ? (
+ <Suspense fallback={<div className="h-64 rounded-3xl bg-surface-raised animate-pulse mb-6" />}>
+ <NewFrontierOver20KmHub />
+ </Suspense>
+ ) : (
+ <>
+ <h1 className="text-xl sm:text-2xl font-extrabold text-heading tracking-tight mb-1">
+ {t('seoContent.calculator.title')}
+ </h1>
+ <p className="text-sm text-muted mb-4">
+ {t('seoContent.calculator.subtitle')}
+ </p>
 
-            {showDeferredHomeWidgets ? (
-              <div className="hidden md:block space-y-2 mb-4">
-                <div className="grid grid-cols-1 md:grid-cols-20 gap-2 items-stretch">
-                  <div className="md:col-span-13 h-full">
-                    <Suspense fallback={<SkeletonNewsTicker />}>
-                      <NewsFeed onNavigate={(tab, article) => {
-                        setActiveTab(tab as ActiveTab);
-                        if (article) setBlogArticle(article as BlogArticleId);
-                        pushRoute({ activeTab: tab as ActiveTab, blogArticle: article as BlogArticleId });
-                        window.scrollTo({ top: 0, behavior: 'instant' });
-                      }} />
-                    </Suspense>
-                  </div>
-                  <div className="md:col-span-7 h-full">
-                    <Suspense fallback={<div className="h-[34px]" />}>
-                      <DailyDialectPhrase />
-                    </Suspense>
-                  </div>
-                </div>
-                <div className="mt-2">
-                  <a
-                    href="/cerca-lavoro-ticino/"
-                    onClick={(e) => { e.preventDefault(); Analytics.trackSelectContent('job_board_cta', 'desktop'); navigateTo('job-board' as any); }}
-                    className="w-full flex items-center gap-3 px-4 py-3 bg-gradient-to-r from-stripe-600 to-stripe-700 hover:from-stripe-700 hover:to-stripe-800 rounded-xl text-white transition-[color,background-color,border-color,box-shadow] hover:shadow-md text-left cursor-pointer"
-                  >
-                    <div className="p-1.5 bg-white/20 rounded-lg flex-shrink-0">
-                      <Briefcase size={16} className="text-white" />
-                    </div>
-                    <div className="min-w-0">
-                      <div className="text-sm font-bold leading-tight line-clamp-2">{t('jobBoard.homeCta.title', getCantonI18nParams())}</div>
-                      <div className="text-xs text-stripe-100 line-clamp-1">{t('jobBoard.homeCta.desc', getCantonI18nParams())}</div>
-                    </div>
-                    <div className="ml-auto flex-shrink-0 text-xs font-semibold text-stripe-100 whitespace-nowrap hidden lg:block">{t('jobBoard.homeCta.button')}</div>
-                  </a>
-                </div>
-              </div>
-            ) : (
-              <div className="hidden md:block space-y-2 mb-4" aria-hidden="true">
-                <div className="grid grid-cols-1 md:grid-cols-20 gap-2 items-stretch">
-                  <div className="md:col-span-13 h-full"><SkeletonNewsTicker /></div>
-                  <div className="md:col-span-7 h-full"><div className="h-[34px] rounded-xl bg-surface-raised animate-pulse" /></div>
-                </div>
-                <div className="mt-2"><div className="h-12 rounded-xl bg-gradient-to-r from-slate-300 to-slate-200 dark:from-slate-700 dark:to-slate-600 animate-pulse" /></div>
-              </div>
-            )}
+ {showDeferredHomeWidgets ? (
+ <div className="hidden md:block space-y-2 mb-4">
+ <div className="grid grid-cols-1 md:grid-cols-20 gap-2 items-stretch">
+ <div className="md:col-span-13 h-full">
+ <Suspense fallback={<SkeletonNewsTicker />}>
+ <NewsFeed onNavigate={(tab, article) => {
+ setActiveTab(tab as ActiveTab);
+ if (article) setBlogArticle(article as BlogArticleId);
+ pushRoute({ activeTab: tab as ActiveTab, blogArticle: article as BlogArticleId });
+ window.scrollTo({ top: 0, behavior: 'instant' });
+ }} />
+ </Suspense>
+ </div>
+ <div className="md:col-span-7 h-full">
+ <Suspense fallback={<div className="h-[34px]" />}>
+ <DailyDialectPhrase />
+ </Suspense>
+ </div>
+ </div>
+ <div className="mt-2">
+ <a
+ href="/cerca-lavoro-ticino/"
+ onClick={(e) => { e.preventDefault(); Analytics.trackSelectContent('job_board_cta', 'desktop'); navigateTo('job-board' as any); }}
+ className="w-full flex items-center gap-3 px-4 py-3 bg-gradient-to-r from-stripe-600 to-stripe-700 hover:from-stripe-700 hover:to-stripe-800 rounded-xl text-white transition-[color,background-color,border-color,box-shadow] hover:shadow-md text-left cursor-pointer"
+ >
+ <div className="p-1.5 bg-white/20 rounded-lg flex-shrink-0">
+ <Briefcase size={16} className="text-white" />
+ </div>
+ <div className="min-w-0">
+ <div className="text-sm font-bold leading-tight line-clamp-2">{t('jobBoard.homeCta.title', getCantonI18nParams())}</div>
+ <div className="text-xs text-stripe-100 line-clamp-1">{t('jobBoard.homeCta.desc', getCantonI18nParams())}</div>
+ </div>
+ <div className="ml-auto flex-shrink-0 text-xs font-semibold text-stripe-100 whitespace-nowrap hidden lg:block">{t('jobBoard.homeCta.button')}</div>
+ </a>
+ </div>
+ </div>
+ ) : (
+ <div className="hidden md:block space-y-2 mb-4" aria-hidden="true">
+ <div className="grid grid-cols-1 md:grid-cols-20 gap-2 items-stretch">
+ <div className="md:col-span-13 h-full"><SkeletonNewsTicker /></div>
+ <div className="md:col-span-7 h-full"><div className="h-[34px] rounded-xl bg-surface-raised animate-pulse" /></div>
+ </div>
+ <div className="mt-2"><div className="h-12 rounded-xl bg-gradient-to-r from-slate-300 to-slate-200 dark:from-slate-700 dark:to-slate-600 animate-pulse" /></div>
+ </div>
+ )}
 
-            {/* Mobile: Results-first bottom-sheet layout */}
-            <div className="md:hidden">
-              <Suspense fallback={<SkeletonInputCard />}>
-                <MobileCalcLayout
-                  inputs={inputs}
-                  setInputs={setInputs}
-                  onCalculate={handleCalculate}
-                  result={result}
-                  renderResultView={(focusArea, onProfileTagClick) =>
-                    result ? (
-                      <Suspense fallback={<LazyFallback />}>
-                        <ResultsView result={result} inputs={inputs} focusArea={focusArea ?? null} onProfileTagClick={onProfileTagClick} />
-                      </Suspense>
-                    ) : null
-                  }
-                  renderInputCard={(focusField, focusRequestId) => (
-                    <Suspense fallback={<SkeletonInputCard />}>
-                      <InputCard
-                        inputs={inputs}
-                        setInputs={setInputs}
-                        onCalculate={handleCalculate}
-                        focusField={focusField}
-                        focusRequestId={focusRequestId}
-                      />
-                    </Suspense>
-                  )}
-                />
-              </Suspense>
-            </div>
+ {/* Mobile: Results-first bottom-sheet layout */}
+ <div className="md:hidden">
+ <Suspense fallback={<SkeletonInputCard />}>
+ <MobileCalcLayout
+ inputs={inputs}
+ setInputs={setInputs}
+ onCalculate={handleCalculate}
+ result={result}
+ renderResultView={(focusArea, onProfileTagClick) =>
+ result ? (
+ <Suspense fallback={<LazyFallback />}>
+ <ResultsView result={result} inputs={inputs} focusArea={focusArea ?? null} onProfileTagClick={onProfileTagClick} />
+ </Suspense>
+ ) : null
+ }
+ renderInputCard={(focusField, focusRequestId) => (
+ <Suspense fallback={<SkeletonInputCard />}>
+ <InputCard
+ inputs={inputs}
+ setInputs={setInputs}
+ onCalculate={handleCalculate}
+ focusField={focusField}
+ focusRequestId={focusRequestId}
+ />
+ </Suspense>
+ )}
+ />
+ </Suspense>
+ </div>
 
-            {/* Desktop: side-by-side layout */}
-            <div className="hidden md:grid grid-cols-12 gap-6 h-full">
-              <div className="md:col-span-4 lg:col-span-4 xl:col-span-3 h-full">
-                <Suspense fallback={<SkeletonInputCard />}>
-                  <InputCard inputs={inputs} setInputs={setInputs} onCalculate={handleCalculate} result={result} />
-                </Suspense>
-              </div>
-              <div className="md:col-span-8 lg:col-span-8 xl:col-span-9 h-full">
-                {result && (
-                  <Suspense fallback={<LazyFallback />}>
-                    <ResultsView result={result} inputs={inputs} />
-                  </Suspense>
-                )}
-              </div>
-            </div>
+ {/* Desktop: side-by-side layout */}
+ <div className="hidden md:grid grid-cols-12 gap-6 h-full">
+ <div className="md:col-span-4 lg:col-span-4 xl:col-span-3 h-full">
+ <Suspense fallback={<SkeletonInputCard />}>
+ <InputCard inputs={inputs} setInputs={setInputs} onCalculate={handleCalculate} result={result} />
+ </Suspense>
+ </div>
+ <div className="md:col-span-8 lg:col-span-8 xl:col-span-9 h-full">
+ {result && (
+ <Suspense fallback={<LazyFallback />}>
+ <ResultsView result={result} inputs={inputs} />
+ </Suspense>
+ )}
+ </div>
+ </div>
 
-            {/* Mobile: widgets below results — stable outer div prevents CLS during skeleton→real swap */}
-            <div className="md:hidden space-y-2 mt-2 min-h-[160px]">
-              {showDeferredHomeWidgets ? (
-                <>
-                  <Suspense fallback={<SkeletonNewsTicker />}>
-                    <NewsFeed onNavigate={(tab, article) => {
-                      setActiveTab(tab as ActiveTab);
-                      if (article) setBlogArticle(article as BlogArticleId);
-                      pushRoute({ activeTab: tab as ActiveTab, blogArticle: article as BlogArticleId });
-                      window.scrollTo({ top: 0, behavior: 'instant' });
-                    }} />
-                  </Suspense>
-                  <div className="space-y-2">
-                    <Suspense fallback={<SkeletonWeeklyFact />}><WeeklyFact /></Suspense>
-                    <a
-                      href="/cerca-lavoro-ticino/"
-                      onClick={(e) => { e.preventDefault(); Analytics.trackSelectContent('job_board_cta', 'mobile'); navigateTo('job-board' as any); }}
-                      className="w-full flex items-center justify-between gap-3 px-4 py-3 bg-gradient-to-r from-stripe-600 to-stripe-700 hover:from-stripe-700 hover:to-stripe-800 rounded-xl text-white transition-[color,background-color,border-color,transform] active:scale-[0.98]"
-                    >
-                      <div className="flex items-center gap-2.5 min-w-0">
-                        <Briefcase size={18} className="text-white flex-shrink-0" />
-                        <span className="text-sm font-bold line-clamp-1">{t('jobBoard.homeCta.mobile.title', getCantonI18nParams())}</span>
-                      </div>
-                      <span className="text-xs font-semibold text-stripe-100 flex-shrink-0">{t('jobBoard.homeCta.mobile.button')} →</span>
-                    </a>
-                  </div>
-                  <Suspense fallback={<div className="h-[34px]" />}>
-                    <DailyDialectPhrase />
-                  </Suspense>
-                </>
-              ) : (
-                <div aria-hidden="true" className="space-y-2">
-                  <SkeletonNewsTicker />
-                  <SkeletonWeeklyFact />
-                  <div className="h-[34px] rounded-xl bg-surface-raised animate-pulse" />
-                  <div className="h-[34px] rounded-xl bg-surface-raised animate-pulse" />
-                </div>
-              )}
-            </div>
+ {/* Mobile: widgets below results — stable outer div prevents CLS during skeleton→real swap */}
+ <div className="md:hidden space-y-2 mt-2 min-h-[160px]">
+ {showDeferredHomeWidgets ? (
+ <>
+ <Suspense fallback={<SkeletonNewsTicker />}>
+ <NewsFeed onNavigate={(tab, article) => {
+ setActiveTab(tab as ActiveTab);
+ if (article) setBlogArticle(article as BlogArticleId);
+ pushRoute({ activeTab: tab as ActiveTab, blogArticle: article as BlogArticleId });
+ window.scrollTo({ top: 0, behavior: 'instant' });
+ }} />
+ </Suspense>
+ <div className="space-y-2">
+ <Suspense fallback={<SkeletonWeeklyFact />}><WeeklyFact /></Suspense>
+ <a
+ href="/cerca-lavoro-ticino/"
+ onClick={(e) => { e.preventDefault(); Analytics.trackSelectContent('job_board_cta', 'mobile'); navigateTo('job-board' as any); }}
+ className="w-full flex items-center justify-between gap-3 px-4 py-3 bg-gradient-to-r from-stripe-600 to-stripe-700 hover:from-stripe-700 hover:to-stripe-800 rounded-xl text-white transition-[color,background-color,border-color,transform] active:scale-[0.98]"
+ >
+ <div className="flex items-center gap-2.5 min-w-0">
+ <Briefcase size={18} className="text-white flex-shrink-0" />
+ <span className="text-sm font-bold line-clamp-1">{t('jobBoard.homeCta.mobile.title', getCantonI18nParams())}</span>
+ </div>
+ <span className="text-xs font-semibold text-stripe-100 flex-shrink-0">{t('jobBoard.homeCta.mobile.button')} →</span>
+ </a>
+ </div>
+ <Suspense fallback={<div className="h-[34px]" />}>
+ <DailyDialectPhrase />
+ </Suspense>
+ </>
+ ) : (
+ <div aria-hidden="true" className="space-y-2">
+ <SkeletonNewsTicker />
+ <SkeletonWeeklyFact />
+ <div className="h-[34px] rounded-xl bg-surface-raised animate-pulse" />
+ <div className="h-[34px] rounded-xl bg-surface-raised animate-pulse" />
+ </div>
+ )}
+ </div>
 
-            {result && (
-              <div className="mt-3">
-                <Suspense fallback={<div className="h-[34px]" />}><SocialProofBadge fullWidth /></Suspense>
-              </div>
-            )}
-            {result && (
-              <div className="mt-2 w-full">
-                <Suspense fallback={<SkeletonWeeklyFact />}><WeeklyFact /></Suspense>
-              </div>
-            )}
-            {/* AdSense — homepage mid-content display (reserveSpace prevents CLS when result appears) */}
-            <Suspense fallback={null}>
-              <AdSenseBanner
-                adSlot={AD_SLOTS.HOMEPAGE_MID_DISPLAY.slot}
-                adFormat={AD_SLOTS.HOMEPAGE_MID_DISPLAY.format}
-                fullWidthResponsive={AD_SLOTS.HOMEPAGE_MID_DISPLAY.fullWidthResponsive}
-                className="mt-6 mb-4"
-                enabled={!!result}
-                reserveSpace
-              />
-            </Suspense>
+ {result && (
+ <div className="mt-3">
+ <Suspense fallback={<div className="h-[34px]" />}><SocialProofBadge fullWidth /></Suspense>
+ </div>
+ )}
+ {result && (
+ <div className="mt-2 w-full">
+ <Suspense fallback={<SkeletonWeeklyFact />}><WeeklyFact /></Suspense>
+ </div>
+ )}
+ {/* AdSense — homepage mid-content display (reserveSpace prevents CLS when result appears) */}
+ <Suspense fallback={null}>
+ <AdSenseBanner
+ adSlot={AD_SLOTS.HOMEPAGE_MID_DISPLAY.slot}
+ adFormat={AD_SLOTS.HOMEPAGE_MID_DISPLAY.format}
+ fullWidthResponsive={AD_SLOTS.HOMEPAGE_MID_DISPLAY.fullWidthResponsive}
+ className="mt-6 mb-4"
+ enabled={!!result}
+ reserveSpace
+ />
+ </Suspense>
 
-            {/* AI-extractable comparison table + FAQ — in <details> for crawlability without breaking page flow */}
-            <details className="mt-6 group">
-              <summary className="cursor-pointer list-none flex items-center gap-2 text-sm font-medium text-accent hover:text-stripe-800 dark:hover:text-stripe-300 transition-colors">
-                <svg className="w-4 h-4 transition-transform group-open:rotate-90" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-                {t('calc.table.caption')}
-              </summary>
-              <div className="mt-3">
-                <AiExtractableTable
-                  caption={t('calc.table.caption')}
-                  columns={[
-                    { header: t('calc.table.col.aspect'), accessor: 'aspect' },
-                    { header: t('calc.table.col.permitB'), accessor: 'permitB' },
-                    { header: t('calc.table.col.permitG'), accessor: 'permitG' },
-                  ]}
-                  rows={[
-                    { aspect: t('calc.table.row1.aspect'), permitB: t('calc.table.row1.permitB'), permitG: t('calc.table.row1.permitG') },
-                    { aspect: t('calc.table.row2.aspect'), permitB: t('calc.table.row2.permitB'), permitG: t('calc.table.row2.permitG') },
-                    { aspect: t('calc.table.row3.aspect'), permitB: t('calc.table.row3.permitB'), permitG: t('calc.table.row3.permitG') },
-                    { aspect: t('calc.table.row4.aspect'), permitB: t('calc.table.row4.permitB'), permitG: t('calc.table.row4.permitG') },
-                    { aspect: t('calc.table.row5.aspect'), permitB: t('calc.table.row5.permitB'), permitG: t('calc.table.row5.permitG') },
-                  ]}
-                  source={t('calc.table.source')}
-                />
-                <FaqAccordion
-                  title={t('calc.faq.title')}
-                  items={[
-                    { question: t('calc.faq.q1'), answer: t('calc.faq.a1') },
-                    { question: t('calc.faq.q2'), answer: t('calc.faq.a2') },
-                    { question: t('calc.faq.q3'), answer: t('calc.faq.a3') },
-                  ]}
-                  className="mt-4"
-                />
-              </div>
-            </details>
-          </>
-        )}
-      </div>
-    );
-  }
+ {/* AI-extractable comparison table + FAQ — in <details> for crawlability without breaking page flow */}
+ <details className="mt-6 group">
+ <summary className="cursor-pointer list-none flex items-center gap-2 text-sm font-medium text-accent hover:text-stripe-800 dark:hover:text-stripe-300 transition-colors">
+ <svg className="w-4 h-4 transition-transform group-open:rotate-90" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+ {t('calc.table.caption')}
+ </summary>
+ <div className="mt-3">
+ <AiExtractableTable
+ caption={t('calc.table.caption')}
+ columns={[
+ { header: t('calc.table.col.aspect'), accessor: 'aspect' },
+ { header: t('calc.table.col.permitB'), accessor: 'permitB' },
+ { header: t('calc.table.col.permitG'), accessor: 'permitG' },
+ ]}
+ rows={[
+ { aspect: t('calc.table.row1.aspect'), permitB: t('calc.table.row1.permitB'), permitG: t('calc.table.row1.permitG') },
+ { aspect: t('calc.table.row2.aspect'), permitB: t('calc.table.row2.permitB'), permitG: t('calc.table.row2.permitG') },
+ { aspect: t('calc.table.row3.aspect'), permitB: t('calc.table.row3.permitB'), permitG: t('calc.table.row3.permitG') },
+ { aspect: t('calc.table.row4.aspect'), permitB: t('calc.table.row4.permitB'), permitG: t('calc.table.row4.permitG') },
+ { aspect: t('calc.table.row5.aspect'), permitB: t('calc.table.row5.permitB'), permitG: t('calc.table.row5.permitG') },
+ ]}
+ source={t('calc.table.source')}
+ />
+ <FaqAccordion
+ title={t('calc.faq.title')}
+ items={[
+ { question: t('calc.faq.q1'), answer: t('calc.faq.a1') },
+ { question: t('calc.faq.q2'), answer: t('calc.faq.a2') },
+ { question: t('calc.faq.q3'), answer: t('calc.faq.a3') },
+ ]}
+ className="mt-4"
+ />
+ </div>
+ </details>
+ </>
+ )}
+ </div>
+ );
+ }
 
-  // ── Sub-calculator views — each gets a bottom AdSense multiplex ──
-  const adBottom = (
-    <Suspense fallback={null}>
-      <AdSenseBanner adSlot={AD_SLOTS.ARTICLE_END_MULTIPLEX.slot} adFormat={AD_SLOTS.ARTICLE_END_MULTIPLEX.format} className="mt-8 mb-4" />
-    </Suspense>
-  );
+ // ── Sub-calculator views — each gets a bottom AdSense multiplex ──
+ const adBottom = (
+ <Suspense fallback={null}>
+ <AdSenseBanner adSlot={AD_SLOTS.ARTICLE_END_MULTIPLEX.slot} adFormat={AD_SLOTS.ARTICLE_END_MULTIPLEX.format} className="mt-8 mb-4" />
+ </Suspense>
+ );
 
-  if (calcolatoreSubTab === 'payslip') {
-    return <div className="w-full"><PayslipSimulator userProfile={userProfile} />{adBottom}</div>;
-  }
-  if (calcolatoreSubTab === 'whatif') {
-    return (
-      <div className="w-full">
-        {result && <WhatIfSimulator baseInputs={inputs} baseResult={result} userProfile={userProfile} />}
-        {adBottom}
-      </div>
-    );
-  }
-  if (calcolatoreSubTab === 'ral') {
-    return <div className="max-w-7xl mx-auto"><RalComparator userProfile={userProfile} />{adBottom}</div>;
-  }
-  if (calcolatoreSubTab === 'bonus') {
-    return <div className="max-w-7xl mx-auto"><BonusCalculator userProfile={userProfile} />{adBottom}</div>;
-  }
-  if (calcolatoreSubTab === 'parental-leave') {
-    return <div className="max-w-7xl mx-auto"><ParentalLeaveCalculator userProfile={userProfile} />{adBottom}</div>;
-  }
-  if (calcolatoreSubTab === 'residency') {
-    return <div className="max-w-7xl mx-auto"><ResidencySimulator />{adBottom}</div>;
-  }
-  if (calcolatoreSubTab === 'salary-quiz') {
-    return <div className="max-w-7xl mx-auto"><SalaryQuiz />{adBottom}</div>;
-  }
-  return null;
+ if (calcolatoreSubTab === 'payslip') {
+ return <div className="w-full"><PayslipSimulator userProfile={userProfile} />{adBottom}</div>;
+ }
+ if (calcolatoreSubTab === 'whatif') {
+ return (
+ <div className="w-full">
+ {result && <WhatIfSimulator baseInputs={inputs} baseResult={result} userProfile={userProfile} />}
+ {adBottom}
+ </div>
+ );
+ }
+ if (calcolatoreSubTab === 'ral') {
+ return <div className="max-w-7xl mx-auto"><RalComparator userProfile={userProfile} />{adBottom}</div>;
+ }
+ if (calcolatoreSubTab === 'bonus') {
+ return <div className="max-w-7xl mx-auto"><BonusCalculator userProfile={userProfile} />{adBottom}</div>;
+ }
+ if (calcolatoreSubTab === 'parental-leave') {
+ return <div className="max-w-7xl mx-auto"><ParentalLeaveCalculator userProfile={userProfile} />{adBottom}</div>;
+ }
+ if (calcolatoreSubTab === 'residency') {
+ return <div className="max-w-7xl mx-auto"><ResidencySimulator />{adBottom}</div>;
+ }
+ if (calcolatoreSubTab === 'salary-quiz') {
+ return <div className="max-w-7xl mx-auto"><SalaryQuiz />{adBottom}</div>;
+ }
+ return null;
 }

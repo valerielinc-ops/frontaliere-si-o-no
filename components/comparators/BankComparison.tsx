@@ -8,350 +8,350 @@ const LeadMagnetCTA = lazy(() => import('@/components/shared/LeadMagnetCTA'));
 import DataFreshness from '@/components/shared/DataFreshness';
 
 interface Bank {
-  name: string;
-  country: 'CH' | 'IT';
-  accountFee: number;
-  transactionFees: string;
-  atmFees: string;
-  cardType: string;
-  pros: string[];
-  cons: string[];
-  color: string;
-  website: string;
-  acceptsFrontalieri: boolean;
+ name: string;
+ country: 'CH' | 'IT';
+ accountFee: number;
+ transactionFees: string;
+ atmFees: string;
+ cardType: string;
+ pros: string[];
+ cons: string[];
+ color: string;
+ website: string;
+ acceptsFrontalieri: boolean;
 }
 
 function getBanks(t: (key: string) => string): Bank[] {
-  return [
-    {
-      name: 'PostFinance',
-      country: 'CH',
-      accountFee: 5,
-      transactionFees: t('banks.postfinance.transactionFees'),
-      atmFees: t('banks.postfinance.atmFees'),
-      cardType: 'Maestro + Visa Debit',
-      pros: [t('banks.postfinance.pro1'), t('banks.postfinance.pro2'), t('banks.postfinance.pro3')],
-      cons: [t('banks.postfinance.con1'), t('banks.postfinance.con2'), t('banks.postfinance.con3')],
-      color: 'from-yellow-500 to-orange-600',
-      website: 'https://www.postfinance.ch',
-      acceptsFrontalieri: true
-    },
-    {
-      name: 'UBS',
-      country: 'CH',
-      accountFee: 0,
-      transactionFees: t('banks.ubs.transactionFees'),
-      atmFees: t('banks.ubs.atmFees'),
-      cardType: 'Maestro + Visa Debit',
-      pros: [t('banks.ubs.pro1'), t('banks.ubs.pro2'), t('banks.ubs.pro3')],
-      cons: [t('banks.ubs.con1'), t('banks.ubs.con2'), t('banks.ubs.con3')],
-      color: 'from-red-500 to-rose-600',
-      website: 'https://www.ubs.com',
-      acceptsFrontalieri: false
-    },
-    {
-      name: 'Credit Suisse',
-      country: 'CH',
-      accountFee: 0,
-      transactionFees: t('banks.creditSuisse.transactionFees'),
-      atmFees: t('banks.creditSuisse.atmFees'),
-      cardType: 'Maestro + Visa',
-      pros: [t('banks.creditSuisse.pro1'), t('banks.creditSuisse.pro2')],
-      cons: [t('banks.creditSuisse.con1'), t('banks.creditSuisse.con2'), t('banks.creditSuisse.con3')],
-      color: 'from-stripe-600 to-stripe-800',
-      website: 'https://www.credit-suisse.com',
-      acceptsFrontalieri: false
-    },
-    {
-      name: 'Raiffeisen',
-      country: 'CH',
-      accountFee: 3,
-      transactionFees: t('banks.raiffeisen.transactionFees'),
-      atmFees: t('banks.raiffeisen.atmFees'),
-      cardType: 'Maestro + Mastercard Debit',
-      pros: [t('banks.raiffeisen.pro1'), t('banks.raiffeisen.pro2'), t('banks.raiffeisen.pro3')],
-      cons: [t('banks.raiffeisen.con1'), t('banks.raiffeisen.con2'), t('banks.raiffeisen.con3')],
-      color: 'from-green-600 to-emerald-700',
-      website: 'https://www.raiffeisen.ch',
-      acceptsFrontalieri: true
-    },
-    {
-      name: 'Revolut',
-      country: 'IT',
-      accountFee: 0,
-      transactionFees: t('banks.revolut.transactionFees'),
-      atmFees: t('banks.revolut.atmFees'),
-      cardType: 'Visa Debit (virtuale + fisica)',
-      pros: [t('banks.revolut.pro1'), t('banks.revolut.pro2'), t('banks.revolut.pro3'), t('banks.revolut.pro4')],
-      cons: [t('banks.revolut.con1'), t('banks.revolut.con2'), t('banks.revolut.con3')],
-      color: 'from-rose-500 to-pink-600',
-      website: 'https://www.revolut.com',
-      acceptsFrontalieri: true
-    },
-    {
-      name: 'Wise',
-      country: 'IT',
-      accountFee: 0,
-      transactionFees: t('banks.wise.transactionFees'),
-      atmFees: t('banks.wise.atmFees'),
-      cardType: 'Visa Debit',
-      pros: [t('banks.wise.pro1'), t('banks.wise.pro2'), t('banks.wise.pro3'), t('banks.wise.pro4')],
-      cons: [t('banks.wise.con1'), t('banks.wise.con2'), t('banks.wise.con3')],
-      color: 'from-emerald-500 to-teal-600',
-      website: 'https://wise.com/invite/ihpn/luigis147',
-      acceptsFrontalieri: true
-    },
-    {
-      name: 'Intesa Sanpaolo',
-      country: 'IT',
-      accountFee: 0,
-      transactionFees: t('banks.intesa.transactionFees'),
-      atmFees: t('banks.intesa.atmFees'),
-      cardType: t('banks.intesa.cardType'),
-      pros: [t('banks.intesa.pro1'), t('banks.intesa.pro2'), t('banks.intesa.pro3')],
-      cons: [t('banks.intesa.con1'), t('banks.intesa.con2'), t('banks.intesa.con3')],
-      color: 'from-stripe-500 to-stripe-700',
-      website: 'https://www.intesasanpaolo.com',
-      acceptsFrontalieri: true
-    },
-    {
-      name: 'Fineco',
-      country: 'IT',
-      accountFee: 0,
-      transactionFees: t('banks.fineco.transactionFees'),
-      atmFees: t('banks.fineco.atmFees'),
-      cardType: t('banks.fineco.cardType'),
-      pros: [t('banks.fineco.pro1'), t('banks.fineco.pro2'), t('banks.fineco.pro3'), t('banks.fineco.pro4')],
-      cons: [t('banks.fineco.con1'), t('banks.fineco.con2'), t('banks.fineco.con3')],
-      color: 'from-teal-500 to-stripe-600',
-      website: 'https://fineco.mobi/passaparola',
-      acceptsFrontalieri: true
-    },
-    {
-      name: 'Yuh',
-      country: 'CH',
-      accountFee: 0,
-      transactionFees: t('banks.yuh.transactionFees'),
-      atmFees: t('banks.yuh.atmFees'),
-      cardType: 'Mastercard Debit',
-      pros: [t('banks.yuh.pro1'), t('banks.yuh.pro2'), t('banks.yuh.pro3'), t('banks.yuh.pro4')],
-      cons: [t('banks.yuh.con1'), t('banks.yuh.con2'), t('banks.yuh.con3')],
-      color: 'from-amber-500 to-amber-700',
-      website: 'https://www.yuh.com',
-      acceptsFrontalieri: true
-    },
-    {
-      name: 'Neon',
-      country: 'CH',
-      accountFee: 0,
-      transactionFees: t('banks.neon.transactionFees'),
-      atmFees: t('banks.neon.atmFees'),
-      cardType: 'Mastercard Debit',
-      pros: [t('banks.neon.pro1'), t('banks.neon.pro2'), t('banks.neon.pro3')],
-      cons: [t('banks.neon.con1'), t('banks.neon.con2'), t('banks.neon.con3')],
-      color: 'from-green-400 to-emerald-600',
-      website: 'https://www.neon-free.ch',
-      acceptsFrontalieri: true
-    },
-    {
-      name: 'N26',
-      country: 'IT',
-      accountFee: 0,
-      transactionFees: t('banks.n26.transactionFees'),
-      atmFees: t('banks.n26.atmFees'),
-      cardType: 'Mastercard Debit (virtuale + fisica)',
-      pros: [t('banks.n26.pro1'), t('banks.n26.pro2'), t('banks.n26.pro3')],
-      cons: [t('banks.n26.con1'), t('banks.n26.con2'), t('banks.n26.con3')],
-      color: 'from-teal-500 to-teal-700',
-      website: 'https://n26.com',
-      acceptsFrontalieri: true
-    },
-    {
-      name: 'HYPE',
-      country: 'IT',
-      accountFee: 0,
-      transactionFees: t('banks.hype.transactionFees'),
-      atmFees: t('banks.hype.atmFees'),
-      cardType: 'Visa Debit',
-      pros: [t('banks.hype.pro1'), t('banks.hype.pro2'), t('banks.hype.pro3')],
-      cons: [t('banks.hype.con1'), t('banks.hype.con2'), t('banks.hype.con3')],
-      color: 'from-amber-500 to-amber-700',
-      website: 'https://www.hype.it',
-      acceptsFrontalieri: true
-    }
-  ];
+ return [
+ {
+ name: 'PostFinance',
+ country: 'CH',
+ accountFee: 5,
+ transactionFees: t('banks.postfinance.transactionFees'),
+ atmFees: t('banks.postfinance.atmFees'),
+ cardType: 'Maestro + Visa Debit',
+ pros: [t('banks.postfinance.pro1'), t('banks.postfinance.pro2'), t('banks.postfinance.pro3')],
+ cons: [t('banks.postfinance.con1'), t('banks.postfinance.con2'), t('banks.postfinance.con3')],
+ color: 'from-yellow-500 to-orange-600',
+ website: 'https://www.postfinance.ch',
+ acceptsFrontalieri: true
+ },
+ {
+ name: 'UBS',
+ country: 'CH',
+ accountFee: 0,
+ transactionFees: t('banks.ubs.transactionFees'),
+ atmFees: t('banks.ubs.atmFees'),
+ cardType: 'Maestro + Visa Debit',
+ pros: [t('banks.ubs.pro1'), t('banks.ubs.pro2'), t('banks.ubs.pro3')],
+ cons: [t('banks.ubs.con1'), t('banks.ubs.con2'), t('banks.ubs.con3')],
+ color: 'from-red-500 to-rose-600',
+ website: 'https://www.ubs.com',
+ acceptsFrontalieri: false
+ },
+ {
+ name: 'Credit Suisse',
+ country: 'CH',
+ accountFee: 0,
+ transactionFees: t('banks.creditSuisse.transactionFees'),
+ atmFees: t('banks.creditSuisse.atmFees'),
+ cardType: 'Maestro + Visa',
+ pros: [t('banks.creditSuisse.pro1'), t('banks.creditSuisse.pro2')],
+ cons: [t('banks.creditSuisse.con1'), t('banks.creditSuisse.con2'), t('banks.creditSuisse.con3')],
+ color: 'from-stripe-600 to-stripe-800',
+ website: 'https://www.credit-suisse.com',
+ acceptsFrontalieri: false
+ },
+ {
+ name: 'Raiffeisen',
+ country: 'CH',
+ accountFee: 3,
+ transactionFees: t('banks.raiffeisen.transactionFees'),
+ atmFees: t('banks.raiffeisen.atmFees'),
+ cardType: 'Maestro + Mastercard Debit',
+ pros: [t('banks.raiffeisen.pro1'), t('banks.raiffeisen.pro2'), t('banks.raiffeisen.pro3')],
+ cons: [t('banks.raiffeisen.con1'), t('banks.raiffeisen.con2'), t('banks.raiffeisen.con3')],
+ color: 'from-green-600 to-emerald-700',
+ website: 'https://www.raiffeisen.ch',
+ acceptsFrontalieri: true
+ },
+ {
+ name: 'Revolut',
+ country: 'IT',
+ accountFee: 0,
+ transactionFees: t('banks.revolut.transactionFees'),
+ atmFees: t('banks.revolut.atmFees'),
+ cardType: 'Visa Debit (virtuale + fisica)',
+ pros: [t('banks.revolut.pro1'), t('banks.revolut.pro2'), t('banks.revolut.pro3'), t('banks.revolut.pro4')],
+ cons: [t('banks.revolut.con1'), t('banks.revolut.con2'), t('banks.revolut.con3')],
+ color: 'from-rose-500 to-pink-600',
+ website: 'https://www.revolut.com',
+ acceptsFrontalieri: true
+ },
+ {
+ name: 'Wise',
+ country: 'IT',
+ accountFee: 0,
+ transactionFees: t('banks.wise.transactionFees'),
+ atmFees: t('banks.wise.atmFees'),
+ cardType: 'Visa Debit',
+ pros: [t('banks.wise.pro1'), t('banks.wise.pro2'), t('banks.wise.pro3'), t('banks.wise.pro4')],
+ cons: [t('banks.wise.con1'), t('banks.wise.con2'), t('banks.wise.con3')],
+ color: 'from-emerald-500 to-teal-600',
+ website: 'https://wise.com/invite/ihpn/luigis147',
+ acceptsFrontalieri: true
+ },
+ {
+ name: 'Intesa Sanpaolo',
+ country: 'IT',
+ accountFee: 0,
+ transactionFees: t('banks.intesa.transactionFees'),
+ atmFees: t('banks.intesa.atmFees'),
+ cardType: t('banks.intesa.cardType'),
+ pros: [t('banks.intesa.pro1'), t('banks.intesa.pro2'), t('banks.intesa.pro3')],
+ cons: [t('banks.intesa.con1'), t('banks.intesa.con2'), t('banks.intesa.con3')],
+ color: 'from-stripe-500 to-stripe-700',
+ website: 'https://www.intesasanpaolo.com',
+ acceptsFrontalieri: true
+ },
+ {
+ name: 'Fineco',
+ country: 'IT',
+ accountFee: 0,
+ transactionFees: t('banks.fineco.transactionFees'),
+ atmFees: t('banks.fineco.atmFees'),
+ cardType: t('banks.fineco.cardType'),
+ pros: [t('banks.fineco.pro1'), t('banks.fineco.pro2'), t('banks.fineco.pro3'), t('banks.fineco.pro4')],
+ cons: [t('banks.fineco.con1'), t('banks.fineco.con2'), t('banks.fineco.con3')],
+ color: 'from-teal-500 to-stripe-600',
+ website: 'https://fineco.mobi/passaparola',
+ acceptsFrontalieri: true
+ },
+ {
+ name: 'Yuh',
+ country: 'CH',
+ accountFee: 0,
+ transactionFees: t('banks.yuh.transactionFees'),
+ atmFees: t('banks.yuh.atmFees'),
+ cardType: 'Mastercard Debit',
+ pros: [t('banks.yuh.pro1'), t('banks.yuh.pro2'), t('banks.yuh.pro3'), t('banks.yuh.pro4')],
+ cons: [t('banks.yuh.con1'), t('banks.yuh.con2'), t('banks.yuh.con3')],
+ color: 'from-amber-500 to-amber-700',
+ website: 'https://www.yuh.com',
+ acceptsFrontalieri: true
+ },
+ {
+ name: 'Neon',
+ country: 'CH',
+ accountFee: 0,
+ transactionFees: t('banks.neon.transactionFees'),
+ atmFees: t('banks.neon.atmFees'),
+ cardType: 'Mastercard Debit',
+ pros: [t('banks.neon.pro1'), t('banks.neon.pro2'), t('banks.neon.pro3')],
+ cons: [t('banks.neon.con1'), t('banks.neon.con2'), t('banks.neon.con3')],
+ color: 'from-green-400 to-emerald-600',
+ website: 'https://www.neon-free.ch',
+ acceptsFrontalieri: true
+ },
+ {
+ name: 'N26',
+ country: 'IT',
+ accountFee: 0,
+ transactionFees: t('banks.n26.transactionFees'),
+ atmFees: t('banks.n26.atmFees'),
+ cardType: 'Mastercard Debit (virtuale + fisica)',
+ pros: [t('banks.n26.pro1'), t('banks.n26.pro2'), t('banks.n26.pro3')],
+ cons: [t('banks.n26.con1'), t('banks.n26.con2'), t('banks.n26.con3')],
+ color: 'from-teal-500 to-teal-700',
+ website: 'https://n26.com',
+ acceptsFrontalieri: true
+ },
+ {
+ name: 'HYPE',
+ country: 'IT',
+ accountFee: 0,
+ transactionFees: t('banks.hype.transactionFees'),
+ atmFees: t('banks.hype.atmFees'),
+ cardType: 'Visa Debit',
+ pros: [t('banks.hype.pro1'), t('banks.hype.pro2'), t('banks.hype.pro3')],
+ cons: [t('banks.hype.con1'), t('banks.hype.con2'), t('banks.hype.con3')],
+ color: 'from-amber-500 to-amber-700',
+ website: 'https://www.hype.it',
+ acceptsFrontalieri: true
+ }
+ ];
 }
 
 const BankComparison: React.FC = () => {
-  const { t } = useTranslation();
-  const banks = useMemo(() => getBanks(t), [t]);
-  const [filterCountry, setFilterCountry] = useState<'all' | 'CH' | 'IT'>('all');
-  const [showOnlyFrontalieri, setShowOnlyFrontalieri] = useState<boolean>(true);
-  const filtered = useMemo(() => {
-    const sponsoredPriority = ['wise'];
-    return banks
-      .filter(b => filterCountry === 'all' || b.country === filterCountry)
-      .filter(b => !showOnlyFrontalieri || b.acceptsFrontalieri)
-      .sort((a, b) => {
-        const aPriority = sponsoredPriority.indexOf(a.name.toLowerCase());
-        const bPriority = sponsoredPriority.indexOf(b.name.toLowerCase());
-        if (aPriority !== -1 || bPriority !== -1) {
-          if (aPriority === -1) return 1;
-          if (bPriority === -1) return -1;
-          return aPriority - bPriority;
-        }
+ const { t } = useTranslation();
+ const banks = useMemo(() => getBanks(t), [t]);
+ const [filterCountry, setFilterCountry] = useState<'all' | 'CH' | 'IT'>('all');
+ const [showOnlyFrontalieri, setShowOnlyFrontalieri] = useState<boolean>(true);
+ const filtered = useMemo(() => {
+ const sponsoredPriority = ['wise'];
+ return banks
+ .filter(b => filterCountry === 'all' || b.country === filterCountry)
+ .filter(b => !showOnlyFrontalieri || b.acceptsFrontalieri)
+ .sort((a, b) => {
+ const aPriority = sponsoredPriority.indexOf(a.name.toLowerCase());
+ const bPriority = sponsoredPriority.indexOf(b.name.toLowerCase());
+ if (aPriority !== -1 || bPriority !== -1) {
+ if (aPriority === -1) return 1;
+ if (bPriority === -1) return -1;
+ return aPriority - bPriority;
+ }
 
-        // Neutral ranking: objective costs first, deterministic lexical tie-breakers.
-        // This avoids implicit ordering bias from array position (including affiliate entries).
-        if (a.accountFee !== b.accountFee) return a.accountFee - b.accountFee;
-        if (a.country !== b.country) return a.country.localeCompare(b.country);
-        return a.name.localeCompare(b.name, 'it', { sensitivity: 'base' });
-      });
-  }, [banks, filterCountry, showOnlyFrontalieri]);
+ // Neutral ranking: objective costs first, deterministic lexical tie-breakers.
+ // This avoids implicit ordering bias from array position (including affiliate entries).
+ if (a.accountFee !== b.accountFee) return a.accountFee - b.accountFee;
+ if (a.country !== b.country) return a.country.localeCompare(b.country);
+ return a.name.localeCompare(b.name, 'it', { sensitivity: 'base' });
+ });
+ }, [banks, filterCountry, showOnlyFrontalieri]);
 
-  return (
-    <div className="space-y-6 pb-8">
-      <div className="bg-stone-50 dark:bg-stone-900 rounded-2xl p-5 sm:p-8 border-l-4 border-warning-border">
-        <div className="flex items-center gap-3 mb-4">
-          <Building2 size={32} className="text-warning" />
-          <h2 className="text-2xl sm:text-3xl font-bold text-stone-800 dark:text-stone-100">{t('banks.title')}</h2>
-        </div>
-        <p className="text-stone-500 dark:text-stone-400 text-lg">{t('banks.subtitle')}</p>
-        <div className="mt-3"><DataFreshness lastUpdated="2026-01" source="Siti ufficiali banche" variant="badge" /></div>
-      </div>
+ return (
+ <div className="space-y-6 pb-8">
+ <div className="bg-stone-50 dark:bg-stone-900 rounded-2xl p-5 sm:p-8 border-l-4 border-warning-border">
+ <div className="flex items-center gap-3 mb-4">
+ <Building2 size={32} className="text-warning" />
+ <h2 className="text-2xl sm:text-3xl font-bold text-stone-800 dark:text-stone-100">{t('banks.title')}</h2>
+ </div>
+ <p className="text-stone-500 dark:text-stone-400 text-lg">{t('banks.subtitle')}</p>
+ <div className="mt-3"><DataFreshness lastUpdated="2026-01" source="Siti ufficiali banche" variant="badge" /></div>
+ </div>
 
-      <p className="text-sm text-subtle leading-relaxed">
-        {t('comparatori.bank.intro.p1')}
-      </p>
+ <p className="text-sm text-subtle leading-relaxed">
+ {t('comparatori.bank.intro.p1')}
+ </p>
 
-      <div className="bg-warning-subtle border-l-4 border-amber-500 p-4 rounded-lg">
-        <div className="flex items-start gap-3">
-          <AlertCircle className="text-amber-700 flex-shrink-0 mt-0.5" size={20} />
-          <div className="text-sm text-warning">
-            <p className="font-bold mb-1">{t('banks.strategyTitle')}</p>
-            <p dangerouslySetInnerHTML={{ __html: t('banks.strategyText') }} />
-          </div>
-        </div>
-      </div>
+ <div className="bg-warning-subtle border-l-4 border-warning p-4 rounded-lg">
+ <div className="flex items-start gap-3">
+ <AlertCircle className="text-amber-700 flex-shrink-0 mt-0.5" size={20} />
+ <div className="text-sm text-warning">
+ <p className="font-bold mb-1">{t('banks.strategyTitle')}</p>
+ <p dangerouslySetInnerHTML={{ __html: t('banks.strategyText') }} />
+ </div>
+ </div>
+ </div>
 
-      <div className="bg-surface rounded-xl p-4 border border-edge">
-        <div className="flex flex-wrap gap-4 items-center">
-          <div className="flex items-center gap-2">
-            <label className="text-sm font-bold">{t('banks.country')}:</label>
-            <div className="flex gap-2">
-              {['all', 'CH', 'IT'].map(c => (
-                <button
-                  key={c}
-                  onClick={() => { setFilterCountry(c as any); Analytics.trackBankComparison('filter', undefined, c); }}
-                  className={`px-4 py-2 rounded-lg text-sm font-bold ${filterCountry === c ? 'bg-amber-700 text-white' : 'bg-surface-raised text-subtle'}`}
-                >
-                  {c === 'all' ? t('banks.all') : c === 'CH' ? '🇨🇭 CH' : '🇮🇹 IT'}
-                </button>
-              ))}
-            </div>
-          </div>
-          <label className="flex items-center gap-2 cursor-pointer">
-            <input
-              type="checkbox"
-              checked={showOnlyFrontalieri}
-              onChange={(e) => setShowOnlyFrontalieri(e.target.checked)}
-              className="w-4 h-4"
-              aria-label="Mostra solo banche per frontalieri"
-            />
-            <span className="text-sm font-bold">{t('banks.onlyFrontalieri')}</span>
-          </label>
-        </div>
-      </div>
+ <div className="bg-surface rounded-xl p-4 border border-edge">
+ <div className="flex flex-wrap gap-4 items-center">
+ <div className="flex items-center gap-2">
+ <label className="text-sm font-bold">{t('banks.country')}:</label>
+ <div className="flex gap-2">
+ {['all', 'CH', 'IT'].map(c => (
+ <button
+ key={c}
+ onClick={() => { setFilterCountry(c as any); Analytics.trackBankComparison('filter', undefined, c); }}
+ className={`px-4 py-2 rounded-lg text-sm font-bold ${filterCountry === c ? 'bg-amber-700 text-white' : 'bg-surface-raised text-subtle'}`}
+ >
+ {c === 'all' ? t('banks.all') : c === 'CH' ? '🇨🇭 CH' : '🇮🇹 IT'}
+ </button>
+ ))}
+ </div>
+ </div>
+ <label className="flex items-center gap-2 cursor-pointer">
+ <input
+ type="checkbox"
+ checked={showOnlyFrontalieri}
+ onChange={(e) => setShowOnlyFrontalieri(e.target.checked)}
+ className="w-4 h-4"
+ aria-label="Mostra solo banche per frontalieri"
+ />
+ <span className="text-sm font-bold">{t('banks.onlyFrontalieri')}</span>
+ </label>
+ </div>
+ </div>
 
-      <div className="grid md:grid-cols-2 gap-6">
-        {filtered.map((bank) => {
-          const CardWrapper = bank.website ? 'a' : 'div';
-          const cardProps = bank.website ? {
-            href: bank.website,
-            target: '_blank',
-            rel: 'noopener noreferrer',
-            onClick: () => Analytics.trackBankComparison('link_click', bank.name, bank.country),
-            className: `block bg-surface rounded-2xl border-2 p-4 sm:p-6 hover:shadow-lg transition-[color,background-color,border-color,box-shadow] cursor-pointer ${bank.acceptsFrontalieri ? 'border-emerald-500 ring-2 ring-emerald-500/20' : 'border-edge'}`
-          } : {
-            className: `bg-surface rounded-2xl border-2 p-4 sm:p-6 ${bank.acceptsFrontalieri ? 'border-emerald-500 ring-2 ring-emerald-500/20' : 'border-edge'}`
-          };
+ <div className="grid md:grid-cols-2 gap-6">
+ {filtered.map((bank) => {
+ const CardWrapper = bank.website ? 'a' : 'div';
+ const cardProps = bank.website ? {
+ href: bank.website,
+ target: '_blank',
+ rel: 'noopener noreferrer',
+ onClick: () => Analytics.trackBankComparison('link_click', bank.name, bank.country),
+ className: `block bg-surface rounded-2xl border-2 p-4 sm:p-6 hover:shadow-lg transition-[color,background-color,border-color,box-shadow] cursor-pointer ${bank.acceptsFrontalieri ? 'border-emerald-500 ring-2 ring-emerald-500/20' : 'border-edge'}`
+ } : {
+ className: `bg-surface rounded-2xl border-2 p-4 sm:p-6 ${bank.acceptsFrontalieri ? 'border-emerald-500 ring-2 ring-emerald-500/20' : 'border-edge'}`
+ };
 
-          return (
-            <CardWrapper key={bank.name} {...cardProps}>
-              {bank.acceptsFrontalieri && (
-                <div className="mb-3 inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-700 text-white text-xs font-bold rounded-full">
-                  <CheckCircle2 size={14} /> {t('banks.acceptsFrontalieri')}
-                </div>
-              )}
+ return (
+ <CardWrapper key={bank.name} {...cardProps}>
+ {bank.acceptsFrontalieri && (
+ <div className="mb-3 inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-700 text-white text-xs font-bold rounded-full">
+ <CheckCircle2 size={14} /> {t('banks.acceptsFrontalieri')}
+ </div>
+ )}
 
-              <div className="flex items-start justify-between gap-4 mb-4">
-                <div className="flex items-center gap-3">
-                  <div className={`p-3 bg-gradient-to-br ${bank.color} rounded-2xl text-white`}>
-                    <Building2 size={24} />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-strong">{bank.name}</h3>
-                    <p className="text-sm text-muted">{bank.country === 'CH' ? `🇨🇭 ${t('banks.switzerland')}` : `🇮🇹 ${t('banks.italy')}`}</p>
-                  </div>
-                </div>
+ <div className="flex items-start justify-between gap-4 mb-4">
+ <div className="flex items-center gap-3">
+ <div className={`p-3 bg-gradient-to-br ${bank.color} rounded-2xl text-white`}>
+ <Building2 size={24} />
+ </div>
+ <div>
+ <h3 className="text-xl font-bold text-strong">{bank.name}</h3>
+ <p className="text-sm text-muted">{bank.country === 'CH' ? `🇨🇭 ${t('banks.switzerland')}` : `🇮🇹 ${t('banks.italy')}`}</p>
+ </div>
+ </div>
 
-                <div className="text-right">
-                  <div className="text-2xl font-bold text-strong">
-                    {bank.accountFee === 0 ? t('banks.free') : `${bank.accountFee} ${bank.country === 'CH' ? 'CHF' : '€'}`}
-                  </div>
-                  <div className="text-xs text-muted">{t('banks.monthlyFee')}</div>
-                </div>
-              </div>
+ <div className="text-right">
+ <div className="text-2xl font-bold text-strong">
+ {bank.accountFee === 0 ? t('banks.free') : `${bank.accountFee} ${bank.country === 'CH' ? 'CHF' : '€'}`}
+ </div>
+ <div className="text-xs text-muted">{t('banks.monthlyFee')}</div>
+ </div>
+ </div>
 
-              <div className="space-y-2 mb-4">
-                <div className="flex justify-between text-sm">
-                  <span className="text-subtle">{t('banks.transfers')}</span>
-                  <span className="font-bold text-strong">{bank.transactionFees}</span>
-                </div>
-                <div className="flex justify-between text-sm">
-                  <span className="text-subtle">{t('banks.atmWithdrawals')}</span>
-                  <span className="font-bold text-strong">{bank.atmFees}</span>
-                </div>
-                <div className="flex justify-between text-sm">
-                  <span className="text-subtle">{t('banks.card')}</span>
-                  <span className="font-bold text-strong">{bank.cardType}</span>
-                </div>
-              </div>
+ <div className="space-y-2 mb-4">
+ <div className="flex justify-between text-sm">
+ <span className="text-subtle">{t('banks.transfers')}</span>
+ <span className="font-bold text-strong">{bank.transactionFees}</span>
+ </div>
+ <div className="flex justify-between text-sm">
+ <span className="text-subtle">{t('banks.atmWithdrawals')}</span>
+ <span className="font-bold text-strong">{bank.atmFees}</span>
+ </div>
+ <div className="flex justify-between text-sm">
+ <span className="text-subtle">{t('banks.card')}</span>
+ <span className="font-bold text-strong">{bank.cardType}</span>
+ </div>
+ </div>
 
-              <div className="grid grid-cols-2 gap-3 mb-4">
-                <div className="p-3 bg-success-subtle rounded-lg">
-                  <p className="text-xs font-bold text-success mb-1">✓ {t('banks.pros')}</p>
-                  <ul className="space-y-1">
-                    {bank.pros.slice(0, 2).map((p, i) => (
-                      <li key={i} className="text-xs text-body">• {p}</li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="p-3 bg-danger-subtle rounded-lg">
-                  <p className="text-xs font-bold text-danger mb-1">✗ {t('banks.cons')}</p>
-                  <ul className="space-y-1">
-                    {bank.cons.slice(0, 2).map((c, i) => (
-                      <li key={i} className="text-xs text-body">• {c}</li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </CardWrapper>
-          );
-        })}
-      </div>
+ <div className="grid grid-cols-2 gap-3 mb-4">
+ <div className="p-3 bg-success-subtle rounded-lg">
+ <p className="text-xs font-bold text-success mb-1">✓ {t('banks.pros')}</p>
+ <ul className="space-y-1">
+ {bank.pros.slice(0, 2).map((p, i) => (
+ <li key={i} className="text-xs text-body">• {p}</li>
+ ))}
+ </ul>
+ </div>
+ <div className="p-3 bg-danger-subtle rounded-lg">
+ <p className="text-xs font-bold text-danger mb-1">✗ {t('banks.cons')}</p>
+ <ul className="space-y-1">
+ {bank.cons.slice(0, 2).map((c, i) => (
+ <li key={i} className="text-xs text-body">• {c}</li>
+ ))}
+ </ul>
+ </div>
+ </div>
+ </CardWrapper>
+ );
+ })}
+ </div>
 
-      <Suspense fallback={null}>
-        <RelatedTools context="exchange" />
-      </Suspense>
+ <Suspense fallback={null}>
+ <RelatedTools context="exchange" />
+ </Suspense>
 
-      <Suspense fallback={null}>
-        <LeadMagnetCTA variant="generic" delay={5000} />
-      </Suspense>
+ <Suspense fallback={null}>
+ <LeadMagnetCTA variant="generic" delay={5000} />
+ </Suspense>
 
-      <PartnerRecommendations context="banks" />
-    </div>
-  );
+ <PartnerRecommendations context="banks" />
+ </div>
+ );
 };
 
 export default BankComparison;
