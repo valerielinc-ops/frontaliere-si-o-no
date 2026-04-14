@@ -3561,13 +3561,13 @@ const App: React.FC = () => {
  </div>
  </nav>
 
- {/* English E-E-A-T alias links — plain <a> tags for crawler discoverability */}
+ {/* E-E-A-T alias links — SPA-routed for crawler discoverability */}
  <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 mt-3 text-[10px] text-muted">
- <a href="/about/" className="hover:text-subtle no-underline">About</a>
+ <a href={buildPath({ activeTab: 'chi-siamo' as any })} onClick={(e) => { e.preventDefault(); navigateTo('chi-siamo' as any); }} className="hover:text-subtle no-underline">About</a>
  <span>·</span>
- <a href="/contact/" className="hover:text-subtle no-underline">Contact</a>
+ <a href={buildPath({ activeTab: 'contact' as any })} onClick={(e) => { e.preventDefault(); navigateTo('contact' as any); }} className="hover:text-subtle no-underline">Contact</a>
  <span>·</span>
- <a href="/privacy-policy/" className="hover:text-subtle no-underline">Privacy Policy</a>
+ <a href={buildPath({ activeTab: 'privacy' })} onClick={(e) => { e.preventDefault(); navigateTo('privacy' as any); }} className="hover:text-subtle no-underline">Privacy Policy</a>
  </div>
 
  <div className="flex items-center justify-center gap-1.5 mt-3 text-xs text-success font-medium">
