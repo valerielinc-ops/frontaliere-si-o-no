@@ -169,7 +169,7 @@ const Pillar3Simulator: React.FC = () => {
  </label>
  <input id="p3-return" type="range" min={0} max={6} step={0.25} value={inputs.expectedReturn}
  onChange={(e) => handleChange('expectedReturn', Number(e.target.value))}
- className="w-full accent-teal-600" />
+ className="w-full accent-info" />
  <div className="text-center font-bold text-info">{inputs.expectedReturn}%</div>
  </div>
 
@@ -177,7 +177,7 @@ const Pillar3Simulator: React.FC = () => {
  <label htmlFor="p3-years" className="text-xs font-bold text-muted uppercase mb-1 block">{t('pillar3.projectionYears')}</label>
  <input id="p3-years" type="range" min={5} max={40} step={5} value={inputs.projectionYears}
  onChange={(e) => handleChange('projectionYears', Number(e.target.value))}
- className="w-full accent-teal-600" />
+ className="w-full accent-info" />
  <div className="flex justify-between text-xs text-muted">
  <span>5</span>
  <span className="font-bold text-info text-base">{inputs.projectionYears} {t('pillar3.years')}</span>
@@ -189,7 +189,7 @@ const Pillar3Simulator: React.FC = () => {
  <label htmlFor="p3-tax-rate" className="text-xs font-bold text-muted uppercase mb-1 block">{t('pillar3.marginalRate')}</label>
  <input id="p3-tax-rate" type="range" min={10} max={50} step={1} value={inputs.marginalTaxRate}
  onChange={(e) => handleChange('marginalTaxRate', Number(e.target.value))}
- className="w-full accent-teal-600" />
+ className="w-full accent-info" />
  <div className="text-center font-bold text-info">{inputs.marginalTaxRate}%</div>
  </div>
 

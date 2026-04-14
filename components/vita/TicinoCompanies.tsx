@@ -796,7 +796,7 @@ const TicinoCompanies: React.FC = () => {
  <input type="range" min={0} max={1000} step={50} value={minEmployees}
  onChange={(e) => setMinEmployees(Number(e.target.value))}
  aria-label={t('companies.minEmployees') || 'Dipendenti minimi'}
- className="w-full sm:w-32 accent-stripe-600" />
+ className="w-full sm:w-32 accent-accent" />
  <span className="font-bold text-accent w-10">{minEmployees}</span>
  </div>
  <div className="flex items-center gap-2 sm:ml-auto">

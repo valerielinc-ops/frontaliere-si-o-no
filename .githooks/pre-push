@@ -138,6 +138,26 @@ if [ -n "$DARK_VIOLATIONS" ]; then
   exit 1
 fi
 
+# ── Semantic token enforcement: no hardcoded Tailwind color-scale classes ──
+COLOR_VIOLATIONS=$(grep -rn --include='*.tsx' --include='*.ts' \
+  -E '(bg|text|border|ring|from|to|via|shadow|fill|stroke|decoration|divide|accent|caret)-(slate|gray|zinc|stone|red|rose|pink|orange|amber|yellow|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|stripe)-[0-9]' \
+  App.tsx components/ services/ build-plugins/ 2>/dev/null \
+  | grep -v '^\s*//' \
+  | grep -v 'migrate-' \
+  | grep -v 'no-dark-color-classes' \
+  | grep -v "'text-gray-500'" || true)
+
+if [ -n "$COLOR_VIOLATIONS" ]; then
+  echo ""
+  echo "❌ BLOCKED: Hardcoded Tailwind color-scale classes found."
+  echo "   Use semantic tokens from index.css instead."
+  echo "   bg-red-500 → bg-danger-strong, text-emerald-600 → text-success, etc."
+  echo ""
+  echo "$COLOR_VIOLATIONS" | head -20
+  echo ""
+  exit 1
+fi
+
 # ── Core deploy pipeline (assemble → build → all validations) ──
 echo ""
 echo "🚀 Running deploy pipeline locally (npm run prepush)..."

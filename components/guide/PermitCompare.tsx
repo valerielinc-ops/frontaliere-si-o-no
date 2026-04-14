@@ -634,7 +634,7 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
  step={5000}
  value={grossSalary}
  onChange={(e) => setGrossSalary(Number(e.target.value))}
- className="w-full accent-amber-600"
+ className="w-full accent-warning"
  />
  </div>
 

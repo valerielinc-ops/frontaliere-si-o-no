@@ -332,7 +332,7 @@ export default function MortgageComparison() {
  step={10000}
  value={propertyValue}
  onChange={(e) => setPropertyValue(Number(e.target.value))}
- className="w-full accent-stripe-600"
+ className="w-full accent-accent"
  />
  <div className="text-sm font-bold text-accent mt-0.5">{fmt(propertyValue)}</div>
  </div>
@@ -350,7 +350,7 @@ export default function MortgageComparison() {
  step={1}
  value={downPaymentPct}
  onChange={(e) => setDownPaymentPct(Number(e.target.value))}
- className="w-full accent-stripe-600"
+ className="w-full accent-accent"
  />
  <div className="text-sm font-bold text-accent mt-0.5">
  {downPaymentPct}% — {fmt(equityAmount)}
@@ -370,7 +370,7 @@ export default function MortgageComparison() {
  step={1}
  value={durationYears}
  onChange={(e) => setDurationYears(Number(e.target.value))}
- className="w-full accent-stripe-600"
+ className="w-full accent-accent"
  />
  <div className="text-sm font-bold text-accent mt-0.5">{durationYears} {t('mortgage.years')}</div>
  </div>
@@ -388,7 +388,7 @@ export default function MortgageComparison() {
  step={500}
  value={grossIncomeCHF}
  onChange={(e) => setGrossIncomeCHF(Number(e.target.value))}
- className="w-full accent-stripe-600"
+ className="w-full accent-accent"
  />
  <div className="text-sm font-bold text-accent mt-0.5">CHF {grossIncomeCHF.toLocaleString('it-IT')}</div>
  </div>

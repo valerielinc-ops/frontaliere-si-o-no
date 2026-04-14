@@ -202,7 +202,7 @@ export default function CarCostCalculator() {
  max={20}
  value={vehicleAge}
  onChange={(e) => setVehicleAge(Number(e.target.value))}
- className="w-full accent-amber-600"
+ className="w-full accent-warning"
  />
  </div>
 
@@ -219,7 +219,7 @@ export default function CarCostCalculator() {
  step={1000}
  value={annualKm}
  onChange={(e) => setAnnualKm(Number(e.target.value))}
- className="w-full accent-amber-600"
+ className="w-full accent-warning"
  />
  </div>
 

@@ -295,7 +295,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  step={5000}
  value={salary}
  onChange={e => setSalary(Number(e.target.value))}
- className="flex-1 h-2 accent-stripe-600"
+ className="flex-1 h-2 accent-accent"
  aria-label={t('bordermap.salary')}
  />
  <div className="flex items-center gap-1.5">
@@ -484,7 +484,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
  step={5000}
  value={salary}
  onChange={e => setSalary(Number(e.target.value))}
- className="flex-1 h-2 accent-stripe-600"
+ className="flex-1 h-2 accent-accent"
  aria-label={t('bordermap.salary')}
  />
  <div className="flex items-center gap-2">

@@ -245,7 +245,7 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
  setGrossSalary(value);
  Analytics.trackInputChange('ral_gross_salary_slider', value);
  }}
- className="w-full mt-2 accent-green-600"
+ className="w-full mt-2 accent-success"
  aria-label="Regola RAL lorda annuale"
  />
  <div className="flex justify-between text-xs text-muted mt-1">

@@ -60,7 +60,7 @@ const COLOR_PATTERN = COLOR_FAMILIES.join('|');
 //          from-stripe-600, to-green-500, via-teal-500, shadow-emerald-900/20,
 //          hover:bg-red-500, focus-visible:ring-emerald-500, etc.
 const HARDCODED_COLOR_REGEX = new RegExp(
-  `(?:^|\\s|'|"|\`)(?:[a-z-]+:)*(bg|text|border|ring|from|to|via|shadow|outline|decoration|fill|stroke|divide)-(${COLOR_PATTERN})-\\d`,
+  `(?:^|\\s|'|"|\`)(?:[a-z-]+:)*(bg|text|border|ring|from|to|via|shadow|outline|decoration|fill|stroke|divide|accent|caret)-(${COLOR_PATTERN})-\\d`,
   'g'
 );
 

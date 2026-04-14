@@ -371,7 +371,7 @@ const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({ baseInputs, baseResul
  value={currentVal as number}
  onChange={(e) => handleFieldChange(field.key, Number(e.target.value))}
  aria-label={field.label}
- className="w-full h-2 bg-surface-raised rounded-full appearance-none cursor-pointer accent-amber-500"
+ className="w-full h-2 bg-surface-raised rounded-full appearance-none cursor-pointer accent-warning"
  />
  <div className="flex justify-between text-xs text-muted">
  <span>{field.min?.toLocaleString('it-IT')}</span>

@@ -230,7 +230,7 @@ const JobComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
  <div>
  <label className="text-xs font-bold text-muted uppercase">{t('jobs.homeOffice')}</label>
  <input type="range" min={0} max={5} value={offer.homeOfficeDays} onChange={(e) => updateOffer(offer.id, 'homeOfficeDays', Number(e.target.value))}
- className="w-full accent-amber-600" aria-label="Giorni di home office a settimana" />
+ className="w-full accent-warning" aria-label="Giorni di home office a settimana" />
  <div className="text-center text-sm font-bold text-body">{offer.homeOfficeDays} {t('jobs.days')}</div>
  </div>
 
