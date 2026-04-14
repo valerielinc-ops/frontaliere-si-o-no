@@ -225,17 +225,28 @@ function generateSeoText(parsed, history) {
   };
 }
 
+async function fetchWithRetry(url, options, { retries = 3, baseDelay = 5000, timeout = 30000 } = {}) {
+  for (let attempt = 1; attempt <= retries; attempt++) {
+    try {
+      const res = await fetch(url, { ...options, signal: AbortSignal.timeout(timeout) });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      return res;
+    } catch (err) {
+      if (attempt === retries) throw err;
+      const delay = baseDelay * 2 ** (attempt - 1);
+      console.log(`[unemployment] Attempt ${attempt}/${retries} failed: ${err.message}. Retrying in ${delay / 1000}s...`);
+      await new Promise((r) => setTimeout(r, delay));
+    }
+  }
+}
+
 async function main() {
-  const res = await fetch(SOURCE_URL, {
+  const res = await fetchWithRetry(SOURCE_URL, {
     headers: {
       'user-agent': 'FrontaliereTicinoBot/1.0 (+https://frontaliereticino.ch)',
       accept: 'text/html,application/xhtml+xml',
     },
   });
-
-  if (!res.ok) {
-    throw new Error(`SECO fetch failed: HTTP ${res.status}`);
-  }
 
   const html = await res.text();
   const parsed = parseLatestUnemployment(html);
