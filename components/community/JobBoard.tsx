@@ -3009,7 +3009,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const job = sortedJobs[i];
  const description = job.descriptionByLocale?.[locale] ?? job.description;
  const localizedTitle = sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title);
- map.set(job, normalizeSearchText(`${localizedTitle} ${job.company} ${job.location} ${description}`));
+ map.set(job, normalizeSearchText(`${localizedTitle} ${job.company} ${job.location} ${job.contract} ${job.category} ${job.sector || ''} ${description}`));
  }
  if (i < sortedJobs.length) {
  requestAnimationFrame(processChunk);
@@ -6457,7 +6457,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  { id: 'autista', icon: Briefcase, label: 'Autista', active: searchQuery.toLowerCase() === 'autista', action: () => setSearchQuery(searchQuery.toLowerCase() === 'autista' ? '' : 'autista') },
  { id: 'health', icon: Tag, label: t('jobBoard.quickFilters.health'), active: selectedCategory === 'health', action: () => setSelectedCategory(selectedCategory === 'health' ? 'all' : 'health') },
  { id: 'parttime', icon: Tag, label: 'Part-time', active: selectedContract === 'part-time', action: () => setSelectedContract(selectedContract === 'part-time' ? 'all' : 'part-time') },
- { id: 'apprentice', icon: Tag, label: t('jobBoard.quickFilters.apprenticeship'), active: searchQuery.toLowerCase() === 'apprendistato', action: () => setSearchQuery(searchQuery.toLowerCase() === 'apprendistato' ? '' : 'apprendistato') },
+ { id: 'apprentice', icon: Tag, label: t('jobBoard.quickFilters.apprenticeship'), active: selectedContract === 'internship', action: () => setSelectedContract(selectedContract === 'internship' ? 'all' : 'internship') },
  ] as const).map(chip => (
  <button
  key={chip.id}
