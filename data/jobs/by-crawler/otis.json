@@ -1,14 +1,14 @@
 {
   "crawlerKey": "otis",
-  "assembledAt": "2026-04-13T22:13:33.227Z",
+  "assembledAt": "2026-04-14T10:27:15.005Z",
   "jobs": [
     {
       "id": "otis-c01bdb073f38",
-      "slug": "montatore-ascensori-per-modernizzazione-e-impianti-sostitutivi-otis-sa-postfach-371",
+      "slug": "montatore-ascensori-per-modernizzazione-e-impianti-sostitutivi-otis-sa-dietlikon",
       "slugByLocale": {
-        "it": "montatore-ascensori-per-modernizzazione-e-impianti-sostitutivi-otis-sa-postfach-371",
+        "it": "montatore-ascensori-per-modernizzazione-e-impianti-sostitutivi-otis-sa-dietlikon",
         "en": "elevator-modernization-and-replacement-systems-technician-otis-sa-postfach-371",
-        "de": "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-postfach-371",
+        "de": "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-sa-dietlikon",
         "fr": "technicien-en-modernisation-et-remplacement-d-ascenseurs-otis-sa-postfach-371"
       },
       "company": "Otis SA",
@@ -31,9 +31,9 @@
       "sourceLang": "de",
       "requirements": [],
       "requirementsByLocale": {},
-      "location": "Postfach 371",
-      "canton": "TI",
-      "addressLocality": "Postfach 371",
+      "location": "Dietlikon",
+      "canton": "ZH",
+      "addressLocality": "Dietlikon",
       "addressCountry": "CH",
       "category": "manufacturing",
       "contract": "full-time",
@@ -43,20 +43,25 @@
       "postedDate": "2026-04-10",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Bahnhofstrasse-3-Postfach-371-Dietlikon--ZH/Aufzugsmonteur-Modernisierung-und-Ersatzanlagen--m-w-d-_20157241",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-13T22:13:28.921Z",
+      "crawledAt": "2026-04-14T10:27:12.521Z",
       "previousSlugs": [
         "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-postfach-371",
-        "aufzugsmonteur-modernisierung-e-ersatzanlagen-m-w-d-otis-sa-postfach-371"
+        "aufzugsmonteur-modernisierung-e-ersatzanlagen-m-w-d-otis-sa-postfach-371",
+        "montatore-ascensori-per-modernizzazione-e-impianti-sostitutivi-otis-sa-postfach-371"
       ],
       "previousSlugsByLocale": {
         "it": [
           "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-postfach-371",
-          "aufzugsmonteur-modernisierung-e-ersatzanlagen-m-w-d-otis-sa-postfach-371"
+          "aufzugsmonteur-modernisierung-e-ersatzanlagen-m-w-d-otis-sa-postfach-371",
+          "montatore-ascensori-per-modernizzazione-e-impianti-sostitutivi-otis-sa-postfach-371"
         ],
         "en": [
           "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-postfach-371"
         ],
         "fr": [
+          "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-postfach-371"
+        ],
+        "de": [
           "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-postfach-371"
         ]
       },
@@ -73,7 +78,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6500"
+      "postalCode": "8305"
     },
     {
       "id": "otis-9550373c1639",
@@ -82,7 +87,7 @@
         "it": "tecnico-di-servizio-otis-sa-kreuzstrasse-34",
         "en": "service-technician-otis-sa-kreuzstrasse-34",
         "de": "servicetechniker-m-w-d-otis-kreuzstrasse-34",
-        "fr": "servicetechniker-m-w-d-otis-kreuzstrasse-34"
+        "fr": "servicetechniker-m-w-d-otis-sa-kriens"
       },
       "company": "Otis SA",
       "companyKey": "otis",
@@ -104,9 +109,9 @@
       "sourceLang": "de",
       "requirements": [],
       "requirementsByLocale": {},
-      "location": "Kreuzstrasse 34",
-      "canton": "TI",
-      "addressLocality": "Kreuzstrasse 34",
+      "location": "Kriens",
+      "canton": "LU",
+      "addressLocality": "Kriens",
       "addressCountry": "CH",
       "category": "manufacturing",
       "contract": "full-time",
@@ -116,9 +121,10 @@
       "postedDate": "2026-04-09",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Kreuzstrasse-34-6010-Kriens/Prodctn-Maint--Field-Svc_20157135",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-13T22:13:28.653Z",
+      "crawledAt": "2026-04-14T10:27:12.138Z",
       "previousSlugs": [
         "servicetechniker-m-w-d-otis-sa-kreuzstrasse-34",
+        "servicetechniker-m-w-d-otis-kreuzstrasse-34",
         "tecnico-di-servizio-otis-sa-kreuzstrasse-34-gk0xtm",
         "servicetechniker-m-w-d-otis-sa-kreuzstrasse-34-2"
       ],
@@ -133,7 +139,8 @@
           "servicetechniker-m-w-d-otis-sa-kreuzstrasse-34"
         ],
         "fr": [
-          "servicetechniker-m-w-d-otis-sa-kreuzstrasse-34"
+          "servicetechniker-m-w-d-otis-sa-kreuzstrasse-34",
+          "servicetechniker-m-w-d-otis-kreuzstrasse-34"
         ]
       },
       "firstSeenAt": "2026-04-13T11:05:13.582Z",
@@ -149,16 +156,16 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6500"
+      "postalCode": "6003"
     },
     {
       "id": "otis-2d7a395a571b",
       "slug": "addetto-alla-riparazione-svc-otis-sa-kreuzstrasse-34",
       "slugByLocale": {
         "it": "addetto-alla-riparazione-svc-otis-sa-kreuzstrasse-34",
-        "en": "reparaturtechniker-m-w-d-otis-kreuzstrasse-34",
+        "en": "reparaturtechniker-m-w-d-otis-kriens",
         "de": "reparaturmann-svc-otis-sa-kreuzstrasse-34",
-        "fr": "reparaturtechniker-m-w-d-otis-sa-kreuzstrasse-34"
+        "fr": "reparaturtechniker-m-w-d-otis-sa-kriens"
       },
       "company": "Otis SA",
       "companyKey": "otis",
@@ -180,9 +187,9 @@
       "sourceLang": "en",
       "requirements": [],
       "requirementsByLocale": {},
-      "location": "Kreuzstrasse 34",
-      "canton": "TI",
-      "addressLocality": "Kreuzstrasse 34",
+      "location": "Kriens",
+      "canton": "LU",
+      "addressLocality": "Kriens",
       "addressCountry": "CH",
       "category": "manufacturing",
       "contract": "full-time",
@@ -192,25 +199,30 @@
       "postedDate": "2026-04-09",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Kreuzstrasse-34-6010-Kriens/Repairman-SVC_20156079",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-13T22:13:28.385Z",
-      "previousSlugs": [
-        "repairman-svc-otis-kreuzstrasse-34"
-      ],
+      "crawledAt": "2026-04-14T10:27:11.912Z",
       "previousSlugsByLocale": {
-        "it": [
-          "repairman-svc-otis-kreuzstrasse-34"
-        ],
         "en": [
+          "repairman-svc-otis-kreuzstrasse-34",
+          "reparaturtechniker-m-w-d-otis-kreuzstrasse-34"
+        ],
+        "it": [
           "repairman-svc-otis-kreuzstrasse-34"
         ],
         "de": [
           "repairman-svc-otis-kreuzstrasse-34"
         ],
         "fr": [
-          "repairman-svc-otis-kreuzstrasse-34"
+          "repairman-svc-otis-kreuzstrasse-34",
+          "reparaturtechniker-m-w-d-otis-sa-kreuzstrasse-34"
         ]
       },
+      "previousSlugs": [
+        "repairman-svc-otis-kreuzstrasse-34",
+        "reparaturtechniker-m-w-d-otis-kreuzstrasse-34",
+        "reparaturtechniker-m-w-d-otis-sa-kreuzstrasse-34"
+      ],
       "firstSeenAt": "2026-04-13T11:05:13.313Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -223,7 +235,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6500"
+      "postalCode": "6003"
     },
     {
       "id": "otis-994d1f77a972",
@@ -232,7 +244,7 @@
         "it": "supervisore-mod-bex-otis-sa-1032",
         "en": "supervisor-mod-bex-otis-1032",
         "de": "mod-bex-betriebsleiter-otis-sa-1032",
-        "fr": "supervisor-mod-bex-otis-1032"
+        "fr": "supervisor-mod-bex-otis-sa-romanel-sur-lausanne"
       },
       "company": "Otis SA",
       "companyKey": "otis",
@@ -254,9 +266,9 @@
       "sourceLang": "fr",
       "requirements": [],
       "requirementsByLocale": {},
-      "location": "1032",
-      "canton": "TI",
-      "addressLocality": "1032",
+      "location": "Romanel-sur-Lausanne",
+      "canton": "VD",
+      "addressLocality": "Romanel-sur-Lausanne",
       "addressCountry": "CH",
       "category": "manufacturing",
       "contract": "full-time",
@@ -266,7 +278,7 @@
       "postedDate": "2026-03-16",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Chemin-des-Msanges-5-1032-Romanel-sur-Lausanne/Supervisor-MOD-BEX_20155074",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-13T22:13:28.106Z",
+      "crawledAt": "2026-04-14T10:27:11.601Z",
       "previousSlugs": [
         "supervisor-mod-bex-otis-sa-1032",
         "vorgesetzter-mod-bex-otis-sa-1032",
@@ -288,10 +300,12 @@
         ],
         "fr": [
           "supervisor-mod-bex-otis-sa-1032",
-          "vorgesetzter-mod-bex-otis-sa-1032"
+          "vorgesetzter-mod-bex-otis-sa-1032",
+          "supervisor-mod-bex-otis-1032"
         ]
       },
       "firstSeenAt": "2026-04-13T11:05:13.025Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -304,7 +318,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1032"
+      "postalCode": "1003"
     },
     {
       "id": "otis-699626bb9054",
@@ -313,7 +327,7 @@
         "it": "tecnico-del-servizio-otis-sa-rue-des-sablons-15",
         "en": "service-technician-otis-sa-rue-des-sablons-15",
         "de": "servicetechniker-otis-rue-des-sablons-15",
-        "fr": "servicetechniker-otis-rue-des-sablons-15"
+        "fr": "servicetechniker-otis-sa-martigny"
       },
       "company": "Otis SA",
       "companyKey": "otis",
@@ -335,9 +349,9 @@
       "sourceLang": "de",
       "requirements": [],
       "requirementsByLocale": {},
-      "location": "Rue des Sablons 15",
-      "canton": "TI",
-      "addressLocality": "Rue des Sablons 15",
+      "location": "Martigny",
+      "canton": "VS",
+      "addressLocality": "Martigny",
       "addressCountry": "CH",
       "category": "manufacturing",
       "contract": "full-time",
@@ -347,16 +361,18 @@
       "postedDate": "2026-04-09",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Rue-des-Sablons-15-1920-Martigny/Servicetechniker_20153524",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-13T22:13:27.867Z",
+      "crawledAt": "2026-04-14T10:27:11.393Z",
       "previousSlugs": [
-        "servicetechniker-otis-sa-rue-des-sablons-15"
+        "servicetechniker-otis-sa-rue-des-sablons-15",
+        "servicetechniker-otis-rue-des-sablons-15"
       ],
       "previousSlugsByLocale": {
         "it": [
           "servicetechniker-otis-sa-rue-des-sablons-15"
         ],
         "fr": [
-          "servicetechniker-otis-sa-rue-des-sablons-15"
+          "servicetechniker-otis-sa-rue-des-sablons-15",
+          "servicetechniker-otis-rue-des-sablons-15"
         ]
       },
       "firstSeenAt": "2026-04-13T11:05:12.782Z",
@@ -372,15 +388,15 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6500"
+      "postalCode": "1920"
     },
     {
       "id": "otis-5c352ba739ba",
       "slug": "tecnico-di-ascensori-m-f-d-otis-sa-kreuzstrasse-34",
       "slugByLocale": {
         "it": "tecnico-di-ascensori-m-f-d-otis-sa-kreuzstrasse-34",
-        "en": "aufzugsmonteur-in-m-w-d-otis-kreuzstrasse-34",
-        "de": "aufzugsmonteur-in-m-w-d-otis-kreuzstrasse-34",
+        "en": "aufzugsmonteur-in-m-w-d-otis-kriens",
+        "de": "aufzugsmonteur-in-m-w-d-otis-sa-kriens",
         "fr": "monteur-d-ascenseurs-h-f-otis-sa-kreuzstrasse-34"
       },
       "company": "Otis SA",
@@ -403,9 +419,9 @@
       "sourceLang": "en",
       "requirements": [],
       "requirementsByLocale": {},
-      "location": "Kreuzstrasse 34",
-      "canton": "TI",
-      "addressLocality": "Kreuzstrasse 34",
+      "location": "Kriens",
+      "canton": "LU",
+      "addressLocality": "Kriens",
       "addressCountry": "CH",
       "category": "manufacturing",
       "contract": "full-time",
@@ -415,16 +431,23 @@
       "postedDate": "2026-03-04",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Kreuzstrasse-34-6010-Kriens/Aufzugsmonteur-in--m-w-d-_20154150",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-13T22:13:27.606Z",
-      "previousSlugs": [
-        "aufzugsmonteur-in-m-w-d-otis-kreuzstrasse-34"
-      ],
+      "crawledAt": "2026-04-14T10:27:11.154Z",
       "previousSlugsByLocale": {
+        "en": [
+          "aufzugsmonteur-in-m-w-d-otis-kreuzstrasse-34"
+        ],
         "it": [
+          "aufzugsmonteur-in-m-w-d-otis-kreuzstrasse-34"
+        ],
+        "de": [
           "aufzugsmonteur-in-m-w-d-otis-kreuzstrasse-34"
         ]
       },
+      "previousSlugs": [
+        "aufzugsmonteur-in-m-w-d-otis-kreuzstrasse-34"
+      ],
       "firstSeenAt": "2026-04-13T11:05:12.488Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -437,7 +460,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6500"
+      "postalCode": "6003"
     },
     {
       "id": "otis-e1587a27b927",
@@ -445,7 +468,7 @@
       "slugByLocale": {
         "it": "responsabile-reparazioni-svc-m-w-d-otis-sa-postfach-123",
         "en": "repair-service-group-leader-m-w-d-otis-sa-postfach-123",
-        "de": "gruppenleiter-reparatur-svc-m-w-d-otis-postfach-123",
+        "de": "gruppenleiter-reparatur-svc-m-w-d-otis-sa-belp",
         "fr": "responsable-service-reparation-m-w-d-otis-sa-postfach-123"
       },
       "company": "Otis SA",
@@ -468,9 +491,9 @@
       "sourceLang": "de",
       "requirements": [],
       "requirementsByLocale": {},
-      "location": "Postfach 123",
-      "canton": "TI",
-      "addressLocality": "Postfach 123",
+      "location": "Belp",
+      "canton": "BE",
+      "addressLocality": "Belp",
       "addressCountry": "CH",
       "category": "manufacturing",
       "contract": "full-time",
@@ -480,16 +503,20 @@
       "postedDate": "2026-03-10",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Huhnerhubelstrasse-64-Postfach-123-3123-Belp/Gruppenleiter-Reparatur-SVC--m-w-d-_20154138",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-13T22:13:27.063Z",
+      "crawledAt": "2026-04-14T10:27:10.937Z",
       "previousSlugs": [
         "gruppenleiter-reparatur-svc-m-w-d-otis-postfach-123"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gruppenleiter-reparatur-svc-m-w-d-otis-postfach-123"
+        ],
+        "de": [
+          "gruppenleiter-reparatur-svc-m-w-d-otis-postfach-123"
         ]
       },
       "firstSeenAt": "2026-04-13T11:05:12.217Z",
+      "needsRetranslation": true,
       "salaryMin": 98000,
       "salaryMax": 132000,
       "baseSalary": {
@@ -502,15 +529,15 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6500"
+      "postalCode": "3001"
     },
     {
       "id": "otis-c75ef26e7d44",
-      "slug": "tecnico-di-ascensori-modernizzazione-e-impianti-di-sostituzione-m-f-d-otis-sa-nenzlingerweg-2",
+      "slug": "tecnico-di-ascensori-modernizzazione-e-impianti-di-sostituzione-m-f-d-otis-sa-reinach",
       "slugByLocale": {
-        "it": "tecnico-di-ascensori-modernizzazione-e-impianti-di-sostituzione-m-f-d-otis-sa-nenzlingerweg-2",
+        "it": "tecnico-di-ascensori-modernizzazione-e-impianti-di-sostituzione-m-f-d-otis-sa-reinach",
         "en": "elevator-mechanic-modernization-and-replacement-equipment-m-f-d-otis-sa-nenzlingerweg-2",
-        "de": "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-nenzlingerweg-2",
+        "de": "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-sa-reinach",
         "fr": "mecanicien-d-ascenseur-modernisation-et-equipements-de-remplacement-h-f-d-otis-sa-nenzlingerweg-2"
       },
       "company": "Otis SA",
@@ -533,9 +560,9 @@
       "sourceLang": "de",
       "requirements": [],
       "requirementsByLocale": {},
-      "location": "Nenzlingerweg 2",
-      "canton": "TI",
-      "addressLocality": "Nenzlingerweg 2",
+      "location": "Reinach",
+      "canton": "BL",
+      "addressLocality": "Reinach",
       "addressCountry": "CH",
       "category": "manufacturing",
       "contract": "full-time",
@@ -545,19 +572,23 @@
       "postedDate": "2026-01-29",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Nenzlingerweg-2-4153-Reinach/Aufzugsmonteur-Modernisierung-und-Ersatzanlagen--m-w-d-_20151682",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-13T22:13:26.800Z",
+      "crawledAt": "2026-04-14T10:27:10.710Z",
       "previousSlugs": [
-        "aufzugsmonteur-modernisierung-e-ersatzanlagen-m-w-d-otis-sa-nenzlingerweg-2"
+        "aufzugsmonteur-modernisierung-e-ersatzanlagen-m-w-d-otis-sa-nenzlingerweg-2",
+        "tecnico-di-ascensori-modernizzazione-e-impianti-di-sostituzione-m-f-d-otis-sa-nenzlingerweg-2",
+        "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-nenzlingerweg-2"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "aufzugsmonteur-modernisierung-e-ersatzanlagen-m-w-d-otis-sa-nenzlingerweg-2"
+          "aufzugsmonteur-modernisierung-e-ersatzanlagen-m-w-d-otis-sa-nenzlingerweg-2",
+          "tecnico-di-ascensori-modernizzazione-e-impianti-di-sostituzione-m-f-d-otis-sa-nenzlingerweg-2"
         ],
         "en": [
           "aufzugsmonteur-modernisierung-e-ersatzanlagen-m-w-d-otis-sa-nenzlingerweg-2"
         ],
         "de": [
-          "aufzugsmonteur-modernisierung-e-ersatzanlagen-m-w-d-otis-sa-nenzlingerweg-2"
+          "aufzugsmonteur-modernisierung-e-ersatzanlagen-m-w-d-otis-sa-nenzlingerweg-2",
+          "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-nenzlingerweg-2"
         ],
         "fr": [
           "aufzugsmonteur-modernisierung-e-ersatzanlagen-m-w-d-otis-sa-nenzlingerweg-2"
@@ -575,17 +606,16 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "postalCode": "6500"
+      }
     },
     {
       "id": "otis-00f533d5f119",
       "slug": "tecnico-di-servizio-m-f-d-otis-sa-nenzlingerweg-2",
       "slugByLocale": {
         "it": "tecnico-di-servizio-m-f-d-otis-sa-nenzlingerweg-2",
-        "en": "servicetechniker-m-w-d-otis-nenzlingerweg-2",
+        "en": "servicetechniker-m-w-d-otis-reinach",
         "de": "service-techniker-m-w-d-otis-sa-nenzlingerweg-2",
-        "fr": "servicetechniker-m-w-d-otis-nenzlingerweg-2"
+        "fr": "servicetechniker-m-w-d-otis-sa-reinach"
       },
       "company": "Otis SA",
       "companyKey": "otis",
@@ -607,9 +637,9 @@
       "sourceLang": "en",
       "requirements": [],
       "requirementsByLocale": {},
-      "location": "Nenzlingerweg 2",
-      "canton": "TI",
-      "addressLocality": "Nenzlingerweg 2",
+      "location": "Reinach",
+      "canton": "BL",
+      "addressLocality": "Reinach",
       "addressCountry": "CH",
       "category": "manufacturing",
       "contract": "full-time",
@@ -619,25 +649,29 @@
       "postedDate": "2026-01-27",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Nenzlingerweg-2-4153-Reinach/Servicetechniker--m-w-d-_20151442",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-13T22:13:26.556Z",
-      "previousSlugs": [
-        "servicetechniker-m-w-d-otis-sa-nenzlingerweg-2"
-      ],
+      "crawledAt": "2026-04-14T10:27:10.489Z",
       "previousSlugsByLocale": {
-        "it": [
-          "servicetechniker-m-w-d-otis-sa-nenzlingerweg-2"
-        ],
         "en": [
+          "servicetechniker-m-w-d-otis-sa-nenzlingerweg-2",
+          "servicetechniker-m-w-d-otis-nenzlingerweg-2"
+        ],
+        "it": [
           "servicetechniker-m-w-d-otis-sa-nenzlingerweg-2"
         ],
         "de": [
           "servicetechniker-m-w-d-otis-sa-nenzlingerweg-2"
         ],
         "fr": [
-          "servicetechniker-m-w-d-otis-sa-nenzlingerweg-2"
+          "servicetechniker-m-w-d-otis-sa-nenzlingerweg-2",
+          "servicetechniker-m-w-d-otis-nenzlingerweg-2"
         ]
       },
+      "previousSlugs": [
+        "servicetechniker-m-w-d-otis-sa-nenzlingerweg-2",
+        "servicetechniker-m-w-d-otis-nenzlingerweg-2"
+      ],
       "firstSeenAt": "2026-04-13T11:05:11.624Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -649,15 +683,14 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "postalCode": "6500"
+      }
     },
     {
       "id": "otis-65de39533f90",
-      "slug": "pool-di-talenti-tecnico-otis-ticino-installazione-manutenzione-modernizzazione-otis-via-corti-5",
+      "slug": "pool-di-talenti-tecnico-otis-ticino-installazione-manutenzione-modernizzazione-otis-sa-balerna",
       "slugByLocale": {
-        "it": "pool-di-talenti-tecnico-otis-ticino-installazione-manutenzione-modernizzazione-otis-via-corti-5",
-        "en": "pool-di-talenti-tecnico-otis-ticino-installazione-manutenzione-modernizzazione-otis-via-corti-5",
+        "it": "pool-di-talenti-tecnico-otis-ticino-installazione-manutenzione-modernizzazione-otis-sa-balerna",
+        "en": "pool-di-talenti-tecnico-otis-ticino-installazione-manutenzione-modernizzazione-otis-balerna",
         "de": "technik-talentepool-otis-ticino-installation-wartung-modernisierung-otis-sa-via-corti-5",
         "fr": "pool-de-talents-techniques-otis-ticino-installation-maintenance-modernisation-otis-sa-via-corti-5"
       },
@@ -681,9 +714,9 @@
       "sourceLang": "en",
       "requirements": [],
       "requirementsByLocale": {},
-      "location": "Via Corti 5",
+      "location": "Balerna",
       "canton": "TI",
-      "addressLocality": "Via Corti 5",
+      "addressLocality": "Balerna",
       "addressCountry": "CH",
       "category": "manufacturing",
       "contract": "full-time",
@@ -693,24 +726,30 @@
       "postedDate": "2026-01-05",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Via-Corti-5-6828-Balerna/Pool-di-Talenti-Tecnico-Otis-Ticino---Installazione--Manutenzione---Modernizzazione_20149777",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-13T22:13:26.289Z",
-      "previousSlugs": [
-        "pool-di-talenti-technician-otis-ticino-installazione-maintenance-modernizzazione-otis-sa-via-corti-5",
-        "pool-di-talenti-techniker-otis-ticino-installazione-wartung-modernizzazione-otis-sa-via-corti-5",
-        "pool-di-talenti-technicien-otis-ticino-installazione-maintenance-modernizzazione-otis-sa-via-corti-5"
-      ],
+      "crawledAt": "2026-04-14T10:27:10.255Z",
       "previousSlugsByLocale": {
         "en": [
-          "pool-di-talenti-technician-otis-ticino-installazione-maintenance-modernizzazione-otis-sa-via-corti-5"
+          "pool-di-talenti-technician-otis-ticino-installazione-maintenance-modernizzazione-otis-sa-via-corti-5",
+          "pool-di-talenti-tecnico-otis-ticino-installazione-manutenzione-modernizzazione-otis-via-corti-5"
         ],
         "de": [
           "pool-di-talenti-techniker-otis-ticino-installazione-wartung-modernizzazione-otis-sa-via-corti-5"
         ],
         "fr": [
           "pool-di-talenti-technicien-otis-ticino-installazione-maintenance-modernizzazione-otis-sa-via-corti-5"
+        ],
+        "it": [
+          "pool-di-talenti-tecnico-otis-ticino-installazione-manutenzione-modernizzazione-otis-via-corti-5"
         ]
       },
+      "previousSlugs": [
+        "pool-di-talenti-technician-otis-ticino-installazione-maintenance-modernizzazione-otis-sa-via-corti-5",
+        "pool-di-talenti-tecnico-otis-ticino-installazione-manutenzione-modernizzazione-otis-via-corti-5",
+        "pool-di-talenti-techniker-otis-ticino-installazione-wartung-modernizzazione-otis-sa-via-corti-5",
+        "pool-di-talenti-technicien-otis-ticino-installazione-maintenance-modernizzazione-otis-sa-via-corti-5"
+      ],
       "firstSeenAt": "2026-04-13T11:05:11.357Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -723,16 +762,16 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6500"
+      "postalCode": "6828"
     },
     {
       "id": "otis-ab73eeb69603",
       "slug": "vivier-dei-talenti-tecnico-installatore-repairman-otis-sa-cp-464",
       "slugByLocale": {
         "it": "vivier-dei-talenti-tecnico-installatore-repairman-otis-sa-cp-464",
-        "en": "vivier-des-talents-service-technicien-monteur-repairman-otis-cp-464",
+        "en": "vivier-des-talents-service-technicien-monteur-repairman-otis-fribourg",
         "de": "talentpool-servicetechniker-monteur-reparaturtechniker-otis-sa-cp-464",
-        "fr": "vivier-des-talents-service-technicien-monteur-repairman-otis-cp-464"
+        "fr": "vivier-des-talents-service-technicien-monteur-repairman-otis-sa-fribourg"
       },
       "company": "Otis SA",
       "companyKey": "otis",
@@ -754,9 +793,9 @@
       "sourceLang": "en",
       "requirements": [],
       "requirementsByLocale": {},
-      "location": "CP 464",
-      "canton": "TI",
-      "addressLocality": "CP 464",
+      "location": "Fribourg",
+      "canton": "FR",
+      "addressLocality": "Fribourg",
       "addressCountry": "CH",
       "category": "manufacturing",
       "contract": "full-time",
@@ -766,16 +805,23 @@
       "postedDate": "2026-01-05",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Route-de-Moncor-12-CP-464-1701-Fribourg/Vivier-des-Talents---Service-Technicien-Monteur-Repairman_20149772-1",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-13T22:13:26.046Z",
-      "previousSlugs": [
-        "vivier-des-talents-service-technicien-monteur-repairman-otis-cp-464"
-      ],
+      "crawledAt": "2026-04-14T10:27:10.035Z",
       "previousSlugsByLocale": {
+        "en": [
+          "vivier-des-talents-service-technicien-monteur-repairman-otis-cp-464"
+        ],
         "it": [
+          "vivier-des-talents-service-technicien-monteur-repairman-otis-cp-464"
+        ],
+        "fr": [
           "vivier-des-talents-service-technicien-monteur-repairman-otis-cp-464"
         ]
       },
+      "previousSlugs": [
+        "vivier-des-talents-service-technicien-monteur-repairman-otis-cp-464"
+      ],
       "firstSeenAt": "2026-04-13T11:05:11.125Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -788,16 +834,16 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6500"
+      "postalCode": "1700"
     },
     {
       "id": "otis-bf781d5b803b",
       "slug": "vivier-dei-talenti-tecnico-installatore-repairman-otis-sa-rue-des-sablons-15",
       "slugByLocale": {
         "it": "vivier-dei-talenti-tecnico-installatore-repairman-otis-sa-rue-des-sablons-15",
-        "en": "vivier-des-talents-service-technicien-monteur-repairman-otis-rue-des-sablons-15",
+        "en": "vivier-des-talents-service-technicien-monteur-repairman-otis-martigny",
         "de": "vielseitigkeit-der-talente-servicetechniker-monteur-repairman-otis-sa-rue-des-sablons-15",
-        "fr": "vivier-des-talents-service-technicien-monteur-repairman-otis-rue-des-sablons-15"
+        "fr": "vivier-des-talents-service-technicien-monteur-repairman-otis-sa-martigny"
       },
       "company": "Otis SA",
       "companyKey": "otis",
@@ -819,9 +865,9 @@
       "sourceLang": "en",
       "requirements": [],
       "requirementsByLocale": {},
-      "location": "Rue des Sablons 15",
-      "canton": "TI",
-      "addressLocality": "Rue des Sablons 15",
+      "location": "Martigny",
+      "canton": "VS",
+      "addressLocality": "Martigny",
       "addressCountry": "CH",
       "category": "manufacturing",
       "contract": "full-time",
@@ -831,16 +877,23 @@
       "postedDate": "2026-01-05",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Rue-des-Sablons-15-1920-Martigny/Vivier-des-Talents---Service-Technicien-Monteur-Repairman_20149764-1",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-13T22:13:25.714Z",
-      "previousSlugs": [
-        "vivier-des-talents-service-technicien-monteur-repairman-otis-rue-des-sablons-15"
-      ],
+      "crawledAt": "2026-04-14T10:27:09.763Z",
       "previousSlugsByLocale": {
+        "en": [
+          "vivier-des-talents-service-technicien-monteur-repairman-otis-rue-des-sablons-15"
+        ],
         "it": [
+          "vivier-des-talents-service-technicien-monteur-repairman-otis-rue-des-sablons-15"
+        ],
+        "fr": [
           "vivier-des-talents-service-technicien-monteur-repairman-otis-rue-des-sablons-15"
         ]
       },
+      "previousSlugs": [
+        "vivier-des-talents-service-technicien-monteur-repairman-otis-rue-des-sablons-15"
+      ],
       "firstSeenAt": "2026-04-13T11:05:10.880Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -853,16 +906,16 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6500"
+      "postalCode": "1920"
     },
     {
       "id": "otis-2ad7ac1459d1",
       "slug": "vivier-dei-talenti-vaud-tecnico-montatore-manutentore-otis-sa-1032",
       "slugByLocale": {
         "it": "vivier-dei-talenti-vaud-tecnico-montatore-manutentore-otis-sa-1032",
-        "en": "vivier-des-talents-vaud-service-technicien-monteur-repairman-otis-1032",
+        "en": "vivier-des-talents-vaud-service-technicien-monteur-repairman-otis-romanel-sur-lausanne",
         "de": "vivier-der-talente-vaud-techniker-monteur-instandsetzer-otis-sa-1032",
-        "fr": "vivier-des-talents-vaud-service-technicien-monteur-repairman-otis-1032"
+        "fr": "vivier-des-talents-vaud-service-technicien-monteur-repairman-otis-sa-romanel-sur-lausanne"
       },
       "company": "Otis SA",
       "companyKey": "otis",
@@ -884,9 +937,9 @@
       "sourceLang": "en",
       "requirements": [],
       "requirementsByLocale": {},
-      "location": "1032",
-      "canton": "TI",
-      "addressLocality": "1032",
+      "location": "Romanel-sur-Lausanne",
+      "canton": "VD",
+      "addressLocality": "Romanel-sur-Lausanne",
       "addressCountry": "CH",
       "category": "manufacturing",
       "contract": "full-time",
@@ -896,27 +949,30 @@
       "postedDate": "2026-02-13",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Chemin-des-Msanges-5-1032-Romanel-sur-Lausanne/Vivier-des-Talents-Vaud---Service-Technicien-Monteur-Repairman_20149775",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-13T22:13:25.460Z",
-      "previousSlugs": [
-        "talent-pool-vaud-technician-fitter-repairman-service-otis-sa-1032",
-        "vivier-des-talents-vaud-service-technicien-monteur-repairman-otis-1032"
-      ],
+      "crawledAt": "2026-04-14T10:27:09.522Z",
       "previousSlugsByLocale": {
-        "it": [
+        "en": [
           "talent-pool-vaud-technician-fitter-repairman-service-otis-sa-1032",
           "vivier-des-talents-vaud-service-technicien-monteur-repairman-otis-1032"
         ],
-        "en": [
-          "talent-pool-vaud-technician-fitter-repairman-service-otis-sa-1032"
+        "it": [
+          "talent-pool-vaud-technician-fitter-repairman-service-otis-sa-1032",
+          "vivier-des-talents-vaud-service-technicien-monteur-repairman-otis-1032"
         ],
         "de": [
           "talent-pool-vaud-technician-fitter-repairman-service-otis-sa-1032"
         ],
         "fr": [
-          "talent-pool-vaud-technician-fitter-repairman-service-otis-sa-1032"
+          "talent-pool-vaud-technician-fitter-repairman-service-otis-sa-1032",
+          "vivier-des-talents-vaud-service-technicien-monteur-repairman-otis-1032"
         ]
       },
+      "previousSlugs": [
+        "talent-pool-vaud-technician-fitter-repairman-service-otis-sa-1032",
+        "vivier-des-talents-vaud-service-technicien-monteur-repairman-otis-1032"
+      ],
       "firstSeenAt": "2026-04-13T11:05:10.576Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -929,16 +985,16 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1032"
+      "postalCode": "1003"
     },
     {
       "id": "otis-d559bafbc3af",
       "slug": "vivier-dei-talenti-tecnico-installatore-repairman-otis-sa-chemin-de-mouille-galand",
       "slugByLocale": {
         "it": "vivier-dei-talenti-tecnico-installatore-repairman-otis-sa-chemin-de-mouille-galand",
-        "en": "vivier-des-talents-service-technicien-monteur-repairman-otis-chemin-de-mouille-galand",
+        "en": "vivier-des-talents-service-technicien-monteur-repairman-otis-vernier",
         "de": "talent-pool-servicetechniker-monteur-repairman-otis-sa-chemin-de-mouille-galand",
-        "fr": "vivier-des-talents-service-technicien-monteur-repairman-otis-chemin-de-mouille-galand"
+        "fr": "vivier-des-talents-service-technicien-monteur-repairman-otis-sa-vernier"
       },
       "company": "Otis SA",
       "companyKey": "otis",
@@ -960,9 +1016,9 @@
       "sourceLang": "en",
       "requirements": [],
       "requirementsByLocale": {},
-      "location": "Chemin de Mouille Galand",
-      "canton": "TI",
-      "addressLocality": "Chemin de Mouille Galand",
+      "location": "Vernier",
+      "canton": "GE",
+      "addressLocality": "Vernier",
       "addressCountry": "CH",
       "category": "manufacturing",
       "contract": "full-time",
@@ -972,16 +1028,23 @@
       "postedDate": "2026-02-10",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Chemin-de-Mouille-Galand-1214-Vernier/Vivier-des-Talents---Service-Technicien-Monteur-Repairman_20149748",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-13T22:13:25.226Z",
-      "previousSlugs": [
-        "vivier-des-talents-service-technicien-monteur-repairman-otis-chemin-de-mouille-galand"
-      ],
+      "crawledAt": "2026-04-14T10:27:09.290Z",
       "previousSlugsByLocale": {
+        "en": [
+          "vivier-des-talents-service-technicien-monteur-repairman-otis-chemin-de-mouille-galand"
+        ],
         "it": [
+          "vivier-des-talents-service-technicien-monteur-repairman-otis-chemin-de-mouille-galand"
+        ],
+        "fr": [
           "vivier-des-talents-service-technicien-monteur-repairman-otis-chemin-de-mouille-galand"
         ]
       },
+      "previousSlugs": [
+        "vivier-des-talents-service-technicien-monteur-repairman-otis-chemin-de-mouille-galand"
+      ],
       "firstSeenAt": "2026-04-13T11:05:10.340Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -994,16 +1057,89 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6500"
+      "postalCode": "1214"
+    },
+    {
+      "id": "otis-aa74ae9b5213",
+      "slug": "servicetechniker-m-w-d-otis-sa-reinach",
+      "slugByLocale": {
+        "en": "servicetechniker-m-w-d-otis-reinach",
+        "it": "servicetechniker-m-w-d-otis-sa-reinach",
+        "de": "servicetechniker-m-w-d-otis-nenzlingerweg-2",
+        "fr": "servicetechniker-m-w-d-otis-sa-reinach"
+      },
+      "company": "Otis SA",
+      "companyKey": "otis",
+      "companyDomain": "otis.com",
+      "title": "Servicetechniker (m/w/d)",
+      "titleByLocale": {
+        "en": "Servicetechniker (m/w/d)",
+        "fr": "Servicetechniker (m/w/d)",
+        "de": "Servicetechniker (m/w/d)",
+        "it": "Servicetechniker (m/w/d)"
+      },
+      "description": "Date Posted:\n2025-06-25Country: \nSwitzerlandLocation: \nNenzlingerweg 2, 4153 Reinach\nWerde Teil unseres Teams in Basel!\n \nWir suchen talentierte Servicetechniker:innen, um die Innovation und Exzellenz bei Otis Schweiz voranzutreiben.\n\nWas dich bei uns erwartet\n\nDu bist verantwortlich für den reibungslosen Betrieb unserer Anlagen. Dies beinhaltet folgende Aufgaben:\nDu führst regelmässige Wartungs- und Reparaturarbeiten an mechanischen, hydraulischen, elektrischen und elektronischen Komponenten von Aufzügen und Fahrtreppen durch\n\nDu identifizierst selbstständig Reparatur- und Verbesserungsarbeiten an den Anlagen und bestellst die nötigen Ersatzteile\n\nDu führst mit Hilfe moderner Hilfsmittel Fehlersuchen durch und beseitigst die Störungen\n\n \nWas wir von dir erwarten\nDu hast eine abgeschlossene technische Ausbildung wie Elektromonteur:in, Polymechaniker:in, Automobilfachmann:frau oder ähnlich. Wenn du dich mit Liften bereits auskennst ist das ein grosser Vorteil.\n\nDu sprichst fliessend Deutsch\n\nDu planst und koordinierst eigenständig deinen Tag und legst ein freundliches Auftreten an den Tag\n\nEinen Führerschein der Kategorie B setzen wir voraus, ebenso wie einen Wohnort im Einsatzgebiet damit du die Pikettzeiten einhalten kannst\n\n \nWas wir dir bieten\nBei deinem Start bei uns wirst du von einem erfahrenen Kollegen begleitet, welcher dir wertvolles Fachwissen auf deinen Weg mitgibt. Ausserdem wirst du mit einem Mobiltelefon und einem eigenen Firmenfahrzeug ausgestattet, welches du auch privat benutzen darfst.\n\nUns liegt deine persönliche Entwicklung am Herzen. Konkret bedeutet dies, dass wir Weiterbildungen unterstützen und interne Beförderungsmöglichkeiten jedem offenstehen.\n\nGute Pensionskasse\n\n5 Wochen Ferien\n\nVerpflegungszuschuss\n\nUnsere Firmenkultur ist unser wichtigstes Gut und ist tief im Unternehmen verankert und wird von allen Mitarbeitern gelebt und geschätzt. Mehr Informationen über unsere «Otis Absolutes» findest Du hier.\n \nSteige ein – Steige auf!\n\nHaben wir dich überzeugt? Dann wir freuen uns auf deine Bewerbung.\n\nIf you live in a city, chances are we will give you a lift or play a role in keeping you moving every day. \n\nOtis is the world’s leading elevator and escalator manufacturing, installation, and service company. We move 2.4 billion people every day and maintain approximately 2.4 million customer units worldwide, the industry's largest Service portfolio.  \n\nYou may recognize our products in some of the world’s most famous landmarks including the Eiffel Tower, Empire State Building, Burj Khalifa and the Petronas Twin Towers! We are 72,000 people strong, including engineers, digital technology experts, sales, and functional specialists, as well as factory and field technicians, all committed to meeting the diverse needs of our customers and passengers in more than 200 countries and territories worldwide. We are proud to be a diverse, global team with a proven legacy of innovation that continues to be the bedrock of a fast-moving, high-performance company.  \n\nWhen you join Otis, you become part of an innovative global industry leader with a resilient business model. You’ll belong to a diverse, trusted, and caring community where your contributions, and the skills and capabilities you’ll gain working alongside the best and brightest, keep us connected and on the cutting edge.  \n\nWe provide opportunities, training, and resources, that build leadership and capabilities in Sales, Field, Engineering and Major Projects and our Employee Scholar Program is a notable point of pride, through which Otis sponsors colleagues to pursue degrees or certification programs.   \n\nToday, our focus more than ever is on people. As a global, people-powered company, we put people – passengers, customers, and colleagues – at the center of everything we do.  We are guided by our values that we call our Three Absolutes – prioritizing Safety, Ethics, Quality in all that we do. If you would like to learn more about environmental, social and governance (ESG) at Otis click here.  \n\nBecome a part of the Otis team and help us #Buildwhatsnext! \nOtis is An Equal Opportunity Employer. All qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, gender identity, national origin, disability or veteran status, age, or any other protected class according to applicable law. To request an accommodation in completing an employment application due to a special need or a disability, please contact us at careers@otis.com.\n\nPrivacy Policy and Terms:\nClick on this link to read the Policy and Terms",
+      "descriptionByLocale": {
+        "en": "Date Posted:\n2025-06-25Country: \nSwitzerlandLocation: \nNenzlingerweg 2, 4153 Reinach\nWerde Teil unseres Teams in Basel!\n \nWir suchen talentierte Servicetechniker:innen, um die Innovation und Exzellenz bei Otis Schweiz voranzutreiben.\n\nWas dich bei uns erwartet\n\nDu bist verantwortlich für den reibungslosen Betrieb unserer Anlagen. Dies beinhaltet folgende Aufgaben:\nDu führst regelmässige Wartungs- und Reparaturarbeiten an mechanischen, hydraulischen, elektrischen und elektronischen Komponenten von Aufzügen und Fahrtreppen durch\n\nDu identifizierst selbstständig Reparatur- und Verbesserungsarbeiten an den Anlagen und bestellst die nötigen Ersatzteile\n\nDu führst mit Hilfe moderner Hilfsmittel Fehlersuchen durch und beseitigst die Störungen\n\n \nWas wir von dir erwarten\nDu hast eine abgeschlossene technische Ausbildung wie Elektromonteur:in, Polymechaniker:in, Automobilfachmann:frau oder ähnlich. Wenn du dich mit Liften bereits auskennst ist das ein grosser Vorteil.\n\nDu sprichst fliessend Deutsch\n\nDu planst und koordinierst eigenständig deinen Tag und legst ein freundliches Auftreten an den Tag\n\nEinen Führerschein der Kategorie B setzen wir voraus, ebenso wie einen Wohnort im Einsatzgebiet damit du die Pikettzeiten einhalten kannst\n\n \nWas wir dir bieten\nBei deinem Start bei uns wirst du von einem erfahrenen Kollegen begleitet, welcher dir wertvolles Fachwissen auf deinen Weg mitgibt. Ausserdem wirst du mit einem Mobiltelefon und einem eigenen Firmenfahrzeug ausgestattet, welches du auch privat benutzen darfst.\n\nUns liegt deine persönliche Entwicklung am Herzen. Konkret bedeutet dies, dass wir Weiterbildungen unterstützen und interne Beförderungsmöglichkeiten jedem offenstehen.\n\nGute Pensionskasse\n\n5 Wochen Ferien\n\nVerpflegungszuschuss\n\nUnsere Firmenkultur ist unser wichtigstes Gut und ist tief im Unternehmen verankert und wird von allen Mitarbeitern gelebt und geschätzt. Mehr Informationen über unsere «Otis Absolutes» findest Du hier.\n \nSteige ein – Steige auf!\n\nHaben wir dich überzeugt? Dann wir freuen uns auf deine Bewerbung.\n\nIf you live in a city, chances are we will give you a lift or play a role in keeping you moving every day. \n\nOtis is the world’s leading elevator and escalator manufacturing, installation, and service company. We move 2.4 billion people every day and maintain approximately 2.4 million customer units worldwide, the industry's largest Service portfolio.  \n\nYou may recognize our products in some of the world’s most famous landmarks including the Eiffel Tower, Empire State Building, Burj Khalifa and the Petronas Twin Towers! We are 72,000 people strong, including engineers, digital technology experts, sales, and functional specialists, as well as factory and field technicians, all committed to meeting the diverse needs of our customers and passengers in more than 200 countries and territories worldwide. We are proud to be a diverse, global team with a proven legacy of innovation that continues to be the bedrock of a fast-moving, high-performance company.  \n\nWhen you join Otis, you become part of an innovative global industry leader with a resilient business model. You’ll belong to a diverse, trusted, and caring community where your contributions, and the skills and capabilities you’ll gain working alongside the best and brightest, keep us connected and on the cutting edge.  \n\nWe provide opportunities, training, and resources, that build leadership and capabilities in Sales, Field, Engineering and Major Projects and our Employee Scholar Program is a notable point of pride, through which Otis sponsors colleagues to pursue degrees or certification programs.   \n\nToday, our focus more than ever is on people. As a global, people-powered company, we put people – passengers, customers, and colleagues – at the center of everything we do.  We are guided by our values that we call our Three Absolutes – prioritizing Safety, Ethics, Quality in all that we do. If you would like to learn more about environmental, social and governance (ESG) at Otis click here.  \n\nBecome a part of the Otis team and help us #Buildwhatsnext! \nOtis is An Equal Opportunity Employer. All qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, gender identity, national origin, disability or veteran status, age, or any other protected class according to applicable law. To request an accommodation in completing an employment application due to a special need or a disability, please contact us at careers@otis.com.\n\nPrivacy Policy and Terms:\nClick on this link to read the Policy and Terms",
+        "de": "Date Posted:\n2025-06-25Country: \nSwitzerlandLocation: \nNenzlingerweg 2, 4153 Reinach\nWerde Teil unseres Teams in Basel!\n \nWir suchen talentierte Servicetechniker:innen, um die Innovation und Exzellenz bei Otis Schweiz voranzutreiben.\n\nWas dich bei uns erwartet\n\nDu bist verantwortlich für den reibungslosen Betrieb unserer Anlagen. Dies beinhaltet folgende Aufgaben:\nDu führst regelmässige Wartungs- und Reparaturarbeiten an mechanischen, hydraulischen, elektrischen und elektronischen Komponenten von Aufzügen und Fahrtreppen durch\n\nDu identifizierst selbstständig Reparatur- und Verbesserungsarbeiten an den Anlagen und bestellst die nötigen Ersatzteile\n\nDu führst mit Hilfe moderner Hilfsmittel Fehlersuchen durch und beseitigst die Störungen\n\n \nWas wir von dir erwarten\nDu hast eine abgeschlossene technische Ausbildung wie Elektromonteur:in, Polymechaniker:in, Automobilfachmann:frau oder ähnlich. Wenn du dich mit Liften bereits auskennst ist das ein grosser Vorteil.\n\nDu sprichst fliessend Deutsch\n\nDu planst und koordinierst eigenständig deinen Tag und legst ein freundliches Auftreten an den Tag\n\nEinen Führerschein der Kategorie B setzen wir voraus, ebenso wie einen Wohnort im Einsatzgebiet damit du die Pikettzeiten einhalten kannst\n\n \nWas wir dir bieten\nBei deinem Start bei uns wirst du von einem erfahrenen Kollegen begleitet, welcher dir wertvolles Fachwissen auf deinen Weg mitgibt. Ausserdem wirst du mit einem Mobiltelefon und einem eigenen Firmenfahrzeug ausgestattet, welches du auch privat benutzen darfst.\n\nUns liegt deine persönliche Entwicklung am Herzen. Konkret bedeutet dies, dass wir Weiterbildungen unterstützen und interne Beförderungsmöglichkeiten jedem offenstehen.\n\nGute Pensionskasse\n\n5 Wochen Ferien\n\nVerpflegungszuschuss\n\nUnsere Firmenkultur ist unser wichtigstes Gut und ist tief im Unternehmen verankert und wird von allen Mitarbeitern gelebt und geschätzt. Mehr Informationen über unsere «Otis Absolutes» findest Du hier.\n \nSteige ein – Steige auf!\n\nHaben wir dich überzeugt? Dann wir freuen uns auf deine Bewerbung.\n\nIf you live in a city, chances are we will give you a lift or play a role in keeping you moving every day. \n\nOtis is the world’s leading elevator and escalator manufacturing, installation, and service company. We move 2.4 billion people every day and maintain approximately 2.4 million customer units worldwide, the industry's largest Service portfolio.  \n\nYou may recognize our products in some of the world’s most famous landmarks including the Eiffel Tower, Empire State Building, Burj Khalifa and the Petronas Twin Towers! We are 72,000 people strong, including engineers, digital technology experts, sales, and functional specialists, as well as factory and field technicians, all committed to meeting the diverse needs of our customers and passengers in more than 200 countries and territories worldwide. We are proud to be a diverse, global team with a proven legacy of innovation that continues to be the bedrock of a fast-moving, high-performance company.  \n\nWhen you join Otis, you become part of an innovative global industry leader with a resilient business model. You’ll belong to a diverse, trusted, and caring community where your contributions, and the skills and capabilities you’ll gain working alongside the best and brightest, keep us connected and on the cutting edge.  \n\nWe provide opportunities, training, and resources, that build leadership and capabilities in Sales, Field, Engineering and Major Projects and our Employee Scholar Program is a notable point of pride, through which Otis sponsors colleagues to pursue degrees or certification programs.   \n\nToday, our focus more than ever is on people. As a global, people-powered company, we put people – passengers, customers, and colleagues – at the center of everything we do.  We are guided by our values that we call our Three Absolutes – prioritizing Safety, Ethics, Quality in all that we do. If you would like to learn more about environmental, social and governance (ESG) at Otis click here.  \n\nBecome a part of the Otis team and help us #Buildwhatsnext! \nOtis is An Equal Opportunity Employer. All qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, gender identity, national origin, disability or veteran status, age, or any other protected class according to applicable law. To request an accommodation in completing an employment application due to a special need or a disability, please contact us at careers@otis.com.\n\nPrivacy Policy and Terms:\nClick on this link to read the Policy and Terms",
+        "it": "Date Posted:\n2025-06-25Country: \nSwitzerlandLocation: \nNenzlingerweg 2, 4153 Reinach\nWerde Teil unseres Teams in Basel!\n \nWir suchen talentierte Servicetechniker:innen, um die Innovation und Exzellenz bei Otis Schweiz voranzutreiben.\n\nWas dich bei uns erwartet\n\nDu bist verantwortlich für den reibungslosen Betrieb unserer Anlagen. Dies beinhaltet folgende Aufgaben:\nDu führst regelmässige Wartungs- und Reparaturarbeiten an mechanischen, hydraulischen, elektrischen und elektronischen Komponenten von Aufzügen und Fahrtreppen durch\n\nDu identifizierst selbstständig Reparatur- und Verbesserungsarbeiten an den Anlagen und bestellst die nötigen Ersatzteile\n\nDu führst mit Hilfe moderner Hilfsmittel Fehlersuchen durch und beseitigst die Störungen\n\n \nWas wir von dir erwarten\nDu hast eine abgeschlossene technische Ausbildung wie Elektromonteur:in, Polymechaniker:in, Automobilfachmann:frau oder ähnlich. Wenn du dich mit Liften bereits auskennst ist das ein grosser Vorteil.\n\nDu sprichst fliessend Deutsch\n\nDu planst und koordinierst eigenständig deinen Tag und legst ein freundliches Auftreten an den Tag\n\nEinen Führerschein der Kategorie B setzen wir voraus, ebenso wie einen Wohnort im Einsatzgebiet damit du die Pikettzeiten einhalten kannst\n\n \nWas wir dir bieten\nBei deinem Start bei uns wirst du von einem erfahrenen Kollegen begleitet, welcher dir wertvolles Fachwissen auf deinen Weg mitgibt. Ausserdem wirst du mit einem Mobiltelefon und einem eigenen Firmenfahrzeug ausgestattet, welches du auch privat benutzen darfst.\n\nUns liegt deine persönliche Entwicklung am Herzen. Konkret bedeutet dies, dass wir Weiterbildungen unterstützen und interne Beförderungsmöglichkeiten jedem offenstehen.\n\nGute Pensionskasse\n\n5 Wochen Ferien\n\nVerpflegungszuschuss\n\nUnsere Firmenkultur ist unser wichtigstes Gut und ist tief im Unternehmen verankert und wird von allen Mitarbeitern gelebt und geschätzt. Mehr Informationen über unsere «Otis Absolutes» findest Du hier.\n \nSteige ein – Steige auf!\n\nHaben wir dich überzeugt? Dann wir freuen uns auf deine Bewerbung.\n\nIf you live in a city, chances are we will give you a lift or play a role in keeping you moving every day. \n\nOtis is the world’s leading elevator and escalator manufacturing, installation, and service company. We move 2.4 billion people every day and maintain approximately 2.4 million customer units worldwide, the industry's largest Service portfolio.  \n\nYou may recognize our products in some of the world’s most famous landmarks including the Eiffel Tower, Empire State Building, Burj Khalifa and the Petronas Twin Towers! We are 72,000 people strong, including engineers, digital technology experts, sales, and functional specialists, as well as factory and field technicians, all committed to meeting the diverse needs of our customers and passengers in more than 200 countries and territories worldwide. We are proud to be a diverse, global team with a proven legacy of innovation that continues to be the bedrock of a fast-moving, high-performance company.  \n\nWhen you join Otis, you become part of an innovative global industry leader with a resilient business model. You’ll belong to a diverse, trusted, and caring community where your contributions, and the skills and capabilities you’ll gain working alongside the best and brightest, keep us connected and on the cutting edge.  \n\nWe provide opportunities, training, and resources, that build leadership and capabilities in Sales, Field, Engineering and Major Projects and our Employee Scholar Program is a notable point of pride, through which Otis sponsors colleagues to pursue degrees or certification programs.   \n\nToday, our focus more than ever is on people. As a global, people-powered company, we put people – passengers, customers, and colleagues – at the center of everything we do.  We are guided by our values that we call our Three Absolutes – prioritizing Safety, Ethics, Quality in all that we do. If you would like to learn more about environmental, social and governance (ESG) at Otis click here.  \n\nBecome a part of the Otis team and help us #Buildwhatsnext! \nOtis is An Equal Opportunity Employer. All qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, gender identity, national origin, disability or veteran status, age, or any other protected class according to applicable law. To request an accommodation in completing an employment application due to a special need or a disability, please contact us at careers@otis.com.\n\nPrivacy Policy and Terms:\nClick on this link to read the Policy and Terms",
+        "fr": "Date Posted:\n2025-06-25Country: \nSwitzerlandLocation: \nNenzlingerweg 2, 4153 Reinach\nWerde Teil unseres Teams in Basel!\n \nWir suchen talentierte Servicetechniker:innen, um die Innovation und Exzellenz bei Otis Schweiz voranzutreiben.\n\nWas dich bei uns erwartet\n\nDu bist verantwortlich für den reibungslosen Betrieb unserer Anlagen. Dies beinhaltet folgende Aufgaben:\nDu führst regelmässige Wartungs- und Reparaturarbeiten an mechanischen, hydraulischen, elektrischen und elektronischen Komponenten von Aufzügen und Fahrtreppen durch\n\nDu identifizierst selbstständig Reparatur- und Verbesserungsarbeiten an den Anlagen und bestellst die nötigen Ersatzteile\n\nDu führst mit Hilfe moderner Hilfsmittel Fehlersuchen durch und beseitigst die Störungen\n\n \nWas wir von dir erwarten\nDu hast eine abgeschlossene technische Ausbildung wie Elektromonteur:in, Polymechaniker:in, Automobilfachmann:frau oder ähnlich. Wenn du dich mit Liften bereits auskennst ist das ein grosser Vorteil.\n\nDu sprichst fliessend Deutsch\n\nDu planst und koordinierst eigenständig deinen Tag und legst ein freundliches Auftreten an den Tag\n\nEinen Führerschein der Kategorie B setzen wir voraus, ebenso wie einen Wohnort im Einsatzgebiet damit du die Pikettzeiten einhalten kannst\n\n \nWas wir dir bieten\nBei deinem Start bei uns wirst du von einem erfahrenen Kollegen begleitet, welcher dir wertvolles Fachwissen auf deinen Weg mitgibt. Ausserdem wirst du mit einem Mobiltelefon und einem eigenen Firmenfahrzeug ausgestattet, welches du auch privat benutzen darfst.\n\nUns liegt deine persönliche Entwicklung am Herzen. Konkret bedeutet dies, dass wir Weiterbildungen unterstützen und interne Beförderungsmöglichkeiten jedem offenstehen.\n\nGute Pensionskasse\n\n5 Wochen Ferien\n\nVerpflegungszuschuss\n\nUnsere Firmenkultur ist unser wichtigstes Gut und ist tief im Unternehmen verankert und wird von allen Mitarbeitern gelebt und geschätzt. Mehr Informationen über unsere «Otis Absolutes» findest Du hier.\n \nSteige ein – Steige auf!\n\nHaben wir dich überzeugt? Dann wir freuen uns auf deine Bewerbung.\n\nIf you live in a city, chances are we will give you a lift or play a role in keeping you moving every day. \n\nOtis is the world’s leading elevator and escalator manufacturing, installation, and service company. We move 2.4 billion people every day and maintain approximately 2.4 million customer units worldwide, the industry's largest Service portfolio.  \n\nYou may recognize our products in some of the world’s most famous landmarks including the Eiffel Tower, Empire State Building, Burj Khalifa and the Petronas Twin Towers! We are 72,000 people strong, including engineers, digital technology experts, sales, and functional specialists, as well as factory and field technicians, all committed to meeting the diverse needs of our customers and passengers in more than 200 countries and territories worldwide. We are proud to be a diverse, global team with a proven legacy of innovation that continues to be the bedrock of a fast-moving, high-performance company.  \n\nWhen you join Otis, you become part of an innovative global industry leader with a resilient business model. You’ll belong to a diverse, trusted, and caring community where your contributions, and the skills and capabilities you’ll gain working alongside the best and brightest, keep us connected and on the cutting edge.  \n\nWe provide opportunities, training, and resources, that build leadership and capabilities in Sales, Field, Engineering and Major Projects and our Employee Scholar Program is a notable point of pride, through which Otis sponsors colleagues to pursue degrees or certification programs.   \n\nToday, our focus more than ever is on people. As a global, people-powered company, we put people – passengers, customers, and colleagues – at the center of everything we do.  We are guided by our values that we call our Three Absolutes – prioritizing Safety, Ethics, Quality in all that we do. If you would like to learn more about environmental, social and governance (ESG) at Otis click here.  \n\nBecome a part of the Otis team and help us #Buildwhatsnext! \nOtis is An Equal Opportunity Employer. All qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, gender identity, national origin, disability or veteran status, age, or any other protected class according to applicable law. To request an accommodation in completing an employment application due to a special need or a disability, please contact us at careers@otis.com.\n\nPrivacy Policy and Terms:\nClick on this link to read the Policy and Terms"
+      },
+      "sourceLang": "de",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "location": "Reinach",
+      "canton": "BL",
+      "addressLocality": "Reinach",
+      "addressCountry": "CH",
+      "category": "manufacturing",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-01-07",
+      "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Nenzlingerweg-2-4153-Reinach/Servicetechniker--m-w-d-_20135985-1",
+      "source": "Otis Dedicated Parser (Workday)",
+      "crawledAt": "2026-04-14T10:27:09.085Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "servicetechniker-m-w-d-otis-sa-nenzlingerweg-2-2",
+          "servicetechniker-m-w-d-otis-sa-nenzlingerweg-2"
+        ],
+        "fr": [
+          "servicetechniker-m-w-d-otis-nenzlingerweg-2"
+        ]
+      },
+      "previousSlugs": [
+        "servicetechniker-m-w-d-otis-sa-nenzlingerweg-2-2",
+        "servicetechniker-m-w-d-otis-sa-nenzlingerweg-2",
+        "servicetechniker-m-w-d-otis-nenzlingerweg-2"
+      ],
+      "salaryMin": 55500,
+      "salaryMax": 75000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 55500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-04-14T10:27:15.005Z"
     },
     {
       "id": "otis-e151ad3e9647",
-      "slug": "talent-community-st-gallen-monteur-reparatore-servicista-ascensori-m-w-d-otis-sa-sandackerstrasse-26",
+      "slug": "talent-community-st-gallen-monteur-reparatore-servicista-ascensori-m-w-d-otis-sa-oberburen",
       "slugByLocale": {
-        "it": "talent-community-st-gallen-monteur-reparatore-servicista-ascensori-m-w-d-otis-sa-sandackerstrasse-26",
-        "en": "talent-community-st-gallen-elevator-mechanic-repairer-service-technician-m-w-d-otis-sa-sandackerstrasse-26",
+        "it": "talent-community-st-gallen-monteur-reparatore-servicista-ascensori-m-w-d-otis-sa-oberburen",
+        "en": "talent-community-st-gallen-elevator-mechanic-repairer-service-technician-m-w-d-otis-sa-oberburen",
         "de": "talent-community-st-gallen-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sandackerstrasse-26",
-        "fr": "talent-community-st-gallen-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sandackerstrasse-26"
+        "fr": "talent-community-st-gallen-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-oberburen"
       },
       "company": "Otis SA",
       "companyKey": "otis",
@@ -1025,9 +1161,9 @@
       "sourceLang": "de",
       "requirements": [],
       "requirementsByLocale": {},
-      "location": "Sandackerstrasse 26",
-      "canton": "TI",
-      "addressLocality": "Sandackerstrasse 26",
+      "location": "Oberburen",
+      "canton": "SG",
+      "addressLocality": "Oberburen",
       "addressCountry": "CH",
       "category": "manufacturing",
       "contract": "full-time",
@@ -1037,17 +1173,24 @@
       "postedDate": "2026-03-26",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Sandackerstrasse-26-9245-Oberburen/Aufzug-Monteur-Reparateur-Servicetechniker--m-w-d-_20122200",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-13T22:13:24.725Z",
+      "crawledAt": "2026-04-14T10:27:08.836Z",
       "previousSlugs": [
         "talent-community-st-gallen-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sandackerstrasse-26",
-        "talent-community-st-gallen-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-sandackerstrasse-26"
+        "talent-community-st-gallen-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-sandackerstrasse-26",
+        "talent-community-st-gallen-monteur-reparatore-servicista-ascensori-m-w-d-otis-sa-sandackerstrasse-26",
+        "talent-community-st-gallen-elevator-mechanic-repairer-service-technician-m-w-d-otis-sa-sandackerstrasse-26"
       ],
       "previousSlugsByLocale": {
         "it": [
           "talent-community-st-gallen-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sandackerstrasse-26",
-          "talent-community-st-gallen-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-sandackerstrasse-26"
+          "talent-community-st-gallen-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-sandackerstrasse-26",
+          "talent-community-st-gallen-monteur-reparatore-servicista-ascensori-m-w-d-otis-sa-sandackerstrasse-26"
         ],
         "en": [
+          "talent-community-st-gallen-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sandackerstrasse-26",
+          "talent-community-st-gallen-elevator-mechanic-repairer-service-technician-m-w-d-otis-sa-sandackerstrasse-26"
+        ],
+        "fr": [
           "talent-community-st-gallen-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sandackerstrasse-26"
         ]
       },
@@ -1064,7 +1207,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6500"
+      "postalCode": "9000"
     },
     {
       "id": "otis-c5c5633da196",
@@ -1073,7 +1216,7 @@
         "it": "talent-community-bern-monteur-reparatore-servicista-ascensori-m-w-d-otis-sa-postfach-123",
         "en": "talent-community-bern-elevator-technician-m-w-d-otis-sa-postfach-123",
         "de": "talent-community-bern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-postfach-123",
-        "fr": "talent-community-bern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-postfach-123"
+        "fr": "talent-community-bern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-belp"
       },
       "company": "Otis SA",
       "companyKey": "otis",
@@ -1095,9 +1238,9 @@
       "sourceLang": "de",
       "requirements": [],
       "requirementsByLocale": {},
-      "location": "Postfach 123",
-      "canton": "TI",
-      "addressLocality": "Postfach 123",
+      "location": "Belp",
+      "canton": "BE",
+      "addressLocality": "Belp",
       "addressCountry": "CH",
       "category": "manufacturing",
       "contract": "full-time",
@@ -1107,7 +1250,7 @@
       "postedDate": "2026-03-05",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Huhnerhubelstrasse-64-Postfach-123-3123-Belp/Aufzug-Monteur-Reparateur-Servicetechniker--m-w-d-_20122199",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-13T22:13:24.472Z",
+      "crawledAt": "2026-04-14T10:27:08.599Z",
       "previousSlugs": [
         "talent-community-bern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-postfach-123",
         "talent-community-bern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-postfach-123"
@@ -1119,9 +1262,13 @@
         ],
         "en": [
           "talent-community-bern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-postfach-123"
+        ],
+        "fr": [
+          "talent-community-bern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-postfach-123"
         ]
       },
       "firstSeenAt": "2026-04-13T11:05:09.581Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1134,7 +1281,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6500"
+      "postalCode": "3001"
     },
     {
       "id": "otis-f459ef4aa687",
@@ -1142,7 +1289,7 @@
       "slugByLocale": {
         "it": "talent-community-zurigo-monteur-reparatore-tecnico-di-servizio-m-f-d-otis-sa-postfach-371",
         "en": "talent-community-zurich-elevator-technician-m-w-d-otis-sa-postfach-371",
-        "de": "talent-community-zurich-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-postfach-371",
+        "de": "talent-community-zurich-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-dietlikon",
         "fr": "communaute-de-talents-zurich-monteur-reparateur-technicien-de-service-m-f-d-otis-sa-postfach-371"
       },
       "company": "Otis SA",
@@ -1165,9 +1312,9 @@
       "sourceLang": "de",
       "requirements": [],
       "requirementsByLocale": {},
-      "location": "Postfach 371",
-      "canton": "TI",
-      "addressLocality": "Postfach 371",
+      "location": "Dietlikon",
+      "canton": "ZH",
+      "addressLocality": "Dietlikon",
       "addressCountry": "CH",
       "category": "manufacturing",
       "contract": "full-time",
@@ -1177,7 +1324,7 @@
       "postedDate": "2026-04-13",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Bahnhofstrasse-3-Postfach-371-Dietlikon--ZH/Aufzug-Monteur-Reparateur-Servicetechniker--m-w-d-_20122198",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-13T22:13:24.205Z",
+      "crawledAt": "2026-04-14T10:27:08.359Z",
       "previousSlugs": [
         "talent-community-zurich-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-postfach-371",
         "talent-community-zurich-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-postfach-371"
@@ -1191,6 +1338,9 @@
           "talent-community-zurich-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-postfach-371"
         ],
         "fr": [
+          "talent-community-zurich-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-postfach-371"
+        ],
+        "de": [
           "talent-community-zurich-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-postfach-371"
         ]
       },
@@ -1207,7 +1357,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6500"
+      "postalCode": "8305"
     },
     {
       "id": "otis-38c4a4ee7c00",
@@ -1238,9 +1388,9 @@
       "sourceLang": "de",
       "requirements": [],
       "requirementsByLocale": {},
-      "location": "Triststrasse 8",
-      "canton": "TI",
-      "addressLocality": "Triststrasse 8",
+      "location": "Chur",
+      "canton": "GR",
+      "addressLocality": "Chur",
       "addressCountry": "CH",
       "category": "manufacturing",
       "contract": "full-time",
@@ -1250,7 +1400,7 @@
       "postedDate": "2026-02-10",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Triststrasse-8-7000-Chur/Aufzug-Monteur-Reparateur-Servicetechniker--m-w-d-_20122197",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-13T22:13:23.871Z",
+      "crawledAt": "2026-04-14T10:27:08.121Z",
       "previousSlugs": [
         "talent-community-chur-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-triststrasse-8"
       ],
@@ -1269,6 +1419,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:05:09.056Z",
+      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1281,7 +1432,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6500"
+      "postalCode": "7000"
     },
     {
       "id": "otis-4759d5ee3c4a",
@@ -1290,7 +1441,7 @@
         "it": "tecnico-montatore-manutentore-ascensori-luzern-m-w-d-otis-sa-kreuzstrasse-34",
         "en": "lift-technician-installer-service-technician-luzern-m-f-d-otis-sa-kreuzstrasse-34",
         "de": "talent-community-luzern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-kreuzstrasse-34",
-        "fr": "talent-community-luzern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-kreuzstrasse-34"
+        "fr": "talent-community-luzern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-kriens"
       },
       "company": "Otis SA",
       "companyKey": "otis",
@@ -1312,9 +1463,9 @@
       "sourceLang": "de",
       "requirements": [],
       "requirementsByLocale": {},
-      "location": "Kreuzstrasse 34",
-      "canton": "TI",
-      "addressLocality": "Kreuzstrasse 34",
+      "location": "Kriens",
+      "canton": "LU",
+      "addressLocality": "Kriens",
       "addressCountry": "CH",
       "category": "manufacturing",
       "contract": "full-time",
@@ -1324,9 +1475,10 @@
       "postedDate": "2026-03-18",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Kreuzstrasse-34-6010-Kriens/Aufzug-Monteur-Reparateur-Servicetechniker--m-w-d-_20122196",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-13T22:13:23.619Z",
+      "crawledAt": "2026-04-14T10:27:07.886Z",
       "previousSlugs": [
-        "talent-community-luzern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-kreuzstrasse-34"
+        "talent-community-luzern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-kreuzstrasse-34",
+        "talent-community-luzern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-kreuzstrasse-34"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1339,7 +1491,8 @@
           "talent-community-luzern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-kreuzstrasse-34"
         ],
         "fr": [
-          "talent-community-luzern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-kreuzstrasse-34"
+          "talent-community-luzern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-kreuzstrasse-34",
+          "talent-community-luzern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-kreuzstrasse-34"
         ]
       },
       "firstSeenAt": "2026-04-13T11:05:08.604Z",
@@ -1355,7 +1508,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6500"
+      "postalCode": "6003"
     },
     {
       "id": "otis-8f950977a58b",
@@ -1364,7 +1517,7 @@
         "it": "talent-community-basel-montatore-assistente-ascensori-tecnico-di-servizio-m-f-d-otis-sa-nenzlingerweg-2",
         "en": "talent-community-basel-elevator-installer-repair-technician-service-technician-m-f-d-otis-sa-nenzlingerweg-2",
         "de": "talent-community-basel-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-nenzlingerweg-2",
-        "fr": "talent-community-basel-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-nenzlingerweg-2"
+        "fr": "talent-community-basel-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-reinach"
       },
       "company": "Otis SA",
       "companyKey": "otis",
@@ -1386,9 +1539,9 @@
       "sourceLang": "de",
       "requirements": [],
       "requirementsByLocale": {},
-      "location": "Nenzlingerweg 2",
-      "canton": "TI",
-      "addressLocality": "Nenzlingerweg 2",
+      "location": "Reinach",
+      "canton": "BL",
+      "addressLocality": "Reinach",
       "addressCountry": "CH",
       "category": "manufacturing",
       "contract": "full-time",
@@ -1398,9 +1551,10 @@
       "postedDate": "2026-03-25",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Nenzlingerweg-2-4153-Reinach/Aufzug-Monteur-Reparateur-Servicetechniker--m-w-d-_20122201",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-13T22:13:23.280Z",
+      "crawledAt": "2026-04-14T10:27:07.631Z",
       "previousSlugs": [
-        "talent-community-basel-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-nenzlingerweg-2"
+        "talent-community-basel-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-nenzlingerweg-2",
+        "talent-community-basel-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-nenzlingerweg-2"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1413,7 +1567,8 @@
           "talent-community-basel-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-nenzlingerweg-2"
         ],
         "fr": [
-          "talent-community-basel-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-nenzlingerweg-2"
+          "talent-community-basel-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-nenzlingerweg-2",
+          "talent-community-basel-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-nenzlingerweg-2"
         ]
       },
       "firstSeenAt": "2026-04-13T11:05:08.340Z",
@@ -1428,15 +1583,14 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "postalCode": "6500"
+      }
     },
     {
       "id": "otis-1384f837d648",
       "slug": "responsabile-vendite-o-t-oa-otis-sa-cp-1136",
       "slugByLocale": {
         "it": "responsabile-vendite-o-t-oa-otis-sa-cp-1136",
-        "en": "o-t-sales-lead-oa-otis-cp-1136",
+        "en": "o-t-sales-lead-oa-otis-fribourg",
         "de": "o-t-vertriebsleiter-oa-otis-sa-cp-1136",
         "fr": "responsable-commercial-o-t-oa-otis-sa-cp-1136"
       },
@@ -1460,9 +1614,9 @@
       "sourceLang": "en",
       "requirements": [],
       "requirementsByLocale": {},
-      "location": "CP 1136",
-      "canton": "TI",
-      "addressLocality": "CP 1136",
+      "location": "Fribourg",
+      "canton": "FR",
+      "addressLocality": "Fribourg",
       "addressCountry": "CH",
       "category": "manufacturing",
       "contract": "full-time",
@@ -1472,15 +1626,18 @@
       "postedDate": "2026-03-31",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Route-de-Moncor-12-CP-1136-1701-Fribourg/O-T-Sales-Lead-OA_20149659",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-13T22:13:22.930Z",
-      "previousSlugs": [
-        "o-t-sales-lead-oa-otis-cp-1136"
-      ],
+      "crawledAt": "2026-04-14T10:27:07.386Z",
       "previousSlugsByLocale": {
+        "en": [
+          "o-t-sales-lead-oa-otis-cp-1136"
+        ],
         "it": [
           "o-t-sales-lead-oa-otis-cp-1136"
         ]
       },
+      "previousSlugs": [
+        "o-t-sales-lead-oa-otis-cp-1136"
+      ],
       "firstSeenAt": "2026-04-13T11:05:08.066Z",
       "salaryMin": 98000,
       "salaryMax": 132000,
@@ -1494,7 +1651,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1136"
+      "postalCode": "1700"
     },
     {
       "id": "otis-40bff711697f",
@@ -1537,7 +1694,7 @@
       "postedDate": "2026-02-05",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Walenbchelstrasse-3-9000-St-Gallen-Switzerland/Aufzugsmonteur--m-w-d-_20152293",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-13T22:13:22.463Z",
+      "crawledAt": "2026-04-14T10:27:07.123Z",
       "previousSlugs": [
         "aufzugsmonteur-m-w-d-otis-sa-st-gallen",
         "aufzugsmonteur-m-w-d-otis-st-gallen"
@@ -1570,14 +1727,14 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6500"
+      "postalCode": "9000"
     },
     {
       "id": "otis-0e254e01f3a1",
       "slug": "hr-business-partner-svizzera-m-w-x-otis-sa-cp-1136",
       "slugByLocale": {
         "it": "hr-business-partner-svizzera-m-w-x-otis-sa-cp-1136",
-        "en": "hr-business-partner-switzerland-m-w-x-otis-cp-1136",
+        "en": "hr-business-partner-switzerland-m-w-x-otis-fribourg",
         "de": "personalberatung-m-w-x-otis-sa-cp-1136",
         "fr": "hr-business-partner-suisse-m-w-x-otis-sa-cp-1136"
       },
@@ -1601,9 +1758,9 @@
       "sourceLang": "en",
       "requirements": [],
       "requirementsByLocale": {},
-      "location": "CP 1136",
-      "canton": "TI",
-      "addressLocality": "CP 1136",
+      "location": "Fribourg",
+      "canton": "FR",
+      "addressLocality": "Fribourg",
       "addressCountry": "CH",
       "category": "manufacturing",
       "contract": "full-time",
@@ -1613,9 +1770,11 @@
       "postedDate": "2026-04-13",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Route-de-Moncor-12-CP-1136-1701-Fribourg/HR-Business-Partner-Switzerland--m-w-x-_20156900",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-13T22:13:22.185Z",
-      "firstSeenAt": "2026-04-13T11:05:07.469Z",
+      "crawledAt": "2026-04-14T10:27:06.837Z",
       "previousSlugsByLocale": {
+        "en": [
+          "hr-business-partner-switzerland-m-w-x-otis-cp-1136"
+        ],
         "it": [
           "hr-business-partner-switzerland-m-w-x-otis-cp-1136"
         ],
@@ -1626,6 +1785,7 @@
       "previousSlugs": [
         "hr-business-partner-switzerland-m-w-x-otis-cp-1136"
       ],
+      "firstSeenAt": "2026-04-13T11:05:07.469Z",
       "salaryMin": 55500,
       "salaryMax": 75000,
       "baseSalary": {
@@ -1638,7 +1798,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1136"
+      "postalCode": "1700"
     }
   ]
 }
