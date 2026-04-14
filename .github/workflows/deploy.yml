@@ -98,6 +98,10 @@ jobs:
       - name: Mine all job slugs for comprehensive 404 coverage
         run: node scripts/mine-all-job-slugs.mjs
 
+      - name: Fetch job popularity data from Firestore
+        continue-on-error: true
+        run: node scripts/fetch-job-popularity.mjs
+
       - name: Fetch Amazon product data
         if: ${{ env.ENABLE_AMAZON_PRODUCTS == 'true' }}
         continue-on-error: true

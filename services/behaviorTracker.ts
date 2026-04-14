@@ -212,7 +212,7 @@ async function getDb(): Promise<Firestore | null> {
   return _db;
 }
 
-/** Sync behavior data to Firestore (newsletter_subscribers/{email}.personalization). */
+/** Sync behavior data to Firestore (newsletter_subscribers/{email}/private/personalization). */
 export async function syncToFirestore(email: string): Promise<void> {
   if (!email || !available()) return;
   try {
@@ -221,14 +221,12 @@ export async function syncToFirestore(email: string): Promise<void> {
     const data = getBehaviorData();
     const { doc, setDoc } = await import('firebase/firestore');
     await setDoc(
-      doc(db, 'newsletter_subscribers', email),
+      doc(db, 'newsletter_subscribers', email, 'private', 'personalization'),
       {
-        personalization: {
-          viewedJobs: data.viewedJobs,
-          searches: data.searches,
-          filterUsage: data.filterUsage,
-          lastSynced: new Date(),
-        },
+        viewedJobs: data.viewedJobs,
+        searches: data.searches,
+        filterUsage: data.filterUsage,
+        lastSynced: new Date(),
       },
       { merge: true },
     );
@@ -248,9 +246,9 @@ export async function hydrateFromFirestore(email: string): Promise<void> {
     const db = await getDb();
     if (!db) return;
     const { doc, getDoc } = await import('firebase/firestore');
-    const snap = await getDoc(doc(db, 'newsletter_subscribers', email));
+    const snap = await getDoc(doc(db, 'newsletter_subscribers', email, 'private', 'personalization'));
     if (!snap.exists()) return;
-    const remote = snap.data()?.personalization;
+    const remote = snap.data();
     if (!remote) return;
 
     const cloud: BehaviorData = {
