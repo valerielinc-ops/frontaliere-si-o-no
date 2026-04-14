@@ -29,7 +29,6 @@ import {
   Euro,
   Eye,
   Loader2,
-  Lock,
   Mail,
   MapPin,
   Search,
@@ -2537,7 +2536,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   const [mobileJobLimit, setMobileJobLimit] = useState(10);
   const [authGateOpen, setAuthGateOpen] = useState(false);
   const [pendingJob, setPendingJob] = useState<JobListing | null>(null);
-  const [authBusy, setAuthBusy] = useState<'google' | 'facebook' | 'email' | null>(null);
+  const [authBusy, setAuthBusy] = useState<'google' | 'facebook' | 'email' | 'linkedin' | null>(null);
   const [authError, setAuthError] = useState<string | null>(null);
   const [authNotice, setAuthNotice] = useState<{ kind: 'pending'; email: string } | null>(null);
   const [modalGoogleButtonReady, setModalGoogleButtonReady] = useState(false);
@@ -5317,7 +5316,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
           {authPendingNoticeJsx}
 
           {/* Job header — always visible */}
-          <div className="rounded-2xl border border-edge bg-surface p-5">
+          <div className="rounded-stripe border border-edge bg-surface p-5">
             <div className="flex items-start gap-4">
               {logoUrl && (
                 <img
@@ -5342,10 +5341,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
               </div>
             </div>
             {/* Blurred description teaser — height scales with viewport so auth buttons stay visible.
-               Uses clamp: 0px below ~600px viewport height, scales up to 148px on tall screens.
-               calc(100dvh - 520px) hits 0 at 520px vh, 80px at 600px, 148px at ~670px. */}
+               Uses clamp: 0px below ~600px viewport height, scales up to 100px on tall screens.
+               calc(100dvh - 520px) hits 0 at 520px vh, 80px at 600px, 100px at ~620px.
+               Reduced from 148px to accommodate trust signals moved above CTAs. */}
             {descriptionPreview && (
-              <div className="relative mt-3 w-full overflow-hidden rounded-lg" style={{ maxHeight: 'clamp(0px, calc(100dvh - 520px), 148px)' }}>
+              <div className="relative mt-3 w-full overflow-hidden rounded-stripe" style={{ maxHeight: 'clamp(0px, calc(100dvh - 520px), 100px)' }}>
                 <p
                   className="px-3 py-2 text-sm text-subtle leading-relaxed select-none blur-[6px] sm:py-4"
                   aria-hidden="true"
@@ -5357,19 +5357,34 @@ const JobBoard: React.FC<JobBoardProps> = ({
             )}
 
             {/* Auth gate — embedded inline for all viewports (no extra click needed) */}
-            <div id="job-auth-gate" className="relative z-10 mt-3 scroll-mt-20 rounded-2xl border border-teal-200 dark:border-teal-800 bg-gradient-to-br from-teal-50 to-stripe-50 dark:from-teal-950/30 dark:to-stripe-950/20 p-5 sm:p-6">
+            <div id="job-auth-gate" role="region" aria-label={t('jobBoard.gate.title')} className="relative z-10 mt-3 scroll-mt-20 rounded-stripe border border-stripe-200 dark:border-stripe-800 bg-stripe-50 dark:bg-stripe-950/20 p-5 sm:p-6">
               <div className="flex items-center gap-3 mb-3">
-                <div className="flex-shrink-0 p-2 bg-teal-100 dark:bg-teal-900/50 rounded-xl">
-                  <Lock className="w-5 h-5 text-teal-700 dark:text-teal-400" />
+                <div className="flex-shrink-0 p-2 bg-stripe-100 dark:bg-stripe-900/50 rounded-stripe">
+                  <Eye className="w-5 h-5 text-stripe-600 dark:text-stripe-400" />
                 </div>
                 <div>
                   <h2 className="text-lg font-bold text-slate-900 dark:text-white">{t('jobBoard.gate.title')}</h2>
                   <p className="text-sm text-subtle">{t('jobBoard.gate.subtitle')}</p>
                 </div>
               </div>
-              <div className="space-y-3 mt-4">
+
+              {/* Trust signals — above CTAs for mobile visibility */}
+              <div className="mb-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-subtle">
+                <span className="inline-flex items-center gap-1"><CheckCircle2 size={12} className="text-emerald-600 dark:text-emerald-400" />{t('jobBoard.gate.benefit1')}</span>
+                <span className="inline-flex items-center gap-1"><CheckCircle2 size={12} className="text-emerald-600 dark:text-emerald-400" />{t('jobBoard.gate.benefit2')}</span>
+                <span className="inline-flex items-center gap-1"><Shield size={12} className="text-emerald-600 dark:text-emerald-400" />{t('jobBoard.gate.privacyNote')}</span>
+              </div>
+
+              {/* Social proof */}
+              {jobs.length > 0 && (
+                <p className="mb-3 text-xs font-medium text-stripe-600 dark:text-stripe-400">
+                  {jobs.length.toLocaleString()}+ {locale === 'it' ? 'annunci disponibili' : locale === 'de' ? 'verfügbare Stellenangebote' : locale === 'fr' ? 'offres disponibles' : 'listings available'}
+                </p>
+              )}
+
+              <div className="space-y-3">
                 <div className="space-y-2">
-                  <div ref={inlineGoogleButtonRef} className="flex min-h-[44px] w-full items-center justify-center overflow-hidden rounded-xl" />
+                  <div ref={inlineGoogleButtonRef} className="flex min-h-[44px] w-full items-center justify-center overflow-hidden rounded-stripe" />
                   {!inlineGoogleButtonReady && (
                     <button
                       type="button"
@@ -5379,7 +5394,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                         void handleAuthAndOpen('google');
                       }}
                       disabled={authBusy !== null}
-                      className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-surface border border-slate-300 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-700 disabled:opacity-60 text-slate-800 dark:text-slate-100 text-sm font-semibold shadow-sm transition-colors"
+                      className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-stripe bg-surface border border-slate-300 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-700 disabled:opacity-60 text-slate-800 dark:text-slate-100 text-sm font-semibold shadow-sm transition-colors"
                     >
                       {authBusy === 'google' ? <Loader2 className="w-4 h-4 animate-spin" /> : (
                         <svg className="w-4 h-4" viewBox="0 0 24 24" aria-hidden="true">
@@ -5396,10 +5411,29 @@ const JobBoard: React.FC<JobBoardProps> = ({
                 {linkedInAvailable && (
                   <button
                     type="button"
-                    onClick={() => { const job = selectedJob; if (job) { saveAuthJobContext({ slug: job.slug, company: job.company, location: job.location, category: job.category }); const jobSlug = job.slugByLocale?.[locale] ?? job.slug; const section = getJobBoardSectionSlug(locale); const prefix = locale === 'it' ? '' : `/${locale}`; signInWithLinkedIn(`${prefix}/${section}/${jobSlug}/`.replace(/\/+/g, '/')); } else { signInWithLinkedIn(); } }}
-                    className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-[#0A66C2] hover:bg-[#004182] text-white text-sm font-semibold transition-colors"
+                    disabled={authBusy !== null}
+                    onClick={() => {
+                      const job = selectedJob;
+                      if (job) {
+                        const ctx = buildJobTrackingContext(job);
+                        Analytics.trackJobAuthFunnel('auth_method_click', { method: 'linkedin', ...ctx });
+                        setAuthBusy('linkedin');
+                        saveAuthJobContext({ slug: job.slug, company: job.company, location: job.location, category: job.category });
+                        const jobSlug = job.slugByLocale?.[locale] ?? job.slug;
+                        const section = getJobBoardSectionSlug(locale);
+                        const prefix = locale === 'it' ? '' : `/${locale}`;
+                        signInWithLinkedIn(`${prefix}/${section}/${jobSlug}/`.replace(/\/+/g, '/'))
+                          .catch(() => setAuthBusy(null));
+                      } else {
+                        setAuthBusy('linkedin');
+                        signInWithLinkedIn().catch(() => setAuthBusy(null));
+                      }
+                    }}
+                    className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-stripe bg-[#0A66C2] hover:bg-[#004182] disabled:opacity-60 text-white text-sm font-semibold transition-colors"
                   >
-                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    {authBusy === 'linkedin' ? <Loader2 className="w-4 h-4 animate-spin" /> : (
+                      <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    )}
                     {locale === 'it' ? 'Continua con LinkedIn' : locale === 'de' ? 'Mit LinkedIn fortfahren' : locale === 'fr' ? 'Continuer avec LinkedIn' : 'Continue with LinkedIn'}
                   </button>
                 )}
@@ -5421,33 +5455,17 @@ const JobBoard: React.FC<JobBoardProps> = ({
                     value={emailInput}
                     onChange={setEmailInput}
                     placeholder={t('jobBoard.authGateEmailPlaceholder')}
-                    className="w-full px-3 py-2.5 rounded-xl border border-slate-300 dark:border-slate-600 bg-surface text-sm text-slate-900 dark:text-white placeholder-slate-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-stripe-500"
+                    className="w-full px-3 py-2.5 rounded-stripe border border-slate-300 dark:border-slate-600 bg-surface text-sm text-slate-900 dark:text-white placeholder-slate-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-stripe-500"
                   />
                   <button
                     type="submit"
                     disabled={authBusy !== null || !emailInput.trim()}
-                    className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-stripe-600 hover:bg-stripe-700 disabled:opacity-60 text-white text-sm font-semibold transition-colors"
+                    className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-stripe bg-stripe-600 hover:bg-stripe-700 disabled:opacity-60 text-white text-sm font-semibold transition-colors"
                   >
                     {authBusy === 'email' ? <Loader2 className="w-4 h-4 animate-spin" /> : <Mail className="w-4 h-4" />}
                     {t('jobBoard.gate.emailCta')}
                   </button>
                 </form>
-              </div>
-
-              {/* Trust signals */}
-              <div className="mt-4 pt-4 border-t border-stripe-200/50 dark:border-stripe-800/30 space-y-2">
-                <div className="flex items-center gap-2 text-xs text-subtle">
-                  <CheckCircle2 size={14} className="text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
-                  <span>{t('jobBoard.gate.benefit1')}</span>
-                </div>
-                <div className="flex items-center gap-2 text-xs text-subtle">
-                  <CheckCircle2 size={14} className="text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
-                  <span>{t('jobBoard.gate.benefit2')}</span>
-                </div>
-                <div className="flex items-center gap-2 text-xs text-subtle">
-                  <Shield size={14} className="text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
-                  <span>{t('jobBoard.gate.privacyNote')}</span>
-                </div>
               </div>
 
               {authError && <p className="text-sm text-red-600 dark:text-red-300 mt-2">{authError}</p>}
