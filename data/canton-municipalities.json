@@ -584,7 +584,10 @@
         "Belp",
         "Zollikofen",
         "Ittigen",
-        "Worb"
+        "Worb",
+        "Jegensdorf",
+        "Lengnau",
+        "Gstaad"
       ]
     },
     "BL": {
@@ -876,7 +879,12 @@
         "Glarus Nord",
         "Glarus Süd"
       ],
-      "municipalityCount": 3
+      "municipalityCount": 3,
+      "aliases": [
+        "Linthal",
+        "Bilten",
+        "Ennenda"
+      ]
     },
     "GR": {
       "municipalities": [
@@ -990,7 +998,25 @@
         "Moesa",
         "St Moritz",
         "Saint-Moritz",
-        "Obervaz"
+        "Obervaz",
+        "Sta. Maria",
+        "Klosters Dorf",
+        "Davos Platz",
+        "Flims Dorf",
+        "Nufenen",
+        "Lumbrein",
+        "Lenzerheide",
+        "Sils Maria",
+        "Pany",
+        "Klosters-Serneus",
+        "Davos Glaris",
+        "Laax Signina",
+        "Tenna GR",
+        "Flims Waldhaus",
+        "Tiefencastel",
+        "Haldenstein",
+        "Sankt Moritz",
+        "Bernina"
       ]
     },
     "JU": {
@@ -1268,7 +1294,11 @@
         "Wittenbach",
         "Zuzwil (SG)"
       ],
-      "municipalityCount": 75
+      "municipalityCount": 75,
+      "aliases": [
+        "Salez",
+        "Eggersriet SG"
+      ]
     },
     "SH": {
       "municipalities": [
@@ -1682,7 +1712,21 @@
         "Morcote",
         "Carona",
         "Viganello",
-        "Moleno"
+        "Moleno",
+        "Quartino",
+        "Molinazzo di Monteggio",
+        "Castione-Arbedo",
+        "Riazzino",
+        "Morbio",
+        "Lugano Paradiso",
+        "Lugano Agno",
+        "Locarno-Monti",
+        "Biasca Sud",
+        "Mendrisio-Borgo",
+        "Giubiasco-Monte Carasso",
+        "Cadro-Resega",
+        "Melano",
+        "Bellinzone"
       ]
     },
     "UR": {
@@ -2020,7 +2064,9 @@
         "Lutry",
         "Chavannes-près-Renens",
         "Crissier",
-        "Bussigny"
+        "Bussigny",
+        "Villars-Ste-Croix",
+        "Essert-s-Champvent"
       ]
     },
     "VS": {
@@ -2193,7 +2239,15 @@
         "Oberwallis",
         "Haut-Valais",
         "Bas-Valais",
-        "Chablais valaisan"
+        "Chablais valaisan",
+        "Gamsen",
+        "Crans",
+        "Collombey",
+        "Oberwald",
+        "Eyholz",
+        "Reckingen",
+        "Ulrichen",
+        "Urswil"
       ]
     },
     "ZG": {
@@ -2386,7 +2440,10 @@
         "Wipkingen",
         "Witikon",
         "Wollishofen",
-        "Leimbach"
+        "Leimbach",
+        "Glattbrugg",
+        "Zürich-Flughafen",
+        "Bremgarten"
       ]
     }
   }

@@ -865,6 +865,8 @@ async function fetchSubscribers() {
       if (!email) return;
       const status = (row.status || '').toLowerCase();
       if (EXCLUDED_STATUSES.has(status)) return;
+      // Belt-and-suspenders: also exclude if unsubscribedAt is set (frontend handler bug backfill)
+      if (row.unsubscribedAt || row.unsubscribed_at) return;
       subscribers.set(email, {
         email,
         locale: (row.preferred_locale || row.locale || 'it').split(/[-_]/)[0] || 'it',

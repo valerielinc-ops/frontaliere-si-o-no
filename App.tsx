@@ -822,6 +822,7 @@ const App: React.FC = () => {
             doc(collection(db, 'newsletter_subscribers'), normalizedEmail),
             {
               email: normalizedEmail,
+              status: 'unsubscribed',
               isActive: false,
               active: false,
               source: 'unsubscribe_link',

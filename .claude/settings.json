@@ -2,7 +2,10 @@
   "enabledPlugins": {
     "marketing-skills@marketingskills": true,
     "context7@claude-plugins-official": true,
-    "superpowers@claude-plugins-official": true
+    "superpowers@claude-plugins-official": true,
+    "everything-claude-code@everything-claude-code": false,
+    "superpowers@superpowers-dev": false,
+    "ui-ux-pro-max@ui-ux-pro-max-skill": false
   },
   "model": "claude-opus-4-6",
   "hooks": {}
