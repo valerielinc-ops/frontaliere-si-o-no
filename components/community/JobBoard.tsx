@@ -5309,6 +5309,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
       const companyName = selectedJob.company;
       const jobLocation = selectedJob.location || '';
       const jobCategory = selectedJob.category || '';
+      const gateSalary = formatSalary(selectedJob);
+      const gateContract = t(contractTranslationKey(selectedJob));
       const logoUrl = resolveCompanyLogoUrl(selectedJob);
       const descriptionPreview = String(
         selectedJob.descriptionByLocale?.[locale] ?? selectedJob.description ?? ''
@@ -5348,6 +5350,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
                   {jobCategory && jobCategory !== 'other' && (
                     <span className="inline-flex items-center gap-1"><Briefcase size={14} />{t(categoryTranslationKey(selectedJob))}</span>
                   )}
+                  {gateSalary && <span className="inline-flex items-center gap-1 font-semibold text-emerald-700 dark:text-emerald-400"><Euro size={14} />{gateSalary}</span>}
+                  <span className="inline-flex items-center gap-1"><Clock size={14} />{gateContract}</span>
                 </div>
               </div>
             </div>
