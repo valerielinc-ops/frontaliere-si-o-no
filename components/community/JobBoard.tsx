@@ -6722,7 +6722,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
  {trendingJobs.length >= 3 && (
  <TrendingSection
- trendingJobs={trendingJobs}
+ trendingJobs={trendingJobs.map((j) => ({ ...j, logoUrl: companyLogoUrl(j) }))}
  popularity={popularity}
  onJobClick={(slug) => {
  Analytics.trackSelectContent('trending_section_click', slug);

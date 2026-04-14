@@ -15,7 +15,7 @@ interface TrendingJob {
  company: string;
  location: string;
  addressLocality?: string;
- companyDomain?: string;
+ logoUrl?: string | null;
  category: string;
 }
 
@@ -71,21 +71,25 @@ function TrendingSection({ trendingJobs, popularity, onJobClick }: TrendingSecti
  >
  <div className="flex items-start gap-2.5">
  <div className="w-8 h-8 rounded-[4px] bg-surface-raised border border-edge flex items-center justify-center overflow-hidden shrink-0">
- {job.companyDomain ? (
+ {job.logoUrl ? (
  <img
- src={`/images/logos/${job.companyDomain}.webp`}
+ src={job.logoUrl}
  alt=""
  className="w-6 h-6 object-contain"
  loading="lazy"
  onError={(e) => {
- const img = e.target as HTMLImageElement;
- img.style.display = 'none';
- const fallback = img.nextElementSibling as HTMLElement | null;
+ const el = e.currentTarget;
+ if (el.src.includes('logo.clearbit.com')) {
+ el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`;
+ } else {
+ el.style.display = 'none';
+ const fallback = el.nextElementSibling as HTMLElement | null;
  if (fallback) fallback.style.display = '';
+ }
  }}
  />
  ) : null}
- <span className={`text-xs text-muted${job.companyDomain ? ' hidden' : ''}`}>{job.company.charAt(0)}</span>
+ <span className={`text-xs text-muted${job.logoUrl ? ' hidden' : ''}`}>{job.company.charAt(0)}</span>
  </div>
  <div className="min-w-0 flex-1">
  <p className="text-sm font-semibold text-heading line-clamp-1">
