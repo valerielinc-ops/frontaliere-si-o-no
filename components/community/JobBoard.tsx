@@ -738,7 +738,7 @@ function renderFormattedDescription(raw: string): React.ReactNode {
           .map(s => s.trim())
           .filter(s => s.length > 0);
         blocks.push(
-          <h3 key={`h-${keyIdx++}`} className="text-sm font-bold text-slate-900 dark:text-white border-l-3 border-stripe-500 pl-3 mt-4 mb-1 first:mt-0">
+          <h3 key={`h-${keyIdx++}`} className="text-sm font-bold text-heading border-l-3 border-stripe-500 pl-3 mt-4 mb-1 first:mt-0">
             {title}
           </h3>
         );
@@ -759,7 +759,7 @@ function renderFormattedDescription(raw: string): React.ReactNode {
         const splitMatch = headingFull.match(/^(.{10,150}?(?:\d+%|[.!?]))\s+([A-ZÀ-ÖÙ-Ü][\s\S]*)/);
         if (splitMatch) {
           blocks.push(
-            <h3 key={`h-${keyIdx++}`} className="text-sm font-bold text-slate-900 dark:text-white border-l-3 border-stripe-500 pl-3 mt-4 mb-1 first:mt-0">
+            <h3 key={`h-${keyIdx++}`} className="text-sm font-bold text-heading border-l-3 border-stripe-500 pl-3 mt-4 mb-1 first:mt-0">
               {splitMatch[1]}
             </h3>
           );
@@ -772,7 +772,7 @@ function renderFormattedDescription(raw: string): React.ReactNode {
 
       // Normal heading
       blocks.push(
-        <h3 key={`h-${keyIdx++}`} className="text-sm font-bold text-slate-900 dark:text-white border-l-3 border-stripe-500 pl-3 mt-4 mb-1 first:mt-0">
+        <h3 key={`h-${keyIdx++}`} className="text-sm font-bold text-heading border-l-3 border-stripe-500 pl-3 mt-4 mb-1 first:mt-0">
           {headingFull}
         </h3>
       );
@@ -791,7 +791,7 @@ function renderFormattedDescription(raw: string): React.ReactNode {
       flushBullets();
       const heading = line.replace(/:$/, '').trim();
       blocks.push(
-        <h3 key={`h-${keyIdx++}`} className="text-sm font-bold text-slate-900 dark:text-white border-l-3 border-stripe-500 pl-3 mt-4 mb-1 first:mt-0">
+        <h3 key={`h-${keyIdx++}`} className="text-sm font-bold text-heading border-l-3 border-stripe-500 pl-3 mt-4 mb-1 first:mt-0">
           {heading}
         </h3>
       );
@@ -2384,7 +2384,7 @@ const JobCard = React.memo(({ job, jobHref, salary, logo, isNew, postedLabel, lo
     <a
       href={jobHref}
       onClick={(e) => { e.preventDefault(); onSelect(job); }}
-      className="block cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-stripe-500 rounded-lg"
+      className="block cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-lg"
     >
       <div className="flex items-start gap-3">
         <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-lg bg-surface-raised flex items-center justify-center overflow-hidden border border-edge shrink-0">
@@ -2395,17 +2395,17 @@ const JobCard = React.memo(({ job, jobHref, salary, logo, isNew, postedLabel, lo
           )}
         </div>
         <div className="min-w-0 flex-1">
-          <h2 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white leading-tight">
+          <h2 className="text-sm sm:text-base font-bold text-heading leading-tight">
             {sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title)}
             {job.featured && <Star className="inline-block w-3.5 h-3.5 ml-1.5 text-amber-500 fill-amber-500" />}
             {isNew && (
-              <span className="ml-1.5 sm:ml-2 inline-flex items-center gap-0.5 px-1.5 py-0.5 text-xs font-bold uppercase tracking-wide rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300">
+              <span className="ml-1.5 sm:ml-2 inline-flex items-center gap-0.5 px-1.5 py-0.5 text-xs font-bold uppercase tracking-wide rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-success">
                 <Sparkles className="w-2.5 h-2.5" />
                 {t('jobBoard.badge.new')}
               </span>
             )}
           </h2>
-          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-0.5 line-clamp-2">
+          <p className="text-xs sm:text-sm text-subtle mt-0.5 line-clamp-2">
             {job.company} · {isMultiLocation(job.location) ? t('jobBoard.location.multiLocation') : `${job.location} (${job.canton})`}
           </p>
           {salary && (
@@ -2422,7 +2422,7 @@ const JobCard = React.memo(({ job, jobHref, salary, logo, isNew, postedLabel, lo
           <MapPin className="w-3 h-3" />
           {isMultiLocation(job.location) ? t('jobBoard.location.multiLocation') : job.location}
         </span>
-        <span className="px-1.5 py-0.5 rounded bg-surface-raised text-slate-600 dark:text-slate-300">
+        <span className="px-1.5 py-0.5 rounded bg-surface-raised text-subtle">
           {t(contractTranslationKey(job))}
         </span>
         <span className="inline-flex items-center gap-1">
@@ -2538,6 +2538,22 @@ const JobBoard: React.FC<JobBoardProps> = ({
     if (!enablePersonalization || !behaviorData) return false;
     return jobs.some((j) => computePersonalScore(j, behaviorData, userProfile ?? null).score > 0);
   }, [enablePersonalization, behaviorData, jobs, userProfile]);
+
+  // Analytics: track personalization state
+  useEffect(() => {
+    if (!enablePersonalization || !behaviorData) return;
+    if (isPersonalizationActive) {
+      Analytics.trackSelectContent('personalization_active', 'job_board');
+    } else if (behaviorData.viewedJobs.length === 0 && behaviorData.searches.length === 0) {
+      Analytics.trackSelectContent('personalization_cold_start', 'job_board');
+    }
+  }, [enablePersonalization, isPersonalizationActive, behaviorData]);
+
+  // Analytics: track new jobs banner shown
+  useEffect(() => {
+    if (!enablePersonalization || newJobsDismissed || newJobsInfo.total <= 0) return;
+    Analytics.trackSelectContent('new_jobs_banner_shown', `total:${newJobsInfo.total}_matching:${newJobsInfo.matching}`);
+  }, [enablePersonalization, newJobsInfo.total, newJobsInfo.matching, newJobsDismissed]);
 
   // Apply filter params from SiteSearch navigation (location, search query)
   useEffect(() => {
@@ -4198,9 +4214,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
     };
 
     const pages = buildPageNumbers();
-    const btnBase = 'inline-flex items-center justify-center rounded-lg border font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-stripe-500 disabled:opacity-40 disabled:cursor-not-allowed';
+    const btnBase = 'inline-flex items-center justify-center rounded-lg border font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent disabled:opacity-40 disabled:cursor-not-allowed';
     const btnSize = 'min-w-[44px] h-11 px-2 text-sm sm:min-w-[44px] sm:h-11 sm:px-3 sm:text-sm';
-    const btnIdle = 'border-edge text-slate-600 dark:text-slate-300 bg-surface hover:bg-slate-50 dark:hover:bg-slate-700';
+    const btnIdle = 'border-edge text-subtle bg-surface hover:bg-surface-raised';
     const btnActive = 'border-stripe-500 bg-stripe-600 text-white hover:bg-stripe-700 dark:border-stripe-400 dark:bg-stripe-500 dark:hover:bg-stripe-600';
 
     return (
@@ -4352,8 +4368,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
   const salaryEstimateWidget = salaryEstimates ? (
     <div className="rounded-xl border border-edge bg-surface p-4 border-l-4 border-l-amber-500">
-      <div className="flex items-center gap-2 text-sm font-bold text-slate-900 dark:text-white mb-3">
-        <Calculator size={15} className="text-amber-600 dark:text-amber-300" />
+      <div className="flex items-center gap-2 text-sm font-bold text-heading mb-3">
+        <Calculator size={15} className="text-warning" />
         {t('jobBoard.salaryEstimate.cta')}
       </div>
       <div className="space-y-3">
@@ -4361,7 +4377,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
         <a
           href={salaryCalcHref}
           onClick={goToCalc}
-          className="block rounded-lg bg-amber-50 dark:bg-amber-900/20 border border-amber-100 dark:border-amber-800/50 p-3 hover:bg-amber-100 dark:hover:bg-amber-900/40 transition-colors cursor-pointer"
+          className="block rounded-lg bg-warning-subtle border border-warning-border/50 p-3 hover:bg-amber-100 dark:hover:bg-amber-900/40 transition-colors cursor-pointer"
         >
           <div className="text-xs font-semibold text-amber-800 dark:text-amber-200 mb-1">
             {t('jobBoard.salaryEstimate.frontaliere')}
@@ -4376,7 +4392,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
         <a
           href={salaryCalcHref}
           onClick={goToCalc}
-          className="block rounded-lg bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-100 dark:border-emerald-800/50 p-3 hover:bg-emerald-100 dark:hover:bg-emerald-900/40 transition-colors cursor-pointer"
+          className="block rounded-lg bg-success-subtle border border-success-border/50 p-3 hover:bg-emerald-100 dark:hover:bg-emerald-900/40 transition-colors cursor-pointer"
         >
           <div className="text-xs font-semibold text-emerald-800 dark:text-emerald-200 mb-1">
             {t('jobBoard.salaryEstimate.resident')}
@@ -4436,8 +4452,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
           <div className="flex items-center gap-3">
             <img src="/icons/icon-192x192.png" alt="Frontaliere Ticino" width={40} height={40} className="flex-shrink-0 rounded-stripe" loading="lazy" />
             <div>
-              <h2 className="text-lg font-bold text-slate-900 dark:text-white">{t('jobBoard.gate.title')}</h2>
-              <p className="text-xs font-medium text-stripe-600 dark:text-stripe-400">frontaliereticino.ch</p>
+              <h2 className="text-lg font-bold text-heading">{t('jobBoard.gate.title')}</h2>
+              <p className="text-xs font-medium text-accent">frontaliereticino.ch</p>
               <p className="text-sm text-subtle">{t('jobBoard.gate.subtitle')}</p>
             </div>
           </div>
@@ -4449,9 +4465,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
         {/* Pending job info */}
         {pendingJob && (
           <div className="flex items-center gap-3 p-3 rounded-stripe bg-surface-alt border border-edge">
-            <Briefcase size={16} className="text-stripe-600 dark:text-stripe-400 flex-shrink-0" />
+            <Briefcase size={16} className="text-accent flex-shrink-0" />
             <div className="min-w-0">
-              <p className="text-sm font-semibold text-slate-900 dark:text-white line-clamp-2">{sanitizeJobTitle(pendingJob.titleByLocale?.[locale] ?? pendingJob.title)}</p>
+              <p className="text-sm font-semibold text-heading line-clamp-2">{sanitizeJobTitle(pendingJob.titleByLocale?.[locale] ?? pendingJob.title)}</p>
               <p className="text-sm text-muted line-clamp-2">{pendingJob.company}{pendingJob.location ? ` — ${pendingJob.location}` : ''}</p>
             </div>
           </div>
@@ -4459,15 +4475,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
         {/* Trust signals — above CTAs */}
         <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-subtle">
-          <span className="inline-flex items-center gap-1"><CheckCircle2 size={12} className="text-emerald-600 dark:text-emerald-400" />{t('jobBoard.gate.benefit1')}</span>
-          <span className="inline-flex items-center gap-1"><CheckCircle2 size={12} className="text-emerald-600 dark:text-emerald-400" />{t('jobBoard.gate.benefit2')}</span>
-          <span className="inline-flex items-center gap-1"><CheckCircle2 size={12} className="text-emerald-600 dark:text-emerald-400" />{t('jobBoard.gate.benefit3')}</span>
-          <span className="inline-flex items-center gap-1"><Shield size={12} className="text-emerald-600 dark:text-emerald-400" />{t('jobBoard.gate.privacyNote')}</span>
+          <span className="inline-flex items-center gap-1"><CheckCircle2 size={12} className="text-success" />{t('jobBoard.gate.benefit1')}</span>
+          <span className="inline-flex items-center gap-1"><CheckCircle2 size={12} className="text-success" />{t('jobBoard.gate.benefit2')}</span>
+          <span className="inline-flex items-center gap-1"><CheckCircle2 size={12} className="text-success" />{t('jobBoard.gate.benefit3')}</span>
+          <span className="inline-flex items-center gap-1"><Shield size={12} className="text-success" />{t('jobBoard.gate.privacyNote')}</span>
         </div>
 
         {/* Social proof */}
         {jobs.length > 0 && (
-          <p className="text-xs font-medium text-stripe-600 dark:text-stripe-400">
+          <p className="text-xs font-medium text-accent">
             {jobs.length.toLocaleString()}+ {locale === 'it' ? 'annunci disponibili' : locale === 'de' ? 'verfügbare Stellenangebote' : locale === 'fr' ? 'offres disponibles' : 'listings available'}
           </p>
         )}
@@ -4480,7 +4496,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                 type="button"
                 onClick={() => void handleAuthAndOpen('google')}
                 disabled={authBusy !== null}
-                className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-stripe bg-surface border border-slate-300 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-700 disabled:opacity-60 text-slate-800 dark:text-slate-100 text-sm font-semibold shadow-sm transition-colors"
+                className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-stripe bg-surface border border-edge hover:bg-surface-raised disabled:opacity-60 text-strong text-sm font-semibold shadow-sm transition-colors"
               >
                 {authBusy === 'google' ? <Loader2 className="w-4 h-4 animate-spin" /> : (
                   <svg className="w-4 h-4" viewBox="0 0 24 24" aria-hidden="true">
@@ -4528,9 +4544,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
           {/* Divider */}
           <div className="flex items-center gap-3">
-            <div className="flex-1 h-px bg-slate-200 dark:bg-slate-700" />
+            <div className="flex-1 h-px bg-surface-raised" />
             <span className="text-sm text-muted">{t('jobBoard.authGateOrEmail')}</span>
-            <div className="flex-1 h-px bg-slate-200 dark:bg-slate-700" />
+            <div className="flex-1 h-px bg-surface-raised" />
           </div>
 
           {/* Email form */}
@@ -4542,12 +4558,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
               value={emailInput}
               onChange={setEmailInput}
               placeholder={t('jobBoard.authGateEmailPlaceholder')}
-              className="w-full px-3 py-2.5 rounded-stripe border border-slate-300 dark:border-slate-600 bg-surface text-sm text-slate-900 dark:text-white placeholder-slate-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-stripe-500"
+              className="w-full px-3 py-2.5 rounded-stripe border border-edge bg-surface text-sm text-heading placeholder-muted focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             />
             <button
               type="submit"
               disabled={authBusy !== null || !emailInput.trim()}
-              className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-stripe bg-stripe-600 hover:bg-stripe-700 disabled:opacity-60 text-white text-sm font-semibold transition-colors"
+              className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-stripe bg-accent hover:bg-accent-hover disabled:opacity-60 text-white text-sm font-semibold transition-colors"
             >
               {authBusy === 'email' ? <Loader2 className="w-4 h-4 animate-spin" /> : <Mail className="w-4 h-4" />}
               {t('jobBoard.authGateEmailCta')}
@@ -4555,7 +4571,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
           </form>
         </div>
 
-        {authError && <p className="text-sm text-red-600 dark:text-red-300">{authError}</p>}
+        {authError && <p className="text-sm text-danger">{authError}</p>}
       </div>
     </div>
   ) : null;
@@ -4590,8 +4606,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
         <div className="min-w-0">
           <p className="text-sm font-bold text-amber-900 dark:text-amber-100">{t('newsletter.doubleOptIn.title')}</p>
           <p className="mt-1 text-sm text-amber-800 dark:text-amber-200">{t('newsletter.doubleOptIn.description')}</p>
-          <p className="mt-1 text-sm text-amber-700 dark:text-amber-300">{t('newsletter.doubleOptIn.spamHint')}</p>
-          <p className="mt-2 text-xs font-medium text-amber-700 dark:text-amber-300">{authNotice.email}</p>
+          <p className="mt-1 text-sm text-warning">{t('newsletter.doubleOptIn.spamHint')}</p>
+          <p className="mt-2 text-xs font-medium text-warning">{authNotice.email}</p>
         </div>
       </div>
     </div>
@@ -4604,7 +4620,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-teal-700 dark:text-teal-300">
             {editorialJobTodayLanding.updatedLabel} · {new Date().toLocaleDateString('it-CH')}
           </p>
-          <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+          <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-heading">
             {editorialJobTodayLanding.heading}
           </h1>
           <p className="mt-4 max-w-4xl text-sm sm:text-base leading-7 text-body">
@@ -4616,13 +4632,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
         </section>
 
         <div className="flex flex-wrap items-baseline gap-x-5 gap-y-1.5 text-sm text-subtle">
-          <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-slate-900 dark:text-white">{editorialJobTodayLanding.totalJobs}</span> {editorialJobTodayLanding.countsLabel}</span>
-          <span className="hidden sm:inline text-slate-300 dark:text-slate-600" aria-hidden="true">·</span>
-          <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-slate-900 dark:text-white">{editorialJobTodayLanding.sections.last24Hours.jobs.length}</span> {editorialJobTodayLanding.sections.last24Hours.label}</span>
-          <span className="hidden sm:inline text-slate-300 dark:text-slate-600" aria-hidden="true">·</span>
-          <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-slate-900 dark:text-white">{editorialJobTodayLanding.sections.last3Days.jobs.length}</span> {editorialJobTodayLanding.sections.last3Days.label}</span>
-          <span className="hidden sm:inline text-slate-300 dark:text-slate-600" aria-hidden="true">·</span>
-          <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-slate-900 dark:text-white">{editorialJobTodayLanding.sections.partTime.jobs.length}</span> {editorialJobTodayLanding.sections.partTime.label}</span>
+          <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-heading">{editorialJobTodayLanding.totalJobs}</span> {editorialJobTodayLanding.countsLabel}</span>
+          <span className="hidden sm:inline text-edge" aria-hidden="true">·</span>
+          <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-heading">{editorialJobTodayLanding.sections.last24Hours.jobs.length}</span> {editorialJobTodayLanding.sections.last24Hours.label}</span>
+          <span className="hidden sm:inline text-edge" aria-hidden="true">·</span>
+          <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-heading">{editorialJobTodayLanding.sections.last3Days.jobs.length}</span> {editorialJobTodayLanding.sections.last3Days.label}</span>
+          <span className="hidden sm:inline text-edge" aria-hidden="true">·</span>
+          <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-heading">{editorialJobTodayLanding.sections.partTime.jobs.length}</span> {editorialJobTodayLanding.sections.partTime.label}</span>
         </div>
 
         <section className="rounded-2xl border border-edge bg-surface p-4 sm:p-5">
@@ -4631,7 +4647,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
               <a
                 key={link.href}
                 href={link.href}
-                className="inline-flex items-center rounded-full bg-stripe-50 dark:bg-stripe-950/30 px-3 py-1.5 text-xs font-bold text-stripe-700 dark:text-stripe-300 no-underline hover:underline"
+                className="inline-flex items-center rounded-full bg-accent-subtle px-3 py-1.5 text-xs font-bold text-accent no-underline hover:underline"
               >
                 {link.label}
               </a>
@@ -4641,7 +4657,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
         <section className="rounded-2xl border border-edge bg-surface p-5">
           <div className="flex items-center justify-between gap-4 mb-4">
-            <h2 className="text-lg font-bold text-slate-900 dark:text-white">{editorialJobTodayLanding.sections.cityHubLabel}</h2>
+            <h2 className="text-lg font-bold text-heading">{editorialJobTodayLanding.sections.cityHubLabel}</h2>
             <a
               href={buildPath({ activeTab: 'job-board' }, locale)}
               onClick={(e) => {
@@ -4649,7 +4665,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                 onJobRouteChange?.('');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className="text-sm font-bold text-stripe-700 dark:text-stripe-300 no-underline hover:underline"
+              className="text-sm font-bold text-accent no-underline hover:underline"
             >
               {editorialJobTodayLanding.openAllLabel}
             </a>
@@ -4668,8 +4684,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
                   }}
                   className="flex items-center justify-between gap-3 rounded-2xl border border-edge px-4 py-3 no-underline hover:border-stripe-300 dark:hover:border-stripe-600 transition-colors"
                 >
-                  <span className="font-semibold text-slate-800 dark:text-slate-100">{city.name}</span>
-                  <span className="text-sm font-bold text-stripe-700 dark:text-stripe-300">{city.count}</span>
+                  <span className="font-semibold text-strong">{city.name}</span>
+                  <span className="text-sm font-bold text-accent">{city.count}</span>
                 </a>
               );
             })}
@@ -4678,7 +4694,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
         {editorialLandingSections.map((section) => (
           <section key={section.id} id={section.id} className="rounded-2xl border border-edge bg-surface p-5">
-            <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-4">{section.label}</h2>
+            <h2 className="text-lg font-bold text-heading mb-4">{section.label}</h2>
             <div className="space-y-3">
               {section.jobs.map((job) => renderJobCard(job))}
             </div>
@@ -4696,7 +4712,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-teal-700 dark:text-teal-300">
             {editorialOfficialGazetteLanding.updatedLabel} · {new Date().toLocaleDateString('it-CH')}
           </p>
-          <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+          <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-heading">
             {editorialOfficialGazetteLanding.heading}
           </h1>
           <p className="mt-4 max-w-4xl text-sm sm:text-base leading-7 text-body">
@@ -4708,11 +4724,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
         </section>
 
         <div className="flex flex-wrap items-baseline gap-x-5 gap-y-1.5 text-sm text-subtle">
-          <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-slate-900 dark:text-white">{editorialOfficialGazetteLanding.totalJobs}</span> {editorialOfficialGazetteLanding.countsLabel}</span>
-          <span className="hidden sm:inline text-slate-300 dark:text-slate-600" aria-hidden="true">·</span>
-          <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-slate-900 dark:text-white">{editorialOfficialGazetteLanding.latestJobs.length}</span> {editorialOfficialGazetteLanding.latestLabel}</span>
-          <span className="hidden sm:inline text-slate-300 dark:text-slate-600" aria-hidden="true">·</span>
-          <span className="inline-flex items-baseline gap-1.5">{editorialOfficialGazetteLanding.officialSourceLabel} <a href={editorialOfficialGazetteLanding.officialSourceUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 font-semibold text-stripe-700 dark:text-stripe-300 no-underline hover:underline">concorsi.ti.ch <ArrowUpRight className="w-3.5 h-3.5" /></a></span>
+          <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-heading">{editorialOfficialGazetteLanding.totalJobs}</span> {editorialOfficialGazetteLanding.countsLabel}</span>
+          <span className="hidden sm:inline text-edge" aria-hidden="true">·</span>
+          <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-heading">{editorialOfficialGazetteLanding.latestJobs.length}</span> {editorialOfficialGazetteLanding.latestLabel}</span>
+          <span className="hidden sm:inline text-edge" aria-hidden="true">·</span>
+          <span className="inline-flex items-baseline gap-1.5">{editorialOfficialGazetteLanding.officialSourceLabel} <a href={editorialOfficialGazetteLanding.officialSourceUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 font-semibold text-accent no-underline hover:underline">concorsi.ti.ch <ArrowUpRight className="w-3.5 h-3.5" /></a></span>
         </div>
 
         <section className="rounded-2xl border border-edge bg-surface p-4 sm:p-5">
@@ -4727,7 +4743,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                   <a
                     key={link.href}
                     href={link.href}
-                    className="inline-flex items-center rounded-full bg-stripe-50 dark:bg-stripe-950/30 px-3 py-1.5 text-xs font-bold text-stripe-700 dark:text-stripe-300 no-underline hover:underline"
+                    className="inline-flex items-center rounded-full bg-accent-subtle px-3 py-1.5 text-xs font-bold text-accent no-underline hover:underline"
                   >
                     {link.label}
                   </a>
@@ -4742,7 +4758,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                     onJobRouteChange?.(slug || '');
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                   }}
-                  className="inline-flex items-center rounded-full bg-stripe-50 dark:bg-stripe-950/30 px-3 py-1.5 text-xs font-bold text-stripe-700 dark:text-stripe-300 no-underline hover:underline"
+                  className="inline-flex items-center rounded-full bg-accent-subtle px-3 py-1.5 text-xs font-bold text-accent no-underline hover:underline"
                 >
                   {link.label}
                 </a>
@@ -4754,8 +4770,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
         <section className="grid gap-3 lg:grid-cols-3">
           {editorialOfficialGazetteLanding.explainerCards.map((card) => (
             <article key={card.title} className="rounded-2xl border border-edge bg-surface p-5">
-              <h2 className="text-lg font-bold text-slate-900 dark:text-white">{card.title}</h2>
-              <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">{card.body}</p>
+              <h2 className="text-lg font-bold text-heading">{card.title}</h2>
+              <p className="mt-3 text-sm leading-7 text-subtle">{card.body}</p>
             </article>
           ))}
         </section>
@@ -4763,7 +4779,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
         {editorialLandingSections.map((section) => (
           <section key={section.id} id={section.id} className="rounded-2xl border border-edge bg-surface p-5">
             <div className="flex items-center justify-between gap-4 mb-4">
-              <h2 className="text-lg font-bold text-slate-900 dark:text-white">{section.label}</h2>
+              <h2 className="text-lg font-bold text-heading">{section.label}</h2>
               <a
                 href={buildPath({ activeTab: 'job-board' }, locale)}
                 onClick={(e) => {
@@ -4771,7 +4787,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                   onJobRouteChange?.('');
                   window.scrollTo({ top: 0, behavior: 'smooth' });
                 }}
-                className="text-sm font-bold text-stripe-700 dark:text-stripe-300 no-underline hover:underline"
+                className="text-sm font-bold text-accent no-underline hover:underline"
               >
                 {editorialOfficialGazetteLanding.openAllLabel}
               </a>
@@ -4783,14 +4799,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
         ))}
 
         <section className="rounded-2xl border border-edge bg-surface p-5">
-          <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-4">
+          <h2 className="text-lg font-bold text-heading mb-4">
             {locale === 'it' ? 'Domande frequenti' : locale === 'en' ? 'Frequently asked questions' : locale === 'de' ? 'Haufige Fragen' : 'Questions frequentes'}
           </h2>
           <div className="space-y-3">
             {editorialOfficialGazetteLanding.faq.map((entry) => (
               <details key={entry.question} className="rounded-2xl border border-edge px-4 py-3">
-                <summary className="cursor-pointer text-sm font-bold text-slate-900 dark:text-white">{entry.question}</summary>
-                <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">{entry.answer}</p>
+                <summary className="cursor-pointer text-sm font-bold text-heading">{entry.question}</summary>
+                <p className="mt-3 text-sm leading-7 text-subtle">{entry.answer}</p>
               </details>
             ))}
           </div>
@@ -4807,7 +4823,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-teal-700 dark:text-teal-300">
             {editorialNursesHubLanding.updatedLabel} · {new Date().toLocaleDateString('it-CH')}
           </p>
-          <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+          <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-heading">
             {editorialNursesHubLanding.heading}
           </h1>
           <p className="mt-4 max-w-4xl text-sm sm:text-base leading-7 text-body">
@@ -4819,16 +4835,16 @@ const JobBoard: React.FC<JobBoardProps> = ({
         </section>
 
         <div className="flex flex-wrap items-baseline gap-x-5 gap-y-1.5 text-sm text-subtle">
-          <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-slate-900 dark:text-white">{editorialNursesHubLanding.totalJobs}</span> {editorialNursesHubLanding.countsLabel}</span>
-          <span className="hidden sm:inline text-slate-300 dark:text-slate-600" aria-hidden="true">·</span>
-          <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-slate-900 dark:text-white">{editorialNursesHubLanding.latestJobs.length}</span> {editorialNursesHubLanding.latestLabel}</span>
-          <span className="hidden sm:inline text-slate-300 dark:text-slate-600" aria-hidden="true">·</span>
-          <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-slate-900 dark:text-white">{editorialNursesHubLanding.variants.length}</span> {editorialNursesHubLanding.variantTitle}</span>
+          <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-heading">{editorialNursesHubLanding.totalJobs}</span> {editorialNursesHubLanding.countsLabel}</span>
+          <span className="hidden sm:inline text-edge" aria-hidden="true">·</span>
+          <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-heading">{editorialNursesHubLanding.latestJobs.length}</span> {editorialNursesHubLanding.latestLabel}</span>
+          <span className="hidden sm:inline text-edge" aria-hidden="true">·</span>
+          <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-heading">{editorialNursesHubLanding.variants.length}</span> {editorialNursesHubLanding.variantTitle}</span>
         </div>
 
         {editorialNursesHubLanding.variants.length > 0 && (
           <section className="rounded-2xl border border-edge bg-surface p-5">
-            <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-4">{editorialNursesHubLanding.variantTitle}</h2>
+            <h2 className="text-lg font-bold text-heading mb-4">{editorialNursesHubLanding.variantTitle}</h2>
             <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
               {editorialNursesHubLanding.variants.map((link) => {
                 const targetSlug = link.href.split('/').filter(Boolean).pop() || '';
@@ -4843,8 +4859,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
                     }}
                     className="flex items-center justify-between gap-3 rounded-2xl border border-edge px-4 py-3 no-underline hover:border-stripe-300 dark:hover:border-stripe-600 transition-colors"
                   >
-                    <span className="font-semibold text-slate-800 dark:text-slate-100">{link.label}</span>
-                    <span className="text-sm font-bold text-stripe-700 dark:text-stripe-300">{link.count}</span>
+                    <span className="font-semibold text-strong">{link.label}</span>
+                    <span className="text-sm font-bold text-accent">{link.count}</span>
                   </a>
                 );
               })}
@@ -4855,8 +4871,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
         <section className="grid gap-3 lg:grid-cols-3">
           {editorialNursesHubLanding.explainerCards.map((card) => (
             <article key={card.title} className="rounded-2xl border border-edge bg-surface p-5">
-              <h2 className="text-lg font-bold text-slate-900 dark:text-white">{card.title}</h2>
-              <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">{card.body}</p>
+              <h2 className="text-lg font-bold text-heading">{card.title}</h2>
+              <p className="mt-3 text-sm leading-7 text-subtle">{card.body}</p>
             </article>
           ))}
         </section>
@@ -4864,7 +4880,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
         {editorialLandingSections.map((section) => (
           <section key={section.id} id={section.id} className="rounded-2xl border border-edge bg-surface p-5">
             <div className="flex items-center justify-between gap-4 mb-4">
-              <h2 className="text-lg font-bold text-slate-900 dark:text-white">{section.label}</h2>
+              <h2 className="text-lg font-bold text-heading">{section.label}</h2>
               <a
                 href={buildPath({ activeTab: 'job-board' }, locale)}
                 onClick={(e) => {
@@ -4872,7 +4888,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                   onJobRouteChange?.('');
                   window.scrollTo({ top: 0, behavior: 'smooth' });
                 }}
-                className="text-sm font-bold text-stripe-700 dark:text-stripe-300 no-underline hover:underline"
+                className="text-sm font-bold text-accent no-underline hover:underline"
               >
                 {editorialNursesHubLanding.openAllLabel}
               </a>
@@ -4884,14 +4900,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
         ))}
 
         <section className="rounded-2xl border border-edge bg-surface p-5">
-          <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-4">
+          <h2 className="text-lg font-bold text-heading mb-4">
             {locale === 'it' ? 'Domande frequenti' : locale === 'en' ? 'Frequently asked questions' : locale === 'de' ? 'Haufige Fragen' : 'Questions frequentes'}
           </h2>
           <div className="space-y-3">
             {editorialNursesHubLanding.faq.map((entry) => (
               <details key={entry.question} className="rounded-2xl border border-edge px-4 py-3">
-                <summary className="cursor-pointer text-sm font-bold text-slate-900 dark:text-white">{entry.question}</summary>
-                <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">{entry.answer}</p>
+                <summary className="cursor-pointer text-sm font-bold text-heading">{entry.question}</summary>
+                <p className="mt-3 text-sm leading-7 text-subtle">{entry.answer}</p>
               </details>
             ))}
           </div>
@@ -4909,7 +4925,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-teal-700 dark:text-teal-300">
             {editorialCareVariantLanding.updatedLabel} · {new Date().toLocaleDateString('it-CH')}
           </p>
-          <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+          <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-heading">
             {editorialCareVariantLanding.heading}
           </h1>
           <p className="mt-4 max-w-4xl text-sm sm:text-base leading-7 text-body">
@@ -4924,7 +4940,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
               onJobRouteChange?.(parentSlug);
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
-            className="mt-4 inline-flex items-center gap-2 rounded-full border border-stripe-200 dark:border-stripe-700 px-4 py-2 text-sm font-bold text-stripe-700 dark:text-stripe-300"
+            className="mt-4 inline-flex items-center gap-2 rounded-full border border-accent-border px-4 py-2 text-sm font-bold text-accent"
           >
             <ArrowLeft className="w-4 h-4" />
             {/* BLOCK-B: Regionalize for national expansion — currently hardcodes Ticino/Tessin text */}
@@ -4933,14 +4949,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
         </section>
 
         <div className="flex flex-wrap items-baseline gap-x-5 gap-y-1.5 text-sm text-subtle">
-          <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-slate-900 dark:text-white">{editorialCareVariantLanding.totalJobs}</span> {editorialCareVariantLanding.countsLabel}</span>
-          <span className="hidden sm:inline text-slate-300 dark:text-slate-600" aria-hidden="true">·</span>
-          <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-slate-900 dark:text-white">{editorialCareVariantLanding.latestJobs.length}</span> {editorialCareVariantLanding.latestLabel}</span>
+          <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-heading">{editorialCareVariantLanding.totalJobs}</span> {editorialCareVariantLanding.countsLabel}</span>
+          <span className="hidden sm:inline text-edge" aria-hidden="true">·</span>
+          <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-heading">{editorialCareVariantLanding.latestJobs.length}</span> {editorialCareVariantLanding.latestLabel}</span>
         </div>
 
         {editorialCareVariantLanding.siblingLinks.length > 0 && (
           <section className="rounded-2xl border border-edge bg-surface p-5">
-            <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-4">
+            <h2 className="text-lg font-bold text-heading mb-4">
               {locale === 'it' ? 'Altri percorsi sanitari' : locale === 'en' ? 'Other care paths' : locale === 'de' ? 'Weitere Pflegepfade' : 'Autres parcours sante'}
             </h2>
             <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
@@ -4957,8 +4973,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
                     }}
                     className="flex items-center justify-between gap-3 rounded-2xl border border-edge px-4 py-3 no-underline hover:border-stripe-300 dark:hover:border-stripe-600 transition-colors"
                   >
-                    <span className="font-semibold text-slate-800 dark:text-slate-100">{link.label}</span>
-                    <span className="text-sm font-bold text-stripe-700 dark:text-stripe-300">{link.count}</span>
+                    <span className="font-semibold text-strong">{link.label}</span>
+                    <span className="text-sm font-bold text-accent">{link.count}</span>
                   </a>
                 );
               })}
@@ -4969,7 +4985,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
         {editorialLandingSections.map((section) => (
           <section key={section.id} id={section.id} className="rounded-2xl border border-edge bg-surface p-5">
             <div className="flex items-center justify-between gap-4 mb-4">
-              <h2 className="text-lg font-bold text-slate-900 dark:text-white">{section.label}</h2>
+              <h2 className="text-lg font-bold text-heading">{section.label}</h2>
               <a
                 href={buildPath({ activeTab: 'job-board' }, locale)}
                 onClick={(e) => {
@@ -4977,7 +4993,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                   onJobRouteChange?.('');
                   window.scrollTo({ top: 0, behavior: 'smooth' });
                 }}
-                className="text-sm font-bold text-stripe-700 dark:text-stripe-300 no-underline hover:underline"
+                className="text-sm font-bold text-accent no-underline hover:underline"
               >
                 {editorialCareVariantLanding.openAllLabel}
               </a>
@@ -4999,7 +5015,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-teal-700 dark:text-teal-300">
             {editorialLocationLanding.updatedLabel} · {new Date().toLocaleDateString('it-CH')}
           </p>
-          <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+          <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-heading">
             {editorialLocationLanding.heading}
           </h1>
           <p className="mt-4 max-w-4xl text-sm sm:text-base leading-7 text-body">
@@ -5011,14 +5027,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
         </section>
 
         <div className="flex flex-wrap items-baseline gap-x-5 gap-y-1.5 text-sm text-subtle">
-          <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-slate-900 dark:text-white">{editorialLocationLanding.totalJobs}</span> {editorialLocationLanding.countsLabel}</span>
-          <span className="hidden sm:inline text-slate-300 dark:text-slate-600" aria-hidden="true">·</span>
-          <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-slate-900 dark:text-white">{editorialLocationLanding.latestJobs.length}</span> {editorialLocationLanding.latestLabel}</span>
+          <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-heading">{editorialLocationLanding.totalJobs}</span> {editorialLocationLanding.countsLabel}</span>
+          <span className="hidden sm:inline text-edge" aria-hidden="true">·</span>
+          <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-heading">{editorialLocationLanding.latestJobs.length}</span> {editorialLocationLanding.latestLabel}</span>
         </div>
 
         {editorialLocationLanding.relatedTypeLinks.length > 0 && (
           <section className="rounded-2xl border border-edge bg-surface p-5">
-            <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-4">
+            <h2 className="text-lg font-bold text-heading mb-4">
               {locale === 'it' ? `Tipi di lavoro a ${editorialLocationLanding.location}` : locale === 'en' ? `Job types in ${editorialLocationLanding.location}` : locale === 'de' ? `Jobtypen in ${editorialLocationLanding.location}` : `Types d'emploi a ${editorialLocationLanding.location}`}
             </h2>
             <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
@@ -5035,8 +5051,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
                     }}
                     className="flex items-center justify-between gap-3 rounded-2xl border border-edge px-4 py-3 no-underline hover:border-stripe-300 dark:hover:border-stripe-600 transition-colors"
                   >
-                    <span className="font-semibold text-slate-800 dark:text-slate-100">{link.label}</span>
-                    <span className="text-sm font-bold text-stripe-700 dark:text-stripe-300">{link.count}</span>
+                    <span className="font-semibold text-strong">{link.label}</span>
+                    <span className="text-sm font-bold text-accent">{link.count}</span>
                   </a>
                 );
               })}
@@ -5046,7 +5062,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
         {editorialLocationLanding.relatedSectorLinks.length > 0 && (
           <section className="rounded-2xl border border-edge bg-surface p-5">
-            <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-4">
+            <h2 className="text-lg font-bold text-heading mb-4">
               {locale === 'it' ? `Settori a ${editorialLocationLanding.location}` : locale === 'en' ? `Sectors in ${editorialLocationLanding.location}` : locale === 'de' ? `Branchen in ${editorialLocationLanding.location}` : `Secteurs a ${editorialLocationLanding.location}`}
             </h2>
             <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
@@ -5063,8 +5079,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
                     }}
                     className="flex items-center justify-between gap-3 rounded-2xl border border-edge px-4 py-3 no-underline hover:border-stripe-300 dark:hover:border-stripe-600 transition-colors"
                   >
-                    <span className="font-semibold text-slate-800 dark:text-slate-100">{link.label}</span>
-                    <span className="text-sm font-bold text-stripe-700 dark:text-stripe-300">{link.count}</span>
+                    <span className="font-semibold text-strong">{link.label}</span>
+                    <span className="text-sm font-bold text-accent">{link.count}</span>
                   </a>
                 );
               })}
@@ -5075,7 +5091,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
         {editorialLandingSections.map((section) => (
           <section key={section.id} id={section.id} className="rounded-2xl border border-edge bg-surface p-5">
             <div className="flex items-center justify-between gap-4 mb-4">
-              <h2 className="text-lg font-bold text-slate-900 dark:text-white">{section.label}</h2>
+              <h2 className="text-lg font-bold text-heading">{section.label}</h2>
               <a
                 href={buildPath({ activeTab: 'job-board' }, locale)}
                 onClick={(e) => {
@@ -5083,7 +5099,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                   onJobRouteChange?.('');
                   window.scrollTo({ top: 0, behavior: 'smooth' });
                 }}
-                className="text-sm font-bold text-stripe-700 dark:text-stripe-300 no-underline hover:underline"
+                className="text-sm font-bold text-accent no-underline hover:underline"
               >
                 {editorialLocationLanding.openAllLabel}
               </a>
@@ -5106,7 +5122,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-teal-700 dark:text-teal-300">
             {editorialLocationTypeLanding.updatedLabel} · {new Date().toLocaleDateString('it-CH')}
           </p>
-          <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+          <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-heading">
             {editorialLocationTypeLanding.heading}
           </h1>
           <p className="mt-4 max-w-4xl text-sm sm:text-base leading-7 text-body">
@@ -5121,7 +5137,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
               onJobRouteChange?.(parentSlug);
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
-            className="mt-4 inline-flex items-center gap-2 rounded-full border border-stripe-200 dark:border-stripe-700 px-4 py-2 text-sm font-bold text-stripe-700 dark:text-stripe-300"
+            className="mt-4 inline-flex items-center gap-2 rounded-full border border-accent-border px-4 py-2 text-sm font-bold text-accent"
           >
             <ArrowLeft className="w-4 h-4" />
             {locale === 'it' ? `Torna a lavoro a ${editorialLocationTypeLanding.location}` : locale === 'en' ? `Back to jobs in ${editorialLocationTypeLanding.location}` : locale === 'de' ? `Zuruck zu Jobs in ${editorialLocationTypeLanding.location}` : `Retour aux emplois a ${editorialLocationTypeLanding.location}`}
@@ -5129,14 +5145,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
         </section>
 
         <div className="flex flex-wrap items-baseline gap-x-5 gap-y-1.5 text-sm text-subtle">
-          <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-slate-900 dark:text-white">{editorialLocationTypeLanding.totalJobs}</span> {editorialLocationTypeLanding.countsLabel}</span>
-          <span className="hidden sm:inline text-slate-300 dark:text-slate-600" aria-hidden="true">·</span>
-          <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-slate-900 dark:text-white">{editorialLocationTypeLanding.latestJobs.length}</span> {editorialLocationTypeLanding.latestLabel}</span>
+          <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-heading">{editorialLocationTypeLanding.totalJobs}</span> {editorialLocationTypeLanding.countsLabel}</span>
+          <span className="hidden sm:inline text-edge" aria-hidden="true">·</span>
+          <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-heading">{editorialLocationTypeLanding.latestJobs.length}</span> {editorialLocationTypeLanding.latestLabel}</span>
         </div>
 
         {editorialLocationTypeLanding.siblingTypeLinks.length > 0 && (
           <section className="rounded-2xl border border-edge bg-surface p-5">
-            <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-4">
+            <h2 className="text-lg font-bold text-heading mb-4">
               {locale === 'it' ? `Altri tipi di lavoro a ${editorialLocationTypeLanding.location}` : locale === 'en' ? `Other job types in ${editorialLocationTypeLanding.location}` : locale === 'de' ? `Weitere Jobtypen in ${editorialLocationTypeLanding.location}` : `Autres types d'emploi a ${editorialLocationTypeLanding.location}`}
             </h2>
             <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
@@ -5153,8 +5169,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
                     }}
                     className="flex items-center justify-between gap-3 rounded-2xl border border-edge px-4 py-3 no-underline hover:border-stripe-300 dark:hover:border-stripe-600 transition-colors"
                   >
-                    <span className="font-semibold text-slate-800 dark:text-slate-100">{link.label}</span>
-                    <span className="text-sm font-bold text-stripe-700 dark:text-stripe-300">{link.count}</span>
+                    <span className="font-semibold text-strong">{link.label}</span>
+                    <span className="text-sm font-bold text-accent">{link.count}</span>
                   </a>
                 );
               })}
@@ -5165,7 +5181,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
         {editorialLandingSections.map((section) => (
           <section key={section.id} id={section.id} className="rounded-2xl border border-edge bg-surface p-5">
             <div className="flex items-center justify-between gap-4 mb-4">
-              <h2 className="text-lg font-bold text-slate-900 dark:text-white">{section.label}</h2>
+              <h2 className="text-lg font-bold text-heading">{section.label}</h2>
               <a
                 href={buildPath({ activeTab: 'job-board' }, locale)}
                 onClick={(e) => {
@@ -5173,7 +5189,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                   onJobRouteChange?.('');
                   window.scrollTo({ top: 0, behavior: 'smooth' });
                 }}
-                className="text-sm font-bold text-stripe-700 dark:text-stripe-300 no-underline hover:underline"
+                className="text-sm font-bold text-accent no-underline hover:underline"
               >
                 {editorialLocationTypeLanding.openAllLabel}
               </a>
@@ -5196,7 +5212,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-teal-700 dark:text-teal-300">
             {editorialLocationSectorLanding.updatedLabel} · {new Date().toLocaleDateString('it-CH')}
           </p>
-          <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+          <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-heading">
             {editorialLocationSectorLanding.heading}
           </h1>
           <p className="mt-4 max-w-4xl text-sm sm:text-base leading-7 text-body">
@@ -5211,7 +5227,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
               onJobRouteChange?.(parentSlug);
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
-            className="mt-4 inline-flex items-center gap-2 rounded-full border border-stripe-200 dark:border-stripe-700 px-4 py-2 text-sm font-bold text-stripe-700 dark:text-stripe-300"
+            className="mt-4 inline-flex items-center gap-2 rounded-full border border-accent-border px-4 py-2 text-sm font-bold text-accent"
           >
             <ArrowLeft className="w-4 h-4" />
             {locale === 'it' ? `Torna a lavoro a ${editorialLocationSectorLanding.location}` : locale === 'en' ? `Back to jobs in ${editorialLocationSectorLanding.location}` : locale === 'de' ? `Zuruck zu Jobs in ${editorialLocationSectorLanding.location}` : `Retour aux emplois a ${editorialLocationSectorLanding.location}`}
@@ -5219,14 +5235,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
         </section>
 
         <div className="flex flex-wrap items-baseline gap-x-5 gap-y-1.5 text-sm text-subtle">
-          <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-slate-900 dark:text-white">{editorialLocationSectorLanding.totalJobs}</span> {editorialLocationSectorLanding.countsLabel}</span>
-          <span className="hidden sm:inline text-slate-300 dark:text-slate-600" aria-hidden="true">·</span>
-          <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-slate-900 dark:text-white">{editorialLocationSectorLanding.latestJobs.length}</span> {editorialLocationSectorLanding.latestLabel}</span>
+          <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-heading">{editorialLocationSectorLanding.totalJobs}</span> {editorialLocationSectorLanding.countsLabel}</span>
+          <span className="hidden sm:inline text-edge" aria-hidden="true">·</span>
+          <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-heading">{editorialLocationSectorLanding.latestJobs.length}</span> {editorialLocationSectorLanding.latestLabel}</span>
         </div>
 
         {editorialLocationSectorLanding.siblingSectorLinks.length > 0 && (
           <section className="rounded-2xl border border-edge bg-surface p-5">
-            <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-4">
+            <h2 className="text-lg font-bold text-heading mb-4">
               {locale === 'it' ? `Altri settori a ${editorialLocationSectorLanding.location}` : locale === 'en' ? `Other sectors in ${editorialLocationSectorLanding.location}` : locale === 'de' ? `Weitere Branchen in ${editorialLocationSectorLanding.location}` : `Autres secteurs a ${editorialLocationSectorLanding.location}`}
             </h2>
             <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
@@ -5243,8 +5259,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
                     }}
                     className="flex items-center justify-between gap-3 rounded-2xl border border-edge px-4 py-3 no-underline hover:border-stripe-300 dark:hover:border-stripe-600 transition-colors"
                   >
-                    <span className="font-semibold text-slate-800 dark:text-slate-100">{link.label}</span>
-                    <span className="text-sm font-bold text-stripe-700 dark:text-stripe-300">{link.count}</span>
+                    <span className="font-semibold text-strong">{link.label}</span>
+                    <span className="text-sm font-bold text-accent">{link.count}</span>
                   </a>
                 );
               })}
@@ -5255,7 +5271,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
         {editorialLandingSections.map((section) => (
           <section key={section.id} id={section.id} className="rounded-2xl border border-edge bg-surface p-5">
             <div className="flex items-center justify-between gap-4 mb-4">
-              <h2 className="text-lg font-bold text-slate-900 dark:text-white">{section.label}</h2>
+              <h2 className="text-lg font-bold text-heading">{section.label}</h2>
               <a
                 href={buildPath({ activeTab: 'job-board' }, locale)}
                 onClick={(e) => {
@@ -5263,7 +5279,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                   onJobRouteChange?.('');
                   window.scrollTo({ top: 0, behavior: 'smooth' });
                 }}
-                className="text-sm font-bold text-stripe-700 dark:text-stripe-300 no-underline hover:underline"
+                className="text-sm font-bold text-accent no-underline hover:underline"
               >
                 {editorialLocationSectorLanding.openAllLabel}
               </a>
@@ -5285,7 +5301,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-teal-700 dark:text-teal-300">
             {editorialSectorRegionLanding.updatedLabel} · {new Date().toLocaleDateString('it-CH')}
           </p>
-          <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+          <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-heading">
             {editorialSectorRegionLanding.heading}
           </h1>
           <p className="mt-4 max-w-4xl text-sm sm:text-base leading-7 text-body">
@@ -5300,7 +5316,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
               onJobRouteChange?.('');
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
-            className="mt-4 inline-flex items-center gap-2 rounded-full border border-stripe-200 dark:border-stripe-700 px-4 py-2 text-sm font-bold text-stripe-700 dark:text-stripe-300"
+            className="mt-4 inline-flex items-center gap-2 rounded-full border border-accent-border px-4 py-2 text-sm font-bold text-accent"
           >
             <ArrowLeft className="w-4 h-4" />
             {editorialSectorRegionLanding.openAllLabel}
@@ -5308,14 +5324,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
         </section>
 
         <div className="flex flex-wrap items-baseline gap-x-5 gap-y-1.5 text-sm text-subtle">
-          <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-slate-900 dark:text-white">{editorialSectorRegionLanding.totalJobs}</span> {editorialSectorRegionLanding.countsLabel}</span>
-          <span className="hidden sm:inline text-slate-300 dark:text-slate-600" aria-hidden="true">·</span>
-          <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-slate-900 dark:text-white">{editorialSectorRegionLanding.latestJobs.length}</span> {editorialSectorRegionLanding.latestLabel}</span>
+          <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-heading">{editorialSectorRegionLanding.totalJobs}</span> {editorialSectorRegionLanding.countsLabel}</span>
+          <span className="hidden sm:inline text-edge" aria-hidden="true">·</span>
+          <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-heading">{editorialSectorRegionLanding.latestJobs.length}</span> {editorialSectorRegionLanding.latestLabel}</span>
         </div>
 
         {editorialSectorRegionLanding.siblingSectorLinks.length > 0 && (
           <section className="rounded-2xl border border-edge bg-surface p-5">
-            <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-4">
+            <h2 className="text-lg font-bold text-heading mb-4">
             {/* BLOCK-B: Regionalize for national expansion — currently hardcodes Ticino/Tessin text */}
               {locale === 'it' ? 'Altri settori in Ticino' : locale === 'en' ? 'Other sectors in Ticino' : locale === 'de' ? 'Weitere Branchen im Tessin' : 'Autres secteurs au Tessin'}
             </h2>
@@ -5333,8 +5349,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
                     }}
                     className="flex items-center justify-between gap-3 rounded-2xl border border-edge px-4 py-3 no-underline hover:border-stripe-300 dark:hover:border-stripe-600 transition-colors"
                   >
-                    <span className="font-semibold text-slate-800 dark:text-slate-100">{link.label}</span>
-                    <span className="text-sm font-bold text-stripe-700 dark:text-stripe-300">{link.count}</span>
+                    <span className="font-semibold text-strong">{link.label}</span>
+                    <span className="text-sm font-bold text-accent">{link.count}</span>
                   </a>
                 );
               })}
@@ -5345,7 +5361,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
         {editorialLandingSections.map((section) => (
           <section key={section.id} id={section.id} className="rounded-2xl border border-edge bg-surface p-5">
             <div className="flex items-center justify-between gap-4 mb-4">
-              <h2 className="text-lg font-bold text-slate-900 dark:text-white">{section.label}</h2>
+              <h2 className="text-lg font-bold text-heading">{section.label}</h2>
               <a
                 href={buildPath({ activeTab: 'job-board' }, locale)}
                 onClick={(e) => {
@@ -5353,7 +5369,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                   onJobRouteChange?.('');
                   window.scrollTo({ top: 0, behavior: 'smooth' });
                 }}
-                className="text-sm font-bold text-stripe-700 dark:text-stripe-300 no-underline hover:underline"
+                className="text-sm font-bold text-accent no-underline hover:underline"
               >
                 {editorialSectorRegionLanding.openAllLabel}
               </a>
@@ -5419,7 +5435,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
         <div className="space-y-5">
           <button
             onClick={backToList}
-            className="inline-flex items-center gap-2 text-sm font-semibold text-stripe-700 dark:text-stripe-300 hover:underline"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:underline"
           >
             <ArrowLeft size={14} />
             {t('jobBoard.backToList')}
@@ -5461,7 +5477,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                 />
               )}
               <div className="flex-1 min-w-0">
-                <h1 className="text-xl font-bold text-slate-900 dark:text-white leading-tight">{localizedTitle}</h1>
+                <h1 className="text-xl font-bold text-heading leading-tight">{localizedTitle}</h1>
                 <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-1.5 text-sm text-subtle">
                   <span className="inline-flex items-center gap-1"><Building2 size={14} />{companyName}</span>
                   {jobLocation && <span className="inline-flex items-center gap-1"><MapPin size={14} />{jobLocation}</span>}
@@ -5470,7 +5486,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                   )}
                   {gateSalary && <span className="inline-flex items-center gap-1 font-semibold text-emerald-700 dark:text-emerald-400"><Euro size={14} />{gateSalary}</span>}
                   <span className="inline-flex items-center gap-1"><Clock size={14} />{gateContract}</span>
-                  <span className={`inline-flex items-center gap-1${gateIsNew ? ' font-semibold text-stripe-600 dark:text-stripe-400' : ''}`}><Calendar size={14} />{gatePosted}</span>
+                  <span className={`inline-flex items-center gap-1${gateIsNew ? ' font-semibold text-accent' : ''}`}><Calendar size={14} />{gatePosted}</span>
                 </div>
               </div>
             </div>
@@ -5491,28 +5507,28 @@ const JobBoard: React.FC<JobBoardProps> = ({
             )}
 
             {/* Auth gate — embedded inline for all viewports (no extra click needed) */}
-            <div id="job-auth-gate" role="region" aria-label={t('jobBoard.gate.title')} className="relative z-10 mt-3 scroll-mt-20 rounded-stripe border border-stripe-200 dark:border-stripe-800 bg-stripe-50 dark:bg-stripe-950/20 p-5 sm:p-6">
+            <div id="job-auth-gate" role="region" aria-label={t('jobBoard.gate.title')} className="relative z-10 mt-3 scroll-mt-20 rounded-stripe border border-accent-border bg-stripe-50 dark:bg-stripe-950/20 p-5 sm:p-6">
               <div className="flex items-center gap-3 mb-3">
                 <div className="flex-shrink-0 p-2 bg-stripe-100 dark:bg-stripe-900/50 rounded-stripe">
-                  <Eye className="w-5 h-5 text-stripe-600 dark:text-stripe-400" />
+                  <Eye className="w-5 h-5 text-accent" />
                 </div>
                 <div>
-                  <h2 className="text-lg font-bold text-slate-900 dark:text-white">{t('jobBoard.gate.title')}</h2>
+                  <h2 className="text-lg font-bold text-heading">{t('jobBoard.gate.title')}</h2>
                   <p className="text-sm text-subtle">{t('jobBoard.gate.subtitle')}</p>
                 </div>
               </div>
 
               {/* Trust signals — above CTAs for mobile visibility */}
               <div className="mb-4 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-subtle">
-                <span className="inline-flex items-center gap-1"><CheckCircle2 size={12} className="text-emerald-600 dark:text-emerald-400" />{t('jobBoard.gate.benefit1')}</span>
-                <span className="inline-flex items-center gap-1"><CheckCircle2 size={12} className="text-emerald-600 dark:text-emerald-400" />{t('jobBoard.gate.benefit2')}</span>
-                <span className="inline-flex items-center gap-1"><CheckCircle2 size={12} className="text-emerald-600 dark:text-emerald-400" />{t('jobBoard.gate.benefit3')}</span>
-                <span className="inline-flex items-center gap-1"><Shield size={12} className="text-emerald-600 dark:text-emerald-400" />{t('jobBoard.gate.privacyNote')}</span>
+                <span className="inline-flex items-center gap-1"><CheckCircle2 size={12} className="text-success" />{t('jobBoard.gate.benefit1')}</span>
+                <span className="inline-flex items-center gap-1"><CheckCircle2 size={12} className="text-success" />{t('jobBoard.gate.benefit2')}</span>
+                <span className="inline-flex items-center gap-1"><CheckCircle2 size={12} className="text-success" />{t('jobBoard.gate.benefit3')}</span>
+                <span className="inline-flex items-center gap-1"><Shield size={12} className="text-success" />{t('jobBoard.gate.privacyNote')}</span>
               </div>
 
               {/* Social proof */}
               {jobs.length > 0 && (
-                <p className="mb-3 text-xs font-medium text-stripe-600 dark:text-stripe-400">
+                <p className="mb-3 text-xs font-medium text-accent">
                   {jobs.length.toLocaleString()}+ {locale === 'it' ? 'annunci disponibili' : locale === 'de' ? 'verfügbare Stellenangebote' : locale === 'fr' ? 'offres disponibles' : 'listings available'}
                 </p>
               )}
@@ -5529,7 +5545,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                         void handleAuthAndOpen('google');
                       }}
                       disabled={authBusy !== null}
-                      className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-stripe bg-surface border border-slate-300 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-700 disabled:opacity-60 text-slate-800 dark:text-slate-100 text-sm font-semibold shadow-sm transition-colors"
+                      className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-stripe bg-surface border border-edge hover:bg-surface-raised disabled:opacity-60 text-strong text-sm font-semibold shadow-sm transition-colors"
                     >
                       {authBusy === 'google' ? <Loader2 className="w-4 h-4 animate-spin" /> : (
                         <svg className="w-4 h-4" viewBox="0 0 24 24" aria-hidden="true">
@@ -5590,12 +5606,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
                     value={emailInput}
                     onChange={setEmailInput}
                     placeholder={t('jobBoard.authGateEmailPlaceholder')}
-                    className="w-full px-3 py-2.5 rounded-stripe border border-slate-300 dark:border-slate-600 bg-surface text-sm text-slate-900 dark:text-white placeholder-slate-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-stripe-500"
+                    className="w-full px-3 py-2.5 rounded-stripe border border-edge bg-surface text-sm text-heading placeholder-muted focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
                   />
                   <button
                     type="submit"
                     disabled={authBusy !== null || !emailInput.trim()}
-                    className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-stripe bg-stripe-600 hover:bg-stripe-700 disabled:opacity-60 text-white text-sm font-semibold transition-colors"
+                    className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-stripe bg-accent hover:bg-accent-hover disabled:opacity-60 text-white text-sm font-semibold transition-colors"
                   >
                     {authBusy === 'email' ? <Loader2 className="w-4 h-4 animate-spin" /> : <Mail className="w-4 h-4" />}
                     {t('jobBoard.gate.emailCta')}
@@ -5603,7 +5619,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                 </form>
               </div>
 
-              {authError && <p className="text-sm text-red-600 dark:text-red-300 mt-2">{authError}</p>}
+              {authError && <p className="text-sm text-danger mt-2">{authError}</p>}
             </div>
           </div>
 
@@ -5801,7 +5817,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
           `}</style>
           <button
             onClick={backToList}
-            className="inline-flex items-center gap-2 text-sm font-semibold text-stripe-700 dark:text-stripe-300 hover:underline"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:underline"
           >
             <ArrowLeft size={14} />
             {t('jobBoard.backToList')}
@@ -5870,7 +5886,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
       <div className="space-y-6">
         <button
           onClick={backToList}
-          className="inline-flex items-center gap-2 text-sm font-semibold text-stripe-700 dark:text-stripe-300 hover:underline"
+          className="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:underline"
         >
           <ArrowLeft size={14} />
           {t('jobBoard.backToList')}
@@ -5905,13 +5921,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
                   )}
                 </a>
                 <div className="min-w-0">
-                  <h1 className="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white leading-tight">
+                  <h1 className="text-2xl md:text-3xl font-extrabold text-heading leading-tight">
                     <a
                       href={applyUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={() => Analytics.trackSelectContent('job_board_apply_header_title', `${selectedJob.company}_${selectedJob.title}`)}
-                      className="hover:underline decoration-2 underline-offset-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-stripe-500 rounded-sm"
+                      className="hover:underline decoration-2 underline-offset-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-sm"
                     >
                       {selectedJobTitle}
                     </a>
@@ -5927,14 +5943,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
                 <span className="px-2 py-1 rounded-full bg-surface-raised text-body">
                   {t(categoryTranslationKey(selectedJob))}
                 </span>
-                <span className="px-2 py-1 rounded-full bg-stripe-100 dark:bg-stripe-900/30 text-stripe-700 dark:text-stripe-300">
+                <span className="px-2 py-1 rounded-full bg-accent-subtle text-accent">
                   {t(contractTranslationKey(selectedJob))}
                 </span>
-                <span className="px-2 py-1 rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300">
+                <span className="px-2 py-1 rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-success">
                   {daysSincePosted(selectedJob.postedDate)}
                 </span>
                 {isNewJob(selectedJob) && (
-                  <span className="px-2 py-1 rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 inline-flex items-center gap-1">
+                  <span className="px-2 py-1 rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-success inline-flex items-center gap-1">
                     <Sparkles className="w-3 h-3" />
                     {t('jobBoard.badge.new')}
                   </span>
@@ -5949,13 +5965,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
             </header>
 
             <section className="section rounded-2xl border border-edge bg-surface p-4 sm:p-5 space-y-3">
-              <h4 className="text-base font-bold text-slate-900 dark:text-white">{canonicalCopy.summary}</h4>
+              <h4 className="text-base font-bold text-heading">{canonicalCopy.summary}</h4>
               {enrichmentLoading && canonicalSummary.length === 0 && !detailDescription ? (
                 <div className="space-y-2">
-                  <div className="animate-pulse bg-slate-200 dark:bg-slate-700 rounded h-4 w-full" />
-                  <div className="animate-pulse bg-slate-200 dark:bg-slate-700 rounded h-4 w-full" />
-                  <div className="animate-pulse bg-slate-200 dark:bg-slate-700 rounded h-4 w-11/12" />
-                  <div className="animate-pulse bg-slate-200 dark:bg-slate-700 rounded h-4 w-4/5" />
+                  <div className="animate-pulse bg-surface-raised rounded h-4 w-full" />
+                  <div className="animate-pulse bg-surface-raised rounded h-4 w-full" />
+                  <div className="animate-pulse bg-surface-raised rounded h-4 w-11/12" />
+                  <div className="animate-pulse bg-surface-raised rounded h-4 w-4/5" />
                 </div>
               ) : canonicalSummary.length > 0 ? (
                 <div className="space-y-2">
@@ -5988,19 +6004,19 @@ const JobBoard: React.FC<JobBoardProps> = ({
             {enrichmentLoading && timelineSections.length === 0 && !detailDescription ? (
               <>
                 <section className="section rounded-2xl border border-edge bg-surface p-4 sm:p-5 space-y-2">
-                  <h4 className="text-base font-bold text-slate-900 dark:text-white">{canonicalCopy.details}</h4>
+                  <h4 className="text-base font-bold text-heading">{canonicalCopy.details}</h4>
                   <div className="space-y-2">
-                    <div className="animate-pulse bg-slate-200 dark:bg-slate-700 rounded h-4 w-full" />
-                    <div className="animate-pulse bg-slate-200 dark:bg-slate-700 rounded h-4 w-full" />
-                    <div className="animate-pulse bg-slate-200 dark:bg-slate-700 rounded h-4 w-5/6" />
+                    <div className="animate-pulse bg-surface-raised rounded h-4 w-full" />
+                    <div className="animate-pulse bg-surface-raised rounded h-4 w-full" />
+                    <div className="animate-pulse bg-surface-raised rounded h-4 w-5/6" />
                   </div>
                 </section>
                 <section className="section rounded-2xl border border-edge bg-surface p-4 sm:p-5 space-y-2">
-                  <div className="animate-pulse bg-slate-200 dark:bg-slate-700 rounded h-5 w-40" />
+                  <div className="animate-pulse bg-surface-raised rounded h-5 w-40" />
                   <div className="space-y-1.5 pl-4">
-                    <div className="animate-pulse bg-slate-200 dark:bg-slate-700 rounded h-4 w-3/4" />
-                    <div className="animate-pulse bg-slate-200 dark:bg-slate-700 rounded h-4 w-2/3" />
-                    <div className="animate-pulse bg-slate-200 dark:bg-slate-700 rounded h-4 w-4/5" />
+                    <div className="animate-pulse bg-surface-raised rounded h-4 w-3/4" />
+                    <div className="animate-pulse bg-surface-raised rounded h-4 w-2/3" />
+                    <div className="animate-pulse bg-surface-raised rounded h-4 w-4/5" />
                   </div>
                 </section>
               </>
@@ -6011,7 +6027,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                   <div key={`${section.id}-${index}`} className="timeline-step relative">
                     <span className="absolute -left-[23px] top-2 w-3 h-3 rounded-full bg-stripe-500 dark:bg-stripe-400 ring-2 ring-white dark:ring-slate-800" />
                     <section className="section rounded-2xl border border-edge bg-surface p-4 sm:p-5 space-y-2">
-                      <h4 className="text-sm font-bold text-slate-900 dark:text-white border-l-4 border-stripe-500 pl-3">
+                      <h4 className="text-sm font-bold text-heading border-l-4 border-stripe-500 pl-3">
                         {section.heading}
                       </h4>
                       {section.paragraphs.length > 0 && section.paragraphs.map((line, i) => (
@@ -6026,7 +6042,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                               key={i}
                               className={[
                                 'text-sm leading-relaxed text-body',
-                                isSubheadBullet(item) ? 'list-none -ml-3 font-bold text-stripe-700 dark:text-stripe-300' : '',
+                                isSubheadBullet(item) ? 'list-none -ml-3 font-bold text-accent' : '',
                               ].join(' ').trim()}
                             >
                               {isContactSection(section) ? renderContactRichText(item, selectedJob, locale, detailPageUrl) : item}
@@ -6040,7 +6056,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
               </div>
             ) : (
               <section className="section rounded-2xl border border-edge bg-surface p-4 sm:p-5 space-y-2">
-                <h4 className="text-base font-bold text-slate-900 dark:text-white">{canonicalCopy.details}</h4>
+                <h4 className="text-base font-bold text-heading">{canonicalCopy.details}</h4>
                 <div className="space-y-2">
                   {renderFormattedDescription(detailDescription)}
                 </div>
@@ -6076,7 +6092,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                 window.scrollTo({ top: 0, behavior: 'smooth' });
                 Analytics.trackSelectContent('job_board_company_filter_open', selectedJob.company);
               }}
-              className="block rounded-xl border border-edge bg-surface-alt/50 p-4 hover:border-stripe-300 dark:hover:border-stripe-700 hover:bg-slate-100 dark:hover:bg-slate-800/70 transition-colors"
+              className="block rounded-xl border border-edge bg-surface-alt/50 p-4 hover:border-stripe-300 dark:hover:border-stripe-700 hover:bg-surface-raised/70 transition-colors"
             >
               <div className="flex items-start gap-3">
                 <div className="w-10 h-10 rounded-lg bg-surface border border-edge flex items-center justify-center overflow-hidden shrink-0">
@@ -6088,16 +6104,16 @@ const JobBoard: React.FC<JobBoardProps> = ({
                       width={28}
                       height={28}
                       loading="lazy"
-                      onError={(e) => { const el = e.currentTarget; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.visibility = 'hidden'; } }} /> ) : ( <Building2 className="w-4 h-4 text-muted" /> )} </div> <div className="min-w-0"> <h3 className="text-sm font-bold text-slate-900 dark:text-white">{t('jobBoard.companyHeading')}</h3> <p className="text-sm text-slate-600 mt-1"> {selectedJob.company} · {selectedJob.location} ({selectedJob.canton}) </p> <p className="text-sm text-muted mt-2"> {/* BLOCK-B: Regionalize for national expansion — currently hardcodes Ticino/Tessin text */} Frontaliere Ticino ha scovato questa opportunità nel monitoraggio aziende. </p> </div> </div> </a> <div className="flex flex-wrap gap-3 pt-1"> <button onClick={() => handleApply(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold bg-stripe-600 hover:bg-stripe-700 text-white rounded-lg transition-colors" > <ArrowUpRight className="w-4 h-4" /> {t('jobBoard.apply')} </button> <button type="button" onClick={() => void handleShare(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold border border-slate-300 dark:border-slate-600 text-body dark:text-slate-200 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700" > <ArrowUpRight className="w-4 h-4" /> {t('common.share')} </button> </div> </article> <aside className="lg:col-span-4 space-y-4"> <div className="rounded-xl border border-edge bg-surface p-4 border-l-4 border-l-stripe-500"> <div className="flex items-center gap-2 text-sm font-bold text-slate-900 dark:text-white"> <Briefcase size={15} className="text-stripe-600 dark:text-stripe-300" /> {t('jobBoard.snapshotTitle')} </div> <div className="mt-3 space-y-2 text-xs text-slate-600 dark:text-slate-300"> <div className="flex items-center justify-between gap-2"> <span>{t('jobBoard.snapshot.location')}</span> <div className="text-right"> <div className="font-semibold text-strong"> {locationSnapshot?.locality || selectedJob.location} </div> {locationSnapshot?.postalCode && ( <div className="text-sm text-muted"> {t('jobBoard.snapshot.postalCode')}: {locationSnapshot.postalCode} </div> )} </div> </div> <div className="flex items-center justify-between gap-2"> <span>{t('jobBoard.snapshot.contract')}</span> <span className="font-semibold text-strong"> {t(contractTranslationKey(selectedJob))} </span> </div> <div className="flex items-center justify-between gap-2"> <span>{t('jobBoard.snapshot.published')}</span> <span className="font-semibold text-strong">{daysSincePosted(selectedJob.postedDate)}</span> </div> {locationSnapshot?.crossings && locationSnapshot.crossings.length > 0 && ( <div className="pt-2 border-t border-slate-100 dark:border-slate-700/60"> <div className="mb-1.5 text-xs font-semibold uppercase tracking-wide text-muted"> {t('jobBoard.snapshot.borderCrossings')} </div> <div className="space-y-1"> {locationSnapshot.crossings.map((crossing) => ( <a key={crossing.id} href={buildPath({ activeTab: 'guida', guidaSubTab: 'border', borderCrossing: crossing.id, }, locale)} className="flex items-center justify-between gap-2 rounded-lg px-2 py-2.5 min-h-[44px] bg-slate-50 hover:bg-slate-100 dark:bg-slate-900/50 dark:hover:bg-slate-900 text-slate-700 dark:text-slate-200 transition-colors" > <span className="font-medium leading-tight">{crossing.name}</span> <ArrowUpRight className="w-3 h-3 text-muted" /> </a> ))} </div> </div> )} </div> </div> {canonicalContent.process.length > 0 && timelineSections.length === 0 && ( <div className="rounded-xl border border-edge bg-surface p-4 border-l-4 border-l-cyan-500"> <div className="flex items-center gap-2 text-sm font-bold text-slate-900 dark:text-white"> <Calendar size={15} className="text-cyan-600 dark:text-cyan-300" /> {canonicalCopy.process} </div> <ul className="mt-2 space-y-1.5 pl-4 list-disc marker:text-cyan-500 dark:marker:text-cyan-400"> {canonicalContent.process.map((item, i) => ( <li key={i} className="text-xs leading-relaxed text-slate-600 dark:text-slate-300">{item}</li> ))} </ul> </div> )} <div className="rounded-xl border border-edge bg-surface p-4 border-l-4 border-l-emerald-500"> <div className="flex items-center gap-2 text-sm font-bold text-slate-900 dark:text-white"> <Users size={15} className="text-emerald-600 dark:text-emerald-300" /> {t('jobBoard.adviceTitle')} </div> <p className="mt-2 text-xs leading-relaxed text-slate-600 dark:text-slate-300"> {t('jobBoard.adviceDescription')} </p> <button onClick={() => handleApply(selectedJob)} className="mt-3 w-full inline-flex items-center justify-center gap-2 px-3 py-2.5 min-h-[44px] text-xs font-semibold bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg" > {t('jobBoard.adviceCta')} </button> </div> {relatedSearches.length > 0 && ( <div className="rounded-xl border border-edge bg-surface p-4 border-l-4 border-l-fuchsia-500"> <div className="flex items-center gap-2 text-sm font-bold text-slate-900 dark:text-white"> <Search size={15} className="text-fuchsia-600 dark:text-fuchsia-300" /> {canonicalCopy.keywords} </div> <div className="mt-2 flex flex-wrap gap-2"> {relatedSearches.map((keyword, i) => { const searchHref = buildPath({ activeTab: 'job-board' as any, jobSlug: buildSearchSlug(keyword, locale) }, locale); return ( <a key={i} href={searchHref} onClick={(e) => { e.preventDefault(); navigateToRelatedSearch(keyword); }} className="text-xs px-2.5 py-1.5 min-h-[44px] inline-flex items-center rounded-full bg-fuchsia-50 dark:bg-fuchsia-900/20 text-fuchsia-700 dark:text-fuchsia-300 border border-fuchsia-100 dark:border-fuchsia-800" > {keyword} </a> ); })} </div> </div> )} {salaryEstimateWidget} {sectorContextWidget} {isDesktopLg && ( <AdSenseBanner adSlot={AD_SLOTS.JOBDETAIL_SIDEBAR.slot} adFormat={AD_SLOTS.JOBDETAIL_SIDEBAR.format} fullWidthResponsive className="mt-2" /> )} {isDesktopLg && ( <AdSenseBanner adSlot={AD_SLOTS.JOBDETAIL_SIDEBAR_2.slot} adFormat={AD_SLOTS.JOBDETAIL_SIDEBAR_2.format} fullWidthResponsive className="mt-2" /> )} <div className="rounded-xl border border-edge bg-surface p-4 border-l-4 border-l-stripe-500"> <div className="flex items-center gap-2 text-sm font-bold text-slate-900 dark:text-white"> <Mail size={15} className="text-stripe-600 dark:text-stripe-300" /> {t('jobBoard.publishTitle')} </div> <p className="mt-2 text-xs leading-relaxed text-slate-600 dark:text-slate-300"> {t('jobBoard.publishDescription', getCantonI18nParams())} </p> <button onClick={onPostJob} className="mt-3 w-full inline-flex items-center justify-center gap-2 px-3 py-2.5 min-h-[44px] text-xs font-semibold border border-stripe-300 dark:border-stripe-700 text-stripe-700 dark:text-stripe-300 rounded-lg hover:bg-stripe-50 dark:hover:bg-stripe-900/20" > {t('jobBoard.publishCta')} </button> </div> </aside> </div> {/* AdSense — job detail end multiplex */} <AdSenseBanner adSlot={AD_SLOTS.JOBDETAIL_END_MULTIPLEX.slot} adFormat={AD_SLOTS.JOBDETAIL_END_MULTIPLEX.format} className="mt-6 mb-4" /> {relatedJobs.length > 0 && ( <section className="rounded-2xl border border-edge bg-surface p-5"> <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-4">{t('jobBoard.relatedTitle')}</h2> <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3"> {relatedJobs.map((job) => { const jobLogo = companyLogoUrl(job); return ( <button key={job.id} onClick={() => openDetail(job)} className="text-left rounded-xl border border-edge p-3 hover:border-stripe-300 dark:hover:border-stripe-700 hover:bg-slate-50 dark:hover:bg-slate-700/40 transition-colors" > <div className="flex items-start gap-3"> <div className="w-12 h-12 rounded-lg bg-surface-raised flex items-center justify-center overflow-hidden border border-edge shrink-0"> {jobLogo ? ( <img src={jobLogo} alt={`Logo ${job.company}`} className="w-8 h-8 object-contain" width={32} height={32} loading="lazy" onError={(e) => { const el = e.currentTarget; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.visibility = 'hidden'; } }} />
+                      onError={(e) => { const el = e.currentTarget; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.visibility = 'hidden'; } }} /> ) : ( <Building2 className="w-4 h-4 text-muted" /> )} </div> <div className="min-w-0"> <h3 className="text-sm font-bold text-heading">{t('jobBoard.companyHeading')}</h3> <p className="text-sm text-slate-600 mt-1"> {selectedJob.company} · {selectedJob.location} ({selectedJob.canton}) </p> <p className="text-sm text-muted mt-2"> {/* BLOCK-B: Regionalize for national expansion — currently hardcodes Ticino/Tessin text */} Frontaliere Ticino ha scovato questa opportunità nel monitoraggio aziende. </p> </div> </div> </a> <div className="flex flex-wrap gap-3 pt-1"> <button onClick={() => handleApply(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold bg-accent hover:bg-accent-hover text-white rounded-lg transition-colors" > <ArrowUpRight className="w-4 h-4" /> {t('jobBoard.apply')} </button> <button type="button" onClick={() => void handleShare(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold border border-edge text-body dark:text-slate-200 rounded-lg hover:bg-surface-raised" > <ArrowUpRight className="w-4 h-4" /> {t('common.share')} </button> </div> </article> <aside className="lg:col-span-4 space-y-4"> <div className="rounded-xl border border-edge bg-surface p-4 border-l-4 border-l-stripe-500"> <div className="flex items-center gap-2 text-sm font-bold text-heading"> <Briefcase size={15} className="text-accent" /> {t('jobBoard.snapshotTitle')} </div> <div className="mt-3 space-y-2 text-xs text-subtle"> <div className="flex items-center justify-between gap-2"> <span>{t('jobBoard.snapshot.location')}</span> <div className="text-right"> <div className="font-semibold text-strong"> {locationSnapshot?.locality || selectedJob.location} </div> {locationSnapshot?.postalCode && ( <div className="text-sm text-muted"> {t('jobBoard.snapshot.postalCode')}: {locationSnapshot.postalCode} </div> )} </div> </div> <div className="flex items-center justify-between gap-2"> <span>{t('jobBoard.snapshot.contract')}</span> <span className="font-semibold text-strong"> {t(contractTranslationKey(selectedJob))} </span> </div> <div className="flex items-center justify-between gap-2"> <span>{t('jobBoard.snapshot.published')}</span> <span className="font-semibold text-strong">{daysSincePosted(selectedJob.postedDate)}</span> </div> {locationSnapshot?.crossings && locationSnapshot.crossings.length > 0 && ( <div className="pt-2 border-t border-edge/60"> <div className="mb-1.5 text-xs font-semibold uppercase tracking-wide text-muted"> {t('jobBoard.snapshot.borderCrossings')} </div> <div className="space-y-1"> {locationSnapshot.crossings.map((crossing) => ( <a key={crossing.id} href={buildPath({ activeTab: 'guida', guidaSubTab: 'border', borderCrossing: crossing.id, }, locale)} className="flex items-center justify-between gap-2 rounded-lg px-2 py-2.5 min-h-[44px] bg-slate-50 hover:bg-surface-raised/50 dark:hover:bg-slate-900 text-body transition-colors" > <span className="font-medium leading-tight">{crossing.name}</span> <ArrowUpRight className="w-3 h-3 text-muted" /> </a> ))} </div> </div> )} </div> </div> {canonicalContent.process.length > 0 && timelineSections.length === 0 && ( <div className="rounded-xl border border-edge bg-surface p-4 border-l-4 border-l-cyan-500"> <div className="flex items-center gap-2 text-sm font-bold text-heading"> <Calendar size={15} className="text-cyan-600 dark:text-cyan-300" /> {canonicalCopy.process} </div> <ul className="mt-2 space-y-1.5 pl-4 list-disc marker:text-cyan-500 dark:marker:text-cyan-400"> {canonicalContent.process.map((item, i) => ( <li key={i} className="text-xs leading-relaxed text-subtle">{item}</li> ))} </ul> </div> )} <div className="rounded-xl border border-edge bg-surface p-4 border-l-4 border-l-emerald-500"> <div className="flex items-center gap-2 text-sm font-bold text-heading"> <Users size={15} className="text-success" /> {t('jobBoard.adviceTitle')} </div> <p className="mt-2 text-xs leading-relaxed text-subtle"> {t('jobBoard.adviceDescription')} </p> <button onClick={() => handleApply(selectedJob)} className="mt-3 w-full inline-flex items-center justify-center gap-2 px-3 py-2.5 min-h-[44px] text-xs font-semibold bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg" > {t('jobBoard.adviceCta')} </button> </div> {relatedSearches.length > 0 && ( <div className="rounded-xl border border-edge bg-surface p-4 border-l-4 border-l-fuchsia-500"> <div className="flex items-center gap-2 text-sm font-bold text-heading"> <Search size={15} className="text-fuchsia-600 dark:text-fuchsia-300" /> {canonicalCopy.keywords} </div> <div className="mt-2 flex flex-wrap gap-2"> {relatedSearches.map((keyword, i) => { const searchHref = buildPath({ activeTab: 'job-board' as any, jobSlug: buildSearchSlug(keyword, locale) }, locale); return ( <a key={i} href={searchHref} onClick={(e) => { e.preventDefault(); navigateToRelatedSearch(keyword); }} className="text-xs px-2.5 py-1.5 min-h-[44px] inline-flex items-center rounded-full bg-fuchsia-50 dark:bg-fuchsia-900/20 text-fuchsia-700 dark:text-fuchsia-300 border border-fuchsia-100 dark:border-fuchsia-800" > {keyword} </a> ); })} </div> </div> )} {salaryEstimateWidget} {sectorContextWidget} {isDesktopLg && ( <AdSenseBanner adSlot={AD_SLOTS.JOBDETAIL_SIDEBAR.slot} adFormat={AD_SLOTS.JOBDETAIL_SIDEBAR.format} fullWidthResponsive className="mt-2" /> )} {isDesktopLg && ( <AdSenseBanner adSlot={AD_SLOTS.JOBDETAIL_SIDEBAR_2.slot} adFormat={AD_SLOTS.JOBDETAIL_SIDEBAR_2.format} fullWidthResponsive className="mt-2" /> )} <div className="rounded-xl border border-edge bg-surface p-4 border-l-4 border-l-stripe-500"> <div className="flex items-center gap-2 text-sm font-bold text-heading"> <Mail size={15} className="text-accent" /> {t('jobBoard.publishTitle')} </div> <p className="mt-2 text-xs leading-relaxed text-subtle"> {t('jobBoard.publishDescription', getCantonI18nParams())} </p> <button onClick={onPostJob} className="mt-3 w-full inline-flex items-center justify-center gap-2 px-3 py-2.5 min-h-[44px] text-xs font-semibold border border-stripe-300 dark:border-stripe-700 text-accent rounded-lg hover:bg-accent-subtle" > {t('jobBoard.publishCta')} </button> </div> </aside> </div> {/* AdSense — job detail end multiplex */} <AdSenseBanner adSlot={AD_SLOTS.JOBDETAIL_END_MULTIPLEX.slot} adFormat={AD_SLOTS.JOBDETAIL_END_MULTIPLEX.format} className="mt-6 mb-4" /> {relatedJobs.length > 0 && ( <section className="rounded-2xl border border-edge bg-surface p-5"> <h2 className="text-lg font-bold text-heading mb-4">{t('jobBoard.relatedTitle')}</h2> <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3"> {relatedJobs.map((job) => { const jobLogo = companyLogoUrl(job); return ( <button key={job.id} onClick={() => openDetail(job)} className="text-left rounded-xl border border-edge p-3 hover:border-stripe-300 dark:hover:border-stripe-700 hover:bg-surface-raised/40 transition-colors" > <div className="flex items-start gap-3"> <div className="w-12 h-12 rounded-lg bg-surface-raised flex items-center justify-center overflow-hidden border border-edge shrink-0"> {jobLogo ? ( <img src={jobLogo} alt={`Logo ${job.company}`} className="w-8 h-8 object-contain" width={32} height={32} loading="lazy" onError={(e) => { const el = e.currentTarget; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.visibility = 'hidden'; } }} />
                         ) : (
                           <Building2 className="w-5 h-5 text-muted" />
                         )}
                       </div>
                       <div className="min-w-0">
-                        <div className="text-sm font-bold text-slate-900 dark:text-white line-clamp-2">
+                        <div className="text-sm font-bold text-heading line-clamp-2">
                           {sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title)}
                         </div>
-                        <div className="text-xs text-slate-600 dark:text-slate-300 mt-0.5">
+                        <div className="text-xs text-subtle mt-0.5">
                           {job.company} · {isMultiLocation(job.location) ? t('jobBoard.location.multiLocation') : job.location}
                         </div>
                       </div>
@@ -6121,14 +6137,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
         {relatedArticles.length > 0 && (
           <section className="rounded-2xl border border-edge bg-surface p-5">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+              <h2 className="text-lg font-bold text-heading flex items-center gap-2">
                 <BookOpen className="w-5 h-5 text-emerald-500" />
                 {t('jobBoard.relatedArticlesTitle')}
               </h2>
               <a
                 href={buildPath({ activeTab: 'blog' })}
                 onClick={(e) => { e.preventDefault(); nav.navigateTo('blog'); }}
-                className="text-xs font-semibold text-emerald-600 dark:text-emerald-400 hover:underline"
+                className="text-xs font-semibold text-success hover:underline"
               >
                 {t('blog.relatedArticles')}
               </a>
@@ -6153,7 +6169,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                       />
                     </div>
                     <div className="min-w-0">
-                      <div className="text-sm font-bold text-slate-900 dark:text-white line-clamp-2">
+                      <div className="text-sm font-bold text-heading line-clamp-2">
                         {t(`blog.article.${article.id}.title`)}
                       </div>
                       <div className="text-xs text-subtle mt-0.5">
@@ -6172,7 +6188,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
           <a
             href={buildPath({ activeTab: 'job-board' }, locale)}
             onClick={(e) => { e.preventDefault(); backToList(); }}
-            className="inline-flex items-center gap-2 text-sm font-semibold text-stripe-700 dark:text-stripe-300 hover:underline"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:underline"
           >
             <Briefcase className="w-4 h-4" />
             {t('jobBoard.allJobsCta', getCantonI18nParams())}
@@ -6198,24 +6214,24 @@ const JobBoard: React.FC<JobBoardProps> = ({
         </div>
       )}
       {companySlugFilter && (
-        <div className="rounded-xl border border-stripe-200 dark:border-stripe-800 bg-stripe-50/60 dark:bg-stripe-950/20 p-3 text-sm text-stripe-800 dark:text-stripe-200 flex items-center justify-between gap-3">
+        <div className="rounded-xl border border-accent-border bg-stripe-50/60 dark:bg-stripe-950/20 p-3 text-sm text-stripe-800 dark:text-stripe-200 flex items-center justify-between gap-3">
           <span className="font-semibold">
             {t('jobBoard.filter.activeCompany')}
           </span>
           <button
             onClick={() => onJobRouteChange?.(undefined)}
-            className="px-2 py-1 rounded-md border border-stripe-300 dark:border-stripe-700 hover:bg-stripe-100 dark:hover:bg-stripe-900/30 text-xs font-bold"
+            className="px-2 py-1 rounded-md border border-stripe-300 dark:border-stripe-700 hover:bg-accent-subtle text-xs font-bold"
           >
             {t('jobBoard.filter.remove')}
           </button>
         </div>
       )}
       <div className="text-center space-y-3">
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-stripe-50 dark:bg-stripe-950/30 text-stripe-700 dark:text-stripe-300 rounded-full text-sm font-medium">
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-accent-subtle text-accent rounded-full text-sm font-medium">
           <Briefcase className="w-4 h-4" />
           {t('jobBoard.badge')}
         </div>
-        <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">
+        <h1 className="text-2xl sm:text-3xl font-bold text-heading">
           {companyDisplayName
             ? t('jobBoard.companyPageTitle', { company: companyDisplayName, ...getCantonI18nParams() })
             : t('jobBoard.title', getCantonI18nParams())}
@@ -6225,7 +6241,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
       {/* ─── Hub intro paragraph — SEO anchor text for broad queries ─── */}
       {!companySlugFilter && !searchSlugFilter && (
-        <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-300 max-w-3xl mx-auto text-center">
+        <p className="text-sm leading-relaxed text-subtle max-w-3xl mx-auto text-center">
           {t('jobBoard.hubIntro', getCantonI18nParams())}
         </p>
       )}
@@ -6243,14 +6259,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
               placeholder={t('jobBoard.searchPlaceholder')}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="flex-1 px-3 py-3.5 sm:py-4 text-base sm:text-lg bg-transparent text-slate-900 dark:text-white placeholder:text-slate-500 focus:outline-none"
+              className="flex-1 px-3 py-3.5 sm:py-4 text-base sm:text-lg bg-transparent text-heading placeholder:text-muted focus:outline-none"
               aria-label={t('jobBoard.searchPlaceholder')}
             />
             {searchQuery && (
               <button
                 type="button"
                 onClick={() => setSearchQuery('')}
-                className="p-2 mr-1 rounded-full text-muted hover:text-slate-600 dark:hover:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
+                className="p-2 mr-1 rounded-full text-muted hover:text-slate-600 dark:hover:text-slate-300 hover:bg-surface-raised transition-colors"
                 aria-label="Clear search"
               >
                 <X className="w-4 h-4" />
@@ -6275,7 +6291,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                   key={s}
                   type="button"
                   onClick={() => setSearchQuery(s)}
-                  className="px-2.5 py-1 rounded-full text-xs bg-stripe-50 dark:bg-stripe-950/30 text-stripe-700 dark:text-stripe-300 border border-stripe-200 dark:border-stripe-800 hover:bg-stripe-100 dark:hover:bg-stripe-900/40 transition-colors"
+                  className="px-2.5 py-1 rounded-full text-xs bg-accent-subtle text-accent border border-accent-border hover:bg-stripe-100 dark:hover:bg-stripe-900/40 transition-colors"
                 >
                   {s}
                 </button>
@@ -6305,7 +6321,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                 className={`flex-shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-full border transition-[color,background-color,border-color,box-shadow] ${
                   chip.active
                     ? 'bg-stripe-600 border-stripe-600 text-white shadow-sm shadow-stripe-600/20'
-                    : 'bg-surface border-edge text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 hover:border-stripe-300 dark:hover:border-stripe-600'
+                    : 'bg-surface border-edge text-subtle hover:bg-surface-raised hover:border-stripe-300 dark:hover:border-stripe-600'
                 }`}
                 aria-pressed={chip.active}
               >
@@ -6331,7 +6347,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                 className={`flex-shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-full border transition-[color,background-color,border-color,box-shadow] ${
                   chip.active
                     ? 'bg-stripe-600 border-stripe-600 text-white shadow-sm shadow-stripe-600/20'
-                    : 'bg-surface border-edge text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 hover:border-stripe-300 dark:hover:border-stripe-600'
+                    : 'bg-surface border-edge text-subtle hover:bg-surface-raised hover:border-stripe-300 dark:hover:border-stripe-600'
                 }`}
                 aria-pressed={chip.active}
               >
@@ -6360,8 +6376,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
             onClick={() => setFiltersExpanded(!filtersExpanded)}
             className={`inline-flex items-center gap-2 px-3.5 py-2 text-sm font-medium rounded-xl border transition-colors ${
               filtersExpanded || activeFilterCount > 0
-                ? 'bg-stripe-50 dark:bg-stripe-950/30 border-stripe-300 dark:border-stripe-700 text-stripe-700 dark:text-stripe-300'
-                : 'bg-surface border-edge text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700'
+                ? 'bg-accent-subtle border-stripe-300 dark:border-stripe-700 text-accent'
+                : 'bg-surface border-edge text-subtle hover:bg-surface-raised'
             }`}
             aria-expanded={filtersExpanded}
             aria-label={t('jobBoard.filter.toggle') || 'Toggle filters'}
@@ -6382,7 +6398,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
             className={`inline-flex items-center gap-1.5 px-3 py-2 text-sm font-medium rounded-xl border transition-[color,background-color,border-color,box-shadow] ${
               showNewOnly
                 ? 'bg-stripe-600 border-stripe-600 text-white hover:bg-stripe-700 shadow-sm shadow-stripe-600/20'
-                : 'bg-surface border-edge text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700'
+                : 'bg-surface border-edge text-subtle hover:bg-surface-raised'
             }`}
             aria-label={t('jobBoard.filter.newOnly')}
             aria-pressed={showNewOnly}
@@ -6396,7 +6412,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
             <button
               type="button"
               onClick={resetAllFilters}
-              className="ml-auto inline-flex items-center gap-1 px-3 py-2 text-xs font-semibold text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 hover:bg-red-50 dark:hover:bg-red-950/20 rounded-lg transition-colors"
+              className="ml-auto inline-flex items-center gap-1 px-3 py-2 text-xs font-semibold text-danger hover:text-red-700 dark:hover:text-red-300 hover:bg-red-50 dark:hover:bg-red-950/20 rounded-lg transition-colors"
               aria-label={t('jobBoard.filter.resetAll') || 'Reset all filters'}
             >
               <X className="w-3.5 h-3.5" />
@@ -6413,10 +6429,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
                 <select
                   value={selectedLocation}
                   onChange={(e) => setSelectedLocation(e.target.value)}
-                  className={`w-full appearance-none pl-3 pr-8 py-2.5 min-h-[44px] text-sm rounded-xl border transition-colors focus-visible:ring-2 focus-visible:ring-stripe-500 focus-visible:border-transparent truncate ${
+                  className={`w-full appearance-none pl-3 pr-8 py-2.5 min-h-[44px] text-sm rounded-xl border transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-transparent truncate ${
                     selectedLocation !== 'all'
-                      ? 'border-stripe-300 dark:border-stripe-600 bg-stripe-50 dark:bg-stripe-950/20 text-stripe-700 dark:text-stripe-300'
-                      : 'border-edge bg-surface text-slate-900 dark:text-white'
+                      ? 'border-stripe-300 dark:border-stripe-600 bg-stripe-50 dark:bg-stripe-950/20 text-accent'
+                      : 'border-edge bg-surface text-heading'
                   }`}
                   aria-label={t('jobBoard.filter.location')}
                 >
@@ -6434,10 +6450,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
                 <select
                   value={selectedSector}
                   onChange={(e) => setSelectedSector(e.target.value)}
-                  className={`w-full appearance-none pl-3 pr-8 py-2.5 min-h-[44px] text-sm rounded-xl border transition-colors focus-visible:ring-2 focus-visible:ring-stripe-500 focus-visible:border-transparent truncate ${
+                  className={`w-full appearance-none pl-3 pr-8 py-2.5 min-h-[44px] text-sm rounded-xl border transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-transparent truncate ${
                     selectedSector !== 'all'
-                      ? 'border-stripe-300 dark:border-stripe-600 bg-stripe-50 dark:bg-stripe-950/20 text-stripe-700 dark:text-stripe-300'
-                      : 'border-edge bg-surface text-slate-900 dark:text-white'
+                      ? 'border-stripe-300 dark:border-stripe-600 bg-stripe-50 dark:bg-stripe-950/20 text-accent'
+                      : 'border-edge bg-surface text-heading'
                   }`}
                   aria-label={t('jobBoard.filter.sector')}
                 >
@@ -6455,10 +6471,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
                 <select
                   value={selectedCategory}
                   onChange={(e) => setSelectedCategory(e.target.value as JobCategory | 'all')}
-                  className={`w-full appearance-none pl-3 pr-8 py-2.5 min-h-[44px] text-sm rounded-xl border transition-colors focus-visible:ring-2 focus-visible:ring-stripe-500 focus-visible:border-transparent ${
+                  className={`w-full appearance-none pl-3 pr-8 py-2.5 min-h-[44px] text-sm rounded-xl border transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-transparent ${
                     selectedCategory !== 'all'
-                      ? 'border-stripe-300 dark:border-stripe-600 bg-stripe-50 dark:bg-stripe-950/20 text-stripe-700 dark:text-stripe-300'
-                      : 'border-edge bg-surface text-slate-900 dark:text-white'
+                      ? 'border-stripe-300 dark:border-stripe-600 bg-stripe-50 dark:bg-stripe-950/20 text-accent'
+                      : 'border-edge bg-surface text-heading'
                   }`}
                   aria-label={t('jobBoard.filter.category')}
                 >
@@ -6475,10 +6491,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
                 <select
                   value={selectedContract}
                   onChange={(e) => setSelectedContract(e.target.value as ContractType | 'all')}
-                  className={`w-full appearance-none pl-3 pr-8 py-2.5 min-h-[44px] text-sm rounded-xl border transition-colors focus-visible:ring-2 focus-visible:ring-stripe-500 focus-visible:border-transparent ${
+                  className={`w-full appearance-none pl-3 pr-8 py-2.5 min-h-[44px] text-sm rounded-xl border transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-transparent ${
                     selectedContract !== 'all'
-                      ? 'border-stripe-300 dark:border-stripe-600 bg-stripe-50 dark:bg-stripe-950/20 text-stripe-700 dark:text-stripe-300'
-                      : 'border-edge bg-surface text-slate-900 dark:text-white'
+                      ? 'border-stripe-300 dark:border-stripe-600 bg-stripe-50 dark:bg-stripe-950/20 text-accent'
+                      : 'border-edge bg-surface text-heading'
                   }`}
                   aria-label={t('jobBoard.filter.contract')}
                 >
@@ -6495,10 +6511,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
                 <select
                   value={selectedCompany}
                   onChange={(e) => setSelectedCompany(e.target.value)}
-                  className={`w-full appearance-none pl-3 pr-8 py-2.5 min-h-[44px] text-sm rounded-xl border transition-colors focus-visible:ring-2 focus-visible:ring-stripe-500 focus-visible:border-transparent truncate ${
+                  className={`w-full appearance-none pl-3 pr-8 py-2.5 min-h-[44px] text-sm rounded-xl border transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-transparent truncate ${
                     selectedCompany !== 'all'
-                      ? 'border-stripe-300 dark:border-stripe-600 bg-stripe-50 dark:bg-stripe-950/20 text-stripe-700 dark:text-stripe-300'
-                      : 'border-edge bg-surface text-slate-900 dark:text-white'
+                      ? 'border-stripe-300 dark:border-stripe-600 bg-stripe-50 dark:bg-stripe-950/20 text-accent'
+                      : 'border-edge bg-surface text-heading'
                   }`}
                   aria-label={t('jobBoard.filter.company')}
                 >
@@ -6516,10 +6532,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
                 <select
                   value={selectedDateRange}
                   onChange={(e) => setSelectedDateRange(e.target.value as DateRange)}
-                  className={`w-full appearance-none pl-3 pr-8 py-2.5 min-h-[44px] text-sm rounded-xl border transition-colors focus-visible:ring-2 focus-visible:ring-stripe-500 focus-visible:border-transparent ${
+                  className={`w-full appearance-none pl-3 pr-8 py-2.5 min-h-[44px] text-sm rounded-xl border transition-colors focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-transparent ${
                     selectedDateRange !== 'all'
-                      ? 'border-stripe-300 dark:border-stripe-600 bg-stripe-50 dark:bg-stripe-950/20 text-stripe-700 dark:text-stripe-300'
-                      : 'border-edge bg-surface text-slate-900 dark:text-white'
+                      ? 'border-stripe-300 dark:border-stripe-600 bg-stripe-50 dark:bg-stripe-950/20 text-accent'
+                      : 'border-edge bg-surface text-heading'
                   }`}
                   aria-label={t('jobBoard.filter.dateRange')}
                 >
@@ -6538,10 +6554,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
         {/* Related search suggestions — overflow-hidden transition prevents CLS */}
         <div className={`transition-[max-height,opacity] duration-200 overflow-hidden ${searchQuery.trim() && relatedSearchSuggestions.length > 0 ? 'max-h-[200px] opacity-100' : 'max-h-0 opacity-0'}`}>
           {searchQuery.trim() && relatedSearchSuggestions.length > 0 && (
-            <div className="rounded-xl border border-stripe-200 dark:border-stripe-800 bg-stripe-50/50 dark:bg-stripe-950/20 p-3">
+            <div className="rounded-xl border border-accent-border bg-stripe-50/50 dark:bg-stripe-950/20 p-3">
             <div className="flex items-center gap-2 mb-2">
-              <Search className="w-4 h-4 text-stripe-600 dark:text-stripe-300" />
-              <p className="text-xs font-semibold uppercase tracking-wide text-stripe-700 dark:text-stripe-300">Ricerche correlate</p>
+              <Search className="w-4 h-4 text-accent" />
+              <p className="text-xs font-semibold uppercase tracking-wide text-accent">Ricerche correlate</p>
             </div>
             <div className="flex flex-wrap gap-2">
               {relatedSearchSuggestions.map((term, i) => {
@@ -6554,7 +6570,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                       e.preventDefault();
                       navigateToRelatedSearch(term);
                     }}
-                    className="text-xs px-2.5 py-1.5 min-h-[44px] inline-flex items-center rounded-full bg-surface/40 text-stripe-700 dark:text-stripe-300 border border-stripe-200 dark:border-stripe-700 hover:bg-stripe-100 dark:hover:bg-stripe-900/30 transition-colors"
+                    className="text-xs px-2.5 py-1.5 min-h-[44px] inline-flex items-center rounded-full bg-surface/40 text-accent border border-accent-border hover:bg-accent-subtle transition-colors"
                   >
                     {term}
                   </a>
@@ -6579,7 +6595,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
           {isPersonalizationActive && (
             <div
               role="status"
-              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-stripe-50 dark:bg-stripe-950/30 border border-stripe-200/60 dark:border-stripe-800/40 text-xs font-medium text-stripe-600 dark:text-stripe-400 transition-opacity duration-300 ease-in motion-reduce:transition-none"
+              className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-accent-subtle border border-stripe-200/60 dark:border-stripe-800/40 text-xs font-medium text-accent transition-opacity duration-300 ease-in motion-reduce:transition-none"
             >
               <UserCheck className="w-3.5 h-3.5" />
               Personalizzato per te
@@ -6590,6 +6606,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
               trendingJobs={trendingJobs}
               popularity={popularity}
               onJobClick={(slug) => {
+                Analytics.trackSelectContent('trending_section_click', slug);
                 const job = jobs.find((j) => j.slug === slug);
                 if (job) openDetail(job);
               }}
@@ -6684,7 +6701,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
             <Building2 className="w-8 h-8 text-teal-700 dark:text-teal-400" />
           </div>
           <div className="flex-1">
-            <h3 className="font-bold text-slate-900 dark:text-white text-lg">{t('jobBoard.cta.title', getCantonI18nParams())}</h3>
+            <h3 className="font-bold text-heading text-lg">{t('jobBoard.cta.title', getCantonI18nParams())}</h3>
             <p className="text-sm text-subtle mt-1">{t('jobBoard.cta.description')}</p>
           </div>
           <button

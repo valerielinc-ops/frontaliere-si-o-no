@@ -250,6 +250,7 @@ const App: React.FC = () => {
   const [showApiStatus, setShowApiStatus] = useState(false);
   const [userProfile, setUserProfile] = useState<UserProfileData | null>(null);
   const [contactPrefill, setContactPrefill] = useState<ContactPrefill | null>(null);
+  const [enablePersonalization, setEnablePersonalization] = useState(false);
   const [adminGoogleButtonReady, setAdminGoogleButtonReady] = useState(false);
   const adminGoogleButtonRef = useRef<HTMLDivElement | null>(null);
   const [linkedInCallbackProcessing, setLinkedInCallbackProcessing] = useState(false);
@@ -873,6 +874,24 @@ const App: React.FC = () => {
     const savedJobCtx = consumeAuthJobContext();
     upsertNewsletterSubscriber(authEmail, 'signup', authUser?.displayName || null, savedJobCtx).catch((e) => reportCaughtError(e, 'app.autoNewsletterSubscribe'));
   }, [authEmail]);
+
+  // ── Personalization feature flag (Firebase Remote Config) ──
+  useEffect(() => {
+    import('@/services/firebase').then(({ getConfigValue }) =>
+      getConfigValue('ENABLE_JOB_PERSONALIZATION').then((v) => setEnablePersonalization(v === 'true'))
+    ).catch(() => {});
+  }, []);
+
+  // ── Personalization: Firestore sync on auth ──
+  useEffect(() => {
+    if (!enablePersonalization || !authEmail) return;
+    let cleanup: (() => void) | undefined;
+    import('@/services/behaviorTracker').then(({ hydrateFromFirestore, syncToFirestore, startSyncInterval }) => {
+      hydrateFromFirestore(authEmail).then(() => syncToFirestore(authEmail)).catch(() => {});
+      cleanup = startSyncInterval(authEmail);
+    }).catch(() => {});
+    return () => { cleanup?.(); };
+  }, [enablePersonalization, authEmail]);
 
   useEffect(() => {
     let cancelled = false;
@@ -2296,24 +2315,24 @@ const App: React.FC = () => {
     <ErrorBoundary>
     <TabContentContext.Provider value={tabContentValue}>
     <NavigationContext.Provider value={navContextValue}>
-      <div className={`min-h-screen relative flex flex-col font-sans text-slate-800 dark:text-slate-100 transition-colors duration-300 overflow-hidden`}>
-        <div className="absolute inset-0 bg-slate-50 dark:bg-slate-950 -z-20" style={{ contain: 'strict' }}></div>
+      <div className={`min-h-screen relative flex flex-col font-sans text-strong transition-colors duration-300 overflow-hidden`}>
+        <div className="absolute inset-0 bg-surface-alt -z-20" style={{ contain: 'strict' }}></div>
 
         {/* LinkedIn OAuth2 callback processing overlay */}
         {linkedInCallbackProcessing && (
-          <div className="fixed inset-0 z-[200] flex flex-col items-center justify-center bg-white dark:bg-slate-900">
+          <div className="fixed inset-0 z-[200] flex flex-col items-center justify-center bg-surface">
             <div className="flex flex-col items-center gap-4 text-center px-6">
               <div className="w-12 h-12 rounded-xl bg-[#0A66C2] flex items-center justify-center">
                 <svg className="w-7 h-7 text-white" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
               </div>
               <Loader2 className="w-6 h-6 animate-spin text-[#0A66C2]" />
-              <p className="text-slate-700 dark:text-slate-300 text-sm font-medium">
+              <p className="text-body text-sm font-medium">
                 {linkedInCallbackError
                   ? linkedInCallbackError
                   : 'Accesso con LinkedIn in corso…'}
               </p>
               {linkedInCallbackError && (
-                <a href="/" className="mt-2 text-sm text-stripe-600 dark:text-stripe-400 underline">
+                <a href="/" className="mt-2 text-sm text-accent underline">
                   Torna alla home
                 </a>
               )}
@@ -2324,38 +2343,38 @@ const App: React.FC = () => {
         {/* Newsletter confirmation welcome overlay */}
         {showNewsletterWelcome && (
           <div className="fixed inset-0 z-[200] flex items-center justify-center bg-black/50 backdrop-blur-sm animate-fade-in">
-            <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl p-8 max-w-lg mx-4 text-center border border-slate-200 dark:border-slate-700">
+            <div className="bg-surface rounded-2xl shadow-2xl p-8 max-w-lg mx-4 text-center border border-edge">
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-emerald-100 dark:bg-emerald-900/50 mb-4">
-                <svg className="w-8 h-8 text-emerald-600 dark:text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                <svg className="w-8 h-8 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
               </div>
-              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">{t('newsletter.welcome.title')}</h2>
-              <p className="text-slate-600 dark:text-slate-400 mb-6">{t('newsletter.welcome.description')}</p>
+              <h2 className="text-2xl font-bold text-heading mb-2">{t('newsletter.welcome.title')}</h2>
+              <p className="text-subtle mb-6">{t('newsletter.welcome.description')}</p>
               <div className="space-y-3 text-left mb-6">
-                <div className="flex items-start gap-3 p-3 rounded-lg bg-stripe-50 dark:bg-stripe-900/20">
-                  <span className="text-stripe-600 dark:text-stripe-400 mt-0.5">💱</span>
+                <div className="flex items-start gap-3 p-3 rounded-lg bg-accent-subtle">
+                  <span className="text-accent mt-0.5">💱</span>
                   <div>
-                    <p className="text-sm font-medium text-slate-800 dark:text-slate-200">{t('newsletter.exchangeRate')}</p>
-                    <p className="text-xs text-slate-600 dark:text-slate-400">{t('newsletter.weeklyRate')}</p>
+                    <p className="text-sm font-medium text-strong">{t('newsletter.exchangeRate')}</p>
+                    <p className="text-xs text-subtle">{t('newsletter.weeklyRate')}</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-3 p-3 rounded-lg bg-amber-50 dark:bg-amber-900/20">
-                  <span className="text-amber-600 dark:text-amber-400 mt-0.5">🚗</span>
+                <div className="flex items-start gap-3 p-3 rounded-lg bg-warning-subtle">
+                  <span className="text-warning mt-0.5">🚗</span>
                   <div>
-                    <p className="text-sm font-medium text-slate-800 dark:text-slate-200">{t('newsletter.borderTraffic')}</p>
-                    <p className="text-xs text-slate-600 dark:text-slate-400">{t('newsletter.timesAndTips')}</p>
+                    <p className="text-sm font-medium text-strong">{t('newsletter.borderTraffic')}</p>
+                    <p className="text-xs text-subtle">{t('newsletter.timesAndTips')}</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-3 p-3 rounded-lg bg-emerald-50 dark:bg-emerald-900/20">
-                  <span className="text-emerald-600 dark:text-emerald-400 mt-0.5">📋</span>
+                <div className="flex items-start gap-3 p-3 rounded-lg bg-success-subtle">
+                  <span className="text-success mt-0.5">📋</span>
                   <div>
-                    <p className="text-sm font-medium text-slate-800 dark:text-slate-200">{t('newsletter.taxNews')}</p>
-                    <p className="text-xs text-slate-600 dark:text-slate-400">{t('newsletter.deadlinesAndChanges')}</p>
+                    <p className="text-sm font-medium text-strong">{t('newsletter.taxNews')}</p>
+                    <p className="text-xs text-subtle">{t('newsletter.deadlinesAndChanges')}</p>
                   </div>
                 </div>
               </div>
               <button
                 onClick={() => setShowNewsletterWelcome(false)}
-                className="w-full px-6 py-3 bg-stripe-600 hover:bg-stripe-700 text-white font-medium rounded-xl transition-colors"
+                className="w-full px-6 py-3 bg-accent hover:bg-accent-hover text-white font-medium rounded-xl transition-colors"
               >
                 {t('newsletter.welcome.cta')}
               </button>
@@ -2365,29 +2384,29 @@ const App: React.FC = () => {
 
         {/* Newsletter unsubscribe confirmation */}
         {unsubscribeMsg && (
-          <div className="fixed top-4 left-1/2 -translate-x-1/2 z-[100] bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl shadow-xl px-6 py-4 max-w-md text-center animate-fade-in">
-            <p className="text-sm text-slate-700 dark:text-slate-300">{unsubscribeMsg}</p>
+          <div className="fixed top-4 left-1/2 -translate-x-1/2 z-[100] bg-surface border border-edge rounded-xl shadow-xl px-6 py-4 max-w-md text-center animate-fade-in">
+            <p className="text-sm text-body">{unsubscribeMsg}</p>
             {newsletterActionType === 'unsubscribe' && newsletterActionEmail && (
               <a
                 href={`/?action=resubscribe&email=${encodeURIComponent(newsletterActionEmail)}`}
-                className="inline-block mt-2 text-xs text-stripe-600 dark:text-stripe-400 hover:underline"
+                className="inline-block mt-2 text-xs text-accent hover:underline"
               >
                 Re-iscriviti alla newsletter
               </a>
             )}
-            <button onClick={() => setUnsubscribeMsg(null)} className="mt-2 text-xs text-stripe-600 dark:text-stripe-400 hover:underline">{t('common.close')}</button>
+            <button onClick={() => setUnsubscribeMsg(null)} className="mt-2 text-xs text-accent hover:underline">{t('common.close')}</button>
           </div>
         )}
 
         {/* Navbar */}
-        <nav aria-label="Navigazione principale" className="adsbygoogle-auto-ads-ignore sticky top-0 z-50 bg-white/95 dark:bg-slate-900/95 border-b border-slate-200/50 dark:border-slate-800/50 shadow-sm transition-colors duration-300">
+        <nav aria-label="Navigazione principale" className="adsbygoogle-auto-ads-ignore sticky top-0 z-50 bg-surface/95 border-b border-edge/50 shadow-sm transition-colors duration-300">
           <div className="max-w-[2400px] w-[95%] mx-auto px-4 sm:px-6">
             <div className="flex justify-between h-14 md:h-20 items-center">
               {/* Logo Section */}
               <a href={buildPath({ activeTab: 'calculator' })} onClick={(e) => { e.preventDefault(); handleLogoClick(); handleTabChange('calculator'); }} className="flex items-center gap-3 cursor-pointer no-underline" aria-label="Frontaliere Ticino — Analisi Fiscale 2026">
                 <div className="relative group">
                   <div className="absolute -inset-1 bg-gradient-to-r from-stripe-600 to-stripe-500 rounded-xl blur opacity-25 group-hover:opacity-50 transition duration-200"></div>
-                  <div className="relative bg-white dark:bg-slate-900 p-2 rounded-xl text-stripe-600 dark:text-stripe-500 ring-1 ring-slate-200 dark:ring-slate-800">
+                  <div className="relative bg-surface p-2 rounded-xl text-stripe-600 dark:text-stripe-500 ring-1 ring-edge">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" className="w-[22px] h-[22px] transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform">
                       <rect x="10" y="10" width="80" height="80" rx="16" fill="#1e293b" />
                       <rect x="22" y="22" width="56" height="20" rx="4" fill="#94a3b8" />
@@ -2407,10 +2426,10 @@ const App: React.FC = () => {
                   </div>
                 </div>
                 <div className="hidden sm:block">
-                  <span className="text-lg font-bold text-slate-800 dark:text-slate-100 leading-none tracking-tight whitespace-nowrap">
+                  <span className="text-lg font-bold text-strong leading-none tracking-tight whitespace-nowrap">
                     {t('app.title')}
                   </span>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 font-bold uppercase tracking-widest mt-0.5">{t('nav.subtitle')}</p>
+                  <p className="text-xs text-muted font-bold uppercase tracking-widest mt-0.5">{t('nav.subtitle')}</p>
                 </div>
               </a>
               
@@ -2502,7 +2521,7 @@ const App: React.FC = () => {
               </div>
 
               {/* Actions — slim on mobile (search + locale + hamburger), full on md+ */}
-              <div className="flex items-center gap-0.5 sm:gap-1.5 pl-2 sm:pl-4 border-l border-slate-200 dark:border-slate-800 shrink-0 min-w-fit">
+              <div className="flex items-center gap-0.5 sm:gap-1.5 pl-2 sm:pl-4 border-l border-edge shrink-0 min-w-fit">
                 {/* Search — always visible */}
                 {showDeferredHomeWidgets ? (
                   <Suspense fallback={<div className="w-9 h-9" />}><SiteSearch onNavigate={handleSearchNavigate} /></Suspense>
@@ -2528,7 +2547,7 @@ const App: React.FC = () => {
                 {/* Dark mode toggle — desktop only */}
                 <button
                   onClick={toggleTheme}
-                  className="hidden md:flex p-2 rounded-xl text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors shrink-0 min-w-[44px] min-h-[44px] items-center justify-center"
+                  className="hidden md:flex p-2 rounded-xl text-slate-500 hover:bg-surface-raised transition-colors shrink-0 min-w-[44px] min-h-[44px] items-center justify-center"
                   aria-label={isDarkMode ? t('app.lightMode') : t('app.darkMode')}
                 >
                   {isDarkMode ? <Sun size={18} className="text-amber-400" /> : <Moon size={18} className="text-slate-600" />}
@@ -2539,7 +2558,7 @@ const App: React.FC = () => {
                   {authUser ? (
                     <button
                       onClick={() => handleTabChange('profile')}
-                      className={`p-1 rounded-xl transition-[color,background-color,border-color,box-shadow] shrink-0 ${activeTab === 'profile' ? 'ring-2 ring-stripe-400' : 'hover:ring-2 hover:ring-slate-300 dark:hover:ring-slate-600'}`}
+                      className={`p-1 rounded-xl transition-[color,background-color,border-color,box-shadow] shrink-0 ${activeTab === 'profile' ? 'ring-2 ring-accent' : 'hover:ring-2 hover:ring-edge'}`}
                       aria-label={t('profile.title')}
                       title={getUserDisplayName(authUser)}
                     >
@@ -2554,16 +2573,16 @@ const App: React.FC = () => {
                         />
                       ) : (
                         <div className="w-[30px] h-[30px] rounded-lg bg-stripe-100 dark:bg-stripe-900 flex items-center justify-center">
-                          <UserIcon size={16} className="text-stripe-600 dark:text-stripe-400" />
+                          <UserIcon size={16} className="text-accent" />
                         </div>
                       )}
                     </button>
                   ) : authLoading ? (
-                    <div className="w-[30px] h-[30px] rounded-lg bg-slate-200 dark:bg-slate-700 animate-pulse shrink-0" aria-hidden="true" />
+                    <div className="w-[30px] h-[30px] rounded-lg bg-surface-raised animate-pulse shrink-0" aria-hidden="true" />
                   ) : (
                     <button
                       onClick={() => handleTabChange('profile')}
-                      className="p-2 rounded-xl text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors shrink-0 min-w-[44px] min-h-[44px] flex items-center justify-center"
+                      className="p-2 rounded-xl text-slate-500 hover:bg-surface-raised transition-colors shrink-0 min-w-[44px] min-h-[44px] flex items-center justify-center"
                       aria-label={t('profile.signIn')}
                       title={t('profile.signIn')}
                     >
@@ -2579,7 +2598,7 @@ const App: React.FC = () => {
                     className={`hidden md:flex p-2 rounded-xl transition-colors shrink-0 items-center justify-center ${
                       activeTab === 'admin'
                         ? 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300'
-                        : 'text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800'
+                        : 'text-slate-500 hover:bg-surface-raised'
                     }`}
                     aria-label="Apri pannello amministrazione"
                     title="Pannello amministrazione"
@@ -2591,7 +2610,7 @@ const App: React.FC = () => {
                 {/* Hamburger — mobile only */}
                 <button
                   onClick={() => setMobileMenuOpen(prev => !prev)}
-                  className="md:hidden p-2 rounded-xl text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors shrink-0 min-w-[44px] min-h-[44px] flex items-center justify-center"
+                  className="md:hidden p-2 rounded-xl text-slate-500 hover:bg-surface-raised transition-colors shrink-0 min-w-[44px] min-h-[44px] flex items-center justify-center"
                   aria-label={mobileMenuOpen ? 'Chiudi menu' : 'Apri menu'}
                   aria-expanded={mobileMenuOpen}
                 >
@@ -2602,12 +2621,12 @@ const App: React.FC = () => {
 
             {/* Mobile slide-down drawer */}
             {mobileMenuOpen && (
-              <div className="md:hidden border-t border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-4 py-3 animate-slide-down">
+              <div className="md:hidden border-t border-edge bg-surface px-4 py-3 animate-slide-down">
                 <div className="flex flex-col gap-1">
                   {/* Dark mode toggle */}
                   <button
                     onClick={() => { toggleTheme(); setMobileMenuOpen(false); }}
-                    className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors w-full text-left"
+                    className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-body hover:bg-surface-raised transition-colors w-full text-left"
                   >
                     {isDarkMode ? <Sun size={18} className="text-amber-400" /> : <Moon size={18} className="text-slate-600" />}
                     <span className="text-sm font-medium">{isDarkMode ? t('app.lightMode') : t('app.darkMode')}</span>
@@ -2616,7 +2635,7 @@ const App: React.FC = () => {
                   {/* What's New */}
                   <button
                     onClick={() => { setShowWhatsNew(true); setMobileMenuOpen(false); }}
-                    className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors w-full text-left"
+                    className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-body hover:bg-surface-raised transition-colors w-full text-left"
                   >
                     <Newspaper size={18} />
                     <span className="text-sm font-medium">What&apos;s New</span>
@@ -2626,7 +2645,7 @@ const App: React.FC = () => {
                   {authUser ? (
                     <button
                       onClick={() => handleTabChange('profile')}
-                      className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors w-full text-left"
+                      className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-body hover:bg-surface-raised transition-colors w-full text-left"
                     >
                       {getUserPhotoURL(authUser, authUser?.uid) ? (
                         <img
@@ -2638,14 +2657,14 @@ const App: React.FC = () => {
                           referrerPolicy="no-referrer"
                         />
                       ) : (
-                        <UserIcon size={18} className="text-stripe-600 dark:text-stripe-400" />
+                        <UserIcon size={18} className="text-accent" />
                       )}
                       <span className="text-sm font-medium">{t('profile.title')}</span>
                     </button>
                   ) : !authLoading && (
                     <button
                       onClick={() => handleTabChange('profile')}
-                      className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors w-full text-left"
+                      className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-body hover:bg-surface-raised transition-colors w-full text-left"
                     >
                       <LogIn size={18} />
                       <span className="text-sm font-medium">{t('profile.signIn')}</span>
@@ -2656,7 +2675,7 @@ const App: React.FC = () => {
                   {isPrivilegedAdmin && (
                     <button
                       onClick={() => handleTabChange('admin')}
-                      className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors w-full text-left"
+                      className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-danger hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors w-full text-left"
                     >
                       <Shield size={18} />
                       <span className="text-sm font-medium">Pannello amministrazione</span>
@@ -2882,6 +2901,8 @@ const App: React.FC = () => {
                 isLoggedIn={!!authUser}
                 authUser={authUser}
                 authLoading={authLoading}
+                enablePersonalization={enablePersonalization}
+                userProfile={userProfile}
                 onGoogleAuthRequired={googleSignIn}
                 onFacebookAuthRequired={facebookSignIn}
                 onRequireAuth={() => {
@@ -2956,8 +2977,8 @@ const App: React.FC = () => {
               {authLoading ? (
                 <div className="flex flex-col items-center justify-center py-20 space-y-4">
                   <Shield size={48} className="text-slate-500" />
-                  <h2 className="text-xl font-bold text-slate-900 dark:text-white">Verifica sessione amministratore</h2>
-                  <p className="text-slate-600 dark:text-slate-400 text-center max-w-md">
+                  <h2 className="text-xl font-bold text-heading">Verifica sessione amministratore</h2>
+                  <p className="text-subtle text-center max-w-md">
                     Stiamo ripristinando l&apos;accesso. Attendi un istante.
                   </p>
                 </div>
@@ -2966,8 +2987,8 @@ const App: React.FC = () => {
               ) : (
                 <div className="flex flex-col items-center justify-center py-20 space-y-4">
                   <Shield size={48} className="text-red-500" />
-                  <h2 className="text-xl font-bold text-slate-900 dark:text-white">Accesso riservato</h2>
-                  <p className="text-slate-600 dark:text-slate-400 text-center max-w-md">
+                  <h2 className="text-xl font-bold text-heading">Accesso riservato</h2>
+                  <p className="text-subtle text-center max-w-md">
                     Questa sezione è riservata all'amministratore del sito.
                   </p>
                   {!authUser && (
@@ -2976,7 +2997,7 @@ const App: React.FC = () => {
                       {!adminGoogleButtonReady && (
                         <button
                           onClick={googleSignIn}
-                          className="w-full px-6 py-2 bg-stripe-600 hover:bg-stripe-700 text-white rounded-lg font-medium transition-colors"
+                          className="w-full px-6 py-2 bg-accent hover:bg-accent-hover text-white rounded-lg font-medium transition-colors"
                         >
                           Accedi con Google
                         </button>
@@ -2994,21 +3015,21 @@ const App: React.FC = () => {
 
           {ctaItems.length > 0 && (
             <div className="mt-8">
-              <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-4 sm:p-6">
+              <div className="bg-surface border border-edge rounded-2xl p-4 sm:p-6">
                 <div className="flex items-center gap-2">
-                  <Sparkles size={18} className="text-stripe-600 dark:text-stripe-300" />
-                  <h2 className="text-lg font-bold text-slate-900 dark:text-white">{t('cta.tryAlso')}</h2>
+                  <Sparkles size={18} className="text-accent" />
+                  <h2 className="text-lg font-bold text-heading">{t('cta.tryAlso')}</h2>
                 </div>
                 <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3">
                   {visibleCtaItems.map((item) => (
                     <button
                       key={item.analyticsLabel}
                       onClick={() => handleCtaClick(item)}
-                      className="w-full text-left rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/40 px-4 py-3 hover:bg-slate-100 dark:hover:bg-slate-900 transition-colors"
+                      className="w-full text-left rounded-xl border border-edge bg-surface-alt px-4 py-3 hover:bg-surface-raised transition-colors"
                     >
                       <div className="flex items-center justify-between gap-3">
-                        <span className="text-sm font-semibold text-slate-900 dark:text-white">{item.label}</span>
-                        <span className="text-slate-600 dark:text-slate-300" aria-hidden>→</span>
+                        <span className="text-sm font-semibold text-heading">{item.label}</span>
+                        <span className="text-subtle" aria-hidden>→</span>
                       </div>
                     </button>
                   ))}
@@ -3020,7 +3041,7 @@ const App: React.FC = () => {
 
           {/* Visible "last updated" date — AI freshness signal + user trust */}
           {!(['admin', 'profile', 'email-confirmed', 'privacy', 'terms', 'data-deletion'] as string[]).includes(activeTab) && (
-            <p className="text-sm text-slate-500 dark:text-slate-400 text-center mt-6">
+            <p className="text-sm text-muted text-center mt-6">
               <time dateTime={footerDateStr.dateTimeAttr}>
                 {t('stats.lastUpdate')}: {footerDateStr.display}
               </time>
@@ -3028,7 +3049,7 @@ const App: React.FC = () => {
           )}
         </main>
 
-        <footer className="adsbygoogle-auto-ads-ignore border-t border-slate-200/60 dark:border-slate-800 bg-slate-50 dark:bg-slate-800 py-8 pb-20 md:pb-8 mt-auto relative z-10" style={{ contentVisibility: 'auto', containIntrinsicSize: 'auto 1600px' }}>
+        <footer className="adsbygoogle-auto-ads-ignore border-t border-edge bg-surface-alt py-8 pb-20 md:pb-8 mt-auto relative z-10" style={{ contentVisibility: 'auto', containIntrinsicSize: 'auto 1600px' }}>
           <div className="max-w-7xl mx-auto px-4 space-y-6">
             {/* Footer weather widget */}
             <Suspense fallback={<SkeletonFooterSlot height="min-h-[36px]" />}><FooterWeather /></Suspense>
@@ -3049,7 +3070,7 @@ const App: React.FC = () => {
                 href={`https://github.com/valerielinc-ops/frontaliere-si-o-no/commit/${typeof __COMMIT_HASH__ !== 'undefined' ? __COMMIT_HASH__ : 'unknown'}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-mono text-slate-500 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 px-1 py-0.5 rounded transition-colors opacity-70 hover:opacity-100"
+                className="text-sm font-mono text-muted hover:text-accent px-1 py-0.5 rounded transition-colors opacity-70 hover:opacity-100"
                 title="Versione del sito: commit GitHub deploy"
               >
                 <span>v</span>
@@ -3057,10 +3078,10 @@ const App: React.FC = () => {
               </a>
             </div>
 
-            <div className="text-center text-slate-500 dark:text-slate-400 text-sm space-y-3">
+            <div className="text-center text-muted text-sm space-y-3">
             <p className="font-medium">
               {t('footer.copyright')}
-              <span className="text-slate-300 dark:text-slate-600 mx-2">|</span> 
+              <span className="text-edge mx-2">|</span> 
               {t('footer.disclaimer')}
             </p>
             {/* Footer links — desktop: flat flex-wrap, mobile: accordion */}
@@ -3068,192 +3089,192 @@ const App: React.FC = () => {
               <a
                 href={buildPath({ activeTab: 'chi-siamo' as any })}
                 onClick={(e) => { e.preventDefault(); navigateTo('chi-siamo' as any); }}
-                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 transition-colors no-underline"
+                className="inline-flex items-center gap-1 text-xs text-subtle hover:text-accent transition-colors no-underline"
               >
                 <Users className="w-3.5 h-3.5" />
                 {t('footer.aboutUs')}
               </a>
-              <span className="text-slate-300 dark:text-slate-700">·</span>
+              <span className="text-edge">·</span>
               <a
                 href={buildPath({ activeTab: 'contact' as any })}
                 onClick={(e) => { e.preventDefault(); navigateTo('contact' as any); }}
-                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 transition-colors no-underline"
+                className="inline-flex items-center gap-1 text-xs text-subtle hover:text-accent transition-colors no-underline"
               >
                 <Mail className="w-3.5 h-3.5" />
                 {t('footer.contactTitle')}
               </a>
-              <span className="text-slate-300 dark:text-slate-700">·</span>
+              <span className="text-edge">·</span>
               <a
                 href={buildPath({ activeTab: 'feedback' })}
                 onClick={(e) => { e.preventDefault(); navigateTo('feedback'); }}
-                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 transition-colors no-underline"
+                className="inline-flex items-center gap-1 text-xs text-subtle hover:text-accent transition-colors no-underline"
               >
                 <Bug className="w-3.5 h-3.5" />
                 {t('footer.improveTitle')}
               </a>
-              <span className="text-slate-300 dark:text-slate-700">·</span>
+              <span className="text-edge">·</span>
               <a
                 href={buildPath({ activeTab: 'privacy' })}
                 onClick={(e) => { e.preventDefault(); navigateTo('privacy' as any); }}
-                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 transition-colors no-underline"
+                className="inline-flex items-center gap-1 text-xs text-subtle hover:text-accent transition-colors no-underline"
               >
                 <Shield className="w-3.5 h-3.5" />
                 {t('footer.privacy')}
               </a>
-              <span className="text-slate-300 dark:text-slate-700">·</span>
+              <span className="text-edge">·</span>
               <a
                 href={buildPath({ activeTab: 'terms' })}
                 onClick={(e) => { e.preventDefault(); navigateTo('terms' as any); }}
-                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 transition-colors no-underline"
+                className="inline-flex items-center gap-1 text-xs text-subtle hover:text-accent transition-colors no-underline"
               >
                 <FileText className="w-3.5 h-3.5" />
                 Termini
               </a>
-              <span className="text-slate-300 dark:text-slate-700">·</span>
+              <span className="text-edge">·</span>
               <a
                 href={buildPath({ activeTab: 'api-status' })}
                 onClick={(e) => { e.preventDefault(); navigateTo('api-status' as any); Analytics.trackApiDiagnostics('view'); }}
-                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300 transition-colors no-underline"
+                className="inline-flex items-center gap-1 text-xs text-subtle hover:text-slate-700 dark:hover:text-slate-300 transition-colors no-underline"
               >
                 {t('footer.apiStatus')}
               </a>
-              <span className="text-slate-300 dark:text-slate-700">·</span>
+              <span className="text-edge">·</span>
               <a
                 href={buildPath({ activeTab: 'partners' as any })}
                 onClick={(e) => { e.preventDefault(); navigateTo('partners' as any); }}
-                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-emerald-700 dark:hover:text-emerald-400 transition-colors no-underline"
+                className="inline-flex items-center gap-1 text-xs text-subtle hover:text-emerald-700 dark:hover:text-emerald-400 transition-colors no-underline"
               >
                 {t('partners.footerLink')}
               </a>
-              <span className="text-slate-300 dark:text-slate-700">·</span>
+              <span className="text-edge">·</span>
               <a
                 href={buildPath({ activeTab: 'consulting' as any })}
                 onClick={(e) => { e.preventDefault(); navigateTo('consulting' as any); }}
-                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 transition-colors no-underline"
+                className="inline-flex items-center gap-1 text-xs text-subtle hover:text-accent transition-colors no-underline"
               >
                 {t('consulting.footerLink')}
               </a>
-              <span className="text-slate-300 dark:text-slate-700">·</span>
+              <span className="text-edge">·</span>
               <a
                 href={buildPath({ activeTab: 'job-board' as any })}
                 onClick={(e) => { e.preventDefault(); setJobSlug(null); navigateTo('job-board' as any); }}
-                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 transition-colors no-underline"
+                className="inline-flex items-center gap-1 text-xs text-subtle hover:text-accent transition-colors no-underline"
               >
                 {t('jobBoard.footerLink', getCantonI18nParams())}
               </a>
-              <span className="text-slate-300 dark:text-slate-700">·</span>
+              <span className="text-edge">·</span>
               <a
                 href={buildPath({ activeTab: 'stats', statsSubTab: 'fuel-prices' })}
                 onClick={(e) => { e.preventDefault(); setStatsSubTab('fuel-prices'); navigateTo('stats', 'fuel-prices'); }}
-                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-400 transition-colors no-underline"
+                className="inline-flex items-center gap-1 text-xs text-subtle hover:text-orange-600 dark:hover:text-orange-400 transition-colors no-underline"
               >
                 <Fuel className="w-3.5 h-3.5" />
                 {t('footer.fuelPrices')}
               </a>
-              <span className="text-slate-300 dark:text-slate-700">·</span>
+              <span className="text-edge">·</span>
               <a
                 href={buildPath({ activeTab: 'morning' as any })}
                 onClick={(e) => { e.preventDefault(); navigateTo('morning' as any); }}
-                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-400 transition-colors no-underline"
+                className="inline-flex items-center gap-1 text-xs text-subtle hover:text-orange-600 dark:hover:text-orange-400 transition-colors no-underline"
               >
                 <Sunrise className="w-3.5 h-3.5" />
                 {t('footer.morningDashboard')}
               </a>
-              <span className="text-slate-300 dark:text-slate-700">·</span>
+              <span className="text-edge">·</span>
               <a
                 href={buildPath({ activeTab: 'faq' })}
                 onClick={(e) => { e.preventDefault(); navigateTo('faq' as any); }}
-                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 transition-colors no-underline"
+                className="inline-flex items-center gap-1 text-xs text-subtle hover:text-accent transition-colors no-underline"
               >
                 <HelpCircle className="w-3.5 h-3.5" />
                 FAQ
               </a>
-              <span className="text-slate-300 dark:text-slate-700">·</span>
+              <span className="text-edge">·</span>
               <a
                 href={buildPath({ activeTab: 'blog' })}
                 onClick={(e) => { e.preventDefault(); navigateTo('blog' as any); }}
-                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 transition-colors no-underline"
+                className="inline-flex items-center gap-1 text-xs text-subtle hover:text-accent transition-colors no-underline"
               >
                 <Newspaper className="w-3.5 h-3.5" />
                 {t('blog.title')}
               </a>
-              <span className="text-slate-300 dark:text-slate-700">·</span>
+              <span className="text-edge">·</span>
               <a
                 href={buildPath({ activeTab: 'glossario' })}
                 onClick={(e) => { e.preventDefault(); navigateTo('glossario' as any); }}
-                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition-colors no-underline"
+                className="inline-flex items-center gap-1 text-xs text-subtle hover:text-teal-600 dark:hover:text-teal-400 transition-colors no-underline"
               >
                 <BookA className="w-3.5 h-3.5" />
                 {t('glossary.title')}
               </a>
-              <span className="text-slate-300 dark:text-slate-700">·</span>
+              <span className="text-edge">·</span>
               <a
                 href={buildPath({ activeTab: 'dialetto' as any })}
                 onClick={(e) => { e.preventDefault(); navigateTo('dialetto' as any); }}
-                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-400 transition-colors no-underline"
+                className="inline-flex items-center gap-1 text-xs text-subtle hover:text-orange-600 dark:hover:text-orange-400 transition-colors no-underline"
               >
                 <Languages className="w-3.5 h-3.5" />
                 {t('dialect.title')}
               </a>
-              <span className="text-slate-300 dark:text-slate-700">·</span>
+              <span className="text-edge">·</span>
               <a
                 href={buildPath({ activeTab: 'sitemap' as any })}
                 onClick={(e) => { e.preventDefault(); navigateTo('sitemap' as any); }}
-                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300 transition-colors no-underline"
+                className="inline-flex items-center gap-1 text-xs text-subtle hover:text-slate-700 dark:hover:text-slate-300 transition-colors no-underline"
               >
                 {t('sitemap.title')}
               </a>
-              <span className="text-slate-300 dark:text-slate-700">·</span>
+              <span className="text-edge">·</span>
               <a
                 href={buildPath({ activeTab: 'contracts' })}
                 onClick={(e) => { e.preventDefault(); navigateTo('contracts' as any); }}
-                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 transition-colors no-underline"
+                className="inline-flex items-center gap-1 text-xs text-subtle hover:text-accent transition-colors no-underline"
               >
                 <FileText className="w-3.5 h-3.5" />
                 {t('contracts.footerLink')}
               </a>
-              <span className="text-slate-300 dark:text-slate-700">·</span>
+              <span className="text-edge">·</span>
               <a
                 href={buildPath({ activeTab: 'sindacati' as any })}
                 onClick={(e) => { e.preventDefault(); navigateTo('sindacati' as any); }}
-                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 transition-colors no-underline"
+                className="inline-flex items-center gap-1 text-xs text-subtle hover:text-accent transition-colors no-underline"
               >
                 <Scale className="w-3.5 h-3.5" />
                 Sindacati
               </a>
-              <span className="text-slate-300 dark:text-slate-700">·</span>
+              <span className="text-edge">·</span>
               <a
                 href={buildPath({ activeTab: 'tfr-calculator' })}
                 onClick={(e) => { e.preventDefault(); navigateTo('tfr-calculator' as any); }}
-                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors no-underline"
+                className="inline-flex items-center gap-1 text-xs text-subtle hover:text-amber-600 dark:hover:text-amber-400 transition-colors no-underline"
               >
                 <Banknote className="w-3.5 h-3.5" />
                 {t('tfr.footerLink')}
               </a>
-              <span className="text-slate-300 dark:text-slate-700">·</span>
+              <span className="text-edge">·</span>
               <a
                 href={buildPath({ activeTab: 'tredicesima' })}
                 onClick={(e) => { e.preventDefault(); navigateTo('tredicesima' as any); }}
-                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors no-underline"
+                className="inline-flex items-center gap-1 text-xs text-subtle hover:text-amber-600 dark:hover:text-amber-400 transition-colors no-underline"
               >
                 <Gift className="w-3.5 h-3.5" />
                 {t('tredicesima.footerLink')}
               </a>
-              <span className="text-slate-300 dark:text-slate-700">·</span>
+              <span className="text-edge">·</span>
               <a
                 href={buildPath({ activeTab: 'tool-of-week' })}
                 onClick={(e) => { e.preventDefault(); navigateTo('tool-of-week' as any); }}
-                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 transition-colors no-underline"
+                className="inline-flex items-center gap-1 text-xs text-subtle hover:text-accent transition-colors no-underline"
               >
                 <Sparkles className="w-3.5 h-3.5" />
                 {t('toolOfWeek.title')}
               </a>
-              <span className="text-slate-300 dark:text-slate-700">·</span>
+              <span className="text-edge">·</span>
               <a
                 href="https://www.facebook.com/profile.php?id=61588174947294"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 transition-colors no-underline"
+                className="inline-flex items-center gap-1 text-xs text-subtle hover:text-accent transition-colors no-underline"
                 aria-label={t('footer.followFacebook')}
               >
                 <Facebook className="w-3.5 h-3.5" />
@@ -3265,50 +3286,50 @@ const App: React.FC = () => {
             <div className="md:hidden space-y-1 mt-2">
               {/* Info & Legal */}
               <details className="group border-b border-slate-200/50 dark:border-slate-700/50">
-                <summary className="flex items-center justify-between py-3 text-sm font-semibold text-slate-700 dark:text-slate-300 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+                <summary className="flex items-center justify-between py-3 text-sm font-semibold text-body cursor-pointer list-none [&::-webkit-details-marker]:hidden">
                   <span>Informazioni</span>
                   <span className="text-slate-400 text-xs group-open:rotate-180 transition-transform">▼</span>
                 </summary>
                 <div className="pb-3 grid grid-cols-2 gap-x-4 gap-y-1">
-                  <a href={buildPath({ activeTab: 'chi-siamo' as any })} onClick={(e) => { e.preventDefault(); navigateTo('chi-siamo' as any); }} className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 py-1.5 no-underline"><Users className="w-3.5 h-3.5 shrink-0" />{t('footer.aboutUs')}</a>
-                  <a href={buildPath({ activeTab: 'contact' as any })} onClick={(e) => { e.preventDefault(); navigateTo('contact' as any); }} className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 py-1.5 no-underline"><Mail className="w-3.5 h-3.5 shrink-0" />{t('footer.contactTitle')}</a>
-                  <a href={buildPath({ activeTab: 'feedback' })} onClick={(e) => { e.preventDefault(); navigateTo('feedback'); }} className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 py-1.5 no-underline"><Bug className="w-3.5 h-3.5 shrink-0" />{t('footer.improveTitle')}</a>
-                  <a href={buildPath({ activeTab: 'privacy' })} onClick={(e) => { e.preventDefault(); navigateTo('privacy' as any); }} className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 py-1.5 no-underline"><Shield className="w-3.5 h-3.5 shrink-0" />{t('footer.privacy')}</a>
-                  <a href={buildPath({ activeTab: 'terms' })} onClick={(e) => { e.preventDefault(); navigateTo('terms' as any); }} className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 py-1.5 no-underline"><FileText className="w-3.5 h-3.5 shrink-0" />Termini</a>
-                  <a href={buildPath({ activeTab: 'api-status' })} onClick={(e) => { e.preventDefault(); navigateTo('api-status' as any); Analytics.trackApiDiagnostics('view'); }} className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 py-1.5 no-underline">{t('footer.apiStatus')}</a>
-                  <a href={buildPath({ activeTab: 'partners' as any })} onClick={(e) => { e.preventDefault(); navigateTo('partners' as any); }} className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-emerald-700 dark:hover:text-emerald-400 py-1.5 no-underline">{t('partners.footerLink')}</a>
+                  <a href={buildPath({ activeTab: 'chi-siamo' as any })} onClick={(e) => { e.preventDefault(); navigateTo('chi-siamo' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 no-underline"><Users className="w-3.5 h-3.5 shrink-0" />{t('footer.aboutUs')}</a>
+                  <a href={buildPath({ activeTab: 'contact' as any })} onClick={(e) => { e.preventDefault(); navigateTo('contact' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 no-underline"><Mail className="w-3.5 h-3.5 shrink-0" />{t('footer.contactTitle')}</a>
+                  <a href={buildPath({ activeTab: 'feedback' })} onClick={(e) => { e.preventDefault(); navigateTo('feedback'); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 no-underline"><Bug className="w-3.5 h-3.5 shrink-0" />{t('footer.improveTitle')}</a>
+                  <a href={buildPath({ activeTab: 'privacy' })} onClick={(e) => { e.preventDefault(); navigateTo('privacy' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 no-underline"><Shield className="w-3.5 h-3.5 shrink-0" />{t('footer.privacy')}</a>
+                  <a href={buildPath({ activeTab: 'terms' })} onClick={(e) => { e.preventDefault(); navigateTo('terms' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 no-underline"><FileText className="w-3.5 h-3.5 shrink-0" />Termini</a>
+                  <a href={buildPath({ activeTab: 'api-status' })} onClick={(e) => { e.preventDefault(); navigateTo('api-status' as any); Analytics.trackApiDiagnostics('view'); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 no-underline">{t('footer.apiStatus')}</a>
+                  <a href={buildPath({ activeTab: 'partners' as any })} onClick={(e) => { e.preventDefault(); navigateTo('partners' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-emerald-700 dark:hover:text-emerald-400 py-1.5 no-underline">{t('partners.footerLink')}</a>
                 </div>
               </details>
               {/* Strumenti */}
               <details className="group border-b border-slate-200/50 dark:border-slate-700/50">
-                <summary className="flex items-center justify-between py-3 text-sm font-semibold text-slate-700 dark:text-slate-300 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+                <summary className="flex items-center justify-between py-3 text-sm font-semibold text-body cursor-pointer list-none [&::-webkit-details-marker]:hidden">
                   <span>Strumenti</span>
                   <span className="text-slate-400 text-xs group-open:rotate-180 transition-transform">▼</span>
                 </summary>
                 <div className="pb-3 grid grid-cols-2 gap-x-4 gap-y-1">
-                  <a href={buildPath({ activeTab: 'job-board' as any })} onClick={(e) => { e.preventDefault(); setJobSlug(null); navigateTo('job-board' as any); }} className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 py-1.5 no-underline"><Briefcase className="w-3.5 h-3.5 shrink-0" />{t('jobBoard.footerLink', getCantonI18nParams())}</a>
-                  <a href={buildPath({ activeTab: 'stats', statsSubTab: 'fuel-prices' })} onClick={(e) => { e.preventDefault(); setStatsSubTab('fuel-prices'); navigateTo('stats', 'fuel-prices'); }} className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-400 py-1.5 no-underline"><Fuel className="w-3.5 h-3.5 shrink-0" />{t('footer.fuelPrices')}</a>
-                  <a href={buildPath({ activeTab: 'morning' as any })} onClick={(e) => { e.preventDefault(); navigateTo('morning' as any); }} className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-400 py-1.5 no-underline"><Sunrise className="w-3.5 h-3.5 shrink-0" />{t('footer.morningDashboard')}</a>
-                  <a href={buildPath({ activeTab: 'tfr-calculator' })} onClick={(e) => { e.preventDefault(); navigateTo('tfr-calculator' as any); }} className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-amber-600 dark:hover:text-amber-400 py-1.5 no-underline"><Banknote className="w-3.5 h-3.5 shrink-0" />{t('tfr.footerLink')}</a>
-                  <a href={buildPath({ activeTab: 'tredicesima' })} onClick={(e) => { e.preventDefault(); navigateTo('tredicesima' as any); }} className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-amber-600 dark:hover:text-amber-400 py-1.5 no-underline"><Gift className="w-3.5 h-3.5 shrink-0" />{t('tredicesima.footerLink')}</a>
-                  <a href={buildPath({ activeTab: 'contracts' })} onClick={(e) => { e.preventDefault(); navigateTo('contracts' as any); }} className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 py-1.5 no-underline"><FileText className="w-3.5 h-3.5 shrink-0" />{t('contracts.footerLink')}</a>
-                  <a href={buildPath({ activeTab: 'sindacati' as any })} onClick={(e) => { e.preventDefault(); navigateTo('sindacati' as any); }} className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 py-1.5 no-underline"><Scale className="w-3.5 h-3.5 shrink-0" />Sindacati</a>
-                  <a href={buildPath({ activeTab: 'consulting' as any })} onClick={(e) => { e.preventDefault(); navigateTo('consulting' as any); }} className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 py-1.5 no-underline">{t('consulting.footerLink')}</a>
-                  <a href={buildPath({ activeTab: 'tool-of-week' })} onClick={(e) => { e.preventDefault(); navigateTo('tool-of-week' as any); }} className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 py-1.5 no-underline"><Sparkles className="w-3.5 h-3.5 shrink-0" />{t('toolOfWeek.title')}</a>
+                  <a href={buildPath({ activeTab: 'job-board' as any })} onClick={(e) => { e.preventDefault(); setJobSlug(null); navigateTo('job-board' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 no-underline"><Briefcase className="w-3.5 h-3.5 shrink-0" />{t('jobBoard.footerLink', getCantonI18nParams())}</a>
+                  <a href={buildPath({ activeTab: 'stats', statsSubTab: 'fuel-prices' })} onClick={(e) => { e.preventDefault(); setStatsSubTab('fuel-prices'); navigateTo('stats', 'fuel-prices'); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-orange-600 dark:hover:text-orange-400 py-1.5 no-underline"><Fuel className="w-3.5 h-3.5 shrink-0" />{t('footer.fuelPrices')}</a>
+                  <a href={buildPath({ activeTab: 'morning' as any })} onClick={(e) => { e.preventDefault(); navigateTo('morning' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-orange-600 dark:hover:text-orange-400 py-1.5 no-underline"><Sunrise className="w-3.5 h-3.5 shrink-0" />{t('footer.morningDashboard')}</a>
+                  <a href={buildPath({ activeTab: 'tfr-calculator' })} onClick={(e) => { e.preventDefault(); navigateTo('tfr-calculator' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-amber-600 dark:hover:text-amber-400 py-1.5 no-underline"><Banknote className="w-3.5 h-3.5 shrink-0" />{t('tfr.footerLink')}</a>
+                  <a href={buildPath({ activeTab: 'tredicesima' })} onClick={(e) => { e.preventDefault(); navigateTo('tredicesima' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-amber-600 dark:hover:text-amber-400 py-1.5 no-underline"><Gift className="w-3.5 h-3.5 shrink-0" />{t('tredicesima.footerLink')}</a>
+                  <a href={buildPath({ activeTab: 'contracts' })} onClick={(e) => { e.preventDefault(); navigateTo('contracts' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 no-underline"><FileText className="w-3.5 h-3.5 shrink-0" />{t('contracts.footerLink')}</a>
+                  <a href={buildPath({ activeTab: 'sindacati' as any })} onClick={(e) => { e.preventDefault(); navigateTo('sindacati' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 no-underline"><Scale className="w-3.5 h-3.5 shrink-0" />Sindacati</a>
+                  <a href={buildPath({ activeTab: 'consulting' as any })} onClick={(e) => { e.preventDefault(); navigateTo('consulting' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 no-underline">{t('consulting.footerLink')}</a>
+                  <a href={buildPath({ activeTab: 'tool-of-week' })} onClick={(e) => { e.preventDefault(); navigateTo('tool-of-week' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 no-underline"><Sparkles className="w-3.5 h-3.5 shrink-0" />{t('toolOfWeek.title')}</a>
                 </div>
               </details>
               {/* Contenuti */}
               <details className="group border-b border-slate-200/50 dark:border-slate-700/50">
-                <summary className="flex items-center justify-between py-3 text-sm font-semibold text-slate-700 dark:text-slate-300 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+                <summary className="flex items-center justify-between py-3 text-sm font-semibold text-body cursor-pointer list-none [&::-webkit-details-marker]:hidden">
                   <span>Contenuti</span>
                   <span className="text-slate-400 text-xs group-open:rotate-180 transition-transform">▼</span>
                 </summary>
                 <div className="pb-3 grid grid-cols-2 gap-x-4 gap-y-1">
-                  <a href={buildPath({ activeTab: 'blog' })} onClick={(e) => { e.preventDefault(); navigateTo('blog' as any); }} className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 py-1.5 no-underline"><Newspaper className="w-3.5 h-3.5 shrink-0" />{t('blog.title')}</a>
-                  <a href={buildPath({ activeTab: 'faq' })} onClick={(e) => { e.preventDefault(); navigateTo('faq' as any); }} className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 py-1.5 no-underline"><HelpCircle className="w-3.5 h-3.5 shrink-0" />FAQ</a>
-                  <a href={buildPath({ activeTab: 'glossario' })} onClick={(e) => { e.preventDefault(); navigateTo('glossario' as any); }} className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 py-1.5 no-underline"><BookA className="w-3.5 h-3.5 shrink-0" />{t('glossary.title')}</a>
-                  <a href={buildPath({ activeTab: 'dialetto' as any })} onClick={(e) => { e.preventDefault(); navigateTo('dialetto' as any); }} className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-orange-600 dark:hover:text-orange-400 py-1.5 no-underline"><Languages className="w-3.5 h-3.5 shrink-0" />{t('dialect.title')}</a>
-                  <a href={buildPath({ activeTab: 'sitemap' as any })} onClick={(e) => { e.preventDefault(); navigateTo('sitemap' as any); }} className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300 py-1.5 no-underline">{t('sitemap.title')}</a>
+                  <a href={buildPath({ activeTab: 'blog' })} onClick={(e) => { e.preventDefault(); navigateTo('blog' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 no-underline"><Newspaper className="w-3.5 h-3.5 shrink-0" />{t('blog.title')}</a>
+                  <a href={buildPath({ activeTab: 'faq' })} onClick={(e) => { e.preventDefault(); navigateTo('faq' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-accent py-1.5 no-underline"><HelpCircle className="w-3.5 h-3.5 shrink-0" />FAQ</a>
+                  <a href={buildPath({ activeTab: 'glossario' })} onClick={(e) => { e.preventDefault(); navigateTo('glossario' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-teal-600 dark:hover:text-teal-400 py-1.5 no-underline"><BookA className="w-3.5 h-3.5 shrink-0" />{t('glossary.title')}</a>
+                  <a href={buildPath({ activeTab: 'dialetto' as any })} onClick={(e) => { e.preventDefault(); navigateTo('dialetto' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-orange-600 dark:hover:text-orange-400 py-1.5 no-underline"><Languages className="w-3.5 h-3.5 shrink-0" />{t('dialect.title')}</a>
+                  <a href={buildPath({ activeTab: 'sitemap' as any })} onClick={(e) => { e.preventDefault(); navigateTo('sitemap' as any); }} className="flex items-center gap-1.5 text-xs text-subtle hover:text-slate-700 dark:hover:text-slate-300 py-1.5 no-underline">{t('sitemap.title')}</a>
                 </div>
               </details>
               {/* Social */}
@@ -3317,7 +3338,7 @@ const App: React.FC = () => {
                   href="https://www.facebook.com/profile.php?id=61588174947294"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 no-underline"
+                  className="inline-flex items-center gap-1.5 text-xs text-subtle hover:text-accent no-underline"
                   aria-label={t('footer.followFacebook')}
                 >
                   <Facebook className="w-3.5 h-3.5" />
@@ -3326,25 +3347,25 @@ const App: React.FC = () => {
               </div>
               {/* Mobile sitemap accordion */}
               <details className="group border-t border-slate-200/50 dark:border-slate-700/50">
-                <summary className="flex items-center justify-between py-3 text-sm font-semibold text-slate-700 dark:text-slate-300 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+                <summary className="flex items-center justify-between py-3 text-sm font-semibold text-body cursor-pointer list-none [&::-webkit-details-marker]:hidden">
                   <span>Mappa del sito</span>
                   <span className="text-slate-400 text-xs group-open:rotate-180 transition-transform">▼</span>
                 </summary>
                 <nav aria-label="Mappa del sito mobile" className="pb-4">
                   <div className="grid grid-cols-2 gap-4 text-left">
                     <div>
-                      <a href={buildPath({ activeTab: 'calculator' })} onClick={(e) => { e.preventDefault(); handleTabChange('calculator'); }} className="text-xs font-bold text-stripe-700 dark:text-stripe-400 no-underline hover:underline">{t('nav.simulator')}</a>
+                      <a href={buildPath({ activeTab: 'calculator' })} onClick={(e) => { e.preventDefault(); handleTabChange('calculator'); }} className="text-xs font-bold text-accent no-underline hover:underline">{t('nav.simulator')}</a>
                       <ul className="mt-1 space-y-0.5 list-none p-0">
                         {(['whatif', 'payslip', 'ral', 'bonus', 'parental-leave', 'residency', 'salary-quiz'] as const).map((sub) => (
-                          <li key={sub}><a href={buildPath({ activeTab: 'calculator', calcolatoreSubTab: sub })} onClick={(e) => { e.preventDefault(); setCalcolatoreSubTab(sub); setActiveTab('calculator'); pushRoute({ activeTab: 'calculator', calcolatoreSubTab: sub }); }} className="block text-xs text-slate-500 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 no-underline hover:underline leading-relaxed py-1">{t(sub === 'whatif' ? 'simulator.whatif' : sub === 'payslip' ? 'strumenti.payslip' : sub === 'ral' ? 'comparators.ral' : sub === 'bonus' ? 'comparators.bonus' : sub === 'parental-leave' ? 'comparators.parentalLeave' : sub === 'residency' ? 'comparators.residency' : 'salaryQuiz.navLabel')}</a></li>
+                          <li key={sub}><a href={buildPath({ activeTab: 'calculator', calcolatoreSubTab: sub })} onClick={(e) => { e.preventDefault(); setCalcolatoreSubTab(sub); setActiveTab('calculator'); pushRoute({ activeTab: 'calculator', calcolatoreSubTab: sub }); }} className="block text-xs text-muted hover:text-accent no-underline hover:underline leading-relaxed py-1">{t(sub === 'whatif' ? 'simulator.whatif' : sub === 'payslip' ? 'strumenti.payslip' : sub === 'ral' ? 'comparators.ral' : sub === 'bonus' ? 'comparators.bonus' : sub === 'parental-leave' ? 'comparators.parentalLeave' : sub === 'residency' ? 'comparators.residency' : 'salaryQuiz.navLabel')}</a></li>
                         ))}
                       </ul>
                     </div>
                     <div>
-                      <a href={buildPath({ activeTab: 'confronti' })} onClick={(e) => { e.preventDefault(); handleTabChange('confronti'); }} className="text-xs font-bold text-stripe-700 dark:text-stripe-400 no-underline hover:underline">{t('nav.confronti')}</a>
+                      <a href={buildPath({ activeTab: 'confronti' })} onClick={(e) => { e.preventDefault(); handleTabChange('confronti'); }} className="text-xs font-bold text-accent no-underline hover:underline">{t('nav.confronti')}</a>
                       <ul className="mt-1 space-y-0.5 list-none p-0">
                         {(['exchange', 'banks', 'health', 'mobile', 'shopping', 'cost-of-living', 'jobs', 'renovation'] as const).map((sub) => (
-                          <li key={sub}><a href={buildPath({ activeTab: 'confronti', confrontiSubTab: sub })} onClick={(e) => { e.preventDefault(); setConfrontiSubTab(sub); setActiveTab('confronti'); pushRoute({ activeTab: 'confronti', confrontiSubTab: sub }); }} className="block text-xs text-slate-500 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 no-underline hover:underline leading-relaxed py-1">{t(`comparators.${sub === 'cost-of-living' ? 'costOfLiving' : sub}`)}</a></li>
+                          <li key={sub}><a href={buildPath({ activeTab: 'confronti', confrontiSubTab: sub })} onClick={(e) => { e.preventDefault(); setConfrontiSubTab(sub); setActiveTab('confronti'); pushRoute({ activeTab: 'confronti', confrontiSubTab: sub }); }} className="block text-xs text-muted hover:text-accent no-underline hover:underline leading-relaxed py-1">{t(`comparators.${sub === 'cost-of-living' ? 'costOfLiving' : sub}`)}</a></li>
                         ))}
                       </ul>
                     </div>
@@ -3352,15 +3373,15 @@ const App: React.FC = () => {
                       <a href={buildPath({ activeTab: 'fisco' })} onClick={(e) => { e.preventDefault(); handleTabChange('fisco'); }} className="text-xs font-bold text-emerald-700 dark:text-emerald-400 no-underline hover:underline">{t('nav.fisco')}</a>
                       <ul className="mt-1 space-y-0.5 list-none p-0">
                         {(['tax-return', 'withholding-rates', 'calendar', 'holidays', 'ristorni', 'pension', 'pillar3', 'tax-credit'] as const).map((sub) => (
-                          <li key={sub}><a href={buildPath({ activeTab: 'fisco', fiscoSubTab: sub })} onClick={(e) => { e.preventDefault(); setFiscoSubTab(sub); setActiveTab('fisco'); pushRoute({ activeTab: 'fisco', fiscoSubTab: sub }); }} className="block text-xs text-slate-500 dark:text-slate-400 hover:text-emerald-700 dark:hover:text-emerald-400 no-underline hover:underline leading-relaxed py-1">{t(sub === 'tax-return' ? 'comparators.taxReturn' : sub === 'withholding-rates' ? 'withholdingRates.navLabel' : sub === 'calendar' ? 'guide.tabs.calendar' : sub === 'holidays' ? 'guide.tabs.holidays' : sub === 'ristorni' ? 'guide.tabs.ristorni' : sub === 'pension' ? 'nav.pension' : sub === 'pillar3' ? 'pension.pillar3' : 'taxCredit.navLabel')}</a></li>
+                          <li key={sub}><a href={buildPath({ activeTab: 'fisco', fiscoSubTab: sub })} onClick={(e) => { e.preventDefault(); setFiscoSubTab(sub); setActiveTab('fisco'); pushRoute({ activeTab: 'fisco', fiscoSubTab: sub }); }} className="block text-xs text-muted hover:text-emerald-700 dark:hover:text-emerald-400 no-underline hover:underline leading-relaxed py-1">{t(sub === 'tax-return' ? 'comparators.taxReturn' : sub === 'withholding-rates' ? 'withholdingRates.navLabel' : sub === 'calendar' ? 'guide.tabs.calendar' : sub === 'holidays' ? 'guide.tabs.holidays' : sub === 'ristorni' ? 'guide.tabs.ristorni' : sub === 'pension' ? 'nav.pension' : sub === 'pillar3' ? 'pension.pillar3' : 'taxCredit.navLabel')}</a></li>
                         ))}
                       </ul>
                     </div>
                     <div>
-                      <a href={buildPath({ activeTab: 'guida' })} onClick={(e) => { e.preventDefault(); handleTabChange('guida'); }} className="text-xs font-bold text-stripe-700 dark:text-stripe-400 no-underline hover:underline">{t('nav.guida')}</a>
+                      <a href={buildPath({ activeTab: 'guida' })} onClick={(e) => { e.preventDefault(); handleTabChange('guida'); }} className="text-xs font-bold text-accent no-underline hover:underline">{t('nav.guida')}</a>
                       <ul className="mt-1 space-y-0.5 list-none p-0">
                         {(['first-day', 'permits', 'border', 'unemployment', 'car-transfer', 'car-cost', 'permit-compare', 'border-map'] as const).map((sub) => (
-                          <li key={sub}><a href={buildPath({ activeTab: 'guida', guidaSubTab: sub })} onClick={(e) => { e.preventDefault(); setGuidaSubTab(sub); setActiveTab('guida'); pushRoute({ activeTab: 'guida', guidaSubTab: sub }); }} className="block text-xs text-slate-500 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 no-underline hover:underline leading-relaxed py-1">{t(sub === 'first-day' ? 'guide.tabs.firstDay' : sub === 'permits' ? 'guide.tabs.permits' : sub === 'border' ? 'guide.tabs.border' : sub === 'unemployment' ? 'guide.tabs.unemployment' : sub === 'car-transfer' ? 'guide.tabs.carTransfer' : sub === 'car-cost' ? 'strumenti.carCost' : sub === 'permit-compare' ? 'strumenti.permitCompare' : 'comparators.borderMap')}</a></li>
+                          <li key={sub}><a href={buildPath({ activeTab: 'guida', guidaSubTab: sub })} onClick={(e) => { e.preventDefault(); setGuidaSubTab(sub); setActiveTab('guida'); pushRoute({ activeTab: 'guida', guidaSubTab: sub }); }} className="block text-xs text-muted hover:text-accent no-underline hover:underline leading-relaxed py-1">{t(sub === 'first-day' ? 'guide.tabs.firstDay' : sub === 'permits' ? 'guide.tabs.permits' : sub === 'border' ? 'guide.tabs.border' : sub === 'unemployment' ? 'guide.tabs.unemployment' : sub === 'car-transfer' ? 'guide.tabs.carTransfer' : sub === 'car-cost' ? 'strumenti.carCost' : sub === 'permit-compare' ? 'strumenti.permitCompare' : 'comparators.borderMap')}</a></li>
                         ))}
                       </ul>
                     </div>
@@ -3368,15 +3389,15 @@ const App: React.FC = () => {
                       <a href={buildPath({ activeTab: 'vita' })} onClick={(e) => { e.preventDefault(); handleTabChange('vita'); }} className="text-xs font-bold text-amber-700 dark:text-amber-400 no-underline hover:underline">{t('nav.vita')}</a>
                       <ul className="mt-1 space-y-0.5 list-none p-0">
                         {(['living-ch', 'living-it', 'companies', 'schools', 'nursery', 'places', 'transport', 'municipalities'] as const).map((sub) => (
-                          <li key={sub}><a href={buildPath({ activeTab: 'vita', vitaSubTab: sub })} onClick={(e) => { e.preventDefault(); setVitaSubTab(sub); setActiveTab('vita'); pushRoute({ activeTab: 'vita', vitaSubTab: sub }); }} className="block text-xs text-slate-500 dark:text-slate-400 hover:text-amber-700 dark:hover:text-amber-400 no-underline hover:underline leading-relaxed py-1">{sub === 'companies' ? t('guide.tabs.companies', getCantonI18nParams()) : t(sub === 'living-ch' ? 'guide.tabs.livingCH' : sub === 'living-it' ? 'guide.tabs.livingIT' : sub === 'schools' ? 'guide.tabs.schools' : sub === 'nursery' ? 'comparators.nursery' : sub === 'places' ? 'guide.tabs.places' : sub === 'transport' ? 'comparators.transport' : 'guide.tabs.municipalities')}</a></li>
+                          <li key={sub}><a href={buildPath({ activeTab: 'vita', vitaSubTab: sub })} onClick={(e) => { e.preventDefault(); setVitaSubTab(sub); setActiveTab('vita'); pushRoute({ activeTab: 'vita', vitaSubTab: sub }); }} className="block text-xs text-muted hover:text-amber-700 dark:hover:text-amber-400 no-underline hover:underline leading-relaxed py-1">{sub === 'companies' ? t('guide.tabs.companies', getCantonI18nParams()) : t(sub === 'living-ch' ? 'guide.tabs.livingCH' : sub === 'living-it' ? 'guide.tabs.livingIT' : sub === 'schools' ? 'guide.tabs.schools' : sub === 'nursery' ? 'comparators.nursery' : sub === 'places' ? 'guide.tabs.places' : sub === 'transport' ? 'comparators.transport' : 'guide.tabs.municipalities')}</a></li>
                         ))}
                       </ul>
                     </div>
                     <div>
-                      <a href={buildPath({ activeTab: 'stats' })} onClick={(e) => { e.preventDefault(); handleTabChange('stats'); }} className="text-xs font-bold text-stripe-700 dark:text-stripe-400 no-underline hover:underline">{t('nav.stats')}</a>
+                      <a href={buildPath({ activeTab: 'stats' })} onClick={(e) => { e.preventDefault(); handleTabChange('stats'); }} className="text-xs font-bold text-accent no-underline hover:underline">{t('nav.stats')}</a>
                       <ul className="mt-1 space-y-0.5 list-none p-0">
                         {(['jobs-observatory', 'livability', 'salary-compare', 'traffic-history', 'unemployment', 'mortgage', 'fuel-prices'] as const).map((sub) => (
-                          <li key={sub}><a href={buildPath({ activeTab: 'stats', statsSubTab: sub })} onClick={(e) => { e.preventDefault(); setStatsSubTab(sub); setActiveTab('stats'); pushRoute({ activeTab: 'stats', statsSubTab: sub }); }} className="block text-xs text-slate-500 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 no-underline hover:underline leading-relaxed py-1">{t(sub === 'jobs-observatory' ? 'stats.tabJobsObservatory' : sub === 'livability' ? 'strumenti.livability' : sub === 'salary-compare' ? 'strumenti.salaryCompare' : sub === 'traffic-history' ? 'stats.trafficHistory' : sub === 'unemployment' ? 'stats.tabUnemployment' : sub === 'mortgage' ? 'stats.tabMortgage' : 'stats.tabFuelPrices')}</a></li>
+                          <li key={sub}><a href={buildPath({ activeTab: 'stats', statsSubTab: sub })} onClick={(e) => { e.preventDefault(); setStatsSubTab(sub); setActiveTab('stats'); pushRoute({ activeTab: 'stats', statsSubTab: sub }); }} className="block text-xs text-muted hover:text-accent no-underline hover:underline leading-relaxed py-1">{t(sub === 'jobs-observatory' ? 'stats.tabJobsObservatory' : sub === 'livability' ? 'strumenti.livability' : sub === 'salary-compare' ? 'strumenti.salaryCompare' : sub === 'traffic-history' ? 'stats.trafficHistory' : sub === 'unemployment' ? 'stats.tabUnemployment' : sub === 'mortgage' ? 'stats.tabMortgage' : 'stats.tabFuelPrices')}</a></li>
                         ))}
                       </ul>
                     </div>
@@ -3386,11 +3407,11 @@ const App: React.FC = () => {
             </div>
 
             {/* SEO Sitemap — desktop: full grid, mobile: collapsed accordion */}
-            <nav aria-label="Mappa del sito" className="hidden md:block mt-6 pt-4 border-t border-slate-200/50 dark:border-slate-800/50">
+            <nav aria-label="Mappa del sito" className="hidden md:block mt-6 pt-4 border-t border-edge/50">
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-4 text-left">
                 {/* Calcolatore */}
                 <div>
-                  <a href={buildPath({ activeTab: 'calculator' })} onClick={(e) => { e.preventDefault(); handleTabChange('calculator'); }} className="text-xs font-bold text-stripe-700 dark:text-stripe-400 no-underline hover:underline">{t('nav.simulator')}</a>
+                  <a href={buildPath({ activeTab: 'calculator' })} onClick={(e) => { e.preventDefault(); handleTabChange('calculator'); }} className="text-xs font-bold text-accent no-underline hover:underline">{t('nav.simulator')}</a>
                   <ul className="mt-1 space-y-0.5 list-none p-0">
                     {([
                       { sub: 'whatif' as const, label: t('simulator.whatif') },
@@ -3405,7 +3426,7 @@ const App: React.FC = () => {
                         <a
                           href={buildPath({ activeTab: 'calculator', calcolatoreSubTab: sub })}
                           onClick={(e) => { e.preventDefault(); setCalcolatoreSubTab(sub); setActiveTab('calculator'); pushRoute({ activeTab: 'calculator', calcolatoreSubTab: sub }); }}
-                          className="block text-xs text-slate-500 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 no-underline hover:underline leading-relaxed py-1"
+                          className="block text-xs text-muted hover:text-accent no-underline hover:underline leading-relaxed py-1"
                         >{label}</a>
                       </li>
                     ))}
@@ -3413,7 +3434,7 @@ const App: React.FC = () => {
                 </div>
                 {/* Confronti */}
                 <div>
-                  <a href={buildPath({ activeTab: 'confronti' })} onClick={(e) => { e.preventDefault(); handleTabChange('confronti'); }} className="text-xs font-bold text-stripe-700 dark:text-stripe-400 no-underline hover:underline">{t('nav.confronti')}</a>
+                  <a href={buildPath({ activeTab: 'confronti' })} onClick={(e) => { e.preventDefault(); handleTabChange('confronti'); }} className="text-xs font-bold text-accent no-underline hover:underline">{t('nav.confronti')}</a>
                   <ul className="mt-1 space-y-0.5 list-none p-0">
                     {([
                       { sub: 'exchange' as const, label: t('comparators.exchange') },
@@ -3429,7 +3450,7 @@ const App: React.FC = () => {
                         <a
                           href={buildPath({ activeTab: 'confronti', confrontiSubTab: sub })}
                           onClick={(e) => { e.preventDefault(); setConfrontiSubTab(sub); setActiveTab('confronti'); pushRoute({ activeTab: 'confronti', confrontiSubTab: sub }); }}
-                          className="block text-xs text-slate-500 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 no-underline hover:underline leading-relaxed py-1"
+                          className="block text-xs text-muted hover:text-accent no-underline hover:underline leading-relaxed py-1"
                         >{label}</a>
                       </li>
                     ))}
@@ -3455,7 +3476,7 @@ const App: React.FC = () => {
                         <a
                           href={buildPath({ activeTab: 'fisco', fiscoSubTab: sub })}
                           onClick={(e) => { e.preventDefault(); setFiscoSubTab(sub); setActiveTab('fisco'); pushRoute({ activeTab: 'fisco', fiscoSubTab: sub }); }}
-                          className="block text-xs text-slate-500 dark:text-slate-400 hover:text-emerald-700 dark:hover:text-emerald-400 no-underline hover:underline leading-relaxed py-1"
+                          className="block text-xs text-muted hover:text-emerald-700 dark:hover:text-emerald-400 no-underline hover:underline leading-relaxed py-1"
                         >{label}</a>
                       </li>
                     ))}
@@ -3463,7 +3484,7 @@ const App: React.FC = () => {
                 </div>
                 {/* Guida */}
                 <div>
-                  <a href={buildPath({ activeTab: 'guida' })} onClick={(e) => { e.preventDefault(); handleTabChange('guida'); }} className="text-xs font-bold text-stripe-700 dark:text-stripe-400 no-underline hover:underline">{t('nav.guida')}</a>
+                  <a href={buildPath({ activeTab: 'guida' })} onClick={(e) => { e.preventDefault(); handleTabChange('guida'); }} className="text-xs font-bold text-accent no-underline hover:underline">{t('nav.guida')}</a>
                   <ul className="mt-1 space-y-0.5 list-none p-0">
                     {([
                       { sub: 'first-day' as const, label: t('guide.tabs.firstDay') },
@@ -3479,7 +3500,7 @@ const App: React.FC = () => {
                         <a
                           href={buildPath({ activeTab: 'guida', guidaSubTab: sub })}
                           onClick={(e) => { e.preventDefault(); setGuidaSubTab(sub); setActiveTab('guida'); pushRoute({ activeTab: 'guida', guidaSubTab: sub }); }}
-                          className="block text-xs text-slate-500 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 no-underline hover:underline leading-relaxed py-1"
+                          className="block text-xs text-muted hover:text-accent no-underline hover:underline leading-relaxed py-1"
                         >{label}</a>
                       </li>
                     ))}
@@ -3503,7 +3524,7 @@ const App: React.FC = () => {
                         <a
                           href={buildPath({ activeTab: 'vita', vitaSubTab: sub })}
                           onClick={(e) => { e.preventDefault(); setVitaSubTab(sub); setActiveTab('vita'); pushRoute({ activeTab: 'vita', vitaSubTab: sub }); }}
-                          className="block text-xs text-slate-500 dark:text-slate-400 hover:text-amber-700 dark:hover:text-amber-400 no-underline hover:underline leading-relaxed py-1"
+                          className="block text-xs text-muted hover:text-amber-700 dark:hover:text-amber-400 no-underline hover:underline leading-relaxed py-1"
                         >{label}</a>
                       </li>
                     ))}
@@ -3511,7 +3532,7 @@ const App: React.FC = () => {
                 </div>
                 {/* Statistiche */}
                 <div>
-                  <a href={buildPath({ activeTab: 'stats' })} onClick={(e) => { e.preventDefault(); handleTabChange('stats'); }} className="text-xs font-bold text-stripe-700 dark:text-stripe-400 no-underline hover:underline">{t('nav.stats')}</a>
+                  <a href={buildPath({ activeTab: 'stats' })} onClick={(e) => { e.preventDefault(); handleTabChange('stats'); }} className="text-xs font-bold text-accent no-underline hover:underline">{t('nav.stats')}</a>
                   <ul className="mt-1 space-y-0.5 list-none p-0">
                     {([
                       { sub: 'jobs-observatory' as const, label: t('stats.tabJobsObservatory') },
@@ -3526,7 +3547,7 @@ const App: React.FC = () => {
                         <a
                           href={buildPath({ activeTab: 'stats', statsSubTab: sub })}
                           onClick={(e) => { e.preventDefault(); setStatsSubTab(sub); setActiveTab('stats'); pushRoute({ activeTab: 'stats', statsSubTab: sub }); }}
-                          className="block text-xs text-slate-500 dark:text-slate-400 hover:text-stripe-600 dark:hover:text-stripe-400 no-underline hover:underline leading-relaxed py-1"
+                          className="block text-xs text-muted hover:text-accent no-underline hover:underline leading-relaxed py-1"
                         >{label}</a>
                       </li>
                     ))}
@@ -3535,13 +3556,13 @@ const App: React.FC = () => {
                 {/* Articoli / Blog */}
                 <div>
                   <a href={buildPath({ activeTab: 'blog' })} onClick={(e) => { e.preventDefault(); handleTabChange('blog'); }} className="text-xs font-bold text-rose-700 dark:text-rose-400 no-underline hover:underline">{t('nav.blog')}</a>
-                  <a href={buildPath({ activeTab: 'blog' })} onClick={(e) => { e.preventDefault(); handleTabChange('blog'); }} className="block mt-1 text-xs text-slate-500 dark:text-slate-400 hover:text-rose-600 dark:hover:text-rose-400 no-underline hover:underline leading-relaxed py-1 cursor-pointer">{t('blog.subtitle')}</a>
+                  <a href={buildPath({ activeTab: 'blog' })} onClick={(e) => { e.preventDefault(); handleTabChange('blog'); }} className="block mt-1 text-xs text-muted hover:text-rose-600 dark:hover:text-rose-400 no-underline hover:underline leading-relaxed py-1 cursor-pointer">{t('blog.subtitle')}</a>
                 </div>
               </div>
             </nav>
 
             {/* English E-E-A-T alias links — plain <a> tags for crawler discoverability */}
-            <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 mt-3 text-[10px] text-slate-400 dark:text-slate-600">
+            <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 mt-3 text-[10px] text-edge">
               <a href="/about/" className="hover:text-slate-600 dark:hover:text-slate-400 no-underline">About</a>
               <span>·</span>
               <a href="/contact/" className="hover:text-slate-600 dark:hover:text-slate-400 no-underline">Contact</a>
@@ -3557,7 +3578,7 @@ const App: React.FC = () => {
           </div>
         </footer>
         {/* Mobile Bottom Navigation Bar */}
-        <nav aria-label="Navigazione mobile" className="adsbygoogle-auto-ads-ignore fixed bottom-0 inset-x-0 z-50 md:hidden bg-white/95 dark:bg-slate-900/95 border-t border-slate-200/50 dark:border-slate-800/50 pb-[env(safe-area-inset-bottom,0px)]">
+        <nav aria-label="Navigazione mobile" className="adsbygoogle-auto-ads-ignore fixed bottom-0 inset-x-0 z-50 md:hidden bg-surface/95 border-t border-edge/50 pb-[env(safe-area-inset-bottom,0px)]">
           <div className="grid grid-cols-6 h-14">
             {([
               { tab: 'calculator' as const, icon: Calculator, label: t('nav.simulator.mobile') },

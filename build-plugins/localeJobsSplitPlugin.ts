@@ -15,8 +15,8 @@ const SLIM_INDEX_FIELDS = new Set([
   'addressLocality', 'sector',
   'category', 'contract', 'department',
   'salaryMin', 'salaryMax', 'currency',
-  'postedDate', 'crawledAt',
-  'featured', 'source',
+  'postedDate', 'crawledAt', 'firstSeenAt',
+  'featured', 'source', 'qualityScore',
 ]);
 
 /** Fields included in per-job detail files (fetched on-demand when a job detail is opened).
