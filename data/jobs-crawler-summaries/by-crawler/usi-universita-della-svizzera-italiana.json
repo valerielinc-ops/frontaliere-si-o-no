@@ -1,16 +1,16 @@
 {
   "key": "usi-universita-della-svizzera-italiana",
   "label": "USI",
-  "generatedAt": "2026-04-14T10:51:27.419Z",
+  "generatedAt": "2026-04-14T22:37:02.408Z",
   "total": 21,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 20,
-  "durationMs": 62834,
-  "avgDurationMs": 62834,
+  "durationMs": 70430,
+  "avgDurationMs": 70430,
   "durationHistory": [
-    62834
+    70430
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -55,48 +55,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "url": "https://content.usi.ch/sites/default/files/storage/attachments/servizio-ricerca/servizio-ricerca-research-manager-snf.pdf",
-      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/servizio-ricerca/servizio-ricerca-research-manager-snf.pdf",
-      "title": "Ricerca Manager con focus sui programmi SNSF",
-      "company": "USI – Università della Svizzera italiana",
-      "companyKey": "usi-universita-della-svizzera-italiana",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "slug": "ricerca-manager-con-focus-sui-programmi-snsf-usi-lugano",
-      "department": "Servizio ricerca",
-      "category": "staff",
-      "datePosted": "2026-03-29",
-      "source": "usi-drupal-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Istruzione e ricerca",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "sourceLang": "it",
-      "salaryMin": 72000,
-      "salaryMax": 97000,
-      "currency": "CHF",
-      "streetAddress": "Via Giuseppe Buffi 13",
-      "postalCode": "6900",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "id": "usi-universita-della-svizzera-italiana-e2ceaeed7686",
-      "firstSeenAt": "2026-04-13T22:38:02.110Z",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-associate-full-professor-2025.pdf",
