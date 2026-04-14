@@ -15,7 +15,7 @@ import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap, detectLang } from './lib/dedicated-crawler-common.mjs';
 import { parseListingPage, parseDetailPage, slugify, detectCategory, detectExperienceLevel, inferEmploymentType, MIN_DESC_LENGTH } from './lib/sintetica-job-parser.mjs';
-import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
+import { getCompanyDefaults, normalizeAnyCantonCode, isTargetCanton } from './lib/crawler-location-config.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -31,6 +31,13 @@ const CAREERS_URL = 'https://app.ncoreplat.com/jobboard/1255/sintetica';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
 function normalize(v = '') { return String(v || '').trim().toLowerCase(); }
+
+/** Extract canton from title patterns like "... - Mendrisio site (Ticino)" or "... (Neuchâtel)" */
+function detectCantonFromTitle(title = '') {
+  const m = title.match(/\(([^)]+)\)\s*$/);
+  if (!m) return '';
+  return normalizeAnyCantonCode(m[1]);
+}
 function isCompanyJob(job) {
   const key = normalize(job?.companyKey || ''); const company = normalize(job?.company || ''); const url = String(job?.url || '').toLowerCase();
   return key === COMPANY_KEY || key.includes('sintetica') || company.includes('sintetica') || url.includes('sintetica');
@@ -55,6 +62,13 @@ async function fetchJobs() {
 
   const jobs = [];
   for (const raw of listings) {
+    // Skip jobs at non-target-canton sites (e.g. Couvet/Neuchâtel)
+    const titleCanton = detectCantonFromTitle(raw.title);
+    if (titleCanton && !isTargetCanton(titleCanton)) {
+      console.log(`  ⏭️ Skipping non-target canton job: "${raw.title}" (canton: ${titleCanton})`);
+      continue;
+    }
+
     const slug = slugify(raw.title, 'sintetica');
     const fallbackDesc = `${raw.title} — posizione aperta presso Sintetica SA a Mendrisio, Canton Ticino, Svizzera. Sintetica SA è un'azienda farmaceutica svizzera specializzata nella produzione di farmaci sterili iniettabili. Con sede a Mendrisio, l'azienda offre un ambiente di lavoro innovativo nel settore farmaceutico, con opportunità di crescita professionale nel cuore del Ticino.`;
 

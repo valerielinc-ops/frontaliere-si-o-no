@@ -1101,68 +1101,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T22:24:00.330Z"
-    },
-    {
-      "url": "https://app.ncoreplat.com/jobposition/286490/spontaneous-application-couvet-site-neuchatel-ch/sintetica-couvet",
-      "applyUrl": "https://app.ncoreplat.com/jobposition/286490/spontaneous-application-couvet-site-neuchatel-ch/sintetica-couvet",
-      "title": "Spontaneous application - Couvet Site (Neuchâtel)",
-      "company": "Sintetica SA",
-      "companyKey": "sintetica",
-      "location": "Mendrisio",
-      "canton": "TI",
-      "country": "CH",
-      "addressLocality": "Mendrisio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6850",
-      "streetAddress": "Via Penate 5",
-      "description": "Spontaneous application - Couvet Site (Neuchâtel) — posizione aperta presso Sintetica SA a Mendrisio, Canton Ticino, Svizzera. Sintetica SA è un'azienda farmaceutica svizzera specializzata nella produzione di farmaci sterili iniettabili. Con sede a Mendrisio, l'azienda offre un ambiente di lavoro innovativo nel settore farmaceutico, con opportunità di crescita professionale nel cuore del Ticino.",
-      "titleByLocale": {
-        "en": "Spontaneous application-Couvet Site (Neuchâ",
-        "it": "Spontaneous application - Couvet Site (Neuchâtel)",
-        "de": "Initiativbewerbung - Standort Couvet (Neuenburg)",
-        "fr": "Candidature Spontanée - Site de Couvet (Neuchâtel)"
-      },
-      "descriptionByLocale": {
-        "it": "Descrizione - Spontaneous application - Couvet Site (Neuchâtel) — posizione aperta presso Sintetica SA a Mendrisio, Canton Ticino, Svizzera. Sintetica SA è un'azienda farmaceutica svizzera specializzata nella produzione di farmaci sterili iniettabili. Con sede a Mendrisio, l'azienda offre un ambiente di lavoro innovativo nel settore farmaceutico, con opportunità di crescita professionale nel cuore del Ticino.",
-        "en": "Description - Spontaneous application - Couvet Site (Neuchâtel) — position open at Sintetica SA in Mendrisio, Canton Ticino, Switzerland. Sintetica SA is a Swiss pharmaceutical company specializing in the production of sterile injectable drugs. Based in Mendrisio, the company offers an innovative work environment in the pharmaceutical sector, with opportunities for professional growth in the heart of Ticino.",
-        "de": "Beschreibung - Initiativbewerbung - Standort Couvet (Neuenburg) — Stelle offen bei Sintetica SA in Mendrisio, Kanton Tessin, Schweiz. Sintetica SA ist ein Schweizer Pharmaunternehmen, das sich auf die Herstellung von sterilen injizierbaren Arzneimitteln spezialisiert hat. Mit Sitz in Mendrisio bietet das Unternehmen ein innovatives Arbeitsumfeld im Pharmasektor mit Möglichkeiten zur beruflichen Weiterentwicklung im Herzen des Tessins.",
-        "fr": "Description - Candidature spontanée - Site de Couvet (Neuchâtel) — poste ouvert chez Sintetica SA à Mendrisio, Canton du Tessin, Suisse. Sintetica SA est une entreprise pharmaceutique suisse spécialisée dans la production de médicaments stériles injectables. Basée à Mendrisio, l'entreprise offre un environnement de travail innovant dans le secteur pharmaceutique, avec des opportunités de développement professionnel au cœur du Tessin."
-      },
-      "slug": "spontaneous-application-couvet-site-neuchatel-sintetica",
-      "slugByLocale": {
-        "en": "spontaneous-application-couvet-site-neuchatel-sintetica-sa-mendrisio-6qz9pp",
-        "it": "spontaneous-application-couvet-site-neuchatel-sintetica",
-        "de": "initiativbewerbung-standort-couvet-neuenburg-sintetica-sa-mendrisio",
-        "fr": "candidature-spontanee-site-de-couvet-neuchatel-sintetica-sa-mendrisio"
-      },
-      "category": "general",
-      "datePosted": "2026-03-29",
-      "source": "sintetica-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Farmaceutica",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Mendrisio"
-      },
-      "crawledAt": "",
-      "requirementsByLocale": {},
-      "sourceLang": "it",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 58000,
-          "maxValue": 78000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-04-13T22:24:00.330Z"
     }
   ]
 }
