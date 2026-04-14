@@ -2130,6 +2130,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.infermieri-ticinesi-ricerca-lavoro-milano.title': 'Infirmiers tessinois : la fuite vers Milan à la recherche d’un emploi',
     'blog.article.infermieri-ticinesi-ricerca-lavoro-milano.excerpt': 'Une jeune diplômée de la SUPSI dénonce le manque d’opportunités au Tessin. Si 94,9 % des diplômés SUPSI trouvent un emploi, le cas de Martina révèle une réalité bien différente.',
     'blog.article.infermieri-ticinesi-ricerca-lavoro-milano.imageAlt': 'Infirmière tessinoise marchant vers la frontière de Chiasso à la recherche d\'un emploi à Milan',
+    'blog.article.tappa-campione-ditalia-2025-commissione.title': 'Tessin et Campione d’Italie : la Commission paritaire fait le point sur les services',
+    'blog.article.tappa-campione-ditalia-2025-commissione.excerpt': 'Norman Gobbi préside la rencontre annuelle avec Campione d’Italie. Les services tessinois, les déchets et la santé au cœur des échanges. Élections communales en vue.',
+    'blog.article.tappa-campione-ditalia-2025-commissione.imageAlt': 'Vue de Campione d\'Italie depuis la rive tessinoise du lac de Lugano au coucher du soleil',
 };
 
 export default blogMetaFr;

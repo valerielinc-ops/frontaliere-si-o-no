@@ -2130,6 +2130,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.infermieri-ticinesi-ricerca-lavoro-milano.title': 'Infermieri ticinesi: la fuga verso Milano per trovare lavoro',
     'blog.article.infermieri-ticinesi-ricerca-lavoro-milano.excerpt': 'Una neolaureata SUPSI denuncia la mancanza di opportunità in Ticino. Il 94,9% dei laureati SUPSI trova impiego, ma il caso di Martina mostra una realtà diversa.',
     'blog.article.infermieri-ticinesi-ricerca-lavoro-milano.imageAlt': 'Infermiera ticinese camminare verso il confine di Chiasso in cerca di lavoro a Milano',
+    'blog.article.tappa-campione-ditalia-2025-commissione.title': 'Ticino e Campione d’Italia: la Commissione paritetica fa il punto sui servizi',
+    'blog.article.tappa-campione-ditalia-2025-commissione.excerpt': 'Norman Gobbi presiede l’incontro annuale con Campione d’Italia. Servizi ticinesi, rifiuti e sanità al centro del confronto. Elezioni comunali in vista.',
+    'blog.article.tappa-campione-ditalia-2025-commissione.imageAlt': 'Vista di Campione d\'Italia dalla riva ticinese del lago di Lugano con luce serale',
 };
 
 export default blogMetaIt;

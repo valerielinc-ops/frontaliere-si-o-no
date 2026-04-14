@@ -1965,6 +1965,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-fermo-treni-gallarate-sesto-aprile-2026': { name: 'Fermo treni Gallarate-Sesto', path: '/articoli-frontaliere/fermo-treni-gallarate-sesto-aprile-2026', parent: 'blog' },
     'blog-bibo-sistema-biglietti-digitali-mezzi-2026': { name: 'Bibo', path: '/articoli-frontaliere/bibo-sistema-biglietti-digitali-mezzi-2026', parent: 'blog' },
     'blog-infermieri-ticinesi-ricerca-lavoro-milano': { name: 'Infermieri ticinesi', path: '/articoli-frontaliere/infermieri-ticinesi-ricerca-lavoro-milano', parent: 'blog' },
+    'blog-tappa-campione-ditalia-2025-commissione': { name: 'Ticino e Campione d’Italia', path: '/articoli-frontaliere/tappa-campione-ditalia-2025-commissione', parent: 'blog' },
   };
 
   const info = sectionNames[section];

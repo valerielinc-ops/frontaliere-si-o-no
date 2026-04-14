@@ -7482,6 +7482,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tappa-campione-ditalia-2025-commissione': {
+    title: 'Ticino e Campione d’Italia: la | Frontaliere Ticino',
+    description: 'Norman Gobbi presiede l’incontro annuale con Campione d’Italia. Servizi ticinesi, rifiuti e sanità al centro del confronto. Elezioni comunali in vista.',
+    keywords: 'frontalieri, ticino, svizzera, italia, campione, commissione, paritetica, punto',
+    ogTitle: 'Ticino e Campione d’Italia: la Commissione paritetica fa',
+    ogDescription: 'Norman Gobbi presiede l’incontro annuale con Campione d’Italia. Servizi ticinesi, rifiuti e sanità al centro del confronto. Elezioni comunali in vista.',
+    canonicalPath: '/articoli-frontaliere/tappa-campione-ditalia-2025-commissione',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ticino e Campione d’Italia: la Commissione paritetica fa",
+      "description": "Norman Gobbi presiede l’incontro annuale con Campione d’Italia. Servizi ticinesi, rifiuti e sanità al centro del confronto. Elezioni comunali in vista.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tappa-campione-ditalia-2025-commissione.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di Campione d'Italia dalla riva ticinese del lago di Lugano con luce serale"
+      },
+      "datePublished": "2026-04-14T12:46:16+00:00",
+      "dateModified": "2026-04-14T12:46:16+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tappa-campione-ditalia-2025-commissione`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

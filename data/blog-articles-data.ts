@@ -5955,4 +5955,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/infermieri-ticinesi-ricerca-lavoro-milano.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'tappa-campione-ditalia-2025-commissione',
+    category: 'novita',
+    date: '2026-04-14T12:46:16.460Z',
+    image: '/images/blog/tappa-campione-ditalia-2025-commissione.jpg',
+    hasCalculator: true,
+  },
 ];

@@ -2130,6 +2130,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.infermieri-ticinesi-ricerca-lavoro-milano.title': 'Ticino nurses: fleeing to Milan in search of work',
     'blog.article.infermieri-ticinesi-ricerca-lavoro-milano.excerpt': 'A recent SUPSI graduate speaks out about the lack of opportunities in Ticino. While 94.9% of SUPSI graduates find employment, Martina’s case reveals a far grimmer reality.',
     'blog.article.infermieri-ticinesi-ricerca-lavoro-milano.imageAlt': 'Ticinese nurse walking towards Chiasso border seeking work in Milan',
+    'blog.article.tappa-campione-ditalia-2025-commissione.title': 'Ticino and Campione d’Italia: the Joint Commission reviews services',
+    'blog.article.tappa-campione-ditalia-2025-commissione.excerpt': 'Norman Gobbi chairs the annual meeting with Campione d’Italia. Ticino’s services, waste management and healthcare take centre stage in the discussion. Municipal elections on the horizon.',
+    'blog.article.tappa-campione-ditalia-2025-commissione.imageAlt': 'View of Campione d\'Italia from the Ticino lakeside at dusk',
 };
 
 export default blogMetaEn;
