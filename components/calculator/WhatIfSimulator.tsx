@@ -153,7 +153,7 @@ const getScenarios = (t: (key: string) => string, profile?: UserProfileData | nu
 ]; };
 
 const colorMap: Record<string, { bg: string; text: string; border: string; light: string }> = {
- pink: { bg: 'bg-danger-subtle0', text: 'text-danger', border: 'border-danger-border', light: 'bg-danger-subtle' },
+ pink: { bg: 'bg-danger-subtle', text: 'text-danger', border: 'border-danger-border', light: 'bg-danger-subtle' },
  emerald: { bg: 'bg-success-strong', text: 'text-success', border: 'border-success-border', light: 'bg-success-subtle' },
  blue: { bg: 'bg-accent-strong', text: 'text-link', border: 'border-accent-border', light: 'bg-accent-subtle' },
  rose: { bg: 'bg-danger-strong', text: 'text-danger', border: 'border-danger-border', light: 'bg-danger-subtle' },

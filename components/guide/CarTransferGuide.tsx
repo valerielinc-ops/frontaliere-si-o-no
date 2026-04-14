@@ -42,13 +42,13 @@ const CarTransferGuide: React.FC = () => {
  </div>
  <div>
  <h2 className="text-2xl font-bold">{t('carTransfer.title')}</h2>
- <p className="text-accent text-sm mt-1">{t('carTransfer.subtitle')}</p>
+ <p className="text-on-accent/70 text-sm mt-1">{t('carTransfer.subtitle')}</p>
  </div>
  </div>
  <div className="mt-4 bg-on-accent/10 rounded-xl p-4">
  <div className="flex items-start gap-2">
  <AlertCircle size={18} className="mt-0.5 shrink-0" />
- <p className="text-sm text-accent">{t('carTransfer.disclaimer')}</p>
+ <p className="text-sm text-on-accent/70">{t('carTransfer.disclaimer')}</p>
  </div>
  </div>
  </div>

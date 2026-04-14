@@ -698,7 +698,7 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
  </div>
  <button
  onClick={handleToggle}
- className="p-1 hover:bg-accent-subtle0 rounded-lg transition-colors"
+ className="p-1 hover:bg-accent-subtle rounded-lg transition-colors"
  aria-label={t('chatbot.closeLabel')}
  >
  <X size={18} />

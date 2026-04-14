@@ -93,9 +93,9 @@ export default function CalcolatoreTabContent() {
  </div>
  <div className="min-w-0">
  <div className="text-sm font-bold leading-tight line-clamp-2">{t('jobBoard.homeCta.title', getCantonI18nParams())}</div>
- <div className="text-xs text-accent line-clamp-1">{t('jobBoard.homeCta.desc', getCantonI18nParams())}</div>
+ <div className="text-xs text-on-accent/70 line-clamp-1">{t('jobBoard.homeCta.desc', getCantonI18nParams())}</div>
  </div>
- <div className="ml-auto flex-shrink-0 text-xs font-semibold text-accent whitespace-nowrap hidden lg:block">{t('jobBoard.homeCta.button')}</div>
+ <div className="ml-auto flex-shrink-0 text-xs font-semibold text-on-accent/70 whitespace-nowrap hidden lg:block">{t('jobBoard.homeCta.button')}</div>
  </a>
  </div>
  </div>
@@ -178,7 +178,7 @@ export default function CalcolatoreTabContent() {
  <Briefcase size={18} className="text-on-accent flex-shrink-0" />
  <span className="text-sm font-bold line-clamp-1">{t('jobBoard.homeCta.mobile.title', getCantonI18nParams())}</span>
  </div>
- <span className="text-xs font-semibold text-accent flex-shrink-0">{t('jobBoard.homeCta.mobile.button')} →</span>
+ <span className="text-xs font-semibold text-on-accent/70 flex-shrink-0">{t('jobBoard.homeCta.mobile.button')} →</span>
  </a>
  </div>
  <Suspense fallback={<div className="h-[34px]" />}>

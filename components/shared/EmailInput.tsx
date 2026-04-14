@@ -396,7 +396,7 @@ const EmailInput: React.FC<EmailInputProps> = ({
  ? 'bg-accent-strong-hover text-on-accent'
  : 'bg-accent-subtle text-accent'
  : darkVariant
- ? 'text-accent hover:bg-accent-strong-hover'
+ ? 'text-on-accent/80 hover:bg-accent-strong-hover'
  : 'text-body hover:bg-surface-raised'
  }`}
  >

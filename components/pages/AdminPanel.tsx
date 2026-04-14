@@ -2708,7 +2708,7 @@ export default function AdminPanel() {
  <Shield size={28} />
  <h1 className="text-2xl font-bold">Pannello Amministrazione</h1>
  </div>
- <p className="text-accent text-sm">
+ <p className="text-on-accent/70 text-sm">
  Dashboard operativa owner (crawler jobs, segnali SEO runtime e newsletter).
  Questo pannello è accessibile solo tramite URL diretto.
  </p>

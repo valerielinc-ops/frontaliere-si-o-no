@@ -797,7 +797,7 @@ const UserProfile: React.FC = () => {
  <User size={40} className="text-on-accent/90" />
  </div>
  <h1 className="text-2xl font-extrabold">{t('profile.title')}</h1>
- <p className="text-accent text-sm mt-2">{t('profile.subtitle')}</p>
+ <p className="text-on-accent/70 text-sm mt-2">{t('profile.subtitle')}</p>
  </div>
 
  {/* Sign-in card */}
@@ -916,7 +916,7 @@ const UserProfile: React.FC = () => {
  <div className="flex-1 min-w-0">
  <h2 className="text-xl font-bold truncate">{displayName}</h2>
  {getAuthEmail(user) ? (
- <p className="text-accent text-sm truncate">{getAuthEmail(user)}</p>
+ <p className="text-on-accent/70 text-sm truncate">{getAuthEmail(user)}</p>
  ) : getLinkedProviders(user).includes('facebook.com') ? (
  <button
  onClick={async () => { await reAuthFacebook(); }}

@@ -104,15 +104,15 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
  <h3 className={`text-lg font-bold ${countryTab === 'italia' ? 'text-on-accent' : 'text-strong'}`}>
  {t('taxReturn.countryTab.italia')}
  </h3>
- <p className={`text-xs ${countryTab === 'italia' ? 'text-success' : 'text-muted'}`}>
+ <p className={`text-xs ${countryTab === 'italia' ? 'text-on-accent/70' : 'text-muted'}`}>
  {t('taxReturn.countryTab.italiaDesc')}
  </p>
  </div>
  </div>
  {countryTab === 'italia' && (
  <div className="flex items-center gap-1.5 mt-1">
- <CheckCircle2 size={14} className="text-success" />
- <span className="text-xs font-semibold text-success">{t('taxReturn.selected')}</span>
+ <CheckCircle2 size={14} className="text-on-accent/70" />
+ <span className="text-xs font-semibold text-on-accent/70">{t('taxReturn.selected')}</span>
  </div>
  )}
  </button>
@@ -131,15 +131,15 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
  <h3 className={`text-lg font-bold ${countryTab === 'svizzera' ? 'text-on-accent' : 'text-strong'}`}>
  {t('taxReturn.countryTab.svizzera')}
  </h3>
- <p className={`text-xs ${countryTab === 'svizzera' ? 'text-danger' : 'text-muted'}`}>
+ <p className={`text-xs ${countryTab === 'svizzera' ? 'text-on-accent/70' : 'text-muted'}`}>
  {t('taxReturn.countryTab.svizzeraDesc')}
  </p>
  </div>
  </div>
  {countryTab === 'svizzera' && (
  <div className="flex items-center gap-1.5 mt-1">
- <CheckCircle2 size={14} className="text-danger" />
- <span className="text-xs font-semibold text-danger">{t('taxReturn.selected')}</span>
+ <CheckCircle2 size={14} className="text-on-accent/70" />
+ <span className="text-xs font-semibold text-on-accent/70">{t('taxReturn.selected')}</span>
  </div>
  )}
  </button>
@@ -152,7 +152,7 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
  <FileText size={28} />
  <h2 className="text-2xl font-bold">{t('taxReturn.title.italia')}</h2>
  </div>
- <p className="text-success text-sm">{t('taxReturn.subtitle.italia')}</p>
+ <p className="text-on-accent/70 text-sm">{t('taxReturn.subtitle.italia')}</p>
  </div>
  ) : (
  <div className="bg-gradient-to-r from-danger to-danger rounded-2xl p-4 sm:p-6 text-on-accent">
@@ -160,7 +160,7 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
  <FileText size={28} />
  <h2 className="text-2xl font-bold">{t('taxReturn.title.svizzera')}</h2>
  </div>
- <p className="text-danger text-sm">{t('taxReturn.subtitle.svizzera')}</p>
+ <p className="text-on-accent/70 text-sm">{t('taxReturn.subtitle.svizzera')}</p>
  </div>
  )}
 

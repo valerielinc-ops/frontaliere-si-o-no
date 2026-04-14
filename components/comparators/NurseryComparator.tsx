@@ -108,7 +108,7 @@ const NurseryComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({
  <Baby size={28} />
  <h2 className="text-2xl font-bold">{t('nursery.title')}</h2>
  </div>
- <p className="text-warning text-sm">{t('nursery.subtitle')}</p>
+ <p className="text-on-accent/70 text-sm">{t('nursery.subtitle')}</p>
  </div>
 
  {/* Cost Calculator */}

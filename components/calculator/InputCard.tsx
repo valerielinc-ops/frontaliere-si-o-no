@@ -587,10 +587,10 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  </div>
  <div className="text-left">
  <div className="text-sm font-bold">{t('input.compact.expandCta')}</div>
- <div className="text-xs text-accent">{t('input.compact.expandHint')}</div>
+ <div className="text-xs text-on-accent/70">{t('input.compact.expandHint')}</div>
  </div>
  </div>
- <ChevronRight size={20} className="text-accent group-hover:translate-x-1 transition-transform" />
+ <ChevronRight size={20} className="text-on-accent/70 group-hover:translate-x-1 transition-transform" />
  </button>
 
  {/* Data privacy disclaimer (compact) */}

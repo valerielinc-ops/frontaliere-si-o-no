@@ -3562,7 +3562,7 @@ const App: React.FC = () => {
  </nav>
 
  {/* English E-E-A-T alias links — plain <a> tags for crawler discoverability */}
- <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 mt-3 text-[10px] text-edge">
+ <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 mt-3 text-[10px] text-muted">
  <a href="/about/" className="hover:text-subtle no-underline">About</a>
  <span>·</span>
  <a href="/contact/" className="hover:text-subtle no-underline">Contact</a>

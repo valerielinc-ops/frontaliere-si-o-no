@@ -535,7 +535,7 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
  
  <div className="flex items-center gap-4 sm:gap-6 relative z-10">
  <div className="bg-on-accent/10 p-3 sm:p-4 rounded-2xl shrink-0 transition-transform group-hover:scale-110 duration-300">
- {isBetterFrontaliere ? <Trophy size={28} className="text-on-accent" /> : <Armchair size={28} className="text-accent" />}
+ {isBetterFrontaliere ? <Trophy size={28} className="text-on-accent" /> : <Armchair size={28} className="text-on-accent" />}
  </div>
  <div className="min-w-0">
  <div className="flex items-center gap-2 mb-1">
