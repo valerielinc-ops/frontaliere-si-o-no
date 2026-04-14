@@ -7,6 +7,7 @@ import { DEFAULT_INPUTS, DEFAULT_TECH_PARAMS, PRESET_EXPENSES_CH, PRESET_EXPENSE
 import { Analytics } from '../../services/analytics';
 import { useTranslation } from '../../services/i18n';
 import { useNavigationOptional } from '@/services/NavigationContext';
+import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { reportCaughtError } from '@/services/errorReporter';
 // exchangeRateService is lazy-loaded to reduce main bundle size
 
@@ -40,7 +41,7 @@ const InfoTooltip = ({ text }: { text: string }) => {
  return (
  <button ref={ref} type="button" onClick={() => setOpen(v => !v)} aria-label="Info" className="group relative inline-flex items-center ml-1.5 cursor-help z-50">
  <Info size={12} className="text-muted hover:text-info transition-colors" />
- <div className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 p-2.5 bg-surface-raised text-on-accent text-xs font-medium leading-relaxed rounded-xl shadow-xl border border-edge text-center ${open ? 'block' : 'hidden group-hover:block'}`}>
+ <div className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-48 p-2.5 bg-surface-raised text-body text-xs font-medium leading-relaxed rounded-xl shadow-xl border border-edge text-center ${open ? 'block' : 'hidden group-hover:block'}`}>
  {text}
  <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-heading"></div>
  </div>
@@ -190,6 +191,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  const { t, locale } = useTranslation();
  const nav = useNavigationOptional();
  const isFocusMode = nav?.isFocusMode;
+ const isDesktop = useMediaQuery('(min-width: 1024px)');
  const [loadingRate, setLoadingRate] = useState(false);
  const [lastRateUpdate, setLastRateUpdate] = useState<Date | null>(null);
  const [showPresets, setShowPresets] = useState<'CH' | 'IT' | null>(null);
@@ -448,8 +450,8 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  </div>
  </div>
  </div>
- ) : !desktopExpanded ? (
- /* DESKTOP COMPACT MODE — 3 key fields + teaser + expand CTA */
+ ) : (!desktopExpanded && !isDesktop) ? (
+ /* MOBILE COMPACT MODE — 3 key fields + teaser + expand CTA */
  <div className="flex-grow overflow-y-auto custom-scrollbar p-3 space-y-3 pb-20">
  <div className="bg-surface rounded-2xl border border-edge shadow-sm">
  <div className="p-5 space-y-6">
@@ -595,8 +597,8 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
 
  {/* Data privacy disclaimer (compact) */}
  <div className="flex items-start gap-2.5 mx-2 p-3 bg-success-subtle rounded-xl border border-success-border">
- <Shield size={14} className="text-success flex-shrink-0 mt-0.5" />
- <p className="text-sm text-success leading-relaxed">{t('input.dataDisclaimer')}</p>
+ <Shield size={12} className="text-success flex-shrink-0 mt-0.5" />
+ <p className="text-xs text-success leading-relaxed">{t('input.dataDisclaimer')}</p>
  </div>
  </div>
  ) : (
@@ -1125,8 +1127,8 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
 
  {/* Data privacy disclaimer */}
  <div className="flex items-start gap-2.5 mx-5 mb-5 p-3 bg-success-subtle rounded-xl border border-success-border">
- <Shield size={14} className="text-success flex-shrink-0 mt-0.5" />
- <p className="text-sm text-success leading-relaxed">{t('input.dataDisclaimer')}</p>
+ <Shield size={12} className="text-success flex-shrink-0 mt-0.5" />
+ <p className="text-xs text-success leading-relaxed">{t('input.dataDisclaimer')}</p>
  </div>
 
  </div>
@@ -1136,7 +1138,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  {easterEgg && easterEggVisible && createPortal(
  <div className="fixed bottom-28 md:bottom-16 right-4 sm:right-6 z-[70] animate-fade-in cursor-pointer" role="button" tabIndex={0} onClick={dismissEasterEgg} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); dismissEasterEgg(); } }} aria-label="Chiudi notifica">
  <div className="bg-surface-raised rounded-xl shadow-lg px-4 py-2.5 max-w-xs">
- <p className="text-xs font-medium text-on-accent">{easterEgg}</p>
+ <p className="text-xs font-medium text-body">{easterEgg}</p>
  </div>
  </div>,
  document.body

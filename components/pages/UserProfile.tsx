@@ -941,7 +941,7 @@ const UserProfile: React.FC = () => {
  {/* Profile completeness bar */}
  <div className="mt-4">
  <div className="flex items-center justify-between text-xs mb-1.5">
- <span className="text-accent font-medium">{t('profile.completeness')}</span>
+ <span className="text-on-accent/70 font-medium">{t('profile.completeness')}</span>
  <span className="font-bold">{completeness}%</span>
  </div>
  <div className="w-full bg-on-accent/20 rounded-full h-2 overflow-hidden">
@@ -951,7 +951,7 @@ const UserProfile: React.FC = () => {
  />
  </div>
  {completeness < 100 && (
- <p className="text-accent text-xs mt-1">{t('profile.completeForBetter')}</p>
+ <p className="text-on-accent/70 text-xs mt-1">{t('profile.completeForBetter')}</p>
  )}
  </div>
  </div>
