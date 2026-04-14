@@ -876,12 +876,12 @@
     },
     {
       "id": "bcvs-3b0c960c56d3",
-      "slug": "responsable-d-agence-conseiller-ere-en-gestion-de-fortune-bcvs-crans-montana",
+      "slug": "capo-dell-agenzia-assistente-nella-gestione-del-capitale-banque-cantonale-du-valais-crans-montana",
       "slugByLocale": {
         "fr": "responsable-d-agence-conseiller-ere-en-gestion-de-fortune-banque-cantonale-du-valais-crans-montana",
-        "it": "responsable-d-agence-conseiller-ere-en-gestion-de-fortune-bcvs-crans-montana",
-        "en": "responsable-d-agence-conseiller-ere-en-gestion-de-fortune-bcvs-crans-montana",
-        "de": "responsable-d-agence-conseiller-ere-en-gestion-de-fortune-bcvs-crans-montana"
+        "it": "capo-dell-agenzia-assistente-nella-gestione-del-capitale-banque-cantonale-du-valais-crans-montana",
+        "en": "head-of-agency-assistant-in-capital-management-banque-cantonale-du-valais-crans-montana",
+        "de": "leiter-der-agentur-assistant-im-kapitalmanagement-banque-cantonale-du-valais-crans-montana"
       },
       "company": "Banque Cantonale du Valais",
       "companyKey": "bcvs",
@@ -953,7 +953,21 @@
         }
       },
       "postalCode": "1950",
-      "firstSeenAt": "2026-04-14T09:26:21.120Z"
+      "firstSeenAt": "2026-04-14T09:26:21.120Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-d-agence-conseiller-ere-en-gestion-de-fortune-bcvs-crans-montana"
+        ],
+        "en": [
+          "responsable-d-agence-conseiller-ere-en-gestion-de-fortune-bcvs-crans-montana"
+        ],
+        "de": [
+          "responsable-d-agence-conseiller-ere-en-gestion-de-fortune-bcvs-crans-montana"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-d-agence-conseiller-ere-en-gestion-de-fortune-bcvs-crans-montana"
+      ]
     }
   ]
 }

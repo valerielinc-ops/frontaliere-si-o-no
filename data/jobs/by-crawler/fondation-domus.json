@@ -110,10 +110,10 @@
     },
     {
       "id": "fondation-domus-8fe822363d3a",
-      "slug": "assistant-socio-educatif-80-fondation-domus-ch",
+      "slug": "assistente-socio-educativo-80-fondation-domus-ardon",
       "slugByLocale": {
         "fr": "assistant-socio-educatif-80-fondation-domus-ch",
-        "it": "assistant-socio-educatif-80-fondation-domus-ch",
+        "it": "assistente-socio-educativo-80-fondation-domus-ardon",
         "en": "assistant-socio-educatif-80-fondation-domus-ch",
         "de": "assistant-socio-educatif-80-fondation-domus-ch"
       },
@@ -169,15 +169,23 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-14T09:56:17.776Z"
+      "firstSeenAt": "2026-04-14T09:56:17.776Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-socio-educatif-80-fondation-domus-ch"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-socio-educatif-80-fondation-domus-ch"
+      ]
     },
     {
       "id": "fondation-domus-636bb856f2c2",
-      "slug": "assistant-e-en-soins-et-sante-communautaire-70-a-75-fondation-domus-ch",
+      "slug": "assistente-per-la-salute-e-la-cura-della-comunita-dal-70-al-75-fondation-domus-ardon",
       "slugByLocale": {
         "fr": "assistant-e-en-soins-et-sante-communautaire-70-a-75-fondation-domus-ch",
-        "it": "assistant-e-en-soins-et-sante-communautaire-70-a-75-fondation-domus-ch",
-        "en": "assistant-e-en-soins-et-sante-communautaire-70-a-75-fondation-domus-ch",
+        "it": "assistente-per-la-salute-e-la-cura-della-comunita-dal-70-al-75-fondation-domus-ardon",
+        "en": "community-health-and-care-assistant-70-to-75-fondation-domus-ardon",
         "de": "assistant-e-en-soins-et-sante-communautaire-70-a-75-fondation-domus-ch"
       },
       "company": "Fondation Domus",
@@ -232,16 +240,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-14T09:56:17.776Z"
+      "firstSeenAt": "2026-04-14T09:56:17.776Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-en-soins-et-sante-communautaire-70-a-75-fondation-domus-ch"
+        ],
+        "en": [
+          "assistant-e-en-soins-et-sante-communautaire-70-a-75-fondation-domus-ch"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-en-soins-et-sante-communautaire-70-a-75-fondation-domus-ch"
+      ]
     },
     {
       "id": "fondation-domus-38966bcf3169",
-      "slug": "travailleur-social-60-fondation-domus-ch",
+      "slug": "lavoratore-sociale-60-fondation-domus-la-tzoumaz",
       "slugByLocale": {
         "fr": "travailleur-social-60-fondation-domus-ch",
-        "it": "travailleur-social-60-fondation-domus-ch",
+        "it": "lavoratore-sociale-60-fondation-domus-la-tzoumaz",
         "en": "travailleur-social-60-fondation-domus-ch",
-        "de": "travailleur-social-60-fondation-domus-ch"
+        "de": "sozialarbeiter-60-fondation-domus-la-tzoumaz"
       },
       "company": "Fondation Domus",
       "companyKey": "fondation-domus",
@@ -295,7 +314,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-04-14T09:56:17.776Z"
+      "firstSeenAt": "2026-04-14T09:56:17.776Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "travailleur-social-60-fondation-domus-ch"
+        ],
+        "de": [
+          "travailleur-social-60-fondation-domus-ch"
+        ]
+      },
+      "previousSlugs": [
+        "travailleur-social-60-fondation-domus-ch"
+      ]
     }
   ]
 }

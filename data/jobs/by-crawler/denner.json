@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "denner-4832a74190e4",
-      "slug": "assistent-in-filialleitung-denner",
+      "slug": "assistente-nella-gestione-delle-branche-denner-basel",
       "slugByLocale": {
-        "it": "assistent-in-filialleitung-denner",
-        "en": "assistent-in-filialleitung-denner-flims-dorf-gzl76k",
+        "it": "assistente-nella-gestione-delle-branche-denner-basel",
+        "en": "assistant-in-branch-management-denner-basel",
         "de": "assistent-in-filialleitung-denner-basel",
-        "fr": "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
+        "fr": "assistant-dans-la-gestion-de-la-succursale-denner-basel"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -69,10 +69,21 @@
       "previousSlugsByLocale": {
         "de": [
           "assistent-in-filialleitung-denner-flims-dorf"
+        ],
+        "it": [
+          "assistent-in-filialleitung-denner"
+        ],
+        "en": [
+          "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
+        ],
+        "fr": [
+          "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
         ]
       },
       "previousSlugs": [
-        "assistent-in-filialleitung-denner-flims-dorf"
+        "assistent-in-filialleitung-denner-flims-dorf",
+        "assistent-in-filialleitung-denner",
+        "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
       ],
       "salaryMin": 59000,
       "salaryMax": 90500,

@@ -4309,12 +4309,12 @@
     },
     {
       "id": "pdgr-6a8a53547bd0",
-      "slug": "dipl-pflegefachperson-hf-per-den-tag-e-nachtdienst-psychiatrische-dienste-graubunden-cazis",
+      "slug": "dipl-carriera-hf-per-il-servizio-giorno-e-notte-psychiatrische-dienste-graubunden-cazis",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fur-den-tag-und-nachtdienst-psychiatrische-dienste-graubunden-cazis",
-        "it": "dipl-pflegefachperson-hf-per-den-tag-e-nachtdienst-psychiatrische-dienste-graubunden-cazis",
-        "en": "dipl-pflegefachperson-hf-fur-den-tag-und-nachtdienst-psychiatrische-dienste-graubunden-cazis",
-        "fr": "dipl-pflegefachperson-hf-fur-den-tag-und-nachtdienst-psychiatrische-dienste-graubunden-cazis"
+        "it": "dipl-carriera-hf-per-il-servizio-giorno-e-notte-psychiatrische-dienste-graubunden-cazis",
+        "en": "dipl-career-hf-for-day-and-night-service-psychiatrische-dienste-graubunden-cazis",
+        "fr": "dipl-carriere-hf-pour-le-service-de-jour-et-de-nuit-psychiatrische-dienste-graubunden-cazis"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -4363,14 +4363,23 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fur-den-tag-und-nachtdienst-pdgr-ch"
+          "dipl-pflegefachperson-hf-fur-den-tag-und-nachtdienst-pdgr-ch",
+          "dipl-pflegefachperson-hf-per-den-tag-e-nachtdienst-psychiatrische-dienste-graubunden-cazis"
         ],
         "de": [
           "dipl-pflegefachperson-hf-fur-den-tag-und-nachtdienst-pdgr-ch"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fur-den-tag-und-nachtdienst-psychiatrische-dienste-graubunden-cazis"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fur-den-tag-und-nachtdienst-psychiatrische-dienste-graubunden-cazis"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fur-den-tag-und-nachtdienst-pdgr-ch"
+        "dipl-pflegefachperson-hf-fur-den-tag-und-nachtdienst-pdgr-ch",
+        "dipl-pflegefachperson-hf-per-den-tag-e-nachtdienst-psychiatrische-dienste-graubunden-cazis",
+        "dipl-pflegefachperson-hf-fur-den-tag-und-nachtdienst-psychiatrische-dienste-graubunden-cazis"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -4392,8 +4401,8 @@
       "slugByLocale": {
         "de": "leiter-in-textil-psychiatrische-dienste-graubunden-chur",
         "it": "responsabile-textil-psychiatrische-dienste-graubunden-chur",
-        "en": "leiter-in-textil-pdgr-ch",
-        "fr": "leiter-in-textil-pdgr-ch"
+        "en": "head-of-textile-psychiatrische-dienste-graubunden-chur",
+        "fr": "tete-de-textile-psychiatrische-dienste-graubunden-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -4446,6 +4455,12 @@
           "leiter-in-textil-pdgr-ch"
         ],
         "de": [
+          "leiter-in-textil-pdgr-ch"
+        ],
+        "en": [
+          "leiter-in-textil-pdgr-ch"
+        ],
+        "fr": [
           "leiter-in-textil-pdgr-ch"
         ]
       },
