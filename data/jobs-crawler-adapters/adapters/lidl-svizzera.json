@@ -20,11 +20,21 @@
     "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-locarno-604777",
     "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lugano-588267",
     "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-minusio-606859",
-    "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-sant-antonino-588231"
+    "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-sant-antonino-588231",
+    "https://team.lidl.ch/it/jobs/vendite-operatore-di-filiale-part-time-f-m-arbedo-castione-655516"
   ],
   "notes": "Dedicated Lidl crawler seeds from team.lidl.ch search API (/it/search_api/jobsearch) using Ticino and Grigioni italiano geo queries.",
-  "updatedAt": "2026-04-13T22:01:33.433Z",
+  "updatedAt": "2026-04-14T10:15:11.682Z",
   "seedMetaByUrl": {
+    "https://team.lidl.ch/it/jobs/vendite-operatore-di-filiale-part-time-f-m-arbedo-castione-655516": {
+      "location": "Arbedo-Castione",
+      "addressLocality": "Arbedo-Castione",
+      "canton": "TI",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Part-time"
+    },
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-60-80-st-moritz-659738": {
       "location": "St. Moritz",
       "addressLocality": "St. Moritz",
