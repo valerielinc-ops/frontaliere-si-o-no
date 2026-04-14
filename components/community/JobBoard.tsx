@@ -5709,33 +5709,70 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </div>
  </a>
 
- {/* Similar jobs — gate view (compact list) */}
+ {/* Similar jobs — gate view (listing-style cards) */}
  {relatedJobs.length > 0 && (
  <section className="rounded-2xl border border-edge bg-surface p-5">
  <h2 className="text-lg font-bold text-heading mb-4">{t('jobBoard.relatedTitle')}</h2>
- <ul className="space-y-1.5">
+ <div className="space-y-2">
  {relatedJobs.map((job) => {
  const jobHref = buildJobPath(job);
+ const jobLogo = companyLogoUrl(job);
+ const jobSalary = formatSalary(job);
  return (
- <li key={job.id}>
+ <article
+ key={job.id}
+ className={`rounded-xl border p-3 sm:p-4 transition-colors min-h-[72px] ${
+ job.featured
+ ? 'border-warning-border bg-warning-subtle hover:border-warning'
+ : 'border-edge bg-surface/50 hover:border-accent-border'
+ }`}
+ >
  <a
  href={jobHref}
- onClick={(e) => {
- e.preventDefault();
- openDetail(job);
- }}
- className="flex items-center gap-2 rounded-lg border border-edge bg-surface px-3 py-2 text-sm hover:border-accent-border transition-colors"
+ onClick={(e) => { e.preventDefault(); openDetail(job); }}
+ className="block cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-lg"
  >
- <span className="flex-1 font-medium text-strong truncate">
+ <div className="flex items-start gap-3">
+ <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-lg bg-surface-raised flex items-center justify-center overflow-hidden border border-edge shrink-0">
+ {jobLogo ? (
+ <img src={jobLogo} alt={`Logo ${job.company}`} className="w-7 h-7 sm:w-10 sm:h-10 object-contain" width={40} height={40} loading="lazy" onError={(e) => { const el = e.currentTarget; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.visibility = 'hidden'; } }} />
+ ) : (
+ <Building2 className="w-5 h-5 text-muted" />
+ )}
+ </div>
+ <div className="min-w-0 flex-1">
+ <h3 className="text-sm sm:text-base font-bold text-heading leading-tight">
  {sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title)}
+ </h3>
+ <p className="text-xs sm:text-sm text-subtle mt-0.5 line-clamp-2">
+ {job.company} · {isMultiLocation(job.location) ? t('jobBoard.location.multiLocation') : `${job.location} (${job.canton})`}
+ </p>
+ {jobSalary && (
+ <span className="mt-1 inline-flex items-center gap-1 text-xs sm:text-sm font-semibold text-success">
+ <Euro className="w-3.5 h-3.5" />
+ {jobSalary}
  </span>
- <span className="text-muted text-xs shrink-0">{job.company}</span>
- <ArrowRight className="w-3 h-3 text-muted shrink-0" aria-hidden="true" />
+ )}
+ </div>
+ </div>
+ <div className="mt-2 sm:mt-3 flex flex-wrap items-center gap-2 sm:gap-1.5 text-xs text-muted">
+ <span className="inline-flex items-center gap-1">
+ <MapPin className="w-3 h-3" />
+ {isMultiLocation(job.location) ? t('jobBoard.location.multiLocation') : job.location}
+ </span>
+ <span className="px-1.5 py-0.5 rounded bg-surface-raised text-subtle">
+ {t(contractTranslationKey(job))}
+ </span>
+ <span className="inline-flex items-center gap-1">
+ <Clock className="w-3 h-3" />
+ {daysSincePosted(job.postedDate)}
+ </span>
+ </div>
  </a>
- </li>
+ </article>
  );
  })}
- </ul>
+ </div>
  </section>
  )}
  </div>
