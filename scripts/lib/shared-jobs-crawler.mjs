@@ -3257,7 +3257,8 @@ async function crawlGreenhouseJobs(company, source) {
     const location = normalizeSpace(j?.location?.name || j?.location || company.city || 'Ticino');
     if (!isTargetSwissLocation(location)) continue;
     const description = cleanDescription(j?.content || j?.description || `${title}. ${location}`);
-    const inferredCanton = inferSwissTargetCanton(`${title} ${location} ${description}`) || 'TI';
+    const inferredCanton = inferSwissTargetCanton(`${title} ${location} ${description}`) || '';
+    if (!inferredCanton) { console.warn(`  ⚠️ Skipping job with unknown canton: "${title}" (location: ${location})`); continue; }
     out.push({
       id: '',
       slug: '',
@@ -3305,7 +3306,8 @@ async function crawlLeverJobs(company, source) {
     const location = normalizeSpace(j?.categories?.location || j?.workplaceType || company.city || 'Ticino');
     if (!isTargetSwissLocation(location)) continue;
     const description = cleanDescription(j?.descriptionPlain || j?.description || `${title}. ${location}`);
-    const inferredCanton = inferSwissTargetCanton(`${title} ${location} ${description}`) || 'TI';
+    const inferredCanton = inferSwissTargetCanton(`${title} ${location} ${description}`) || '';
+    if (!inferredCanton) { console.warn(`  ⚠️ Skipping job with unknown canton: "${title}" (location: ${location})`); continue; }
     out.push({
       id: '',
       slug: '',
@@ -3353,7 +3355,8 @@ async function crawlSmartRecruitersJobs(company, source) {
     const location = normalizeSpace(j?.location?.city || j?.location?.region || company.city || 'Ticino');
     if (!isTargetSwissLocation(location)) continue;
     const description = cleanDescription(`${title}. ${location}. ${normalizeSpace(j?.releasedDate || '')}`);
-    const inferredCanton = inferSwissTargetCanton(`${title} ${location} ${description}`) || 'TI';
+    const inferredCanton = inferSwissTargetCanton(`${title} ${location} ${description}`) || '';
+    if (!inferredCanton) { console.warn(`  ⚠️ Skipping job with unknown canton: "${title}" (location: ${location})`); continue; }
     out.push({
       id: '',
       slug: '',
