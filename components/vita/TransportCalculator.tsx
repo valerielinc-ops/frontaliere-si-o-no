@@ -193,7 +193,7 @@ const TransportCalculator: React.FC = () => {
  <Car size={32} />
  <h2 className="text-2xl sm:text-3xl font-bold">{t('transport.title')}</h2>
  </div>
- <p className="text-success text-lg">
+ <p className="text-on-accent/80 text-lg">
  {t('transport.subtitle')}
  </p>
  </div>

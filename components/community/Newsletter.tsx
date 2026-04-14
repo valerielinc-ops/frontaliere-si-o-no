@@ -203,12 +203,12 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
  <Bell size={20} />
  <h3 className="font-bold text-lg">{t('newsletter.title')}</h3>
  </div>
- <p className="text-success text-sm mb-4">
+ <p className="text-on-accent/80 text-sm mb-4">
  {t('newsletter.compactDescription')}
  </p>
 
  {(status === 'success' || status === 'pending') ? (
- <div className={`flex items-center gap-2 ${status === 'pending' ? 'text-warning' : 'text-success'}`}>
+ <div className={`flex items-center gap-2 text-on-accent`}>
  {status === 'pending' ? <Mail size={18} /> : <CheckCircle2 size={18} />}
  {status === 'pending' ? t('newsletter.doubleOptIn.checkInbox') : t('newsletter.subscriptionConfirmedShort')}
  </div>
@@ -286,7 +286,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
  </div>
  <div>
  <h1 className="text-2xl sm:text-3xl font-extrabold">{t('newsletter.weeklyTitle')}</h1>
- <p className="text-success mt-1">{t('newsletter.weeklySubtitle')}</p>
+ <p className="text-on-accent/80 mt-1">{t('newsletter.weeklySubtitle')}</p>
  </div>
  </div>
 

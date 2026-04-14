@@ -421,7 +421,7 @@ const TicineseDialect: React.FC = () => {
  }
  }}
  placeholder={tt('dialect.searchPlaceholder', 'Cerca una parola o espressione...')}
- className="w-full pl-9 pr-3 py-2 rounded-lg border border-edge bg-surface-alt text-sm text-strong"
+ className="w-full pl-9 pr-3 py-2 rounded-lg border border-edge bg-surface-alt text-base text-strong"
  aria-label={tt('dialect.searchPlaceholder', 'Cerca una parola o espressione...')}
  />
  </div>

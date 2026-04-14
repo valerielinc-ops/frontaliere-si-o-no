@@ -196,7 +196,7 @@ const NurseryComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({
  value={searchTerm}
  onChange={e => setSearchTerm(e.target.value)}
  placeholder={t('nursery.searchPlaceholder')}
- className="w-full pl-9 pr-3 py-2 rounded-lg border border-edge bg-surface-alt text-sm text-strong"
+ className="w-full pl-9 pr-3 py-2 rounded-lg border border-edge bg-surface-alt text-base text-strong"
  aria-label={t('nursery.searchPlaceholder')}
  />
  </div>

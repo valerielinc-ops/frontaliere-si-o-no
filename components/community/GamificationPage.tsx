@@ -68,24 +68,24 @@ const GamificationPage: React.FC = () => {
  </div>
  <div>
  <h2 className="text-2xl sm:text-3xl font-bold">{t('gamification.pageTitle') || 'I tuoi Progressi'}</h2>
- <p className="text-warning text-sm mt-1">{t('gamification.pageSubtitle') || 'Sblocca achievement esplorando tutte le funzionalità'}</p>
+ <p className="text-on-accent/80 text-sm mt-1">{t('gamification.pageSubtitle') || 'Sblocca achievement esplorando tutte le funzionalità'}</p>
  </div>
  </div>
 
  {/* Level + Stats row */}
  <div className="flex flex-wrap items-baseline gap-x-5 gap-y-1.5 text-sm text-on-accent/80">
- <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-on-accent">{levelInfo.level}</span> {t('gamification.level') || 'Livello'} — <span className="text-xs text-warning font-semibold">{levelTitle}</span></span>
+ <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-on-accent">{levelInfo.level}</span> {t('gamification.level') || 'Livello'} — <span className="text-xs text-on-accent font-semibold">{levelTitle}</span></span>
  <span className="text-on-accent/30" aria-hidden="true">·</span>
  <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-on-accent">{state.xp}</span> XP</span>
  <span className="text-on-accent/30" aria-hidden="true">·</span>
  <span className="inline-flex items-baseline gap-1.5"><Flame size={16} className="text-on-accent" /><span className="text-lg font-semibold text-on-accent">{state.streak}</span> {t('gamification.daysInARow') || 'giorni consecutivi'}</span>
  <span className="text-on-accent/30" aria-hidden="true">·</span>
- <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-on-accent">{unlockedCount}<span className="text-sm text-warning">/{totalCount}</span></span> {progressPercent}% {t('gamification.completed') || 'completato'}</span>
+ <span className="inline-flex items-baseline gap-1.5"><span className="text-lg font-semibold text-on-accent">{unlockedCount}<span className="text-sm text-on-accent/70">/{totalCount}</span></span> {progressPercent}% {t('gamification.completed') || 'completato'}</span>
  </div>
  <div className="w-full max-w-xs bg-on-accent/20 rounded-full h-1.5 mt-3">
  <div className="bg-surface rounded-full h-1.5 transition-transform duration-500" style={{ width: '100%', transform: `scaleX(${xpProgressPct / 100})`, transformOrigin: 'left' }} />
  </div>
- <div className="text-xs text-warning mt-1">{levelInfo.currentXp}/{levelInfo.nextLevelXp} → {t('gamification.level')} {levelInfo.level + 1}</div>
+ <div className="text-xs text-on-accent/80 mt-1">{levelInfo.currentXp}/{levelInfo.nextLevelXp} → {t('gamification.level')} {levelInfo.level + 1}</div>
  </div>
  </div>
 

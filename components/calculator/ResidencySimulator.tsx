@@ -382,9 +382,9 @@ const ResidencySimulator: React.FC = () => {
  <div className="p-2 bg-accent-subtle rounded-xl">
  <Home className="w-6 h-6 text-accent" />
  </div>
- <h2 className="text-2xl font-bold text-accent">{t('residency.title')}</h2>
+ <h2 className="text-2xl font-bold text-strong">{t('residency.title')}</h2>
  </div>
- <p className="text-accent text-sm">{t('residency.subtitle')}</p>
+ <p className="text-body text-sm">{t('residency.subtitle')}</p>
  </div>
 
  {/* Inputs */}
@@ -651,7 +651,7 @@ function BestMunicipalitySection({ grossMonthlyCHF, chfEurRate }: { grossMonthly
  value={searchQuery}
  onChange={(e) => setSearchQuery(e.target.value)}
  placeholder={t('residency.bestMunicipality.searchPlaceholder') || 'Cerca comune...'}
- className="w-full pl-9 pr-8 py-2 rounded-lg bg-surface border border-edge text-sm focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-transparent outline-none"
+ className="w-full pl-9 pr-8 py-2 rounded-lg bg-surface border border-edge text-base focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-transparent outline-none"
  aria-label={t('residency.bestMunicipality.searchPlaceholder') || 'Cerca comune'}
  />
  {searchQuery && (

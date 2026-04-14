@@ -419,7 +419,7 @@ const CurrencyExchange: React.FC = () => {
  <ArrowRightLeft size={28} className="sm:w-8 sm:h-8" />
  <div>
  <h1 className="text-xl sm:text-3xl font-extrabold">{t('currency.title')}</h1>
- <p className="text-success text-sm sm:text-base mt-1">{t('currency.subtitle')}</p>
+ <p className="text-on-accent/80 text-sm sm:text-base mt-1">{t('currency.subtitle')}</p>
  </div>
  </div>
 
@@ -429,7 +429,7 @@ const CurrencyExchange: React.FC = () => {
  <AlertCircle size={24} className="flex-shrink-0 mt-0.5" />
  <div className="text-sm">
  <p className="font-bold mb-2">⚠️ {t('currency.notice_title')}</p>
- <p className="text-success leading-relaxed">
+ <p className="text-on-accent/80 leading-relaxed">
  {t('currency.notice_text')}
  </p>
  </div>

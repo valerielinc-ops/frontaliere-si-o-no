@@ -552,7 +552,7 @@ const ExchangeTimingSection: React.FC<{ historyData: Array<{ date: string; rate:
  <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-on-accent">
  <div><span className="text-lg font-semibold">€ {(1000 * volatility.max).toFixed(2)}</span> <span className="text-sm text-on-accent/80">{t('currency.1000chf_best_rate')}</span></div>
  <div><span className="text-lg font-semibold">€ {(1000 * volatility.min).toFixed(2)}</span> <span className="text-sm text-on-accent/80">{t('currency.1000chf_worst_rate')}</span></div>
- <div><span className="text-lg font-semibold text-warning">€ {(1000 * volatility.range).toFixed(2)}</span> <span className="text-sm text-on-accent/80">{t('currency.potential_difference')} · {t('currency.on_1000chf_period')}</span></div>
+ <div><span className="text-lg font-semibold text-on-accent">€ {(1000 * volatility.range).toFixed(2)}</span> <span className="text-sm text-on-accent/80">{t('currency.potential_difference')} · {t('currency.on_1000chf_period')}</span></div>
  </div>
  <p className="text-xs text-on-accent/90 text-center mt-1">
  {t('currency.on_5000chf_annual')} <strong>€ {(5000 * volatility.range * 12).toFixed(0)}</strong>!
@@ -708,7 +708,7 @@ const WeightedAverageStats: React.FC<{
  <div><span className="text-lg font-semibold">€ {stats.currentMonthly.toFixed(0)}/{t('currency.month_abbr')}</span> <span className="text-sm text-on-accent/80">{t('currency.at_current_rate')}</span></div>
  <div><span className="text-lg font-semibold">€ {stats.avgMonthly.toFixed(0)}/{t('currency.month_abbr')}</span> <span className="text-sm text-on-accent/80">{t('currency.at_weighted_avg')}</span></div>
  <div>
- <span className={`text-lg font-semibold ${stats.annualDiff >= 0 ? 'text-success' : 'text-warning'}`}>
+ <span className={`text-lg font-semibold text-on-accent`}>
  {stats.annualDiff >= 0 ? '+' : ''}€ {stats.annualDiff.toFixed(0)}
  </span>
  {' '}<span className="text-sm text-on-accent/80">{t('currency.annual_difference')} · {stats.annualDiff >= 0 ? `✅ ${t('currency.rate_favors_you')}` : `⚠️ ${t('currency.rate_below_average')}`}</span>

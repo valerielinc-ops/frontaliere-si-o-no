@@ -316,7 +316,7 @@ const WorkPermitsGuide: React.FC = () => {
  </div>
  <div>
  <h1 className="text-2xl sm:text-3xl font-extrabold">{t('permits.pageTitle')}</h1>
- <p className="text-info mt-1">{t('permits.pageSubtitle')}</p>
+ <p className="text-on-accent/80 mt-1">{t('permits.pageSubtitle')}</p>
  </div>
  </div>
  </div>

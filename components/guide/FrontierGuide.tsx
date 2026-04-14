@@ -258,7 +258,7 @@ const SchoolDirectory: React.FC<{ t: (key: string) => string }> = ({ t }) => {
  <BookOpen size={24} />
  <div>
  <h3 className="text-lg font-bold">{t('guide.schools.directoryTitle') || 'Elenco Scuole del Ticino'}</h3>
- <p className="text-info text-xs">{filteredSchools.length} {t('guide.schools.schoolsFound') || 'scuole trovate'}</p>
+ <p className="text-on-accent/80 text-xs">{filteredSchools.length} {t('guide.schools.schoolsFound') || 'scuole trovate'}</p>
  </div>
  </div>
  </div>
@@ -274,7 +274,7 @@ const SchoolDirectory: React.FC<{ t: (key: string) => string }> = ({ t }) => {
  onChange={(e) => setSchoolSearch(e.target.value)}
  placeholder={t('guide.schools.searchPlaceholder') || 'Cerca per nome o città...'}
  aria-label={t('guide.schools.searchPlaceholder') || 'Cerca per nome o città...'}
- className="w-full pl-10 pr-4 py-2 bg-surface-alt border border-edge rounded-lg text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+ className="w-full pl-10 pr-4 py-2 bg-surface-alt border border-edge rounded-lg text-base focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
  />
  </div>
 
@@ -665,7 +665,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  <h3 className="text-sm sm:text-base font-bold leading-tight">
  {t('guide.title')}
  </h3>
- <p className="text-xs sm:text-sm text-info leading-relaxed">
+ <p className="text-xs sm:text-sm text-on-accent/80 leading-relaxed">
  {t('guide.subtitle')}
  </p>
  </div>

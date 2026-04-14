@@ -109,7 +109,7 @@ const FaqSection: React.FC = () => {
  }
  }}
  placeholder={t('faq.searchPlaceholder')}
- className="w-full pl-9 pr-3 py-2.5 rounded-xl border border-edge bg-surface-alt text-sm text-strong"
+ className="w-full pl-9 pr-3 py-2.5 rounded-xl border border-edge bg-surface-alt text-base text-strong"
  aria-label={t('faq.searchPlaceholder')}
  />
  </div>

@@ -449,7 +449,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
  <div className="bg-gradient-to-br from-success-strong to-info-strong rounded-2xl p-5 sm:p-6 shadow-lg text-on-accent">
  <div className="flex items-start justify-between mb-4">
  <div>
- <div className="text-success text-sm font-semibold uppercase tracking-wide mb-1">
+ <div className="text-on-accent/80 text-sm font-semibold uppercase tracking-wide mb-1">
  {t('pension.totalMonthlyPension')}
  </div>
  <div className="text-3xl sm:text-4xl font-bold">
@@ -460,10 +460,10 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
  <button onClick={handleShare} aria-label={t('common.share')} className="p-2 rounded-xl bg-on-accent/20 hover:bg-on-accent/30 transition-colors">
  {shareState === 'copied' ? <Check size={18} className="text-on-accent" /> : <Share2 size={18} className="text-on-accent" />}
  </button>
- <TrendingUp size={32} className="text-success" />
+ <TrendingUp size={32} className="text-on-accent" />
  </div>
  </div>
- <div className="text-success text-sm">
+ <div className="text-on-accent/80 text-sm">
  {t('pension.estimateBased')} {yearsUntilRetirement} {t('pension.yearsOfFutureContributions')}
  </div>
  </div>

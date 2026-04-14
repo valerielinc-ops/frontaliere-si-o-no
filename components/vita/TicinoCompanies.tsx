@@ -746,7 +746,7 @@ const TicinoCompanies: React.FC = () => {
  onChange={(e) => setSearchQuery(e.target.value)}
  placeholder={t('companies.search') || 'Cerca azienda, città, settore...'}
  aria-label={t('companies.search') || 'Cerca azienda, città, settore'}
- className="w-full pl-10 pr-4 py-2 bg-surface-alt border border-edge rounded-lg text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+ className="w-full pl-10 pr-4 py-2 bg-surface-alt border border-edge rounded-lg text-base focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
  />
  </div>
 

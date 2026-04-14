@@ -425,7 +425,7 @@ const NewsletterPopup: React.FC = () => {
  {triggerSource === 'exit_intent' ? t('newsletter.exitIntent.title') : t('newsletter.popup.title')}
  </h2>
  </div>
- <p className="text-success text-sm">
+ <p className="text-on-accent/80 text-sm">
  {triggerSource === 'exit_intent' ? t('newsletter.exitIntent.subtitle') : t('newsletter.popup.subtitle')}
  </p>
  </div>

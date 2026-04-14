@@ -83,7 +83,7 @@ const RistorniTracker: React.FC = () => {
  <Coins size={28} />
  <h2 className="text-2xl font-bold">{t('ristorni.title')}</h2>
  </div>
- <p className="text-info text-sm">{t('ristorni.subtitle')}</p>
+ <p className="text-on-accent/80 text-sm">{t('ristorni.subtitle')}</p>
  </div>
 
  {/* What are ristorni */}
