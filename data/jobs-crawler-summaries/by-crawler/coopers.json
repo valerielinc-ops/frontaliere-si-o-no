@@ -1,16 +1,16 @@
 {
   "key": "coopers",
   "label": "Coopers Group AG",
-  "generatedAt": "2026-04-13T21:30:48.931Z",
-  "total": 3,
+  "generatedAt": "2026-04-14T09:44:21.637Z",
+  "total": 2,
   "newCount": 0,
-  "updatedCount": 3,
+  "updatedCount": 2,
   "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 8244,
-  "avgDurationMs": 8244,
+  "durationMs": 5968,
+  "avgDurationMs": 5968,
   "durationHistory": [
-    8244
+    5968
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=FL86B0",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-04-13T21:30:43.781Z",
+      "crawledAt": "2026-04-14T09:44:17.743Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -61,7 +61,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=979PJR",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-13T21:30:45.111Z",
+      "crawledAt": "2026-04-14T09:44:19.115Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -83,10 +83,12 @@
         "translation": 25,
         "completeness": 14
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "id": "coopers-fa72ad63c809",
-      "slug": "application-manager-m-w-d-coopers-wallis",
+      "slug": "responsabile-gestione-applicazioni-m-w-d-coopers-group-ag-wallis",
       "company": "Coopers Group AG",
       "companyKey": "coopers",
       "companyDomain": "coopers.ch",
@@ -111,46 +113,9 @@
       "postedDate": "2026-04-02",
       "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=210UII",
       "firstSeenAt": "2026-04-13T10:22:21.922Z",
-      "_qualityScore": 85,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
-        "completeness": 14
-      }
-    }
-  ],
-  "removedJobs": [
-    {
-      "id": "coopers-d4715af571eb",
-      "slug": "acquirente-capex-m-f-d-coopers-group-ag-wallis",
-      "company": "Coopers Group AG",
-      "companyKey": "coopers",
-      "companyDomain": "coopers.ch",
-      "title": "Capex Buyer (m/f/d)",
-      "location": "Wallis",
-      "canton": "VS",
-      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5S1KZ8",
-      "source": "Coopers Group AG Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-04-13T10:22:23.237Z",
-      "addressLocality": "Wallis",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "contracting",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Farmaceutica / Life Sciences",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-19",
-      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=5S1KZ8",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
+      "salaryMin": 68000,
+      "salaryMax": 103000,
       "postalCode": "1950",
-      "firstSeenAt": "2026-04-13T10:22:23.237Z",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
