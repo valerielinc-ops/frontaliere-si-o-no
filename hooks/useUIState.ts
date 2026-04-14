@@ -15,12 +15,7 @@ import { useTranslation, initLocale, isTranslationsReady, itReady, loadTabTransl
 import { setDefaultConsent, onConsentChange, isAnalyticsGranted } from '@/services/consentService';
 import type { ActiveTab } from '@/services/router';
 
-// Analytics lazily loaded — all methods are fire-and-forget with no return values.
-const Analytics: Record<string, (...a: unknown[]) => void> = new Proxy({} as any, {
- get: (_t, method: string) => (...args: unknown[]) => {
- import('@/services/analytics').then(m => (m.Analytics as any)[method](...args));
- },
-});
+import { Analytics, unlockAchievement } from '@/services/analyticsProxy';
 
 // SEO service is lazy-loaded to reduce critical path.
 let runtimeSeoEnabled = false;
@@ -36,9 +31,7 @@ export interface UIState {
  setIsFocusMode: (v: boolean) => void;
 }
 
-const unlockAchievement = (id: string) => {
- import('@/services/gamificationService').then(m => m.unlockAchievement(id));
-};
+
 
 export function useUIState(activeTab: ActiveTab): UIState {
  const [translationsReady, setTranslationsReady] = useState(isTranslationsReady);

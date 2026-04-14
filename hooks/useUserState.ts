@@ -19,16 +19,7 @@ import type { SimulationInputs } from '@/types';
 
 const ADMIN_EMAIL_WHITELIST = ['luigisag@gmail.com', 'valerielinc@gmail.com'];
 
-// Lazy analytics proxy — fire-and-forget
-const Analytics: Record<string, (...a: unknown[]) => void> = new Proxy({} as any, {
- get: (_t, method: string) => (...args: unknown[]) => {
- import('@/services/analytics').then(m => (m.Analytics as any)[method](...args));
- },
-});
-
-const unlockAchievement = (id: string) => {
- import('@/services/gamificationService').then(m => m.unlockAchievement(id));
-};
+import { Analytics, unlockAchievement } from '@/services/analyticsProxy';
 
 export interface UserState {
  authUser: any;

@@ -28,16 +28,7 @@ import { setLocale, onLocaleChange } from '@/services/i18n';
 import { prefetchTab } from '@/services/prefetch';
 import { enableRuntimeSeo, updateMetaTags, trackSectionView } from '@/hooks/seoHelpers';
 
-const unlockAchievement = (id: string) => {
- import('@/services/gamificationService').then(m => m.unlockAchievement(id));
-};
-
-// Lazy analytics proxy — fire-and-forget
-const Analytics: Record<string, (...a: unknown[]) => void> = new Proxy({} as any, {
- get: (_t, method: string) => (...args: unknown[]) => {
- import('@/services/analytics').then(m => (m.Analytics as any)[method](...args));
- },
-});
+import { Analytics, unlockAchievement } from '@/services/analyticsProxy';
 
 export interface NavigationState {
  // State

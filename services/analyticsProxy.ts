@@ -19,3 +19,11 @@ export const Analytics: Record<string, (...a: unknown[]) => void> = new Proxy(
  },
  },
 );
+
+/**
+ * Lazy unlockAchievement — keeps gamificationService out of the critical bundle.
+ * Fire-and-forget; failures are silently ignored.
+ */
+export const unlockAchievement = (id: string): void => {
+ import('@/services/gamificationService').then(m => m.unlockAchievement(id));
+};

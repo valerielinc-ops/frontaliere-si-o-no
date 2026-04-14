@@ -18,16 +18,7 @@ import type { SeoLandingId, ActiveTab } from '@/services/router';
 
 const lazyCalculate = () => import('@/services/calculationService');
 
-// Lazy analytics proxy — fire-and-forget
-const Analytics: Record<string, (...a: unknown[]) => void> = new Proxy({} as any, {
- get: (_t, method: string) => (...args: unknown[]) => {
- import('@/services/analytics').then(m => (m.Analytics as any)[method](...args));
- },
-});
-
-const unlockAchievement = (id: string) => {
- import('@/services/gamificationService').then(m => m.unlockAchievement(id));
-};
+import { Analytics, unlockAchievement } from '@/services/analyticsProxy';
 
 export const SEO_LANDING_PRESETS: Record<SeoLandingId, Partial<SimulationInputs>> = {
  'salary-60000': { annualIncomeCHF: 60000, maritalStatus: 'SINGLE', children: 0, familyMembers: 1, frontierWorkerType: 'NEW', distanceZone: 'WITHIN_20KM', age: 35, spouseWorks: false },
