@@ -1,16 +1,16 @@
 {
   "key": "skyguide-sa",
   "label": "Skyguide",
-  "generatedAt": "2026-04-13T22:24:53.061Z",
+  "generatedAt": "2026-04-14T10:38:39.087Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2923,
-  "avgDurationMs": 2923,
+  "durationMs": 4121,
+  "avgDurationMs": 4121,
   "durationHistory": [
-    2923
+    4121
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -42,6 +42,7 @@
       "streetAddress": "Via Aeroporto",
       "postalCode": "6982",
       "id": "skyguide-sa-338538f51d4a",
+      "firstSeenAt": "2026-04-13T22:24:53.061Z",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -78,6 +79,7 @@
       "streetAddress": "Via Aeroporto",
       "postalCode": "6982",
       "id": "skyguide-sa-b96de90ca094",
+      "firstSeenAt": "2026-04-13T22:24:53.061Z",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
