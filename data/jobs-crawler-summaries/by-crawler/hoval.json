@@ -1,21 +1,19 @@
 {
   "key": "hoval",
   "label": "Hoval",
-  "generatedAt": "2026-04-13T21:52:29.365Z",
+  "generatedAt": "2026-04-14T10:06:20.869Z",
   "total": 3,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 3,
   "removedCount": 0,
-  "unchangedCount": 3,
-  "durationMs": 13035,
-  "avgDurationMs": 13035,
+  "unchangedCount": 0,
+  "durationMs": 14796,
+  "avgDurationMs": 14796,
   "durationHistory": [
-    13035
+    14796
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "title": "Consulente tecnico interno di vendita (m/f/d)",
       "slug": "consulente-tecnico-interno-di-vendita-m-f-d-hoval-mezzovico",
@@ -34,7 +32,7 @@
       "sector": "Amministrazione",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-13",
+      "postedDate": "2026-04-14",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -44,6 +42,7 @@
       "streetAddress": "Via Pasquale Lucchini 4",
       "postalCode": "6900",
       "id": "hoval-72a73da64922",
+      "firstSeenAt": "2026-04-13T21:52:29.364Z",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -70,7 +69,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-13",
+      "postedDate": "2026-04-14",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -80,6 +79,7 @@
       "streetAddress": "Via Pasquale Lucchini 4",
       "postalCode": "6900",
       "id": "hoval-6730a1f78044",
+      "firstSeenAt": "2026-04-13T21:52:29.364Z",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -106,7 +106,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-13",
+      "postedDate": "2026-04-14",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -116,6 +116,7 @@
       "streetAddress": "Via Pasquale Lucchini 4",
       "postalCode": "6900",
       "id": "hoval-ddbbc366783b",
+      "firstSeenAt": "2026-04-13T21:52:29.364Z",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -124,5 +125,7 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
