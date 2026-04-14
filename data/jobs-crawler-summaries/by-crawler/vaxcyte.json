@@ -1,16 +1,16 @@
 {
   "key": "vaxcyte",
   "label": "Vaxcyte",
-  "generatedAt": "2026-04-14T10:50:44.033Z",
-  "total": 5,
+  "generatedAt": "2026-04-14T22:36:25.789Z",
+  "total": 4,
   "newCount": 0,
-  "updatedCount": 5,
-  "removedCount": 0,
+  "updatedCount": 4,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 2710,
-  "avgDurationMs": 2710,
+  "durationMs": 2350,
+  "avgDurationMs": 2350,
   "durationHistory": [
-    2710
+    2350
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,7 +26,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5154146008?gh_jid=5154146008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-14T10:50:41.743Z",
+      "crawledAt": "2026-04-14T22:36:23.643Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -67,7 +67,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5154144008?gh_jid=5154144008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-14T10:50:41.730Z",
+      "crawledAt": "2026-04-14T22:36:23.632Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -97,47 +97,6 @@
       }
     },
     {
-      "id": "vaxcyte-71fa0c16011a",
-      "slug": "sr-engineer-process-systems-contract-vaxcyte-ch",
-      "company": "Vaxcyte",
-      "companyKey": "vaxcyte",
-      "companyDomain": "vaxcyte.com",
-      "title": "Sr. Engineer, Process Systems (Contract)",
-      "location": "Visp",
-      "canton": "VS",
-      "url": "https://boards.greenhouse.io/vaxcyte/jobs/5154087008?gh_jid=5154087008",
-      "source": "Vaxcyte Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-04-14T10:50:41.754Z",
-      "addressLocality": "Visp",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "postalCode": "1950",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "contract",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Biotecnologia / Farmaceutica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-13",
-      "applyUrl": "https://boards.greenhouse.io/vaxcyte/jobs/5154087008?gh_jid=5154087008",
-      "department": "Swiss Manufacturing & Supply Chain",
-      "_targetScope": {
-        "canton": "VS",
-        "location": "Visp"
-      },
-      "firstSeenAt": "2026-04-13T11:29:03.150Z",
-      "_qualityScore": 74,
-      "_qualityBreakdown": {
-        "cleanliness": 12,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
       "id": "vaxcyte-7041ea0fbe48",
       "slug": "director-business-operations-global-quality-control-vaxcyte-ch",
       "company": "Vaxcyte",
@@ -149,7 +108,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5026185008?gh_jid=5026185008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-14T10:50:41.733Z",
+      "crawledAt": "2026-04-14T22:36:23.634Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -190,7 +149,7 @@
       "url": "https://boards.greenhouse.io/vaxcyte/jobs/5062469008?gh_jid=5062469008",
       "source": "Vaxcyte Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-04-14T10:50:41.741Z",
+      "crawledAt": "2026-04-14T22:36:23.641Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -220,6 +179,50 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "id": "vaxcyte-71fa0c16011a",
+      "slug": "ingegnere-senior-sistemi-di-processo-contratto-vaxcyte-visp",
+      "company": "Vaxcyte",
+      "companyKey": "vaxcyte",
+      "companyDomain": "vaxcyte.com",
+      "title": "Sr. Engineer, Process Systems (Contract)",
+      "location": "Visp",
+      "canton": "VS",
+      "url": "https://boards.greenhouse.io/vaxcyte/jobs/5154087008?gh_jid=5154087008",
+      "source": "Vaxcyte Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-04-14T10:50:41.754Z",
+      "addressLocality": "Visp",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "postalCode": "1950",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "contract",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Biotecnologia / Farmaceutica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-13",
+      "applyUrl": "https://boards.greenhouse.io/vaxcyte/jobs/5154087008?gh_jid=5154087008",
+      "department": "Swiss Manufacturing & Supply Chain",
+      "_targetScope": {
+        "canton": "VS",
+        "location": "Visp"
+      },
+      "firstSeenAt": "2026-04-13T11:29:03.150Z",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "_qualityScore": 84,
+      "_qualityBreakdown": {
+        "cleanliness": 17,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 22
+      }
+    }
+  ],
   "unchangedJobs": []
 }
