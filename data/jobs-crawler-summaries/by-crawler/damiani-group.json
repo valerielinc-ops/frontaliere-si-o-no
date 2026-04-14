@@ -1,18 +1,49 @@
 {
   "key": "damiani-group",
   "label": "Damiani Group",
-  "generatedAt": "2026-04-14T09:46:13.733Z",
-  "total": 5,
-  "newCount": 0,
-  "updatedCount": 4,
+  "generatedAt": "2026-04-14T21:31:25.915Z",
+  "total": 4,
+  "newCount": 1,
+  "updatedCount": 3,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 5120,
-  "avgDurationMs": 5120,
+  "unchangedCount": 0,
+  "durationMs": 4574,
+  "avgDurationMs": 4574,
   "durationHistory": [
-    5120
+    4574
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Sales Assistant",
+      "slug": "sales-assistant-damiani-group-serravalle-scrivia",
+      "url": "https://careers.damianigroup.com/job/Serravalle-Scrivia-Sales-Assistant/942216055/",
+      "applyUrl": "https://careers.damianigroup.com/talentcommunity/apply/942216055/?locale=en_US",
+      "company": "Damiani Group",
+      "companyKey": "damiani-group",
+      "companyDomain": "damianigroup.com",
+      "location": "Serravalle Scrivia",
+      "addressLocality": "Serravalle Scrivia",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "sales",
+      "sector": "Lusso & Gioielleria",
+      "source": "damiani-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-03-19",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "2026-04-14",
+      "_qualityScore": 67,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 10,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "IT Business Intelligence Developer (Microsoft Ecosystem)",
@@ -47,43 +78,6 @@
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 24,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "",
-      "slug": "damiani-group",
-      "url": "https://careers.damianigroup.com/job/Mendrisio-Treasury-Specialist/1327326955/",
-      "applyUrl": "",
-      "company": "Damiani Group",
-      "companyKey": "damiani-group",
-      "companyDomain": "damianigroup.com",
-      "location": "Mendrisio",
-      "addressLocality": "Mendrisio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "other",
-      "sector": "Lusso & Gioielleria",
-      "source": "damiani-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-04-07",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "2026-04-14",
-      "salaryMin": 82500,
-      "salaryMax": 111500,
-      "currency": "CHF",
-      "streetAddress": "Via Penate 12",
-      "postalCode": "6850",
-      "id": "damiani-group-90e45aa75e37",
-      "firstSeenAt": "2026-04-13T21:32:28.163Z",
-      "_qualityScore": 75,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 0,
         "translation": 25,
         "completeness": 25
       }
@@ -164,43 +158,5 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "title": "Sales Assistant",
-      "slug": "sales-assistant-damiani-group-serravalle-scrivia",
-      "url": "https://careers.damianigroup.com/job/Serravalle-Scrivia-Sales-Assistant/942216055/",
-      "applyUrl": "https://careers.damianigroup.com/talentcommunity/apply/942216055/?locale=en_US",
-      "company": "Damiani Group",
-      "companyKey": "damiani-group",
-      "companyDomain": "damianigroup.com",
-      "location": "Serravalle Scrivia",
-      "addressLocality": "Serravalle Scrivia",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "sales",
-      "sector": "Lusso & Gioielleria",
-      "source": "damiani-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-03-19",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "2026-04-14",
-      "salaryMin": 54000,
-      "salaryMax": 73000,
-      "currency": "CHF",
-      "streetAddress": "Via Penate 12",
-      "postalCode": "6850",
-      "id": "damiani-group-1e3bfdd1100f",
-      "firstSeenAt": "2026-04-13T21:32:28.163Z",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ]
+  "unchangedJobs": []
 }
