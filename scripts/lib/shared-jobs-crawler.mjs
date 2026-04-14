@@ -3200,7 +3200,8 @@ async function crawlWorkdayJobs(company, source, crawlerConfig, knownJobUrls = n
       if (!location && !isTargetSwissLocation(`${title} ${descriptionSeed}`)) continue;
       if (!location) location = company.city || 'Ticino';
       if (!isTargetSwissLocation(`${title} ${location} ${descriptionSeed}`)) continue;
-      const inferredCanton = inferSwissTargetCanton(`${title} ${location} ${descriptionSeed}`) || 'TI';
+      const inferredCanton = inferSwissTargetCanton(`${title} ${location} ${descriptionSeed}`) || '';
+      if (!inferredCanton) { console.warn(`  ⚠️ Skipping job with unknown canton: "${title}" (location: ${location})`); continue; }
       collected.push({
         id: '',
         slug: '',
@@ -3421,7 +3422,7 @@ async function crawlGenericListingJobs(company, listingUrl, crawlerConfig, known
       const nodes = extractJobPostingNodes(block);
       for (const n of nodes) {
         const parsed = toJobFromJsonLd(n, company.name, pageUrl);
-        if (parsed.job) jobs.push(parsed.job);
+        if (parsed?.job) jobs.push(parsed.job);
       }
     }
 
@@ -3463,7 +3464,7 @@ async function crawlGenericListingJobs(company, listingUrl, crawlerConfig, known
         const nodes = extractJobPostingNodes(block);
         for (const n of nodes) {
           const parsed = toJobFromJsonLd(n, company.name, detailUrl);
-          if (parsed.job) {
+          if (parsed?.job) {
             jobs.push(parsed.job);
             parsedFromJsonLd = true;
           }
@@ -3556,7 +3557,11 @@ async function crawlTeaserApiJobs(company, apiUrl) {
       source: 'Company Careers Crawler',
     };
     if (!isTargetSwissLocation(`${merged.title} ${merged.location} ${merged.description}`)) continue;
-    merged.canton = inferSwissTargetCanton(`${merged.title} ${merged.location} ${merged.description}`) || merged.canton || 'TI';
+    merged.canton = inferSwissTargetCanton(`${merged.title} ${merged.location} ${merged.description}`) || merged.canton || '';
+    if (!merged.canton) {
+      console.warn(`  ⚠️ Skipping job with unknown canton: "${merged.title}" (location: ${merged.location || 'unknown'})`);
+      continue;
+    }
     out.push(merged);
   }
   return out;
@@ -3620,7 +3625,7 @@ function toJobFromJsonLd(node, fallbackCompany, sourcePageUrl, options = {}) {
     company: company || fallbackCompany,
     title,
     location: normalizedLocation || seedLocation || 'Ticino',
-    canton: seedCanton || inferredJsonLdCanton || 'TI',
+    canton: seedCanton || inferredJsonLdCanton || '',
     category: guessCategory(title, description),
     contract: normalizeContract(seedMeta?.contract || node.employmentType, title, description),
     salaryMin: Number.isFinite(salaryMin) ? salaryMin : undefined,
@@ -3640,6 +3645,11 @@ function toJobFromJsonLd(node, fallbackCompany, sourcePageUrl, options = {}) {
       },
     } : {}),
   };
+
+  if (!job.canton) {
+    console.warn(`  ⚠️ Skipping JSON-LD job with unknown canton: "${job.title}" (location: ${job.location || 'unknown'})`);
+    return null;
+  }
 
   return { job, reason: null };
 }
@@ -4272,6 +4282,7 @@ async function processCompany(company, hintsRegex, crawlerConfig, knownJobUrls =
   if (enabledModes.has('jsonld')) {
     for (const { node, pageUrl } of jobPostingNodes) {
       const parsed = toJobFromJsonLd(node, company.name, pageUrl);
+      if (!parsed) continue;
       if (parsed.reason) {
         registerFilteredOut(parsed.reason);
         continue;
@@ -4309,7 +4320,7 @@ async function processCompany(company, hintsRegex, crawlerConfig, knownJobUrls =
           let jsonLdAccepted = false;
           for (const node of detailNodes) {
             const parsed = toJobFromJsonLd(node, company.name, detailUrl, { seedMeta });
-            if (!parsed.reason && parsed.job) {
+            if (parsed && !parsed.reason && parsed.job) {
               // Migros pages embed JSON-LD with only the brief overview description.
               // The full sections (tasks, skills, benefits) live in the SSR HTML.
               // Enrich the job description with the structured HTML content when
