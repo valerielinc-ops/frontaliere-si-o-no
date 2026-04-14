@@ -664,90 +664,118 @@ async function fetchTopArticles() {
 }
 
 /**
- * Resolve an article ID to its localized Italian slug from routerBlogData.ts.
+ * Resolve an article ID to its localized slug from routerBlogData.ts.
  * Falls back to the article ID itself if the slug map can't be read.
  */
-function getItalianBlogSlug(articleId) {
+function getBlogSlug(articleId, locale = 'it') {
   try {
     const rdPath = new URL('../services/routerBlogData.ts', import.meta.url);
     const raw = fs.readFileSync(rdPath, 'utf8');
-    const regex = new RegExp(`'${articleId.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}':\\s*\\{\\s*it:\\s*'([^']*)'`);
-    const match = raw.match(regex);
-    return match ? match[1] : articleId;
+    const escaped = articleId.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    // Try requested locale first, fall back to Italian
+    for (const lang of [locale, 'it']) {
+      const regex = new RegExp(`'${escaped}':\\s*\\{[^}]*?${lang}:\\s*'([^']*)'`);
+      const match = raw.match(regex);
+      if (match) return match[1];
+    }
+    return articleId;
   } catch {
     return articleId;
   }
 }
 
 /**
- * Load Italian blog metadata for a given article ID.
+ * Load localized blog metadata for a given article ID.
  * Returns { title, excerpt } or null if not found.
+ * Falls back to Italian if the requested locale file doesn't exist or lacks the article.
  */
-function loadBlogMeta(articleId) {
-  try {
-    const metaPath = new URL('../services/locales/blog-meta-it.ts', import.meta.url);
-    const raw = fs.readFileSync(metaPath, 'utf8');
-    const titleKey = `blog.article.${articleId}.title`;
-    const excerptKey = `blog.article.${articleId}.excerpt`;
-    const titleMatch = raw.match(new RegExp(`'${titleKey.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}'\\s*:\\s*'([^']*)'`));
-    const excerptMatch = raw.match(new RegExp(`'${excerptKey.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}'\\s*:\\s*'([^']*)'`));
-    if (!titleMatch) return null;
-    return {
-      title: titleMatch[1],
-      excerpt: excerptMatch ? excerptMatch[1] : '',
-    };
-  } catch (e) {
-    console.warn('\u26a0\ufe0f Blog meta load failed:', e.message);
-    return null;
+function loadBlogMeta(articleId, locale = 'it') {
+  for (const lang of [locale, 'it']) {
+    try {
+      const metaPath = new URL(`../services/locales/blog-meta-${lang}.ts`, import.meta.url);
+      const raw = fs.readFileSync(metaPath, 'utf8');
+      const titleKey = `blog.article.${articleId}.title`;
+      const excerptKey = `blog.article.${articleId}.excerpt`;
+      const titleMatch = raw.match(new RegExp(`'${titleKey.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}'\\s*:\\s*'([^']*)'`));
+      const excerptMatch = raw.match(new RegExp(`'${excerptKey.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}'\\s*:\\s*'([^']*)'`));
+      if (titleMatch) {
+        return {
+          title: titleMatch[1],
+          excerpt: excerptMatch ? excerptMatch[1] : '',
+        };
+      }
+    } catch {
+      // Try next locale
+    }
   }
+  console.warn(`\u26a0\ufe0f Blog meta not found for "${articleId}" in ${locale}/it`);
+  return null;
+}
+
+/** Blog section URL path per locale (matches router.ts SLUG_TABLES) */
+const BLOG_SECTION_PATH = { it: 'articoli-frontaliere', en: 'cross-border-articles', de: 'grenzgaenger-artikel', fr: 'articles-frontalier' };
+
+const DEFAULT_ARTICLE_ID = 'comuni-migliori-frontalieri';
+
+/**
+ * Build a localized article object for a given article ID and locale.
+ */
+function localizeArticle(articleId, locale) {
+  const blogPath = BLOG_SECTION_PATH[locale] || BLOG_SECTION_PATH.it;
+  const slug = getBlogSlug(articleId, locale);
+  const meta = loadBlogMeta(articleId, locale);
+  if (!meta) return null;
+  return {
+    title: meta.title,
+    excerpt: meta.excerpt,
+    url: `/${blogPath}/${slug}`,
+    badge: true,
+  };
 }
 
 /**
  * Pick the best featured article for the newsletter.
+ * Returns a function (locale) => article object, so each subscriber gets localized content.
  * Uses Firestore article_views (most viewed this week), falls back to hardcoded default.
  */
 async function pickFeaturedArticle() {
-  const DEFAULT_ARTICLE = {
-    title: 'I 10 migliori comuni per frontalieri',
-    excerpt: 'Classifica dei comuni italiani di frontiera: affitti, IRPEF comunale, distanza dal confine.',
-    url: `/articoli-frontaliere/${getItalianBlogSlug('comuni-migliori-frontalieri')}`,
-    badge: '🔥 Più letto',
-  };
+  let bestId = DEFAULT_ARTICLE_ID;
 
-  if (!db) return DEFAULT_ARTICLE;
+  if (db) {
+    try {
+      const topArticles = await fetchTopArticles();
+      if (topArticles.length > 0) {
+        const byViewsThenRecency = (a, b) =>
+          b.views - a.views || (b.lastViewed || 0) - (a.lastViewed || 0);
 
-  try {
-    const topArticles = await fetchTopArticles();
-    if (topArticles.length === 0) return DEFAULT_ARTICLE;
+        const weekAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
+        const recentTop = topArticles
+          .filter((a) => a.lastViewed && a.lastViewed > weekAgo)
+          .sort(byViewsThenRecency);
 
-    // Sort by views desc, then lastViewed desc as tiebreaker
-    const byViewsThenRecency = (a, b) =>
-      b.views - a.views || (b.lastViewed || 0) - (a.lastViewed || 0);
-
-    // Prefer articles viewed in the last 7 days
-    const weekAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
-    const recentTop = topArticles
-      .filter((a) => a.lastViewed && a.lastViewed > weekAgo)
-      .sort(byViewsThenRecency);
-
-    const best = recentTop[0] || topArticles.sort(byViewsThenRecency)[0];
-    const meta = loadBlogMeta(best.id);
-    if (!meta) {
-      console.warn(`\u26a0\ufe0f No blog meta for top article "${best.id}", using default`);
-      return DEFAULT_ARTICLE;
+        const best = recentTop[0] || topArticles.sort(byViewsThenRecency)[0];
+        // Verify at least Italian meta exists before adopting this article
+        if (loadBlogMeta(best.id, 'it')) {
+          bestId = best.id;
+          console.log(`\ud83d\udcf0 Featured article: "${best.id}" (${best.views} views)`);
+        } else {
+          console.warn(`\u26a0\ufe0f No blog meta for top article "${best.id}", using default`);
+        }
+      }
+    } catch (e) {
+      console.warn('\u26a0\ufe0f Featured article pick failed:', e.message);
     }
-
-    console.log(`\ud83d\udcf0 Featured article: "${best.id}" (${best.views} views)`);
-    return {
-      title: meta.title,
-      excerpt: meta.excerpt,
-      url: `/articoli-frontaliere/${getItalianBlogSlug(best.id)}`,
-      badge: '\ud83d\udd25 Più letto',
-    };
-  } catch (e) {
-    console.warn('\u26a0\ufe0f Featured article pick failed:', e.message);
-    return DEFAULT_ARTICLE;
   }
+
+  // Cache per locale to avoid re-reading files for each subscriber
+  const cache = new Map();
+  return (locale) => {
+    const lang = locale || 'it';
+    if (cache.has(lang)) return cache.get(lang);
+    const article = localizeArticle(bestId, lang) || localizeArticle(DEFAULT_ARTICLE_ID, lang);
+    cache.set(lang, article);
+    return article;
+  };
 }
 
 function getWeeklyFact() {
@@ -1309,18 +1337,12 @@ async function main() {
     // Always inject job links — applies to both AI and fallback briefings
     briefing = injectJobAndCompanyLinks(briefing, previewJobs, locale);
 
-    const featuredArticle = db ? await pickFeaturedArticle() : {
-      title: 'I 10 migliori comuni per frontalieri',
-      excerpt: 'Classifica dei comuni italiani di frontiera: affitti, IRPEF comunale, distanza dal confine.',
-      url: `/articoli-frontaliere/${getItalianBlogSlug('comuni-migliori-frontalieri')}`,
-      badge: '🔥 Più letto',
-    };
     const html = buildNewsletter({
       aiBriefing: briefing,
       exchangeRate,
       matchedJobs: previewJobs,
       totalJobs: jobs.length,
-      article: featuredArticle,
+      article: featuredArticle(locale),
       featuredTool,
       weeklyFact,
       metrics: loadDashboardMetrics(),
@@ -1503,7 +1525,7 @@ async function main() {
       exchangeRate,
       matchedJobs,
       totalJobs: jobs.length,
-      article: featuredArticle,
+      article: featuredArticle(locale),
       featuredTool,
       weeklyFact,
       metrics,

@@ -333,14 +333,28 @@ export function matchJobsForSubscriber(subscriber, jobs, limit = 3, locale = 'it
   });
 
   // Company diversity: max 1 job per company (by companyKey or normalized company name)
+  const companyKey = (j) => (j.companyKey || j.company || '').toLowerCase();
   const companyDiverse = dedupeBy(
     scored.map((s) => s.job),
-    (j) => (j.companyKey || j.company || '').toLowerCase(),
+    companyKey,
   );
+
+  // Backfill: if location/sector filtering left too few diverse companies,
+  // fill remaining slots from the full pool (excluding already-selected companies)
+  let finalJobs = companyDiverse;
+  if (companyDiverse.length < limit && candidates !== pool) {
+    const usedCompanies = new Set(companyDiverse.map(companyKey));
+    const backfillScored = pool
+      .filter((j) => !usedCompanies.has(companyKey(j)))
+      .map((job) => ({ job, views: hasPopularity ? (popularity.get(job.slug) || popularity.get(job.slugByLocale?.it) || 0) : 0, date: toDateValue(job) }))
+      .sort((a, b) => b.views - a.views || b.date - a.date);
+    const backfill = dedupeBy(backfillScored.map((s) => s.job), companyKey);
+    finalJobs = [...companyDiverse, ...backfill];
+  }
 
   const boardPath = JOB_BOARD_PATH[locale] || JOB_BOARD_PATH.it;
 
-  return companyDiverse
+  return finalJobs
     .slice(0, limit)
     .map((job) => {
       const slug = job.slugByLocale?.[locale] || job.slugByLocale?.it || job.slug;
