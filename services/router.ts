@@ -2149,10 +2149,8 @@ export function pushRoute(route: AppRoute): void {
   // Root paths (/, /en/, /de/, /fr/) are canonical for the homepage — don't redirect to calculator slug
   if (isLocaleRoot(currentPath) && isDefaultHome(route) && !newHash) return;
   if (currentPath !== newPath || (newHash ?? '') !== currentHash) {
-    // Preserve query string (e.g. simulation params) when navigating within calculator
-    const search = window.location.search;
     const hashPart = newHash ? `#${newHash}` : '';
-    history.pushState({ route }, '', newPath + search + hashPart);
+    history.pushState({ route }, '', newPath + hashPart);
   }
 }
 
@@ -2163,10 +2161,8 @@ export function replaceRoute(route: AppRoute): void {
   const currentHash = window.location.hash.slice(1);
   if (isLocaleRoot(currentPath) && isDefaultHome(route) && !newHash) return;
   if (currentPath !== newPath || (newHash ?? '') !== currentHash) {
-    // Preserve query string (e.g. simulation params) when navigating within calculator
-    const search = window.location.search;
     const hashPart = newHash ? `#${newHash}` : '';
-    history.replaceState({ route }, '', newPath + search + hashPart);
+    history.replaceState({ route }, '', newPath + hashPart);
   }
 }
 
